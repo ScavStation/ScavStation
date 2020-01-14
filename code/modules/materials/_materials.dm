@@ -105,6 +105,7 @@
 	var/luminescence
 	var/list/alloy_materials     // If set, material can be produced via alloying these materials in these amounts.
 	var/units_per_sheet = SHEET_MATERIAL_AMOUNT
+	var/fuel_quality = 0
 	var/wall_support_value = 30
 
 	// Placeholder vars for the time being, todo properly integrate windows/light tiles/rods.

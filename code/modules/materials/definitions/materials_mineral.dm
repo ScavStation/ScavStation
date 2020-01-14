@@ -26,7 +26,7 @@
 	display_name = "graphite"
 	ore_compresses_to = MAT_GRAPHITE
 	icon_colour = "#444444"
-	ore_name = "graphite"
+	ore_name = "coal"
 	ore_result_amount = 5
 	ore_spread_chance = 25
 	ore_scan_icon = "mineral_common"
@@ -37,6 +37,7 @@
 		/datum/reagent/acetone = 5
 		)
 	sale_price = 1
+	fuel_quality = 1
 
 /material/quartz
 	display_name = "quartz"

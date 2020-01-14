@@ -32,6 +32,7 @@
 	value = 3
 	reflectiveness = MAT_VALUE_DULL
 	wall_support_value = 22
+	fuel_quality = 0.7
 
 /material/wood/holographic
 	icon_colour = WOOD_COLOR_CHOCOLATE //the very concept of wood should be brown

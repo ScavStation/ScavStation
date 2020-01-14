@@ -230,6 +230,7 @@
 	value = 1
 	reflectiveness = MAT_VALUE_MATTE
 	wall_support_value = 22
+	fuel_quality = 0.5
 
 /material/bone/fish
 	display_name = "fishbone"
