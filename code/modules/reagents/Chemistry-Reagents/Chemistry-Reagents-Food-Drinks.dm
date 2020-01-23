@@ -1262,20 +1262,6 @@
 	glass_name = "cognac"
 	glass_desc = "Damn, you feel like some kind of French aristocrat just by holding this."
 
-/datum/reagent/ethanol/deadrum
-	name = "Deadrum"
-	description = "Popular with the sailors. Not very popular with everyone else."
-	taste_description = "salty sea water"
-	color = "#ecb633"
-	strength = 50
-
-	glass_name = "rum"
-	glass_desc = "Now you want to Pray for a pirate suit, don't you?"
-
-/datum/reagent/ethanol/deadrum/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.dizziness +=5
-
 /datum/reagent/ethanol/gin
 	name = "Gin"
 	description = "It's gin. In space. I say, good sir."
@@ -1867,46 +1853,6 @@
 	glass_name = "margarita"
 	glass_desc = "On the rocks with salt on the rim. Arriba~!"
 
-/datum/reagent/ethanol/battuta
-	name = "Ibn Batutta"
-	description = "One of the Official Cocktails of the Expeditionary Corps, celebrating Muhammad Ibn Battuta."
-	taste_description = "a Moroccan garden"
-	color = "#dfbe00"
-	strength = 18
-
-	glass_name = "Ibn Batutta cocktail"
-	glass_desc = "A refreshing blend of herbal liquor, the juice of an orange and a hint of mint. Named for Muhammad Ibn Battuta, whose travels spanned from Mali eastward to China in the 14th century."
-
-/datum/reagent/ethanol/magellan
-	name = "Magellan"
-	description = "One of the Official Cocktails of the Expeditionary Corps, celebrating Ferdinand Magellan."
-	taste_description = "an aristrocatic experience"
-	color = "#6b3535"
-	strength = 13
-
-	glass_name = "Magellan cocktail"
-	glass_desc = "A tasty sweetened blend of wine and fine whiskey. Named for Ferdinand Magellan, who led the first expedition to circumnavigate Earth in the 15th century."
-
-/datum/reagent/ethanol/zhenghe
-	name = "Zheng He"
-	description = "One of the Official Cocktails of the Expeditionary Corps, celebrating Zheng He."
-	taste_description = "herbal bitterness"
-	color = "#173b06"
-	strength = 20
-
-	glass_name = "Zheng He cocktail"
-	glass_desc = "A rather bitter blend of vermouth and well-steeped black tea. Named for Zheng He, who travelled from Nanjing in China as far as Mogadishu in the Horn of Africa in the 15th century."
-
-/datum/reagent/ethanol/armstrong
-	name = "Armstrong"
-	description = "One of the Official Cocktails of the Expeditionary Corps, celebrating Neil Armstrong."
-	taste_description = "limes and alcoholic beer"
-	color = "#ffd300"
-	strength = 15
-
-	glass_name = "Armstrong cocktail"
-	glass_desc = "Beer, vodka and lime come together in this instant classic. Named for Neil Armstrong, who was the first man to set foot on Luna, in the 20th century."
-
 /datum/reagent/ethanol/mead
 	name = "Mead"
 	description = "A Viking's drink, though a cheap one."
@@ -2432,26 +2378,6 @@
 	glass_name = "arak"
 	glass_desc = "An unsweetened mixture of aniseed and grape."
 
-/datum/reagent/ethanol/blackstrap
-	name = "Blackstrap"
-	description = "A classic mix of rum and molasses, typically consumed by Tersteners."
-	taste_description = "sweet and strong alcohol"
-	color = "#161612"
-	strength = 30
-
-	glass_name = "blackstrap"
-	glass_desc = "A classic mix of rum and molasses."
-
-/datum/reagent/ethanol/bogus
-	name = "Bogus"
-	description = "A blend of Gin and Blackstrap."
-	taste_description = "conflicting tastes and a delicious resolution"
-	color = "#e8dfc1"
-	strength = 30
-
-	glass_name = "bogus"
-	glass_desc = "A blend of Gin and Molasses."
-
 /datum/reagent/ethanol/champagne
 	name = "Champagne"
 	description = "Smooth sparkling wine, produced in the same region of France as it has for centuries."
@@ -2461,36 +2387,6 @@
 
 	glass_name = "champagne"
 	glass_desc = "Smooth sparkling wine, produced in the same region of France as it has for centuries."
-
-/datum/reagent/ethanol/coffee/gargled
-	name = "Gargled"
-	description = "A blend of Blackstrap and Coffee. An ideal pick-me-up for any rancher."
-	taste_description = "comforting warmth"
-	color = "#e8dfc1"
-	strength = 50
-
-	glass_name = "gargled"
-	glass_desc = "A blend of Blackstrap and Coffee. An ideal pick-me-up for any rancher."
-
-/datum/reagent/ethanol/springpunch
-	name = "Gilgamesh Spring Punch"
-	description = "A mix of vodka and lemon, extremely popular with Terrans."
-	taste_description = "refreshing clear fizz"
-	color = "#dfdeda"
-	strength = 30
-
-	glass_name = "Gilgamesh spring punch"
-	glass_desc = "A mix of vodka and lemon, extremely popular with Terrans."
-
-/datum/reagent/ethanol/hellshenpa
-	name = "Hellshen Pale Ale"
-	description = "A type of ale drunk in the Hellshen regions of Mars."
-	taste_description = "dark musty hops and Martian pride"
-	color = "#aa9162"
-	strength = 50
-
-	glass_name = "Hellshen Pale Ale"
-	glass_desc = "A type of ale drunk in the Hellshen regions of Mars."
 
 /datum/reagent/ethanol/jagerbomb
 	name = "Jagerbomb"
@@ -2512,16 +2408,6 @@
 	glass_name = "jagermeister"
 	glass_desc = "A special blend of alcohol, herbs, and spaces. It has remained a popular Earther drink."
 
-/datum/reagent/ethanol/jimmygideon
-	name = "Jimmy Gideon"
-	description = "The drink of choice of Jimmy Gideon, first man on Mars."
-	taste_description = "the legacy of greatness and chocolate"
-	color = "#d9cfa5"
-	strength = 30
-
-	glass_name = "Jimmy"
-	glass_desc = "The drink of choice of Jimmy Gideon, first man on Mars."
-
 /datum/reagent/ethanol/kvass
 	name = "Kvass"
 	description = "An alcoholic drink commonly made from bread."
@@ -2531,95 +2417,6 @@
 
 	glass_name = "kvass"
 	glass_desc = "An alcoholic drink commonly made from bread."
-
-/datum/reagent/ethanol/llanbrydewhiskey
-	name = "Llanbryde Whiskey"
-	description = "Welsh Whiskey. So good it should be illegal."
-	taste_description = "distilled welsh highlands"
-	color = "#805200"
-	strength = 10
-
-	glass_name = "Llanbryde whiskey"
-	glass_desc = "A premium Welsh whiskey."
-
-/datum/reagent/ethanol/lonestarmule
-	name = "Lonestar Mule"
-	description = "A classic Martian take on the moscow mule. Replaces vodka with molasses."
-	taste_description = "crisp, refreshing ginger beer and molasses"
-	color = "#92938a"
-	strength = 15
-
-	glass_name = "lonestar mule"
-	glass_desc = "A blend of whiskey, ginger beer, and lime juice."
-
-/datum/reagent/ethanol/lordaniawine
-	name = "Lordanian Wine"
-	description = "An earthy type of wine distilled from grapes on Lordania."
-	taste_description = "an acquired taste and elitism"
-	color = "#362f22"
-	strength = 10
-
-	glass_name = "Lordanian wine"
-	glass_desc = "An earthy type of wine distilled from grapes on Lordania."
-
-/datum/reagent/ethanol/lunabrandy
-	name = "Lunar Brandy"
-	description = "A strong fermented brandy typically consumed on Luna."
-	taste_description = "distilled wine and snobbery"
-	color = "#bdb6a9"
-	strength = 20
-
-	glass_name = "Lunar Brandy"
-	glass_desc = "A strong brandy largely consumed by the upper classes of Luna."
-
-/datum/reagent/ethanol/moscowmule
-	name = "Moscow Mule"
-	description = "A blend of vodka, ginger beer, and lime juice."
-	taste_description = "crisp, refreshing ginger and vodka"
-	color = "#e1dfd6"
-	strength = 15
-
-	glass_name = "moscow mule"
-	glass_desc = "A blend of vodka, ginger beer, and lime juice."
-
-/datum/reagent/ethanol/nevadan_gold
-	name = "Nevadan Gold Whiskey"
-	description = "A warm blend of 98 spices. Made in the heartlands of Tersten."
-	taste_description = "strong, creamy whiskey"
-	color = "#ce1900"
-	strength = 10
-
-	glass_name = "Nevadan gold whiskey"
-	glass_desc = "A warm blend of 98 spices, brewed on Tersten. A delicious mix."
-
-/datum/reagent/ethanol/prosecco
-	name = "Prosecco"
-	description = "A delightful blend of glera grapes, native to Earth."
-	taste_description = "the trials of being a young woman in a rich man's world"
-	color = "#e8dfc1"
-	strength = 30
-
-	glass_name = "prosecco"
-	glass_desc = "A delightful blend of glera grapes, native to Earth."
-
-/datum/reagent/ethanol/red_whiskey
-	name = "Red Whiskey"
-	description = "A dark red looking substance that smells like strong whiskey."
-	taste_description = "an intense throat burning sensation"
-	color = "#ce1900"
-	strength = 10
-
-	glass_name = "red whiskey"
-	glass_desc = "A dark red looking substance that smells like strong whiskey."
-
-/datum/reagent/ethanol/stag
-	name = "Stag"
-	description = "A traditional brew consumed by various members of the Fleet."
-	taste_description = "relief from duty"
-	color = "#362f22"
-	strength = 100
-	glass_name = "stag"
-	glass_desc = "A classic mix of rum and tea, ideal for long nights on watch."
 
 /datum/reagent/ethanol/vodkacola
 	name = "Vodka Cola"
