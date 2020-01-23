@@ -620,7 +620,7 @@
 
 /datum/chemical_reaction/napalmb
 	name = "Napalm B"
-	result = /datum/reagent/napalm/b
+	result = /datum/reagent/napalm
 	required_reagents = list(/datum/reagent/toxin/plasticide = 1, /datum/reagent/fuel = 1 )
 	result_amount = 2
 	mix_message = "The solution thickens and takes on a slimy sheen."

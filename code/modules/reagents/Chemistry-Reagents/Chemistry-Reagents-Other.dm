@@ -1,46 +1,46 @@
 /* Paint and crayons */
 
 /datum/reagent/crayon_dust
-	name = "Crayon dust"
+	name = "crayon dust"
 	description = "Intensely coloured powder obtained by grinding crayons."
 	taste_description = "the back of class"
 	color = "#888888"
 	overdose = 5
 
 /datum/reagent/crayon_dust/red
-	name = "Red crayon dust"
+	name = "red crayon dust"
 	color = "#fe191a"
 
 /datum/reagent/crayon_dust/orange
-	name = "Orange crayon dust"
+	name = "orange crayon dust"
 	color = "#ffbe4f"
 
 /datum/reagent/crayon_dust/yellow
-	name = "Yellow crayon dust"
+	name = "yellow crayon dust"
 	color = "#fdfe7d"
 
 /datum/reagent/crayon_dust/green
-	name = "Green crayon dust"
+	name = "green crayon dust"
 	color = "#18a31a"
 
 /datum/reagent/crayon_dust/blue
-	name = "Blue crayon dust"
+	name = "blue crayon dust"
 	color = "#247cff"
 
 /datum/reagent/crayon_dust/purple
-	name = "Purple crayon dust"
+	name = "purple crayon dust"
 	color = "#cc0099"
 
 /datum/reagent/crayon_dust/grey //Mime
-	name = "Grey crayon dust"
+	name = "grey crayon dust"
 	color = "#808080"
 
 /datum/reagent/crayon_dust/brown //Rainbow
-	name = "Brown crayon dust"
+	name = "brown crayon dust"
 	color = "#846f35"
 
 /datum/reagent/paint
-	name = "Paint"
+	name = "paint"
 	description = "This paint will stick to almost any object."
 	taste_description = "chalk"
 	color = "#808080"
@@ -111,21 +111,21 @@
 	M.rejuvenate()
 
 /datum/reagent/gold
-	name = "Gold"
+	name = "gold"
 	description = "Gold is a dense, soft, shiny metal and the most malleable and ductile metal known."
 	taste_description = "expensive metal"
 	color = "#f7c430"
 	value = 7
 
 /datum/reagent/silver
-	name = "Silver"
+	name = "silver"
 	description = "A soft, white, lustrous transition metal, it has the highest electrical conductivity of any element and the highest thermal conductivity of any metal."
 	taste_description = "expensive yet reasonable metal"
 	color = "#d0d0d0"
 	value = 4
 
 /datum/reagent/uranium
-	name = "Uranium"
+	name = "uranium"
 	description = "A silvery-white metallic chemical element in the actinide series, weakly radioactive."
 	taste_description = "the inside of a reactor"
 	color = "#b8b8c0"
@@ -146,7 +146,7 @@
 			return
 
 /datum/reagent/water/holywater
-	name = "Holy Water"
+	name = "holy water"
 	description = "An ashen-obsidian-water mix, this solution will alter certain sections of the brain's rationality."
 	color = "#e0e8ef"
 
@@ -189,20 +189,20 @@
 	value = 0.9
 
 /datum/reagent/surfactant // Foam precursor
-	name = "Azosurfactant"
+	name = "azosurfactant"
 	description = "A isocyanate liquid that forms a foam when mixed with water."
 	taste_description = "metal"
 	color = "#9e6b38"
 	value = 0.05
 
 /datum/reagent/foaming_agent // Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
-	name = "Foaming agent"
+	name = "foaming agent"
 	description = "A agent that yields metallic foam when mixed with light metal and a strong acid."
 	taste_description = "metal"
 	color = "#664b63"
 
 /datum/reagent/thermite
-	name = "Thermite"
+	name = "thermite"
 	description = "Thermite produces an aluminothermic reaction known as a thermite reaction. Can be used to melt walls."
 	taste_description = "sweet tasting metal"
 	color = "#673910"
@@ -223,7 +223,7 @@
 	M.adjustFireLoss(3 * removed)
 
 /datum/reagent/napalm
-	name = "Napalm"
+	name = "napalm"
 	description = "A sticky volatile substance made from mixing quick burning goo with slow burning goo, to make a viscous average burning goo that sticks to everything."
 	taste_description = "burnt corn"
 	color = "#673910"
@@ -234,12 +234,8 @@
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
 
-/datum/reagent/napalm/b
-	name = "Napalm B"
-	taste_description = "burnt plastic and metal"
-
 /datum/reagent/space_cleaner
-	name = "Space cleaner"
+	name = "space cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	taste_description = "sourness"
 	color = "#a5f0ee"
@@ -290,7 +286,7 @@
 	M.clean_blood()
 
 /datum/reagent/lube
-	name = "Space Lube"
+	name = "lubricant"
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
 	taste_description = "slime"
 	color = "#009ca8"
@@ -303,7 +299,7 @@
 		T.wet_floor(80)
 
 /datum/reagent/lube/oil // TODO: Robot Overhaul in general
-	name = "Oil"
+	name = "oil"
 	description = "A thick greasy industrial lubricant. Commonly found in robotics."
 	taste_description = "greasy diesel"
 	color = "#000000"
@@ -313,14 +309,14 @@
 		new /obj/effect/decal/cleanable/blood/oil/streak(T)
 
 /datum/reagent/glycerol
-	name = "Glycerol"
+	name = "glycerol"
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	taste_description = "sweetness"
 	color = "#808080"
 	value = 8
 
 /datum/reagent/nitroglycerin
-	name = "Nitroglycerin"
+	name = "nitroglycerin"
 	description = "Nitroglycerin is a heavy, colorless, oily, explosive liquid obtained by nitrating glycerol."
 	taste_description = "oil"
 	color = "#808080"
@@ -332,7 +328,7 @@
 
 #define COOLANT_LATENT_HEAT 19000 //Twice as good at cooling than water is, but may cool below 20c. It'll cause freezing that atmos will have to deal with..
 /datum/reagent/coolant
-	name = "Coolant"
+	name = "coolant"
 	description = "Industrial cooling substance."
 	taste_description = "sourness"
 	taste_mult = 1.1
@@ -362,25 +358,25 @@
 
 
 /datum/reagent/ultraglue
-	name = "Ultra Glue"
+	name = "Ultraglue"
 	description = "An extremely powerful bonding agent."
 	taste_description = "a special education class"
 	color = "#ffffcc"
 
 /datum/reagent/woodpulp
-	name = "Wood Pulp"
+	name = "wood pulp"
 	description = "A mass of wood fibers."
 	taste_description = "wood"
 	color = WOOD_COLOR_GENERIC
 
 /datum/reagent/bamboo
-	name = "Bamboo Pulp"
+	name = "bamboo pulp"
 	description = "A mass of bamboo fibers."
 	taste_description = "grass"
 	color = WOOD_COLOR_PALE2
 
 /datum/reagent/luminol
-	name = "Luminol"
+	name = "luminol"
 	description = "A compound that interacts with blood on the molecular level."
 	taste_description = "metal"
 	color = "#f2f3f4"
@@ -393,7 +389,7 @@
 	L.reveal_blood()
 
 /datum/reagent/helium
-	name = "Helium"
+	name = "helium"
 	description = "A noble gas. It makes your voice squeaky."
 	taste_description = "nothing"
 	color = COLOR_GRAY80
@@ -405,13 +401,13 @@
 
 // This is only really used to poison vox.
 /datum/reagent/oxygen
-	name = "Oxygen"
+	name = "oxygen"
 	description = "An ubiquitous oxidizing agent."
 	taste_description = "nothing"
 	color = COLOR_GRAY80
 
 /datum/reagent/carbon_monoxide
-	name = "Carbon Monoxide"
+	name = "carbon monoxide"
 	description = "A dangerous carbon comubstion byproduct."
 	taste_description = "stale air"
 	color = COLOR_GRAY80

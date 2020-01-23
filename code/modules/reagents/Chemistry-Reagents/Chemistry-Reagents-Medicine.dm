@@ -677,7 +677,7 @@
 				M.hallucination(200, 100)
 
 /datum/reagent/nicotine
-	name = "Nicotine"
+	name = "nicotine"
 	description = "A sickly yellow liquid sourced from tobacco leaves. Stimulates and relaxes the mind and body."
 	taste_description = "peppery bitterness"
 	color = "#efebaa"
@@ -703,7 +703,7 @@
 	M.add_chemical_effect(CE_PULSE, 2)
 
 /datum/reagent/tobacco
-	name = "Tobacco"
+	name = "tobacco"
 	description = "Cut and processed tobacco leaves."
 	taste_description = "tobacco"
 	color = "#684b3c"
@@ -720,14 +720,14 @@
 	M.reagents.add_reagent(/datum/reagent/nicotine, nicotine)
 
 /datum/reagent/tobacco/fine
-	name = "Fine Tobacco"
+	name = "fine tobacco"
 	taste_description = "fine tobacco"
 	value = 5
 	scent = "fine tobacco smoke"
 	scent_descriptor = SCENT_DESC_FRAGRANCE
 
 /datum/reagent/tobacco/bad
-	name = "Terrible Tobacco"
+	name = "terrible tobacco"
 	taste_description = "acrid smoke"
 	value = 0
 	scent = "acrid tobacco smoke"
@@ -735,7 +735,7 @@
 	scent_descriptor = SCENT_DESC_ODOR
 
 /datum/reagent/tobacco/liquid
-	name = "Nicotine Solution"
+	name = "nicotine solution"
 	description = "A diluted nicotine solution."
 	taste_mult = 0
 	color = "#fcfcfc"
@@ -746,7 +746,7 @@
 	scent_range = null
 
 /datum/reagent/menthol
-	name = "Menthol"
+	name = "menthol"
 	description = "Tastes naturally minty, and imparts a very mild numbing sensation."
 	taste_description = "mint"
 	color = "#80af9c"
@@ -815,7 +815,7 @@
 	M.druggy = max(M.druggy, 2)
 
 /datum/reagent/adrenaline
-	name = "Adrenaline"
+	name = "adrenaline"
 	description = "Adrenaline is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
 	taste_description = "rush"
 	color = "#c8a5dc"
@@ -840,7 +840,7 @@
 			heart.take_internal_damage(heart.max_damage * 0.15)
 
 /datum/reagent/lactate
-	name = "Lactate"
+	name = "lactate"
 	description = "Lactate is produced by the body during strenuous exercise. It often correlates with elevated heart rate, shortness of breath, and general exhaustion."
 	taste_description = "sourness"
 	color = "#eeddcc"
@@ -858,7 +858,7 @@
 		M.make_jittery(10)
 
 /datum/reagent/nanoblood
-	name = "Nanoblood"
+	name = "nanoblood"
 	description = "A stable hemoglobin-based nanoparticle oxygen carrier, used to rapidly replace lost blood. Toxic unless injected in small doses. Does not contain white blood cells."
 	taste_description = "blood with bubbles"
 	color = "#c10158"
@@ -876,7 +876,7 @@
 
 // Sleeping agent, produced by breathing N2O.
 /datum/reagent/nitrous_oxide
-	name = "Nitrous Oxide"
+	name = "nitrous oxide"
 	description = "An ubiquitous sleeping agent also known as laughing gas."
 	taste_description = "dental surgery"
 	color = COLOR_GRAY80
@@ -884,7 +884,7 @@
 	var/do_giggle = TRUE
 
 /datum/reagent/nitrous_oxide/xenon
-	name = "Xenon"
+	name = "xenon"
 	description = "A nontoxic gas used as a general anaesthetic."
 	do_giggle = FALSE
 	taste_description = "nothing"
@@ -907,7 +907,7 @@
 
 	// Immunity-restoring reagent
 /datum/reagent/immunobooster
-	name = "Immunobooster"
+	name = "immunobooster"
 	description = "A drug that helps restore the immune system. Will not replace a normal immunity."
 	taste_description = "chalky"
 	color = "#ffc0cb"

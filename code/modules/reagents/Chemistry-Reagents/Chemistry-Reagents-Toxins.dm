@@ -48,7 +48,7 @@
 	strength = 0
 
 /datum/reagent/toxin/plasticide
-	name = "Plasticide"
+	name = "plasticide"
 	description = "Liquid plastic, do not eat."
 	taste_description = "plastic"
 	color = "#cf3600"
@@ -57,14 +57,14 @@
 	heating_products = null
 
 /datum/reagent/toxin/amatoxin
-	name = "Amatoxin"
+	name = "amatoxin"
 	description = "A powerful poison derived from certain species of mushroom."
 	taste_description = "mushroom"
 	color = "#792300"
 	strength = 10
 
 /datum/reagent/toxin/carpotoxin
-	name = "Carpotoxin"
+	name = "carpotoxin"
 	description = "A deadly neurotoxin produced by the dreaded space carp."
 	taste_description = "fish"
 	color = "#003333"
@@ -72,7 +72,7 @@
 	strength = 10
 
 /datum/reagent/toxin/venom
-	name = "Spider Venom"
+	name = "spider venom"
 	description = "A deadly necrotic toxin produced by giant spiders to disable their prey."
 	taste_description = "absolutely vile"
 	color = "#91d895"
@@ -85,7 +85,7 @@
 	..()
 
 /datum/reagent/toxin/chlorine
-	name = "Chlorine"
+	name = "chlorine"
 	description = "A highly poisonous liquid. Smells strongly of bleach."
 	taste_description = "bleach"
 	color = "#707c13"
@@ -95,7 +95,7 @@
 	heating_products = null
 
 /datum/reagent/toxin/phoron
-	name = "Phoron"
+	name = "phoron"
 	description = "Phoron in its liquid form."
 	taste_mult = 1.5
 	color = "#ff3300"
@@ -118,7 +118,7 @@
 
 // Produced during deuterium synthesis. Super poisonous, SUPER flammable (doesn't need oxygen to burn).
 /datum/reagent/toxin/phoron/oxygen
-	name = "Oxyphoron"
+	name = "oxyphoron"
 	description = "An exceptionally flammable molecule formed from deuterium synthesis."
 	strength = 15
 	fuel_value = 15
@@ -131,7 +131,7 @@
 	remove_self(volume)
 
 /datum/reagent/toxin/cyanide //Fast and Lethal
-	name = "Cyanide"
+	name = "cyanide"
 	description = "A highly toxic chemical."
 	taste_mult = 0.6
 	color = "#cf3600"
@@ -146,7 +146,7 @@
 	M.sleeping += 1
 
 /datum/reagent/toxin/taxine
-	name = "Taxine"
+	name = "taxine"
 	description = "A potent cardiotoxin found in nearly every part of the common yew."
 	taste_description = "intense bitterness"
 	color = "#6b833b"
@@ -170,7 +170,7 @@
 		M.add_chemical_effect(CE_NOPULSE, 1)
 
 /datum/reagent/toxin/potassium_chloride
-	name = "Potassium Chloride"
+	name = "potassium chloride"
 	description = "A delicious salt that stops the heart when injected into cardiac muscle."
 	taste_description = "salt"
 	color = "#ffffff"
@@ -192,7 +192,7 @@
 
 
 /datum/reagent/toxin/potassium_chlorophoride
-	name = "Potassium Chlorophoride"
+	name = "potassium chlorophoride"
 	description = "A specific chemical based on Potassium Chloride to stop the heart for surgery. Not safe to eat!"
 	taste_description = "salt"
 	color = "#ffffff"
@@ -213,7 +213,7 @@
 		M.add_chemical_effect(CE_NOPULSE, 1)
 
 /datum/reagent/toxin/zombiepowder
-	name = "Zombie Powder"
+	name = "zombie powder"
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	taste_description = "death"
 	color = "#669900"
@@ -240,7 +240,7 @@
 	. = ..()
 
 /datum/reagent/toxin/fertilizer //Reagents used for plant fertilizers.
-	name = "Fertilizer"
+	name = "fertilizer"
 	description = "A chemical mix good for growing plants with."
 	taste_description = "plant food"
 	taste_mult = 0.5
@@ -279,7 +279,7 @@
 		qdel(O)
 
 /datum/reagent/acid/polyacid
-	name = "Polytrinic acid"
+	name = "polytrinic acid"
 	description = "Polytrinic acid is a an extremely corrosive chemical substance."
 	taste_description = "acid"
 	color = "#8e18a9"
@@ -307,7 +307,7 @@
 		M.losebreath++
 
 /datum/reagent/mutagen
-	name = "Unstable mutagen"
+	name = "unstable mutagen"
 	description = "Might cause unpredictable mutations. Keep away from children."
 	taste_description = "slime"
 	taste_mult = 0.9
@@ -343,7 +343,7 @@
 	M.apply_damage(10 * removed, IRRADIATE, armor_pen = 100)
 
 /datum/reagent/slimejelly
-	name = "Slime Jelly"
+	name = "slime jelly"
 	description = "A gooey semi-liquid produced from one of the deadliest lifeforms in existence. SO REAL."
 	taste_description = "slime"
 	taste_mult = 1.3
@@ -358,7 +358,7 @@
 		M.heal_organ_damage(25 * removed, 0)
 
 /datum/reagent/soporific
-	name = "Soporific"
+	name = "soporific"
 	description = "An effective hypnotic used to treat insomnia."
 	taste_description = "bitterness"
 	color = "#009ca8"
@@ -385,7 +385,7 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 
 /datum/reagent/chloralhydrate
-	name = "Chloral Hydrate"
+	name = "chloral hydrate"
 	description = "A powerful sedative."
 	taste_description = "bitterness"
 	color = "#000067"
@@ -408,7 +408,7 @@
 		M.adjustToxLoss(removed)
 
 /datum/reagent/chloralhydrate/beer2 //disguised as normal beer for use by emagged brobots
-	name = "Beer"
+	name = "beer"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water. The fermentation appears to be incomplete." //If the players manage to analyze this, they deserve to know something is wrong.
 	taste_description = "shitty piss water"
 	color = "#ffd300"
@@ -417,7 +417,7 @@
 	glass_desc = "A freezing pint of beer"
 
 /datum/reagent/vecuronium_bromide
-	name = "Vecuronium Bromide"
+	name = "vecuronium bromide"
 	description = "A powerful paralytic."
 	taste_description = "metallic"
 	color = "#ff337d"
@@ -445,7 +445,7 @@
 /* Drugs */
 
 /datum/reagent/space_drugs
-	name = "Space drugs"
+	name = "space drugs"
 	description = "An illegal chemical compound used as drug."
 	taste_description = "bitterness"
 	taste_mult = 0.4
@@ -511,7 +511,7 @@
 		M.emote("drool")
 
 /datum/reagent/mindbreaker
-	name = "Mindbreaker Toxin"
+	name = "mindbreaker toxin"
 	description = "A powerful hallucinogen, it can cause fatal effects in users."
 	taste_description = "sourness"
 	color = "#b31008"
@@ -524,7 +524,7 @@
 	M.hallucination(50, 50)
 
 /datum/reagent/psilocybin
-	name = "Psilocybin"
+	name = "psilocybin"
 	description = "A strong psycotropic derived from certain species of mushroom."
 	taste_description = "mushroom"
 	color = "#e700e7"
@@ -633,7 +633,7 @@
 
 /* Transformations */
 /datum/reagent/slimetoxin
-	name = "Mutation Toxin"
+	name = "mutation toxin"
 	description = "A corruptive toxin produced by slimes."
 	taste_description = "sludge"
 	color = "#13bc5e"
@@ -684,7 +684,7 @@
 */
 
 /datum/reagent/aslimetoxin
-	name = "Advanced Mutation Toxin"
+	name = "advanced mutation toxin"
 	description = "An advanced corruptive toxin produced by slimes."
 	taste_description = "sludge"
 	color = "#13bc5e"
@@ -712,7 +712,7 @@
 	qdel(M)
 
 /datum/reagent/nanites
-	name = "Nanomachines"
+	name = "nanomachines"
 	description = "Microscopic construction robots."
 	taste_description = "slimey metal"
 	color = "#535e66"
@@ -720,7 +720,7 @@
 	value = 9
 
 /datum/reagent/xenomicrobes
-	name = "Xenomicrobes"
+	name = "xenomicrobes"
 	description = "Microbes with an entirely alien cellular structure."
 	taste_description = "sludge"
 	color = "#535e66"
@@ -729,7 +729,7 @@
 	value = 5
 
 /datum/reagent/toxin/hair_remover
-	name = "Hair Remover"
+	name = "hair remover"
 	description = "An extremely effective chemical depilator. Do not ingest."
 	taste_description = "acid"
 	color = "#d9ffb3"
@@ -744,7 +744,7 @@
 	remove_self(volume)
 
 /datum/reagent/toxin/zombie
-	name = "Liquid Corruption"
+	name = "liquid corruption"
 	description = "A filthy, oily substance which slowly churns of its own accord."
 	taste_description = "decaying blood"
 	color = "#800000"
@@ -773,7 +773,7 @@
 			to_chat(H, "<span class='warning'>You feel terribly ill!</span>")
 
 /datum/reagent/toxin/bromide
-	name = "Bromide"
+	name = "bromide"
 	description = "A dark, nearly opaque, red-orange, toxic element."
 	taste_description = "pestkiller"
 	color = "#4c3b34"
@@ -782,7 +782,7 @@
 	heating_point = null
 
 /datum/reagent/toxin/methyl_bromide
-	name = "Methyl Bromide"
+	name = "methyl bromide"
 	description = "A fumigant derived from bromide."
 	taste_description = "pestkiller"
 	color = "#4c3b34"
@@ -808,11 +808,11 @@
 						break
 
 /datum/reagent/toxin/tar
-	name = "Tar"
+	name = "tar"
 	description = "A dark, viscous liquid."
 	taste_description = "petroleum"
 	color = "#140b30"
 	strength = 4
 	heating_products = list(/datum/reagent/acetone, /datum/reagent/carbon, /datum/reagent/ethanol)
 	heating_point = 145 CELSIUS
-	heating_message = "separates."
+	heating_message = "separates"
