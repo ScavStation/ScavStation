@@ -11,7 +11,6 @@
 	)
 	name = "Blood"
 	description = "A red (or blue) liquid commonly found inside animals, most of whom are pretty insistent about it being left where you found it."
-	reagent_state = LIQUID
 	metabolism = REM * 5
 	color = "#c80000"
 	scannable = 1
@@ -80,7 +79,6 @@
 /datum/reagent/water
 	name = "Water"
 	description = "A ubiquitous chemical substance composed of hydrogen and oxygen."
-	reagent_state = LIQUID
 	color = "#0064c877"
 	scannable = 1
 	metabolism = REM * 10
@@ -176,7 +174,6 @@
 	description = "Frozen water, your dentist wouldn't like you chewing this."
 	taste_description = "ice"
 	taste_mult = 1.5
-	reagent_state = SOLID
 	color = "#619494"
 	adj_temp = -5
 	hydration = 10
@@ -194,7 +191,6 @@
 	name = "Welding fuel"
 	description = "A stable hydrazine-based compound whose exact manufacturing specifications are a closely-guarded secret. One of the most common fuels in human space. Extremely flammable."
 	taste_description = "gross metal"
-	reagent_state = LIQUID
 	color = "#660000"
 	touch_met = 5
 	fuel_value = 1

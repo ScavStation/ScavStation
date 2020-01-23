@@ -4,7 +4,6 @@
 	name = "Nutriment"
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	taste_mult = 4
-	reagent_state = SOLID
 	metabolism = REM * 4
 	var/nutriment_factor = 10 // Per unit
 	var/hydration_factor = 0 // Per unit
@@ -147,7 +146,6 @@
 	name = "flour"
 	description = "This is what you rub all over yourself to pretend to be a ghost."
 	taste_description = "chalky wheat"
-	reagent_state = SOLID
 	nutriment_factor = 1
 	color = "#ffffff"
 
@@ -163,7 +161,6 @@
 	name = "Batter"
 	description = "A gooey mixture of eggs and flour, a base for turning wheat into food."
 	taste_description = "blandness"
-	reagent_state = LIQUID
 	nutriment_factor = 3
 	color = "#ffd592"
 
@@ -209,7 +206,6 @@
 	description = "A fatty, bitter paste made from coco beans."
 	taste_description = "bitterness"
 	taste_mult = 1.3
-	reagent_state = SOLID
 	nutriment_factor = 5
 	color = "#302000"
 
@@ -248,7 +244,6 @@
 	description = "A salty sauce made from the soy plant."
 	taste_description = "umami"
 	taste_mult = 1.1
-	reagent_state = LIQUID
 	nutriment_factor = 2
 	color = "#792300"
 
@@ -256,7 +251,6 @@
 	name = "Ketchup"
 	description = "Ketchup, catsup, whatever. It's tomato paste."
 	taste_description = "ketchup"
-	reagent_state = LIQUID
 	nutriment_factor = 5
 	color = "#731008"
 
@@ -264,7 +258,6 @@
 	name = "Barbecue Sauce"
 	description = "Barbecue sauce for barbecues and long shifts."
 	taste_description = "barbecue"
-	reagent_state = LIQUID
 	nutriment_factor = 5
 	color = "#4f330f"
 
@@ -272,7 +265,6 @@
 	name = "Garlic Sauce"
 	description = "Garlic sauce, perfect for spicing up a plate of garlic."
 	taste_description = "garlic"
-	reagent_state = LIQUID
 	nutriment_factor = 4
 	color = "#d8c045"
 
@@ -281,7 +273,6 @@
 	description = "Enjoy the great taste of nothing."
 	taste_description = "rice"
 	taste_mult = 0.4
-	reagent_state = SOLID
 	nutriment_factor = 1
 	color = "#ffffff"
 
@@ -290,7 +281,6 @@
 	description = "Green tea over rice. How rustic!"
 	taste_description = "green tea and rice"
 	taste_mult = 0.4
-	reagent_state = LIQUID
 	nutriment_factor = 1
 	color = "#f1ffdb"
 
@@ -299,7 +289,6 @@
 	description = "Totally the best. Only to be spread on foods with excellent lateral symmetry."
 	taste_description = "cherry"
 	taste_mult = 1.3
-	reagent_state = LIQUID
 	nutriment_factor = 1
 	color = "#801e28"
 
@@ -308,7 +297,6 @@
 	description = "An oil derived from various types of corn."
 	taste_description = "slime"
 	taste_mult = 0.1
-	reagent_state = LIQUID
 	nutriment_factor = 20
 	color = "#302000"
 
@@ -338,14 +326,12 @@
 	name = "Mint"
 	description = "Also known as Mentha."
 	taste_description = "sweet mint"
-	reagent_state = LIQUID
 	color = "#07aab2"
 
 /datum/reagent/lipozine // The anti-nutriment.
 	name = "Lipozine"
 	description = "A chemical compound that causes a powerful fat-burning reaction."
 	taste_description = "mothballs"
-	reagent_state = LIQUID
 	color = "#bbeda4"
 	overdose = REAGENTS_OVERDOSE
 	value = 0.11
@@ -359,7 +345,6 @@
 	name = "Table Salt"
 	description = "A salt made of sodium chloride. Commonly used to season food."
 	taste_description = "salt"
-	reagent_state = SOLID
 	color = "#ffffff"
 	overdose = REAGENTS_OVERDOSE
 	value = 0.11
@@ -368,7 +353,6 @@
 	name = "Black Pepper"
 	description = "A powder ground from peppercorns. *AAAACHOOO*"
 	taste_description = "pepper"
-	reagent_state = SOLID
 	color = "#000000"
 	value = 0.1
 
@@ -377,7 +361,6 @@
 	description = "A universal enzyme used in the preperation of certain chemicals and foods."
 	taste_description = "sweetness"
 	taste_mult = 0.7
-	reagent_state = LIQUID
 	color = "#365e30"
 	overdose = REAGENTS_OVERDOSE
 	value = 0.2
@@ -387,7 +370,6 @@
 	description = "An oil harvested from a mutant form of chili peppers, it has a chilling effect on the body."
 	taste_description = "arctic mint"
 	taste_mult = 1.5
-	reagent_state = LIQUID
 	color = "#07aab2"
 	value = 0.2
 
@@ -404,7 +386,6 @@
 	description = "This is what makes chilis hot."
 	taste_description = "hot peppers"
 	taste_mult = 1.5
-	reagent_state = LIQUID
 	color = "#b31008"
 	var/agony_dose = 5
 	var/agony_amount = 2
@@ -437,7 +418,6 @@
 	description = "A chemical agent used for self-defense and in police work."
 	taste_description = "scorching agony"
 	taste_mult = 10
-	reagent_state = LIQUID
 	touch_met = 5 // Get rid of it quickly
 	color = "#b31008"
 	agony_dose = 0.5
@@ -525,7 +505,6 @@
 	name = "Vinegar"
 	description = "A weak solution of acetic acid. Usually used for seasoning food."
 	taste_description = "vinegar"
-	reagent_state = LIQUID
 	color = "#e8dfd0"
 	taste_mult = 3
 
@@ -533,7 +512,6 @@
 	name = "Mayonnaise"
 	description = "A mixture of egg yolk with lemon juice or vinegar. Usually put on bland food to make it more edible."
 	taste_description = "mayo"
-	reagent_state = LIQUID
 	color = "#efede8"
 	taste_mult = 2
 
@@ -542,7 +520,6 @@
 /datum/reagent/drink
 	name = "Drink"
 	description = "Uh, some kind of drink."
-	reagent_state = LIQUID
 	color = "#e78108"
 	var/nutrition = 0 // Per unit
 	var/hydration = 6 // Per unit
@@ -949,7 +926,6 @@
 	name = "Hot Chocolate"
 	description = "Made with love! And cocoa beans."
 	taste_description = "creamy chocolate"
-	reagent_state = LIQUID
 	color = "#403010"
 	nutrition = 2
 	adj_temp = 5
@@ -1083,7 +1059,6 @@
 	name = "Space Cola"
 	description = "A refreshing beverage."
 	taste_description = "cola"
-	reagent_state = LIQUID
 	color = "#100800"
 	adj_drowsy = -3
 	adj_temp = -5
@@ -1142,7 +1117,6 @@
 	name = "The Doctor's Delight"
 	description = "A gulp a day keeps the MediBot away. That's probably for the best."
 	taste_description = "homely fruit"
-	reagent_state = LIQUID
 	color = "#ff8cff"
 	nutrition = 1
 
@@ -1163,7 +1137,6 @@
 	name = "Dry Ramen"
 	description = "Space age food, since August 25, 1958. Contains dried noodles, vegetables, and chemicals that boil in contact with water."
 	taste_description = "dry and cheap noodles"
-	reagent_state = SOLID
 	nutrition = 1
 	color = "#302000"
 
@@ -1171,7 +1144,6 @@
 	name = "Hot Ramen"
 	description = "The noodles are boiled, the flavors are artificial, just like being back in school."
 	taste_description = "wet and cheap noodles"
-	reagent_state = LIQUID
 	color = "#302000"
 	nutrition = 5
 	adj_temp = 5
@@ -1180,7 +1152,6 @@
 	name = "Hell Ramen"
 	description = "The noodles are boiled, the flavors are artificial, just like being back in school."
 	taste_description = "wet and cheap noodles on fire"
-	reagent_state = LIQUID
 	color = "#302000"
 	nutrition = 5
 
@@ -1428,7 +1399,6 @@
 	name = "Acid Spit"
 	description = "A drink for the daring, can be deadly if incorrectly prepared!"
 	taste_description = "stomach acid"
-	reagent_state = LIQUID
 	color = "#365000"
 	strength = 30
 
@@ -1459,7 +1429,6 @@
 	name = "Amasec"
 	description = "Official drink of the Gun Club!"
 	taste_description = "dark and metallic"
-	reagent_state = LIQUID
 	color = "#ff975d"
 	strength = 25
 
@@ -1492,7 +1461,6 @@
 	name = "Atomic Bomb"
 	description = "Nuclear proliferation never tasted so good."
 	taste_description = "da bomb"
-	reagent_state = LIQUID
 	color = "#666300"
 	strength = 10
 	druggy = 50
@@ -1547,7 +1515,6 @@
 	description = "Deny drinking this and prepare for THE LAW."
 	taste_description = "JUSTICE"
 	taste_mult = 2
-	reagent_state = LIQUID
 	color = "#404040"
 	strength = 12
 
@@ -1686,7 +1653,6 @@
 	name = "Grog"
 	description = "Watered-down rum, pirate approved!"
 	taste_description = "a poor excuse for alcohol"
-	reagent_state = LIQUID
 	color = "#ffbb00"
 	strength = 100
 
@@ -1708,7 +1674,6 @@
 	description = "Whoah, this stuff looks volatile!"
 	taste_description = "your brains smashed out by a lemon wrapped around a gold brick"
 	taste_mult = 5
-	reagent_state = LIQUID
 	color = "#7f00ff"
 	strength = 10
 
@@ -1740,7 +1705,6 @@
 	name = "Hippies' Delight"
 	description = "You just don't get it maaaan."
 	taste_description = "giving peace a chance"
-	reagent_state = LIQUID
 	color = "#ff88ff"
 	strength = 15
 	druggy = 50
@@ -1857,7 +1821,6 @@
 	name = "Mead"
 	description = "A Viking's drink, though a cheap one."
 	taste_description = "sweet, sweet alcohol"
-	reagent_state = LIQUID
 	color = "#ffbb00"
 	strength = 30
 	nutriment_factor = 1
@@ -1880,7 +1843,6 @@
 	name = "Neurotoxin"
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	taste_description = "a numbing sensation"
-	reagent_state = LIQUID
 	color = "#2e2e61"
 	strength = 10
 
@@ -2048,7 +2010,6 @@
 	name = "Toxins Special"
 	description = "This thing is ON FIRE! CALL THE DAMN SHUTTLE!"
 	taste_description = "spicy toxins"
-	reagent_state = LIQUID
 	color = "#7f00ff"
 	strength = 10
 	adj_temp = 15

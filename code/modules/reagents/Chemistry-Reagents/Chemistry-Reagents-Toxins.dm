@@ -5,7 +5,6 @@
 	description = "A toxic chemical."
 	taste_description = "bitterness"
 	taste_mult = 1.2
-	reagent_state = LIQUID
 	color = "#cf3600"
 	metabolism = REM * 0.25 // 0.05 by default. They last a while and slowly kill you.
 	heating_products = list(/datum/reagent/toxin/denatured)
@@ -52,7 +51,6 @@
 	name = "Plasticide"
 	description = "Liquid plastic, do not eat."
 	taste_description = "plastic"
-	reagent_state = LIQUID
 	color = "#cf3600"
 	strength = 5
 	heating_point = null
@@ -62,7 +60,6 @@
 	name = "Amatoxin"
 	description = "A powerful poison derived from certain species of mushroom."
 	taste_description = "mushroom"
-	reagent_state = LIQUID
 	color = "#792300"
 	strength = 10
 
@@ -70,7 +67,6 @@
 	name = "Carpotoxin"
 	description = "A deadly neurotoxin produced by the dreaded space carp."
 	taste_description = "fish"
-	reagent_state = LIQUID
 	color = "#003333"
 	target_organ = BP_BRAIN
 	strength = 10
@@ -91,7 +87,6 @@
 /datum/reagent/toxin/chlorine
 	name = "Chlorine"
 	description = "A highly poisonous liquid. Smells strongly of bleach."
-	reagent_state = LIQUID
 	taste_description = "bleach"
 	color = "#707c13"
 	strength = 15
@@ -103,7 +98,6 @@
 	name = "Phoron"
 	description = "Phoron in its liquid form."
 	taste_mult = 1.5
-	reagent_state = LIQUID
 	color = "#ff3300"
 	strength = 30
 	touch_met = 5
@@ -140,7 +134,6 @@
 	name = "Cyanide"
 	description = "A highly toxic chemical."
 	taste_mult = 0.6
-	reagent_state = LIQUID
 	color = "#cf3600"
 	strength = 20
 	metabolism = REM * 2
@@ -180,7 +173,6 @@
 	name = "Potassium Chloride"
 	description = "A delicious salt that stops the heart when injected into cardiac muscle."
 	taste_description = "salt"
-	reagent_state = SOLID
 	color = "#ffffff"
 	strength = 0
 	overdose = REAGENTS_OVERDOSE
@@ -203,7 +195,6 @@
 	name = "Potassium Chlorophoride"
 	description = "A specific chemical based on Potassium Chloride to stop the heart for surgery. Not safe to eat!"
 	taste_description = "salt"
-	reagent_state = SOLID
 	color = "#ffffff"
 	strength = 10
 	overdose = 20
@@ -225,7 +216,6 @@
 	name = "Zombie Powder"
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	taste_description = "death"
-	reagent_state = SOLID
 	color = "#669900"
 	metabolism = REM
 	strength = 3
@@ -254,7 +244,6 @@
 	description = "A chemical mix good for growing plants with."
 	taste_description = "plant food"
 	taste_mult = 0.5
-	reagent_state = LIQUID
 	strength = 0.5 // It's not THAT poisonous.
 	color = "#664330"
 	heating_point = null
@@ -273,7 +262,6 @@
 	name = "Plant-B-Gone"
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"
 	taste_mult = 1
-	reagent_state = LIQUID
 	color = "#49002e"
 	strength = 4
 	heating_products = list(/datum/reagent/toxin, /datum/reagent/water)
@@ -294,7 +282,6 @@
 	name = "Polytrinic acid"
 	description = "Polytrinic acid is a an extremely corrosive chemical substance."
 	taste_description = "acid"
-	reagent_state = LIQUID
 	color = "#8e18a9"
 	power = 10
 	meltdose = 4
@@ -310,7 +297,6 @@
 	name = "Lexorin"
 	description = "Lexorin temporarily stops respiration. Causes tissue damage."
 	taste_description = "acid"
-	reagent_state = LIQUID
 	color = "#c8a5dc"
 	overdose = REAGENTS_OVERDOSE
 	value = 2.4
@@ -325,7 +311,6 @@
 	description = "Might cause unpredictable mutations. Keep away from children."
 	taste_description = "slime"
 	taste_mult = 0.9
-	reagent_state = LIQUID
 	color = "#13bc5e"
 	value = 3.1
 
@@ -362,7 +347,6 @@
 	description = "A gooey semi-liquid produced from one of the deadliest lifeforms in existence. SO REAL."
 	taste_description = "slime"
 	taste_mult = 1.3
-	reagent_state = LIQUID
 	color = "#801e28"
 	value = 1.2
 
@@ -377,7 +361,6 @@
 	name = "Soporific"
 	description = "An effective hypnotic used to treat insomnia."
 	taste_description = "bitterness"
-	reagent_state = LIQUID
 	color = "#009ca8"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
@@ -405,7 +388,6 @@
 	name = "Chloral Hydrate"
 	description = "A powerful sedative."
 	taste_description = "bitterness"
-	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE * 0.5
@@ -429,7 +411,6 @@
 	name = "Beer"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water. The fermentation appears to be incomplete." //If the players manage to analyze this, they deserve to know something is wrong.
 	taste_description = "shitty piss water"
-	reagent_state = LIQUID
 	color = "#ffd300"
 
 	glass_name = "beer"
@@ -439,7 +420,6 @@
 	name = "Vecuronium Bromide"
 	description = "A powerful paralytic."
 	taste_description = "metallic"
-	reagent_state = SOLID
 	color = "#ff337d"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE * 0.5
@@ -469,7 +449,6 @@
 	description = "An illegal chemical compound used as drug."
 	taste_description = "bitterness"
 	taste_mult = 0.4
-	reagent_state = LIQUID
 	color = "#60a584"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
@@ -488,7 +467,6 @@
 	name = "Serotrotium"
 	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans."
 	taste_description = "bitterness"
-	reagent_state = LIQUID
 	color = "#202040"
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
@@ -503,7 +481,6 @@
 	name = "Cryptobiolin"
 	description = "Cryptobiolin causes confusion and dizzyness."
 	taste_description = "sourness"
-	reagent_state = LIQUID
 	color = "#000055"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
@@ -520,7 +497,6 @@
 	name = "Impedrezene"
 	description = "Impedrezene is a narcotic that impedes one's ability by slowing down the higher brain cell functions."
 	taste_description = "numbness"
-	reagent_state = LIQUID
 	color = "#c8a5dc"
 	overdose = REAGENTS_OVERDOSE
 	value = 1.8
@@ -538,7 +514,6 @@
 	name = "Mindbreaker Toxin"
 	description = "A powerful hallucinogen, it can cause fatal effects in users."
 	taste_description = "sourness"
-	reagent_state = LIQUID
 	color = "#b31008"
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
@@ -592,7 +567,6 @@
 	out of the independant habitats, and has about as much in common with recreational drugs as a \
 	small dog does to a monster truck. It is equally effective on humans, yinglets, and probably the \
 	Captain's cat, and distributing it will get you guaranteed jail time in every human territory."
-	reagent_state = LIQUID
 	color = "#ccccff"
 	metabolism = REM
 	overdose = 25
@@ -662,7 +636,6 @@
 	name = "Mutation Toxin"
 	description = "A corruptive toxin produced by slimes."
 	taste_description = "sludge"
-	reagent_state = LIQUID
 	color = "#13bc5e"
 	metabolism = REM * 0.2
 	value = 2
@@ -714,7 +687,6 @@
 	name = "Advanced Mutation Toxin"
 	description = "An advanced corruptive toxin produced by slimes."
 	taste_description = "sludge"
-	reagent_state = LIQUID
 	color = "#13bc5e"
 
 /datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
@@ -743,7 +715,6 @@
 	name = "Nanomachines"
 	description = "Microscopic construction robots."
 	taste_description = "slimey metal"
-	reagent_state = LIQUID
 	color = "#535e66"
 	hidden_from_codex = TRUE
 	value = 9
@@ -752,7 +723,6 @@
 	name = "Xenomicrobes"
 	description = "Microbes with an entirely alien cellular structure."
 	taste_description = "sludge"
-	reagent_state = LIQUID
 	color = "#535e66"
 	hidden_from_codex = TRUE
 	heating_point = 100 CELSIUS
@@ -762,7 +732,6 @@
 	name = "Hair Remover"
 	description = "An extremely effective chemical depilator. Do not ingest."
 	taste_description = "acid"
-	reagent_state = LIQUID
 	color = "#d9ffb3"
 	strength = 1
 	overdose = REAGENTS_OVERDOSE
@@ -807,7 +776,6 @@
 	name = "Bromide"
 	description = "A dark, nearly opaque, red-orange, toxic element."
 	taste_description = "pestkiller"
-	reagent_state = LIQUID
 	color = "#4c3b34"
 	strength = 3
 	heating_products = null
@@ -817,7 +785,6 @@
 	name = "Methyl Bromide"
 	description = "A fumigant derived from bromide."
 	taste_description = "pestkiller"
-	reagent_state = LIQUID
 	color = "#4c3b34"
 	strength = 5
 	heating_products = null

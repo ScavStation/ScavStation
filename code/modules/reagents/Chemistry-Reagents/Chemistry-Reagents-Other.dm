@@ -4,7 +4,6 @@
 	name = "Crayon dust"
 	description = "Intensely coloured powder obtained by grinding crayons."
 	taste_description = "the back of class"
-	reagent_state = LIQUID
 	color = "#888888"
 	overdose = 5
 
@@ -44,7 +43,6 @@
 	name = "Paint"
 	description = "This paint will stick to almost any object."
 	taste_description = "chalk"
-	reagent_state = LIQUID
 	color = "#808080"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	color_weight = 20
@@ -100,7 +98,6 @@
 	name = "Adminordrazine"
 	description = "It's magic. We don't have to explain it."
 	taste_description = "100% abuse"
-	reagent_state = LIQUID
 	color = "#c8a5dc"
 	flags = AFFECTS_DEAD //This can even heal dead people.
 
@@ -117,7 +114,6 @@
 	name = "Gold"
 	description = "Gold is a dense, soft, shiny metal and the most malleable and ductile metal known."
 	taste_description = "expensive metal"
-	reagent_state = SOLID
 	color = "#f7c430"
 	value = 7
 
@@ -125,7 +121,6 @@
 	name = "Silver"
 	description = "A soft, white, lustrous transition metal, it has the highest electrical conductivity of any element and the highest thermal conductivity of any metal."
 	taste_description = "expensive yet reasonable metal"
-	reagent_state = SOLID
 	color = "#d0d0d0"
 	value = 4
 
@@ -133,7 +128,6 @@
 	name = "Uranium"
 	description = "A silvery-white metallic chemical element in the actinide series, weakly radioactive."
 	taste_description = "the inside of a reactor"
-	reagent_state = SOLID
 	color = "#b8b8c0"
 	value = 9
 
@@ -191,7 +185,6 @@
 	name = "Diethylamine"
 	description = "A secondary amine, mildly corrosive."
 	taste_description = "iron"
-	reagent_state = LIQUID
 	color = "#604030"
 	value = 0.9
 
@@ -199,7 +192,6 @@
 	name = "Azosurfactant"
 	description = "A isocyanate liquid that forms a foam when mixed with water."
 	taste_description = "metal"
-	reagent_state = LIQUID
 	color = "#9e6b38"
 	value = 0.05
 
@@ -207,14 +199,12 @@
 	name = "Foaming agent"
 	description = "A agent that yields metallic foam when mixed with light metal and a strong acid."
 	taste_description = "metal"
-	reagent_state = SOLID
 	color = "#664b63"
 
 /datum/reagent/thermite
 	name = "Thermite"
 	description = "Thermite produces an aluminothermic reaction known as a thermite reaction. Can be used to melt walls."
 	taste_description = "sweet tasting metal"
-	reagent_state = SOLID
 	color = "#673910"
 	touch_met = 50
 	value = 6
@@ -236,7 +226,6 @@
 	name = "Napalm"
 	description = "A sticky volatile substance made from mixing quick burning goo with slow burning goo, to make a viscous average burning goo that sticks to everything."
 	taste_description = "burnt corn"
-	reagent_state = LIQUID
 	color = "#673910"
 	touch_met = 50
 	fuel_value = 5
@@ -253,7 +242,6 @@
 	name = "Space cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	taste_description = "sourness"
-	reagent_state = LIQUID
 	color = "#a5f0ee"
 	touch_met = 50
 	value = 0.7
@@ -305,7 +293,6 @@
 	name = "Space Lube"
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
 	taste_description = "slime"
-	reagent_state = LIQUID
 	color = "#009ca8"
 	value = 0.6
 
@@ -329,7 +316,6 @@
 	name = "Glycerol"
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	taste_description = "sweetness"
-	reagent_state = LIQUID
 	color = "#808080"
 	value = 8
 
@@ -337,7 +323,6 @@
 	name = "Nitroglycerin"
 	description = "Nitroglycerin is a heavy, colorless, oily, explosive liquid obtained by nitrating glycerol."
 	taste_description = "oil"
-	reagent_state = LIQUID
 	color = "#808080"
 	value = 9
 
@@ -351,7 +336,6 @@
 	description = "Industrial cooling substance."
 	taste_description = "sourness"
 	taste_mult = 1.1
-	reagent_state = LIQUID
 	color = "#c8a5dc"
 	value = 0.8
 
@@ -387,21 +371,18 @@
 	name = "Wood Pulp"
 	description = "A mass of wood fibers."
 	taste_description = "wood"
-	reagent_state = SOLID
 	color = WOOD_COLOR_GENERIC
 
 /datum/reagent/bamboo
 	name = "Bamboo Pulp"
 	description = "A mass of bamboo fibers."
 	taste_description = "grass"
-	reagent_state = SOLID
 	color = WOOD_COLOR_PALE2
 
 /datum/reagent/luminol
 	name = "Luminol"
 	description = "A compound that interacts with blood on the molecular level."
 	taste_description = "metal"
-	reagent_state = LIQUID
 	color = "#f2f3f4"
 	value = 1.4
 
@@ -415,7 +396,6 @@
 	name = "Helium"
 	description = "A noble gas. It makes your voice squeaky."
 	taste_description = "nothing"
-	reagent_state = LIQUID
 	color = COLOR_GRAY80
 	metabolism = 0.05 // So that low dosages have a chance to build up in the body.
 
@@ -428,14 +408,12 @@
 	name = "Oxygen"
 	description = "An ubiquitous oxidizing agent."
 	taste_description = "nothing"
-	reagent_state = LIQUID
 	color = COLOR_GRAY80
 
 /datum/reagent/carbon_monoxide
 	name = "Carbon Monoxide"
 	description = "A dangerous carbon comubstion byproduct."
 	taste_description = "stale air"
-	reagent_state = LIQUID
 	color = COLOR_GRAY80
 	metabolism = 0.05 // As with helium.
 
@@ -467,7 +445,6 @@
 	name = "ANFO"
 	description = "Ammonia Nitrate Fuel Oil mix, an explosive compound known for centuries. Safe to handle, can be set off with a small explosion."
 	taste_description = "fertilizer and fuel"
-	reagent_state = SOLID
 	color = "#dbc3c3"
 	var/boompower = 1
 
