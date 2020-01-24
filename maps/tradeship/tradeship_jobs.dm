@@ -7,42 +7,44 @@
 		/datum/job/hop,
 		/datum/job/cyborg,
 		/datum/job/assistant,
-		/datum/job/engineer,
-		/datum/job/doctor/junior,
-		/datum/job/scientist,
 		/datum/job/yinglet,
-		/datum/job/yinglet/scout,
 		/datum/job/yinglet/patriarch,
-		/datum/job/yinglet/matriarch
+		/datum/job/yinglet/matriarch,
+		/datum/job/baxxid
 	)
 	species_to_job_whitelist = list(
 		/datum/species/yinglet = list(
 			/datum/job/yinglet,
-			/datum/job/yinglet/scout,
 			/datum/job/yinglet/patriarch,
 			/datum/job/yinglet/matriarch,
 			/datum/job/assistant,
-			/datum/job/engineer,
+			/datum/job/chief_engineer,
 			/datum/job/cyborg,
-			/datum/job/doctor/junior,
-			/datum/job/scientist
+			/datum/job/doctor,
+			/datum/job/rd
 		),
 		/datum/species/yinglet/southern = list(
 			/datum/job/yinglet,
-			/datum/job/yinglet/scout,
 			/datum/job/yinglet/patriarch,
 			/datum/job/yinglet/matriarch,
 			/datum/job/assistant,
-			/datum/job/engineer,
+			/datum/job/chief_engineer,
 			/datum/job/cyborg,
-			/datum/job/doctor/junior,
-			/datum/job/scientist
+			/datum/job/doctor,
+			/datum/job/rd
+		),
+		/datum/species/baxxid = list(
+			/datum/job/baxxid
 		)
 	)
 
 /datum/job/captain
-	supervisors = "your profit margin, your conscience, and the Trademaster"
+	supervisors = "your profit margin, your conscience, and the wellbeing of your crew."
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/captain
+	department_flag = COM
+	department = "The Crew"
+	head_position = 1
+	selection_color = "#7f6e2c"
 	min_skill = list(   SKILL_WEAPONS = SKILL_ADEPT,
 	                    SKILL_SCIENCE     = SKILL_ADEPT,
 	                    SKILL_PILOT       = SKILL_ADEPT)
@@ -54,45 +56,35 @@
 	. = ..()
 	if(H.client)
 		H.client.verbs += /client/proc/tradehouse_rename_ship
-		H.client.verbs += /client/proc/tradehouse_rename_company
 
 /client/proc/tradehouse_rename_ship()
 	set name = "Rename Tradeship"
 	set category = "Captain's Powers"
 
-	var/ship = sanitize(input(src, "What is your ship called? Don't add the vessel prefix, 'Tradeship' will be attached automatically.", "Ship Name", GLOB.using_map.station_short), MAX_NAME_LEN)
+	var/ship = sanitize(input(src, "What is your ship called?", "Ship Name", GLOB.using_map.station_short), MAX_NAME_LEN)
 	if(!ship)
 		return
 	GLOB.using_map.station_short = ship
-	GLOB.using_map.station_name = "Tradeship [ship]"
+	GLOB.using_map.station_name = "[ship]"
 	var/obj/effect/overmap/visitable/ship/tradeship/B = locate() in world
 	if(B)
 		B.SetName(GLOB.using_map.station_name)
 	command_announcement.Announce("Attention all hands on [GLOB.using_map.station_name]! Thank you for your attention.", "Ship re-Christened")
 	verbs -= /client/proc/tradehouse_rename_ship
 
-/client/proc/tradehouse_rename_company()
-	set name = "Rename Tradehouse"
-	set category = "Captain's Powers"
-	var/company = sanitize(input(src, "What should your enterprise be called?", "Company name", GLOB.using_map.company_name), MAX_NAME_LEN)
-	if(!company)
-		return
-	var/company_s = sanitize(input(src, "What's the short name for it?", "Company name", GLOB.using_map.company_short), MAX_NAME_LEN)
-	if(company != GLOB.using_map.company_name)
-		if (company)
-			GLOB.using_map.company_name = company
-		if(company_s)
-			GLOB.using_map.company_short = company_s
-		command_announcement.Announce("Congratulations to all members of [capitalize(GLOB.using_map.company_name)] on the new name. Their rebranding has changed the [GLOB.using_map.company_short] market value by [0.01*rand(-10,10)]%.", "Tradehouse Name Change")
-	verbs -= /client/proc/tradehouse_rename_company
-
 /datum/job/captain/get_access()
 	return get_all_station_access()
 
 /datum/job/chief_engineer
-	title = "Head Engineer"
+	title = "The Engineer"
 	supervisors = "the Captain"
-	department_flag = ENG
+	department_flag = COM|ENG
+	department = "The Crew"
+	head_position = 0
+	selection_color = "#7f6e2c"
+	minimal_player_age = 7
+	economic_power = 7
+
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/chief_engineer
 	min_skill = list(   SKILL_BUREAUCRACY  = SKILL_BASIC,
 	                    SKILL_COMPUTER     = SKILL_ADEPT,
@@ -106,20 +98,26 @@
 	                    SKILL_ELECTRICAL   = SKILL_MAX,
 	                    SKILL_ATMOS        = SKILL_MAX,
 	                    SKILL_ENGINES      = SKILL_MAX)
-	skill_points = 30
+	skill_points = 28
 	alt_titles = list()
 
 /datum/job/doctor
-	title = "Head Doctor"
+	title = "The Doc"
 	supervisors = "the Captain and your own ethics"
+	department_flag = COM|MED
+	department = "The Crew"
+	head_position = 0
+	selection_color = "#7f6e2c"
+	minimal_player_age = 7
+	economic_power = 7
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/doc
-	alt_titles = list(
-		"Surgeon")
+	alt_titles = list()
 	total_positions = 1
 	spawn_positions = 1
 	hud_icon = "hudmedicaldoctor"
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
 	                    SKILL_MEDICAL     = SKILL_EXPERT,
+
 	                    SKILL_ANATOMY     = SKILL_EXPERT,
 	                    SKILL_CHEMISTRY   = SKILL_BASIC)
 
@@ -128,17 +126,15 @@
 	                    SKILL_CHEMISTRY   = SKILL_MAX)
 	skill_points = 28
 
-/datum/job/doctor/junior
-	title = "Junior Doctor"
-	supervisors = "the Head Doctor and the Captain"
-	total_positions = 2
-	spawn_positions = 2
-	alt_titles = list()
-	skill_points = 24
-
 /datum/job/hop
-	title = "First Mate"
-	supervisors = "the Captain"
+	title = "Ivanmoth Trade Supervisor"
+	supervisors = "Tradehouse Ivanmoth"
+	department_flag = SRV
+	department = "Tradehouse Ivanmoth"
+	head_position = 1
+	selection_color = "#8b0000"
+	minimal_player_age = 14
+	economic_power = 15
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/mate
 	hud_icon = "hudheadofpersonnel"
 	min_skill = list(   SKILL_WEAPONS     = SKILL_BASIC,
@@ -154,34 +150,25 @@
 
 /datum/job/assistant
 	title = "Deck Hand"
-	supervisors = "literally everyone, you bottom feeder"
+	department_flag = COM
+	department = "The Crew"
+	head_position = 0
+	selection_color = "#7f6e2c"
+	minimal_player_age = 0
+	economic_power = 2
+	supervisors = "The captain and the other memebers of the crew."
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/hand
 	alt_titles = list(
 		"Cook" = /decl/hierarchy/outfit/job/tradeship/hand/cook,
-		"Cargo Hand",
-		"Passenger")
+		"Cargo Hand"
+		)
 	hud_icon = "hudcargotechnician"
-
-/datum/job/engineer
-	title = "Junior Engineer"
-	supervisors = "the Head Engineer"
-	total_positions = 2
-	spawn_positions = 2
-	hud_icon = "hudengineer"
-	outfit_type = /decl/hierarchy/outfit/job/tradeship/hand/engine
-	min_skill = list(   SKILL_COMPUTER     = SKILL_BASIC,
-	                    SKILL_EVA          = SKILL_BASIC,
-	                    SKILL_CONSTRUCTION = SKILL_ADEPT,
-	                    SKILL_ELECTRICAL   = SKILL_BASIC,
-	                    SKILL_ATMOS        = SKILL_BASIC,
-	                    SKILL_ENGINES      = SKILL_BASIC)
-
-	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
-	                    SKILL_ELECTRICAL   = SKILL_MAX,
-	                    SKILL_ATMOS        = SKILL_MAX,
-	                    SKILL_ENGINES      = SKILL_MAX)
-	skill_points = 20
-	alt_titles = list()
+	access = list(access_medical, access_engine, access_eva, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
+			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_hydroponics,
+			            access_library, access_mining, access_mining_station)
+	minimal_access = list(access_medical, access_engine, access_eva, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
+			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_hydroponics,
+			            access_library, access_mining, access_mining_station)
 
 /datum/job/cyborg
 	supervisors = "your laws and the Captain"
@@ -190,10 +177,24 @@
 	alt_titles = list()
 
 /datum/job/rd
-	title = "Head Researcher"
-	supervisors = "the Captain"
+	title = "Ivanmoth Science Attach"
+	supervisors = "Tradehouse Ivanmoth"
+	department_flag = SRV|SCI
+	department = "Tradehouse Ivanmoth"
+	head_position = 0
+	selection_color = "#8b0000"
+	minimal_player_age = 10
+	economic_power = 10
 	spawn_positions = 1
 	total_positions = 1
+	access = list(access_rd, access_tox, access_morgue,
+			            access_tox_storage, access_teleporter, access_sec_doors, access_heads,
+			            access_research, access_robotics, access_xenobiology, access_tech_storage,
+			            access_tcomsat, access_gateway, access_xenoarch)
+	minimal_access = list(access_rd, access_tox, access_morgue,
+			            access_tox_storage, access_teleporter, access_sec_doors, access_heads,
+			            access_research, access_robotics, access_xenobiology, access_tech_storage,
+			            access_tcomsat, access_gateway, access_xenoarch)
 	alt_titles = list()
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/hand/researcher
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_ADEPT,
@@ -209,27 +210,10 @@
 	                    SKILL_SCIENCE     = SKILL_MAX)
 	skill_points = 30
 
-/datum/job/scientist
-	title = "Junior Researcher"
-	supervisors = "the Head Researcher and the Captain"
-	spawn_positions = 1
-	total_positions = 2
-	alt_titles = list()
-	outfit_type = /decl/hierarchy/outfit/job/tradeship/hand/researcher/junior
-	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
-	                    SKILL_COMPUTER    = SKILL_BASIC,
-	                    SKILL_DEVICES     = SKILL_BASIC,
-	                    SKILL_SCIENCE     = SKILL_ADEPT)
-
-	max_skill = list(   SKILL_ANATOMY     = SKILL_MAX,
-	                    SKILL_DEVICES     = SKILL_MAX,
-	                    SKILL_SCIENCE     = SKILL_MAX)
-	skill_points = 24
-
 /datum/job/yinglet
-	title = "Enclave Worker"
-	spawn_positions = 2
-	total_positions = 4
+	title = "Enclave Yinglet"
+	spawn_positions = 4
+	total_positions = 6
 	hud_icon = "hudying"
 	supervisors = "the Matriarch and the Patriarches"
 	outfit_type = /decl/hierarchy/outfit/job/yinglet
@@ -245,37 +229,15 @@
 	if(required_gender && prefs.gender != required_gender)
 		. = "[required_gender] only"
 
-/datum/job/yinglet/scout
-	title = "Enclave Scout"
-	spawn_positions = 1
-	total_positions = 3
-	department_flag = EXP
-	hud_icon = "hudyingscout"
-	supervisors = "the Matriarch and the Patriarches"
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/scout
-	access = list(access_eva, access_research)
-	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
-	                    SKILL_EVA         = SKILL_ADEPT,
-	                    SKILL_SCIENCE     = SKILL_ADEPT,
-	                    SKILL_PILOT       = SKILL_BASIC)
-
-	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
-	                    SKILL_SCIENCE     = SKILL_MAX,
-	                    SKILL_COMBAT      = SKILL_EXPERT,
-	                    SKILL_WEAPONS     = SKILL_EXPERT)
-	skill_points = 22
-
 /datum/job/yinglet/patriarch
-	title = "Enclave Patriarch"
+	title = "Patriarch of Starfaring"
 	hud_icon = "hudyingpatriarch"
-	spawn_positions = 2
-	total_positions = 3
+	spawn_positions = 1
+	total_positions = 1
 	supervisors = "the Matriarch"
 	required_gender = MALE
 	outfit_type = /decl/hierarchy/outfit/job/yinglet/patriarch
 	min_skill = list(   SKILL_WEAPONS     = SKILL_BASIC,
-	                    SKILL_FINANCE     = SKILL_EXPERT,
-	                    SKILL_BUREAUCRACY = SKILL_ADEPT,
 	                    SKILL_PILOT       = SKILL_ADEPT,
 						SKILL_COMPUTER     = SKILL_BASIC,
 	                    SKILL_EVA          = SKILL_BASIC,
@@ -283,23 +245,22 @@
 	                    SKILL_ELECTRICAL   = SKILL_BASIC)
 
 	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
-	                    SKILL_FINANCE     = SKILL_MAX,
-	                    SKILL_BUREAUCRACY = SKILL_ADEPT,
+	                    SKILL_EVA         = SKILL_MAX,
 						SKILL_CONSTRUCTION = SKILL_MAX,
 	                    SKILL_ELECTRICAL   = SKILL_MAX,
 	                    SKILL_ATMOS        = SKILL_MAX,
 	                    SKILL_ENGINES      = SKILL_MAX)
 	skill_points = 26
-	head_position = 1
-	department_flag = COM|CIV
+	head_position = 0
+	department_flag = CIV
 	access = list(
 		access_heads, access_medical, access_engine, access_change_ids, access_eva, access_bridge,
-		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_research, access_heads_vault,
-		access_hop, access_RC_announce, access_keycard_auth)
+		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_heads_vault,
+		access_RC_announce, access_keycard_auth)
 	minimal_access = list(
 		access_heads, access_medical, access_engine, access_change_ids, access_eva, access_bridge,
 		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_research, access_heads_vault,
-		access_hop, access_RC_announce, access_keycard_auth)
+		access_RC_announce, access_keycard_auth)
 
 
 /datum/job/yinglet/matriarch
@@ -324,17 +285,53 @@
 						)
 	skill_points = 30
 	head_position = 1
-	department_flag = COM|CIV
+	department_flag = CIV
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1
 	access = list(
+		access_heads, access_medical, access_engine, access_eva, access_bridge,
+		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_heads_vault,
+		access_RC_announce, access_keycard_auth)
+	minimal_access = list(
+		access_heads, access_medical, access_engine, access_eva, access_bridge,
+		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_heads_vault,
+		access_RC_announce, access_keycard_auth)
+
+/datum/job/baxxid
+	title = "The Baxxid"
+	head_position = 0
+	department_flag = COM
+
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the captain"
+	selection_color = "#7f6e2c"
+	req_admin_notify = 0
+	minimal_player_age = 14
+	economic_power = 15
+	ideal_character_age = 50
+	min_skill = list(   SKILL_FINANCE     = SKILL_EXPERT,
+	                    SKILL_BUREAUCRACY = SKILL_ADEPT
+						)
+
+	max_skill = list(   SKILL_FINANCE     = SKILL_MAX,
+	                    SKILL_BUREAUCRACY = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX
+						)
+	skill_points = 30
+	access = list(
 		access_heads, access_medical, access_engine, access_change_ids, access_eva, access_bridge,
-		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_research, access_heads_vault,
-		access_hop, access_RC_announce, access_keycard_auth)
+		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_heads_vault,
+		access_RC_announce, access_keycard_auth)
 	minimal_access = list(
 		access_heads, access_medical, access_engine, access_change_ids, access_eva, access_bridge,
-		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_research, access_heads_vault,
-		access_hop, access_RC_announce, access_keycard_auth)
+		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_heads_vault,
+		access_RC_announce, access_keycard_auth)
+
+/datum/job/baxxid/is_species_allowed(var/datum/species/S)
+	if(S && !istype(S))
+		S = all_species[S]
+	. = istype(S) && (S.name == SPECIES_BAXXID)
 
 // OUTFITS
 #define TRADESHIP_OUTFIT_JOB_NAME(job_name) ("Tradeship - Job - " + job_name)
@@ -343,7 +340,6 @@
 	hierarchy_type = /decl/hierarchy/outfit/job/tradeship
 	pda_type = /obj/item/modular_computer/pda
 	pda_slot = slot_l_store
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat
 	l_ear = null
 	r_ear = null
 	var/yinglet_suit_fallback = /obj/item/clothing/suit/storage/toggle/redcoat/yinglet
@@ -370,7 +366,6 @@
 	pda_type = /obj/item/modular_computer/pda/captain
 	r_pocket = /obj/item/radio
 	id_type = /obj/item/card/id/gold
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
 
 /decl/hierarchy/outfit/job/tradeship/captain/post_equip(var/mob/living/carbon/human/H)
 	..()
@@ -383,7 +378,7 @@
 			qdel(eyegore)
 
 /decl/hierarchy/outfit/job/tradeship/chief_engineer
-	name = TRADESHIP_OUTFIT_JOB_NAME("Head Engineer")
+	name = TRADESHIP_OUTFIT_JOB_NAME("Engineer")
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	glasses = /obj/item/clothing/glasses/welding/superior
 	suit = /obj/item/clothing/suit/storage/hazardvest
@@ -395,19 +390,13 @@
 	id_type = /obj/item/card/id/engineering/head
 	r_pocket = /obj/item/radio
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 
 /decl/hierarchy/outfit/job/tradeship/doc
-	name = TRADESHIP_OUTFIT_JOB_NAME("Head Doctor")
+	name = TRADESHIP_OUTFIT_JOB_NAME("Doctor")
 	uniform = /obj/item/clothing/under/det/black
 	shoes = /obj/item/clothing/shoes/laceup
 	pda_type = /obj/item/modular_computer/pda/medical
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 	id_type = /obj/item/card/id/medical
-
-/decl/hierarchy/outfit/job/tradeship/doc/junior
-	name = TRADESHIP_OUTFIT_JOB_NAME("Junior Doctor")
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 
 /decl/hierarchy/outfit/job/tradeship/mate
 	name = TRADESHIP_OUTFIT_JOB_NAME("First Mate")
@@ -430,30 +419,13 @@
 /decl/hierarchy/outfit/job/tradeship/hand/cook
 	name = TRADESHIP_OUTFIT_JOB_NAME("Cook")
 	head = /obj/item/clothing/head/chefhat
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
-
-/decl/hierarchy/outfit/job/tradeship/hand/engine
-	name = TRADESHIP_OUTFIT_JOB_NAME("Junior Engineer")
-	head = /obj/item/clothing/head/hardhat
-	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
-	id_type = /obj/item/card/id/engineering
-	shoes = /obj/item/clothing/shoes/workboots
-	l_hand = /obj/item/wrench
-	belt = /obj/item/storage/belt/utility/full
-	r_pocket = /obj/item/radio
 
 /decl/hierarchy/outfit/job/tradeship/hand/researcher
 	name = TRADESHIP_OUTFIT_JOB_NAME("Head Researcher")
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 	shoes = /obj/item/clothing/shoes/laceup
 	pda_type = /obj/item/modular_computer/pda/science
 	id_type = /obj/item/card/id/science/head
-
-/decl/hierarchy/outfit/job/tradeship/hand/researcher/junior
-	name = TRADESHIP_OUTFIT_JOB_NAME("Junior Researcher")
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
-	id_type = /obj/item/card/id/science
 
 /decl/hierarchy/outfit/job/yinglet
 	name = TRADESHIP_OUTFIT_JOB_NAME("Enclave Worker")
@@ -463,11 +435,6 @@
 	pda_type = /obj/item/modular_computer/pda
 	l_ear = null
 	r_ear = null
-
-/decl/hierarchy/outfit/job/yinglet/scout
-	name = TRADESHIP_OUTFIT_JOB_NAME("Enclave Scout")
-	uniform = /obj/item/clothing/under/yinglet/scout
-	head = /obj/item/clothing/head/yinglet/scout
 
 /decl/hierarchy/outfit/job/yinglet/patriarch
 	name = TRADESHIP_OUTFIT_JOB_NAME("Enclave Patriarch")
