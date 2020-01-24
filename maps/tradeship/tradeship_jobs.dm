@@ -212,7 +212,7 @@
 	skill_points = 30
 
 /datum/job/yinglet
-	title = "Enclave Yinglet"
+	title = "Enclave Worker"
 	spawn_positions = 4
 	total_positions = 6
 	hud_icon = "hudying"
