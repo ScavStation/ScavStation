@@ -4,7 +4,7 @@
 "ad" = (/obj/effect/floor_decal/corner/blue,/obj/effect/floor_decal/corner/yellow{icon_state = "corner_white"; dir = 4},/obj/machinery/light{icon_state = "bulb1"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/item/radio/intercom{dir = 8; pixel_x = 22},/turf/simulated/floor/tiled/techfloor,/area/ship/scrap/maintenance/atmos)
 "ae" = (/obj/structure/bed/chair/office/light,/obj/effect/landmark/start{name = "Doctor"},/turf/simulated/floor/tiled/white,/area/ship/scrap/crew/medbay)
 "af" = (/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/machinery/power/apc{dir = 1},/obj/structure/bed/padded,/obj/effect/landmark/start{name = "Engineer"},/turf/simulated/floor/tiled/techfloor,/area/ship/scrap/maintenance/engineering)
-"ag" = (/obj/item/stool/padded,/obj/effect/landmark/start{name = "Ivanmoth Supervisor"},/turf/simulated/floor/tiled,/area/ship/scrap/crew/saloon)
+"ag" = (/obj/item/stool/padded,/obj/effect/landmark/start{name = "Ivenmoth Supervisor"},/turf/simulated/floor/tiled,/area/ship/scrap/crew/saloon)
 "ak" = (/obj/effect/overmap/visitable/ship/tradeship,/turf/space,/area/space)
 "ar" = (/obj/machinery/door/blast/regular,/turf/simulated/floor/plating,/area/ship/scrap/command/captain)
 "as" = (/turf/simulated/wall/r_wall,/area/ship/scrap/command/captain)

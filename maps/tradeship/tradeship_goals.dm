@@ -22,7 +22,7 @@
 	return (1) //not sure how to do this
 
 /datum/department/service
-	name = "House Ivanmoth"
+	name = "Tradehouse Ivenmoth"
 	flag = SRV
 	goals = list(
 		/datum/goal/department/company_profits

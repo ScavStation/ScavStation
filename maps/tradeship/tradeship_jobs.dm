@@ -127,10 +127,10 @@
 	skill_points = 28
 
 /datum/job/hop
-	title = "Ivanmoth Supervisor"
-	supervisors = "Tradehouse Ivanmoth and its profit margin"
+	title = "Ivenmoth Supervisor"
+	supervisors = "Tradehouse Ivenmoth and its profit margin"
 	department_flag = SRV
-	department = "Tradehouse Ivanmoth"
+	department = "Tradehouse Ivenmoth"
 	head_position = 1
 	selection_color = "#8b0000"
 	minimal_player_age = 14
@@ -177,10 +177,10 @@
 	alt_titles = list()
 
 /datum/job/rd
-	title = "Ivanmoth Scientist"
-	supervisors = "Tradehouse Ivanmoth"
+	title = "Ivenmoth Scientist"
+	supervisors = "Tradehouse Ivenmoth"
 	department_flag = SRV|SCI
-	department = "Tradehouse Ivanmoth"
+	department = "Tradehouse Ivenmoth"
 	head_position = 0
 	selection_color = "#8b0000"
 	minimal_player_age = 10
@@ -290,7 +290,7 @@
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1
 	access = list(
-		access_heads, access_medical, access_engine, access_eva, access_bridge,
+		access_heads, access_medical, access_morgue, access_surgery, access_chemistry, access_engine, access_eva, access_bridge,
 		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_heads_vault,
 		access_RC_announce, access_keycard_auth)
 	minimal_access = list(

@@ -1,6 +1,6 @@
 "aa" = (/turf/space,/area/space)
 "ab" = (/obj/effect/shuttle_landmark/below_deck_bow,/turf/space,/area/space)
-"ac" = (/obj/item/stool/padded,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/effect/landmark/start{name = "Ivanmoth Scientist"},/turf/simulated/floor/tiled/white,/area/ship/scrap/science/fabricaton)
+"ac" = (/obj/item/stool/padded,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/effect/landmark/start{name = "Ivenmoth Scientist"},/turf/simulated/floor/tiled/white,/area/ship/scrap/science/fabricaton)
 "ad" = (/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "cargo_out"},/obj/machinery/shield_diffuser,/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
 "ae" = (/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "cargo_out"},/obj/machinery/access_button/airlock_exterior{master_tag = "cargo"; pixel_x = 18; pixel_y = 17},/obj/machinery/shield_diffuser,/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
 "ah" = (/turf/simulated/wall,/area/ship/scrap/escape_port)
