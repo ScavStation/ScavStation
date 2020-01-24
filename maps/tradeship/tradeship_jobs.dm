@@ -307,7 +307,7 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#7f6e2c"
-	hud_icon = "hudquatermaster"
+	hud_icon = "hudquartermaster"
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/hand
 	req_admin_notify = 0
 	minimal_player_age = 14
