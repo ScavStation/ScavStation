@@ -9,8 +9,8 @@
 	player_levels = list(1, 2, 3, 4)
 
 
-	station_name  = "Merchentship Dinnlan's Finest"
-	station_short = "Dinnlan's Finest\n"
+	station_name  = "Dinnlan's Revenge"
+	station_short = "Dinnlan"
 
 	dock_name     = "Val Salia Station"
 	boss_name     = "Trade Administration"

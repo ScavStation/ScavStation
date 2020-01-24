@@ -42,7 +42,7 @@
 	supervisors = "your profit margin, your conscience, and the wellbeing of your crew."
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/captain
 	department_flag = COM
-	department = "The Crew"
+	department = "Ship's Crew"
 	head_position = 1
 	selection_color = "#7f6e2c"
 	min_skill = list(   SKILL_WEAPONS = SKILL_ADEPT,
@@ -76,15 +76,15 @@
 	return get_all_station_access()
 
 /datum/job/chief_engineer
-	title = "The Engineer"
+	title = "Engineer"
 	supervisors = "the Captain"
 	department_flag = COM|ENG
-	department = "The Crew"
+	department = "Ship's Crew"
 	head_position = 0
 	selection_color = "#7f6e2c"
 	minimal_player_age = 7
 	economic_power = 7
-
+	hud_icon = "hudchiefengineer"
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/chief_engineer
 	min_skill = list(   SKILL_BUREAUCRACY  = SKILL_BASIC,
 	                    SKILL_COMPUTER     = SKILL_ADEPT,
@@ -102,17 +102,17 @@
 	alt_titles = list()
 
 /datum/job/doctor
-	title = "The Doc"
+	title = "Docter"
 	supervisors = "the Captain and your own ethics"
 	department_flag = COM|MED
-	department = "The Crew"
+	department = "Ship's Crew"
 	head_position = 0
 	selection_color = "#7f6e2c"
 	minimal_player_age = 7
 	economic_power = 7
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/doc
 	alt_titles = list()
-	total_positions = 1
+	total_positions = 2
 	spawn_positions = 1
 	hud_icon = "hudmedicaldoctor"
 	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
@@ -127,8 +127,8 @@
 	skill_points = 28
 
 /datum/job/hop
-	title = "Ivanmoth Trade Supervisor"
-	supervisors = "Tradehouse Ivanmoth"
+	title = "Ivanmoth Supervisor"
+	supervisors = "Tradehouse Ivanmoth and its profit margin"
 	department_flag = SRV
 	department = "Tradehouse Ivanmoth"
 	head_position = 1
@@ -151,7 +151,7 @@
 /datum/job/assistant
 	title = "Deck Hand"
 	department_flag = COM
-	department = "The Crew"
+	department = "Ship's Crew"
 	head_position = 0
 	selection_color = "#7f6e2c"
 	minimal_player_age = 0
@@ -177,7 +177,7 @@
 	alt_titles = list()
 
 /datum/job/rd
-	title = "Ivanmoth Science Attach"
+	title = "Ivanmoth Scientist"
 	supervisors = "Tradehouse Ivanmoth"
 	department_flag = SRV|SCI
 	department = "Tradehouse Ivanmoth"
@@ -186,7 +186,8 @@
 	minimal_player_age = 10
 	economic_power = 10
 	spawn_positions = 1
-	total_positions = 1
+	total_positions = 2
+	hud_icon = "hudscientist"
 	access = list(access_rd, access_tox, access_morgue,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_heads,
 			            access_research, access_robotics, access_xenobiology, access_tech_storage,
@@ -298,14 +299,16 @@
 		access_RC_announce, access_keycard_auth)
 
 /datum/job/baxxid
-	title = "The Baxxid"
+	title = "Baxxid"
 	head_position = 0
 	department_flag = COM
-
+	department = "Ship's Crew"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#7f6e2c"
+	hud_icon = "hudquatermaster"
+	outfit_type = /decl/hierarchy/outfit/job/tradeship/hand
 	req_admin_notify = 0
 	minimal_player_age = 14
 	economic_power = 15
