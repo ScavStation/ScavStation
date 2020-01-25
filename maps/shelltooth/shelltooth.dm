@@ -4,6 +4,7 @@
 	#include "shelltooth_items.dm"
 	#include "shelltooth_areas.dm"
 	#include "shelltooth_jobs.dm"
+	#include "shelltooth_loadouts.dm"
 	#include "shelltooth_spawnpoints.dm"
 	#include "shelltooth_shuttles.dm"
 	#include "shelltooth_overmap.dm"
