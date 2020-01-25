@@ -102,7 +102,7 @@
 	alt_titles = list()
 
 /datum/job/doctor
-	title = "Docter"
+	title = "Doctor"
 	supervisors = "the Captain and your own ethics"
 	department_flag = COM|MED
 	department = "Ship's Crew"
