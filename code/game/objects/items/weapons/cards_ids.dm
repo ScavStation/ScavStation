@@ -576,6 +576,18 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A card which represents common sense and responsibility."
 	extra_details = list("goldstripe")
 
+/obj/item/card/id/civilian/head/yinglet/patriarch
+	name = "identification card"
+	desc = "A card which represents common sense and responsibility."
+	extra_details = list("goldstripe")
+	job_access_type = /datum/job/yinglet/patriarch
+
+/obj/item/card/id/civilian/head/yinglet/matriarch
+	name = "identification card"
+	desc = "A card which represents common sense and responsibility."
+	extra_details = list("goldstripe")
+	job_access_type = /datum/job/yinglet/matriarch
+
 /obj/item/card/id/merchant
 	name = "identification card"
 	desc = "A card issued to Merchants, indicating their right to sell and buy goods."

@@ -301,11 +301,11 @@
 	access = list(
 		access_heads, access_medical, access_engine, access_change_ids, access_eva, access_bridge,
 		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_research, access_heads_vault,
-		access_hop, access_RC_announce, access_keycard_auth)
+		access_hop, access_RC_announce, access_keycard_auth, access_robotics, access_engine_equip)
 	minimal_access = list(
 		access_heads, access_medical, access_engine, access_change_ids, access_eva, access_bridge,
 		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_research, access_heads_vault,
-		access_hop, access_RC_announce, access_keycard_auth)
+		access_hop, access_RC_announce, access_keycard_auth, access_robotics, access_engine_equip)
 
 
 /datum/job/yinglet/matriarch
@@ -494,12 +494,12 @@
 /decl/hierarchy/outfit/job/yinglet/patriarch
 	name = TRADESHIP_OUTFIT_JOB_NAME("Enclave Patriarch")
 	suit = /obj/item/clothing/suit/yinglet
-	id_type = /obj/item/card/id/silver
+	id_type = /obj/item/card/id/civilian/head/yinglet/patriarch
 	pda_type = /obj/item/modular_computer/pda/heads
 
 /decl/hierarchy/outfit/job/yinglet/matriarch
 	name = TRADESHIP_OUTFIT_JOB_NAME("Enclave Matriarch")
 	uniform = /obj/item/clothing/under/yinglet/matriarch
 	head = /obj/item/clothing/head/yinglet/matriarch
-	id_type = /obj/item/card/id/silver
+	id_type = /obj/item/card/id/civilian/head/yinglet/matriarch
 	pda_type = /obj/item/modular_computer/pda/heads
