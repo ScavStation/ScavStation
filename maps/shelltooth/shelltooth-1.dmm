@@ -1,0 +1,6033 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/space,
+/area/space)
+"ab" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"ac" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/cryo)
+"ad" = (
+/turf/simulated/mineral,
+/area/space)
+"ae" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hydro)
+"af" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"ag" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/rec)
+"ah" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/rec)
+"ai" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/kitchen)
+"aj" = (
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/north_west)
+"ak" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/cafe)
+"al" = (
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/north_east)
+"am" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/alarm{
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"an" = (
+/obj/machinery/vending/boozeomat,
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"ao" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/hygiene/sink/kitchen{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"ap" = (
+/obj/structure/table/standard,
+/obj/machinery/microwave,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 1
+	},
+/obj/machinery/firealarm{
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"aq" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/mob/living/simple_animal/hostile/retaliate/goat,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/maint/level_two/north)
+"ar" = (
+/obj/machinery/button/blast_door{
+	name = "bar shutters control";
+	pixel_x = 6;
+	pixel_y = 23;
+	id_tag = "bar_shutter"
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"as" = (
+/obj/structure/table/standard,
+/obj/item/stamp/clown,
+/obj/item/synthesized_instrument/guitar,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_two/backstage)
+"at" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/nursery)
+"au" = (
+/obj/structure/table/standard,
+/obj/item/chems/food/condiment/small/peppermill,
+/obj/item/chems/food/condiment/small/saltshaker,
+/obj/item/chems/food/condiment/small/sugar,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/chems/food/condiment/enzyme,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"av" = (
+/turf/simulated/floor/wood/yew,
+/area/shelltooth/level_two/cafe)
+"aw" = (
+/turf/simulated/wall,
+/area/space)
+"ax" = (
+/obj/machinery/door/airlock/hatch/autoname/general,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"ay" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north_west)
+"az" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/laundry)
+"aA" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"aB" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"aC" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north_west)
+"aD" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/dorm)
+"aE" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/laundry)
+"aF" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/laundry)
+"aG" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"aH" = (
+/obj/structure/table/standard,
+/obj/item/lipstick/random,
+/obj/item/mirror,
+/obj/machinery/firealarm{
+	pixel_y = 17
+	},
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_two/backstage)
+"aI" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north_east)
+"aJ" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/dorm)
+"aK" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/dorm)
+"aL" = (
+/turf/simulated/open,
+/area/shelltooth/level_two/hall)
+"aM" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north_east)
+"aN" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north_west)
+"aO" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hydro)
+"aP" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north_east)
+"aQ" = (
+/obj/item/stool/bar,
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"aR" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/bathroom)
+"aS" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/bathroom)
+"aT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"aU" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/bathroom)
+"aV" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/dorm)
+"aW" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/west)
+"aX" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"aY" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"aZ" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 1
+	},
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/shelltooth/level_two/hall)
+"ba" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "32-4"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	icon_state = "down-supply";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	icon_state = "down-scrubbers";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/shelltooth/level_two/hall)
+"bb" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/open,
+/area/shelltooth/level_two/hall)
+"bc" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 1
+	},
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	icon_state = "up-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	icon_state = "up-supply";
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "16-0"
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/open,
+/area/shelltooth/level_two/hall)
+"bd" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/shelltooth/level_two/hall)
+"be" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"bf" = (
+/obj/machinery/power/apc/high{
+	icon_state = "apc0";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	d2 = 2
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bg" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "stripecorner";
+	dir = 8
+	},
+/obj/structure/catwalk,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"bh" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/east)
+"bi" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/west)
+"bj" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"bk" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 8
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"bl" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bm" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/chem)
+"bn" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bo" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/med)
+"bp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bq" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/east)
+"br" = (
+/obj/structure/closet,
+/obj/item/clothing/mask/gas/clown_hat,
+/obj/item/clothing/shoes/clown_shoes,
+/obj/item/clothing/under/rank/clown,
+/obj/item/storage/backpack/clown,
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_two/backstage)
+"bs" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/chem)
+"bt" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/med)
+"bu" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/chem)
+"bv" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/chem)
+"bw" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/med)
+"bx" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/med)
+"by" = (
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/south)
+"bz" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bA" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/hydro)
+"bB" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hydro)
+"bC" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 8
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"bD" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/west)
+"bE" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/east)
+"bF" = (
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/west)
+"bG" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"bH" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "stripecorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 8
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"bI" = (
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/east)
+"bJ" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"bK" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"bL" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"bM" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"bN" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "stripecorner";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/catwalk,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"bO" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south_west)
+"bP" = (
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/south_west)
+"bQ" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south)
+"bR" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bS" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south_west)
+"bT" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south_west)
+"bU" = (
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/south_east)
+"bV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bW" = (
+/obj/machinery/door/airlock/civilian,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bX" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"bY" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/hall)
+"bZ" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"ca" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/north_west)
+"cb" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"cc" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/nursery)
+"cd" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"ce" = (
+/obj/machinery/cooker/cereal,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/alarm{
+	icon_state = "alarm0";
+	dir = 4;
+	pixel_x = -25
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cf" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cg" = (
+/obj/structure/table/marble,
+/obj/machinery/door/blast/shutters/open{
+	name = "bar shutter";
+	icon_state = "shutter1";
+	dir = 8;
+	id_tag = "bar_shutter"
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"ch" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/cryo)
+"ci" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south)
+"cj" = (
+/obj/machinery/cooker/fryer,
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"ck" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/reagent_temperature{
+	pixel_x = -11;
+	pixel_y = 3
+	},
+/obj/machinery/reagent_temperature/cooler{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cl" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cm" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/door/blast/shutters/open{
+	name = "bar shutter";
+	icon_state = "shutter1";
+	dir = 8;
+	id_tag = "bar_shutter"
+	},
+/obj/machinery/door/window/eastleft,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cn" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"co" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/laundry)
+"cp" = (
+/obj/item/stool,
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cq" = (
+/turf/simulated/wall,
+/area/shelltooth/level_two/backstage)
+"cr" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cs" = (
+/turf/simulated/wall,
+/area/shelltooth/maint/level_two/north)
+"ct" = (
+/obj/machinery/cooker/grill,
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cu" = (
+/obj/machinery/cooker/oven,
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cv" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"cw" = (
+/obj/structure/table/standard,
+/obj/item/chems/food/condiment/soysauce,
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cx" = (
+/obj/structure/kitchenspike,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cy" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/light_switch{
+	icon_state = "light0";
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cz" = (
+/obj/structure/table/standard,
+/obj/machinery/light/small,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/item/board,
+/obj/item/storage/box/checkers,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cA" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"cB" = (
+/obj/machinery/vending/cigarette{
+	icon_state = "cigs";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/firealarm{
+	icon_state = "casing";
+	dir = 1;
+	pixel_y = -26
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cC" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/disposal,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_two/backstage)
+"cE" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/computer/arcade,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cF" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cG" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/media/jukebox/old,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cH" = (
+/obj/structure/table/standard,
+/obj/item/toy/figure/clown,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 4
+	},
+/obj/machinery/alarm{
+	icon_state = "alarm0";
+	dir = 4;
+	pixel_x = -24
+	},
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_two/backstage)
+"cI" = (
+/obj/structure/closet/lasertag/blue,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/east)
+"cJ" = (
+/obj/structure/closet/lasertag/red,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/east)
+"cK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light_switch{
+	icon_state = "light0";
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_two/backstage)
+"cL" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/backstage)
+"cM" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/power/apc{
+	areastring = "\improper Backstage";
+	dir = 4;
+	icon_state = "apc0"
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"cN" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/cooker/candy,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cO" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/reagentgrinder/juicer,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cP" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/chems/glass/beaker,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cQ" = (
+/obj/structure/reagent_dispensers/beerkeg,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"cR" = (
+/obj/machinery/icecream_vat,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"cS" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood/yew,
+/area/shelltooth/level_two/cafe)
+"cT" = (
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"cU" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 20
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"cV" = (
+/obj/structure/sign/double/barsign,
+/turf/simulated/wall,
+/area/shelltooth/level_two/kitchen)
+"cW" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/kitchen)
+"cX" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/kitchen)
+"cY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"cZ" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"da" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"db" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"dc" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"dd" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/rec)
+"de" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 1
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"df" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"dg" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood/yew,
+/area/shelltooth/level_two/cafe)
+"di" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dj" = (
+/obj/item/stool,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dk" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dl" = (
+/obj/machinery/door/airlock/glass/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/turf/simulated/wall,
+/area/shelltooth/level_two/cafe)
+"dm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dn" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"do" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"dp" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"dq" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"dr" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"ds" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dt" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"du" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dv" = (
+/obj/machinery/power/apc{
+	areastring = "\improper Kitchen"
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"dw" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"dx" = (
+/obj/machinery/power/apc{
+	areastring = "\improper Cafeteria"
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"dy" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dz" = (
+/obj/machinery/door/airlock/civilian,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dA" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dB" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/north)
+"dC" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/random/single/textbook,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dD" = (
+/obj/item/stool,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dE" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dF" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/vending/coffee{
+	icon_state = "coffee";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dG" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/dorm)
+"dH" = (
+/obj/machinery/door/airlock/glass/civilian,
+/obj/machinery/door/firedoor,
+/turf/simulated/wall,
+/area/shelltooth/level_two/cafe)
+"dI" = (
+/obj/item/stool,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/light_switch{
+	icon_state = "light0";
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/white,
+/area/shelltooth/level_two/cafe)
+"dJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/dorm)
+"dK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/bathroom)
+"dL" = (
+/obj/machinery/door/airlock/glass/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/rec)
+"dM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/rec)
+"dN" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dO" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/rec)
+"dQ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/laundry)
+"dS" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall,
+/area/shelltooth/level_two/laundry)
+"dT" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/dorm)
+"dV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/chem)
+"dW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/bathroom)
+"dX" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall,
+/area/shelltooth/level_two/bathroom)
+"dY" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"dZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/med)
+"ea" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"eb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"ec" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"ed" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"ee" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/laundry)
+"ef" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"eg" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"eh" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hydro)
+"ei" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/laundry)
+"ej" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/bathroom)
+"ek" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"el" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"em" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/chem)
+"en" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/med)
+"eo" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/cryo)
+"ep" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/rec)
+"eq" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/dorm)
+"er" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/chem)
+"es" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/med)
+"et" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south_east)
+"eu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/chem)
+"ev" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/med)
+"ew" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south_east)
+"ex" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south_east)
+"ey" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/maint/level_two/south_east)
+"ez" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/cryo)
+"eA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/cryo)
+"eB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"eC" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/dorm)
+"eD" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"eE" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"eF" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "stripecorner";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/hall)
+"eG" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"eH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"eI" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/bathroom)
+"eJ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/hall)
+"eK" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/chem)
+"eL" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/med)
+"eM" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/cryo)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bA
+bA
+bA
+bA
+bA
+bA
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bA
+bB
+bB
+bB
+bB
+bA
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bA
+bB
+bB
+bB
+bB
+bA
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bA
+bB
+aO
+eh
+bB
+bA
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bA
+bB
+bB
+ae
+bB
+bA
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aj
+ca
+bY
+ax
+bY
+bY
+ab
+ab
+ab
+ab
+ab
+bY
+bY
+bY
+bY
+bP
+bP
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+aj
+ay
+aC
+aT
+aA
+bY
+ad
+ab
+ab
+ad
+ad
+bY
+aA
+aA
+bO
+bS
+bP
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ad
+aj
+ay
+bY
+aT
+aA
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+aA
+aA
+bY
+bS
+bP
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ad
+ad
+ad
+ad
+aj
+ay
+bY
+bn
+aA
+aW
+bi
+bi
+bD
+bi
+bi
+aW
+aA
+bX
+bY
+bS
+bP
+ad
+ad
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+ay
+bY
+aT
+aA
+az
+az
+az
+aW
+aR
+aR
+aR
+aA
+aA
+bY
+bS
+bP
+bP
+bP
+bP
+bP
+bP
+bP
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aj
+ay
+ay
+ay
+ay
+ay
+ay
+aN
+bY
+aT
+aA
+az
+aE
+aE
+az
+aS
+aS
+aR
+aA
+aA
+bY
+bT
+bS
+bS
+bS
+bS
+bS
+bS
+bP
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bY
+bY
+bY
+aC
+bY
+bY
+bY
+bY
+bY
+bY
+bY
+aT
+aA
+az
+aE
+aE
+az
+aS
+aS
+aR
+aA
+aA
+bY
+bY
+bY
+bY
+bY
+bY
+bY
+bO
+bY
+bY
+bY
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bY
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+eg
+bR
+aA
+az
+aF
+ei
+az
+ej
+aU
+aR
+ek
+aA
+aA
+bl
+aA
+aA
+aA
+aA
+bl
+aA
+aA
+aA
+bY
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+bY
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+bp
+bV
+aA
+az
+ee
+co
+az
+dK
+eI
+aR
+eB
+eJ
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+bY
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+bY
+bY
+aG
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+aT
+aA
+az
+aE
+dR
+az
+dW
+aS
+aR
+aT
+aA
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+bQ
+by
+bY
+bY
+ad
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ad
+cs
+af
+ai
+an
+cN
+ce
+cj
+ct
+cu
+ai
+cb
+bW
+az
+az
+dS
+az
+dX
+aR
+aR
+cb
+bW
+bm
+bs
+bs
+bu
+bs
+bs
+bm
+ci
+by
+ad
+ad
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ad
+cs
+af
+ai
+ao
+bG
+cf
+cf
+aY
+cw
+ai
+aT
+aA
+aA
+aA
+dT
+aA
+aT
+aA
+aA
+aT
+aA
+bm
+bs
+bs
+bs
+bs
+bs
+bm
+ci
+by
+ad
+ad
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ad
+cs
+dv
+ai
+ap
+bJ
+cO
+au
+bj
+cx
+ai
+aT
+aA
+aA
+aA
+aT
+aA
+aT
+aA
+aA
+eE
+cY
+er
+eu
+dV
+em
+bs
+bs
+bQ
+ci
+by
+ad
+ad
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+cs
+dq
+cA
+aq
+bJ
+cP
+ck
+bj
+cy
+ai
+bn
+aA
+cZ
+db
+ef
+db
+ef
+db
+dc
+eF
+aA
+bm
+bs
+eK
+bs
+bs
+bs
+bm
+ci
+by
+ad
+ad
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+cs
+dq
+ai
+ar
+bK
+bL
+bL
+cl
+cW
+cX
+cn
+cY
+dn
+aL
+aL
+aL
+aL
+aL
+aZ
+de
+bX
+bm
+bs
+bs
+bv
+bs
+bs
+bm
+ci
+by
+ad
+ad
+ad
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+cs
+dq
+ai
+ai
+cm
+cg
+cg
+cg
+cg
+cV
+aA
+aA
+do
+aL
+aL
+aL
+aL
+aL
+ba
+de
+aA
+bm
+bm
+bm
+bm
+bm
+bm
+bm
+ci
+by
+ad
+ad
+ad
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+cs
+dq
+cQ
+ak
+am
+aQ
+aQ
+aQ
+aQ
+ak
+aA
+aA
+do
+aL
+aL
+aL
+aL
+aL
+bb
+df
+aA
+bQ
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+by
+by
+by
+by
+by
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cs
+dq
+cR
+ak
+cU
+cF
+di
+dk
+dk
+dl
+dm
+dN
+da
+aL
+aL
+aL
+aL
+aL
+bc
+bM
+aA
+bo
+bo
+bo
+bo
+bo
+bo
+bo
+ci
+ci
+ci
+ci
+ci
+by
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cs
+cs
+cs
+cs
+dw
+dx
+ak
+cE
+cd
+dj
+cp
+dI
+ak
+aB
+aT
+be
+aL
+aL
+aL
+aL
+aL
+bd
+bM
+bX
+bo
+bt
+bt
+bw
+bt
+bt
+bo
+ci
+cc
+cc
+cc
+cc
+cc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cs
+dp
+dt
+cM
+dB
+af
+cA
+cd
+dg
+dC
+cr
+cz
+ak
+cT
+aT
+bg
+bk
+bC
+bC
+bC
+bk
+bH
+bN
+aA
+bo
+bt
+bt
+bt
+bt
+bt
+bo
+ci
+cc
+at
+at
+at
+cc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cs
+dq
+cq
+cq
+cq
+cq
+ak
+cG
+cd
+dD
+cp
+cp
+ak
+dy
+dO
+dQ
+dQ
+dQ
+eD
+dQ
+dQ
+dQ
+eG
+cY
+es
+ev
+dZ
+en
+bt
+bt
+bo
+ci
+cc
+at
+at
+at
+cc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cs
+dq
+cq
+aH
+as
+cH
+ak
+av
+av
+dE
+cd
+cd
+dH
+bz
+aT
+aA
+aA
+aA
+eb
+aX
+aA
+bf
+dY
+aA
+bo
+bt
+eL
+bt
+bt
+bt
+bQ
+ci
+bQ
+at
+at
+at
+cc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cs
+dq
+aG
+br
+cD
+cK
+cL
+cS
+dh
+dF
+cC
+cB
+ak
+dz
+dA
+aD
+aD
+aD
+dG
+aD
+aD
+aD
+ea
+bW
+bo
+bt
+bt
+bx
+bt
+bt
+bo
+ci
+cc
+at
+at
+at
+cc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bY
+dr
+cq
+cq
+cq
+cq
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+bz
+aT
+aD
+aJ
+aJ
+dJ
+aJ
+aJ
+aD
+eb
+aA
+bo
+bo
+bo
+bo
+bo
+bo
+bo
+bQ
+cc
+cc
+cc
+cc
+cc
+aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bY
+ds
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+du
+cv
+bV
+aD
+aJ
+aJ
+dJ
+aJ
+aJ
+aD
+eb
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+aA
+bY
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bY
+aA
+aA
+aA
+aA
+aA
+bZ
+aA
+aA
+aA
+aA
+bZ
+aA
+eg
+bR
+aD
+aK
+eC
+dU
+aJ
+aV
+aD
+eb
+aA
+aA
+bZ
+aA
+aA
+aA
+aA
+bZ
+aA
+aA
+aA
+aA
+aA
+aA
+bY
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bY
+bY
+bY
+bY
+al
+aI
+bY
+bY
+bY
+bY
+bY
+bY
+bY
+aA
+aT
+aD
+aJ
+aJ
+eq
+aJ
+aJ
+aD
+eb
+aA
+bY
+bY
+ch
+ch
+ch
+ch
+ch
+bY
+bY
+bY
+bY
+bY
+bY
+bY
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+al
+aM
+aM
+aM
+aM
+aM
+aM
+aP
+bY
+aA
+aT
+aD
+aJ
+aJ
+aJ
+aJ
+aJ
+aD
+ec
+el
+bY
+ew
+et
+ez
+eA
+eo
+ch
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+al
+al
+al
+al
+al
+al
+al
+aM
+bY
+aA
+aT
+aD
+aD
+aD
+bh
+aD
+aD
+aD
+eH
+eJ
+bY
+ex
+ch
+ac
+eM
+ac
+ch
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ad
+ad
+ad
+ad
+al
+aM
+bY
+aB
+aT
+bh
+bq
+bq
+bE
+bq
+bq
+bh
+eb
+bX
+bY
+ex
+ch
+ac
+ac
+ac
+ch
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ad
+ad
+al
+aM
+bY
+aA
+aT
+bI
+cI
+bq
+bI
+bI
+bI
+bI
+eb
+aA
+bY
+ex
+ch
+ch
+ch
+ch
+ch
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+al
+aM
+aI
+aA
+aT
+bY
+cJ
+bq
+bI
+ad
+ad
+bY
+ed
+cY
+et
+ey
+bU
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+al
+ag
+ag
+ag
+dL
+ag
+ag
+bq
+bI
+ab
+ad
+bY
+bY
+bY
+bY
+bU
+bU
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ag
+ah
+ah
+dM
+ah
+ag
+bq
+bI
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(50,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ag
+ah
+dd
+dP
+ah
+bh
+bq
+bI
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(51,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ag
+ah
+ah
+ep
+ah
+ag
+bI
+bI
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(52,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ag
+ah
+ah
+ah
+ah
+ag
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(53,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ag
+ag
+ag
+ag
+ag
+ag
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(54,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(55,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(56,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(57,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(58,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(59,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(60,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(61,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(62,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(63,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(64,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
