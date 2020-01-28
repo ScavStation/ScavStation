@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(goals)
 	)
 	var/list/departments = list()
 	var/list/ambitions =   list()
-
+/*
 /datum/controller/subsystem/goals/Initialize()
 	var/list/all_depts = subtypesof(/datum/department)
 	//See if map is very particular about what depts it has
@@ -49,3 +49,4 @@ SUBSYSTEM_DEF(goals)
 		. = "<br>[jointext(., "<br>")]"
 	else
 		. = "<br><b>There were no departmental goals this round.</b>"
+*/
