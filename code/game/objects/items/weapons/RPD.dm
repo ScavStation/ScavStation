@@ -1,4 +1,8 @@
-GLOBAL_LIST_INIT(rpd_pipe_selection, list(
+GLOBAL_LIST_EMPTY(rpd_pipe_selection)
+GLOBAL_LIST_EMPTY(rpd_pipe_selection_skilled)
+
+/proc/init_rpd_lists()
+	GLOB.rpd_pipe_selection = list(
 	"Regular Pipes" = list(
 		new /datum/fabricator_recipe/pipe(),
 		new /datum/fabricator_recipe/pipe/bent(),
@@ -17,9 +21,9 @@ GLOBAL_LIST_INIT(rpd_pipe_selection, list(
 		new /datum/fabricator_recipe/pipe/scrubber/manifold(),
 		new /datum/fabricator_recipe/pipe/scrubber/manifold4w(),
 		new /datum/fabricator_recipe/pipe/scrubber/cap())
-	))
+	)
 
-GLOBAL_LIST_INIT(rpd_pipe_selection_skilled, list(
+	GLOB.rpd_pipe_selection_skilled = list(
 	"Regular Pipes" = list(
 		new /datum/fabricator_recipe/pipe(),
 		new /datum/fabricator_recipe/pipe/bent(),
@@ -56,7 +60,7 @@ GLOBAL_LIST_INIT(rpd_pipe_selection_skilled, list(
 		new /datum/fabricator_recipe/pipe/fuel/up(),
 		new /datum/fabricator_recipe/pipe/fuel/down()
 		)
-	))
+	)
 
 /obj/item/rpd
 	name = "rapid piping device"
