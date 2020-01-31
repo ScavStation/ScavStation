@@ -22,16 +22,19 @@
 		var/obj/O = path
 		name = initial(O.name)
 	if(!resources)
-		resources = list()
-		var/obj/item/I = new path
-		var/list/building_cost = I.building_cost()
-		for(var/path in building_cost)
-			if(!ignore_materials[path])
-				resources[path] = building_cost[path] * FABRICATOR_EXTRA_COST_FACTOR
-		qdel(I)
+		get_resources()
 	if(ispath(path, /obj/item/stack))
 		var/obj/item/stack/stack = path
 		max_amount = max(1, initial(stack.max_amount))
+
+/datum/fabricator_recipe/proc/get_resources()
+	resources = list()
+	var/obj/item/I = new path
+	var/list/building_cost = I.building_cost()
+	for(var/path in building_cost)
+		if(!ignore_materials[path])
+			resources[path] = building_cost[path] * FABRICATOR_EXTRA_COST_FACTOR
+	qdel(I)
 
 /obj/proc/building_cost()
 	. = list()

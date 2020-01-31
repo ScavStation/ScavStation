@@ -19,6 +19,15 @@
 	)
 	max_amount = 10
 
+/datum/fabricator_recipe/pipe/get_resources()
+	resources = list()
+	var/obj/item/I = new constructed_path
+	var/list/building_cost = I.building_cost()
+	for(var/path in building_cost)
+		if(!ignore_materials[path])
+			resources[path] = building_cost[path] * FABRICATOR_EXTRA_COST_FACTOR
+	qdel(I)
+
 /datum/fabricator_recipe/pipe/build(var/turf/location, var/amount = 1, var/color = PIPE_COLOR_WHITE)
 	for(var/i = 1, i <= amount, i++)
 		var/obj/item/pipe/new_item = new path(location)

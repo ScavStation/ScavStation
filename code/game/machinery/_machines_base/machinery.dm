@@ -365,7 +365,8 @@ Class Procs:
 	if(circuit)
 		circuit.deconstruct(src)
 	if(ispath(frame_type, /obj/item/pipe))
-		new frame_type(get_turf(src), src)
+		var/obj/item/pipe/pipe = new frame_type(get_turf(src), src)
+		pipe.constructed_path = base_type
 	else
 		new frame_type(get_turf(src), dir)
 	for(var/I in component_parts)
