@@ -16,6 +16,7 @@
 	construct_state = /decl/machine_construction/default/panel_closed
 
 	var/has_recycler = TRUE
+	var/template = "fabricator.tmpl"
 	var/list/material_overlays = list()
 	var/base_icon_state = "autolathe"
 	var/image/panel_image

@@ -8,6 +8,7 @@
 		FABRICATOR_CLASS_GENERAL
 	)
 	var/build_time = 5 SECONDS
+	var/max_amount = 1 // How many instances can be queued at once
 	var/ignore_materials = list(
 		/material/waste = TRUE
 	)
@@ -28,6 +29,9 @@
 			if(!ignore_materials[path])
 				resources[path] = building_cost[path] * FABRICATOR_EXTRA_COST_FACTOR
 		qdel(I)
+	if(ispath(path, /obj/item/stack))
+		var/obj/item/stack/stack = path
+		max_amount = max(1, initial(stack.max_amount))
 
 /obj/proc/building_cost()
 	. = list()
@@ -39,22 +43,6 @@
 	if(reagents && length(reagents.reagent_list))
 		for(var/datum/reagent/R in reagents.reagent_list)
 			.[R.type] = R.volume
-
-/obj/machinery/building_cost()
-	. = ..()
-	var/list/component_types = types_of_component(/obj/item/weapon/stock_parts)
-	for(var/path in component_types)
-		var/obj/item/weapon/stock_parts/part = get_component_of_type(path)
-		var/list/part_costs = part.building_cost()
-		for(var/key in part_costs)
-			.[key] += part_costs[key] * component_types[path]
-
-/obj/item/weapon/stock_parts/building_material/building_cost()
-	. = ..()
-	for(var/obj/item/thing in materials)
-		var/list/costs = thing.building_cost()
-		for(var/key in costs)
-			.[key] += costs[key]
 
 /datum/fabricator_recipe/proc/build(var/turf/location, var/amount = 1)
 	if(ispath(path, /obj/item/stack))

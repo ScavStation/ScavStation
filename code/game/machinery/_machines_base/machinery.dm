@@ -439,3 +439,12 @@ Class Procs:
 	var/obj/item/stock_parts/power/battery/battery = get_component_of_type(/obj/item/stock_parts/power/battery)
 	if(battery)
 		return battery.get_cell()
+
+/obj/machinery/building_cost()
+	. = ..()
+	var/list/component_types = types_of_component(/obj/item/stock_parts)
+	for(var/path in component_types)
+		var/obj/item/stock_parts/part = get_component_of_type(path)
+		var/list/part_costs = part.building_cost()
+		for(var/key in part_costs)
+			.[key] += part_costs[key] * component_types[path]
