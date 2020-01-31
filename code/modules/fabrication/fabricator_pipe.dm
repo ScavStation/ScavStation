@@ -9,27 +9,12 @@
 	power_channel = EQUIP
 	anchored = 0
 	use_power = POWER_USE_OFF
-	template = "pipe_fab.tmpl"
-	var/pipe_color = "white"
 
 /obj/machinery/fabricator/pipe/on_update_icon()
-
-/obj/machinery/fabricator/pipe/get_ui_data()
-	. = ..()
-	.["color"] = pipe_color
 
 /obj/machinery/fabricator/pipe/CanUseTopic(mob/user)
 	if(!anchored)
 		return STATUS_CLOSE
-	return ..()
-
-/obj/machinery/fabricator/pipe/OnTopic(user, href_list, state)
-	if(href_list["color_select"])
-		var/choice = input(user, "What color do you want pipes to have?") as null|anything in pipe_colors
-		if(!choice)
-			return TOPIC_HANDLED
-		pipe_color = choice
-		return TOPIC_REFRESH
 	return ..()
 	
 /obj/machinery/fabricator/pipe/wrench_floor_bolts()
@@ -42,7 +27,7 @@
 		update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/fabricator/pipe/do_build(var/datum/fabricator_recipe/recipe, var/amount)
-	recipe.build(get_turf(src), amount, pipe_colors[pipe_color])
+	recipe.build(get_turf(src), amount, pipe_colors[selected_color])
 	use_power_oneoff(500 * amount)
 
 /obj/machinery/fabricator/pipe/disposal

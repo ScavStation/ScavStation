@@ -15,6 +15,13 @@
 		try_dump_material(href_list["eject_mat"])
 		. = TOPIC_REFRESH
 
+	if(href_list["color_select"])
+		var/choice = input(user, "What color do you want to select?") as null|anything in pipe_colors
+		if(!choice)
+			return TOPIC_HANDLED
+		selected_color = choice
+		return TOPIC_REFRESH
+
 /obj/machinery/fabricator/proc/try_cancel_build(var/datum/fabricator_build_order/order)
 	if(istype(order) && currently_building != order && is_functioning())
 		if(order in queued_orders)

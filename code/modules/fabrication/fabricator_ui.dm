@@ -1,22 +1,14 @@
 #define PRINT_MULTIPLIER_DIVISOR 5
 
 /obj/machinery/fabricator/ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=1)
-	var/list/data = get_ui_data()
-
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, template, "[capitalize(name)]", 480, 410, state = GLOB.physical_state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-/obj/machinery/fabricator/proc/get_ui_data()
 	var/list/data = list()
 
 	data["category"] =   show_category
 	data["functional"] = is_functioning()
 
 	if(is_functioning())	
+		data["color_selectable"] = color_selectable
+		data["color"] = selected_color
 
 		var/current_storage =  list()
 		data["material_storage"] =  current_storage
@@ -85,7 +77,12 @@
 					build_option["multiplier"] += list(list("label" = "x[mult]", "multiplier" = mult))
 			data["build_options"] += list(build_option)
 
-	return data
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if (!ui)
+		ui = new(user, src, ui_key, "fabricator.tmpl", "[capitalize(name)]", 480, 410, state = GLOB.physical_state)
+		ui.set_initial_data(data)
+		ui.open()
+		ui.set_auto_update(1)
 
 /obj/machinery/fabricator/interface_interact(mob/user)
 	ui_interact(user)
