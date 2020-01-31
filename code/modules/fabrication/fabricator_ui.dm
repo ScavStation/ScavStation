@@ -79,10 +79,10 @@
 					material_components += "[round(R.resources[material] * mat_efficiency)] [stored_substances_to_names[material]]"
 				build_option["cost"] = "[capitalize(jointext(material_components, ", "))]."
 			if(R.max_amount >= PRINT_MULTIPLIER_DIVISOR && max_sheets >= PRINT_MULTIPLIER_DIVISOR)
-				build_option["multipliers"] = list()
+				build_option["multiplier"] = list()
 				for(var/i = 1 to Floor(min(R.max_amount, max_sheets)/PRINT_MULTIPLIER_DIVISOR))
 					var/mult = i * PRINT_MULTIPLIER_DIVISOR
-					build_option["multipliers"] += list(list("label" = "x[mult]", "multiplier" = mult))
+					build_option["multiplier"] += list(list("label" = "x[mult]", "multiplier" = mult))
 			data["build_options"] += list(build_option)
 
 	return data

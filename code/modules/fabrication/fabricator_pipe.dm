@@ -9,7 +9,7 @@
 	power_channel = EQUIP
 	anchored = 0
 	use_power = POWER_USE_OFF
-	template = "pipe_fab"
+	template = "pipe_fab.tmpl"
 	var/pipe_color = "white"
 
 /obj/machinery/fabricator/pipe/on_update_icon()
@@ -33,8 +33,6 @@
 	return ..()
 	
 /obj/machinery/fabricator/pipe/wrench_floor_bolts()
-	if(!panel_open)
-		return
 	..()
 	update_use_power(anchored ? POWER_USE_IDLE : POWER_USE_OFF)
 

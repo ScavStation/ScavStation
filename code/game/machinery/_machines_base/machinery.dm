@@ -364,16 +364,25 @@ Class Procs:
 	var/obj/item/stock_parts/circuitboard/circuit = get_component_of_type(/obj/item/stock_parts/circuitboard)
 	if(circuit)
 		circuit.deconstruct(src)
+
+	var/obj/frame
 	if(ispath(frame_type, /obj/item/pipe))
 		var/obj/item/pipe/pipe = new frame_type(get_turf(src), src)
+		frame = pipe
 		pipe.constructed_path = base_type
 	else
-		new frame_type(get_turf(src), dir)
+		frame = new frame_type(get_turf(src), dir)
+
+	var/list/expelled_components = list()
 	for(var/I in component_parts)
-		uninstall_component(I, refresh_parts = FALSE)
+		expelled_components += uninstall_component(I, refresh_parts = FALSE)
 	while(LAZYLEN(uncreated_component_parts))
 		var/path = uncreated_component_parts[1]
-		uninstall_component(path, refresh_parts = FALSE)
+		expelled_components += uninstall_component(path, refresh_parts = FALSE)
+	var/datum/extension/parts_stash/stash = get_extension(frame, /datum/extension/parts_stash)
+	if(stash)
+		stash.stash(expelled_components)
+
 	for(var/obj/O in src)
 		O.dropInto(loc)
 

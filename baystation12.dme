@@ -273,6 +273,7 @@
 #include "code\datums\extensions\interactive.dm"
 #include "code\datums\extensions\label.dm"
 #include "code\datums\extensions\local_network.dm"
+#include "code\datums\extensions\parts_stash.dm"
 #include "code\datums\extensions\penetration.dm"
 #include "code\datums\extensions\appearance\appearance.dm"
 #include "code\datums\extensions\appearance\base_icon_state.dm"
