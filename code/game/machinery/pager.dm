@@ -7,7 +7,7 @@
 	idle_power_usage = 2
 	var/acknowledged = 0
 	var/last_paged
-	var/department = COM
+	var/department = "command"
 	var/location
 
 /obj/machinery/pager/Initialize()
@@ -59,16 +59,16 @@
 		MS.send_to_department(department,"Page to <b>[location]</b> was acknowledged.", "*ack*")
 
 /obj/machinery/pager/medical
-	department = MED
+	department = "medical"
 
 /obj/machinery/pager/cargo //supply
-	department = SUP
+	department = "supply"
 
 /obj/machinery/pager/security //torch security
-	department = SEC
+	department = "security"
 
 /obj/machinery/pager/science
-	department = SCI
+	department = "science"
 
 /obj/machinery/pager/engineering
-	department = ENG
+	department = "engineering"

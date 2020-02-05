@@ -1,14 +1,14 @@
-var/const/ENG               =(1<<0)
-var/const/SEC               =(1<<1)
-var/const/MED               =(1<<2)
-var/const/SCI               =(1<<3)
-var/const/CIV               =(1<<4)
-var/const/COM               =(1<<5)
-var/const/MSC               =(1<<6)
-var/const/SRV               =(1<<7)
-var/const/SUP               =(1<<8)
-var/const/SPT               =(1<<9)
-var/const/EXP               =(1<<10)
+var/const/ENG               =1
+var/const/SEC               =2
+var/const/MED               =4
+var/const/SCI               =8
+var/const/CIV               =16
+var/const/COM               =32
+var/const/MSC               =64
+var/const/SRV               =128
+var/const/SUP               =256
+var/const/SPT               =512
+var/const/EXP               =1024
 
 SUBSYSTEM_DEF(jobs)
 	name = "Jobs"
@@ -24,11 +24,13 @@ SUBSYSTEM_DEF(jobs)
 	var/list/positions_by_department = list()
 	var/list/job_icons =               list()
 	var/job_config_file = "config/jobs.txt"
+	var/list/dept_list =			   list()
 
 /datum/controller/subsystem/jobs/Initialize(timeofday)
 
 	// Create main map jobs.
 	primary_job_datums.Cut()
+	dept_list = SSdepartments.departments
 	for(var/jobtype in (list(DEFAULT_JOB_TYPE) | GLOB.using_map.allowed_jobs))
 		var/datum/job/job = get_by_path(jobtype)
 		if(!job)
@@ -107,10 +109,13 @@ SUBSYSTEM_DEF(jobs)
 			titles_to_datums[job.title] = job
 			for(var/alt_title in job.alt_titles)
 				titles_to_datums[alt_title] = job
-			if(job.department_flag)
-				for (var/I in 1 to GLOB.bitflags.len)
+			if(job.department_refs)
+				for(var/dept_ref in job.department_refs)
+					if(dept_ref in dept_list)
+						LAZYDISTINCTADD(positions_by_department[dept_ref], job.title)
+				/*for (var/I in 1 to GLOB.bitflags.len)
 					if(job.department_flag & GLOB.bitflags[I])
-						LAZYDISTINCTADD(positions_by_department["[GLOB.bitflags[I]]"], job.title)
+						LAZYDISTINCTADD(positions_by_department["[GLOB.bitflags[I]]"], job.title)*/
 
 	// Set up syndicate phrases.
 	syndicate_code_phrase = generate_code_phrase()
@@ -122,7 +127,7 @@ SUBSYSTEM_DEF(jobs)
 	. = ..()
 
 /datum/controller/subsystem/jobs/proc/guest_jobbans(var/job)
-	for(var/dept in list(COM, MSC, SEC))
+	for(var/dept in list("command", "misc", "security"))
 		if(job in titles_by_department(dept))
 			return TRUE
 	return FALSE
@@ -240,7 +245,7 @@ SUBSYSTEM_DEF(jobs)
 			continue
 		if(job.is_restricted(player.client.prefs))
 			continue
-		if(job.title in titles_by_department(COM)) //If you want a command position, select it!
+		if(job.title in titles_by_department("command")) //If you want a command position, select it!
 			continue
 		if(jobban_isbanned(player, job.title))
 			continue
@@ -256,7 +261,7 @@ SUBSYSTEM_DEF(jobs)
 ///This proc is called before the level loop of divide_occupations() and will try to select a head, ignoring ALL non-head preferences for every level until it locates a head or runs out of levels to check
 /datum/controller/subsystem/jobs/proc/fill_head_position(var/datum/game_mode/mode)
 	for(var/level = 1 to 3)
-		for(var/command_position in titles_by_department(COM))
+		for(var/command_position in titles_by_department("command"))
 			var/datum/job/job = get_by_title(command_position)
 			if(!job)	continue
 			var/list/candidates = find_occupation_candidates(job, level)
@@ -290,7 +295,7 @@ SUBSYSTEM_DEF(jobs)
 
 ///This proc is called at the start of the level loop of divide_occupations() and will cause head jobs to be checked before any other jobs of the same level
 /datum/controller/subsystem/jobs/proc/CheckHeadPositions(var/level, var/datum/game_mode/mode)
-	for(var/command_position in titles_by_department(COM))
+	for(var/command_position in titles_by_department("command"))
 		var/datum/job/job = get_by_title(command_position)
 		if(!job)	continue
 		var/list/candidates = find_occupation_candidates(job, level)
@@ -558,7 +563,7 @@ SUBSYSTEM_DEF(jobs)
 	return H
 
 /datum/controller/subsystem/jobs/proc/titles_by_department(var/dept)
-	return positions_by_department["[dept]"] || list()
+	return positions_by_department[dept] || list()
 
 /datum/controller/subsystem/jobs/proc/spawn_empty_ai()
 	for(var/obj/effect/landmark/start/S in landmarks_list)

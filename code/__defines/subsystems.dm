@@ -30,6 +30,7 @@
 #define SS_INIT_MISC             11
 #define SS_INIT_SKYBOX           10
 #define SS_INIT_MAPPING          9
+#define SS_INIT_DEPARTMENTS		 9
 #define SS_INIT_JOBS             8
 #define SS_INIT_CHAR_SETUP       7
 #define SS_INIT_CIRCUIT          6

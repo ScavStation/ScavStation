@@ -1,12 +1,12 @@
 /datum/department
-	var/name
-	var/flag
-	var/list/goals
+	//var/name
+	//var/flag
+	//var/list/goals
 	var/min_goals = 1
 	var/max_goals = 2
 
 /datum/department/proc/Initialize()
-	if(!name || !flag || LAZYLEN(goals) <= 0)
+	if(!refrence || LAZYLEN(goals) <= 0)
 		return
 	var/list/possible_goals = goals.Copy()
 	goals.Cut()

@@ -1,10 +1,10 @@
-/datum/department/medbay
+/*/datum/department/medbay
 	name = "Medbay"
 	flag = MED
 	goals = list(
 		/datum/goal/department/medical_fatalities
 	)
-
+*/
 /datum/goal/department/medical_fatalities
 	var/max_fatalities
 

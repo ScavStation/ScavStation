@@ -3,6 +3,7 @@
 	head_position = 1
 	department = "Medical"
 	department_flag = MED|COM
+	department_refs = list("command", "medical")
 
 	total_positions = 1
 	spawn_positions = 1
@@ -25,6 +26,7 @@
 	title = "Medical Doctor"
 	department = "Medical"
 	department_flag = MED
+	department_refs = list("medical")
 
 	minimal_player_age = 3
 	total_positions = 5

@@ -2,6 +2,7 @@
 	title = "Assistant"
 	department = "Civilian"
 	department_flag = CIV
+	department_refs = list("civilian")
 
 	total_positions = -1
 	spawn_positions = -1

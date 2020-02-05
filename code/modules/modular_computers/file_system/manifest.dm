@@ -1,6 +1,13 @@
 // Generates a simple HTML crew manifest for use in various places
 /proc/html_crew_manifest(var/monochrome, var/OOC)
-	var/list/dept_data = list(
+	var/list/dept_data = list()
+	var/list/dept_list = SSdepartments.departments
+	for(var/dept_key in dept_list)
+		var/datum/department/dept = dept_list[dept_key]
+		dept_data += list(list("names" = list(), "header" = dept.title, "ref" = dept.refrence))
+	
+	
+	/*var/list/dept_data = list(
 		list("names" = list(), "header" = "Heads of Staff", "flag" = COM),
 		list("names" = list(), "header" = "Command Support", "flag" = SPT),
 		list("names" = list(), "header" = "Research", "flag" = SCI),
@@ -13,13 +20,13 @@
 		list("names" = list(), "header" = "Civilian", "flag" = CIV),
 		list("names" = list(), "header" = "Miscellaneous", "flag" = MSC),
 		list("names" = list(), "header" = "Silicon")
-	)
+	)*/
 	var/list/misc //Special departments for easier access
 	var/list/bot
 	for(var/list/department in dept_data)
-		if(department["flag"] == MSC)
+		if(department["ref"] == "misc")
 			misc = department["names"]
-		if(isnull(department["flag"]))
+		if(isnull(department["ref"]))
 			bot = department["names"]
 
 	var/list/isactive = new()
@@ -65,7 +72,7 @@
 		if(job)
 			for(var/list/department in dept_data)
 				var/list/names = department["names"]
-				if(job.department_flag & department["flag"])
+				if(department["ref"] in job.department_refs)
 					names[name] = rank
 					found_place = 1
 		if(!found_place)
@@ -126,7 +133,13 @@
 	return filtered_entries
 
 /proc/nano_crew_manifest()
-	return list(
+	var/list/dept_data 
+	var/list/dept_list = SSdepartments.departments
+	for(var/dept_key in dept_list)
+		var/datum/department/dept = dept_list[dept_key]
+		dept_data += list("[dept.refrence]" = filtered_nano_crew_manifest(SSjobs.titles_by_department(dept.refrence))) 
+	return dept_data
+	/*return list(
 		"heads" = filtered_nano_crew_manifest(SSjobs.titles_by_department(COM)),
 		"spt" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(SPT)),
 		"sci" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(SCI)),
@@ -138,7 +151,7 @@
 		"srv" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(SRV)),
 		"bot" =   silicon_nano_crew_manifest(SSjobs.titles_by_department(MSC)),
 		"civ" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(CIV))
-		)
+		)*/
 
 /proc/flat_nano_crew_manifest()
 	. = list()
