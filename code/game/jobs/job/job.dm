@@ -6,8 +6,7 @@
 	var/list/minimal_access = list()      // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
 	var/list/access = list()              // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
 	var/list/software_on_spawn = list()   // Defines the software files that spawn on tablets and labtops
-	var/department_flag = 0
-	var/list/department_refs = list()
+	var/list/department_refs = list()	  // What deparements the job is in. Make sure a jobs primary department is the first item in the list. Especially for heads, the department they are head of needs to be first.
 	var/total_positions = 0               // How many players can be this job
 	var/spawn_positions = 0               // How many players can spawn in as this job
 	var/current_positions = 0             // How many players have this job
@@ -18,7 +17,6 @@
 	var/list/alt_titles                   // List of alternate titles, if any and any potential alt. outfits as assoc values.
 	var/req_admin_notify                  // If this is set to 1, a text is printed to the player when jobs are assigned, telling him that he should let admins know that he has to disconnect.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
-	var/department = null                 // Does this position have a department tag?
 	var/head_position = 0                 // Is this position Command?
 	var/minimum_character_age			  // List of species = age, if species is not here, it's auto-pass
 	var/ideal_character_age = 30

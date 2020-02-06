@@ -405,8 +405,8 @@
 			dat += "<i><b>Alternative titles:</b> [english_list(job.alt_titles)].</i>"
 		send_rsc(user, job.get_job_icon(), "job[ckey(rank)].png")
 		dat += "<img src=job[ckey(rank)].png width=96 height=96 style='float:left;'>"
-		if(job.department)
-			dat += "<b>Department:</b> [job.department]."
+		if(LAZYLEN(job.department_refs))
+			dat += "<b>Department:</b> [SSdepartments.departments[job.department_refs[1]].title]."
 			if(job.head_position)
 				dat += "You are in charge of this department."
 

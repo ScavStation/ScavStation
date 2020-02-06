@@ -1,15 +1,3 @@
-var/const/ENG               =1
-var/const/SEC               =2
-var/const/MED               =4
-var/const/SCI               =8
-var/const/CIV               =16
-var/const/COM               =32
-var/const/MSC               =64
-var/const/SRV               =128
-var/const/SUP               =256
-var/const/SPT               =512
-var/const/EXP               =1024
-
 SUBSYSTEM_DEF(jobs)
 	name = "Jobs"
 	init_order = SS_INIT_JOBS
@@ -510,7 +498,7 @@ SUBSYSTEM_DEF(jobs)
 	// If they're head, give them the account info for their department
 	if(H.mind && job.head_position)
 		var/remembered_info = ""
-		var/datum/money_account/department_account = department_accounts[job.department]
+		var/datum/money_account/department_account = department_accounts[job.department_refs[1]]
 
 		if(department_account)
 			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"

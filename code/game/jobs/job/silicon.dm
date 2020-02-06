@@ -1,6 +1,6 @@
 /datum/job/ai
 	title = "AI"
-	department_flag = MSC
+	department_refs = list("misc")
 
 	total_positions = 0 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
 	spawn_positions = 1
@@ -28,7 +28,7 @@
 
 /datum/job/cyborg
 	title = "Robot"
-	department_flag = MSC
+	department_refs = list("misc")
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "your laws and the AI"

@@ -46,6 +46,9 @@
 		var/datum/department/dept = dept_list[dept_key]
 		data["[dept.refrence]_jobs"] = format_jobs(SSjobs.titles_by_department(dept.refrence)) //get all jobs for all deparments
 	data["centcom_jobs"] = format_jobs(get_all_centcom_jobs())
+	data["test"] = {"<tr><th style="color: '#808080';">Enclave</th><td>{{for data.enclave_jobs}}{{if index && index % 6 === 0}}{{/if}}
+				{{:helper.link(value.display_name, '', {'action' : 'assign', 'assign_target' : value.job}, data.id_rank == value.job ? 'disabled' : null)}}
+			  {{/for}}</td></tr>"}
 
 	data["all_centcom_access"] = is_centcom ? get_accesses(1) : null
 	data["regions"] = get_accesses()

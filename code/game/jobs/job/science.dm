@@ -1,8 +1,7 @@
 /datum/job/rd
 	title = "Chief Science Officer"
 	head_position = 1
-	department = "Science"
-	department_flag = COM|SCI
+	department_refs = list("science", "command")
 
 	total_positions = 1
 	spawn_positions = 1
@@ -24,8 +23,7 @@
 
 /datum/job/scientist
 	title = "Scientist"
-	department = "Science"
-	department_flag = SCI
+	department_refs = list("science")
 
 	total_positions = 5
 	spawn_positions = 3
@@ -40,8 +38,7 @@
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
-	department = "Science"
-	department_flag = SCI
+	department_refs = list("science")
 
 	total_positions = 3
 	spawn_positions = 2
@@ -56,8 +53,7 @@
 
 /datum/job/roboticist
 	title = "Roboticist"
-	department = "Science"
-	department_flag = SCI
+	department_refs = list("science")
 
 	total_positions = 2
 	spawn_positions = 2

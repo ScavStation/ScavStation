@@ -156,4 +156,4 @@
 /proc/flat_nano_crew_manifest()
 	. = list()
 	. += filtered_nano_crew_manifest(null, TRUE)
-	. += silicon_nano_crew_manifest(SSjobs.titles_by_department(MSC))
+	. += silicon_nano_crew_manifest(SSjobs.titles_by_department("misc"))

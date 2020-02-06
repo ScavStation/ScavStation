@@ -1,8 +1,7 @@
 /datum/job/hos
 	title = "Head of Security"
 	head_position = 1
-	department = "Security"
-	department_flag = SEC|COM
+	department_refs = list("security", "command")
 
 	total_positions = 1
 	spawn_positions = 1
@@ -28,8 +27,7 @@
 
 /datum/job/warden
 	title = "Warden"
-	department = "Security"
-	department_flag = SEC
+	department_refs = list("security")
 
 	total_positions = 1
 	spawn_positions = 1
@@ -43,8 +41,7 @@
 
 /datum/job/detective
 	title = "Detective"
-	department = "Security"
-	department_flag = SEC
+	department_refs = list("security")
 
 	total_positions = 2
 	spawn_positions = 2
@@ -59,8 +56,7 @@
 
 /datum/job/officer
 	title = "Security Officer"
-	department = "Security"
-	department_flag = SEC
+	department_refs = list("security")
 
 	total_positions = 4
 	spawn_positions = 4

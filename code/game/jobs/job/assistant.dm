@@ -1,7 +1,5 @@
 /datum/job/assistant
 	title = "Assistant"
-	department = "Civilian"
-	department_flag = CIV
 	department_refs = list("civilian")
 
 	total_positions = -1
