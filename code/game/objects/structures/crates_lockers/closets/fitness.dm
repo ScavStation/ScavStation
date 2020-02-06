@@ -47,7 +47,7 @@
 
 /obj/structure/closet/lasertag/red/WillContain()
 	return list(
-		/obj/item/gun/energy/lasertag/red = 3,
+		/obj/item/gun/composite/premade/laser_rifle/practice = 3,
 		/obj/item/clothing/suit/redtag = 3)
 
 /obj/structure/closet/lasertag/blue
@@ -57,5 +57,5 @@
 
 /obj/structure/closet/lasertag/blue/WillContain()
 	return list(
-		/obj/item/gun/energy/lasertag/blue = 3,
+		/obj/item/gun/composite/premade/laser_rifle/practice = 3,
 		/obj/item/clothing/suit/bluetag = 3)

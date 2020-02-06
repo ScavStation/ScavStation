@@ -236,7 +236,7 @@
 	interface_name = "mounted laser cannon"
 	interface_desc = "A shoulder-mounted cell-powered laser cannon."
 
-	gun = /obj/item/gun/energy/lasercannon/mounted
+	gun = /obj/item/gun/composite/premade/laser_cannon
 
 /obj/item/rig_module/mounted/egun
 
@@ -250,7 +250,7 @@
 	interface_desc = "A shoulder-mounted suit-powered energy gun."
 	origin_tech = list(TECH_POWER = 6, TECH_COMBAT = 6, TECH_ENGINEERING = 6)
 
-	gun = /obj/item/gun/energy/gun/mounted
+	gun = /obj/item/gun/composite/premade/laser_pistol
 
 /obj/item/rig_module/mounted/taser
 
@@ -265,7 +265,7 @@
 	interface_desc = "A shoulder-mounted, cell-powered electrolaser."
 	origin_tech = list(TECH_POWER = 5, TECH_COMBAT = 5, TECH_ENGINEERING = 6)
 
-	gun = /obj/item/gun/energy/taser/mounted
+	gun = /obj/item/gun/composite/premade/taser_pistol
 
 /obj/item/rig_module/mounted/plasmacutter
 

@@ -74,7 +74,7 @@
 	id_tag = "scraplock";
 	name = "External Lockdown"
 	},
-/obj/item/gun/energy/captain,
+/obj/item/gun/composite/premade/laser_pistol/self_charging/picomotion,
 /turf/simulated/floor/tiled/dark/usedup,
 /area/ship/scrap/command/bridge)
 "am" = (
@@ -289,7 +289,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/obj/item/gun/energy/stunrevolver,
+/obj/item/gun/composite/premade/taser_pistol,
 /obj/structure/closet/cabinet,
 /obj/item/storage/secure/briefcase,
 /obj/item/taperecorder,
@@ -302,7 +302,7 @@
 "aL" = (
 /obj/item/bedsheet/captain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/gun/projectile/pistol/holdout,
+/obj/item/gun/composite/premade/revolver/hunting,
 /obj/structure/bed/padded,
 /obj/effect/submap_landmark/spawnpoint/captain,
 /turf/simulated/floor/wood,
@@ -489,7 +489,7 @@
 /obj/item/radio/intercom{
 	pixel_x = -32
 	},
-/obj/item/gun/projectile/shotgun/pump/combat{
+/obj/item/gun/composite/premade/shotgun/combat{
 	desc = "When words don't strike hard enough.";
 	name = "Solid Argument"
 	},

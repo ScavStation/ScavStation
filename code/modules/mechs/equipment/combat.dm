@@ -2,7 +2,7 @@
 	name = "mounted electrolaser carbine"
 	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."
 	icon_state = "mech_taser"
-	holding_type = /obj/item/gun/energy/taser/carbine/mounted/mech
+	holding_type = /obj/item/gun/composite/premade/taser_pistol/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
@@ -16,9 +16,9 @@
 	name = "\improper CH-PS \"Immolator\" laser"
 	desc = "An exosuit-mounted laser rifle. Handle with care."
 	icon_state = "mech_lasercarbine"
-	holding_type = /obj/item/gun/energy/laser/mounted/mech
+	holding_type = /obj/item/gun/composite/premade/laser_rifle/mech
 
-/obj/item/gun/energy/taser/carbine/mounted/mech
+/obj/item/gun/composite/premade/taser_pistol/mounted/mech
 	use_external_power = TRUE
 	has_safety = FALSE
 	self_recharge = TRUE
@@ -28,7 +28,7 @@
 	has_safety = FALSE
 	self_recharge = TRUE
 
-/obj/item/gun/energy/laser/mounted/mech
+/obj/item/gun/composite/premade/laser_rifle/mech
 	name = "\improper CH-PS \"Immolator\" laser"
 	use_external_power = TRUE
 	has_safety = FALSE

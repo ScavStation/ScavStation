@@ -123,7 +123,7 @@
 	contains = list(/obj/item/flash = 4,
 					/obj/item/chems/spray/pepper = 4,
 					/obj/item/melee/baton/loaded = 4,
-					/obj/item/gun/energy/taser = 4)
+					/obj/item/gun/composite/premade/taser_pistol = 4)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "weapons crate"
@@ -131,7 +131,7 @@
 
 /decl/hierarchy/supply_pack/security/egun
 	name = "Weapons - Energy sidearms"
-	contains = list(/obj/item/gun/energy/gun/secure = 4)
+	contains = list(/obj/item/gun/composite/premade/laser_pistol = 4)
 	cost = 40
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "energy sidearms crate"
@@ -140,7 +140,7 @@
 
 /decl/hierarchy/supply_pack/security/egun/shady
 	name = "Weapons - Energy sidearms (For disposal)"
-	contains = list(/obj/item/gun/energy/gun = 4)
+	contains = list(/obj/item/gun/composite/premade/laser_pistol = 4)
 	cost = 60
 	contraband = 1
 	security_level = null
@@ -157,7 +157,7 @@
 
 /decl/hierarchy/supply_pack/security/shotgun
 	name = "Weapons - Shotgun"
-	contains = list(/obj/item/gun/projectile/shotgun/pump/combat = 2)
+	contains = list(/obj/item/gun/composite/premade/shotgun/combat = 2)
 	cost = 60
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "shotgun crate"

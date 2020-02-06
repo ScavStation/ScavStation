@@ -32,7 +32,7 @@
 	icon_state = "russianranged"
 	icon_living = "russianranged"
 	corpse = /obj/effect/landmark/corpse/russian/ranged
-	weapon1 = /obj/item/gun/projectile/revolver
+	weapon1 = /obj/item/gun/composite/premade/revolver
 	ranged = 1
 	projectiletype = /obj/item/projectile/bullet
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'

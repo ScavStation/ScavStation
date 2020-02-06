@@ -486,7 +486,7 @@
 	code = "63214"
 	},
 /obj/item/form_printer,
-/obj/item/gun/energy/gun/small,
+/obj/item/gun/composite/premade/laser_pistol,
 /obj/item/rig/hazmat/equipped,
 /obj/random/cash,
 /obj/item/paper{

@@ -34,9 +34,9 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/lasers/New()
 	..()
 	contents = list(
-		/obj/item/gun/energy/laser,
-		/obj/item/gun/energy/laser,
-		/obj/item/gun/energy/sniperrifle,
+		/obj/item/gun/composite/premade/laser_rifle,
+		/obj/item/gun/composite/premade/laser_rifle,
+		/obj/item/gun/composite/premade/laser_rifle/scoped,
 		/obj/item/gun/energy/ionrifle)
 
 /datum/supply_drop_loot/ballistics
@@ -45,11 +45,11 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/ballistics/New()
 	..()
 	contents = list(
-		/obj/item/gun/projectile/pistol/sec,
-		/obj/item/gun/projectile/shotgun/doublebarrel,
-		/obj/item/gun/projectile/shotgun/pump/combat,
-		/obj/item/gun/projectile/automatic/sec_smg,
-		/obj/item/gun/projectile/automatic/bullpup_rifle)
+		/obj/item/gun/composite/premade/pistol/a9,
+		/obj/item/gun/composite/premade/shotgun/hunting,
+		/obj/item/gun/composite/premade/shotgun/combat,
+		/obj/item/gun/composite/premade/smg/a9,
+		/obj/item/gun/composite/premade/assault_rifle)
 
 /datum/supply_drop_loot/ballistics
 	name = "Ballistics"
@@ -57,11 +57,11 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/ballistics/New()
 	..()
 	contents = list(
-		/obj/item/gun/projectile/pistol/sec,
-		/obj/item/gun/projectile/shotgun/doublebarrel,
-		/obj/item/gun/projectile/shotgun/pump/combat,
-		/obj/item/gun/projectile/automatic/sec_smg,
-		/obj/item/gun/projectile/automatic/bullpup_rifle)
+		/obj/item/gun/composite/premade/pistol/a9,
+		/obj/item/gun/composite/premade/shotgun/hunting,
+		/obj/item/gun/composite/premade/shotgun/combat,
+		/obj/item/gun/composite/premade/smg/a9,
+		/obj/item/gun/composite/premade/assault_rifle)
 
 /datum/supply_drop_loot/seeds
 	name = "Seeds"

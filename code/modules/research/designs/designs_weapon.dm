@@ -64,14 +64,14 @@
 	id = "stunrevolver"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
 	materials = list(MAT_STEEL = 4000)
-	build_path = /obj/item/gun/energy/stunrevolver
+	build_path = /obj/item/gun/composite/premade/taser_pistol
 	sort_string = "TADAB"
 
 /datum/design/item/weapon/stunrifle
 	id = "stun_rifle"
 	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	materials = list(MAT_STEEL = 4000, MAT_GLASS = 1000, MAT_SILVER = 500)
-	build_path = /obj/item/gun/energy/stunrevolver/rifle
+	build_path = /obj/item/gun/composite/premade/taser_pistol
 	sort_string = "TADAC"
 
 /datum/design/item/weapon/confuseray
@@ -85,7 +85,7 @@
 	id = "nuclear_gun"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
 	materials = list(MAT_STEEL = 5000, MAT_GLASS = 1000, MAT_URANIUM = 500)
-	build_path = /obj/item/gun/energy/gun/nuclear
+	build_path = /obj/item/gun/composite/premade/laser_assault
 	sort_string = "TAEAA"
 
 /datum/design/item/weapon/lasercannon
@@ -93,21 +93,21 @@
 	id = "lasercannon"
 	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	materials = list(MAT_STEEL = 10000, MAT_GLASS = 1000, MAT_DIAMOND = 2000)
-	build_path = /obj/item/gun/energy/lasercannon
+	build_path = /obj/item/gun/composite/premade/laser_cannon
 	sort_string = "TAEAB"
 
 /datum/design/item/weapon/xraypistol
 	id = "xraypistol"
 	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ESOTERIC = 2)
 	materials = list(MAT_STEEL = 4000, MAT_GLASS = 500, MAT_URANIUM = 500)
-	build_path = /obj/item/gun/energy/xray/pistol
+	build_path = /obj/item/gun/composite/premade/laser_smg
 	sort_string = "TAFAA"
 
 /datum/design/item/weapon/xrayrifle
 	id = "xrayrifle"
 	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ESOTERIC = 2)
 	materials = list(MAT_STEEL = 5000, MAT_GLASS = 1000, MAT_URANIUM = 1000)
-	build_path = /obj/item/gun/energy/xray
+	build_path = /obj/item/gun/composite/premade/laser_smg
 	sort_string = "TAFAB"
 
 /datum/design/item/weapon/grenadelauncher
@@ -142,21 +142,21 @@
 	id = "wt550"
 	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	materials = list(MAT_STEEL = 8000, MAT_SILVER = 3000, MAT_DIAMOND = 1500)
-	build_path = /obj/item/gun/projectile/automatic/sec_smg
+	build_path = /obj/item/gun/composite/premade/smg/a9
 	sort_string = "TAPAA"
 
 /datum/design/item/weapon/smg
 	id = "smg"
 	req_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 4)
 	materials = list(MAT_STEEL = 8000, MAT_SILVER = 2000, MAT_DIAMOND = 2000)
-	build_path = /obj/item/gun/projectile/automatic
+	build_path = /obj/item/gun/composite/premade/assault_rifle
 	sort_string = "TAPAB"
 
 /datum/design/item/weapon/bullpup
 	id = "bullpup"
 	req_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	materials = list(MAT_STEEL = 10000, MAT_SILVER = 5000, MAT_DIAMOND = 3000)
-	build_path = /obj/item/gun/projectile/automatic/bullpup_rifle
+	build_path = /obj/item/gun/composite/premade/assault_rifle
 	sort_string = "TAPAC"
 
 /datum/design/item/weapon/ammunition/AssembleDesignName()

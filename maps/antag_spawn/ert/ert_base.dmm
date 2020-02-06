@@ -208,8 +208,8 @@
 /area/map_template/rescue_base/base)
 "aE" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/shotgun/pump/combat,
-/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/gun/composite/premade/shotgun/combat,
+/obj/item/gun/composite/premade/shotgun/combat,
 /obj/item/radio/intercom/specops{
 	dir = 2;
 	pixel_y = 22
@@ -236,10 +236,10 @@
 /area/map_template/rescue_base/base)
 "aG" = (
 /obj/structure/table/rack,
-/obj/item/gun/energy/gun/nuclear,
-/obj/item/gun/energy/gun/nuclear,
-/obj/item/gun/energy/gun/nuclear,
-/obj/item/gun/energy/gun/nuclear,
+/obj/item/gun/composite/premade/laser_assault,
+/obj/item/gun/composite/premade/laser_assault,
+/obj/item/gun/composite/premade/laser_assault,
+/obj/item/gun/composite/premade/laser_assault,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -392,9 +392,9 @@
 /area/map_template/rescue_base/base)
 "aW" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/sec_smg,
-/obj/item/gun/projectile/automatic/sec_smg,
-/obj/item/gun/projectile/automatic/sec_smg,
+/obj/item/gun/composite/premade/smg/a9,
+/obj/item/gun/composite/premade/smg/a9,
+/obj/item/gun/composite/premade/smg/a9,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -450,7 +450,7 @@
 /area/map_template/rescue_base/base)
 "bd" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/l6_saw,
+/obj/item/gun/composite/premade/assault_rifle/a762,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -713,8 +713,8 @@
 /area/map_template/rescue_base/base)
 "bD" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
+/obj/item/gun/composite/premade/assault_rifle,
+/obj/item/gun/composite/premade/assault_rifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -1005,8 +1005,8 @@
 /area/map_template/rescue_base/base)
 "cf" = (
 /obj/structure/table/rack,
-/obj/item/gun/energy/gun/nuclear,
-/obj/item/gun/energy/gun/nuclear,
+/obj/item/gun/composite/premade/laser_assault,
+/obj/item/gun/composite/premade/laser_assault,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -1040,8 +1040,8 @@
 /area/map_template/rescue_base/base)
 "ci" = (
 /obj/structure/table/rack,
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
+/obj/item/gun/composite/premade/laser_pistol,
+/obj/item/gun/composite/premade/laser_pistol,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -1289,10 +1289,10 @@
 /area/map_template/rescue_base/base)
 "cx" = (
 /obj/structure/table/rack,
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser,
+/obj/item/gun/composite/premade/laser_rifle,
+/obj/item/gun/composite/premade/laser_rifle,
+/obj/item/gun/composite/premade/laser_rifle,
+/obj/item/gun/composite/premade/laser_rifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -1462,10 +1462,10 @@
 /area/map_template/rescue_base/base)
 "cM" = (
 /obj/structure/table/rack,
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
+/obj/item/gun/composite/premade/laser_pistol,
+/obj/item/gun/composite/premade/laser_pistol,
+/obj/item/gun/composite/premade/laser_pistol,
+/obj/item/gun/composite/premade/laser_pistol,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -2206,7 +2206,7 @@
 /area/map_template/rescue_base/base)
 "ek" = (
 /obj/structure/table/rack,
-/obj/item/gun/energy/gun,
+/obj/item/gun/composite/premade/laser_pistol,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1

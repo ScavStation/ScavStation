@@ -47,7 +47,7 @@
 		"the ship's blueprints"					= /obj/item/blueprints,
 		"the Matriarch's robes"					= /obj/item/clothing/under/yinglet/matriarch,
 		"a jetpack"								= /obj/item/tank/jetpack/,
-		"a pump action shotgun"					= /obj/item/gun/projectile/shotgun/pump/,
+		"a pump action shotgun"					= /obj/item/gun/composite/premade/shotgun/,
 		"a health analyzer"						= /obj/item/scanner/health,
 		"the integrated circuit printer"		= /obj/item/integrated_circuit_printer,
 		"a whole uneaten mollusc"				= /obj/item/mollusc

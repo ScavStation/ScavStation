@@ -48,32 +48,6 @@
 	update_icon()
 
 /obj/item/gun/projectile/consume_next_projectile()
-	if(!is_jammed && prob(jam_chance))
-		src.visible_message("<span class='danger'>\The [src] jams!</span>")
-		is_jammed = 1
-		var/mob/user = loc
-		if(istype(user))
-			if(prob(user.skill_fail_chance(SKILL_WEAPONS, 100, SKILL_PROF)))
-				return null
-			else
-				to_chat(user, "<span class='notice'>You reflexively clear the jam on \the [src].</span>")
-				is_jammed = 0
-				playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
-	if(is_jammed)
-		return null
-	//get the next casing
-	if(loaded.len)
-		chambered = loaded[1] //load next casing.
-		if(handle_casings != HOLD_CASINGS)
-			loaded -= chambered
-	else if(ammo_magazine && ammo_magazine.stored_ammo.len)
-		chambered = ammo_magazine.stored_ammo[ammo_magazine.stored_ammo.len]
-		if(handle_casings != HOLD_CASINGS)
-			ammo_magazine.stored_ammo -= chambered
-
-	if (chambered)
-		return chambered.BB
-	return null
 
 /obj/item/gun/projectile/handle_post_fire()
 	..()
@@ -90,7 +64,6 @@
 			zone = user.zone_sel.selecting
 		var/obj/item/organ/external/E = H.get_organ(zone)
 		if(E)
-			chambered.put_residue_on(E)
 			H.apply_damage(3, BURN, used_weapon = "Gunpowder Burn", given_organ = E)
 
 /obj/item/gun/projectile/handle_click_empty()
@@ -98,23 +71,6 @@
 	process_chambered()
 
 /obj/item/gun/projectile/proc/process_chambered()
-	if (!chambered) return
-
-	switch(handle_casings)
-		if(EJECT_CASINGS) //eject casing onto ground.
-			chambered.dropInto(loc)
-			chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
-			if(LAZYLEN(chambered.fall_sounds))
-				playsound(loc, pick(chambered.fall_sounds), 50, 1)
-		if(CYCLE_CASINGS) //cycle the casing back to the end.
-			if(ammo_magazine)
-				ammo_magazine.stored_ammo += chambered
-			else
-				loaded += chambered
-
-	if(handle_casings != HOLD_CASINGS)
-		chambered = null
-
 
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method
 //Maybe this should be broken up into separate procs for each load method?
@@ -174,40 +130,6 @@
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
 /obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump=1)
-	if(is_jammed)
-		user.visible_message("\The [user] begins to unjam [src].", "You clear the jam and unload [src]")
-		if(!do_after(user, 4, src))
-			return
-		is_jammed = 0
-		playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
-	if(ammo_magazine)
-		user.put_in_hands(ammo_magazine)
-		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
-		playsound(loc, mag_remove_sound, 50, 1)
-		ammo_magazine.update_icon()
-		ammo_magazine = null
-	else if(loaded.len)
-		//presumably, if it can be speed-loaded, it can be speed-unloaded.
-		if(allow_dump && (load_method & SPEEDLOADER))
-			var/count = 0
-			var/turf/T = get_turf(user)
-			if(T)
-				for(var/obj/item/ammo_casing/C in loaded)
-					if(LAZYLEN(C.fall_sounds))
-						playsound(loc, pick(C.fall_sounds), 50, 1)
-					C.forceMove(T)
-					count++
-				loaded.Cut()
-			if(count)
-				user.visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
-		else if(load_method & SINGLE_CASING)
-			var/obj/item/ammo_casing/C = loaded[loaded.len]
-			loaded.len--
-			user.put_in_hands(C)
-			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
-	else
-		to_chat(user, "<span class='warning'>[src] is empty.</span>")
-	update_icon()
 
 /obj/item/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(!load_ammo(A, user))

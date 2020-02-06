@@ -1,6 +1,6 @@
 /datum/map
 	var/list/potential_theft_targets = list(
-		"the captain's antique laser gun"    = /obj/item/gun/energy/captain,
+		"the captain's antique laser gun"    = /obj/item/gun/composite/premade/laser_pistol/self_charging/picomotion,
 		"a bluespace rift generator"         = /obj/item/integrated_circuit/manipulation/bluespace_rift,
 		"an RCD"                             = /obj/item/rcd,
 		"a jetpack"                          = /obj/item/tank/jetpack,
@@ -23,7 +23,7 @@
 	)
 
 	var/list/potential_special_theft_targets = list(
-		"nuclear gun"             = /obj/item/gun/energy/gun/nuclear,
+		"nuclear gun"             = /obj/item/gun/composite/premade/laser_assault,
 		"diamond drill"           = /obj/item/pickaxe/diamonddrill,
 		"bag of holding"          = /obj/item/storage/backpack/holding,
 		"hyper-capacity cell"     = /obj/item/cell/hyper,

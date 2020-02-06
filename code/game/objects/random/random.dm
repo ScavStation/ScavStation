@@ -254,18 +254,18 @@
 	icon_state = "energykill100"
 
 /obj/random/energy/spawn_choices()
-	return list(/obj/item/gun/energy/laser = 4,
-				/obj/item/gun/energy/gun = 3,
-				/obj/item/gun/energy/retro = 2,
-				/obj/item/gun/energy/lasercannon = 2,
-				/obj/item/gun/energy/xray = 3,
-				/obj/item/gun/energy/sniperrifle = 1,
-				/obj/item/gun/energy/gun/nuclear = 1,
+	return list(/obj/item/gun/composite/premade/laser_rifle = 4,
+				/obj/item/gun/composite/premade/laser_pistol = 3,
+				/obj/item/gun/composite/premade/laser_pistol = 2,
+				/obj/item/gun/composite/premade/laser_cannon = 2,
+				/obj/item/gun/composite/premade/laser_smg = 3,
+				/obj/item/gun/composite/premade/laser_rifle/scoped = 1,
+				/obj/item/gun/composite/premade/laser_assault = 1,
 				/obj/item/gun/energy/ionrifle = 2,
 				/obj/item/gun/energy/toxgun = 3,
-				/obj/item/gun/energy/taser = 4,
+				/obj/item/gun/composite/premade/taser_pistol = 4,
 				/obj/item/gun/energy/crossbow/largecrossbow = 2,
-				/obj/item/gun/energy/stunrevolver = 4)
+				/obj/item/gun/composite/premade/taser_pistol = 4)
 
 /obj/random/projectile
 	name = "Random Projectile Weapon"
@@ -274,23 +274,23 @@
 	icon_state = "revolver"
 
 /obj/random/projectile/spawn_choices()
-	return list(/obj/item/gun/projectile/shotgun/pump = 3,
-				/obj/item/gun/projectile/automatic/merc_smg = 2,
-				/obj/item/gun/projectile/automatic/assault_rifle = 2,
-				/obj/item/gun/projectile/automatic/bullpup_rifle = 2,
-				/obj/item/gun/projectile/pistol/military/alt = 3,
-				/obj/item/gun/projectile/pistol/sec = 4,
-				/obj/item/gun/projectile/pistol/holdout = 4,
-				/obj/item/gun/projectile/pirate = 5,
-				/obj/item/gun/projectile/revolver = 2,
-				/obj/item/gun/projectile/automatic/sec_smg = 3,
-				/obj/item/gun/projectile/revolver/holdout = 4,
-				/obj/item/gun/projectile/revolver = 2,
-				/obj/item/gun/projectile/shotgun/doublebarrel = 4,
-				/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 3,
-				/obj/item/gun/projectile/heavysniper = 1,
-				/obj/item/gun/projectile/shotgun/pump/combat = 2,
-				/obj/item/gun/projectile/pistol/throwback = 1)
+	return list(/obj/item/gun/composite/premade/shotgun = 3,
+				/obj/item/gun/composite/premade/smg/a10 = 2,
+				/obj/item/gun/composite/premade/assault_rifle = 2,
+				/obj/item/gun/composite/premade/assault_rifle = 2,
+				/obj/item/gun/composite/premade/pistol/a10 = 3,
+				/obj/item/gun/composite/premade/pistol/a9 = 4,
+				/obj/item/gun/composite/premade/revolver/hunting = 4,
+				/obj/item/gun/composite/premade/revolver/hunting = 5,
+				/obj/item/gun/composite/premade/revolver = 2,
+				/obj/item/gun/composite/premade/smg/a9 = 3,
+				/obj/item/gun/composite/premade/revolver/a38 = 4,
+				/obj/item/gun/composite/premade/revolver = 2,
+				/obj/item/gun/composite/premade/shotgun/hunting = 4,
+				/obj/item/gun/composite/premade/shotgun/hunting/sawnoff = 3,
+				/obj/item/gun/composite/premade/rifle/antimaterial = 1,
+				/obj/item/gun/composite/premade/shotgun/combat = 2,
+				/obj/item/gun/composite/premade/pistol/a38 = 1)
 
 /obj/random/handgun
 	name = "Random Handgun"
@@ -299,12 +299,12 @@
 	icon_state = "secguncomp"
 
 /obj/random/handgun/spawn_choices()
-	return list(/obj/item/gun/projectile/pistol/sec = 3,
-				/obj/item/gun/energy/gun = 2,
-				/obj/item/gun/projectile/pistol/military/alt = 1,
-				/obj/item/gun/projectile/pistol/holdout = 2,
-				/obj/item/gun/energy/retro = 1,
-				/obj/item/gun/projectile/pistol/throwback = 1)
+	return list(/obj/item/gun/composite/premade/pistol/a9 = 3,
+				/obj/item/gun/composite/premade/laser_pistol = 2,
+				/obj/item/gun/composite/premade/pistol/a10 = 1,
+				/obj/item/gun/composite/premade/revolver/hunting = 2,
+				/obj/item/gun/composite/premade/laser_pistol = 1,
+				/obj/item/gun/composite/premade/pistol/a38 = 1)
 
 /obj/random/ammo
 	name = "Random Ammunition"

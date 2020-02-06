@@ -37,10 +37,10 @@
 	head = /obj/item/clothing/head/beret 
 	l_pocket = /obj/item/material/knife/folding/combat/switchblade 
  
-/obj/item/gun/projectile/revolver/medium/marooned
+/obj/item/gun/composite/premade/revolver/a45/marooned
 	name = "worn-out revolver"
 
-/obj/item/gun/projectile/revolver/medium/marooned/Initialize()
+/obj/item/gun/composite/premade/revolver/a45/marooned/Initialize()
 	. = ..()
 	consume_next_projectile()
 	handle_post_fire()

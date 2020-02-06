@@ -26,7 +26,7 @@
 	var/locked = 1			//if the turret's behaviour control access is locked
 	var/controllock = 0		//if the turret responds to control panels
 
-	var/installation = /obj/item/gun/energy/gun		//the type of weapon installed
+	var/installation = /obj/item/gun/composite/premade/laser_pistol		//the type of weapon installed
 	var/gun_charge = 0		//the charge of the gun inserted
 	var/projectile = null	//holder for bullettype
 	var/eprojectile = null	//holder for the shot when emagged
@@ -75,7 +75,7 @@
 /obj/machinery/porta_turret/stationary
 	ailock = 1
 	lethal = 1
-	installation = /obj/item/gun/energy/laser
+	installation = /obj/item/gun/composite/premade/laser_rifle
 
 /obj/machinery/porta_turret/malf_upgrade(var/mob/living/silicon/ai/user)
 	..()
@@ -116,40 +116,40 @@
 
 /obj/machinery/porta_turret/proc/weapon_setup(var/guntype)
 	switch(guntype)
-		if(/obj/item/gun/energy/laser/practice)
+		if(/obj/item/gun/composite/premade/laser_rifle/practice)
 			iconholder = 1
 			eprojectile = /obj/item/projectile/beam
 
-//			if(/obj/item/gun/energy/laser/practice/sc_laser)
+//			if(/obj/item/gun/composite/premade/laser_rifle/practice/sc_laser)
 //				iconholder = 1
 //				eprojectile = /obj/item/projectile/beam
 
-		if(/obj/item/gun/energy/retro)
+		if(/obj/item/gun/composite/premade/laser_pistol)
 			iconholder = 1
 
-//			if(/obj/item/gun/energy/retro/sc_retro)
+//			if(/obj/item/gun/composite/premade/laser_pistol/sc_retro)
 //				iconholder = 1
 
-		if(/obj/item/gun/energy/captain)
+		if(/obj/item/gun/composite/premade/laser_pistol/self_charging/picomotion)
 			iconholder = 1
 
-		if(/obj/item/gun/energy/lasercannon)
+		if(/obj/item/gun/composite/premade/laser_cannon)
 			iconholder = 1
 
-		if(/obj/item/gun/energy/taser)
+		if(/obj/item/gun/composite/premade/taser_pistol)
 			eprojectile = /obj/item/projectile/beam
 			eshot_sound = 'sound/weapons/Laser.ogg'
 
-		if(/obj/item/gun/energy/stunrevolver)
+		if(/obj/item/gun/composite/premade/taser_pistol)
 			eprojectile = /obj/item/projectile/beam
 			eshot_sound = 'sound/weapons/Laser.ogg'
 
-		if(/obj/item/gun/energy/gun)
+		if(/obj/item/gun/composite/premade/laser_pistol)
 			eprojectile = /obj/item/projectile/beam	//If it has, going to kill mode
 			eshot_sound = 'sound/weapons/Laser.ogg'
 			egun = 1
 
-		if(/obj/item/gun/energy/gun/nuclear)
+		if(/obj/item/gun/composite/premade/laser_assault)
 			eprojectile = /obj/item/projectile/beam	//If it has, going to kill mode
 			eshot_sound = 'sound/weapons/Laser.ogg'
 			egun = 1
@@ -283,7 +283,7 @@ var/list/turret_icons
 				if(prob(70))
 					to_chat(user, "<span class='notice'>You remove the turret and salvage some components.</span>")
 					if(installation)
-						var/obj/item/gun/energy/Gun = new installation(loc)
+						var/obj/item/gun/composite/premade/laser_pistol = new installation(loc)
 						Gun.power_supply.charge = gun_charge
 						Gun.update_icon()
 					if(prob(50))
@@ -842,7 +842,7 @@ var/list/turret_icons
 				return
 			build_step = 3
 
-			var/obj/item/gun/energy/Gun = new installation(loc)
+			var/obj/item/gun/composite/premade/laser_pistol = new installation(loc)
 			Gun.power_supply.charge = gun_charge
 			Gun.update_icon()
 			installation = null

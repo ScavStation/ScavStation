@@ -79,7 +79,7 @@
 
 	. += jointext(traits, "<br>")
 
-/obj/item/gun/projectile/shotgun/pump/get_mechanics_info()
+/obj/item/gun/composite/premade/shotgun/get_mechanics_info()
 	. = ..()
 	. += "<br>To pump it, click it in hand.<br>"
 

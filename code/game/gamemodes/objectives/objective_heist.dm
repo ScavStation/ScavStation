@@ -55,7 +55,7 @@
 			target_amount = 4
 			loot = "four energy guns"
 		if(7)
-			target = /obj/item/gun/energy/laser
+			target = /obj/item/gun/composite/premade/laser_rifle
 			target_amount = 2
 			loot = "two laser guns"
 		if(8)

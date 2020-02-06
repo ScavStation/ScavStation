@@ -25,7 +25,7 @@
 		/obj/item/uv_light,
 		/obj/item/crowbar
 	)
-	emag = /obj/item/gun/energy/laser/mounted
+	emag = /obj/item/gun/composite/premade/laser_rifle
 	skills = list(
 		SKILL_BUREAUCRACY         = SKILL_PROF,
 		SKILL_COMPUTER            = SKILL_EXPERT,

@@ -1730,7 +1730,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/gun/energy/taser,
+/obj/item/gun/composite/premade/taser_pistol,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/abandoned)
 "fD" = (

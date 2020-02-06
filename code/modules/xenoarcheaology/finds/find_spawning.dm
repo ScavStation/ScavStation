@@ -385,10 +385,10 @@
 
 /obj/item/archaeological_find/laser/spawn_item()
 	var/spawn_type = pick(\
-	/obj/item/gun/energy/laser/practice,\
-	/obj/item/gun/energy/laser,\
-	/obj/item/gun/energy/xray,\
-	/obj/item/gun/energy/captain)
+	/obj/item/gun/composite/premade/laser_rifle/practice,\
+	/obj/item/gun/composite/premade/laser_rifle,\
+	/obj/item/gun/composite/premade/laser_smg,\
+	/obj/item/gun/composite/premade/laser_pistol/self_charging/picomotion)
 	var/obj/item/gun/energy/new_gun =  new spawn_type(loc)
 
 	new_gun.icon = 'icons/obj/xenoarchaeology.dmi'
@@ -414,26 +414,10 @@
 	find_type = ARCHAEO_GUN
 
 /obj/item/archaeological_find/gun/spawn_item()
-	var/obj/item/gun/projectile/revolver/new_gun = new(loc)
+	var/obj/item/gun/composite/premade/revolver/new_gun = new(loc)
 
 	new_gun.icon = 'icons/obj/xenoarchaeology.dmi'
 	new_gun.icon_state = "gun[rand(1,4)]"
-
-	//33% chance to be able to reload the gun with human ammunition
-	if(prob(66))
-		new_gun.caliber = "999"
-	//33% chance to fill it with a random amount of bullets
-	new_gun.max_shells = rand(1,12)
-	new_gun.loaded.Cut()
-	if(prob(33))
-		var/num_bullets = rand(1, new_gun.max_shells)
-		for(var/i = 1 to num_bullets)
-			var/obj/item/ammo_casing/A = new new_gun.ammo_type(new_gun)
-			new_gun.loaded += A
-			if(A.caliber != new_gun.caliber)
-				A.caliber = new_gun.caliber
-				A.desc = "A bullet casing of unknown caliber."
-
 	additional_desc = "This is an antique weapon, you're not sure if it will fire or not."
 
 	return new_gun

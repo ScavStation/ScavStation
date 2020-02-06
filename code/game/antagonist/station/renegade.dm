@@ -26,24 +26,24 @@ GLOBAL_DATUM_INIT(renegades, /datum/antagonist/renegade, new)
 	skill_setter = /datum/antag_skill_setter/station
 
 	var/list/spawn_guns = list(
-		/obj/item/gun/energy/retro,
-		/obj/item/gun/energy/gun,
+		/obj/item/gun/composite/premade/laser_pistol,
+		/obj/item/gun/composite/premade/laser_pistol,
 		/obj/item/gun/energy/crossbow,
 		/obj/item/gun/energy/pulse_rifle/pistol,
-		/obj/item/gun/projectile/automatic,
-		/obj/item/gun/projectile/automatic/machine_pistol,
-		/obj/item/gun/projectile/automatic/sec_smg,
-		/obj/item/gun/projectile/pistol/magnum_pistol,
-		/obj/item/gun/projectile/pistol/military,
-		/obj/item/gun/projectile/pistol/military/alt,
-		/obj/item/gun/projectile/pistol/sec/lethal,
-		/obj/item/gun/projectile/pistol/holdout,
-		/obj/item/gun/projectile/revolver,
-		/obj/item/gun/projectile/revolver/medium,
-		/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/gun/projectile/pistol/magnum_pistol,
-		/obj/item/gun/projectile/revolver/holdout,
-		/obj/item/gun/projectile/pistol/throwback
+		/obj/item/gun/composite/premade/assault_rifle,
+		/obj/item/gun/composite/premade/smg,
+		/obj/item/gun/composite/premade/smg/a9,
+		/obj/item/gun/composite/premade/pistol/a45,
+		/obj/item/gun/composite/premade/pistol/a10,
+		/obj/item/gun/composite/premade/pistol/a10,
+		/obj/item/gun/composite/premade/pistol/a9,
+		/obj/item/gun/composite/premade/revolver/hunting,
+		/obj/item/gun/composite/premade/revolver,
+		/obj/item/gun/composite/premade/revolver/a45,
+		/obj/item/gun/composite/premade/shotgun/hunting/sawnoff,
+		/obj/item/gun/composite/premade/pistol/a45,
+		/obj/item/gun/composite/premade/revolver/a38,
+		/obj/item/gun/composite/premade/pistol/a38
 		)
 
 /datum/antagonist/renegade/create_objectives(var/datum/mind/player)

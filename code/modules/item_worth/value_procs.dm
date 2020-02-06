@@ -21,11 +21,6 @@
 /obj/item/slime_extract/Value(var/base)
 	return base * Uses
 
-/obj/item/ammo_casing/Value()
-	if(!BB)
-		return 1
-	return ..()
-
 /obj/item/chems/Value()
 	. = ..()
 	if(reagents)

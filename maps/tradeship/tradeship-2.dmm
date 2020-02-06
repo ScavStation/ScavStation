@@ -79,7 +79,7 @@
 "aI" = (
 /obj/item/bedsheet/captain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/gun/projectile/pistol/holdout,
+/obj/item/gun/composite/premade/revolver/hunting,
 /obj/structure/bed/padded,
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
@@ -5341,7 +5341,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/obj/item/gun/energy/stunrevolver,
+/obj/item/gun/composite/premade/taser_pistol,
 /obj/structure/closet/cabinet,
 /obj/item/storage/secure/briefcase,
 /obj/item/storage/backpack/dufflebag/syndie,
@@ -5840,7 +5840,7 @@
 	},
 /obj/item/handcuffs,
 /obj/item/melee/telebaton,
-/obj/item/gun/energy/stunrevolver/rifle,
+/obj/item/gun/composite/premade/taser_pistol,
 /obj/structure/closet/secure_closet{
 	req_access = list("ACCESS_HEAD_OF_PERSONNEL")
 	},
@@ -6630,7 +6630,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay/chemistry)
 "Pb" = (
-/obj/item/gun/projectile/shotgun/pump/combat{
+/obj/item/gun/composite/premade/shotgun/combat{
 	desc = "When words don't strike hard enough.";
 	name = "Solid Argument"
 	},

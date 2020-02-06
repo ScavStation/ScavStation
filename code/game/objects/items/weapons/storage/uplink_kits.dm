@@ -87,14 +87,14 @@
 
 /obj/item/storage/box/syndie_kit/silenced
 	startswith = list(
-		/obj/item/gun/projectile/pistol/holdout,
-		/obj/item/silencer,
+		/obj/item/gun/composite/premade/revolver/hunting,
+		///obj/item/silencer,
 		/obj/item/ammo_magazine/pistol/small
 	)
 
 /obj/item/storage/backpack/satchel/syndie_kit/revolver
 	startswith = list(
-		/obj/item/gun/projectile/revolver,
+		/obj/item/gun/composite/premade/revolver,
 		/obj/item/ammo_magazine/speedloader/magnum
 	)
 
@@ -157,7 +157,7 @@
 
 /obj/item/storage/secure/briefcase/heavysniper
 	startswith = list(
-		/obj/item/gun/projectile/heavysniper,
+		/obj/item/gun/composite/premade/rifle/antimaterial,
 		/obj/item/storage/box/ammo/sniperammo
 	)
 

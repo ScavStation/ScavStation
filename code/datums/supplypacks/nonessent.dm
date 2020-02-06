@@ -42,9 +42,9 @@
 
 /decl/hierarchy/supply_pack/nonessent/lasertag
 	name = "Rec - Lasertag equipment"
-	contains = list(/obj/item/gun/energy/lasertag/red = 3,
+	contains = list(/obj/item/gun/composite/premade/laser_rifle/practice = 3,
 					/obj/item/clothing/suit/redtag = 3,
-					/obj/item/gun/energy/lasertag/blue = 3,
+					/obj/item/gun/composite/premade/laser_rifle/practice = 3,
 					/obj/item/clothing/suit/bluetag = 3)
 	cost = 20
 	containertype = /obj/structure/closet

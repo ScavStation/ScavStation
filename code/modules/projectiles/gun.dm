@@ -468,13 +468,6 @@
 		mouthshoot = 0
 		return
 
-/obj/item/gun/proc/scope()
-	set category = "Object"
-	set name = "Use Scope"
-	set popup_menu = 1
-
-	toggle_scope(usr, scope_zoom)
-
 /obj/item/gun/proc/toggle_scope(mob/user, var/zoom_amount=2.0)
 	//looking through a scope limits your periphereal vision
 	//still, increase the view size by a tiny amount so that sniping isn't too restricted to NSEW

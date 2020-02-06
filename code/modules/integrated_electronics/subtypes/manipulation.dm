@@ -36,7 +36,7 @@
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attackby(var/obj/O, var/mob/user)
 	if(istype(O, /obj/item/gun/energy))
-		var/obj/item/gun/energy/gun = O
+		var/obj/item/gun/composite/premade/laser_pistol = O
 		if(installed_gun)
 			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
 			return

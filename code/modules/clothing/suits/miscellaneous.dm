@@ -14,7 +14,7 @@
 	icon_state = "bluetag"
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/gun/energy/lasertag/blue)
+	allowed = list (/obj/item/gun/composite/premade/laser_rifle/practice)
 	siemens_coefficient = 3.0
 
 /obj/item/clothing/suit/redtag
@@ -23,7 +23,7 @@
 	icon_state = "redtag"
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/gun/energy/lasertag/red)
+	allowed = list (/obj/item/gun/composite/premade/laser_rifle/practice)
 	siemens_coefficient = 3.0
 
 /*

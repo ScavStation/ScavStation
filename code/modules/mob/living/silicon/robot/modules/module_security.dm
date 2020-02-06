@@ -50,14 +50,14 @@
 		/obj/item/borg/sight/hud/sec,
 		/obj/item/handcuffs/cyborg,
 		/obj/item/melee/baton/robot,
-		/obj/item/gun/energy/gun/secure/mounted,
+		/obj/item/gun/composite/premade/laser_pistol,
 		/obj/item/taperoll/police,
 		/obj/item/megaphone,
 		/obj/item/holowarrant,
 		/obj/item/crowbar,
 		/obj/item/hailer
 	)
-	emag = /obj/item/gun/energy/laser/mounted
+	emag = /obj/item/gun/composite/premade/laser_rifle
 
 /obj/item/robot_module/security/combat
 	name = "combat robot module"
@@ -70,10 +70,10 @@
 	equipment = list(
 		/obj/item/flash,
 		/obj/item/borg/sight/thermal,
-		/obj/item/gun/energy/laser/mounted,
+		/obj/item/gun/composite/premade/laser_rifle,
 		/obj/item/gun/energy/plasmacutter,
 		/obj/item/borg/combat/shield,
 		/obj/item/borg/combat/mobility,
 		/obj/item/crowbar
 	)
-	emag = /obj/item/gun/energy/lasercannon/mounted
+	emag = /obj/item/gun/composite/premade/laser_cannon
