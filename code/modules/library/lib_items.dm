@@ -154,10 +154,9 @@
 			return
 	if(dat)
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
-		var/processed_dat = user.handle_reading_literacy(user, dat)
-		if(processed_dat)
-			user << browse(processed_dat, "window=book;size=1000x550")
-			onclose(user, "book")
+		var/datum/browser/written/popup = new(user, "book", "Book", 1000, 550)
+		popup.set_content(dat)
+		popup.open()
 	else
 		to_chat(user, "This book is completely blank!")
 
@@ -228,10 +227,9 @@
 		user.visible_message("<span class='notice'>You open up the book and show it to [M]. </span>", \
 			"<span class='notice'> [user] opens up a book and shows it to [M]. </span>")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
-		var/processed_dat = M.handle_reading_literacy(user, "<i>Author: [author].</i><br><br>" + "[dat]")
-		if(processed_dat)
-			M << browse(processed_dat, "window=book;size=1000x550")
-
+		var/datum/browser/written/popup = new(user, "book", "<i>Author: [author].</i><br><br>[dat]", 1000, 550)
+		popup.set_content()
+		popup.open()
 /*
  * Manual Base Object
  */

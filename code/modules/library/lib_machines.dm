@@ -37,8 +37,9 @@
 		dat += "       <A href='?src=\ref[src];clear=1'>\[Clear Memory\]</A><BR><BR><A href='?src=\ref[src];eject=1'>\[Remove Book\]</A>"
 	else
 		dat += "<BR>"
-	user << browse(dat, "window=scanner")
-	onclose(user, "scanner")
+	var/datum/browser/written/popup = new(user, "scanner", "Scanner")
+	popup.set_content(dat)
+	popup.open()
 
 /obj/machinery/libraryscanner/Topic(href, href_list)
 	if(..())
