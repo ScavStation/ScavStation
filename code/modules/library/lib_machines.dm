@@ -42,7 +42,7 @@
 
 /obj/machinery/libraryscanner/Topic(href, href_list)
 	if(..())
-		usr << browse(null, "window=scanner")
+		close_browser(usr, "scanner")
 		onclose(usr, "scanner")
 		return
 
