@@ -6,11 +6,15 @@
 	var/list/minimal_access = list()      // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
 	var/list/access = list()              // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
 	var/list/software_on_spawn = list()   // Defines the software files that spawn on tablets and labtops
-	var/list/department_refs = list()	  // What deparements the job is in. Make sure a jobs primary department is the first item in the list. Especially for heads, the department they are head of needs to be first.
+	var/list/department_refs = list()	  // What deparements the job is in.
+	var/primary_department = null 		  // A jobs primary deparment, defualts to the first in the department refs list if not set. Important for heads, the department they are head of needs to be this one.
 	var/total_positions = 0               // How many players can be this job
 	var/spawn_positions = 0               // How many players can spawn in as this job
 	var/current_positions = 0             // How many players have this job
 	var/availablity_chance = 100          // Percentage chance job is available each round
+	var/guestbanned = 0					  // If set to 1 this job will be unavalible to guests
+	var/must_fill = 0					  // If set to 1 this job will be have priority over other job preferences. Do not reccommend on jobs with more that one position.
+	var/not_random_selectable = 0		  // If set to 1 this job will not be selected when a player asks for a random job.
 
 	var/supervisors = null                // Supervisors, who this person answers to directly
 	var/selection_color = "#515151"       // Selection screen color

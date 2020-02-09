@@ -19,6 +19,9 @@
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network)
 	minimal_player_age = 14
 	ideal_character_age = 50
+	guestbanned = 1	
+	must_fill = 1
+	not_random_selectable = 1
 	outfit_type = /decl/hierarchy/outfit/job/science/rd
 
 /datum/job/scientist

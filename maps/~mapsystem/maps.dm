@@ -162,9 +162,6 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		ACCESS_REGION_SUPPLY = list(access_change_ids)
 	)
 
-	// List of /datum/department types to instantiate at roundstart.
-	var/list/departments
-
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()

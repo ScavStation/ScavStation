@@ -124,5 +124,5 @@ datum/announcement/proc/NewsCast(message as text, message_title as text)
 		return "Common"
 
 	if(LAZYLEN(job.department_refs & SSdepartments.departments))
-		return SSdepartments.departments[job.department_refs[1]].announce_channel
+		return SSdepartments.departments[job.primary_department].announce_channel
 	return "Common"

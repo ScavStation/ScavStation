@@ -4,7 +4,7 @@
 	var/list/dept_list = SSdepartments.departments
 	for(var/dept_key in dept_list)
 		var/datum/department/dept = dept_list[dept_key]
-		dept_data += list(list("names" = list(), "header" = dept.title, "ref" = dept.refrence))
+		dept_data += list(list("names" = list(), "header" = dept.title, "ref" = dept.reference))
 	
 	
 	/*var/list/dept_data = list(
@@ -137,21 +137,9 @@
 	var/list/dept_list = SSdepartments.departments
 	for(var/dept_key in dept_list)
 		var/datum/department/dept = dept_list[dept_key]
-		dept_data += list("[dept.refrence]" = filtered_nano_crew_manifest(SSjobs.titles_by_department(dept.refrence))) 
+		dept_data += list("[dept.reference]" = filtered_nano_crew_manifest(SSjobs.titles_by_department(dept.reference))) 
 	return dept_data
-	/*return list(
-		"heads" = filtered_nano_crew_manifest(SSjobs.titles_by_department(COM)),
-		"spt" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(SPT)),
-		"sci" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(SCI)),
-		"sec" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(SEC)),
-		"eng" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(ENG)),
-		"med" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(MED)),
-		"sup" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(SUP)),
-		"exp" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(EXP)),
-		"srv" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(SRV)),
-		"bot" =   silicon_nano_crew_manifest(SSjobs.titles_by_department(MSC)),
-		"civ" =   filtered_nano_crew_manifest(SSjobs.titles_by_department(CIV))
-		)*/
+	
 
 /proc/flat_nano_crew_manifest()
 	. = list()

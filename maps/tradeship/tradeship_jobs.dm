@@ -117,6 +117,7 @@
 
 /datum/job/doctor
 	title = "Head Doctor"
+	head_position = 1
 	supervisors = "the Captain and your own ethics"
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/doc
 	alt_titles = list(
@@ -133,6 +134,9 @@
 	                    SKILL_ANATOMY     = SKILL_MAX,
 	                    SKILL_CHEMISTRY   = SKILL_MAX)
 	skill_points = 28
+	guestbanned = 1	
+	must_fill = 1
+	not_random_selectable = 1
 
 /datum/job/doctor/junior
 	title = "Junior Doctor"
@@ -303,6 +307,7 @@
 	                    SKILL_ENGINES      = SKILL_MAX)
 	skill_points = 26
 	head_position = 1
+	guestbanned = 1	
 	department_refs = list("enclave")
 	access = list(
 		access_heads, access_medical, access_engine, access_change_ids, access_eva, access_bridge,
@@ -339,6 +344,9 @@
 	department_refs = list("enclave", "command")
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1
+	guestbanned = 1	
+	must_fill = 1
+	not_random_selectable = 1
 	access = list(
 		access_heads, access_medical, access_engine, access_change_ids, access_eva, access_bridge,
 		access_maint_tunnels, access_bar, access_janitor, access_cargo, access_cargo_bot, access_research, access_heads_vault,

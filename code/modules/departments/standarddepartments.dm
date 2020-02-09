@@ -1,53 +1,53 @@
 /datum/department/engineering
 	title = "Engineering"
-	refrence = "engineering"
+	reference = "engineering"
 	announce_channel = "Engineering"
 
 /datum/department/security
 	title = "Security"
-	refrence = "security"
+	reference = "security"
 	announce_channel = "Security"
 
 /datum/department/medical
 	title = "Medical"
-	refrence = "medical"
+	reference = "medical"
 	goals = list(/datum/goal/department/medical_fatalities)
 	announce_channel = "Medical"
 
 /datum/department/science
 	title = "Science"
-	refrence = "science"
+	reference = "science"
 	goals = list(/datum/goal/department/extract_slime_cores)
 	announce_channel = "Science"
 
 /datum/department/civilian
 	title = "Civilian"
-	refrence = "civilian"
+	reference = "civilian"
 
 /datum/department/command
 	title = "Command"
-	refrence = "command"
+	reference = "command"
 
 /datum/department/miscellaneous
 	title = "Miscellaneous"
-	refrence = "misc"
+	reference = "misc"
 
 /datum/department/service
 	title = "Service"
-	refrence = "service"
+	reference = "service"
 	announce_channel = "Service"
 
 /datum/department/supply
 	title = "Supply"
-	refrence = "supply"
+	reference = "supply"
 	announce_channel = "Supply"
 
 /datum/department/support
 	title = "Command Support"
-	refrence = "support"
+	reference = "support"
 	announce_channel = "Command"
 
 /datum/department/exploration
 	title = "Exploration"
-	refrence = "exploration"
+	reference = "exploration"
 	announce_channel = "Exploration"

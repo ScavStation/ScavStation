@@ -8,7 +8,7 @@ SUBSYSTEM_DEF(departments)
 	var/list/all_depts = subtypesof(/datum/department)
 	for(var/dtype in all_depts)
 		var/datum/department/dept = dtype
-		var/dept_name = initial(dept.refrence)
+		var/dept_name = initial(dept.reference)
 		if(dept_name)
 			departments["[dept_name]"] = new dtype
 	for(var/thing in departments)

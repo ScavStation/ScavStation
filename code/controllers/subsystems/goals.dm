@@ -26,8 +26,9 @@ SUBSYSTEM_DEF(goals)
 	. = list()
 	for(var/thing in SSdepartments.departments)
 		var/datum/department/dept = SSdepartments.departments[thing]
-		. += "<b>[dept.title] had the following shift goals:</b>"
-		. += dept.summarize_goals(show_success = TRUE)
+		if (LAZYLEN(SSjobs.titles_by_department(dept)))
+			. += "<b>[dept.title] had the following shift goals:</b>"
+			. += dept.summarize_goals(show_success = TRUE)
 	if(LAZYLEN(.))
 		. = "<br>[jointext(., "<br>")]"
 	else

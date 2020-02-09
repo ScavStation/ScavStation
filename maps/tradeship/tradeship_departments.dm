@@ -1,4 +1,4 @@
 /datum/department/enclave
 	title = "Yinglet Enclave"
-	refrence = "enclave"
+	reference = "enclave"
 	announce_channel = "Common"
