@@ -120,25 +120,40 @@
 	if(volume)
 		remove_self(removed)
 
-/datum/reagent/proc/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	return
+/datum/reagent/proc/apply_effects(var/effect_category, var/mob/living/M, var/alien, var/removed)
+	. = TRUE
+	var/list/chem_effects_for_category = SSchemistry.get_chemical_effects_for(type, effect_category)
+	for(var/chem_decl in chem_effects_for_category)
+		var/decl/chemical_effect/chem_effect = decls_repository.get_decl(chem_decl)
+		var/effective_amount = chem_effects_for_category[chem_decl]
+
+		// Placeholder until I work out why hallucinations need 2 values.
+		if(islist(effective_amount))
+			effective_amount = effective_amount[1] || 0
+		// End placeholder.
+
+		if(chem_effect.multiply_effect_by_removed)
+			effective_amount *= removed
+		if(chem_effect.has_cumulative_effects)
+			M.add_chemical_effect(chem_decl, effective_amount)
+		else
+			M.add_up_to_chemical_effect(chem_decl, effective_amount)
+
+/datum/reagent/proc/affect_blood(var/mob/living/M, var/alien, var/removed)
+	. = istype(M) && apply_effects(CHEM_INJECT, M, alien, removed)
 
 /datum/reagent/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_blood(M, alien, removed * 0.5)
-	return
+	. = istype(M) && apply_effects(CHEM_INGEST, M, alien, removed)
 
 /datum/reagent/proc/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	return
+	. = istype(M) && apply_effects(CHEM_TOUCH, M, alien, removed)
 
 /datum/reagent/proc/overdose(var/mob/living/carbon/M, var/alien) // Overdose effect. Doesn't happen instantly.
-	M.add_chemical_effect(CE_TOXIN, 1)
-	M.adjustToxLoss(REM)
-	return
+	. = istype(M) && apply_effects(CHEM_OVERDOSE, M, alien, 1)
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
 		data = newdata
-	return
 
 /datum/reagent/proc/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
 	return
@@ -148,7 +163,6 @@
 		return data.Copy()
 	else if(data)
 		return data
-	return null
 
 /datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
 	holder = null

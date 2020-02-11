@@ -553,6 +553,11 @@
 		if(chem_doses[T] <= 0)
 			chem_doses -= T
 
+	for(var/chem_decl in chem_effects)
+		var/decl/chemical_effect/chem_effect = decls_repository.get_decl(chem_decl)
+		if(chem_effect.has_effect)
+			chem_effect.apply_to(src, chem_effects[chem_decl])
+
 	// Not an ideal place to handle this, but there doesn't seem to be a more appropriate centralized area.
 	if(chem_effects[CE_GLOWINGEYES])
 		update_eyes()

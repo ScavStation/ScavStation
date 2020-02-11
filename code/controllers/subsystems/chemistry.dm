@@ -76,3 +76,21 @@ SUBSYSTEM_DEF(chemistry)
 			continue
 		if(get_prototype(type, temperature)) //returns truthy if it's valid for the given temperature
 			return type
+
+// This is placeholder code to avoid defining a billion lists 
+// on reagents. Make sure this list is sorted from most complex 
+// path to least complex or intermediary types will not inherit
+// correctly. Yes, it is horrendous. Hopefully you aren't
+// reading this in 2030 and it's still here.
+/datum/controller/subsystem/chemistry
+	var/list/temporary_holder_for_chemistry_effects_until_singletons_are_added = list()
+
+/datum/controller/subsystem/chemistry/proc/get_chemical_effects_for(var/reagent_type, var/chem_category)
+	if(!temporary_holder_for_chemistry_effects_until_singletons_are_added[reagent_type])
+		temporary_holder_for_chemistry_effects_until_singletons_are_added[reagent_type] = list()
+		for(var/thing in temporary_holder_for_chemistry_effects_until_singletons_are_added)
+			if(ispath(reagent_type, thing))
+				temporary_holder_for_chemistry_effects_until_singletons_are_added[reagent_type] = temporary_holder_for_chemistry_effects_until_singletons_are_added[thing]
+				break
+	var/list/chems = temporary_holder_for_chemistry_effects_until_singletons_are_added[reagent_type]
+	. = chems && chems[chem_category]
