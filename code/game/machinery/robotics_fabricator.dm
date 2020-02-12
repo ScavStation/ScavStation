@@ -26,7 +26,7 @@
 		MAT_URANIUM =   0, 
 		MAT_DIAMOND =   0
 	)
-	var/res_max_amount = 200000
+	var/res_max_amount = 100 * SHEET_MATERIAL_AMOUNT
 
 	var/datum/research/files
 	var/list/datum/design/queue = list()

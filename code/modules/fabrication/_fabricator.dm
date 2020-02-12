@@ -31,10 +31,10 @@
 	var/list/stored_material
 	var/list/storage_capacity
 	var/list/base_storage_capacity = list(
-		/material/steel =     25000,
-		/material/aluminium = 25000,
-		/material/glass =     12500,
-		/material/plastic =   12500
+		/material/steel =     SHEET_MATERIAL_AMOUNT * 20,
+		/material/aluminium = SHEET_MATERIAL_AMOUNT * 20,
+		/material/glass =     SHEET_MATERIAL_AMOUNT * 10,
+		/material/plastic =   SHEET_MATERIAL_AMOUNT * 10
 	)
 
 	var/show_category = "All"

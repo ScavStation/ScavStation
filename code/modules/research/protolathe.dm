@@ -9,7 +9,7 @@
 	base_type = /obj/machinery/r_n_d/protolathe
 	construct_state = /decl/machine_construction/default/panel_closed
 
-	var/max_material_storage = 250000
+	var/max_material_storage = 100 * SHEET_MATERIAL_AMOUNT
 
 	var/list/datum/design/queue = list()
 	var/progress = 0

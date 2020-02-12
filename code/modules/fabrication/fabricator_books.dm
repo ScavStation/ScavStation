@@ -9,8 +9,8 @@
 	base_type = /obj/machinery/fabricator/book
 	fabricator_class = FABRICATOR_CLASS_BOOKS
 	base_storage_capacity = list(
-		/material/wood =      20000,
-		/material/plastic =   20000
+		/material/wood =      SHEET_MATERIAL_AMOUNT * 20,
+		/material/plastic =   SHEET_MATERIAL_AMOUNT * 20
 	)
 
 /datum/fabricator_recipe/book

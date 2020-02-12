@@ -106,7 +106,7 @@
 		var/mat = href_list["remove_mat"]
 		var/material/material = SSmaterials.get_material_datum(mat)
 		if(material)
-			var/sheet_cost = (material.units_per_sheet * 1.5)
+			var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
 			var/sheets = Floor(stored[mat]/sheet_cost)
 			if(sheets > 0)
 				material.place_sheet(loc, sheets)
