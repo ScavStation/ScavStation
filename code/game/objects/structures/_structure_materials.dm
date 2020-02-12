@@ -43,7 +43,7 @@
 		for(var/mat in matter)
 			var/material/mat_ref = SSmaterials.get_material_datum(mat)
 			if(mat_ref.stack_type)
-				var/amt = Clamp(ROUND((matter[mat] * 0.75)/SHEET_MATERIAL_AMOUNT), 1, 50)
+				var/amt = Clamp(round((matter[mat] * 0.75)/SHEET_MATERIAL_AMOUNT), 1, 50)
 				if(amt)
 					new mat_ref.stack_type(get_turf(src), amt, mat)
 
