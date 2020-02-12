@@ -204,7 +204,7 @@ research holder datum.
 	icon_state = "datadisk2"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL
-	matter = list(MAT_PLASTIC = 30, MAT_STEEL = 30, MAT_GLASS = 10)
+	material = MAT_PLASTIC
 	var/datum/tech/stored
 
 
@@ -215,5 +215,5 @@ research holder datum.
 	icon_state = "datadisk2"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL
-	matter = list(MAT_PLASTIC = 30, MAT_STEEL = 30, MAT_GLASS = 10)
+	material = MAT_PLASTIC
 	var/datum/design/blueprint

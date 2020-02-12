@@ -38,17 +38,12 @@
 		for(var/datum/reagent/R in ingested.reagent_list)
 			total_nutriment += gains_nutriment_from_inedible_reagents[R.type]
 	for(var/obj/item/food in contents)
-		for(var/mat in food.matter)
+		var/list/matter = food.get_matter()
+		for(var/mat in matter)
 			if(!gains_nutriment_from_matter[mat])
 				continue
-			var/digested = min(food.matter[mat], rand(200,500))
-			food.matter[mat] -= digested
-			digested *= 0.75
-			if(food.matter[mat] <= 0)
-				food.matter -= mat
-			if(!LAZYLEN(food.matter))
-				qdel(food)
-			total_nutriment += digested/100
+			total_nutriment += (matter[mat] * 0.5)/100
+		qdel(food)
 	// Apply to reagents.
 	total_nutriment = Floor(total_nutriment)
 	if(total_nutriment > 0 && owner)

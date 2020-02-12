@@ -16,7 +16,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/progress = 0
 
 	var/max_material_storage = 100000
-	var/mat_efficiency = 1
+	var/mat_efficiency = 2
 	var/speed = 1
 
 	idle_power_usage = 30
@@ -66,7 +66,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	max_material_storage = 75000 * Clamp(total_component_rating_of_type(/obj/item/stock_parts/matter_bin), 0, 10)
 
 	T = Clamp(total_component_rating_of_type(/obj/item/stock_parts/manipulator), 0, 3)
-	mat_efficiency = 1 - (T - 1) / 4
+	mat_efficiency = Clamp(initial(mat_efficiency) - (T - 1) / 4, 1, 4)
 	speed = T
 	..()
 
@@ -163,8 +163,4 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		reagents.remove_reagent(C, D.chemicals[C] * mat_efficiency)
 
 	if(D.build_path)
-		var/obj/new_item = D.Fabricate(loc, src)
-		if(mat_efficiency != 1) // No matter out of nowhere
-			if(new_item.matter && new_item.matter.len > 0)
-				for(var/i in new_item.matter)
-					new_item.matter[i] = new_item.matter[i] * mat_efficiency
+		D.Fabricate(loc, src)

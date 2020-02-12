@@ -423,10 +423,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/list/techlvls = linked_destroy.loaded_item.origin_tech ? json_decode(linked_destroy.loaded_item.origin_tech) : list()
 	for(var/T in techlvls)
 		files.UpdateTech(T, techlvls[T])
-	if(linked_lathe && linked_destroy.loaded_item.matter) // Also sends salvaged materials to a linked protolathe, if any.
-		for(var/t in linked_destroy.loaded_item.matter)
+	if(linked_lathe) // Also sends salvaged materials to a linked protolathe, if any.
+		var/list/matter = linked_destroy.loaded_item.get_matter()
+		for(var/t in matter)
 			if(t in linked_lathe.materials)
-				linked_lathe.materials[t] += min(linked_lathe.max_material_storage - linked_lathe.TotalMaterials(), linked_destroy.loaded_item.matter[t] * linked_destroy.decon_mod)
+				linked_lathe.materials[t] += min(linked_lathe.max_material_storage - linked_lathe.TotalMaterials(), matter[t] * linked_destroy.decon_mod)
 
 	linked_destroy.loaded_item = null
 	for(var/obj/I in linked_destroy.contents)

@@ -851,7 +851,7 @@ Just a object used in constructing air alarms
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
 	w_class = ITEM_SIZE_SMALL
-	matter = list(MAT_STEEL = 50, MAT_GLASS = 50)
+	material = MAT_STEEL
 
 /*
 FIRE ALARM
@@ -1135,7 +1135,7 @@ Just a object used in constructing fire alarms
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\"."
 	w_class = ITEM_SIZE_SMALL
-	matter = list(MAT_STEEL = 50, MAT_GLASS = 50)
+	material = MAT_GLASS
 
 /obj/machinery/partyalarm
 	name = "\improper PARTY BUTTON"

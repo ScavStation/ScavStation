@@ -39,7 +39,7 @@
 
 	var/show_category = "All"
 	var/fab_status_flags = 0
-	var/mat_efficiency = 1.1
+	var/mat_efficiency = 2
 	var/build_time_multiplier = 1
 	var/global/list/stored_substances_to_names = list()
 
@@ -123,7 +123,7 @@
 	storage_capacity = list()
 	for(var/mat in base_storage_capacity)
 		storage_capacity[mat] = mb_rating * base_storage_capacity[mat]
-	mat_efficiency = initial(mat_efficiency) - man_rating * 0.1
+	mat_efficiency = Clamp(initial(mat_efficiency) - man_rating * 0.1, 1, 2)
 	build_time_multiplier = initial(build_time_multiplier) * man_rating
 
 /obj/machinery/fabricator/dismantle()
@@ -131,7 +131,7 @@
 		if(ispath(mat, /material))
 			var/mat_name = stored_substances_to_names[mat]
 			var/material/M = SSmaterials.get_material_datum(mat_name)
-			if(stored_material[mat] > M.units_per_sheet)
-				M.place_sheet(get_turf(src), round(stored_material[mat] / M.units_per_sheet), M.type)
+			if(stored_material[mat] > SHEET_MATERIAL_AMOUNT)
+				M.place_sheet(get_turf(src), round(stored_material[mat] / SHEET_MATERIAL_AMOUNT), M.type)
 	..()
 	return TRUE

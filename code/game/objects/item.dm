@@ -101,13 +101,7 @@
 	if(material_key)
 		set_material(material_key)
 	. = ..()
-	if(istype(material))
-		matter = material.get_matter()
-		if(matter.len)
-			for(var/material_type in matter)
-				if(!isnull(matter[material_type]))
-					matter[material_type] *= material_force_multiplier
-	else
+	if(!istype(material))
 		material = null
 	if(islist(armor))
 		for(var/type in armor)
@@ -223,6 +217,7 @@
 		else
 			desc_comp += "No tech origins detected.<BR>"
 
+		var/list/matter = get_matter()
 		if(LAZYLEN(matter))
 			desc_comp += "<span class='notice'>Extractable materials:</span><BR>"
 			for(var/mat in matter)
