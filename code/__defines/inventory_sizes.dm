@@ -1,6 +1,5 @@
 #define SHEET_MATERIAL_AMOUNT 2500
-#define SHEET_UNIT "cm<sup>3</sup>"
-#define ITEM_SIZE_TO_SHEET_AMOUNT_MULTIPLIER 0.5
+#define SHEET_UNIT "<small>cm<sup>3</sup></small>"
 
 // The below should be used to define an item's w_class variable.
 // Example: w_class = ITEM_SIZE_LARGE

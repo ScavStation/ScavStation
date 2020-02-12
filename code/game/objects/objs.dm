@@ -184,7 +184,7 @@
 	. = ATOM_IS_OPEN_CONTAINER(src) && ..()
 
 /obj/proc/get_matter_multiplier()
-	. = (w_class * ITEM_SIZE_TO_SHEET_AMOUNT_MULTIPLIER)
+	. = w_class
 
 /obj/proc/get_matter()
 	var/material/mat = get_material()
