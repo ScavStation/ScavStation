@@ -50,9 +50,11 @@ research holder datum.
 	var/list/known_designs = list()			//List of available designs.
 
 /datum/research/New()		//Insert techs into possible_tech here. Known_tech automatically updated.
-	for(var/T in typesof(/datum/tech) - /datum/tech)
+
+/datum/research/proc/Initialize()
+	for(var/T in subtypesof(/datum/tech))
 		known_tech += new T(src)
-	for(var/D in typesof(/datum/design) - /datum/design)
+	for(var/D in subtypesof(/datum/design))
 		possible_designs += new D(src)
 	RefreshResearch()
 

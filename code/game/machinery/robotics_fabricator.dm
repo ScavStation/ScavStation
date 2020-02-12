@@ -278,7 +278,7 @@
 		if(!D.build_path || !(D.build_type & MECHFAB))
 			continue
 		categories |= D.category
-	if(!category || !(category in categories))
+	if(length(categories) && (!category || !(category in categories)))
 		category = categories[1]
 
 /obj/machinery/robotics_fabricator/proc/get_materials()

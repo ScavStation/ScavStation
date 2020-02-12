@@ -1,3 +1,5 @@
+#define CRAFTING_EXTRA_COST_FACTOR 1.5
+
 /* Stack type objects!
  * Contains:
  * 		Stacks
@@ -337,7 +339,7 @@
 /datum/stack_recipe
 	var/title = "ERROR"
 	var/result_type
-	var/req_amount = 1 //amount of material needed for this recipe
+	var/req_amount     //amount of material needed for this recipe
 	var/res_amount = 1 //amount of stuff that is produced in one batch (e.g. 4 for floor tiles)
 	var/max_res_amount = 1
 	var/time = 0
@@ -355,6 +357,15 @@
 		difficulty +=  material.construction_difficulty
 	if(reinforce_material)
 		use_reinf_material = reinforce_material
+	if(result_type && isnull(req_amount))
+		req_amount = 0
+		var/obj/item/I = new result_type(null, DEFAULT_WALL_MATERIAL)
+		var/list/building_cost = I.building_cost()
+		for(var/path in building_cost)
+			req_amount += building_cost[path]
+		req_amount = Clamp(ceil((req_amount*CRAFTING_EXTRA_COST_FACTOR)/SHEET_MATERIAL_AMOUNT) * res_amount, 1, 50)
+		if(!QDELETED(I))
+			qdel(I)
 
 /datum/stack_recipe/proc/display_name()
 	if(!use_material || !apply_material_name)
@@ -397,3 +408,5 @@
 /datum/stack_recipe_list/New(title, recipes)
 	src.title = title
 	src.recipes = recipes
+
+#undef CRAFTING_EXTRA_COST_FACTOR
