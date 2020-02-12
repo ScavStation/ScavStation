@@ -1,4 +1,5 @@
-#define SHEET_MATERIAL_AMOUNT 2000
+// Assuming each sheet is a bit under the size of A3 paper and 1mm thick - comes out at 100cm^3 per unit.
+#define SHEET_MATERIAL_AMOUNT 100
 
 #define TECH_MATERIAL "materials"
 #define TECH_ENGINEERING "engineering"
