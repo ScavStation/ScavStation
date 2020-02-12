@@ -384,6 +384,9 @@
 
 	return TRUE
 
+/obj/item/stack/get_matter_multiplier()
+	. = amount
+
 /*
  * Recipe list datum
  */

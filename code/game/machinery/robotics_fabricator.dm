@@ -284,7 +284,7 @@
 /obj/machinery/robotics_fabricator/proc/get_materials()
 	. = list()
 	for(var/T in materials)
-		. += list(list("mat" = "[T]", "amt" = materials[T]))
+		. += list(list("mat" = "[T]", "amt" = "[materials[T]][SHEET_UNIT]"))
 
 /obj/machinery/robotics_fabricator/proc/eject_materials(var/material, var/amount) // 0 amount = 0 means ejecting a full stack; -1 means eject everything
 	var/recursive = amount == -1 ? 1 : 0

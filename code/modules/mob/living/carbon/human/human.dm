@@ -617,8 +617,8 @@
 	if(!parent)
 		return 0
 
-	if(parent.w_class > affecting.w_class + 1)
-		return prob(100 / 2**(parent.w_class - affecting.w_class - 1))
+	if(NORMALIZE_ITEM_SIZE(parent.w_class) > NORMALIZE_ITEM_SIZE(affecting.w_class) + 1)
+		return prob(100 / 2**(NORMALIZE_ITEM_SIZE(parent.w_class) - NORMALIZE_ITEM_SIZE(affecting.w_class) - 1))
 
 	return 1
 
@@ -980,7 +980,7 @@
 			if(organ.splinted)
 				continue
 			for(var/obj/item/O in organ.implants)
-				if(!istype(O,/obj/item/implant) && O.w_class > 1 && prob(5)) //Moving with things stuck in you could be bad.
+				if(!istype(O,/obj/item/implant) && O.w_class > ITEM_SIZE_TINY && prob(5)) //Moving with things stuck in you could be bad.
 					jostle_internal_object(organ, O)
 
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
@@ -1006,7 +1006,7 @@
 			SPAN_DANGER("Your movement jostles [O] in your [organ.name] painfully."),       \
 			SPAN_DANGER("Your movement jostles [O] in your [organ.name] painfully."))
 		custom_pain(msg,40,affecting = organ)
-	organ.take_external_damage(rand(1,3) + O.w_class, DAM_EDGE, 0)
+	organ.take_external_damage(rand(1,3) + NORMALIZE_ITEM_SIZE(O.w_class), DAM_EDGE, 0)
 
 /mob/living/carbon/human/proc/remove_splints()
 	set category = "Object"

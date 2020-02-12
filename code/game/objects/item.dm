@@ -174,7 +174,7 @@
 
 /obj/item/examine(mob/user, distance)
 	var/size
-	switch(src.w_class)
+	switch(w_class)
 		if(ITEM_SIZE_TINY)
 			size = "tiny"
 		if(ITEM_SIZE_SMALL)

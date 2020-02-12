@@ -12,9 +12,9 @@
 	fire_delay = 50
 	fire_sound = 'sound/weapons/tablehit1.ogg'
 
-	var/fire_pressure                                   // Used in fire checks/pressure checks.
-	var/max_w_class = ITEM_SIZE_NORMAL                                 // Hopper intake size.
-	var/max_storage_space = DEFAULT_BOX_STORAGE         // Total internal storage size.
+	var/fire_pressure                            // Used in fire checks/pressure checks.
+	var/max_w_class = ITEM_SIZE_NORMAL           // Hopper intake size.
+	var/max_storage_space = DEFAULT_BOX_STORAGE  // Total internal storage size.
 	var/obj/item/tank/tank = null                // Tank of gas for use in firing the cannon.
 
 	var/obj/item/storage/item_storage
@@ -111,7 +111,7 @@
 
 /obj/item/gun/launcher/pneumatic/update_release_force(obj/item/projectile)
 	if(tank)
-		release_force = ((fire_pressure*tank.volume)/projectile.w_class)/force_divisor //projectile speed.
+		release_force = ((fire_pressure*tank.volume)/NORMALIZE_ITEM_SIZE(projectile.w_class))/force_divisor //projectile speed.
 		if(release_force > 80) release_force = 80 //damage cap.
 	else
 		release_force = 0

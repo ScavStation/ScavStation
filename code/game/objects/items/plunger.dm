@@ -6,7 +6,7 @@
 	icon = 'icons/obj/plunger.dmi'
 	attack_verb = list("plunged")
 	force = 1
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	slot_flags = SLOT_HEAD | SLOT_MASK
 	hitsound = 'sound/effects/plunger.ogg'
 	material = MAT_PLASTIC
@@ -19,6 +19,6 @@
 	icon = 'icons/obj/plunger.dmi'
 	attack_verb = list("plunged")
 	force = 1
-	w_class = 3
+	w_class = ITEM_SIZE_NORMAL
 	hitsound = 'sound/effects/plunger.ogg'
 	material = MAT_PLASTIC

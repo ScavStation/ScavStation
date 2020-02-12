@@ -25,8 +25,8 @@ FLOOR SAFES
 	for(var/obj/item/I in loc)
 		if(space >= maxspace)
 			return
-		if(I.w_class + space <= maxspace) //todo replace with internal storage or something
-			space += I.w_class
+		if(NORMALIZE_ITEM_SIZE(I.w_class) + space <= maxspace) //todo replace with internal storage or something
+			space += NORMALIZE_ITEM_SIZE(I.w_class)
 			I.forceMove(src)
 	. = ..()
 	tumbler_1_pos = rand(0, 72)
@@ -140,10 +140,10 @@ FLOOR SAFES
 
 /obj/structure/safe/attackby(obj/item/I, mob/user)
 	if(open)
-		if(I.w_class + space <= maxspace)
+		if(NORMALIZE_ITEM_SIZE(I.w_class) + space <= maxspace)
 			if(!user.unEquip(I, src))
 				return
-			space += I.w_class
+			space += NORMALIZE_ITEM_SIZE(I.w_class)
 			to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
 			updateUsrDialog()
 			return

@@ -36,26 +36,6 @@
 			resources[path] = building_cost[path] * FABRICATOR_EXTRA_COST_FACTOR
 	qdel(I)
 
-/obj/proc/get_matter_multiplier()
-	. = w_class
-
-/obj/item/stack/get_matter_multiplier()
-	. = amount
-
-/obj/proc/get_matter()
-	var/material/mat = get_material()
-	. = mat ? mat.get_matter() : list()
-	var/mult = Clamp(get_matter_multiplier(), 1, 10)
-	for(var/mat_type in .)
-		.[mat_type] *= mult
-	// TODO trace materials, additional materials.
-
-/obj/proc/building_cost()
-	. = get_matter() || list()
-	if(reagents && length(reagents.reagent_list))
-		for(var/datum/reagent/R in reagents.reagent_list)
-			.[R.type] = R.volume
-
 /datum/fabricator_recipe/proc/build(var/turf/location, var/amount = 1)
 	if(ispath(path, /obj/item/stack))
 		new path(location, amount)

@@ -149,7 +149,7 @@
 	..()
 
 /obj/is_fluid_pushable(var/amt)
-	return ..() && w_class <= round(amt/20)
+	return ..() && NORMALIZE_ITEM_SIZE(w_class) <= round(amt/20)
 
 /obj/proc/can_embed()
 	return is_sharp(src)
@@ -182,3 +182,20 @@
 
 /obj/can_be_injected_by(var/atom/injector)
 	. = ATOM_IS_OPEN_CONTAINER(src) && ..()
+
+/obj/proc/get_matter_multiplier()
+	. = (w_class * ITEM_SIZE_TO_SHEET_AMOUNT_MULTIPLIER)
+
+/obj/proc/get_matter()
+	var/material/mat = get_material()
+	. = mat ? mat.get_matter() : list()
+	var/mult = Clamp(get_matter_multiplier(), 1, 10)
+	for(var/mat_type in .)
+		.[mat_type] *= mult
+	// TODO trace materials, additional materials.
+
+/obj/proc/building_cost()
+	. = get_matter() || list()
+	if(reagents && length(reagents.reagent_list))
+		for(var/datum/reagent/R in reagents.reagent_list)
+			.[R.type] = R.volume

@@ -67,7 +67,7 @@
 	// Now make the cardboard
 	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
 	if(ispath(foldable, /obj/item/stack))
-		var/stack_amt = max(2**(w_class - 3), 1)
+		var/stack_amt = max(2**(NORMALIZE_ITEM_SIZE(w_class) - 3), 1)
 		new src.foldable(get_turf(src), stack_amt)
 	else
 		new src.foldable(get_turf(src))

@@ -17,10 +17,7 @@
 
 /obj/item/a_gift/Initialize()
 	. = ..()
-	if(w_class > 0 && w_class < ITEM_SIZE_HUGE)
-		icon_state = "gift[w_class]"
-	else
-		icon_state = "gift[pick(1, 2, 3)]"
+	icon_state = "gift[pick(1, 2, 3)]"
 
 /obj/item/a_gift/ex_act()
 	qdel(src)
@@ -118,19 +115,17 @@
 
 /obj/item/gift/Initialize(mapload, obj/item/wrapped = null)
 	. = ..(mapload)
-
 	if(istype(wrapped))
 		gift = wrapped
 		w_class = gift.w_class
 		gift.forceMove(src)
-
-		//a good example of where we don't want to use the w_class defines
 		switch(gift.w_class)
-			if(1) icon_state = "gift1"
-			if(2) icon_state = "gift1"
-			if(3) icon_state = "gift2"
-			if(4) icon_state = "gift2"
-			if(5) icon_state = "gift3"
+			if(ITEM_SIZE_TINY, ITEM_SIZE_SMALL)
+				icon_state = "gift1"
+			if(ITEM_SIZE_NORMAL, ITEM_SIZE_LARGE)
+				icon_state = "gift2"
+			else
+				icon_state = "gift3"
 
 /obj/item/gift/attack_self(mob/user as mob)
 	user.drop_item()
