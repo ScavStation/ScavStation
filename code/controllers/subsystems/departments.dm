@@ -5,8 +5,7 @@ SUBSYSTEM_DEF(departments)
 	var/list/departments = list()
 
 /datum/controller/subsystem/departments/Initialize()
-	var/list/all_depts = subtypesof(/datum/department)
-	for(var/dtype in all_depts)
+	for(var/dtype in subtypesof(/datum/department))
 		var/datum/department/dept = dtype
 		var/dept_name = initial(dept.reference)
 		if(dept_name)

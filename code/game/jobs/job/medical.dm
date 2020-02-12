@@ -1,7 +1,7 @@
 /datum/job/cmo
 	title = "Chief Medical Officer"
 	head_position = 1
-	department_refs = list("medical", "command")
+	department_refs = list(DEPT_MEDICAL, DEPT_COMMAND)
 
 	total_positions = 1
 	spawn_positions = 1
@@ -25,7 +25,7 @@
 
 /datum/job/doctor
 	title = "Medical Doctor"
-	department_refs = list("medical")
+	department_refs = list(DEPT_MEDICAL)
 
 	minimal_player_age = 3
 	total_positions = 5
@@ -45,7 +45,7 @@
 //Chemist is a medical job damnit	//YEAH FUCK YOU SCIENCE	-Pete	//Guys, behave -Erro
 /datum/job/chemist
 	title = "Pharmacist"
-	department_refs = list("medical")
+	department_refs = list(DEPT_MEDICAL)
 
 	minimal_player_age = 7
 	total_positions = 2
@@ -59,7 +59,7 @@
 
 /datum/job/geneticist
 	title = "Geneticist"
-	department_refs = list("medical")
+	department_refs = list(DEPT_MEDICAL)
 
 	total_positions = 0
 	spawn_positions = 0
@@ -73,7 +73,7 @@
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
-	department_refs = list("medical")
+	department_refs = list(DEPT_MEDICAL)
 
 	total_positions = 1
 	spawn_positions = 1
@@ -87,7 +87,7 @@
 
 /datum/job/Paramedic
 	title = "Paramedic"
-	department_refs = list("medical")
+	department_refs = list(DEPT_MEDICAL)
 
 	total_positions = 2
 	spawn_positions = 2

@@ -3,7 +3,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/captain
 	title = "Captain"
 	head_position = 1
-	department_refs = list("command")
+	department_refs = list(DEPT_COMMAND)
 
 	total_positions = 1
 	spawn_positions = 1
@@ -32,7 +32,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/hop
 	title = "Head of Personnel"
 	head_position = 1
-	department_refs = list("command", "civilian")
+	department_refs = list(DEPT_COMMAND, DEPT_CIVILIAN)
 
 	total_positions = 1
 	spawn_positions = 1

@@ -344,8 +344,8 @@
 //Regular jobs
 	//Command (Blue)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(SSjobs.titles_by_department("command"))]'><a href='?src=\ref[src];jobban3=commanddept;jobban4=\ref[M]'>Command Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department("command"))
+		jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(SSjobs.titles_by_department(DEPT_COMMAND))]'><a href='?src=\ref[src];jobban3=commanddept;jobban4=\ref[M]'>Command Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(DEPT_COMMAND))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -661,68 +661,68 @@
 		var/list/job_list = list()
 		switch(href_list["jobban3"])
 			if("commanddept")
-				for(var/jobPos in SSjobs.titles_by_department("command"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_COMMAND))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("supportdept")
-				for(var/jobPos in SSjobs.titles_by_department("support"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_SUPPORT))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("securitydept")
-				for(var/jobPos in SSjobs.titles_by_department("security"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_COMMAND))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("engineeringdept")
-				for(var/jobPos in SSjobs.titles_by_department("engineering"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_ENGINEERING))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("medicaldept")
-				for(var/jobPos in SSjobs.titles_by_department("medical"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_MEDICAL))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("sciencedept")
-				for(var/jobPos in SSjobs.titles_by_department("science"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_SCIENCE))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("explorationdept")
-				for(var/jobPos in SSjobs.titles_by_department("exploration"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_EXPLORATION))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("servicedept")
-				for(var/jobPos in SSjobs.titles_by_department("service"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_SERVICE))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("supplydept")
-				for(var/jobPos in SSjobs.titles_by_department("supply"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_SUPPLY))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("civiliandept")
-				for(var/jobPos in SSjobs.titles_by_department("civilian"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_CIVILIAN))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("nonhumandept")
 				job_list += "pAI"
-				for(var/jobPos in SSjobs.titles_by_department("misc"))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_MISC))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue

@@ -109,9 +109,6 @@ SUBSYSTEM_DEF(jobs)
 				for(var/dept_ref in job.department_refs)
 					if(dept_ref in dept_list)
 						LAZYDISTINCTADD(positions_by_department[dept_ref], job.title)
-				/*for (var/I in 1 to GLOB.bitflags.len)
-					if(job.department_flag & GLOB.bitflags[I])
-						LAZYDISTINCTADD(positions_by_department["[GLOB.bitflags[I]]"], job.title)*/
 
 	// Set up syndicate phrases.
 	syndicate_code_phrase = generate_code_phrase()

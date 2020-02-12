@@ -1,8 +1,8 @@
 /datum/department
-	var/title = "Undefined" //Player facing. Can be changed freely without breaking code or updating refrences in jobs.
-	var/reference = "undefined" //code facing. Jobs reference their department by this.
+	var/title = "Undefined"         // Player facing. Can be changed freely without breaking code or updating refrences in jobs.
+	var/reference = "undefined"     // Code facing. Jobs reference their department by this.
+	var/announce_channel = "Common" // The Channel for spawn annoncement. Leave as common if unsure. The channel will be selected based of the first deparment listed in a jobs .department_refs
 	var/list/goals = list() 
-	var/announce_channel = "Common" //The Channel for spawn annoncement. Leave as common if unsure. The channel will be selected based of the first deparment listed in a jobs .department_refs
 	var/min_goals = 1
 	var/max_goals = 2
 	

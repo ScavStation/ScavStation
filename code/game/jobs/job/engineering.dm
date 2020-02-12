@@ -1,7 +1,7 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
 	head_position = 1
-	department_refs = list("engineering", "command")
+	department_refs = list(DEPT_ENGINEERING, DEPT_COMMAND)
 
 	total_positions = 1
 	spawn_positions = 1

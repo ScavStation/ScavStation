@@ -1,7 +1,7 @@
 /datum/job/hos
 	title = "Head of Security"
 	head_position = 1
-	department_refs = list("security", "command")
+	department_refs = list(DEPT_SECURITY, DEPT_COMMAND)
 
 	total_positions = 1
 	spawn_positions = 1
@@ -30,7 +30,7 @@
 
 /datum/job/warden
 	title = "Warden"
-	department_refs = list("security")
+	department_refs = list(DEPT_SECURITY)
 
 	total_positions = 1
 	spawn_positions = 1
@@ -45,7 +45,7 @@
 
 /datum/job/detective
 	title = "Detective"
-	department_refs = list("security")
+	department_refs = list(DEPT_SECURITY)
 
 	total_positions = 2
 	spawn_positions = 2
@@ -61,7 +61,7 @@
 
 /datum/job/officer
 	title = "Security Officer"
-	department_refs = list("security")
+	department_refs = list(DEPT_SECURITY)
 
 	total_positions = 4
 	spawn_positions = 4

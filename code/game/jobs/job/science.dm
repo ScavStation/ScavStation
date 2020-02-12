@@ -1,7 +1,7 @@
 /datum/job/rd
 	title = "Chief Science Officer"
 	head_position = 1
-	department_refs = list("science", "command")
+	department_refs = list(DEPT_SCIENCE, DEPT_COMMAND)
 
 	total_positions = 1
 	spawn_positions = 1
@@ -26,7 +26,7 @@
 
 /datum/job/scientist
 	title = "Scientist"
-	department_refs = list("science")
+	department_refs = list(DEPT_SCIENCE)
 
 	total_positions = 5
 	spawn_positions = 3
@@ -41,7 +41,7 @@
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
-	department_refs = list("science")
+	department_refs = list(DEPT_SCIENCE)
 
 	total_positions = 3
 	spawn_positions = 2
@@ -56,7 +56,7 @@
 
 /datum/job/roboticist
 	title = "Roboticist"
-	department_refs = list("science")
+	department_refs = list(DEPT_SCIENCE)
 
 	total_positions = 2
 	spawn_positions = 2

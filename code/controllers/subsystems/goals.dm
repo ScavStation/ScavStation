@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(goals)
 	)
 	var/list/ambitions =   list()
 /datum/controller/subsystem/goals/proc/update_department_goal(var/department_ref, var/goal_type, var/progress)
-	var/datum/department/dept = SSdepartments.departments["[department_ref]"]
+	var/datum/department/dept = SSdepartments.departments[department_ref]
 	if(dept)
 		dept.update_progress(goal_type, progress)
 
