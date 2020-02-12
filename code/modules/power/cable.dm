@@ -480,6 +480,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
 
+/obj/item/stack/cable_coil/get_matter_multiplier()
+	. = ..() * 0.1 // Significantly less than a sheet per unit, it's wire!
+
 /obj/item/stack/cable_coil/single
 	amount = 1
 
