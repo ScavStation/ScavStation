@@ -149,7 +149,7 @@
 	..()
 
 /obj/is_fluid_pushable(var/amt)
-	return ..() && w_class <= round(amt/(ITEM_SIZE_GARGANTUAN*2))
+	return ..() && w_class <= round(amt/20)
 
 /obj/proc/can_embed()
 	return is_sharp(src)
@@ -184,7 +184,7 @@
 	. = ATOM_IS_OPEN_CONTAINER(src) && ..()
 
 /obj/proc/get_matter_multiplier()
-	. = w_class
+	. = (w_class * 0.5)
 
 /obj/proc/get_matter()
 	var/material/mat = get_material()

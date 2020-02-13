@@ -18,11 +18,11 @@
 		damage *= 1 - get_blocked_ratio(hit_zone, I.damtype, I.damage_flags(), I.armor_penetration, I.force)
 
 		//blunt objects should really not be embedding in things unless a huge amount of force is involved
-		var/embed_chance = weapon_sharp? damage/max(1, I.w_class) : damage/(max(1, I.w_class)*3)
-		var/embed_threshold = weapon_sharp? ITEM_SIZE_HUGE * I.w_class : ITEM_SIZE_GARGANTUAN * I.w_class
+		var/embed_chance = weapon_sharp? damage/I.w_class : damage/(I.w_class*3)
+		var/embed_threshold = weapon_sharp? 5*I.w_class : 15*I.w_class
 
 		//Sharp objects will always embed if they do enough damage.
-		if((weapon_sharp && damage > (ITEM_SIZE_GARGANTUAN * I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
+		if((weapon_sharp && damage > (10*I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
 			src.embed(I, hit_zone, supplied_wound = created_wound)
 			I.has_embedded()
 

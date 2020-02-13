@@ -16,7 +16,7 @@
 	var/tally = ..()
 	tally += speed
 	if(holding)
-		tally += holding.w_class
+		tally += (2 * holding.w_class)
 	return tally
 
 /mob/living/bot/remotebot/examine(mob/user)

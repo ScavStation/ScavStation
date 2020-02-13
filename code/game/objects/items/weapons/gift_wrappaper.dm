@@ -17,7 +17,10 @@
 
 /obj/item/a_gift/Initialize()
 	. = ..()
-	icon_state = "gift[pick(1, 2, 3)]"
+	if(w_class > 0 && w_class < ITEM_SIZE_HUGE)
+		icon_state = "gift[w_class]"
+	else
+		icon_state = "gift[pick(1, 2, 3)]"
 
 /obj/item/a_gift/ex_act()
 	qdel(src)

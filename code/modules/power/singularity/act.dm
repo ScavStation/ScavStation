@@ -19,7 +19,7 @@
 	if(current_size >= STAGE_THREE)
 		var/list/handlist = list(l_hand, r_hand)
 		for(var/obj/item/hand in handlist)
-			if(prob(current_size*5) && hand.w_class >= ((ITEM_SIZE_GARGANTUAN-current_size)/2) && unEquip(hand))
+			if(prob(current_size*5) && hand.w_class >= ((11-current_size)/2) && unEquip(hand))
 				step_towards(hand, S)
 				to_chat(src, "<span class = 'warning'>\The [S] pulls \the [hand] from your grip!</span>")
 		if(!lying && (!shoes || !(shoes.item_flags & ITEM_FLAG_NOSLIP)) && (!species || !(species.check_no_slip(src))) && prob(current_size*5))

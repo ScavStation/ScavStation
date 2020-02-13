@@ -29,10 +29,16 @@
 	var/list/datum/matter_synth/synths = null
 
 /obj/item/stack/Initialize(mapload, amount, material)
+
+	if(ispath(amount, /material))
+		crash_with("Stack initialized with material ([amount]) instead of amount.")
+		material = amount
+		amount = 1
+
 	. = ..(mapload, material)
 	if (!stacktype)
 		stacktype = type
-	if (amount >= 1)
+	if(isnum(amount) && amount >= 1)
 		src.amount = amount
 	if(!plural_name)
 		plural_name = "[singular_name]s"
@@ -359,7 +365,7 @@
 		use_reinf_material = reinforce_material
 	if(result_type && isnull(req_amount))
 		req_amount = 0
-		var/obj/item/I = new result_type(null, DEFAULT_WALL_MATERIAL)
+		var/obj/item/I = new result_type
 		var/list/building_cost = I.building_cost()
 		for(var/path in building_cost)
 			req_amount += building_cost[path]
