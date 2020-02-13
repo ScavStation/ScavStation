@@ -1,7 +1,7 @@
 //Food
 /datum/job/bartender
 	title = "Bartender"
-	department_refs = list("service")
+	department_refs = list(DEPT_SERVICE)
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -12,7 +12,7 @@
 
 /datum/job/chef
 	title = "Chef"
-	department_refs = list("service")
+	department_refs = list(DEPT_SERVICE)
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
@@ -23,7 +23,7 @@
 
 /datum/job/hydro
 	title = "Gardener"
-	department_refs = list("service")
+	department_refs = list(DEPT_SERVICE)
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -35,7 +35,7 @@
 //Cargo
 /datum/job/qm
 	title = "Quartermaster"
-	department_refs = list("supply")
+	department_refs = list(DEPT_SUPPLY)
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -48,7 +48,7 @@
 
 /datum/job/cargo_tech
 	title = "Cargo Technician"
-	department_refs = list("supply")
+	department_refs = list(DEPT_SUPPLY)
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the quartermaster and the head of personnel"
@@ -58,7 +58,7 @@
 
 /datum/job/mining
 	title = "Shaft Miner"
-	department_refs = list("supply")
+	department_refs = list(DEPT_SUPPLY)
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the quartermaster and the head of personnel"
@@ -70,7 +70,7 @@
 
 /datum/job/janitor
 	title = "Janitor"
-	department_refs = list("service")
+	department_refs = list(DEPT_SERVICE)
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -82,7 +82,7 @@
 //More or less assistants
 /datum/job/librarian
 	title = "Librarian"
-	department_refs = list("civilian")
+	department_refs = list(DEPT_CIVILIAN)
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -93,7 +93,7 @@
 
 /datum/job/lawyer
 	title = "Internal Affairs Agent"
-	department_refs = list("support")
+	department_refs = list(DEPT_SUPPORT)
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "company officials and Corporate Regulations"

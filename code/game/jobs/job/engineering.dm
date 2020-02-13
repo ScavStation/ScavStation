@@ -29,7 +29,7 @@
 
 /datum/job/engineer
 	title = "Engineer"
-	department_refs = list("engineering")
+	department_refs = list(DEPT_ENGINEERING)
 
 	total_positions = 8
 	spawn_positions = 7

@@ -1,6 +1,6 @@
 /datum/job/assistant
 	title = "Assistant"
-	department_refs = list("civilian")
+	department_refs = list(DEPT_CIVILIAN)
 
 	total_positions = -1
 	spawn_positions = -1
