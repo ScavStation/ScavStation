@@ -4,6 +4,7 @@
 #define CEILING(x, y) ( -round(-(x) / (y)) * (y) )
 #define MULT_BY_RANDOM_COEF(VAR,LO,HI) VAR =  round((VAR * rand(LO * 100, HI * 100))/100, 0.1)
 #define CONSTANT_ROUND(X) ((X) % ((X)+1))
+#define CONSTANT_MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
 
 // min is inclusive, max is exclusive
 /proc/Wrap(val, min, max)

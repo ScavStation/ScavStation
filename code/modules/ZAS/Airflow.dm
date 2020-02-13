@@ -107,7 +107,7 @@ mob/airflow_hit(atom/A)
 	for(var/mob/M in hearers(src))
 		M.show_message("<span class='danger'>\The [src] slams into \a [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
 	playsound(src.loc, "smash.ogg", 25, 1, -1)
-	var/weak_amt = istype(A,/obj/item) ? NORMALIZE_ITEM_SIZE(A:w_class) : rand(1,5) //Heheheh
+	var/weak_amt = istype(A,/obj/item) ? A:w_class : rand(1,5) //Heheheh
 	Weaken(weak_amt)
 	. = ..()
 

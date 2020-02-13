@@ -18,15 +18,19 @@
 #define ITEM_SIZE_GARGANTUAN     8
 #define ITEM_SIZE_NO_CONTAINER   INFINITY
 
+// Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
+#define MOB_SIZE_MINISCULE  ITEM_SIZE_NORMAL
+#define MOB_SIZE_TINY       ITEM_SIZE_HUGE
+#define MOB_SIZE_SMALL      ITEM_SIZE_GARGANTUAN
+#define MOB_SIZE_MEDIUM     MOB_SIZE_SMALL  * 2
+#define MOB_SIZE_LARGE      MOB_SIZE_MEDIUM * 2
+
 // Normalize arbitrary w_class to a linear integer sequence for use in older code that relies on magic numbers.
 #define ITEM_SIZE_MIN            ITEM_SIZE_TINY
 #define ITEM_SIZE_MAX            ITEM_SIZE_GARGANTUAN
-#define LEGACY_ITEM_SIZE_MIN     1
-#define LEGACY_ITEM_SIZE_MAX     6
-#define NORMALIZE_ITEM_SIZE(X)   CONSTANT_ROUND(MAP((X), ITEM_SIZE_MIN, ITEM_SIZE_MAX, LEGACY_ITEM_SIZE_MIN, LEGACY_ITEM_SIZE_MAX))
 
 // Storage defines!
-#define BASE_STORAGE_COST(w_class) (2**(max(0, (w_class-1))))
+#define BASE_STORAGE_COST(w_class) (2**(CONSTANT_MAX(0, (w_class-1))))
 #define BASE_STORAGE_CAPACITY(w_class) (7*w_class)
 
 #define DEFAULT_BACKPACK_STORAGE BASE_STORAGE_CAPACITY(ITEM_SIZE_HUGE)

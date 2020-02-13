@@ -1,5 +1,5 @@
 /mob/living/bot/remotebot
-	name = "Remote-Bot"
+	name = "remote bot"
 	desc = "A remote controlled robot used by lazy people to switch channels and get pizza."
 	icon = 'icons/mob/bot/fetchbot.dmi'
 	icon_state = "fetchbot1"
@@ -16,7 +16,7 @@
 	var/tally = ..()
 	tally += speed
 	if(holding)
-		tally += (2 * NORMALIZE_ITEM_SIZE(holding.w_class))
+		tally += holding.w_class
 	return tally
 
 /mob/living/bot/remotebot/examine(mob/user)

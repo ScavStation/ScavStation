@@ -19,14 +19,14 @@ FLOOR SAFES
 	var/tumbler_2_open
 	var/dial = 0		//where is the dial pointing?
 	var/space = 0		//the combined w_class of everything in the safe
-	var/maxspace = 24	//the maximum combined w_class of stuff in the safe
+	var/maxspace = 30	//the maximum combined w_class of stuff in the safe
 
 /obj/structure/safe/Initialize()
 	for(var/obj/item/I in loc)
 		if(space >= maxspace)
 			return
-		if(NORMALIZE_ITEM_SIZE(I.w_class) + space <= maxspace) //todo replace with internal storage or something
-			space += NORMALIZE_ITEM_SIZE(I.w_class)
+		if(I.w_class + space <= maxspace) //todo replace with internal storage or something
+			space += I.w_class
 			I.forceMove(src)
 	. = ..()
 	tumbler_1_pos = rand(0, 72)
@@ -140,10 +140,10 @@ FLOOR SAFES
 
 /obj/structure/safe/attackby(obj/item/I, mob/user)
 	if(open)
-		if(NORMALIZE_ITEM_SIZE(I.w_class) + space <= maxspace)
+		if(I.w_class + space <= maxspace)
 			if(!user.unEquip(I, src))
 				return
-			space += NORMALIZE_ITEM_SIZE(I.w_class)
+			space += I.w_class
 			to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
 			updateUsrDialog()
 			return

@@ -149,7 +149,7 @@
 	..()
 
 /obj/is_fluid_pushable(var/amt)
-	return ..() && NORMALIZE_ITEM_SIZE(w_class) <= round(amt/20)
+	return ..() && w_class <= round(amt/(ITEM_SIZE_GARGANTUAN*2))
 
 /obj/proc/can_embed()
 	return is_sharp(src)

@@ -202,14 +202,14 @@
 			. += between(0, O.w_class, ITEM_SIZE_GARGANTUAN) / 5
 		else if(istype(pulling, /mob))
 			var/mob/M = pulling
-			. += max(0, M.mob_size) / MOB_MEDIUM
+			. += max(0, M.mob_size) / MOB_SIZE_MEDIUM
 		else
 			. += 1
 	. *= (0.8 ** size_strength_mod())
 
 //Determines mob size/strength effects for slowdown purposes. Standard is 0; can be pos/neg.
 /mob/proc/size_strength_mod()
-	return log(2, mob_size / MOB_MEDIUM)
+	return log(2, mob_size / MOB_SIZE_MEDIUM)
 
 /mob/proc/Life()
 //	if(organStructure)
@@ -856,8 +856,8 @@
 			LAZYREMOVE(wound.embedded_objects, implant)
 		if(!surgical_removal)
 			shock_stage+=20
-			affected.take_external_damage((NORMALIZE_ITEM_SIZE(implant.w_class) * 3), 0, DAM_EDGE, "Embedded object extraction")
-			if(!BP_IS_PROSTHETIC(affected) && prob(NORMALIZE_ITEM_SIZE(implant.w_class) * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
+			affected.take_external_damage(implant.w_class * 5, 0, DAM_EDGE, "Embedded object extraction")
+			if(!BP_IS_PROSTHETIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
 				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
 	. = ..()
 

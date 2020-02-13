@@ -73,7 +73,7 @@ var/list/organ_cache = list()
 		species = all_species[SPECIES_HUMAN]
 	species.resize_organ(src)
 
-	create_reagents(5 * (NORMALIZE_ITEM_SIZE(w_class)-1)**2)
+	create_reagents(5 * (w_class-1)**2)
 	reagents.add_reagent(/datum/reagent/nutriment/protein, reagents.maximum_volume)
 
 	update_icon()

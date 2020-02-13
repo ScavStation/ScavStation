@@ -299,7 +299,7 @@
 
 	var/message = "\The [src] has thrown \the [item]."
 	var/skill_mod = 0.2
-	if(!skill_check(SKILL_HAULING, min(NORMALIZE_ITEM_SIZE(round(itemsize - ITEM_SIZE_HUGE)) + 2, SKILL_MAX)))
+	if(!skill_check(SKILL_HAULING, min(round(itemsize - ITEM_SIZE_HUGE) + 2, SKILL_MAX)))
 		if(prob(30))
 			Weaken(2)
 			message = "\The [src] barely manages to throw \the [item], and is knocked off-balance!"
@@ -315,7 +315,7 @@
 	if(!src.lastarea)
 		src.lastarea = get_area(src.loc)
 	if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity == 0))
-		if(prob((itemsize * itemsize * 10) * MOB_MEDIUM/src.mob_size))
+		if(prob((itemsize * itemsize * 10) * MOB_SIZE_MEDIUM/src.mob_size))
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
 

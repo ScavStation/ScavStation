@@ -124,7 +124,7 @@
 		new /obj/item/stack/cable_coil(get_turf(src), 3)
 	..()
 
-/obj/item/material/twohanded/spear/javelin //short spears for short folks; can be wielded two handed even when mob_small
+/obj/item/material/twohanded/spear/javelin //short spears for short folks; can be wielded two handed even when MOB_SIZE_SMALL
 	icon_state = "spearglass0"
 	base_icon = "spearglass"
 	name = "javelin"

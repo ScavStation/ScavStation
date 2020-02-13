@@ -347,12 +347,12 @@ meteor_act
 				damage *= (1 - get_blocked_ratio(zone, BRUTE, O.damage_flags(), O.armor_penetration, I.force))
 
 				//blunt objects should really not be embedding in things unless a huge amount of force is involved
-				var/embed_chance = sharp? damage/I.w_class : damage/(NORMALIZE_ITEM_SIZE(I.w_class)*3)
-				var/embed_threshold = sharp? 5*NORMALIZE_ITEM_SIZE(I.w_class) : 15*NORMALIZE_ITEM_SIZE(I.w_class)
+				var/embed_chance = sharp? damage/I.w_class : damage/max(1,I.w_class)*3
+				var/embed_threshold = sharp? ITEM_SIZE_HUGE*I.w_class : ITEM_SIZE_GARGANTUAN*I.w_class
 
 				//Sharp objects will always embed if they do enough damage.
 				//Thrown sharp objects have some momentum already and have a small chance to embed even if the damage is below the threshold
-				if((sharp && prob(damage/(10*NORMALIZE_ITEM_SIZE(I.w_class))*100)) || (damage > embed_threshold && prob(embed_chance)))
+				if((sharp && prob(damage/(ITEM_SIZE_GARGANTUAN*I.w_class)*100)) || (damage > embed_threshold && prob(embed_chance)))
 					affecting.embed(I, supplied_wound = created_wound)
 					I.has_embedded()
 
@@ -360,7 +360,7 @@ meteor_act
 		var/mass = 1.5
 		if(istype(O, /obj/item))
 			var/obj/item/I = O
-			mass = NORMALIZE_ITEM_SIZE(I.w_class)/THROWNOBJ_KNOCKBACK_DIVISOR
+			mass = max(1,I.w_class)/THROWNOBJ_KNOCKBACK_DIVISOR
 		var/momentum = TT.speed*mass
 
 		if(momentum >= THROWNOBJ_KNOCKBACK_SPEED)

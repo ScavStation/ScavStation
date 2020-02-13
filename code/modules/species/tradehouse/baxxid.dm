@@ -6,7 +6,7 @@
 	preview_icon =    'icons/mob/human_races/species/baxxid/preview.dmi'
 	icon_template =   'icons/mob/human_races/species/baxxid/template.dmi'
 	manual_dexterity = DEXTERITY_KEYBOARDS
-	mob_size = MOB_LARGE
+	mob_size = MOB_SIZE_LARGE
 
 	unarmed_attacks = list(
 		/datum/unarmed_attack/claws/strong/baxxid,

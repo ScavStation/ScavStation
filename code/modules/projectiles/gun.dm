@@ -362,7 +362,7 @@
 	if(stood_still)
 		acc_mod += min(max(3, accuracy), stood_still)
 	else
-		acc_mod -= NORMALIZE_ITEM_SIZE(w_class - ITEM_SIZE_NORMAL)
+		acc_mod -= max(0, w_class - ITEM_SIZE_NORMAL)
 		acc_mod -= bulk
 
 	if(one_hand_penalty >= 4 && !held_twohanded)

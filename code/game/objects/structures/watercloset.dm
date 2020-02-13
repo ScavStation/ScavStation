@@ -123,7 +123,7 @@
 			else
 				I.dropInto(loc)
 			to_chat(user, "<span class='notice'>You find \an [I] in the cistern.</span>")
-			w_items -= NORMALIZE_ITEM_SIZE(I.w_class)
+			w_items -= I.w_class
 			return
 
 	open = !open
@@ -165,12 +165,12 @@
 		if(I.w_class > ITEM_SIZE_NORMAL)
 			to_chat(user, "<span class='warning'>\The [I] does not fit.</span>")
 			return
-		if(w_items + NORMALIZE_ITEM_SIZE(I.w_class) > 5)
+		if(w_items + I.w_class > ITEM_SIZE_GARGANTUAN)
 			to_chat(user, "<span class='warning'>The cistern is full.</span>")
 			return
 		if(!user.unEquip(I, src))
 			return
-		w_items += NORMALIZE_ITEM_SIZE(I.w_class)
+		w_items += I.w_class
 		to_chat(user, "<span class='notice'>You carefully place \the [I] into the cistern.</span>")
 		return
 

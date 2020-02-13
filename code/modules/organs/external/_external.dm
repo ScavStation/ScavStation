@@ -169,7 +169,7 @@
 	var/power = 4 - severity //stupid reverse severity
 	for(var/obj/item/I in implants)
 		if(I.obj_flags & OBJ_FLAG_CONDUCTIBLE)
-			burn_damage += NORMALIZE_ITEM_SIZE(I.w_class) * rand(power, 3*power)
+			burn_damage += max(1,I.w_class * rand(power, 3*power))
 
 	if(owner && burn_damage)
 		owner.custom_pain("Something inside your [src] burns a [severity < 2 ? "bit" : "lot"]!", power * 15) //robotic organs won't feel it anyway
@@ -1171,11 +1171,11 @@ obj/item/organ/external/proc/remove_clamps()
 
 	if(!supplied_wound)
 		for(var/datum/wound/wound in wounds)
-			if((wound.damage_type == CUT || wound.damage_type == PIERCE) && wound.damage >= NORMALIZE_ITEM_SIZE(W.w_class) * 5)
+			if((wound.damage_type == CUT || wound.damage_type == PIERCE) && wound.damage >= max(1, W.w_class*5))
 				supplied_wound = wound
 				break
 	if(!supplied_wound)
-		supplied_wound = createwound(PIERCE, NORMALIZE_ITEM_SIZE(W.w_class) * 5)
+		supplied_wound = createwound(PIERCE, max(1, W.w_class * 2))
 
 	if(!supplied_wound || (W in supplied_wound.embedded_objects)) // Just in case.
 		return

@@ -60,12 +60,12 @@ GLOBAL_LIST_EMPTY(unit_test_obj_random_weights_by_type)
 	// Would be nice to re-use how closets calculate size/weight but the difference between instances and paths prevents it.
 	if(ispath(path, /obj))
 		var/obj/O = path
-		return initial(O.w_class) / 2
+		return (initial(O.w_class)/2)
 	if(ispath(path, /mob))
 		var/mob/M = path
 		return initial(M.mob_size)
 	if(ispath(path, /obj/structure) || ispath(path, /obj/machinery))
-		return MOB_LARGE
+		return MOB_SIZE_LARGE
 	if(istype(path, /datum))
 		var/datum/D = path
 		return D.unit_test_get_weight()

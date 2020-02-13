@@ -617,8 +617,8 @@
 	if(!parent)
 		return 0
 
-	if(NORMALIZE_ITEM_SIZE(parent.w_class) > NORMALIZE_ITEM_SIZE(affecting.w_class) + 1)
-		return prob(100 / 2**(NORMALIZE_ITEM_SIZE(parent.w_class) - NORMALIZE_ITEM_SIZE(affecting.w_class) - 1))
+	if(parent.w_class > affecting.w_class + 1)
+		return prob(100 / 2**(parent.w_class - affecting.w_class)-1)
 
 	return 1
 
@@ -1006,7 +1006,7 @@
 			SPAN_DANGER("Your movement jostles [O] in your [organ.name] painfully."),       \
 			SPAN_DANGER("Your movement jostles [O] in your [organ.name] painfully."))
 		custom_pain(msg,40,affecting = organ)
-	organ.take_external_damage(rand(1,3) + NORMALIZE_ITEM_SIZE(O.w_class), DAM_EDGE, 0)
+	organ.take_external_damage(rand(1,3) + max(1, O.w_class), DAM_EDGE, 0)
 
 /mob/living/carbon/human/proc/remove_splints()
 	set category = "Object"

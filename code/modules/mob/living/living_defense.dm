@@ -165,7 +165,7 @@
 		var/mass = 1.5
 		if(istype(O, /obj/item))
 			var/obj/item/I = O
-			mass = NORMALIZE_ITEM_SIZE(I.w_class)/THROWNOBJ_KNOCKBACK_DIVISOR
+			mass = max(1, I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR)
 		var/momentum = TT.speed*mass
 
 		if(momentum >= THROWNOBJ_KNOCKBACK_SPEED)
