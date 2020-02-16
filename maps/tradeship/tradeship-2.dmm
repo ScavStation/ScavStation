@@ -4633,9 +4633,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/engine/aft)
-"kQ" = (
-/turf/simulated/floor/wood/yew,
-/area/ship/scrap/unused)
 "lb" = (
 /obj/machinery/light,
 /obj/machinery/newscaster{
@@ -5430,6 +5427,12 @@
 	},
 /turf/simulated/wall,
 /area/ship/scrap/maintenance/atmos)
+"wL" = (
+/obj/item/mollusc/barnacle{
+	pixel_w = -15
+	},
+/turf/space,
+/area/space)
 "wP" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -5495,6 +5498,12 @@
 "xS" = (
 /turf/simulated/floor/carpet,
 /area/ship/scrap/command/fmate)
+"xX" = (
+/obj/item/mollusc/barnacle{
+	pixel_w = 17
+	},
+/turf/space,
+/area/space)
 "xZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -5563,12 +5572,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ship/scrap/crew/toilets)
-"zp" = (
-/obj/item/mollusc/barnacle{
-	pixel_w = -15
-	},
-/turf/space,
-/area/space)
 "zs" = (
 /obj/machinery/shipsensors,
 /turf/simulated/floor/airless,
@@ -6053,6 +6056,9 @@
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
+"Hs" = (
+/turf/simulated/floor/wood/yew,
+/area/ship/scrap/unused)
 "HF" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -6494,12 +6500,6 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall,
 /area/ship/scrap/unused)
-"MN" = (
-/obj/item/mollusc/barnacle{
-	pixel_w = 17
-	},
-/turf/space,
-/area/space)
 "Nb" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
@@ -9134,7 +9134,7 @@ aa
 aa
 aa
 aa
-MN
+xX
 aa
 aa
 aa
@@ -9621,7 +9621,7 @@ aa
 aa
 Lx
 aa
-MN
+xX
 aa
 Lx
 cy
@@ -9933,7 +9933,7 @@ aa
 aa
 aa
 aa
-MN
+xX
 aa
 aa
 nZ
@@ -11189,7 +11189,7 @@ Im
 ee
 NI
 rR
-kQ
+Hs
 gQ
 sS
 sS
@@ -11922,7 +11922,7 @@ aa
 aa
 aa
 aa
-zp
+wL
 aa
 aa
 aa

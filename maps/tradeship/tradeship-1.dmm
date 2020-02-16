@@ -1569,6 +1569,21 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/scrap/drunk_tank)
+"dK" = (
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/ship/scrap/maintenance/techstorage)
 "dL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -1965,9 +1980,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/eva)
 "eC" = (
@@ -2156,11 +2168,6 @@
 "eQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/light_switch{
 	pixel_w = 22
 	},
@@ -2234,11 +2241,6 @@
 	dir = 1;
 	level = 2
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_w = 8
-	},
-/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/eva)
 "fb" = (
@@ -2285,21 +2287,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/scrap/escape_port)
-"fN" = (
-/obj/item/tape_roll,
-/obj/item/stack/material/plasteel/fifty,
-/obj/item/stack/material/rods/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/plastic/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/structure/closet/crate,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/reinforced/fifty,
-/obj/item/clothing/head/welding,
-/obj/item/stack/material/cardboard/fifty,
-/turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/techstorage)
 "fX" = (
 /obj/structure/handrai,
 /turf/space,
@@ -2575,6 +2562,21 @@
 /obj/machinery/botany/extractor,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/science)
+"pg" = (
+/obj/item/tape_roll,
+/obj/item/stack/material/plasteel/fifty,
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/plastic/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/structure/closet/crate,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/reinforced/fifty,
+/obj/item/clothing/head/welding,
+/obj/item/stack/material/cardboard/fifty,
+/turf/simulated/floor/tiled/techfloor,
+/area/ship/scrap/maintenance/techstorage)
 "pr" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -2804,27 +2806,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/scrap/escape_star)
-"wd" = (
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/techstorage)
-"wv" = (
-/obj/item/mollusc/barnacle{
-	pixel_z = 19
-	},
-/turf/space,
-/area/space)
 "wI" = (
 /obj/structure/bed/padded,
 /obj/machinery/light/small{
@@ -2868,6 +2849,12 @@
 	},
 /turf/simulated/floor/lino,
 /area/ship/scrap/crew/dorms1)
+"yR" = (
+/obj/item/mollusc/barnacle{
+	pixel_z = 19
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "zb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2885,12 +2872,6 @@
 /obj/machinery/door/airlock/hatch/autoname/science,
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/robot)
-"zc" = (
-/obj/item/mollusc/barnacle{
-	pixel_z = 19
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "Ab" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
@@ -2933,6 +2914,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scrap/drunk_tank)
+"BW" = (
+/obj/item/mollusc/barnacle{
+	pixel_w = 17
+	},
+/turf/space,
+/area/space)
 "Cd" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
@@ -3128,12 +3115,6 @@
 /obj/machinery/door/airlock/hatch/autoname/science,
 /turf/simulated/floor/plating,
 /area/ship/scrap/science/fabricaton)
-"Ji" = (
-/obj/item/mollusc/barnacle{
-	pixel_w = 17
-	},
-/turf/space,
-/area/space)
 "Js" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/drill,
@@ -3457,6 +3438,12 @@
 "ZJ" = (
 /turf/simulated/wall,
 /area/ship/scrap/escape_star)
+"ZL" = (
+/obj/item/mollusc/barnacle{
+	pixel_z = 19
+	},
+/turf/space,
+/area/space)
 
 (1,1,1) = {"
 aa
@@ -5710,7 +5697,7 @@ aa
 aa
 aa
 aa
-Ji
+BW
 aa
 aa
 aa
@@ -5802,7 +5789,7 @@ tf
 aa
 aa
 aa
-Ji
+BW
 aa
 aa
 XF
@@ -6300,9 +6287,9 @@ kb
 uw
 dP
 dZ
-wd
+dK
 ec
-fN
+pg
 ef
 Rq
 vW
@@ -7266,7 +7253,7 @@ aa
 aa
 aa
 aa
-zc
+yR
 ap
 az
 qb
@@ -7283,7 +7270,7 @@ Nb
 dz
 Sb
 DX
-wv
+ZL
 er
 eH
 er
