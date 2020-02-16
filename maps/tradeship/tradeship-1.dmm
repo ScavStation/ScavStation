@@ -60,6 +60,12 @@
 "al" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/cargo/lower)
+"an" = (
+/obj/item/mollusc/barnacle{
+	pixel_z = 19
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "ao" = (
 /turf/simulated/wall,
 /area/ship/scrap/cargo/lower)
@@ -930,7 +936,7 @@
 	},
 /obj/machinery/power/apc{
 	dir = 4;
-	pixel_w = 25
+	pixel_w = 1
 	},
 /obj/machinery/r_n_d/destructive_analyzer,
 /obj/machinery/light_switch{
@@ -1569,21 +1575,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/scrap/drunk_tank)
-"dK" = (
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/techstorage)
 "dL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -1615,15 +1606,14 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/scrap/maintenance/lower)
@@ -1650,7 +1640,6 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
-/obj/machinery/power/apc,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1666,6 +1655,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/power/apc,
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/lower)
 "dT" = (
@@ -1772,13 +1762,20 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "ea" = (
 /turf/simulated/wall,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "eb" = (
 /turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "ec" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1793,7 +1790,9 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "ed" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/eva)
@@ -1801,8 +1800,22 @@
 /turf/simulated/wall,
 /area/ship/scrap/maintenance/eva)
 "ef" = (
-/turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/techstorage)
+/obj/item/tape_roll,
+/obj/item/stack/material/plasteel/fifty,
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/plastic/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/structure/closet/crate,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/reinforced/fifty,
+/obj/item/clothing/head/welding,
+/obj/item/stack/material/cardboard/fifty,
+/turf/simulated/floor/tiled/techfloor,
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "ek" = (
 /obj/structure/closet/crate/plastic,
 /obj/item/storage/ore,
@@ -1812,7 +1825,9 @@
 /obj/item/scanner/mining,
 /obj/item/floor_painter,
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "em" = (
 /obj/machinery/light{
 	icon_state = "bulb1";
@@ -1825,7 +1840,10 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "en" = (
 /obj/item/radio/intercom{
 	dir = 8;
@@ -1836,7 +1854,10 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "eo" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
@@ -1891,7 +1912,9 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "et" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1905,7 +1928,9 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "eu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1920,7 +1945,9 @@
 	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "ew" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1935,7 +1962,9 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "ey" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1943,15 +1972,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch/autoname/engineering,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/hatch/autoname/engineering,
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "ez" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1967,7 +1999,10 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "eA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1980,8 +2015,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "eC" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -2117,7 +2158,9 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "eK" = (
 /obj/item/stock_parts/console_screen,
 /obj/item/stock_parts/console_screen,
@@ -2138,7 +2181,9 @@
 	level = 2
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "eL" = (
 /obj/structure/table/rack,
 /obj/item/stock_parts/circuitboard/pacman/super/potato,
@@ -2148,10 +2193,14 @@
 /obj/item/stock_parts/circuitboard/unary_atmos/engine,
 /obj/item/stock_parts/circuitboard/unary_atmos/engine,
 /turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "eN" = (
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "eP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start{
@@ -2164,15 +2213,27 @@
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "eQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light_switch{
 	pixel_w = 22
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "eR" = (
 /obj/item/radio/intercom{
 	dir = 4;
@@ -2214,7 +2275,9 @@
 /obj/item/taperoll/engineering,
 /obj/item/tape_roll,
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "eW" = (
 /obj/structure/table/standard,
 /obj/item/inflatable_dispenser,
@@ -2223,7 +2286,9 @@
 /obj/machinery/light,
 /obj/item/radio,
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "eY" = (
 /obj/item/radio/intercom{
 	dir = 1;
@@ -2234,15 +2299,27 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "eZ" = (
 /obj/machinery/vending/engineering,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
+/obj/structure/cable,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "Engineering Supply Storage APC";
+	pixel_w = 1
+	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/maintenance/eva)
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "fb" = (
 /obj/machinery/light,
 /obj/machinery/suit_cycler/tradeship,
@@ -2379,6 +2456,11 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/monotile,
 /area/ship/scrap/cargo/lower)
+"im" = (
+/turf/simulated/wall/r_wall,
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "iW" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
@@ -2447,6 +2529,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/maintenance/lower)
+"kH" = (
+/obj/item/mollusc/barnacle{
+	pixel_z = 19
+	},
+/turf/space,
+/area/space)
 "kP" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
@@ -2562,21 +2650,6 @@
 /obj/machinery/botany/extractor,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/science)
-"pg" = (
-/obj/item/tape_roll,
-/obj/item/stack/material/plasteel/fifty,
-/obj/item/stack/material/rods/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/plastic/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/structure/closet/crate,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/reinforced/fifty,
-/obj/item/clothing/head/welding,
-/obj/item/stack/material/cardboard/fifty,
-/turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/techstorage)
 "pr" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -2623,11 +2696,15 @@
 	pixel_w = 33
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "rv" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "rB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ore/iron,
@@ -2659,7 +2736,9 @@
 "se" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "sh" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -2686,7 +2765,9 @@
 /obj/item/scanner/gas,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "tf" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -2791,10 +2872,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/scrap/cargo/lower)
-"vW" = (
-/obj/effect/paint/brown,
-/turf/simulated/wall/r_wall/hull,
-/area/ship/scrap/maintenance/storage)
 "wb" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/structure/cable{
@@ -2806,6 +2883,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/scrap/escape_star)
+"wr" = (
+/obj/item/mollusc/barnacle{
+	pixel_w = 17
+	},
+/turf/space,
+/area/space)
 "wI" = (
 /obj/structure/bed/padded,
 /obj/machinery/light/small{
@@ -2849,12 +2932,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/ship/scrap/crew/dorms1)
-"yR" = (
-/obj/item/mollusc/barnacle{
-	pixel_z = 19
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "zb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2914,12 +2991,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scrap/drunk_tank)
-"BW" = (
-/obj/item/mollusc/barnacle{
-	pixel_w = 17
-	},
-/turf/space,
-/area/space)
 "Cd" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
@@ -3264,10 +3335,6 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ship/scrap/cargo/lower)
-"Rq" = (
-/obj/effect/paint/brown,
-/turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/storage)
 "Sb" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -3282,6 +3349,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scrap/drunk_tank)
+"Sh" = (
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "Sm" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
@@ -3345,6 +3429,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/lower)
+"Vh" = (
+/obj/effect/paint/brown,
+/turf/simulated/wall/r_wall/hull,
+/area/ship/scrap/maintenance/storage{
+	name = "\improper Engineering Supply Storage";
+	req_access = list("ACCESS_ENGINEERING")
+	})
 "VM" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
@@ -3381,7 +3472,9 @@
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "XF" = (
 /obj/structure/handrai{
 	tag = "icon-handrail (WEST)";
@@ -3401,7 +3494,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/stock_parts/circuitboard/unary_atmos/heater,
 /turf/simulated/floor/tiled/techmaint,
-/area/ship/scrap/maintenance/techstorage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "Zb" = (
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/electrical{
@@ -3420,7 +3515,9 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/scrap/maintenance/storage)
+/area/ship/scrap/maintenance/techstorage{
+	name = "\improper Tool Storage"
+	})
 "Zd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace,
@@ -3438,12 +3535,6 @@
 "ZJ" = (
 /turf/simulated/wall,
 /area/ship/scrap/escape_star)
-"ZL" = (
-/obj/item/mollusc/barnacle{
-	pixel_z = 19
-	},
-/turf/space,
-/area/space)
 
 (1,1,1) = {"
 aa
@@ -5697,7 +5788,7 @@ aa
 aa
 aa
 aa
-BW
+wr
 aa
 aa
 aa
@@ -5789,7 +5880,7 @@ tf
 aa
 aa
 aa
-BW
+wr
 aa
 aa
 XF
@@ -6126,7 +6217,7 @@ cS
 Yb
 et
 eK
-ef
+im
 rv
 fX
 aa
@@ -6208,7 +6299,7 @@ cS
 rb
 eu
 eL
-ef
+im
 rv
 aa
 aa
@@ -6287,12 +6378,12 @@ kb
 uw
 dP
 dZ
-dK
+Sh
 ec
-pg
 ef
-Rq
-vW
+im
+se
+rv
 aa
 aa
 aa
@@ -6373,8 +6464,8 @@ Zb
 ew
 tb
 eV
-eb
-vW
+im
+rv
 aa
 aa
 aa
@@ -6455,8 +6546,8 @@ ek
 ew
 eN
 eW
-eb
-vW
+im
+rv
 aa
 aa
 aa
@@ -6532,13 +6623,13 @@ mb
 lK
 ao
 dS
-ed
-ed
+eb
+eb
 ey
-ed
-ed
-ed
-Gd
+eb
+eb
+eb
+Vh
 aa
 aa
 aa
@@ -6614,13 +6705,13 @@ dh
 dv
 ao
 dT
-ed
+eb
 em
 ez
 eP
 eY
-ed
-Gd
+eb
+Vh
 aa
 aa
 aa
@@ -6696,13 +6787,13 @@ ao
 lZ
 ao
 dU
-ed
+eb
 en
 eA
 eQ
 eZ
-ed
-Gd
+eb
+Vh
 aa
 aa
 aa
@@ -7253,7 +7344,7 @@ aa
 aa
 aa
 aa
-yR
+an
 ap
 az
 qb
@@ -7270,7 +7361,7 @@ Nb
 dz
 Sb
 DX
-ZL
+kH
 er
 eH
 er
