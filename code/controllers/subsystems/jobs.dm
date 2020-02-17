@@ -12,14 +12,12 @@ SUBSYSTEM_DEF(jobs)
 	var/list/positions_by_department = list()
 	var/list/job_icons =               list()
 	var/job_config_file = "config/jobs.txt"
-	var/list/dept_list =			   list()
 	var/list/must_fill_titles =			list()
 
 /datum/controller/subsystem/jobs/Initialize(timeofday)
 
 	// Create main map jobs.
 	primary_job_datums.Cut()
-	dept_list = SSdepartments.departments
 	for(var/jobtype in (list(DEFAULT_JOB_TYPE) | GLOB.using_map.allowed_jobs))
 		var/datum/job/job = get_by_path(jobtype)
 		if(!job)
@@ -107,7 +105,7 @@ SUBSYSTEM_DEF(jobs)
 				must_fill_titles += job.title
 			if(job.department_refs)
 				for(var/dept_ref in job.department_refs)
-					if(dept_ref in dept_list)
+					if(dept_ref in SSdepartments.departments)
 						LAZYDISTINCTADD(positions_by_department[dept_ref], job.title)
 
 	// Set up syndicate phrases.

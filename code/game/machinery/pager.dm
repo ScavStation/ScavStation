@@ -59,16 +59,16 @@
 		MS.send_to_department(department,"Page to <b>[location]</b> was acknowledged.", "*ack*")
 
 /obj/machinery/pager/medical
-	department = "medical"
+	department = DEPT_MEDICAL
 
-/obj/machinery/pager/cargo //supply
-	department = "supply"
+/obj/machinery/pager/cargo 
+	department = DEPT_SUPPLY
 
-/obj/machinery/pager/security //torch security
-	department = "security"
+/obj/machinery/pager/security 
+	department = DEPT_SECURITY
 
 /obj/machinery/pager/science
-	department = "science"
+	department = DEPT_SCIENCE
 
 /obj/machinery/pager/engineering
-	department = "engineering"
+	department = DEPT_ENGINEERING
