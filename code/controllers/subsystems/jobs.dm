@@ -120,7 +120,8 @@ SUBSYSTEM_DEF(jobs)
 	. = ..()
 
 /datum/controller/subsystem/jobs/proc/guest_jobbans(var/job)
-	if (get_by_title(job).guestbanned)
+	var/datum/job/j = get_by_title(job)
+	if (j.guestbanned)
 		return TRUE
 	return FALSE
 
