@@ -131,7 +131,7 @@
 /area/ship/scrap/maintenance/storage
 	name = "\improper Engineering Storage"
 	icon_state = "engineering_storage"
-	req_access = list(access_engine, access_heads)
+	req_access = list(access_engine)
 
 /area/ship/scrap/maintenance/techstorage
 	name = "\improper Parts Storage"
