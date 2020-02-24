@@ -37,3 +37,8 @@
 			/obj/item/clothing/head/helmet/space/void/engineering/salvage
 		))
 	. = ..()
+/obj/item/chems/food/drinks/pitcher/coffee
+
+/obj/item/chems/food/drinks/pitcher/coffee/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/drink/coffee, 120)
