@@ -9,7 +9,6 @@
 	#include "shelltooth_shuttles.dm"
 	#include "shelltooth_overmap.dm"
 	#include "shelltooth_overrides.dm"
-	#include "shelltooth_loadouts.dm"
 	#include "shelltooth-0.dmm"
 	#include "shelltooth-1.dmm"
 	#include "shelltooth-2.dmm"
