@@ -6713,7 +6713,7 @@
 	opacity = 0
 	},
 /obj/item/mollusc/barnacle{
-	pixel_w = 17
+	pixel_z = -11
 	},
 /turf/simulated/floor/airless,
 /area/ship/scrap/command/captain)

@@ -6,10 +6,6 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
-"ad" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/space,
-/area/space)
 "ae" = (
 /turf/simulated/floor/airless,
 /area/space)
@@ -570,9 +566,6 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
 /area/ship/scrap/command/bridge_upper)
-"ut" = (
-/turf/simulated/wall/r_wall/hull,
-/area/space)
 "uM" = (
 /obj/machinery/door/airlock/external/bolted/cycling{
 	id_tag = "solars_in"
@@ -608,10 +601,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/solars)
-"vT" = (
-/obj/structure/window/reinforced,
-/turf/simulated/floor/wood/bamboo,
-/area/space)
 "wc" = (
 /obj/effect/floor_decal/steeldecal/steel_decals6,
 /obj/machinery/power/apc{
@@ -801,9 +790,6 @@
 "DZ" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/scrap/maintenance/solars)
-"Ez" = (
-/turf/simulated/floor/wood/bamboo,
-/area/space)
 "Fe" = (
 /obj/structure/railing/mapped{
 	icon_state = "railing0-1";
@@ -820,17 +806,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/solars)
-"Fv" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id_tag = "scraplock";
-	name = "External Blast Doors";
-	opacity = 0
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "FY" = (
 /obj/structure/railing/mapped{
 	icon_state = "railing0-1";
@@ -1019,10 +994,6 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
 /area/ship/scrap/comms)
-"Of" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/wood/bamboo,
-/area/space)
 "Oy" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-10"
@@ -1048,16 +1019,19 @@
 /area/ship/scrap/maintenance/solars)
 "PJ" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/hatch/autoname/command,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id_tag = "scraplock";
+	name = "External Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/ship/scrap/command/bridge_upper)
 "PZ" = (
 /turf/simulated/floor/tiled/monotile,
 /area/ship/scrap/command/bridge_upper)
-"QJ" = (
-/obj/machinery/door/airlock/hatch/autoname/command,
-/turf/simulated/floor/tiled/monotile,
-/area/space)
 "QK" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -1225,10 +1199,6 @@
 "Xb" = (
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/command/bridge_upper)
-"Xl" = (
-/obj/structure/table/woodentable_reinforced,
-/turf/simulated/floor/wood/bamboo,
-/area/space)
 "Xu" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -1282,9 +1252,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/scrap/command/bridge_upper)
-"YW" = (
-/turf/simulated/floor/tiled/monotile,
-/area/space)
 "Zx" = (
 /obj/structure/handrai{
 	tag = "icon-handrail (EAST)";
@@ -4339,10 +4306,10 @@ ax
 ax
 ax
 ax
-ut
-ut
-ad
-ut
+ax
+ax
+ax
+ax
 ax
 Tt
 ax
@@ -4421,10 +4388,10 @@ ax
 aa
 aa
 aa
-ut
-Ez
-Ez
-vT
+ax
+ax
+ax
+ax
 ax
 Yq
 aV
@@ -4499,14 +4466,14 @@ RZ
 HN
 bE
 SQ
-Fv
-Fv
-Fv
-Fv
-ut
-Xl
-Xl
-vT
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 ax
 Tt
 Rk
@@ -4581,14 +4548,14 @@ rl
 fi
 PZ
 PJ
-YW
-YW
-YW
-QJ
-Ez
-Ez
-Ez
-vT
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 ax
 Xu
 yt
@@ -4663,14 +4630,14 @@ wc
 nZ
 ZT
 SQ
-Fv
-Fv
-Fv
-Fv
-ut
-Ez
-Ez
-vT
+ax
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 ax
 Yq
 aV
@@ -4749,10 +4716,10 @@ ax
 aa
 aa
 aa
-ut
-Of
-Ez
-vT
+ax
+ax
+ax
+ax
 ax
 br
 ax
@@ -4831,10 +4798,10 @@ ax
 ax
 ax
 ax
-ut
-ut
-ad
-ut
+ax
+ax
+ax
+ax
 ax
 wf
 ax

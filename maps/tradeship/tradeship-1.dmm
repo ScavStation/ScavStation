@@ -2791,7 +2791,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/scrap/crew/dorms1)
 "vz" = (
 /obj/machinery/conveyor_switch{
@@ -2967,7 +2967,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/robot)
 "DQ" = (
 /obj/machinery/door/airlock/hatch/autoname/engineering,
@@ -2995,7 +2995,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/scrap/maintenance/lower)
 "Ei" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "Fb" = (
 /obj/item/radio/intercom{
@@ -3182,7 +3182,7 @@
 /area/ship/scrap/escape_port)
 "MK" = (
 /obj/item/mollusc/barnacle{
-	pixel_w = 17
+	pixel_w = 18
 	},
 /turf/space,
 /area/space)
@@ -3315,9 +3315,9 @@
 /area/ship/scrap/science)
 "Tp" = (
 /obj/item/mollusc/barnacle{
-	pixel_z = 19
+	pixel_w = 18
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space)
 "Ub" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
