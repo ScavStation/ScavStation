@@ -3,14 +3,11 @@
 	#define SPECIES_BAXXID           "Baxxid"
 	#define SPECIES_YINGLET          "Yinglet"
 	#define SPECIES_YINGLET_SOUTHERN "Southern Yinglet"
-
-	#define DEPT_ENCLAVE "enclave"
-
+	#define DEPT_ENCLAVE             "enclave"
 	#define IS_YINGLET               "yinglet"
-
-	#define CULTURE_SCAV_ENCLAVE   "Enclave Yinglet"
-	#define CULTURE_SCAV_TRIBE     "Tribal Yinglet"
-	#define FACTION_SCAV           "Scav"
+	#define CULTURE_SCAV_ENCLAVE     "Enclave Yinglet"
+	#define CULTURE_SCAV_TRIBE       "Tribal Yinglet"
+	#define FACTION_SCAV             "Scav"
 
 	#include "items/airlocks.dm"
 	#include "items/documents.dm"
@@ -45,6 +42,20 @@
 	#include "tradeship-1.dmm"
 	#include "tradeship-2.dmm"
 	#include "tradeship-3.dmm"
+
+	#include "../away/mining/mining.dm"
+	#include "../away/derelict/derelict.dm"
+	#include "../away/bearcat/bearcat.dm"
+	#include "../away/lost_supply_base/lost_supply_base.dm"
+	#include "../away/smugglers/smugglers.dm"
+	#include "../away/casino/casino.dm"
+	#include "../away/magshield/magshield.dm"
+	#include "../away/slavers/slavers_base.dm"
+	#include "../away/blueriver/blueriver.dm"
+	#include "../away/mobius_rift/mobius_rift.dm"
+	#include "../away/errant_pisces/errant_pisces.dm"
+	#include "../away/lar_maria/lar_maria.dm"
+	#include "../away/unishi/unishi.dm"
 
 	#define using_map_DATUM /datum/map/tradeship
 
