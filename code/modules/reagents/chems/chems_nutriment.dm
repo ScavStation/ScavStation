@@ -4,11 +4,12 @@
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	taste_mult = 4
 	metabolism = REM * 4
+	hidden_from_codex = TRUE // They don't need to generate a codex entry, their recipes will do that.
+	color = "#664330"
+	value = 0.1
 	var/nutriment_factor = 10 // Per unit
 	var/hydration_factor = 0 // Per unit
 	var/injectable = 0
-	color = "#664330"
-	value = 0.1
 
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 
@@ -57,21 +58,9 @@
 	name = "slime-meat"
 	description = "Mollusc meat, or slug meat - something slimy, anyway."
 	scannable = 1
-	taste_description = "cold, bitter slime... yum!"
+	taste_description = "cold, bitter slime"
 	overdose = 10
 	hydration_factor = 6
-
-/datum/reagent/nutriment/slime_meat/affect_overdose(var/mob/living/carbon/M, var/alien)
-	if(alien == IS_YINGLET)
-		M.reagents.add_reagent(/datum/reagent/psychoactives, 0.1)
-
-/datum/reagent/nutriment/slime_meat/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(alien == IS_YINGLET)
-		nutriment_factor = 12
-		M.add_chemical_effect(CE_PAINKILLER, 15)
-	else
-		nutriment_factor = initial(nutriment_factor)
-	. = ..()
 
 /datum/reagent/nutriment/glucose
 	name = "glucose"
@@ -81,37 +70,9 @@
 
 /datum/reagent/nutriment/bread
 	name = "bread"
-	var/ying_puke_prob = 35
-
-/datum/reagent/nutriment/bread/on_mob_life(var/mob/living/carbon/human/M, var/alien, var/location)
-	if(istype(M) && alien == IS_YINGLET) 
-		// Yings do not process bread or breadlike substances well.
-		ingest_met =       0.1 // Make sure there's something to 
-		touch_met =        0.1 // throw up when we inevitably puke.
-		nutriment_factor = 0.1 // Don't get much nutrition out of it either.
-		. = ..()
-		// Reset in case somehow the reagent is processed outside again.
-		ingest_met =       initial(ingest_met)
-		touch_met =        initial(touch_met)
-		nutriment_factor = initial(nutriment_factor)
-	else
-		// Process as normal.
-		. = ..()
-
-/datum/reagent/nutriment/bread/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(istype(M) && alien == IS_YINGLET && prob(ying_puke_prob) && !M.lastpuke)
-		to_chat(M, SPAN_WARNING("Your gut churns as it struggles to digest \the [lowertext(name)]..."))
-		M.vomit(timevomit = 3)
-		return
-	. = ..()
 
 /datum/reagent/nutriment/bread/cake
 	name = "cake"
-	ying_puke_prob = 15
-
-/datum/reagent/nutriment/soggy_food
-	name = "soggy food"
-	taste_description = "blandness"
 
 /datum/reagent/nutriment/protein
 	name = "animal protein"

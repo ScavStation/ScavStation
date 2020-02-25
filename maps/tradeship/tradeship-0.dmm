@@ -7,27 +7,27 @@
 	name = "matriarch's quarters"
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "ae" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/landmark/start{
 	name = "Enclave Patriarch"
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "af" = (
 /obj/structure/disposalpipe/up,
 /obj/structure/hygiene/drain,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ag" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "trash_sort"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ai" = (
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/space)
 "aj" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -37,7 +37,7 @@
 	},
 /mob/living/simple_animal/mouse,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ak" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -50,7 +50,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "am" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -59,7 +59,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "an" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -71,7 +71,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ao" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -79,7 +79,7 @@
 	},
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ap" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -90,7 +90,7 @@
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "aq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -113,10 +113,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "ar" = (
 /obj/structure/lattice,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/space)
 "as" = (
 /obj/structure/lattice,
@@ -132,7 +132,7 @@
 	name = "Internal Cargo Airlock"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "av" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -144,7 +144,7 @@
 	name = "Internal Cargo Airlock"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aw" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -161,7 +161,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ax" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -181,7 +181,7 @@
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "ay" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -192,7 +192,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "az" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -208,7 +208,7 @@
 	},
 /obj/item/stool/wood,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "aA" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -230,7 +230,7 @@
 	tag_interior_door = "lower_cargo_in"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aB" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -246,14 +246,14 @@
 	id_tag = "lower_cargo_pump"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	icon_state = "intact";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aD" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -261,7 +261,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aE" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -276,7 +276,7 @@
 	id_tag = "lower_cargo_pump"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aF" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/warning{
@@ -284,7 +284,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aH" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -297,7 +297,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -306,7 +306,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -318,7 +318,7 @@
 	id_tag = "lower_cargo_pump"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aK" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -329,7 +329,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aL" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -340,7 +340,7 @@
 	id_tag = "lower_cargo_pump"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aM" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -351,7 +351,7 @@
 	name = "External Cargo Airlock"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aN" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -362,16 +362,16 @@
 	name = "External Cargo Airlock"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aO" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aP" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aQ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -383,7 +383,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/beige{
@@ -391,7 +391,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "aS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -409,7 +409,7 @@
 /obj/effect/decal/cleanable/filth,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "aT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -426,7 +426,7 @@
 	pixel_y = -20
 	},
 /turf/simulated/floor,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "aU" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -442,12 +442,12 @@
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "aV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "aY" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -458,13 +458,13 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ba" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "bb" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -475,7 +475,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bc" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -487,7 +487,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bd" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -495,7 +495,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/bed/roller/ironingboard,
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "be" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -509,7 +509,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "bf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -518,7 +518,7 @@
 /obj/random/trash,
 /obj/structure/mattress,
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "bg" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -543,7 +543,7 @@
 	},
 /obj/structure/ladder,
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bh" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -566,7 +566,7 @@
 	pixel_x = 20
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -585,18 +585,18 @@
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bj" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "bk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "bl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
@@ -604,7 +604,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "bm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -622,27 +622,27 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "bn" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "bo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "bp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	level = 2
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "bq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -653,7 +653,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "br" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -670,14 +670,14 @@
 	},
 /obj/effect/floor_decal/corner/beige,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bs" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "bt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm{
@@ -696,7 +696,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "bu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -714,7 +714,7 @@
 	},
 /obj/machinery/honey_extractor,
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "bv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -732,7 +732,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -746,7 +746,7 @@
 	},
 /obj/structure/closet/crate/hydroponics/beekeeping,
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "by" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -757,7 +757,7 @@
 	},
 /obj/random/trash,
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "bz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -769,7 +769,7 @@
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -787,7 +787,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bC" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -797,7 +797,7 @@
 /obj/machinery/light,
 /mob/living/simple_animal/mouse,
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "bD" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -822,8 +822,9 @@
 	has_handle = "#800000";
 	name = "shank"
 	},
+/obj/item/synthesized_instrument/synthesizer,
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "bE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -844,7 +845,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bG" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -861,7 +862,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/alarm{
@@ -873,7 +874,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "bI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -889,7 +890,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "bJ" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -898,7 +899,7 @@
 	},
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "bK" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -908,14 +909,14 @@
 /obj/structure/reagent_dispensers/beerkeg,
 /obj/random/mre/sauce/crayon,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "bL" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -933,7 +934,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bO" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -949,7 +950,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bP" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -965,7 +966,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	icon_state = "intact";
@@ -981,7 +982,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bR" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1001,7 +1002,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1021,7 +1022,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "bT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1036,7 +1037,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "bU" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1048,7 +1049,7 @@
 /obj/random/tech_supply,
 /obj/random/single/textbook,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "bV" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1065,7 +1066,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1084,7 +1085,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "bX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1098,7 +1099,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "bY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -1119,7 +1120,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "bZ" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -1149,7 +1150,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ca" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1164,7 +1165,7 @@
 	},
 /obj/random/drinkbottle,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "cb" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1172,7 +1173,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "cc" = (
 /obj/machinery/light{
 	dir = 1
@@ -1185,14 +1186,14 @@
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "cd" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "cI" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1215,7 +1216,7 @@
 	master_tag = "lower_cargo"
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "cX" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -1233,14 +1234,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "en" = (
 /obj/item/paicard,
 /obj/item/megaphone,
 /obj/item/radio,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "eu" = (
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed{
@@ -1253,7 +1254,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "fq" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1265,7 +1266,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "fY" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -1277,7 +1278,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "ga" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1297,27 +1298,27 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/hygiene/drain,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "hc" = (
 /turf/simulated/floor/carpet/red,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "hf" = (
 /obj/structure/lattice,
 /obj/machinery/light/small,
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "hg" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "hZ" = (
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "trash_sort"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "iq" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1329,11 +1330,11 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "iD" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "iH" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -1348,22 +1349,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "iY" = (
 /obj/item/radio/intercom{
 	pixel_y = 25
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
-"ki" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "trash_sort"
-	},
-/obj/random/trash,
-/obj/random/single/textbook,
-/turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/enclave)
 "kO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1374,7 +1366,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "kS" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1382,7 +1374,7 @@
 	},
 /obj/random/trash,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "lg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1401,11 +1393,11 @@
 /obj/item/stool/bar/padded,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "lv" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "lB" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1416,7 +1408,7 @@
 	amount = 3
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "oo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1427,14 +1419,14 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "os" = (
 /obj/structure/lattice,
 /obj/item/mollusc/barnacle{
 	pixel_x = 9;
 	pixel_y = 7
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/space)
 "oO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1444,7 +1436,7 @@
 /obj/item/wrench,
 /obj/random/tool,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "oU" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -1456,7 +1448,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "oX" = (
 /obj/structure/lattice,
 /obj/item/mollusc/barnacle{
@@ -1471,11 +1463,11 @@
 	},
 /obj/item/trash/mollusc_shell/clam,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "pi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "pU" = (
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed{
@@ -1484,11 +1476,11 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "qK" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "rp" = (
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/beige{
@@ -1508,14 +1500,14 @@
 	},
 /obj/structure/closet,
 /turf/simulated/floor/tiled,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "rt" = (
 /obj/effect/landmark/start{
 	name = "Enclave Matriarch"
 	},
 /obj/structure/bed/chair/padded/beige,
 /turf/simulated/floor/carpet/red,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "rZ" = (
 /obj/item/chems/food/snacks/fish/mollusc,
 /obj/item/mollusc,
@@ -1523,13 +1515,13 @@
 /obj/item/mollusc/clam,
 /obj/structure/table/gamblingtable,
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "sX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "ty" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1546,7 +1538,7 @@
 	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "tD" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1554,7 +1546,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "tM" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -1568,7 +1560,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "ug" = (
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
@@ -1578,16 +1570,16 @@
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "un" = (
 /obj/structure/janitorialcart,
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "ux" = (
 /obj/structure/lattice,
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "vi" = (
 /obj/structure/mattress/dirty,
 /obj/item/material/shard{
@@ -1595,7 +1587,7 @@
 	name = "shank"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "vP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1607,7 +1599,7 @@
 	},
 /obj/structure/disposalpipe/segment/bent,
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "ws" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -1619,11 +1611,11 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "xc" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "xn" = (
 /obj/machinery/light{
 	dir = 1
@@ -1632,18 +1624,18 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "xF" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "xP" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "xV" = (
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "xZ" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -1671,7 +1663,7 @@
 /obj/item/caution,
 /obj/item/caution,
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "yE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1685,13 +1677,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "yO" = (
 /turf/simulated/wall,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "yQ" = (
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "zi" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1699,13 +1691,13 @@
 	},
 /obj/random/trash,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "AO" = (
 /obj/item/clothing/under/yinglet,
 /obj/structure/hygiene/drain,
 /mob/living/simple_animal/mouse,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "AY" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1720,11 +1712,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "Bm" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "Cj" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1737,7 +1729,7 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "Da" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1746,7 +1738,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "Dz" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1761,13 +1753,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "FD" = (
 /obj/item/mollusc/barnacle{
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/space)
 "FT" = (
 /obj/effect/floor_decal/corner/beige{
@@ -1781,11 +1773,11 @@
 	name = "Enclave Patriarch"
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "Gb" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "Gp" = (
 /obj/structure/table/standard,
 /obj/item/material/coin/iron{
@@ -1796,7 +1788,7 @@
 /obj/item/lipstick/random,
 /obj/random/coin,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "GH" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1809,7 +1801,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "GQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1820,7 +1812,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "Hk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1832,7 +1824,7 @@
 	},
 /obj/item/trash/mollusc_shell/barnacle,
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "HS" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -1841,28 +1833,28 @@
 	icon_state = "outlet";
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/space)
 "IG" = (
 /obj/structure/bed/chair/comfy/green{
 	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "II" = (
 /obj/structure/stairs/west,
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "Jz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/trash,
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "JI" = (
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "KZ" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1870,7 +1862,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "LB" = (
 /obj/structure/lattice,
 /obj/structure/bed,
@@ -1879,7 +1871,7 @@
 /obj/item/clothing/under/yinglet/matriarch,
 /obj/item/clothing/head/yinglet/matriarch,
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "LI" = (
 /obj/machinery/light{
 	dir = 1
@@ -1888,7 +1880,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "LO" = (
 /obj/machinery/light{
 	dir = 1
@@ -1901,13 +1893,13 @@
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "Ms" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/wall,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "MK" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1921,16 +1913,16 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "MX" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "NR" = (
 /obj/structure/mattress,
 /obj/item/trash/mollusc_shell,
 /turf/simulated/floor,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "PF" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1944,7 +1936,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "PZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1960,13 +1952,13 @@
 	},
 /obj/random/toy,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "Qh" = (
 /obj/structure/table/woodentable/mahogany,
 /obj/item/gun/launcher/crossbow,
 /obj/item/stack/material/rods,
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "Qv" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1984,14 +1976,14 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "Qy" = (
 /obj/turbolift_map_holder/tradeship{
 	icon_state = "";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "QW" = (
 /obj/item/stack/tile/floor{
 	amount = 5
@@ -1999,7 +1991,7 @@
 /obj/item/crowbar/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "Rr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2013,7 +2005,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "RT" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2025,17 +2017,17 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "Sm" = (
 /obj/effect/landmark/start{
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor/tiled/steel_grid,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "SC" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "SE" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2048,14 +2040,23 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
+"SK" = (
+/obj/machinery/access_button/airlock_exterior{
+	pixel_x = 0;
+	pixel_y = -10;
+	pixel_z = 32;
+	master_tag = "lower_cargo"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Ua" = (
 /obj/effect/landmark/start{
 	name = "Enclave Matriarch"
 	},
 /obj/structure/bed/chair/wood/walnut,
 /turf/simulated/floor/carpet/red,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "UF" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -2074,7 +2075,7 @@
 /obj/item/chems/glass/bottle/eznutrient,
 /obj/item/material/minihoe,
 /turf/simulated/floor,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "UI" = (
 /obj/structure/disposaloutlet{
 	icon_state = "outlet";
@@ -2085,20 +2086,11 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
-"WC" = (
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = 0;
-	pixel_y = -10;
-	pixel_z = 32;
-	master_tag = "lower_cargo"
-	},
-/turf/simulated/floor,
-/area/space)
+/area/ship/trade/loading_bay)
 "Xo" = (
 /obj/structure/hygiene/drain,
 /turf/simulated/floor,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "XK" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -2110,7 +2102,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/aft_port_underside_maint)
+/area/ship/trade/aft_port_underside_maint)
 "XU" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -2121,15 +2113,15 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "Yc" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "Yd" = (
 /obj/random/trash,
 /turf/simulated/floor,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 "YH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2147,7 +2139,16 @@
 /obj/item/clothing/accessory/locket,
 /obj/random_multi/single_item/captains_spare_id,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
+"YW" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "trash_sort"
+	},
+/obj/random/trash,
+/obj/random/single/textbook,
+/turf/simulated/floor,
+/area/ship/trade/loading_bay)
 "Zz" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -2164,7 +2165,7 @@
 /obj/item/clothing/accessory/bowtie/ugly,
 /obj/random/action_figure,
 /turf/simulated/floor,
-/area/ship/scrap/aft_starboard_underside_maint)
+/area/ship/trade/aft_starboard_underside_maint)
 "ZA" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -2176,7 +2177,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/fore_starboard_underside_maint)
+/area/ship/trade/fore_starboard_underside_maint)
 "ZB" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -2188,18 +2189,18 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/scrap/fore_port_underside_maint)
+/area/ship/trade/fore_port_underside_maint)
 "ZL" = (
 /obj/effect/landmark/start{
 	name = "Enclave Patriarch"
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/scrap/enclave)
+/area/ship/trade/enclave)
 "ZR" = (
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/plating,
-/area/ship/scrap/loading_bay)
+/area/ship/trade/loading_bay)
 
 (1,1,1) = {"
 aa
@@ -5294,7 +5295,7 @@ aw
 aB
 aJ
 qK
-WC
+SK
 aa
 aa
 aa
@@ -5688,7 +5689,7 @@ SC
 aU
 yO
 iD
-ki
+YW
 yO
 tD
 yO

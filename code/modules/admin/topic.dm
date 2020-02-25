@@ -344,8 +344,8 @@
 //Regular jobs
 	//Command (Blue)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(SSjobs.titles_by_department(COM))]'><a href='?src=\ref[src];jobban3=commanddept;jobban4=\ref[M]'>Command Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(COM))
+		jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(SSjobs.titles_by_department(DEPT_COMMAND))]'><a href='?src=\ref[src];jobban3=commanddept;jobban4=\ref[M]'>Command Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(DEPT_COMMAND))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -364,8 +364,8 @@
 
 	//Command Support (Sky Blue)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='87ceeb'><th colspan='[length(SSjobs.titles_by_department(SPT))]'><a href='?src=\ref[src];jobban3=supportdept;jobban4=\ref[M]'>Command Support Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(SPT))
+		jobs += "<tr bgcolor='87ceeb'><th colspan='[length(SSjobs.titles_by_department("support"))]'><a href='?src=\ref[src];jobban3=supportdept;jobban4=\ref[M]'>Command Support Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("support"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -385,8 +385,8 @@
 	//Security (Red)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ffddf0'><th colspan='[length(SSjobs.titles_by_department(SEC))]'><a href='?src=\ref[src];jobban3=securitydept;jobban4=\ref[M]'>Security Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(SEC))
+		jobs += "<tr bgcolor='ffddf0'><th colspan='[length(SSjobs.titles_by_department("security"))]'><a href='?src=\ref[src];jobban3=securitydept;jobban4=\ref[M]'>Security Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("security"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -406,8 +406,8 @@
 	//Engineering (Yellow)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='fff5cc'><th colspan='[length(SSjobs.titles_by_department(ENG))]'><a href='?src=\ref[src];jobban3=engineeringdept;jobban4=\ref[M]'>Engineering Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(ENG))
+		jobs += "<tr bgcolor='fff5cc'><th colspan='[length(SSjobs.titles_by_department("engineering"))]'><a href='?src=\ref[src];jobban3=engineeringdept;jobban4=\ref[M]'>Engineering Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("engineering"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -427,8 +427,8 @@
 	//Medical (White)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ffeef0'><th colspan='[length(SSjobs.titles_by_department(MED))]'><a href='?src=\ref[src];jobban3=medicaldept;jobban4=\ref[M]'>Medical Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(MED))
+		jobs += "<tr bgcolor='ffeef0'><th colspan='[length(SSjobs.titles_by_department("medical"))]'><a href='?src=\ref[src];jobban3=medicaldept;jobban4=\ref[M]'>Medical Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("medical"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -448,8 +448,8 @@
 	//Science (Purple)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='e79fff'><th colspan='[length(SSjobs.titles_by_department(SCI))]'><a href='?src=\ref[src];jobban3=sciencedept;jobban4=\ref[M]'>Science Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(SCI))
+		jobs += "<tr bgcolor='e79fff'><th colspan='[length(SSjobs.titles_by_department("science"))]'><a href='?src=\ref[src];jobban3=sciencedept;jobban4=\ref[M]'>Science Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("science"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -468,8 +468,8 @@
 
 	//Exploration (Pale Purple)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='b784a7'><th colspan='[length(SSjobs.titles_by_department(EXP))]'><a href='?src=\ref[src];jobban3=explorationdept;jobban4=\ref[M]'>Exploration Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(EXP))
+		jobs += "<tr bgcolor='b784a7'><th colspan='[length(SSjobs.titles_by_department("exploration"))]'><a href='?src=\ref[src];jobban3=explorationdept;jobban4=\ref[M]'>Exploration Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("exploration"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -488,8 +488,8 @@
 
 	//Service (Tea Green)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='d0f0c0'><th colspan='[length(SSjobs.titles_by_department(SRV))]'><a href='?src=\ref[src];jobban3=servicedept;jobban4=\ref[M]'>Service Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(SRV))
+		jobs += "<tr bgcolor='d0f0c0'><th colspan='[length(SSjobs.titles_by_department("service"))]'><a href='?src=\ref[src];jobban3=servicedept;jobban4=\ref[M]'>Service Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("service"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -509,8 +509,8 @@
 
 	//Supply (Khaki)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='f0e68c'><th colspan='[length(SSjobs.titles_by_department(SUP))]'><a href='?src=\ref[src];jobban3=supplydept;jobban4=\ref[M]'>Supply Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(SUP))
+		jobs += "<tr bgcolor='f0e68c'><th colspan='[length(SSjobs.titles_by_department("supply"))]'><a href='?src=\ref[src];jobban3=supplydept;jobban4=\ref[M]'>Supply Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("supply"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -530,8 +530,8 @@
 	//Civilian (Grey)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='dddddd'><th colspan='[length(SSjobs.titles_by_department(CIV))]'><a href='?src=\ref[src];jobban3=civiliandept;jobban4=\ref[M]'>Civilian Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(CIV))
+		jobs += "<tr bgcolor='dddddd'><th colspan='[length(SSjobs.titles_by_department("civilian"))]'><a href='?src=\ref[src];jobban3=civiliandept;jobban4=\ref[M]'>Civilian Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("civilian"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -557,8 +557,8 @@
 	//Non-Human (Green)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ccffcc'><th colspan='[length(SSjobs.titles_by_department(MSC))+1]'><a href='?src=\ref[src];jobban3=nonhumandept;jobban4=\ref[M]'>Non-human Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in SSjobs.titles_by_department(MSC))
+		jobs += "<tr bgcolor='ccffcc'><th colspan='[length(SSjobs.titles_by_department("misc"))+1]'><a href='?src=\ref[src];jobban3=nonhumandept;jobban4=\ref[M]'>Non-human Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department("misc"))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
@@ -634,7 +634,7 @@
 	// Finalize and display.
 		body = "<body>[jobs]</body>"
 		dat = "<tt>[header][body]</tt>"
-		usr << browse(dat, "window=jobban2;size=800x490")
+		show_browser(usr, dat, "window=jobban2;size=800x490")
 		return
 
 	//JOBBAN'S INNARDS
@@ -661,68 +661,68 @@
 		var/list/job_list = list()
 		switch(href_list["jobban3"])
 			if("commanddept")
-				for(var/jobPos in SSjobs.titles_by_department(COM))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_COMMAND))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("supportdept")
-				for(var/jobPos in SSjobs.titles_by_department(SPT))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_SUPPORT))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("securitydept")
-				for(var/jobPos in SSjobs.titles_by_department(SEC))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_COMMAND))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("engineeringdept")
-				for(var/jobPos in SSjobs.titles_by_department(ENG))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_ENGINEERING))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("medicaldept")
-				for(var/jobPos in SSjobs.titles_by_department(MED))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_MEDICAL))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("sciencedept")
-				for(var/jobPos in SSjobs.titles_by_department(SCI))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_SCIENCE))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("explorationdept")
-				for(var/jobPos in SSjobs.titles_by_department(EXP))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_EXPLORATION))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("servicedept")
-				for(var/jobPos in SSjobs.titles_by_department(SRV))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_SERVICE))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("supplydept")
-				for(var/jobPos in SSjobs.titles_by_department(SUP))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_SUPPLY))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("civiliandept")
-				for(var/jobPos in SSjobs.titles_by_department(CIV))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_CIVILIAN))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
 					job_list += temp.title
 			if("nonhumandept")
 				job_list += "pAI"
-				for(var/jobPos in SSjobs.titles_by_department(MSC))
+				for(var/jobPos in SSjobs.titles_by_department(DEPT_MISC))
 					if(!jobPos)	continue
 					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
@@ -973,7 +973,7 @@
 		dat += {"<A href='?src=\ref[src];c_mode2=secret'>Secret</A><br>"}
 		dat += {"<A href='?src=\ref[src];c_mode2=random'>Random</A><br>"}
 		dat += {"Now: [SSticker.master_mode]"}
-		usr << browse(dat, "window=c_mode")
+		show_browser(usr, dat, "window=c_mode")
 
 	else if(href_list["f_secret"])
 		if(!check_rights(R_ADMIN))	return
@@ -987,7 +987,7 @@
 			dat += {"<A href='?src=\ref[src];f_secret2=[mode]'>[config.mode_names[mode]]</A><br>"}
 		dat += {"<A href='?src=\ref[src];f_secret2=secret'>Random (default)</A><br>"}
 		dat += {"Now: [secret_force_mode]"}
-		usr << browse(dat, "window=f_secret")
+		show_browser(usr, dat, "window=f_secret")
 
 	else if(href_list["c_mode2"])
 		if(!check_rights(R_ADMIN|R_SERVER))	return
@@ -1380,25 +1380,25 @@
 		to_chat(src.owner, "[special_role_description]")
 		to_chat(src.owner, "(<a href='?src=\ref[usr];priv_msg=\ref[M]'>PM</a>) (<A HREF='?src=\ref[src];adminplayeropts=\ref[M]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[M]'>VV</A>) ([admin_jump_link(M, src)]) (<A HREF='?src=\ref[src];secretsadmin=check_antagonist'>CA</A>)")
 
-	else if(href_list["adminspawnclam"])
+	else if(href_list["adminspawnprayreward"])
 		if(!check_rights(R_ADMIN|R_FUN))	return
 
-		var/mob/living/carbon/human/H = locate(href_list["adminspawnclam"])
+		var/mob/living/carbon/human/H = locate(href_list["adminspawnprayreward"])
 		if(!ishuman(H))
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
-		var/obj/item/mollusc/clam/C = new(get_turf(H))
+		var/obj/item/C = new GLOB.using_map.pray_reward_type(get_turf(H))
 		H.put_in_hands(C)
 		if(C.loc !=H)
-			message_admins("[key_name(H)] has their hands full, so they did not receive their clam, spawned by [key_name(src.owner)].")
+			message_admins("[key_name(H)] has their hands full, so they did not receive their [C.name], spawned by [key_name(src.owner)].")
 			qdel(C)
 			return
 
-		log_admin("[key_name(H)] got their clam, spawned by [key_name(src.owner)]")
-		message_admins("[key_name(H)] got their clam, spawned by [key_name(src.owner)]")
-		SSstatistics.add_field("admin_clams_spawned",1)
-		to_chat(H, SPAN_NOTICE("Your prayers have been answered!! You received the <b>best clam</b>!"))
+		log_admin("[key_name(H)] got their [C.name], spawned by [key_name(src.owner)]")
+		message_admins("[key_name(H)] got their [C.name], spawned by [key_name(src.owner)]")
+		SSstatistics.add_field("admin_pray_rewards_spawned",1)
+		to_chat(H, SPAN_NOTICE("Your prayers have been answered!! You received the <b>best [C.name]</b>!"))
 		return
 
 	else if(href_list["BlueSpaceArtillery"])
@@ -1500,7 +1500,7 @@
 				var/obj/pageobj = B.pages[page]
 				data += "<A href='?src=\ref[src];AdminFaxViewPage=[page];paper_bundle=\ref[B]'>Page [page] - [pageobj.name]</A><BR>"
 
-			usr << browse(data, "window=[B.name]")
+			show_browser(usr, data, "window=[B.name]")
 		else
 			to_chat(usr, "<span class='warning'>The faxed item is not viewable. This is probably a bug, and should be reported on the tracker: [fax.type]</span>")
 	else if (href_list["AdminFaxViewPage"])

@@ -5,7 +5,7 @@
 */
 
 /datum/language
-	var/name = "base language"  // Fluff name of language if any.
+	var/name                          // Fluff name of language if any.
 	var/desc = "You should not have this language." // Short description for 'Check Languages'.
 	var/speech_verb = "says"          // 'says', 'hisses', 'farts'.
 	var/ask_verb = "asks"             // Used when sentence ends in a ?
@@ -219,7 +219,7 @@
 		if(!(L.flags & NONGLOBAL))
 			dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b><br/>[L.desc]<br/><br/>"
 
-	src << browse(dat, "window=checklanguage")
+	show_browser(src, dat, "window=checklanguage")
 	return
 
 /mob/living/check_languages()
@@ -237,7 +237,7 @@
 			else
 				dat += "<b>[L.name]([L.shorthand]) ([get_language_prefix()][L.key])</b> - cannot speak!<br/>[L.desc]<br/><br/>"
 
-	src << browse(dat, "window=checklanguage")
+	show_browser(src, dat, "window=checklanguage")
 
 /mob/living/OnSelfTopic(href_list)
 	if(href_list["default_lang"])

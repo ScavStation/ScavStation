@@ -123,7 +123,7 @@
 	if(!priv_all_access)
 		priv_all_access = get_access_ids()
 
-	return priv_all_access.Copy()
+	return priv_all_access?.Copy()
 
 /var/list/priv_station_access
 /proc/get_all_station_access()
@@ -159,7 +159,7 @@
 			priv_region_access["[A.region]"] += A.id
 
 	var/list/region = priv_region_access["[code]"]
-	return region.Copy()
+	return islist(region) ? region.Copy() : list()
 
 /proc/get_region_accesses_name(var/code)
 	switch(code)

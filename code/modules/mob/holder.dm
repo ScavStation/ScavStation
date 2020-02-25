@@ -126,7 +126,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/borer
 	origin_tech = "{'" + TECH_BIO + "':6}"
 
-//need own subtype to work with recipies
+//need own subtype to work with recipes
 /obj/item/holder/corgi
 	origin_tech = "{'" + TECH_BIO + "':4}"
 
@@ -189,23 +189,6 @@ var/list/holder_mob_icon_cache = list()
 	var/mob_blend_mode = ICON_ADD
 	slot_flags = SLOT_BACK
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
-
-/obj/item/holder/human/yinglet
-	sharp = 1
-	edge = 1
-	mob_blend_mode = ICON_MULTIPLY
-	generate_for_slots = list()
-
-/obj/item/holder/human/yinglet/iscrowbar()
-	return TRUE
-	
-/obj/item/holder/human/yinglet/attack_self()
-	var/mob/owner = locate() in contents
-	if(owner.stat == CONSCIOUS)
-		var/turf/T = get_turf(owner)
-		T.visible_message(SPAN_WARNING("\icon[owner] Eee!"))
-		playsound(T, 'sound/effects/mousesqueek.ogg', 75, 1)
-	..()
 
 /obj/item/holder/human/sync(var/mob/living/M)
 	// Generate appropriate on-mob icons.

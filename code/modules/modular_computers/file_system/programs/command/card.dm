@@ -41,18 +41,17 @@
 	data["mmode"] = mod_mode
 	data["centcom_access"] = is_centcom
 
-	data["command_jobs"] = format_jobs(SSjobs.titles_by_department(COM))
-	data["support_jobs"] = format_jobs(SSjobs.titles_by_department(SPT))
-	data["engineering_jobs"] = format_jobs(SSjobs.titles_by_department(ENG))
-	data["medical_jobs"] = format_jobs(SSjobs.titles_by_department(MED))
-	data["science_jobs"] = format_jobs(SSjobs.titles_by_department(SCI))
-	data["security_jobs"] = format_jobs(SSjobs.titles_by_department(SEC))
-	data["exploration_jobs"] = format_jobs(SSjobs.titles_by_department(EXP))
-	data["service_jobs"] = format_jobs(SSjobs.titles_by_department(SRV))
-	data["supply_jobs"] = format_jobs(SSjobs.titles_by_department(SUP))
-	data["civilian_jobs"] = format_jobs(SSjobs.titles_by_department(CIV))
+	data["titles_by_dept"] = list()
+	for(var/dept_key in SSdepartments.departments)
+		var/datum/department/dept = SSdepartments.departments[dept_key]
+		var/list/map_jobs = SSjobs.titles_by_department(dept.reference)
+		if(LAZYLEN(map_jobs))
+			data["titles_by_dept"] += list(list(
+				"department_colour" =  dept.colour,
+				"department_name" =    capitalize(dept.reference),
+				"department_titles" =  format_jobs(map_jobs)
+			))
 	data["centcom_jobs"] = format_jobs(get_all_centcom_jobs())
-
 	data["all_centcom_access"] = is_centcom ? get_accesses(1) : null
 	data["regions"] = get_accesses()
 
