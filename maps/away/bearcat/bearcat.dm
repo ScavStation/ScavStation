@@ -23,7 +23,7 @@
 
 /obj/effect/overmap/visitable/ship/bearcat/Initialize()
 	name = "[pick("FTV","ITV","IEV")] [pick("Bearcat", "Firebug", "Defiant", "Unsinkable","Horizon","Vagrant")]"
-	for(var/area/ship/scrap/A)
+	for(var/area/ship/bearcat/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
 	name = "[name], \a [initial(name)]"
@@ -36,24 +36,24 @@
 	suffixes = list("bearcat/bearcat-1.dmm", "bearcat/bearcat-2.dmm")
 	cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/lift)
-	area_usage_test_exempted_root_areas = list(/area/ship)
+	area_usage_test_exempted_root_areas = list(/area/ship/bearcat)
 	apc_test_exempt_areas = list(
-		/area/ship/scrap/maintenance/engine/port = NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/maintenance/engine/starboard = NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/crew/hallway/port= NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/crew/hallway/starboard= NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/maintenance/hallway = NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/maintenance/lower = NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/maintenance/atmos = NO_SCRUBBER,
-		/area/ship/scrap/escape_port = NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/escape_star = NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/shuttle/lift = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/ship/scrap/command/hallway = NO_SCRUBBER|NO_VENT
+		/area/ship/bearcat/maintenance/engine/port = NO_SCRUBBER|NO_VENT,
+		/area/ship/bearcat/maintenance/engine/starboard = NO_SCRUBBER|NO_VENT,
+		/area/ship/bearcat/crew/hallway/port= NO_SCRUBBER|NO_VENT,
+		/area/ship/bearcat/crew/hallway/starboard= NO_SCRUBBER|NO_VENT,
+		/area/ship/bearcat/maintenance/hallway = NO_SCRUBBER|NO_VENT,
+		/area/ship/bearcat/maintenance/lower = NO_SCRUBBER|NO_VENT,
+		/area/ship/bearcat/maintenance/atmos = NO_SCRUBBER,
+		/area/ship/bearcat/escape_port = NO_SCRUBBER|NO_VENT,
+		/area/ship/bearcat/escape_star = NO_SCRUBBER|NO_VENT,
+		/area/ship/bearcat/shuttle/lift = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/ship/bearcat/command/hallway = NO_SCRUBBER|NO_VENT
 	)
 
 /datum/shuttle/autodock/ferry/lift
 	name = "Cargo Lift"
-	shuttle_area = /area/ship/scrap/shuttle/lift
+	shuttle_area = /area/ship/bearcat/shuttle/lift
 	warmup_time = 3	//give those below some time to get out of the way
 	waypoint_station = "nav_bearcat_lift_bottom"
 	waypoint_offsite = "nav_bearcat_lift_top"
@@ -80,7 +80,7 @@
 /obj/effect/shuttle_landmark/lift/bottom
 	name = "Lower Deck"
 	landmark_tag = "nav_bearcat_lift_bottom"
-	base_area = /area/ship/scrap/cargo/lower
+	base_area = /area/ship/bearcat/cargo/lower
 	base_turf = /turf/simulated/floor
 
 /obj/machinery/power/apc/derelict
