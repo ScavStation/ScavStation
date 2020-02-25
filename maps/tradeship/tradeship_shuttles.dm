@@ -4,7 +4,7 @@
 
 /datum/shuttle/autodock/overmap/exploration
 	name = "Exploration Shuttle"
-	shuttle_area = /area/ship/scrap/shuttle/outgoing
+	shuttle_area = /area/ship/trade/shuttle/outgoing
 	dock_target = "tradeship_shuttle"
 	current_location = "nav_tradeship_port_dock_shuttle"
 
