@@ -38,3 +38,18 @@
 //wild capitalism
 /datum/computer_file/program/merchant
 	required_access = null
+
+/datum/map/shelltooth
+	lobby_tracks = list(/music_track/zazie)
+	potential_theft_targets = list(
+		"the tradehouse accounting documents"	= /obj/item/documents/tradehouse/account,
+		"the tradehouse personnel data"			= /obj/item/documents/tradehouse/personnel,
+		"the Captain's spare ID"				= /obj/item/card/id/captains_spare,
+		"the ship's blueprints"					= /obj/item/blueprints,
+		"the Matriarch's robes"					= /obj/item/clothing/under/yinglet/matriarch,
+		"a jetpack"								= /obj/item/tank/jetpack/,
+		"a pump action shotgun"					= /obj/item/gun/projectile/shotgun/pump/,
+		"a health analyzer"						= /obj/item/scanner/health,
+		"the integrated circuit printer"		= /obj/item/integrated_circuit_printer,
+		"a whole uneaten mollusc"				= /obj/item/mollusc
+	)
