@@ -26,6 +26,8 @@ jobs:
       env: TEST=MAP MAP_PATH=example
     - name: "Map - Tradeship"
       env: TEST=MAP MAP_PATH=tradeship
+    - name: "Map - Shelltooth"
+      env: TEST=MAP MAP_PATH=shelltooth
     - name: "Map - Away Sites"
       env: TEST=MAP MAP_PATH=away_sites_testing
 
