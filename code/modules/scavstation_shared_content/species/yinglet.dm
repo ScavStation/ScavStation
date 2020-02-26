@@ -8,14 +8,14 @@
 		"th" = list("z")
 	)
 
-	icobase =         'maps/tradeship/icons/species/yinglet/body.dmi'
-	deform =          'maps/tradeship/icons/species/yinglet/deformed_body.dmi'
-	preview_icon =    'maps/tradeship/icons/species/yinglet/preview.dmi'
-	husk_icon =       'maps/tradeship/icons/species/yinglet/husk.dmi'
-	damage_overlays = 'maps/tradeship/icons/species/yinglet/damage_overlay.dmi'
-	damage_mask =     'maps/tradeship/icons/species/yinglet/damage_mask.dmi'
-	blood_mask =      'maps/tradeship/icons/species/yinglet/blood_mask.dmi'
-	lip_icon =        'maps/tradeship/icons/species/yinglet/lips.dmi'
+	icobase =         'code/modules/scavstation_shared_content/icons/species/yinglet/body.dmi'
+	deform =          'code/modules/scavstation_shared_content/icons/species/yinglet/deformed_body.dmi'
+	preview_icon =    'code/modules/scavstation_shared_content/icons/species/yinglet/preview.dmi'
+	husk_icon =       'code/modules/scavstation_shared_content/icons/species/yinglet/husk.dmi'
+	damage_overlays = 'code/modules/scavstation_shared_content/icons/species/yinglet/damage_overlay.dmi'
+	damage_mask =     'code/modules/scavstation_shared_content/icons/species/yinglet/damage_mask.dmi'
+	blood_mask =      'code/modules/scavstation_shared_content/icons/species/yinglet/blood_mask.dmi'
+	lip_icon =        'code/modules/scavstation_shared_content/icons/species/yinglet/lips.dmi'
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
 

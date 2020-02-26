@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	species_restricted = list(SPECIES_YINGLET)
-	icon = 'maps/tradeship/icons/suit_yinglet.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/suit_yinglet.dmi'
 
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer
 	name = "\improper Tradehouse officer's coat"
@@ -15,9 +15,9 @@
 	name = "small loincloth"
 	desc = "A few rags that wrap around the legs and crotch for a semblance of modesty."
 	species_restricted = list(SPECIES_YINGLET)
-	icon = 'maps/tradeship/icons/under_yinglet.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/under_yinglet.dmi'
 	icon_state = "loincloth"
-	sprite_sheets = list(SPECIES_YINGLET = 'maps/tradeship/icons/onmob_under_yinglet.dmi')
+	sprite_sheets = list(SPECIES_YINGLET = 'code/modules/scavstation_shared_content/icons/onmob_under_yinglet.dmi')
 	color = COLOR_BEIGE
 	var/detail_color
 
@@ -30,7 +30,7 @@
 /obj/item/clothing/under/yinglet/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
 	if(detail_color && slot == slot_w_uniform_str)
-		var/image/I = image('maps/tradeship/icons/onmob_under_yinglet.dmi', "[icon_state]_detail")
+		var/image/I = image('code/modules/scavstation_shared_content/icons/onmob_under_yinglet.dmi', "[icon_state]_detail")
 		I.color = detail_color
 		I.appearance_flags |= RESET_COLOR
 		ret.overlays += I
@@ -45,11 +45,11 @@
 /obj/item/clothing/head/yinglet
 	name = "small hood"
 	desc = "A yinglet-sized cloth hood and mantle. It has ear holes."
-	icon = 'maps/tradeship/icons/head_yinglet.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/head_yinglet.dmi'
 	icon_state = "ying_hood"
 	flags_inv = BLOCKHAIR
 	species_restricted = list(SPECIES_YINGLET)
-	sprite_sheets = list(SPECIES_YINGLET = 'maps/tradeship/icons/onmob_head_yinglet.dmi')
+	sprite_sheets = list(SPECIES_YINGLET = 'code/modules/scavstation_shared_content/icons/onmob_head_yinglet.dmi')
 	color = COLOR_BEIGE
 	var/detail_color
 
@@ -62,7 +62,7 @@
 /obj/item/clothing/head/yinglet/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
 	if(detail_color && slot == slot_head_str)
-		var/image/I = image('maps/tradeship/icons/onmob_head_yinglet.dmi', "[icon_state]_detail")
+		var/image/I = image('code/modules/scavstation_shared_content/icons/onmob_head_yinglet.dmi', "[icon_state]_detail")
 		I.color = detail_color
 		I.appearance_flags |= RESET_COLOR
 		ret.overlays += I
@@ -78,15 +78,15 @@
 	name = "small cape"
 	desc = "A short length of cloth worked into a cape. Some people would say it looks stupid."
 	species_restricted = list(SPECIES_YINGLET)
-	icon = 'maps/tradeship/icons/suit_yinglet.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/suit_yinglet.dmi'
 	icon_state = "cape"
 	color = COLOR_DARK_RED
-	sprite_sheets = list(SPECIES_YINGLET = 'maps/tradeship/icons/onmob_suit_yinglet.dmi')
+	sprite_sheets = list(SPECIES_YINGLET = 'code/modules/scavstation_shared_content/icons/onmob_suit_yinglet.dmi')
 
 /obj/item/clothing/shoes/sandal/yinglet
 	name = "small sandals"
 	desc = "A pair of rather plain wooden sandals. They seem to be the right size and shape for a yinglet."
 	species_restricted = list(SPECIES_YINGLET)
 	item_icons = list(
-		slot_shoes_str = 'maps/tradeship/icons/onmob_shoes_yinglet.dmi'
+		slot_shoes_str = 'code/modules/scavstation_shared_content/icons/onmob_shoes_yinglet.dmi'
 	)

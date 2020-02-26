@@ -17,13 +17,13 @@
 /obj/item/clothing/head/baxxid/hood
 	name = "short baxxid hood"
 	desc = "A large piece of cloth with holes in it, designed to be worn by baxxid."
-	icon = 'maps/tradeship/icons/hood_short_baxxid.dmi'
-	on_mob_icon = 'maps/tradeship/icons/hood_short_baxxid.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/hood_short_baxxid.dmi'
+	on_mob_icon = 'code/modules/scavstation_shared_content/icons/hood_short_baxxid.dmi'
 
 /obj/item/clothing/head/baxxid/hood/long
 	name = "baxxid hood"
-	icon = 'maps/tradeship/icons/hood_long_baxxid.dmi'
-	on_mob_icon = 'maps/tradeship/icons/hood_long_baxxid.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/hood_long_baxxid.dmi'
+	on_mob_icon = 'code/modules/scavstation_shared_content/icons/hood_long_baxxid.dmi'
 	color = COLOR_PURPLE
 
 /obj/item/clothing/head/baxxid/hood/long/on_update_icon()
@@ -42,5 +42,5 @@
 /obj/item/clothing/head/baxxid/big_wig
 	name = "big wig"
 	desc = "A really cool wig, which is unfortunately too large for a regular human."
-	icon = 'maps/tradeship/icons/wig_big_blonde.dmi'
-	on_mob_icon = 'maps/tradeship/icons/wig_big_blonde.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/wig_big_blonde.dmi'
+	on_mob_icon = 'code/modules/scavstation_shared_content/icons/wig_big_blonde.dmi'

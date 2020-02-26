@@ -2,7 +2,7 @@
 	name = "Shelltooth"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(SPECIES_YINGLET, SPECIES_YINGLET_SOUTHERN)
-	icon = 'maps/tradeship/icons/species/yinglet/markings.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/species/yinglet/markings.dmi'
 	icon_state = "shelltooth"
 	blend = ICON_MULTIPLY
 
@@ -56,7 +56,7 @@
 	name = "Ying Messy"
 	icon_state = "hair_messy"
 	species_allowed = list(SPECIES_YINGLET, SPECIES_YINGLET_SOUTHERN)
-	icon = 'maps/tradeship/icons/species/yinglet/hair.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/species/yinglet/hair.dmi'
 	blend = ICON_MULTIPLY
 
 /datum/sprite_accessory/hair/yinglet/afro
