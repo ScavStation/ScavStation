@@ -8,14 +8,14 @@
 		"th" = list("z")
 	)
 
-	icobase =         'maps/tradeship/icons/species/yinglet/body.dmi'
-	deform =          'maps/tradeship/icons/species/yinglet/deformed_body.dmi'
-	preview_icon =    'maps/tradeship/icons/species/yinglet/preview.dmi'
-	husk_icon =       'maps/tradeship/icons/species/yinglet/husk.dmi'
-	damage_overlays = 'maps/tradeship/icons/species/yinglet/damage_overlay.dmi'
-	damage_mask =     'maps/tradeship/icons/species/yinglet/damage_mask.dmi'
-	blood_mask =      'maps/tradeship/icons/species/yinglet/blood_mask.dmi'
-	lip_icon =        'maps/tradeship/icons/species/yinglet/lips.dmi'
+	icobase =         'code/modules/scavstation_shared_content/icons/species/yinglet/body.dmi'
+	deform =          'code/modules/scavstation_shared_content/icons/species/yinglet/deformed_body.dmi'
+	preview_icon =    'code/modules/scavstation_shared_content/icons/species/yinglet/preview.dmi'
+	husk_icon =       'code/modules/scavstation_shared_content/icons/species/yinglet/husk.dmi'
+	damage_overlays = 'code/modules/scavstation_shared_content/icons/species/yinglet/damage_overlay.dmi'
+	damage_mask =     'code/modules/scavstation_shared_content/icons/species/yinglet/damage_mask.dmi'
+	blood_mask =      'code/modules/scavstation_shared_content/icons/species/yinglet/blood_mask.dmi'
+	lip_icon =        'code/modules/scavstation_shared_content/icons/species/yinglet/lips.dmi'
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
 
@@ -84,7 +84,7 @@
 
 /datum/species/yinglet/skills_from_age(age)
 	switch(age)
-		if(0 to 5)   
+		if(0 to 5)
 			. = -4
 		if(5 to 10)
 			. = 0
@@ -112,45 +112,45 @@
 /datum/species/yinglet/New()
 	equip_adjust = list(
 		slot_head_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),  
-			"[EAST]" =  list("x" = 3,  "y" = -3),  
-			"[WEST]" =  list("x" = -3, "y" = -3),  
+			"[NORTH]" = list("x" = 0,  "y" = -3),
+			"[EAST]" =  list("x" = 3,  "y" = -3),
+			"[WEST]" =  list("x" = -3, "y" = -3),
 			"[SOUTH]" = list("x" = 0,  "y" = -3)
 		),
 		slot_back_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -5),  
-			"[EAST]" =  list("x" = 3,  "y" = -5),  
-			"[WEST]" =  list("x" = -3, "y" = -5),  
+			"[NORTH]" = list("x" = 0,  "y" = -5),
+			"[EAST]" =  list("x" = 3,  "y" = -5),
+			"[WEST]" =  list("x" = -3, "y" = -5),
 			"[SOUTH]" = list("x" = 0,  "y" = -5)
 		),
 		slot_belt_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -1),  
-			"[EAST]" =  list("x" = 2,  "y" = -1),  
-			"[WEST]" =  list("x" = -2, "y" = -1),  
+			"[NORTH]" = list("x" = 0,  "y" = -1),
+			"[EAST]" =  list("x" = 2,  "y" = -1),
+			"[WEST]" =  list("x" = -2, "y" = -1),
 			"[SOUTH]" = list("x" = 0,  "y" = -1)
 		),
 		slot_glasses_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),  
-			"[EAST]" =  list("x" = 2,  "y" = -3),  
-			"[WEST]" =  list("x" = -2, "y" = -3),  
+			"[NORTH]" = list("x" = 0,  "y" = -3),
+			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = 0,  "y" = -3)
 		),
 		slot_l_hand_str = list(
-			"[NORTH]" = list("x" = 2,  "y" = -3),  
-			"[EAST]" =  list("x" = 2,  "y" = -3),  
-			"[WEST]" =  list("x" = -2, "y" = -3),  
+			"[NORTH]" = list("x" = 2,  "y" = -3),
+			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = -2, "y" = -3)
 		),
 		slot_r_hand_str = list(
-			"[NORTH]" = list("x" = -2, "y" = -3),  
-			"[EAST]" =  list("x" = 2,  "y" = -3),  
-			"[WEST]" =  list("x" = -2, "y" = -3),  
+			"[NORTH]" = list("x" = -2, "y" = -3),
+			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = 2,  "y" = -3)
 		),
 		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),  
-			"[EAST]" =  list("x" = 2,  "y" = -3),  
-			"[WEST]" =  list("x" = -2, "y" = -3),  
+			"[NORTH]" = list("x" = 0,  "y" = -3),
+			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = 0,  "y" = -3)
 		)
 	)
@@ -182,11 +182,12 @@
 
 /obj/item/holder/human/yinglet/iscrowbar()
 	return TRUE
-	
-/obj/item/holder/human/yinglet/attack_self()
+
+/obj/item/holder/human/yinglet/attack_self(mob/user)
 	var/mob/owner = locate() in contents
 	if(owner.stat == CONSCIOUS)
 		var/turf/T = get_turf(owner)
 		T.visible_message(SPAN_WARNING("\icon[owner] Eee!"))
 		playsound(T, 'sound/effects/mousesqueek.ogg', 75, 1)
+		user.setClickCooldown(15)
 	..()

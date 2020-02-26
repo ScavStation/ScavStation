@@ -21,7 +21,7 @@
 	default_law_type = /datum/ai_laws/corporate
 
 	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
-	lobby_screens = list('maps/tradeship/lobby/yingspace.png')
+	lobby_screens = list('code/modules/scavstation_shared_content/lobby/yingspace.png')
 
 	use_overmap = 1
 	num_exoplanets = 3
