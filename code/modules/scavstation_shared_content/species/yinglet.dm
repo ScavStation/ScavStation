@@ -84,7 +84,7 @@
 
 /datum/species/yinglet/skills_from_age(age)
 	switch(age)
-		if(0 to 5)   
+		if(0 to 5)
 			. = -4
 		if(5 to 10)
 			. = 0
@@ -112,45 +112,45 @@
 /datum/species/yinglet/New()
 	equip_adjust = list(
 		slot_head_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),  
-			"[EAST]" =  list("x" = 3,  "y" = -3),  
-			"[WEST]" =  list("x" = -3, "y" = -3),  
+			"[NORTH]" = list("x" = 0,  "y" = -3),
+			"[EAST]" =  list("x" = 3,  "y" = -3),
+			"[WEST]" =  list("x" = -3, "y" = -3),
 			"[SOUTH]" = list("x" = 0,  "y" = -3)
 		),
 		slot_back_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -5),  
-			"[EAST]" =  list("x" = 3,  "y" = -5),  
-			"[WEST]" =  list("x" = -3, "y" = -5),  
+			"[NORTH]" = list("x" = 0,  "y" = -5),
+			"[EAST]" =  list("x" = 3,  "y" = -5),
+			"[WEST]" =  list("x" = -3, "y" = -5),
 			"[SOUTH]" = list("x" = 0,  "y" = -5)
 		),
 		slot_belt_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -1),  
-			"[EAST]" =  list("x" = 2,  "y" = -1),  
-			"[WEST]" =  list("x" = -2, "y" = -1),  
+			"[NORTH]" = list("x" = 0,  "y" = -1),
+			"[EAST]" =  list("x" = 2,  "y" = -1),
+			"[WEST]" =  list("x" = -2, "y" = -1),
 			"[SOUTH]" = list("x" = 0,  "y" = -1)
 		),
 		slot_glasses_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),  
-			"[EAST]" =  list("x" = 2,  "y" = -3),  
-			"[WEST]" =  list("x" = -2, "y" = -3),  
+			"[NORTH]" = list("x" = 0,  "y" = -3),
+			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = 0,  "y" = -3)
 		),
 		slot_l_hand_str = list(
-			"[NORTH]" = list("x" = 2,  "y" = -3),  
-			"[EAST]" =  list("x" = 2,  "y" = -3),  
-			"[WEST]" =  list("x" = -2, "y" = -3),  
+			"[NORTH]" = list("x" = 2,  "y" = -3),
+			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = -2, "y" = -3)
 		),
 		slot_r_hand_str = list(
-			"[NORTH]" = list("x" = -2, "y" = -3),  
-			"[EAST]" =  list("x" = 2,  "y" = -3),  
-			"[WEST]" =  list("x" = -2, "y" = -3),  
+			"[NORTH]" = list("x" = -2, "y" = -3),
+			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = 2,  "y" = -3)
 		),
 		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),  
-			"[EAST]" =  list("x" = 2,  "y" = -3),  
-			"[WEST]" =  list("x" = -2, "y" = -3),  
+			"[NORTH]" = list("x" = 0,  "y" = -3),
+			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = 0,  "y" = -3)
 		)
 	)
@@ -182,11 +182,12 @@
 
 /obj/item/holder/human/yinglet/iscrowbar()
 	return TRUE
-	
-/obj/item/holder/human/yinglet/attack_self()
+
+/obj/item/holder/human/yinglet/attack_self(mob/user)
 	var/mob/owner = locate() in contents
 	if(owner.stat == CONSCIOUS)
 		var/turf/T = get_turf(owner)
 		T.visible_message(SPAN_WARNING("\icon[owner] Eee!"))
 		playsound(T, 'sound/effects/mousesqueek.ogg', 75, 1)
+		user.setClickCooldown(15)
 	..()
