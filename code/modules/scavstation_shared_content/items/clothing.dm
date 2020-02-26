@@ -1,5 +1,5 @@
 /obj/item/clothing/gloves
-	sprite_sheets = list(SPECIES_YINGLET = 'maps/tradeship/icons/onmob_hands_yinglet.dmi')
+	sprite_sheets = list(SPECIES_YINGLET = 'code/modules/scavstation_shared_content/icons/onmob_hands_yinglet.dmi')
 	species_restricted = list(SPECIES_HUMAN, SPECIES_YINGLET)
 
 /obj/item/clothing/ears
@@ -20,25 +20,25 @@
 /obj/item/clothing/under/tradeship_plain
 	name = "plain clothes"
 	desc = "Some very boring clothes."
-	icon = 'maps/tradeship/icons/under.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/under.dmi'
 	icon_state = "plainclothes"
 	species_restricted = list(SPECIES_HUMAN)
 	item_icons = list(
-		slot_w_uniform_str = 'maps/tradeship/icons/onmob_under.dmi'
+		slot_w_uniform_str = 'code/modules/scavstation_shared_content/icons/onmob_under.dmi'
 	)
 
 /obj/item/clothing/suit/storage/toggle/redcoat
 	name = "\improper Tradehouse redcoat"
 	desc = "The signature uniform of Tradeshouse guardsmen."
-	icon = 'maps/tradeship/icons/suit.dmi'
+	icon = 'code/modules/scavstation_shared_content/icons/suit.dmi'
 	icon_state = "redcoat"
 	item_icons = list(
-		slot_wear_suit_str = 'maps/tradeship/icons/onmob_suit.dmi'
+		slot_wear_suit_str = 'code/modules/scavstation_shared_content/icons/onmob_suit.dmi'
 	)
 	icon_open = "redcoat_open"
 	icon_closed = "redcoat"
 	species_restricted = list(SPECIES_HUMAN)
-	sprite_sheets = list(SPECIES_YINGLET = 'maps/tradeship/icons/onmob_suit_yinglet.dmi')
+	sprite_sheets = list(SPECIES_YINGLET = 'code/modules/scavstation_shared_content/icons/onmob_suit_yinglet.dmi')
 
 	var/has_badge
 	var/has_buttons
