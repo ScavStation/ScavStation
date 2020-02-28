@@ -35,8 +35,9 @@
 		TAG_RELIGION =  list(RELIGION_OTHER, RELIGION_ATHEISM, RELIGION_AGNOSTICISM)
 	)
 
-/datum/language/baxxid
 /datum/species/baxxid/handle_autohiss(message, datum/language/lang, mode)
+	if(autohiss_exempt && (lang.name in autohiss_exempt))
+		return message
 	. = message
 	if(!istype(lang, /datum/language/baxxid))
 		var/hnnn = "H"
@@ -46,8 +47,7 @@
 		if(first_char != lowertext(first_char))
 			hnnn = uppertext(capitalize(hnnn))
 		. = "[hnnn][uppertext(.)]"
-	if(autohiss_exempt && (lang.name in autohiss_exempt))
-		return message
+
 
 /obj/item/organ/internal/eyes/baxxid
 	eye_icon = 'code/modules/scavstation_shared_content/icons/species/baxxid/eyes.dmi'

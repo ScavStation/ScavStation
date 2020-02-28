@@ -9,7 +9,7 @@
 	#define CULTURE_SCAV_TRIBE       "Tribal Yinglet"
 	#define FACTION_SCAV             "Scav"
 	#define LANGUAGE_BAXXID          "Baxxid"
-	#define CULTURE_BAXXID           "Baxxid"
+	#define CULTURE_BAXXID           "Baxxid Clans"
 	#define FACTION_BAXXID           "Baxxid Nomad"
 
 	#include "../../code/modules/scavstation_shared_content/_scavs.dme"
