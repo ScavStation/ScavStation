@@ -46,6 +46,8 @@
 		if(first_char != lowertext(first_char))
 			hnnn = uppertext(capitalize(hnnn))
 		. = "[hnnn][uppertext(.)]"
+	if(autohiss_exempt && (lang.name in autohiss_exempt))
+		return message
 
 /obj/item/organ/internal/eyes/baxxid
 	eye_icon = 'code/modules/scavstation_shared_content/icons/species/baxxid/eyes.dmi'
