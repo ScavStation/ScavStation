@@ -28,8 +28,16 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/baxxid
 		)
 
-/datum/language/baxxid
+	available_cultural_info = list(
+		TAG_CULTURE =   list(CULTURE_BAXXID, CULTURE_OTHER),
+		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
+		TAG_FACTION =   list(FACTION_BAXXID, FACTION_OTHER),
+		TAG_RELIGION =  list(RELIGION_OTHER, RELIGION_ATHEISM, RELIGION_AGNOSTICISM)
+	)
+
 /datum/species/baxxid/handle_autohiss(message, datum/language/lang, mode)
+	if(autohiss_exempt && (lang.name in autohiss_exempt))
+		return message
 	. = message
 	if(!istype(lang, /datum/language/baxxid))
 		var/hnnn = "H"
@@ -39,6 +47,7 @@
 		if(first_char != lowertext(first_char))
 			hnnn = uppertext(capitalize(hnnn))
 		. = "[hnnn][uppertext(.)]"
+
 
 /obj/item/organ/internal/eyes/baxxid
 	eye_icon = 'code/modules/scavstation_shared_content/icons/species/baxxid/eyes.dmi'
@@ -80,3 +89,4 @@
 	eye_attack_text = "an enormous forelimb"
 	eye_attack_text_victim = "an enormous forelimb"
 	attack_name = "forelimb stab"
+

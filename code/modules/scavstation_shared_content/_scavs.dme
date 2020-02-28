@@ -11,6 +11,8 @@
 #include "items/suit_cycler.dm"
 #include "items/turfs.dm"
 #include "map/culture.dm"
+#include "map/culturebaxxid.dm"
+#include "map/languagebaxxid.dm"
 #include "map/overrides.dm"
 #include "lobby/music.dm"
 #include "species/baxxid.dm"
