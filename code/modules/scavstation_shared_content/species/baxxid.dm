@@ -28,6 +28,13 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/baxxid
 		)
 
+	available_cultural_info = list(
+		TAG_CULTURE =   list(CULTURE_BAXXID, CULTURE_OTHER),
+		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
+		TAG_FACTION =   list(FACTION_BAXXID, FACTION_OTHER),
+		TAG_RELIGION =  list(RELIGION_OTHER, RELIGION_ATHEISM, RELIGION_AGNOSTICISM)
+	)
+
 /datum/language/baxxid
 /datum/species/baxxid/handle_autohiss(message, datum/language/lang, mode)
 	. = message
@@ -80,3 +87,4 @@
 	eye_attack_text = "an enormous forelimb"
 	eye_attack_text_victim = "an enormous forelimb"
 	attack_name = "forelimb stab"
+

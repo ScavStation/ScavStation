@@ -11,9 +11,21 @@
 #include "items/suit_cycler.dm"
 #include "items/turfs.dm"
 #include "map/culture.dm"
+#include "map/culturebaxxid.dm"
+#include "map/languagebaxxid.dm"
 #include "map/overrides.dm"
 #include "lobby/music.dm"
 #include "species/baxxid.dm"
 #include "species/yinglet.dm"
 #include "species/yinglet_organs.dm"
 #include "species/yinglet_accessories.dm"
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE
