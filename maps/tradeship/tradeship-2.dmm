@@ -172,6 +172,9 @@
 	icon_state = "computer";
 	dir = 4
 	},
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
 /turf/simulated/floor/carpet,
 /area/ship/trade/command/fmate)
 "bb" = (
@@ -2115,6 +2118,9 @@
 /obj/item/chems/ivbag/blood/BPlus,
 /obj/item/chems/ivbag/blood/OMinus,
 /obj/item/chems/ivbag/blood/OPlus,
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fw" = (
@@ -2693,6 +2699,9 @@
 /area/ship/trade/cargo)
 "gI" = (
 /obj/random/maintenance,
+/obj/machinery/newscaster{
+	pixel_x = 30
+	},
 /turf/simulated/floor/wood/yew,
 /area/ship/trade/unused)
 "gL" = (
@@ -3707,6 +3716,9 @@
 	dir = 1;
 	icon_state = "computer";
 	initial_id_tag = "main_drive"
+	},
+/obj/machinery/newscaster{
+	pixel_x = 30
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/trade/maintenance/engineering)
@@ -5749,6 +5761,9 @@
 /obj/random_multi/single_item/captains_spare_id,
 /obj/item/documents/tradehouse/account,
 /obj/item/documents/tradehouse/personnel,
+/obj/machinery/newscaster{
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "CD" = (
@@ -6234,6 +6249,9 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/kitchenspike,
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "Jr" = (
@@ -6539,11 +6557,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/structure/bookcase,
-/obj/item/book/skill,
-/obj/item/book/skill,
-/obj/item/book/skill,
-/obj/item/book/skill,
+/obj/structure/bookcase/skill_books/random,
 /turf/simulated/floor/wood/yew,
 /area/ship/trade/unused)
 "NN" = (
@@ -6651,6 +6665,9 @@
 	name = "Solid Argument"
 	},
 /obj/structure/displaycase,
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
 /turf/simulated/floor/carpet/blue,
 /area/ship/trade/command/captain)
 "Pc" = (
@@ -6849,6 +6866,9 @@
 /obj/machinery/light{
 	icon_state = "bulb1";
 	dir = 1
+	},
+/obj/machinery/newscaster{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/garden)

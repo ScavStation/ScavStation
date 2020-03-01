@@ -6,6 +6,11 @@
 /obj/machinery/door/unpowered/simple/wood{
 	name = "matriarch's quarters"
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
 "ae" = (
@@ -98,20 +103,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "ar" = (
@@ -817,12 +821,12 @@
 /obj/item/clothing/under/yinglet,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/under/yinglet/scout,
-/obj/item/material/twohanded/spear,
 /obj/item/material/shard{
 	has_handle = "#800000";
 	name = "shank"
 	},
 /obj/item/synthesized_instrument/synthesizer,
+/obj/item/material/twohanded/spear/javelin,
 /turf/simulated/floor,
 /area/ship/trade/fore_port_underside_maint)
 "bE" = (
@@ -1233,6 +1237,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/flora/pottedplant/bamboo,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "en" = (
@@ -1305,6 +1315,11 @@
 "hf" = (
 /obj/structure/lattice,
 /obj/machinery/light/small,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
 "hg" = (
@@ -1333,6 +1348,7 @@
 /area/ship/trade/loading_bay)
 "iD" = (
 /obj/structure/closet/crate,
+/obj/item/clothing/suit/rubber,
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
 "iH" = (
@@ -1353,6 +1369,11 @@
 "iY" = (
 /obj/item/radio/intercom{
 	pixel_y = 25
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
@@ -1585,6 +1606,9 @@
 /obj/item/material/shard{
 	has_handle = "#800000";
 	name = "shank"
+	},
+/obj/machinery/newscaster{
+	pixel_x = 30
 	},
 /turf/simulated/floor,
 /area/ship/trade/fore_port_underside_maint)
@@ -1838,6 +1862,15 @@
 "IG" = (
 /obj/structure/bed/chair/comfy/green{
 	dir = 1
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
