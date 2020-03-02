@@ -4845,7 +4845,6 @@
 /area/ship/trade/dock)
 "ob" = (
 /obj/machinery/computer/shuttle_control/explore/tradeship,
-/obj/effect/shuttle_landmark/docking_arm_port/shuttle,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	icon_state = "intact";
 	dir = 6
@@ -7279,6 +7278,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/effect/shuttle_landmark/docking_arm_port/shuttle,
 /turf/simulated/floor/plating,
 /area/ship/trade/shuttle/outgoing)
 "Zc" = (
