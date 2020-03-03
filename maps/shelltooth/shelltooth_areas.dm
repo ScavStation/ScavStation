@@ -114,7 +114,7 @@
 	icon_state = "nursery"
 
 /area/shelltooth/level_two/hydro
-	name = "\improper Hydroponics"
+	name = "Plant House"
 	icon_state = "hydro"
 
 /area/shelltooth/level_two/rec
