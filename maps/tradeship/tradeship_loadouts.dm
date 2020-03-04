@@ -3,7 +3,7 @@
 	flags = GEAR_HAS_COLOR_SELECTION
 	cost = 4
 	sort_category = "Utility"
-	path = /obj/item/gun/projectile/
+	path = /obj/item/gun/projectile
 
 /datum/gear/utility/guns/New()
 	..()
@@ -18,3 +18,12 @@
 	path = /obj/item/clothing/head/yinglet
 	flags = GEAR_HAS_COLOR_SELECTION
 	description = "A simple cloth hood with ear-holes. Not suitable for human use."
+
+/datum/gear/scav_medical_belt
+	allowed_roles = list(
+		/datum/job/doctor/junior,
+		/datum/job/yinglet/patriarch,
+		/datum/job/yinglet/matriarch,
+		/datum/job/cmo, 
+		/datum/job/doctor
+	)

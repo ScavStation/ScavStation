@@ -5,6 +5,7 @@
 #include "items/clothing_baxxid.dm"
 #include "items/clothing_yinglet.dm"
 #include "items/javelin.dm"
+#include "items/loadout.dm"
 #include "items/mollusc.dm"
 #include "items/prosthetics.dm"
 #include "items/seed_storage.dm"
