@@ -77,7 +77,7 @@
 	siemens_coefficient = 0.7
 	action_button_name = "Toggle Visor"
 
-/obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
+/obj/item/clothing/head/helmet/riot/attack_self(mob/user)
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]_up"
 		to_chat(user, "You raise the visor on the [src].")
@@ -206,11 +206,6 @@
 	name = "asset protection medical helmet"
 	desc = "An in-atmosphere helmet worn by many corporate and private asset protection forces. Has red and white highlights."
 	icon_state = "erthelmet_med"
-
-/obj/item/clothing/head/helmet/tactical/mirania
-	name = "bundeforz tactical helmet"
-	desc = "A light grey helmet made from advanced ceramic. Comfortable and robust."
-	icon_state = "m_helmet"
 
 /obj/item/clothing/head/helmet/nt/pilot
 	name = "corporate pilot's helmet"
