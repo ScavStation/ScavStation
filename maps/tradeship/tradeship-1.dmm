@@ -3453,7 +3453,7 @@
 /obj/item/t_scanner,
 /obj/item/cell/high,
 /obj/item/tape_roll,
-/obj/item/airalarm_electronics,
+/obj/item/stock_parts/circuitboard/air_alarm,
 /obj/item/airlock_electronics,
 /obj/item/airlock_electronics,
 /obj/structure/table/rack,
