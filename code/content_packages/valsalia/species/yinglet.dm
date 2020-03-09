@@ -8,14 +8,14 @@
 		"th" = list("z")
 	)
 
-	icobase =         'code/modules/scavstation_shared_content/icons/species/yinglet/body.dmi'
-	deform =          'code/modules/scavstation_shared_content/icons/species/yinglet/deformed_body.dmi'
-	preview_icon =    'code/modules/scavstation_shared_content/icons/species/yinglet/preview.dmi'
-	husk_icon =       'code/modules/scavstation_shared_content/icons/species/yinglet/husk.dmi'
-	damage_overlays = 'code/modules/scavstation_shared_content/icons/species/yinglet/damage_overlay.dmi'
-	damage_mask =     'code/modules/scavstation_shared_content/icons/species/yinglet/damage_mask.dmi'
-	blood_mask =      'code/modules/scavstation_shared_content/icons/species/yinglet/blood_mask.dmi'
-	lip_icon =        'code/modules/scavstation_shared_content/icons/species/yinglet/lips.dmi'
+	icobase =         'code/content_packages/valsalia/icons/species/yinglet/body.dmi'
+	deform =          'code/content_packages/valsalia/icons/species/yinglet/deformed_body.dmi'
+	preview_icon =    'code/content_packages/valsalia/icons/species/yinglet/preview.dmi'
+	husk_icon =       'code/content_packages/valsalia/icons/species/yinglet/husk.dmi'
+	damage_overlays = 'code/content_packages/valsalia/icons/species/yinglet/damage_overlay.dmi'
+	damage_mask =     'code/content_packages/valsalia/icons/species/yinglet/damage_mask.dmi'
+	blood_mask =      'code/content_packages/valsalia/icons/species/yinglet/blood_mask.dmi'
+	lip_icon =        'code/content_packages/valsalia/icons/species/yinglet/lips.dmi'
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
 

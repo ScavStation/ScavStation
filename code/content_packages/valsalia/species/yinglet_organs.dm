@@ -1,6 +1,6 @@
 /obj/item/organ/internal/eyes/yinglet
 	relative_size = 15
-	eye_icon = 'code/modules/scavstation_shared_content/icons/species/yinglet/eyes.dmi'
+	eye_icon = 'code/content_packages/valsalia/icons/species/yinglet/eyes.dmi'
 
 // Copied from vox stomach, upstream Baycode.
 /obj/item/organ/internal/stomach/yinglet

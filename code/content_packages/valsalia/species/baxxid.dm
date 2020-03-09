@@ -1,10 +1,10 @@
 /datum/species/baxxid
 	name = SPECIES_BAXXID
 	name_plural = SPECIES_BAXXID
-	icobase =         'code/modules/scavstation_shared_content/icons/species/baxxid/body.dmi'
-	deform =          'code/modules/scavstation_shared_content/icons/species/baxxid/body.dmi'
-	preview_icon =    'code/modules/scavstation_shared_content/icons/species/baxxid/preview.dmi'
-	icon_template =   'code/modules/scavstation_shared_content/icons/species/baxxid/template.dmi'
+	icobase =         'code/content_packages/valsalia/icons/species/baxxid/body.dmi'
+	deform =          'code/content_packages/valsalia/icons/species/baxxid/body.dmi'
+	preview_icon =    'code/content_packages/valsalia/icons/species/baxxid/preview.dmi'
+	icon_template =   'code/content_packages/valsalia/icons/species/baxxid/template.dmi'
 	manual_dexterity = DEXTERITY_KEYBOARDS
 	mob_size = MOB_LARGE
 
@@ -50,13 +50,13 @@
 
 
 /obj/item/organ/internal/eyes/baxxid
-	eye_icon = 'code/modules/scavstation_shared_content/icons/species/baxxid/eyes.dmi'
+	eye_icon = 'code/content_packages/valsalia/icons/species/baxxid/eyes.dmi'
 
 /datum/sprite_accessory/marking/baxxid
 	name = "Crest"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(SPECIES_BAXXID)
-	icon = 'code/modules/scavstation_shared_content/icons/species/baxxid/markings.dmi'
+	icon = 'code/content_packages/valsalia/icons/species/baxxid/markings.dmi'
 	icon_state = "crest"
 	blend = ICON_MULTIPLY
 

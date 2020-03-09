@@ -12,7 +12,8 @@
 	#define CULTURE_BAXXID           "Baxxid Clans"
 	#define FACTION_BAXXID           "Baxxid Nomad"
 
-	#include "../../code/modules/scavstation_shared_content/_scavs.dme"
+	#include "..\..\code\content_packages\valsalia\_valsalia.dme"
+
 	#include "tradeship_antagonists.dm"
 	#include "tradeship_areas.dm"
 	#include "tradeship_chems.dm"
