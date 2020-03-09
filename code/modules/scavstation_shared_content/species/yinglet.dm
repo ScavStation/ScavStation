@@ -20,9 +20,9 @@
 	metabolism_mod = 1.25
 
 	unarmed_attacks = list(
-		/datum/unarmed_attack/punch/weak,
-		/datum/unarmed_attack/stomp/weak,
-		/datum/unarmed_attack/bite
+		/decl/natural_attack/punch/weak,
+		/decl/natural_attack/stomp/weak,
+		/decl/natural_attack/bite
 	)
 
 	flesh_color = "#ab8c65"

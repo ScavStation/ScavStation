@@ -9,8 +9,8 @@
 	mob_size = MOB_LARGE
 
 	unarmed_attacks = list(
-		/datum/unarmed_attack/claws/strong/baxxid,
-		/datum/unarmed_attack/bite/strong
+		/decl/natural_attack/claws/strong/baxxid,
+		/decl/natural_attack/bite/strong
 	)
 
 	hud_type = /datum/hud_data/baxxid
@@ -80,7 +80,7 @@
 		"mask" =         list("loc" = ui_glasses,           "name" = "Mask", "slot" = slot_wear_mask, "state" = "mask", "toggle" = 1)
 		)
 
-/datum/unarmed_attack/claws/strong/baxxid
+/decl/natural_attack/claws/strong/baxxid
 	attack_verb = list("stabbed", "maimed", "impaled")
 	damage = 12
 	sharp = 1
