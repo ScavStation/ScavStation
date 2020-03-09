@@ -2,9 +2,13 @@
 	name = SPECIES_BAXXID
 	name_plural = SPECIES_BAXXID
 	icobase =         'code/content_packages/valsalia/icons/species/baxxid/body.dmi'
-	deform =          'code/content_packages/valsalia/icons/species/baxxid/body.dmi'
+	deform =          'code/content_packages/valsalia/icons/species/baxxid/deformed_body.dmi'
 	preview_icon =    'code/content_packages/valsalia/icons/species/baxxid/preview.dmi'
+	damage_overlays = 'code/content_packages/valsalia/icons/species/baxxid/damage_overlay.dmi'
+	damage_mask =     'code/content_packages/valsalia/icons/species/baxxid/damage_mask.dmi'
+	blood_mask =      'code/content_packages/valsalia/icons/species/baxxid/blood_mask.dmi'
 	icon_template =   'code/content_packages/valsalia/icons/species/baxxid/template.dmi'
+
 	manual_dexterity = DEXTERITY_KEYBOARDS
 	mob_size = MOB_LARGE
 
