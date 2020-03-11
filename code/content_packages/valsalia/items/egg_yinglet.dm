@@ -53,7 +53,7 @@
 		return
 	egg.dropInto(loc)
 	user.put_in_hands(egg)
-	visible_message(SPAN_WARNING("\The [user] takes \the [egg] from \the [src]]."))
+	visible_message(SPAN_WARNING("\The [user] takes \the [egg] from \the [src]."))
 	egg = null
 	update_icon()
 	update_desc()
@@ -63,7 +63,7 @@
 		return
 	user.drop_from_inventory(new_egg)
 	new_egg.forceMove(src)
-	visible_message(SPAN_NOTICE("\The [user] puts \the [new_egg] in \the [src]]."))
+	visible_message(SPAN_NOTICE("\The [user] puts \the [new_egg] in \the [src]."))
 	egg = new_egg
 	update_icon()
 	update_desc()
