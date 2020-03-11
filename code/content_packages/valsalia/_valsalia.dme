@@ -8,6 +8,7 @@
 #include "items\clothing_baxxid.dm"
 #include "items\clothing_yinglet.dm"
 #include "items\documents.dm"
+#include "items\egg_yinglet.dm"
 #include "items\javelin.dm"
 #include "items\loadout.dm"
 #include "items\mollusc.dm"
