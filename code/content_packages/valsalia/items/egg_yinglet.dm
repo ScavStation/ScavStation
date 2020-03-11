@@ -84,6 +84,7 @@
 		LAZYADD(new_overlays, I)
 	var/image/I = image(icon = icon, icon_state = "base_overlay")
 	I.appearance_flags |= RESET_COLOR
+	I.layer = layer + 0.01
 	LAZYADD(new_overlays, I)
 	overlays = new_overlays
 
