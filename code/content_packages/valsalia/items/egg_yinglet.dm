@@ -6,72 +6,86 @@
 	icon = 'code/content_packages/valsalia/icons/egg_yinglet.dmi'
 	icon_state = "base"
 	w_class = ITEM_SIZE_HUGE
-	var/has_egg = TRUE
+	var/atom/movable/egg = /obj/item/yinglet_egg
 
 /obj/structure/yinglet_nest/empty
-	has_egg = FALSE
+	egg = null
 
 /obj/structure/yinglet_nest/Initialize()
 	. = ..()
-	if(has_egg)
-		new /obj/item/yinglet_egg(src)
+	if(egg)
+		if(ispath(egg))
+			egg = new egg(src)
+		else
+			egg = null
 	update_icon()
 	update_desc()
 
 /obj/structure/yinglet_nest/proc/update_desc()
 	desc = "A pile of plain but very soft fabric arranged to carefully hold an egg, as well as prevent the newly hatched younglet from smashing their face when they flop out."
-	if(has_egg && contents.len)
-		var/obj/item/I = locate() in contents
-		desc += " There's \a [I] sitting in it."
+	if(egg)
+		desc += " There's \a [egg] sitting in it."
 
 /obj/structure/yinglet_nest/attack_hand(mob/user)
 	. = ..()
-	if(has_egg && user.a_intent == I_HELP && contents.len)
-		var/obj/item/I = pick(contents)
-		src.visible_message(SPAN_NOTICE("\The [user] pets \the [I]. Grow up big and strong now, okay?"))
-		user.setClickCooldown(1.5 SECONDS)
-		return
-	if(has_egg && user.a_intent != I_HELP)
-		remove_egg(user)
-		return
+	if(egg)
+		if(user.a_intent == I_HELP)
+			user.setClickCooldown(1.5 SECONDS)
+			visible_message(SPAN_NOTICE("\The [user] pets \the [egg]. Grow up big and strong now, okay?"))
+		else
+			remove_egg(user)
+		return TRUE
 
 /obj/structure/yinglet_nest/attackby(obj/item/object, mob/user)
-	. = ..()
+	if(egg)
+		to_chat(user, SPAN_WARNING("\The [name] already has \a [egg] in it!"))
+		return TRUE
 	if(object.w_class > ITEM_SIZE_NORMAL || istype(object, /obj/item/holder))
 		to_chat(user, SPAN_WARNING("\The [object] is too big for the [name]!"))
-		return
-	else if(has_egg && contents.len)
-		var/obj/item/I = locate() in contents
-		if(I)
-			to_chat(user, SPAN_WARNING("\The [name] already has \a [I] in it!"))
-		return
-	else if(!has_egg && object.w_class <= ITEM_SIZE_NORMAL)
+		return TRUE
+	if(object.w_class <= ITEM_SIZE_NORMAL)
 		add_egg(object, user)
-		return
+		return TRUE
+	. = ..()
 
 /obj/structure/yinglet_nest/proc/remove_egg(mob/user)
-	has_egg = FALSE
-	var/obj/item/E = locate() in contents
-	user.put_in_hands(E)
-	src.visible_message(SPAN_WARNING("\The [user] takes \the [E] from the eggbed."))
+	if(!egg)
+		return
+	egg.dropInto(loc)
+	user.put_in_hands(egg)
+	visible_message(SPAN_WARNING("\The [user] takes \the [egg] from \the [src]]."))
+	egg = null
 	update_icon()
 	update_desc()
 
-/obj/structure/yinglet_nest/proc/add_egg(var/obj/item/egg, mob/user)
-	has_egg = TRUE
-	user.drop_from_inventory(egg)
-	egg.forceMove(src)
-	src.visible_message(SPAN_NOTICE("\The [user] puts \the [egg] in the eggbed."))
+/obj/structure/yinglet_nest/proc/add_egg(var/obj/item/new_egg, mob/user)
+	if(egg)
+		return
+	user.drop_from_inventory(new_egg)
+	new_egg.forceMove(src)
+	visible_message(SPAN_NOTICE("\The [user] puts \the [new_egg] in \the [src]]."))
+	egg = new_egg
 	update_icon()
 	update_desc()
 
 /obj/structure/yinglet_nest/on_update_icon()
 	. = ..()
-	overlays.Cut()
-	if(contents.len)
-		var/obj/item/I = locate() in contents
-		overlays += image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = STRUCTURE_LAYER)
-	overlays += image("icon" = icon, "icon_state" = "base_overlay", "layer" = STRUCTURE_LAYER+0.1)
+	var/list/new_overlays
+	if(egg)
+		var/image/I = new
+		I.appearance = egg
+		I.appearance_flags |= RESET_COLOR
+		I.pixel_x = 0
+		I.pixel_y = 0
+		I.pixel_z = 0
+		I.pixel_w = 0
+		I.plane = plane
+		I.layer = layer
+		LAZYADD(new_overlays, I)
+	var/image/I = image(icon = icon, icon_state = "base_overlay")
+	I.appearance_flags |= RESET_COLOR
+	LAZYADD(new_overlays, I)
+	overlays = new_overlays
 
 //egg
 /obj/item/yinglet_egg
