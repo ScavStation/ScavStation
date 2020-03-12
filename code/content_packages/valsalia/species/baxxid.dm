@@ -10,7 +10,7 @@
 	icon_template =   'code/content_packages/valsalia/icons/species/baxxid/template.dmi'
 
 	manual_dexterity = DEXTERITY_KEYBOARDS
-	mob_size = MOB_LARGE
+	mob_size = MOB_SIZE_LARGE
 
 	unarmed_attacks = list(
 		/decl/natural_attack/claws/strong/baxxid,
