@@ -13,7 +13,7 @@
 	blood_mask =      'icons/mob/human_races/species/monkey/blood_mask.dmi'
 
 	greater_form = SPECIES_HUMAN
-	mob_size = MOB_SMALL
+	mob_size = MOB_SIZE_SMALL
 	show_ssd = null
 	health_hud_intensity = 1.75
 
@@ -69,7 +69,7 @@
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
-	if(prob(33) && isturf(H.loc) && !H.pulledby) //won't move if being pulled
+	if(prob(33) && isturf(H.loc) && !LAZYLEN(H.grabbed_by)) //won't move if being pulled
 		H.SelfMove(pick(GLOB.cardinal))
 
 	var/obj/held = H.get_active_hand()

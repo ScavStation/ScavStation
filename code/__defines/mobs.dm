@@ -13,22 +13,6 @@
 #define FAKEDEATH   0x2000  // Replaces stuff like changeling.changeling_fakedeath.
 #define NO_ANTAG    0x4000  // Players are restricted from gaining antag roles when occupying this mob
 
-// Grab Types
-#define GRAB_NORMAL			"normal"
-#define GRAB_NAB			"nab"
-#define GRAB_NAB_SPECIAL	"special nab"
-
-// Grab levels.
-#define NORM_PASSIVE    "normal passive"
-#define NORM_STRUGGLE   "normal struggle"
-#define NORM_AGGRESSIVE "normal aggressive"
-#define NORM_NECK       "normal neck"
-#define NORM_KILL       "normal kill"
-
-#define NAB_PASSIVE		"nab passive"
-#define NAB_AGGRESSIVE	"nab aggressive"
-#define NAB_KILL		"nab kill"
-
 #define BORGMESON 0x1
 #define BORGTHERM 0x2
 #define BORGXRAY  0x4
@@ -112,11 +96,11 @@
 #define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
 
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
-#define MOB_LARGE  		40
-#define MOB_MEDIUM 		20
-#define MOB_SMALL 		10
-#define MOB_TINY 		5
-#define MOB_MINISCULE	1
+#define MOB_SIZE_LARGE  		40
+#define MOB_SIZE_MEDIUM 		20
+#define MOB_SIZE_SMALL 		10
+#define MOB_SIZE_TINY 		5
+#define MOB_SIZE_MINISCULE	1
 
 // Defines how strong the species is compared to humans. Think like strength in D&D
 #define STR_VHIGH       2

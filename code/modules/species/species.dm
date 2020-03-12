@@ -52,7 +52,7 @@
 	var/antaghud_offset_x = 0                 // As above, but specifically for the antagHUD indicator.
 	var/antaghud_offset_y = 0                 // As above, but specifically for the antagHUD indicator.
 
-	var/mob_size	= MOB_MEDIUM
+	var/mob_size	= MOB_SIZE_MEDIUM
 	var/strength    = STR_MEDIUM
 	var/show_ssd = "fast asleep"
 	var/short_sighted                         // Permanent weldervision.
@@ -152,7 +152,7 @@
 	var/hud_type
 	var/health_hud_intensity = 1
 
-	var/grab_type = GRAB_NORMAL		// The species' default grab type.
+	var/grab_type = /decl/grab/normal/passive // The species' default grab type.
 
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.

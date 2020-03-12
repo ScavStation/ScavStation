@@ -31,7 +31,7 @@
 	var/turns_since_move = 0
 	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/wander = 1	// Does the mob wander around when idle?
-	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
+	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is grabbing it.
 
 	//Interaction
 	var/response_help   = "tries to help"
@@ -139,10 +139,9 @@
 	if(!client && !stop_automated_movement && wander && !anchored)
 		if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
-			if(turns_since_move >= turns_per_move)
-				if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
-					SelfMove(pick(GLOB.cardinal))
-					turns_since_move = 0
+			if(turns_since_move >= turns_per_move && (!(stop_automated_movement_when_pulled) || !LAZYLEN(grabbed_by))) //Some animals don't move when pulled
+				SelfMove(pick(GLOB.cardinal))
+				turns_since_move = 0
 
 	//Speaking
 	if(!client && speak_chance)
@@ -450,7 +449,7 @@
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				B.basecolor = bleed_colour
-				var/scale = min(1, round(mob_size / MOB_MEDIUM, 0.1))
+				var/scale = min(1, round(mob_size / MOB_SIZE_MEDIUM, 0.1))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
