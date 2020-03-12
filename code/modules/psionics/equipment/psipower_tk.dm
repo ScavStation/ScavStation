@@ -22,10 +22,10 @@
 	var/check_paramount
 	if(ismob(_focus))
 		var/mob/victim = _focus
-		check_paramount = (victim.mob_size >= MOB_MEDIUM)
+		check_paramount = (victim.mob_size >= MOB_SIZE_MEDIUM)
 	else if(isobj(_focus))
 		var/obj/thing = _focus
-		check_paramount = (thing.w_class >= 5)
+		check_paramount = (thing.w_class >= ITEM_SIZE_HUGE)
 	else
 		return FALSE
 
