@@ -20,12 +20,6 @@
 	id_type = /obj/item/card/id/science
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 
-/decl/hierarchy/outfit/job/science/xenobiologist
-	name = OUTFIT_JOB_NAME("Xenobiologist")
-	uniform = /obj/item/clothing/under/color/white
-	id_type = /obj/item/card/id/science/xenobiologist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
-
 /decl/hierarchy/outfit/job/science/roboticist
 	name = OUTFIT_JOB_NAME("Roboticist")
 	uniform = /obj/item/clothing/under/color/white
