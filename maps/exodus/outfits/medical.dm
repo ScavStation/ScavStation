@@ -73,36 +73,9 @@
 	..()
 	BACKPACK_OVERRIDE_VIROLOGY
 
-/decl/hierarchy/outfit/job/medical/geneticist
-	name = OUTFIT_JOB_NAME("Geneticist")
-	uniform = /obj/item/clothing/under/rank/geneticist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/genetics
-	r_pocket = /obj/item/flashlight/pen
-	id_type = /obj/item/card/id/medical/geneticist
-	pda_type = /obj/item/modular_computer/pda/medical
-
-/decl/hierarchy/outfit/job/medical/geneticist/New()
-	..()
-	backpack_overrides[/decl/backpack_outfit/backpack] = /obj/item/storage/backpack/genetics
-	backpack_overrides[/decl/backpack_outfit/satchel]  = /obj/item/storage/backpack/satchel/gen
-
 /decl/hierarchy/outfit/job/medical/psychiatrist
 	name = OUTFIT_JOB_NAME("Psychiatrist")
 	uniform = /obj/item/clothing/under/rank/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/laceup
 	id_type = /obj/item/card/id/medical/psychiatrist
-
-/decl/hierarchy/outfit/job/medical/paramedic
-	name = OUTFIT_JOB_NAME("Paramedic")
-	uniform = /obj/item/clothing/under/rank/medical/scrubs/black
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
-	shoes = /obj/item/clothing/shoes/jackboots
-	l_hand = /obj/item/storage/firstaid/adv
-	belt = /obj/item/storage/belt/medical/emt
-	id_type = /obj/item/card/id/medical/paramedic
-	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
-
-/decl/hierarchy/outfit/job/medical/paramedic/emt
-	name = OUTFIT_JOB_NAME("Emergency medical technician")
-	uniform = /obj/item/clothing/under/rank/medical/paramedic

@@ -11,6 +11,12 @@
 	id_type = /obj/item/card/id/cargo/head
 	pda_type = /obj/item/modular_computer/pda/cargo
 
+/obj/item/card/id/cargo/head
+	name = "identification card"
+	desc = "A card which represents service and planning."
+	job_access_type = /datum/job/qm
+	extra_details = list("goldstripe")
+
 /decl/hierarchy/outfit/job/cargo/cargo_tech
 	name = OUTFIT_JOB_NAME("Cargo technician")
 	uniform = /obj/item/clothing/under/rank/cargotech
@@ -28,9 +34,3 @@
 /decl/hierarchy/outfit/job/cargo/mining/New()
 	..()
 	BACKPACK_OVERRIDE_ENGINEERING
-
-/decl/hierarchy/outfit/job/cargo/mining/void
-	name = OUTFIT_JOB_NAME("Shaft miner - Voidsuit")
-	head = /obj/item/clothing/head/helmet/space/void/mining
-	mask = /obj/item/clothing/mask/breath
-	suit = /obj/item/clothing/suit/space/void/mining
