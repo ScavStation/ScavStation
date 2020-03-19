@@ -8,9 +8,7 @@
 /datum/gear/utility/guns/New()
 	..()
 	var/guns = list()
-	guns["holdout reolver"] = /obj/item/gun/projectile/revolver/holdout
 	guns["holdout pistol"] = /obj/item/gun/projectile/pistol/holdout
-	guns["pistol"] = /obj/item/gun/projectile/pistol/sec
 	gear_tweaks += new/datum/gear_tweak/path(guns)
 
 /datum/gear/head/yinglet_hood
