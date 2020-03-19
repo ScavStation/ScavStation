@@ -383,11 +383,11 @@
 
 	var/list/dat = list()
 	dat += "Choose from the following open/valid positions:<br>"
-	dat += "<a href='byond://?src=\ref[src];invalid_jobs=1'>[show_invalid_jobs ? "Hide":"Show"] unavailable jobs.</a><br>"
+	dat += "<a href='byond://?src=\ref[src];invalid_jobs=1'>[show_invalid_jobs ? "Hide":"Show"] unavailable jobs</a><br>"
 	dat += "<table>"
 	dat += "<tr><td colspan = 3><b>[GLOB.using_map.station_name]:</b></td></tr>"
 
-	// TORCH JOBS
+	// MAIN MAP JOBS
 	var/list/job_summaries
 	var/list/hidden_reasons = list()
 	for(var/datum/job/job in SSjobs.primary_job_datums)
@@ -402,7 +402,7 @@
 		dat += job_summaries
 	else
 		dat += "<tr><td>No available positions.</td></tr>"
-	// END TORCH JOBS
+	// END MAIN MAP JOBS
 
 	// SUBMAP JOBS
 	for(var/thing in SSmapping.submaps)
@@ -433,7 +433,9 @@
 		additional_dat += "<br>"
 		dat = additional_dat + dat
 	dat = header + dat
-	show_browser(src, jointext(dat, null), "window=latechoices;size=450x640;can_close=1")
+	var/datum/browser/popup = new(src, "latechoices", "Choose Profession", 450, 640)
+	popup.set_content(jointext(dat, null))
+	popup.open(0)
 
 /mob/new_player/proc/create_character(var/turf/spawn_turf)
 	spawning = 1
@@ -573,7 +575,7 @@ mob/new_player/MayRespawn()
 		return
 	var/music_track/new_track = GLOB.using_map.get_lobby_track(GLOB.using_map.lobby_track.type)
 	if(new_track)
-		new_track.play_to(src) 
+		new_track.play_to(src)
 
 /mob/new_player/handle_reading_literacy(var/mob/user, var/text_content, var/skip_delays)
 	. = text_content

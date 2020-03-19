@@ -168,6 +168,7 @@
 	if(holder)
 		GLOB.admins += src
 		holder.owner = src
+		handle_staff_login()
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = SScharacter_setup.preferences_datums[ckey]
@@ -216,8 +217,14 @@
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
 		to_chat(src, "<span class='warning'>Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you.</span>")
 
+	if(get_preference_value(/datum/client_preference/fullscreen_mode) == GLOB.PREF_YES)
+		toggle_fullscreen(TRUE)
+
 	if(holder)
 		src.control_freak = 0 //Devs need 0 for profiler access
+
+	SetWindowIconSize(48)
+
 	//////////////
 	//DISCONNECT//
 	//////////////
@@ -226,6 +233,7 @@
 	if(src && watched_variables_window)
 		STOP_PROCESSING(SSprocessing, watched_variables_window)
 	if(holder)
+		handle_staff_logout()
 		holder.owner = null
 		GLOB.admins -= src
 	GLOB.ckey_directory -= ckey
@@ -331,6 +339,19 @@
 
 #undef UPLOAD_LIMIT
 
+/client/proc/handle_staff_login()
+	if(admin_datums[ckey] && SSticker)
+		message_staff("\[[holder.rank]\] [key_name(src)] logged in.")
+
+/client/proc/handle_staff_logout()
+	if(admin_datums[ckey] && GAME_STATE == RUNLEVEL_GAME) //Only report this stuff if we are currently playing.
+		message_staff("\[[holder.rank]\] [key_name(src)] logged out.")
+		if(!GLOB.admins.len) //Apparently the admin logging out is no longer an admin at this point, so we have to check this towards 0 and not towards 1. Awell.
+			send2adminirc("[key_name(src)] logged out - no more staff online.")
+			if(config.delist_when_no_admins && GLOB.visibility_pref)
+				world.update_hub_visibility()
+				send2adminirc("Toggled hub visibility. The server is now invisible ([GLOB.visibility_pref]).")
+
 //checks if a client is afk
 //3000 frames = 5 minutes
 /client/proc/is_afk(duration=3000)
@@ -393,7 +414,7 @@ client/verb/character_setup()
 	var/mob/living/M = mob
 	if(istype(M))
 		M.OnMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
-	
+
 /client/verb/SetWindowIconSize(var/val as num|text)
 	set hidden = 1
 	winset(src, "mapwindow.map", "icon-size=[val]")
@@ -453,3 +474,13 @@ client/verb/character_setup()
 		if(C.mob.l_general)
 			C.mob.l_general.fit_to_client_view(C.last_view_x_dim, C.last_view_y_dim)
 		C.mob.reload_fullscreen()
+
+/client/proc/toggle_fullscreen(new_value)
+	if(new_value == TRUE)
+		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=0x0")
+	else
+		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
+		winset(src, "mainwindow.mainvsplit", "pos=3x0")
+	winset(src, "mainwindow", "is-maximized=true")
+	OnResize()
