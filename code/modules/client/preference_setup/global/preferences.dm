@@ -15,10 +15,10 @@ GLOBAL_VAR_CONST(PREF_ALL, "All")
 GLOBAL_VAR_CONST(PREF_OFF, "Off")
 GLOBAL_VAR_CONST(PREF_BASIC, "Basic")
 GLOBAL_VAR_CONST(PREF_FULL, "Full")
-GLOBAL_VAR_CONST(PREF_MIDDLE_CLICK, "middle click")
-GLOBAL_VAR_CONST(PREF_ALT_CLICK, "alt click")
-GLOBAL_VAR_CONST(PREF_CTRL_CLICK, "ctrl click")
-GLOBAL_VAR_CONST(PREF_CTRL_SHIFT_CLICK, "ctrl shift click")
+GLOBAL_VAR_CONST(PREF_MIDDLE_CLICK, "Middle click")
+GLOBAL_VAR_CONST(PREF_ALT_CLICK, "Alt click")
+GLOBAL_VAR_CONST(PREF_CTRL_CLICK, "Ctrl click")
+GLOBAL_VAR_CONST(PREF_CTRL_SHIFT_CLICK, "Ctrl+shift click")
 GLOBAL_VAR_CONST(PREF_HEAR, "Hear")
 GLOBAL_VAR_CONST(PREF_SILENT, "Silent")
 GLOBAL_VAR_CONST(PREF_SHORTHAND, "Shorthand")
@@ -103,6 +103,10 @@ var/list/_client_preferences_by_type
 	description = "Play in-game music"
 	key = "SOUND_GAMEMUSIC"
 
+/datum/client_preference/play_instruments
+	description ="Play instruments"
+	key = "SOUND_INSTRUMENTS"
+
 /datum/client_preference/play_ambiance
 	description ="Play ambience"
 	key = "SOUND_AMBIENCE"
@@ -181,6 +185,15 @@ var/list/_client_preferences_by_type
 	key = "BROWSER_STYLED"
 	options = list(GLOB.PREF_FANCY, GLOB.PREF_PLAIN)
 
+/datum/client_preference/fullscreen_mode
+	description = "Fullscreen Mode"
+	key = "FULLSCREEN"
+	default_value = GLOB.PREF_NO
+
+/datum/client_preference/fullscreen_mode/changed(mob/preference_mob, new_value)
+	if(preference_mob.client)
+		preference_mob.client.toggle_fullscreen(new_value == GLOB.PREF_YES)
+
 /datum/client_preference/autohiss
 	description = "Autohiss"
 	key = "AUTOHISS"
@@ -203,10 +216,6 @@ var/list/_client_preferences_by_type
 	description = "Show Ckey in End Credits"
 	key = "SHOW_CKEY_CREDITS"
 	options = list(GLOB.PREF_HIDE, GLOB.PREF_SHOW)
-
-/datum/client_preference/play_instruments
-	description ="Play instruments"
-	key = "SOUND_INSTRUMENTS"
 
 /datum/client_preference/give_personal_goals
 	description = "Give Personal Goals"

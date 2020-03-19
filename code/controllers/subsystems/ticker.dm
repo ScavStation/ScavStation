@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(ticker)
 	var/delay_end = 0               //Can be set true to postpone restart.
 	var/delay_notified = 0          //Spam prevention.
 	var/restart_timeout = 1 MINUTE
-	var/force_ending = 0            //Overriding this variable will force game end. Can be used for  adminbuse.
+	var/force_ending = 0            //Overriding this variable will force game end. Can be used for adminbuse.
 
 	var/list/minds = list()         //Minds of everyone in the game.
 	var/list/antag_pool = list()
@@ -279,6 +279,8 @@ Helpers
 			else
 				if(player.create_character())
 					qdel(player)
+		else if(player && !player.ready)
+			player.new_player_panel()
 
 /datum/controller/subsystem/ticker/proc/collect_minds()
 	for(var/mob/living/player in GLOB.player_list)

@@ -10,6 +10,9 @@
 
 // Fully built
 
+/decl/machine_construction/wall_frame/panel_closed
+	visible_components = FALSE
+
 /decl/machine_construction/wall_frame/panel_closed/state_is_valid(obj/machinery/machine)
 	return !machine.panel_open
 
@@ -32,6 +35,9 @@
 		machine.queue_icon_update()
 		return
 	if(istype(I, /obj/item/storage/part_replacer))
+		var/obj/item/storage/part_replacer/replacer = I
+		if(replacer.remote_interaction)
+			machine.part_replacement(user, replacer)
 		machine.display_parts(user)
 		return TRUE
 
