@@ -540,8 +540,7 @@
 "bJ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/shelltooth/level_two/kitchen)
@@ -1110,43 +1109,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shelltooth/level_two/cafe)
-"dj" = (
-/obj/item/stool,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/shelltooth/level_two/cafe)
 "dk" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/shelltooth/level_two/cafe)
 "dl" = (
 /obj/machinery/door/airlock/glass/civilian,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall,
 /area/shelltooth/level_two/cafe)
 "dm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hall)
 "dn" = (
@@ -1165,8 +1143,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shelltooth/level_two/hall)
@@ -1270,9 +1247,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/shelltooth/level_two/cafe)
 "dD" = (
@@ -1317,8 +1291,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/dorm)
@@ -1342,8 +1315,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/dorm)
@@ -1498,8 +1470,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hall)
@@ -1511,35 +1482,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/med)
-"ea" = (
-/obj/machinery/door/airlock/civilian,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_two/hall)
-"eb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_two/hall)
 "ec" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hall)
@@ -1699,8 +1648,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shelltooth/maint/level_two/south_east)
@@ -4461,7 +4409,7 @@ dx
 ak
 cE
 cd
-dj
+dD
 cp
 dI
 ak
@@ -4668,7 +4616,7 @@ aT
 aA
 aA
 aA
-eb
+aT
 aX
 aA
 bf
@@ -4738,7 +4686,7 @@ dG
 aD
 aD
 aD
-ea
+cb
 bW
 bo
 bt
@@ -4804,7 +4752,7 @@ dJ
 aJ
 aJ
 aD
-eb
+aT
 aA
 bo
 bo
@@ -4870,7 +4818,7 @@ dJ
 aJ
 aJ
 aD
-eb
+aT
 aA
 aA
 aA
@@ -4936,7 +4884,7 @@ dU
 aJ
 aV
 aD
-eb
+aT
 aA
 aA
 bZ
@@ -5002,7 +4950,7 @@ eq
 aJ
 aJ
 aD
-eb
+aT
 aA
 bY
 bY
@@ -5200,7 +5148,7 @@ bE
 bq
 bq
 bh
-eb
+aT
 bX
 bY
 ex
@@ -5266,7 +5214,7 @@ bI
 bI
 bI
 bI
-eb
+aT
 aA
 bY
 ex
