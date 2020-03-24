@@ -471,14 +471,14 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/atmos)
 "bt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/smes)
 "bu" = (
 /obj/machinery/door/airlock/engineering,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/smes)
 "bv" = (
@@ -538,8 +538,7 @@
 /area/shelltooth/level_one/engine)
 "bD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/engine)
@@ -698,8 +697,8 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/engine)
 "cc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/engineering)
 "cd" = (
@@ -730,14 +729,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/hall)
-"ch" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_one/engineering)
 "ci" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -765,8 +756,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/engineering)
@@ -779,8 +769,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/engine)
@@ -792,8 +781,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/engine)
@@ -824,37 +812,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/hall)
-"cq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_one/tools)
 "cr" = (
 /obj/machinery/door/airlock/engineering,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/tools)
-"cs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_one/hall)
 "ct" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -907,11 +874,11 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/hall)
 "cA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	icon_state = "map-supply";
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/engineering)
 "cB" = (
@@ -2839,7 +2806,7 @@ ad
 bk
 bN
 bM
-cq
+ce
 bM
 bM
 bM
@@ -2905,7 +2872,7 @@ ad
 bk
 bM
 bM
-cq
+ce
 bM
 bQ
 bM
@@ -3037,7 +3004,7 @@ ad
 ad
 bj
 ad
-cs
+co
 ad
 bj
 ad
@@ -3557,8 +3524,8 @@ cc
 cc
 cc
 ba
-ch
-ch
+cc
+cc
 cj
 cx
 aQ

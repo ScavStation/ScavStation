@@ -212,17 +212,6 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/shelltooth/level_five/hall)
-"aE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/yellow,
-/area/shelltooth/level_five/matriarch)
 "aF" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "stripecorner";
@@ -240,11 +229,13 @@
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
 "aH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	icon_state = "intact-scrubbers";
+	dir = 6
 	},
 /turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
@@ -310,8 +301,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
@@ -366,10 +356,6 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
 "aX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	icon_state = "map-supply";
 	dir = 4
@@ -410,19 +396,14 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
 "bb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
 "bc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
 "bd" = (
@@ -458,14 +439,11 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "2-5";
 	d2 = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
 "bg" = (
@@ -479,15 +457,12 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
 "bh" = (
@@ -501,24 +476,17 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "1-10";
 	d1 = 1;
 	d2 = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
 "bi" = (
 /obj/machinery/door/airlock/command,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/matriarch)
 "bj" = (
@@ -551,11 +519,10 @@
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
 "bk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
 /obj/structure/table/woodentable_reinforced/mahogany,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "bl" = (
@@ -600,10 +567,6 @@
 /area/shelltooth/level_five/hall)
 "bn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "bo" = (
@@ -611,47 +574,44 @@
 	icon_state = "intact-supply";
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "bp" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "bq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "br" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/table/woodentable_reinforced/mahogany,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "bs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
@@ -733,15 +693,12 @@
 /area/shelltooth/level_five/attend)
 "cK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "5-8";
 	d1 = 1;
 	d2 = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
 "dg" = (
@@ -882,12 +839,12 @@
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
+"hG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/heads)
 "hK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "6-9";
 	d2 = 8
@@ -901,6 +858,8 @@
 	d1 = 1;
 	d2 = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
 "jo" = (
@@ -931,7 +890,10 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "mc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
 /turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
 "mz" = (
@@ -973,29 +935,33 @@
 	icon_state = "2-5";
 	d2 = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
 "pl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "5-10";
 	d2 = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6;
+	pixel_y = 0
+	},
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
 "pq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/item/stool/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "pI" = (
@@ -1005,6 +971,14 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
+"qY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/shuttle/red,
+/area/shelltooth/level_five/matriarch)
 "rI" = (
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -1022,8 +996,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
@@ -1052,8 +1025,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shelltooth/level_five/comms)
@@ -1079,6 +1051,7 @@
 	d1 = 1;
 	d2 = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/matriarch)
 "vt" = (
@@ -1125,6 +1098,13 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
+"xd" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/red,
+/area/shelltooth/level_five/matriarch)
 "xl" = (
 /turf/simulated/shuttle/wall/corner,
 /area/space)
@@ -1280,26 +1260,27 @@
 /area/shelltooth/level_five/hall)
 "Ga" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "4-10";
 	d2 = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
+"Ih" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/yellow,
+/area/shelltooth/level_five/matriarch)
 "Ij" = (
 /obj/structure/cable{
 	icon_state = "6-9";
 	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
 "JS" = (
@@ -1308,6 +1289,7 @@
 	icon_state = "2-9";
 	d2 = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/matriarch)
 "Lj" = (
@@ -1349,10 +1331,6 @@
 /area/space)
 "PY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/matriarch)
@@ -1410,10 +1388,6 @@
 /area/space)
 "UR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
 "Va" = (
@@ -1423,13 +1397,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
-"Vp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/turf/simulated/shuttle/wall,
+"VZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
 "Wc" = (
 /obj/machinery/door/airlock/command,
@@ -1440,6 +1410,7 @@
 	icon_state = "1-6";
 	d2 = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "WO" = (
@@ -1456,8 +1427,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
@@ -3142,9 +3112,9 @@ Bs
 ac
 kk
 mc
-aE
+ac
 bb
-Vp
+Bs
 pl
 UR
 aX
@@ -3207,20 +3177,20 @@ aO
 Bz
 ac
 ac
-ac
+Ih
 aH
 oZ
 iz
-YZ
-YZ
-YZ
-YZ
-YZ
-YZ
+qY
+VZ
+VZ
+VZ
+xd
+VZ
 JS
 uO
 Wv
-aL
+hG
 bp
 LO
 LO
