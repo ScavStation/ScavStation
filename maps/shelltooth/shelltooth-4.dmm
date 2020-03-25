@@ -22,7 +22,6 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/matriarch)
 "ai" = (
-/obj/effect/landmark/test/safe_turf,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	icon_state = "tube_map";
@@ -134,10 +133,6 @@
 	},
 /turf/space,
 /area/space)
-"ax" = (
-/obj/effect/landmark/test/space_turf,
-/turf/simulated/floor,
-/area/shelltooth/maint/level_five/north)
 "ay" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "stripe";
@@ -410,6 +405,7 @@
 	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/effect/landmark/test/safe_turf,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
 "be" = (
@@ -860,6 +856,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/shelltooth/level_five/comms)
+"jZ" = (
+/obj/effect/landmark/test/space_turf,
+/turf/space,
+/area/space)
 "kk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/shuttle/yellow,
@@ -3514,10 +3514,10 @@ aa
 aa
 aa
 aa
-aa
+jZ
 aa
 aP
-ax
+aO
 ad
 Yv
 gW
