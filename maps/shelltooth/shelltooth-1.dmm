@@ -1801,6 +1801,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/cryo)
+"ha" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/kitchen)
 "hg" = (
 /obj/machinery/power/apc{
 	areastring = "Plant House"
@@ -1822,13 +1828,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hall)
-"kD" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/turf/simulated/floor/plating,
-/area/shelltooth/level_two/cafe)
-"kJ" = (
-/turf/simulated/floor/plating,
-/area/shelltooth/level_two/cafe)
 "lm" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -1848,6 +1847,12 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/shelltooth/maint/level_two/east)
+"ox" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/cafe)
 "oC" = (
 /obj/structure/bookcase,
 /obj/machinery/firealarm{
@@ -1863,18 +1868,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/carpet,
 /area/shelltooth/level_two/rec)
-"oQ" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/shelltooth/level_two/kitchen)
-"pI" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_two/laundry)
 "pY" = (
 /obj/structure/cable{
 	icon_state = "4-9"
@@ -1903,6 +1896,9 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass,
 /area/shelltooth/level_two/hydro)
+"ue" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/cafe)
 "uk" = (
 /obj/machinery/vending/hydronutrients/generic,
 /obj/machinery/firealarm{
@@ -1931,12 +1927,6 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/shelltooth/maint/level_two/east)
-"wj" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_two/bathroom)
 "yc" = (
 /turf/simulated/floor/grass,
 /area/shelltooth/level_two/hydro)
@@ -1967,17 +1957,6 @@
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hydro)
-"Dk" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/turf/simulated/floor/plating,
-/area/shelltooth/level_two/kitchen)
-"DO" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/hatch/maintenance,
-/turf/simulated/floor/plating,
-/area/shelltooth/level_two/kitchen)
 "En" = (
 /obj/structure/cable{
 	icon_state = "1-6"
@@ -2081,6 +2060,13 @@
 "Iy" = (
 /turf/simulated/floor/wood/yew,
 /area/shelltooth/level_two/rec)
+"ID" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/kitchen)
 "IU" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/paper_bin,
@@ -2116,12 +2102,6 @@
 /obj/structure/flora/pottedplant/overgrown,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hall)
-"Ll" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/shelltooth/level_two/cafe)
 "Lr" = (
 /obj/structure/closet,
 /obj/item/stack/material/plastic/ten,
@@ -2134,6 +2114,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/space)
+"Nz" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/kitchen)
 "Ob" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2164,6 +2148,10 @@
 /obj/item/clothing/suit/apron,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hydro)
+"Rp" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/cafe)
 "Rz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2176,6 +2164,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hall)
+"RD" = (
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/laundry)
 "Tw" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2207,6 +2201,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/grass,
 /area/shelltooth/level_two/hydro)
+"WP" = (
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/bathroom)
 "WQ" = (
 /obj/machinery/alarm{
 	icon_state = "alarm0";
@@ -3677,9 +3677,9 @@ aT
 bz
 az
 aE
-pI
+RD
 az
-wj
+WP
 aS
 aR
 aA
@@ -3862,7 +3862,7 @@ ab
 ab
 bY
 ai
-Dk
+Nz
 ai
 ai
 ai
@@ -4126,8 +4126,8 @@ aa
 ab
 ab
 ai
-oQ
-Dk
+ha
+Nz
 aq
 bJ
 cP
@@ -4192,7 +4192,7 @@ aa
 aa
 ab
 ai
-oQ
+ha
 ai
 ar
 bK
@@ -4258,7 +4258,7 @@ aa
 aa
 ab
 ai
-DO
+ID
 ai
 ai
 cm
@@ -4324,7 +4324,7 @@ aa
 aa
 ab
 ak
-Ll
+ox
 cQ
 ak
 am
@@ -4390,7 +4390,7 @@ aa
 aa
 aa
 ak
-Ll
+ox
 cR
 ak
 cU
@@ -4523,8 +4523,8 @@ dp
 dt
 cM
 dB
-kJ
-kD
+ue
+Rp
 cd
 dg
 dC

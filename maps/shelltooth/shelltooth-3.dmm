@@ -1580,18 +1580,6 @@
 	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_four/north_east)
-"Xw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_four/hall)
 "XD" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
@@ -3453,7 +3441,7 @@ xN
 Sy
 aE
 ag
-Xw
+wv
 Ml
 Hf
 wX

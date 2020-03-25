@@ -853,13 +853,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_three/dock_two)
-"fA" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/shelltooth/maint/level_three/north_east)
 "fG" = (
 /obj/structure/cable{
 	icon_state = "0-5"
@@ -955,6 +948,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_three/dock_two)
+"lw" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_three/north_east)
 "lB" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
@@ -3756,7 +3756,7 @@ aX
 aX
 bg
 aX
-fA
+lw
 aX
 bt
 bJ
