@@ -225,14 +225,6 @@
 	icon_state = "stripe";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/cap/hidden/scrubbers{
-	icon_state = "cap-scrubbers";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/cap/hidden/supply{
-	icon_state = "cap-supply";
-	dir = 1
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -861,6 +853,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_three/dock_two)
+"fA" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_three/north_east)
 "fG" = (
 /obj/structure/cable{
 	icon_state = "0-5"
@@ -991,10 +990,6 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	icon_state = "apc0";
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_three/dock_one)
 "qB" = (
@@ -1055,10 +1050,6 @@
 /area/shelltooth/level_three/hall)
 "xm" = (
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	icon_state = "apc0";
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_three/dock_two)
 "xn" = (
@@ -3765,7 +3756,7 @@ aX
 aX
 bg
 aX
-aM
+fA
 aX
 bt
 bJ

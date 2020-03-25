@@ -1,4 +1,8 @@
 #if !defined(using_map_DATUM)
+
+	#include "..\..\code\content_packages\corporate\_corporate.dme"
+	#include "..\..\code\content_packages\valsalia\_valsalia.dme"
+	
 	#include "shelltooth_unit_testing.dm"
 	#include "shelltooth_antagonists.dm"
 	#include "shelltooth_items.dm"
