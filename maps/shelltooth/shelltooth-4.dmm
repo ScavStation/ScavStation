@@ -491,14 +491,6 @@
 	icon_state = "stripe";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/cap/hidden/scrubbers{
-	icon_state = "cap-scrubbers";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/cap/hidden/supply{
-	icon_state = "cap-supply";
-	dir = 1
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -604,10 +596,6 @@
 /area/shelltooth/level_five/heads)
 "bs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1184,10 +1172,6 @@
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
-	},
-/obj/machinery/power/apc{
-	icon_state = "apc0";
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)

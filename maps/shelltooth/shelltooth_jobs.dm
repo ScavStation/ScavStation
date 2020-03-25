@@ -127,7 +127,7 @@
 	supervisors = "literally everyone, you bottom feeder"
 	outfit_type = /decl/hierarchy/outfit/job/tradeship/hand
 	alt_titles = list(
-		"Cook" = /decl/hierarchy/outfit/job/tradeship/hand/cook,
+		"Kitchen Hand" = /decl/hierarchy/outfit/job/tradeship/hand/cook,
 		"Cargo Hand",
 		"Passenger")
 	hud_icon = "hudcargotechnician"
@@ -414,7 +414,7 @@
 	uniform = pick(list(/obj/item/clothing/under/overalls,/obj/item/clothing/under/focal,/obj/item/clothing/under/hazard,/obj/item/clothing/under/rank/cargotech,/obj/item/clothing/under/color/black,/obj/item/clothing/under/color/grey,/obj/item/clothing/under/casual_pants/track, ))
 
 /decl/hierarchy/outfit/job/tradeship/hand/cook
-	name = TRADESHIP_OUTFIT_JOB_NAME("Cook")
+	name = TRADESHIP_OUTFIT_JOB_NAME("Kitchen Hand")
 	head = /obj/item/clothing/head/chefhat
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 
