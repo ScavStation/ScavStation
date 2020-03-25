@@ -118,7 +118,7 @@
 	icon_state = "coffeecup"
 	item_state = "coffee"
 	volume = 30
-	center_of_mass = @"{'x'=15,'y':13}"
+	center_of_mass = @"{'x':15,'y':13}"
 	filling_states = @"[40,80,100]"
 	base_name = "cup"
 	base_icon = "coffeecup"
@@ -148,24 +148,6 @@
 	desc = "A white coffee cup, it prominently features a red heart."
 	icon_state = "coffeecup_heart"
 	base_name = "heart cup"
-
-/obj/item/chems/food/drinks/glass2/coffeecup/SCG
-	name = "\improper SCG coffee cup"
-	desc = "A blue coffee cup emblazoned with the crest of the Sol Central Government."
-	icon_state = "coffeecup_SCG"
-	base_name = "\improper SCG cup"
-
-/obj/item/chems/food/drinks/glass2/coffeecup/NT
-	name = "\improper NT coffee cup"
-	desc = "A red NanoTrasen coffee cup."
-	icon_state = "coffeecup_NT"
-	base_name = "\improper NT cup"
-
-/obj/item/chems/food/drinks/glass2/coffeecup/corp
-	name = "\improper EXO coffee cup"
-	desc = "A tasteful coffee cup in Expeditionary Corps Organisation corporate colours."
-	icon_state = "coffeecup_corp"
-	base_name = "\improper EXO cup"
 
 /obj/item/chems/food/drinks/glass2/coffeecup/one
 	name = "#1 coffee cup"
@@ -233,12 +215,6 @@
 	base_name = "tall cup"
 	base_icon = "coffeecup_tall"
 
-/obj/item/chems/food/drinks/glass2/coffeecup/dais
-	name = "\improper DAIS coffee cup"
-	desc = "A coffee cup imprinted with the stylish logo of Deimos Advanced Information Systems."
-	icon_state = "coffeecup_dais"
-	base_name = "\improper DAIS cup"
-
 /obj/item/chems/food/drinks/glass2/coffeecup/teacup
 	name = "teacup"
 	desc = "A plain white porcelain teacup."
@@ -246,7 +222,6 @@
 	icon_state = "teacup"
 	item_state = "coffee"
 	volume = 20
-	center_of_mass = @"{'x'=15,'y':13}"
 	filling_states = @"[100]"
 	base_name = "teacup"
 	base_icon = "teacup"

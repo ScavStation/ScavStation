@@ -97,11 +97,18 @@ obj/structure/disposalpipe/Destroy()
 	if(!istype(H))
 		return
 
+	// Turf may have been exploded due to async calls.
+	if(!istype(T))
+		T = get_turf(src)
+		if(!T && !QDELETED(H))
+			qdel(H)
+			return
+
 	// Empty the holder if it is expelled into a dense turf.
 	// Leaving it intact and sitting in a wall is stupid.
 	if(T.density)
 		for(var/atom/movable/AM in H)
-			AM.loc = T
+			AM.dropInto(T)
 			AM.pipe_eject(0)
 		qdel(H)
 		return
@@ -298,16 +305,16 @@ obj/structure/disposalpipe/Destroy()
 
 /obj/structure/disposalpipe/up/Initialize()
 	. = ..()
-	dpdir = dir
+	dpdir = dir | UP
 	update()
 	return
 
 /obj/structure/disposalpipe/up/nextdir(var/fromdir)
 	var/nextdir
-	if(fromdir == 11)
+	if(fromdir == DOWN)
 		nextdir = dir
 	else
-		nextdir = 12
+		nextdir = UP
 	return nextdir
 
 /obj/structure/disposalpipe/up/transfer(var/obj/structure/disposalholder/H)
@@ -317,7 +324,7 @@ obj/structure/disposalpipe/Destroy()
 	var/turf/T
 	var/obj/structure/disposalpipe/P
 
-	if(nextdir == 12)
+	if(nextdir == UP)
 		T = GetAbove(src)
 		if(!T)
 			H.forceMove(loc)
@@ -348,16 +355,16 @@ obj/structure/disposalpipe/Destroy()
 
 /obj/structure/disposalpipe/down/Initialize()
 	. = ..()
-	dpdir = dir
+	dpdir = dir | DOWN
 	update()
 	return
 
 /obj/structure/disposalpipe/down/nextdir(var/fromdir)
 	var/nextdir
-	if(fromdir == 12)
+	if(fromdir == UP)
 		nextdir = dir
 	else
-		nextdir = 11
+		nextdir = DOWN
 	return nextdir
 
 /obj/structure/disposalpipe/down/transfer(var/obj/structure/disposalholder/H)
@@ -367,7 +374,7 @@ obj/structure/disposalpipe/Destroy()
 	var/turf/T
 	var/obj/structure/disposalpipe/P
 
-	if(nextdir == 11)
+	if(nextdir == DOWN)
 		T = GetBelow(src)
 		if(!T)
 			H.forceMove(src.loc)

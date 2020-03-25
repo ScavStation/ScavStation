@@ -34,7 +34,7 @@
 
 /turf/allow_click_through(var/atom/A, var/params, var/mob/user)
 	return TRUE
-	
+
 /*
 	Standard mob ClickOn()
 	Handles exceptions: middle click, modified clicks, exosuit actions
@@ -224,7 +224,7 @@
 
 // In case of use break glass
 /*
-/atom/proc/MiddleClick(var/mob/M as mob)
+/atom/proc/MiddleClick(var/mob/M)
 	return
 */
 
@@ -251,10 +251,9 @@
 /atom/proc/CtrlClick(var/mob/user)
 	return FALSE
 
-/atom/movable/CtrlClick(var/mob/user)
-	if(Adjacent(user))
-		user.start_pulling(src)
-		return TRUE
+/atom/movable/CtrlClick(var/mob/living/user)
+	if(istype(user) && CanPhysicallyInteract(user) && !user.lying)
+		return user.make_grab(src)
 	. = ..()
 
 /*
@@ -361,6 +360,7 @@ GLOBAL_LIST_INIT(click_catchers, create_click_catcher())
 	screen_loc = "CENTER-7,CENTER-7"
 
 /obj/screen/click_catcher/Destroy()
+	SHOULD_CALL_PARENT(FALSE)
 	return QDEL_HINT_LETMELIVE
 
 /proc/create_click_catcher()

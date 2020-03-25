@@ -10,6 +10,7 @@
 
 /decl/machine_construction/default/panel_closed
 	down_state = /decl/machine_construction/default/panel_open
+	visible_components = FALSE
 
 /decl/machine_construction/default/panel_closed/state_is_valid(obj/machinery/machine)
 	return !machine.panel_open
@@ -30,6 +31,9 @@
 		machine.update_icon()
 		return
 	if(istype(I, /obj/item/storage/part_replacer))
+		var/obj/item/storage/part_replacer/replacer = I
+		if(replacer.remote_interaction)
+			machine.part_replacement(user, replacer)
 		machine.display_parts(user)
 		return TRUE
 

@@ -23,7 +23,7 @@
 /area/shelltooth/level_two/hydro)
 "af" = (
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/kitchen)
 "ag" = (
 /turf/simulated/wall,
 /area/shelltooth/level_two/rec)
@@ -83,7 +83,7 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /mob/living/simple_animal/hostile/retaliate/goat,
 /turf/simulated/floor/tiled/white,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/kitchen)
 "ar" = (
 /obj/machinery/button/blast_door{
 	name = "bar shutters control";
@@ -177,7 +177,7 @@
 "aG" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/backstage)
 "aH" = (
 /obj/structure/table/standard,
 /obj/item/lipstick/random,
@@ -369,7 +369,6 @@
 	icon_state = "stripecorner";
 	dir = 8
 	},
-/obj/structure/catwalk,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/shelltooth/level_two/hall)
@@ -577,7 +576,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/shelltooth/level_two/hall)
 "bO" = (
@@ -759,9 +757,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shelltooth/level_two/cafe)
-"cs" = (
-/turf/simulated/wall,
-/area/shelltooth/maint/level_two/north)
 "ct" = (
 /obj/machinery/cooker/grill,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -914,14 +909,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/power/apc{
-	areastring = "\improper Backstage";
-	dir = 4;
-	icon_state = "apc0"
-	},
-/obj/structure/cable,
+/obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/cafe)
 "cN" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/cooker/candy,
@@ -942,11 +932,11 @@
 "cQ" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/cafe)
 "cR" = (
 /obj/machinery/icecream_vat,
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/cafe)
 "cS" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
@@ -1152,20 +1142,20 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/backstage)
 "dq" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/backstage)
 "dr" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/backstage)
 "ds" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -1176,8 +1166,14 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/power/apc{
+	areastring = "\improper Backstage";
+	dir = 4;
+	icon_state = "apc0"
+	},
+/obj/structure/cable,
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/backstage)
 "du" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1192,7 +1188,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/kitchen)
 "dw" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1201,14 +1197,14 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/cafe)
 "dx" = (
 /obj/machinery/power/apc{
 	areastring = "\improper Cafeteria"
 	},
 /obj/structure/cable,
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/cafe)
 "dy" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -1238,7 +1234,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
-/area/shelltooth/maint/level_two/north)
+/area/shelltooth/level_two/cafe)
 "dC" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1433,6 +1429,9 @@
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/dorm)
 "dV" = (
@@ -1516,9 +1515,12 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1567,12 +1569,18 @@
 	icon_state = "map_scrubber_on";
 	dir = 1
 	},
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/chem)
 "en" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 1
+	},
+/obj/effect/landmark{
+	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/med)
@@ -1720,7 +1728,6 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
@@ -1794,6 +1801,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/cryo)
+"ha" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/kitchen)
 "hg" = (
 /obj/machinery/power/apc{
 	areastring = "Plant House"
@@ -1834,6 +1847,12 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/shelltooth/maint/level_two/east)
+"ox" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/cafe)
 "oC" = (
 /obj/structure/bookcase,
 /obj/machinery/firealarm{
@@ -1877,6 +1896,9 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass,
 /area/shelltooth/level_two/hydro)
+"ue" = (
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/cafe)
 "uk" = (
 /obj/machinery/vending/hydronutrients/generic,
 /obj/machinery/firealarm{
@@ -2038,6 +2060,13 @@
 "Iy" = (
 /turf/simulated/floor/wood/yew,
 /area/shelltooth/level_two/rec)
+"ID" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/kitchen)
 "IU" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/paper_bin,
@@ -2058,12 +2087,15 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shelltooth/level_two/hall)
 "JH" = (
@@ -2082,6 +2114,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/space)
+"Nz" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/kitchen)
 "Ob" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2112,6 +2148,10 @@
 /obj/item/clothing/suit/apron,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hydro)
+"Rp" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/shelltooth/level_two/cafe)
 "Rz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2124,6 +2164,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hall)
+"RD" = (
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/laundry)
 "Tw" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2155,6 +2201,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/grass,
 /area/shelltooth/level_two/hydro)
+"WP" = (
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/bathroom)
 "WQ" = (
 /obj/machinery/alarm{
 	icon_state = "alarm0";
@@ -3625,9 +3677,9 @@ aT
 bz
 az
 aE
-aE
+RD
 az
-aS
+WP
 aS
 aR
 aA
@@ -3809,8 +3861,8 @@ aa
 ab
 ab
 bY
-bY
-aG
+ai
+Nz
 ai
 ai
 ai
@@ -3875,7 +3927,7 @@ ab
 ab
 ab
 ad
-cs
+ai
 af
 ai
 an
@@ -3941,7 +3993,7 @@ ab
 ab
 ab
 ad
-cs
+ai
 af
 ai
 ao
@@ -4007,7 +4059,7 @@ aa
 ab
 ab
 ad
-cs
+ai
 dv
 ai
 ap
@@ -4073,9 +4125,9 @@ aa
 aa
 ab
 ab
-cs
-dq
-aG
+ai
+ha
+Nz
 aq
 bJ
 cP
@@ -4139,8 +4191,8 @@ aa
 aa
 aa
 ab
-cs
-dq
+ai
+ha
 ai
 ar
 bK
@@ -4205,8 +4257,8 @@ aa
 aa
 aa
 ab
-cs
-dq
+ai
+ID
 ai
 ai
 cm
@@ -4271,8 +4323,8 @@ aa
 aa
 aa
 ab
-cs
-dq
+ak
+ox
 cQ
 ak
 am
@@ -4337,8 +4389,8 @@ aa
 aa
 aa
 aa
-cs
-dq
+ak
+ox
 cR
 ak
 cU
@@ -4400,10 +4452,10 @@ aa
 aa
 aa
 aa
-cs
-cs
-cs
-cs
+cq
+cq
+cq
+ak
 dw
 dx
 ak
@@ -4466,13 +4518,13 @@ aa
 aa
 aa
 aa
-cs
+cq
 dp
 dt
 cM
 dB
-af
-aG
+ue
+Rp
 cd
 dg
 dC
@@ -4532,12 +4584,12 @@ aa
 aa
 aa
 aa
-cs
+cq
 dq
 cq
-cq
-cq
-cq
+ak
+ak
+ak
 ak
 cG
 cd
@@ -4598,13 +4650,13 @@ aa
 aa
 aa
 aa
-cs
+cq
 dq
 cq
 aH
 as
 cH
-ak
+cq
 av
 av
 dE
@@ -4664,7 +4716,7 @@ aa
 aa
 aa
 aa
-cs
+cq
 dq
 aG
 br
@@ -4730,13 +4782,13 @@ aa
 aa
 aa
 aa
-bY
+cq
 dr
 cq
 cq
 cq
 cq
-ak
+cq
 ak
 ak
 ak

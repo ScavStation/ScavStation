@@ -20,8 +20,8 @@
 	ion_trail.set_up(src)
 
 /obj/item/tank/jetpack/Destroy()
-	qdel(ion_trail)
-	..()
+	QDEL_NULL(ion_trail)
+	. = ..()
 
 /obj/item/tank/jetpack/examine(mob/living/user)
 	. = ..()
@@ -101,7 +101,7 @@
 	. = ..()
 	CRASH("A [name] was examined")
 
-/obj/item/tank/jetpack/rig/allow_thrust(num, mob/living/user as mob)
+/obj/item/tank/jetpack/rig/allow_thrust(num, mob/living/user)
 
 	if(!(src.on))
 		return 0

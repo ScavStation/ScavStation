@@ -198,12 +198,6 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/mask/rubber/trasen
-	name = "Jack Trasen mask"
-	desc = "CEO of NanoTrasen corporation. Perfect for scaring the unionizing children."
-	icon_state = "trasen"
-	visible_name = "Jack Trasen"
-
 /obj/item/clothing/mask/rubber/barros
 	name = "Amaya Barros mask"
 	desc = "Current Secretary-General of Sol Cental Government. Not that the real thing would visit this pigsty."
@@ -233,7 +227,7 @@
 	visible_name = species
 	var/datum/species/S = all_species[species]
 	if(istype(S))
-		var/decl/cultural_info/C = SSculture.get_culture(S.default_cultural_info[TAG_CULTURE])
+		var/decl/cultural_info/C = SSlore.get_culture(S.default_cultural_info[TAG_CULTURE])
 		if(istype(C))
 			visible_name = C.get_random_name(pick(MALE,FEMALE))
 

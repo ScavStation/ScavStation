@@ -16,7 +16,7 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 	see_in_dark = 5
-	mob_size = 8
+	mob_size = MOB_SIZE_SMALL
 	possession_candidate = 1
 	holder_type = /obj/item/holder/corgi
 	pass_flags = PASS_FLAG_TABLE
@@ -96,7 +96,7 @@
 	name = "Corgi meat"
 	desc = "Tastes like... well you know..."
 
-/mob/living/simple_animal/corgi/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
+/mob/living/simple_animal/corgi/attackby(var/obj/item/O, var/mob/user)  //Marker -Agouri
 	if(istype(O, /obj/item/newspaper))
 		if(!stat)
 			for(var/mob/M in viewers(user, null))

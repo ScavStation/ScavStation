@@ -74,9 +74,11 @@
 /mob/living/silicon/proc/show_laws()
 	return
 
-/mob/living/silicon/drop_item()
-	return
-
+/mob/living/silicon/drop_item(var/Target)
+	for(var/obj/item/grab/grab in get_active_grabs())
+		qdel(grab)
+		. = TRUE
+	
 /mob/living/silicon/emp_act(severity)
 	switch(severity)
 		if(1)
@@ -164,15 +166,6 @@
 		show_system_integrity()
 		show_malf_ai()
 	. = ..()
-
-// this function displays the stations manifest in a separate window
-/mob/living/silicon/proc/show_station_manifest()
-	var/dat
-	dat += "<h4>Crew Manifest</h4>"
-	dat += html_crew_manifest(1) // make it monochrome
-	dat += "<br>"
-	show_browser(src, dat, "window=airoster")
-	onclose(src, "airoster")
 
 //can't inject synths
 /mob/living/silicon/can_inject(var/mob/user, var/target_zone)

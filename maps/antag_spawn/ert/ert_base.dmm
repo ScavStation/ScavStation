@@ -159,7 +159,7 @@
 /area/map_template/rescue_base/base)
 "az" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/material/twohanded/baseballbat/metal,
+/obj/item/material/twohanded/baseballbat/aluminium,
 /obj/item/material/hatchet,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -183,8 +183,6 @@
 /obj/item/aiModule/robocop,
 /obj/item/aiModule/safeguard,
 /obj/structure/table/rack,
-/obj/item/aiModule/solgov,
-/obj/item/aiModule/solgov_aggressive,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -208,8 +206,8 @@
 /area/map_template/rescue_base/base)
 "aE" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/shotgun/pump/combat,
-/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/gun/projectile/shotgun/pump,
+/obj/item/gun/projectile/shotgun/pump,
 /obj/item/radio/intercom/specops{
 	dir = 2;
 	pixel_y = 22
@@ -359,10 +357,6 @@
 /area/map_template/rescue_base/base)
 "aT" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
-/obj/item/ammo_magazine/box/machinegun,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -392,9 +386,9 @@
 /area/map_template/rescue_base/base)
 "aW" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/sec_smg,
-/obj/item/gun/projectile/automatic/sec_smg,
-/obj/item/gun/projectile/automatic/sec_smg,
+/obj/item/gun/projectile/automatic/smg,
+/obj/item/gun/projectile/automatic/smg,
+/obj/item/gun/projectile/automatic/smg,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -450,7 +444,7 @@
 /area/map_template/rescue_base/base)
 "bd" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/l6_saw,
+/obj/item/gun/projectile/automatic/assault_rifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -477,15 +471,15 @@
 /area/map_template/rescue_base/base)
 "bf" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/ammo_magazine/smg_top/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -577,16 +571,16 @@
 /area/map_template/rescue_base/base)
 "bp" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
-/obj/item/ammo_magazine/smg_top,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -713,8 +707,8 @@
 /area/map_template/rescue_base/base)
 "bD" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
+/obj/item/gun/projectile/automatic/assault_rifle,
+/obj/item/gun/projectile/automatic/assault_rifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -784,12 +778,12 @@
 /area/map_template/rescue_base/base)
 "bL" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/mil_rifle,
-/obj/item/ammo_magazine/mil_rifle,
-/obj/item/ammo_magazine/mil_rifle,
-/obj/item/ammo_magazine/mil_rifle,
-/obj/item/ammo_magazine/mil_rifle,
-/obj/item/ammo_magazine/mil_rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -819,9 +813,6 @@
 /obj/structure/closet{
 	name = "emergency response team wardrobe"
 	},
-/obj/item/clothing/accessory/solgov/fleet_patch/fifth,
-/obj/item/clothing/head/solgov/utility/fleet,
-/obj/item/clothing/accessory/badge/solgov/tags,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -1336,7 +1327,6 @@
 /area/map_template/rescue_base/base)
 "cC" = (
 /obj/structure/table/reinforced,
-/obj/item/tableflag,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -1416,14 +1406,6 @@
 /obj/structure/closet{
 	name = "insignias closet"
 	},
-/obj/item/clothing/accessory/solgov/department/medical/fleet,
-/obj/item/clothing/accessory/solgov/department/medical/fleet,
-/obj/item/clothing/accessory/solgov/department/medical/fleet,
-/obj/item/clothing/accessory/solgov/department/medical/fleet,
-/obj/item/clothing/head/beret/solgov/fleet/medical,
-/obj/item/clothing/head/beret/solgov/fleet/medical,
-/obj/item/clothing/head/beret/solgov/fleet/medical,
-/obj/item/clothing/head/beret/solgov/fleet/medical,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -1518,14 +1500,6 @@
 /obj/structure/closet{
 	name = "insignias closet"
 	},
-/obj/item/clothing/accessory/solgov/department/security/fleet,
-/obj/item/clothing/accessory/solgov/department/security/fleet,
-/obj/item/clothing/accessory/solgov/department/security/fleet,
-/obj/item/clothing/accessory/solgov/department/security/fleet,
-/obj/item/clothing/head/beret/solgov/fleet/security,
-/obj/item/clothing/head/beret/solgov/fleet/security,
-/obj/item/clothing/head/beret/solgov/fleet/security,
-/obj/item/clothing/head/beret/solgov/fleet/security,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -1998,14 +1972,6 @@
 /obj/structure/closet{
 	name = "insignias closet"
 	},
-/obj/item/clothing/accessory/solgov/department/engineering/fleet,
-/obj/item/clothing/accessory/solgov/department/engineering/fleet,
-/obj/item/clothing/accessory/solgov/department/engineering/fleet,
-/obj/item/clothing/accessory/solgov/department/engineering/fleet,
-/obj/item/clothing/head/beret/solgov/fleet/engineering,
-/obj/item/clothing/head/beret/solgov/fleet/engineering,
-/obj/item/clothing/head/beret/solgov/fleet/engineering,
-/obj/item/clothing/head/beret/solgov/fleet/engineering,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -2067,7 +2033,6 @@
 /area/map_template/rescue_base/base)
 "dT" = (
 /obj/structure/table/steel,
-/obj/item/stamp/solgov,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -2214,8 +2179,6 @@
 /area/map_template/rescue_base/base)
 "el" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/pcarrier/medium/command,
-/obj/item/clothing/head/helmet/solgov/command,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -2261,17 +2224,12 @@
 /turf/space,
 /area/map_template/rescue_base/base)
 "er" = (
-/obj/item/clothing/head/solgov/dress/fleet/command{
-	icon_state = "console";
-	dir = 4
-	},
 /obj/item/card/id/centcom,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/map_template/rescue_base/base)
 "es" = (
-/obj/structure/closet/secure_closet/cos,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -2589,7 +2547,6 @@
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/clothing/head/beret/solgov/marcom,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
@@ -2679,7 +2636,7 @@
 	},
 /area/map_template/rescue_base/base)
 "eU" = (
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/wall/titanium,
 /area/map_template/rescue_base/start)
 "eV" = (
@@ -2691,7 +2648,7 @@
 	opacity = 0
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "eW" = (
@@ -2703,7 +2660,7 @@
 	opacity = 0
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "eX" = (
@@ -2727,7 +2684,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/rescue_base/start)
 "eZ" = (
-/obj/item/clothing/head/solgov/dress/fleet/command,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/rescue_base/start)
 "fa" = (
@@ -2913,7 +2869,7 @@
 /area/map_template/rescue_base/start)
 "fx" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "fy" = (
@@ -2926,7 +2882,7 @@
 "fz" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "fA" = (
@@ -2954,7 +2910,7 @@
 	opacity = 0
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "fD" = (
@@ -3018,7 +2974,7 @@
 	opacity = 0
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "fK" = (
@@ -3249,7 +3205,6 @@
 /area/map_template/rescue_base/start)
 "gr" = (
 /obj/structure/table/rack,
-/obj/random/solgov,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/rescue_base/start)
 "gs" = (
@@ -3461,7 +3416,7 @@
 	name = "Blast Shutters";
 	opacity = 0
 	},
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "gV" = (
@@ -3515,7 +3470,7 @@
 	name = "Blast Shutters";
 	opacity = 0
 	},
-/obj/effect/paint/hull,
+/obj/effect/paint/blue,
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "hc" = (

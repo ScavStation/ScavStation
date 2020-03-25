@@ -17,7 +17,7 @@
 
 /obj/item/a_gift/Initialize()
 	. = ..()
-	if(w_class > 0 && w_class < ITEM_SIZE_HUGE)
+	if(w_class >= ITEM_SIZE_MIN && w_class < ITEM_SIZE_HUGE)
 		icon_state = "gift[w_class]"
 	else
 		icon_state = "gift[pick(1, 2, 3)]"
@@ -26,12 +26,12 @@
 	qdel(src)
 	return
 
-/obj/effect/spresent/relaymove(mob/user as mob)
+/obj/effect/spresent/relaymove(mob/user)
 	if (user.stat)
 		return
 	to_chat(user, "<span class='warning'>You can't move.</span>")
 
-/obj/effect/spresent/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/spresent/attackby(obj/item/W, mob/user)
 	..()
 
 	if(!isWirecutter(W))
@@ -48,7 +48,7 @@
 
 	qdel(src)
 
-/obj/item/a_gift/attack_self(mob/M as mob)
+/obj/item/a_gift/attack_self(mob/M)
 	var/gift_type = pick(
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
@@ -124,15 +124,15 @@
 		w_class = gift.w_class
 		gift.forceMove(src)
 
-		//a good example of where we don't want to use the w_class defines
 		switch(gift.w_class)
-			if(1) icon_state = "gift1"
-			if(2) icon_state = "gift1"
-			if(3) icon_state = "gift2"
-			if(4) icon_state = "gift2"
-			if(5) icon_state = "gift3"
+			if(ITEM_SIZE_TINY, ITEM_SIZE_SMALL)
+				icon_state = "gift1"
+			if(ITEM_SIZE_NORMAL, ITEM_SIZE_LARGE)
+				icon_state = "gift2"
+			else
+				icon_state = "gift3"
 
-/obj/item/gift/attack_self(mob/user as mob)
+/obj/item/gift/attack_self(mob/user)
 	user.drop_item()
 	if(src.gift)
 		user.put_in_active_hand(gift)
@@ -149,7 +149,7 @@
 	icon_state = "wrap_paper"
 	var/amount = 2.5*BASE_STORAGE_COST(ITEM_SIZE_HUGE)
 
-/obj/item/wrapping_paper/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/wrapping_paper/attackby(obj/item/W, mob/user)
 	..()
 	if (!( locate(/obj/structure/table, src.loc) ))
 		to_chat(user, "<span class='warning'>You MUST put the paper on a table!</span>")
@@ -189,7 +189,7 @@
 	if(distance <= 1)
 		to_chat(user, text("There is about [] square units of paper left!", src.amount))
 
-/obj/item/wrapping_paper/attack(mob/target as mob, mob/user as mob)
+/obj/item/wrapping_paper/attack(mob/target, mob/user)
 	if (!istype(target, /mob/living/carbon/human)) return
 	var/mob/living/carbon/human/H = target
 

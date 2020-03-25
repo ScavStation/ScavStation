@@ -32,12 +32,12 @@
 		return chambered.BB
 	return null
 
-/obj/item/gun/projectile/shotgun/pump/attack_self(mob/living/user as mob)
+/obj/item/gun/projectile/shotgun/pump/attack_self(mob/living/user)
 	if(world.time >= recentpump + 10)
 		pump(user)
 		recentpump = world.time
 
-/obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M as mob)
+/obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 
 	if(chambered)//We have a shell in the chamber
@@ -52,25 +52,6 @@
 		chambered = AC
 
 	update_icon()
-
-/obj/item/gun/projectile/shotgun/pump/combat
-	name = "combat shotgun"
-	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
-	icon_state = "cshotgun"
-	item_state = "cshotgun"
-	wielded_item_state = "cshotgun-wielded"
-	origin_tech = "{'" + TECH_COMBAT + "':5,'" + TECH_MATERIAL + "':2}"
-	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
-	ammo_type = /obj/item/ammo_casing/shotgun
-	one_hand_penalty = 8
-
-/obj/item/gun/projectile/shotgun/pump/combat/on_update_icon()
-	..()
-	if(length(loaded) > 3)
-		for(var/i = 0 to length(loaded) - 4)
-			var/image/I = image(icon, "shell")
-			I.pixel_x = i * 2
-			overlays += I
 
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
@@ -100,20 +81,12 @@
 		list(mode_name="fire both barrels at once", burst=2),
 		)
 
-/obj/item/gun/projectile/shotgun/doublebarrel/pellet
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-
-/obj/item/gun/projectile/shotgun/doublebarrel/flare
-	name = "signal shotgun"
-	desc = "A double-barreled shotgun meant to fire signal flash shells."
-	ammo_type = /obj/item/ammo_casing/shotgun/flash
-
 /obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
 	..(user, allow_dump=1)
 
 //this is largely hacky and bad :(	-Pete
-/obj/item/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(w_class > 3 && (istype(A, /obj/item/circular_saw) || istype(A, /obj/item/melee/energy) || istype(A, /obj/item/gun/energy/plasmacutter)))
+/obj/item/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A, mob/user)
+	if(w_class > ITEM_SIZE_NORMAL && (istype(A, /obj/item/circular_saw) || istype(A, /obj/item/melee/energy) || istype(A, /obj/item/gun/energy/plasmacutter)))
 		if(istype(A, /obj/item/gun/energy/plasmacutter))
 			var/obj/item/gun/energy/plasmacutter/cutter = A
 			if(!cutter.slice(user))

@@ -35,6 +35,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	var/list/base_turf_by_z = list() // Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
 	var/list/usable_email_tlds = list("freemail.net")
+
 	var/base_floor_type = /turf/simulated/floor/airless // The turf type used when generating floors between Z-levels at startup.
 	var/base_floor_area                                 // Replacement area, if a base_floor_type is generated. Leave blank to skip.
 
@@ -93,7 +94,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/list/lobby_tracks = list()                  // The list of lobby tracks to pick() from. If left unset will randomly select among all available /music_track subtypes.
 	var/welcome_sound = 'sound/AI/welcome.ogg'		// Sound played on roundstart
 
-	var/default_law_type = /datum/ai_laws/nanotrasen  // The default lawset use by synth units, if not overriden by their laws var.
+	var/default_law_type = /datum/ai_laws/asimov  // The default lawset use by synth units, if not overriden by their laws var.
 	var/security_state = /decl/security_state/default // The default security state system to use.
 
 	var/id_hud_icons = 'icons/mob/hud.dmi' // Used by the ID HUD (primarily sechud) overlay.
@@ -272,7 +273,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 
 /datum/map/proc/setup_economy()
-	news_network.CreateFeedChannel("Nyx Daily", "SolGov Minister of Information", 1, 1)
+	news_network.CreateFeedChannel("News Daily", "Minister of Information", 1, 1)
 	news_network.CreateFeedChannel("The Gibson Gazette", "Editor Mike Hammers", 1, 1)
 
 	for(var/loc_type in typesof(/datum/trade_destination) - /datum/trade_destination)
@@ -303,16 +304,16 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	return "No map information available"
 
 /datum/map/proc/bolt_saferooms()
-	return // overriden by torch
+	return
 
 /datum/map/proc/unbolt_saferooms()
-	return // overriden by torch
+	return
 
-/datum/map/proc/make_maint_all_access(var/radstorm = 0) // parameter used by torch
+/datum/map/proc/make_maint_all_access(var/radstorm = 0)
 	maint_all_access = 1
 	priority_announcement.Announce("The maintenance access requirement has been revoked on all maintenance airlocks.", "Attention!")
 
-/datum/map/proc/revoke_maint_all_access(var/radstorm = 0) // parameter used by torch
+/datum/map/proc/revoke_maint_all_access(var/radstorm = 0)
 	maint_all_access = 0
 	priority_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.", "Attention!")
 

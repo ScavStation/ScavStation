@@ -11,7 +11,7 @@
 
 /obj/item/gun/energy/stunrevolver/secure
 	name = "smart stun revolver"
-	desc = "This A&M X6 is fitted with an NT1019 chip which allows remote authorization of weapon functionality. It has an SCG emblem on the grip."
+	desc = "This A&M X6 is fitted with an NT1019 chip which allows remote authorization of weapon functionality."
 	icon = 'icons/obj/guns/stunrevolver_secure.dmi'
 	icon_state = "revolverstun100"
 	modifystate= "revolverstun"
@@ -36,7 +36,7 @@
 
 /obj/item/gun/energy/revolver/secure
 	name = "smart service revolver"
-	desc = "The LAER680-S, a standard issue service revolver commonly used by higher ranking offcers among the SCG. Fitted with an NT1019 chip which allows remote authorization of the weapon's functionality."
+	desc = "The LAER680-S, a standard issue service revolver commonly used by higher-ranking offcers. Fitted with an NT1019 chip which allows remote authorization of the weapon's functionality."
 	icon = 'icons/obj/guns/energy_revolver.dmi'
 	icon_state = "energyrevolverstun100"
 	item_icons = list(
@@ -73,6 +73,6 @@
 
 /obj/item/gun/energy/laser/secure
 	name = "laser carbine"
-	desc = "A Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts. Fitted with an NT1019 chip to make sure killcount is tracked appropriately."
+	desc = "A G40E carbine, designed to kill with concentrated energy blasts. Fitted with an NT1019 chip to make sure killcount is tracked appropriately."
 	icon_state = "lasersec"
 	req_access = list(list(access_brig, access_bridge))

@@ -51,7 +51,7 @@
 	attacktext = "slashed"
 	status_flags = 0
 
-/mob/living/simple_animal/hostile/syndicate/melee/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/hostile/syndicate/melee/attackby(var/obj/item/O, var/mob/user)
 	if(O.force)
 		if(prob(80))
 			var/damage = O.force
@@ -95,7 +95,7 @@
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
 
-	weapon1 = /obj/item/gun/projectile/automatic/merc_smg
+	weapon1 = /obj/item/gun/projectile/automatic/smg
 
 /mob/living/simple_animal/hostile/syndicate/ranged/space
 	icon_state = "syndicaterangedpsace"

@@ -155,7 +155,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>")
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/human/T = G.get_affecting_mob()
 	if(!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
 		return
@@ -683,7 +683,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	//STINGS//	//They get a pretty header because there's just so fucking many of them ;_;
 	//////////
 
-/mob/proc/sting_can_reach(mob/M as mob, sting_range = 1)
+/mob/proc/sting_can_reach(mob/M, sting_range = 1)
 	if(M.loc == src.loc)
 		return 1 //target and source are in the same thing
 	if(!isturf(src.loc) || !isturf(M.loc))

@@ -53,7 +53,7 @@
 	visible_message("<span class='warning'>\The [P] hits [src]!</span>")
 	return 0
 
-/obj/structure/table/CheckExit(atom/movable/O as mob|obj, target as turf)
+/obj/structure/table/CheckExit(atom/movable/O, target)
 	if(istype(O) && O.checkpass(PASS_FLAG_TABLE))
 		return 1
 	if (flipped==1)
@@ -64,7 +64,7 @@
 	return 1
 
 
-/obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
+/obj/structure/table/MouseDrop_T(obj/O, mob/user)
 
 	if ((!( istype(O, /obj/item) ) || user.get_active_hand() != O))
 		return ..()
@@ -85,7 +85,7 @@
 	if(W.loc != user) // This should stop mounted modules ending up outside the module.
 		return
 
-	if(istype(W, /obj/item/melee/energy/blade) || istype(W,/obj/item/psychic_power/psiblade/master/grand/paramount))
+	if(W.is_special_cutting_tool())
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, src.loc)
 		spark_system.start()

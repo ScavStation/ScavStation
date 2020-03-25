@@ -10,7 +10,7 @@
 	else
 		equip_to_slot_if_possible(W, slot)
 
-/mob/proc/put_in_any_hand_if_possible(obj/item/W as obj, del_on_fail = 0, disable_warning = 1, redraw_mob = 1)
+/mob/proc/put_in_any_hand_if_possible(obj/item/W, del_on_fail = 0, disable_warning = 1, redraw_mob = 1)
 	if(equip_to_slot_if_possible(W, slot_l_hand, del_on_fail, disable_warning, redraw_mob))
 		return 1
 	else if(equip_to_slot_if_possible(W, slot_r_hand, del_on_fail, disable_warning, redraw_mob))
@@ -42,14 +42,14 @@
 
 //This is an UNSAFE proc. It merely handles the actual job of equipping. All the checks on whether you can or can't eqip need to be done before! Use mob_can_equip() for that task.
 //In most cases you will want to use equip_to_slot_if_possible()
-/mob/proc/equip_to_slot(obj/item/W as obj, slot)
+/mob/proc/equip_to_slot(obj/item/W, slot)
 	return
 
 //This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the rounds tarts and when events happen and such.
-/mob/proc/equip_to_slot_or_del(obj/item/W as obj, slot)
+/mob/proc/equip_to_slot_or_del(obj/item/W, slot)
 	return equip_to_slot_if_possible(W, slot, 1, 1, 0)
 
-/mob/proc/equip_to_slot_or_store_or_drop(obj/item/W as obj, slot)
+/mob/proc/equip_to_slot_or_store_or_drop(obj/item/W, slot)
 	var/store = equip_to_slot_if_possible(W, slot, 0, 1, 0)
 	if(!store)
 		return equip_to_storage_or_drop(W)
@@ -176,8 +176,12 @@ var/list/slot_equipment_priority = list( \
 
 //Drops the item in our active hand. TODO: rename this to drop_active_hand or something
 /mob/proc/drop_item(var/atom/Target)
-	if(hand)	return drop_l_hand(Target)
-	else		return drop_r_hand(Target)
+	if(!Target && !l_hand && !r_hand)
+		for(var/obj/item/grab/grab in get_active_grabs())
+			qdel(grab)
+			. = TRUE
+		return
+	return hand ? drop_l_hand(Target) : drop_r_hand(Target)
 
 /*
 	Removes the object from any slots the mob might have, calling the appropriate icon update proc.
@@ -192,7 +196,7 @@ var/list/slot_equipment_priority = list( \
 	As far as I can tell the proc exists so that mobs with different inventory slots can override
 	the search through all the slots, without having to duplicate the rest of the item dropping.
 */
-/mob/proc/u_equip(obj/W as obj)
+/mob/proc/u_equip(obj/W)
 	if (W == r_hand)
 		r_hand = null
 		update_inv_r_hand(0)

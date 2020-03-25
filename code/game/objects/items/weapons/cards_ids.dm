@@ -234,7 +234,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
 
-/obj/item/card/id/proc/show(mob/user as mob)
+/obj/item/card/id/proc/show(mob/user)
 	if(front && side)
 		send_rsc(user, front, "front.png")
 		send_rsc(user, side, "side.png")
@@ -264,7 +264,7 @@ var/const/NO_EMAG_ACT = -50
 	id_card.formal_name_suffix = initial(id_card.formal_name_suffix)
 	if(client && client.prefs)
 		for(var/culturetag in client.prefs.cultural_info)
-			var/decl/cultural_info/culture = SSculture.get_culture(client.prefs.cultural_info[culturetag])
+			var/decl/cultural_info/culture = SSlore.get_culture(client.prefs.cultural_info[culturetag])
 			if(culture)
 				id_card.formal_name_prefix = "[culture.get_formal_name_prefix()][id_card.formal_name_prefix]"
 				id_card.formal_name_suffix = "[id_card.formal_name_suffix][culture.get_formal_name_suffix()]"
@@ -311,7 +311,7 @@ var/const/NO_EMAG_ACT = -50
 	dat += "</tr></table>"
 	return jointext(dat,null)
 
-/obj/item/card/id/attack_self(mob/user as mob)
+/obj/item/card/id/attack_self(mob/user)
 	user.visible_message("\The [user] shows you: \icon[src] [src.name]. The assignment on the card: [src.assignment]",\
 		"You flash your ID card: \icon[src] [src.name]. The assignment on the card: [src.assignment]")
 
@@ -398,47 +398,6 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Emergency Response Team"
 
 /obj/item/card/id/centcom/ERT/Initialize()
-	. = ..()
-	access |= get_all_station_access()
-
-/obj/item/card/id/foundation_civilian
-	name = "operant registration card"
-	desc = "A registration card in a faux-leather case. It marks the named individual as a registered, law-abiding psionic."
-	icon_state = "warrantcard_civ"
-
-/obj/item/card/id/foundation_civilian/on_update_icon()
-	return
-
-/obj/item/card/id/foundation
-	name = "\improper Foundation warrant card"
-	desc = "A warrant card in a handsome leather case."
-	assignment = "Field Agent"
-	icon_state = "warrantcard"
-
-/obj/item/card/id/foundation/examine(mob/user, distance)
-	. = ..()
-	if(distance <= 1 && isliving(user))
-		var/mob/living/M = user
-		if(M.psi)
-			to_chat(user, SPAN_WARNING("There is a psionic compulsion surrounding \the [src], forcing anyone who reads it to perceive it as a legitimate document of authority. The actual text just reads 'I can do what I want.'"))
-		else
-			to_chat(user, SPAN_NOTICE("This is the real deal, stamped by [GLOB.using_map.boss_name]. It gives the holder the full authority to pursue their goals. You believe it implicitly."))
-
-/obj/item/card/id/foundation/attack_self(var/mob/living/user)
-	. = ..()
-	if(istype(user))
-		for(var/mob/M in viewers(world.view, get_turf(user))-user)
-			if(user.psi && isliving(M))
-				var/mob/living/L = M
-				if(!L.psi)
-					to_chat(L, SPAN_NOTICE("This is the real deal, stamped by [GLOB.using_map.boss_name]. It gives the holder the full authority to pursue their goals. You believe \the [user] implicitly."))
-					continue
-			to_chat(M, SPAN_WARNING("There is a psionic compulsion surrounding \the [src] in a flicker of indescribable light."))
-
-/obj/item/card/id/foundation/on_update_icon()
-	return
-
-/obj/item/card/id/foundation/Initialize()
 	. = ..()
 	access |= get_all_station_access()
 

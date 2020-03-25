@@ -269,7 +269,7 @@ datum/unit_test/correct_allowed_spawn_test/start_test()
 		if(!spawnpoint)
 			log_unit_test("Map allows spawning in [spawn_name], but [spawn_name] is null!")
 			failed = TRUE
-		else if(!spawnpoint.turfs.len)
+		else if(!length(spawnpoint.turfs))
 			log_unit_test("Map allows spawning in [spawn_name], but [spawn_name] has no associated spawn turfs.")
 			failed = TRUE
 
@@ -765,7 +765,7 @@ datum/unit_test/ladder_check/start_test()
 			return trunk.linked
 		var/obj/structure/disposalpipe/next_pipe
 		for(var/obj/structure/disposalpipe/P in get_step(our_pipe, current_dir))
-			if(turn(current_dir, 180) & P.dpdir)
+			if(GLOB.reverse_dir[current_dir] & P.dpdir)
 				next_pipe = P
 				break
 		if(!istype(next_pipe))

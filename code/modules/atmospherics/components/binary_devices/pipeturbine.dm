@@ -65,10 +65,10 @@
 
 		update_icon()
 
-	if (network1)
-		network1.update = 1
-	if (network2)
-		network2.update = 1
+		if (network1)
+			network1.update = 1
+		if (network2)
+			network2.update = 1
 
 /obj/machinery/atmospherics/pipeturbine/on_update_icon()
 	overlays.Cut()
@@ -81,7 +81,7 @@
 	if (kin_energy > 1000000)
 		overlays += image('icons/obj/pipeturbine.dmi', "hi-turb")
 
-/obj/machinery/atmospherics/pipeturbine/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/atmospherics/pipeturbine/attackby(obj/item/W, mob/user)
 	if(isWrench(W))
 		anchored = !anchored
 		to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>")
@@ -137,18 +137,15 @@
 
 //Goddamn copypaste from binary base class because atmospherics machinery API is not damn flexible
 /obj/machinery/atmospherics/pipeturbine/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
-	if(reference == node1)
+	if((reference == node1) && (new_network != network1))
+		qdel(network1)
 		network1 = new_network
 
-	else if(reference == node2)
+	if((reference == node2) && (new_network != network2))
+		qdel(network2)
 		network2 = new_network
 
-	if(new_network.normal_members.Find(src))
-		return 0
-
-	new_network.normal_members += src
-
-	return null
+	new_network.normal_members |= src
 
 /obj/machinery/atmospherics/pipeturbine/atmos_init()
 	..()
@@ -242,7 +239,7 @@
 		if (turbine.stat & (BROKEN) || !turbine.anchored || turn(turbine.dir,180) != dir)
 			turbine = null
 
-/obj/machinery/power/turbinemotor/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/power/turbinemotor/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/wrench))
 		anchored = !anchored
 		turbine = null

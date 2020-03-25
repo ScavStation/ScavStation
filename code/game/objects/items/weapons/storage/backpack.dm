@@ -28,7 +28,7 @@
 		set_extension(src, /datum/extension/appearance/cardborg)
 	..()
 
-/obj/item/storage/backpack/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/backpack/attackby(obj/item/W, mob/user)
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	return ..()
@@ -50,7 +50,7 @@
 	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = 56
 
-/obj/item/storage/backpack/holding/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/backpack/holding/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/storage/backpack/holding) || istype(W, /obj/item/storage/bag/trash/bluespace))
 		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
 		qdel(W)
@@ -58,7 +58,7 @@
 	return ..()
 
 	//Please don't clutter the parent storage item with stupid hacks.
-/obj/item/storage/backpack/holding/can_be_inserted(obj/item/W as obj, stop_messages = 0)
+/obj/item/storage/backpack/holding/can_be_inserted(obj/item/W, stop_messages = 0)
 	if(istype(W, /obj/item/storage/backpack/holding))
 		return 1
 	return ..()
@@ -100,10 +100,6 @@
 	desc = "It's a very robust backpack."
 	icon_state = "securitypack"
 	item_state_slots = null
-
-/obj/item/storage/backpack/security/exo
-	name = "corporate security backpack"
-	icon_state = "securitypack_exo"
 
 /obj/item/storage/backpack/captain
 	name = "captain's backpack"
@@ -335,11 +331,6 @@
 	desc = "A sterile satchel with geneticist colours."
 	icon_state = "satchel-gen"
 
-/obj/item/storage/backpack/satchel/tox
-	name = "corporate satchel"
-	desc = "Useful for holding research materials. The colors on it denote it as a corporate bag."
-	icon_state = "satchel-nt"
-
 /obj/item/storage/backpack/satchel/sec
 	name = "security satchel"
 	desc = "A robust satchel for security related needs."
@@ -348,10 +339,6 @@
 		slot_l_hand_str = "securitypack",
 		slot_r_hand_str = "securitypack",
 		)
-
-/obj/item/storage/backpack/satchel/sec/exo
-	name = "corporate security satchel"
-	icon_state = "satchel-sec_exo"
 
 /obj/item/storage/backpack/satchel/hyd
 	name = "hydroponics satchel"
@@ -459,11 +446,6 @@
 	desc = "A sterile backpack worn over one shoulder.  This one is in Virology colors."
 	icon_state = "courierbagviro"
 
-/obj/item/storage/backpack/messenger/tox
-	name = "corporate messenger bag"
-	desc = "A backpack worn over one shoulder.  Useful for holding science materials. The colors on it denote it as a corporate bag."
-	icon_state = "courierbagnt"
-
 /obj/item/storage/backpack/messenger/com
 	name = "captain's messenger bag"
 	desc = "A special backpack worn over one shoulder.  This one is made specifically for officers."
@@ -483,9 +465,3 @@
 	name = "security messenger bag"
 	desc = "A tactical backpack worn over one shoulder. This one is in Security colors."
 	icon_state = "courierbagsec"
-
-/obj/item/storage/backpack/messenger/sec/exo
-	name = "corporate security messenger bag"
-	desc = "A tactical backpack worn over one shoulder. This is black and bottle green."
-	icon_state = "courierbagsec_exo"
-

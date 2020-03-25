@@ -23,6 +23,7 @@
 /decl/machine_construction
 	var/needs_board  // Type of circuitboard expected, if any. Used in unit testing.
 	var/cannot_print // If false, unit testing will attempt to guarantee that the machine is buildable in-round. This inverts that behavior.
+	var/visible_components = TRUE // Whether user can see installed components on examine
 
 // Run on unit testing. Should return a fail message or null.
 /decl/machine_construction/proc/fail_unit_test(obj/machinery/machine)
@@ -46,6 +47,8 @@
 		var/obj/item/stock_parts/circuitboard/board = machine.get_component_of_type(/obj/item/stock_parts/circuitboard)
 		if(board)
 			return board.req_components
+		else
+			return list(/obj/item/stock_parts/circuitboard = 1)
 
 // There are many machines, so this is designed to catch errors.  This proc must either return TRUE or set the machine's construct_state to a valid one (or null).
 /decl/machine_construction/proc/validate_state(obj/machinery/machine)

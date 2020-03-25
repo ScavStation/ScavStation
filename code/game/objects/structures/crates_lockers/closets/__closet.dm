@@ -11,7 +11,7 @@
 	var/wall_mounted = 0 //never solid (You can always pass over it)
 	var/health = 100
 	var/breakout = 0 //if someone is currently breaking out. mutex
-	var/storage_capacity = 2 * MOB_MEDIUM //This is so that someone can't pack hundreds of items in a locker/crate
+	var/storage_capacity = 2 * MOB_SIZE_MEDIUM //This is so that someone can't pack hundreds of items in a locker/crate
 							  //then open it in a populated area to crash clients.
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
@@ -208,10 +208,10 @@
 		var/obj/item/I = AM
 		return (I.w_class / 2)
 	if(istype(AM, /obj/structure) || istype(AM, /obj/machinery))
-		return MOB_LARGE
+		return MOB_SIZE_LARGE
 	return 0
 
-/obj/structure/closet/proc/toggle(mob/user as mob)
+/obj/structure/closet/proc/toggle(mob/user)
 	if(locked)
 		togglelock(user)
 	else if(!(src.opened ? src.close() : src.open()))
@@ -327,7 +327,7 @@
 						 "You hear welding.")
 	dismantle(src)
 
-/obj/structure/closet/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
+/obj/structure/closet/MouseDrop_T(atom/movable/O, mob/user)
 	if(istype(O, /obj/screen))	//fix for HUD elements making their way into the world	-Pete
 		return
 	if(O.loc == user)
@@ -354,14 +354,14 @@
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
 		attack_hand(user)
 
-/obj/structure/closet/relaymove(mob/user as mob)
+/obj/structure/closet/relaymove(mob/user)
 	if(user.stat || !isturf(src.loc))
 		return
 
 	if(!src.open())
 		to_chat(user, "<span class='notice'>It won't budge!</span>")
 
-/obj/structure/closet/attack_hand(mob/user as mob)
+/obj/structure/closet/attack_hand(mob/user)
 	src.add_fingerprint(user)
 	src.toggle(user)
 

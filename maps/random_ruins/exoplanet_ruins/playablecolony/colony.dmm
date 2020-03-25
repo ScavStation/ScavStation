@@ -1017,8 +1017,7 @@
 "ce" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
-	id = "cn2n"
+	id_tag = "cn2n"
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/map_template/colony/atmospherics)
@@ -1280,8 +1279,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
-	id = "co2n"
+	id_tag = "co2n"
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/map_template/colony/atmospherics)
@@ -1297,8 +1295,7 @@
 	icon_state = "intact"
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
-	id = "cco2n"
+	id_tag = "cco2n"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/map_template/colony/atmospherics)
@@ -4558,7 +4555,7 @@
 /obj/structure/table/rack,
 /obj/item/gun/projectile/pistol/holdout,
 /obj/item/gun/projectile/pistol/holdout,
-/obj/item/gun/projectile/pistol/sec/lethal,
+/obj/item/gun/projectile/pistol,
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
@@ -5957,9 +5954,9 @@
 /area/map_template/colony/airlock)
 "kr" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/pirate,
-/obj/item/gun/projectile/pirate,
-/obj/item/gun/projectile/pirate,
+/obj/item/gun/projectile/zipgun,
+/obj/item/gun/projectile/zipgun,
+/obj/item/gun/projectile/zipgun,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -6053,7 +6050,7 @@
 	icon_state = "techfloor_edges";
 	dir = 5
 	},
-/obj/structure/closet/secure_closet/hydroponics_torch,
+/obj/structure/closet/secure_closet/hydroponics,
 /obj/item/chems/glass/bucket,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/colony/hydroponics)
@@ -6375,8 +6372,7 @@
 	icon_state = "intact"
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
-	id = "cn2n"
+	id_tag = "cn2n"
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/map_template/colony/atmospherics)
