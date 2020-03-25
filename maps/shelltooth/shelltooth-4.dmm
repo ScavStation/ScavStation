@@ -14,13 +14,6 @@
 "ae" = (
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
-"af" = (
-/obj/machinery/light{
-	icon_state = "tube_map";
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_five/attend)
 "ag" = (
 /turf/simulated/wall,
 /area/shelltooth/level_five/hall)
@@ -31,6 +24,10 @@
 "ai" = (
 /obj/effect/landmark/test/safe_turf,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
 "aj" = (
@@ -139,8 +136,8 @@
 /area/space)
 "ax" = (
 /obj/effect/landmark/test/space_turf,
-/turf/space,
-/area/space)
+/turf/simulated/floor,
+/area/shelltooth/maint/level_five/north)
 "ay" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "stripe";
@@ -824,12 +821,10 @@
 /obj/machinery/computer/message_monitor,
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
-"gP" = (
-/obj/structure/cable{
-	icon_state = "5-10";
-	d2 = 8
+"gW" = (
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
 	},
-/turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
 "ha" = (
 /obj/structure/cable,
@@ -971,6 +966,10 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
+"qg" = (
+/obj/structure/curtain/black,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/attend)
 "qY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1108,6 +1107,12 @@
 "xl" = (
 /turf/simulated/shuttle/wall/corner,
 /area/space)
+"xG" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
+	},
+/area/shelltooth/level_five/attend)
 "yM" = (
 /obj/structure/cable{
 	icon_state = "2-5";
@@ -1295,6 +1300,15 @@
 "Lj" = (
 /turf/simulated/shuttle/wall,
 /area/shelltooth/level_five/attend)
+"Lv" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
+	},
+/area/shelltooth/level_five/attend)
 "Lx" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -1329,6 +1343,11 @@
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/shuttle/wall,
 /area/space)
+"Op" = (
+/obj/machinery/door/airlock/command,
+/obj/structure/curtain/black,
+/turf/simulated/wall,
+/area/shelltooth/level_five/matriarch)
 "PY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/unpowered/shuttle,
@@ -1413,10 +1432,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
-"WO" = (
-/obj/structure/curtain/open/shower,
-/obj/structure/hygiene/shower,
-/turf/simulated/floor/shuttle/yellow,
+"Yb" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
+	},
+/area/shelltooth/level_five/attend)
+"Yv" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
+	},
 /area/shelltooth/level_five/attend)
 "YB" = (
 /obj/machinery/door/airlock/command,
@@ -3104,8 +3136,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+aP
+aP
 aP
 aP
 Bs
@@ -3170,9 +3202,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 aP
+aO
+aO
 aO
 Bz
 ac
@@ -3236,12 +3268,12 @@ aa
 aa
 aa
 aa
-aa
-aa
 aP
 aO
+ad
+ad
 Bs
-ab
+Op
 ab
 ah
 aI
@@ -3302,13 +3334,13 @@ aa
 aa
 aa
 aa
-aa
-aa
 aP
 aO
-aO
 ad
-WO
+gW
+Yb
+gW
+ad
 wY
 aU
 wY
@@ -3368,12 +3400,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aP
 aP
 aO
-Lj
+ad
+Yv
+gW
+gW
 Lj
 bv
 aJ
@@ -3434,13 +3466,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 aP
 aO
 ad
-ae
+gW
+gW
+gW
+qg
 SR
 wM
 Lj
@@ -3500,13 +3532,13 @@ aa
 aa
 aa
 aa
-aa
-ax
-aa
 aP
-aO
+ax
 ad
-af
+Yv
+gW
+xG
+ad
 ai
 aW
 al
@@ -3566,13 +3598,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 aP
 aO
 ad
-ae
+gW
+gW
+gW
+ad
 ae
 bO
 ae
@@ -3632,14 +3664,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 aP
 aO
 ad
-ae
-gP
+Yv
+gW
+gW
+ad
+SC
 wM
 ae
 ad
@@ -3698,13 +3730,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 aP
 aO
 ad
-SC
+gW
+Lv
+gW
+ad
 ae
 wM
 ae
@@ -3764,11 +3796,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 aP
 aO
+ad
+ad
+ad
 ad
 ad
 aj
@@ -3830,10 +3862,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 aP
+aO
+aO
+aO
 aO
 aO
 BT
@@ -3896,9 +3928,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+aP
+aP
+aP
 aP
 aP
 aP
