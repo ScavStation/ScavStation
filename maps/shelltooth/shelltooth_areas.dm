@@ -125,11 +125,6 @@
 	name = "\improper Backstage"
 	icon_state = "stage"
 
-
-/area/shelltooth/maint/level_two/north
-	name = "\improper Maintenance 2-A"
-	icon_state = "maint_n"
-
 /area/shelltooth/maint/level_two/north_east
 	name = "\improper Maintenance 2-B"
 	icon_state = "maint_ne"
@@ -259,9 +254,6 @@
 /area/shelltooth/level_five/heads
 	name = "\improper Clan Meeting Room"
 	icon_state = "heads"
-
-/area/shelltooth/level_five/control
-	name = "\improper Station Control"
 
 /area/shelltooth/level_five/comms
 	name = "\improper Telecomms"
