@@ -1,7 +1,7 @@
 #include "errant_pisces_areas.dm"
 
 /obj/effect/overmap/visitable/ship/errant_pisces
-	name = "XCV Ahab's Harpoon"
+	name = "CV Ahab's Harpoon"
 	desc = "Sensors detect civilian vessel with unusual signs of life aboard."
 	color = "#bd6100"
 	max_speed = 1/(3 SECONDS)
@@ -11,7 +11,7 @@
 /datum/map_template/ruin/away_site/errant_pisces
 	name = "Errant Pisces"
 	id = "awaysite_errant_pisces"
-	description = "Xynergy carp trawler"
+	description = "Carp trawler"
 	suffixes = list("errant_pisces/errant_pisces.dmm")
 	cost = 1
 	area_usage_test_exempted_root_areas = list(/area/errant_pisces)
@@ -111,7 +111,7 @@ obj/structure/net/Initialize(var/mapload)
 	else if (health < 90)
 		to_chat(user, "Few ribbons of \the [src] are cut away.")
 
-/obj/structure/net/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/net/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/material)) //sharp objects can cut thorugh
 		var/obj/item/material/SH = W
 		if (!(SH.sharp) || (SH.sharp && SH.force < 10))//is not sharp enough or at all

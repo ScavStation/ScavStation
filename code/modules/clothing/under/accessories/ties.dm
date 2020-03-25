@@ -41,35 +41,15 @@
 	icon_state = "longtie"
 	color = "#b18345"
 
-/obj/item/clothing/accessory/corptie
-	name = "corporate tie"
-	desc = "A green neosilk clip-on tie. This one has a clip on it that proudly bears a corporate logo."
-	icon_state = "cliptie"
-
-/obj/item/clothing/accessory/corptie/nanotrasen
-	name = "\improper NanoTrasen tie"
-	desc = "A red neosilk clip-on tie. This one has a clip on it that proudly bears the NanoTrasen logo."
-	icon_state = "cliptie_nt"
-
-/obj/item/clothing/accessory/corptie/heph
-	name = "\improper Hephaestus Industries tie"
-	desc = "A cyan neosilk clip-on tie. This one has a clip on it that proudly bears the Hephaestus Industries logo."
-	icon_state = "cliptie_heph"
-
-/obj/item/clothing/accessory/corptie/zeng
-	name = "\improper Zeng-Hu tie"
-	desc = "A gold neosilk clip-on tie. This one has a clip on it that proudly bears the Zeng-Hu Pharmaceuticals logo."
-	icon_state = "cliptie_zeng"
-
 //Bowties
 /obj/item/clothing/accessory/bowtie
 	var/tied = TRUE
 
-/obj/item/clothing/accessory/bowtie/on_attached(obj/item/clothing/under/S, mob/user as mob)
+/obj/item/clothing/accessory/bowtie/on_attached(obj/item/clothing/under/S, mob/user)
 	..()
 	has_suit.verbs += /obj/item/clothing/accessory/bowtie/verb/toggle
 
-/obj/item/clothing/accessory/bowtie/on_removed(mob/user as mob)
+/obj/item/clothing/accessory/bowtie/on_removed(mob/user)
 	if(has_suit)
 		has_suit.verbs -= /obj/item/clothing/accessory/bowtie/verb/toggle
 	..()

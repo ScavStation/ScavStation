@@ -21,19 +21,6 @@
 	//create a short manual as well
 	var/obj/item/paper/R = new(src.loc)
 	R.SetName("Steps to success: Correct EFTPOS Usage")
-	/*
-	R.info += "<b>When first setting up your EFTPOS device:</b>"
-	R.info += "1. Memorise your EFTPOS command code (provided with all EFTPOS devices).<br>"
-	R.info += "2. Confirm that your EFTPOS device is connected to your local accounts database. For additional assistance with this step, contact NanoTrasen IT Support<br>"
-	R.info += "3. Confirm that your EFTPOS device has been linked to the account that you wish to recieve funds for all transactions processed on this device.<br>"
-	R.info += "<b>When starting a new transaction with your EFTPOS device:</b>"
-	R.info += "1. Ensure the device is UNLOCKED so that new data may be entered.<br>"
-	R.info += "2. Enter a sum of money and reference message for the new transaction.<br>"
-	R.info += "3. Lock the transaction, it is now ready for your customer.<br>"
-	R.info += "4. If at this stage you wish to modify or cancel your transaction, you may simply reset (unlock) your EFTPOS device.<br>"
-	R.info += "5. Give your EFTPOS device to the customer, they must authenticate the transaction by swiping their ID card and entering their PIN number.<br>"
-	R.info += "6. If done correctly, the transaction will be logged to both accounts with the reference you have entered, the terminal ID of your EFTPOS device and the money transferred across accounts.<br>"
-	*/
 	//Temptative new manual:
 	R.info += "<b>First EFTPOS setup:</b><br>"
 	R.info += "1. Memorise your EFTPOS command code (provided with all EFTPOS devices).<br>"
@@ -81,7 +68,7 @@
 	D.wrapped = R
 	D.SetName("small parcel - 'EFTPOS access code'")
 
-/obj/item/eftpos/attack_self(mob/user as mob)
+/obj/item/eftpos/attack_self(mob/user)
 	if(get_dist(src,user) <= 1)
 		var/dat = "<b>[eftpos_name]</b><br>"
 		dat += "<i>This terminal is</i> [machine_id]. <i>Report this code when contacting IT Support</i><br>"
@@ -109,7 +96,7 @@
 	else
 		close_browser(user, "window=eftpos")
 
-/obj/item/eftpos/attackby(obj/item/O as obj, user as mob)
+/obj/item/eftpos/attackby(obj/item/O, user)
 
 	var/obj/item/card/id/I = O.GetIdCard()
 

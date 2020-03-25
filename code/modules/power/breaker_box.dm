@@ -19,11 +19,6 @@
 	var/RCon_tag = "NO_TAG"
 	var/update_locked = 0
 
-/obj/machinery/power/breakerbox/Destroy()
-	..()
-	for(var/datum/nano_module/rcon/R in world)
-		R.FindDevices()
-
 /obj/machinery/power/breakerbox/activated
 	icon_state = "bbox_on"
 
@@ -84,7 +79,7 @@
 	busy = 0
 	return TRUE
 
-/obj/machinery/power/breakerbox/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/power/breakerbox/attackby(var/obj/item/W, var/mob/user)
 	if(isMultitool(W))
 		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 		if(newtag)

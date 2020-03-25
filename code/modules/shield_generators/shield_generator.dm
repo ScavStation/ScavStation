@@ -197,7 +197,7 @@
 		return SPAN_NOTICE("Wait until \the [src] cools down from emergency shutdown first!")
 	return ..()
 
-/obj/machinery/power/shield_generator/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/power/shield_generator/attackby(obj/item/O, mob/user)
 	if(panel_open && (isMultitool(O) || isWirecutter(O)))
 		attack_hand(user)
 		return TRUE
@@ -355,7 +355,7 @@
 
 
 // Takes specific amount of damage
-/obj/machinery/power/shield_generator/proc/take_damage(var/damage, var/shield_damtype)
+/obj/machinery/power/shield_generator/proc/take_shield_damage(var/damage, var/shield_damtype)
 	var/energy_to_use = damage * ENERGY_PER_HP
 	if(check_flag(MODEFLAG_MODULATE))
 		mitigation_em -= MITIGATION_HIT_LOSS

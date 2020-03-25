@@ -5,16 +5,6 @@
 	else
 		add_to_living_mob_list()
 
-//mob verbs are faster than object verbs. See mob/verb/examine.
-/mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
-	set name = "Pull"
-	set category = "Object"
-
-	if(AM.Adjacent(src))
-		src.start_pulling(AM)
-
-	return
-
 //mob verbs are faster than object verbs. See above.
 /mob/living/pointed(atom/A as mob|obj|turf in view())
 	if(incapacitated())
@@ -76,14 +66,9 @@ default behaviour is:
 			var/mob/living/tmob = AM
 
 			for(var/mob/living/M in range(tmob, 1))
-				if(tmob.pinned.len ||  ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
+				if(tmob.pinned.len || (locate(/obj/item/grab, LAZYLEN(tmob.grabbed_by))))
 					if ( !(world.time % 5) )
 						to_chat(src, "<span class='warning'>[tmob] is restrained, you cannot push past</span>")
-					now_pushing = 0
-					return
-				if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
-					if ( !(world.time % 5) )
-						to_chat(src, "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>")
 					now_pushing = 0
 					return
 
@@ -131,6 +116,7 @@ default behaviour is:
 		now_pushing = 0
 		spawn(0)
 			..()
+			var/saved_dir = AM.dir
 			if (!istype(AM, /atom/movable) || AM.anchored)
 				if(confused && prob(50) && !MOVING_DELIBERATELY(src))
 					Weaken(2)
@@ -157,6 +143,8 @@ default behaviour is:
 					for(var/obj/item/grab/G in M.grabbed_by)
 						step(G.assailant, get_dir(G.assailant, AM))
 						G.adjust_position()
+				if(saved_dir)
+					AM.set_dir(saved_dir)
 				now_pushing = 0
 
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
@@ -170,7 +158,9 @@ default behaviour is:
 			return 1
 
 /mob/living/proc/can_swap_with(var/mob/living/tmob)
-	if(tmob.buckled || buckled)
+	if(!tmob)
+		return
+	if(tmob.buckled || buckled || tmob.anchored)
 		return 0
 	//BubbleWrap: people in handcuffs are always switched around as if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 	if(!(tmob.mob_always_swap || (tmob.a_intent == I_HELP || tmob.restrained()) && (a_intent == I_HELP || src.restrained())))
@@ -513,19 +503,21 @@ default behaviour is:
 
 	return
 
+/mob/living/handle_grabs_after_move()
+	..()
+	if(!skill_check(SKILL_MEDICAL, SKILL_BASIC))
+		for(var/obj/item/grab/grab in get_active_grabs())
+			var/mob/affecting_mob = grab.get_affecting_mob()
+			if(affecting_mob)
+				affecting_mob.handle_grab_damage()
+
 /mob/living/Move(a, b, flag)
 	if (buckled)
 		return
 
-	if(get_dist(src, pulling) > 1)
-		stop_pulling()
-
-	var/turf/old_loc = get_turf(src)
-
 	. = ..()
 
-	if(. && pulling)
-		handle_pulling_after_move(old_loc)
+	handle_grabs_after_move()
 
 	if (s_active && !( s_active in contents ) && get_turf(s_active) != get_turf(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
 		s_active.close(src)
@@ -533,73 +525,6 @@ default behaviour is:
 	if(update_slimes)
 		for(var/mob/living/carbon/slime/M in view(1,src))
 			M.UpdateFeed()
-
-/mob/living/proc/can_pull()
-	if(!moving)
-		return FALSE
-	if(pulling.anchored)
-		return FALSE
-	if(!isturf(pulling.loc))
-		return FALSE
-	if(restrained())
-		return FALSE
-
-	if(get_dist(src, pulling) > 2)
-		return FALSE
-
-	if(pulling.z != z)
-		if(pulling.z < z)
-			return FALSE
-		var/turf/T = GetAbove(src)
-		if(!isopenspace(T))
-			return FALSE
-	return TRUE
-
-/mob/living/proc/handle_pulling_after_move(turf/old_loc)
-	if(!pulling)
-		return
-
-	if(!can_pull())
-		stop_pulling()
-		return
-	
-	if (!isliving(pulling))
-		step(pulling, get_dir(pulling.loc, old_loc))
-	else
-		var/mob/living/M = pulling
-		if(M.grabbed_by.len)
-			if (prob(75))
-				var/obj/item/grab/G = pick(M.grabbed_by)
-				if(istype(G))
-					M.visible_message(SPAN_WARNING("[G.affecting] has been pulled from [G.assailant]'s grip by [src]!"), SPAN_WARNING("[G.affecting] has been pulled from your grip by [src]!"))
-					qdel(G)
-		if (!M.grabbed_by.len)
-			M.handle_pull_damage(src)
-
-			var/atom/movable/t = M.pulling
-			M.stop_pulling()
-			step(M, get_dir(pulling.loc, old_loc))
-			if(t)
-				M.start_pulling(t)
-
-
-/mob/living/proc/handle_pull_damage(mob/living/puller)
-	var/area/A = get_area(src)
-	if(!A.has_gravity)
-		return
-	var/turf/location = get_turf(src)
-	if(lying && prob(getBruteLoss() / 6))
-		location.add_blood(src)
-		if(prob(25))
-			src.adjustBruteLoss(1)
-			visible_message("<span class='danger'>\The [src]'s [src.isSynthetic() ? "state worsens": "wounds open more"] from being dragged!</span>")
-			. = TRUE
-	if(src.pull_damage())
-		if(prob(25))
-			src.adjustBruteLoss(2)
-			visible_message("<span class='danger'>\The [src]'s [src.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!</span>")
-			location.add_blood(src)
-			. = TRUE
 
 /mob/living/verb/resist()
 	set name = "Resist"
@@ -696,14 +621,11 @@ default behaviour is:
 		return 1
 
 /mob/living/proc/cannot_use_vents()
-	if(mob_size > MOB_SMALL)
+	if(mob_size > MOB_SIZE_SMALL)
 		return "You can't fit into that vent."
 	return null
 
 /mob/living/proc/has_brain()
-	return 1
-
-/mob/living/proc/has_eyes()
 	return 1
 
 /mob/living/proc/slip(var/slipped_on,stun_duration=8)
@@ -882,13 +804,13 @@ default behaviour is:
 	return
 
 /mob/living/proc/add_chemical_effect(var/effect, var/magnitude = 1)
-	return 
+	return
 
 /mob/living/proc/add_up_to_chemical_effect(var/effect, var/magnitude = 1)
-	return 
+	return
 
 /mob/living/proc/adjust_immunity(var/amt)
-	return 
+	return
 
 /mob/living/handle_reading_literacy(var/mob/user, var/text_content, var/skip_delays)
 	if(skill_check(SKILL_LITERACY, SKILL_ADEPT))
@@ -920,3 +842,20 @@ default behaviour is:
 
 /mob/living/can_be_injected_by(var/atom/injector)
 	return ..() && (can_inject(null, 0, BP_CHEST) || can_inject(null, 0, BP_GROIN))
+
+/mob/living/handle_grab_damage()
+	..()
+	var/area/A = get_area(src)
+	if(!A.has_gravity)
+		return
+	if(isturf(loc) && pull_damage() && prob(getBruteLoss() / 6))
+		blood_splatter(loc, src, large = TRUE)
+		if(prob(25))
+			adjustBruteLoss(1)
+			visible_message(SPAN_DANGER("\The [src]'s [isSynthetic() ? "state worsens": "wounds open more"] from being dragged!"))
+
+/mob/living/CanUseTopicPhysical(mob/user)
+	. = CanUseTopic(user, GLOB.physical_no_access_state)
+
+/mob/living/proc/is_telekinetic()
+	return FALSE

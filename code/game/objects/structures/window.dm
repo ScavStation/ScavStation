@@ -151,7 +151,7 @@
 	else
 		return 1
 
-/obj/structure/window/CheckExit(atom/movable/O as mob|obj, target as turf)
+/obj/structure/window/CheckExit(atom/movable/O, target)
 	if(istype(O) && O.checkpass(PASS_FLAG_GLASS))
 		return 1
 	if(get_dir(O.loc, target) == dir)
@@ -174,7 +174,7 @@
 		step(src, get_dir(AM, src))
 	take_damage(tforce)
 
-/obj/structure/window/attack_hand(mob/user as mob)
+/obj/structure/window/attack_hand(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(MUTATION_HULK in user.mutations)
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
@@ -304,16 +304,20 @@
 		to_chat(G.assailant, SPAN_DANGER("You need a better grip to do that!"))
 		return TRUE
 	var/def_zone = ran_zone(BP_HEAD, 20)
+	var/mob/affecting_mob = G.get_affecting_mob()
+	if(!affecting_mob)
+		attackby(G.affecting, G.assailant)
+		return TRUE
 	if(G.damage_stage() < 2)
 		G.affecting.visible_message(SPAN_DANGER("[G.assailant] bashes [G.affecting] against \the [src]!"))
-		if (prob(50))
-			G.affecting.Weaken(1)
-		G.affecting.apply_damage(10, BRUTE, def_zone, used_weapon = src)
+		if(prob(50))
+			affecting_mob.Weaken(1)
+		affecting_mob.apply_damage(10, BRUTE, def_zone, used_weapon = src)
 		hit(25)
 	else
 		G.affecting.visible_message(SPAN_DANGER("[G.assailant] crushes [G.affecting] against \the [src]!"))
-		G.affecting.Weaken(5)
-		G.affecting.apply_damage(20, BRUTE, def_zone, used_weapon = src)
+		affecting_mob.Weaken(5)
+		affecting_mob.apply_damage(20, BRUTE, def_zone, used_weapon = src)
 		hit(50)
 	return TRUE
 
@@ -504,7 +508,7 @@
 		/obj/item/stock_parts/power/apc
 	)
 
-/obj/machinery/button/windowtint/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/button/windowtint/attackby(obj/item/W, mob/user)
 	if(isMultitool(W))
 		var/t = sanitizeSafe(input(user, "Enter the ID for the button.", src.name, id), MAX_NAME_LEN)
 		if(user.incapacitated() && !user.Adjacent(src))

@@ -46,7 +46,7 @@
 	startswith = list(/obj/item/card/union = 14)
 
 // BubbleWrap - A box can be folded up to make card
-/obj/item/storage/box/attack_self(mob/user as mob)
+/obj/item/storage/box/attack_self(mob/user)
 	if(..()) return
 
 	//try to fold it.
@@ -68,9 +68,9 @@
 	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
 	if(ispath(foldable, /obj/item/stack))
 		var/stack_amt = max(2**(w_class - 3), 1)
-		new src.foldable(get_turf(src), stack_amt)
+		new foldable(get_turf(src), stack_amt, MAT_CARDBOARD)
 	else
-		new src.foldable(get_turf(src))
+		new foldable(get_turf(src), MAT_CARDBOARD)
 	qdel(src)
 
 /obj/item/storage/box/make_exact_fit()
@@ -360,7 +360,7 @@
 	can_hold = list(/obj/item/flame/match)
 	startswith = list(/obj/item/flame/match = 10)
 
-/obj/item/storage/box/matches/attackby(obj/item/flame/match/W as obj, mob/user as mob)
+/obj/item/storage/box/matches/attackby(obj/item/flame/match/W, mob/user)
 	if(istype(W) && !W.lit && !W.burnt)
 		W.lit = 1
 		W.damtype = "burn"

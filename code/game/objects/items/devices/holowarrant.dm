@@ -35,7 +35,7 @@
 	. |= active.fields["access"]
 
 //hit yourself with it
-/obj/item/holowarrant/attack_self(mob/living/user as mob)
+/obj/item/holowarrant/attack_self(mob/living/user)
 	active = null
 	var/list/warrants = list()
 	for(var/datum/computer_file/data/warrant/W in GLOB.all_warrants)
@@ -67,7 +67,7 @@
 	..()
 
 //hit other people with it
-/obj/item/holowarrant/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/holowarrant/attack(mob/living/carbon/M, mob/living/carbon/user)
 	user.visible_message("<span class='notice'>[user] holds up a warrant projector and shows the contents to [M].</span>", \
 			"<span class='notice'>You show the warrant to [M].</span>")
 	M.examinate(src)
@@ -84,7 +84,7 @@
 	if(active.fields["arrestsearch"] == "arrest")
 		var/output = {"
 		<HTML><HEAD><TITLE>[active.fields["namewarrant"]]</TITLE></HEAD>
-		<BODY bgcolor='#ffffff'><center><large><b>SCG SFP Warrant Tracker System</b></large></br>
+		<BODY bgcolor='#ffffff'><center><large><b>Warrant Tracker System</b></large></br>
 		</br>
 		Issued in the jurisdiction of the</br>
 		[GLOB.using_map.boss_name] in [GLOB.using_map.system_name]</br>
@@ -103,7 +103,7 @@
 	if(active.fields["arrestsearch"] ==  "search")
 		var/output= {"
 		<HTML><HEAD><TITLE>Search Warrant: [active.fields["namewarrant"]]</TITLE></HEAD>
-		<BODY bgcolor='#ffffff'><center><large><b>SCG SFP Warrant Tracker System</b></large></br>
+		<BODY bgcolor='#ffffff'><center><large><b>Warrant Tracker System</b></large></br>
 		</br>
 		Issued in the jurisdiction of the</br>
 		[GLOB.using_map.boss_name] in [GLOB.using_map.system_name]</br>

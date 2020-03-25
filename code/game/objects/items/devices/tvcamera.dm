@@ -1,6 +1,6 @@
 /obj/item/camera/tvcamera
 	name = "press camera drone"
-	desc = "A Ward-Takahashi EyeBuddy livestreaming press camera drone. Weapon of choice for war correspondents and reality show cameramen. It does not appear to have any internal memory storage."
+	desc = "An EyeBuddy livestreaming press camera drone. Weapon of choice for war correspondents and reality show cameramen. It does not appear to have any internal memory storage."
 	icon_state = "camcorder"
 	item_state = "camcorder"
 	w_class = ITEM_SIZE_LARGE
@@ -89,7 +89,7 @@
 		H.update_inv_l_hand()
 
 /* Assembly by a roboticist */
-/obj/item/robot_parts/head/attackby(var/obj/item/assembly/S, mob/user as mob)
+/obj/item/robot_parts/head/attackby(var/obj/item/assembly/S, mob/user)
 	if ((!istype(S, /obj/item/assembly/infra)))
 		..()
 		return

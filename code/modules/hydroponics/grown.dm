@@ -144,7 +144,6 @@
 				if(H.shoes && H.shoes.item_flags & ITEM_FLAG_NOSLIP)
 					return
 
-			M.stop_pulling()
 			to_chat(M, "<span class='notice'>You slipped on the [name]!</span>")
 			playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			M.Stun(8)
@@ -232,7 +231,7 @@
 				to_chat(user, "<span class='danger'>\The [src] has fallen to bits.</span>")
 			qdel(src)
 
-/obj/item/chems/food/snacks/grown/attack_self(mob/user as mob)
+/obj/item/chems/food/snacks/grown/attack_self(mob/user)
 
 	if(!seed)
 		return

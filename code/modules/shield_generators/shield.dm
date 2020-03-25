@@ -130,7 +130,7 @@
 	new /obj/effect/temporary(get_turf(src), 2 SECONDS,'icons/obj/machines/shielding.dmi',"shield_impact")
 
 	var/list/field_segments = gen.field_segments
-	switch(gen.take_damage(damage, damtype))
+	switch(gen.take_shield_damage(damage, damtype))
 		if(SHIELD_ABSORBED)
 			return
 		if(SHIELD_BREACHED_MINOR)
@@ -201,7 +201,7 @@
 
 
 // Attacks with hand tools. Blocked by Hyperkinetic flag.
-/obj/effect/shield/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/effect/shield/attackby(var/obj/item/I, var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 

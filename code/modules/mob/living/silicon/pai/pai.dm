@@ -5,7 +5,7 @@
 
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
 	pass_flags = PASS_FLAG_TABLE
-	mob_size = MOB_SMALL
+	mob_size = MOB_SIZE_SMALL
 
 	can_pull_size = ITEM_SIZE_SMALL
 	can_pull_mobs = MOB_PULL_SMALLER
@@ -113,7 +113,7 @@
 	if (src.client.statpanel == "Status")
 		show_silenced()
 
-/mob/living/silicon/pai/check_eye(var/mob/user as mob)
+/mob/living/silicon/pai/check_eye(var/mob/user)
 	if (!src.current)
 		return -1
 	return 0
@@ -300,7 +300,7 @@
 		if(stat != 2) close_up()
 	return
 
-/mob/living/silicon/pai/attack_hand(mob/user as mob)
+/mob/living/silicon/pai/attack_hand(mob/user)
 	visible_message("<span class='danger'>[user] boops [src] on the head.</span>")
 	close_up()
 
@@ -315,7 +315,6 @@
 	var/turf/T = get_turf(src)
 	if(istype(T)) T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
 
-	stop_pulling()
 	if(client)
 		client.perspective = EYE_PERSPECTIVE
 		client.eye = card

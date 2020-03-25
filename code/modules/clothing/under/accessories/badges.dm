@@ -42,7 +42,7 @@
 	if(stored_name)
 		to_chat(user,"It reads: [stored_name], [badge_string].")
 
-/obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
+/obj/item/clothing/accessory/badge/attack_self(mob/user)
 
 	if(!stored_name)
 		to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
@@ -80,19 +80,7 @@
 	var/badge_number
 	var/emagged //emag_act removes access requirements
 
-/obj/item/clothing/accessory/badge/holo/NT
-	name = "corporate holobadge"
-	desc = "This glowing green badge marks the holder as a member of corporate security."
-	icon_state = "ntholobadge"
-	color = null
-	badge_string = "Corporate Security"
-	badge_access = access_research
-
 /obj/item/clothing/accessory/badge/holo/cord
-	icon_state = "holobadge-cord"
-	slot_flags = SLOT_MASK | SLOT_TIE
-
-/obj/item/clothing/accessory/badge/holo/NT/cord
 	icon_state = "holobadge-cord"
 	slot_flags = SLOT_MASK | SLOT_TIE
 
@@ -106,7 +94,7 @@
 	if(badge_number)
 		to_chat(user,"The badge number is [badge_number].")
 
-/obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
+/obj/item/clothing/accessory/badge/holo/attack_self(mob/user)
 	if(!stored_name)
 		to_chat(user, "Waving around a holobadge before swiping an ID would be pretty pointless.")
 		return
@@ -121,7 +109,7 @@
 		to_chat(user, "<span class='danger'>You crack the holobadge security checks.</span>")
 		return 1
 
-/obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/card/id) || istype(O, /obj/item/modular_computer))
 
 		var/obj/item/card/id/id_card = O.GetIdCard()
@@ -144,12 +132,6 @@
 	startswith = list(/obj/item/clothing/accessory/badge/holo = 4,
 					  /obj/item/clothing/accessory/badge/holo/cord = 2)
 
-/obj/item/storage/box/holobadgeNT
-	name = "corporate holobadge box"
-	desc = "A box containing corporate security holobadges."
-	startswith = list(/obj/item/clothing/accessory/badge/holo/NT = 4,
-					  /obj/item/clothing/accessory/badge/holo/NT/cord = 2)
-
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
 	desc = "A faded badge, backed with leather. Looks crummy."
@@ -167,12 +149,6 @@
 	desc = "A synthleather holographic badge bearing the crest of the Office of Interstellar Intelligence."
 	icon_state = "intelbadge"
 	badge_string = "Office of Interstellar Intelligence"
-
-/obj/item/clothing/accessory/badge/nanotrasen
-	name = "corporate badge"
-	desc = "A leather-backed plastic badge with a variety of information printed on it. Belongs to a corporate executive."
-	icon_state = "ntbadge"
-	badge_string = "Corporate Executive Body"
 
 /obj/item/clothing/accessory/badge/press
 	name = "press badge"

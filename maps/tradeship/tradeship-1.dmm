@@ -781,6 +781,9 @@
 /obj/random/clothing,
 /obj/random/clothing,
 /obj/random/clothing,
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
 /turf/simulated/floor/lino,
 /area/ship/trade/crew/dorms1)
 "bS" = (
@@ -1183,6 +1186,9 @@
 /obj/item/storage/backpack/clown,
 /obj/item/bikehorn,
 /obj/item/storage/fancy/crayons,
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
 /turf/simulated/floor/lino,
 /area/ship/trade/crew/dorms2)
 "cO" = (
@@ -1582,6 +1588,9 @@
 /area/ship/trade/drunk_tank)
 "dO" = (
 /obj/machinery/botany/editor,
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science)
 "dP" = (
@@ -1806,6 +1815,12 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
+/obj/structure/closet/secure_closet{
+	name = "secure engineering voidsuit locker";
+	req_access = list("ACCESS_CHIEF_ENGINEER")
+	},
+/obj/item/clothing/head/helmet/space/void/engineering/salvage,
+/obj/item/clothing/suit/space/void/engineering/salvage,
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/storage)
 "eo" = (
@@ -2215,7 +2230,6 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/storage)
 "eZ" = (
-/obj/machinery/vending/engineering,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -2225,6 +2239,10 @@
 	dir = 4;
 	name = "Engineering Supply Storage APC";
 	pixel_w = 1
+	},
+/obj/machinery/vending/engineering{
+	icon_state = "engi";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/storage)
@@ -2780,6 +2798,9 @@
 	pixel_y = 0
 	},
 /obj/machinery/robotics_fabricator,
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "vw" = (
@@ -2915,6 +2936,10 @@
 /obj/item/bedsheet/mime,
 /obj/machinery/light_switch{
 	pixel_y = -24
+	},
+/obj/machinery/newscaster{
+	pixel_x = 30;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
@@ -3428,7 +3453,7 @@
 /obj/item/t_scanner,
 /obj/item/cell/high,
 /obj/item/tape_roll,
-/obj/item/airalarm_electronics,
+/obj/item/stock_parts/circuitboard/air_alarm,
 /obj/item/airlock_electronics,
 /obj/item/airlock_electronics,
 /obj/structure/table/rack,
@@ -6429,7 +6454,7 @@ aa
 aa
 aa
 aa
-ab
+aa
 aa
 aa
 aa
@@ -6598,7 +6623,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -7695,7 +7720,7 @@ aa
 aa
 aa
 aa
-xb
+aa
 aa
 aa
 aa
@@ -7782,7 +7807,7 @@ aa
 aa
 aa
 aa
-aa
+xb
 aa
 aa
 aa

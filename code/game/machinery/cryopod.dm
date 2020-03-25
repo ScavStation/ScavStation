@@ -26,6 +26,13 @@
 	var/storage_name = "Cryogenic Oversight Control"
 	var/allow_items = 1
 
+/obj/machinery/computer/cryopod/Destroy()
+	for(var/obj/machinery/cryopod/C in SSmachines.machinery)
+		if(C.control_computer == src)
+			C.control_computer = null
+	QDEL_NULL_LIST(frozen_items)
+	. = ..()
+
 /obj/machinery/computer/cryopod/robot
 	name = "robotic storage console"
 	desc = "An interface between crew and the robotic storage systems."
@@ -244,6 +251,7 @@
 	..()
 
 /obj/machinery/cryopod/Destroy()
+	control_computer = null
 	if(occupant)
 		occupant.forceMove(loc)
 		occupant.resting = 1
@@ -446,7 +454,7 @@
 	user.visible_message("<span class='notice'>\The [user] begins placing \the [target] into \the [src].</span>", "<span class='notice'>You start placing \the [target] into \the [src].</span>")
 	attempt_enter(target, user)
 
-/obj/machinery/cryopod/attackby(var/obj/item/G as obj, var/mob/user as mob)
+/obj/machinery/cryopod/attackby(var/obj/item/G, var/mob/user)
 
 	if(istype(G, /obj/item/grab))
 		var/obj/item/grab/grab = G
@@ -541,7 +549,6 @@
 		SetName(initial(name))
 		return
 
-	occupant.stop_pulling()
 	if(occupant.client)
 		if(!silent)
 			to_chat(occupant, "<span class='notice'>[on_enter_occupant_message]</span>")
@@ -577,7 +584,7 @@
 	else
 		to_chat(user, "<span class='notice'>The glass is already open.</span>")
 
-/obj/structure/broken_cryo/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/broken_cryo/attackby(obj/item/W, mob/user)
 	if (busy)
 		to_chat(user, "<span class='notice'>Someone else is attempting to open this.</span>")
 		return

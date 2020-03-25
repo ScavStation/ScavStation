@@ -17,9 +17,6 @@
 /obj/item/stock_parts/computer/nano_printer/proc/print_text(var/text_to_print, var/paper_title = null, var/paper_type = /obj/item/paper, var/list/md = null)
 	if(printer_ready())
 		last_print = world.time
-		// Damaged printer causes the resulting paper to be somewhat harder to read.
-		if(damage > damage_malfunction)
-			text_to_print = stars(text_to_print, 100-malfunction_probability)
 		var/turf/T = get_turf(src)
 		new paper_type(T,text_to_print, paper_title, md)
 		stored_paper--
@@ -38,7 +35,7 @@
 		return 0
 	return 1
 
-/obj/item/stock_parts/computer/nano_printer/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stock_parts/computer/nano_printer/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/paper))
 		if(stored_paper >= max_paper)
 			to_chat(user, "You try to add \the [W] into \the [src], but its paper bin is full.")

@@ -275,22 +275,16 @@
 
 /obj/random/projectile/spawn_choices()
 	return list(/obj/item/gun/projectile/shotgun/pump = 3,
-				/obj/item/gun/projectile/automatic/merc_smg = 2,
 				/obj/item/gun/projectile/automatic/assault_rifle = 2,
-				/obj/item/gun/projectile/automatic/bullpup_rifle = 2,
-				/obj/item/gun/projectile/pistol/military/alt = 3,
-				/obj/item/gun/projectile/pistol/sec = 4,
+				/obj/item/gun/projectile/pistol = 3,
 				/obj/item/gun/projectile/pistol/holdout = 4,
-				/obj/item/gun/projectile/pirate = 5,
-				/obj/item/gun/projectile/revolver = 2,
-				/obj/item/gun/projectile/automatic/sec_smg = 3,
-				/obj/item/gun/projectile/revolver/holdout = 4,
+				/obj/item/gun/projectile/zipgun = 5,
+				/obj/item/gun/projectile/automatic/smg = 4,
 				/obj/item/gun/projectile/revolver = 2,
 				/obj/item/gun/projectile/shotgun/doublebarrel = 4,
 				/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 3,
-				/obj/item/gun/projectile/heavysniper = 1,
-				/obj/item/gun/projectile/shotgun/pump/combat = 2,
-				/obj/item/gun/projectile/pistol/throwback = 1)
+				/obj/item/gun/projectile/heavysniper = 1
+				)
 
 /obj/random/handgun
 	name = "Random Handgun"
@@ -299,12 +293,11 @@
 	icon_state = "secguncomp"
 
 /obj/random/handgun/spawn_choices()
-	return list(/obj/item/gun/projectile/pistol/sec = 3,
+	return list(/obj/item/gun/projectile/pistol = 3,
 				/obj/item/gun/energy/gun = 2,
-				/obj/item/gun/projectile/pistol/military/alt = 1,
 				/obj/item/gun/projectile/pistol/holdout = 2,
 				/obj/item/gun/energy/retro = 1,
-				/obj/item/gun/projectile/pistol/throwback = 1)
+				)
 
 /obj/random/ammo
 	name = "Random Ammunition"
@@ -318,9 +311,9 @@
 				/obj/item/storage/box/ammo/shotgunshells = 4,
 				/obj/item/storage/box/ammo/stunshells = 1,
 				/obj/item/ammo_magazine/pistol = 2,
-				/obj/item/ammo_magazine/smg_top = 2,
-				/obj/item/ammo_magazine/smg_top/rubber = 6,
-				/obj/item/ammo_magazine/pistol/throwback = 1)
+				/obj/item/ammo_magazine/smg = 2,
+				/obj/item/ammo_magazine/smg/rubber = 6
+				)
 
 /obj/random/action_figure
 	name = "random action figure"
@@ -890,18 +883,13 @@ obj/random/obstruction/spawn_choices()
 				/obj/item/spacecash/bundle/c100 = 2,
 				/obj/item/spacecash/bundle/c1000 = 1)
 
-/obj/random/documents // top secret documents for SCG eyes only
+/obj/random/documents // top secret documents, mostly overriden by maps
 	name = "random secret documents"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "docs_generic"
 
 /obj/random/documents/spawn_choices()
-	return list (
-		/obj/item/documents/scg/verified = 7,
-		/obj/item/documents/scg/red =      7,
-		/obj/item/documents/scg/blue =     7,
-		/obj/item/documents/scg/brains =   7
-	)
+	return list(/obj/item/documents)
 
 /obj/random/maintenance //Clutter and loot for maintenance and away missions
 	name = "random maintenance item"

@@ -157,7 +157,7 @@
 		last_power_draw = power_draw
 		use_power_oneoff(power_draw)
 
-	if(network)
+	if(network && (transfer_moles > 0))
 		network.update = 1
 
 	return 1
@@ -188,7 +188,7 @@
 			return SPAN_WARNING("You cannot take this [src] apart, it too exerted due to internal pressure.")
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/weldingtool))
 
 		var/obj/item/weldingtool/WT = W
@@ -279,7 +279,7 @@
 		return FALSE
 	. = ..()
 	if(.)
-		machine.scrubbing = new_value
+		machine.panic = new_value
 		if(machine.panic)
 			machine.update_use_power(POWER_USE_IDLE)
 			machine.scrubbing = SCRUBBER_SIPHON

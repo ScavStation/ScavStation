@@ -6,6 +6,11 @@
 /obj/machinery/door/unpowered/simple/wood{
 	name = "matriarch's quarters"
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
 "ae" = (
@@ -13,6 +18,7 @@
 /obj/effect/landmark/start{
 	name = "Enclave Patriarch"
 	},
+/obj/item/stool/wood,
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
 "af" = (
@@ -98,20 +104,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "ar" = (
@@ -405,7 +410,6 @@
 /obj/effect/landmark/start{
 	name = "Enclave Scout"
 	},
-/obj/item/stool/padded,
 /obj/effect/decal/cleanable/filth,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -595,6 +599,8 @@
 "bk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/paicard,
 /turf/simulated/floor,
 /area/ship/trade/enclave)
 "bl" = (
@@ -603,6 +609,9 @@
 	level = 2
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/gamblingtable,
+/obj/item/chems/food/snacks/fish/mollusc,
+/obj/item/trash/mollusc_shell/clam,
 /turf/simulated/floor,
 /area/ship/trade/enclave)
 "bm" = (
@@ -817,12 +826,12 @@
 /obj/item/clothing/under/yinglet,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/under/yinglet/scout,
-/obj/item/material/twohanded/spear,
 /obj/item/material/shard{
 	has_handle = "#800000";
 	name = "shank"
 	},
 /obj/item/synthesized_instrument/synthesizer,
+/obj/item/material/twohanded/spear/javelin,
 /turf/simulated/floor,
 /area/ship/trade/fore_port_underside_maint)
 "bE" = (
@@ -1232,14 +1241,15 @@
 	flickering = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/flora/pottedplant/bamboo,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "en" = (
-/obj/item/paicard,
-/obj/item/megaphone,
-/obj/item/radio,
-/obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
 "eu" = (
@@ -1267,6 +1277,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/fore_port_underside_maint)
+"fV" = (
+/obj/item/mollusc,
+/obj/item/mollusc/barnacle,
+/obj/item/mollusc/clam,
+/obj/structure/table/gamblingtable,
+/turf/simulated/floor/carpet/red,
+/area/ship/trade/enclave)
 "fY" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -1299,12 +1316,28 @@
 /obj/structure/hygiene/drain,
 /turf/simulated/floor/tiled,
 /area/ship/trade/loading_bay)
+"gf" = (
+/obj/structure/lattice,
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/turf/simulated/floor/carpet/green,
+/area/ship/trade/enclave)
 "hc" = (
-/turf/simulated/floor/carpet/red,
+/obj/item/megaphone,
+/obj/item/radio,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
 "hf" = (
 /obj/structure/lattice,
 /obj/machinery/light/small,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
 "hg" = (
@@ -1333,6 +1366,7 @@
 /area/ship/trade/loading_bay)
 "iD" = (
 /obj/structure/closet/crate,
+/obj/item/clothing/suit/rubber,
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
 "iH" = (
@@ -1351,8 +1385,10 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/fore_starboard_underside_maint)
 "iY" = (
-/obj/item/radio/intercom{
-	pixel_y = 25
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
@@ -1398,6 +1434,9 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
 /area/ship/trade/fore_starboard_underside_maint)
+"lA" = (
+/turf/simulated/wall,
+/area/ship/trade/enclave)
 "lB" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1428,6 +1467,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"oG" = (
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/trade/enclave)
 "oO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -1508,14 +1554,6 @@
 /obj/structure/bed/chair/padded/beige,
 /turf/simulated/floor/carpet/red,
 /area/ship/trade/enclave)
-"rZ" = (
-/obj/item/chems/food/snacks/fish/mollusc,
-/obj/item/mollusc,
-/obj/item/mollusc/barnacle,
-/obj/item/mollusc/clam,
-/obj/structure/table/gamblingtable,
-/turf/simulated/floor/wood/walnut,
-/area/ship/trade/enclave)
 "sX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1585,6 +1623,9 @@
 /obj/item/material/shard{
 	has_handle = "#800000";
 	name = "shank"
+	},
+/obj/machinery/newscaster{
+	pixel_x = 30
 	},
 /turf/simulated/floor,
 /area/ship/trade/fore_port_underside_maint)
@@ -1692,6 +1733,10 @@
 /obj/random/trash,
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
+"zw" = (
+/obj/structure/yinglet_nest,
+/turf/simulated/floor/carpet/green,
+/area/ship/trade/enclave)
 "AO" = (
 /obj/item/clothing/under/yinglet,
 /obj/structure/hygiene/drain,
@@ -1769,9 +1814,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/landmark/start{
-	name = "Enclave Patriarch"
-	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "Gb" = (
@@ -1802,6 +1844,9 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/ship/trade/fore_starboard_underside_maint)
+"GP" = (
+/turf/simulated/floor/carpet/green,
+/area/ship/trade/enclave)
 "GQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1838,6 +1883,15 @@
 "IG" = (
 /obj/structure/bed/chair/comfy/green{
 	dir = 1
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
@@ -1894,6 +1948,9 @@
 	},
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
+"Mb" = (
+/turf/simulated/wall,
+/area/ship/trade/fore_starboard_underside_maint)
 "Ms" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1957,6 +2014,7 @@
 /obj/structure/table/woodentable/mahogany,
 /obj/item/gun/launcher/crossbow,
 /obj/item/stack/material/rods,
+/obj/item/cell/crap/empty,
 /turf/simulated/floor/wood/walnut,
 /area/ship/trade/enclave)
 "Qv" = (
@@ -1990,6 +2048,10 @@
 	},
 /obj/item/crowbar/red,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start{
+	name = "Enclave Patriarch"
+	},
+/obj/item/stool/padded,
 /turf/simulated/floor,
 /area/ship/trade/enclave)
 "Rr" = (
@@ -2050,11 +2112,27 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"SS" = (
+/obj/item/radio/intercom{
+	pixel_y = 25
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/flora/pottedplant/bamboo,
+/turf/simulated/floor,
+/area/ship/trade/enclave)
 "Ua" = (
 /obj/effect/landmark/start{
 	name = "Enclave Matriarch"
 	},
 /obj/structure/bed/chair/wood/walnut,
+/turf/simulated/floor/carpet/red,
+/area/ship/trade/enclave)
+"Ug" = (
+/obj/structure/curtain/medical,
+/turf/simulated/floor,
+/area/ship/trade/enclave)
+"Ux" = (
+/obj/structure/yinglet_nest,
 /turf/simulated/floor/carpet/red,
 /area/ship/trade/enclave)
 "UF" = (
@@ -2087,6 +2165,9 @@
 	},
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
+"Xe" = (
+/turf/simulated/wall,
+/area/ship/trade/fore_port_underside_maint)
 "Xo" = (
 /obj/structure/hygiene/drain,
 /turf/simulated/floor,
@@ -4947,7 +5028,7 @@ aa
 SC
 Qh
 IG
-Gb
+Xe
 am
 yO
 hg
@@ -5029,7 +5110,7 @@ aa
 fY
 LB
 hf
-Gb
+Xe
 Da
 xF
 af
@@ -5109,9 +5190,9 @@ aa
 aa
 aa
 ux
-SC
+lA
 ad
-SC
+lA
 ap
 yO
 ag
@@ -5191,7 +5272,7 @@ aa
 aa
 aa
 SC
-SC
+SS
 iY
 cX
 aq
@@ -5438,7 +5519,7 @@ aa
 aa
 fY
 Ua
-hc
+fV
 bl
 aS
 ZR
@@ -5519,7 +5600,7 @@ aa
 aa
 aa
 fY
-rZ
+en
 ZL
 QW
 lg
@@ -5601,8 +5682,8 @@ aa
 aa
 aa
 SC
-SC
 rp
+oG
 FT
 aT
 yO
@@ -5682,10 +5763,10 @@ aa
 aa
 aa
 aa
-as
-SC
-fY
-SC
+ux
+lA
+Ug
+lA
 aU
 yO
 iD
@@ -5764,10 +5845,10 @@ aa
 aa
 aa
 aa
-as
-as
-aa
-ZA
+fY
+gf
+GP
+Mb
 be
 xF
 Yd
@@ -5846,10 +5927,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-lv
+SC
+zw
+Ux
+Mb
 Rr
 yO
 yO
@@ -5928,9 +6009,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+SC
+SC
+SC
 lv
 bm
 bq

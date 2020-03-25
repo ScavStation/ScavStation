@@ -63,7 +63,7 @@
 	else
 		set_light(0)
 
-/obj/item/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/flashlight/attack(mob/living/M, mob/living/user)
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == BP_EYES)
 
@@ -320,7 +320,7 @@
 /obj/item/flashlight/flare/glowstick
 	name = "green glowstick"
 	desc = "A military-grade glowstick."
-	w_class = 2.0
+	w_class = ITEM_SIZE_SMALL
 	color = "#49f37c"
 	icon_state = "glowstick"
 	item_state = "glowstick"

@@ -57,9 +57,6 @@ macro "borghotkeymode"
 		name = "Insert"
 		command = "a-intent right"
 	elem 
-		name = "Delete"
-		command = "delete-key-pressed"
-	elem 
 		name = "1"
 		command = "toggle-module 1"
 	elem 
@@ -284,9 +281,6 @@ macro "macro"
 		name = "Insert"
 		command = "a-intent right"
 	elem 
-		name = "Delete"
-		command = "delete-key-pressed"
-	elem 
 		name = "CTRL+1"
 		command = "a-intent help"
 	elem 
@@ -459,9 +453,6 @@ macro "hotkeymode"
 	elem 
 		name = "Insert"
 		command = "a-intent right"
-	elem 
-		name = "Delete"
-		command = "delete-key-pressed"
 	elem 
 		name = "1"
 		command = "a-intent help"
@@ -705,9 +696,6 @@ macro "borgmacro"
 		name = "Insert"
 		command = "a-intent right"
 	elem 
-		name = "Delete"
-		command = "delete-key-pressed"
-	elem 
 		name = "CTRL+1"
 		command = "toggle-module 1"
 	elem 
@@ -856,14 +844,6 @@ menu "menu"
 		name = "&Size"
 		command = ""
 		saved-params = "is-checked"
-	elem "stretch"
-		name = "&Stretch to fit"
-		command = "SetWindowIconSize 0"
-		category = "&Size"
-		is-checked = true
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
 	elem "icon128"
 		name = "&128x128"
 		command = "SetWindowIconSize 128"
@@ -889,6 +869,7 @@ menu "menu"
 		name = "&48x48"
 		command = "SetWindowIconSize 48"
 		category = "&Size"
+		is-checked = true
 		can-check = true
 		group = "size"
 		saved-params = "is-checked"

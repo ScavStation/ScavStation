@@ -1,25 +1,8 @@
 #if !defined(using_map_DATUM)
 
-	#include "valsalia_defines.dm"
-	#include "items/airlocks.dm"
-	#include "items/documents.dm"
-	#include "items/chemistry.dm"
-	#include "items/clothing.dm"
-	#include "items/clothing_baxxid.dm"
-	#include "items/clothing_yinglet.dm"
-	#include "items/javelin.dm"
-	#include "items/mollusc.dm"
-	#include "items/prosthetics.dm"
-	#include "items/seed_storage.dm"
-	#include "items/suit_cycler.dm"
-	#include "items/turfs.dm"
-	#include "map/culture.dm"
-	#include "map/overrides.dm"
-	#include "lobby/music.dm"
-	#include "species/baxxid.dm"
-	#include "species/yinglet.dm"
-	#include "species/yinglet_organs.dm"
-	#include "species/yinglet_accessories.dm"
+	#include "..\..\code\content_packages\corporate\_corporate.dme"
+	#include "..\..\code\content_packages\valsalia\_valsalia.dme"
+
 	#include "tradeship_antagonists.dm"
 	#include "tradeship_areas.dm"
 	#include "tradeship_chems.dm"
@@ -46,7 +29,6 @@
 	#include "../away/blueriver/blueriver.dm"
 	#include "../away/mobius_rift/mobius_rift.dm"
 	#include "../away/errant_pisces/errant_pisces.dm"
-	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/unishi/unishi.dm"
 
 	#define using_map_DATUM /datum/map/tradeship

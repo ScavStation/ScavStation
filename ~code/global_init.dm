@@ -18,4 +18,5 @@ var/global/datum/global_init/init = new ()
 	qdel(src) //we're done
 
 /datum/global_init/Destroy()
-	return 1
+	init = null
+	return ..()

@@ -39,6 +39,9 @@
 	var/list/users_to_open = new
 	var/next_process_time = 0
 
+	var/sound_open = 'sound/machines/airlock_ext_open.ogg'
+	var/sound_close = 'sound/machines/airlock_ext_close.ogg'
+
 	var/hatch_open = 0
 
 	power_channel = ENVIRON
@@ -130,7 +133,7 @@
 		return ..()
 	return 0
 
-/obj/machinery/door/firedoor/attack_hand(mob/user as mob)
+/obj/machinery/door/firedoor/attack_hand(mob/user)
 	add_fingerprint(user)
 	if(operating)
 		return//Already doing something.
@@ -185,7 +188,7 @@
 				nextstate = FIREDOOR_CLOSED
 				close()
 
-/obj/machinery/door/firedoor/attackby(obj/item/C as obj, mob/user as mob)
+/obj/machinery/door/firedoor/attackby(obj/item/C, mob/user)
 	add_fingerprint(user, 0, C)
 	if(operating)
 		return//Already doing something.
@@ -277,7 +280,7 @@
 	if (stat & BROKEN)
 		new /obj/item/stock_parts/circuitboard/broken(src.loc)
 	else
-		new/obj/item/airalarm_electronics(src.loc)
+		new /obj/item/stock_parts/circuitboard/air_alarm(src.loc)
 
 	var/obj/structure/firedoor_assembly/FA = new/obj/structure/firedoor_assembly(src.loc)
 	FA.anchored = !moved
@@ -389,8 +392,10 @@
 	switch(animation)
 		if("opening")
 			flick("opening", src)
+			playsound(src, sound_open, 45, 1)
 		if("closing")
 			flick("closing", src)
+			playsound(src, sound_close, 45, 1)
 	return
 
 

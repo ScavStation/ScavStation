@@ -18,7 +18,7 @@
 	if (occupant && user.Adjacent(src))
 		occupant.examine(arglist(args))
 
-/obj/machinery/bodyscanner/relaymove(mob/user as mob)
+/obj/machinery/bodyscanner/relaymove(mob/user)
 	..()
 	src.go_out()
 
@@ -39,7 +39,6 @@
 
 	if(!user_can_move_target_inside(usr,usr))
 		return
-	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
 
@@ -65,10 +64,10 @@
 	if(istype(new_state))
 		updateUsrDialog()
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/normal/G, user as mob)
+/obj/machinery/bodyscanner/attackby(obj/item/grab/G, user)
 	if(istype(G))
-		var/mob/M = G.affecting
-		if(!user_can_move_target_inside(M, user))
+		var/mob/M = G.get_affecting_mob()
+		if(!M || !user_can_move_target_inside(M, user))
 			return
 		qdel(G)
 		return TRUE
