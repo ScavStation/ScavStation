@@ -588,9 +588,9 @@
 	bitesize = 2
 
 /obj/item/chems/food/snacks/human
+	filling_color = "#d63c3c"
 	var/hname = ""
 	var/job = null
-	filling_color = "#d63c3c"
 
 /obj/item/chems/food/snacks/human/burger
 	name = "-burger"
@@ -1972,7 +1972,6 @@
 
 /obj/item/chems/food/snacks/sliceable
 	w_class = ITEM_SIZE_NORMAL //whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
-
 /**
  *  A food item slice
  *
@@ -2813,21 +2812,6 @@
 	. = ..()
 	pizza = new /obj/item/chems/food/snacks/sliceable/pizza/meatpizza(src)
 	boxtag = "Meatlover's Supreme"
-
-/obj/item/chems/food/snacks/dionaroast
-	name = "roast diona"
-	desc = "It's like an enormous, leathery carrot. With an eye."
-	icon_state = "dionaroast"
-	trash = /obj/item/trash/plate
-	filling_color = "#75754b"
-	center_of_mass = @"{'x':16,'y':7}"
-	nutriment_desc = list("a chorus of flavor" = 6)
-	nutriment_amt = 6
-	bitesize = 2
-
-/obj/item/chems/food/snacks/dionaroast/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/radium, 2)
 
 ///////////////////////////////////////////
 // new old food stuff from bs12

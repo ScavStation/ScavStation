@@ -1,6 +1,7 @@
 /obj/item/scanner/health
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
+	icon = 'icons/obj/items/device/scanner/health_scanner.dmi'
 	icon_state = "health"
 	item_state = "analyzer"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
@@ -263,6 +264,25 @@
 		if(unknown)
 			print_reagent_default_message = FALSE
 			. += "<span class='scan_warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.</span>"
+
+	if(H.touching.total_volume)
+		var/unknown = 0
+		var/reagentdata[0]
+		for(var/A in H.touching.reagent_list)
+			var/datum/reagent/R = A
+			if(R.scannable)
+				print_reagent_default_message = FALSE
+				reagentdata[R.type] = "<span class='scan_notice'>[round(H.reagents.get_reagent_amount(R.type), 1)]u [R.name]</span>"
+			else
+				unknown++
+		if(reagentdata.len)
+			print_reagent_default_message = FALSE
+			. += "<span class='scan_notice'>Beneficial reagents detected on subject's body:</span>"
+			for(var/d in reagentdata)
+				. += reagentdata[d]
+		if(unknown)
+			print_reagent_default_message = FALSE
+			. += "<span class='scan_warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected on subject's body.</span>"
 
 	var/datum/reagents/ingested = H.get_ingested_reagents()
 	if(ingested && ingested.total_volume)

@@ -11,6 +11,7 @@
 /decl/machine_construction/default/panel_closed
 	down_state = /decl/machine_construction/default/panel_open
 	visible_components = FALSE
+	locked = TRUE
 
 /decl/machine_construction/default/panel_closed/state_is_valid(obj/machinery/machine)
 	return !machine.panel_open
@@ -64,6 +65,8 @@
 		return
 	if(isCrowbar(I))
 		TRANSFER_STATE(down_state)
+		playsound(get_turf(machine), 'sound/items/Crowbar.ogg', 50, 1)
+		machine.visible_message(SPAN_NOTICE("\The [user] deconstructs \the [machine]."))
 		machine.dismantle()
 		return
 	if(isScrewdriver(I))

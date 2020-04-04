@@ -12,10 +12,10 @@
 
 	var/obj/item/implant/translator/natural/I = new()
 	I.implant_in_mob(H, BP_HEAD)
-	if (master.languages.len)
-		var/datum/language/lang = master.languages[1]
-		H.add_language(lang.name)
-		H.set_default_language(lang)
+	if (length(master.languages))
+		var/decl/language/lang = master.languages[1]
+		H.add_language(lang.type)
+		H.set_default_language(lang.type)
 		I.languages[lang.name] = 1
 
 	modify_servant(equip_servant(H), H)
@@ -232,6 +232,7 @@
 /obj/item/summoning_stone
 	name = "summoning stone"
 	desc = "a small non-descript stone of dubious origin."
+	icon = 'icons/obj/items/summoning_stone.dmi'
 	icon_state = "stone"
 	throw_speed = 5
 	throw_range = 10

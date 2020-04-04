@@ -7,7 +7,6 @@
 	opacity = 1
 	anchored = 1
 	var/excavation_level = 0
-	var/datum/geosample/geological_data
 	var/datum/artifact_find/artifact_find
 	var/last_act = 0
 
@@ -17,19 +16,10 @@
 	excavation_level = rand(5, 50)
 
 /obj/structure/boulder/Destroy()
-	QDEL_NULL(geological_data)
 	QDEL_NULL(artifact_find)
 	..()
 
 /obj/structure/boulder/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/core_sampler))
-		src.geological_data.artifact_distance = rand(-100,100) / 100
-		src.geological_data.artifact_id = artifact_find.artifact_id
-
-		var/obj/item/core_sampler/C = I
-		C.sample_item(src, user)
-		return
-
 	if(istype(I, /obj/item/depth_scanner))
 		var/obj/item/depth_scanner/C = I
 		C.scan_atom(user, src)
@@ -68,8 +58,8 @@
 			if(artifact_find)
 				var/spawn_type = artifact_find.artifact_find_type
 				var/obj/O = new spawn_type(get_turf(src))
-				if(istype(O, /obj/machinery/artifact))
-					var/obj/machinery/artifact/X = O
+				if(istype(O, /obj/structure/artifact))
+					var/obj/structure/artifact/X = O
 					if(X.my_effect)
 						X.my_effect.artifact_id = artifact_find.artifact_id
 				src.visible_message("<span class='warning'>\The [src] suddenly crumbles away.</span>")

@@ -241,7 +241,7 @@
 		TAG_CULTURE =   list(CULTURE_OTHER),
 		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
 		TAG_FACTION =   list(FACTION_OTHER),
-		TAG_RELIGION =  list(RELIGION_OTHER, RELIGION_ATHEISM, RELIGION_AGNOSTICISM)
+		TAG_RELIGION =  list(RELIGION_OTHER)
 	)
 	var/list/force_cultural_info =                list()
 	var/list/default_cultural_info =              list()
@@ -347,6 +347,9 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		if (extendedtank)	H.equip_to_slot_or_del(new /obj/item/storage/box/engineer(H), slot_r_hand)
 		else	H.equip_to_slot_or_del(new /obj/item/storage/box/survival(H), slot_r_hand)
 
+/datum/species/proc/get_manual_dexterity(var/mob/living/carbon/human/H)
+	. = manual_dexterity
+
 /datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
 
 	H.mob_size = mob_size
@@ -444,7 +447,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 /datum/species/proc/handle_pre_spawn(var/mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
+/datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events.
 	return
 
 /datum/species/proc/handle_new_grab(var/mob/living/carbon/human/H, var/obj/item/grab/G)
@@ -457,7 +460,6 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		else
 			H.emote("groan")
 
-// Only used for alien plasma weeds atm, but could be used for Dionaea later.
 /datum/species/proc/handle_environment_special(var/mob/living/carbon/human/H)
 	return
 
@@ -476,7 +478,6 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 /datum/species/proc/build_hud(var/mob/living/carbon/human/H)
 	return
 
-//Used by xenos understanding larvae and dionaea understanding nymphs.
 /datum/species/proc/can_understand(var/mob/other)
 	return
 

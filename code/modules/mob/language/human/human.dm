@@ -1,5 +1,5 @@
 //base human language
-/datum/language/human
+/decl/language/human
 	name = "proto-sapien"
 	desc = "This is the human root language. If you have this, please tell a developer."
 	speech_verb = "says"
@@ -8,9 +8,9 @@
 	flags = WHITELISTED
 	shorthand = "???"
 	space_chance = 40
-	category = /datum/language/human
+	category = /decl/language/human
 
-/datum/language/human/get_spoken_verb(var/msg_end)
+/decl/language/human/get_spoken_verb(var/msg_end)
 	switch(msg_end)
 		if("!")
 			return pick("exclaims","shouts","yells")
@@ -18,7 +18,7 @@
 			return ask_verb
 	return speech_verb
 
-/datum/language/human/get_random_name(var/gender)
+/decl/language/human/get_random_name(var/gender)
 	if (prob(80))
 		if(gender==FEMALE)
 			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
@@ -34,8 +34,8 @@
 						https://www.sttmedia.com/syllablefrequency-german
 *///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/datum/language/human/common
-	name = LANGUAGE_HUMAN
+/decl/language/human/common
+	name = "Common"
 	desc = "The common language of most human settlements."
 	speech_verb = "says"
 	whisper_verb = "whispers"
@@ -52,20 +52,3 @@
 		"ait", "les", "lle", "men", "ais", "ans", "ait", "ave", "con", "com", "des", "tre", "eta", "eur", "est",
 		"ing", "the", "ver", "was", "ith", "hin"
 	)
-
-/datum/language/diona
-	name = LANGUAGE_NYMPH
-	desc = "A language known instinctively by diona nymphs."
-	speech_verb = "creaks and rustles"
-	ask_verb = "creaks"
-	exclaim_verb = "rustles"
-	colour = "soghun"
-	key = "q"
-	flags = RESTRICTED
-	syllables = list("hs","zt","kr","st","sh")
-	shorthand = "RT"
-	machine_understands = FALSE
-	hidden_from_codex = TRUE
-
-/datum/language/diona/get_random_name()
-	. = "[pick(list("To Sleep Beneath","Wind Over","Embrace of","Dreams of","Witnessing","To Walk Beneath","Approaching the"))] [pick(list("the Void","the Sky","Encroaching Night","Planetsong","Starsong","the Wandering Star","the Empty Day","Daybreak","Nightfall","the Rain"))]"

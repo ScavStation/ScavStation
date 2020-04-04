@@ -1,11 +1,14 @@
 #if !defined(using_map_DATUM)
 
-	#include "..\..\code\content_packages\misc\mundane.dm"
-	#include "..\..\code\content_packages\misc\spacemen.dm"
-	#include "..\..\code\content_packages\corporate\_corporate.dme"
-	#include "..\..\code\content_packages\valsalia\_valsalia.dme"
-	#include "..\..\code\content_packages\government\_government.dme"
-	#include "..\..\code\content_packages\psionics\_psionics.dme"
+	#include "..\..\mods\misc\mundane.dm"
+	#include "..\..\mods\misc\spacemen.dm"
+	#include "..\..\mods\corporate\_corporate.dme"
+	#include "..\..\mods\government\_government.dme"
+	#include "..\..\mods\psionics\_psionics.dme"
+	#include "..\..\mods\ascent\_ascent.dme"
+	#include "..\..\mods\modern_earth\_modern_earth.dme"
+	#include "..\..\mods\dionaea\_dionaea.dme"
+	#include "..\..\mods\valsalia\_valsalia.dme"
 
 	#include "example_areas.dm"
 	#include "example_shuttles.dm"

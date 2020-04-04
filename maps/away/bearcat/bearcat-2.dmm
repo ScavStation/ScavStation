@@ -513,8 +513,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/derelict{
-	cell_type = /obj/item/cell;
+/obj/machinery/power/apc/derelict/full{
 	dir = 4;
 	name = "Captain's Quarters APC"
 	},
@@ -2079,7 +2078,7 @@
 /turf/simulated/floor/usedup,
 /area/ship/bearcat/crew/hallway/starboard)
 "dO" = (
-/obj/machinery/sleeper,
+/obj/machinery/sleeper/standard,
 /obj/structure/sign/warning/nosmoking_2{
 	pixel_y = 28
 	},
@@ -2782,8 +2781,7 @@
 "eO" = (
 /obj/structure/table/standard,
 /obj/structure/cable,
-/obj/machinery/power/apc/derelict{
-	cell_type = /obj/item/cell;
+/obj/machinery/power/apc/derelict/full{
 	name = "Medical Bay APC"
 	},
 /obj/machinery/light_switch{
@@ -3543,8 +3541,7 @@
 /turf/simulated/floor/usedup,
 /area/ship/bearcat/unused)
 "gc" = (
-/obj/machinery/power/apc/derelict{
-	cell_type = /obj/item/cell;
+/obj/machinery/power/apc/derelict/full{
 	name = "Medical Bay APC"
 	},
 /obj/structure/cable,
@@ -5913,8 +5910,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/ship/bearcat/maintenance/atmos)
 "PP" = (
-/obj/machinery/power/apc/derelict{
-	cell_type = /obj/item/cell;
+/obj/machinery/power/apc/derelict/full{
 	name = "Medical Bay APC"
 	},
 /obj/structure/cable{

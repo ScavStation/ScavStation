@@ -1,8 +1,8 @@
 /obj/item
 	name = "item"
-	icon = 'icons/obj/items.dmi'
 	w_class = ITEM_SIZE_NORMAL
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
+	pass_flags = PASS_FLAG_TABLE
 
 	var/image/blood_overlay = null //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/randpixel = 6
@@ -13,7 +13,6 @@
 	var/hitsound = "swing_hit"
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
-	pass_flags = PASS_FLAG_TABLE
 	var/obj/item/master = null
 	var/origin_tech                    //Used by R&D to determine what research bonuses it grants.
 	var/list/attack_verb = list("hit") //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
@@ -93,7 +92,7 @@
 	var/material_force_multiplier = 0.5	       // Multiplier to material's generic damage value for this specific type of weapon
 	var/thrown_material_force_multiplier = 0.5 // As above, but for throwing the weapon.
 	var/unbreakable = FALSE                    // Whether or not this weapon degrades.
-	var/base_worth = 1                         // Multiplier for base material worth.
+	var/anomaly_shielding					   // 0..1 value of how well it shields against xenoarch anomalies
 
 /obj/item/Initialize(var/ml, var/material_key)
 	if(!material_key)
@@ -245,7 +244,7 @@
 		else if(usr.client && istype(over, /obj/screen/inventory) && (over in usr.client.screen))
 			var/obj/screen/inventory/inv = over
 			if(!inv.slot_id)
-				return 
+				return
 			if(!usr.check_dexterity(DEXTERITY_GRIP, silent = TRUE))
 				to_chat(usr, SPAN_NOTICE("You begin putting on \the [src]..."))
 				if(!do_after(usr, 3 SECONDS, src) || QDELETED(over) || QDELETED(src) || QDELETED(usr))
@@ -301,7 +300,7 @@
 
 		to_chat(user, SPAN_WARNING("You are not dexterous enough to pick up \the [src]."))
 		return
-	
+
 	var/old_loc = loc
 	pickup(user)
 	if (istype(loc, /obj/item/storage))
@@ -487,8 +486,8 @@ var/list/global/slot_flags_enumeration = list(
 				return 0
 			if( w_class > ITEM_SIZE_SMALL && !(slot_flags & SLOT_POCKET) )
 				return 0
-			if(get_storage_cost() == ITEM_SIZE_NO_CONTAINER)
-				return 0 //pockets act like storage and should respect ITEM_SIZE_NO_CONTAINER. Suit storage might be fine as is
+			if(get_storage_cost() >= ITEM_SIZE_NO_CONTAINER)
+				return 0
 		if(slot_s_store)
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
@@ -862,7 +861,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return mob_state
 
 /obj/item/proc/get_mob_overlay(mob/user_mob, slot)
-	
+
 	if(on_mob_icon)
 		return experimental_mob_overlay(user_mob, slot)
 
@@ -951,9 +950,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		set_icon_state(citem.item_icon_state)
 		item_state = null
 		icon_override = CUSTOM_ITEM_MOB
-
-/obj/item/Value()
-	return material ? material.value * base_worth : base_worth
 
 /obj/item/proc/is_special_cutting_tool(var/high_power)
 	return FALSE

@@ -1,6 +1,7 @@
 /obj/item/scanner
 	name = "handheld scanner"
 	desc = "A hand-held scanner of some sort. You shouldn't be seeing it."
+	icon = 'icons/obj/items/device/scanner/atmos_scanner.dmi'
 	icon_state = "atmos"
 	item_state = "analyzer"
 	w_class = ITEM_SIZE_SMALL
@@ -10,10 +11,8 @@
 	matter = list(MAT_ALUMINIUM = 30,MAT_GLASS = 20)
 	var/scan_title
 	var/scan_data
-	//For displaying scans
 	var/window_width = 450
 	var/window_height = 600
-
 	var/use_delay
 	var/scan_sound
 	var/printout_color

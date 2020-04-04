@@ -3,8 +3,9 @@
 /decl/machine_construction/tcomms
 	needs_board = "machine"
 
-/decl/machine_construction/tcomms/panel_closed/
+/decl/machine_construction/tcomms/panel_closed
 	visible_components = FALSE
+	locked = TRUE
 
 /decl/machine_construction/tcomms/panel_closed/state_is_valid(obj/machinery/machine)
 	return !machine.panel_open
@@ -98,6 +99,8 @@
 			return TRUE
 	if(isCrowbar(I))
 		TRANSFER_STATE(/decl/machine_construction/default/deconstructed)
+		playsound(get_turf(machine), 'sound/items/Crowbar.ogg', 50, 1)
+		machine.visible_message(SPAN_NOTICE("\The [user] deconstructs \the [machine]."))
 		machine.dismantle()
 		return
 

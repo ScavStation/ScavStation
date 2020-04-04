@@ -28,7 +28,7 @@
 /area/ship/trade/loading_bay)
 "ag" = (
 /obj/machinery/conveyor_switch/oneway{
-	id = "trash_sort"
+	id_tag = "trash_sort"
 	},
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
@@ -69,7 +69,7 @@
 "an" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "trash_sort"
+	id_tag = "trash_sort"
 	},
 /obj/random/trash,
 /obj/effect/floor_decal/industrial/warning{
@@ -455,7 +455,7 @@
 "aY" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "trash_sort"
+	id_tag = "trash_sort"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1348,7 +1348,7 @@
 "hZ" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "trash_sort"
+	id_tag = "trash_sort"
 	},
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
@@ -1406,7 +1406,7 @@
 "kS" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "trash_sort"
+	id_tag = "trash_sort"
 	},
 /obj/random/trash,
 /turf/simulated/floor,
@@ -1440,7 +1440,7 @@
 "lB" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "trash_sort"
+	id_tag = "trash_sort"
 	},
 /obj/item/material/shard,
 /obj/item/stack/cable_coil/random{
@@ -1505,7 +1505,7 @@
 "pg" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "trash_sort"
+	id_tag = "trash_sort"
 	},
 /obj/item/trash/mollusc_shell/clam,
 /turf/simulated/floor,
@@ -2224,7 +2224,7 @@
 "YW" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "trash_sort"
+	id_tag = "trash_sort"
 	},
 /obj/random/trash,
 /obj/random/single/textbook,

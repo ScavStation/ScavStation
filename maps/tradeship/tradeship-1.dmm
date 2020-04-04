@@ -825,9 +825,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet/crate,
 /obj/item/fossil/skull,
-/obj/item/fossil/bone,
-/obj/item/fossil/bone,
-/obj/item/fossil/shell,
+/obj/item/fossil/animal,
+/obj/item/fossil/animal,
+/obj/item/fossil,
 /obj/item/xenos_claw,
 /obj/item/ore/strangerock,
 /obj/structure/railing/mapped,
@@ -2348,7 +2348,7 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	icon_state = "conveyor0";
-	id = "con"
+	id_tag = "con"
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ship/trade/cargo/lower)
@@ -2816,7 +2816,7 @@
 /area/ship/trade/crew/dorms1)
 "vz" = (
 /obj/machinery/conveyor_switch{
-	id = "con";
+	id_tag = "con";
 	pixel_x = 10;
 	pixel_y = 10
 	},
@@ -2926,7 +2926,7 @@
 	dir = 9;
 	forwards = 2;
 	icon_state = "conveyor1";
-	id = "con";
+	id_tag = "con";
 	movedir = 6
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -3122,7 +3122,7 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	icon_state = "conveyor1";
-	id = "con"
+	id_tag = "con"
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ship/trade/cargo/lower)
