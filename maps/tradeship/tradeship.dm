@@ -1,7 +1,8 @@
 #if !defined(using_map_DATUM)
 
-	#include "..\..\mods\corporate\_corporate.dme"
-	#include "..\..\mods\valsalia\_valsalia.dme"
+	#include "../../mods/corporate/_corporate.dme"
+	#include "../../mods/valsalia/_valsalia.dme"
+	#include "../../mods/ascent/_ascent.dme"
 
 	#include "tradeship_antagonists.dm"
 	#include "tradeship_areas.dm"
@@ -17,6 +18,19 @@
 	#include "tradeship-1.dmm"
 	#include "tradeship-2.dmm"
 	#include "tradeship-3.dmm"
+
+	#include "jobs/_jobs.dm"
+	#include "jobs/command.dm"
+	#include "jobs/engineering.dm"
+	#include "jobs/medical.dm"
+	#include "jobs/science.dm"
+	#include "jobs/yinglets.dm"
+	#include "outfits/_outfits.dm"
+	#include "outfits/command.dm"
+	#include "outfits/engineering.dm"
+	#include "outfits/medical.dm"
+	#include "outfits/science.dm"
+	#include "outfits/yinglets.dm"
 
 	#include "../away/mining/mining.dm"
 	#include "../away/derelict/derelict.dm"

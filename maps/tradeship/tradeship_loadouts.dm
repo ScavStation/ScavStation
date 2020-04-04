@@ -18,10 +18,13 @@
 	description = "A simple cloth hood with ear-holes. Not suitable for human use."
 
 /datum/gear/scav_medical_belt
+	display_name = "medical belt"
+	path = /obj/item/storage/belt/medical
+	cost = 3
+	slot = slot_belt
 	allowed_roles = list(
-		/datum/job/doctor/junior,
 		/datum/job/yinglet/patriarch,
 		/datum/job/yinglet/matriarch,
-		/datum/job/cmo, 
-		/datum/job/doctor
+		/datum/job/tradeship_doctor, 
+		/datum/job/tradeship_doctor/head
 	)
