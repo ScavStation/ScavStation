@@ -4,6 +4,7 @@
 	#include "../../mods/corporate/_corporate.dme"
 	#include "../../mods/ascent/_ascent.dme"
 	#include "../../mods/psionics/_psionics.dme"
+	#include "../../mods/valsalia/_valsalia.dme"
 
 	#include "jobs/captain.dm"
 	#include "jobs/civilian.dm"
