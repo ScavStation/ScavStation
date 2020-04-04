@@ -3,14 +3,12 @@
 	name = "maintenance jack"
 	desc = "A special crowbar that can be used to safely remove airlock braces from airlocks."
 	w_class = ITEM_SIZE_NORMAL
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/items/tool/maintenance_jack.dmi'
 	icon_state = "maintenance_jack"
 	force = 17.5 //It has a hammer head, should probably do some more damage. - Cirra
 	attack_cooldown = 2.5*DEFAULT_WEAPON_COOLDOWN
 	melee_accuracy_bonus = -25
-
-
-
+	matter = list(MAT_STEEL = 120)
 
 // BRACE - Can be installed on airlock to reinforce it and keep it closed.
 /obj/item/airlock_brace
@@ -19,6 +17,8 @@
 	w_class = ITEM_SIZE_LARGE
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "brace_open"
+	matter = list(MAT_STEEL = 2000, MAT_GLASS = 50)
+
 	var/cur_health
 	var/max_health = 450
 	var/obj/machinery/door/airlock/airlock = null

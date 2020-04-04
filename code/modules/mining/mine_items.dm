@@ -28,7 +28,7 @@
 /obj/item/pickaxe
 	name = "mining drill"
 	desc = "The most basic of mining drills, for short excavations and small mineral extractions."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/items/tool/mining_drill.dmi'
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
 	force = 15.0
@@ -58,6 +58,8 @@
 /obj/item/pickaxe/hammer
 	name = "sledgehammer"
 	desc = "A mining hammer made of reinforced metal. You feel like smashing your boss in the face with this."
+	icon = 'icons/obj/items/tool/sledgehammer.dmi'
+	icon_state = "sledgehammer"
 
 /obj/item/pickaxe/drill
 	name = "advanced mining drill" // Can dig sand as well!
@@ -67,6 +69,7 @@
 	origin_tech = "{'" + TECH_MATERIAL + "':2,'" + TECH_POWER + "':3,'" + TECH_ENGINEERING + "':2}"
 	desc = "Yours is the drill that will pierce through the rock walls."
 	drill_verb = "drilling"
+	matter = list(MAT_STEEL = 6000, MAT_GLASS = 1000)
 
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
@@ -85,6 +88,7 @@
 	origin_tech = "{'" + TECH_MATERIAL + "':6,'" + TECH_POWER + "':4,'" + TECH_ENGINEERING + "':5}"
 	desc = "Yours is the drill that will pierce the heavens!"
 	drill_verb = "drilling"
+	matter = list(MAT_STEEL = 3000, MAT_GLASS = 1000, MAT_DIAMOND = 2000)
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
@@ -98,6 +102,7 @@
 /obj/item/pickaxe/silver
 	name = "silver pickaxe"
 	desc = "This makes no metallurgic sense."
+	icon = 'icons/obj/items/tool/pickaxe.dmi'
 	icon_state = "pick_preview"
 	item_state = "pickaxe"
 	digspeed = 30
@@ -110,6 +115,7 @@
 /obj/item/pickaxe/gold
 	name = "golden pickaxe"
 	desc = "This makes no metallurgic sense."
+	icon = 'icons/obj/items/tool/pickaxe.dmi'
 	icon_state = "pick_preview"
 	item_state = "pickaxe"
 	digspeed = 20
@@ -122,6 +128,7 @@
 /obj/item/pickaxe/diamond
 	name = "diamond pickaxe"
 	desc = "A pickaxe with a diamond pick head."
+	icon = 'icons/obj/items/tool/pickaxe.dmi'
 	icon_state = "pick_preview"
 	item_state = "pickaxe"
 	digspeed = 10
@@ -130,13 +137,14 @@
 	sharp = 1
 	build_from_parts = TRUE
 	hardware_color = COLOR_DIAMOND
+	matter = list(MAT_DIAMOND = 3000)
 
 /*****************************Shovel********************************/
 
 /obj/item/shovel
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/items/tool/shovel.dmi'
 	icon_state = "shovel"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
@@ -153,6 +161,7 @@
 /obj/item/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."
+	icon = 'icons/obj/items/tool/spade.dmi'
 	icon_state = "spade"
 	item_state = "spade"
 	force = 5.0
@@ -167,7 +176,7 @@
 	icon_state = "folded"
 	amount = 10
 	max_amount = 10
-	icon = 'icons/obj/marking_beacon.dmi'
+	icon = 'icons/obj/items/marking_beacon.dmi'
 
 	var/upright = 0
 	var/fringe = null
@@ -180,10 +189,10 @@
 
 /obj/item/stack/flag/green
 	light_color = COLOR_LIME
-	
+
 /obj/item/stack/flag/blue
 	light_color = COLOR_BLUE
-	
+
 /obj/item/stack/flag/teal
 	light_color = COLOR_TEAL
 

@@ -1,6 +1,6 @@
 /obj/item/implanter
 	name = "implanter"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/items/implant/implanter.dmi'
 	icon_state = "implanter0"
 	item_state = "syringe_0"
 	throw_speed = 1
@@ -14,6 +14,10 @@
 	if(ispath(imp))
 		imp = new imp(src)
 	update_icon()
+
+/obj/item/implanter/Destroy()
+	QDEL_NULL(imp)
+	. = ..()
 
 /obj/item/implanter/on_update_icon()
 	if (imp)

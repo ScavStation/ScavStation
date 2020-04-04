@@ -8,9 +8,10 @@
 	origin_tech = "{'" + TECH_DATA + "':2}"
 	usage_flags = PROGRAM_ALL & ~PROGRAM_PDA
 	external_slot = TRUE
+	matter = list(MAT_STEEL = 600)
+
 	var/can_write = TRUE
 	var/can_broadcast = FALSE
-
 	var/obj/item/card/id/stored_card = null
 
 /obj/item/stock_parts/computer/card_slot/diagnostics()
@@ -116,7 +117,8 @@
 	usage_flags = PROGRAM_PDA
 
 /obj/item/stock_parts/computer/card_slot/Destroy()
-	loc.verbs -= /obj/item/stock_parts/computer/card_slot/proc/verb_eject_id
+	if(loc)
+		loc.verbs -= /obj/item/stock_parts/computer/card_slot/proc/verb_eject_id
 	if(stored_card)
 		QDEL_NULL(stored_card)
 	return ..()

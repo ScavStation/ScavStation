@@ -7,6 +7,7 @@
 /obj/item/scanner/mining
 	name = "ore detector"
 	desc = "A complex device used to locate ore deep underground."
+	icon = 'icons/obj/items/device/scanner/ore_scanner.dmi'
 	icon_state = "ore"
 	origin_tech = "{'" + TECH_MAGNET + "':1,'" + TECH_ENGINEERING + "':1}"
 	use_delay = 50
@@ -62,20 +63,13 @@
 
 /obj/item/disk/survey
 	name = "survey data disk"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/items/device/diskette.dmi'
 	icon_state = "nucleardisk"
 	var/data
 
 /obj/item/disk/survey/examine(mob/user)
 	. = ..()
 	to_chat(user,"A tiny indicator on the [src] shows it holds [data] good explorer points.")
-
-/obj/item/disk/survey/Value()
-	if(data < 10000)
-		return 0.07*data
-	if(data < 30000)
-		return 0.1*data
-	return 0.15*data
 
 //Returns list of two elements, 1 is text output, 2 is amoutn of GEP data
 /proc/mineral_scan_results(turf/simulated/target)
@@ -126,7 +120,7 @@
 			if(76 to INFINITY) result = "huge quantities"
 
 		scandata += "- [result] of [ore_type]."
-	
+
 	return list(jointext(scandata, "<br>"), new_data)
 
 #undef  ORE_SURFACE

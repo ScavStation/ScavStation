@@ -14,10 +14,10 @@
 	amount_per_transfer_from_this = 10
 	unacidable = 1 //plastic
 	possible_transfer_amounts = @"[5,10]"
+	volume = 250
 	var/spray_size = 3
 	var/list/spray_sizes = list(1,3)
 	var/step_delay = 10 // lower is faster
-	volume = 250
 
 /obj/item/chems/spray/Initialize()
 	. = ..()
@@ -123,7 +123,7 @@
 /obj/item/chems/spray/pepper
 	name = "pepperspray"
 	desc = "Manufactured by Uhang Inc., it fires a mist of condensed capsaicin to blind and down an opponent quickly."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/items/weapon/pepperspray.dmi'
 	icon_state = "pepperspray"
 	item_state = "pepperspray"
 	possible_transfer_amounts = null
@@ -153,7 +153,7 @@
 /obj/item/chems/spray/waterflower
 	name = "water flower"
 	desc = "A seemingly innocent sunflower...with a twist."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/items/sunflower.dmi'
 	icon_state = "sunflower"
 	item_state = "sunflower"
 	amount_per_transfer_from_this = 1
@@ -167,7 +167,7 @@
 /obj/item/chems/spray/chemsprayer
 	name = "chem sprayer"
 	desc = "A utility used to spray large amounts of reagent in a given area."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/items/device/chemsprayer.dmi'
 	icon_state = "chemsprayer"
 	item_state = "chemsprayer"
 	throwforce = 3
@@ -176,6 +176,7 @@
 	volume = 600
 	origin_tech = "{'" + TECH_COMBAT + "':3,'" + TECH_MATERIAL + "':3,'" + TECH_ENGINEERING + "':3}"
 	step_delay = 8
+	matter = list(MAT_STEEL = 5000, MAT_GLASS = 1000)
 
 /obj/item/chems/spray/chemsprayer/Spray_at(atom/A)
 	var/direction = get_dir(src, A)
@@ -222,6 +223,6 @@
 	desc = "A can of Gold Standard spray deodorant - for when you're too lazy to shower."
 	gender = PLURAL
 	volume = 35
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/items/deodorant.dmi'
 	icon_state = "deodorant"
 	item_state = "deodorant"

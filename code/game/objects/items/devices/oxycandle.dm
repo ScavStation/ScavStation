@@ -1,20 +1,22 @@
 /obj/item/oxycandle
 	name = "oxygen candle"
 	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side.\nA small label reads <span class='warning'>'WARNING: NOT FOR LIGHTING USE. WILL IGNITE FLAMMABLE GASSES'</span>"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/items/oxygen_candle.dmi'
 	icon_state = "oxycandle"
 	item_state = "oxycandle"
 	w_class = ITEM_SIZE_SMALL // Should fit into internal's box or maybe pocket
+	matter = list(MAT_STEEL = 3000)
+	light_color = "#e58775"
+	light_outer_range = 2
+	light_max_bright = 1
+	action_button_name = null
+
 	var/target_pressure = ONE_ATMOSPHERE
 	var/datum/gas_mixture/air_contents = null
 	var/volume = 4600
 	var/on = 0
 	var/activation_sound = 'sound/effects/flare.ogg'
-	light_color = "#e58775"
-	light_outer_range = 2
-	light_max_bright = 1
 	var/brightness_on = 1 // Moderate-low bright.
-	action_button_name = null
 
 /obj/item/oxycandle/Initialize()
 	. = ..()

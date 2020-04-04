@@ -1,6 +1,7 @@
 /obj/item/flash
 	name = "flash"
 	desc = "A device that produces a bright flash of light, designed to stun and disorient an attacker."
+	icon = 'icons/obj/items/device/flash.dmi'
 	icon_state = "flash"
 	item_state = "flashtool"
 	throwforce = 5
@@ -9,6 +10,7 @@
 	throw_range = 10
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	origin_tech = "{'" + TECH_MAGNET + "':2,'" + TECH_COMBAT + "':1}"
+	matter = list(MAT_STEEL = 750, MAT_GLASS = 750)
 
 	var/times_used = 0 //Number of times it's been used.
 	var/broken = 0     //Is the flash burnt out?
@@ -213,3 +215,4 @@
 	origin_tech = "{'" + TECH_COMBAT + "':2,'" + TECH_MAGNET + "':2}"
 	str_min = 3
 	str_max = 8
+	matter = list(MAT_STEEL = 2000, MAT_GLASS = 2000, MAT_SILVER = 500)

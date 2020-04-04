@@ -21,7 +21,7 @@
 	default_law_type = /datum/ai_laws/corporate
 
 	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
-	lobby_screens = list('code/content_packages/valsalia/lobby/yingspace.png')
+	lobby_screens = list('mods/valsalia/lobby/yingspace.png')
 
 	use_overmap = 1
 	num_exoplanets = 3

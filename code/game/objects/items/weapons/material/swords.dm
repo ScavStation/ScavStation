@@ -1,6 +1,7 @@
 /obj/item/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
+	icon = 'icons/obj/items/weapon/broadswords.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
 	slot_flags = SLOT_BELT
@@ -14,7 +15,6 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	base_parry_chance = 50
 	melee_accuracy_bonus = 10
-	base_worth = 30
 
 /obj/item/material/sword/replica
 	max_force = 10
@@ -22,11 +22,11 @@
 	sharp = 0
 	material_force_multiplier = 0.2
 	thrown_material_force_multiplier = 0.2
-	base_worth = 15
 
 /obj/item/material/sword/katana
 	name = "katana"
 	desc = "Woefully underpowered in D20. This one looks pretty sharp."
+	icon = 'icons/obj/items/weapon/katana.dmi'
 	icon_state = "katana"
 	item_state = "katana"
 	slot_flags = SLOT_BELT | SLOT_BACK

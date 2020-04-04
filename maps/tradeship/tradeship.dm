@@ -1,7 +1,7 @@
 #if !defined(using_map_DATUM)
 
-	#include "..\..\code\content_packages\corporate\_corporate.dme"
-	#include "..\..\code\content_packages\valsalia\_valsalia.dme"
+	#include "..\..\mods\corporate\_corporate.dme"
+	#include "..\..\mods\valsalia\_valsalia.dme"
 
 	#include "tradeship_antagonists.dm"
 	#include "tradeship_areas.dm"

@@ -1062,27 +1062,6 @@
 	else
 		to_chat(usr, "<span class='warning'>You failed to check the pulse. Try again.</span>")
 
-/mob/living/carbon/human/verb/lookup()
-	set name = "Look up"
-	set desc = "If you want to know what's above."
-	set category = "IC"
-
-	if(!is_physically_disabled())
-		var/turf/above = GetAbove(src)
-		if(bound_overlay)
-			if(client.eye == bound_overlay)
-				reset_view(0)
-				return
-			if(istype(above, /turf/simulated/open))
-				to_chat(src, "<span class='notice'>You look up.</span>")
-				if(client)
-					reset_view(bound_overlay)
-				return
-		to_chat(src, "<span class='notice'>You can see \the [above].</span>")
-	else
-		to_chat(src, "<span class='notice'>You can't look up right now.</span>")
-	return
-
 /mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour = 1)
 	if(!dna)
 		if(!new_species)
@@ -1221,32 +1200,30 @@
 		var/decl/cultural_info/check = cultural_info[thing]
 		if(istype(check))
 			if(check.default_language)
-				free_languages    |= all_languages[check.default_language]
-				default_languages |= all_languages[check.default_language]
+				free_languages    |= check.default_language
+				default_languages |= check.default_language
 			if(check.language)
-				free_languages    |= all_languages[check.language]
+				free_languages    |= check.language
 			if(check.name_language)
-				free_languages    |= all_languages[check.name_language]
+				free_languages    |= check.name_language
 			for(var/lang in check.additional_langs)
-				free_languages    |= all_languages[lang]
+				free_languages    |= lang
 			for(var/lang in check.get_spoken_languages())
-				permitted_languages |= all_languages[lang]
+				permitted_languages |= lang
 
-	for(var/thing in languages)
-		var/datum/language/lang = thing
-		if(lang in permitted_languages)
+	for(var/decl/language/lang in languages)
+		if(lang.type in permitted_languages)
 			continue
 		if(!(lang.flags & RESTRICTED) && (lang.flags & WHITELISTED) && is_alien_whitelisted(src, lang))
 			continue
-		if(lang == default_language)
+		if(lang.type == default_language)
 			default_language = null
-		remove_language(lang.name)
+		remove_language(lang.type)
 
 	for(var/thing in free_languages)
-		var/datum/language/lang = thing
-		add_language(lang.name)
+		add_language(thing)
 
-	if(LAZYLEN(default_languages) && isnull(default_language))
+	if(length(default_languages) && isnull(default_language))
 		default_language = default_languages[1]
 
 /mob/living/carbon/human/proc/bloody_doodle()

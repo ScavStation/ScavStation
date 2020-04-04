@@ -6,7 +6,6 @@
 /turf/simulated/floor/holofloor
 	thermal_conductivity = 0
 
-// the new Diona Death Prevention Feature: gives an average amount of lumination
 /turf/simulated/floor/holofloor/get_lumcount(var/minlum = 0, var/maxlum = 1)
 	return 0.8
 
@@ -221,6 +220,7 @@
 /obj/item/holo/esword
 	name = "holosword"
 	desc = "May the force be within you. Sorta."
+	icon = 'icons/obj/items/weapon/e_sword.dmi'
 	icon_state = "sword0"
 	force = 3.0
 	throw_speed = 1

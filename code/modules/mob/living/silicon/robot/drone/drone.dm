@@ -66,10 +66,10 @@ var/list/mob_hat_cache = list()
 	. = ..()
 
 	verbs += /mob/living/proc/hide
-	remove_language(LANGUAGE_ROBOT_GLOBAL)
-	add_language(LANGUAGE_ROBOT_GLOBAL, 0)
-	add_language(LANGUAGE_DRONE_GLOBAL, 1)
-	default_language = all_languages[LANGUAGE_DRONE_GLOBAL]
+	remove_language(/decl/language/binary)
+	add_language(/decl/language/binary, 0)
+	add_language(/decl/language/binary/drone, 1)
+	default_language = /decl/language/binary/drone
 	// NO BRAIN.
 	mmi = null
 
@@ -96,7 +96,7 @@ var/list/mob_hat_cache = list()
 
 	if(!(old_loc && new_loc)) // Allows inventive admins to move drones between non-adjacent Z-levels by moving them to null space first I suppose
 		return
-	if(AreConnectedZLevels(old_loc.z, new_loc.z))
+	if(ARE_Z_CONNECTED(old_loc.z, new_loc.z))
 		return
 
 	// None of the tests passed, good bye
@@ -137,7 +137,7 @@ var/list/mob_hat_cache = list()
 	module_type = /obj/item/robot_module/drone/construction
 	hat_x_offset = 1
 	hat_y_offset = -12
-	can_pull_size = ITEM_SIZE_NO_CONTAINER
+	can_pull_size = ITEM_SIZE_STRUCTURE
 	can_pull_mobs = MOB_PULL_SAME
 
 /mob/living/silicon/robot/drone/init()

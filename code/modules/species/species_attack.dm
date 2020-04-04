@@ -6,14 +6,6 @@
 	edge = 1
 	attack_name = "sharp bite"
 
-/decl/natural_attack/diona
-	attack_verb = list("lashed", "bludgeoned")
-	attack_noun = list("tendril")
-	eye_attack_text = "a tendril"
-	eye_attack_text_victim = "a tendril"
-	attack_name = "tendrils"
-	usable_with_limbs = list(BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT)
-
 /decl/natural_attack/claws
 	attack_verb = list("scratched", "clawed", "slashed")
 	attack_noun = list("claws")
@@ -151,19 +143,6 @@
 		if(6 to 7)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target] in \his [organ] with their [pick(attack_noun)]!</span>")
 
 		if(8)		user.visible_message("<span class='danger'>[user] landed a heavy blow with their [pick(attack_noun)] against [target]'s [organ]!</span>")
-
-/decl/natural_attack/nabber
-	attack_verb = list("mauled", "slashed", "struck", "pierced")
-	attack_noun = list("forelimb")
-	damage = 8
-	shredding = 1
-	sharp = 1
-	edge = 1
-	delay = 20
-	eye_attack_text = "a forelimb"
-	eye_attack_text_victim = "a forelimb"
-	attack_name = "forelimb slash"
-	usable_with_limbs = list(BP_L_HAND, BP_R_HAND)
 
 /decl/natural_attack/punch/weak
 	attack_verb = list("swiped", "smacked", "smecked")

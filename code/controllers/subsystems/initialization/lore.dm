@@ -25,6 +25,10 @@ SUBSYSTEM_DEF(lore)
 	var/list/credits_topics =          list("SACRED GEOMETRY","ABSTRACT MATHEMATICS","LOVE","DRUGS","CRIME","PRODUCTIVITY","LAUNDRY")
 	var/list/credits_nouns =           list("DIGNITY", "SANITY")
 
+	// Probably not the best subsystem for these, but oh well.
+	var/list/languages_by_key
+	var/list/languages_by_name
+
 /datum/controller/subsystem/lore/Initialize()
 
 	for(var/ftype in subtypesof(/decl/cultural_info))
@@ -42,38 +46,12 @@ SUBSYSTEM_DEF(lore)
 			var/list/tag_list = tagged_info[culture.category]
 			tag_list[culture.name] = culture
 
-
 	for(var/jobtype in subtypesof(/datum/job))
 		var/datum/job/job = jobtype
 		var/title = initial(job.title)
 		if(title)
 			dreams |= "\an ["\improper [title]"]"
 			credits_nouns |= uppertext("the [title]")
-
-	var/list/all_content_packages = decls_repository.get_decls_of_subtype(/decl/content_package)
-	for(var/package in all_content_packages)
-		var/decl/content_package/manifest = all_content_packages[package]
-		if(length(manifest.worths))
-			for(var/thing in manifest.worths)
-				worths[thing] = max(manifest.worths[thing], worths[thing])
-		if(length(manifest.dreams))
-			dreams |= manifest.dreams
-		if(length(manifest.credits_other))
-			credits_other |= manifest.credits_other
-		if(length(manifest.credits_adventure_names))
-			credits_adventure_names |= manifest.credits_adventure_names
-		if(length(manifest.credits_crew_names))
-			credits_crew_names |= manifest.credits_crew_names
-		if(length(manifest.credits_holidays))
-			credits_holidays |= manifest.credits_holidays
-		if(length(manifest.credits_adjectives))
-			credits_adjectives |= manifest.credits_adjectives
-		if(length(manifest.credits_crew_outcomes))
-			credits_crew_outcomes |= manifest.credits_crew_outcomes
-		if(length(manifest.credits_topics))
-			credits_topics |= manifest.credits_topics
-		if(length(manifest.credits_nouns))
-			credits_nouns |= manifest.credits_nouns
 
 	. = ..()
 
@@ -104,3 +82,23 @@ SUBSYSTEM_DEF(lore)
 
 /datum/controller/subsystem/lore/proc/get_culture(var/culture_ident)
 	return cultural_info_by_name[culture_ident] ? cultural_info_by_name[culture_ident] : cultural_info_by_path[culture_ident]
+
+/datum/controller/subsystem/lore/proc/get_language_by_name(var/language_name)
+	if(!languages_by_name)
+		languages_by_name = list()
+		var/list/language_types = decls_repository.get_decls_of_subtype(/decl/language)
+		for(var/thing in language_types)
+			var/decl/language/lang = language_types[thing]
+			if(lang.name)
+				languages_by_name[lang.name] = lang
+	. = languages_by_name[language_name]
+
+/datum/controller/subsystem/lore/proc/get_language_by_key(var/language_key)
+	if(!languages_by_key)
+		languages_by_key = list()
+		var/list/language_types = decls_repository.get_decls_of_subtype(/decl/language)
+		for(var/thing in language_types)
+			var/decl/language/lang = language_types[thing]
+			if(lang.key)
+				languages_by_key[lang.key] = lang
+	. = languages_by_key[language_key]

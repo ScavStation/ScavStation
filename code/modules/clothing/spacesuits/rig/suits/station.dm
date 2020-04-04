@@ -198,6 +198,7 @@
 
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/stack/flag,/obj/item/storage/excavation,/obj/item/pickaxe,/obj/item/scanner/health,/obj/item/measuring_tape,/obj/item/ano_scanner,/obj/item/depth_scanner,/obj/item/core_sampler,/obj/item/gps,/obj/item/pinpointer/radio,/obj/item/radio/beacon,/obj/item/pickaxe/xeno,/obj/item/storage/bag/fossils)
 
+	anomaly_shielding = 1
 	req_access = list(access_tox)
 
 /obj/item/clothing/head/helmet/space/rig/hazmat
@@ -289,6 +290,7 @@
 	glove_type = /obj/item/clothing/gloves/rig/hazard
 
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/handcuffs,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton)
+	anomaly_shielding = 1
 
 /obj/item/clothing/head/helmet/space/rig/hazard
 	light_overlay = "helmet_light_dual"
@@ -322,6 +324,7 @@
 	online_slowdown = 0
 	offline_slowdown = 1
 	offline_vision_restriction = TINT_HEAVY //You're wearing a flash protective space suit without light compensation, think it makes sense
+	matter = list(MAT_STEEL = 30000, MAT_GLASS = 5000, MAT_SILVER = 1000)
 
 	chest_type = /obj/item/clothing/suit/space/rig/zero
 	helm_type = /obj/item/clothing/head/helmet/space/rig/zero
