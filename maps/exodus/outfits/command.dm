@@ -5,7 +5,7 @@
 	uniform = /obj/item/clothing/under/rank/captain
 	l_ear = /obj/item/radio/headset/heads/captain
 	shoes = /obj/item/clothing/shoes/brown
-	id_type = /obj/item/card/id/gold
+	id_type = /obj/item/card/id/gold/exodus_captain
 	pda_type = /obj/item/modular_computer/pda/captain
 	backpack_contents = list(/obj/item/storage/box/ids = 1)
 
@@ -28,11 +28,17 @@
 			else
 				qdel(medal)
 
+/obj/item/card/id/gold/exodus_captain
+	job_access_type = /datum/job/captain
+
 /decl/hierarchy/outfit/job/hop
 	name = OUTFIT_JOB_NAME("Head of Personnel")
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	l_ear = /obj/item/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/brown
-	id_type = /obj/item/card/id/silver
+	id_type = /obj/item/card/id/silver/exodus_hop
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/storage/box/ids = 1)
+
+/obj/item/card/id/silver/exodus_hop
+	job_access_type = /datum/job/hop

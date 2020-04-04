@@ -11,7 +11,7 @@
 	BACKPACK_OVERRIDE_ENGINEERING
 
 /decl/hierarchy/outfit/job/engineering/chief_engineer
-	name = OUTFIT_JOB_NAME("Chief engineer")
+	name = OUTFIT_JOB_NAME("Chief Engineer")
 	head = /obj/item/clothing/head/hardhat/white
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	l_ear = /obj/item/radio/headset/heads/ce
@@ -26,12 +26,6 @@
 	r_pocket = /obj/item/t_scanner
 	id_type = /obj/item/card/id/engineering
 	pda_type = /obj/item/modular_computer/pda/engineering
-
-/decl/hierarchy/outfit/job/engineering/engineer/void
-	name = OUTFIT_JOB_NAME("Engineer - Voidsuit")
-	head = /obj/item/clothing/head/helmet/space/void/engineering
-	mask = /obj/item/clothing/mask/breath
-	suit = /obj/item/clothing/suit/space/void/engineering
 
 /decl/hierarchy/outfit/job/engineering/atmos
 	name = OUTFIT_JOB_NAME("Atmospheric technician")
