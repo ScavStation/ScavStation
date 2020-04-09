@@ -215,7 +215,7 @@
 /turf/simulated/floor/airless,
 /area/solar/fore)
 "aax" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/space)
 "aay" = (
@@ -258,7 +258,7 @@
 /turf/simulated/wall/r_wall,
 /area/security/range)
 "aaH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 8;
@@ -384,7 +384,6 @@
 /area/security/warden)
 "aaU" = (
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (NORTH)";
 	icon_state = "loadingarea";
 	dir = 1
 	},
@@ -407,7 +406,7 @@
 /turf/simulated/floor/tiled,
 /area/security/range)
 "aaX" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 2;
@@ -447,7 +446,7 @@
 /turf/simulated/floor/tiled,
 /area/security/range)
 "aba" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/security/range)
 "abb" = (
@@ -464,7 +463,7 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/foresolar)
 "abe" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "abf" = (
@@ -487,7 +486,7 @@
 /turf/simulated/wall/r_wall,
 /area/security/tactical)
 "abi" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/security_port)
 "abj" = (
@@ -535,16 +534,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "abo" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/security/range)
 "abp" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "abq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 2;
@@ -557,7 +556,7 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/foresolar)
 "abs" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -703,7 +702,7 @@
 /turf/simulated/floor/tiled,
 /area/security/range)
 "abD" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -811,7 +810,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "abO" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -848,7 +847,7 @@
 /turf/simulated/floor/airless,
 /area/solar/fore)
 "abR" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -863,7 +862,7 @@
 /turf/simulated/floor/plating,
 /area/security/main)
 "abS" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -878,7 +877,7 @@
 /turf/simulated/floor/plating,
 /area/security/main)
 "abT" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -997,7 +996,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
 "acc" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -1081,7 +1080,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/tactical)
 "ach" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -1136,7 +1135,7 @@
 /turf/simulated/wall,
 /area/security/main)
 "acl" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -1144,7 +1143,7 @@
 /turf/simulated/floor/plating,
 /area/security/meeting)
 "acm" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/foresolar)
@@ -1169,7 +1168,7 @@
 /turf/simulated/wall/r_wall,
 /area/security/armoury)
 "acq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -1218,7 +1217,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/tactical)
 "acw" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -1294,7 +1293,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "acD" = (
@@ -1378,7 +1377,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "acN" = (
@@ -1452,7 +1451,6 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/white{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1481,7 +1479,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "acU" = (
@@ -1574,7 +1572,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "adc" = (
@@ -1653,7 +1651,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/white{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1739,7 +1736,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/tactical)
 "adx" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -1797,7 +1794,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "adD" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -1864,7 +1861,7 @@
 /turf/simulated/floor/tiled,
 /area/security/meeting)
 "adL" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/security/meeting)
@@ -1930,7 +1927,7 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "adT" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -2015,7 +2012,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "aed" = (
@@ -2160,7 +2157,6 @@
 "aeq" = (
 /obj/machinery/requests_console{
 	department = "Security";
-	departmentType = 5;
 	name = "Security RC";
 	pixel_x = 30;
 	pixel_y = 0
@@ -2244,7 +2240,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "aex" = (
@@ -2590,7 +2586,7 @@
 "aff" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green,
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hos)
 "afg" = (
@@ -3114,7 +3110,7 @@
 /turf/simulated/floor/tiled,
 /area/security/meeting)
 "agg" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green,
 /obj/structure/cable/green{
 	d2 = 2;
@@ -3385,7 +3381,7 @@
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/hos)
 "agK" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -3429,7 +3425,6 @@
 /obj/machinery/navbeacon/SecurityD,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (WEST)";
 	icon_state = "loadingarea";
 	dir = 8
 	},
@@ -3572,7 +3567,7 @@
 /turf/simulated/wall/r_wall,
 /area/security/brig/processing)
 "ahb" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
@@ -3600,7 +3595,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Head of Security's Desk";
-	departmentType = 5;
 	name = "Head of Security RC";
 	pixel_x = 0;
 	pixel_y = 30
@@ -3655,7 +3649,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig/processing)
 "ahk" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -3776,7 +3770,7 @@
 /area/security/armoury)
 "ahu" = (
 /obj/machinery/photocopier,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -30;
 	pixel_y = 30
 	},
@@ -3849,8 +3843,7 @@
 "ahB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor,
 /area/security/brig)
@@ -3889,7 +3882,6 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /turf/simulated/floor/tiled,
@@ -4350,7 +4342,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig/processing)
 "aiJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
 "aiK" = (
@@ -4533,7 +4525,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig/interrogation)
 "ajc" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -4545,7 +4537,7 @@
 /turf/simulated/floor/plating,
 /area/lawoffice)
 "ajd" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -4610,7 +4602,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig/processing)
 "ajh" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -4710,7 +4702,7 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "ajp" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -4727,7 +4719,7 @@
 /turf/simulated/floor/plating,
 /area/security/prison)
 "ajq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -4751,7 +4743,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
 "ajs" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -4783,7 +4775,7 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "aju" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -4808,7 +4800,7 @@
 /turf/simulated/floor/plating,
 /area/security/prison)
 "ajv" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -4836,7 +4828,7 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "ajy" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -4871,7 +4863,6 @@
 "ajC" = (
 /obj/machinery/door/window/westright,
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (WEST)";
 	icon_state = "loadingarea";
 	dir = 8
 	},
@@ -4906,7 +4897,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "ajG" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -4972,7 +4963,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -30
 	},
 /obj/machinery/camera/network/security{
@@ -5470,7 +5461,6 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-21";
 	icon_state = "plant-21"
 	},
 /turf/simulated/floor/lino,
@@ -6001,7 +5991,7 @@
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "alu" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/dormitory)
 "alv" = (
@@ -6024,7 +6014,7 @@
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "alx" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -6109,7 +6099,7 @@
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "alH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -6165,11 +6155,11 @@
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
 "alL" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "alM" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -6226,7 +6216,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
 "alS" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -6286,7 +6276,7 @@
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "alY" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -6294,7 +6284,7 @@
 /turf/simulated/floor/plating,
 /area/security/brig/processing)
 "alZ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -6518,7 +6508,7 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "amw" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -6603,7 +6593,6 @@
 /area/security/detectives_office)
 "amF" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-10";
 	icon_state = "plant-10"
 	},
 /turf/simulated/floor/lino,
@@ -6622,7 +6611,7 @@
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Security Subgrid";
-	name_tag = "Security Subgrid"
+	id_tag = "Security Subgrid"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -6710,7 +6699,7 @@
 /turf/simulated/floor,
 /area/security/brig)
 "amO" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -6760,7 +6749,6 @@
 /area/security/brig)
 "amT" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-10";
 	icon_state = "plant-10"
 	},
 /turf/simulated/floor/tiled,
@@ -6835,8 +6823,7 @@
 	id_tag = "permflash";
 	name = "Brig flashes";
 	pixel_x = 0;
-	pixel_y = -27;
-	tag = "permflash"
+	pixel_y = -27
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6868,8 +6855,7 @@
 	id_tag = "permflash";
 	name = "Brig flashes";
 	pixel_x = -6;
-	pixel_y = -24;
-	tag = "permflash"
+	pixel_y = -24
 	},
 /obj/machinery/button/blast_door{
 	id_tag = "brigobs";
@@ -6890,7 +6876,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "anc" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -6934,7 +6920,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "ang" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -7075,7 +7061,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ant" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -7150,7 +7136,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "any" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -7176,7 +7162,7 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "anA" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/security/lobby)
 "anB" = (
@@ -7365,7 +7351,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
 "anS" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness)
@@ -7380,7 +7366,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "anU" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/effect/landmark{
 	name = "Syndicate Breach Area"
@@ -7433,7 +7419,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aob" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Dormitory Holodeck North";
@@ -7480,7 +7466,6 @@
 "aog" = (
 /obj/machinery/requests_console{
 	department = "Security";
-	departmentType = 5;
 	name = "Security RC";
 	pixel_x = 30;
 	pixel_y = 0
@@ -7548,7 +7533,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aom" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/light{
 	dir = 4;
@@ -7751,7 +7736,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aoE" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness)
 "aoF" = (
@@ -7771,7 +7756,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aoJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarstarboard)
 "aoK" = (
@@ -7809,7 +7794,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aoN" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarport)
 "aoO" = (
@@ -7877,7 +7862,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/starboard)
 "aoT" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
@@ -7893,7 +7878,7 @@
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "aoV" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable{
 	icon_state = "0-4";
 	d2 = 4
@@ -7901,7 +7886,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "aoW" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable,
 /obj/structure/cable{
 	d2 = 8;
@@ -7949,7 +7934,6 @@
 /obj/machinery/photocopier,
 /obj/machinery/requests_console{
 	department = "Internal Affairs";
-	departmentType = 5;
 	name = "Internal Affairs RC";
 	pixel_x = 30;
 	pixel_y = 0
@@ -7957,7 +7941,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "ape" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
@@ -8153,8 +8137,7 @@
 "apv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/dormitory)
@@ -8274,7 +8257,7 @@
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
 "apK" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -8349,7 +8332,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/lawoffice)
 "apQ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 8;
@@ -8714,7 +8697,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness)
 "aqs" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
@@ -8903,7 +8886,7 @@
 	dir = 4
 	},
 /obj/structure/table/glass,
-/obj/machinery/microscope,
+/obj/machinery/forensic/microscope,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
@@ -9110,7 +9093,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/dormitory)
 "arf" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Dormitory Holodeck South";
@@ -9175,7 +9158,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/machinery/dnaforensics,
+/obj/machinery/forensic/dnascanner,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -9375,8 +9358,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/floor,
 /area/maintenance/evahallway)
@@ -9422,11 +9404,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/dormitory)
 "arK" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "arL" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -9903,7 +9885,7 @@
 /turf/simulated/floor,
 /area/maintenance/evahallway)
 "asC" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 8;
@@ -10142,7 +10124,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "asY" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -10200,7 +10182,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "ate" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -10224,7 +10206,7 @@
 /turf/simulated/floor/plating,
 /area/security/prison/dorm)
 "atf" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/airlock,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -10260,8 +10242,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarstarboard)
@@ -10337,7 +10318,6 @@
 /area/shuttle/escape_pod_2)
 "atv" = (
 /obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (NORTH)";
 	icon_state = "warningcee";
 	dir = 1
 	},
@@ -10400,7 +10380,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/dormitory)
 "atC" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "atD" = (
@@ -10415,7 +10395,7 @@
 /area/crew_quarters/sleep)
 "atF" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -10444,7 +10424,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/dormitory)
 "atJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/starboard)
@@ -10486,7 +10466,7 @@
 /area/crew_quarters/sleep/cryo)
 "atN" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -10529,7 +10509,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "atU" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 2;
@@ -10569,12 +10549,12 @@
 /area/security/brig/solitaryA)
 "atZ" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
 "aua" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/ai_monitored/storage/eva)
@@ -10661,7 +10641,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig/solitaryA)
 "auk" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
@@ -10677,7 +10657,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "aum" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/chapel/main)
@@ -11004,7 +10984,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarstarboard)
 "auT" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/port)
 "auU" = (
@@ -11154,7 +11134,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarport)
 "avj" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -11278,7 +11258,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison/dorm)
 "avu" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/hallway/primary/port)
@@ -11525,7 +11505,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "avV" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -11745,7 +11725,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awn" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -12026,7 +12006,6 @@
 /area/maintenance/evahallway)
 "awS" = (
 /obj/effect/floor_decal/corner/white/three_quarters{
-	tag = "icon-corner_white_full (EAST)";
 	icon_state = "corner_white_full";
 	dir = 4
 	},
@@ -12207,7 +12186,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "axk" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -12283,7 +12262,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/sleep)
 "axs" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 8;
@@ -12311,7 +12290,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/sleep)
 "axv" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/primary/port)
@@ -12348,7 +12327,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/fitness)
 "axB" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/secure_area,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -12369,12 +12348,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "axE" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "axF" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
@@ -12676,7 +12655,6 @@
 /area/crew_quarters/fitness)
 "ayh" = (
 /obj/effect/floor_decal/corner/white{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -12708,11 +12686,11 @@
 /area/hallway/secondary/entry/fore)
 "ayk" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "ayl" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "aym" = (
@@ -12778,8 +12756,7 @@
 "ays" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 1;
-	icon_state = "comfychair_preview";
-	tag = "icon-comfychair (NORTH)"
+	icon_state = "comfychair_preview"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -13260,7 +13237,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "azb" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -13327,8 +13304,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
@@ -13408,7 +13384,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/fore)
 "azo" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -13558,7 +13534,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarstarboard)
 "azE" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 2;
@@ -13595,7 +13571,7 @@
 /turf/simulated/floor/tiled,
 /area/ai_monitored/storage/eva)
 "azH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 8;
@@ -13621,24 +13597,24 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/kitchen)
 "azK" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "azL" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/kitchen)
 "azM" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/kitchen)
 "azN" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
@@ -13649,7 +13625,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "azP" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
@@ -13813,7 +13789,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "aAk" = (
@@ -13861,8 +13837,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	id_tag = "admin_shuttle_dock_airlock";
@@ -14207,7 +14182,6 @@
 	pixel_y = -24
 	},
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/structure/cable/green{
@@ -14316,7 +14290,6 @@
 	pixel_y = -24
 	},
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-06";
 	icon_state = "plant-06"
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -14395,7 +14368,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarstarboard)
 "aBq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/crew_quarters/kitchen)
 "aBr" = (
@@ -14404,7 +14377,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "aBs" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "aBt" = (
@@ -14414,7 +14387,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "aBu" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "aBv" = (
@@ -14442,7 +14415,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "aBy" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
 "aBz" = (
@@ -14562,7 +14535,7 @@
 /turf/simulated/floor/tiled,
 /area/ai_monitored/storage/eva)
 "aBR" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -14740,7 +14713,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "aCj" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
@@ -14787,7 +14760,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "aCp" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -14874,8 +14847,7 @@
 "aCy" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning{
@@ -14936,7 +14908,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -14944,7 +14916,7 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "aCI" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/chapel/main)
 "aCJ" = (
@@ -15378,7 +15350,7 @@
 /turf/simulated/wall,
 /area/maintenance/library)
 "aDD" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "aDE" = (
@@ -15391,7 +15363,7 @@
 /turf/simulated/floor/plating,
 /area/chapel/main)
 "aDF" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "aDG" = (
@@ -15403,7 +15375,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aDH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -15448,7 +15420,6 @@
 /obj/structure/table/standard,
 /obj/machinery/requests_console{
 	department = "Tool Storage";
-	departmentType = 0;
 	pixel_y = 30
 	},
 /obj/random/tech_supply,
@@ -15483,7 +15454,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "aDQ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/bridge)
@@ -15657,7 +15628,7 @@
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "aEe" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "aEf" = (
@@ -15686,7 +15657,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "aEi" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
@@ -15870,7 +15841,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "aEA" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -15952,7 +15923,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "aEG" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -15992,7 +15963,7 @@
 	},
 /area/shuttle/arrival/station)
 "aEK" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -16169,7 +16140,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "aFa" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "aFb" = (
@@ -16539,7 +16510,6 @@
 "aFH" = (
 /obj/machinery/requests_console{
 	department = "Security";
-	departmentType = 5;
 	pixel_y = 30
 	},
 /obj/machinery/light_switch{
@@ -16661,7 +16631,7 @@
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Civilian East Subgrid";
-	name_tag = "Civilian East Subgrid"
+	id_tag = "Civilian East Subgrid"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -16803,7 +16773,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/arrival/station)
 "aGc" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -16872,7 +16842,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "aGg" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -16992,7 +16962,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "aGt" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -17129,7 +17099,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "aGJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -17171,7 +17141,7 @@
 /turf/simulated/floor/tiled,
 /area/gateway)
 "aGO" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -17555,7 +17525,6 @@
 	},
 /obj/machinery/requests_console{
 	department = "Chapel";
-	departmentType = 2;
 	pixel_y = 30
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -18462,7 +18431,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (WEST)";
 	icon_state = "loadingarea";
 	dir = 8
 	},
@@ -18625,7 +18593,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "aJx" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -18912,7 +18880,7 @@
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Civilian West";
-	name_tag = "Civilian West Subgrid"
+	id_tag = "Civilian West Subgrid"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -18970,8 +18938,7 @@
 "aKe" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/locker)
@@ -19155,7 +19122,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aKz" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/airlock,
 /obj/machinery/door/firedoor,
 /turf/simulated/wall,
@@ -19263,7 +19230,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "aKJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/locker)
 "aKK" = (
@@ -19343,7 +19310,7 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "aKR" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/quartermaster/storage)
 "aKS" = (
@@ -19371,7 +19338,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 0;
 	department = "Bar";
-	departmentType = 2;
 	name = "Bar RC";
 	pixel_x = 0;
 	pixel_y = 30
@@ -19575,7 +19541,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "aLr" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
 "aLs" = (
@@ -19729,7 +19695,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "aLF" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/storage)
@@ -19779,7 +19745,7 @@
 /turf/simulated/wall,
 /area/hallway/primary/port)
 "aLL" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/office)
@@ -19787,7 +19753,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "aLN" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -19796,7 +19762,7 @@
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
 "aLO" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/status_display,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -19837,19 +19803,19 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "aLR" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_three)
 "aLS" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/chemistry)
 "aLT" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/medbay2)
 "aLU" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -19881,7 +19847,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "aLX" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/medbay3)
 "aLY" = (
@@ -19969,7 +19935,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "aMh" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/quartermaster/office)
 "aMi" = (
@@ -20013,7 +19979,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "aMm" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/medbay)
 "aMn" = (
@@ -20029,7 +19995,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "aMo" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/lab)
 "aMp" = (
@@ -21465,16 +21431,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aOZ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/security/prison/dorm)
 "aPa" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/docking)
 "aPb" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/cyan{
 	d2 = 2;
@@ -22037,7 +22003,7 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "aPV" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/sleeper)
 "aPW" = (
@@ -22313,7 +22279,7 @@
 /area/security/prison)
 "aQB" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hor)
 "aQC" = (
@@ -22401,7 +22367,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "aQJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
@@ -22440,7 +22406,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "aQO" = (
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/quartermaster/qm)
 "aQP" = (
@@ -22485,7 +22451,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "aQU" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/docking_area,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -22573,7 +22539,7 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "aRi" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/research_shuttle)
 "aRj" = (
@@ -22664,7 +22630,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "aRp" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 1;
@@ -22705,7 +22671,7 @@
 /turf/simulated/floor/plating,
 /area/storage/emergency2)
 "aRt" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -22866,8 +22832,7 @@
 "aRJ" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 1;
-	icon_state = "comfychair_preview";
-	tag = "icon-comfychair (NORTH)"
+	icon_state = "comfychair_preview"
 	},
 /turf/simulated/floor/lino,
 /area/hallway/secondary/entry/starboard)
@@ -23000,7 +22965,7 @@
 /turf/simulated/wall,
 /area/hallway/secondary/exit)
 "aSa" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -23018,7 +22983,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "aSc" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -23030,7 +22995,7 @@
 /turf/simulated/floor/plating,
 /area/medical/medbay)
 "aSd" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -23117,7 +23082,7 @@
 /turf/simulated/floor/tiled,
 /area/library)
 "aSk" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -23156,7 +23121,6 @@
 /area/library)
 "aSn" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -23169,14 +23133,13 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "aSp" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -23188,7 +23151,7 @@
 /turf/simulated/floor/plating,
 /area/medical/medbay2)
 "aSq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 0;
@@ -23218,7 +23181,6 @@
 /area/maintenance/disposal)
 "aSs" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -23231,7 +23193,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -23283,7 +23244,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aSA" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -23311,7 +23272,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "aSC" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/miningdock)
@@ -23344,8 +23305,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/auxsolarport)
@@ -23415,12 +23375,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/locker)
 "aSJ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
 "aSK" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "aSL" = (
@@ -23433,7 +23393,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "aSM" = (
@@ -23446,12 +23406,12 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "aSN" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "aSO" = (
@@ -23517,8 +23477,7 @@
 "aSW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/locker)
@@ -23528,7 +23487,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "aSY" = (
@@ -23559,7 +23518,7 @@
 /turf/simulated/wall,
 /area/crew_quarters/kitchen)
 "aTb" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
@@ -23570,7 +23529,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "aTd" = (
@@ -23788,7 +23747,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/starboard)
 "aTw" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/airlock,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -23804,7 +23763,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "aTy" = (
@@ -23861,7 +23820,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/mixing)
 "aTH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -23874,7 +23833,7 @@
 /turf/simulated/floor/plating,
 /area/medical/medbay4)
 "aTI" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -24015,7 +23974,7 @@
 	name = "Test Chamber Blast Doors";
 	opacity = 0
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
@@ -24028,7 +23987,7 @@
 	name = "Test Chamber Blast Doors";
 	opacity = 0
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
 "aUa" = (
@@ -24049,7 +24008,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "aUd" = (
@@ -24072,7 +24031,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "aUg" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -24108,7 +24067,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "aUk" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/cyan,
 /obj/structure/cable/cyan{
@@ -24248,7 +24207,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "aUC" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
@@ -24327,7 +24286,7 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics/garden)
 "aUL" = (
-/obj/effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/wallframe_spawn/reinforced/polarized{
 	id = "isoA_window_tint"
 	},
 /turf/simulated/floor/plating,
@@ -24373,7 +24332,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -24407,7 +24365,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
-	tag = "icon-corner_white_diagonal (EAST)";
 	icon_state = "corner_white_diagonal";
 	dir = 4
 	},
@@ -24517,8 +24474,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -24596,7 +24552,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "aVq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/research)
@@ -24836,7 +24792,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
 "aVR" = (
@@ -24942,7 +24898,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
 "aWd" = (
@@ -25143,7 +25099,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -25171,7 +25126,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
-	tag = "icon-corner_white_diagonal (EAST)";
 	icon_state = "corner_white_diagonal";
 	dir = 4
 	},
@@ -25317,7 +25271,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "aWP" = (
-/obj/effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/wallframe_spawn/reinforced/polarized{
 	id = "isoB_window_tint"
 	},
 /turf/simulated/floor/plating,
@@ -25352,13 +25306,13 @@
 /turf/simulated/floor/tiled,
 /area/storage/art)
 "aWT" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "aWU" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/medical/psych)
 "aWV" = (
@@ -25367,7 +25321,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
 "aWW" = (
@@ -25441,7 +25395,7 @@
 /turf/simulated/wall,
 /area/crew_quarters/heads/chief)
 "aXc" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/cyan{
 	d2 = 2;
@@ -25624,7 +25578,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aXw" = (
-/obj/effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/wallframe_spawn/reinforced/polarized{
 	id = "isoC_window_tint"
 	},
 /turf/simulated/floor/plating,
@@ -25777,7 +25731,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
 "aXN" = (
@@ -25863,7 +25817,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
 "aXV" = (
@@ -25874,7 +25828,6 @@
 	},
 /obj/item/stool/padded,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -25883,7 +25836,6 @@
 "aXW" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -25946,7 +25898,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "aYc" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/cyan,
 /turf/simulated/floor/plating,
@@ -26067,7 +26019,7 @@
 /area/security/vacantoffice)
 "aYr" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_eva)
 "aYs" = (
@@ -26252,7 +26204,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "aYL" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -26407,7 +26359,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Bridge";
-	departmentType = 5;
 	name = "Bridge RC";
 	pixel_y = -30
 	},
@@ -26482,7 +26433,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aZb" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -26640,7 +26591,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "aZq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -26670,7 +26621,6 @@
 "aZt" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -26684,7 +26634,6 @@
 	},
 /obj/item/stool/padded,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -26693,7 +26642,6 @@
 "aZv" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -26869,7 +26817,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "aZP" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -26883,11 +26831,11 @@
 /area/hallway/secondary/entry/aft)
 "aZR" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/construction)
 "aZS" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -26899,7 +26847,7 @@
 /turf/simulated/floor/plating,
 /area/medical/surgeryobs)
 "aZT" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "aZU" = (
@@ -27295,7 +27243,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "baI" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/locker_room)
@@ -27755,8 +27703,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -28122,7 +28069,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bck" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -28246,7 +28193,7 @@
 /turf/simulated/floor/carpet,
 /area/hallway/primary/starboard)
 "bcx" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -28493,7 +28440,6 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -28517,7 +28463,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -28533,7 +28478,6 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -28560,7 +28504,6 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -29094,7 +29037,6 @@
 /area/crew_quarters/captain)
 "bee" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -29158,7 +29100,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "bem" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
@@ -29319,8 +29261,7 @@
 "beF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9;
-	icon_state = "intact";
-	tag = "icon-intact-f (NORTHWEST)"
+	icon_state = "intact"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -29403,7 +29344,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "beO" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
 "beP" = (
@@ -29510,7 +29451,6 @@
 	pixel_y = -30
 	},
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /turf/simulated/floor/wood,
@@ -29562,7 +29502,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "bfd" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
@@ -29598,7 +29538,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 0;
 	department = "Kitchen";
-	departmentType = 2;
 	name = "Kitchen RC";
 	pixel_x = 0;
 	pixel_y = -30
@@ -30017,8 +29956,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/floor,
 /area/maintenance/atmos_control)
@@ -30036,7 +29974,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "bgd" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -30086,7 +30024,6 @@
 /obj/item/wrapping_paper,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
-	departmentType = 2;
 	pixel_y = 30
 	},
 /obj/effect/floor_decal/corner/white{
@@ -30262,7 +30199,6 @@
 	dir = 8
 	},
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-01";
 	icon_state = "plant-01"
 	},
 /turf/simulated/floor/wood,
@@ -30549,7 +30485,6 @@
 /area/crew_quarters/captain)
 "bhh" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-10";
 	icon_state = "plant-10"
 	},
 /turf/simulated/floor/wood,
@@ -30616,8 +30551,7 @@
 "bhp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -30672,8 +30606,7 @@
 "bhu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -30927,7 +30860,7 @@
 "bhS" = (
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - AI Subgrid";
-	name_tag = "AI Subgrid"
+	id_tag = "AI Subgrid"
 	},
 /obj/structure/cable/cyan{
 	d2 = 8;
@@ -31604,13 +31537,12 @@
 /obj/effect/landmark/start{
 	name = "AI"
 	},
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = 32;
 	pixel_y = 32
 	},
 /obj/machinery/requests_console{
 	department = "AI";
-	departmentType = 5;
 	pixel_x = -32;
 	pixel_y = 32
 	},
@@ -31638,6 +31570,7 @@
 /obj/item/radio/intercom/broadcasting{
 	pixel_y = 22
 	},
+/obj/structure/aicore/deactivated,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "bjd" = (
@@ -31963,8 +31896,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/floor,
 /area/maintenance/atmos_control)
@@ -32077,7 +32009,6 @@
 /area/hallway/primary/starboard)
 "bjR" = (
 /obj/effect/floor_decal/corner/white{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -32333,8 +32264,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -32800,7 +32730,6 @@
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (NORTH)";
 	icon_state = "loadingarea";
 	dir = 1
 	},
@@ -32808,7 +32737,6 @@
 /area/hallway/primary/starboard)
 "blh" = (
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (NORTH)";
 	icon_state = "loadingarea";
 	dir = 1
 	},
@@ -32889,7 +32817,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Bridge";
-	departmentType = 5;
 	name = "Bridge RC";
 	pixel_y = -30
 	},
@@ -32912,7 +32839,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/white/three_quarters{
-	tag = "icon-corner_white_full (NORTH)";
 	icon_state = "corner_white_full";
 	dir = 1
 	},
@@ -33273,7 +33199,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bmh" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/virology)
@@ -33384,7 +33310,7 @@
 /turf/simulated/floor/plating,
 /area/medical/genetics)
 "bmq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -33675,7 +33601,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Captain's Desk";
-	departmentType = 5;
 	name = "Captain RC";
 	pixel_x = -30;
 	pixel_y = 0
@@ -33799,7 +33724,6 @@
 /area/medical/morgue)
 "bna" = (
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -33833,7 +33757,7 @@
 /area/maintenance/substation/command)
 "bnd" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/workshop)
 "bne" = (
@@ -33869,7 +33793,6 @@
 /obj/item/storage/belt/utility,
 /obj/machinery/requests_console{
 	department = "Robotics";
-	departmentType = 2;
 	name = "Robotics RC";
 	pixel_y = 30
 	},
@@ -33891,7 +33814,7 @@
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai)
 "bnk" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -33924,7 +33847,6 @@
 	pixel_x = 30
 	},
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-10";
 	icon_state = "plant-10"
 	},
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
@@ -33949,7 +33871,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
 "bnp" = (
@@ -33959,7 +33881,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
 "bnq" = (
@@ -34428,7 +34350,7 @@
 /area/medical/morgue)
 "boq" = (
 /obj/structure/table/standard,
-/obj/item/autopsy_scanner,
+/obj/item/scanner/autopsy,
 /obj/item/scalpel,
 /obj/item/chems/spray/antiseptic,
 /turf/simulated/floor/tiled/dark,
@@ -34547,8 +34469,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/storage/emergency)
@@ -34758,10 +34679,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/workshop)
-"boX" = (
-/obj/structure/sign/warning/docking_area,
-/turf/simulated/wall/r_wall,
-/area/space)
 "boY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
@@ -34819,7 +34736,6 @@
 /obj/item/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
-	departmentType = 2;
 	pixel_x = 0;
 	pixel_y = 30
 	},
@@ -34841,7 +34757,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "bpf" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/airlock,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -34986,7 +34902,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bpx" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/medical/virology)
 "bpy" = (
@@ -35049,7 +34965,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Command Subgrid";
-	name_tag = "Command Subgrid"
+	id_tag = "Command Subgrid"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -35088,8 +35004,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/storage/emergency)
@@ -35161,8 +35076,7 @@
 "bpL" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/storage/emergency)
@@ -35316,7 +35230,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/medical/patient_wing/washroom)
 "bpX" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -35465,7 +35379,6 @@
 /area/medical/morgue)
 "bqp" = (
 /obj/structure/morgue{
-	tag = "icon-morgue1 (WEST)";
 	icon_state = "morgue1";
 	dir = 8
 	},
@@ -35561,7 +35474,7 @@
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/suit/armor/captain,
 /obj/item/clothing/head/helmet/space/capspace,
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = -32;
 	pixel_y = 0
 	},
@@ -35719,7 +35632,6 @@
 "bqP" = (
 /obj/machinery/requests_console{
 	department = "Science";
-	departmentType = 2;
 	name = "Science Requests Console";
 	pixel_x = -30;
 	pixel_y = 0
@@ -35861,12 +35773,10 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/huge,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (EAST)";
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (NORTH)";
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -35969,7 +35879,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
@@ -36003,7 +35913,7 @@
 /turf/simulated/floor/plating,
 /area/storage/emergency)
 "brs" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -36188,8 +36098,7 @@
 "brF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/wall,
 /area/engineering/atmos/storage)
@@ -36358,7 +36267,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "brW" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -36757,7 +36666,7 @@
 /turf/simulated/floor/plating,
 /area/storage/emergency)
 "bsN" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/medical/virology)
@@ -36765,12 +36674,10 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/huge,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (WEST)";
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (NORTH)";
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -37064,7 +36971,7 @@
 	pixel_y = -32
 	},
 /obj/structure/cable/green,
-/obj/effect/wingrille_spawn/reinforced/polarized,
+/obj/effect/wallframe_spawn/reinforced/polarized,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
@@ -37264,7 +37171,7 @@
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/central_three)
 "btH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/sign/warning/airlock{
 	pixel_y = -32
@@ -37984,7 +37891,7 @@
 /turf/space,
 /area/space)
 "buR" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/exodus_pod_research)
@@ -38035,7 +37942,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "buX" = (
-/obj/machinery/newscaster/security_unit{
+/obj/machinery/newscaster{
 	pixel_x = 0;
 	pixel_y = 32
 	},
@@ -38317,7 +38224,7 @@
 "bvs" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/visible,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/incinerator)
 "bvt" = (
@@ -38567,7 +38474,7 @@
 /turf/simulated/wall/titanium,
 /area/ship/exodus_pod_research)
 "bvP" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/status_display,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -38603,7 +38510,7 @@
 /turf/simulated/floor,
 /area/maintenance/atmos_control)
 "bvW" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
@@ -38617,7 +38524,7 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "bvX" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -38645,7 +38552,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "bvZ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -38659,7 +38566,7 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "bwa" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -38749,7 +38656,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bwm" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
@@ -38786,7 +38693,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bwq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -38823,7 +38730,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (WEST)";
 	icon_state = "loadingarea";
 	dir = 8
 	},
@@ -38941,7 +38847,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hop)
 "bwH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -39453,8 +39359,7 @@
 "bxJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact-f (EAST)"
+	icon_state = "intact"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -39463,7 +39368,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/sublevel_access)
 "bxK" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "bxL" = (
@@ -39490,7 +39395,7 @@
 /area/rnd/lab)
 "bxN" = (
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring)
 "bxO" = (
@@ -39539,7 +39444,6 @@
 	id_tag = "QMLoad2"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (NORTH)";
 	icon_state = "warningcee";
 	dir = 1
 	},
@@ -39913,7 +39817,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "byF" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/engi_shuttle)
 "byG" = (
@@ -40173,7 +40077,6 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/huge,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (NORTH)";
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -40253,7 +40156,7 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "bzk" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -40346,7 +40249,6 @@
 "bzv" = (
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
-	departmentType = 2;
 	pixel_x = -30;
 	pixel_y = 0
 	},
@@ -40427,7 +40329,6 @@
 	dir = 4
 	},
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (EAST)";
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -40437,7 +40338,6 @@
 /obj/machinery/portable_atmospherics/canister,
 /obj/effect/floor_decal/corner/purple/three_quarters,
 /obj/structure/window/phoronreinforced{
-	tag = "icon-phoronrwindow (WEST)";
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -40492,7 +40392,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/storage)
 "bzL" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/sign/warning/docking_area,
 /turf/simulated/floor/plating,
@@ -40629,7 +40529,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay3)
 "bzX" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "bzY" = (
@@ -41094,7 +40994,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Medbay Subgrid";
-	name_tag = "Medbay Subgrid"
+	id_tag = "Medbay Subgrid"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -41195,7 +41095,7 @@
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "bAQ" = (
@@ -41345,7 +41245,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "bBc" = (
@@ -41371,7 +41271,7 @@
 /turf/simulated/floor/plating,
 /area/storage/emergency)
 "bBe" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/ship/exodus_pod_engineering)
 "bBf" = (
@@ -41468,7 +41368,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "bBp" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/portsolar)
 "bBq" = (
@@ -41996,7 +41896,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "bCo" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/engi_engine)
 "bCp" = (
@@ -42031,7 +41931,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "bCr" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -42172,7 +42072,6 @@
 /area/ship/exodus_pod_research)
 "bCE" = (
 /obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (NORTH)";
 	icon_state = "warningcee";
 	dir = 1
 	},
@@ -42227,7 +42126,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (WEST)";
 	icon_state = "loadingarea";
 	dir = 8
 	},
@@ -42908,7 +42806,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bDZ" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/server_room{
 	pixel_y = 32
 	},
@@ -43018,7 +42916,6 @@
 "bEj" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (WEST)";
 	icon_state = "loadingarea";
 	dir = 8
 	},
@@ -43168,7 +43065,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Head of Personnel's Desk";
-	departmentType = 5;
 	name = "Head of Personnel RC";
 	pixel_y = -30
 	},
@@ -43826,8 +43722,7 @@
 "bFO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -43903,17 +43798,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
-"bFU" = (
-/obj/machinery/access_button/airlock_exterior{
-	command = "cycle_exterior";
-	master_tag = "research_dock_airlock";
-	name = "exterior access button";
-	pixel_x = -40;
-	pixel_y = 8
-	},
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "bFV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -43931,23 +43815,21 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "bFW" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/obj/machinery/camera/network/research{
-	c_tag = "Research Shuttle Dock Airlock"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/docking)
 "bFX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -44353,7 +44235,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 0;
 	department = "Medbay";
-	departmentType = 1;
 	name = "Medbay RC";
 	pixel_x = 0;
 	pixel_y = 30;
@@ -44775,7 +44656,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bHr" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -44940,7 +44821,6 @@
 "bHE" = (
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
-	departmentType = 2;
 	pixel_x = -30;
 	pixel_y = 32
 	},
@@ -45368,8 +45248,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -45703,7 +45582,6 @@
 /obj/item/pen,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
-	departmentType = 2;
 	pixel_x = -30;
 	pixel_y = 0
 	},
@@ -46371,7 +46249,7 @@
 /turf/simulated/floor/bluegrid,
 /area/server)
 "bKe" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/server_room{
 	pixel_y = -32
 	},
@@ -46649,7 +46527,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "bKE" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/airless,
 /area/rnd/test_area)
 "bKF" = (
@@ -46657,12 +46535,12 @@
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
 "bKG" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/engineering_monitoring)
 "bKH" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 2;
@@ -46921,7 +46799,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "bLn" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engineering_monitoring)
 "bLo" = (
@@ -47127,8 +47005,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/floor,
 /area/maintenance/atmos_control)
@@ -47266,8 +47143,7 @@
 "bMa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9;
-	icon_state = "intact";
-	tag = "icon-intact-f (NORTHWEST)"
+	icon_state = "intact"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -47302,8 +47178,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact-f (EAST)"
+	icon_state = "intact"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -47324,7 +47199,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/sublevel_access)
 "bMg" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/exodus_pod_mining)
@@ -47662,7 +47537,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engineering_monitoring)
 "bMI" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/wall,
 /area/engineering/sublevel_access)
 "bMJ" = (
@@ -48014,7 +47889,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/engi_wash)
 "bNq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -48107,7 +47982,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/exodus_pod_mining)
 "bNB" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -48224,7 +48099,6 @@
 /area/janitor)
 "bNP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (SOUTHEAST)";
 	icon_state = "intact";
 	dir = 6
 	},
@@ -48683,7 +48557,6 @@
 	c_tag = "Primary Hallway Starboard - Central West"
 	},
 /obj/effect/floor_decal/corner/white{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -48904,8 +48777,7 @@
 "bPc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -49233,7 +49105,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Chief Medical Officer's Desk";
-	departmentType = 5;
 	name = "Chief Medical Officer RC";
 	pixel_x = -34;
 	pixel_y = 2
@@ -49356,7 +49227,6 @@
 /area/rnd/misc_lab)
 "bPT" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (SOUTHWEST)";
 	icon_state = "intact";
 	dir = 10
 	},
@@ -49452,7 +49322,6 @@
 /area/maintenance/atmos_control)
 "bQf" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (SOUTHWEST)";
 	icon_state = "intact";
 	dir = 10
 	},
@@ -49472,7 +49341,6 @@
 "bQi" = (
 /obj/machinery/requests_console{
 	department = "Science";
-	departmentType = 2;
 	name = "Science Requests Console";
 	pixel_x = 30;
 	pixel_y = 0
@@ -49811,7 +49679,6 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/machinery/requests_console{
 	department = "Janitorial";
-	departmentType = 1;
 	pixel_y = -29
 	},
 /obj/item/chems/spray/cleaner,
@@ -50286,7 +50153,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -50511,7 +50377,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bRU" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -50539,7 +50405,6 @@
 /area/quartermaster/miningdock)
 "bRW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -50677,7 +50542,6 @@
 /area/maintenance/engineering)
 "bSh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -50935,8 +50799,7 @@
 "bSJ" = (
 /obj/structure/bed/chair/comfy/teal{
 	dir = 8;
-	icon_state = "comfychair_preview";
-	tag = "icon-comfychair (WEST)"
+	icon_state = "comfychair_preview"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -51060,7 +50923,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "bSY" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
@@ -51585,7 +51448,6 @@
 /area/rnd/misc_lab)
 "bTV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -51660,7 +51522,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "bUb" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 2;
@@ -51706,7 +51568,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
 "bUg" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/sublevel_access)
 "bUh" = (
@@ -51731,7 +51593,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/rnd/test_area)
 "bUk" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 2;
@@ -51997,8 +51859,7 @@
 	},
 /obj/structure/bed/chair/comfy/teal{
 	dir = 4;
-	icon_state = "comfychair_preview";
-	tag = "icon-comfychair (EAST)"
+	icon_state = "comfychair_preview"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -52199,7 +52060,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -52575,8 +52435,7 @@
 "bVT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -52660,7 +52519,6 @@
 /area/medical/sleeper)
 "bWb" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -53279,8 +53137,7 @@
 "bXn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/wall/r_wall,
 /area/rnd/mixing)
@@ -54041,7 +53898,6 @@
 /area/rnd/mixing)
 "bYw" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -54080,7 +53936,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "bYz" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/engineering/engine_airlock)
@@ -54143,8 +53999,7 @@
 "bYE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -54183,7 +54038,6 @@
 	pixel_x = -22
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -54338,7 +54192,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/engi_wash)
 "bZa" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_airlock)
 "bZb" = (
@@ -54792,8 +54646,7 @@
 "bZT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning{
@@ -54831,7 +54684,6 @@
 /area/maintenance/incinerator)
 "bZX" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (SOUTHWEST)";
 	icon_state = "intact";
 	dir = 10
 	},
@@ -55158,8 +55010,7 @@
 	},
 /obj/structure/bed/chair/comfy/teal{
 	dir = 4;
-	icon_state = "comfychair_preview";
-	tag = "icon-comfychair (EAST)"
+	icon_state = "comfychair_preview"
 	},
 /obj/effect/floor_decal/corner/pink/three_quarters{
 	dir = 8
@@ -55566,7 +55417,6 @@
 "cbp" = (
 /obj/machinery/requests_console{
 	department = "Science";
-	departmentType = 2;
 	name = "Science Requests Console";
 	pixel_x = 0;
 	pixel_y = 28
@@ -55981,7 +55831,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Research Subgrid";
-	name_tag = "Research Subgrid"
+	id_tag = "Research Subgrid"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/warning{
@@ -56094,7 +55944,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "ccn" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -56189,7 +56039,6 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (SOUTHWEST)";
 	icon_state = "intact";
 	dir = 10
 	},
@@ -56373,7 +56222,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Chief Engineer's Desk";
-	departmentType = 6;
 	name = "Chief Engineer RC";
 	pixel_x = 0;
 	pixel_y = -34
@@ -57154,7 +57002,7 @@
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "cec" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
@@ -58056,8 +57904,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/flora/pottedplant{
-	icon_state = "plant-20";
-	tag = "icon-plant-22"
+	icon_state = "plant-20"
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
@@ -58544,7 +58391,6 @@
 /area/maintenance/research_port)
 "cgW" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -58632,7 +58478,6 @@
 	},
 /obj/structure/curtain/open/shower/engineering,
 /obj/structure/window/basic{
-	tag = "icon-window (NORTH)";
 	icon_state = "window";
 	dir = 1
 	},
@@ -58697,7 +58542,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -58719,7 +58563,6 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (SOUTHEAST)";
 	icon_state = "intact";
 	dir = 6
 	},
@@ -58738,7 +58581,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -58757,7 +58599,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -58795,7 +58636,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -58804,8 +58644,7 @@
 "chr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -58833,7 +58672,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -58859,8 +58697,7 @@
 "chu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9;
-	icon_state = "intact";
-	tag = "icon-intact-f (NORTHWEST)"
+	icon_state = "intact"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -59189,7 +59026,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "chV" = (
@@ -59207,7 +59044,6 @@
 "chW" = (
 /obj/structure/curtain/open/shower/engineering,
 /obj/structure/window/basic{
-	tag = "icon-window (NORTH)";
 	icon_state = "window";
 	dir = 1
 	},
@@ -60278,7 +60114,7 @@
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Engineering Subgrid";
-	name_tag = "Engineering Subgrid"
+	id_tag = "Engineering Subgrid"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
@@ -60396,7 +60232,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engi_shuttle)
 "ckw" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/airless,
 /area/space)
 "ckx" = (
@@ -60404,7 +60240,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -60421,7 +60256,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -60541,7 +60375,6 @@
 "ckN" = (
 /obj/machinery/requests_console{
 	department = "Science";
-	departmentType = 2;
 	name = "Science Requests Console";
 	pixel_x = 30;
 	pixel_y = 0
@@ -61448,8 +61281,7 @@
 "cmy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact-f (EAST)"
+	icon_state = "intact"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -61460,14 +61292,13 @@
 	id_tag = "SupermatterPort";
 	name = "Reactor Blast Door"
 	},
-/obj/effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "cmA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact-f (EAST)"
+	icon_state = "intact"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled,
@@ -61475,21 +61306,18 @@
 "cmB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact-f (EAST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "cmC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact-f (EAST)"
+	icon_state = "intact"
 	},
 /obj/machinery/requests_console{
 	announcementConsole = 0;
 	department = "Engineering";
-	departmentType = 3;
 	name = "Engineering RC";
 	pixel_x = 0;
 	pixel_y = -32
@@ -61508,8 +61336,7 @@
 "cmE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact-f (EAST)"
+	icon_state = "intact"
 	},
 /obj/machinery/computer/guestpass{
 	pixel_y = -28
@@ -61523,8 +61350,7 @@
 "cmF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9;
-	icon_state = "intact";
-	tag = "icon-intact-f (NORTHWEST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -61582,7 +61408,7 @@
 	id_tag = "SupermatterPort";
 	name = "Reactor Blast Door"
 	},
-/obj/effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "cmN" = (
@@ -62679,7 +62505,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -63010,7 +62836,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "cpV" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -63345,7 +63171,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "cqO" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -63425,7 +63251,6 @@
 /area/engineering/engineering_monitoring)
 "crg" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (SOUTHWEST)";
 	icon_state = "intact";
 	dir = 10
 	},
@@ -63465,7 +63290,6 @@
 "crk" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -63830,7 +63654,6 @@
 "csl" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -64034,7 +63857,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/medical/surgery2)
 "csI" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -64111,7 +63934,6 @@
 /area/medical/virology)
 "csQ" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -64120,7 +63942,6 @@
 "csR" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
-	tag = "icon-map (WEST)";
 	icon_state = "map";
 	dir = 8
 	},
@@ -64192,7 +64013,6 @@
 /area/space)
 "ctp" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
-	tag = "icon-map (WEST)";
 	icon_state = "map";
 	dir = 8
 	},
@@ -64391,7 +64211,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/virology)
 "ctK" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -64403,7 +64223,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "ctM" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -64598,8 +64418,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-map (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -64863,8 +64682,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-map (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -64877,8 +64695,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 5;
-	icon_state = "intact";
-	tag = "icon-intact (SOUTHEAST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -65652,7 +65469,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Research Director's Desk";
-	departmentType = 5;
 	name = "Research Director RC";
 	pixel_x = 32;
 	pixel_y = 0
@@ -66039,8 +65855,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
@@ -66056,7 +65871,6 @@
 /obj/machinery/requests_console{
 	announcementConsole = 0;
 	department = "Engineering";
-	departmentType = 3;
 	name = "Engineering RC";
 	pixel_x = 0;
 	pixel_y = -32
@@ -66065,7 +65879,6 @@
 /area/engineering/workshop)
 "czd" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -66074,8 +65887,7 @@
 "cze" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -66998,8 +66810,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
-	icon_state = "map";
-	tag = "icon-manifold-f (WEST)"
+	icon_state = "map"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -67063,8 +66874,7 @@
 "cEr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -67628,7 +67438,6 @@
 /area/engineering/engine_room)
 "cHc" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	tag = "icon-intact (SOUTHWEST)";
 	icon_state = "intact";
 	dir = 10
 	},
@@ -67647,7 +67456,7 @@
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Master Grid";
-	name_tag = "Master"
+	id_tag = "Master"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -67771,7 +67580,6 @@
 "cHF" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	tag = "icon-map (EAST)";
 	icon_state = "map";
 	dir = 4
 	},
@@ -67792,7 +67600,6 @@
 /area/engineering/engine_room)
 "cHM" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
-	tag = "icon-map (EAST)";
 	icon_state = "map";
 	dir = 4
 	},
@@ -67853,8 +67660,7 @@
 "cHY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact (EAST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -67878,7 +67684,7 @@
 /obj/structure/cable/yellow,
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Engine Output";
-	name_tag = "Engine Output"
+	id_tag = "Engine Output"
 	},
 /obj/structure/cable/yellow{
 	d2 = 2;
@@ -67926,7 +67732,6 @@
 /area/space)
 "cIm" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -67936,7 +67741,6 @@
 "cIn" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	tag = "icon-intact (NORTHWEST)";
 	icon_state = "intact";
 	dir = 9
 	},
@@ -68050,7 +67854,6 @@
 /area/engineering/engine_room)
 "cIG" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	tag = "icon-map (EAST)";
 	icon_state = "map";
 	dir = 4
 	},
@@ -68096,7 +67899,6 @@
 "cIO" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	tag = "icon-intact (SOUTHWEST)";
 	icon_state = "intact";
 	dir = 10
 	},
@@ -68173,15 +67975,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
-	icon_state = "intact";
-	tag = "icon-intact (EAST)"
+	icon_state = "intact"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "cJd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	tag = "icon-intact (SOUTHEAST)";
 	icon_state = "intact";
 	dir = 6
 	},
@@ -68275,7 +68075,6 @@
 /area/engineering/engine_room)
 "cJt" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	tag = "icon-map (EAST)";
 	icon_state = "map";
 	dir = 4
 	},
@@ -68286,7 +68085,6 @@
 /area/engineering/engine_room)
 "cJu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -68570,7 +68368,6 @@
 /area/engineering/engine_room)
 "cKC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -68667,7 +68464,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "cKX" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -68788,7 +68585,7 @@
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Engine Power";
-	name_tag = "Engine Power"
+	id_tag = "Engine Power"
 	},
 /obj/machinery/power/apc/super/critical{
 	dir = 1;
@@ -68811,7 +68608,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/portsolar)
 "cLt" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -68866,7 +68663,6 @@
 /area/engineering/engine_room)
 "cLz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	tag = "icon-intact (NORTHEAST)";
 	icon_state = "intact";
 	dir = 5
 	},
@@ -69185,7 +68981,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/exodus_pod_mining)
 "fyf" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -69203,7 +68999,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/exodus_pod_mining)
 "gwY" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -69331,12 +69127,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/exodus_pod_engineering)
 "mwu" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge)
 "mNK" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -69391,7 +69187,7 @@
 /turf/space,
 /area/space)
 "sfM" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -69401,7 +69197,7 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "sxY" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 2;
@@ -69442,6 +69238,24 @@
 	},
 /turf/simulated/floor,
 /area/ship/exodus_pod_mining)
+"xHt" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1;
+	icon_state = "map"
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research Shuttle Dock Airlock"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/docking)
 
 (1,1,1) = {"
 cLU
@@ -120463,15 +120277,15 @@ cLU
 cLU
 cLU
 cLU
-aph
-bvO
-bxQ
-bxQ
-bxQ
-bvO
-aPa
-bkr
-bHv
+cLU
+cLU
+cLU
+cLU
+cLU
+cLU
+aMM
+bkt
+bHw
 aPa
 aaf
 cLU
@@ -120720,16 +120534,16 @@ cLU
 cLU
 cLU
 cLU
-aph
-bvO
-bwH
-bzk
-fyf
-bvO
+cLU
+cLU
+cLU
+cLU
+cLU
+cLU
+aMM
+bkt
+bHw
 aPa
-bkU
-btH
-bCJ
 aaf
 cLU
 cLU
@@ -120977,16 +120791,16 @@ cLU
 cLU
 cLU
 cLU
-aph
-bvO
-brg
-hZw
-eTV
-bvO
-aPa
+cLU
+cLU
+cLU
+cLU
+cLU
+cLU
+aMM
 bFW
-bHx
-bCJ
+bHw
+aPa
 aaf
 aaf
 aaf
@@ -121234,15 +121048,15 @@ cLU
 cLU
 cLU
 cLU
-aph
-bvO
-bzN
-ejv
-oDi
-bDQ
-aRC
-bFY
-bHz
+cLU
+cLU
+cLU
+cLU
+cLU
+cLU
+aMM
+bkt
+bHw
 aPa
 aaf
 cLU
@@ -121491,16 +121305,16 @@ cLU
 cLU
 cLU
 cLU
-aph
+cLU
 bvO
-bwJ
-pqS
-klX
+bxQ
+bxQ
+bxQ
 bvO
-aMM
 aPa
-bCJ
-bCJ
+bkr
+bHv
+aPa
 aaf
 cLU
 aaf
@@ -121748,16 +121562,16 @@ cLU
 cLU
 cLU
 cLU
-aph
+cLU
 bvO
-bzO
-byn
-bCr
-buR
-bFU
-cLU
-cLU
-cLU
+bwH
+bzk
+fyf
+bvO
+aPa
+bkU
+btH
+bCJ
 cLU
 cLU
 aaf
@@ -122005,16 +121819,16 @@ cLU
 cLU
 cLU
 cLU
-aph
+cLU
 bvO
+brg
+hZw
+eTV
 bvO
-buR
-sxY
-bCD
-aaf
-cLU
-cLU
-cLU
+aPa
+xHt
+bHx
+bCJ
 cLU
 cLU
 aaf
@@ -122262,18 +122076,18 @@ cLU
 cLU
 cLU
 cLU
-aph
-aaf
-aaf
-aaf
-aaf
-aaf
-boX
-aaf
-aaf
-aaf
-aaf
-aaf
+cLU
+bvO
+bzN
+ejv
+oDi
+bDQ
+aRC
+bFY
+bHz
+aPa
+cLU
+cLU
 aaf
 cLU
 aaf
@@ -122519,16 +122333,16 @@ cLU
 cLU
 cLU
 cLU
-aph
 cLU
-cLU
-cLU
-cLU
-cLU
-cLU
-cLU
-cLU
-cLU
+bvO
+bwJ
+pqS
+klX
+bvO
+aMM
+aPa
+bCJ
+bCJ
 cLU
 cLU
 aaf
@@ -122776,15 +122590,15 @@ cLU
 cLU
 cLU
 cLU
-apc
-aph
-aph
-aph
-aph
-aph
-aph
-aph
-apc
+cLU
+bvO
+bzO
+byn
+bCr
+buR
+cLU
+cLU
+cLU
 cLU
 cLU
 cLU
@@ -123033,12 +122847,12 @@ cLU
 cLU
 cLU
 cLU
-crP
 cLU
-cLU
-cLU
-cLU
-cLU
+bvO
+bvO
+buR
+sxY
+bCD
 cLU
 cLU
 cLU
@@ -123290,7 +123104,7 @@ cLU
 cLU
 cLU
 cLU
-crP
+cLU
 cLU
 cLU
 cLU
@@ -123547,7 +123361,7 @@ cLU
 cLU
 cLU
 cLU
-crP
+cLU
 cLU
 cLU
 cLU
@@ -123804,7 +123618,7 @@ cLU
 cLU
 cLU
 cLU
-crP
+cLU
 cLU
 cLU
 cLU
@@ -124061,8 +123875,8 @@ cLU
 cLU
 cLU
 cLU
-crP
-aaf
+cLU
+cLU
 cLU
 cLU
 cLU
@@ -124318,9 +124132,9 @@ cLU
 cLU
 cLU
 cLU
-crP
-aaf
-crP
+cLU
+cLU
+cLU
 cLU
 cLU
 cLU
@@ -124575,10 +124389,10 @@ cLU
 cLU
 cLU
 cLU
-crP
 cLU
-aaf
-crP
+cLU
+cLU
+cLU
 cLU
 cLU
 cLU
@@ -124832,11 +124646,11 @@ crP
 crP
 crP
 cLU
-crP
 cLU
 cLU
-aaf
-crP
+cLU
+cLU
+cLU
 cLU
 cLU
 cLU
@@ -125089,12 +124903,12 @@ cLU
 cLU
 aaf
 aaf
-crP
 cLU
 cLU
 cLU
-aaf
-crP
+cLU
+cLU
+cLU
 cLU
 cLU
 cLU
@@ -125346,13 +125160,13 @@ apc
 apc
 apc
 cLU
-crP
 cLU
 cLU
 cLU
 cLU
-aaf
-aaf
+cLU
+cLU
+cLU
 cLU
 cLU
 cLU

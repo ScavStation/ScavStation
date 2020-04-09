@@ -99,6 +99,10 @@ var/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
 	icon_state = "SolarcontrolS"
 	sound_env = SMALL_ENCLOSED
 
+/area/maintenance/telecomms
+	name = "Telecommunications Sublevel"
+	sound_env = SMALL_ENCLOSED
+
 /area/solar
 	requires_power = 1
 	always_unpowered = 1
