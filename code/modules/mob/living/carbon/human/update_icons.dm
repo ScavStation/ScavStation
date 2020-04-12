@@ -2,13 +2,11 @@
 	Global associative list for caching humanoid icons.
 	Index format m or f, followed by a string of 0 and 1 to represent bodyparts followed by husk fat hulk skeleton 1 or 0.
 	TODO: Proper documentation
-	icon_key is [species.race_key][g][husk][fat][hulk][skeleton][s_tone]
+	icon_key is [species.get_icon_cache_uid(src)][g][husk][fat][hulk][skeleton][s_tone]
 */
 var/global/list/human_icon_cache = list()
-var/global/list/tail_icon_cache = list() //key is [species.race_key][r_skin][g_skin][b_skin]
+var/global/list/tail_icon_cache = list() //key is [species.get_icon_cache_uid(src)][r_skin][g_skin][b_skin]
 var/global/list/light_overlay_cache = list()
-GLOBAL_LIST_EMPTY(overlay_icon_cache)
-GLOBAL_LIST_EMPTY(species_icon_template_cache)
 
 /proc/overlay_image(icon,icon_state,color,flags)
 	var/image/ret = image(icon,icon_state)
@@ -166,17 +164,21 @@ Please contact me on #coderbus IRC. ~Carn x
 			icon_state = null
 			visible_overlays = overlays_standing
 
+		var/matrix/M = matrix()
+		if(lying && (species.prone_overlay_offset[1] || species.prone_overlay_offset[2]))
+			M.Translate(species.prone_overlay_offset[1], species.prone_overlay_offset[2])
+
 		for(var/i = 1 to LAZYLEN(visible_overlays))
 			var/entry = visible_overlays[i]
 			if(istype(entry, /image))
 				var/image/overlay = entry
 				if(i != HO_DAMAGE_LAYER)
-					overlay.transform = get_lying_offset(overlay)
+					overlay.transform = M
 				overlays_to_apply += overlay
 			else if(istype(entry, /list))
 				for(var/image/overlay in entry)
 					if(i != HO_DAMAGE_LAYER)
-						overlay.transform = get_lying_offset(overlay)
+						overlay.transform = M
 					overlays_to_apply += overlay
 
 		var/obj/item/organ/external/head/head = organs_by_name[BP_HEAD]
@@ -200,32 +202,6 @@ Please contact me on #coderbus IRC. ~Carn x
 	animate(src, transform = M, time = ANIM_LYING_TIME)
 
 var/global/list/damage_icon_parts = list()
-
-/mob/living/carbon/human/proc/get_lying_offset(var/image/I)
-	var/matrix/M = matrix()
-	if(!lying)
-		return M
-
-	var/overlay_key = "[I.icon][I.icon_state]"
-	if(!GLOB.overlay_icon_cache[overlay_key])
-		GLOB.overlay_icon_cache[overlay_key] = new/icon(icon = I.icon, icon_state = I.icon_state)
-
-	var/icon/species_key = "[species.get_race_key(src)]"
-	if(species.icon_template)
-		if(!GLOB.species_icon_template_cache[species_key])
-			GLOB.species_icon_template_cache[species_key] = new/icon(icon = species.icon_template, icon_state = "")
-	else
-		species_key = "icons/mob/human.dmiblank"
-		if(!GLOB.species_icon_template_cache[species_key])
-			GLOB.species_icon_template_cache[species_key] = new/icon(icon = 'icons/mob/human.dmi', icon_state = "blank")
-
-	var/icon/icon_template = GLOB.species_icon_template_cache[species_key]
-	var/icon/overlay = GLOB.overlay_icon_cache[overlay_key]
-
-	var/x_offset = Ceiling(0.5*(icon_template.Width() - overlay.Width()))
-	var/y_offset = Ceiling(0.5*(icon_template.Height() - overlay.Height()))
-
-	return M.Translate(x_offset-y_offset, -(x_offset+y_offset))
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_ lists
@@ -259,7 +235,7 @@ var/global/list/damage_icon_parts = list()
 		if(O.damage_state == "00") continue
 		var/icon/DI
 		var/use_colour = (BP_IS_PROSTHETIC(O) ? SYNTH_BLOOD_COLOUR : O.species.get_blood_colour(src))
-		var/cache_index = "[O.damage_state]/[O.icon_name]/[use_colour]/[species.get_bodytype(src)]"
+		var/cache_index = "[O.damage_state]/[O.icon_name]/[use_colour]/[species.name]"
 		if(damage_icon_parts[cache_index] == null)
 			DI = new /icon(species.get_damage_overlays(src), O.damage_state)			// the damage icon for whole human
 			DI.Blend(new /icon(species.get_damage_mask(src), O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
@@ -314,7 +290,7 @@ var/global/list/damage_icon_parts = list()
 	if(gender == FEMALE)
 		g = "female"
 
-	var/icon_key = "[species.get_race_key(src)][g][s_tone][r_skin][g_skin][b_skin]"
+	var/icon_key = "[species.get_icon_cache_uid(src)][g][s_tone][r_skin][g_skin][b_skin]"
 	if(lip_style)
 		icon_key += "[lip_style]"
 	else
@@ -333,7 +309,7 @@ var/global/list/damage_icon_parts = list()
 		for(var/M in part.markings)
 			icon_key += "[M][part.markings[M]["color"]]"
 		if(part)
-			icon_key += "[part.species.get_race_key(part.owner)]"
+			icon_key += "[part.species.get_icon_cache_uid(part.owner)]"
 			icon_key += "[part.dna.GetUIState(DNA_UI_GENDER)]"
 			icon_key += "[part.s_tone]"
 			icon_key += "[part.s_base]"
@@ -723,7 +699,7 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 /mob/living/carbon/human/proc/get_tail_icon()
-	var/icon_key = "[species.get_race_key(src)][r_skin][g_skin][b_skin][r_hair][g_hair][b_hair]"
+	var/icon_key = "[species.get_icon_cache_uid(src)][r_skin][g_skin][b_skin][r_hair][g_hair][b_hair]"
 	var/icon/tail_icon = tail_icon_cache[icon_key]
 	if(!tail_icon)
 		//generate a new one

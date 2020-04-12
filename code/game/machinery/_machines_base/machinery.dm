@@ -135,6 +135,7 @@ Class Procs:
 	. = ..()
 
 /obj/machinery/proc/ProcessAll(var/wait)
+	SHOULD_NOT_SLEEP(TRUE)
 	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
 		for(var/thing in processing_parts)
 			var/obj/item/stock_parts/part = thing
@@ -229,7 +230,7 @@ Class Procs:
 
 /obj/machinery/Topic(href, href_list, datum/topic_state/state)
 	if(href_list["mechanics_text"] && construct_state) // This is an OOC examine thing handled via Topic; specifically bypass all checks, but do nothing other than message to chat.
-		var/list/info = construct_state.mechanics_info()
+		var/list/info = get_tool_manipulation_info()
 		if(info)
 			to_chat(usr, jointext(info, "<br>"))
 			return TOPIC_HANDLED
@@ -238,6 +239,9 @@ Class Procs:
 	if(. == TOPIC_REFRESH)
 		updateUsrDialog() // Update legacy UIs to the extent possible.
 
+/obj/machinery/proc/get_tool_manipulation_info()
+	return construct_state?.mechanics_info()
+	
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /obj/machinery/attack_ai(mob/user)
@@ -339,10 +343,8 @@ Class Procs:
 		circuit.deconstruct(src)
 
 	var/obj/frame
-	if(ispath(frame_type, /obj/item/pipe))
-		var/obj/item/pipe/pipe = new frame_type(get_turf(src), src)
-		frame = pipe
-		pipe.constructed_path = base_type
+	if(ispath(frame_type, /obj/item/pipe) || ispath(frame_type, /obj/structure/disposalconstruct))
+		frame = new frame_type(get_turf(src), src)
 	else
 		frame = new frame_type(get_turf(src), dir)
 
@@ -441,3 +443,6 @@ Class Procs:
 	. = ..()
 	for(var/obj/item/stock_parts/access_lock/lock in get_all_components_of_type(/obj/item/stock_parts/access_lock))
 		. = max(., lock.emag_act())
+
+/obj/machinery/proc/on_user_login(var/mob/M)
+	return

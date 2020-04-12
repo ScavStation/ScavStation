@@ -93,7 +93,11 @@
 /obj/item/organ/external/afterattack(atom/A, mob/user, proximity)
 	..()
 	if(proximity && get_fingerprint())
-		A.add_partial_print(get_fingerprint())
+		var/datum/extension/forensic_evidence/forensics = get_or_create_extension(src, /datum/extension/forensic_evidence)
+		var/datum/fingerprint/F = new()
+		F.full_print = get_fingerprint()
+		F.completeness = rand(10,90)
+		forensics.add_data(/datum/forensics/fingerprints, F)
 
 /obj/item/organ/external/Initialize()
 	. = ..()
@@ -1108,11 +1112,15 @@ obj/item/organ/external/proc/remove_clamps()
 
 	if(company)
 		var/datum/robolimb/R = all_robolimbs[company]
-		if(!istype(R) || (species && (species.name in R.species_cannot_use)) || \
-		 (species && !(species.get_bodytype(owner) in R.allowed_bodytypes)) || \
-		 (R.applies_to_part.len && !(organ_tag in R.applies_to_part)))
-			R = basic_robolimb
-		else
+		var/can_apply = TRUE
+		if(!istype(R))
+			can_apply = FALSE
+		else if(species && ((species.get_bodytype() in R.bodytypes_cannot_use) || !(species.get_bodytype(owner) in R.allowed_bodytypes)))
+			can_apply = FALSE
+		else if(length(R.applies_to_part) && !(organ_tag in R.applies_to_part))
+			can_apply = FALSE
+
+		if(can_apply)
 			model = company
 			force_icon = R.icon
 			name = "[R ? R.modifier_string : "robotic"] [initial(name)]"
@@ -1120,6 +1128,8 @@ obj/item/organ/external/proc/remove_clamps()
 			slowdown = R.movement_slowdown
 			max_damage *= R.hardiness
 			min_broken_damage *= R.hardiness
+		else
+			R = basic_robolimb
 
 	dislocated = -1
 	remove_splint()
@@ -1368,11 +1378,17 @@ obj/item/organ/external/proc/remove_clamps()
 
 //Adds autopsy data for used_weapon.
 /obj/item/organ/external/proc/add_autopsy_data(var/used_weapon, var/damage)
-	var/datum/autopsy_data/W = autopsy_data[used_weapon]
+	var/key = used_weapon
+	var/data = used_weapon
+	if(istype(used_weapon, /obj/item))
+		var/obj/item/I = used_weapon
+		key = I.name
+		data = english_list(I.get_autopsy_descriptors())
+	var/datum/autopsy_data/W = autopsy_data[key]
 	if(!W)
 		W = new()
-		W.weapon = used_weapon
-		autopsy_data[used_weapon] = W
+		W.weapon = data
+		autopsy_data[key] = W
 
 	W.hits += 1
 	W.damage += damage

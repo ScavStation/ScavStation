@@ -1,6 +1,7 @@
 /datum/species/baxxid
 	name = SPECIES_BAXXID
 	name_plural = SPECIES_BAXXID
+	bodytype = BODYTYPE_BAXXID
 	icobase =         'mods/valsalia/icons/species/baxxid/body.dmi'
 	deform =          'mods/valsalia/icons/species/baxxid/deformed_body.dmi'
 	preview_icon =    'mods/valsalia/icons/species/baxxid/preview.dmi'

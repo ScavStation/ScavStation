@@ -11,7 +11,7 @@
 /obj/item/clothing/head/baxxid
 	name = "baxxid head clothing"
 	desc = "A parent item for stuff you put on top of a baxxid."
-	species_restricted = list(SPECIES_BAXXID)
+	bodytype_restricted = list(BODYTYPE_BAXXID)
 	icon_state = "world"
 
 /obj/item/clothing/head/baxxid/hood

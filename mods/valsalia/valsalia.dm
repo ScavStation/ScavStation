@@ -9,6 +9,9 @@
 #define CULTURE_BAXXID           "Baxxid Clans"
 #define FACTION_BAXXID           "Baxxid Nomad"
 
+#define BODYTYPE_YINGLET         "Yinglet Body"
+#define BODYTYPE_BAXXID          "Baxxid Body"
+
 /decl/modpack/valsalia
 	name = "Val Salia Content"
 	credits_topics = list(
