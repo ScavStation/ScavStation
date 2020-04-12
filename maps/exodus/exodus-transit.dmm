@@ -56,9 +56,6 @@
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/fire,
 /obj/item/extinguisher,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Bridge West"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape)
 "ap" = (
@@ -76,9 +73,6 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/toxin,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Bridge East"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape)
 "as" = (
@@ -161,9 +155,6 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/escape)
 "aF" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Cell"
-	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/escape)
 "aG" = (
@@ -286,9 +277,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape)
 "aW" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Center"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape)
 "aX" = (
@@ -301,10 +289,6 @@
 /area/supply)
 "aY" = (
 /obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West";
 	dir = 4
 	},
 /obj/machinery/light{
@@ -343,10 +327,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape)
 "bd" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle East";
-	dir = 4
-	},
 /obj/structure/bed/chair{
 	dir = 4
 	},
@@ -537,10 +517,6 @@
 /area/shuttle/escape)
 "bz" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West Storage";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/shuttle/escape)
 "bA" = (
@@ -551,10 +527,6 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/shuttle/escape)
 "bB" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Medical";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/shuttle/escape)
 "bC" = (
@@ -578,10 +550,6 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/shuttle/escape)
 "bE" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle East Storage";
-	dir = 8
-	},
 /obj/machinery/cryopod/robot{
 	time_till_despawn = 10
 	},

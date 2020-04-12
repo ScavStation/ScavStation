@@ -146,7 +146,8 @@
 		while(null in owner.organs)
 			owner.organs -= null
 
-	if(autopsy_data)    autopsy_data.Cut()
+	if(autopsy_data)    
+		autopsy_data.Cut()
 
 	return ..()
 

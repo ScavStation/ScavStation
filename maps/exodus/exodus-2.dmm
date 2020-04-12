@@ -31570,7 +31570,7 @@
 /obj/item/radio/intercom/broadcasting{
 	pixel_y = 22
 	},
-/obj/structure/aicore/deactivated,
+/obj/structure/aicore/deactivated/roundstart,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "bjd" = (

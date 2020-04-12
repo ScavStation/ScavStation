@@ -9,7 +9,7 @@
 	switch(network)
 		if(NETWORK_ENGINEERING, NETWORK_ALARM_ATMOS, NETWORK_ALARM_CAMERA, NETWORK_ALARM_FIRE, NETWORK_ALARM_POWER)
 			return access_engine
-		if(NETWORK_CRESCENT, NETWORK_ERT)
+		if(NETWORK_ERT)
 			return access_cent_specops
 		if(NETWORK_MEDICAL)
 			return access_medical
@@ -175,7 +175,6 @@
 /datum/nano_module/camera_monitor/ert/modify_networks_list(var/list/networks)
 	..()
 	networks.Add(list(list("tag" = NETWORK_ERT, "has_access" = 1)))
-	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))
 	return networks
 
 /datum/nano_module/camera_monitor/apply_visual(mob/M)

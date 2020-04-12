@@ -563,5 +563,5 @@ SUBSYSTEM_DEF(jobs)
 			continue
 		if(locate(/mob/living) in S.loc)
 			continue
-		empty_playable_ai_cores += new /obj/structure/aicore/deactivated(get_turf(S))
+		new /obj/structure/aicore/deactivated/roundstart(get_turf(S))
 	return 1

@@ -202,6 +202,10 @@ var/global/list/empty_playable_ai_cores = list()
 	anchored = 1
 	tool_interaction_flags =  (TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT)
 
+/obj/structure/aicore/deactivated/roundstart/Initialize()
+	empty_playable_ai_cores |= src
+	. = ..()
+
 /obj/structure/aicore/deactivated/Destroy()
 	empty_playable_ai_cores -= src
 	. = ..()
