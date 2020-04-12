@@ -1,28 +1,28 @@
 /obj/item/clothing/gloves
-	sprite_sheets = list(SPECIES_YINGLET = 'mods/valsalia/icons/onmob_hands_yinglet.dmi')
-	species_restricted = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_hands_yinglet.dmi')
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
 /obj/item/clothing/ears
-	species_restricted = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
 /obj/item/clothing/glasses
-	species_restricted = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
 /obj/item/clothing/head
-	species_restricted = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
 /obj/item/clothing/suit
-	species_restricted = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
 /obj/item/clothing/mask
-	species_restricted = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
 /obj/item/clothing/under/tradeship_plain
 	name = "plain clothes"
 	desc = "Some very boring clothes."
 	icon = 'mods/valsalia/icons/under.dmi'
 	icon_state = "plainclothes"
-	species_restricted = list(SPECIES_HUMAN)
+	bodytype_restricted = list(BODYTYPE_HUMANOID)
 	item_icons = list(
 		slot_w_uniform_str = 'mods/valsalia/icons/onmob_under.dmi'
 	)
@@ -37,8 +37,8 @@
 	)
 	icon_open = "redcoat_open"
 	icon_closed = "redcoat"
-	species_restricted = list(SPECIES_HUMAN)
-	sprite_sheets = list(SPECIES_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
+	bodytype_restricted = list(BODYTYPE_HUMANOID)
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
 
 	var/has_badge
 	var/has_buttons

@@ -2,6 +2,7 @@
 /datum/species/yinglet
 	name = SPECIES_YINGLET
 	name_plural = "Yinglets"
+	bodytype = BODYTYPE_YINGLET
 	description = "A species of short, slender rat-birds with a fondness for clams. Commonly found wherever humans are, \
 	either scavenging amongst their leavings, or benefiting from adjacency to an older and more developed culture."
 	autohiss_basic_map = list(
@@ -82,6 +83,9 @@
 		TAG_RELIGION =  list(RELIGION_OTHER)
 	)
 
+/datum/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
+	return SPECIES_YINGLET
+	
 /datum/species/yinglet/skills_from_age(age)
 	switch(age)
 		if(0 to 5)
@@ -105,9 +109,6 @@
 	pref.r_skin = 120
 	pref.g_skin = 120
 	pref.b_skin = 120
-
-/datum/species/yinglet/get_bodytype(var/mob/living/carbon/human/H)
-	. = SPECIES_YINGLET
 
 /datum/species/yinglet/New()
 	equip_adjust = list(

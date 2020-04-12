@@ -2,7 +2,7 @@
 	company = "scavenged prosthesis"
 	desc = "A stick, tied to the owner's body with rags. Very scav chic."
 	icon = 'icons/mob/human_races/cyberlimbs/yinglet/wooden_main.dmi'
-	allowed_bodytypes = list(SPECIES_YINGLET)
+	allowed_bodytypes = list(BODYTYPE_YINGLET)
 	unavailable_at_fab = 1
 	modifier_string = "wooden"
 	hardiness = 0.75
@@ -14,7 +14,7 @@
 	company = "Lunar Transit"
 	desc = "A cheap robotic prosthetic designed for yinglet owners."
 	icon = 'icons/mob/human_races/cyberlimbs/yinglet/metal_main.dmi'
-	allowed_bodytypes = list(SPECIES_YINGLET)
+	allowed_bodytypes = list(BODYTYPE_YINGLET)
 
 /material/wood/generate_recipes(var/reinforce_material)
 	. = ..()

@@ -19,6 +19,9 @@
 /obj/item/ammo_casing/Initialize()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
+		if(caliber && istype(BB, /obj/item/projectile/bullet))
+			var/obj/item/projectile/bullet/B = BB
+			B.caliber = caliber
 	if(randpixel)
 		pixel_x = rand(-randpixel, randpixel)
 		pixel_y = rand(-randpixel, randpixel)
@@ -56,7 +59,8 @@
 
 /obj/item/ammo_casing/proc/put_residue_on(atom/A)
 	if(A)
-		LAZYDISTINCTADD(A.gunshot_residue, caliber)
+		var/datum/extension/forensic_evidence/forensics = get_or_create_extension(A, /datum/extension/forensic_evidence)
+		forensics.add_from_atom(/datum/forensics/gunshot_residue, src)
 
 /obj/item/ammo_casing/attackby(obj/item/W, mob/user)
 	if(isScrewdriver(W))

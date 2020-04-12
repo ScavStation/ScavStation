@@ -270,7 +270,6 @@
 /area/ship/trade/maintenance/robot)
 "aR" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -311,7 +310,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -400,7 +398,6 @@
 	d2 = 2
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -446,7 +443,6 @@
 	dir = 4
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2369,7 +2365,6 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
 	icon_state = "railing0";
 	dir = 8
 	},
@@ -2609,7 +2604,6 @@
 /area/ship/trade/escape_star)
 "ql" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (NORTH)";
 	icon_state = "handrail";
 	dir = 1
 	},
@@ -2643,7 +2637,6 @@
 /area/ship/trade/cargo/lower)
 "rP" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -3426,7 +3419,6 @@
 /area/ship/trade/maintenance/techstorage)
 "XF" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},

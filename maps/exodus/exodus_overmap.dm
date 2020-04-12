@@ -1,7 +1,6 @@
 /datum/map/exodus
 	overmap_event_areas = 6
 	use_overmap = 1
-	num_exoplanets = 1
 
 /obj/effect/overmap/visitable/ship/exodus
 	name = "Exodus Station"

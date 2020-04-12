@@ -12,6 +12,11 @@
 	desc = "They suspend the illusion of the mime's play."
 	icon_state = "suspenders"
 
+/obj/item/clothing/accessory/suspenders/colorable
+	name = "suspenders"
+	desc = "They suspend the illusion of the mime's play."
+	icon_state = "suspenders_color"
+
 /obj/item/clothing/accessory/tunic
 	name = "researcher's tunic"
 	desc = "A fashionable tunic that EXO provides to their lab workers."
@@ -158,7 +163,7 @@
 	name = "flower-pattern shirt"
 	desc = "You probably need some welder googles to look at this."
 	icon_state = "hawaii"
-	sprite_sheets = list(SPECIES_MONKEY = 'icons/mob/species/monkey/onmob_accessories_monkey.dmi')
+	sprite_sheets = list(BODYTYPE_MONKEY = 'icons/mob/species/monkey/onmob_accessories_monkey.dmi')
 
 /obj/item/clothing/accessory/toggleable/hawaii/red
 	icon_state = "hawaii2"

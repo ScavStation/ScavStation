@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
-	species_restricted = list(SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_YINGLET)
 	icon = 'mods/valsalia/icons/suit_yinglet.dmi'
 
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer
@@ -14,10 +14,10 @@
 /obj/item/clothing/under/yinglet
 	name = "small loincloth"
 	desc = "A few rags that wrap around the legs and crotch for a semblance of modesty."
-	species_restricted = list(SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_YINGLET)
 	icon = 'mods/valsalia/icons/under_yinglet.dmi'
 	icon_state = "loincloth"
-	sprite_sheets = list(SPECIES_YINGLET = 'mods/valsalia/icons/onmob_under_yinglet.dmi')
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_under_yinglet.dmi')
 	color = COLOR_BEIGE
 	var/detail_color
 
@@ -48,8 +48,8 @@
 	icon = 'mods/valsalia/icons/head_yinglet.dmi'
 	icon_state = "ying_hood"
 	flags_inv = BLOCKHAIR
-	species_restricted = list(SPECIES_YINGLET)
-	sprite_sheets = list(SPECIES_YINGLET = 'mods/valsalia/icons/onmob_head_yinglet.dmi')
+	bodytype_restricted = list(BODYTYPE_YINGLET)
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_head_yinglet.dmi')
 	color = COLOR_BEIGE
 	var/detail_color
 
@@ -77,16 +77,16 @@
 /obj/item/clothing/suit/yinglet
 	name = "small cape"
 	desc = "A short length of cloth worked into a cape. Some people would say it looks stupid."
-	species_restricted = list(SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_YINGLET)
 	icon = 'mods/valsalia/icons/suit_yinglet.dmi'
 	icon_state = "cape"
 	color = COLOR_DARK_RED
-	sprite_sheets = list(SPECIES_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
 
 /obj/item/clothing/shoes/sandal/yinglet
 	name = "small sandals"
 	desc = "A pair of rather plain wooden sandals. They seem to be the right size and shape for a yinglet."
-	species_restricted = list(SPECIES_YINGLET)
+	bodytype_restricted = list(BODYTYPE_YINGLET)
 	item_icons = list(
 		slot_shoes_str = 'mods/valsalia/icons/onmob_shoes_yinglet.dmi'
 	)
