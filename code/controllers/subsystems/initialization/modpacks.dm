@@ -4,6 +4,10 @@ SUBSYSTEM_DEF(modpacks)
 	flags = SS_NO_FIRE
 	var/list/loaded_modpacks = list()
 
+	// Compiled modpack information.
+	var/list/default_submap_whitelisted_species = list()
+	var/list/default_submap_blacklisted_species = list(SPECIES_ALIEN, SPECIES_GOLEM)
+
 /datum/controller/subsystem/modpacks/Initialize()
 	var/list/all_modpacks = decls_repository.get_decls_of_subtype(/decl/modpack)
 
@@ -15,7 +19,7 @@ SUBSYSTEM_DEF(modpacks)
 			crash_with("Modpack of type [package] is null or queued for deletion.")
 			continue
 		if(fail_msg)
-			crash_with("Modpack [manifest.name] failed to pre-initialize: [fail_msg].")
+			crash_with("Modpack [manifest.name] ([package]) failed to pre-initialize: [fail_msg].")
 			continue
 		if(loaded_modpacks[manifest.name])
 			crash_with("Attempted to register duplicate modpack name [manifest.name].")
@@ -33,5 +37,8 @@ SUBSYSTEM_DEF(modpacks)
 		var/fail_msg = manifest.post_initialize()
 		if(fail_msg)
 			crash_with("Modpack [(istype(manifest) && manifest.name) || "Unknown"] failed to post-initialize: [fail_msg]")
+
+	// Update compiled infolists.
+	default_submap_whitelisted_species |= GLOB.using_map.default_species
 
 	. = ..()

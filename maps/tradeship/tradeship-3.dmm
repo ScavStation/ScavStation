@@ -502,7 +502,6 @@
 "pC" = (
 /obj/item/wrench,
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -588,7 +587,6 @@
 /area/ship/trade/bridge_unused)
 "vi" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -816,7 +814,6 @@
 	dir = 4
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -954,7 +951,6 @@
 	dir = 8
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -1103,7 +1099,6 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	tag = "icon-map-scrubbers (NORTH)";
 	icon_state = "map-scrubbers";
 	dir = 1
 	},
@@ -1228,7 +1223,6 @@
 /area/ship/trade/maintenance/solars)
 "Yq" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (NORTH)";
 	icon_state = "handrail";
 	dir = 1
 	},
@@ -1254,7 +1248,6 @@
 /area/ship/trade/command/bridge_upper)
 "Zx" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},

@@ -81,7 +81,7 @@
 	var/list/sprite_sheets = list()
 
 	// Species-specific sprite sheets for inventory sprites
-	// Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
+	// Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_bodytype() proc is called.
 	var/list/sprite_sheets_obj = list()
 
 	// Material handling for material weapons (not used by default, unless material is supplied or set)
@@ -178,22 +178,8 @@
 				qdel(src)
 
 /obj/item/examine(mob/user, distance)
-	var/size
-	switch(src.w_class)
-		if(ITEM_SIZE_TINY)
-			size = "tiny"
-		if(ITEM_SIZE_SMALL)
-			size = "small"
-		if(ITEM_SIZE_NORMAL)
-			size = "normal-sized"
-		if(ITEM_SIZE_LARGE)
-			size = "large"
-		if(ITEM_SIZE_HUGE)
-			size = "bulky"
-		if(ITEM_SIZE_HUGE + 1 to INFINITY)
-			size = "huge"
 	var/desc_comp = "" //For "description composite"
-	desc_comp += "It is a [size] item."
+	desc_comp += "It is a [w_class_description()] item."
 
 	var/list/available_recipes = list()
 	for(var/decl/crafting_stage/initial_stage in SSfabrication.find_crafting_recipes(type))
@@ -691,7 +677,9 @@ var/list/global/slot_flags_enumeration = list(
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
-	trace_DNA = null
+	var/datum/extension/forensic_evidence/forensics = get_extension(src, /datum/extension/forensic_evidence)
+	if(forensics)
+		forensics.remove_data(/datum/forensics/trace_dna)
 
 /obj/item/reveal_blood()
 	if(was_bloodied && !fluorescent)
@@ -721,6 +709,8 @@ var/list/global/slot_flags_enumeration = list(
 		if(blood_DNA[M.dna.unique_enzymes])
 			return 0 //already bloodied with this blood. Cannot add more.
 		blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
+		var/datum/extension/forensic_evidence/forensics = get_or_create_extension(src, /datum/extension/forensic_evidence)
+		forensics.add_data(/datum/forensics/blood_dna, M.dna.unique_enzymes)
 	return 1 //we applied blood to the item
 
 GLOBAL_LIST_EMPTY(blood_overlay_cache)
@@ -953,3 +943,31 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/is_special_cutting_tool(var/high_power)
 	return FALSE
+
+/obj/item/proc/w_class_description()
+	switch(w_class)
+		if(ITEM_SIZE_TINY)
+			return "tiny"
+		if(ITEM_SIZE_SMALL)
+			return "small"
+		if(ITEM_SIZE_NORMAL)
+			return "normal-sized"
+		if(ITEM_SIZE_LARGE)
+			return "large"
+		if(ITEM_SIZE_HUGE)
+			return "bulky"
+		if(ITEM_SIZE_HUGE + 1 to INFINITY)
+			return "huge"
+
+/obj/item/proc/get_autopsy_descriptors()
+	var/list/descriptors = list()
+	descriptors += w_class_description()
+	if(sharp)
+		descriptors += "sharp"
+	if(edge)
+		descriptors += "edged"
+	if(force >= 10 && !sharp && !edge)
+		descriptors += "heavy"
+	if(material)
+		descriptors += "made of [material.display_name]"
+	return descriptors

@@ -178,3 +178,41 @@
 	additional_spawn_components = list(
 		/obj/item/stock_parts/power/apc/buildable = 1
 	)
+
+/obj/item/stock_parts/circuitboard/cryopod
+	name = T_BOARD("cryo pod")
+	build_path = /obj/machinery/cryopod
+	board_type = "machine"
+	origin_tech = "{'" + TECH_DATA + "':6,'" + TECH_ENGINEERING + "':6,'" + TECH_BLUESPACE + "':6}"
+	req_components = list(
+		/obj/item/stock_parts/matter_bin = 4,
+		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stock_parts/subspace/crystal = 1
+		)
+	additional_spawn_components = list(
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stock_parts/keyboard = 1,
+		/obj/item/stock_parts/power/apc/buildable = 1
+	)
+	buildtype_select = TRUE
+
+/obj/item/stock_parts/circuitboard/cryopod/get_buildable_types()
+	return typesof(/obj/machinery/cryopod)
+
+/obj/item/stock_parts/circuitboard/merchant_pad
+	name = T_BOARD("merchant pad")
+	build_path = /obj/machinery/merchant_pad
+	board_type = "machine"
+	origin_tech = "{'" + TECH_DATA + "':6,'" + TECH_BLUESPACE + "':6,'" + TECH_ESOTERIC + "':1}"
+	req_components = list(/obj/item/stack/cable_coil = 15)
+	req_components = list(
+		/obj/item/stock_parts/subspace/amplifier = 1,
+		/obj/item/stock_parts/subspace/ansible = 1,
+		/obj/item/stock_parts/subspace/crystal = 1,
+		/obj/item/stock_parts/subspace/transmitter = 1
+	)
+	additional_spawn_components = list(
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stock_parts/keyboard = 1,
+		/obj/item/stock_parts/power/apc/buildable = 1,
+	)

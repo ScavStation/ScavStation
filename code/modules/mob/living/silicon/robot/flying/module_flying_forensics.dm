@@ -12,7 +12,7 @@
 		"Eyebot" = "eyebot-security"
 	)
 	equipment = list(
-		/obj/item/swabber,
+		/obj/item/forensics/sample_kit/swabs,
 		/obj/item/storage/evidence,
 		/obj/item/forensics/sample_kit,
 		/obj/item/forensics/sample_kit/powder,
@@ -20,7 +20,7 @@
 		/obj/item/borg/sight/hud/sec,
 		/obj/item/taperoll/police,
 		/obj/item/scalpel/laser1,
-		/obj/item/autopsy_scanner,
+		/obj/item/scanner/autopsy,
 		/obj/item/chems/spray/luminol,
 		/obj/item/uv_light,
 		/obj/item/crowbar

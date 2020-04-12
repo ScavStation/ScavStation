@@ -211,9 +211,7 @@
 	return log(2, mob_size / MOB_SIZE_MEDIUM)
 
 /mob/proc/Life()
-//	if(organStructure)
-//		organStructure.ProcessOrgans()
-	return
+	SHOULD_NOT_SLEEP(TRUE)
 
 #define UNBUCKLED 0
 #define PARTIALLY_BUCKLED 1
@@ -271,6 +269,8 @@
 
 /mob/proc/reset_view(atom/A)
 	if (client)
+		client.pixel_x = initial(client.pixel_x)
+		client.pixel_y = initial(client.pixel_y)
 		A = A ? A : eyeobj
 		if (istype(A, /atom/movable))
 			client.perspective = EYE_PERSPECTIVE

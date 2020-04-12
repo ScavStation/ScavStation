@@ -15,7 +15,7 @@
 /datum/job/yinglet/is_species_allowed(var/datum/species/S)
 	if(S && !istype(S))
 		S = all_species[S]
-	. = istype(S) && (S.name == SPECIES_YINGLET || S.name == SPECIES_YINGLET_SOUTHERN)
+	. = istype(S) && S.bodytype == BODYTYPE_YINGLET
 
 /datum/job/yinglet/check_special_blockers(var/datum/preferences/prefs)
 	if(required_gender && prefs.gender != required_gender)
@@ -25,7 +25,7 @@
 	var/yinglet_suit_fallback
 
 /decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/carbon/human/H, var/title)
-	if(!H || H.species.get_bodytype(H) != SPECIES_YINGLET)
+	if(!H || H.species.get_bodytype(H) != BODYTYPE_YINGLET)
 		return
 	if(shoes && !H.shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/yinglet(H), slot_shoes)
