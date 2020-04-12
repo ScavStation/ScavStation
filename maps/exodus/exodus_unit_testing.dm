@@ -28,6 +28,7 @@ datum/map/exodus
 		/area/maintenance/sub/relay_station = 0,
 		/area/maintenance/sub/command = 0,
 		/area/maintenance/substation/command = 0,
+		/area/maintenance/telecomms = 0,
 		/area/medical/genetics = NO_APC,
 		/area/medical/genetics_cloning = NO_APC,
 		/area/rnd/test_area = NO_SCRUBBER|NO_VENT,
