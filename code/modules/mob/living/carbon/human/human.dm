@@ -925,6 +925,8 @@
 	if(istype(M))
 		if(!blood_DNA[M.dna.unique_enzymes])
 			blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
+		var/datum/extension/forensic_evidence/forensics = get_or_create_extension(src, /datum/extension/forensic_evidence)
+		forensics.add_data(/datum/forensics/blood_dna, M.dna.unique_enzymes)
 	hand_blood_color = blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle
@@ -944,7 +946,9 @@
 
 	for(var/obj/item/organ/external/organ in organs)
 		if(clean_feet || (organ.organ_tag in list(BP_L_HAND,BP_R_HAND)))
-			organ.gunshot_residue = null
+			var/datum/extension/forensic_evidence/forensics = get_extension(organ, /datum/extension/forensic_evidence)
+			if(forensics)
+				forensics.remove_data(/datum/forensics/gunshot_residue)
 
 	if(clean_feet && !shoes)
 		feet_blood_color = null
@@ -1065,14 +1069,14 @@
 /mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour = 1)
 	if(!dna)
 		if(!new_species)
-			new_species = SPECIES_HUMAN
+			new_species = GLOB.using_map.default_species
 	else
 		if(!new_species)
 			new_species = dna.species
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
-	if(!all_species[new_species])
-		new_species = SPECIES_HUMAN
+	if(!get_species_by_key(new_species))
+		new_species = GLOB.using_map.default_species
 	if(dna)
 		dna.species = new_species
 
@@ -1086,7 +1090,7 @@
 		species.remove_inherent_verbs(src)
 		holder_type = null
 
-	species = all_species[new_species]
+	species = get_species_by_key(new_species)
 	species.handle_pre_spawn(src)
 
 	if(species.base_color && default_colour)
@@ -1280,17 +1284,15 @@
 		W.message = message
 		W.add_fingerprint(src)
 
-#define CAN_INJECT 1
-#define INJECTION_PORT 2
 /mob/living/carbon/human/can_inject(var/mob/user, var/target_zone)
 	var/obj/item/organ/external/affecting = get_organ(target_zone)
 
 	if(!affecting)
-		to_chat(user, "<span class='warning'>They are missing that limb.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is missing that limb."))
 		return 0
 
 	if(BP_IS_PROSTHETIC(affecting))
-		to_chat(user, "<span class='warning'>That limb is prosthetic.</span>")
+		to_chat(user, SPAN_WARNING("That limb is prosthetic."))
 		return 0
 
 	. = CAN_INJECT

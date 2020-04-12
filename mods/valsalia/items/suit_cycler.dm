@@ -1,5 +1,5 @@
 /obj/machinery/suit_cycler
-	species = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	available_bodytypes = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
 /obj/machinery/suit_cycler/tradeship
 	boots = /obj/item/clothing/shoes/magboots

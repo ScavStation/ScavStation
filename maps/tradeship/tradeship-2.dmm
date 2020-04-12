@@ -228,7 +228,6 @@
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/machinery/floodlight,
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -308,7 +307,6 @@
 	dir = 9
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -654,7 +652,6 @@
 	pixel_y = 0
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -705,7 +702,6 @@
 	dir = 5
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -973,7 +969,6 @@
 	dir = 8
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -1080,7 +1075,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	tag = "icon-map-scrubbers (NORTH)";
 	icon_state = "map-scrubbers";
 	dir = 1
 	},
@@ -1213,7 +1207,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	tag = "icon-map-scrubbers (NORTH)";
 	icon_state = "map-scrubbers";
 	dir = 1
 	},
@@ -1576,7 +1569,6 @@
 	},
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -1664,7 +1656,6 @@
 	pixel_x = -24
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -1706,7 +1697,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2076,7 +2066,6 @@
 "fs" = (
 /obj/structure/catwalk,
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2107,7 +2096,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -2177,7 +2165,6 @@
 	dir = 6
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -2195,7 +2182,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice,
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -2218,7 +2204,6 @@
 "fK" = (
 /obj/structure/catwalk,
 /obj/machinery/light/spot{
-	tag = "icon-tube_map (EAST)";
 	icon_state = "tube_map";
 	dir = 4
 	},
@@ -2228,7 +2213,6 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2253,7 +2237,6 @@
 	dir = 10
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2354,7 +2337,6 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
 	icon_state = "railing0";
 	dir = 8
 	},
@@ -2535,7 +2517,6 @@
 	pixel_x = 28
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2570,12 +2551,10 @@
 	dir = 8
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
 	icon_state = "railing0";
 	dir = 8
 	},
@@ -2691,7 +2670,6 @@
 	pixel_x = 32
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
 	icon_state = "railing0";
 	dir = 8
 	},
@@ -2785,7 +2763,6 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (NORTH)";
 	icon_state = "railing0";
 	dir = 1
 	},
@@ -2974,7 +2951,6 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	tag = "icon-map-scrubbers (NORTH)";
 	icon_state = "map-scrubbers";
 	dir = 1
 	},
@@ -3528,8 +3504,7 @@
 /area/ship/trade/maintenance/power)
 "ip" = (
 /obj/machinery/power/sensor{
-	long_range = 1;
-	name_tag = "Main Grid"
+	id_tag = "Main Grid"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -5192,7 +5167,6 @@
 /obj/structure/catwalk,
 /obj/structure/railing/mapped,
 /obj/machinery/light/spot{
-	tag = "icon-tube_map (WEST)";
 	icon_state = "tube_map";
 	dir = 8
 	},
@@ -5556,7 +5530,6 @@
 	id_tag = "tradeship_shuttle_pump_out_external"
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -6090,12 +6063,10 @@
 /area/ship/trade/maintenance/power)
 "HO" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -6144,7 +6115,6 @@
 /area/ship/trade/crew/medbay)
 "Is" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -6233,7 +6203,6 @@
 /obj/random/voidhelmet,
 /obj/random/voidsuit,
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -6334,7 +6303,6 @@
 	},
 /obj/structure/catwalk,
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -6429,7 +6397,6 @@
 /area/ship/trade/command/fmate)
 "Lx" = (
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -6898,7 +6865,6 @@
 	icon_state = "intact"
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -7000,7 +6966,6 @@
 	pixel_x = -22
 	},
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -7045,7 +7010,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -7297,7 +7261,6 @@
 "Zv" = (
 /obj/structure/lattice,
 /obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
