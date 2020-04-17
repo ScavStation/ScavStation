@@ -27,14 +27,11 @@
 /datum/stack_recipe/proc/InitializeMaterials()
 	if(result_type && isnull(req_amount))
 		req_amount = 0
-		var/obj/I = spawn_result(null, null, res_amount)
-		if(istype(I))
-			var/list/building_cost = I.building_cost()
-			for(var/path in building_cost)
-				req_amount += building_cost[path]
-			req_amount = Clamp(ceil((req_amount*CRAFTING_EXTRA_COST_FACTOR)/SHEET_MATERIAL_AMOUNT) * res_amount, 1, 50)
-			if(!QDELETED(I))
-				qdel(I)
+		var/list/materials = atom_info_repository.get_matter_for(result_type, use_material, res_amount)
+		for(var/mat in materials)
+			req_amount += materials[mat]
+		req_amount = Clamp(ceil((req_amount*CRAFTING_EXTRA_COST_FACTOR)/SHEET_MATERIAL_AMOUNT) * res_amount, 1, 50)
+
 #undef CRAFTING_EXTRA_COST_FACTOR
 
 /datum/stack_recipe/proc/display_name()
@@ -55,7 +52,16 @@
 	else
 		O = new result_type(location)
 	if(user)
-		O.set_dir(user.dir)
+		O.set_dir(user?.dir)
+
+	// Temp block pending material/matter rework
+	if(use_material && use_material != DEFAULT_FURNITURE_MATERIAL && istype(O, /obj))
+		var/obj/struct = O
+		if(LAZYACCESS(struct.matter, DEFAULT_FURNITURE_MATERIAL) > 0)
+			struct.matter[use_material] = max(struct.matter[use_material], struct.matter[DEFAULT_FURNITURE_MATERIAL])
+			struct.matter -= DEFAULT_FURNITURE_MATERIAL
+	// End temp block
+
 	return O
 
 /datum/stack_recipe/proc/can_make(mob/user)

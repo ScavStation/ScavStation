@@ -9,7 +9,7 @@
 	hardness = MAT_VALUE_SOFT
 	weight = 5
 	melting_point = T0C+371 //assuming heat resistant plastic
-	stack_origin_tech = "{'" + TECH_MATERIAL + "':3}"
+	stack_origin_tech = "{'materials':3}"
 	conductive = 0
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
 	chem_products = list(
@@ -26,6 +26,9 @@
 	sale_price = null
 	hidden_from_codex = TRUE
 
+/material/plastic/holographic/get_recipes(reinf_mat)
+	return list()
+
 /material/cardboard
 	display_name = "cardboard"
 	lore_text = "What with the difficulties presented by growing plants in orbit, a stock of cardboard in space is probably more valuable than gold."
@@ -40,7 +43,7 @@
 	weight = 1
 	ignition_point = T0C+232 //"the temperature at which book-paper catches fire, and burns." close enough
 	melting_point = T0C+232 //temperature at which cardboard walls would be destroyed
-	stack_origin_tech = "{'" + TECH_MATERIAL + "':1}"
+	stack_origin_tech = "{'materials':1}"
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
 	conductive = 0
@@ -52,7 +55,7 @@
 	display_name = "cotton"
 	use_name = "cotton"
 	icon_colour = "#ffffff"
-	stack_origin_tech = "{'" + TECH_MATERIAL + "':2}"
+	stack_origin_tech = "{'materials':2}"
 	door_icon_base = "wood"
 	ignition_point = T0C+232
 	melting_point = T0C+300
@@ -244,7 +247,7 @@
 /material/leather
 	display_name = "leather"
 	icon_colour = "#5c4831"
-	stack_origin_tech = "{'" + TECH_MATERIAL + "':2}"
+	stack_origin_tech = "{'materials':2}"
 	flags = MAT_FLAG_PADDING
 	ignition_point = T0C+300
 	melting_point = T0C+300
