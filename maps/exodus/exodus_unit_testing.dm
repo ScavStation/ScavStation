@@ -51,3 +51,6 @@ datum/map/exodus
 	area_coherency_test_subarea_count = list(
 			/area/engineering/atmos = 4,
 			/area/maintenance/incinerator = 2)
+
+/datum/unit_test/closet_containment_test
+	exceptions = list(/obj/structure/closet/secure_closet/freezer/money)

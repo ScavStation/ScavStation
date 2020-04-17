@@ -14888,7 +14888,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCD" = (
-/obj/structure/closet/secure_closet/freezer/money,
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
+/obj/item/cash/c1000,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aCE" = (
@@ -15563,23 +15573,23 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/auxsolarport)
 "aEa" = (
-/obj/item/material/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = 7;
 	pixel_y = 12
 	},
-/obj/item/material/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = 12;
 	pixel_y = 7
 	},
-/obj/item/material/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = 4;
 	pixel_y = 8
 	},
-/obj/item/material/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = -6;
 	pixel_y = 5
 	},
-/obj/item/material/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = 5;
 	pixel_y = -8
 	},
@@ -48032,11 +48042,11 @@
 /area/quartermaster/qm)
 "bNH" = (
 /obj/structure/closet/secure_closet/quartermaster,
-/obj/item/material/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/material/coin/silver,
+/obj/item/coin/silver,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "bNI" = (

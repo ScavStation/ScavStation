@@ -191,23 +191,26 @@
 
 /datum/unit_test/closet_containment_test
 	name = "MAP: Closet Containment Test Player Z levels"
+	var/list/exceptions = list()
 
 /datum/unit_test/closet_containment_test/start_test()
 	var/bad_tests = 0
 
 	for(var/obj/structure/closet/C in world)
-		if(!C.opened && isPlayerLevel(C.z))
-			var/contents_pre_open = C.contents.Copy()
-			C.dump_contents()
-			C.store_contents()
-			var/list/no_longer_contained_atoms = contents_pre_open - C.contents
-			var/list/previously_not_contained_atoms = C.contents - contents_pre_open
+		if(C.opened || !isPlayerLevel(C.z) || exceptions[C.type])
+			continue
 
-			if(no_longer_contained_atoms.len)
-				bad_tests++
-				log_bad("[log_info_line(C)] no longer contains the following atoms: [log_info_line(no_longer_contained_atoms)]")
-			if(previously_not_contained_atoms.len)
-				log_debug("[log_info_line(C)] now contains the following atoms: [log_info_line(previously_not_contained_atoms)]")
+		var/contents_pre_open = C.contents.Copy()
+		C.dump_contents()
+		C.store_contents()
+		var/list/no_longer_contained_atoms = contents_pre_open - C.contents
+		var/list/previously_not_contained_atoms = C.contents - contents_pre_open
+
+		if(no_longer_contained_atoms.len)
+			bad_tests++
+			log_bad("[log_info_line(C)] no longer contains the following atoms: [log_info_line(no_longer_contained_atoms)]")
+		if(previously_not_contained_atoms.len)
+			log_debug("[log_info_line(C)] now contains the following atoms: [log_info_line(previously_not_contained_atoms)]")
 
 	if(bad_tests)
 		fail("[bad_tests] closet\s with inconsistent pre/post-open contents found.")
