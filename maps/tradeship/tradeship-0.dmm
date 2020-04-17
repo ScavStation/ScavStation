@@ -1822,7 +1822,7 @@
 /area/ship/trade/fore_port_underside_maint)
 "Gp" = (
 /obj/structure/table/standard,
-/obj/item/material/coin/iron{
+/obj/item/coin/iron{
 	pixel_x = 3;
 	pixel_y = 3
 	},

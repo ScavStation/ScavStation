@@ -2134,8 +2134,8 @@
 	icon_state = "bulb1";
 	dir = 1
 	},
-/obj/item/material/coin/gold,
-/obj/item/material/coin/silver,
+/obj/item/coin/gold,
+/obj/item/coin/silver,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2853,7 +2853,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/spacecash/bundle/c1000,
+/obj/item/cash/c1000,
 /obj/random/coin,
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
@@ -5973,7 +5973,7 @@
 /obj/structure/table/reinforced,
 /obj/item/flashlight/lamp,
 /obj/random_multi/single_item/captains_spare_id,
-/obj/item/spacecash/bundle/c1000,
+/obj/item/cash/c1000,
 /obj/machinery/light_switch{
 	pixel_y = 25
 	},

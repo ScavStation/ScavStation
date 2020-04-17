@@ -5,7 +5,9 @@
 
 /datum/extension/forensic_evidence/Destroy()
 	. = ..()
-	QDEL_NULL_LIST(evidence)
+	for(var/T in evidence)
+		qdel(evidence[T])
+	evidence = null
 
 /datum/extension/forensic_evidence/proc/add_data(evidence_type, data)
 	if(!LAZYACCESS(evidence, evidence_type))
@@ -25,6 +27,6 @@
 
 /datum/extension/forensic_evidence/proc/add_from_atom(evidence_type, atom/A)
 	var/datum/forensics/temp = new evidence_type
-	temp.add_from_atom(A)
+	temp.add_from_atom(arglist(args.Copy(2)))
 	for(var/item in temp.data)
 		add_data(evidence_type, item)
