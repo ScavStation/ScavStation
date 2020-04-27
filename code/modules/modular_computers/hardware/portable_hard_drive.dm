@@ -7,7 +7,7 @@
 	hardware_size = 1
 	max_capacity = 16
 	origin_tech = "{'programming':1}"
-	matter = list(MAT_GLASS = 800)
+	material = MAT_GLASS
 
 /obj/item/stock_parts/computer/hard_drive/portable/advanced
 	name = "advanced data crystal"
@@ -17,7 +17,7 @@
 	hardware_size = 1
 	max_capacity = 64
 	origin_tech = "{'programming':2}"
-	matter = list(MAT_GLASS = 1600)
+	material = MAT_GLASS
 
 /obj/item/stock_parts/computer/hard_drive/portable/super
 	name = "super data crystal"
@@ -27,7 +27,7 @@
 	hardware_size = 1
 	max_capacity = 256
 	origin_tech = "{'programming':4}"
-	matter = list(MAT_GLASS = 3200)
+	material = MAT_GLASS
 
 /obj/item/stock_parts/computer/hard_drive/portable/Initialize()
 	. = ..()
@@ -42,3 +42,27 @@
 /obj/item/stock_parts/computer/hard_drive/portable/merchant/Initialize()
 	. = ..()
 	store_file(new/datum/computer_file/program/merchant(src))
+
+// Special disk for antags containing all the evil programs and readme for them
+/obj/item/stock_parts/computer/hard_drive/portable/advanced/warez
+	var/list/warez = list(
+		/datum/computer_file/program/access_decrypter,
+		/datum/computer_file/program/camera_monitor/hacked,
+		/datum/computer_file/program/revelation,
+		/datum/computer_file/program/game
+	)
+
+/obj/item/stock_parts/computer/hard_drive/portable/advanced/warez/Initialize()
+	. = ..()
+	var/list/readme_data = list("\[fontred\]Downloaded from SpaceHaxx1337. Read or die\[/font\]")
+	for(var/T in warez)
+		var/datum/computer_file/program/P = new T(src)
+		readme_data += "_,.-'~'-.,__,.-'~'-.,__,.-'~'-.,"
+		readme_data += "\[h3\][P.filedesc]\[/h3\] Filename: \[b\][P.filename]\[/b\]\[br\]"
+		readme_data += "[P.extended_desc]"
+		store_file(P)
+	var/datum/computer_file/data/text/readme = new(src)
+	readme.stored_data = jointext(readme_data, "\[br\]")
+	readme.filename = "___README___"
+	store_file(readme)
+	

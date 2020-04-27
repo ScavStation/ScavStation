@@ -1,6 +1,5 @@
 #include "smugglers_areas.dm"
 #include "../mining/mining_areas.dm"
-
 /obj/effect/overmap/visitable/sector/smugglers
 	name = "asteroid station"
 	desc = "A small station built into an asteroid. No radio traffic detected."
@@ -21,7 +20,7 @@
 	generate_mining_by_z = 1
 	area_usage_test_exempted_root_areas = list(/area/smugglers)
 	apc_test_exempt_areas = list(
-		/area/smugglers/base = NO_SCRUBBER,
+		/area/smugglers/base = NO_SCRUBBER|NO_VENT,
 		/area/smugglers/dorms = NO_SCRUBBER|NO_VENT,
 		/area/smugglers/office = NO_SCRUBBER|NO_VENT
 	)

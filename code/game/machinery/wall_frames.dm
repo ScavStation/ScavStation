@@ -4,7 +4,7 @@
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm_bitem"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	matter = list(MAT_STEEL = 4000)
+	material = MAT_STEEL
 	var/build_machine_type
 	var/reverse = 0 //if resulting object faces opposite its dir (like light fixtures)
 	var/fully_construct = FALSE // Results in a machine with all parts auto-installed and ready to go if TRUE; if FALSE, the machine will spawn without removable expected parts
@@ -92,26 +92,26 @@
 /obj/item/frame/light/small
 	name = "small light fixture frame"
 	icon_state = "bulb-construct-item"
-	matter = list(MAT_STEEL = 2000)
+	material = MAT_STEEL
 	build_machine_type = /obj/machinery/light/small/buildable
 
 /obj/item/frame/light/spot
 	name = "spotlight fixture frame"
 	icon_state = "tube-construct-item"
-	matter = list(MAT_STEEL = 4000, MAT_PLASTIC = 2000)
+	material = MAT_STEEL
 	build_machine_type = /obj/machinery/light/spot/buildable
 
 /obj/item/frame/light/nav
 	name = "navigation light fixture frame"
 	icon_state = "tube-construct-item"
-	matter = list(MAT_STEEL = 4000, MAT_PLASTIC = 2000)
+	material = MAT_STEEL
 	build_machine_type = /obj/machinery/light/navigation/buildable
 
 /obj/item/frame/button
 	name = "button frame"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
-	matter = list(MAT_STEEL = 200, MAT_PLASTIC = 100)
+	material = MAT_STEEL
 	build_machine_type = /obj/machinery/button/buildable
 
 /obj/item/frame/button/modify_positioning(var/obj/machinery/button/product, _dir, click_params)
@@ -138,7 +138,7 @@
 	name = "wall charger frame"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger0"
-	matter = list(MAT_STEEL = 400, MAT_PLASTIC = 200)
+	material = MAT_STEEL
 	build_machine_type = /obj/machinery/recharger/wallcharger
 
 /obj/item/frame/button/wall_charger/kit
@@ -150,7 +150,7 @@
 	desc = "A wall-mounted ignition device."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "migniter"
-	matter = list(MAT_STEEL = 400, MAT_PLASTIC = 200)
+	material = MAT_STEEL
 	build_machine_type = /obj/machinery/sparker/buildable
 
 // Shifts it dead center of the turf you are looking at. Useful for items with antiquated icons.
@@ -201,3 +201,33 @@
 /obj/item/frame/stock_offset/newscaster/kit
 	name = "newscaster kit"
 	fully_construct = TRUE
+
+/obj/item/frame/button/airlock_sensor
+	icon = 'icons/obj/airlock_machines.dmi'
+	icon_state = "airlock_sensor_off"
+	name = "airlock sensor"
+	desc = "An airlock sensor frame."
+	build_machine_type = /obj/machinery/airlock_sensor/buildable
+
+/obj/item/frame/button/airlock_controller
+	icon = 'icons/obj/airlock_machines.dmi'
+	icon_state = "airlock_control_off"
+	name = "airlock controller frame"
+	desc = "Used to build airlock controllers. Use a multitool on the circuit to determine which type you want, and then hit this with the the circuit."
+	build_machine_type = null
+
+/obj/item/frame/button/airlock_controller/try_build(turf/on_wall, click_params)
+	if(!build_machine_type)
+		to_chat(usr, SPAN_WARNING("First hit this with a circuitboard to configure it!"))
+		return
+	return ..()
+
+/obj/item/frame/button/airlock_controller/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/stock_parts/circuitboard))
+		var/obj/item/stock_parts/circuitboard/board = W
+		if(ispath(board.build_path, /obj/machinery/embedded_controller/radio))
+			build_machine_type = board.build_path
+			to_chat(user, SPAN_NOTICE("You configure \the [src] using \the [W]."))
+			return TRUE
+	. = ..()
+	

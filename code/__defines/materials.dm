@@ -59,6 +59,9 @@
 #define MAT_CARPET                  /material/carpet
 #define MAT_ALUMINIUM               /material/aluminium
 #define MAT_ALUMINIUM_HOLOGRAPHIC   /material/aluminium/holographic
+#define MAT_CERAMIC                 /material/stone/ceramic
+#define MAT_CLAY                    /material/sand/clay
+
 // gasses
 #define MAT_CO2                     /material/gas/carbon_dioxide
 #define MAT_CO                      /material/gas/carbon_monoxide
@@ -173,4 +176,4 @@
 #define MAT_VALUE_VERY_SHINY        60
 #define MAT_VALUE_MIRRORED          80
 
-#define TABLE_BRITTLE_MATERIAL_MULTIPLIER 4 // Amount table damage is multiplied by if it is made of a brittle material (e.g. glass)
+#define STRUCTURE_BRITTLE_MATERIAL_DAMAGE_MULTIPLIER 4 // Amount table damage is multiplied by if it is made of a brittle material (e.g. glass)

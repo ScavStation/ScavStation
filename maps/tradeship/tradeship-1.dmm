@@ -7,18 +7,18 @@
 /turf/space,
 /area/space)
 "ad" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "cargo_out"
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
 /area/ship/trade/cargo/lower)
 "ae" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "cargo_out"
 	},
-/obj/machinery/access_button/airlock_exterior{
-	master_tag = "cargo";
+/obj/machinery/button/access/exterior{
+	id_tag = "cargo";
 	pixel_x = 18;
 	pixel_y = 17
 	},
@@ -35,13 +35,13 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/escape_port)
 "aj" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	id_tag = "cargo_pump"
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/cargo/lower)
 "ak" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	id_tag = "cargo_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -201,18 +201,18 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/cargo/lower)
 "aG" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "cargo_in"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/ship/trade/cargo/lower)
 "aH" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "cargo_in"
 	},
-/obj/machinery/access_button/airlock_interior{
-	master_tag = "cargo";
+/obj/machinery/button/access/interior{
+	id_tag = "cargo";
 	pixel_x = 20;
 	pixel_y = -12
 	},
@@ -914,11 +914,9 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/escape_port)
 "cc" = (
-/obj/machinery/alarm{
-	pixel_y = 24
+/obj/machinery/design_database{
+	initial_id_tag = "tradeship_rnd"
 	},
-/obj/machinery/computer/rdconsole/core,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "cd" = (
@@ -931,11 +929,12 @@
 	dir = 4;
 	pixel_w = 1
 	},
-/obj/machinery/r_n_d/destructive_analyzer,
 /obj/machinery/light_switch{
 	pixel_z = 23;
 	pixel_w = -1
 	},
+/obj/structure/table/standard,
+/obj/item/integrated_circuit_printer,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "ce" = (
@@ -1049,11 +1048,12 @@
 /turf/simulated/floor,
 /area/ship/trade/science/fabricaton)
 "cs" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
-/obj/structure/table/standard,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "cu" = (
@@ -1145,7 +1145,9 @@
 /area/ship/trade/crew/dorms2)
 "cJ" = (
 /obj/machinery/light,
-/obj/machinery/r_n_d/circuit_imprinter,
+/obj/machinery/fabricator/imprinter{
+	initial_id_tag = "tradeship_rnd"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "cL" = (
@@ -2017,11 +2019,11 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "eva_in"
 	},
-/obj/machinery/access_button/airlock_interior{
-	master_tag = "eva";
+/obj/machinery/button/access/interior{
+	id_tag = "eva";
 	pixel_x = -12;
 	pixel_y = 20
 	},
@@ -2065,7 +2067,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/eva)
 "eH" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
 	id_tag = "eva_pump"
 	},
@@ -2076,11 +2078,11 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/eva)
 "eI" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "eva_out"
 	},
-/obj/machinery/access_button/airlock_exterior{
-	master_tag = "eva";
+/obj/machinery/button/access/exterior{
+	id_tag = "eva";
 	pixel_x = 18;
 	pixel_y = -18
 	},
@@ -2286,6 +2288,9 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/escape_port)
+"fL" = (
+/turf/simulated/floor/tiled/white,
+/area/ship/trade/science)
 "fX" = (
 /obj/structure/handrai,
 /turf/space,
@@ -2415,6 +2420,14 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
 /area/ship/trade/crew/dorms1)
+"jH" = (
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled/white,
+/area/ship/trade/science)
 "jM" = (
 /obj/machinery/light{
 	icon_state = "bulb1";
@@ -2553,14 +2566,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science)
-"pb" = (
-/obj/item/radio/intercom{
-	dir = 4;
-	pixel_x = -22
-	},
-/obj/machinery/botany/extractor,
-/turf/simulated/floor/tiled/white,
-/area/ship/trade/science)
 "pn" = (
 /obj/item/tape_roll,
 /obj/item/stack/material/plasteel/fifty,
@@ -2669,6 +2674,9 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/trade/drunk_tank)
+"sB" = (
+/turf/simulated/wall/r_wall,
+/area/ship/trade/science/fabricaton)
 "sY" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -2707,15 +2715,14 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/techstorage)
 "ub" = (
-/obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/effect/landmark/start{
 	name = "Head Researcher"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
@@ -2790,7 +2797,9 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/machinery/robotics_fabricator,
+/obj/machinery/fabricator/robotics{
+	id_tag = "tradeship_rnd"
+	},
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
@@ -3016,21 +3025,15 @@
 /turf/simulated/floor/airless,
 /area/space)
 "Fb" = (
-/obj/item/radio/intercom{
-	dir = 4;
-	pixel_x = -22
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/alarm{
+	pixel_y = 24
 	},
-/obj/machinery/r_n_d/protolathe,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "Fw" = (
-/obj/structure/table/standard,
-/obj/item/integrated_circuit_printer,
-/obj/machinery/button/blast_door{
-	id_tag = "rndshutters";
-	name = "Desk Shutters";
-	pixel_x = -25
-	},
+/obj/item/stool/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "Gb" = (
@@ -3136,6 +3139,13 @@
 /obj/machinery/door/airlock/hatch/autoname/science,
 /turf/simulated/floor/plating,
 /area/ship/trade/science/fabricaton)
+"Jr" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/trade/science/fabricaton)
 "Js" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/drill,
@@ -3211,6 +3221,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
+"Nc" = (
+/obj/machinery/destructive_analyzer{
+	initial_id_tag = "tradeship_rnd"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/trade/science/fabricaton)
 "NL" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/white,
@@ -3270,6 +3286,16 @@
 /mob/living/simple_animal/cat/fluff/ran,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
+"Qi" = (
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/fabricator/protolathe{
+	initial_id_tag = "tradeship_rnd"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/trade/science/fabricaton)
 "Rb" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3291,6 +3317,19 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ship/trade/cargo/lower)
+"Rs" = (
+/obj/machinery/button/blast_door{
+	id_tag = "rndshutters";
+	name = "Desk Shutters";
+	pixel_x = -25
+	},
+/obj/machinery/computer/design_console{
+	dir = 4;
+	icon_state = "computer";
+	initial_id_tag = "tradeship_rnd"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/trade/science/fabricaton)
 "Sb" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -3329,6 +3368,7 @@
 /area/ship/trade/cargo/lower)
 "Tb" = (
 /obj/machinery/light,
+/obj/machinery/botany/extractor,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science)
 "Tp" = (
@@ -3380,6 +3420,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/lower)
+"Vc" = (
+/obj/effect/paint/brown,
+/turf/simulated/wall/r_wall/hull,
+/area/ship/trade/crew/dorms2)
 "VM" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
@@ -3463,7 +3507,6 @@
 /turf/simulated/floor/tiled/monotile,
 /area/ship/trade/cargo/lower)
 "Zs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/landmark/start{
 	name = "Junior Researcher"
 	},
@@ -3472,6 +3515,9 @@
 "ZJ" = (
 /turf/simulated/wall,
 /area/ship/trade/escape_star)
+"ZY" = (
+/turf/simulated/floor/lino,
+/area/ship/trade/crew/dorms2)
 
 (1,1,1) = {"
 aa
@@ -5735,7 +5781,7 @@ aa
 aa
 aa
 aa
-aa
+MK
 aa
 aa
 aa
@@ -5812,17 +5858,17 @@ sY
 lD
 lD
 Dl
-lD
 tf
-aa
-aa
-aa
-MK
-aa
-aa
-XF
-aa
-aa
+ca
+ca
+cr
+cr
+cP
+cZ
+cZ
+WZ
+iW
+WZ
 aa
 aa
 XF
@@ -5894,16 +5940,16 @@ ah
 VM
 aO
 bm
-aP
-ca
-ca
-cr
-cr
+sB
+Qi
+Rs
+Nc
+Ic
 cP
-cZ
-cZ
-WZ
-iW
+da
+NL
+ob
+jH
 WZ
 XF
 rv
@@ -5976,16 +6022,16 @@ fs
 aO
 aZ
 bn
-aO
+ce
 Fb
 Fw
 cs
-Ic
+Jr
 JM
-da
-NL
-ob
-pb
+fL
+fL
+fL
+fL
 WZ
 se
 se
@@ -6058,7 +6104,7 @@ cb
 aP
 ba
 bo
-aO
+ce
 cc
 Zs
 ub
@@ -6140,7 +6186,7 @@ aC
 aO
 bb
 bp
-aO
+ce
 cd
 Qc
 cu
@@ -6222,7 +6268,7 @@ jb
 aP
 aO
 zb
-aO
+ce
 ce
 hp
 Jb
@@ -7125,7 +7171,7 @@ aX
 aX
 Bb
 aX
-aX
+cm
 cm
 Kb
 cm
@@ -7207,7 +7253,7 @@ aX
 bj
 bB
 bQ
-aX
+cm
 cn
 cE
 cM
@@ -7289,7 +7335,7 @@ aX
 yb
 bC
 Db
-aX
+cm
 Ib
 cF
 Lb
@@ -7371,9 +7417,9 @@ aY
 bl
 bD
 bS
-aX
+cm
 cp
-cG
+ZY
 cO
 cm
 do
@@ -7453,10 +7499,10 @@ kP
 aY
 bE
 aX
-kP
 cq
-cH
-xa
+cp
+cG
+cO
 xa
 wI
 dB
@@ -7535,10 +7581,10 @@ jD
 jD
 vw
 jD
-jD
-aa
-aa
-rP
+Vc
+cq
+cH
+xa
 cq
 Cd
 sh
@@ -7620,7 +7666,7 @@ rP
 aa
 aa
 aa
-aa
+rP
 aa
 aa
 aa

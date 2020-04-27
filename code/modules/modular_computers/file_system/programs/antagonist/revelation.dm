@@ -6,8 +6,7 @@
 	program_menu_icon = "home"
 	extended_desc = "This virus can destroy hard drive of system it is executed on. It may be obfuscated to look like another non-malicious program. Once armed, it will destroy the system upon next execution."
 	size = 13
-	requires_ntnet = 0
-	available_on_ntnet = 0
+	available_on_network = 0
 	available_on_syndinet = 1
 	nanomodule_path = /datum/nano_module/program/revelation/
 	var/armed = 0
@@ -38,10 +37,12 @@
 		if(!newname)
 			return
 		filedesc = newname
-		for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
-			if(filedesc == P.filedesc)
-				program_menu_icon = P.program_menu_icon
-				break
+		var/datum/computer_network/net = computer.get_network()
+		if(net)
+			for(var/datum/computer_file/program/P in net.get_software_list())
+				if(filedesc == P.filedesc)
+					program_menu_icon = P.program_menu_icon
+					break
 	return 1
 
 /datum/computer_file/program/revelation/clone()

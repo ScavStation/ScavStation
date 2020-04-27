@@ -59,15 +59,6 @@
 	name = T_BOARD("prisoner management console")
 	build_path = /obj/machinery/computer/prisoner
 
-/obj/item/stock_parts/circuitboard/rdservercontrol
-	name = T_BOARD("R&D server control console")
-	build_path = /obj/machinery/computer/rdservercontrol
-
-/obj/item/stock_parts/circuitboard/crew
-	name = T_BOARD("crew monitoring console")
-	build_path = /obj/machinery/computer/crew
-	origin_tech = "{'programming':3,'biotech':2,'magnets':2}"
-
 /obj/item/stock_parts/circuitboard/operating
 	name = T_BOARD("patient monitoring console")
 	build_path = /obj/machinery/computer/operating
@@ -93,15 +84,14 @@
 	name = T_BOARD("sensors console")
 	build_path = /obj/machinery/computer/ship/sensors
 
+/obj/item/stock_parts/circuitboard/design_console
+	name = T_BOARD("design database console")
+	build_path = /obj/machinery/computer/design_console
+
 /obj/item/stock_parts/circuitboard/area_atmos
 	name = T_BOARD("area air control console")
 	build_path = /obj/machinery/computer/area_atmos
 	origin_tech = "{'programming':2}"
-
-/obj/item/stock_parts/circuitboard/rcon_console
-	name = T_BOARD("RCON remote control console")
-	build_path = /obj/machinery/computer/rcon
-	origin_tech = "{'programming':4,'engineering':3,'powerstorage':5}"
 
 /obj/item/stock_parts/circuitboard/account_database
 	name = T_BOARD("accounts uplink terminal")

@@ -15,19 +15,21 @@
 	update_icon()
 
 /obj/machinery/fabricator/proc/do_build(var/datum/fabricator_recipe/recipe, var/amount)
-	recipe.build(get_turf(src), amount)
+	. = recipe.build(get_turf(src), amount)
 
 /obj/machinery/fabricator/proc/start_building()
 	if(!(fab_status_flags & FAB_BUSY) && is_functioning())
 		fab_status_flags |= FAB_BUSY
 		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
+		sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, fabricator_sound, volume = 30)
 
 /obj/machinery/fabricator/proc/stop_building()
 	if(fab_status_flags & FAB_BUSY)
 		fab_status_flags &= ~FAB_BUSY
 		update_use_power(POWER_USE_IDLE)
 		update_icon()
+		QDEL_NULL(sound_token)
 
 /obj/machinery/fabricator/proc/get_next_build()
 	currently_building = null
@@ -42,7 +44,7 @@
 /obj/machinery/fabricator/proc/try_queue_build(var/datum/fabricator_recipe/recipe, var/multiplier)
 
 	// Do some basic sanity checking.
-	if(!is_functioning() || !istype(recipe) || !(recipe in SSfabrication.get_recipes(fabricator_class)))
+	if(!is_functioning() || !istype(recipe) || !(recipe in design_cache))
 		return
 	multiplier = sanitize_integer(multiplier, 1, 100, 1)
 	if(!ispath(recipe, /obj/item/stack) && multiplier > 1)

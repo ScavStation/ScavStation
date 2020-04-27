@@ -6,7 +6,6 @@ GLOBAL_LIST_INIT(security_statuses, list("None", "Released", "Parolled", "Incarc
 GLOBAL_VAR_INIT(default_security_status, "None")
 GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
-// Kept as a computer file for possible future expansion into servers.
 /datum/computer_file/report/crew_record
 	filetype = "CDB"
 	size = 2
@@ -16,6 +15,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
 /datum/computer_file/report/crew_record/New()
 	..()
+	filename = "record[random_id(type, 100,999)]"
 	load_from_mob(null)
 
 /datum/computer_file/report/crew_record/Destroy()
@@ -119,12 +119,44 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	// Antag record
 	set_antagRecord(H && H.exploit_record && !jobban_isbanned(H, "Records") ? html_decode(H.exploit_record) : "")
 
+// Cut down version for silicons
+/datum/computer_file/report/crew_record/synth/load_from_mob(var/mob/living/silicon/S)
+	if(istype(S))
+		photo_front = getFlatIcon(S, SOUTH, always_use_defdir = 1)
+		photo_side = getFlatIcon(S, WEST, always_use_defdir = 1)
+
+	// Generic record
+	set_name(S ? S.real_name : "Unset")
+	set_formal_name(S ? S.real_name : "Unset")
+	set_sex("Unset")
+	set_status(GLOB.default_physical_status)
+	var/silicon_type = "Synthetic Lifeform"
+	var/robojob = GetAssignment(S)
+	if(istype(S, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = S
+		silicon_type = R.braintype
+		if(R.module)
+			robojob = "[R.module.display_name] [silicon_type]"
+	if(istype(S, /mob/living/silicon/ai))
+		silicon_type = "AI"
+		robojob = "Artificial Intelligence"
+	set_job(S ? robojob : "Unset")
+	set_species(silicon_type)
+
+	set_implants("Robotic body")
+
+	// Security record
+	set_criminalStatus(GLOB.default_security_status)
+
 // Global methods
 // Used by character creation to create a record for new arrivals.
-/proc/CreateModularRecord(var/mob/living/carbon/human/H)
-	var/datum/computer_file/report/crew_record/CR = new/datum/computer_file/report/crew_record()
+/proc/CreateModularRecord(var/mob/living/H, record_type = /datum/computer_file/report/crew_record)
+	var/datum/computer_file/report/crew_record/CR = new record_type()
 	GLOB.all_crew_records.Add(CR)
 	CR.load_from_mob(H)
+	var/datum/computer_network/network = get_local_network_at(get_turf(H))
+	if(network)
+		network.store_file(CR, MF_ROLE_CREW_RECORDS)
 	return CR
 
 // Gets crew records filtered by set of positions
@@ -154,6 +186,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	dat += "</tt>"
 	return dat
 
+//Should only be used for OOC stuff, for player-facing stuff you must go through the network.
 /proc/get_crewmember_record(var/name)
 	for(var/datum/computer_file/report/crew_record/CR in GLOB.all_crew_records)
 		if(CR.get_name() == name)

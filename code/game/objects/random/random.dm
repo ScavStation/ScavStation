@@ -514,7 +514,7 @@
 /obj/random/tank/spawn_choices()
 	return list(/obj/item/tank/oxygen = 5,
 				/obj/item/tank/oxygen/yellow = 4,
-				/obj/item/tank/oxygen/red = 4,
+				/obj/item/tank/emergency/oxygen/double/red = 4,
 				/obj/item/tank/air = 3,
 				/obj/item/tank/emergency/oxygen = 4,
 				/obj/item/tank/emergency/oxygen/engi = 3,
@@ -1346,3 +1346,20 @@ var/list/random_useful_
 	icon_state = "book"
 	spawn_object = /obj/item/book/skill //Further randomization of which book is handled inside the book initialization
 	spawn_nothing_percentage = 0
+
+/obj/random/lipstick
+	name = "random lipstick"
+	desc = "This is a tube of lipstick."
+	icon = 'icons/obj/items/lipstick.dmi'
+	icon_state = "lipstick_closed"
+
+/obj/random/lipstick/spawn_choices()
+	return list(/obj/item/lipstick,
+				/obj/item/lipstick/blue,
+				/obj/item/lipstick/green,
+				/obj/item/lipstick/turquoise,
+				/obj/item/lipstick/violet,
+				/obj/item/lipstick/yellow,
+				/obj/item/lipstick/orange,
+				/obj/item/lipstick/white,
+				/obj/item/lipstick/black)

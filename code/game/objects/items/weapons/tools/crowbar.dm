@@ -13,7 +13,7 @@
 	item_state = "crowbar"
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = "{'engineering':1}"
-	matter = list(MAT_STEEL = 140)
+	material = MAT_STEEL
 	center_of_mass = @"{'x':16,'y':20}"
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 
@@ -35,7 +35,7 @@
 	throwforce = 6
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
-	matter = list(MAT_STEEL = 80)
+	material = MAT_STEEL
 
 	var/prybar_types = list("1","2","3","4","5")
 	var/valid_colours = list(COLOR_RED_GRAY, COLOR_BLUE_GRAY, COLOR_BOTTLE_GREEN, COLOR_MAROON, COLOR_DARK_BROWN, COLOR_VIOLET, COLOR_GRAY20)
@@ -53,19 +53,36 @@
 	icon = 'icons/obj/items/tool/forcing_tool.dmi'
 	icon_state = "emergency_forcing_tool"
 	item_state = "emergency_forcing_tool"
-	force = 10
+	force = 12
 	throwforce = 6
 	throw_range = 5
-	w_class = ITEM_SIZE_SMALL
-	matter = list(MAT_STEEL = 150)
+	sharp = 1
+	edge = 1
+	w_class = ITEM_SIZE_NORMAL
+	material = MAT_STEEL
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked", "attacked", "slashed", "torn", "ripped", "cut")
+
+/obj/item/crowbar/emergency_forcing_tool/resolve_attackby(atom/A)//extra dmg against glass, it's an emergency forcing tool, it's gotta be good at something
+	if(istype(A, /obj/structure/window))
+		force = initial(force) * 2
+	else
+		force = initial(force)
+	. = ..()
+
+/obj/item/crowbar/emergency_forcing_tool/iscrowbar()//go ham
+	if(ismob(loc))
+		var/mob/M = loc
+		if(M.a_intent && M.a_intent == I_HURT)
+			return FALSE
+
+	return TRUE
 
 /obj/item/crowbar/prybar/cheap
 	name = "discount pry bar"
 	desc = "A plastic bar with a wedge. It looks so poorly manufactured that you're sure it will break if you try to use it."
 	force = 2
 	throwforce = 4
-	matter = list(MAT_PLASTIC = 60)
+	material = MAT_PLASTIC
 	obj_flags = null
 	w_class = ITEM_SIZE_TINY
 

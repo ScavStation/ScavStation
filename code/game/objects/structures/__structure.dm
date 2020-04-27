@@ -3,10 +3,25 @@
 	w_class = ITEM_SIZE_STRUCTURE
 	layer = STRUCTURE_LAYER
 
+	var/last_damage_message
+	var/health = 0
+	var/maxhealth = -1
+	var/hitsound = 'sound/weapons/smash.ogg'
 	var/breakable
 	var/parts_type
 	var/footstep_type
 	var/mob_offset
+
+/obj/structure/create_matter()
+	..()
+	if(material || reinf_material)
+		LAZYINITLIST(matter)
+		var/matter_mult = get_matter_amount_modifier()
+		if(material)
+			matter[material.type] = max(matter[material.type], round(MATTER_AMOUNT_PRIMARY * matter_mult))
+		if(reinf_material)
+			matter[reinf_material.type] = max(matter[reinf_material.type], round(MATTER_AMOUNT_REINFORCEMENT * matter_mult))
+		UNSETEMPTY(matter)
 
 /obj/structure/Initialize(var/ml, var/_mat, var/_reinf_mat)
 	if(ispath(_mat, /material))
@@ -18,14 +33,29 @@
 	if(ispath(reinf_material, /material))
 		reinf_material = SSmaterials.get_material_datum(reinf_material)
 	. = ..()
-	if(material || reinf_material)
-		update_materials()
+	update_materials()
 	if(!CanFluidPass())
 		fluid_update()
+
+/obj/structure/proc/show_examined_damage(mob/user, var/perc)
+	if(maxhealth == -1)
+		return
+	if(perc >= 1)
+		to_chat(user, SPAN_NOTICE("It looks fully intact."))
+	else if(perc > 0.75)
+		to_chat(user, SPAN_NOTICE("It has a few cracks."))
+	else if(perc > 0.5)
+		to_chat(user, SPAN_WARNING("It looks slightly damaged."))
+	else if(perc > 0.25)
+		to_chat(user, SPAN_WARNING("It looks moderately damaged."))
+	else
+		to_chat(user, SPAN_DANGER("It looks heavily damaged."))
 
 /obj/structure/examine(mob/user, var/distance)
 	. = ..()
 	if(distance <= 3)
+
+		show_examined_damage(user, (health/maxhealth))
 
 		if(tool_interaction_flags & TOOL_INTERACTION_ANCHOR)
 			if(anchored)
@@ -79,7 +109,43 @@
 	return FALSE
 
 /obj/structure/proc/take_damage(var/damage)
-	return
+	if(health == -1) // This object does not take damage.
+		return
+
+	if(material && material.is_brittle())
+		if(reinf_material)
+			if(reinf_material.is_brittle())
+				damage *= STRUCTURE_BRITTLE_MATERIAL_DAMAGE_MULTIPLIER
+		else
+			damage *= STRUCTURE_BRITTLE_MATERIAL_DAMAGE_MULTIPLIER
+
+	playsound(loc, hitsound, 75, 1)
+	health = Clamp(health - damage, 0, maxhealth)
+	
+	show_damage_message(health/maxhealth)
+
+	if(health == 0)
+		destroyed()
+
+/obj/structure/proc/show_damage_message(var/perc)
+	if(perc > 0.75)
+		return
+	if(perc <= 0.25 && last_damage_message < 0.25)
+		visible_message(SPAN_DANGER("\The [src] looks like it's about to break!"))
+		last_damage_message = 0.25
+	else if(perc <= 0.5 && last_damage_message < 0.5)
+		visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"))
+		last_damage_message = 0.5
+	else if(perc <= 0.75 && last_damage_message < 0.75)
+		visible_message(SPAN_WARNING("\The [src] is showing some damage!"))
+		last_damage_message = 0.75
+
+/obj/structure/proc/destroyed()
+	. = dismantle()
+
+/obj/structure/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+	. = ..()
+	take_damage(100*material.combustion_effect(get_turf(src),temperature, 0.3))
 
 /obj/structure/Destroy()
 	reset_mobs_offset()
@@ -154,13 +220,18 @@
 		return TRUE
 
 /obj/structure/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if(prob(50))
-				qdel(src)
-				return
-		if(3.0)
-			return
+	if(severity == 1)
+		destroyed()
+	else if(severity == 2)
+		take_damage(rand(20, 30))
+	else
+		take_damage(rand(5, 15))
+
+/obj/structure/proc/can_repair(var/mob/user)
+	if(health >= maxhealth)
+		to_chat(user, SPAN_NOTICE("\The [src] does not need repairs."))
+		return FALSE
+	return TRUE
+
+/obj/structure/bullet_act(var/obj/item/projectile/Proj)
+	take_damage(Proj.get_structure_damage())

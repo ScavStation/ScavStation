@@ -147,7 +147,7 @@
 		var/list/covers = get_covering_equipped_items(zone)
 		var/zone_exposure = 1
 		for(var/obj/item/clothing/C in covers)
-			zone_exposure = min(zone_exposure, C.get_pressure_weakness(pressure))
+			zone_exposure = min(zone_exposure, C.get_pressure_weakness(pressure,zone))
 		if(zone_exposure >= 1)
 			return 1
 		pressure_adjustment_coefficient = max(pressure_adjustment_coefficient, zone_exposure)
@@ -964,21 +964,12 @@
 		var/image/holder = hud_list[STATUS_HUD]
 		if(stat == DEAD)
 			holder.icon_state = "huddead"
-
-		else if(has_brain_worms())
-			var/mob/living/simple_animal/borer/B = has_brain_worms()
-			if(B.controlling)
-				holder.icon_state = "hudbrainworm"
-			else
-				holder.icon_state = "hudhealthy"
 		else
 			holder.icon_state = "hudhealthy"
 
 		var/image/holder2 = hud_list[STATUS_HUD_OOC]
 		if(stat == DEAD)
 			holder2.icon_state = "huddead"
-		else if(has_brain_worms())
-			holder2.icon_state = "hudbrainworm"
 		else
 			holder2.icon_state = "hudhealthy"
 

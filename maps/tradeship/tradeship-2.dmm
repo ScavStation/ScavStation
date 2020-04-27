@@ -10,7 +10,6 @@
 /area/ship/trade/shuttle/outgoing)
 "ac" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
 	id_tag = "tradeship_shuttle_sensor";
 	pixel_y = -24
 	},
@@ -61,21 +60,6 @@
 /area/ship/trade/shuttle/outgoing)
 "aw" = (
 /turf/simulated/wall/r_wall,
-/area/ship/trade/command/fmate)
-"aD" = (
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen/multi,
-/obj/structure/filingcabinet/wallcabinet{
-	pixel_x = 1;
-	pixel_y = 28
-	},
-/obj/machinery/light_switch{
-	pixel_x = -24
-	},
-/obj/item/material/clipboard,
-/obj/random/single/textbook,
-/turf/simulated/floor/carpet,
 /area/ship/trade/command/fmate)
 "aI" = (
 /obj/item/bedsheet/captain,
@@ -474,8 +458,8 @@
 	name = "External Blast Doors";
 	opacity = 0
 	},
-/obj/machinery/access_button/airlock_interior{
-	master_tag = "tradeship_starboard_dock";
+/obj/machinery/button/access/interior{
+	id_tag = "tradeship_starboard_dock";
 	pixel_x = -12;
 	pixel_y = 20
 	},
@@ -483,7 +467,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "dock_star_in"
 	},
 /obj/structure/cable{
@@ -520,7 +504,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/dock)
 "bZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
 	id_tag = "dock_star_pump"
 	},
@@ -536,12 +520,12 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/dock)
 "ca" = (
-/obj/machinery/access_button/airlock_exterior{
-	master_tag = "tradeship_starboard_dock";
+/obj/machinery/button/access/exterior{
+	id_tag = "bearcat_starboard_dock";
 	pixel_x = 18;
 	pixel_y = 20
 	},
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "dock_star_out"
 	},
 /obj/machinery/shield_diffuser,
@@ -3886,13 +3870,11 @@
 /turf/simulated/floor/tiled,
 /area/ship/trade/crew/saloon)
 "jc" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
-	frequency = 1380;
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "tradeship_shuttle_out"
 	},
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1380;
-	master_tag = "tradeship_shuttle";
+/obj/machinery/button/access/exterior{
+	id_tag = "tradeship_shuttle";
 	pixel_x = 18;
 	pixel_y = -20
 	},
@@ -3917,6 +3899,7 @@
 /area/ship/trade/maintenance/engine/aft)
 "je" = (
 /obj/machinery/atmospherics/portables_connector,
+/obj/machinery/camera/network/engineering,
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/engine/aft)
 "jf" = (
@@ -4633,14 +4616,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "lc" = (
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1380;
-	master_tag = "tradeship_dock_port";
+/obj/machinery/button/access/exterior{
+	id_tag = "tradeship_dock_port";
 	pixel_x = -18;
 	pixel_y = 20
 	},
-/obj/machinery/door/airlock/external/bolted/cycling{
-	frequency = 1380;
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "dock_port_out"
 	},
 /obj/machinery/shield_diffuser,
@@ -4828,12 +4809,10 @@
 	dir = 1
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
 	id_tag = "dock_port_sensor";
 	pixel_y = 36
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
 	id_tag = "tradeship_dock_port";
 	pixel_y = 25;
 	tag_airpump = "dock_port_pump";
@@ -4891,9 +4870,8 @@
 	name = "External Blast Doors";
 	opacity = 0
 	},
-/obj/machinery/access_button/airlock_interior{
-	frequency = 1380;
-	master_tag = "tradeship_dock_port";
+/obj/machinery/button/access/interior{
+	id_tag = "tradeship_dock_port";
 	pixel_x = 12;
 	pixel_y = 20
 	},
@@ -4901,8 +4879,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/door/airlock/external/bolted/cycling{
-	frequency = 1380;
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "dock_port_in"
 	},
 /obj/structure/cable{
@@ -6941,6 +6918,12 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall,
 /area/ship/trade/crew/toilets)
+"Uo" = (
+/obj/machinery/network/mainframe{
+	initial_network_id = "bearnet"
+	},
+/turf/simulated/floor/bluegrid,
+/area/ship/trade/comms)
 "UP" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "scram"
@@ -7157,16 +7140,14 @@
 /turf/simulated/open,
 /area/ship/trade/cargo)
 "Yb" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
-	frequency = 1380;
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "tradeship_shuttle_in"
 	},
 /obj/structure/cable{
 	icon_state = "4-10"
 	},
-/obj/machinery/access_button/airlock_interior{
-	frequency = 1380;
-	master_tag = "tradeship_shuttle";
+/obj/machinery/button/access/interior{
+	id_tag = "bearcat_shuttle";
 	pixel_x = -12;
 	pixel_y = 20
 	},
@@ -7224,7 +7205,6 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
-	frequency = 1380;
 	id_tag = "tradeship_shuttle";
 	pixel_x = 0;
 	pixel_y = -24;
@@ -10157,7 +10137,7 @@ Ls
 oK
 aw
 aw
-aD
+Uo
 aP
 ba
 aw
