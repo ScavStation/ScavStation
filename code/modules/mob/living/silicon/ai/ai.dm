@@ -28,10 +28,11 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/ai_take_image,
 	/mob/living/silicon/ai/proc/change_floor,
 	/mob/living/silicon/ai/proc/show_crew_monitor,
-	/mob/living/silicon/ai/proc/show_crew_records,
+	/mob/living/silicon/proc/access_computer,
 	/mob/living/silicon/ai/proc/ai_power_override,
 	/mob/living/silicon/ai/proc/ai_shutdown,
-	/mob/living/silicon/ai/proc/ai_reset_radio_keys
+	/mob/living/silicon/ai/proc/ai_reset_radio_keys,
+	/mob/living/silicon/ai/proc/run_program
 )
 
 //Not sure why this is necessary...
@@ -204,6 +205,7 @@ var/list/ai_verbs_default = list(
 	job = "AI"
 	setup_icon()
 	eyeobj.possess(src)
+	CreateModularRecord(src, /datum/computer_file/report/crew_record/synth)
 
 /mob/living/silicon/ai/Destroy()
 	for(var/robot in connected_robots)
@@ -617,6 +619,10 @@ var/list/ai_verbs_default = list(
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
 			anchored = 1
 			return
+	if(try_stock_parts_install(W, user))
+		return
+	if(try_stock_parts_removal(W, user))
+		return
 	else
 		return ..()
 
@@ -746,10 +752,14 @@ var/list/ai_verbs_default = list(
 	set category = "Silicon Commands"
 	set name = "Show Crew Lifesigns Monitor"
 
-	open_subsystem(/datum/nano_module/crew_monitor)
+	run_program("sensormonitor")
 
-/mob/living/silicon/ai/proc/show_crew_records()
-	set category = "Silicon Commands"
-	set name = "Show Crew Records"
-
-	open_subsystem(/datum/nano_module/records)
+/mob/living/silicon/ai/proc/run_program(var/filename)
+	var/datum/extension/interactive/ntos/os = get_extension(src, /datum/extension/interactive/ntos)
+	if(!istype(os))
+		to_chat(src, SPAN_WARNING("You seem to be lacking an NTOS capable device!"))
+		return
+	if(!os.on)
+		os.system_boot()
+	if(os.run_program(filename))
+		os.ui_interact(src)

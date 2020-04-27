@@ -23,16 +23,6 @@
 
 /obj/item/clothing/accessory/badge/proc/set_desc(var/mob/living/carbon/human/H)
 
-/obj/item/clothing/accessory/badge/CanUseTopic(var/user)
-	if(user in view(get_turf(src)))
-		return STATUS_INTERACTIVE
-
-/obj/item/clothing/accessory/badge/OnTopic(var/mob/user, var/list/href_list)
-	if(href_list["look_at_me"])
-		if(istype(user))
-			user.examinate(src)
-			return TOPIC_HANDLED
-
 /obj/item/clothing/accessory/badge/get_examine_line()
 	. = ..()
 	. += "  <a href='?src=\ref[src];look_at_me=1'>\[View\]</a>"

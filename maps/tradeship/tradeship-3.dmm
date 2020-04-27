@@ -13,7 +13,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	id_tag = "solars_pump"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -49,10 +49,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/solars)
-"am" = (
-/obj/machinery/mech_sensor,
-/turf/space,
-/area/space)
 "ao" = (
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/solars)
@@ -281,7 +277,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "ds" = (
-/obj/machinery/ntnet_relay,
+/obj/machinery/network/relay,
 /turf/simulated/floor/bluegrid,
 /area/ship/trade/comms)
 "eX" = (
@@ -566,7 +562,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/ship/trade/command/bridge_upper)
 "uM" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "solars_in"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -644,7 +640,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "yt" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "solars_out"
 	},
 /obj/structure/cable/yellow{
@@ -828,13 +824,13 @@
 /turf/simulated/open,
 /area/ship/trade/maintenance/solars)
 "Hh" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "solars_in"
 	},
-/obj/machinery/access_button/airlock_interior{
+/obj/machinery/button/access/interior{
 	pixel_x = -24;
 	pixel_y = -1;
-	master_tag = "solars"
+	id_tag = "solars"
 	},
 /turf/space,
 /area/ship/trade/maintenance/solars)
@@ -1044,11 +1040,11 @@
 /turf/simulated/floor/airless,
 /area/space)
 "Rk" = (
-/obj/machinery/door/airlock/external/bolted/cycling{
+/obj/machinery/door/airlock/external/bolted{
 	id_tag = "solars_out"
 	},
-/obj/machinery/access_button/airlock_exterior{
-	master_tag = "solars";
+/obj/machinery/button/access/exterior{
+	id_tag = "solars";
 	pixel_x = -24;
 	pixel_y = -1
 	},
@@ -1140,7 +1136,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "Tx" = (
-/obj/machinery/r_n_d/server/core,
+/obj/machinery/network/mainframe,
 /turf/simulated/floor/bluegrid,
 /area/ship/trade/comms)
 "Ua" = (
@@ -5630,7 +5626,7 @@ aa
 aa
 aa
 aa
-am
+aa
 aa
 aa
 aa

@@ -63,8 +63,6 @@
 
 	var/obj/item/mmi/mmi = null
 
-	var/obj/item/stock_parts/matter_bin/storage = null
-
 	var/opened = 0
 	var/emagged = 0
 	var/wiresexposed = 0
@@ -160,8 +158,9 @@
 	if(!module || !module.synths)
 		return
 	var/mult = 1
-	if(storage)
-		mult += storage.rating
+	for(var/obj/item/stock_parts/matter_bin/storage in stock_parts)
+		if(storage.is_functional())
+			mult += storage.rating
 	for(var/datum/matter_synth/M in module.synths)
 		M.set_multiplier(mult)
 
@@ -300,6 +299,8 @@
 	recalculate_synth_capacities()
 	if(module)
 		notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
+		if(!get_crewmember_record(name) && !module.hide_on_manifest)
+			CreateModularRecord(src, /datum/computer_file/report/crew_record/synth)
 
 /mob/living/silicon/robot/get_cell()
 	return cell
@@ -503,6 +504,9 @@
 
 				to_chat(usr, "<span class='notice'>You install the [W.name].</span>")
 				return
+		// If the robot is having something inserted which will remain inside it, self-inserting must be handled before exiting to avoid logic errors. Use the handle_selfinsert proc.
+		if(try_stock_parts_install(W, user))
+			return
 
 	if(isWelder(W) && user.a_intent != I_HURT)
 		if (src == user)
@@ -563,23 +567,28 @@
 					var/datum/robot_component/C = components[V]
 					if(C.installed == 1 || C.installed == -1)
 						removable_components += V
-
+				removable_components |= stock_parts
 				var/remove = input(user, "Which component do you want to pry out?", "Remove Component") as null|anything in removable_components
-				if(!remove)
+				if(!remove || !opened || !(remove in (stock_parts|components)) || !Adjacent(user))
 					return
-				var/datum/robot_component/C = components[remove]
-				var/obj/item/robot_parts/robot_component/I = C.wrapped
-				to_chat(user, "You remove \the [I].")
-				if(istype(I))
-					I.brute = C.brute_damage
-					I.burn = C.electronics_damage
+				var/obj/item/removed_item
+				if(istype(components[remove], /datum/robot_component))
+					var/datum/robot_component/C = components[remove]
+					var/obj/item/robot_parts/robot_component/I = C.wrapped
+					if(istype(I))
+						I.brute = C.brute_damage
+						I.burn = C.electronics_damage
 
-				I.forceMove(loc)
-
-				if(C.installed == 1)
-					C.uninstall()
-				C.installed = 0
-
+					removed_item = I
+					if(C.installed == 1)
+						C.uninstall()
+					C.installed = 0
+				else if(istype(remove, /obj/item/stock_parts))
+					stock_parts -= remove
+					removed_item = remove
+				if(removed_item)
+					to_chat(user, SPAN_NOTICE("You remove \the [removed_item]."))
+					removed_item.forceMove(loc)
 		else
 			if(locked)
 				to_chat(user, "The cover is locked and cannot be opened.")
@@ -589,20 +598,6 @@
 					to_chat(user, "<span class='notice'>You open \the [src]'s maintenance hatch.</span>")
 					opened = 1
 					update_icon()
-
-	// If the robot is having something inserted which will remain inside it, self-inserting must be handled before exiting to avoid logic errors. Use the handle_selfinsert proc.
-	else if (istype(W, /obj/item/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
-		if(!user.unEquip(W, src))
-			return
-		if(storage)
-			to_chat(user, "You replace \the [storage] with \the [W]")
-			storage.dropInto(loc)
-			storage = null
-		else
-			to_chat(user, "You install \the [W]")
-		storage = W
-		handle_selfinsert(W, user)
-		recalculate_synth_capacities()
 
 	else if (istype(W, /obj/item/cell) && opened)	// trying to put a cell inside
 		var/datum/robot_component/C = components["power cell"]
@@ -1114,3 +1109,11 @@
 	var/obj/item/robot_parts/robot_suit/C = new dismantle_type(loc)
 	C.dismantled_from(src)
 	qdel(src)
+
+/mob/living/silicon/robot/try_stock_parts_install(obj/item/stock_parts/W, mob/user)
+	if(!opened)
+		return
+	. = ..()
+	if(.)
+		handle_selfinsert(W, user)
+		recalculate_synth_capacities()

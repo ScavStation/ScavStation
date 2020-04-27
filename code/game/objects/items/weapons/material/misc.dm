@@ -81,7 +81,8 @@
 	desc = "A long, machine-stamped blade with a somewhat ungainly handle. Found in military surplus stores, malls, and horror movies since before interstellar travel."
 	material = MAT_STEEL
 	base_parry_chance = 40
-	matter = list(MAT_STEEL = 15000, MAT_PLASTIC = 2500)
+	material = MAT_STEEL
+	matter = list(MAT_PLASTIC = MATTER_AMOUNT_REINFORCEMENT)
 
 /obj/item/material/hatchet/machete/Initialize()
 	icon_state = "machete[pick("","_red","_blue", "_black", "_olive")]"
@@ -101,7 +102,6 @@
 	icon = 'icons/obj/items/tool/hoe.dmi'
 	icon_state = "hoe"
 	item_state = "hoe"
-	max_force = 5
 	material_force_multiplier = 0.25 // 5 with weight 20 (steel)
 	thrown_material_force_multiplier = 0.25 // as above
 	w_class = ITEM_SIZE_SMALL
@@ -115,7 +115,6 @@
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
 	icon = 'icons/obj/items/tool/scythe.dmi'
 	icon_state = "scythe0"
-	max_force = 15
 	material_force_multiplier = 0.275 // 16 with hardness 60 (steel)
 	thrown_material_force_multiplier = 0.25 // 5 with weight 20 (steel)
 	sharp = 1
@@ -132,7 +131,6 @@
 	desc = "It's a cross, commonly used as a holy symbol by Christians."
 	icon = 'icons/obj/items/cross.dmi'
 	icon_state = "cross"
-	max_force = 5
 	material_force_multiplier = 0.1
 	thrown_material_force_multiplier = 0.1
 	w_class = ITEM_SIZE_SMALL

@@ -8,7 +8,7 @@
 	var/list/access_edit = list(list())                    //The access required to submit the report. See documentation below.
 	var/list/access = list(list())                         //The access required to view the report.
 	var/list/datum/report_field/fields = list()            //A list of fields the report comes with, in order that they should be displayed.
-	var/available_on_ntnet = 0                             //Whether this report type should show up on NTNet.
+	var/available_on_network = 0                           //Whether this report type should show up for download.
 	var/logo                                               //Can be set to a pencode logo for use with some display methods.
 
 /datum/computer_file/report/New()
@@ -65,6 +65,11 @@ If the override option is set to 0, the access supplied will instead be added as
 	for(var/datum/report_field/field in fields)
 		if(field.display_name() == name)
 			return field
+
+/datum/computer_file/report/proc/value_by_field_name(name)
+	var/datum/report_field/field = field_from_name(name)
+	if(field)
+		return field.get_value()
 
 //The place to enter fields for report subtypes, via add_field.
 /datum/computer_file/report/proc/generate_fields()
