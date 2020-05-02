@@ -9,23 +9,23 @@
 /obj/item/chems/glass/bottle/robot/adrenaline
 	name = "internal adrenaline bottle"
 	desc = "A small bottle. Contains adrenaline - used to stabilize patients."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/items/chem/bottle.dmi'
 	icon_state = "bottle-4"
-	reagent = /datum/reagent/adrenaline
+	reagent = /decl/reagent/adrenaline
 
 /obj/item/chems/glass/bottle/robot/adrenaline/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/adrenaline, 60)
+	reagents.add_reagent(/decl/reagent/adrenaline, 60)
 	update_icon()
 
 /obj/item/chems/glass/bottle/robot/antitoxin
 	name = "internal anti-toxin bottle"
 	desc = "A small bottle of Anti-toxins. Counters poisons, and repairs damage, a wonder drug."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/items/chem/bottle.dmi'
 	icon_state = "bottle-4"
-	reagent = /datum/reagent/antitoxins
+	reagent = /decl/reagent/antitoxins
 
 /obj/item/chems/glass/bottle/robot/antitoxin/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/antitoxins, 60)
+	reagents.add_reagent(/decl/reagent/antitoxins, 60)
 	update_icon()

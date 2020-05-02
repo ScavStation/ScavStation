@@ -19,7 +19,7 @@ PROCESSING_SUBSYSTEM_DEF(plants)
 
 /datum/controller/subsystem/processing/plants/Initialize()
 	// Build the icon lists.
-	for(var/icostate in icon_states('icons/obj/hydroponics_growing.dmi'))
+	for(var/icostate in icon_states('icons/obj/hydroponics/hydroponics_growing.dmi'))
 		var/split = findtext(icostate,"-")
 		if(!split)
 			// invalid icon_state
@@ -35,7 +35,7 @@ PROCESSING_SUBSYSTEM_DEF(plants)
 		if(!(plant_sprites[base]) || (plant_sprites[base]<ikey))
 			plant_sprites[base] = ikey
 
-	for(var/icostate in icon_states('icons/obj/hydroponics_products.dmi'))
+	for(var/icostate in icon_states('icons/obj/hydroponics/hydroponics_products.dmi'))
 		var/split = findtext(icostate,"-")
 		if(split)
 			plant_product_sprites |= copytext(icostate,1,split)
@@ -88,8 +88,8 @@ PROCESSING_SUBSYSTEM_DEF(plants)
 		if(seed.consume_gasses)
 			seed.consume_gasses[MAT_PHORON] = null
 			seed.consume_gasses[MAT_CO2] = null
-		if(seed.chems && !isnull(seed.chems[/datum/reagent/acid/polyacid]))
-			seed.chems[/datum/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
+		if(seed.chems && !isnull(seed.chems[/decl/reagent/acid/polyacid]))
+			seed.chems[/decl/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
 			seed.chems -= null // Setting to null does not actually remove the entry, which is weird.
 		seed.set_trait(TRAIT_IDEAL_HEAT,293)
 		seed.set_trait(TRAIT_HEAT_TOLERANCE,20)

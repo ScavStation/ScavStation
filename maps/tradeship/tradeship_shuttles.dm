@@ -45,7 +45,6 @@
 	floor_type =  /turf/simulated/floor/tiled/steel_grid
 	button_type = /obj/structure/lift/button/standalone
 	panel_type =  /obj/structure/lift/panel/standalone
-	icon = 'icons/obj/turbolift_preview_2x2.dmi'
 	areas_to_use = list(
 		/area/turbolift/tradeship_enclave,
 		/area/turbolift/tradeship_cargo,

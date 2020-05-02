@@ -28,7 +28,7 @@
 	item_type = "coin"
 	modification_flags = XENOFIND_REPLACE_ICON
 	engraving_chance = 100
-	responsive_reagent = /datum/reagent/iron
+	responsive_reagent = /decl/reagent/iron
 	possible_types = list(/obj/item/coin)
 
 /decl/archaeological_find/coin/new_icon_state()
@@ -68,7 +68,7 @@
 //Random tool
 /decl/archaeological_find/tool
 	item_type = "tool"
-	responsive_reagent = /datum/reagent/iron
+	responsive_reagent = /decl/reagent/iron
 	possible_types = list(
 		/obj/item/wrench,
 		/obj/item/crowbar,
@@ -86,7 +86,7 @@
 	item_type = "crystal"
 	modification_flags = XENOFIND_REPLACE_ICON
 	engraving_chance = 100
-	responsive_reagent = /datum/reagent/ammonia
+	responsive_reagent = /decl/reagent/ammonia
 
 /decl/archaeological_find/crystal/new_icon_state()
 	if(prob(25))
@@ -103,9 +103,3 @@
 		"It seems to draw you inward as you look it at.",
 		"Something twinkles faintly as you look at it.",
 		"It's mesmerizing to behold.")
-
-/client/verb/spawn_find()
-	var/list/finds = decls_repository.get_decls_of_type(/decl/archaeological_find)
-	var/find = input("What find") as anything in finds
-	var/decl/archaeological_find/F = finds[find]
-	F.create_find(get_turf(mob))

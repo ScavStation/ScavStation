@@ -62,7 +62,7 @@
 			if(O.reagents.total_volume < 1)
 				to_chat(user, "The [O] is empty.")
 			else if(O.reagents.total_volume >= 1)
-				if(O.reagents.has_reagent(/datum/reagent/acid/polyacid, 1))
+				if(O.reagents.has_reagent(/decl/reagent/acid/polyacid, 1))
 					to_chat(user, "The acid chews through the balloon!")
 					O.reagents.splash(user, reagents.total_volume)
 					qdel(src)
@@ -115,7 +115,7 @@
 /obj/item/toy/blink
 	name = "electronic blink toy game"
 	desc = "Blink.  Blink.  Blink. Ages 8 and up."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'icons/obj/items/device/radio/beacon.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
 

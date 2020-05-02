@@ -17,6 +17,9 @@
 /obj/item/clothing/mask
 	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
+/obj/item/clothing/accessory/cloak
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+
 /obj/item/clothing/under/tradeship_plain
 	name = "plain clothes"
 	desc = "Some very boring clothes."

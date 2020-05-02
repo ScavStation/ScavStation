@@ -58,6 +58,7 @@
 	var/fire_sound_text = "gunshot"
 	var/fire_anim = null
 	var/screen_shake = 0 //shouldn't be greater than 2 unless zoomed
+	var/space_recoil = 0 //knocks back in space
 	var/silenced = 0
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	var/accuracy_power = 5  //increase of to-hit chance per 1 point of accuracy
@@ -231,7 +232,7 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel?.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex)
+			handle_post_fire(user, target, pointblank, reflex, projectile)
 			update_icon()
 
 		if(i < burst)
@@ -268,7 +269,7 @@
 	playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
-/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0)
+/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/obj/projectile)
 	if(fire_anim)
 		flick(fire_anim, src)
 
@@ -320,6 +321,13 @@
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
 				S.deactivate()
+	
+	if(space_recoil)
+		if(!user.check_space_footing())
+			var/old_dir = user.dir
+			user.inertia_ignore = projectile
+			step(user,get_dir(target,user))
+			user.set_dir(old_dir)
 
 	update_icon()
 
@@ -411,11 +419,15 @@
 	return launched
 
 /obj/item/gun/proc/play_fire_sound(var/mob/user, var/obj/item/projectile/P)
-	var/shot_sound = (istype(P) && P.fire_sound)? P.fire_sound : fire_sound
+	var/shot_sound = fire_sound
+	var/shot_sound_vol = 50
+	if((istype(P) && P.fire_sound))
+		shot_sound = P.fire_sound
+		shot_sound_vol = P.fire_sound_vol
 	if(silenced)
-		playsound(user, shot_sound, 10, 1)
-	else
-		playsound(user, shot_sound, 50, 1)
+		shot_sound_vol = 10
+	
+	playsound(user, shot_sound, shot_sound_vol, 1)
 
 //Suicide handling.
 /obj/item/gun/var/mouthshoot = 0 //To stop people from suiciding twice... >.>
