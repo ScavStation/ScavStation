@@ -1,6 +1,6 @@
 /obj/machinery/chemical_dispenser
 	name = "chemical dispenser"
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/machines/chemistry/dispenser.dmi'
 	icon_state = "dispenser"
 	layer = BELOW_OBJ_LAYER
 	clicksound = "button"
@@ -115,9 +115,10 @@
 	data["isBeakerLoaded"] = container ? 1 : 0
 	data["glass"] = accept_drinking
 	var beakerD[0]
-	if(container && container.reagents && container.reagents.reagent_list.len)
-		for(var/datum/reagent/R in container.reagents.reagent_list)
-			beakerD[++beakerD.len] = list("name" = R.name, "volume" = R.volume)
+	if(LAZYLEN(container?.reagents?.reagent_volumes))
+		for(var/rtype in container.reagents.reagent_volumes)
+			var/decl/reagent/R = decls_repository.get_decl(rtype)
+			beakerD[++beakerD.len] = list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, rtype))
 	data["beakerContents"] = beakerD
 
 	if(container)
@@ -182,6 +183,6 @@
 	overlays.Cut()
 	if(container)
 		var/mutable_appearance/beaker_overlay
-		beaker_overlay = image('icons/obj/chemical.dmi', src, "lil_beaker")
+		beaker_overlay = image(src, src, "lil_beaker")
 		beaker_overlay.pixel_x = rand(-10, 5)
 		overlays += beaker_overlay

@@ -4,7 +4,7 @@
 /obj/item/chems/dropper
 	name = "Dropper"
 	desc = "A small glass tube with a bulbous rubber blister on one end. Used to drop very precise amounts of reagents between vessels."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/items/chem/dropper.dmi'
 	icon_state = "dropper0"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = @"[1,2,3,4,5]"
@@ -20,7 +20,7 @@
 
 	if(reagents.total_volume)
 
-		if(!target.reagents.get_free_space())
+		if(!REAGENTS_FREE_SPACE(target.reagents))
 			to_chat(user, SPAN_WARNING("\The [target] is full."))
 			return
 

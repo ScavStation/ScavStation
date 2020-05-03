@@ -21,6 +21,7 @@
 #include "map\culture.dm"
 #include "map\culturebaxxid.dm"
 #include "map\languagebaxxid.dm"
+#include "map\loadout.dm"
 #include "map\overrides.dm"
 #include "species\baxxid.dm"
 #include "species\yinglet.dm"

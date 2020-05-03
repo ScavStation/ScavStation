@@ -1,6 +1,7 @@
 /obj/item/chems/chem_disp_cartridge
 	name = "cartridge"
 	desc = "This goes in a chemical dispenser."
+	icon = 'icons/obj/items/chem/chem_cartridge.dmi'
 	icon_state = "cartridge"
 
 	w_class = ITEM_SIZE_NORMAL
@@ -18,7 +19,7 @@
 	. = ..()
 	if(spawn_reagent)
 		reagents.add_reagent(spawn_reagent, volume)
-		var/datum/reagent/R = spawn_reagent
+		var/decl/reagent/R = spawn_reagent
 		setLabel(initial(R.name))
 
 /obj/item/chems/chem_disp_cartridge/examine(mob/user)

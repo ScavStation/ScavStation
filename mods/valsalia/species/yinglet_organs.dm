@@ -6,14 +6,14 @@
 /obj/item/organ/internal/stomach/yinglet
 	name = "scav stomach"
 	var/global/list/gains_nutriment_from_inedible_reagents = list(
-		/datum/reagent/woodpulp =      3,
-		/datum/reagent/anfo/plus =     2,
-		/datum/reagent/anfo =          1,
-		/datum/reagent/lube =          1,
-		/datum/reagent/cleaner =       1,
-		/datum/reagent/foaming_agent = 1,
-		/datum/reagent/surfactant =    1,
-		/datum/reagent/paint =         1
+		/decl/reagent/woodpulp =      3,
+		/decl/reagent/anfo/plus =     2,
+		/decl/reagent/anfo =          1,
+		/decl/reagent/lube =          1,
+		/decl/reagent/cleaner =       1,
+		/decl/reagent/foaming_agent = 1,
+		/decl/reagent/surfactant =    1,
+		/decl/reagent/paint =         1
 	)
 	var/global/list/gains_nutriment_from_matter = list(
 		MAT_WOOD =            TRUE,
@@ -35,8 +35,8 @@
 	// Handle some post-metabolism reagent processing for generally inedible foods.
 	var/total_nutriment = 0
 	if(ingested.total_volume > 0)
-		for(var/datum/reagent/R in ingested.reagent_list)
-			total_nutriment += gains_nutriment_from_inedible_reagents[R.type]
+		for(var/R in ingested.reagent_volumes)
+			total_nutriment += gains_nutriment_from_inedible_reagents[R]
 	for(var/obj/item/food in contents)
 		for(var/mat in food.matter)
 			if(!gains_nutriment_from_matter[mat])

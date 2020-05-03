@@ -6,7 +6,6 @@
 	name = " "
 	var/base_name = " "
 	desc = ""
-	icon = 'icons/obj/chemical.dmi'
 	icon_state = "null"
 	item_state = "null"
 	amount_per_transfer_from_this = 10
@@ -47,7 +46,7 @@
 	if(distance > 2)
 		return
 	
-	if(reagents && reagents.reagent_list.len)
+	if(reagents?.total_volume)
 		to_chat(user, "<span class='notice'>It contains [reagents.total_volume] units of liquid.</span>")
 	else
 		to_chat(user, "<span class='notice'>It is empty.</span>")
@@ -82,8 +81,8 @@
 /obj/item/chems/glass/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You swallow a gulp from \the [src].</span>")
 	if(user.has_personal_goal(/datum/goal/achievement/specific_object/drink))
-		for(var/datum/reagent/R in reagents.reagent_list)
-			user.update_personal_goal(/datum/goal/achievement/specific_object/drink, R.type)
+		for(var/R in reagents.reagent_volumes)
+			user.update_personal_goal(/datum/goal/achievement/specific_object/drink, R)
 
 /obj/item/chems/glass/afterattack(var/obj/target, var/mob/user, var/proximity)
 	if(!ATOM_IS_OPEN_CONTAINER(src) || !proximity) //Is the container open & are they next to whatever they're clicking?
@@ -107,7 +106,7 @@
 /obj/item/chems/glass/beaker
 	name = "beaker"
 	desc = "A beaker."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/items/chem/beaker.dmi'
 	icon_state = "beaker"
 	item_state = "beaker"
 	center_of_mass = @"{'x':15,'y':10}"
@@ -212,6 +211,7 @@
 /obj/item/chems/glass/beaker/vial
 	name = "vial"
 	desc = "A small glass vial."
+	icon = 'icons/obj/items/chem/vial.dmi'
 	icon_state = "vial"
 	center_of_mass = @"{'x':15,'y':8}"
 	volume = 30
@@ -243,7 +243,7 @@
 
 /obj/item/chems/glass/beaker/sulphuric/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/acid, 60)
+	reagents.add_reagent(/decl/reagent/acid, 60)
 	update_icon()
 
 /obj/item/chems/glass/bucket
