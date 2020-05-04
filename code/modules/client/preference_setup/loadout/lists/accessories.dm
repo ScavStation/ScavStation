@@ -81,6 +81,4 @@
 	cost = 1
 	flags = GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/tail_glove
-	display_name = "Yinglet Tail Glove"
-	path = /obj/item/clothing/accessory/tailglove
+
