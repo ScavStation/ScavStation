@@ -136,3 +136,8 @@
 	path = /obj/item/clothing/suit/letterman
 	flags = GEAR_HAS_COLOR_SELECTION
 	cost = 1
+
+/datum/gear/suit/yinglabcoat
+	display_name = "Yinglet labcoat"
+	path = /obj/item/clothing/suit/yinglabcoat
+	cost = 2

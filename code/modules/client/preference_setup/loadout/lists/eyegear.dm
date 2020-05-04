@@ -103,3 +103,8 @@
 	display_name = "blindfold"
 	path = /obj/item/clothing/glasses/blindfold
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/eyes/yinggoggles
+	display_name = "yinglet goggles"
+	path = /obj/item/clothing/eyes/yinglet/yinggoggles
+	
