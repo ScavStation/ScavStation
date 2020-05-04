@@ -1,6 +1,5 @@
 /datum/gear/utility/guns
 	display_name = "guns"
-	flags = GEAR_HAS_COLOR_SELECTION
 	cost = 4
 	sort_category = "Utility"
 	path = /obj/item/gun/projectile
@@ -17,6 +16,12 @@
 	flags = GEAR_HAS_COLOR_SELECTION
 	description = "A simple cloth hood with ear-holes. Not suitable for human use."
 
+/datum/gear/uniform/yingjumpsuit
+	display_name = "yinglet jumpsuit, colour select"
+	path = /obj/item/clothing/under/yinglet/yingjumpsuit
+	flags = GEAR_HAS_COLOR_SELECTION
+	description = "a simple jumpsuit, made for a yinglet, color select"
+
 /datum/gear/scav_medical_belt
 	display_name = "medical belt"
 	path = /obj/item/storage/belt/medical
@@ -28,3 +33,10 @@
 		/datum/job/tradeship_doctor, 
 		/datum/job/tradeship_doctor/head
 	)
+/datum/gear/uniform/Librarian
+
+/datum/gear/suit/yinglabcoat
+
+/datum/gear/accessory/tail_glove
+
+/datum/gear/eyes/yinggoggles

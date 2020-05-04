@@ -27,6 +27,22 @@
 	icon_state = "matriarch_robe"
 	color = null
 
+/obj/item/clothing/under/yinglet/yinglibrarian
+	name = "librarian robe"
+	desc = "a well made robe for a clan librarian."
+	bodytype_restricted = list(BODYTYPE_YINGLET)
+	icon_state = "librarian_robe"
+	color = null
+
+/obj/item/clothing/under/yinglet/yingjumpsuit
+	name = "yinglet jumpsuit"
+	desc = "a jumpsuit in yinglet size, of yinglet quality craftsmenship"
+	bodytype_restricted = list(BODYTYPE_YINGLET)
+	icon = 'mods/valsalia/icons/under_yinglet.dmi'
+	icon_state = "ying_jumpsuit"
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_under_yinglet.dmi')
+	color = COLOR_BEIGE
+
 /obj/item/clothing/under/yinglet/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
 	if(detail_color && slot == slot_w_uniform_str)
@@ -74,6 +90,16 @@
 	color = "#917756"
 	detail_color = "#698a71"
 
+/obj/item/clothing/eyes/yinglet/yinggoggles
+	name = "Yinglet goggles"
+	desc = "well crafted green goggles sized for a yinglet"
+	bodytype_restricted = list(BODYTYPE_YINGLET)
+	icon = 'mods/valsalia/icons/eyes_yinglet.dmi'
+	icon_state = "ying_goggles"
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_eyes_yinglet.dmi')
+	body_parts_covered = EYES
+	slot_flags = SLOT_EYES
+
 /obj/item/clothing/suit/yinglet
 	name = "small cape"
 	desc = "A short length of cloth worked into a cape. Some people would say it looks stupid."
@@ -83,6 +109,14 @@
 	color = COLOR_DARK_RED
 	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
 
+/obj/item/clothing/suit/yinglabcoat
+	name = "Yinglet Labcoat"
+	desc = "A labcoat tailored to be yinglet sized"
+	bodytype_restricted = list(BODYTYPE_YINGLET)
+	icon = 'mods/valsalia/icons/suit_yinglet.dmi'
+	icon_state = "ying_labcoat"
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
+
 /obj/item/clothing/shoes/sandal/yinglet
 	name = "small sandals"
 	desc = "A pair of rather plain wooden sandals. They seem to be the right size and shape for a yinglet."
@@ -90,3 +124,27 @@
 	item_icons = list(
 		slot_shoes_str = 'mods/valsalia/icons/onmob_shoes_yinglet.dmi'
 	)
+
+/obj/item/clothing/accessory/tailglove
+	name = "Yinglet Tail glove"
+	desc = "A nitrile tail covering, sterile!"
+	icon = 'mods/valsalia/icons/accessory_yinglet.dmi'
+	icon_state = "tail_glove"
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_accessory_yinglet.dmi')
+	slot = ACCESSORY_SLOT_MEDAL
+
+/obj/item/clothing/suit/yingtrashbag
+	name = "Trashbag"
+	desc = "a trashbag with tiny arm holes"
+	bodytype_restricted = list(BODYTYPE_YINGLET)
+	icon = 'mods/valsalia/icons/suit_yinglet.dmi'
+	icon_state = "garbage_bag"
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
+
+/obj/item/clothing/suit/yingtrashbagblue
+	name = "Trashbag"
+	desc = "a blue trashbag with tiny arm holes"
+	bodytype_restricted = list(BODYTYPE_YINGLET)
+	icon = 'mods/valsalia/icons/suit_yinglet.dmi'
+	icon_state = "garbage_bag_blue"
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
