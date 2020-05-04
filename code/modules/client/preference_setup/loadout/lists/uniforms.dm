@@ -157,12 +157,3 @@
 /datum/gear/uniform/frontier
 	display_name = "frontier clothes"
 	path = /obj/item/clothing/under/frontier
-
-/datum/gear/uniform/Librarian
-	display_name = "Yinglet Librarian Robes"
-	path= /obj/item/clothing/under/yinglet/yinglibrarian
-
-/datum/gear/uniform/yingletjumpsuit
-	display_name = "a simple jumpsuit, made for a yinglet, color select"
-	path = /obj/item/clothing/under/yinglet/yingjumpsuit
-	flags = GEAR_HAS_COLOR_SELECTION

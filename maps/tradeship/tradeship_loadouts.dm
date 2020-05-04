@@ -33,10 +33,25 @@
 		/datum/job/tradeship_doctor, 
 		/datum/job/tradeship_doctor/head
 	)
+
 /datum/gear/uniform/Librarian
+	display_name = "Yinglet Librarian Robes"
+	path= /obj/item/clothing/under/yinglet/yinglibrarian
 
 /datum/gear/suit/yinglabcoat
-
-/datum/gear/accessory/tail_glove
+	display_name = "Yinglet labcoat"
+	path = /obj/item/clothing/suit/yinglabcoat
+	cost = 2
 
 /datum/gear/eyes/yinggoggles
+	display_name = "yinglet goggles"
+	path = /obj/item/clothing/eyes/yinglet/yinggoggles
+
+/datum/gear/eyes/yinggoggles
+	display_name = "yinglet goggles"
+	path = /obj/item/clothing/eyes/yinglet/yinggoggles
+
+/datum/gear/uniform/yingletjumpsuit
+	display_name = "a simple jumpsuit, made for a yinglet, color select"
+	path = /obj/item/clothing/under/yinglet/yingjumpsuit
+	flags = GEAR_HAS_COLOR_SELECTION
