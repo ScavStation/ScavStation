@@ -277,7 +277,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "ds" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/router{
+	initial_network_id = "scavnet"
+	},
 /turf/simulated/floor/bluegrid,
 /area/ship/trade/comms)
 "eX" = (
@@ -1136,7 +1138,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "Tx" = (
-/obj/machinery/network/mainframe,
+/obj/machinery/network/mainframe{
+	initial_network_id = "scavnet"
+	},
 /turf/simulated/floor/bluegrid,
 /area/ship/trade/comms)
 "Ua" = (

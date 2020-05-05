@@ -6537,6 +6537,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/network/relay{
+	initial_network_id = "scavnet"
+	},
 /turf/simulated/floor/wood/yew,
 /area/ship/trade/unused)
 "Og" = (
@@ -6919,8 +6922,8 @@
 /turf/simulated/wall,
 /area/ship/trade/crew/toilets)
 "Uo" = (
-/obj/machinery/network/mainframe{
-	initial_network_id = "bearnet"
+/obj/machinery/network/relay{
+	initial_network_id = "scavnet"
 	},
 /turf/simulated/floor/bluegrid,
 /area/ship/trade/comms)
