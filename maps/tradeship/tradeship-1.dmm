@@ -1082,6 +1082,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ship/trade/cargo/lower)
+"cz" = (
+/obj/effect/paint/brown,
+/turf/simulated/wall/r_wall,
+/area/space)
 "cC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1865,16 +1869,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/eva)
-"es" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/vending/tool{
-	icon_state = "tool";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ship/trade/maintenance/techstorage)
 "et" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -2416,12 +2410,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/ship/trade/cargo/lower)
-"jw" = (
-/obj/machinery/network/relay{
-	initial_network_id = "bearnet"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/bearcat/broken1)
 "jD" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -2561,6 +2549,16 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/ship/trade/science)
+"nz" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/vending/tool{
+	icon_state = "tool";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ship/trade/maintenance/techstorage)
 "ob" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -3157,6 +3155,10 @@
 /obj/machinery/mining/drill,
 /turf/simulated/floor/tiled/monotile,
 /area/ship/trade/cargo/lower)
+"Jv" = (
+/obj/effect/paint/brown,
+/turf/simulated/wall/r_wall/hull,
+/area/space)
 "JM" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -3434,6 +3436,12 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall,
 /area/ship/trade/maintenance/robot)
+"Wm" = (
+/obj/machinery/network/relay{
+	initial_network_id = "scavnet"
+	},
+/turf/simulated/floor/bluegrid,
+/area/ship/trade/maintenance/techstorage)
 "WT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5875,9 +5883,9 @@ cZ
 WZ
 iW
 WZ
-aa
-aa
 XF
+Jv
+Jv
 aa
 aa
 aa
@@ -5957,10 +5965,10 @@ NL
 ob
 jH
 WZ
-XF
-rv
-rv
-aa
+cz
+se
+se
+Jv
 aa
 aa
 aa
@@ -6039,10 +6047,10 @@ fL
 fL
 fL
 WZ
+Xb
+nz
+eJ
 se
-se
-se
-rv
 aa
 aa
 aa
@@ -6121,10 +6129,10 @@ dq
 dD
 Tb
 cS
-Xb
-es
-eJ
-se
+Yb
+et
+eK
+ef
 rv
 aa
 aa
@@ -6203,9 +6211,9 @@ dr
 dE
 dO
 cS
-Yb
-et
-eK
+rb
+eu
+eL
 ef
 rv
 fX
@@ -6285,9 +6293,9 @@ Ob
 cS
 nn
 cS
-rb
+Wm
 eu
-eL
+pn
 ef
 rv
 aa
@@ -6369,7 +6377,7 @@ dP
 tE
 uj
 ec
-pn
+tb
 ef
 se
 rv
@@ -6451,7 +6459,7 @@ Ub
 dZ
 Zb
 ew
-tb
+eN
 eV
 ef
 rv
