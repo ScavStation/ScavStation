@@ -16,10 +16,10 @@
 	starting_seeds -= /obj/item/seeds/poppyseed
 	. = ..()
 
-/obj/machinery/suit_cycler/tradeship
+/obj/machinery/suit_cycler/shelltooth
 	req_access = list()
 
-/obj/machinery/suit_cycler/tradeship/Initialize()
+/obj/machinery/suit_cycler/shelltooth/Initialize()
 	if(prob(75))
 		suit = pick(list(
 			/obj/item/clothing/suit/space/void/mining, 
@@ -41,4 +41,4 @@
 
 /obj/item/chems/food/drinks/pitcher/coffee/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/coffee, 120)
+	reagents.add_reagent(/decl/reagent/drink/coffee, 120)

@@ -831,7 +831,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
 "iz" = (
-/obj/machinery/door/unpowered/shuttle,
+/obj/structure/door/shuttle,
 /obj/structure/cable{
 	icon_state = "1-10";
 	d1 = 1;
@@ -948,7 +948,9 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "pI" = (
-/obj/machinery/r_n_d/server,
+/obj/machinery/design_database{
+	initial_id_tag = "research"
+},
 /obj/structure/cable{
 	icon_state = "8-10"
 	},
@@ -1191,7 +1193,7 @@
 /turf/simulated/shuttle/wall,
 /area/shelltooth/level_five/matriarch)
 "Bz" = (
-/obj/machinery/door/unpowered/shuttle,
+/obj/structure/door/shuttle,
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/north)
 "BT" = (
@@ -1199,7 +1201,9 @@
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/north)
 "Dc" = (
-/obj/machinery/r_n_d/server,
+/obj/machinery/design_database{
+	initial_id_tag = "research"
+},
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
 "De" = (
@@ -1273,7 +1277,7 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
 "JS" = (
-/obj/machinery/door/unpowered/shuttle,
+/obj/structure/door/shuttle,
 /obj/structure/cable{
 	icon_state = "2-9";
 	d2 = 8
@@ -1324,7 +1328,7 @@
 /turf/space,
 /area/space)
 "Nl" = (
-/obj/machinery/door/unpowered/shuttle,
+/obj/structure/door/shuttle,
 /turf/simulated/shuttle/wall,
 /area/space)
 "Op" = (
@@ -1334,11 +1338,11 @@
 /area/shelltooth/level_five/matriarch)
 "PY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/unpowered/shuttle,
+/obj/structure/door/shuttle,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/matriarch)
 "QJ" = (
-/obj/machinery/ntnet_relay,
+/obj/machinery/network/relay,
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
 "Ru" = (
