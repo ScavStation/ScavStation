@@ -1,3 +1,6 @@
+/datum/map/shelltooth
+	lobby_tracks = list(/music_track/zazie)
+
 /datum/computer_file/program/merchant //wild capitalism
 	required_access = null
 
