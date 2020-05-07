@@ -180,7 +180,7 @@
 /area/shelltooth/level_two/backstage)
 "aH" = (
 /obj/structure/table/standard,
-/obj/item/lipstick/random,
+/obj/random/lipstick,
 /obj/item/mirror,
 /obj/machinery/firealarm{
 	pixel_y = 17
