@@ -2201,6 +2201,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/grass,
 /area/shelltooth/level_two/hydro)
+"Wj" = (
+/obj/structure/yinglet_nest,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/nursery)
 "WP" = (
 /obj/effect/landmark{
 	name = "JoinLate"
@@ -4553,7 +4557,7 @@ ci
 cc
 at
 at
-at
+Wj
 cc
 aa
 aa
@@ -4619,7 +4623,7 @@ ci
 cc
 at
 at
-at
+Wj
 cc
 aa
 aa
@@ -4685,7 +4689,7 @@ ci
 bQ
 at
 at
-at
+Wj
 cc
 aa
 aa
@@ -4751,7 +4755,7 @@ ci
 cc
 at
 at
-at
+Wj
 cc
 aa
 aa

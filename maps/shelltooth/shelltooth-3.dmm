@@ -327,6 +327,9 @@
 /area/shelltooth/level_four/bot_storage)
 "aO" = (
 /obj/machinery/cryopod/robot,
+/obj/machinery/light_switch{
+	pixel_z = 25
+	},
 /turf/simulated/floor,
 /area/shelltooth/level_four/bot_storage)
 "aP" = (
@@ -334,6 +337,10 @@
 /area/shelltooth/level_four/storage)
 "aQ" = (
 /obj/machinery/vending/tool,
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/storage)
 "aR" = (
@@ -365,6 +372,9 @@
 	icon_state = "1-10";
 	d1 = 1;
 	d2 = 4
+	},
+/obj/machinery/light_switch{
+	pixel_w = 27
 	},
 /turf/simulated/floor,
 /area/shelltooth/level_four/hall)
@@ -476,9 +486,7 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "ec" = (
-/obj/machinery/fabricator/imprinter{
-	initial_id_tag = "research"
-},
+/obj/machinery/fabricator/imprinter,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "eo" = (
@@ -500,6 +508,10 @@
 /obj/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobotany)
+"ga" = (
+/obj/machinery/light/small,
+/turf/simulated/floor,
+/area/shelltooth/maint/level_four/east)
 "gr" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -596,6 +608,14 @@
 /obj/machinery/seed_storage/xenobotany,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobotany)
+"jP" = (
+/obj/structure/disposaloutlet{
+	icon_state = "outlet";
+	dir = 1
+	},
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_four/xenobiology)
 "kh" = (
 /obj/machinery/door/airlock/civilian,
 /turf/simulated/floor,
@@ -642,9 +662,13 @@
 /area/shelltooth/level_four/xenobiology)
 "mM" = (
 /obj/machinery/computer/design_console{
-	initial_id_tag = "research";
+	icon_state = "computer";
 	dir = 4
-},
+	},
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "mO" = (
@@ -670,6 +694,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/shelltooth/level_four/brig)
+"oe" = (
+/obj/machinery/light_switch{
+	pixel_z = 25
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_four/east)
 "oI" = (
 /obj/machinery/door/airlock/civilian,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -704,6 +734,9 @@
 	dir = 1;
 	level = 2
 	},
+/obj/machinery/light_switch{
+	pixel_z = -24
+	},
 /turf/simulated/floor/reinforced,
 /area/shelltooth/level_four/brig)
 "px" = (
@@ -731,6 +764,10 @@
 /area/shelltooth/maint/level_four/north_east)
 "qW" = (
 /obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "qZ" = (
@@ -749,6 +786,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobotany)
+"rD" = (
+/obj/machinery/light_switch{
+	pixel_w = 22
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_four/east)
 "sh" = (
 /obj/structure/cable{
 	icon_state = "1-10";
@@ -804,9 +847,7 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "tx" = (
-/obj/machinery/fabricator/robotics{
-	initial_id_tag = "research"
-},
+/obj/machinery/fabricator/robotics,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "tK" = (
@@ -822,6 +863,10 @@
 /obj/item/circular_saw,
 /obj/item/scalpel,
 /obj/item/sutures,
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "tX" = (
@@ -832,6 +877,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
+"uc" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_four/east)
 "ul" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
@@ -899,6 +951,9 @@
 	dir = 4
 	},
 /obj/machinery/seed_extractor,
+/obj/machinery/light_switch{
+	pixel_w = 27
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobotany)
 "vt" = (
@@ -961,6 +1016,10 @@
 /area/shelltooth/maint/level_four/north_east)
 "yz" = (
 /obj/structure/table/glass,
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "yX" = (
@@ -971,6 +1030,10 @@
 	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_four/north_east)
+"zc" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall,
+/area/shelltooth/level_four/xenobiology)
 "ze" = (
 /obj/structure/cable{
 	icon_state = "2-10";
@@ -1005,15 +1068,12 @@
 	dir = 1;
 	level = 2
 	},
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shelltooth/level_four/bot_storage)
-"AG" = (
-/obj/structure/cable{
-	icon_state = "0-10";
-	d2 = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_four/hall)
 "AH" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -1040,6 +1100,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
+"Cj" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_four/xenobiology)
 "Cl" = (
 /obj/structure/wall_frame,
 /obj/effect/wallframe_spawn/reinforced/titanium,
@@ -1052,10 +1119,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/hall)
+"CO" = (
+/obj/machinery/light_switch{
+	pixel_z = -24
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_four/east)
 "CR" = (
-/obj/machinery/fabricator/protolathe{
-	initial_id_tag = "research"
-},
+/obj/machinery/fabricator/protolathe,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "Dd" = (
@@ -1096,6 +1167,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/hall)
+"Ek" = (
+/obj/machinery/light_switch{
+	pixel_w = -23
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_four/science)
 "Ew" = (
 /obj/structure/cable{
 	icon_state = "2-6";
@@ -1125,6 +1202,13 @@
 	},
 /turf/simulated/floor,
 /area/shelltooth/level_four/storage)
+"EC" = (
+/obj/structure/disposalpipe/segment/bent{
+	icon_state = "pipe-c";
+	dir = 4
+	},
+/turf/simulated/wall,
+/area/shelltooth/level_four/xenobiology)
 "EK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	icon_state = "map-supply";
@@ -1240,8 +1324,19 @@
 	icon_state = "6-10"
 	},
 /obj/item/boombox,
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/storage)
+"JG" = (
+/obj/structure/disposalpipe/segment/bent{
+	icon_state = "pipe-c";
+	dir = 8
+	},
+/turf/simulated/wall,
+/area/shelltooth/level_four/xenobiology)
 "JT" = (
 /obj/structure/sign/xenobio_2{
 	pixel_z = 32
@@ -1254,9 +1349,7 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "KL" = (
-/obj/machinery/destructive_analyzer{
-	initial_id_tag = "research"
-},
+/obj/machinery/destructive_analyzer,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "KV" = (
@@ -1271,6 +1364,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
+"Lm" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_four/xenobiology)
 "Lu" = (
 /obj/structure/cable{
 	icon_state = "2-9";
@@ -1358,6 +1458,10 @@
 /area/shelltooth/level_four/hall)
 "Or" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "OQ" = (
@@ -1396,15 +1500,15 @@
 	pixel_z = 25
 	},
 /obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "QN" = (
 /obj/structure/cable{
 	icon_state = "4-9";
-	d2 = 8
-	},
-/obj/structure/cable{
-	icon_state = "4-5";
 	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1458,6 +1562,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
+"St" = (
+/obj/machinery/light_switch{
+	pixel_z = 25
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_four/science)
 "Sy" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/monkeycubes{
@@ -1469,8 +1579,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
+"SJ" = (
+/obj/machinery/light_switch{
+	pixel_w = 27
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_four/north_east)
 "TT" = (
 /obj/structure/table/steel_reinforced,
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/shelltooth/level_four/brig)
 "TZ" = (
@@ -1529,6 +1649,9 @@
 	dir = 8;
 	pixel_w = -12
 	},
+/obj/machinery/light_switch{
+	pixel_z = -24
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/storage)
 "UX" = (
@@ -1540,6 +1663,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_four/hall)
+"Vp" = (
+/obj/machinery/light_switch{
+	pixel_z = 25
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/hall)
@@ -1606,6 +1735,7 @@
 	icon_state = "8-9";
 	d2 = 8
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "Yf" = (
@@ -1669,8 +1799,20 @@
 	icon_state = "1-6";
 	d2 = 8
 	},
+/obj/machinery/light_switch{
+	pixel_w = -23
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
+"Za" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light_switch{
+	pixel_w = -23
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_four/north_east)
 "Zp" = (
 /obj/structure/cable{
 	icon_state = "4-10";
@@ -2922,7 +3064,7 @@ YO
 YO
 Xo
 RK
-YO
+SJ
 YO
 YO
 YO
@@ -3059,7 +3201,7 @@ KL
 mM
 ec
 lP
-lP
+Ek
 CR
 yz
 Uu
@@ -3187,7 +3329,7 @@ ac
 uU
 wv
 aG
-lP
+St
 lP
 lP
 lP
@@ -3314,7 +3456,7 @@ YO
 tl
 Ib
 Ib
-Ib
+Za
 aS
 wa
 wv
@@ -3444,7 +3586,7 @@ fk
 gJ
 RY
 YX
-gU
+Cj
 xN
 Sy
 aE
@@ -3574,8 +3716,8 @@ ae
 ae
 fk
 gU
-gU
-aE
+jP
+zc
 qW
 hG
 mp
@@ -3639,7 +3781,7 @@ aa
 aa
 aa
 fk
-gU
+Lm
 gU
 WK
 oZ
@@ -3969,7 +4111,7 @@ aa
 aa
 aa
 fk
-gU
+Lm
 vv
 WK
 gU
@@ -4037,12 +4179,12 @@ aa
 fk
 gU
 gU
-aE
+EC
 QL
 gU
 gU
 aE
-AG
+ag
 uy
 ad
 ad
@@ -4102,8 +4244,8 @@ aa
 aa
 fk
 gU
-gU
-aE
+jP
+JG
 si
 tT
 gU
@@ -4174,7 +4316,7 @@ aD
 aD
 kh
 aE
-ag
+Vp
 Ge
 mO
 EK
@@ -4238,7 +4380,7 @@ ae
 ae
 ae
 aR
-zm
+oe
 aT
 aT
 aP
@@ -4305,7 +4447,7 @@ ae
 ae
 aR
 zm
-zm
+uc
 zm
 aP
 aQ
@@ -4313,7 +4455,7 @@ hC
 UB
 aP
 zm
-zm
+CO
 aR
 aH
 aI
@@ -4378,7 +4520,7 @@ DO
 LJ
 RE
 aP
-zm
+ga
 aR
 aR
 aH
@@ -4637,11 +4779,11 @@ aa
 ae
 aR
 zm
-zm
+uc
 OQ
 zm
-zm
-zm
+rD
+uc
 zm
 aR
 ae

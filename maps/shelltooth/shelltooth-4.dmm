@@ -19,6 +19,10 @@
 /area/shelltooth/level_five/hall)
 "ah" = (
 /obj/machinery/door/airlock/command,
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/matriarch)
 "ai" = (
@@ -27,10 +31,14 @@
 	icon_state = "tube_map";
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/orange,
 /area/shelltooth/level_five/attend)
 "aj" = (
 /obj/machinery/door/airlock/command,
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
 "ak" = (
@@ -38,6 +46,7 @@
 /area/shelltooth/level_five/hall)
 "al" = (
 /obj/machinery/light,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
 "am" = (
@@ -118,14 +127,18 @@
 	icon_state = "1-6";
 	d2 = 8
 	},
-/turf/simulated/floor/shuttle/red,
+/obj/structure/bed/chair/shuttle/blue{
+	icon_state = "shuttle_chair";
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
 /area/shelltooth/level_five/matriarch)
 "av" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	level = 2
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/carpet/red,
 /area/shelltooth/level_five/matriarch)
 "aw" = (
 /obj/effect/landmark/map_data{
@@ -221,13 +234,14 @@
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
 "aH" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6;
+	pixel_y = 0
 	},
 /turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
@@ -242,6 +256,10 @@
 /obj/structure/cable{
 	icon_state = "4-10";
 	d2 = 8
+	},
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/matriarch)
@@ -312,6 +330,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/east)
 "aU" = (
@@ -345,14 +367,15 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/orange,
 /area/shelltooth/level_five/attend)
 "aX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	icon_state = "map-supply";
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/red,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/carpet/red,
 /area/shelltooth/level_five/matriarch)
 "aY" = (
 /obj/machinery/door/airlock/command,
@@ -365,6 +388,10 @@
 /obj/structure/cable{
 	icon_state = "6-8";
 	d2 = 8
+	},
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
@@ -387,12 +414,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
-"bb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/yellow,
-/area/shelltooth/level_five/matriarch)
 "bc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -633,6 +654,10 @@
 	icon_state = "6-9";
 	d2 = 8
 	},
+/obj/structure/bed/chair/shuttle/blue{
+	icon_state = "shuttle_chair";
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
 "bx" = (
@@ -656,6 +681,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
+"bG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-6";
+	d2 = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/hall)
 "bO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -670,22 +708,48 @@
 	icon_state = "4-5";
 	d2 = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_five/attend)
+"bX" = (
+/obj/machinery/light_switch{
+	pixel_z = -25
+	},
+/turf/simulated/floor/shuttle/purple,
+/area/shelltooth/level_five/matriarch)
+"ch" = (
+/obj/structure/bed/chair/padded/beige{
+	icon_state = "chair";
+	dir = 8
+	},
+/obj/item/storage/mirror{
+	pixel_z = 31
+	},
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
+	},
 /area/shelltooth/level_five/attend)
 "cK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "5-8";
 	d1 = 1;
 	d2 = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
+"df" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/heads)
 "dg" = (
 /obj/structure/cable{
 	icon_state = "5-10";
 	d2 = 8
+	},
+/obj/structure/bed/chair/shuttle/blue{
+	icon_state = "shuttle_chair";
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
@@ -696,7 +760,7 @@
 	icon_state = "open";
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor,
 /area/shelltooth/level_five/matriarch)
 "dz" = (
 /obj/structure/cable{
@@ -783,6 +847,9 @@
 	icon_state = "map_scrubber_on";
 	dir = 1
 	},
+/obj/machinery/light_switch{
+	pixel_w = -27
+	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/east)
 "fU" = (
@@ -799,7 +866,11 @@
 	icon_state = "old_pdoorc1";
 	dir = 8
 	},
-/turf/space,
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
+	},
+/turf/simulated/floor,
 /area/shelltooth/level_five/matriarch)
 "gw" = (
 /obj/machinery/computer/message_monitor,
@@ -816,8 +887,19 @@
 	icon_state = "apc0";
 	dir = 8
 	},
+/obj/structure/bed/chair/shuttle/blue{
+	icon_state = "shuttle_chair";
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
+"ht" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_five/north)
 "hG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -828,10 +910,15 @@
 	icon_state = "6-9";
 	d2 = 8
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/purple,
+/area/shelltooth/level_five/matriarch)
+"ic" = (
+/obj/machinery/light_switch{
+	pixel_z = 25
+	},
+/turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
 "iz" = (
-/obj/structure/door/shuttle,
 /obj/structure/cable{
 	icon_state = "1-10";
 	d1 = 1;
@@ -839,7 +926,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/shuttle/yellow,
+/obj/structure/curtain/open/shower/security,
+/turf/simulated/floor/shuttle/purple,
 /area/shelltooth/level_five/matriarch)
 "jo" = (
 /obj/structure/cable{
@@ -854,6 +942,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
+/obj/machinery/alarm,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/shelltooth/level_five/comms)
 "jZ" = (
@@ -864,21 +953,33 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
+"kr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/red,
+/area/shelltooth/level_five/matriarch)
 "kJ" = (
 /obj/machinery/door/airlock/command,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/shelltooth/level_five/heads)
 "lk" = (
 /obj/item/cane,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
-"mc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 5
+"lN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-6";
+	d2 = 8
 	},
-/turf/simulated/floor/shuttle/yellow,
-/area/shelltooth/level_five/matriarch)
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/hall)
+"mk" = (
+/obj/structure/closet/crate/bin,
+/obj/item/chems/glass/rag,
+/turf/simulated/floor,
+/area/shelltooth/maint/level_five/east)
 "mz" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
 /obj/item/storage/tray/wood,
@@ -891,6 +992,22 @@
 /obj/item/chems/food/snacks/watermelonslice,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
+"mF" = (
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/attend)
+"nb" = (
+/obj/structure/bed/chair/padded/beige{
+	icon_state = "chair";
+	dir = 8
+	},
+/obj/item/storage/mirror{
+	pixel_z = 30
+	},
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
+	},
+/area/shelltooth/level_five/attend)
 "nu" = (
 /obj/structure/wall_frame,
 /obj/effect/wallframe_spawn/reinforced,
@@ -913,16 +1030,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
+"oF" = (
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_five/attend)
 "oZ" = (
 /obj/structure/cable{
 	icon_state = "2-5";
 	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
 "pl" = (
@@ -935,8 +1052,14 @@
 	dir = 6;
 	pixel_y = 0
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/purple,
 /area/shelltooth/level_five/matriarch)
+"pn" = (
+/obj/machinery/light_switch{
+	pixel_w = 29
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/hall)
 "pq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -948,26 +1071,32 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/heads)
 "pI" = (
-/obj/machinery/design_database{
-	initial_id_tag = "research"
-},
+/obj/machinery/design_database,
 /obj/structure/cable{
 	icon_state = "8-10"
 	},
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
-"qg" = (
-/obj/structure/curtain/black,
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_five/attend)
 "qY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/purple,
 /area/shelltooth/level_five/matriarch)
+"rg" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 4
+	},
+/obj/machinery/firealarm{
+	icon_state = "casing";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/hall)
 "rI" = (
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -996,15 +1125,31 @@
 /area/shelltooth/level_five/heads)
 "sX" = (
 /obj/structure/cable{
-	icon_state = "4-10";
-	d2 = 8
-	},
-/obj/structure/cable{
 	icon_state = "6-8";
 	d2 = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-10";
+	d1 = 1;
+	d2 = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
+"te" = (
+/obj/machinery/door/airlock/command,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/shelltooth/maint/level_five/north)
+"tJ" = (
+/obj/structure/curtain/open/shower,
+/obj/structure/hygiene/shower,
+/turf/simulated/floor/shuttle/yellow,
+/area/shelltooth/level_five/attend)
 "tU" = (
 /obj/machinery/door/airlock/command,
 /obj/structure/cable{
@@ -1027,11 +1172,21 @@
 	},
 /turf/simulated/floor,
 /area/shelltooth/level_five/heads)
-"uw" = (
-/turf/simulated/floor/shuttle/red,
-/area/space)
 "uF" = (
 /turf/simulated/wall/r_wall/hull,
+/area/shelltooth/level_five/matriarch)
+"uM" = (
+/obj/structure/wall_frame/hull,
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	icon_state = "old_pdoorc1";
+	dir = 8
+	},
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor,
 /area/shelltooth/level_five/matriarch)
 "uO" = (
 /obj/machinery/door/airlock/command,
@@ -1057,6 +1212,10 @@
 	icon_state = "intact-scrubbers";
 	dir = 6
 	},
+/obj/item/radio/intercom{
+	icon_state = "intercom";
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/east)
 "wM" = (
@@ -1068,6 +1227,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/alarm{
+	icon_state = "alarm0";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
@@ -1094,21 +1257,42 @@
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
-"xl" = (
-/turf/simulated/shuttle/wall/corner,
-/area/space)
+"xf" = (
+/obj/structure/curtain/black,
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
+	},
+/area/shelltooth/level_five/attend)
 "xG" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/holofloor/carpet{
 	icon_state = "purple"
 	},
 /area/shelltooth/level_five/attend)
+"yd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/carpet/red,
+/area/shelltooth/level_five/matriarch)
+"yt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/orange,
+/area/shelltooth/level_five/attend)
 "yM" = (
 /obj/structure/cable{
 	icon_state = "2-5";
 	d2 = 8
 	},
-/turf/simulated/floor/shuttle/red,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/green,
+/turf/simulated/floor/carpet/red,
 /area/shelltooth/level_five/matriarch)
 "zz" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
@@ -1135,6 +1319,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/firealarm{
+	icon_state = "casing";
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/east)
 "Ac" = (
@@ -1147,6 +1335,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
+"Ai" = (
+/obj/item/radio/intercom,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/hall)
 "Ap" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -1157,9 +1349,6 @@
 	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/east)
-"Az" = (
-/turf/simulated/shuttle/wall,
-/area/space)
 "AC" = (
 /obj/structure/cable{
 	icon_state = "4-9";
@@ -1167,13 +1356,12 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
-"AD" = (
-/turf/simulated/floor/shuttle/yellow,
-/area/space)
-"Ba" = (
+"AY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "2-9";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
@@ -1187,6 +1375,13 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_w = -24
+	},
+/obj/item/radio/intercom{
+	icon_state = "intercom";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/shelltooth/level_five/comms)
 "Bs" = (
@@ -1194,21 +1389,32 @@
 /area/shelltooth/level_five/matriarch)
 "Bz" = (
 /obj/structure/door/shuttle,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/north)
+"BC" = (
+/obj/machinery/computer/modular/preset/security{
+	icon_state = "computer";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/heads)
 "BT" = (
 /obj/machinery/door/airlock/command,
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/north)
+"CK" = (
+/obj/structure/wall_frame/titanium,
+/obj/structure/shuttle/window,
+/turf/simulated/floor,
+/area/shelltooth/level_five/matriarch)
 "Dc" = (
-/obj/machinery/design_database{
-	initial_id_tag = "research"
-},
+/obj/machinery/design_database,
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
 "De" = (
 /obj/machinery/recharger/wallcharger,
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/purple,
 /area/shelltooth/level_five/matriarch)
 "Dl" = (
 /obj/structure/cable{
@@ -1221,8 +1427,23 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm{
+	icon_state = "alarm0";
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/east)
+"Dt" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/rainbow,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/attend)
+"Du" = (
+/obj/machinery/light_switch{
+	pixel_z = 28
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/heads)
 "Es" = (
 /obj/structure/wall_frame/hull,
 /obj/effect/wallframe_spawn/reinforced,
@@ -1251,6 +1472,31 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
+"EE" = (
+/obj/structure/bed/chair/shuttle/blue{
+	icon_state = "shuttle_chair";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/red,
+/area/shelltooth/level_five/matriarch)
+"Fq" = (
+/obj/structure/closet/secure_closet/wall,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/chems/food/snacks/cracker,
+/obj/item/storage/box/snack,
+/turf/simulated/floor/shuttle/purple,
+/area/shelltooth/level_five/matriarch)
 "Ga" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -1260,13 +1506,36 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
-"Ih" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 10
+"GH" = (
+/obj/structure/bed/chair/shuttle/blue{
+	icon_state = "shuttle_chair";
+	dir = 4
 	},
-/turf/simulated/floor/shuttle/yellow,
+/turf/simulated/floor/carpet/red,
 /area/shelltooth/level_five/matriarch)
+"GJ" = (
+/obj/structure/wall_frame/hull,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	icon_state = "old_pdoorc1";
+	dir = 8
+	},
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shelltooth/level_five/heads)
+"Ht" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high{
+	icon_state = "apc0";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_five/north)
 "Ij" = (
 /obj/structure/cable{
 	icon_state = "6-9";
@@ -1276,6 +1545,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
+"Iz" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 4
+	},
+/obj/item/radio/intercom{
+	icon_state = "intercom";
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_five/north)
+"Jg" = (
+/obj/item/radio/intercom/broadcasting{
+	icon_state = "intercom";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/heads)
 "JS" = (
 /obj/structure/door/shuttle,
 /obj/structure/cable{
@@ -1323,19 +1611,13 @@
 "LO" = (
 /turf/simulated/wall/r_wall/hull,
 /area/shelltooth/level_five/heads)
-"MX" = (
-/obj/structure/bed/chair/shuttle/blue,
-/turf/space,
-/area/space)
-"Nl" = (
-/obj/structure/door/shuttle,
-/turf/simulated/shuttle/wall,
-/area/space)
-"Op" = (
-/obj/machinery/door/airlock/command,
-/obj/structure/curtain/black,
-/turf/simulated/wall,
-/area/shelltooth/level_five/matriarch)
+"Mr" = (
+/obj/machinery/alarm{
+	icon_state = "alarm0";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/hall)
 "PY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/door/shuttle,
@@ -1343,15 +1625,55 @@
 /area/shelltooth/level_five/matriarch)
 "QJ" = (
 /obj/machinery/network/relay,
+/obj/machinery/firealarm{
+	icon_state = "casing";
+	dir = 4
+	},
 /turf/simulated/floor/bluegrid,
 /area/shelltooth/level_five/comms)
-"Ru" = (
-/obj/structure/closet/crate/secure/shuttle,
-/turf/space,
-/area/space)
+"QZ" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/rainbow,
+/obj/structure/cable{
+	icon_state = "0-10";
+	d2 = 8
+	},
+/obj/machinery/power/apc{
+	icon_state = "apc0";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/attend)
+"Rv" = (
+/obj/structure/closet/crate/plastic,
+/obj/item/lipstick,
+/obj/item/lipstick/black,
+/obj/item/lipstick/green,
+/obj/item/lipstick/violet,
+/obj/item/haircomb/brush,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/suit/yinglet,
+/obj/item/clothing/suit/yinglet,
+/turf/simulated/floor/holofloor/carpet{
+	icon_state = "purple"
+	},
+/area/shelltooth/level_five/attend)
 "RA" = (
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/east)
+"RY" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/rainbow,
+/obj/machinery/light_switch{
+	pixel_w = 25
+	},
+/obj/machinery/firealarm{
+	icon_state = "casing";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/attend)
 "Sc" = (
 /obj/structure/cable{
 	icon_state = "6-8";
@@ -1370,16 +1692,23 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/shelltooth/level_five/comms)
-"SC" = (
-/obj/structure/cable{
-	icon_state = "0-10";
-	d2 = 8
-	},
-/obj/machinery/power/apc{
-	icon_state = "apc0";
-	dir = 1
+"Si" = (
+/obj/machinery/firealarm{
+	icon_state = "casing";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/shelltooth/level_five/heads)
+"Sq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/shuttle/purple,
+/area/shelltooth/level_five/matriarch)
+"SC" = (
+/obj/structure/cable{
+	icon_state = "5-10";
+	d2 = 8
+	},
+/turf/simulated/floor/carpet/orange,
 /area/shelltooth/level_five/attend)
 "SR" = (
 /turf/simulated/floor/tiled{
@@ -1389,10 +1718,25 @@
 "Ts" = (
 /turf/simulated/wall/r_wall/hull,
 /area/shelltooth/level_five/hall)
-"TP" = (
-/obj/structure/shuttle/window,
-/turf/simulated/wall,
-/area/space)
+"TE" = (
+/obj/machinery/computer/modular/preset/cardslot/command{
+	icon_state = "computer";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/yellow,
+/area/shelltooth/level_five/matriarch)
+"TO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/radio/intercom/broadcasting{
+	icon_state = "intercom";
+	dir = 8
+	},
+/turf/simulated/floor/carpet/red,
+/area/shelltooth/level_five/matriarch)
+"UC" = (
+/obj/machinery/alarm,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_five/heads)
 "UR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/shuttle/red,
@@ -1404,12 +1748,47 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_five/hall)
+"Vm" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 4
+	},
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	icon_state = "casing";
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_five/north)
+"VA" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 4
+	},
+/obj/machinery/light_switch{
+	pixel_w = 26
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_five/north)
 "VZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm{
+	icon_state = "alarm0";
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/red,
 /area/shelltooth/level_five/matriarch)
 "Wc" = (
 /obj/machinery/door/airlock/command,
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shelltooth/maint/level_five/east)
 "Wv" = (
@@ -1428,6 +1807,12 @@
 /turf/simulated/floor/holofloor/carpet{
 	icon_state = "purple"
 	},
+/area/shelltooth/level_five/attend)
+"Yd" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/rainbow,
+/obj/item/radio/intercom,
+/turf/simulated/floor/tiled,
 /area/shelltooth/level_five/attend)
 "Yv" = (
 /obj/machinery/light/small{
@@ -1449,10 +1834,34 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	icon_state = "open";
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shelltooth/level_five/hall)
 "YZ" = (
-/turf/simulated/floor/shuttle/red,
+/obj/structure/closet/secure_closet/captains,
+/obj/item/gun/launcher/crossbow,
+/obj/item/stack/material/rods/ten,
+/obj/item/clothing/under/yinglet/matriarch,
+/obj/item/clothing/head/yinglet/matriarch,
+/turf/simulated/floor/shuttle/purple,
+/area/shelltooth/level_five/matriarch)
+"Zp" = (
+/obj/machinery/light_switch{
+	pixel_w = -26
+	},
+/turf/simulated/floor/shuttle/yellow{
+	broken = 1
+	},
+/area/shelltooth/level_five/attend)
+"ZT" = (
+/obj/machinery/firealarm{
+	icon_state = "casing";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/yellow,
 /area/shelltooth/level_five/matriarch)
 
 (1,1,1) = {"
@@ -2471,7 +2880,7 @@ aa
 aa
 aa
 aa
-xl
+aa
 aa
 aa
 aa
@@ -2537,9 +2946,9 @@ aa
 aa
 aa
 aa
-Az
-TP
-AD
+aa
+aa
+aa
 aa
 aa
 aa
@@ -2604,8 +3013,8 @@ aa
 aa
 aa
 aa
-Ru
-uw
+aa
+aa
 aa
 aa
 aa
@@ -2670,8 +3079,8 @@ aa
 aa
 aa
 aa
-MX
-Nl
+aa
+aa
 aa
 aa
 aa
@@ -2938,9 +3347,9 @@ uF
 uF
 Bs
 Bs
-Bs
+CK
 dw
-Bs
+CK
 Bs
 Bs
 Bs
@@ -2998,21 +3407,21 @@ aa
 uF
 uF
 uF
-uF
+uM
 uF
 Bs
 Bs
 Bs
 YZ
-YZ
+EE
 yM
 au
 ha
-YZ
+Fq
 Bs
 uF
 LO
-LO
+GJ
 LO
 LO
 aa
@@ -3064,7 +3473,7 @@ aa
 uF
 Bs
 Bs
-Bs
+CK
 Bs
 Bs
 eo
@@ -3072,14 +3481,14 @@ Bs
 De
 dg
 av
-YZ
+GH
 bw
-YZ
+bX
 Bs
 ab
 aL
 aL
-aL
+Jg
 LO
 aa
 aa
@@ -3129,16 +3538,16 @@ aP
 aP
 aP
 Bs
-ac
+ic
 kk
-mc
 ac
-bb
+TE
+ac
 Bs
 pl
 UR
 aX
-UR
+yd
 bs
 hK
 PY
@@ -3191,22 +3600,22 @@ aa
 aa
 aa
 aP
+ht
 aO
-aO
-aO
+BT
 Bz
 ac
+ZT
 ac
-Ih
 aH
 oZ
 iz
 qY
 VZ
-VZ
-VZ
+kr
+TO
 xd
-VZ
+Sq
 JS
 uO
 Wv
@@ -3261,7 +3670,7 @@ aO
 ad
 ad
 Bs
-Op
+ab
 ab
 ah
 aI
@@ -3325,13 +3734,13 @@ aa
 aP
 aO
 ad
-gW
+Rv
 Yb
-gW
 ad
+tJ
 wY
 aU
-wY
+Zp
 Lj
 am
 aq
@@ -3389,11 +3798,11 @@ aa
 aa
 aa
 aP
-aO
+ht
 ad
 Yv
 gW
-gW
+Lj
 Lj
 bv
 aJ
@@ -3457,10 +3866,10 @@ aa
 aP
 aO
 ad
+nb
 gW
-gW
-gW
-qg
+xf
+ae
 SR
 wM
 Lj
@@ -3524,9 +3933,9 @@ aP
 aO
 ad
 Yv
-gW
 xG
 ad
+mF
 ai
 aW
 al
@@ -3544,7 +3953,7 @@ aM
 bu
 sm
 zz
-aL
+df
 Es
 aa
 aa
@@ -3587,15 +3996,15 @@ aa
 aa
 aa
 aP
-aO
+ht
 ad
-gW
-gW
+ch
 gW
 ad
-ae
+Yd
+oF
 bO
-ae
+Dt
 ad
 an
 ar
@@ -3657,11 +4066,11 @@ aO
 ad
 Yv
 gW
-gW
 ad
+mF
 SC
-wM
-ae
+yt
+mF
 ad
 an
 ar
@@ -3721,13 +4130,13 @@ aa
 aP
 aO
 ad
-gW
+ch
 Lv
-gW
 ad
-ae
-wM
-ae
+QZ
+oF
+yt
+RY
 ad
 ap
 as
@@ -3738,7 +4147,7 @@ bg
 bh
 bm
 aK
-aL
+UC
 wR
 aL
 wR
@@ -3797,16 +4206,16 @@ ad
 ad
 ag
 ag
-ak
+Ai
 nQ
-ak
+Mr
 ag
 ag
 ag
 aK
+Du
 aL
-aL
-aL
+BC
 aL
 LO
 LO
@@ -3851,18 +4260,18 @@ aa
 aa
 aa
 aP
-aO
-aO
-aO
-aO
-aO
-BT
-ak
-aZ
+ht
+Ht
+Iz
+VA
+Vm
+te
+rI
+bG
 Va
 rI
 rI
-rI
+rg
 Ew
 aZ
 ak
@@ -3925,8 +4334,8 @@ aP
 Ts
 ak
 ba
-bc
-bc
+AY
+lN
 bc
 Ga
 cK
@@ -3993,7 +4402,7 @@ Ts
 Ts
 ak
 ak
-ak
+Va
 sX
 LA
 aV
@@ -4001,7 +4410,7 @@ Ij
 bc
 Ac
 kJ
-aL
+Si
 aL
 aL
 LO
@@ -4060,10 +4469,10 @@ Ts
 Ts
 Ts
 ak
-Ba
+ak
 sj
 bt
-ak
+pn
 fU
 aZ
 ag
@@ -4136,7 +4545,7 @@ ag
 wE
 fl
 RA
-RA
+mk
 aS
 aa
 aa
