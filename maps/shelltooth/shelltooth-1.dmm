@@ -1957,6 +1957,10 @@
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hydro)
+"Dk" = (
+/obj/structure/yinglet_nest,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/nursery)
 "En" = (
 /obj/structure/cable{
 	icon_state = "1-6"
@@ -2201,10 +2205,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/grass,
 /area/shelltooth/level_two/hydro)
-"Wj" = (
-/obj/structure/yinglet_nest,
-/turf/simulated/floor/tiled,
-/area/shelltooth/level_two/nursery)
 "WP" = (
 /obj/effect/landmark{
 	name = "JoinLate"
@@ -4557,7 +4557,7 @@ ci
 cc
 at
 at
-Wj
+Dk
 cc
 aa
 aa
@@ -4623,7 +4623,7 @@ ci
 cc
 at
 at
-Wj
+Dk
 cc
 aa
 aa
@@ -4689,7 +4689,7 @@ ci
 bQ
 at
 at
-Wj
+Dk
 cc
 aa
 aa
@@ -4755,7 +4755,7 @@ ci
 cc
 at
 at
-Wj
+Dk
 cc
 aa
 aa
