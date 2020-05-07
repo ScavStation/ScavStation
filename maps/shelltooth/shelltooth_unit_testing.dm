@@ -1,10 +1,9 @@
 /datum/map/shelltooth
 	// Unit test exemptions
 	apc_test_exempt_areas = list(
-		/area/exoplanet =                               NO_SCRUBBER|NO_VENT|NO_APC, 
+		/area/exoplanet =                               NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/space =                                   NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/turbolift =                               NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/shelltooth/level_one/janitor =            NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/shelltooth/maint/level_one/south =        NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/shelltooth/level_one/disposals =          NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/shelltooth/maint/level_one/north =        NO_SCRUBBER|NO_VENT|NO_APC,

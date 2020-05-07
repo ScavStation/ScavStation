@@ -429,16 +429,39 @@
 	icon_state = "bulb_map";
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/hall)
 "bk" = (
 /turf/simulated/wall,
 /area/shelltooth/level_one/tools)
 "bl" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/autoset,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/hatch/autoname/maintenance,
 /turf/simulated/floor,
 /area/shelltooth/level_one/janitor)
 "bm" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/camera/autoname{
+	icon_state = "camera";
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shelltooth/level_one/janitor)
 "bn" = (
@@ -837,13 +860,9 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/tools)
 "cv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 6;
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/tools)
@@ -915,6 +934,60 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/tools)
+"dj" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor,
+/area/shelltooth/level_one/janitor)
+"fb" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_one/south)
+"gr" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/shelltooth/maint/level_one/south)
+"hV" = (
+/obj/structure/closet/l3closet/janitor,
+/obj/item/beartrap,
+/obj/item/chems/spray/antiseptic,
+/obj/machinery/alarm{
+	pixel_y = 20
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/janitor)
+"kU" = (
+/turf/simulated/mineral,
+/area/shelltooth/level_one/disposals)
+"mf" = (
+/obj/structure/closet/jcloset,
+/obj/item/chems/spray/cleaner,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/firealarm{
+	pixel_y = 20
+	},
+/turf/simulated/floor,
+/area/shelltooth/level_one/janitor)
 "ns" = (
 /obj/structure/disposaloutlet{
 	icon_state = "outlet";
@@ -926,6 +999,131 @@
 	},
 /turf/space,
 /area/space)
+"nC" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor,
+/area/shelltooth/maint/level_one/south)
+"nI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/tools)
+"pM" = (
+/obj/machinery/power/apc{
+	icon_state = "apc0";
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/janitor)
+"qk" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_one/south)
+"rc" = (
+/obj/structure/disposaloutlet{
+	icon_state = "outlet";
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"sm" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/obj/random/trash,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"sB" = (
+/turf/simulated/mineral,
+/area/shelltooth/level_one/janitor)
+"sJ" = (
+/obj/structure/mattress/dirty,
+/obj/random/junk,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"sV" = (
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/janitor)
+"tU" = (
+/obj/item/chems/glass/rag,
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/janitor)
+"vA" = (
+/obj/structure/table/standard,
+/obj/item/storage/bag/trash,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"vB" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/shelltooth/maint/level_one/south)
+"xl" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	icon_state = "conveyor0";
+	id_tag = "trashcon";
+	name = "disposals conveyor belt"
+	},
+/obj/random/junk,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"xt" = (
+/obj/structure/railing/mapped{
+	icon_state = "railing0-1";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "stripe";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/shelltooth/level_one/hall)
+"xw" = (
+/obj/item/stool/padded,
+/obj/effect/landmark/start{
+	name = "Janitor"
+	},
+/turf/simulated/floor,
+/area/shelltooth/level_one/janitor)
+"yb" = (
+/obj/item/stool,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"zc" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/janitor)
 "zW" = (
 /obj/machinery/disposal/deliveryChute{
 	icon_state = "intake";
@@ -937,6 +1135,21 @@
 	},
 /turf/simulated/floor,
 /area/shelltooth/level_one/disposals)
+"Aq" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/hall)
+"CP" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/mousetraps{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/storage/box/lights/mixed,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/janitor)
 "FM" = (
 /obj/structure/disposalpipe/segment{
 	icon_state = "pipe-s";
@@ -945,14 +1158,127 @@
 /turf/simulated/mineral,
 /area/space)
 "Ga" = (
-/obj/item/storage/bag/trash,
-/obj/item/storage/bag/trash,
+/obj/random/trash,
+/obj/random/maintenance,
+/obj/structure/closet,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"GN" = (
+/obj/machinery/conveyor_switch/oneway{
+	id_tag = "trashcon"
+	},
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"Hl" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/hall)
+"Hm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/hall)
+"HX" = (
+/obj/structure/table/standard,
+/obj/item/storage/fancy/cigarettes/killthroat,
+/obj/random/single/lighter,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"Jw" = (
+/obj/structure/table/rack,
+/obj/random/maintenance,
 /turf/simulated/floor,
 /area/shelltooth/level_one/disposals)
 "NU" = (
-/obj/item/disposal_switch_construct,
+/obj/machinery/conveyor{
+	dir = 8;
+	icon_state = "conveyor0";
+	id_tag = "trashcon";
+	name = "disposals conveyor belt"
+	},
+/obj/structure/railing/mapped,
+/obj/random/junk,
 /turf/simulated/floor,
 /area/shelltooth/level_one/disposals)
+"Pu" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"Qk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/tools)
+"RI" = (
+/obj/machinery/light_switch{
+	dir = 1;
+	icon_state = "light0";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/janitor)
+"RR" = (
+/obj/random/trash,
+/turf/simulated/floor,
+/area/shelltooth/level_one/disposals)
+"Sg" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/chems/glass/bucket,
+/obj/machinery/newscaster{
+	pixel_x = 32
+	},
+/obj/machinery/requests_console{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_one/janitor)
+"Ta" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_one/south)
+"Tq" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor,
+/area/shelltooth/level_one/janitor)
+"UM" = (
+/obj/structure/mopbucket,
+/obj/item/radio/intercom{
+	dir = 1;
+	icon_state = "intercom";
+	pixel_y = -32
+	},
+/turf/simulated/floor,
+/area/shelltooth/level_one/janitor)
+"XL" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/shelltooth/maint/level_one/south)
+"YD" = (
+/obj/structure/janitorialcart,
+/obj/item/mop,
+/turf/simulated/floor,
+/area/shelltooth/level_one/janitor)
+"YV" = (
+/turf/simulated/wall,
+/area/shelltooth/level_one/janitor)
 
 (1,1,1) = {"
 aa
@@ -1919,7 +2245,7 @@ bW
 bW
 aa
 aa
-aa
+ns
 aa
 aa
 aa
@@ -1985,8 +2311,8 @@ bW
 bW
 bW
 bW
-bW
-ns
+FM
+aa
 aa
 aa
 aa
@@ -2051,8 +2377,8 @@ aK
 aK
 aK
 bW
-bW
 FM
+bW
 bW
 aa
 aa
@@ -2117,8 +2443,8 @@ aN
 aN
 aK
 bW
-bW
 FM
+bW
 bW
 bW
 bW
@@ -2183,9 +2509,9 @@ cD
 bJ
 aK
 bW
-bS
 zW
-bS
+HX
+vA
 bW
 bW
 bW
@@ -2248,11 +2574,11 @@ aK
 bF
 aN
 aK
-bS
+kU
 NU
+GN
 bS
 bS
-Ga
 Ga
 bW
 bW
@@ -2314,14 +2640,14 @@ aK
 bF
 aN
 aK
+sm
+xl
+yb
 bS
 bS
-bS
-bS
-Ga
-Ga
+Jw
 bW
-aX
+nC
 bW
 bW
 bW
@@ -2380,10 +2706,10 @@ aK
 bF
 aN
 aK
+Pu
+xl
 bS
-bS
-bS
-bS
+RR
 bS
 bS
 bS
@@ -2447,9 +2773,9 @@ bF
 aN
 aK
 bW
+rc
 bS
-bS
-bS
+sJ
 bW
 bW
 bW
@@ -2586,11 +2912,11 @@ bM
 bM
 bk
 aX
-bW
-bW
-bW
-bW
-bW
+YV
+sB
+YV
+sB
+sB
 bW
 aa
 aa
@@ -2646,17 +2972,17 @@ aP
 aK
 bM
 bM
-bM
-bM
-bM
-bM
-ab
-aX
+nI
+Qk
+Qk
+Qk
+vB
+gr
 bl
 bm
-bm
-bm
-bW
+pM
+YD
+sB
 bW
 aa
 aa
@@ -2717,12 +3043,12 @@ cu
 cu
 cE
 bk
-aX
-bW
-bm
-bm
-bm
-bW
+Ta
+YV
+hV
+Tq
+UM
+YV
 bW
 aa
 aa
@@ -2783,12 +3109,12 @@ bM
 bM
 bM
 bk
-aX
-bW
-bm
-bm
-bm
-bW
+Ta
+YV
+mf
+zc
+RI
+YV
 bW
 aa
 aa
@@ -2849,12 +3175,12 @@ bM
 bM
 bM
 bk
-aX
-bW
-bm
-bm
-bm
-bW
+Ta
+sB
+dj
+xw
+sV
+sB
 bW
 aa
 aa
@@ -2915,12 +3241,12 @@ bM
 bQ
 bM
 bk
-aX
-bW
-bm
-bm
-bm
-bW
+Ta
+sB
+CP
+tU
+Sg
+YV
 bW
 aa
 aa
@@ -2981,12 +3307,12 @@ bk
 bk
 bk
 bk
-bL
-bW
-bW
-bW
-bW
-bW
+fb
+YV
+sB
+YV
+YV
+YV
 aa
 aa
 aa
@@ -3036,18 +3362,18 @@ al
 al
 al
 al
-aS
-co
-ad
-ad
+xt
+Hm
+ap
+ap
 bj
-ad
-co
-ad
+ap
+Hm
+ap
 bj
-ad
+Aq
 ac
-aX
+Ta
 bW
 bW
 bW
@@ -3111,9 +3437,9 @@ ca
 ct
 ad
 ad
-ad
-ab
-aX
+Hl
+XL
+qk
 bW
 bW
 bW
