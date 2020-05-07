@@ -3592,6 +3592,7 @@
 #include "maps\random_ruins\space_ruins\space_ruins.dm"
 #include "maps\tradeship\tradeship_define.dm"
 #include "maps\shelltooth\shelltooth_define.dm"
+#include "maps\tradeship\tradeship_define.dm"
 #include "maps\~mapsystem\map_preferences.dm"
 #include "maps\~mapsystem\map_ranks.dm"
 #include "maps\~mapsystem\maps.dm"
