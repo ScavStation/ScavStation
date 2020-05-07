@@ -476,7 +476,9 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "ec" = (
-/obj/machinery/r_n_d/circuit_imprinter,
+/obj/machinery/fabricator/imprinter{
+	initial_id_tag = "research"
+},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "eo" = (
@@ -639,10 +641,10 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "mM" = (
-/obj/machinery/computer/rdconsole{
-	icon_state = "computer";
+/obj/machinery/computer/design_console{
+	initial_id_tag = "research";
 	dir = 4
-	},
+},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "mO" = (
@@ -802,7 +804,9 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "tx" = (
-/obj/machinery/robotics_fabricator,
+/obj/machinery/fabricator/robotics{
+	initial_id_tag = "research"
+},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "tK" = (
@@ -1049,7 +1053,9 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/hall)
 "CR" = (
-/obj/machinery/r_n_d/protolathe,
+/obj/machinery/fabricator/protolathe{
+	initial_id_tag = "research"
+},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "Dd" = (
@@ -1248,7 +1254,9 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/xenobiology)
 "KL" = (
-/obj/machinery/r_n_d/destructive_analyzer,
+/obj/machinery/destructive_analyzer{
+	initial_id_tag = "research"
+},
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/science)
 "KV" = (
