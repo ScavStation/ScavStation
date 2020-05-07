@@ -1957,6 +1957,10 @@
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/hydro)
+"Dk" = (
+/obj/structure/yinglet_nest,
+/turf/simulated/floor/tiled,
+/area/shelltooth/level_two/nursery)
 "En" = (
 /obj/structure/cable{
 	icon_state = "1-6"
@@ -4553,7 +4557,7 @@ ci
 cc
 at
 at
-at
+Dk
 cc
 aa
 aa
@@ -4619,7 +4623,7 @@ ci
 cc
 at
 at
-at
+Dk
 cc
 aa
 aa
@@ -4685,7 +4689,7 @@ ci
 bQ
 at
 at
-at
+Dk
 cc
 aa
 aa
@@ -4751,7 +4755,7 @@ ci
 cc
 at
 at
-at
+Dk
 cc
 aa
 aa
