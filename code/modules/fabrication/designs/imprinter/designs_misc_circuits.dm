@@ -434,8 +434,14 @@
 /datum/fabricator_recipe/imprinter/circuit/mainframe
 	path = /obj/item/stock_parts/circuitboard/mainframe
 
+/datum/fabricator_recipe/imprinter/circuit/acl
+	path = /obj/item/stock_parts/circuitboard/acl
+
 /datum/fabricator_recipe/imprinter/circuit/router
 	path = /obj/item/stock_parts/circuitboard/router
 
 /datum/fabricator_recipe/imprinter/circuit/relay
 	path = /obj/item/stock_parts/circuitboard/relay
+
+/datum/fabricator_recipe/imprinter/circuit/inertial_damper
+	path = /obj/item/stock_parts/circuitboard/inertial_damper

@@ -126,6 +126,7 @@
 #define MAT_LEATHER_LIZARD          /material/leather/lizard
 #define MAT_LEATHER_FUR             /material/leather/fur
 #define MAT_LEATHER_CHITIN          /material/leather/chitin
+#define MAT_LEATHER_SYNTH           /material/leather/synth
 
 // defaults
 #define DEFAULT_WALL_MATERIAL       MAT_STEEL
@@ -147,9 +148,13 @@
 #define SHARD_SPLINTER              "splinters"
 #define SHARD_NONE                  ""
 
-//Weight thresholds
-#define MAT_FLAG_HEAVY              24
-#define MAT_FLAG_LIGHT              18
+//Arbitrary weight thresholds
+#define MAT_VALUE_EXTREMELY_LIGHT	 10		// fabric tier
+#define MAT_VALUE_VERY_LIGHT         30		// glass tier
+#define MAT_VALUE_LIGHT              40		// titanium tier
+#define MAT_VALUE_NORMAL             50		// steel tier
+#define MAT_VALUE_HEAVY              70		// silver tier
+#define MAT_VALUE_VERY_HEAVY         80		// uranium tier
 
 //Construction difficulty
 #define MAT_VALUE_EASY_DIY          0
