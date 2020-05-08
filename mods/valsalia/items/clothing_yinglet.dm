@@ -135,16 +135,12 @@
 
 /obj/item/clothing/suit/yingtrashbag
 	name = "Trashbag"
-	desc = "a trashbag with tiny arm holes"
+	desc = "A trashbag with tiny arm holes."
 	bodytype_restricted = list(BODYTYPE_YINGLET)
 	icon = 'mods/valsalia/icons/suit_yinglet.dmi'
 	icon_state = "garbage_bag"
 	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
 
-/obj/item/clothing/suit/yingtrashbagblue
-	name = "Trashbag"
-	desc = "a blue trashbag with tiny arm holes"
-	bodytype_restricted = list(BODYTYPE_YINGLET)
-	icon = 'mods/valsalia/icons/suit_yinglet.dmi'
+/obj/item/clothing/suit/yingtrashbag/blue
+	desc = "A blue trashbag with tiny arm holes."
 	icon_state = "garbage_bag_blue"
-	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/onmob_suit_yinglet.dmi')
