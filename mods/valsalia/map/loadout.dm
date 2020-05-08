@@ -21,14 +21,8 @@
 	path = /obj/item/storage/belt/medical
 	cost = 3
 	slot = slot_belt
-	allowed_roles = list(
-		/datum/job/yinglet/patriarch,
-		/datum/job/yinglet/matriarch,
-		/datum/job/tradeship_doctor, 
-		/datum/job/tradeship_doctor/head
-	)
 
-/datum/gear/uniform/Librarian
+/datum/gear/uniform/librarian
 	display_name = "Yinglet Librarian Robes"
 	path= /obj/item/clothing/under/yinglet/yinglibrarian
 
