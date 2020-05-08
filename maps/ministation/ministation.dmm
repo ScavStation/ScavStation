@@ -1201,7 +1201,7 @@
 "xg" = (/obj/machinery/computer/telecomms/monitor,/obj/machinery/light{dir = 1},/turf/simulated/floor/holofloor/lino,/area/ministation/telecomms)
 "xh" = (/obj/machinery/vending/coffee{icon_state = "coffee"; dir = 1},/turf/simulated/floor/tiled,/area/ministation/hall/w)
 "xi" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22},/obj/structure/closet/secure_closet/hop,/turf/simulated/floor/tiled,/area/ministation/hop)
-"xj" = (/obj/structure/dogbed,/obj/item/clothing/shoes/brown{desc = "Old, but sensible brown shoes. These belong to Ian."},/turf/simulated/floor/tiled,/area/ministation/hop)
+"xj" = (/obj/structure/dogbed,/obj/item/clothing/shoes/color/brown{desc = "Old, but sensible brown shoes. These belong to Ian."},/turf/simulated/floor/tiled,/area/ministation/hop)
 "xk" = (/obj/machinery/light,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; level = 2},/turf/simulated/floor/tiled,/area/ministation/hop)
 "xl" = (/obj/machinery/photocopier,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled,/area/ministation/hop)
 "xm" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/filingcabinet/chestdrawer,/turf/simulated/floor/tiled,/area/ministation/hop)
