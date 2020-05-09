@@ -17,7 +17,7 @@
 	icon = 'bin.dmi'
 	icon_state = "base"
 	closet_appearance = /decl/closet_appearance/crate/ministation
-	storage_types = CLOSET_STORAGE_MOBS
+	storage_types = CLOSET_STORAGE_MOBS | CLOSET_STORAGE_ITEMS
 
 //suit cyclers
 /obj/machinery/suit_cycler/ministation
