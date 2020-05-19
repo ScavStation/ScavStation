@@ -1,4 +1,4 @@
-#if !defined(using_map_DATUM)
+#if !defined(USING_MAP_DATUM)
 
 	#include "../../mods/corporate/_corporate.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
@@ -45,7 +45,7 @@
 	#include "../away/errant_pisces/errant_pisces.dm"
 	#include "../away/unishi/unishi.dm"
 
-	#define using_map_DATUM /datum/map/tradeship
+	#define USING_MAP_DATUM /datum/map/tradeship
 
 #elif !defined(MAP_OVERRIDE)
 
