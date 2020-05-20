@@ -913,9 +913,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/escape_port)
 "cc" = (
-/obj/machinery/design_database{
-	initial_id_tag = "tradeship_rnd"
-	},
+/obj/machinery/design_database,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "cd" = (
@@ -1868,6 +1866,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/eva)
+"es" = (
+/obj/machinery/vending/engineering{
+	icon_state = "engi";
+	dir = 4
+	},
+/obj/machinery/light/small{
+	icon_state = "bulb1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/ship/bearcat/maintenance/techstorage)
 "et" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -2031,10 +2040,6 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/ship/trade/maintenance/eva)
 "eG" = (
-/obj/machinery/light{
-	icon_state = "bulb1";
-	dir = 1
-	},
 /obj/machinery/airlock_sensor{
 	id_tag = "eva_sensor";
 	pixel_y = 40
@@ -2056,6 +2061,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 2;
+	icon_state = "bulb1"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/eva)
@@ -2083,14 +2092,10 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/ship/trade/maintenance/eva)
 "eJ" = (
-/obj/item/stock_parts/capacitor,
-/obj/item/stock_parts/capacitor,
-/obj/item/stock_parts/capacitor/adv,
-/obj/item/stock_parts/scanning_module,
-/obj/item/stock_parts/scanning_module,
-/obj/item/stock_parts/scanning_module,
-/obj/item/stock_parts/scanning_module/adv,
-/obj/structure/table/rack,
+/obj/machinery/vending/materials{
+	icon_state = "engivend";
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 10
@@ -2208,7 +2213,13 @@
 /obj/machinery/light,
 /obj/item/radio,
 /turf/simulated/floor/tiled/techfloor,
-/area/ship/trade/maintenance/techstorage)
+/area/ship/trade/maintenance/storage)
+"eX" = (
+/obj/item/tape_roll,
+/obj/item/stack/material/rods/fifty,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/techfloor,
+/area/ship/bearcat/maintenance/storage)
 "eY" = (
 /obj/item/radio/intercom{
 	dir = 1;
@@ -3229,9 +3240,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
 "Nc" = (
-/obj/machinery/destructive_analyzer{
-	initial_id_tag = "tradeship_rnd"
-	},
+/obj/machinery/destructive_analyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "NL" = (
@@ -3332,8 +3341,7 @@
 	},
 /obj/machinery/computer/design_console{
 	dir = 4;
-	icon_state = "computer";
-	initial_id_tag = "tradeship_rnd"
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)

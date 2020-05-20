@@ -4,13 +4,13 @@ A butchered variant on Giacom's Ministation designed for 5 to 10 players.
 Now poorly imported for Scavstation!
 */
 
-#if !defined(using_map_DATUM)
+#if !defined(USING_MAP_DATUM)
 
 	#include "../../mods/corporate/_corporate.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/ascent/_ascent.dme"
 
-	#define using_map_DATUM /datum/map/ministation
+	#define USING_MAP_DATUM /datum/map/ministation
 
 	#include "ministation.dmm"
 	#include "space.dmm"

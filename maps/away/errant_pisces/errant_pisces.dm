@@ -5,6 +5,7 @@
 	desc = "Sensors detect civilian vessel with unusual signs of life aboard."
 	color = "#bd6100"
 	max_speed = 1/(3 SECONDS)
+	instant_contact = TRUE
 	burn_delay = 15 SECONDS
 	fore_dir = SOUTH
 
@@ -29,9 +30,7 @@
 	speed = 2
 	maxHealth = 100
 	health = 100
-	harm_intent_damage = 5
-	melee_damage_lower = 15
-	melee_damage_upper = 25
+	natural_weapon = /obj/item/natural_weapon/bite/strong
 	break_stuff_probability = 35
 	faction = "shark"
 

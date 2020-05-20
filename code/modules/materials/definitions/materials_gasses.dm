@@ -7,7 +7,6 @@
 	conductive = 0
 	alloy_materials = null
 	alloy_product = FALSE
-	sale_price = null
 	hidden_from_codex = FALSE
 	value = 0
 	gas_burn_product = MAT_CO2
@@ -25,7 +24,9 @@
 /material/gas/lithium
 	display_name = "lithium"
 	lore_text = "A chemical element, used as antidepressant."
-	chem_products = list(/decl/reagent/lithium = 20)
+	chemical_makeup = list(
+		/decl/reagent/lithium = 1
+	)
 	is_fusion_fuel = TRUE
 
 /material/gas/oxygen
@@ -41,12 +42,13 @@
 /material/gas/helium
 	display_name = "helium"
 	lore_text = "A noble gas. It makes your voice squeaky."
-	chem_products = list(/decl/reagent/helium = 20)
+	chemical_makeup = list(
+		/decl/reagent/helium = 1
+	)
 	is_fusion_fuel = TRUE
 	gas_specific_heat = 80
 	gas_molar_mass = 0.004
 	gas_flags = XGM_GAS_FUSION_FUEL
-	gas_breathed_product = /decl/reagent/helium
 	gas_symbol_html = "He"
 	gas_symbol = "He"
 
@@ -61,33 +63,36 @@
 /material/gas/carbon_monoxide
 	display_name = "carbon monoxide"
 	lore_text = "A highly poisonous gas."
-	chem_products = list(/decl/reagent/carbon_monoxide = 20)
+	chemical_makeup = list(
+		/decl/reagent/carbon_monoxide = 1
+	)
 	gas_specific_heat = 30
 	gas_molar_mass = 0.028
-	gas_breathed_product = /decl/reagent/carbon_monoxide
 	gas_symbol_html = "CO"
 	gas_symbol = "CO"
 
 /material/gas/methyl_bromide
 	display_name = "methyl bromide"
 	lore_text = "A once-popular fumigant and weedkiller."
-	chem_products = list(/decl/reagent/toxin/methyl_bromide = 20)
+	chemical_makeup = list(
+		/decl/reagent/toxin/methyl_bromide = 1
+	)
 	gas_specific_heat = 42.59 
 	gas_molar_mass = 0.095	  
-	gas_breathed_product = /decl/reagent/toxin/methyl_bromide
 	gas_symbol_html = "CH<sub>3</sub>Br"
 	gas_symbol = "CH3Br"
 
 /material/gas/sleeping_agent
 	display_name = "sleeping agent"
 	lore_text = "A mild sedative. Also known as laughing gas."
-	chem_products = list(/decl/reagent/nitrous_oxide = 20)
+	chemical_makeup = list(
+		/decl/reagent/nitrous_oxide = 1
+	)
 	gas_specific_heat = 40	
 	gas_molar_mass = 0.044	
 	gas_tile_overlay = "sleeping_agent"
 	gas_overlay_limit = 1
 	gas_flags = XGM_GAS_OXIDIZER //N2O is a powerful oxidizer
-	gas_breathed_product = /decl/reagent/nitrous_oxide
 	gas_symbol_html = "N<sub>2</sub>O"
 	gas_symbol = "N2O"
 
@@ -101,12 +106,13 @@
 
 /material/gas/nitrodioxide
 	display_name = "nitrogen dioxide"
-	chem_products = list(/decl/reagent/toxin = 20)
+	chemical_makeup = list(
+		/decl/reagent/toxin = 1
+	)
 	icon_colour = "#ca6409"
 	gas_specific_heat = 37
 	gas_molar_mass = 0.054
 	gas_flags = XGM_GAS_OXIDIZER
-	gas_breathed_product = /decl/reagent/toxin
 	gas_symbol_html = "NO<sub>2</sub>"
 	gas_symbol = "NO2"
 
@@ -176,37 +182,42 @@
 
 /material/gas/xenon
 	display_name = "xenon"
-	chem_products = list(/decl/reagent/nitrous_oxide/xenon = 20)
+	chemical_makeup = list(
+		/decl/reagent/nitrous_oxide/xenon = 1
+	)
 	gas_specific_heat = 3
 	gas_molar_mass = 0.054
-	gas_breathed_product = /decl/reagent/nitrous_oxide/xenon
 	gas_symbol_html = "Xe"
 	gas_symbol = "Xe"
 
 /material/gas/ammonia
 	display_name = "ammonia"
-	chem_products = list(/decl/reagent/ammonia = 20)
+	chemical_makeup = list(
+		/decl/reagent/ammonia = 1
+	)
 	gas_specific_heat = 20
 	gas_molar_mass = 0.017
-	gas_breathed_product = /decl/reagent/ammonia
 	gas_symbol_html = "NH<sub>3</sub>"
 	gas_symbol = "NH3"
 
 /material/gas/chlorine
 	display_name = "chlorine"
-	chem_products = list(/decl/reagent/toxin/chlorine = 20)
+	chemical_makeup = list(
+		/decl/reagent/toxin/chlorine = 1
+	)
 	icon_colour = "#c5f72d"
 	gas_overlay_limit = 0.5
 	gas_specific_heat = 5
 	gas_molar_mass = 0.017
 	gas_flags = XGM_GAS_CONTAMINANT
-	gas_breathed_product = /decl/reagent/toxin/chlorine
 	gas_symbol_html = "Cl"
 	gas_symbol = "Cl"
 
 /material/gas/sulfurdioxide
 	display_name = "sulfur dioxide"
-	chem_products = list(/decl/reagent/sulfur = 20)
+	chemical_makeup = list(
+		/decl/reagent/sulfur = 1
+	)
 	gas_specific_heat = 30
 	gas_molar_mass = 0.044
 	gas_symbol_html = "SO<sub>2</sub>"
@@ -214,14 +225,14 @@
 
 /material/gas/water
 	display_name = "water vapour"
-	chem_products = list(/decl/reagent/water = 20)
+	chemical_makeup = list(
+		/decl/reagent/water = 1
+	)
 	gas_tile_overlay = "generic"
 	gas_overlay_limit = 0.5
 	gas_specific_heat = 30
 	gas_molar_mass = 0.020
-	gas_breathed_product =     /decl/reagent/water
-	gas_condensation_product = /decl/reagent/water
-	gas_condensation_point =   308.15 // 35C. Dew point is ~20C but this is better for gameplay considerations.
+	gas_condensation_point = 308.15 // 35C. Dew point is ~20C but this is better for gameplay considerations.
 	gas_symbol_html = "H<sub>2</sub>O"
 	gas_symbol = "H2O"
 
@@ -240,7 +251,9 @@
 	gas_burn_product = MAT_STEAM
 	gas_symbol_html = "H<sub>2</sub>"
 	gas_symbol = "H2"
-	chem_products = list(/decl/reagent/fuel/hydrazine = 20)
+	chemical_makeup = list(
+		/decl/reagent/fuel/hydrazine = 1
+	)
 
 /material/hydrogen/tritium
 	display_name = "tritium"
@@ -249,7 +262,7 @@
 	stack_type = /obj/item/stack/material/tritium
 	icon_colour = "#777777"
 	stack_origin_tech = "{'materials':5}"
-	value = 300
+	value = 1.5
 	gas_symbol_html = "T"
 	gas_symbol = "T"
 
@@ -275,7 +288,6 @@
 	ore_name = "raw hydrogen"
 	ore_scan_icon = "mineral_rare"
 	ore_icon_overlay = "gems"
-	sale_price = 5
-	value = 100
+	value = 2
 	gas_symbol_html = "H*"
 	gas_symbol = "H*"

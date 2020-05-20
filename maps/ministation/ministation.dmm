@@ -1950,13 +1950,13 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/item/gun/energy/stunrevolver/rifle,
+/obj/item/gun/energy/taser,
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "stripe";
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/gun/energy/stunrevolver/rifle,
+/obj/item/gun/energy/taser,
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/plating,
@@ -3248,9 +3248,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/design_database{
-	initial_id_tag = "rndnet"
-	},
+/obj/machinery/design_database,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/science)
 "ho" = (
@@ -3931,18 +3929,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "iK" = (
-/obj/machinery/fabricator/imprinter{
-	initial_id_tag = "rndnet"
-	},
+/obj/machinery/fabricator/imprinter,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "iL" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "iM" = (
-/obj/machinery/destructive_analyzer{
-	initial_id_tag = "rndnet"
-	},
+/obj/machinery/destructive_analyzer,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "iN" = (
@@ -4148,9 +4142,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "jn" = (
-/obj/machinery/fabricator/protolathe{
-	initial_id_tag = "rndnet"
-	},
+/obj/machinery/fabricator/protolathe,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "jo" = (
@@ -4166,8 +4158,7 @@
 	},
 /obj/machinery/computer/design_console{
 	dir = 8;
-	icon_state = "computer";
-	initial_id_tag = "rndnet"
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -8622,7 +8613,7 @@
 /area/ministation/hall/e)
 "tK" = (
 /obj/structure/table/reinforced,
-/obj/item/folder/white,
+/obj/item/folder,
 /obj/machinery/door/firedoor{
 	icon_state = "open";
 	dir = 8
@@ -8758,9 +8749,7 @@
 	},
 /area/ministation/telecomms)
 "tV" = (
-/obj/machinery/network/router{
-	initial_network_id = "zebranet"
-	},
+/obj/machinery/network/router,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
