@@ -20,10 +20,10 @@
 	storage_types = CLOSET_STORAGE_MOBS | CLOSET_STORAGE_ITEMS
 
 //suit cyclers
-/obj/machinery/suit_cycler/ministation
+/obj/machinery/suit_cycler/ministation //this one goes in eva
 	req_access = list()
-	suit = /obj/item/clothing/suit/space/emergency
-	helmet = /obj/item/clothing/head/helmet/space/emergency
+	suit = /obj/item/clothing/suit/space
+	helmet = /obj/item/clothing/head/helmet/space
 
 /obj/machinery/suit_cycler/engineering/ministation
 	suit = /obj/item/clothing/suit/space/void/engineering
@@ -34,3 +34,12 @@
 	suit = /obj/item/clothing/suit/space/void/mining
 	helmet = /obj/item/clothing/head/helmet/space/void/mining
 	boots = /obj/item/clothing/shoes/magboots
+
+/obj/structure/closet/medical_wall/ministation/WillContain() // for common area, has slightly less than normal
+	return list(
+		/obj/random/firstaid,
+		/obj/random/medical/lite = 8)
+
+/obj/machinery/vending/assist/ministation/Initialize() //vending machines found in maint tunnels
+	. = ..()
+	contraband += list(/obj/item/multitool = 1)
