@@ -62,6 +62,12 @@
 /area/ministation/maint/se
 	name = "\improper Starboard Quarter Maintenance"
 
+/area/ministation/maint/sec
+	name = "\improper Security Maintenance"
+
+/area/ministation/maint/detective
+	name = "\improper Detective Office Maintenance"
+
 //Departments
 /area/ministation/hop
 	name = "\improper Lieutenant's Office"
@@ -102,6 +108,18 @@
 	secure = TRUE
 	icon_state = "red"
 
+/area/ministation/detective
+	name = "\improper Detective Office"
+	req_access = list(access_forensics_lockers)
+	secure = TRUE
+	icon_state = "dark_blue"
+
+/area/ministation/court
+	name = "\improper Court Room"
+	req_access =list(access_lawyer)
+	secure = TRUE
+	icon_state = "pink"
+
 /area/ministation/science
 	name = "\improper Research & Development Laboratory"
 	req_access = list(access_research)
@@ -137,7 +155,7 @@
 	secure = TRUE
 
 /area/ministation/engine
-	name = "\improper Engineering"
+	name = "Engineering"
 	req_access = list(access_engine)
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
 	secure = TRUE
