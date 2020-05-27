@@ -81,4 +81,3 @@
 	cost = 1
 	flags = GEAR_HAS_COLOR_SELECTION
 
-

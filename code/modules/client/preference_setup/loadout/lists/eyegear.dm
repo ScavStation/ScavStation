@@ -104,6 +104,3 @@
 	display_name = "blindfold"
 	path = /obj/item/clothing/glasses/blindfold
 	flags = GEAR_HAS_COLOR_SELECTION
-
-
-	

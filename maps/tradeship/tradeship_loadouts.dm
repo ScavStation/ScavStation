@@ -10,11 +10,6 @@
 	guns["holdout pistol"] = /obj/item/gun/projectile/pistol/holdout
 	gear_tweaks += new/datum/gear_tweak/path(guns)
 
-/datum/gear/scav_medical_belt/Initialize()
-	allowed_roles |= list(
-		/datum/job/yinglet/patriarch,
-		/datum/job/yinglet/matriarch,
-		/datum/job/tradeship_doctor, 
-		/datum/job/tradeship_doctor/head
-	)
-	. = ..()
+/datum/gear/scav_medical_belt/New()
+	..()
+	LAZYDISTINCTADD(allowed_roles, list(/datum/job/yinglet/patriarch, /datum/job/yinglet/matriarch, /datum/job/tradeship_doctor, /datum/job/tradeship_doctor/head))

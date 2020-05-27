@@ -145,4 +145,3 @@
 	path = /obj/item/clothing/suit/letterman
 	flags = GEAR_HAS_COLOR_SELECTION
 	cost = 1
-
