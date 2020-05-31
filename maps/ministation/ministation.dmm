@@ -104,6 +104,13 @@
 /area/ministation/bridge)
 "an" = (
 /obj/structure/closet/secure_closet/medical3,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ffffff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ffffff"
+	},
+/obj/item/clothing/suit/yinglabcoat,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "ao" = (
@@ -349,6 +356,7 @@
 	id_tag = "slimeblast3";
 	name = "Enclosure 3 Blastdoors Button"
 	},
+/obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled,
 /area/ministation/science)
 "aV" = (
@@ -394,19 +402,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
-"aZ" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/machinery/camera/autoname,
-/obj/structure/window/reinforced,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "stripe";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/science)
 "ba" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable{
@@ -1408,11 +1403,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "dF" = (
-/obj/machinery/camera/autoname,
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/camera/network/mining,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "dG" = (
@@ -1512,9 +1507,6 @@
 /area/ministation/maint/sec)
 "dX" = (
 /obj/machinery/papershredder,
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "dY" = (
@@ -1954,7 +1946,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "fe" = (
-/obj/machinery/camera/autoname,
 /obj/machinery/computer/operating,
 /obj/item/radio/intercom{
 	pixel_y = 25
@@ -1967,6 +1958,7 @@
 	pixel_y = 15
 	},
 /obj/item/circular_saw,
+/obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "fg" = (
@@ -2086,7 +2078,6 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
-/obj/machinery/camera/autoname,
 /obj/item/radio/intercom{
 	broadcasting = 0;
 	listening = 1;
@@ -2094,6 +2085,7 @@
 	pixel_y = 25
 	},
 /obj/item/eftpos,
+/obj/machinery/camera/network/mining,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fu" = (
@@ -2203,12 +2195,13 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/sec)
 "fH" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "stripe";
 	dir = 9
+	},
+/obj/machinery/camera/network/security{
+	icon_state = "camera";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -2440,6 +2433,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "stripe";
 	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	icon_state = "camera";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science)
@@ -2784,9 +2781,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hb" = (
@@ -2841,6 +2835,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/mask/gas/budget,
 /obj/item/clothing/glasses/science,
+/obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hh" = (
@@ -2849,6 +2844,10 @@
 /area/ministation/science)
 "hi" = (
 /obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ffffff"
+	},
+/obj/item/clothing/suit/yinglabcoat,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hj" = (
@@ -3020,7 +3019,6 @@
 /obj/item/taperecorder{
 	pixel_y = 0
 	},
-/obj/machinery/camera/autoname,
 /obj/item/folder/yellow,
 /obj/item/storage/secure/safe{
 	pixel_x = 4;
@@ -3085,7 +3083,6 @@
 /obj/item/disk/design_disk,
 /obj/item/disk/design_disk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/camera/autoname,
 /obj/effect/floor_decal/corner/purple{
 	icon_state = "corner_white";
 	dir = 1
@@ -3183,11 +3180,12 @@
 /area/ministation/cargo)
 "hT" = (
 /obj/structure/closet/crate,
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /obj/item/ore/glass,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/network/mining{
+	icon_state = "camera";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hV" = (
@@ -3202,10 +3200,11 @@
 /obj/machinery/newscaster{
 	pixel_x = -32
 	},
-/obj/machinery/camera/autoname{
+/obj/structure/flora/pottedplant/largebush,
+/obj/machinery/camera/network/security{
+	icon_state = "camera";
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/largebush,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hX" = (
@@ -3496,6 +3495,20 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/detective)
+"iH" = (
+/obj/machinery/cryopod{
+	icon_state = "body_scanner_0";
+	dir = 1
+	},
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/machinery/camera/network/medbay{
+	icon_state = "camera";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/cryo)
 "iI" = (
 /obj/structure/table/standard,
 /obj/item/hand_labeler,
@@ -3727,6 +3740,10 @@
 	icon_state = "map_scrubber_on";
 	dir = 8
 	},
+/obj/machinery/camera/network/security{
+	icon_state = "camera";
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/ministation/detective)
 "jl" = (
@@ -3815,6 +3832,10 @@
 /obj/item/stack/material/glass/fifty,
 /obj/item/stack/material/steel/fifty,
 /obj/item/stack/material/aluminium/fifty,
+/obj/machinery/camera/network/research{
+	icon_state = "camera";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "jv" = (
@@ -4005,7 +4026,6 @@
 	name = "Common Channel";
 	pixel_y = 25
 	},
-/obj/machinery/camera/autoname,
 /obj/item/storage/pill_bottle,
 /obj/machinery/light{
 	dir = 4
@@ -4278,7 +4298,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "ky" = (
-/obj/machinery/camera/autoname,
+/obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "kz" = (
@@ -4841,6 +4861,19 @@
 /area/ministation/commons)
 "lY" = (
 /obj/structure/closet/wardrobe/mixed,
+/obj/item/clothing/under/yinglet/yingjumpsuit,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
 "lZ" = (
@@ -5050,7 +5083,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "mC" = (
-/obj/machinery/camera/autoname,
 /obj/machinery/botany/extractor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5116,6 +5148,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "mH" = (
@@ -6442,6 +6475,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/machinery/camera/network/medbay,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "pP" = (
@@ -7301,13 +7335,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rS" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 4;
 	pixel_x = 11
+	},
+/obj/machinery/camera/network/medbay{
+	icon_state = "camera";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -7460,13 +7495,6 @@
 /area/ministation/medical)
 "sk" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/tiled/white,
-/area/ministation/medical)
-"sl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "sm" = (
@@ -9433,7 +9461,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/autoname{
+/obj/machinery/camera/network/medbay{
+	icon_state = "camera";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -10061,6 +10090,10 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/reagent_temperature,
+/obj/machinery/camera/network/medbay{
+	icon_state = "camera";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "ye" = (
@@ -10087,6 +10120,19 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/under/yinglet,
 /obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet/yingjumpsuit,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "yg" = (
@@ -10344,18 +10390,42 @@
 /area/ministation/arrival_shuttle)
 "yN" = (
 /obj/structure/closet/wardrobe/green,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yO" = (
 /obj/structure/closet/wardrobe/black,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yP" = (
 /obj/structure/closet/wardrobe/pink,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yQ" = (
 /obj/structure/closet/wardrobe/grey,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yR" = (
@@ -11349,7 +11419,7 @@
 "Bq" = (
 /obj/machinery/camera/autoname{
 	dir = 4;
-	network = list("SS13")
+	network = list("Exodus")
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -11710,7 +11780,7 @@
 /area/ministation/telecomms)
 "Cl" = (
 /obj/machinery/camera/autoname{
-	network = list("SS13")
+	network = list("Exodus")
 	},
 /obj/machinery/firealarm{
 	dir = 4;
@@ -11778,11 +11848,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "Cv" = (
-/obj/machinery/camera/motion{
-	c_tag = "MiniSat Antechamber";
-	dir = 1;
-	network = list("MiniSat")
-	},
 /obj/item/radio/intercom{
 	broadcasting = 1;
 	frequency = 1447;
@@ -12198,6 +12263,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/sw)
 "Dw" = (
@@ -12450,8 +12520,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/camera/autoname,
 /obj/machinery/power/smes/buildable/max_cap_in_out,
+/obj/machinery/camera/network/engineering,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "DY" = (
@@ -13186,7 +13256,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/autoname{
+/obj/machinery/camera/network/engineering{
+	icon_state = "camera";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -13754,12 +13825,12 @@
 /area/ministation/engine)
 "Hg" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/machinery/camera/autoname,
+/obj/machinery/camera/network/engineering,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Hh" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/camera/autoname,
+/obj/machinery/camera/network/engineering,
 /turf/simulated/floor,
 /area/ministation/engine)
 "Hi" = (
@@ -14232,9 +14303,7 @@
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 4
 	},
-/obj/machinery/camera/autoname{
-	network = list("SS13")
-	},
+/obj/machinery/camera/network/ministation/sat,
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "Iq" = (
@@ -14333,16 +14402,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
-"IK" = (
-/obj/machinery/camera/autoname{
-	network = list("SS13")
-	},
-/turf/simulated/floor/plating,
-/area/ministation/ai_sat)
 "IL" = (
-/obj/structure/table,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/maintenance,
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "IN" = (
@@ -14386,6 +14449,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"IY" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/computer/modular/preset/cardslot/command{
+	icon_state = "computer";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/ministation/ai_core)
 "Jg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/r_wall,
@@ -14422,6 +14498,7 @@
 "Jo" = (
 /obj/structure/table/standard,
 /obj/item/folder/blue,
+/obj/machinery/camera/motion/ministation,
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_upload)
 "Jp" = (
@@ -14492,12 +14569,6 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/ministation/ai_core)
-"Jz" = (
-/obj/machinery/camera/autoname{
-	network = list("SS13")
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_core)
@@ -14787,6 +14858,11 @@
 	pixel_x = -32;
 	pixel_y = 32
 	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
 "Ko" = (
@@ -14797,9 +14873,6 @@
 /area/ministation/ai_core)
 "Kp" = (
 /obj/structure/table/standard,
-/obj/machinery/camera/motion{
-	dir = 4
-	},
 /obj/item/aiModule/asimov,
 /obj/item/aiModule/corp,
 /obj/item/aiModule/dais,
@@ -14858,9 +14931,6 @@
 /area/ministation/ai_upload)
 "Kv" = (
 /obj/structure/table/standard,
-/obj/machinery/camera/motion{
-	dir = 8
-	},
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_upload)
@@ -14882,6 +14952,12 @@
 /area/ministation/ai_core)
 "Kx" = (
 /obj/machinery/door/window/southright,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
 "Ky" = (
@@ -14898,11 +14974,7 @@
 	pixel_x = -6;
 	pixel_y = 24
 	},
-/obj/machinery/camera/motion{
-	c_tag = "AI Chamber South";
-	dir = 2;
-	network = list("RD","MiniSat")
-	},
+/obj/machinery/camera/motion/ministation,
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
 "Kz" = (
@@ -14920,6 +14992,10 @@
 	icon_state = "tube1";
 	dir = 8
 	},
+/obj/machinery/computer/modular/preset/engineering{
+	icon_state = "computer";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_core)
 "KB" = (
@@ -14928,12 +15004,21 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
 "KC" = (
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
+	},
+/obj/machinery/computer/modular/preset/security{
+	icon_state = "computer";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_core)
@@ -14962,17 +15047,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
-"KI" = (
-/obj/machinery/camera/autoname{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/ministation/ai_sat)
 "KJ" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/machinery/computer/modular/preset/medical{
+	icon_state = "computer";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_core)
@@ -15201,6 +15284,7 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
+/obj/machinery/camera/network/ministation/sat,
 /turf/simulated/floor/tiled,
 /area/ministation/ai_sat)
 "Lk" = (
@@ -15299,11 +15383,6 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0
-	},
-/obj/machinery/camera/motion{
-	c_tag = "MiniSat Maintenance";
-	dir = 4;
-	network = list("MiniSat")
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -15697,6 +15776,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/item/clothing/under/yinglet/yinglibrarian,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "MV" = (
@@ -15755,6 +15835,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/camera/network/security{
+	icon_state = "camera";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Nt" = (
@@ -15780,6 +15864,17 @@
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
+"NF" = (
+/obj/machinery/power/sensor{
+	id_tag = "station powernet";
+	name = "Powernet Sensor - Main Powernet"
+	},
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/sw)
 "NR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -15859,6 +15954,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
+"Ow" = (
+/obj/machinery/camera/network/mining{
+	icon_state = "camera";
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "OB" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -15898,7 +16000,7 @@
 "OR" = (
 /obj/machinery/door/airlock/external/glass,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ministation/cargo)
 "OS" = (
 /obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/shuttle/blue,
@@ -15939,6 +16041,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s)
+"OY" = (
+/obj/machinery/camera/network/medbay{
+	icon_state = "camera";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/medical)
 "Pa" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -16137,6 +16246,23 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e)
+"QF" = (
+/obj/machinery/camera/network/medbay{
+	icon_state = "camera";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
+"QI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/ministation/sat{
+	icon_state = "camera";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/ai_sat)
 "QL" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor,
@@ -16283,6 +16409,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"Sk" = (
+/obj/machinery/camera/network/ministation/sat,
+/turf/simulated/floor/plating,
+/area/ministation/ai_sat)
 "Sp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -16323,6 +16453,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/court)
 "SN" = (
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/yinglet_rep)
 "SS" = (
@@ -16366,6 +16499,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"Tq" = (
+/obj/machinery/camera/network/security{
+	icon_state = "camera";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/court)
 "Tw" = (
 /obj/item/radio/intercom{
 	dir = 4;
@@ -16456,6 +16596,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"UA" = (
+/obj/machinery/camera/network/ministation/sat{
+	icon_state = "camera";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/ai_sat)
 "UD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16487,6 +16634,7 @@
 /area/ministation/cargo)
 "Va" = (
 /obj/structure/bed/chair/wheelchair,
+/obj/machinery/camera/network/medbay,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "Vd" = (
@@ -16540,11 +16688,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /obj/structure/bed/chair/comfy/captain{
 	icon_state = "capchair";
+	dir = 8
+	},
+/obj/machinery/camera/network/security{
+	icon_state = "camera";
 	dir = 8
 	},
 /turf/simulated/floor/carpet/red,
@@ -16561,6 +16710,18 @@
 /obj/structure/sign/warning/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
+"VK" = (
+/obj/machinery/ai_slipper{
+	icon_state = "motion0";
+	uses = 10
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/bluegrid,
+/area/ministation/ai_core)
 "VU" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/reactive,
@@ -16952,6 +17113,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/court)
+"YT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/ministation/sat,
+/turf/simulated/floor/plating,
+/area/ministation/ai_sat)
 "YY" = (
 /obj/structure/closet/wardrobe/lawyer_black,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -16966,9 +17134,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
-	},
-/obj/machinery/camera/autoname{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/yinglet_rep)
@@ -17000,6 +17165,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"Zx" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/camera/motion/ministation,
+/turf/simulated/floor/tiled/techmaint,
+/area/ministation/ai_core)
 "ZE" = (
 /obj/effect/landmark/start{
 	name = "Assistant"
@@ -17050,6 +17225,13 @@
 /obj/effect/wallframe_spawn/no_grille,
 /turf/simulated/floor/plating,
 /area/ministation/court)
+"ZT" = (
+/obj/machinery/camera/network/research{
+	icon_state = "camera";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "ZV" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -44175,7 +44357,7 @@ aa
 aa
 aa
 ad
-ac
+au
 au
 au
 au
@@ -45203,7 +45385,7 @@ aa
 aa
 aa
 cd
-cn
+Ow
 au
 cP
 cy
@@ -45774,7 +45956,7 @@ uK
 uK
 Al
 zr
-zr
+NF
 av
 Dt
 Eo
@@ -46231,7 +46413,7 @@ aa
 aa
 ad
 cn
-ac
+au
 au
 au
 au
@@ -46745,7 +46927,7 @@ aa
 aa
 ad
 ad
-ac
+au
 au
 au
 au
@@ -52662,7 +52844,7 @@ Nw
 OP
 Nw
 Nw
-Nw
+Tq
 cY
 TJ
 gE
@@ -53966,7 +54148,7 @@ no
 ox
 oz
 pd
-pD
+QF
 pD
 qX
 oz
@@ -56770,7 +56952,7 @@ aa
 aa
 aa
 ae
-aZ
+fc
 dw
 ec
 ae
@@ -56797,7 +56979,7 @@ pN
 qv
 rf
 rN
-sl
+rf
 rf
 Tj
 rN
@@ -56810,7 +56992,7 @@ ye
 Wb
 Yc
 Vn
-Mw
+iH
 RD
 aa
 aa
@@ -58087,7 +58269,7 @@ sY
 oz
 uy
 uY
-uY
+OY
 oz
 Va
 pD
@@ -58838,7 +59020,7 @@ hm
 hN
 io
 iR
-db
+ZT
 db
 kz
 db
@@ -60463,7 +60645,7 @@ Il
 Il
 Il
 Il
-KI
+Il
 aS
 aa
 ad
@@ -60973,7 +61155,7 @@ Il
 Il
 Il
 JF
-Il
+UA
 Ki
 Il
 Il
@@ -62254,9 +62436,9 @@ Im
 Iw
 Im
 Il
-KF
+QI
 Jh
-Jx
+Zx
 JJ
 JU
 JU
@@ -62518,7 +62700,7 @@ JK
 JU
 Kn
 Kx
-Km
+VK
 KL
 KX
 Ld
@@ -62770,7 +62952,7 @@ Im
 Il
 Cv
 Jh
-Jz
+JA
 JJ
 JU
 JU
@@ -63290,7 +63472,7 @@ Cr
 JJ
 JA
 KC
-Jx
+IY
 Jh
 KF
 Il
@@ -64060,7 +64242,7 @@ JL
 JW
 Kp
 JN
-Il
+Sk
 IQ
 Il
 Le
@@ -64565,7 +64747,7 @@ ad
 aS
 Im
 Iw
-Il
+Sk
 BJ
 JN
 Jo
@@ -64831,7 +65013,7 @@ JM
 JX
 Ks
 JN
-IK
+Il
 KQ
 aS
 Lg
@@ -65593,7 +65775,7 @@ ad
 aS
 Il
 Iw
-IK
+Il
 KF
 JN
 Jn
@@ -66630,7 +66812,7 @@ Ih
 aS
 Ih
 aS
-KF
+YT
 IW
 IG
 IG
