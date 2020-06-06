@@ -106,9 +106,7 @@
 		pref.body_markings["Ying Long Ears"] = "#888888"
 	if(!pref.body_markings["Shelltooth"])
 		pref.body_markings["Shelltooth"] = "#cccccc"
-	pref.r_skin = 120
-	pref.g_skin = 120
-	pref.b_skin = 120
+	pref.skin_colour = "#787878"
 
 /datum/species/yinglet/New()
 	equip_adjust = list(

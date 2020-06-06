@@ -1,10 +1,10 @@
-/decl/reagent/amphetamines
+/decl/material/chem/amphetamines
 	name = "altrac extract"
-	description = "A crystalline powder refined from a number of different vegetable and plant sources. Serves a powerful, often illegal, stimulant."
+	lore_text = "A crystalline powder refined from a number of different vegetable and plant sources. Serves a powerful, often illegal, stimulant."
 
-/decl/reagent/painkillers
+/decl/material/chem/painkillers
 	name = "bruisegrass extract"
-	description = "A highly processed opiate-like painkiller refined from immature bruisegrass. Manufactured primarily by Great House Talleraine and exported across the known world."
+	lore_text = "A highly processed opiate-like painkiller refined from immature bruisegrass. Manufactured primarily by Great House Talleraine and exported across the known world."
 
 /datum/chemical_reaction/recipe/orangecola
 	name = "Indrel Breakfast"

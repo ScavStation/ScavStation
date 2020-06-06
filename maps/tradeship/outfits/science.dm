@@ -1,7 +1,7 @@
 /decl/hierarchy/outfit/job/tradeship/hand/researcher
 	name = TRADESHIP_OUTFIT_JOB_NAME("Head Researcher")
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/dress
 	pda_type = /obj/item/modular_computer/pda/science
 	id_type = /obj/item/card/id/tradeship/science/head
 

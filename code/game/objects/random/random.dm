@@ -727,7 +727,7 @@ obj/random/obstruction/spawn_choices()
 				/obj/item/clothing/shoes/galoshes = 2,
 				/obj/item/clothing/shoes/syndigaloshes = 1,
 				/obj/item/clothing/shoes/magboots = 1,
-				/obj/item/clothing/shoes/laceup = 4,
+				/obj/item/clothing/shoes/dress = 4,
 				/obj/item/clothing/shoes/jackboots/jungleboots = 3,
 				/obj/item/clothing/shoes/jackboots/desertboots = 3,
 				/obj/item/clothing/shoes/jackboots/duty = 3,
@@ -739,7 +739,7 @@ obj/random/obstruction/spawn_choices()
 				/obj/item/clothing/shoes/color/brown = 4,
 				/obj/item/clothing/shoes/color/red = 4,
 				/obj/item/clothing/shoes/color/blue = 4,
-				/obj/item/clothing/shoes/leather = 4)
+				/obj/item/clothing/shoes/craftable = 4)
 
 /obj/random/gloves
 	name = "random gloves"
@@ -961,7 +961,7 @@ something, make sure it's not in one of the other lists.*/
 				/obj/item/clothing/suit/straight_jacket = 6,
 				/obj/item/clothing/head/helmet/merc = 3,
 				/obj/item/stack/material/diamond/ten = 7,
-				/obj/item/stack/material/glass/phoronrglass/ten = 7,
+				/obj/item/stack/material/glass/reinforced_borosilicate/ten = 7,
 				/obj/item/stack/material/marble/ten = 8,
 				/obj/item/stack/material/phoron/ten = 7,
 				/obj/item/stack/material/gold/ten = 7,

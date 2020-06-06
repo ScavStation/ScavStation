@@ -1,7 +1,18 @@
-/turf/simulated/mineral/random/ministation/Initialize()
-	.=..()
-	var/chosen_rock = pick(80; /turf/simulated/mineral, 15; /turf/simulated/mineral/random, 05; /turf/simulated/mineral/random/high_chance)
-	src.ChangeTurf(chosen_rock)
+/turf/simulated/wall/natural/random/ministation/get_weighted_mineral_list()
+	if(prob(80))	
+		. = list()
+	else if(prob(75))
+		if(strata)
+			var/decl/strata/strata_info = decls_repository.get_decl(strata)
+			. = strata_info.ores_sparse
+		if(!.)
+			. = SSmaterials.weighted_minerals_sparse
+	else
+		if(strata)
+			var/decl/strata/strata_info = decls_repository.get_decl(strata)
+			. = strata_info.ores_rich
+		if(!.)
+			. = SSmaterials.weighted_minerals_rich
 
 //trash bins
 /decl/closet_appearance/crate/ministation

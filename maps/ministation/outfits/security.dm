@@ -23,7 +23,7 @@
 	uniform = /obj/item/clothing/under/det
 	suit = /obj/item/clothing/suit/storage/det_trench
 	l_pocket = /obj/item/flame/lighter/zippo
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/dress
 	r_hand = /obj/item/storage/briefcase/crimekit
 	id_type = /obj/item/card/id/ministation/security/detective
 	pda_type = /obj/item/modular_computer/pda/forensics
