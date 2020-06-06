@@ -32,7 +32,7 @@
 	var/stacks_used = 1
 	var/mat_colour = thing.color
 	for(var/mat in thing.matter)
-		var/material/material_def = SSmaterials.get_material_datum(mat)
+		var/decl/material/material_def = decls_repository.get_decl(mat)
 		if(!material_def || !base_storage_capacity[material_def.type])
 			continue
 		var/taking_material = min(thing.matter[mat], storage_capacity[material_def.type] - stored_material[material_def.type])
@@ -139,8 +139,3 @@
 		return TRUE
 	interact(user)
 	return TRUE
-
-#undef SUBSTANCE_TAKEN_FULL
-#undef SUBSTANCE_TAKEN_NONE
-#undef SUBSTANCE_TAKEN_SOME
-#undef SUBSTANCE_TAKEN_ALL

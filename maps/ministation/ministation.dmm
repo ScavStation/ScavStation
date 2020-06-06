@@ -19,7 +19,7 @@
 /turf/simulated/wall,
 /area/ministation/science)
 "af" = (
-/turf/simulated/mineral/random/ministation,
+/turf/simulated/wall/natural/random/ministation,
 /area/space)
 "ag" = (
 /obj/item/storage/mirror{
@@ -10571,7 +10571,7 @@
 	icon_state = "heater";
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate_reinforced{
 	icon_state = "rwindow";
 	dir = 8
 	},

@@ -15,7 +15,7 @@
 	icon = 'mods/valsalia/icons/metal_main.dmi'
 	allowed_bodytypes = list(BODYTYPE_YINGLET)
 
-/material/wood/generate_recipes(var/reinforce_material)
+/decl/material/wood/generate_recipes(var/reinforce_material)
 	. = ..()
 	if(!reinforce_material)
 		. += new/datum/stack_recipe/wooden_prosthetic/left_arm_ying(src)

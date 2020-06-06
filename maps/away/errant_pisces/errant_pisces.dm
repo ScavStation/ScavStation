@@ -75,9 +75,9 @@
 
 /obj/item/chems/food/snacks/sharkmeat/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/nutriment/protein, 5)
-	reagents.add_reagent(/decl/reagent/psychoactives, 1)
-	reagents.add_reagent(/decl/reagent/toxin/phoron, 1)
+	reagents.add_reagent(/decl/material/chem/nutriment/protein, 5)
+	reagents.add_reagent(/decl/material/chem/psychoactives, 1)
+	reagents.add_reagent(/decl/material/chem/toxin/phoron, 1)
 	src.bitesize = 8
 
 
@@ -128,9 +128,11 @@
 		new /obj/item/stack/net(src.loc)
 		qdel(src)
 
-/obj/structure/net/destroyed()
+/obj/structure/net/physically_destroyed()
+	SHOULD_CALL_PARENT(FALSE)
 	visible_message("<span class='warning'>\The [src] is torn apart!</span>")
 	qdel(src)
+	. = TRUE
 
 /obj/structure/net/bullet_act(obj/item/projectile/P)
 	. = PROJECTILE_CONTINUE //few cloth ribbons won't stop bullet or energy ray
@@ -166,7 +168,7 @@
 	overlays.Cut()
 	var/turf/T = get_turf(src)
 	for (var/turf/AT in T.CardinalTurfs(FALSE))
-		if ((locate(/obj/structure/net/net_wall) in AT) || istype(AT, /turf/simulated/wall)  || istype(AT, /turf/unsimulated/wall) || istype(AT, /turf/simulated/mineral))//connects to another net-wall objects or walls
+		if ((locate(/obj/structure/net/net_wall) in AT) || istype(AT, /turf/simulated/wall)  || istype(AT, /turf/unsimulated/wall))//connects to another net-wall objects or walls
 			var/image/I = image(icon,"[icon_state]_ol_[get_dir(src,AT)]")
 			overlays += I
 
@@ -205,7 +207,7 @@
 		return 1
 	var/turf/T = get_turf(src)
 	for (var/turf/AT in T.CardinalTurfs(FALSE))
-		if ((locate(/obj/structure/net/net_wall) in AT) || istype(AT, /turf/simulated/wall)  || istype(AT, /turf/unsimulated/wall) || istype(AT, /turf/simulated/mineral))//connects to another net-wall objects or walls
+		if ((locate(/obj/structure/net/net_wall) in AT) || istype(AT, /turf/simulated/wall)  || istype(AT, /turf/unsimulated/wall))//connects to another net-wall objects or walls
 			return 1
 	return 0
 

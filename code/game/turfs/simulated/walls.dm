@@ -15,9 +15,9 @@
 	var/global/damage_overlays[16]
 	var/active
 	var/can_open = 0
-	var/material/material
-	var/material/reinf_material
-	var/material/girder_material = MAT_STEEL
+	var/decl/material/material
+	var/decl/material/reinf_material
+	var/decl/material/girder_material = MAT_STEEL
 	var/last_state
 	var/construction_stage
 	var/hitsound = 'sound/weapons/Genhit.ogg'
@@ -28,24 +28,32 @@
 	var/stripe_color
 	var/global/list/wall_stripe_cache = list()
 	var/list/blend_turfs = list(/turf/simulated/wall/cult, /turf/simulated/wall/wood, /turf/simulated/wall/walnut, /turf/simulated/wall/maple, /turf/simulated/wall/mahogany, /turf/simulated/wall/ebony)
-	var/list/blend_objects = list(/obj/machinery/door, /obj/structure/wall_frame, /obj/structure/grille, /obj/structure/window/reinforced/full, /obj/structure/window/reinforced/polarized/full, /obj/structure/window/shuttle, ,/obj/structure/window/phoronbasic/full, /obj/structure/window/phoronreinforced/full) // Objects which to blend with
+	var/list/blend_objects = list(/obj/machinery/door, /obj/structure/wall_frame, /obj/structure/grille, /obj/structure/window/reinforced/full, /obj/structure/window/reinforced/polarized/full, /obj/structure/window/shuttle, ,/obj/structure/window/borosilicate/full, /obj/structure/window/borosilicate_reinforced/full) // Objects which to blend with
 	var/list/noblend_objects = list(/obj/machinery/door/window) //Objects to avoid blending with (such as children of listed blend objects.
 
 /turf/simulated/wall/Initialize(var/ml, var/materialtype, var/rmaterialtype)
-	. = ..(ml)
-	icon_state = "blank"
-	if(!materialtype)
-		materialtype = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_datum(materialtype)
-	if(!isnull(rmaterialtype))
-		reinf_material = SSmaterials.get_material_datum(rmaterialtype)
-	if(ispath(girder_material, /material))
-		girder_material = SSmaterials.get_material_datum(girder_material)
-	update_material()
-	hitsound = material.hitsound
+	..(ml)
 
+	if(!ispath(material, /decl/material))
+		material = materialtype || get_default_material()
+	if(ispath(material, /decl/material))
+		material = decls_repository.get_decl(material)
+
+	if(!ispath(reinf_material, /decl/material))
+		reinf_material = rmaterialtype
+	if(ispath(reinf_material, /decl/material))
+		reinf_material = decls_repository.get_decl(reinf_material)
+
+	if(ispath(girder_material, /decl/material))
+		girder_material = decls_repository.get_decl(girder_material)
+
+	. = INITIALIZE_HINT_LATELOAD
 	set_extension(src, /datum/extension/penetration/proc_call, .proc/CheckPenetration)
 	START_PROCESSING(SSturf, src) //Used for radiation.
+
+/turf/simulated/wall/LateInitialize()
+	..()
+	update_material()
 
 /turf/simulated/wall/Destroy()
 	STOP_PROCESSING(SSturf, src)
@@ -131,12 +139,14 @@
 		else
 			to_chat(user, "<span class='danger'>It looks heavily damaged.</span>")
 	if(paint_color)
-		to_chat(user, "<span class='notice'>It has a coat of paint applied.</span>")
+		to_chat(user, get_paint_examine_message())
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		to_chat(user, "<span class='warning'>There is fungus growing on [src].</span>")
 
-//Damage
+/turf/simulated/wall/proc/get_paint_examine_message()
+	. = SPAN_NOTICE("It has had <font color = '[paint_color]'>a coat of paint</font> applied.")
 
+//Damage
 /turf/simulated/wall/melt()
 	if(can_melt())
 		var/turf/simulated/floor/F = ChangeTurf(/turf/simulated/floor/plating)
@@ -193,26 +203,23 @@
 			O.forceMove(src)
 
 	clear_plants()
-	material = SSmaterials.get_material_datum(MAT_PLACEHOLDER)
+	material = decls_repository.get_decl(MAT_PLACEHOLDER)
 	reinf_material = null
 	update_connections(1)
 
 	ChangeTurf(floor_type || get_base_turf_by_area(src))
 
-/turf/simulated/wall/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			src.ChangeTurf(get_base_turf(src.z))
-			return
-		if(2.0)
-			if(prob(75))
-				take_damage(rand(150, 250))
-			else
-				dismantle_wall(1,1)
-		if(3.0)
-			take_damage(rand(0, 250))
+/turf/simulated/wall/explosion_act(severity)
+	SHOULD_CALL_PARENT(FALSE)
+	if(severity == 1)
+		dismantle_wall(1,1,1)
+	else if(severity == 2)
+		if(prob(75))
+			take_damage(rand(150, 250))
 		else
-	return
+			dismantle_wall(1,1)
+	else if(severity == 3)
+		take_damage(rand(0, 250))
 
 // Wall-rot effect, a nasty fungus that destroys walls.
 /turf/simulated/wall/proc/rot()
