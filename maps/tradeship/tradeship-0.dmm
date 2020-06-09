@@ -12,12 +12,15 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "ae" = (
 /obj/effect/decal/cleanable/generic,
+/obj/effect/landmark/start{
+	name = "Enclave Patriarch"
+	},
 /obj/item/stool/wood,
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "af" = (
 /obj/structure/disposalpipe/up,
 /obj/structure/hygiene/drain,
@@ -93,7 +96,7 @@
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "aq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -115,7 +118,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "ar" = (
 /obj/structure/lattice,
 /turf/simulated/floor/airless,
@@ -176,11 +179,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Scout"
+	},
 /obj/item/stool/padded,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "ay" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -202,9 +208,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Scout"
+	},
 /obj/item/stool/wood,
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "aA" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -398,10 +407,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Scout"
+	},
 /obj/effect/decal/cleanable/filth,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "aT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -418,7 +430,7 @@
 	pixel_y = -20
 	},
 /turf/simulated/floor,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "aU" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -434,7 +446,7 @@
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "aV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -573,6 +585,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start{
+	name = "Enclave Worker"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/loading_bay)
 "bj" = (
@@ -587,7 +602,7 @@
 /obj/structure/table/standard,
 /obj/item/paicard,
 /turf/simulated/floor,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "bl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
@@ -598,7 +613,7 @@
 /obj/item/chems/food/snacks/fish/mollusc,
 /obj/item/trash/mollusc_shell/clam,
 /turf/simulated/floor,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "bm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -759,6 +774,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Worker"
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ship/trade/loading_bay)
 "bB" = (
@@ -800,12 +818,20 @@
 	icon_state = "0-8"
 	},
 /obj/structure/closet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/head/yinglet/scout,
+/obj/item/clothing/under/yinglet/scout,
 /obj/item/material/shard{
 	has_handle = "#800000";
 	name = "shank"
 	},
 /obj/item/synthesized_instrument/synthesizer,
-/obj/item/material/twohanded/spear,
+/obj/item/material/twohanded/spear/javelin,
 /turf/simulated/floor,
 /area/ship/trade/fore_port_underside_maint)
 "bE" = (
@@ -1165,6 +1191,9 @@
 	icon_state = "warning";
 	dir = 9
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Worker"
+	},
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
 "cd" = (
@@ -1219,10 +1248,10 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "en" = (
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "eu" = (
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed{
@@ -1254,7 +1283,7 @@
 /obj/item/mollusc/clam,
 /obj/structure/table/gamblingtable,
 /turf/simulated/floor/carpet/red,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "fY" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -1266,7 +1295,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "ga" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1294,13 +1323,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/green,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "hc" = (
 /obj/item/megaphone,
 /obj/item/radio,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "hf" = (
 /obj/structure/lattice,
 /obj/machinery/light/small,
@@ -1310,7 +1339,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "hg" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
@@ -1362,7 +1391,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "kO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1394,17 +1423,20 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Scout"
+	},
 /obj/item/stool/bar/padded,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "lv" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
 /area/ship/trade/fore_starboard_underside_maint)
 "lA" = (
 /turf/simulated/wall,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "lB" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1441,7 +1473,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "oO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -1505,16 +1537,23 @@
 /obj/item/storage/backpack/dufflebag,
 /obj/item/chems/glass/rag,
 /obj/item/chems/glass/bucket,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet,
+/obj/item/clothing/suit/yinglet,
 /obj/machinery/firealarm{
 	pixel_y = 25
 	},
 /obj/structure/closet,
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "rt" = (
+/obj/effect/landmark/start{
+	name = "Enclave Matriarch"
+	},
 /obj/structure/bed/chair/padded/beige,
 /turf/simulated/floor/carpet/red,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "sX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1565,6 +1604,9 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Worker"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/loading_bay)
 "un" = (
@@ -1575,7 +1617,7 @@
 /obj/structure/lattice,
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "vi" = (
 /obj/structure/mattress/dirty,
 /obj/item/material/shard{
@@ -1692,9 +1734,11 @@
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
 "zw" = (
+/obj/structure/yinglet_nest,
 /turf/simulated/floor/carpet/green,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "AO" = (
+/obj/item/clothing/under/yinglet,
 /obj/structure/hygiene/drain,
 /mob/living/simple_animal/mouse,
 /turf/simulated/floor,
@@ -1771,7 +1815,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Gb" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -1802,7 +1846,7 @@
 /area/ship/trade/fore_starboard_underside_maint)
 "GP" = (
 /turf/simulated/floor/carpet/green,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "GQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1850,7 +1894,7 @@
 	d2 = 4
 	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "II" = (
 /obj/structure/stairs/west,
 /turf/simulated/floor/tiled/steel_grid,
@@ -1878,8 +1922,10 @@
 /obj/structure/bed,
 /obj/item/bedsheet/rainbow,
 /obj/structure/curtain/open/bed,
+/obj/item/clothing/under/yinglet/matriarch,
+/obj/item/clothing/head/yinglet/matriarch,
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "LI" = (
 /obj/machinery/light{
 	dir = 1
@@ -1896,6 +1942,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 5
+	},
+/obj/effect/landmark/start{
+	name = "Enclave Worker"
 	},
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
@@ -1967,7 +2016,7 @@
 /obj/item/stack/material/rods,
 /obj/item/cell/crap/empty,
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Qv" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1999,9 +2048,12 @@
 	},
 /obj/item/crowbar/red,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start{
+	name = "Enclave Patriarch"
+	},
 /obj/item/stool/padded,
 /turf/simulated/floor,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Rr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2029,12 +2081,15 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/aft_starboard_underside_maint)
 "Sm" = (
+/obj/effect/landmark/start{
+	name = "Enclave Worker"
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ship/trade/loading_bay)
 "SC" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "SE" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2064,18 +2119,22 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Ua" = (
+/obj/effect/landmark/start{
+	name = "Enclave Matriarch"
+	},
 /obj/structure/bed/chair/wood/walnut,
 /turf/simulated/floor/carpet/red,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Ug" = (
 /obj/structure/curtain/medical,
 /turf/simulated/floor,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Ux" = (
+/obj/structure/yinglet_nest,
 /turf/simulated/floor/carpet/red,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "UF" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -2213,8 +2272,11 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/fore_port_underside_maint)
 "ZL" = (
+/obj/effect/landmark/start{
+	name = "Enclave Patriarch"
+	},
 /turf/simulated/floor/wood/walnut,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "ZR" = (
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed,

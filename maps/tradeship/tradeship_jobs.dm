@@ -10,28 +10,36 @@
 		/datum/job/assistant,
 		/datum/job/tradeship_engineer,
 		/datum/job/tradeship_doctor/head,
-		/datum/job/tradeship_researcher
+		/datum/job/tradeship_researcher,
+		/datum/job/yinglet/worker,
+		/datum/job/yinglet/scout,
+		/datum/job/yinglet/patriarch,
+		/datum/job/yinglet/matriarch
 	)
-
-/obj/machinery/suit_cycler/tradeship
-	boots = /obj/item/clothing/shoes/magboots
-	req_access = list()
-
-/obj/machinery/suit_cycler/tradeship/Initialize()
-	if(prob(75))
-		suit = pick(list(
-			/obj/item/clothing/suit/space/void/mining, 
-			/obj/item/clothing/suit/space/void/engineering, 
-			/obj/item/clothing/suit/space/void/pilot, 
-			/obj/item/clothing/suit/space/void/excavation, 
-			/obj/item/clothing/suit/space/void/engineering/salvage
-		))
-	if(prob(75))
-		helmet = pick(list(
-			/obj/item/clothing/head/helmet/space/void/mining, 
-			/obj/item/clothing/head/helmet/space/void/engineering, 
-			/obj/item/clothing/head/helmet/space/void/pilot, 
-			/obj/item/clothing/head/helmet/space/void/excavation, 
-			/obj/item/clothing/head/helmet/space/void/engineering/salvage
-		))
-	. = ..()
+	species_to_job_whitelist = list(
+		/datum/species/baxxid = list(
+			/datum/job/assistant
+		),
+		/datum/species/yinglet = list(
+			/datum/job/yinglet/worker,
+			/datum/job/yinglet/scout,
+			/datum/job/yinglet/patriarch,
+			/datum/job/yinglet/matriarch,
+			/datum/job/assistant,
+			/datum/job/tradeship_engineer,
+			/datum/job/cyborg,
+			/datum/job/tradeship_doctor,
+			/datum/job/tradeship_researcher
+		),
+		/datum/species/yinglet/southern = list(
+			/datum/job/yinglet/worker,
+			/datum/job/yinglet/scout,
+			/datum/job/yinglet/patriarch,
+			/datum/job/yinglet/matriarch,
+			/datum/job/assistant,
+			/datum/job/tradeship_engineer,
+			/datum/job/cyborg,
+			/datum/job/tradeship_doctor,
+			/datum/job/tradeship_researcher
+		)
+	)
