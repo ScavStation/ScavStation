@@ -1,4 +1,4 @@
-/decl/material/plastic
+/decl/material/solid/plastic
 	name = "plastic"
 	lore_text = "A generic polymeric material. Probably the most flexible and useful substance ever created by human science; mostly used to make disposable cutlery."
 	stack_type = /obj/item/stack/material/plastic
@@ -7,27 +7,38 @@
 	icon_reinf = "reinf_over"
 	color = COLOR_EGGSHELL
 	hardness = MAT_VALUE_SOFT
-	weight = MAT_VALUE_EXTREMELY_LIGHT
+	weight = MAT_VALUE_LIGHT
 	melting_point = T0C+371 //assuming heat resistant plastic
 	stack_origin_tech = "{'materials':3}"
 	conductive = 0
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
-	dissolves_into = list(
-		/decl/material/chem/toxin/plasticide = 1
-	)
 	reflectiveness = MAT_VALUE_SHINY
-	wall_support_value = 10
+	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
+	taste_description = "plastic"
+	taste_description = "plastic"
 
-/decl/material/plastic/holographic
+/decl/material/solid/plastic/generate_recipes(var/reinforce_material)
+	. = ..()
+	if(reinforce_material)	//recipes below don't support composite materials
+		return
+	. += new/datum/stack_recipe/furniture/crate/plastic(src)
+	. += new/datum/stack_recipe/bag(src)
+	. += new/datum/stack_recipe/ivbag(src)
+	. += create_recipe_list(/datum/stack_recipe/cartridge)
+	. += create_recipe_list(/datum/stack_recipe/tile/light)
+	. += new/datum/stack_recipe/hazard_cone(src)
+	. += new/datum/stack_recipe/furniture/flaps(src)
+
+/decl/material/solid/plastic/holographic
 	name = "holographic plastic"
 	stack_type = null
 	shard_type = SHARD_NONE
 	hidden_from_codex = TRUE
 
-/decl/material/plastic/holographic/get_recipes(reinf_mat)
+/decl/material/solid/plastic/holographic/get_recipes(reinf_mat)
 	return list()
 
-/decl/material/cardboard
+/decl/material/solid/cardboard
 	name = "cardboard"
 	lore_text = "What with the difficulties presented by growing plants in orbit, a stock of cardboard in space is probably more valuable than gold."
 	stack_type = /obj/item/stack/material/cardboard
@@ -47,9 +58,18 @@
 	conductive = 0
 	value = 0.5
 	reflectiveness = MAT_VALUE_DULL
-	wall_support_value = 0
+	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 
-/decl/material/cloth //todo
+/decl/material/solid/cardboard/generate_recipes(var/reinforce_material)
+	. = ..()
+	if(reinforce_material)	//recipes below don't support composite materials
+		return
+	. += create_recipe_list(/datum/stack_recipe/box)
+	. += new/datum/stack_recipe/cardborg_suit(src)
+	. += new/datum/stack_recipe/cardborg_helmet(src)
+	. += new/datum/stack_recipe_list("folders", create_recipe_list(/datum/stack_recipe/folder))
+
+/decl/material/solid/cloth //todo
 	name = "cotton"
 	use_name = "cotton"
 	color = "#ffffff"
@@ -66,49 +86,49 @@
 	reflectiveness = MAT_VALUE_DULL
 	hardness = MAT_VALUE_SOFT
 	weight = MAT_VALUE_EXTREMELY_LIGHT
-	wall_support_value = 0
+	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 
-/decl/material/cloth/yellow
+/decl/material/solid/cloth/yellow
 	name = "yellow"
 	use_name = "yellow cloth"
 	color = "#ffbf00"
 
-/decl/material/cloth/teal
+/decl/material/solid/cloth/teal
 	name = "teal"
 	use_name = "teal cloth"
 	color = "#00e1ff"
 
-/decl/material/cloth/black
+/decl/material/solid/cloth/black
 	name = "black"
 	use_name = "black cloth"
 	color = "#505050"
 
-/decl/material/cloth/green
+/decl/material/solid/cloth/green
 	name = "green"
 	use_name = "green cloth"
 	color = "#b7f27d"
 
-/decl/material/cloth/purple
+/decl/material/solid/cloth/purple
 	name = "purple"
 	use_name = "purple cloth"
 	color = "#9933ff"
 
-/decl/material/cloth/blue
+/decl/material/solid/cloth/blue
 	name = "blue"
 	use_name = "blue cloth"
 	color = "#46698c"
 
-/decl/material/cloth/beige
+/decl/material/solid/cloth/beige
 	name = "beige"
 	use_name = "beige cloth"
 	color = "#ceb689"
 
-/decl/material/cloth/lime
+/decl/material/solid/cloth/lime
 	name = "lime"
 	use_name = "lime cloth"
 	color = "#62e36c"
 
-/decl/material/carpet
+/decl/material/solid/carpet
 	name = "red"
 	use_name = "red upholstery"
 	color = "#9d2300"
@@ -123,10 +143,10 @@
 	reflectiveness = MAT_VALUE_DULL
 	hardness = MAT_VALUE_SOFT
 	weight = MAT_VALUE_EXTREMELY_LIGHT
-	wall_support_value = 0
+	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	hidden_from_codex = TRUE
 
-/decl/material/skin
+/decl/material/solid/skin
 	name = "skin"
 	stack_type = /obj/item/stack/material/generic/skin
 	color = "#9e8c72"
@@ -141,18 +161,25 @@
 	weight = MAT_VALUE_EXTREMELY_LIGHT
 	explosion_resistance = 1
 	reflectiveness = MAT_VALUE_DULL
-	wall_support_value = 0
+	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	value = 1.2
 	var/tans_to = MAT_LEATHER_GENERIC
 
-/decl/material/skin/lizard
+/decl/material/solid/skin/generate_recipes(var/reinforce_material)
+	. = ..()
+	if(reinforce_material)	//recipes below don't support composite materials
+		return
+	. += new/datum/stack_recipe/cloak(src)
+	. += new/datum/stack_recipe/shoes(src)
+
+/decl/material/solid/skin/lizard
 	name = "lizardskin"
 	color = "#626952"
 	tans_to = MAT_LEATHER_LIZARD
 	hardness = MAT_VALUE_FLEXIBLE
 	weight = MAT_VALUE_VERY_LIGHT
 
-/decl/material/skin/insect
+/decl/material/solid/skin/insect
 	name = "chitin"
 	color = "#7a776d"
 	tans_to = MAT_LEATHER_CHITIN
@@ -161,63 +188,64 @@
 	weight = MAT_VALUE_VERY_LIGHT
 	brute_armor = 2
 
-/decl/material/skin/fur
+/decl/material/solid/skin/fur
 	name = "fur"
 	color = "#7a726d"
 	tans_to = MAT_LEATHER_FUR
-/decl/material/skin/fur/gray
 
-/decl/material/skin/fur/white
+/decl/material/solid/skin/fur/gray
 
-/decl/material/skin/fur/orange
+/decl/material/solid/skin/fur/white
+
+/decl/material/solid/skin/fur/orange
 	color = COLOR_ORANGE
 
-/decl/material/skin/fur/black
+/decl/material/solid/skin/fur/black
 	color = COLOR_GRAY20
 
-/decl/material/skin/fur/heavy
+/decl/material/solid/skin/fur/heavy
 	color = COLOR_GUNMETAL
 
-/decl/material/skin/goat
+/decl/material/solid/skin/goat
 	color = COLOR_SILVER
 
-/decl/material/skin/cow
+/decl/material/solid/skin/cow
 	color = COLOR_GRAY40
 
-/decl/material/skin/shark
+/decl/material/solid/skin/shark
 	name = "sharkskin"
 	color = COLOR_PURPLE_GRAY
 
-/decl/material/skin/fish
+/decl/material/solid/skin/fish
 	color = COLOR_BOTTLE_GREEN
 	name = "fishskin"
 
-/decl/material/skin/fish/purple
+/decl/material/solid/skin/fish/purple
 	color = COLOR_PALE_PURPLE_GRAY
 
-/decl/material/skin/feathers
+/decl/material/solid/skin/feathers
 	name = "feathers"
 	color = COLOR_SILVER
 
-/decl/material/skin/feathers/purple
+/decl/material/solid/skin/feathers/purple
 	color = COLOR_PALE_PURPLE_GRAY
 
-/decl/material/skin/feathers/blue
+/decl/material/solid/skin/feathers/blue
 	color = COLOR_SKY_BLUE
 
-/decl/material/skin/feathers/green
+/decl/material/solid/skin/feathers/green
 	color = COLOR_BOTTLE_GREEN
 
-/decl/material/skin/feathers/brown
+/decl/material/solid/skin/feathers/brown
 	color = COLOR_BEASTY_BROWN
 
-/decl/material/skin/feathers/red
+/decl/material/solid/skin/feathers/red
 	color = COLOR_RED
 
-/decl/material/skin/feathers/black
+/decl/material/solid/skin/feathers/black
 	color = COLOR_GRAY15
 
-/decl/material/bone
+/decl/material/solid/bone
 	name = "bone"
 	sheet_singular_name = "length"
 	sheet_plural_name = "lengths"
@@ -231,21 +259,21 @@
 	hitsound = 'sound/weapons/smash.ogg'
 	integrity = 75
 	hardness = MAT_VALUE_RIGID
-	weight = MAT_VALUE_LIGHT
 	reflectiveness = MAT_VALUE_MATTE
-	wall_support_value = 22
+	weight = MAT_VALUE_NORMAL
+	wall_support_value = MAT_VALUE_NORMAL
 
-/decl/material/bone/fish
+/decl/material/solid/bone/fish
 	name = "fishbone"
 	hardness = MAT_VALUE_FLEXIBLE
 	weight = MAT_VALUE_VERY_LIGHT
 
-/decl/material/bone/cartilage
+/decl/material/solid/bone/cartilage
 	name = "cartilage"
 	hardness = 0
 	weight = MAT_VALUE_EXTREMELY_LIGHT
 
-/decl/material/leather
+/decl/material/solid/leather
 	name = "leather"
 	color = "#5c4831"
 	stack_origin_tech = "{'materials':2}"
@@ -260,15 +288,23 @@
 	hardness = MAT_VALUE_FLEXIBLE
 	weight = MAT_VALUE_EXTREMELY_LIGHT
 	reflectiveness = MAT_VALUE_MATTE
-	wall_support_value = 0
+	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 
-/decl/material/leather/synth
+/decl/material/solid/leather/generate_recipes(var/reinforce_material)
+	. = ..()
+	if(reinforce_material)	//recipes below don't support composite materials
+		return
+	. += new/datum/stack_recipe/cloak(src)
+	. += new/datum/stack_recipe/shoes(src)
+	. += new/datum/stack_recipe/boots(src)
+
+/decl/material/solid/leather/synth
 	name = "synthleather"
 	color = "#1f1f20"
 	ignition_point = T0C+150
 	melting_point = T0C+100
 
-/decl/material/leather/lizard
+/decl/material/solid/leather/lizard
 	name = "scaled hide"
 	color = "#434b31"
 	integrity = 75
@@ -276,14 +312,14 @@
 	weight = MAT_VALUE_LIGHT
 	reflectiveness = MAT_VALUE_SHINY
 
-/decl/material/leather/fur
+/decl/material/solid/leather/fur
 	name = "tanned pelt"
 
-/decl/material/leather/chitin
+/decl/material/solid/leather/chitin
 	name = "treated chitin"
 	integrity = 100
 	color = "#5c5a54"
 	hardness = MAT_VALUE_HARD
 	weight = MAT_VALUE_NORMAL
 	brute_armor = 2
-	wall_support_value = 14
+	wall_support_value = MAT_VALUE_NORMAL

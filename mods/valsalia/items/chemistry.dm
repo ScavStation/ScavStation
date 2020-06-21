@@ -1,8 +1,8 @@
-/decl/material/chem/nutriment/slime_meat/affect_overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+/decl/material/liquid/nutriment/slime_meat/affect_overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(alien == IS_YINGLET)
-		M.reagents.add_reagent(/decl/material/chem/psychoactives, 0.1)
+		M.reagents.add_reagent(/decl/material/liquid/psychoactives, 0.1)
 
-/decl/material/chem/nutriment/slime_meat/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/material/liquid/nutriment/slime_meat/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_YINGLET)
 		nutriment_factor = 12
 		M.add_chemical_effect(CE_PAINKILLER, 15)
@@ -13,7 +13,7 @@
 // This is an appalingly bad way to handle per-species values but it is being inherited from
 // a pre-decl reagent system - will need to rewrite nutriment to pass these values into data
 // to do it properly, long-term TODO.
-/decl/material/chem/nutriment/bread/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder)
+/decl/material/liquid/nutriment/bread/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder)
 	if(ishuman(M) && alien == IS_YINGLET) 
 		// Yings do not process bread or breadlike substances well.
 		ingest_met =       0.1 // Make sure there's something to 
@@ -28,7 +28,7 @@
 		// Process as normal.
 		. = ..()
 
-/decl/material/chem/nutriment/bread/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/material/liquid/nutriment/bread/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M) && alien == IS_YINGLET && prob(ying_puke_prob) && !M.lastpuke)
 		to_chat(M, SPAN_WARNING("Your gut churns as it struggles to digest \the [lowertext(name)]..."))
 		var/mob/living/carbon/human/H = M
@@ -36,27 +36,27 @@
 		return
 	. = ..()
 
-/decl/material/chem/nutriment/bread
+/decl/material/liquid/nutriment/bread
 	var/ying_puke_prob = 35
 
-/decl/material/chem/nutriment/bread/cake
+/decl/material/liquid/nutriment/bread/cake
 	ying_puke_prob = 15
 
-/decl/material/chem/nutriment/soggy_food
+/decl/material/liquid/nutriment/soggy_food
 	name = "soggy food"
 	taste_description = "blandness"
 
 /datum/chemical_reaction/recipe/soggy_food
 	name = "Soggy Bread"
-	result = /decl/material/chem/nutriment/soggy_food
-	required_reagents = list(/decl/material/chem/nutriment/bread = 1)
+	result = /decl/material/liquid/nutriment/soggy_food
+	required_reagents = list(/decl/material/liquid/nutriment/bread = 1)
 	result_amount = 1
 	mix_message = "The food softens into a soggy mess."
 	hidden_from_codex = TRUE
 	var/global/list/can_make_soggy = list(
-		/decl/material/chem/drink,
-		/decl/material/chem/ethanol,
-		/decl/material/gas/water
+		/decl/material/liquid/drink,
+		/decl/material/liquid/ethanol,
+		/decl/material/liquid/water
 	)
 
 /datum/chemical_reaction/recipe/soggy_food/can_happen(datum/reagents/holder)
@@ -76,9 +76,9 @@
 
 /datum/chemical_reaction/recipe/soggy_food/cake
 	name = "Soggy Cake"
-	required_reagents = list(/decl/material/chem/nutriment/bread/cake = 1)
+	required_reagents = list(/decl/material/liquid/nutriment/bread/cake = 1)
 
-/decl/material/chem/drink/mutagencola
+/decl/material/liquid/drink/mutagencola
 	lore_text = "The energy of a yinglet in beverage form. Effects on yinglets undocumented."
 	taste_description = "the lifespan of a scav"
 	glass_desc = "The unstable energy of a yinglet in beverage form. Effects on yinglets undocumented."

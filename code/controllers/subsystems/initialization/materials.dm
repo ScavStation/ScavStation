@@ -10,8 +10,6 @@ SUBSYSTEM_DEF(materials)
 	var/list/alloy_products
 	var/list/processable_ores
 	var/list/fusion_reactions
-	var/list/all_gasses
-	var/list/gas_flag_cache
 	var/list/weighted_minerals_sparse = list()
 	var/list/weighted_minerals_rich = list()
 
@@ -64,16 +62,6 @@ SUBSYSTEM_DEF(materials)
 	. = ..()
 
 /datum/controller/subsystem/materials/proc/build_gas_lists()
-	all_gasses = list()
-	gas_flag_cache = list()
-	for(var/thing in materials_by_name)
-		var/decl/material/mat = materials_by_name[thing]
-		if(mat.is_a_gas())
-			all_gasses[thing] = mat
-			gas_flag_cache[thing] = mat.gas_flags
-
-/datum/controller/subsystem/materials/proc/get_gas_flags(var/id)
-	. = gas_flag_cache[id]
 
 /datum/controller/subsystem/materials/proc/build_material_lists()
 
@@ -140,9 +128,9 @@ SUBSYSTEM_DEF(materials)
 			return
 
 /datum/controller/subsystem/materials/proc/get_random_chem(var/only_if_unique = FALSE, temperature = T20C)
-	var/list/all_random_reagents = decls_repository.get_decls_of_type(/decl/material/chem/random)
+	var/list/all_random_reagents = decls_repository.get_decls_of_type(/decl/material/liquid/random)
 	for(var/rtype in all_random_reagents)
-		var/decl/material/chem/random/random = all_random_reagents[rtype]
+		var/decl/material/liquid/random/random = all_random_reagents[rtype]
 		if(only_if_unique && random.initialized)
 			continue
 		if(random.randomize_data(temperature))

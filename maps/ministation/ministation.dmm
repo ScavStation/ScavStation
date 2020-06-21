@@ -8748,8 +8748,8 @@
 /obj/item/stack/material/glass{
 	amount = 50
 	},
-/obj/item/airlock_electronics,
-/obj/item/airlock_electronics,
+/obj/item/stock_parts/circuitboard/airlock_electronics,
+/obj/item/stock_parts/circuitboard/airlock_electronics,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -5;
 	pixel_y = 30
@@ -13997,8 +13997,8 @@
 "HI" = (
 /obj/structure/table/standard,
 /obj/item/stack/cable_coil,
-/obj/item/airlock_electronics,
-/obj/item/airlock_electronics,
+/obj/item/stock_parts/circuitboard/airlock_electronics,
+/obj/item/stock_parts/circuitboard/airlock_electronics,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "HJ" = (

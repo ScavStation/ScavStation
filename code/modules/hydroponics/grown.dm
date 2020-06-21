@@ -47,7 +47,7 @@
 			var/list/data = list()
 			if(reagent_data.len > 1 && potency > 0)
 				rtotal += round(potency/reagent_data[2])
-			if(rid == /decl/material/chem/nutriment)
+			if(rid == /decl/material/liquid/nutriment)
 				data[seed.seed_name] = max(1,rtotal)
 			reagents.add_reagent(rid,max(1,rtotal),data)
 	update_desc()
@@ -68,35 +68,24 @@
 	if(SSplants.product_descs["[seed.uid]"])
 		desc = SSplants.product_descs["[seed.uid]"]
 	else
+
 		var/list/descriptors = list()
-		if(reagents.has_reagent(/decl/material/chem/nutriment/sugar) || reagents.has_reagent(/decl/material/chem/nutriment/cherryjelly) || reagents.has_reagent(/decl/material/chem/nutriment/honey) || reagents.has_reagent(/decl/material/chem/drink/juice/berry))
-			descriptors |= "sweet"
-		if(reagents.has_reagent(/decl/material/chem/antitoxins))
-			descriptors |= "astringent"
-		if(reagents.has_reagent(/decl/material/chem/frostoil))
-			descriptors |= "numbing"
-		if(reagents.has_reagent(/decl/material/chem/nutriment))
-			descriptors |= "nutritious"
-		if(reagents.has_reagent(/decl/material/chem/capsaicin/condensed) || reagents.has_reagent(/decl/material/chem/capsaicin))
-			descriptors |= "spicy"
-		if(reagents.has_reagent(/decl/material/chem/nutriment/coco))
-			descriptors |= "bitter"
-		if(reagents.has_reagent(/decl/material/chem/drink/juice/orange) || reagents.has_reagent(/decl/material/chem/drink/juice/lemon) || reagents.has_reagent(/decl/material/chem/drink/juice/lime))
-			descriptors |= "sweet-sour"
-		if(reagents.has_reagent(/decl/material/chem/radium) || reagents.has_reagent(/decl/material/uranium))
-			descriptors |= "radioactive"
-		if(reagents.has_reagent(/decl/material/chem/toxin/amatoxin) || reagents.has_reagent(/decl/material/chem/toxin))
-			descriptors |= "poisonous"
-		if(reagents.has_reagent(/decl/material/chem/psychotropics) || reagents.has_reagent(/decl/material/chem/psychoactives))
-			descriptors |= "hallucinogenic"
-		if(reagents.has_reagent(/decl/material/chem/brute_meds))
-			descriptors |= "medicinal"
-		if(reagents.has_reagent(/decl/material/gold))
-			descriptors |= "shiny"
-		if(reagents.has_reagent(/decl/material/chem/lube))
-			descriptors |= "slippery"
-		if(reagents.has_reagent(/decl/material/chem/acid/polyacid) || reagents.has_reagent(/decl/material/chem/acid) || reagents.has_reagent(/decl/material/chem/acid/hydrochloric))
-			descriptors |= "acidic"
+
+		for(var/rtype in reagents.reagent_volumes)
+			var/decl/material/chem = decls_repository.get_decl(rtype)
+			if(chem.fruit_descriptor)
+				descriptors |= chem.fruit_descriptor
+			if(chem.reflectiveness >= MAT_VALUE_SHINY)
+				descriptors |= "shiny"
+			if(chem.slipperiness >= 10)
+				descriptors |= "slippery"
+			if(chem.toxicity >= 3)
+				descriptors |= "poisonous"
+			if(chem.radioactivity)
+				descriptors |= "radioactive"
+			if(chem.solvent_power >= MAT_SOLVENT_STRONG)
+				descriptors |= "acidic"
+
 		if(seed.get_trait(TRAIT_JUICY))
 			descriptors |= "juicy"
 		if(seed.get_trait(TRAIT_STINGS))
@@ -180,26 +169,26 @@
 				return
 			else if(seed.chems)
 				if(isHatchet(W))
-					if(!isnull(seed.chems[/decl/material/wood]))
+					if(!isnull(seed.chems[/decl/material/solid/wood]))
 						user.visible_message("<span class='notice'>\The [user] makes planks out of \the [src].</span>")
 						new /obj/item/stack/material/wood(user.loc)
 						qdel(src)
-					else if(!isnull(seed.chems[/decl/material/wood/bamboo]))
+					else if(!isnull(seed.chems[/decl/material/solid/wood/bamboo]))
 						user.visible_message("<span class='notice'>\The [user] makes planks out of \the [src].</span>")
 						new /obj/item/stack/material/wood/bamboo(user.loc)
 						qdel(src)
 					return
-				else if(!isnull(seed.chems[/decl/material/chem/drink/juice/potato]))
+				else if(!isnull(seed.chems[/decl/material/liquid/drink/juice/potato]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/chems/food/snacks/rawsticks(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems[/decl/material/chem/drink/juice/carrot]))
+				else if(!isnull(seed.chems[/decl/material/liquid/drink/juice/carrot]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/chems/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems[/decl/material/chem/drink/milk/soymilk]))
+				else if(!isnull(seed.chems[/decl/material/liquid/drink/milk/soymilk]))
 					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/chems/food/snacks/soydope(get_turf(src))
 					qdel(src)

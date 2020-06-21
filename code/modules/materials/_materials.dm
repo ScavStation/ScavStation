@@ -70,7 +70,6 @@
 	var/flags = 0                         // Various status modifiers.
 	var/sheet_singular_name = "sheet"
 	var/sheet_plural_name = "sheets"
-	var/is_fusion_fuel
 	var/hidden_from_codex
 	var/lore_text
 	var/mechanics_text
@@ -100,6 +99,7 @@
 	var/radioactivity            // Radiation var. Used in wall and object processing to irradiate surroundings.
 	var/ignition_point           // K, point at which the material catches on fire.
 	var/melting_point = 1800     // K, walls will take damage if they're next to a fire hotter than this
+	var/boiling_point = 3000     // K, point that material will become a gas.
 	var/brute_armor = 2	 		 // Brute damage to a wall is divided by this value if the wall is reinforced by this material.
 	var/burn_armor				 // Same as above, but for Burn damage type. If blank brute_armor's value is used.
 	var/integrity = 150          // General-use HP value for products.
@@ -111,10 +111,6 @@
 	var/wall_support_value = 30
 	var/sparse_material_weight
 	var/rich_material_weight
-
-	// Placeholder vars for the time being, todo properly integrate windows/light tiles/rods.
-	var/wire_product
-	var/list/window_options = list()
 
 	// Damage values.
 	var/hardness = MAT_VALUE_HARD            // Prob of wall destruction by hulk, used for edge damage in weapons.
@@ -150,7 +146,7 @@
 	var/value = 1
 
 	// Xenoarch behavior.
-	var/xarch_source_mineral = /decl/material/iron
+	var/xarch_source_mineral = /decl/material/solid/metal/iron
 
 	// Gas behavior.
 	var/gas_overlay_limit
@@ -175,15 +171,20 @@
 	var/touch_met = 0
 	var/overdose = 0
 	var/scannable = 0 // Shows up on health analyzers.
-	var/color = "#000000"
+	var/color = COLOR_BEIGE
 	var/color_weight = 1
 	var/alpha = 255
 	var/cocktail_ingredient
+	var/defoliant
+	var/fruit_descriptor // String added to fruit desc if this chemical is present.
 
 	var/dirtiness = DIRTINESS_NEUTRAL // How dirty turfs are after being exposed to this material. Negative values cause a cleaning/sterilizing effect.
 	var/solvent_power = MAT_SOLVENT_NONE
 	var/solvent_melt_dose = 0
 	var/solvent_max_damage  = 0
+	var/slipperiness
+	var/euphoriant // If set, ingesting/injecting this material will cause the rainbow high overlay/behavior.
+	var/euphoriant_max // Set a cap on how much drugged state the material can cause.
 
 	var/glass_icon = DRINK_ICON_DEFAULT
 	var/glass_name = "something"
@@ -200,11 +201,13 @@
 	var/chilling_message = "crackles and freezes!"
 	var/chilling_sound = 'sound/effects/bubbles.ogg'
 	var/list/chilling_products
+	var/bypass_cooling_products_for_root_type
 
-	var/list/heating_products
 	var/heating_point
 	var/heating_message = "begins to boil!"
 	var/heating_sound = 'sound/effects/bubbles.ogg'
+	var/list/heating_products
+	var/bypass_heating_products_for_root_type
 	var/fuel_value = 0
 
 	var/list/vapor_products // If splashed, releases these gasses in these proportions. // TODO add to unit test after solvent PR is merged
@@ -238,20 +241,6 @@
 	S.update_icon()
 	S.dropInto(target_stack.loc)
 
-/decl/material/proc/build_wired_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
-	if(!wire_product)
-		to_chat(user, SPAN_WARNING("You cannot make anything out of \the [target_stack]."))	
-		return
-	if(!used_stack.can_use(5) || !target_stack.can_use(1))
-		to_chat(user, SPAN_WARNING("You need five wires and one sheet of [name] to make anything useful."))
-		return
-
-	used_stack.use(5)
-	target_stack.use(1)
-	to_chat(user, SPAN_NOTICE("You attach wire to the [name]."))
-	var/obj/item/product = new wire_product(get_turf(user))
-	if(!(user.l_hand && user.r_hand))
-		user.put_in_hands(product)
 
 // Make sure we have a use name and shard icon even if they aren't explicitly set.
 /decl/material/Initialize()
@@ -270,6 +259,7 @@
 		shard_icon = shard_type
 	if(!burn_armor)
 		burn_armor = brute_armor
+
 	generate_armor_values()
 	var/list/cocktails = decls_repository.get_decls_of_subtype(/decl/cocktail)
 	for(var/ctype in cocktails)
@@ -283,9 +273,6 @@
 	var/list/temp_matter = list()
 	temp_matter[type] = SHEET_MATERIAL_AMOUNT
 	return temp_matter
-
-/decl/material/proc/is_a_gas()
-	. = !isnull(gas_specific_heat) && !isnull(gas_molar_mass) // Arbitrary but good enough.
 
 // Weapons handle applying a divisor for this value locally.
 /decl/material/proc/get_blunt_damage()
@@ -347,9 +334,10 @@
 /decl/material/proc/on_leaving_metabolism(var/mob/parent, var/metabolism_class)
 	return
 
+#define ACID_MELT_DOSE 10
 /decl/material/proc/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder) // Acid melting, cleaner cleaning, etc
 
-	if(solvent_power > MAT_SOLVENT_MILD)
+	if(solvent_power >= MAT_SOLVENT_MILD)
 		if(istype(O, /obj/item/paper))
 			var/obj/item/paper/paperaffected = O
 			paperaffected.clearpaper()
@@ -376,6 +364,9 @@
 	if(dirtiness <= DIRTINESS_CLEAN)
 		O.clean_blood()
 
+	if(defoliant && istype(O, /obj/effect/vine))
+		qdel(O)
+
 #define FLAMMABLE_LIQUID_DIVISOR 7
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /decl/material/proc/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
@@ -385,30 +376,39 @@
 
 /decl/material/proc/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
 
-	if(dirtiness != DIRTINESS_NEUTRAL && istype(T, /turf/simulated) && REAGENT_VOLUME(holder, type) >= 1)
-
-		if(dirtiness > DIRTINESS_NEUTRAL)
-			var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate() in T
-			if (!dirtoverlay)
-				dirtoverlay = new /obj/effect/decal/cleanable/dirt(T)
-				dirtoverlay.alpha = REAGENT_VOLUME(holder, src) * dirtiness
+	if(istype(T, /turf/simulated))
+		var/turf/simulated/wall/W = T
+		if(defoliant)
+			for(var/obj/effect/overlay/wallrot/E in W)
+				W.visible_message(SPAN_NOTICE("\The [E] is completely dissolved by the solution!"))
+				qdel(E)
+		if(slipperiness != 0 && REAGENT_VOLUME(holder, type) >= 5)
+			if(slipperiness < 0)
+				W.unwet_floor(TRUE)
 			else
-				dirtoverlay.alpha = min(dirtoverlay.alpha + REAGENT_VOLUME(holder, src) * dirtiness, 255)
-		else
-			if(dirtiness <= DIRTINESS_STERILE)
-				T.germ_level -= min(REAGENT_VOLUME(holder, type)*20, T.germ_level)
-				for(var/obj/item/I in T.contents)
-					I.was_bloodied = null
-				for(var/obj/effect/decal/cleanable/blood/B in T)
-					qdel(B)
-			if(dirtiness <= DIRTINESS_CLEAN)
-				var/turf/simulated/S = T
-				S.dirt = 0
-				if(S.wet > 1)
-					S.unwet_floor(FALSE)
-				T.clean_blood()
-				for(var/mob/living/carbon/slime/M in T)
-					M.adjustToxLoss(rand(5, 10))
+				W.wet_floor(slipperiness)
+		if(dirtiness != DIRTINESS_NEUTRAL && REAGENT_VOLUME(holder, type) >= 1)
+			if(dirtiness > DIRTINESS_NEUTRAL)
+				var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate() in W
+				if (!dirtoverlay)
+					dirtoverlay = new /obj/effect/decal/cleanable/dirt(W)
+					dirtoverlay.alpha = REAGENT_VOLUME(holder, src) * dirtiness
+				else
+					dirtoverlay.alpha = min(dirtoverlay.alpha + REAGENT_VOLUME(holder, src) * dirtiness, 255)
+			else
+				if(dirtiness <= DIRTINESS_STERILE)
+					W.germ_level -= min(REAGENT_VOLUME(holder, type)*20, T.germ_level)
+					for(var/obj/item/I in W.contents)
+						I.was_bloodied = null
+					for(var/obj/effect/decal/cleanable/blood/B in W)
+						qdel(B)
+				if(dirtiness <= DIRTINESS_CLEAN)
+					W.dirt = 0
+					if(W.wet > 1)
+						W.unwet_floor(FALSE)
+					W.clean_blood()
+					for(var/mob/living/carbon/slime/M in W)
+						M.adjustToxLoss(rand(5, 10))
 
 	if(length(vapor_products))
 		var/volume = REAGENT_VOLUME(holder, type)
@@ -416,6 +416,7 @@
 		for(var/vapor in vapor_products)
 			T.assume_gas(vapor, (volume * vapor_products[vapor]), temperature)
 		holder.remove_reagent(type, volume)
+
 /decl/material/proc/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
 	if(QDELETED(src))
 		return // Something else removed us.
@@ -482,6 +483,9 @@
 			M.SelfMove(pick(GLOB.cardinal))
 		if(prob(narcosis))
 			M.emote(pick("twitch", "drool", "moan"))
+
+	if(euphoriant)
+		M.adjust_drugged(euphoriant, euphoriant_max)
 
 /decl/material/proc/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	affect_blood(M, alien, removed * 0.5, holder)
@@ -585,5 +589,5 @@
 			if(cocktail.matches(prop))
 				return cocktail.get_presentation_name(prop)
 
-	if(prop.reagents.has_reagent(/decl/material/gas/water/ice))
+	if(prop.reagents.has_reagent(/decl/material/solid/ice))
 		. = "iced [.]"

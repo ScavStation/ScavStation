@@ -27,11 +27,16 @@
 /decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/carbon/human/H, var/title)
 	if(!H || H.species.get_bodytype(H) != BODYTYPE_YINGLET)
 		return
+	var/previous_suit = H.wear_suit
+	if(previous_suit)
+		H.unEquip(previous_suit)
 	if(shoes && !H.shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/yinglet(H), slot_shoes)
 	if(uniform && !H.w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/yinglet(H), slot_w_uniform)
-	if(suit && !H.wear_suit && yinglet_suit_fallback)
+	if(previous_suit)
+		H.equip_to_slot_if_possible(previous_suit, slot_wear_suit)
+	else if(suit && yinglet_suit_fallback)
 		var/datum/job/J = SSjobs.get_by_title(title)
 		if(J && J.head_position)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer, slot_wear_suit)
@@ -39,6 +44,5 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/yinglet, slot_wear_suit)
 
 /decl/hierarchy/outfit/job/equip(mob/living/carbon/human/H, rank, assignment, equip_adjustments)
-	try_give_yinglet_fallbacks(H, rank)
 	. = ..()
 	try_give_yinglet_fallbacks(H, rank)

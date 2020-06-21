@@ -1,8 +1,8 @@
 var/list/default_strata_type_by_z = list()
 var/list/default_material_by_strata_and_z = list()
 var/list/default_strata_types = list()
-
 var/list/natural_walls = list()
+
 /turf/simulated/wall/natural
 	name = "wall"
 	material = null
@@ -10,6 +10,9 @@ var/list/natural_walls = list()
 	girder_material = null
 	construction_stage = -1
 	floor_type = /turf/simulated/floor/asteroid
+	blend_objects = null
+	noblend_objects = null
+
 	var/strata
 	var/image/ore_overlay
 
@@ -123,7 +126,8 @@ var/list/natural_walls = list()
 /turf/simulated/wall/natural/on_update_icon()
 	. = ..()
 	if(material?.reflectiveness > 0)
-		var/shine = Clamp((material.reflectiveness * 0.01) * 255, 10, 230)
+		var/max_shine = 0.6 * ReadHSV(RGBtoHSV(material.color))[3] // patened formula based on color's Value (in HSV)
+		var/shine = Clamp((material.reflectiveness * 0.01) * 255, 10, max_shine)
 		for(var/i = 1 to 4)
 			var/image/I = image(icon, "rockshine[wall_connections[i]]", dir = 1<<(i-1))
 			I.appearance_flags |= RESET_ALPHA
