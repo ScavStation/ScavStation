@@ -7,13 +7,13 @@
 	name = "scav stomach"
 	var/global/list/gains_nutriment_from_inedible_reagents = list(
 		/decl/material/wood =      3,
-		/decl/material/chem/anfo/plus =     2,
-		/decl/material/chem/anfo =          1,
-		/decl/material/chem/lube =          1,
-		/decl/material/chem/cleaner =       1,
-		/decl/material/chem/foaming_agent = 1,
-		/decl/material/chem/surfactant =    1,
-		/decl/material/chem/paint =         1
+		/decl/material/liquid/anfo/plus =     2,
+		/decl/material/liquid/anfo =          1,
+		/decl/material/liquid/lube =          1,
+		/decl/material/liquid/cleaner =       1,
+		/decl/material/liquid/foaming_agent = 1,
+		/decl/material/liquid/surfactant =    1,
+		/decl/material/liquid/paint =         1
 	)
 	var/global/list/gains_nutriment_from_matter = list(
 		MAT_WOOD =            TRUE,

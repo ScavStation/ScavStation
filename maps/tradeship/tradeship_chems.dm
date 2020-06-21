@@ -1,8 +1,8 @@
-/decl/material/chem/amphetamines
+/decl/material/liquid/amphetamines
 	name = "altrac extract"
 	lore_text = "A crystalline powder refined from a number of different vegetable and plant sources. Serves a powerful, often illegal, stimulant."
 
-/decl/material/chem/painkillers
+/decl/material/liquid/painkillers
 	name = "bruisegrass extract"
 	lore_text = "A highly processed opiate-like painkiller refined from immature bruisegrass. Manufactured primarily by Great House Talleraine and exported across the known world."
 
