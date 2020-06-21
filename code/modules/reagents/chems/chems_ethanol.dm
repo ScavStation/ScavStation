@@ -14,7 +14,7 @@
 		/decl/material/liquid/ethanol = 0.75,
 		/decl/material/liquid/water =   0.25
 	)
-	bypass_heating_products_for_root_type = TRUE
+	bypass_heating_products_for_root_type = /decl/material/liquid/ethanol
 
 	chilling_message = "separates as its water content freezes, leaving pure ethanol."
 	chilling_point = T0C - 10
@@ -22,7 +22,7 @@
 		/decl/material/liquid/ethanol = 0.75,
 		/decl/material/liquid/water =   0.25
 	)
-	bypass_cooling_products_for_root_type = TRUE
+	bypass_cooling_products_for_root_type = /decl/material/liquid/ethanol
 
 	var/nutriment_factor = 0
 	var/hydration_factor = 0
