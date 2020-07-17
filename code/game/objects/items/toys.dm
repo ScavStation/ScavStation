@@ -136,7 +136,7 @@
 	name = "foam dart crossbow"
 	desc = "A weapon favored by many overactive children. Ages 8 and up."
 	on_mob_icon = 'icons/obj/guns/energy_crossbow.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
 	var/bullets = 5
@@ -277,10 +277,10 @@
 		src.add_fingerprint(user)
 		return
 
-/obj/item/material/sword/katana/toy
+/obj/item/sword/katana/toy
 	name = "toy katana"
 	desc = "Woefully underpowered in D20."
-	material = MAT_PLASTIC
+	material = /decl/material/solid/plastic
 
 /*
  * Snap pops
@@ -725,8 +725,8 @@
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
 
 /obj/item/toy/plushie/mouse
-	name = "snaprat plush"
-	desc = "A plushie of a snaprat! What was once considered a vile rodent is now your very best friend."
+	name = "mouse plush"
+	desc = "A plushie of a mouse! What was once considered a vile rodent is now your very best friend."
 	icon_state = "mouseplushie"
 
 /obj/item/toy/plushie/kitten
@@ -745,11 +745,11 @@
 	icon_state = "spiderplushie"
 
 //Toy cult sword
-/obj/item/material/sword/cult_toy
+/obj/item/sword/cult_toy
 	name = "foam sword"
 	desc = "An arcane weapon (made of foam) wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
 	on_mob_icon = 'icons/obj/items/weapon/swords/cult.dmi'
-	material = MAT_PLASTIC
+	material = /decl/material/solid/plastic
 	edge = 0
 	sharp = 0
 

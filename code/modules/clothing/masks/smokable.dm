@@ -28,6 +28,12 @@
 	if(lit)
 		STOP_PROCESSING(SSobj, src)
 
+/obj/item/clothing/mask/smokable/isflamesource(atom/A)
+	. = lit
+
+/obj/item/clothing/mask/smokable/get_heat()
+	. = max(..(), lit ? 1500 : 0)
+
 /obj/item/clothing/mask/smokable/fire_act()
 	light(0)
 
@@ -52,8 +58,8 @@
 			extinguish()
 		else
 			environment.remove_by_flag(XGM_GAS_OXIDIZER, gas_consumption)
-			environment.adjust_gas(MAT_CO2, 0.5*gas_consumption,0)
-			environment.adjust_gas(MAT_CO, 0.5*gas_consumption)
+			environment.adjust_gas(/decl/material/gas/carbon_dioxide, 0.5*gas_consumption,0)
+			environment.adjust_gas(/decl/material/gas/carbon_monoxide, 0.5*gas_consumption)
 
 /obj/item/clothing/mask/smokable/Process()
 	var/turf/location = get_turf(src)
@@ -91,13 +97,7 @@
 			return
 		lit = 1
 		damtype = "fire"
-		if(REAGENT_VOLUME(reagents, /decl/material/solid/phoron)) // the phoron explodes when exposed to fire
-			var/datum/effect/effect/system/reagents_explosion/e = new()
-			e.set_up(round(REAGENT_VOLUME(reagents, /decl/material/solid/phoron) / 2.5, 1), get_turf(src), 0, 0)
-			e.start()
-			qdel(src)
-			return
-		if(REAGENT_VOLUME(reagents, /decl/material/liquid/fuel)) // the fuel explodes, too, but much less violently
+		if(REAGENT_VOLUME(reagents, /decl/material/liquid/fuel)) // the fuel explodes
 			var/datum/effect/effect/system/reagents_explosion/e = new()
 			e.set_up(round(REAGENT_VOLUME(reagents, /decl/material/liquid/fuel) / 5, 1), get_turf(src), 0, 0)
 			e.start()
@@ -120,7 +120,7 @@
 
 /obj/item/clothing/mask/smokable/attackby(var/obj/item/W, var/mob/user)
 	..()
-	if(isflamesource(W) || is_hot(W))
+	if(W.isflamesource() || W.get_heat() >= T100C)
 		var/text = matchmes
 		if(istype(W, /obj/item/flame/match))
 			text = matchmes
@@ -290,13 +290,13 @@
 	name = "wooden tip"
 	desc = "A wooden mouthpiece from a cigar. Smells rather bad."
 	icon_state = "woodbutt"
-	material = MAT_WOOD
+	material = /decl/material/solid/wood
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(var/obj/item/W, var/mob/user)
 	..()
 
-	if(istype(W, /obj/item/melee/energy/sword))
-		var/obj/item/melee/energy/sword/S = W
+	if(istype(W, /obj/item/energy_blade/sword))
+		var/obj/item/energy_blade/sword/S = W
 		if(S.active)
 			light("<span class='warning'>[user] swings their [W], barely missing their nose. They light their [name] in the process.</span>")
 
@@ -454,6 +454,9 @@
 	. = ..()
 	name = "empty [initial(name)]"
 
+/obj/item/clothing/mask/smokable/pipe/isflamesource(atom/A)
+	. = FALSE
+
 /obj/item/clothing/mask/smokable/pipe/light(var/flavor_text = "[usr] lights the [name].")
 	if(!lit && smoketime)
 		if(submerged())
@@ -498,7 +501,7 @@
 		SetName("empty [initial(name)]")
 
 /obj/item/clothing/mask/smokable/pipe/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/melee/energy/sword))
+	if(istype(W, /obj/item/energy_blade/sword))
 		return
 
 	..()

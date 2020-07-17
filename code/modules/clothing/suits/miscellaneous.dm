@@ -196,10 +196,10 @@
 //coats
 /obj/item/clothing/suit/leathercoat
 	name = "longcoat"
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/suit/leathercoat.dmi'
 	on_mob_icon = 'icons/clothing/suit/leathercoat.dmi'
-	material = MAT_LEATHER_GENERIC
+	material = /decl/material/solid/leather
 	applies_material_colour = TRUE
 	applies_material_name = TRUE
 	material_armor_multiplier = 0.8
@@ -222,7 +222,7 @@
 	return I
 
 /obj/item/clothing/suit/leathercoat/synth
-	material = MAT_LEATHER_SYNTH
+	material = /decl/material/solid/leather/synth
 	artificial_shine = 80
 
 //stripper

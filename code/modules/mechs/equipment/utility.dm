@@ -257,17 +257,17 @@
 #undef CATAPULT_AREA
 
 
-/obj/item/material/drill_head
+/obj/item/drill_head
 	name = "drill head"
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon = 'icons/obj/items/tool/drill_head.dmi'
 	icon_state = "drill_head"
 	var/durability = 0
 
-/obj/item/material/drill_head/proc/get_durability_percentage()
+/obj/item/drill_head/proc/get_durability_percentage()
 	return (durability * 100) / (2 * material.integrity)
 
-/obj/item/material/drill_head/examine(mob/user, distance)
+/obj/item/drill_head/examine(mob/user, distance)
 	. = ..()
 	var/percentage = get_durability_percentage()
 	var/descriptor = "looks close to breaking"
@@ -282,7 +282,7 @@
 
 	to_chat(user, "It [descriptor].")
 
-/obj/item/material/drill_head/Initialize()
+/obj/item/drill_head/Initialize()
 	. = ..()
 	durability = 2 * material.integrity
 
@@ -295,12 +295,12 @@
 	equipment_delay = 10
 
 	//Drill can have a head
-	var/obj/item/material/drill_head/drill_head
+	var/obj/item/drill_head/drill_head
 	origin_tech = "{'materials':2,'engineering':2}"
 
 /obj/item/mech_equipment/drill/Initialize()
 	. = ..()
-	drill_head = new /obj/item/material/drill_head(src, MAT_STEEL) //You start with a basic steel head
+	drill_head = new /obj/item/drill_head(src, /decl/material/solid/metal/steel) //You start with a basic steel head
 
 /obj/item/mech_equipment/drill/attack_self(var/mob/user)
 	. = ..()
@@ -315,8 +315,8 @@
 	return
 
 /obj/item/mech_equipment/drill/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/material/drill_head))
-		var/obj/item/material/drill_head/DH = W
+	if(istype(W,/obj/item/drill_head))
+		var/obj/item/drill_head/DH = W
 		if(!user.unEquip(DH))
 			return
 		if(drill_head)
@@ -336,8 +336,8 @@
 			var/obj/target_obj = target
 			if(target_obj.unacidable)
 				return
-		if(istype(target,/obj/item/material/drill_head))
-			var/obj/item/material/drill_head/DH = target
+		if(istype(target,/obj/item/drill_head))
+			var/obj/item/drill_head/DH = target
 			if(drill_head)
 				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on the [src]."))
 				drill_head.forceMove(owner.loc)
@@ -422,7 +422,7 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = "{'materials':4,'exoticmatter':4,'engineering':6,'combat':3}"
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 
 /obj/item/gun/energy/plasmacutter/mounted/mech
 	use_external_power = TRUE

@@ -1,7 +1,7 @@
 /decl/material/solid/mineral/pitchblende
 	name = "pitchblende"
 	color = "#917d1a"
-	ore_smelts_to = MAT_URANIUM
+	ore_smelts_to = /decl/material/solid/metal/uranium
 	ore_result_amount = 5
 	ore_spread_chance = 10
 	ore_name = "pitchblende"
@@ -18,6 +18,9 @@
 		/decl/material/solid/metal/uranium = 0.5,
 		/decl/material/solid/metal/radium = 0.5
 	)
+	ore_type_value = ORE_NUCLEAR
+	ore_data_value = 3
+
 /decl/material/solid/mineral/graphite
 	name = "graphite"
 	color = "#444444"
@@ -26,6 +29,8 @@
 	ore_spread_chance = 25
 	ore_scan_icon = "mineral_common"
 	ore_icon_overlay = "lump"
+	ore_type_value = ORE_SURFACE
+	ore_data_value = 1
 	value = 0.8
 	sparse_material_weight = 35
 	rich_material_weight = 20
@@ -166,7 +171,7 @@
 	ore_scan_icon = "mineral_common"
 	ore_icon_overlay = "lump"
 	color = "#d8ad97"
-	ore_smelts_to = MAT_ALUMINIUM
+	ore_smelts_to = /decl/material/solid/metal/aluminium
 	value = 0.8
 	sparse_material_weight = 3
 	rich_material_weight = 1
@@ -178,10 +183,12 @@
 	name = "sand"
 	stack_type = null
 	color = "#e2dbb5"
-	ore_smelts_to = MAT_GLASS
-	ore_compresses_to = MAT_SANDSTONE
+	ore_smelts_to = /decl/material/solid/glass
+	ore_compresses_to = /decl/material/solid/stone/sandstone
 	ore_name = "sand"
 	ore_icon_overlay = "dust"
+	ore_type_value = ORE_SURFACE
+	ore_data_value = 1
 	value = 0.8
 	dirtiness = 15
 	dissolves_into = list(
@@ -194,7 +201,7 @@
 	color = COLOR_OFF_WHITE
 	ore_name = "clay"
 	ore_icon_overlay = "lump"
-	ore_smelts_to = MAT_CERAMIC
+	ore_smelts_to = /decl/material/solid/stone/ceramic
 	ore_compresses_to = null
 	ore_icon_overlay = "dust"
 	value = 0.8
@@ -203,7 +210,7 @@
 	name = "hematite"
 	stack_type = null
 	color = "#aa6666"
-	ore_smelts_to = MAT_IRON
+	ore_smelts_to = /decl/material/solid/metal/iron
 	ore_result_amount = 5
 	ore_spread_chance = 25
 	ore_scan_icon = "mineral_common"
@@ -212,25 +219,28 @@
 	value = 0.8
 	sparse_material_weight = 35
 	rich_material_weight = 20
+	ore_type_value = ORE_SURFACE
+	ore_data_value = 1
 
 /decl/material/solid/mineral/rutile
 	name = "rutile"
 	stack_type = null
 	color = "#d8ad97"
-	ore_smelts_to = MAT_TITANIUM
+	ore_smelts_to = /decl/material/solid/metal/plasteel/titanium
 	ore_result_amount = 5
 	ore_spread_chance = 15
 	ore_scan_icon = "mineral_uncommon"
 	ore_name = "rutile"
 	ore_icon_overlay = "lump"
-
+	ore_type_value = ORE_PRECIOUS
+	ore_data_value = 2
 	value = 0.8
 	sparse_material_weight = 3
 	rich_material_weight = 1
 
 /decl/material/solid/mineral/tetrahedrite
 	name = "tetrahedrite"
-	ore_smelts_to = MAT_COPPER
+	ore_smelts_to = /decl/material/solid/metal/copper
 	ore_result_amount = 5
 	ore_spread_chance = 10
 	ore_name = "tetrahedrite"

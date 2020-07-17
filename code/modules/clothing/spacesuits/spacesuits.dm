@@ -7,7 +7,7 @@
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
 	icon = 'icons/clothing/spacesuit/generic/helmet.dmi'
 	on_mob_icon = 'icons/clothing/spacesuit/generic/helmet.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
 	flags_inv = BLOCKHAIR
 	permeability_coefficient = 0
@@ -33,7 +33,7 @@
 	var/obj/machinery/camera/camera
 	var/tinted = null	//Set to non-null for toggleable tint helmets
 	origin_tech = "{'materials':1}"
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 
 /obj/item/clothing/head/helmet/space/Destroy()
 	if(camera && !ispath(camera))
@@ -99,17 +99,6 @@
 		ret.icon_state = "[ret.icon_state]_dark"
 	return ret
 
-/obj/item/clothing/head/helmet/space/apply_overlays(var/mob/user_mob, var/bodytype, var/image/overlay, var/slot)
-	var/image/ret = ..()
-	if(on && check_state_in_icon("[ret.icon_state]_light", ret.icon))
-		var/image/light_overlay = image(ret.icon, "[ret.icon_state]_light")
-		if(ishuman(user_mob))
-			var/mob/living/carbon/human/H = user_mob
-			if(H.species.get_bodytype(H) != bodytype)
-				light_overlay = H.species.get_offset_overlay_image(FALSE, light_overlay.icon, light_overlay.icon_state, null, slot)
-		ret.overlays += light_overlay
-	return ret
-
 /obj/item/clothing/head/helmet/space/on_update_icon(mob/user)
 	. = ..()
 	var/base_icon = get_world_inventory_state()
@@ -120,20 +109,12 @@
 	else
 		icon_state = base_icon
 
-/obj/item/clothing/head/helmet/space/add_light_overlay()
-	if(!on_mob_icon)
-		..()
-	var/cache_key = "[icon]-[get_world_inventory_state()]_icon"
-	if(!light_overlay_cache[cache_key])
-		light_overlay_cache[cache_key] = image(icon, "[get_world_inventory_state()]_light")
-	overlays |= light_overlay_cache[cache_key]
-
 /obj/item/clothing/suit/space
 	name = "space suit"
 	desc = "A suit that protects against low pressure environments."
 	icon = 'icons/clothing/spacesuit/generic/suit.dmi'
 	on_mob_icon = 'icons/clothing/spacesuit/generic/suit.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_LARGE//large item
 	gas_transfer_coefficient = 0
 	permeability_coefficient = 0
@@ -154,11 +135,11 @@
 	randpixel = 0
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_OVER)
 	origin_tech = "{'materials':3, 'engineering':3}"
-	material = MAT_PLASTIC
+	material = /decl/material/solid/plastic
 	matter = list(
-		MAT_STEEL = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_ALUMINIUM = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_PLASTIC = MATTER_AMOUNT_REINFORCEMENT
+		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT
 	)
 
 /obj/item/clothing/suit/space/Initialize()

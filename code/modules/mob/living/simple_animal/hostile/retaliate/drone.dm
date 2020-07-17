@@ -177,16 +177,16 @@
 		var/obj/O
 
 		//shards
-		O = new /obj/item/material/shard(src.loc)
+		O = new /obj/item/shard(src.loc)
 		step_to(O, get_turf(pick(view(7, src))))
 		if(prob(75))
-			O = new /obj/item/material/shard(src.loc)
+			O = new /obj/item/shard(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(50))
-			O = new /obj/item/material/shard(src.loc)
+			O = new /obj/item/shard(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 		if(prob(25))
-			O = new /obj/item/material/shard(src.loc)
+			O = new /obj/item/shard(src.loc)
 			step_to(O, get_turf(pick(view(7, src))))
 
 		//rods
@@ -264,7 +264,7 @@
 
 		if(spawnees & 128)
 			C = new(src.loc)
-			C.SetName("Drone phoron overcharge counter")
+			C.SetName("Drone antigravity overcharge counter")
 			C.origin_tech = "{'[TECH_EXOTIC_MATTER]':[rand(3, 6)]}"
 
 		if(spawnees & 256)

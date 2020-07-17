@@ -3,7 +3,7 @@
 	desc = "The mass-produced W-T Remmington 29x shotgun is a favourite of police and security forces on many worlds. Useful for sweeping alleys."
 	on_mob_icon = 'icons/obj/guns/shotgun/pump.dmi'
 	icon = 'icons/obj/guns/shotgun/pump.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	max_shells = 4
 	w_class = ITEM_SIZE_HUGE
 	force = 10
@@ -80,7 +80,7 @@
 
 //this is largely hacky and bad :(	-Pete
 /obj/item/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A, mob/user)
-	if(w_class > ITEM_SIZE_NORMAL && (istype(A, /obj/item/circular_saw) || istype(A, /obj/item/melee/energy) || istype(A, /obj/item/gun/energy/plasmacutter)))
+	if(w_class > ITEM_SIZE_NORMAL && (istype(A, /obj/item/circular_saw) || istype(A, /obj/item/energy_blade) || istype(A, /obj/item/gun/energy/plasmacutter)))
 		if(istype(A, /obj/item/gun/energy/plasmacutter))
 			var/obj/item/gun/energy/plasmacutter/cutter = A
 			if(!cutter.slice(user))

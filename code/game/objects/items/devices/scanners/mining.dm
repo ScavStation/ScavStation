@@ -1,8 +1,5 @@
-#define  ORE_SURFACE   "surface minerals"
-#define  ORE_PRECIOUS  "precious metals"
-#define  ORE_NUCLEAR   "nuclear fuel"
-#define  ORE_EXOTIC    "exotic matter"
-/turf/simulated/var/surveyed
+/turf/simulated
+	var/surveyed
 
 /obj/item/scanner/mining
 	name = "ore detector"
@@ -87,26 +84,11 @@
 			continue
 
 		for(var/metal in T.resources)
-			var/ore_type
-			var/data_value = 1
-
-			switch(metal)
-				if(MAT_SAND, MAT_GRAPHITE, MAT_IRON)
-					ore_type = ORE_SURFACE
-				if(MAT_GOLD, MAT_SILVER, MAT_DIAMOND, MAT_RUTILE)
-					ore_type = ORE_PRECIOUS
-					data_value = 2
-				if(MAT_URANIUM)
-					ore_type = ORE_NUCLEAR
-					data_value = 3
-				if(MAT_PHORON, MAT_OSMIUM, MAT_METALLIC_HYDROGEN)
-					ore_type = ORE_EXOTIC
-					data_value = 4
-
-			if(ore_type) metals[ore_type] += T.resources[metal]
-
-			if(!T.surveyed)
-				new_data += data_value * T.resources[metal]
+			var/decl/material/mat = decls_repository.get_decl(metal)
+			if(mat.ore_type_value) 
+				metals[mat.ore_type_value] += T.resources[metal]
+			if(mat.ore_data_value && !T.surveyed)
+				new_data += mat.ore_data_value * T.resources[metal]
 
 		T.surveyed = 1
 
@@ -122,8 +104,3 @@
 		scandata += "- [result] of [ore_type]."
 
 	return list(jointext(scandata, "<br>"), new_data)
-
-#undef  ORE_SURFACE
-#undef  ORE_PRECIOUS
-#undef  ORE_NUCLEAR
-#undef  ORE_EXOTIC

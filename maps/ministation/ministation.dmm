@@ -307,7 +307,7 @@
 /area/ministation/bridge)
 "aQ" = (
 /obj/structure/displaycase,
-/obj/item/material/sword/replica/officersword,
+/obj/item/sword/replica/officersword,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aR" = (
@@ -2699,7 +2699,7 @@
 /obj/structure/table/standard,
 /obj/machinery/light,
 /obj/item/storage/box/monkeycubes,
-/obj/item/stack/material/phoron/ten,
+/obj/item/stack/material/uranium/ten,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "gK" = (
@@ -5111,8 +5111,8 @@
 /obj/structure/table/standard,
 /obj/item/scanner/gas,
 /obj/item/wrench,
-/obj/item/material/minihoe,
-/obj/item/material/hatchet,
+/obj/item/minihoe,
+/obj/item/hatchet,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -9512,8 +9512,8 @@
 "wN" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/material/kitchen/utensil/fork,
-/obj/item/material/knife/table,
+/obj/item/kitchen/utensil/fork,
+/obj/item/knife/table,
 /turf/simulated/floor/tiled,
 /area/ministation/cafe)
 "wO" = (
@@ -9737,7 +9737,7 @@
 "xo" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/material/kitchen/utensil/spoon,
+/obj/item/kitchen/utensil/spoon,
 /turf/simulated/floor/tiled,
 /area/ministation/cafe)
 "xp" = (
@@ -10531,10 +10531,10 @@
 /area/ministation/hydro)
 "zj" = (
 /obj/structure/table/glass,
-/obj/item/material/hatchet,
-/obj/item/material/hatchet,
-/obj/item/material/minihoe,
-/obj/item/material/minihoe,
+/obj/item/hatchet,
+/obj/item/hatchet,
+/obj/item/minihoe,
+/obj/item/minihoe,
 /obj/item/book/skill/service/botany,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
@@ -12102,7 +12102,7 @@
 /obj/machinery/conveyor{
 	id_tag = "CanisterStore"
 	},
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Dn" = (
@@ -12311,7 +12311,7 @@
 	id_tag = "CanisterStore"
 	},
 /obj/machinery/door/window/southleft,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "DM" = (
@@ -15377,7 +15377,7 @@
 "LF" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
-/obj/item/stack/material/phoron/ten,
+/obj/item/stack/material/uranium/ten,
 /turf/simulated/floor/tiled,
 /area/ministation/ai_sat)
 "LG" = (
@@ -15569,7 +15569,7 @@
 /obj/machinery/conveyor{
 	id_tag = "CanisterStore"
 	},
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -17072,7 +17072,7 @@
 /area/ministation/arrival_shuttle)
 "ZZ" = (
 /obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/material/bell,
+/obj/item/bell,
 /turf/simulated/floor/carpet/red,
 /area/ministation/court)
 

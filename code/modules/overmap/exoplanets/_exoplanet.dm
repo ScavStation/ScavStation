@@ -1,8 +1,6 @@
 /obj/effect/overmap/visitable/sector/exoplanet
 	name = "exoplanet"
-	icon = 'icons/obj/overmap64.dmi'
-	bound_height = 64
-	bound_width = 64
+	icon = 'icons/obj/overmap.dmi'
 	icon_state = "globe"
 	sector_flags = OVERMAP_SECTOR_KNOWN
 	free_landing = TRUE
@@ -258,4 +256,4 @@
 	name = "\improper Planetary surface"
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	always_unpowered = 1
-	area_flags = AREA_FLAG_IS_BACKGROUND
+	area_flags = AREA_FLAG_IS_BACKGROUND | AREA_FLAG_EXTERNAL

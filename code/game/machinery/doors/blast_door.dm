@@ -60,7 +60,7 @@
 		set_opacity(0)
 		layer = open_layer
 
-	implicit_material = decls_repository.get_decl(MAT_PLASTEEL)
+	implicit_material = decls_repository.get_decl(/decl/material/solid/metal/plasteel)
 
 /obj/machinery/door/blast/examine(mob/user)
 	. = ..()
@@ -141,7 +141,7 @@
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
 /obj/machinery/door/blast/attackby(obj/item/C, mob/user)
 	add_fingerprint(user, 0, C)
-	if(isCrowbar(C) || (istype(C, /obj/item/material/twohanded/fireaxe) && C:wielded == 1))
+	if(isCrowbar(C) || (istype(C, /obj/item/twohanded/fireaxe) && C:wielded == 1))
 		if(((stat & NOPOWER) || (stat & BROKEN)) && !( operating ))
 			to_chat(user, "<span class='notice'>You begin prying at \the [src]...</span>")
 			if(do_after(user, 2 SECONDS, src))
@@ -151,7 +151,7 @@
 		else
 			to_chat(user, "<span class='notice'>[src]'s motors resist your effort.</span>")
 		return
-	if(istype(C, /obj/item/stack/material) && C.get_material_type() == MAT_PLASTEEL)
+	if(istype(C, /obj/item/stack/material) && C.get_material_type() == /decl/material/solid/metal/plasteel)
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)
 			to_chat(user, "<span class='notice'>\The [src] is already fully functional.</span>")
@@ -230,9 +230,9 @@
 	)
 
 /obj/machinery/button/blast_door
-	icon = 'icons/obj/stationobjs.dmi'
 	name = "remote blast door-control"
 	desc = "It controls blast doors, remotely."
+	icon = 'icons/obj/machines/button_blastdoor.dmi'
 	icon_state = "blastctrl"
 	stock_part_presets = list(
 		/decl/stock_part_preset/radio/event_transmitter/blast_door_button = 1,

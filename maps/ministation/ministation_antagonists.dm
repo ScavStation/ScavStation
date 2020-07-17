@@ -51,5 +51,5 @@
 		"the AI inteliCard"                  = /obj/item/aicard,
 		"the nuclear authentication disk"    = /obj/item/disk/nuclear,
 		"a yinglet egg"                      = /obj/item/yinglet_egg,
-		"the officer's sword"                = /obj/item/material/sword/replica/officersword
+		"the officer's sword"                = /obj/item/sword/replica/officersword
 	)

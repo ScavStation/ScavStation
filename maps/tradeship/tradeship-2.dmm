@@ -1749,7 +1749,7 @@
 	},
 /obj/item/storage/box/donkpockets,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/material/kitchen/rollingpin,
+/obj/item/kitchen/rollingpin,
 /obj/item/chems/food/condiment/small/saltshaker{
 	pixel_x = -3;
 	pixel_y = 0
@@ -3265,7 +3265,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/toy/prize/powerloader,
-/obj/item/material/ashtray/plastic,
+/obj/item/ashtray/plastic,
 /obj/machinery/recharger,
 /obj/item/blueprints,
 /obj/structure/sign/poster{
@@ -5319,7 +5319,7 @@
 "vW" = (
 /obj/structure/table/standard,
 /obj/random/smokes,
-/obj/item/material/ashtray/glass,
+/obj/item/ashtray/glass,
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
@@ -5811,7 +5811,7 @@
 	pixel_y = 0
 	},
 /obj/item/handcuffs,
-/obj/item/melee/telebaton,
+/obj/item/telebaton,
 /obj/item/gun/energy/taser,
 /obj/structure/closet/secure_closet{
 	req_access = list("ACCESS_HEAD_OF_PERSONNEL")

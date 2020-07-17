@@ -6,7 +6,7 @@
 	l_ear = /obj/item/radio/headset/heads/captain
 	shoes = /obj/item/clothing/shoes/color/brown
 	id_type = /obj/item/card/id/gold/ministation
-	pda_type = /obj/item/modular_computer/pda/captain
+	pda_type = /obj/item/modular_computer/pda/heads/captain
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
 
 /decl/hierarchy/outfit/job/ministation/captain/New()

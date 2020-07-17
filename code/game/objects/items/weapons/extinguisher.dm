@@ -11,7 +11,7 @@
 	throw_speed = 2
 	throw_range = 10
 	force = 10.0
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 
 	var/spray_particles = 3
@@ -27,7 +27,7 @@
 	desc = "A light and compact fibreglass-framed model fire extinguisher."
 	icon_state = "miniFE0"
 	item_state = "miniFE"
-	hitsound = null	//it is much lighter, after all.
+	hitsound = null
 	throwforce = 2
 	w_class = ITEM_SIZE_SMALL
 	force = 3.0

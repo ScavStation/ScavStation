@@ -2486,7 +2486,6 @@
 /area/map_template/colony/engineering)
 "eS" = (
 /obj/machinery/reagentgrinder,
-/obj/item/stack/material/phoron/ten,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -4972,7 +4971,7 @@
 /area/map_template/colony/atmospherics)
 "iO" = (
 /obj/structure/table/gamblingtable,
-/obj/item/material/ashtray/glass,
+/obj/item/ashtray/glass,
 /turf/simulated/floor/wood,
 /area/map_template/colony/commons)
 "iP" = (

@@ -14,10 +14,10 @@
 	var/list/has_hardpoints = list()
 	var/decal
 	var/power_use = 0
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_PLASTIC = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_OSMIUM = MATTER_AMOUNT_TRACE
+		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/osmium = MATTER_AMOUNT_TRACE
 	)
 	dir = SOUTH
 
@@ -92,7 +92,16 @@
 /obj/item/mech_component/attackby(var/obj/item/thing, var/mob/user)
 	if(isScrewdriver(thing))
 		if(contents.len)
-			var/obj/item/removed = pick(contents)
+			//Filter non movables
+			var/list/valid_contents = list()
+			for(var/atom/movable/A in contents)
+				if(!A.anchored)
+					valid_contents += A
+			if(!valid_contents.len)
+				return
+			var/obj/item/removed = pick(valid_contents)
+			if(!(removed in contents))
+				return
 			user.visible_message(SPAN_NOTICE("\The [user] removes \the [removed] from \the [src]."))
 			removed.forceMove(user.loc)
 			playsound(user.loc, 'sound/effects/pop.ogg', 50, 0)
@@ -150,3 +159,15 @@
 		to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]'s wiring."))
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 25, 1)
 	return
+
+/obj/item/mech_component/proc/get_damage_string()
+	switch(damage_state)
+		if(MECH_COMPONENT_DAMAGE_UNDAMAGED)
+			return FONT_COLORED(COLOR_GREEN, "undamaged")
+		if(MECH_COMPONENT_DAMAGE_DAMAGED)
+			return FONT_COLORED(COLOR_YELLOW, "damaged")
+		if(MECH_COMPONENT_DAMAGE_DAMAGED_BAD)
+			return FONT_COLORED(COLOR_ORANGE, "badly damaged")
+		if(MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL)
+			return FONT_COLORED(COLOR_RED, "almost destroyed")
+	return FONT_COLORED(COLOR_RED, "destroyed")
