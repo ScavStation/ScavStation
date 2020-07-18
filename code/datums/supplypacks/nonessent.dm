@@ -151,7 +151,6 @@
 					/obj/item/clothing/head/collectable/captain,
 					/obj/item/clothing/head/collectable/beret,
 					/obj/item/clothing/head/collectable/welding,
-					/obj/item/clothing/head/collectable/flatcap,
 					/obj/item/clothing/head/collectable/pirate,
 					/obj/item/clothing/head/collectable/kitty,
 					/obj/item/clothing/head/collectable/rabbitears,
@@ -183,7 +182,6 @@
 /decl/hierarchy/supply_pack/nonessent/costume_hats
 	name = "Costume - Regular hats"
 	contains = list(/obj/item/clothing/head/redcoat,
-					/obj/item/clothing/head/mailman,
 					/obj/item/clothing/head/plaguedoctorhat,
 					/obj/item/clothing/head/pirate,
 					/obj/item/clothing/head/hasturhood,

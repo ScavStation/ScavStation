@@ -35,10 +35,10 @@
 	device = /obj/item/flash
 
 	origin_tech = "{'combat':2,'magnets':3,'engineering':5}"
-	material = MAT_PLASTIC
+	material = /decl/material/solid/plastic
 	matter = list(
-		MAT_STEEL = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_GLASS = MATTER_AMOUNT_TRACE
+		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
 	)
 
 /obj/item/rig_module/device/flash/advanced
@@ -263,12 +263,12 @@
 	interface_name = "mounted energy gun"
 	interface_desc = "A shoulder-mounted suit-powered energy gun."
 	origin_tech = "{'powerstorage':6,'combat':6,'engineering':6}"
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_PLASTIC = MATTER_AMOUNT_TRACE,
-		MAT_GOLD = MATTER_AMOUNT_TRACE,
-		MAT_SILVER = MATTER_AMOUNT_TRACE
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE
 	)
 
 	gun = /obj/item/gun/energy/gun/mounted
@@ -285,11 +285,11 @@
 	interface_name = "mounted electrolaser"
 	interface_desc = "A shoulder-mounted, cell-powered electrolaser."
 	origin_tech = "{'powerstorage':5,'combat':5,'engineering':6}"
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_PLASTIC = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_GLASS = MATTER_AMOUNT_TRACE,
-		MAT_GOLD = MATTER_AMOUNT_TRACE
+		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/glass = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE
 	)
 	gun = /obj/item/gun/energy/taser/mounted
 
@@ -307,12 +307,12 @@
 	origin_tech = "{'materials':5,'exoticmatter':4,'engineering':7,'combat':5}"
 
 	gun = /obj/item/gun/energy/plasmacutter/mounted
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_PLASTIC = MATTER_AMOUNT_TRACE,
-		MAT_GOLD = MATTER_AMOUNT_TRACE,
-		MAT_PHORON = MATTER_AMOUNT_TRACE
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/uranium = MATTER_AMOUNT_TRACE
 	)
 	
 /obj/item/rig_module/mounted/plasmacutter/engage(atom/target)
@@ -355,7 +355,7 @@
 /obj/item/rig_module/mounted/energy_blade/Process()
 
 	if(holder && holder.wearer)
-		if(!(locate(/obj/item/melee/energy/blade) in holder.wearer))
+		if(!(locate(/obj/item/energy_blade/blade) in holder.wearer))
 			deactivate()
 			return 0
 
@@ -373,7 +373,7 @@
 		deactivate()
 		return
 
-	var/obj/item/melee/energy/blade/blade = new(M)
+	var/obj/item/energy_blade/blade/blade = new(M)
 	blade.creator = M
 	M.put_in_hands(blade)
 
@@ -386,7 +386,7 @@
 	if(!M)
 		return
 
-	for(var/obj/item/melee/energy/blade/blade in M.contents)
+	for(var/obj/item/energy_blade/blade/blade in M.contents)
 		qdel(blade)
 
 /obj/item/rig_module/fabricator
@@ -403,7 +403,7 @@
 	interface_name = "death blossom launcher"
 	interface_desc = "An integrated microfactory that produces poisoned throwing stars from thin air and electricity."
 
-	var/fabrication_type = /obj/item/material/star/ninja
+	var/fabrication_type = /obj/item/star/ninja
 	var/fire_force = 30
 	var/fire_distance = 10
 

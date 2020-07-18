@@ -46,7 +46,7 @@
 	hardness = MAT_VALUE_FLEXIBLE + 5
 	integrity = 100
 	stack_origin_tech = "{'materials':4}"
-	ore_smelts_to = MAT_GOLD
+	ore_smelts_to = /decl/material/solid/metal/gold
 	ore_result_amount = 5
 	ore_name = "native gold"
 	ore_spread_chance = 10
@@ -55,6 +55,8 @@
 	value = 1.6
 	sparse_material_weight = 8
 	rich_material_weight = 10
+	ore_type_value = ORE_PRECIOUS
+	ore_data_value = 2
 
 /decl/material/solid/metal/bronze
 	lore_text = "An alloy of copper and tin."
@@ -75,7 +77,7 @@
 	color = "#d1e6e3"
 	hardness = MAT_VALUE_FLEXIBLE + 10
 	stack_origin_tech = "{'materials':3}"
-	ore_smelts_to = MAT_SILVER
+	ore_smelts_to = /decl/material/solid/metal/silver
 	ore_result_amount = 5
 	ore_spread_chance = 10
 	ore_name = "native silver"
@@ -84,6 +86,8 @@
 	value = 1.2
 	sparse_material_weight = 8
 	rich_material_weight = 10
+	ore_type_value = ORE_PRECIOUS
+	ore_data_value = 2
 
 /decl/material/solid/metal/steel
 	name = "steel"
@@ -97,9 +101,9 @@
 	icon_reinf = "reinf_over"
 	color = COLOR_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
-	alloy_materials = list(MAT_IRON = 1875, MAT_GRAPHITE = 1875)
+	alloy_materials = list(/decl/material/solid/metal/iron = 1875, /decl/material/solid/mineral/graphite = 1875)
 	alloy_product = TRUE
-	ore_smelts_to = MAT_STEEL
+	ore_smelts_to = /decl/material/solid/metal/steel
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
 	value = 1.1
 	dissolves_into = list(
@@ -200,9 +204,9 @@
 	hardness = MAT_VALUE_VERY_HARD
 	stack_origin_tech = "{'materials':2}"
 	hitsound = 'sound/weapons/smash.ogg'
-	alloy_materials = list(MAT_STEEL = 2500, MAT_PLATINUM = 1250)
+	alloy_materials = list(/decl/material/solid/metal/steel = 2500, /decl/material/solid/metal/platinum = 1250)
 	alloy_product = TRUE
-	ore_smelts_to = MAT_PLASTEEL
+	ore_smelts_to = /decl/material/solid/metal/plasteel
 	value = 1.4
 	reflectiveness = MAT_VALUE_MATTE
 
@@ -243,7 +247,7 @@
 	brute_armor = 4
 	burn_armor = 20
 	stack_origin_tech = "{'materials':3}"
-	alloy_materials = list(MAT_PLASTEEL = 7500, MAT_OSMIUM = 3750)
+	alloy_materials = list(/decl/material/solid/metal/plasteel = 7500, /decl/material/solid/metal/osmium = 3750)
 	construction_difficulty = MAT_VALUE_VERY_HARD_DIY
 	alloy_product = TRUE
 	value = 1.8
@@ -255,7 +259,7 @@
 	color = "#9999ff"
 	stack_origin_tech = "{'materials':5}"
 	construction_difficulty = MAT_VALUE_VERY_HARD_DIY
-	ore_smelts_to = MAT_OSMIUM
+	ore_smelts_to = /decl/material/solid/metal/osmium
 	value = 1.3
 
 /decl/material/solid/metal/platinum
@@ -266,8 +270,8 @@
 	weight = MAT_VALUE_VERY_HEAVY
 	wall_support_value = MAT_VALUE_VERY_HEAVY
 	stack_origin_tech = "{'materials':2}"
-	ore_smelts_to = MAT_PLATINUM
-	ore_compresses_to = MAT_OSMIUM
+	ore_smelts_to = /decl/material/solid/metal/platinum
+	ore_compresses_to = /decl/material/solid/metal/osmium
 	ore_result_amount = 5
 	ore_spread_chance = 10
 	ore_name = "raw platinum"
@@ -276,6 +280,8 @@
 	value = 1.5
 	sparse_material_weight = 8
 	rich_material_weight = 10
+	ore_type_value = ORE_EXOTIC
+	ore_data_value = 4
 
 /decl/material/solid/metal/iron
 	name = "iron"

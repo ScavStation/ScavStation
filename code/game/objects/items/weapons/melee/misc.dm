@@ -1,4 +1,4 @@
-/obj/item/melee/whip
+/obj/item/whip
 	name = "whip"
 	desc = "A generic whip."
 	icon = 'icons/obj/items/weapon/whip.dmi'
@@ -12,7 +12,7 @@
 	origin_tech = "{'combat':4}"
 	attack_verb = list("flicked", "whipped", "lashed")
 
-/obj/item/melee/whip/abyssal
+/obj/item/whip/abyssal
 	name = "abyssal whip"
 	desc = "A weapon from the abyss. Requires 70 attack to wield."
 	icon_state = "whip"
@@ -25,7 +25,7 @@
 	origin_tech = "{'combat':4}"
 	attack_verb = list("flicked", "whipped", "lashed")
 
-/obj/item/melee/whip/tail
+/obj/item/whip/tail
 	name = "drake's tail"
 	desc = "The tail of a large scaled creature, obviously evolved as some kind of whipping weapon. It's razor sharp and incredibly tough, though relatively lightweight."
 	icon_state = "tailwhip"
@@ -35,14 +35,14 @@
 	edge = TRUE
 	origin_tech = "{'combat':6,'materials':5}"
 
-/obj/item/melee/whip/chainofcommand
+/obj/item/whip/chainofcommand
 	name = "chain of command"
 	desc = "A tool used by great men to placate the frothing masses."
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	icon_state = "chain"
 	item_state = "whip"
 
-/obj/item/material/sword/replica/officersword
+/obj/item/sword/replica/officersword
 	name = "fleet officer's sword"
 	desc = "A polished sword issued to officers of the fleet."
 	icon = 'icons/obj/items/weapon/parade_sword.dmi'
@@ -51,18 +51,18 @@
 	slot_flags = SLOT_BELT
 	applies_material_colour = FALSE
 
-/obj/item/material/sword/replica/officersword/army
+/obj/item/sword/replica/officersword/army
 	name = "army NCO's sword"
 	desc = "A polished sword issued to NCOs."
 	icon_state = "armysword"
 
-/obj/item/material/sword/replica/officersword/armyofficer
+/obj/item/sword/replica/officersword/armyofficer
 	name = "army officer's sword"
 	desc = "A curved sword issued to officers."
 	icon_state = "armyofficersword"
 	item_state = "armyofficersword"
 
-/obj/item/material/sword/replica/officersword/pettyofficer
+/obj/item/sword/replica/officersword/pettyofficer
 	name = "chief petty officer's cutlass"
 	desc = "A polished cutlass issued to chief petty officers of the fleet."
 	icon_state = "pettyofficersword"

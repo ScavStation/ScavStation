@@ -15,12 +15,12 @@
 	origin_tech = "{'materials':7,'powerstorage':7,'engineering':5}"
 	base_type = /obj/item/stock_parts/smes_coil
 	part_flags = PART_FLAG_HAND_REMOVE
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_GOLD = MATTER_AMOUNT_TRACE,
-		MAT_SILVER = MATTER_AMOUNT_TRACE,
-		MAT_ALUMINIUM = MATTER_AMOUNT_TRACE
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/aluminium = MATTER_AMOUNT_TRACE
 	)
 
 	var/ChargeCapacity = 50 KILOWATTS
@@ -145,7 +145,7 @@
 	// SMESs store very large amount of power. If someone screws up (ie: Disables safeties and attempts to modify the SMES) very bad things happen.
 	// Bad things are based on charge percentage.
 	// Possible effects:
-	// Sparks - Lets out few sparks, mostly fire hazard if phoron present. Otherwise purely aesthetic.
+	// Sparks - Lets out few sparks, mostly fire hazard if flammable gas present. Otherwise purely aesthetic.
 	// Shock - Depending on intensity harms the user. Insultated Gloves protect against weaker shocks, but strong shock bypasses them.
 	// EMP Pulse - Lets out EMP pulse discharge which screws up nearby electronics.
 	// Light Overload - X% chance to overload each lighting circuit in connected powernet. APC based.

@@ -3,7 +3,7 @@
 	name = "pistol"
 	on_mob_icon = 'icons/obj/guns/pistol.dmi'
 	icon = 'icons/obj/guns/pistol.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	load_method = MAGAZINE
 	caliber = CALIBER_PISTOL
 	magazine_type = /obj/item/ammo_magazine/pistol
@@ -24,7 +24,7 @@
 	desc = "The Lumoco Arms P3 Whisper. A small, easily concealable gun."
 	on_mob_icon = 'icons/obj/guns/holdout_pistol.dmi'
 	icon = 'icons/obj/guns/holdout_pistol.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	item_state = null
 	ammo_indicator = FALSE
 	w_class = ITEM_SIZE_SMALL
@@ -68,10 +68,15 @@
 	if(silenced)
 		overlays += get_mutable_overlay(icon, "[get_world_inventory_state()]-silencer")
 
+/obj/item/gun/projectile/pistol/holdout/get_on_belt_overlay()
+	if(silenced && check_state_in_icon("on_belt_silenced", icon))
+		return overlay_image(icon, "on_belt_silenced", color)
+	return ..()
+
 /obj/item/silencer
 	name = "silencer"
 	desc = "A silencer."
 	on_mob_icon = 'icons/obj/guns/holdout_pistol_silencer.dmi'
 	icon = 'icons/obj/guns/holdout_pistol_silencer.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_SMALL

@@ -3,7 +3,7 @@
 	desc = "The WT-550 Saber is a cheap self-defense weapon, mass-produced for paramilitary and private use."
 	on_mob_icon = 'icons/obj/guns/sec_smg.dmi'
 	icon = 'icons/obj/guns/sec_smg.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	safety_icon = "safety"
 	w_class = ITEM_SIZE_NORMAL
 	caliber = CALIBER_PISTOL_SMALL
@@ -19,10 +19,10 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_SILVER = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_DIAMOND = MATTER_AMOUNT_TRACE
+		/decl/material/solid/metal/silver = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_TRACE
 	)
 	ammo_indicator = TRUE
 
@@ -61,10 +61,10 @@
 	burst_delay = 1
 	mag_insert_sound = 'sound/weapons/guns/interaction/batrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/batrifle_magout.ogg'
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_SILVER = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_DIAMOND = MATTER_AMOUNT_TRACE
+		/decl/material/solid/metal/silver = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_TRACE
 	)
 	firemodes = list(
 		list(mode_name="semi auto",      burst=1,    fire_delay=null, use_launcher=null, one_hand_penalty=8,  burst_accuracy=null,          dispersion=null),

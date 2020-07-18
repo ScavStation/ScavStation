@@ -15,13 +15,12 @@
 		bio = ARMOR_BIO_STRONG
 		)
 	filtered_gases = list(
-		MAT_PHORON,
-		MAT_N2O,
-		MAT_CHLORINE,
-		MAT_AMMONIA,
-		MAT_CO,
-		MAT_METHYL_BROMIDE,
-		MAT_METHANE
+		/decl/material/gas/nitrous_oxide,
+		/decl/material/gas/chlorine,
+		/decl/material/gas/ammonia,
+		/decl/material/gas/carbon_monoxide,
+		/decl/material/gas/methyl_bromide,
+		/decl/material/gas/methane
 	)
 	var/clogged
 	var/filter_water
@@ -141,7 +140,7 @@
 //Plague Dr suit can be found in clothing/suits/bio.dm
 /obj/item/clothing/mask/gas/plaguedoctor
 	name = "plague doctor mask"
-	desc = "A modernised version of the classic design, this mask will not only filter out phoron but it can also be connected to an air supply."
+	desc = "A modernised version of the classic design, this mask will not only filter out toxins, but it can also be connected to an air supply."
 	icon_state = "plaguedoctor"
 	item_state = "plaguedoctor"
 	armor = list(
@@ -196,7 +195,7 @@
 	item_state = "respirator"
 	flags_inv = 0
 	body_parts_covered = 0
-	filtered_gases = list(MAT_OXYGEN)
+	filtered_gases = list(/decl/material/gas/oxygen)
 
 
 /obj/item/clothing/mask/gas/swat/vox
@@ -206,14 +205,13 @@
 	item_state = "voxswat"
 	body_parts_covered = EYES
 	filtered_gases = list(
-		MAT_OXYGEN,
-		MAT_PHORON,
-		MAT_N2O,
-		MAT_CHLORINE,
-		MAT_AMMONIA,
-		MAT_CO,
-		MAT_METHYL_BROMIDE,
-		MAT_METHANE
+		/decl/material/gas/oxygen,
+		/decl/material/gas/nitrous_oxide,
+		/decl/material/gas/chlorine,
+		/decl/material/gas/ammonia,
+		/decl/material/gas/carbon_monoxide,
+		/decl/material/gas/methyl_bromide,
+		/decl/material/gas/methane
 		)
 
 /obj/item/clothing/mask/gas/aquabreather

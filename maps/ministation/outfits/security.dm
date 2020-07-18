@@ -1,3 +1,7 @@
+/obj/item/modular_computer/pda/security
+	color = COLOR_DARK_RED
+	decals = list("stripe" = COLOR_RED_LIGHT)
+
 /decl/hierarchy/outfit/job/ministation/security
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	l_ear = /obj/item/radio/headset/headset_sec
@@ -14,6 +18,14 @@
 /decl/hierarchy/outfit/job/ministation/security/New()
 	..()
 	BACKPACK_OVERRIDE_SECURITY
+
+/obj/item/modular_computer/pda/forensics
+	color = COLOR_DARK_RED
+	decals = list("stripe" = COLOR_SKY_BLUE)
+
+/obj/item/modular_computer/pda/forensics/install_default_hardware()
+	default_hardware |= /obj/item/stock_parts/computer/scanner/reagent
+	. = ..()
 
 /decl/hierarchy/outfit/job/ministation/detective
 	name = MINISTATION_OUTFIT_JOB_NAME("Detective")

@@ -3,14 +3,14 @@
 	desc = "A G40E carbine, designed to kill with concentrated energy blasts."
 	icon = 'icons/obj/guns/laser_carbine.dmi'
 	on_mob_icon = 'icons/obj/guns/laser_carbine.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_LARGE
 	force = 10
 	one_hand_penalty = 2
 	bulk = GUN_BULK_RIFLE
 	origin_tech = "{'combat':3,'magnets':2}"
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	projectile_type = /obj/item/projectile/beam/midlaser
 
 /obj/item/gun/energy/laser/mounted
@@ -55,7 +55,7 @@
 	name = "antique laser gun"
 	on_mob_icon = 'icons/obj/guns/caplaser.dmi'
 	icon = 'icons/obj/guns/caplaser.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	desc = "A rare weapon, handcrafted by a now defunct specialty manufacturer on Luna for a small fortune. It's certainly aged well."
 	force = 5
 	slot_flags = SLOT_BELT //too unusually shaped to fit in a holster
@@ -72,7 +72,7 @@
 	icon_state = "lasercannon"
 	on_mob_icon = 'icons/obj/guns/laser_cannon.dmi'
 	icon = 'icons/obj/guns/laser_cannon.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	origin_tech = "{'combat':4,'materials':3,'powerstorage':3}"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	one_hand_penalty = 6 //large and heavy
@@ -82,10 +82,10 @@
 	max_shots = 6
 	accuracy = 2
 	fire_delay = 20
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_DIAMOND = MATTER_AMOUNT_TRACE
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_TRACE
 	)
 
 /obj/item/gun/energy/lasercannon/mounted

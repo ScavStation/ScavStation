@@ -76,6 +76,14 @@
 	taste_mult = 1.5
 	color = "#b31008"
 	fruit_descriptor = "spicy"
+
+	heating_point = T100C
+	heating_message = "darkens and thickens as it seperates from its water content"
+	heating_products = list(
+		/decl/material/liquid/capsaicin/condensed = 0.5,
+		/decl/material/liquid/water = 0.5
+	)
+
 	var/agony_dose = 5
 	var/agony_amount = 2
 	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
@@ -351,7 +359,7 @@
 	color = "#13bc5e"
 
 /decl/material/liquid/crystal_agent/proc/do_material_check(var/mob/living/carbon/M)
-	. = MAT_CRYSTAL
+	. = /decl/material/solid/gemstone/crystal
 
 /decl/material/liquid/crystal_agent/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/result_mat = do_material_check(M)
@@ -376,7 +384,7 @@
 					H.emote("scream")
 				if(prob(25))
 					for(var/i = 1 to rand(3,5))
-						new /obj/item/material/shard(get_turf(E), result_mat)
+						new /obj/item/shard(get_turf(E), result_mat)
 					E.droplimb(0, DROPLIMB_BLUNT)
 				else
 					E.take_external_damage(rand(20,30), 0)
@@ -395,4 +403,4 @@
 		to_chat(M, SPAN_DANGER("Your flesh is being lacerated from within!"))
 		M.adjustBruteLoss(rand(3,6))
 		if(prob(10))
-			new /obj/item/material/shard(get_turf(M), result_mat)
+			new /obj/item/shard(get_turf(M), result_mat)

@@ -1,7 +1,12 @@
 /obj/item/clothing/head/infilhat
 	name = "immaculate fedora"
 	desc = "Whoever owns this hat means business. Hopefully, it's just good business."
-	icon_state = "infhat"
+	color = COLOR_SILVER
+	icon_state = ICON_STATE_WORLD
+	icon = 'icons/clothing/head/detective.dmi'
+	on_mob_icon = 'icons/clothing/head/detective.dmi'
+	markings_icon = "band"
+	markings_color = COLOR_DARK_GRAY
 	armor = list(
 		melee = ARMOR_MELEE_MINOR, 
 		bullet = ARMOR_BALLISTIC_MINOR, 
@@ -36,7 +41,9 @@
 /obj/item/clothing/head/infilhat/fem
 	name = "maid's headband"
 	desc = "This dainty, frilled thing is apparently meant to go on your head."
-	icon_state = "infhatfem"
+	icon_state = ICON_STATE_WORLD
+	icon = 'icons/clothing/head/inf_hat.dmi'
+	on_mob_icon = 'icons/clothing/head/inf_hat.dmi'
 
 /obj/item/clothing/suit/infilsuit/fem
 	name = "maid's uniform"

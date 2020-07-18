@@ -826,12 +826,12 @@
 /obj/item/clothing/under/yinglet,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/under/yinglet/scout,
-/obj/item/material/shard{
+/obj/item/shard{
 	has_handle = "#800000";
 	name = "shank"
 	},
 /obj/item/synthesized_instrument/synthesizer,
-/obj/item/material/twohanded/spear/javelin,
+/obj/item/twohanded/spear/javelin,
 /turf/simulated/floor,
 /area/ship/trade/fore_port_underside_maint)
 "bE" = (
@@ -1442,7 +1442,7 @@
 	dir = 4;
 	id_tag = "trash_sort"
 	},
-/obj/item/material/shard,
+/obj/item/shard,
 /obj/item/stack/cable_coil/random{
 	amount = 3
 	},
@@ -1620,7 +1620,7 @@
 /area/ship/trade/enclave)
 "vi" = (
 /obj/structure/mattress/dirty,
-/obj/item/material/shard{
+/obj/item/shard{
 	has_handle = "#800000";
 	name = "shank"
 	},
@@ -2148,10 +2148,10 @@
 /obj/structure/table/standard,
 /obj/item/seeds/tobaccoseed,
 /obj/item/seeds/tomatoseed,
-/obj/item/material/hatchet,
+/obj/item/hatchet,
 /obj/item/chems/glass/bottle/eznutrient,
 /obj/item/chems/glass/bottle/eznutrient,
-/obj/item/material/minihoe,
+/obj/item/minihoe,
 /turf/simulated/floor,
 /area/ship/trade/fore_starboard_underside_maint)
 "UI" = (
@@ -2242,7 +2242,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/stack/material/uranium,
-/obj/item/material/knife/table/plastic,
+/obj/item/knife/table/plastic,
 /obj/item/clothing/accessory/bowtie/ugly,
 /obj/random/action_figure,
 /turf/simulated/floor,

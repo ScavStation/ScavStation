@@ -36,7 +36,7 @@
 
 /obj/machinery/door/window/proc/shatter(var/display_message = 1)
 	frame_type = null
-	new /obj/item/material/shard(loc)
+	new /obj/item/shard(loc)
 	playsound(src, "shatter", 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
@@ -175,7 +175,7 @@
 
 /obj/machinery/door/window/bash(obj/item/I, mob/user)
 	//Emags and ninja swords? You may pass.
-	if (istype(I, /obj/item/melee/energy/blade))
+	if (istype(I, /obj/item/energy_blade/blade))
 		if(emag_act(10, user))
 			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 			spark_system.set_up(5, 0, src.loc)

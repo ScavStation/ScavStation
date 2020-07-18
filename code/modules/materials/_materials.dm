@@ -143,6 +143,9 @@
 	var/ore_spread_chance
 	var/ore_scan_icon
 	var/ore_icon_overlay
+	var/ore_type_value
+	var/ore_data_value
+
 	var/value = 1
 
 	// Xenoarch behavior.
@@ -173,7 +176,6 @@
 	var/scannable = 0 // Shows up on health analyzers.
 	var/color = COLOR_BEIGE
 	var/color_weight = 1
-	var/alpha = 255
 	var/cocktail_ingredient
 	var/defoliant
 	var/fruit_descriptor // String added to fruit desc if this chemical is present.
@@ -318,7 +320,7 @@
 // As above.
 /decl/material/proc/place_shard(var/turf/target)
 	if(shard_type)
-		return new /obj/item/material/shard(target, type)
+		return new /obj/item/shard(target, type)
 
 // Used by walls and weapons to determine if they break or not.
 /decl/material/proc/is_brittle()

@@ -30,25 +30,36 @@
 	)
 
 	bodytype_restricted = list(BODYTYPE_MANTID_SMALL, BODYTYPE_MANTID_LARGE)
-	filtered_gases = list(MAT_PHORON,MAT_N2O,MAT_CHLORINE,MAT_AMMONIA,MAT_CO,MAT_METHANE)
+	filtered_gases = list(
+		/decl/material/gas/nitrous_oxide,
+		/decl/material/gas/chlorine,
+		/decl/material/gas/ammonia,
+		/decl/material/gas/carbon_monoxide,
+		/decl/material/gas/methane
+	)
 	flags_inv = 0
 
 /obj/item/clothing/mask/gas/ascent/monarch
 	name = "serpentid facemask"
 	desc = "An alien facemask with chunky gas filters and a breathing valve."
-	filtered_gases = list(MAT_PHORON,MAT_N2O,MAT_CHLORINE,MAT_AMMONIA,MAT_CO,MAT_METHYL_BROMIDE,MAT_METHANE)
+	filtered_gases = list(
+		/decl/material/gas/nitrous_oxide,
+		/decl/material/gas/chlorine,
+		/decl/material/gas/ammonia,
+		/decl/material/gas/carbon_monoxide,
+		/decl/material/gas/methyl_bromide,
+		/decl/material/gas/methane
+	)
 	bodytype_restricted = list(BODYTYPE_SNAKE)
 
 /obj/item/clothing/shoes/magboots/ascent
 	name = "mantid mag-claws"
 	desc = "A set of powerful gripping claws."
-	icon = 'mods/ascent/icons/ascent_boots.dmi'
-	icon_state = "ascent_boots0"
-	icon_base = "ascent_boots"
+	icon = 'mods/ascent/icons/magboots/boots.dmi'
+	on_mob_icon = 'mods/ascent/icons/magboots/boots.dmi'
 	bodytype_restricted = list(BODYTYPE_MANTID_SMALL, BODYTYPE_MANTID_LARGE)
 	sprite_sheets = list(
-		BODYTYPE_MANTID_LARGE = 'mods/ascent/icons/species/mantid/onmob_shoes_gyne.dmi',
-		BODYTYPE_MANTID_SMALL = 'mods/ascent/icons/species/mantid/onmob_shoes_alate.dmi'
+		BODYTYPE_MANTID_LARGE = 'mods/ascent/icons/magboots/boots_gyne.dmi'
 	)
 
 /obj/item/clothing/under/ascent

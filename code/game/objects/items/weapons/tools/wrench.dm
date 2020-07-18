@@ -3,12 +3,12 @@
 	desc = "A good, durable combination wrench, with self-adjusting, universal open- and ring-end mechanisms to match a wide variety of nuts and bolts."
 	icon = 'icons/obj//items/tool/wrench.dmi'
 	on_mob_icon = 'icons/obj//items/tool/wrench.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_BELT
 	material_force_multiplier = 0.2
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = "{'materials':1,'engineering':1}"
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	center_of_mass = @"{'x':17,'y':16}"
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	applies_material_colour = TRUE

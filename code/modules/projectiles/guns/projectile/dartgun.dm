@@ -3,7 +3,7 @@
 	desc = "The Artemis is a gas-powered dart gun capable of delivering chemical cocktails swiftly across short distances."
 	on_mob_icon = 'icons/obj/guns/dartgun.dmi'
 	icon = 'icons/obj/guns/dartgun.dmi'
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 
 	caliber = CALIBER_DART
 	fire_sound = 'sound/weapons/empty.ogg'
@@ -33,19 +33,16 @@
 	update_icon()
 
 /obj/item/gun/projectile/dartgun/on_update_icon()
-	if(!ammo_magazine)
-		icon_state = "[get_world_inventory_state()]-empty"
-		return 1
-
-	icon_state = "[get_world_inventory_state()]-[Clamp(length(ammo_magazine.stored_ammo.len), 0, 5)]"
-	return 1
+	..()
+	if(ammo_magazine)
+		icon_state = "[get_world_inventory_state()]-[Clamp(length(ammo_magazine.stored_ammo.len), 0, 5)]"
+	else
+		icon_state = get_world_inventory_state()
 
 /obj/item/gun/projectile/dartgun/experimental_mob_overlay(mob/user_mob, slot)
 	var/image/I = ..()
 	if(slot == slot_r_hand_str || slot == slot_l_hand_str)
-		if(!ammo_magazine)
-			I.icon_state += "-empty"
-		else
+		if(ammo_magazine)
 			I.icon_state += "-[Clamp(length(ammo_magazine.stored_ammo.len), 0, 5)]"
 	return I
 /obj/item/gun/projectile/dartgun/consume_next_projectile()
