@@ -12,18 +12,16 @@
 	name = "baxxid head clothing"
 	desc = "A parent item for stuff you put on top of a baxxid."
 	bodytype_restricted = list(BODYTYPE_BAXXID)
-	icon_state = "world"
+	icon_state = ICON_STATE_WORLD
 
 /obj/item/clothing/head/baxxid/hood
 	name = "short baxxid hood"
 	desc = "A large piece of cloth with holes in it, designed to be worn by baxxid."
 	icon = 'mods/valsalia/icons/hood_short_baxxid.dmi'
-	on_mob_icon = 'mods/valsalia/icons/hood_short_baxxid.dmi'
 
 /obj/item/clothing/head/baxxid/hood/long
 	name = "baxxid hood"
 	icon = 'mods/valsalia/icons/hood_long_baxxid.dmi'
-	on_mob_icon = 'mods/valsalia/icons/hood_long_baxxid.dmi'
 	color = COLOR_PURPLE
 
 /obj/item/clothing/head/baxxid/hood/long/on_update_icon()
@@ -43,4 +41,3 @@
 	name = "big wig"
 	desc = "A really cool wig, which is unfortunately too large for a regular human."
 	icon = 'mods/valsalia/icons/wig_big_blonde.dmi'
-	on_mob_icon = 'mods/valsalia/icons/wig_big_blonde.dmi'

@@ -60,7 +60,6 @@
 	desc = "It's a shiny metal helmet. It looks ripped straight out of the Dark Ages, actually."
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/star_champion.dmi'
-	on_mob_icon = 'icons/clothing/head/star_champion.dmi'
 	flags_inv = HIDEEARS | BLOCKHAIR
 
 /obj/item/clothing/suit/armor/sunrobe
@@ -92,7 +91,6 @@
 	desc = "No light can pierce this hood. It's unsettling."
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/star_traitor.dmi'
-	on_mob_icon = 'icons/clothing/head/star_traitor.dmi'
 	flags_inv = HIDEEARS | BLOCKHAIR
 
 /obj/item/knife/ritual/shadow
@@ -129,7 +127,7 @@
 
 /obj/item/sword/blazing
 	name = "blazing blade"
-	on_mob_icon = 'icons/obj/items/weapon/swords/flaming.dmi'
+	icon = 'icons/obj/items/weapon/swords/flaming.dmi'
 	damtype = BURN
 	applies_material_colour = FALSE
 	applies_material_name = FALSE
