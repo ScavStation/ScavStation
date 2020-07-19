@@ -16,7 +16,6 @@
 	desc = "A head-mounted face cover designed to protect the wearer completely from space-arc eye."
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/welding/default.dmi'
-	on_mob_icon = 'icons/clothing/head/welding/default.dmi'
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 	armor = list(
@@ -77,27 +76,27 @@
 /obj/item/clothing/head/welding/demon
 	name = "demonic welding helmet"
 	desc = "A painted welding helmet, this one has a demonic face on it."
-	on_mob_icon = 'icons/clothing/head/welding/demon.dmi'
+	icon = 'icons/clothing/head/welding/demon.dmi'
 
 /obj/item/clothing/head/welding/knight
 	name = "knightly welding helmet"
 	desc = "A painted welding helmet, this one looks like a knights helmet."
-	on_mob_icon = 'icons/clothing/head/welding/knight.dmi'
+	icon = 'icons/clothing/head/welding/knight.dmi'
 
 /obj/item/clothing/head/welding/fancy
 	name = "fancy welding helmet"
 	desc = "A painted welding helmet, the black and gold make this one look very fancy."
-	on_mob_icon = 'icons/clothing/head/welding/fancy.dmi'
+	icon = 'icons/clothing/head/welding/fancy.dmi'
 
 /obj/item/clothing/head/welding/engie
 	name = "engineering welding helmet"
 	desc = "A painted welding helmet, this one has been painted the engineering colours."
-	on_mob_icon = 'icons/clothing/head/welding/engie.dmi'
+	icon = 'icons/clothing/head/welding/engie.dmi'
 
 /obj/item/clothing/head/welding/carp
 	name = "carp welding helmet"
 	desc = "A painted welding helmet, this one has a carp face on it."
-	on_mob_icon = 'icons/clothing/head/welding/carp.dmi'
+	icon = 'icons/clothing/head/welding/carp.dmi'
 
 /*
  * Ushanka
@@ -107,7 +106,6 @@
 	desc = "Perfect for winter in Siberia, da?"
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/ushanka.dmi'
-	on_mob_icon = 'icons/clothing/head/ushanka.dmi'
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 	cold_protection = HEAD
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
@@ -140,7 +138,6 @@
 	desc = "A jack o' lantern! Believed to ward off evil spirits."
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/pumpkin.dmi'
-	on_mob_icon = 'icons/clothing/head/pumpkin.dmi'
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	brightness_on = 0.2
@@ -155,7 +152,6 @@
 	desc = "A pair of kitty ears. Meow!"
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/cat.dmi'
-	on_mob_icon = 'icons/clothing/head/cat.dmi'
 	icon_state = "kitty"
 	body_parts_covered = 0
 	siemens_coefficient = 1.5
@@ -165,6 +161,5 @@
 	desc = "You can hear the distant sounds of rhythmic electronica."
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/richard.dmi'
-	on_mob_icon = 'icons/clothing/head/richard.dmi'
 	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHAIR

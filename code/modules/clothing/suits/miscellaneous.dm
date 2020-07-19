@@ -198,7 +198,6 @@
 	name = "longcoat"
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/suit/leathercoat.dmi'
-	on_mob_icon = 'icons/clothing/suit/leathercoat.dmi'
 	material = /decl/material/solid/leather
 	applies_material_colour = TRUE
 	applies_material_name = TRUE
@@ -456,7 +455,6 @@
 	desc = "Ho ho ho. Merrry X-mas!"
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/santa.dmi'
-	on_mob_icon = 'icons/clothing/head/santa.dmi'
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE

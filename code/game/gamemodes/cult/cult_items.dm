@@ -1,7 +1,7 @@
 /obj/item/sword/cultblade
 	name = "cult blade"
 	desc = "An arcane weapon wielded by the followers of Nar-Sie."
-	on_mob_icon = 'icons/obj/items/weapon/swords/cult.dmi'
+	icon = 'icons/obj/items/weapon/swords/cult.dmi'
 	applies_material_colour = FALSE
 	applies_material_name = FALSE
 
@@ -44,7 +44,6 @@
 	desc = "A hood worn by the followers of Nar-Sie."
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/cult.dmi'
-	on_mob_icon = 'icons/clothing/head/cult.dmi'
 	flags_inv = HIDEFACE
 	body_parts_covered = HEAD
 	armor = list(
@@ -60,7 +59,6 @@
 	desc = "A helm worn by the followers of Nar-Sie."
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/wizard/magus.dmi'
-	on_mob_icon = 'icons/clothing/head/wizard/magus.dmi'
 	flags_inv = HIDEFACE | BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	armor = list(
@@ -72,8 +70,6 @@
 
 /obj/item/clothing/head/culthood/alt
 	icon = 'icons/clothing/head/cult_alt.dmi'
-	on_mob_icon = 'icons/clothing/head/cult_alt.dmi'
-
 /obj/item/clothing/suit/cultrobes
 	name = "cult robes"
 	desc = "A set of durable robes worn by the followers of Nar-Sie."
@@ -114,7 +110,7 @@
 /obj/item/clothing/head/helmet/space/cult
 	name = "cult helmet"
 	desc = "A space worthy helmet used by the followers of Nar-Sie."
-	on_mob_icon = 'icons/clothing/spacesuit/cult/helmet.dmi'
+	icon = 'icons/clothing/spacesuit/cult/helmet.dmi'
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -129,7 +125,7 @@
 /obj/item/clothing/suit/space/cult
 	name = "cult armour"
 	desc = "A bulky suit of armour, bristling with spikes. It looks space proof."
-	on_mob_icon = 'icons/clothing/spacesuit/cult/suit.dmi'
+	icon = 'icons/clothing/spacesuit/cult/suit.dmi'
 	allowed = list(/obj/item/book/tome,/obj/item/sword/cultblade,/obj/item/tank,/obj/item/suit_cooling_unit)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
