@@ -54,3 +54,10 @@
 /obj/machinery/vending/assist/ministation/Initialize() //vending machines found in maint tunnels
 	. = ..()
 	contraband += list(/obj/item/multitool = 1)
+
+//cameras
+/obj/machinery/camera/network/ministation/sat
+	network = list("Satellite")
+
+/obj/machinery/camera/motion/ministation
+	network = list("Satellite")

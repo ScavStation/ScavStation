@@ -30,6 +30,3 @@
 	id = "Hub"
 	network = "tcommsat"
 	autolinkers = list("hub","receiverA", "broadcasterA")
-
-// ("science","medical","supply","service","common","command","engineering","security")
-// (AI_FREQ, SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, COMM_FREQ, ENG_FREQ, SEC_FREQ, ENT_FREQ, PUB_FREQ)
