@@ -62,11 +62,12 @@ var/list/icon_state_cache = list()
 		useicon = get_icon_for_bodytype(bodytype)
 
 	var/useiconstate = "[bodytype]-[slot]"
-	var/image/I = image(useicon, useiconstate)
-	I.color = color
-	I.appearance_flags = RESET_COLOR
-	. = apply_offsets(user_mob,  bodytype, I, slot)
-	. = apply_overlays(user_mob, bodytype, ., slot)
+	if(check_state_in_icon(useiconstate, useicon))
+		var/image/I = image(useicon, useiconstate)
+		I.color = color
+		I.appearance_flags = RESET_COLOR
+		. = apply_offsets(user_mob,  bodytype, I, slot)
+		. = apply_overlays(user_mob, bodytype, ., slot)
 
 /mob/living/carbon/get_bodytype()
 	. = species && species.get_bodytype(src)

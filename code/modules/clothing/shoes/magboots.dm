@@ -49,9 +49,10 @@
 	
 /obj/item/clothing/shoes/magboots/experimental_mob_overlay(var/mob/user_mob, var/slot)
 	var/image/ret = ..()
-	var/new_state = "[ret.icon_state][!!magpulse]"
-	if(check_state_in_icon(new_state, ret.icon))
-		ret.icon_state = new_state
+	if(ret)
+		var/new_state = "[ret.icon_state][!!magpulse]"
+		if(check_state_in_icon(new_state, ret.icon))
+			ret.icon_state = new_state
 	return ret
 
 /obj/item/clothing/shoes/magboots/mob_can_equip(mob/user)

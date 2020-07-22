@@ -66,7 +66,7 @@
 /obj/item/clothing/suit/storage/hooded/experimental_mob_overlay(mob/user_mob, slot)
 	var/image/I = ..()
 	if(suittoggled)
-		I.icon_state += "_t"
+		I?.icon_state += "_t"
 	return I
 
 /obj/item/clothing/suit/storage/hooded/wintercoat

@@ -42,7 +42,7 @@
 	var/image/res = ..()
 	//Do not color scabbarded blades
 	if(applies_material_colour && (slot == slot_back_str || slot == slot_belt_str))
-		res.color = null
+		res?.color = null
 	return res
 
 /obj/item/sword/wood
