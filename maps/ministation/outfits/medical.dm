@@ -2,7 +2,7 @@
 	l_ear = /obj/item/radio/headset/headset_med
 	shoes = /obj/item/clothing/shoes/color/white
 	pda_type = /obj/item/modular_computer/pda/medical
-	pda_slot = slot_l_store
+	pda_slot = slot_l_store_str
 	name = MINISTATION_OUTFIT_JOB_NAME("Medical Doctor")
 	uniform = /obj/item/clothing/under/rank/medical
 	l_hand = /obj/item/storage/firstaid/adv
