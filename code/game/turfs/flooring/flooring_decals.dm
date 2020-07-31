@@ -40,7 +40,7 @@ var/list/floor_decals = list()
 			floor_decals[cache_key] = I
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
-		T.overlays |= floor_decals[cache_key]
+		T.add_overlay(floor_decals[cache_key])
 	qdel(src)
 
 /obj/effect/floor_decal/reset
@@ -1335,6 +1335,3 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/stoneborder/corner
 	icon_state = "stoneborder_c"
-
-/obj/effect/floor_decal/ivenmoth
-	icon_state = "ivenmoth"

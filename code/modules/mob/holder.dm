@@ -147,7 +147,7 @@ var/list/holder_mob_icon_cache = list()
 	var/obj/item/holder/H = new holder_type(get_turf(src))
 
 	if(self_grab)
-		if(!grabber.equip_to_slot_if_possible(H, slot_back, del_on_fail=0, disable_warning=1))
+		if(!grabber.equip_to_slot_if_possible(H, slot_back_str, del_on_fail=0, disable_warning=1))
 			to_chat(src, "<span class='warning'>You can't climb onto [grabber]!</span>")
 			return
 
@@ -168,11 +168,22 @@ var/list/holder_mob_icon_cache = list()
 	return H
 
 /mob/living/attack_hand(mob/user)
+
+	var/datum/extension/hattable/hattable = get_extension(src, /datum/extension/hattable)
+	if(hattable && hattable.hat)
+		hattable.hat.forceMove(get_turf(src))
+		user.put_in_hands(hattable.hat)
+		user.visible_message(SPAN_DANGER("\The [user] removes \the [src]'s [hattable.hat]!"))
+		hattable.hat = null
+		update_icons()
+		return TRUE
+
 	if(ishuman(user))
 		var/mob/living/carbon/H = user
 		if(H.a_intent == I_GRAB && scoop_check(user))
 			get_scooped(user, FALSE)
 			return TRUE
+
 	. = ..()
 
 /mob/living/proc/scoop_check(var/mob/living/scooper)

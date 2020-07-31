@@ -42,7 +42,7 @@
 	var/image/res = ..()
 	//Do not color scabbarded blades
 	if(applies_material_colour && (slot == slot_back_str || slot == slot_belt_str))
-		res.color = null
+		res?.color = null
 	return res
 
 /obj/item/sword/wood
@@ -79,6 +79,6 @@
 	hitsound = 'sound/weapons/anime_sword.wav'
 
 /obj/item/sword/katana/vibro/equipped(mob/user, slot)
-	if(slot == slot_l_hand || slot == slot_r_hand)
+	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		playsound(src, 'sound/weapons/katana_out.wav', 50, 1, -5)
 	

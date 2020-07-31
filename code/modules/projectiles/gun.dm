@@ -130,7 +130,7 @@
 
 /obj/item/gun/experimental_mob_overlay(mob/user_mob, slot)
 	var/image/I = ..()
-	if(user_mob.can_wield_item(src) && is_held_twohanded(user_mob) && check_state_in_icon("[I.icon_state]-wielded", icon))
+	if(I && user_mob.can_wield_item(src) && is_held_twohanded(user_mob) && check_state_in_icon("[I.icon_state]-wielded", icon))
 		I.icon_state = "[I.icon_state]-wielded"
 	return I
 

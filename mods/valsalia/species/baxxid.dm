@@ -78,11 +78,11 @@
 /datum/hud_data/baxxid
 	has_hands = FALSE
 	gear = list(
-		"id" =           list("loc" = ui_id,                "name" = "ID",   "slot" = slot_wear_id,   "state" = "id"),
-		"back" =         list("loc" = ui_sstore1,           "name" = "Back", "slot" = slot_back,      "state" = "back"),
-		"o_clothing" =   list("loc" = ui_iclothing,         "name" = "Suit", "slot" = slot_wear_suit, "state" = "suit", "toggle" = 1),
-		"head" =         list("loc" = "LEFT:6,BOTTOM+3:11", "name" = "Hat",  "slot" = slot_head,      "state" = "hair", "toggle" = 1),
-		"mask" =         list("loc" = ui_glasses,           "name" = "Mask", "slot" = slot_wear_mask, "state" = "mask", "toggle" = 1)
+		"id" =           list("loc" = ui_id,                "name" = "ID",   "slot" = slot_wear_id_str,   "state" = "id"),
+		"back" =         list("loc" = ui_sstore1,           "name" = "Back", "slot" = slot_back_str,      "state" = "back"),
+		"o_clothing" =   list("loc" = ui_iclothing,         "name" = "Suit", "slot" = slot_wear_suit_str, "state" = "suit", "toggle" = 1),
+		"head" =         list("loc" = "LEFT:6,BOTTOM+3:11", "name" = "Hat",  "slot" = slot_head_str,      "state" = "hair", "toggle" = 1),
+		"mask" =         list("loc" = ui_glasses,           "name" = "Mask", "slot" = slot_wear_mask_str, "state" = "mask", "toggle" = 1)
 		)
 
 /decl/natural_attack/claws/strong/baxxid

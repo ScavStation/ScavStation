@@ -1,7 +1,7 @@
 /datum/gear/clothing/cloak
 	display_name = "cloak, colour select"
 	path = /obj/item/clothing/accessory/cloak
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/yinglet_hood
@@ -20,7 +20,7 @@
 	display_name = "medical belt"
 	path = /obj/item/storage/belt/medical
 	cost = 3
-	slot = slot_belt
+	slot = slot_belt_str
 
 /datum/gear/uniform/librarian
 	display_name = "Yinglet Librarian Robes"

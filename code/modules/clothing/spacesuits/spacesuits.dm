@@ -93,7 +93,7 @@
 
 /obj/item/clothing/head/helmet/space/experimental_mob_overlay(var/mob/user_mob, var/slot)
 	var/image/ret = ..()
-	if(tint && check_state_in_icon("[ret.icon_state]_dark", ret.icon))
+	if(ret && tint && check_state_in_icon("[ret.icon_state]_dark", ret.icon))
 		ret.icon_state = "[ret.icon_state]_dark"
 	return ret
 
@@ -140,4 +140,4 @@
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
-	slowdown_per_slot[slot_wear_suit] = 1
+	LAZYSET(slowdown_per_slot, slot_wear_suit_str, 1)

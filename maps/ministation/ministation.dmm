@@ -5741,7 +5741,7 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
-/obj/machinery/bluespacerelay,
+/obj/machinery/commsrelay,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263

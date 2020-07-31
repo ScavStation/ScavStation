@@ -135,7 +135,7 @@
 /obj/item/gun/launcher/pneumatic/experimental_mob_overlay(mob/user_mob, slot)
 	var/image/I = ..()
 	if(tank)
-		I.icon_state += "-tank" 
+		I?.icon_state += "-tank" 
 	return I
 
 /obj/item/gun/launcher/pneumatic/small

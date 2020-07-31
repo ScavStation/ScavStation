@@ -11,7 +11,7 @@
 
 /obj/item/clothing/suit/armor/reactive/Initialize()
 	. = ..()
-	slowdown_per_slot[slot_wear_suit] = 1
+	LAZYSET(slowdown_per_slot, slot_wear_suit_str, 1)
 
 /obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(prob(50))
@@ -53,7 +53,7 @@
 
 /obj/item/clothing/suit/armor/reactive/experimental_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
-	if(active && check_state_in_icon("[ret.icon_state]_on", icon))
+	if(ret && active && check_state_in_icon("[ret.icon_state]_on", icon))
 		ret.icon_state = "[ret.icon_state]_on"
 	return ret
 	

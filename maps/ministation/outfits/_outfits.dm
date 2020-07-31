@@ -4,7 +4,7 @@
 /decl/hierarchy/outfit/job/ministation
 	hierarchy_type = /decl/hierarchy/outfit/job/ministation
 	pda_type = /obj/item/modular_computer/pda
-	pda_slot = slot_l_store
+	pda_slot = slot_l_store_str
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat
 	l_ear = null
 	r_ear = null

@@ -138,10 +138,11 @@
 
 /obj/item/twohanded/spear/experimental_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
-	if(wielded && check_state_in_icon("[ret.icon_state]_wielded", icon))
-		ret.icon_state = "[ret.icon_state]_wielded"
-	ret.overlays += get_shaft_overlay("[ret.icon_state]_shaft")
-	ret.overlays += get_mutable_overlay(icon, "[ret.icon_state]_cable", cable_color)
+	if(ret)
+		if(wielded && check_state_in_icon("[ret.icon_state]_wielded", icon))
+			ret.icon_state = "[ret.icon_state]_wielded"
+		ret.overlays += get_shaft_overlay("[ret.icon_state]_shaft")
+		ret.overlays += get_mutable_overlay(icon, "[ret.icon_state]_cable", cable_color)
 	return ret
 
 /obj/item/twohanded/spear/proc/get_shaft_overlay(var/base_state)
