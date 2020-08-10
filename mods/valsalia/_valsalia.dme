@@ -14,6 +14,7 @@
 #include "items\seed_storage.dm"
 #include "items\suit_cycler.dm"
 #include "items\turfs.dm"
+#include "items\voidsuits.dm"
 #include "jobs\yinglet_job.dm"
 #include "jobs\yinglet_outfit.dm"
 #include "lobby\music.dm"
