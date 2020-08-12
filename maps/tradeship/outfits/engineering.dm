@@ -5,7 +5,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 	id_type = /obj/item/card/id/tradeship/engineering
 	shoes = /obj/item/clothing/shoes/workboots
-	l_hand = /obj/item/wrench
+	hands = list(/obj/item/wrench)
 	belt = /obj/item/storage/belt/utility/full
 	r_pocket = /obj/item/radio
 
@@ -23,7 +23,7 @@
 	gloves = /obj/item/clothing/gloves/thick
 	shoes = /obj/item/clothing/shoes/workboots
 	pda_type = /obj/item/modular_computer/pda/heads/ce
-	l_hand = /obj/item/wrench
+	hands = list(/obj/item/wrench)
 	belt = /obj/item/storage/belt/utility/full
 	id_type = /obj/item/card/id/tradeship/engineering/head
 	r_pocket = /obj/item/radio

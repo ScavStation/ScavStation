@@ -6,7 +6,7 @@
 	stack_type = /obj/item/stack/material/wood
 	color = WOOD_COLOR_GENERIC
 	integrity = 75
-	icon_base = "wood"
+	icon_base = 'icons/turf/walls/wood.dmi'
 	table_icon_base = "wood"
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
@@ -32,6 +32,7 @@
 	value = 1.5
 	reflectiveness = MAT_VALUE_DULL
 	wall_support_value = MAT_VALUE_NORMAL
+	fuel_value = 0.8
 
 /decl/material/solid/wood/generate_recipes(var/reinforce_material)
 	. = ..()
@@ -58,7 +59,8 @@
 	. += new/datum/stack_recipe/wooden_prosthetic/right_hand(src)
 	. += new/datum/stack_recipe/wooden_prosthetic/left_foot(src)
 	. += new/datum/stack_recipe/wooden_prosthetic/right_foot(src)
-
+	. += new/datum/stack_recipe/campfire(src)
+	
 /decl/material/solid/wood/mahogany/generate_recipes(var/reinforce_material)
 	. = ..()
 	if(reinforce_material)

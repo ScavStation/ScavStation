@@ -87,9 +87,12 @@
 	var/destruction_desc = "breaks apart" // Fancy string for barricades/tables/objects exploding.
 
 	// Icons
-	var/icon_base = "metal"                              // Wall and table base icon tag. See header.
+	var/icon_base = 'icons/turf/walls/solid.dmi'
+	var/icon_stripe = 'icons/turf/walls/stripes.dmi'
+	var/icon_base_natural = 'icons/turf/walls/natural.dmi'
+	var/icon_reinf = 'icons/turf/walls/reinforced_metal.dmi'
+
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
-	var/icon_reinf = "reinf_metal"                       // Overlay used
 	var/table_icon_base = "metal"
 	var/table_reinf = "reinf_metal"
 	var/list/stack_origin_tech = "{'materials':1}" // Research level for stacks.
@@ -153,7 +156,6 @@
 
 	// Gas behavior.
 	var/gas_overlay_limit
-	var/gas_burn_product
 	var/gas_specific_heat
 	var/gas_molar_mass
 	var/gas_symbol_html
@@ -211,7 +213,7 @@
 	var/list/heating_products
 	var/bypass_heating_products_for_root_type
 	var/fuel_value = 0
-
+	var/burn_product
 	var/list/vapor_products // If splashed, releases these gasses in these proportions. // TODO add to unit test after solvent PR is merged
 
 	var/scent //refer to _scent.dm
@@ -508,10 +510,8 @@
 		M.was_bloodied = null
 
 	if(dirtiness <= DIRTINESS_CLEAN)
-		if(M.r_hand)
-			M.r_hand.clean_blood()
-		if(M.l_hand)
-			M.l_hand.clean_blood()
+		for(var/obj/item/thing in M.get_held_items())
+			thing.clean_blood()
 		if(M.wear_mask)
 			if(M.wear_mask.clean_blood())
 				M.update_inv_wear_mask(0)

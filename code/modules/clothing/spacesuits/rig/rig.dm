@@ -112,7 +112,7 @@
 		for(var/obj/item/piece in list(helmet,gloves,chest,boots))
 			if(!piece || piece.loc != wearer)
 				continue
-			to_chat(user, "\icon[piece] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed.")
+			to_chat(user, "[html_icon(piece)] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed.")
 
 	if(src.loc == user)
 		to_chat(user, "The access panel is [locked? "locked" : "unlocked"].")
@@ -564,7 +564,7 @@
 		wearer.update_inv_back()
 	return
 
-/obj/item/rig/get_mob_overlay(mob/user_mob, slot)
+/obj/item/rig/get_mob_overlay(mob/user_mob, slot, bodypart)
 	var/image/ret = ..()
 	if(slot != slot_back_str || offline)
 		return ret

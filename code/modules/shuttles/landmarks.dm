@@ -17,7 +17,7 @@
 	//when the shuttle leaves this landmark, it will leave behind the base area
 	//also used to determine if the shuttle can arrive here without obstruction
 	var/area/base_area
-	//Will also leave this type of turf behind if set.
+	//Will also leave this type of turf behind if set, if the turfs do not have prev_type set.
 	var/turf/base_turf
 	//Name of the shuttle, null for generic waypoint
 	var/shuttle_restricted
@@ -128,6 +128,7 @@
 	for(var/turf/T in range(radius, src))
 		if(T.density)
 			T.ChangeTurf(get_base_turf_by_area(T))
+		T.turf_flags |= TURF_FLAG_NORUINS
 
 //Used for custom landing locations. Self deletes after a shuttle leaves.
 /obj/effect/shuttle_landmark/temporary

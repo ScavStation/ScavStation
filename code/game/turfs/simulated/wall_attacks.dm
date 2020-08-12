@@ -8,7 +8,6 @@
 
 	if(density)
 		can_open = WALL_OPENING
-		//flick("[material.icon_base]fwall_opening", src)
 		sleep(15)
 		set_density(0)
 		set_opacity(0)
@@ -22,7 +21,6 @@
 			SSair.mark_for_update(turf)
 	else
 		can_open = WALL_OPENING
-		//flick("[material.icon_base]fwall_closing", src)
 		set_density(1)
 		set_opacity(1)
 		blocks_air = AIR_BLOCKED
@@ -95,7 +93,7 @@
 		return TRUE
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/hand = H.hand ? H.organs_by_name[BP_L_HAND] : H.organs_by_name[BP_R_HAND]
+		var/obj/item/hand = H.organs_by_name[H.get_active_held_item_slot()]
 		if(hand && try_graffiti(H, hand))
 			return TRUE
 	. = ..()
