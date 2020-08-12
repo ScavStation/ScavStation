@@ -143,8 +143,9 @@
 			return
 
 /obj/item/chems/food/snacks/grown/throw_impact(atom/hit_atom)
-	if(seed) seed.thrown_at(src,hit_atom)
 	..()
+	if(seed) 
+		seed.thrown_at(src,hit_atom)
 
 /obj/item/chems/food/snacks/grown/attackby(var/obj/item/W, var/mob/user)
 
@@ -155,7 +156,7 @@
 				//TODO: generalize this.
 				to_chat(user, "<span class='notice'>You add some cable to the [src.name] and slide it inside the battery casing.</span>")
 				var/obj/item/cell/potato/pocell = new /obj/item/cell/potato(get_turf(user))
-				if(src.loc == user && !(user.l_hand && user.r_hand) && istype(user,/mob/living/carbon/human))
+				if(src.loc == user && user.get_empty_hand_slot() && istype(user,/mob/living/carbon/human))
 					user.put_in_hands(pocell)
 				pocell.maxcharge = src.potency * 10
 				pocell.charge = pocell.maxcharge

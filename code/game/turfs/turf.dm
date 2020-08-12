@@ -35,6 +35,8 @@
 
 	var/tmp/changing_turf
 
+	var/prev_type // Previous type of the turf, prior to turf translation.
+
 /turf/Initialize(mapload, ...)
 	. = ..()
 	if(dynamic_lighting)
@@ -269,7 +271,7 @@ var/const/enterloopsanity = 100
 
 /turf/proc/remove_cleanables()
 	for(var/obj/effect/O in src)
-		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
 			qdel(O)
 
 /turf/proc/update_blood_overlays()
@@ -282,7 +284,8 @@ var/const/enterloopsanity = 100
 
 // Called when turf is hit by a thrown object
 /turf/hitby(atom/movable/AM, var/datum/thrownthing/TT)
-	if(src.density)
+	..()
+	if(density)
 		if(isliving(AM))
 			var/mob/living/M = AM
 			M.turf_collision(src, TT.speed)

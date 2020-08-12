@@ -78,6 +78,7 @@
 		BP_L_HAND = list("path" = /obj/item/organ/external/hand/insectoid),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/insectoid),
 		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/insectoid),
+		BP_M_HAND = list("path" = /obj/item/organ/external/hand/insectoid/midlimb),
 		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/insectoid),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/insectoid),
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/insectoid),
@@ -112,6 +113,11 @@
 			list(/decl/emote/visible/ascent_glimmer, /decl/emote/visible/ascent_pulse) = 50,
 			list(/decl/emote/visible/ascent_flicker, /decl/emote/visible/ascent_glint) = 20,
 		)
+
+///datum/species/mantid/New()
+	//..()
+	//LAZYINITLIST(limb_mapping)
+	//LAZYDISTINCTADD(limb_mapping, BP_CHEST, BP_M_HAND)
 
 /datum/species/mantid/handle_sleeping(var/mob/living/carbon/human/H)
 	return
@@ -156,7 +162,8 @@
 
 	override_limb_types = list(
 		BP_HEAD = /obj/item/organ/external/head/insectoid/mantid,
-		BP_GROIN = /obj/item/organ/external/groin/insectoid/mantid/gyne
+		BP_GROIN = /obj/item/organ/external/groin/insectoid/mantid/gyne,
+		BP_EGG = /obj/item/organ/internal/egg_sac/insectoid
 	)
 
 	descriptors = list(
@@ -173,7 +180,7 @@
 
 /datum/species/mantid/gyne/New()
 	equip_adjust = list(
-		slot_l_hand_str = list(
+		BP_L_HAND = list(
 			"[NORTH]" = list("x" = -4, "y" = 12),
 			"[EAST]" = list("x" =  -4, "y" = 12),
 			"[SOUTH]" = list("x" = -4, "y" = 12),
@@ -215,17 +222,19 @@
 		BP_SYSTEM_CONTROLLER = /obj/item/organ/internal/controller
 	)
 	has_limbs = list(
-		BP_CHEST =  list("path" = /obj/item/organ/external/chest/insectoid/serpentid),
-		BP_GROIN =  list("path" = /obj/item/organ/external/groin/insectoid/serpentid),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/insectoid/serpentid),
-		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/insectoid),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/insectoid),
-		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/insectoid),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/insectoid),
-		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/insectoid),
-		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/insectoid),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/insectoid),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/insectoid)
+		BP_CHEST =        list("path" = /obj/item/organ/external/chest/insectoid/serpentid),
+		BP_GROIN =        list("path" = /obj/item/organ/external/groin/insectoid/serpentid),
+		BP_HEAD =         list("path" = /obj/item/organ/external/head/insectoid/serpentid),
+		BP_L_ARM =        list("path" = /obj/item/organ/external/arm/insectoid),
+		BP_L_HAND =       list("path" = /obj/item/organ/external/hand/insectoid),
+		BP_L_HAND_UPPER = list("path" = /obj/item/organ/external/hand/insectoid/upper),
+		BP_R_ARM =        list("path" = /obj/item/organ/external/arm/right/insectoid),
+		BP_R_HAND =       list("path" = /obj/item/organ/external/hand/right/insectoid),
+		BP_R_HAND_UPPER = list("path" = /obj/item/organ/external/hand/right/insectoid/upper),
+		BP_R_LEG =        list("path" = /obj/item/organ/external/leg/right/insectoid),
+		BP_L_LEG =        list("path" = /obj/item/organ/external/leg/insectoid),
+		BP_L_FOOT =       list("path" = /obj/item/organ/external/foot/insectoid),
+		BP_R_FOOT =       list("path" = /obj/item/organ/external/foot/right/insectoid)
 		)
 	force_cultural_info = list(
 		TAG_CULTURE =   CULTURE_ASCENT,
@@ -302,13 +311,20 @@
 	)
 
 /datum/species/serpentid/New()
-	equip_adjust = list(
-		slot_head_str =    list("[NORTH]" = list("x" = 0, "y" = 7),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" = 0, "y" = 8),  "[WEST]" = list("x" = 0, "y" = 8)),
-		slot_back_str =    list("[NORTH]" = list("x" = 0, "y" = 7),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" = 0, "y" = 8),  "[WEST]" = list("x" = 0, "y" = 8)),
-		slot_belt_str =    list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 0),  "[WEST]" = list("x" = -8, "y" = 0)),
-		slot_glasses_str = list("[NORTH]" = list("x" = 0, "y" = 10), "[EAST]" = list("x" = 0, "y" = 11), "[SOUTH]" = list("x" = 0, "y" = 11), "[WEST]" = list("x" = 0, "y" = 11))
-	)
 	..()
+	//LAZYINITLIST(limb_mapping)
+	//LAZYDISTINCTADD(limb_mapping, BP_L_HAND, BP_L_HAND_UPPER)
+	//LAZYDISTINCTADD(limb_mapping, BP_R_HAND, BP_R_HAND_UPPER)
+	equip_adjust = list(
+		BP_L_HAND_UPPER =  list("[NORTH]" = list("x" =  0, "y" = 8),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" = -0, "y" = 8),  "[WEST]" = list("x" =  0, "y" = 8)),
+		BP_R_HAND_UPPER =  list("[NORTH]" = list("x" =  0, "y" = 8),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" =  0, "y" = 8),  "[WEST]" = list("x" =  0, "y" = 8)),
+		BP_L_HAND =        list("[NORTH]" = list("x" =  4, "y" = 0),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = -4, "y" = 0),  "[WEST]" = list("x" =  0, "y" = 0)),
+		BP_R_HAND =        list("[NORTH]" = list("x" = -4, "y" = 0),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" =  4, "y" = 0),  "[WEST]" = list("x" =  0, "y" = 0)),
+		slot_head_str =    list("[NORTH]" = list("x" =  0, "y" = 7),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" =  0, "y" = 8),  "[WEST]" = list("x" =  0, "y" = 8)),
+		slot_back_str =    list("[NORTH]" = list("x" =  0, "y" = 7),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" =  0, "y" = 8),  "[WEST]" = list("x" =  0, "y" = 8)),
+		slot_belt_str =    list("[NORTH]" = list("x" =  0, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 0),  "[SOUTH]" = list("x" =  0, "y" = 0),  "[WEST]" = list("x" = -8, "y" = 0)),
+		slot_glasses_str = list("[NORTH]" = list("x" =  0, "y" = 10), "[EAST]" = list("x" = 0, "y" = 11), "[SOUTH]" = list("x" =  0, "y" = 11), "[WEST]" = list("x" =  0, "y" = 11))
+	)
 
 /datum/species/serpentid/get_blood_name()
 	return "haemolymph"
@@ -362,7 +378,6 @@
 			return TRUE
 
 	return FALSE
-
 
 /datum/species/serpentid/can_shred(var/mob/living/carbon/human/H, var/ignore_intent, var/ignore_antag)
 	if(!H.handcuffed || H.buckled)
@@ -418,76 +433,24 @@
 				skin_overlays[image_key] = threat_image
 
 			return(threat_image)
-	return
+
 
 /datum/species/serpentid/disarm_attackhand(var/mob/living/carbon/human/attacker, var/mob/living/carbon/human/target)
 	if(attacker.pulling_punches || target.lying || attacker == target)
 		return ..(attacker, target)
 	if(world.time < attacker.last_attack + 20)
-		to_chat(attacker, "<span class='notice'>You can't attack again so soon.</span>")
+		to_chat(attacker, SPAN_NOTICE("You can't attack again so soon."))
 		return 0
 	attacker.last_attack = world.time
 	var/turf/T = get_step(get_turf(target), get_dir(get_turf(attacker), get_turf(target)))
 	playsound(target.loc, 'sound/weapons/pushhiss.ogg', 50, 1, -1)
 	if(!T.density)
 		step(target, get_dir(get_turf(attacker), get_turf(target)))
-		target.visible_message("<span class='danger'>[pick("[target] was sent flying backward!", "[target] staggers back from the impact!")]</span>")
+		target.visible_message(SPAN_DANGER("[pick("[target] was sent flying backward!", "[target] staggers back from the impact!")]"))
 	else
 		target.turf_collision(T, target.throw_speed / 2)
 	if(prob(50))
 		target.set_dir(GLOB.reverse_dir[target.dir])
-
-/datum/species/serpentid/get_additional_examine_text(var/mob/living/carbon/human/H)
-	var/datum/gender/T = gender_datums[H.get_gender()]
-	if(H.pulling_punches)
-		return "\n[T.His] manipulation arms are out and [T.he] looks ready to use complex items."
-	else
-		return "\n<span class='warning'>[T.His] upper arms are raised and [T.he] looks ready to attack!</span>"
-
-/datum/species/serpentid/handle_post_spawn(var/mob/living/carbon/human/H)
-	..()
-	H.pulling_punches = TRUE
-
-/datum/species/serpentid/get_manual_dexterity(var/mob/living/carbon/human/H)
-	. = (H && H.pulling_punches) ? ..() : DEXTERITY_SIMPLE_MACHINES
-
-/datum/species/serpentid/toggle_stance(var/mob/living/carbon/human/H)
-	if(H.incapacitated())
-		return FALSE
-	var/datum/gender/T = gender_datums[H.get_gender()]
-	to_chat(H, "<span class='notice'>You begin to adjust the fluids in your arms, dropping everything and getting ready to swap which set you're using.</span>")
-	var/hidden = H.is_cloaked()
-	if(!hidden) H.visible_message("<span class='warning'>\The [H] shifts [T.his] arms.</span>")
-	H.unEquip(H.l_hand)
-	H.unEquip(H.r_hand)
-	if(do_after(H, 30))
-		arm_swap(H)
-	else
-		to_chat(H, "<span class='notice'>You stop adjusting your arms and don't switch between them.</span>")
-	return TRUE
-
-/datum/species/serpentid/proc/arm_swap(var/mob/living/carbon/human/H, var/forced)
-	H.unEquip(H.l_hand)
-	H.unEquip(H.r_hand)
-	var/hidden = H.is_cloaked()
-	var/datum/gender/T = gender_datums[H.get_gender()]
-	H.pulling_punches = !H.pulling_punches
-	if(H.pulling_punches)
-		if(forced)
-			to_chat(H, "<span class='notice'>You can't keep your hunting arms prepared and they drop, forcing you to use your manipulation arms.</span>")
-			if(!hidden)
-				H.visible_message("<span class='notice'>[H] falters, [T.his] hunting arms failing.</span>")
-		else
-			to_chat(H, "<span class='notice'>You relax your hunting arms, lowering the pressure and folding them tight to your thorax. \
-			You reach out with your manipulation arms, ready to use complex items.</span>")
-			if(!hidden)
-				H.visible_message("<span class='notice'>[H] seems to relax as [T.he] folds [T.his] massive curved arms to [T.his] thorax and reaches out \
-				with [T.his] small handlike limbs.</span>")
-	else
-		to_chat(H, "<span class='notice'>You pull in your manipulation arms, dropping any items and unfolding your massive hunting arms in preparation of grabbing prey.</span>")
-		if(!hidden)
-			H.visible_message("<span class='warning'>[H] tenses as [T.he] brings [T.his] smaller arms in close to [T.his] body. [T.His] two massive spiked arms reach \
-			out. [T.He] looks ready to attack.</span>")
 
 /datum/species/serpentid/skills_from_age(age)	//Converts an age into a skill point allocation modifier. Can be used to give skill point bonuses/penalities not depending on job.
 	switch(age)
@@ -510,4 +473,4 @@
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store_str,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store_str,   "state" = "pocket"),
 		"belt" =         list("loc" = ui_belt,      "name" = "Belt",         "slot" = slot_belt_str,      "state" = "belt")
-		)
+	)

@@ -94,7 +94,7 @@ var/list/all_conveyor_switches = list()
 		to_chat(user, "<span class='notice'>You remove the conveyor belt.</span>")
 		qdel(src)
 		return
-	user.unequip_item(get_turf(src))
+	user.unEquip(I, get_turf(src))
 
 // make the conveyor broken
 // also propagate inoperability to any connected conveyor with the same id_tag
@@ -282,7 +282,7 @@ var/list/all_conveyor_switches = list()
 			found = 1
 			break
 	if(!found)
-		to_chat(user, "\icon[src]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
+		to_chat(user, "[html_icon(src)]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
 		return
 	var/obj/machinery/conveyor_switch/NC = new /obj/machinery/conveyor_switch(A, id_tag)
 	transfer_fingerprints_to(NC)
@@ -301,7 +301,7 @@ var/list/all_conveyor_switches = list()
 			found = 1
 			break
 	if(!found)
-		to_chat(user, "\icon[src]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
+		to_chat(user, "[html_icon(src)]<span class=notice>The conveyor switch did not detect any linked conveyor belts in range.</span>")
 		return
 	var/obj/machinery/conveyor_switch/oneway/NC = new /obj/machinery/conveyor_switch/oneway(A, id_tag)
 	transfer_fingerprints_to(NC)

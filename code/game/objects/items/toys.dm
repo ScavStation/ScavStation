@@ -74,16 +74,13 @@
 	return
 
 /obj/item/toy/water_balloon/throw_impact(atom/hit_atom)
+	..()
 	if(reagents && reagents.total_volume >= 1)
-		src.visible_message("<span class='warning'>\The [src] bursts!</span>","You hear a pop and a splash.")
-		src.reagents.touch_turf(get_turf(hit_atom))
-		for(var/atom/A in get_turf(hit_atom))
-			src.reagents.touch(A)
-		src.icon_state = "burst"
-		spawn(5)
-			if(src)
-				qdel(src)
-	return
+		visible_message(SPAN_WARNING("\The [src] bursts!"),"You hear a pop and a splash.")
+		reagents.trans_to_turf(get_turf(hit_atom), reagents.total_volume)
+		if(!QDELETED(src))
+			icon_state = "burst"
+			qdel(src)
 
 /obj/item/toy/water_balloon/on_update_icon()
 	if(src.reagents.total_volume >= 1)
@@ -292,15 +289,15 @@
 	icon_state = "snappop"
 	w_class = ITEM_SIZE_TINY
 
-	throw_impact(atom/hit_atom)
-		..()
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
-		new /obj/effect/decal/cleanable/ash(src.loc)
-		src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")
-		playsound(src, 'sound/effects/snap.ogg', 50, 1)
-		qdel(src)
+/obj/item/toy/snappop/throw_impact(atom/hit_atom)
+	..()
+	var/datum/effect/effect/system/spark_spread/s = new
+	s.set_up(3, 1, src)
+	s.start()
+	new /obj/effect/decal/cleanable/ash(src.loc)
+	visible_message(SPAN_WARNING("The [src.name] explodes!"),SPAN_WARNING("You hear a snap!"))
+	playsound(src, 'sound/effects/snap.ogg', 50, 1)
+	qdel(src)
 
 /obj/item/toy/snappop/Crossed(H)
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
@@ -789,12 +786,15 @@
 		user.visible_message("<span class='notice'>[user] holds \the [src] above their head, signalling a stop.</span>",
 							"<span class='notice'>You hold \the [src] above your head, signalling a stop.</span>")
 	else if (user.a_intent == I_GRAB)
-		var/WAND_TURN_DIRECTION
-		if (user.l_hand == src) WAND_TURN_DIRECTION = "left"
-		else if (user.r_hand == src) WAND_TURN_DIRECTION = "right"
-		else return //how can you not be holding it in either hand?? black magic
-		user.visible_message("<span class='notice'>[user] waves \the [src] to the [WAND_TURN_DIRECTION], signalling a turn.</span>",
-							"<span class='notice'>You wave \the [src] to the [WAND_TURN_DIRECTION], signalling a turn.</span>")
+		var/wand_dir
+		if(user.get_equipped_item(BP_L_HAND) == src) 
+			wand_dir = "left"
+		else if (user.get_equipped_item(BP_R_HAND) == src) 
+			wand_dir = "right"
+		else
+			wand_dir = pick("left", "right")
+		user.visible_message("<span class='notice'>[user] waves \the [src] to the [wand_dir], signalling a turn.</span>",
+							"<span class='notice'>You wave \the [src] to the [wand_dir], signalling a turn.</span>")
 	else if (user.a_intent == I_HURT)
 		user.visible_message("<span class='warning'>[user] frantically waves \the [src] above their head!</span>",
 							"<span class='warning'>You frantically wave \the [src] above your head!</span>")
