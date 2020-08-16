@@ -184,9 +184,10 @@
 
 /obj/item/holder/human/yinglet/attack_self(mob/user)
 	var/mob/owner = locate() in contents
-	if(owner.stat == CONSCIOUS)
+	if(owner.stat != DEAD)
 		var/turf/T = get_turf(owner)
 		T.visible_message(SPAN_WARNING("\icon[owner] Eee!"))
 		playsound(T, 'sound/effects/mousesqueek.ogg', 75, 1)
 		user.setClickCooldown(15)
-	..()
+		return TRUE
+	. = ..()
