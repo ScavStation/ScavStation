@@ -146,6 +146,9 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Patriarch"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "ay" = (
@@ -171,6 +174,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/effect/landmark/start{
+	name = "Enclave Scout"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
@@ -1122,6 +1128,7 @@
 	icon_state = "bulb_map";
 	dir = 8
 	},
+/obj/structure/junkpile/mapped,
 /turf/simulated/floor/carpet/green,
 /area/ship/trade/enclave)
 "hc" = (
@@ -1182,7 +1189,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "iD" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/suit/rubber,
@@ -1240,8 +1247,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Patriarch"
+	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "ls" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1259,6 +1269,7 @@
 /area/ship/trade/aft_port_underside_maint)
 "lv" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/junkpile/mapped,
 /turf/simulated/floor/bluegrid,
 /area/ship/trade/undercomms)
 "lA" = (
@@ -1297,6 +1308,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/trade/livestock)
+"nC" = (
+/obj/effect/landmark/start{
+	name = "Enclave Scout"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/ship/trade/loading_bay)
 "nE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1394,7 +1411,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "pU" = (
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed{
@@ -1407,7 +1424,7 @@
 "qt" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "qK" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
@@ -1688,7 +1705,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "yE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1753,6 +1770,9 @@
 /mob/living/simple_animal/mouse,
 /turf/simulated/floor,
 /area/ship/trade/aft_starboard_underside_maint)
+"AT" = (
+/turf/simulated/floor/carpet/green,
+/area/ship/trade/enclave)
 "AZ" = (
 /obj/machinery/smartfridge/secure/extract,
 /turf/simulated/floor/tiled/white,
@@ -1817,11 +1837,11 @@
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Ff" = (
 /obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor/carpet/red,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Ft" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -1889,6 +1909,7 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/structure/junkpile/mapped,
 /turf/simulated/floor/bluegrid,
 /area/ship/trade/undercomms)
 "HS" = (
@@ -1922,7 +1943,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Iv" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -1946,6 +1967,9 @@
 /obj/structure/stairs/west,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ship/trade/loading_bay)
+"IN" = (
+/turf/simulated/floor/carpet/red,
+/area/ship/trade/enclave)
 "IQ" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -2170,7 +2194,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "PF" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -2361,7 +2385,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/disused)
+/area/ship/trade/enclave)
 "Yc" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall,
@@ -2382,6 +2406,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/undercomms)
+"Ym" = (
+/obj/structure/junkpile/mapped,
+/turf/simulated/floor/carpet/red,
+/area/ship/trade/enclave)
 "YH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5121,7 +5149,7 @@ aa
 aa
 SC
 Ff
-Ux
+Ym
 Xe
 Nq
 ak
@@ -5628,7 +5656,7 @@ sO
 bL
 II
 bz
-yQ
+nC
 bO
 au
 ay
@@ -5710,7 +5738,7 @@ sO
 bL
 yQ
 bz
-yQ
+nC
 bP
 av
 aD
@@ -6023,7 +6051,7 @@ aa
 aa
 fY
 gf
-zw
+AT
 JQ
 Mb
 ap
@@ -6105,7 +6133,7 @@ aa
 aa
 SC
 zw
-Ux
+IN
 JQ
 Yh
 Ft

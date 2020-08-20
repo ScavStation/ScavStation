@@ -95,7 +95,7 @@
 	bodytype_restricted = list(BODYTYPE_YINGLET)
 	icon = 'mods/valsalia/icons/goggles_yinglet.dmi'
 	icon_state = ICON_STATE_WORLD
-	body_parts_covered = EYES
+	body_parts_covered = SLOT_EYES
 	slot_flags = SLOT_EYES
 
 /obj/item/clothing/suit/yinglet

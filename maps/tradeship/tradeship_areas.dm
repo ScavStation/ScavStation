@@ -77,10 +77,6 @@
 	icon_state = "red"
 	req_access = list(access_xenobiology)
 
-/area/ship/trade/fore_starboard_underside_maint
-	name = "\improper Underside - Fore Starboard Maintenance"
-	icon_state = "locker"
-
 /area/ship/trade/enclave
 	name = "\improper Underside - Enclave"
 	icon_state = "yellow"
