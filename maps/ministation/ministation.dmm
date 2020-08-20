@@ -2955,8 +2955,8 @@
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/ears/earmuffs,
-/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/head/earmuffs,
+/obj/item/clothing/head/earmuffs,
 /obj/machinery/requests_console{
 	department = "Security";
 	pixel_y = 30
@@ -14076,7 +14076,7 @@
 /obj/structure/table/standard,
 /obj/item/folder/yellow,
 /obj/item/pipe_painter,
-/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/head/earmuffs,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "HK" = (

@@ -11,7 +11,6 @@
 		/area/ship/trade/aft_starboard_underside_maint,
 		/area/ship/trade/loading_bay,
 		/area/ship/trade/fore_port_underside_maint,
-		/area/ship/trade/fore_starboard_underside_maint,
 		/area/ship/trade/enclave
 	)
 
