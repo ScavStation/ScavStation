@@ -228,6 +228,24 @@
 				/obj/item/chems/syringe/drugs = 1,
 				/obj/item/chems/food/snacks/egg/lizard = 3)
 
+/obj/random/drinkingglass
+	name = "random drinking glass" 
+	desc = "This is a random drinking glass."
+	icon = 'icons/obj/drink_glasses/square.dmi'
+	icon_state = "square"
+
+/obj/random/drinkingglass/spawn_choices()
+	return list(
+		/obj/item/chems/food/drinks/glass2/square,
+		/obj/item/chems/food/drinks/glass2/rocks,
+		/obj/item/chems/food/drinks/glass2/shake,
+		/obj/item/chems/food/drinks/glass2/cocktail,
+		/obj/item/chems/food/drinks/glass2/shot,
+		/obj/item/chems/food/drinks/glass2/pint,
+		/obj/item/chems/food/drinks/glass2/mug,
+		/obj/item/chems/food/drinks/glass2/wine
+	)
+
 /obj/random/drinkbottle
 	name = "random drink"
 	desc = "This is a random drink."
@@ -842,7 +860,7 @@ obj/random/obstruction/spawn_choices()
 				/obj/item/clothing/under/harness = 2,
 				/obj/item/clothing/under/rank/medical/paramedic = 2,
 				/obj/item/clothing/under/overalls = 2,
-				/obj/item/clothing/ears/earmuffs = 2,
+				/obj/item/clothing/head/earmuffs = 2,
 				/obj/item/clothing/under/tactical = 1)
 
 /obj/random/accessory
