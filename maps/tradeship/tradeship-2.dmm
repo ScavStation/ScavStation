@@ -1460,6 +1460,10 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "Crew Deck APC"
+	},
 /turf/simulated/floor/plating,
 /area/ship/trade/crew/hallway/starboard)
 "es" = (
@@ -1969,10 +1973,6 @@
 /turf/simulated/open,
 /area/ship/trade/cargo)
 "ft" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "Crew Deck APC"
-	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/structure/cable{
@@ -5518,7 +5518,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/trade/crew/hallway/port)
 "xL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	icon_state = "intact";
@@ -6652,6 +6652,18 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/trade/crew/medbay)
+"KS" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id_tag = "scraplock";
+	name = "External Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/ship/trade/crew/hallway/starboard)
 "KZ" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -11525,10 +11537,10 @@ bm
 bY
 cf
 ct
-xG
-xG
-xG
-xG
+KS
+KS
+KS
+KS
 Mo
 dd
 de
@@ -12102,7 +12114,7 @@ aa
 aa
 aa
 aa
-aa
+gk
 aa
 aa
 aa
