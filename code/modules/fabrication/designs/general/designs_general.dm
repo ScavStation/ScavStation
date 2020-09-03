@@ -10,6 +10,9 @@
 /datum/fabricator_recipe/extinguisher
 	path = /obj/item/extinguisher/empty
 
+/datum/fabricator_recipe/extinguisher/mini
+	path = /obj/item/extinguisher/mini/empty
+
 /datum/fabricator_recipe/jar
 	path = /obj/item/glass_jar
 
@@ -88,4 +91,4 @@
 	hidden = TRUE
 
 /datum/fabricator_recipe/plunger
-	path = /obj/item/clothing/mask/plunger
+	path = /obj/item/plunger
