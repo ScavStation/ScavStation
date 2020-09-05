@@ -891,7 +891,7 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mineral/unloading_machine{
+/obj/machinery/material_processing/unloader{
 	input_turf = 4;
 	output_turf = 1
 	},
@@ -1117,7 +1117,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "cO" = (
-/obj/machinery/mineral/processing_unit,
+/obj/machinery/material_processing/smeltery,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "cP" = (
@@ -1131,7 +1131,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "cQ" = (
-/obj/machinery/mineral/stacking_machine,
+/obj/machinery/material_processing/stacker,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "cR" = (
@@ -1230,7 +1230,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "df" = (
-/obj/machinery/computer/mining,
 /turf/simulated/wall,
 /area/ministation/cargo)
 "dg" = (
@@ -5270,7 +5269,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "nc" = (
-/obj/machinery/mineral/processing_unit,
+/obj/machinery/material_processing/compressor,
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "nd" = (
@@ -5281,7 +5280,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "ne" = (
-/obj/machinery/mineral/stacking_machine,
+/obj/machinery/material_processing/stacker,
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "nf" = (
@@ -5551,7 +5550,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "nK" = (
-/obj/machinery/computer/mining,
 /obj/structure/grille,
 /obj/structure/wall_frame,
 /turf/simulated/floor/plating,
