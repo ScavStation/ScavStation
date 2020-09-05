@@ -510,7 +510,7 @@
 		environment_data[++environment_data.len] = list("name" = "Pressure", "value" = pressure, "unit" = "kPa", "danger_level" = pressure_dangerlevel)
 		var/decl/environment_data/env_info = decls_repository.get_decl(environment_type)
 		for(var/gas_id in env_info.important_gasses)
-			var/decl/material/mat = decls_repository.get_decl(gas_id)	
+			var/decl/material/mat = decls_repository.get_decl(gas_id)
 			environment_data[++environment_data.len] = list(
 				"name" =  capitalize(mat.gas_name),
 				"value" = environment.gas[gas_id] / total * 100,
@@ -813,8 +813,9 @@ FIRE ALARM
 
 /obj/machinery/firealarm/examine(mob/user)
 	. = ..()
-	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
-	to_chat(user, "The current alert level is [security_state.current_security_level.name].")
+	if(loc.z in GLOB.using_map.contact_levels)
+		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		to_chat(user, "The current alert level is [security_state.current_security_level.name].")
 
 /obj/machinery/firealarm/proc/get_cached_overlay(key)
 	if(!LAZYACCESS(overlays_cache, key))
@@ -865,12 +866,13 @@ FIRE ALARM
 			overlays += get_cached_overlay("fire1")
 			set_light(0.25, 0.1, 1, 2, COLOR_RED)
 		else if(z in GLOB.using_map.contact_levels)
-			overlays += get_cached_overlay("fire0")
 			var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 			var/decl/security_level/sl = security_state.current_security_level
 
 			set_light(sl.light_max_bright, sl.light_inner_range, sl.light_outer_range, 2, sl.light_color_alarm)
 			overlays += image(sl.icon, sl.overlay_alarm)
+		else
+			overlays += get_cached_overlay("fire0")
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(src.detecting)
