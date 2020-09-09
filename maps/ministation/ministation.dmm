@@ -104,6 +104,13 @@
 /area/ministation/bridge)
 "an" = (
 /obj/structure/closet/secure_closet/medical3,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ffffff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ffffff"
+	},
+/obj/item/clothing/suit/yinglabcoat,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "ao" = (
@@ -194,6 +201,8 @@
 "aB" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/envelope/nuke_instructions,
+/obj/item/documents/tradehouse/account,
+/obj/item/documents/tradehouse/personnel,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aC" = (
@@ -2833,6 +2842,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hi" = (
+/obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ffffff"
+	},
+/obj/item/clothing/suit/yinglabcoat,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hj" = (
@@ -4845,6 +4859,20 @@
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
 "lY" = (
+/obj/structure/closet/wardrobe/mixed,
+/obj/item/clothing/under/yinglet/yingjumpsuit,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
 "lZ" = (
@@ -10085,6 +10113,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/closet/wardrobe/mixed,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet/yingjumpsuit,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "yg" = (
@@ -10341,15 +10387,43 @@
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yN" = (
+/obj/structure/closet/wardrobe/green,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yO" = (
+/obj/structure/closet/wardrobe/black,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yP" = (
+/obj/structure/closet/wardrobe/pink,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yQ" = (
+/obj/structure/closet/wardrobe/grey,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
 "yR" = (
@@ -11994,7 +12068,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "De" = (
 /obj/structure/table/standard,
 /obj/item/multitool,
@@ -12877,7 +12951,7 @@
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "Fh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -13099,7 +13173,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "FO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -14127,10 +14201,10 @@
 "Ia" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "Ib" = (
 /turf/simulated/wall,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "Ic" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -14218,8 +14292,11 @@
 	icon_state = "wooden_chair";
 	dir = 8
 	},
+/obj/effect/landmark/start{
+	name = "Enclave Representative"
+	},
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "Ip" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 4
@@ -14290,8 +14367,9 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "IC" = (
+/obj/structure/yinglet_nest,
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "ID" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -15669,6 +15747,22 @@
 /area/ministation/science)
 "MQ" = (
 /obj/structure/closet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/suit/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/under/yinglet/matriarch,
+/obj/item/clothing/head/yinglet,
+/obj/item/clothing/head/yinglet/scout,
+/obj/item/clothing/head/yinglet/scout,
+/obj/item/clothing/head/yinglet/matriarch,
+/obj/item/gun/launcher/crossbow,
+/obj/item/arrow,
+/obj/item/arrow,
+/obj/item/cell/crap,
 /obj/item/storage/briefcase,
 /obj/machinery/firealarm{
 	dir = 4;
@@ -15680,8 +15774,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/item/clothing/under/yinglet/yinglibrarian,
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "MV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15865,6 +15960,11 @@
 /turf/simulated/floor/airless,
 /area/space)
 "OB" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-2";
 	d2 = 2
@@ -15875,7 +15975,7 @@
 	pixel_x = 24
 	},
 /turf/simulated/floor/plating,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "OC" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -15888,7 +15988,7 @@
 "OD" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "OP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16082,8 +16182,10 @@
 	dir = 4;
 	level = 2
 	},
+/obj/item/modular_computer/tablet/preset/custom_loadout/cheap,
+/obj/item/mollusc/clam,
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "Qh" = (
 /obj/structure/bed/chair/wood/walnut{
 	icon_state = "wooden_chair";
@@ -16353,7 +16455,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "SS" = (
 /turf/simulated/wall,
 /area/ministation/court)
@@ -16558,7 +16660,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "Vn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -16678,7 +16780,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "WF" = (
 /obj/structure/closet/secure_closet/security,
 /turf/simulated/floor/tiled,
@@ -16752,7 +16854,7 @@
 /obj/item/bedsheet/green,
 /obj/random_multi/single_item/captains_spare_id,
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "WX" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/shuttle/blue,
@@ -16972,7 +17074,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "YI" = (
 /obj/machinery/light{
 	dir = 4
@@ -16987,7 +17089,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "YP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16997,7 +17099,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "YQ" = (
 /obj/structure/closet/lawcloset,
 /obj/machinery/light{
@@ -17032,7 +17134,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "Zr" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -17140,7 +17242,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/carpet/green,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "ZY" = (
 /obj/structure/cryofeed{
 	icon_state = "cryo_rear";

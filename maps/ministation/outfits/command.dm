@@ -7,6 +7,7 @@
 	shoes = /obj/item/clothing/shoes/color/brown
 	id_type = /obj/item/card/id/gold/ministation
 	pda_type = /obj/item/modular_computer/pda/heads/captain
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
 
 /decl/hierarchy/outfit/job/ministation/captain/New()
 	..()
@@ -38,6 +39,7 @@
 	id_type = /obj/item/card/id/silver/ministation
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/storage/box/ids = 1)
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
 
 /obj/item/card/id/silver/ministation
 	job_access_type = /datum/job/ministation/hop
