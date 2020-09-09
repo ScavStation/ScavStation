@@ -20,8 +20,7 @@
 
 	default_law_type = /datum/ai_laws/nanotrasen
 
-	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
-	lobby_screens = list('mods/valsalia/lobby/yingspace.png')
+	lobby_screens = list('mods/ministation/minilobby.png')
 
 	//TEMPORARY NOTE: Evac messages are temporary until its set up properly. Make sure they're changed later.
 	welcome_sound = 'sound/effects/cowboysting.ogg'
