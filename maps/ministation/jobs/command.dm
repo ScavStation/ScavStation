@@ -30,30 +30,14 @@
 
 /datum/job/ministation/captain/equip(var/mob/living/carbon/human/H)
 	. = ..()
-	if(H.client)
-		// H.client.verbs += /client/proc/tradehouse_rename_ship
-		H.client.verbs += /client/proc/tradehouse_rename_company
+	if(H.client)  //should be converted to mob verb in future PR
+		H.client.verbs += /client/proc/freetradeunion_rename_company
 
 /datum/job/ministation/captain/get_access()
 	return get_all_station_access()
 
-/* /client/proc/tradehouse_rename_ship()
-	set name = "Rename ministation"
-	set category = "Captain's Powers"
-
-	var/ship = sanitize(input(src, "What is your station called? Don't add the vessel prefix, 'ministation' will be attached automatically.", "Station Name", GLOB.using_map.station_short), MAX_NAME_LEN)
-	if(!ship)
-		return
-	GLOB.using_map.station_short = ship
-	GLOB.using_map.station_name = "ministation [ship]"
-	var/obj/effect/overmap/visitable/ship/tradeship/B = locate() in world
-	if(B)
-		B.SetName(GLOB.using_map.station_name)
-	command_announcement.Announce("Attention all hands on [GLOB.using_map.station_name]! Thank you for your attention.", "Ship re-Christened")
-	verbs -= /client/proc/tradehouse_rename_ship */
-
-/client/proc/tradehouse_rename_company()
-	set name = "Rename Tradehouse"
+/client/proc/freetradeunion_rename_company()
+	set name = "Rename Free Trade Union"
 	set category = "Captain's Powers"
 	var/company = sanitize(input(src, "What should your enterprise be called?", "Company name", GLOB.using_map.company_name), MAX_NAME_LEN)
 	if(!company)
@@ -64,8 +48,8 @@
 			GLOB.using_map.company_name = company
 		if(company_s)
 			GLOB.using_map.company_short = company_s
-		command_announcement.Announce("Congratulations to all members of [capitalize(GLOB.using_map.company_name)] on the new name. Their rebranding has changed the [GLOB.using_map.company_short] market value by [0.01*rand(-10,10)]%.", "Tradehouse Name Change")
-	verbs -= /client/proc/tradehouse_rename_company
+		command_announcement.Announce("Congratulations to all members of [capitalize(GLOB.using_map.company_name)] on the new name. Their rebranding has changed the [GLOB.using_map.company_short] market value by [0.01*rand(-10,10)]%.", "Trade Union Name Change")
+	verbs -= /client/proc/freetradeunion_rename_company
 
 /datum/job/ministation/hop
 	title = "Lieutenant"

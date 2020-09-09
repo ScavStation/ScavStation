@@ -1,7 +1,8 @@
 /*
 Ministation "Zebra"
 A butchered variant on Giacom's Ministation designed for 5 to 10 players.
-Now poorly imported for Scavstation!
+Now poorly imported for Nebula!
+And then imported back to ScavStation!
 */
 
 #if !defined(USING_MAP_DATUM)
