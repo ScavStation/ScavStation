@@ -25,6 +25,7 @@
 #include "map\loadout.dm"
 #include "map\overrides.dm"
 #include "species\baxxid.dm"
+#include "species\indrel.dm"
 #include "species\yinglet.dm"
 #include "species\yinglet_accessories.dm"
 #include "species\yinglet_organs.dm"

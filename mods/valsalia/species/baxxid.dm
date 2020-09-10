@@ -31,7 +31,7 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes/baxxid
-		)
+	)
 
 	available_cultural_info = list(
 		TAG_CULTURE =   list(CULTURE_BAXXID, CULTURE_OTHER),
@@ -52,7 +52,6 @@
 		if(first_char != lowertext(first_char))
 			hnnn = uppertext(capitalize(hnnn))
 		. = "[hnnn][uppertext(.)]"
-
 
 /obj/item/organ/internal/eyes/baxxid
 	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'

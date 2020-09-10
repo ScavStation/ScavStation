@@ -1,6 +1,8 @@
 #define SPECIES_BAXXID           "Baxxid"
+#define SPECIES_INDREL           "Indrel"
 #define SPECIES_YINGLET          "Yinglet"
 #define SPECIES_YINGLET_SOUTHERN "Southern Yinglet"
+
 #define DEPT_ENCLAVE             "enclave"
 #define IS_YINGLET               "yinglet"
 #define CULTURE_SCAV_ENCLAVE     "Enclave Yinglet"
@@ -11,6 +13,7 @@
 
 #define BODYTYPE_YINGLET         "Yinglet Body"
 #define BODYTYPE_BAXXID          "Baxxid Body"
+#define BODYTYPE_INDREL          "Indrel Body"
 
 /decl/modpack/valsalia
 	name = "Val Salia Content"

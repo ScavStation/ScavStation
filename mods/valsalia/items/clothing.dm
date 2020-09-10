@@ -1,24 +1,24 @@
 /obj/item/clothing/gloves
 	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/gloves_yinglet.dmi')
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL)
 
 /obj/item/clothing/ears
 	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
 
 /obj/item/clothing/glasses
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL, BODYTYPE_BAXXID)
 
 /obj/item/clothing/head
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL, BODYTYPE_BAXXID)
 
 /obj/item/clothing/suit
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL)
 
 /obj/item/clothing/mask
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL)
 
 /obj/item/clothing/accessory/cloak
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL, BODYTYPE_BAXXID)
 
 /obj/item/clothing/under/tradeship_plain
 	name = "plain clothes"

@@ -18,8 +18,19 @@
 		/datum/job/yinglet/matriarch
 	)
 	species_to_job_whitelist = list(
+		/datum/species/indrel = list(
+			/datum/job/cyborg,
+			/datum/job/assistant,
+			/datum/job/tradeship_engineer,
+			/datum/job/tradeship_engineer/head
+		),
 		/datum/species/baxxid = list(
-			/datum/job/assistant
+			/datum/job/cyborg,
+			/datum/job/assistant,
+			/datum/job/tradeship_first_mate,
+			/datum/job/tradeship_researcher,
+			/datum/job/tradeship_researcher/head,
+			/datum/job/tradeship_captain
 		),
 		/datum/species/yinglet = list(
 			/datum/job/yinglet/worker,
