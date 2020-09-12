@@ -1213,6 +1213,10 @@
 "jT" = (
 /turf/simulated/floor/airless,
 /area/ship/trade/livestock)
+"kH" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/ship/trade/loading_bay)
 "kO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1453,6 +1457,11 @@
 	pixel_y = 25
 	},
 /obj/structure/closet,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "rt" = (
@@ -2013,6 +2022,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/random/voidsuit,
+/obj/random/voidhelmet,
+/obj/structure/closet/emcloset,
+/obj/random/voidsuit,
+/obj/random/voidhelmet,
 /turf/simulated/floor,
 /area/ship/trade/aft_starboard_underside_maint)
 "KZ" = (
@@ -2482,6 +2496,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/fore_port_underside_maint)
+"ZC" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/trade/loading_bay)
 "ZR" = (
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed,
@@ -5974,9 +5994,9 @@ JQ
 JQ
 fe
 JQ
-sO
+kH
 IQ
-sO
+ZC
 tD
 wG
 Ky
