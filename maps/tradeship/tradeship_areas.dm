@@ -51,6 +51,7 @@
 
 /area/ship/trade/cargo/lower
 	name = "Loading Bay"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/ship/trade/dock
 	name = "\improper Docking Bay"
@@ -115,6 +116,7 @@
 /area/ship/trade/science/fabricaton
 	name = "\improper Fabrication Bay"
 	icon_state = "yellow"
+	req_access = list(access_research)
 
 /area/ship/trade/crew/medbay/chemistry
 	name = "\improper Chemistry Bay"
@@ -181,7 +183,6 @@
 /area/ship/trade/command/hallway
 	name = "\improper Command Deck"
 	icon_state = "centcom"
-	req_access = list(access_heads)
 
 /area/ship/trade/command/bridge
 	name = "\improper Bridge"

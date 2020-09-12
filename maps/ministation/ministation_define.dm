@@ -11,19 +11,18 @@
 	station_name = "Space Station Zebra"
 	station_short = "Zebra"
 
-	dock_name     = "Val Salia Station"
+	dock_name     = "Finite Beginnings Free Dock"
 	boss_name     = "Trade Administration"
 	boss_short    = "Admin"
-	company_name  = "Tradehouse Ivenmoth"
-	company_short = "Ivenmoth"
+	company_name  = "Free Trade Union Residual Delta"
+	company_short = "RD"
 	overmap_event_areas = 11
 
 	default_law_type = /datum/ai_laws/nanotrasen
 
-	lobby_screens = list('mods/ministation/minilobby.png')
+	lobby_screens = list('maps/ministation/lobby.png')
 
 	//TEMPORARY NOTE: Evac messages are temporary until its set up properly. Make sure they're changed later.
-	welcome_sound = 'sound/effects/cowboysting.ogg'
 	emergency_shuttle_leaving_dock = "Attention all crew members: the escape shuttle will be arriving shortly, please prepare to board."
 	emergency_shuttle_called_message = "Attention all crew members: emergency evacuation procedures are now in effect. Please make your way to the port hallway docking area in a calm and orderly manner."
 	emergency_shuttle_recall_message = "Attention all crew members: emergency evacuation sequence aborted. Return to normal operating conditions."
