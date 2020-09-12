@@ -2326,7 +2326,7 @@
 /obj/item/stack/flag/yellow,
 /obj/item/storage/box/glowsticks,
 /obj/item/scanner/mining,
-/obj/item/floor_painter,
+/obj/item/paint_sprayer,
 /obj/item/radio,
 /obj/item/radio,
 /obj/item/radio,
@@ -3145,7 +3145,6 @@
 /turf/simulated/floor/lino,
 /area/ship/trade/crew/dorms2)
 "Ic" = (
-/obj/machinery/organ_printer/robot/mapped,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "IU" = (
