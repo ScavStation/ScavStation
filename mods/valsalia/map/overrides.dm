@@ -31,7 +31,7 @@
 	SStrade.traders += new /datum/trader/books
 
 /datum/trader/books
-	name = "Yinglet book merchant"
+	name = "Yinglet book merchant" 
 	origin = "Uzed Buks"
 	possible_origins = list("Uzed Buks", "Ango & Mango (Still not a fruit shop stop wizh so many asking!)", "Prepipipi's Gently Used Books", "real-books.com.au", "We Sell Paper Wizh Words On", "Meeeena's Paper Recycling")
 	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ALL
