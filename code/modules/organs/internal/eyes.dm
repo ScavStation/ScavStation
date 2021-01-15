@@ -18,6 +18,7 @@
 	var/flash_mod
 	var/darksight_range
 	var/darksight_tint
+	var/eye_blend = ICON_ADD
 
 /obj/item/organ/internal/eyes/proc/get_eye_cache_key()
 	last_cached_eye_colour = eye_colour
@@ -29,7 +30,7 @@
 	if(!human_icon_cache[cache_key])
 		var/icon/eyes_icon = icon(icon = eye_icon, icon_state = "")
 		if(apply_eye_colour)
-			eyes_icon.Blend(last_cached_eye_colour, ICON_ADD)
+			eyes_icon.Blend(last_cached_eye_colour, eye_blend)
 		human_icon_cache[cache_key] = eyes_icon
 	return human_icon_cache[cache_key]
 
@@ -72,7 +73,7 @@
 	if(owner.chem_effects[CE_GLOWINGEYES])
 		eye_colour = "#75bdd6" // blue glow, hardcoded for now.
 	else
-		eye_colour = owner.eye_colour || COLOR_BLACK
+		eye_colour = owner.eye_colour
 
 /obj/item/organ/internal/eyes/take_internal_damage(amount, var/silent=0)
 	var/oldbroken = is_broken()

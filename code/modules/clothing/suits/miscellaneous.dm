@@ -137,22 +137,6 @@
 	icon = 'icons/clothing/suit/ianshirt.dmi'
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_ARMS
 
-//pyjamas
-//originally intended to be pinstripes >.>
-
-/obj/item/clothing/under/bluepyjamas
-	name = "blue pyjamas"
-	desc = "Slightly old-fashioned sleepwear."
-	icon_state = "blue_pyjamas"
-	item_state = "blue_pyjamas"
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS|SLOT_LEGS
-
-/obj/item/clothing/under/redpyjamas
-	name = "red pyjamas"
-	desc = "Slightly old-fashioned sleepwear."
-	icon_state = "red_pyjamas"
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS|SLOT_LEGS
-
 //coats
 /obj/item/clothing/suit/leathercoat
 	name = "longcoat"
@@ -174,7 +158,7 @@
 /obj/item/clothing/suit/leathercoat/apply_overlays(var/mob/user_mob, var/bodytype, var/image/overlay, var/slot)
 	var/image/I = ..()
 	if(shine > 0 && slot == slot_wear_suit_str)
-		var/mutable_appearance/S = get_mutable_overlay(I.icon, "shine")
+		var/mutable_appearance/S = mutable_appearance(I.icon, "shine")
 		S.alpha = max(shine, artificial_shine)/100 * 255
 		I.overlays += S
 	return I
@@ -184,10 +168,10 @@
 	artificial_shine = 80
 
 //stripper
-/obj/item/clothing/under/stripper/mankini
+/obj/item/clothing/under/mankini
 	name = "mankini"
 	desc = "No honest man would wear this abomination."
-	icon_state = "mankini"
+	icon = 'icons/clothing/under/mankini.dmi'
 	siemens_coefficient = 1
 	body_parts_covered = 0
 

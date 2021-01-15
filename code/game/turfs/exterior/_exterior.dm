@@ -3,6 +3,7 @@
 	icon = 'icons/turf/exterior/barren.dmi'
 	footstep_type = /decl/footsteps/asteroid
 	icon_state = "0"
+	layer = PLATING_LAYER
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/possible_states = 0
@@ -18,6 +19,9 @@
 	var/turf/exterior/ext = .
 	if(istype(ext))
 		ext.affecting_heat_sources = last_affecting_heat_sources
+
+/turf/exterior/is_plating()
+	return !density
 
 /turf/exterior/can_engrave()
 	return FALSE
@@ -58,6 +62,10 @@
 			ChangeArea(src, owner.planetary_area)
 	update_icon(TRUE)
 	. = ..()
+
+/turf/exterior/levelupdate()
+	for(var/obj/O in src)
+		O.hide(0)
 
 /turf/exterior/attackby(obj/item/C, mob/user)
 

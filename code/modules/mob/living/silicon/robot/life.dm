@@ -207,17 +207,15 @@
 			src.healths.icon_state = "health7"
 
 	if (src.syndicate && src.client)
-		for(var/datum/mind/tra in GLOB.traitors.current_antagonists)
+		var/decl/special_role/traitors = decls_repository.get_decl(/decl/special_role/traitor)
+		for(var/datum/mind/tra in traitors.current_antagonists)
 			if(tra.current)
 				// TODO: Update to new antagonist system.
 				var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
 				src.client.images += I
 		src.disconnect_from_ai()
 		if(src.mind)
-			// TODO: Update to new antagonist system.
-			if(!src.mind.special_role)
-				src.mind.special_role = "traitor"
-				GLOB.traitors.current_antagonists |= src.mind
+			traitors.add_antagonist_mind(mind)
 
 	if (src.cells)
 		if (src.cell)
@@ -247,7 +245,7 @@
 			else
 				src.fire.icon_state = "fire1"
 	if(oxygen && environment)
-		var/datum/species/species = all_species[GLOB.using_map.default_species]
+		var/decl/species/species = all_species[GLOB.using_map.default_species]
 		if(!species.breath_type || environment.gas[species.breath_type] >= species.breath_pressure)
 			src.oxygen.icon_state = "oxy0"
 			for(var/gas in species.poison_types)

@@ -79,7 +79,11 @@
 			stat("Game Mode:", "[SSticker.mode ? SSticker.mode.name : SSticker.master_mode] ([SSticker.master_mode])")
 		else
 			stat("Game Mode:", PUBLIC_GAME_MODE)
-		var/extra_antags = list2params(additional_antag_types)
+		var/list/additional_antag_ids = list()
+		for(var/antag_type in global.additional_antag_types)
+			var/decl/special_role/antag = decls_repository.get_decl(antag_type)
+			additional_antag_ids |= lowertext(antag.name)
+		var/extra_antags = list2params(additional_antag_ids)
 		stat("Added Antagonists:", extra_antags ? extra_antags : "None")
 
 		if(GAME_STATE <= RUNLEVEL_LOBBY)
@@ -173,7 +177,7 @@
 		if(!SSjobs.check_general_join_blockers(src, job))
 			return FALSE
 
-		var/datum/species/S = get_species_by_key(client.prefs.species)
+		var/decl/species/S = get_species_by_key(client.prefs.species)
 		if(!check_species_allowed(S))
 			return 0
 
@@ -300,6 +304,10 @@
 		return
 
 	var/datum/spawnpoint/spawnpoint = job.get_spawnpoint(client)
+	if(!spawnpoint)
+		to_chat(src, alert("That spawnpoint is unavailable. Please try another."))
+		return 0
+
 	var/turf/spawn_turf = pick(spawnpoint.turfs)
 	if(job.latejoin_at_spawnpoints)
 		var/obj/S = job.get_roundstart_spawnpoint()
@@ -442,7 +450,7 @@
 
 	var/mob/living/carbon/human/new_character
 
-	var/datum/species/chosen_species
+	var/decl/species/chosen_species
 	if(client.prefs.species)
 		chosen_species = get_species_by_key(client.prefs.species)
 
@@ -518,9 +526,10 @@
 
 /mob/new_player/proc/close_spawn_windows()
 	close_browser(src, "window=latechoices") //closes late choices window
+	close_browser(src, "window=preferences_window") //closes preferences window
 	panel.close()
 
-/mob/new_player/proc/check_species_allowed(datum/species/S, var/show_alert=1)
+/mob/new_player/proc/check_species_allowed(var/decl/species/S, var/show_alert=1)
 	if(!S.is_available_for_join() && !has_admin_rights())
 		if(show_alert)
 			to_chat(src, alert("Your current species, [client.prefs.species], is not available for play."))
@@ -532,7 +541,7 @@
 	return 1
 
 /mob/new_player/get_species()
-	var/datum/species/chosen_species
+	var/decl/species/chosen_species
 	if(client.prefs.species)
 		chosen_species = get_species_by_key(client.prefs.species)
 

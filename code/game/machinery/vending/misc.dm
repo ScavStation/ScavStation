@@ -58,7 +58,7 @@
 	products = list(
 		/obj/item/mirror = 8,
 		/obj/item/haircomb = 8,
-		/obj/item/clothing/glasses/monocle = 5,
+		/obj/item/clothing/glasses/eyepatch/monocle = 5,
 		/obj/item/clothing/glasses/sunglasses = 5,
 		/obj/item/lipstick = 3,
 		/obj/random/lipstick = 3,
@@ -111,7 +111,7 @@
 	name = "Lavatory Essentials"
 	desc = "Vends things that make you less reviled in the work-place!"
 	vend_delay = 15
-	product_slogans = "Take a shower you hippie.;Get a haircut, hippie!;Reeking of vox taint? Take a shower!"
+	product_slogans = "Take a shower you hippie.;Get a haircut, hippie!;Reeking of scale taint? Take a shower!"
 
 	icon_state = "lavatory"
 	icon_deny = "lavatory-deny"

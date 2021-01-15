@@ -241,9 +241,9 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
 	if(spray_dir)
 		splatter.icon_state = "squirt"
 		splatter.set_dir(spray_dir)
-
 	// Update blood information.
 	if(blood_data["blood_DNA"])
+		LAZYSET(splatter.blood_data, blood_data["blood_DNA"], blood_data)
 		splatter.blood_DNA = list()
 		if(blood_data["blood_type"])
 			splatter.blood_DNA[blood_data["blood_DNA"]] = blood_data["blood_type"]
@@ -285,6 +285,9 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
 			if(PULSE_2FAST, PULSE_THREADY)
 				pulse_mod *= 1.25
 	blood_volume *= pulse_mod
+
+	if(lying)
+		blood_volume *= 1.25
 
 	var/min_efficiency = recent_pump ? 0.5 : 0.3
 	blood_volume *= max(min_efficiency, (1-(heart.damage / heart.max_damage)))

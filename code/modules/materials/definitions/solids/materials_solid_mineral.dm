@@ -1,3 +1,6 @@
+/decl/material/solid/mineral
+	stack_type = /obj/item/stack/material/generic/brick
+
 /decl/material/solid/mineral/pitchblende
 	name = "pitchblende"
 	color = "#917d1a"
@@ -252,7 +255,7 @@
 	stack_type = null
 	color = "#d8ad97"
 	heating_products = list(
-		/decl/material/solid/metal/plasteel/titanium = 0.8,
+		/decl/material/solid/metal/titanium = 0.8,
 		/decl/material/solid/slag = 0.2
 	)
 	heating_point = GENERIC_SMELTING_HEAT_POINT

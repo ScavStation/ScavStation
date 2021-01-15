@@ -1,4 +1,4 @@
-/datum/species/alium
+/decl/species/alium
 	name = SPECIES_ALIEN
 	name_plural = "Humanoids"
 	description = "Some alien humanoid species, unknown to humanity. How exciting."
@@ -18,7 +18,17 @@
 		TAG_CULTURE = CULTURE_ALIUM
 	)
 
-/datum/species/alium/New()
+	exertion_effect_chance = 10
+	exertion_hydration_scale = 1
+	exertion_reagent_scale = 5
+	exertion_reagent_path = /decl/material/liquid/lactate
+	exertion_emotes_biological = list(
+		/decl/emote/exertion/biological,
+		/decl/emote/exertion/biological/breath,
+		/decl/emote/exertion/biological/pant
+	)
+
+/decl/species/alium/New()
 	//Coloring
 	blood_color = RANDOM_RGB
 	flesh_color = RANDOM_RGB
@@ -86,7 +96,7 @@
 
 	..()
 
-/datum/species/alium/proc/adapt_to_atmosphere(var/datum/gas_mixture/atmosphere)
+/decl/species/alium/proc/adapt_to_atmosphere(var/datum/gas_mixture/atmosphere)
 	var/temp_comfort_shift = atmosphere.temperature - body_temperature
 
 	cold_level_1 += temp_comfort_shift

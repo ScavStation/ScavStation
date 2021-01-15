@@ -1,13 +1,15 @@
 #if !defined(USING_MAP_DATUM)
 
-	#include "../../mods/corporate/_corporate.dme"
-	#include "../../mods/valsalia/_valsalia.dme"
-	#include "../../mods/ascent/_ascent.dme"
 
-	#include "../../mods/government/away_sites/icarus/icarus.dm"
-	#include "../../mods/government/ruins/ec_old_crash/ec_old_crash.dm"
-	#include "../../mods/corporate/away_sites/lar_maria/lar_maria.dm"
-	#include "../../mods/ascent/away_sites/ascent/ascent.dm"
+	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
+
+	#include "../../mods/content/government/away_sites/icarus/icarus.dm"
+	#include "../../mods/content/government/ruins/ec_old_crash/ec_old_crash.dm"
+	#include "../../mods/content/corporate/_corporate.dme"
+	#include "../../mods/content/corporate/away_sites/lar_maria/lar_maria.dm"
+	#include "../../mods/species/utility_frames/_utility_frames.dme"
+	#include "../../mods/species/ascent/away_sites/ascent/ascent.dm"
+	#include "../../mods/species/tajaran/_tajaran.dme"
 
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/casino/casino.dm"
@@ -38,6 +40,7 @@
 	#include "tradeship-2.dmm"
 	#include "tradeship-3.dmm"
 
+	#include "jobs/_goals.dm"
 	#include "jobs/_jobs.dm"
 	#include "jobs/command.dm"
 	#include "jobs/engineering.dm"

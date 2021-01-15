@@ -141,7 +141,7 @@ var/global/list/narsie_list = list()
 	return 1
 
 /obj/singularity/narsie/proc/narsiefloor(var/turf/T)//leaving "footprints"
-	if(!(istype(T, /turf/simulated/wall/cult)||istype(T, /turf/space)))
+	if(!(istype(T, /turf/simulated/wall/cult) || isspaceturf(T)))
 		if(T.icon_state != "cult-narsie")
 			T.desc = "something that goes beyond your understanding went this way"
 			T.icon = 'icons/turf/flooring/cult.dmi'
@@ -184,7 +184,7 @@ var/global/list/narsie_list = list()
 				consume(AM)
 				continue
 
-		if (dist <= consume_range && !istype(A, /turf/space))
+		if (dist <= consume_range && !isspaceturf(A))
 			var/turf/T = A
 			if(T.holy)
 				T.holy = 0 //Nar-Sie doesn't give a shit about sacred grounds.
@@ -270,7 +270,8 @@ var/global/list/narsie_list = list()
 
 /obj/singularity/narsie/proc/pickcultist() //Narsie rewards his cultists with being devoured first, then picks a ghost to follow. --NEO
 	var/list/cultists = list()
-	for(var/datum/mind/cult_nh_mind in GLOB.cult.current_antagonists)
+	var/decl/special_role/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	for(var/datum/mind/cult_nh_mind in cult.current_antagonists)
 		if(!cult_nh_mind.current)
 			continue
 		if(cult_nh_mind.current.stat)

@@ -32,6 +32,7 @@
 
 	var/datum/action/item_action/action = null
 	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
+	var/action_button_desc //A description for action button which will be displayed as tooltip.
 	var/default_action_type = /datum/action/item_action // Specify the default type and behavior of the action button for this atom.
 
 	//This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
@@ -102,6 +103,8 @@
 	var/pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
 	var/drop_sound
+	
+	var/datum/reagents/coating // reagent container for coating things like blood/oil, used for overlays and tracks
 
 /obj/item/create_matter()
 	..()
@@ -496,7 +499,7 @@ var/list/slot_flags_enumeration = list(
 				if(!disable_warning)
 					to_chat(H, SPAN_WARNING("You need a suit before you can attach this [name]."))
 				return FALSE
-			if(!H.wear_suit.allowed)
+			if(H.wear_suit && !H.wear_suit.allowed)
 				if(!disable_warning)
 					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return FALSE
@@ -676,14 +679,7 @@ var/list/slot_flags_enumeration = list(
 
 /obj/item/clean_blood()
 	. = ..()
-	if(blood_overlay)
-		overlays.Remove(blood_overlay)
-	if(istype(src, /obj/item/clothing/gloves))
-		var/obj/item/clothing/gloves/G = src
-		G.transfer_blood = 0
-	var/datum/extension/forensic_evidence/forensics = get_extension(src, /datum/extension/forensic_evidence)
-	if(forensics)
-		forensics.remove_data(/datum/forensics/trace_dna)
+	clean()
 
 /obj/item/reveal_blood()
 	if(was_bloodied && !fluorescent)
@@ -692,29 +688,18 @@ var/list/slot_flags_enumeration = list(
 		blood_overlay.color = COLOR_LUMINOL
 		update_icon()
 
-/obj/item/add_blood(mob/living/carbon/human/M)
+/obj/item/add_blood(mob/living/carbon/human/M, amount = 2, blood_data)
 	if (!..())
 		return 0
 
 	if(istype(src, /obj/item/energy_blade))
 		return
 
-	//if we haven't made our blood_overlay already
-	if( !blood_overlay )
-		generate_blood_overlay()
-
-	//apply the blood-splatter overlay if it isn't already in there
-	if(!blood_DNA.len)
-		blood_overlay.color = blood_color
-		overlays += blood_overlay
-
-	//if this blood isn't already in the list, add it
-	if(istype(M))
-		if(blood_DNA[M.dna.unique_enzymes])
-			return 0 //already bloodied with this blood. Cannot add more.
-		blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-		var/datum/extension/forensic_evidence/forensics = get_or_create_extension(src, /datum/extension/forensic_evidence)
-		forensics.add_data(/datum/forensics/blood_dna, M.dna.unique_enzymes)
+	if(!blood_data && istype(M))
+		blood_data = M.vessel.reagent_data[/decl/material/liquid/blood]		
+	var/datum/extension/forensic_evidence/forensics = get_or_create_extension(src, /datum/extension/forensic_evidence)
+	forensics.add_data(/datum/forensics/blood_dna, blood_data["blood_DNA"])
+	add_coating(/decl/material/liquid/blood, amount, blood_data)
 	return 1 //we applied blood to the item
 
 GLOBAL_LIST_EMPTY(blood_overlay_cache)
@@ -892,8 +877,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return overlay_image(mob_icon, mob_state, color, RESET_COLOR)
 
 /obj/item/proc/get_examine_line()
-	if(blood_color)
-		. = SPAN_WARNING("[html_icon(src)] [gender==PLURAL?"some":"a"] <font color='[blood_color]'>stained</font> [src]")
+	if(coating)
+		. = SPAN_WARNING("[html_icon(src)] [gender==PLURAL?"some":"a"] <font color='[coating.get_color()]'>stained</font> [name]")
 	else
 		. = "[html_icon(src)] \a [src]"
 	var/ID = GetIdCard()
@@ -978,3 +963,55 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/attack_message_name()
 	return "\a [src]"
+
+/obj/item/proc/fill_from_pressurized_fluid_source(obj/structure/source, mob/user)
+	if(!istype(source) || !source.is_pressurized_fluid_source())
+		return FALSE
+	var/free_space =  Floor(REAGENTS_FREE_SPACE(reagents))
+	if(free_space <= 0)
+		to_chat(user, SPAN_WARNING("\The [src] is full!"))
+		return TRUE
+	if(istype(source, /obj/structure/reagent_dispensers))
+		free_space = min(free_space, source.reagents?.total_volume)
+		if(free_space <= 0)
+			to_chat(user, SPAN_WARNING("There is not enough fluid in \the [source] to fill \the [src]."))
+			return TRUE
+	if(free_space > 0)
+		if(istype(source, /obj/structure/reagent_dispensers/watertank))
+			source.reagents.trans_to_obj(src, free_space)
+		else
+			reagents.add_reagent(/decl/material/liquid/water, free_space)
+		if(reagents && reagents.total_volume >= reagents.maximum_volume)
+			to_chat(user, SPAN_NOTICE("You fill \the [src] with [free_space] unit\s from \the [source]."))
+			reagents.touch(src)
+			return TRUE
+	return FALSE
+
+/obj/item/proc/add_coating(reagent_type, amount, data)
+	if(!coating)
+		coating = new/datum/reagents(10, src)
+	coating.add_reagent(reagent_type, amount, data)
+
+	if(!blood_overlay)
+		generate_blood_overlay()
+	blood_overlay.color = coating.get_color()
+
+	update_icon()
+
+/obj/item/proc/remove_coating(amount)
+	if(!coating)
+		return
+	coating.remove_any(amount)
+	if(coating.total_volume <= MINIMUM_CHEMICAL_VOLUME)
+		clean(0)
+
+/obj/item/proc/clean(clean_forensics=TRUE)
+	QDEL_NULL(coating)
+	blood_overlay = null
+	if(clean_forensics)
+		var/datum/extension/forensic_evidence/forensics = get_extension(src, /datum/extension/forensic_evidence)
+		if(forensics)
+			forensics.remove_data(/datum/forensics/trace_dna)
+			forensics.remove_data(/datum/forensics/blood_dna)
+			forensics.remove_data(/datum/forensics/gunshot_residue)
+	update_icon()

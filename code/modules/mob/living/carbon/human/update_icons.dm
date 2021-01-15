@@ -309,10 +309,6 @@ var/global/list/damage_icon_parts = list()
 			if(part.skin_colour)
 				icon_key += "[part.skin_colour]"
 				icon_key += "[part.skin_blend]"
-			if(part.body_hair && part.hair_colour)
-				icon_key += "[part.hair_colour]"
-			else
-				icon_key += COLOR_BLACK
 			for(var/M in part.markings)
 				icon_key += "[M][part.markings[M]["color"]]"
 		if(BP_IS_PROSTHETIC(part))
@@ -391,11 +387,13 @@ var/global/list/damage_icon_parts = list()
 		var/obj/item/underwear/UW = entry
 		if (!UW || !UW.icon) // Avoid runtimes for nude underwear types
 			continue
-
-		var/image/I = image(icon = UW.icon, icon_state = UW.icon_state)
-		I.appearance_flags = RESET_COLOR
-		I.color = UW.color
-
+		var/image/I
+		if(UW.slot_offset_str && LAZYACCESS(species.equip_adjust, UW.slot_offset_str))
+			I = species.get_offset_overlay_image(FALSE, UW.icon, UW.icon_state, UW.color, UW.slot_offset_str)
+		else
+			I = image(icon = UW.icon, icon_state = UW.icon_state)
+			I.color = UW.color
+		I.appearance_flags |= RESET_COLOR
 		overlays_standing[HO_UNDERWEAR_LAYER] += I
 
 	if(update_icons)
@@ -519,8 +517,12 @@ var/global/list/damage_icon_parts = list()
 	if(gloves && !(wear_suit && wear_suit.flags_inv & HIDEGLOVES))
 		overlays_standing[HO_GLOVES_LAYER]	= gloves.get_mob_overlay(src,slot_gloves_str)
 	else
-		if(blood_DNA && species.blood_mask)
-			var/image/bloodsies	= overlay_image(species.blood_mask, "bloodyhands", hand_blood_color, RESET_COLOR)
+		var/list/blood_color
+		for(var/obj/item/organ/external/grabber in get_hands_organs())
+			if(grabber.coating)
+				blood_color = grabber.coating.get_color()
+		if(blood_color)
+			var/image/bloodsies	= overlay_image(species.blood_mask, "bloodyhands", blood_color, RESET_COLOR)
 			overlays_standing[HO_GLOVES_LAYER]	= bloodsies
 		else
 			overlays_standing[HO_GLOVES_LAYER]	= null
@@ -562,8 +564,13 @@ var/global/list/damage_icon_parts = list()
 	if(shoes && !((wear_suit && wear_suit.flags_inv & HIDESHOES) || (w_uniform && w_uniform.flags_inv & HIDESHOES)))
 		overlays_standing[HO_SHOES_LAYER] = shoes.get_mob_overlay(src,slot_shoes_str)
 	else
-		if(feet_blood_DNA && species.blood_mask)
-			var/image/bloodsies = overlay_image(species.blood_mask, "shoeblood", hand_blood_color, RESET_COLOR)
+		var/list/blood_color
+		for(var/bp in list(BP_L_FOOT, BP_R_FOOT))
+			var/obj/item/organ/external/stomper = get_organ(bp)
+			if(istype(stomper) && !stomper.is_stump() && stomper.coating)
+				blood_color = stomper.coating.get_color()
+		if(blood_color && species.blood_mask)
+			var/image/bloodsies = overlay_image(species.blood_mask, "shoeblood", blood_color, RESET_COLOR)
 			overlays_standing[HO_SHOES_LAYER] = bloodsies
 		else
 			overlays_standing[HO_SHOES_LAYER] = null
@@ -572,7 +579,7 @@ var/global/list/damage_icon_parts = list()
 
 /mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
 	if(s_store)
-		overlays_standing[HO_SUIT_STORE_LAYER]	= s_store.get_mob_overlay(src,slot_s_store_str)
+		overlays_standing[HO_SUIT_STORE_LAYER]	= s_store.get_mob_overlay(src, slot_belt_str)
 	else
 		overlays_standing[HO_SUIT_STORE_LAYER]	= null
 	if(update_icons)
@@ -618,10 +625,10 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 /mob/living/carbon/human/update_inv_wear_mask(var/update_icons=1)
-	if( wear_mask && ( istype(wear_mask, /obj/item/clothing/mask) || istype(wear_mask, /obj/item/clothing/accessory) ) && !(head && head.flags_inv & HIDEMASK))
-		overlays_standing[HO_FACEMASK_LAYER]	= wear_mask.get_mob_overlay(src,slot_wear_mask_str)
+	if(wear_mask && !(head && head.flags_inv & HIDEMASK))
+		overlays_standing[HO_FACEMASK_LAYER] = wear_mask.get_mob_overlay(src,slot_wear_mask_str)
 	else
-		overlays_standing[HO_FACEMASK_LAYER]	= null
+		overlays_standing[HO_FACEMASK_LAYER] = null
 	if(update_icons)
 		queue_icon_update()
 
@@ -727,20 +734,20 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 /mob/living/carbon/human/proc/animate_tail_start(var/update_icons=1)
-	set_tail_state("[species.get_tail(src)]_slow[rand(0,9)]")
-
-	if(update_icons)
-		queue_icon_update()
+	if(species.tail_states)
+		set_tail_state("[species.get_tail(src)]_slow[rand(1, species.tail_states)]")
+		if(update_icons)
+			queue_icon_update()
 
 /mob/living/carbon/human/proc/animate_tail_fast(var/update_icons=1)
-	set_tail_state("[species.get_tail(src)]_loop[rand(0,9)]")
-
-	if(update_icons)
-		queue_icon_update()
+	if(species.tail_states)
+		set_tail_state("[species.get_tail(src)]_loop[rand(1, species.tail_states)]")
+		if(update_icons)
+			queue_icon_update()
 
 /mob/living/carbon/human/proc/animate_tail_reset(var/update_icons=1)
-	if(stat != DEAD)
-		set_tail_state("[species.get_tail(src)]_idle[rand(0,9)]")
+	if(stat != DEAD && species.tail_states > 0)
+		set_tail_state("[species.get_tail(src)]_idle[rand(1,species.tail_states)]")
 	else
 		set_tail_state("[species.get_tail(src)]_static")
 

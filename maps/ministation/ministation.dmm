@@ -854,7 +854,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bZ" = (
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	announcementConsole = 1;
 	department = "Bridge";
 	name = "Bridge RC";
@@ -2064,7 +2064,7 @@
 	pixel_y = -5
 	},
 /obj/item/multitool,
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	department = "Cargo Bay";
 	pixel_x = 0;
 	pixel_y = 30
@@ -2956,7 +2956,7 @@
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/earmuffs,
 /obj/item/clothing/head/earmuffs,
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	department = "Security";
 	pixel_y = 30
 	},
@@ -3241,7 +3241,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "ib" = (
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	department = "Detective's office";
 	pixel_x = -30;
 	pixel_y = 0
@@ -3512,7 +3512,7 @@
 /obj/structure/table/standard,
 /obj/item/hand_labeler,
 /obj/item/pen,
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	department = "Science";
 	name = "Science Requests Console";
 	pixel_x = -30;
@@ -4480,7 +4480,7 @@
 /obj/structure/closet,
 /obj/item/clothing/mask/gas/clown_hat,
 /obj/item/clothing/shoes/clown_shoes,
-/obj/item/clothing/under/rank/clown,
+/obj/item/clothing/under/clown,
 /obj/item/stamp/clown,
 /obj/item/storage/backpack/clown,
 /obj/item/bikehorn,
@@ -7167,7 +7167,7 @@
 /area/ministation/janitor)
 "rw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	department = "Janitorial";
 	pixel_y = -29
 	},
@@ -7289,7 +7289,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rM" = (
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	announcementConsole = 0;
 	department = "Medbay";
 	name = "Medbay RC";
@@ -8881,7 +8881,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/folder/blue,
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	announcementConsole = 1;
 	department = "Lieutenant Office";
 	name = "Lieutenant RC";
@@ -9404,7 +9404,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "wv" = (
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	department = "Garden";
 	pixel_x = 30;
 	pixel_y = 0
@@ -9573,7 +9573,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wS" = (
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	department = "Bar";
 	pixel_x = 30;
 	pixel_y = 0
@@ -10915,7 +10915,7 @@
 	},
 /area/ministation/telecomms)
 "Ab" = (
-/obj/machinery/message_server,
+/obj/machinery/network/message_server,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -12104,7 +12104,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	announcementConsole = 1;
 	department = "Telecoms Admin";
 	name = "Telecoms RC";
@@ -12532,7 +12532,7 @@
 	icon_state = "stripe";
 	dir = 8
 	},
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	announcementConsole = 0;
 	department = "Engineering";
 	name = "Engineering RC";
@@ -14846,7 +14846,7 @@
 /obj/effect/landmark/start{
 	name = "AI"
 	},
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	department = "AI";
 	pixel_x = 32;
 	pixel_y = 32

@@ -57,12 +57,15 @@
 			else if(on_rolled["rolled"] && C.rolled_sleeves > 0)
 				tmp_icon_state = on_rolled["rolled"]
 
+		var/do_species_offset = (lowertext(bodytype) != lowertext(user_human.species.get_bodytype(user_human)))
 		var/use_sprite_sheet = accessory_icons[slot]
 		if(sprite_sheets[bodytype])
 			use_sprite_sheet = sprite_sheets[bodytype]
 
 		if(icon_override && ("[tmp_icon_state]_mob" in icon_states(icon_override)))
 			return overlay_image(icon_override, "[tmp_icon_state]_mob", color, RESET_COLOR)
+		else if(do_species_offset)
+			user_human.species.get_offset_overlay_image(FALSE, use_sprite_sheet, tmp_icon_state, color, bodypart || slot)
 		else
 			return overlay_image(use_sprite_sheet, tmp_icon_state, color, RESET_COLOR)
 
@@ -108,7 +111,8 @@
 /obj/item/clothing/accessory/necklace
 	name = "necklace"
 	desc = "A simple necklace."
-	icon_state = "necklace"
+	icon = 'icons/clothing/accessories/necklace.dmi'
+	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_FACE | SLOT_TIE
 
 //Misc

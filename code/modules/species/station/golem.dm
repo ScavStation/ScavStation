@@ -1,4 +1,4 @@
-/datum/species/golem
+/decl/species/golem
 	name = SPECIES_GOLEM
 	name_plural = "Golems"
 
@@ -44,11 +44,11 @@
 		TAG_FACTION =   FACTION_OTHER
 	)
 
-/datum/species/golem/handle_post_spawn(var/mob/living/carbon/human/H)
+/decl/species/golem/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(H.mind)
 		H.mind.reset()
 		H.mind.assigned_role = "Golem"
-		H.mind.special_role = "Golem"
+		H.mind.assigned_special_role = "Golem"
 	H.real_name = "golem ([rand(1, 1000)])"
 	H.SetName(H.real_name)
 	H.status_flags |= NO_ANTAG
