@@ -1,8 +1,8 @@
 /obj/item/clothing/suit/space/void/scav
 	name = "small voidsuit"
 	desc = "A compact, lightly armoured voidsuit for a nonhuman with a tail."
-	icon_state = "world"
-	icon = 'mods/valsalia/icons/voidsuit_yinglet.dmi'
+	icon_state = ICON_STATE_WORLD
+	icon = 'mods/valsalia/icons/clothing/suit/voidsuit_yinglet.dmi'
 	bodytype_restricted = list(BODYTYPE_YINGLET)
 	color = COLOR_BRONZE
 	var/armour_colour = COLOR_BEIGE
@@ -27,8 +27,8 @@
 /obj/item/clothing/head/helmet/space/void/scav
 	name = "small voidsuit helmet"
 	desc = "A compact, lightly armoured voidsuit helmet for a nonhuman with large ears and a long nose."
-	icon_state = "world"
-	icon = 'mods/valsalia/icons/voidsuit_helmet_yinglet.dmi'
+	icon_state = ICON_STATE_WORLD
+	icon = 'mods/valsalia/icons/clothing/head/voidsuit_helmet_yinglet.dmi'
 	bodytype_restricted = list(BODYTYPE_YINGLET)
 	color = COLOR_BRONZE
 	var/faceplate_colour = COLOR_SKY_BLUE

@@ -17,12 +17,12 @@
 /obj/item/clothing/head/baxxid/hood
 	name = "short baxxid hood"
 	desc = "A large piece of cloth with holes in it, designed to be worn by baxxid."
-	icon = 'mods/valsalia/icons/hood_short_baxxid.dmi'
+	icon = 'mods/valsalia/icons/clothing/head/hood_short_baxxid.dmi'
 	var/apply_trim = FALSE
 
 /obj/item/clothing/head/baxxid/hood/long
 	name = "baxxid hood"
-	icon = 'mods/valsalia/icons/hood_long_baxxid.dmi'
+	icon = 'mods/valsalia/icons/clothing/head/hood_long_baxxid.dmi'
 	color = COLOR_PURPLE
 	apply_trim = TRUE
 
@@ -43,4 +43,4 @@
 /obj/item/clothing/head/baxxid/big_wig
 	name = "big wig"
 	desc = "A really cool wig, which is unfortunately too large for a regular human."
-	icon = 'mods/valsalia/icons/wig_big_blonde.dmi'
+	icon = 'mods/valsalia/icons/clothing/head/wig_big_blonde.dmi'

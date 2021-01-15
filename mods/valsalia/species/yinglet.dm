@@ -1,5 +1,5 @@
 // Semi-adapted from Polaris Teshari.
-/datum/species/yinglet
+/decl/species/yinglet
 	name = SPECIES_YINGLET
 	name_plural = "Yinglets"
 	bodytype = BODYTYPE_YINGLET
@@ -83,10 +83,10 @@
 		TAG_RELIGION =  list(RELIGION_OTHER)
 	)
 
-/datum/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
+/decl/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
 	return SPECIES_YINGLET
 	
-/datum/species/yinglet/skills_from_age(age)
+/decl/species/yinglet/skills_from_age(age)
 	switch(age)
 		if(0 to 5)
 			. = -4
@@ -97,10 +97,10 @@
 		else
 			. = 8
 
-/datum/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
+/decl/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
 	. = H && H.change_skin_color(189, 171, 143)
 
-/datum/species/yinglet/handle_post_species_pref_set(var/datum/preferences/pref)
+/decl/species/yinglet/handle_post_species_pref_set(var/datum/preferences/pref)
 	pref.body_markings = pref.body_markings || list()
 	if(!pref.body_markings["Ying Long Ears"])
 		pref.body_markings["Ying Long Ears"] = "#888888"
@@ -108,7 +108,7 @@
 		pref.body_markings["Shelltooth"] = "#cccccc"
 	pref.skin_colour = "#787878"
 
-/datum/species/yinglet/New()
+/decl/species/yinglet/New()
 	equip_adjust = list(
 		slot_head_str = list(
 			"[NORTH]" = list("x" = 0,  "y" = -3),
@@ -134,13 +134,13 @@
 			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = 0,  "y" = -3)
 		),
-		slot_l_hand_str = list(
+		BP_L_HAND = list(
 			"[NORTH]" = list("x" = 2,  "y" = -3),
 			"[EAST]" =  list("x" = 2,  "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = -2, "y" = -3)
 		),
-		slot_r_hand_str = list(
+		BP_R_HAND = list(
 			"[NORTH]" = list("x" = -2, "y" = -3),
 			"[EAST]" =  list("x" = 2,  "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
@@ -156,7 +156,7 @@
 	..()
 
 // This is honestly just so the other name generator becomes available.
-/datum/species/yinglet/southern
+/decl/species/yinglet/southern
 	name = SPECIES_YINGLET_SOUTHERN
 	name_plural = "Southern Yinglets"
 	description = "Although similar to the other clam-loving rat-birds of the yinglet species, the southern \
@@ -191,3 +191,6 @@
 		user.setClickCooldown(15)
 		return TRUE
 	. = ..()
+
+/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
+	return

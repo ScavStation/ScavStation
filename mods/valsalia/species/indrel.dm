@@ -1,11 +1,11 @@
 var/list/pheromone_markers = list()
 
-/datum/species/handle_post_spawn(var/mob/living/carbon/human/H)
+/decl/species/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	if(H)
 		H.update_pheromone_markers()
 	
-/datum/species/indrel
+/decl/species/indrel
 	name = SPECIES_INDREL
 	name_plural = SPECIES_INDREL
 	bodytype = BODYTYPE_INDREL
@@ -49,7 +49,7 @@ var/list/pheromone_markers = list()
 /obj/item/organ/internal/eyes/indrel
 	eye_icon = 'mods/valsalia/icons/species/indrel/eyes.dmi'
 
-/datum/species/indrel/handle_autohiss(message, decl/language/lang, mode)
+/decl/species/indrel/handle_autohiss(message, decl/language/lang, mode)
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
 		return message
 	. = ""
@@ -87,7 +87,7 @@ var/list/pheromone_markers = list()
 		. += add_char
 	. = capitalize(trim(.))
 
-/datum/species/indrel/New()
+/decl/species/indrel/New()
 	default_emotes |= list(
 		/decl/emote/pheromone/fear,
 		/decl/emote/pheromone/calm,

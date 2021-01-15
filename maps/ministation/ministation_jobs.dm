@@ -16,10 +16,10 @@
 		/datum/job/yinglet/yinglet_rep
 	)
 	species_to_job_whitelist = list(
-		/datum/species/baxxid = list(
+		/decl/species/baxxid = list(
 			/datum/job/assistant
 		),
-		/datum/species/yinglet = list(
+		/decl/species/yinglet = list(
 			/datum/job/assistant,
 			/datum/job/ministation/bartender,
 			/datum/job/ministation/cargo,
@@ -32,7 +32,7 @@
 			/datum/job/ministation/security,
 			/datum/job/yinglet/yinglet_rep
 		),
-		/datum/species/yinglet/southern = list(
+		/decl/species/yinglet/southern = list(
 			/datum/job/assistant,
 			/datum/job/ministation/bartender,
 			/datum/job/ministation/cargo,

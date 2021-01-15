@@ -7,8 +7,6 @@
 		qdel(src)
 
 /obj/item/twohanded/spear/javelin //short spears for short folks; can be wielded two handed even when mob_small
-	icon_state = "spearglass0"
-	base_icon = "spearglass"
 	name = "javelin"
 	desc = "A short spear good for throwing and okay for stabbing. Favoured by yinglets because they can wield it more easily than a longer spear."
 	max_force = 20 
