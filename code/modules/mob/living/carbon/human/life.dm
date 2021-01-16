@@ -329,7 +329,7 @@
 			handle_contaminants()
 			break
 
-	if(istype(src.loc, /turf/space)) //being in a closet will interfere with radiation, may not make sense but we don't model radiation for atoms in general so it will have to do for now.
+	if(isspaceturf(src.loc)) //being in a closet will interfere with radiation, may not make sense but we don't model radiation for atoms in general so it will have to do for now.
 		//Don't bother if the temperature drop is less than 0.1 anyways. Hopefully BYOND is smart enough to turn this constant expression into a constant
 		if(bodytemperature > (0.1 * HUMAN_HEAT_CAPACITY/(HUMAN_EXPOSED_SURFACE_AREA*STEFAN_BOLTZMANN_CONSTANT))**(1/4) + COSMIC_RADIATION_TEMPERATURE)
 
@@ -905,30 +905,27 @@
 			eye_blurry = max(2, eye_blurry)
 			stuttering = max(stuttering, 5)
 
-	if(shock_stage == 40)
-		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 	if (shock_stage >= 60)
 		if(shock_stage == 60) visible_message("<b>[src]</b>'s body becomes limp.")
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
-			Weaken(10)
+			Weaken(3)
 
 	if(shock_stage >= 80)
 		if (prob(5))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
-			Weaken(20)
+			Weaken(5)
 
 	if(shock_stage >= 120)
-		if (prob(2))
+		if(!paralysis && prob(2))
 			custom_pain("[pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")]!", shock_stage, nohalloss = TRUE)
 			Paralyse(5)
 
 	if(shock_stage == 150)
 		visible_message("<b>[src]</b> can no longer stand, collapsing!")
-		Weaken(20)
 
 	if(shock_stage >= 150)
-		Weaken(20)
+		Weaken(5)
 
 /*
 	Called by life(), instead of having the individual hud items update icons each tick and check for status changes
@@ -1034,9 +1031,10 @@
 	if (BITTEST(hud_updateflag, SPECIALROLE_HUD))
 		var/image/holder = hud_list[SPECIALROLE_HUD]
 		holder.icon_state = "hudblank"
-		if(mind && mind.special_role)
-			if(GLOB.hud_icon_reference[mind.special_role])
-				holder.icon_state = GLOB.hud_icon_reference[mind.special_role]
+		if(mind && mind.assigned_special_role)
+			var/special_role = mind.get_special_role_name()
+			if(special_role && GLOB.hud_icon_reference[special_role])
+				holder.icon_state = GLOB.hud_icon_reference[special_role]
 			else
 				holder.icon_state = "hudsyndicate"
 			hud_list[SPECIALROLE_HUD] = holder

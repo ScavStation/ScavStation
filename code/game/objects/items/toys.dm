@@ -39,22 +39,20 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "waterballoon-e"
 	item_state = "balloon-empty"
+	force = 0
 
 /obj/item/toy/water_balloon/Initialize()
 	. = ..()
 	create_reagents(10)
+	item_flags |= ITEM_FLAG_NO_BLUDGEON
 
-/obj/item/toy/water_balloon/attack(mob/living/carbon/human/M, mob/user)
-	return
+/obj/item/toy/water_balloon/resolve_attackby(obj/structure/O, mob/user, click_params)
+	. = (istype(O) && fill_from_pressurized_fluid_source(O, user)) || ..()
 
-/obj/item/toy/water_balloon/afterattack(atom/A, mob/user, proximity)
-	if(!proximity) return
-	if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
-		A.reagents.trans_to_obj(src, 10)
-		to_chat(user, "<span class='notice'>You fill the balloon with the contents of [A].</span>")
-		src.desc = "A translucent balloon with some form of liquid sloshing around in it."
-		src.update_icon()
-	return
+/obj/item/toy/water_balloon/fill_from_pressurized_fluid_source(obj/source, mob/user)
+	. = ..()
+	desc = . ? "A translucent balloon with some form of liquid sloshing around in it." : initial(desc)
+	update_icon()
 
 /obj/item/toy/water_balloon/attackby(obj/O, mob/user)
 	if(istype(O, /obj/item/chems/glass))
@@ -753,9 +751,8 @@
 /obj/item/inflatable_duck
 	name = "inflatable duck"
 	desc = "No bother to sink or swim when you can just float!"
-	icon_state = "inflatable"
-	item_state = "inflatable"
-	icon = 'icons/obj/clothing/obj_belt.dmi'
+	icon = 'icons/clothing/belt/inflatable.dmi'
+	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_LOWER_BODY
 
 /obj/item/marshalling_wand

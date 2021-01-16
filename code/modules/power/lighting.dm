@@ -110,7 +110,7 @@
 			pixel_x = -10
 
 	// Update icon state
-	overlays.Cut()
+	cut_overlays()
 	if(istype(construct_state))
 		switch(construct_state.type) //Never use the initial state. That'll just reset it to the mapping icon.
 			if(/decl/machine_construction/wall_frame/no_wires/simple)
@@ -139,7 +139,10 @@
 	if(istype(lightbulb, /obj/item/light))
 		var/image/I = image(icon, _state)
 		I.color = lightbulb.b_colour
-		overlays += I
+		if(on)
+			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			I.layer = ABOVE_LIGHTING_LAYER
+		add_overlay(I)
 
 	if(on)
 
@@ -479,6 +482,18 @@
 	var/b_colour = "#fffee0"
 	var/list/lighting_modes = list()
 	var/sound_on
+	var/random_tone = TRUE
+	var/static/list/random_tone_options = list(
+		"#fffee0",
+		"#e0fefe",
+		"#fefefe",
+	)
+
+/obj/item/light/Initialize()
+	. = ..()
+	if (random_tone)
+		b_colour = pick(random_tone_options)
+		update_icon()
 
 /obj/item/light/tube
 	name = "light tube"
@@ -533,6 +548,7 @@
 /obj/item/light/bulb/red
 	color = "#da0205"
 	b_colour = "#da0205"
+	random_tone = FALSE
 
 /obj/item/light/bulb/red/readylight
 	lighting_modes = list(

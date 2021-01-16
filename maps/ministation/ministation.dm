@@ -7,10 +7,8 @@ And then imported back to ScavStation!
 
 #if !defined(USING_MAP_DATUM)
 
-	#include "../../mods/corporate/_corporate.dme"
+	#include "../../mods/content/corporate/_corporate.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
-	#include "../../mods/ascent/_ascent.dme"
-
 	#define USING_MAP_DATUM /datum/map/ministation
 
 	#include "ministation.dmm"

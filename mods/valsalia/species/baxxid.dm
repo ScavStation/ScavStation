@@ -1,4 +1,4 @@
-/datum/species/baxxid
+/decl/species/baxxid
 	name = SPECIES_BAXXID
 	name_plural = SPECIES_BAXXID
 	bodytype = BODYTYPE_BAXXID
@@ -40,7 +40,7 @@
 		TAG_RELIGION =  list(RELIGION_OTHER)
 	)
 
-/datum/species/baxxid/handle_autohiss(message, decl/language/lang, mode)
+/decl/species/baxxid/handle_autohiss(message, decl/language/lang, mode)
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
 		return message
 	. = message

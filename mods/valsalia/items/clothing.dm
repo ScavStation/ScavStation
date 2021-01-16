@@ -1,5 +1,8 @@
+/obj/item/clothing
+	bodytype_restricted = list(BODYTYPE_HUMANOID)
+
 /obj/item/clothing/gloves
-	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/gloves_yinglet.dmi')
+	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/clothing/gloves/gloves_yinglet.dmi')
 	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL)
 
 /obj/item/clothing/ears
@@ -23,14 +26,14 @@
 /obj/item/clothing/under/tradeship_plain
 	name = "plain clothes"
 	desc = "Some very boring clothes."
-	icon = 'mods/valsalia/icons/plainclothes.dmi'
+	icon = 'mods/valsalia/icons/clothing/under/plainclothes.dmi'
 	icon_state = ICON_STATE_WORLD
 	bodytype_restricted = list(BODYTYPE_HUMANOID)
 
 /obj/item/clothing/suit/storage/toggle/redcoat
 	name = "\improper Tradehouse redcoat"
 	desc = "The signature uniform of Tradeshouse guardsmen."
-	icon = 'mods/valsalia/icons/redcoat.dmi'
+	icon = 'mods/valsalia/icons/clothing/suit/redcoat.dmi'
 	icon_state = ICON_STATE_WORLD
 	bodytype_restricted = list(BODYTYPE_HUMANOID)
 	var/has_badge

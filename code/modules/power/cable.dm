@@ -456,13 +456,13 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil
 	name = "multipurpose cable coil"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "coil"
+	icon = 'icons/obj/items/cable_coil.dmi'
+	icon_state = ICON_STATE_WORLD
 	randpixel = 2
 	amount = MAXCOIL
 	max_amount = MAXCOIL
 	color = COLOR_MAROON
-	desc = "A coil of wiring, for delicate electronics use aswell as the more basic cable laying."
+	desc = "A coil of wiring, suitable for both delicate electronics and heavy duty power supply."
 	throwforce = 0
 	w_class = ITEM_SIZE_NORMAL
 	throw_speed = 2
@@ -489,9 +489,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	uses_charge = 1
 	charge_costs = list(1)
 
-/obj/item/stack/cable_coil/Initialize(mapload, length = MAXCOIL, var/param_color = null)
-	. = ..(mapload, length)
-	src.amount = length
+/obj/item/stack/cable_coil/Initialize(mapload, c_length = MAXCOIL, var/param_color = null)
+	. = ..(mapload, c_length)
+	src.amount = c_length
 	if (param_color) // It should be red by default, so only recolor it if parameter was specified.
 		color = param_color
 	update_icon()
@@ -522,8 +522,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		return
 	return ..()
 
-
 /obj/item/stack/cable_coil/on_update_icon()
+	cut_overlays()
 	if (!color)
 		color = GLOB.possible_cable_colours[pick(GLOB.possible_cable_colours)]
 	if(amount == 1)
@@ -637,7 +637,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		dirn = get_dir(F, user)
 
 	var/end_dir = 0
-	if(istype(F, /turf/simulated/open))
+	if(istype(F) && F.is_open())
 		if(!can_use(2))
 			to_chat(user, "You don't have enough cable to do this!")
 			return

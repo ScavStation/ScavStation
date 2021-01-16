@@ -220,7 +220,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/ship/trade/crew/hallway/port)
 "ar" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/plating,
@@ -5908,6 +5908,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/landmark/paperwork_finish_tradeship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "As" = (
@@ -6083,6 +6084,7 @@
 	},
 /obj/item/radio,
 /obj/random/drinkbottle,
+/obj/effect/landmark/paperwork_spawn_tradeship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "CP" = (
@@ -6305,7 +6307,7 @@
 /turf/simulated/floor/tiled{
 	icon_state = "white"
 	},
-/area/ship/trade/crew/medbay)
+/area/ship/trade/crew/medbay/chemistry)
 "FD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -6330,6 +6332,7 @@
 /obj/machinery/light_switch{
 	pixel_x = 28
 	},
+/obj/effect/landmark/paperwork_spawn_tradeship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "FT" = (
@@ -6996,7 +6999,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
 "Np" = (
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	announcementConsole = 1;
 	department = "Captain";
 	pixel_x = 0;
@@ -7618,6 +7621,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/engine/aft)
+"VW" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id_tag = "scraplock";
+	name = "External Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/ship/trade/crew/hallway/starboard)
 "VX" = (
 /obj/machinery/vending/coffee{
 	dir = 8
@@ -11613,10 +11629,10 @@ bm
 bY
 cf
 ct
-aq
-aq
-aq
-aq
+VW
+VW
+VW
+VW
 Mo
 dd
 de
@@ -11704,7 +11720,7 @@ de
 yc
 dH
 dW
-de
+ee
 es
 Ic
 fc

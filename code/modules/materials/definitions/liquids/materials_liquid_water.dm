@@ -31,16 +31,19 @@
 		if(data && data["holy"])
 			if(iscultist(M))
 				if(prob(10))
-					GLOB.cult.offer_uncult(M)
+					var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+					cult.offer_uncult(M)
 				if(prob(2))
 					var/obj/effect/spider/spiderling/S = new /obj/effect/spider/spiderling(M.loc)
 					M.visible_message("<span class='warning'>\The [M] coughs up \the [S]!</span>")
-			else if(M.mind && GLOB.godcult.is_antagonist(M.mind))
-				if(REAGENT_VOLUME(holder, type) > 5)
-					M.adjustHalLoss(5)
-					M.adjustBruteLoss(1)
-					if(prob(10)) //Only annoy them a /bit/
-						to_chat(M,"<span class='danger'>You feel your insides curdle and burn!</span> \[<a href='?src=\ref[holder];deconvert=\ref[M]'>Give Into Purity</a>\]")
+			else
+				var/decl/special_role/godcult = decls_repository.get_decl(/decl/special_role/godcultist)
+				if(M.mind && godcult.is_antagonist(M.mind))
+					if(REAGENT_VOLUME(holder, type) > 5)
+						M.adjustHalLoss(5)
+						M.adjustBruteLoss(1)
+						if(prob(10)) //Only annoy them a /bit/
+							to_chat(M,"<span class='danger'>You feel your insides curdle and burn!</span> \[<a href='?src=\ref[holder];deconvert=\ref[M]'>Give Into Purity</a>\]")
 
 /decl/material/liquid/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
@@ -59,7 +62,7 @@
 	var/min_temperature = T20C + rand(0, 20) // Room temperature + some variance. An actual diminishing return would be better, but this is *like* that. In a way. . This has the potential for weird behavior, but I says fuck it. Water grenades for everyone.
 
 	var/hotspot = (locate(/obj/fire) in T)
-	if(hotspot && !istype(T, /turf/space))
+	if(hotspot && !isspaceturf(T))
 		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
 		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
 		lowertemp.react()

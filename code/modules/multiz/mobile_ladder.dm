@@ -1,8 +1,8 @@
 /obj/item/mobile_ladder
 	name = "mobile ladder"
 	desc = "A lightweight deployable ladder, which you can use to move up or down. Or alternatively, you can bash some faces in."
-	icon = 'icons/obj/multiz_items.dmi'
-	icon_state = "mobile_ladder"
+	icon = 'icons/obj/mobile_ladder.dmi'
+	icon_state = ICON_STATE_WORLD
 	throw_range = 3
 	force = 10
 	w_class = ITEM_SIZE_LARGE
@@ -11,14 +11,16 @@
 /obj/item/mobile_ladder/proc/place_ladder(atom/A, mob/user)
 	var/above = FALSE
 	var/turf/target
-	if(isopenspace(A))
+
+	var/turf/T = A
+	if(istype(T) && T.is_open())
 		target = GetBelow(A)
-		if (!target || (istype(/turf/space, target) || isopenspace(target)))
+		if(!istype(target) || !target.is_open())
 			to_chat(user, SPAN_WARNING("There is nothing below you."))
 			return FALSE
 	else if (istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor))
 		target = GetAbove(A)
-		if (!target || !isopenspace(target))
+		if(!istype(target) || !target.is_open())
 			to_chat(user, SPAN_WARNING("There is something above you. You can't deploy \the [src]!"))
 			return FALSE
 		above = TRUE

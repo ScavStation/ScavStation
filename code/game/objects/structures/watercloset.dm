@@ -383,6 +383,9 @@
 	anchored = 1
 	var/busy = 0 	//Something's being washed at the moment
 
+/obj/structure/hygiene/sink/is_pressurized_fluid_source()
+	return TRUE
+
 /obj/structure/hygiene/sink/MouseDrop_T(var/obj/item/thing, var/mob/user)
 	..()
 	if(!istype(thing) || !ATOM_IS_OPEN_CONTAINER(thing))
@@ -500,6 +503,9 @@
 	icon_state = "puddle"
 	clogged = -1 // how do you clog a puddle
 
+/obj/structure/hygiene/sink/puddle/is_pressurized_fluid_source()
+	return FALSE
+
 /obj/structure/hygiene/sink/puddle/attack_hand(var/mob/M)
 	icon_state = "puddle-splash"
 	..()
@@ -533,11 +539,10 @@
 
 /obj/item/taperoll/bog
 	name = "toilet paper roll"
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'icons/obj/toiletpaper.dmi'
+	icon_state = ICON_STATE_WORLD
 	desc = "A unbranded roll of standard issue two ply toilet paper. Refined from carefully rendered down sea shells due to the government's 'Abuse Of The Trees Act'."
 	tape_type = /obj/item/tape/bog
-	icon_state = "bogroll"
-	item_state = "mummy_poor"
 	slot_flags = SLOT_HEAD | SLOT_OVER_BODY
 	var/sheets = 30
 
@@ -568,5 +573,5 @@
 /obj/item/paper/crumpled/bog
 	name = "sheet of toilet paper"
 	desc = "A single sheet of toilet paper. Two ply."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'icons/obj/toiletpaper.dmi'
 	icon_state = "bogroll_sheet"

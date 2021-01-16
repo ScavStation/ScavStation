@@ -181,9 +181,6 @@
 #define BP_ANCHOR   "anchoring ligament"
 #define BP_ACETONE  "acetone reactor"
 
-// Vox bits.
-#define BP_HINDTONGUE "hindtongue"
-
 // Robo Organs.
 #define BP_POSIBRAIN         "posibrain"
 #define BP_VOICE             "vocal synthesiser"
@@ -260,7 +257,6 @@
 #define SPECIES_MONKEY           "Monkey"
 #define SPECIES_ALIEN            "Humanoid"
 #define SPECIES_GOLEM            "Golem"
-#define SPECIES_FRAME            "Utility Frame"
 
 #define BODYTYPE_HUMANOID        "Humanoid Body"
 #define BODYTYPE_OTHER           "Alien Body"

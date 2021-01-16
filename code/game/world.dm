@@ -1,6 +1,5 @@
-/var/server_name = "ScavStation"
-
 /var/game_id = null
+
 /hook/global_init/proc/generate_gameid()
 	if(game_id != null)
 		return
@@ -28,6 +27,7 @@
 // Partial matches will be found, but exact matches will be preferred by the search
 //
 // Returns: A possibly-empty list of the strongest matches
+
 /proc/text_find_mobs(search_string, restrict_type = null)
 	var/list/search = params2list(search_string)
 	var/list/ckeysearch = list()
@@ -41,8 +41,10 @@
 			continue
 		var/strings = list(M.name, M.ckey)
 		if(M.mind)
-			strings += M.mind.assigned_role
-			strings += M.mind.special_role
+			if(M.mind.assigned_role)
+				strings += M.mind.assigned_role
+			if(M.mind.assigned_special_role)
+				strings += M.mind.get_special_role_name()
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.species)
@@ -64,12 +66,12 @@
 
 	return match
 
-#define RECOMMENDED_VERSION 512
+#define RECOMMENDED_VERSION 513
 /world/New()
 
 	enable_debugger()
 	//set window title
-	name = "[server_name] - [GLOB.using_map.full_name]"
+	name = "[config.server_name] - [GLOB.using_map.full_name]"
 
 	//logs
 	SetupLogs()
@@ -322,7 +324,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			info["loc"] = M.loc ? "[M.loc]" : "null"
 			info["turf"] = MT ? "[MT] @ [MT.x], [MT.y], [MT.z]" : "null"
 			info["area"] = MT ? "[MT.loc]" : "null"
-			info["antag"] = M.mind ? (M.mind.special_role ? M.mind.special_role : "Not antag") : "No mind"
+			info["antag"] = M.mind ? (M.mind.get_special_role_name() || "Not antag") : "No mind"
 			info["hasbeenrev"] = M.mind ? M.mind.has_been_rev : "No mind"
 			info["stat"] = M.stat
 			info["type"] = M.type
@@ -467,10 +469,8 @@ var/world_topic_spam_protect_time = world.timeofday
 
 
 /world/Reboot(var/reason)
-	/*spawn(0)
-		sound_to(world, sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')))// random end sounds!! - LastyBatsy
-
-		*/
+	if(GLOB.using_map.reboot_sound)
+		sound_to(world, sound(pick(GLOB.using_map.reboot_sound)))// random end sounds!! - LastyBatsy
 
 	Master.Shutdown()
 

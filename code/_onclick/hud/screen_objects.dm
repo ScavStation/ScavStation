@@ -207,7 +207,7 @@
 
 		if("Reset Machine")
 			usr.unset_machine()
-		
+
 		if("up hint")
 			if(isliving(usr))
 				var/mob/living/L = usr
@@ -298,7 +298,8 @@
 									C.set_internals(tankcheck[best], "\the [tankcheck[best]]")
 
 							if(!C.internal)
-								to_chat(C, SPAN_WARNING("You don't have \a [breathes] tank."))
+								var/decl/material/breath_data = decls_repository.get_decl(breathes)
+								to_chat(C, SPAN_WARNING("You don't have \a [breath_data.gas_name] tank."))
 		if("act_intent")
 			usr.a_intent_change("right")
 
@@ -384,3 +385,23 @@
 		else if(usr.attack_ui(slot_id))
 			usr.update_inv_hands(0)
 	return 1
+
+// Character setup stuff
+/obj/screen/setup_preview
+	plane = DEFAULT_PLANE
+	layer = MOB_LAYER
+
+	var/datum/preferences/pref
+
+/obj/screen/setup_preview/Destroy()
+	pref = null
+	return ..()
+
+// Background 'floor'
+/obj/screen/setup_preview/bg
+	layer = TURF_LAYER
+	mouse_over_pointer = MOUSE_HAND_POINTER
+
+/obj/screen/setup_preview/bg/Click(params)
+	pref?.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
+	pref?.update_preview_icon()
