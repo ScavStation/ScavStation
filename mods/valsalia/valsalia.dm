@@ -11,9 +11,9 @@
 #define CULTURE_BAXXID           "Baxxid Clans"
 #define FACTION_BAXXID           "Baxxid Nomad"
 
-#define BODYTYPE_YINGLET         "Yinglet Body"
-#define BODYTYPE_BAXXID          "Baxxid Body"
-#define BODYTYPE_INDREL          "Indrel Body"
+#define BODYTYPE_YINGLET         "yinglet body"
+#define BODYTYPE_BAXXID          "baxxid body"
+#define BODYTYPE_INDREL          "indrel body"
 
 /decl/modpack/valsalia
 	name = "Val Salia Content"
