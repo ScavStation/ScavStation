@@ -33,11 +33,7 @@
 
 /datum/gear/eyes/yinggoggles
 	display_name = "yinglet goggles"
-	path = /obj/item/clothing/eyes/yinggoggles
-
-/datum/gear/eyes/yinggoggles
-	display_name = "yinglet goggles"
-	path = /obj/item/clothing/eyes/yinggoggles
+	path = /obj/item/clothing/glasses/yinggoggles
 
 /datum/gear/uniform/yingletjumpsuit
 	display_name = "a simple jumpsuit, made for a yinglet, color select"

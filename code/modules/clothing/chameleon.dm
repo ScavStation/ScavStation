@@ -7,7 +7,6 @@
 		return
 	//this is necessary, unfortunately, as initial() does not play well with list vars
 	var/obj/item/copy = new newtype(null)
-
 	desc = copy.desc
 	name = copy.name
 	icon = copy.icon
@@ -17,14 +16,8 @@
 	body_parts_covered = copy.body_parts_covered
 	flags_inv = copy.flags_inv
 	gender = copy.gender
-
-	if(copy.item_icons)
-		item_icons = copy.item_icons.Copy()
-	if(copy.item_state_slots)
-		item_state_slots = copy.item_state_slots.Copy()
 	if(copy.sprite_sheets)
 		sprite_sheets = copy.sprite_sheets.Copy()
-	//copying sprite_sheets_obj should be unnecessary as chameleon items are not refittable.
 
 	OnDisguise(copy, user)
 	qdel(copy)
@@ -321,8 +314,7 @@
 
 /obj/item/clothing/accessory/chameleon
 	name = "tie"
-	icon_state = "tie"
-	item_state = ""
+	icon = 'icons/clothing/accessories/ties/tie.dmi'
 	desc = "A neosilk clip-on tie. It seems to have a small dial on its back."
 	origin_tech = "{'esoteric':3}"
 	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
@@ -351,12 +343,6 @@
 		return
 
 	slot = copy.slot
-	has_suit = copy.has_suit
-	inv_overlay = copy.inv_overlay
-	mob_overlay = copy.mob_overlay
-	overlay_state = copy.overlay_state
-	accessory_icons = copy.accessory_icons
-	on_rolled = copy.on_rolled
 	high_visibility = copy.high_visibility
 	return copy
 

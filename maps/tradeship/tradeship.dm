@@ -1,6 +1,5 @@
 #if !defined(USING_MAP_DATUM)
 
-
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
 
 	#include "../../mods/content/government/away_sites/icarus/icarus.dm"
@@ -9,6 +8,7 @@
 	#include "../../mods/content/corporate/away_sites/lar_maria/lar_maria.dm"
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
+	#include "../../mods/species/neocorvids/_neocorvids.dme"
 
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/casino/casino.dm"

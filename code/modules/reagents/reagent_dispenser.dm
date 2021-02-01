@@ -28,7 +28,7 @@
 /obj/structure/reagent_dispensers/proc/leak()
 	var/turf/T = get_turf(src)
 	if(reagents && T)
-		reagents.trans_to_turf(T, FLUID_PUDDLE)
+		reagents.trans_to_turf(T, min(reagents.total_volume, FLUID_PUDDLE))
 
 /obj/structure/reagent_dispensers/Move()
 	. = ..()
@@ -85,7 +85,7 @@
 	if (N)
 		amount_per_transfer_from_this = N
 
-/obj/structure/reagent_dispensers/physically_destroyed()
+/obj/structure/reagent_dispensers/physically_destroyed(var/skip_qdel)
 	if(reagents?.total_volume)
 		var/turf/T = get_turf(src)
 		if(T)

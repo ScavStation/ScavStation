@@ -38,6 +38,7 @@
 	var/tail_animation                        // If set, the icon to obtain tail animation states from.
 	var/tail_blend = ICON_ADD
 	var/tail_hair
+	var/tail_hair_blend = ICON_ADD
 	var/tail_icon = 'icons/effects/species.dmi'
 	var/tail_states = 1
 
@@ -283,6 +284,8 @@
 	var/exertion_reagent_path = null
 	var/list/exertion_emotes_biological = null
 	var/list/exertion_emotes_synthetic = null
+
+	var/list/traits = list() // An associative list of /decl/traits and trait level - See individual traits for valid levels
 /*
 These are all the things that can be adjusted for equipping stuff and
 each one can be in the NORTH, SOUTH, EAST, and WEST direction. Specify
@@ -543,7 +546,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
 	H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
-	H.change_light_colour(H.getDarkvisionTint())
+	H.change_light_color(H.getDarkvisionTint())
 
 	if(H.stat == DEAD)
 		return 1

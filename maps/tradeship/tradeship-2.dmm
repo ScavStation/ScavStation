@@ -1884,7 +1884,7 @@
 /turf/simulated/wall,
 /area/ship/trade/crew/medbay)
 "eh" = (
-/turf/simulated/wall/natural,
+/turf/exterior/wall,
 /area/space)
 "el" = (
 /obj/structure/disposalpipe/segment,
@@ -1944,7 +1944,7 @@
 /turf/simulated/wall/r_wall,
 /area/ship/trade/crew/medbay)
 "ew" = (
-/turf/simulated/wall/natural/random/high_chance,
+/turf/exterior/wall/random/high_chance,
 /area/space)
 "ex" = (
 /obj/effect/paint/brown,
@@ -2728,20 +2728,8 @@
 	name = "External Blast Doors";
 	opacity = 0
 	},
-/turf/space,
-/area/space)
-"gl" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id_tag = "scraplock";
-	name = "External Blast Doors";
-	opacity = 0
-	},
-/obj/structure/lattice,
-/turf/space,
-/area/space)
+/turf/simulated/floor/airless,
+/area/ship/trade/maintenance/engine/port)
 "gm" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -5450,6 +5438,17 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/trade/maintenance/engine/starboard)
+"sz" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id_tag = "scraplock";
+	name = "External Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor/airless,
+/area/ship/trade/maintenance/engine/starboard)
 "sB" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/warning/fall{
@@ -6008,7 +6007,6 @@
 /obj/item/multitool{
 	pixel_x = 5
 	},
-/obj/item/clamp,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/trade/maintenance/atmos)
 "BP" = (
@@ -7220,8 +7218,8 @@
 	name = "External Blast Doors";
 	opacity = 0
 	},
-/turf/space,
-/area/space)
+/turf/simulated/floor/airless,
+/area/ship/trade/maintenance/engine/starboard)
 "Qu" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled/techmaint,
@@ -10087,7 +10085,7 @@ ex
 mc
 ex
 fQ
-gl
+gk
 cy
 aa
 aa
@@ -12465,7 +12463,7 @@ eN
 eN
 eN
 gj
-gk
+sz
 aa
 aa
 aa

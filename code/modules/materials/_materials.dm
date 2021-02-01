@@ -8,6 +8,8 @@
 	mouse_opacity = 0
 	var/decl/material/material
 
+INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
+
 /obj/effect/gas_overlay/proc/update_alpha_animation(var/new_alpha)
 	animate(src, alpha = new_alpha)
 	alpha = new_alpha
@@ -115,6 +117,8 @@
 	var/wall_support_value = 30
 	var/sparse_material_weight
 	var/rich_material_weight
+	var/min_fluid_opacity = FLUID_MIN_ALPHA
+	var/max_fluid_opacity = FLUID_MAX_ALPHA
 
 	// Damage values.
 	var/hardness = MAT_VALUE_HARD            // Prob of wall destruction by hulk, used for edge damage in weapons.
@@ -384,18 +388,25 @@
 
 /decl/material/proc/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
 
+	if(REAGENT_VOLUME(holder, type) < FLUID_EVAPORATION_POINT)
+		return
+
+	if(istype(T) && dirtiness <= DIRTINESS_CLEAN)
+		T.clean_blood()
+		T.remove_cleanables()
+
 	if(istype(T, /turf/simulated))
 		var/turf/simulated/wall/W = T
 		if(defoliant)
 			for(var/obj/effect/overlay/wallrot/E in W)
 				W.visible_message(SPAN_NOTICE("\The [E] is completely dissolved by the solution!"))
 				qdel(E)
-		if(slipperiness != 0 && REAGENT_VOLUME(holder, type) >= 5)
+		if(slipperiness != 0)
 			if(slipperiness < 0)
 				W.unwet_floor(TRUE)
 			else
 				W.wet_floor(slipperiness)
-		if(dirtiness != DIRTINESS_NEUTRAL && REAGENT_VOLUME(holder, type) >= 1)
+		if(dirtiness != DIRTINESS_NEUTRAL)
 			if(dirtiness > DIRTINESS_NEUTRAL)
 				var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate() in W
 				if (!dirtoverlay)
@@ -412,7 +423,7 @@
 						qdel(B)
 				if(dirtiness <= DIRTINESS_CLEAN)
 					W.dirt = 0
-					if(W.wet > 1)
+					if(W.wet > 1 && slipperiness <= 0)
 						W.unwet_floor(FALSE)
 					W.clean_blood()
 					for(var/mob/living/carbon/slime/M in W)
@@ -518,22 +529,17 @@
 		for(var/obj/item/thing in M.get_held_items())
 			thing.clean_blood()
 		if(M.wear_mask)
-			if(M.wear_mask.clean_blood())
-				M.update_inv_wear_mask(0)
+			M.wear_mask.clean_blood()
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.head)
-				if(H.head.clean_blood())
-					H.update_inv_head(0)
+				H.head.clean_blood()
 			if(H.wear_suit)
-				if(H.wear_suit.clean_blood())
-					H.update_inv_wear_suit(0)
+				H.wear_suit.clean_blood()
 			else if(H.w_uniform)
-				if(H.w_uniform.clean_blood())
-					H.update_inv_w_uniform(0)
+				H.w_uniform.clean_blood()
 			if(H.shoes)
-				if(H.shoes.clean_blood())
-					H.update_inv_shoes(0)
+				H.shoes.clean_blood()
 			else
 				H.clean_blood(1)
 				return

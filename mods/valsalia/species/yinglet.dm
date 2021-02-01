@@ -173,11 +173,9 @@
 		TAG_RELIGION =  list(RELIGION_OTHER)
 	)
 
-/obj/item/holder/human/yinglet
+/obj/item/holder/yinglet
 	sharp = 1
 	edge = 1
-	mob_blend_mode = ICON_MULTIPLY
-	generate_for_slots = list()
 
 /obj/item/holder/human/yinglet/iscrowbar()
 	return TRUE
