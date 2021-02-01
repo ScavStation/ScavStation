@@ -7,7 +7,6 @@
 	slot_flags = SLOT_UPPER_BODY
 	w_class = ITEM_SIZE_NORMAL
 	force = 0
-	made_of_cloth = TRUE
 
 	valid_accessory_slots = list(
 		ACCESSORY_SLOT_UTILITY,
@@ -43,9 +42,9 @@
 
 /obj/item/clothing/under/Initialize()
 	. = ..()
-	if(check_state_in_icon(lowertext("[BODYTYPE_HUMANOID]-[slot_w_uniform_str]-rolled"), icon))
+	if(check_state_in_icon("[BODYTYPE_HUMANOID]-[slot_w_uniform_str]-rolled", icon))
 		verbs |= /obj/item/clothing/under/proc/roll_down_clothes
-	if(check_state_in_icon(lowertext("[BODYTYPE_HUMANOID]-[slot_w_uniform_str]-sleeves"), icon))
+	if(check_state_in_icon("[BODYTYPE_HUMANOID]-[slot_w_uniform_str]-sleeves", icon))
 		verbs |= /obj/item/clothing/under/proc/roll_up_sleeves
 
 /obj/item/clothing/under/experimental_mob_overlay(mob/user_mob, slot, bodypart)

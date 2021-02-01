@@ -99,7 +99,11 @@ SUBSYSTEM_DEF(fluids)
 			continue
 
 		if(T.density || isspaceturf(T) || istype(T, /turf/exterior))
-			F.reagents.remove_any(max(FLUID_EVAPORATION_POINT-1, round(F.reagents.total_volume * 0.5)))
+			var/removing = round(F.reagents.total_volume * 0.5)
+			if(removing > 0)
+				F.reagents.remove_any(removing)
+			else
+				F.reagents.clear_reagents()
 			if(F.reagents.total_volume <= FLUID_EVAPORATION_POINT)
 				qdel(F)
 			continue
@@ -157,7 +161,7 @@ SUBSYSTEM_DEF(fluids)
 		var/sufficient_delta = FALSE
 		for(var/thing in F.neighbors)
 			var/obj/effect/fluid/other = thing
-			if(abs(F.reagents.total_volume - other.reagents.total_volume) > FLUID_EVAPORATION_POINT)
+			if(abs(F.reagents.total_volume - other.reagents.total_volume) > FLUID_PUDDLE)
 				sufficient_delta = TRUE
 				break
 

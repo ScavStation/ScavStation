@@ -1683,6 +1683,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/livestock)
 "xc" = (
@@ -1714,6 +1719,11 @@
 	d2 = 2;
 	icon_state = "1-2";
 	pixel_y = 0
+	},
+/obj/structure/hygiene/sink/kitchen{
+	dir = 8;
+	icon_state = "sink_alt";
+	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/livestock)
@@ -1814,17 +1824,8 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -24
-	},
-/obj/structure/hygiene/sink/kitchen{
-	dir = 4;
-	icon_state = "sink_alt";
-	pixel_x = -22
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/livestock)
 "AO" = (
@@ -2148,7 +2149,12 @@
 /obj/machinery/button/blast_door{
 	id_tag = "xenovent";
 	name = "vent control";
+	pixel_x = 6;
 	pixel_y = -24
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -8;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/livestock)
@@ -2176,6 +2182,9 @@
 	icon_state = "pipe-c";
 	dir = 2
 	},
+/obj/structure/table/standard,
+/obj/item/stack/material/uranium/ten,
+/obj/item/storage/box/syringes,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/livestock)
 "MI" = (

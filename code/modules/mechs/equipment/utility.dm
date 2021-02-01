@@ -194,12 +194,12 @@
 	item_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
 	mech_layer = MECH_INTERMEDIATE_LAYER
+	origin_tech = "{'materials':1,'engineering':1}"
 
 	var/on = 0
 	var/l_max_bright = 0.9
 	var/l_inner_range = 1
 	var/l_outer_range = 6
-	origin_tech = "{'materials':1,'engineering':1}"
 
 /obj/item/mech_equipment/light/attack_self(var/mob/user)
 	. = ..()
@@ -418,8 +418,8 @@
 					drill_head = null
 					return
 
-				if(istype(target, /turf/simulated/wall/natural))
-					for(var/turf/simulated/wall/natural/M in range(target,1))
+				if(istype(target, /turf/exterior/wall))
+					for(var/turf/exterior/wall/M in range(target,1))
 						if(get_dir(owner,M)&owner.dir)
 							M.dismantle_wall()
 							drill_head.durability -= 1

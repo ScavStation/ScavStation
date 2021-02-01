@@ -68,22 +68,6 @@
 
 	src.add_fingerprint(usr)
 
-/obj/item/clothing/examine(mob/user)
-	. = ..()
-	for(var/obj/item/clothing/accessory/A in accessories)
-		to_chat(user, "[html_icon(A)] \A [A] is attached to it.")
-	switch(ironed_state)
-		if(WRINKLES_WRINKLY)
-			to_chat(user, "<span class='bad'>It's wrinkly.</span>")
-		if(WRINKLES_NONE)
-			to_chat(user, "<span class='notice'>It's completely wrinkle-free!</span>")
-	switch(smell_state)
-		if(SMELL_CLEAN)
-			to_chat(user, "<span class='notice'>It smells clean!</span>")
-		if(SMELL_STINKY)
-			to_chat(user, "<span class='bad'>It's quite stinky!</span>")
-	
-
 /obj/item/clothing/proc/update_accessory_slowdown()
 	slowdown_accessory = 0
 	for(var/obj/item/clothing/accessory/A in accessories)
@@ -96,11 +80,14 @@
  *  items on spawn
  */
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
+	if(A in accessories)
+		return
 	accessories += A
 	A.on_attached(src, user)
 	if(A.removable)
 		src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_accessory_slowdown()
+	update_icon()
 	update_clothing_icon()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
@@ -110,6 +97,7 @@
 	A.on_removed(user)
 	accessories -= A
 	update_accessory_slowdown()
+	update_icon()
 	update_clothing_icon()
 
 /obj/item/clothing/proc/removetie_verb()

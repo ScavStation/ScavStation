@@ -1,4 +1,14 @@
 /proc/minutes_to_readable(minutes)
+	if (!isnum(minutes))
+		minutes = text2num(minutes)
+
+	if (minutes < 0)
+		crash_with("Negative minutes value supplied to minutes_to_readable().")
+		return "INFINITE"
+	else if (isnull(minutes))
+		crash_with("Null minutes value supplied to minutes_to_readable().")
+		return "BAD INPUT"
+	
 	var/hours = 0
 	var/days = 0
 	var/weeks = 0
@@ -113,8 +123,8 @@ var/round_start_time = 0
 	return last_round_duration
 
 /hook/startup/proc/set_roundstart_hour()
-	roundstart_hour = pick(2,7,12,17)
-	return 1
+	roundstart_hour = rand(0, 23)
+	return TRUE
 
 GLOBAL_VAR_INIT(midnight_rollovers, 0)
 GLOBAL_VAR_INIT(rollovercheck_last_timeofday, 0)

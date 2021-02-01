@@ -29,11 +29,8 @@
 /obj/effect/overmap/visitable/sector/exoplanet/volcanic/generate_habitability()
 	habitability_class =  HABITABILITY_BAD
 
-/obj/effect/overmap/visitable/sector/exoplanet/volcanic/generate_atmosphere()
-	..()
-	if(atmosphere)
-		atmosphere.temperature = T20C + rand(220, 800)
-		atmosphere.update_values()
+/obj/effect/overmap/visitable/sector/exoplanet/volcanic/get_target_temperature()
+	return T20C + rand(220, 800)
 
 /obj/effect/overmap/visitable/sector/exoplanet/volcanic/adapt_seed(var/datum/seed/S)
 	..()
@@ -81,11 +78,11 @@
 /datum/random_map/automata/cave_system/mountains/volcanic
 	iterations = 2
 	descriptor = "space volcanic mountains"
-	wall_type =  /turf/simulated/wall/natural/volcanic
-	mineral_turf =  /turf/simulated/wall/natural/random/volcanic
+	wall_type =  /turf/exterior/wall/volcanic
+	mineral_turf =  /turf/exterior/wall/random/volcanic
 	rock_color = COLOR_DARK_GRAY
 
-/datum/random_map/automata/cave_system/mountains/volcanic/get_additional_spawns(value, var/turf/simulated/wall/natural/T)
+/datum/random_map/automata/cave_system/mountains/volcanic/get_additional_spawns(value, var/turf/exterior/wall/T)
 	..()
 	if(use_area && istype(T))
 		T.floor_type = prob(90) ? use_area.base_turf : /turf/exterior/lava
