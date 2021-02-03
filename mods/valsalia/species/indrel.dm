@@ -39,6 +39,8 @@ var/list/pheromone_markers = list()
 		BP_EYES =     /obj/item/organ/internal/eyes/indrel
 		)
 
+	hazard_low_pressure = -1
+
 	available_cultural_info = list(
 		TAG_CULTURE =   list(CULTURE_BAXXID, CULTURE_OTHER),
 		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
