@@ -1,6 +1,5 @@
-/datum/department/enclave
-	title = "Yinglet Enclave"
-	reference = DEPT_ENCLAVE
+/decl/department/enclave
+	name = "Yinglet Enclave"
 	announce_channel = "Common"
 	goals = list(/datum/goal/scav_hoard_junk)
 
