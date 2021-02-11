@@ -5,13 +5,7 @@
 
 /datum/goal/scav_hoard_junk
 	var/target_amount
-	var/list/valid_areas = list(
-		/area/ship/trade/aft_port_underside_maint,
-		/area/ship/trade/aft_starboard_underside_maint,
-		/area/ship/trade/loading_bay,
-		/area/ship/trade/fore_port_underside_maint,
-		/area/ship/trade/enclave
-	)
+	var/list/valid_areas = list()
 
 /datum/goal/scav_hoard_junk/update_strings()
 	target_amount = rand(10, 20)
