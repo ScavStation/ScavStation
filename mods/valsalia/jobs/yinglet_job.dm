@@ -2,7 +2,7 @@
 	hud_icon = "hudying"
 	supervisors = "the Matriarch and the Patriarches"
 	outfit_type = /decl/hierarchy/outfit/job/assistant
-	department_refs = list(DEPT_ENCLAVE)
+	department_types = list(/decl/department/enclave)
 	max_skill = list(
 		SKILL_PILOT    = SKILL_ADEPT,
 		SKILL_SCIENCE  = SKILL_ADEPT,

@@ -15,6 +15,7 @@
 #include "items\suit_cycler.dm"
 #include "items\turfs.dm"
 #include "items\voidsuits.dm"
+#include "jobs\enclave_department.dm"
 #include "jobs\yinglet_job.dm"
 #include "jobs\yinglet_outfit.dm"
 #include "lobby\music.dm"

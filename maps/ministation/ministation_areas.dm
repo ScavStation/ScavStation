@@ -191,3 +191,6 @@
 	secure = TRUE
 	req_access = list(access_ai_upload)
 	icon_state = "light_blue"
+
+/datum/goal/scav_hoard_junk
+	valid_areas = list(/area/ministation/yinglet_rep)

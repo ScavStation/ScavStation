@@ -32,10 +32,11 @@
 
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(var/amt, var/tar = src, var/ddir)
+	var/datum/reagents/bloodstream = get_injected_reagents()
 	if(remove_blood(amt))
-		if(bloodstr.total_volume && vessel.total_volume)
-			var/chem_share = round(0.3 * amt * (bloodstr.total_volume/vessel.total_volume), 0.01)
-			bloodstr.remove_any(chem_share * bloodstr.total_volume)
+		if(bloodstream.total_volume && vessel.total_volume)
+			var/chem_share = round(0.3 * amt * (bloodstream.total_volume/vessel.total_volume), 0.01)
+			bloodstream.remove_any(chem_share * bloodstream.total_volume)
 		blood_splatter(tar, src, (ddir && ddir>0), spray_dir = ddir)
 		return amt
 	return 0
@@ -262,7 +263,7 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir)
 
 //Percentage of maximum blood volume, affected by the condition of circulation organs
 /mob/living/carbon/human/proc/get_blood_circulation()
-	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	var/obj/item/organ/internal/heart/heart = get_internal_organ(BP_HEART)
 	var/blood_volume = get_blood_volume()
 	if(!heart)
 		return 0.25 * blood_volume

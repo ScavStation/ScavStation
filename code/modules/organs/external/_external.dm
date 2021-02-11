@@ -876,7 +876,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		)
 	else
 		switch(droptype)
-			if(DROPLIMB_EDGE)
+			if(DISMEMBER_METHOD_EDGE)
 				if(!clean)
 					var/gore_sound = "[BP_IS_PROSTHETIC(src) ? "tortured metal" : "ripping tendons and flesh"]"
 					return list(
@@ -884,14 +884,21 @@ Note that amputating the affected organ does in fact remove the infection from t
 						"Your [src.name] goes flying off!",
 						"You hear a terrible sound of [gore_sound]."
 						)
-			if(DROPLIMB_BURN)
+			if(DISMEMBER_METHOD_BURN)
 				var/gore = "[BP_IS_PROSTHETIC(src) ? "": " of burning flesh"]"
 				return list(
 					"\The [owner]'s [src.name] flashes away into ashes!",
 					"Your [src.name] flashes away into ashes!",
 					"You hear a crackling sound[gore]."
 					)
-			if(DROPLIMB_BLUNT)
+			if(DISMEMBER_METHOD_ACID)
+				var/gore = "[BP_IS_PROSTHETIC(src) ? "": " of melting flesh"]"
+				return list(
+					"\The [owner]'s [src.name] dissolves!",
+					"Your [src.name] dissolves!",
+					"You hear a hissing sound[gore]."
+					)
+			if(DISMEMBER_METHOD_BLUNT)
 				var/gore = "[BP_IS_PROSTHETIC(src) ? "": " in shower of gore"]"
 				var/gore_sound = "[BP_IS_PROSTHETIC(src) ? "rending sound of tortured metal" : "sickening splatter of gore"]"
 				return list(
@@ -901,13 +908,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 					)
 
 //Handles dismemberment
-/obj/item/organ/external/proc/droplimb(var/clean, var/disintegrate = DROPLIMB_EDGE, var/ignore_children, var/silent)
+/obj/item/organ/external/proc/dismember(var/clean, var/disintegrate = DISMEMBER_METHOD_EDGE, var/ignore_children, var/silent)
 
 	if(!(limb_flags & ORGAN_FLAG_CAN_AMPUTATE) || !owner)
 		return
 
-	if(BP_IS_CRYSTAL(src) || (disintegrate == DROPLIMB_EDGE && species.limbs_are_nonsolid))
-		disintegrate = DROPLIMB_BLUNT //splut
+	if(BP_IS_CRYSTAL(src) || (disintegrate == DISMEMBER_METHOD_EDGE && species.limbs_are_nonsolid))
+		disintegrate = DISMEMBER_METHOD_BLUNT //splut
 
 	var/list/organ_msgs = get_droplimb_messages_for(disintegrate, clean)
 	if(LAZYLEN(organ_msgs) >= 3)
@@ -940,7 +947,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			var/obj/item/organ/external/stump/stump = new (victim, 0, src)
 			stump.add_pain(max_damage)
 			damaged_organ = stump
-			if(disintegrate != DROPLIMB_BURN)
+			if(disintegrate != DISMEMBER_METHOD_BURN)
 				stump.sever_artery()
 		W.parent_organ = damaged_organ
 		LAZYADD(damaged_organ.wounds, W)
@@ -953,7 +960,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		set_dir(SOUTH, TRUE)
 
 	switch(disintegrate)
-		if(DROPLIMB_EDGE)
+		if(DISMEMBER_METHOD_EDGE)
 			compile_icon()
 			add_blood(victim)
 			var/matrix/M = matrix()
@@ -965,13 +972,16 @@ Note that amputating the affected organ does in fact remove the infection from t
 				if(src && istype(loc,/turf))
 					throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 				set_dir(SOUTH, TRUE)
-		if(DROPLIMB_BURN)
-			new /obj/effect/decal/cleanable/ash(get_turf(victim))
+		if(DISMEMBER_METHOD_BURN, DISMEMBER_METHOD_ACID)
+			if(disintegrate == DISMEMBER_METHOD_BURN)
+				new /obj/effect/decal/cleanable/ash(get_turf(victim))
+			else
+				new /obj/effect/decal/cleanable/mucus(get_turf(victim))
 			for(var/obj/item/I in src)
 				if(I.w_class > ITEM_SIZE_SMALL && !istype(I,/obj/item/organ))
 					I.dropInto(loc)
 			qdel(src)
-		if(DROPLIMB_BLUNT)
+		if(DISMEMBER_METHOD_BLUNT)
 			var/obj/gore
 			if(BP_IS_CRYSTAL(src))
 				gore = new /obj/item/shard(get_turf(victim), /decl/material/solid/gemstone/crystal)
@@ -1209,9 +1219,8 @@ obj/item/organ/external/proc/remove_clamps()
 					if(thing.vital || BP_IS_PROSTHETIC(thing))
 						continue
 					internal_organs -= thing
-					owner.internal_organs_by_name[thing.organ_tag] = null
+					owner.internal_organs -= thing
 					owner.internal_organs_by_name -= thing.organ_tag
-					owner.internal_organs.Remove(thing)
 					qdel(thing)
 
 		while(null in owner.internal_organs)
