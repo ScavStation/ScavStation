@@ -135,6 +135,7 @@ var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
 	/client/proc/respawn_character,
+	/client/proc/respawn_as_self,
 	/client/proc/spawn_chemdisp_cartridge,
 	/datum/admins/proc/mass_debug_closet_icons
 	)
@@ -211,7 +212,8 @@ var/list/admin_verbs_debug = list(
 	/datum/admins/proc/check_unconverted_single_icon_items,
 	/client/proc/spawn_material,
 	/client/proc/verb_adjust_tank_bomb_severity,
-	/client/proc/force_ghost_trap_trigger
+	/client/proc/force_ghost_trap_trigger,
+	/client/proc/spawn_quantum_mechanic
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -299,7 +301,9 @@ var/list/admin_verbs_hideable = list(
 	/proc/release,
 	/datum/admins/proc/panicbunker,
 	/datum/admins/proc/addbunkerbypass,
-	/datum/admins/proc/revokebunkerbypass
+	/datum/admins/proc/revokebunkerbypass,
+	/client/proc/spawn_quantum_mechanic,
+	/client/proc/respawn_as_self
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -338,7 +342,7 @@ var/list/admin_verbs_mod = list(
 		if(holder.rights & R_POSSESS)		verbs += admin_verbs_possess
 		if(holder.rights & R_PERMISSIONS)	verbs += admin_verbs_permissions
 		if(holder.rights & R_STEALTH)		verbs += /client/proc/stealth
-		if(holder.rights & R_REJUVINATE)	verbs += admin_verbs_rejuv
+		if(holder.rights & R_REJUVENATE)	verbs += admin_verbs_rejuv
 		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
