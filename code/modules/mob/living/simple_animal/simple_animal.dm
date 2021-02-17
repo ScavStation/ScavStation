@@ -4,6 +4,7 @@
 	health = 20
 	maxHealth = 20
 	universal_speak = FALSE
+	mob_sort_value = 12
 
 	mob_bump_flag = SIMPLE_ANIMAL
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
@@ -539,3 +540,7 @@
 		gene_damage = Clamp(amount, 0, maxHealth)
 		if(gene_damage >= maxHealth)
 			death()
+
+/mob/living/simple_animal/get_admin_job_string()
+	return "Animal"
+

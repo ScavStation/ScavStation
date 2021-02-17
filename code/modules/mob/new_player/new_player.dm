@@ -8,7 +8,7 @@
 	var/datum/browser/panel
 	var/show_invalid_jobs = 0
 	universal_speak = TRUE
-
+	mob_sort_value = 10
 	invisibility = 101
 
 	density = 0
@@ -23,7 +23,7 @@
 	. = ..()
 	verbs += /mob/proc/toggle_antag_pool
 
-/mob/new_player/proc/new_player_panel(force = FALSE)
+/mob/new_player/proc/show_lobby_menu(force = FALSE)
 	if(!SScharacter_setup.initialized && !force)
 		return // Not ready yet.
 	var/output = list()
@@ -117,7 +117,7 @@
 
 	if(href_list["refresh"])
 		panel.close()
-		new_player_panel()
+		show_lobby_menu()
 
 	if(href_list["observe"])
 		if(GAME_STATE < RUNLEVEL_LOBBY)
@@ -188,7 +188,7 @@
 		if(client)
 			client.prefs.process_link(src, href_list)
 	else if(!href_list["late_join"])
-		new_player_panel()
+		show_lobby_menu()
 
 	if(href_list["showpoll"])
 
@@ -551,3 +551,6 @@ mob/new_player/MayRespawn()
 
 /mob/new_player/handle_writing_literacy(var/mob/user, var/text_content, var/skip_delays)
 	. = text_content
+
+/mob/new_player/get_admin_job_string()
+	return "New player"

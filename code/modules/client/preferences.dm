@@ -79,7 +79,7 @@ var/list/time_prefs_fixed = list()
 	sanitize_preferences()
 	if(client && istype(client.mob, /mob/new_player))
 		var/mob/new_player/np = client.mob
-		np.new_player_panel(TRUE)
+		np.show_lobby_menu(TRUE)
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
@@ -200,7 +200,7 @@ var/list/time_prefs_fixed = list()
 
 		if(isnewplayer(client.mob))
 			var/mob/new_player/M = client.mob
-			M.new_player_panel()
+			M.show_lobby_menu()
 
 	else if(href_list["resetslot"])
 		if(real_name != input("This will reset the current slot. Enter the character's full name to confirm."))
@@ -223,7 +223,7 @@ var/list/time_prefs_fixed = list()
 	character.set_species(species)
 
 	if(be_random_name)
-		var/decl/cultural_info/culture = SSlore.get_culture(cultural_info[TAG_CULTURE])
+		var/decl/cultural_info/culture = decls_repository.get_decl(cultural_info[TAG_CULTURE])
 		if(culture) real_name = culture.get_random_name(gender)
 
 	if(config.humans_need_surnames)
@@ -283,10 +283,7 @@ var/list/time_prefs_fixed = list()
 					qdel(child)
 			qdel(O)
 		else if(status == "cyborg")
-			if(rlimb_data[name])
-				O.robotize(rlimb_data[name])
-			else
-				O.robotize()
+			O.robotize(rlimb_data[name])
 		else //normal organ
 			O.force_icon = initial(O.force_icon)
 			O.SetName(initial(O.name))

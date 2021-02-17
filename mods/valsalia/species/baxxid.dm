@@ -34,10 +34,20 @@
 	)
 
 	available_cultural_info = list(
-		TAG_CULTURE =   list(CULTURE_BAXXID, CULTURE_OTHER),
-		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
-		TAG_FACTION =   list(FACTION_BAXXID, FACTION_OTHER),
-		TAG_RELIGION =  list(RELIGION_OTHER)
+		TAG_CULTURE =   list(
+			/decl/cultural_info/culture/baxxid,
+			/decl/cultural_info/culture/other
+		),
+		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/stateless
+		),
+		TAG_FACTION =   list(
+			/decl/cultural_info/faction/baxxid,
+			/decl/cultural_info/faction/other
+		),
+		TAG_RELIGION =  list(
+			/decl/cultural_info/religion/other
+		)
 	)
 
 /decl/species/baxxid/handle_autohiss(message, decl/language/lang, mode)

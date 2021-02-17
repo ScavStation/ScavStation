@@ -8,8 +8,8 @@
 		message_admins("[usr.key] has attempted to override the admin panel!")
 		return
 
-	if(SSticker.mode && SSticker.mode.check_antagonists_topic(href, href_list))
-		check_antagonists()
+	if(SSticker.mode && SSticker.mode.round_status_topic(href, href_list))
+		show_round_status()
 		return
 
 	if(href_list["dbsearchckey"] || href_list["dbsearchadmin"])
@@ -207,14 +207,14 @@
 				if (SSevac.evacuation_controller.cancel_evacuation())
 					log_and_message_admins("cancelled an evacuation.")
 
-		href_list["secretsadmin"] = "check_antagonist"
+		href_list["secretsadmin"] = "show_round_status"
 
 	else if(href_list["delay_round_end"])
 		if(!check_rights(R_SERVER))	return
 
 		SSticker.delay_end = !SSticker.delay_end
 		log_and_message_admins("[SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
-		href_list["secretsadmin"] = "check_antagonist"
+		href_list["secretsadmin"] = "show_round_status"
 
 	else if(href_list["simplemake"])
 
@@ -1023,8 +1023,8 @@
 			sleep(2)
 			G.ManualFollow(M)
 
-	else if(href_list["check_antagonist"])
-		check_antagonists()
+	else if(href_list["show_round_status"])
+		show_round_status()
 
 	// call dibs on IC messages (prays, emergency comms, faxes)
 	else if(href_list["take_ic"])
@@ -1110,7 +1110,7 @@
 		to_chat(src.owner, "Name = <b>[M.name]</b>; Real_name = [M.real_name]; Mind_name = [M.mind?"[M.mind.name]":""]; Key = <b>[M.key]</b>;")
 		to_chat(src.owner, "Location = [location_description];")
 		to_chat(src.owner, "[special_role_description]")
-		to_chat(src.owner, "(<a href='?src=\ref[usr];priv_msg=\ref[M]'>PM</a>) (<A HREF='?src=\ref[src];adminplayeropts=\ref[M]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[M]'>VV</A>) ([admin_jump_link(M, src)]) (<A HREF='?src=\ref[src];secretsadmin=check_antagonist'>CA</A>)")
+		to_chat(src.owner, "(<a href='?src=\ref[usr];priv_msg=\ref[M]'>PM</a>) (<A HREF='?src=\ref[src];adminplayeropts=\ref[M]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[M]'>VV</A>) ([admin_jump_link(M, src)]) (<A HREF='?src=\ref[src];secretsadmin=show_round_status'>RS</A>)")
 
 	else if(href_list["adminspawnprayreward"])
 		if(!check_rights(R_ADMIN|R_FUN))	return
@@ -1290,18 +1290,18 @@
 		var/mob/M = locate(href_list["narrateto"])
 		usr.client.cmd_admin_direct_narrate(M)
 
-	else if(href_list["traitor"])
+	else if(href_list["show_special_roles"])
 		if(!check_rights(R_ADMIN|R_MOD))	return
 
 		if(GAME_STATE < RUNLEVEL_GAME)
 			alert("The game hasn't started yet!")
 			return
 
-		var/mob/M = locate(href_list["traitor"])
+		var/mob/M = locate(href_list["show_special_roles"])
 		if(!ismob(M))
 			to_chat(usr, "This can only be used on instances of type /mob.")
 			return
-		show_traitor_panel(M)
+		show_special_roles(M)
 
 	else if(href_list["skillpanel"])
 		if(!check_rights(R_INVESTIGATE))

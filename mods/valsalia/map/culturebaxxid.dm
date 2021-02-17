@@ -1,5 +1,5 @@
 /decl/cultural_info/faction/baxxid
-	name = FACTION_BAXXID
+	name = "Baxxid Nomad"
 	description = "For myriad reasons, your people abandoned your homeworld for the stars, becoming nomads. \
 	After some initial tensions with humankind, the Baxxid have become embedded in Human society, \
 	carving a niche for themselves as accountants, researchers, and receptionists."
@@ -7,7 +7,7 @@
 	//make cooler and less crappy by at least fifteen ounces
 
 /decl/cultural_info/culture/baxxid
-	name = CULTURE_BAXXID
+	name =  "Baxxid Clans"
 	description = "You represent one of the many Baxxid clans in society."
 	secondary_langs = list(
 		/decl/language/human/common,
