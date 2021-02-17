@@ -6,6 +6,7 @@
 	#include "../../mods/content/government/ruins/ec_old_crash/ec_old_crash.dm"
 	#include "../../mods/content/corporate/_corporate.dme"
 	#include "../../mods/content/corporate/away_sites/lar_maria/lar_maria.dm"
+	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/species/neocorvids/_neocorvids.dme"
