@@ -1,5 +1,5 @@
-/datum/robolimb/ying_wooden
-	company = "scavenged prosthesis"
+/decl/prosthetics_manufacturer/ying_wooden
+	name = "scavenged prosthesis"
 	desc = "A stick, tied to the owner's body with rags. Very scav chic."
 	icon = 'mods/valsalia/icons/wooden_main.dmi'
 	allowed_bodytypes = list(BODYTYPE_YINGLET)
@@ -9,13 +9,13 @@
 	movement_slowdown = 2
 	is_robotic = FALSE
 
-/datum/robolimb/ying_metal
-	company = "Lunar Transit"
+/decl/prosthetics_manufacturer/ying_metal
+	name = "Lunar Transit"
 	desc = "A cheap robotic prosthetic designed for yinglet owners."
 	icon = 'mods/valsalia/icons/metal_main.dmi'
 	allowed_bodytypes = list(BODYTYPE_YINGLET)
 
-DEFINE_ROBOLIMB_DESIGNS(/datum/robolimb/ying_metal, lunar_transit, "Lunar Transit")
+DEFINE_ROBOLIMB_DESIGNS(/decl/prosthetics_manufacturer/ying_metal, lunar_transit, "Lunar Transit")
 
 /decl/material/wood/generate_recipes(var/reinforce_material)
 	. = ..()
@@ -64,39 +64,39 @@ DEFINE_ROBOLIMB_DESIGNS(/datum/robolimb/ying_metal, lunar_transit, "Lunar Transi
 /obj/item/organ/external/arm/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_HUMAN]
 	. = ..()
-	robotize("scavenged prosthesis")
+	robotize(/decl/prosthetics_manufacturer/ying_wooden)
 
 /obj/item/organ/external/arm/right/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize("scavenged prosthesis")
+	robotize(/decl/prosthetics_manufacturer/ying_wooden)
 
 /obj/item/organ/external/leg/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize("scavenged prosthesis")
+	robotize(/decl/prosthetics_manufacturer/ying_wooden)
 
 /obj/item/organ/external/leg/right/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize("scavenged prosthesis")
+	robotize(/decl/prosthetics_manufacturer/ying_wooden)
 
 /obj/item/organ/external/hand/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize("scavenged prosthesis")
+	robotize(/decl/prosthetics_manufacturer/ying_wooden)
 
 /obj/item/organ/external/hand/right/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize("scavenged prosthesis")
+	robotize(/decl/prosthetics_manufacturer/ying_wooden)
 
 /obj/item/organ/external/foot/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize("scavenged prosthesis")
+	robotize(/decl/prosthetics_manufacturer/ying_wooden)
 
 /obj/item/organ/external/foot/right/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize("scavenged prosthesis")
+	robotize(/decl/prosthetics_manufacturer/ying_wooden)

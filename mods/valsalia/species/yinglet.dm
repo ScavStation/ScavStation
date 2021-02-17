@@ -77,12 +77,21 @@
 	inherent_verbs = list(/mob/living/proc/hide)
 
 	available_cultural_info = list(
-		TAG_CULTURE =   list(CULTURE_SCAV_ENCLAVE, CULTURE_OTHER),
-		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
-		TAG_FACTION =   list(FACTION_SCAV, FACTION_OTHER),
-		TAG_RELIGION =  list(RELIGION_OTHER)
+		TAG_CULTURE =   list(
+			/decl/cultural_info/culture/yinglet,
+			/decl/cultural_info/culture/other
+		),
+		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/stateless
+		),
+		TAG_FACTION =   list(
+			/decl/cultural_info/faction/enclave_ying,
+			/decl/cultural_info/faction/other
+		),
+		TAG_RELIGION =  list(
+			/decl/cultural_info/religion/other
+		)
 	)
-
 /decl/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
 	return SPECIES_YINGLET
 	
@@ -167,10 +176,20 @@
 	)
 
 	available_cultural_info = list(
-		TAG_CULTURE =   list(CULTURE_SCAV_TRIBE, CULTURE_OTHER),
-		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
-		TAG_FACTION =   list(FACTION_SCAV, FACTION_OTHER),
-		TAG_RELIGION =  list(RELIGION_OTHER)
+		TAG_CULTURE =   list(
+			/decl/cultural_info/culture/yinglet/tribal,
+			/decl/cultural_info/culture/other
+		),
+		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/stateless
+		),
+		TAG_FACTION =   list(
+			/decl/cultural_info/faction/enclave_ying,
+			/decl/cultural_info/faction/other
+		),
+		TAG_RELIGION =  list(
+			/decl/cultural_info/religion/other
+		)
 	)
 
 /obj/item/holder/yinglet
