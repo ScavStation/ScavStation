@@ -1282,7 +1282,7 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_four/hall)
 "HR" = (
-/obj/structure/handrai{
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},

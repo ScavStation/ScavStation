@@ -26,7 +26,7 @@
 	total_positions = 1
 	spawn_positions = 1
 
-/datum/job/baxxid_advisor/is_species_allowed(var/datum/species/S)
+/datum/job/baxxid_advisor/is_species_allowed(var/decl/species/S)
 	if(S && !istype(S))
 		S = all_species[S]
 	. = istype(S) && S.name == SPECIES_BAXXID

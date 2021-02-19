@@ -1,6 +1,8 @@
 /datum/job/shelltooth_doctor
 	title = "Junior Doctor"
-	department_refs = list(DEPT_MEDICAL)
+	department_types = list(
+		/decl/department/medical
+	)
 	head_position = 0
 	supervisors = "the Head Doctor and the Captain"
 	total_positions = 2
@@ -44,9 +46,9 @@
 /datum/job/shelltooth_doctor/head
 	title = "Head Doctor"
 	head_position = 1
-	department_refs = list(
-		DEPT_MEDICAL,
-		DEPT_COMMAND
+	department_types = list(
+		/decl/department/command,
+		/decl/department/medical
 	)
 	supervisors = "the Captain and your own ethics"
 	outfit_type = /decl/hierarchy/outfit/job/shelltooth/doc

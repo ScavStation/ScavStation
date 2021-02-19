@@ -9,7 +9,7 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_two/cryo)
 "ad" = (
-/turf/simulated/mineral,
+/turf/exterior/wall,
 /area/space)
 "ae" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -185,7 +185,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 17
 	},
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	pixel_x = -30;
 	pixel_y = 0
 	},
@@ -435,7 +435,7 @@
 /obj/structure/closet,
 /obj/item/clothing/mask/gas/clown_hat,
 /obj/item/clothing/shoes/clown_shoes,
-/obj/item/clothing/under/rank/clown,
+/obj/item/clothing/under/clown,
 /obj/item/storage/backpack/clown,
 /turf/simulated/floor/carpet/orange,
 /area/shelltooth/level_two/backstage)
@@ -684,7 +684,7 @@
 "cj" = (
 /obj/machinery/cooker/fryer,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	pixel_x = -30;
 	pixel_y = 0
 	},
@@ -1906,7 +1906,7 @@
 	dir = 4;
 	pixel_w = 20
 	},
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,

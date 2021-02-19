@@ -17,10 +17,10 @@
 		/datum/job/yinglet/matriarch
 	)
 	species_to_job_whitelist = list(
-		/datum/species/baxxid = list(
+		/decl/species/baxxid = list(
 			/datum/job/assistant
 		),
-		/datum/species/yinglet = list(
+		/decl/species/yinglet = list(
 			/datum/job/shelltooth_captain,
 			/datum/job/shelltooth_engineer/head,
 			/datum/job/shelltooth_doctor,
@@ -36,7 +36,7 @@
 			/datum/job/yinglet/patriarch,
 			/datum/job/yinglet/matriarch
 		),
-		/datum/species/yinglet/southern = list(
+		/decl/species/yinglet/southern = list(
 			/datum/job/shelltooth_captain,
 			/datum/job/shelltooth_engineer/head,
 			/datum/job/shelltooth_doctor,

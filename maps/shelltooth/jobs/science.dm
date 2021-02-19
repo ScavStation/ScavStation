@@ -3,7 +3,9 @@
 	supervisors = "the Head Researcher and the Captain"
 	spawn_positions = 1
 	total_positions = 2
-	department_refs = list(DEPT_SCIENCE)
+	department_types = list(
+		/decl/department/science
+	)
 	alt_titles = list()
 	outfit_type = /decl/hierarchy/outfit/job/shelltooth/hand/researcher/junior
 	min_skill = list(
@@ -61,9 +63,9 @@
 	)
 	skill_points = 30
 	head_position = 1
-	department_refs = list(
-		DEPT_SCIENCE,
-		DEPT_COMMAND
+	department_types = list(
+		/decl/department/command,
+		/decl/department/science
 	)
 	selection_color = "#ad6bad"
 	req_admin_notify = 1
