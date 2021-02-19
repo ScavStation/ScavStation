@@ -6,7 +6,7 @@
 	icon_state = "grinder"
 	density = 1
 	anchored = 1
-	req_access = list(access_kitchen,access_morgue)
+	initial_access = list(list(access_kitchen, access_morgue))
 	construct_state = /decl/machine_construction/default/panel_closed
 	uncreated_component_parts = null
 	stat_immune = 0
@@ -198,7 +198,7 @@
 			if(istype(thing, /obj/item/chems/food/snacks/meat))
 				var/obj/item/chems/food/snacks/meat/slab = thing
 				slab.SetName("[slab_name] [slab.name]")
-				slab.reagents.add_reagent(/decl/reagent/nutriment,slab_nutrition)
+				slab.reagents.add_reagent(/decl/material/liquid/nutriment,slab_nutrition)
 
 /obj/machinery/gibber/proc/finish_gibbing()
 	operating = 0

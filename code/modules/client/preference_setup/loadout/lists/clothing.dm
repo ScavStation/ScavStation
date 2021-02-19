@@ -2,12 +2,12 @@
 /datum/gear/clothing/
 	sort_category = "Clothing Pieces"
 	category = /datum/gear/clothing/
-	slot = slot_tie
+	slot = slot_tie_str
 
 /datum/gear/clothing/flannel
 	display_name = "flannel (colorable)"
 	path = /obj/item/clothing/accessory/toggleable/flannel
-	slot = slot_tie
+	slot = slot_tie_str
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/clothing/scarf
@@ -30,7 +30,7 @@
 
 /datum/gear/clothing/vest
 	display_name = "suit vest, colour select"
-	path = /obj/item/clothing/accessory/toggleable/vest/
+	path = /obj/item/clothing/accessory/toggleable
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/clothing/suspenders

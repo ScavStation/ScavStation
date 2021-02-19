@@ -1,19 +1,20 @@
 /obj/item/organ/internal/eyes/yinglet
 	relative_size = 15
+	eye_blend = ICON_MULTIPLY
 	eye_icon = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
 
 // Copied from vox stomach, upstream Baycode.
 /obj/item/organ/internal/stomach/yinglet
 	name = "scav stomach"
 	var/global/list/gains_nutriment_from_inedible_reagents = list(
-		/decl/reagent/woodpulp =      3,
-		/decl/reagent/anfo/plus =     2,
-		/decl/reagent/anfo =          1,
-		/decl/reagent/lube =          1,
-		/decl/reagent/cleaner =       1,
-		/decl/reagent/foaming_agent = 1,
-		/decl/reagent/surfactant =    1,
-		/decl/reagent/paint =         1
+		/decl/material/wood =                 3,
+		/decl/material/liquid/anfo/plus =     2,
+		/decl/material/liquid/anfo =          1,
+		/decl/material/liquid/lube =          1,
+		/decl/material/liquid/cleaner =       1,
+		/decl/material/liquid/foaming_agent = 1,
+		/decl/material/liquid/surfactant =    1,
+		/decl/material/liquid/paint =         1
 	)
 	var/global/list/gains_nutriment_from_matter = list(
 		MAT_WOOD =            TRUE,

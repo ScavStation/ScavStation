@@ -8,9 +8,7 @@
 	speak_emote = list("hisses")
 	health = 5
 	maxHealth = 5
-	attacktext = "bitten"
-	melee_damage_lower = 1
-	melee_damage_upper = 2
+	natural_weapon = /obj/item/natural_weapon/bite/weak
 	response_help  = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
@@ -22,4 +20,4 @@
 	meat_amount = 1
 	bone_amount = 1
 	skin_amount = 1
-	skin_material = MAT_SKIN_LIZARD
+	skin_material = /decl/material/solid/skin/lizard

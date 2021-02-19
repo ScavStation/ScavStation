@@ -2,7 +2,7 @@
 	name = "mounted electrolaser carbine"
 	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."
 	icon_state = "mech_taser"
-	holding_type = /obj/item/gun/energy/taser/carbine/mounted/mech
+	holding_type = /obj/item/gun/energy/taser/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
@@ -18,10 +18,11 @@
 	icon_state = "mech_lasercarbine"
 	holding_type = /obj/item/gun/energy/laser/mounted/mech
 
-/obj/item/gun/energy/taser/carbine/mounted/mech
+/obj/item/gun/energy/taser/mounted/mech
 	use_external_power = TRUE
 	has_safety = FALSE
 	self_recharge = TRUE
+	projectile_type = /obj/item/projectile/beam/stun/heavy
 
 /obj/item/gun/energy/ionrifle/mounted/mech
 	use_external_power = TRUE
@@ -49,10 +50,10 @@
 	icon_state = "shield_droid"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_SILVER = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_GOLD = MATTER_AMOUNT_TRACE
+		/decl/material/solid/metal/silver = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE
 	)
 
 	var/obj/aura/mechshield/aura = null

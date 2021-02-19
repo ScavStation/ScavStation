@@ -1,5 +1,7 @@
 /obj/machinery/network/acl
 	name = "network access controller"
+	icon = 'icons/obj/machines/tcomms/aas.dmi'
+	icon_state = "aas"
 	network_device_type =  /datum/extension/network_device/acl
 	main_template = "network_acl.tmpl"
 	construct_state = /decl/machine_construction/default/panel_closed
@@ -11,22 +13,24 @@
 	// Datum file source for where grants/records are.
 	var/datum/file_storage/network/file_source = /datum/file_storage/network/machine
 	var/editing_user	// Numerical user ID of the user being editing on this device.
-	var/list/initial_grants = list(
-		DEPT_COMMAND,
-		DEPT_CIVILIAN,
-		DEPT_ENGINEERING,
-		DEPT_EXPLORATION,
-		DEPT_MEDICAL,
-		DEPT_MISC,
-		DEPT_SCIENCE,
-		DEPT_SECURITY,
-		DEPT_SERVICE,
-		DEPT_SUPPORT,
-		DEPT_SUPPLY
+	var/editing_program // Name of current program being edited.
+	var/list/initial_grants  //defaults to all possible station accesses if left null
+
+/obj/machinery/network/acl/merchant
+	initial_grants = list(
+		access_crate_cash,
+		access_merchant
+	)
+
+/obj/machinery/network/acl/antag
+	initial_grants = list(
+		access_syndicate
 	)
 
 /obj/machinery/network/acl/Initialize()
 	. = ..()
+	if(isnull(initial_grants))
+		initial_grants = get_all_station_access()
 	if(ispath(file_source))
 		file_source = new file_source(null, src)
 
@@ -62,8 +66,13 @@
 		error = "NETWORK ERROR: Connection lost."
 		return TOPIC_REFRESH
 
+	if(href_list["back"])
+		editing_user = null
+		editing_program = null
+		return TOPIC_REFRESH
+
 	if(href_list["change_file_server"])
-		var/list/file_servers = network.get_file_server_tags()
+		var/list/file_servers = network.get_file_server_tags(MF_ROLE_CREW_RECORDS)
 		var/file_server = input(usr, "Choose a fileserver to view access records on:", "Select File Server") as null|anything in file_servers
 		if(file_server)
 			file_source.server = file_server
@@ -75,18 +84,43 @@
 		if(!grant)
 			error = "ERROR: Grant record not found."
 			return TOPIC_REFRESH
-		var/datum/computer_file/report/crew_record/AR = get_access_record()
-		if(!AR)
-			error = "ERROR: Access record not found."
+		if(editing_user)
+			var/datum/computer_file/report/crew_record/AR = get_access_record()
+			if(!AR)
+				error = "ERROR: Access record not found."
+				return TOPIC_REFRESH
+			AR.add_grant(grant)
+		else if(editing_program)
+			var/list/program_access = computer.program_access[editing_program]
+			program_access |= grant.stored_data
 			return TOPIC_REFRESH
-		AR.add_grant(grant)
 
 	if(href_list["remove_grant"])
-		var/datum/computer_file/report/crew_record/AR = get_access_record()
-		if(!AR)
-			error = "ERROR: Access record not found."
+		if(editing_user)
+			var/datum/computer_file/report/crew_record/AR = get_access_record()
+			if(!AR)
+				error = "ERROR: Access record not found."
+				return TOPIC_REFRESH
+			AR.remove_grant(href_list["remove_grant"]) // Add the grant to the record.
+		if(editing_program)
+			var/datum/computer_file/data/grant_record/grant = computer.get_grant(href_list["remove_grant"])
+			if(!grant)
+				error = "ERROR: Grant record not found."
+				return TOPIC_REFRESH
+			var/list/program_access = computer.program_access[editing_program]
+			program_access -= grant.stored_data
 			return TOPIC_REFRESH
-		AR.remove_grant(href_list["remove_grant"]) // Add the grant to the record.
+
+	if(href_list["clear_program_access"])
+		if(editing_program)
+			computer.program_access[editing_program] = list()
+		else
+			error = "ERROR: Program not found."
+		return TOPIC_REFRESH
+
+	if(href_list["toggle_program_control"])
+		computer.program_control = !computer.program_control
+		return TOPIC_REFRESH
 
 	if(href_list["create_grant"])
 		var/new_grant_name = uppertext(sanitize(input(usr, "Enter the name of the new grant:", "Create Grant")))
@@ -105,6 +139,18 @@
 
 	if(href_list["view_user"])
 		editing_user = href_list["view_user"]
+		editing_program = null
+		return TOPIC_REFRESH
+
+	if(href_list["view_program"])
+		var/prog = href_list["view_program"]
+		var/list/programs = computer.program_access
+		if(!(prog in programs))
+			error = "ERROR: Program not found."
+			return TOPIC_REFRESH
+		editing_program = prog
+		editing_user = null
+		return TOPIC_REFRESH
 
 	if(href_list["write_id"])
 		var/obj/item/stock_parts/computer/card_slot/card_slot = get_component_of_type(/obj/item/stock_parts/computer/card_slot)
@@ -155,6 +201,7 @@
 	.["connected"] = TRUE
 	.["file_server"] = file_source.server
 	.["editing_user"] = editing_user
+	.["editing_program"] = editing_program
 
 	// Let's build some data.
 	if(editing_user)
@@ -162,6 +209,10 @@
 		.["user_id"] = editing_user
 		.["is_admin"] = (editing_user in network.access_controller.administrators)
 		var/datum/computer_file/report/crew_record/AR = get_access_record()
+		if(!istype(AR))
+			// Something has gone wrong. Our AR file is missing.
+			error = "NETWORK ERROR: Unable to find access record for user [editing_user]."
+			return
 		var/list/grants[0]
 		var/list/assigned_grants = AR.get_valid_grants()
 		// We're editing a user, so we only need to build a subset of data.
@@ -172,6 +223,17 @@
 			grants.Add(list(list(
 				"grant_name" = GR.stored_data,
 				"assigned" = (GR in assigned_grants)
+			)))
+		.["grants"] = grants
+	else if(editing_program) // Editing program access.
+		.["program_name"] = editing_program
+		var/list/program_access = computer.program_access[editing_program]
+		var/list/grants[0]
+		.["cleared_control"] = !length(program_access)
+		for(var/datum/computer_file/data/grant_record/GR in computer.get_all_grants())
+			grants.Add(list(list(
+				"grant_name" = GR.stored_data,
+				"assigned" = (GR.stored_data in program_access)
 			)))
 		.["grants"] = grants
 	else
@@ -185,12 +247,14 @@
 				"size" = AR.size
 			)))
 		.["users"] = users
-
-/obj/machinery/network/acl/on_update_icon()
-	if(operable())
-		icon_state = panel_open ? "AAS_On_Open" : "AAS_On"
-	else
-		icon_state = panel_open ? "AAS_Off_Open" : "AAS_Off"
+		var/list/programs[0]
+		.["program_control"] = computer.program_control
+		for(var/prog_name in computer.program_access)
+			programs.Add(list(list(
+				"name" = prog_name,
+				"grants" = length(computer.program_access[prog_name])
+			)))
+		.["programs"] = programs
 
 /obj/machinery/network/acl/proc/get_all_users()
 	var/list/users = list()

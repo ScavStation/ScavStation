@@ -8,9 +8,9 @@
 	title = "Enclave Scout"
 	spawn_positions = 1
 	total_positions = 3
-	department_refs = list(
-		DEPT_ENCLAVE,
-		DEPT_EXPLORATION
+	department_types = list(
+		/decl/department/enclave,
+		/decl/department/exploration
 	)
 	hud_icon = "hudyingscout"
 	supervisors = "the Matriarch and the Patriarches"
@@ -61,7 +61,9 @@
 	skill_points = 26
 	head_position = 1
 	guestbanned = 1	
-	department_refs = list(DEPT_ENCLAVE)
+	department_types = list(
+		/decl/department/enclave
+	)
 	access = list(
 		access_heads,
 		access_medical, 
@@ -122,9 +124,9 @@
 	)
 	skill_points = 30
 	head_position = 1
-	department_refs = list(
-		DEPT_ENCLAVE,
-		DEPT_COMMAND
+	department_types = list(
+		/decl/department/enclave,
+		/decl/department/command
 	)
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1

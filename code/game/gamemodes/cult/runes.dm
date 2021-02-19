@@ -21,8 +21,9 @@
 
 /obj/effect/rune/on_update_icon()
 	overlays.Cut()
-	if(GLOB.cult.rune_strokes[type])
-		var/list/f = GLOB.cult.rune_strokes[type]
+	var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	if(cult.rune_strokes[type])
+		var/list/f = cult.rune_strokes[type]
 		for(var/i in f)
 			var/image/t = image('icons/effects/uristrunes.dmi', "rune-[i]")
 			overlays += t
@@ -35,7 +36,7 @@
 			q -= f
 			var/image/t = image('icons/effects/uristrunes.dmi', "rune-[j]")
 			overlays += t
-		GLOB.cult.rune_strokes[type] = f.Copy()
+		cult.rune_strokes[type] = f.Copy()
 	color = bcolor
 	desc = "A strange collection of symbols drawn in [blood]."
 
@@ -58,10 +59,11 @@
 	if(!iscultist(user))
 		to_chat(user, "You can't mouth the arcane scratchings without fumbling over them.")
 		return
-	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle) || user.silent)
+	if(user.is_muzzled() || user.silent)
 		to_chat(user, "You are unable to speak the words of the rune.")
 		return
-	if(GLOB.cult.powerless)
+	var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	if(cult.powerless)
 		to_chat(user, "You read the words, but nothing happens.")
 		return fizzle(user)
 	cast(user)
@@ -69,9 +71,6 @@
 /obj/effect/rune/attack_ai(var/mob/living/user) // Cult borgs!
 	if(Adjacent(user))
 		attack_hand(user)
-
-/obj/effect/rune/attack_generic(var/mob/living/user) // Cult constructs/slimes/whatnot!
-	attack_hand(user)
 
 /obj/effect/rune/proc/cast(var/mob/living/user)
 	fizzle(user)
@@ -114,7 +113,8 @@
 	target.visible_message("<span class='warning'>The markings below [target] glow a bloody red.</span>")
 
 	to_chat(target, "<span class='cult'>Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root.</span>")
-	if(!GLOB.cult.can_become_antag(target.mind, 1))
+	var/decl/special_role/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	if(!cult.can_become_antag(target.mind, 1))
 		to_chat(target, "<span class='danger'>Are you going insane?</span>")
 	else
 		to_chat(target, "<span class='cult'>Do you want to join the cult of Nar'Sie? You can choose to ignore offer... <a href='?src=\ref[src];join=1'>Join the cult</a>.</span>")
@@ -139,9 +139,9 @@
 						target.take_overall_damage(0, 10)
 
 /obj/effect/rune/convert/Topic(href, href_list)
-	if(href_list["join"])
-		if(usr.loc == loc && !iscultist(usr))
-			GLOB.cult.add_antagonist(usr.mind, ignore_role = 1, do_not_equip = 1)
+	if(href_list["join"] && usr.loc == loc && !iscultist(usr))
+		var/decl/special_role/cult = decls_repository.get_decl(/decl/special_role/cultist)
+		cult.add_antagonist(usr.mind, ignore_role = 1, do_not_equip = 1)
 
 /obj/effect/rune/teleport
 	cultname = "teleport"
@@ -151,10 +151,12 @@
 	. = ..()
 	var/area/A = get_area(src)
 	destination = A.name
-	GLOB.cult.teleport_runes += src
+	var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	cult.teleport_runes += src
 
 /obj/effect/rune/teleport/Destroy()
-	GLOB.cult.teleport_runes -= src
+	var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	cult.teleport_runes -= src
 	var/turf/T = get_turf(src)
 	for(var/atom/movable/A in contents)
 		A.forceMove(T)
@@ -210,7 +212,8 @@
 
 /obj/effect/rune/teleport/proc/showOptions(var/mob/living/user)
 	var/list/t = list()
-	for(var/obj/effect/rune/teleport/T in GLOB.cult.teleport_runes)
+	var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	for(var/obj/effect/rune/teleport/T in cult.teleport_runes)
 		if(T == src)
 			continue
 		t += "<a href='?src=\ref[src];target=\ref[T]'>[T.destination]</a>"
@@ -399,26 +402,26 @@
 	speak_incantation(user, "N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
 	visible_message("<span class='warning'>\The [src] disappears with a flash of red light, and a set of armor appears on \the [user].</span>", "<span class='warning'>You are blinded by the flash of red light. After you're able to see again, you see that you are now wearing a set of armor.</span>")
 
-	var/obj/O = user.get_equipped_item(slot_head) // This will most likely kill you if you are wearing a spacesuit, and it's 100% intended
+	var/obj/O = user.get_equipped_item(slot_head_str) // This will most likely kill you if you are wearing a spacesuit, and it's 100% intended
 	if(O && !istype(O, /obj/item/clothing/head/culthood) && user.unEquip(O))
-		user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head)
-	O = user.get_equipped_item(slot_wear_suit)
+		user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head_str)
+	O = user.get_equipped_item(slot_wear_suit_str)
 	if(O && !istype(O, /obj/item/clothing/suit/cultrobes) && user.unEquip(O))
-		user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit)
-	O = user.get_equipped_item(slot_shoes)
+		user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit_str)
+	O = user.get_equipped_item(slot_shoes_str)
 	if(O && !istype(O, /obj/item/clothing/shoes/cult) && user.unEquip(O))
-		user.equip_to_slot_or_del(new /obj/item/clothing/shoes/cult(user), slot_shoes)
+		user.equip_to_slot_or_del(new /obj/item/clothing/shoes/cult(user), slot_shoes_str)
 
-	O = user.get_equipped_item(slot_back)
-	if(istype(O, /obj/item/storage) && !istype(O, /obj/item/storage/backpack/cultpack) && user.unEquip(O)) // We don't want to make the vox drop their nitrogen tank, though
+	O = user.get_equipped_item(slot_back_str)
+	if(istype(O, /obj/item/storage) && !istype(O, /obj/item/storage/backpack/cultpack) && user.unEquip(O)) 
 		var/obj/item/storage/backpack/cultpack/C = new /obj/item/storage/backpack/cultpack(user)
-		user.equip_to_slot_or_del(C, slot_back)
+		user.equip_to_slot_or_del(C, slot_back_str)
 		if(C)
 			for(var/obj/item/I in O)
 				I.forceMove(C)
 	else if(!O)
 		var/obj/item/storage/backpack/cultpack/C = new /obj/item/storage/backpack/cultpack(user)
-		user.equip_to_slot_or_del(C, slot_back)
+		user.equip_to_slot_or_del(C, slot_back_str)
 
 	user.update_icons()
 
@@ -455,21 +458,23 @@
 		//T.turf_animation('icons/effects/effects.dmi', "rune_sac")
 		victim.fire_stacks = max(2, victim.fire_stacks)
 		victim.IgniteMob()
-		victim.take_organ_damage(2 + casters.len, 2 + casters.len) // This is to speed up the process and also damage mobs that don't take damage from being on fire, e.g. borgs
+		var/dam_amt = 2 + length(casters)
+		victim.take_organ_damage(dam_amt, dam_amt) // This is to speed up the process and also damage mobs that don't take damage from being on fire, e.g. borgs
 		if(ishuman(victim))
 			var/mob/living/carbon/human/H = victim
 			if(H.is_asystole())
 				H.adjustBrainLoss(2 + casters.len)
 		sleep(40)
 	if(victim && victim.loc == T && victim.stat == DEAD)
-		GLOB.cult.add_cultiness(CULTINESS_PER_SACRIFICE)
+		var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+		cult.add_cultiness(CULTINESS_PER_SACRIFICE)
 		var/obj/item/soulstone/full/F = new(get_turf(src))
 		for(var/mob/M in cultists | get_cultists())
 			to_chat(M, "<span class='warning'>The Geometer of Blood accepts this offering.</span>")
 		visible_message("<span class='notice'>\The [F] appears over \the [src].</span>")
-		GLOB.cult.sacrificed += victim.mind
-		if(victim.mind == GLOB.cult.sacrifice_target)
-			for(var/datum/mind/H in GLOB.cult.current_antagonists)
+		cult.sacrificed += victim.mind
+		if(victim.mind == cult.sacrifice_target)
+			for(var/datum/mind/H in cult.current_antagonists)
 				if(H.current)
 					to_chat(H.current, "<span class='cult'>Your objective is now complete.</span>")
 		//TODO: other rewards?
@@ -616,7 +621,7 @@
 	strokes = 4
 
 /obj/effect/rune/weapon/cast(var/mob/living/user)
-	if(!istype(user.get_equipped_item(slot_head), /obj/item/clothing/head/culthood) || !istype(user.get_equipped_item(slot_wear_suit), /obj/item/clothing/suit/cultrobes) || !istype(user.get_equipped_item(slot_shoes), /obj/item/clothing/shoes/cult))
+	if(!istype(user.get_equipped_item(slot_head_str), /obj/item/clothing/head/culthood) || !istype(user.get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/cultrobes) || !istype(user.get_equipped_item(slot_shoes_str), /obj/item/clothing/shoes/cult))
 		to_chat(user, "<span class='warning'>You need to be wearing your robes to use this rune.</span>")
 		return fizzle(user)
 	var/turf/T = get_turf(src)
@@ -624,7 +629,7 @@
 		to_chat(user, "<span class='warning'>This rune needs to be placed on the defiled ground.</span>")
 		return fizzle(user)
 	speak_incantation(user, "N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
-	user.put_in_hands(new /obj/item/melee/cultblade(user))
+	user.put_in_hands(new /obj/item/sword/cultblade(user))
 	qdel(src)
 
 /obj/effect/rune/shell
@@ -748,7 +753,8 @@
 	strokes = 9
 
 /obj/effect/rune/tearreality/cast(var/mob/living/user)
-	if(!GLOB.cult.allow_narsie)
+	var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	if(!cult.allow_narsie)
 		return
 	if(the_end_comes)
 		to_chat(user, "<span class='cult'>You are already summoning! Be patient!</span>")
@@ -758,11 +764,11 @@
 		return fizzle()
 	for(var/mob/living/M in cultists)
 		M.say("Tok-lyr rqa'nap g[pick("'","`")]lt-ulotf!")
-		to_chat(M, "<span class='cult'>You are staring to tear the reality to bring Him back... stay around the rune!</span>")
+		to_chat(M, "<span class='cult'>You are starting to tear through the veil, opening the way to bring Him back... stay around the rune!</span>")
 	log_and_message_admins_many(cultists, "started summoning Nar-sie.")
 
 	var/area/A = get_area(src)
-	command_announcement.Announce("High levels of bluespace interference detected at \the [A]. Suspected wormhole forming. Investigate it immediately.")
+	command_announcement.Announce("High levels of gravitational disruption detected at \the [A]. Suspected wormhole forming. Investigate it immediately.")
 	while(cultists.len > 4 || the_end_comes)
 		cultists = get_cultists()
 		if(cultists.len > 8)
@@ -785,7 +791,7 @@
 	if(the_end_comes >= the_time_has_come)
 		HECOMES = new /obj/singularity/narsie/large(get_turf(src))
 	else
-		command_announcement.Announce("Bluespace anomaly has ceased.")
+		command_announcement.Announce("Gravitational anomaly has ceased.")
 		qdel(src)
 
 /obj/effect/rune/tearreality/attack_hand(var/mob/living/user)
@@ -803,7 +809,8 @@
 				to_chat(M, "You see a vision of [name] keeling over dead, his blood glowing blue as it escapes his body and dissipates into thin air; you hear an otherwordly scream and feel very weak for a moment.")
 		log_and_message_admins("mended reality with the greatest sacrifice", user)
 		user.dust()
-		GLOB.cult.powerless = 1
+		var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+		cult.powerless = 1
 		qdel(HECOMES)
 		qdel(src)
 		return

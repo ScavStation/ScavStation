@@ -77,7 +77,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	d1 = text2num(copytext(icon_state, 1, dash))
 	d2 = text2num(copytext(icon_state, dash+1))
 	var/turf/T = src.loc			// hide if turf is not intact
-	if(level==1) hide(!T.is_plating())
+	if(level==1 && T) hide(!T.is_plating())
 	cable_list += src //add it to the global cable list
 
 /obj/structure/cable/Destroy()     // called when a cable is deleted
@@ -215,20 +215,20 @@ By design, d1 is the smallest direction and d2 is the highest
 			return 1
 	return 0
 
-//explosion handling
-/obj/structure/cable/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-		if(2.0)
-			if (prob(50))
-				new/obj/item/stack/cable_coil(src.loc, src.d1 ? 2 : 1, color)
-				qdel(src)
+/obj/structure/cable/create_dismantled_products(turf/T)
+	new /obj/item/stack/cable_coil(loc, (d1 ? 2 : 1), color)
 
-		if(3.0)
-			if (prob(25))
-				new/obj/item/stack/cable_coil(src.loc, src.d1 ? 2 : 1, color)
-				qdel(src)
+//explosion handling
+/obj/structure/cable/explosion_act(severity)
+	. = ..()
+	if(. && (severity == 1 || (severity == 2 && prob(50)) || (severity == 3 && prob(25))))
+		physically_destroyed()
+
+/obj/structure/cable/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+	var/turf/T = get_turf(src)
+	if(!T || !T.is_plating())
+		return
+	. = ..()
 
 obj/structure/cable/proc/cableColor(var/colorC)
 	var/color_n = "#dd0000"
@@ -462,24 +462,25 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil
 	name = "multipurpose cable coil"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "coil"
+	icon = 'icons/obj/items/cable_coil.dmi'
+	icon_state = ICON_STATE_WORLD
 	randpixel = 2
 	amount = MAXCOIL
 	max_amount = MAXCOIL
 	color = COLOR_MAROON
-	desc = "A coil of wiring, for delicate electronics use aswell as the more basic cable laying."
+	desc = "A coil of wiring, suitable for both delicate electronics and heavy duty power supply."
+	singular_name = "length"
 	throwforce = 0
 	w_class = ITEM_SIZE_NORMAL
 	throw_speed = 2
 	throw_range = 5
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_PLASTIC = MATTER_AMOUNT_TRACE
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE
 	)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
@@ -495,9 +496,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	uses_charge = 1
 	charge_costs = list(1)
 
-/obj/item/stack/cable_coil/Initialize(mapload, length = MAXCOIL, var/param_color = null)
-	. = ..(mapload, length)
-	src.amount = length
+/obj/item/stack/cable_coil/Initialize(mapload, c_length = MAXCOIL, var/param_color = null)
+	. = ..(mapload, c_length)
+	src.amount = c_length
 	if (param_color) // It should be red by default, so only recolor it if parameter was specified.
 		color = param_color
 	update_icon()
@@ -528,8 +529,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		return
 	return ..()
 
-
 /obj/item/stack/cable_coil/on_update_icon()
+	cut_overlays()
 	if (!color)
 		color = GLOB.possible_cable_colours[pick(GLOB.possible_cable_colours)]
 	if(amount == 1)
@@ -643,7 +644,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		dirn = get_dir(F, user)
 
 	var/end_dir = 0
-	if(istype(F, /turf/simulated/open))
+	if(istype(F) && F.is_open())
 		if(!can_use(2))
 			to_chat(user, "You don't have enough cable to do this!")
 			return

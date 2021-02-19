@@ -7,10 +7,10 @@
 
 	layer = SIDE_WINDOW_LAYER
 	anchored = 1.0
-	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CHECKS_BORDER
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_ROTATABLE
 	alpha = 180
-	material = MAT_GLASS
+	material = /decl/material/solid/glass
 	rad_resistance_modifier = 0.5
 	atmos_canpass = CANPASS_PROC
 	handle_generic_blending = TRUE
@@ -23,9 +23,11 @@
 	var/polarized = 0
 	var/basestate = "window"
 	var/reinf_basestate = "rwindow"
+	var/paint_color
+	var/base_color // The windows initial color. Used for resetting purposes.
 	var/list/connections
 	var/list/other_connections
-	
+
 /obj/structure/window/clear_connections()
 	connections = null
 	other_connections = null
@@ -36,8 +38,8 @@
 
 /obj/structure/window/update_materials(var/keep_health)
 	. = ..()
-	name = "[reinf_material ? "reinforced " : ""][material.display_name] window"
-	desc = "A window pane made from [material.display_name]."
+	name = "[reinf_material ? "reinforced " : ""][material.solid_name] window"
+	desc = "A window pane made from [material.solid_name]."
 
 /obj/structure/window/Initialize(var/ml, var/dir_to_set, var/anchored, var/_mat, var/_reinf_mat)
 	. = ..(ml, _mat, _reinf_mat)
@@ -56,6 +58,9 @@
 /obj/structure/window/LateInitialize()
 	..()
 	//set_anchored(!constructed) // calls update_connections, potentially
+
+	base_color = get_color()
+
 	update_connections(1)
 	update_icon()
 	update_nearby_tiles(need_rebuild=1)
@@ -71,7 +76,8 @@
 /obj/structure/window/CanFluidPass(var/coming_from)
 	return (!is_fulltile() && coming_from != dir)
 
-/obj/structure/window/destroyed()
+/obj/structure/window/physically_destroyed(var/skip_qdel)
+	SHOULD_CALL_PARENT(FALSE)
 	. = shatter()
 
 /obj/structure/window/take_damage(damage = 0)
@@ -96,15 +102,10 @@
 	..()
 	take_damage(proj_damage)
 
-/obj/structure/window/ex_act(severity)
-	switch(severity)
-		if(1)
-			qdel(src)
-		if(2)
-			shatter(0)
-		if(3)
-			if(prob(50))
-				shatter(0)
+/obj/structure/window/explosion_act(severity)
+	..()
+	if(!QDELETED(src) && (severity != 3 || prob(50)))
+		physically_destroyed()
 
 /obj/structure/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASS_FLAG_GLASS))
@@ -217,11 +218,6 @@
 		else
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
-			var/obj/item/stack/material/S = material.place_sheet(loc, is_fulltile() ? 4 : 1)
-			if(S && reinf_material)
-				S.reinf_material = reinf_material
-				S.update_strings()
-				S.update_icon()
 			dismantle()
 	else if(isCoil(W) && !polarized && is_fulltile())
 		var/obj/item/stack/cable_coil/C = W
@@ -249,7 +245,7 @@
 			playsound(src, 'sound/items/Welder.ogg', 80, 1)
 			construction_state = 0
 			set_anchored(0)
-	else
+	else if (!istype(W, /obj/item/paint_sprayer))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(W.damtype == BRUTE || W.damtype == BURN)
 			user.do_attack_animation(src)
@@ -262,14 +258,21 @@
 		..()
 	return
 
+/obj/structure/window/create_dismantled_products(turf/T)
+	var/obj/item/stack/material/S = material.place_sheet(loc, is_fulltile() ? 4 : 2)
+	if(S && reinf_material)
+		S.reinf_material = reinf_material
+		S.update_strings()
+		S.update_icon()
+
 /obj/structure/window/grab_attack(var/obj/item/grab/G)
 	if (G.assailant.a_intent != I_HURT)
 		return TRUE
 	if (!G.force_danger())
 		to_chat(G.assailant, SPAN_DANGER("You need a better grip to do that!"))
 		return TRUE
-	var/def_zone = ran_zone(BP_HEAD, 20)
 	var/mob/affecting_mob = G.get_affecting_mob()
+	var/def_zone = ran_zone(BP_HEAD, 20, affecting_mob)
 	if(!affecting_mob)
 		attackby(G.affecting, G.assailant)
 		return TRUE
@@ -319,8 +322,25 @@
 /obj/structure/window/examine(mob/user)
 	. = ..(user)
 	if(reinf_material)
-		to_chat(user, SPAN_NOTICE("It is reinforced with the [reinf_material.display_name] lattice."))
-		
+		to_chat(user, SPAN_NOTICE("It is reinforced with the [reinf_material.solid_name] lattice."))
+
+	if (paint_color)
+		to_chat(user, SPAN_NOTICE("The glass is stained with paint."))
+
+/obj/structure/window/get_color()
+	if (paint_color)
+		return paint_color
+	else if (material)
+		var/decl/material/window = get_material()
+		return window.color
+	else if (base_color)
+		return base_color
+	return ..()
+
+/obj/structure/window/set_color()
+	paint_color = color
+	queue_icon_update()
+
 /obj/structure/window/proc/set_anchored(var/new_anchored)
 	if(anchored == new_anchored)
 		return
@@ -345,12 +365,20 @@
 /obj/structure/window/on_update_icon()
 	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
 	//this way it will only update full-tile ones
-	color =  material.icon_colour
 	if(reinf_material)
 		basestate = reinf_basestate
 	else
 		basestate = initial(basestate)
 	overlays.Cut()
+
+	if (paint_color)
+		color = paint_color
+	else if (material)
+		var/decl/material/window = get_material()
+		color = window.color
+	else
+		color = GLASS_COLOR
+
 	layer = FULL_WINDOW_LAYER
 	if(!is_fulltile())
 		layer = SIDE_WINDOW_LAYER
@@ -366,6 +394,7 @@
 				I = image(icon, "[basestate]_other_onframe[conn]", dir = 1<<(i-1))
 			else
 				I = image(icon, "[basestate]_onframe[conn]", dir = 1<<(i-1))
+			I.color = paint_color
 			overlays += I
 	else
 		for(var/i = 1 to 4)
@@ -374,6 +403,7 @@
 				I = image(icon, "[basestate]_other[conn]", dir = 1<<(i-1))
 			else
 				I = image(icon, "[basestate][conn]", dir = 1<<(i-1))
+			I.color = paint_color
 			overlays += I
 
 /obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -395,31 +425,31 @@
 /obj/structure/window/basic/full/polarized
 	polarized = 1
 
-/obj/structure/window/phoronbasic
-	name = "phoron window"
-	color = GLASS_COLOR_PHORON
-	material = MAT_PHORON_GLASS
+/obj/structure/window/borosilicate
+	name = "borosilicate window"
+	color = GLASS_COLOR_SILICATE
+	material = /decl/material/solid/glass/borosilicate
 
-/obj/structure/window/phoronbasic/full
+/obj/structure/window/borosilicate/full
 	dir = NORTHEAST
 	icon_state = "window_full"
 
-/obj/structure/window/phoronreinforced
+/obj/structure/window/borosilicate_reinforced
 	name = "reinforced borosilicate window"
 	icon_state = "rwindow"
-	color = GLASS_COLOR_PHORON
-	material = MAT_PHORON_GLASS
-	reinf_material = MAT_STEEL
+	color = GLASS_COLOR_SILICATE
+	material = /decl/material/solid/glass/borosilicate
+	reinf_material = /decl/material/solid/metal/steel
 
-/obj/structure/window/phoronreinforced/full
+/obj/structure/window/borosilicate_reinforced/full
 	dir = NORTHEAST
 	icon_state = "window_full"
 
 /obj/structure/window/reinforced
 	name = "reinforced window"
 	icon_state = "rwindow"
-	material = MAT_GLASS
-	reinf_material = MAT_STEEL
+	material = /decl/material/solid/glass
+	reinf_material = /decl/material/solid/metal/steel
 
 /obj/structure/window/reinforced/full
 	dir = NORTHEAST
@@ -456,11 +486,11 @@
 	if(!polarized)
 		return
 	if(opacity)
-		animate(src, color=material.icon_colour, time=5)
-		set_opacity(0)
+		animate(src, color=get_color(), time=5)
+		set_opacity(FALSE)
 	else
 		animate(src, color=GLASS_COLOR_TINTED, time=5)
-		set_opacity(1)
+		set_opacity(TRUE)
 
 /obj/structure/window/proc/is_on_frame()
 	if(locate(/obj/structure/wall_frame) in loc)
@@ -518,10 +548,12 @@
 /obj/structure/window/reinforced/crescent/attackby()
 	return
 
-/obj/structure/window/reinforced/crescent/ex_act()
+/obj/structure/window/reinforced/crescent/explosion_act()
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /obj/structure/window/reinforced/crescent/hitby()
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /obj/structure/window/reinforced/crescent/take_damage()

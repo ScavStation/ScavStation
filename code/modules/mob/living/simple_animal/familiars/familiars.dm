@@ -10,9 +10,10 @@
 	universal_speak = FALSE
 	universal_understand = TRUE
 
-	min_gas = list(MAT_OXYGEN = 1)
+	min_gas = list(/decl/material/gas/oxygen = 1)
 	max_gas = null
 	unsuitable_atmos_damage = 1
+	gene_damage = -1
 
 	var/list/wizardy_spells = list()
 
@@ -35,11 +36,12 @@
 
 	health = 200
 	maxHealth = 200
-	melee_damage_lower = 10
-	melee_damage_upper = 15
-	attacktext = "pinches"
+	natural_weapon = /obj/item/natural_weapon/pincers/strong
 	resistance = 9
 	can_escape = TRUE //snip snip
+
+/obj/item/natural_weapon/pincers/strong
+	force = 15
 
 /*familiar version of the Pike w/o all the other hostile/carp stuff getting in the way (namely life)
 */
@@ -58,8 +60,7 @@
 
 	health = 100
 	maxHealth = 100
-	melee_damage_lower = 10
-	melee_damage_upper = 10
+	natural_weapon = /obj/item/natural_weapon/bite
 	can_escape = TRUE
 
 	min_gas = null
@@ -82,11 +83,15 @@
 
 	health = 150
 	maxHealth = 150
-	melee_damage_lower = 5
-	melee_damage_upper = 8
-	attacktext = "touches"
+	natural_weapon = /obj/item/natural_weapon/horror
 
 	wizardy_spells = list(/spell/targeted/torment)
+
+/obj/item/natural_weapon/horror
+	name = "foul touch"
+	force = 10
+	damtype = BURN
+	attack_verb = list("touched")
 
 /mob/living/simple_animal/familiar/horror/death(gibbed, deathmessage, show_dead_message)
 	..(null,"rapidly deteriorates","The bonds tying you to this mortal plane have been severed.")
@@ -129,7 +134,7 @@
 		icon_state = icon_rest
 
 /mob/living/simple_animal/familiar/pet/mouse
-	name = "elderly snaprat"
+	name = "elderly mouse"
 	desc = "A small rodent. It looks very old."
 	icon_state = "mouse_gray"
 	icon_living = "mouse_gray"
@@ -145,10 +150,8 @@
 
 	health = 15
 	maxHealth = 15
-	melee_damage_lower = 1
-	melee_damage_upper = 1
+	natural_weapon = /obj/item/natural_weapon/bite/mouse
 	can_escape = TRUE
-	attacktext = "nibbles"
 
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 
@@ -173,8 +176,6 @@
 
 	health = 25
 	maxHealth = 25
-	melee_damage_lower = 3
-	melee_damage_upper = 4
-	attacktext = "scratched"
+	natural_weapon = /obj/item/natural_weapon/claws/weak
 
 	wizardy_spells = list(/spell/targeted/subjugation)

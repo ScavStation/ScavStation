@@ -15,7 +15,7 @@
 	layer = ABOVE_HUMAN_LAYER
 	density = 1
 	anchored = 1
-	material = MAT_ALIENALLOY
+	material = /decl/material/solid/metal/aliumium
 	material_alteration = MAT_FLAG_ALTERATION_COLOR
 	var/active = 0
 
@@ -40,7 +40,7 @@
 		overlays += I
 		set_light(0.3, 0.1, 2, l_color = I.color)
 
-	var/turf/simulated/floor/exoplanet/T = get_turf(src)
+	var/turf/exterior/T = get_turf(src)
 	if(istype(T))
 		var/image/I = overlay_image(icon, "dugin", T.dirt_color, RESET_COLOR)
 		overlays += I
@@ -64,7 +64,7 @@
 						vision += pick(E.actors) + " " + pick("killing","dying","gored","expiring","exploding","mauled","burning","flayed","in agony") + ". "
 					to_chat(H, "<span class='danger'><font size=2>[uppertext(vision)]</font></span>")
 					H.Paralyse(2)
-					H.hallucination(20, 100)
+					H.set_hallucination(20, 100)
 				return
 	to_chat(user, "<span class='notice'>\The [src] is still.</span>")
 	return ..()

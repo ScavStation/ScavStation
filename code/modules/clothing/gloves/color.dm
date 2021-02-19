@@ -1,9 +1,6 @@
 /obj/item/clothing/gloves/color
 	desc = "A pair of gloves, they don't look special in any way."
-	icon = 'icons/clothing/hands/gloves_generic.dmi'
-	icon_state = "world"
-	on_mob_icon = 'icons/clothing/hands/gloves_generic.dmi'
-	sprite_sheets = null
+	icon_state = ICON_STATE_WORLD
 
 /obj/item/clothing/gloves/color/white
 	color = COLOR_WHITE
@@ -15,12 +12,13 @@
 	name = "rainbow gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon = 'icons/clothing/hands/gloves_rainbow.dmi'
-	on_mob_icon = 'icons/clothing/hands/gloves_rainbow.dmi'
 
 /obj/item/clothing/gloves/color/evening
 	name = "evening gloves"
 	desc = "A pair of gloves that reach past the elbow. Fancy!"
 	icon = 'icons/clothing/hands/gloves_evening.dmi'
-	on_mob_icon = 'icons/clothing/hands/gloves_evening.dmi'
 	color = COLOR_WHITE
-	body_parts_covered = ARMS|HANDS 
+	body_parts_covered = SLOT_ARMS|SLOT_HANDS 
+
+/obj/item/clothing/gloves/color/grey
+	color = COLOR_GRAY80

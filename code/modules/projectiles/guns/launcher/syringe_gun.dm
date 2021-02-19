@@ -4,10 +4,10 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "syringe-cartridge"
 	var/icon_flight = "syringe-cartridge-flight" //so it doesn't look so weird when shot
-	material = MAT_STEEL
-	matter = list(MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	slot_flags = SLOT_BELT | SLOT_EARS
+	slot_flags = SLOT_LOWER_BODY | SLOT_EARS
 	throwforce = 3
 	force = 3
 	w_class = ITEM_SIZE_TINY
@@ -49,7 +49,7 @@
 		if(TT.speed >= 10 && isliving(hit_atom))
 			var/mob/living/L = hit_atom
 			//unfortuately we don't know where the dart will actually hit, since that's done by the parent.
-			if(L.can_inject(null, ran_zone(TT.target_zone, 30)) == CAN_INJECT && syringe.reagents)
+			if(L.can_inject(null, ran_zone(TT.target_zone, 30, L)) == CAN_INJECT && syringe.reagents)
 				var/reagent_log = syringe.reagents.get_reagents()
 				syringe.reagents.trans_to_mob(L, 15, CHEM_INJECT)
 				admin_inject_log(TT.thrower? TT.thrower : null, L, src, reagent_log, 15, violent=1)
@@ -63,13 +63,12 @@
 /obj/item/gun/launcher/syringe
 	name = "syringe gun"
 	desc = "A spring loaded rifle designed to fit syringes, designed to incapacitate unruly patients from a distance."
-	icon = 'icons/obj/guns/syringegun.dmi'
-	icon_state = "syringegun"
-	item_state = "syringegun"
+	icon = 'icons/obj/guns/launcher/syringe.dmi'
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_LARGE
 	force = 7
-	material = MAT_STEEL
-	slot_flags = SLOT_BELT
+	material = /decl/material/solid/metal/steel
+	slot_flags = SLOT_LOWER_BODY
 
 	fire_sound = 'sound/weapons/empty.ogg'
 	fire_sound_text = "a metallic thunk"
@@ -103,7 +102,7 @@
 	add_fingerprint(user)
 
 /obj/item/gun/launcher/syringe/attack_hand(mob/living/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		if(!darts.len)
 			to_chat(user, "<span class='warning'>[src] is empty.</span>")
 			return
@@ -133,22 +132,24 @@
 /obj/item/gun/launcher/syringe/rapid
 	name = "syringe gun revolver"
 	desc = "A modification of the syringe gun design, using a rotating cylinder to store up to five syringes. The spring still needs to be drawn between shots."
-	icon_state = "rapidsyringegun"
-	item_state = "rapidsyringegun"
+	icon = 'icons/obj/guns/launcher/syringe_rapid.dmi'
 	max_darts = 5
-	material = MAT_STEEL
-	matter = list(MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 
 /obj/item/gun/launcher/syringe/disguised
 	name = "deluxe electronic cigarette"
 	desc = "A premium model eGavana MK3 electronic cigarette, shaped like a cigar."
-	icon = 'icons/obj/items/ecig.dmi'
-	icon_state = "pcigoff1"
-	item_state = "pcigoff1"
+	icon = 'icons/clothing/mask/smokables/cigarette_electronic_deluxe.dmi'
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_SMALL
 	force = 3
 	throw_distance = 7
 	release_force = 10
+
+/obj/item/gun/launcher/syringe/disguised/on_update_icon()
+	cut_overlays()
+	add_overlay("[icon_state]-loaded")
 
 /obj/item/gun/launcher/syringe/disguised/examine(mob/user, distance)
 	. = ..()

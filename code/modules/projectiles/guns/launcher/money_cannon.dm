@@ -1,10 +1,10 @@
 /obj/item/gun/launcher/money
 	name = "money cannon"
 	desc = "A blocky, plastic novelty launcher that claims to be able to shoot money at considerable velocities."
-	icon_state = "money_launcher"
-	item_state = "money_launcher"
+	icon = 'icons/obj/guns/launcher/money.dmi'
+	icon_state = ICON_STATE_WORLD
 	origin_tech = "{'combat':1,'materials':1}"
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	w_class = ITEM_SIZE_SMALL
 	release_force = 80
 	fire_sound_text = "a whoosh and a crisp, papery rustle"
@@ -108,7 +108,7 @@
 	to_chat(user, "<span class='notice'>You set [src] to dispense [dispensing] [cur.name_singular] at a time.</span>")
 
 /obj/item/gun/launcher/money/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		unload_receptacle(user)
 	else
 		return ..()

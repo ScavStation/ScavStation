@@ -2,16 +2,15 @@
 	name = "flash"
 	desc = "A device that produces a bright flash of light, designed to stun and disorient an attacker."
 	icon = 'icons/obj/items/device/flash.dmi'
-	icon_state = "flash"
-	item_state = "flashtool"
+	icon_state = ICON_STATE_WORLD
 	throwforce = 5
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	origin_tech = "{'magnets':2,'combat':1}"
-	material = MAT_STEEL
-	matter = list(MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 
 	var/times_used = 0 //Number of times it's been used.
 	var/broken = 0     //Is the flash burnt out?
@@ -19,10 +18,15 @@
 	var/str_min = 2 //how weak the effect CAN be
 	var/str_max = 7 //how powerful the effect COULD be
 
+/obj/item/flash/on_update_icon()
+	icon_state = get_world_inventory_state()
+	if(broken)
+		icon_state = "[icon_state]-burnt"
+
 /obj/item/flash/proc/clown_check(var/mob/user)
 	if(user && (MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, "<span class='warning'>\The [src] slips out of your hand.</span>")
-		user.unequip_item()
+		user.unEquip(src)
 		return 0
 	return 1
 
@@ -56,7 +60,7 @@
 			if(prob(times_used))	//if you use it 5 times in a minute it has a 10% chance to break!
 				broken = 1
 				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
-				icon_state = "[initial(icon_state)]_burnt"
+				icon_state = "[initial(icon_state)]-burnt"
 				return 0
 			times_used++
 		else	//can only use it 5 times a minute
@@ -86,8 +90,7 @@
 					M.eye_blurry += flash_strength
 					M.confused += (flash_strength + 2)
 					if(flash_strength > 3)
-						M.drop_l_hand()
-						M.drop_r_hand()
+						M.drop_held_items()
 					if(flash_strength > 5)
 						M.Weaken(2)
 			else
@@ -124,7 +127,7 @@
 			qdel(animation)
 
 	if(!flashfail)
-		flick("[initial(icon_state)]_on", src)
+		flick("[initial(icon_state)]-on", src)
 		if(!issilicon(M))
 			user.visible_message("<span class='disarm'>[user] blinds [M] with \the [src]!</span>")
 		else
@@ -152,7 +155,7 @@
 			if(prob(2*times_used))	//if you use it 5 times in a minute it has a 10% chance to break!
 				broken = 1
 				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
-				icon_state = "[initial(icon_state)]_burnt"
+				icon_state = "[initial(icon_state)]-burnt"
 				return 0
 			times_used++
 		else	//can only use it  5 times a minute
@@ -160,7 +163,7 @@
 			return 0
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
-	flick("[initial(icon_state)]_on", src)
+	flick("[initial(icon_state)]-on", src)
 	if(user && isrobot(user))
 		spawn(0)
 			var/atom/movable/overlay/animation = new(user.loc)
@@ -189,7 +192,7 @@
 		if(0 to 5)
 			if(prob(2*times_used))
 				broken = 1
-				icon_state = "[initial(icon_state)]_burnt"
+				update_icon()
 				return
 			times_used++
 			if(istype(loc, /mob/living/carbon))
@@ -205,19 +208,19 @@
 /obj/item/flash/synthetic //not for regular use, weaker effects
 	name = "modified flash"
 	desc = "A device that produces a bright flash of light. This is a specialized version designed specifically for use in camera systems."
-	icon_state = "sflash"
+	icon = 'icons/obj/items/device/flash_synthetic.dmi'
 	str_min = 1
 	str_max = 4
 
 /obj/item/flash/advanced
 	name = "advanced flash"
 	desc = "A device that produces a very bright flash of light. This is an advanced and expensive version often issued to VIPs."
-	icon_state = "advflash"
+	icon = 'icons/obj/items/device/flash_advanced.dmi'
 	origin_tech = "{'combat':2,'magnets':2}"
 	str_min = 3
 	str_max = 8
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_SILVER = MATTER_AMOUNT_TRACE
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE
 	)

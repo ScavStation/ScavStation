@@ -181,6 +181,16 @@ Checks if a list has the same entries and values as an element of big.
 			return L[i+1]
 	return L[1]
 
+//Returns the previous element in parameter list after first appearance of parameter element. If it is the first element of the list or not present in list, returns first element.
+/proc/previous_in_list(element, list/L)
+	for(var/i=1, i<L.len, i++)
+		if(L[i] == element)
+			if(i <= 1)
+				return L[L.len]
+			else
+				return L[i-1]
+	return L[L.len]
+
 /*
  * Sorting
  */
@@ -343,10 +353,10 @@ Checks if a list has the same entries and values as an element of big.
 	return (result + R.Copy(Ri, 0))
 
 // Macros to test for bits in a bitfield. Note, that this is for use with indexes, not bit-masks!
-#define BITTEST(bitfield,index)  ((bitfield)  &   (1 << (index)))
-#define BITSET(bitfield,index)   (bitfield)  |=  (1 << (index))
-#define BITRESET(bitfield,index) (bitfield)  &= ~(1 << (index))
-#define BITFLIP(bitfield,index)  (bitfield)  ^=  (1 << (index))
+#define BITTEST(bitfield,index)  ((bitfield)  &  BITFLAG(index))
+#define BITSET(bitfield,index)   (bitfield)  |=  BITFLAG(index)
+#define BITRESET(bitfield,index) (bitfield)  &= ~BITFLAG(index)
+#define BITFLIP(bitfield,index)  (bitfield)  ^=  BITFLAG(index)
 
 //Converts a bitfield to a list of numbers (or words if a wordlist is provided)
 /proc/bitfield2list(bitfield = 0, list/wordlist)

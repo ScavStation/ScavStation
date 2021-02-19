@@ -20,7 +20,7 @@
 
 	//var/environment_heat_capacity = environment.heat_capacity()
 	var/loc_temp = T0C
-	if(istype(get_turf(src), /turf/space))
+	if(isspaceturf(get_turf(src)))
 		//environment_heat_capacity = loc:heat_capacity
 		var/turf/heat_turf = get_turf(src)
 		loc_temp = heat_turf.temperature
@@ -61,16 +61,9 @@
 	return temp_change
 
 /mob/living/carbon/slime/handle_chemicals_in_body()
-	chem_effects.Cut()
-
-	if(touching) touching.metabolize()
-	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
-	if(istype(ingested)) ingested.metabolize()
-	if(bloodstr) bloodstr.metabolize()
-
-	src.updatehealth()
-
-	return //TODO: DEFERRED
+	. = ..()
+	if(.)
+		updatehealth()
 
 /mob/living/carbon/slime/handle_regular_status_updates()
 
@@ -131,8 +124,8 @@
 	if (src.eye_blurry > 0)
 		src.eye_blurry = 0
 
-	if (src.druggy > 0)
-		src.druggy = 0
+	if (src.drugged > 0)
+		src.drugged = 0
 
 	return 1
 

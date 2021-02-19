@@ -5,7 +5,9 @@
 	spawn_positions = 2
 	hud_icon = "hudengineer"
 	outfit_type = /decl/hierarchy/outfit/job/shelltooth/hand/engine
-	department_refs = list(DEPT_ENGINEERING)
+	department_types = list(
+		/decl/department/engineering
+	)
 	total_positions = 8
 	spawn_positions = 7
 	selection_color = "#5b4d20"
@@ -54,9 +56,9 @@
 /datum/job/shelltooth_engineer/head
 	title = "Head Engineer"
 	head_position = 1
-	department_refs = list(
-		DEPT_ENGINEERING,
-		DEPT_COMMAND
+	department_types = list(
+		/decl/department/command,
+		/decl/department/engineering
 	)
 	total_positions = 1
 	spawn_positions = 1

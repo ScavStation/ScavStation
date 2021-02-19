@@ -58,31 +58,15 @@
 	if (usr.incapacitated())
 		return
 
-	if (!usr.unEquip(src))
+	if(!istype(over_object, /obj/screen/inventory))
 		return
 
-	switch(over_object.name)
-		if("r_hand")
-			usr.put_in_r_hand(src)
-		if("l_hand")
-			usr.put_in_l_hand(src)
+	var/obj/screen/inventory/inv = over_object
 	src.add_fingerprint(usr)
+	if(usr.unEquip(src))
+		usr.equip_to_slot_if_possible(src, inv.slot_id)
 
-/obj/item/clothing/examine(mob/user)
-	. = ..()
-	for(var/obj/item/clothing/accessory/A in accessories)
-		to_chat(user, "\icon[A] \A [A] is attached to it.")
-	switch(ironed_state)
-		if(WRINKLES_WRINKLY)
-			to_chat(user, "<span class='bad'>It's wrinkly.</span>")
-		if(WRINKLES_NONE)
-			to_chat(user, "<span class='notice'>It's completely wrinkle-free!</span>")
-	switch(smell_state)
-		if(SMELL_CLEAN)
-			to_chat(user, "<span class='notice'>It smells clean!</span>")
-		if(SMELL_STINKY)
-			to_chat(user, "<span class='bad'>It's quite stinky!</span>")
-	
+	src.add_fingerprint(usr)
 
 /obj/item/clothing/proc/update_accessory_slowdown()
 	slowdown_accessory = 0
@@ -96,11 +80,14 @@
  *  items on spawn
  */
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
+	if(A in accessories)
+		return
 	accessories += A
 	A.on_attached(src, user)
 	if(A.removable)
 		src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_accessory_slowdown()
+	update_icon()
 	update_clothing_icon()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
@@ -110,6 +97,7 @@
 	A.on_removed(user)
 	accessories -= A
 	update_accessory_slowdown()
+	update_icon()
 	update_clothing_icon()
 
 /obj/item/clothing/proc/removetie_verb()

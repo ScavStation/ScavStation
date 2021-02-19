@@ -9,7 +9,8 @@
 	density = TRUE
 	anchored = TRUE
 
-	var/initial_id_tag
+	var/initial_network_id
+	var/initial_network_key
 	var/busy = FALSE
 	var/obj/item/loaded_item = null
 	var/material_return_modifier = 0
@@ -17,10 +18,7 @@
 
 /obj/machinery/destructive_analyzer/Initialize()
 	. = ..()
-	set_extension(src, /datum/extension/local_network_member)
-	if(initial_id_tag)
-		var/datum/extension/local_network_member/lanm = get_extension(src, /datum/extension/local_network_member)
-		lanm.set_tag(null, initial_id_tag)
+	set_extension(src, /datum/extension/network_device, initial_network_id, initial_network_key, NETWORK_CONNECTION_WIRED)
 
 /obj/machinery/destructive_analyzer/RefreshParts()
 	var/T = 0
@@ -64,7 +62,7 @@
 	if(length(dump_matter))
 		visible_message("\The [user] unloads \the [src]'s material hopper.")
 		for(var/mat in dump_matter)
-			var/material/M = SSmaterials.get_material_datum(mat)
+			var/decl/material/M = decls_repository.get_decl(mat)
 			M.place_sheet(loc, dump_matter[mat])
 			cached_materials[mat] -= dump_matter[mat] * SHEET_MATERIAL_AMOUNT
 			if(cached_materials[mat] <= 0)
@@ -72,6 +70,11 @@
 		return TRUE
 
 	. = ..()
+
+/obj/machinery/destructive_analyzer/interface_interact(user)
+	var/datum/extension/network_device/D = get_extension(src, /datum/extension/network_device)
+	D.ui_interact(user)
+	return TRUE
 
 /obj/machinery/destructive_analyzer/attackby(var/obj/item/O, var/mob/user)
 
@@ -107,7 +110,7 @@
 		loaded_item = O
 		to_chat(user, SPAN_NOTICE("You add \the [O] to \the [src]."))
 		flick("d_analyzer_la", src)
-		addtimer(CALLBACK(src, .proc/refresh_busy, 1 SECOND))
+		addtimer(CALLBACK(src, .proc/refresh_busy), 1 SECOND)
 		return TRUE
 
 /obj/machinery/destructive_analyzer/proc/refresh_busy()
@@ -130,11 +133,11 @@
 		LAZYSET(cached_materials, mat, cached_materials[mat] + (loaded_item.matter[mat] * material_return_modifier))
 	QDEL_NULL(loaded_item)
 	flick("d_analyzer_process", src)
-	addtimer(CALLBACK(src, .proc/refresh_busy, 2 SECONDS))
+	addtimer(CALLBACK(src, .proc/refresh_busy), 2 SECONDS)
 
 /obj/item/research
 	name = "research debugging device"
 	desc = "Instant research tool. For testing purposes only."
 	icon = 'icons/obj/items/stock_parts/stock_parts.dmi'
 	icon_state = "smes_coil"
-	origin_tech = "{'materials':19,'engineering':19,'phorontech':19,'powerstorage':19,'bluespace':19,'biotech':19,'combat':19,'magnets':19,'programming':19,'esoteric':19}"
+	origin_tech = "{'materials':19,'engineering':19,'exoticmatter':19,'powerstorage':19,'wormholes':19,'biotech':19,'combat':19,'magnets':19,'programming':19,'esoteric':19}"

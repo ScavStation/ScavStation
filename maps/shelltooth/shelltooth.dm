@@ -1,6 +1,6 @@
-#if !defined(using_map_DATUM)
+#if !defined(USING_MAP_DATUM)
 
-	#include "../../mods/corporate/_corporate.dme"
+	#include "../../mods/content/corporate/_corporate.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
 	
 	#include "shelltooth_unit_testing.dm"
@@ -32,7 +32,7 @@
 	#include "outfits/science.dm"
 	#include "outfits/yinglets.dm"
 
-	#define using_map_DATUM /datum/map/shelltooth
+	#define USING_MAP_DATUM /datum/map/shelltooth
 
 #elif !defined(MAP_OVERRIDE)
 

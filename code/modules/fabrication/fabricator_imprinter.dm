@@ -7,13 +7,14 @@
 	idle_power_usage = 30
 	active_power_usage = 2500
 	base_type = /obj/machinery/fabricator/imprinter
+	has_recycler = FALSE
 	fabricator_class = FABRICATOR_CLASS_IMPRINTER
 	base_storage_capacity = list(
-		MAT_GLASS =                        SHEET_MATERIAL_AMOUNT * 50,
-		MAT_GOLD =                         SHEET_MATERIAL_AMOUNT * 50,
-		MAT_SILVER =                       SHEET_MATERIAL_AMOUNT * 50,
-		MAT_DIAMOND =                      SHEET_MATERIAL_AMOUNT * 50,
-		/decl/reagent/acid =              120,
-		/decl/reagent/acid/hydrochloric = 120,
-		/decl/reagent/acid/polyacid =     120
+		/decl/material/solid/glass =              SHEET_MATERIAL_AMOUNT * 50,
+		/decl/material/solid/metal/gold =         SHEET_MATERIAL_AMOUNT * 50,
+		/decl/material/solid/metal/silver =       SHEET_MATERIAL_AMOUNT * 50,
+		/decl/material/solid/gemstone/diamond =   SHEET_MATERIAL_AMOUNT * 50,
+		/decl/material/liquid/acid =              120,
+		/decl/material/liquid/acid/hydrochloric = 120,
+		/decl/material/liquid/acid/polyacid =     120
 	)

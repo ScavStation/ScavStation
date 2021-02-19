@@ -42,21 +42,17 @@
 			src.open(usr)
 			return TRUE
 
-		if (!( istype(over_object, /obj/screen) ))
+		if (!( istype(over_object, /obj/screen/inventory) ))
 			return ..()
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 		if (!usr.contains(src))
 			return
 
+		var/obj/screen/inventory/inv = over_object
 		src.add_fingerprint(usr)
 		if(usr.unEquip(src))
-			switch(over_object.name)
-				if(BP_R_HAND)
-					usr.put_in_r_hand(src)
-				if(BP_L_HAND)
-					usr.put_in_l_hand(src)
-
+			usr.equip_to_slot_if_possible(src, inv.slot_id)
 
 /obj/item/storage/proc/return_inv()
 
@@ -293,6 +289,10 @@
 	src.add_fingerprint(user)
 	return
 
+/obj/item/storage/attack_ghost(mob/user)
+	if(user.client && user.client.holder)
+		show_to(user)
+
 /obj/item/storage/proc/gather_all(var/turf/T, var/mob/user)
 	var/success = 0
 	var/failure = 0
@@ -335,6 +335,34 @@
 	for(var/obj/item/I in contents)
 		remove_from_storage(I, T, 1)
 	finish_bulk_removal()
+
+/obj/item/storage/MouseDrop_T(atom/dropping, mob/living/user)
+	if(!scoop_inside(dropping, user))
+		return ..()
+
+/obj/item/storage/proc/scoop_inside(mob/living/scooped, mob/living/user)
+	if(!istype(scooped))
+		return FALSE
+
+	if(!scooped.holder_type || scooped.buckled || scooped.pinned.len || scooped.mob_size > MOB_SIZE_SMALL || scooped != user || src.loc == scooped)
+		return FALSE
+
+	if(!do_after(user, 1 SECOND, src))
+		return FALSE
+
+	if(!Adjacent(scooped) || scooped.incapacitated())
+		return
+
+	var/obj/item/holder/H = new scooped.holder_type(get_turf(scooped))
+	if(H)
+		if(can_be_inserted(H))
+			scooped.forceMove(H)
+			H.sync(scooped)
+			handle_item_insertion(H)
+			return TRUE
+		qdel(H)
+
+	return FALSE
 
 /obj/item/storage/Initialize()
 	. = ..()

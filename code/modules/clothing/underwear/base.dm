@@ -2,6 +2,7 @@
 	w_class = ITEM_SIZE_TINY
 	var/required_slot_flags
 	var/required_free_body_parts
+	var/slot_offset_str
 
 /obj/item/underwear/afterattack(var/atom/target, var/mob/user, var/proximity)
 	if(!proximity)
@@ -108,13 +109,17 @@
 	RemoveUnderwear(usr, usr)
 
 /obj/item/underwear/socks
-	required_free_body_parts = FEET
+	required_free_body_parts = SLOT_FEET
+	slot_offset_str = slot_socks_str
 
 /obj/item/underwear/top
-	required_free_body_parts = UPPER_TORSO
+	required_free_body_parts = SLOT_UPPER_BODY
+	slot_offset_str = slot_undershirt_str
 
 /obj/item/underwear/bottom
-	required_free_body_parts = FEET|LEGS|LOWER_TORSO
+	required_free_body_parts = SLOT_FEET|SLOT_LEGS|SLOT_LOWER_BODY
+	slot_offset_str = slot_underpants_str
 
 /obj/item/underwear/undershirt
-	required_free_body_parts = UPPER_TORSO
+	required_free_body_parts = SLOT_UPPER_BODY
+	slot_offset_str = slot_undershirt_str

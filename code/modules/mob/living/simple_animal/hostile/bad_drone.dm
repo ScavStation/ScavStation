@@ -8,15 +8,14 @@
 	speak_chance = 1
 	health = 50
 	maxHealth = 50
-	melee_damage_lower = 5
-	melee_damage_upper = 8
-	attacktext = "sliced"
+	natural_weapon = /obj/item/natural_weapon/drone_slicer
 	faction = "silicon"
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
 	speed = 4
 	mob_size = MOB_SIZE_TINY
+	gene_damage = -1
 	var/corpse = /obj/effect/decal/cleanable/blood/gibs/robot
 
 /mob/living/simple_animal/hostile/rogue_drone/Initialize()

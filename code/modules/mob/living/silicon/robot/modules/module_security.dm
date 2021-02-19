@@ -1,4 +1,5 @@
 /obj/item/robot_module/security
+	associated_department = /decl/department/security
 	channels = list(
 		"Security" = TRUE
 	)
@@ -29,7 +30,7 @@
 				T.update_icon()
 			else
 				T.charge_tick = 0
-	var/obj/item/melee/baton/robot/B = locate() in equipment
+	var/obj/item/baton/robot/B = locate() in equipment
 	if(B && B.bcell)
 		B.bcell.give(amount)
 
@@ -49,7 +50,7 @@
 		/obj/item/flash,
 		/obj/item/borg/sight/hud/sec,
 		/obj/item/handcuffs/cyborg,
-		/obj/item/melee/baton/robot,
+		/obj/item/baton/robot,
 		/obj/item/gun/energy/gun/secure/mounted,
 		/obj/item/taperoll/police,
 		/obj/item/megaphone,

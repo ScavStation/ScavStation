@@ -33,7 +33,7 @@
 	max_damage = 40
 	power_use = 10
 	desc = "As flexible as they are fragile, these Vey-Med manipulators can follow a pilot's movements in close to real time."
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 
 /obj/item/mech_component/propulsion/light
 	name = "light legs"
@@ -44,7 +44,7 @@
 	max_damage = 40
 	power_use = 5
 	desc = "The electrical systems driving these legs are almost totally silent. Unfortunately slamming a plate of metal against the ground is not."
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 
 /obj/item/mech_component/sensors/light
 	name = "light sensors"
@@ -56,7 +56,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	power_use = 50
 	desc = "A series of high resolution optical sensors. They can overlay several images to give the pilot a sense of location even in total darkness. "
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 
 /obj/item/mech_component/sensors/light/prebuild()
 	..()
@@ -68,7 +68,6 @@
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
 	transparent_cabin =  TRUE
-	hide_pilot = TRUE //Sprite too small, legs clip through, so for now hide pilot
 	exosuit_desc_string = "an open and light chassis"
 	icon_state = "light_body"
 	max_damage = 50
@@ -76,7 +75,7 @@
 	has_hardpoints = list(HARDPOINT_BACK)
 	desc = "The Veymed Odysseus series cockpits combine ultralight materials and clear aluminum laminates to provide an optimized cockpit experience."
 	climb_time = 15
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 
 /obj/item/mech_component/chassis/light/prebuild()
 	. = ..()
@@ -85,10 +84,10 @@
 /obj/item/mech_component/chassis/light/Initialize()
 	pilot_positions = list(
 		list(
-			"[NORTH]" = list("x" = 8,  "y" = -2),
-			"[SOUTH]" = list("x" = 8,  "y" = -2),
-			"[EAST]"  = list("x" = 1,  "y" = -2),
-			"[WEST]"  = list("x" = 9,  "y" = -2)
+			"[NORTH]" = list("x" = 8,  "y" = 0),
+			"[SOUTH]" = list("x" = 8,  "y" = 0),
+			"[EAST]"  = list("x" = 3,  "y" = 0),
+			"[WEST]"  = list("x" = 13, "y" = 0)
 		)
 	)
 	. = ..()

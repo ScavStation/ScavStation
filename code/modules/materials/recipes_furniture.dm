@@ -110,6 +110,10 @@ ARMCHAIR(yellow)
 	result_type = /obj/structure/door
 	time = 50
 
+/datum/stack_recipe/furniture/coatrack
+	title = "coat rack"
+	result_type = /obj/structure/coatrack
+
 /datum/stack_recipe/furniture/barricade
 	title = "barricade"
 	result_type = /obj/structure/barricade
@@ -221,6 +225,18 @@ ARMCHAIR(yellow)
 /datum/stack_recipe/furniture/door_assembly/multi_tile
 	title = "multi-tile airlock assembly"
 	result_type = /obj/structure/door_assembly/multi_tile
+
+/datum/stack_recipe/furniture/door_assembly/blast
+	title = "blast door assembly"
+	result_type = /obj/structure/door_assembly/blast
+
+/datum/stack_recipe/furniture/door_assembly/shutter
+	title = "shutter assembly"
+	result_type = /obj/structure/door_assembly/blast/shutter
+
+/datum/stack_recipe/furniture/door_assembly/morgue
+	title = "morgue door assembly"
+	result_type = /obj/structure/door_assembly/blast/morgue
 
 /datum/stack_recipe/furniture/crate
 	title = "crate"

@@ -26,18 +26,22 @@
 	hunger++
 	if(hunger < 100) //stop hunting when satiated
 		prey.Cut()
-	else
+	else if(stat == CONSCIOUS)
 		for(var/mob/living/simple_animal/S in range(src,1))
-			if(S.stat == DEAD)
-				visible_message("[src] consumes \the body of [S]!")
-				var/turf/T = get_turf(S)
-				var/obj/item/remains/xeno/X = new(T)
-				X.desc += "These look like they belong to \a [S.name]."
-				hunger = max(0, hunger - 5*S.maxHealth)
-				if(prob(5))
-					S.gib()
-				else
-					qdel(S)
+			if(S == src)
+				continue
+			if(S.stat != DEAD)
+				continue
+			visible_message(SPAN_DANGER("\The [src] consumes the body of \the [S]!"))
+			var/turf/T = get_turf(S)
+			var/obj/item/remains/xeno/X = new(T)
+			X.desc += "These look like they belong to \a [S.name]."
+			hunger = max(0, hunger - 5*S.maxHealth)
+			if(prob(5))
+				S.gib()
+			else
+				qdel(S)
+			return
 
 /mob/living/simple_animal/proc/name_species()
 	set name = "Name Alien Species"
@@ -71,10 +75,7 @@
 	maxHealth = 125
 	health = 125
 	speed = 2
-	melee_damage_lower = 5
-	melee_damage_upper = 15
-	melee_damage_flags = DAM_SHARP
-	attacktext = "mauled"
+	natural_weapon = /obj/item/natural_weapon/claws
 	cold_damage_per_tick = 0
 	speak_chance = 5
 	speak = list("Hruuugh!","Hrunnph")
@@ -101,10 +102,7 @@
 	maxHealth = 25
 	health = 25
 	speed = 1
-	melee_damage_lower = 1
-	melee_damage_upper = 8
-	melee_damage_flags = DAM_SHARP
-	attacktext = "gouged"
+	natural_weapon = /obj/item/natural_weapon/claws/weak
 	cold_damage_per_tick = 0
 	speak_chance = 5
 	speak = list("Awrr?","Aowrl!","Worrl")
@@ -123,10 +121,7 @@
 	maxHealth = 75
 	health = 75
 	speed = 1
-	melee_damage_lower = 3
-	melee_damage_upper = 12
-	melee_damage_flags = DAM_SHARP
-	attacktext = "gouged"
+	natural_weapon = /obj/item/natural_weapon/claws
 	cold_damage_per_tick = 0
 	speak_chance = 2
 	speak = list("Shuhn","Shrunnph?","Shunpf")
@@ -176,9 +171,7 @@
 	maxHealth = 150
 	health = 150
 	speed = 1
-	melee_damage_lower = 2
-	melee_damage_upper = 5
-	attacktext = "pinched"
+	natural_weapon = /obj/item/natural_weapon/pincers
 	speak_chance = 1
 	emote_see = list("skitters","oozes liquid from its mouth", "scratches at the ground", "clicks its claws")
 	natural_armor = list(
@@ -192,16 +185,13 @@
 	icon_living = "char"
 	icon_dead = "char_dead"
 	mob_size = MOB_SIZE_LARGE
-	damtype = BURN
 	health = 45
 	maxHealth = 45
-	melee_damage_lower = 2
-	melee_damage_upper = 3
+	natural_weapon = /obj/item/natural_weapon/charbaby
 	speed = 2
 	response_help =  "pats briefly"
 	response_disarm = "gently pushes"
 	response_harm = "strikes"
-	attacktext = "singed"
 	return_damage_min = 2
 	return_damage_max = 3
 	harm_intent_damage = 1
@@ -209,6 +199,12 @@
 	natural_armor = list(
 		laser = ARMOR_LASER_HANDGUNS
 		)
+
+/obj/item/natural_weapon/charbaby
+	name = "scalding hide"
+	damtype = BURN
+	force = 5
+	attack_verb = list("singed")
 
 /mob/living/simple_animal/hostile/retaliate/beast/charbaby/attack_hand(mob/living/carbon/human/H)
 	. = ..()
@@ -227,5 +223,4 @@
 	icon_state = "lavadog"
 	icon_living = "lavadog"
 	icon_dead = "lavadog_dead"
-	attacktext = "bit"
 	speak = list("Karuph","Karump")

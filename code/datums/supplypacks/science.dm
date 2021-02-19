@@ -21,15 +21,15 @@
 	containername = "robotics assembly crate"
 	access = access_robotics
 
-/decl/hierarchy/supply_pack/science/phoron
-	name = "Parts - Phoron device kit"
-	contains = list(/obj/item/tank/phoron = 3,
+/decl/hierarchy/supply_pack/science/explosive_kit
+	name = "Parts - Explosive assembly kit"
+	contains = list(/obj/item/tank/hydrogen = 3,
 					/obj/item/assembly/igniter = 3,
 					/obj/item/assembly/prox_sensor = 3,
 					/obj/item/assembly/timer = 3)
 	cost = 10
-	containertype = /obj/structure/closet/crate/secure/phoron
-	containername = "phoron assembly crate"
+	containertype = /obj/structure/closet/crate/secure/explosives
+	containername = "explosive assembly crate"
 	access = access_tox_storage
 
 /decl/hierarchy/supply_pack/science/scanner_module
@@ -43,7 +43,7 @@
 	contains = list(/obj/item/storage/backpack/industrial,
 					/obj/item/storage/backpack/satchel/eng,
 					/obj/item/radio/headset/headset_cargo,
-					/obj/item/clothing/under/rank/miner,
+					/obj/item/clothing/under/miner,
 					/obj/item/clothing/gloves/thick,
 					/obj/item/clothing/shoes/color/black,
 					/obj/item/scanner/gas,

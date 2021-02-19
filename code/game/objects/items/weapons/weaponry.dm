@@ -4,7 +4,7 @@
 	icon = 'icons/obj/items/weapon/nullrod.dmi'
 	icon_state = "nullrod"
 	item_state = "nullrod"
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	force = 10
 	throw_speed = 1
 	throw_range = 4
@@ -31,9 +31,10 @@
 		user.Paralyse(20)
 		return
 
-	if(GLOB.cult && iscultist(M))
+	if(iscultist(M))
 		M.visible_message("<span class='notice'>\The [user] waves \the [src] over \the [M]'s head.</span>")
-		GLOB.cult.offer_uncult(M)
+		var/decl/special_role/cultist/cult = decls_repository.get_decl(/decl/special_role/cultist)
+		cult.offer_uncult(M)
 		return
 
 	..()
@@ -60,7 +61,7 @@
 		F.ChangeTurf(/turf/simulated/floor)
 
 
-/obj/item/energy_net
+/obj/item/energy_blade_net
 	name = "energy net"
 	desc = "It's a net made of green energy."
 	icon = 'icons/effects/effects.dmi'
@@ -69,22 +70,22 @@
 	force = 0
 	var/net_type = /obj/effect/energy_net
 
-/obj/item/energy_net/safari
+/obj/item/energy_blade_net/safari
 	name = "animal net"
 	desc = "An energized net meant to subdue animals."
 	net_type = /obj/effect/energy_net/safari
 
-/obj/item/energy_net/dropped()
+/obj/item/energy_blade_net/dropped()
 	..()
 	spawn(10)
 		if(src) qdel(src)
 
-/obj/item/energy_net/throw_impact(atom/hit_atom)
+/obj/item/energy_blade_net/throw_impact(atom/hit_atom)
 	..()
 	try_capture_mob(hit_atom)
 
 // This will validate the hit_atom, then spawn an energy_net effect and qdel itself
-/obj/item/energy_net/proc/try_capture_mob(mob/living/M)
+/obj/item/energy_blade_net/proc/try_capture_mob(mob/living/M)
 
 	if(!istype(M) || locate(/obj/effect/energy_net) in M.loc)
 		qdel(src)
@@ -199,9 +200,11 @@
 	healthcheck()
 	return 0
 
-/obj/effect/energy_net/ex_act()
-	health = 0
-	healthcheck()
+/obj/effect/energy_net/explosion_act()
+	..()
+	if(!QDELETED(src))
+		health = 0
+		healthcheck()
 
 /obj/effect/energy_net/attack_hand(var/mob/user)
 

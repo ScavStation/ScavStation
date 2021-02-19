@@ -8,9 +8,7 @@
 	speak = list("...")
 	speak_emote = list("professes","speaks unto you","elaborates","proclaims")
 	emote_hear = list("sings a song to herself", "preens herself")
-	melee_damage_lower = 20
-	melee_damage_upper = 40
-	attacktext = "pecked"
+	natural_weapon = /obj/item/natural_weapon/giant
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
@@ -46,9 +44,7 @@
 		skin_material = ps.feathers
 		if(get_subspecies_name)
 			SetName(ps.name)
-	var/matrix/M = new
-	M.Scale(2)
-	transform = M
+	set_scale(2)
 	update_icon()
 
 /mob/living/simple_animal/hostile/retaliate/parrot/space/AttackingTarget()
@@ -60,8 +56,8 @@
 			cooldown_ability(ability_cooldown / 1.5)
 			visible_message(SPAN_MFAUNA("\The [src] flaps its wings mightily and bowls over \the [H] with a gust!"))
 
-		else if(H.get_equipped_item(slot_head))
-			var/obj/item/clothing/head/HAT = H.get_equipped_item(slot_head)
+		else if(H.get_equipped_item(slot_head_str))
+			var/obj/item/clothing/head/HAT = H.get_equipped_item(slot_head_str)
 			if(H.canUnEquip(HAT))
 				visible_message(SPAN_MFAUNA("\The [src] rips \the [H]'s [HAT] off!"))
 				cooldown_ability(ability_cooldown)
@@ -79,8 +75,7 @@
 	name = "Avatar of the Howling Dark"
 	subspecies = list(/decl/parrot_subspecies/black)
 	get_subspecies_name = FALSE
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/natural_weapon/large
 	health = 300
 	maxHealth = 300
 
@@ -92,7 +87,6 @@
 	maxHealth = 350
 	speak_emote = list("squawks")
 	emote_hear = list("preens itself")
-	melee_damage_lower = 15
-	melee_damage_upper = 18
+	natural_weapon = /obj/item/natural_weapon/large
 	relax_chance = 30
 	impatience = 5

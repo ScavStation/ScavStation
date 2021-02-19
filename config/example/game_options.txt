@@ -48,6 +48,10 @@ REVIVAL_BRAIN_LIFE -1
 RUN_DELAY 2
 WALK_DELAY 4
 CREEP_DELAY 6
+
+## Set this to 0 for perfectly smooth movement gliding, or 1 or more for delayed chess move style movements.
+#GLIDE_SIZE_DELAY 0
+
 MINIMUM_SPRINT_COST 0.8
 SKILL_SPRINT_COST_RANGE 0.8
 MINIMUM_STAMINA_RECOVERY 5
@@ -67,3 +71,11 @@ ANIMAL_DELAY 0
 
 ## Remove the # in front of this config option to have loyalty implants spawn by default on your server.
 #USE_LOYALTY_IMPLANTS
+
+## Uncomment to lock the automatic client view scaling on the X or Y boundary.
+#LOCK_CLIENT_VIEW_X 15
+#LOCK_CLIENT_VIEW_Y 15
+
+## Change to set a maximum size for the client view scaling.
+MAX_CLIENT_VIEW_X 30
+MAX_CLIENT_VIEW_Y 30

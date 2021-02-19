@@ -19,9 +19,7 @@
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 60
 	health = 60
-	melee_damage_lower = 20
-	melee_damage_upper = 30
-	melee_damage_flags = DAM_SHARP
+	natural_weapon = /obj/item/natural_weapon/claws/strong
 	can_escape = TRUE
 	faction = "russian"
 
@@ -34,7 +32,7 @@
 	meat_amount = 10
 	bone_amount = 20
 	skin_amount = 20
-	skin_material = MAT_SKIN_FUR_HEAVY
+	skin_material = /decl/material/solid/skin/fur/heavy
 
 	var/stance_step = 0
 
@@ -48,7 +46,7 @@
 
 /mob/living/simple_animal/hostile/bear/do_delayed_life_action()
 	..()
-	if(loc && istype(loc,/turf/space))
+	if(isspaceturf(loc))
 		icon_state = "bear"
 	else
 		icon_state = "bearfloor"
@@ -129,7 +127,7 @@
 	if(ishuman(target_mob))
 		var/mob/living/carbon/human/H = target_mob
 		var/dam_zone = pick(BP_CHEST, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG)
-		var/obj/item/organ/external/affecting = H.get_organ(ran_zone(dam_zone))
+		var/obj/item/organ/external/affecting = H.get_organ(ran_zone(dam_zone, target = H))
 		H.apply_damage(damage, BRUTE, affecting, DAM_SHARP|DAM_EDGE) //TODO damage_flags var on simple_animals, maybe?
 		return H
 	else if(isliving(target_mob))

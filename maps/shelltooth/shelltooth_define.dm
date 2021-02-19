@@ -39,8 +39,16 @@
 /datum/map/shelltooth/get_map_info()
 	return "You're aboard the <b>[station_name],</b> a scav space station. This message isn't written yet."
 
-/datum/map/shelltooth/setup_map()
-	..()
-	SStrade.traders += new /datum/trader/xeno_shop
-	SStrade.traders += new /datum/trader/medical
-	SStrade.traders += new /datum/trader/mining
+/datum/map/shelltooth/create_trade_hubs()
+	new /datum/trade_hub/singleton/shelltooth
+
+/datum/trade_hub/singleton/shelltooth
+	name = "Tradehouse Freight Network"
+
+/datum/trade_hub/singleton/shelltooth/get_initial_traders()
+	return list(
+		/datum/trader/xeno_shop,
+		/datum/trader/medical,
+		/datum/trader/mining,
+		/datum/trader/books
+	)

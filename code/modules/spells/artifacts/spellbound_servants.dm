@@ -48,29 +48,31 @@
 /datum/spellbound_type/apprentice
 	name = "Apprentice"
 	desc = "Summon your trusty apprentice, equipped with their very own spellbook."
-	equipment = list(/obj/item/clothing/head/wizard = slot_head,
-					/obj/item/clothing/under/color/lightpurple = slot_w_uniform,
-					/obj/item/clothing/shoes/sandal = slot_shoes,
-					/obj/item/staff = slot_r_hand,
-					/obj/item/spellbook/apprentice = slot_l_hand,
-					/obj/item/clothing/suit/wizrobe = slot_wear_suit)
+	equipment = list(/obj/item/clothing/head/wizard = slot_head_str,
+					/obj/item/clothing/under/color/lightpurple = slot_w_uniform_str,
+					/obj/item/clothing/shoes/sandal = slot_shoes_str,
+					/obj/item/staff = BP_R_HAND,
+					/obj/item/spellbook/apprentice = BP_L_HAND,
+					/obj/item/clothing/suit/wizrobe = slot_wear_suit_str)
 	spells = list(/spell/noclothes)
 
 /datum/spellbound_type/apprentice/set_antag(var/datum/mind/M, var/mob/master)
-	GLOB.wizards.add_antagonist_mind(M,1,ANTAG_APPRENTICE,"<b>You are an apprentice-type Servant! You're just an ordinary Wizard-To-Be, with no special abilities, but do not need robes to cast spells. Follow your teacher's orders!</b>")
+	var/decl/special_role/wizard/wizards = decls_repository.get_decl(/decl/special_role/wizard)
+	wizards.add_antagonist_mind(M, 1, "Wizard's Apprentice", "<b>You are an apprentice-type Servant! You're just an ordinary Wizard-To-Be, with no special abilities, but do not need robes to cast spells. Follow your teacher's orders!</b>")
 
 /datum/spellbound_type/servant
 	var/spiel = "You don't do anything in particular."
 
 /datum/spellbound_type/servant/set_antag(var/datum/mind/M, var/mob/master)
-	GLOB.wizards.add_antagonist_mind(M,1,ANTAG_SERVANT, "<b>You are a [name]-type Servant!</b> [spiel]")
+	var/decl/special_role/wizard/wizards = decls_repository.get_decl(/decl/special_role/wizard)
+	wizards.add_antagonist_mind(M, 1, "Spellbound Servant", "<b>You are a [name]-type Servant!</b> [spiel]")
 
 /datum/spellbound_type/servant/caretaker
 	name = "Caretaker"
 	desc = "A healer, a medic, a shoulder to cry on. This servant will heal you, even from near death."
 	spiel = "<i>'The last enemy that will be destroyed is death.'</i> You can perceive any injuries with simple sight, and heal them with the Trance spell; potentially even reversing death itself! However, this comes at a price; Trance will become increasingly harder to use as you use it, until you can use it no longer. Be cautious, and aid your Master in any way possible!"
-	equipment = list(/obj/item/clothing/under/caretaker = slot_w_uniform,
-					/obj/item/clothing/shoes/dress/caretakershoes = slot_shoes)
+	equipment = list(/obj/item/clothing/under/caretaker = slot_w_uniform_str,
+					/obj/item/clothing/shoes/dress/caretakershoes = slot_shoes_str)
 	spells = list(/spell/toggle_armor/caretaker,
 				/spell/targeted/heal_target/touch,
 				/spell/aoe_turf/knock/slow,
@@ -83,8 +85,8 @@
 	name = "Champion"
 	desc = "A knight in shining armor; a warrior, a protector, and a loyal friend."
 	spiel = "Your sword and armor are second to none, but you have no unique supernatural powers beyond summoning the sword to your hands. Protect your Master with your life!"
-	equipment = list(/obj/item/clothing/under/bluetunic = slot_w_uniform,
-					/obj/item/clothing/shoes/jackboots/medievalboots = slot_shoes)
+	equipment = list(/obj/item/clothing/under/bluetunic = slot_w_uniform_str,
+					/obj/item/clothing/shoes/jackboots/medievalboots = slot_shoes_str)
 	spells = list(/spell/toggle_armor/champion,
 				/spell/toggle_armor/excalibur)
 
@@ -92,8 +94,8 @@
 	name = "Familiar"
 	desc = "A friend! Or are they a pet? They can transform into animals, and take some particular traits from said creatures."
 	spiel = "This form of yours is weak in comparison to your transformed form, but that certainly won't pose a problem, considering the fact that you have an alternative. Whatever it is you can turn into, use its powers wisely and serve your Master as well as possible!"
-	equipment = list(/obj/item/clothing/head/bandana/familiarband = slot_head,
-					/obj/item/clothing/under/familiargarb = slot_w_uniform)
+	equipment = list(/obj/item/clothing/head/bandana/familiarband = slot_head_str,
+					/obj/item/clothing/under/familiargarb = slot_w_uniform_str)
 
 /datum/spellbound_type/servant/familiar/modify_servant(var/list/equipment, var/mob/living/carbon/human/H)
 	var/familiar_type
@@ -146,12 +148,12 @@
 
 /datum/spellbound_type/servant/fiend/equip_servant(var/mob/living/carbon/human/H)
 	if(H.gender == MALE)
-		equipment = list(/obj/item/clothing/under/lawyer/fiendsuit = slot_w_uniform,
-						/obj/item/clothing/shoes/dress/devilshoes = slot_shoes)
+		equipment = list(/obj/item/clothing/under/lawyer/fiendsuit = slot_w_uniform_str,
+						/obj/item/clothing/shoes/dress/devilshoes = slot_shoes_str)
 		spells += /spell/toggle_armor/fiend
 	else
-		equipment = list(/obj/item/clothing/under/devildress = slot_w_uniform,
-					/obj/item/clothing/shoes/dress/devilshoes = slot_shoes)
+		equipment = list(/obj/item/clothing/under/devildress = slot_w_uniform_str,
+					/obj/item/clothing/shoes/dress/devilshoes = slot_shoes_str)
 		spells += /spell/toggle_armor/fiend/fem
 	..()
 
@@ -165,12 +167,12 @@
 
 /datum/spellbound_type/servant/infiltrator/equip_servant(var/mob/living/carbon/human/H)
 	if(H.gender == MALE)
-		equipment = list(/obj/item/clothing/under/lawyer/infil = slot_w_uniform,
-						/obj/item/clothing/shoes/dress/infilshoes = slot_shoes)
+		equipment = list(/obj/item/clothing/under/lawyer/infil = slot_w_uniform_str,
+						/obj/item/clothing/shoes/dress/infilshoes = slot_shoes_str)
 		spells += /spell/toggle_armor/infiltrator
 	else
-		equipment = list(/obj/item/clothing/under/lawyer/infil/fem = slot_w_uniform,
-					/obj/item/clothing/shoes/dress/infilshoes = slot_shoes)
+		equipment = list(/obj/item/clothing/under/lawyer/infil/fem = slot_w_uniform_str,
+					/obj/item/clothing/shoes/dress/infilshoes = slot_shoes_str)
 		spells += /spell/toggle_armor/infiltrator/fem
 	..()
 
@@ -178,10 +180,10 @@
 	name = "Overseer"
 	desc = "A ghost, or an imaginary friend; the Overseer is immune to space and can turn invisible at a whim, but has little offensive capabilities."
 	spiel = "Physicality is not something you are familiar with. Indeed, injuries cannot slow you down, but you can't fight back, either! In addition to this, you can reach into the void and return the soul of a single departed crewmember via the revoke death verb, if so desired; this can even revive your Master, should they fall in combat before you do. Serve them well."
-	equipment = list(/obj/item/clothing/under/grimhoodie = slot_w_uniform,
-					/obj/item/clothing/shoes/sandal/grimboots = slot_shoes,
-					/obj/item/contract/wizard/xray = slot_l_hand,
-					/obj/item/contract/wizard/telepathy = slot_r_hand)
+	equipment = list(/obj/item/clothing/under/grimhoodie = slot_w_uniform_str,
+					/obj/item/clothing/shoes/sandal/grimboots = slot_shoes_str,
+					/obj/item/contract/wizard/xray = BP_L_HAND,
+					/obj/item/contract/wizard/telepathy = BP_R_HAND)
 	spells = list(/spell/toggle_armor/overseer,
 				/spell/targeted/ethereal_jaunt,
 				/spell/invisibility,
@@ -207,7 +209,7 @@
 	if(last_called > world.time )
 		return
 	last_called = world.time + 30 SECONDS
-	var/datum/ghosttrap/G = get_ghost_trap("wizard familiar")
+	var/decl/ghosttrap/G = decls_repository.get_decl(/decl/ghosttrap/wizard_familiar)
 	for(var/mob/observer/ghost/ghost in GLOB.player_list)
 		if(G.assess_candidate(ghost,null,FALSE))
 			to_chat(ghost,"<span class='notice'><b>A wizard is requesting a Spell-Bound Servant!</b></span> (<a href='?src=\ref[src];master=\ref[user]'>Join</a>)")
@@ -247,7 +249,8 @@
 
 /obj/item/summoning_stone/interact(var/mob/user)
 	var/list/types = subtypesof(/datum/spellbound_type) - /datum/spellbound_type/servant
-	if(user.mind && !GLOB.wizards.is_antagonist(user.mind))
+	var/decl/special_role/wizard/wizards = decls_repository.get_decl(/decl/special_role/wizard)
+	if(user.mind && !wizards.is_antagonist(user.mind))
 		use_type(pick(types),user)
 		return
 	var/dat = "<center><b><h3>Summoning Stone</h3></b><i>Choose a companion to help you.</i><br><br></center>"

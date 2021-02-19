@@ -22,14 +22,14 @@
 	return ..()
 
 /mob/living/carbon/rejuvenate()
-	bloodstr.clear_reagents()
-	touching.clear_reagents()
-	var/datum/reagents/R = get_ingested_reagents()
-	if(istype(R))
-		R.clear_reagents()
 	set_nutrition(400)
 	set_hydration(400)
 	..()
+
+/mob/living/carbon/get_ai_type()
+	if(ispath(species?.ai))
+		return species.ai
+	return ..()
 
 /mob/living/carbon/Move(NewLoc, direct)
 	. = ..()
@@ -83,8 +83,11 @@
 
 /mob/living/carbon/attack_hand(var/mob/living/carbon/human/M)
 	if(istype(M))
-		var/obj/item/organ/external/temp = M.organs_by_name[M.hand ? BP_L_HAND : BP_R_HAND]
-		if(!temp || !temp.is_usable())
+		var/obj/item/organ/external/temp = M.organs_by_name[M.get_active_held_item_slot()]
+		if(!temp)
+			to_chat(M, SPAN_WARNING("You don't have a usable limb!"))
+			return TRUE
+		if(!temp.is_usable())
 			to_chat(M, SPAN_WARNING("You can't use your [temp.name]."))
 			return TRUE
 	. = ..()
@@ -143,33 +146,7 @@
 	return(shock_damage)
 
 /mob/proc/swap_hand()
-	return
-
-/mob/living/carbon/swap_hand()
-	hand = !hand
-	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
-		if(hand)	//This being 1 means the left hand is in use
-			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
-			hud_used.r_hand_hud_object.icon_state = "r_hand_inactive"
-		else
-			hud_used.l_hand_hud_object.icon_state = "l_hand_inactive"
-			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
-	var/obj/item/I = get_active_hand()
-	if(istype(I))
-		I.on_active_hand()
-
-/mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
-
-	if(istext(selhand))
-		selhand = lowertext(selhand)
-
-		if(selhand == "right" || selhand == "r")
-			selhand = 0
-		if(selhand == "left" || selhand == "l")
-			selhand = 1
-
-	if(selhand != src.hand)
-		swap_hand()
+	SHOULD_CALL_PARENT(TRUE)
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if(!is_asystole())
@@ -320,6 +297,9 @@
 
 	item.throw_at(target, throw_range, item.throw_speed * skill_mod, src)
 
+	playsound(src, 'sound/effects/throw.ogg', 50, 1)
+	animate_throw(src)
+
 /mob/living/carbon/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	..()
 	var/temp_inc = max(min(BODYTEMP_HEATING_MAX*(1-get_heat_protection()), exposed_temperature - bodytemperature), 0)
@@ -338,17 +318,13 @@
 	return
 
 /mob/living/carbon/u_equip(obj/item/W)
-	if(!W)	return 0
-
-	else if (W == handcuffed)
+	. = ..()
+	if(!. && W == handcuffed)
 		handcuffed = null
 		update_inv_handcuffed()
 		if(buckled && buckled.buckle_require_restraints)
 			buckled.unbuckle_mob()
-	else
-	 ..()
-
-	return
+		return TRUE
 
 /mob/living/carbon/verb/mob_sleep()
 	set name = "Sleep"
@@ -372,18 +348,6 @@
 	Weaken(Floor(stun_duration/2))
 	return TRUE
 
-/mob/living/carbon/add_chemical_effect(var/effect, var/magnitude = 1)
-	if(effect in chem_effects)
-		chem_effects[effect] += magnitude
-	else
-		chem_effects[effect] = magnitude
-
-/mob/living/carbon/add_up_to_chemical_effect(var/effect, var/magnitude = 1)
-	if(effect in chem_effects)
-		chem_effects[effect] = max(magnitude, chem_effects[effect])
-	else
-		chem_effects[effect] = magnitude
-
 /mob/living/carbon/get_default_language()
 	. = ..()
 	if(. && !can_speak(.))
@@ -405,10 +369,14 @@
 	var/dat = {"
 	<B><HR><FONT size=3>[name]</FONT></B>
 	<BR><HR>
-	<BR><B>Head(Mask):</B> <A href='?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Left Hand:</B> <A href='?src=\ref[src];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Right Hand:</B> <A href='?src=\ref[src];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
+	<BR><B>Head(Mask):</B> <A href='?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>"}
+
+	for(var/bp in held_item_slots)
+		var/datum/inventory_slot/inv_slot = held_item_slots[bp]
+		var/obj/item/organ/external/E = get_organ(bp)
+		dat += "<BR><b>[capitalize(E.name)]:</b> <A href='?src=\ref[src];item=[bp]'>[inv_slot.holding?.name || "nothing"]</A>"
+
+	dat += {"<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
 	<BR>[(internal ? text("<A href='?src=\ref[src];item=internal'>Remove Internal</A>") : "")]
 	<BR><A href='?src=\ref[src];item=pockets'>Empty Pockets</A>
 	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
@@ -424,16 +392,10 @@
 /mob/living/carbon/proc/can_devour(atom/movable/victim)
 	return FALSE
 
-/mob/living/carbon/proc/should_have_organ(var/organ_check)
-	return 0
-
-/mob/living/carbon/proc/can_feel_pain(var/check_organ)
+/mob/living/carbon/can_feel_pain(var/check_organ)
 	if(isSynthetic())
-		return 0
+		return FALSE
 	return !(species && species.species_flags & SPECIES_FLAG_NO_PAIN)
-
-/mob/living/carbon/proc/get_adjusted_metabolism(metabolism)
-	return metabolism
 
 /mob/living/carbon/proc/need_breathe()
 	return
@@ -467,14 +429,8 @@
 		stasis_value += stasis_sources[source]
 	stasis_sources.Cut()
 
-/mob/living/carbon/has_chem_effect(chem, threshold)
-	return (chem_effects[chem] >= threshold)
-
 /mob/living/carbon/get_sex()
 	return species.get_sex(src)
-
-/mob/living/carbon/proc/get_ingested_reagents()
-	return reagents
 
 /mob/living/carbon/proc/set_nutrition(var/amt)
 	nutrition = Clamp(amt, 0, initial(nutrition))
@@ -512,3 +468,19 @@
 		fluids.trans_to_holder(touching, saturation)
 	if(fluids.total_volume)
 		..()
+
+/mob/living/carbon/get_species()
+	return species
+
+/mob/living/carbon/get_species_name()
+	return species.name
+
+/mob/living/carbon/get_contact_reagents()
+	return touching
+
+/mob/living/carbon/get_injected_reagents()
+	return bloodstr
+
+/mob/living/carbon/get_admin_job_string()
+	return "Carbon-based"
+

@@ -1,3 +1,4 @@
+#include "../../../mods/content/corporate/_corporate.dme"
 #include "errant_pisces_areas.dm"
 
 /obj/effect/overmap/visitable/ship/errant_pisces
@@ -5,6 +6,7 @@
 	desc = "Sensors detect civilian vessel with unusual signs of life aboard."
 	color = "#bd6100"
 	max_speed = 1/(3 SECONDS)
+	instant_contact = TRUE
 	burn_delay = 15 SECONDS
 	fore_dir = SOUTH
 
@@ -19,7 +21,7 @@
 /mob/living/simple_animal/hostile/carp/shark // generally stronger version of a carp that doesn't die from a mean look. Fance new sprites included, credits to F-Tang Steve
 	name = "cosmoshark"
 	desc = "Enormous creature that resembles a shark with magenta glowing lines along its body and set of long deep-purple teeth."
-	icon = 'maps/away/errant_pisces/errant_pisces_sprites.dmi'
+	icon = 'maps/away/errant_pisces/icons/cosmoshark.dmi'
 	icon_state = "shark"
 	icon_living = "shark"
 	icon_dead = "shark_dead"
@@ -29,9 +31,7 @@
 	speed = 2
 	maxHealth = 100
 	health = 100
-	harm_intent_damage = 5
-	melee_damage_lower = 15
-	melee_damage_upper = 25
+	natural_weapon = /obj/item/natural_weapon/bite/strong
 	break_stuff_probability = 35
 	faction = "shark"
 
@@ -45,10 +45,10 @@
 	..()
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
-		var/datum/gas_mixture/sharkmaw_phoron = new
-		sharkmaw_phoron.adjust_gas(MAT_PHORON,  10)
-		environment.merge(sharkmaw_phoron)
-		visible_message("<span class='warning'>\The [src]'s body releases some gas from the gills with a quiet fizz!</span>")
+		var/datum/gas_mixture/sharkmaw_chlorine = new
+		sharkmaw_chlorine.adjust_gas(/decl/material/gas/chlorine, 10)
+		environment.merge(sharkmaw_chlorine)
+		visible_message(SPAN_WARNING("\The [src]'s body releases some gas from the gills with a quiet fizz!"))
 
 /mob/living/simple_animal/hostile/carp/shark/AttackingTarget()
 	set waitfor = 0//to deal with sleep() possibly stalling other procs
@@ -76,16 +76,16 @@
 
 /obj/item/chems/food/snacks/sharkmeat/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/nutriment/protein, 5)
-	reagents.add_reagent(/decl/reagent/psychoactives, 1)
-	reagents.add_reagent(/decl/reagent/toxin/phoron, 1)
+	reagents.add_reagent(/decl/material/liquid/nutriment/protein, 5)
+	reagents.add_reagent(/decl/material/liquid/psychoactives, 1)
+	reagents.add_reagent(/decl/material/gas/chlorine, 1)
 	src.bitesize = 8
 
 
 /obj/structure/net//if you want to have fun, make them to be draggable as a whole unless at least one piece is attached to a non-space turf or anchored object
 	name = "industrial net"
 	desc = "A sturdy industrial net of synthetic belts reinforced with plasteel threads."
-	icon = 'maps/away/errant_pisces/errant_pisces_sprites.dmi'
+	icon = 'maps/away/errant_pisces/icons/net.dmi'
 	icon_state = "net_f"
 	anchored = 1
 	layer = CATWALK_LAYER//probably? Should cover cables, pipes and the rest of objects that are secured on the floor
@@ -115,8 +115,8 @@
 		to_chat(user, SPAN_NOTICE("A few strands of \the [src] have been severed."))
 
 /obj/structure/net/attackby(obj/item/W, mob/user)
-	if (istype(W, /obj/item/material)) //sharp objects can cut thorugh
-		var/obj/item/material/SH = W
+	if(W.sharp || W.edge)
+		var/obj/item/SH = W
 		if (!(SH.sharp) || (SH.sharp && SH.force < 10))//is not sharp enough or at all
 			to_chat(user,"<span class='warning'>You can't cut throught \the [src] with \the [W], it's too dull.</span>")
 			return
@@ -128,10 +128,14 @@
 			take_damage(20 * (1 + (SH.force-10)/10)) //the sharper the faster, every point of force above 10 adds 10 % to damage
 		new /obj/item/stack/net(src.loc)
 		qdel(src)
+		return TRUE
+	. = ..()
 
-/obj/structure/net/destroyed()
+/obj/structure/net/physically_destroyed(var/skip_qdel)
+	SHOULD_CALL_PARENT(FALSE)
 	visible_message("<span class='warning'>\The [src] is torn apart!</span>")
 	qdel(src)
+	. = TRUE
 
 /obj/structure/net/bullet_act(obj/item/projectile/P)
 	. = PROJECTILE_CONTINUE //few cloth ribbons won't stop bullet or energy ray
@@ -144,7 +148,7 @@
 	overlays.Cut()
 	var/turf/T = get_turf(src)
 	for (var/turf/AT in T.CardinalTurfs(FALSE))
-		if ( (locate(/obj/structure/net) in AT) || (!istype(AT, /turf/simulated/open) && !istype(AT, /turf/space)) || (locate(/obj/structure/lattice) in AT) )//connects to another net objects or walls/floors or lattices
+		if((locate(/obj/structure/net) in AT) || (locate(/obj/structure/lattice) in AT))//connects to another net objects or walls/floors or lattices
 			var/image/I = image(icon,"[icon_state]_ol_[get_dir(src,AT)]")
 			overlays += I
 
@@ -167,15 +171,14 @@
 	overlays.Cut()
 	var/turf/T = get_turf(src)
 	for (var/turf/AT in T.CardinalTurfs(FALSE))
-		if ((locate(/obj/structure/net/net_wall) in AT) || istype(AT, /turf/simulated/wall)  || istype(AT, /turf/unsimulated/wall) || istype(AT, /turf/simulated/mineral))//connects to another net-wall objects or walls
+		if ((locate(/obj/structure/net/net_wall) in AT) || istype(AT, /turf/simulated/wall)  || istype(AT, /turf/unsimulated/wall))//connects to another net-wall objects or walls
 			var/image/I = image(icon,"[icon_state]_ol_[get_dir(src,AT)]")
 			overlays += I
 
 /obj/item/stack/net
 	name = "industrial net roll"
 	desc = "Sturdy industrial net reinforced with plasteel threads."
-	singular_name = "industrial net"
-	icon = 'maps/away/errant_pisces/errant_pisces_sprites.dmi'
+	icon = 'maps/away/errant_pisces/icons/net_roll.dmi'
 	icon_state = "net_roll"
 	w_class = ITEM_SIZE_LARGE
 	force = 3.0
@@ -206,7 +209,7 @@
 		return 1
 	var/turf/T = get_turf(src)
 	for (var/turf/AT in T.CardinalTurfs(FALSE))
-		if ((locate(/obj/structure/net/net_wall) in AT) || istype(AT, /turf/simulated/wall)  || istype(AT, /turf/unsimulated/wall) || istype(AT, /turf/simulated/mineral))//connects to another net-wall objects or walls
+		if ((locate(/obj/structure/net/net_wall) in AT) || istype(AT, /turf/simulated/wall)  || istype(AT, /turf/unsimulated/wall))//connects to another net-wall objects or walls
 			return 1
 	return 0
 
@@ -229,12 +232,10 @@
 	if (amount < 1)
 		qdel(src)
 
-/obj/item/clothing/under/carp//as far as I know sprites are taken from /tg/
+/obj/item/clothing/under/carp //as far as I know sprites are taken from /tg/
 	name = "space carp suit"
 	desc = "A suit in a shape of a space carp. Usually worn by corporate interns who are sent to entertain children during HQ excursions."
-	icon_state = "carp_suit"
-	icon = 'maps/away/errant_pisces/errant_pisces_sprites.dmi'
-	item_icons = list(slot_w_uniform_str = 'maps/away/errant_pisces/errant_pisces_sprites.dmi')
+	icon = 'maps/away/errant_pisces/icons/carpsuit.dmi'
 
 /obj/effect/landmark/corpse/carp_fisher
 	name = "carp fisher"
@@ -244,6 +245,6 @@
 	name = "Dead carp fisher"
 	uniform = /obj/item/clothing/under/color/green
 	suit = /obj/item/clothing/suit/apron/overalls
-	belt = /obj/item/material/knife/combat
+	belt = /obj/item/knife/combat
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/hardhat/dblue

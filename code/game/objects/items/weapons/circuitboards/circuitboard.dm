@@ -1,8 +1,7 @@
 /obj/item/stock_parts/circuitboard
 	name = "circuit board"
-	icon = 'icons/obj/module.dmi'
-	icon_state = "id_mod"
-	item_state = "electronic"
+	icon = 'icons/obj/modules/module_id.dmi'
+	icon_state = ICON_STATE_WORLD
 	origin_tech = "{'programming':2}"
 	density = 0
 	anchored = 0
@@ -13,7 +12,7 @@
 	throw_speed = 3
 	throw_range = 15
 	part_flags = 0
-	material = MAT_GLASS
+	material = /decl/material/solid/glass
 	var/build_path = null
 	var/board_type = "computer"
 	var/list/req_components = list(
@@ -56,7 +55,7 @@
 	if(buildtype_select && machine)
 		build_path = machine.base_type || machine.type
 		var/obj/machinery/thing = build_path
-		SetName(T_BOARD(initial(thing.name)))
+		SetName("circuitboard ([initial(thing.name)])")
 
 /obj/item/stock_parts/circuitboard/proc/update_desc()
 	if(!build_path)

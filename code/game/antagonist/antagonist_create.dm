@@ -1,4 +1,4 @@
-/datum/antagonist/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance)
+/decl/special_role/proc/create_antagonist(var/datum/mind/target, var/move, var/gag_announcement, var/preserve_appearance)
 
 	if(!target)
 		return
@@ -18,7 +18,7 @@
 	if(!gag_announcement)
 		announce_antagonist_spawn()
 
-/datum/antagonist/proc/create_default(var/mob/source)
+/decl/special_role/proc/create_default(var/mob/source)
 	var/mob/living/M
 	if(mob_path)
 		M = new mob_path(get_turf(source))
@@ -28,17 +28,19 @@
 	add_antagonist(M.mind, 1, 0, 1) // Equip them and move them to spawn.
 	return M
 
-/datum/antagonist/proc/create_id(var/assignment, var/mob/living/carbon/human/player, var/equip = 1)
-
+/decl/special_role/proc/create_id(var/mob/living/carbon/human/player, var/equip = TRUE)
+	if(!id_title || !id_type)
+		return
 	var/obj/item/card/id/W = new id_type(player)
-	if(!W) return
-	W.access |= default_access
-	W.assignment = "[assignment]"
+	if(length(default_access))
+		W.access |= default_access
+	W.assignment = id_title
 	player.set_id_info(W)
-	if(equip) player.equip_to_slot_or_del(W, slot_wear_id)
+	if(equip)
+		player.equip_to_slot_or_del(W, slot_wear_id_str)
 	return W
 
-/datum/antagonist/proc/create_radio(var/freq, var/mob/living/carbon/human/player)
+/decl/special_role/proc/create_radio(var/freq, var/mob/living/carbon/human/player)
 	var/obj/item/radio/R
 
 	switch(freq)
@@ -50,10 +52,10 @@
 			R = new/obj/item/radio/headset(player)
 			R.set_frequency(freq)
 
-	player.equip_to_slot_or_del(R, slot_l_ear)
+	player.equip_to_slot_or_del(R, slot_l_ear_str)
 	return R
 
-/datum/antagonist/proc/create_nuke(var/atom/paper_spawn_loc, var/datum/mind/code_owner)
+/decl/special_role/proc/create_nuke(var/atom/paper_spawn_loc, var/datum/mind/code_owner)
 
 	// Decide on a code.
 	var/obj/effect/landmark/nuke_spawn = locate(nuke_spawn_loc ? nuke_spawn_loc : "landmark*Nuclear-Bomb")
@@ -77,7 +79,7 @@
 			P.info = "The nuclear authorization code is: <b>[code]</b>"
 			P.SetName("nuclear bomb code")
 			if(leader && leader.current)
-				if(get_turf(P) == get_turf(leader.current) && !(leader.current.l_hand && leader.current.r_hand))
+				if(get_turf(P) == get_turf(leader.current) && leader.current.get_empty_hand_slot())
 					leader.current.put_in_hands(P)
 
 		if(!code_owner && leader)
@@ -92,16 +94,16 @@
 	spawned_nuke = code
 	return code
 
-/datum/antagonist/proc/greet(var/datum/mind/player)
+/decl/special_role/proc/greet(var/datum/mind/player)
 
 	// Basic intro text.
-	to_chat(player.current, "<span class='danger'><font size=3>You are a [role_text]!</font></span>")
+	to_chat(player.current, "<span class='danger'><font size=3>You are a [name]!</font></span>")
 	if(leader_welcome_text && player == leader)
-		to_chat(player.current, "<span class='antagdesc'>[leader_welcome_text]</span>")
+		to_chat(player.current, "<span class='antagdesc'>[get_leader_welcome_text(player.current)]</span>")
 	else
-		to_chat(player.current, "<span class='antagdesc'>[welcome_text]</span>")
+		to_chat(player.current, "<span class='antagdesc'>[get_welcome_text(player.current)]</span>")
 	if (config.objectives_disabled == CONFIG_OBJECTIVE_NONE || !player.objectives.len)
-		to_chat(player.current, "[antag_text]")
+		to_chat(player.current, get_antag_text(player.current))
 
 	if((flags & ANTAG_HAS_NUKE) && !spawned_nuke)
 		create_nuke()
@@ -109,9 +111,9 @@
 	src.show_objectives_at_creation(player)
 	return 1
 
-/datum/antagonist/proc/set_antag_name(var/mob/living/player)
+/decl/special_role/proc/set_antag_name(var/mob/living/player)
 	// Choose a name, if any.
-	var/newname = sanitize(input(player, "You are a [role_text]. Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
+	var/newname = sanitize(input(player, "You are a [name]. Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
 	if (newname)
 		player.real_name = newname
 		player.SetName(player.real_name)

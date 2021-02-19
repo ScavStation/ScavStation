@@ -1,28 +1,28 @@
 /obj/item/gun/launcher/pneumatic
 	name = "pneumatic cannon"
 	desc = "A large gas-powered cannon."
-	icon = 'icons/obj/guns/pneumatic.dmi'
-	icon_state = "pneumatic"
-	item_state = "pneumatic"
+	icon = 'icons/obj/guns/launcher/pneumatic.dmi'
+	icon_state = ICON_STATE_WORLD
 	origin_tech = "{'combat':4,'materials':3}"
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	w_class = ITEM_SIZE_HUGE
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
 	fire_sound = 'sound/weapons/tablehit1.ogg'
 
-	var/fire_pressure                                   // Used in fire checks/pressure checks.
-	var/max_w_class = ITEM_SIZE_NORMAL                                 // Hopper intake size.
-	var/max_storage_space = DEFAULT_BOX_STORAGE         // Total internal storage size.
-	var/obj/item/tank/tank = null                // Tank of gas for use in firing the cannon.
+	var/fire_pressure                           // Used in fire checks/pressure checks.
+	var/max_w_class = ITEM_SIZE_NORMAL          // Hopper intake size.
+	var/max_storage_space = DEFAULT_BOX_STORAGE // Total internal storage size.
+	var/obj/item/tank/tank = null               // Tank of gas for use in firing the cannon.
 
 	var/obj/item/storage/item_storage
-	var/pressure_setting = 10                           // Percentage of the gas in the tank used to fire the projectile.
 	var/possible_pressure_amounts = list(5,10,20,25,50) // Possible pressure settings.
+	var/pressure_setting = 10                   // Percentage of the gas in the tank used to fire the projectile.
 	var/force_divisor = 400                     // Force equates to speed. Speed/5 equates to a damage multiplier for whoever you hit.
-	                                                    // For reference, a fully pressurized oxy tank at 50% gas release firing a health
-	                                                    // analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
+	                                            // For reference, a fully pressurized oxy tank at 50% gas release firing a health
+	                                            // analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
+
 /obj/item/gun/launcher/pneumatic/Initialize()
 	. = ..()
 	item_storage = new(src)
@@ -60,7 +60,7 @@
 		to_chat(user, "There is nothing to remove in \the [src].")
 
 /obj/item/gun/launcher/pneumatic/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		unload_hopper(user)
 	else
 		return ..()
@@ -127,13 +127,17 @@
 
 /obj/item/gun/launcher/pneumatic/on_update_icon()
 	if(tank)
-		icon_state = "pneumatic-tank"
-		item_state = "pneumatic-tank"
+		icon_state = "[get_world_inventory_state()]-tank"
 	else
-		icon_state = "pneumatic"
-		item_state = "pneumatic"
+		icon_state = get_world_inventory_state()
 
 	update_held_icon()
+
+/obj/item/gun/launcher/pneumatic/experimental_mob_overlay(mob/user_mob, slot, bodypart)
+	var/image/I = ..()
+	if(tank)
+		I?.icon_state += "-tank" 
+	return I
 
 /obj/item/gun/launcher/pneumatic/small
 	name = "small pneumatic cannon"

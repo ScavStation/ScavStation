@@ -149,7 +149,7 @@ SUBSYSTEM_DEF(statistics)
 		death.place_of_death = sanitizeSQL(death.place_of_death)
 		death.name = sanitizeSQL(dead.real_name)
 		death.key = sanitizeSQL(dead.key)
-		death.special_role = sanitizeSQL(dead.mind.special_role)
+		death.special_role = sanitizeSQL(dead.mind.get_special_role_name())
 		death.job = sanitizeSQL(dead.mind.assigned_role)
 		if(dead.last_attacker_)
 			death.last_attacker_name = sanitizeSQL(dead.last_attacker_.name)
@@ -166,5 +166,5 @@ SUBSYSTEM_DEF(statistics)
 		death.overmap_location_name = cell ? cell.name : "Unknown"
 		LAZYADD(deaths, death)
 
-		if(!player_is_antag(dead.mind) && dead.mind.assigned_job && LAZYLEN(dead.mind.assigned_job.department_refs))
+		if(!player_is_antag(dead.mind) && dead.mind.assigned_job && LAZYLEN(dead.mind.assigned_job.department_types))
 			crew_death_count++

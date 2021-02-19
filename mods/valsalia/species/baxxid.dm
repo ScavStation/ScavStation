@@ -1,4 +1,4 @@
-/datum/species/baxxid
+/decl/species/baxxid
 	name = SPECIES_BAXXID
 	name_plural = SPECIES_BAXXID
 	bodytype = BODYTYPE_BAXXID
@@ -31,16 +31,26 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes/baxxid
-		)
-
-	available_cultural_info = list(
-		TAG_CULTURE =   list(CULTURE_BAXXID, CULTURE_OTHER),
-		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
-		TAG_FACTION =   list(FACTION_BAXXID, FACTION_OTHER),
-		TAG_RELIGION =  list(RELIGION_OTHER)
 	)
 
-/datum/species/baxxid/handle_autohiss(message, decl/language/lang, mode)
+	available_cultural_info = list(
+		TAG_CULTURE =   list(
+			/decl/cultural_info/culture/baxxid,
+			/decl/cultural_info/culture/other
+		),
+		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/stateless
+		),
+		TAG_FACTION =   list(
+			/decl/cultural_info/faction/baxxid,
+			/decl/cultural_info/faction/other
+		),
+		TAG_RELIGION =  list(
+			/decl/cultural_info/religion/other
+		)
+	)
+
+/decl/species/baxxid/handle_autohiss(message, decl/language/lang, mode)
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
 		return message
 	. = message
@@ -52,7 +62,6 @@
 		if(first_char != lowertext(first_char))
 			hnnn = uppertext(capitalize(hnnn))
 		. = "[hnnn][uppertext(.)]"
-
 
 /obj/item/organ/internal/eyes/baxxid
 	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
@@ -78,14 +87,15 @@
 /datum/hud_data/baxxid
 	has_hands = FALSE
 	gear = list(
-		"id" =           list("loc" = ui_id,                "name" = "ID",   "slot" = slot_wear_id,   "state" = "id"),
-		"back" =         list("loc" = ui_sstore1,           "name" = "Back", "slot" = slot_back,      "state" = "back"),
-		"o_clothing" =   list("loc" = ui_iclothing,         "name" = "Suit", "slot" = slot_wear_suit, "state" = "suit", "toggle" = 1),
-		"head" =         list("loc" = "LEFT:6,BOTTOM+3:11", "name" = "Hat",  "slot" = slot_head,      "state" = "hair", "toggle" = 1),
-		"mask" =         list("loc" = ui_glasses,           "name" = "Mask", "slot" = slot_wear_mask, "state" = "mask", "toggle" = 1)
+		"id" =           list("loc" = ui_id,                "name" = "ID",   "slot" = slot_wear_id_str,   "state" = "id"),
+		"back" =         list("loc" = ui_sstore1,           "name" = "Back", "slot" = slot_back_str,      "state" = "back"),
+		"o_clothing" =   list("loc" = ui_iclothing,         "name" = "Suit", "slot" = slot_wear_suit_str, "state" = "suit", "toggle" = 1),
+		"head" =         list("loc" = "LEFT:6,BOTTOM+3:11", "name" = "Hat",  "slot" = slot_head_str,      "state" = "hair", "toggle" = 1),
+		"mask" =         list("loc" = ui_glasses,           "name" = "Mask", "slot" = slot_wear_mask_str, "state" = "mask", "toggle" = 1)
 		)
 
 /decl/natural_attack/claws/strong/baxxid
+	name = "forelimb stab"
 	attack_verb = list("stabbed", "maimed", "impaled")
 	damage = 12
 	sharp = 1
@@ -93,5 +103,3 @@
 	delay = 15
 	eye_attack_text = "an enormous forelimb"
 	eye_attack_text_victim = "an enormous forelimb"
-	attack_name = "forelimb stab"
-

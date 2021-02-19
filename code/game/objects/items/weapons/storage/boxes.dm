@@ -69,9 +69,9 @@
 	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
 	if(ispath(foldable, /obj/item/stack))
 		var/stack_amt = max(2**(w_class - 3), 1)
-		new foldable(get_turf(src), stack_amt, MAT_CARDBOARD)
+		new foldable(get_turf(src), stack_amt, /decl/material/solid/cardboard)
 	else
-		new foldable(get_turf(src), MAT_CARDBOARD)
+		new foldable(get_turf(src), /decl/material/solid/cardboard)
 	qdel(src)
 
 /obj/item/storage/box/make_exact_fit()
@@ -89,18 +89,7 @@
 					/obj/item/flashlight/flare/glowstick = 1,
 					/obj/item/chems/food/snacks/candy/proteinbar = 1,
 					/obj/item/oxycandle = 1,
-					/obj/item/crowbar/prybar/cheap = 1)
-
-/obj/item/storage/box/vox/
-	name = "vox survival kit"
-	desc = "A box decorated in warning colors that contains a limited supply of survival tools. The panel and black stripe indicate this one contains nitrogen."
-	icon_state = "survivalvox"
-	startswith = list(/obj/item/clothing/mask/breath = 1,
-					/obj/item/tank/emergency/nitrogen = 1,
-					/obj/item/chems/hypospray/autoinjector = 1,
-					/obj/item/stack/medical/bruise_pack = 1,
-					/obj/item/flashlight/flare/glowstick = 1,
-					/obj/item/chems/food/snacks/candy/proteinbar = 1)
+					/obj/item/crowbar/cheap = 1)
 
 /obj/item/storage/box/engineer/
 	name = "engineer survival kit"
@@ -243,6 +232,12 @@
 	icon_state = "radbox"
 	startswith = list(/obj/item/grenade/supermatter = 5)
 
+/obj/item/storage/box/decompilers
+	name = "box of decompiler grenades"
+	desc = "A box containing 5 experimental decompiler grenades."
+	icon_state = "flashbang"
+	startswith = list(/obj/item/grenade/decompiler = 5)
+
 /obj/item/storage/box/trackimp
 	name = "boxed tracking implant kit"
 	desc = "Box full of scum-bag tracking utensils."
@@ -353,11 +348,11 @@
 /obj/item/storage/box/matches
 	name = "matchbox"
 	desc = "A small box of 'Space-Proof' premium matches."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/items/storage/matches/matchbox.dmi'
 	icon_state = "matchbox"
 	item_state = "zippo"
 	w_class = ITEM_SIZE_TINY
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	can_hold = list(/obj/item/flame/match)
 	startswith = list(/obj/item/flame/match = 10)
 
@@ -365,7 +360,7 @@
 	if(istype(W) && !W.lit && !W.burnt)
 		W.lit = 1
 		W.damtype = "burn"
-		W.icon_state = "match_lit"
+		W.update_icon()
 		START_PROCESSING(SSobj, W)
 		playsound(src.loc, 'sound/items/match.ogg', 60, 1, -4)
 		user.visible_message("<span class='notice'>[user] strikes the match on the matchbox.</span>")
@@ -607,3 +602,47 @@
 
 /obj/item/storage/box/canned/tomato
 	startswith = list(/obj/item/chems/food/snacks/canned/tomato = 6)
+
+// machinery stock parts
+/obj/item/storage/box/parts
+	name = "assorted parts pack"
+	icon = 'icons/obj/items/storage/part_pack.dmi'
+	icon_state = "big"
+	icon_state = "part"
+	w_class = ITEM_SIZE_NORMAL
+	max_storage_space = DEFAULT_BOX_STORAGE
+	startswith = list(
+		/obj/item/stock_parts/power/apc/buildable = 3,
+		/obj/item/stock_parts/console_screen = 2,
+		/obj/item/stock_parts/matter_bin = 2
+	)
+
+/obj/item/storage/box/parts_pack
+	name = "parts pack"
+	desc = "A densely-stuffed box containing some small eletrical parts."
+	icon = 'icons/obj/items/storage/part_pack.dmi'
+	icon_state = "part"
+	w_class = ITEM_SIZE_SMALL
+	max_storage_space = BASE_STORAGE_CAPACITY(ITEM_SIZE_SMALL)
+
+/obj/item/storage/box/parts_pack/Initialize()
+	if(length(startswith))
+		var/obj/item/I = startswith[1]
+		SetName("[initial(I.name)] pack")
+	return ..()
+
+/obj/item/storage/box/parts_pack/manipulator
+	icon_state = "mainpulator"
+	startswith = list(/obj/item/stock_parts/manipulator = 7)
+	
+/obj/item/storage/box/parts_pack/laser
+	icon_state = "laser"
+	startswith = list(/obj/item/stock_parts/micro_laser = 7)
+
+/obj/item/storage/box/parts_pack/capacitor
+	icon_state = "capacitor"
+	startswith = list(/obj/item/stock_parts/capacitor = 7)
+
+/obj/item/storage/box/parts_pack/keyboard
+	icon_state = "keyboard"
+	startswith = list(/obj/item/stock_parts/keyboard = 7)

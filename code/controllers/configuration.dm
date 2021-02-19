@@ -1,7 +1,7 @@
 var/list/gamemode_cache = list()
 
 /datum/configuration
-	var/server_name = null				// server name (for world name / status)
+	var/server_name = "Nebula 13"		// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
 	var/log_ooc = 0						// log OOC channel
@@ -44,6 +44,7 @@ var/list/gamemode_cache = list()
 	var/continous_rounds = 0			// Gamemodes which end instantly will instead keep on going until the round ends by escape shuttle or nuke.
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
+	var/allow_holidays = FALSE
 	var/fps = 20
 	var/tick_limit_mc_init = TICK_LIMIT_MC_INIT_DEFAULT	//SSinitialization throttling
 	var/list/resource_urls = null
@@ -53,6 +54,7 @@ var/list/gamemode_cache = list()
 	var/list/modes = list()				// allowed modes
 	var/list/votable_modes = list()		// votable modes
 	var/list/probabilities = list()		// relative probability of each mode
+	var/secret_hide_possibilities = FALSE // Whether or not secret modes show list of possible round types
 	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
@@ -134,6 +136,7 @@ var/list/gamemode_cache = list()
 	var/skill_sprint_cost_range = 0.8
 	var/minimum_stamina_recovery = 1
 	var/maximum_stamina_recovery = 3
+	var/glide_size_delay = 1
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -160,7 +163,7 @@ var/list/gamemode_cache = list()
 	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
 	var/ghost_interaction = 0
 
-	var/comms_password = ""
+	var/comms_password = null
 	var/ban_comms_password = null
 	var/list/forbidden_versions = list() // Clients with these byond versions will be autobanned. Format: string "byond_version.byond_build"; separate with ; in config, e.g. 512.1234;512.1235
 	var/minimum_byond_version = 0
@@ -217,6 +220,7 @@ var/list/gamemode_cache = list()
 	var/radiation_material_resistance_divisor = 2 //A turf's possible radiation resistance is divided by this number, to get the real value.
 	var/radiation_lower_limit = 0.15 //If the radiation level for a turf would be below this, ignore it.
 
+	var/auto_local_admin = TRUE // If true, connections from 127.0.0.1 get automatic admin.
 	var/autostealth = 0 // Staff get automatic stealth after this many minutes
 
 	var/error_cooldown = 600 // The "cooldown" time for each occurrence of a unique error
@@ -233,6 +237,14 @@ var/list/gamemode_cache = list()
 	var/do_not_prevent_spam = FALSE //If this is true, skips spam prevention for user actions; inputs, verbs, macros, etc.
 	var/max_acts_per_interval = 140 //Number of actions per interval permitted for spam protection.
 	var/act_interval = 0.1 SECONDS //Interval for spam prevention.
+
+	var/panic_bunker = FALSE //is the panic bunker enabled?
+	var/panic_bunker_message = "Sorry! The panic bunker is enabled. Please head to our Discord or forum to get yourself added to the panic bunker bypass."
+
+	var/lock_client_view_x
+	var/lock_client_view_y
+	var/max_client_view_x
+	var/max_client_view_y
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -562,7 +574,7 @@ var/list/gamemode_cache = list()
 					config.popup_admin_pm = 1
 
 				if("allow_holidays")
-					Holiday = 1
+					config.allow_holidays = 1
 
 				if("use_irc_bot")
 					use_irc_bot = 1
@@ -582,6 +594,9 @@ var/list/gamemode_cache = list()
 					config.antag_hud_allowed = 1
 				if("antag_hud_restricted")
 					config.antag_hud_restricted = 1
+
+				if("secret_hide_possibilities")
+					secret_hide_possibilities = TRUE
 
 				if("humans_need_surnames")
 					humans_need_surnames = 1
@@ -724,9 +739,11 @@ var/list/gamemode_cache = list()
 				if("autostealth")
 					config.autostealth = text2num(value)
 
+				if("auto_local_admin")
+					config.auto_local_admin = text2num(value)
+
 				if("radiation_lower_limit")
 					radiation_lower_limit = text2num(value)
-
 
 				if("error_cooldown")
 					error_cooldown = text2num(value)
@@ -764,6 +781,11 @@ var/list/gamemode_cache = list()
 				if ("act_interval")
 					config.act_interval = text2num(value) SECONDS
 
+				if("panic_bunker")
+					config.panic_bunker = TRUE
+				if("panic_bunker_message")
+					config.panic_bunker_message = value
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -800,6 +822,8 @@ var/list/gamemode_cache = list()
 					config.walk_delay = value
 				if("creep_delay")
 					config.creep_delay = value
+				if("glide_size_delay")
+					config.glide_size_delay = value
 				if("minimum_sprint_cost")
 					config.minimum_sprint_cost = value
 				if("skill_sprint_cost_range")
@@ -824,6 +848,14 @@ var/list/gamemode_cache = list()
 				if("maximum_mushrooms")
 					config.maximum_mushrooms = value
 
+				if("lock_client_view_x")
+					config.lock_client_view_x = text2num(value)
+				if("lock_client_view_y")
+					config.lock_client_view_y = text2num(value)
+				if("max_client_view_x")
+					config.max_client_view_x = text2num(value)
+				if("max_client_view_y")
+					config.max_client_view_y = text2num(value)
 
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
@@ -872,12 +904,6 @@ var/list/gamemode_cache = list()
 				sqllogin = value
 			if ("password")
 				sqlpass = value
-			if ("feedback_database")
-				sqlfdbkdb = value
-			if ("feedback_login")
-				sqlfdbklogin = value
-			if ("feedback_password")
-				sqlfdbkpass = value
 			else
 				log_misc("Unknown setting in configuration: '[name]'")
 

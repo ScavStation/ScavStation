@@ -8,8 +8,8 @@
 	allowed_organs = list(BP_AUGMENT_R_LEG, BP_AUGMENT_L_LEG)
 	icon_state = "muscule"
 	desc = "Nanofiber tendons powered by an array of actuators to help the wearer mantain speed even while encumbered. You may want to install these in pairs to see a result."
-	material = MAT_STEEL
-	matter = list(MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 	var/obj/item/organ/internal/augment/boost/muscle/other //we need two for these
 
 /obj/item/organ/internal/augment/boost/muscle/onInstall()
@@ -17,9 +17,9 @@
 	//1.st Determine where we are and who we should be asking for guidance
 	//we must be second to activate buff
 	if(organ_tag == BP_AUGMENT_L_LEG)
-		other = owner.internal_organs_by_name[BP_AUGMENT_R_LEG]
+		other = owner.get_internal_organ(BP_AUGMENT_R_LEG)
 	else if(organ_tag == BP_AUGMENT_R_LEG)
-		other = owner.internal_organs_by_name[BP_AUGMENT_L_LEG]
+		other = owner.get_internal_organ(BP_AUGMENT_L_LEG)
 	if(other && istype(other))
 		var/datum/skill_buff/augment/muscle/A
 		A = owner.buff_skill(buffs, 0, buffpath)

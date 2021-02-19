@@ -15,10 +15,10 @@
 	damage = 5
 	agony = 20
 	life_span = 15 //if the shell hasn't hit anything after travelling this far it just explodes.
-	muzzle_type = /obj/effect/projectile/bullet/muzzle
+	muzzle_type = /obj/effect/projectile/muzzle/bullet
 	var/flash_range = 1
 	var/brightness = 7
-	var/light_colour = "#ffffff"
+	var/light_flash_color = COLOR_WHITE
 
 /obj/item/projectile/energy/flash/on_impact(var/atom/A)
 	var/turf/T = flash_range? src.loc : get_turf(A)
@@ -40,7 +40,7 @@
 	sparks.start()
 
 	new /obj/effect/decal/cleanable/ash(src.loc) //always use src.loc so that ash doesn't end up inside windows
-	new /obj/effect/effect/smoke/illumination(T, 5, 4, 1, light_colour)
+	new /obj/effect/effect/smoke/illumination(T, 5, 4, 1, light_flash_color)
 
 //blinds people like the flash round, but in a larger area and can also be used for temporary illumination
 /obj/item/projectile/energy/flash/flare
@@ -51,13 +51,39 @@
 	brightness = 15
 
 /obj/item/projectile/energy/flash/flare/on_impact(var/atom/A)
-	light_colour = pick("#e58775", "#ffffff", "#90ff90", "#a09030")
-	set_light(1, 1, 4, 2, light_colour)
+	light_flash_color = pick("#e58775", "#ffffff", "#faa159", "#e34e0e")
+	set_light(1, 1, 4, 2, light_flash_color)
 	..() //initial flash
 
 	//residual illumination
-	new /obj/effect/effect/smoke/illumination(loc, rand(190,240), 8, 1, light_colour) //same lighting power as flare
+	new /obj/effect/effect/smoke/illumination(loc, rand(190,240), 8, 1, light_flash_color) //same lighting power as flare
 
+	var/turf/TO = get_turf(src)
+	var/area/AO = TO.loc
+	if(AO && (AO.area_flags & AREA_FLAG_EXTERNAL))
+		//Everyone saw that!
+		for(var/mob/living/mob in GLOB.living_mob_list_)
+			var/turf/T = get_turf(mob)
+			var/area/A1 = T.loc
+			if(T && (T != TO) && (TO.z == T.z) && !mob.blinded)
+				var/visible = FALSE
+				if(A1 && (A1.area_flags & AREA_FLAG_EXTERNAL))
+					visible = TRUE
+				else
+					var/dir = get_dir(T,TO)
+					var/turf/pos = T
+					for (var/j in 0 to 5)
+						pos = get_step(pos, dir)
+						if(pos.opacity)
+							break
+						A1 = pos.loc
+						if(A1 && (A1.area_flags & AREA_FLAG_EXTERNAL))
+							visible = TRUE
+							break
+				if(visible)
+					to_chat(mob, SPAN_NOTICE("You see a bright light to \the [dir2text(get_dir(T,TO))]"))
+			CHECK_TICK
+				
 /obj/item/projectile/energy/electrode	//has more pain than a beam because it's harder to hit 
 	name = "electrode"
 	icon_state = "spark"
@@ -111,8 +137,8 @@
 	damage_type = TOX
 	weaken = 5
 
-/obj/item/projectile/energy/phoron
-	name = "phoron bolt"
+/obj/item/projectile/energy/radiation
+	name = "radiation bolt"
 	icon_state = "energy"
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	damage = 20

@@ -25,6 +25,16 @@
 /obj/random/unit_test/spawn_choices()
 	return list(/obj/unit_test_light, /obj/unit_test_heavy, /obj/unit_test_medium)
 
+/obj/unit_test
+	icon = 'icons/effects/landmarks.dmi'
+	icon_state = "x2"
+
+/obj/unit_test/opaque
+	opacity = TRUE
+
+/obj/unit_test/transparent
+	opacity = FALSE
+
 /area/test_area/powered_non_dynamic_lighting
 	name = "\improper Test Area - Powered - Non-Dynamic Lighting"
 	icon_state = "green"

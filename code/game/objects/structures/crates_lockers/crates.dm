@@ -5,7 +5,6 @@
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	setup = 0
 	storage_types = CLOSET_STORAGE_ITEMS
-	var/points_per_crate = 5
 	var/rigged = 0
 
 /obj/structure/closet/crate/open()
@@ -73,7 +72,6 @@
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"
 	desc = "A rectangular plastic crate."
-	points_per_crate = 1
 	closet_appearance = /decl/closet_appearance/crate/plastic
 
 /obj/structure/closet/crate/internals
@@ -189,9 +187,9 @@
 	desc = "A secure weapons crate."
 	closet_appearance = /decl/closet_appearance/crate/secure/weapon
 
-/obj/structure/closet/crate/secure/phoron
-	name = "phoron crate"
-	desc = "A secure phoron crate."
+/obj/structure/closet/crate/secure/explosives
+	name = "explosives crate"
+	desc = "A secure exploxives crate."
 	closet_appearance = /decl/closet_appearance/crate/secure/hazard
 
 /obj/structure/closet/crate/secure/shuttle
@@ -228,7 +226,7 @@
 	storage_capacity = 2 * MOB_SIZE_LARGE
 	storage_types = CLOSET_STORAGE_ITEMS|CLOSET_STORAGE_STRUCTURES
 
-/obj/structure/closet/crate/secure/large/phoron
+/obj/structure/closet/crate/secure/large/supermatter
 	closet_appearance = /decl/closet_appearance/large_crate/secure/hazard
 
 //fluff variant
@@ -243,9 +241,9 @@
 /obj/structure/closet/crate/hydroponics/prespawned/WillContain()
 	return list(
 		/obj/item/chems/spray/plantbgone = 2,
-		/obj/item/material/minihoe = 2,
+		/obj/item/minihoe = 2,
 		/obj/item/storage/plants = 2,
-		/obj/item/material/hatchet = 2,
+		/obj/item/hatchet = 2,
 		/obj/item/wirecutters/clippers = 2,
 		/obj/item/scanner/plant = 2
 	)

@@ -1,4 +1,4 @@
-/datum/species/starlight
+/decl/species/starlight
 	name = "Starlight Base"
 
 	meat_type = null
@@ -24,18 +24,18 @@
 	spawn_flags = SPECIES_IS_RESTRICTED
 	genders = list(NEUTER)
 	force_cultural_info = list(
-		TAG_CULTURE = CULTURE_STARLIGHT
+		TAG_CULTURE = /decl/cultural_info/culture/other
 	)
 
-/datum/species/starlight/handle_death_check(var/mob/living/carbon/human/H)
+/decl/species/starlight/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.health == 0)
 		return TRUE
 	return FALSE
 
-/datum/species/starlight/handle_death(var/mob/living/carbon/human/H)
+/decl/species/starlight/handle_death(var/mob/living/carbon/human/H)
 	addtimer(CALLBACK(H,/mob/proc/dust),0)
 
-/datum/species/starlight/starborn
+/decl/species/starlight/starborn
 	name = "Starborn"
 	name_plural = "Starborn"
 	icobase = 'icons/mob/human_races/species/starborn/body.dmi'
@@ -80,18 +80,20 @@
 		/obj/aura/starborn
 		)
 
-/datum/species/starlight/starborn/handle_death(var/mob/living/carbon/human/H)
+/decl/species/starlight/starborn/handle_death(var/mob/living/carbon/human/H)
 	..()
 	var/turf/T = get_turf(H)
-	new/obj/effect/decal/cleanable/liquid_fuel(T, 20, TRUE)
-	T.hotspot_expose(PHORON_MINIMUM_BURN_TEMPERATURE)
+	var/obj/effect/fluid/F = locate() in T
+	if(!F) F = new(T)
+	F.reagents.add_reagent(/decl/material/liquid/fuel, 20)
+	T.hotspot_expose(FLAMMABLE_GAS_MINIMUM_BURN_TEMPERATURE)
 
-/datum/species/starlight/blueforged
+/decl/species/starlight/blueforged
 	name = "Blueforged"
 	name_plural = "Blueforged"
 	icobase = 'icons/mob/human_races/species/blueforged/body.dmi'
 	deform = 'icons/mob/human_races/species/blueforged/body.dmi'
-	description = "Living chunks of Bluespace, carved out of the original dimension and given life by a being of unbelievable power."
+	description = "Living chunks of spacetime, carved out of the original dimension and given life by a being of unbelievable power."
 
 	blood_color = "#2222ff"
 	flesh_color = "#2222ff"
@@ -110,6 +112,6 @@
 
 	override_organ_types = list(BP_EYES = /obj/item/organ/internal/eyes/blueforged)
 
-/datum/species/starlight/blueforged/handle_death(var/mob/living/carbon/human/H)
+/decl/species/starlight/blueforged/handle_death(var/mob/living/carbon/human/H)
 	..()
 	new /obj/effect/temporary(get_turf(H),11, 'icons/mob/mob.dmi', "liquify")

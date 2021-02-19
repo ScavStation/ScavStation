@@ -53,7 +53,9 @@
 
 /obj/machinery/proc/on_component_failure(var/obj/item/stock_parts/component)
 	RefreshParts()
-	power_change()
+	update_icon()
+	if(istype(component, /obj/item/stock_parts/power))
+		power_change()
 
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
@@ -62,8 +64,13 @@
 		take_damage(100/severity, ELECTROCUTE)
 	..()
 
-/obj/machinery/ex_act(severity)
-	take_damage(100/severity, BRUTE, TRUE)
+/obj/machinery/explosion_act(severity)
+	..()
+	if(!QDELETED(src))
+		if((severity == 1 || (severity == 2 && prob(25))))
+			physically_destroyed()
+		else
+			take_damage(100/severity, BRUTE, TRUE)
 
 /obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
 	. = ..()

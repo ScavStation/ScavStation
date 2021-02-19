@@ -40,7 +40,7 @@
 
 /obj/item/paper/smug_2
 	name = "suspicious note"
-	info = "That vox fuckface will be curious about what we got from that mine storage last week."
+	info = "That scaly fuckface will be curious about what we got from that mine storage last week."
 
 /obj/item/paper/smug_3
 	name = "suspicious note"
@@ -80,16 +80,11 @@
 /obj/random/ore
 	name = "random ore"
 	desc = "This is a random ore."
-	icon = 'icons/obj/clothing/obj_accessories.dmi'
-	icon_state = "horribletie"
+	icon_state = "lump"
+	icon = 'icons/obj/materials/ore.dmi'
 
 /obj/random/ore_smug/spawn_choices()
-	return list(
-		/obj/item/ore/uranium,
-		/obj/item/ore/gold,
-		/obj/item/ore/silver,
-		/obj/item/ore/slag,
-		/obj/item/ore/phoron)
+	return subtypesof(/obj/item/ore)
 
 /obj/random/ammo_magazine_smug
 	name = "Random Ammo Magazine"

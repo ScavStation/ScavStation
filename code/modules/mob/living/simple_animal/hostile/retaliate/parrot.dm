@@ -40,11 +40,9 @@
 	emote_hear = list("squawks","bawks")
 	emote_see = list("flutters its wings")
 
-	melee_damage_lower = 5 //pick
-	melee_damage_upper = 10 //peck
+	natural_weapon = /obj/item/natural_weapon/beak
 	speak_chance = 1//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
 	turns_per_move = 5
-	meat_type = /obj/item/chems/food/snacks/cracker/
 
 	response_help  = "pets"
 	response_disarm = "gently moves aside"
@@ -54,7 +52,7 @@
 
 	meat_type = /obj/item/chems/food/snacks/meat/chicken/game
 	meat_amount = 3
-	skin_material = MAT_SKIN_FEATHERS
+	skin_material = /decl/material/solid/skin/feathers
 
 	var/parrot_state = PARROT_WANDER //Hunt for a perch when created
 	var/parrot_sleep_max = 25 //The time the parrot sits while perched before looking around. Mosly a way to avoid the parrot's AI in life() being run every single tick.
@@ -484,18 +482,7 @@
 				return
 
 			//Time for the hurt to begin!
-			var/damage = rand(melee_damage_lower, melee_damage_upper)
-
-			if(ishuman(parrot_interest))
-				var/mob/living/carbon/human/H = parrot_interest
-				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
-
-				H.apply_damage(damage, BRUTE, affecting, DAM_SHARP|DAM_EDGE)
-				visible_emote(pick("pecks [H]'s [affecting].", "cuts [H]'s [affecting] with its talons."))
-
-			else
-				L.adjustBruteLoss(damage)
-				visible_emote(pick("pecks at [L].", "claws [L]."))
+			L.attackby(get_natural_weapon(), src)
 			return
 
 		//Otherwise, fly towards the mob!
@@ -532,8 +519,10 @@
 
 		if(iscarbon(AM))
 			var/mob/living/carbon/C = AM
-			if((C.l_hand && can_pick_up(C.l_hand)) || (C.r_hand && can_pick_up(C.r_hand)))
-				return C
+			for(var/bp in C.held_item_slots)
+				var/datum/inventory_slot/inv_slot = C.held_item_slots[bp]
+				if(inv_slot?.holding && can_pick_up(inv_slot.holding))
+					return C
 	return null
 
 /mob/living/simple_animal/hostile/retaliate/parrot/proc/search_for_perch()
@@ -559,14 +548,16 @@
 
 		if(iscarbon(AM))
 			var/mob/living/carbon/C = AM
-			if((C.l_hand && can_pick_up(C.l_hand)) || (C.r_hand && can_pick_up(C.r_hand)))
-				return C
+			for(var/bp in C.held_item_slots)
+				var/datum/inventory_slot/inv_slot = C.held_item_slots[bp]
+				if(inv_slot?.holding && can_pick_up(inv_slot.holding))
+					return C
 	return null
 
 /mob/living/simple_animal/hostile/retaliate/parrot/proc/give_up()
 	enemies = list()
 	LoseTarget()
-	visible_message("<span class='notice'>\The [src] seems to calm down.</span>")
+	visible_message(SPAN_NOTICE("\The [src] seems to calm down."))
 	relax_chance -= impatience
 
 /*
@@ -613,14 +604,11 @@
 		return 1
 
 	var/obj/item/stolen_item = null
-
 	for(var/mob/living/carbon/C in view(1,src))
-		if(C.l_hand && can_pick_up(C.l_hand))
-			stolen_item = C.l_hand
-
-		if(C.r_hand && can_pick_up(C.r_hand))
-			stolen_item = C.r_hand
-
+		for(var/obj/item/thing in C.get_held_items())
+			if(can_pick_up(thing))
+				stolen_item = thing
+				break
 		if(stolen_item && C.unEquip(stolen_item, src))
 			held_item = stolen_item
 			visible_message("[src] grabs the [held_item] out of [C]'s hand!", "<span class='warning'>You snag the [held_item] out of [C]'s hand!</span>", "You hear the sounds of wings flapping furiously.")
@@ -750,24 +738,6 @@
 	if(!message || stat)
 		return
 	speech_buffer.Add(message)
-
-/mob/living/simple_animal/hostile/retaliate/parrot/attack_generic(var/mob/user, var/damage, var/attack_message)
-
-	var/success = ..()
-
-	if(client)
-		return success
-
-	if(parrot_state == PARROT_PERCH)
-		parrot_sleep_dur = parrot_sleep_max //Reset it's sleep timer if it was perched
-
-	if(!success)
-		return 0
-
-	parrot_interest = user
-	parrot_state = PARROT_SWOOP | PARROT_ATTACK //Attack other animals regardless
-	icon_state = "[icon_set]_fly"
-	return success
 
 /mob/living/simple_animal/hostile/retaliate/parrot/proc/can_pick_up(obj/item/I)
 	. = (Adjacent(I) && I.w_class <= parrot_isize && !I.anchored)

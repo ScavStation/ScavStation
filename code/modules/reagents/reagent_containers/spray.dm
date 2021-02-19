@@ -6,7 +6,7 @@
 	item_state = "cleaner"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	throwforce = 3
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 2
@@ -42,11 +42,11 @@
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 
-	if(reagents.has_reagent(/decl/reagent/acid))
+	if(reagents.has_reagent(/decl/material/liquid/acid))
 		log_and_message_admins("fired sulphuric acid from \a [src].", user)
-	if(reagents.has_reagent(/decl/reagent/acid/polyacid))
+	if(reagents.has_reagent(/decl/material/liquid/acid/polyacid))
 		log_and_message_admins("fired polyacid from \a [src].", user)
-	if(reagents.has_reagent(/decl/reagent/lube))
+	if(reagents.has_reagent(/decl/material/liquid/lube))
 		log_and_message_admins("fired lubricant from \a [src].", user)
 	return
 
@@ -102,7 +102,7 @@
 
 /obj/item/chems/spray/cleaner/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/cleaner, volume)
+	reagents.add_reagent(/decl/material/liquid/cleaner, volume)
 
 /obj/item/chems/spray/antiseptic
 	name = "antiseptic spray"
@@ -110,7 +110,7 @@
 
 /obj/item/chems/spray/antiseptic/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/antiseptic, volume)
+	reagents.add_reagent(/decl/material/liquid/antiseptic, volume)
 
 /obj/item/chems/spray/hair_remover
 	name = "hair remover"
@@ -118,14 +118,13 @@
 
 /obj/item/chems/spray/hair_remover/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/toxin/hair_remover, volume)
+	reagents.add_reagent(/decl/material/liquid/hair_remover, volume)
 
 /obj/item/chems/spray/pepper
 	name = "pepperspray"
 	desc = "Manufactured by Uhang Inc., it fires a mist of condensed capsaicin to blind and down an opponent quickly."
 	icon = 'icons/obj/items/weapon/pepperspray.dmi'
-	icon_state = "pepperspray"
-	item_state = "pepperspray"
+	icon_state = ICON_STATE_WORLD
 	possible_transfer_amounts = null
 	volume = 60
 	var/safety = 1
@@ -133,7 +132,7 @@
 
 /obj/item/chems/spray/pepper/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/capsaicin/condensed, 60)
+	reagents.add_reagent(/decl/material/liquid/capsaicin/condensed, 60)
 
 /obj/item/chems/spray/pepper/examine(mob/user, distance)
 	. = ..()
@@ -162,7 +161,7 @@
 
 /obj/item/chems/spray/waterflower/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/water, 10)
+	reagents.add_reagent(/decl/material/liquid/water, 10)
 
 /obj/item/chems/spray/chemsprayer
 	name = "chem sprayer"
@@ -176,8 +175,8 @@
 	volume = 600
 	origin_tech = "{'combat':3,'materials':3,'engineering':3}"
 	step_delay = 8
-	material = MAT_STEEL
-	matter = list(MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 
 /obj/item/chems/spray/chemsprayer/Spray_at(atom/A)
 	var/direction = get_dir(src, A)
@@ -209,7 +208,7 @@
 
 /obj/item/chems/spray/plantbgone/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/toxin/plantbgone, 100)
+	reagents.add_reagent(/decl/material/liquid/weedkiller, 100)
 
 /obj/item/chems/spray/plantbgone/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return

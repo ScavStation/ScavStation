@@ -1,5 +1,8 @@
 // If you add a more comprehensive system, just untick this file.
-var/list/z_levels = list()// Each bit re... haha just kidding this is a list of bools now
+var/list/z_levels = list() // Each Z-level is associated with the relevant map data landmark
+
+/proc/get_map_data(z)
+	return z > 0 && z_levels.len >= z ? z_levels[z] : null
 
 // If the height is more than 1, we mark all contained levels as connected.
 // This is in New because it is an auxiliary effect specifically needed pre-init.
@@ -12,14 +15,16 @@ var/list/z_levels = list()// Each bit re... haha just kidding this is a list of 
 	for(var/i = (loc.z - height + 1) to (loc.z-1))
 		if (z_levels.len <i)
 			z_levels.len = i
-		z_levels[i] = TRUE
+		z_levels[i] = src
 
 	if (length(SSzcopy.zstack_maximums))
 		SSzcopy.calculate_zstack_limits()
 
-/obj/effect/landmark/map_data/Initialize()
-	..()
-	return INITIALIZE_HINT_QDEL
+/obj/effect/landmark/map_data/Destroy(forced)
+	if(forced)
+		new type(loc, height) // Will replace our references in z_levels
+		return ..()
+	return QDEL_HINT_LETMELIVE
 
 // Thankfully, no bitwise magic is needed here.
 /proc/GetAbove(var/atom/atom)
@@ -47,7 +52,7 @@ var/list/connected_z_cache = list()
 		return FALSE
 	if (zA == zB)
 		return TRUE
-	if (global.connected_z_cache.len >= zA && global.connected_z_cache[zA])
+	if (length(global.connected_z_cache) >= zA && length(global.connected_z_cache[zA]) >= zB)
 		return global.connected_z_cache[zA][zB]
 	var/list/levels = GetConnectedZlevels(zA)
 	var/list/new_entry = new(world.maxz)

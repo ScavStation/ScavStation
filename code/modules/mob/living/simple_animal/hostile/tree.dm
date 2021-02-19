@@ -19,10 +19,7 @@
 	pixel_x = -16
 
 	harm_intent_damage = 5
-	melee_damage_lower = 8
-	melee_damage_upper = 12
-	attacktext = "bitten"
-	attack_sound = 'sound/weapons/bite.ogg'
+	natural_weapon = /obj/item/natural_weapon/bite
 
 	//Space carp aren't affected by atmos.
 	min_gas = null
@@ -35,14 +32,6 @@
 	. = ..()
 	if(.)
 		audible_emote("growls at [.]")
-
-/mob/living/simple_animal/hostile/tree/AttackingTarget()
-	. =..()
-	var/mob/living/L = .
-	if(istype(L))
-		if(prob(15))
-			L.Weaken(3)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
 
 /mob/living/simple_animal/hostile/tree/death(gibbed, deathmessage, show_dead_message)
 	..(null,"is hacked into pieces!", show_dead_message)

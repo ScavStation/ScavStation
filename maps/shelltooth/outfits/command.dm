@@ -1,8 +1,8 @@
 /decl/hierarchy/outfit/job/shelltooth/captain
 	name = SHELLTOOTH_OUTFIT_JOB_NAME("Captain")
-	uniform = /obj/item/clothing/under/casual_pants/classicjeans
+	uniform = /obj/item/clothing/pants/casual/classicjeans
 	shoes = /obj/item/clothing/shoes/color/black
-	pda_type = /obj/item/modular_computer/pda/captain
+	pda_type = /obj/item/modular_computer/pda/heads/captain
 	r_pocket = /obj/item/radio
 	id_type = /obj/item/card/id/gold/shelltooth_captain
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
@@ -20,13 +20,13 @@
 /decl/hierarchy/outfit/job/shelltooth/mate
 	name = SHELLTOOTH_OUTFIT_JOB_NAME("First Mate")
 	uniform = /obj/item/clothing/under/suit_jacket/checkered
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/dress
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	pda_type = /obj/item/modular_computer/pda/cargo
-	l_hand = /obj/item/material/clipboard
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officiated
 	id_type = /obj/item/card/id/silver/shelltooth_first_mate
 	pda_type = /obj/item/modular_computer/pda/heads/hop
+	hands = list(/obj/item/clipboard)
 
 //id cards
 /obj/item/card/id/gold/shelltooth_captain

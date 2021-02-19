@@ -94,7 +94,7 @@
 
 /obj/item/electronic_assembly/create_matter()
 	..()
-	LAZYSET(matter, MAT_STEEL, round((max_complexity + max_components) / 4) * SScircuit.cost_multiplier)
+	LAZYSET(matter, /decl/material/solid/metal/steel, round((max_complexity + max_components) / 4) * SScircuit.cost_multiplier)
 
 /obj/item/electronic_assembly/Initialize()
 	. = ..()
@@ -546,13 +546,13 @@
 	name = "type-e electronic assembly"
 	icon_state = "setup_small_hook"
 	desc = "It's a case, for building small electronics with. This one looks like it has a belt clip."
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 
 /obj/item/electronic_assembly/pda
 	name = "type-f electronic assembly"
 	icon_state = "setup_small_pda"
 	desc = "It's a case, for building small electronics with. This one resembles a PDA."
-	slot_flags = SLOT_BELT | SLOT_ID
+	slot_flags = SLOT_LOWER_BODY | SLOT_ID
 
 /obj/item/electronic_assembly/augment
 	name = "augment electronic assembly"
@@ -592,10 +592,6 @@
 	icon_state = "setup_medium_gun"
 	item_state = "circuitgun"
 	desc = "It's a case, for building medium-sized electronics with. This one resembles a gun, or some type of tool, if you're feeling optimistic. It can fire guns and throw items while the user is holding it."
-	item_icons = list(
-		icon_l_hand = 'icons/mob/onmob/items/lefthand_guns.dmi',
-		icon_r_hand = 'icons/mob/onmob/items/righthand_guns.dmi'
-		)
 	circuit_flags = IC_FLAG_CAN_FIRE | IC_FLAG_ANCHORABLE
 
 /obj/item/electronic_assembly/medium/radio

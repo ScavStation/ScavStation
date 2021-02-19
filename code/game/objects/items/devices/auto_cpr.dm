@@ -2,21 +2,17 @@
 	name = "auto-compressor"
 	desc = "A device that gives regular compression to the victim's ribcage, used in case of urgent heart issues."
 	icon = 'icons/obj/items/device/auto_cpr.dmi'
-	icon_state = "pumper"
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = "{'magnets':2,'biotech':2}"
-	slot_flags = SLOT_OCLOTHING
+	slot_flags = SLOT_OVER_BODY
 	var/last_pump
 	var/skilled_setup
 
 /obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
 	. = ..()
-	if(force || !istype(H) || slot != slot_wear_suit)
-		return
-	if(H.species.get_bodytype() != BODYTYPE_HUMANOID) //non-humanoids btfo
-		return
-	else
-		return FALSE
+	if(. && slot == slot_wear_suit_str)
+		. = H.species.get_bodytype() == BODYTYPE_HUMANOID
 
 /obj/item/auto_cpr/attack(mob/living/carbon/human/M, mob/living/user, var/target_zone)
 	if(istype(M) && user.a_intent == I_HELP)
@@ -29,7 +25,7 @@
 			return
 			
 		if(user.unEquip(src))
-			if(!M.equip_to_slot_if_possible(src, slot_wear_suit, del_on_fail=0, disable_warning=1, redraw_mob=1))
+			if(!M.equip_to_slot_if_possible(src, slot_wear_suit_str, del_on_fail=0, disable_warning=1, redraw_mob=1))
 				user.put_in_active_hand(src)
 			return 1
 	else
@@ -52,7 +48,7 @@
 		return PROCESS_KILL
 
 	var/mob/living/carbon/human/H = loc
-	if(H.get_inventory_slot(src) != slot_wear_suit)
+	if(H.get_inventory_slot(src) != slot_wear_suit_str)
 		return PROCESS_KILL
 
 	if(world.time > last_pump + 15 SECONDS)
@@ -65,7 +61,7 @@
 			if(prob(5))
 				E.fracture()
 		else
-			var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+			var/obj/item/organ/internal/heart/heart = H.get_internal_organ(BP_HEART)
 			if(heart)
 				heart.external_pump = list(world.time, 0.6)
 

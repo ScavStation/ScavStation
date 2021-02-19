@@ -130,9 +130,7 @@
 		src.eye_blurry--
 		src.eye_blurry = max(0, src.eye_blurry)
 
-	if (src.druggy > 0)
-		src.druggy--
-		src.druggy = max(0, src.druggy)
+	handle_drugged()
 
 	//update the state of modules and components here
 	if (src.stat != CONSCIOUS)
@@ -163,6 +161,13 @@
 				process_sec_hud(src,0,network = get_computer_network())
 			if (MED_HUD)
 				process_med_hud(src,0,network = get_computer_network())
+
+	if(length(get_active_grabs()))
+		ui_drop_grab.invisibility = 0
+		ui_drop_grab.alpha = 255
+	else
+		ui_drop_grab.invisibility = INVISIBILITY_MAXIMUM
+		ui_drop_grab.alpha = 0
 
 	if (src.healths)
 		if (src.stat != 2)
@@ -202,17 +207,15 @@
 			src.healths.icon_state = "health7"
 
 	if (src.syndicate && src.client)
-		for(var/datum/mind/tra in GLOB.traitors.current_antagonists)
+		var/decl/special_role/traitors = decls_repository.get_decl(/decl/special_role/traitor)
+		for(var/datum/mind/tra in traitors.current_antagonists)
 			if(tra.current)
 				// TODO: Update to new antagonist system.
 				var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
 				src.client.images += I
 		src.disconnect_from_ai()
 		if(src.mind)
-			// TODO: Update to new antagonist system.
-			if(!src.mind.special_role)
-				src.mind.special_role = "traitor"
-				GLOB.traitors.current_antagonists |= src.mind
+			traitors.add_antagonist_mind(mind)
 
 	if (src.cells)
 		if (src.cell)
@@ -242,7 +245,7 @@
 			else
 				src.fire.icon_state = "fire1"
 	if(oxygen && environment)
-		var/datum/species/species = all_species[GLOB.using_map.default_species]
+		var/decl/species/species = all_species[GLOB.using_map.default_species]
 		if(!species.breath_type || environment.gas[species.breath_type] >= species.breath_pressure)
 			src.oxygen.icon_state = "oxy0"
 			for(var/gas in species.poison_types)
@@ -259,7 +262,7 @@
 			clear_fullscreen("blind")
 			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
 			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
-			set_fullscreen(druggy, "high", /obj/screen/fullscreen/high)
+			set_fullscreen(drugged, "high", /obj/screen/fullscreen/high)
 
 	return 1
 

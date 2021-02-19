@@ -3,14 +3,14 @@
 	desc = "An unwieldy, heavy backpack with two massive fuel tanks. Includes a connector for most models of portable welding tools."
 	slot_flags = SLOT_BACK
 	icon = 'icons/obj/items/welderpack.dmi'
-	icon_state = "welderpack"
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_HUGE
 	var/max_fuel = 350
 	var/obj/item/weldingtool/welder
 
 /obj/item/weldpack/Initialize()
 	create_reagents(max_fuel)
-	reagents.add_reagent(/decl/reagent/fuel, max_fuel)
+	reagents.add_reagent(/decl/material/liquid/fuel, max_fuel)
 
 	. = ..()
 
@@ -61,7 +61,7 @@
 		return
 
 /obj/item/weldpack/attack_hand(mob/user)
-	if(welder && user.get_inactive_hand() == src)
+	if(welder && user.is_holding_offhand(src))
 		user.put_in_hands(welder)
 		user.visible_message("[user] removes \the [welder] from \the [src].", "You remove \the [welder] from \the [src].")
 		welder = null
@@ -70,17 +70,15 @@
 		..()
 
 /obj/item/weldpack/on_update_icon()
-	..()
-
-	overlays.Cut()
+	cut_overlays()
 	if(welder)
 		var/image/welder_image = image(welder.icon, icon_state = welder.icon_state)
 		welder_image.pixel_x = 16
-		overlays += welder_image
+		add_overlay(welder_image)
 
 /obj/item/weldpack/examine(mob/user)
 	. = ..()
-	to_chat(user, text("\icon[] [] units of fuel left!", src, src.reagents.total_volume))
+	to_chat(user, "[html_icon(src)] [reagents.total_volume] unit\s of fuel left!")
 
 	if(welder)
 		to_chat(user, "\The [welder] is attached.")

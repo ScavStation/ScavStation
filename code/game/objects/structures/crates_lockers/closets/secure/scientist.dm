@@ -10,7 +10,7 @@
 		/obj/item/clothing/shoes/color/white,
 		/obj/item/radio/headset/headset_sci,
 		/obj/item/clothing/mask/gas,
-		/obj/item/material/clipboard
+		/obj/item/clipboard
 	)
 
 /obj/structure/closet/secure_closet/xenobio
@@ -26,7 +26,7 @@
 		/obj/item/radio/headset/headset_sci,
 		/obj/item/clothing/mask/gas,
 		/obj/item/clothing/gloves/latex,
-		/obj/item/material/clipboard,
+		/obj/item/clipboard,
 		/obj/item/storage/belt/general
 	)
 
@@ -45,7 +45,7 @@
 		/obj/item/radio/headset/heads/rd,
 		/obj/item/clothing/mask/gas,
 		/obj/item/flash,
-		/obj/item/material/clipboard,
+		/obj/item/clipboard,
 	)
 
 /obj/structure/closet/secure_closet/animal
@@ -55,7 +55,6 @@
 /obj/structure/closet/secure_closet/animal/WillContain()
 	return list(
 		/obj/item/assembly/signaler,
-		/obj/item/radio/electropack = 3,
 		/obj/item/gun/launcher/syringe/rapid,
 		/obj/item/storage/box/syringegun,
 		/obj/item/storage/box/syringes,

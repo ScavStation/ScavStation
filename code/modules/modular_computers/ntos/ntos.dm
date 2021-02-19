@@ -59,7 +59,7 @@
 	var/obj/item/stock_parts/computer/network_card/network_card = get_component(PART_NETWORK)
 	if(network_card)
 		var/datum/extension/network_device/D = get_extension(network_card, /datum/extension/network_device)
-		D.disconnect()
+		D?.disconnect()
 
 	if(updating)
 		updating = FALSE
@@ -113,10 +113,11 @@
 	if(P in running_programs)
 		P.program_state = PROGRAM_STATE_ACTIVE
 		active_program = P
-	else if(P.can_run(user, 1))
+	else if(P.can_run(user, 1, null, get_network()))
 		P.on_startup(user, src)
 		active_program = P
-
+	else
+		return
 	running_programs |= P
 	update_host_icon()
 	return 1

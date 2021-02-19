@@ -16,15 +16,13 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	faction = "goat"
-	attacktext = "kicked"
 	health = 40
-	melee_damage_lower = 1
-	melee_damage_upper = 5
+	natural_weapon = /obj/item/natural_weapon/hooves
 
 	meat_type = /obj/item/chems/food/snacks/meat/goat
 	meat_amount = 4
 	bone_amount = 8
-	skin_material = MAT_SKIN_GOATHIDE
+	skin_material = /decl/material/solid/skin/goat
 	skin_amount = 8
 
 	var/datum/reagents/udder = null
@@ -51,7 +49,7 @@
 
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
-				udder.add_reagent(/decl/reagent/drink/milk, rand(5, 10))
+				udder.add_reagent(/decl/material/liquid/drink/milk, rand(5, 10))
 
 		if(locate(/obj/effect/vine) in loc)
 			var/obj/effect/vine/SV = locate() in loc
@@ -81,7 +79,7 @@
 	var/obj/item/chems/glass/G = O
 	if(stat == CONSCIOUS && istype(G) && ATOM_IS_OPEN_CONTAINER(G))
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-		var/transfered = udder.trans_type_to(G, /decl/reagent/drink/milk, rand(5,10))
+		var/transfered = udder.trans_type_to(G, /decl/material/liquid/drink/milk, rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
 			to_chat(user, "<span class='warning'>\The [O] is full.</span>")
 		if(!transfered)
@@ -107,13 +105,12 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
 	health = 50
 
 	meat_type = /obj/item/chems/food/snacks/meat/beef
 	meat_amount = 6
 	bone_amount = 10
-	skin_material = MAT_SKIN_COWHIDE
+	skin_material = /decl/material/solid/skin/cow
 	skin_amount = 10
 
 	var/datum/reagents/udder = null
@@ -126,7 +123,7 @@
 	var/obj/item/chems/glass/G = O
 	if(stat == CONSCIOUS && istype(G) && ATOM_IS_OPEN_CONTAINER(G))
 		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-		var/transfered = udder.trans_type_to(G, /decl/reagent/drink/milk, rand(5,10))
+		var/transfered = udder.trans_type_to(G, /decl/material/liquid/drink/milk, rand(5,10))
 		if(G.reagents.total_volume >= G.volume)
 			to_chat(user, "<span class='warning'>\The [O] is full.</span>")
 		if(!transfered)
@@ -139,7 +136,7 @@
 	if(!.)
 		return FALSE
 	if(udder && prob(5))
-		udder.add_reagent(/decl/reagent/drink/milk, rand(5, 10))
+		udder.add_reagent(/decl/material/liquid/drink/milk, rand(5, 10))
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
@@ -173,7 +170,6 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
 	health = 1
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GRILLE
 	mob_size = MOB_SIZE_MINISCULE
@@ -182,7 +178,7 @@
 	meat_amount = 1
 	bone_amount = 3
 	skin_amount = 3
-	skin_material = MAT_SKIN_FEATHERS
+	skin_material = /decl/material/solid/skin/feathers
 
 	var/amount_grown = 0
 
@@ -218,14 +214,13 @@ var/global/chicken_count = 0
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
 	health = 10
 	pass_flags = PASS_FLAG_TABLE
 	mob_size = MOB_SIZE_SMALL
 
 	meat_type = /obj/item/chems/food/snacks/meat/chicken
 	meat_amount = 2
-	skin_material = MAT_SKIN_FEATHERS
+	skin_material = /decl/material/solid/skin/feathers
 
 	var/eggsleft = 0
 	var/body_color

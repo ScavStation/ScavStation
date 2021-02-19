@@ -3,23 +3,19 @@
 //      Meaning the the suit is defined directly after the corrisponding helmet. Just like below!
 
 /obj/item/clothing/head/helmet/space
-	name = "Space helmet"
-	icon_state = "space"
+	name = "space helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
+	icon = 'icons/clothing/spacesuit/generic/helmet.dmi'
 	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
 	flags_inv = BLOCKHAIR
-	item_state_slots = list(
-		slot_l_hand_str = "s_helmet",
-		slot_r_hand_str = "s_helmet",
-		)
 	permeability_coefficient = 0
 	armor = list(
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 		)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-	cold_protection = HEAD
+	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
+	cold_protection = SLOT_HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	min_pressure_protection = 0
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
@@ -34,6 +30,8 @@
 
 	var/obj/machinery/camera/camera
 	var/tinted = null	//Set to non-null for toggleable tint helmets
+	origin_tech = "{'materials':1}"
+	material = /decl/material/solid/metal/steel
 
 /obj/item/clothing/head/helmet/space/Destroy()
 	if(camera && !ispath(camera))
@@ -72,11 +70,9 @@
 
 /obj/item/clothing/head/helmet/space/proc/update_tint()
 	if(tinted)
-		icon_state = "[initial(icon_state)]_dark"
 		flash_protection = FLASH_PROTECTION_MAJOR
 		flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	else
-		icon_state = initial(icon_state)
 		flash_protection = FLASH_PROTECTION_NONE
 		flags_inv = HIDEEARS|BLOCKHAIR
 	update_icon()
@@ -95,30 +91,38 @@
 	to_chat(usr, "You toggle [src]'s visor tint.")
 	update_tint()
 
+/obj/item/clothing/head/helmet/space/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
+	var/image/ret = ..()
+	if(ret && tint && check_state_in_icon("[ret.icon_state]_dark", ret.icon))
+		ret.icon_state = "[ret.icon_state]_dark"
+	return ret
+
+/obj/item/clothing/head/helmet/space/on_update_icon(mob/user)
+	. = ..()
+	var/base_icon = get_world_inventory_state()
+	if(!base_icon)
+		base_icon = initial(icon_state)
+	if(tint && check_state_in_icon("[base_icon]_dark", icon))
+		icon_state = "[base_icon]_dark"
+	else
+		icon_state = base_icon
+
 /obj/item/clothing/suit/space
-	name = "Space suit"
+	name = "space suit"
 	desc = "A suit that protects against low pressure environments."
-	icon_state = "space"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_spacesuits.dmi',
-		slot_r_hand_str = 'icons/mob/onmob/items/righthand_spacesuits.dmi',
-		)
-	item_state_slots = list(
-		slot_l_hand_str = "s_suit",
-		slot_r_hand_str = "s_suit",
-	)
+	icon = 'icons/clothing/spacesuit/generic/suit.dmi'
 	w_class = ITEM_SIZE_LARGE//large item
 	gas_transfer_coefficient = 0
 	permeability_coefficient = 0
 	item_flags = ITEM_FLAG_THICKMATERIAL
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
 	allowed = list(/obj/item/flashlight,/obj/item/tank/emergency,/obj/item/suit_cooling_unit)
 	armor = list(
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 		)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
-	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	cold_protection = SLOT_UPPER_BODY | SLOT_LOWER_BODY | SLOT_LEGS | SLOT_FEET | SLOT_ARMS | SLOT_HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	min_pressure_protection = 0
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
@@ -126,7 +130,14 @@
 	center_of_mass = null
 	randpixel = 0
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_OVER)
+	origin_tech = "{'materials':3, 'engineering':3}"
+	material = /decl/material/solid/plastic
+	matter = list(
+		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT
+	)
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
-	slowdown_per_slot[slot_wear_suit] = 1
+	LAZYSET(slowdown_per_slot, slot_wear_suit_str, 1)

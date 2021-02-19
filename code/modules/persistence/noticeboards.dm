@@ -1,7 +1,7 @@
 /obj/structure/noticeboard
 	name = "notice board"
 	desc = "A board for pinning important notices upon."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/noticeboard.dmi'
 	icon_state = "nboard00"
 	density = 0
 	anchored = 1
@@ -82,8 +82,10 @@
 	QDEL_NULL_LIST(notices)
 	. = ..()
 
-/obj/structure/noticeboard/ex_act(var/severity)
-	dismantle()
+/obj/structure/noticeboard/explosion_act(var/severity)
+	. = ..()
+	if(.)
+		physically_destroyed()
 
 /obj/structure/noticeboard/on_update_icon()
 	icon_state = "[base_icon_state][LAZYLEN(notices)]"
@@ -91,6 +93,7 @@
 /obj/structure/noticeboard/attackby(var/obj/item/thing, var/mob/user)
 	. = ..()
 	if(!.)
+
 		if(isScrewdriver(thing))
 			var/choice = input("Which direction do you wish to place the noticeboard?", "Noticeboard Offset") as null|anything in list("North", "South", "East", "West")
 			if(choice && Adjacent(user) && thing.loc == user && !user.incapacitated())
@@ -108,19 +111,19 @@
 					if("West")
 						pixel_x = -32
 						pixel_y = 0
-			return
-		else if(istype(thing, /obj/item/paper) || istype(thing, /obj/item/photo))
+			return TRUE
+
+		if(!istype(thing, /obj/item/paper/sticky) && (istype(thing, /obj/item/paper) || istype(thing, /obj/item/photo)))
 			if(jobban_isbanned(user, "Graffiti"))
 				to_chat(user, SPAN_WARNING("You are banned from leaving persistent information across rounds."))
+			else if(LAZYLEN(notices) < max_notices && user.unEquip(thing, src))
+				add_fingerprint(user)
+				add_paper(thing)
+				to_chat(user, SPAN_NOTICE("You pin \the [thing] to \the [src]."))
+				SSpersistence.track_value(thing, /datum/persistent/paper)
 			else
-				if(LAZYLEN(notices) < max_notices && user.unEquip(thing, src))
-					add_fingerprint(user)
-					add_paper(thing)
-					to_chat(user, SPAN_NOTICE("You pin \the [thing] to \the [src]."))
-					SSpersistence.track_value(thing, /datum/persistent/paper)
-				else
-					to_chat(user, SPAN_WARNING("You hesitate, certain \the [thing] will not be seen among the many others already attached to \the [src]."))
-			return
+				to_chat(user, SPAN_WARNING("You hesitate, certain \the [thing] will not be seen among the many others already attached to \the [src]."))
+			return TRUE
 
 /obj/structure/noticeboard/attack_ai(var/mob/user)
 	examine(user)
@@ -165,9 +168,7 @@
 		var/obj/item/P = locate(href_list["write"])
 		if(!P)
 			return
-		var/obj/item/pen/pen = user.r_hand
-		if(!istype(pen))
-			pen = user.l_hand
+		var/obj/item/pen/pen = locate() in user.get_held_items()
 		if(istype(pen))
 			add_fingerprint(user)
 			P.attackby(pen, user)

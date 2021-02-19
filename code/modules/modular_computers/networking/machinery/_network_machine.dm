@@ -1,6 +1,8 @@
 /obj/machinery/network
 	name = "base network machine"
+	icon = 'icons/obj/machines/tcomms/bus.dmi'
 	icon_state = "bus"
+	density = 1
 
 	var/main_template = "network_mainframe.tmpl"
 	var/network_device_type =  /datum/extension/network_device
@@ -26,10 +28,11 @@
 			return TRUE
 
 /obj/machinery/network/on_update_icon()
-	if(operable())
-		icon_state = panel_open ? "bus_o" : "bus"
-	else
-		icon_state = panel_open ? "bus_o_off" : "bus_off"
+	icon_state = initial(icon_state)
+	if(panel_open)
+		icon_state = "[icon_state]_o" 
+	if(!operable())
+		icon_state = "[icon_state]_off"
 
 /obj/machinery/network/proc/produce_heat()
 	if (!produces_heat || !use_power || !operable())
@@ -117,3 +120,11 @@
 		D.connect()
 	else
 		D.disconnect()
+
+/obj/machinery/network/proc/get_message_server()
+	var/datum/extension/network_device/network_device = get_extension(src, /datum/extension/network_device)
+	var/datum/computer_network/network = network_device?.get_network()
+	for(var/datum/extension/network_device/message_server in network?.devices)
+		var/obj/machinery/network/message_server/MS = message_server.holder
+		if(istype(MS) && !(MS.stat & (BROKEN|NOPOWER)))
+			return MS

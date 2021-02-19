@@ -3,7 +3,6 @@
 	plane = DEFAULT_PLANE
 	layer = MOB_LAYER
 
-	appearance_flags = PIXEL_SCALE
 	animate_movement = 2
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 
@@ -78,17 +77,15 @@
 	var/disabilities = 0	//Carbon
 
 	var/next_move = null
-	var/hand = null
 	var/real_name = null
 
 	var/bhunger = 0			//Carbon
 
-	var/druggy = 0			//Carbon
+	var/drugged = 0			//Carbon
 	var/confused = 0		//Carbon
 	var/sleeping = 0		//Carbon
 	var/resting = 0			//Carbon
 	var/lying = 0
-	var/lying_prev = 0
 
 	var/radio_interrupt_cooldown = 0
 
@@ -103,7 +100,7 @@
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
 
 	var/name_archive //For admin things like possession
-
+	var/mob_sort_value = INFINITY // used for sorted player list, higher means closer to the bottom of the list.
 	var/timeofdeath = 0
 
 	var/bodytemperature = 310.055	//98.7 F
@@ -121,8 +118,6 @@
 	var/decl/move_intent/default_run_intent
 
 	var/obj/buckled = null//Living
-	var/obj/item/l_hand = null//Living
-	var/obj/item/r_hand = null//Living
 	var/obj/item/back = null//Human/Monkey
 	var/obj/item/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
@@ -146,9 +141,9 @@
 	var/blinded = null
 	var/ear_deaf = null		//Carbon
 
-//The last mob/living/carbon to push/drag/grab this mob (mostly used by slimes friend recognition)
-	var/mob/living/carbon/LAssailant = null
-
+	//The last mob/living/carbon to push/drag/grab this mob (mostly used by slimes friend recognition)
+	var/weakref/last_handled_by_mob 
+	
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 	var/update_icon = 1 //Set to 1 to trigger update_icons() at the next life() call
@@ -186,3 +181,5 @@
 	var/list/additional_vision_handlers = list() //Basically a list of atoms from which additional vision data is retrieved
 
 	var/list/progressbars = null //for stacking do_after bars
+
+	var/datum/ai/ai						// Type abused. Define with path and will automagically create. Determines behaviour for clientless mobs.

@@ -7,6 +7,7 @@
 	icon_state = "robot"
 	maxHealth = 300
 	health = 300
+	mob_sort_value = 4
 
 	mob_bump_flag = ROBOT
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
@@ -38,6 +39,7 @@
 	var/obj/screen/inv1 = null
 	var/obj/screen/inv2 = null
 	var/obj/screen/inv3 = null
+	var/obj/screen/robot_drop_grab/ui_drop_grab
 
 	var/shown_robot_modules = 0 //Used to determine whether they have the module menu shown or not
 	var/obj/screen/robot_modules_background
@@ -79,7 +81,7 @@
 	var/lower_mod = 0
 	var/jetpack = 0
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
-	var/datum/effect/effect/system/spark_spread/spark_system//So they can initialize sparks whenever/N
+	var/datum/effect/effect/system/spark_spread/spark_system
 	var/jeton = 0
 	var/killswitch = 0
 	var/killswitch_time = 60
@@ -106,6 +108,7 @@
 	spark_system.attach(src)
 
 	add_language(/decl/language/binary, 1)
+	add_language(/decl/language/machine, 1)
 	add_language(/decl/language/human/common, 1)
 
 	wires = new(src)
@@ -477,14 +480,14 @@
 
 /mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
 	..(Proj)
-	if(prob(75) && Proj.damage > 0) spark_system.start()
+	if(prob(75) && Proj.damage > 0) 
+		spark_system.start()
 	return 2
 
 /mob/living/silicon/robot/attackby(obj/item/W, mob/user)
 
-	if(istype(W, /obj/item/inducer)) return // inducer.dm afterattack handles this
-	if (istype(W, /obj/item/handcuffs)) // fuck i don't even know why isrobot() in handcuff code isn't working so this will have to do
-		return
+	if(istype(W, /obj/item/inducer) || istype(W, /obj/item/handcuffs))
+		return TRUE
 
 	if(opened) // Are they trying to insert something?
 		for(var/V in components)
@@ -652,7 +655,7 @@
 				update_icon()
 			else
 				to_chat(user, "<span class='warning'>Access denied.</span>")
-	else if(istype(W, /obj/item/borg/upgrade/))
+	else if(istype(W, /obj/item/borg/upgrade))
 		var/obj/item/borg/upgrade/U = W
 		if(!opened)
 			to_chat(usr, "You must access the borgs internals!")
@@ -670,7 +673,7 @@
 				to_chat(usr, "Upgrade error!")
 
 	else
-		if( !(istype(W, /obj/item/robotanalyzer) || istype(W, /obj/item/scanner/health)) )
+		if(!(istype(W, /obj/item/robotanalyzer) || istype(W, /obj/item/scanner/health)) && W.force && user.a_intent != I_HELP)
 			spark_system.start()
 		return ..()
 
@@ -886,16 +889,12 @@
 						if(cleaned_human.lying)
 							if(cleaned_human.head)
 								cleaned_human.head.clean_blood()
-								cleaned_human.update_inv_head(0)
 							if(cleaned_human.wear_suit)
 								cleaned_human.wear_suit.clean_blood()
-								cleaned_human.update_inv_wear_suit(0)
 							else if(cleaned_human.w_uniform)
 								cleaned_human.w_uniform.clean_blood()
-								cleaned_human.update_inv_w_uniform(0)
 							if(cleaned_human.shoes)
 								cleaned_human.shoes.clean_blood()
-								cleaned_human.update_inv_shoes(0)
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, "<span class='warning'>[src] cleans your face!</span>")
 		return
@@ -954,7 +953,7 @@
 	set waitfor = 0
 	if(!LAZYLEN(module_sprites))
 		to_chat(src, "Something is badly wrong with the sprite selection. Harass a coder.")
-		return
+		CRASH("Can't setup robot icon for [src] ([src.client]). Module: [module?.name]")
 
 	icon_selected = FALSE
 	if(module_sprites.len == 1 || !client)
@@ -965,6 +964,7 @@
 		for(var/i in module_sprites)
 			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i])
 			radial_button.overlays.Add(image(icon = src.icon, icon_state = "eyes-[module_sprites[i]]"))
+			radial_button.name = i
 			options[i] = radial_button
 		icontype = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
 
@@ -1117,3 +1117,6 @@
 	if(.)
 		handle_selfinsert(W, user)
 		recalculate_synth_capacities()
+
+/mob/living/silicon/robot/get_admin_job_string()
+	return "Robot"

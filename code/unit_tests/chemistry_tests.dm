@@ -12,7 +12,7 @@
 
 	var/atom/from = new donor_type(test_loc)
 	from.create_reagents(container_volume)
-	from.reagents.add_reagent(/decl/reagent/water, container_volume)
+	from.reagents.add_reagent(/decl/material/liquid/water, container_volume)
 
 	var/atom/target
 	if(ispath(recipient_type, /turf) && istype(test_loc, recipient_type))
@@ -56,11 +56,15 @@
 		var/to_holding_target = container_volume * 0.5
 		var/from_remaining_target = container_volume - to_holding_target
 		var/datum/reagents/checking = get_first_reagent_holder(from)
+		if(!checking)
+			return "first holder is null."
 		if(checking?.total_volume != from_remaining_target)
-			return "first holder should have [from_remaining_target]u remaining but has [from.reagents.total_volume]u."
+			return "first holder should have [from_remaining_target]u remaining but has [checking.total_volume]u."
 		checking = get_second_reagent_holder(target)
+		if(!checking)
+			return "second holder is null."
 		if(checking?.total_volume != to_holding_target)
-			return "second holder should hold [to_holding_target]u but has [target.reagents.total_volume]u."
+			return "second holder should hold [to_holding_target]u but has [checking.total_volume]u."
 
 /datum/unit_test/chemistry/proc/validate_holders(var/atom/from, var/atom/target)
 	if(QDELETED(from))
@@ -86,11 +90,11 @@
 
 /datum/unit_test/chemistry/test_trans_to/to_mob
 	name = "CHEMISTRY: trans_to() Test (mob)"
-	recipient_type = /mob/living/carbon
+	recipient_type = /mob/living
 
 /datum/unit_test/chemistry/test_trans_to/to_mob/get_second_reagent_holder(var/atom/from)
-	var/mob/living/carbon/C = from
-	. = C.touching
+	var/mob/living/testmob = from
+	. = testmob.get_contact_reagents()
 
 /datum/unit_test/chemistry/test_trans_to_holder
 	name = "CHEMISTRY: trans_to_holder() Test"
@@ -110,7 +114,7 @@
 
 /datum/unit_test/chemistry/test_trans_to_mob
 	name = "CHEMISTRY: trans_to_mob() Test"
-	recipient_type = /mob/living/carbon
+	recipient_type = /mob/living
 
 /datum/unit_test/chemistry/test_trans_to_mob/perform_transfer(var/atom/from, var/atom/target)
 	. = ..()
@@ -123,8 +127,8 @@
 /datum/unit_test/reagent_colors_test/start_test()
 	var/list/bad_reagents = list()
 
-	for(var/T in typesof(/decl/reagent))
-		var/decl/reagent/R = T
+	for(var/T in typesof(/decl/material))
+		var/decl/material/R = T
 		if(length(initial(R.color)) != 7)
 			bad_reagents += "[T] ([initial(R.color)])"
 
@@ -141,10 +145,10 @@
 /datum/unit_test/chem_recipes_shall_not_overlap/start_test()
 	var/list/bad_recipes = list()
 
-	for(var/path in SSchemistry.chemical_reactions)
-		var/datum/chemical_reaction/reaction = SSchemistry.chemical_reactions[path]
+	for(var/path in SSmaterials.chemical_reactions)
+		var/datum/chemical_reaction/reaction = SSmaterials.chemical_reactions[path]
 		for(var/reagent in reaction.required_reagents)
-			for(var/datum/chemical_reaction/other_reaction in SSchemistry.chemical_reactions_by_id[reagent])
+			for(var/datum/chemical_reaction/other_reaction in SSmaterials.chemical_reactions_by_id[reagent])
 				// We check if their requirements to react are a subset of our reaction's requirements, i.e. (we can react) implies (they can react)
 				if(other_reaction == reaction)
 					continue

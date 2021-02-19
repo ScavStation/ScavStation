@@ -170,9 +170,9 @@
 // Decompile the hexadecimal colour into lumcounts of each perspective.
 /datum/light_source/proc/parse_light_color()
 	if(light_color)
-		lum_r = GetRedPart  (light_color) / 255
-		lum_g = GetGreenPart(light_color) / 255
-		lum_b = GetBluePart (light_color) / 255
+		lum_r = HEX_RED(light_color) / 255
+		lum_g = HEX_GREEN(light_color) / 255
+		lum_b = HEX_BLUE(light_color) / 255
 	else
 		lum_r = 1
 		lum_g = 1
@@ -212,7 +212,6 @@
 
 #define LUM_FALLOFF(C, T)(CLAMP01(-((((C.x - T.x) ** 2 +(C.y - T.y) ** 2) ** 0.5 - light_outer_range) / max(light_outer_range - light_inner_range, 1))) ** light_falloff_curve)
 
-
 /datum/light_source/proc/apply_lum()
 	var/static/update_gen = 1
 	applied = 1
@@ -223,29 +222,29 @@
 	applied_lum_b = lum_b
 
 	FOR_DVIEW(var/turf/T, light_outer_range, source_turf, INVISIBILITY_LIGHTING)
-		check_t:
-		if(!T.lighting_corners_initialised)
-			T.generate_missing_corners()
+		while(T.above)
+			T = T.above
+		do
+			if(!T.lighting_corners_initialised)
+				T.generate_missing_corners()
 
-		for(var/datum/lighting_corner/C in T.get_corners())
-			if(C.update_gen == update_gen)
-				continue
+			for(var/datum/lighting_corner/C in T.get_corners())
+				if(C.update_gen == update_gen)
+					continue
 
-			C.update_gen = update_gen
-			C.affecting += src
+				C.update_gen = update_gen
+				C.affecting += src
 
-			if(!C.active)
-				effect_str[C] = 0
-				continue
+				if(!C.active)
+					effect_str[C] = 0
+					continue
 
-			APPLY_CORNER(C)
+				APPLY_CORNER(C)
 
-		LAZYADD(T.affecting_lights, src)
-		affecting_turfs += T
-
-		if (T.z_flags & ZM_ALLOW_LIGHTING)
-			T = T.below
-			goto check_t
+			LAZYADD(T.affecting_lights, src)
+			affecting_turfs += T
+			T = (T.z_flags & ZM_ALLOW_LIGHTING) && (T = T.below)
+		while(T)
 
 	END_FOR_DVIEW
 
@@ -281,8 +280,8 @@
 		corners |= T.get_corners()
 		turfs   += T
 
-		var/turf/simulated/open/O = T
-		if(istype(O) && O.below)
+		var/turf/O = T
+		if(istype(O) && O.is_open() && O.below)
 			// Consider the turf below us as well. (Z-lights)
 			for(T = O.below; !isnull(T); T = update_the_turf(T,corners, turfs));
 
@@ -316,9 +315,8 @@
 	corners |= T.get_corners()
 	turfs   += T
 
-	var/turf/simulated/open/O = T
-	if(istype(O) && O.below)
-		return O.below
+	if(T.is_open() && T.below)
+		return T.below
 	return null
 
 #undef effect_update

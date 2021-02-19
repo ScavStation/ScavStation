@@ -208,7 +208,7 @@
 /area/casino/casino_bridge)
 "aF" = (
 /obj/structure/bed/chair{
-	dir = 4;
+	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled,
@@ -478,7 +478,7 @@
 /area/space)
 "bu" = (
 /obj/structure/table/rack,
-/obj/item/material/knife/combat,
+/obj/item/knife/combat,
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "bv" = (
@@ -565,7 +565,7 @@
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "bD" = (
-/obj/item/material/shard,
+/obj/item/shard,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1079,7 +1079,7 @@
 /area/casino/casino_security)
 "cS" = (
 /obj/structure/bed/chair{
-	dir = 4;
+	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled,
@@ -1261,7 +1261,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/item/material/knife/folding,
+/obj/item/knife/folding,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_crew_bathroom)
@@ -1297,8 +1297,8 @@
 /area/casino/casino_security)
 "dC" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/bulletproof/vest,
-/obj/item/clothing/suit/armor/bulletproof/vest,
+/obj/item/clothing/suit/armor/vest,
+/obj/item/clothing/suit/armor/vest,
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "dD" = (
@@ -1424,7 +1424,7 @@
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "dU" = (
-/obj/item/clothing/suit/armor/bulletproof/vest,
+/obj/item/clothing/suit/armor/vest,
 /obj/random/ammo,
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
@@ -2114,7 +2114,7 @@
 	id_tag = "casino_main"
 	},
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/casino/casino_mainfloor)
 "fB" = (
 /obj/machinery/light/small{
@@ -2178,7 +2178,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "fJ" = (
-/obj/item/material/shard,
+/obj/item/shard,
 /obj/structure/coatrack,
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
@@ -2235,7 +2235,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/kitchen/utensil/fork,
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_cantina)
 "fT" = (
@@ -2446,7 +2446,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/material/ashtray/bronze,
+/obj/item/ashtray,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
 "gv" = (
@@ -2790,7 +2790,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
 "hy" = (
-/obj/item/material/shard,
+/obj/item/shard,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
 "hz" = (
@@ -2980,7 +2980,7 @@
 "ia" = (
 /obj/structure/table/woodentable,
 /obj/item/trash/plate,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/kitchen/utensil/fork,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
 "ib" = (
@@ -3110,7 +3110,7 @@
 /obj/structure/bed/chair/comfy/red{
 	dir = 4
 	},
-/obj/item/material/knife/combat,
+/obj/item/knife/combat,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
 "iq" = (
@@ -3333,7 +3333,7 @@
 "iR" = (
 /obj/structure/table/woodentable,
 /obj/item/trash/plate,
-/obj/item/material/kitchen/utensil/spoon,
+/obj/item/kitchen/utensil/spoon,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
 "iS" = (
@@ -3674,7 +3674,7 @@
 /area/casino/casino_mainfloor)
 "jH" = (
 /obj/structure/table/marble,
-/obj/item/material/ashtray/bronze,
+/obj/item/ashtray,
 /obj/item/flame/lighter/zippo/random,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
@@ -3684,12 +3684,12 @@
 /area/casino/casino_mainfloor)
 "jJ" = (
 /obj/structure/table/woodentable,
-/obj/item/material/ashtray/bronze,
+/obj/item/ashtray,
 /obj/item/chems/food/snacks/cubancarp,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
 "jK" = (
-/obj/item/material/ashtray/bronze,
+/obj/item/ashtray,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
 "jL" = (
@@ -3745,7 +3745,7 @@
 "jR" = (
 /obj/structure/table/marble,
 /obj/item/chems/food/drinks/bottle/gin,
-/obj/item/chems/food/drinks/bottle/tequilla{
+/obj/item/chems/food/drinks/bottle/tequila{
 	pixel_x = -10
 	},
 /obj/item/chems/food/drinks/bottle/vodka{
@@ -3794,7 +3794,7 @@
 /obj/structure/table/gamblingtable,
 /obj/structure/casino/bj_table/bj_right,
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana,
-/obj/item/material/ashtray/bronze,
+/obj/item/ashtray,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
 "jY" = (
@@ -4109,10 +4109,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
-"kP" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/plating,
-/area/casino/casino_crew_atmos)
 "kQ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/door/wood{
@@ -4207,11 +4203,6 @@
 /turf/simulated/floor/reinforced,
 /area/casino/casino_bow)
 "ld" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/plating,
-/area/casino/casino_crew_atmos)
-"le" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/casino/casino_crew_atmos)
@@ -4435,13 +4426,13 @@
 /area/casino/casino_mainfloor)
 "lw" = (
 /obj/structure/showcase{
-	desc = "A bewilderingly complex prototype designed to split the fabric of spacetime and allow access to Bluespace.";
+	desc = "A bewilderingly complex prototype designed to split the fabric of spacetime and generate traversable wormholes.";
 	icon = 'icons/obj/power.dmi';
 	icon_state = "tracker";
-	name = "Bluespace Drive"
+	name = "wormhole generator"
 	},
 /obj/machinery/shield{
-	desc = "An energy shield used to contain the exotic particles emitted by the Bluespace Drive.";
+	desc = "An energy shield used to contain the exotic particles emitted by the wormhole generator.";
 	name = "Containment Shield"
 	},
 /obj/structure/cable/green{
@@ -4459,7 +4450,7 @@
 /turf/simulated/floor/reinforced,
 /area/casino/casino_bow)
 "ly" = (
-/obj/effect/wingrille_spawn/reinforced_phoron/full,
+/obj/effect/wingrille_spawn/reinforced_borosilicate/full,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -4470,7 +4461,7 @@
 "lz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Bluespace Drive";
+	name = "Wormhole Generator";
 	secured_wires = 0
 	},
 /obj/structure/cable/green{
@@ -4598,10 +4589,6 @@
 /obj/structure/bed/chair/comfy/black,
 /turf/simulated/floor/carpet,
 /area/casino/casino_mainfloor)
-"lW" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/reinforced,
-/area/casino/casino_bow)
 "lX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -4632,7 +4619,7 @@
 /area/casino/casino_private_vip)
 "ma" = (
 /obj/structure/table/woodentable,
-/obj/item/material/ashtray/bronze,
+/obj/item/ashtray,
 /obj/random/drinkbottle,
 /turf/simulated/floor/wood,
 /area/casino/casino_private_vip)
@@ -4966,7 +4953,7 @@
 	icon_state = "pdoor0";
 	id_tag = "Starboard wide window BD"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/casino/casino_bow)
 "na" = (
 /obj/machinery/door/airlock/external{
@@ -5388,7 +5375,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "Bb" = (
-/obj/item/material/shard,
+/obj/item/shard,
 /obj/item/ammo_casing/pistol/magnum/used,
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
@@ -5477,7 +5464,7 @@
 /area/casino/casino_mainfloor)
 "Fb" = (
 /obj/structure/bed/chair{
-	dir = 4;
+	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable{
@@ -9650,7 +9637,7 @@ kC
 kC
 lc
 lx
-lW
+lb
 kC
 kC
 aa
@@ -9851,7 +9838,7 @@ jY
 jY
 ku
 kD
-kP
+jN
 ld
 lA
 kC
@@ -9954,7 +9941,7 @@ jN
 kv
 kv
 jN
-le
+ld
 lA
 kC
 ml
@@ -10056,7 +10043,7 @@ jN
 jN
 jN
 jN
-le
+ld
 lB
 kC
 Qc
@@ -10158,7 +10145,7 @@ ka
 jN
 jN
 jN
-le
+ld
 lA
 kC
 mm

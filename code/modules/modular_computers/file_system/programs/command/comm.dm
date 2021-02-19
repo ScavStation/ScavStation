@@ -11,7 +11,7 @@
 	program_menu_icon = "flag"
 	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control. Can relay long-range communications. This program can not be run on tablet computers."
-	required_access = access_bridge
+	required_access = list(access_bridge)
 	requires_network = 1
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
@@ -109,7 +109,7 @@
 
 /datum/nano_module/program/comm/proc/is_autenthicated(var/mob/user)
 	if(program)
-		return program.can_run(user)
+		return program.can_run(user, program.computer.get_network())
 	return 1
 
 /datum/nano_module/program/comm/proc/obtain_message_listener()
@@ -141,7 +141,7 @@
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					return TRUE
 				var/input = input(usr, "Please write a message to announce to the [station_name()].", "Priority Announcement") as null|message
-				if(!input || !can_still_topic())
+				if(!input || !can_still_topic() || filter_block_message(usr, input))
 					return 1
 				var/affected_zlevels = GetConnectedZlevels(get_host_z())
 				crew_announcement.Announce(input, zlevels = affected_zlevels)
@@ -158,7 +158,7 @@
 							SSnano.update_uis(src)
 							return
 						var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
-						if(!input || !can_still_topic())
+						if(!input || !can_still_topic() || filter_block_message(usr, input))
 							return 1
 						Syndicate_announce(input, usr)
 						to_chat(usr, "<span class='notice'>Message transmitted.</span>")
@@ -173,10 +173,10 @@
 						SSnano.update_uis(src)
 						return
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
-						to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
+						to_chat(usr, "<span class='warning'>No emergency communication relay detected. Unable to transmit message.</span>")
 						return 1
 					var/input = sanitize(input("Please choose a message to transmit to [GLOB.using_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
-					if(!input || !can_still_topic())
+					if(!input || !can_still_topic() || filter_block_message(usr, input))
 						return 1
 					Centcomm_announce(input, usr)
 					to_chat(usr, "<span class='notice'>Message transmitted.</span>")
@@ -325,7 +325,7 @@ var/last_message_id = 0
 
 
 /proc/is_relay_online()
-	for(var/obj/machinery/bluespacerelay/M in SSmachines.machinery)
+	for(var/obj/machinery/commsrelay/M in SSmachines.machinery)
 		if(M.stat == 0)
 			return 1
 	return 0
@@ -338,7 +338,7 @@ var/last_message_id = 0
 		emergency = 1
 
 	if(!GLOB.universe.OnShuttleCall(usr))
-		to_chat(user, "<span class='notice'>Cannot establish a bluespace connection.</span>")
+		to_chat(user, "<span class='notice'>Cannot establish a connection.</span>")
 		return
 
 	if(SSevac.evacuation_controller.deny)

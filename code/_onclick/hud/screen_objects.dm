@@ -43,6 +43,51 @@
 			S.close(usr)
 	return 1
 
+/obj/screen/default_attack_selector
+	name = "default attack selector"
+	icon_state = "attack_selector"
+	screen_loc = ui_attack_selector
+	maptext_y = 5
+	var/mob/living/carbon/human/owner
+
+/obj/screen/default_attack_selector/Click(location, control, params)
+	if(!owner || usr != owner || owner.incapacitated())
+		return FALSE
+
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"])
+		var/decl/natural_attack/attack = owner.get_unarmed_attack()
+		to_chat(owner, SPAN_NOTICE("Your current default attack is <b>[attack?.name || "unset"]</b>."))
+		if(attack)
+			var/summary = attack.summarize()
+			if(summary)
+				to_chat(owner, SPAN_NOTICE(summary))
+
+		return
+
+	owner.set_default_unarmed_attack()
+	return TRUE
+
+/obj/screen/default_attack_selector/Destroy()
+	if(owner)
+		if(owner.attack_selector == src)
+			owner.attack_selector = null
+		owner = null
+	. = ..()
+
+/obj/screen/default_attack_selector/proc/set_owner(var/mob/living/carbon/human/_owner)
+	owner = _owner
+	if(!owner)
+		qdel(src)
+	else
+		update_icon()
+
+/obj/screen/default_attack_selector/on_update_icon()
+	var/decl/natural_attack/attack = owner?.get_unarmed_attack()
+	if(!attack)
+		maptext = "<center>[STYLE_SMALLFONTS_OUTLINE("NONE", 5, COLOR_WHITE, COLOR_BLACK)]</center>"
+	else
+		maptext = "<center>[STYLE_SMALLFONTS_OUTLINE("[uppertext(attack.name)]", 5, COLOR_WHITE, COLOR_BLACK)]</center>"
 
 /obj/screen/item_action
 	var/obj/item/owner
@@ -207,7 +252,7 @@
 
 		if("Reset Machine")
 			usr.unset_machine()
-		
+
 		if("up hint")
 			if(isliving(usr))
 				var/mob/living/L = usr
@@ -233,18 +278,20 @@
 						else
 							var/list/nicename = null
 							var/list/tankcheck = null
-							var/breathes = MAT_OXYGEN    //default, we'll check later
+							var/breathes = /decl/material/gas/oxygen    //default, we'll check later
+							var/poisons = list(/decl/material/gas/chlorine)
 							var/list/contents = list()
 							var/from = "on"
 
 							if(ishuman(C))
 								var/mob/living/carbon/human/H = C
 								breathes = H.species.breath_type
-								nicename = list ("suit", "back", "belt", "right hand", "left hand", "left pocket", "right pocket")
-								tankcheck = list (H.s_store, C.back, H.belt, C.r_hand, C.l_hand, H.l_store, H.r_store)
+								poisons = H.species.poison_types
+								nicename = list ("suit", "back", "belt", "left pocket", "right pocket")
+								tankcheck = list (H.s_store, C.back, H.belt, H.l_store, H.r_store) | H.get_held_items()
 							else
-								nicename = list("right hand", "left hand", "back")
-								tankcheck = list(C.r_hand, C.l_hand, C.back)
+								nicename = list("back")
+								tankcheck = list(C.back) | C.get_held_items()
 
 							// Rigs are a fucking pain since they keep an air tank in nullspace.
 							if(istype(C.back,/obj/item/rig))
@@ -260,10 +307,19 @@
 									if (!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
 										contents.Add(t.air_contents.total_moles)	//Someone messed with the tank and put unknown gasses
 										continue					//in it, so we're going to believe the tank is what it says it is
-									if(t.air_contents.gas[breathes] && !t.air_contents.gas[MAT_PHORON])
+
+									var/breathable = FALSE
+									if(t.air_contents.gas[breathes])
+										breathable = TRUE
+										for(var/poison in poisons)
+											if(t.air_contents.gas[poison])
+												breathable = FALSE
+												break
+									if(breathable)
 										contents.Add(t.air_contents.gas[breathes])
 									else
 										contents.Add(0)
+
 								else
 									//no tank so we set contents to 0
 									contents.Add(0)
@@ -279,14 +335,16 @@
 									best = i
 									bestcontents = contents[i]
 
-
 							//We've determined the best container now we set it as our internals
-
 							if(best)
-								C.set_internals(tankcheck[best], "\the [tankcheck[best]] [from] your [nicename[best]]")
+								if(nicename[best])
+									C.set_internals(tankcheck[best], "\the [tankcheck[best]] [from] your [nicename[best]]")
+								else
+									C.set_internals(tankcheck[best], "\the [tankcheck[best]]")
 
 							if(!C.internal)
-								to_chat(C, "<span class='notice'>You don't have \a [breathes] tank.</span>")
+								var/decl/material/breath_data = decls_repository.get_decl(breathes)
+								to_chat(C, SPAN_WARNING("You don't have \a [breath_data.gas_name] tank."))
 		if("act_intent")
 			usr.a_intent_change("right")
 
@@ -354,27 +412,41 @@
 		return 1
 	if(usr.incapacitated())
 		return 1
+
+	if(iscarbon(usr))
+		var/mob/living/carbon/C = usr
+		if(name in C.held_item_slots)
+			if(name == C.get_active_held_item_slot())
+				C.attack_empty_hand()
+			else
+				C.select_held_item_slot(name)
+			return TRUE
+
 	switch(name)
-		if("r_hand")
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				if(C.hand)
-					C.activate_hand("r")
-				else
-					C.attack_empty_hand(BP_R_HAND)
-		if("l_hand")
-			if(iscarbon(usr))
-				var/mob/living/carbon/C = usr
-				if(!C.hand)
-					C.activate_hand("l")
-				else
-					C.attack_empty_hand(BP_L_HAND)
 		if("swap")
-			usr:swap_hand()
+			usr.swap_hand()
 		if("hand")
-			usr:swap_hand()
-		else
-			if(usr.attack_ui(slot_id))
-				usr.update_inv_l_hand(0)
-				usr.update_inv_r_hand(0)
+			usr.swap_hand()
+		else if(usr.attack_ui(slot_id))
+			usr.update_inv_hands(0)
 	return 1
+
+// Character setup stuff
+/obj/screen/setup_preview
+	plane = DEFAULT_PLANE
+	layer = MOB_LAYER
+
+	var/datum/preferences/pref
+
+/obj/screen/setup_preview/Destroy()
+	pref = null
+	return ..()
+
+// Background 'floor'
+/obj/screen/setup_preview/bg
+	layer = TURF_LAYER
+	mouse_over_pointer = MOUSE_HAND_POINTER
+
+/obj/screen/setup_preview/bg/Click(params)
+	pref?.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
+	pref?.update_preview_icon()

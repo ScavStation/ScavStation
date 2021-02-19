@@ -3,7 +3,6 @@
 	desc = "One man's garbage is another man's treasure."
 	icon = 'icons/obj/structures/rubble.dmi'
 	icon_state = "base"
-	appearance_flags = PIXEL_SCALE
 	opacity = 1
 	density = 1
 	anchored = 1
@@ -24,7 +23,7 @@
 	overlays.Cut()
 	var/list/parts = list()
 	for(var/i = 1 to 7)
-		var/image/I = image(icon,"rubble[rand(1,15)]")
+		var/image/I = image(icon,"rubble[rand(1,76)]")
 		if(prob(10))
 			var/atom/A = pick(loot)
 			if(initial(A.icon) && initial(A.icon_state))
@@ -74,9 +73,16 @@
 		return TRUE
 	. = ..()
 
-/obj/structure/rubble/destroyed()
+/obj/structure/rubble/dismantle()
+	SHOULD_CALL_PARENT(FALSE)
+	qdel(src)
+	. = TRUE
+	
+/obj/structure/rubble/physically_destroyed(var/skip_qdel)
+	SHOULD_CALL_PARENT(FALSE)
 	visible_message(SPAN_NOTICE("\The [src] is cleared away."))
 	qdel(src)
+	. = TRUE
 
 /obj/structure/rubble/house
 	loot = list(

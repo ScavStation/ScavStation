@@ -49,7 +49,7 @@
 		if("endgame_exit")
 			endgame_safespawns += loc
 			delete_me = 1
-		if("bluespacerift")
+		if("endgame_wormhole")
 			endgame_exits += loc
 			delete_me = 1
 
@@ -130,16 +130,9 @@
 	new /obj/item/clothing/under/suit_jacket(src.loc)
 	new /obj/item/clothing/head/that(src.loc)
 
-/obj/effect/landmark/costume/scratch/make_costumes()
-	new /obj/item/clothing/gloves/color/white(src.loc)
-	new /obj/item/clothing/shoes/color/white(src.loc)
-	new /obj/item/clothing/under/scratch(src.loc)
-	if (prob(30))
-		new /obj/item/clothing/head/cueball(src.loc)
-
 /obj/effect/landmark/costume/prig/make_costumes()
 	new /obj/item/clothing/accessory/wcoat/black(src.loc)
-	new /obj/item/clothing/glasses/monocle(src.loc)
+	new /obj/item/clothing/glasses/eyepatch/monocle(src.loc)
 	var/CHOICE= pick( /obj/item/clothing/head/bowler, /obj/item/clothing/head/that)
 	new CHOICE(src.loc)
 	new /obj/item/clothing/shoes/color/black(src.loc)

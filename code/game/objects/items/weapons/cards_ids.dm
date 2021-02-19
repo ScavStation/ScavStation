@@ -150,10 +150,8 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id
 	name = "identification card"
 	desc = "A card used to provide ID and determine access."
-	icon_state = "base"
-	item_state = "card-id"
+	icon = 'icons/obj/id/id.dmi'
 	slot_flags = SLOT_ID
-
 	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
 	var/associated_account_number = 0
@@ -195,16 +193,18 @@ var/const/NO_EMAG_ACT = -50
 				detail_color = j.selection_color
 	update_icon()
 
-/obj/item/card/id/get_mob_overlay(mob/user_mob, slot)
+/obj/item/card/id/get_mob_overlay(mob/user_mob, slot, bodypart)
 	var/image/ret = ..()
-	ret.overlays += overlay_image(ret.icon, "[ret.icon_state]_colors", detail_color, RESET_COLOR)
+	if(detail_color)
+		ret.overlays += overlay_image(ret.icon, "[ret.icon_state]-colors", detail_color, RESET_COLOR)
 	return ret
 
 /obj/item/card/id/on_update_icon()
-	overlays.Cut()
-	overlays += overlay_image(icon, "[icon_state]_colors", detail_color, RESET_COLOR)
+	cut_overlays()
+	if(detail_color)
+		add_overlay(overlay_image(icon, "[icon_state]-colors", detail_color, RESET_COLOR))
 	for(var/detail in extra_details)
-		overlays += overlay_image(icon, detail, flags=RESET_COLOR)
+		add_overlay(overlay_image(icon, detail, flags = RESET_COLOR))
 
 /obj/item/card/id/Topic(href, href_list, datum/topic_state/state)
 	var/mob/user = usr
@@ -254,7 +254,7 @@ var/const/NO_EMAG_ACT = -50
 	id_card.formal_name_suffix = initial(id_card.formal_name_suffix)
 	if(client && client.prefs)
 		for(var/culturetag in client.prefs.cultural_info)
-			var/decl/cultural_info/culture = SSlore.get_culture(client.prefs.cultural_info[culturetag])
+			var/decl/cultural_info/culture = decls_repository.get_decl(client.prefs.cultural_info[culturetag])
 			if(culture)
 				id_card.formal_name_prefix = "[culture.get_formal_name_prefix()][id_card.formal_name_prefix]"
 				id_card.formal_name_suffix = "[id_card.formal_name_suffix][culture.get_formal_name_suffix()]"
@@ -302,8 +302,8 @@ var/const/NO_EMAG_ACT = -50
 	return jointext(dat,null)
 
 /obj/item/card/id/attack_self(mob/user)
-	user.visible_message("\The [user] shows you: \icon[src] [src.name]. The assignment on the card: [src.assignment]",\
-		"You flash your ID card: \icon[src] [src.name]. The assignment on the card: [src.assignment]")
+	user.visible_message("\The [user] shows you: [html_icon(src)] [src.name]. The assignment on the card: [src.assignment]",\
+		"You flash your ID card: [html_icon(src)] [src.name]. The assignment on the card: [src.assignment]")
 
 	src.add_fingerprint(user)
 	return
@@ -319,11 +319,66 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
+	to_chat(usr, "[html_icon(src)] [name]: The current assignment on the card is [assignment].")
 	to_chat(usr, "The blood type on the card is [blood_type].")
 	to_chat(usr, "The DNA hash on the card is [dna_hash].")
 	to_chat(usr, "The fingerprint hash on the card is [fingerprint_hash].")
 	return
+
+/decl/vv_set_handler/id_card_military_branch
+	handled_type = /obj/item/card/id
+	handled_vars = list("military_branch")
+
+/decl/vv_set_handler/id_card_military_branch/handle_set_var(var/obj/item/card/id/id, variable, var_value, client)
+	if(!var_value)
+		id.military_branch = null
+		id.military_rank = null
+		return
+
+	if(istype(var_value, /datum/mil_branch))
+		if(var_value != id.military_branch)
+			id.military_branch = var_value
+			id.military_rank = null
+		return
+
+	if(ispath(var_value, /datum/mil_branch) || istext(var_value))
+		var/datum/mil_branch/new_branch = mil_branches.get_branch(var_value)
+		if(new_branch)
+			if(new_branch != id.military_branch)
+				id.military_branch = new_branch
+				id.military_rank = null
+			return
+	
+	to_chat(client, SPAN_WARNING("Input, must be an existing branch - [var_value] is invalid"))
+
+/decl/vv_set_handler/id_card_military_rank
+	handled_type = /obj/item/card/id
+	handled_vars = list("military_rank")
+
+/decl/vv_set_handler/id_card_military_rank/handle_set_var(var/obj/item/card/id/id, variable, var_value, client)
+	if(!var_value)
+		id.military_rank = null
+		return
+
+	if(!id.military_branch)
+		to_chat(client, SPAN_WARNING("military_branch not set - No valid ranks available"))
+		return
+
+	if(ispath(var_value, /datum/mil_rank))
+		var/datum/mil_rank/rank = var_value
+		var_value = initial(rank.name)
+
+	if(istype(var_value, /datum/mil_rank))
+		var/datum/mil_rank/rank = var_value
+		var_value = rank.name
+
+	if(istext(var_value))
+		var/new_rank = mil_branches.get_rank(id.military_branch.name, var_value)
+		if(new_rank)
+			id.military_rank = new_rank
+			return
+	
+	to_chat(client, SPAN_WARNING("Input must be an existing rank belonging to military_branch - [var_value] is invalid"))
 
 /obj/item/card/id/syndicate_command
 	name = "syndicate ID card"
@@ -462,6 +517,11 @@ var/const/NO_EMAG_ACT = -50
 		to_chat(usr, SPAN_WARNING("Pressing the synchronization button on the card causes a red LED to flash three times."))
 
 /obj/item/card/id/network/proc/refresh_access_record(var/datum/computer_network/network)
+	if(!network)
+		var/datum/extension/network_device/D = get_extension(src, /datum/extension/network_device)
+		network = D.get_network()
+	if(!network)
+		return
 	for(var/datum/extension/network_device/mainframe/mainframe in network.get_mainframes_by_role(MF_ROLE_CREW_RECORDS))
 		for(var/datum/computer_file/report/crew_record/ar in mainframe.get_all_files())
 			if(ar.user_id != user_id)

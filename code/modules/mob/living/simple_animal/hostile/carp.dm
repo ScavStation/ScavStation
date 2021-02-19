@@ -14,10 +14,7 @@
 	health = 50
 
 	harm_intent_damage = 8
-	melee_damage_lower = 10
-	melee_damage_upper = 20
-	attacktext = "bitten"
-	attack_sound = 'sound/weapons/bite.ogg'
+	natural_weapon = /obj/item/natural_weapon/bite
 	pry_time = 10 SECONDS
 	melee_damage_flags = DAM_SHARP
 	pry_desc = "biting"
@@ -33,8 +30,8 @@
 	pass_flags = PASS_FLAG_TABLE
 
 	meat_type = /obj/item/chems/food/snacks/fish/poison
-	skin_material = MAT_SKIN_FISH_PURPLE
-	bone_material = MAT_BONE_CARTILAGE
+	skin_material = /decl/material/solid/skin/fish/purple
+	bone_material = /decl/material/solid/bone/cartilage
 
 	var/carp_color = "carp" //holder for icon set
 	var/list/icon_sets = list("carp", "blue", "yellow", "grape", "rust", "teal")
@@ -45,8 +42,6 @@
 	update_icon()
 
 /mob/living/simple_animal/hostile/carp/proc/carp_randomify()
-	melee_damage_lower = rand(0.8 * initial(melee_damage_lower), initial(melee_damage_lower))
-	melee_damage_upper = rand(initial(melee_damage_upper), (1.2 * initial(melee_damage_upper)))
 	maxHealth = rand(initial(maxHealth), (1.5 * initial(maxHealth)))
 	health = maxHealth
 	if(prob(1))
@@ -64,11 +59,3 @@
 	. = ..()
 	if(.)
 		custom_emote(1,"nashes at [.]")
-
-/mob/living/simple_animal/hostile/carp/AttackingTarget()
-	. =..()
-	var/mob/living/L = .
-	if(istype(L))
-		if(prob(15))
-			L.Weaken(3)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")

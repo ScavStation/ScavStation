@@ -41,4 +41,4 @@
 
 /obj/item/chems/food/drinks/pitcher/coffee/Initialize()
 	. = ..()
-	reagents.add_reagent(/decl/reagent/drink/coffee, 120)
+	reagents.add_reagent(/decl/material/liquid/drink/coffee, 120)

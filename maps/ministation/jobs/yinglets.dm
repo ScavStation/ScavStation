@@ -20,9 +20,7 @@
 		SKILL_ANATOMY  = SKILL_EXPERT
 	)
 	skill_points = 25
-	department_refs = list(
-		DEPT_ENCLAVE
-	)
+	department_types = list(/decl/department/enclave)
 	selection_color = "#2f2f7f"
 	access = list(access_lawyer)
 	minimal_access = list(access_lawyer)

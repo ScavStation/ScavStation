@@ -39,7 +39,7 @@
 
 	..()
 
-/decl/cultural_info/proc/get_random_name(var/gender)
+/decl/cultural_info/proc/get_random_name(var/mob/M, var/gender)
 	var/decl/language/_language
 	if(name_language)
 		_language = decls_repository.get_decl(name_language)
@@ -112,5 +112,5 @@
 /decl/cultural_info/proc/get_qualifications()
 	return qualifications
 
-/decl/cultural_info/proc/get_possible_personal_goals(var/department_refs)
+/decl/cultural_info/proc/get_possible_personal_goals(var/department_types)
 	return

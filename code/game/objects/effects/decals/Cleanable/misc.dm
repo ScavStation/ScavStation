@@ -19,10 +19,6 @@
 		F.dirt += 4
 	qdel(src)
 
-/obj/effect/decal/cleanable/greenglow/Initialize()
-	. = ..()
-	addtimer(CALLBACK(src, /datum/proc/qdel_self), 2 MINUTES)
-
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
 	desc = "Someone should clean that up."
@@ -32,6 +28,12 @@
 	mouse_opacity = 0
 	persistent = TRUE
 
+/obj/effect/decal/cleanable/dirt/Destroy()
+	var/turf/simulated/T = loc
+	. = ..()
+	if(istype(T) && !(locate(/obj/effect/decal/cleanable/dirt) in T))
+		T.dirt = 0
+
 /obj/effect/decal/cleanable/flour
 	name = "flour"
 	desc = "It's still good. Four second rule!"
@@ -39,16 +41,6 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "flour"
 	persistent = TRUE
-
-/obj/effect/decal/cleanable/greenglow
-	name = "glowing goo"
-	desc = "Jeez. I hope that's not for lunch."
-	gender = PLURAL
-	light_outer_range = 1
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "greenglow"
-	persistent = TRUE
-	generic_filth = TRUE
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"
@@ -88,9 +80,7 @@
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	create_reagents(30, src)
 	if(prob(75))
-		var/matrix/M = matrix()
-		M.Turn(pick(90, 180, 270))
-		transform = M
+		set_rotation(pick(90, 180, 270))
 
 /obj/effect/decal/cleanable/vomit/on_update_icon()
 	. = ..()

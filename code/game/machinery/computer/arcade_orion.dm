@@ -115,7 +115,7 @@
 					event_title  += ": [stops[port]]"
 					event_actions = "<a href='?src=\ref[src];continue=1'>Shove off</a>"
 				if(ORION_TRAIL_RAIDERS)
-					event_desc   = "You arm yourselves as you prepare to fight off the vox menace!"
+					event_desc   = "You arm yourselves as you prepare to fight off the alien menace!"
 				if(ORION_TRAIL_DERELICT)
 					event_desc = "You come across an unpowered ship drifting slowly in the vastness of space. Sensors indicate there are no lifeforms aboard."
 				if(ORION_TRAIL_ILLNESS)
@@ -403,7 +403,7 @@
 				var/mob/living/carbon/M = usr
 				if(prob(50))
 					to_chat(usr, "<span class='warning'>You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?</span>")
-					M.hallucination(50, 50)
+					M.set_hallucination(50, 50)
 				else
 					to_chat(usr, "<span class='danger'>Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there...</span>")
 					M.take_organ_damage(10)

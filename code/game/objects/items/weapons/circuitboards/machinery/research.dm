@@ -1,5 +1,5 @@
 /obj/item/stock_parts/circuitboard/destructive_analyzer
-	name = T_BOARD("destructive analyzer")
+	name = "circuitboard (destructive analyzer)"
 	build_path = /obj/machinery/destructive_analyzer
 	board_type = "machine"
 	origin_tech = "{'magnets':2,'engineering':2,'programming':2}"
@@ -12,7 +12,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/autolathe
-	name = T_BOARD("autolathe")
+	name = "circuitboard (autolathe)"
 	build_path = /obj/machinery/fabricator
 	board_type = "machine"
 	origin_tech = "{'engineering':2,'programming':2}"
@@ -26,7 +26,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/autolathe/micro
-	name = T_BOARD("microlathe")
+	name = "circuitboard (microlathe)"
 	build_path = /obj/machinery/fabricator/micro
 	origin_tech = "{'engineering':1,'programming':1}"
 	req_components = list(
@@ -34,7 +34,7 @@
 		/obj/item/stock_parts/manipulator = 1
 	)
 /obj/item/stock_parts/circuitboard/autolathe/book
-	name = T_BOARD("autobinder")
+	name = "circuitboard (autobinder)"
 	build_path = /obj/machinery/fabricator/book
 	origin_tech = "{'engineering':1,'programming':1}"
 	req_components = list(
@@ -42,7 +42,7 @@
 		/obj/item/stock_parts/manipulator = 1
 	)
 /obj/item/stock_parts/circuitboard/replicator
-	name = T_BOARD("replicator")
+	name = "circuitboard (replicator)"
 	build_path = /obj/machinery/fabricator/replicator
 	board_type = "machine"
 	origin_tech = "{'engineering':3,'programming':2,'biotech':2}"
@@ -56,7 +56,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/protolathe
-	name = T_BOARD("protolathe")
+	name = "circuitboard (protolathe)"
 	build_path = /obj/machinery/fabricator/protolathe
 	board_type = "machine"
 	origin_tech = "{'engineering':2,'programming':2}"
@@ -71,7 +71,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/circuit_imprinter
-	name = T_BOARD("circuit imprinter")
+	name = "circuitboard (circuit imprinter)"
 	build_path = /obj/machinery/fabricator/imprinter
 	board_type = "machine"
 	origin_tech = "{'engineering':2,'programming':2}"
@@ -86,7 +86,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/mechfab
-	name = T_BOARD("industrial fabricator")
+	name = "circuitboard (industrial fabricator)"
 	build_path = /obj/machinery/fabricator/industrial
 	board_type = "machine"
 	origin_tech = "{'programming':3,'engineering':3}"
@@ -101,10 +101,25 @@
 	)
 
 /obj/item/stock_parts/circuitboard/roboticsfab
-	name = T_BOARD("robotics fabricator")
+	name = "circuitboard (robotics fabricator)"
 	build_path = /obj/machinery/fabricator/robotics
 	board_type = "machine"
-	origin_tech = "{'" + TECH_DATA + "':3,'" + TECH_ENGINEERING + "':3}"
+	origin_tech = "{'programming':3,'engineering':3}"
+	req_components = list(
+		/obj/item/stock_parts/matter_bin = 2,
+		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stock_parts/micro_laser = 1)
+	additional_spawn_components = list(
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stock_parts/keyboard = 1,
+		/obj/item/stock_parts/power/apc/buildable = 1
+	)
+
+/obj/item/stock_parts/circuitboard/textilesfab
+	name = "circuitboard (textiles fabricator)"
+	build_path = /obj/machinery/fabricator/textile
+	board_type = "machine"
+	origin_tech = "{'programming':3,'engineering':3}"
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 2,
 		/obj/item/stock_parts/manipulator = 1,
@@ -116,7 +131,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/suspension_gen
-	name = T_BOARD("suspension generator")
+	name = "circuitboard (suspension generator)"
 	build_path = /obj/machinery/suspension_gen
 	board_type = "machine"
 	origin_tech = "{'programming':4,'engineering':3,'magnets':4}"
@@ -133,7 +148,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/artifact_harvester
-	name = T_BOARD("artifact harvester")
+	name = "circuitboard (artifact harvester)"
 	build_path = /obj/machinery/artifact_harvester
 	board_type = "machine"
 	origin_tech = "{'programming':4,'engineering':3}"
@@ -148,7 +163,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/artifact_analyser
-	name = T_BOARD("artifact analyser")
+	name = "circuitboard (artifact analyser)"
 	build_path = /obj/machinery/artifact_analyser
 	board_type = "machine"
 	origin_tech = "{'programming':4,'engineering':3}"
@@ -162,7 +177,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/artifact_scanner
-	name = T_BOARD("artifact scanpad")
+	name = "circuitboard (artifact scanpad)"
 	build_path = /obj/machinery/artifact_scanpad
 	board_type = "machine"
 	origin_tech = "{'programming':2,'engineering':2,'magnets':2}"
@@ -174,10 +189,10 @@
 	)
 
 /obj/item/stock_parts/circuitboard/cryopod
-	name = T_BOARD("cryo pod")
+	name = "circuitboard (cryo pod)"
 	build_path = /obj/machinery/cryopod
 	board_type = "machine"
-	origin_tech = "{'programming':6,'engineering':6,'bluespace':6}"
+	origin_tech = "{'programming':6,'engineering':6,'wormholes':6}"
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 4,
 		/obj/item/stock_parts/manipulator = 1,
@@ -194,10 +209,10 @@
 	return typesof(/obj/machinery/cryopod)
 
 /obj/item/stock_parts/circuitboard/merchant_pad
-	name = T_BOARD("merchant pad")
+	name = "circuitboard (merchant pad)"
 	build_path = /obj/machinery/merchant_pad
 	board_type = "machine"
-	origin_tech = "{'programming':6,'bluespace':6,'esoteric':1}"
+	origin_tech = "{'programming':6,'wormholes':6,'esoteric':1}"
 	req_components = list(/obj/item/stack/cable_coil = 15)
 	req_components = list(
 		/obj/item/stock_parts/subspace/amplifier = 1,

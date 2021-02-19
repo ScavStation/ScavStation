@@ -141,7 +141,7 @@ var/global/list/narsie_list = list()
 	return 1
 
 /obj/singularity/narsie/proc/narsiefloor(var/turf/T)//leaving "footprints"
-	if(!(istype(T, /turf/simulated/wall/cult)||istype(T, /turf/space)))
+	if(!(istype(T, /turf/simulated/wall/cult) || isspaceturf(T)))
 		if(T.icon_state != "cult-narsie")
 			T.desc = "something that goes beyond your understanding went this way"
 			T.icon = 'icons/turf/flooring/cult.dmi'
@@ -184,7 +184,7 @@ var/global/list/narsie_list = list()
 				consume(AM)
 				continue
 
-		if (dist <= consume_range && !istype(A, /turf/space))
+		if (dist <= consume_range && !isspaceturf(A))
 			var/turf/T = A
 			if(T.holy)
 				T.holy = 0 //Nar-Sie doesn't give a shit about sacred grounds.
@@ -264,12 +264,14 @@ var/global/list/narsie_list = list()
 			var/turf/T2 = A
 			T2.ChangeTurf(get_base_turf_by_area(A))
 
-/obj/singularity/narsie/ex_act(severity) //No throwing bombs at it either. --NEO
+/obj/singularity/narsie/explosion_act(severity) //No throwing bombs at it either. --NEO
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /obj/singularity/narsie/proc/pickcultist() //Narsie rewards his cultists with being devoured first, then picks a ghost to follow. --NEO
 	var/list/cultists = list()
-	for(var/datum/mind/cult_nh_mind in GLOB.cult.current_antagonists)
+	var/decl/special_role/cult = decls_repository.get_decl(/decl/special_role/cultist)
+	for(var/datum/mind/cult_nh_mind in cult.current_antagonists)
 		if(!cult_nh_mind.current)
 			continue
 		if(cult_nh_mind.current.stat)
@@ -346,10 +348,11 @@ var/global/list/narsie_list = list()
 	grav_pull = 0
 
 /obj/singularity/narsie/wizard/eat()
-	for (var/turf/T in trange(consume_range, src))
+	for (var/turf/T in RANGE_TURFS(src, consume_range))
 		consume(T)
 
 /obj/singularity/narsie/proc/narsie_spawn_animation()
+	set waitfor = FALSE
 	icon = 'icons/obj/narsie_spawn_anim.dmi'
 	set_dir(SOUTH)
 	move_self = 0

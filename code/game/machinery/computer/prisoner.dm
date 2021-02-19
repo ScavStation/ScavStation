@@ -6,7 +6,7 @@
 	icon_keyboard = "security_key"
 	icon_screen = "explosive"
 	light_color = "#a91515"
-	req_access = list(access_armory)
+	initial_access = list(access_armory)
 	var/id = 0.0
 	var/temp = null
 	var/status = 0
@@ -45,7 +45,7 @@
 				if(!T.implanted) continue
 				var/loc_display = "Space"
 				var/mob/living/carbon/M = T.imp_in
-				if(!istype(M.loc, /turf/space))
+				if(!isspaceturf(M.loc))
 					var/turf/mob_loc = get_turf(M)
 					loc_display = mob_loc.loc
 				if(T.malfunction)

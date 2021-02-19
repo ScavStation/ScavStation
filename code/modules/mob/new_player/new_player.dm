@@ -8,7 +8,7 @@
 	var/datum/browser/panel
 	var/show_invalid_jobs = 0
 	universal_speak = TRUE
-
+	mob_sort_value = 10
 	invisibility = 101
 
 	density = 0
@@ -23,7 +23,7 @@
 	. = ..()
 	verbs += /mob/proc/toggle_antag_pool
 
-/mob/new_player/proc/new_player_panel(force = FALSE)
+/mob/new_player/proc/show_lobby_menu(force = FALSE)
 	if(!SScharacter_setup.initialized && !force)
 		return // Not ready yet.
 	var/output = list()
@@ -55,7 +55,7 @@
 			else
 				output += "<a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> "
 
-	output += "<hr>Current character: <b>[client.prefs.real_name]</b>[client.prefs.job_high ? ", [client.prefs.job_high]" : null]<br>"
+	output += "<hr>Current character: <a href='byond://?src=\ref[client.prefs];load=1'><b>[client.prefs.real_name]</b></a>[client.prefs.job_high ? ", [client.prefs.job_high]" : null]<br>"
 	if(GAME_STATE <= RUNLEVEL_LOBBY)
 		if(ready)
 			output += "<a class='linkOn' href='byond://?src=\ref[src];ready=0'>Un-Ready</a>"
@@ -79,7 +79,11 @@
 			stat("Game Mode:", "[SSticker.mode ? SSticker.mode.name : SSticker.master_mode] ([SSticker.master_mode])")
 		else
 			stat("Game Mode:", PUBLIC_GAME_MODE)
-		var/extra_antags = list2params(additional_antag_types)
+		var/list/additional_antag_ids = list()
+		for(var/antag_type in global.additional_antag_types)
+			var/decl/special_role/antag = decls_repository.get_decl(antag_type)
+			additional_antag_ids |= lowertext(antag.name)
+		var/extra_antags = list2params(additional_antag_ids)
 		stat("Added Antagonists:", extra_antags ? extra_antags : "None")
 
 		if(GAME_STATE <= RUNLEVEL_LOBBY)
@@ -113,7 +117,7 @@
 
 	if(href_list["refresh"])
 		panel.close()
-		new_player_panel()
+		show_lobby_menu()
 
 	if(href_list["observe"])
 		if(GAME_STATE < RUNLEVEL_LOBBY)
@@ -173,55 +177,18 @@
 		if(!SSjobs.check_general_join_blockers(src, job))
 			return FALSE
 
-		var/datum/species/S = get_species_by_key(client.prefs.species)
+		var/decl/species/S = get_species_by_key(client.prefs.species)
 		if(!check_species_allowed(S))
 			return 0
 
 		AttemptLateSpawn(job, client.prefs.spawnpoint)
 		return
 
-	if(href_list["privacy_poll"])
-		establish_db_connection()
-		if(!dbcon.IsConnected())
-			return
-		var/voted = 0
-
-		//First check if the person has not voted yet.
-		var/DBQuery/query = dbcon.NewQuery("SELECT * FROM `erro_privacy` WHERE `ckey` = '[src.ckey]'")
-		query.Execute()
-		while(query.NextRow())
-			voted = 1
-			break
-
-		//This is a safety switch, so only valid options pass through
-		var/option = "UNKNOWN"
-		switch(href_list["privacy_poll"])
-			if("signed")
-				option = "SIGNED"
-			if("anonymous")
-				option = "ANONYMOUS"
-			if("nostats")
-				option = "NOSTATS"
-			if("later")
-				close_browser(usr, "window=privacypoll")
-				return
-			if("abstain")
-				option = "ABSTAIN"
-
-		if(option == "UNKNOWN")
-			return
-
-		if(!voted)
-			var/DBQuery/query_insert = dbcon.NewQuery("INSERT INTO `erro_privacy` VALUES (NULL, NOW(), '[src.ckey]', '[option]')")
-			query_insert.Execute()
-			to_chat(usr, "<b>Thank you for your vote!</b>")
-			close_browser(usr, "window=privacypoll")
-
 	if(!ready && href_list["preference"])
 		if(client)
 			client.prefs.process_link(src, href_list)
 	else if(!href_list["late_join"])
-		new_player_panel()
+		show_lobby_menu()
 
 	if(href_list["showpoll"])
 
@@ -300,6 +267,10 @@
 		return
 
 	var/datum/spawnpoint/spawnpoint = job.get_spawnpoint(client)
+	if(!spawnpoint)
+		to_chat(src, alert("That spawnpoint is unavailable. Please try another."))
+		return 0
+
 	var/turf/spawn_turf = pick(spawnpoint.turfs)
 	if(job.latejoin_at_spawnpoints)
 		var/obj/S = job.get_roundstart_spawnpoint()
@@ -442,7 +413,7 @@
 
 	var/mob/living/carbon/human/new_character
 
-	var/datum/species/chosen_species
+	var/decl/species/chosen_species
 	if(client.prefs.species)
 		chosen_species = get_species_by_key(client.prefs.species)
 
@@ -459,7 +430,7 @@
 			return null
 		new_character = new(spawn_turf, chosen_species.name)
 		if(chosen_species.has_organ[BP_POSIBRAIN] && client && client.prefs.is_shackled)
-			var/obj/item/organ/internal/posibrain/B = new_character.internal_organs_by_name[BP_POSIBRAIN]
+			var/obj/item/organ/internal/posibrain/B = new_character.get_internal_organ(BP_POSIBRAIN)
 			if(B)	B.shackle(client.prefs.get_lawset())
 
 	if(!new_character)
@@ -518,9 +489,10 @@
 
 /mob/new_player/proc/close_spawn_windows()
 	close_browser(src, "window=latechoices") //closes late choices window
+	close_browser(src, "window=preferences_window") //closes preferences window
 	panel.close()
 
-/mob/new_player/proc/check_species_allowed(datum/species/S, var/show_alert=1)
+/mob/new_player/proc/check_species_allowed(var/decl/species/S, var/show_alert=1)
 	if(!S.is_available_for_join() && !has_admin_rights())
 		if(show_alert)
 			to_chat(src, alert("Your current species, [client.prefs.species], is not available for play."))
@@ -531,14 +503,12 @@
 		return 0
 	return 1
 
-/mob/new_player/get_species()
-	var/datum/species/chosen_species
+/mob/new_player/get_species_name()
+	var/decl/species/chosen_species
 	if(client.prefs.species)
 		chosen_species = get_species_by_key(client.prefs.species)
-
 	if(!chosen_species || !check_species_allowed(chosen_species, 0))
 		return GLOB.using_map.default_species
-
 	return chosen_species.name
 
 /mob/new_player/get_gender()
@@ -581,3 +551,6 @@ mob/new_player/MayRespawn()
 
 /mob/new_player/handle_writing_literacy(var/mob/user, var/text_content, var/skip_delays)
 	. = text_content
+
+/mob/new_player/get_admin_job_string()
+	return "New player"

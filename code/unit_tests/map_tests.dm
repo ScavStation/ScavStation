@@ -310,12 +310,12 @@ datum/unit_test/ladder_check/start_test()
 	for(var/obj/structure/ladder/L)
 		if(HasAbove(L.z))
 			var/turf/T = GetAbove(L)
-			if(!istype(T, /turf/simulated/open) && (locate(/obj/structure/ladder) in T))
+			if(!istype(T) || !T.is_open() && (locate(/obj/structure/ladder) in T))
 				LAZYADD(failed, "[L.x],[L.y],[L.z]")
 				continue
 		if(HasBelow(L.z))
-			var/turf/T = GetBelow(L)
-			if(!istype(L.loc, /turf/simulated/open) && (locate(/obj/structure/ladder) in T))
+			var/turf/T = get_turf(L)
+			if((!istype(T) || !T.is_open()) && (locate(/obj/structure/ladder) in GetBelow(L)))
 				LAZYADD(failed, "[L.x],[L.y],[L.z]")
 				continue
 	if(LAZYLEN(failed))
@@ -815,6 +815,37 @@ datum/unit_test/ladder_check/start_test()
 		if(value == A.id)
 			return FALSE
 
+	return TRUE
+
+/datum/unit_test/doors_shall_be_on_appropriate_turfs
+	name = "MAP: Doors shall be on appropriate turfs"
+
+/datum/unit_test/doors_shall_be_on_appropriate_turfs/start_test()
+	var/bad_doors = 0
+	for(var/obj/machinery/door/D in world)
+		if(QDELETED(D))
+			continue
+		if(!istype(D.loc, /turf))
+			bad_doors++
+			log_bad("Invalid door turf: [log_info_line(D.loc)]]")
+		else
+			var/list/turf_exceptions
+			var/obj/effect/landmark/map_data/MD = get_map_data(D.loc.z)
+			if(UNLINT(MD?.UT_turf_exceptions_by_door_type))
+				turf_exceptions = UNLINT(MD.UT_turf_exceptions_by_door_type[D.type])
+
+			var/is_bad_door = FALSE
+			for(var/turf/T in D.locs)
+				if((istype(T, /turf/simulated/open) || isspaceturf(T)) && !(T.type in turf_exceptions))
+					is_bad_door = TRUE
+					log_bad("Invalid door turf: [log_info_line(T)]]")
+			if(is_bad_door)
+				bad_doors++
+
+	if(bad_doors)
+		fail("Found [bad_doors] door\s on inappropriate turfs")
+	else
+		pass("All doors are on appropriate turfs")
 	return TRUE
 
 #undef SUCCESS

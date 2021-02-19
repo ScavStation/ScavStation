@@ -48,8 +48,8 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 /obj/item/spellbook/attack_self(mob/user)
 	if(!user.mind)
 		return
-	if (user.mind.special_role != ANTAG_WIZARD)
-		if (user.mind.special_role != ANTAG_APPRENTICE)
+	if (user.mind.assigned_special_role != /decl/special_role/wizard)
+		if (user.mind.assigned_special_role != "Wizard's Apprentice")
 			to_chat(user, "You can't make heads or tails of this book.")
 			return
 		if (spellbook.book_flags & LOCKED)
@@ -61,6 +61,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 
 /obj/item/spellbook/proc/make_sacrifice(obj/item/I, mob/user, var/reagent)
 	if(has_sacrificed)
+		to_chat(user, SPAN_WARNING("\The [src] is already sated! Wait for a return on your investment before you sacrifice more to it."))
 		return
 	if(reagent)
 		var/datum/reagents/R = I.reagents
@@ -78,7 +79,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 
 
 /obj/item/spellbook/attackby(obj/item/I, mob/user)
-	if(investing_time && !has_sacrificed)
+	if(investing_time)
 		var/list/objects = spellbook.sacrifice_objects
 		if(objects && objects.len)
 			for(var/type in objects)
@@ -98,7 +99,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	if(temp)
 		dat = "[temp]<br><a href='byond://?src=\ref[src];temp=1'>Return</a>"
 	else
-		dat = "<center><h3>[spellbook.title]</h3><i>[spellbook.title_desc]</i><br>You have [uses] spell slot[uses > 1 ? "s" : ""] left.</center><br>"
+		dat = "<center><h3>[spellbook.title]</h3><i>[spellbook.title_desc]</i><br>You have [uses] spell slot\s left.</center><br>"
 		dat += "<center><font color='#ff33cc'>Requires Wizard Garb</font><br><font color='#ff6600'>Selectable Target</font><br><font color='#33cc33'>Spell Charge Type: Recharge, Sacrifice, Charges</font></center><br>"
 		dat += "<center><b>To use a contract, first bind it to your soul, then give it to someone to sign. This will bind their soul to you.</b></center><br>"
 		for(var/i in 1 to spellbook.spells.len)
@@ -136,7 +137,8 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			dat += " ([spellbook.spells[spellbook.spells[i]]] spell slot[spellbook.spells[spellbook.spells[i]] > 1 ? "s" : "" ])"
 			if(spellbook.book_flags & CAN_MAKE_CONTRACTS)
 				dat += " <A href='byond://?src=\ref[src];path=\ref[spellbook.spells[i]];contract=1;'>Make Contract</a>"
-			dat += "<br><i>[desc]</i><br>"
+			dat += "<br><i>[desc]</i><br><br>"
+		dat += "<br>"
 		dat += "<center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
 		if(spellbook.book_flags & INVESTABLE)
 			if(investing_time)
@@ -153,7 +155,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	if(!istype(H))
 		return STATUS_CLOSE
 
-	if(H.mind && (spellbook.book_flags & LOCKED) && H.mind.special_role == ANTAG_APPRENTICE) //make sure no scrubs get behind the lock
+	if(H.mind && (spellbook.book_flags & LOCKED) && H.mind.assigned_special_role == "Wizard's Apprentice") //make sure no scrubs get behind the lock
 		return STATUS_CLOSE
 
 	return ..()

@@ -1,31 +1,16 @@
 /mob/living/carbon/human
 
-	//Hair colour and style
-	var/r_hair = 0
-	var/g_hair = 0
-	var/b_hair = 0
 	var/h_style = "Bald"
-
-	//Facial hair colour and style
-	var/r_facial = 0
-	var/g_facial = 0
-	var/b_facial = 0
 	var/f_style = "Shaved"
 
-	//Eye colour
-	var/r_eyes = 0
-	var/g_eyes = 0
-	var/b_eyes = 0
+	var/hair_colour =        COLOR_BLACK
+	var/facial_hair_colour = COLOR_BLACK
+	var/skin_colour =        COLOR_BLACK
+	var/eye_colour =         COLOR_BLACK
 
-	var/s_tone = 0  //Skin tone
-	var/s_base = "" //Skin base
+	var/skin_tone = 0  //Skin tone
+	var/skin_base = "" //Skin base
 
-	//Skin colour
-	var/r_skin = 0
-	var/g_skin = 0
-	var/b_skin = 0
-
-	var/size_multiplier = 1 //multiplier for the mob's icon size
 	var/damage_multiplier = 1 //multiplies melee combat damage
 	var/icon_update = 1 //whether icon updating shall take place
 
@@ -39,6 +24,8 @@
 	var/datum/backpack_setup/backpack_setup
 
 	var/list/cultural_info = list()
+
+	var/obj/screen/default_attack_selector/attack_selector
 
 	//Equipment slots
 	var/obj/item/wear_suit = null
@@ -109,4 +96,6 @@
 
 	var/list/descriptors
 
-	var/last_smelt = 0
+	var/list/smell_cooldown
+
+	ai = /datum/ai/human

@@ -92,6 +92,8 @@
 	current_grab.hit_with_grab(src)
 
 /obj/item/grab/resolve_attackby(atom/A, mob/user, var/click_params)
+	if(QDELETED(src) || !assailant)
+		return TRUE
 	assailant.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!A.grab_attack(src))
 		return ..()
@@ -225,7 +227,7 @@
 	current_grab.handle_resist(src)
 
 /obj/item/grab/proc/adjust_position(var/force = 0)
-	if(force)	
+	if(force)
 		affecting.forceMove(assailant.loc)
 	if(!assailant || !affecting || !assailant.Adjacent(affecting))
 		qdel(src)
@@ -273,6 +275,7 @@
 	return current_grab.grab_slowdown
 
 /obj/item/grab/proc/assailant_moved()
+	affecting.glide_size = assailant.glide_size
 	current_grab.assailant_moved(src)
 
 /obj/item/grab/proc/restrains()

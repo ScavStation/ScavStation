@@ -7,10 +7,11 @@
 /obj/item/clothing/accessory/badge
 	name = "badge"
 	desc = "A leather-backed badge, with gold trimmings."
-	icon_state = "detectivebadge"
-	slot_flags = SLOT_BELT | SLOT_TIE
+	icon = 'icons/clothing/accessories/badges/detectivebadge.dmi'
+	slot_flags = SLOT_LOWER_BODY | SLOT_TIE
 	slot = ACCESSORY_SLOT_INSIGNIA
 	high_visibility = 1
+	hide_on_uniform_rolldown = TRUE
 	var/badge_string = "Detective"
 	var/stored_name
 
@@ -63,16 +64,15 @@
 	name = "holobadge"
 	desc = "This glowing blue badge marks the holder as a member of security."
 	color = COLOR_PALE_BLUE_GRAY
-	icon_state = "holobadge"
-	item_state = "holobadge"
+	icon = 'icons/clothing/accessories/badges/holobadge.dmi'
 	badge_string = "Security"
 	var/badge_access = access_security
 	var/badge_number
 	var/emagged //emag_act removes access requirements
 
 /obj/item/clothing/accessory/badge/holo/cord
-	icon_state = "holobadge-cord"
-	slot_flags = SLOT_MASK | SLOT_TIE
+	icon = 'icons/clothing/accessories/badges/holobadge_cord.dmi'
+	slot_flags = SLOT_FACE | SLOT_TIE
 
 /obj/item/clothing/accessory/badge/holo/set_name(var/new_name)
 	..()
@@ -125,23 +125,22 @@
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
 	desc = "A faded badge, backed with leather. Looks crummy."
-	icon_state = "badge_round"
 	badge_string = "Unknown"
 
 /obj/item/clothing/accessory/badge/defenseintel
 	name = "\improper DIA investigator's badge"
 	desc = "A leather-backed silver badge bearing the crest of the Defense Intelligence Agency."
-	icon_state = "diabadge"
+	icon = 'icons/clothing/accessories/badges/diabadge.dmi'
 	badge_string = "Defense Intelligence Agency"
 
 /obj/item/clothing/accessory/badge/interstellarintel
 	name = "\improper OII agent's badge"
 	desc = "A synthleather holographic badge bearing the crest of the Office of Interstellar Intelligence."
-	icon_state = "intelbadge"
+	icon = 'icons/clothing/accessories/badges/intelbadge.dmi'
 	badge_string = "Office of Interstellar Intelligence"
 
 /obj/item/clothing/accessory/badge/press
 	name = "press badge"
 	desc = "A leather-backed plastic badge displaying that the owner is certified press personnel."
-	icon_state = "pressbadge"
+	icon = 'icons/clothing/accessories/badges/pressbadge.dmi'
 	badge_string = "Journalist"

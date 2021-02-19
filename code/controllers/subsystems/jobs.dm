@@ -3,16 +3,31 @@ SUBSYSTEM_DEF(jobs)
 	init_order = SS_INIT_JOBS
 	flags = SS_NO_FIRE
 
-	var/list/archetype_job_datums =    list()
-	var/list/job_lists_by_map_name =   list()
-	var/list/titles_to_datums =        list()
-	var/list/types_to_datums =         list()
-	var/list/primary_job_datums =      list()
-	var/list/unassigned_roundstart =   list()
-	var/list/positions_by_department = list()
-	var/list/job_icons =               list()
-	var/job_config_file = "config/jobs.txt"
+	var/list/archetype_job_datums =     list()
+	var/list/job_lists_by_map_name =    list()
+	var/list/titles_to_datums =         list()
+	var/list/types_to_datums =          list()
+	var/list/primary_job_datums =       list()
+	var/list/unassigned_roundstart =    list()
+	var/list/positions_by_department =  list()
+	var/list/job_icons =                list()
 	var/list/must_fill_titles =			list()
+	var/list/departments_by_type =      list()
+	var/list/departments_by_name =      list()
+	var/job_config_file = "config/jobs.txt"
+
+/datum/controller/subsystem/jobs/proc/get_department_by_name(var/dept_name)
+	if(!length(departments_by_name))
+		var/list/all_depts = decls_repository.get_decls_of_subtype(/decl/department)
+		for(var/dtype in all_depts)
+			var/decl/department/dept = all_depts[dtype]
+			departments_by_name[lowertext(dept.name)] = dept
+	. = departments_by_name[lowertext(dept_name)]
+
+/datum/controller/subsystem/jobs/proc/get_department_by_type(var/dept_ref)
+	if(!length(departments_by_type))
+		departments_by_type = sortTim(decls_repository.get_decls_of_subtype(/decl/department), /proc/cmp_departments_dsc, TRUE)
+	. = departments_by_type[dept_ref]
 
 /datum/controller/subsystem/jobs/Initialize(timeofday)
 
@@ -26,7 +41,7 @@ SUBSYSTEM_DEF(jobs)
 
 	for(var/datum/job/job in primary_job_datums)
 		if(isnull(job.primary_department))
-			job.primary_department = job.department_refs[1]
+			job.primary_department = job.department_types[1]
 
 	// Create abstract submap archetype jobs for use in prefs, etc.
 	archetype_job_datums.Cut()
@@ -103,10 +118,11 @@ SUBSYSTEM_DEF(jobs)
 				titles_to_datums[alt_title] = job
 			if(job.must_fill)
 				must_fill_titles += job.title
-			if(job.department_refs)
-				for(var/dept_ref in job.department_refs)
-					if(dept_ref in SSdepartments.departments)
-						LAZYDISTINCTADD(positions_by_department[dept_ref], job.title)
+			if(job.department_types)
+				for(var/dept_ref in job.department_types)
+					var/decl/department/dept = SSjobs.get_department_by_type(dept_ref)
+					if(dept)
+						LAZYDISTINCTADD(positions_by_department[dept.type], job.title)
 
 	// Set up syndicate phrases.
 	syndicate_code_phrase = generate_code_phrase()
@@ -129,7 +145,7 @@ SUBSYSTEM_DEF(jobs)
 		if((player) && (player.mind))
 			player.mind.assigned_job = null
 			player.mind.assigned_role = null
-			player.mind.special_role = null
+			player.mind.assigned_special_role = null
 	for(var/datum/job/job in primary_job_datums)
 		job.current_positions = 0
 	unassigned_roundstart = list()
@@ -140,6 +156,12 @@ SUBSYSTEM_DEF(jobs)
 /datum/controller/subsystem/jobs/proc/get_by_path(var/path)
 	RETURN_TYPE(/datum/job)
 	return types_to_datums[path]
+
+/datum/controller/subsystem/jobs/proc/get_by_paths(var/paths)
+	RETURN_TYPE(/list)
+	. = list()
+	for(var/path in paths)
+		. += types_to_datums[path]
 
 /datum/controller/subsystem/jobs/proc/check_general_join_blockers(var/mob/new_player/joining, var/datum/job/job)
 	if(!istype(joining) || !joining.client || !joining.client.prefs)
@@ -370,7 +392,7 @@ SUBSYSTEM_DEF(jobs)
 	for(var/mob/new_player/player in unassigned_roundstart)
 		if(player.client.prefs.alternate_option == RETURN_TO_LOBBY)
 			player.ready = 0
-			player.new_player_panel()
+			player.show_lobby_menu()
 			unassigned_roundstart -= player
 	return TRUE
 
@@ -423,7 +445,7 @@ SUBSYSTEM_DEF(jobs)
 					to_chat(H, "<span class='warning'>Your current species, job, branch, skills or whitelist status does not permit you to spawn with [thing]!</span>")
 					continue
 
-				if(!G.slot || G.slot == slot_tie || (G.slot in loadout_taken_slots) || !G.spawn_on_mob(H, H.client.prefs.Gear()[G.display_name]))
+				if(!G.slot || G.slot == slot_tie_str || (G.slot in loadout_taken_slots) || !G.spawn_on_mob(H, H.client.prefs.Gear()[G.display_name]))
 					spawn_in_storage.Add(G)
 				else
 					loadout_taken_slots.Add(G.slot)
@@ -437,10 +459,10 @@ SUBSYSTEM_DEF(jobs)
 				var/list/accessory_args = accessory_data.Copy()
 				accessory_args[1] = src
 				for(var/i in 1 to amt)
-					H.equip_to_slot_or_del(new accessory_path(arglist(accessory_args)), slot_tie)
+					H.equip_to_slot_or_del(new accessory_path(arglist(accessory_args)), slot_tie_str)
 			else
 				for(var/i in 1 to (isnull(accessory_data)? 1 : accessory_data))
-					H.equip_to_slot_or_del(new accessory_path(src), slot_tie)
+					H.equip_to_slot_or_del(new accessory_path(src), slot_tie_str)
 
 	return spawn_in_storage
 
@@ -462,11 +484,10 @@ SUBSYSTEM_DEF(jobs)
 		H.skillset.obtain_from_client(job, H.client)
 
 		//Equip job items.
-		job.setup_account(H)
-
 		job.equip(H, H.mind ? H.mind.role_alt_title : "", H.char_branch, H.char_rank)
 		job.apply_fingerprints(H)
 		spawn_in_storage = equip_custom_loadout(H, job)
+		job.setup_account(H)
 	else
 		to_chat(H, "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
@@ -534,7 +555,7 @@ SUBSYSTEM_DEF(jobs)
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED)
-		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/prescription(H), slot_glasses)
+		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/prescription(H), slot_glasses_str)
 		if(equipped)
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = 7
@@ -567,6 +588,9 @@ SUBSYSTEM_DEF(jobs)
 /proc/show_location_blurb(client/C, duration)
 	set waitfor = 0
 
+	if(!C)
+		return
+
 	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
 	var/area/A = get_area(C.mob)
 	var/text = "[stationdate2text()], [stationtime2text()]\n[station_name()], [A.name]"
@@ -585,7 +609,7 @@ SUBSYSTEM_DEF(jobs)
 	for(var/i = 1 to length(text)+1)
 		T.maptext = "<span style=\"[style]\">[copytext(text,1,i)] </span>"
 		sleep(1)
-	
+
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/fade_location_blurb, C, T), duration)
 
 /proc/fade_location_blurb(client/C, obj/T)

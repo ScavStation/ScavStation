@@ -164,7 +164,7 @@
 
 	// These items are preserved when the process() despawn proc occurs.
 	var/list/preserve_items = list(
-		/obj/item/integrated_circuit/manipulation/bluespace_rift,
+		/obj/item/integrated_circuit/manipulation/wormhole,
 		/obj/item/integrated_circuit/input/teleporter_locator,
 		/obj/item/card/id/captains_spare,
 		/obj/item/aicard,
@@ -212,8 +212,8 @@
 	. = ..()
 	airtank = new()
 	airtank.temperature = T0C
-	airtank.adjust_gas(MAT_OXYGEN, MOLES_O2STANDARD, 0)
-	airtank.adjust_gas(MAT_NITROGEN, MOLES_N2STANDARD)
+	airtank.adjust_gas(/decl/material/gas/oxygen, MOLES_O2STANDARD, 0)
+	airtank.adjust_gas(/decl/material/gas/nitrogen, MOLES_N2STANDARD)
 
 /obj/machinery/cryopod/lifepod/return_air()
 	return airtank
@@ -231,14 +231,14 @@
 	if(GLOB.using_map.use_overmap)
 		var/obj/effect/overmap/visitable/O = map_sectors["[z]"]
 		for(var/obj/effect/overmap/visitable/OO in range(O,2))
-			if(OO.in_space || istype(OO,/obj/effect/overmap/visitable/sector/exoplanet))
+			if((OO.sector_flags & OVERMAP_SECTOR_IN_SPACE) || istype(OO,/obj/effect/overmap/visitable/sector/exoplanet))
 				possible_locations |= text2num(level)
 
 	var/newz = GLOB.using_map.get_empty_zlevel()
 	if(possible_locations.len && prob(10))
 		newz = pick(possible_locations)
 	var/turf/nloc = locate(rand(TRANSITIONEDGE, world.maxx-TRANSITIONEDGE), rand(TRANSITIONEDGE, world.maxy-TRANSITIONEDGE),newz)
-	if(!istype(nloc, /turf/space))
+	if(!isspaceturf(nloc))
 		explosion(nloc, 1, 2, 3)
 	playsound(loc,'sound/effects/rocket.ogg',100)
 	forceMove(nloc)
@@ -389,7 +389,7 @@
 
 		if(occupant.mind.objectives.len)
 			occupant.mind.objectives = null
-			occupant.mind.special_role = null
+			occupant.mind.assigned_special_role = null
 
 	// Delete them from datacore.
 	var/sanitized_name = occupant.real_name

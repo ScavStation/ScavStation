@@ -24,7 +24,7 @@ var/list/floor_decals = list()
 
 	if(supplied_dir) set_dir(supplied_dir)
 	var/turf/T = get_turf(src)
-	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
+	if(istype(T))
 		layer = T.is_plating() ? DECAL_PLATING_LAYER : DECAL_LAYER
 		var/cache_key = "[alpha]-[color]-[dir]-[icon_state]-[plane]-[layer]-[detail_overlay]-[detail_color]"
 		if(!floor_decals[cache_key])
@@ -40,7 +40,7 @@ var/list/floor_decals = list()
 			floor_decals[cache_key] = I
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
-		T.overlays |= floor_decals[cache_key]
+		T.add_overlay(floor_decals[cache_key])
 	qdel(src)
 
 /obj/effect/floor_decal/reset
@@ -51,6 +51,18 @@ var/list/floor_decals = list()
 	var/turf/T = get_turf(src)
 	T.remove_decals()
 	T.update_icon()
+	atom_flags |= ATOM_FLAG_INITIALIZED
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/floor_decal/undo
+	name = "undo marker"
+
+/obj/effect/floor_decal/undo/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+	var/turf/T = get_turf(src)
+	if(length(T.decals))
+		T.decals.len--
+		T.update_icon()
 	atom_flags |= ATOM_FLAG_INITIALIZED
 	return INITIALIZE_HINT_QDEL
 
@@ -1335,6 +1347,3 @@ var/list/floor_decals = list()
 
 /obj/effect/floor_decal/stoneborder/corner
 	icon_state = "stoneborder_c"
-
-/obj/effect/floor_decal/ivenmoth
-	icon_state = "ivenmoth"

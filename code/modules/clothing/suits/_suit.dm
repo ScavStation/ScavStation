@@ -1,26 +1,24 @@
 /obj/item/clothing/suit
-	icon = 'icons/obj/clothing/obj_suit.dmi'
 	name = "suit"
-	var/fire_resist = T0C+100
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	icon = 'icons/clothing/suit/suit_jacket.dmi'
+	icon_state = ICON_STATE_WORLD
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS|SLOT_LEGS
 	allowed = list(/obj/item/tank/emergency)
-	slot_flags = SLOT_OCLOTHING
+	slot_flags = SLOT_OVER_BODY
 	blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
-
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_OVER)
+	var/fire_resist = T0C+100
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_suit()
 
-/obj/item/clothing/suit/get_mob_overlay(mob/user_mob, slot)
+/obj/item/clothing/suit/get_mob_overlay(mob/user_mob, slot, bodypart)
 	var/image/ret = ..()
-	if(item_state_slots && item_state_slots[slot])
-		ret.icon_state = item_state_slots[slot]
-	else if(item_state)
+	if(ret && item_state)
 		ret.icon_state = item_state
 	return ret
 

@@ -3,10 +3,10 @@
 	belt = /obj/item/storage/belt/utility/full
 	l_ear = /obj/item/radio/headset/headset_eng
 	shoes = /obj/item/clothing/shoes/workboots
-	pda_slot = slot_l_store
+	pda_slot = slot_l_store_str
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 	head = /obj/item/clothing/head/hardhat
-	uniform = /obj/item/clothing/under/rank/engineer
+	uniform = /obj/item/clothing/under/engineer
 	r_pocket = /obj/item/t_scanner
 	id_type = /obj/item/card/id/ministation/engineering
 	pda_type = /obj/item/modular_computer/pda/engineering

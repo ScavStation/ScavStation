@@ -6,6 +6,10 @@
 	icon_state = "shelltooth"
 	blend = ICON_MULTIPLY
 
+/datum/sprite_accessory/marking/yinglet/longtooth
+	name = "Long Shelltooth"
+	icon_state = "longtooth"
+
 /datum/sprite_accessory/marking/yinglet/large_tailpoof
 	name = "Large Tailpoof"
 	icon_state = "tailpoof"

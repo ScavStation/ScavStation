@@ -11,7 +11,7 @@ proc/get_mech_image(var/decal, var/cache_key, var/cache_icon, var/image_colour, 
 				if(!GLOB.mech_icon_cache[template_key])
 					GLOB.mech_icon_cache[template_key] = icon(cache_icon, "[cache_key]_mask")
 				var/icon/decal_icon = icon('icons/mecha/mech_decals.dmi',decal)
-				decal_icon.Blend(GLOB.mech_icon_cache[template_key], ICON_MULTIPLY)
+				decal_icon.AddAlphaMask(GLOB.mech_icon_cache[template_key])
 				GLOB.mech_icon_cache[decal_key] = decal_icon
 			I.overlays += get_mech_image(null, decal_key, GLOB.mech_icon_cache[decal_key])
 		I.appearance_flags |= RESET_COLOR
@@ -29,7 +29,7 @@ proc/get_mech_images(var/list/components = list(), var/overlay_layer = FLOAT_LAY
 /mob/living/exosuit/on_update_icon()
 	var/list/new_overlays = get_mech_images(list(body, head), MECH_BASE_LAYER)
 	if(body && !hatch_closed)
-		new_overlays += get_mech_image(body.decal, "[body.icon_state]_cockpit", body.on_mech_icon, MECH_BASE_LAYER)
+		new_overlays += get_mech_image(body.decal, "[body.icon_state]_cockpit", body.on_mech_icon, COLOR_WHITE, MECH_INTERMEDIATE_LAYER)
 	update_pilots(FALSE)
 	if(LAZYLEN(pilot_overlays))
 		new_overlays += pilot_overlays
@@ -51,13 +51,14 @@ proc/get_mech_images(var/list/components = list(), var/overlay_layer = FLOAT_LAY
 	if(update_overlays && LAZYLEN(pilot_overlays))
 		overlays -= pilot_overlays
 	pilot_overlays = null
-	if(!body || ((body.pilot_coverage < 100 || body.transparent_cabin) && !body.hide_pilot))
+	if(body && !(body.hide_pilot))
 		for(var/i = 1 to LAZYLEN(pilots))
 			var/mob/pilot = pilots[i]
 			var/image/draw_pilot = new
 			draw_pilot.appearance = pilot
 			draw_pilot.layer = MECH_PILOT_LAYER + (body ? ((LAZYLEN(body.pilot_positions)-i)*0.001) : 0)
 			draw_pilot.plane = FLOAT_PLANE
+			draw_pilot.appearance_flags = KEEP_TOGETHER
 			if(body && i <= LAZYLEN(body.pilot_positions))
 				var/list/offset_values = body.pilot_positions[i]
 				var/list/directional_offset_values = offset_values["[dir]"]
@@ -65,6 +66,13 @@ proc/get_mech_images(var/list/components = list(), var/overlay_layer = FLOAT_LAY
 				draw_pilot.pixel_y = pilot.default_pixel_y + directional_offset_values["y"]
 				draw_pilot.pixel_z = 0
 				draw_pilot.transform = null
+
+			//Mask pilots!
+			//Masks are 48x48 and pilots 32x32 (in theory at least) so some math is required for centering
+			var/diff_x = 8 - draw_pilot.pixel_x
+			var/diff_y = 8 - draw_pilot.pixel_y
+			draw_pilot.filters = filter(type = "alpha", icon = icon(body.on_mech_icon, "[body.icon_state]_pilot_mask[hatch_closed ? "" : "_open"]", dir), x = diff_x, y = diff_y)
+			
 			LAZYADD(pilot_overlays, draw_pilot)
 		if(update_overlays && LAZYLEN(pilot_overlays))
 			overlays += pilot_overlays

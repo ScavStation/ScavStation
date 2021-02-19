@@ -1,5 +1,5 @@
 // Semi-adapted from Polaris Teshari.
-/datum/species/yinglet
+/decl/species/yinglet
 	name = SPECIES_YINGLET
 	name_plural = "Yinglets"
 	bodytype = BODYTYPE_YINGLET
@@ -77,16 +77,25 @@
 	inherent_verbs = list(/mob/living/proc/hide)
 
 	available_cultural_info = list(
-		TAG_CULTURE =   list(CULTURE_SCAV_ENCLAVE, CULTURE_OTHER),
-		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
-		TAG_FACTION =   list(FACTION_SCAV, FACTION_OTHER),
-		TAG_RELIGION =  list(RELIGION_OTHER)
+		TAG_CULTURE =   list(
+			/decl/cultural_info/culture/yinglet,
+			/decl/cultural_info/culture/other
+		),
+		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/stateless
+		),
+		TAG_FACTION =   list(
+			/decl/cultural_info/faction/enclave_ying,
+			/decl/cultural_info/faction/other
+		),
+		TAG_RELIGION =  list(
+			/decl/cultural_info/religion/other
+		)
 	)
-
-/datum/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
+/decl/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
 	return SPECIES_YINGLET
 	
-/datum/species/yinglet/skills_from_age(age)
+/decl/species/yinglet/skills_from_age(age)
 	switch(age)
 		if(0 to 5)
 			. = -4
@@ -97,20 +106,18 @@
 		else
 			. = 8
 
-/datum/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
+/decl/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
 	. = H && H.change_skin_color(189, 171, 143)
 
-/datum/species/yinglet/handle_post_species_pref_set(var/datum/preferences/pref)
+/decl/species/yinglet/handle_post_species_pref_set(var/datum/preferences/pref)
 	pref.body_markings = pref.body_markings || list()
 	if(!pref.body_markings["Ying Long Ears"])
 		pref.body_markings["Ying Long Ears"] = "#888888"
 	if(!pref.body_markings["Shelltooth"])
 		pref.body_markings["Shelltooth"] = "#cccccc"
-	pref.r_skin = 120
-	pref.g_skin = 120
-	pref.b_skin = 120
+	pref.skin_colour = "#787878"
 
-/datum/species/yinglet/New()
+/decl/species/yinglet/New()
 	equip_adjust = list(
 		slot_head_str = list(
 			"[NORTH]" = list("x" = 0,  "y" = -3),
@@ -136,13 +143,13 @@
 			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = 0,  "y" = -3)
 		),
-		slot_l_hand_str = list(
+		BP_L_HAND = list(
 			"[NORTH]" = list("x" = 2,  "y" = -3),
 			"[EAST]" =  list("x" = 2,  "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
 			"[SOUTH]" = list("x" = -2, "y" = -3)
 		),
-		slot_r_hand_str = list(
+		BP_R_HAND = list(
 			"[NORTH]" = list("x" = -2, "y" = -3),
 			"[EAST]" =  list("x" = 2,  "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
@@ -158,7 +165,7 @@
 	..()
 
 // This is honestly just so the other name generator becomes available.
-/datum/species/yinglet/southern
+/decl/species/yinglet/southern
 	name = SPECIES_YINGLET_SOUTHERN
 	name_plural = "Southern Yinglets"
 	description = "Although similar to the other clam-loving rat-birds of the yinglet species, the southern \
@@ -169,26 +176,38 @@
 	)
 
 	available_cultural_info = list(
-		TAG_CULTURE =   list(CULTURE_SCAV_TRIBE, CULTURE_OTHER),
-		TAG_HOMEWORLD = list(HOME_SYSTEM_STATELESS),
-		TAG_FACTION =   list(FACTION_SCAV, FACTION_OTHER),
-		TAG_RELIGION =  list(RELIGION_OTHER)
+		TAG_CULTURE =   list(
+			/decl/cultural_info/culture/yinglet/tribal,
+			/decl/cultural_info/culture/other
+		),
+		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/stateless
+		),
+		TAG_FACTION =   list(
+			/decl/cultural_info/faction/enclave_ying,
+			/decl/cultural_info/faction/other
+		),
+		TAG_RELIGION =  list(
+			/decl/cultural_info/religion/other
+		)
 	)
 
-/obj/item/holder/human/yinglet
+/obj/item/holder/yinglet
 	sharp = 1
 	edge = 1
-	mob_blend_mode = ICON_MULTIPLY
-	generate_for_slots = list()
 
 /obj/item/holder/human/yinglet/iscrowbar()
 	return TRUE
 
 /obj/item/holder/human/yinglet/attack_self(mob/user)
 	var/mob/owner = locate() in contents
-	if(owner.stat == CONSCIOUS)
+	if(owner.stat != DEAD)
 		var/turf/T = get_turf(owner)
 		T.visible_message(SPAN_WARNING("\icon[owner] Eee!"))
 		playsound(T, 'sound/effects/mousesqueek.ogg', 75, 1)
 		user.setClickCooldown(15)
-	..()
+		return TRUE
+	. = ..()
+
+/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
+	return

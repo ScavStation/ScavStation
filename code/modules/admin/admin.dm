@@ -67,17 +67,17 @@ var/global/floorIsLava = 0
 
 	body += {"
 		<br><br>\[
-		<a href='?_src_=vars;Vars=\ref[M]'>VV</a> -
-		<a href='?src=\ref[src];traitor=\ref[M]'>TP</a> -
+		<a href='?_src_=vars;Vars=\ref[M]'>View Vars</a> -
+		<a href='?src=\ref[src];show_special_roles=\ref[M]'>Roles</a> -
 		<a href='?src=\ref[usr];priv_msg=\ref[M]'>PM</a> -
-		<a href='?src=\ref[src];narrateto=\ref[M]'>DN</a> -
+		<a href='?src=\ref[src];narrateto=\ref[M]'>Narrate</a> -
 		[admin_jump_link(M, src)]\] <br>
 		<b>Mob type:</b> [M.type]<br>
 		<b>Inactivity time:</b> [M.client ? "[M.client.inactivity/600] minutes" : "Logged out"]<br/><br/>
 		<A href='?src=\ref[src];boot2=\ref[M]'>Kick</A> |
 		<A href='?_src_=holder;warn=[last_ckey]'>Warn</A> |
 		<A href='?src=\ref[src];newban=\ref[M];last_key=[last_ckey]'>Ban</A> |
-		<A href='?src=\ref[src];jobban2=\ref[M]'>Jobban</A> |
+		<A href='?src=\ref[src];jobban_panel_target=\ref[M]'>Jobban</A> |
 		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A>
 	"}
 
@@ -104,7 +104,6 @@ var/global/floorIsLava = 0
 		<A href='?src=\ref[src];getmob=\ref[M]'>Get</A> |
 		<A href='?src=\ref[src];sendmob=\ref[M]'>Send To</A>
 		<br><br>
-		[check_rights(R_ADMIN|R_MOD,0) ? "<A href='?src=\ref[src];traitor=\ref[M]'>Traitor panel</A> | " : "" ]
 		[check_rights(R_INVESTIGATE,0) ? "<A href='?src=\ref[src];skillpanel=\ref[M]'>Skill panel</A>" : "" ]
 	"}
 
@@ -639,7 +638,7 @@ var/global/floorIsLava = 0
 		<A href='?src=\ref[src];create_turf=1'>Create Turf</A><br>
 		<A href='?src=\ref[src];create_mob=1'>Create Mob</A><br>
 		<br><A href='?src=\ref[src];vsc=airflow'>Edit Airflow Settings</A><br>
-		<A href='?src=\ref[src];vsc=phoron'>Edit Phoron Settings</A><br>
+		<A href='?src=\ref[src];vsc=contam'>Edit Contaminant Settings</A><br>
 		<A href='?src=\ref[src];vsc=default'>Choose a default ZAS setting</A><br>
 		"}
 
@@ -739,9 +738,9 @@ var/global/floorIsLava = 0
 
 	config.aooc_allowed = !(config.aooc_allowed)
 	if (config.aooc_allowed)
-		to_world("<B>The AOOC channel has been globally enabled!</B>")
+		communicate_broadcast(/decl/communication_channel/aooc, "The AOOC channel has been globally enabled!", TRUE)
 	else
-		to_world("<B>The AOOC channel has been globally disabled!</B>")
+		communicate_broadcast(/decl/communication_channel/aooc, "The AOOC channel has been globally disabled!", TRUE)
 	log_and_message_admins("toggled AOOC.")
 	SSstatistics.add_field_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -1005,10 +1004,10 @@ var/global/floorIsLava = 0
 
 	if(M)
 		if(SSticker.mode.antag_templates && SSticker.mode.antag_templates.len)
-			for(var/datum/antagonist/antag in SSticker.mode.antag_templates)
+			for(var/decl/special_role/antag in SSticker.mode.antag_templates)
 				if(antag.is_antagonist(M))
 					return 2
-		if(M.special_role)
+		if(M.assigned_special_role)
 			return 1
 
 	if(isrobot(character))
@@ -1049,9 +1048,10 @@ var/global/floorIsLava = 0
 	var/types_missing_icons
 	for(var/checktype in typesof(/obj/item))
 		var/obj/item/I = checktype
-		if(!initial(I.on_mob_icon))
+		var/check_icon = initial(I.icon)
+		if(!check_state_in_icon(ICON_STATE_INV, check_icon) && !check_state_in_icon(ICON_STATE_WORLD, check_icon))
 			LAZYADD(types_missing_icons, checktype)
-	if(alert("[LAZYLEN(types_missing_icons)] item\s are missing on_mob_icon being set. Do you wish to see the full list?", "Check missing icons", "Yes", "No") == "Yes")
+	if(alert("[LAZYLEN(types_missing_icons)] item\s are missing world or inventory states. Do you wish to see the full list?", "Check missing icons", "Yes", "No") == "Yes")
 		for(var/checktype in types_missing_icons)
 			to_chat(usr, checktype)
 
@@ -1156,10 +1156,10 @@ var/global/floorIsLava = 0
 	SSstatistics.add_field_details("admin_verb","SA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/datum/admins/proc/show_traitor_panel(var/mob/M in SSmobs.mob_list)
+/datum/admins/proc/show_special_roles(var/mob/M in SSmobs.mob_list)
 	set category = "Admin"
 	set desc = "Edit mobs's memory and role"
-	set name = "Show Traitor Panel"
+	set name = "Show Special Roles"
 
 	if(!istype(M))
 		to_chat(usr, "This can only be used on instances of type /mob")
@@ -1215,10 +1215,12 @@ var/global/floorIsLava = 0
 
 	out += "<hr>"
 
-	if(SSticker.mode.antag_tags && SSticker.mode.antag_tags.len)
+	if(length(SSticker.mode.associated_antags))
 		out += "<b>Core antag templates:</b></br>"
-		for(var/antag_tag in SSticker.mode.antag_tags)
-			out += "<a href='?src=\ref[SSticker.mode];debug_antag=[antag_tag]'>[antag_tag]</a>.</br>"
+		for(var/antag_type in SSticker.mode.associated_antags)
+			var/decl/special_role/antag = decls_repository.get_decl(antag_type)
+			if(antag)
+				out += "<a href='?src=\ref[SSticker.mode];debug_antag=\ref[antag]'>[antag.name]</a>.</br>"
 
 	if(SSticker.mode.round_autoantag)
 		out += "<b>Autotraitor <a href='?src=\ref[SSticker.mode];toggle=autotraitor'>enabled</a></b>."
@@ -1232,11 +1234,11 @@ var/global/floorIsLava = 0
 
 	out += "<b>All antag ids:</b>"
 	if(SSticker.mode.antag_templates && SSticker.mode.antag_templates.len)
-		for(var/datum/antagonist/antag in SSticker.mode.antag_templates)
+		for(var/decl/special_role/antag in SSticker.mode.antag_templates)
 			antag.update_current_antag_max(SSticker.mode)
-			out += " <a href='?src=\ref[SSticker.mode];debug_antag=[antag.id]'>[antag.id]</a>"
+			out += " <a href='?src=\ref[SSticker.mode];debug_antag=\ref[antag]'>[antag.name]</a>"
 			out += " ([antag.get_antag_count()]/[antag.cur_max]) "
-			out += " <a href='?src=\ref[SSticker.mode];remove_antag_type=[antag.id]'>\[-\]</a><br/>"
+			out += " <a href='?src=\ref[SSticker.mode];remove_antag_type=\ref[antag]'>\[-\]</a><br/>"
 	else
 		out += " None."
 	out += " <a href='?src=\ref[SSticker.mode];add_antag_type=1'>\[+\]</a><br/>"
@@ -1345,7 +1347,7 @@ var/global/floorIsLava = 0
 
 		if(2)	//Admins
 			var/ref_mob = "\ref[M]"
-			return "<b>[key_name(C, link, name, highlight_special, ticket)](<A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A>) (<A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A>) (<A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A>) (<A HREF='?_src_=holder;narrateto=[ref_mob]'>DN</A>) ([admin_jump_link(M)]) (<A HREF='?_src_=holder;check_antagonist=1'>CA</A>)</b>"
+			return "<b>[key_name(C, link, name, highlight_special, ticket)](<A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A>) (<A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A>) (<A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A>) (<A HREF='?_src_=holder;narrateto=[ref_mob]'>DN</A>) ([admin_jump_link(M)]) (<A HREF='?_src_=holder;show_round_status=1'>RS</A>)</b>"
 
 		if(3)	//Devs
 			var/ref_mob = "\ref[M]"
@@ -1408,14 +1410,14 @@ var/global/floorIsLava = 0
 		to_chat(usr, "Mode has not started.")
 		return
 
-	var/list/all_antag_types = GLOB.all_antag_types_
+	var/list/all_antag_types = decls_repository.get_decls_of_subtype(/decl/special_role)
 	var/antag_type = input("Choose a template.","Force Latespawn") as null|anything in all_antag_types
-	if(!antag_type || !all_antag_types[antag_type])
+	if(!antag_type)
 		to_chat(usr, "Aborting.")
 		return
 
-	var/datum/antagonist/antag = all_antag_types[antag_type]
-	message_admins("[key_name(usr)] attempting to force latespawn with template [antag.id].")
+	var/decl/special_role/antag = all_antag_types[antag_type]
+	message_admins("[key_name(usr)] attempting to force latespawn of [antag.name].")
 	antag.attempt_auto_spawn()
 
 /datum/admins/proc/force_mode_latespawn()

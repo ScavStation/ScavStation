@@ -1,10 +1,10 @@
 /decl/cultural_info/faction/enclave_ying
-	name = FACTION_SCAV
+	name = "Scav"
 	description = "Your people are scavengers and survivors, many of them living by riding the coattails of humanity. Any day where you aren't stepped on or beaten down by those much bigger and stronger than you is a good day."
 	subversive_potential = 25
 
 /decl/cultural_info/culture/yinglet
-	name = CULTURE_SCAV_ENCLAVE
+	name = "Enclave Yinglet"
 	description = "You are a contributing member of a yinglet enclave, or at least someone who isn't too much of \
 	a nusiance, and are likely in good standing with the matriarch and patriarches."
 	secondary_langs = list(
@@ -65,7 +65,7 @@
 		. = "[.]-[.]"
 
 /decl/cultural_info/culture/yinglet/tribal
-	name = CULTURE_SCAV_TRIBE
+	name = "Tribal Yinglet"
 	description = "You are a member of one of the southern yinglet tribes. Tribal yinglets tend to be more \
 	uneducated and rather less quick on the uptake than their cosmopolitan northern cousins."
 	// Names provided by esteemed wordsmith Val Salia.

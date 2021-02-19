@@ -2,8 +2,7 @@
 	name = "dart gun"
 	desc = "The Artemis is a gas-powered dart gun capable of delivering chemical cocktails swiftly across short distances."
 	icon = 'icons/obj/guns/dartgun.dmi'
-	icon_state = "dartgun-empty"
-	item_state = null
+	icon_state = ICON_STATE_WORLD
 
 	caliber = CALIBER_DART
 	fire_sound = 'sound/weapons/empty.ogg'
@@ -33,17 +32,18 @@
 	update_icon()
 
 /obj/item/gun/projectile/dartgun/on_update_icon()
-	if(!ammo_magazine)
-		icon_state = "dartgun-empty"
-		return 1
-
-	if(!ammo_magazine.stored_ammo || ammo_magazine.stored_ammo.len)
-		icon_state = "dartgun-0"
-	else if(ammo_magazine.stored_ammo.len > 5)
-		icon_state = "dartgun-5"
+	..()
+	if(ammo_magazine)
+		icon_state = "[get_world_inventory_state()]-[Clamp(length(ammo_magazine.stored_ammo.len), 0, 5)]"
 	else
-		icon_state = "dartgun-[ammo_magazine.stored_ammo.len]"
-	return 1
+		icon_state = get_world_inventory_state()
+
+/obj/item/gun/projectile/dartgun/experimental_mob_overlay(mob/living/user_mob, slot, bodypart)
+	var/image/I = ..()
+	if(slot in user_mob.held_item_slots)
+		if(ammo_magazine)
+			I.icon_state += "-[Clamp(length(ammo_magazine.stored_ammo.len), 0, 5)]"
+	return I
 
 /obj/item/gun/projectile/dartgun/consume_next_projectile()
 	. = ..()
@@ -58,7 +58,7 @@
 		for(var/obj/item/chems/glass/beaker/B in beakers)
 			if(B.reagents && LAZYLEN(B.reagents?.reagent_volumes))
 				for(var/rtype in B.reagents.reagent_volumes)
-					var/decl/reagent/R = decls_repository.get_decl(rtype)
+					var/decl/material/R = decls_repository.get_decl(rtype)
 					to_chat(user, "<span class='notice'>[REAGENT_VOLUME(B.reagents, rtype)] units of [R.name]</span>")
 
 /obj/item/gun/projectile/dartgun/attackby(obj/item/I, mob/user)
@@ -109,7 +109,7 @@
 			dat += "Beaker [i] contains: "
 			if(B.reagents && LAZYLEN(B.reagents.reagent_volumes))
 				for(var/rtype in B.reagents.reagent_volumes)
-					var/decl/reagent/R = decls_repository.get_decl(rtype)
+					var/decl/material/R = decls_repository.get_decl(rtype)
 					dat += "<br>    [REAGENT_VOLUME(B.reagents, rtype)] units of [R.name], "
 				if(B in mixing)
 					dat += "<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> "
@@ -153,7 +153,7 @@
 	Interact(usr)
 
 /obj/item/gun/projectile/dartgun/medical
-	starting_chems = list(/decl/reagent/burn_meds,/decl/reagent/brute_meds,/decl/reagent/antitoxins)
+	starting_chems = list(/decl/material/liquid/burn_meds,/decl/material/liquid/brute_meds,/decl/material/liquid/antitoxins)
 
 /obj/item/gun/projectile/dartgun/raider
-	starting_chems = list(/decl/reagent/psychoactives,/decl/reagent/sedatives,/decl/reagent/narcotics)
+	starting_chems = list(/decl/material/liquid/psychoactives,/decl/material/liquid/sedatives,/decl/material/liquid/narcotics)

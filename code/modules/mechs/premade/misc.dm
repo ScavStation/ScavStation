@@ -18,22 +18,32 @@
 	turn_delay = 7
 	power_use = 150
 	color = COLOR_WHITE
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 
 /obj/item/mech_component/chassis/pod
 	name = "spherical exosuit chassis"
 	hatch_descriptor = "hatch"
 	pilot_coverage = 100
 	transparent_cabin = TRUE
-	hide_pilot = TRUE //Sprite too small, legs clip through, so for now hide pilot
 	exosuit_desc_string = "a spherical chassis"
 	icon_state = "pod_body"
 	max_damage = 70
 	power_use = 5
 	has_hardpoints = list(HARDPOINT_BACK)
 	desc = "The Katamari series cockpits won a massive government tender a few years back. No one is sure why, but these terrible things keep popping up on every government-run facility."
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 
 /obj/item/mech_component/chassis/pod/prebuild()
 	. = ..()
 	m_armour = new /obj/item/robot_parts/robot_component/armour/exosuit/radproof(src)
+
+/obj/item/mech_component/chassis/pod/Initialize()
+	pilot_positions = list(
+		list(
+			"[NORTH]" = list("x" = 8,  "y" = 3),
+			"[SOUTH]" = list("x" = 8,  "y" = 2),
+			"[EAST]"  = list("x" = 4,  "y" = 3),
+			"[WEST]"  = list("x" = 12, "y" = 3)
+		)
+	)
+	. = ..()

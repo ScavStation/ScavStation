@@ -5,8 +5,6 @@
 	name = "map object"
 	scannable = TRUE
 
-	var/list/map_z = list()
-
 	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
 	var/list/initial_restricted_waypoints //For use with non-automatic landmarks (automatic ones add themselves).
 
@@ -17,13 +15,16 @@
 	var/start_x			//Coordinates for self placing
 	var/start_y			//will use random values if unset
 
-	var/base = 0		//starting sector, counts as station_levels
-	var/in_space = 1	//can be accessed via lucky EVA
+	var/sector_flags = OVERMAP_SECTOR_IN_SPACE
 
 	var/hide_from_reports = FALSE
 
 	var/has_distress_beacon
-	var/free_landing = FALSE				//whether or not shuttles can land in arbitrary places within the sector's z-levels.
+	var/free_landing = TRUE				// Whether or not shuttles can land in arbitrary places within the sector's z-levels.
+	var/restricted_area = 0				// Regardless of if free_landing is set to TRUE, this square area (centered on the z level) will be restricted from free shuttle landing unless permitted by a docking becaon.
+
+	var/list/map_z = list()
+	var/list/consoles
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
@@ -35,7 +36,7 @@
 
 	if(!GLOB.using_map.overmap_z)
 		build_overmap()
-		
+
 	start_x = start_x || rand(OVERMAP_EDGE, GLOB.using_map.overmap_size - OVERMAP_EDGE)
 	start_y = start_y || rand(OVERMAP_EDGE, GLOB.using_map.overmap_size - OVERMAP_EDGE)
 
@@ -62,9 +63,9 @@
 		map_sectors["[zlevel]"] = src
 
 	GLOB.using_map.player_levels |= map_z
-	if(!in_space)
+	if(!(sector_flags & OVERMAP_SECTOR_IN_SPACE))
 		GLOB.using_map.sealed_levels |= map_z
-	if(base)
+	if(sector_flags & OVERMAP_SECTOR_BASE)
 		GLOB.using_map.station_levels |= map_z
 		GLOB.using_map.contact_levels |= map_z
 		GLOB.using_map.map_levels |= map_z
@@ -102,6 +103,18 @@
 /obj/effect/overmap/visitable/proc/generate_skybox()
 	return
 
+/obj/effect/overmap/visitable/MouseEntered(location, control, params)
+	openToolTip(user = usr, tip_src = src, params = params, title = name)
+	..()
+
+/obj/effect/overmap/visitable/MouseDown()
+	closeToolTip(usr) //No reason not to, really
+	..()
+
+/obj/effect/overmap/visitable/MouseExited()
+	closeToolTip(usr) //No reason not to, really
+	..()
+
 /obj/effect/overmap/visitable/sector
 	name = "generic sector"
 	desc = "Sector with some stuff in it."
@@ -119,7 +132,7 @@
 	testing("Building overmap...")
 	INCREMENT_WORLD_Z_SIZE
 	GLOB.using_map.overmap_z = world.maxz
-	
+
 
 	testing("Putting overmap on [GLOB.using_map.overmap_z]")
 	var/area/overmap/A = new
@@ -135,3 +148,18 @@
 
 	testing("Overmap build complete.")
 	return 1
+
+/obj/effect/overmap/visitable/proc/allow_free_landing(var/datum/shuttle/landing_shuttle)
+	return free_landing
+
+/obj/effect/overmap/visitable/handle_overmap_pixel_movement()
+	..()
+	for(var/obj/machinery/computer/ship/machine in consoles)
+		if(machine.z in map_z)
+			for(var/weakref/W in machine.viewers)
+				var/mob/M = W.resolve()
+				if(istype(M) && M.client)
+					M.client.default_pixel_x = pixel_x
+					M.client.default_pixel_y = pixel_y
+					M.client.pixel_x = pixel_x
+					M.client.pixel_y = pixel_y

@@ -32,7 +32,7 @@
 
 /obj/item/storage/mirror/proc/use_mirror(var/mob/living/carbon/human/user)
 	if(shattered)
-		to_chat(user, "<spawn class='notice'>You enter the key combination for the style you want on the panel, but the nanomachines inside \the [src] refuse to come out.")
+		to_chat(user, SPAN_WARNING("You enter the key combination for the style you want on the panel, but the nanomachines inside \the [src] refuse to come out."))
 		return
 	open_mirror_ui(user, ui_users, "SalonPro Nano-Mirror&trade;", mirror = src)
 
@@ -60,19 +60,6 @@
 		visible_message("<span class='warning'>[user] smashes [src] with \the [W]!</span>")
 		if(!shattered)
 			shatter()
-
-/obj/item/storage/mirror/attack_generic(var/mob/user, var/damage)
-	attack_animation(user)
-	if(shattered)
-		playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
-		return 0
-
-	if(damage)
-		user.visible_message("<span class='danger'>[user] smashes [src]!</span>")
-		shatter()
-	else
-		user.visible_message("<span class='danger'>[user] hits [src] and bounces off!</span>")
-	return 1
 
 /obj/item/storage/mirror/Destroy()
 	clear_ui_users(ui_users)

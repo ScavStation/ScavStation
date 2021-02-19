@@ -4,12 +4,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = "{'biotech':5,'materials':2}"
 	icon = 'icons/obj/items/device/animal_tagger.dmi'
-	icon_state = "animal_tagger1"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/mob/onmob/items/righthand_guns.dmi',
-		)
-	item_state = "gun"
+	icon_state = ICON_STATE_WORLD
 	force = 1
 	var/loaded = 1
 	var/mode = "completely"
@@ -53,8 +48,8 @@
 		L.SetName(name)
 
 	loaded = 0
-	icon_state = "animal_tagger0"
+	icon_state = get_world_inventory_state()
 	spawn(1450)
 		loaded = 1
-		icon_state = "animal_tagger1"
+		icon_state = "[icon_state]-charged"
 		src.visible_message("\The [src] beeps, refilling itself.")

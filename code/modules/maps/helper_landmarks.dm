@@ -31,19 +31,16 @@
 	var/turf/simulated/wall/W = get_turf(src)
 	if(istype(W))
 		W.dismantle_wall(1,1,1)
-	var/turf/simulated/mineral/M = W
-	if(istype(M))
-		M.GetDrilled()
 	. = ..()
 
 //Applies fire act to the turf
 /obj/effect/landmark/scorcher
 	name = "fire"
 	icon_state = "fire"
-	var/temp = T0C + 3000
+	var/temp = T0C + 4000
 
 /obj/effect/landmark/scorcher/Initialize()
-	var/turf/simulated/T = get_turf(src)
+	var/turf/T = get_turf(src)
 	if(istype(T))
 		T.fire_act(exposed_temperature = temp)
 	. = ..()

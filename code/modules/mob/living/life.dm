@@ -45,7 +45,48 @@
 	return
 
 /mob/living/proc/handle_chemicals_in_body()
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	chem_effects = null
+
+	// TODO: handle isSynthetic() properly via Psi's metabolism modifiers for contact reagents like acid.
+	if((status_flags & GODMODE) || isSynthetic())
+		return FALSE
+
+	// Metabolize any reagents currently in our body and keep a reference for chem dose checking.
+	var/datum/reagents/metabolism/touching_reagents = metabolize_touching_reagents()
+	var/datum/reagents/metabolism/bloodstr_reagents = metabolize_injected_reagents()
+	var/datum/reagents/metabolism/ingested_reagents = metabolize_ingested_reagents()
+
+	// Update chem dosage.
+	// TODO: refactor chem dosage above isSynthetic() and GODMODE checks.
+	if(length(chem_doses))
+		for(var/T in chem_doses)
+			if(bloodstr_reagents?.has_reagent(T) || ingested_reagents?.has_reagent(T) || touching_reagents?.has_reagent(T))
+				continue
+			var/decl/material/R = T
+			var/dose = LAZYACCESS(chem_doses, T) - initial(R.metabolism)*2
+			LAZYSET(chem_doses, T, dose)
+			if(LAZYACCESS(chem_doses, T) <= 0)
+				LAZYREMOVE(chem_doses, T)
+	return TRUE
+
+/mob/living/proc/metabolize_touching_reagents()
+	var/datum/reagents/metabolism/touching_reagents = get_contact_reagents()
+	if(istype(touching_reagents))
+		touching_reagents.metabolize()
+		return touching_reagents
+		
+/mob/living/proc/metabolize_injected_reagents()
+	var/datum/reagents/metabolism/injected_reagents = get_injected_reagents()
+	if(istype(injected_reagents))
+		injected_reagents.metabolize()
+		return injected_reagents
+		
+/mob/living/proc/metabolize_ingested_reagents()
+	var/datum/reagents/metabolism/ingested_reagents = get_ingested_reagents()
+	if(istype(ingested_reagents))
+		ingested_reagents.metabolize()
+		return ingested_reagents
 
 /mob/living/proc/handle_random_events()
 	return
@@ -100,9 +141,7 @@
 	return silent
 
 /mob/living/proc/handle_drugged()
-	if(druggy)
-		druggy = max(druggy-1, 0)
-	return druggy
+	return adjust_drugged(-1)
 
 /mob/living/proc/handle_slurring()
 	if(slurring)
@@ -165,7 +204,7 @@
 		clear_fullscreen("blind")
 		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
 		set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
-		set_fullscreen(druggy, "high", /obj/screen/fullscreen/high)
+		set_fullscreen(drugged, "high", /obj/screen/fullscreen/high)
 
 	set_fullscreen(stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
@@ -178,8 +217,9 @@
 	else if(eyeobj)
 		if(eyeobj.owner != src)
 			reset_view(null)
-	else if(z_eye) return
-	else if(!client.adminobs)
+	else if(z_eye) 
+		return
+	else if(client && !client.adminobs)
 		reset_view(null)
 
 /mob/living/proc/update_sight()

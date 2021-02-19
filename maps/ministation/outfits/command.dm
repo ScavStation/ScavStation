@@ -2,11 +2,11 @@
 	name = MINISTATION_OUTFIT_JOB_NAME("Captain")
 	head = /obj/item/clothing/head/caphat
 	glasses = /obj/item/clothing/glasses/sunglasses
-	uniform = /obj/item/clothing/under/rank/captain
+	uniform = /obj/item/clothing/under/captain
 	l_ear = /obj/item/radio/headset/heads/captain
 	shoes = /obj/item/clothing/shoes/color/brown
 	id_type = /obj/item/card/id/gold/ministation
-	pda_type = /obj/item/modular_computer/pda/captain
+	pda_type = /obj/item/modular_computer/pda/heads/captain
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
 
 /decl/hierarchy/outfit/job/ministation/captain/New()
@@ -33,7 +33,7 @@
 
 /decl/hierarchy/outfit/job/ministation/hop
 	name = MINISTATION_OUTFIT_JOB_NAME("Lieutenant")
-	uniform = /obj/item/clothing/under/rank/head_of_personnel
+	uniform = /obj/item/clothing/under/head_of_personnel
 	l_ear = /obj/item/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/color/brown
 	id_type = /obj/item/card/id/silver/ministation

@@ -1,25 +1,24 @@
 /obj/item/gun/energy/temperature
 	name = "temperature gun"
 	icon = 'icons/obj/guns/freezegun.dmi'
-	icon_state = "freezegun"
-	item_state = "freezegun"
+	icon_state = ICON_STATE_WORLD
 	fire_sound = 'sound/weapons/pulse3.ogg'
 	desc = "A gun that changes temperatures. It has a small label on the side, 'More extreme temperatures will cost more charge!'"
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_SILVER = MATTER_AMOUNT_TRACE
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE
 	)
 	charge_cost = 10
 	origin_tech = "{'combat':3,'materials':4,'powerstorage':3,'magnets':2}"
-	slot_flags = SLOT_BELT|SLOT_BACK
+	slot_flags = SLOT_LOWER_BODY|SLOT_BACK
 	one_hand_penalty = 2
-	wielded_item_state = "gun_wielded"
 	projectile_type = /obj/item/projectile/temp
 	cell_type = /obj/item/cell/high
 	combustion = 0
 	var/firing_temperature = T20C
 	var/current_temperature = T20C
+	indicator_color = COLOR_GREEN
 
 /obj/item/gun/energy/temperature/Initialize()
 	. = ..()
@@ -57,8 +56,15 @@
 			src.current_temperature = min(500, src.current_temperature+amount)
 		else
 			src.current_temperature = max(0, src.current_temperature+amount)
+		if(current_temperature < T0C)
+			indicator_color = COLOR_LUMINOL
+		else if(current_temperature > T0C + 100)
+			indicator_color = COLOR_ORANGE
+		else
+			indicator_color = COLOR_GREEN
 		. = TOPIC_REFRESH
 
+		update_icon()
 		attack_self(user)
 
 /obj/item/gun/energy/temperature/Process()

@@ -1,6 +1,6 @@
 /datum/map_template/ruin/antag_spawn/mercenary
 	name = "Mercenary Base"
-	id = MODE_MERCENARY + "_spawn"
+	id = "mercenary_spawn"
 	suffixes = list("mercenary/mercenary_base.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/merc_shuttle)
 	apc_test_exempt_areas = list(
@@ -10,7 +10,7 @@
 /obj/effect/overmap/visitable/merc_base
 	name = "TCV Tersten Tenacity"
 	desc = "Sensor array detects a medium cargo vessel with high structural damage."
-	in_space = 1
+	sector_flags = OVERMAP_SECTOR_IN_SPACE
 	icon_state = "ship"
 	hide_from_reports = TRUE
 	initial_generic_waypoints = list(

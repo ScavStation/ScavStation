@@ -61,9 +61,7 @@
 /obj/item/chems/glass/attack(mob/M, mob/user, def_zone)
 	if(force && !(item_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
 		return	..()
-	if(standard_feed_mob(user, M))
-		return
-	return 0
+	return FALSE
 
 /obj/item/chems/glass/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!ATOM_IS_OPEN_CONTAINER(src))
@@ -81,167 +79,34 @@
 
 /obj/item/chems/glass/afterattack(var/obj/target, var/mob/user, var/proximity)
 	if(!ATOM_IS_OPEN_CONTAINER(src) || !proximity) //Is the container open & are they next to whatever they're clicking?
-		return 1 //If not, do nothing.
+		return FALSE //If not, do nothing.
 	for(var/type in can_be_placed_into) //Is it something it can be placed into?
 		if(istype(target, type))
-			return 1
+			return TRUE
 	if(standard_dispenser_refill(user, target)) //Are they clicking a water tank/some dispenser?
-		return 1
+		return TRUE
 	if(standard_pour_into(user, target)) //Pouring into another beaker?
-		return
+		return TRUE
+	if(standard_feed_mob(user, target))
+		return TRUE
 	if(user.a_intent == I_HURT)
 		if(standard_splash_mob(user,target))
-			return 1
+			return TRUE
 		if(reagents && reagents.total_volume)
-			to_chat(user, "<span class='notice'>You splash the contents of \the [src] onto [target].</span>") //They are on harm intent, aka wanting to spill it.
+			to_chat(user, SPAN_DANGER("You splash the contents of \the [src] onto \the [target]."))
 			reagents.splash(target, reagents.total_volume)
-			return 1
-	..()
-
-/obj/item/chems/glass/beaker
-	name = "beaker"
-	desc = "A beaker."
-	icon = 'icons/obj/items/chem/beaker.dmi'
-	icon_state = "beaker"
-	item_state = "beaker"
-	center_of_mass = @"{'x':15,'y':10}"
-	material = MAT_GLASS
-	applies_material_name = TRUE
-	material_force_multiplier = 0.25
-	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_SHOW_REAGENT_NAME
-
-/obj/item/chems/glass/beaker/Initialize()
+			return TRUE
+	else if(reagents && reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You splash a small amount of the contents of \the [src] onto \the [target]."))
+		reagents.splash(target, min(reagents.total_volume, 5))
+		return TRUE
 	. = ..()
-	desc += " It can hold up to [volume] units."
-
-/obj/item/chems/glass/beaker/pickup(mob/user)
-	..()
-	update_icon()
-
-/obj/item/chems/glass/beaker/dropped(mob/user)
-	..()
-	update_icon()
-
-/obj/item/chems/glass/beaker/attack_hand()
-	..()
-	update_icon()
-
-/obj/item/chems/glass/beaker/on_update_icon()
-	overlays.Cut()
-
-	if(reagents.total_volume)
-		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		switch(percent)
-			if(0 to 9)		filling.icon_state = "[icon_state]-10"
-			if(10 to 24) 	filling.icon_state = "[icon_state]10"
-			if(25 to 49)	filling.icon_state = "[icon_state]25"
-			if(50 to 74)	filling.icon_state = "[icon_state]50"
-			if(75 to 79)	filling.icon_state = "[icon_state]75"
-			if(80 to 90)	filling.icon_state = "[icon_state]80"
-			if(91 to INFINITY)	filling.icon_state = "[icon_state]100"
-
-		filling.color = reagents.get_color()
-		overlays += filling
-
-	if (!ATOM_IS_OPEN_CONTAINER(src))
-		var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
-		overlays += lid
-
-/obj/item/chems/glass/beaker/large
-	name = "large beaker"
-	desc = "A large beaker."
-	icon_state = "beakerlarge"
-	center_of_mass = @"{'x':16,'y':10}"
-	volume = 120
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = @"[5,10,15,25,30,60,120]"
-	material_force_multiplier = 0.5
-
-/obj/item/chems/glass/beaker/bowl
-	name = "mixing bowl"
-	desc = "A large mixing bowl."
-	icon = 'icons/obj/kitchen.dmi'
-	icon_state = "mixingbowl"
-	center_of_mass = @"{'x':16,'y':10}"
-	volume = 180
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = @"[5,10,15,25,30,60,180]"
-	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	unacidable = 0
-	material = MAT_STEEL
-	material_force_multiplier = 0.2
-
-/obj/item/chems/glass/beaker/noreact
-	name = "cryostasis beaker"
-	desc = "A cryostasis beaker that allows for chemical storage without reactions."
-	icon_state = "beakernoreact"
-	center_of_mass = @"{'x':16,'y':8}"
-	volume = 60
-	amount_per_transfer_from_this = 10
-	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT | ATOM_FLAG_SHOW_REAGENT_NAME
-	material = null
-	material = MAT_STEEL
-
-/obj/item/chems/glass/beaker/bluespace
-	name = "bluespace beaker"
-	desc = "A bluespace beaker, powered by experimental bluespace technology."
-	icon_state = "beakerbluespace"
-	center_of_mass = @"{'x':16,'y':10}"
-	volume = 300
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = @"[5,10,15,25,30,60,120,150,200,250,300]"
-	material_force_multiplier = 2.5
-	material = MAT_STEEL
-	matter = list(
-		MAT_PHORON = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_DIAMOND = MATTER_AMOUNT_TRACE
-	)
-
-/obj/item/chems/glass/beaker/vial
-	name = "vial"
-	desc = "A small glass vial."
-	icon = 'icons/obj/items/chem/vial.dmi'
-	icon_state = "vial"
-	center_of_mass = @"{'x':15,'y':8}"
-	volume = 30
-	w_class = ITEM_SIZE_TINY //half the volume of a bottle, half the size
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = @"[5,10,15,30]"
-	material_force_multiplier = 0.1
-
-/obj/item/chems/glass/beaker/insulated
-	name = "insulated beaker"
-	desc = "A glass beaker surrounded with black insulation."
-	icon_state = "insulated"
-	center_of_mass = @"{'x':15,'y':8}"
-	material = MAT_GLASS
-	matter = list(MAT_PLASTIC = MATTER_AMOUNT_REINFORCEMENT)
-	possible_transfer_amounts = @"[5,10,15,30]"
-	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_SHOW_REAGENT_NAME
-	temperature_coefficient = 1
-	material = null
-
-/obj/item/chems/glass/beaker/insulated/large
-	name = "large insulated beaker"
-	icon_state = "insulatedlarge"
-	center_of_mass = @"{'x':16,'y':10}"
-	material = MAT_GLASS
-	matter = list(MAT_PLASTIC = MATTER_AMOUNT_REINFORCEMENT)
-	volume = 120
-
-/obj/item/chems/glass/beaker/sulphuric/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/reagent/acid, 60)
-	update_icon()
 
 /obj/item/chems/glass/bucket
 	name = "bucket"
 	desc = "It's a bucket."
-	icon = 'icons/obj/janitor.dmi'
-	icon_state = "bucket"
-	item_state = "bucket"
+	icon = 'icons/obj/items/bucket.dmi'
+	icon_state = ICON_STATE_WORLD
 	center_of_mass = @"{'x':16,'y':9}"
 	w_class = ITEM_SIZE_NORMAL
 	amount_per_transfer_from_this = 20
@@ -249,25 +114,26 @@
 	volume = 180
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_SHOW_REAGENT_NAME
 	unacidable = 0
-	material = MAT_PLASTIC
+	material = /decl/material/solid/plastic
 	material_force_multiplier = 0.2
+	slot_flags = SLOT_HEAD
 
 /obj/item/chems/glass/bucket/wood
-	name = "bucket"
 	desc = "It's a wooden bucket. How rustic."
-	icon_state = "wbucket"
-	item_state = "wbucket"
+	icon = 'icons/obj/items/wooden_bucket.dmi'
 	volume = 200
-	material = MAT_WOOD
+	material = /decl/material/solid/wood
 
 /obj/item/chems/glass/bucket/attackby(var/obj/D, mob/user)
 	if(istype(D, /obj/item/mop))
 		if(reagents.total_volume < 1)
-			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
-		else
+			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
+		else if(REAGENTS_FREE_SPACE(D.reagents) >= 5)
 			reagents.trans_to_obj(D, 5)
-			to_chat(user, "<span class='notice'>You wet \the [D] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You wet \the [D] in \the [src]."))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+		else
+			to_chat(user, SPAN_WARNING("\The [D] is saturated."))
 		return
 	else
 		return ..()

@@ -26,13 +26,6 @@
 	icon_state = "metal-rod"
 	item_state = "bolt"
 
-/obj/item/arrow/quill
-	name = "vox quill"
-	desc = "A wickedly barbed quill from some bizarre animal."
-	icon_state = "quill"
-	item_state = "quill"
-	throwforce = 5
-
 /obj/item/arrow/rod
 	name = "metal rod"
 	desc = "Don't cry for me, Orithena."
@@ -41,16 +34,15 @@
 /obj/item/arrow/rod/removed(mob/user)
 	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
 		to_chat(user, "[src] shatters into a scattering of overstressed metal shards as it leaves the crossbow.")
-		var/obj/item/material/shard/shrapnel/S = new()
+		var/obj/item/shard/shrapnel/S = new()
 		S.dropInto(loc)
 		qdel(src)
 
 /obj/item/gun/launcher/crossbow
 	name = "powered crossbow"
 	desc = "A modern twist on an old classic. Pick up that can."
-	icon = 'icons/obj/guns/crossbow.dmi'
-	icon_state = "crossbow"
-	item_state = "crossbow-solid"
+	icon = 'icons/obj/guns/launcher/crossbow.dmi'
+	icon_state = ICON_STATE_WORLD
 	fire_sound = 'sound/weapons/punchmiss.ogg' // TODO: Decent THWOK noise.
 	fire_sound_text = "a solid thunk"
 	fire_delay = 25
@@ -202,11 +194,11 @@
 
 /obj/item/gun/launcher/crossbow/on_update_icon()
 	if(tension > 1)
-		icon_state = "crossbow-drawn"
+		icon_state = "[get_world_inventory_state()]-drawn"
 	else if(bolt)
-		icon_state = "crossbow-nocked"
+		icon_state = "[get_world_inventory_state()]-nocked"
 	else
-		icon_state = "crossbow"
+		icon_state = "[get_world_inventory_state()]"
 
 /*////////////////////////////
 //	Rapid Crossbow Device	//
@@ -220,7 +212,7 @@
 /obj/item/gun/launcher/crossbow/rapidcrossbowdevice
 	name = "rapid crossbow device"
 	desc = "A hacked RCD turns an innocent construction tool into the penultimate deconstruction tool. Flashforges bolts using matter units when the string is drawn back."
-	icon_state = "rxb"
+	icon = 'icons/obj/guns/launcher/rcd_bow.dmi'
 	slot_flags = null
 	draw_time = 10
 	var/stored_matter = 0
@@ -274,7 +266,7 @@
 	overlays.Cut()
 
 	if(bolt)
-		overlays += "rxb-bolt"
+		overlays += "[get_world_inventory_state()]-bolt"
 
 	var/ratio = 0
 	if(stored_matter < boltcost)
@@ -282,12 +274,12 @@
 	else
 		ratio = stored_matter / max_stored_matter
 		ratio = max(round(ratio, 0.25) * 100, 25)
-	overlays += "rxb-[ratio]"
+	overlays += "[get_world_inventory_state()][ratio]"
 
 	if(tension > 1)
-		icon_state = "rxb-drawn"
+		icon_state = "[get_world_inventory_state()]-drawn"
 	else
-		icon_state = "rxb"
+		icon_state = "[get_world_inventory_state()]"
 
 /obj/item/gun/launcher/crossbow/rapidcrossbowdevice/examine(mob/user)
 	. = ..()

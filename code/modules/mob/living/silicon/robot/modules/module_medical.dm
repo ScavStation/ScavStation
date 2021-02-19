@@ -1,5 +1,6 @@
 /obj/item/robot_module/medical
 	name = "medical robot module"
+	associated_department = /decl/department/medical
 	channels = list(
 		"Medical" = TRUE
 	)
@@ -69,12 +70,12 @@
 
 /obj/item/robot_module/medical/surgeon/finalize_emag()
 	. = ..()
-	emag.reagents.add_reagent(/decl/reagent/acid/polyacid, 250)
+	emag.reagents.add_reagent(/decl/material/liquid/acid/polyacid, 250)
 	emag.SetName("Polyacid spray")
 
 /obj/item/robot_module/medical/surgeon/finalize_synths()
 	. = ..()
-	var/datum/matter_synth/medicine/medicine = locate() in synths 
+	var/datum/matter_synth/medicine/medicine = locate() in synths
 	for(var/thing in list(
 		 /obj/item/stack/nanopaste,
 		 /obj/item/stack/medical/advanced/bruise_pack
@@ -85,7 +86,7 @@
 /obj/item/robot_module/medical/surgeon/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	if(emag)
 		var/obj/item/chems/spray/PS = emag
-		PS.reagents.add_reagent(/decl/reagent/acid/polyacid, 2 * amount)
+		PS.reagents.add_reagent(/decl/material/liquid/acid/polyacid, 2 * amount)
 	..()
 
 /obj/item/robot_module/medical/crisis
@@ -125,8 +126,7 @@
 		SKILL_ANATOMY     = SKILL_BASIC,
 		SKILL_MEDICAL     = SKILL_PROF,
 		SKILL_CHEMISTRY   = SKILL_ADEPT,
-		SKILL_EVA         = SKILL_EXPERT,
-		SKILL_MECH        = HAS_PERK
+		SKILL_EVA         = SKILL_EXPERT
 	)
 
 /obj/item/robot_module/medical/crisis/finalize_equipment()
@@ -142,7 +142,7 @@
 
 /obj/item/robot_module/medical/crisis/finalize_emag()
 	. = ..()
-	emag.reagents.add_reagent(/decl/reagent/acid/polyacid, 250)
+	emag.reagents.add_reagent(/decl/material/liquid/acid/polyacid, 250)
 	emag.SetName("Polyacid spray")
 
 /obj/item/robot_module/medical/crisis/finalize_synths()
@@ -165,5 +165,5 @@
 		S.update_icon()
 	if(emag)
 		var/obj/item/chems/spray/PS = emag
-		PS.reagents.add_reagent(/decl/reagent/acid/polyacid, 2 * amount)
+		PS.reagents.add_reagent(/decl/material/liquid/acid/polyacid, 2 * amount)
 	..()

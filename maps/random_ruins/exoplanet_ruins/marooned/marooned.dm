@@ -13,15 +13,12 @@
 /obj/item/clothing/under/magintka_uniform 
 	name = "officer uniform" 
 	desc = "A dark uniform coat worn by Magnitka fleet officers." 
-	icon_state = "magnitka_officer" 
-	icon = 'maps/random_ruins/exoplanet_ruins/marooned/marooned_icons.dmi' 
-	item_icons = list(slot_w_uniform_str = 'maps/random_ruins/exoplanet_ruins/marooned/marooned_icons.dmi') 
+	icon = 'maps/random_ruins/exoplanet_ruins/marooned/icons/uniform_magnitka.dmi'
  
 /obj/item/clothing/accessory/medal/silver/marooned_medal 
 	name = "silver medal" 
 	desc = "An silver round medal of marooned officer. It has inscription \"For Distinguished Service\" in lower part. On medal's plank it's engraved \"H. Warda\"" 
-	icon_state = "marooned_medal" 
-	icon = 'maps/random_ruins/exoplanet_ruins/marooned/marooned_icons.dmi' 
+	icon = 'maps/random_ruins/exoplanet_ruins/marooned/icons/medal_magnitka.dmi' 
  
 /obj/effect/landmark/corpse/marooned_officer 
 	name = "Horazy Warda" 
@@ -35,7 +32,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots/jungleboots 
 	gloves = /obj/item/clothing/gloves/thick 
 	head = /obj/item/clothing/head/beret 
-	l_pocket = /obj/item/material/knife/folding/combat/switchblade 
+	l_pocket = /obj/item/knife/folding/combat/switchblade 
  
 /area/map_template/marooned
 	name = "\improper Crashed Dropship"

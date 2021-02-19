@@ -117,8 +117,8 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/clothing/suit/armor/riot,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/armor/vest,
-		/obj/item/clothing/suit/storage/vest,
-		/obj/item/clothing/suit/storage/vest,
+		/obj/item/clothing/suit/armor/vest/heavy,
+		/obj/item/clothing/suit/armor/vest/heavy,
 		/obj/item/clothing/suit/armor/laserproof,
 		/obj/item/clothing/suit/armor/bulletproof)
 
@@ -151,7 +151,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/storage/firstaid/o2,
 		/obj/item/storage/firstaid/adv,
 		/obj/item/chems/glass/bottle/antitoxin,
-		/obj/item/chems/glass/bottle/adrenaline,
+		/obj/item/chems/glass/bottle/stabilizer,
 		/obj/item/chems/glass/bottle/sedatives,
 		/obj/item/storage/box/syringes,
 		/obj/item/storage/box/autoinjectors)

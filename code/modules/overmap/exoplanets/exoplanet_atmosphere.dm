@@ -1,69 +1,97 @@
-
-
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_atmosphere()
 	atmosphere = new
+	var/target_temp = get_target_temperature()
+
+	//Make sure temperature can't damage people on casual planets
+	if(habitability_class <= HABITABILITY_OKAY)
+		var/decl/species/S = get_species_by_key(GLOB.using_map.default_species)
+		target_temp = Clamp(target_temp, S.cold_level_1 + rand(1,5), S.heat_level_1 - rand(1,5))
+
+	atmosphere.temperature = target_temp
+
+	//Skip fun gas gen for perfect terran worlds
 	if(habitability_class == HABITABILITY_IDEAL)
-		atmosphere.adjust_gas(MAT_OXYGEN, MOLES_O2STANDARD, 0)
-		atmosphere.adjust_gas(MAT_NITROGEN, MOLES_N2STANDARD)
-	else //let the fuckery commence
-		var/list/newgases = SSmaterials.all_gasses
-		newgases = newgases.Copy() // So we don't mutate the global list.
-		if(prob(90)) //all phoron planet should be rare
-			newgases -= MAT_PHORON
-		if(prob(50)) //alium gas should be slightly less common than mundane shit
-			newgases -= MAT_ALIEN_GAS
-		newgases -= MAT_STEAM
-
-		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
-		var/badflag = 0
-
-		//Breathable planet
-		if(habitability_class == HABITABILITY_OKAY)
-			atmosphere.gas[MAT_OXYGEN] += MOLES_O2STANDARD
-			total_moles -= MOLES_O2STANDARD
-			badflag = XGM_GAS_FUEL|XGM_GAS_CONTAMINANT
-
-		var/gasnum = rand(1,4)
-		var/i = 1
-		var/sanity = prob(99.9)
-		while(i <= gasnum && total_moles && newgases.len)
-			if(badflag && sanity)
-				for(var/g in newgases)
-					var/material/mat = SSmaterials.get_material_datum(g)
-					if(mat.gas_flags & badflag)
-						newgases -= g
-			var/ng = pick_n_take(newgases)	//pick a gas
-			var/material/mat = SSmaterials.get_material_datum(ng)
-			if(sanity) //make sure atmosphere is not flammable... always
-				if(mat.gas_flags & XGM_GAS_OXIDIZER)
-					badflag |= XGM_GAS_FUEL
-				if(mat.gas_flags & XGM_GAS_FUEL)
-					badflag |= XGM_GAS_OXIDIZER
-				sanity = 0
-
-			var/part = total_moles * rand(3,80)/100 //allocate percentage to it
-			if(i == gasnum || !newgases.len) //if it's last gas, let it have all remaining moles
-				part = total_moles
-			atmosphere.gas[ng] += part
-			total_moles = max(total_moles - part, 0)
-			i++
-
-//Tries to 'reset' planet's surface atmos to normal values
-/obj/effect/overmap/visitable/sector/exoplanet/proc/handle_atmosphere()
-	if(!atmosphere)
+		atmosphere.adjust_gas(/decl/material/gas/oxygen, MOLES_O2STANDARD, FALSE)
+		atmosphere.adjust_gas(/decl/material/gas/nitrogen, MOLES_N2STANDARD)
+		atmosphere.check_tile_graphic()
 		return
-	for(var/zlevel in map_z)
-		var/zone/Z
-		for(var/i = TRANSITIONEDGE to maxx - TRANSITIONEDGE)
-			var/turf/simulated/floor/exoplanet/T = locate(i, 2, zlevel)
-			if(istype(T) && T.zone && T.zone.contents.len > (maxx*maxy*0.25)) //if it's a zone quarter of zlevel, good enough odds it's planetary main one
-				Z = T.zone
-				break
-		if(Z && !Z.fire_tiles.len && !atmosphere.compare(Z.air)) //let fire die out first if there is one
-			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
-			daddy.copy_from(atmosphere)
-			daddy.group_multiplier = Z.air.group_multiplier
-			Z.air.equalize(daddy)
+	
+	var/total_moles = MOLES_CELLSTANDARD
+	
+	//Add the non-negotiable gasses
+	var/badflag = 0
+	var/gas_list = get_mandatory_gasses()
+	for(var/g in gas_list)
+		total_moles = max(0, total_moles - gas_list[g])
+		var/decl/material/mat = decls_repository.get_decl(g)
+		if(mat.gas_flags & XGM_GAS_OXIDIZER)
+			badflag |= XGM_GAS_FUEL
+		if(mat.gas_flags & XGM_GAS_FUEL)
+			badflag |= XGM_GAS_OXIDIZER
+
+	//Breathable planet
+	if(habitability_class == HABITABILITY_OKAY)
+		badflag |= XGM_GAS_CONTAMINANT
+
+	var/list/newgases = subtypesof(/decl/material/gas)
+	if(prob(50)) //alium gas should be slightly less common than mundane shit
+		newgases -= /decl/material/gas/alien
+
+	// Prune gases that won't stay gaseous
+	for(var/g in newgases)
+		var/decl/material/mat = decls_repository.get_decl(g)
+		if(mat.gas_flags & badflag)
+			newgases -= g
+		if(mat.gas_condensation_point && mat.gas_condensation_point <= atmosphere.temperature)
+			newgases -= g
+		if(mat.boiling_point && mat.boiling_point >= atmosphere.temperature)
+			newgases -= g
+
+	var/gasnum = rand(1,4)
+	var/i = 1
+	while(i <= gasnum && total_moles && newgases.len)
+		if(badflag)
+			for(var/g in newgases)
+				var/decl/material/mat = decls_repository.get_decl(g)
+				if(mat.gas_flags & badflag)
+					newgases -= g
+		var/ng = pick_n_take(newgases)	//pick a gas
+
+
+		// Make sure atmosphere is not flammable
+		var/decl/material/mat = decls_repository.get_decl(ng)
+		if(mat.gas_flags & XGM_GAS_OXIDIZER)
+			badflag |= XGM_GAS_FUEL
+		if(mat.gas_flags & XGM_GAS_FUEL)
+			badflag |= XGM_GAS_OXIDIZER
+
+		var/part = total_moles * rand(20,80)/100 //allocate percentage to it
+		if(i == gasnum || !newgases.len) //if it's last gas, let it have all remaining moles
+			part = total_moles
+		gas_list[ng] += part
+		total_moles = max(total_moles - part, 0)
+		i++
+
+	// Add all gasses, adjusted for target temperature and pressure
+	var/target_pressure = get_target_pressure()
+	var/target_moles = target_pressure * CELL_VOLUME / (atmosphere.temperature * R_IDEAL_GAS_EQUATION)
+	for(var/g in gas_list)
+		var/adjusted_moles = gas_list[g] * target_moles / MOLES_CELLSTANDARD
+		atmosphere.adjust_gas(g, adjusted_moles, FALSE)
+	atmosphere.update_values()
+	atmosphere.check_tile_graphic()
+
+//List of gases that will be always present. Amounts are given assuming total of MOLES_CELLSTANDARD in atmosphere
+/obj/effect/overmap/visitable/sector/exoplanet/proc/get_mandatory_gasses()
+	if(habitability_class == HABITABILITY_OKAY)
+		return list(/decl/material/gas/oxygen = MOLES_O2STANDARD)
+	return list()
+
+/obj/effect/overmap/visitable/sector/exoplanet/proc/get_target_temperature()
+	return T20C + rand(-5,5)
+
+/obj/effect/overmap/visitable/sector/exoplanet/proc/get_target_pressure()
+	return ONE_ATMOSPHERE * rand(8, 12)/10
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)

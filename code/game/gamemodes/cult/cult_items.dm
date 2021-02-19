@@ -1,22 +1,17 @@
-/obj/item/melee/cultblade
+/obj/item/sword/cultblade
 	name = "cult blade"
 	desc = "An arcane weapon wielded by the followers of Nar-Sie."
-	icon = 'icons/obj/items/weapon/broadswords.dmi'
-	icon_state = "cultblade"
-	item_state = "cultblade"
-	edge = 1
-	sharp = 1
-	w_class = ITEM_SIZE_LARGE
-	force = 30
-	throwforce = 10
-	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	icon = 'icons/obj/items/weapon/swords/cult.dmi'
+	applies_material_colour = FALSE
+	applies_material_name = FALSE
 
-/obj/item/melee/cultblade/attack(mob/living/M, mob/living/user, var/target_zone)
-	if(iscultist(user) || (user.mind in GLOB.godcult.current_antagonists))
+/obj/item/sword/cultblade/attack(mob/living/M, mob/living/user, var/target_zone)
+
+	var/decl/special_role/godcult = decls_repository.get_decl(/decl/special_role/godcultist)
+	if(iscultist(user) || (user.mind in godcult.current_antagonists))
 		return ..()
 
-	var/zone = (user.hand ? BP_L_ARM : BP_R_ARM)
+	var/zone = user.get_active_held_item_slot()
 
 	var/obj/item/organ/external/affecting = null
 	if(ishuman(user))
@@ -40,7 +35,7 @@
 
 	return 1
 
-/obj/item/melee/cultblade/pickup(mob/living/user)
+/obj/item/sword/cultblade/pickup(mob/living/user)
 	if(!iscultist(user))
 		to_chat(user, "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up the cultist's sword. It would be wise to be rid of this blade quickly.</span>")
 		user.make_dizzy(120)
@@ -48,24 +43,25 @@
 
 /obj/item/clothing/head/culthood
 	name = "cult hood"
-	icon_state = "culthood"
 	desc = "A hood worn by the followers of Nar-Sie."
+
+	icon = 'icons/clothing/head/cult.dmi'
 	flags_inv = HIDEFACE
-	body_parts_covered = HEAD
+	body_parts_covered = SLOT_HEAD
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_SMALL
 	)
-	cold_protection = HEAD
+	cold_protection = SLOT_HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.8 //That's a pretty cool opening in the hood. Also: Cloth making physical contact to the skull.
 
 /obj/item/clothing/head/culthood/magus
 	name = "magus helm"
-	icon_state = "magus"
 	desc = "A helm worn by the followers of Nar-Sie."
+	icon = 'icons/clothing/head/wizard/magus.dmi'
 	flags_inv = HIDEFACE | BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
+	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -74,14 +70,14 @@
 	)
 
 /obj/item/clothing/head/culthood/alt
-	icon_state = "cult_hoodalt"
+	icon = 'icons/clothing/head/cult_alt.dmi'
 
 /obj/item/clothing/suit/cultrobes
 	name = "cult robes"
+	icon = 'icons/clothing/suit/cult.dmi'
 	desc = "A set of durable robes worn by the followers of Nar-Sie."
-	icon_state = "cultrobes"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/book/tome,/obj/item/melee/cultblade)
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+	allowed = list(/obj/item/book/tome,/obj/item/sword/cultblade)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -93,13 +89,13 @@
 	siemens_coefficient = 0.6
 
 /obj/item/clothing/suit/cultrobes/alt
-	icon_state = "cultrobesalt"
+	icon = 'icons/clothing/suit/cult_alt.dmi'
 
 /obj/item/clothing/suit/cultrobes/magusred
 	name = "magus robes"
 	desc = "A set of plated robes worn by the followers of Nar-Sie."
-	icon_state = "magusred"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	icon = 'icons/clothing/suit/wizard/magusred.dmi'
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -111,12 +107,12 @@
 
 /obj/item/clothing/suit/cultrobes/magusred/Initialize()
 	. = ..()
-	slowdown_per_slot[slot_wear_suit] = 1
+	LAZYSET(slowdown_per_slot, slot_wear_suit_str, 1)
 
 /obj/item/clothing/head/helmet/space/cult
 	name = "cult helmet"
 	desc = "A space worthy helmet used by the followers of Nar-Sie."
-	icon_state = "cult_helmet"
+	icon = 'icons/clothing/spacesuit/cult/helmet.dmi'
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -130,9 +126,9 @@
 
 /obj/item/clothing/suit/space/cult
 	name = "cult armour"
-	icon_state = "cult_armour"
 	desc = "A bulky suit of armour, bristling with spikes. It looks space proof."
-	allowed = list(/obj/item/book/tome,/obj/item/melee/cultblade,/obj/item/tank,/obj/item/suit_cooling_unit)
+	icon = 'icons/clothing/spacesuit/cult/suit.dmi'
+	allowed = list(/obj/item/book/tome,/obj/item/sword/cultblade,/obj/item/tank,/obj/item/suit_cooling_unit)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -143,8 +139,8 @@
 		rad = ARMOR_RAD_MINOR
 	)
 	siemens_coefficient = 0.2
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_HANDS
 
 /obj/item/clothing/suit/space/cult/Initialize()
 	. = ..()
-	slowdown_per_slot[slot_wear_suit] = 1
+	LAZYSET(slowdown_per_slot, slot_wear_suit_str, 1)

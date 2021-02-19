@@ -52,12 +52,12 @@
 /obj/structure/closet/firecloset/chief/WillContain()
 	return list(
 		/obj/item/storage/med_pouch/burn,
-		/obj/item/clothing/suit/fire/firefighter,
+		/obj/item/clothing/suit/fire,
 		/obj/item/clothing/mask/gas,
 		/obj/item/flashlight,
 		/obj/item/tank/emergency/oxygen/double/red,
 		/obj/item/extinguisher,
-		/obj/item/clothing/head/hardhat/firefighter/Chief)
+		/obj/item/clothing/head/hardhat/firefighter)
 
 /*
  * Tool Closet
@@ -142,7 +142,7 @@
 /obj/structure/closet/bombclosetsecurity/WillContain()
 	return list(
 		/obj/item/clothing/suit/bomb_suit/security,
-		/obj/item/clothing/under/rank/security,
+		/obj/item/clothing/under/security,
 		/obj/item/clothing/shoes/color/brown,
 		/obj/item/clothing/head/bomb_hood/security)
 

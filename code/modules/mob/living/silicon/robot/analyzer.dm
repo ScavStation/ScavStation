@@ -8,16 +8,16 @@
 	item_state = "analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	throwforce = 3
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = "{'magnets':2,'biotech':1,'engineering':2}"
-	material = MAT_STEEL
+	material = /decl/material/solid/metal/steel
 	matter = list(
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT,
-		MAT_PLASTIC = MATTER_AMOUNT_TRACE
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE
 	)
 	var/mode = 1;
 
@@ -74,7 +74,7 @@
 			var/mob/living/carbon/human/H = M
 			to_chat(user, "<span class='notice'>Analyzing Results for \the [H]:</span>")
 			to_chat(user, "Key: <font color='#ffa500'>Electronics</font>/<font color='red'>Brute</font>")
-			var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+			var/obj/item/organ/internal/cell/C = H.get_internal_organ(BP_CELL)
 			if(C)
 				to_chat(user, SPAN_NOTICE("Cell charge: [C.percent()] %"))
 			else

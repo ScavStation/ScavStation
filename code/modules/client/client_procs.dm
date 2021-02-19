@@ -1,3 +1,8 @@
+var/list/localhost_addresses = list(
+	"127.0.0.1" = TRUE,
+	"::1" = TRUE
+)
+
 	////////////
 	//SECURITY//
 	////////////
@@ -139,17 +144,18 @@
 
 	#endif
 
-	if(!config.guests_allowed && IsGuestKey(key))
-		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
-		qdel(src)
-		return
-
-	if(config.player_limit != 0)
-		if((GLOB.clients.len >= config.player_limit) && !(ckey in admin_datums))
-			alert(src,"This server is currently full and not accepting new connections.","Server Full","OK")
-			log_admin("[ckey] tried to join and was turned away due to the server being full (player_limit=[config.player_limit])")
+	var/local_connection = (config.auto_local_admin && (isnull(address) || global.localhost_addresses[address]))
+	if(!local_connection)
+		if(!config.guests_allowed && IsGuestKey(key))
+			alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
 			qdel(src)
 			return
+		if(config.player_limit != 0)
+			if((GLOB.clients.len >= config.player_limit) && !(ckey in admin_datums))
+				alert(src,"This server is currently full and not accepting new connections.","Server Full","OK")
+				log_admin("[ckey] tried to join and was turned away due to the server being full (player_limit=[config.player_limit])")
+				qdel(src)
+				return
 
 	// Change the way they should download resources.
 	if(config.resource_urls && config.resource_urls.len)
@@ -162,6 +168,11 @@
 	to_chat(src, "<span class='warning'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 	GLOB.clients += src
 	GLOB.ckey_directory[ckey] = src
+
+	// Automatic admin rights for people connecting locally.
+	// Concept stolen from /tg/ with deepest gratitude.
+	if(local_connection && !admin_datums[ckey])
+		new /datum/admins("Local Host", R_EVERYTHING, ckey)
 
 	//Admin Authorisation
 	holder = admin_datums[ckey]
@@ -177,6 +188,9 @@
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	apply_fps(prefs.clientfps)
+
+	if(!isnull(config.lock_client_view_x) && !isnull(config.lock_client_view_y))
+		view = "[config.lock_client_view_x]x[config.lock_client_view_y]"
 
 	. = ..()	//calls mob.Login()
 
@@ -217,17 +231,14 @@
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
 		to_chat(src, "<span class='warning'>Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you.</span>")
 
-	if(mob.get_preference_value(/datum/client_preference/chat_position) == GLOB.PREF_YES)
-		update_chat_position(TRUE)
-
-	if(get_preference_value(/datum/client_preference/fullscreen_mode) != GLOB.PREF_OFF)
-		toggle_fullscreen(get_preference_value(/datum/client_preference/fullscreen_mode))
-
 	if(!tooltips)
 		tooltips = new /datum/tooltip(src)
 
 	if(holder)
 		src.control_freak = 0 //Devs need 0 for profiler access
+
+	if(!istype(mob, world.mob))
+		prefs?.apply_post_login_preferences()
 
 	//////////////
 	//DISCONNECT//
@@ -325,6 +336,13 @@
 	var/sql_computerid = sql_sanitize_text(src.computer_id)
 	var/sql_admin_rank = sql_sanitize_text(admin_rank)
 
+	if ((player_age <= 0) && !(ckey in global.panic_bunker_bypass)) //first connection
+		if (config.panic_bunker && !holder && !deadmin_holder)
+			log_adminwarn("Failed Login: [key] - New account attempting to connect during panic bunker")
+			message_admins("<span class='adminnotice'>Failed Login: [key] - New account attempting to connect during panic bunker</span>")
+			to_chat(src, config.panic_bunker_message)
+			qdel(src)
+			return 0
 
 	if(sql_id)
 		//Player already identified previously, we need to just update the 'lastseen', 'ip' and 'computer_id' variables
@@ -419,9 +437,24 @@ client/verb/character_setup()
 	if(istype(M))
 		M.OnMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
 
+/client/MouseUp(object, location, control, params)
+	. = ..()
+	var/mob/living/M = mob
+	if(istype(M))
+		M.OnMouseUp(object, location, control, params)
+
+/client/MouseDown(object, location, control, params)
+	. = ..()
+	var/mob/living/M = mob
+	if(istype(M) && !M.in_throw_mode)
+		M.OnMouseDown(object, location, control, params)
+
 /client/verb/SetWindowIconSize(var/val as num|text)
 	set hidden = 1
 	winset(src, "mapwindow.map", "icon-size=[val]")
+	if(prefs && val != prefs.icon_size)
+		prefs.icon_size = val
+		SScharacter_setup.queue_preferences_save(prefs)
 	OnResize()
 
 /client
@@ -449,35 +482,39 @@ client/verb/character_setup()
 
 /client/verb/OnResize()
 	set hidden = 1
-	handle_resize(src)
 
-/proc/handle_resize(client/C)
-	if (!C)
-		return
-	var/divisor = text2num(winget(C, "mapwindow.map", "icon-size")) || world.icon_size
-	var/winsize_string = winget(C, "mapwindow.map", "size")
-	C.last_view_x_dim = Clamp(ceil(text2num(winsize_string) / divisor), 15, 41)
-	C.last_view_y_dim = Clamp(ceil(text2num(copytext(winsize_string,findtext(winsize_string,"x")+1,0)) / divisor), 15, 41)
-	if(C.last_view_x_dim % 2 == 0) C.last_view_x_dim++
-	if(C.last_view_y_dim % 2 == 0) C.last_view_y_dim++
-	C.view = "[C.last_view_x_dim]x[C.last_view_y_dim]"
+	var/divisor = text2num(winget(src, "mapwindow.map", "icon-size")) || world.icon_size
+	if(!isnull(config.lock_client_view_x) && !isnull(config.lock_client_view_y))
+		last_view_x_dim = config.lock_client_view_x
+		last_view_y_dim = config.lock_client_view_y
+	else
+		var/winsize_string = winget(src, "mapwindow.map", "size")
+		last_view_x_dim = config.lock_client_view_x || Clamp(ceil(text2num(winsize_string) / divisor), 15, config.max_client_view_x || 41)
+		last_view_y_dim = config.lock_client_view_y || Clamp(ceil(text2num(copytext(winsize_string,findtext(winsize_string,"x")+1,0)) / divisor), 15, config.max_client_view_y || 41)
+		if(last_view_x_dim % 2 == 0) last_view_x_dim++
+		if(last_view_y_dim % 2 == 0) last_view_y_dim++
+	for(var/check_icon_size in global.valid_icon_sizes)
+		winset(src, "menu.icon[check_icon_size]", "is-checked=false")
+	winset(src, "menu.icon[divisor]", "is-checked=true")
+
+	view = "[last_view_x_dim]x[last_view_y_dim]"
 
 	// Reset eye/perspective
-	var/last_perspective = C.perspective
-	C.perspective = MOB_PERSPECTIVE
-	if(C.perspective != last_perspective)
-		C.perspective = last_perspective
-	var/last_eye = C.eye
-	C.eye = C.mob
-	if(C.eye != last_eye)
-		C.eye = last_eye
+	var/last_perspective = perspective
+	perspective = MOB_PERSPECTIVE
+	if(perspective != last_perspective)
+		perspective = last_perspective
+	var/last_eye = eye
+	eye = mob
+	if(eye != last_eye)
+		eye = last_eye
 
 	// Recenter skybox and lighting.
-	C.set_skybox_offsets(C.last_view_x_dim, C.last_view_y_dim)
-	if(C.mob)
-		if(C.mob.l_general)
-			C.mob.l_general.fit_to_client_view(C.last_view_x_dim, C.last_view_y_dim)
-		C.mob.reload_fullscreen()
+	set_skybox_offsets(last_view_x_dim, last_view_y_dim)
+	if(mob)
+		if(mob.l_general)
+			mob.l_general.fit_to_client_view(last_view_x_dim, last_view_y_dim)
+		mob.reload_fullscreen()
 
 /client/proc/update_chat_position(use_alternative)
 	var/input_height = 0
@@ -580,14 +617,3 @@ client/verb/character_setup()
 
 		pct += delta
 		winset(src, "mainwindow.mainvsplit", "splitter=[pct]")
-	addtimer(CALLBACK(src, .proc/update_initial_icon_size), 0)
-
-/client/proc/update_initial_icon_size()
-	set waitfor = 0
-	var/set_initial_window_size = 48
-	for(var/check_icon_size in list(32, 48, 64, 96, 128))
-		if(winget(src, "menu.icon[check_icon_size]", "is-checked") == "true")
-			set_initial_window_size = check_icon_size
-			break
-	winset(src, "menu.icon[set_initial_window_size]", "is-checked=true")
-	SetWindowIconSize(set_initial_window_size)

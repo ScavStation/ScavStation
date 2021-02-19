@@ -31,15 +31,11 @@
 /obj/item/gun
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/guns/gui.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/mob/onmob/items/righthand_guns.dmi',
-		)
-	item_state = "gun"
+	icon_state = ICON_STATE_WORLD
+	icon = 'icons/obj/guns/pistol.dmi'
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
-	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	material = MAT_STEEL
+	slot_flags = SLOT_LOWER_BODY|SLOT_HOLSTER
+	material = /decl/material/solid/metal/steel
 	w_class = ITEM_SIZE_NORMAL
 	throwforce = 5
 	throw_speed = 4
@@ -48,10 +44,9 @@
 	origin_tech = "{'combat':1}"
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
-	waterproof = FALSE
 
+	var/waterproof = FALSE
 	var/burst = 1
-	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again. Cannot be less than [burst_delay+1]
 	var/burst_delay = 1	//delay between shots, if firing in bursts
 	var/fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
@@ -91,16 +86,67 @@
 	var/has_safety = TRUE
 	var/safety_icon 	   //overlay to apply to gun based on safety state, if any
 
+	var/autofire_enabled = FALSE
+	var/atom/autofiring_at
+	var/mob/autofiring_by
+	var/autofiring_timer
+
+	// Spam prevention
+	var/last_fire_message_type
+	var/last_fire_message_time
+
 /obj/item/gun/Initialize()
 	. = ..()
 	for(var/i in 1 to firemodes.len)
 		firemodes[i] = new /datum/firemode(src, firemodes[i])
-
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
-
 	if(scope_zoom)
 		verbs += /obj/item/gun/proc/scope
+
+/obj/item/gun/Destroy()
+	// autofire timer is automatically cleaned up
+	autofiring_at = null
+	autofiring_by = null
+	. = ..()
+
+/obj/item/gun/proc/set_autofire(var/atom/fire_at, var/mob/fire_by)
+	. = TRUE
+	if(!istype(fire_at) || !istype(fire_by))
+		. = FALSE
+	else if(QDELETED(fire_at) || QDELETED(fire_by) || QDELETED(src))
+		. = FALSE
+	else if(!autofire_enabled)
+		. = FALSE
+	if(.)
+		autofiring_at = fire_at
+		autofiring_by = fire_by
+		if(!autofiring_timer)
+			autofiring_timer = addtimer(CALLBACK(src, .proc/handle_autofire), burst_delay, (TIMER_STOPPABLE | TIMER_LOOP | TIMER_UNIQUE | TIMER_OVERRIDE))
+	else
+		clear_autofire()
+
+/obj/item/gun/proc/clear_autofire()
+	autofiring_at = null
+	autofiring_by = null
+	if(autofiring_timer)
+		deltimer(autofiring_timer)
+		autofiring_timer = null
+
+/obj/item/gun/proc/handle_autofire()
+	set waitfor = FALSE
+	. = TRUE
+	if(QDELETED(autofiring_at) || QDELETED(autofiring_by))
+		. = FALSE
+	else if(autofiring_by.get_active_hand() != src || autofiring_by.incapacitated())
+		. = FALSE
+	else if(!autofiring_by.client || !(autofiring_by in view(autofiring_by.client.view, autofiring_by)))
+		. = FALSE
+	if(!.)
+		clear_autofire()
+	else if(can_autofire())
+		autofiring_by.set_dir(get_dir(src, autofiring_at))
+		Fire(autofiring_at, autofiring_by, null, (get_dist(autofiring_at, autofiring_by) <= 1), FALSE, FALSE)
 
 /obj/item/gun/update_twohanding()
 	if(one_hand_penalty)
@@ -110,18 +156,31 @@
 /obj/item/gun/on_update_icon()
 	var/mob/living/M = loc
 	overlays.Cut()
+	update_base_icon()
 	if(istype(M))
-		if(wielded_item_state)
-			if(M.can_wield_item(src) && src.is_held_twohanded(M))
-				item_state_slots[slot_l_hand_str] = wielded_item_state
-				item_state_slots[slot_r_hand_str] = wielded_item_state
-			else
-				item_state_slots[slot_l_hand_str] = initial(item_state)
-				item_state_slots[slot_r_hand_str] = initial(item_state)
 		if(M.skill_check(SKILL_WEAPONS,SKILL_BASIC))
 			overlays += image('icons/obj/guns/gui.dmi',"safety[safety()]")
+		if(src in M.get_held_items())
+			M.update_inv_hands()
 	if(safety_icon)
-		overlays += image(icon,"[safety_icon][safety()]")
+		overlays +=	get_safety_indicator()
+
+/obj/item/gun/proc/update_base_icon()
+
+/obj/item/gun/proc/get_safety_indicator()
+	return mutable_appearance(icon, "[get_world_inventory_state()][safety_icon][safety()]")
+
+/obj/item/gun/get_mob_overlay(mob/user_mob, slot, bodypart)
+	var/image/I = ..()
+	if(wielded_item_state && user_mob.can_wield_item(src) && is_held_twohanded(user_mob))
+		I.icon_state = wielded_item_state
+	return I
+
+/obj/item/gun/experimental_mob_overlay(mob/user_mob, slot, bodypart)
+	var/image/I = ..()
+	if(I && user_mob.can_wield_item(src) && is_held_twohanded(user_mob) && check_state_in_icon("[I.icon_state]-wielded", icon))
+		I.icon_state = "[I.icon_state]-wielded"
+	return I
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -150,7 +209,7 @@
 					"<span class='danger'>\The [user] shoots \himself in the foot with \the [src]!</span>",
 					"<span class='danger'>You shoot yourself in the foot with \the [src]!</span>"
 					)
-				M.unequip_item()
+				M.unEquip(src)
 		else
 			handle_click_empty(user)
 		return 0
@@ -190,9 +249,11 @@
 	update_icon()
 	return ..()
 
-/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-	if(!user || !target) return
-	if(target.z != user.z) return
+/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, set_click_cooldown=TRUE)
+	if(!user || !target)
+		return
+	if(target.z != user.z)
+		return
 
 	add_fingerprint(user)
 
@@ -212,9 +273,10 @@
 		return
 
 	last_safety_check = world.time
-	var/shoot_time = (burst - 1)* burst_delay
-	user.setClickCooldown(shoot_time) //no clicking on things while shooting
-	next_fire_time = world.time + shoot_time
+	if(set_click_cooldown)
+		var/shoot_time = (burst - 1) * burst_delay
+		user.setClickCooldown(shoot_time) //no clicking on things while shooting
+		next_fire_time = world.time + shoot_time
 
 	var/held_twohanded = (user.can_wield_item(src) && src.is_held_twohanded(user))
 
@@ -258,14 +320,23 @@
 		return 2
 	//just assume we can shoot through glass and stuff. No big deal, the player can just choose to not target someone
 	//on the other side of a window if it makes a difference. Or if they run behind a window, too bad.
-	return check_trajectory(target, user)
+	return (target in check_trajectory(target, user))
+
+#define FIREARM_MESSAGE_SPAM_TIME (1 SECOND)
+/obj/item/gun/proc/check_fire_message_spam(var/check_type = "click")
+	. = (last_fire_message_type != check_type) || (world.time >= last_fire_message_time + FIREARM_MESSAGE_SPAM_TIME)
+	if(.)
+		last_fire_message_type = check_type
+		last_fire_message_time = world.time
+#undef FIREARM_MESSAGE_SPAM_TIME
 
 //called if there was no projectile to shoot
 /obj/item/gun/proc/handle_click_empty(mob/user)
-	if (user)
-		user.visible_message("*click click*", "<span class='danger'>*click*</span>")
-	else
-		src.visible_message("*click click*")
+	if(check_fire_message_spam("click"))
+		if(user)
+			user.visible_message("*click click*", "<span class='danger'>*click*</span>")
+		else
+			src.visible_message("*click click*")
 	playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
@@ -273,19 +344,23 @@
 	if(fire_anim)
 		flick(fire_anim, src)
 
-	if(!silenced)
-		if(reflex)
+	if(!silenced && check_fire_message_spam("fire"))
+		var/user_message = SPAN_WARNING("You fire \the [src][pointblank ? " point blank":""] at \the [target][reflex ? " by reflex" : ""]!")
+		if (silenced)
+			to_chat(user, user_message)
+		else 
 			user.visible_message(
-				"<span class='reflex_shoot'><b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!</b></span>",
-				"<span class='reflex_shoot'>You fire \the [src] by reflex!</span>",
-				"You hear a [fire_sound_text]!"
+				SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank":""] at \the [target][reflex ? " by reflex" : ""]!"),
+				user_message,
+				SPAN_DANGER("You hear a [fire_sound_text]!")
 			)
-		else
-			user.visible_message(
-				"<span class='danger'>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!</span>",
-				"<span class='warning'>You fire \the [src]!</span>",
-				"You hear a [fire_sound_text]!"
-				)
+
+		if (pointblank && ismob(target))
+			admin_attack_log(user, target,
+				"shot point blank with \a [type]",
+				"shot point blank with \a [type]",
+				"shot point blank (\a [type])"
+			)
 
 	if(one_hand_penalty)
 		if(!src.is_held_twohanded(user))
@@ -321,7 +396,7 @@
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
 				S.deactivate()
-	
+
 	if(space_recoil)
 		if(!user.check_space_footing())
 			var/old_dir = user.dir
@@ -400,18 +475,17 @@
 		P.set_clickpoint(params)
 
 	//shooting while in shock
-	var/x_offset = 0
-	var/y_offset = 0
+	var/shock_dispersion = 0
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/mob = user
 		if(mob.shock_stage > 120)
-			y_offset = rand(-2,2)
-			x_offset = rand(-2,2)
+			shock_dispersion = rand(-4,4)
 		else if(mob.shock_stage > 70)
-			y_offset = rand(-1,1)
-			x_offset = rand(-1,1)
+			shock_dispersion = rand(-2,2)
 
-	var/launched = !P.launch_from_gun(target, user, src, target_zone, x_offset, y_offset)
+	P.dispersion += shock_dispersion
+
+	var/launched = !P.launch_from_gun(target, target_zone, user, params)
 
 	if(launched)
 		play_fire_sound(user,P)
@@ -426,7 +500,7 @@
 		shot_sound_vol = P.fire_sound_vol
 	if(silenced)
 		shot_sound_vol = 10
-	
+
 	playsound(user, shot_sound, shot_sound_vol, 1)
 
 //Suicide handling.
@@ -445,6 +519,7 @@
 
 	if(safety())
 		user.visible_message("*click click*", SPAN_DANGER("*click*"))
+		playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 		mouthshoot = 0
 		return
 
@@ -587,15 +662,20 @@
 		afterattack(shoot_to,target)
 		return 1
 
+/obj/item/gun/dropped(mob/living/user)
+	. = ..()
+	clear_autofire()
+
 /obj/item/gun/proc/can_autofire()
-	return (can_autofire && world.time >= next_fire_time)
+	return (autofire_enabled && world.time >= next_fire_time)
 
 /obj/item/gun/proc/check_accidents(mob/living/user, message = "[user] fumbles with the [src] and it goes off!",skill_path = SKILL_WEAPONS, fail_chance = 20, no_more_fail = SKILL_EXPERT, factor = 2)
 	if(istype(user))
 		if(!safety() && user.skill_fail_prob(skill_path, fail_chance, no_more_fail, factor) && special_check(user))
 			user.visible_message(SPAN_WARNING(message))
 			var/list/targets = list(user)
-			targets += trange(2, get_turf(src))
+			var/turf/checking = get_turf(src)
+			targets += RANGE_TURFS(checking, 2)
 			var/picked = pick(targets)
 			afterattack(picked, user)
 			return 1

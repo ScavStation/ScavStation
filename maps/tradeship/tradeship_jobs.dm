@@ -1,4 +1,5 @@
 /datum/map/tradeship
+	default_law_type = /datum/ai_laws/corporate
 	default_assistant_title = "Deck Hand"
 	allowed_jobs = list(
 		/datum/job/tradeship_captain,
@@ -17,10 +18,21 @@
 		/datum/job/yinglet/matriarch
 	)
 	species_to_job_whitelist = list(
-		/datum/species/baxxid = list(
-			/datum/job/assistant
+		/decl/species/indrel = list(
+			/datum/job/cyborg,
+			/datum/job/assistant,
+			/datum/job/tradeship_engineer,
+			/datum/job/tradeship_engineer/head
 		),
-		/datum/species/yinglet = list(
+		/decl/species/baxxid = list(
+			/datum/job/cyborg,
+			/datum/job/assistant,
+			/datum/job/tradeship_first_mate,
+			/datum/job/tradeship_researcher,
+			/datum/job/tradeship_researcher/head,
+			/datum/job/tradeship_captain
+		),
+		/decl/species/yinglet = list(
 			/datum/job/yinglet/worker,
 			/datum/job/yinglet/scout,
 			/datum/job/yinglet/patriarch,
@@ -31,7 +43,7 @@
 			/datum/job/tradeship_doctor,
 			/datum/job/tradeship_researcher
 		),
-		/datum/species/yinglet/southern = list(
+		/decl/species/yinglet/southern = list(
 			/datum/job/yinglet/worker,
 			/datum/job/yinglet/scout,
 			/datum/job/yinglet/patriarch,

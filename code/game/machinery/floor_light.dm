@@ -12,15 +12,16 @@ var/list/floor_light_cache = list()
 	active_power_usage = 20
 	power_channel = LIGHT
 	matter = list(
-		MAT_STEEL = MATTER_AMOUNT_PRIMARY,
-		MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT
+		/decl/material/solid/metal/steel = MATTER_AMOUNT_PRIMARY,
+		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT
 	)
+	required_interaction_dexterity = DEXTERITY_SIMPLE_MACHINES
 
 	var/damaged
 	var/default_light_max_bright = 0.75
 	var/default_light_inner_range = 1
 	var/default_light_outer_range = 3
-	var/default_light_colour = "#ffffff"
+	var/default_light_color = "#ffffff"
 
 /obj/machinery/floor_light/prebuilt
 	anchored = 1
@@ -92,8 +93,8 @@ var/list/floor_light_cache = list()
 
 /obj/machinery/floor_light/proc/update_brightness()
 	if((use_power == POWER_USE_ACTIVE) && !(stat & (NOPOWER | BROKEN)))
-		if(light_outer_range != default_light_outer_range || light_max_bright != default_light_max_bright || light_color != default_light_colour)
-			set_light(default_light_max_bright, default_light_inner_range, default_light_outer_range, l_color = default_light_colour)
+		if(light_outer_range != default_light_outer_range || light_max_bright != default_light_max_bright || light_color != default_light_color)
+			set_light(default_light_max_bright, default_light_inner_range, default_light_outer_range, l_color = default_light_color)
 			change_power_consumption((light_outer_range + light_max_bright) * 20, POWER_USE_ACTIVE)
 	else
 		if(light_outer_range || light_max_bright)
@@ -103,10 +104,10 @@ var/list/floor_light_cache = list()
 	overlays.Cut()
 	if((use_power == POWER_USE_ACTIVE) && !(stat & (NOPOWER | BROKEN)))
 		if(isnull(damaged))
-			var/cache_key = "floorlight-[default_light_colour]"
+			var/cache_key = "floorlight-[default_light_color]"
 			if(!floor_light_cache[cache_key])
 				var/image/I = image("on")
-				I.color = default_light_colour
+				I.color = default_light_color
 				I.plane = plane
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
@@ -114,31 +115,23 @@ var/list/floor_light_cache = list()
 		else
 			if(damaged == 0) //Needs init.
 				damaged = rand(1,4)
-			var/cache_key = "floorlight-broken[damaged]-[default_light_colour]"
+			var/cache_key = "floorlight-broken[damaged]-[default_light_color]"
 			if(!floor_light_cache[cache_key])
 				var/image/I = image("flicker[damaged]")
-				I.color = default_light_colour
+				I.color = default_light_color
 				I.plane = plane
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
 			overlays |= floor_light_cache[cache_key]
 	update_brightness()
 
-/obj/machinery/floor_light/ex_act(severity)
-	switch(severity)
-		if(1)
-			qdel(src)
-		if(2)
-			if (prob(50))
-				qdel(src)
-			else if(prob(20))
+/obj/machinery/floor_light/explosion_act(severity)
+	. = ..()
+	if(. && !QDELETED(src))
+		if(severity == 1 || (severity == 2 && prob(50)) || (severity == 3 && prob(5)))
+			physically_destroyed()
+		else 
+			if(severity == 2 && prob(20))
 				set_broken(TRUE)
-			else
-				if(isnull(damaged))
-					damaged = 0
-		if(3)
-			if (prob(5))
-				qdel(src)
-			else if(isnull(damaged))
+			if(isnull(damaged))
 				damaged = 0
-	return

@@ -16,10 +16,10 @@
 		tally -= 1
 
 	if(CE_SPEEDBOOST in chem_effects)
-		tally -= chem_effects[CE_SPEEDBOOST]
+		tally -= LAZYACCESS(chem_effects, CE_SPEEDBOOST)
 
 	if(CE_SLOWDOWN in chem_effects)
-		tally += chem_effects[CE_SLOWDOWN]
+		tally += LAZYACCESS(chem_effects, CE_SLOWDOWN)
 
 	var/health_deficiency = (maxHealth - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
@@ -33,12 +33,12 @@
 			tally += E ? E.movement_delay(4) : 4
 	else
 		var/total_item_slowdown = -1
-		for(var/slot = slot_first to slot_last)
+		for(var/slot in global.all_inventory_slots)
 			var/obj/item/I = get_equipped_item(slot)
 			if(istype(I))
 				var/item_slowdown = 0
 				item_slowdown += I.slowdown_general
-				item_slowdown += I.slowdown_per_slot[slot]
+				item_slowdown += LAZYACCESS(I.slowdown_per_slot, slot)
 				item_slowdown += I.slowdown_accessory
 				total_item_slowdown += max(item_slowdown, 0)
 		tally += total_item_slowdown
@@ -50,12 +50,18 @@
 	if(shock_stage >= 10 || get_stamina() <= 0)
 		tally += 3
 
-	if(is_asystole()) tally += 10  //heart attacks are kinda distracting
+	if(is_asystole())
+		tally += 10 // Heart attacks are kinda distracting.
 
-	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
+	if(aiming && aiming.aiming_at)
+		tally += 5 // Iron sights make you slower, it's a well-known fact.
+
+	if(facing_dir)
+		tally += 3 // Locking direction will slow you down.
 
 	if(MUTATION_FAT in src.mutations)
 		tally += 1.5
+
 	if (bodytemperature < species.cold_discomfort_level)
 		tally += (species.cold_discomfort_level - bodytemperature) / 10 * 1.75
 
@@ -108,10 +114,12 @@
 		return 0
 
 	//Check hands and mod slip
-	if(!l_hand)	prob_slip -= 2
-	else if(l_hand.w_class <= ITEM_SIZE_SMALL)	prob_slip -= 1
-	if (!r_hand)	prob_slip -= 2
-	else if(r_hand.w_class <= ITEM_SIZE_SMALL)	prob_slip -= 1
+	for(var/bp in held_item_slots)
+		var/datum/inventory_slot/inv_slot = held_item_slots[bp]
+		if(!inv_slot.holding)
+			prob_slip -= 2
+		else if(inv_slot.holding.w_class <= ITEM_SIZE_SMALL)
+			prob_slip -= 1
 
 	return prob_slip
 
@@ -125,33 +133,19 @@
 /mob/living/carbon/human/Move()
 	. = ..()
 	if(.) //We moved
-		handle_exertion()
+		species.handle_exertion(src)
 		handle_leg_damage()
-	
+
 		if(client)
 			var/turf/B = GetAbove(src)
 			up_hint.icon_state = "uphint[(B ? B.is_open() : 0)]"
-
-/mob/living/carbon/human/proc/handle_exertion()
-	if(isSynthetic())
-		return
-	var/lac_chance =  10 * encumbrance()
-	if(lac_chance && prob(skill_fail_chance(SKILL_HAULING, lac_chance)))
-		make_reagent(1, /decl/reagent/lactate)
-		adjust_hydration(-DEFAULT_THIRST_FACTOR)
-		switch(rand(1,20))
-			if(1)
-				visible_message("<span class='notice'>\The [src] is sweating heavily!</span>", "<span class='notice'>You are sweating heavily!</span>")
-			if(2)
-				visible_message("<span class='notice'>\The [src] looks out of breath!</span>", "<span class='notice'>You are out of breath!</span>")
 
 /mob/living/carbon/human/proc/handle_leg_damage()
 	if(!can_feel_pain())
 		return
 	var/crutches = 0
-	for(var/obj/item/cane/C in list(l_hand, r_hand))
-		if(istype(C))
-			crutches++
+	for(var/obj/item/cane/C in get_held_items())
+		crutches++
 	for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
 		var/obj/item/organ/external/E = get_organ(organ_name)
 		if(E && (E.is_dislocated() || E.is_broken()))

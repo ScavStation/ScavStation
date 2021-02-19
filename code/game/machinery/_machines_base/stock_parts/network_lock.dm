@@ -11,9 +11,10 @@
 	var/list/grants = list()						// List of grants required to operate the device.
 	var/emagged										// Whether or not this has been emagged.
 	var/error
-	var/signal_strength = NETWORK_SPEED_LOWSIGNAL	// How good the wireless capabilities are of this card.
+	var/signal_strength = NETWORK_CONNECTION_WIRELESS	// How good the wireless capabilities are of this card.
 	var/interact_sounds = list("keyboard", "keystroke")
 	var/interact_sound_volume = 40
+	var/global/legacy_compatibility_mode = TRUE     // Makes legacy access on ids play well with mapped devices with network locks. Override if your server is fully using network-enabled ids or has no mapped access.
 
 /obj/item/stock_parts/network_lock/Initialize()
 	. = ..()
@@ -41,9 +42,11 @@
 	var/list/resulting_grants = list()
 	for(var/grant_data in grants)
 		var/datum/computer_file/data/grant_record/grant = access_controller.get_grant(grant_data)
-		if(!grant)
+		if(!istype(grant))
 			continue // couldn't find.
 		resulting_grants |= uppertext("[D.network_id].[grant_data]")
+		if(legacy_compatibility_mode)
+			resulting_grants |= grant_data // This lets just grant_data, which is the access string for mapped machines, be used as an alternative.
 
 	if(!resulting_grants.len)
 		return
@@ -80,15 +83,15 @@
 		return
 	data["connected"] = TRUE
 	data["default_state"] = auto_deny_all
-	var/list/grants = list()
+	var/list/grants_data = list()
 	if(!network.access_controller)
 		return
 	for(var/datum/computer_file/data/grant_record/GR in network.access_controller.get_all_grants())
-		grants.Add(list(list(
+		grants_data.Add(list(list(
 			"grant_name" = GR.stored_data,
 			"assigned" = (GR.stored_data in grants)
 		)))
-	data["grants"] = grants
+	data["grants"] = grants_data
 
 /obj/item/stock_parts/network_lock/OnTopic(mob/user, href_list, datum/topic_state/state)
 	. = ..()
@@ -142,5 +145,5 @@
 
 /obj/item/stock_parts/network_lock/buildable
 	part_flags = PART_FLAG_HAND_REMOVE
-	material = MAT_STEEL
-	matter = list(MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)

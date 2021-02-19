@@ -58,7 +58,8 @@
 	return FALSE
 
 // No blowing up abstract objects.
-/atom/movable/openspace/ex_act(ex_sev)
+/atom/movable/openspace/explosion_act(ex_sev)
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /atom/movable/openspace/singularity_act()
@@ -164,9 +165,6 @@
 	to_chat(user, SPAN_NOTICE("\The [src] is too far away."))
 
 /atom/movable/openspace/overlay/attack_hand(mob/user)
-	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
-
-/atom/movable/openspace/overlay/attack_generic(mob/user)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
 /atom/movable/openspace/overlay/examine(...)

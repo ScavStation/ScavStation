@@ -6,10 +6,10 @@
 	item_state = "analyzer"
 	w_class = ITEM_SIZE_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	material = MAT_ALUMINIUM
-	matter = list(MAT_GLASS = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/metal/aluminium
+	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 	var/scan_title
 	var/scan_data
 	var/window_width = 450
@@ -45,6 +45,8 @@
 		user.visible_message("<span class='notice'>[user] runs \the [src] over \the [A].</span>", range = 2)
 		if(scan_sound)
 			playsound(src, scan_sound, 30)
+		if(check_state_in_icon("[icon_state]_active", icon))
+			flick("[icon_state]_active", src)
 		if(use_delay && !do_after(user, use_delay, A))
 			to_chat(user, "You stop scanning \the [A] with \the [src].")
 			return

@@ -1,7 +1,7 @@
 /datum/gear/eyes
 	sort_category = "Glasses and Eyewear"
 	category = /datum/gear/eyes
-	slot = slot_glasses
+	slot = slot_glasses_str
 
 /datum/gear/eyes/glasses
 	display_name = "prescription glasses"
@@ -21,7 +21,7 @@
 	.[/datum/gear_tweak/path] |= list(
 		"green glasses" =    /obj/item/clothing/glasses/prescription/gglasses,
 		"hipster glasses" =  /obj/item/clothing/glasses/prescription/hipster,
-		"monocle" =          /obj/item/clothing/glasses/monocle,
+		"monocle" =          /obj/item/clothing/glasses/eyepatch/monocle,
 		"scanning goggles" = /obj/item/clothing/glasses/prescription/scanners
 	)
 

@@ -11,6 +11,22 @@
 /proc/dd_range(var/low, var/high, var/num)
 	return max(low,min(high,num))
 
+/proc/get_projectile_angle(atom/source, atom/target)
+	var/sx = source.x * world.icon_size
+	var/sy = source.y * world.icon_size
+	var/tx = target.x * world.icon_size
+	var/ty = target.y * world.icon_size
+	var/atom/movable/AM
+	if(ismovable(source))
+		AM = source
+		sx += AM.step_x
+		sy += AM.step_y
+	if(ismovable(target))
+		AM = target
+		tx += AM.step_x
+		ty += AM.step_y
+	return SIMPLIFY_DEGREES(arctan(ty - sy, tx - sx))
+
 /proc/Get_Angle(atom/movable/start,atom/movable/end)//For beams.
 	if(!start || !end) return 0
 	var/dy
@@ -334,7 +350,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //Returns a list of all mobs with their name
 /proc/getmobs()
 
-	var/list/mobs = sortmobs()
+	var/list/mobs = get_sorted_mob_list()
 	var/list/names = list()
 	var/list/creatures = list()
 	var/list/namecounts = list()
@@ -359,40 +375,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 /proc/get_follow_targets()
 	return follow_repository.get_follow_targets()
-
-//Orders mobs by type then by name
-/proc/sortmobs()
-	var/list/moblist = list()
-	var/list/sortmob = sortAtom(SSmobs.mob_list)
-	for(var/mob/observer/eye/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/silicon/ai/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/silicon/pai/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/silicon/robot/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/deity/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/carbon/human/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/carbon/brain/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/carbon/alien/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/observer/ghost/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/new_player/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/carbon/slime/M in sortmob)
-		moblist.Add(M)
-	for(var/mob/living/simple_animal/M in sortmob)
-		moblist.Add(M)
-//	for(var/mob/living/silicon/hivebot/M in world)
-//		mob_list.Add(M)
-//	for(var/mob/living/silicon/hive_mainframe/M in world)
-//		mob_list.Add(M)
-	return moblist
 
 // returns the turf located at the map edge in the specified direction relative to A
 // used for mass driver
@@ -727,41 +709,6 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-/proc/is_hot(obj/item/W)
-	switch(W.type)
-		if(/obj/item/weldingtool)
-			var/obj/item/weldingtool/WT = W
-			if(WT.isOn())
-				return 3800
-			else
-				return 0
-		if(/obj/item/flame/lighter)
-			if(W:lit)
-				return 1500
-			else
-				return 0
-		if(/obj/item/flame/match)
-			if(W:lit)
-				return 1000
-			else
-				return 0
-		if(/obj/item/clothing/mask/smokable/cigarette)
-			if(W:lit)
-				return 1000
-			else
-				return 0
-		if(/obj/item/gun/energy/plasmacutter)
-			return 3800
-		if(/obj/item/melee/energy)
-			return 3500
-		if(/obj/item/blob_tendril)
-			if(W.damtype == BURN)
-				return 1000
-			else
-				return 0
-		else
-			return 0
-
 //Whether or not the given item counts as sharp in terms of dealing damage
 /proc/is_sharp(obj/O)
 	if (!O) return 0
@@ -808,7 +755,7 @@ Checks if that loc and dir has a item on the wall
 var/list/WALLITEMS = list(
 	/obj/machinery/power/apc, /obj/machinery/alarm, /obj/item/radio/intercom,
 	/obj/structure/extinguisher_cabinet, /obj/structure/reagent_dispensers/peppertank,
-	/obj/machinery/status_display, /obj/machinery/requests_console, /obj/machinery/light_switch, /obj/structure/sign,
+	/obj/machinery/status_display, /obj/machinery/network/requests_console, /obj/machinery/light_switch, /obj/structure/sign,
 	/obj/machinery/newscaster, /obj/machinery/firealarm, /obj/structure/noticeboard,
 	/obj/item/storage/secure/safe, /obj/machinery/door_timer, /obj/machinery/flasher, /obj/machinery/keycard_auth,
 	/obj/item/storage/mirror, /obj/structure/fireaxecabinet, /obj/structure/filingcabinet/wallcabinet

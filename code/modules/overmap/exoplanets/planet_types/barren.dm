@@ -16,37 +16,22 @@
 	if(prob(10))
 		flora_diversity = 1
 	..()
-	
-/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
-	return HABITABILITY_BAD
 
-/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_atmosphere()
-	..()
-	atmosphere.remove_ratio(0.9)
+/obj/effect/overmap/visitable/sector/exoplanet/barren/get_target_pressure()
+	return ONE_ATMOSPHERE * 0.05
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
+	habitability_class =  HABITABILITY_BAD
 
 /datum/random_map/noise/exoplanet/barren
 	descriptor = "barren exoplanet"
 	smoothing_iterations = 4
-	land_type = /turf/simulated/floor/exoplanet/barren
+	land_type = /turf/exterior/barren
 	flora_prob = 0.1
 	large_flora_prob = 0
 	fauna_prob = 0
 
-/turf/simulated/floor/exoplanet/barren
-	name = "ground"
-	icon = 'icons/turf/flooring/asteroid.dmi'
-	icon_state = "asteroid"
-
-/turf/simulated/floor/exoplanet/barren/on_update_icon()
-	overlays.Cut()
-	if(prob(20))
-		overlays += image('icons/turf/flooring/decals.dmi', "asteroid[rand(0,9)]")
-
-/turf/simulated/floor/exoplanet/barren/Initialize()
-	. = ..()
-	update_icon()
-
 /area/exoplanet/barren
 	name = "\improper Planetary surface"
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/barren
+	base_turf = /turf/exterior/barren

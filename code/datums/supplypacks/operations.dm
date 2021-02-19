@@ -47,14 +47,14 @@
 /decl/hierarchy/supply_pack/operations/webbing
 	name = "Gear - Webbing, vests, holsters."
 	num_contained = 4
-	contains = list(/obj/item/clothing/accessory/storage/holster,
-					/obj/item/clothing/accessory/storage/black_vest,
-					/obj/item/clothing/accessory/storage/brown_vest,
-					/obj/item/clothing/accessory/storage/white_vest,
+	contains = list(/obj/item/clothing/accessory/storage,
+					/obj/item/clothing/accessory/storage/holster,
+					/obj/item/clothing/accessory/storage/vest/black,
+					/obj/item/clothing/accessory/storage/vest/brown,
+					/obj/item/clothing/accessory/storage/vest,
 					/obj/item/clothing/accessory/storage/drop_pouches/black,
 					/obj/item/clothing/accessory/storage/drop_pouches/brown,
-					/obj/item/clothing/accessory/storage/drop_pouches/white,
-					/obj/item/clothing/accessory/storage/webbing)
+					/obj/item/clothing/accessory/storage/drop_pouches/white)
 	cost = 15
 	containername = "webbing crate"
 
@@ -89,8 +89,8 @@
 	access = access_brig
 
 /decl/hierarchy/supply_pack/operations/bureaucracy
-	contains = list(/obj/item/material/clipboard,
-					 /obj/item/material/clipboard,
+	contains = list(/obj/item/clipboard,
+					 /obj/item/clipboard,
 					 /obj/item/pen/retractable/red,
 					 /obj/item/pen/retractable/blue,
 					 /obj/item/pen/green,

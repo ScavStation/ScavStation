@@ -94,18 +94,14 @@ default behaviour is:
 						to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 						now_pushing = 0
 						return
-				if(tmob.r_hand && istype(tmob.r_hand, /obj/item/shield/riot))
-					if(prob(99))
-						now_pushing = 0
-						return
-				if(tmob.l_hand && istype(tmob.l_hand, /obj/item/shield/riot))
+				for(var/obj/item/shield/riot/shield in tmob.get_held_items())
 					if(prob(99))
 						now_pushing = 0
 						return
 			if(!(tmob.status_flags & CANPUSH))
 				now_pushing = 0
 				return
-			tmob.LAssailant = src
+			tmob.last_handled_by_mob = weakref(src)
 		if(isobj(AM) && !AM.anchored)
 			var/obj/I = AM
 			if(!can_pull_size || can_pull_size < I.w_class)
@@ -132,6 +128,7 @@ default behaviour is:
 					for(var/obj/structure/window/win in get_step(AM,t))
 						now_pushing = 0
 						return
+				AM.glide_size = glide_size
 				step(AM, t)
 				if (istype(AM, /mob/living))
 					var/mob/living/tmob = AM
@@ -183,6 +180,10 @@ default behaviour is:
 		updatehealth()
 		to_chat(src, "<span class='notice'>You have given up life and succumbed to death.</span>")
 
+/mob/living/proc/update_body(var/update_icons=1)
+	if(update_icons)
+		queue_icon_update()
+
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
 		health = 100
@@ -200,6 +201,9 @@ default behaviour is:
 //sort of a legacy burn method for /electrocute, /shock, and the e_chair
 /mob/living/proc/burn_skin(burn_amount)
 	take_overall_damage(0, burn_amount)
+
+/mob/living/proc/increaseBodyTemp(value)
+	return 0
 
 /mob/living/proc/adjustBodyTemp(actual, desired, incrementboost)
 	var/btemperature = actual
@@ -350,22 +354,22 @@ default behaviour is:
 	var/t = shooter.zone_sel?.selecting
 	if ((t in list( BP_EYES, BP_MOUTH )))
 		t = BP_HEAD
-	var/obj/item/organ/external/def_zone = ran_zone(t)
+	var/obj/item/organ/external/def_zone = ran_zone(t, target = src)
 	return def_zone
 
 
 // heal ONE external organ, organ gets randomly selected from damaged ones.
-/mob/living/proc/heal_organ_damage(var/brute, var/burn, var/affect_robo = 0)
+/mob/living/proc/heal_organ_damage(var/brute, var/burn, var/affect_robo = FALSE)
 	adjustBruteLoss(-brute)
 	adjustFireLoss(-burn)
 	src.updatehealth()
 
 // damage ONE external organ, organ gets randomly selected from damaged ones.
-/mob/living/proc/take_organ_damage(var/brute, var/burn, var/emp=0)
-	if(status_flags & GODMODE)	return 0	//godmode
-	adjustBruteLoss(brute)
-	adjustFireLoss(burn)
-	src.updatehealth()
+/mob/living/proc/take_organ_damage(var/brute = 0, var/burn = 0, var/bypass_armour = FALSE, var/override_droplimb)
+	if(!(status_flags & GODMODE))
+		adjustBruteLoss(brute)
+		adjustFireLoss(burn)
+		updatehealth()
 
 // heal MANY external organs, in random order
 /mob/living/proc/heal_overall_damage(var/brute, var/burn)
@@ -400,6 +404,17 @@ default behaviour is:
 	fire_stacks = 0
 
 /mob/living/proc/rejuvenate()
+
+	// Wipe all of our reagent lists.
+	var/datum/reagents/bloodstr_reagents = get_injected_reagents()
+	if(bloodstr_reagents)
+		bloodstr_reagents.clear_reagents()
+	var/datum/reagents/touching_reagents = get_contact_reagents()
+	if(touching_reagents)
+		touching_reagents.clear_reagents()
+	var/datum/reagents/ingested_reagents = get_ingested_reagents()
+	if(ingested_reagents)
+		ingested_reagents.clear_reagents()
 	if(reagents)
 		reagents.clear_reagents()
 
@@ -425,7 +440,7 @@ default behaviour is:
 	ear_deaf = 0
 	ear_damage = 0
 	drowsyness = 0
-	druggy = 0
+	drugged = 0
 	jitteriness = 0
 	confused = 0
 
@@ -476,7 +491,7 @@ default behaviour is:
 /mob/living/carbon/basic_revival(var/repair_brain = TRUE)
 	if(repair_brain && should_have_organ(BP_BRAIN))
 		repair_brain = FALSE
-		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+		var/obj/item/organ/internal/brain/brain = get_internal_organ(BP_BRAIN)
 		if(brain.damage > (brain.max_damage/2))
 			brain.damage = (brain.max_damage/2)
 		if(brain.status & ORGAN_DEAD)
@@ -640,13 +655,8 @@ default behaviour is:
 		return
 	return 1
 
-//Organs should not be removed via inventory procs.
-/mob/living/carbon/drop_from_inventory(var/obj/item/W, var/atom/Target = null)
-	if(W in internal_organs)
-		return
-	if(W in organs)
-		return
-	. = ..()
+/mob/living/carbon/get_contained_external_atoms()
+	. = contents - (internal_organs|organs)
 
 //damage/heal the mob ears and adjust the deaf amount
 /mob/living/adjustEarDamage(var/damage, var/deaf)
@@ -762,22 +772,28 @@ default behaviour is:
 	if(!can_drown() || !loc.is_flooded(lying))
 		return FALSE
 	if(prob(5))
-		to_chat(src, SPAN_DANGER("You choke and splutter as you inhale water!"))
+		var/obj/effect/fluid/F = locate() in loc
+		to_chat(src, SPAN_DANGER("You choke and splutter as you inhale [(F?.reagents && F.reagents.get_primary_reagent_name()) || "liquid"]!"))
+		F?.reagents?.trans_to_holder(get_ingested_reagents(), min(F.reagents.total_volume, rand(2,5)))
+
 	var/turf/T = get_turf(src)
 	T.show_bubbles()
 	return TRUE // Presumably chemical smoke can't be breathed while you're underwater.
 
-/mob/fluid_act(var/datum/reagents/fluids)
-	..()
-	wash_mob(src)
-
 /mob/living/fluid_act(var/datum/reagents/fluids)
-	..()
 	for(var/thing in get_equipped_items(TRUE))
 		if(isnull(thing)) continue
 		var/atom/movable/A = thing
-		if(A.simulated && !A.waterproof)
+		if(A.simulated)
 			A.fluid_act(fluids)
+	if(fluids.total_volume)
+		var/datum/reagents/touching_reagents = get_contact_reagents()
+		if(touching_reagents)
+			var/saturation =  min(fluids.total_volume, round(mob_size * 1.5 * reagent_permeability()) - touching_reagents.total_volume)
+			if(saturation > 0)
+				fluids.trans_to_holder(touching_reagents, saturation)
+	if(fluids.total_volume)
+		. = ..()
 
 /mob/living/proc/nervous_system_failure()
 	return FALSE
@@ -806,11 +822,17 @@ default behaviour is:
 /mob/living/proc/adjust_hydration(var/amt)
 	return
 
+/mob/living/proc/has_chemical_effect(var/chem, var/threshold_over, var/threshold_under)
+	var/val = LAZYACCESS(chem_effects, chem)
+	. = (isnull(threshold_over) || val >= threshold_over) && (isnull(threshold_under) || val <= threshold_under)
+
 /mob/living/proc/add_chemical_effect(var/effect, var/magnitude = 1)
-	return
+	magnitude += LAZYACCESS(chem_effects, effect)
+	LAZYSET(chem_effects, effect, magnitude)
 
 /mob/living/proc/add_up_to_chemical_effect(var/effect, var/magnitude = 1)
-	return
+	magnitude = max(magnitude, LAZYACCESS(chem_effects, effect))
+	LAZYSET(chem_effects, effect, magnitude)
 
 /mob/living/proc/adjust_immunity(var/amt)
 	return
@@ -864,3 +886,25 @@ default behaviour is:
 
 /mob/living/proc/can_do_special_ranged_attack(var/check_flag = TRUE)
 	return TRUE
+
+/mob/living/proc/get_ingested_reagents()
+	return reagents
+
+/mob/living/proc/get_species()
+	return
+
+/mob/living/proc/should_have_organ(var/organ_check)
+	return FALSE
+
+/mob/living/proc/get_contact_reagents()
+	return reagents
+
+/mob/living/proc/get_injected_reagents()
+	return reagents
+
+/mob/living/proc/get_adjusted_metabolism(metabolism)
+	return metabolism
+
+/mob/living/get_admin_job_string()
+	return "Living"
+

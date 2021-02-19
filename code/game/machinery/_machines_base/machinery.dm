@@ -78,13 +78,13 @@ Class Procs:
 
 /obj/machinery
 	name = "machinery"
-	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEM_SIZE_STRUCTURE
 	layer = STRUCTURE_LAYER // Layer under items
 	throw_speed = 1
 	throw_range = 5
 
 	var/stat = 0
+	var/waterproof = TRUE
 	var/reason_broken = 0
 	var/stat_immune = NOSCREEN | NOINPUT // The machine will never set stat to these flags.
 	var/emagged = 0
@@ -112,9 +112,12 @@ Class Procs:
 	var/base_type           // For mapped buildable types, set this to be the base type actually buildable.
 	var/id_tag              // This generic variable is to be used by mappers to give related machines a string key. In principle used by radio stock parts.
 	var/frame_type = /obj/machinery/constructable_frame/machine_frame/deconstruct // what is created when the machine is dismantled.
+	var/required_interaction_dexterity = DEXTERITY_KEYBOARDS
 
 	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: /obj/item/stock_parts
 	var/processing_flags         // What is being processed
+
+	var/list/initial_access		// Used to setup network locks on machinery at populate_parts.
 
 /obj/machinery/Initialize(mapload, d=0, populate_parts = TRUE)
 	. = ..()
@@ -243,7 +246,7 @@ Class Procs:
 
 /obj/machinery/proc/get_tool_manipulation_info()
 	return construct_state?.mechanics_info()
-	
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /obj/machinery/attack_ai(mob/user)
@@ -260,15 +263,14 @@ Class Procs:
 /obj/machinery/attack_ghost(mob/user)
 	interface_interact(user)
 
-// If you don't call parent in this proc, you must make all appropriate checks yourself. 
+// If you don't call parent in this proc, you must make all appropriate checks yourself.
 // If you do, you must respect the return value.
 /obj/machinery/attack_hand(mob/user)
 	if((. = ..())) // Buckling, climbers; unlikely to return true.
 		return
 	if(!CanPhysicallyInteract(user))
 		return FALSE // The interactions below all assume physical access to the machine. If this is not the case, we let the machine take further action.
-	if(!user.check_dexterity(DEXTERITY_KEYBOARDS))
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+	if(!user.check_dexterity(required_interaction_dexterity))
 		return TRUE
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -309,8 +311,7 @@ Class Procs:
 	set_broken(!!missing, MACHINE_BROKEN_NO_PARTS)
 
 /obj/machinery/proc/state(var/msg)
-	for(var/mob/O in hearers(src, null))
-		O.show_message("\icon[src] <span class = 'notice'>[msg]</span>", 2)
+	audible_message(SPAN_NOTICE("[html_icon(src)] [msg]"), null, 2)
 
 /obj/machinery/proc/ping(text=null)
 	if (!text)
@@ -347,7 +348,7 @@ Class Procs:
 	var/obj/frame
 	if(ispath(frame_type, /obj/item/pipe) || ispath(frame_type, /obj/structure/disposalconstruct))
 		frame = new frame_type(get_turf(src), src)
-	else
+	else if(frame_type)
 		frame = new frame_type(get_turf(src), dir)
 
 	var/list/expelled_components = list()
@@ -356,18 +357,16 @@ Class Procs:
 	while(LAZYLEN(uncreated_component_parts))
 		var/path = uncreated_component_parts[1]
 		expelled_components += uninstall_component(path, refresh_parts = FALSE)
-	var/datum/extension/parts_stash/stash = get_extension(frame, /datum/extension/parts_stash)
-	if(stash)
-		stash.stash(expelled_components)
+	if(frame)
+		var/datum/extension/parts_stash/stash = get_extension(frame, /datum/extension/parts_stash)
+		if(stash)
+			stash.stash(expelled_components)
 
 	for(var/obj/O in src)
 		O.dropInto(loc)
 
 	qdel(src)
-	return 1
-
-/obj/machinery/InsertedContents()
-	return (contents - component_parts)
+	return frame
 
 /datum/proc/apply_visual(mob/M)
 	return
@@ -420,16 +419,16 @@ Class Procs:
 /obj/machinery/fluid_act(var/datum/reagents/fluids)
 	..()
 	if(!(stat & (NOPOWER|BROKEN)) && !waterproof && (fluids.total_volume > FLUID_DEEP))
-		ex_act(3)
+		explosion_act(3)
 
 /obj/machinery/Move()
 	. = ..()
 	if(. && !CanFluidPass())
 		fluid_update()
 
-/obj/machinery/get_cell()
+/obj/machinery/get_cell(var/functional_only = TRUE)
 	var/obj/item/stock_parts/power/battery/battery = get_component_of_type(/obj/item/stock_parts/power/battery)
-	if(battery)
+	if(battery && (!functional_only || battery.is_functional()))
 		return battery.get_cell()
 
 /obj/machinery/building_cost()
@@ -451,6 +450,8 @@ Class Procs:
 
 /obj/machinery/get_req_access()
 	. = ..() || list()
-	var/obj/item/stock_parts/network_lock/lock = get_component_of_type(/obj/item/stock_parts/network_lock)
-	if(lock)
-		. = . | lock.get_req_access()
+	for(var/obj/item/stock_parts/network_lock/lock in get_all_components_of_type(/obj/item/stock_parts/network_lock))
+		.+= lock.get_req_access()
+
+/obj/machinery/get_contained_external_atoms()
+	. = (contents - component_parts)

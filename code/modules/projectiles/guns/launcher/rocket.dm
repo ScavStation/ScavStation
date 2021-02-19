@@ -1,8 +1,8 @@
 /obj/item/gun/launcher/rocket
 	name = "rocket launcher"
 	desc = "MAGGOT."
-	icon_state = "rocket"
-	item_state = "rocket"
+	icon = 'icons/obj/guns/launcher/rocket.dmi'
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_HUGE
 	throw_speed = 2
 	throw_range = 10

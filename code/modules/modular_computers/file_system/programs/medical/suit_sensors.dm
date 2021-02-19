@@ -7,7 +7,7 @@
 	program_key_state = "med_key"
 	program_menu_icon = "heart"
 	extended_desc = "This program connects to life signs monitoring system to provide basic information on crew health."
-	required_access = access_medical
+	required_access = list(access_medical)
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
 	category = PROG_MONITOR
@@ -60,6 +60,7 @@
 	if(network)
 		for(var/z_level in GetConnectedZlevels(network.get_router_z()))
 			data["crewmembers"] += crew_repository.health_data(z_level)
+	data["crewmembers"] = sortByKey(data["crewmembers"], "name")
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)

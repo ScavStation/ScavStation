@@ -1,11 +1,10 @@
-var/list/organ_cache = list()
-
 /obj/item/organ
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
 	germ_level = 0
 	w_class = ITEM_SIZE_TINY
 	default_action_type = /datum/action/item_action/organ
+	material = /decl/material/solid/meat
 
 	// Strings.
 	var/organ_tag = "organ"           // Unique identifier.
@@ -18,23 +17,20 @@ var/list/organ_cache = list()
 	// Reference data.
 	var/mob/living/carbon/human/owner // Current mob owning the organ.
 	var/datum/dna/dna                 // Original DNA.
-	var/datum/species/species         // Original species.
+	var/decl/species/species         // Original species.
+	var/list/ailments                 // Current active ailments if any.
 
 	// Damage vars.
 	var/damage = 0                    // Current damage to the organ
 	var/min_broken_damage = 30        // Damage before becoming broken
 	var/max_damage = 30               // Damage cap
 	var/rejecting                     // Is this organ already being rejected?
-
 	var/death_time
-
-	// Bioprinter stats
-	var/can_be_printed = TRUE
-	var/print_cost
 
 /obj/item/organ/Destroy()
 	owner = null
 	dna = null
+	QDEL_NULL_LIST(ailments)
 	return ..()
 
 /obj/item/organ/proc/refresh_action_button()
@@ -74,7 +70,7 @@ var/list/organ_cache = list()
 	species.resize_organ(src)
 
 	create_reagents(5 * (w_class-1)**2)
-	reagents.add_reagent(/decl/reagent/nutriment/protein, reagents.maximum_volume)
+	reagents.add_reagent(/decl/material/liquid/nutriment/protein, reagents.maximum_volume)
 
 	update_icon()
 
@@ -93,6 +89,7 @@ var/list/organ_cache = list()
 	damage = max_damage
 	status |= ORGAN_DEAD
 	STOP_PROCESSING(SSobj, src)
+	QDEL_NULL_LIST(ailments)
 	death_time = world.time
 	if(owner && vital)
 		owner.death()
@@ -115,7 +112,7 @@ var/list/organ_cache = list()
 
 	if(!owner && reagents)
 		if(prob(40) && reagents.total_volume >= 0.1)
-			if(reagents.has_reagent(/decl/reagent/blood))
+			if(reagents.has_reagent(/decl/material/liquid/blood))
 				blood_splatter(get_turf(src), src, 1)
 			reagents.remove_any(0.1)
 		if(config.organs_decay)
@@ -131,6 +128,24 @@ var/list/organ_cache = list()
 		handle_antibiotics()
 		handle_rejection()
 		handle_germ_effects()
+
+	if(owner && length(ailments))
+		for(var/datum/ailment/ailment in ailments)
+			if(!ailment.treated_by_reagent_type)
+				continue
+			var/treated
+			var/datum/reagents/bloodstr_reagents = owner.get_injected_reagents()
+			if(bloodstr_reagents)
+				if(REAGENT_VOLUME(bloodstr_reagents, ailment.treated_by_reagent_type) >= ailment.treated_by_reagent_dosage)
+					treated = bloodstr_reagents
+				else if(REAGENT_VOLUME(owner.reagents, ailment.treated_by_reagent_type) >= ailment.treated_by_reagent_dosage)
+					treated = owner.reagents
+				else
+					var/datum/reagents/ingested = owner.get_ingested_reagents()
+					if(ingested && REAGENT_VOLUME(ingested, ailment.treated_by_reagent_type) >= ailment.treated_by_reagent_dosage)
+						treated = ingested
+			if(treated)
+				ailment.was_treated_by_medication(treated)
 
 	//check if we've hit max_damage
 	if(damage >= max_damage)
@@ -154,7 +169,7 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
 	var/germ_immunity = owner.get_immunity() //reduces the amount of times we need to call this proc
-	var/antibiotics = REAGENT_VOLUME(owner.reagents, /decl/reagent/antibiotics)
+	var/antibiotics = REAGENT_VOLUME(owner.reagents, /decl/material/liquid/antibiotics)
 
 	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(germ_immunity*0.3))
 		germ_level--
@@ -203,7 +218,7 @@ var/list/organ_cache = list()
 						germ_level += rand(2,3)
 					if(501 to INFINITY)
 						germ_level += rand(3,5)
-						owner.reagents.add_reagent(/decl/reagent/toxin, rand(1,2))
+						owner.reagents.add_reagent(/decl/material/liquid/coagulated_blood, rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical)
 	return 0
@@ -228,7 +243,7 @@ var/list/organ_cache = list()
 	if(!owner || !germ_level)
 		return
 
-	var/antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
+	var/antibiotics = LAZYACCESS(owner.chem_effects, CE_ANTIBIOTIC)
 	if (!antibiotics)
 		return
 
@@ -249,10 +264,12 @@ var/list/organ_cache = list()
 	if (can_recover())
 		damage = between(0, damage - round(amount, 0.1), max_damage)
 
-
-/obj/item/organ/proc/robotize() //Being used to make robutt hearts, etc
+/obj/item/organ/proc/robotize(var/company, var/skip_prosthetics = 0, var/keep_organs = 0, var/apply_material = /decl/material/solid/metal/steel)
 	status = ORGAN_PROSTHETIC
 	reagents?.clear_reagents()
+	material = decls_repository.get_decl(apply_material)
+	matter = null
+	create_matter()
 
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	status = ORGAN_ASSISTED
@@ -280,12 +297,18 @@ var/list/organ_cache = list()
 	if(!BP_IS_PROSTHETIC(src) && species && reagents?.total_volume < 5)
 		owner.vessel.trans_to(src, 5 - reagents.total_volume, 1, 1)
 
-	if(owner && vital)
+	if(vital)
 		if(user)
 			admin_attack_log(user, owner, "Removed a vital organ ([src]).", "Had a vital organ ([src]) removed.", "removed a vital organ ([src]) from")
 		owner.death()
-
+	screen_loc = null
+	owner.client?.screen -= src
 	owner = null
+
+	for(var/datum/ailment/ailment in ailments)
+		if(ailment.timer_id)
+			deltimer(ailment.timer_id)
+			ailment.timer_id = null
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	owner = target
@@ -293,7 +316,9 @@ var/list/organ_cache = list()
 	forceMove(owner) //just in case
 	if(BP_IS_PROSTHETIC(src))
 		set_dna(owner.dna)
-	return 1
+	for(var/datum/ailment/ailment in ailments)
+		ailment.begin_ailment_event()
+	return TRUE
 
 /obj/item/organ/attack(var/mob/target, var/mob/user)
 	if(status & ORGAN_PROSTHETIC || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
@@ -387,3 +412,57 @@ var/list/organ_cache = list()
 
 /obj/item/organ/proc/get_mechanical_assisted_descriptor()
 	return "mechanically-assisted [name]"
+
+var/list/ailment_reference_cache = list()
+/proc/get_ailment_reference(var/ailment_type)
+	if(!ispath(ailment_type, /datum/ailment))
+		return
+	if(!global.ailment_reference_cache[ailment_type])
+		global.ailment_reference_cache[ailment_type] = new ailment_type
+	return global.ailment_reference_cache[ailment_type]
+
+/obj/item/organ/proc/get_possible_ailments()
+	. = list()
+	for(var/ailment_type in subtypesof(/datum/ailment))
+		var/datum/ailment/ailment = ailment_type
+		if(initial(ailment.category) == ailment_type)
+			continue
+		ailment = get_ailment_reference(ailment_type)
+		if(ailment.can_apply_to(src))
+			. += ailment_type
+	for(var/datum/ailment/ailment in ailments)
+		. -= ailment.type
+
+/obj/item/organ/emp_act(severity)
+	. = ..()
+	if(BP_IS_PROSTHETIC(src))
+		if(length(ailments) < 3 && prob(15 - (5 * length(ailments))))
+			var/list/possible_ailments = get_possible_ailments()
+			if(length(possible_ailments))
+				add_ailment(pick(possible_ailments))
+
+/obj/item/organ/proc/add_ailment(var/datum/ailment/ailment)
+	if(ispath(ailment, /datum/ailment))
+		ailment = get_ailment_reference(ailment)
+	if(!istype(ailment) || !ailment.can_apply_to(src))
+		return FALSE
+	LAZYADD(ailments, new ailment.type(src))
+	return TRUE
+
+/obj/item/organ/proc/add_random_ailment()
+	var/list/possible_ailments = get_possible_ailments()
+	if(length(possible_ailments))
+		add_ailment(pick(possible_ailments))
+
+/obj/item/organ/proc/remove_ailment(var/datum/ailment/ailment)
+	if(ispath(ailment, /datum/ailment))
+		for(var/datum/ailment/ext_ailment in ailments)
+			if(ailment == ext_ailment.type)
+				LAZYREMOVE(ailments, ext_ailment)
+				return TRUE
+	else if(istype(ailment))
+		for(var/datum/ailment/ext_ailment in ailments)
+			if(ailment == ext_ailment)
+				LAZYREMOVE(ailments, ext_ailment)
+				return TRUE
+	return FALSE

@@ -8,9 +8,8 @@ AI MODULES
 
 /obj/item/aiModule
 	name = "\improper AI module"
-	icon = 'icons/obj/module.dmi'
-	icon_state = "std_mod"
-	item_state = "electronic"
+	icon = 'icons/obj/modules/module_standard.dmi'
+	icon_state = ICON_STATE_WORLD
 	desc = "An AI Module for transmitting encrypted instructions to the AI."
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 5.0
@@ -19,8 +18,8 @@ AI MODULES
 	throw_speed = 3
 	throw_range = 15
 	origin_tech = "{'programming':3}"
-	material = MAT_GLASS
-	matter = list(MAT_GOLD = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/glass
+	matter = list(/decl/material/solid/metal/gold = MATTER_AMOUNT_REINFORCEMENT)
 	var/datum/ai_laws/laws = null
 
 /obj/item/aiModule/proc/install(obj/machinery/computer/upload/comp, mob/user)

@@ -95,11 +95,11 @@
 /mob/living/silicon/emp_act(severity)
 	switch(severity)
 		if(1)
-			src.take_organ_damage(0,16,emp=1)
+			src.take_organ_damage(0, 16, bypass_armour = TRUE)
 			if(prob(50)) Stun(rand(5,10))
 			else confused = (min(confused + 2, 40))
 		if(2)
-			src.take_organ_damage(0,7,emp=1)
+			src.take_organ_damage(0, 7, bypass_armour = TRUE)
 			confused = (min(confused + 2, 30))
 	flash_eyes(affect_silicon = 1)
 	to_chat(src, "<span class='danger'><B>*BZZZT*</B></span>")
@@ -268,22 +268,19 @@
 /mob/living/silicon/binarycheck()
 	return 1
 
-/mob/living/silicon/ex_act(severity)
-	if(!blinded)
-		flash_eyes()
-
+/mob/living/silicon/explosion_act(severity)
+	..()
 	var/brute
 	var/burn
 	switch(severity)
-		if(1.0)
+		if(1)
 			brute = 400
 			burn = 100
-		if(2.0)
+		if(2)
 			brute = 60
 			burn = 60
-		if(3.0)
+		if(3)
 			brute = 30
-
 	apply_damage(brute, BRUTE, damage_flags = DAM_EXPLODE)
 	apply_damage(burn, BURN, damage_flags = DAM_EXPLODE)
 
@@ -349,7 +346,8 @@
 
 
 /mob/living/silicon/proc/is_traitor()
-	return mind && (mind in GLOB.traitors.current_antagonists)
+	var/decl/special_role/traitors = decls_repository.get_decl(/decl/special_role/traitor)
+	return mind && (mind in traitors.current_antagonists)
 
 /mob/living/silicon/adjustEarDamage()
 	return
@@ -369,7 +367,7 @@
 			mind.assigned_job.clear_slot()
 		if(mind.objectives.len)
 			qdel(mind.objectives)
-			mind.special_role = null
+			mind.assigned_special_role = null
 		clear_antag_roles(mind)
 	ghostize(0)
 	qdel(src)
@@ -432,3 +430,6 @@
 		return
 
 	os.ui_interact(src)
+
+/mob/living/silicon/get_admin_job_string()
+	return "Silicon-based"

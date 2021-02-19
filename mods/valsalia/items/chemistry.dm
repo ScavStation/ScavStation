@@ -1,8 +1,8 @@
-/decl/reagent/nutriment/slime_meat/affect_overdose(var/mob/living/carbon/M, var/alien)
+/decl/material/liquid/nutriment/slime_meat/affect_overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(alien == IS_YINGLET)
-		M.reagents.add_reagent(/decl/reagent/psychoactives, 0.1)
+		M.reagents.add_reagent(/decl/material/liquid/psychoactives, 0.1)
 
-/decl/reagent/nutriment/slime_meat/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
+/decl/material/liquid/nutriment/slime_meat/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_YINGLET)
 		nutriment_factor = 12
 		M.add_chemical_effect(CE_PAINKILLER, 15)
@@ -10,8 +10,11 @@
 		nutriment_factor = initial(nutriment_factor)
 	. = ..()
 
-/decl/reagent/nutriment/bread/on_mob_life(var/mob/living/carbon/human/M, var/alien, var/location)
-	if(istype(M) && alien == IS_YINGLET) 
+// This is an appalingly bad way to handle per-species values but it is being inherited from
+// a pre-decl reagent system - will need to rewrite nutriment to pass these values into data
+// to do it properly, long-term TODO.
+/decl/material/liquid/nutriment/bread/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder)
+	if(ishuman(M) && alien == IS_YINGLET) 
 		// Yings do not process bread or breadlike substances well.
 		ingest_met =       0.1 // Make sure there's something to 
 		touch_met =        0.1 // throw up when we inevitably puke.
@@ -25,34 +28,35 @@
 		// Process as normal.
 		. = ..()
 
-/decl/reagent/nutriment/bread/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(istype(M) && alien == IS_YINGLET && prob(ying_puke_prob) && !M.lastpuke)
+/decl/material/liquid/nutriment/bread/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(ishuman(M) && alien == IS_YINGLET && prob(ying_puke_prob) && !M.lastpuke)
 		to_chat(M, SPAN_WARNING("Your gut churns as it struggles to digest \the [lowertext(name)]..."))
-		M.vomit(timevomit = 3)
+		var/mob/living/carbon/human/H = M
+		H.vomit(timevomit = 3)
 		return
 	. = ..()
 
-/decl/reagent/nutriment/bread
+/decl/material/liquid/nutriment/bread
 	var/ying_puke_prob = 35
 
-/decl/reagent/nutriment/bread/cake
+/decl/material/liquid/nutriment/bread/cake
 	ying_puke_prob = 15
 
-/decl/reagent/nutriment/soggy_food
+/decl/material/liquid/nutriment/soggy_food
 	name = "soggy food"
 	taste_description = "blandness"
 
 /datum/chemical_reaction/recipe/soggy_food
 	name = "Soggy Bread"
-	result = /decl/reagent/nutriment/soggy_food
-	required_reagents = list(/decl/reagent/nutriment/bread = 1)
+	result = /decl/material/liquid/nutriment/soggy_food
+	required_reagents = list(/decl/material/liquid/nutriment/bread = 1)
 	result_amount = 1
 	mix_message = "The food softens into a soggy mess."
 	hidden_from_codex = TRUE
 	var/global/list/can_make_soggy = list(
-		/decl/reagent/drink,
-		/decl/reagent/ethanol,
-		/decl/reagent/water
+		/decl/material/liquid/drink,
+		/decl/material/liquid/ethanol,
+		/decl/material/liquid/water
 	)
 
 /datum/chemical_reaction/recipe/soggy_food/can_happen(datum/reagents/holder)
@@ -72,10 +76,10 @@
 
 /datum/chemical_reaction/recipe/soggy_food/cake
 	name = "Soggy Cake"
-	required_reagents = list(/decl/reagent/nutriment/bread/cake = 1)
+	required_reagents = list(/decl/material/liquid/nutriment/bread/cake = 1)
 
-/decl/reagent/drink/mutagencola
-	description = "The energy of a yinglet in beverage form. Effects on yinglets undocumented."
+/decl/material/liquid/drink/mutagencola
+	lore_text = "The energy of a yinglet in beverage form. Effects on yinglets undocumented."
 	taste_description = "the lifespan of a scav"
 	glass_desc = "The unstable energy of a yinglet in beverage form. Effects on yinglets undocumented."
 

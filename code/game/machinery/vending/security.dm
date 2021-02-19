@@ -7,8 +7,9 @@
 	icon_deny = "sec-deny"
 	icon_vend = "sec-vend"
 	vend_delay = 14
+	markup = 0
 	base_type = /obj/machinery/vending/security
-	req_access = list(access_security)
+	initial_access = list(access_security)
 	products = list(
 		/obj/item/handcuffs = 8,
 		/obj/item/grenade/flashbang = 4,

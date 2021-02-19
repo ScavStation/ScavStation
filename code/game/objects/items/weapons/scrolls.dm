@@ -8,10 +8,11 @@
 	item_state = "paper"
 	throw_speed = 4
 	throw_range = 20
-	origin_tech = "{'bluespace':4}"
+	origin_tech = "{'wormholes':4}"
 
 /obj/item/teleportation_scroll/attack_self(mob/user)
-	if((user.mind && !GLOB.wizards.is_antagonist(user.mind)))
+	var/decl/special_role/wizard/wizards = decls_repository.get_decl(/decl/special_role/wizard)
+	if((user.mind && !wizards.is_antagonist(user.mind)))
 		to_chat(usr, "<span class='warning'>You stare at the scroll but cannot make sense of the markings!</span>")
 		return
 

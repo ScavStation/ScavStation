@@ -2,12 +2,12 @@
 	organ_tag = BP_HEAD
 	icon_name = "head"
 	name = "head"
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_LOWER_BODY
 	max_damage = 75
 	min_broken_damage = 35
 	w_class = ITEM_SIZE_NORMAL
 	cavity_max_w_class = ITEM_SIZE_SMALL
-	body_part = HEAD
+	body_part = SLOT_HEAD
 	parent_organ = BP_CHEST
 	joint = "jaw"
 	amputation_point = "neck"
@@ -25,13 +25,13 @@
 	var/graffiti_style
 
 /obj/item/organ/external/head/proc/get_eye_overlay()
-	if(glowing_eyes || (owner && owner.chem_effects[CE_GLOWINGEYES]))
-		var/obj/item/organ/internal/eyes/eyes = owner.internal_organs_by_name[owner.species.vision_organ ? owner.species.vision_organ : BP_EYES]
+	if(glowing_eyes || owner?.has_chemical_effect(CE_GLOWINGEYES, 1))
+		var/obj/item/organ/internal/eyes/eyes = owner.get_internal_organ(owner.species.vision_organ || BP_EYES)
 		if(eyes)
 			return eyes.get_special_overlay()
 
 /obj/item/organ/external/head/proc/get_eyes()
-	var/obj/item/organ/internal/eyes/eyes = owner.internal_organs_by_name[owner.species.vision_organ ? owner.species.vision_organ : BP_EYES]
+	var/obj/item/organ/internal/eyes/eyes = owner.get_internal_organ(owner.species.vision_organ || BP_EYES)
 	if(eyes)
 		return eyes.get_onhead_icon()
 
@@ -76,16 +76,15 @@
 /obj/item/organ/external/head/get_agony_multiplier()
 	return (owner && owner.headcheck(organ_tag)) ? 1.50 : 1
 
-/obj/item/organ/external/head/robotize(var/company, var/skip_prosthetics, var/keep_organs)
-	if(company)
-		var/datum/robolimb/R = all_robolimbs[company]
-		if(R)
-			can_intake_reagents = R.can_eat
-			draw_eyes = R.has_eyes
+/obj/item/organ/external/head/robotize(var/company = /decl/prosthetics_manufacturer, var/skip_prosthetics, var/keep_organs, var/apply_material = /decl/material/solid/metal/steel)
 	. = ..(company, skip_prosthetics, 1)
 	has_lips = null
+	if(model)
+		var/decl/prosthetics_manufacturer/R = decls_repository.get_decl(model)
+		can_intake_reagents = R.can_eat
+		draw_eyes = R.has_eyes
 
-/obj/item/organ/external/head/take_external_damage(brute, burn, damage_flags, used_weapon = null)
+/obj/item/organ/external/head/take_external_damage(brute, burn, damage_flags, used_weapon, override_droplimb)
 	. = ..()
 	if (!(status & ORGAN_DISFIGURED))
 		if (brute_dam > 40)
@@ -128,8 +127,8 @@
 			if(!facial_hair_style.species_allowed || (species.get_root_species_name(owner) in facial_hair_style.species_allowed))
 				if(!facial_hair_style.subspecies_allowed || (species.name in facial_hair_style.subspecies_allowed))
 					var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
-					if(facial_hair_style.do_colouration)
-						facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), facial_hair_style.blend)
+					if(owner.facial_hair_colour && facial_hair_style.do_colouration)
+						facial_s.Blend(owner.facial_hair_colour, facial_hair_style.blend)
 					res.overlays |= facial_s
 
 	if(owner.h_style)
@@ -142,8 +141,8 @@
 			if(!hair_style.species_allowed || (species.get_root_species_name(owner) in hair_style.species_allowed))
 				if(!hair_style.subspecies_allowed || (species.name in hair_style.subspecies_allowed))
 					var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
-					if(hair_style.do_colouration && islist(h_col) && h_col.len >= 3)
-						hair_s.Blend(rgb(h_col[1], h_col[2], h_col[3]), hair_style.blend)
+					if(hair_style.do_colouration && hair_colour)
+						hair_s.Blend(hair_colour, hair_style.blend)
 					res.overlays |= hair_s
 
 	for (var/M in markings)
@@ -152,10 +151,10 @@
 			var/icon/mark_icon = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]")
 			if (!mark_style.do_colouration && owner.h_style)
 				var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[owner.h_style]
-				if ((~hair_style.flags & HAIR_BALD) && islist(h_col) && h_col.len >= 3)
-					mark_icon.Blend(rgb(h_col[1], h_col[2], h_col[3]), ICON_ADD)
+				if ((~hair_style.flags & HAIR_BALD) && hair_colour)
+					mark_icon.Blend(hair_colour, ICON_ADD)
 				else //only baseline human skin tones; others will need species vars for coloration
-					mark_icon.Blend(rgb(200 + s_tone, 150 + s_tone, 123 + s_tone), ICON_ADD)
+					mark_icon.Blend(rgb(200 + skin_tone, 150 + skin_tone, 123 + skin_tone), ICON_ADD)
 			else
 				mark_icon.Blend(markings[M]["color"], ICON_ADD)
 			res.overlays |= mark_icon

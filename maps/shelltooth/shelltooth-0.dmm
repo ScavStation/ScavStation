@@ -684,7 +684,7 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/engineering)
 "bW" = (
-/turf/simulated/mineral,
+/turf/exterior/wall,
 /area/space)
 "bX" = (
 /turf/simulated/floor,
@@ -975,7 +975,7 @@
 /turf/simulated/floor/tiled,
 /area/shelltooth/level_one/janitor)
 "kU" = (
-/turf/simulated/mineral,
+/turf/exterior/wall,
 /area/shelltooth/level_one/disposals)
 "mf" = (
 /obj/structure/closet/jcloset,
@@ -1049,7 +1049,7 @@
 /turf/simulated/floor,
 /area/shelltooth/level_one/disposals)
 "sB" = (
-/turf/simulated/mineral,
+/turf/exterior/wall,
 /area/shelltooth/level_one/janitor)
 "sJ" = (
 /obj/structure/mattress/dirty,
@@ -1155,7 +1155,7 @@
 	icon_state = "pipe-s";
 	dir = 4
 	},
-/turf/simulated/mineral,
+/turf/exterior/wall,
 /area/space)
 "Ga" = (
 /obj/random/trash,
@@ -1236,7 +1236,7 @@
 /obj/machinery/newscaster{
 	pixel_x = 32
 	},
-/obj/machinery/requests_console{
+/obj/machinery/network/requests_console{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,

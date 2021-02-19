@@ -6,7 +6,7 @@
 	var/list/minimal_access = list()      // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
 	var/list/access = list()              // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
 	var/list/software_on_spawn = list()   // Defines the software files that spawn on tablets and labtops
-	var/list/department_refs = list()	  // What deparements the job is in.
+	var/list/department_types = list()	  // What deparements the job is in.
 	var/primary_department = null 		  // A jobs primary deparment, defualts to the first in the department refs list if not set. Important for heads, the department they are head of needs to be this one.
 	var/total_positions = 0               // How many players can be this job
 	var/spawn_positions = 0               // How many players can spawn in as this job
@@ -15,6 +15,8 @@
 	var/guestbanned = 0					  // If set to 1 this job will be unavalible to guests
 	var/must_fill = 0					  // If set to 1 this job will be have priority over other job preferences. Do not reccommend on jobs with more that one position.
 	var/not_random_selectable = 0		  // If set to 1 this job will not be selected when a player asks for a random job.
+	var/description						  // If set, returns a static description. To add dynamic text, overwrite this proc, call parent aka . = ..() and then . += "extra text" on the line after that.
+	var/list/event_categories
 
 	var/supervisors = null                // Supervisors, who this person answers to directly
 	var/selection_color = "#515151"       // Selection screen color
@@ -37,6 +39,7 @@
 
 	var/announced = TRUE                  //If their arrival is announced on radio
 	var/latejoin_at_spawnpoints           //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
+	var/forced_spawnpoint                 //If set to a spawnpoint name, will use that spawn point for joining as this job.
 
 	var/hud_icon						  //icon used for Sec HUD overlay
 
@@ -93,13 +96,16 @@
 	. = . || outfit_type
 	. = outfit_by_type(.)
 
-/datum/job/proc/setup_account(var/mob/living/carbon/human/H)
-	if(!account_allowed || (H.mind && H.mind.initial_account))
-		return
+/datum/job/proc/create_cash_on_hand(var/mob/living/carbon/human/H, var/datum/money_account/M)
+	if(!istype(M) || !ispath(H.client?.prefs?.starting_cash_choice, /decl/starting_cash_choice))
+		return 0
+	var/decl/starting_cash_choice/cash = decls_repository.get_decl(H.client.prefs.starting_cash_choice)
+	for(var/obj/item/thing in cash.get_cash_objects(H, M))
+		. += thing.get_base_value()
+		H.equip_to_storage_or_put_in_hands(thing)
 
-	// Calculate our pay and apply all relevant modifiers.
-	var/money_amount = 4 * rand(75, 100) * economic_power
-
+/datum/job/proc/get_total_starting_money(var/mob/living/carbon/human/H)
+	. = 4 * rand(75, 100) * economic_power
 	// Get an average economic power for our cultures.
 	var/culture_mod =   0
 	var/culture_count = 0
@@ -110,27 +116,36 @@
 			culture_mod += culture.economic_power
 	if(culture_count)
 		culture_mod /= culture_count
-	money_amount *= culture_mod
-
+	. *= culture_mod
 	// Apply other mods.
-	money_amount *= GLOB.using_map.salary_modifier
-	money_amount *= 1 + 2 * H.get_skill_value(SKILL_FINANCE)/(SKILL_MAX - SKILL_MIN)
-	money_amount = round(money_amount)
+	. *= GLOB.using_map.salary_modifier
+	. *= 1 + 2 * H.get_skill_value(SKILL_FINANCE)/(SKILL_MAX - SKILL_MIN)
+	. = round(.)
 
+/datum/job/proc/setup_account(var/mob/living/carbon/human/H)
+	if(!account_allowed || (H.mind && H.mind.initial_account))
+		return
+
+	// Calculate our pay and apply all relevant modifiers.
+	var/money_amount = get_total_starting_money(H)
 	if(money_amount <= 0)
 		return // You are too poor for an account.
 
 	//give them an account in the station database
 	var/datum/money_account/M = create_account("[H.real_name]'s account", H.real_name, money_amount)
+	var/cash_on_hand = create_cash_on_hand(H, M)
+	// Store their financial info.
 	if(H.mind)
 		var/remembered_info = ""
 		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
 		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
 		remembered_info += "<b>Your account funds are:</b> [M.format_value_by_currency(M.money)]<br>"
-
 		if(M.transaction_log.len)
 			var/datum/transaction/T = M.transaction_log[1]
 			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.get_source_name()]<br>"
+		if(cash_on_hand > 0)
+			var/decl/currency/cur = decls_repository.get_decl(GLOB.using_map.default_currency)
+			remembered_info += "<b>Your cash on hand is:</b> [cur.format_value(cash_on_hand)]<br>"
 		H.StoreMemory(remembered_info, /decl/memory_options/system)
 		H.mind.initial_account = M
 
@@ -185,7 +200,7 @@
 		to_chat(feedback, "<span class='boldannounce'>Wrong rank for [title]. Valid ranks in [prefs.branches[title]] are: [get_ranks(prefs.branches[title])].</span>")
 		return TRUE
 
-	var/datum/species/S = get_species_by_key(prefs.species)
+	var/decl/species/S = get_species_by_key(prefs.species)
 	if(!is_species_allowed(S))
 		to_chat(feedback, "<span class='boldannounce'>Restricted species, [S], for [title].</span>")
 		return TRUE
@@ -225,7 +240,7 @@
 			active++
 	return active
 
-/datum/job/proc/is_species_allowed(var/datum/species/S)
+/datum/job/proc/is_species_allowed(var/decl/species/S)
 	if(GLOB.using_map.is_species_job_restricted(S, src))
 		return FALSE
 	// We also make sure that there is at least one valid branch-rank combo for the species.
@@ -234,7 +249,7 @@
 	return LAZYLEN(get_branch_rank(S))
 
 // Don't use if the map doesn't use branches but jobs do.
-/datum/job/proc/get_branch_rank(var/datum/species/S)
+/datum/job/proc/get_branch_rank(var/decl/species/S)
 	. = species_branch_rank_cache_[S]
 	if(.)
 		return
@@ -324,7 +339,7 @@
 	return english_list(res)
 
 /datum/job/proc/get_description_blurb()
-	return ""
+	return description
 
 /datum/job/proc/get_job_icon()
 	if(!SSjobs.job_icons[title])
@@ -340,7 +355,7 @@
 	var/list/reasons = list()
 	if(jobban_isbanned(caller, title))
 		reasons["You are jobbanned."] = TRUE
-	if(is_semi_antagonist && jobban_isbanned(caller, MODE_MISC_AGITATOR))
+	if(is_semi_antagonist && jobban_isbanned(caller, /decl/special_role/provocateur))
 		reasons["You are semi-antagonist banned."] = TRUE
 	if(!player_old_enough(caller))
 		reasons["Your player age is too low."] = TRUE
@@ -350,7 +365,7 @@
 		reasons["Your branch of service does not allow it."] = TRUE
 	else if(!isnull(allowed_ranks) && (!caller.prefs.ranks[title] || !is_rank_allowed(caller.prefs.branches[title], caller.prefs.ranks[title])))
 		reasons["Your rank choice does not allow it."] = TRUE
-	var/datum/species/S = get_species_by_key(caller.prefs.species)
+	var/decl/species/S = get_species_by_key(caller.prefs.species)
 	if(S)
 		if(!is_species_allowed(S))
 			reasons["Your species choice does not allow it."] = TRUE
@@ -372,7 +387,7 @@
 		return FALSE
 	if(jobban_isbanned(caller, title))
 		return FALSE
-	if(is_semi_antagonist && jobban_isbanned(caller, MODE_MISC_AGITATOR))
+	if(is_semi_antagonist && jobban_isbanned(caller, /decl/special_role/provocateur))
 		return FALSE
 	if(!player_old_enough(caller))
 		return FALSE
@@ -408,6 +423,9 @@
 	var/spawnpoint = C.prefs.spawnpoint
 	var/datum/spawnpoint/spawnpos
 
+	if(forced_spawnpoint)
+		spawnpoint = forced_spawnpoint
+
 	if(spawnpoint == DEFAULT_SPAWNPOINT_ID)
 		spawnpoint = GLOB.using_map.default_spawn
 
@@ -441,7 +459,8 @@
 
 /datum/job/proc/post_equip_rank(var/mob/person, var/alt_title)
 	if(is_semi_antagonist && person.mind)
-		GLOB.provocateurs.add_antagonist(person.mind)
+		var/decl/special_role/provocateur/provocateurs = decls_repository.get_decl(/decl/special_role/provocateur)
+		provocateurs.add_antagonist(person.mind)
 
 /datum/job/proc/get_alt_title_for(var/client/C)
 	return C.prefs.GetPlayerAltTitle(src)

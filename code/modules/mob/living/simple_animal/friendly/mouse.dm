@@ -34,7 +34,7 @@
 	meat_amount =   1
 	bone_amount =   1
 	skin_amount =   1
-	skin_material = MAT_SKIN_FUR
+	skin_material = /decl/material/solid/skin/fur
 
 	var/body_color //brown, gray and white, leave blank for random
 
@@ -65,31 +65,24 @@
 	icon_state = resting ? "mouse_[body_color]_sleep" : "mouse_[body_color]"
 
 /mob/living/simple_animal/mouse/Initialize()
-	. = ..()
-
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
-
 	if(name == initial(name))
 		name = "[name] ([sequential_id(/mob/living/simple_animal/mouse)])"
 	real_name = name
-
 	if(!body_color)
 		body_color = pick( list("brown","gray","white") )
-
+	switch(body_color)
+		if("gray")
+			skin_material = /decl/material/solid/skin/fur/gray
+		if("white")
+			skin_material = /decl/material/solid/skin/fur/white
 	icon_state = "mouse_[body_color]"
 	item_state = "mouse_[body_color]"
 	icon_living = "mouse_[body_color]"
 	icon_dead = "mouse_[body_color]_dead"
 	desc = "It's a small [body_color] rodent, often seen hiding in maintenance areas and making a nuisance of itself."
-
-/mob/living/simple_animal/mouse/Initialize()
 	. = ..()
-	switch(body_color)
-		if("gray")
-			skin_material = MAT_SKIN_FUR_GRAY
-		if("white")
-			skin_material = MAT_SKIN_FUR_WHITE
 
 /mob/living/simple_animal/mouse/proc/splat()
 	icon_dead = "mouse_[body_color]_splat"
@@ -100,7 +93,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			to_chat(M, "<span class='warning'>\icon[src] Squeek!</span>")
+			to_chat(M, "<span class='warning'>[html_icon(src)] Squeek!</span>")
 			sound_to(M, 'sound/effects/mousesqueek.ogg')
 	..()
 

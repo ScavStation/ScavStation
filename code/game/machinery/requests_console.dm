@@ -15,12 +15,12 @@
 var/req_console_assistance = list()
 var/req_console_supplies = list()
 var/req_console_information = list()
-var/list/obj/machinery/requests_console/allConsoles = list()
 
-/obj/machinery/requests_console
+/obj/machinery/network/requests_console
 	name = "Requests Console"
 	desc = "A console intended to send requests to different departments."
-	anchored = 1
+	anchored = TRUE
+	density = FALSE
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp0"
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
@@ -38,9 +38,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/announceAuth = 0 //Will be set to 1 when you authenticate yourself for announcements
 	var/msgVerified = "" //Will contain the name of the person who varified it
 	var/msgStamped = "" //If a message is stamped, this will contain the stamp name
-	var/message = "";
-	var/recipient = ""; //the department which will be receiving the message
-	var/priority = -1 ; //Priority of the message being sent
+	var/message = ""
+	var/recipient = "" //the department which will be receiving the message
+	var/priority = -1 //Priority of the message being sent
 	light_outer_range = 0
 	var/datum/announcement/announcement = new
 
@@ -48,7 +48,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	construct_state = /decl/machine_construction/wall_frame/panel_closed
 	frame_type = /obj/item/frame/stock_offset/request_console
 
-/obj/machinery/requests_console/on_update_icon()
+/obj/machinery/network/requests_console/on_update_icon()
 	if(stat & NOPOWER)
 		if(icon_state != "req_comp_off")
 			icon_state = "req_comp_off"
@@ -56,18 +56,19 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(icon_state == "req_comp_off")
 			icon_state = "req_comp[newmessagepriority]"
 
-/obj/machinery/requests_console/Initialize(mapload, d)
+/obj/machinery/network/requests_console/Initialize(mapload, d)
 	. = ..()
 	announcement.newscast = 1
-	allConsoles += src
 	// Try and find it; this is legacy mapping compatibility for the most part.
-	if(SSdepartments.departments[department])
-		set_department(SSdepartments.departments[department])
+	var/decl/department/dept = SSjobs.get_department_by_name(department)
+	if(dept)
+		set_department(dept)
 	else
 		var/found_name = FALSE
-		for(var/key in SSdepartments.departments)
-			var/datum/department/candidate = SSdepartments.departments[key]
-			if(candidate.title == department)
+		var/list/all_departments = decls_repository.get_decls_of_subtype(/decl/department)
+		for(var/key in all_departments)
+			var/decl/department/candidate = all_departments[key]
+			if(lowertext(candidate.name) == lowertext(department))
 				set_department(candidate)
 				found_name = TRUE
 				break
@@ -75,25 +76,24 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			set_department(department)
 	set_light(1)
 
-/obj/machinery/requests_console/proc/set_department(var/datum/department/_department)
+/obj/machinery/network/requests_console/proc/set_department(var/decl/department/_department)
 	if(istype(_department))
-		department = _department.reference
-		announcement.title = "[_department.title] announcement"
-		SetName("[_department.title] Requests Console")
+		department = _department.name
+		announcement.title = "[_department.name] announcement"
+		SetName("[_department.name] Requests Console")
 	else if(istext(department))
 		department = _department
 		announcement.title = "[_department] announcement"
 		SetName("[_department] Requests Console")
 
-/obj/machinery/requests_console/Destroy()
-	allConsoles -= src
+/obj/machinery/network/requests_console/Destroy()
 	. = ..()
 
-/obj/machinery/requests_console/interface_interact(mob/user)
+/obj/machinery/network/requests_console/interface_interact(mob/user)
 	ui_interact(user)
 	return TRUE
 
-/obj/machinery/requests_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/network/requests_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
 	data["department"] = department
@@ -120,7 +120,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/requests_console/OnTopic(user, href_list)
+/obj/machinery/network/requests_console/OnTopic(user, href_list)
 	if(reject_bad_text(href_list["write"]))
 		recipient = href_list["write"] //write contains the string of the receiving department's name
 
@@ -153,13 +153,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if( href_list["department"] && message )
 		var/log_msg = message
 		screen = RCS_SENTFAIL
-		var/obj/machinery/message_server/MS = get_message_server(get_z(src))
+		var/obj/machinery/network/message_server/MS = get_message_server(get_z(src))
 		if(MS)
 			if(MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority))
 				screen = RCS_SENTPASS
 				message_log += "<B>Message sent to [recipient]</B><BR>[message]"
 		else
-			audible_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
+			audible_message("[html_icon(src)] *The Requests Console beeps: 'NOTICE: No server detected!'", null, 4)
 		return TOPIC_REFRESH
 
 	//Handle screen switching
@@ -168,8 +168,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(tempScreen == RCS_ANNOUNCE && !announcementConsole)
 			return
 		if(tempScreen == RCS_VIEWMSGS)
-			for (var/obj/machinery/requests_console/Console in allConsoles)
-				if (Console.department == department)
+			var/datum/extension/network_device/network_device = get_extension(src, /datum/extension/network_device)
+			var/datum/computer_network/network = network_device?.get_network()
+			for(var/datum/extension/network_device/console in network?.devices)
+				var/obj/machinery/network/requests_console/Console = console.holder
+				if(istype(Console) && Console.department == department)
 					Console.newmessagepriority = 0
 					Console.icon_state = "req_comp0"
 					Console.set_light(1)
@@ -184,12 +187,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		return TOPIC_REFRESH
 
 	if(href_list["set_department"])
-		var/list/choices = SSdepartments.departments.Copy()
-		choices += "Custom"
-		var/choice = input(user, "Select a new department from the list:", "Department Selection", department) as null|anything in choices
+		var/list/choices = list()
+		var/list/all_departments = decls_repository.get_decls_of_subtype(/decl/department)
+		for(var/dtype in all_departments)
+			choices += all_departments[dtype]
+		var/choice = input(user, "Select a new department from the list:", "Department Selection", department) as null|anything in (choices + "Custom")
 		if(!CanPhysicallyInteract(user))
-			return TOPIC_HANDLED
-		if(!choice)
 			return TOPIC_HANDLED
 		if(choice == "Custom")
 			var/input = input(user, "Enter a custom name:", "Custom Selection", department) as null|text
@@ -200,10 +203,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			sanitize(input)
 			set_department(input)
 			return TOPIC_REFRESH
-		set_department(choices[choice])
+		else if(!istype(choice, /decl/department))
+			return TOPIC_HANDLED
+		set_department(choice)
 		return TOPIC_REFRESH
 
-/obj/machinery/requests_console/attackby(var/obj/item/O, var/mob/user)
+/obj/machinery/network/requests_console/attackby(var/obj/item/O, var/mob/user)
 	if (istype(O, /obj/item/card/id))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
@@ -227,7 +232,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			SSnano.update_uis(src)
 	return ..()
 
-/obj/machinery/requests_console/proc/reset_message(var/mainmenu = 0)
+/obj/machinery/network/requests_console/proc/reset_message(var/mainmenu = 0)
 	message = ""
 	recipient = ""
 	priority = 0

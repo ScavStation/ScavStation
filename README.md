@@ -1,6 +1,45 @@
-# ScavStation
+<h1 align="center">
+  <br>
+  <a href="https://github.com/ScavStation/ScavStation"><img src="https://avatars1.githubusercontent.com/u/61128341" alt="Nebula 13" width="200"></a>
+  <br>
+  Nebula 13
+  <br>
+</h1>
 
-[Website](https://www.valsalia.com/) - [Code](http://github.com/ScavStation/ScavStation/)
+<p align="center">
+  <a href="https://github.com/ScavStation/ScavStation/actions">
+    <img src="https://github.com/ScavStation/ScavStation/workflows/Run%20Tests/badge.svg"
+         alt="Build Status">
+  </a>
+  <a href="https://www.codefactor.io/repository/github/ScavStation/ScavStation">
+    <img src="https://www.codefactor.io/repository/github/ScavStation/ScavStation/badge"
+         alt="CodeFactor">
+  </a>
+  <a href="https://github.com/ScavStation/ScavStation/commits/dev">
+    <img src="https://img.shields.io/github/last-commit/ScavStation/ScavStation"
+         alt="Last Commit">
+  </a>
+  <a href="https://github.com/ScavStation/ScavStation/issues">
+    <img src="https://img.shields.io/github/issues/ScavStation/ScavStation"
+         alt="Issues">
+  </a>
+  <a href="https://discord.gg/Ddw58yF">
+    <img src="https://img.shields.io/discord/678820025355862045?style=plastic"
+         alt="Discord">
+  </a>
+  <a href="https://github.com/ScavStation/ScavStation/blob/dev/LICENSE">
+    <img src="https://img.shields.io/github/license/ScavStation/ScavStation"
+         alt="License">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.valsalia.com/">Val Salia Website</a> •
+  <a href="#contributing-guidelines">Contributing Guidelines</a> •
+  <a href="#security">Security</a> •
+  <a href="#license">License</a> •
+  <a href="#getting-the-code-and-installing">Getting the Code and Installing</a>
+</p>
 
 ---
 

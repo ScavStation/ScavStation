@@ -1,18 +1,3 @@
-/mob
-	var/bloody_hands = null
-	var/mob/living/carbon/human/bloody_hands_mob
-	var/track_blood = 0
-	var/list/feet_blood_DNA
-	var/track_blood_type
-	var/feet_blood_color
-
-/obj/item/clothing/gloves
-	var/transfer_blood = 0
-	var/mob/living/carbon/human/bloody_hands_mob
-
-/obj/item/clothing/shoes/
-	var/track_blood = 0
-
 /obj/item/chems/glass/rag
 	name = "rag"
 	desc = "For cleaning up messes, you suppose."
@@ -50,7 +35,7 @@
 		remove_contents(user)
 
 /obj/item/chems/glass/rag/attackby(obj/item/W, mob/user)
-	if(isflamesource(W))
+	if(W.isflamesource())
 		if(on_fire)
 			to_chat(user, SPAN_WARNING("\The [src] is already blazing merrily!"))
 			return
@@ -102,35 +87,49 @@
 		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 	else
 		user.visible_message("\The [user] starts to wipe down [A] with [src]!")
-		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
 		if(do_after(user,30, progress = 1))
 			user.visible_message("\The [user] finishes wiping off the [A]!")
-			if(isturf(A))
-				var/turf/T = A
-				T.clean(src, user)
-			else
-				A.clean_blood()
+			reagents.splash(A, FLUID_EVAPORATION_POINT)
 
 /obj/item/chems/glass/rag/attack(atom/target, mob/user , flag)
 	if(isliving(target))
 		var/mob/living/M = target
 		if(on_fire)
-			user.visible_message("<span class='danger'>\The [user] hits [target] with [src]!</span>",)
-			user.do_attack_animation(src)
+			user.visible_message(
+				SPAN_DANGER("\The [user] hits \the [target] with \the [src]!"),
+				SPAN_DANGER("You hit \the [target] with \the [src]!")
+			)
+			user.do_attack_animation(target)
+			admin_attack_log(user, M, "used \the [src] (ignited) to attack", "was attacked using \the [src] (ignited)", "attacked with \the [src] (ignited)")
 			M.IgniteMob()
 		else if(reagents.total_volume)
 			if(user.zone_sel.selecting == BP_MOUTH)
+				if (!M.has_danger_grab(user))
+					to_chat(user, SPAN_WARNING("You need to have a firm grip on \the [target] before you can use \the [src] on them!"))
+					return
+
 				user.do_attack_animation(src)
 				user.visible_message(
-					"<span class='danger'>\The [user] smothers [target] with [src]!</span>",
-					"<span class='warning'>You smother [target] with [src]!</span>",
-					"You hear some struggling and muffled cries of surprise"
-					)
+					SPAN_DANGER("\The [user] brings \the [src] up to \the [target]'s mouth!"),
+					SPAN_DANGER("You bring \the [src] up to \the [target]'s mouth!"),
+					SPAN_WARNING("You hear some struggling and muffled cries of surprise")
+				)
 
-				//it's inhaled, so... maybe CHEM_INJECT doesn't make a whole lot of sense but it's the best we can do for now
-				reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INJECT)
-				update_name()
+				var/grab_time = 6 SECONDS
+				if (user.skill_check(SKILL_COMBAT, SKILL_ADEPT))
+					grab_time = 3 SECONDS
+
+				if (do_after(user, grab_time, target))
+					user.visible_message(
+						SPAN_DANGER("\The [user] smothers \the [target] with \the [src]!"),
+						SPAN_DANGER("You smother \the [target] with \the [src]!")
+					)
+					//it's inhaled, so... maybe CHEM_INJECT doesn't make a whole lot of sense but it's the best we can do for now
+					var/trans_amt = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INJECT)
+					var/contained_reagents = reagents.get_reagents()
+					admin_inject_log(user, M, src, contained_reagents, trans_amt)
+					update_name()
 			else
 				wipe_down(target, user)
 		return
@@ -173,7 +172,7 @@
 	if(reagents)
 		total_volume += reagents.total_volume
 		for(var/rtype in reagents.reagent_volumes)
-			var/decl/reagent/R = decls_repository.get_decl(rtype)
+			var/decl/material/R = decls_repository.get_decl(rtype)
 			total_fuel = REAGENT_VOLUME(reagents, rtype) * R.fuel_value
 	. = (total_fuel >= 2 && total_fuel >= total_volume*0.5)
 
@@ -182,16 +181,6 @@
 		return
 	if(!can_ignite())
 		return
-
-	//also copied from matches
-	if(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
-		visible_message(SPAN_DANGER("\The [src] explodes!"))
-		var/datum/effect/effect/system/reagents_explosion/e = new()
-		e.set_up(round(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
-		e.start()
-		qdel(src)
-		return
-
 	START_PROCESSING(SSobj, src)
 	set_light(0.5, 0.1, 2, 2, "#e38f46")
 	on_fire = 1
@@ -231,6 +220,7 @@
 		qdel(src)
 		return
 
-	reagents.remove_reagent(/decl/reagent/fuel, reagents.maximum_volume/25)
+	if(reagents?.total_volume)
+		reagents.remove_reagent(/decl/material/liquid/fuel, reagents.maximum_volume/25)
 	update_name()
 	burn_time--

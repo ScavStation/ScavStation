@@ -21,10 +21,10 @@
 		set_opacity(0)
 
 	if(gen && gen.check_flag(MODEFLAG_OVERCHARGE))
-		icon_state = "shield_overcharged"
+		color = COLOR_VIOLET
 		set_light(1, 0.1, 2, l_color = "#ff9900")
 	else
-		icon_state = "shield_normal"
+		color = COLOR_DEEP_SKY_BLUE
 		set_light(1, 0.1, 2, l_color = "#66ffff")
 
 	cut_overlays()
@@ -115,19 +115,12 @@
 	update_icon(TRUE)
 	update_explosion_resistance()
 
-/obj/effect/shield/attack_generic(var/source, var/damage, var/emote)
-	take_damage(damage, SHIELD_DAMTYPE_PHYSICAL)
-	if(gen.check_flag(MODEFLAG_OVERCHARGE) && istype(source, /mob/living/))
-		overcharge_shock(source)
-	..(source, damage, emote)
-
-
 // Fails shield segments in specific range. Range of 1 affects the shielded turf only.
 /obj/effect/shield/proc/fail_adjacent_segments(var/range, var/hitby = null)
 	if(hitby)
-		visible_message("<span class='danger'>\The [src] flashes a bit as \the [hitby] collides with it, eventually fading out in a rain of sparks!</span>")
+		visible_message(SPAN_DANGER("\The [src] flashes a bit as \the [hitby] collides with it, eventually fading out in a rain of sparks!"))
 	else
-		visible_message("<span class='danger'>\The [src] flashes a bit as it eventually fades out in a rain of sparks!</span>")
+		visible_message(SPAN_DANGER("\The [src] flashes a bit as it eventually fades out in a rain of sparks!"))
 	fail(range * 2)
 
 	for(var/obj/effect/shield/S in range(range, src))
@@ -200,7 +193,8 @@
 
 
 // Explosions
-/obj/effect/shield/ex_act(var/severity)
+/obj/effect/shield/explosion_act(var/severity)
+	SHOULD_CALL_PARENT(FALSE)
 	if(!disabled_for)
 		take_damage(rand(10,15) / severity, SHIELD_DAMTYPE_PHYSICAL)
 
@@ -220,20 +214,21 @@
 	else
 		take_damage(proj.get_structure_damage(), SHIELD_DAMTYPE_EM)
 
-
 // Attacks with hand tools. Blocked by Hyperkinetic flag.
 /obj/effect/shield/attackby(var/obj/item/I, var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 
 	if(gen.check_flag(MODEFLAG_HYPERKINETIC))
-		user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I]!</span>")
+		user.visible_message("<span class='danger'>\The [user] [pick(I.attack_verb)] \the [src] with \the [I]!</span>")
 		if(I.damtype == BURN)
 			take_damage(I.force, SHIELD_DAMTYPE_HEAT)
 		else if (I.damtype == BRUTE)
 			take_damage(I.force, SHIELD_DAMTYPE_PHYSICAL)
 		else
 			take_damage(I.force, SHIELD_DAMTYPE_EM)
+		if(gen.check_flag(MODEFLAG_OVERCHARGE) && (I.obj_flags & OBJ_FLAG_CONDUCTIBLE))
+			overcharge_shock(user)
 	else
 		user.visible_message("<span class='danger'>\The [user] tries to attack \the [src] with \the [I], but it passes through!</span>")
 

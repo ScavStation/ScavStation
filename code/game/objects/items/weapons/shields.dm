@@ -52,7 +52,7 @@
 	name = "riot shield"
 	desc = "A shield adept at blocking blunt objects from connecting with the torso of the shield wielder."
 	icon = 'icons/obj/items/shield/riot.dmi'
-	icon_state = "riot"
+	icon_state = ICON_STATE_WORLD
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BACK
 	force = 5.0
@@ -61,8 +61,8 @@
 	throw_range = 4
 	w_class = ITEM_SIZE_HUGE
 	origin_tech = "{'materials':2}"
-	material = MAT_GLASS
-	matter = list(MAT_STEEL = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/glass
+	matter = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT)
 	attack_verb = list("shoved", "bashed")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 	var/max_block = 15
@@ -83,7 +83,7 @@
 	return base_block_chance
 
 /obj/item/shield/riot/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/melee/baton))
+	if(istype(W, /obj/item/baton))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
@@ -94,14 +94,14 @@
 /obj/item/shield/riot/metal
 	name = "plasteel combat shield"
 	icon = 'icons/obj/items/shield/metal.dmi'
-	icon_state = "metal"
+	icon_state = ICON_STATE_WORLD
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BACK
 	force = 6.0
 	throwforce = 7.0
 	throw_range = 3
 	w_class = ITEM_SIZE_HUGE
-	material = MAT_PLASTEEL
+	material = /decl/material/solid/metal/plasteel
 	max_block = 50
 	can_block_lasers = TRUE
 	slowdown_general = 1.5
@@ -119,8 +119,8 @@
 	throw_range = 20
 	w_class = ITEM_SIZE_HUGE
 	origin_tech = "{'materials':1}"
-	material = MAT_STEEL
-	matter = list(MAT_WOOD = MATTER_AMOUNT_REINFORCEMENT)
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/wood = MATTER_AMOUNT_REINFORCEMENT)
 	attack_verb = list("shoved", "bashed")
 
 /obj/item/shield/buckler/handle_shield(mob/user)
@@ -190,8 +190,7 @@
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 	add_fingerprint(user)
 	return

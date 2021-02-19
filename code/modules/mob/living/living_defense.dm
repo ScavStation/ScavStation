@@ -100,10 +100,13 @@
 
 //Called when the mob is hit with an item in combat. Returns the blocked result
 /mob/living/proc/hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
+	var/weapon_mention
+	if(I.attack_message_name())
+		weapon_mention = " with [I.attack_message_name()]"
 	if(effective_force)
-		visible_message("<span class='danger'>[src] has been [I.attack_verb.len? pick(I.attack_verb) : "attacked"] with [I.name] by [user]!</span>")
+		visible_message("<span class='danger'>[src] has been [I.attack_verb.len? pick(I.attack_verb) : "attacked"][weapon_mention] by [user]!</span>")
 	else
-		visible_message("<span class='warning'>[src] has been [I.attack_verb.len? pick(I.attack_verb) : "attacked"] with [I.name] by [user]!</span>")
+		visible_message("<span class='warning'>[src] has been [I.attack_verb.len? pick(I.attack_verb) : "attacked"][weapon_mention] by [user]!</span>")
 
 	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
@@ -127,6 +130,8 @@
 
 //this proc handles being hit by a thrown atom
 /mob/living/hitby(var/atom/movable/AM, var/datum/thrownthing/TT)
+
+	..()
 
 	if(isliving(AM))
 		var/mob/living/M = AM
@@ -307,6 +312,7 @@
 			if(!I.action)
 				I.action = new I.default_action_type
 			I.action.name = I.action_button_name
+			I.action.desc = I.action_button_desc
 			I.action.SetTarget(I)
 			I.action.Grant(src)
 	return
@@ -348,6 +354,7 @@
 		B.UpdateIcon()
 
 		B.SetName(A.UpdateName())
+		B.desc = A.UpdateDesc()
 
 		client.screen += B
 

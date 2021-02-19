@@ -1073,7 +1073,7 @@
 /area/shelltooth/level_three/cargo)
 "yX" = (
 /obj/structure/closet/secure_closet/hop,
-/obj/item/melee/baton,
+/obj/item/baton,
 /obj/item/storage/box/ammo/stunshells,
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/storage/box/ids,

@@ -3,7 +3,7 @@
 
 /obj/item/clothing/ring/aura_ring/equipped(var/mob/living/L, var/slot)
 	..()
-	if(granted_aura && slot == slot_gloves)
+	if(granted_aura && slot == slot_gloves_str)
 		L.add_aura(granted_aura)
 
 /obj/item/clothing/ring/aura_ring/dropped(var/mob/living/L)
@@ -18,7 +18,7 @@
 /obj/item/clothing/ring/aura_ring/talisman_of_starborn
 	name = "Talisman of the Starborn"
 	desc = "This ring seems to shine with more light than is put on it."
-	icon_state = "starring"
+	icon = 'icons/clothing/rings/ring_star.dmi'
 
 /obj/item/clothing/ring/aura_ring/talisman_of_starborn/Initialize()
 	. = ..()
@@ -27,7 +27,7 @@
 /obj/item/clothing/ring/aura_ring/talisman_of_blueforged
 	name = "Talisman of the Blueforged"
 	desc = "The gem on this ring is quite peculiar..."
-	icon_state = "bluering"
+	icon = 'icons/clothing/rings/ring_blue.dmi'
 
 /obj/item/clothing/ring/aura_ring/talisman_of_blueforged/Initialize()
 	. = ..()
@@ -36,7 +36,7 @@
 /obj/item/clothing/ring/aura_ring/talisman_of_shadowling
 	name = "Talisman of the Shadowling"
 	desc = "If you weren't looking at this, you probably wouldn't have noticed it."
-	icon_state = "shadowring"
+	icon = 'icons/clothing/rings/ring_shadow.dmi'
 
 /obj/item/clothing/ring/aura_ring/talisman_of_shadowling/Initialize()
 	. = ..()
@@ -45,7 +45,7 @@
 /obj/item/clothing/suit/armor/sunsuit
 	name = "knight's armor"
 	desc = "Now, you can be the knight in shining armor you've always wanted to be. With complementary sun insignia."
-	icon_state = "star_champion"
+	icon = 'icons/clothing/suit/deity/star_champion.dmi'
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_AP,
@@ -58,13 +58,13 @@
 /obj/item/clothing/head/helmet/sunhelm
 	name = "knight's helm"
 	desc = "It's a shiny metal helmet. It looks ripped straight out of the Dark Ages, actually."
-	icon_state = "star_champion"
+	icon = 'icons/clothing/head/star_champion.dmi'
 	flags_inv = HIDEEARS | BLOCKHAIR
 
 /obj/item/clothing/suit/armor/sunrobe
 	name = "oracle's robe"
 	desc = "The robes of a priest. One that praises the sun, apparently. Well, it certainly reflects light well."
-	icon_state = "star_oracle"
+	icon = 'icons/clothing/suit/deity/star_oracle.dmi'
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_SMALL,
@@ -83,28 +83,28 @@
 	desc = "There is absolutely nothing visible through the fabric. The shadows stick to your skin when you touch it."
 	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
 	min_pressure_protection = 0
-	icon_state = "star_traitor"
+	icon = 'icons/clothing/suit/deity/star_traitor.dmi'
 
 /obj/item/clothing/head/helmet/space/shadowhood
 	name = "traitor's hood"
 	desc = "No light can pierce this hood. It's unsettling."
-	icon_state = "star_traitor"
+	icon = 'icons/clothing/head/star_traitor.dmi'
 	flags_inv = HIDEEARS | BLOCKHAIR
 
-/obj/item/material/knife/ritual/shadow
+/obj/item/knife/ritual/shadow
 	name = "black death"
 	desc = "An obsidian dagger. The singed remains of a green cloth are wrapped around the 'handle.'"
 	material_force_multiplier = 0.3
 	var/charge = 5
 
-/obj/item/material/knife/ritual/shadow/apply_hit_effect(var/mob/living/target, var/mob/living/user, var/hit_zone)
+/obj/item/knife/ritual/shadow/apply_hit_effect(var/mob/living/target, var/mob/living/user, var/hit_zone)
 	. = ..()
 	if(charge)
 		if(target.getBruteLoss() > 15)
 			var/datum/reagents/R = target.reagents
 			if(!R)
 				return
-			R.add_reagent(/decl/reagent/toxin/bromide, 5)
+			R.add_reagent(/decl/material/liquid/venom, 5)
 			new /obj/effect/temporary(get_turf(target),3, 'icons/effects/effects.dmi', "fire_goon")
 			charge--
 	else
@@ -121,27 +121,27 @@
 	self_recharge = 0
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/flash
-	required_antag_type = MODE_GODCULTIST
+	required_antag_type = /decl/special_role/godcultist
 
-/obj/item/material/sword/blazing
+/obj/item/sword/blazing
 	name = "blazing blade"
+	icon = 'icons/obj/items/weapon/swords/flaming.dmi'
 	damtype = BURN
-	icon_state = "fireblade"
-	item_state = "fireblade"
 	applies_material_colour = FALSE
+	applies_material_name = FALSE
 	var/last_near_structure = 0
 	var/mob/living/deity/linked
 
-/obj/item/material/sword/blazing/Initialize(var/maploading, var/material, var/deity)
+/obj/item/sword/blazing/Initialize(var/maploading, var/material, var/deity)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	linked = deity
 
-/obj/item/material/sword/blazing/Destroy()
+/obj/item/sword/blazing/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/material/sword/blazing/Process()
+/obj/item/sword/blazing/Process()
 	if(!linked || last_near_structure + 10 SECONDS > world.time)
 		return
 

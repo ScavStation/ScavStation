@@ -1,7 +1,7 @@
 /decl/crafting_stage/material/ed209_start
 	descriptor = "security walker"
 	stack_consume_amount = 5
-	stack_material = MAT_STEEL
+	stack_material = /decl/material/solid/metal/steel
 	begins_with_object_type = /obj/item/robot_parts/robot_suit
 	next_stages = list(/decl/crafting_stage/ed209_legs)
 	progress_message = "You bulk out the robotic frame with the steel sheets."
@@ -28,7 +28,7 @@
 	next_stages = list(/decl/crafting_stage/ed209_armour)
 
 /decl/crafting_stage/ed209_armour
-	completion_trigger_type = /obj/item/clothing/accessory/armorplate
+	completion_trigger_type = /obj/item/clothing/accessory/armor/plate
 	progress_message = "You layer the armour plating over the frame."
 	item_icon_state = "ed209_4"
 	next_stages = list(/decl/crafting_stage/welding/ed209)

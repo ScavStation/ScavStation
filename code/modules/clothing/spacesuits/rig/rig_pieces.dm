@@ -14,65 +14,74 @@
 
 /obj/item/clothing/head/helmet/space/rig
 	name = "helmet"
-	icon_state = "helmet"
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	flags_inv = 		 HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-	heat_protection =    HEAD|FACE|EYES
-	cold_protection =    HEAD|FACE|EYES
+	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
+	heat_protection =    SLOT_HEAD|SLOT_FACE|SLOT_EYES
+	cold_protection =    SLOT_HEAD|SLOT_FACE|SLOT_EYES
 	brightness_on = 0.5
 	bodytype_restricted = null
-	on_mob_use_spritesheets = TRUE
 
-/obj/item/clothing/head/helmet/space/rig/experimental_mob_overlay(var/mob/user_mob, var/slot)
-	var/image/I = ..()
-	if(user_mob.check_rig_status())
-		I.icon_state += "_sealed"
-	return I
+/obj/item/clothing/head/helmet/space/rig/on_update_icon(mob/user)
+	..()
+	icon_state = get_world_inventory_state()
+	if(user?.check_rig_status() && check_state_in_icon("[icon_state]-sealed", icon))
+		icon_state = "[icon_state]-sealed"
+	
+/obj/item/clothing/head/helmet/space/rig/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
+	var/image/ret = ..()
+	if(user_mob?.check_rig_status() && check_state_in_icon("[ret.icon_state]-sealed", ret.icon))
+		ret.icon_state = "[ret.icon_state]-sealed"
+	return ret
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
-	icon_state = "gloves"
 	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
-	body_parts_covered = HANDS
-	heat_protection =    HANDS
-	cold_protection =    HANDS
+	body_parts_covered = SLOT_HANDS
+	heat_protection =    SLOT_HANDS
+	cold_protection =    SLOT_HANDS
 	bodytype_restricted = null
 	gender = PLURAL
-	on_mob_use_spritesheets = TRUE
 
-/obj/item/clothing/gloves/rig/experimental_mob_overlay(var/mob/user_mob, var/slot)
-	var/image/I = ..()
-	if(user_mob.check_rig_status())
-		I.icon_state += "_sealed"
-	return I
+/obj/item/clothing/gloves/rig/on_update_icon(mob/user)
+	..()
+	icon_state = get_world_inventory_state()
+	if(user?.check_rig_status() && check_state_in_icon("[icon_state]-sealed", icon))
+		icon_state = "[icon_state]-sealed"
+	
+/obj/item/clothing/gloves/rig/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
+	var/image/ret = ..()
+	if(user_mob?.check_rig_status() && check_state_in_icon("[ret.icon_state]-sealed", ret.icon))
+		ret.icon_state = "[ret.icon_state]-sealed"
+	return ret
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
-	icon_state = "boots"
 	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
-	body_parts_covered = FEET
-	cold_protection = FEET
-	heat_protection = FEET
+	body_parts_covered = SLOT_FEET
+	cold_protection = SLOT_FEET
+	heat_protection = SLOT_FEET
 	bodytype_restricted = null
 	gender = PLURAL
-	icon_base = null
-	on_mob_use_spritesheets = TRUE
 
-/obj/item/clothing/shoes/magboots/rig/experimental_mob_overlay(var/mob/user_mob, var/slot)
-	var/image/I = ..()
-	if(user_mob.check_rig_status())
-		I.icon_state += "_sealed"
-	return I
+/obj/item/clothing/shoes/magboots/rig/on_update_icon(mob/user)
+	..()
+	icon_state = get_world_inventory_state()
+	if(user?.check_rig_status() && check_state_in_icon("[icon_state]-sealed", icon))
+		icon_state = "[icon_state]-sealed"
+	
+/obj/item/clothing/shoes/magboots/rig/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
+	var/image/ret = ..()
+	if(user_mob?.check_rig_status() && check_state_in_icon("[ret.icon_state]-sealed", ret.icon))
+		ret.icon_state = "[ret.icon_state]-sealed"
+	return ret
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
-	icon_state = "chest"
-	on_mob_use_spritesheets = TRUE
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+	heat_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+	cold_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
 	// HIDEJUMPSUIT no longer needed, see "hides_uniform" and "update_component_sealed()" in rig.dm
 	flags_inv =          HIDETAIL
 	item_flags =         ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
@@ -82,11 +91,17 @@
 	can_breach = 1
 	var/list/supporting_limbs = list() //If not-null, automatically splints breaks. Checked when removing the suit.
 
-/obj/item/clothing/suit/space/rig/experimental_mob_overlay(var/mob/user_mob, var/slot)
-	var/image/I = ..()
-	if(user_mob.check_rig_status())
-		I.icon_state += "_sealed"
-	return I
+/obj/item/clothing/suit/space/rig/on_update_icon(mob/user)
+	..()
+	icon_state = get_world_inventory_state()
+	if(user?.check_rig_status() && check_state_in_icon("[icon_state]-sealed", icon))
+		icon_state = "[icon_state]-sealed"
+	
+/obj/item/clothing/suit/space/rig/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
+	var/image/ret = ..()
+	if(user_mob?.check_rig_status() && check_state_in_icon("[ret.icon_state]-sealed", ret.icon))
+		ret.icon_state = "[ret.icon_state]-sealed"
+	return ret
 
 /obj/item/clothing/suit/space/rig/equipped(mob/M)
 	check_limb_support(M)
@@ -102,7 +117,7 @@
 		return 0 //not wearing the suit
 	return user.check_rig_status(1)
 
-/obj/item/clothing/suit/space/rig/proc/check_limb_support(var/mob/living/carbon/human/user)
+/obj/item/clothing/suit/space/rig/check_limb_support(var/mob/living/carbon/human/user)
 
 	// If this isn't set, then we don't need to care.
 	if(!istype(user) || isnull(supporting_limbs))
@@ -151,33 +166,37 @@
 
 /obj/item/clothing/head/lightrig
 	name = "mask"
-	body_parts_covered = HEAD|FACE|EYES
-	heat_protection =    HEAD|FACE|EYES
-	cold_protection =    HEAD|FACE|EYES
+	icon = 'icons/clothing/rigs/helmets/helmet_light.dmi'
+	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
+	heat_protection =    SLOT_HEAD|SLOT_FACE|SLOT_EYES
+	cold_protection =    SLOT_HEAD|SLOT_FACE|SLOT_EYES
 	item_flags =         ITEM_FLAG_THICKMATERIAL|ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/suit/lightrig
 	name = "suit"
+	icon = 'icons/clothing/rigs/chests/chest_light.dmi'
 	allowed = list(/obj/item/flashlight)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+	heat_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+	cold_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
 	flags_inv =          HIDEJUMPSUIT
 	item_flags =         ITEM_FLAG_THICKMATERIAL
 
 /obj/item/clothing/shoes/lightrig
 	name = "boots"
-	body_parts_covered = FEET
-	cold_protection = FEET
-	heat_protection = FEET
+	icon = 'icons/clothing/rigs/boots/boots_light.dmi'
+	body_parts_covered = SLOT_FEET
+	cold_protection = SLOT_FEET
+	heat_protection = SLOT_FEET
 	bodytype_restricted = null
 	gender = PLURAL
 
 /obj/item/clothing/gloves/lightrig
 	name = "gloves"
+	icon = 'icons/clothing/rigs/gloves/gloves_light.dmi'
 	item_flags = ITEM_FLAG_THICKMATERIAL
-	body_parts_covered = HANDS
-	heat_protection =    HANDS
-	cold_protection =    HANDS
+	body_parts_covered = SLOT_HANDS
+	heat_protection =    SLOT_HANDS
+	cold_protection =    SLOT_HANDS
 	bodytype_restricted = null
 	gender = PLURAL

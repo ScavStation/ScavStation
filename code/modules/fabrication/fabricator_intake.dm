@@ -32,14 +32,14 @@
 	var/stacks_used = 1
 	var/mat_colour = thing.color
 	for(var/mat in thing.matter)
-		var/material/material_def = SSmaterials.get_material_datum(mat)
+		var/decl/material/material_def = decls_repository.get_decl(mat)
 		if(!material_def || !base_storage_capacity[material_def.type])
 			continue
 		var/taking_material = min(thing.matter[mat], storage_capacity[material_def.type] - stored_material[material_def.type])
 		if(taking_material <= 0)
 			continue
 		if(!mat_colour)
-			mat_colour = material_def.icon_colour
+			mat_colour = material_def.color
 		stored_material[material_def.type] += taking_material
 		stacks_used = max(stacks_used, ceil(taking_material/SHEET_MATERIAL_AMOUNT))
 		if(storage_capacity[material_def.type] == stored_material[material_def.type])
@@ -61,7 +61,10 @@
 			else if(. != SUBSTANCE_TAKEN_FULL)
 				. = SUBSTANCE_TAKEN_SOME
 
-/obj/machinery/fabricator/proc/show_intake_message(var/mob/user, var/value, var/obj/item/thing)
+/obj/machinery/fabricator/proc/can_ingest(var/obj/item/thing)
+	. = (has_recycler || istype(thing, /obj/item/stack/material))
+
+/obj/machinery/fabricator/proc/show_intake_message(var/mob/user, var/value, var/thing)
 	if(value == SUBSTANCE_TAKEN_FULL)
 		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with \the [thing]."))
 	else if(value == SUBSTANCE_TAKEN_SOME)
@@ -106,15 +109,16 @@
 			return
 
 	// Take reagents, if any are applicable.
+	var/atom_name = O.name
 	var/reagents_taken = take_reagents(O, user)
-	if(reagents_taken != SUBSTANCE_TAKEN_NONE && !has_recycler)
-		show_intake_message(user, reagents_taken, O)
+	if(reagents_taken != SUBSTANCE_TAKEN_NONE)
+		show_intake_message(user, reagents_taken, atom_name)
 		updateUsrDialog()
 		return TRUE
 	// Take everything if we have a recycler.
-	if(has_recycler && !is_robot_module(O) && user.unEquip(O))
+	if(can_ingest(O) && !is_robot_module(O) && user.unEquip(O))
 		var/result = max(take_materials(O, user), max(reagents_taken, take_reagents(O, user, TRUE)))
-		show_intake_message(user, result, O)
+		show_intake_message(user, result, atom_name)
 		if(result == SUBSTANCE_TAKEN_NONE)
 			user.put_in_active_hand(O)
 			return TRUE
@@ -137,10 +141,5 @@
 	if((fab_status_flags & FAB_DISABLED) && !panel_open)
 		to_chat(user, SPAN_WARNING("\The [src] is disabled!"))
 		return TRUE
-	interact(user)
+	ui_interact(user)
 	return TRUE
-
-#undef SUBSTANCE_TAKEN_FULL
-#undef SUBSTANCE_TAKEN_NONE
-#undef SUBSTANCE_TAKEN_SOME
-#undef SUBSTANCE_TAKEN_ALL

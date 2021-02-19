@@ -19,7 +19,7 @@
 		body.decal = decal
 		body.prebuild()
 	if(!material)
-		material = SSmaterials.get_material_datum(MAT_STEEL)
+		material = decls_repository.get_decl(/decl/material/solid/metal/steel)
 	. = ..()
 
 	spawn_mech_equipment()
@@ -150,7 +150,7 @@
 /mob/living/exosuit/premade/random/normal
 
 /mob/living/exosuit/premade/random/boring/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
-	..(mapload, source_frame, using_boring_colours = TRUE)
+	. = ..(mapload, source_frame, using_boring_colours = TRUE)
 
 /mob/living/exosuit/premade/random/extra/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
-	..(mapload, source_frame, super_random = TRUE)
+	. = ..(mapload, source_frame, super_random = TRUE)

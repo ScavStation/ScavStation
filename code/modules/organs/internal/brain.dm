@@ -14,7 +14,6 @@
 	attack_verb = list("attacked", "slapped", "whacked")
 	relative_size = 85
 	damage_reduction = 0
-	can_be_printed = FALSE
 
 	var/can_use_mmi = TRUE
 	var/mob/living/carbon/brain/brainmob = null
@@ -23,7 +22,7 @@
 	var/healed_threshold = 1
 	var/oxygen_reserve = 6
 
-/obj/item/organ/internal/brain/robotize()
+/obj/item/organ/internal/brain/robotize(var/company = /decl/prosthetics_manufacturer, var/skip_prosthetics, var/keep_organs, var/apply_material = /decl/material/solid/metal/steel)
 	replace_self_with(/obj/item/organ/internal/posibrain)
 
 /obj/item/organ/internal/brain/mechassist()
@@ -39,7 +38,7 @@
 		tmp_owner.internal_organs_by_name[organ_tag] = new replace_path(tmp_owner, 1)
 		tmp_owner = null
 
-/obj/item/organ/internal/brain/robotize()
+/obj/item/organ/internal/brain/robotize(var/company = /decl/prosthetics_manufacturer, var/skip_prosthetics, var/keep_organs, var/apply_material = /decl/material/solid/metal/steel)
 	. = ..()
 	icon_state = "brain-prosthetic"
 
@@ -150,15 +149,16 @@
 			// No heart? You are going to have a very bad time. Not 100% lethal because heart transplants should be a thing.
 			var/blood_volume = owner.get_blood_oxygenation()
 			if(blood_volume < BLOOD_VOLUME_SURVIVE)
-				if(!owner.chem_effects[CE_STABLE] || prob(60))
+				if(!owner.has_chemical_effect(CE_STABLE, 1) || prob(60))
 					oxygen_reserve = max(0, oxygen_reserve-1)
 			else
 				oxygen_reserve = min(initial(oxygen_reserve), oxygen_reserve+1)
 			if(!oxygen_reserve) //(hardcrit)
 				owner.Paralyse(3)
-			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
+			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || LAZYACCESS(owner.chem_effects, CE_BRAIN_REGEN) || (!past_damage_threshold(3) && LAZYACCESS(owner.chem_effects, CE_STABLE)))
 			var/damprob
 			//Effects of bloodloss
+			var/stability_effect = LAZYACCESS(owner.chem_effects, CE_STABLE)
 			switch(blood_volume)
 
 				if(BLOOD_VOLUME_SAFE to INFINITY)
@@ -167,12 +167,12 @@
 				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 					if(prob(1))
 						to_chat(owner, "<span class='warning'>You feel [pick("dizzy","woozy","faint")]...</span>")
-					damprob = owner.chem_effects[CE_STABLE] ? 30 : 60
+					damprob = stability_effect ? 30 : 60
 					if(!past_damage_threshold(2) && prob(damprob))
 						take_internal_damage(1)
 				if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 					owner.eye_blurry = max(owner.eye_blurry,6)
-					damprob = owner.chem_effects[CE_STABLE] ? 40 : 80
+					damprob = stability_effect ? 40 : 80
 					if(!past_damage_threshold(4) && prob(damprob))
 						take_internal_damage(1)
 					if(!owner.paralysis && prob(10))
@@ -180,7 +180,7 @@
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
 				if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 					owner.eye_blurry = max(owner.eye_blurry,6)
-					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
+					damprob = stability_effect ? 60 : 100
 					if(!past_damage_threshold(6) && prob(damprob))
 						take_internal_damage(1)
 					if(!owner.paralysis && prob(15))
@@ -188,7 +188,7 @@
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
 				if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
 					owner.eye_blurry = max(owner.eye_blurry,6)
-					damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
+					damprob = stability_effect ? 80 : 100
 					if(prob(damprob))
 						take_internal_damage(1)
 					if(prob(damprob))
@@ -236,9 +236,10 @@
 	if(is_bruised() && prob(1) && owner.eye_blurry <= 0)
 		to_chat(owner, "<span class='warning'>It becomes hard to see for some reason.</span>")
 		owner.eye_blurry = 10
-	if(damage >= 0.5*max_damage && prob(1) && owner.get_active_hand())
+	var/held = owner.get_active_hand()
+	if(damage >= 0.5*max_damage && prob(1) && held)
 		to_chat(owner, "<span class='danger'>Your hand won't respond properly, and you drop what you are holding!</span>")
-		owner.unequip_item()
+		owner.unEquip(held)
 	if(damage >= 0.6*max_damage)
 		owner.slurring = max(owner.slurring, 2)
 	if(is_broken())

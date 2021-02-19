@@ -25,7 +25,7 @@
 /atom/proc/attack_hand(mob/user)
 	. = FALSE
 
-/mob/proc/attack_empty_hand(var/bp_hand)
+/mob/proc/attack_empty_hand()
 	return
 
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
@@ -99,7 +99,7 @@
 			if (I_DISARM) // We stun the target, with the intention to feed
 				var/stunprob = 1
 
-				if (powerlevel > 0 && !istype(A, /mob/living/carbon/slime))
+				if (powerlevel > 0 && !isslime(A))
 					switch(power * 10)
 						if(0) stunprob *= 10
 						if(1 to 2) stunprob *= 20
@@ -141,13 +141,18 @@
 
 	if(!..())
 		return
+	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(A,/mob/living))
-		if(melee_damage_upper == 0)
+		if(!istype(natural_weapon) || a_intent == I_HELP)
 			custom_emote(1,"[friendly] [A]!")
 			return
 		if(ckey)
-			admin_attack_log(src, A, "Has [attacktext] its victim.", "Has been [attacktext] by its attacker.", attacktext)
-	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	var/damage = rand(melee_damage_lower, melee_damage_upper)
-	if(A.attack_generic(src, damage, attacktext, environment_smash, damtype, defense) && loc && attack_sound)
-		playsound(loc, attack_sound, 50, 1, 1)
+			admin_attack_log(src, A, "Has attacked its victim.", "Has been attacked by its attacker.")
+	if(a_intent == I_HELP)
+		A.attack_animal(src)
+	else
+		A.attackby(get_natural_weapon(), src)
+
+// Attack hand but for simple animals
+/atom/proc/attack_animal(mob/user)
+	return attack_hand(user)

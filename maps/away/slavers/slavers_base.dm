@@ -83,7 +83,7 @@
 
 /decl/hierarchy/outfit/corpse/slavers_base/slaver2
 	name = "Dead Slaver 2"
-	uniform = /obj/item/clothing/under/rank/corp/grayson
+	uniform = /obj/item/clothing/under/johnny
 	shoes = /obj/item/clothing/shoes/color/blue
 
 /obj/effect/landmark/corpse/slavers_base/slaver3
@@ -135,7 +135,7 @@
 /mob/living/simple_animal/hostile/abolition_extremist
 	name = "abolition extremist"
 	desc = "Vigiliant fighter against slavery."
-	icon = 'maps/away/slavers/slavers_base_sprites.dmi'
+	icon = 'maps/away/slavers/icons/abolitionist.dmi'
 	icon_state = "extremist"
 	icon_living = "extremist"
 	icon_dead = "extremist_dead"
@@ -148,9 +148,7 @@
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 100
 	health = 100
-	harm_intent_damage = 5
-	melee_damage_lower = 10
-	melee_damage_upper = 30
+	natural_weapon = /obj/item/natural_weapon/punch
 	can_escape = TRUE
 	unsuitable_atmos_damage = 15
 	var/corpse = /obj/effect/landmark/corpse/abolitionist
@@ -181,10 +179,8 @@
 /obj/item/clothing/under/abol_uniform
 	name = "abolitionist combat suit"
 	desc = "Lightly armored suit worn by abolition extremists during raids. It has green patches on the right sleeve and the chest. There is big green \"A\" on the back."
-	icon = 'maps/away/slavers/slavers_base_sprites.dmi'
-	icon_state = "abol_suit"
-	item_icons = list(slot_w_uniform_str = 'maps/away/slavers/slavers_base_sprites.dmi')
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	icon = 'maps/away/slavers/icons/uniform.dmi'
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES, 
 		bullet = ARMOR_BALLISTIC_PISTOL, 

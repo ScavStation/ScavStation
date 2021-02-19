@@ -9,7 +9,7 @@
 
 /datum/gear/utility/clipboard
 	display_name = "clipboard"
-	path = /obj/item/material/clipboard
+	path = /obj/item/clipboard
 
 /datum/gear/utility/folder
 	display_name = "folders"
@@ -26,7 +26,7 @@
 		"blue folder" =   /obj/item/folder/blue,
 		"grey folder" =   /obj/item/folder,
 		"red folder" =    /obj/item/folder/red,
-		"white folder" =  /obj/item/folder/white,
+		"cyan folder" =  /obj/item/folder/cyan,
 		"yellow folder" = /obj/item/folder/yellow
 	)
 

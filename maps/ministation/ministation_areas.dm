@@ -5,12 +5,20 @@
 	icon_state = "default"
 
 /area/ministation/arrival_shuttle
-	name = "\improper Arrival Shuttle"
+	name = "Arrivals Shuttle"
 	requires_power = 0
 	icon_state = "light_blue"
 	sound_env = SMALL_ENCLOSED
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+
+/area/ministation/supply_dock
+	name = "Supply Shuttle Dock"
+	icon_state = "yellow"
+	base_turf = /turf/space
+
+/area/supply
+	requires_power = 0
 
 //Hallways
 /area/ministation/hall
@@ -34,6 +42,7 @@
 	req_access = list(access_maint_tunnels)
 	turf_initializer = /decl/turf_initializer/maintenance
 	icon_state = "orange"
+	secure = TRUE
 
 /area/ministation/maint/nw
 	name = "\improper Port Forward Maintenance"
@@ -52,6 +61,12 @@
 
 /area/ministation/maint/se
 	name = "\improper Starboard Quarter Maintenance"
+
+/area/ministation/maint/sec
+	name = "\improper Security Maintenance"
+
+/area/ministation/maint/detective
+	name = "\improper Detective Office Maintenance"
 
 //Departments
 /area/ministation/hop
@@ -93,6 +108,18 @@
 	secure = TRUE
 	icon_state = "red"
 
+/area/ministation/detective
+	name = "\improper Detective Office"
+	req_access = list(access_forensics_lockers)
+	secure = TRUE
+	icon_state = "dark_blue"
+
+/area/ministation/court
+	name = "\improper Court Room"
+	req_access =list(access_lawyer)
+	secure = TRUE
+	icon_state = "pink"
+
 /area/ministation/science
 	name = "\improper Research & Development Laboratory"
 	req_access = list(access_research)
@@ -111,6 +138,12 @@
 	icon_state = "light_blue"
 	secure = TRUE
 
+/area/ministation/cryo
+	name = "\improper Cryogenic Storage"
+	req_access = list()
+	icon_state = "green"
+	secure = FALSE
+
 /area/ministation/hydro
 	name = "\improper Hydroponics"
 	req_access = list(access_hydroponics)
@@ -122,7 +155,7 @@
 	secure = TRUE
 
 /area/ministation/engine
-	name = "\improper Engineering"
+	name = "Engineering"
 	req_access = list(access_engine)
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
 	secure = TRUE
@@ -135,6 +168,12 @@
 	secure = TRUE
 	icon_state = "light_blue"
 
+/area/ministation/yinglet_rep
+	name = "\improper Yinglet Representative Chamber"
+	req_access = list(access_lawyer)
+	icon_state = "brown"
+
+//satellite
 /area/ministation/ai_sat
 	name = "\improper Satellite"
 	secure = TRUE
@@ -153,7 +192,5 @@
 	req_access = list(access_ai_upload)
 	icon_state = "light_blue"
 
-/area/ministation/yinglet_rep
-	name = "\improper Yinglet Representative Chamber"
-	req_access = list(access_lawyer)
-	icon_state = "brown"
+/datum/goal/scav_hoard_junk
+	valid_areas = list(/area/ministation/yinglet_rep)

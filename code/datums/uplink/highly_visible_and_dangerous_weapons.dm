@@ -34,7 +34,7 @@
 	desc = "A hilt, that when activated, creates a solid beam of pure energy in the form of a sword. \
 			Able to slice through people like butter!"
 	item_cost = 32
-	path = /obj/item/melee/energy/sword
+	path = /obj/item/energy_blade/sword
 
 /datum/uplink_item/item/visible_weapons/silenced
 	name = "Small Silenced Pistol"
@@ -55,12 +55,6 @@
 	item_cost = 32
 	path = /obj/item/gun/energy/gun
 
-/datum/uplink_item/item/visible_weapons/ionpistol
-	name = "Ion Pistol"
-	desc = "Ion rifle in compact form."
-	item_cost = 40
-	path = /obj/item/gun/energy/ionrifle/small
-
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Magnum Revolver"
 	desc = "A high-caliber revolver. Includes an extra speedloader of ammo."
@@ -71,7 +65,7 @@
 	name = "Grenade Launcher"
 	desc = "A pump action grenade launcher loaded with a random assortment of grenades"
 	item_cost = 60
-	antag_roles = list(MODE_MERCENARY)
+	antag_roles = list(/decl/special_role/mercenary)
 	path = /obj/item/gun/launcher/grenade/loaded
 
 //These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
@@ -80,14 +74,14 @@
 	desc = "A quick-firing weapon with three togglable fire modes."
 	item_cost = 52
 	path = /obj/item/gun/projectile/automatic/smg
-	antag_roles = list(MODE_MERCENARY)
+	antag_roles = list(/decl/special_role/mercenary)
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
 	name = "Assault Rifle"
 	desc = "A common rifle with three togglable fire modes."
 	item_cost = 60
 	path = /obj/item/gun/projectile/automatic/assault_rifle
-	antag_roles = list(MODE_MERCENARY)
+	antag_roles = list(/decl/special_role/mercenary)
 
 /datum/uplink_item/item/visible_weapons/advanced_energy_gun
 	name = "Advanced Energy Gun"
@@ -100,14 +94,14 @@
 	desc = "A secure briefcase that contains an immensely powerful penetrating rifle, as well as seven extra sniper rounds."
 	item_cost = 68
 	path = /obj/item/storage/secure/briefcase/heavysniper
-	antag_roles = list(MODE_MERCENARY)
+	antag_roles = list(/decl/special_role/mercenary)
 
 /datum/uplink_item/item/visible_weapons/combat_shotgun
 	name = "Pump Shotgun"
 	desc = "A high compacity, pump-action shotgun regularly used for repelling boarding parties in close range scenarios."
 	item_cost = 52
 	path = /obj/item/gun/projectile/shotgun/pump
-	antag_roles = list(MODE_MERCENARY)
+	antag_roles = list(/decl/special_role/mercenary)
 
 /datum/uplink_item/item/visible_weapons/sawnoff
 	name = "Sawnoff Shotgun"
@@ -115,40 +109,25 @@
 	item_cost = 45
 	path = /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 
-/datum/uplink_item/item/visible_weapons/pulserifle
-	name = "Pulse Rifle"
-	desc = "A triple burst, heavy laser rifle, with a large battery compacity."
-	item_cost = 68
-	path = /obj/item/gun/energy/pulse_rifle
-	antag_roles = list(MODE_MERCENARY)
-
 /datum/uplink_item/item/visible_weapons/flechetterifle
 	name = "Flechette Rifle"
 	desc = "A railgun with two togglable fire modes, able to launch flechette ammunition at incredible speeds."
 	item_cost = 60
 	path = /obj/item/gun/magnetic/railgun/flechette
-	antag_roles = list(MODE_MERCENARY)
+	antag_roles = list(/decl/special_role/mercenary)
 
 /datum/uplink_item/item/visible_weapons/railgun // Like a semi-auto AMR
 	name = "Railgun"
 	desc = "An anti-armour magnetic launching system fed by a high-capacity matter cartridge, \
 			capable of firing slugs at intense speeds."
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT % 6)) / 6
-	antag_roles = list(MODE_MERCENARY)
+	antag_roles = list(/decl/special_role/mercenary)
 	path = /obj/item/gun/magnetic/railgun
-
-/datum/uplink_item/item/visible_weapons/railguntcc // Only slightly better than the normal railgun; but cooler looking
-	name = "Advanced Railgun"
-	desc = "A modified prototype of the original railgun implement, this time boring slugs out of steel rods loaded into the chamber, \
-			now with even MORE stopping power."
-	antag_roles = list(MODE_MERCENARY)
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
-	path = /obj/item/gun/magnetic/railgun/tcc
 
 /datum/uplink_item/item/visible_weapons/harpoonbomb
 	name = "Explosive Harpoon"
 	item_cost = 12
-	path = /obj/item/material/harpoon/bomb
+	path = /obj/item/harpoon/bomb
 
 /datum/uplink_item/item/visible_weapons/incendiary_laser
 	name = "Incendiary Laser Blaster"

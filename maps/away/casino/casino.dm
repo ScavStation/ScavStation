@@ -7,6 +7,7 @@
 	color = "#bd6100"
 	vessel_mass = 5000
 	max_speed = 1/(2 SECONDS)
+	instant_contact = TRUE
 	burn_delay = 1 SECOND
 	initial_generic_waypoints = list(
 		"nav_casino_1",
@@ -14,7 +15,6 @@
 		"nav_casino_3",
 		"nav_casino_4",
 		"nav_casino_antag",
-		"nav_casino_hangar",
 	)
 	initial_restricted_waypoints = list(
 		"Casino Cutter" = list("nav_casino_hangar"),

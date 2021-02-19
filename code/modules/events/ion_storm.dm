@@ -109,8 +109,9 @@
 		S.add_ion_law(law)
 		S.show_laws()
 
-	if(message_servers)
-		for (var/obj/machinery/message_server/MS in message_servers)
+	for(var/z in affecting_z)
+		var/obj/machinery/network/message_server/MS = get_message_server_for_z(z)
+		if(MS)
 			MS.spamfilter.Cut()
 			var/i
 			for (i = 1, i <= MS.spamfilter_limit, i++)
@@ -144,8 +145,8 @@
 
 /datum/event/ionstorm/proc/get_random_species_name(var/default_if_none = "Humans")
 	var/list/species = list()
-	for(var/S in typesof(/datum/species))
-		var/datum/species/specimen = S
+	for(var/S in typesof(/decl/species))
+		var/decl/species/specimen = S
 		if(initial(specimen.spawn_flags) & SPECIES_CAN_JOIN)
 			species += initial(specimen.name_plural)
 

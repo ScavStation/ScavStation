@@ -2,6 +2,7 @@ var/global/list/sparring_attack_cache = list()
 
 //Species unarmed attacks
 /decl/natural_attack
+	var/name
 	var/attack_verb = list("attacks")	// Empty hand hurt intent verb.
 	var/attack_noun = list("fist")
 	var/damage = 0						// Extra empty hand attack damage.
@@ -15,9 +16,24 @@ var/global/list/sparring_attack_cache = list()
 	var/sparring_variant_type = /decl/natural_attack/light_strike
 	var/eye_attack_text
 	var/eye_attack_text_victim
-	var/attack_name = "fist"
 	var/list/usable_with_limbs = list(BP_L_HAND, BP_R_HAND)
 	var/is_starting_default = FALSE
+
+/decl/natural_attack/proc/summarize()
+	var/list/usable_limbs = list()
+	for(var/limb in usable_with_limbs)
+		var/start = copytext(limb, 1, 3)
+		if(start == "l_")
+			usable_limbs |= "left [copytext(limb, 3)]"
+		else if(start == "r_")
+			usable_limbs |= "right [copytext(limb, 3)]"
+		else
+			usable_limbs |= limb
+	. = "You can use this attack with your: [english_list(usable_limbs)]."
+	if(sharp || edge)
+		. += "<br>This attack is sharp and will cause <font color='#ff0000'><b>bleeding</b></font>."
+	if(shredding)
+		. += "<br>This powerful attack will shred electronics and destroy some structures."
 
 /decl/natural_attack/proc/get_damage_type()
 	if(deal_halloss)
@@ -43,19 +59,12 @@ var/global/list/sparring_attack_cache = list()
 	return sparring_variant_type && decls_repository.get_decl(sparring_variant_type)
 
 /decl/natural_attack/proc/is_usable(var/mob/living/carbon/human/user, var/mob/target, var/zone)
-	if(user.restrained())
-		return 0
-
-	// Check if they have a functioning hand.
-	var/obj/item/organ/external/E = user.organs_by_name[BP_L_HAND]
-	if(E && !E.is_stump())
-		return 1
-
-	E = user.organs_by_name[BP_R_HAND]
-	if(E && !E.is_stump())
-		return 1
-
-	return 0
+	if(!user.restrained() && !user.incapacitated())
+		for(var/etype in usable_with_limbs)
+			var/obj/item/organ/external/E = user.organs_by_name[etype]
+			if(E && !E.is_stump())
+				return TRUE
+	return FALSE
 
 /decl/natural_attack/proc/get_unarmed_damage()
 	return damage
@@ -74,17 +83,17 @@ var/global/list/sparring_attack_cache = list()
 				// Induce blurriness
 				target.visible_message("<span class='danger'>[target] looks momentarily disoriented.</span>", "<span class='danger'>You see stars.</span>")
 				target.apply_effect(attack_damage*2, EYE_BLUR, armour)
-			if(BP_L_ARM, BP_L_HAND)
-				if (target.l_hand)
+			if(BP_L_ARM, BP_L_HAND, BP_R_ARM, BP_R_HAND)
+				var/check_zone = zone
+				if(check_zone == BP_L_ARM)
+					check_zone = BP_L_HAND
+				else if(check_zone == BP_R_ARM)
+					check_zone = BP_R_HAND
+				var/datum/inventory_slot/inv_slot = LAZYACCESS(target.held_item_slots, check_zone)
+				if(inv_slot?.holding)
 					// Disarm left hand
-					//Urist McAssistant dropped the macguffin with a scream just sounds odd.
-					target.visible_message("<span class='danger'>\The [target.l_hand] was knocked right out of [target]'s grasp!</span>")
-					target.drop_l_hand()
-			if(BP_R_ARM, BP_R_HAND)
-				if (target.r_hand)
-					// Disarm right hand
-					target.visible_message("<span class='danger'>\The [target.r_hand] was knocked right out of [target]'s grasp!</span>")
-					target.drop_r_hand()
+					target.visible_message(SPAN_DANGER("\The [inv_slot.holding] was knocked right out of [target]'s grasp!"))
+					target.drop_from_inventory(inv_slot.holding)
 			if(BP_CHEST)
 				if(!target.lying)
 					var/turf/T = get_step(get_turf(target), get_dir(get_turf(user), get_turf(target)))
@@ -124,7 +133,7 @@ var/global/list/sparring_attack_cache = list()
 		playsound(user.loc, attack_sound, 25, 1, -1)
 
 /decl/natural_attack/proc/handle_eye_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target)
-	var/obj/item/organ/internal/eyes/eyes = target.internal_organs_by_name[BP_EYES]
+	var/obj/item/organ/internal/eyes/eyes = target.get_internal_organ(BP_EYES)
 	if(eyes)
 		eyes.take_internal_damage(rand(3,4), 1)
 		user.visible_message("<span class='danger'>[user] presses \his [eye_attack_text] into [target]'s [eyes.name]!</span>")
@@ -137,6 +146,7 @@ var/global/list/sparring_attack_cache = list()
 	return (src.sharp? DAM_SHARP : 0)|(src.edge? DAM_EDGE : 0)
 
 /decl/natural_attack/bite
+	name = "bite"
 	attack_verb = list("bit")
 	attack_noun = list("mouth")
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -144,7 +154,6 @@ var/global/list/sparring_attack_cache = list()
 	damage = 0
 	sharp = 0
 	edge = 0
-	attack_name = "bite"
 	usable_with_limbs = list(BP_HEAD)
 
 /decl/natural_attack/bite/sharp
@@ -154,22 +163,22 @@ var/global/list/sparring_attack_cache = list()
 
 /decl/natural_attack/bite/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
 
-	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
+	if(user.is_muzzled())
 		return 0
 	for(var/obj/item/clothing/C in list(user.wear_mask, user.head, user.wear_suit))
-		if(C && (C.body_parts_covered & FACE) && (C.item_flags & ITEM_FLAG_THICKMATERIAL))
+		if(C && (C.body_parts_covered & SLOT_FACE) && (C.item_flags & ITEM_FLAG_THICKMATERIAL))
 			return 0 //prevent biting through a space helmet or similar
 	if (user == target && (zone == BP_HEAD || zone == BP_EYES || zone == BP_MOUTH))
 		return 0 //how do you bite yourself in the head?
 	return 1
 
 /decl/natural_attack/punch
+	name = "punch"
 	attack_verb = list("punched")
 	attack_noun = list("fist")
 	eye_attack_text = "fingers"
 	eye_attack_text_victim = "digits"
 	damage = 0
-	attack_name = "punch"
 	sparring_variant_type = /decl/natural_attack/light_strike/punch
 	is_starting_default = TRUE
 
@@ -218,27 +227,18 @@ var/global/list/sparring_attack_cache = list()
 		user.visible_message("<span class='danger'>[user] [pick("punched", "threw a punch at", "struck", "slammed their [pick(attack_noun)] into")] [target]'s [organ]!</span>") //why do we have a separate set of verbs for lying targets?
 
 /decl/natural_attack/kick
+	name = "kick"
 	attack_verb = list("struck")
 	attack_noun = list("foot", "knee")
 	attack_sound = "swing_hit"
 	damage = 0
-	attack_name = "kick"
 	usable_with_limbs = list(BP_L_FOOT, BP_R_FOOT)
 	sparring_variant_type = /decl/natural_attack/light_strike/kick
 
 /decl/natural_attack/kick/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
-	if(!(zone in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_GROIN)))
-		return 0
-
-	var/obj/item/organ/external/E = user.organs_by_name[BP_L_FOOT]
-	if(E && !E.is_stump())
-		return 1
-
-	E = user.organs_by_name[BP_R_FOOT]
-	if(E && !E.is_stump())
-		return 1
-
-	return 0
+	if(zone == BP_HEAD || zone == BP_EYES || zone == BP_MOUTH)
+		zone = BP_CHEST
+	. = ..()
 
 /decl/natural_attack/kick/get_unarmed_damage(var/mob/living/carbon/human/user)
 	var/obj/item/clothing/shoes = user.shoes
@@ -260,11 +260,11 @@ var/global/list/sparring_attack_cache = list()
 		if(5)		user.visible_message("<span class='danger'>[user] landed a strong [pick(attack_noun)] against [target]'s [organ]!</span>")
 
 /decl/natural_attack/stomp
+	name = "stomp"
 	attack_verb = list("stomped on")
 	attack_noun = list("foot")
 	attack_sound = "swing_hit"
 	damage = 0
-	attack_name = "stomp"
 	usable_with_limbs = list(BP_L_FOOT, BP_R_FOOT)
 
 /decl/natural_attack/stomp/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
@@ -310,6 +310,7 @@ var/global/list/sparring_attack_cache = list()
 				"<span class='danger'>[user] slammed \his [shoe_text] down onto [target]'s [organ]!</span>"))
 
 /decl/natural_attack/light_strike
+	name = "light strike"
 	deal_halloss = 3
 	attack_noun = list("limb")
 	attack_verb = list("tapped", "lightly struck")
@@ -317,15 +318,19 @@ var/global/list/sparring_attack_cache = list()
 	damage = 0
 	sharp = 0
 	edge = 0
-	attack_name = "light strike"
 	attack_sound = "light_strike"
 
 /decl/natural_attack/light_strike/punch
-	attack_name = "light punch"
+	name = "light punch"
 	attack_noun = list("fist")
 	usable_with_limbs = list(BP_L_HAND, BP_R_HAND)
 
 /decl/natural_attack/light_strike/kick
-	attack_name = "light kick"
+	name = "light kick"
 	attack_noun = list("foot")
 	usable_with_limbs = list(BP_L_FOOT, BP_R_FOOT)
+
+/decl/natural_attack/light_strike/kick/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
+	if(zone == BP_HEAD || zone == BP_EYES || zone == BP_MOUTH)
+		zone = BP_CHEST
+	. = ..()

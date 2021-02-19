@@ -1,6 +1,5 @@
-/var/server_name = "ScavStation"
-
 /var/game_id = null
+
 /hook/global_init/proc/generate_gameid()
 	if(game_id != null)
 		return
@@ -28,6 +27,7 @@
 // Partial matches will be found, but exact matches will be preferred by the search
 //
 // Returns: A possibly-empty list of the strongest matches
+
 /proc/text_find_mobs(search_string, restrict_type = null)
 	var/list/search = params2list(search_string)
 	var/list/ckeysearch = list()
@@ -41,8 +41,10 @@
 			continue
 		var/strings = list(M.name, M.ckey)
 		if(M.mind)
-			strings += M.mind.assigned_role
-			strings += M.mind.special_role
+			if(M.mind.assigned_role)
+				strings += M.mind.assigned_role
+			if(M.mind.assigned_special_role)
+				strings += M.mind.get_special_role_name()
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.species)
@@ -64,12 +66,16 @@
 
 	return match
 
-#define RECOMMENDED_VERSION 512
+#define RECOMMENDED_VERSION 513
 /world/New()
 
-	enable_debugger()
+	// Enable debugger(?)
+	var/dll = world.GetConfig("env", "EXTOOLS_DLL")
+	if(dll)
+		call(dll, "debug_initialize")()
+
 	//set window title
-	name = "[server_name] - [GLOB.using_map.full_name]"
+	name = "[config.server_name] - [GLOB.using_map.full_name]"
 
 	//logs
 	SetupLogs()
@@ -103,6 +109,11 @@ var/world_topic_spam_protect_time = world.timeofday
 
 /world/Topic(T, addr, master, key)
 	diary << "TOPIC: \"[T]\", from:[addr], master:[master], key:[key][log_end]"
+
+	/* * * * * * * *
+	* Public Topic Calls
+	* The following topic calls are available without a comms secret.
+	* * * * * * * */
 
 	if (T == "ping")
 		var/x = 1
@@ -189,6 +200,51 @@ var/world_topic_spam_protect_time = world.timeofday
 
 		return list2params(L)
 
+	/* * * * * * * *
+	* Admin Topic Calls
+	* The following topic calls are only available if a ban comms secret has been defined, supplied, and is correct.
+	* * * * * * * */
+
+	if(copytext(T,1,14) == "placepermaban")
+		var/input[] = params2list(T)
+		if(!config.ban_comms_password)
+			return "Not enabled"
+		if(input["bankey"] != config.ban_comms_password)
+			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
+				spawn(50)
+					world_topic_spam_protect_time = world.time
+					return
+
+			world_topic_spam_protect_time = world.time
+			world_topic_spam_protect_ip = addr
+			return "Bad Key"
+
+		var/target = ckey(input["target"])
+
+		var/client/C
+		for(var/client/K in GLOB.clients)
+			if(K.ckey == target)
+				C = K
+				break
+		if(!C)
+			return "No client with that name found on server"
+		if(!C.mob)
+			return "Client missing mob"
+
+		if(!_DB_ban_record(input["id"], "0", "127.0.0.1", 1, C.mob, -1, input["reason"]))
+			return "Save failed"
+		ban_unban_log_save("[input["id"]] has permabanned [C.ckey]. - Reason: [input["reason"]] - This is a ban until appeal.")
+		notes_add(target,"[input["id"]] has permabanned [C.ckey]. - Reason: [input["reason"]] - This is a ban until appeal.",input["id"])
+		qdel(C)
+
+	/* * * * * * * *
+	* Secure Topic Calls
+	* The following topic calls are only available if a comms secret has been defined, supplied, and is correct.
+	* * * * * * * */
+
+	if (!config.comms_password)
+		return "Not enabled"
+
 	else if(copytext(T,1,5) == "laws")
 		var/input[] = params2list(T)
 		if(input["key"] != config.comms_password)
@@ -196,7 +252,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -251,7 +307,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -272,7 +328,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			info["loc"] = M.loc ? "[M.loc]" : "null"
 			info["turf"] = MT ? "[MT] @ [MT.x], [MT.y], [MT.z]" : "null"
 			info["area"] = MT ? "[MT.loc]" : "null"
-			info["antag"] = M.mind ? (M.mind.special_role ? M.mind.special_role : "Not antag") : "No mind"
+			info["antag"] = M.mind ? (M.mind.get_special_role_name() || "Not antag") : "No mind"
 			info["hasbeenrev"] = M.mind ? M.mind.has_been_rev : "No mind"
 			info["stat"] = M.stat
 			info["type"] = M.type
@@ -319,7 +375,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -369,7 +425,7 @@ var/world_topic_spam_protect_time = world.timeofday
 
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -383,7 +439,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -398,45 +454,13 @@ var/world_topic_spam_protect_time = world.timeofday
 		else
 			return "Database connection failed or not set up"
 
-	else if(copytext(T,1,14) == "placepermaban")
-		var/input[] = params2list(T)
-		if(!config.ban_comms_password)
-			return "Not enabled"
-		if(input["bankey"] != config.ban_comms_password)
-			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
-				spawn(50)
-					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
-
-			world_topic_spam_protect_time = world.time
-			world_topic_spam_protect_ip = addr
-			return "Bad Key"
-
-		var/target = ckey(input["target"])
-
-		var/client/C
-		for(var/client/K in GLOB.clients)
-			if(K.ckey == target)
-				C = K
-				break
-		if(!C)
-			return "No client with that name found on server"
-		if(!C.mob)
-			return "Client missing mob"
-
-		if(!_DB_ban_record(input["id"], "0", "127.0.0.1", 1, C.mob, -1, input["reason"]))
-			return "Save failed"
-		ban_unban_log_save("[input["id"]] has permabanned [C.ckey]. - Reason: [input["reason"]] - This is a ban until appeal.")
-		notes_add(target,"[input["id"]] has permabanned [C.ckey]. - Reason: [input["reason"]] - This is a ban until appeal.",input["id"])
-		qdel(C)
-
 	else if(copytext(T,1,19) == "prometheus_metrics")
 		var/input[] = params2list(T)
 		if(input["key"] != config.comms_password)
 			if(world_topic_spam_protect_ip == addr && abs(world_topic_spam_protect_time - world.time) < 50)
 				spawn(50)
 					world_topic_spam_protect_time = world.time
-					return "Bad Key (Throttled)"
+					return
 
 			world_topic_spam_protect_time = world.time
 			world_topic_spam_protect_ip = addr
@@ -449,10 +473,8 @@ var/world_topic_spam_protect_time = world.timeofday
 
 
 /world/Reboot(var/reason)
-	/*spawn(0)
-		sound_to(world, sound(pick('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')))// random end sounds!! - LastyBatsy
-
-		*/
+	if(GLOB.using_map.reboot_sound)
+		sound_to(world, sound(pick(GLOB.using_map.reboot_sound)))// random end sounds!! - LastyBatsy
 
 	Master.Shutdown()
 
@@ -531,9 +553,12 @@ var/world_topic_spam_protect_time = world.timeofday
 				D.associate(GLOB.ckey_directory[ckey])
 
 /world/proc/update_status()
-	var/s = "<b>[station_name()]</b> (<a href=\"https://discord.gg/Ddw58yF\">Discord</a>)"
+	var/s = "<b>[station_name()]</b>"
 
-	if (config && config.server_name)
+	if(config && config.discordurl)
+		s += " (<a href=\"[config.discordurl]\">Discord</a>)"
+
+	if(config && config.server_name)
 		s = "<b>[config.server_name]</b> &#8212; [s]"
 
 	var/list/features = list()
@@ -596,95 +621,41 @@ var/world_topic_spam_protect_time = world.timeofday
 
 #define FAILED_DB_CONNECTION_CUTOFF 5
 var/failed_db_connections = 0
-var/failed_old_db_connections = 0
-
 /hook/startup/proc/connectDB()
 	if(!setup_database_connection())
-		to_world_log("Your server failed to establish a connection with the feedback database.")
+		to_world_log("Your server failed to establish a connection with the SQL database.")
 	else
-		to_world_log("Feedback database connection established.")
+		to_world_log("SQL database connection established.")
 	return 1
 
 proc/setup_database_connection()
 
-	if(failed_db_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
-		return 0
+	if(global.failed_db_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
+		return FALSE
 
 	if(!dbcon)
 		dbcon = new()
 
-	var/user = sqlfdbklogin
-	var/pass = sqlfdbkpass
-	var/db = sqlfdbkdb
+	var/user =    sqllogin
+	var/pass =    sqlpass
+	var/db =      sqldb
 	var/address = sqladdress
-	var/port = sqlport
+	var/port =    sqlport
 
 	dbcon.Connect("dbi:mysql:[db]:[address]:[port]","[user]","[pass]")
 	. = dbcon.IsConnected()
-	if ( . )
-		failed_db_connections = 0	//If this connection succeeded, reset the failed connections counter.
+	if(.)
+		global.failed_db_connections = 0	//If this connection succeeded, reset the failed connections counter.
 	else
-		failed_db_connections++		//If it failed, increase the failed connections counter.
+		global.failed_db_connections++		//If it failed, increase the failed connections counter.
 		to_world_log(dbcon.ErrorMsg())
-
-	return .
 
 //This proc ensures that the connection to the feedback database (global variable dbcon) is established
 proc/establish_db_connection()
-	if(failed_db_connections > FAILED_DB_CONNECTION_CUTOFF)
+	if(global.failed_db_connections > FAILED_DB_CONNECTION_CUTOFF)
 		return 0
 
 	if(!dbcon || !dbcon.IsConnected())
 		return setup_database_connection()
 	else
 		return 1
-
-
-/hook/startup/proc/connectOldDB()
-	if(!setup_old_database_connection())
-		to_world_log("Your server failed to establish a connection with the SQL database.")
-	else
-		to_world_log("SQL database connection established.")
-	return 1
-
-//These two procs are for the old database, while it's being phased out. See the tgstation.sql file in the SQL folder for more information.
-proc/setup_old_database_connection()
-
-	if(failed_old_db_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
-		return 0
-
-	if(!dbcon_old)
-		dbcon_old = new()
-
-	var/user = sqllogin
-	var/pass = sqlpass
-	var/db = sqldb
-	var/address = sqladdress
-	var/port = sqlport
-
-	dbcon_old.Connect("dbi:mysql:[db]:[address]:[port]","[user]","[pass]")
-	. = dbcon_old.IsConnected()
-	if ( . )
-		failed_old_db_connections = 0	//If this connection succeeded, reset the failed connections counter.
-	else
-		failed_old_db_connections++		//If it failed, increase the failed connections counter.
-		to_world_log(dbcon.ErrorMsg())
-
-	return .
-
-//This proc ensures that the connection to the feedback database (global variable dbcon) is established
-proc/establish_old_db_connection()
-	if(failed_old_db_connections > FAILED_DB_CONNECTION_CUTOFF)
-		return 0
-
-	if(!dbcon_old || !dbcon_old.IsConnected())
-		return setup_old_database_connection()
-	else
-		return 1
-
-#undef FAILED_DB_CONNECTION_CUTOFF
-
-/world/proc/enable_debugger()
-	var/dll = world.GetConfig("env", "EXTOOLS_DLL")
-	if (dll)
-		call(dll, "debug_initialize")()

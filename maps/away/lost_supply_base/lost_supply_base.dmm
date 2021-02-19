@@ -734,7 +734,7 @@
 /area/lost_supply_base/office)
 "bI" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/airless,
 /area/lost_supply_base/office)
 "bJ" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -795,7 +795,7 @@
 /area/lost_supply_base/office)
 "bR" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/airless,
 /area/lost_supply_base)
 "bS" = (
 /obj/random/trash,
@@ -1083,12 +1083,8 @@
 /area/lost_supply_base/common)
 "cM" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/space,
-/area/lost_supply_base/common)
-"cN" = (
-/obj/item/frame/light,
 /turf/simulated/floor/airless,
-/area/lost_supply_base)
+/area/lost_supply_base/common)
 "cO" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/airless,
@@ -1138,10 +1134,6 @@
 "cV" = (
 /obj/random/junk,
 /turf/simulated/floor/tiled/airless,
-/area/lost_supply_base/common)
-"cW" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/wall/r_wall,
 /area/lost_supply_base/common)
 "cX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1198,7 +1190,7 @@
 /area/lost_supply_base/common)
 "de" = (
 /obj/structure/table/standard,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/kitchen/utensil/fork,
 /turf/simulated/floor/tiled/airless,
 /area/lost_supply_base/common)
 "df" = (
@@ -1207,7 +1199,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/lost_supply_base/common)
 "dg" = (
-/obj/structure/closet/crate/secure/phoron{
+/obj/structure/closet/crate/secure/explosives{
 	name = "mineral crate";
 	req_access = newlist()
 	},
@@ -1217,7 +1209,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/closet/crate/secure/phoron{
+/obj/structure/closet/crate/secure/explosives{
 	name = "mineral crate";
 	req_access = newlist()
 	},
@@ -1317,7 +1309,7 @@
 /turf/simulated/wall,
 /area/lost_supply_base)
 "dx" = (
-/obj/item/material/kitchen/utensil/spoon,
+/obj/item/kitchen/utensil/spoon,
 /turf/simulated/floor/tiled/airless,
 /area/lost_supply_base/common)
 "dy" = (
@@ -1340,7 +1332,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/lost_supply_base/common)
 "dB" = (
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/kitchen/utensil/fork,
 /obj/structure/bed/chair{
 	dir = 8
 	},
@@ -1627,7 +1619,7 @@
 	},
 /area/space)
 "eD" = (
-/obj/machinery/atmospherics/unary/tank/phoron{
+/obj/machinery/atmospherics/unary/tank/hydrogen{
 	dir = 2;
 	volume = 3200
 	},
@@ -1702,17 +1694,6 @@
 	dir = 8
 	},
 /area/space)
-"eQ" = (
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/airless,
-/area/lost_supply_base)
-"eS" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/airless,
-/area/lost_supply_base)
 "eT" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1980,7 +1961,7 @@
 /turf/simulated/floor/airless,
 /area/lost_supply_base)
 "fJ" = (
-/obj/item/material/twohanded/fireaxe,
+/obj/item/twohanded/fireaxe,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
@@ -2035,7 +2016,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/space,
+/turf/simulated/floor/tiled/airless,
 /area/lost_supply_base/supply)
 "fQ" = (
 /obj/structure/door_assembly,
@@ -7529,7 +7510,7 @@ aG
 aG
 cl
 cC
-cN
+aH
 cO
 aG
 ds
@@ -7742,7 +7723,7 @@ dY
 el
 aG
 aG
-eQ
+aG
 eZ
 aG
 fw
@@ -7750,7 +7731,7 @@ aG
 aG
 bq
 ge
-eQ
+aG
 aA
 aa
 aa
@@ -8354,7 +8335,7 @@ dv
 em
 ez
 eD
-eS
+ed
 bq
 aG
 aG
@@ -8559,7 +8540,7 @@ eo
 eo
 eD
 ed
-eQ
+aG
 bK
 aG
 bT
@@ -8762,7 +8743,7 @@ ed
 ep
 aG
 eD
-eS
+ed
 aG
 bK
 dm
@@ -9875,7 +9856,7 @@ aC
 ck
 ck
 cM
-cW
+cM
 ck
 ck
 cM
