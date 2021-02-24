@@ -14,7 +14,7 @@
 	var/list/autohiss_extra_map = null
 	var/list/autohiss_exempt = null
 
-/decl/species/proc/get_autohiss_map()
+/decl/species/proc/get_autohiss_map(var/mode)
 	. = autohiss_basic_map?.Copy() || list()
 	if(mode == GLOB.PREF_FULL && autohiss_extra_map)
 		. |= autohiss_extra_map
