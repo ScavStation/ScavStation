@@ -66,8 +66,9 @@
 
 /decl/cultural_info/culture/yinglet/tribal
 	name = "Tribal Yinglet"
-	description = "You are a member of one of the southern yinglet tribes. Tribal yinglets tend to be more \
-	uneducated and rather less quick on the uptake than their cosmopolitan northern cousins."
+	description = "You are a member of one of the southern yinglet tribes. Although similar to the other \
+	clam-loving rat-birds of the yinglet species, the southern yinglets are more parochial, tribal and \
+	generally less developed. Nobody is quite clear on which south they are from."
 	// Names provided by esteemed wordsmith Val Salia.
 	// Jesus Christ, Val.
 	var/list/all_scav_names = list(

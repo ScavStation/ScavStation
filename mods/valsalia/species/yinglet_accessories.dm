@@ -1,7 +1,7 @@
 /datum/sprite_accessory/marking/yinglet
 	name = "Shelltooth"
 	body_parts = list(BP_HEAD)
-	species_allowed = list(SPECIES_YINGLET, SPECIES_YINGLET_SOUTHERN)
+	species_allowed = list(SPECIES_YINGLET)
 	icon = 'mods/valsalia/icons/species/yinglet/markings.dmi'
 	icon_state = "shelltooth"
 	blend = ICON_MULTIPLY
@@ -59,7 +59,7 @@
 /datum/sprite_accessory/hair/yinglet
 	name = "Ying Messy"
 	icon_state = "hair_messy"
-	species_allowed = list(SPECIES_YINGLET, SPECIES_YINGLET_SOUTHERN)
+	species_allowed = list(SPECIES_YINGLET)
 	icon = 'mods/valsalia/icons/species/yinglet/hair.dmi'
 	blend = ICON_MULTIPLY
 

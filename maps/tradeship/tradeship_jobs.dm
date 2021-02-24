@@ -42,16 +42,5 @@
 			/datum/job/cyborg,
 			/datum/job/tradeship_doctor,
 			/datum/job/tradeship_researcher
-		),
-		/decl/species/yinglet/southern = list(
-			/datum/job/yinglet/worker,
-			/datum/job/yinglet/scout,
-			/datum/job/yinglet/patriarch,
-			/datum/job/yinglet/matriarch,
-			/datum/job/assistant,
-			/datum/job/tradeship_engineer,
-			/datum/job/cyborg,
-			/datum/job/tradeship_doctor,
-			/datum/job/tradeship_researcher
 		)
 	)

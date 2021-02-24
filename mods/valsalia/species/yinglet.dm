@@ -8,6 +8,9 @@
 	autohiss_basic_map = list(
 		"th" = list("z")
 	)
+	autohiss_extra_map = list(
+		"th" = list("d")
+	)
 
 	icobase =         'mods/valsalia/icons/species/yinglet/body.dmi'
 	deform =          'mods/valsalia/icons/species/yinglet/deformed_body.dmi'
@@ -79,6 +82,7 @@
 	available_cultural_info = list(
 		TAG_CULTURE =   list(
 			/decl/cultural_info/culture/yinglet,
+			/decl/cultural_info/culture/yinglet/tribal,
 			/decl/cultural_info/culture/other
 		),
 		TAG_HOMEWORLD = list(
@@ -117,31 +121,45 @@
 		pref.body_markings["Shelltooth"] = "#cccccc"
 	pref.skin_colour = "#787878"
 
+/decl/species/yinglet/get_autohiss_map(var/mode)
+	if(mode == GLOB.PREF_FULL)
+		. = autohiss_extra_map?.Copy()
+	else
+		. = autohiss_basic_map?.Copy()
+	if(!islist(.))
+		. = list()
+
 /decl/species/yinglet/New()
 	equip_adjust = list(
+		slot_undershirt_str = list(
+			"[NORTH]" = list("x" =  0, "y" = -3),
+			"[EAST]" =  list("x" =  1, "y" = -3),
+			"[WEST]" =  list("x" = -1, "y" = -3),
+			"[SOUTH]" = list("x" =  0, "y" = -3)
+		),
 		slot_head_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),
-			"[EAST]" =  list("x" = 3,  "y" = -3),
+			"[NORTH]" = list("x" =  0, "y" = -3),
+			"[EAST]" =  list("x" =  3, "y" = -3),
 			"[WEST]" =  list("x" = -3, "y" = -3),
-			"[SOUTH]" = list("x" = 0,  "y" = -3)
+			"[SOUTH]" = list("x" =  0, "y" = -3)
 		),
 		slot_back_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -5),
-			"[EAST]" =  list("x" = 3,  "y" = -5),
+			"[NORTH]" = list("x" =  0, "y" = -5),
+			"[EAST]" =  list("x" =  3, "y" = -5),
 			"[WEST]" =  list("x" = -3, "y" = -5),
-			"[SOUTH]" = list("x" = 0,  "y" = -5)
+			"[SOUTH]" = list("x" =  0, "y" = -5)
 		),
 		slot_belt_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -1),
-			"[EAST]" =  list("x" = 2,  "y" = -1),
+			"[NORTH]" = list("x" =  0, "y" = -1),
+			"[EAST]" =  list("x" =  2, "y" = -1),
 			"[WEST]" =  list("x" = -2, "y" = -1),
-			"[SOUTH]" = list("x" = 0,  "y" = -1)
+			"[SOUTH]" = list("x" =  0, "y" = -1)
 		),
 		slot_glasses_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),
-			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[NORTH]" = list("x" =  0, "y" = -3),
+			"[EAST]" =  list("x" =  2, "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" = 0,  "y" = -3)
+			"[SOUTH]" = list("x" =  0, "y" = -3)
 		),
 		BP_L_HAND = list(
 			"[NORTH]" = list("x" = 2,  "y" = -3),
@@ -151,46 +169,18 @@
 		),
 		BP_R_HAND = list(
 			"[NORTH]" = list("x" = -2, "y" = -3),
-			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[EAST]" =  list("x" =  2, "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" = 2,  "y" = -3)
+			"[SOUTH]" = list("x" =  2, "y" = -3)
 		),
 		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),
-			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[NORTH]" = list("x" =  0, "y" = -3),
+			"[EAST]" =  list("x" =  2, "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" = 0,  "y" = -3)
+			"[SOUTH]" = list("x" =  0, "y" = -3)
 		)
 	)
 	..()
-
-// This is honestly just so the other name generator becomes available.
-/decl/species/yinglet/southern
-	name = SPECIES_YINGLET_SOUTHERN
-	name_plural = "Southern Yinglets"
-	description = "Although similar to the other clam-loving rat-birds of the yinglet species, the southern \
-	yinglets are more parochial, tribal and generally less developed. Nobody is quite clear on which south \
-	they are from."
-	autohiss_basic_map = list(
-		"th" = list("d")
-	)
-
-	available_cultural_info = list(
-		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/yinglet/tribal,
-			/decl/cultural_info/culture/other
-		),
-		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/stateless
-		),
-		TAG_FACTION =   list(
-			/decl/cultural_info/faction/enclave_ying,
-			/decl/cultural_info/faction/other
-		),
-		TAG_RELIGION =  list(
-			/decl/cultural_info/religion/other
-		)
-	)
 
 /obj/item/holder/yinglet
 	sharp = 1

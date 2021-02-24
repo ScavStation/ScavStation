@@ -31,18 +31,5 @@
 			/datum/job/ministation/scientist,
 			/datum/job/ministation/security,
 			/datum/job/yinglet/yinglet_rep
-		),
-		/decl/species/yinglet/southern = list(
-			/datum/job/assistant,
-			/datum/job/ministation/bartender,
-			/datum/job/ministation/cargo,
-			/datum/job/cyborg,
-			/datum/job/ministation/detective,
-			/datum/job/ministation/doctor,
-			/datum/job/ministation/engineer,
-			/datum/job/ministation/janitor,
-			/datum/job/ministation/scientist,
-			/datum/job/ministation/security,
-			/datum/job/yinglet/yinglet_rep
 		)
 	)

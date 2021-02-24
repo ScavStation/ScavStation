@@ -1,7 +1,6 @@
 #define SPECIES_BAXXID           "Baxxid"
 #define SPECIES_INDREL           "Indrel"
 #define SPECIES_YINGLET          "Yinglet"
-#define SPECIES_YINGLET_SOUTHERN "Southern Yinglet"
 #define IS_YINGLET               "yinglet"
 #define BODYTYPE_YINGLET         "yinglet body"
 #define BODYTYPE_BAXXID          "baxxid body"
