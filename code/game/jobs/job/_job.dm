@@ -99,7 +99,7 @@
 /datum/job/proc/create_cash_on_hand(var/mob/living/carbon/human/H, var/datum/money_account/M)
 	if(!istype(M) || !ispath(H.client?.prefs?.starting_cash_choice, /decl/starting_cash_choice))
 		return 0
-	var/decl/starting_cash_choice/cash = decls_repository.get_decl(H.client.prefs.starting_cash_choice)
+	var/decl/starting_cash_choice/cash = GET_DECL(H.client.prefs.starting_cash_choice)
 	for(var/obj/item/thing in cash.get_cash_objects(H, M))
 		. += thing.get_base_value()
 		H.equip_to_storage_or_put_in_hands(thing)
@@ -144,7 +144,7 @@
 			var/datum/transaction/T = M.transaction_log[1]
 			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.get_source_name()]<br>"
 		if(cash_on_hand > 0)
-			var/decl/currency/cur = decls_repository.get_decl(GLOB.using_map.default_currency)
+			var/decl/currency/cur = GET_DECL(GLOB.using_map.default_currency)
 			remembered_info += "<b>Your cash on hand is:</b> [cur.format_value(cash_on_hand)]<br>"
 		H.StoreMemory(remembered_info, /decl/memory_options/system)
 		H.mind.initial_account = M
@@ -286,7 +286,7 @@
 	var/datum/mil_branch/branch = mil_branches.get_branch(branch_name)
 
 	if(!branch)
-		crash_with("unknown branch \"[branch_name]\" passed to is_branch_allowed()")
+		PRINT_STACK_TRACE("unknown branch \"[branch_name]\" passed to is_branch_allowed()")
 		return 0
 
 	if(is_type_in_list(branch, allowed_branches))
@@ -311,7 +311,7 @@
 	var/datum/mil_rank/rank = mil_branches.get_rank(branch_name, rank_name)
 
 	if(!rank)
-		crash_with("unknown rank \"[rank_name]\" in branch \"[branch_name]\" passed to is_rank_allowed()")
+		PRINT_STACK_TRACE("unknown rank \"[rank_name]\" in branch \"[branch_name]\" passed to is_rank_allowed()")
 		return 0
 
 	if(is_type_in_list(rank, allowed_ranks))
@@ -459,7 +459,7 @@
 
 /datum/job/proc/post_equip_rank(var/mob/person, var/alt_title)
 	if(is_semi_antagonist && person.mind)
-		var/decl/special_role/provocateur/provocateurs = decls_repository.get_decl(/decl/special_role/provocateur)
+		var/decl/special_role/provocateur/provocateurs = GET_DECL(/decl/special_role/provocateur)
 		provocateurs.add_antagonist(person.mind)
 
 /datum/job/proc/get_alt_title_for(var/client/C)

@@ -27,7 +27,7 @@
 		for(var/M in body_markings)
 			body_markings[M] = get_random_colour() 
 
-		backpack = decls_repository.get_decl(pick(subtypesof(/decl/backpack_outfit)))
+		backpack = GET_DECL(pick(subtypesof(/decl/backpack_outfit)))
 		age = rand(current_species.min_age, current_species.max_age)
 		b_type = RANDOM_BLOOD_TYPE
 		if(H)

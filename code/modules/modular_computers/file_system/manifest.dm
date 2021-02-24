@@ -4,7 +4,7 @@
 	var/list/all_departments = decls_repository.get_decls_of_subtype(/decl/department)
 	for(var/dtype in all_departments)
 		var/decl/department/dept = all_departments[dtype]
-		dept_data += list(list("names" = list(), "header" = dept.name, "ref" = dept.name))
+		dept_data += list(list("names" = list(), "header" = dept.name, "ref" = dept.type))
 
 	var/list/isactive = new()
 	var/list/mil_ranks = list() // HTML to prepend to name
@@ -98,7 +98,7 @@
 	. = list()
 	var/list/all_departments = decls_repository.get_decls_of_subtype(/decl/department)
 	for(var/dtype in all_departments)
-		var/decl/department/dept = decls_repository.get_decl(dtype)
+		var/decl/department/dept = GET_DECL(dtype)
 		. += list(list("[dept.name]" = filtered_nano_crew_manifest(SSjobs.titles_by_department(dtype))))
 
 /proc/flat_nano_crew_manifest()

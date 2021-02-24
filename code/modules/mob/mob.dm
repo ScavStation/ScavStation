@@ -52,7 +52,7 @@
 	if(!move_intent)
 		move_intent = move_intents[1]
 	if(ispath(move_intent))
-		move_intent = decls_repository.get_decl(move_intent)
+		move_intent = GET_DECL(move_intent)
 	var/ai_type = get_ai_type()
 	if(ai_type)
 		ai = new ai_type(src)
@@ -155,7 +155,7 @@
 	for(var/o in objs)
 		var/obj/O = o
 		if(radio_message)
-			O.hear_talk(src, radio_message, null, decls_repository.get_decl(/decl/language/noise))
+			O.hear_talk(src, radio_message, null, GET_DECL(/decl/language/noise))
 		else
 			O.show_message(message, AUDIBLE_MESSAGE, deaf_message, VISIBLE_MESSAGE)
 
@@ -335,7 +335,7 @@
 			distance = get_dist(source_turf, target_turf)
 
 	if(!A.examine(src, distance))
-		crash_with("Improper /examine() override: [log_info_line(A)]")
+		PRINT_STACK_TRACE("Improper /examine() override: [log_info_line(A)]")
 
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
@@ -489,13 +489,16 @@
 			return TRUE
 	return FALSE
 
-/mob/MouseDrop(mob/M)
-	..()
-	if(M != usr) return
-	if(usr == src) return
-	if(!Adjacent(usr)) return
-	if(istype(M,/mob/living/silicon/ai)) return
-	show_inv(usr)
+/mob/handle_mouse_drop(atom/over, mob/user)
+	if(over == user && user != src && !istype(user, /mob/living/silicon/ai))
+		show_inv(user)
+		return TRUE
+	if(istype(over, /obj/vehicle/train))
+		var/obj/vehicle/train/beep = over
+		if(!beep.load(src))
+			to_chat(user, SPAN_WARNING("You were unable to load \the [src] onto \the [over]."))
+		return TRUE
+	. = ..()
 
 /mob/proc/can_use_hands()
 	return
