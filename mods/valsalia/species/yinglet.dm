@@ -133,8 +133,8 @@
 	equip_adjust = list(
 		slot_undershirt_str = list(
 			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  3, "y" = -3),
-			"[WEST]" =  list("x" = -3, "y" = -3),
+			"[EAST]" =  list("x" =  1, "y" = -3),
+			"[WEST]" =  list("x" = -1, "y" = -3),
 			"[SOUTH]" = list("x" =  0, "y" = -3)
 		),
 		slot_head_str = list(
