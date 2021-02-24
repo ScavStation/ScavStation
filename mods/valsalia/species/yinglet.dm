@@ -79,6 +79,7 @@
 	available_cultural_info = list(
 		TAG_CULTURE =   list(
 			/decl/cultural_info/culture/yinglet,
+			/decl/cultural_info/culture/yinglet/tribal,
 			/decl/cultural_info/culture/other
 		),
 		TAG_HOMEWORLD = list(
@@ -119,29 +120,35 @@
 
 /decl/species/yinglet/New()
 	equip_adjust = list(
-		slot_head_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),
-			"[EAST]" =  list("x" = 3,  "y" = -3),
+		slot_undershirt_str = list(
+			"[NORTH]" = list("x" =  0, "y" = -3),
+			"[EAST]" =  list("x" =  3, "y" = -3),
 			"[WEST]" =  list("x" = -3, "y" = -3),
-			"[SOUTH]" = list("x" = 0,  "y" = -3)
+			"[SOUTH]" = list("x" =  0, "y" = -3)
+		),
+		slot_head_str = list(
+			"[NORTH]" = list("x" =  0, "y" = -3),
+			"[EAST]" =  list("x" =  3, "y" = -3),
+			"[WEST]" =  list("x" = -3, "y" = -3),
+			"[SOUTH]" = list("x" =  0, "y" = -3)
 		),
 		slot_back_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -5),
-			"[EAST]" =  list("x" = 3,  "y" = -5),
+			"[NORTH]" = list("x" =  0, "y" = -5),
+			"[EAST]" =  list("x" =  3, "y" = -5),
 			"[WEST]" =  list("x" = -3, "y" = -5),
-			"[SOUTH]" = list("x" = 0,  "y" = -5)
+			"[SOUTH]" = list("x" =  0, "y" = -5)
 		),
 		slot_belt_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -1),
-			"[EAST]" =  list("x" = 2,  "y" = -1),
+			"[NORTH]" = list("x" =  0, "y" = -1),
+			"[EAST]" =  list("x" =  2, "y" = -1),
 			"[WEST]" =  list("x" = -2, "y" = -1),
-			"[SOUTH]" = list("x" = 0,  "y" = -1)
+			"[SOUTH]" = list("x" =  0, "y" = -1)
 		),
 		slot_glasses_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),
-			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[NORTH]" = list("x" =  0, "y" = -3),
+			"[EAST]" =  list("x" =  2, "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" = 0,  "y" = -3)
+			"[SOUTH]" = list("x" =  0, "y" = -3)
 		),
 		BP_L_HAND = list(
 			"[NORTH]" = list("x" = 2,  "y" = -3),
@@ -151,15 +158,15 @@
 		),
 		BP_R_HAND = list(
 			"[NORTH]" = list("x" = -2, "y" = -3),
-			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[EAST]" =  list("x" =  2, "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" = 2,  "y" = -3)
+			"[SOUTH]" = list("x" =  2, "y" = -3)
 		),
 		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" = 0,  "y" = -3),
-			"[EAST]" =  list("x" = 2,  "y" = -3),
+			"[NORTH]" = list("x" =  0, "y" = -3),
+			"[EAST]" =  list("x" =  2, "y" = -3),
 			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" = 0,  "y" = -3)
+			"[SOUTH]" = list("x" =  0, "y" = -3)
 		)
 	)
 	..()
