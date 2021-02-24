@@ -324,7 +324,7 @@
 
 	//Check for contaminants before anything else because we don't want to skip it.
 	for(var/g in environment.gas)
-		var/decl/material/mat = decls_repository.get_decl(g)
+		var/decl/material/mat = GET_DECL(g)
 		if((mat.gas_flags & XGM_GAS_CONTAMINANT) && environment.gas[g] > mat.gas_overlay_limit + 1)
 			handle_contaminants()
 			break
@@ -1075,19 +1075,11 @@
 			reset_view(null, 0)
 		else if(viewflags)
 			set_sight(sight|viewflags)
-	else if(eyeobj)
-		if(eyeobj.owner != src)
-			reset_view(null)
-	else
-		var/isRemoteObserve = 0
-		if(z_eye)
-			isRemoteObserve = 1
-		else if((mRemote in mutations) && remoteview_target)
-			if(remoteview_target.stat == CONSCIOUS)
-				isRemoteObserve = 1
-		if(!isRemoteObserve && client && !client.adminobs)
-			remoteview_target = null
-			reset_view(null, 0)
+	if(eyeobj && eyeobj.owner != src)
+		reset_view(null)
+	if((mRemote in mutations) && remoteview_target && remoteview_target.stat != CONSCIOUS)
+		remoteview_target = null
+		reset_view(null, 0)
 
 	update_equipment_vision()
 	species.handle_vision(src)

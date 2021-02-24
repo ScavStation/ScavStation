@@ -218,7 +218,7 @@ var/list/gear_datums = list()
 		if(allowed && G.allowed_skills)
 			var/list/skills_required = list()//make it into instances? instead of path
 			for(var/skill in G.allowed_skills)
-				var/decl/hierarchy/skill/instance = decls_repository.get_decl(skill)
+				var/decl/hierarchy/skill/instance = GET_DECL(skill)
 				skills_required[instance] = G.allowed_skills[skill]
 
 			allowed = skill_check(jobs, skills_required)//Checks if a single job has all the skills required
@@ -406,7 +406,7 @@ var/list/gear_datums = list()
 		gt.tweak_item(user, item, islist(metadata) && metadata["[gt]"])
 	. = item
 	if(metadata && !islist(metadata))
-		crash_with("Loadout spawn_item() proc received non-null non-list metadata: '[json_encode(metadata)]'")
+		PRINT_STACK_TRACE("Loadout spawn_item() proc received non-null non-list metadata: '[json_encode(metadata)]'")
 
 /datum/gear/proc/spawn_on_mob(var/mob/living/carbon/human/H, var/metadata)
 	var/obj/item/item = spawn_and_validate_item(H, metadata)

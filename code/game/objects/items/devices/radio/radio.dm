@@ -69,6 +69,7 @@
 /obj/item/radio/attack_self(mob/user)
 	user.set_machine(src)
 	interact(user)
+	return TRUE
 
 /obj/item/radio/interact(mob/user)
 	if(!user)
@@ -785,7 +786,7 @@
 
 /obj/item/radio/announcer/Destroy()
 	SHOULD_CALL_PARENT(FALSE)
-	crash_with("attempt to delete a [src.type] detected, and prevented.")
+	PRINT_STACK_TRACE("attempt to delete a [src.type] detected, and prevented.")
 	return QDEL_HINT_LETMELIVE
 
 /obj/item/radio/announcer/Initialize()

@@ -16,6 +16,9 @@
 	var/obj/master = null    //A reference to the object in the slot. Grabs or items, generally.
 	var/globalscreen = FALSE //Global screens are not qdeled when the holding mob is destroyed.
 
+/obj/screen/receive_mouse_drop(atom/dropping, mob/user)
+	return TRUE
+
 /obj/screen/Destroy()
 	master = null
 	return ..()
@@ -102,7 +105,7 @@
 	if(!usr.canClick())
 		return
 
-	if(usr.stat || usr.restrained() || usr.stunned || usr.lying)
+	if(usr.incapacitated())
 		return 1
 
 	if(!(owner in usr))
@@ -117,7 +120,7 @@
 /obj/screen/storage/Click()
 	if(!usr.canClick())
 		return 1
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
+	if(usr.incapacitated(INCAPACITATION_DISRUPTED))
 		return 1
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
@@ -261,7 +264,7 @@
 		if("internal")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
-				if(!C.stat && !C.stunned && !C.paralysis && !C.restrained())
+				if(!C.incapacitated())
 					if(C.internal)
 						C.set_internals(null)
 					else
@@ -343,7 +346,7 @@
 									C.set_internals(tankcheck[best], "\the [tankcheck[best]]")
 
 							if(!C.internal)
-								var/decl/material/breath_data = decls_repository.get_decl(breathes)
+								var/decl/material/breath_data = GET_DECL(breathes)
 								to_chat(C, SPAN_WARNING("You don't have \a [breath_data.gas_name] tank."))
 		if("act_intent")
 			usr.a_intent_change("right")
