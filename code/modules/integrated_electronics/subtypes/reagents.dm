@@ -220,7 +220,7 @@
 			var/injection_delay = 3 SECONDS
 			if(injection_status == INJECTION_PORT)
 				injection_delay += INJECTION_PORT_DELAY
-			if(isslime(C) || !C.dna || !injection_status)
+			if(!C.dna || !injection_status)
 				activate_pin(3)
 				return
 			C.visible_message("<span class='danger'>\The [acting_object] is trying to take a blood sample from [C]!</span>", \
@@ -517,7 +517,7 @@
 	complexity = 4
 	power_draw_per_use = 5
 
-/obj/item/integrated_circuit/input/funnel/attackby_react(obj/item/I, mob/living/user, intent)
+/obj/item/integrated_circuit/input/funnel/attackby_react(obj/item/I, mob/user, intent)
 	var/atom/movable/target = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
 	var/obj/item/chems/container = I
 
