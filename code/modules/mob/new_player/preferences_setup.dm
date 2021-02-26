@@ -25,7 +25,7 @@
 				all_underwear[WRC.name] = WRI.name
 
 		for(var/M in body_markings)
-			body_markings[M] = get_random_colour() 
+			body_markings[M] = get_random_colour()
 
 		backpack = GET_DECL(pick(subtypesof(/decl/backpack_outfit)))
 		age = rand(current_species.min_age, current_species.max_age)
