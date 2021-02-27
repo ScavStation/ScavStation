@@ -34,5 +34,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - admin: "Admin logs for turret setting changes now display the correct user instead of *INVALID* and a loc link."
-  - admin: "Attack logs for cremation no longer has the attacker and victim reversed."
+  - tweak: "Codex entries for magnetic guns (Coilguns, railguns, etc) have been updated with a lore blurb and detailed information on specific mechanics."
