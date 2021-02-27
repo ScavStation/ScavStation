@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/github/issues/ScavStation/ScavStation"
          alt="Issues">
   </a>
-  <a href="https://discord.gg/Ddw58yF">
+  <a href="https://discord.gg/bPMNJnnxNZ">
     <img src="https://img.shields.io/discord/678820025355862045?style=plastic"
          alt="Discord">
   </a>
