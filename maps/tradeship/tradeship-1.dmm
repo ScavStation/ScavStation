@@ -1696,6 +1696,13 @@
 	},
 /obj/item/clothing/head/helmet/space/void/engineering/salvage,
 /obj/item/clothing/suit/space/void/engineering/salvage,
+/obj/item/clothing/suit/space/void/scav/engineering,
+/obj/item/clothing/suit/space/void/scav/engineering,
+/obj/item/clothing/head/helmet/space/void/scav/engineering,
+/obj/item/clothing/head/helmet/space/void/scav/engineering,
+/obj/item/tank/oxygen/yellow,
+/obj/item/tank/oxygen/yellow,
+/obj/item/tank/oxygen/yellow,
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/storage)
 "eo" = (

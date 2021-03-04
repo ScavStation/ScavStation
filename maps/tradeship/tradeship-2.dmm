@@ -2370,15 +2370,15 @@
 /turf/simulated/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "fo" = (
-/obj/structure/table/standard,
-/obj/item/glass_extra/straw,
-/obj/item/toy/therapy_blue,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/defibrillator/compact/loaded,
 /obj/item/modular_computer/telescreen/preset/medical{
 	pixel_x = 31;
 	pixel_y = -2
 	},
+/obj/structure/closet/emcloset,
+/obj/item/tank/oxygen/yellow,
+/obj/item/clothing/head/helmet/space/void/scav/medical,
+/obj/item/clothing/suit/space/void/scav/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fp" = (
@@ -2442,6 +2442,9 @@
 /obj/item/stack/medical/advanced/bruise_pack,
 /obj/item/chems/syringe/antibiotic,
 /obj/item/scanner/health,
+/obj/item/defibrillator/compact/loaded,
+/obj/item/toy/therapy_blue,
+/obj/item/glass_extra/straw,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fx" = (
@@ -3312,6 +3315,9 @@
 /obj/random/loot,
 /obj/random/projectile,
 /obj/random/projectile,
+/obj/item/clothing/head/helmet/space/void/scav/merc,
+/obj/item/clothing/suit/space/void/scav/merc,
+/obj/item/tank/oxygen/yellow,
 /turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "hD" = (
@@ -6690,6 +6696,7 @@
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
 /obj/random/voidhelmet,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/ship/trade/crew/saloon)
 "JX" = (
@@ -7010,6 +7017,10 @@
 /obj/structure/closet/emcloset,
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
+/obj/item/clothing/head/helmet/space/void/scav/security,
+/obj/item/clothing/suit/space/void/scav/security,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "Nx" = (
@@ -7450,6 +7461,15 @@
 	icon_state = "handrail";
 	dir = 8
 	},
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/pilot,
+/obj/item/clothing/suit/space/void/pilot,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/plating,
 /area/ship/trade/shuttle/outgoing)
 "Tp" = (
