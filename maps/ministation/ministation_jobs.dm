@@ -13,7 +13,8 @@
 		/datum/job/ministation/janitor,
 		/datum/job/ministation/scientist,
 		/datum/job/ministation/security,
-		/datum/job/yinglet/yinglet_rep
+		/datum/job/yinglet/yinglet_rep,
+		/datum/job/ministation/librarian
 	)
 	species_to_job_whitelist = list(
 		/decl/species/baxxid = list(
@@ -30,6 +31,7 @@
 			/datum/job/ministation/janitor,
 			/datum/job/ministation/scientist,
 			/datum/job/ministation/security,
-			/datum/job/yinglet/yinglet_rep
+			/datum/job/yinglet/yinglet_rep,
+			/datum/job/ministation/librarian
 		)
 	)
