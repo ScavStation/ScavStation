@@ -1229,9 +1229,6 @@
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"df" = (
-/turf/simulated/wall,
-/area/ministation/cargo)
 "dg" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -1692,6 +1689,10 @@
 /obj/machinery/photocopier/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
+"eC" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/ministation/court)
 "eD" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -1908,7 +1909,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/court)
+/area/ministation/yinglet_rep)
 "fb" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2839,14 +2840,6 @@
 /area/ministation/science)
 "hh" = (
 /obj/structure/closet/l3closet/scientist,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
-"hi" = (
-/obj/structure/closet/secure_closet/scientist,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#ffffff"
-	},
-/obj/item/clothing/suit/yinglabcoat,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hj" = (
@@ -7471,7 +7464,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/paleblue/full,
-/obj/machinery/door/airlock/multi_tile/glass/medical{
+/obj/machinery/door/airlock/double/glass/medical{
 	autoset_access = 0;
 	name = "medbay airlock"
 	},
@@ -10386,46 +10379,6 @@
 /obj/machinery/computer/arcade/battle,
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
-"yN" = (
-/obj/structure/closet/wardrobe/green,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#008000"
-	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#008000"
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"yO" = (
-/obj/structure/closet/wardrobe/black,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#000000"
-	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#000000"
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"yP" = (
-/obj/structure/closet/wardrobe/pink,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#ff00ff"
-	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#ff00ff"
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"yQ" = (
-/obj/structure/closet/wardrobe/grey,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#808080"
-	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#808080"
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "yR" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
@@ -11471,18 +11424,10 @@
 /obj/item/flashlight/lamp,
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
-"Bz" = (
-/obj/effect/landmark/test/safe_turf,
-/turf/simulated/floor/tiled,
-/area/ministation/hall/s)
 "BA" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/ministation/maint/sw)
-"BB" = (
-/obj/effect/landmark/test/space_turf,
-/turf/space,
-/area/space)
 "BC" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "stripe";
@@ -15872,6 +15817,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/sw)
+"NP" = (
+/turf/simulated/wall/r_wall,
+/area/ministation/court)
 "NR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -16336,9 +16284,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"Rw" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/turf/simulated/floor/plating,
+"Rx" = (
+/turf/simulated/wall,
 /area/ministation/court)
 "RD" = (
 /turf/simulated/wall/r_wall,
@@ -16445,19 +16392,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/detective)
-"SF" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/ministation/court)
 "SN" = (
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/yinglet_rep)
-"SS" = (
-/turf/simulated/wall,
-/area/ministation/court)
 "ST" = (
 /obj/structure/lattice,
 /turf/simulated/wall,
@@ -17134,6 +17074,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/yinglet_rep)
+"Zq" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/ministation/court)
 "Zr" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -43623,7 +43567,7 @@ mS
 xf
 la
 yk
-yN
+yj
 yj
 zS
 yj
@@ -43880,7 +43824,7 @@ mS
 xf
 la
 yk
-yO
+yj
 zo
 zo
 zo
@@ -44137,7 +44081,7 @@ mS
 kE
 la
 yk
-yP
+yj
 yj
 yj
 yj
@@ -44394,7 +44338,7 @@ mS
 xh
 la
 yk
-yQ
+yj
 zo
 zo
 zo
@@ -45128,7 +45072,7 @@ cd
 cn
 cy
 cO
-df
+au
 dD
 dI
 eF
@@ -45642,7 +45586,7 @@ ce
 cm
 cy
 cN
-df
+au
 dF
 dI
 dI
@@ -49219,7 +49163,7 @@ aa
 aa
 aa
 aa
-BB
+aa
 aa
 aa
 aa
@@ -49526,7 +49470,7 @@ aV
 aV
 sC
 tv
-Bz
+aV
 aV
 aV
 wf
@@ -50007,13 +49951,13 @@ ah
 ah
 ah
 dR
-SS
+Rx
 UI
 UI
 CY
 UI
 ZP
-SS
+Rx
 di
 eQ
 di
@@ -50264,13 +50208,13 @@ cu
 cW
 cV
 dS
-SS
+Rx
 Qh
 Od
 ND
 Od
 Xe
-SS
+Rx
 eR
 fD
 fV
@@ -50521,13 +50465,13 @@ cv
 cJ
 cJ
 dT
-SS
+Rx
 Zt
 Od
 ND
 Od
 Od
-SS
+Rx
 eS
 dm
 dU
@@ -50778,13 +50722,13 @@ cw
 Qq
 cW
 Zr
-Rw
+eC
 Ir
 Ir
 UD
 Ir
 Ny
-cY
+NP
 cY
 cY
 cY
@@ -51035,13 +50979,13 @@ cw
 cJ
 cX
 cJ
-SS
+Rx
 Sf
 Pk
 TF
 Px
 Ov
-cY
+NP
 eT
 fX
 VU
@@ -51292,13 +51236,13 @@ cw
 cw
 cw
 cJ
-SS
+Rx
 Ir
 Ir
 ND
 Ir
 Ir
-cY
+NP
 eU
 fH
 QU
@@ -51549,13 +51493,13 @@ aa
 aa
 cw
 cK
-SS
+Rx
 IB
 ZZ
 PT
 dn
 Ir
-cY
+NP
 cY
 cY
 gB
@@ -51806,7 +51750,7 @@ aa
 aa
 cw
 cJ
-SS
+Rx
 Nc
 Ms
 Vv
@@ -52063,13 +52007,13 @@ ad
 aa
 cw
 cK
-SS
-SS
-SS
-SS
-SS
-SS
-SS
+Rx
+Rx
+Rx
+Rx
+Rx
+Rx
+Rx
 eW
 fJ
 fZ
@@ -52322,7 +52266,7 @@ ad
 cn
 aa
 aa
-SS
+Rx
 MA
 YQ
 dX
@@ -52579,7 +52523,7 @@ aa
 ad
 aa
 aa
-SF
+Zq
 Nw
 dq
 dY
@@ -52836,7 +52780,7 @@ aa
 aa
 aa
 aa
-SF
+Zq
 Nw
 OP
 Nw
@@ -53093,7 +53037,7 @@ aa
 aa
 aa
 aa
-SS
+Rx
 Vj
 YY
 Po
@@ -53350,13 +53294,13 @@ aa
 aa
 aa
 aa
-SS
-SS
-SS
-SS
-SS
+Rx
+Ib
+Ib
+Ib
+Ib
 fa
-SS
+Ib
 Wv
 SC
 Wv
@@ -54642,7 +54586,7 @@ Ib
 Ib
 Vl
 Ib
-di
+Ib
 kl
 JZ
 JZ
@@ -56700,7 +56644,7 @@ fb
 fK
 gd
 ae
-hi
+db
 db
 ih
 iL

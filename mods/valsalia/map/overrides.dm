@@ -5,7 +5,7 @@
 	whitelisted_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
 
 /datum/map/tradeship
-	lobby_tracks = list(/music_track/zazie)
+	lobby_tracks = list(/decl/music_track/zazie)
 	potential_theft_targets = list(
 		"the tradehouse accounting documents"	= /obj/item/documents/tradehouse/account,
 		"the tradehouse personnel data"			= /obj/item/documents/tradehouse/personnel,

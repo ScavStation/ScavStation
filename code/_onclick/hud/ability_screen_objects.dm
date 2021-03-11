@@ -134,12 +134,6 @@
 			return S
 	return null
 
-/mob/Login()
-	..()
-	if(ability_master)
-		ability_master.update_abilities(1, src)
-		ability_master.toggle_open(1)
-
 /mob/Initialize()
 	. = ..()
 	ability_master = new /obj/screen/movable/ability_master(null,src)
@@ -328,11 +322,6 @@
 	ability_objects.Add(A)
 	if(my_mob.client)
 		toggle_open(2) //forces the icons to refresh on screen
-
-/mob/Life()
-	UNLINT(..())
-	if(ability_master)
-		ability_master.update_spells(0)
 
 /obj/screen/movable/ability_master/proc/update_spells(var/forced = 0)
 	for(var/obj/screen/ability/spell/spell in spell_objects)
