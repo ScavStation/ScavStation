@@ -1,4 +1,4 @@
-/music_track/zazie
+/decl/music_track/zazie
 	artist = "Kevin Macleod feat. Eggbread"
 	title = "Zazie (Scav Chorus Edition)"
 	song = 'mods/valsalia/sounds/Zaziepitchshifted.ogg'

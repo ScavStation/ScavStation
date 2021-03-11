@@ -33,7 +33,7 @@
 		return INITIALIZE_HINT_QDEL
 	target_zone = assailant.zone_sel?.selecting
 
-	var/mob/affecting_mob = get_affecting_mob()
+	var/mob/living/affecting_mob = get_affecting_mob()
 	if(affecting_mob)
 		affecting_mob.UpdateLyingBuckledAndVerbStatus()
 		if(ishuman(affecting_mob))
@@ -161,7 +161,7 @@
 	assailant.drop_from_inventory(src)
 
 /obj/item/grab/proc/get_affecting_mob()
-	. = ismob(affecting) && affecting
+	. = isliving(affecting) && affecting
 
 // Returns the organ of the grabbed person that the grabber is targeting
 /obj/item/grab/proc/get_targeted_organ()
@@ -272,7 +272,7 @@
 	return current_grab.force_danger
 
 /obj/item/grab/proc/grab_slowdown()
-	return current_grab.grab_slowdown
+	return max(ceil(affecting?.get_object_size() * current_grab.grab_slowdown), 1)
 
 /obj/item/grab/proc/assailant_moved()
 	affecting.glide_size = assailant.glide_size // Note that this is called _after_ the Move() call resolves, so while it adjusts affecting's move animation, it won't adjust anything else depending on it.
