@@ -1309,7 +1309,7 @@
 	},
 /area/map_template/ninja_dojo/start)
 "cW" = (
-/obj/machinery/airlock_sensor/shuttle{
+/obj/machinery/airlock_sensor{
 	id_tag = "ninja_shuttle_sensor";
 	pixel_x = 8;
 	pixel_y = -25

@@ -1047,7 +1047,7 @@
 /turf/simulated/floor/plating,
 /area/map_template/skipjack_station/start)
 "cC" = (
-/obj/machinery/airlock_sensor/shuttle{
+/obj/machinery/airlock_sensor{
 	id_tag = "raider_west_sensor";
 	pixel_x = 25
 	},

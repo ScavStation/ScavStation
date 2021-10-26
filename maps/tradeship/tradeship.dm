@@ -11,14 +11,14 @@
 	#include "../../mods/content/psionics/_psionics.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
+	#include "../../mods/content/matchmaking/_matchmaking.dme"
 
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
 	#include "../../mods/mobs/borers/_borers.dme"
 
 	#include "../../mods/species/ascent/_ascent.dme"
-	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
-	#include "../../mods/species/tajaran/_tajaran.dme"
+	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/species/tritonian/_tritonian.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
 	#include "../../mods/species/lizard/_lizard.dme"
@@ -41,8 +41,9 @@
 
 	#include "tradeship_antagonists.dm"
 	#include "tradeship_areas.dm"
+	#include "tradeship_chems.dm"
 	#include "tradeship_departments.dm"
-	#include "tradeship_documents.dm"
+
 	#include "tradeship_jobs.dm"
 	#include "tradeship_loadouts.dm"
 	#include "tradeship_overmap.dm"
@@ -62,12 +63,13 @@
 	#include "jobs/medical.dm"
 	#include "jobs/science.dm"
 	#include "jobs/synthetics.dm"
-
+	#include "jobs/yinglets.dm"
 	#include "outfits/_outfits.dm"
 	#include "outfits/command.dm"
 	#include "outfits/engineering.dm"
 	#include "outfits/medical.dm"
 	#include "outfits/science.dm"
+	#include "outfits/yinglets.dm"
 
 	#define USING_MAP_DATUM /datum/map/tradeship
 

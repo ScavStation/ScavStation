@@ -1,18 +1,21 @@
 /datum/map/tradeship
 	name = "Tradeship"
-	full_name = "Tradeship Ocelot Alpha"
+	full_name = "Tradeship Ivenmoth"
 	path = "tradeship"
 	ground_noun = "deck"
 
-	station_name  = "Tradeship Ocelot Alpha"
-	station_short = "Ocelot"
+	station_name  = "Tradeship Ivenmoth"
+	station_short = "Ivenmoth"
 
-	dock_name     = "FTS Capitalist's Rest"
-	boss_name     = "FTU Merchant Navy"
-	boss_short    = "Merchant Admiral"
-	company_name  = "Legit Cargo Ltd."
-	company_short = "LC"
-	lobby_screens = list('maps/tradeship/lobby/bloodmoney.png','maps/tradeship/lobby/vapormoney.png')
+	dock_name     = "Val Salia Station"
+	boss_name     = "Trade Administration"
+	boss_short    = "Admin"
+	company_name  = "Tradehouse Ivenmoth"
+	company_short = "Ivenmoth"
+
+	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
+	lobby_screens = list('mods/valsalia/lobby/yingspace.png')
+
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 1
 	welcome_sound = 'sound/effects/cowboysting.ogg'
@@ -20,6 +23,7 @@
 	emergency_shuttle_called_message = "Attention all hands: emergency evacuation procedures are now in effect. Escape pods will launch in %ETA%"
 	emergency_shuttle_recall_message = "Attention all hands: emergency evacuation sequence aborted. Return to normal operating conditions."
 	evac_controller_type = /datum/evacuation_controller/lifepods
+	pray_reward_type = /obj/item/mollusc/clam
 
 	starting_money = 5000
 	department_money = 0
@@ -28,7 +32,7 @@
 	radiation_detected_message = "High levels of radiation have been detected in proximity of the %STATION_NAME%. Please move to a shielded area such as the cargo bay, dormitories or medbay until the radiation has passed."
 
 /datum/map/tradeship/get_map_info()
-	return "You're aboard the <b>[station_name],</b> a survey and mercantile vessel affiliated with the Free Trade Union. \
+	return "You're aboard the <b>[station_name],</b> a survey and mercantile vessel affiliated with <b>Tradehouse Ivenmoth</b>, a large merchant guild operating out of Val Salia Station. \
 	No meaningful authorities can claim the planets and resources in this uncharted sector, so their exploitation is entirely up to you - mine, poach and deforest all you want."
 
 /datum/map/tradeship/create_trade_hubs()

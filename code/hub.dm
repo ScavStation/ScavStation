@@ -5,7 +5,7 @@ var/global/visibility_pref = FALSE
  * You can also toggle visibility from in-game with toggle-hub-visibility; be aware that it takes a few minutes for the hub go
  */
 	hub = "Exadv1.spacestation13"
-	name = "Space Station 13 - Nebula13"
+	name = "Space Station 13 - ScavStation"
 
 /world/proc/update_hub_visibility()
 	global.visibility_pref = !global.visibility_pref

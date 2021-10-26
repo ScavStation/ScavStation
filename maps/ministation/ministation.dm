@@ -2,15 +2,16 @@
 Ministation "Zebra"
 A butchered variant on Giacom's Ministation designed for 5 to 10 players.
 Now poorly imported for Nebula!
+And then imported back to ScavStation!
 */
 
 #if !defined(USING_MAP_DATUM)
 
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/corporate/_corporate.dme"
+	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/species/ascent/_ascent.dme"
-
 	#define USING_MAP_DATUM /datum/map/ministation
 
 	#include "ministation.dmm"
@@ -31,6 +32,7 @@ Now poorly imported for Nebula!
 	#include "jobs/medical.dm"
 	#include "jobs/security.dm"
 	#include "jobs/science.dm"
+	#include "jobs/yinglets.dm"
 	#include "jobs/synthetics.dm"
 
 	#include "outfits/_outfits.dm"
@@ -40,6 +42,7 @@ Now poorly imported for Nebula!
 	#include "outfits/medical.dm"
 	#include "outfits/science.dm"
 	#include "outfits/security.dm"
+	#include "outfits/yinglets.dm"
 
 #elif !defined(MAP_OVERRIDE)
 

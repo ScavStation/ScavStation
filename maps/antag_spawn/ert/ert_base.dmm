@@ -2512,7 +2512,7 @@
 	dir = 4;
 	id_tag = "rescue_shuttle_pump"
 	},
-/obj/machinery/airlock_sensor/shuttle{
+/obj/machinery/airlock_sensor{
 	id_tag = "rescue_shuttle_sensor";
 	pixel_x = 8;
 	pixel_y = 25

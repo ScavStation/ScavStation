@@ -96,6 +96,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(!pref.b_type || !(pref.b_type in global.valid_bloodtypes))
 		pref.b_type = RANDOM_BLOOD_TYPE
 
+	// Grandfather clause for loading old saves.
+	if(lowertext(pref.species) == "southern yinglet")
+		pref.species = "Yinglet"
+	// End grandfather clause.
+
 	if(!pref.species || !(pref.species in get_playable_species()))
 		pref.species = global.using_map.default_species
 

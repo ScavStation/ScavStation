@@ -1,0 +1,6 @@
+author: N8-Toe
+delete-after: True
+changes: 
+  - rscadd: "Added new ying clothes, a clan librarian outfit with sprites from N8-Toe. colorable jumpsuit, ying goggles, tail glove, and ying labcoat with sprites from Pawn"
+  - rscadd: "Added wearing trashbags for yings, sprites from Pawn, unimplimented"
+  - rscdel: "Removed color select from loadout pistol"

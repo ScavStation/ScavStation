@@ -174,6 +174,8 @@
 #define HUD_MEDICAL  BITFLAG(2)
 #define HUD_JANITOR  BITFLAG(3)
 
+// Bodyparts - defined here as some are used for default onmob icon keys.
+
 // Limbs.
 #define BP_L_FOOT       "l_foot"
 #define BP_R_FOOT       "r_foot"

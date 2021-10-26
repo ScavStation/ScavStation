@@ -191,6 +191,11 @@
 	secure = TRUE
 	icon_state = "light_blue"
 
+/area/ministation/yinglet_rep
+	name = "\improper Yinglet Representative Chamber"
+	req_access = list(access_lawyer)
+	icon_state = "brown"
+
 //satellite
 /area/ministation/ai_sat
 	name = "\improper Satellite"
@@ -209,3 +214,6 @@
 	secure = TRUE
 	req_access = list(access_ai_upload)
 	icon_state = "light_blue"
+
+/datum/goal/scav_hoard_junk
+	valid_areas = list(/area/ministation/yinglet_rep)

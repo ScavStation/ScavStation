@@ -2094,11 +2094,14 @@
 /obj/item/glass_extra/straw,
 /obj/item/toy/therapy_blue,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/defibrillator/compact/loaded,
 /obj/item/modular_computer/telescreen/preset/medical{
 	pixel_x = 31;
 	pixel_y = -2
 	},
+/obj/structure/closet/emcloset,
+/obj/item/tank/oxygen/yellow,
+/obj/item/clothing/head/helmet/space/void/scav/medical,
+/obj/item/clothing/suit/space/void/scav/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fp" = (
@@ -2159,6 +2162,9 @@
 /obj/item/stack/medical/advanced/bruise_pack,
 /obj/item/chems/syringe/antibiotic,
 /obj/item/scanner/health,
+/obj/item/defibrillator/compact/loaded,
+/obj/item/toy/therapy_blue,
+/obj/item/glass_extra/straw,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fx" = (
@@ -2449,6 +2455,10 @@
 	dir = 9
 	},
 /obj/item/storage/backpack/dufflebag,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
 "gp" = (
@@ -2938,6 +2948,9 @@
 /obj/random/loot,
 /obj/random/projectile,
 /obj/random/projectile,
+/obj/item/clothing/head/helmet/space/void/scav/merc,
+/obj/item/clothing/suit/space/void/scav/merc,
+/obj/item/tank/oxygen/yellow,
 /turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "hD" = (
@@ -5193,6 +5206,10 @@
 /obj/random/clothing,
 /obj/random/clothing,
 /obj/item/chems/glass/rag,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
@@ -6007,6 +6024,7 @@
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
 /obj/random/voidhelmet,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/ship/trade/crew/saloon)
 "JX" = (
@@ -6295,6 +6313,10 @@
 /obj/structure/closet/emcloset,
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
+/obj/item/clothing/head/helmet/space/void/scav/security,
+/obj/item/clothing/suit/space/void/scav/security,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "Nx" = (
@@ -6730,6 +6752,15 @@
 /obj/structure/handrail{
 	dir = 8
 	},
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/pilot,
+/obj/item/clothing/suit/space/void/pilot,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/plating,
 /area/ship/trade/shuttle/outgoing)
 "Tp" = (
