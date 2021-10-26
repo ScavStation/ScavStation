@@ -1,12 +1,13 @@
 /*
 	Datum-based species. Should make for much cleaner and easier to maintain race code.
 */
+var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 /decl/species
 
 	// Descriptors and strings.
 	var/name
-	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
+	var/name_plural                           // Pluralized name (since "[name]s" is not always valid)
 	var/description
 	var/codex_description
 	var/ooc_codex_information
@@ -14,52 +15,32 @@
 	var/hidden_from_codex = TRUE
 	var/is_crystalline = FALSE
 
-	// Icon/appearance vars.
-	var/icobase =      'icons/mob/human_races/species/human/body.dmi'          // Normal icon set.
-	var/deform =       'icons/mob/human_races/species/human/deformed_body.dmi' // Mutated icon set.
-	var/preview_icon = 'icons/mob/human_races/species/human/preview.dmi'
-	var/lip_icon =     'icons/mob/human_races/species/human/lips.dmi'
-	var/husk_icon =    'icons/mob/human_races/species/default_husk.dmi'
-	var/bandages_icon
-	var/bodytype = BODYTYPE_OTHER
-	var/limb_icon_intensity = 1.5
+	var/holder_icon
+	var/list/available_bodytypes = list()
+	var/decl/bodytype/default_bodytype
 
-	// Damage overlay and masks.
-	var/damage_overlays = 'icons/mob/human_races/species/human/damage_overlay.dmi'
-	var/damage_mask =     'icons/mob/human_races/species/human/damage_mask.dmi'
-	var/blood_mask =      'icons/mob/human_races/species/human/blood_mask.dmi'
-
-	var/blood_color = COLOR_BLOOD_HUMAN               // Red.
-	var/flesh_color = "#ffc896"               // Pink.
+	var/blood_color = COLOR_BLOOD_HUMAN       // Red.
+	var/flesh_color = "#ffc896"             // Pink.
 	var/blood_oxy = 1
-	var/base_color                            // Used by changelings. Should also be used for icon previes..
-	var/limb_blend = ICON_ADD
-	var/tail                                  // Name of tail state in species effects icon file.
-	var/tail_animation                        // If set, the icon to obtain tail animation states from.
-	var/tail_blend = ICON_ADD
-	var/tail_hair
-	var/tail_hair_blend = ICON_ADD
-	var/tail_icon = 'icons/effects/species.dmi'
-	var/tail_states = 1
 
-	var/list/hair_styles
-	var/list/facial_hair_styles
+	// Used for initializing prefs/preview
+	var/base_color =      COLOR_BLACK
+	var/base_eye_color =  COLOR_BLACK
+	var/base_hair_color = COLOR_BLACK
+	var/list/base_markings
+
+	var/static/list/hair_styles
+	var/static/list/facial_hair_styles
 
 	var/organs_icon		//species specific internal organs icons
 
-	var/default_h_style = "Bald"
-	var/default_f_style = "Shaved"
+	var/default_h_style = /decl/sprite_accessory/hair/bald
+	var/default_f_style = /decl/sprite_accessory/facial_hair/shaved
 
 	var/icon_cache_uid                        // Used for mob icon cache string.
-	var/icon_template = 'icons/mob/human_races/species/template.dmi' // Used for mob icon generation for non-32x32 species.
-	var/pixel_offset_x = 0                    // Used for offsetting large icons.
-	var/pixel_offset_y = 0                    // Used for offsetting large icons.
-	var/pixel_offset_z = 0                    // Used for offsetting large icons.
-	var/antaghud_offset_x = 0                 // As above, but specifically for the antagHUD indicator.
-	var/antaghud_offset_y = 0                 // As above, but specifically for the antagHUD indicator.
 
-	var/mob_size	= MOB_SIZE_MEDIUM
-	var/strength    = STR_MEDIUM
+	var/mob_size = MOB_SIZE_MEDIUM
+	var/strength = STR_MEDIUM
 	var/show_ssd = "fast asleep"
 	var/short_sighted                         // Permanent weldervision.
 	var/light_sensitive                       // Ditto, but requires sunglasses to fix
@@ -69,8 +50,7 @@
 	var/taste_sensitivity = TASTE_NORMAL      // How sensitive the species is to minute tastes.
 	var/silent_steps
 
-	var/min_age = 17
-	var/max_age = 70
+	var/age_descriptor = /datum/appearance_descriptor/age
 
 	// Speech vars.
 	var/assisted_langs = list()               // The languages the species can't speak without an assisted organ.
@@ -78,7 +58,7 @@
 	var/list/speech_chance                    // The likelihood of a speech sound playing.
 
 	// Combat vars.
-	var/total_health = 200                   // Point at which the mob will enter crit.
+	var/total_health = DEFAULT_SPECIES_HEALTH  // Point at which the mob will enter crit.
 	var/list/unarmed_attacks = list(           // Possible unarmed attacks that the mob will use in combat,
 		/decl/natural_attack,
 		/decl/natural_attack/bite
@@ -100,7 +80,7 @@
 	var/vision_flags = SEE_SELF               // Same flags as glasses.
 
 	// Death vars.
-	var/meat_type =     /obj/item/chems/food/snacks/meat/human
+	var/meat_type =     /obj/item/chems/food/meat/human
 	var/meat_amount =   3
 	var/skin_material = /decl/material/solid/skin
 	var/skin_amount =   3
@@ -119,7 +99,6 @@
 	var/sniff_message_3p = "sniffs the air."
 	var/sniff_message_1p = "You sniff the air."
 
-	var/limbs_are_nonsolid
 	var/spawns_with_stack = 0
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                             // Used for metabolizing reagents.
@@ -161,7 +140,6 @@
 	// HUD data vars.
 	var/datum/hud_data/hud
 	var/hud_type
-	var/health_hud_intensity = 1
 
 	var/grab_type = /decl/grab/normal/passive // The species' default grab type.
 
@@ -169,13 +147,16 @@
 	var/list/inherent_verbs 	  // Species-specific verbs.
 	var/siemens_coefficient = 1   // The lower, the thicker the skin and better the insulation.
 	var/darksight_range = 2       // Native darksight distance.
-	var/darksight_tint = DARKTINT_NONE // How shadows are tinted.
 	var/species_flags = 0         // Various specific features.
 	var/appearance_flags = 0      // Appearance/display related features.
 	var/spawn_flags = 0           // Flags that specify who can spawn as this species
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
 	// Move intents. Earlier in list == default for that type of movement.
-	var/list/move_intents = list(/decl/move_intent/walk, /decl/move_intent/run, /decl/move_intent/creep)
+	var/list/move_intents = list(
+		/decl/move_intent/walk,
+		/decl/move_intent/run,
+		/decl/move_intent/creep
+	)
 
 	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
 	var/greater_form              // Greater form, if any, ie. human for monkeys.
@@ -201,12 +182,10 @@
 
 	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
 
-	var/list/skin_overlays = list()
-
 	// An associative list of target zones (ex. BP_CHEST, BP_MOUTH) mapped to all possible keys associated
-	// with the zone. Unused on vanilla Nebula at time of commit, will be used by hands and inventory 
-	// rewrite and for species with body layouts that do not map directly to the standard humanoid body.
-	var/list/limb_mapping 
+	// with the zone. Used for species with body layouts that do not map directly to the standard humanoid
+	// body, currently serpentids and mantids.
+	var/list/limb_mapping
 
 	var/list/has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
@@ -224,10 +203,12 @@
 
 	var/list/override_limb_types // Used for species that only need to change one or two entries in has_limbs.
 
-	// The basic skin colours this species uses
-	var/list/base_skin_colours
-
-	var/list/genders = list(MALE, FEMALE, PLURAL)
+	var/decl/pronouns/default_pronouns
+	var/list/available_pronouns = list(
+		/decl/pronouns,
+		/decl/pronouns/female,
+		/decl/pronouns/male
+	)
 
 	// Bump vars
 	var/bump_flag = HUMAN	// What are we considered to be when bumped?
@@ -236,30 +217,20 @@
 
 	var/pass_flags = 0
 	var/breathing_sound = 'sound/voice/monkey.ogg'
-	var/list/equip_adjust = list()
-	var/list/equip_overlays = list()
 
 	var/list/base_auras
 
-	var/sexybits_location	//organ tag where they are located if they can be kicked for increased pain
-
-	var/list/prone_overlay_offset = list(0, 0) // amount to shift overlays when lying
 	var/job_skill_buffs = list()				// A list containing jobs (/datum/job), with values the extra points that job recieves.
 
-	var/list/descriptors = list(
-		/datum/mob_descriptor/height = 0,
-		/datum/mob_descriptor/build = 0
+	var/list/appearance_descriptors = list(
+		/datum/appearance_descriptor/height = 1,
+		/datum/appearance_descriptor/build =  1
 	)
 
 	var/standing_jump_range = 2
 	var/list/maneuvers = list(/decl/maneuver/leap)
 
-	var/list/available_cultural_info = list(
-		TAG_CULTURE =   list(/decl/cultural_info/culture/other),
-		TAG_HOMEWORLD = list(/decl/cultural_info/location/stateless),
-		TAG_FACTION =   list(/decl/cultural_info/faction/other),
-		TAG_RELIGION =  list(/decl/cultural_info/religion/other)
-	)
+	var/list/available_cultural_info =            list()
 	var/list/force_cultural_info =                list()
 	var/list/default_cultural_info =              list()
 	var/list/additional_available_cultural_info = list()
@@ -276,39 +247,110 @@
 
 	var/datum/ai/ai						// Type abused. Define with path and will automagically create. Determines behaviour for clientless mobs. This will override mob AIs.
 
-	var/exertion_effect_chance = 0
+	var/exertion_emote_chance =    5
+	var/exertion_effect_chance =   0
 	var/exertion_hydration_scale = 0
 	var/exertion_nutrition_scale = 0
-	var/exertion_charge_scale = 0
-	var/exertion_reagent_scale = 0
-	var/exertion_reagent_path = null
-	var/list/exertion_emotes_biological = null
-	var/list/exertion_emotes_synthetic = null
+	var/exertion_charge_scale =    0
+	var/exertion_reagent_scale =   0
+
+	var/exertion_reagent_path
+	var/list/exertion_emotes_biological
+	var/list/exertion_emotes_synthetic
 
 	var/list/traits = list() // An associative list of /decl/traits and trait level - See individual traits for valid levels
-/*
-These are all the things that can be adjusted for equipping stuff and
-each one can be in the NORTH, SOUTH, EAST, and WEST direction. Specify
-the direction to shift the thing and what direction.
 
-example:
-	equip_adjust = list(
-		slot_back_str = list(NORTH = list(SOUTH = 12, EAST = 7), EAST = list(SOUTH = 2, WEST = 12))
-			)
+	// Preview icon gen/tracking vars.
+	var/icon/preview_icon
+	var/preview_icon_width = 64
+	var/preview_icon_height = 64
+	var/preview_icon_path	
 
-This would shift back items (backpacks, axes, etc.) when the mob
-is facing either north or east.
-When the mob faces north the back item icon is shifted 12 pixes down and 7 pixels to the right.
-When the mob faces east the back item icon is shifted 2 pixels down and 12 pixels to the left.
+/decl/species/Initialize()
 
-The slots that you can use are found in items_clothing.dm and are the inventory slot string ones, so make sure
-	you use the _str version of the slot.
-*/
-
-/decl/species/New()
+	. = ..()
 
 	if(!codex_description)
 		codex_description = description
+
+	// Generate OOC info.
+	var/list/codex_traits = list()
+	if(spawn_flags & SPECIES_CAN_JOIN)
+		codex_traits += "<li>Often present among humans.</li>"
+	if(spawn_flags & SPECIES_IS_WHITELISTED)
+		codex_traits += "<li>Whitelist restricted.</li>"
+	if(!has_organ[BP_HEART])
+		codex_traits += "<li>Does not have blood.</li>"
+	if(!has_organ[breathing_organ])
+		codex_traits += "<li>Does not breathe.</li>"
+	if(species_flags & SPECIES_FLAG_NO_SCAN)
+		codex_traits += "<li>Does not have DNA.</li>"
+	if(species_flags & SPECIES_FLAG_NO_PAIN)
+		codex_traits += "<li>Does not feel pain.</li>"
+	if(species_flags & SPECIES_FLAG_NO_MINOR_CUT)
+		codex_traits += "<li>Has thick skin/scales.</li>"
+	if(species_flags & SPECIES_FLAG_NO_SLIP)
+		codex_traits += "<li>Has excellent traction.</li>"
+	if(species_flags & SPECIES_FLAG_NO_POISON)
+		codex_traits += "<li>Immune to most poisons.</li>"
+	if(appearance_flags & HAS_A_SKIN_TONE)
+		codex_traits += "<li>Has a variety of skin tones.</li>"
+	if(appearance_flags & HAS_SKIN_COLOR)
+		codex_traits += "<li>Has a variety of skin colours.</li>"
+	if(appearance_flags & HAS_EYE_COLOR)
+		codex_traits += "<li>Has a variety of eye colours.</li>"
+	if(species_flags & SPECIES_FLAG_IS_PLANT)
+		codex_traits += "<li>Has a plantlike physiology.</li>"
+	if(slowdown)
+		codex_traits += "<li>Moves [slowdown > 0 ? "slower" : "faster"] than most.</li>"
+
+	var/list/codex_damage_types = list(
+		"physical trauma" = brute_mod,
+		"burns" = burn_mod,
+		"lack of air" = oxy_mod,
+	)
+	for(var/kind in codex_damage_types)
+		if(codex_damage_types[kind] > 1)
+			codex_traits += "<li>Vulnerable to [kind].</li>"
+		else if(codex_damage_types[kind] < 1)
+			codex_traits += "<li>Resistant to [kind].</li>"
+	if(breath_type)
+		var/decl/material/mat = GET_DECL(breath_type)
+		codex_traits += "<li>They breathe [mat.gas_name].</li>"
+	if(exhale_type)
+		var/decl/material/mat = GET_DECL(exhale_type)
+		codex_traits += "<li>They exhale [mat.gas_name].</li>"
+	if(LAZYLEN(poison_types))
+		var/list/poison_names = list()
+		for(var/g in poison_types)
+			var/decl/material/mat = GET_DECL(exhale_type)
+			poison_names |= mat.gas_name
+		codex_traits += "<li>[capitalize(english_list(poison_names))] [LAZYLEN(poison_names) == 1 ? "is" : "are"] poisonous to them.</li>"
+
+	if(length(codex_traits))
+		var/trait_string = "They have the following notable traits:<br><ul>[jointext(codex_traits, null)]</ul>"
+		if(ooc_codex_information)
+			ooc_codex_information += "<br><br>[trait_string]"
+		else
+			ooc_codex_information = trait_string
+
+	for(var/bodytype in available_bodytypes)
+		available_bodytypes -= bodytype
+		available_bodytypes += GET_DECL(bodytype)
+
+	if(ispath(default_bodytype))
+		default_bodytype = GET_DECL(default_bodytype)
+	else if(length(available_bodytypes) && !default_bodytype)
+		default_bodytype = available_bodytypes[1]
+
+	for(var/pronoun in available_pronouns)
+		available_pronouns -= pronoun
+		available_pronouns += GET_DECL(pronoun)
+
+	if(ispath(default_pronouns))
+		default_pronouns = GET_DECL(default_pronouns)
+	else if(length(available_pronouns) && !default_pronouns)
+		default_pronouns = available_pronouns[1]
 
 	for(var/token in ALL_CULTURAL_TAGS)
 
@@ -323,7 +365,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 			available_cultural_info[token] |= additional_available_cultural_info[token]
 
 		else if(!LAZYLEN(available_cultural_info[token]))
-			var/list/map_systems = GLOB.using_map.available_cultural_info[token]
+			var/list/map_systems = global.using_map.available_cultural_info[token]
 			available_cultural_info[token] = map_systems.Copy()
 
 		if(LAZYLEN(available_cultural_info[token]) && !default_cultural_info[token])
@@ -331,20 +373,24 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 			default_cultural_info[token] = avail_systems[1]
 
 		if(!default_cultural_info[token])
-			default_cultural_info[token] = GLOB.using_map.default_cultural_info[token]
+			default_cultural_info[token] = global.using_map.default_cultural_info[token]
 
 	if(hud_type)
 		hud = new hud_type()
 	else
 		hud = new()
 
-	if(LAZYLEN(descriptors))
-		var/list/descriptor_datums = list()
-		for(var/desctype in descriptors)
-			var/datum/mob_descriptor/descriptor = new desctype
-			descriptor.comparison_offset = descriptors[desctype]
-			descriptor_datums[descriptor.name] = descriptor
-		descriptors = descriptor_datums
+	if(LAZYLEN(appearance_descriptors))
+		for(var/desctype in appearance_descriptors)
+			var/datum/appearance_descriptor/descriptor = new desctype(appearance_descriptors[desctype])
+			appearance_descriptors -= desctype
+			appearance_descriptors[descriptor.name] = descriptor
+
+	if(!(/datum/appearance_descriptor/age in appearance_descriptors))
+		LAZYINITLIST(appearance_descriptors)
+		var/datum/appearance_descriptor/age/age = new age_descriptor(1)
+		appearance_descriptors.Insert(1, age.name)
+		appearance_descriptors[age.name] = age
 
 	//If the species has eyes, they are the default vision organ
 	if(!vision_organ && has_organ[BP_EYES])
@@ -367,18 +413,12 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		var/list/organ_data = has_limbs[limb_type]
 		var/obj/item/organ/limb_path = organ_data["path"]
 		organ_data["descriptor"] = initial(limb_path.name)
-	
-/decl/species/proc/equip_survival_gear(var/mob/living/carbon/human/H,var/extendedtank = 1)
+
+/decl/species/proc/equip_survival_gear(var/mob/living/carbon/human/H, var/box_type = /obj/item/storage/box/survival)
 	if(istype(H.get_equipped_item(slot_back_str), /obj/item/storage/backpack))
-		if (extendedtank)
-			H.equip_to_slot_or_del(new /obj/item/storage/box/engineer(H.back), slot_in_backpack_str)
-		else
-			H.equip_to_slot_or_del(new /obj/item/storage/box/survival(H.back), slot_in_backpack_str)
+		H.equip_to_slot_or_del(new box_type(H.back), slot_in_backpack_str)
 	else
-		if (extendedtank)
-			H.put_in_hands_or_del(new /obj/item/storage/box/engineer(H))
-		else
-			H.put_in_hands_or_del(new /obj/item/storage/box/survival(H))
+		H.put_in_hands_or_del(new box_type(H))
 
 /decl/species/proc/get_manual_dexterity(var/mob/living/carbon/human/H)
 	. = manual_dexterity
@@ -386,18 +426,20 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 /decl/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
 
 	H.mob_size = mob_size
-	for(var/obj/item/organ/organ in H.contents)
-		if((organ in H.organs) || (organ in H.internal_organs))
-			qdel(organ)
 
-	if(H.organs)                  H.organs.Cut()
-	if(H.internal_organs)         H.internal_organs.Cut()
-	if(H.organs_by_name)          H.organs_by_name.Cut()
-	if(H.internal_organs_by_name) H.internal_organs_by_name.Cut()
+	// TODO: only qdel limbs that are in the wrong location
+	// or are not present in the mob bodyplan; currently
+	// set_species and rejuvenate just trash the entire organ
+	// list, which is really horrible.
 
-	H.organs = list()
-	H.internal_organs = list()
+	QDEL_LIST(H.organs)
+	if(!islist(H.organs))
+		H.organs = list()
 	H.organs_by_name = list()
+
+	QDEL_LIST(H.internal_organs)
+	if(!islist(H.internal_organs))
+		H.internal_organs = list()
 	H.internal_organs_by_name = list()
 
 	for(var/limb_type in has_limbs)
@@ -424,22 +466,6 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		post_organ_rejuvenate(O, H)
 
 	H.sync_organ_dna()
-
-/decl/species/proc/hug(var/mob/living/carbon/human/H,var/mob/living/target)
-
-	var/t_him = "them"
-	switch(target.gender)
-		if(MALE)
-			t_him = "him"
-		if(FEMALE)
-			t_him = "her"
-
-	H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
-					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
-
-	if(H != target)
-		H.update_personal_goal(/datum/goal/achievement/givehug, TRUE)
-		target.update_personal_goal(/datum/goal/achievement/gethug, TRUE)
 
 /decl/species/proc/add_base_auras(var/mob/living/carbon/human/H)
 	if(base_auras)
@@ -525,6 +551,12 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 /decl/species/proc/handle_fall_special(var/mob/living/carbon/human/H, var/turf/landing)
 	return FALSE
 
+//Used for swimming
+/decl/species/proc/can_float(var/mob/living/carbon/human/H)
+	if(!H.is_physically_disabled())
+		return TRUE //We could tie it to stamina
+	return FALSE
+
 // Called when using the shredding behavior.
 /decl/species/proc/can_shred(var/mob/living/carbon/human/H, var/ignore_intent, var/ignore_antag)
 
@@ -546,13 +578,12 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
 	H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
-	H.change_light_color(H.getDarkvisionTint())
 
 	if(H.stat == DEAD)
 		return 1
 
 	if(!HAS_STATUS(H, STAT_DRUGGY))
-		H.set_see_in_dark((H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(H.getDarkvisionRange() + H.equipment_darkness_modifier, 8))
+		H.set_see_in_dark((H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(H.get_darksight_range() + H.equipment_darkness_modifier, 8))
 		if(H.equipment_see_invis)
 			H.set_see_invisible(max(min(H.see_invisible, H.equipment_see_invis), vision[2]))
 
@@ -639,6 +670,9 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	else
 		return move_trail
 
+/decl/species/proc/handle_trail(var/mob/living/carbon/human/H, var/turf/simulated/T)
+	return
+
 /decl/species/proc/update_skin(var/mob/living/carbon/human/H)
 	return
 
@@ -692,8 +726,8 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	target.visible_message("<span class='danger'>[attacker] attempted to disarm \the [target]!</span>")
 
 /decl/species/proc/disfigure_msg(var/mob/living/carbon/human/H) //Used for determining the message a disfigured face has on examine. To add a unique message, just add this onto a specific species and change the "return" message.
-	var/datum/gender/T = gender_datums[H.get_gender()]
-	return "<span class='danger'>[T.His] face is horribly mangled!</span>\n"
+	var/decl/pronouns/G = H.get_pronouns()
+	return SPAN_DANGER("[G.His] face is horribly mangled!\n")
 
 /decl/species/proc/max_skin_tone()
 	if(appearance_flags & HAS_SKIN_TONE_GRAV)
@@ -704,37 +738,50 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		return 80
 	return 220
 
-/decl/species/proc/get_hair_styles()
-	var/list/L = LAZYACCESS(hair_styles, type)
-	if(!L)
-		L = list()
-		LAZYSET(hair_styles, type, L)
-		for(var/hairstyle in GLOB.hair_styles_list)
-			var/datum/sprite_accessory/S = GLOB.hair_styles_list[hairstyle]
+/decl/species/proc/get_hair_style_types(var/gender = NEUTER, var/check_gender = TRUE)
+	if(!check_gender)
+		gender = NEUTER
+	var/list/hair_styles_by_species = LAZYACCESS(hair_styles, type)
+	if(!hair_styles_by_species)
+		hair_styles_by_species = list()
+		LAZYSET(hair_styles, type, hair_styles_by_species)
+	var/list/hair_style_by_gender = hair_styles_by_species[gender]
+	if(!hair_style_by_gender)
+		hair_style_by_gender = list()
+		LAZYSET(hair_styles_by_species, gender, hair_style_by_gender)
+		var/list/all_hairstyles = decls_repository.get_decls_of_subtype(/decl/sprite_accessory/hair)
+		for(var/hairstyle in all_hairstyles)
+			var/decl/sprite_accessory/S = all_hairstyles[hairstyle]
+			if(check_gender && S.gender && gender != S.gender)
+				continue
 			if(S.species_allowed && !(get_root_species_name() in S.species_allowed))
 				continue
 			if(S.subspecies_allowed && !(name in S.subspecies_allowed))
 				continue
-			ADD_SORTED(L, hairstyle, /proc/cmp_text_asc)
-			L[hairstyle] = S
-	return L
+			ADD_SORTED(hair_style_by_gender, hairstyle, /proc/cmp_text_asc)
+			hair_style_by_gender[hairstyle] = S
+	return hair_style_by_gender
 
-/decl/species/proc/get_facial_hair_styles(var/gender)
+/decl/species/proc/get_hair_styles(var/gender = NEUTER, var/check_gender = TRUE)
+	. = list()
+	for(var/hair in get_hair_style_types(gender, check_gender))
+		. += GET_DECL(hair)
+
+/decl/species/proc/get_facial_hair_style_types(var/gender, var/check_gender = TRUE)
+	if(!check_gender)
+		gender = NEUTER
 	var/list/facial_hair_styles_by_species = LAZYACCESS(facial_hair_styles, type)
 	if(!facial_hair_styles_by_species)
 		facial_hair_styles_by_species = list()
 		LAZYSET(facial_hair_styles, type, facial_hair_styles_by_species)
-
 	var/list/facial_hair_style_by_gender = facial_hair_styles_by_species[gender]
 	if(!facial_hair_style_by_gender)
 		facial_hair_style_by_gender = list()
 		LAZYSET(facial_hair_styles_by_species, gender, facial_hair_style_by_gender)
-
-		for(var/facialhairstyle in GLOB.facial_hair_styles_list)
-			var/datum/sprite_accessory/S = GLOB.facial_hair_styles_list[facialhairstyle]
-			if(gender == MALE && S.gender == FEMALE)
-				continue
-			if(gender == FEMALE && S.gender == MALE)
+		var/list/all_facial_styles = decls_repository.get_decls_of_subtype(/decl/sprite_accessory/facial_hair)
+		for(var/facialhairstyle in all_facial_styles)
+			var/decl/sprite_accessory/S = all_facial_styles[facialhairstyle]
+			if(check_gender && S.gender && gender != S.gender)
 				continue
 			if(S.species_allowed && !(get_root_species_name() in S.species_allowed))
 				continue
@@ -742,94 +789,12 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 				continue
 			ADD_SORTED(facial_hair_style_by_gender, facialhairstyle, /proc/cmp_text_asc)
 			facial_hair_style_by_gender[facialhairstyle] = S
-
 	return facial_hair_style_by_gender
 
-/decl/species/proc/get_description(var/header, var/append, var/verbose = TRUE, var/skip_detail, var/skip_photo)
-	var/list/damage_types = list(
-		"physical trauma" = brute_mod,
-		"burns" = burn_mod,
-		"lack of air" = oxy_mod,
-		"poison" = toxins_mod
-	)
-	if(!header)
-		header = "<center><h2>[name]</h2></center><hr/>"
-	var/dat = list()
-	dat += "[header]"
-	dat += "<table padding='8px'>"
-	dat += "<tr>"
-	dat += "<td width = 400>"
-	if(verbose || length(description) <= MAX_DESC_LEN)
-		dat += "[description]"
-	else
-		dat += "[copytext(description, 1, MAX_DESC_LEN)] \[...\]"
-	if(append)
-		dat += "<br>[append]"
-	dat += "</td>"
-	if((!skip_photo && preview_icon) || !skip_detail)
-		dat += "<td width = 200 align='center'>"
-		if(!skip_photo && preview_icon)
-			send_rsc(usr, icon(icon = preview_icon, icon_state = ""), "species_preview_[name].png")
-			dat += "<img src='species_preview_[name].png' width='64px' height='64px'><br/><br/>"
-		if(!skip_detail)
-			dat += "<small>"
-			if(spawn_flags & SPECIES_CAN_JOIN)
-				dat += "</br><b>Often present among humans.</b>"
-			if(spawn_flags & SPECIES_IS_WHITELISTED)
-				dat += "</br><b>Whitelist restricted.</b>"
-			if(!has_organ[BP_HEART])
-				dat += "</br><b>Does not have blood.</b>"
-			if(!has_organ[breathing_organ])
-				dat += "</br><b>Does not breathe.</b>"
-			if(species_flags & SPECIES_FLAG_NO_SCAN)
-				dat += "</br><b>Does not have DNA.</b>"
-			if(species_flags & SPECIES_FLAG_NO_PAIN)
-				dat += "</br><b>Does not feel pain.</b>"
-			if(species_flags & SPECIES_FLAG_NO_MINOR_CUT)
-				dat += "</br><b>Has thick skin/scales.</b>"
-			if(species_flags & SPECIES_FLAG_NO_SLIP)
-				dat += "</br><b>Has excellent traction.</b>"
-			if(species_flags & SPECIES_FLAG_NO_POISON)
-				dat += "</br><b>Immune to most poisons.</b>"
-			if(appearance_flags & HAS_A_SKIN_TONE)
-				dat += "</br><b>Has a variety of skin tones.</b>"
-			if(appearance_flags & HAS_SKIN_COLOR)
-				dat += "</br><b>Has a variety of skin colours.</b>"
-			if(appearance_flags & HAS_EYE_COLOR)
-				dat += "</br><b>Has a variety of eye colours.</b>"
-			if(species_flags & SPECIES_FLAG_IS_PLANT)
-				dat += "</br><b>Has a plantlike physiology.</b>"
-			if(slowdown)
-				dat += "</br><b>Moves [slowdown > 0 ? "slower" : "faster"] than most.</b>"
-			for(var/kind in damage_types)
-				if(damage_types[kind] > 1)
-					dat += "</br><b>Vulnerable to [kind].</b>"
-				else if(damage_types[kind] < 1)
-					dat += "</br><b>Resistant to [kind].</b>"
-			if(breath_type)
-				var/decl/material/mat = GET_DECL(breath_type)
-				dat += "</br><b>They breathe [mat.gas_name].</b>"
-			if(exhale_type)
-				var/decl/material/mat = GET_DECL(exhale_type)
-				dat += "</br><b>They exhale [mat.gas_name].</b>"
-			if(LAZYLEN(poison_types))
-				var/list/poison_names = list()
-				for(var/g in poison_types)
-					var/decl/material/mat = GET_DECL(exhale_type)
-					poison_names |= mat.gas_name
-				dat += "</br><b>[capitalize(english_list(poison_names))] [LAZYLEN(poison_names) == 1 ? "is" : "are"] poisonous to them.</b>"
-			dat += "</small>"
-		dat += "</td>"
-	dat += "</tr>"
-	dat += "</table><hr/>"
-	return jointext(dat, null)
-
-/mob/living/carbon/human/verb/check_species()
-	set name = "Check Species Information"
-	set category = "IC"
-	set src = usr
-
-	show_browser(src, species.get_description(), "window=species;size=700x400")
+/decl/species/proc/get_facial_hair_styles(var/gender, var/check_gender = TRUE)
+	. = list()
+	for(var/hair in get_facial_hair_style_types(gender, check_gender))
+		. += GET_DECL(hair)
 
 /decl/species/proc/skills_from_age(age)	//Converts an age into a skill point allocation modifier. Can be used to give skill point bonuses/penalities not depending on job.
 	switch(age)
@@ -857,6 +822,9 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 			var/decl/emote/E = GET_DECL(pick(pain_emotes))
 			return E.key
 
+/decl/species/proc/handle_post_move(var/mob/living/carbon/human/H)
+	handle_exertion(H)
+
 /decl/species/proc/handle_exertion(mob/living/carbon/human/H)
 	if (!exertion_effect_chance)
 		return
@@ -875,7 +843,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 				H.adjust_nutrition(-DEFAULT_HUNGER_FACTOR * exertion_nutrition_scale)
 			if (exertion_reagent_scale && !isnull(exertion_reagent_path))
 				H.make_reagent(REM * exertion_reagent_scale, exertion_reagent_path)
-		if (prob(10))
+		if(prob(exertion_emote_chance))
 			var/list/active_emotes = synthetic ? exertion_emotes_synthetic : exertion_emotes_biological
 			if(length(active_emotes))
 				var/decl/emote/exertion_emote = GET_DECL(pick(active_emotes))
@@ -883,3 +851,23 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 /decl/species/proc/get_default_name()
 	return "[lowertext(name)] ([random_id(name, 100, 999)])"
+
+/decl/species/proc/get_holder_color(var/mob/living/carbon/human/H)
+	return
+
+/decl/species/proc/get_preview_icon()
+	if(!preview_icon)
+
+		var/mob/living/carbon/human/dummy/mannequin/mannequin = get_mannequin("#species_[ckey(name)]")
+		if(mannequin)
+
+			mannequin.set_species(name)
+			customize_preview_mannequin(mannequin)
+
+			preview_icon = getFlatIcon(mannequin)
+			preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2)
+			preview_icon_width = preview_icon.Width()
+			preview_icon_height = preview_icon.Height()
+			preview_icon_path = "species_preview_[ckey(name)].png"
+
+	return preview_icon

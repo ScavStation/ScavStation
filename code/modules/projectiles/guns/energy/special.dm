@@ -42,7 +42,7 @@
 	self_recharge = 1
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/uranium = MATTER_AMOUNT_TRACE
 	)
 	combustion = 0
@@ -102,7 +102,7 @@
 	projectile_type = /obj/item/projectile/energy/radiation
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/uranium = MATTER_AMOUNT_TRACE
 	)
 
@@ -123,11 +123,14 @@
 	self_recharge = 1
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE,
 		/decl/material/solid/metal/uranium = MATTER_AMOUNT_TRACE
 	)
-	var/datum/effect/effect/system/spark_spread/spark_system
+
+/obj/item/gun/energy/plasmacutter/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/tool, list(TOOL_SAW = TOOL_QUALITY_BAD))
 
 /obj/item/gun/energy/plasmacutter/get_heat()
 	. = max(..(), 3800)
@@ -138,28 +141,18 @@
 	max_shots = 4
 	has_safety = FALSE
 
-/obj/item/gun/energy/plasmacutter/Initialize()
-	. = ..()
-	spark_system = new /datum/effect/effect/system/spark_spread
-	spark_system.set_up(5, 0, src)
-	spark_system.attach(src)
-
-/obj/item/gun/energy/plasmacutter/Destroy()
-	QDEL_NULL(spark_system)
-	return ..()
-
 /obj/item/gun/energy/plasmacutter/proc/slice(var/mob/M = null)
 	if(!safety() && power_supply.checked_use(charge_cost)) //consumes a shot per use
 		if(M)
 			M.welding_eyecheck()//Welding tool eye check
 			if(check_accidents(M, "[M] loses grip on [src] from its sudden recoil!",SKILL_CONSTRUCTION, 60, SKILL_ADEPT))
 				return 0
-		spark_system.start()
+		spark_at(src, amount = 5, holder = src)
 		return 1
 	handle_click_empty(M)
 	return 0
 
-/obj/item/gun/energy/plasmacutter/is_special_cutting_tool()
+/obj/item/gun/energy/plasmacutter/is_special_cutting_tool(var/high_power)
 	return TRUE
 
 /obj/item/gun/energy/incendiary_laser

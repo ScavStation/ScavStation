@@ -13,9 +13,10 @@
 	cell = null
 	power_usage = 0
 	intercom = TRUE
+	intercom_handling = TRUE
 	var/number = 0
 	var/last_tick //used to delay the powercheck
-
+	
 /obj/item/radio/intercom/custom
 	name = "intercom (Custom)"
 	broadcasting = 0
@@ -58,7 +59,7 @@
 
 /obj/item/radio/intercom/department/medbay/Initialize()
 	. = ..()
-	internal_channels = GLOB.default_medbay_channels.Copy()
+	internal_channels = global.default_medbay_channels.Copy()
 
 /obj/item/radio/intercom/department/security/Initialize()
 	. = ..()

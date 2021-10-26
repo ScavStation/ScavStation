@@ -1,5 +1,5 @@
 /decl/hierarchy/outfit/job/tradeship/hand/engine
-	name = TRADESHIP_OUTFIT_JOB_NAME("Junior Engineer")
+	name = "Tradeship - Job - Junior Engineer"
 	head = /obj/item/clothing/head/hardhat
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
@@ -12,11 +12,10 @@
 /obj/item/card/id/tradeship/engineering
 	name = "identification card"
 	desc = "A card issued to engineering staff."
-	job_access_type = /datum/job/tradeship_engineer
 	detail_color = COLOR_SUN
 
 /decl/hierarchy/outfit/job/tradeship/chief_engineer
-	name = TRADESHIP_OUTFIT_JOB_NAME("Head Engineer")
+	name = "Tradeship - Job - Head Engineer"
 	uniform = /obj/item/clothing/under/chief_engineer
 	glasses = /obj/item/clothing/glasses/welding/superior
 	suit = /obj/item/clothing/suit/storage/hazardvest
@@ -33,5 +32,4 @@
 /obj/item/card/id/tradeship/engineering/head
 	name = "identification card"
 	desc = "A card which represents creativity and ingenuity."
-	job_access_type = /datum/job/tradeship_engineer/head
 	extra_details = list("goldstripe")

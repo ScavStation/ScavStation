@@ -1,11 +1,10 @@
 /obj/item/robot_module/medical
 	name = "medical robot module"
-	associated_department = /decl/department/medical
 	channels = list(
 		"Medical" = TRUE
 	)
-	networks = list(
-		NETWORK_MEDICAL
+	camera_channels = list(
+		CAMERA_CHANNEL_MEDICAL
 	)
 	software = list(
 		/datum/computer_file/program/crew_manifest
@@ -19,18 +18,18 @@
 /obj/item/robot_module/medical/surgeon
 	name = "surgeon robot module"
 	display_name = "Surgeon"
-	sprites = list(
-		"Basic" = "Medbot",
-		"Standard" = "surgeon",
-		"Advanced Droid" = "droid-medical",
-		"Needles" = "medicalrobot"
-		)
+	module_sprites = list(
+		"Basic"          = 'icons/mob/robots/robot_medical_old_alt.dmi',
+		"Standard"       = 'icons/mob/robots/robot_surgeon.dmi',
+		"Advanced Droid" = 'icons/mob/robots/robot_droid_medical.dmi',
+		"Needles"        = 'icons/mob/robots/robot_medical_old.dmi'
+	)
 	equipment = list(
 		/obj/item/flash,
 		/obj/item/borg/sight/hud/med,
 		/obj/item/scanner/health,
 		/obj/item/chems/borghypo/surgeon,
-		/obj/item/scalpel/manager,
+		/obj/item/incision_manager,
 		/obj/item/hemostat,
 		/obj/item/retractor,
 		/obj/item/cautery,
@@ -92,11 +91,11 @@
 /obj/item/robot_module/medical/crisis
 	name = "crisis robot module"
 	display_name = "Crisis"
-	sprites = list(
-		"Basic" = "Medbot",
-		"Standard" = "surgeon",
-		"Advanced Droid" = "droid-medical",
-		"Needles" = "medicalrobot"
+	module_sprites = list(
+		"Basic"          = 'icons/mob/robots/robot_medical_old_alt.dmi',
+		"Standard"       = 'icons/mob/robots/robot_surgeon.dmi',
+		"Advanced Droid" = 'icons/mob/robots/robot_droid_medical.dmi',
+		"Needles"        = 'icons/mob/robots/robot_medical_old.dmi'
 	)
 	equipment = list(
 		/obj/item/crowbar,

@@ -46,20 +46,20 @@
 	name = "soggy food"
 	taste_description = "blandness"
 
-/datum/chemical_reaction/recipe/soggy_food
+/decl/chemical_reaction/recipe/soggy_food
 	name = "Soggy Bread"
 	result = /decl/material/liquid/nutriment/soggy_food
 	required_reagents = list(/decl/material/liquid/nutriment/bread = 1)
 	result_amount = 1
 	mix_message = "The food softens into a soggy mess."
 	hidden_from_codex = TRUE
-	var/global/list/can_make_soggy = list(
+	var/static/list/can_make_soggy = list(
 		/decl/material/liquid/drink,
 		/decl/material/liquid/ethanol,
 		/decl/material/liquid/water
 	)
 
-/datum/chemical_reaction/recipe/soggy_food/can_happen(datum/reagents/holder)
+/decl/chemical_reaction/recipe/soggy_food/can_happen(datum/reagents/holder)
 	. = ..()
 	if(.)
 		for(var/thing in can_make_soggy)
@@ -68,13 +68,13 @@
 					return TRUE
 		return FALSE
 
-/datum/chemical_reaction/recipe/soggy_food/on_reaction(datum/reagents/holder, created_volume, reaction_flags)
+/decl/chemical_reaction/recipe/soggy_food/on_reaction(datum/reagents/holder, created_volume, reaction_flags)
 	. = ..()
-	var/obj/item/chems/food/snacks/food = holder ? holder.my_atom : null
+	var/obj/item/chems/food/food = holder ? holder.my_atom : null
 	if(!QDELETED(food) && istype(food) && !findtext(lowertext(food.name), "soggy"))
 		food.name = "soggy [food.name]"
 
-/datum/chemical_reaction/recipe/soggy_food/cake
+/decl/chemical_reaction/recipe/soggy_food/cake
 	name = "Soggy Cake"
 	required_reagents = list(/decl/material/liquid/nutriment/bread/cake = 1)
 

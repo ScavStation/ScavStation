@@ -9,8 +9,12 @@
 /obj/item/stack/material/cyborg/Initialize()
 	. = ..()
 	if(material)
-		name = "[material.solid_name] synthesiser"
-		desc = "A device that synthesises [material.solid_name]."
+		if(reinf_material)
+			name = "[reinf_material.solid_name]-reinforced [material.solid_name] synthesiser"
+			desc = "A device that synthesises [reinf_material.solid_name]-reinforced[material.solid_name]."
+		else
+			name = "[material.solid_name] synthesiser"
+			desc = "A device that synthesises [material.solid_name]."
 		matter = null
 
 /obj/item/stack/material/cyborg/plastic
@@ -32,7 +36,10 @@
 /obj/item/stack/material/cyborg/glass
 	icon_state = "sheet"
 	material = /decl/material/solid/glass
-	material_flags = USE_MATERIAL_COLOR|USE_MATERIAL_SINGULAR_NAME|USE_MATERIAL_PLURAL_NAME
+
+/obj/item/stack/material/cyborg/fiberglass
+	icon_state = "sheet"
+	material = /decl/material/solid/fiberglass
 
 /obj/item/stack/material/cyborg/glass/reinforced
 	icon_state = "sheet-reinf"
@@ -43,4 +50,3 @@
 /obj/item/stack/material/cyborg/aluminium
 	icon_state = "sheet"
 	material = /decl/material/solid/metal/aluminium
-	material_flags = USE_MATERIAL_COLOR|USE_MATERIAL_SINGULAR_NAME|USE_MATERIAL_PLURAL_NAME

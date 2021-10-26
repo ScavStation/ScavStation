@@ -1,7 +1,7 @@
 /decl/special_role/godcultist
 	name = "God Cultist"
 	name_plural = "God Cultists"
-	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/submap)
+	blacklisted_jobs = list(/datum/job/submap)
 	feedback_tag = "godcult_objective"
 	antag_indicator = "hudcultist"
 	faction_verb = /mob/living/proc/dpray
@@ -17,6 +17,7 @@
 	initial_spawn_target = 3
 	antaghud_indicator = "hudcultist"
 	skill_setter = /datum/antag_skill_setter/station
+	blocked_job_event_categories = list(ASSIGNMENT_ROBOT, ASSIGNMENT_COMPUTER)
 
 /decl/special_role/godcultist/add_antagonist_mind(var/datum/mind/player, var/ignore_role, var/nonstandard_role_type, var/nonstandard_role_msg, var/mob/living/deity/specific_god)
 	if(!..())
@@ -64,7 +65,7 @@
 				var/datum/mind/mind = m
 				god_list += mind.current
 		else
-			for(var/mob/living/deity/specific_deity in GLOB.player_list)
+			for(var/mob/living/deity/specific_deity in global.player_list)
 				god_list += specific_deity
 		if(god_list.len)
 			var/mob/living/deity/D = input(usr, "Select a deity for this cultist.") in null|god_list

@@ -11,12 +11,12 @@
 	var/list/next_stages
 	var/product
 
-/decl/crafting_stage/New()
+/decl/crafting_stage/Initialize()
+	. = ..()
 	var/stages = list()
 	for(var/nid in next_stages)
 		stages += GET_DECL(nid)
 	next_stages = stages
-	..()
 
 /decl/crafting_stage/proc/can_begin_with(var/obj/item/thing)
 	. = istype(thing, begins_with_object_type)
@@ -60,7 +60,7 @@
 	consume_completion_trigger = FALSE
 
 /decl/crafting_stage/material
-	completion_trigger_type = /obj/item/stack/material
+	completion_trigger_type = /obj/item/stack/material/sheet
 	stack_consume_amount = 5
 	consume_completion_trigger = FALSE
 	var/stack_material = /decl/material/solid/metal/steel

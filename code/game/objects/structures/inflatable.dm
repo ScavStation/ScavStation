@@ -2,7 +2,6 @@
 	name = "inflatable"
 	w_class = ITEM_SIZE_NORMAL
 	icon = 'icons/obj/structures/inflatable.dmi'
-	atmos_canpass = CANPASS_DENSITY
 	var/deploy_path = null
 	var/inflatable_health
 
@@ -47,6 +46,7 @@
 	icon_state = "wall"
 	maxhealth = 20
 	hitsound = 'sound/effects/Glasshit.ogg'
+	atmos_canpass = CANPASS_DENSITY
 
 	var/undeploy_path = null
 	var/taped
@@ -89,7 +89,7 @@
 	var/max_pressure = 0
 	var/max_local_temp = 0
 
-	for(var/check_dir in GLOB.cardinal)
+	for(var/check_dir in global.cardinal)
 		var/turf/T = get_step(get_turf(src), check_dir)
 		var/datum/gas_mixture/env = T.return_air()
 		var/pressure = env.return_pressure()
@@ -190,6 +190,7 @@
 
 	icon_state = "door_closed"
 	undeploy_path = /obj/item/inflatable/door
+	atmos_canpass = CANPASS_PROC
 
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0

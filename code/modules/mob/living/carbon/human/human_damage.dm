@@ -172,8 +172,9 @@
 
 	if (!heal)
 		amount = amount * species.get_toxins_mod(src)
-		if (CE_ANTITOX in chem_effects)
-			amount *= 1 - (LAZYACCESS(chem_effects, CE_ANTITOX) * 0.25)
+		var/antitox = GET_CHEMICAL_EFFECT(src, CE_ANTITOX)
+		if(antitox)
+			amount *= 1 - antitox * 0.25
 
 	var/list/pick_organs = shuffle(internal_organs.Copy())
 
@@ -311,18 +312,6 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	updatehealth()
 	BITSET(hud_updateflag, HEALTH_HUD)
 
-
-////////////////////////////////////////////
-
-/*
-This function restores the subjects blood to max.
-*/
-/mob/living/carbon/human/proc/restore_blood()
-	if(!should_have_organ(BP_HEART))
-		return
-	if(vessel.total_volume < species.blood_volume)
-		vessel.add_reagent(species.blood_reagent, species.blood_volume - vessel.total_volume)
-
 /*
 This function restores all organs.
 */
@@ -341,6 +330,9 @@ This function restores all organs.
 	else
 		return 0
 	return
+
+/mob/living/carbon/human/get_organs()
+	return organs
 
 /mob/living/carbon/human/get_organ(var/zone)
 	return organs_by_name[check_zone(zone, src, base_zone_only = TRUE)]
@@ -413,8 +405,8 @@ This function restores all organs.
 	if (!can_feel_pain())
 		return 0
 
-	var/traumatic_shock = getHalLoss()                 // Pain.
-	traumatic_shock -= LAZYACCESS(chem_effects, CE_PAINKILLER) // TODO: check what is actually stored here.
+	var/traumatic_shock = getHalLoss()
+	traumatic_shock -= GET_CHEMICAL_EFFECT(src, CE_PAINKILLER)
 
 	if(stat == UNCONSCIOUS)
 		traumatic_shock *= 0.6

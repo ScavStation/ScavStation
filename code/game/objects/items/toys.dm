@@ -126,35 +126,23 @@
 /*
  * Toy swords
  */
-/obj/item/toy/sword
+/obj/item/energy_blade/sword/toy
 	name = "toy sword"
 	desc = "A cheap, plastic replica of an energy sword. Realistic sounds! Ages 8 and up."
-	icon = 'icons/obj/items/weapon/e_sword.dmi'
-	icon_state = "sword0"
-	item_state = "sword0"
-	var/active = 0.0
-	w_class = ITEM_SIZE_SMALL
-	attack_verb = list("attacked", "struck", "hit")
+	sharp = FALSE
+	edge =  FALSE
+	force = 1
+	throwforce = 1
+	attack_verb = list("hit")
+	material = /decl/material/solid/plastic
 
-/obj/item/toy/sword/attack_self(mob/user as mob)
-	src.active = !( src.active )
-	if (src.active)
-		to_chat(user, "<span class='notice'>You extend the plastic blade with a quick flick of your wrist.</span>")
-		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		src.icon_state = "swordblue"
-		src.item_state = "swordblue"
-		src.w_class = ITEM_SIZE_HUGE
-	else
-		to_chat(user, "<span class='notice'>You push the plastic blade back down into the handle.</span>")
-		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		src.icon_state = "sword0"
-		src.item_state = "sword0"
-		src.w_class = initial(w_class)
-
-	update_held_icon()
-
-	src.add_fingerprint(user)
-	return
+	active_hitsound = 'sound/weapons/genhit.ogg'
+	active_descriptor = "extended"
+	active_force = 1
+	active_throwforce = 1
+	active_attack_verb = list("hit")
+	active_edge = FALSE
+	active_sharp = FALSE
 
 /obj/item/sword/katana/toy
 	name = "toy katana"
@@ -173,9 +161,7 @@
 
 /obj/item/toy/snappop/throw_impact(atom/hit_atom)
 	..()
-	var/datum/effect/effect/system/spark_spread/s = new
-	s.set_up(3, 1, src)
-	s.start()
+	spark_at(src, cardinal_only = TRUE)
 	new /obj/effect/decal/cleanable/ash(src.loc)
 	visible_message(SPAN_WARNING("The [src.name] explodes!"),SPAN_WARNING("You hear a snap!"))
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -187,9 +173,7 @@
 		if(!MOVING_DELIBERATELY(M))
 			to_chat(M, "<span class='warning'>You step on the snap pop!</span>")
 
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(2, 0, src)
-			s.start()
+			spark_at(src, amount=2)
 			new /obj/effect/decal/cleanable/ash(src.loc)
 			src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")
 			playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -651,7 +635,7 @@
 	attack_verb = list("attacked", "whacked", "jabbed", "poked", "marshalled")
 
 /obj/item/marshalling_wand/Initialize()
-	set_light(0.6, 0.5, 2, 2, "#ff0000")
+	set_light(1.5, 1.5, "#ff0000")
 	return ..()
 
 /obj/item/marshalling_wand/attack_self(mob/user)
@@ -664,9 +648,9 @@
 							"<span class='notice'>You hold \the [src] above your head, signalling a stop.</span>")
 	else if (user.a_intent == I_GRAB)
 		var/wand_dir
-		if(user.get_equipped_item(BP_L_HAND) == src) 
+		if(user.get_equipped_item(BP_L_HAND) == src)
 			wand_dir = "left"
-		else if (user.get_equipped_item(BP_R_HAND) == src) 
+		else if (user.get_equipped_item(BP_R_HAND) == src)
 			wand_dir = "right"
 		else
 			wand_dir = pick("left", "right")

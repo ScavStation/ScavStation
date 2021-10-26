@@ -1,3 +1,6 @@
+#define WIRELESS_CONNECTION 1
+#define WIRED_CONNECTION    2
+
 /datum/computer_network
 	var/network_id
 	var/network_key
@@ -10,6 +13,8 @@
 
 	var/list/relays = list()
 
+	var/list/cameras_by_channel = list()
+
 	var/datum/extension/network_device/broadcaster/router/router
 	var/datum/extension/network_device/acl/access_controller
 
@@ -17,7 +22,7 @@
 	var/intrusion_detection_enabled
 	var/intrusion_detection_alarm
 	var/list/banned_nids = list()
-	var/global/list/all_software_categories
+	var/static/list/all_software_categories
 	var/list/chat_channels = list()
 
 /datum/computer_network/New(var/new_id)
@@ -56,6 +61,9 @@
 		add_log("Relay ONLINE", D.network_tag)
 	else if(istype(D, /datum/extension/network_device/acl) && !access_controller)
 		set_access_controller(D)
+	else if(istype(D, /datum/extension/network_device/camera))
+		var/datum/extension/network_device/camera/C = D
+		add_camera_to_channels(C, C.channels)
 	return TRUE
 
 /datum/computer_network/proc/remove_device(datum/extension/network_device/D)
@@ -70,6 +78,10 @@
 	else if(D in relays)
 		relays -= D
 		add_log("Relay OFFLINE", D.network_tag)
+	else if(istype(D, /datum/extension/network_device/camera))
+		var/datum/extension/network_device/camera/C = D
+		remove_camera_from_channels(C, C.channels)
+	
 	if(D == router)
 		router = null
 		for(var/datum/extension/network_device/broadcaster/router/R in devices)
@@ -114,20 +126,32 @@
 	if(specific_action && !(network_features_enabled & specific_action))
 		return FALSE
 	var/list/broadcasters = relays + router
-	for(var/datum/extension/network_device/R in broadcasters)
-		if(get_z(R.holder) == get_z(D.holder))
-			return TRUE
-
+	var/datum/graph/device_graph = D.get_wired_connection()
+	for(var/datum/extension/network_device/broadcaster/R in broadcasters)
+		if(device_graph)
+			var/wired_connection = R.get_wired_connection()
+			if(!isnull(wired_connection) && wired_connection == device_graph)
+				return WIRED_CONNECTION
+		else if(.) // If we're not checking for wired connections, return at the first found connection.
+			return
+		if(R.allow_wifi && (R.long_range || (get_z(R.holder) == get_z(D.holder))))
+			. = WIRELESS_CONNECTION
 /datum/computer_network/proc/get_signal_strength(datum/extension/network_device/D)
-	if(!check_connection(D))
+	var/connection_status = check_connection(D)
+	if(!connection_status)
 		return 0
+	// There is a direct wired connection between a broadcaster on the network and the device.
+	if(connection_status == WIRED_CONNECTION)
+		return NETWORK_WIRED_CONNECTION_STRENGTH
 	var/receiver_strength = D.connection_type
 	var/list/broadcasters = relays + router
 	var/best_signal = 0
 	for(var/datum/extension/network_device/broadcaster/B in broadcasters)
-		if(get_z(B.holder) != get_z(D.holder))
+		if(!B.allow_wifi || get_z(B.holder) != get_z(D.holder))	// Devices must be in the same z-level as the broadcaster to work.
 			continue
 		var/broadcast_strength = B.get_broadcast_strength()
+		if(!ARE_Z_CONNECTED(get_z(router.holder), get_z(B.holder)))  // If the relay/secondary router is not in the same z-chunk as the main router, then the signal strength is halved.
+			broadcast_strength = round(broadcast_strength/2)
 		var/distance = get_dist(get_turf(B.holder), get_turf(D.holder))
 		best_signal = max(best_signal, (broadcast_strength * receiver_strength) - distance)
 	return best_signal
@@ -167,10 +191,10 @@
 /datum/computer_network/proc/get_os_by_nid(nid)
 	for(var/datum/extension/network_device/D in devices)
 		if(D.address == uppertext(nid))
-			var/datum/extension/interactive/ntos/os = get_extension(D.holder, /datum/extension/interactive/ntos)
+			var/datum/extension/interactive/os/os = get_extension(D.holder, /datum/extension/interactive/os)
 			if(!os)
 				var/atom/A = D.holder
-				os = get_extension(A.loc, /datum/extension/interactive/ntos)
+				os = get_extension(A.loc, /datum/extension/interactive/os)
 			return os
 
 /datum/computer_network/proc/get_router_z()
@@ -220,3 +244,18 @@
 			results |= tag
 	return results
 
+/datum/computer_network/proc/add_camera_to_channels(var/datum/extension/network_device/camera/added, var/list/channels)
+	if(!islist(channels))
+		channels = list(channels)
+	for(var/channel in channels)
+		if(!cameras_by_channel[channel])
+			cameras_by_channel[channel] = list()
+		cameras_by_channel[channel] |= added
+
+/datum/computer_network/proc/remove_camera_from_channels(var/datum/extension/network_device/camera/removed, var/list/channels)
+	if(!islist(channels))
+		channels = list(channels)
+	for(var/channel in channels)
+		cameras_by_channel[channel] -= removed
+		if(!length(cameras_by_channel))
+			cameras_by_channel -= channel

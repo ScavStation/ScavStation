@@ -28,6 +28,6 @@
 	wanted_items = list(/obj/item/mollusc/clam = TRUE)
 	possible_wanted_items = list(
 		/obj/item/mollusc = TRADER_ALL,
-		/obj/item/chems/food/snacks/fish/mollusc = TRADER_ALL
+		/obj/item/chems/food/fish/mollusc = TRADER_ALL
 	)
 	want_multiplier = 50 // pay good money for clam

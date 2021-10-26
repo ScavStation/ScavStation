@@ -19,20 +19,20 @@
 	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
 	heat_protection =    SLOT_HEAD|SLOT_FACE|SLOT_EYES
 	cold_protection =    SLOT_HEAD|SLOT_FACE|SLOT_EYES
-	brightness_on = 0.5
-	bodytype_restricted = null
+	brightness_on = 4
+	light_wedge = LIGHT_WIDE
+	bodytype_equip_flags = null
 
 /obj/item/clothing/head/helmet/space/rig/on_update_icon(mob/user)
 	..()
 	icon_state = get_world_inventory_state()
 	if(user?.check_rig_status() && check_state_in_icon("[icon_state]-sealed", icon))
 		icon_state = "[icon_state]-sealed"
-	
-/obj/item/clothing/head/helmet/space/rig/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
-	var/image/ret = ..()
-	if(user_mob?.check_rig_status() && check_state_in_icon("[ret.icon_state]-sealed", ret.icon))
-		ret.icon_state = "[ret.icon_state]-sealed"
-	return ret
+
+/obj/item/clothing/head/helmet/space/rig/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && user_mob?.check_rig_status() && check_state_in_icon("[overlay.icon_state]-sealed", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]-sealed"
+	. = ..()
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
@@ -40,7 +40,7 @@
 	body_parts_covered = SLOT_HANDS
 	heat_protection =    SLOT_HANDS
 	cold_protection =    SLOT_HANDS
-	bodytype_restricted = null
+	bodytype_equip_flags = null
 	gender = PLURAL
 
 /obj/item/clothing/gloves/rig/on_update_icon(mob/user)
@@ -48,12 +48,11 @@
 	icon_state = get_world_inventory_state()
 	if(user?.check_rig_status() && check_state_in_icon("[icon_state]-sealed", icon))
 		icon_state = "[icon_state]-sealed"
-	
-/obj/item/clothing/gloves/rig/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
-	var/image/ret = ..()
-	if(user_mob?.check_rig_status() && check_state_in_icon("[ret.icon_state]-sealed", ret.icon))
-		ret.icon_state = "[ret.icon_state]-sealed"
-	return ret
+
+/obj/item/clothing/gloves/rig/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && user_mob?.check_rig_status() && check_state_in_icon("[overlay.icon_state]-sealed", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]-sealed"
+	. = ..()
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
@@ -61,7 +60,7 @@
 	body_parts_covered = SLOT_FEET
 	cold_protection = SLOT_FEET
 	heat_protection = SLOT_FEET
-	bodytype_restricted = null
+	bodytype_equip_flags = null
 	gender = PLURAL
 
 /obj/item/clothing/shoes/magboots/rig/on_update_icon(mob/user)
@@ -69,12 +68,11 @@
 	icon_state = get_world_inventory_state()
 	if(user?.check_rig_status() && check_state_in_icon("[icon_state]-sealed", icon))
 		icon_state = "[icon_state]-sealed"
-	
-/obj/item/clothing/shoes/magboots/rig/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
-	var/image/ret = ..()
-	if(user_mob?.check_rig_status() && check_state_in_icon("[ret.icon_state]-sealed", ret.icon))
-		ret.icon_state = "[ret.icon_state]-sealed"
-	return ret
+
+/obj/item/clothing/shoes/magboots/rig/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && user_mob?.check_rig_status() && check_state_in_icon("[overlay.icon_state]-sealed", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]-sealed"
+	. = ..()
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
@@ -96,12 +94,11 @@
 	icon_state = get_world_inventory_state()
 	if(user?.check_rig_status() && check_state_in_icon("[icon_state]-sealed", icon))
 		icon_state = "[icon_state]-sealed"
-	
-/obj/item/clothing/suit/space/rig/experimental_mob_overlay(var/mob/user_mob, var/slot, var/bodypart)
-	var/image/ret = ..()
-	if(user_mob?.check_rig_status() && check_state_in_icon("[ret.icon_state]-sealed", ret.icon))
-		ret.icon_state = "[ret.icon_state]-sealed"
-	return ret
+
+/obj/item/clothing/suit/space/rig/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && user_mob?.check_rig_status() && check_state_in_icon("[overlay.icon_state]-sealed", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]-sealed"
+	. = ..()
 
 /obj/item/clothing/suit/space/rig/equipped(mob/M)
 	check_limb_support(M)
@@ -188,7 +185,7 @@
 	body_parts_covered = SLOT_FEET
 	cold_protection = SLOT_FEET
 	heat_protection = SLOT_FEET
-	bodytype_restricted = null
+	bodytype_equip_flags = null
 	gender = PLURAL
 
 /obj/item/clothing/gloves/lightrig
@@ -198,5 +195,5 @@
 	body_parts_covered = SLOT_HANDS
 	heat_protection =    SLOT_HANDS
 	cold_protection =    SLOT_HANDS
-	bodytype_restricted = null
+	bodytype_equip_flags = null
 	gender = PLURAL

@@ -4,11 +4,18 @@
 	icon_screen = "teleport"
 	light_color = "#77fff8"
 	extra_view = 4
-	var/obj/machinery/shipsensors/sensors
+	var/weakref/sensor_ref
 	var/list/last_scan
+	var/tmp/muted = FALSE
 	var/working_sound = 'sound/machines/sensors/dradis.ogg'
 	var/datum/sound_token/sound_token
 	var/sound_id
+
+/obj/machinery/computer/ship/sensors/proc/get_sensors()
+	var/obj/machinery/shipsensors/sensors = sensor_ref?.resolve()
+	if(!istype(sensors) || QDELETED(sensors))
+		sensor_ref = null
+	return sensors
 
 /obj/machinery/computer/ship/sensors/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
 	if(!(. = ..()))
@@ -20,7 +27,7 @@
 		return
 	for(var/obj/machinery/shipsensors/S in SSmachines.machinery)
 		if(linked.check_ownership(S))
-			sensors = S
+			sensor_ref = weakref(S)
 			break
 
 /obj/machinery/computer/ship/sensors/proc/update_sound()
@@ -28,10 +35,12 @@
 		return
 	if(!sound_id)
 		sound_id = "[type]_[sequential_id(/obj/machinery/computer/ship/sensors)]"
-	if(linked && sensors.use_power ** sensors.powered())
+
+	var/obj/machinery/shipsensors/sensors = get_sensors()
+	if(sensors && linked && sensors.use_power ** sensors.powered())
 		var/volume = 10
 		if(!sound_token)
-			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10)
+			sound_token = play_looping_sound(src, sound_id, working_sound, volume = volume, range = 10)
 		sound_token.SetVolume(volume)
 	else if(sound_token)
 		QDEL_NULL(sound_token)
@@ -43,7 +52,9 @@
 
 	var/data[0]
 
+	var/obj/machinery/shipsensors/sensors = get_sensors()
 	data["viewing"] = viewing_overmap(user)
+	data["muted"] = muted
 	if(sensors)
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
@@ -90,7 +101,7 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.name] Sensors Control", 420, 530, src)
+		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.name] Sensors Control", 420, 530, nref = src)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
@@ -111,6 +122,11 @@
 		find_sensors()
 		return TOPIC_REFRESH
 
+	if (href_list["mute"])
+		muted = !muted
+		return TOPIC_REFRESH
+
+	var/obj/machinery/shipsensors/sensors = get_sensors()
 	if(sensors)
 		if (href_list["range"])
 			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
@@ -180,7 +196,6 @@
 	if(!use_power) //need some juice to kickstart
 		use_power_oneoff(idle_power_usage*5)
 	update_use_power(!use_power)
-	queue_icon_update()
 
 /obj/machinery/shipsensors/Process()
 	if(use_power) //can't run in non-vacuum
@@ -188,9 +203,7 @@
 			toggle()
 		if(heat > critical_heat)
 			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_at(src, cardinal_only = TRUE)
 			take_damage(10, BURN)
 			toggle()
 		heat += idle_power_usage/15000

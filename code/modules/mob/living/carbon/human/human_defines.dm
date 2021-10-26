@@ -1,7 +1,7 @@
 /mob/living/carbon/human
 
-	var/h_style = "Bald"
-	var/f_style = "Shaved"
+	var/h_style = /decl/sprite_accessory/hair/bald
+	var/f_style = /decl/sprite_accessory/facial_hair/shaved
 
 	var/hair_colour =        COLOR_BLACK
 	var/facial_hair_colour = COLOR_BLACK
@@ -9,14 +9,11 @@
 	var/eye_colour =         COLOR_BLACK
 
 	var/skin_tone = 0  //Skin tone
-	var/skin_base = "" //Skin base
 
 	var/damage_multiplier = 1 //multiplies melee combat damage
-	var/icon_update = 1 //whether icon updating shall take place
 
 	var/lip_style = null	//no lipstick by default- arguably misleading, as it could be used for general makeup
 
-	var/age = 30		//Player's age (pure fluff)
 	var/b_type = "A+"	//Player's bloodtype
 
 	var/list/worn_underwear = list()
@@ -67,18 +64,12 @@
 
 	var/flash_protection = 0				// Total level of flash protection
 	var/equipment_tint_total = 0			// Total level of visualy impairing items
-	var/equipment_darkness_modifier			// Darkvision modifier from equipped items
+	var/equipment_darkness_modifier			// Darksight modifier from equipped items
 	var/equipment_vision_flags				// Extra vision flags from equipped items
 	var/equipment_see_invis					// Max see invibility level granted by equipped items
 	var/equipment_prescription				// Eye prescription granted by equipped items
 	var/equipment_light_protection
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
-
-	var/public_record = ""
-	var/med_record = ""
-	var/sec_record = ""
-	var/gen_record = ""
-	var/exploit_record = ""
 
 	var/datum/mil_branch/char_branch = null
 	var/datum/mil_rank/char_rank = null
@@ -94,8 +85,15 @@
 	var/became_older
 	var/became_younger
 
-	var/list/descriptors
+	var/list/appearance_descriptors
 
 	var/list/smell_cooldown
 
 	ai = /datum/ai/human
+
+/mob/living/carbon/human/proc/get_age()
+	. = LAZYACCESS(appearance_descriptors, "age") || 30
+
+/mob/living/carbon/human/proc/set_age(var/val)
+	var/datum/appearance_descriptor/age = LAZYACCESS(species.appearance_descriptors, "age")
+	LAZYSET(appearance_descriptors, "age", age.sanitize_value(val))

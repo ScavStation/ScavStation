@@ -24,6 +24,7 @@
 	var/apply_heat_capacity
 
 	var/build_type      // Unbuildable if not set. Must be /obj/item/stack.
+	var/build_material  // Unbuildable if object material var is not set to this.
 	var/build_cost = 1  // Stack units.
 	var/build_time = 0  // BYOND ticks.
 
@@ -32,6 +33,8 @@
 	var/remove_timer = 10
 	var/can_paint
 	var/can_engrave = TRUE
+
+	var/movement_delay
 
 	//How we smooth with other flooring
 	var/decal_layer = DECAL_LAYER
@@ -46,6 +49,9 @@
 	//How we smooth with space and openspace tiles
 	var/space_smooth = SMOOTH_ALL
 	//There are no lists for spaces
+	var/z_flags //same z flags used for turfs, i.e ZMIMIC_DEFAULT etc
+
+	var/height = 0
 
 /decl/flooring/proc/on_remove()
 	return
@@ -282,11 +288,12 @@
 
 /decl/flooring/reinforced
 	name = "reinforced floor"
-	desc = "Heavily reinforced with steel plating."
+	desc = "Heavily reinforced with a latticework on top of regular plating."
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "reinforced"
 	flags = TURF_REMOVE_WRENCH | TURF_ACID_IMMUNE
-	build_type = /obj/item/stack/material/steel
+	build_type = /obj/item/stack/material/sheet
+	build_material = /decl/material/solid/metal/steel
 	build_cost = 1
 	build_time = 30
 	apply_thermal_conductivity = 0.025
@@ -361,6 +368,28 @@
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_CROWBAR
 	color = "#00ffe1"
 
+/decl/flooring/glass
+	name = "glass flooring"
+	desc = "A window to the world outside. Or the world beneath your feet, rather."
+	icon = 'icons/turf/flooring/glass.dmi'
+	icon_base = "glass"
+	build_type = /obj/item/stack/material/pane
+	build_material = /decl/material/solid/glass
+	build_cost = 1
+	build_time = 30
+	damage_temperature = T100C
+	flags = TURF_REMOVE_CROWBAR | TURF_ACID_IMMUNE
+	can_engrave = FALSE
+	color = GLASS_COLOR
+	z_flags = ZM_MIMIC_DEFAULTS
+	footstep_type = /decl/footsteps/plating
+
+/decl/flooring/glass/boro
+	name = "borosilicate glass flooring"
+	build_material = /decl/material/solid/glass/borosilicate
+	color = GLASS_COLOR_SILICATE
+	damage_temperature = T0C + 4000
+
 /decl/flooring/snow
 	name = "snow"
 	desc = "Let it sno-ow... Let it snow..."
@@ -371,3 +400,16 @@
 	build_type = null
 	can_engrave = FALSE
 	footstep_type = /decl/footsteps/snow
+
+/decl/flooring/pool
+	name = "pool floor"
+	desc = "Sunken flooring designed to hold liquids."
+	icon = 'icons/turf/flooring/pool.dmi'
+	icon_base = "pool"
+	build_type = /obj/item/stack/tile/pool
+	flags = TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR
+	footstep_type = /decl/footsteps/tiles
+	floor_smooth = SMOOTH_NONE
+	wall_smooth = SMOOTH_NONE
+	space_smooth = SMOOTH_NONE
+	height = -FLUID_OVER_MOB_HEAD * 2

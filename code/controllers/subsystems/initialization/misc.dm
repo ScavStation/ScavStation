@@ -4,9 +4,14 @@ SUBSYSTEM_DEF(misc)
 	flags = SS_NO_FIRE
 
 /datum/controller/subsystem/misc/Initialize()
+
+#ifdef UNIT_TEST
+	config.generate_map = TRUE
+#endif
+
 	if(config.generate_map)
-		GLOB.using_map.perform_map_generation()
-	GLOB.using_map.build_exterior_atmosphere()
+		global.using_map.perform_map_generation()
+	global.using_map.build_exterior_atmosphere()
 
 	setupgenetics()
 

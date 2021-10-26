@@ -5,7 +5,7 @@
 		if (W==w_uniform) // will be torn
 			continue
 		drop_from_inventory(W)
-	regenerate_icons()
+	refresh_visible_overlays()
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(src)
 	set_status(STAT_STUN, 1)
 	icon = null
@@ -31,8 +31,8 @@
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	set_species(species.primitive_form)
-	dna.SetSEState(GLOB.MONKEYBLOCK,1)
-	dna.SetSEValueRange(GLOB.MONKEYBLOCK,0xDAC, 0xFFF)
+	dna.SetSEState(global.MONKEYBLOCK,1)
+	dna.SetSEValueRange(global.MONKEYBLOCK,0xDAC, 0xFFF)
 
 	to_chat(src, "<B>You are now [species.name]. </B>")
 	qdel(animation)
@@ -63,10 +63,10 @@
 
 /mob/proc/AIize(move=1)
 	if(client)
-		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = GLOB.lobby_sound_channel))// stop the jams for AIs
+		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = sound_channels.lobby_channel))// stop the jams for AIs
 
 
-	var/mob/living/silicon/ai/O = new (loc, GLOB.using_map.default_law_type,,1)//No MMI but safety is in effect.
+	var/mob/living/silicon/ai/O = new (loc, global.using_map.default_law_type,,1)//No MMI but safety is in effect.
 	O.set_invisibility(0)
 	O.aiRestorePowerRoutine = 0
 	if(mind)
@@ -77,21 +77,21 @@
 
 	if(move)
 		var/obj/loc_landmark
-		for(var/obj/effect/landmark/start/sloc in landmarks_list)
+		for(var/obj/effect/landmark/start/sloc in global.landmarks_list)
 			if (sloc.name != "AI")
 				continue
 			if (locate(/mob/living) in sloc.loc)
 				continue
 			loc_landmark = sloc
 		if (!loc_landmark)
-			for(var/obj/effect/landmark/tripai in landmarks_list)
+			for(var/obj/effect/landmark/tripai in global.landmarks_list)
 				if (tripai.name == "tripai")
 					if((locate(/mob/living) in tripai.loc) || (locate(/obj/structure/aicore) in tripai.loc))
 						continue
 					loc_landmark = tripai
 		if (!loc_landmark)
 			to_chat(O, "Oh god sorry we can't find an unoccupied AI spawn location, so we're spawning you on top of someone.")
-			for(var/obj/effect/landmark/start/sloc in landmarks_list)
+			for(var/obj/effect/landmark/start/sloc in global.landmarks_list)
 				if (sloc.name == "AI")
 					loc_landmark = sloc
 		O.forceMove(loc_landmark ? loc_landmark.loc : get_turf(src))
@@ -111,7 +111,7 @@
 	QDEL_NULL_LIST(worn_underwear)
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
-	regenerate_icons()
+	refresh_visible_overlays()
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(src)
 	icon = null
 	set_invisibility(101)
@@ -120,15 +120,15 @@
 
 	var/mob/living/silicon/robot/O = new supplied_robot_type( loc )
 
-	O.gender = gender
+	O.set_gender(gender)
 	O.set_invisibility(0)
 
 	if(!mind)
 		mind_initialize()
-		mind.assigned_role = "Robot"
+		mind.assigned_role = ASSIGNMENT_ROBOT
 	mind.active = TRUE
 	mind.transfer_to(O)
-	if(O.mind && O.mind.assigned_role == "Robot")
+	if(O.mind && O.mind.assigned_role == ASSIGNMENT_ROBOT)
 		O.mind.original = O
 		var/mmi_type = SSrobots.get_mmi_type_by_title(O.mind.role_alt_title ? O.mind.role_alt_title : O.mind.assigned_role)
 		if(mmi_type)
@@ -136,7 +136,7 @@
 			O.mmi.transfer_identity(src)
 
 	O.dropInto(loc)
-	O.job = "Robot"
+	O.job = ASSIGNMENT_ROBOT
 	callHook("borgify", list(O))
 	O.Namepick()
 
@@ -148,7 +148,7 @@
 		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
-	regenerate_icons()
+	refresh_visible_overlays()
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(src)
 	icon = null
 	set_invisibility(101)
@@ -177,7 +177,7 @@
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 
-	regenerate_icons()
+	refresh_visible_overlays()
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(src)
 	icon = null
 	set_invisibility(101)
@@ -273,14 +273,14 @@
 	log_admin("[key_name(src)] has transformed into a zombie!")
 	SET_STATUS_MAX(src, STAT_WEAK, 5)
 	if (should_have_organ(BP_HEART))
-		vessel.add_reagent(species.blood_reagent, species.blood_volume - vessel.total_volume)
+		adjust_blood(species.blood_volume - vessel.total_volume)
 	for (var/o in organs)
 		var/obj/item/organ/organ = o
 		organ.vital = 0
 		if (!BP_IS_PROSTHETIC(organ))
 			organ.rejuvenate(1)
 			organ.max_damage *= 3
-			organ.min_broken_damage = Floor(organ.max_damage * 0.75)
+			organ.min_broken_damage = FLOOR(organ.max_damage * 0.75)
 	verbs += /mob/living/proc/breath_death
 	verbs += /mob/living/proc/consume
 	playsound(get_turf(src), 'sound/hallucinations/wail.ogg', 20, 1)

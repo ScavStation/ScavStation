@@ -4,6 +4,11 @@
 	atom_flags = 0
 	simulated = 1
 	anchored = 1
+
+	pickup_sound = null
+	drop_sound =   null
+	equip_sound =  null
+
 	var/maintain_cost = 3
 	var/mob/living/owner
 
@@ -47,16 +52,5 @@
 /obj/item/psychic_power/Process()
 	if(istype(owner))
 		owner.psi.spend_power(maintain_cost)
-	if(!owner || owner.do_psionics_check(maintain_cost, owner) || loc != owner || !(src in owner.get_held_items()))
-		if(istype(loc,/mob/living))
-			var/mob/living/carbon/human/host = loc
-			if(istype(host))
-				for(var/obj/item/organ/external/organ in host.organs)
-					for(var/obj/item/O in organ.implants)
-						if(O == src)
-							organ.implants -= src
-			host.pinned -= src
-			host.embedded -= src
-			host.drop_from_inventory(src)
-		else
-			qdel(src)
+	if((!owner || owner.do_psionics_check(maintain_cost, owner) || loc != owner || !(src in owner.get_held_items())) && !QDELETED(src))
+		qdel(src)

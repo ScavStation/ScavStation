@@ -15,14 +15,14 @@
 		/obj/item/tracker_electronics,
 		/obj/item/stock_parts,
 		/obj/item/frame,
-		/obj/item/camera_assembly,
+		/obj/item/frame/camera/kit,
 		/obj/item/tank,
 		/obj/item/stock_parts/circuitboard,
 		/obj/item/stock_parts/smes_coil,
 		/obj/item/stock_parts/computer,
 		/obj/item/fuel_assembly,
-		/obj/item/stack/material/deuterium,
-		/obj/item/stack/material/tritium,
+		/obj/item/stack/material/aerogel/mapped/deuterium,
+		/obj/item/stack/material/aerogel/mapped/tritium,
 		/obj/item/stack/tile
 		)
 
@@ -85,7 +85,7 @@
 		/obj/item/stack/cable_coil,
 		/obj/item/stock_parts/circuitboard,
 		/obj/item/chems/glass,
-		/obj/item/chems/food/snacks/monkeycube,
+		/obj/item/chems/food/monkeycube,
 		/obj/item/stock_parts/computer,
 		/obj/item/transfer_valve,
 		/obj/item/assembly/signaler,
@@ -113,6 +113,8 @@
 	can_hold = list(
 		/obj/item/chems/glass,
 		/obj/item/chems/food,
+		/obj/item/chems/drinks,
+		/obj/item/chems/condiment,
 		/obj/item/seeds,
 		/obj/item/grown,
 		/obj/item/glass_extra
@@ -141,7 +143,7 @@
 
 	can_hold = list(
 		/obj/item/stack/material
-		)
+	)
 
 /obj/item/gripper/examine(mob/user)
 	. = ..()
@@ -383,7 +385,7 @@
 		else if(istype(W,/obj/item/shard))
 			if(glass)
 				glass.add_charge(1000)
-		else if(istype(W,/obj/item/chems/food/snacks/grown))
+		else if(istype(W,/obj/item/chems/food/grown))
 			if(wood)
 				wood.add_charge(4000)
 		else if(istype(W,/obj/item/pipe))

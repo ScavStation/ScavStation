@@ -1,15 +1,19 @@
+/decl/bodytype/baxxid
+	bodytype_category = BODYTYPE_BAXXID
+	bodytype_flag =     BODY_FLAG_BAXXID
+	damage_overlays =   'mods/valsalia/icons/species/baxxid/damage_overlay.dmi'
+	damage_mask =       'mods/valsalia/icons/species/baxxid/damage_mask.dmi'
+	blood_mask =        'mods/valsalia/icons/species/baxxid/blood_mask.dmi'
+	icon_template =     'mods/valsalia/icons/species/baxxid/template.dmi'
+	icon_base =         'mods/valsalia/icons/species/baxxid/body.dmi'
+	limb_blend = ICON_MULTIPLY
+
 /decl/species/baxxid
 	name = SPECIES_BAXXID
 	name_plural = SPECIES_BAXXID
-	bodytype = BODYTYPE_BAXXID
-	icobase =         'mods/valsalia/icons/species/baxxid/body.dmi'
-	deform =          'mods/valsalia/icons/species/baxxid/deformed_body.dmi'
-	preview_icon =    'mods/valsalia/icons/species/baxxid/preview.dmi'
-	damage_overlays = 'mods/valsalia/icons/species/baxxid/damage_overlay.dmi'
-	damage_mask =     'mods/valsalia/icons/species/baxxid/damage_mask.dmi'
-	blood_mask =      'mods/valsalia/icons/species/baxxid/blood_mask.dmi'
-	icon_template =   'mods/valsalia/icons/species/baxxid/template.dmi'
-
+	available_bodytypes = list(
+		/decl/bodytype/baxxid
+	)
 	manual_dexterity = DEXTERITY_KEYBOARDS
 	mob_size = MOB_SIZE_LARGE
 
@@ -19,7 +23,6 @@
 	)
 
 	hud_type = /datum/hud_data/baxxid
-	limb_blend = ICON_MULTIPLY
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
 	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
@@ -66,7 +69,7 @@
 /obj/item/organ/internal/eyes/baxxid
 	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
 
-/datum/sprite_accessory/marking/baxxid
+/decl/sprite_accessory/marking/baxxid
 	name = "Crest"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(SPECIES_BAXXID)
@@ -74,12 +77,12 @@
 	icon_state = "crest"
 	blend = ICON_MULTIPLY
 
-/datum/sprite_accessory/marking/baxxid/plates
+/decl/sprite_accessory/marking/baxxid/plates
 	name = "Armour Plates"
 	body_parts = list(BP_CHEST, BP_GROIN)
 	icon_state = "plates"
 
-/datum/sprite_accessory/marking/baxxid/bones
+/decl/sprite_accessory/marking/baxxid/bones
 	name = "Bony Segments"
 	body_parts = list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_R_FOOT, BP_L_FOOT)
 	icon_state = "bones"

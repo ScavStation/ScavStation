@@ -11,6 +11,7 @@
 	var/base_turf_for_zs = null
 	var/accessibility_weight = 0
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
+	var/modify_tag_vars = TRUE // Will modify tag vars so that duplicate templates are handled properly. May have compatibility issues with legacy maps (esp. with ferry shuttles).
 
 /datum/map_template/New(var/list/paths = null, var/rename = null)
 	if(paths && !islist(paths))
@@ -49,7 +50,7 @@
 	var/list/obj/structure/cable/cables = list()
 
 	for(var/atom/A in atoms)
-		if(istype(A, /turf))
+		if(isturf(A))
 			turfs += A
 		if(istype(A, /obj/structure/cable))
 			cables += A
@@ -57,7 +58,7 @@
 			atmos_machines += A
 		if(istype(A, /obj/machinery))
 			machines += A
-		if(istype(A,/obj/effect/landmark/map_load_mark))
+		if(istype(A, /obj/effect/landmark/map_load_mark))
 			LAZYADD(subtemplates_to_spawn, A)
 
 	var/notsuspended
@@ -91,9 +92,11 @@
 	. = SSshuttle.block_queue
 	SSshuttle.block_queue = TRUE
 
-/datum/map_template/proc/init_shuttles(var/pre_init_state)
+/datum/map_template/proc/init_shuttles(var/pre_init_state, var/map_hash, var/list/initialized_areas_by_type)
 	for (var/shuttle_type in shuttles_to_initialise)
-		LAZYADD(SSshuttle.shuttles_to_initialize, shuttle_type) // queue up for init.
+		LAZYSET(SSshuttle.shuttles_to_initialize, shuttle_type, map_hash) // queue up for init.
+	if(map_hash)
+		SSshuttle.map_hash_to_areas[map_hash] = initialized_areas_by_type
 	SSshuttle.block_queue = pre_init_state
 	SSshuttle.clear_init_queue() // We will flush the queue unless there were other blockers, in which case they will do it.
 
@@ -110,6 +113,10 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
+	var/map_hash = modify_tag_vars && "[sequential_id("map_id")]"
+	ASSERT(isnull(global._preloader.current_map_hash)) // Recursive maploading is possible, but not from this block: recursive loads should be triggered in Initialize, from init_atoms below.
+	global._preloader.current_map_hash = map_hash
+
 	var/initialized_areas_by_type = list()
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf, initialized_areas_by_type = initialized_areas_by_type)
@@ -119,19 +126,22 @@
 		else
 			return FALSE
 
+	global._preloader.current_map_hash = null
+
 	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
 		if (accessibility_weight)
-			GLOB.using_map.accessible_z_levels[num2text(z_index)] = accessibility_weight
+			global.using_map.accessible_z_levels[num2text(z_index)] = accessibility_weight
 		if (base_turf_for_zs)
-			GLOB.using_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
-		GLOB.using_map.player_levels |= z_index
+			global.using_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
+		global.using_map.player_levels |= z_index // TODO: make maps handle this with /obj/level_data
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
-	init_shuttles(shuttle_state)
+	init_shuttles(shuttle_state, map_hash, initialized_areas_by_type)
 	after_load(initial_z)
-	for(var/light_z = initial_z to world.maxz)
-		create_lighting_overlays_zlevel(light_z)
+	if (SSlighting.initialized)
+		for(var/light_z = initial_z to world.maxz)
+			SSlighting.InitializeZlev(light_z)
 	log_game("Z-level [name] loaded at [x],[y],[world.maxz]")
 	loaded++
 
@@ -150,6 +160,10 @@
 	var/list/atoms_to_initialise = list()
 	var/shuttle_state = pre_init_shuttles()
 
+	var/map_hash = modify_tag_vars && "[sequential_id("map_id")]"
+	ASSERT(isnull(global._preloader.current_map_hash))
+	global._preloader.current_map_hash = map_hash
+
 	var/initialized_areas_by_type = list()
 	for (var/mappath in mappaths)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, clear_contents=(template_flags & TEMPLATE_FLAG_CLEAR_CONTENTS), initialized_areas_by_type = initialized_areas_by_type)
@@ -158,25 +172,25 @@
 		else
 			return FALSE
 
+	global._preloader.current_map_hash = null
+
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
-	init_shuttles(shuttle_state)
+	init_shuttles(shuttle_state, map_hash, initialized_areas_by_type)
 	after_load(T.z)
-	SSlighting.InitializeTurfs(atoms_to_initialise)	// Hopefully no turfs get placed on new coords by SSatoms.
+	if (SSlighting.initialized)
+		SSlighting.InitializeTurfs(atoms_to_initialise)	// Hopefully no turfs get placed on new coords by SSatoms.
+
 	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
 	loaded++
 
 	return TRUE
 
 /datum/map_template/proc/after_load(z)
-	for(var/obj/effect/landmark/map_load_mark/mark in subtemplates_to_spawn)
+	for(var/obj/effect/landmark/map_load_mark/mark AS_ANYTHING in subtemplates_to_spawn)
 		subtemplates_to_spawn -= mark
-		if(LAZYLEN(mark.templates))
-			var/template = pick(mark.templates)
-			var/datum/map_template/M = new template()
-			M.load(get_turf(mark), TRUE)
-			qdel(mark)
-	LAZYCLEARLIST(subtemplates_to_spawn)
+		mark.load_template()
+	subtemplates_to_spawn = null
 
 /datum/map_template/proc/extend_bounds_if_needed(var/list/existing_bounds, var/list/new_bounds)
 	var/list/bounds_to_combine = existing_bounds.Copy()
@@ -185,7 +199,6 @@
 	for (var/max_bound in list(MAP_MAXX, MAP_MAXY, MAP_MAXZ))
 		bounds_to_combine[max_bound] = max(existing_bounds[max_bound], new_bounds[max_bound])
 	return bounds_to_combine
-
 
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
 	var/turf/placement = T

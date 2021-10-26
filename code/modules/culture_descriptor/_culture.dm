@@ -14,7 +14,9 @@
 	var/hidden_from_codex
 	var/list/qualifications
 
-/decl/cultural_info/New()
+/decl/cultural_info/Initialize()
+
+	. = ..()
 
 	if(!default_language)
 		default_language = language
@@ -37,8 +39,6 @@
 			secondary_langs -= additional_langs
 		UNSETEMPTY(secondary_langs)
 
-	..()
-
 /decl/cultural_info/proc/get_random_name(var/mob/M, var/gender)
 	var/decl/language/_language
 	if(name_language)
@@ -49,17 +49,17 @@
 		_language = GET_DECL(language)
 	if(_language)
 		return _language.get_random_name(gender)
-	return capitalize(pick(gender==FEMALE ? GLOB.first_names_female : GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
+	return capitalize(pick(gender==FEMALE ? global.first_names_female : global.first_names_male)) + " " + capitalize(pick(global.last_names))
 
 /decl/cultural_info/proc/sanitize_name(var/new_name)
 	return sanitizeName(new_name)
 
 /decl/cultural_info/proc/get_description(var/verbose = TRUE)
 	LAZYSET(., "details", jointext(get_text_details(), "<br>"))
-	if(verbose || length(get_text_body()) <= 50)
+	if(verbose || length(get_text_body()) <= 200)
 		LAZYSET(., "body", get_text_body())
 	else
-		LAZYSET(., "body", "[copytext(get_text_body(), 1, 44)] <small>\[...\]</small>")
+		LAZYSET(., "body", "[copytext(get_text_body(), 1, 194)] <small>\[...\]</small>")
 
 /decl/cultural_info/proc/get_text_body()
 	return description

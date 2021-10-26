@@ -83,13 +83,13 @@ This is /obj/machinery level code to properly manage power usage from the area.
 // Do not do power stuff in New/Initialize until after ..()
 /obj/machinery/Initialize()
 	REPORT_POWER_CONSUMPTION_CHANGE(0, get_power_usage())
-	GLOB.moved_event.register(src, src, .proc/update_power_on_move)
+	events_repository.register(/decl/observ/moved, src, src, .proc/update_power_on_move)
 	power_init_complete = TRUE
 	. = ..()
 
 // Or in Destroy at all, but especially after the ..().
 /obj/machinery/Destroy()
-	GLOB.moved_event.unregister(src, src, .proc/update_power_on_move)
+	events_repository.unregister(/decl/observ/moved, src, src, .proc/update_power_on_move)
 	REPORT_POWER_CONSUMPTION_CHANGE(get_power_usage(), 0)
 	. = ..()
 
@@ -120,6 +120,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	use_power = new_use_power
 	var/new_power = get_power_usage()
 	REPORT_POWER_CONSUMPTION_CHANGE(old_power, new_power)
+	queue_icon_update()
 
 /obj/machinery/proc/update_power_channel(new_channel)
 	if(power_channel == new_channel)

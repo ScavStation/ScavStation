@@ -7,6 +7,7 @@
 	icon_state = "base"
 	initialize_directions = 0
 	level = 1
+	var/core_icon
 
 	var/configuring = 0
 
@@ -14,6 +15,10 @@
 	var/tag_south = ATM_NONE
 	var/tag_east = ATM_NONE
 	var/tag_west = ATM_NONE
+	var/tag_filter_gas_north //These are GAS DECLS IDs. /decl/material/gas.
+	var/tag_filter_gas_south
+	var/tag_filter_gas_east
+	var/tag_filter_gas_west
 
 	var/overlays_on[5]
 	var/overlays_off[5]
@@ -37,26 +42,64 @@
 	frame_type = /obj/item/pipe
 
 /obj/machinery/atmospherics/omni/Initialize()
-	. = ..()
 	icon_state = "base"
 
 	ports = new()
-	for(var/d in GLOB.cardinal)
+	for(var/d in global.cardinal)
 		var/datum/omni_port/new_port = new(src, d)
 		switch(d)
 			if(NORTH)
 				new_port.mode = tag_north
+				if(new_port.mode == ATM_FILTER)
+					new_port.filtering = decls_repository.get_decl_by_id(tag_filter_gas_north)
+				if(tag_north >= 3 && tag_north < 8)
+					new_port.filtering = handle_legacy_gas_filtering(tag_north)
+					new_port.mode = ATM_FILTER
 			if(SOUTH)
 				new_port.mode = tag_south
+				if(new_port.mode == ATM_FILTER)
+					new_port.filtering = decls_repository.get_decl_by_id(tag_filter_gas_south)
+				if(tag_south >= 3 && tag_south < 8)
+					new_port.filtering = handle_legacy_gas_filtering(tag_south)
+					new_port.mode = ATM_FILTER
 			if(EAST)
 				new_port.mode = tag_east
+				if(new_port.mode == ATM_FILTER)
+					new_port.filtering = decls_repository.get_decl_by_id(tag_filter_gas_east)
+				if(tag_east >= 3 && tag_east < 8)
+					new_port.filtering = handle_legacy_gas_filtering(tag_east)
+					new_port.mode = ATM_FILTER
 			if(WEST)
 				new_port.mode = tag_west
-		if(new_port.mode > 0)
-			initialize_directions |= d
+				if(new_port.mode == ATM_FILTER)
+					new_port.filtering = decls_repository.get_decl_by_id(tag_filter_gas_west)
+				if(tag_west >= 3 && tag_west < 8)
+					new_port.filtering = handle_legacy_gas_filtering(tag_west)
+					new_port.mode = ATM_FILTER
 		ports += new_port
 
+	. = ..()
+
 	build_icons()
+
+/obj/machinery/atmospherics/omni/proc/handle_legacy_gas_filtering(var/input)
+	switch(input)
+		if(3)
+			. = /decl/material/gas/oxygen
+		if(4)
+			. = /decl/material/gas/nitrogen
+		if(5)
+			. = /decl/material/gas/carbon_dioxide
+		if(6)
+			. = /decl/material/gas/nitrous_oxide
+		if(7)
+			. = /decl/material/gas/hydrogen
+
+/obj/machinery/atmospherics/omni/get_initialize_directions()
+	. = 0
+	for(var/datum/omni_port/port in ports)
+		if(port.mode > 0)
+			. |= port.direction
 
 /obj/machinery/atmospherics/omni/on_update_icon()
 	if(stat & NOPOWER)
@@ -98,29 +141,15 @@
 	return TRUE
 
 /obj/machinery/atmospherics/omni/proc/build_icons()
-	if(!check_icon_cache())
-		return
-
-	var/core_icon = null
-	if(istype(src, /obj/machinery/atmospherics/omni/mixer))
-		core_icon = "mixer"
-	else if(istype(src, /obj/machinery/atmospherics/omni/filter))
-		core_icon = "filter"
-	else
-		return
-
 	//directional icons are layers 1-4, with the core icon on layer 5
 	if(core_icon)
-		overlays_off[5] = icon_manager.get_atmos_icon("omni", , , core_icon)
-		overlays_on[5] = icon_manager.get_atmos_icon("omni", , , core_icon + "_glow")
+		overlays_off[5] = core_icon
+		overlays_on[5] = "[core_icon]_glow"
 
-		overlays_error[1] = icon_manager.get_atmos_icon("omni", , , core_icon)
-		overlays_error[2] = icon_manager.get_atmos_icon("omni", , , "error")
+		overlays_error[1] = core_icon
+		overlays_error[2] = "error"
 
 /obj/machinery/atmospherics/omni/proc/update_port_icons()
-	if(!check_icon_cache())
-		return
-
 	for(var/datum/omni_port/P in ports)
 		if(P.update)
 			var/ref_layer = 0
@@ -139,7 +168,7 @@
 
 			var/list/port_icons = select_port_icons(P)
 			if(port_icons)
-				if(P.node)
+				if(LAZYLEN(P.nodes))
 					underlays_current[ref_layer] = port_icons["pipe_icon"]
 				else
 					underlays_current[ref_layer] = null
@@ -167,33 +196,28 @@
 			if(ATM_OUTPUT)
 				ic_on += "_out_glow"
 				ic_off += "_out"
-			if(ATM_O2 to ATM_H2)
+			if(ATM_FILTER)
 				ic_on += "_filter"
 				ic_off += "_out"
 
-		ic_on = icon_manager.get_atmos_icon("omni", , , ic_on)
-		ic_off = icon_manager.get_atmos_icon("omni", , , ic_off)
-
-		var/pipe_state
+		var/pipe_state_key
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && istype(P.node, /obj/machinery/atmospherics/pipe) && P.node.level == 1 )
-			//pipe_state = icon_manager.get_atmos_icon("underlay_down", P.direction, color_cache_name(P.node))
-			pipe_state = icon_manager.get_atmos_icon("underlay", P.direction, color_cache_name(P.node), "down")
+		var/obj/machinery/atmospherics/node = LAZYACCESS(P.nodes, 1)
+		if(!T.is_plating() && istype(node, /obj/machinery/atmospherics/pipe) && node.level == 1 )
+			pipe_state_key = "down"
 		else
-			//pipe_state = icon_manager.get_atmos_icon("underlay_intact", P.direction, color_cache_name(P.node))
-			pipe_state = icon_manager.get_atmos_icon("underlay", P.direction, color_cache_name(P.node), "intact")
+			pipe_state_key = "intact"
+		var/image/pipe_state = image('icons/atmos/pipe_underlays.dmi', pipe_state_key, dir = P.direction)
+		pipe_state.color = color_cache_name(node)
 
 		return list("on_icon" = ic_on, "off_icon" = ic_off, "pipe_icon" = pipe_state)
 
-/obj/machinery/atmospherics/omni/update_underlays()
+/obj/machinery/atmospherics/omni/hide(var/i)
 	for(var/datum/omni_port/P in ports)
 		P.update = 1
 	update_ports()
-
-/obj/machinery/atmospherics/omni/hide(var/i)
-	update_underlays()
 
 /obj/machinery/atmospherics/omni/proc/update_ports()
 	sort_ports()
@@ -209,31 +233,33 @@
 
 /obj/machinery/atmospherics/omni/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	for(var/datum/omni_port/P in ports)
-		if((reference == P.node) && (new_network != P.network))
+		if((reference in P.nodes) && (new_network != P.network))
 			qdel(P.network)
 			P.network = new_network
+			for(var/obj/machinery/atmospherics/node AS_ANYTHING in P.nodes)
+				if(node != reference)
+					node.network_expand(new_network, src)
 
 	new_network.normal_members |= src
 
 /obj/machinery/atmospherics/omni/Destroy()
-	for(var/datum/omni_port/P in ports)
-		if(P.node)
-			P.node.disconnect(src)
-			qdel(P.network)
-			P.node = null
-
+	QDEL_NULL_LIST(ports)
 	return ..()
 
 /obj/machinery/atmospherics/omni/atmos_init()
-	..()
+	atmos_initalized = TRUE
+	nodes_to_networks = null
 	for(var/datum/omni_port/P in ports)
-		if(P.node || P.mode == 0)
+		P.nodes = null
+		QDEL_NULL(P.network)
+		if(P.mode == 0)
 			continue
+		
 		for(var/obj/machinery/atmospherics/target in get_step(src, P.direction))
 			if(target.initialize_directions & get_dir(target,src))
 				if (check_connect_types(target,src))
-					P.node = target
-					break
+					LAZYDISTINCTADD(P.nodes, target)
+					LAZYDISTINCTADD(nodes_to_networks, target) // we don't fully track networks here, but we do keep a list of nodes in order to share code
 
 	for(var/datum/omni_port/P in ports)
 		P.update = 1
@@ -242,16 +268,16 @@
 
 /obj/machinery/atmospherics/omni/build_network()
 	for(var/datum/omni_port/P in ports)
-		if(!P.network && P.node)
+		if(!P.network && LAZYLEN(P.nodes))
 			P.network = new /datum/pipe_network()
 			P.network.normal_members += src
-			P.network.build_network(P.node, src)
+			P.network.build_network(P.nodes[1], src)
 
 /obj/machinery/atmospherics/omni/return_network(obj/machinery/atmospherics/reference)
 	build_network()
 
 	for(var/datum/omni_port/P in ports)
-		if(reference == P.node)
+		if(reference in P.nodes)
 			return P.network
 
 	return null
@@ -274,12 +300,10 @@
 
 /obj/machinery/atmospherics/omni/disconnect(obj/machinery/atmospherics/reference)
 	for(var/datum/omni_port/P in ports)
-		if(reference == P.node)
-			qdel(P.network)
-			P.node = null
+		if(reference in P.nodes)
+			QDEL_NULL(P.network)
+			LAZYREMOVE(P.nodes, reference)
 			P.update = 1
-			break
 
+	LAZYREMOVE(nodes_to_networks, reference)
 	update_ports()
-
-	return null

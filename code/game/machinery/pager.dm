@@ -3,15 +3,18 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "doorbell"
 	desc = "A button used to request the presence of anyone in the department."
-	anchored = 1
+	anchored = TRUE
+	density = FALSE
 	idle_power_usage = 2
 	var/location
 	var/last_paged
 	var/acknowledged = FALSE
-	var/department = /decl/department/command
+	var/department
 
 /obj/machinery/network/pager/Initialize()
 	. = ..()
+	if(!department)
+		department = SSjobs.departments_by_type[1]
 	if(!location)
 		var/area/A = get_area(src)
 		location = A.name
@@ -20,7 +23,7 @@
 	return attack_hand(user)
 
 /obj/machinery/network/pager/interface_interact(mob/living/user)
-	if(!CanInteract(user, GLOB.default_state))
+	if(!CanInteract(user, global.default_topic_state))
 		return FALSE
 	playsound(src, "button", 60)
 	flick("doorbellpressed",src)
@@ -57,18 +60,3 @@
 		if(!MS)
 			return
 		MS.send_to_department(department,"Page to <b>[location]</b> was acknowledged.", "*ack*")
-
-/obj/machinery/network/pager/medical
-	department = /decl/department/medical
-
-/obj/machinery/network/pager/cargo 
-	department = /decl/department/supply
-
-/obj/machinery/network/pager/security 
-	department = /decl/department/security
-
-/obj/machinery/network/pager/science
-	department = /decl/department/science
-
-/obj/machinery/network/pager/engineering
-	department = /decl/department/engineering

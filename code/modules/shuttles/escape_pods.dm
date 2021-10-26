@@ -1,20 +1,23 @@
-var/list/escape_pods = list()
-var/list/escape_pods_by_name = list()
+var/global/list/escape_pods = list()
+var/global/list/escape_pods_by_name = list()
 
 /datum/shuttle/autodock/ferry/escape_pod
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod_berth/arming_controller
 	category = /datum/shuttle/autodock/ferry/escape_pod
 	move_time = 100
 
-/datum/shuttle/autodock/ferry/escape_pod/New()
+/datum/shuttle/autodock/ferry/escape_pod/New(map_hash)
+	..()
+	if(map_hash)
+		ADJUST_TAG_VAR(arming_controller, map_hash) // Unclear how functional this is with lateloaded maps; adjusting for consistency.
+	if(!SSevac.evacuation_controller)
+		PRINT_STACK_TRACE("This pod should not be used on any map with no evacuation controller, which includes this one.")
 	if(name in escape_pods_by_name)
 		CRASH("An escape pod with the name '[name]' has already been defined.")
 	move_time = SSevac.evacuation_controller.evac_transit_delay + rand(-30, 60)
 	escape_pods_by_name[name] = src
 	escape_pods += src
 	move_time = round(SSevac.evacuation_controller.evac_transit_delay/10)
-
-	..()
 
 	//find the arming controller (berth)
 	var/arming_controller_tag = arming_controller
@@ -62,7 +65,7 @@ var/list/escape_pods_by_name = list()
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
-		"can_force" = pod.can_force() || (SSevac.evacuation_controller.has_evacuated() && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
+		"can_force" = pod.can_force() || (SSevac.evacuation_controller?.has_evacuated() && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
 		"is_armed" = pod.arming_controller.armed,
 	)
 
@@ -82,7 +85,7 @@ var/list/escape_pods_by_name = list()
 	if(href_list["command"] == "force_launch")
 		if (pod.can_force())
 			pod.force_launch(src)
-		else if (SSevac.evacuation_controller.has_evacuated() && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
+		else if (SSevac.evacuation_controller?.has_evacuated() && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
 			pod.launch(src)
 		return TOPIC_REFRESH
 

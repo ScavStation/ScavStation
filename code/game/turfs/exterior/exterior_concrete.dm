@@ -1,10 +1,10 @@
-var/exterior_burned_states = icon_states('icons/turf/exterior/burned.dmi')
+var/global/exterior_burned_states = icon_states('icons/turf/exterior/burned.dmi')
 /turf/exterior/concrete/proc/set_burned(var/skip_update)
 	burned = pick(global.exterior_burned_states)
 	if(!skip_update)
 		queue_icon_update()
 
-var/exterior_broken_states = icon_states('icons/turf/exterior/broken.dmi')
+var/global/exterior_broken_states = icon_states('icons/turf/exterior/broken.dmi')
 /turf/exterior/concrete/proc/set_broken(var/skip_update)
 	broken = pick(global.exterior_broken_states)
 	if(!skip_update)
@@ -17,6 +17,10 @@ var/exterior_broken_states = icon_states('icons/turf/exterior/broken.dmi')
 	diggable = FALSE
 	var/broken 
 	var/burned
+
+/turf/exterior/concrete/flooded
+	flooded = TRUE
+	color = COLOR_OCEAN
 
 /turf/exterior/concrete/Initialize(var/ml)
 	if(broken)

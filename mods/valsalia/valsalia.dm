@@ -2,6 +2,11 @@
 #define SPECIES_INDREL           "Indrel"
 #define SPECIES_YINGLET          "Yinglet"
 #define IS_YINGLET               "yinglet"
+
+#define BODY_FLAG_YINGLET        BITFLAG(10)
+#define BODY_FLAG_BAXXID         BITFLAG(11)
+#define BODY_FLAG_INDREL         BITFLAG(12)
+
 #define BODYTYPE_YINGLET         "yinglet body"
 #define BODYTYPE_BAXXID          "baxxid body"
 #define BODYTYPE_INDREL          "indrel body"

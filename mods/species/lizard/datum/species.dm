@@ -1,19 +1,25 @@
+/datum/appearance_descriptor/age/lizard
+	standalone_value_descriptors = list(
+		"an infant" =       1,
+		"a toddler" =       3,
+		"a child" =         7,
+		"an adolescent" =  13,
+		"a young adult" =  18,
+		"an adult" =       25,
+		"middle-aged" =    50,
+		"aging" =         150,
+		"elderly" =       260
+	)
+
 /decl/species/lizard
 	name = SPECIES_LIZARD
 	name_plural = SPECIES_LIZARD
-
-	bodytype = BODYTYPE_HUMANOID
-
-	icobase = 'mods/species/lizard/icons/body.dmi'
-	deform =  'mods/species/lizard/icons/deformed_body.dmi'
-	bandages_icon = 'icons/mob/bandage.dmi'
-	husk_icon = 'mods/species/lizard/icons/husk.dmi'
-	preview_icon = 'mods/species/lizard/icons/preview.dmi'
-	tail_animation = 'mods/species/lizard/icons/tail.dmi'
-	tail = "sogtail"
-
 	skin_material = /decl/material/solid/skin/lizard
 
+	available_bodytypes = list(
+		/decl/bodytype/lizard,
+		/decl/bodytype/lizard/masculine
+	)
 	unarmed_attacks = list(
 		/decl/natural_attack/stomp,
 		/decl/natural_attack/tail,
@@ -24,7 +30,6 @@
 
 	primitive_form = "Stok"
 	darksight_range = 3
-	darksight_tint = DARKTINT_MODERATE
 	gluttonous = GLUT_TINY
 	strength = STR_HIGH
 	breath_pressure = 18
@@ -33,11 +38,9 @@
 	flash_mod = 1.2
 	blood_volume = 800
 
-	health_hud_intensity = 2
 	hunger_factor = DEFAULT_HUNGER_FACTOR * 2
 
-	min_age = 18
-	max_age = 260
+	age_descriptor = /datum/appearance_descriptor/age/lizard
 
 	body_temperature = null // cold-blooded, implemented the same way nabbers do it
 
@@ -85,9 +88,11 @@
 		BP_BRAIN = /obj/item/organ/internal/brain/lizard
 	)
 
-	descriptors = list(
-		/datum/mob_descriptor/height = 2,
-		/datum/mob_descriptor/build = 2
+	override_limb_types = list(BP_TAIL = /obj/item/organ/external/tail/lizard)
+
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height = 1.25,
+		/datum/appearance_descriptor/build =  1.25
 		)
 
 	default_emotes = list(
@@ -108,7 +113,7 @@
 
 	exertion_effect_chance = 10
 	exertion_hydration_scale = 1
-	exertion_reagent_scale = 5
+	exertion_reagent_scale = 1
 	exertion_reagent_path = /decl/material/liquid/lactate
 	exertion_emotes_biological = list(
 		/decl/emote/exertion/biological,
@@ -116,8 +121,8 @@
 		/decl/emote/exertion/biological/pant
 	)
 
-/decl/species/lizard/New()
-	..()
+/decl/species/lizard/Initialize()
+	. = ..()
 	LAZYINITLIST(available_cultural_info)
 	LAZYDISTINCTADD(available_cultural_info[TAG_CULTURE], /decl/cultural_info/culture/lizard)
 	LAZYSET(default_cultural_info, TAG_CULTURE, /decl/cultural_info/culture/lizard)

@@ -62,25 +62,27 @@
 		if(uniform.rolled_sleeves && hide_on_uniform_rollsleeves)
 			return FALSE
 
-/obj/item/clothing/accessory/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/ret = ..()
-	if(ret && istype(loc, /obj/item/clothing/under))
-		var/new_state = ret.icon_state
+/obj/item/clothing/accessory/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && istype(loc, /obj/item/clothing/under))
+		var/new_state = overlay.icon_state
 		var/obj/item/clothing/under/uniform = loc
 		if(uniform.rolled_down)
 			new_state = "[new_state]-rolled"
 		else if(uniform.rolled_sleeves)
 			new_state = "[new_state]-sleeves"
-		if(check_state_in_icon(ret.icon, new_state))
-			ret.icon_state = new_state
-	return ret
+		if(check_state_in_icon(overlay.icon, new_state))
+			overlay.icon_state = new_state
+	. = ..()
 
-/obj/item/clothing/accessory/proc/get_inv_overlay()
-	var/overlay_state = "[get_world_inventory_state()]-attached"
-	if(check_state_in_icon(overlay_state, icon))
-		var/image/I = image(icon, overlay_state)
-		I.appearance_flags |= RESET_COLOR
-		return I
+/obj/item/clothing/accessory/proc/get_attached_overlay_state()
+	return "attached"
+
+/obj/item/clothing/accessory/proc/get_attached_inventory_overlay(var/base_state)
+	var/find_state = "[base_state]-[get_attached_overlay_state()]"
+	if(find_state && check_state_in_icon(find_state, icon))
+		var/image/ret = image(icon, find_state)
+		ret.color = color
+		return ret
 
 /obj/item/clothing/accessory/OnDisguise(obj/item/copy, mob/user)
 	. = ..()
@@ -116,9 +118,3 @@
 	name = "bracelet"
 	desc = "A simple bracelet with a clasp."
 	icon = 'icons/clothing/accessories/jewelry/bracelet.dmi'
-
-/obj/item/clothing/accessory/ftupin
-	name = "\improper Free Trade Union pin"
-	desc = "A pin denoting employment in the Free Trade Union, a trading company."
-	icon = 'icons/clothing/accessories/jewelry/ftupin.dmi'
-	high_visibility = 1

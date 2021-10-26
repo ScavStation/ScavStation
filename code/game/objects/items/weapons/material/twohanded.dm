@@ -21,6 +21,9 @@
 	slot_flags = SLOT_BACK
 	icon_state = ICON_STATE_WORLD
 
+	pickup_sound = 'sound/foley/scrape1.ogg' 
+	drop_sound = 'sound/foley/tooldrop1.ogg'
+
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
@@ -60,11 +63,10 @@
 	if(wielded)
 		. += wielded_parry_bonus
 
-/obj/item/twohanded/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/I = ..()
-	if(I && wielded && (slot in list(BP_L_HAND, BP_R_HAND)))
-		I.icon_state = "[I.icon_state]-wielded"
-	return I
+/obj/item/twohanded/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && wielded && (slot in list(BP_L_HAND, BP_R_HAND)))
+		overlay.icon_state = "[overlay.icon_state]-wielded"
+	. = ..()
 
 /*
  * Fireaxe
@@ -83,6 +85,10 @@
 	applies_material_colour = FALSE
 	applies_material_name = TRUE
 
+/obj/item/twohanded/fireaxe/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/tool, list(TOOL_HATCHET = TOOL_QUALITY_DEFAULT))
+
 /obj/item/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	..()
@@ -95,9 +101,6 @@
 		else if(istype(A,/obj/effect/vine))
 			var/obj/effect/vine/P = A
 			P.die_off()
-
-/obj/item/twohanded/fireaxe/ishatchet()
-	return TRUE
 
 //spears, bay edition
 /obj/item/twohanded/spear
@@ -120,7 +123,7 @@
 
 /obj/item/twohanded/spear/shatter(var/consumed)
 	if(!consumed)
-		new /obj/item/stack/material/rods(get_turf(src), 1, shaft_material)
+		SSmaterials.create_object(shaft_material, get_turf(src), 1, /obj/item/stack/material/rods)
 		new /obj/item/stack/cable_coil(get_turf(src), 3, cable_color)
 	..()
 
@@ -132,14 +135,13 @@
 	overlays += get_shaft_overlay("shaft")
 	overlays += mutable_appearance(icon, "cable", cable_color)
 
-/obj/item/twohanded/spear/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/ret = ..()
-	if(ret)
-		if(check_state_in_icon("[ret.icon_state]-shaft", ret.icon))
-			ret.overlays += get_shaft_overlay("[ret.icon_state]-shaft")
-		if(check_state_in_icon("[ret.icon_state]-cable", ret.icon))
-			ret.overlays += mutable_appearance(icon, "[ret.icon_state]-cable", cable_color)
-	return ret
+/obj/item/twohanded/spear/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay)
+		if(check_state_in_icon("[overlay.icon_state]-shaft", overlay.icon))
+			overlay.overlays += get_shaft_overlay("[overlay.icon_state]-shaft")
+		if(check_state_in_icon("[overlay.icon_state]-cable", overlay.icon))
+			overlay.overlays += mutable_appearance(icon, "[overlay.icon_state]-cable", cable_color)
+	. = ..()
 
 /obj/item/twohanded/spear/proc/get_shaft_overlay(var/base_state)
 	var/decl/material/M = GET_DECL(shaft_material)
@@ -207,8 +209,10 @@
 	applies_material_name = TRUE
 	w_class = ITEM_SIZE_NO_CONTAINER
 
-/obj/item/twohanded/pipewrench/iswrench()
-	return wielded
+/obj/item/twohanded/pipewrench/get_tool_quality(archetype)
+	if(wielded && archetype == TOOL_WRENCH)
+		return ..()
+	return 0
 
 /obj/item/twohanded/pipewrench/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) 

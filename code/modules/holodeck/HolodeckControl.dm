@@ -27,10 +27,10 @@
 /obj/machinery/computer/HolodeckControl/Initialize()
 	. = ..()
 	linkedholodeck = locate(linkedholodeck_area)
-	if (programs_list_id in GLOB.using_map.holodeck_supported_programs)
-		supported_programs |= GLOB.using_map.holodeck_supported_programs[programs_list_id]
-	if (programs_list_id in GLOB.using_map.holodeck_restricted_programs)
-		restricted_programs |= GLOB.using_map.holodeck_restricted_programs[programs_list_id]
+	if (programs_list_id in global.using_map.holodeck_supported_programs)
+		supported_programs |= global.using_map.holodeck_supported_programs[programs_list_id]
+	if (programs_list_id in global.using_map.holodeck_restricted_programs)
+		restricted_programs |= global.using_map.holodeck_restricted_programs[programs_list_id]
 
 /obj/machinery/computer/HolodeckControl/interface_interact(var/mob/user)
 	interact(user)
@@ -104,13 +104,13 @@
 /obj/machinery/computer/HolodeckControl/Topic(href, href_list)
 	if(..())
 		return 1
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if((usr.contents.Find(src) || (in_range(src, usr) && isturf(src.loc))) || (istype(usr, /mob/living/silicon)))
 		usr.set_machine(src)
 
 		if(href_list["program"])
 			var/prog = href_list["program"]
-			if(prog in GLOB.using_map.holodeck_programs)
-				loadProgram(GLOB.using_map.holodeck_programs[prog])
+			if(prog in global.using_map.holodeck_programs)
+				loadProgram(global.using_map.holodeck_programs[prog])
 
 		else if(href_list["AIoverride"])
 			if(!issilicon(usr))
@@ -144,7 +144,7 @@
 		safety_disabled = 1
 		update_projections()
 		to_chat(user, "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>")
-		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [GLOB.using_map.company_name] maintenance and do not use the simulator.")
+		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [global.using_map.company_name] maintenance and do not use the simulator.")
 		log_game("[key_name(usr)] emagged the Holodeck Control Computer")
 		src.updateUsrDialog()
 		return 1
@@ -198,7 +198,7 @@
 
 		if(!checkInteg(linkedholodeck))
 			damaged = 1
-			loadProgram(GLOB.using_map.holodeck_programs["turnoff"], 0)
+			loadProgram(global.using_map.holodeck_programs["turnoff"], 0)
 			active = 0
 			update_use_power(POWER_USE_IDLE)
 			for(var/mob/M in range(10,src))
@@ -207,9 +207,7 @@
 
 			for(var/turf/T in linkedholodeck)
 				if(prob(30))
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(2, 1, T)
-					s.start()
+					spark_at(T, amount=2, cardinal_only = TRUE)
 				T.explosion_act(3)
 				T.hotspot_expose(1000,500,1)
 
@@ -234,9 +232,9 @@
 //Why is it called toggle if it doesn't toggle?
 /obj/machinery/computer/HolodeckControl/proc/togglePower(var/toggleOn = 0)
 	if(toggleOn)
-		loadProgram(GLOB.using_map.holodeck_programs["emptycourt"], 0)
+		loadProgram(global.using_map.holodeck_programs["emptycourt"], 0)
 	else
-		loadProgram(GLOB.using_map.holodeck_programs["turnoff"], 0)
+		loadProgram(global.using_map.holodeck_programs["turnoff"], 0)
 
 		if(!linkedholodeck.has_gravity)
 			linkedholodeck.gravitychange(1)
@@ -296,9 +294,7 @@
 			if(L.name=="Atmospheric Test Start")
 				spawn(20)
 					var/turf/T = get_turf(L)
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-					s.set_up(2, 1, T)
-					s.start()
+					spark_at(T, amount=2, cardinal_only = TRUE)
 					if(T)
 						T.temperature = 5000
 						T.hotspot_expose(50000,50000,1)
@@ -332,7 +328,7 @@
 
 /obj/machinery/computer/HolodeckControl/proc/emergencyShutdown()
 	//Turn it back to the regular non-holographic room
-	loadProgram(GLOB.using_map.holodeck_programs["turnoff"], 0)
+	loadProgram(global.using_map.holodeck_programs["turnoff"], 0)
 
 	if(!linkedholodeck.has_gravity)
 		linkedholodeck.gravitychange(1,linkedholodeck)

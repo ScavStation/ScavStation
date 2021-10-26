@@ -1,4 +1,4 @@
-var/list/junk_piles
+var/global/list/junk_piles = list()
 
 /obj/item/trash/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/trash) && isturf(loc))
@@ -27,7 +27,7 @@ var/list/junk_piles
 	max_initial_junk = 5
 
 /obj/structure/junkpile/Destroy()
-	LAZYREMOVE(global.junk_piles, src)
+	global.junk_piles -= src
 	for(var/atom/movable/thing in contents)
 		if(isturf(loc))
 			thing.forceMove(loc)
@@ -37,7 +37,7 @@ var/list/junk_piles
 
 /obj/structure/junkpile/Initialize(ml)
 	. = ..(ml)
-	LAZYADD(global.junk_piles, src)
+	global.junk_piles += src
 	if(min_initial_junk > 0)
 		for(var/i = 1 to rand(min_initial_junk, max_initial_junk))
 			var/jtype = get_random_junk_type()

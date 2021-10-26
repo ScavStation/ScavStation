@@ -16,32 +16,6 @@
 	message_admins("[key_name_admin(usr)] made [key_name_admin(M)] drop everything!", 1)
 	SSstatistics.add_field_details("admin_verb","DEVR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_prison(mob/M as mob in SSmobs.mob_list)
-	set category = "Admin"
-	set name = "Prison"
-	if(!holder)
-		to_chat(src, "Only administrators may use this command.")
-		return
-	if (ismob(M))
-		if(istype(M, /mob/living/silicon/ai))
-			alert("The AI can't be sent to prison you jerk!", null, null, null, null, null)
-			return
-		//strip their stuff before they teleport into a cell :downs:
-		for(var/obj/item/W in M)
-			M.drop_from_inventory(W)
-		//teleport person to cell
-		SET_STATUS_MAX(M, STAT_PARA, 5)
-		sleep(5)	//so they black out before warping
-		M.forceMove(pick(GLOB.prisonwarp))
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/prisoner = M
-			prisoner.equip_to_slot_or_del(new /obj/item/clothing/under/color/orange(prisoner), slot_w_uniform_str)
-			prisoner.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/orange(prisoner), slot_shoes_str)
-		spawn(50)
-			to_chat(M, "<span class='warning'>You have been sent to the prison station!</span>")
-		log_and_message_admins("sent [key_name_admin(M)] to the prison station.")
-		SSstatistics.add_field_details("admin_verb","PRISON") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 /client/proc/cmd_check_new_players()	//Allows admins to determine who the newer players are.
 	set category = "Admin"
 	set name = "Check new Players"
@@ -58,7 +32,7 @@
 	var/missing_ages = 0
 	var/msg = ""
 
-	for(var/client/C in GLOB.clients)
+	for(var/client/C in global.clients)
 		if(C.player_age == "Requires database")
 			missing_ages = 1
 			continue
@@ -324,7 +298,7 @@ Ccomp's first proc.
 
 	var/list/mobs = list()
 	var/list/ghosts = list()
-	var/list/sortmob = sortAtom(SSmobs.mob_list)                           // get the mob list.
+	var/list/sortmob = sortTim(SSmobs.mob_list, /proc/cmp_name_asc) // get the mob list.
 	var/any=0
 	for(var/mob/observer/ghost/M in sortmob)
 		mobs.Add(M)                                             //filter it where it's only ghosts
@@ -346,7 +320,7 @@ Ccomp's first proc.
 	. = list()
 	for(var/mob/observer/ghost/M in SSmobs.mob_list)
 		.[M.ckey] = M
-	. = sortAssoc(.)
+	. = sortTim(., /proc/cmp_text_asc)
 
 /client/proc/allow_character_respawn(var/selection in get_ghosts_by_key())
 	set category = "Special Verbs"
@@ -457,7 +431,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	var/mob/observer/ghost/G_found
-	for(var/mob/observer/ghost/G in GLOB.player_list)
+	for(var/mob/observer/ghost/G in global.player_list)
 		if(G.ckey == input)
 			G_found = G
 			break
@@ -466,7 +440,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		to_chat(usr, "<font color='red'>There is no active key like that in the game or the person is not currently a ghost.</font>")
 		return
 
-	var/mob/living/carbon/human/new_character = new(pick(GLOB.latejoin))//The mob being spawned.
+	var/mob/living/carbon/human/new_character = new(pick(global.latejoin_locations))//The mob being spawned.
 
 	var/datum/computer_file/report/crew_record/record_found			//Referenced to later to either randomize or not randomize the character.
 	if(G_found.mind && !G_found.mind.active)
@@ -474,11 +448,11 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(record_found)//If they have a record we can determine a few things.
 		new_character.real_name = record_found.get_name()
-		new_character.gender = record_found.get_sex()
-		new_character.age = record_found.get_age()
+		new_character.set_gender(record_found.get_sex())
+		new_character.set_age(record_found.get_age())
 		new_character.b_type = record_found.get_bloodtype()
 	else
-		new_character.gender = pick(MALE,FEMALE)
+		new_character.set_gender(pick(MALE,FEMALE))
 		var/datum/preferences/A = new()
 		A.setup()
 		A.randomize_appearance_and_body_for(new_character)
@@ -486,9 +460,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(!new_character.real_name)
 		if(new_character.gender == MALE)
-			new_character.real_name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
+			new_character.real_name = capitalize(pick(global.first_names_male)) + " " + capitalize(pick(global.last_names))
 		else
-			new_character.real_name = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
+			new_character.real_name = capitalize(pick(global.first_names_female)) + " " + capitalize(pick(global.last_names))
 	new_character.SetName(new_character.real_name)
 
 	if(G_found.mind && !G_found.mind.active)
@@ -496,7 +470,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.mind.special_verbs = list()
 	else
 		new_character.mind_initialize()
-	if(!new_character.mind.assigned_role)	new_character.mind.assigned_role = GLOB.using_map.default_assistant_title//If they somehow got a null assigned role.
+	if(!new_character.mind.assigned_role)
+		new_character.mind.assigned_role = global.using_map.default_job_title//If they somehow got a null assigned role.
 
 	//DNA
 	new_character.dna.ready_dna(new_character)
@@ -601,9 +576,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce(input, customname, new_sound = GLOB.using_map.command_report_sound, msg_sanitized = 1);
+			command_announcement.Announce(input, customname, new_sound = global.using_map.command_report_sound, msg_sanitized = 1);
 		if("No")
-			minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
+			minor_announcement.Announce(message = "New [global.using_map.company_name] Update available at all communication consoles.")
 
 	log_admin("[key_name(src)] has created a command report: [input]")
 	message_admins("[key_name_admin(src)] has created a command report", 1)
@@ -825,8 +800,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		to_chat(usr, "Nope you can't do this, the game's already started. This only works before rounds!")
 		return
 
-	if(GLOB.random_players)
-		GLOB.random_players = 0
+	if(global.random_players)
+		global.random_players = 0
 		message_admins("Admin [key_name_admin(usr)] has disabled \"Everyone is Special\" mode.", 1)
 		to_chat(usr, "Disabled.")
 		return
@@ -843,7 +818,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		to_world("<span class='notice'><b>Admin [usr.key] has forced the players to have completely random identities!</b></span>")
 
 	to_chat(usr, "<i>Remember: you can always disable the randomness by using the verb again, assuming the round hasn't started yet</i>.")
-	GLOB.random_players = 1
+	global.random_players = 1
 	SSstatistics.add_field_details("admin_verb","MER") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 

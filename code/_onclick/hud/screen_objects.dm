@@ -155,6 +155,8 @@
 					new_selecting = BP_R_LEG
 				if(17 to 22)
 					new_selecting = BP_L_LEG
+				if(23 to 28)
+					new_selecting = BP_TAIL
 				else
 					return 1
 		if(10 to 13) //Hands and groin
@@ -367,5 +369,6 @@
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /obj/screen/setup_preview/bg/Click(params)
-	pref?.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
-	pref?.update_preview_icon()
+	if(pref)
+		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
+		pref.update_preview_icon()

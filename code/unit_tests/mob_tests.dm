@@ -61,7 +61,7 @@
 
 // ============================================================================
 
-/var/default_mobloc = null
+var/global/default_mobloc = null
 
 /proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human)
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
@@ -264,7 +264,7 @@
 // ==============================================================================
 
 /datum/unit_test/robot_module_icons
-	name = "MOB: Robot module icon check"
+	name = "MOB: Robot Modules Shall Have UI Icons"
 	var/icon_file = 'icons/mob/screen1_robot.dmi'
 
 /datum/unit_test/robot_module_icons/start_test()
@@ -295,55 +295,6 @@
 #undef IMMUNE
 #undef SUCCESS
 #undef FAILURE
-
-/datum/unit_test/species_base_skin
-	name = "MOB: Species base skin presence"
-//	async = 1
-	var/failcount = 0
-
-/datum/unit_test/species_base_skin/start_test()
-	for(var/species_name in get_all_species())
-		var/decl/species/S = get_species_by_key(species_name)
-		if(S.base_skin_colours)
-			if(!(S.appearance_flags & HAS_BASE_SKIN_COLOURS))
-				log_unit_test("[S.name] has a skin colour list but no HAS_BASE_SKIN_COLOURS flag.")
-				failcount++
-				continue
-			if(!(S.base_skin_colours.len >= 2))
-				log_unit_test("[S.name] needs at least two items in the base_skin_colour list.")
-				failcount++
-				continue
-			var/to_fail = FALSE
-			for(var/tag in S.has_limbs)
-				var/list/paths = S.has_limbs[tag]
-				var/obj/item/organ/external/E = paths["path"]
-				var/list/gender_test = list("")
-				if(initial(E.limb_flags) & ORGAN_FLAG_GENDERED_ICON)
-					gender_test = list("_m", "_f")
-				var/icon_name = initial(E.icon_name)
-
-				for(var/base in S.base_skin_colours)
-					for(var/gen in gender_test)
-						if(!("[icon_name][gen][S.base_skin_colours[base]]" in icon_states(S.icobase)))
-							to_fail = TRUE
-							log_debug("[S.name] has missing icon: [icon_name][gen][S.base_skin_colours[base]] for base [base] and limb tag [tag].")
-			if(to_fail)
-				log_unit_test("[S.name] is missing one or more base icons.")
-				failcount++
-				continue
-
-		else if(S.appearance_flags & HAS_BASE_SKIN_COLOURS)
-			log_unit_test("[S.name] has a HAS_BASE_SKIN_COLOURS flag but no skin colour list.")
-			failcount++
-			continue
-
-	if(failcount)
-		fail("[failcount] species had bad base skin colour.")
-	else
-		pass("All species had correct skin colour setups.")
-
-	return 1	// return 1 to show we're done and don't want to recheck the result.
-
 
 /datum/unit_test/mob_nullspace
 	name = "MOB: Mob in nullspace shall not cause runtimes"
@@ -470,5 +421,49 @@
 	else
 		pass("All living mobs with butchery values produce valid products.")
 	return TRUE
+
+// ============================================================================
+
+/datum/unit_test/robot_modules_shall_have_appropriate_states
+	name = "MOB ICONS: Robot Module Icons Shall Have Appropriate States"
+
+/datum/unit_test/robot_modules_shall_have_appropriate_states/start_test()
+
+	var/list/failures = list()
+	for(var/moduletype in typesof(/obj/item/robot_module))
+		var/obj/item/robot_module/mod = new
+		for(var/sprite in mod.module_sprites)
+			var/check_icon = mod.module_sprites[sprite]
+			if(!check_state_in_icon("world", check_icon))
+				failures += "[moduletype] ([sprite]): [check_icon] missing world sprite"
+			if(!check_state_in_icon("world-eyes", check_icon))
+				failures += "[moduletype] ([sprite]): [check_icon] missing eyes sprite"
+
+	if(length(failures))
+		fail("Some robot modules had invalid or missing icon_states:\n[jointext(failures, "\n")]")
+	else
+		pass("All robot modules had appropriate icon_states.")
+	return 1
+
+// ============================================================================
+
+/datum/unit_test/pai_icons_shall_have_appropriate_states
+	name = "MOB ICONS: PAI Icons Shall Have Appropriate States"
+
+/datum/unit_test/pai_icons_shall_have_appropriate_states/start_test()
+	var/list/failures = list()
+	for(var/chassis in global.possible_chassis)
+		var/check_icon = global.possible_chassis[chassis]
+		if(!check_state_in_icon("world", check_icon))
+			failures += "[chassis]: [check_icon] missing world state"
+		if(!check_state_in_icon("world-rest", check_icon))
+			failures += "[chassis]: [check_icon] missing world-rest sprite"
+		if(!check_state_in_icon("world-dead", check_icon))
+			failures += "[chassis]: [check_icon] missing world-dead state"
+	if(length(failures))
+		fail("Some pAI icons had invalid or missing icon_states:\n[jointext(failures, "\n")]")
+	else
+		pass("All pAI icons had appropriate icon_states.")
+	return 1
 
 // ============================================================================

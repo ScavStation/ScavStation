@@ -5,8 +5,6 @@
 	name = "large asteroid"
 	desc = "Sensor array is reading an artificial structure inside the asteroid."
 	icon_state = "object"
-	known = 0
-
 	initial_generic_waypoints = list(
 		"nav_slavers_base_1",
 		"nav_slavers_base_2",
@@ -59,10 +57,7 @@
 
 /decl/hierarchy/outfit/corpse
 	name = "Corpse Clothing"
-
-/decl/hierarchy/outfit/corpse/Initialize()
-	..()
-	hierarchy_type = type
+	abstract_type = /decl/hierarchy/outfit/corpse
 
 /decl/hierarchy/outfit/corpse/slavers_base
 	name = "Basic slaver output"
@@ -136,14 +131,8 @@
 	name = "abolition extremist"
 	desc = "Vigiliant fighter against slavery."
 	icon = 'maps/away/slavers/icons/abolitionist.dmi'
-	icon_state = "extremist"
-	icon_living = "extremist"
-	icon_dead = "extremist_dead"
 	speak_chance = 0
 	turns_per_move = 5
-	response_help = "pushes"
-	response_disarm = "shoves"
-	response_harm = "hits"
 	speed = 4
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 100

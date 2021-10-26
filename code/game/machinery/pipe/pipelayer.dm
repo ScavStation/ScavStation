@@ -25,7 +25,7 @@
 	..()
 
 	if(on && a_dis)
-		dismantleFloor(old_turf)
+		dismantle_floor(old_turf)
 	layPipe(old_turf,M_Dir,old_dir)
 
 	old_turf = new_turf
@@ -72,8 +72,7 @@
 			m = round(m)
 			if(m)
 				use_metal(m)
-				var/obj/item/stack/material/steel/MM = new (get_turf(src))
-				MM.amount = m
+				SSmaterials.create_object(/decl/material/solid/metal/steel, get_turf(src), m)
 				user.visible_message("<span class='notice'>[user] removes [m] sheet\s of metal from the \the [src].</span>", "<span class='notice'>You remove [m] sheet\s of metal from \the [src]</span>")
 		else
 			to_chat(user, "\The [src] is empty.")
@@ -108,7 +107,7 @@
 	metal-=amount
 	return 1
 
-/obj/machinery/pipelayer/proc/dismantleFloor(var/turf/new_turf)
+/obj/machinery/pipelayer/proc/dismantle_floor(var/turf/new_turf)
 	if(istype(new_turf, /turf/simulated/floor))
 		var/turf/simulated/floor/T = new_turf
 		if(!T.is_plating())

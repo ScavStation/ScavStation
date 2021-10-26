@@ -7,6 +7,7 @@
 	opacity = FALSE
 	anchored = FALSE
 	movement_handlers = list(/datum/movement_handler/deny_multiz, /datum/movement_handler/delay = list(5))
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/list/nymphs                  = list()
 	var/list/valid_things_to_roll_up = list(/mob/living/carbon/alien/diona = TRUE, /mob/living/carbon/alien/diona/sterile = TRUE)
@@ -18,9 +19,7 @@
 	return TRUE
 
 /obj/structure/diona_gestalt/Initialize(var/mapload)
-	eyes_overlay = image(icon = icon, icon_state = "eyes_gestalt")
-	eyes_overlay.layer = EYE_GLOW_LAYER
-	eyes_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	eyes_overlay = emissive_overlay(icon = icon, icon_state = "eyes_gestalt")
 	update_icon()
 	. = ..(mapload)
 

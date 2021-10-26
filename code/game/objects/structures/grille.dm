@@ -11,6 +11,9 @@
 	rad_resistance_modifier = 0.1
 	color = COLOR_STEEL
 	material = /decl/material/solid/metal/steel
+	parts_type = /obj/item/stack/material/rods
+	parts_amount = 2
+
 	handle_generic_blending = TRUE
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	maxhealth = 20
@@ -18,7 +21,7 @@
 	var/destroyed = 0
 	var/list/connections
 	var/list/other_connections
-	
+
 /obj/structure/grille/clear_connections()
 	connections = null
 	other_connections = null
@@ -69,17 +72,17 @@
 			for(var/i = 1 to 4)
 				var/conn = connections ? connections[i] : "0"
 				if(other_connections && other_connections[i] != "0")
-					I = image(icon, "grille_other_onframe[conn]", dir = 1<<(i-1))
+					I = image(icon, "grille_other_onframe[conn]", dir = BITFLAG(i-1))
 				else
-					I = image(icon, "grille_onframe[conn]", dir = 1<<(i-1))
+					I = image(icon, "grille_onframe[conn]", dir = BITFLAG(i-1))
 				overlays += I
 		else
 			for(var/i = 1 to 4)
 				var/conn = connections ? connections[i] : "0"
 				if(other_connections && other_connections[i] != "0")
-					I = image(icon, "grille_other[conn]", dir = 1<<(i-1))
+					I = image(icon, "grille_other[conn]", dir = BITFLAG(i-1))
 				else
-					I = image(icon, "grille[conn]", dir = 1<<(i-1))
+					I = image(icon, "grille[conn]", dir = BITFLAG(i-1))
 				overlays += I
 
 /obj/structure/grille/Bumped(atom/user)
@@ -106,7 +109,7 @@
 		damage_dealt += 5
 	else
 		damage_dealt += 1
-	
+
 	attack_generic(user,damage_dealt,attack_message)
 
 /obj/structure/grille/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -158,8 +161,10 @@
 		qdel(src)
 	else
 		set_density(0)
-		new /obj/item/stack/material/rods(get_turf(src), 1, material.type)
+		if(material)
+			material.create_object(get_turf(src), 1, parts_type)
 		destroyed = TRUE
+		parts_amount = 1
 		update_icon()
 
 /obj/structure/grille/attackby(obj/item/W, mob/user)
@@ -230,9 +235,7 @@
 		if(electrocute_mob(user, C, src))
 			if(C.powernet)
 				C.powernet.trigger_warning()
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_at(src, cardinal_only = TRUE)
 			if(HAS_STATUS(user, STAT_STUN))
 				return 1
 		else
@@ -280,6 +283,3 @@
 		var/obj/structure/grille/F = new(loc, ST.material.type)
 		user.visible_message(SPAN_NOTICE("\The [user] finishes building \a [F]."))
 		F.add_fingerprint(user)
-
-/obj/structure/grille/create_dismantled_products(var/turf/T)
-	new /obj/item/stack/material/rods(get_turf(src), (destroyed ? 1 : 2), material.type)

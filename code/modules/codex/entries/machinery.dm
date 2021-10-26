@@ -78,9 +78,9 @@
 	mechanics_text = "Generates the field used to contain reaction material from fuel injectors, and dumps power into the power network under it based on plasma heat. Needs 500W or more in the network to start the field. Field will become unstable if it intersects with windows or other objects, and from some reactions, and will eventually rupture violently if not stabilized by a gyrotron. Turning the field off without letting it cool below 1000K will cause a violent explosion and EMP depending on the contents of the field. <BR>Controlled via the R-UST Mk. 8 core control. Make careful note of the instability."
 	antag_text = "Be careful when blowing this thing up. The blast is fairly large and can happen instantly depending how you do it."
 
-/datum/codex_entry/fusion_fuel_compressor
-	associated_paths = list(/obj/machinery/fusion_fuel_compressor)
-	lore_text = "A highly secret design that can compress many varieties of solid and liquid matter into fuel rods for a fuel injector."
+/datum/codex_entry/fuel_compressor
+	associated_paths = list(/obj/machinery/fuel_compressor)
+	lore_text = "A highly secret design that can compress many varieties of solid and liquid matter into fuel rods for nuclear power production."
 	mechanics_text = "Uses sheets of material or units of reagents to produce fuel rods. Material/units are inserted by hand. Can also have some objects click-dragged onto it for more exotic fuel."
 
 /datum/codex_entry/gyrotron
@@ -91,7 +91,7 @@
 
 /datum/codex_entry/pacman
 	associated_paths = list(/obj/machinery/power/port_gen/pacman)
-	mechanics_text = "Lends itself to being portable thanks to the small size and ease of use. Uses uranium as fuel and as such produces radiation. Ideally one should wear protective gear while interacting with an active P.A.C.M.A.N. While active it also produces heat and will eventually overheat and explode. While the power output can be increased, doing this causes it to heat up faster. Must be secured using a wrench before use."
+	mechanics_text = "Lends itself to being portable thanks to the small size and ease of use. Some versions use radioactive fuel and as such produces radiation, while others may produce dangerous byproducts as gasses. Ideally one should wear protective gear while interacting with an active generator. While active it also produces heat and will eventually overheat and explode. While the power output can be increased, doing this causes it to heat up faster. Must be secured using a wrench before use."
 	antag_text = "Can be used as a makeshift delayed explosive when power output is set to unsafe levels, though it may take some time to go off."
 
 /datum/codex_entry/replicator

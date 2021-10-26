@@ -1,13 +1,8 @@
-//wrapper macros for easier grepping
-#define DIRECT_OUTPUT(A, B) A << B
-#define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
-
-
 // On Linux/Unix systems the line endings are LF, on windows it's CRLF, admins that don't use notepad++
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
 // in the logs.  ascii character 13 = CR
 
-/var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
+var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 
 
 /proc/error(msg)
@@ -34,10 +29,10 @@
 	to_world_log("## TESTING: [msg][log_end]")
 
 /proc/game_log(category, text)
-	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
+	direct_output(diary, "\[[time_stamp()]] [game_id] [category]: [text][log_end]")
 
 /proc/log_admin(text)
-	GLOB.admin_log.Add(text)
+	global.admin_log.Add(text)
 	if (config.log_admin)
 		game_log("ADMIN", text)
 
@@ -55,8 +50,11 @@
 	to_debug_listeners(text, "WARNING")
 
 /proc/to_debug_listeners(text, prefix = "DEBUG")
-	for(var/client/C in GLOB.admins)
-		if(C.get_preference_value(/datum/client_preference/staff/show_debug_logs) == GLOB.PREF_SHOW)
+	for(var/client/C in global.admins)
+		var/print_to_chat = TRUE
+		if(C.prefs?.preference_values)
+			print_to_chat = C.get_preference_value(/datum/client_preference/staff/show_debug_logs) == PREF_SHOW
+		if(print_to_chat)
 			to_chat(C, "[prefix]: [text]")
 
 /proc/log_game(text)
@@ -111,7 +109,7 @@
 	log_debug(text)
 
 /proc/log_qdel(text)
-	WRITE_FILE(GLOB.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
+	to_file(global.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
 
 //This replaces world.log so it displays both in DD and the file
 /proc/log_world(text)
@@ -199,7 +197,7 @@
 	return "[..()] ([isnum(z) ? "[x],[y],[z]" : "0,0,0"])"
 
 /turf/get_log_info_line()
-	var/obj/effect/overmap/visitable/O = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/O = global.overmap_sectors["[z]"]
 	if(istype(O))
 		return "[..()] ([x],[y],[z] - [O.name]) ([loc ? loc.type : "NULL"])"
 	else
@@ -208,7 +206,7 @@
 /atom/movable/get_log_info_line()
 	var/turf/t = get_turf(src)
 	if(t)
-		var/obj/effect/overmap/visitable/O = map_sectors["[t.z]"]
+		var/obj/effect/overmap/visitable/O = global.overmap_sectors["[t.z]"]
 		if(istype(O))
 			return "[..()] ([t]) ([t.x],[t.y],[t.z] - [O.name]) ([t.type])"
 		return "[..()] ([t]) ([t.x],[t.y],[t.z]) ([t.type])"

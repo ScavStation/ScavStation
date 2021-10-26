@@ -1,8 +1,7 @@
 /datum/preferences
 	var/gender = MALE					//gender of character (well duh)
-	var/age = 30						//age of character
+	var/bodytype
 	var/spawnpoint = "Default" 			//where this character will spawn (0-2).
-	var/metadata = ""
 	var/real_name						//our character's name
 	var/be_random_name = 0				//whether we are a random name every round
 
@@ -10,41 +9,82 @@
 	name = "Basic"
 	sort_order = 1
 
-/datum/category_item/player_setup_item/physical/basic/load_character(var/savefile/S)
-	from_file(S["gender"],                pref.gender)
-	from_file(S["age"],                   pref.age)
-	from_file(S["spawnpoint"],            pref.spawnpoint)
-	from_file(S["OOC_Notes"],             pref.metadata)
-	from_file(S["real_name"],             pref.real_name)
-	from_file(S["name_is_always_random"], pref.be_random_name)
+/datum/category_item/player_setup_item/physical/basic/load_character(datum/pref_record_reader/R)
+	pref.gender =         R.read("gender")
+	pref.bodytype =       R.read("bodytype")
+	pref.real_name =      R.read("real_name")
+	pref.be_random_name = R.read("name_is_always_random")
 
-/datum/category_item/player_setup_item/physical/basic/save_character(var/savefile/S)
-	to_file(S["gender"],                  pref.gender)
-	to_file(S["age"],                     pref.age)
-	to_file(S["spawnpoint"],              pref.spawnpoint)
-	to_file(S["OOC_Notes"],               pref.metadata)
-	to_file(S["real_name"],               pref.real_name)
-	to_file(S["name_is_always_random"],   pref.be_random_name)
+	pref.spawnpoint = R.read("spawnpoint")
+	for(var/decl/spawnpoint/spawnpoint AS_ANYTHING in global.using_map.allowed_spawns)
+		if(pref.spawnpoint == spawnpoint.name)
+			pref.spawnpoint = spawnpoint.type
+			break
+	if(!ispath(pref.spawnpoint, /decl/spawnpoint))
+		pref.spawnpoint = global.using_map.default_spawn
+
+/datum/category_item/player_setup_item/physical/basic/save_character(datum/pref_record_writer/W)
+	W.write("gender",                pref.gender)
+	W.write("bodytype",              pref.bodytype)
+	W.write("real_name",             pref.real_name)
+	W.write("name_is_always_random", pref.be_random_name)
+
+	var/decl/spawnpoint/spawnpoint = GET_DECL(pref.spawnpoint)
+	W.write("spawnpoint", spawnpoint.name)
 
 /datum/category_item/player_setup_item/physical/basic/sanitize_character()
-	var/decl/species/S =   get_species_by_key(pref.species) || get_species_by_key(GLOB.using_map.default_species)
-	pref.age                = sanitize_integer(pref.age, S.min_age, S.max_age, initial(pref.age))
-	pref.gender             = sanitize_inlist(pref.gender, S.genders, pick(S.genders))
-	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, spawntypes(), initial(pref.spawnpoint))
-	pref.be_random_name     = sanitize_integer(pref.be_random_name, 0, 1, initial(pref.be_random_name))
+	
+	var/valid_spawn = FALSE
+	for(var/decl/spawnpoint/spawnpoint AS_ANYTHING in global.using_map.allowed_spawns)
+		if(pref.spawnpoint == spawnpoint.type)
+			valid_spawn = TRUE
+			break
+	if(!valid_spawn)
+		pref.spawnpoint = global.using_map.default_spawn
+
+	var/decl/species/S = get_species_by_key(pref.species) || get_species_by_key(global.using_map.default_species)
+	pref.be_random_name = sanitize_integer(pref.be_random_name, 0, 1, initial(pref.be_random_name))
+
+	var/decl/pronouns/pronouns
+	if(!pref.gender)
+		pronouns = pick(S.available_pronouns)
+	else
+		pronouns = get_pronouns_by_gender(pref.gender)
+		if(!istype(pronouns) || !(pronouns in S.available_pronouns))
+			pronouns = pick(S.available_pronouns)
+	pref.gender = pronouns.name
+
+	var/decl/bodytype/bodytype = S.get_bodytype_by_name(pref.bodytype)
+	if(!istype(bodytype) || !(bodytype in S.available_bodytypes))
+		bodytype = S.get_bodytype_by_pronouns(pronouns)
+		pref.bodytype = bodytype.name
 
 /datum/category_item/player_setup_item/physical/basic/content()
+
 	. = list()
 	. += "<b>Name:</b> "
 	. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
 	. += "<a href='?src=\ref[src];random_name=1'>Randomize Name</A><br>"
 	. += "<a href='?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
 	. += "<hr>"
-	. += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[gender2text(pref.gender)]</b></a><br>"
-	. += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
-	. += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a>"
-	if(config.allow_Metadata)
-		. += "<br><b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a>"
+
+	. += "<b>Bodytype:</b> "
+	var/decl/species/S = get_species_by_key(pref.species)
+	for(var/decl/bodytype/B in S.available_bodytypes)
+		if(B.name == pref.bodytype)
+			. += "<span class='linkOn'>[capitalize(B.name)]</span>"
+		else
+			. += "<a href='?src=\ref[src];bodytype=\ref[B]'>[capitalize(B.name)]</a>"
+
+	. += "<br><b>Pronouns:</b> "
+	for(var/decl/pronouns/G in S.available_pronouns)
+		if(G.name == pref.gender)
+			. += "<span class='linkOn'>[capitalize(G.name)]</span>"
+		else
+			. += "<a href='?src=\ref[src];gender=\ref[G]'>[capitalize(G.name)]</a>"
+
+	var/decl/spawnpoint/spawnpoint = GET_DECL(pref.spawnpoint)
+	. += "<br><b>Spawn point</b>: <a href='?src=\ref[src];spawnpoint=1'>[spawnpoint.name]</a>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/physical/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
@@ -75,34 +115,26 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["gender"])
-		var/new_gender = input(user, "Choose your character's gender:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.gender) as null|anything in S.genders
-		S = get_species_by_key(pref.species)
-		if(new_gender && CanUseTopic(user) && (new_gender in S.genders))
-			pref.gender = new_gender
-			if(!(pref.f_style in S.get_facial_hair_styles(pref.gender)))
+		var/decl/pronouns/new_gender = locate(href_list["gender"])
+		if(istype(new_gender) && CanUseTopic(user) && (new_gender in S.available_pronouns))
+			pref.gender = new_gender.name
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["bodytype"])
+		var/decl/bodytype/new_body = locate(href_list["bodytype"])
+		if(istype(new_body) && CanUseTopic(user) && (new_body in S.available_bodytypes))
+			pref.bodytype = new_body.name
+			if(new_body.associated_gender) // Set to default for male/female to avoid confusing people
+				pref.gender = new_body.associated_gender
+			if(!(pref.f_style in S.get_facial_hair_style_types(new_body.associated_gender)))
 				ResetFacialHair()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["age"])
-		var/new_age = input(user, "Choose your character's age:\n([S.min_age]-[S.max_age])", CHARACTER_PREFERENCE_INPUT_TITLE, pref.age) as num|null
-		if(new_age && CanUseTopic(user))
-			pref.age = max(min(round(text2num(new_age)), S.max_age), S.min_age)
-			pref.skills_allocated = pref.sanitize_skills(pref.skills_allocated)		// The age may invalidate skill loadouts
-			return TOPIC_REFRESH
-
 	else if(href_list["spawnpoint"])
-		var/list/spawnkeys = list()
-		for(var/spawntype in spawntypes())
-			spawnkeys += spawntype
-		var/choice = input(user, "Where would you like to spawn when late-joining?") as null|anything in spawnkeys
-		if(!choice || !spawntypes()[choice] || !CanUseTopic(user))	return TOPIC_NOACTION
-		pref.spawnpoint = choice
+		var/decl/spawnpoint/choice = input(user, "Where would you like to spawn when late-joining?") as null|anything in global.using_map.allowed_spawns
+		if(!istype(choice) || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		pref.spawnpoint = choice.type
 		return TOPIC_REFRESH
-
-	else if(href_list["metadata"])
-		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata) as message|null)
-		if(new_metadata && CanUseTopic(user))
-			pref.metadata = new_metadata
-			return TOPIC_REFRESH
 
 	return ..()

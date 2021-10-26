@@ -1,4 +1,4 @@
-var/list/floor_light_cache = list()
+var/global/list/floor_light_cache = list()
 
 /obj/machinery/floor_light
 	name = "floor light"
@@ -18,9 +18,8 @@ var/list/floor_light_cache = list()
 	required_interaction_dexterity = DEXTERITY_SIMPLE_MACHINES
 
 	var/damaged
-	var/default_light_max_bright = 0.75
-	var/default_light_inner_range = 1
-	var/default_light_outer_range = 3
+	var/default_light_power = 0.75
+	var/default_light_range = 3
 	var/default_light_color = "#ffffff"
 
 /obj/machinery/floor_light/prebuilt
@@ -31,7 +30,6 @@ var/list/floor_light_cache = list()
 		anchored = !anchored
 		if(use_power)
 			update_use_power(POWER_USE_OFF)
-			queue_icon_update()
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
 	else if(isWelder(W) && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = W
@@ -49,8 +47,10 @@ var/list/floor_light_cache = list()
 	else if(isWrench(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		to_chat(user, "<span class='notice'>You dismantle the floor light.</span>")
-		new /obj/item/stack/material/steel(src.loc, 1)
-		new /obj/item/stack/material/glass(src.loc, 1)
+
+		SSmaterials.create_object(/decl/material/solid/metal/steel, loc, 1)
+		SSmaterials.create_object(/decl/material/solid/glass, loc, 1)
+
 		qdel(src)
 	else if(W.force && user.a_intent == "hurt")
 		attack_hand(user)
@@ -78,7 +78,6 @@ var/list/floor_light_cache = list()
 	var/on = (use_power == POWER_USE_ACTIVE)
 	update_use_power(on ? POWER_USE_OFF : POWER_USE_ACTIVE)
 	visible_message("<span class='notice'>\The [user] turns \the [src] [!on ? "on" : "off"].</span>")
-	queue_icon_update()
 	return TRUE
 
 /obj/machinery/floor_light/set_broken(new_state)
@@ -93,11 +92,11 @@ var/list/floor_light_cache = list()
 
 /obj/machinery/floor_light/proc/update_brightness()
 	if((use_power == POWER_USE_ACTIVE) && !(stat & (NOPOWER | BROKEN)))
-		if(light_outer_range != default_light_outer_range || light_max_bright != default_light_max_bright || light_color != default_light_color)
-			set_light(default_light_max_bright, default_light_inner_range, default_light_outer_range, l_color = default_light_color)
-			change_power_consumption((light_outer_range + light_max_bright) * 20, POWER_USE_ACTIVE)
+		if(light_range != default_light_range || light_power != default_light_power || light_color != default_light_color)
+			set_light(default_light_range, default_light_power, default_light_color)
+			change_power_consumption((light_range + light_power) * 20, POWER_USE_ACTIVE)
 	else
-		if(light_outer_range || light_max_bright)
+		if(light_range || light_power)
 			set_light(0)
 
 /obj/machinery/floor_light/on_update_icon()
@@ -130,7 +129,7 @@ var/list/floor_light_cache = list()
 	if(. && !QDELETED(src))
 		if(severity == 1 || (severity == 2 && prob(50)) || (severity == 3 && prob(5)))
 			physically_destroyed()
-		else 
+		else
 			if(severity == 2 && prob(20))
 				set_broken(TRUE)
 			if(isnull(damaged))

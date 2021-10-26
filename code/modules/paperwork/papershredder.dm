@@ -42,7 +42,7 @@
 				for(var/i=(paperamount-max_paper);i>0;i--)
 					var/obj/item/shreddedp/SP = get_shredded_paper()
 					SP.dropInto(loc)
-					SP.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),1,5)
+					SP.throw_at(get_edge_target_turf(src,pick(global.alldirs)),1,5)
 				paperamount = max_paper
 			update_icon()
 			return
@@ -105,7 +105,7 @@
 		return new /obj/item/shreddedp(get_turf(src))		
 
 /obj/machinery/papershredder/on_update_icon()
-	icon_state = "papershredder[max(0,min(5,Floor(paperamount/2)))]"
+	icon_state = "papershredder[max(0,min(5,FLOOR(paperamount/2)))]"
 
 /obj/item/shreddedp/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/flame/lighter))
@@ -119,7 +119,8 @@
 	if(!P.lit)
 		to_chat(user, "<span class='warning'>\The [P] is not lit.</span>")
 		return
-	user.visible_message("<span class='warning'>\The [user] holds \the [P] up to \the [src]. It looks like \he's trying to burn it!</span>", \
+	var/decl/pronouns/G = user.get_pronouns()
+	user.visible_message("<span class='warning'>\The [user] holds \the [P] up to \the [src]. It looks like [G.he] [G.is] trying to burn it!</span>", \
 		"<span class='warning'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 	if(!do_after(user,20, src))
 		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")

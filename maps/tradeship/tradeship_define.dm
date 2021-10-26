@@ -4,10 +4,6 @@
 	path = "tradeship"
 	ground_noun = "deck"
 
-	station_levels = list(1, 2, 3, 4)
-	contact_levels = list(1, 2, 3, 4)
-	player_levels = list(1, 2, 3, 4)
-
 	station_name  = "Tradeship Ivenmoth"
 	station_short = "Ivenmoth"
 
@@ -16,12 +12,11 @@
 	boss_short    = "Admin"
 	company_name  = "Tradehouse Ivenmoth"
 	company_short = "Ivenmoth"
-	overmap_event_areas = 11
 
 	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
 	lobby_screens = list('mods/valsalia/lobby/yingspace.png')
 
-	use_overmap = 1
+	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 1
 	welcome_sound = 'sound/effects/cowboysting.ogg'
 	emergency_shuttle_leaving_dock = "Attention all hands: the escape pods have been launched, maintaining burn for %ETA%."

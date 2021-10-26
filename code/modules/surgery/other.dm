@@ -10,9 +10,8 @@
 	name = "Repair tendon"
 	description = "This procedure repairs damage to a tendon."
 	allowed_tools = list(
-		/obj/item/sutures = 100,
-		/obj/item/stack/cable_coil = 75,
-		/obj/item/tape_roll = 50
+		TOOL_SUTURES =  100,
+		TOOL_CABLECOIL = 75
 	)
 	can_infect = 1
 	blood_level = 1
@@ -54,9 +53,8 @@
 	name = "Repair arterial bleeding"
 	description = "This procedure repairs damage to an artery."
 	allowed_tools = list(
-		/obj/item/sutures = 100,
-		/obj/item/stack/cable_coil = 75,
-		/obj/item/tape_roll = 50
+		TOOL_SUTURES =  100,
+		TOOL_CABLECOIL = 75
 	)
 	can_infect = 1
 	blood_level = 1
@@ -100,9 +98,8 @@
 	name = "Remove hardsuit"
 	description = "This procedure cuts through the bolts on a hardsuit, allowing it to be removed."
 	allowed_tools = list(
-		/obj/item/weldingtool = 80,
-		/obj/item/circular_saw = 60,
-		/obj/item/gun/energy/plasmacutter = 30
+		TOOL_WELDER = 80,
+		TOOL_SAW =    60
 	)
 	can_infect = 0
 	blood_level = 0
@@ -115,7 +112,7 @@
 	return TRUE
 
 /decl/surgery_step/hardsuit/get_skill_reqs(mob/living/user, mob/living/target, obj/item/tool)
-	return list(SKILL_EVA = SKILL_BASIC) 
+	return list(SKILL_EVA = SKILL_BASIC)
 
 /decl/surgery_step/hardsuit/can_use(mob/living/user, mob/living/target, target_zone, obj/item/tool)
 	if(!istype(target))
@@ -155,11 +152,15 @@
 		/obj/item/chems/spray = 100,
 		/obj/item/chems/dropper = 100,
 		/obj/item/chems/glass/bottle = 90,
-		/obj/item/chems/food/drinks/flask = 90,
+		/obj/item/chems/drinks/flask = 90,
 		/obj/item/chems/glass/beaker = 75,
-		/obj/item/chems/food/drinks/bottle = 75,
-		/obj/item/chems/food/drinks/glass2 = 75,
+		/obj/item/chems/drinks/bottle = 75,
+		/obj/item/chems/drinks/glass2 = 75,
 		/obj/item/chems/glass/bucket = 50
+	)
+	var/static/list/skip_open_container_checks = list(
+		/obj/item/chems/spray,
+		/obj/item/chems/dropper
 	)
 	can_infect = 0
 	blood_level = 0
@@ -172,7 +173,7 @@
 		return affected
 
 /decl/surgery_step/sterilize/get_skill_reqs(mob/living/user, mob/living/target, obj/item/tool)
-	return list(SKILL_MEDICAL = SKILL_BASIC) 
+	return list(SKILL_MEDICAL = SKILL_BASIC)
 
 /decl/surgery_step/sterilize/begin_step(mob/user, mob/living/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -217,12 +218,26 @@
 	affected.disinfect()
 
 /decl/surgery_step/sterilize/proc/check_chemicals(var/obj/item/chems/container)
-	if(istype(container) && ATOM_IS_OPEN_CONTAINER(container))
-		if(container.reagents.has_reagent(/decl/material/liquid/antiseptic))
+
+	if(!istype(container) || QDELETED(container))
+		return FALSE
+
+	var/valid_container = ATOM_IS_OPEN_CONTAINER(container)
+	if(!valid_container)
+		for(var/check_type in skip_open_container_checks)
+			if(istype(container, check_type))
+				valid_container = TRUE
+				break
+
+	if(!valid_container)
+		return FALSE
+
+	if(container.reagents.has_reagent(/decl/material/liquid/antiseptic))
+		return TRUE
+
+	for(var/rtype in container?.reagents?.reagent_volumes)
+		var/decl/material/liquid/ethanol/booze = GET_DECL(rtype)
+		if(istype(booze) && booze.strength <= 40)
 			return TRUE
-		else
-			for(var/rtype in container?.reagents?.reagent_volumes)
-				var/decl/material/liquid/ethanol/booze = GET_DECL(rtype)
-				if(istype(booze) && booze.strength <= 40)
-					return TRUE
+
 	return FALSE

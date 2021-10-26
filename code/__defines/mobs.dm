@@ -66,15 +66,16 @@
 // Appearance change flags
 #define APPEARANCE_UPDATE_DNA        BITFLAG(0)
 #define APPEARANCE_RACE              (BITFLAG(1)|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_GENDER            (BITFLAG(2)|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_SKIN              BITFLAG(3)
-#define APPEARANCE_HAIR              BITFLAG(4)
-#define APPEARANCE_HAIR_COLOR        BITFLAG(5)
-#define APPEARANCE_FACIAL_HAIR       BITFLAG(6)
-#define APPEARANCE_FACIAL_HAIR_COLOR BITFLAG(7)
-#define APPEARANCE_EYE_COLOR         BITFLAG(8)
+#define APPEARANCE_GENDER            BITFLAG(2)
+#define APPEARANCE_BODY              (BITFLAG(3)|APPEARANCE_UPDATE_DNA)
+#define APPEARANCE_SKIN              BITFLAG(4)
+#define APPEARANCE_HAIR              BITFLAG(5)
+#define APPEARANCE_HAIR_COLOR        BITFLAG(6)
+#define APPEARANCE_FACIAL_HAIR       BITFLAG(7)
+#define APPEARANCE_FACIAL_HAIR_COLOR BITFLAG(8)
+#define APPEARANCE_EYE_COLOR         BITFLAG(9)
 #define APPEARANCE_ALL_HAIR          (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
-#define APPEARANCE_ALL               (APPEARANCE_UPDATE_DNA|APPEARANCE_RACE|APPEARANCE_GENDER|APPEARANCE_SKIN|APPEARANCE_EYE_COLOR|APPEARANCE_ALL_HAIR)
+#define APPEARANCE_ALL               (APPEARANCE_UPDATE_DNA|APPEARANCE_RACE|APPEARANCE_GENDER|APPEARANCE_BODY|APPEARANCE_SKIN|APPEARANCE_EYE_COLOR|APPEARANCE_ALL_HAIR)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -255,6 +256,10 @@
 #define SPECIES_ALIEN            "Humanoid"
 #define SPECIES_GOLEM            "Golem"
 
+#define BODY_FLAG_EXCLUDE        BITFLAG(0)
+#define BODY_FLAG_HUMANOID       BITFLAG(1)
+#define BODY_FLAG_MONKEY         BITFLAG(2)
+
 #define BODYTYPE_HUMANOID        "humanoid body"
 #define BODYTYPE_OTHER           "alien body"
 #define BODYTYPE_MONKEY          "small humanoid body"
@@ -296,8 +301,8 @@
 
 #define MOB_FLAG_HOLY_BAD BITFLAG(0)  // If this mob is allergic to holiness
 
-#define MARKING_TARGET_SKIN 0 // Draw a datum/sprite_accessory/marking to the mob's body, eg. tattoos
-#define MARKING_TARGET_HAIR 1 // Draw a datum/sprite_accessory/marking to the mob's hair, eg. ears & horns
+#define MARKING_TARGET_SKIN 0 // Draw a /decl/sprite_accessory/marking to the mob's body, eg. tattoos
+#define MARKING_TARGET_HAIR 1 // Draw a /decl/sprite_accessory/marking to the mob's hair, eg. ears & horns
 
 #define DEXTERITY_NONE            0
 #define DEXTERITY_SIMPLE_MACHINES 1
@@ -313,4 +318,17 @@
 #define INJECTION_PORT 2
 #define INJECTION_PORT_DELAY 3 SECONDS // used by injectors to apply delay due to searching for a port on the injectee's suit
 
-#define ADJUSTED_GLIDE_SIZE(DELAY) (CEILING((WORLD_ICON_SIZE / max((DELAY), world.tick_lag) * world.tick_lag) - world.tick_lag, 1) + (config.glide_size_delay))
+#define ADJUSTED_GLIDE_SIZE(DELAY) (NONUNIT_CEILING((WORLD_ICON_SIZE / max((DELAY), world.tick_lag) * world.tick_lag) - world.tick_lag, 1) + (config.glide_size_delay))
+
+#define PREF_MEM_RECORD "memory"
+#define PREF_SEC_RECORD "sec_record"
+#define PREF_PUB_RECORD "public_record"
+#define PREF_MED_RECORD "med_record"
+#define PREF_GEN_RECORD "gen_record"
+
+// Simple animal icon state flags.
+#define MOB_ICON_HAS_LIVING_STATE BITFLAG(0)
+#define MOB_ICON_HAS_DEAD_STATE   BITFLAG(1)
+#define MOB_ICON_HAS_REST_STATE   BITFLAG(2)
+#define MOB_ICON_HAS_SLEEP_STATE  BITFLAG(3)
+#define MOB_ICON_HAS_GIB_STATE    BITFLAG(4)

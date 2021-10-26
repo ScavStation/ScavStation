@@ -2,7 +2,7 @@
 
 // Recruiting observers to play as pAIs
 
-var/datum/paiController/paiController			// Global handler for pAI candidates
+var/global/datum/paiController/paiController			// Global handler for pAI candidates
 
 /datum/paiCandidate
 	var/name
@@ -36,13 +36,14 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		if(istype(card,/obj/item/paicard) && istype(candidate,/datum/paiCandidate))
 			var/mob/living/silicon/pai/pai = new(card)
 			if(!candidate.name)
-				pai.SetName(pick(GLOB.ninja_names))
+				pai.SetName(pick(global.ninja_names))
 			else
 				pai.SetName(candidate.name)
 			pai.real_name = pai.name
 			pai.key = candidate.key
-			pai.chassis = pai.icon_state = GLOB.possible_chassis[candidate.chassis]
-			var/list/sayverbs = GLOB.possible_say_verbs[candidate.say_verb]
+			pai.chassis = candidate.chassis
+			pai.icon = global.possible_chassis[candidate.chassis]
+			var/list/sayverbs = global.possible_say_verbs[candidate.say_verb]
 			pai.speak_statement = sayverbs[1]
 			pai.speak_exclamation = sayverbs[(sayverbs.len>1 ? 2 : sayverbs.len)]
 			pai.speak_query = sayverbs[(sayverbs.len>2 ? 3 : sayverbs.len)]
@@ -80,11 +81,11 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				if(t)
 					candidate.comments = sanitize(t)
 			if("chassis")
-				t = input(usr,"What would you like to use for your mobile chassis icon?") as null|anything in GLOB.possible_chassis
+				t = input(usr,"What would you like to use for your mobile chassis icon?") as null|anything in global.possible_chassis
 				if(t)
 					candidate.chassis = t
 			if("say")
-				t = input(usr,"What theme would you like to use for your speech verbs?") as null|anything in GLOB.possible_say_verbs
+				t = input(usr,"What theme would you like to use for your speech verbs?") as null|anything in global.possible_say_verbs
 				if(t)
 					candidate.say_verb = t
 			if("save")
@@ -108,7 +109,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			if("submit")
 				if(candidate)
 					candidate.ready = 1
-					for(var/obj/item/paicard/p in world)
+					for(var/obj/item/paicard/p in global.pai_cards)
 						if(p.looking_for_personality == 1)
 							p.alertUpdate()
 				close_browser(usr, "window=paiRecruit")
@@ -265,7 +266,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 	for(var/datum/paiCandidate/c in paiController.pai_candidates)
 		if(c.ready)
 			var/found = 0
-			for(var/mob/observer/ghost/o in GLOB.player_list)
+			for(var/mob/observer/ghost/o in global.player_list)
 				if(o.key == c.key && o.MayRespawn())
 					found = 1
 			if(found)
@@ -378,7 +379,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 
 /datum/paiController/proc/requestRecruits(var/mob/user)
 	inquirer = user
-	for(var/mob/observer/ghost/O in GLOB.player_list)
+	for(var/mob/observer/ghost/O in global.player_list)
 		if(!O.MayRespawn())
 			continue
 		if(jobban_isbanned(O, "pAI"))

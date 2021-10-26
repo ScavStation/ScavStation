@@ -6,12 +6,13 @@
 	announced = FALSE
 	create_record = FALSE
 	total_positions = 4
-	outfit_type = /decl/hierarchy/outfit/job/assistant
+	outfit_type = /decl/hierarchy/outfit/job/survivor
 	hud_icon = "hudblank"
 	available_by_default = FALSE
 	allowed_ranks = null
 	allowed_branches = null
 	skill_points = 25
+	autoset_department = FALSE
 	max_skill = list(
 		SKILL_LITERACY =     SKILL_MAX,
 		SKILL_FINANCE =      SKILL_MAX,
@@ -44,6 +45,9 @@
 	var/list/blacklisted_species = list()
 	var/list/whitelisted_species = list()
 
+/decl/hierarchy/outfit/job/survivor
+	name = "Job - Survivor"
+
 /datum/job/submap/New(var/datum/submap/_owner, var/abstract_job = FALSE)
 
 	if(islist(whitelisted_species) && !length(whitelisted_species))
@@ -70,7 +74,7 @@
 
 /datum/job/submap/is_restricted(var/datum/preferences/prefs, var/feedback)
 	var/decl/species/S = get_species_by_key(prefs.species)
-	if(LAZYACCESS(minimum_character_age, S.get_root_species_name()) && (prefs.age < minimum_character_age[S.get_root_species_name()]))
+	if(LAZYACCESS(minimum_character_age, S.get_root_species_name()) && (prefs.get_character_age() < minimum_character_age[S.get_root_species_name()]))
 		to_chat(feedback, "<span class='boldannounce'>Not old enough. Minimum character age is [minimum_character_age[S.get_root_species_name()]].</span>")
 		return TRUE
 	if(LAZYLEN(whitelisted_species) && !(prefs.species in whitelisted_species))

@@ -4,7 +4,7 @@
 #define CARCASS_JOINTED  "jointed"
 
 /mob/living
-	var/meat_type =         /obj/item/chems/food/snacks/meat
+	var/meat_type =         /obj/item/chems/food/meat
 	var/meat_amount =       3
 	var/skin_material =     /decl/material/solid/skin
 	var/skin_amount =       3
@@ -18,44 +18,43 @@
 
 // Harvest an animal's delicious byproducts
 /mob/living/proc/harvest_meat()
-	. = list()
-	var/effective_meat_type = isSynthetic() ? /obj/item/stack/material/steel : meat_type
+	var/effective_meat_type = isSynthetic() ? /obj/item/stack/material/rods : meat_type
 	if(!effective_meat_type || !meat_amount)
 		return
 	blood_splatter(get_turf(src), src, large = TRUE)
 	var/meat_count = 0
 	for(var/i=0;i<meat_amount;i++)
-		var/obj/item/chems/food/snacks/meat/slab = new effective_meat_type(get_turf(src))
-		. += slab
+		var/obj/item/chems/food/meat/slab = new effective_meat_type(get_turf(src))
+		LAZYADD(., slab)
 		if(istype(slab))
 			meat_count++
 	if(reagents && meat_count > 0)
 		var/reagent_split = round(reagents.total_volume/meat_count,1)
-		for(var/obj/item/chems/food/snacks/meat/slab in .)
+		for(var/obj/item/chems/food/meat/slab in .)
 			reagents.trans_to_obj(slab, reagent_split)
 
 /mob/living/carbon/human/harvest_meat()
 	. = ..()
 	for(var/obj/item/organ/internal/I in internal_organs)
 		I.removed()
-		. += I
+		LAZYADD(., I)
 
 /mob/living/proc/harvest_skin()
-	. = list()
 	if(skin_material && skin_amount)
-		var/decl/material/M = GET_DECL(skin_material)
-		. += new M.stack_type(get_turf(src), skin_amount, skin_material)
+		var/product = SSmaterials.create_object(skin_material, get_turf(src), skin_amount)
+		if(product)
+			LAZYADD(., product)
 		blood_splatter(get_turf(src), src, large = TRUE)
 
 /mob/living/proc/harvest_bones()
-	. = list()
 	var/turf/T = get_turf(src)
 	if(bone_material && bone_amount)
-		var/decl/material/M = GET_DECL(bone_material)
-		. += new M.stack_type(T, bone_amount, bone_material)
+		var/product = SSmaterials.create_object(bone_material, get_turf(src), bone_amount)
+		if(product)
+			LAZYADD(., product)
 		blood_splatter(T, src, large = TRUE)
 	if(skull_type)
-		. += new skull_type(T)
+		LAZYADD(., new skull_type(T))
 
 // Structure for conducting butchery on.
 /obj/structure/kitchenspike
@@ -71,6 +70,8 @@
 		DEFAULT_FURNITURE_MATERIAL = MATTER_AMOUNT_PRIMARY
 	)
 	tool_interaction_flags = (TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT)
+	parts_amount = 2
+	parts_type = /obj/item/stack/material/strut
 
 	var/mob/living/occupant
 	var/occupant_state =   CARCASS_EMPTY

@@ -1,21 +1,17 @@
 /decl/appearance_handler
 	var/priority = 15
-	var/list/appearance_sources
-
-/decl/appearance_handler/New()
-	..()
-	appearance_sources = list()
+	var/list/appearance_sources = list()
 
 /decl/appearance_handler/proc/AddAltAppearance(var/source, var/list/images, var/list/viewers = list())
 	if(source in appearance_sources)
 		return FALSE
 	appearance_sources[source] = new/datum/appearance_data(images, viewers, priority)
-	GLOB.destroyed_event.register(source, src, /decl/appearance_handler/proc/RemoveAltAppearance)
+	events_repository.register(/decl/observ/destroyed, source, src, /decl/appearance_handler/proc/RemoveAltAppearance)
 
 /decl/appearance_handler/proc/RemoveAltAppearance(var/source)
 	var/datum/appearance_data/ad = appearance_sources[source]
 	if(ad)
-		GLOB.destroyed_event.unregister(source, src)
+		events_repository.unregister(/decl/observ/destroyed, source, src)
 		appearance_sources -= source
 		qdel(ad)
 

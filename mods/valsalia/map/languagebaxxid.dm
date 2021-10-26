@@ -4,7 +4,7 @@
 	speech_verb = "rumbles"
 	whisper_verb = "hisses"
 	colour = ""
-	key = "x"
+	key = "a"
 	flags = WHITELISTED
 	shorthand = "BX"
 	partial_understanding = list()

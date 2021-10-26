@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(default_gyne, create_gyne_name())
+var/global/default_gyne
 
 /decl/ghosttrap/kharmaani_egg
 	name = "mantid nymph"
@@ -14,7 +14,7 @@ GLOBAL_VAR_INIT(default_gyne, create_gyne_name())
 	desc = "A semi-translucent alien egg."
 	health = 100
 	maxhealth = 100
-	icon = 'mods/species/ascent/icons/species/nymph.dmi'
+	icon = 'mods/species/ascent/icons/egg.dmi'
 	icon_state = "egg"
 
 	var/maturity_rate = 1 MINUTES		// How often to do a gestation tick.
@@ -27,14 +27,14 @@ GLOBAL_VAR_INIT(default_gyne, create_gyne_name())
 	var/hatching = FALSE				// If we're in the process of hatching.
 	var/hatched = FALSE					// Whether or not this egg has already hatched.
 
-	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
-	)
-
+	material = /decl/material/solid/gemstone/crystal
+	
 /obj/structure/insectoid_egg/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	lineage = GLOB.default_gyne
+	if(!global.default_gyne)
+		global.default_gyne = create_gyne_name()
+	lineage = global.default_gyne
 
 /obj/structure/insectoid_egg/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -97,7 +97,6 @@ GLOBAL_VAR_INIT(default_gyne, create_gyne_name())
 		return
 
 	var/mob/living/carbon/alien/ascent_nymph/new_nymph = new(src, SPECIES_MANTID_NYMPH) // Spawn in the egg.
-	new_nymph.loc = src
 	new_nymph.lastarea = get_area(src)
 	new_nymph.key = C.ckey
 	new_nymph.real_name = "[random_id(/decl/species/mantid, 10000, 99999)] [lineage]"
@@ -112,5 +111,5 @@ GLOBAL_VAR_INIT(default_gyne, create_gyne_name())
 	hatching = FALSE
 	update_icon()
 	for(var/mob/M in src)
-		M.loc = get_turf(src) // Pop!
+		M.forceMove(get_turf(src)) // Pop!
 		visible_message(SPAN_NOTICE("\icon[src] \The [M] hatches out of \the [src]."))

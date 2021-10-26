@@ -5,7 +5,7 @@
 		M.remove_ventcrawl()
 		M.dropInto(loc)
 	if(pipe_image)
-		for(var/mob/living/M in GLOB.player_list)
+		for(var/mob/living/M in global.player_list)
 			if(M.client)
 				M.client.images -= pipe_image
 				M.pipes_shown -= pipe_image
@@ -55,28 +55,7 @@
 				return target
 
 /obj/machinery/atmospherics/proc/isConnectable(var/obj/machinery/atmospherics/target)
-	return (target == node1 || target == node2)
-
-/obj/machinery/atmospherics/pipe/manifold/isConnectable(var/obj/machinery/atmospherics/target)
-	return (target == node3 || ..())
-
-/obj/machinery/atmospherics/trinary/isConnectable(var/obj/machinery/atmospherics/target)
-	return (target == node3 || ..())
-
-/obj/machinery/atmospherics/pipe/manifold4w/isConnectable(var/obj/machinery/atmospherics/target)
-	return (target == node3 || target == node4 || ..())
-
-/obj/machinery/atmospherics/tvalve/isConnectable(var/obj/machinery/atmospherics/target)
-	return (target == node3 || ..())
-
-/obj/machinery/atmospherics/pipe/cap/isConnectable(var/obj/machinery/atmospherics/target)
-	return (target == node || ..())
-
-/obj/machinery/atmospherics/portables_connector/isConnectable(var/obj/machinery/atmospherics/target)
-	return (target == node || ..())
-
-/obj/machinery/atmospherics/unary/isConnectable(var/obj/machinery/atmospherics/target)
-	return (target == node || ..())
+	return (target in nodes_to_networks)
 
 /obj/machinery/atmospherics/valve/isConnectable()
 	return (open && ..())

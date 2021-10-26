@@ -50,19 +50,19 @@
 
 /decl/cultural_info/culture/baxxid/get_random_name(var/gender)
 	// First syllable; ffBnc
-	. = pick(GLOB.alphabet_no_vowels)
+	. = pick(global.alphabet_no_vowels)
 	if(. == "h")
 		if(prob(50))
 			. = "[pick("c", "s")][.]"
 	else if(prob(5))
 		. += "r"
-	. += pick(GLOB.vowels)
+	. += pick(global.vowels)
 
 	//Main body of name; ffBnc
 	var/hyphenated = prob(10)
 	var/syllables = hyphenated ? rand(1,2) : rand(1,3)
 	for(var/i = 1 to syllables-1)
-		. = "[.][pick(middle_syllables)][pick(GLOB.vowels)]"
+		. = "[.][pick(middle_syllables)][pick(global.vowels)]"
 
 	// Terminate and format; ffBnc
 	. += pick(end_syllables)

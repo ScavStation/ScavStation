@@ -15,7 +15,7 @@
 	var/obj/item/charge_stick/stored_stick = null
 
 /obj/item/stock_parts/computer/charge_stick_slot/proc/get_currency_name()
-	var/decl/currency/cur = GET_DECL(GLOB.using_map.default_currency)
+	var/decl/currency/cur = GET_DECL(global.using_map.default_currency)
 	return cur.name
 
 /obj/item/stock_parts/computer/charge_stick_slot/diagnostics()
@@ -59,7 +59,7 @@
 		dropInto(loc)
 	stored_stick = null
 
-	var/datum/extension/interactive/ntos/os = get_extension(loc, /datum/extension/interactive/ntos)
+	var/datum/extension/interactive/os/os = get_extension(loc, /datum/extension/interactive/os)
 	if(os)
 		os.event_idremoved()
 	loc.verbs -= /obj/item/stock_parts/computer/charge_stick_slot/proc/verb_eject_stick

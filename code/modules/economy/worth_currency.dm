@@ -6,9 +6,11 @@
 	var/marked_value
 	var/image/overlay
 	var/rotate_icon = TRUE
+	var/decl/currency/currency
 
-/datum/denomination/New(var/decl/currency/currency, var/value, var/value_name, var/colour = COLOR_PALE_BTL_GREEN)
+/datum/denomination/New(var/decl/currency/_currency, var/value, var/value_name, var/colour = COLOR_PALE_BTL_GREEN)
 	..()
+	currency = _currency
 	name = "[value_name] [currency.name_singular] [name || "piece"]"
 	state = state || "cash"
 	marked_value = value
@@ -48,16 +50,16 @@
 	var/list/denominations = list()
 	var/list/denominations_by_value = list()
 
-/decl/currency/New()
+/decl/currency/Initialize()
+	. = ..()
 	if(!name_singular)
 		name_singular = name
 	if(!name_prefix && !name_suffix)
 		name_suffix = uppertext(copytext(name, 1, 1))
 	build_denominations()
-	..()
 
 /decl/currency/proc/format_value(var/amt)
-	. = "[name_prefix][Floor(amt / absolute_value)][name_suffix]"
+	. = "[name_prefix][FLOOR(amt / absolute_value)][name_suffix]"
 
 /decl/currency/proc/build_denominations()
 	for(var/datum/denomination/denomination in denominations)
@@ -90,7 +92,7 @@
 	state = "coin_large"
 
 /decl/currency/trader
-	name =     "scrip"
+	name = "scrip"
 	name_prefix = "$"
 	material = /decl/material/solid/metal/copper
 

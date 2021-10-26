@@ -4,37 +4,45 @@
 	icon = 'icons/turf/space.dmi'
 	explosion_resistance = 3
 	icon_state = "default"
-	dynamic_lighting = 0
+	dynamic_lighting = FALSE
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	permit_ao = FALSE
 	z_eventually_space = TRUE
-	turf_flags = TURF_FLAG_SKIP_ICON_INIT
-	var/static/list/dust_cache
 
-/turf/space/proc/build_dust_cache()
-	LAZYINITLIST(dust_cache)
-	for (var/i in 0 to 25)
-		var/image/im = image('icons/turf/space_dust.dmi',"[i]")
-		im.plane = DUST_PLANE
-		im.alpha = 80
-		im.blend_mode = BLEND_ADD
+	/// If we're an edge.
+	var/edge = 0
+	/// Force this one to pretend it's an overedge turf.
+	var/forced_dirs = 0 
 
-		var/image/I = new()
-		I.appearance = /turf/space
-		I.icon_state = "white"
-		I.overlays += im
-		dust_cache["[i]"] = I
+/turf/space/update_ambient_light(var/mapload)
+	if(config.starlight && (locate(/turf/simulated) in RANGE_TURFS(src, 1)))
+		set_light(config.starlight, 0.75, l_color = SSskybox.background_color)
+	else
+		set_light(0)
 
-/turf/space/Initialize()
+/turf/space/Initialize(var/mapload)
 
 	SHOULD_CALL_PARENT(FALSE)
 	atom_flags |= ATOM_FLAG_INITIALIZED
 
-	update_starlight()
-	if (!dust_cache)
-		build_dust_cache()
-	appearance = dust_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
+	update_ambient_light(mapload)
+
+	//We might be an edge
+	if(y == world.maxy || forced_dirs & NORTH)
+		edge |= NORTH
+	else if(y == 1 || forced_dirs & SOUTH)
+		edge |= SOUTH
+
+	if(x == 1 || forced_dirs & WEST)
+		edge |= WEST
+	else if(x == world.maxx || forced_dirs & EAST)
+		edge |= EAST
+
+	if(edge) //Magic edges
+		appearance = SSskybox.mapedge_cache["[edge]"]
+	else //Dust
+		appearance = SSskybox.dust_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
 
 	if(!HasBelow(z))
 		return INITIALIZE_HINT_NORMAL
@@ -49,6 +57,28 @@
 
 	return INITIALIZE_HINT_LATELOAD // oh no! we need to switch to being a different kind of turf!
 
+/turf/space/proc/toggle_transit(var/direction)
+	if(edge)
+		return
+
+	if(!direction) //Stopping our transit
+		appearance = SSskybox.dust_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
+	else if(direction & (NORTH|SOUTH)) //Starting transit vertically
+		var/x_shift = SSskybox.phase_shift_by_x[x % (SSskybox.phase_shift_by_x.len - 1) + 1]
+		var/transit_state = ((direction & SOUTH ? world.maxy - y : y) + x_shift) % 15
+		appearance = SSskybox.speedspace_cache["NS_[transit_state]"]
+	else if(direction & (EAST|WEST)) //Starting transit horizontally
+		var/y_shift = SSskybox.phase_shift_by_y[y % (SSskybox.phase_shift_by_y.len - 1) + 1]
+		var/transit_state = ((direction & WEST ? world.maxx - x : x) + y_shift) % 15
+		appearance = SSskybox.speedspace_cache["EW_[transit_state]"]
+
+	for(var/atom/movable/AM in src)
+		if (AM.simulated && !AM.anchored)
+			AM.throw_at(get_step(src, global.reverse_dir[direction]), 5, 1)
+
+		if(istype(AM, /obj/effect/decal)) 
+			qdel(AM)
+
 /turf/space/Destroy()
 	// Cleanup cached z_eventually_space values above us.
 	if (above)
@@ -58,10 +88,10 @@
 	return ..()
 
 /turf/space/LateInitialize()
-	if(GLOB.using_map.base_floor_area)
-		var/area/new_area = locate(GLOB.using_map.base_floor_area) || new GLOB.using_map.base_floor_area
+	if(global.using_map.base_floor_area)
+		var/area/new_area = locate(global.using_map.base_floor_area) || new global.using_map.base_floor_area
 		ChangeArea(src, new_area)
-	ChangeTurf(GLOB.using_map.base_floor_type)
+	ChangeTurf(global.using_map.base_floor_type)
 
 // override for space turfs, since they should never hide anything
 /turf/space/levelupdate()
@@ -90,9 +120,9 @@
 			var/obj/item/stack/tile/floor/S = C
 			if (!S.use(1))
 				return
-			qdel(L)
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			ChangeTurf(/turf/simulated/floor/airless, keep_air = TRUE)
+			ChangeTurf(/turf/simulated/floor/airless)
+			qdel(L)
 		else
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 		return TRUE
@@ -102,9 +132,9 @@
 
 /turf/space/Entered(atom/movable/A)
 	..()
-	if(A && A.loc == src)
+	if(A && A.loc == src && !density) // !density so 'fake' space turfs don't fling ghosts everywhere
 		if (A.x <= TRANSITIONEDGE || A.x >= (world.maxx - TRANSITIONEDGE + 1) || A.y <= TRANSITIONEDGE || A.y >= (world.maxy - TRANSITIONEDGE + 1))
-			A.touch_map_edge()
+			A.touch_map_edge(OVERMAP_ID_SPACE)
 
 /turf/space/proc/Sandbox_Spacemove(atom/movable/A)
 	var/cur_x
@@ -123,8 +153,8 @@
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
 		cur_y = cur_pos["y"]
-		next_x = (--cur_x||GLOB.global_map.len)
-		y_arr = GLOB.global_map[next_x]
+		next_x = (--cur_x||global.global_map.len)
+		y_arr = global.global_map[next_x]
 		target_z = y_arr[cur_y]
 /*
 		//debug
@@ -149,8 +179,8 @@
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
 		cur_y = cur_pos["y"]
-		next_x = (++cur_x > GLOB.global_map.len ? 1 : cur_x)
-		y_arr = GLOB.global_map[next_x]
+		next_x = (++cur_x > global.global_map.len ? 1 : cur_x)
+		y_arr = global.global_map[next_x]
 		target_z = y_arr[cur_y]
 /*
 		//debug
@@ -174,7 +204,7 @@
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
 		cur_y = cur_pos["y"]
-		y_arr = GLOB.global_map[cur_x]
+		y_arr = global.global_map[cur_x]
 		next_y = (--cur_y||y_arr.len)
 		target_z = y_arr[next_y]
 /*
@@ -200,7 +230,7 @@
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
 		cur_y = cur_pos["y"]
-		y_arr = GLOB.global_map[cur_x]
+		y_arr = global.global_map[cur_x]
 		next_y = (++cur_y > y_arr.len ? 1 : cur_y)
 		target_z = y_arr[next_y]
 /*
@@ -219,7 +249,7 @@
 					A.loc.Entered(A)
 	return
 
-/turf/space/ChangeTurf(turf/N, tell_universe = TRUE, force_lighting_update = FALSE, keep_air = FALSE)
+/turf/space/ChangeTurf(var/turf/N, var/tell_universe = TRUE, var/force_lighting_update = FALSE, var/keep_air = FALSE)
 	return ..(N, tell_universe, TRUE, keep_air)
 
 /turf/space/is_open()

@@ -1,10 +1,10 @@
-/var/const/DRINK_FIZZ = "fizz"
-/var/const/DRINK_ICE = "ice"
-/var/const/DRINK_VAPOR = "vapor"
-/var/const/DRINK_ICON_DEFAULT = ""
-/var/const/DRINK_ICON_NOISY = "noise"
+var/global/const/DRINK_FIZZ = "fizz"
+var/global/const/DRINK_ICE = "ice"
+var/global/const/DRINK_VAPOR = "vapor"
+var/global/const/DRINK_ICON_DEFAULT = ""
+var/global/const/DRINK_ICON_NOISY = "noise"
 
-/obj/item/chems/food/drinks/glass2
+/obj/item/chems/drinks/glass2
 	name = "glass" // Name when empty
 	base_name = "glass"
 	desc = "A generic drinking glass." // Description when empty
@@ -15,11 +15,14 @@
 	volume = 30
 	material = /decl/material/solid/glass
 
+	drop_sound = 'sound/foley/bottledrop1.ogg'
+	pickup_sound = 'sound/foley/bottlepickup1.ogg'
+
 	var/list/extras = list() // List of extras. Two extras maximum
 
 	var/rim_pos // Position of the rim for fruit slices. list(y, x_left, x_right)
 	var/filling_overlayed //if filling should go on top of the icon (e.g. opaque cups)
-	var/global/list/filling_icons_cache = list()
+	var/static/list/filling_icons_cache = list()
 
 	center_of_mass =@"{'x':16,'y':9}"
 
@@ -27,17 +30,18 @@
 	possible_transfer_amounts = @"[5,10,15,30]"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_SHOW_REAGENT_NAME
 	temperature_coefficient = 4
+	item_flags = ITEM_FLAG_HOLLOW
 
 	var/custom_name
 	var/custom_desc
 
-/obj/item/chems/food/drinks/glass2/examine(mob/M)
+/obj/item/chems/drinks/glass2/examine(mob/M)
 	. = ..()
 
 	for(var/I in extras)
 		if(istype(I, /obj/item/glass_extra))
 			to_chat(M, "There is \a [I] in \the [src].")
-		else if(istype(I, /obj/item/chems/food/snacks/fruit_slice))
+		else if(istype(I, /obj/item/chems/food/fruit_slice))
 			to_chat(M, "There is \a [I] on the rim.")
 		else
 			to_chat(M, "There is \a [I] somewhere on the glass. Somehow.")
@@ -48,7 +52,7 @@
 	if(has_fizz())
 		to_chat(M, "It is fizzing slightly.")
 
-/obj/item/chems/food/drinks/glass2/proc/has_ice()
+/obj/item/chems/drinks/glass2/proc/has_ice()
 	if(LAZYLEN(reagents.reagent_volumes))
 		var/decl/material/R = reagents.get_primary_reagent_decl()
 		if(!((R.type == /decl/material/solid/ice) || ("ice" in R.glass_special))) // if it's not a cup of ice, and it's not already supposed to have ice in, see if the bartender's put ice in it
@@ -57,7 +61,7 @@
 
 	return 0
 
-/obj/item/chems/food/drinks/glass2/proc/has_fizz()
+/obj/item/chems/drinks/glass2/proc/has_fizz()
 	if(LAZYLEN(reagents.reagent_volumes))
 		var/decl/material/R = reagents.get_primary_reagent_decl()
 		if(("fizz" in R.glass_special))
@@ -71,7 +75,7 @@
 			return 1
 	return 0
 
-/obj/item/chems/food/drinks/glass2/proc/has_vapor()
+/obj/item/chems/drinks/glass2/proc/has_vapor()
 	if(LAZYLEN(reagents.reagent_volumes) > 0)
 		if(temperature > T0C + 40)
 			return 1
@@ -86,21 +90,21 @@
 				return 1
 	return 0
 
-/obj/item/chems/food/drinks/glass2/Initialize()
+/obj/item/chems/drinks/glass2/Initialize()
 	. = ..()
 	if(!icon_state)
 		icon_state = base_icon
 
-/obj/item/chems/food/drinks/glass2/get_base_name()
+/obj/item/chems/drinks/glass2/get_base_name()
 	. = base_name
 
-/obj/item/chems/food/drinks/glass2/on_reagent_change()
+/obj/item/chems/drinks/glass2/on_reagent_change()
 	temperature_coefficient = 4 / max(1, reagents.total_volume)
 	..()
 	var/decl/material/R = reagents.get_primary_reagent_decl()
 	desc = R?.glass_desc || custom_desc || initial(desc)
 
-/obj/item/chems/food/drinks/glass2/proc/can_add_extra(obj/item/glass_extra/GE)
+/obj/item/chems/drinks/glass2/proc/can_add_extra(obj/item/glass_extra/GE)
 	if(!("[base_icon]_[GE.glass_addition]left" in icon_states(icon)))
 		return 0
 	if(!("[base_icon]_[GE.glass_addition]right" in icon_states(icon)))
@@ -108,7 +112,7 @@
 
 	return 1
 
-/obj/item/chems/food/drinks/glass2/proc/get_filling_overlay(amount, overlay)
+/obj/item/chems/drinks/glass2/proc/get_filling_overlay(amount, overlay)
 	var/image/I = new()
 	if(!filling_icons_cache["[base_icon][amount][overlay]"])
 		var/icon/base = new/icon(icon, "[base_icon][amount]")
@@ -119,7 +123,7 @@
 	I.appearance = filling_icons_cache["[base_icon][amount][overlay]"]
 	return I
 
-/obj/item/chems/food/drinks/glass2/on_update_icon()
+/obj/item/chems/drinks/glass2/on_update_icon()
 	underlays.Cut()
 	overlays.Cut()
 
@@ -163,7 +167,7 @@
 			var/image/I = image(icon, src, "[base_icon]_[GE.glass_addition][side]")
 			I.color = GE.color
 			underlays += I
-		else if(rim_pos && istype(item, /obj/item/chems/food/snacks/fruit_slice))
+		else if(rim_pos && istype(item, /obj/item/chems/food/fruit_slice))
 			var/obj/FS = item
 			var/image/I = image(FS)
 
@@ -179,7 +183,7 @@
 		else continue
 		side = "right"
 
-/obj/item/chems/food/drinks/glass2/attackby(obj/item/W, mob/user)
+/obj/item/chems/drinks/glass2/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/kitchen/utensil/spoon))
 		if(user.a_intent == I_HURT)
 			user.visible_message("<span class='warning'>[user] bashes \the [src] with a spoon, shattering it to pieces! What a rube.</span>")
@@ -193,7 +197,7 @@
 		playsound(src, "sound/items/wineglass.ogg", 65, 1)
 	else return ..()
 
-/obj/item/chems/food/drinks/glass2/ProcessAtomTemperature()
+/obj/item/chems/drinks/glass2/ProcessAtomTemperature()
 	var/old_temp = temperature
 	. = ..()
 	if(old_temp != temperature)

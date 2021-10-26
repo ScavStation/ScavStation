@@ -1,17 +1,10 @@
 /mob/living/simple_animal/hostile/tree
 	name = "pine tree"
 	desc = "A pissed off tree-like alien. It seems annoyed with the festivities..."
-	icon = 'icons/obj/flora/pinetrees.dmi'
-	icon_state = "pine_1"
-	icon_living = "pine_1"
-	icon_dead = "pine_1"
-	icon_gib = "pine_1"
+	icon = 'icons/mob/simple_animal/pinetree.dmi'
 	speak_chance = 0
 	turns_per_move = 5
-	meat_type = /obj/item/chems/food/snacks/fish
-	response_help = "brushes"
-	response_disarm = "pushes"
-	response_harm = "hits"
+	meat_type = /obj/item/chems/food/fish
 	speed = -1
 	maxHealth = 250
 	health = 250
@@ -25,7 +18,6 @@
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
-
 	faction = "carp"
 
 /mob/living/simple_animal/hostile/tree/FindTarget()
@@ -35,5 +27,6 @@
 
 /mob/living/simple_animal/hostile/tree/death(gibbed, deathmessage, show_dead_message)
 	..(null,"is hacked into pieces!", show_dead_message)
-	new /obj/item/stack/material/wood(loc)
+	var/decl/material/mat = GET_DECL(/decl/material/solid/wood)
+	mat.place_shard(loc)
 	qdel(src)

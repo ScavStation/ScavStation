@@ -3,6 +3,7 @@
 	desc = "You're not sure what this is. You should probably ahelp it."
 	icon = 'icons/clothing/mask/smokables/cigarette.dmi'
 	body_parts_covered = 0
+	z_flags = ZMM_MANGLE_PLANES
 	var/lit = 0
 	var/waterproof = FALSE
 	var/type_butt = null
@@ -94,26 +95,24 @@
 	..()
 	cut_overlays()
 	if(lit && check_state_in_icon("[icon_state]-on", icon))
-		var/image/I = image(icon, "[icon_state]-on")
+		var/image/I
+		if(plane == HUD_PLANE)
+			I = image(icon, "[icon_state]-on")
+		else
+			I = emissive_overlay(icon, "[icon_state]-on")
 		I.appearance_flags |= RESET_COLOR
-		if(plane != HUD_PLANE)
-			I.layer = ABOVE_LIGHTING_LAYER
-			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		add_overlay(I)
 	if(ismob(loc))
 		var/mob/living/M = loc
 		M.update_inv_wear_mask(0)
 		M.update_inv_hands()
 
-/obj/item/clothing/mask/smokable/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/I = ..()
-	if(I && lit && check_state_in_icon("[I.icon_state]-on", I.icon))
-		var/image/on_overlay = image(I.icon, "[I.icon_state]-on")
+/obj/item/clothing/mask/smokable/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && lit && check_state_in_icon("[overlay.icon_state]-on", overlay.icon))
+		var/image/on_overlay = emissive_overlay(overlay.icon, "[overlay.icon_state]-on")
 		on_overlay.appearance_flags |= RESET_COLOR
-		on_overlay.layer = ABOVE_LIGHTING_LAYER
-		on_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		I.add_overlay(on_overlay)
-	return I
+		overlay.add_overlay(on_overlay)
+	. = ..()
 
 /obj/item/clothing/mask/smokable/fluid_act(var/datum/reagents/fluids)
 	..()
@@ -202,6 +201,7 @@
 	. = ..()
 	for(var/R in filling)
 		reagents.add_reagent(R, filling[R])
+	set_extension(src, /datum/extension/tool, list(TOOL_CAUTERY = TOOL_QUALITY_MEDIOCRE))
 
 /obj/item/clothing/mask/smokable/cigarette/light(var/flavor_text = "[usr] lights the [name].")
 	..()
@@ -212,9 +212,10 @@
 	..()
 	remove_extension(src, /datum/extension/scent)
 	if (type_butt)
-		var/obj/item/butt = new type_butt(get_turf(src))
+		var/obj/item/trash/cigbutt/butt = new type_butt(get_turf(src))
 		transfer_fingerprints_to(butt)
-		butt.color = color
+		if(istype(butt) && butt.use_color)
+			butt.color = color
 		if(brand)
 			butt.desc += " This one is a [brand]."
 		if(ismob(loc))
@@ -233,7 +234,7 @@
 	filling = list(/decl/material/solid/tobacco = 1, /decl/material/liquid/menthol = 1)
 
 /obj/item/trash/cigbutt/menthol
-	icon = 'icons/clothing/mask/smokables/cigarette_menthol.dmi'
+	icon = 'icons/clothing/mask/smokables/cigarette_menthol_butt.dmi'
 
 /obj/item/clothing/mask/smokable/cigarette/luckystars
 	brand = "\improper Lucky Star"
@@ -247,7 +248,7 @@
 	filling = list(/decl/material/solid/tobacco/bad = 1.5)
 
 /obj/item/trash/cigbutt/jerichos
-	icon = 'icons/clothing/mask/smokables/cigarette_jericho.dmi'
+	icon = 'icons/clothing/mask/smokables/cigarette_jericho_butt.dmi'
 
 /obj/item/clothing/mask/smokable/cigarette/carcinomas
 	name = "dark cigarette"
@@ -262,7 +263,7 @@
 	filling = list(/decl/material/solid/tobacco/bad = 1)
 
 /obj/item/trash/cigbutt/professionals
-	icon = 'icons/clothing/mask/smokables/cigarette_professional.dmi'
+	icon = 'icons/clothing/mask/smokables/cigarette_professional_butt.dmi'
 
 /obj/item/clothing/mask/smokable/cigarette/killthroat
 	brand = "\improper Acme Co. cigarette"
@@ -315,7 +316,7 @@
 
 /obj/item/trash/cigbutt/woodbutt
 	name = "wooden tip"
-	icon = 'icons/clothing/mask/smokables/cigar.dmi'
+	icon = 'icons/clothing/mask/smokables/cigar_butt.dmi'
 	desc = "A wooden mouthpiece from a cigar. Smells rather bad."
 	material = /decl/material/solid/wood
 
@@ -335,9 +336,11 @@
 		if(blocked)
 			to_chat(H, "<span class='warning'>\The [blocked] is in the way!</span>")
 			return 1
+		var/decl/pronouns/G = user.get_pronouns()
+		var/puff_str = pick("drag","puff","pull")
 		user.visible_message(\
-			"[user] takes a [pick("drag","puff","pull")] on \his [name].", \
-			"You take a [pick("drag","puff","pull")] on your [name].")
+			SPAN_NOTICE("\The [user] takes a [puff_str] on [G.his] [name]."), \
+			SPAN_NOTICE("You take a [puff_str] on your [name]."))
 		smoke(12, TRUE)
 		add_trace_DNA(H)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -410,12 +413,13 @@
 /obj/item/trash/cigbutt
 	name = "cigarette butt"
 	desc = "A manky old cigarette butt."
-	icon = 'icons/clothing/mask/smokables/cigarette.dmi'
+	icon = 'icons/clothing/mask/smokables/cigarette_butt.dmi'
 	icon_state = "butt"
 	randpixel = 10
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 1
+	var/use_color = TRUE
 
 /obj/item/trash/cigbutt/Initialize()
 	. = ..()
@@ -517,8 +521,8 @@
 
 	..()
 
-	if (istype(W, /obj/item/chems/food/snacks))
-		var/obj/item/chems/food/snacks/grown/G = W
+	if (istype(W, /obj/item/chems/food))
+		var/obj/item/chems/food/grown/G = W
 		if (!G.dry)
 			to_chat(user, "<span class='notice'>[G] must be dried before you stuff it into [src].</span>")
 			return

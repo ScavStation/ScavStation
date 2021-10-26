@@ -11,8 +11,18 @@
 	var/tag_interior_sensor
 	var/tag_secure = 0
 	var/tag_air_alarm
-	var/list/dummy_terminals = list()
+	var/list/dummy_terminals = list() // Internal use only; set id_tag on the dummy terminal to be added.
 	var/cycle_to_external_air = 0
+
+/obj/machinery/embedded_controller/radio/airlock/modify_mapped_vars(map_hash)
+	..()
+	ADJUST_TAG_VAR(tag_exterior_door, map_hash)
+	ADJUST_TAG_VAR(tag_interior_door, map_hash)
+	ADJUST_TAG_VAR(tag_airpump, map_hash)
+	ADJUST_TAG_VAR(tag_chamber_sensor, map_hash)
+	ADJUST_TAG_VAR(tag_exterior_sensor, map_hash)
+	ADJUST_TAG_VAR(tag_interior_sensor, map_hash)
+	ADJUST_TAG_VAR(tag_air_alarm, map_hash)
 
 /obj/machinery/embedded_controller/radio/airlock/Destroy()
 	for(var/thing in dummy_terminals)
@@ -31,7 +41,7 @@
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
 	name = "Advanced Airlock Controller"
 
-/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = global.default_topic_state)
 	var/data[0]
 
 	data = list(
@@ -55,7 +65,7 @@
 	name = "Airlock Controller"
 	tag_secure = 1
 
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = global.default_topic_state)
 	var/data[0]
 
 	data = list(
@@ -78,7 +88,7 @@
 	name = "Access Controller"
 	tag_secure = 1
 
-/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = global.default_topic_state)
 	var/data[0]
 
 	data = list(

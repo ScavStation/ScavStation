@@ -180,7 +180,7 @@
 		/obj/item/taperoll/police,
 		/obj/item/gun/projectile/pistol,
 		/obj/item/clothing/accessory/storage/holster/armpit,
-		/obj/item/chems/food/drinks/flask/detflask,
+		/obj/item/chems/drinks/flask/detflask,
 		/obj/item/storage/briefcase/crimekit,
 		/obj/item/holowarrant
 	)
@@ -197,6 +197,10 @@
 	req_access = list(access_brig)
 	anchored = 1
 	var/id = null
+
+/obj/structure/closet/secure_closet/brig/modify_mapped_vars(map_hash)
+	..()
+	ADJUST_TAG_VAR(id, map_hash)
 
 /obj/structure/closet/secure_closet/brig/WillContain()
 	return list(
@@ -225,6 +229,10 @@
 
 	//too small to put a man in
 	large = 0
+
+/obj/structure/closet/secure_closet/wall/Initialize()
+	. = ..()
+	tool_interaction_flags &= ~TOOL_INTERACTION_ANCHOR
 
 /obj/structure/closet/secure_closet/lawyer
 	name = "internal affairs secure closet"

@@ -1,16 +1,21 @@
+/datum/appearance_descriptor/age/vox
+	chargen_min_index = 3
+	chargen_max_index = 6
+	standalone_value_descriptors = list(
+		"freshly spawned" =  1,
+		"a larva" =          2,
+		"a juvenile" =       5,
+		"an adolescent" =    8,
+		"an adult" =        12,
+		"senescent" =       50,
+		"withered" =        65
+	)
+
 #define IS_VOX "vox"
 
 /decl/species/vox
 	name = SPECIES_VOX
 	name_plural = SPECIES_VOX
-	icobase =         'mods/species/vox/icons/body/body.dmi'
-	deform =          'mods/species/vox/icons/body/body.dmi'
-	husk_icon =       'mods/species/vox/icons/body/husk.dmi'
-	damage_overlays = 'mods/species/vox/icons/body/damage_overlay.dmi'
-	damage_mask =     'mods/species/vox/icons/body/damage_mask.dmi'
-	blood_mask =      'mods/species/vox/icons/body/blood_mask.dmi'
-
-	bodytype = BODYTYPE_VOX
 
 	default_emotes = list(
 		/decl/emote/audible/vox_shriek
@@ -49,9 +54,8 @@
 	cold_level_2 = 50
 	cold_level_3 = -1
 	
-	min_age = 1
-	max_age = 100
-	
+	age_descriptor = /datum/appearance_descriptor/age/vox
+
 	gluttonous = GLUT_TINY|GLUT_ITEM_NORMAL
 	stomach_capacity = 12
 
@@ -86,11 +90,15 @@
 		BP_HINDTONGUE = /obj/item/organ/internal/hindtongue
 		)
 
-	genders = list(NEUTER)
-	descriptors = list(
-		/datum/mob_descriptor/height = -1,
-		/datum/mob_descriptor/build = 1,
-		/datum/mob_descriptor/vox_markings = 0
+	override_limb_types = list(BP_TAIL = /obj/item/organ/external/tail/vox)
+
+	available_pronouns = list(/decl/pronouns/neuter)
+	available_bodytypes = list(/decl/bodytype/vox)
+
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height =       0.75,
+		/datum/appearance_descriptor/build =        1.25,
+		/datum/appearance_descriptor/vox_markings = 1
 		)
 
 	available_cultural_info = list(
@@ -117,7 +125,7 @@
 	exertion_effect_chance = 10
 	exertion_hydration_scale = 1
 	exertion_charge_scale = 1
-	exertion_reagent_scale = 5
+	exertion_reagent_scale = 1
 	exertion_reagent_path = /decl/material/liquid/lactate
 	exertion_emotes_biological = list(
 		/decl/emote/exertion/biological,
@@ -129,23 +137,8 @@
 		/decl/emote/exertion/synthetic/creak
 	)
 
-/decl/species/vox/New()
-	..()
-	equip_adjust = list(
-		BP_L_HAND =           list("[NORTH]" = list("x" =  0, "y" = -3), "[EAST]" = list("x" = 0, "y" = -3), "[SOUTH]" = list("x" =  0, "y" = -3),  "[WEST]" = list("x" =  0, "y" = -3)),
-		BP_R_HAND =           list("[NORTH]" = list("x" =  0, "y" = -3), "[EAST]" = list("x" = 0, "y" = -3), "[SOUTH]" = list("x" =  0, "y" = -3),  "[WEST]" = list("x" =  0, "y" = -3)),
-		slot_head_str =       list("[NORTH]" = list("x" =  0, "y" =  0), "[EAST]" = list("x" = 3, "y" =  0), "[SOUTH]" = list("x" =  0, "y" =  0),  "[WEST]" = list("x" = -3, "y" =  0)),
-		slot_wear_mask_str =  list("[NORTH]" = list("x" =  0, "y" =  0), "[EAST]" = list("x" = 4, "y" =  0), "[SOUTH]" = list("x" =  0, "y" =  0),  "[WEST]" = list("x" = -4, "y" =  0)),
-		slot_back_str =       list("[NORTH]" = list("x" =  0, "y" = -2), "[EAST]" = list("x" = 0, "y" = -2), "[SOUTH]" = list("x" =  0, "y" = -2),  "[WEST]" = list("x" =  0, "y" = -2)),
-		slot_wear_suit_str =  list("[NORTH]" = list("x" =  0, "y" = -3), "[EAST]" = list("x" = 0, "y" = -3), "[SOUTH]" = list("x" =  0, "y" = -3),  "[WEST]" = list("x" =  0, "y" = -3)),
-		slot_w_uniform_str =  list("[NORTH]" = list("x" =  0, "y" = -3), "[EAST]" = list("x" = 0, "y" = -3), "[SOUTH]" = list("x" =  0, "y" = -3),  "[WEST]" = list("x" =  0, "y" = -3)),
-		slot_underpants_str = list("[NORTH]" = list("x" =  0, "y" = -3), "[EAST]" = list("x" = 0, "y" = -3), "[SOUTH]" = list("x" =  0, "y" = -3),  "[WEST]" = list("x" =  0, "y" = -3)),
-		slot_undershirt_str = list("[NORTH]" = list("x" =  0, "y" = -3), "[EAST]" = list("x" = 0, "y" = -3), "[SOUTH]" = list("x" =  0, "y" = -3),  "[WEST]" = list("x" =  0, "y" = -3))
-	)
-
 /decl/species/vox/equip_survival_gear(var/mob/living/carbon/human/H)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vox(H), slot_wear_mask_str)
-
 	if(istype(H.get_equipped_item(slot_back_str), /obj/item/storage/backpack))
 		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(H.back), slot_in_backpack_str)
 		var/obj/item/tank/nitrogen/tank = new(H)
@@ -158,8 +151,8 @@
 		H.set_internals(H.back)
 
 /decl/species/vox/disfigure_msg(var/mob/living/carbon/human/H)
-	var/datum/gender/T = gender_datums[H.get_gender()]
-	return "<span class='danger'>[T.His] beak-segments are cracked and chipped! [T.He] [T.is] not even recognizable.</span>\n"
+	var/decl/pronouns/G = H.get_pronouns()
+	return SPAN_DANGER("[G.His] beak-segments are cracked and chipped! [G.He] [G.is] not even recognizable.\n")
 	
 /decl/species/vox/skills_from_age(age)
 	. = 8

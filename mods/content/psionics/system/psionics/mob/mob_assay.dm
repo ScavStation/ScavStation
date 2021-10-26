@@ -5,7 +5,7 @@
 	var/use_He_is =  "You are"
 	var/use_He_has = "You have"
 	if(istype(machine) || viewer != src)
-		var/datum/gender/G = gender_datums[gender]
+		var/decl/pronouns/G = get_pronouns(ignore_coverings = TRUE)
 		use_He_is =  "[G.He] [G.is]"
 		use_He_has = "[G.He] [G.has]"
 
@@ -67,7 +67,7 @@
 			for(var/faculty_id in psi.ranks)
 				var/decl/psionic_faculty/faculty = SSpsi.get_faculty(faculty_id)
 				if(psi.ranks[faculty.id] > 0)
-					dat += "[use_He_is] assayed at the rank of <b>[GLOB.psychic_ranks_to_strings[psi.ranks[faculty.id]]]</b> for the <b>[faculty.name] faculty</b>.<br>"
+					dat += "[use_He_is] assayed at the rank of <b>[global.psychic_ranks_to_strings[psi.ranks[faculty.id]]]</b> for the <b>[faculty.name] faculty</b>.<br>"
 				else
 					dat += "[use_He_has] no notable power within the <b>[faculty.name] faculty</b>.<br>"
 			dat += "<hr>"

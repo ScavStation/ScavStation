@@ -35,9 +35,7 @@
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
 	src.visible_message("<span class='warning'>\The [src] explodes in a bright flash!</span>")
 
-	var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
-	sparks.set_up(2, 1, T)
-	sparks.start()
+	spark_at(T, amount=2, cardinal_only = TRUE)
 
 	new /obj/effect/decal/cleanable/ash(src.loc) //always use src.loc so that ash doesn't end up inside windows
 	new /obj/effect/effect/smoke/illumination(T, 5, 4, 1, light_flash_color)
@@ -52,7 +50,7 @@
 
 /obj/item/projectile/energy/flash/flare/on_impact(var/atom/A)
 	light_flash_color = pick("#e58775", "#ffffff", "#faa159", "#e34e0e")
-	set_light(1, 1, 4, 2, light_flash_color)
+	set_light(4, 2, light_flash_color)
 	..() //initial flash
 
 	//residual illumination
@@ -62,7 +60,7 @@
 	var/area/AO = TO.loc
 	if(AO && (AO.area_flags & AREA_FLAG_EXTERNAL))
 		//Everyone saw that!
-		for(var/mob/living/mob in GLOB.living_mob_list_)
+		for(var/mob/living/mob in global.living_mob_list_)
 			var/turf/T = get_turf(mob)
 			var/area/A1 = T.loc
 			if(T && (T != TO) && (TO.z == T.z) && !mob.blinded)
@@ -83,8 +81,8 @@
 				if(visible)
 					to_chat(mob, SPAN_NOTICE("You see a bright light to \the [dir2text(get_dir(T,TO))]"))
 			CHECK_TICK
-				
-/obj/item/projectile/energy/electrode	//has more pain than a beam because it's harder to hit 
+
+/obj/item/projectile/energy/electrode	//has more pain than a beam because it's harder to hit
 	name = "electrode"
 	icon_state = "spark"
 	fire_sound = 'sound/weapons/Taser.ogg'

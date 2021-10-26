@@ -42,7 +42,7 @@
 	material = /decl/material/solid/plastic
 	matter = list(
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_TRACE
 	)
 
 /obj/item/rig_module/device/defib
@@ -70,7 +70,7 @@
 	device = /obj/item/pickaxe/diamonddrill
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_TRACE,
 		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE
 	)
@@ -90,7 +90,7 @@
 	material = /decl/material/solid/plastic
 	matter = list(
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_TRACE
 	)
 
 /obj/item/rig_module/device/orescanner
@@ -109,7 +109,7 @@
 	material = /decl/material/solid/plastic
 	matter = list(
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_TRACE
 	)
 
 /obj/item/rig_module/device/orescanner/activate()
@@ -132,7 +132,7 @@
 	device = /obj/item/rcd/mounted
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE,
 		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE,
 		/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE
@@ -382,14 +382,32 @@
 	deactivate_string = "Deactivate Thrusters"
 
 	interface_name = "maneuvering jets"
-	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
+	interface_desc = "An inbuilt EVA maneuvering system that runs off a seperate gas supply."
 	origin_tech = "{'materials':6,'engineering':7}"
 	material = /decl/material/solid/metal/steel
 	matter = list(
 		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_TRACE
 	)
 	var/obj/item/tank/jetpack/rig/jets
+
+/obj/item/rig_module/maneuvering_jets/attackby(obj/item/W, mob/user)
+	if(W.do_tool_interaction(TOOL_WRENCH, user, src, 1, "removing the propellant tank", "removing the propellant tank"))
+		jets.forceMove(get_turf(user))
+		user.put_in_hands(jets)
+		jets = null
+		return TRUE
+	
+	if(istype(W, /obj/item/tank/jetpack/rig))
+		if(jets)
+			to_chat(user, SPAN_WARNING("There's already a propellant tank inside of \the [src]!"))
+			return
+		if(user.unEquip(W))
+			to_chat(user, SPAN_NOTICE("You insert \the [W] into [src]."))
+			W.forceMove(src)
+			jets = W
+			return TRUE
+	. = ..()
 
 /obj/item/rig_module/maneuvering_jets/engage()
 	if(!..())
@@ -435,6 +453,10 @@
 	..()
 	jets.holder = null
 	jets.ion_trail.set_up(jets)
+
+/obj/item/rig_module/maneuvering_jets/Destroy()
+	. = ..()
+	QDEL_NULL(jets)
 
 /obj/item/rig_module/device/paperdispenser
 	name = "hardsuit paper dispenser"
@@ -508,7 +530,7 @@
 	material = /decl/material/solid/metal/steel
 	matter = list(
 		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_TRACE
 	)
 
 /obj/item/rig_module/cooling_unit
@@ -520,7 +542,7 @@
 	module_cooldown = 0 SECONDS //no cd because its critical for a life-support module
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE
 	)
 	var/charge_consumption = 0.5 KILOWATTS

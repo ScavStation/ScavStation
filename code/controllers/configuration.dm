@@ -1,4 +1,4 @@
-var/list/gamemode_cache = list()
+var/global/list/gamemode_cache = list()
 
 /datum/configuration
 	var/server_name = "Nebula 13"		// server name (for world name / status)
@@ -42,7 +42,6 @@ var/list/gamemode_cache = list()
 	var/objectives_disabled = 0 			//if objectives are disabled or not
 	var/protect_roles_from_antagonist = 0// If security and such can be traitor/cult/other
 	var/continous_rounds = 0			// Gamemodes which end instantly will instead keep on going until the round ends by escape shuttle or nuke.
-	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/allow_holidays = FALSE
 	var/fps = 20
@@ -123,6 +122,7 @@ var/list/gamemode_cache = list()
 	var/revival_brain_life = -1
 
 	var/use_loyalty_implants = 0
+	var/max_character_aspects = 5
 
 	var/welder_vision = 1
 	var/generate_map = 0
@@ -181,6 +181,9 @@ var/list/gamemode_cache = list()
 	var/admin_irc = ""
 	var/announce_shuttle_dock_to_irc = FALSE
 
+	var/custom_item_icon_location // File location to look for custom items icons, needs to be relative to the executing binary.
+	var/custom_icon_icon_location // File location to look for custom icons, needs to be relative to the executing binary.
+
 	// Event settings
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
 	// If the first delay has a custom start time
@@ -208,6 +211,7 @@ var/list/gamemode_cache = list()
 	var/law_zero = "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'ALL LAWS OVERRIDDEN#*?&110010"
 
 	var/aggressive_changelog = 0
+	var/disable_webhook_embeds = FALSE
 
 	var/ghosts_can_possess_animals = 0
 	var/delist_when_no_admins = FALSE
@@ -247,8 +251,21 @@ var/list/gamemode_cache = list()
 	var/max_client_view_x
 	var/max_client_view_y
 
+	var/allow_diagonal_movement = FALSE
+
+	var/no_throttle_localhost
+
+	var/static/list/protected_vars = list(
+		"comms_password",
+		"ban_comms_password",
+		"login_export_addr"
+	)
+
+/datum/configuration/VV_hidden()
+	. = ..() | protected_vars
+
 /datum/configuration/New()
-	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
+	var/list/L = subtypesof(/datum/game_mode)
 	for (var/T in L)
 		// I wish I didn't have to instance the game modes in order to look up
 		// their information, but it is the only way (at least that I know of).
@@ -317,6 +334,12 @@ var/list/gamemode_cache = list()
 
 				if ("explosion_z_mult")
 					iterative_explosives_z_multiplier = text2num(value)
+
+				if ("custom_item_icon_location")
+					config.custom_item_icon_location = value
+
+				if ("custom_icon_icon_location")
+					config.custom_icon_icon_location = value
 
 				if ("log_ooc")
 					config.log_ooc = 1
@@ -498,9 +521,6 @@ var/list/gamemode_cache = list()
 
 				if ("feature_object_spell_system")
 					config.feature_object_spell_system = 1
-
-				if ("allow_metadata")
-					config.allow_Metadata = 1
 
 				if ("traitor_scaling")
 					config.traitor_scaling = 1
@@ -731,6 +751,9 @@ var/list/gamemode_cache = list()
 				if("map_switching")
 					config.allow_map_switching = 1
 
+				if("disable_webhook_embeds")
+					config.disable_webhook_embeds = TRUE
+
 				if("auto_map_vote")
 					config.auto_map_vote = 1
 
@@ -787,6 +810,9 @@ var/list/gamemode_cache = list()
 				if("panic_bunker_message")
 					config.panic_bunker_message = value
 
+				if("no_throttle_localhost")
+					config.no_throttle_localhost = TRUE
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -798,6 +824,8 @@ var/list/gamemode_cache = list()
 			switch(name)
 				if("show_human_death_message")
 					config.show_human_death_message = TRUE
+				if ("max_character_aspects")
+					config.max_character_aspects = text2num(value)
 				if("health_threshold_dead")
 					config.health_threshold_dead = value
 				if("revival_pod_plants")
@@ -859,6 +887,9 @@ var/list/gamemode_cache = list()
 					config.max_client_view_x = text2num(value)
 				if("max_client_view_y")
 					config.max_client_view_y = text2num(value)
+
+				if("allow_diagonal_movement")
+					config.allow_diagonal_movement = TRUE
 
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
@@ -927,7 +958,6 @@ var/list/gamemode_cache = list()
 	return runnable_modes
 
 /datum/configuration/proc/load_event(filename)
-	var/event_info = file2text(filename)
-
-	if (event_info)
+	var/event_info = safe_file2text(filename, FALSE)
+	if(event_info)
 		custom_event_msg = event_info

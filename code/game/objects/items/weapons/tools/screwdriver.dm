@@ -11,14 +11,16 @@
 	lock_picking_level = 5
 	sharp = TRUE
 	applies_material_colour = TRUE
+	drop_sound = 'sound/foley/singletooldrop2.ogg'
 
-	var/global/valid_colours = list(COLOR_RED, COLOR_CYAN_BLUE, COLOR_PURPLE, COLOR_CHESTNUT, COLOR_ASSEMBLY_YELLOW, COLOR_BOTTLE_GREEN)
+	var/static/valid_colours = list(COLOR_RED, COLOR_CYAN_BLUE, COLOR_PURPLE, COLOR_CHESTNUT, COLOR_ASSEMBLY_YELLOW, COLOR_BOTTLE_GREEN)
 	var/handle_color
 
 /obj/item/screwdriver/Initialize()
-	if (prob(75))
-		src.pixel_y = rand(0, 16)
+	if(prob(75))
+		pixel_y = rand(0, 16)
 	. = ..()
+	set_extension(src, /datum/extension/tool, list(TOOL_SCREWDRIVER = TOOL_QUALITY_DEFAULT))
 
 /obj/item/screwdriver/on_update_icon()
 	..()
@@ -26,11 +28,10 @@
 		handle_color = pick(valid_colours)
 	overlays += mutable_appearance(icon, "[get_world_inventory_state()]_handle", handle_color)
 
-/obj/item/screwdriver/experimental_mob_overlay()
-	var/image/res = ..()
-	if(res)
-		res.color = handle_color
-	return res
+/obj/item/screwdriver/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay)
+		overlay.color = handle_color
+	. = ..()
 
 /obj/item/screwdriver/get_on_belt_overlay()
 	var/image/res = ..()

@@ -1,3 +1,5 @@
+var/global/list/closets = list()
+
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
@@ -5,6 +7,8 @@
 	icon_state = "base"
 	density = 1
 	maxhealth = 100
+	material = /decl/material/solid/metal/steel
+	tool_interaction_flags = TOOL_INTERACTION_ANCHOR
 
 	var/welded = 0
 	var/large = 1
@@ -24,9 +28,13 @@
 	var/opened = FALSE
 	var/locked = FALSE
 
+/obj/structure/closet/Destroy()
+	global.closets -= src
+	. = ..()
+
 /obj/structure/closet/Initialize()
 	..()
-
+	global.closets += src
 	if((setup & CLOSET_HAS_LOCK))
 		verbs += /obj/structure/closet/proc/togglelock_verb
 
@@ -54,7 +62,7 @@
 	. = ..()
 	if(distance <= 1 && !opened)
 		var/content_size = 0
-		for(var/atom/movable/AM in src.contents)
+		for(var/atom/movable/AM in contents)
 			if(!AM.anchored)
 				content_size += content_size(AM)
 		if(!content_size)
@@ -67,6 +75,10 @@
 			to_chat(user, "There is still some free space.")
 		else
 			to_chat(user, "It is full.")
+
+	var/mob/observer/ghost/G = user
+	if(isghost(G) && (G.client?.holder || G.antagHUD))
+		to_chat(user, "It contains: [counting_english_list(contents)]")
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
@@ -152,7 +164,7 @@
 /obj/structure/closet/proc/store_mobs(var/stored_units)
 	. = 0
 	for(var/mob/living/M in loc)
-		if(M.buckled || M.pinned.len || M.anchored)
+		if(M.buckled || LAZYLEN(M.pinned) || M.anchored)
 			continue
 		var/mob_size = content_size(M)
 		if(CLOSET_CHECK_TOO_BIG(mob_size))
@@ -229,7 +241,7 @@
 	if(user.a_intent == I_HURT && W.force)
 		return ..()
 
-	if(!opened && istype(W, /obj/item/stack/material))
+	if(!opened && (istype(W, /obj/item/stack/material) || isWrench(W)) )
 		return ..()
 
 	if(src.opened)
@@ -265,13 +277,11 @@
 			W.pixel_z = 0
 			W.pixel_w = 0
 		return
-	else if(istype(W, /obj/item/energy_blade/blade))
-		if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
-			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-			spark_system.set_up(5, 0, src.loc)
-			spark_system.start()
+	else if(istype(W, /obj/item/energy_blade))
+		var/obj/item/energy_blade/blade = W
+		if(blade.is_special_cutting_tool() && emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
+			spark_at(src.loc, amount=5)
 			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
-			playsound(src.loc, "sparks", 50, 1)
 			open()
 	else if(istype(W, /obj/item/stack/package_wrap))
 		return
@@ -292,18 +302,18 @@
 		src.attack_hand(user)
 
 /obj/structure/closet/proc/slice_into_parts(obj/W, mob/user)
-	new /obj/item/stack/material/steel(src.loc, 2)
 	user.visible_message("<span class='notice'>\The [src] has been cut apart by [user] with \the [W].</span>", \
 						 "<span class='notice'>You have cut \the [src] apart with \the [W].</span>", \
 						 "You hear welding.")
-	dismantle(src)
+	physically_destroyed()
 
 /obj/structure/closet/receive_mouse_drop(atom/dropping, mob/user)
 	. = ..()
-	if(!. && opened && !istype(dropping, /obj/structure/closet) && (large || !ismob(dropping)))
-		step_towards(dropping, loc)
-		if(user != dropping)
-			user.show_viewers(SPAN_DANGER("\The [user] stuffs \the [dropping] into \the [src]!"))
+	var/atom/movable/AM = dropping
+	if(!. && istype(AM) && opened && !istype(AM, /obj/structure/closet) && AM.simulated && !AM.anchored && (large || !ismob(AM)))
+		step_towards(AM, loc)
+		if(user != AM)
+			user.show_viewers(SPAN_DANGER("\The [user] stuffs \the [AM] into \the [src]!"))
 		return TRUE
 
 /obj/structure/closet/attack_ai(mob/living/silicon/ai/user)
@@ -504,4 +514,4 @@
 	return TRUE
 
 /obj/structure/closet/CanUseTopicPhysical(mob/user)
-	return CanUseTopic(user, GLOB.physical_no_access_state)
+	return CanUseTopic(user, global.physical_no_access_topic_state)

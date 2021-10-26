@@ -90,19 +90,13 @@
 /obj/machinery/power/attackby(obj/item/W, mob/user)
 	if((. = ..()))
 		return
-
 	if(isCoil(W))
-
 		var/obj/item/stack/cable_coil/coil = W
-
 		var/turf/T = user.loc
-
-		if(!T.is_plating() || !istype(T, /turf/simulated/floor))
+		if(!istype(T) || T.density || !T.is_plating())
 			return
-
 		if(get_dist(src, user) > 1)
 			return
-
 		coil.turf_place(T, user)
 		return TRUE
 
@@ -119,7 +113,7 @@
 	var/cdir
 	var/turf/T
 
-	for(var/card in GLOB.cardinal)
+	for(var/card in global.cardinal)
 		T = get_step(loc,card)
 		cdir = get_dir(T,loc)
 
@@ -138,7 +132,7 @@
 	var/cdir
 	var/turf/T
 
-	for(var/card in GLOB.cardinal)
+	for(var/card in global.cardinal)
 		T = get_step(loc,card)
 		cdir = get_dir(T,loc)
 
@@ -167,7 +161,7 @@
 /proc/power_list(var/turf/T, var/source, var/d, var/unmarked=0, var/cable_only = 0)
 	. = list()
 
-	var/reverse = d ? GLOB.reverse_dir[d] : 0
+	var/reverse = d ? global.reverse_dir[d] : 0
 	for(var/AM in T)
 		if(AM == source)	continue			//we don't want to return source
 

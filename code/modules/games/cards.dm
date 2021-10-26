@@ -8,19 +8,28 @@
 	return image(deck_icon, concealed ? back_icon : card_icon)
 
 /datum/playingcard/custom
-	var/use_custom_front = TRUE
-	var/use_custom_back = TRUE
+	var/use_custom_front
+	var/use_custom_back
 
 /datum/playingcard/custom/card_image(concealed, deck_icon)
 	if(concealed)
-		return image((src.use_custom_back ? CUSTOM_ITEM_OBJ : deck_icon), "[back_icon]")
+		return image(use_custom_back || deck_icon, "[back_icon]")
 	else
-		return image((src.use_custom_front ? CUSTOM_ITEM_OBJ : deck_icon), "[card_icon]")
+		return image(use_custom_front || deck_icon, "[card_icon]")
 
+var/global/list/card_decks = list()
 /obj/item/deck
 	w_class = ITEM_SIZE_SMALL
 	icon = 'icons/obj/items/playing_cards.dmi'
 	var/list/cards = list()
+
+/obj/item/deck/Initialize()
+	. = ..()
+	global.card_decks += src
+
+/obj/item/deck/Destroy()
+	. = ..()
+	global.card_decks -= src
 
 /obj/item/deck/inherit_custom_item_data(var/datum/custom_item/citem)
 	. = ..()
@@ -36,11 +45,18 @@
 					P.back_icon = card_decl["back_icon"]
 				if(!isnull(card_decl["desc"]))
 					P.desc = card_decl["desc"]
-				if(!isnull(card_decl["use_custom_front"]))
-					P.use_custom_front = card_decl["use_custom_front"]
-				if(!isnull(card_decl["use_custom_back"]))
-					P.use_custom_back = card_decl["use_custom_back"]
+				finalize_custom_item_data(P, card_decl) // Separate proc in case of runtime.
 				cards += P
+
+/obj/item/deck/proc/finalize_custom_item_data(var/datum/playingcard/custom/P, var/card_decl)
+	if(!istype(P) || !card_decl)
+		return
+	if(!isnull(card_decl["use_custom_front"]))
+		var/card_front = card_decl["use_custom_front"]
+		P.use_custom_front = fexists(card_front) && file(card_front)
+	if(!isnull(card_decl["use_custom_back"]))
+		var/card_back = card_decl["use_custom_back"]
+		P.use_custom_back = fexists(card_back) && file(card_back)
 
 /obj/item/deck/holder
 	name = "card box"
@@ -127,7 +143,7 @@
 /obj/item/deck/examine(mob/user)
 	. = ..()
 	if(cards.len)
-		to_chat(user, "<br>There [cards.len == 1 ? "is" : "are"]still <b>[cards.len] card\s</b>.")
+		to_chat(user, "<br>There [cards.len == 1 ? "is" : "are"] still <b>[cards.len] card\s</b>.")
 	to_chat(user, SPAN_NOTICE("You can deal cards at a table by clicking on it with grab intent."))
 
 /obj/item/deck/attackby(obj/O, mob/user)
@@ -208,7 +224,8 @@
 	H.concealed = 1
 	H.update_icon()
 	if(user==target)
-		user.visible_message("\The [user] deals a card to \himself.")
+		var/decl/pronouns/G = user.get_pronouns()
+		user.visible_message("\The [user] deals a card to [G.self].")
 	else
 		user.visible_message("\The [user] deals a card to \the [target].")
 
@@ -348,7 +365,7 @@
 		overlays += I
 		return
 
-	var/offset = Floor(20/cards.len)
+	var/offset = FLOOR(20/cards.len)
 
 	var/matrix/M = matrix()
 	if(direction)
@@ -397,7 +414,7 @@
 /obj/item/hand/missing_card/Initialize()
 	. = ..()
 	var/list/deck_list = list()
-	for(var/obj/item/deck/D in world)
+	for(var/obj/item/deck/D in global.card_decks)
 		if(isturf(D.loc))		//Decks hiding in inventories are safe. Respect the sanctity of loadout items.
 			deck_list += D
 

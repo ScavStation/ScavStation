@@ -43,7 +43,7 @@
 
 	var/mob_transfer_message = "You are transported to ORIGIN." //What message gets sent to mobs that get sold.
 
-	var/global/list/blacklisted_types = list(
+	var/static/list/blacklisted_types = list(
 		/obj,
 		/obj/structure,
 		/obj/machinery,
@@ -59,22 +59,21 @@
 		/obj/item/chems,
 		/obj/item/chems/glass,
 		/obj/item/chems/food,
-		/obj/item/chems/food/snacks,
-		/obj/item/chems/food/snacks/old,
-		/obj/item/chems/food/snacks/grown,
-		/obj/item/chems/food/snacks/variable,
-		/obj/item/chems/food/condiment,
-		/obj/item/chems/food/drinks,
-		/obj/item/chems/food/drinks/bottle
+		/obj/item/chems/food/old,
+		/obj/item/chems/food/grown,
+		/obj/item/chems/food/variable,
+		/obj/item/chems/condiment,
+		/obj/item/chems/drinks,
+		/obj/item/chems/drinks/bottle
 	)
 
 /datum/trader/New()
 	..()
 	if(!ispath(trader_currency, /decl/currency))
-		trader_currency = GLOB.using_map.default_currency
+		trader_currency = global.using_map.default_currency
 	if(name_language)
 		if(name_language == TRADER_DEFAULT_NAME)
-			name = capitalize(pick(GLOB.first_names_female + GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
+			name = capitalize(pick(global.first_names_female + global.first_names_male)) + " " + capitalize(pick(global.last_names))
 		else
 			var/decl/language/L = GET_DECL(name_language)
 			if(istype(L))

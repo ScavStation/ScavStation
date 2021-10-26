@@ -1,5 +1,5 @@
 // Screen objects hereon out.
-#define MECH_UI_STYLE(X) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 5px;\">" + X + "</span>"
+#define MECH_UI_STYLE(X) "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 5px;\">[X]</span>"
 
 /obj/screen/exosuit
 	name = "hardpoint"
@@ -10,9 +10,12 @@
 
 /obj/screen/exosuit/radio
 	name = "radio"
-	maptext = MECH_UI_STYLE("RADIO")
 	maptext_x = 5
 	maptext_y = 12
+
+/obj/screen/exosuit/radio/Initialize()
+	. = ..()
+	maptext = MECH_UI_STYLE("RADIO")	
 
 /obj/screen/exosuit/radio/Click()
 	if(..())
@@ -29,7 +32,7 @@
 	owner = newowner
 
 /obj/screen/exosuit/Click()
-	return (!owner || !usr.incapacitated() && (usr == owner || usr.loc == owner))
+	return (owner && (!usr.incapacitated() && usr.canClick() && (usr == owner || usr.loc == owner)))
 
 /obj/screen/exosuit/hardpoint
 	name = "hardpoint"
@@ -66,6 +69,7 @@
 	var/list/new_overlays = list()
 	if(!owner.get_cell() || (owner.get_cell().charge <= 0))
 		overlays.Cut()
+		maptext = ""
 		return
 
 	maptext =  SPAN_STYLE("font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;", "[holding.get_hardpoint_maptext()]")
@@ -90,26 +94,26 @@
 			value = round(value * BAR_CAP)
 
 	// Draw background.
-	if(!GLOB.default_hardpoint_background)
-		GLOB.default_hardpoint_background = image(icon = 'icons/mecha/mech_hud.dmi', icon_state = "bar_bkg")
-		GLOB.default_hardpoint_background.pixel_x = 34
-	new_overlays += GLOB.default_hardpoint_background
+	if(!global.default_hardpoint_background)
+		global.default_hardpoint_background = image(icon = 'icons/mecha/mech_hud.dmi', icon_state = "bar_bkg")
+		global.default_hardpoint_background.pixel_x = 34
+	new_overlays += global.default_hardpoint_background
 
 	if(value == 0)
-		if(!GLOB.hardpoint_bar_empty)
-			GLOB.hardpoint_bar_empty = image(icon='icons/mecha/mech_hud.dmi',icon_state="bar_flash")
-			GLOB.hardpoint_bar_empty.pixel_x = 24
-			GLOB.hardpoint_bar_empty.color = "#ff0000"
-		new_overlays += GLOB.hardpoint_bar_empty
+		if(!global.hardpoint_bar_empty)
+			global.hardpoint_bar_empty = image(icon='icons/mecha/mech_hud.dmi',icon_state="bar_flash")
+			global.hardpoint_bar_empty.pixel_x = 24
+			global.hardpoint_bar_empty.color = "#ff0000"
+		new_overlays += global.hardpoint_bar_empty
 	else if(value < 0)
-		if(!GLOB.hardpoint_error_icon)
-			GLOB.hardpoint_error_icon = image(icon='icons/mecha/mech_hud.dmi',icon_state="bar_error")
-			GLOB.hardpoint_error_icon.pixel_x = 34
-		new_overlays += GLOB.hardpoint_error_icon
+		if(!global.hardpoint_error_icon)
+			global.hardpoint_error_icon = image(icon='icons/mecha/mech_hud.dmi',icon_state="bar_error")
+			global.hardpoint_error_icon.pixel_x = 34
+		new_overlays += global.hardpoint_error_icon
 	else
 		value = min(value, BAR_CAP)
 		// Draw statbar.
-		if(!LAZYLEN(GLOB.hardpoint_bar_cache))
+		if(!LAZYLEN(global.hardpoint_bar_cache))
 			for(var/i=0;i<BAR_CAP;i++)
 				var/image/bar = image(icon='icons/mecha/mech_hud.dmi',icon_state="bar")
 				bar.pixel_x = 24+(i*2)
@@ -119,9 +123,9 @@
 					bar.color = "#ffff00"
 				else
 					bar.color = "#ff0000"
-				GLOB.hardpoint_bar_cache += bar
+				global.hardpoint_bar_cache += bar
 		for(var/i=1;i<=value;i++)
-			new_overlays += GLOB.hardpoint_bar_cache[i]
+			new_overlays += global.hardpoint_bar_cache[i]
 	overlays = new_overlays
 
 /obj/screen/exosuit/hardpoint/Initialize(mapload, var/newtag)
@@ -158,9 +162,12 @@
 
 /obj/screen/exosuit/eject
 	name = "eject"
-	maptext = MECH_UI_STYLE("EJECT")
 	maptext_x = 5
 	maptext_y = 12
+
+/obj/screen/exosuit/eject/Initialize()
+	. = ..()
+	maptext = MECH_UI_STYLE("EJECT")
 
 /obj/screen/exosuit/eject/Click()
 	if(..())
@@ -168,9 +175,16 @@
 
 /obj/screen/exosuit/rename
 	name = "rename"
-	maptext = MECH_UI_STYLE("RENAME")
 	maptext_x = 1
 	maptext_y = 12
+
+/obj/screen/exosuit/rename/Initialize()
+	. = ..()
+	maptext = MECH_UI_STYLE("RENAME")
+
+/obj/screen/exosuit/rename/Click()
+	if(..())
+		owner.rename(usr)
 
 /obj/screen/exosuit/power
 	name = "power"
@@ -178,12 +192,9 @@
 
 	maptext_width = 64
 
-/obj/screen/exosuit/rename/Click()
-	if(..())
-		owner.rename(usr)
-
 /obj/screen/exosuit/toggle
 	name = "toggle"
+	var/uitext = ""
 	var/toggled = FALSE
 
 /obj/screen/exosuit/toggle/Initialize()
@@ -193,7 +204,7 @@
 /obj/screen/exosuit/toggle/on_update_icon()
 	. = ..()
 	icon_state = "[initial(icon_state)][toggled ? "_enabled" : ""]"
-	maptext = FONT_COLORED(toggled ? COLOR_WHITE : COLOR_GRAY,initial(maptext))
+	maptext = FONT_COLORED(toggled ? COLOR_WHITE : COLOR_GRAY, MECH_UI_STYLE(uitext))
 
 /obj/screen/exosuit/toggle/Click()
 	if(..()) toggled()
@@ -203,13 +214,29 @@
 	queue_icon_update()
 	return toggled
 
+/obj/screen/exosuit/toggle/power_control
+	name = "Power control"
+	icon_state = "small_important"
+	maptext_x = 3
+	maptext_y = 13
+	height = 12
+	uitext = "POWER"
+
+/obj/screen/exosuit/toggle/power_control/toggled()
+	. = ..()
+	owner.toggle_power(usr)
+
+/obj/screen/exosuit/toggle/power_control/on_update_icon()
+	toggled = (owner.power == MECH_POWER_ON)
+	. = ..()
+
 /obj/screen/exosuit/toggle/air
 	name = "air"
 	icon_state = "small_important"
-	maptext = MECH_UI_STYLE("AIR")
 	maptext_x = 9
 	maptext_y = 13
 	height = 12
+	uitext = "AIR"
 
 /obj/screen/exosuit/toggle/air/toggled()
 	owner.use_air = ..()
@@ -218,10 +245,10 @@
 /obj/screen/exosuit/toggle/maint
 	name = "toggle maintenance protocol"
 	icon_state = "small"
-	maptext = MECH_UI_STYLE("MAINT")
 	maptext_x = 5
 	maptext_y = 13
 	height = 12
+	uitext = "MAINT"
 
 /obj/screen/exosuit/toggle/maint/toggled()
 	owner.maintenance_protocols = ..()
@@ -229,9 +256,9 @@
 
 /obj/screen/exosuit/toggle/hardpoint
 	name = "toggle hardpoint lock"
-	maptext = MECH_UI_STYLE("GEAR")
 	maptext_x = 5
 	maptext_y = 12
+	uitext = "GEAR"
 
 /obj/screen/exosuit/toggle/hardpoint/toggled()
 	owner.hardpoints_locked = ..()
@@ -239,9 +266,9 @@
 
 /obj/screen/exosuit/toggle/hatch
 	name = "toggle hatch lock"
-	maptext = MECH_UI_STYLE("LOCK")
 	maptext_x = 5
 	maptext_y = 12
+	uitext = "LOCK"
 
 /obj/screen/exosuit/toggle/hatch/toggled()
 	if(!owner.hatch_locked && !owner.hatch_closed)
@@ -252,7 +279,6 @@
 
 /obj/screen/exosuit/toggle/hatch_open
 	name = "open or close hatch"
-	maptext = MECH_UI_STYLE("CLOSE")
 	maptext_x = 4
 	maptext_y = 12
 
@@ -267,8 +293,9 @@
 	owner.update_icon()
 
 /obj/screen/exosuit/toggle/hatch_open/on_update_icon()
+	toggled = owner.hatch_closed
 	. = ..()
-	if(owner.hatch_closed)
+	if(toggled)
 		maptext = MECH_UI_STYLE("OPEN")
 		maptext_x = 5
 	else
@@ -282,20 +309,26 @@
 
 /obj/screen/exosuit/health/Click()
 	if(..())
-		if(owner && owner.body && owner.body.diagnostics?.is_functional())
+		if(owner && owner.body && owner.get_cell() && owner.body.diagnostics?.is_functional())
+			usr.setClickCooldown(0.2 SECONDS)
 			to_chat(usr, SPAN_NOTICE("The diagnostics panel blinks several times as it updates:"))
+			playsound(owner.loc,'sound/effects/scanbeep.ogg',30,0)
 			for(var/obj/item/mech_component/MC in list(owner.arms, owner.legs, owner.body, owner.head))
 				if(MC)
-					MC.return_diagnostics(usr)
+					MC.return_diagnostics(usr)	
 
 //Controls if cameras set the vision flags
 /obj/screen/exosuit/toggle/camera
 	name = "toggle camera matrix"
 	icon_state = "small_important"
-	maptext = MECH_UI_STYLE("SENSOR")
 	maptext_x = 1
 	maptext_y = 13
 	height = 12
+	uitext = "SENSOR"
+
+/obj/screen/exosuit/toggle/camera/on_update_icon()
+	toggled = owner.head.active_sensors
+	. = ..()
 
 /obj/screen/exosuit/toggle/camera/toggled()
 	if(!owner.head)
@@ -304,13 +337,14 @@
 	if(!owner.head.vision_flags)
 		to_chat(usr,  SPAN_WARNING("Alternative sensor configurations not found. Contact manufacturer for more details."))
 		return
+	if(!owner.get_cell())
+		to_chat(usr,  SPAN_WARNING("The augmented vision systems are offline."))
+		return
 	owner.head.active_sensors = ..()
 	to_chat(usr, SPAN_NOTICE("[owner.head.name] advanced sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active."))
 
 /obj/screen/exosuit/needle
-#if DM_VERSION >= 513
 	vis_flags = VIS_INHERIT_ID
-#endif
 	icon_state = "heatprobe_needle"
 
 /obj/screen/exosuit/heat

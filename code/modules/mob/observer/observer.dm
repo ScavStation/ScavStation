@@ -1,11 +1,12 @@
-var/const/GHOST_IMAGE_NONE = 0
-var/const/GHOST_IMAGE_DARKNESS = 1
-var/const/GHOST_IMAGE_SIGHTLESS = 2
-var/const/GHOST_IMAGE_ALL = ~GHOST_IMAGE_NONE
+var/global/const/GHOST_IMAGE_NONE = 0
+var/global/const/GHOST_IMAGE_DARKNESS = 1
+var/global/const/GHOST_IMAGE_SIGHTLESS = 2
+var/global/const/GHOST_IMAGE_ALL = ~GHOST_IMAGE_NONE
 
 /mob/observer
 	density = 0
 	alpha = 127
+	layer = OBSERVER_LAYER
 	plane = OBSERVER_PLANE
 	invisibility = INVISIBILITY_OBSERVER
 	see_invisible = SEE_INVISIBLE_OBSERVER
@@ -13,6 +14,8 @@ var/const/GHOST_IMAGE_ALL = ~GHOST_IMAGE_NONE
 	simulated = FALSE
 	stat = DEAD
 	status_flags = GODMODE
+	shift_to_open_context_menu = FALSE
+	glide_size = 0
 	var/ghost_image_flag = GHOST_IMAGE_DARKNESS
 	var/image/ghost_image = null //this mobs ghost image, for deleting and stuff
 
@@ -59,8 +62,8 @@ var/const/GHOST_IMAGE_ALL = ~GHOST_IMAGE_NONE
 /mob/observer/set_stat()
 	stat = DEAD // They are also always dead
 
-/mob/observer/touch_map_edge()
-	if(z in GLOB.using_map.sealed_levels)
+/mob/observer/touch_map_edge(var/overmap_id = OVERMAP_ID_SPACE)
+	if(z in global.using_map.sealed_levels)
 		return
 
 	var/new_x = x
@@ -89,3 +92,6 @@ var/const/GHOST_IMAGE_ALL = ~GHOST_IMAGE_NONE
 
 /mob/observer/get_admin_job_string()
 	return "Ghost"
+
+/mob/observer/set_glide_size(var/delay)
+	glide_size = 0

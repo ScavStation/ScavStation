@@ -7,16 +7,12 @@
 /mob/living/simple_animal/hostile/retaliate/goat/king
 	name = "king of goats"
 	desc = "The oldest and wisest of goats; king of his race, peerless in dignity and power. His golden fleece radiates nobility."
-	icon = 'icons/mob/simple_animal/king_of_goats.dmi'
-	icon_state = "king_goat"
-	icon_living = "king_goat"
-	icon_dead = "goat_dead"
+	icon = 'icons/mob/simple_animal/goat_king.dmi'
 	speak_emote = list("brays in a booming voice")
 	emote_hear = list("brays in a booming voice")
 	emote_see = list("stamps a mighty foot, shaking the surroundings")
 	meat_amount = 12
-	response_help  = "placates"
-	response_harm   = "assaults"
+	response_harm = "assaults"
 	health = 500
 	maxHealth = 500
 	mob_size = MOB_SIZE_LARGE
@@ -61,8 +57,7 @@
 /mob/living/simple_animal/hostile/retaliate/goat/king/phase2
 	name = "emperor of goats"
 	desc = "The King of Kings, God amongst men, and your superior in every way."
-	icon_state = "king_goat2"
-	icon_living = "king_goat2"
+	icon = 'icons/mob/simple_animal/goat_king_phase_2.dmi'
 	meat_amount = 36
 	health = 750
 	maxHealth = 750
@@ -92,16 +87,13 @@
 
 /mob/living/simple_animal/hostile/retaliate/goat/king/phase2/Initialize()
 	. = ..()
-	boss_theme = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'sound/music/Visager-Battle.ogg', volume = 10, range = 7, falloff = 4, prefer_mute = TRUE)
+	boss_theme = play_looping_sound(src, sound_id, 'sound/music/Visager-Battle.ogg', volume = 10, range = 7, falloff = 4, prefer_mute = TRUE)
 	update_icon()
 
 /mob/living/simple_animal/hostile/retaliate/goat/guard
 	name = "honour guard"
 	desc = "A very handsome and noble beast."
-	icon = 'icons/mob/simple_animal/king_of_goats.dmi'
-	icon_state = "goat_guard"
-	icon_living = "goat_guard"
-	icon_dead = "goat_guard_dead"
+	icon = 'icons/mob/simple_animal/goat_guard.dmi'
 	health = 125
 	maxHealth = 125
 	natural_weapon = /obj/item/natural_weapon/goathorns
@@ -115,9 +107,7 @@
 /mob/living/simple_animal/hostile/retaliate/goat/guard/master
 	name = "master of the guard"
 	desc = "A very handsome and noble beast - the most trusted of all the king's men."
-	icon_state = "goat_guard_m"
-	icon_living = "goat_guard_m"
-	icon_dead = "goat_guard_m_dead"
+	icon = 'icons/mob/simple_animal/goat_master.dmi'
 	health = 200
 	maxHealth = 200
 	natural_weapon = /obj/item/natural_weapon/goathorns
@@ -145,9 +135,9 @@
 		else if(prob(5)) //spawn adds
 			spellscast++
 			visible_message(SPAN_MFAUNA("\The [src] summons the imperial guard to his aid, and they appear in a flash!"))
-			new /mob/living/simple_animal/hostile/retaliate/goat/guard/master(get_step(src,pick(GLOB.cardinal)))
-			new /mob/living/simple_animal/hostile/retaliate/goat/guard(get_step(src,pick(GLOB.cardinal)))
-			new /mob/living/simple_animal/hostile/retaliate/goat/guard(get_step(src,pick(GLOB.cardinal)))
+			new /mob/living/simple_animal/hostile/retaliate/goat/guard/master(get_step(src,pick(global.cardinal)))
+			new /mob/living/simple_animal/hostile/retaliate/goat/guard(get_step(src,pick(global.cardinal)))
+			new /mob/living/simple_animal/hostile/retaliate/goat/guard(get_step(src,pick(global.cardinal)))
 
 		else if(prob(5)) //EMP blast
 			spellscast++
@@ -169,9 +159,9 @@
 			if(do_after(src, 6 SECONDS, src))
 				var/health_holder = health
 				visible_message(SPAN_MFAUNA("\The [src] raises its fore-hooves and stomps them into the ground with incredible force!"))
-				explosion(get_step(src,pick(GLOB.cardinal)), -1, 2, 2, 3, 6)
-				explosion(get_step(src,pick(GLOB.cardinal)), -1, 1, 4, 4, 6)
-				explosion(get_step(src,pick(GLOB.cardinal)), -1, 3, 4, 3, 6)
+				explosion(get_step(src,pick(global.cardinal)), -1, 2, 2, 3, 6)
+				explosion(get_step(src,pick(global.cardinal)), -1, 1, 4, 4, 6)
+				explosion(get_step(src,pick(global.cardinal)), -1, 3, 4, 3, 6)
 				stop_automation = FALSE
 				spellscast += 2
 				if(!health < health_holder)
@@ -188,15 +178,15 @@
 	health = 750
 	new /obj/item/grenade/flashbang/instant(src.loc)
 	QDEL_NULL(boss_theme)
-	boss_theme = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'sound/music/Visager-Miniboss_Fight.ogg', volume = 10, range = 8, falloff = 4, prefer_mute = TRUE)
+	boss_theme = play_looping_sound(src, sound_id, 'sound/music/Visager-Miniboss_Fight.ogg', volume = 10, range = 8, falloff = 4, prefer_mute = TRUE)
 	stun_chance = 10
 	update_icon()
 	visible_message("<span class='cultannounce'>\The [src]' wounds close with a flash, and when he emerges, he's even larger than before!</span>")
 
 /mob/living/simple_animal/hostile/retaliate/goat/king/phase2/on_update_icon()
+	..()
 	if(phase3)
-		icon_state = "king_goat3"
-		icon_living = "king_goat3"
+		icon_state += "-enraged"
 		set_scale(1.5)
 	else
 		set_scale(1.25)

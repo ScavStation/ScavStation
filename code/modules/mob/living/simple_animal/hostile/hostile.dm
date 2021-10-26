@@ -1,5 +1,12 @@
 /mob/living/simple_animal/hostile
 	faction = "hostile"
+	stop_automated_movement_when_pulled = 0
+	a_intent = I_HURT
+	response_help_3p = "$USER$ pokes $TARGET$."
+	response_help_1p = "You poke $TARGET$."
+	response_disarm =  "shoves"
+	response_harm =    "strikes"
+
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/mob/living/target_mob
 	var/attack_same = 0
@@ -16,9 +23,7 @@
 	var/attack_delay = DEFAULT_ATTACK_COOLDOWN
 	var/list/friends = list()
 	var/break_stuff_probability = 10
-	stop_automated_movement_when_pulled = 0
 	var/destroy_surroundings = 1
-	a_intent = I_HURT
 
 	var/shuttletarget = null
 	var/enroute = 0
@@ -39,7 +44,7 @@
 												/obj/structure/railing)
 
 /mob/living/simple_animal/hostile/proc/can_act()
-	if(stat || stop_automation || incapacitated())
+	if(QDELETED(src) || stat || stop_automation || incapacitated())
 		return FALSE
 	return TRUE
 
@@ -128,6 +133,21 @@
 		return 1
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
+
+	if(buckled_mob == target_mob && (!faction || buckled_mob.faction != faction))
+
+		visible_message(SPAN_DANGER("\The [src] attempts to unseat \the [buckled_mob]!"))
+		set_dir(pick(global.cardinal))
+		setClickCooldown(attack_delay)
+
+		if(prob(33))
+			unbuckle_mob()
+			if(buckled_mob != target_mob && !QDELETED(target_mob))
+				to_chat(target_mob, SPAN_DANGER("You are thrown off \the [src]!"))
+				SET_STATUS_MAX(target_mob, STAT_WEAK, 3)
+
+		return target_mob
+
 	face_atom(target_mob)
 	setClickCooldown(attack_delay)
 	if(!Adjacent(target_mob))
@@ -150,8 +170,7 @@
 	walk(src, 0)
 
 /mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
-	var/list/L = hearers(src, dist)
-	return L
+	return hearers(src, dist)-src
 
 /mob/living/simple_animal/hostile/proc/get_accuracy()
 	return Clamp(sa_accuracy - melee_accuracy_mods(), 0, 100)
@@ -203,10 +222,10 @@
 		target_mob = user
 		MoveToTarget()
 
-/mob/living/simple_animal/hostile/attack_hand(mob/M)
+/mob/living/simple_animal/hostile/default_hurt_interaction(mob/user)
 	. = ..()
-	if(M.a_intent == I_HURT && !incapacitated(INCAPACITATION_KNOCKOUT))
-		target_mob = M
+	if(. && !incapacitated(INCAPACITATION_KNOCKOUT))
+		target_mob = user
 		MoveToTarget()
 
 /mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/Proj)

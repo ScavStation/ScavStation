@@ -18,7 +18,11 @@
 
 /obj/machinery/destructive_analyzer/Initialize()
 	. = ..()
-	set_extension(src, /datum/extension/network_device, initial_network_id, initial_network_key, NETWORK_CONNECTION_WIRED)
+	set_extension(src, /datum/extension/network_device, initial_network_id, initial_network_key, NETWORK_CONNECTION_STRONG_WIRELESS)
+
+/obj/machinery/destructive_analyzer/modify_mapped_vars(map_hash)
+	..()
+	ADJUST_TAG_VAR(initial_network_id, map_hash)
 
 /obj/machinery/destructive_analyzer/RefreshParts()
 	var/T = 0
@@ -56,14 +60,13 @@
 
 	var/list/dump_matter
 	for(var/mat in cached_materials)
-		var/amt = Floor(cached_materials[mat]/SHEET_MATERIAL_AMOUNT)
+		var/amt = FLOOR(cached_materials[mat]/SHEET_MATERIAL_AMOUNT)
 		if(amt > 0)
 			LAZYSET(dump_matter, mat, amt)
 	if(length(dump_matter))
 		visible_message("\The [user] unloads \the [src]'s material hopper.")
 		for(var/mat in dump_matter)
-			var/decl/material/M = GET_DECL(mat)
-			M.place_sheet(loc, dump_matter[mat])
+			SSmaterials.create_object(mat, loc, dump_matter[mat])
 			cached_materials[mat] -= dump_matter[mat] * SHEET_MATERIAL_AMOUNT
 			if(cached_materials[mat] <= 0)
 				cached_materials -= mat

@@ -1,24 +1,18 @@
 /mob/living/simple_animal/hostile/retaliate/giant_crab
 	name = "giant crab"
 	desc = "A gigantic crustacean with a blue shell. Its left claw is nearly twice the size of its right."
-	icon_state = "bluecrab"
-	icon_living = "bluecrab"
-	icon_dead = "bluecrab_dead"
+	icon = 'icons/mob/simple_animal/bluecrab.dmi'
 	mob_size = MOB_SIZE_LARGE
 	speak_emote = list("clicks")
 	emote_hear = list("clicks")
 	emote_see = list("clacks")
 	speak_chance = 1
 	turns_per_move = 5
-	response_help  = "pats"
-	response_disarm = "gently nudges"
-	response_harm   = "strikes"
 	meat_amount = 12
 	can_escape = TRUE //snip snip
 	break_stuff_probability = 15
 	faction = "crabs"
 	pry_time = 2 SECONDS
-
 	health = 350
 	maxHealth = 350
 	natural_weapon = /obj/item/natural_weapon/pincers/giant
@@ -30,7 +24,6 @@
 		bullet = ARMOR_BALLISTIC_PISTOL
 		)
 	ability_cooldown = 2 MINUTES
-
 	var/mob/living/carbon/human/victim //the human we're grabbing
 	var/grab_duration = 3 //duration of disable in life ticks to simulate a grab
 	var/grab_damage = 6 //brute damage before reductions, per crab's life tick
@@ -49,9 +42,9 @@
 	. = ..()
 	victim = null
 
-/mob/living/simple_animal/hostile/retaliate/giant_crab/attack_hand(mob/user)
+/mob/living/simple_animal/hostile/retaliate/giant_crab/default_hurt_interaction(mob/user)
 	. = ..()
-	if(ishuman(user))
+	if(. && ishuman(user))
 		reflect_unarmed_damage(user, BRUTE, "armoured carapace")
 
 /mob/living/simple_animal/hostile/retaliate/giant_crab/Life()
@@ -85,7 +78,7 @@
 				return
 
 		if(!victim && can_perform_ability(H))
-			GLOB.destroyed_event.register(victim, src, .proc/release_grab)
+			events_repository.register(/decl/observ/destroyed, victim, src, .proc/release_grab)
 			victim = H
 			SET_STATUS_MAX(H, STAT_WEAK, grab_duration)
 			SET_STATUS_MAX(H, STAT_STUN, grab_duration)
@@ -110,7 +103,7 @@
 /mob/living/simple_animal/hostile/retaliate/giant_crab/proc/release_grab()
 	if(victim)
 		visible_message(SPAN_NOTICE("\The [src] releases its grip on \the [victim]!"))
-		GLOB.destroyed_event.unregister(victim)
+		events_repository.unregister(/decl/observ/destroyed, victim)
 		victim = null
 	cooldown_ability(ability_cooldown)
 	stop_automation = FALSE

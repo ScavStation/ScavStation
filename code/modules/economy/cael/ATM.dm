@@ -20,7 +20,6 @@
 	var/obj/item/card/id/held_card
 	var/editing_security_level = 0
 	var/view_screen = NO_SCREEN
-	var/datum/effect/effect/system/spark_spread/spark_system
 	var/account_security_level = 0
 	var/charge_stick_type = /obj/item/charge_stick
 
@@ -31,12 +30,8 @@
 /obj/machinery/atm/Initialize()
 	. = ..()
 	machine_id = "[station_name()] ATM #[num_financial_terminals++]"
-	spark_system = new /datum/effect/effect/system/spark_spread
-	spark_system.set_up(5, 0, src)
-	spark_system.attach(src)
 
 /obj/machinery/atm/Destroy()
-	QDEL_NULL(spark_system)
 	QDEL_NULL(held_card)
 	authenticated_account = null
 	. = ..()
@@ -66,7 +61,7 @@
 	if(!emagged)
 		//short out the machine, shoot sparks, spew money!
 		emagged = 1
-		spark_system.start()
+		spark_at(src, amount = 5, holder = src)
 		var/obj/item/cash/cash = new(get_turf(src))
 		cash.adjust_worth(rand(100,500))
 
@@ -103,14 +98,24 @@
 
 			//deposit the cash
 			if(authenticated_account.deposit(dolla.absolute_worth, "Credit deposit", machine_id))
-				if(prob(50))
-					playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-				else
-					playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+				playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 50, 1)
 
 				to_chat(user, "<span class='info'>You insert [I] into [src].</span>")
 				src.attack_hand(user)
 				qdel(I)
+
+		if(istype(I,/obj/item/charge_stick))
+			var/obj/item/charge_stick/stick = I
+			var/datum/extension/lockable/lock = get_extension(I, /datum/extension/lockable)
+			if(lock.locked)
+				to_chat(user, SPAN_WARNING("Cannot transfer funds from a locked [stick.name]."))
+			else
+				if(authenticated_account.deposit(stick.loaded_worth, "Credit deposit", machine_id))
+					playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 50, 1)
+
+					to_chat(user, "<span class='info'>You insert [I] into [src].</span>")
+					src.attack_hand(user)
+					qdel(I)
 	else
 		..()
 
@@ -292,7 +297,7 @@
 						if(D)
 							account_security_level = D.security_level
 
-					authenticated_account = attempt_account_access(tried_account_num, tried_pin, login_card && login_card.associated_account_number == tried_account_num ? 2 : 1)
+					authenticated_account = attempt_account_access(tried_account_num, tried_pin, (login_card?.associated_account_number == tried_account_num))
 
 					if(!authenticated_account)
 						number_incorrect_tries++
@@ -332,7 +337,7 @@
 				if(amount <= 0)
 					alert("That is not a valid amount.")
 				else if(amount > initial(E.max_worth))
-					var/decl/currency/cur = GET_DECL(initial(E.currency) || GLOB.using_map.default_currency)
+					var/decl/currency/cur = GET_DECL(initial(E.currency) || global.using_map.default_currency)
 					alert("That amount exceeds the maximum amount holdable by charge sticks from this machine ([cur.format_value(initial(E.max_worth))]).")
 				else if(authenticated_account && amount > 0)
 					//create an entry in the account transaction log

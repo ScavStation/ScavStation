@@ -1,8 +1,12 @@
-/mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
+/mob/Destroy() //This makes sure that mobs with clients/keys are not just deleted from the game.
 	STOP_PROCESSING(SSmobs, src)
-	GLOB.dead_mob_list_ -= src
-	GLOB.living_mob_list_ -= src
-	GLOB.player_list -= src
+	global.dead_mob_list_ -= src
+	global.living_mob_list_ -= src
+	global.player_list -= src
+
+	QDEL_NULL_LIST(pinned)
+	QDEL_NULL_LIST(embedded)
+
 	unset_machine()
 	QDEL_NULL(hud_used)
 	if(istype(ability_master))
@@ -11,7 +15,8 @@
 		QDEL_NULL(skillset)
 	QDEL_NULL_LIST(grabbed_by)
 	clear_fullscreen()
-	QDEL_NULL(ai)
+	if(istype(ai))
+		QDEL_NULL(ai)
 	if(client)
 		remove_screen_obj_references()
 		for(var/atom/movable/AM in client.screen)
@@ -48,7 +53,8 @@
 
 /mob/Initialize()
 	. = ..()
-	skillset = new skillset(src)
+	if(ispath(skillset))
+		skillset = new skillset(src)
 	if(!move_intent)
 		move_intent = move_intents[1]
 	if(ispath(move_intent))
@@ -163,7 +169,7 @@
 	ASSERT(istype(M))
 
 	var/remote = ""
-	if(M.get_preference_value(/datum/client_preference/ghost_sight) == GLOB.PREF_ALL_EMOTES && !(src in view(M)))
+	if(M.get_preference_value(/datum/client_preference/ghost_sight) == PREF_ALL_EMOTES && !(src in view(M)))
 		remote = "\[R\]"
 
 	var/track = "([ghost_follow_link(src, M)])"
@@ -173,7 +179,7 @@
 
 /mob/proc/ghost_skip_message(var/mob/observer/ghost/M)
 	ASSERT(istype(M))
-	if(M.get_preference_value(/datum/client_preference/ghost_sight) == GLOB.PREF_ALL_EMOTES && !(src in view(M)))
+	if(M.get_preference_value(/datum/client_preference/ghost_sight) == PREF_ALL_EMOTES && !(src in view(M)))
 		if(!client)
 			return TRUE
 	return FALSE
@@ -194,9 +200,9 @@
 #define ENCUMBERANCE_MOVEMENT_MOD 0.35
 /mob/proc/movement_delay()
 	. = 0
-	if(istype(loc, /turf))
+	if(isturf(loc))
 		var/turf/T = loc
-		. += T.movement_delay
+		. += T.movement_delay()
 	if(HAS_STATUS(src, STAT_DROWSY))
 		. += 6
 	if(lying) //Crawling, it's slower
@@ -205,7 +211,7 @@
 #undef ENCUMBERANCE_MOVEMENT_MOD
 
 /mob/proc/encumbrance()
-	for(var/obj/item/grab/G as anything in get_active_grabs())
+	for(var/obj/item/grab/G AS_ANYTHING in get_active_grabs())
 		. = max(., G.grab_slowdown())
 	. *= (0.8 ** size_strength_mod())
 	. *= (0.5 + 1.5 * (SKILL_MAX - get_skill_value(SKILL_HAULING))/(SKILL_MAX - SKILL_MIN))
@@ -256,7 +262,7 @@
 /mob/proc/incapacitated(var/incapacitation_flags = INCAPACITATION_DEFAULT)
 	if(status_flags & ENABLE_AI)
 		return TRUE
-	if((incapacitation_flags & INCAPACITATION_FORCELYING) && (resting || pinned.len))
+	if((incapacitation_flags & INCAPACITATION_FORCELYING) && (resting || LAZYLEN(pinned)))
 		return TRUE
 	if((incapacitation_flags & INCAPACITATION_RESTRAINED) && restrained())
 		return TRUE
@@ -279,7 +285,7 @@
 
 /mob/proc/reset_view(atom/A)
 	set waitfor = 0
-	while(shakecamera && client && !QDELETED(src))
+	while((shakecamera > world.time) && client && !QDELETED(src))
 		sleep(1)
 	if(!client || QDELETED(src))
 		return
@@ -306,6 +312,9 @@
 	set name = "Examine"
 	set category = "IC"
 
+	if(!usr || !usr.client)
+		return
+
 	if((is_blind(src) || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
@@ -318,12 +327,12 @@
 			if(isobj(A.loc))
 				look_target = "inside \the [A.loc]"
 			if(A == src)
-				var/datum/gender/T = gender_datums[get_gender()]
-				look_target = "at [T.self]"
+				var/decl/pronouns/G = get_pronouns()
+				look_target = "at [G.self]"
 			for(var/mob/M in viewers(4, src))
 				if(M == src)
 					continue
-				if(M.client && M.client.get_preference_value(/datum/client_preference/examine_messages) == GLOB.PREF_SHOW)
+				if(M.client && M.client.get_preference_value(/datum/client_preference/examine_messages) == PREF_SHOW)
 					if(M.is_blind() || is_invisible_to(M))
 						continue
 					to_chat(M, "<span class='subtle'><b>\The [src]</b> looks [look_target].</span>")
@@ -391,7 +400,7 @@
 
 /mob/proc/update_flavor_text(var/key)
 	var/msg = sanitize(input(usr,"Set the flavor text in your 'examine' verb. Can also be used for OOC notes about your character.","Flavor Text",html_decode(flavor_text)) as message|null, extra = 0)
-	if(!CanInteract(usr, GLOB.self_state))
+	if(!CanInteract(usr, global.self_topic_state))
 		return
 	if(msg != null)
 		flavor_text = msg
@@ -445,7 +454,7 @@
 	reset_view(null)
 
 /mob/DefaultTopicState()
-	return GLOB.view_state
+	return global.view_topic_state
 
 // Use to field Topic calls for which usr == src is required, which will first be funneled into here.
 /mob/proc/OnSelfTopic(href_list)
@@ -468,7 +477,7 @@
 
 // You probably do not need to override this proc. Use one of the two above.
 /mob/Topic(href, href_list, datum/topic_state/state)
-	if(CanUseTopic(usr, GLOB.self_state, href_list) == STATUS_INTERACTIVE)
+	if(CanUseTopic(usr, global.self_topic_state, href_list) == STATUS_INTERACTIVE)
 		. = OnSelfTopic(href_list)
 		if(.)
 			return
@@ -513,15 +522,10 @@
 	return stat == DEAD
 
 /mob/proc/is_mechanical()
-	if(mind && (mind.assigned_role == "Robot" || mind.assigned_role == "AI"))
-		return 1
 	return istype(src, /mob/living/silicon)
 
 /mob/proc/is_ready()
 	return client && !!mind
-
-/mob/proc/get_gender()
-	return gender
 
 /mob/proc/see(message)
 	if(!is_active())
@@ -578,7 +582,7 @@
 						continue
 					if(A.invisibility > see_invisible)
 						continue
-					if(is_type_in_list(A, shouldnt_see))
+					if(LAZYLEN(shouldnt_see) && is_type_in_list(A, shouldnt_see))
 						continue
 					stat(A)
 
@@ -613,6 +617,7 @@
 		drop_held_items()
 	else
 		set_density(initial(density))
+
 	reset_layer()
 
 	//Temporarily moved here from the various life() procs
@@ -620,16 +625,9 @@
 	//It just makes sense for now. ~Carn
 	if( update_icon )	//forces a full overlay update
 		update_icon = 0
-		regenerate_icons()
+		update_icon()
 	if( lying != last_lying )
 		update_transform()
-
-/mob/proc/reset_layer()
-	if(lying)
-		plane = DEFAULT_PLANE
-		layer = LYING_MOB_LAYER
-	else
-		reset_plane_and_layer()
 
 /mob/proc/facedir(var/ndir)
 	if(!canface() || moving || (buckled && (!buckled.buckle_movable && !buckled.buckle_allow_rotation)))
@@ -684,15 +682,15 @@
 	return visible_implants
 
 /mob/proc/embedded_needs_process()
-	return (embedded.len > 0)
+	return !!LAZYLEN(embedded)
 
 /mob/proc/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
 	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
 		verbs -= /mob/proc/yank_out_object
 	for(var/obj/item/O in pinned)
 		if(O == implant)
-			pinned -= O
-		if(!pinned.len)
+			LAZYREMOVE(pinned, O)
+		if(!LAZYLEN(pinned))
 			anchored = 0
 	implant.dropInto(loc)
 	implant.add_blood(src)
@@ -703,7 +701,7 @@
 	. = TRUE
 
 /mob/living/silicon/robot/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
-	embedded -= implant
+	LAZYREMOVE(embedded, implant)
 	adjustBruteLoss(5)
 	adjustFireLoss(10)
 	. = ..()
@@ -716,7 +714,7 @@
 					affected = organ
 					break
 	if(affected)
-		affected.implants -= implant
+		LAZYREMOVE(affected.implants, implant)
 		for(var/datum/wound/wound in affected.wounds)
 			LAZYREMOVE(wound.embedded_objects, implant)
 		if(!surgical_removal)
@@ -781,11 +779,6 @@
 		var/mob/living/carbon/human/human_user = U
 		human_user.bloody_hands(src)
 	return 1
-
-// A mob should either use update_icon(), overriding this definition, or use update_icons(), not touching update_icon().
-// It should not use both.
-/mob/on_update_icon()
-	return update_icons()
 
 /mob/verb/face_direction()
 
@@ -1027,3 +1020,35 @@
 
 /mob/proc/get_species()
 	return
+
+/mob/proc/get_bodytype()
+	return
+
+/// Update the mouse pointer of the attached client in this mob.
+/mob/proc/update_mouse_pointer()
+	if(!client)
+		return
+
+	client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
+	
+	if(examine_cursor_icon && client.keys_held["Shift"])
+		client.mouse_pointer_icon = examine_cursor_icon
+
+/mob/keybind_face_direction(direction)
+	facedir(direction)
+
+/mob/proc/check_emissive_equipment()
+	var/old_zflags = z_flags
+	z_flags &= ~ZMM_MANGLE_PLANES
+	for(var/atom/movable/AM in get_equipped_items(TRUE))
+		if(AM.z_flags & ZMM_MANGLE_PLANES)
+			z_flags |= ZMM_MANGLE_PLANES
+			break
+	if(old_zflags != z_flags)
+		UPDATE_OO_IF_PRESENT
+
+/mob/get_mob()
+	return src
+
+/mob/proc/set_glide_size(var/delay)
+	glide_size = ADJUSTED_GLIDE_SIZE(delay)

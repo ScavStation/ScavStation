@@ -43,7 +43,7 @@
 		else
 			to_chat(usr, SPAN_WARNING("No valid landing sites in range."))
 		possible_d = shuttle.get_possible_destinations()
-		if(CanInteract(usr, GLOB.default_state) && (D in possible_d))
+		if(CanInteract(usr, global.default_topic_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TOPIC_REFRESH
 	if(href_list["manual_landing"])
@@ -61,7 +61,7 @@
 		to_chat(usr, SPAN_WARNING("The manual controls look hopelessly complex to you!"))
 
 /obj/machinery/computer/shuttle_control/explore/proc/start_landing(var/mob/user, var/datum/shuttle/autodock/overmap/shuttle)
-	var/obj/effect/overmap/visitable/current_sector = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/current_sector = global.overmap_sectors["[z]"]
 	var/obj/effect/overmap/visitable/target_sector
 	if(current_sector && istype(current_sector))
 
@@ -76,7 +76,7 @@
 			to_chat(user, SPAN_WARNING("No valid landing sites in range!"))
 			return
 
-	if(target_sector && CanInteract(user, GLOB.default_state))
+	if(target_sector && CanInteract(user, global.default_topic_state))
 		var/datum/extension/eye/landing_eye = get_extension(src, /datum/extension/eye)
 		if(landing_eye)
 			if(landing_eye.current_looker) // Double checking in case someone jumped ahead of us.
@@ -100,7 +100,7 @@
 	var/mob/observer/eye/landing/landing_eye = eye_extension.extension_eye
 	var/turf/lz_turf = eye_extension.get_eye_turf()
 
-	var/obj/effect/overmap/visitable/sector = map_sectors["[lz_turf.z]"]
+	var/obj/effect/overmap/visitable/sector = global.overmap_sectors["[lz_turf.z]"]
 	if(!sector.allow_free_landing())	// Additional safety check to ensure the sector permits landing.
 		to_chat(user, SPAN_WARNING("Invalid landing zone!"))
 		return

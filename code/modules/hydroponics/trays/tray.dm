@@ -47,7 +47,7 @@
 
 	// Reagent information for process(), consider moving this to a controller along
 	// with cycle information under 'mechanical concerns' at some point.
-	var/global/list/toxic_reagents = list(
+	var/static/list/toxic_reagents = list(
 		/decl/material/liquid/antitoxins =         -2,
 		/decl/material/liquid/fuel/hydrazine =      2.5,
 		/decl/material/liquid/acetone =	            1,
@@ -57,7 +57,7 @@
 		/decl/material/liquid/weedkiller =          3,
 		/decl/material/solid/metal/radium =         2
 	)
-	var/global/list/nutrient_reagents = list(
+	var/static/list/nutrient_reagents = list(
 		/decl/material/liquid/drink/milk =          0.1,
 		/decl/material/liquid/ethanol/beer =        0.25,
 		/decl/material/solid/phosphorus =           0.1,
@@ -68,7 +68,7 @@
 		/decl/material/liquid/adminordrazine =      1,
 		/decl/material/liquid/fertilizer =          1
 	)
-	var/global/list/weedkiller_reagents = list(
+	var/static/list/weedkiller_reagents = list(
 		/decl/material/liquid/fuel/hydrazine =     -4,
 		/decl/material/solid/phosphorus =          -2,
 		/decl/material/liquid/nutriment/sugar =     2,
@@ -78,13 +78,13 @@
 		/decl/material/liquid/weedkiller =         -8,
 		/decl/material/liquid/adminordrazine =     -5
 	)
-	var/global/list/pestkiller_reagents = list(
+	var/static/list/pestkiller_reagents = list(
 		/decl/material/liquid/nutriment/sugar =     2,
 		/decl/material/liquid/bromide =            -2,
 		/decl/material/gas/methyl_bromide =        -4,
 		/decl/material/liquid/adminordrazine =     -5
 	)
-	var/global/list/water_reagents = list(
+	var/static/list/water_reagents = list(
 		/decl/material/liquid/water =               1,
 		/decl/material/liquid/adminordrazine =      1,
 		/decl/material/liquid/drink/milk =          0.9,
@@ -96,7 +96,7 @@
 	)
 
 	// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
-	var/global/list/beneficial_reagents = list(
+	var/static/list/beneficial_reagents = list(
 		/decl/material/liquid/ethanol/beer =       list( -0.05, 0,   0  ),
 		/decl/material/liquid/fuel/hydrazine =     list( -2,    0,   0  ),
 		/decl/material/solid/phosphorus =          list( -0.75, 0,   0  ),
@@ -114,7 +114,7 @@
 
 	// Mutagen list specifies minimum value for the mutation to take place, rather
 	// than a bound as the lists above specify.
-	var/global/list/mutagenic_reagents = list(
+	var/static/list/mutagenic_reagents = list(
 		/decl/material/solid/metal/radium =  8,
 		/decl/material/liquid/mutagenics =  15
 	)
@@ -310,7 +310,7 @@
 
 	//Remove the seed if something is already planted.
 	if(seed) seed = null
-	seed = SSplants.seeds[pick(list("reishi", "nettles", "amanita", "mushrooms", "plumphelmet", "corkwood", "harebells", "weeds"))]
+	seed = SSplants.seeds[pick(list("reishi", "nettles", "amanita", "mushrooms", "plumphelmet", "towercap", "harebells", "weeds"))]
 	if(!seed) return //Weed does not exist, someone fucked up.
 
 	dead = 0
@@ -474,7 +474,7 @@
 		attack_hand(user)
 
 		var/obj/item/storage/plants/S = O
-		for (var/obj/item/chems/food/snacks/grown/G in locate(user.x,user.y,user.z))
+		for (var/obj/item/chems/food/grown/G in locate(user.x,user.y,user.z))
 			if(!S.can_be_inserted(G, user))
 				return
 			S.handle_item_insertion(G, 1)

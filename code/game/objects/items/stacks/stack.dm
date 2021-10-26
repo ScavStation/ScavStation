@@ -22,12 +22,11 @@
 	var/list/initial_matter
 	var/matter_multiplier = 1
 	var/max_amount //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
-	var/stacktype  //determines whether different stack types can merge
+	var/stack_merge_type  //determines whether different stack types can merge
 	var/build_type //used when directly applied to a turf
 	var/uses_charge
 	var/list/charge_costs
 	var/list/datum/matter_synth/synths
-	var/list/datum/stack_recipe/recipes
 
 /obj/item/stack/Initialize(mapload, amount, material)
 
@@ -37,8 +36,10 @@
 	if (isnum(amount) && amount >= 1)
 		src.amount = amount
 	. = ..(mapload, material)
-	if (!stacktype)
-		stacktype = type
+	if(!stack_merge_type)
+		stack_merge_type = type
+	if(!singular_name)
+		singular_name = "sheet"
 	if(!plural_name)
 		plural_name = "[singular_name]s"
 
@@ -63,8 +64,12 @@
 /obj/item/stack/get_matter_amount_modifier()
 	. = amount * matter_multiplier
 
+/obj/item/stack/proc/get_recipes()
+	return
+
 /obj/item/stack/proc/list_recipes(mob/user, recipes_sublist)
-	if (!recipes)
+	var/list/recipes = get_recipes()
+	if(!islist(recipes) || !length(recipes))
 		return
 	if (!src || get_amount() <= 0)
 		close_browser(user, "window=stack")
@@ -158,7 +163,7 @@
 	if (href_list["make"])
 		if (src.get_amount() < 1) qdel(src) //Never should happen
 
-		var/list/recipes_list = recipes
+		var/list/recipes_list = get_recipes()
 		if (href_list["sublist"])
 			var/datum/stack_recipe_list/srl = recipes_list[text2num(href_list["sublist"])]
 			recipes_list = srl.recipes
@@ -233,10 +238,10 @@
 */
 
 //attempts to transfer amount to S, and returns the amount actually transferred
-/obj/item/stack/proc/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
-	if (!get_amount())
+/obj/item/stack/proc/transfer_to(obj/item/stack/S, var/tamount=null)
+	if (!get_amount() || !istype(S))
 		return 0
-	if ((stacktype != S.stacktype) && !type_verified)
+	if (stack_merge_type != S.stack_merge_type)
 		return 0
 	if (isnull(tamount))
 		tamount = src.get_amount()
@@ -317,7 +322,7 @@
 /obj/item/stack/get_storage_cost()	//Scales storage cost to stack size
 	. = ..()
 	if (amount < max_amount)
-		. = ceil(. * amount / max_amount)
+		. = CEILING(. * amount / max_amount)
 
 /obj/item/stack/attack_hand(mob/user)
 	if(user.is_holding_offhand(src))

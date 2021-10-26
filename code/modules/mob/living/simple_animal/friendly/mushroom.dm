@@ -1,30 +1,25 @@
 /mob/living/simple_animal/mushroom
 	name = "walking mushroom"
 	desc = "It's a massive mushroom... with legs?"
-	icon_state = "mushroom"
-	icon_living = "mushroom"
-	icon_dead = "mushroom_dead"
+	icon = 'icons/mob/simple_animal/mushroom.dmi'
 	mob_size = MOB_SIZE_SMALL
 	speak_chance = 0
 	turns_per_move = 1
 	health = 5
 	maxHealth = 5
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "whacks"
 	harm_intent_damage = 5
 	pass_flags = PASS_FLAG_TABLE
 
-	meat_type = /obj/item/chems/food/snacks/hugemushroomslice
+	meat_type = /obj/item/chems/food/hugemushroomslice
 	bone_material = null
 	bone_amount =   0
-	skin_material = null 
+	skin_material = null
 	skin_amount =   null
 
 	var/datum/seed/seed
 	var/harvest_time
 	var/min_explode_time = 1200
-	var/global/total_mushrooms = 0
+	var/static/total_mushrooms = 0
 
 /mob/living/simple_animal/mushroom/Initialize()
 	. = ..()

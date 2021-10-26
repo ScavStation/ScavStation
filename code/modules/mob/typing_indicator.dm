@@ -25,7 +25,7 @@ I IS TYPIN'!'
 	forceMove(get_turf(master))
 
 /mob/proc/create_typing_indicator()
-	if(client && !stat && get_preference_value(/datum/client_preference/show_typing_indicator) == GLOB.PREF_SHOW && !src.is_cloaked() && isturf(src.loc))
+	if(client && !stat && get_preference_value(/datum/client_preference/show_typing_indicator) == PREF_SHOW && !src.is_cloaked() && isturf(src.loc))
 		if(!typing_indicator)
 			typing_indicator = new(src)
 		typing_indicator.set_invisibility(0)
@@ -46,10 +46,6 @@ I IS TYPIN'!'
 	if(.)
 		remove_typing_indicator()
 
-/mob/Logout()
-	remove_typing_indicator()
-	. = ..()
-
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = 1
@@ -59,6 +55,16 @@ I IS TYPIN'!'
 	remove_typing_indicator()
 	if(message)
 		say_verb(message)
+
+/mob/verb/whisper_wrapper()
+	set name = ".Whisper"
+	set hidden = 1
+
+	create_typing_indicator()
+	var/message = input(src, "", "whisper (text)") as text|null
+	remove_typing_indicator()
+	if(message)
+		whisper(message)
 
 /mob/verb/me_wrapper()
 	set name = ".Me"

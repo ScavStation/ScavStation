@@ -60,7 +60,7 @@
 	linked = list()	//clear the list
 	var/turf/T = loc
 
-	for(var/i in GLOB.alldirs)
+	for(var/i in global.alldirs)
 		T = get_step(loc, i)
 		var/obj/machinery/gateway/G = locate(/obj/machinery/gateway) in T
 		if(G)
@@ -121,12 +121,6 @@
 		M.forceMove(get_step(awaygate.loc, SOUTH))
 		M.set_dir(SOUTH)
 		return
-	else
-		var/obj/effect/landmark/dest = pick(GLOB.awaydestinations)
-		if(dest)
-			M.forceMove(dest.loc)
-			M.set_dir(SOUTH)
-			use_power_oneoff(5000)
 
 /obj/machinery/gateway/centerstation/attackby(obj/item/W, mob/user)
 	if(isMultitool(W))
@@ -162,7 +156,7 @@
 	linked = list()	//clear the list
 	var/turf/T = loc
 
-	for(var/i in GLOB.alldirs)
+	for(var/i in global.alldirs)
 		T = get_step(loc, i)
 		var/obj/machinery/gateway/G = locate(/obj/machinery/gateway) in T
 		if(G)

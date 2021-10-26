@@ -79,8 +79,6 @@
 
 		handle_stamina()
 
-		handle_medical_side_effects()
-
 	if(!handle_some_updates())
 		return											//We go ahead and process them 5 times for HUD images and other stuff though.
 
@@ -106,7 +104,7 @@
 /mob/living/carbon/human/proc/handle_stamina()
 	if((world.time - last_quick_move_time) > 5 SECONDS)
 		var/mod = (lying + (nutrition / initial(nutrition))) / 2
-		adjust_stamina(max(config.minimum_stamina_recovery, config.maximum_stamina_recovery * mod) * (1+LAZYACCESS(chem_effects,CE_ENERGETIC)))
+		adjust_stamina(max(config.minimum_stamina_recovery, config.maximum_stamina_recovery * mod) * (1 + GET_CHEMICAL_EFFECT(src, CE_ENERGETIC)))
 
 /mob/living/carbon/human/set_stat(var/new_stat)
 	var/old_stat = stat
@@ -197,7 +195,7 @@
 		//blindness
 		if(!(sdisabilities & BLINDED))
 			if(equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
-				ADJ_STATUS(src, STAT_BLURRY, -1) 
+				ADJ_STATUS(src, STAT_BLURRY, -1)
 
 /mob/living/carbon/human/handle_disabilities()
 	..()
@@ -227,7 +225,7 @@
 			set_light(0)
 	else
 		if(species.appearance_flags & RADIATION_GLOWS)
-			set_light(0.3, 0.1, max(1,min(20,radiation/20)), 2, species.get_flesh_colour(src))
+			set_light(max(1,min(10,radiation/10)), max(1,min(20,radiation/20)), species.get_flesh_colour(src))
 		// END DOGSHIT SNOWFLAKE
 		var/damage = 0
 		radiation -= 1 * RADIATION_SPEED_COEFFICIENT
@@ -261,10 +259,10 @@
 			damage = 8
 			radiation -= 4 * RADIATION_SPEED_COEFFICIENT
 
-		damage = Floor(damage * species.get_radiation_mod(src))
+		damage = FLOOR(damage * species.get_radiation_mod(src))
 		if(damage)
 			adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
-			immunity = max(0, immunity - damage * 15 * RADIATION_SPEED_COEFFICIENT) 
+			immunity = max(0, immunity - damage * 15 * RADIATION_SPEED_COEFFICIENT)
 			updatehealth()
 			if(!isSynthetic() && organs.len)
 				var/obj/item/organ/external/O = pick(organs)
@@ -519,12 +517,11 @@
 			. += THERMAL_PROTECTION_HAND_RIGHT
 	return min(1,.)
 
-/mob/living/carbon/human/handle_chemicals_in_body()
+/mob/living/carbon/human/apply_chemical_effects()
 	. = ..()
-	if(.)
-		if(has_chemical_effect(CE_GLOWINGEYES, 1))
-			update_eyes()
-		updatehealth()
+	if(has_chemical_effect(CE_GLOWINGEYES, 1))
+		update_eyes()
+		return TRUE
 
 // Check if we should die.
 /mob/living/carbon/human/proc/handle_death_check()
@@ -569,7 +566,7 @@
 			adjustHalLoss(-3)
 
 			if(prob(2) && is_asystole() && isSynthetic())
-				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")]")
+				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")].")
 		//CONSCIOUS
 		else
 			set_stat(CONSCIOUS)
@@ -583,12 +580,16 @@
 
 		//Resting
 		if(resting)
-			ADJ_STATUS(src, STAT_DIZZY, -15)
-			ADJ_STATUS(src, STAT_JITTER, -15)
+			if(HAS_STATUS(src, STAT_DIZZY))
+				ADJ_STATUS(src, STAT_DIZZY, -15)
+			if(HAS_STATUS(src, STAT_JITTER))
+				ADJ_STATUS(src, STAT_JITTER, -15)
 			adjustHalLoss(-3)
 		else
-			ADJ_STATUS(src, STAT_DIZZY, -3)
-			ADJ_STATUS(src, STAT_JITTER, -3)
+			if(HAS_STATUS(src, STAT_DIZZY))
+				ADJ_STATUS(src, STAT_DIZZY, -3)
+			if(HAS_STATUS(src, STAT_JITTER))
+				ADJ_STATUS(src, STAT_JITTER, -3)
 			adjustHalLoss(-1)
 
 		if(HAS_STATUS(src, STAT_DROWSY))
@@ -741,7 +742,7 @@
 		if(isSynthetic())
 			var/obj/item/organ/internal/cell/C = get_internal_organ(BP_CELL)
 			if (istype(C))
-				var/chargeNum = Clamp(ceil(C.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+				var/chargeNum = Clamp(CEILING(C.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 				cells.icon_state = "charge[chargeNum]"
 			else
 				cells.icon_state = "charge-empty"
@@ -815,7 +816,7 @@
 	if(has_chemical_effect(CE_TOXIN, 1) || radiation)
 		vomit_score += 0.5 * getToxLoss()
 	if(has_chemical_effect(CE_ALCOHOL_TOXIC, 1))
-		vomit_score += 10 * LAZYACCESS(chem_effects, CE_ALCOHOL_TOXIC)
+		vomit_score += 10 * GET_CHEMICAL_EFFECT(src, CE_ALCOHOL_TOXIC)
 	if(has_chemical_effect(CE_ALCOHOL, 1))
 		vomit_score += 10
 	if(stat != DEAD && vomit_score > 25 && prob(10))
@@ -825,7 +826,7 @@
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
 		if(T.get_lumcount() <= LIGHTING_SOFT_THRESHOLD)
-			playsound_local(src,pick(GLOB.scarySounds),50, 1, -1)
+			playsound_local(src,pick(global.scarySounds),50, 1, -1)
 
 	var/area/A = get_area(src)
 	if(client && world.time >= client.played + 600)
@@ -866,7 +867,9 @@
 		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 10, nohalloss = TRUE)
 
 	if(shock_stage >= 30)
-		if(shock_stage == 30) visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
+		if(shock_stage == 30)
+			var/decl/pronouns/G = get_pronouns()
+			visible_message("<b>\The [src]</b> is having trouble keeping [G.his] eyes open.")
 		if(prob(30))
 			SET_STATUS_MAX(src, STAT_BLURRY, 2)
 			SET_STATUS_MAX(src, STAT_STUTTER, 5)
@@ -999,8 +1002,8 @@
 		holder.icon_state = "hudblank"
 		if(mind && mind.assigned_special_role)
 			var/special_role = mind.get_special_role_name()
-			if(special_role && GLOB.hud_icon_reference[special_role])
-				holder.icon_state = GLOB.hud_icon_reference[special_role]
+			if(special_role && global.hud_icon_reference[special_role])
+				holder.icon_state = global.hud_icon_reference[special_role]
 			else
 				holder.icon_state = "hudsyndicate"
 			hud_list[SPECIALROLE_HUD] = holder
@@ -1037,7 +1040,7 @@
 			E.take_external_damage(burn = round(species_heat_mod * log(10, (burn_temperature + 10)), 0.1), used_weapon = "fire")
 
 /mob/living/carbon/human/rejuvenate()
-	restore_blood()
+	reset_blood()
 	full_prosthetic = null
 	shock_stage = 0
 	..()
@@ -1053,7 +1056,8 @@
 
 /mob/living/carbon/human/handle_vision()
 	if(client)
-		client.screen.Remove(GLOB.global_hud.nvg, GLOB.global_hud.thermal, GLOB.global_hud.meson, GLOB.global_hud.science)
+		var/datum/global_hud/global_hud = get_global_hud()
+		client.screen.Remove(global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)
@@ -1071,5 +1075,5 @@
 
 /mob/living/carbon/human/update_living_sight()
 	..()
-	if((CE_THIRDEYE in chem_effects) || (MUTATION_XRAY in mutations))
+	if(GET_CHEMICAL_EFFECT(src, CE_THIRDEYE) || (MUTATION_XRAY in mutations))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)

@@ -25,63 +25,60 @@
 
 	var/list/decals
 
+	// Used for slowdown.
 	var/movement_delay
 
 	var/fluid_can_pass
-	var/obj/effect/flood/flood_object
 	var/fluid_blocked_dirs = 0
 	var/flooded // Whether or not this turf is absolutely flooded ie. a water source.
 	var/footstep_type
-
+	var/open_turf_type // Which turf to use when this turf is destroyed or replaced in a multiz context. Overridden by area.
 	var/tmp/changing_turf
 
 	var/prev_type // Previous type of the turf, prior to turf translation.
 
 /turf/Initialize(mapload, ...)
-	. = ..()
+	. = null && ..()	// This weird construct is to shut up the 'parent proc not called' warning without disabling the lint for child types. We explicitly return an init hint so this won't change behavior.
+
+	// atom/Initialize has been copied here for performance (or at least the bits of it that turfs use has been)
+	if(atom_flags & ATOM_FLAG_INITIALIZED)
+		PRINT_STACK_TRACE("Warning: [src]([type]) initialized multiple times!")
+	atom_flags |= ATOM_FLAG_INITIALIZED
+
+	if(light_power && light_range)
+		update_light()
+
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
-	RecalculateOpacity()
 
-	if(!(turf_flags & TURF_FLAG_SKIP_ICON_INIT))
-		if(mapload)
-			queue_ao(TRUE)
-			update_icon()
-		else
-			regenerate_ao()
-			for(var/thing in RANGE_TURFS(src, 1))
-				var/turf/T = thing
-				if(istype(T) && !(T.turf_flags & TURF_FLAG_SKIP_ICON_INIT))
-					T.queue_icon_update()
+	if (mapload && permit_ao)
+		queue_ao()
 
-	if(mapload)
-		update_starlight()
-	else
-		for(var/thing in RANGE_TURFS(src, 1))
-			var/turf/T = thing
-			if(istype(T))
-				T.update_starlight()
+	if (opacity)
+		has_opaque_atom = TRUE
+
+	if (!mapload)
 		SSair.mark_for_update(src)
 
 	updateVisibility(src, FALSE)
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
+
 	if(flooded && !density)
-		fluid_update(FALSE)
+		make_flooded(TRUE)
 
-/turf/on_update_icon()
-	update_flood_overlay()
-	queue_ao(FALSE)
+	initialize_ambient_light(mapload)
 
-/turf/proc/update_flood_overlay()
-	if(is_flooded(absolute = TRUE))
-		if(!flood_object)
-			flood_object = new(src)
-	else if(flood_object)
-		QDEL_NULL(flood_object)
+	return INITIALIZE_HINT_NORMAL
+
+/turf/proc/initialize_ambient_light(var/mapload)
+	return
+
+/turf/proc/update_ambient_light(var/mapload)
+	return
 
 /turf/Destroy()
 
@@ -91,7 +88,6 @@
 	changing_turf = FALSE
 
 	remove_cleanables()
-	fluid_update()
 	REMOVE_ACTIVE_FLUID_SOURCE(src)
 
 	if (ao_queued)
@@ -101,10 +97,10 @@
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
 
-	if (bound_overlay)
-		QDEL_NULL(bound_overlay)
+	if (mimic_proxy)
+		QDEL_NULL(mimic_proxy)
 
-	if(connections) 
+	if(connections)
 		connections.erase_all()
 
 	..()
@@ -116,6 +112,9 @@
 
 /turf/proc/is_solid_structure()
 	return 1
+
+/turf/proc/movement_delay()
+	return movement_delay
 
 /turf/attack_hand(mob/user)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
@@ -204,7 +203,7 @@
 				return 0
 	return 1 //Nothing found to block so return success!
 
-var/const/enterloopsanity = 100
+var/global/const/enterloopsanity = 100
 /turf/Entered(var/atom/atom, var/atom/old_loc)
 
 	..()
@@ -302,9 +301,13 @@ var/const/enterloopsanity = 100
 		if(isliving(AM))
 			var/mob/living/M = AM
 			M.turf_collision(src, TT.speed)
-			if(M.pinned)
+			if(LAZYLEN(M.pinned))
 				return
 		addtimer(CALLBACK(src, /turf/proc/bounce_off, AM, TT.init_dir), 2)
+	else if(isobj(AM))
+		var/obj/structure/ladder/L = locate() in contents
+		if(L)
+			L.hitby(AM)
 
 /turf/proc/bounce_off(var/atom/movable/AM, var/direction)
 	step(AM, turn(direction, 180))
@@ -360,22 +363,6 @@ var/const/enterloopsanity = 100
 
 /turf/proc/is_floor()
 	return FALSE
-
-/turf/proc/update_starlight()
-	if(!config.starlight)
-		return
-	var/area/A = get_area(src)
-	if(!A.show_starlight)
-		return
-	//Let's make sure not to break everything if people use a crazy setting.
-	for(var/thing in RANGE_TURFS(src,1))
-		if(istype(thing, /turf/simulated))
-			var/turf/simulated/T = thing
-			A = get_area(T)
-			if(A?.dynamic_lighting)
-				set_light(min(0.1*config.starlight, 1), 1, 3, l_color = SSskybox.background_color)
-				return
-	set_light(0)
 
 /turf/proc/get_footstep_sound(var/mob/caller)
 	return

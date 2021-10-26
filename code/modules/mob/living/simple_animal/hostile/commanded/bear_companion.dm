@@ -1,29 +1,16 @@
 /mob/living/simple_animal/hostile/commanded/bear
 	name = "bear"
 	desc = "A large brown bear."
-
-	icon_state = "brownbear"
-	icon_living = "brownbear"
-	icon_dead = "brownbear_dead"
-	icon_gib = "brownbear_gib"
-
+	icon = 'icons/mob/simple_animal/bear_brown.dmi'
 	health = 75
 	maxHealth = 75
-
 	density = 1
-
 	natural_weapon = /obj/item/natural_weapon/claws
 	can_escape = TRUE
-
 	max_gas = list(
 		/decl/material/gas/chlorine = 2, 
 		/decl/material/gas/carbon_dioxide = 5
 	)
-
-	response_help = "pets"
-	response_harm = "hits"
-	response_disarm = "pushes"
-
 	known_commands = list("stay", "stop", "attack", "follow", "dance", "boogie", "boogy")
 
 /mob/living/simple_animal/hostile/commanded/bear/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
@@ -31,9 +18,9 @@
 	if(.)
 		src.emote("roars in rage!")
 
-/mob/living/simple_animal/hostile/commanded/bear/attack_hand(mob/M)
-	..()
-	if(M.a_intent == I_HURT)
+/mob/living/simple_animal/hostile/commanded/bear/default_hurt_interaction(mob/user)
+	. = ..()
+	if(.)
 		src.emote("roars in rage!")
 
 /mob/living/simple_animal/hostile/commanded/bear/listen()
@@ -46,7 +33,7 @@
 	stance = COMMANDED_MISC //nothing can stop this ride
 	spawn(0)
 		src.visible_message("\The [src] starts to dance!.")
-		var/datum/gender/G = gender_datums[gender]
+		var/decl/pronouns/G = get_pronouns()
 		for(var/i in 1 to 10)
 			if(stance != COMMANDED_MISC || incapacitated()) //something has stopped this ride.
 				return

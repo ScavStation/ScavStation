@@ -1,7 +1,11 @@
+#define EQUIP_PREVIEW_LOADOUT 1
+#define EQUIP_PREVIEW_JOB 2
+#define EQUIP_PREVIEW_ALL (EQUIP_PREVIEW_LOADOUT|EQUIP_PREVIEW_JOB)
+
 #define SAVE_RESET -1
 
 /* PLACEHOLDER VERB UNTIL SAVE INIT (or whatever the issue is) IS FIXED */
-var/list/time_prefs_fixed = list()
+var/global/list/time_prefs_fixed = list()
 /client/verb/fix_preferences()
 	set name = "Reload Preferences"
 	set category = "OOC"
@@ -17,22 +21,34 @@ var/list/time_prefs_fixed = list()
 /* END PLACEHOLDER VERB */
 
 /datum/preferences
-	//doohickeys for savefiles
-	var/path
-	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
-	var/savefile_version = 0
+	/// doohickeys for savefiles
+	var/is_guest = FALSE
+	/// Cached varialbe for checking byond membership. Also handles days of membership left.
+	var/is_byond_member
 
-	//non-preference stuff
+	/// Holder so it doesn't default to slot 1, rather the last one used
+	var/default_slot = 1
+
+	// Cache, mapping slot record ids to character names
+	// Saves reading all the slot records when listing
+	var/list/slot_names = null
+
+	// NON-PREFERENCE STUFF
 	var/warns = 0
 	var/muted = 0
 	var/last_ip
 	var/last_id
 
+	// Populated with an error message if loading fails.
+	var/load_failed = null
+
 	//game-preferences
-	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
+	//Saved changlog filesize to detect if there was a change
+	var/lastchangelog = ""
 
 	//Mob preview
-	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
+	//Should only be a key-value list of north/south/east/west = obj/screen.
+	var/list/char_render_holders
 	var/static/list/preview_screen_locs = list(
 		"1" = "character_preview_map:1,5:-12",
 		"2" = "character_preview_map:1,3:15",
@@ -44,20 +60,17 @@ var/list/time_prefs_fixed = list()
 	var/client/client = null
 	var/client_ckey = null
 
-	var/savefile/loaded_preferences
-	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 	var/datum/browser/panel
 
 /datum/preferences/New(client/C)
 	if(istype(C))
+
 		client = C
 		client_ckey = C.ckey
-		SScharacter_setup.preferences_datums[C.ckey] = src
-		if(SScharacter_setup.initialized)
-			setup()
-		else
-			SScharacter_setup.prefs_awaiting_setup += src
+
+		setup_preferences()
+
 	..()
 
 /datum/preferences/Destroy()
@@ -65,31 +78,101 @@ var/list/time_prefs_fixed = list()
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
 
 /datum/preferences/proc/setup()
-	if(!length(GLOB.skills))
+	if(!length(global.skills))
 		GET_DECL(/decl/hierarchy/skill)
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = get_random_name()
 	b_type = RANDOM_BLOOD_TYPE
 
-	if(client && !IsGuestKey(client.key))
-		load_path(client.ckey)
-		load_preferences()
-		load_and_update_character()
+	if(client)
+		if(IsGuestKey(client.key))
+			is_guest = TRUE
+		else
+			load_data()
+			is_byond_member = client.IsByondMember()
+
 	sanitize_preferences()
-	if(client && istype(client.mob, /mob/new_player))
-		var/mob/new_player/np = client.mob
-		np.show_lobby_menu(TRUE)
+	update_preview_icon()
 
-/datum/preferences/proc/load_and_update_character(var/slot)
-	load_character(slot)
-	if(update_setup(loaded_preferences, loaded_character))
-		SScharacter_setup.queue_preferences_save(src)
-		save_character()
+/datum/preferences/proc/load_data()
+	load_failed = null
+	var/stage = "pre"
+	try
+		var/pref_path = get_path(client_ckey, "preferences")
+		if(!fexists(pref_path))
+			stage = "migrate"
+			// Try to migrate legacy savefile-based preferences
+			if(!migrate_legacy_preferences())
+				// If there's no old save, there'll be nothing to load.
+				return
 
-/datum/preferences/proc/ShowChoices(mob/user)
-	if(!SScharacter_setup.initialized)
-		return
+		stage = "load_preferences"
+		load_preferences()
+		if(SScharacter_setup.initialized)
+			stage = "load_character"
+			load_character()
+		else
+			SScharacter_setup.queue_load_character(src)
+	catch(var/exception/E)
+		load_failed = "{[stage]} [E]"
+		throw E
+
+// separated out to avoid stalling SScharacter_setup's Initialize
+/datum/preferences/proc/lateload_character()
+	try
+		load_character()
+	catch(var/exception/E)
+		load_failed = "{lateload_character} [E]"
+		throw E
+
+/datum/preferences/proc/migrate_legacy_preferences()
+	// We make some assumptions here:
+	// - all relevant savefiles were version 17, which covers anything saved from 2018+
+	// - legacy saves were only made on the current map
+	// - a maximum of 40 slots were used
+
+	var/legacy_pref_path = get_path(client.ckey, "preferences", "sav")
+	if(!fexists(legacy_pref_path))
+		return 0
+
+	var/savefile/S = new(legacy_pref_path)
+	if(S["version"] != 17)
+		return 0
+
+	// Legacy version 17 ~= new version 1
+	var/datum/pref_record_reader/dm_savefile/savefile_reader = new(S, 1)
+
+	player_setup.load_preferences(savefile_reader)
+	var/orig_slot = default_slot
+
+	// searching for a legacy entry
+	for(var/slot = 1 to 40)
+		if(!S.dir.Find("character[slot]"))
+			continue
+		default_slot = slot
+		player_setup.load_character(savefile_reader)
+		save_character(override_key = "character_[slot]")
+
+	// searching in saved dirs
+	for(var/dir in S.dir)
+		S.cd = "/[dir]"
+		for(var/slot = 1 to 40)
+			if(!S.dir.Find("character[slot]"))
+				continue
+			default_slot = slot
+			player_setup.load_character(savefile_reader)
+			save_character(override_key = "character_[dir]_[slot]")
+			S.cd = "/[dir]"
+		S.cd = "/"
+
+	default_slot = orig_slot
+	save_preferences()
+
+	return 1
+
+/datum/preferences/proc/get_content(mob/user)
+
 	if(!user || !user.client)
 		return
 
@@ -102,29 +185,53 @@ var/list/time_prefs_fixed = list()
 		update_preview_icon()
 	show_character_previews()
 
-	var/dat = "<html><body><center>"
+	var/dat = list("<center>")
+	if(is_guest)
+		dat += SPAN_WARNING("Please create an account to save your preferences. If you have an account and are seeing this, please adminhelp for assistance.")
+	else if(load_failed)
+		dat += SPAN_DANGER("Loading your savefile failed: [load_failed]<br>Please adminhelp for assistance.")
+	else
 
-	if(path)
-		dat += "Slot - "
+		dat += "<b>Slot</b> - "
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
-		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
+		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a><br>"
 
-	else
-		dat += "Please create an account to save your preferences."
+		dat += "<b>Preview</b> - "
+		dat += "<a href='?src=\ref[src];cycle_bg=1'>Cycle background</a> - "
+		dat += "<a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a> - "
+		dat += "<a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 
 	dat += "<br>"
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
+	return JOINTEXT(dat)
 
-	dat += "</html></body>"
+/datum/preferences/proc/open_setup_window(mob/user)
+
+	if(!SScharacter_setup.initialized)
+		return
+
 	winshow(user, "preferences_window", TRUE)
 	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 800, 800)
-	popup.set_content(dat)
+	var/content = {"
+	<script type='text/javascript'>
+		function update_content(data){
+			document.getElementById('content').innerHTML = data
+		}
+	</script>
+	<html><body>
+		<div id='content'>[get_content(user)]</div>
+	</body></html>
+	"}
+	popup.set_content(content)
 	popup.open(FALSE) // Skip registring onclose on the browser pane
 	onclose(user, "preferences_window", src) // We want to register on the window itself
+
+/datum/preferences/proc/update_setup_window(mob/user)
+	send_output(user, url_encode(get_content(user)), "preferences_browser:update_content")
 
 /datum/preferences/proc/update_character_previews(mutable_appearance/MA)
 	if(!client)
@@ -140,7 +247,7 @@ var/list/time_prefs_fixed = list()
 	BG.icon_state = bgstate
 	BG.screen_loc = preview_screen_locs["BG"]
 
-	for(var/D in GLOB.cardinal)
+	for(var/D in global.cardinal)
 		var/obj/screen/setup_preview/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
 			O = new
@@ -150,6 +257,7 @@ var/list/time_prefs_fixed = list()
 		O.appearance = MA
 		O.dir = D
 		O.screen_loc = preview_screen_locs["[D]"]
+	update_setup_window(usr)
 
 /datum/preferences/proc/show_character_previews()
 	if(!client || !char_render_holders)
@@ -171,16 +279,16 @@ var/list/time_prefs_fixed = list()
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(config.forumurl)
-			user << link(config.forumurl)
+			direct_output(user, link(config.forumurl))
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
-	ShowChoices(usr)
+	update_setup_window(usr)
 	return 1
 
 /datum/preferences/Topic(href, list/href_list)
 	if(..())
-		return 1
+		return TRUE
 
 	if(href_list["save"])
 		save_preferences()
@@ -192,7 +300,7 @@ var/list/time_prefs_fixed = list()
 	else if(href_list["load"])
 		if(!IsGuestKey(usr.key))
 			open_load_dialog(usr)
-			return 1
+			return TRUE
 	else if(href_list["changeslot"])
 		load_character(text2num(href_list["changeslot"]))
 		sanitize_preferences()
@@ -204,23 +312,34 @@ var/list/time_prefs_fixed = list()
 
 	else if(href_list["resetslot"])
 		if(real_name != input("This will reset the current slot. Enter the character's full name to confirm."))
-			return 0
+			return FALSE
 		load_character(SAVE_RESET)
 		sanitize_preferences()
 	else if(href_list["close"])
 		// User closed preferences window, cleanup anything we need to.
 		clear_character_previews()
-		return 1
+		return TRUE
+	else if(href_list["toggle_preview_value"])
+		equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
+	else if(href_list["cycle_bg"])
+		bgstate = next_in_list(bgstate, bgstate_options)
 	else
-		return 0
+		return FALSE
 
-	ShowChoices(usr)
+	update_preview_icon()
+	update_setup_window(usr)
 	return 1
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, is_preview_copy = FALSE)
+
+	if(!player_setup)
+		return // WHY IS THIS EVEN HAPPENING.
+
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
+	character.personal_aspects = list()
 	character.set_species(species)
+	character.set_bodytype((character.species.get_bodytype_by_name(bodytype) || character.species.default_bodytype), FALSE)
 
 	if(be_random_name)
 		var/decl/cultural_info/culture = GET_DECL(cultural_info[TAG_CULTURE])
@@ -230,14 +349,13 @@ var/list/time_prefs_fixed = list()
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname
-			real_name += " [pick(GLOB.last_names)]"
+			real_name += " [pick(global.last_names)]"
 		else if(firstspace == name_length)
-			real_name += "[pick(GLOB.last_names)]"
+			real_name += "[pick(global.last_names)]"
 
 	character.fully_replace_character_name(real_name)
 
-	character.gender = gender
-	character.age = age
+	character.set_gender(gender)
 	character.b_type = b_type
 
 	character.eye_colour = eye_colour
@@ -249,65 +367,18 @@ var/list/time_prefs_fixed = list()
 	character.facial_hair_colour = facial_hair_colour
 
 	character.skin_colour = skin_colour
-
 	character.skin_tone = skin_tone
-	character.skin_base = skin_base
 
 	character.h_style = h_style
 	character.f_style = f_style
 
-	// Replace any missing limbs.
-	for(var/name in global.all_limb_tags)
-		var/obj/item/organ/external/O = character.organs_by_name[name]
-		if(!O && organ_data[name] != "amputated")
-			var/list/organ_data = character.species.has_limbs[name]
-			if(!islist(organ_data)) continue
-			var/limb_path = organ_data["path"]
-			O = new limb_path(character)
-
-	// Destroy/cyborgize organs and limbs. The order is important for preserving low-level choices for robolimb sprites being overridden.
-	for(var/name in global.all_limb_tags_by_depth)
-		var/status = organ_data[name]
-		var/obj/item/organ/external/O = character.organs_by_name[name]
-		if(!O)
-			continue
-		O.status = 0
-		O.model = null
-		if(status == "amputated")
-			character.organs_by_name[O.organ_tag] = null
-			character.organs -= O
-			if(O.children) // This might need to become recursive.
-				for(var/obj/item/organ/external/child in O.children)
-					character.organs_by_name[child.organ_tag] = null
-					character.organs -= child
-					qdel(child)
-			qdel(O)
-		else if(status == "cyborg")
-			O.robotize(rlimb_data[name])
-		else //normal organ
-			O.force_icon = initial(O.force_icon)
-			O.SetName(initial(O.name))
-			O.desc = initial(O.desc)
-
-	//For species that don't care about your silly prefs
 	character.species.handle_limbs_setup(character)
-	if(!is_preview_copy)
-		for(var/name in list(BP_HEART,BP_EYES,BP_BRAIN,BP_LUNGS,BP_LIVER,BP_KIDNEYS,BP_STOMACH))
-			var/status = organ_data[name]
-			if(!status)
-				continue
-			var/obj/item/organ/I = character.get_internal_organ(name)
-			if(I)
-				if(status == "assisted")
-					I.mechassist()
-				else if(status == "mechanical")
-					I.robotize()
 
 	QDEL_NULL_LIST(character.worn_underwear)
 	character.worn_underwear = list()
 
 	for(var/underwear_category_name in all_underwear)
-		var/datum/category_group/underwear/underwear_category = GLOB.underwear.categories_by_name[underwear_category_name]
+		var/datum/category_group/underwear/underwear_category = global.underwear.categories_by_name[underwear_category_name]
 		if(underwear_category)
 			var/underwear_item_name = all_underwear[underwear_category_name]
 			var/datum/category_item/underwear/UWD = underwear_category.items_by_name[underwear_item_name]
@@ -322,31 +393,39 @@ var/list/time_prefs_fixed = list()
 
 	for(var/N in character.organs_by_name)
 		var/obj/item/organ/external/O = character.organs_by_name[N]
-		O.markings.Cut()
+		LAZYCLEARLIST(O.markings)
 
 	for(var/M in body_markings)
-		var/datum/sprite_accessory/marking/mark_datum = GLOB.body_marking_styles_list[M]
+		var/decl/sprite_accessory/marking/mark_datum = GET_DECL(M)
 		var/mark_color = "[body_markings[M]]"
 
 		for(var/BP in mark_datum.body_parts)
 			var/obj/item/organ/external/O = character.organs_by_name[BP]
 			if(O)
-				O.markings[M] = list("color" = mark_color, "datum" = mark_datum)
+				LAZYSET(O.markings, M, mark_color)
 
-	if(LAZYLEN(character.descriptors))
-		for(var/entry in body_descriptors)
-			character.descriptors[entry] = body_descriptors[entry]
+	if(LAZYLEN(appearance_descriptors))
+		character.appearance_descriptors = appearance_descriptors.Copy()
 
 	character.force_update_limbs()
 	character.update_mutations(0)
 	character.update_body(0)
 	character.update_underwear(0)
 	character.update_hair(0)
-	character.update_icons()
+	character.update_icon()
 	character.update_transform()
+
+	if(length(aspects))
+		for(var/atype in aspects)
+			character.personal_aspects |= GET_DECL(atype)
+		character.need_aspect_sort = TRUE
+		character.apply_aspects(ASPECTS_PHYSICAL)
 
 	if(is_preview_copy)
 		return
+
+	if(length(aspects))
+		character.apply_aspects(ASPECTS_MENTAL)
 
 	for(var/token in cultural_info)
 		character.set_cultural_value(token, cultural_info[token], defer_language_update = TRUE)
@@ -364,32 +443,23 @@ var/list/time_prefs_fixed = list()
 	character.flavor_texts["legs"] = flavor_texts["legs"]
 	character.flavor_texts["feet"] = flavor_texts["feet"]
 
-	character.public_record = public_record
-	character.med_record = med_record
-	character.sec_record = sec_record
-	character.gen_record = gen_record
-	character.exploit_record = exploit_record
-
 	if(!character.isSynthetic())
 		character.set_nutrition(rand(140,360))
 		character.set_hydration(rand(140,360))
+
+	return character
 
 /datum/preferences/proc/open_load_dialog(mob/user)
 	var/dat  = list()
 	dat += "<body>"
 	dat += "<tt><center>"
 
-	var/savefile/S = new /savefile(path)
-	if(S)
-		dat += "<b>Select a character slot to load</b><hr>"
-		var/name
-		for(var/i=1, i<= config.character_slots, i++)
-			S.cd = GLOB.using_map.character_load_path(S, i)
-			S["real_name"] >> name
-			if(!name)	name = "Character[i]"
-			if(i==default_slot)
-				name = "<b>[name]</b>"
-			dat += "<a href='?src=\ref[src];changeslot=[i]'>[name]</a><br>"
+	dat += "<b>Select a character slot to load</b><hr>"
+	for(var/i=1, i<= config.character_slots, i++)
+		var/name = (slot_names && slot_names[get_slot_key(i)]) || "Character[i]"
+		if(i==default_slot)
+			name = "<b>[name]</b>"
+		dat += "<a href='?src=\ref[src];changeslot=[i]'>[name]</a><br>"
 
 	dat += "<hr>"
 	dat += "</center></tt>"
@@ -404,10 +474,19 @@ var/list/time_prefs_fixed = list()
 	close_browser(user, "window=saves")
 
 /datum/preferences/proc/apply_post_login_preferences()
-	set waitfor = 0
+	set waitfor = FALSE
+
 	if(!client)
 		return
-	if(client.get_preference_value(/datum/client_preference/chat_position) == GLOB.PREF_YES)
-		client.update_chat_position(TRUE)
-	if(client.get_preference_value(/datum/client_preference/fullscreen_mode) != GLOB.PREF_OFF)
+
+	if(client.get_preference_value(/datum/client_preference/fullscreen_mode) != PREF_OFF)
 		client.toggle_fullscreen(client.get_preference_value(/datum/client_preference/fullscreen_mode))
+
+/datum/preferences/proc/setup_preferences()
+	// give them default keybinds
+	key_bindings = deepCopyList(global.hotkey_keybinding_list_by_key)
+
+	if(istype(client))
+		// Preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum).
+		SScharacter_setup.preferences_datums[client.ckey] = src
+		setup()

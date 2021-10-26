@@ -2,7 +2,7 @@
 	var/obj/item/organ/internal/eyes/eyes = get_internal_organ(species.vision_organ || BP_EYES)
 	if(eyes)
 		eyes.update_colour()
-		regenerate_icons()
+		refresh_visible_overlays()
 
 /mob/living/carbon/human/proc/get_bodypart_name(var/zone)
 	var/obj/item/organ/external/E = get_organ(zone)
@@ -48,7 +48,7 @@
 
 			if (!lying && !buckled && world.time - l_move_time < 15)
 			//Moving around with fractured ribs won't do you any good
-				if (prob(10) && !stat && can_feel_pain() && LAZYACCESS(chem_effects, CE_PAINKILLER) < 50 && E.is_broken() && E.internal_organs.len)
+				if (prob(10) && !stat && can_feel_pain() && GET_CHEMICAL_EFFECT(src, CE_PAINKILLER) < 50 && E.is_broken() && LAZYLEN(E.internal_organs))
 					custom_pain("Pain jolts through your broken [E.encased ? E.encased : E.name], staggering you!", 50, affecting = E)
 					drop_held_items()
 					SET_STATUS_MAX(src, STAT_STUN, 2)
@@ -96,12 +96,7 @@
 			stance_damage += 2
 			if(prob(10))
 				visible_message("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!")
-				var/datum/effect/effect/system/spark_spread/spark_system = new ()
-				spark_system.set_up(5, 0, src)
-				spark_system.attach(src)
-				spark_system.start()
-				spawn(10)
-					qdel(spark_system)
+				spark_at(src, amount = 5, holder = src)
 		else if (E.is_broken())
 			stance_damage += 1
 		else if (E.is_dislocated())
@@ -195,17 +190,13 @@
 		if(!E)
 			continue
 		if(E.is_robotic())
-			visible_message("<B>\The [src]</B> drops what they were holding, \his [affected.name] malfunctioning!")
-			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-			spark_system.set_up(5, 0, src)
-			spark_system.attach(src)
-			spark_system.start()
-			spawn(10)
-				qdel(spark_system)
+			var/decl/pronouns/G = get_pronouns()
+			visible_message("<B>\The [src]</B> drops what [G.he] [G.is] holding, [G.his] [E.name] malfunctioning!")
+			spark_at(src, 5, holder=src)
 			continue
 
 		var/grasp_name = E.name
-		if((E.body_part in list(SLOT_ARM_LEFT, SLOT_ARM_RIGHT)) && length(E.children))
+		if((E.body_part in list(SLOT_ARM_LEFT, SLOT_ARM_RIGHT)) && LAZYLEN(E.children))
 			var/obj/item/organ/external/hand = pick(E.children)
 			grasp_name = hand.name
 

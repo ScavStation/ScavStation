@@ -124,7 +124,7 @@
 
 	if(href_list["create_grant"])
 		var/new_grant_name = uppertext(sanitize(input(usr, "Enter the name of the new grant:", "Create Grant")))
-		if(!CanInteract(user, GLOB.default_state))
+		if(!CanInteract(user, global.default_topic_state))
 			return TOPIC_REFRESH
 		if(!new_grant_name)
 			return TOPIC_REFRESH
@@ -155,7 +155,7 @@
 	if(href_list["write_id"])
 		var/obj/item/stock_parts/computer/card_slot/card_slot = get_component_of_type(/obj/item/stock_parts/computer/card_slot)
 		if(!card_slot)
-			error = "HARDWARE ERROR: No NTOS-v2 compatible device found."
+			error = "HARDWARE ERROR: No GOOSE-v2 compatible device found."
 			return TOPIC_REFRESH
 		var/obj/item/card/id/network/card = card_slot.stored_card
 		if(!card)
@@ -171,7 +171,7 @@
 	if(href_list["eject_id"])
 		var/obj/item/stock_parts/computer/card_slot/card_slot = get_component_of_type(/obj/item/stock_parts/computer/card_slot)
 		if(!card_slot)
-			error = "HARDWARE ERROR: No NTOS-v2 compatible device found."
+			error = "HARDWARE ERROR: No GOOSE-v2 compatible device found."
 			return TOPIC_REFRESH
 		if(!card_slot.stored_card)
 			error = "HARDWARE ERROR: No valid card inserted."

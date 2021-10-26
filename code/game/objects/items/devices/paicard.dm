@@ -1,3 +1,4 @@
+var/global/list/pai_cards = list()
 /obj/item/paicard
 	name = "personal AI device"
 	icon = 'icons/obj/items/device/pai.dmi'
@@ -5,7 +6,7 @@
 	w_class = ITEM_SIZE_SMALL
 	slot_flags = SLOT_LOWER_BODY
 	origin_tech = "{'programming':2}"
-	material = /decl/material/solid/glass
+	material = /decl/material/solid/fiberglass
 	matter = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT)
 
 	var/current_emotion = 1
@@ -23,8 +24,10 @@
 /obj/item/paicard/Initialize()
 	. = ..()
 	overlays += "pai-off"
+	global.pai_cards += src
 
 /obj/item/paicard/Destroy()
+	global.pai_cards -= src
 	//Will stop people throwing friend pAIs into the singularity so they can respawn
 	if(!isnull(pai))
 		pai.death(0)

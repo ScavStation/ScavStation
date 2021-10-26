@@ -84,9 +84,6 @@
 	if(O.visor && O.visor.active && O.visor.vision && O.visor.vision.glasses && (!O.helmet || (head && O.helmet == head)))
 		process_glasses(O.visor.vision.glasses)
 
-/mob/living/carbon/human/get_gender()
-	return gender
-
 /mob/living/carbon/human/fully_replace_character_name(var/new_name, var/in_depth = TRUE)
 	var/old_name = real_name
 	. = ..()
@@ -180,7 +177,7 @@
 			continue
 		heard_something = TRUE
 		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = src)
-		ping_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		ping_image.plane = ABOVE_LIGHTING_PLANE
 		ping_image.layer = BEAM_PROJECTILE_LAYER
 		ping_image.pixel_x = (T.x - src.x) * WORLD_ICON_SIZE
 		ping_image.pixel_y = (T.y - src.y) * WORLD_ICON_SIZE
@@ -208,14 +205,6 @@
 		to_chat(src, jointext(feedback,null))
 	if(!heard_something)
 		to_chat(src, "<span class='notice'>You hear no movement but your own.</span>")
-
-/mob/living/carbon/human/reset_layer()
-	if(hiding)
-		layer = HIDING_MOB_LAYER
-	else if(lying)
-		layer = LYING_HUMAN_LAYER
-	else
-		..()
 
 /mob/living/carbon/human/proc/has_headset_in_ears()
 	return istype(get_equipped_item(slot_l_ear_str), /obj/item/radio/headset) || istype(get_equipped_item(slot_r_ear_str), /obj/item/radio/headset)
@@ -267,7 +256,7 @@
 
 	// We don't present the cloaking message if the human was already cloaked just before cleanup.
 	if(!has_uncloaked && LAZYLEN(cloaking_sources) == 1)
-		update_icons()
+		update_icon()
 		src.visible_message("<span class='warning'>\The [src] seems to disappear before your eyes!</span>", "<span class='notice'>You feel completely invisible.</span>")
 		return TRUE
 	return FALSE
@@ -282,7 +271,7 @@
 	LAZYREMOVE(cloaking_sources, weakref(cloaking_source))
 
 	if(was_cloaked && !LAZYLEN(cloaking_sources))
-		update_icons()
+		update_icon()
 		visible_message(CLOAK_APPEAR_OTHER, CLOAK_APPEAR_SELF)
 		return TRUE
 	return FALSE
@@ -293,7 +282,7 @@
 
 /mob/living/carbon/human/is_cloaked()
 	if(clean_cloaking_sources())
-		update_icons()
+		update_icon()
 		visible_message(CLOAK_APPEAR_OTHER, CLOAK_APPEAR_SELF)
 	return LAZYLEN(cloaking_sources)
 
@@ -329,7 +318,8 @@
 	..()
 
 /mob/living/carbon/human/proc/has_meson_effect()
-	return (GLOB.global_hud.meson in equipment_overlays)
+	var/datum/global_hud/global_hud = get_global_hud()
+	return (global_hud.meson in equipment_overlays)
 
 /mob/living/carbon/human/proc/is_in_pocket(var/obj/item/I)
 	return I in list(l_store, r_store)

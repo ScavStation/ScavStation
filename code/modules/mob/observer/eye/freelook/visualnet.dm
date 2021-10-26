@@ -112,14 +112,14 @@
 	for_all_chunks_in_range(source, /datum/chunk/proc/visibility_changed, list())
 
 /datum/visualnet/proc/add_source(var/atom/source, var/update_visibility = TRUE, var/opacity_check = FALSE)
-	if(!(source && is_type_in_list(source, valid_source_types)))
+	if(!(source && is_valid_source(source)))
 		log_visualnet("Was given an unhandled source", source)
 		return FALSE
 	if(source in sources)
 		return FALSE
 	sources += source
-	GLOB.moved_event.register(source, src, /datum/visualnet/proc/source_moved)
-	GLOB.destroyed_event.register(source, src, /datum/visualnet/proc/remove_source)
+	events_repository.register(/decl/observ/moved, source, src, /datum/visualnet/proc/source_moved)
+	events_repository.register(/decl/observ/destroyed, source, src, /datum/visualnet/proc/remove_source)
 	for_all_chunks_in_range(source, /datum/chunk/proc/add_source, list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
@@ -129,12 +129,16 @@
 	if(!sources.Remove(source))
 		return FALSE
 
-	GLOB.moved_event.unregister(source, src, /datum/visualnet/proc/source_moved)
-	GLOB.destroyed_event.unregister(source, src, /datum/visualnet/proc/remove_source)
+	events_repository.unregister(/decl/observ/moved, source, src, /datum/visualnet/proc/source_moved)
+	events_repository.unregister(/decl/observ/destroyed, source, src, /datum/visualnet/proc/remove_source)
 	for_all_chunks_in_range(source, /datum/chunk/proc/remove_source, list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
 	return TRUE
+
+/datum/visualnet/proc/is_valid_source(var/atom/source)
+	if(is_type_in_list(source, valid_source_types))
+		return TRUE
 
 /datum/visualnet/proc/source_moved(var/atom/movable/source, var/old_loc, var/new_loc)
 	var/turf/old_turf = get_turf(old_loc)

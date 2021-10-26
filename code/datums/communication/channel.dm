@@ -9,6 +9,9 @@
 	var/mute_setting
 	var/show_preference_setting
 
+/decl/communication_channel/proc/get_emblem(client/C)
+	return
+
 /decl/communication_channel/proc/can_ignore(var/client/C)
 	if (!C)
 		return TRUE
@@ -16,7 +19,7 @@
 	if(!show_preference_setting)
 		return FALSE
 	// If you're trying to see the channel, you can't ignore it
-	if (C.get_preference_value(show_preference_setting) == GLOB.PREF_SHOW)
+	if (C.get_preference_value(show_preference_setting) == PREF_SHOW)
 		return FALSE
 	// I suppose the host is more equal than others
 	if (check_rights(R_HOST, 0, C))

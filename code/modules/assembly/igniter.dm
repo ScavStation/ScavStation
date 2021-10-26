@@ -5,8 +5,8 @@
 	origin_tech = "{'magnets':1}"
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/slag = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/copper = MATTER_AMOUNT_TRACE
 	)
 
 	secured = 1
@@ -28,9 +28,7 @@
 				if(tank)
 					tank.try_detonate_reagents()
 
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(3, 1, src)
-		s.start()
+		spark_at(src, cardinal_only = TRUE)
 
 	return 1
 

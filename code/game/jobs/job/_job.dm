@@ -1,47 +1,44 @@
 /datum/job
+	var/title                                 // The name of the job	
+	var/list/software_on_spawn = list()       // Defines the software files that spawn on tablets and labtops
+	var/list/department_types = list()        // What departments the job is in.
+	var/autoset_department = TRUE             // If department list is empty, use map default.
+	var/primary_department                    // A jobs primary deparment, defualts to the first in the department refs list if not set. Important for heads, the department they are head of needs to be this one.
+	var/total_positions = 0                   // How many players can be this job
+	var/spawn_positions = 0                   // How many players can spawn in as this job
+	var/current_positions = 0                 // How many players have this job
+	var/availablity_chance = 100              // Percentage chance job is available each round
+	var/guestbanned = FALSE                   // If set to 1 this job will be unavalible to guests
+	var/must_fill = FALSE                     // If set to 1 this job will be have priority over other job preferences. Do not reccommend on jobs with more that one position.
+	var/not_random_selectable = FALSE         // If set to 1 this job will not be selected when a player asks for a random job.
+	var/description                           // If set, returns a static description. To add dynamic text, overwrite this proc, call parent aka . = ..() and then . += "extra text" on the line after that.
+	var/list/event_categories                 // A set of tags used to check jobs for suitability for things like random event selection.
+	var/skip_loadout_preview = FALSE          // Whether or not the job should render loadout items in char preview.
+	var/supervisors = null                    // Supervisors, who this person answers to directly
+	var/selection_color = "#515151"         // Selection screen color
+	var/list/alt_titles                       // List of alternate titles, if any and any potential alt. outfits as assoc values.
+	var/req_admin_notify                      // If this is set to 1, a text is printed to the player when jobs are assigned, telling him that he should let admins know that he has to disconnect.
+	var/minimal_player_age = 0                // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
+	var/head_position = 0                     // Is this position Command?
+	var/minimum_character_age                 // List of species = age, if species is not here, it's auto-pass
+	var/ideal_character_age = 30              // Preferred character age when populate job at roundstart.
+	var/create_record = 1                     // Do we announce/make records for people who spawn on this job?
+	var/is_semi_antagonist = FALSE            // Whether or not this job is given semi-antagonist status.
+	var/account_allowed = 1                   // Does this job type come with a station account?
+	var/economic_power = 2                    // With how much does this job modify the initial account amount?
+	var/is_holy = FALSE                       // Can this role perform blessings?
+	var/outfit_type                           // The outfit the employee will be dressed in, if any
+	var/loadout_allowed = TRUE                // Whether or not loadout equipment is allowed and to be created when joining.
+	var/list/allowed_branches                 // For maps using branches and ranks, also expandable for other purposes
+	var/list/allowed_ranks                    // Ditto
+	var/announced = TRUE                      // If their arrival is announced on radio
+	var/latejoin_at_spawnpoints               // If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
+	var/forced_spawnpoint                     // If set to a spawnpoint name, will use that spawn point for joining as this job.
+	var/hud_icon						      // icon used for Sec HUD overlay
 
-	//The name of the job
-	var/title
 	//Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
-	var/list/minimal_access = list()      // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
-	var/list/access = list()              // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
-	var/list/software_on_spawn = list()   // Defines the software files that spawn on tablets and labtops
-	var/list/department_types = list()	  // What deparements the job is in.
-	var/primary_department = null 		  // A jobs primary deparment, defualts to the first in the department refs list if not set. Important for heads, the department they are head of needs to be this one.
-	var/total_positions = 0               // How many players can be this job
-	var/spawn_positions = 0               // How many players can spawn in as this job
-	var/current_positions = 0             // How many players have this job
-	var/availablity_chance = 100          // Percentage chance job is available each round
-	var/guestbanned = 0					  // If set to 1 this job will be unavalible to guests
-	var/must_fill = 0					  // If set to 1 this job will be have priority over other job preferences. Do not reccommend on jobs with more that one position.
-	var/not_random_selectable = 0		  // If set to 1 this job will not be selected when a player asks for a random job.
-	var/description						  // If set, returns a static description. To add dynamic text, overwrite this proc, call parent aka . = ..() and then . += "extra text" on the line after that.
-	var/list/event_categories
-
-	var/supervisors = null                // Supervisors, who this person answers to directly
-	var/selection_color = "#515151"       // Selection screen color
-	var/list/alt_titles                   // List of alternate titles, if any and any potential alt. outfits as assoc values.
-	var/req_admin_notify                  // If this is set to 1, a text is printed to the player when jobs are assigned, telling him that he should let admins know that he has to disconnect.
-	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
-	var/head_position = 0                 // Is this position Command?
-	var/minimum_character_age			  // List of species = age, if species is not here, it's auto-pass
-	var/ideal_character_age = 30
-	var/create_record = 1                 // Do we announce/make records for people who spawn on this job?
-	var/is_semi_antagonist = FALSE        // Whether or not this job is given semi-antagonist status.
-	var/account_allowed = 1               // Does this job type come with a station account?
-	var/economic_power = 2                // With how much does this job modify the initial account amount?
-	var/is_holy = FALSE                   // Can this role perform blessings?
-	var/outfit_type                       // The outfit the employee will be dressed in, if any
-
-	var/loadout_allowed = TRUE            // Whether or not loadout equipment is allowed and to be created when joining.
-	var/list/allowed_branches             // For maps using branches and ranks, also expandable for other purposes
-	var/list/allowed_ranks                // Ditto
-
-	var/announced = TRUE                  //If their arrival is announced on radio
-	var/latejoin_at_spawnpoints           //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
-	var/forced_spawnpoint                 //If set to a spawnpoint name, will use that spawn point for joining as this job.
-
-	var/hud_icon						  //icon used for Sec HUD overlay
+	var/list/minimal_access = list()          // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
+	var/list/access = list()                  // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
 
 	//Minimum skills allowed for the job. List should contain skill (as in /decl/hierarchy/skill path), with values which are numbers.
 	var/min_skill = list(
@@ -62,6 +59,17 @@
 	var/required_language
 
 /datum/job/New()
+
+	if(type == /datum/job && global.using_map.default_job_type == type)
+		title = "Debug Job"
+		hud_icon = "hudblank"
+		outfit_type = /decl/hierarchy/outfit/job/generic/scientist
+		autoset_department = TRUE
+
+	if(!length(department_types) && autoset_department)
+		department_types = list(global.using_map.default_department_type)
+	if(isnull(primary_department) && length(department_types))
+		primary_department = department_types[1]
 
 	if(prob(100-availablity_chance))	//Close positions, blah blah.
 		total_positions = 0
@@ -85,6 +93,16 @@
 	H.set_default_language(/decl/language/human/common)
 	var/decl/hierarchy/outfit/outfit = get_outfit(H, alt_title, branch, grade)
 	if(outfit) . = outfit.equip(H, title, alt_title)
+
+	if(!QDELETED(H))
+		var/obj/item/card/id/id = H.GetIdCard()
+		if(id)
+			id.rank = title
+			id.assignment = id.rank
+			id.access |= get_access()
+			if(!id.detail_color)
+				id.detail_color = selection_color
+			id.update_icon()
 
 /datum/job/proc/get_outfit(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
 	if(alt_title && alt_titles)
@@ -118,7 +136,7 @@
 		culture_mod /= culture_count
 	. *= culture_mod
 	// Apply other mods.
-	. *= GLOB.using_map.salary_modifier
+	. *= global.using_map.salary_modifier
 	. *= 1 + 2 * H.get_skill_value(SKILL_FINANCE)/(SKILL_MAX - SKILL_MIN)
 	. = round(.)
 
@@ -144,7 +162,7 @@
 			var/datum/transaction/T = M.transaction_log[1]
 			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.get_source_name()]<br>"
 		if(cash_on_hand > 0)
-			var/decl/currency/cur = GET_DECL(GLOB.using_map.default_currency)
+			var/decl/currency/cur = GET_DECL(global.using_map.default_currency)
 			remembered_info += "<b>Your cash on hand is:</b> [cur.format_value(cash_on_hand)]<br>"
 		H.StoreMemory(remembered_info, /decl/memory_options/system)
 		H.mind.initial_account = M
@@ -205,7 +223,7 @@
 		to_chat(feedback, "<span class='boldannounce'>Restricted species, [S], for [title].</span>")
 		return TRUE
 
-	if(LAZYACCESS(minimum_character_age, S.get_root_species_name()) && (prefs.age < minimum_character_age[S.get_root_species_name()]))
+	if(LAZYACCESS(minimum_character_age, S.get_root_species_name()) && (prefs.get_character_age() < minimum_character_age[S.get_root_species_name()]))
 		to_chat(feedback, "<span class='boldannounce'>Not old enough. Minimum character age is [minimum_character_age[S.get_root_species_name()]].</span>")
 		return TRUE
 
@@ -224,9 +242,9 @@
 	if(is_available(caller))
 		if(is_restricted(caller.prefs))
 			if(show_invalid_jobs)
-				return "<tr><td><a style='text-decoration: line-through' href='[href_string]'>[title]</a></td><td>[current_positions]</td><td>(Active: [get_active_count()])</td></tr>"
+				return "<tr bgcolor='[selection_color]'><td style='padding-left:2px;padding-right:2px;'><a style='text-decoration: line-through' href='[href_string]'>[title]</a></td><td style='padding-left:2px;padding-right:2px;''><center>[current_positions]</center></td><td style='padding-left:2px;padding-right:2px;'><center>Active: [get_active_count()]</center></td></tr>"
 		else
-			return "<tr><td><a href='[href_string]'>[title]</a></td><td>[current_positions]</td><td>(Active: [get_active_count()])</td></tr>"
+			return "<tr bgcolor='[selection_color]'><td style='padding-left:2px;padding-right:2px;'><a href='[href_string]'>[title]</a></td><td style='padding-left:2px;padding-right:2px;'><center>[current_positions]</center></td><td style='padding-left:2px;padding-right:2px;'><center>Active: [get_active_count()]</center></td></tr>"
 	return ""
 
 // Only players with the job assigned and AFK for less than 10 minutes count as active
@@ -235,16 +253,16 @@
 
 /datum/job/proc/get_active_count()
 	var/active = 0
-	for(var/mob/M in GLOB.player_list)
+	for(var/mob/M in global.player_list)
 		if(check_is_active(M))
 			active++
 	return active
 
 /datum/job/proc/is_species_allowed(var/decl/species/S)
-	if(GLOB.using_map.is_species_job_restricted(S, src))
+	if(global.using_map.is_species_job_restricted(S, src))
 		return FALSE
 	// We also make sure that there is at least one valid branch-rank combo for the species.
-	if(!allowed_branches || !GLOB.using_map || !(GLOB.using_map.flags & MAP_HAS_BRANCH))
+	if(!allowed_branches || !global.using_map || !(global.using_map.flags & MAP_HAS_BRANCH))
 		return TRUE
 	return LAZYLEN(get_branch_rank(S))
 
@@ -261,7 +279,7 @@
 	for(var/branch_type in allowed_branches)
 		var/datum/mil_branch/branch = mil_branches.get_branch_by_type(branch_type)
 		if(branch.name in spawn_branches)
-			if(!allowed_ranks || !(GLOB.using_map.flags & MAP_HAS_RANK))
+			if(!allowed_ranks || !(global.using_map.flags & MAP_HAS_RANK))
 				LAZYADD(., branch.name)
 				continue // Screw this rank stuff, we're good.
 			var/spawn_ranks = branch.spawn_ranks(S)
@@ -278,7 +296,7 @@
  *  branch_name - String key for the branch to check
  */
 /datum/job/proc/is_branch_allowed(var/branch_name)
-	if(!allowed_branches || !GLOB.using_map || !(GLOB.using_map.flags & MAP_HAS_BRANCH))
+	if(!allowed_branches || !global.using_map || !(global.using_map.flags & MAP_HAS_BRANCH))
 		return 1
 	if(branch_name == "None")
 		return 0
@@ -303,7 +321,7 @@
  *  rank_name - String key for the rank itself
  */
 /datum/job/proc/is_rank_allowed(var/branch_name, var/rank_name)
-	if(!allowed_ranks || !GLOB.using_map || !(GLOB.using_map.flags & MAP_HAS_RANK))
+	if(!allowed_ranks || !global.using_map || !(global.using_map.flags & MAP_HAS_RANK))
 		return 1
 	if(branch_name == "None" || rank_name == "None")
 		return 0
@@ -344,11 +362,12 @@
 /datum/job/proc/get_job_icon()
 	if(!SSjobs.job_icons[title])
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = get_mannequin("#job_icon")
-		dress_mannequin(mannequin)
-		mannequin.set_dir(SOUTH)
-		var/icon/preview_icon = getFlatIcon(mannequin)
-		preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2) // Scaling here to prevent blurring in the browser.
-		SSjobs.job_icons[title] = preview_icon
+		if(mannequin)
+			dress_mannequin(mannequin)
+			mannequin.set_dir(SOUTH)
+			var/icon/preview_icon = getFlatIcon(mannequin)
+			preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2) // Scaling here to prevent blurring in the browser.
+			SSjobs.job_icons[title] = preview_icon
 	return SSjobs.job_icons[title]
 
 /datum/job/proc/get_unavailable_reasons(var/client/caller)
@@ -379,8 +398,9 @@
 		. = reasons
 
 /datum/job/proc/dress_mannequin(var/mob/living/carbon/human/dummy/mannequin/mannequin)
-	mannequin.delete_inventory(TRUE)
-	equip_preview(mannequin, additional_skips = OUTFIT_ADJUSTMENT_SKIP_BACKPACK)
+	if(mannequin)
+		mannequin.delete_inventory(TRUE)
+		equip_preview(mannequin, additional_skips = OUTFIT_ADJUSTMENT_SKIP_BACKPACK)
 
 /datum/job/proc/is_available(var/client/caller)
 	if(!is_position_available())
@@ -398,7 +418,7 @@
 
 /datum/job/proc/get_roundstart_spawnpoint()
 	var/list/loc_list = list()
-	for(var/obj/effect/landmark/start/sloc in landmarks_list)
+	for(var/obj/effect/landmark/start/sloc in global.landmarks_list)
 		if(sloc.name != title)	continue
 		if(locate(/mob/living) in sloc.loc)	continue
 		loc_list += sloc
@@ -408,7 +428,7 @@
 		return locate("start*[title]") // use old stype
 
 /**
- *  Return appropriate /datum/spawnpoint for given client
+ *  Return appropriate /decl/spawnpoint for given client
  *
  *  Spawnpoint will be the one set in preferences for the client, unless the
  *  preference is not set, or the preference is not appropriate for the rank, in
@@ -420,41 +440,19 @@
 		CRASH("Null client passed to get_spawnpoint_for() proc!")
 
 	var/mob/H = C.mob
-	var/spawnpoint = C.prefs.spawnpoint
-	var/datum/spawnpoint/spawnpos
 
-	if(forced_spawnpoint)
-		spawnpoint = forced_spawnpoint
-
-	if(spawnpoint == DEFAULT_SPAWNPOINT_ID)
-		spawnpoint = GLOB.using_map.default_spawn
-
-	if(spawnpoint)
-		if(!(spawnpoint in GLOB.using_map.allowed_spawns))
-			if(H)
-				to_chat(H, "<span class='warning'>Your chosen spawnpoint ([C.prefs.spawnpoint]) is unavailable for the current map. Spawning you at one of the enabled spawn points instead. To resolve this error head to your character's setup and choose a different spawn point.</span>")
-			spawnpos = null
-		else
-			spawnpos = spawntypes()[spawnpoint]
-
-	if(spawnpos && !spawnpos.check_job_spawning(title))
+	var/spawntype = forced_spawnpoint || C.prefs.spawnpoint || global.using_map.default_spawn
+	var/decl/spawnpoint/spawnpos = GET_DECL(spawntype)
+	if(spawnpos && !spawnpos.check_job_spawning(src))
 		if(H)
-			to_chat(H, "<span class='warning'>Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job ([title]). Spawning you at another spawn point instead.</span>")
+			to_chat(H, SPAN_WARNING("Your chosen spawnpoint ([spawnpos.name]) is unavailable for your chosen job ([title]). Spawning you at another spawn point instead."))
 		spawnpos = null
-
 	if(!spawnpos)
 		// Step through all spawnpoints and pick first appropriate for job
-		for(var/spawntype in GLOB.using_map.allowed_spawns)
-			var/datum/spawnpoint/candidate = spawntypes()[spawntype]
-			if(candidate.check_job_spawning(title))
+		for(var/decl/spawnpoint/candidate AS_ANYTHING in global.using_map.allowed_spawns)
+			if(candidate?.check_job_spawning(src))
 				spawnpos = candidate
 				break
-
-	if(!spawnpos)
-		// Pick at random from all the (wrong) spawnpoints, just so we have one
-		warning("Could not find an appropriate spawnpoint for job [title].")
-		spawnpos = spawntypes()[pick(GLOB.using_map.allowed_spawns)]
-
 	return spawnpos
 
 /datum/job/proc/post_equip_rank(var/mob/person, var/alt_title)
@@ -476,3 +474,12 @@
 
 /datum/job/proc/check_special_blockers(var/datum/preferences/prefs)
 	return
+
+/datum/job/proc/do_spawn_special(var/mob/living/character, var/mob/new_player/new_player_mob, var/latejoin = FALSE)
+	return FALSE
+
+/datum/job/proc/get_occupations_tab_sort_score()
+	. = (0.1 * head_position)
+	if(primary_department)
+		var/decl/department/dept = GET_DECL(primary_department)
+		. += dept.display_priority

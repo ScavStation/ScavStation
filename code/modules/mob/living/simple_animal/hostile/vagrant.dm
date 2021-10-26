@@ -2,20 +2,13 @@
 /mob/living/simple_animal/hostile/vagrant
 	name = "creature"
 	desc = "You get the feeling you should run."
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "vagrant"
-	icon_living = "vagrant"
-	icon_dead = "vagrant"
-	icon_gib = "vagrant"
+	icon = 'icons/mob/simple_animal/vagrant.dmi'
 	maxHealth = 60
 	health = 20
 	speed = 5
 	speak_chance = 0
 	turns_per_move = 4
 	move_to_delay = 4
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
 	break_stuff_probability = 0
 	faction = "vagrant"
 	harm_intent_damage = 3
@@ -81,6 +74,7 @@
 		return
 
 /mob/living/simple_animal/hostile/vagrant/on_update_icon()
+	..()
 	if(cloaked) //It's fun time
 		alpha = 75
 		set_light(0)
@@ -88,8 +82,8 @@
 		move_to_delay = initial(move_to_delay)
 	else //It's fight time
 		alpha = 255
-		icon_state = "vagrant_glowing"
-		set_light(0.2, 0.1, 3)
+		icon_state += "-glowing"
+		set_light(3, 0.2)
 		move_to_delay = 2
 
 /mob/living/simple_animal/hostile/vagrant/AttackingTarget()

@@ -27,7 +27,8 @@
 	src.underlays += B
 
 
-/mob/living/bot/floorbot/update_icons()
+/mob/living/bot/floorbot/on_update_icon()
+	..()
 	if(busy)
 		icon_state = "floorbot-c"
 	else if(amount > 0)
@@ -115,8 +116,11 @@
 
 	if(istype(A, /obj/item/stack/tile/floor))
 		return (amount < maxAmount && eattiles)
-	if(istype(A, /obj/item/stack/material/steel))
-		return (amount < maxAmount && maketiles)
+
+	if(istype(A, /obj/item/stack/material))
+		var/obj/item/stack/material/S = A
+		if(S.material?.type == /decl/material/solid/metal/steel)
+			return (amount < maxAmount && maketiles)
 
 	if(A.loc.name == "Space")
 		return 0
@@ -141,7 +145,7 @@
 	if(emagged && istype(A, /turf/simulated/floor))
 		var/turf/simulated/floor/F = A
 		busy = 1
-		update_icons()
+		update_icon()
 		if(F.flooring)
 			visible_message("<span class='warning'>[src] begins to tear the floor tile from the floor.</span>")
 			if(do_after(src, 50, F))
@@ -153,12 +157,12 @@
 				F.ReplaceWithLattice()
 				addTiles(1)
 		target = null
-		update_icons()
+		update_icon()
 	else if(istype(A, /turf/simulated/floor))
 		var/turf/simulated/floor/F = A
 		if(F.broken || F.burnt)
 			busy = 1
-			update_icons()
+			update_icon()
 			visible_message("<span class='notice'>[src] begins to remove the broken floor.</span>")
 			anchored = TRUE
 			if(do_after(src, 50, F))
@@ -167,10 +171,10 @@
 			anchored = FALSE
 			target = null
 			busy = 0
-			update_icons()
+			update_icon()
 		else if(!F.flooring && amount)
 			busy = 1
-			update_icons()
+			update_icon()
 			visible_message("<span class='notice'>[src] begins to improve the floor.</span>")
 			anchored = TRUE
 			if(do_after(src, 50, F))
@@ -179,12 +183,12 @@
 					addTiles(-1)
 			anchored = FALSE
 			target = null
-			update_icons()
+			update_icon()
 	else if(istype(A, /obj/item/stack/tile/floor) && amount < maxAmount)
 		var/obj/item/stack/tile/floor/T = A
 		visible_message("<span class='notice'>\The [src] begins to collect tiles.</span>")
 		busy = 1
-		update_icons()
+		update_icon()
 		anchored = TRUE
 		if(do_after(src, 20))
 			if(T)
@@ -193,14 +197,14 @@
 				addTiles(eaten)
 		anchored = FALSE
 		target = null
-		update_icons()
+		update_icon()
 	else if(istype(A, /obj/item/stack/material) && amount + 4 <= maxAmount)
 		var/obj/item/stack/material/M = A
 		if(M.get_material_type() == /decl/material/solid/metal/steel)
 			visible_message("<span class='notice'>\The [src] begins to make tiles.</span>")
 			busy = 1
 			anchored = TRUE
-			update_icons()
+			update_icon()
 			if(do_after(src, 50))
 				if(M)
 					M.use(1)
@@ -229,9 +233,7 @@
 		shrapnel += new /obj/item/robot_parts/l_arm(Tsec)
 	shrapnel += new /obj/item/assembly/prox_sensor(Tsec)
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, src)
-	s.start()
+	spark_at(src, cardinal_only = TRUE)
 
 	for(var/atom/movable/AM in shrapnel)
 		AM.throw_at(pick(things),5)

@@ -48,7 +48,7 @@
 
 /mob/living/bot/Initialize()
 	. = ..()
-	update_icons()
+	update_icon()
 
 	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access?.Copy()
@@ -120,8 +120,11 @@
 /mob/living/bot/attack_ai(var/mob/living/user)
 	Interact(user)
 
-/mob/living/bot/attack_hand(var/mob/user)
-	Interact(user)
+/mob/living/bot/default_interaction(mob/user)
+	. = ..()
+	if(!.)
+		Interact(user)
+		return TRUE
 
 /mob/living/bot/proc/Interact(var/mob/user)
 	add_fingerprint(user)
@@ -151,7 +154,7 @@
 	popup.open()
 
 /mob/living/bot/DefaultTopicState()
-	return GLOB.default_state
+	return global.default_topic_state
 
 /mob/living/bot/OnTopic(mob/user, href_list)
 	if(href_list["command"])
@@ -346,8 +349,8 @@
 	if(stat)
 		return 0
 	on = 1
-	set_light(0.5, 0.1, light_strength)
-	update_icons()
+	set_light(light_strength)
+	update_icon()
 	resetTarget()
 	patrol_path = list()
 	ignore_list = list()
@@ -356,7 +359,7 @@
 /mob/living/bot/proc/turn_off()
 	on = 0
 	set_light(0)
-	update_icons()
+	update_icon()
 
 /mob/living/bot/proc/explode()
 	qdel(src)
@@ -373,7 +376,7 @@
 
 	//	for(var/turf/simulated/t in oview(src,1))
 
-	for(var/d in GLOB.cardinal)
+	for(var/d in global.cardinal)
 		var/turf/simulated/T = get_step(src, d)
 		if(istype(T) && !T.density)
 			if(!LinkBlockedWithAccess(src, T, ID))

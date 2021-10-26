@@ -19,11 +19,12 @@
 	var/treated_by_reagent_dosage = 1 // What is the minimum dosage for a reagent to cure this ailment?
 
 	// Fluff strings
-	var/initial_ailment_message = "Your $ORGAN$ doesn't feel quite right..."              // Shown in New()
-	var/third_person_treatement_message = "$USER$ treats $TARGET$'s ailment with $ITEM$." // Shown when treating other with an item.
-	var/self_treatement_message = "$USER$ treats $USER_HIS$ ailment with $ITEM$."         // Shown when treating self with an item.
-	var/medication_treatment_message = "Your ailment abates."                             // Shown when treated by a metabolized reagent.
-	var/diagnosis_string  /* ex: "$USER_HIS$ $ORGAN$ has something wrong with it" */      // Shown when grab-diagnosed by a doctor. Leave null to be undiagnosable.
+	var/initial_ailment_message = "Your $ORGAN$ doesn't feel quite right..."                // Shown in New()
+	var/third_person_treatement_message = "$USER$ treats $TARGET$'s ailment with $ITEM$."   // Shown when treating other with an item.
+	var/self_treatement_message = "$USER$ treats $USER_HIS$ ailment with $ITEM$."           // Shown when treating self with an item.
+	var/medication_treatment_message = "Your ailment abates."                               // Shown when treated by a metabolized reagent.
+	var/manual_diagnosis_string  /* ex: "$USER_HIS$ $ORGAN$ has something wrong with it" */ // Shown when grab-diagnosed by a doctor. Leave null to be undiagnosable.
+	var/scanner_diagnosis_string /* ex: "Significant swelling" */                           // Shown on the handheld and body scanners. Leave null to be undiagnosable.
 
 /datum/ailment/New(var/obj/item/organ/_organ)
 	..()
@@ -46,8 +47,6 @@
 	if(organ)
 		LAZYREMOVE(organ.ailments, src)
 		organ = null
-	deltimer(timer_id)
-	timer_id = null
 	. = ..()
 
 /datum/ailment/proc/begin_ailment_event()
@@ -73,7 +72,7 @@
 	if(treatment)
 		. = replacetext(., "$ITEM$", "\the [treatment]")
 	if(user)
-		var/datum/gender/G = gender_datums[user.gender]
+		var/decl/pronouns/G = user.get_pronouns()
 		. = replacetext(., "$USER$", "\the [user]")
 		. = replacetext(., "$USER_HIS$", G.his)
 	if(target)

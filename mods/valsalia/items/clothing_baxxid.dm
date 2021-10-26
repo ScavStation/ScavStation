@@ -1,17 +1,17 @@
-/datum/gear/head/baxxid_hood
-	display_name = "baxxid hood"
+/decl/loadout_option/head/baxxid_hood
+	name = "baxxid hood"
 	path = /obj/item/clothing/head/baxxid/hood/long
 	flags = GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/head/baxxid_wig
-	display_name = "baxxid wig"
+/decl/loadout_option/head/baxxid_wig
+	name = "baxxid wig"
 	path = /obj/item/clothing/head/baxxid/big_wig
 	description = "A large blonde wig"
 
 /obj/item/clothing/head/baxxid
 	name = "baxxid head clothing"
 	desc = "A parent item for stuff you put on top of a baxxid."
-	bodytype_restricted = list(BODYTYPE_BAXXID)
+	bodytype_equip_flags = BODY_FLAG_BAXXID
 	icon_state = ICON_STATE_WORLD
 
 /obj/item/clothing/head/baxxid/hood
@@ -33,12 +33,13 @@
 		I.appearance_flags |= RESET_COLOR
 		overlays = list(I)
 
-/obj/item/clothing/head/baxxid/hood/long/apply_overlays(var/mob/user_mob, var/bodytype, var/image/overlay, var/slot)
-	if(slot == slot_head_str && apply_trim)
-		var/image/I = image(icon, "[overlay.icon_state]-trim")
-		I.appearance_flags |= RESET_COLOR
-		overlay.overlays = list(I)
+/obj/item/clothing/head/baxxid/hood/long/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart)
 	. = ..()
+	if(overlay && slot == slot_head_str && apply_trim)
+		var/image/I = image(overlay.icon, "[overlay.icon_state]-trim")
+		I.appearance_flags |= RESET_COLOR
+		overlay.overlays = list(overlay)
+	return overlay
 
 /obj/item/clothing/head/baxxid/big_wig
 	name = "big wig"

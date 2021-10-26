@@ -331,10 +331,16 @@
 	if(user.loc != get_turf(src))
 		return
 	speak_incantation(user, "Fwe[pick("'","`")]sh mah erl nyag r'ya!")
-	user.visible_message("<span class='warning'>\The [user]'s eyes glow blue as \he freezes in place, absolutely motionless.</span>", "<span class='warning'>The shadow that is your spirit separates itself from your body. You are now in the realm beyond. While this is a great sight, being here strains your mind and body. Hurry...</span>", "You hear only complete silence for a moment.")
+	var/decl/pronouns/G = user.get_pronouns()
+
+	user.visible_message( \
+		SPAN_NOTICE("\The [user]'s eyes glow blue as [G.he] freeze[G.s] in place, absolutely motionless."), \
+		SPAN_OCCULT("The shadow that is your spirit separates itself from your body. You are now in the realm beyond. While this is a great sight, being here strains your mind and body. Hurry..."), \
+		SPAN_NOTICE("You hear only complete silence for a moment."))
+
 	announce_ghost_joinleave(user.ghostize(1), 1, "You feel that they had to use some [pick("dark", "black", "blood", "forgotten", "forbidden")] magic to [pick("invade", "disturb", "disrupt", "infest", "taint", "spoil", "blight")] this place!")
 	var/mob/observer/ghost/soul
-	for(var/mob/observer/ghost/O in GLOB.ghost_mob_list)
+	for(var/mob/observer/ghost/O in global.ghost_mob_list)
 		if(O.key == tmpkey)
 			soul = O
 			break
@@ -423,7 +429,7 @@
 		var/obj/item/storage/backpack/cultpack/C = new /obj/item/storage/backpack/cultpack(user)
 		user.equip_to_slot_or_del(C, slot_back_str)
 
-	user.update_icons()
+	user.update_icon()
 
 	qdel(src)
 
@@ -533,7 +539,7 @@
 	var/use
 	use = min(charges, user.species.blood_volume - user.vessel.total_volume)
 	if(use > 0)
-		user.vessel.add_reagent(user.species.blood_reagent, use)
+		user.adjust_blood(use)
 		charges -= use
 		statuses += "you regain lost blood"
 		if(!charges)
@@ -642,14 +648,14 @@
 		to_chat(user, "<span class='warning'>This rune needs to be placed on the defiled ground.</span>")
 		return fizzle(user)
 
-	var/obj/item/stack/material/steel/target
-	for(var/obj/item/stack/material/steel/S in get_turf(src))
-		if(S.get_amount() >= 10)
+	var/obj/item/stack/material/target
+	for(var/obj/item/stack/material/S in get_turf(src))
+		if(S.material?.type == /decl/material/solid/metal/steel && S.get_amount() >= 10)
 			target = S
 			break
 
 	if(!target)
-		to_chat(user, "<span class='warning'>You need ten sheets of metal to fold them into a construct shell.</span>")
+		to_chat(user, "<span class='warning'>You need ten sheets of steel to fold them into a construct shell.</span>")
 		return fizzle(user)
 
 	speak_incantation(user, "Da A[pick("'","`")]ig Osk!")
@@ -708,7 +714,12 @@
 	target.rejuvenate()
 	source.set_full(0)
 	speak_incantation(user, "Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!")
-	target.visible_message("<span class='warning'>\The [target]'s eyes glow with a faint red as \he stands up, slowly starting to breathe again.</span>", "<span class='warning'>Life... I'm alive again...</span>", "You hear liquid flow.")
+
+	var/decl/pronouns/G = target.get_pronouns()
+	target.visible_message( \
+		SPAN_OCCULT("\The [target]'s eyes glow with a faint red as [G.he] stand[G.s] up, slowly starting to breathe again."), \
+		SPAN_OCCULT("Life... I'm alive again..."), \
+		"You hear a flowing liquid.")
 
 /obj/effect/rune/blood_boil
 	cultname = "blood boil"
@@ -802,9 +813,10 @@
 			return
 		speak_incantation(user, "Uhrast ka'hfa heldsagen ver[pick("'","`")]lot!")
 		to_chat(user, "<span class='warning'>In the last moment of your humble life, you feel an immense pain as fabric of reality mends... with your blood.</span>")
-		for(var/mob/M in GLOB.living_mob_list_)
+		for(var/mob/M in global.living_mob_list_)
 			if(iscultist(M))
-				to_chat(M, "You see a vision of \the [user] keeling over dead, his blood glowing blue as it escapes \his body and dissipates into thin air; you hear an otherwordly scream and feel that a great disaster has just been averted.")
+				var/decl/pronouns/G = user.get_pronouns()
+				to_chat(M, "You see a vision of \the [user] keeling over dead, his blood glowing blue as it escapes [G.his] body and dissipates into thin air; you hear an otherwordly scream and feel that a great disaster has just been averted.")
 			else
 				to_chat(M, "You see a vision of [name] keeling over dead, his blood glowing blue as it escapes his body and dissipates into thin air; you hear an otherwordly scream and feel very weak for a moment.")
 		log_and_message_admins("mended reality with the greatest sacrifice", user)

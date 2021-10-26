@@ -21,6 +21,7 @@
 			i++
 
 		var/list/additional_hud_elements = list(
+			/obj/screen/exosuit/toggle/power_control,
 			/obj/screen/exosuit/toggle/maint,
 			/obj/screen/exosuit/eject,
 			/obj/screen/exosuit/toggle/hardpoint,
@@ -47,6 +48,8 @@
 		hud_power = new /obj/screen/exosuit/power(src)
 		hud_power.screen_loc = "RIGHT-1:24,CENTER-4:25"
 		hud_elements |= hud_power
+		hud_power_control = locate(/obj/screen/exosuit/toggle/power_control) in hud_elements
+		hud_camera = locate(/obj/screen/exosuit/toggle/camera) in hud_elements
 		hud_heat = new /obj/screen/exosuit/heat(src)
 		hud_heat.screen_loc = "RIGHT-1:28,CENTER-4"
 		hud_elements |= hud_heat
@@ -59,9 +62,15 @@
 		if(H) H.update_system_info()
 	handle_hud_icons_health()
 	var/obj/item/cell/C = get_cell()
-	if(istype(C))
+	if(istype(C)) 
+		hud_power.maptext_x = initial(hud_power.maptext_x)
+		hud_power.maptext_y = initial(hud_power.maptext_y)
 		hud_power.maptext = SPAN_STYLE("font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;",  "[round(get_cell().charge)]/[round(get_cell().maxcharge)]")
-	else hud_power.maptext = SPAN_STYLE("font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;", "CHECK POWER")
+	else
+		hud_power.maptext_x = 16
+		hud_power.maptext_y = -8
+		hud_power.maptext = SPAN_STYLE("font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;", "CHECK POWER")
+
 	refresh_hud()
 
 /mob/living/exosuit/handle_hud_icons_health()
@@ -72,9 +81,9 @@
 		return
 
 	if(!body.diagnostics || !body.diagnostics.is_functional() || ((emp_damage>EMP_GUI_DISRUPT) && prob(emp_damage*2)))
-		if(!GLOB.mech_damage_overlay_cache["critfail"])
-			GLOB.mech_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mech_hud.dmi',icon_state="dam_error")
-		hud_health.overlays |= GLOB.mech_damage_overlay_cache["critfail"]
+		if(!global.mech_damage_overlay_cache["critfail"])
+			global.mech_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mech_hud.dmi',icon_state="dam_error")
+		hud_health.overlays |= global.mech_damage_overlay_cache["critfail"]
 		return
 
 	var/list/part_to_state = list("legs" = legs,"body" = body,"head" = head,"arms" = arms)
@@ -86,7 +95,7 @@
 				state = rand(0,4)
 			else
 				state = MC.damage_state
-		if(!GLOB.mech_damage_overlay_cache["[part]-[state]"])
+		if(!global.mech_damage_overlay_cache["[part]-[state]"])
 			var/image/I = image(icon='icons/mecha/mech_hud.dmi',icon_state="dam_[part]")
 			switch(state)
 				if(1)
@@ -99,8 +108,8 @@
 					I.color = "#ff0000"
 				else
 					I.color = "#f5f5f0"
-			GLOB.mech_damage_overlay_cache["[part]-[state]"] = I
-		hud_health.overlays |= GLOB.mech_damage_overlay_cache["[part]-[state]"]
+			global.mech_damage_overlay_cache["[part]-[state]"] = I
+		hud_health.overlays |= global.mech_damage_overlay_cache["[part]-[state]"]
 
 /mob/living/exosuit/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)

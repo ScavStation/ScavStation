@@ -21,6 +21,11 @@
 	material = DEFAULT_FURNITURE_MATERIAL
 	material_alteration = MAT_FLAG_ALTERATION_ALL
 	tool_interaction_flags = TOOL_INTERACTION_DECONSTRUCT
+	parts_amount = 2
+	parts_type = /obj/item/stack/material/strut
+
+/obj/structure/bed/get_base_value()
+	. = round(..() * 2.5) // Utility structures should be worth more than their matter (wheelchairs, rollers, etc).
 
 /obj/structure/bed/update_material_name()
 	if(reinf_material)
@@ -76,12 +81,12 @@
 			else if(istype(W,/obj/item/stack/material))
 				var/obj/item/stack/material/M = W
 				if(M.material && (M.material.flags & MAT_FLAG_PADDING))
-					padding_type = "[M.material.type]"
+					padding_type = M.material.type
 			if(!padding_type)
 				to_chat(user, "You cannot pad \the [src] with that.")
 				return
 			C.use(1)
-			if(!istype(src.loc, /turf))
+			if(!isturf(src.loc))
 				src.forceMove(get_turf(src))
 			to_chat(user, "You add padding to \the [src].")
 			add_padding(padding_type)
@@ -104,23 +109,9 @@
 					if(user_buckle_mob(affecting, user))
 						qdel(W)
 
-/obj/structure/bed/Move()
-	. = ..()
-	if(buckled_mob)
-		buckled_mob.glide_size = glide_size // Setting loc apparently does animate with glide size.
-		buckled_mob.forceMove(loc)
-
-/obj/structure/bed/forceMove()
-	. = ..()
-	if(buckled_mob)
-		if(isturf(src.loc))
-			buckled_mob.forceMove(src.loc)
-		else
-			unbuckle_mob()
-
 /obj/structure/bed/proc/remove_padding()
 	if(reinf_material)
-		reinf_material.place_sheet(get_turf(src))
+		reinf_material.create_object(get_turf(src))
 		reinf_material = null
 	update_icon()
 
@@ -132,9 +123,9 @@
 	name = "psychiatrist's couch"
 	desc = "For prime comfort during psychiatric evaluations."
 	icon_state = "psychbed"
-
-/obj/structure/bed/psych
 	material = /decl/material/solid/wood/walnut
+
+/obj/structure/bed/psych/leather
 	reinf_material = /decl/material/solid/leather
 
 /obj/structure/bed/padded
@@ -149,7 +140,8 @@
 	icon = 'icons/obj/structures/rollerbed.dmi'
 	icon_state = "down"
 	anchored = 0
-	buckle_pixel_shift = @"{'x':0,'y':0,'z':6}"
+	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 6)
+	atom_flags = ATOM_FLAG_WHEELED
 	var/item_form_type = /obj/item/roller	//The folded-up object path.
 	var/obj/item/chems/beaker
 	var/iv_attached = 0
@@ -268,7 +260,11 @@
 	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_BACK
 	w_class = ITEM_SIZE_LARGE
+	pickup_sound = 'sound/foley/pickup2.ogg'
 	var/structure_form_type = /obj/structure/bed/roller	//The deployed form path.
+
+/obj/item/roller/get_single_monetary_worth()
+	. = structure_form_type ? atom_info_repository.get_combined_worth_for(structure_form_type) : ..()
 
 /obj/item/roller/attack_self(mob/user)
 	var/obj/structure/bed/roller/R = new structure_form_type(user.loc)

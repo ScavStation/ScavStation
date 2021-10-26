@@ -1,7 +1,7 @@
 /datum/job/yinglet
 	hud_icon = "hudying"
 	supervisors = "the Matriarch and the Patriarches"
-	outfit_type = /decl/hierarchy/outfit/job/assistant
+	outfit_type = /decl/hierarchy/outfit/job/yinglet/assistant
 	department_types = list(/decl/department/enclave)
 	max_skill = list(
 		SKILL_PILOT    = SKILL_ADEPT,
@@ -15,7 +15,7 @@
 /datum/job/yinglet/is_species_allowed(var/decl/species/S)
 	if(S && !istype(S))
 		S = all_species[S]
-	. = istype(S) && S.bodytype == BODYTYPE_YINGLET
+	. = istype(S) && S.name == SPECIES_YINGLET
 
 /datum/job/yinglet/check_special_blockers(var/datum/preferences/prefs)
 	if(required_gender && prefs.gender != required_gender)
@@ -25,7 +25,7 @@
 	var/yinglet_suit_fallback
 
 /decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/carbon/human/H, var/title)
-	if(!H || H.species.get_bodytype(H) != BODYTYPE_YINGLET)
+	if(!H || H.species.name != SPECIES_YINGLET)
 		return
 	var/previous_suit = H.wear_suit
 	if(previous_suit)

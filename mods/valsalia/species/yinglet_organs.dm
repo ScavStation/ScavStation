@@ -6,7 +6,7 @@
 // Copied from vox stomach, upstream Baycode.
 /obj/item/organ/internal/stomach/yinglet
 	name = "scav stomach"
-	var/global/list/gains_nutriment_from_inedible_reagents = list(
+	var/static/list/gains_nutriment_from_inedible_reagents = list(
 		/decl/material/wood =                 3,
 		/decl/material/liquid/anfo/plus =     2,
 		/decl/material/liquid/anfo =          1,
@@ -16,17 +16,17 @@
 		/decl/material/liquid/surfactant =    1,
 		/decl/material/liquid/paint =         1
 	)
-	var/global/list/gains_nutriment_from_matter = list(
-		MAT_WOOD =            TRUE,
-		MAT_MAHOGANY =        TRUE,
-		MAT_MAPLE =           TRUE,
-		MAT_EBONY =           TRUE,
-		MAT_WALNUT =          TRUE,
-		MAT_LEATHER_GENERIC = TRUE,
-		MAT_PLASTIC =         TRUE,
-		MAT_CARDBOARD =       TRUE,
-		MAT_CLOTH =           TRUE,
-		MAT_ROCK_SALT =       TRUE
+	var/static/list/gains_nutriment_from_matter = list(
+		/decl/material/solid/wood =           TRUE,
+		/decl/material/solid/wood/mahogany =  TRUE,
+		/decl/material/solid/wood/maple =     TRUE,
+		/decl/material/solid/wood/ebony =     TRUE,
+		/decl/material/solid/wood/walnut =    TRUE,
+		/decl/material/solid/leather =        TRUE,
+		/decl/material/solid/plastic =        TRUE,
+		/decl/material/solid/cardboard =      TRUE,
+		/decl/material/solid/cloth =          TRUE,
+		/decl/material/solid/sodiumchloride = TRUE
 	)
 
 /obj/item/organ/internal/stomach/yinglet/Process()
@@ -51,7 +51,7 @@
 				qdel(food)
 			total_nutriment += digested/100
 	// Apply to reagents.
-	total_nutriment = Floor(total_nutriment)
+	total_nutriment = FLOOR(total_nutriment)
 	if(total_nutriment > 0 && owner)
 		owner.adjust_nutrition(total_nutriment)
 

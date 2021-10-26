@@ -8,6 +8,7 @@
 	throw_range = 20
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY
+	z_flags = ZMM_MANGLE_PLANES
 	var/active
 	var/det_time = 50
 	var/fail_det_time = 5 // If you are clumsy and fail, you get this time.
@@ -27,11 +28,10 @@
 	cut_overlays()
 	if(active)
 		if(check_state_in_icon("[icon_state]-active", icon))
-			var/image/I = image(icon, "[icon_state]-active")
-			if(plane != HUD_PLANE)
-				I.layer = ABOVE_LIGHTING_LAYER
-				I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-			add_overlay(I)
+			if(plane == HUD_PLANE)
+				add_overlay(image(icon, "[icon_state]-active"))
+			else
+				add_overlay(emissive_overlay(icon, "[icon_state]-active"))
 	else if(check_state_in_icon("[icon_state]-pin", icon))
 		add_overlay("[icon_state]-pin")
 

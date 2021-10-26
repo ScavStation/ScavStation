@@ -66,10 +66,11 @@
 
 		// Check the carrier
 		var/answer = input(M, "[P] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "[P] Check DNA", "No") in list("Yes", "No")
+		var/decl/pronouns/G = M.get_pronouns()
 		if(answer == "Yes")
 			if(!QDELETED(P) && (P.loc == M))
 				P.visible_message( \
-					message = SPAN_NOTICE("\The [M] presses \his thumb against \the [P]."), \
+					message = SPAN_NOTICE("\The [M] presses [G.his] thumb against \the [P]."), \
 					blind_message = SPAN_NOTICE("\The [P] makes a sharp clicking sound as it extracts DNA material from \the [M]."))
 				var/datum/dna/dna = M.dna
 				to_chat(P, "<font color = red><h3>[M]'s UE string : [dna.unique_enzymes]</h3></font>")
@@ -78,7 +79,7 @@
 				else
 					to_chat(P, "<b>DNA does not match stored Master DNA.</b>")
 		else
-			to_chat(P, SPAN_WARNING("\The [M] does not seem like \he is going to provide a DNA sample willingly."))
+			to_chat(P, SPAN_WARNING("\The [M] does not seem like [G.he] is going to provide a DNA sample willingly."))
 		return 1
 
 /datum/pai_software/radio_config
@@ -183,7 +184,7 @@
 
 /mob/living/silicon/pai/proc/hackloop()
 	var/turf/T = get_turf(src)
-	for(var/mob/living/silicon/ai/AI in GLOB.player_list)
+	for(var/mob/living/silicon/ai/AI in global.player_list)
 		if(T.loc)
 			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b></font>")
 		else

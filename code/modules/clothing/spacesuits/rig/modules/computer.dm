@@ -23,7 +23,7 @@
 		to_chat(usr, "Your module is not installed in a hardsuit.")
 		return
 
-	module.holder.ui_interact(usr, nano_state = GLOB.contained_state)
+	module.holder.ui_interact(usr, nano_state = global.contained_topic_state)
 
 /obj/item/rig_module/ai_container
 
@@ -44,7 +44,7 @@
 
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE,
 		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE
 	)
@@ -153,7 +153,7 @@
 	if(!target)
 		if(ai_card)
 			if(istype(ai_card,/obj/item/aicard))
-				ai_card.ui_interact(H, state = GLOB.deep_inventory_state)
+				ai_card.ui_interact(H, state = global.deep_inventory_topic_state)
 			else
 				eject_ai(H)
 		update_verb_holder()
@@ -337,7 +337,7 @@
 	origin_tech = "{'powerstorage':6,'engineering':6}"
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE,
 		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE
 	)
@@ -387,7 +387,7 @@
 	interfaced_with = target
 	drain_loc = interfaced_with.loc
 
-	holder.spark_system.start()
+	spark_at(holder, 5, holder = holder)
 	playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 
 	return 1
@@ -411,7 +411,7 @@
 	if(!H || !istype(H))
 		return 0
 
-	holder.spark_system.start()
+	spark_at(holder, 5, holder = holder)
 	playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 
 	if(!holder.cell)

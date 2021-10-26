@@ -22,6 +22,7 @@
 	icon = 'mods/species/ascent/icons/razorweb.dmi'
 	icon_state = "razorweb"
 	anchored = TRUE
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/mob/owner
 	var/decays = TRUE
@@ -29,7 +30,7 @@
 	var/last_light
 	var/image/gleam
 	var/image/web
-	var/global/species_immunity_list = list(
+	var/static/species_immunity_list = list(
 		SPECIES_MANTID_ALATE   = TRUE,
 		SPECIES_MANTID_GYNE    = TRUE,
 		SPECIES_SERPENTID      = TRUE
@@ -59,9 +60,7 @@
 		addtimer(CALLBACK(src, /obj/effect/razorweb/proc/decay), 15 MINUTES)
 
 	web = image(icon = icon, icon_state = "razorweb")
-	gleam = image(icon = icon, icon_state = "razorweb-gleam")
-	gleam.layer = EYE_GLOW_LAYER
-	gleam.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	gleam = emissive_overlay(icon = icon, icon_state = "razorweb-gleam")
 	var/turf/T = get_turf(src)
 	if(T) last_light = T.get_lumcount()
 	icon_state = ""

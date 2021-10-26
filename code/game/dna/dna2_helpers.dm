@@ -28,7 +28,7 @@
 		if(!H.should_have_organ(BP_HEART))
 			return
 	M.dna.check_integrity()
-	var/block = pick(GLOB.GLASSESBLOCK,GLOB.COUGHBLOCK,GLOB.FAKEBLOCK,GLOB.NERVOUSBLOCK,GLOB.CLUMSYBLOCK,GLOB.TWITCHBLOCK,GLOB.HEADACHEBLOCK,GLOB.BLINDBLOCK,GLOB.DEAFBLOCK,GLOB.HALLUCINATIONBLOCK)
+	var/block = pick(global.GLASSESBLOCK,global.COUGHBLOCK,global.FAKEBLOCK,global.NERVOUSBLOCK,global.CLUMSYBLOCK,global.TWITCHBLOCK,global.HEADACHEBLOCK,global.BLINDBLOCK,global.DEAFBLOCK,global.HALLUCINATIONBLOCK)
 	M.dna.SetSEState(block, 1)
 
 // Give Random Good Mutation to M
@@ -39,7 +39,7 @@
 		if(!H.should_have_organ(BP_HEART))
 			return
 	M.dna.check_integrity()
-	var/block = pick(GLOB.HULKBLOCK,GLOB.XRAYBLOCK,GLOB.FIREBLOCK,GLOB.TELEBLOCK,GLOB.NOBREATHBLOCK,GLOB.REMOTEVIEWBLOCK,GLOB.REGENERATEBLOCK,GLOB.INCREASERUNBLOCK,GLOB.REMOTETALKBLOCK,GLOB.MORPHBLOCK,GLOB.BLENDBLOCK,GLOB.NOPRINTSBLOCK,GLOB.SHOCKIMMUNITYBLOCK,GLOB.SMALLSIZEBLOCK)
+	var/block = pick(global.HULKBLOCK,global.XRAYBLOCK,global.FIREBLOCK,global.TELEBLOCK,global.NOBREATHBLOCK,global.REMOTEVIEWBLOCK,global.REGENERATEBLOCK,global.INCREASERUNBLOCK,global.REMOTETALKBLOCK,global.MORPHBLOCK,global.BLENDBLOCK,global.NOPRINTSBLOCK,global.SHOCKIMMUNITYBLOCK,global.SMALLSIZEBLOCK)
 	M.dna.SetSEState(block, 1)
 
 // Random Appearance Mutation
@@ -146,32 +146,40 @@
 		H.update_eyes()
 		H.skin_tone   = 35 - dna.GetUIValueRange(DNA_UI_SKIN_TONE, 220) // Value can be negative.
 
+		// TODO: update DNA gender to not be a bool - use bodytype and pronouns
+		/*
 		if(H.gender != NEUTER)
 			if (dna.GetUIState(DNA_UI_GENDER))
-				H.gender = FEMALE
+				H.set_gender(FEMALE)
 			else
-				H.gender = MALE
+				H.set_gender(MALE)
+		*/
 
 		//Body markings
 		for(var/tag in dna.body_markings)
 			var/obj/item/organ/external/E = H.organs_by_name[tag]
 			if(E)
 				var/list/marklist = dna.body_markings[tag]
-				E.markings = marklist.Copy()
+				if(length(marklist))
+					E.markings = marklist.Copy()
+				else
+					LAZYCLEARLIST(E.markings)
 
 		//Base skin and blend
 		for(var/obj/item/organ/external/E in H.organs)
 			E.set_dna(E.dna)
 
 		//Hair
-		var/hair = dna.GetUIValueRange(DNA_UI_HAIR_STYLE,GLOB.hair_styles_list.len)
-		if((0 < hair) && (hair <= GLOB.hair_styles_list.len))
-			H.h_style = GLOB.hair_styles_list[hair]
+		var/list/hair_subtypes = subtypesof(/decl/sprite_accessory/hair)
+		var/hair = dna.GetUIValueRange(DNA_UI_HAIR_STYLE, length(hair_subtypes))
+		if(hair > 0 && hair <= length(hair_subtypes))
+			H.h_style = hair_subtypes[hair]
 
 		//Facial Hair
-		var/beard = dna.GetUIValueRange(DNA_UI_BEARD_STYLE,GLOB.facial_hair_styles_list.len)
-		if((0 < beard) && (beard <= GLOB.facial_hair_styles_list.len))
-			H.f_style = GLOB.facial_hair_styles_list[beard]
+		var/list/beard_subtypes = subtypesof(/decl/sprite_accessory/facial_hair)
+		var/beard = dna.GetUIValueRange(DNA_UI_BEARD_STYLE, length(beard_subtypes))
+		if((0 < beard) && (beard <= length(beard_subtypes)))
+			H.f_style = beard_subtypes[beard]
 
 		H.force_update_limbs()
 		H.update_body()

@@ -21,6 +21,8 @@ Must be implemented by subtypes.
 // Subtypes shall call parent, and perform the actual write if the return value is true.
 // If the var has_updates, you must never modify the var except through this proc.
 /decl/public_access/public_variable/proc/write_var(datum/owner, new_value)
+	if(!check_input_type(new_value))
+		return FALSE
 	var/old_value = access_var(owner)
 	if(old_value == new_value)
 		return FALSE
@@ -32,8 +34,35 @@ Must be implemented by subtypes.
 /decl/public_access/public_variable/proc/write_var_protected(datum/owner, new_value)
 	if(!can_write)
 		return FALSE
-	write_var(owner, new_value)
+	return write_var(owner, new_value)
 
+// Checks the input type of the passed value without modification.
+/decl/public_access/public_variable/proc/check_input_type(new_value)
+	. = FALSE
+	switch(var_type)
+		if(IC_FORMAT_ANY)
+			return TRUE
+		if(IC_FORMAT_STRING)
+			return istext(new_value)
+		if(IC_FORMAT_CHAR)
+			return istext(new_value) && length(new_value) == 1
+		if(IC_FORMAT_COLOR)
+			return sanitize_hexcolor(new_value, null) == new_value
+		if(IC_FORMAT_NUMBER)
+			return isnum(new_value)
+		if(IC_FORMAT_DIR)
+			return new_value in global.alldirs
+		if(IC_FORMAT_BOOLEAN)
+			return new_value == !!new_value
+		if(IC_FORMAT_REF)
+			return isweakref(new_value)
+
+		// Public variables of these types need to against the contents of the list and the index for validity themselves.
+		if(IC_FORMAT_LIST)
+			return islist(new_value)
+		if(IC_FORMAT_INDEX)
+			return isnum(new_value)
+		
 /*
 Listener registration. You must unregister yourself if you are destroyed; the owner being destroyed will be handled automatically.
 */
@@ -46,7 +75,7 @@ Listener registration. You must unregister yourself if you are destroyed; the ow
 		return // Can try and register, but updates aren't coming
 	if(!listeners[owner])
 		listeners[owner] = list()
-		GLOB.destroyed_event.register(owner, src, .proc/owner_destroyed)
+		events_repository.register(/decl/observ/destroyed, owner, src, .proc/owner_destroyed)
 	LAZYADD(listeners[owner][listener], registered_proc)
 	return TRUE
 
@@ -65,14 +94,14 @@ Listener registration. You must unregister yourself if you are destroyed; the ow
 
 	if(!length(listeners[owner])) // Clean up the list if no longer listening to anything.
 		listeners -= owner
-		GLOB.destroyed_event.unregister(owner, src)
+		events_repository.unregister(/decl/observ/destroyed, owner, src)
 
 /*
 Internal procs. Do not modify.
 */
 
 /decl/public_access/public_variable/proc/owner_destroyed(datum/owner)
-	GLOB.destroyed_event.unregister(owner, src)
+	events_repository.unregister(/decl/observ/destroyed, owner, src)
 	listeners -= owner
 
 /decl/public_access/public_variable/proc/var_changed(owner, old_value, new_value)

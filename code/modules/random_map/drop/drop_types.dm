@@ -92,16 +92,16 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/food/New()
 	..()
 	contents = list(
-		/obj/item/chems/food/condiment/flour,
-		/obj/item/chems/food/condiment/flour,
-		/obj/item/chems/food/condiment/flour,
-		/obj/item/chems/food/drinks/milk,
-		/obj/item/chems/food/drinks/milk,
+		/obj/item/chems/condiment/flour,
+		/obj/item/chems/condiment/flour,
+		/obj/item/chems/condiment/flour,
+		/obj/item/chems/drinks/milk,
+		/obj/item/chems/drinks/milk,
 		/obj/item/storage/fancy/egg_box,
-		/obj/item/chems/food/snacks/tofu,
-		/obj/item/chems/food/snacks/tofu,
-		/obj/item/chems/food/snacks/meat,
-		/obj/item/chems/food/snacks/meat)
+		/obj/item/chems/food/tofu,
+		/obj/item/chems/food/tofu,
+		/obj/item/chems/food/meat,
+		/obj/item/chems/food/meat)
 
 /datum/supply_drop_loot/armour
 	name = "Armour"
@@ -128,15 +128,15 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/materials/New()
 	..()
 	contents = list(
-		/obj/item/stack/material/steel,
-		/obj/item/stack/material/steel,
-		/obj/item/stack/material/steel,
-		/obj/item/stack/material/glass,
-		/obj/item/stack/material/glass,
-		/obj/item/stack/material/wood,
-		/obj/item/stack/material/plastic,
-		/obj/item/stack/material/glass/reinforced,
-		/obj/item/stack/material/plasteel)
+		/obj/item/stack/material/sheet/mapped/steel,
+		/obj/item/stack/material/sheet/mapped/steel,
+		/obj/item/stack/material/sheet/mapped/steel,
+		/obj/item/stack/material/pane/mapped/glass,
+		/obj/item/stack/material/pane/mapped/glass,
+		/obj/item/stack/material/plank/mapped/wood,
+		/obj/item/stack/material/panel/mapped/plastic,
+		/obj/item/stack/material/pane/mapped/rglass,
+		/obj/item/stack/material/reinforced/mapped/plasteel)
 
 /datum/supply_drop_loot/medical
 	name = "Medical"
@@ -162,15 +162,15 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/power/New()
 	..()
 	contents = list(
-		/obj/item/stack/material/steel,
-		/obj/item/stack/material/steel,
-		/obj/item/stack/material/steel,
-		/obj/item/stack/material/glass,
-		/obj/item/stack/material/glass,
-		/obj/item/stack/material/wood,
-		/obj/item/stack/material/plastic,
-		/obj/item/stack/material/glass/reinforced,
-		/obj/item/stack/material/plasteel)
+		/obj/item/stack/material/sheet/mapped/steel,
+		/obj/item/stack/material/sheet/mapped/steel,
+		/obj/item/stack/material/sheet/mapped/steel,
+		/obj/item/stack/material/pane/mapped/glass,
+		/obj/item/stack/material/pane/mapped/glass,
+		/obj/item/stack/material/plank/mapped/wood,
+		/obj/item/stack/material/panel/mapped/plastic,
+		/obj/item/stack/material/pane/mapped/rglass,
+		/obj/item/stack/material/reinforced/mapped/plasteel)
 
 /datum/supply_drop_loot/hydroponics
 	name = "Hydroponics"

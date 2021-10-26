@@ -6,6 +6,7 @@
 	density = 1
 	w_class = ITEM_SIZE_NORMAL
 	base_type = /obj/machinery/portable_atmospherics/powered/pump
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE | ATOM_FLAG_WHEELED
 
 	var/direction_out = 0 //0 = siphoning, 1 = releasing
 	var/target_pressure = ONE_ATMOSPHERE
@@ -127,7 +128,7 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "portpump.tmpl", "Portable Pump", 480, 410, state = GLOB.physical_state)
+		ui = new(user, src, ui_key, "portpump.tmpl", "Portable Pump", 480, 410, state = global.physical_topic_state)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)

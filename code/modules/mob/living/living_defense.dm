@@ -53,8 +53,7 @@
 		return TRUE
 	. = TRUE
 	var/list/newargs = args - args[1]
-	for(var/a in auras)
-		var/obj/aura/aura = a
+	for(var/obj/aura/aura AS_ANYTHING in auras)
 		var/result = 0
 		switch(type)
 			if(AURA_TYPE_WEAPON)
@@ -126,7 +125,7 @@
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
 
-	return apply_damage(effective_force, I.damtype, hit_zone, damage_flags, used_weapon=I)
+	return apply_damage(effective_force, I.damtype, hit_zone, damage_flags, used_weapon=I, armor_pen=I.armor_penetration)
 
 //this proc handles being hit by a thrown atom
 /mob/living/hitby(var/atom/movable/AM, var/datum/thrownthing/TT)
@@ -196,11 +195,13 @@
 		forceMove(T)
 		visible_message(SPAN_DANGER("[src] is pinned to the wall by [O]!"),SPAN_DANGER("You are pinned to the wall by [O]!"))
 		src.anchored = 1
-		src.pinned += O
+		LAZYADD(pinned, O)
+		if(!LAZYISIN(embedded,O))
+			embed(O)
 
 /mob/living/proc/embed(var/obj/O, var/def_zone=null, var/datum/wound/supplied_wound)
 	O.forceMove(src)
-	src.embedded += O
+	LAZYADD(embedded, O)
 	src.verbs += /mob/proc/yank_out_object
 
 //This is called when the mob is thrown into a dense turf
@@ -241,7 +242,7 @@
 /mob/living/proc/IgniteMob()
 	if(fire_stacks > 0 && !on_fire)
 		on_fire = 1
-		set_light(0.6, 0.1, 4, l_color = COLOR_ORANGE)
+		set_light(4, l_color = COLOR_ORANGE)
 		update_fire()
 
 /mob/living/proc/ExtinguishMob()

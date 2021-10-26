@@ -30,11 +30,11 @@
 /decl/ghosttrap/proc/request_player(var/mob/target, var/request_string, var/request_timeout)
 	if(request_timeout)
 		LAZYSET(request_timeouts, target, world.time + request_timeout)
-		GLOB.destroyed_event.register(target, src, /decl/ghosttrap/proc/unregister_target)
+		events_repository.register(/decl/observ/destroyed, target, src, /decl/ghosttrap/proc/unregister_target)
 	else
 		unregister_target(target)
 
-	for(var/mob/O in GLOB.player_list)
+	for(var/mob/O in global.player_list)
 		if(!assess_candidate(O, target, FALSE))
 			return
 		if(pref_check && !O.client.wishes_to_be_role(pref_check))
@@ -44,7 +44,7 @@
 
 /decl/ghosttrap/proc/unregister_target(var/target)
 	LAZYREMOVE(request_timeouts, target)
-	GLOB.destroyed_event.unregister(target, src, /decl/ghosttrap/proc/unregister_target)
+	events_repository.unregister(/decl/observ/destroyed, target, src, /decl/ghosttrap/proc/unregister_target)
 
 // Handles a response to request_player().
 /decl/ghosttrap/Topic(href, href_list)
@@ -99,7 +99,7 @@
 ***********************************/
 /decl/ghosttrap/positronic_brain
 	name = "positronic brain"
-	ban_checks = list("AI","Robot")
+	ban_checks = list("AI",ASSIGNMENT_ROBOT)
 	pref_check = "ghost_posibrain"
 	ghost_trap_message = "They are occupying a positronic brain now."
 
@@ -147,9 +147,9 @@
 	ghost_trap_message = "They are occupying a maintenance drone now."
 	can_set_own_name = FALSE
 
-/decl/ghosttrap/maintenance_drone/New()
+/decl/ghosttrap/maintenance_drone/Initialize()
+	. = ..()
 	minutes_since_death = DRONE_SPAWN_DELAY
-	..()
 
 /decl/ghosttrap/maintenance_drone/forced(var/mob/user)
 	request_player(new /mob/living/silicon/robot/drone(get_turf(user)), "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)

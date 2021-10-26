@@ -56,16 +56,16 @@
 	if(ismob(a))
 		var/mob/M = a
 		if(M.stat != DEAD)
-			GLOB.death_event.register(M,src,/obj/item/twohanded/fireaxe/cult/proc/gain_power)
+			events_repository.register(/decl/observ/death, M,src,/obj/item/twohanded/fireaxe/cult/proc/gain_power)
 		spawn(30)
-			GLOB.death_event.unregister(M,src)
+			events_repository.unregister(/decl/observ/death, M,src)
 	return ..()
 
 /obj/item/twohanded/fireaxe/cult/proc/gain_power()
 	stored_power += 50
 	src.visible_message("<span class='cult'>\The [src] screeches as the smell of death fills the air!</span>")
 
-/obj/item/chems/food/drinks/zombiedrink
+/obj/item/chems/drinks/zombiedrink
 	name = "well-used urn"
 	desc = "Said to bring those who drink it back to life, no matter the price."
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -73,6 +73,6 @@
 	volume = 10
 	amount_per_transfer_from_this = 10
 
-/obj/item/chems/food/drinks/zombiedrink/Initialize()
+/obj/item/chems/drinks/zombiedrink/Initialize()
 	. = ..()
 	reagents.add_reagent(/decl/material/liquid/zombie, 10)

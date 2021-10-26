@@ -25,7 +25,7 @@
 
 // Cloaks should layer over and under everything, so set the layer directly rather 
 // than relying on overlay order. This also overlays over inhands but it looks ok.
-/obj/item/clothing/accessory/cloak/apply_overlays(mob/user_mob, bodytype, image/overlay, slot)
+/obj/item/clothing/accessory/cloak/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype, var/image/overlay, var/slot, var/bodypart)
 
 	if(slot == slot_wear_suit_str || slot == slot_tie_str || slot == slot_w_uniform_str)
 
@@ -33,10 +33,10 @@
 		var/image/cloverlay
 
 		var/bodyicon = get_icon_for_bodytype(bodytype)
-		if(user_mob && bodytype != user_mob.get_bodytype())
+		if(user_mob && bodytype != user_mob.get_bodytype_category())
 			var/mob/living/carbon/human/H = user_mob
-			underlay =  H.species.get_offset_overlay_image(FALSE, bodyicon, "[bodytype]-underlay", color, slot)
-			cloverlay = H.species.get_offset_overlay_image(FALSE, bodyicon, "[bodytype]-overlay", color, slot)
+			underlay =  H.bodytype.get_offset_overlay_image(FALSE, bodyicon, "[bodytype]-underlay", color, slot)
+			cloverlay = H.bodytype.get_offset_overlay_image(FALSE, bodyicon, "[bodytype]-overlay", color, slot)
 		else
 			underlay = image(bodyicon, "[bodytype]-underlay")
 			cloverlay = image(bodyicon, "[bodytype]-overlay")

@@ -1,6 +1,0 @@
-# Require reviews from Core team for changes to CI or infra stuff
-.github/ @ScavStation/Core
-Dockerfile @ScavStation/Core
-flyway.conf @ScavStation/Core
-sql/ @ScavStation/Core
-LICENSE @ScavStation/Core

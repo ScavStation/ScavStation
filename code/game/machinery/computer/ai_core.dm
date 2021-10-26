@@ -19,12 +19,12 @@ var/global/list/empty_playable_ai_cores = list()
 
 /obj/structure/aicore/Initialize()
 	if(!laws)
-		laws = new GLOB.using_map.default_law_type
+		laws = new global.using_map.default_law_type
 	. = ..()
 
 /obj/structure/aicore/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
 	if(!authorized)
-		to_chat(user, SPAN_WARNING("You swipe [emag_source] at [src] and jury rig it into the systems of [GLOB.using_map.full_name]!"))
+		to_chat(user, SPAN_WARNING("You swipe [emag_source] at [src] and jury rig it into the systems of [global.using_map.full_name]!"))
 		authorized = 1
 		return 1
 	. = ..()
@@ -41,7 +41,7 @@ var/global/list/empty_playable_ai_cores = list()
 			return TRUE
 		else if(circuit_secured)
 			if(!authorized)
-				to_chat(user, SPAN_WARNING("Core fails to connect to the systems of [GLOB.using_map.full_name]!"))
+				to_chat(user, SPAN_WARNING("Core fails to connect to the systems of [global.using_map.full_name]!"))
 				return TRUE
 			playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, SPAN_NOTICE("You connect the monitor."))
@@ -65,7 +65,7 @@ var/global/list/empty_playable_ai_cores = list()
 		if(glass_installed)
 			playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 			to_chat(user, SPAN_NOTICE("You remove the glass panel."))
-			new /obj/item/stack/material/glass/reinforced( loc, 2 )
+			SSmaterials.create_object(/decl/material/solid/glass, loc, 2, null, /decl/material/solid/metal/steel)
 			glass_installed = FALSE
 			return TRUE
 		if(brain)
@@ -115,7 +115,7 @@ var/global/list/empty_playable_ai_cores = list()
 	else
 		if(!authorized)
 			if(access_ai_upload in P.GetAccess())
-				to_chat(user, SPAN_NOTICE("You swipe [P] at [src] and authorize it to connect into the systems of [GLOB.using_map.full_name]."))
+				to_chat(user, SPAN_NOTICE("You swipe [P] at [src] and authorize it to connect into the systems of [global.using_map.full_name]."))
 				authorized = 1
 
 		if(anchored)
@@ -195,6 +195,7 @@ var/global/list/empty_playable_ai_cores = list()
 				to_chat(usr, "Law module applied.")
 				return TRUE
 
+var/global/list/deactivated_ai_cores = list()
 /obj/structure/aicore/deactivated
 	name = "inactive AI"
 	icon = 'icons/mob/AI.dmi'
@@ -202,7 +203,12 @@ var/global/list/empty_playable_ai_cores = list()
 	anchored = 1
 	tool_interaction_flags =  (TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT)
 
+/obj/structure/aicore/deactivated/Initialize()
+	. = ..()
+	global.deactivated_ai_cores += src
+
 /obj/structure/aicore/deactivated/Destroy()
+	global.deactivated_ai_cores -= src
 	empty_playable_ai_cores -= src
 	. = ..()
 
@@ -240,14 +246,15 @@ var/global/list/empty_playable_ai_cores = list()
 	set category = "Admin"
 
 	var/list/cores = list()
-	for(var/obj/structure/aicore/deactivated/D in world)
+	for(var/obj/structure/aicore/deactivated/D in global.deactivated_ai_cores)
 		cores["[D] ([D.loc.loc])"] = D
 
 	var/id = input("Which core?", "Toggle AI Core Latejoin", null) as null|anything in cores
 	if(!id) return
 
 	var/obj/structure/aicore/deactivated/D = cores[id]
-	if(!D) return
+	if(!istype(D) || QDELETED(D) || !(D in global.deactivated_ai_cores))
+		return
 
 	if(D in empty_playable_ai_cores)
 		empty_playable_ai_cores -= D

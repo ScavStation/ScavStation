@@ -63,7 +63,6 @@
 		queue_icon_update()
 	if(((stat & (BROKEN|NOPOWER)) || !anchored) && use_power >= POWER_USE_ACTIVE)
 		update_use_power(POWER_USE_IDLE)
-		queue_icon_update()
 
 /obj/machinery/reagent_temperature/interface_interact(var/mob/user)
 	interact(user)
@@ -91,7 +90,7 @@
 			anchored = !anchored
 			visible_message(SPAN_NOTICE("\The [user] [anchored ? "secured" : "unsecured"] \the [src]."))
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
-		return
+		return TRUE
 
 	if(thing.reagents)
 		for(var/checktype in permitted_types)
@@ -103,8 +102,11 @@
 					container = thing
 					visible_message(SPAN_NOTICE("\The [user] places \the [container] on \the [src]."))
 					update_icon()
-				return
+				return TRUE
 		to_chat(user, SPAN_WARNING("\The [src] cannot accept \the [thing]."))
+		return FALSE
+	
+	. = ..()
 
 /obj/machinery/reagent_temperature/on_update_icon()
 
@@ -119,7 +121,7 @@
 				glow_icon = image(icon, "[icon_state]-glow")
 			glow_icon.alpha = Clamp(temperature - MINIMUM_GLOW_TEMPERATURE, MINIMUM_GLOW_VALUE, MAXIMUM_GLOW_VALUE)
 			LAZYADD(adding_overlays, glow_icon)
-			set_light(0.2, 0.1, 1, l_color = COLOR_RED)
+			set_light(1, l_color = COLOR_RED)
 		else
 			set_light(0)
 	else
@@ -148,10 +150,10 @@
 
 	dat += "</td></tr>"
 
-	dat += "<tr><td>Current temperature:</td><td>[Floor(temperature - T0C)]C</td></tr>"
+	dat += "<tr><td>Current temperature:</td><td>[FLOOR(temperature - T0C)]C</td></tr>"
 
 	dat += "<tr><td>Loaded container:</td>"
-	dat += "<td>[container ? "[container.name] ([Floor(container.temperature - T0C)]C) <a href='?src=\ref[src];remove_container=1'>Remove</a>" : "None."]</td></tr>"
+	dat += "<td>[container ? "[container.name] ([FLOOR(container.temperature - T0C)]C) <a href='?src=\ref[src];remove_container=1'>Remove</a>" : "None."]</td></tr>"
 
 	dat += "<tr><td>Switched:</td><td><a href='?src=\ref[src];toggle_power=1'>[use_power == POWER_USE_ACTIVE ? "On" : "Off"]</a></td></tr>"
 	dat += "</table>"
@@ -162,7 +164,7 @@
 
 /obj/machinery/reagent_temperature/CanUseTopic(var/mob/user, var/state, var/href_list)
 	if(href_list && href_list["remove_container"])
-		. = ..(user, GLOB.physical_state, href_list)
+		. = ..(user, global.physical_topic_state, href_list)
 		if(. == STATUS_CLOSE)
 			to_chat(user, SPAN_WARNING("You are too far away."))
 		return

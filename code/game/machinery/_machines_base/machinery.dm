@@ -82,6 +82,9 @@ Class Procs:
 	layer = STRUCTURE_LAYER // Layer under items
 	throw_speed = 1
 	throw_range = 5
+	matter = list(
+		/decl/material/solid/metal/steel = MATTER_AMOUNT_PRIMARY
+	)
 
 	var/stat = 0
 	var/waterproof = TRUE
@@ -103,7 +106,7 @@ Class Procs:
 	var/list/maximum_component_parts = list(/obj/item/stock_parts = 10)         //null - no max. list(type part = number max).
 	var/uid
 	var/panel_open = 0
-	var/global/gl_uid = 1
+	var/static/gl_uid = 1
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/clicksound			// sound played on succesful interface use by a carbon lifeform
 	var/clickvol = 40		// sound played on succesful interface use
@@ -152,6 +155,10 @@ Class Procs:
 
 /obj/machinery/Process()
 	return PROCESS_KILL // Only process if you need to.
+
+/obj/machinery/modify_mapped_vars(map_hash)
+	..()
+	ADJUST_TAG_VAR(id_tag, map_hash)
 
 /obj/machinery/proc/set_broken(new_state, cause = MACHINE_BROKEN_GENERIC)
 	if(stat_immune & BROKEN)
@@ -224,7 +231,7 @@ Class Procs:
 	if((stat & BROKEN) && (reason_broken & MACHINE_BROKEN_GENERIC))
 		return STATUS_CLOSE
 
-	return GLOB.physical_state.can_use_topic(nano_host(), user)
+	return global.physical_topic_state.can_use_topic(nano_host(), user)
 
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
@@ -325,9 +332,7 @@ Class Procs:
 		return 0
 	if(!prob(prb))
 		return 0
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, src)
-	s.start()
+	spark_at(src, amount=5, cardinal_only = TRUE)
 	if(electrocute_mob(user, get_area(src), src, 0.7))
 		var/area/temp_area = get_area(src)
 		if(temp_area)
@@ -353,10 +358,14 @@ Class Procs:
 
 	var/list/expelled_components = list()
 	for(var/I in component_parts)
-		expelled_components += uninstall_component(I, refresh_parts = FALSE)
+		var/component = uninstall_component(I, refresh_parts = FALSE)
+		if(component)
+			expelled_components += component
 	while(LAZYLEN(uncreated_component_parts))
 		var/path = uncreated_component_parts[1]
-		expelled_components += uninstall_component(path, refresh_parts = FALSE)
+		var/component = uninstall_component(path, refresh_parts = FALSE)
+		if(component)
+			expelled_components += component
 	if(frame)
 		var/datum/extension/parts_stash/stash = get_extension(frame, /datum/extension/parts_stash)
 		if(stash)
@@ -422,8 +431,11 @@ Class Procs:
 		explosion_act(3)
 
 /obj/machinery/Move()
+	var/atom/lastloc = loc
 	. = ..()
 	if(. && !CanFluidPass())
+		if(lastloc)
+			lastloc.fluid_update()
 		fluid_update()
 
 /obj/machinery/get_cell(var/functional_only = TRUE)
@@ -450,12 +462,16 @@ Class Procs:
 
 /obj/machinery/get_req_access()
 	. = ..() || list()
-	for(var/obj/item/stock_parts/network_lock/lock in get_all_components_of_type(/obj/item/stock_parts/network_lock))
+	for(var/obj/item/stock_parts/network_receiver/network_lock/lock in get_all_components_of_type(/obj/item/stock_parts/network_receiver/network_lock))
 		.+= lock.get_req_access()
 
 /obj/machinery/get_contained_external_atoms()
-	. = (contents - component_parts)
+	. = ..()
+	LAZYREMOVE(., component_parts)
 
 /obj/machinery/proc/get_auto_access()
 	var/area/A = get_area(src)
 	return A?.req_access?.Copy()
+
+/obj/machinery/get_matter_amount_modifier()
+	. = ..() * HOLLOW_OBJECT_MATTER_MULTIPLIER // machine matter is largely just the frame, and the components contribute most of the matter/value.

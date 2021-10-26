@@ -35,13 +35,11 @@
 
 /obj/item/storage/belt/get_mob_overlay(mob/user_mob, slot, bodypart)
 	var/image/ret = ..()
-	if(slot == slot_belt_str && contents.len)
-		var/list/ret_overlays = list()
+	if(ret && slot == slot_belt_str && length(contents))
 		for(var/obj/item/I in contents)
-			var/image/overlay = I.get_mob_overlay(user_mob, slot, bodypart)
-			if(overlay)
-				ret_overlays += overlay
-		ret.overlays += ret_overlays
+			var/image/new_overlay = I.get_mob_overlay(user_mob, slot, bodypart)
+			if(new_overlay)
+				ret.overlays += new_overlay
 	return ret
 
 /obj/item/storage/belt/holster
@@ -122,9 +120,11 @@
 		/obj/item/taperoll,
 		/obj/item/extinguisher/mini,
 		/obj/item/marshalling_wand,
+		/obj/item/geiger,
 		/obj/item/hand_labeler,
 		/obj/item/clothing/gloves
 		)
+	material = /decl/material/solid/leather
 
 /obj/item/storage/belt/utility/full/Initialize()
 	. = ..()
@@ -196,7 +196,7 @@
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/chems/food/snacks/donut/,
+		/obj/item/chems/food/donut/,
 		/obj/item/baton,
 		/obj/item/telebaton,
 		/obj/item/flame/lighter,
@@ -228,7 +228,7 @@
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/chems/food/snacks/donut/,
+		/obj/item/chems/food/donut/,
 		/obj/item/baton,
 		/obj/item/telebaton,
 		/obj/item/flame/lighter,

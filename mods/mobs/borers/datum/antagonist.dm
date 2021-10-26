@@ -46,7 +46,7 @@
 			var/obj/item/organ/external/head = host.get_organ(BP_HEAD)
 			if(head)
 				borer.host = host
-				head.implants += borer
+				LAZYDISTINCTADD(head.implants, borer)
 				borer.forceMove(head)
 				if(!borer.host_brain)
 					borer.host_brain = new(borer)
@@ -57,8 +57,8 @@
 
 /decl/special_role/borer/Initialize()
 	. = ..()
-	spawn_announcement = replacetext(GLOB.using_map.unidentified_lifesigns_message, "%STATION_NAME%", station_name())
-	spawn_announcement_sound = GLOB.using_map.lifesign_spawn_sound
+	spawn_announcement = replacetext(global.using_map.unidentified_lifesigns_message, "%STATION_NAME%", station_name())
+	spawn_announcement_sound = global.using_map.lifesign_spawn_sound
 
 /decl/special_role/borer/attempt_random_spawn()
 	if(config.aliens_allowed) ..()

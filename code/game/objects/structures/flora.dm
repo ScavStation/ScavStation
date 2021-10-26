@@ -14,7 +14,7 @@
 /obj/structure/flora/tree/pine/Initialize()
 	. = ..()
 	icon_state = "pine_[rand(1, 3)]"
-
+	
 /obj/structure/flora/tree/pine/xmas
 	name = "\improper Christmas tree"
 	desc = "O Christmas tree, O Christmas tree..."
@@ -76,12 +76,12 @@
 
 /obj/structure/flora/pottedplant
 	name = "potted plant"
+	desc = "Really brings the room together."
 	icon = 'icons/obj/structures/potted_plants.dmi'
-	icon_state = "plant-26"
+	icon_state = "plant-01"
 	layer = ABOVE_HUMAN_LAYER
 
 //newbushes
-
 /obj/structure/flora/ausbushes
 	name = "bush"
 	icon = 'icons/obj/flora/ausflora.dmi'
@@ -200,13 +200,6 @@
 
 //potted plants credit: Flashkirby
 //potted plants 27-30: Cajoes
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	desc = "Really brings the room together."
-	icon = 'icons/obj/structures/potted_plants.dmi'
-	icon_state = "plant-01"
-	layer = ABOVE_HUMAN_LAYER
-
 /obj/structure/flora/pottedplant/fern
 	name = "potted fern"
 	desc = "This is an ordinary looking fern. It looks like it could do with some water."
@@ -249,7 +242,7 @@
 
 /obj/structure/flora/pottedplant/unusual/Initialize()
 	. = ..()
-	set_light(0.4, 0.1, 2, 2, "#007fff")
+	set_light(l_range = 2, l_power = 2, l_color = "#007fff")
 
 /obj/structure/flora/pottedplant/orientaltree
 	name = "potted oriental tree"
@@ -308,7 +301,7 @@
 
 /obj/structure/flora/pottedplant/subterranean/Initialize()
 	. = ..()
-	set_light(0.4, 0.1, 2, 2, "#ff6633")
+	set_light(l_range = 1, l_power = 0.5, l_color = "#ff6633")
 
 /obj/structure/flora/pottedplant/minitree
 	name = "potted tree"

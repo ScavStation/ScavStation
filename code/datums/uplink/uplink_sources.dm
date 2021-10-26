@@ -1,11 +1,12 @@
-#define NO_GUARANTEE_NO_EXTRA_COST_DESC(X) "Installs an uplink into " + X + " if, and only if, found on your person. Has no TC cost."
+#define NO_GUARANTEE_NO_EXTRA_COST_DESC(X) "Installs an uplink into [X] if, and only if, found on your person. Has no TC cost."
 
 #define SETUP_FAILED TRUE
 
-GLOBAL_LIST_INIT(default_uplink_source_priority, list(
+var/global/list/default_uplink_source_priority = list(
 	/decl/uplink_source/pda,
 	/decl/uplink_source/radio,
-	/decl/uplink_source/unit))
+	/decl/uplink_source/unit
+)
 
 /decl/uplink_source
 	var/name
@@ -16,7 +17,10 @@ GLOBAL_LIST_INIT(default_uplink_source_priority, list(
 
 /decl/uplink_source/pda
 	name = "PDA"
+
+/decl/uplink_source/pda/Initialize()
 	desc = NO_GUARANTEE_NO_EXTRA_COST_DESC("a PDA")
+	. = ..()
 
 /decl/uplink_source/pda/setup_uplink_source(var/mob/M, var/amount)
 
@@ -32,7 +36,7 @@ GLOBAL_LIST_INIT(default_uplink_source_priority, list(
 	if(!HDD)
 		return SETUP_FAILED
 
-	var/pda_pass = "[rand(100,999)] [pick(GLOB.greek_letters)]"
+	var/pda_pass = "[rand(100,999)] [pick(global.greek_letters)]"
 	var/obj/item/uplink/T = new(P, M.mind, amount)
 	P.hidden_uplink = T
 	var/datum/computer_file/program/uplink/program = new(pda_pass)
@@ -46,7 +50,10 @@ GLOBAL_LIST_INIT(default_uplink_source_priority, list(
 
 /decl/uplink_source/radio
 	name = "Radio"
+
+/decl/uplink_source/radio/Initialize()
 	desc = NO_GUARANTEE_NO_EXTRA_COST_DESC("a radio")
+	. = ..()
 
 /decl/uplink_source/radio/setup_uplink_source(var/mob/M, var/amount)
 	var/obj/item/radio/R = find_in_mob(M, /obj/item/radio)
@@ -85,7 +92,7 @@ GLOBAL_LIST_INIT(default_uplink_source_priority, list(
 	U.imp_in = H
 	U.implanted = TRUE
 	U.part = head
-	head.implants += U
+	LAZYADD(head.implants, U)
 
 	U.implanted(H) // This proc handles the installation feedback
 
@@ -134,8 +141,8 @@ GLOBAL_LIST_INIT(default_uplink_source_priority, list(
 
 	if(!priority_order || !priority_order.len)
 		priority_order = list()
-		for(var/entry in GLOB.default_uplink_source_priority)
-			priority_order += GET_DECL(entry)
+		for(var/entry in global.default_uplink_source_priority)
+			priority_order |= GET_DECL(entry)
 
 	for(var/entry in priority_order)
 		var/decl/uplink_source/US = entry

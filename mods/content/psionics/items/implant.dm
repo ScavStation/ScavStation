@@ -56,7 +56,7 @@
 
 /obj/item/implant/psi_control/proc/get_psi_mode()
 	if(psi_mode == PSI_IMPLANT_AUTOMATIC)
-		var/decl/security_state/security_state = GET_DECL(GLOB.using_map.security_state)
+		var/decl/security_state/security_state = GET_DECL(global.using_map.security_state)
 		return security_state.current_security_level.psionic_control_level
 	return psi_mode
 
@@ -73,7 +73,7 @@
 
 		// If we're disrupting psionic attempts at the moment, we might overload.
 		if(disrupts_psionics())
-			var/overload_amount = Floor(stress/10)
+			var/overload_amount = FLOOR(stress/10)
 			if(overload_amount > 0)
 				overload += overload_amount
 				if(overload >= 100)

@@ -33,7 +33,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY
 	force = 15.0
-	throwforce = 4.0
+	throwforce = 4
 	w_class = ITEM_SIZE_HUGE
 	material = /decl/material/solid/metal/steel
 	origin_tech = "{'materials':1,'engineering':1}"
@@ -55,13 +55,12 @@
 		I.appearance_flags |= RESET_COLOR
 		add_overlay(I)
 
-/obj/item/pickaxe/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/I = ..()
-	if(build_from_parts && check_state_in_icon("[I.icon_state]-handle", I.icon))
-		var/image/handle = image(I.icon, "[I.icon_state]-handle")
+/obj/item/pickaxe/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && build_from_parts && check_state_in_icon("[overlay.icon_state]-handle", overlay.icon))
+		var/image/handle = image(overlay.icon, "[overlay.icon_state]-handle")
 		handle.appearance_flags |= RESET_COLOR
-		I.add_overlay(handle)
-	return I
+		overlay.overlays += handle
+	. = ..()
 
 /obj/item/pickaxe/hammer
 	name = "sledgehammer"
@@ -76,7 +75,11 @@
 	desc = "Yours is the drill that will pierce through the rock walls."
 	drill_verb = "drilling"
 	material = /decl/material/solid/metal/steel
-	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
+	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
+
+/obj/item/pickaxe/drill/Initialize(ml, material_key)
+	. = ..()
+	set_extension(src, /datum/extension/tool, list(TOOL_DRILL = TOOL_QUALITY_MEDIOCRE))
 
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
@@ -95,7 +98,7 @@
 	drill_verb = "drilling"
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_TRACE
 	)
 
@@ -154,7 +157,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY
 	force = 8.0
-	throwforce = 4.0
+	throwforce = 4
 	w_class = ITEM_SIZE_HUGE
 	origin_tech = "{'materials':1,'engineering':1}"
 	material = /decl/material/solid/metal/steel
@@ -169,7 +172,7 @@
 	icon_state = "spade"
 	item_state = "spade"
 	force = 5.0
-	throwforce = 7.0
+	throwforce = 7
 	w_class = ITEM_SIZE_SMALL
 
 // Flags.
@@ -181,6 +184,7 @@
 	amount = 10
 	max_amount = 10
 	icon = 'icons/obj/items/marking_beacon.dmi'
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/upright = 0
 	var/fringe = null
@@ -248,12 +252,10 @@
 		pixel_x = 0
 		pixel_y = 0
 		icon_state = "base"
-		var/image/addon = image(icon = icon, icon_state = "glowbit")
+		var/image/addon = emissive_overlay(icon = icon, icon_state = "glowbit")
 		addon.color = light_color
-		addon.layer = ABOVE_LIGHTING_LAYER
-		addon.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		overlays += addon
-		set_light(0.2, 0.1, 1) // Very dim so the rest of the thingie is barely visible - if the turf is completely dark, you can't see anything on it, no matter what
+		set_light(2, 0.1) // Very dim so the rest of the thingie is barely visible - if the turf is completely dark, you can't see anything on it, no matter what
 	else
 		pixel_x = rand(-randpixel, randpixel)
 		pixel_y = rand(-randpixel, randpixel)

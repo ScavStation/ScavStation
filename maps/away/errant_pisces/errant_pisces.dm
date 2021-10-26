@@ -22,12 +22,8 @@
 	name = "cosmoshark"
 	desc = "Enormous creature that resembles a shark with magenta glowing lines along its body and set of long deep-purple teeth."
 	icon = 'maps/away/errant_pisces/icons/cosmoshark.dmi'
-	icon_state = "shark"
-	icon_living = "shark"
-	icon_dead = "shark_dead"
-	icon_gib = "shark_dead"
 	turns_per_move = 5
-	meat_type = /obj/item/chems/food/snacks/sharkmeat
+	meat_type = /obj/item/chems/food/sharkmeat
 	speed = 2
 	maxHealth = 100
 	health = 100
@@ -39,6 +35,7 @@
 	return
 
 /mob/living/simple_animal/hostile/carp/shark/on_update_icon()
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /mob/living/simple_animal/hostile/carp/shark/death()
@@ -60,21 +57,21 @@
 			var/tackle_length = rand(3,5)
 			for (var/i = 1 to tackle_length)
 				var/turf/T = get_step(L.loc, dir)//on a first step of tackling standing mob would block movement so let's check if there's something behind it. Works for consequent moves too
-				if (T.density || LinkBlocked(L.loc, T) || TurfBlockedNonWindow(T) || DirBlocked(T, GLOB.flip_dir[dir]))
+				if (T.density || LinkBlocked(L.loc, T) || TurfBlockedNonWindow(T) || DirBlocked(T, global.flip_dir[dir]))
 					break
 				sleep(2)
 				forceMove(T)//maybe there's better manner then just forceMove() them
 				L.forceMove(T)
 			visible_message("<span class='danger'>\The [src] releases [L].</span>")
 
-/obj/item/chems/food/snacks/sharkmeat
+/obj/item/chems/food/sharkmeat
 	name = "cosmoshark fillet"
 	desc = "A fillet of cosmoshark meat."
 	icon_state = "fishfillet"
 	filling_color = "#cecece"
 	center_of_mass = @"{'x':17,'y':13}"
 
-/obj/item/chems/food/snacks/sharkmeat/Initialize()
+/obj/item/chems/food/sharkmeat/Initialize()
 	. = ..()
 	reagents.add_reagent(/decl/material/liquid/nutriment/protein, 5)
 	reagents.add_reagent(/decl/material/liquid/psychoactives, 1)
@@ -182,7 +179,7 @@
 	icon_state = "net_roll"
 	w_class = ITEM_SIZE_LARGE
 	force = 3.0
-	throwforce = 5.0
+	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
 	matter = list("cloth" = 1875, "plasteel" = 350)

@@ -8,6 +8,7 @@
 	action_button_name = "Toggle UV light"
 	material = /decl/material/solid/metal/steel
 	origin_tech = "{'magnets':1,'engineering':1}"
+	z_flags = ZMM_MANGLE_PLANES
 	var/list/scanned = list()
 	var/list/stored_alpha = list()
 	var/list/reset_objects = list()
@@ -18,7 +19,7 @@
 /obj/item/uv_light/attack_self(var/mob/user)
 	on = !on
 	if(on)
-		set_light(0.5, 0.1, range, 2, "#007fff")
+		set_light(range, 2, "#007fff")
 		START_PROCESSING(SSobj, src)
 	else
 		set_light(0)
@@ -35,16 +36,15 @@
 	. = ..()
 	if(on)
 		update_icon()
-	
+
 /obj/item/uv_light/on_update_icon()
 	cut_overlays()
 	if(on)
-		var/image/I = image(icon, "[icon_state]-on")
-		if(plane != HUD_PLANE)
-			I.layer = ABOVE_LIGHTING_LAYER
-			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		add_overlay(I)
-	
+		if(plane == HUD_PLANE)
+			add_overlay("[icon_state]-on")
+		else
+			add_overlay(emissive_overlay(icon, "[icon_state]-on"))
+
 /obj/item/uv_light/proc/clear_last_scan()
 	if(scanned.len)
 		for(var/atom/O in scanned)

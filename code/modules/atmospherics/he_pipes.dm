@@ -1,15 +1,17 @@
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging
 	icon = 'icons/atmos/heat.dmi'
-	icon_state = "intact"
-	pipe_icon = "hepipe"
+	icon_state = "11"
 	color = "#404040"
 	level = 2
 	connect_types = CONNECT_TYPE_HE
+	interact_offline = TRUE //Needs to be set so that pipes don't say they lack power in their description
 	var/initialize_directions_he
 	var/surface = 2	//surface area in m^2
 	var/icon_temperature = T20C //stop small changes in temperature causing an icon refresh
 	build_icon_state = "he"
+	atom_flags = 0 // no painting
+	appearance_flags = KEEP_TOGETHER
 
 	minimum_temperature_difference = 20
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
@@ -24,35 +26,30 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
 	. = ..()
 	color = "#404040" //we don't make use of the fancy overlay system for colours, use this to set the default.
+	add_filter("glow",1, list(type="drop_shadow", x = 0, y = 0, offset = 0, size = 4))
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/set_dir(new_dir)
 	..()
-	initialize_directions_he = initialize_directions	// The auto-detection from /pipe is good enough for a simple HE pipe
+	initialize_directions_he = initialize_directions	// all directions are HE
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/atmos_init()
-	..()
-	var/node1_dir
-	var/node2_dir
-
-	for(var/direction in GLOB.cardinal)
-		if(direction&initialize_directions_he)
-			if (!node1_dir)
-				node1_dir = direction
-			else if (!node2_dir)
-				node2_dir = direction
-
-	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,node1_dir))
-		if(target.initialize_directions_he & get_dir(target,src))
-			node1 = target
-			break
-	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,node2_dir))
-		if(target.initialize_directions_he & get_dir(target,src))
-			node2 = target
-			break
-	if(!node1 && !node2)
-		qdel(src)
-		return
-
+	atmos_initalized = TRUE
+	for(var/obj/machinery/atmospherics/node AS_ANYTHING in nodes_to_networks)
+		QDEL_NULL(nodes_to_networks[node])
+	nodes_to_networks = null
+	for(var/direction in global.cardinal)
+		if(direction & initialize_directions_he) // connect to HE pipes with HE ends in the HE directions
+			for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,direction))
+				if((target.initialize_directions_he & get_dir(target, src)) && check_connect_types(target, src))
+					LAZYDISTINCTADD(nodes_to_networks, target)
+		else if(direction & initialize_directions) // and to normal pipes normally in the other directions
+			for(var/obj/machinery/atmospherics/target in get_step(src,direction))
+				if((target.initialize_directions & get_dir(target, src)) && check_connect_types(target, src))
+					if(istype(target, /obj/machinery/atmospherics/pipe/simple/heat_exchanging))
+						var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/heat = target
+						if(heat.initialize_directions_he & get_dir(target, src)) // this means we are connecting a normal end to an HE end on an HE part; not OK
+							continue
+					LAZYDISTINCTADD(nodes_to_networks, target)
 	update_icon()
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/Process()
@@ -91,55 +88,35 @@
 		if(pipe_air.temperature && (icon_temperature > 500 || pipe_air.temperature > 500)) //start glowing at 500K
 			if(abs(pipe_air.temperature - icon_temperature) > 10)
 				icon_temperature = pipe_air.temperature
+				var/scale = max((icon_temperature - 500) / 1500, 0)
 
 				var/h_r = heat2color_r(icon_temperature)
 				var/h_g = heat2color_g(icon_temperature)
 				var/h_b = heat2color_b(icon_temperature)
 
 				if(icon_temperature < 2000) //scale up overlay until 2000K
-					var/scale = (icon_temperature - 500) / 1500
 					h_r = 64 + (h_r - 64)*scale
 					h_g = 64 + (h_g - 64)*scale
 					h_b = 64 + (h_b - 64)*scale
-
+				var/scale_color = rgb(h_r, h_g, h_b)
 				var/list/animate_targets = get_above_oo() + src
 				for (var/thing in animate_targets)
 					var/atom/movable/AM = thing
-					animate(AM, color = rgb(h_r, h_g, h_b), time = 20, easing = SINE_EASING)
-
-
-
-
+					animate(AM, color = scale_color, time = 2 SECONDS, easing = SINE_EASING)
+				animate_filter("glow", list(color = scale_color, time = 2 SECONDS, easing = LINEAR_EASING))
+				set_light(min(3, scale*2.5), min(3, scale*2.5), scale_color)
+		else
+			set_light(0, 0)
+			
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction
 	icon = 'icons/atmos/junction.dmi'
-	icon_state = "intact"
-	pipe_icon = "hejunction"
+	icon_state = "11"
 	level = 2
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_HE|CONNECT_TYPE_FUEL
 	build_icon_state = "junction"
+	rotate_class = PIPE_ROTATE_STANDARD
 
 // Doubling up on initialize_directions is necessary to allow HE pipes to connect
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/set_dir(new_dir)
 	..()
 	initialize_directions_he = dir
-
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/atmos_init()
-	..()
-	// Only check back side for normal pipes
-	for(var/obj/machinery/atmospherics/target in get_step(src,GLOB.flip_dir[src.dir]))
-		if(target.initialize_directions & get_dir(target,src))
-			// Snowflake check; keeps back from connecting to HE pipes
-			if(!istype(target,/obj/machinery/atmospherics/pipe/simple/heat_exchanging))
-				node1 = target
-				break
-	// Only check front side for HE pipes
-	for(var/obj/machinery/atmospherics/pipe/simple/heat_exchanging/target in get_step(src,initialize_directions_he))
-		if(target.initialize_directions_he & get_dir(target,src))
-			node2 = target
-			break
-
-	if(!node1 && !node2)
-		qdel(src)
-		return
-
-	update_icon()

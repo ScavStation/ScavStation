@@ -29,6 +29,7 @@
 #include "species\indrel.dm"
 #include "species\yinglet.dm"
 #include "species\yinglet_accessories.dm"
+#include "species\yinglet_bodytype.dm"
 #include "species\yinglet_organs.dm"
 #include "structures\hoard.dm"
 // END_INCLUDE

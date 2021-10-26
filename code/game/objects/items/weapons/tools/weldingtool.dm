@@ -12,8 +12,10 @@
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/metal/steel
-	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
+	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 	origin_tech = "{'engineering':1}"
+	drop_sound = 'sound/foley/tooldrop1.ogg'
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/lit_colour = COLOR_PALE_ORANGE
 	var/waterproof = FALSE
@@ -30,10 +32,9 @@
 		tank = new tank
 		w_class = tank.size_in_use
 		force = tank.unlit_force
-
+	set_extension(src, /datum/extension/tool, list(TOOL_WELDER = TOOL_QUALITY_DEFAULT))
 	set_extension(src, /datum/extension/base_icon_state, icon_state)
 	update_icon()
-
 	. = ..()
 
 /obj/item/weldingtool/dropped(mob/user)
@@ -52,14 +53,10 @@
 	QDEL_NULL(tank)
 	return ..()
 
-/obj/item/weldingtool/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/I = ..()
-	if(welding && I && check_state_in_icon("[I.icon_state]-lit", I.icon))
-		var/image/lit = image(I.icon, "[I.icon_state]-lit")
-		lit.layer = ABOVE_LIGHTING_LAYER
-		lit.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		I.add_overlay(lit)
-	return I
+/obj/item/weldingtool/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && welding && check_state_in_icon("[overlay.icon_state]-lit", overlay.icon))
+		overlay.add_overlay(emissive_overlay(overlay.icon, "[overlay.icon_state]-lit"))
+	. = ..()
 
 /obj/item/weldingtool/get_heat()
 	. = max(..(), isOn() ? 3800 : 0)
@@ -91,37 +88,45 @@
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(welding)
-		to_chat(user, SPAN_DANGER("Stop welding first!"))
+		to_chat(user, SPAN_WARNING("Stop welding first!"))
 		return
 
 	if(isScrewdriver(W))
+		if(isrobot(loc))
+			to_chat(user, SPAN_WARNING("You cannot modify your own welder!"))
+			return
+
 		status = !status
+		
 		if(status)
 			to_chat(user, SPAN_NOTICE("You secure the welder."))
 		else
 			to_chat(user, SPAN_NOTICE("The welder can now be attached and modified."))
-		src.add_fingerprint(user)
-		return
 
-	if((!status) && (istype(W,/obj/item/stack/material/rods)))
-		var/obj/item/stack/material/rods/R = W
-		R.use(1)
-		var/obj/item/flamethrower/F = new/obj/item/flamethrower(user.loc)
-		user.drop_from_inventory(src, F)
-		F.weldtool = src
-		master = F
 		add_fingerprint(user)
 		return
 
+	if(!status && istype(W, /obj/item/stack/material/rods))
+		var/obj/item/stack/material/rods/R = W
+		R.use(1)
+		add_fingerprint(user)
+		user.drop_from_inventory(src)
+		var/obj/item/flamethrower/F = new(get_turf(src), src)
+		user.put_in_hands(F)
+		return
+
 	if (istype(W, /obj/item/welder_tank))
-		if (tank)
+		if(tank)
 			to_chat(user, SPAN_WARNING("\The [src] already has a tank attached - remove it first."))
 			return
+
 		if(!(src in user.get_held_items()))
 			to_chat(user, SPAN_WARNING("You must hold the welder in your hands to attach a tank."))
 			return
-		if (!user.unEquip(W, src))
+		
+		if(!user.unEquip(W, src))
 			return
+
 		tank = W
 		user.visible_message("[user] slots \a [W] into \the [src].", "You slot \a [W] into \the [src].")
 		w_class = tank.size_in_use
@@ -181,7 +186,7 @@
 			L.IgniteMob()
 		else if(istype(O))
 			O.HandleObjectHeating(src, user, 700)
-		if (istype(location, /turf))
+		if (isturf(location))
 			location.hotspot_expose(700, 50, 1)
 	return
 
@@ -201,7 +206,7 @@
 		burn_fuel(amount)
 		if(M)
 			M.welding_eyecheck()//located in mob_helpers.dm
-			set_light(0.7, 2, 5, l_color = COLOR_LIGHT_CYAN)
+			set_light(5, 0.7, COLOR_LIGHT_CYAN)
 			addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 		return 1
 	else
@@ -246,12 +251,11 @@
 	if(tank)
 		add_overlay("[icon_state]-[tank.icon_state]")
 	if(welding && check_state_in_icon("[icon_state]-lit", icon))
-		var/image/I = image(icon, "[icon_state]-lit")
-		if(plane != HUD_PLANE)
-			I.layer = ABOVE_LIGHTING_LAYER
-			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		add_overlay(I)
-		set_light(0.6, 0.5, 2.5, l_color = lit_colour)
+		if(plane == HUD_PLANE)
+			add_overlay(image(icon, "[icon_state]-lit"))
+		else
+			add_overlay(emissive_overlay(icon, "[icon_state]-lit"))
+		set_light(2.5, 0.6, lit_colour)
 	else
 		set_light(0)
 	var/mob/M = loc
@@ -346,7 +350,7 @@
 /obj/item/weldingtool/experimental
 	tank = /obj/item/welder_tank/experimental
 	material = /decl/material/solid/metal/steel
-	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
+	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 
 ///////////////////////
 //Welding tool tanks//

@@ -85,7 +85,7 @@
 	if(state != AWAITING_ACTIVATION)
 		to_chat(user, "<span class='warning'>\The [src] won't activate again.</span>")
 		return
-	var/obj/effect/overmap/visitable/O = map_sectors["[get_z(src)]"]
+	var/obj/effect/overmap/visitable/O = global.overmap_sectors["[get_z(src)]"]
 	var/choice = alert(user, "This will only affect your current location[istype(O) ? " ([O])" : ""]. Proceed?","Confirmation", "Yes", "No")
 	if(choice != "Yes")
 		return
@@ -187,7 +187,7 @@
 	if(!message)
 		return
 
-	if(CanUseTopic(user, GLOB.hands_state) != STATUS_INTERACTIVE)
+	if(CanUseTopic(user, global.hands_topic_state) != STATUS_INTERACTIVE)
 		return FALSE
 	command_announcement.Announce(message, title, msg_sanitized = 1, zlevels = GetConnectedZlevels(get_z(src)))
 	return TRUE
@@ -232,7 +232,7 @@
 	var/datum/job/job = SSjobs.get_by_title(new_record.get_job())
 	if(job)
 		var/skills = list()
-		for(var/decl/hierarchy/skill/S in GLOB.skills)
+		for(var/decl/hierarchy/skill/S in global.skills)
 			var/level = job.min_skill[S.type]
 			if(prob(10))
 				level = min(rand(1,3), job.max_skill[S.type])

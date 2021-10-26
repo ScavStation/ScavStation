@@ -22,7 +22,7 @@
 	overlays.Cut()
 
 /obj/singularity/narsie/large/exit/Process()
-	for(var/mob/M in GLOB.player_list)
+	for(var/mob/M in global.player_list)
 		if(M.client)
 			M.see_rift(src)
 	eat()
@@ -34,14 +34,14 @@
 	if(!(A.singuloCanEat()))
 		return 0
 
-	if (istype(A, /mob/living/))
+	if (istype(A, /mob/living) && length(global.endgame_safespawns))
 		var/mob/living/L = A
 		if(L.buckled && istype(L.buckled,/obj/structure/bed/))
 			var/turf/O = L.buckled
-			do_teleport(O, pick(endgame_safespawns))
+			do_teleport(O, pick(global.endgame_safespawns))
 			L.forceMove(O.loc)
 		else
-			do_teleport(L, pick(endgame_safespawns)) //dead-on precision
+			do_teleport(L, pick(global.endgame_safespawns)) //dead-on precision
 
 	else if (isturf(A))
 		var/turf/T = A
@@ -85,7 +85,7 @@
 		riftimage.pixel_y = new_y
 		riftimage.loc = T_mob
 
-		src << riftimage
+		direct_output(src, riftimage)
 
 	else
 		QDEL_NULL(riftimage)

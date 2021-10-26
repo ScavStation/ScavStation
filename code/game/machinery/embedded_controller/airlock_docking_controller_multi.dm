@@ -15,7 +15,16 @@
 		for (var/i = 1; i <= tags.len; i++)
 			child_names[tags[i]] = names[i]
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/docking_port_multi/modify_mapped_vars(map_hash)
+	..()
+	var/list/tags = splittext(child_tags_txt, ";")
+	var/list/new_tags = list()
+	for(var/thing in tags)
+		ADJUST_TAG_VAR(thing, map_hash)
+		new_tags += thing
+	child_tags_txt = jointext(new_tags, ";")
+
+/obj/machinery/embedded_controller/radio/docking_port_multi/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = global.default_topic_state)
 	var/data[0]
 	var/datum/computer/file/embedded_program/docking/multi/docking_program = program
 
@@ -49,7 +58,11 @@
 	var/master_tag	//for mapping
 	tag_secure = 1
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/modify_mapped_vars(map_hash)
+	..()
+	ADJUST_TAG_VAR(master_tag, map_hash)
+
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = global.default_topic_state)
 	var/data[0]
 	var/datum/computer/file/embedded_program/airlock/multi_docking/airlock_program = program
 

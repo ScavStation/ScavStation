@@ -16,3 +16,13 @@
 		/area/ship/trade/fore_port_underside_maint,
 		/area/ship/trade/enclave
 	)
+
+/obj/item/stack/tile/floor/five
+	amount = 5
+
+/obj/item/stack/cable_coil/single/yellow
+	color = COLOR_AMBER
+
+/obj/item/stack/cable_coil/random/three
+	amount = 3
+

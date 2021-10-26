@@ -2,7 +2,7 @@
 	MERCENARY ROUNDTYPE
 */
 
-var/list/nuke_disks = list()
+var/global/list/nuke_disks = list()
 
 /datum/game_mode/nuclear
 	name = "Mercenary"
@@ -34,12 +34,12 @@ var/list/nuke_disks = list()
 		..()
 		return
 	var/disk_rescued = TRUE
-	for(var/obj/item/disk/nuclear/D in world)
+	for(var/obj/item/disk/nuclear/D in global.nuke_disks)
 		var/disk_area = get_area(D)
-		if(!is_type_in_list(disk_area, GLOB.using_map.post_round_safe_areas))
+		if(!is_type_in_list(disk_area, global.using_map.post_round_safe_areas))
 			disk_rescued = FALSE
 			break
-	var/crew_evacuated = (SSevac.evacuation_controller.has_evacuated())
+	var/crew_evacuated = (SSevac.evacuation_controller?.has_evacuated())
 	var/decl/special_role/mercenary/mercs = GET_DECL(/decl/special_role/mercenary)
 	if(!disk_rescued &&  station_was_nuked && !syndies_didnt_escape)
 		SSstatistics.set_field_details("round_end_result","win - syndicate nuke")

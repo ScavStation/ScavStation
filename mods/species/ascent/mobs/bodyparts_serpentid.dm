@@ -37,12 +37,12 @@
 			to_chat(owner, "<span class='notice'>Nearly opaque lenses slide down to shield your eyes.</span>")
 			innate_flash_protection = FLASH_PROTECTION_MAJOR
 			owner.overlay_fullscreen("eyeshield", /obj/screen/fullscreen/blind)
-			owner.update_icons()
+			owner.update_icon()
 		else
 			to_chat(owner, "<span class='notice'>Your protective lenses retract out of the way.</span>")
 			innate_flash_protection = FLASH_PROTECTION_VULNERABLE
 			addtimer(CALLBACK(src, .proc/remove_shield), 1 SECONDS)
-			owner.update_icons()
+			owner.update_icon()
 		refresh_action_button()
 
 /obj/item/organ/internal/eyes/insectoid/serpentid/proc/remove_shield()
@@ -78,7 +78,7 @@
 /obj/item/organ/internal/lungs/insectoid/serpentid/handle_failed_breath()
 	var/mob/living/carbon/human/H = owner
 
-	var/oxygenated = LAZYACCESS(owner.chem_effects, CE_OXYGENATED)
+	var/oxygenated = GET_CHEMICAL_EFFECT(owner, CE_OXYGENATED)
 	H.adjustOxyLoss(-(HUMAN_MAX_OXYLOSS * oxygenated))
 
 	if(breath_fail_ratio < 0.25 && oxygenated)
@@ -149,8 +149,9 @@
 				if(message == "Cancel")
 					return
 				else if(message == "Yes")
-					owner.visible_message("<span class='warning'>[owner]'s skin shifts to a deep red colour with dark chevrons running down in an almost hypnotic \
-						pattern. Standing tall, \he strikes, sharp spikes aimed at those threatening \him, claws whooshing through the air past them.</span>")
+					var/decl/pronouns/G = get_pronouns()
+					owner.visible_message(SPAN_WARNING("\The [owner]'s skin shifts to a deep red colour with dark chevrons running down in an almost hypnotic \
+						pattern. Standing tall, [G.he] strikes, sharp spikes aimed at those threatening [G.him], claws whooshing through the air past them."))
 				playsound(owner.loc, 'sound/effects/angrybug.ogg', 60, 0)
 				owner.skin_state = SKIN_THREAT
 				owner.update_skin()
@@ -161,7 +162,6 @@
 /obj/item/organ/external/head/insectoid/serpentid
 	name = "head"
 	vital = 0
-	limb_flags = ORGAN_FLAG_CAN_AMPUTATE | ORGAN_FLAG_GENDERED_ICON | ORGAN_FLAG_CAN_BREAK
 
 /obj/item/organ/external/head/insectoid/serpentid/get_eye_overlay()
 	var/obj/item/organ/internal/eyes/eyes = owner.get_internal_organ(owner.species.vision_organ || BP_EYES)

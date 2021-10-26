@@ -5,10 +5,12 @@
 	speak = list("Hsssssssszsht.", "Hsssssssss...", "Tcshsssssssszht!")
 	speak_emote = list("hisses")
 	emote_hear = list("wails","screeches")
-	response_help  = "thinks better of touching"
-	response_disarm = "flailed at"
-	response_harm   = "punched"
-	icon_dead = "shade_dead"
+
+	response_help_1p = "You think better of touching $TARGET$."
+	response_help_3p = "$USER$ thinks better of touching $TARGET$."
+	response_disarm =  "flails at"
+	response_harm =    "punches"
+	icon = 'icons/mob/simple_animal/shade.dmi'
 	speed = -1
 	a_intent = I_HURT
 	stop_automated_movement = 1
@@ -35,6 +37,9 @@
 	skin_material = null
 	skin_amount =   0
 
+	z_flags = ZMM_MANGLE_PLANES
+	glowing_eyes = TRUE
+
 	var/nullblock = 0
 	var/list/construct_spells = list()
 
@@ -49,6 +54,7 @@
 	add_language(/decl/language/cult)
 	for(var/spell in construct_spells)
 		src.add_spell(new spell, "const_spell_ready")
+	set_light(1.5, -2, COLOR_WHITE)
 	update_icon()
 
 /mob/living/simple_animal/construct/death(gibbed, deathmessage, show_dead_message)
@@ -56,11 +62,6 @@
 	..(null,"collapses in a shattered heap.","The bonds tying you to this mortal plane have been severed.")
 	ghostize()
 	qdel(src)
-
-/mob/living/simple_animal/construct/on_update_icon()
-	overlays.Cut()
-	..()
-	add_glow()
 
 /mob/living/simple_animal/construct/attack_animal(var/mob/user)
 	if(istype(user, /mob/living/simple_animal/construct/builder))
@@ -90,8 +91,8 @@
 	name = "ectoplasm"
 	desc = "Spooky."
 	gender = PLURAL
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "ectoplasm"
+	icon = 'icons/obj/items/ectoplasm.dmi'
+	icon_state = ICON_STATE_WORLD
 
 /////////////////Juggernaut///////////////
 
@@ -101,13 +102,11 @@
 	name = "Juggernaut"
 	real_name = "Juggernaut"
 	desc = "A possessed suit of armour driven by the will of the restless dead"
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "behemoth"
-	icon_living = "behemoth"
+	icon = 'icons/mob/simple_animal/construct_behemoth.dmi'
 	maxHealth = 250
 	health = 250
 	speak_emote = list("rumbles")
-	response_harm   = "harmlessly punches"
+	response_harm = "harmlessly punches"
 	harm_intent_damage = 0
 	natural_weapon = /obj/item/natural_weapon/juggernaut
 	mob_size = MOB_SIZE_LARGE
@@ -128,7 +127,7 @@
 /mob/living/simple_animal/construct/armoured/Life()
 	set_status(STAT_WEAK, 0)
 	if ((. = ..()))
-		return 
+		return
 
 /mob/living/simple_animal/construct/armoured/bullet_act(var/obj/item/projectile/P)
 	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
@@ -161,10 +160,7 @@
 	name = "Wraith"
 	real_name = "Wraith"
 	desc = "A wicked bladed shell contraption piloted by a bound spirit"
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "floating"
-	icon_living = "floating"
-	icon_dead = "floating_dead"
+	icon = 'icons/mob/simple_animal/construct_floating.dmi'
 	maxHealth = 75
 	health = 75
 	natural_weapon = /obj/item/natural_weapon/wraith
@@ -189,9 +185,7 @@
 	name = "Artificer"
 	real_name = "Artificer"
 	desc = "A bulbous construct dedicated to building and maintaining The Cult of Nar-Sie's armies"
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "artificer"
-	icon_living = "artificer"
+	icon = 'icons/mob/simple_animal/construct_artificer.dmi'
 	maxHealth = 50
 	health = 50
 	response_harm = "viciously beaten"
@@ -218,13 +212,11 @@
 	name = "Behemoth"
 	real_name = "Behemoth"
 	desc = "The pinnacle of occult technology, Behemoths are the ultimate weapon in the Cult of Nar-Sie's arsenal."
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "behemoth"
-	icon_living = "behemoth"
+	icon = 'icons/mob/simple_animal/construct_behemoth.dmi'
 	maxHealth = 750
 	health = 750
 	speak_emote = list("rumbles")
-	response_harm   = "harmlessly punched"
+	response_harm = "harmlessly punches"
 	harm_intent_damage = 0
 	natural_weapon = /obj/item/natural_weapon/juggernaut/behemoth
 	speed = 5
@@ -246,10 +238,7 @@
 	name = "Harvester"
 	real_name = "Harvester"
 	desc = "The promised reward of the livings who follow Nar-Sie. Obtained by offering their bodies to the geometer of blood"
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "harvester"
-	icon_living = "harvester"
-	icon_dead = "harvester_dead"
+	icon = 'icons/mob/simple_animal/construct_harvester.dmi'
 	maxHealth = 150
 	health = 150
 	natural_weapon = /obj/item/natural_weapon/harvester
@@ -268,14 +257,6 @@
 	hitsound = 'sound/weapons/pierce.ogg'
 	sharp = TRUE
 	force = 25
-
-////////////////Glow//////////////////
-/mob/living/simple_animal/construct/proc/add_glow()
-	var/image/eye_glow = image(icon,"glow-[icon_state]")
-	eye_glow.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-	eye_glow.layer = EYE_GLOW_LAYER
-	overlays += eye_glow
-	set_light(-2, 0.1, 1.5, l_color = "#ffffff")
 
 ////////////////HUD//////////////////////
 

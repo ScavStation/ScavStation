@@ -1,17 +1,23 @@
+/datum/appearance_descriptor/age/utility_frame
+	chargen_min_index = 1
+	chargen_max_index = 4
+	standalone_value_descriptors = list(
+		"brand new" =            1,
+		"worn" =                 5,
+		"an older model" =      12,
+		"nearing end-of-life" = 16,
+		"entirely obsolete" =   20
+	)
+	
 /decl/species/utility_frame
 	name =                  SPECIES_FRAME
 	name_plural =           "Utility Frames"
 	description =           "Simple AI-driven robots are used for many menial or repetitive tasks in human space."
-	icobase =               'mods/species/utility_frames/icons/body.dmi'
-	deform =                'mods/species/utility_frames/icons/body.dmi'
-	preview_icon =          'mods/species/utility_frames/icons/preview.dmi'
-	limb_blend =            ICON_MULTIPLY
 	cyborg_noun = null
 
-	min_age =               1
-	max_age =               20
+	available_bodytypes = list(/decl/bodytype/utility_frame)
+	age_descriptor =        /datum/appearance_descriptor/age/utility_frame
 	hidden_from_codex =     FALSE
-	bodytype =              BODYTYPE_HUMANOID
 	species_flags =         SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_POISON
 	spawn_flags =           SPECIES_CAN_JOIN
 	appearance_flags =      HAS_SKIN_COLOR | HAS_EYE_COLOR
@@ -20,7 +26,6 @@
 	hazard_low_pressure =  -1
 	blood_color =           COLOR_GRAY15
 	flesh_color =           COLOR_GUNMETAL
-	base_color =            COLOR_GUNMETAL
 	cold_level_1 =          SYNTH_COLD_LEVEL_1
 	cold_level_2 =          SYNTH_COLD_LEVEL_2
 	cold_level_3 =          SYNTH_COLD_LEVEL_3
@@ -31,6 +36,14 @@
 	passive_temp_gain =     5  // stabilize at ~80 C in a 20 C environment.
 	heat_discomfort_level = 373.15
 
+	base_color = "#333355"
+	base_eye_color = "#00ccff"
+	base_markings = list(
+		/decl/sprite_accessory/marking/frame/plating = "#8888cc",
+		/decl/sprite_accessory/marking/frame/plating/legs = "#8888cc",
+		/decl/sprite_accessory/marking/frame/plating/head = "#8888cc"
+	)
+
 	heat_discomfort_strings = list(
 		"You are dangerously close to overheating!"
 	)
@@ -39,9 +52,9 @@
 		/decl/natural_attack/kick,
 		/decl/natural_attack/punch
 	)
-	genders = list(
-		NEUTER,
-		PLURAL
+	available_pronouns = list(
+		/decl/pronouns,
+		/decl/pronouns/neuter
 	)
 	available_cultural_info = list(
 		TAG_CULTURE = list(/decl/cultural_info/culture/synthetic)
@@ -58,12 +71,6 @@
 		/decl/emote/exertion/synthetic/creak
 	)
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/detach_limb,
-		/mob/living/carbon/human/proc/attach_limb,
-		/mob/living/carbon/human/proc/eyeglow
-	)
-
 /decl/species/utility_frame/post_organ_rejuvenate(obj/item/organ/org, mob/living/carbon/human/H)
 	var/obj/item/organ/external/E = org
 	if(istype(E) && !BP_IS_PROSTHETIC(E))
@@ -74,16 +81,7 @@
 	var/obj/item/organ/internal/eyes/eyes = org
 	if(istype(eyes))
 		eyes.eye_icon = 'mods/species/utility_frames/icons/eyes.dmi'
-	H.regenerate_icons()
-
-/decl/species/utility_frame/handle_post_species_pref_set(var/datum/preferences/pref)
-	if(pref)
-		LAZYINITLIST(pref.body_markings)
-		for(var/marking in list("Frame Body Plating", "Frame Leg Plating", "Frame Head Plating"))
-			if(!pref.body_markings[marking])
-				pref.body_markings[marking] = "#8888cc"
-		pref.skin_colour = "#333355"
-		pref.eye_colour = "#00ccff"
+	H.refresh_visible_overlays()
 
 /decl/species/utility_frame/get_blood_name()
 	. = "coolant"

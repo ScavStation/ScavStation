@@ -11,7 +11,7 @@
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. Does not require power."
 
 	use_power = POWER_USE_OFF
-	interact_offline = 1
+	interact_offline = TRUE
 	var/unlocked = 0	//If 0, then the valve is locked closed, otherwise it is open(-able, it's a one-way valve so it closes if gas would flow backwards).
 	var/target_pressure = ONE_ATMOSPHERE
 	var/max_pressure_setting = MAX_PUMP_PRESSURE
@@ -58,17 +58,10 @@
 /obj/machinery/atmospherics/binary/passive_gate/on_update_icon()
 	icon_state = (unlocked && flowing)? "on" : "off"
 
-/obj/machinery/atmospherics/binary/passive_gate/update_underlays()
-	if(..())
-		underlays.Cut()
-		var/turf/T = get_turf(src)
-		if(!istype(T))
-			return
-		add_underlay(T, node1, turn(dir, 180))
-		add_underlay(T, node2, dir)
+	build_device_underlays(FALSE)
 
 /obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
-	update_underlays()
+	update_icon()
 
 /obj/machinery/atmospherics/binary/passive_gate/Process()
 	..()
@@ -101,17 +94,14 @@
 			if (REGULATE_INPUT)
 				transfer_moles = min(transfer_moles, air1.total_moles*(pressure_delta/input_starting_pressure))
 			if (REGULATE_OUTPUT)
-				transfer_moles = min(transfer_moles, calculate_transfer_moles(air1, air2, pressure_delta, (network2)? network2.volume : 0))
+				var/datum/pipe_network/output = network_in_dir(dir)
+				transfer_moles = min(transfer_moles, calculate_transfer_moles(air1, air2, pressure_delta, output?.volume))
 
 		//pump_gas() will return a negative number if no flow occurred
 		returnval = pump_gas_passive(src, air1, air2, transfer_moles)
 
 	if (returnval >= 0)
-		if(network1)
-			network1.update = 1
-
-		if(network2)
-			network2.update = 1
+		update_networks()
 
 	if (last_flow_rate)
 		flowing = 1

@@ -6,7 +6,7 @@
 	name = "bruisegrass extract"
 	lore_text = "A highly processed opiate-like painkiller refined from immature bruisegrass. Manufactured primarily by Great House Talleraine and exported across the known world."
 
-/datum/chemical_reaction/recipe/orangecola
+/decl/chemical_reaction/recipe/orangecola
 	name = "Indrel Breakfast"
 
 /obj/item/chems/food/drinks/cans/starkist

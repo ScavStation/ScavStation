@@ -42,6 +42,7 @@
 	flags = IGNORE_MOB_SIZE
 	value = 1.5
 	fruit_descriptor = "medicinal"
+	var/effectiveness = 1
 
 /decl/material/liquid/brute_meds/affect_overdose(mob/living/M, alien, var/datum/reagents/holder)
 	..()
@@ -49,11 +50,14 @@
 		M.add_chemical_effect(CE_BLOCKAGE, (15 + REAGENT_VOLUME(holder, type))/100)
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_ARTERY_CUT && prob(2))
+			if(E.status & ORGAN_ARTERY_CUT && prob(2 + REAGENT_VOLUME(holder, type) / overdose))
 				E.status &= ~ORGAN_ARTERY_CUT
 
+//This is a logistic function that effectively doubles the healing rate as brute amounts get to around 200. Any injury below 60 is essentially unaffected and there's a scaling inbetween.
+#define ADJUSTED_REGEN_VAL(X) (6+(6/(1+200*2.71828**(-0.05*(X)))))
 /decl/material/liquid/brute_meds/affect_blood(var/mob/living/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.heal_organ_damage(6 * removed, 0)
+	..()
+	M.add_chemical_effect_max(CE_REGEN_BRUTE, round(effectiveness*ADJUSTED_REGEN_VAL(M.getBruteLoss())))
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /decl/material/liquid/burn_meds
@@ -65,10 +69,13 @@
 	scannable = 1
 	flags = IGNORE_MOB_SIZE
 	value = 1.5
+	var/effectiveness = 1
 
 /decl/material/liquid/burn_meds/affect_blood(mob/living/M, alien, removed, var/datum/reagents/holder)
-	M.heal_organ_damage(0, 6 * removed)
+	..()
+	M.add_chemical_effect_max(CE_REGEN_BURN, round(effectiveness*ADJUSTED_REGEN_VAL(M.getFireLoss())))
 	M.add_chemical_effect(CE_PAINKILLER, 10)
+#undef ADJUSTED_REGEN_VAL
 
 /decl/material/liquid/adminordrazine //An OP chemical for admins
 	name = "Adminordrazine"
@@ -76,6 +83,7 @@
 	taste_description = "100% abuse"
 	color = "#c8a5dc"
 	flags = AFFECTS_DEAD //This can even heal dead people.
+	exoplanet_rarity = MAT_RARITY_NOWHERE
 
 	glass_name = "liquid gold"
 	glass_desc = "It's magic. We don't have to explain it."
@@ -104,7 +112,7 @@
 	if(remove_generic)
 		ADJ_STATUS(M, STAT_DROWSY, -6 * removed)
 		M.adjust_hallucination(-9 * removed)
-		M.add_up_to_chemical_effect(CE_ANTITOX, 1)
+		M.add_chemical_effect(CE_ANTITOX, 1)
 
 	var/removing = (4 * removed)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
@@ -248,7 +256,7 @@
 		M.dna.ResetUI()
 		M.dna.ResetSE()
 		domutcheck(M, null, MUTCHK_FORCED)
-		M.update_icons()
+		M.update_icon()
 
 /decl/material/liquid/adrenaline
 	name = "adrenaline"
@@ -302,7 +310,9 @@
 	value = 1.5
 
 /decl/material/liquid/regenerator/affect_blood(var/mob/living/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.heal_organ_damage(3 * removed, 3 * removed)
+	..()
+	M.add_chemical_effect_max(CE_REGEN_BRUTE, 3 * removed)
+	M.add_chemical_effect_max(CE_REGEN_BURN, 3 * removed)
 
 /decl/material/liquid/neuroannealer
 	name = "neuroannealer"
@@ -327,6 +337,7 @@
 	name = "oxygel"
 	lore_text = "A biodegradable gel full of oxygen-laden synthetic molecules. Injected into suffocation victims to stave off the effects of oxygen deprivation."
 	taste_description = "tasteless slickness"
+	scannable = 1
 	color = COLOR_GRAY80
 
 /decl/material/liquid/oxy_meds/affect_blood(var/mob/living/M, var/alien, var/removed, var/datum/reagents/holder)

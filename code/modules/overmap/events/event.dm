@@ -1,23 +1,25 @@
-/var/decl/overmap_event_handler/overmap_event_handler = new()
-
 /decl/overmap_event_handler
 	var/list/hazard_by_turf
 	var/list/ship_events
 
-/decl/overmap_event_handler/New()
-	..()
+/decl/overmap_event_handler/Initialize()
+	. = ..()
 	hazard_by_turf = list()
 	ship_events = list()
 
-/decl/overmap_event_handler/proc/create_events(var/z_level, var/overmap_size, var/number_of_events)
+/decl/overmap_event_handler/proc/create_events(var/datum/overmap/overmap)
+
+	if(!length(overmap.valid_event_types))
+		return
+
 	// Acquire the list of not-yet utilized overmap turfs on this Z-level
-	var/list/candidate_turfs = block(locate(OVERMAP_EDGE, OVERMAP_EDGE, z_level),locate(overmap_size - OVERMAP_EDGE, overmap_size - OVERMAP_EDGE,z_level))
+	var/list/candidate_turfs = block(locate(OVERMAP_EDGE, OVERMAP_EDGE, overmap.assigned_z),locate(overmap.map_size_x - OVERMAP_EDGE, overmap.map_size_y - OVERMAP_EDGE, overmap.assigned_z))
 	candidate_turfs = where(candidate_turfs, /proc/can_not_locate, /obj/effect/overmap/visitable)
 
-	for(var/i = 1 to number_of_events)
+	for(var/i = 1 to overmap.event_areas)
 		if(!candidate_turfs.len)
 			break
-		var/overmap_event_type = pick(subtypesof(/datum/overmap_event))
+		var/overmap_event_type = pick(overmap.valid_event_types)
 		var/datum/overmap_event/datum_spawn = new overmap_event_type
 
 		var/list/event_turfs = acquire_event_turfs(datum_spawn.count, datum_spawn.radius, candidate_turfs, datum_spawn.continuous)
@@ -124,13 +126,13 @@
 
 	if(!active_hazards.len)
 		hazard_by_turf -= T
-		GLOB.entered_event.unregister(T, src, /decl/overmap_event_handler/proc/on_turf_entered)
-		GLOB.exited_event.unregister(T, src, /decl/overmap_event_handler/proc/on_turf_exited)
+		events_repository.unregister(/decl/observ/entered, T, src, .proc/on_turf_entered)
+		events_repository.unregister(/decl/observ/exited,  T, src, .proc/on_turf_exited)
 	else
 		hazard_by_turf |= T
 		hazard_by_turf[T] = active_hazards
-		GLOB.entered_event.register(T, src,/decl/overmap_event_handler/proc/on_turf_entered)
-		GLOB.exited_event.register(T, src, /decl/overmap_event_handler/proc/on_turf_exited)
+		events_repository.register(/decl/observ/entered, T, src, .proc/on_turf_entered)
+		events_repository.register(/decl/observ/exited,  T, src, .proc/on_turf_exited)
 
 	for(var/obj/effect/overmap/visitable/ship/ship in T)
 		for(var/datum/event/E in ship_events[ship])
@@ -183,7 +185,7 @@
 /obj/effect/overmap/event/Initialize()
 	. = ..()
 	icon_state = pick(event_icon_states)
-	overmap_event_handler.update_hazards(loc)
+	SSmapping.overmap_event_handler.update_hazards(loc)
 	if(LAZYLEN(colors))
 		color = pick(colors)
 
@@ -191,20 +193,20 @@
 	var/turf/old_loc = loc
 	. = ..()
 	if(.)
-		overmap_event_handler.update_hazards(old_loc)
-		overmap_event_handler.update_hazards(loc)
+		SSmapping.overmap_event_handler.update_hazards(old_loc)
+		SSmapping.overmap_event_handler.update_hazards(loc)
 
 /obj/effect/overmap/event/forceMove(atom/destination)
 	var/old_loc = loc
 	. = ..()
 	if(.)
-		overmap_event_handler.update_hazards(old_loc)
-		overmap_event_handler.update_hazards(loc)
+		SSmapping.overmap_event_handler.update_hazards(old_loc)
+		SSmapping.overmap_event_handler.update_hazards(loc)
 
 /obj/effect/overmap/event/Destroy()//takes a look at this one as well, make sure everything is A-OK
 	var/turf/T = loc
 	. = ..()
-	overmap_event_handler.update_hazards(T)
+	SSmapping.overmap_event_handler.update_hazards(T)
 
 /obj/effect/overmap/event/meteor
 	name = "asteroid field"
@@ -262,6 +264,7 @@
 	var/hazards
 	var/opacity = 1
 	var/continuous = TRUE //if it should form continous blob, or can have gaps
+	var/overmap_id = OVERMAP_ID_SPACE
 
 /datum/overmap_event/meteor
 	name = "asteroid field"

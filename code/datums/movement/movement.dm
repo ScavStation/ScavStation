@@ -1,7 +1,7 @@
-var/const/MOVEMENT_HANDLED = BITFLAG(0) // If no further movement handling should occur after this
-var/const/MOVEMENT_REMOVE  = BITFLAG(1)
-var/const/MOVEMENT_PROCEED = BITFLAG(2)
-var/const/MOVEMENT_STOP    = BITFLAG(3)
+var/global/const/MOVEMENT_HANDLED = BITFLAG(0) // If no further movement handling should occur after this
+var/global/const/MOVEMENT_REMOVE  = BITFLAG(1)
+var/global/const/MOVEMENT_PROCEED = BITFLAG(2)
+var/global/const/MOVEMENT_STOP    = BITFLAG(3)
 
 #define INIT_MOVEMENT_HANDLERS \
 if(LAZYLEN(movement_handlers) && ispath(movement_handlers[1])) { \
@@ -87,7 +87,7 @@ if(LAZYLEN(movement_handlers) && ispath(movement_handlers[1])) { \
 		var/oldloc = loc
 		var/turf/T = get_step(loc, direction)
 		if(istype(T))
-			if(direction in GLOB.cornerdirs) // Diagonal movement with step() currently breaks
+			if(direction in global.cornerdirs) // Diagonal movement with step() currently breaks
 				forceMove(T)                 // grabs, remove these lines when that is fixed.
 			else
 				step(src, direction)
@@ -96,7 +96,7 @@ if(LAZYLEN(movement_handlers) && ispath(movement_handlers[1])) { \
 	for(var/mh in movement_handlers)
 		var/datum/movement_handler/movement_handler = mh
 		if(movement_handler.MayMove(mover, is_external) & MOVEMENT_STOP)
-			return MOVEMENT_HANDLED
+			return MOVEMENT_STOP
 
 		. = movement_handler.DoMove(direction, mover, is_external)
 		if(. & MOVEMENT_REMOVE)

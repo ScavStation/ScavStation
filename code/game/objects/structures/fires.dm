@@ -150,7 +150,7 @@
 		else
 			visible_message(SPAN_NOTICE("\The [user] removes \the [removing] from \the [src]."))
 		return TRUE
-	
+
 	if(lit != FIRE_LIT && user.a_intent == I_HURT)
 		to_chat(user, SPAN_DANGER("You start stomping on \the [src], trying to destroy it."))
 		if(do_after(user, 5 SECONDS, src))
@@ -231,7 +231,7 @@
 			var/obj/item/stack/stack = thing
 			if(stack.material.fuel_value > 0)
 				var/fuel_per_unit = 2 * stack.material.fuel_value
-				var/use_stacks = min(stack.amount, Floor((IDEAL_FUEL - fuel) / fuel_per_unit))
+				var/use_stacks = min(stack.amount, FLOOR((IDEAL_FUEL - fuel) / fuel_per_unit))
 				var/add_fuel = round(fuel_per_unit * use_stacks)
 				if(stack.material.burn_product)
 					if(waste[stack.material.burn_product])
@@ -330,13 +330,13 @@
 		if(FIRE_LIT)
 			if(fuel >= HIGH_FUEL)
 				add_overlay("[icon_state]_lit")
-				set_light(l_max_bright = light_power_high, l_outer_range = light_range_high, l_color = light_color_high)
+				set_light(light_range_high, light_power_high, light_color_high)
 			else if(fuel <= LOW_FUEL)
 				add_overlay("[icon_state]_lit_dying")
-				set_light(l_max_bright = light_power_low,  l_outer_range = light_range_mid,  l_color = light_color_low)
+				set_light(light_range_mid, light_power_mid, light_color_mid)
 			else
 				add_overlay("[icon_state]_lit_low")
-				set_light(l_max_bright = light_power_mid,  l_outer_range = light_range_low,  l_color = light_color_mid)
+				set_light(light_range_low, light_power_low, light_color_low)
 
 		if(FIRE_DEAD)
 			add_overlay("[icon_state]_burnt")

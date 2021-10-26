@@ -4,8 +4,6 @@
 	name = "orbital station"
 	desc = "Sensors detect an orbital station above the exoplanet. Sporadic magentic impulses are registred inside it. Planet landing is impossible due to lower orbits being cluttered with chaotically moving metal chunks."
 	icon_state = "object"
-	known = 0
-
 	initial_generic_waypoints = list(
 		"nav_magshield_1",
 		"nav_magshield_2",
@@ -49,8 +47,8 @@
 	icon_state = "maggen"
 	anchored = 1
 	density = 1
-	light_outer_range = 3
-	light_max_bright = 1
+	light_range = 3
+	light_power = 1
 	light_color = "#ffea61"
 	var/heavy_range = 10
 	var/lighter_range = 20
@@ -98,9 +96,7 @@
 			return
 		R.use(1)
 		visible_message("<span class='warning'>\The [src] stops rotating and releases cloud of sparks. Better get to safe distance!</span>")
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(10, 0, src)
-		s.start()
+		spark_at(src, amount=10)
 		sleep(50)
 		visible_message("<span class='warning'>\The [src] explodes!</span>")
 		var/turf/T = get_turf(src)
@@ -125,13 +121,14 @@
 	icon_state = "nav_light_green"
 	anchored = 1
 	density = 1
-	light_outer_range = 10
-	light_max_bright = 1
+	light_range = 10
+	light_power = 1
 	light_color = "#00ee00"
 
 /obj/structure/magshield/nav_light/Initialize()
 	. = ..()//try make flashing through the process
-	set_light(light_max_bright, light_outer_range / 6, light_outer_range, 2, light_color)
+	set_light(light_range, light_power, light_color)
+
 
 /obj/structure/magshield/nav_light/red
 	desc = "Large and bright light regularly emitting red flashes."

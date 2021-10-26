@@ -19,7 +19,7 @@
 	var/datum/computer_file/data/email_message/current_message = null
 	var/error = ""
 
-/datum/nano_module/program/email_administration/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/program/email_administration/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = global.default_topic_state)
 	var/list/data = host.initial_data()
 
 	data += "skill_fail"
@@ -28,11 +28,10 @@
 		data["skill_fail"] = fake_data.update_and_return_data()
 	data["terminal"] = !!program
 
-	var/datum/computer_network/network = program.computer.get_network()
+	var/datum/computer_network/network = program?.computer?.get_network()
 	if(!network)
 		error = "NETWORK FAILURE: Check connection to the network."
-
-	if(!length(network.get_mainframes_by_role(MF_ROLE_EMAIL_SERVER, user)))
+	else if(!length(network.get_mainframes_by_role(MF_ROLE_EMAIL_SERVER, user)))
 		error = "NETWORK FAILURE: No email servers detected."
 
 	if(error)
@@ -89,7 +88,7 @@
 	if(!user.skill_check(SKILL_COMPUTER, SKILL_BASIC))
 		return TOPIC_HANDLED
 
-	var/datum/computer_network/network = program.computer.get_network()
+	var/datum/computer_network/network = program?.computer?.get_network()
 	if(!network)
 		return TOPIC_HANDLED
 	if(!length(network.mainframes[MF_ROLE_EMAIL_SERVER]))
@@ -150,7 +149,7 @@
 		return TOPIC_REFRESH
 
 	if(href_list["newaccount"])
-		var/newdomain = sanitize(input(user,"Pick domain:", "Domain name") as null|anything in GLOB.using_map.usable_email_tlds)
+		var/newdomain = sanitize(input(user,"Pick domain:", "Domain name") as null|anything in global.using_map.usable_email_tlds)
 		if(!newdomain)
 			return TOPIC_HANDLED
 		var/newlogin = sanitize(input(user,"Pick account name (@[newdomain]):", "Account name"), 100)

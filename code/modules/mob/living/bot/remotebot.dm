@@ -32,13 +32,11 @@
 		controller.bot = null
 		controller = null
 	for(var/i in 1 to rand(3,5))
-		var/obj/item/stack/material/cardboard/C = new(src.loc)
+		var/obj/item/stack/material/cardstock/mapped/cardboard/C = new(src.loc)
 		if(prob(50))
-			C.forceMove(get_step(src, pick(GLOB.alldirs)))
+			C.forceMove(get_step(src, pick(global.alldirs)))
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(3, 1, src)
-	s.start()
+	spark_at(src, cardinal_only = TRUE)
 	qdel(src)
 
 /mob/living/bot/remotebot/attackby(var/obj/item/I, var/mob/user)
@@ -50,7 +48,8 @@
 		controller = B
 	return ..()
 
-/mob/living/bot/remotebot/update_icons()
+/mob/living/bot/remotebot/on_update_icon()
+	..()
 	icon_state = "fetchbot[on]"
 
 /mob/living/bot/remotebot/Destroy()

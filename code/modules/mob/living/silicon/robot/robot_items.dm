@@ -52,7 +52,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] already has something inside.  Analyze or eject it first."))
 		return
 	var/obj/item/I = target
-	var/tech = I.get_origin_tech() 
+	var/tech = I.get_origin_tech()
 	if(!tech)
 		to_chat(user, SPAN_WARNING("\The [I] has no interesting data to analyze."))
 		return
@@ -89,7 +89,7 @@
 /obj/item/party_light/on_update_icon()
 	if (activated)
 		icon_state = "partylight-on"
-		set_light(1, 1, 7)
+		set_light(7, 1)
 	else
 		icon_state = "partylight_off"
 		set_light(0)
@@ -103,7 +103,7 @@
 	strobe_effect = L
 
 	// Make the light effect follow this party light object.
-	GLOB.moved_event.register(src, L, /atom/movable/proc/move_to_turf_or_null)
+	events_repository.register(/decl/observ/moved, src, L, /atom/movable/proc/move_to_turf_or_null)
 
 	update_icon()
 
@@ -111,7 +111,7 @@
 	activated = 0
 
 	// Cause the party light effect to stop following this object, and then delete it.
-	GLOB.moved_event.unregister(src, strobe_effect, /atom/movable/proc/move_to_turf_or_null)
+	events_repository.unregister(/decl/observ/moved, src, strobe_effect, /atom/movable/proc/move_to_turf_or_null)
 	QDEL_NULL(strobe_effect)
 
 	update_icon()
@@ -303,7 +303,7 @@
 	if(!user.Adjacent(A))
 		to_chat(user, "You can't reach!")
 		return
-	if(istype(A, /turf))
+	if(isturf(A))
 		try_deploy_inflatable(A, user)
 	if(istype(A, /obj/item/inflatable) || istype(A, /obj/structure/inflatable))
 		pick_up(A, user)
@@ -422,8 +422,8 @@
 	var/base_power_generation = 75 KILOWATTS
 	var/max_fuel_items = 5
 	var/list/fuel_types = list(
-		/obj/item/chems/food/snacks/meat = 2,
-		/obj/item/chems/food/snacks/fish = 1.5
+		/obj/item/chems/food/meat = 2,
+		/obj/item/chems/food/fish = 1.5
 	)
 
 /obj/item/bioreactor/attack_self(var/mob/user)
@@ -438,7 +438,7 @@
 	if(!proximity_flag || !istype(target))
 		return
 
-	var/is_fuel = istype(target, /obj/item/chems/food/snacks/grown)
+	var/is_fuel = istype(target, /obj/item/chems/food/grown)
 	is_fuel = is_fuel || is_type_in_list(target, fuel_types)
 
 	if(!is_fuel)
@@ -469,7 +469,7 @@
 
 	for(var/thing in contents)
 		var/atom/A = thing
-		if(istype(A, /obj/item/chems/food/snacks/grown))
+		if(istype(A, /obj/item/chems/food/grown))
 			generating_power = base_power_generation
 			using_item = A
 		else

@@ -1,4 +1,4 @@
-var/list/responsive_carriers = list(
+var/global/list/responsive_carriers = list(
 	/decl/material/solid/carbon          = "Trace organic cells",
 	/decl/material/solid/potassium       = "Long exposure particles",
 	/decl/material/liquid/fuel/hydrazine = "Trace water particles",
@@ -73,7 +73,7 @@ var/list/responsive_carriers = list(
 	return
 
 /decl/archaeological_find/proc/generate_engravings(obj/item/I)
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[get_z(I)]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = global.overmap_sectors["[get_z(I)]"]
 	. = "[pick("Engraved","Carved","Etched")] on the item is [pick("an image of","a frieze of","a depiction of")] "
 	if(istype(E))
 		. += E.get_engravings()

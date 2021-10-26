@@ -186,8 +186,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/dyabs=abs(dy)
 	var/sdx=sign(dx)	//Sign of x distance (+ or -)
 	var/sdy=sign(dy)
-	var/x=dxabs>>1	//Counters for steps taken, setting to distance/2
-	var/y=dyabs>>1	//Bit-shifting makes me l33t.  It also makes getline() unnessecarrily fast.
+	var/x=BITSHIFT_RIGHT(dxabs,1)	//Counters for steps taken, setting to distance/2
+	var/y=BITSHIFT_RIGHT(dyabs,1)	//Bit-shifting makes me l33t.  It also makes getline() unnessecarrily fast.
 	var/j			//Generic integer for counting
 	if(dxabs>=dyabs)	//x distance is greater than y
 		for(j=0;j<dxabs;j++)//It'll take dxabs steps to get there
@@ -234,6 +234,33 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 #undef LOCATE_COORDS
 
+#define LOCATE_COORDS_SAFE(X, Y, Z) locate(between(TRANSITIONEDGE + 1, X, world.maxx - TRANSITIONEDGE), between(TRANSITIONEDGE + 1, Y, world.maxy - TRANSITIONEDGE), Z)
+/proc/getcirclesafe(turf/center, var/radius) //Uses a fast Bresenham rasterization algorithm to return the turfs in a thin circle.
+	if(!radius) return list(center)
+
+	var/x = 0
+	var/y = radius
+	var/p = 3 - 2 * radius
+
+	. = list()
+	while(y >= x) // only formulate 1/8 of circle
+
+		. += LOCATE_COORDS_SAFE(center.x - x, center.y - y, center.z) //upper left left
+		. += LOCATE_COORDS_SAFE(center.x - y, center.y - x, center.z) //upper upper left
+		. += LOCATE_COORDS_SAFE(center.x + y, center.y - x, center.z) //upper upper right
+		. += LOCATE_COORDS_SAFE(center.x + x, center.y - y, center.z) //upper right right
+		. += LOCATE_COORDS_SAFE(center.x - x, center.y + y, center.z) //lower left left
+		. += LOCATE_COORDS_SAFE(center.x - y, center.y + x, center.z) //lower lower left
+		. += LOCATE_COORDS_SAFE(center.x + y, center.y + x, center.z) //lower lower right
+		. += LOCATE_COORDS_SAFE(center.x + x, center.y + y, center.z) //lower right right
+
+		if(p < 0)
+			p += 4*x++ + 6;
+		else
+			p += 4*(x++ - y--) + 10;
+
+#undef LOCATE_COORDS_SAFE
+
 //Returns whether or not a player is a guest using their ckey as an input
 /proc/IsGuestKey(key)
 	if (findtext(key, "Guest-", 1, 7) != 1) //was findtextEx
@@ -277,7 +304,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if((world.time-time_passed) > 5 MINUTES)
 			return	//took too long
 		newname = sanitizeName(newname, ,allow_numbers)	//returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
-		for(var/mob/living/M in GLOB.player_list)
+		for(var/mob/living/M in global.player_list)
 			if(M == src)
 				continue
 			if(!newname || M.real_name == newname)
@@ -300,7 +327,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	var/select = null
 	var/list/borgs = list()
-	for (var/mob/living/silicon/robot/A in GLOB.player_list)
+	for (var/mob/living/silicon/robot/A in global.player_list)
 		if (A.stat == 2 || A.connected_ai || A.scrambledcodes || istype(A,/mob/living/silicon/robot/drone) || !(get_z(A) in zs))
 			continue
 		var/name = "[A.real_name] ([A.modtype] [A.braintype])"
@@ -315,7 +342,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/list/zs = get_valid_silicon_zs(z)
 
 	. = list()
-	for(var/mob/living/silicon/ai/A in GLOB.living_mob_list_)
+	for(var/mob/living/silicon/ai/A in global.living_mob_list_)
 		if(A.stat == DEAD || A.control_disabled || !(get_z(A) in zs))
 			continue
 		. += A
@@ -425,12 +452,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value. Lower bound takes priority.
 /proc/between(var/low, var/middle, var/high)
 	return max(min(middle, high), low)
-
-#if DM_VERSION < 513
-/proc/arctan(x)
-	var/y=arcsin(x/sqrt(1+x*x))
-	return y
-#endif
 
 //Will return the contents of an atom recursivly to a depth of 'searchDepth'
 /atom/proc/GetAllContents(searchDepth = 5)
@@ -631,12 +652,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 					copiedobjs += newobjs
 					copiedobjs += newmobs
 
-//					var/area/AR = X.loc
-
-//					if(AR.dynamic_lighting)
-//						X.opacity = !X.opacity
-//						X.sd_SetOpacity(!X.opacity)			//TODO: rewrite this code so it's not messed by lighting ~Carn
-
 					toupdate += X
 
 					refined_src -= T
@@ -687,21 +702,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		loc = loc.loc
 	return null
 
-//Quick type checks for some tools
-var/global/list/common_tools = list(
-/obj/item/stack/cable_coil,
-/obj/item/wrench,
-/obj/item/weldingtool,
-/obj/item/screwdriver,
-/obj/item/wirecutters,
-/obj/item/multitool,
-/obj/item/crowbar)
-
-/proc/istool(O)
-	if(O && is_type_in_list(O, common_tools))
-		return 1
-	return 0
-
 //Whether or not the given item counts as sharp in terms of dealing damage
 /proc/is_sharp(obj/O)
 	if (!O) return 0
@@ -745,7 +745,7 @@ var/global/list/common_tools = list(
 /*
 Checks if that loc and dir has a item on the wall
 */
-var/list/WALLITEMS = list(
+var/global/list/WALLITEMS = list(
 	/obj/machinery/power/apc, /obj/machinery/alarm, /obj/item/radio/intercom,
 	/obj/structure/extinguisher_cabinet, /obj/structure/reagent_dispensers/peppertank,
 	/obj/machinery/status_display, /obj/machinery/network/requests_console, /obj/machinery/light_switch, /obj/structure/sign,

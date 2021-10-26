@@ -7,9 +7,7 @@
 	var/language_types = decls_repository.get_decls_of_subtype(/decl/language)
 	for(var/langname in language_types)
 		var/decl/language/L = language_types[langname]
-		if(L.hidden_from_codex)
-			continue
-		if(L.type == L.category)
+		if(L.hidden_from_codex || L.is_abstract())
 			continue
 		var/list/lang_info = list()
 		var/decl/prefix/P = /decl/prefix/language
@@ -34,6 +32,6 @@
 		var/datum/codex_entry/entry = new(_display_name = "[L.name] (language)", _lore_text = jointext(lang_lore, "<br>"), _mechanics_text = jointext(lang_info, "<br>"))
 		entry.associated_strings += L.name
 		entry.associated_strings += L.shorthand
-		SScodex.add_entry_by_string(entry.display_name, entry)
-		items += entry.display_name
+		SScodex.add_entry_by_string(entry.name, entry)
+		items |= entry.name
 	. = ..()

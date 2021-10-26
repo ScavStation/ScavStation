@@ -1,6 +1,7 @@
 /turf/simulated
 	name = "station"
 	initial_gas = list(/decl/material/gas/oxygen = MOLES_O2STANDARD, /decl/material/gas/nitrogen = MOLES_N2STANDARD)
+	open_turf_type = /turf/simulated/open
 	var/wet = 0
 	var/image/wet_overlay = null
 	var/to_be_destroyed = 0 //Used for fire, if a melting temperature was reached, it will be destroyed
@@ -11,10 +12,10 @@
 // This is not great.
 /turf/simulated/proc/wet_floor(var/wet_val = 1, var/overwrite = FALSE)
 
-	if(locate(/obj/effect/flood) in src)
+	if(is_flooded(absolute = TRUE))
 		return
 
-	if(get_fluid_depth() > FLUID_EVAPORATION_POINT)
+	if(get_fluid_depth() > FLUID_QDEL_POINT)
 		return
 
 	if(wet_val < wet && !overwrite)
@@ -41,12 +42,6 @@
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
 		B.clean_blood()
 	. = ..()
-
-/turf/simulated/Initialize()
-	. = ..()
-	if(istype(loc, /area/chapel))
-		holy = 1
-	levelupdate()
 
 /turf/simulated/proc/AddTracks(var/typepath,var/bloodDNA,var/comingdir,var/goingdir,var/bloodcolor=COLOR_BLOOD_HUMAN)
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
@@ -122,6 +117,7 @@
 			if(istype(stomper) && !stomper.is_stump() && stomper.coating && stomper.coating.total_volume > 1)
 				source = stomper
 	if(!source)
+		species.handle_trail(src, T)
 		return
 
 	var/list/bloodDNA
@@ -137,7 +133,7 @@
 
 	if(species.get_move_trail(src))
 		T.AddTracks(species.get_move_trail(src),bloodDNA, dir, 0, bloodcolor) // Coming
-		var/turf/simulated/from = get_step(src, GLOB.reverse_dir[dir])
+		var/turf/simulated/from = get_step(src, global.reverse_dir[dir])
 		if(istype(from))
 			from.AddTracks(species.get_move_trail(src), bloodDNA, 0, dir, bloodcolor) // Going
 
@@ -148,11 +144,9 @@
 
 	if(istype(M))
 		for(var/obj/effect/decal/cleanable/blood/B in contents)
-			if(!B.blood_DNA)
-				B.blood_DNA = list()
-			if(!B.blood_DNA[M.dna.unique_enzymes])
-				B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-				B.blood_data[M.dna.unique_enzymes] = REAGENT_DATA(M.vessel, M.species.blood_reagent)
+			if(!LAZYACCESS(B.blood_DNA, M.dna.unique_enzymes))
+				LAZYSET(B.blood_DNA, M.dna.unique_enzymes, M.dna.b_type)
+				LAZYSET(B.blood_data, M.dna.unique_enzymes, REAGENT_DATA(M.vessel, M.species.blood_reagent))
 				var/datum/extension/forensic_evidence/forensics = get_or_create_extension(B, /datum/extension/forensic_evidence)
 				forensics.add_data(/datum/forensics/blood_dna, M.dna.unique_enzymes)
 			return 1 //we bloodied the floor
@@ -178,10 +172,15 @@
 		return TRUE
 	return ..()
 
-/turf/simulated/Initialize()
-	if(GAME_STATE >= RUNLEVEL_GAME)
-		fluid_update()
+/turf/simulated/Initialize(var/ml)
+	var/area/A = loc
+	holy = istype(A) && (A.area_flags & AREA_FLAG_HOLY)
+	levelupdate()
 	. = ..()
+
+/turf/simulated/initialize_ambient_light(var/mapload)
+	for(var/turf/T AS_ANYTHING in RANGE_TURFS(src, 1))
+		T.update_ambient_light(mapload)
 
 /turf/simulated/Destroy()
 	if (zone)
@@ -190,4 +189,4 @@
 			zone.remove(src)
 		else
 			zone.rebuild()
-	. = ..() 
+	. = ..()

@@ -1,24 +1,70 @@
-var/list/pheromone_markers = list()
+var/global/list/pheromone_markers = list()
 
 /decl/species/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	if(H)
 		H.update_pheromone_markers()
-	
+
+/decl/bodytype/indrel
+	name = "indrel"
+	bodytype_category = BODYTYPE_INDREL
+	bodytype_flag =     BODY_FLAG_INDREL
+	icon_base =         'mods/valsalia/icons/species/indrel/body.dmi'
+	damage_overlays =   'mods/valsalia/icons/species/indrel/damage_overlay.dmi'
+	damage_mask =       'mods/valsalia/icons/species/indrel/damage_mask.dmi'
+	blood_mask =        'mods/valsalia/icons/species/indrel/blood_mask.dmi'
+	icon_template =     'mods/valsalia/icons/species/indrel/template.dmi'
+
+/decl/bodytype/indrel/Initialize()
+	. = ..()
+	equip_adjust = list(
+		slot_head_str = list(
+			"[NORTH]" = list("x" =  0, "y" = 3),
+			"[EAST]" =  list("x" =  3, "y" = 3),
+			"[WEST]" =  list("x" = -3, "y" = 3),
+			"[SOUTH]" = list("x" =  0, "y" = 3)
+		),
+		slot_wear_suit_str = list(
+			"[NORTH]" = list("x" =  0, "y" = 3),
+			"[EAST]" =  list("x" =  1, "y" = 3),
+			"[WEST]" =  list("x" = -1, "y" = 3),
+			"[SOUTH]" = list("x" =  0, "y" = 3)
+		),
+		slot_back_str = list(
+			"[NORTH]" = list("x" =  0, "y" = 3),
+			"[EAST]" =  list("x" =  3, "y" = 3),
+			"[WEST]" =  list("x" = -3, "y" = 3),
+			"[SOUTH]" = list("x" =  0, "y" = 3)
+		),
+		slot_belt_str = list(
+			"[NORTH]" = list("x" =  0, "y" = 1),
+			"[EAST]" =  list("x" =  1, "y" = 1),
+			"[WEST]" =  list("x" = -1, "y" = 1),
+			"[SOUTH]" = list("x" =  0, "y" = 1)
+		),
+		slot_glasses_str = list(
+			"[NORTH]" = list("x" =  0, "y" = 4),
+			"[EAST]" =  list("x" =  3, "y" = 4),
+			"[WEST]" =  list("x" = -3, "y" = 4),
+			"[SOUTH]" = list("x" =  0, "y" = 4)
+		),
+		slot_wear_mask_str = list(
+			"[NORTH]" = list("x" =  0, "y" = 4),
+			"[EAST]" =  list("x" =  3, "y" = 4),
+			"[WEST]" =  list("x" = -3, "y" = 4),
+			"[SOUTH]" = list("x" =  0, "y" = 4)
+		)
+	)	
 /decl/species/indrel
 	name = SPECIES_INDREL
 	name_plural = SPECIES_INDREL
-	bodytype = BODYTYPE_INDREL
-	icobase =         'mods/valsalia/icons/species/indrel/body.dmi'
-	deform =          'mods/valsalia/icons/species/indrel/body.dmi'
-	preview_icon =    'mods/valsalia/icons/species/indrel/preview.dmi'
-	damage_overlays = 'mods/valsalia/icons/species/indrel/damage_overlay.dmi'
-	damage_mask =     'mods/valsalia/icons/species/indrel/damage_mask.dmi'
-	blood_mask =      'mods/valsalia/icons/species/indrel/blood_mask.dmi'
-	icon_template =   'mods/valsalia/icons/species/indrel/template.dmi'
 
 	sniff_message_3p = "waves their antennae."
 	sniff_message_1p = "You wave your antennae, searching for scents."
+
+	available_bodytypes = list(
+		/decl/bodytype/indrel
+	)
 
 	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_EYE_COLOR
@@ -94,13 +140,13 @@ var/list/pheromone_markers = list()
 		if(caseperiod <= 0)
 			caseperiod = rand(2,10)
 			upperset = prob(33)
-		if((add_char in GLOB.alphabet_no_vowels) && prob(15))
+		if((add_char in global.alphabet_no_vowels) && prob(15))
 			for(var/j = 1 to rand(2,4))
 				. += add_char
 		. += add_char
 	. = capitalize(trim(.))
 
-/decl/species/indrel/New()
+/decl/species/indrel/Initialize()
 	default_emotes |= list(
 		/decl/emote/pheromone/fear,
 		/decl/emote/pheromone/calm,
@@ -113,45 +159,7 @@ var/list/pheromone_markers = list()
 		/decl/emote/pheromone/sad,
 		/decl/emote/pheromone/custom
 	)
-	equip_adjust = list(
-		slot_head_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  3, "y" = 3),
-			"[WEST]" =  list("x" = -3, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
-		),
-		slot_wear_suit_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  1, "y" = 3),
-			"[WEST]" =  list("x" = -1, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
-		),
-		slot_back_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  3, "y" = 3),
-			"[WEST]" =  list("x" = -3, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
-		),
-		slot_belt_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 1),
-			"[EAST]" =  list("x" =  1, "y" = 1),
-			"[WEST]" =  list("x" = -1, "y" = 1),
-			"[SOUTH]" = list("x" =  0, "y" = 1)
-		),
-		slot_glasses_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 4),
-			"[EAST]" =  list("x" =  3, "y" = 4),
-			"[WEST]" =  list("x" = -3, "y" = 4),
-			"[SOUTH]" = list("x" =  0, "y" = 4)
-		),
-		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 4),
-			"[EAST]" =  list("x" =  3, "y" = 4),
-			"[WEST]" =  list("x" = -3, "y" = 4),
-			"[SOUTH]" = list("x" =  0, "y" = 4)
-		)
-	)
-	..()
+	. = ..()
 
 /datum/extension/scent/custom/pheromone/check_smeller(var/mob/living/carbon/human/smeller)
 	. = (..() && istype(smeller) && smeller.can_read_pheromones())
@@ -193,7 +201,7 @@ var/list/pheromone_markers = list()
 	addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 1 MINUTE)
 	marker = image(loc = src, icon = 'icons/effects/blood.dmi', icon_state = pick(list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")))
 	marker.alpha = 90
-	marker.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	marker.plane = ABOVE_LIGHTING_PLANE
 	marker.layer = ABOVE_LIGHTING_LAYER
 
 /obj/effect/decal/cleanable/pheromone/Destroy()

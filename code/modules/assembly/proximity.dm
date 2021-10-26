@@ -5,8 +5,8 @@
 	origin_tech = "{'magnets':1}"
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/slag = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/copper = MATTER_AMOUNT_TRACE
 	)
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	wires = WIRE_PULSE
@@ -82,11 +82,8 @@
 
 
 /obj/item/assembly/prox_sensor/dropped()
-	spawn(0)
-		sense()
-		return
-	return
-
+	. = ..()
+	addtimer(CALLBACK(src, .proc/sense), 0)
 
 /obj/item/assembly/prox_sensor/toggle_scan()
 	if(!secured)	return 0
@@ -127,7 +124,7 @@
 	return
 
 
-/obj/item/assembly/prox_sensor/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/assembly/prox_sensor/Topic(href, href_list, state = global.physical_topic_state)
 	if((. = ..()))
 		close_browser(usr, "window=prox")
 		onclose(usr, "prox")

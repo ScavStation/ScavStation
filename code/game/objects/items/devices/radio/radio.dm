@@ -28,7 +28,7 @@
 	throw_range = 9
 	w_class = ITEM_SIZE_SMALL
 
-	material = /decl/material/solid/glass
+	material = /decl/material/solid/fiberglass
 	matter = list(/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
@@ -41,6 +41,8 @@
 
 	var/last_radio_sound = -INFINITY
 
+	var/intercom_handling = FALSE
+
 /obj/item/radio/proc/set_frequency(new_frequency)
 	radio_controller.remove_object(src, frequency)
 	frequency = new_frequency
@@ -51,8 +53,8 @@
 	wires = new(src)
 	if(ispath(cell))
 		cell = new(src)
-	internal_channels = GLOB.using_map.default_internal_channels()
-	GLOB.listening_objects += src
+	internal_channels = global.using_map.default_internal_channels()
+	global.listening_objects += src
 
 	if(frequency < RADIO_LOW_FREQ || frequency > RADIO_HIGH_FREQ)
 		frequency = sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
@@ -63,7 +65,7 @@
 
 /obj/item/radio/Destroy()
 	QDEL_NULL(wires)
-	GLOB.listening_objects -= src
+	global.listening_objects -= src
 	if(radio_controller)
 		radio_controller.remove_object(src, frequency)
 		for (var/ch_name in channels)
@@ -343,11 +345,11 @@
 
 	// --- AI ---
 	else if (isAI(M))
-		jobname = "AI"
+		jobname = ASSIGNMENT_COMPUTER
 
 	// --- Cyborg ---
 	else if (isrobot(M))
-		jobname = "Robot"
+		jobname = ASSIGNMENT_ROBOT
 
 	// --- Personal AI (pAI) ---
 	else if (istype(M, /mob/living/silicon/pai))
@@ -801,7 +803,7 @@
 
 /obj/item/radio/announcer/Initialize()
 	. = ..()
-	forceMove(locate(1,1,GLOB.using_map.contact_levels.len ? GLOB.using_map.contact_levels[1] : 1))
+	forceMove(locate(1,1,global.using_map.contact_levels.len ? global.using_map.contact_levels[1] : 1))
 
 /obj/item/radio/announcer/subspace
 	subspace_transmission = 1
@@ -816,10 +818,10 @@
 
 /obj/item/radio/phone/medbay
 	frequency = MED_I_FREQ
-
+	
 /obj/item/radio/phone/medbay/Initialize()
 	. = ..()
-	internal_channels = GLOB.default_medbay_channels.Copy()
+	internal_channels = global.default_medbay_channels.Copy()
 
 /obj/item/radio/CouldUseTopic(var/mob/user)
 	..()
@@ -839,6 +841,7 @@
 /obj/item/radio/exosuit
 	name = "exosuit radio"
 	cell = null
+	intercom_handling = TRUE
 
 /obj/item/radio/exosuit/get_cell()
 	. = ..()
@@ -868,5 +871,5 @@
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.mech_state)
+/obj/item/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = global.mech_topic_state)
 	. = ..()

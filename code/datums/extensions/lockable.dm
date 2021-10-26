@@ -60,8 +60,8 @@
 	if(href_list["key"] == "E")
 		if(!l_set && !l_setshort)
 			// We're in lock set mode.
-			if(length(code) < Floor(max_code_length * 0.5) || length(code) > max_code_length)
-				error = "Incorrect code length. Must be between [Floor(max_code_length * 0.5)] and [max_code_length] numbers long."
+			if(length(code) < FLOOR(max_code_length * 0.5) || length(code) > max_code_length)
+				error = "Incorrect code length. Must be between [FLOOR(max_code_length * 0.5)] and [max_code_length] numbers long."
 				return TOPIC_REFRESH
 			l_code = code
 			code = null
@@ -106,17 +106,16 @@
 /datum/extension/lockable/proc/attackby(var/obj/item/W, var/mob/user)
 	var/obj/item/A = holder
 	if(locked)
-		if (!is_digital_lock && istype(W, /obj/item/energy_blade/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [holder]"))
-			var/datum/effect/effect/system/spark_spread/spark_system = new
-			spark_system.set_up(5, 0, A.loc)
-			spark_system.start()
-			playsound(A.loc, 'sound/weapons/blade1.ogg', 50, 1)
-			playsound(A.loc, "sparks", 50, 1)
-			return TRUE
+		if(!is_digital_lock && istype(W, /obj/item/energy_blade))
+			var/obj/item/energy_blade/blade = W
+			if(blade.is_special_cutting_tool() && emag_act(INFINITY, user, "You slice through the lock of \the [holder]"))
+				spark_at(A.loc, amount=5)
+				playsound(A.loc, 'sound/weapons/blade1.ogg', 50, 1)
+				return TRUE
 
 		if(isScrewdriver(W))
 			if (do_after(user, 20 * user.skill_delay_mult(SKILL_DEVICES), holder))
-				toggle_panel()		
+				toggle_panel()
 			return TRUE
 
 		if(isMultitool(W) && open && !l_hacking)
@@ -133,7 +132,7 @@
 					l_hacking = FALSE
 					bad_access_attempt(user)
 					return TRUE
-			else	
+			else
 				l_hacking = FALSE
 	return FALSE
 
@@ -160,12 +159,12 @@
 /datum/extension/lockable/storage
 	base_type = /datum/extension/lockable
 	expected_type = /obj/item/storage
-	
+
 /datum/extension/lockable/storage/safe
 	base_type = /datum/extension/lockable
 	expected_type = /obj/item/storage
 
-/datum/extension/lockable/charge_stick	
+/datum/extension/lockable/charge_stick
 	base_type = /datum/extension/lockable
 	expected_type = /obj/item/charge_stick
 	var/shock_strength = 0
@@ -182,9 +181,7 @@
 /datum/extension/lockable/charge_stick/proc/shock(var/mob/living/user, prb)
 	if(!prob(prb) || !istype(user))
 		return FALSE
-	var/datum/effect/effect/system/spark_spread/s = new
-	s.set_up(5, 1, holder)
-	s.start()
+	spark_at(holder, amount=5, cardinal_only = TRUE)
 	user.electrocute_act(rand(40 * shock_strength, 80 * shock_strength), holder, shock_strength) //zzzzzzap!
 	return TRUE
 

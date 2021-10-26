@@ -1,18 +1,21 @@
 /obj/item/grab
 	name = "grab"
-	canremove = 0
-	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = ITEM_SIZE_NO_CONTAINER
+	canremove =    FALSE
+	item_flags =   ITEM_FLAG_NO_BLUDGEON
+	w_class =      ITEM_SIZE_NO_CONTAINER
+	pickup_sound = null
+	drop_sound =   null
+	equip_sound =  null
 
-	var/atom/movable/affecting = null
-	var/mob/assailant = null
-	var/decl/grab/current_grab
-	var/last_action
-	var/last_upgrade
-	var/special_target_functional = 1
-	var/attacking = 0
-	var/target_zone
-	var/done_struggle = FALSE // Used by struggle grab datum to keep track of state.
+	var/atom/movable/affecting             // Atom being targeted by this grab.
+	var/mob/assailant                      // Mob that instantiated this grab.
+	var/decl/grab/current_grab             // Current grab archetype, used to handle actions/overrides/etc.
+	var/last_action                        // Tracks world.time of last action.
+	var/last_upgrade                       // Tracks world.time of last upgrade.
+	var/special_target_functional = TRUE   // Indicates if the current grab has special interactions applied to the target organ (eyes and mouth at time of writing)
+	var/is_currently_resolving_hit = FALSE // Used to avoid stacking interactions that sleep during /decl/grab/proc/on_hit_foo() (ie. do_after() is used)
+	var/target_zone                        // Records a specific bodypart that was targetted by this grab.
+	var/done_struggle = FALSE              // Used by struggle grab datum to keep track of state.
 
 /*
 	This section is for overrides of existing procs.
@@ -44,37 +47,38 @@
 	LAZYADD(affecting.grabbed_by, src) // This is how we handle affecting being deleted.
 	adjust_position()
 	action_used()
-	assailant.do_attack_animation(affecting)
+	INVOKE_ASYNC(assailant, /atom/movable/proc/do_attack_animation, affecting)
 	playsound(affecting.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	update_icon()
 
-	GLOB.moved_event.register(affecting, src, .proc/on_affecting_move)
+	events_repository.register(/decl/observ/moved, affecting, src, .proc/on_affecting_move)
 	if(assailant.zone_sel)
-		GLOB.zone_selected_event.register(assailant.zone_sel, src, .proc/on_target_change)
-	var/obj/item/organ/O = get_targeted_organ()
+		events_repository.register(/decl/observ/zone_selected, assailant.zone_sel, src, .proc/on_target_change)
 
-	var/datum/gender/T = gender_datums[assailant.get_gender()]
-	if(O)
-		SetName("[name] ([O.name])")
-		GLOB.dismembered_event.register(affecting, src, .proc/on_organ_loss)
-		if(affecting != assailant)
-			visible_message(SPAN_DANGER("\The [assailant] has grabbed [affecting]'s [O.name]!"))
+	var/obj/item/organ/O = get_targeted_organ()
+	var/decl/pronouns/G = assailant.get_pronouns()
+	if(affecting_mob && O) // may have grabbed a buckled mob, so may be grabbing their holder
+		SetName("[name] (\the [affecting_mob]'s [O.name])")
+		events_repository.register(/decl/observ/dismembered, affecting_mob, src, .proc/on_organ_loss)
+		if(affecting_mob != assailant)
+			visible_message(SPAN_DANGER("\The [assailant] has grabbed [affecting_mob]'s [O.name]!"))
 		else
-			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [T.his] [O.name]!"))
+			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [G.his] [O.name]!"))
 	else
 		if(affecting != assailant)
 			visible_message(SPAN_DANGER("\The [assailant] has grabbed \the [affecting]!"))
 		else
-			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [T.self]!"))
+			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [G.self]!"))
 
 	if(affecting_mob && affecting_mob.a_intent != I_HELP)
 		upgrade(TRUE)
 
 /obj/item/grab/examine(mob/user)
 	. = ..()
+	var/mob/M = get_affecting_mob()
 	var/obj/item/O = get_targeted_organ()
-	if(O)
-		to_chat(user, "A grip on \the [affecting]'s [O.name].")
+	if(M && O)
+		to_chat(user, "A grip on \the [M]'s [O.name].")
 	else
 		to_chat(user, "A grip on \the [affecting].")
 
@@ -89,18 +93,21 @@
 			upgrade()
 
 /obj/item/grab/attack(mob/M, mob/living/user)
-	current_grab.hit_with_grab(src)
+	return FALSE
+
+/obj/item/grab/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(QDELETED(src) || !current_grab || !assailant || proximity_flag) // Close-range is handled in resolve_attackby().
+		return
+	if(current_grab.hit_with_grab(src, target, proximity_flag))
+		return
+	. = ..()
 
 /obj/item/grab/resolve_attackby(atom/A, mob/user, var/click_params)
-	if(QDELETED(src) || !assailant)
+	if(QDELETED(src) || !current_grab || !assailant)
 		return TRUE
-	assailant.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(!A.grab_attack(src))
-		return ..()
-	action_used()
-	if (current_grab.downgrade_on_action)
-		downgrade()
-	return TRUE
+	if(A.grab_attack(src) || current_grab.hit_with_grab(src, A, get_dist(user, A) <= 1))
+		return TRUE
+	. = ..()
 
 /obj/item/grab/dropped()
 	..()
@@ -112,18 +119,21 @@
 		return TRUE
 
 /obj/item/grab/Destroy()
+	var/atom/old_affecting = affecting
 	if(affecting)
-		GLOB.dismembered_event.unregister(affecting, src)
-		GLOB.moved_event.unregister(affecting, src)
-		reset_position()
+		events_repository.unregister(/decl/observ/dismembered, affecting, src)
+		events_repository.unregister(/decl/observ/moved, affecting, src)
 		LAZYREMOVE(affecting.grabbed_by, src)
 		affecting.reset_plane_and_layer()
 		affecting = null
 	if(assailant)
 		if(assailant.zone_sel)
-			GLOB.zone_selected_event.unregister(assailant.zone_sel, src)
+			events_repository.unregister(/decl/observ/zone_selected, assailant.zone_sel, src)
 		assailant = null
-	return ..()
+	. = ..()
+	if(old_affecting)
+		old_affecting.reset_offsets(5)
+		old_affecting.reset_plane_and_layer()
 
 /*
 	This section is for newly defined useful procs.
@@ -161,12 +171,16 @@
 	assailant.drop_from_inventory(src)
 
 /obj/item/grab/proc/get_affecting_mob()
-	. = isliving(affecting) && affecting
+	if(isobj(affecting))
+		var/obj/O = affecting
+		return O.buckled_mob
+	if(isliving(affecting))
+		return affecting
 
 // Returns the organ of the grabbed person that the grabber is targeting
 /obj/item/grab/proc/get_targeted_organ()
-	if(ishuman(affecting))
-		var/mob/living/carbon/human/affecting_mob = affecting
+	var/mob/affecting_mob = get_affecting_mob()
+	if(istype(affecting_mob))
 		. = affecting_mob.get_organ(target_zone)
 
 /obj/item/grab/proc/resolve_item_attack(var/mob/living/M, var/obj/item/I, var/target_zone)
@@ -212,6 +226,7 @@
 	var/decl/grab/downgrab = current_grab.downgrade(src)
 	if(downgrab)
 		current_grab = downgrab
+		adjust_position()
 		update_icon()
 
 /obj/item/grab/on_update_icon()
@@ -238,10 +253,8 @@
 	if(current_grab.same_tile)
 		affecting.forceMove(get_turf(assailant))
 		affecting.set_dir(assailant.dir)
-	affecting.adjust_pixel_offsets_for_grab(src, adir)
-
-/obj/item/grab/proc/reset_position()
-	affecting.reset_pixel_offsets_for_grab(src)
+	affecting.reset_offsets(5)
+	affecting.reset_plane_and_layer()
 
 /*
 	This section is for the simple procs used to return things from current_grab.
@@ -272,7 +285,9 @@
 	return current_grab.force_danger
 
 /obj/item/grab/proc/grab_slowdown()
-	return max(ceil(affecting?.get_object_size() * current_grab.grab_slowdown), 1)
+	. = CEILING(affecting?.get_object_size() * current_grab.grab_slowdown)
+	. /= (affecting?.atom_flags & ATOM_FLAG_WHEELED) ? 2 : 1
+	. = max(.,1)
 
 /obj/item/grab/proc/assailant_moved()
 	affecting.glide_size = assailant.glide_size // Note that this is called _after_ the Move() call resolves, so while it adjusts affecting's move animation, it won't adjust anything else depending on it.

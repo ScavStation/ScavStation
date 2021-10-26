@@ -18,7 +18,10 @@
 	var/list/standard_security_levels               // List of all normally selectable security levels
 	var/list/comm_console_security_levels           // List of all selectable security levels for the command and communication console - basically standard_security_levels - 1
 
-/decl/security_state/New()
+/decl/security_state/Initialize()
+
+	. = ..()
+
 	// Setup the severe security level
 	if(!(severe_security_level in all_security_levels))
 		severe_security_level = all_security_levels[all_security_levels.len]
@@ -69,10 +72,8 @@
 	if(high_index > severe_index)
 		high_security_level = severe_security_level
 
-/decl/security_state/Initialize()
 	// Finally switch up to the default starting security level.
 	current_security_level.switching_up_to()
-	. = ..()
 
 /decl/security_state/proc/can_change_security_level()
 	return current_security_level in standard_security_levels
@@ -136,9 +137,8 @@
 	var/name
 
 	// These values are primarily for station alarms and status displays, and which light colors and overlays to use
-	var/light_max_bright = 0.5
-	var/light_inner_range = 0.1
-	var/light_outer_range = 1
+	var/light_range
+	var/light_power
 	var/light_color_alarm
 	var/light_color_status_display
 
@@ -150,7 +150,7 @@
 
 	var/datum/alarm_appearance/alarm_appearance
 
-/decl/security_level/New()
+/decl/security_level/Initialize()
 	. = ..()
 	if(ispath(alarm_appearance, /datum/alarm_appearance))
 		alarm_appearance = new alarm_appearance
@@ -195,16 +195,15 @@
 
 /decl/security_level/default/proc/notify_station()
 	for(var/obj/machinery/firealarm/FA in SSmachines.machinery)
-		if(FA.z in GLOB.using_map.contact_levels)
+		if(FA.z in global.using_map.contact_levels)
 			FA.update_icon()
 	post_status("alert")
 
 /decl/security_level/default/code_green
 	name = "code green"
 
-	light_max_bright = 0.25
-	light_inner_range = 0.1
-	light_outer_range = 1
+	light_range = 2
+	light_power = 1
 
 	light_color_alarm = COLOR_GREEN
 	light_color_status_display = COLOR_GREEN
@@ -219,9 +218,8 @@
 /decl/security_level/default/code_blue
 	name = "code blue"
 
-	light_max_bright = 0.5
-	light_inner_range = 0.1
-	light_outer_range = 2
+	light_range = 2
+	light_power = 1
 	light_color_alarm = COLOR_BLUE
 	light_color_status_display = COLOR_BLUE
 
@@ -236,9 +234,8 @@
 /decl/security_level/default/code_red
 	name = "code red"
 
-	light_max_bright = 0.5
-	light_inner_range = 0.1
-	light_outer_range = 2
+	light_range = 4
+	light_power = 2
 	light_color_alarm = COLOR_RED
 	light_color_status_display = COLOR_RED
 
@@ -253,9 +250,8 @@
 /decl/security_level/default/code_delta
 	name = "code delta"
 
-	light_max_bright = 0.75
-	light_inner_range = 0.1
-	light_outer_range = 3
+	light_range = 4
+	light_power = 2
 	light_color_alarm = COLOR_RED
 	light_color_status_display = COLOR_NAVY_BLUE
 

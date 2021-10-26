@@ -17,7 +17,10 @@
 	icon_state = ICON_STATE_WORLD
 	icon = 'icons/clothing/head/welding/default.dmi'
 	material = /decl/material/solid/metal/steel
-	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
+	matter = list(
+		/decl/material/solid/glass = MATTER_AMOUNT_SECONDARY,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT
+	)
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 	)
@@ -67,11 +70,10 @@
 		icon_state = "[icon_state]_up"
 	update_clothing_icon()	//so our mob-overlays
 
-/obj/item/clothing/head/welding/experimental_mob_overlay()
-	var/image/ret = ..()
-	if(ret && up && check_state_in_icon("[ret.icon_state]_up", icon))
-		ret.icon_state = "[ret.icon_state]_up"
-	return ret
+/obj/item/clothing/head/welding/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && up && check_state_in_icon("[overlay.icon_state]_up", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]_up"
+	. = ..()
 
 /obj/item/clothing/head/welding/demon
 	name = "demonic welding helmet"
@@ -124,11 +126,10 @@
 		icon_state = "[icon_state]_up"
 	update_clothing_icon()
 
-/obj/item/clothing/head/ushanka/experimental_mob_overlay()
-	var/image/ret = ..()
-	if(ret && up && check_state_in_icon("[ret.icon_state]_up", icon))
-		ret.icon_state = "[ret.icon_state]_up"
-	return ret
+/obj/item/clothing/head/ushanka/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && up && check_state_in_icon("[overlay.icon_state]_up", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]_up"
+	. = ..()
 
 /*
  * Pumpkin head
@@ -140,7 +141,7 @@
 	icon = 'icons/clothing/head/pumpkin.dmi'
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
-	brightness_on = 0.2
+	brightness_on = 2
 	light_overlay = "helmet_light"
 	w_class = ITEM_SIZE_NORMAL
 

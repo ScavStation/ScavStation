@@ -2,8 +2,8 @@
 	name = "drone module"
 	hide_on_manifest = 1
 	no_slip = 1
-	networks = list(
-		NETWORK_ENGINEERING
+	camera_channels = list(
+		CAMERA_CAMERA_CHANNEL_ENGINEERING
 	)
 	languages = list(
 		/decl/language/human/common = FALSE
@@ -31,9 +31,11 @@
 		/obj/item/matter_decompiler,
 		/obj/item/stack/material/cyborg/steel,
 		/obj/item/stack/material/rods/cyborg,
+		/obj/item/stack/material/strut/cyborg,
 		/obj/item/stack/tile/floor/cyborg,
 		/obj/item/stack/material/cyborg/glass,
 		/obj/item/stack/material/cyborg/glass/reinforced,
+		/obj/item/stack/material/cyborg/fiberglass,
 		/obj/item/stack/tile/wood/cyborg,
 		/obj/item/stack/material/cyborg/wood,
 		/obj/item/stack/cable_coil/cyborg,
@@ -81,6 +83,7 @@
 	for(var/thing in list(
 		 /obj/item/stack/material/cyborg/steel,
 		 /obj/item/stack/material/rods/cyborg,
+		 /obj/item/stack/material/strut/cyborg,
 		 /obj/item/stack/tile/floor/cyborg,
 		 /obj/item/stack/material/cyborg/glass/reinforced
 		))
@@ -89,7 +92,8 @@
 
 	for(var/thing in list(
 		 /obj/item/stack/material/cyborg/glass,
-		 /obj/item/stack/material/cyborg/glass/reinforced
+		 /obj/item/stack/material/cyborg/glass/reinforced,
+		 /obj/item/stack/material/cyborg/fiberglass
 		))
 		var/obj/item/stack/stack = locate(thing) in equipment
 		LAZYDISTINCTADD(stack.synths, glass)

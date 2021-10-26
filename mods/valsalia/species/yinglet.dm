@@ -2,26 +2,24 @@
 /decl/species/yinglet
 	name = SPECIES_YINGLET
 	name_plural = "Yinglets"
-	bodytype = BODYTYPE_YINGLET
 	description = "A species of short, slender rat-birds with a fondness for clams. Commonly found wherever humans are, \
 	either scavenging amongst their leavings, or benefiting from adjacency to an older and more developed culture."
+
 	autohiss_basic_map = list(
 		"th" = list("z")
 	)
+
 	autohiss_extra_map = list(
 		"th" = list("d")
 	)
 
-	icobase =         'mods/valsalia/icons/species/yinglet/body.dmi'
-	deform =          'mods/valsalia/icons/species/yinglet/deformed_body.dmi'
-	preview_icon =    'mods/valsalia/icons/species/yinglet/preview.dmi'
-	husk_icon =       'mods/valsalia/icons/species/yinglet/husk.dmi'
-	damage_overlays = 'mods/valsalia/icons/species/yinglet/damage_overlay.dmi'
-	damage_mask =     'mods/valsalia/icons/species/yinglet/damage_mask.dmi'
-	blood_mask =      'mods/valsalia/icons/species/yinglet/blood_mask.dmi'
-	lip_icon =        'mods/valsalia/icons/species/yinglet/lips.dmi'
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
+
+	available_bodytypes = list(
+		/decl/bodytype/yinglet/masculine,
+		/decl/bodytype/yinglet
+	)
 
 	unarmed_attacks = list(
 		/decl/natural_attack/punch/weak,
@@ -30,13 +28,21 @@
 	)
 
 	flesh_color = "#ab8c65"
-	base_color = "#ab8c65"
-	limb_blend = ICON_MULTIPLY
 	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
+
+	base_color = "#ab8c65"
+	base_hair_color = "#6e5331"
+	base_eye_color = "#f5c842"
+	base_markings = list(
+		/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
+		/decl/sprite_accessory/marking/yinglet = "#cccccc"
+	)
+
+	age_descriptor = /datum/appearance_descriptor/age/yinglet
 
 	reagent_tag = IS_YINGLET
 
@@ -51,8 +57,9 @@
 		BP_L_HAND = list("path" = /obj/item/organ/external/hand/yinglet),
 		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/yinglet),
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/yinglet),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/yinglet)
-		)
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/yinglet),
+		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet)
+	)
 
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart,
@@ -62,13 +69,12 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes/yinglet
-		)
-	descriptors = list(
-		/datum/mob_descriptor/height = -3,
-		/datum/mob_descriptor/build =  -3
 	)
-	min_age = 5
-	max_age = 20
+
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height = -3,
+		/datum/appearance_descriptor/build =  -3
+	)
 	slowdown = -0.5
 	total_health = 150
 	brute_mod = 1.25
@@ -113,81 +119,20 @@
 /decl/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
 	. = H && H.change_skin_color(189, 171, 143)
 
-/decl/species/yinglet/handle_post_species_pref_set(var/datum/preferences/pref)
-	pref.body_markings = pref.body_markings || list()
-	if(!pref.body_markings["Ying Long Ears"])
-		pref.body_markings["Ying Long Ears"] = "#888888"
-	if(!pref.body_markings["Shelltooth"])
-		pref.body_markings["Shelltooth"] = "#cccccc"
-	pref.skin_colour = "#787878"
-
 /decl/species/yinglet/get_autohiss_map(var/mode)
-	if(mode == GLOB.PREF_FULL)
+	if(mode == PREF_FULL)
 		. = autohiss_extra_map?.Copy()
 	else
 		. = autohiss_basic_map?.Copy()
 	if(!islist(.))
 		. = list()
-
-/decl/species/yinglet/New()
-	equip_adjust = list(
-		slot_undershirt_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  1, "y" = -3),
-			"[WEST]" =  list("x" = -1, "y" = -3),
-			"[SOUTH]" = list("x" =  0, "y" = -3)
-		),
-		slot_head_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  3, "y" = -3),
-			"[WEST]" =  list("x" = -3, "y" = -3),
-			"[SOUTH]" = list("x" =  0, "y" = -3)
-		),
-		slot_back_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -5),
-			"[EAST]" =  list("x" =  3, "y" = -5),
-			"[WEST]" =  list("x" = -3, "y" = -5),
-			"[SOUTH]" = list("x" =  0, "y" = -5)
-		),
-		slot_belt_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -1),
-			"[EAST]" =  list("x" =  2, "y" = -1),
-			"[WEST]" =  list("x" = -2, "y" = -1),
-			"[SOUTH]" = list("x" =  0, "y" = -1)
-		),
-		slot_glasses_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  2, "y" = -3),
-			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" =  0, "y" = -3)
-		),
-		BP_L_HAND = list(
-			"[NORTH]" = list("x" = 2,  "y" = -3),
-			"[EAST]" =  list("x" = 2,  "y" = -3),
-			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" = -2, "y" = -3)
-		),
-		BP_R_HAND = list(
-			"[NORTH]" = list("x" = -2, "y" = -3),
-			"[EAST]" =  list("x" =  2, "y" = -3),
-			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" =  2, "y" = -3)
-		),
-		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  2, "y" = -3),
-			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" =  0, "y" = -3)
-		)
-	)
-	..()
-
 /obj/item/holder/yinglet
 	sharp = 1
 	edge = 1
 
-/obj/item/holder/human/yinglet/iscrowbar()
-	return TRUE
+/obj/item/holder/yinglet/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/tool, list(TOOL_CROWBAR = TOOL_QUALITY_MEDIOCRE))
 
 /obj/item/holder/human/yinglet/attack_self(mob/user)
 	var/mob/owner = locate() in contents

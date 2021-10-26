@@ -17,6 +17,8 @@
 	icon = 'icons/obj/card.dmi'
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
+	drop_sound = 'sound/foley/paperpickup1.ogg'
+	pickup_sound = 'sound/foley/paperpickup2.ogg'
 
 /obj/item/card/union
 	name = "union card"
@@ -107,7 +109,7 @@
 							/obj/item/card/id,
 						) //Should be enough of a selection for most purposes
 
-var/const/NO_EMAG_ACT = -50
+var/global/const/NO_EMAG_ACT = -50
 /obj/item/card/emag/resolve_attackby(atom/A, mob/user)
 	var/used_uses = A.emag_act(uses, user, src)
 	if(used_uses == NO_EMAG_ACT)
@@ -170,8 +172,6 @@ var/const/NO_EMAG_ACT = -50
 	var/rank = null			//actual job
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 
-	var/job_access_type     // Job type to acquire access rights from, if any
-
 	var/datum/mil_branch/military_branch = null //Vars for tracking branches and ranks on multi-crewtype maps
 	var/datum/mil_rank/military_rank = null
 
@@ -182,22 +182,13 @@ var/const/NO_EMAG_ACT = -50
 	var/extra_details
 
 /obj/item/card/id/Initialize()
-	.=..()
-	if(job_access_type)
-		var/datum/job/j = SSjobs.get_by_path(job_access_type)
-		if(j)
-			rank = j.title
-			assignment = rank
-			access |= j.get_access()
-			if(!detail_color)
-				detail_color = j.selection_color
+	. = ..()
 	update_icon()
 
-/obj/item/card/id/get_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/ret = ..()
-	if(detail_color)
-		ret.overlays += overlay_image(ret.icon, "[ret.icon_state]-colors", detail_color, RESET_COLOR)
-	return ret
+/obj/item/card/id/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && detail_color)
+		overlay.overlays += overlay_image(overlay.icon, "[overlay.icon_state]-colors", detail_color, RESET_COLOR)
+	. = ..()
 
 /obj/item/card/id/on_update_icon()
 	cut_overlays()
@@ -210,7 +201,7 @@ var/const/NO_EMAG_ACT = -50
 	var/mob/user = usr
 	if(href_list["look_at_id"] && istype(user))
 		var/turf/T = get_turf(src)
-		if(T.CanUseTopic(user, GLOB.view_state) != STATUS_CLOSE)
+		if(T.CanUseTopic(user, global.view_topic_state) != STATUS_CLOSE)
 			user.examinate(src)
 			return TOPIC_HANDLED
 	. = ..()
@@ -230,7 +221,6 @@ var/const/NO_EMAG_ACT = -50
 		send_rsc(user, side, "side.png")
 	var/datum/browser/written/popup = new(user, "idcard", name, 600, 250)
 	popup.set_content(dat())
-	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
 	return
 
@@ -261,11 +251,11 @@ var/const/NO_EMAG_ACT = -50
 
 	id_card.registered_name = real_name
 
-	var/gender_term = "Unset"
-	var/datum/gender/G = gender_datums[get_sex()]
+	var/decl/pronouns/G = get_pronouns()
 	if(G)
-		gender_term = gender2text(G.formal_term)
-	id_card.sex = gender2text(gender_term)
+		id_card.sex = capitalize(G.formal_term)
+	else
+		id_card.sex = "Unset"
 	id_card.set_id_photo(src)
 
 	if(dna)
@@ -275,10 +265,10 @@ var/const/NO_EMAG_ACT = -50
 
 /mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
 	..()
-	id_card.age = age
-	if(GLOB.using_map.flags & MAP_HAS_BRANCH)
+	id_card.age = get_age()
+	if(global.using_map.flags & MAP_HAS_BRANCH)
 		id_card.military_branch = char_branch
-	if(GLOB.using_map.flags & MAP_HAS_RANK)
+	if(global.using_map.flags & MAP_HAS_RANK)
 		id_card.military_rank = char_rank
 
 /obj/item/card/id/proc/dat()
@@ -287,9 +277,9 @@ var/const/NO_EMAG_ACT = -50
 	dat += text("Sex: []</A><BR>\n", sex)
 	dat += text("Age: []</A><BR>\n", age)
 
-	if(GLOB.using_map.flags & MAP_HAS_BRANCH)
+	if(global.using_map.flags & MAP_HAS_BRANCH)
 		dat += text("Branch: []</A><BR>\n", military_branch ? military_branch.name : "\[UNSET\]")
-	if(GLOB.using_map.flags & MAP_HAS_RANK)
+	if(global.using_map.flags & MAP_HAS_RANK)
 		dat += text("Rank: []</A><BR>\n", military_rank ? military_rank.name : "\[UNSET\]")
 
 	dat += text("Assignment: []</A><BR>\n", assignment)
@@ -348,7 +338,7 @@ var/const/NO_EMAG_ACT = -50
 				id.military_branch = new_branch
 				id.military_rank = null
 			return
-	
+
 	to_chat(client, SPAN_WARNING("Input, must be an existing branch - [var_value] is invalid"))
 
 /decl/vv_set_handler/id_card_military_rank
@@ -377,7 +367,7 @@ var/const/NO_EMAG_ACT = -50
 		if(new_rank)
 			id.military_rank = new_rank
 			return
-	
+
 	to_chat(client, SPAN_WARNING("Input must be an existing rank belonging to military_branch - [var_value] is invalid"))
 
 /obj/item/card/id/syndicate_command
@@ -448,7 +438,6 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/civilian
 	name = "identification card"
 	desc = "A card issued to civilian staff."
-	job_access_type = DEFAULT_JOB_TYPE
 	detail_color = COLOR_CIVIE_GREEN
 
 /obj/item/card/id/civilian/head //This is not the HoP. There's no position that uses this right now.

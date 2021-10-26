@@ -1,4 +1,4 @@
-//GLOBAL_LIST_INIT(mech_decals, (icon_states('icons/mecha/mech_decals.dmi')-list("template", "mask")))
+//var/list/mech_decals = (icon_states('icons/mecha/mech_decals.dmi')-list("template", "mask")))
 
 /mob/living/exosuit/premade
 	name = "impossible exosuit"
@@ -32,9 +32,6 @@
 	desc = "It seems to have been roughly thrown together and then spraypainted a single colour."
 
 /mob/living/exosuit/premade/random/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame, var/super_random = FALSE, var/using_boring_colours = FALSE)
-	//if(!prob(100/(LAZYLEN(GLOB.mech_decals)+1)))
-	//	decal = pick(GLOB.mech_decals)
-
 	var/list/use_colours
 	if(using_boring_colours)
 		use_colours = list(
@@ -129,19 +126,19 @@
 
 	var/mech_colour = super_random ? FALSE : pick(use_colours)
 	if(!arms)
-		var/armstype = pick(typesof(/obj/item/mech_component/manipulators)-/obj/item/mech_component/manipulators)
+		var/armstype = pick(subtypesof(/obj/item/mech_component/manipulators))
 		arms = new armstype(src)
 		arms.color = mech_colour ? mech_colour : pick(use_colours)
 	if(!legs)
-		var/legstype = pick(typesof(/obj/item/mech_component/propulsion)-/obj/item/mech_component/propulsion)
+		var/legstype = pick(subtypesof(/obj/item/mech_component/propulsion))
 		legs = new legstype(src)
 		legs.color = mech_colour ? mech_colour : pick(use_colours)
 	if(!head)
-		var/headtype = pick(typesof(/obj/item/mech_component/sensors)-/obj/item/mech_component/sensors)
+		var/headtype = pick(subtypesof(/obj/item/mech_component/sensors))
 		head = new headtype(src)
 		head.color = mech_colour ? mech_colour : pick(use_colours)
 	if(!body)
-		var/bodytype = pick(typesof(/obj/item/mech_component/chassis)-/obj/item/mech_component/chassis)
+		var/bodytype = pick(subtypesof(/obj/item/mech_component/chassis))
 		body = new bodytype(src)
 		body.color = mech_colour ? mech_colour : pick(use_colours)
 	. = ..()

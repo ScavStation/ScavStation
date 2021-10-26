@@ -36,8 +36,8 @@
 	var/obj/item/stack/material/repairing
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
 	var/close_door_at = 0 //When to automatically close the door, if possible
-	var/list/connections = list("0", "0", "0", "0")
-	var/list/blend_objects = list(/obj/structure/wall_frame, /obj/structure/window, /obj/structure/grille) // Objects which to blend with
+	var/connections = 0
+	var/list/blend_objects = list(/obj/structure/wall_frame, /obj/structure/window, /obj/structure/grille, /obj/machinery/door) // Objects which to blend with
 
 	var/autoset_access = TRUE // Determines whether the door will automatically set its access from the areas surrounding it. Can be used for mapping.
 
@@ -53,6 +53,11 @@
 
 	atmos_canpass = CANPASS_PROC
 
+	var/set_dir_on_update = TRUE
+
+/obj/machinery/door/proc/can_operate(var/mob/user)
+	. = istype(user) && !user.restrained() && (!issmall(user) || ishuman(user) || issilicon(user) || istype(user, /mob/living/bot))
+
 /obj/machinery/door/attack_generic(var/mob/user, var/damage, var/attack_verb, var/environment_smash)
 	if(environment_smash >= 1)
 		damage = max(damage, 10)
@@ -64,7 +69,9 @@
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
 	attack_animation(user)
 
-/obj/machinery/door/Initialize()
+/obj/machinery/door/Initialize(var/mapload, var/d, var/populate_parts = TRUE, var/obj/structure/door_assembly/assembly = null)
+	if(!populate_parts)
+		inherit_from_assembly(assembly)
 	set_extension(src, /datum/extension/penetration, /datum/extension/penetration/proc_call, .proc/CheckPenetration)
 	..()
 	. = INITIALIZE_HINT_LATELOAD
@@ -85,6 +92,15 @@
 	if(autoset_access && length(req_access))
 		PRINT_STACK_TRACE("A door with mapped access restrictions was set to autoinitialize access.")
 #endif
+
+/obj/machinery/door/proc/inherit_from_assembly(var/obj/structure/door_assembly/assembly)
+	if (assembly && istype(assembly))
+		frame_type = assembly.type
+		if(assembly.electronics)
+			var/obj/item/stock_parts/circuitboard/electronics = assembly.electronics
+			install_component(electronics, FALSE) // will be refreshed in parent call; unsafe to refresh prior to calling ..() in Initialize
+			electronics.construct(src)
+		return TRUE
 
 /obj/machinery/door/LateInitialize(mapload, dir=0, populate_parts=TRUE)
 	..()
@@ -136,10 +152,11 @@
 		explosion_resistance = density ? initial(explosion_resistance) : 0
 
 /obj/machinery/door/set_dir(new_dir)
-	if(new_dir & (EAST|WEST))
-		new_dir = WEST
-	else
-		new_dir = SOUTH
+	if(set_dir_on_update)
+		if(new_dir & (EAST|WEST))
+			new_dir = WEST
+		else
+			new_dir = SOUTH
 
 	. = ..(new_dir)
 
@@ -147,37 +164,39 @@
 		set_bounds()
 
 /obj/machinery/door/Bumped(atom/AM)
-	if(panel_open || operating) return
-	if(ismob(AM))
-		var/mob/M = AM
-		if(world.time - M.last_bumped <= 10) return	//Can bump-open one airlock per second. This is to prevent shock spam.
-		M.last_bumped = world.time
-		if(!M.restrained() && (!issmall(M) || ishuman(M) || issilicon(M)))
-			bumpopen(M)
+	if(panel_open || operating)
 		return
 
-	if(istype(AM, /mob/living/bot))
-		var/mob/living/bot/bot = AM
-		if(src.check_access(bot.botcard))
-			if(density)
-				open()
+	if(ismob(AM))
+		var/mob/M = AM
+		if(world.time - M.last_bumped <= 10)
+			return	//Can bump-open one airlock per second. This is to prevent shock spam.
+		M.last_bumped = world.time
+		bumpopen(M)
 
 /obj/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group) return !block_air_zones
+	if(air_group)
+		return !block_air_zones
 	if(istype(mover) && mover.checkpass(PASS_FLAG_GLASS))
 		return !opacity
 	return !density
 
 /obj/machinery/door/proc/bumpopen(mob/user)
-	if(operating)	return
+	if(operating || !can_operate(user))
+		return
 	if(user.last_airflow > world.time - vsc.airflow_delay) //Fakkit
 		return
 	src.add_fingerprint(user)
-	if(density)
+	if(density && can_operate(user))
 		if(allowed(user))
 			open()
 		else
 			do_animate("deny")
+
+/obj/machinery/door/physically_destroyed(skip_qdel)
+	SSmaterials.create_object(/decl/material/solid/metal/steel, loc, 2)
+	SSmaterials.create_object(/decl/material/solid/metal/steel, loc, 3, /obj/item/stack/material/rods)
+	. = ..()
 
 /obj/machinery/door/bullet_act(var/obj/item/projectile/Proj)
 	..()
@@ -191,8 +210,7 @@
 			visible_message("<span class='danger'>\The [src.name] disintegrates!</span>")
 			switch (Proj.damage_type)
 				if(BRUTE)
-					new /obj/item/stack/material/steel(src.loc, 2)
-					new /obj/item/stack/material/rods(src.loc, 3)
+					physically_destroyed()
 				if(BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)
@@ -217,7 +235,7 @@
 	if(operating || !can_open_manually)
 		return FALSE
 
-	if(allowed(user))
+	if(allowed(user) && can_operate(user))
 		toggle()
 	else if(density)
 		do_animate("deny")
@@ -239,7 +257,7 @@
 
 		//figure out how much metal we need
 		var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
-		amount_needed = ceil(amount_needed)
+		amount_needed = CEILING(amount_needed)
 
 		var/obj/item/stack/stack = I
 		var/transfer
@@ -470,7 +488,7 @@
 /obj/machinery/door/proc/update_connections(var/propagate = 0)
 	var/dirs = 0
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in global.cardinal)
 		var/turf/T = get_step(src, direction)
 		var/success = 0
 
@@ -509,7 +527,7 @@
 
 /obj/machinery/door/get_auto_access()
 	var/area/fore = access_area_by_dir(dir)
-	var/area/aft = access_area_by_dir(GLOB.reverse_dir[dir])
+	var/area/aft = access_area_by_dir(global.reverse_dir[dir])
 	fore = fore || aft
 	aft = aft || fore
 
@@ -527,7 +545,7 @@
 			. |= lock.req_access
 
 /obj/machinery/door/do_simple_ranged_interaction(var/mob/user)
-	if((!requiresID() || allowed(null)) && can_open_manually)
+	if((!requiresID() || allowed(null)) && can_operate(user) && can_open_manually)
 		toggle()
 	return TRUE
 

@@ -10,7 +10,7 @@
 
 /datum/unit_test/roundstart_cable_connectivity/proc/get_connected_neighbours(var/obj/structure/cable/self, var/dir)
 	var/turf/T = get_step(get_turf(self), dir)
-	var/reverse = GLOB.reverse_dir[dir]
+	var/reverse = global.reverse_dir[dir]
 
 	. = list() //can have multiple connected neighbours for a dir, e.g. Y-junctions
 	for(var/obj/structure/cable/other in T)
@@ -21,8 +21,7 @@
 	var/failed = 0
 	var/list/found_cables = list()
 
-	//there is a cable list, but for testing purposes we search every cable in the world
-	for(var/obj/structure/cable/C in world)
+	for(var/obj/structure/cable/C in global.cable_list)
 		if(C in found_cables)
 			continue
 		var/list/to_search = list(C)
@@ -54,7 +53,7 @@
 
 /datum/unit_test/areas_apc_uniqueness/start_test()
 	var/failure = ""
-	for(var/area/A in world)
+	for(var/area/A in global.areas)
 		var/obj/machinery/power/apc/found_apc = null
 		for(var/obj/machinery/power/apc/APC in A)
 			if(!found_apc)
@@ -76,7 +75,7 @@
 /datum/unit_test/area_power_tally_accuracy/start_test()
 	var/failed = FALSE
 	var/list/channel_names = list("equip", "light", "environ")
-	for(var/area/A in world)
+	for(var/area/A in global.areas)
 		var/list/old_values = list(A.used_equip, A.used_light, A.used_environ)
 		A.retally_power()
 		var/list/new_values = list(A.used_equip, A.used_light, A.used_environ)

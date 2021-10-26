@@ -11,13 +11,13 @@
 
 /datum/nano_module/program/network_monitor
 	name = "Network Diagnostics and Monitoring"
-	var/global/list/all_network_features = list(
+	var/static/list/all_network_features = list(
 		"Software Download" = NETWORK_SOFTWAREDOWNLOAD,
 		"Communication Systems" = NETWORK_COMMUNICATION,
 		"Remote System Control" = NETWORK_SYSTEMCONTROL
 		)
 
-/datum/nano_module/program/network_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/program/network_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = global.default_topic_state)
 	var/list/data = host.initial_data()
 
 	data += "skill_fail"
@@ -26,7 +26,7 @@
 		data["skill_fail"] = fake_data.update_and_return_data()
 	data["terminal"] = !!program
 
-	var/datum/computer_network/network = program.computer.get_network()
+	var/datum/computer_network/network = program?.computer?.get_network()
 	data["status"] = !!network
 	if(network)
 		data["network"] = network.network_id
@@ -84,7 +84,7 @@
 	if(!user.skill_check(SKILL_COMPUTER, SKILL_BASIC))
 		return TOPIC_HANDLED
 
-	var/datum/computer_network/network = program.computer.get_network()
+	var/datum/computer_network/network = program?.computer?.get_network()
 
 	if(href_list["purgelogs"])
 		var/datum/extension/network_device/mainframe/M = locate(href_list["purgelogs"])
@@ -107,7 +107,7 @@
 		var/datum/extension/network_device/mainframe/M = locate(href_list["add_role"])
 		if(!istype(M))
 			return TOPIC_HANDLED
-		var/new_roles = GLOB.all_mainframe_roles - M.roles
+		var/new_roles = global.all_mainframe_roles - M.roles
 		if(!length(new_roles))
 			to_chat(usr, SPAN_WARNING("This server already has all possible roles enabled"))
 			return TOPIC_HANDLED

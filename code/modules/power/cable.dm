@@ -23,21 +23,17 @@ By design, d1 is the smallest direction and d2 is the highest
 */
 
 /obj/structure/cable
-	level = 1
-	anchored =1
-	var/datum/powernet/powernet
 	name = "power cable"
 	desc = "A flexible superconducting cable for heavy-duty power transfer."
 	icon = 'icons/obj/power_cond_white.dmi'
 	icon_state = "0-1"
-	var/d1 = 0
-	var/d2 = 1
-
-	layer = EXPOSED_WIRE_LAYER
-
-	color = COLOR_MAROON
+	layer =    EXPOSED_WIRE_LAYER
+	color =    COLOR_MAROON
+	anchored = TRUE
+	var/d1
+	var/d2
+	var/datum/powernet/powernet
 	var/obj/machinery/power/breakerbox/breaker_box
-
 
 /obj/structure/cable/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -71,19 +67,17 @@ By design, d1 is the smallest direction and d2 is the highest
 	color = COLOR_SILVER
 
 /obj/structure/cable/Initialize(var/ml)
-	. = ..(ml)
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
-	var/dash = findtext(icon_state, "-")
-	d1 = text2num(copytext(icon_state, 1, dash))
-	d2 = text2num(copytext(icon_state, dash+1))
+	. = ..(ml)
 	var/turf/T = src.loc			// hide if turf is not intact
-	if(level==1 && T) hide(!T.is_plating())
-	cable_list += src //add it to the global cable list
+	if(level==1 && T)
+		hide(!T.is_plating())
+	global.cable_list += src //add it to the global cable list
 
 /obj/structure/cable/Destroy()     // called when a cable is deleted
 	if(powernet)
 		cut_cable_from_powernet()  // update the powernets
-	cable_list -= src              // remove it from global cable list
+	global.cable_list -= src              // remove it from global cable list
 	. = ..()                       // then go ahead and delete the cable
 
 // Ghost examining the cable -> tells him the power
@@ -110,7 +104,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 //If underfloor, hide the cable
 /obj/structure/cable/hide(var/i)
-	if(istype(loc, /turf))
+	if(isturf(loc))
 		set_invisibility(i ? 101 : 0)
 	update_icon()
 
@@ -118,6 +112,19 @@ By design, d1 is the smallest direction and d2 is the highest
 	return 1
 
 /obj/structure/cable/on_update_icon()
+
+	// It is really gross to do this here but the order of icon updates to init seems
+	// unreliable and I have now had to spend hours across two PRs chasing down
+	// cable node weirdness due to the way this was handled previously. NO MORE.
+	if(isnull(d1) || isnull(d2))
+		var/dir_components = splittext(icon_state, "-")
+		if(length(dir_components) < 2)
+			CRASH("Cable segment updating dirs with invalid icon_state: [d1], [d2]")
+		d1 = text2num(dir_components[1])
+		d2 = text2num(dir_components[2])
+		if(!(d1 in global.cabledirs) || !(d2 in global.cabledirs))
+			CRASH("Cable segment updating dirs with invalid values: [d1], [d2]")
+
 	icon_state = "[d1]-[d2]"
 	alpha = invisibility ? 127 : 255
 
@@ -208,14 +215,14 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(!prob(prb))
 		return 0
 	if (electrocute_mob(user, powernet, src, siemens_coeff))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-		s.set_up(5, 1, src)
-		s.start()
+		spark_at(src, amount=5, cardinal_only = TRUE)
 		if(HAS_STATUS(usr, STAT_STUN))
 			return 1
 	return 0
 
+// TODO: generalize to matter list and parts_type.
 /obj/structure/cable/create_dismantled_products(turf/T)
+	SHOULD_CALL_PARENT(FALSE)
 	new /obj/item/stack/cable_coil(loc, (d1 ? 2 : 1), color)
 
 //explosion handling
@@ -288,7 +295,7 @@ By design, d1 is the smallest direction and d2 is the highest
 // merge with the powernets of power objects in the given direction
 /obj/structure/cable/proc/mergeConnectedNetworks(var/direction)
 
-	var/fdir = direction ? GLOB.reverse_dir[direction] : 0 //flip the direction, to match with the source position on its turf
+	var/fdir = direction ? global.reverse_dir[direction] : 0 //flip the direction, to match with the source position on its turf
 
 	if(!(d1 == direction || d2 == direction)) //if the cable is not pointed in this direction, do nothing
 		return
@@ -369,7 +376,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	for(var/cable_dir in list(d1, d2))
 		if(cable_dir == 0)
 			continue
-		var/reverse = GLOB.reverse_dir[cable_dir]
+		var/reverse = global.reverse_dir[cable_dir]
 		T = get_zstep(src, cable_dir)
 		if(T)
 			for(var/obj/structure/cable/C in T)
@@ -474,16 +481,24 @@ By design, d1 is the smallest direction and d2 is the highest
 	w_class = ITEM_SIZE_NORMAL
 	throw_speed = 2
 	throw_range = 5
-	material = /decl/material/solid/metal/steel
+	material = /decl/material/solid/metal/copper
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE
 	)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY
 	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
-	stacktype = /obj/item/stack/cable_coil
+	stack_merge_type = /obj/item/stack/cable_coil
+	matter_multiplier = 0.15
+	
+/obj/item/stack/cable_coil/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/tool, list(
+		TOOL_CABLECOIL = TOOL_QUALITY_DEFAULT,
+		TOOL_SUTURES =   TOOL_QUALITY_MEDIOCRE
+	))
 
 /obj/item/stack/cable_coil/single
 	amount = 1
@@ -522,7 +537,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			to_chat(user, "<span class='warning'>\The [H]'s [S.name] is hard and brittle - \the [src] cannot repair it.</span>")
 			return 1
 
-		var/use_amt = min(src.amount, ceil(S.burn_dam/3), 5)
+		var/use_amt = min(src.amount, CEILING(S.burn_dam/3), 5)
 		if(can_use(use_amt))
 			if(S.robo_repair(3*use_amt, BURN, "some damaged wiring", src, user))
 				src.use(use_amt)
@@ -532,7 +547,8 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/cable_coil/on_update_icon()
 	cut_overlays()
 	if (!color)
-		color = GLOB.possible_cable_colours[pick(GLOB.possible_cable_colours)]
+		var/list/possible_cable_colours = get_global_cable_colors()
+		color = possible_cable_colours[pick(possible_cable_colours)]
 	if(amount == 1)
 		icon_state = "coil1"
 		SetName("cable piece")
@@ -550,10 +566,11 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(!selected_color)
 		return
 
-	var/final_color = GLOB.possible_cable_colours[selected_color]
+	var/list/possible_cable_colours = get_global_cable_colors()
+	var/final_color = possible_cable_colours[selected_color]
 	if(!final_color)
 		selected_color = "Red"
-		final_color = GLOB.possible_cable_colours[selected_color]
+		final_color = possible_cable_colours[selected_color]
 	color = final_color
 	to_chat(user, "<span class='notice'>You change \the [src]'s color to [lowertext(selected_color)].</span>")
 
@@ -582,7 +599,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	var/mob/M = usr
 
 	if(ishuman(M) && !M.incapacitated())
-		if(!istype(usr.loc,/turf)) return
+		if(!isturf(usr.loc)) return
 		if(!src.use(15))
 			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
 			return
@@ -596,7 +613,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	set name = "Change Colour"
 	set category = "Object"
 
-	var/selected_type = input("Pick new colour.", "Cable Colour", null, null) as null|anything in GLOB.possible_cable_colours
+	var/selected_type = input("Pick new colour.", "Cable Colour", null, null) as null|anything in get_global_cable_colors()
 	set_cable_color(selected_type, usr)
 
 // Items usable on a cable coil :
@@ -620,8 +637,8 @@ By design, d1 is the smallest direction and d2 is the highest
 // Cable laying procedures
 //////////////////////////////////////////////
 
-// called when cable_coil is clicked on a turf/simulated/floor
-/obj/item/stack/cable_coil/proc/turf_place(turf/simulated/F, mob/user)
+// called when cable_coil is clicked on a turf
+/obj/item/stack/cable_coil/proc/turf_place(turf/F, mob/user)
 	if(!isturf(user.loc))
 		return
 
@@ -749,7 +766,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		C.denode()// this call may have disconnected some cables that terminated on the centre of the turf, if so split the powernets.
 		return
 
-/obj/item/stack/cable_coil/proc/put_cable(turf/simulated/F, mob/user, d1, d2)
+/obj/item/stack/cable_coil/proc/put_cable(turf/F, mob/user, d1, d2)
 	if(!istype(F))
 		return
 
@@ -815,7 +832,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	color = COLOR_SILVER
 
 /obj/item/stack/cable_coil/random/Initialize()
-	color = GLOB.possible_cable_colours[pick(GLOB.possible_cable_colours)]
+	var/list/possible_cable_colours = get_global_cable_colors()
+	color = possible_cable_colours[pick(possible_cable_colours)]
 	. = ..()
 
 // Produces cable coil from a rig power cell.
@@ -840,8 +858,8 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/item/stack/cable_coil/fabricator/get_amount()
 	var/obj/item/cell/cell = get_cell()
-	. = (cell ? Floor(cell.charge / cost_per_cable) : 0)
+	. = (cell ? FLOOR(cell.charge / cost_per_cable) : 0)
 
 /obj/item/stack/cable_coil/fabricator/get_max_amount()
 	var/obj/item/cell/cell = get_cell()
-	. = (cell ? Floor(cell.maxcharge / cost_per_cable) : 0)
+	. = (cell ? FLOOR(cell.maxcharge / cost_per_cable) : 0)

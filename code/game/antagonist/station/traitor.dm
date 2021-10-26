@@ -3,9 +3,10 @@
 	name = "Traitor"
 	name_plural = "Traitors"
 	antaghud_indicator = "hud_traitor"
-	blacklisted_jobs = list(/datum/job/ai, /datum/job/submap)
+	blacklisted_jobs = list(/datum/job/submap)
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	skill_setter = /datum/antag_skill_setter/station
+	blocked_job_event_categories = list(ASSIGNMENT_COMPUTER)
 
 /decl/special_role/traitor/get_extra_panel_options(var/datum/mind/player)
 	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
@@ -83,7 +84,7 @@
 		return FALSE
 
 	var/list/dudes = list()
-	for(var/mob/living/carbon/human/man in GLOB.player_list)
+	for(var/mob/living/carbon/human/man in global.player_list)
 		if(man.client)
 			var/decl/cultural_info/culture = man.get_cultural_value(TAG_FACTION)
 			if(culture && prob(culture.subversive_potential))

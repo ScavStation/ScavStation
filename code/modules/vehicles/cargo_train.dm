@@ -9,12 +9,12 @@
 
 	load_item_visible = 1
 	load_offset_x = 0
-	buckle_pixel_shift = @"{'x':0,'y':0,'z':7}"
+	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 7)
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
 	charge_use = 1 KILOWATTS
 	active_engines = 1
-	var/obj/item/key/cargo_train/key
+	var/obj/item/key/cargo_train/key	
 
 /obj/item/key/cargo_train
 	name = "key"
@@ -30,11 +30,12 @@
 	anchored = 0
 	passenger_allowed = 0
 	locked = 0
+	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 8)
 
 	load_item_visible = 1
 	load_offset_x = 0
 	load_offset_y = 4
-	buckle_pixel_shift = @"{'x':0,'y':0,'z':8}"
+
 
 //-------------------------------------------
 // Standard procs
@@ -181,7 +182,7 @@
 		return 0
 
 	if(is_train_head())
-		if(direction == GLOB.reverse_dir[dir] && tow)
+		if(direction == global.reverse_dir[dir] && tow)
 			return 0
 		if(Move(get_step(src, direction)))
 			return 1
@@ -339,7 +340,7 @@
 
 		if(dir == T_dir) 	//if car is ahead
 			src.attach_to(T, user)
-		else if(GLOB.reverse_dir[dir] == T_dir)	//else if car is behind
+		else if(global.reverse_dir[dir] == T_dir)	//else if car is behind
 			T.attach_to(src, user)
 
 //-------------------------------------------------------

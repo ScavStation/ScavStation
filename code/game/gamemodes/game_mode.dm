@@ -1,5 +1,5 @@
 var/global/antag_add_finished // Used in antag type voting.
-var/list/additional_antag_types = list()
+var/global/list/additional_antag_types = list()
 
 /datum/game_mode
 	var/name = "invalid"
@@ -158,7 +158,7 @@ var/list/additional_antag_types = list()
 // Returns 0 if the mode can start and a message explaining the reason why it can't otherwise.
 /datum/game_mode/proc/startRequirements()
 	var/playerC = 0
-	for(var/mob/new_player/player in GLOB.player_list)
+	for(var/mob/new_player/player in global.player_list)
 		if((player.client)&&(player.ready))
 			playerC++
 
@@ -250,7 +250,7 @@ var/list/additional_antag_types = list()
 		display_roundstart_logout_report()
 
 	spawn (rand(waittime_l, waittime_h))
-		GLOB.using_map.send_welcome()
+		global.using_map.send_welcome()
 		sleep(rand(100,150))
 		announce_ert_disabled()
 
@@ -322,7 +322,7 @@ var/list/additional_antag_types = list()
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")
 
 /datum/game_mode/proc/check_finished()
-	if(SSevac.evacuation_controller.round_over() || station_was_nuked)
+	if(SSevac.evacuation_controller?.round_over() || station_was_nuked)
 		return 1
 	if(end_on_antag_death && antag_templates && antag_templates.len)
 		var/has_antags = 0
@@ -331,7 +331,8 @@ var/list/additional_antag_types = list()
 				has_antags = 1
 				break
 		if(!has_antags)
-			SSevac.evacuation_controller.recall = 0
+			if(SSevac.evacuation_controller)
+				SSevac.evacuation_controller.recall = 0
 			return 1
 	return 0
 
@@ -366,7 +367,7 @@ var/list/additional_antag_types = list()
 	var/escaped_humans = 0
 	var/escaped_total = 0
 
-	for(var/mob/M in GLOB.player_list)
+	for(var/mob/M in global.player_list)
 		if(M.client)
 			clients++
 			if(M.stat != DEAD)
@@ -374,7 +375,7 @@ var/list/additional_antag_types = list()
 				if(ishuman(M))
 					surviving_humans++
 				var/area/A = get_area(M)
-				if(A && is_type_in_list(A, GLOB.using_map.post_round_safe_areas))
+				if(A && is_type_in_list(A, global.using_map.post_round_safe_areas))
 					escaped_total++
 					if(ishuman(M))
 						escaped_humans++
@@ -382,7 +383,7 @@ var/list/additional_antag_types = list()
 				ghosts++
 
 	var/departmental_goal_summary = SSgoals.get_roundend_summary()
-	for(var/thing in GLOB.clients)
+	for(var/thing in global.clients)
 		var/client/client = thing
 		if(client.mob && client.mob.mind)
 			client.mob.mind.show_roundend_summary(departmental_goal_summary)
@@ -390,7 +391,7 @@ var/list/additional_antag_types = list()
 	var/text = "<br><br>"
 	if(surviving_total > 0)
 		text += "There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
-		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [SSevac.evacuation_controller.emergency_evacuation ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.<br>"
+		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [SSevac.evacuation_controller?.emergency_evacuation ? "escaped" : "transferred"]</b>) and <b>[ghosts] ghosts</b>.<br>"
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 
@@ -427,7 +428,7 @@ var/list/additional_antag_types = list()
 
 	// If this is being called post-roundstart then it doesn't care about ready status.
 	if(GAME_STATE == RUNLEVEL_GAME)
-		for(var/mob/player in GLOB.player_list)
+		for(var/mob/player in global.player_list)
 			if(!player.client)
 				continue
 			if(istype(player, /mob/new_player))
@@ -437,7 +438,7 @@ var/list/additional_antag_types = list()
 				candidates += player.mind
 	else
 		// Assemble a list of active players without jobbans.
-		for(var/mob/new_player/player in GLOB.player_list)
+		for(var/mob/new_player/player in global.player_list)
 			if( player.client && player.ready )
 				players += player
 
@@ -464,7 +465,7 @@ var/list/additional_antag_types = list()
 
 /datum/game_mode/proc/num_players()
 	. = 0
-	for(var/mob/new_player/P in GLOB.player_list)
+	for(var/mob/new_player/P in global.player_list)
 		if(P.client && P.ready)
 			. ++
 
@@ -492,7 +493,7 @@ var/list/additional_antag_types = list()
 
 	shuffle(antag_templates) //In the case of multiple antag types
 
-// Manipulates the end-game cinematic in conjunction with GLOB.cinematic
+// Manipulates the end-game cinematic in conjunction with global.cinematic
 /datum/game_mode/proc/nuke_act(obj/screen/cinematic_screen, station_missed = 0)
 	if(!cinematic_icon_states)
 		return
@@ -506,7 +507,7 @@ var/list/additional_antag_types = list()
 		if(!station_missed)
 			end = cinematic_icon_states[2]
 			to_flick = "station_explode_fade_red"
-			for(var/mob/living/M in GLOB.living_mob_list_)
+			for(var/mob/living/M in global.living_mob_list_)
 				if(is_station_turf(get_turf(M)))
 					M.death()//No mercy
 		if(end)
@@ -526,7 +527,7 @@ var/list/additional_antag_types = list()
 
 		if(L.ckey)
 			var/found = 0
-			for(var/client/C in GLOB.clients)
+			for(var/client/C in global.clients)
 				if(C.ckey == L.ckey)
 					found = 1
 					break
@@ -537,6 +538,9 @@ var/list/additional_antag_types = list()
 			if(L.client.inactivity >= (ROUNDSTART_LOGOUT_REPORT_TIME / 2))	//Connected, but inactive (alt+tabbed or something)
 				msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (<font color='#ffcc00'><b>Connected, Inactive</b></font>)\n"
 				continue //AFK client
+			if(L.admin_paralyzed)
+				msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Admin paralyzed)\n"
+				continue //Admin paralyzed
 			if(L.stat)
 				if(L.stat == UNCONSCIOUS)
 					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dying)\n"
@@ -582,7 +586,7 @@ var/list/additional_antag_types = list()
 	set name = "Check Round Info"
 	set category = "OOC"
 
-	GLOB.using_map.map_info(src)
+	global.using_map.map_info(src)
 
 	if(!SSticker.mode)
 		to_chat(usr, "Something is terribly wrong; there is no gametype.")

@@ -22,7 +22,7 @@
 				if("Area or Turf")
 					target = input("Select target:", "Target", get_turf(usr)) as null|area|turf in world
 				if("Client")
-					target = input("Select target:", "Target", usr.client) as null|anything in GLOB.clients
+					target = input("Select target:", "Target", usr.client) as null|anything in global.clients
 				else
 					return
 			if(!target)
@@ -139,8 +139,12 @@
 				if(isnull(current)) return CANCEL
 
 			if("type")
-				current = input("Select type for [arguments.len+1]\th argument") as null|anything in typesof(/obj, /mob, /area, /turf)
-				if(isnull(current)) return CANCEL
+				var/tpath = input("Enter type path for [arguments.len+1]\th argument") as null|text
+				if(isnull(tpath)) return CANCEL
+				current = text2path(tpath)
+				if(!ispath(current))
+					to_chat(usr, SPAN_WARNING("Inputed a bad path: '[tpath]'"))
+					return CANCEL
 
 			if("obj reference")
 				current = input("Select object for [arguments.len+1]\th argument") as null|obj in world
@@ -159,7 +163,7 @@
 				if(isnull(current)) return CANCEL
 
 			if("client")
-				current = input("Select client for [arguments.len+1]\th argument") as null|anything in GLOB.clients
+				current = input("Select client for [arguments.len+1]\th argument") as null|anything in global.clients
 				if(isnull(current)) return CANCEL
 
 			if("mob's area")
@@ -201,19 +205,6 @@
 	if(holder && holder.callproc && holder.callproc.waiting_for_click)
 		holder.callproc.waiting_for_click = 0
 		holder.callproc.do_args()
-
-/client/Click(atom/A)
-	if(!user_acted(src))
-		return
-	if(holder && holder.callproc && holder.callproc.waiting_for_click)
-		if(alert("Do you want to select \the [A] as the [holder.callproc.arguments.len+1]\th argument?",, "Yes", "No") == "Yes")
-			holder.callproc.arguments += A
-
-		holder.callproc.waiting_for_click = 0
-		verbs -= /client/proc/cancel_callproc_select
-		holder.callproc.do_args()
-	else
-		return ..()
 
 /datum/callproc/proc/finalise()
 	var/returnval

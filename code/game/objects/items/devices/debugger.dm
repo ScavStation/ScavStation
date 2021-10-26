@@ -12,7 +12,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 5.0
 	w_class = ITEM_SIZE_SMALL
-	throwforce = 5.0
+	throwforce = 5
 	throw_range = 15
 	throw_speed = 3
 	desc = "You can use this on airlocks or APCs to try to hack them without cutting wires."
@@ -20,7 +20,7 @@
 	material = /decl/material/solid/plastic
 	matter = list(
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_TRACE
 	)
 
 	origin_tech = "{'magnets':1,'engineering':1}"

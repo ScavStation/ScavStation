@@ -72,9 +72,25 @@
 	var/list/spawned_features
 
 	var/habitability_class	// if it's above bad, atmosphere will be adjusted to be better for humans (no extreme temps / oxygen to breathe)
+	var/crust_strata // Decl type for exterior walls to use for material and ore gen.
+
+	var/spawn_weight = 100	// Decides how often this planet will be picked for generation
+
+/obj/effect/overmap/visitable/sector/exoplanet/proc/get_strata()
+	return crust_strata
+
+/obj/effect/overmap/visitable/sector/exoplanet/proc/select_strata()
+	var/list/all_strata = decls_repository.get_decls_of_subtype(/decl/strata)
+	var/list/possible_strata = list()
+	for(var/stype in all_strata)
+		var/decl/strata/strata = all_strata[stype]
+		if(strata.is_valid_exoplanet_strata(src))
+			possible_strata += stype
+	if(length(possible_strata))
+		crust_strata = pick(possible_strata)
 
 /obj/effect/overmap/visitable/sector/exoplanet/Initialize(mapload, z_level)
-	if(GLOB.using_map.use_overmap)
+	if(global.overmaps_by_name[overmap_id])
 		forceMove(locate(1, 1, z_level))
 	return ..()
 
@@ -86,19 +102,25 @@
 	x_size = maxx - 2 * (TRANSITIONEDGE + 1)
 	y_size = maxy - 2 * (TRANSITIONEDGE + 1)
 	landing_points_to_place = min(round(0.1 * (x_size * y_size) / (shuttle_size * shuttle_size)), 3)
+
+	var/planet_name = generate_planet_name()
+	SetName("[planet_name], \a [name]")
 	planetary_area = new planetary_area()
+	global.using_map.area_purity_test_exempt_areas += planetary_area.type
+	planetary_area.SetName("Surface of [planet_name]")
+
 	var/themes_num = min(length(possible_themes), rand(1, max_themes))
 	for(var/i = 1 to themes_num)
 		var/datum/exoplanet_theme/T = pickweight(possible_themes)
 		themes += new T
 		possible_themes -= T
-	name = "[generate_planet_name()], \a [name]"
 
 	generate_habitability()
 	generate_atmosphere()
 	for(var/datum/exoplanet_theme/T in themes)
 		T.adjust_atmosphere(src)
-	generate_flora()
+	select_strata()
+	generate_flora(atmosphere?.temperature || T20C)
 	generate_map()
 	generate_landing(2)
 	generate_features()
@@ -142,7 +164,7 @@
 	if(!night)
 		light = lightlevel
 	for(var/turf/exterior/T in block(locate(daycolumn,1,min(map_z)),locate(daycolumn,maxy,max(map_z))))
-		T.set_light(light, 0.1, 2)
+		T.set_light(light)
 	daycolumn++
 	if(daycolumn > maxx)
 		daycolumn = 0
@@ -165,9 +187,9 @@
 			T.ChangeTurf(/turf/exterior/planet_edge)
 		for(var/map_type in map_generators)
 			if(ispath(map_type, /datum/random_map/noise/exoplanet))
-				new map_type(null,x_origin,y_origin,zlevel,x_size,y_size,0,1,1,planetary_area, plant_colors)
+				new map_type(x_origin, y_origin, zlevel, x_size, y_size, FALSE, TRUE, planetary_area, plant_colors)
 			else
-				new map_type(null,x_origin,y_origin,zlevel,x_size,y_size,0,1,1,planetary_area)
+				new map_type(x_origin, y_origin, zlevel, x_size, y_size, FALSE, TRUE, planetary_area)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
 	for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
@@ -259,3 +281,4 @@
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/effects/wind/wind_4_2.ogg','sound/effects/wind/wind_5_1.ogg')
 	always_unpowered = 1
 	area_flags = AREA_FLAG_IS_BACKGROUND | AREA_FLAG_EXTERNAL
+	show_starlight = TRUE

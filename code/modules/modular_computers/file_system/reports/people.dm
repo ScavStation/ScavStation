@@ -23,7 +23,7 @@
 /datum/report_field/people/proc/get_used_network()
 	var/obj/item/stock_parts/computer/hard_drive/holder = owner.holder
 	if(holder)
-		var/datum/extension/interactive/ntos/os = get_extension(holder.loc, /datum/extension/interactive/ntos)
+		var/datum/extension/interactive/os/os = get_extension(holder.loc, /datum/extension/interactive/os)
 		return os?.get_network()
 
 /datum/report_field/people/proc/perform_send(subject, body, attach_report)
@@ -89,7 +89,7 @@
 	var/dat = list()
 	for(var/entry in value)
 		var/milrank = entry["milrank"]
-		if(in_line && (GLOB.using_map.flags & MAP_HAS_RANK))
+		if(in_line && (global.using_map.flags & MAP_HAS_RANK))
 			var/datum/computer_file/report/crew_record/CR = get_crewmember_record(entry["name"])
 			if(CR)
 				var/datum/mil_rank/rank_obj = mil_branches.get_rank(CR.get_branch(), CR.get_rank())

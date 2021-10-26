@@ -108,22 +108,26 @@
 	STOP_PROCESSING(SSobj, src)
 	if(istype(loc, /obj/item/organ/external))
 		var/obj/item/organ/external/O = loc
-		O.implants -= src
+		LAZYREMOVE(O.implants, src)
 	. = ..()
 
 /obj/effect/spider/eggcluster/Process()
+
+	if(!loc)
+		qdel(src)
+		return 
+
 	if(prob(80))
 		amount_grown += rand(0,2)
+
 	if(amount_grown >= 100)
 		var/num = rand(3,9)
-		var/obj/item/organ/external/O = null
 		if(istype(loc, /obj/item/organ/external))
-			O = loc
-
-		for(var/i=0, i<num, i++)
-			var/spiderling = new /obj/effect/spider/spiderling(loc, src)
-			if(O)
-				O.implants += spiderling
+			var/obj/item/organ/external/O = loc
+			for(var/i=0, i<num, i++)
+				LAZYADD(O.implants, new /obj/effect/spider/spiderling(O, src))
+		else
+			new /obj/effect/spider/spiderling(loc, src)
 		qdel(src)
 
 /obj/effect/spider/proc/disturbed()
@@ -167,7 +171,7 @@
 		dormant = FALSE
 
 	if(dormant)
-		GLOB.moved_event.register(src, src, /obj/effect/spider/proc/disturbed)
+		events_repository.register(/decl/observ/moved, src, src, /obj/effect/spider/proc/disturbed)
 	else
 		START_PROCESSING(SSobj, src)
 
@@ -182,7 +186,7 @@
 
 /obj/effect/spider/spiderling/Destroy()
 	if(dormant)
-		GLOB.moved_event.unregister(src, src, /obj/effect/spider/proc/disturbed)
+		events_repository.unregister(/decl/observ/moved, src, src, /obj/effect/spider/proc/disturbed)
 	STOP_PROCESSING(SSobj, src)
 	walk(src, 0) // Because we might have called walk_to, we must stop the walk loop or BYOND keeps an internal reference to us forever.
 	. = ..()
@@ -200,7 +204,7 @@
 	if(!dormant)
 		return
 	dormant = FALSE
-	GLOB.moved_event.unregister(src, src, /obj/effect/spider/proc/disturbed)
+	events_repository.unregister(/decl/observ/moved, src, src, /obj/effect/spider/proc/disturbed)
 	START_PROCESSING(SSobj, src)
 
 /obj/effect/spider/spiderling/Bump(atom/user)
@@ -243,14 +247,15 @@
 			return
 
 	if(travelling_in_vent)
-		if(istype(src.loc, /turf))
+		if(isturf(src.loc))
 			travelling_in_vent = 0
 			entry_vent = null
 	else if(entry_vent)
 		if(get_dist(src, entry_vent) <= 1)
-			if(entry_vent.network && entry_vent.network.normal_members.len)
+			var/datum/pipe_network/network = entry_vent.network_in_dir(entry_vent.dir)
+			if(network && network.normal_members.len)
 				var/list/vents = list()
-				for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in entry_vent.network.normal_members)
+				for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in network.normal_members)
 					vents.Add(temp_vent)
 				if(!vents.len)
 					entry_vent = null

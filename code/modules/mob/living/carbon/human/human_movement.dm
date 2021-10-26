@@ -15,11 +15,8 @@
 			tally -= 2
 		tally -= 1
 
-	if(CE_SPEEDBOOST in chem_effects)
-		tally -= LAZYACCESS(chem_effects, CE_SPEEDBOOST)
-
-	if(CE_SLOWDOWN in chem_effects)
-		tally += LAZYACCESS(chem_effects, CE_SLOWDOWN)
+	tally -= GET_CHEMICAL_EFFECT(src, CE_SPEEDBOOST)
+	tally += GET_CHEMICAL_EFFECT(src, CE_SLOWDOWN)
 
 	var/health_deficiency = (maxHealth - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
@@ -95,7 +92,7 @@
 			if(prob(50))
 				thrust.stabilization_on = 0
 			SetMoveCooldown(15)	//2 seconds of random rando panic drifting
-			step(src, pick(GLOB.alldirs))
+			step(src, pick(global.alldirs))
 			return 0
 
 	. = ..()
@@ -133,20 +130,19 @@
 /mob/living/carbon/human/Move()
 	. = ..()
 	if(.) //We moved
-		species.handle_exertion(src)
 
 		var/stamina_cost = 0
-		for(var/obj/item/grab/G as anything in get_active_grabs())
+		for(var/obj/item/grab/G AS_ANYTHING in get_active_grabs())
 			stamina_cost -= G.grab_slowdown()
 		stamina_cost = round(stamina_cost)
 		if(stamina_cost < 0)
 			adjust_stamina(stamina_cost)
 
 		handle_leg_damage()
-
+		species.handle_post_move(src)
 		if(client)
 			var/turf/B = GetAbove(src)
-			up_hint.icon_state = "uphint[(B ? B.is_open() : 0)]"
+			up_hint.icon_state = "uphint[!!(B && TURF_IS_MIMICKING(B))]"
 
 /mob/living/carbon/human/proc/handle_leg_damage()
 	if(!can_feel_pain())
@@ -164,3 +160,13 @@
 
 /mob/living/carbon/human/can_sprint()
 	return (stamina > 0)
+
+/mob/living/carbon/human/UpdateLyingBuckledAndVerbStatus()
+	var/old_lying = lying
+	. = ..()
+	if(lying && !old_lying && !resting && !buckled) // fell down
+		if(ismob(buckled))
+			var/mob/M = buckled
+			M.unbuckle_mob()
+		var/decl/bodytype/B = get_bodytype()
+		playsound(loc, isSynthetic() ? pick(B.synthetic_bodyfall_sounds) : pick(B.bodyfall_sounds), 50, TRUE, -1)

@@ -15,7 +15,7 @@
 	icon = 'mods/valsalia/icons/metal_main.dmi'
 	allowed_bodytypes = list(BODYTYPE_YINGLET)
 
-DEFINE_ROBOLIMB_DESIGNS(/decl/prosthetics_manufacturer/ying_metal, lunar_transit, "Lunar Transit")
+DEFINE_ROBOLIMB_DESIGNS(/decl/prosthetics_manufacturer/ying_metal, lunar_transit)
 
 /decl/material/wood/generate_recipes(var/reinforce_material)
 	. = ..()

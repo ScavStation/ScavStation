@@ -3,7 +3,7 @@
 	desc = "A compact, lightly armoured voidsuit for a nonhuman with a tail."
 	icon_state = ICON_STATE_WORLD
 	icon = 'mods/valsalia/icons/clothing/suit/voidsuit_yinglet.dmi'
-	bodytype_restricted = list(BODYTYPE_YINGLET)
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 	color = COLOR_BRONZE
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour
@@ -40,7 +40,7 @@
 	desc = "A compact, lightly armoured voidsuit helmet for a nonhuman with large ears and a long nose."
 	icon_state = ICON_STATE_WORLD
 	icon = 'mods/valsalia/icons/clothing/head/voidsuit_helmet_yinglet.dmi'
-	bodytype_restricted = list(BODYTYPE_YINGLET)
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 	color = COLOR_BRONZE
 	var/faceplate_colour = COLOR_SKY_BLUE
 	var/armour_colour = COLOR_BEIGE

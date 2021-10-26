@@ -1,41 +1,41 @@
 /obj/item/clothing
-	bodytype_restricted = list(BODYTYPE_HUMANOID)
+	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 /obj/item/clothing/gloves
 	sprite_sheets = list(BODYTYPE_YINGLET = 'mods/valsalia/icons/clothing/gloves/gloves_yinglet.dmi')
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL)
+	bodytype_equip_flags = (BODY_FLAG_HUMANOID | BODY_FLAG_YINGLET | BODY_FLAG_INDREL)
 
 /obj/item/clothing/ears
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+	bodytype_equip_flags = (BODY_FLAG_HUMANOID | BODY_FLAG_YINGLET)
 
 /obj/item/clothing/glasses
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL, BODYTYPE_BAXXID)
+	bodytype_equip_flags = (BODY_FLAG_HUMANOID | BODY_FLAG_YINGLET | BODY_FLAG_INDREL | BODY_FLAG_BAXXID)
 
 /obj/item/clothing/head
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL, BODYTYPE_BAXXID)
+	bodytype_equip_flags = (BODY_FLAG_HUMANOID | BODY_FLAG_YINGLET | BODY_FLAG_INDREL | BODY_FLAG_BAXXID)
 
 /obj/item/clothing/suit
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL)
+	bodytype_equip_flags = (BODY_FLAG_HUMANOID | BODY_FLAG_YINGLET | BODY_FLAG_INDREL)
 
 /obj/item/clothing/mask
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL)
+	bodytype_equip_flags = (BODY_FLAG_HUMANOID | BODY_FLAG_YINGLET | BODY_FLAG_INDREL)
 
 /obj/item/clothing/accessory/cloak
-	bodytype_restricted = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET, BODYTYPE_INDREL, BODYTYPE_BAXXID)
+	bodytype_equip_flags = (BODY_FLAG_HUMANOID | BODY_FLAG_YINGLET | BODY_FLAG_INDREL | BODY_FLAG_BAXXID)
 
 /obj/item/clothing/under/tradeship_plain
 	name = "plain clothes"
 	desc = "Some very boring clothes."
 	icon = 'mods/valsalia/icons/clothing/under/plainclothes.dmi'
 	icon_state = ICON_STATE_WORLD
-	bodytype_restricted = list(BODYTYPE_HUMANOID)
+	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 /obj/item/clothing/suit/storage/toggle/redcoat
 	name = "\improper Tradehouse redcoat"
 	desc = "The signature uniform of Tradeshouse guardsmen."
 	icon = 'mods/valsalia/icons/clothing/suit/redcoat.dmi'
 	icon_state = ICON_STATE_WORLD
-	bodytype_restricted = list(BODYTYPE_HUMANOID)
+	bodytype_equip_flags = BODY_FLAG_HUMANOID
 	var/has_badge
 	var/has_buttons
 	var/has_collar

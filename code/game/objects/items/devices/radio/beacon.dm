@@ -1,3 +1,5 @@
+var/global/list/radio_beacons = list()
+
 /obj/item/radio/beacon
 	name = "tracking beacon"
 	desc = "A beacon used by a teleporter."
@@ -6,10 +8,18 @@
 	item_state = "signaler"
 	origin_tech = "{'wormholes':1}"
 	material = /decl/material/solid/metal/aluminium
-	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
+	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 
 	var/code = "electronic"
 	var/functioning = TRUE
+
+/obj/item/radio/beacon/Initialize()
+	. = ..()
+	global.radio_beacons += src
+
+/obj/item/radio/beacon/Destroy()
+	global.radio_beacons -= src
+	. = ..()
 
 /obj/item/radio/beacon/hear_talk()
 	return

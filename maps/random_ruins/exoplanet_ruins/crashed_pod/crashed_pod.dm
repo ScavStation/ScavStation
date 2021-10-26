@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(crashed_pod_areas, new)
+var/global/list/crashed_pod_areas = list()
 
 /datum/map_template/ruin/exoplanet/crashed_pod
 	name = "crashed survival pod"
@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(crashed_pod_areas, new)
 	outfit_type = /decl/hierarchy/outfit/job/survivor
 
 /decl/hierarchy/outfit/job/survivor
-	name = OUTFIT_JOB_NAME("Survivor")
+	name = "Job - Survivor"
 	id_type = null
 	pda_type = null
 

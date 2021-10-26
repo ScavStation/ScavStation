@@ -1,9 +1,11 @@
 /decl/special_role
 
 	// Text shown when becoming this antagonist.
-	var/list/restricted_jobs = 		list()   // Jobs that cannot be this antagonist at roundstart (depending on config)
-	var/list/protected_jobs = 		list()   // As above.
-	var/list/blacklisted_jobs =		list(/datum/job/submap)   // Jobs that can NEVER be this antagonist
+	var/list/restricted_jobs = 		list() // Jobs that cannot be this antagonist at roundstart (depending on config)
+	var/list/protected_jobs = 		list() // As above.
+	var/list/blocked_job_event_categories  // Job event categories that blacklist a job from being this antagonist.
+	// Jobs that can NEVER be this antagonist
+	var/list/blacklisted_jobs =	(/datum/job/submap) 
 
 	// Strings.
 	var/welcome_text = "Cry havoc and let slip the dogs of war!"
@@ -86,15 +88,12 @@
 	// Map template that antag needs to load before spawning. Nulled after it's loaded.
 	var/datum/map_template/base_to_load
 
-/decl/special_role/New()
+/decl/special_role/Initialize()
+	. = ..()
 	if(!name)
 		PRINT_STACK_TRACE("Special role [type] created without name set.")
 	if(ispath(skill_setter))
 		skill_setter = new skill_setter
-	..()
-
-/decl/special_role/Initialize()
-	..()
 	cur_max = hard_cap
 	get_starting_locations()
 	if(!name_plural)
@@ -102,13 +101,12 @@
 	if(config.protect_roles_from_antagonist)
 		restricted_jobs |= protected_jobs
 	if(antaghud_indicator)
-		if(!GLOB.hud_icon_reference)
-			GLOB.hud_icon_reference = list()
+		if(!global.hud_icon_reference)
+			global.hud_icon_reference = list()
 		if(name) 
-			GLOB.hud_icon_reference[name] = antaghud_indicator
+			global.hud_icon_reference[name] = antaghud_indicator
 		if(faction_name) 
-			GLOB.hud_icon_reference[faction_name] = antaghud_indicator
-	. = TRUE
+			global.hud_icon_reference[faction_name] = antaghud_indicator
 
 /decl/special_role/proc/get_antag_text(mob/recipient)
 	return antag_text

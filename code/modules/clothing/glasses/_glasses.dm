@@ -21,6 +21,7 @@
 	var/obj/screen/overlay
 	var/obj/item/clothing/glasses/hud/hud // Hud glasses, if any
 	var/activation_sound =   'sound/items/goggles_charge.ogg'
+	var/deactivation_sound // set this if you want a sound on deactivation
 	var/toggle_on_message =  "You activate the optical matrix on $ITEM$."
 	var/toggle_off_message = "You deactivate the optical matrix on $ITEM$."
 
@@ -31,11 +32,10 @@
 	if(ispath(hud))
 		hud = new hud(src)
 
-/obj/item/clothing/glasses/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/ret = ..()
-	if(ret && active && check_state_in_icon("[ret.icon_state]-active", ret.icon))
-		ret.icon_state = "[ret.icon_state]-active"
-	return ret
+/obj/item/clothing/glasses/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && active && check_state_in_icon("[overlay.icon_state]-active", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]-active"
+	. = ..()
 
 /obj/item/clothing/glasses/Destroy()
 	qdel(hud)
@@ -49,10 +49,12 @@
 	if(electric)
 		if(istype(src.loc, /mob/living/carbon/human))
 			var/mob/living/carbon/human/M = src.loc
-			to_chat(M, SPAN_DANGER("Your [name] malfunction[gender != PLURAL ? "s":""], blinding you!"))
-			if(M.glasses == src)
+			if(M.glasses != src)
+				to_chat(M, SPAN_DANGER("\The [src] malfunction[gender != PLURAL ? "s":""], releasing a small spark."))
+			else
 				SET_STATUS_MAX(M, STAT_BLIND, 2)
 				SET_STATUS_MAX(M, STAT_BLURRY, 4)
+				to_chat(M, SPAN_DANGER("Your [name] malfunction[gender != PLURAL ? "s":""], blinding you!"))
 
 				// Don't cure being nearsighted
 				if(!(M.disabilities & NEARSIGHTED))
@@ -84,6 +86,8 @@
 		set_active_values()
 		to_chat(user, SPAN_NOTICE(capitalize(replacetext(toggle_on_message, "$ITEM$", "\the [src]"))))
 	else
+		if(deactivation_sound)
+			sound_to(user, deactivation_sound)
 		set_inactive_values()
 		to_chat(user, SPAN_NOTICE(capitalize(replacetext(toggle_off_message, "$ITEM$", "\the [src]"))))
 	return TRUE
@@ -106,7 +110,7 @@
 	set category = "Object"
 	set name = "Adjust Eyewear"
 	set src in usr
-	attack_self()
+	attack_self(usr)
 
 /obj/item/clothing/glasses/proc/network_setup()
 	set name = "Setup HUD Network"

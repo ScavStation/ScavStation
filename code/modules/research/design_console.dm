@@ -11,7 +11,11 @@
 
 /obj/machinery/computer/design_console/Initialize()
 	. = ..()
-	set_extension(src, /datum/extension/network_device, initial_network_id, initial_network_key, NETWORK_CONNECTION_WIRED)
+	set_extension(src, /datum/extension/network_device, initial_network_id, initial_network_key, NETWORK_CONNECTION_STRONG_WIRELESS)
+
+/obj/machinery/computer/design_console/modify_mapped_vars(map_hash)
+	..()
+	ADJUST_TAG_VAR(initial_network_id, map_hash)
 
 /obj/machinery/computer/design_console/handle_post_network_connection()
 	..()

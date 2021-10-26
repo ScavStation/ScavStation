@@ -7,7 +7,8 @@
 	var/url // Remember to include http:// or https:// or BYOND will be sad
 	var/volume = 70
 
-/decl/music_track/New()
+/decl/music_track/Initialize()
+	. = ..()
 	license = GET_DECL(license)
 
 /decl/music_track/proc/play_to(var/listener)
@@ -17,7 +18,7 @@
 		to_chat(listener, url)
 
 	to_chat(listener, "<span class='good'>License: <a href='[license.url]'>[license.name]</a></span>")
-	sound_to(listener, sound(song, repeat = 1, wait = 0, volume = volume, channel = GLOB.lobby_sound_channel))
+	sound_to(listener, sound(song, repeat = 1, wait = 0, volume = volume, channel = sound_channels.lobby_channel))
 
 // No VV editing anything about music tracks
 /decl/music_track/VV_static()

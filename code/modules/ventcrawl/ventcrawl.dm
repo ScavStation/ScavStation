@@ -1,4 +1,4 @@
-var/list/ventcrawl_machinery = list(
+var/global/list/ventcrawl_machinery = list(
 	/obj/machinery/atmospherics/unary/vent_scrubber,
 	/obj/machinery/atmospherics/unary/vent_pump
 	)
@@ -106,7 +106,8 @@ var/list/ventcrawl_machinery = list(
 				break
 
 	if(vent_found)
-		if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))
+		var/datum/pipe_network/network = vent_found.network_in_dir(vent_found.dir)
+		if(network && (network.normal_members.len || network.line_members.len))
 
 			to_chat(src, "You begin climbing into the ventilation system...")
 			if(vent_found.air_contents && !issilicon(src))
@@ -152,9 +153,7 @@ var/list/ventcrawl_machinery = list(
 	for(var/datum/pipeline/pipeline in network.line_members)
 		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges))
 			if(!A.pipe_image)
-				A.pipe_image = image(A, A.loc, dir = A.dir)
-			A.pipe_image.layer = ABOVE_LIGHTING_LAYER
-			A.pipe_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+				A.pipe_image = emissive_overlay(icon = A, loc = A.loc, dir = A.dir)
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
 

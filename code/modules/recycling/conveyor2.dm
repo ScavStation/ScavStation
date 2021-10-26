@@ -1,5 +1,5 @@
-var/list/all_conveyors = list()
-var/list/all_conveyor_switches = list()
+var/global/list/all_conveyors = list()
+var/global/list/all_conveyor_switches = list()
 
 //conveyor2 is pretty much like the original, except it supports corners, but not diverters.
 //note that corner pieces transfer stuff clockwise when running forward, and anti-clockwise backwards.
@@ -245,10 +245,13 @@ var/list/all_conveyor_switches = list()
 		id_tag = C.id_tag
 
 /obj/item/conveyor_construct/afterattack(atom/A, mob/user, proximity)
-	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated())
+	if(!proximity || !istype(A, /turf/simulated/floor) || user.incapacitated())
 		return
+	var/area/area = get_area(A)
+	if(!istype(area) || (area.area_flags & AREA_FLAG_SHUTTLE))
+		return FALSE
 	var/cdir = get_dir(A, user)
-	if(!(cdir in GLOB.cardinal) || A == user.loc)
+	if(!(cdir in global.cardinal) || A == user.loc)
 		return
 	for(var/obj/machinery/conveyor/CB in A)
 		if(CB.dir == cdir || CB.dir == turn(cdir,180))
@@ -274,8 +277,11 @@ var/list/all_conveyor_switches = list()
 	id_tag = sequential_id("conveyor_switch_construct")
 
 /obj/item/conveyor_switch_construct/afterattack(atom/A, mob/user, proximity)
-	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated())
+	if(!proximity || !istype(A, /turf/simulated/floor) || user.incapacitated())
 		return
+	var/area/area = get_area(A)
+	if(!istype(area) || (area.area_flags & AREA_FLAG_SHUTTLE))
+		return FALSE
 	var/found = 0
 	for(var/obj/machinery/conveyor/C in view())
 		if(C.id_tag == src.id_tag)
@@ -293,8 +299,11 @@ var/list/all_conveyor_switches = list()
 	desc = "An one-way conveyor control switch assembly."
 
 /obj/item/conveyor_switch_construct/oneway/afterattack(atom/A, mob/user, proximity)
-	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated())
+	if(!proximity || !istype(A, /turf/simulated/floor) || user.incapacitated())
 		return
+	var/area/area = get_area(A)
+	if(!istype(area) || (area.area_flags & AREA_FLAG_SHUTTLE))
+		return FALSE
 	var/found = 0
 	for(var/obj/machinery/conveyor/C in view())
 		if(C.id_tag == src.id_tag)

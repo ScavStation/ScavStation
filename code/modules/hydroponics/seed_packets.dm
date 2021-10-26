@@ -15,6 +15,9 @@ var/global/list/plant_seed_sprites = list()
 	update_seed()
 	. = ..()
 
+/obj/item/seeds/get_single_monetary_worth()
+	. = seed ? seed.get_monetary_value() : ..()
+
 //Grabs the appropriate seed datum from the global list.
 /obj/item/seeds/proc/update_seed()
 	if(!seed && seed_type && !isnull(SSplants.seeds) && SSplants.seeds[seed_type])
@@ -171,8 +174,8 @@ var/global/list/plant_seed_sprites = list()
 /obj/item/seeds/chantermycelium
 	seed_type = "mushrooms"
 
-/obj/item/seeds/corkwood
-	seed_type = "corkwood"
+/obj/item/seeds/towercap
+	seed_type = "towercap"
 
 /obj/item/seeds/glowbell
 	seed_type = "glowbell"

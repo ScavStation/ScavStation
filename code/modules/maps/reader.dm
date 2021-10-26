@@ -3,8 +3,8 @@
 //////////////////////////////////////////////////////////////
 
 //global datum that will preload variables on atoms instanciation
-GLOBAL_VAR_INIT(use_preloader, FALSE)
-GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
+var/global/use_preloader = FALSE
+var/global/dmm_suite/preloader/_preloader = new
 
 /datum/map_load_metadata
 	var/bounds
@@ -53,7 +53,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 /dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, clear_contents, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY, initialized_areas_by_type)
 	var/tfile = dmm_file//the map file we're creating
 	if(isfile(tfile))
-		tfile = file2text(tfile)
+		tfile = safe_file2text(tfile, FALSE)
 
 	if(!x_offset)
 		x_offset = 1
@@ -184,8 +184,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 							maxx = max(maxx, xcrd)
 							++xcrd
 					--ycrd
-				if (zexpansion)
-					create_lighting_overlays_zlevel(zcrd)
+				if (zexpansion && SSlighting.initialized)
+					SSlighting.InitializeZlev(zcrd)
 
 			bounds[MAP_MAXX] = Clamp(max(bounds[MAP_MAXX], cropMap ? min(maxx, world.maxx) : maxx), x_lower, x_upper)
 
@@ -331,18 +331,14 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	if(members[index] != /area/template_noop)
 		is_not_noop = TRUE
 		var/list/attr = members_attributes[index]
-		if (LAZYLEN(attr))
-			GLOB._preloader.setup(attr)//preloader for assigning  set variables on atom creation
 		var/atype = members[index]
 		var/atom/instance = initialized_areas_by_type[atype]
 		if(!instance)
+			global._preloader.setup(attr, atype)
 			instance = new atype(null)
 			initialized_areas_by_type[atype] = instance
 		if(crds)
 			instance.contents.Add(crds)
-
-		if(GLOB.use_preloader && instance)
-			GLOB._preloader.load(instance)
 
 	//then instance the /turf and, if multiple tiles are presents, simulates the DMM underlays piling effect
 
@@ -395,27 +391,19 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 //Instance an atom at (x,y,z) and gives it the variables in attributes
 /dmm_suite/proc/instance_atom(path,list/attributes, turf/crds, no_changeturf)
-	if (LAZYLEN(attributes))
-		GLOB._preloader.setup(attributes, path)
+	global._preloader.setup(attributes, path)
 
 	if(crds)
 		if(!no_changeturf && ispath(path, /turf))
 			. = crds.ChangeTurf(path, FALSE, TRUE)
 		else
-			. = create_atom(path, crds)//first preloader pass
-
-	if(GLOB.use_preloader && .)//second preloader pass, for those atoms that don't ..() in New()
-		GLOB._preloader.load(.)
+			. = new path(crds)// preloader called from atom/New
 
 	//custom CHECK_TICK here because we don't want things created while we're sleeping to delay initialization.
 	if(TICK_CHECK)
 		SSatoms.map_loader_stop()
 		stoplag()
 		SSatoms.map_loader_begin()
-
-/dmm_suite/proc/create_atom(path, crds)
-	// Doing this async is impossible, as we must return the ref.
-	return new path (crds)
 
 //text trimming (both directions) helper proc
 //optionally removes quotes before and after the text (for variable name)
@@ -520,12 +508,12 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	parent_type = /datum
 	var/list/attributes
 	var/target_path
+	var/current_map_hash
 
 /dmm_suite/preloader/proc/setup(list/the_attributes, path)
-	if(LAZYLEN(the_attributes))
-		GLOB.use_preloader = TRUE
-		attributes = the_attributes
-		target_path = path
+	global.use_preloader = TRUE
+	attributes = the_attributes
+	target_path = path
 
 /dmm_suite/preloader/proc/load(atom/what)
 	for(var/attribute in attributes)
@@ -544,7 +532,9 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 					break
 			if (!found)
 				throw ex
-	GLOB.use_preloader = FALSE
+	if(current_map_hash)
+		what.modify_mapped_vars(current_map_hash)
+	global.use_preloader = FALSE
 
 /area/template_noop
 	name = "Area Passthrough"

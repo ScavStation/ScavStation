@@ -88,9 +88,13 @@
 /obj/machinery/design_database/Initialize()
 	..()
 	design_databases += src
-	set_extension(src, /datum/extension/network_device, initial_network_id, initial_network_key, NETWORK_CONNECTION_WIRED)
+	set_extension(src, /datum/extension/network_device, initial_network_id, initial_network_key, NETWORK_CONNECTION_STRONG_WIRELESS)
 	update_icon()
 	. = INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/design_database/modify_mapped_vars(map_hash)
+	..()
+	ADJUST_TAG_VAR(initial_network_id, map_hash)
 
 /obj/machinery/design_database/handle_post_network_connection()
 	..()

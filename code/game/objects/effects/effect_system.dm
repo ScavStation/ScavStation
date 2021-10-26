@@ -45,7 +45,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 // will always spawn at the items location, even if it's moved.
 
 /* Example:
-var/datum/effect/system/steam_spread/steam = new /datum/effect/system/steam_spread() -- creates new system
+var/global/datum/effect/system/steam_spread/steam = new /datum/effect/system/steam_spread() -- creates new system
 steam.set_up(5, 0, mob.loc) -- sets up variables
 OPTIONAL: steam.attach(mob)
 steam.start() -- spawns the effect
@@ -78,9 +78,9 @@ steam.start() -- spawns the effect
 	var/obj/effect/effect/steam/steam = new /obj/effect/effect/steam(location)
 	var/direction
 	if(src.cardinals)
-		direction = pick(GLOB.cardinal)
+		direction = pick(global.cardinal)
 	else
-		direction = pick(GLOB.alldirs)
+		direction = pick(global.alldirs)
 	for(i=0, i<pick(1,2,3), i++)
 		sleep(5)
 		step(steam,direction)
@@ -106,24 +106,26 @@ steam.start() -- spawns the effect
 	QDEL_IN(src, 5 SECONDS)
 	playsound(src.loc, "sparks", 100, 1)
 	var/turf/T = src.loc
-	if (istype(T, /turf))
+	if (isturf(T))
 		T.hotspot_expose(1000,100)
 
 /obj/effect/sparks/Destroy()
 	var/turf/T = src.loc
-	if (istype(T, /turf))
+	if (isturf(T))
 		T.hotspot_expose(1000,100)
 	return ..()
 
 /obj/effect/sparks/Move()
 	..()
 	var/turf/T = src.loc
-	if (istype(T, /turf))
+	if (isturf(T))
 		T.hotspot_expose(1000,100)
 
-/proc/spark_at(turf/location)
-	var/datum/effect/effect/system/sparks = new /datum/effect/effect/system/spark_spread()
-	sparks.set_up(3, 0, location)
+/proc/spark_at(turf/location, amount = 3, cardinal_only = FALSE, holder = null)
+	var/datum/effect/effect/system/spark_spread/sparks = new()
+	sparks.set_up(amount, cardinal_only, location)
+	if(holder)
+		sparks.attach(holder)
 	sparks.start()
 
 /datum/effect/effect/system/spark_spread
@@ -150,9 +152,9 @@ steam.start() -- spawns the effect
 	var/obj/effect/sparks/sparks = new /obj/effect/sparks(location)
 	var/direction
 	if(src.cardinals)
-		direction = pick(GLOB.cardinal)
+		direction = pick(global.cardinal)
 	else
-		direction = pick(GLOB.alldirs)
+		direction = pick(global.alldirs)
 	for(i=0, i<pick(1,2,3), i++)
 		sleep(5)
 		step(sparks,direction)
@@ -211,7 +213,7 @@ steam.start() -- spawns the effect
 	icon_state = "sparks"
 
 /obj/effect/effect/smoke/illumination/Initialize(mapload, var/lifetime=10, var/range=null, var/power=null, var/color=null)
-	set_light(power, 0.1, range, 2, color)
+	set_light(range, power, color)
 	time_to_live=lifetime
 	. = ..()
 
@@ -325,15 +327,15 @@ steam.start() -- spawns the effect
 
 /datum/effect/effect/system/smoke_spread/spread(var/i)
 	if(holder)
-		src.location = get_turf(holder)
+		if(QDELING(holder))
+			holder = null
+		else
+			src.location = get_turf(holder)
 	var/obj/effect/effect/smoke/smoke = new smoke_type(location)
 	src.total_smoke++
 	var/direction = src.direction
 	if(!direction)
-		if(src.cardinals)
-			direction = pick(GLOB.cardinal)
-		else
-			direction = pick(GLOB.alldirs)
+		direction = pick(src.cardinals ? global.cardinal : global.alldirs)
 	for(i=0, i<pick(0,1,1,1,2,2,2,3), i++)
 		sleep(1 SECOND)
 		if(QDELETED(smoke))
@@ -462,9 +464,7 @@ steam.start() -- spawns the effect
 
 /datum/effect/effect/system/reagents_explosion/start()
 	if (amount <= 2)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread()
-		s.set_up(2, 1, location)
-		s.start()
+		spark_at(location, amount = 2, cardinal_only = TRUE)
 		location.visible_message(SPAN_DANGER("The solution violently explodes!"))
 		for(var/mob/living/M in viewers(1, location))
 			if(prob (50 * amount))
@@ -477,7 +477,7 @@ steam.start() -- spawns the effect
 		var/light = -1
 		var/flash = -1
 
-		// Clamp all values to fractions of GLOB.max_explosion_range, following the same pattern as for tank transfer bombs
+		// Clamp all values to fractions of global.max_explosion_range, following the same pattern as for tank transfer bombs
 		if (round(amount/12) > 0)
 			devst = devst + amount/12
 

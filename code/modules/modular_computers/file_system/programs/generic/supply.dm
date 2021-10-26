@@ -59,10 +59,10 @@
 	var/notifications_enabled = FALSE
 	var/admin_access = list(access_cargo, access_mailsorting)
 
-/datum/nano_module/supply/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
+/datum/nano_module/supply/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = global.default_topic_state)
 	var/list/data = host.initial_data()
 	var/is_admin = check_access(user, admin_access)
-	var/decl/security_state/security_state = GET_DECL(GLOB.using_map.security_state)
+	var/decl/security_state/security_state = GET_DECL(global.using_map.security_state)
 	if(!LAZYLEN(category_names) || !LAZYLEN(category_contents) || current_security_level != security_state.current_security_level || emagged_memory != emagged )
 		generate_categories()
 		current_security_level = security_state.current_security_level
@@ -75,7 +75,7 @@
 	data["screen"] = screen
 	data["credits"] = "[SSsupply.points]"
 
-	var/decl/currency/cur = GET_DECL(GLOB.using_map.default_currency)
+	var/decl/currency/cur = GET_DECL(global.using_map.default_currency)
 	data["currency"] = cur.name
 
 	switch(screen)
@@ -100,13 +100,15 @@
 
 		if(3)// Shuttle monitoring and control
 			var/datum/shuttle/autodock/ferry/supply/shuttle = SSsupply.shuttle
-			data["shuttle_name"] = shuttle.name
 			if(istype(shuttle))
-				data["shuttle_location"] = shuttle.at_station() ? GLOB.using_map.name : "Remote location"
+				data["shuttle_name"] =        shuttle.name
+				data["shuttle_location"] =    shuttle.at_station() ? global.using_map.name : "Remote location"
+				data["shuttle_can_control"] = shuttle.can_launch()
 			else
-				data["shuttle_location"] = "No Connection"
+				data["shuttle_name"] =        "No Connection"
+				data["shuttle_location"] =    "No Connection"
+				data["shuttle_can_control"] = FALSE
 			data["shuttle_status"] = get_shuttle_status()
-			data["shuttle_can_control"] = shuttle.can_launch()
 
 		if(4)// Order processing
 			if(is_admin) // No bother sending all of this if the user can't see it.
@@ -123,7 +125,7 @@
 				data["requests"] = requests
 				data["done"] = done
 				data["can_print"] = can_print()
-				data["is_NTOS"] = istype(nano_host(), /obj/item/modular_computer) // Can we even use notifications?
+				data["is_OS"] = istype(nano_host(), /obj/item/modular_computer) // Can we even use notifications?
 				data["notifications_enabled"] = notifications_enabled
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -311,7 +313,7 @@
 	category_names.Cut()
 	category_contents.Cut()
 	var/decl/hierarchy/supply_pack/root = GET_DECL(/decl/hierarchy/supply_pack)
-	var/decl/currency/cur = GET_DECL(GLOB.using_map.default_currency)
+	var/decl/currency/cur = GET_DECL(global.using_map.default_currency)
 	for(var/decl/hierarchy/supply_pack/sp in root.children)
 		if(!sp.is_category())
 			continue // No children
@@ -382,7 +384,7 @@
 		))
 
 /datum/nano_module/supply/proc/can_print()
-	var/datum/extension/interactive/ntos/os = get_extension(nano_host(), /datum/extension/interactive/ntos)
+	var/datum/extension/interactive/os/os = get_extension(nano_host(), /datum/extension/interactive/os)
 	if(os)
 		return os.has_component(PART_PRINTER)
 	return 0
@@ -392,7 +394,7 @@
 		return
 
 	var/t = ""
-	t += "<h3>[GLOB.using_map.station_name] Supply Requisition Reciept</h3><hr>"
+	t += "<h3>[global.using_map.station_name] Supply Requisition Reciept</h3><hr>"
 	t += "INDEX: #[O.ordernum]<br>"
 	t += "REQUESTED BY: [O.orderedby]<br>"
 	t += "RANK: [O.orderedrank]<br>"
@@ -406,7 +408,7 @@
 
 /datum/nano_module/supply/proc/print_summary(var/mob/user)
 	var/t = ""
-	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Export overview<field></i></center><hr>"
+	t += "<center><BR><b><large>[global.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Export overview<field></i></center><hr>"
 	for(var/source in SSsupply.point_source_descriptions)
 		t += "[SSsupply.point_source_descriptions[source]]: [SSsupply.point_sources[source] || 0]<br>"
 	print_text(t, user)

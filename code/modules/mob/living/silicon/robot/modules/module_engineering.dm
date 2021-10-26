@@ -1,12 +1,11 @@
 /obj/item/robot_module/engineering
 	name = "engineering robot module"
-	associated_department = /decl/department/engineering
 	display_name = "Engineering"
 	channels = list(
 		"Engineering" = 1
 	)
-	networks = list(
-		NETWORK_ENGINEERING
+	camera_channels = list(
+		CAMERA_CAMERA_CHANNEL_ENGINEERING
 	)
 	software = list(
 		/datum/computer_file/program/power_monitor,
@@ -15,11 +14,11 @@
 	supported_upgrades = list(
 		/obj/item/borg/upgrade/rcd
 	)
-	sprites = list(
-		"Basic" = "Engineering",
-		"Antique" = "engineerrobot",
-		"Landmate" = "landmate",
-		"Landmate - Treaded" = "engiborg+tread"
+	module_sprites = list(
+		"Basic"              = 'icons/mob/robots/robot_engineer_old.dmi',
+		"Antique"            = 'icons/mob/robots/robot_engineer_old_alt.dmi',
+		"Landmate"           = 'icons/mob/robots/robot_engineer.dmi',
+		"Landmate - Treaded" = 'icons/mob/robots/robot_engineer_treaded.dmi'
 	)
 	no_slip = 1
 	equipment = list(
@@ -48,16 +47,18 @@
 		/obj/item/stack/material/cyborg/steel,
 		/obj/item/stack/material/cyborg/aluminium,
 		/obj/item/stack/material/rods/cyborg,
+		/obj/item/stack/material/strut/cyborg,
 		/obj/item/stack/tile/floor/cyborg,
 		/obj/item/stack/material/cyborg/glass,
 		/obj/item/stack/material/cyborg/glass/reinforced,
+		/obj/item/stack/material/cyborg/fiberglass,
 		/obj/item/stack/cable_coil/cyborg,
 		/obj/item/stack/material/cyborg/plasteel
 	)
 	synths = list(
-		/datum/matter_synth/metal =    60000,
-		/datum/matter_synth/glass =    40000,
-		/datum/matter_synth/plasteel = 20000,
+		/datum/matter_synth/metal =      60000,
+		/datum/matter_synth/glass =      40000,
+		/datum/matter_synth/plasteel =   20000,
 		/datum/matter_synth/wire
 	)
 	emag = /obj/item/baton/robot/electrified_arm
@@ -72,10 +73,10 @@
 
 /obj/item/robot_module/engineering/finalize_synths()
 
-	var/datum/matter_synth/metal/metal =       locate() in synths
-	var/datum/matter_synth/glass/glass =       locate() in synths
-	var/datum/matter_synth/plasteel/plasteel = locate() in synths
-	var/datum/matter_synth/wire/wire =         locate() in synths
+	var/datum/matter_synth/metal/metal =           locate() in synths
+	var/datum/matter_synth/glass/glass =           locate() in synths
+	var/datum/matter_synth/plasteel/plasteel =     locate() in synths
+	var/datum/matter_synth/wire/wire =             locate() in synths
 
 	var/obj/item/matter_decompiler/MD = locate() in equipment
 	MD.metal = metal
@@ -85,6 +86,7 @@
 		 /obj/item/stack/material/cyborg/steel,
 		 /obj/item/stack/material/cyborg/aluminium,
 		 /obj/item/stack/material/rods/cyborg,
+		 /obj/item/stack/material/strut/cyborg,
 		 /obj/item/stack/tile/floor/cyborg,
 		 /obj/item/stack/material/cyborg/glass/reinforced
 		))
@@ -93,7 +95,8 @@
 
 	for(var/thing in list(
 		 /obj/item/stack/material/cyborg/glass/reinforced,
-		 /obj/item/stack/material/cyborg/glass
+		 /obj/item/stack/material/cyborg/glass,
+		 /obj/item/stack/material/cyborg/fiberglass
 		))
 		var/obj/item/stack/stack = locate(thing) in equipment
 		LAZYDISTINCTADD(stack.synths, glass)

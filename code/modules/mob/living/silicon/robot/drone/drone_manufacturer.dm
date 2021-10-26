@@ -1,6 +1,6 @@
 /proc/count_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in world)
+	for(var/mob/living/silicon/robot/drone/D in global.silicon_mob_list)
 		if(D.key && D.client)
 			drones++
 	return drones
@@ -15,7 +15,7 @@
 	idle_power_usage = 20
 	active_power_usage = 5000
 
-	var/fabricator_tag = "Exodus"
+	var/fabricator_tag
 	var/drone_progress = 0
 	var/produce_drones = 1
 	var/time_last_drone = 500
@@ -23,6 +23,11 @@
 
 	icon = 'icons/obj/machines/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
+
+/obj/machinery/drone_fabricator/Initialize()
+	. = ..()
+	if(isnull(fabricator_tag))
+		fabricator_tag = global.using_map.station_short
 
 /obj/machinery/drone_fabricator/derelict
 	name = "construction drone fabricator"
@@ -98,7 +103,7 @@
 		to_chat(user, "<span class='danger'>That verb is not currently permitted.</span>")
 		return
 
-	if(jobban_isbanned(user,"Robot"))
+	if(jobban_isbanned(user,ASSIGNMENT_ROBOT))
 		to_chat(user, "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>")
 		return
 

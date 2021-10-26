@@ -49,6 +49,12 @@
 /proc/cmp_text_dsc(a,b)
 	return sorttext(a, b)
 
+/proc/cmp_list_name_key_asc(var/list/a, var/list/b)
+	return sorttext(b["name"], a["name"])
+
+/proc/cmp_list_name_key_dsc(var/list/a, var/list/b)
+	return sorttext(a["name"], b["name"])
+
 /proc/cmp_qdel_item_time(datum/qdel_item/A, datum/qdel_item/B)
 	. = B.hard_delete_time - A.hard_delete_time
 	if (!.)
@@ -96,3 +102,15 @@
 
 /proc/cmp_mob_sortvalue_des(mob/a, mob/b)
 	. = b.mob_sort_value - a.mob_sort_value
+
+/proc/cmp_rcon_tag_asc(var/obj/machinery/power/smes/buildable/a, var/obj/machinery/power/smes/buildable/b)
+	return sorttext(b.RCon_tag, a.RCon_tag)
+
+/proc/cmp_category_groups(var/datum/category_group/A, var/datum/category_group/B)
+	return A.sort_order - B.sort_order
+
+/proc/cmp_job_asc(var/datum/job/A, var/datum/job/B)
+	return A.get_occupations_tab_sort_score() - B.get_occupations_tab_sort_score()
+
+/proc/cmp_job_desc(var/datum/job/A, var/datum/job/B)
+	return B.get_occupations_tab_sort_score() - A.get_occupations_tab_sort_score()

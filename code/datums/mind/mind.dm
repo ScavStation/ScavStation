@@ -329,14 +329,8 @@
 				new_objective.owner = src
 
 			if ("steal")
-				if (!istype(objective, /datum/objective/steal))
-					new_objective = new /datum/objective/steal
-					new_objective.owner = src
-				else
-					new_objective = objective
-				var/datum/objective/steal/steal = new_objective
-				if (!steal.select_target())
-					return
+				new_objective = new /datum/objective/steal
+				new_objective.owner = src
 
 			if("download","capture","absorb")
 				var/def_num
@@ -481,17 +475,8 @@
 // check whether this mind's mob has been brigged for the given duration
 // have to call this periodically for the duration to work properly
 /datum/mind/proc/is_brigged(duration)
-	var/turf/T = current.loc
-	if(!istype(T))
-		brigged_since = -1
-		return 0
-	var/is_currently_brigged = 0
-	if(istype(T.loc,/area/security/brig))
-		is_currently_brigged = 1
-		if(current.GetIdCard())
-			is_currently_brigged = 0
-
-	if(!is_currently_brigged)
+	var/area/A = get_area(current)
+	if(!isturf(current.loc) || !istype(A) || !(A.area_flags & AREA_FLAG_PRISON) || current.GetIdCard())
 		brigged_since = -1
 		return 0
 
@@ -530,17 +515,17 @@
 /mob/living/carbon/human/mind_initialize()
 	..()
 	if(!mind.assigned_role)
-		mind.assigned_role = GLOB.using_map.default_assistant_title
+		mind.assigned_role = global.using_map.default_job_title
 
 //AI
 /mob/living/silicon/ai/mind_initialize()
 	..()
-	mind.assigned_role = "AI"
+	mind.assigned_role = ASSIGNMENT_COMPUTER
 
 //BORG
 /mob/living/silicon/robot/mind_initialize()
 	..()
-	mind.assigned_role = "Robot"
+	mind.assigned_role = ASSIGNMENT_ROBOT
 
 //PAI
 /mob/living/silicon/pai/mind_initialize()

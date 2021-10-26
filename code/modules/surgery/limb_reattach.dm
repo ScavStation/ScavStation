@@ -55,7 +55,7 @@
 			to_chat(user, SPAN_WARNING("You cannot attach a flesh part to a robotic body."))
 		if(P.model)
 			var/decl/prosthetics_manufacturer/robo_model = GET_DECL(P.model)
-			if(!istype(robo_model) || !robo_model.check_can_install(E.organ_tag, target.get_bodytype(), target.get_species_name()))
+			if(!istype(robo_model) || !robo_model.check_can_install(E.organ_tag, target.get_bodytype_category(), target.get_species_name()))
 				to_chat(user, SPAN_WARNING("That model of prosthetic is incompatible with \the [target]."))
 				return FALSE
 
@@ -95,7 +95,14 @@
 	user.visible_message("<span class='notice'>[user] has attached [target]'s [E.name] to the [E.amputation_point].</span>",	\
 	"<span class='notice'>You have attached [target]'s [E.name] to the [E.amputation_point].</span>")
 	E.replaced(target)
-	E.status |= ORGAN_CUT_AWAY
+
+	// Modular bodyparts (like prosthetics) do not need to be reconnected.
+	if(E.get_modular_limb_category() != MODULAR_BODYPART_INVALID)
+		E.status &= ~ORGAN_CUT_AWAY
+		for(var/obj/item/organ/external/child in E.children)
+			child.status &= ~ORGAN_CUT_AWAY
+	else
+		E.status |= ORGAN_CUT_AWAY
 
 	if(BP_IS_PROSTHETIC(E) && prob(user.skill_fail_chance(SKILL_DEVICES, 50, SKILL_ADEPT)))
 		E.add_random_ailment()
@@ -117,9 +124,8 @@
 	name = "Connect limb"
 	description = "This procedure is used to reconnect a replaced severed limb."
 	allowed_tools = list(
-		/obj/item/hemostat = 100,
-		/obj/item/stack/cable_coil = 75,
-		/obj/item/assembly/mousetrap = 20
+		TOOL_HEMOSTAT = 100,
+		TOOL_CABLECOIL = 75
 	)
 	can_infect = 1
 	min_duration = 100

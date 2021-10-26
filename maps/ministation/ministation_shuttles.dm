@@ -19,7 +19,7 @@
 	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
 } \
 /area/shuttle/escape_pod_##NUMBER { \
-	name = "Escape Pod ##NUMBER"; \
+	name = "Escape Pod " + #NUMBER; \
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_IS_NOT_PERSISTENT; \
 }
 
@@ -31,7 +31,7 @@ ESCAPE_POD(1)
 	warmup_time = 10
 	location = 1
 	dock_target = "supply_shuttle"
-	shuttle_area = /area/supply
+	shuttle_area = /area/ministation/supply
 	waypoint_offsite = "nav_cargo_start"
 	waypoint_station = "nav_cargo_station"
 

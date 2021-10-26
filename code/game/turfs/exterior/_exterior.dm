@@ -4,6 +4,7 @@
 	footstep_type = /decl/footsteps/asteroid
 	icon_state = "0"
 	layer = PLATING_LAYER
+	open_turf_type = /turf/exterior/open
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/possible_states = 0
@@ -13,12 +14,59 @@
 	var/list/affecting_heat_sources
 	var/obj/effect/overmap/visitable/sector/exoplanet/owner
 
-/turf/exterior/ChangeTurf()
+/turf/exterior/Initialize(mapload, no_update_icon = FALSE)
+
+	color = null
+
+	if(possible_states > 0)
+		icon_state = "[rand(0, possible_states)]"
+	owner = LAZYACCESS(global.overmap_sectors, "[z]")
+	if(!istype(owner))
+		owner = null
+	else
+		//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
+		set_light(owner.lightlevel)
+		if(owner.planetary_area && istype(loc, world.area))
+			ChangeArea(src, owner.planetary_area)
+
+	. = ..(mapload)	// second param is our own, don't pass to children
+
+	if (no_update_icon)
+		return
+
+	if (mapload)	// If this is a mapload, then our neighbors will be updating their own icons too -- doing it for them is rude.
+		update_icon()
+	else
+		for (var/turf/T in RANGE_TURFS(src, 1))
+			if (T == src)
+				continue
+			if (TICK_CHECK)	// not CHECK_TICK -- only queue if the server is overloaded
+				T.queue_icon_update()
+			else
+				T.update_icon()
+
+/turf/exterior/ChangeTurf(var/turf/N, var/tell_universe = TRUE, var/force_lighting_update = FALSE, var/keep_air = FALSE)
 	var/last_affecting_heat_sources = affecting_heat_sources
 	var/turf/exterior/ext = ..()
 	if(istype(ext))
 		ext.affecting_heat_sources = last_affecting_heat_sources
 	return ext
+
+/turf/exterior/initialize_ambient_light(var/mapload)
+	update_ambient_light(mapload)
+
+/turf/exterior/update_ambient_light(var/mapload)
+	if(owner) // Exoplanets do their own lighting shenanigans.
+		//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
+		set_light(owner.lightlevel)
+		return
+	if(config.starlight)
+		var/area/A = get_area(src)
+		if(A.show_starlight)
+			set_light(config.starlight, 0.75, l_color = SSskybox.background_color)
+			return
+	if(!mapload)
+		set_light(0)
 
 /turf/exterior/is_plating()
 	return !density
@@ -40,7 +88,7 @@
 		gas = new
 		gas.copy_from(owner.atmosphere)
 	else
-		gas = GLOB.using_map.get_exterior_atmosphere()
+		gas = global.using_map.get_exterior_atmosphere()
 	var/initial_temperature = gas.temperature
 	for(var/thing in affecting_heat_sources)
 		if((gas.temperature - initial_temperature) >= 100)
@@ -48,24 +96,6 @@
 		var/obj/structure/fire_source/heat_source = thing
 		gas.temperature = gas.temperature + heat_source.exterior_temperature / max(1, get_dist(src, get_turf(heat_source)))
 	return gas
-
-/turf/exterior/Initialize(var/ml)
-	if(possible_states > 0)
-		icon_state = "[rand(0, possible_states)]"
-	owner = LAZYACCESS(map_sectors, "[z]")
-	if(!istype(owner))
-		owner = null
-	else
-		//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-		set_light(owner.lightlevel, 0.1, 2)
-		if(owner.planetary_area && istype(loc, world.area))
-			ChangeArea(src, owner.planetary_area)
-	..()
-	. = INITIALIZE_HINT_LATELOAD
-
-/turf/exterior/LateInitialize()
-	. = ..()
-	update_icon(TRUE)
 
 /turf/exterior/levelupdate()
 	for(var/obj/O in src)
@@ -97,17 +127,25 @@
 	if(!istype(src, get_base_turf_by_area(src)) && (severity == 1 || (severity == 2 && prob(40))))
 		ChangeTurf(get_base_turf_by_area(src))
 
-/turf/exterior/on_update_icon(var/update_neighbors)
+/turf/exterior/on_update_icon()
 	. = ..() // Recalc AO and flooding overlay.
 	cut_overlays()
 	if(LAZYLEN(decals))
 		add_overlay(decals)
 
+	var/datum/gas_mixture/air = (owner ? owner.atmosphere : global.using_map.exterior_atmosphere)
+	if(length(air?.graphic))
+		vis_contents += air.graphic
+	else if(flooded)
+		vis_contents = list(global.flood_object)
+	else
+		vis_contents.Cut()
+
 	if(icon_edge_layer < 0)
 		return
 
 	var/neighbors = 0
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in global.cardinal)
 		var/turf/exterior/turf_to_check = get_step(src,direction)
 		if(!turf_to_check || turf_to_check.density)
 			continue
@@ -120,18 +158,16 @@
 			switch(direction)
 				if(NORTH)
 					I.pixel_y += world.icon_size
-				if(SOUTH) 
+				if(SOUTH)
 					I.pixel_y -= world.icon_size
 				if(EAST)
 					I.pixel_x += world.icon_size
 				if(WEST)
 					I.pixel_x -= world.icon_size
 			add_overlay(I)
-		if(update_neighbors)
-			turf_to_check.update_icon()
 
 	if(icon_has_corners)
-		for(var/direction in GLOB.cornerdirs)
+		for(var/direction in global.cornerdirs)
 			var/turf/exterior/turf_to_check = get_step(src,direction)
 			if(!isturf(turf_to_check) || turf_to_check.density || istype(turf_to_check, type))
 				continue
@@ -148,21 +184,10 @@
 					I.layer = layer + icon_edge_layer
 					if(direction & NORTH)
 						I.pixel_y += world.icon_size
-					else if(direction & SOUTH) 
+					else if(direction & SOUTH)
 						I.pixel_y -= world.icon_size
 					if(direction & EAST)
 						I.pixel_x += world.icon_size
 					else if(direction & WEST)
 						I.pixel_x -= world.icon_size
 					add_overlay(I)
-
-	var/datum/gas_mixture/air = (owner ? owner.atmosphere : GLOB.using_map.exterior_atmosphere)
-	if(length(air?.graphic))
-		vis_contents += air.graphic
-	else
-		vis_contents.Cut()
-
-	if(update_neighbors)
-		for(var/direction in GLOB.cornerdirs)
-			var/turf/turf_to_check = get_step(src,direction)
-			turf_to_check?.update_icon()

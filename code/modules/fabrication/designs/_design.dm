@@ -9,16 +9,12 @@
 	)
 	var/build_time = 5 SECONDS
 	var/max_amount = 1 // How many instances can be queued at once
-	var/ignore_materials = list(
-		/decl/material/solid/slag = TRUE
-	)
 	var/list/required_technology
 	var/list/species_locked
 
 // Populate name and resources from the product type.
 /datum/fabricator_recipe/proc/get_product_name()
-	var/obj/O = path
-	. = initial(O.name)
+	. = atom_info_repository.get_name_for(path, amount = 1)
 
 /datum/fabricator_recipe/New()
 	..()
@@ -54,8 +50,7 @@
 	resources = list()
 	var/list/building_cost = atom_info_repository.get_matter_for(path)
 	for(var/mat in building_cost)
-		if(!ignore_materials[mat])
-			resources[mat] = building_cost[mat] * FABRICATOR_EXTRA_COST_FACTOR
+		resources[mat] = building_cost[mat] * FABRICATOR_EXTRA_COST_FACTOR
 
 /obj/building_cost()
 	. = ..()

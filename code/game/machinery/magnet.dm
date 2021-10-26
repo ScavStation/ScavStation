@@ -4,6 +4,8 @@
 // tl;dr: it's magnets lol
 // This was created for firing ranges, but I suppose this could have other applications - Doohl
 
+var/global/list/magnetic_modules = list()
+
 /obj/machinery/magnetic_module
 
 	icon = 'icons/obj/objects.dmi'
@@ -30,6 +32,7 @@
 
 /obj/machinery/magnetic_module/Initialize()
 	. = ..()
+	global.magnetic_modules += src
 	var/turf/T = loc
 	hide(!T.is_plating())
 	center = T
@@ -153,9 +156,6 @@
 	else
 		update_use_power(POWER_USE_IDLE)
 
-	update_icon()
-
-
 /obj/machinery/magnetic_module/proc/magnetic_process() // proc that actually does the pulling
 	set waitfor = FALSE
 	if(pulling) return
@@ -180,6 +180,7 @@
 /obj/machinery/magnetic_module/Destroy()
 	if(radio_controller)
 		radio_controller.remove_object(src, freq)
+	global.magnetic_modules -= src
 	return ..()
 
 /obj/machinery/magnetic_controller
@@ -209,7 +210,7 @@
 /obj/machinery/magnetic_controller/Initialize()
 	. = ..()
 	if(autolink)
-		for(var/obj/machinery/magnetic_module/M in world)
+		for(var/obj/machinery/magnetic_module/M in global.magnetic_modules)
 			if(M.freq == frequency && M.code == code)
 				magnets.Add(M)
 
@@ -222,7 +223,7 @@
 
 /obj/machinery/magnetic_controller/Process()
 	if(magnets.len == 0 && autolink)
-		for(var/obj/machinery/magnetic_module/M in world)
+		for(var/obj/machinery/magnetic_module/M in global.magnetic_modules)
 			if(M.freq == frequency && M.code == code)
 				magnets.Add(M)
 

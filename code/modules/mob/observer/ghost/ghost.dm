@@ -6,7 +6,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	appearance_flags = KEEP_TOGETHER
+	appearance_flags = KEEP_TOGETHER | LONG_GLIDE
 	blinded = 0
 	anchored = 1	//  don't get pushed around
 	universal_speak = TRUE
@@ -50,20 +50,25 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 				name = body.real_name
 			else
 				if(gender == MALE)
-					name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
+					name = capitalize(pick(global.first_names_male)) + " " + capitalize(pick(global.last_names))
 				else
-					name = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
+					name = capitalize(pick(global.first_names_female)) + " " + capitalize(pick(global.last_names))
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 	else
 		spawn(10) // wait for the observer mob to receive the client's key
 			mind = new /datum/mind(key)
 			mind.current = src
-	if(!T)	T = pick(GLOB.latejoin | GLOB.latejoin_cryo | GLOB.latejoin_gateway)			//Safety in case we cannot find the body's position
+	if(!T)
+		var/list/spawn_locs = global.latejoin_locations | global.latejoin_cryo_locations | global.latejoin_gateway_locations
+		if(length(spawn_locs))
+			T = pick(spawn_locs)
+		else
+			T = locate(1, 1, 1) 
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
-		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
+		name = capitalize(pick(global.first_names_male)) + " " + capitalize(pick(global.last_names))
 	real_name = name
 
 	var/decl/special_role/cultist/cult = GET_DECL(/decl/special_role/cultist)
@@ -71,12 +76,12 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 	ghost_multitool = new(src)
 
-	GLOB.ghost_mob_list += src
+	global.ghost_mob_list += src
 
 	. = ..()
 
 /mob/observer/ghost/Destroy()
-	GLOB.ghost_mob_list -= src
+	global.ghost_mob_list -= src
 	stop_following()
 	qdel(ghost_multitool)
 	ghost_multitool = null
@@ -183,16 +188,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
 		announce_ghost_joinleave(ghost)
 
-/mob/observer/ghost/can_use_hands()	return 0
-/mob/observer/ghost/is_active()		return 0
+/mob/observer/ghost/can_use_hands()	
+	return FALSE
+
+/mob/observer/ghost/is_active()
+	return FALSE
 
 /mob/observer/ghost/Stat()
 	. = ..()
-	if(statpanel("Status"))
-		if(SSevac.evacuation_controller)
-			var/eta_status = SSevac.evacuation_controller.get_status_panel_eta()
-			if(eta_status)
-				stat(null, eta_status)
+	if(statpanel("Status") && SSevac.evacuation_controller)
+		var/eta_status = SSevac.evacuation_controller.get_status_panel_eta()
+		if(eta_status)
+			stat(null, eta_status)
 
 /mob/observer/ghost/verb/reenter_corpse()
 	set category = "Ghost"
@@ -302,9 +309,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	stop_following()
 	following = target
 	verbs |= /mob/observer/ghost/proc/scan_target
-	GLOB.moved_event.register(following, src, /atom/movable/proc/move_to_turf)
-	GLOB.dir_set_event.register(following, src, /atom/proc/recursive_dir_set)
-	GLOB.destroyed_event.register(following, src, /mob/observer/ghost/proc/stop_following)
+	events_repository.register(/decl/observ/moved, following, src, /atom/movable/proc/move_to_turf)
+	events_repository.register(/decl/observ/dir_set, following, src, /atom/proc/recursive_dir_set)
+	events_repository.register(/decl/observ/destroyed, following, src, /mob/observer/ghost/proc/stop_following)
 
 	to_chat(src, "<span class='notice'>Now following \the [following].</span>")
 	move_to_turf(following, loc, following.loc)
@@ -312,9 +319,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/observer/ghost/proc/stop_following()
 	if(following)
 		to_chat(src, "<span class='notice'>No longer following \the [following]</span>")
-		GLOB.moved_event.unregister(following, src)
-		GLOB.dir_set_event.unregister(following, src)
-		GLOB.destroyed_event.unregister(following, src)
+		events_repository.unregister(/decl/observ/moved, following, src)
+		events_repository.unregister(/decl/observ/dir_set, following, src)
+		events_repository.unregister(/decl/observ/destroyed, following, src)
 		following = null
 		verbs -= /mob/observer/ghost/proc/scan_target
 
@@ -375,7 +382,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 	var/turf/T = get_turf(src)
-	if(!T || (T.z in GLOB.using_map.admin_levels))
+	if(!T || (T.z in global.using_map.admin_levels))
 		to_chat(src, "<span class='warning'>You may not spawn as a mouse on this Z-level.</span>")
 		return
 
@@ -431,17 +438,19 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/observer/ghost/proc/try_possession(var/mob/living/M)
 	if(!config.ghosts_can_possess_animals)
-		to_chat(src, "<span class='warning'>Ghosts are not permitted to possess animals.</span>")
-		return 0
+		to_chat(src, SPAN_WARNING("Ghosts are not permitted to possess animals."))
+		return FALSE
 	if(!M.can_be_possessed_by(src))
-		return 0
+		return FALSE
 	return M.do_possession(src)
 
 /mob/observer/ghost/pointed(atom/A as mob|obj|turf in view())
 	if(!..())
-		return 0
-	usr.visible_message("<span class='deadsay'><b>[src]</b> points to [A]</span>")
-	return 1
+		return FALSE
+	for(var/mob/M in viewers(7, get_turf(A)))
+		if(M.see_invisible >= invisibility)
+			to_chat(M, "<span class='deadsay'><b>[src]</b> points to [A]</span>")
+	return TRUE
 
 /mob/observer/ghost/proc/show_hud_icon(var/icon_state, var/make_visible)
 	if(!hud_images)
@@ -461,12 +470,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Toggle Anonymous Chat"
 	set desc = "Toggles showing your key in dead chat."
 
-	if(client.get_preference_value(/datum/client_preference/anon_say) == GLOB.PREF_NO)
+	if(client.get_preference_value(/datum/client_preference/anon_say) == PREF_NO)
 		to_chat(src, "<span class='info'>Your key won't be shown when you speak in dead chat.</span>")
-		client.set_preference(/datum/client_preference/anon_say, GLOB.PREF_YES)
+		client.set_preference(/datum/client_preference/anon_say, PREF_YES)
 	else
 		to_chat(src, "<span class='info'>Your key will be publicly visible again.</span>")
-		client.set_preference(/datum/client_preference/anon_say, GLOB.PREF_NO)
+		client.set_preference(/datum/client_preference/anon_say, PREF_NO)
 
 /mob/observer/ghost/canface()
 	return 1

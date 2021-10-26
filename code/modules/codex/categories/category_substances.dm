@@ -16,7 +16,7 @@
 
 			var/list/production_strings = list()
 			for(var/react in SSmaterials.chemical_reactions_by_result[thing])
-				var/datum/chemical_reaction/reaction = react
+				var/decl/chemical_reaction/reaction = react
 				if(!reaction.name || reaction.hidden_from_codex)
 					continue
 				var/list/reactant_values = list()
@@ -158,6 +158,6 @@
 			material_info += "</ul>"
 
 			entry.mechanics_text = jointext(material_info, null)
-			SScodex.add_entry_by_string(entry.display_name, entry)
-			items += entry.display_name
+			SScodex.add_entry_by_string(entry.name, entry)
+			items |= entry.name
 	. = ..()

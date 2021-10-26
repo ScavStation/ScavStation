@@ -5,7 +5,7 @@
 	slot_flags = SLOT_FACE
 	body_parts_covered = SLOT_FACE|SLOT_EYES
 	blood_overlay_type = "maskblood"
-	material = /decl/material/solid/glass
+	material = /decl/material/solid/fiberglass
 	matter = list(/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT)
 	origin_tech = "{'materials':1,'engineering':1}"
 
@@ -34,11 +34,10 @@
 		var/mob/M = src.loc
 		M.update_inv_wear_mask()
 
-/obj/item/clothing/mask/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/I = ..()
-	if(I && hanging && slot == slot_wear_mask_str && check_state_in_icon("[I.icon_state]-down", I.icon))
-		I.icon_state = "[I.icon_state]-down"
-	return I
+/obj/item/clothing/mask/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && hanging && slot == slot_wear_mask_str && check_state_in_icon("[overlay.icon_state]-down", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]-down"
+	. = ..()
  
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return

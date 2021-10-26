@@ -30,10 +30,9 @@
 
 	if (istype(ui))
 		ui.close()
-
 		if(ui.ref)
 			var/href = "close=1"
-			src.Topic(href, params2list(href), ui.ref)	// this will direct to the atom's Topic() proc via client.Topic()
+			src.Topic(href, params2list(href), ui.ref)	// this will direct to the datum's Topic() proc via client.Topic()
 		else if (ui.on_close_logic)
 			// no atomref specified (or not found)
 			// so just reset the user mob's machine var
@@ -52,7 +51,7 @@
   *
   * @return nothing
   */
-/datum/proc/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/nanoui/master_ui = null, datum/topic_state/state = GLOB.default_state)
+/datum/proc/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/nanoui/master_ui = null, datum/topic_state/state = global.default_topic_state)
 	return
 
  /**

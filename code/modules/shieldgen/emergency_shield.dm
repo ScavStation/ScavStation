@@ -131,7 +131,6 @@
 	if(active) return 0 //If it's already turned on, how did this get called?
 
 	src.active = 1
-	update_icon()
 
 	create_shields()
 
@@ -145,7 +144,6 @@
 	if(!active) return 0 //If it's already off, how did this get called?
 
 	src.active = 0
-	update_icon()
 
 	collapse_shields()
 
@@ -287,7 +285,7 @@
 				to_chat(user, "<span class='notice'>You repair the [src]!</span>")
 				update_icon()
 
-	else if(istype(W, /obj/item/wrench))
+	else if(isWrench(W))
 		if(locked)
 			to_chat(user, "The bolts are covered, unlocking this would retract the covers.")
 			return

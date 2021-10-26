@@ -1,15 +1,9 @@
 /mob/living/simple_animal/hostile/retaliate/clown
 	name = "clown"
 	desc = "A denizen of clown planet"
-	icon_state = "clown"
-	icon_living = "clown"
-	icon_dead = "clown_dead"
-	icon_gib = "clown_gib"
+	icon = 'icons/mob/simple_animal/clown.dmi'
 	speak_chance = 0
 	turns_per_move = 5
-	response_help = "pokes"
-	response_disarm = "gently pushes aside"
-	response_harm = "hits"
 	speak = list("HONK", "Honk!", "Welcome to clown planet!")
 	emote_see = list("honks")
 	speak_chance = 1
@@ -26,6 +20,7 @@
 	cold_damage_per_tick = 10	//same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
 	unsuitable_atmos_damage = 10
 	natural_weapon = /obj/item/natural_weapon/clown
+	faction = "circus"
 
 /obj/item/natural_weapon/clown
 	name = "bike horn"

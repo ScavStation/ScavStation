@@ -2,7 +2,7 @@
 	name = "airlock electronics"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
-	material = /decl/material/solid/glass
+	material = /decl/material/solid/fiberglass
 
 	build_path = /obj/machinery/door/airlock
 	board_type = "door"
@@ -22,7 +22,6 @@
 	secure = TRUE
 
 /obj/item/stock_parts/circuitboard/airlock_electronics/windoor
-	icon_state = "door_electronics_smoked"
 	name = "window door electronics"
 	build_path = /obj/machinery/door/window
 	additional_spawn_components = list()
@@ -52,7 +51,7 @@
 		/obj/item/stock_parts/power/apc/buildable
 	)
 
-/obj/item/stock_parts/circuitboard/airlock_electronics/brace/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = GLOB.deep_inventory_state)
+/obj/item/stock_parts/circuitboard/airlock_electronics/brace/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = global.deep_inventory_topic_state)
 	var/list/data = ui_data()
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)

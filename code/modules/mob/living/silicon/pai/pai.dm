@@ -1,28 +1,28 @@
-GLOBAL_LIST_INIT(possible_chassis, list(
-		"Drone" = "drone",
-		"Cat" = "cat",
-		"Mouse" = "mouse",
-		"Monkey" = "monkey",
-		"Rabbit" = "rabbit",
-		"Mushroom" = "mushroom",
-		"Corgi" = "corgi",
-		"Crow" = "crow"
-		))
+var/global/list/possible_chassis = list(
+	"Drone" =    'icons/mob/robots/pai/pai_drone.dmi',
+	"Cat" =      'icons/mob/robots/pai/pai_cat.dmi',
+	"Mouse" =    'icons/mob/robots/pai/pai_mouse.dmi',
+	"Monkey" =   'icons/mob/robots/pai/pai_monkey.dmi',
+	"Rabbit" =   'icons/mob/robots/pai/pai_rabbit.dmi',
+	"Mushroom" = 'icons/mob/robots/pai/pai_mushroom.dmi',
+	"Corgi" =    'icons/mob/robots/pai/pai_corgi.dmi',
+	"Crow" =     'icons/mob/robots/pai/pai_crow.dmi'
+)
 
-GLOBAL_LIST_INIT(possible_say_verbs, list(
-		"Robotic" = list("states","declares","queries"),
-		"Natural" = list("says","yells","asks"),
-		"Beep" = list("beeps","beeps loudly","boops"),
-		"Chirp" = list("chirps","chirrups","cheeps"),
-		"Feline" = list("purrs","yowls","meows"),
-		"Canine" = list("yaps", "barks", "woofs"),
-		"Corvid" = list("caws", "caws loudly", "whistles")
-		))
+var/global/list/possible_say_verbs = list(
+	"Robotic" = list("states","declares","queries"),
+	"Natural" = list("says","yells","asks"),
+	"Beep" =    list("beeps","beeps loudly","boops"),
+	"Chirp" =   list("chirps","chirrups","cheeps"),
+	"Feline" =  list("purrs","yowls","meows"),
+	"Canine" =  list("yaps", "barks", "woofs"),
+	"Corvid" =  list("caws", "caws loudly", "whistles")
+)
 
 /mob/living/silicon/pai
 	name = "pAI"
-	icon = 'icons/mob/pai.dmi'
-	icon_state = "drone"
+	icon = 'icons/mob/robots/pai/pai_drone.dmi'
+	icon_state = ICON_STATE_WORLD
 	mob_sort_value = 3
 	hud_type = /datum/hud/pai
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 	idcard = /obj/item/card/id
 	silicon_radio = null // pAIs get their radio from the card they belong to.
 
-	ntos_type =	/datum/extension/interactive/ntos/silicon/small
+	os_type =	/datum/extension/interactive/os/silicon/small
 	starting_stock_parts = list(
 		/obj/item/stock_parts/computer/processor_unit/small,
 		/obj/item/stock_parts/computer/hard_drive/silicon,
@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 	var/obj/item/paicard/card	// The card we inhabit
 
 	var/is_in_card = TRUE
-	var/chassis = "drone"
+	var/chassis
 	var/obj/item/pai_cable/cable		// The cable we produce and use when door or camera jacking
 
 	var/master				// Name of the one who commands us
@@ -85,12 +85,16 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 
 	var/translator_on = 0 // keeps track of the translator module
 
-	var/flashlight_max_bright = 0.5 //brightness of light when on, must be no greater than 1.
-	var/flashlight_inner_range = 1 //inner range of light when on, can be negative
-	var/flashlight_outer_range = 3 //outer range of light when on, can be negative
+	var/flashlight_power = 0.5 //brightness of light when on, must be no greater than 1.
+	var/flashlight_range = 3 //outer range of light when on, can be negative
 	var/light_on = FALSE
 
+	light_wedge = 45
+
 /mob/living/silicon/pai/Initialize()
+
+	chassis = global.possible_chassis[1]
+
 	set_extension(src, /datum/extension/base_icon_state, icon_state)
 	status_flags |= NO_ANTAG
 	card = loc
@@ -194,7 +198,7 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 			for(var/obj/item/organ/external/affecting in H.organs)
 				if(card in affecting.implants)
 					affecting.take_external_damage(rand(30,50))
-					affecting.implants -= card
+					LAZYREMOVE(affecting.implants, card)
 					H.visible_message("<span class='danger'>\The [src] explodes out of \the [H]'s [affecting.name] in a shower of gore!</span>")
 					break
 		holder.drop_from_inventory(card)
@@ -284,9 +288,12 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 		if(stat != 2) fold()
 	return
 
-/mob/living/silicon/pai/attack_hand(mob/user)
-	visible_message(SPAN_DANGER("[user] boops [src] on the head."))
-	fold()
+/mob/living/silicon/pai/default_interaction(mob/user)
+	. = ..()
+	if(!.)
+		visible_message(SPAN_NOTICE("\The [user] boops \the [src] on the head."))
+		fold()
+		return TRUE
 
 // No binary for pAIs.
 /mob/living/silicon/pai/binarycheck()
@@ -309,7 +316,7 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 
 /mob/living/silicon/pai/proc/toggle_integrated_light()
 	if(!light_on)
-		set_light(flashlight_max_bright, flashlight_inner_range, flashlight_outer_range, 2)
+		set_light(flashlight_range, flashlight_power, angle = light_wedge)
 		to_chat(src, SPAN_NOTICE("You enable your integrated light."))
 		light_on = TRUE
 	else

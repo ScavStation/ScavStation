@@ -1,8 +1,7 @@
 /mob/living/silicon/robot/drone
 	name = "maintenance drone"
 	real_name = "drone"
-	icon = 'icons/mob/robots_drones.dmi'
-	icon_state = "repairbot"
+	icon = 'icons/mob/robots/drones/drone.dmi'
 	maxHealth = 35
 	health = 35
 	cell_emp_mult = 1
@@ -14,7 +13,8 @@
 	lawupdate = 0
 	density = 1
 	req_access = list(access_engine, access_robotics)
-	integrated_light_max_bright = 0.5
+	integrated_light_power = 0.4
+	integrated_light_range = 3
 	local_transmit = 1
 	possession_candidate = 1
 	speed = -1
@@ -27,7 +27,7 @@
 	mob_push_flags = SIMPLE_ANIMAL
 	mob_always_swap = 1
 
-	mob_size = MOB_SIZE_MEDIUM // Small mobs can't open doors, it's a huge pain for drones.
+	mob_size = MOB_SIZE_SMALL
 
 	laws = /datum/ai_laws/drone
 
@@ -40,7 +40,7 @@
 	var/hat_y = -13
 
 	holder_type = /obj/item/holder/drone
-	ntos_type = null
+	os_type = null
 	starting_stock_parts = null
 
 /mob/living/silicon/robot/drone/Initialize()
@@ -51,7 +51,7 @@
 	remove_language(/decl/language/binary)
 	add_language(/decl/language/binary, 0)
 	add_language(/decl/language/binary/drone, 1)
-	set_extension(src, /datum/extension/hattable, hat_x, hat_y)
+	set_extension(src, /datum/extension/hattable, list(hat_x, hat_y))
 
 	default_language = /decl/language/binary/drone
 	// NO BRAIN.
@@ -65,10 +65,10 @@
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	update_icon()
 
-	GLOB.moved_event.register(src, src, /mob/living/silicon/robot/drone/proc/on_moved)
+	events_repository.register(/decl/observ/moved, src, src, /mob/living/silicon/robot/drone/proc/on_moved)
 
 /mob/living/silicon/robot/drone/Destroy()
-	GLOB.moved_event.unregister(src, src, /mob/living/silicon/robot/drone/proc/on_moved)
+	events_repository.unregister(/decl/observ/moved, src, src, /mob/living/silicon/robot/drone/proc/on_moved)
 	. = ..()
 
 /mob/living/silicon/robot/drone/proc/on_moved(var/atom/movable/am, var/turf/old_loc, var/turf/new_loc)
@@ -92,7 +92,7 @@
 	if(too_many_active_drones())
 		to_chat(src, "<span class='danger'>The maximum number of active drones has been reached..</span>")
 		return 0
-	if(jobban_isbanned(possessor,"Robot"))
+	if(jobban_isbanned(possessor,ASSIGNMENT_ROBOT))
 		to_chat(usr, "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>")
 		return 0
 	if(!possessor.MayRespawn(1,DRONE_SPAWN_DELAY))
@@ -113,11 +113,13 @@
 
 /mob/living/silicon/robot/drone/construction
 	name = "construction drone"
-	icon_state = "constructiondrone"
+	icon = 'icons/mob/robots/drones/drone_construction.dmi'
 	laws = /datum/ai_laws/construction_drone
 	module_type = /obj/item/robot_module/drone/construction
 	can_pull_size = ITEM_SIZE_STRUCTURE
 	can_pull_mobs = MOB_PULL_SAME
+	integrated_light_power = 0.8
+	integrated_light_range = 5
 	hat_x = 1
 	hat_y = -12
 
@@ -125,7 +127,7 @@
 	additional_law_channels["Drone"] = ":d"
 	if(!module) module = new module_type(src)
 
-	flavor_text = "It's a tiny little repair drone. The casing is stamped with a logo and the subscript: '[GLOB.using_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
+	flavor_text = "It's a tiny little repair drone. The casing is stamped with a logo and the subscript: '[global.using_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
@@ -141,23 +143,15 @@
 		real_name = "[initial(name)] ([random_id(type,100,999)])"
 	SetName(real_name)
 
-/mob/living/silicon/robot/drone/on_update_icon()
-
-	cut_overlays()
-	if(stat == 0)
+/mob/living/silicon/robot/drone/get_eye_overlay()
+	var/image/ret = ..()
+	if(ret)
 		if(controlling_ai)
-			add_overlay("eyes-[icon_state]-ai")
+			ret.color = COLOR_GREEN
 		else if(emagged)
-			add_overlay("eyes-[icon_state]-emag")
+			ret.color = COLOR_RED
 		else
-			add_overlay("eyes-[icon_state]")
-	else
-		add_overlay("eyes")
-
-	var/datum/extension/hattable/hattable = get_extension(src, /datum/extension/hattable)
-	var/image/I = hattable?.get_hat_overlay(src)
-	if(I)
-		add_overlay(I)
+			ret.color = COLOR_CYAN
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -188,21 +182,22 @@
 				to_chat(user, "<span class='danger'>Access denied.</span>")
 				return
 
-			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>>You swipe your ID card through \the [src], attempting to reboot it.</span>")
+			var/decl/pronouns/G = user.get_pronouns()
+			user.visible_message( \
+				SPAN_NOTICE("\The [user] swipes [G.his] ID card through \the [src], attempting to reboot it."), \
+				SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
 
-		else
-			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to shut it down.</span>", "<span class='danger'>You swipe your ID card through \the [src], attempting to shut it down.</span>")
-
-			if(emagged)
-				return
-
+		var/decl/pronouns/G = user.get_pronouns()
+		user.visible_message( \
+			SPAN_DANGER("\The [user] swipes [G.his] ID card through \the [src], attempting to shut it down."), \
+			SPAN_DANGER("You swipe your ID card through \the [src], attempting to shut it down."))
+		if(!emagged)
 			if(allowed(usr))
 				shut_down()
 			else
-				to_chat(user, "<span class='danger'>Access denied.</span>")
-
+				to_chat(user, SPAN_DANGER("Access denied."))
 		return
 
 	..()
@@ -226,7 +221,7 @@
 	log_and_message_admins("emagged drone [key_name_admin(src)].  Laws overridden.", user)
 	log_game("[key_name(user)] emagged drone [key_name(src)][controlling_ai ? " but AI [key_name(controlling_ai)] is in remote control" : " Laws overridden"].")
 	var/time = time2text(world.realtime,"hh:mm:ss")
-	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
+	global.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
 	emagged = 1
 	lawupdate = 0
@@ -235,12 +230,12 @@
 	clear_inherent_laws()
 	QDEL_NULL(laws)
 	laws = new /datum/ai_laws/syndicate_override
-	set_zeroth_law("Only [user.real_name] and people \he designates as being such are operatives.")
-
+	var/decl/pronouns/G = user.get_pronouns(ignore_coverings = TRUE)
+	set_zeroth_law("Only [user.real_name] and people [G.he] designates as being such are operatives.")
 	if(!controlling_ai)
 		to_chat(src, "<b>Obey these laws:</b>")
 		laws.show_laws(src)
-		to_chat(src, "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and \his commands.</span>")
+		to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and [G.his] commands."))
 	return 1
 
 //DRONE LIFE/DEATH
@@ -307,7 +302,7 @@
 	clear_inherent_laws(1)
 	clear_ion_laws(1)
 	QDEL_NULL(laws)
-	var/law_type = initial(laws) || GLOB.using_map.default_law_type
+	var/law_type = initial(laws) || global.using_map.default_law_type
 	laws = new law_type
 
 //Reboot procs.
@@ -354,7 +349,7 @@
 
 /proc/too_many_active_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in GLOB.silicon_mob_list)
+	for(var/mob/living/silicon/robot/drone/D in global.silicon_mob_list)
 		if(D.key && D.client)
 			drones++
 	return drones >= config.max_maint_drones

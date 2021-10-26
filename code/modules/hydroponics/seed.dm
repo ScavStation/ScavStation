@@ -22,10 +22,11 @@
 	var/kitchen_tag                // Used by the reagent grinder.
 	var/trash_type                 // Garbage item produced when eaten.
 	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal.
-	var/product_type = /obj/item/chems/food/snacks/grown
+	var/product_type = /obj/item/chems/food/grown
 	var/force_layer
 	var/req_CO2_moles    = 1.0// Moles of CO2 required for photosynthesis.
 	var/hydrotray_only
+	var/base_seed_value = 5 // Used when generating price.
 
 /datum/seed/New()
 
@@ -70,6 +71,20 @@
 
 	uid = "[sequential_id(/datum/seed/)]"
 
+// TODO integrate other traits.
+/datum/seed/proc/get_monetary_value()
+	. = 1
+	// Positives!
+	. += 3 * get_trait(TRAIT_HARVEST_REPEAT)
+	. += 3 * get_trait(TRAIT_PRODUCES_POWER)
+	. += 5 * get_trait(TRAIT_CARNIVOROUS)
+	. += 5 * get_trait(TRAIT_PARASITE)
+	. += 5 * get_trait(TRAIT_TELEPORTING)
+	// Negatives!
+	. -= 2 * get_trait(TRAIT_STINGS)
+	. -= 2 * get_trait(TRAIT_EXPLOSIVE)
+	. = max(1, round(. * base_seed_value))
+
 /datum/seed/proc/get_trait(var/trait)
 	return traits["[trait]"]
 
@@ -93,7 +108,7 @@
 	if(!T)
 		return
 
-	var/datum/reagents/R = new/datum/reagents(100, GLOB.temp_reagents_holder)
+	var/datum/reagents/R = new/datum/reagents(100, global.temp_reagents_holder)
 	if(chems.len)
 		for(var/rid in chems)
 			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
@@ -194,7 +209,7 @@
 				var/clr
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				splat.set_light(0.5, 0.1, 3, l_color = clr)
+				splat.set_light(get_trait(TRAIT_BIOLUM), l_color = clr)
 			var/flesh_colour = get_trait(TRAIT_FLESH_COLOUR)
 			if(!flesh_colour) flesh_colour = get_trait(TRAIT_PRODUCT_COLOUR)
 			if(flesh_colour) splat.color = get_trait(TRAIT_PRODUCT_COLOUR)
@@ -242,7 +257,7 @@
 			closed_turfs |= T
 			valid_turfs |= T
 
-			for(var/dir in GLOB.alldirs)
+			for(var/dir in global.alldirs)
 				var/turf/neighbor = get_step(T,dir)
 				if(!neighbor || (neighbor in closed_turfs) || (neighbor in open_turfs))
 					continue
@@ -275,7 +290,7 @@
 
 	if(istype(target,/mob/living))
 		splatted = apply_special_effect(target,thrown)
-	else if(istype(target,/turf))
+	else if(isturf(target))
 		splatted = 1
 		for(var/mob/living/M in target.contents)
 			apply_special_effect(M)
@@ -361,9 +376,7 @@
 
 		var/turf/T = get_random_turf_in_range(target, outer_teleport_radius, inner_teleport_radius)
 		if(T)
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, get_turf(target))
-			s.start()
+			spark_at(target, cardinal_only = TRUE)
 			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
 			target.forceMove(T)                                     // And teleport them to the chosen location.
 			impact = 1
@@ -411,7 +424,7 @@
 	display_name = "[name] plant"
 
 //Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
-/datum/seed/proc/randomize()
+/datum/seed/proc/randomize(var/temperature = T20C)
 
 	roundstart = 0
 	mysterious = 1
@@ -444,47 +457,40 @@
 	else if(prob(1))
 		set_trait(TRAIT_TELEPORTING,1)
 
-	if(prob(5))
-		consume_gasses = list()
-		var/gas = pick(subtypesof(/decl/material/gas))
-		consume_gasses[gas] = rand(3,9)
+	var/skip_toxins = prob(30)
+	var/list/gasses  = list()
+	var/list/liquids = list()
+	var/list/all_materials = decls_repository.get_decls_of_subtype(/decl/material)
+	for(var/mat_type in all_materials)
+		var/decl/material/mat = all_materials[mat_type]
+		if(mat.exoplanet_rarity == MAT_RARITY_NOWHERE)
+			continue
+		if(skip_toxins && mat.toxicity)
+			continue
+		if(!isnull(mat.boiling_point) && mat.boiling_point <= temperature && (isnull(mat.gas_condensation_point) || mat.gas_condensation_point > temperature))
+			gasses[mat.type] = mat.exoplanet_rarity
+		else if(!isnull(mat.melting_point) && mat.melting_point <= temperature)
+			liquids[mat.type] = mat.exoplanet_rarity
+	liquids -= /decl/material/liquid/nutriment
 
-	if(prob(5))
-		exude_gasses = list()
-		var/gas = pick(subtypesof(/decl/material/gas))
-		exude_gasses[gas] = rand(3,9)
+	if(length(gasses))
+		if(prob(5))
+			var/gas = pickweight(gasses)
+			gasses -= gas
+			LAZYSET(consume_gasses, gas, rand(3,9))
+		if(prob(5))
+			var/gas = pickweight(gasses)
+			gasses -= gas
+			LAZYSET(exude_gasses, gas, rand(3,9))
 
 	chems = list()
 	if(prob(80))
 		chems[/decl/material/liquid/nutriment] = list(rand(1,10),rand(10,20))
-
-	var/additional_chems = rand(0,5)
-
-	if(additional_chems)
-		var/list/banned_chems = list(
-			/decl/material/liquid/adminordrazine,
-			/decl/material/liquid/nutriment,
-			/decl/material/liquid/weedkiller
-			)
-		banned_chems += subtypesof(/decl/material/liquid/ethanol)
-		banned_chems += subtypesof(/decl/material/solid/tobacco)
-		banned_chems += typesof(/decl/material/liquid/drink)
-		banned_chems += typesof(/decl/material/liquid/nutriment)
-		banned_chems += typesof(/decl/material/liquid/fertilizer)
-
-		if(prob(30))
-			for(var/R in subtypesof(/decl/material))
-				var/decl/material/mat = GET_DECL(R)
-				if(mat.toxicity)
-					banned_chems |= R
-
-		for(var/x=1;x<=additional_chems;x++)
-			var/new_chem = pick(subtypesof(/decl/material))
-			if(new_chem in banned_chems)
-				x--
-				continue
-			banned_chems += new_chem
-			chems[new_chem] = list(rand(1,10),rand(10,20))
+	if(length(liquids))
+		for(var/x = 1 to rand(0, 5))
+			var/new_chem = pickweight(liquids)
+			liquids -= new_chem
+			chems[new_chem] = list(rand(1,10), rand(10,20))
 
 	if(prob(90))
 		set_trait(TRAIT_REQUIRES_NUTRIENTS,1)
@@ -754,9 +760,9 @@
 
 			if(get_trait(TRAIT_PRODUCT_COLOUR))
 				if(istype(product, /obj/item/chems/food))
-					var/obj/item/chems/food/food = product
-					food.color = get_trait(TRAIT_PRODUCT_COLOUR)
-					food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
+					var/obj/item/chems/food/snack = product
+					snack.color = get_trait(TRAIT_PRODUCT_COLOUR)
+					snack.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
 
 			if(mysterious)
 				product.name += "?"
@@ -766,7 +772,7 @@
 				var/clr
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				product.set_light(0.5, 0.1, 3, l_color = clr)
+				product.set_light(get_trait(TRAIT_BIOLUM), l_color = clr)
 
 			//Handle spawning in living, mobile products.
 			if(istype(product,/mob/living))

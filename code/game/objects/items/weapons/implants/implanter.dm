@@ -7,7 +7,7 @@
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/metal/aluminium
-	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
+	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 	var/obj/item/implant/imp = null
 
 /obj/item/implanter/Initialize()
@@ -57,7 +57,7 @@
 
 	if(M.incapacitated())
 		return 0
-	if((src in M.contents) || (istype(loc, /turf) && in_range(src, M)))
+	if((src in M.contents) || (isturf(loc) && in_range(src, M)))
 		return 1
 	return 0
 

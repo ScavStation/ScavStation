@@ -1,5 +1,5 @@
 //this function places received data into element with specified id.
-var/const/js_byjax = {"
+var/global/const/js_byjax = {"
 
 function replaceContent() {
 	var args = Array.prototype.slice.call(arguments);
@@ -42,9 +42,4 @@ Be sure to include required js functions in your page, or it'll raise an excepti
 			if(callback_args)
 				argums += callback_args
 		argums = list2params(argums)
-/*		if(callback_args)
-			argums += "&[list2params(callback_args)]"
-*/
-		receiver << output(argums,"[control_id]:replaceContent")
-	return
-
+		to_output(receiver, argums, "[control_id]:replaceContent")

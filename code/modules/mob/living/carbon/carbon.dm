@@ -81,16 +81,6 @@
 		visible_message(SPAN_DANGER("\The [M] bursts out of \the [src]!"))
 	..()
 
-/mob/living/carbon/attack_hand(mob/user)
-	var/obj/item/organ/external/temp = user.get_organ(user.get_active_held_item_slot())
-	if(!temp)
-		to_chat(user, SPAN_WARNING("You don't have a usable limb!"))
-		return TRUE
-	if(!temp.is_usable())
-		to_chat(user, SPAN_WARNING("You can't use your [temp.name]."))
-		return TRUE
-	. = ..()
-
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null)
 	if(status_flags & GODMODE)	return 0	//godmode
 
@@ -129,9 +119,7 @@
 
 	set_status(STAT_JITTER, min(shock_damage*5, 200))
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-	s.set_up(5, 1, loc)
-	s.start()
+	spark_at(loc, amount=5, cardinal_only = TRUE)
 
 	return shock_damage
 
@@ -196,17 +184,7 @@
 				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 									"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
 			else
-				var/mob/living/carbon/human/hugger = M
-				if(istype(hugger))
-					hugger.species.hug(hugger,src)
-				else
-					M.visible_message("<span class='notice'>[M] hugs [src] to make [t_him] feel better!</span>", \
-								"<span class='notice'>You hug [src] to make [t_him] feel better!</span>")
-				if(M.fire_stacks >= (src.fire_stacks + 3))
-					src.fire_stacks += 1
-					M.fire_stacks -= 1
-				if(M.on_fire)
-					src.IgniteMob()
+				M.attempt_hug(src)
 
 			if(stat != DEAD)
 				ADJ_STATUS(src, STAT_PARA, -3)
@@ -234,15 +212,18 @@
 /mob/proc/throw_item(atom/target)
 	return
 
-/mob/living/carbon/throw_item(atom/target)
+/mob/living/carbon/throw_item(atom/target, obj/item/item)
 	src.throw_mode_off()
 	if(src.stat || !target)
 		return
-	if(target.type == /obj/screen) return
+	if(target.type == /obj/screen) 
+		return
 
-	var/atom/movable/item = src.get_active_hand()
+	if(!item)
+		item = get_active_hand()
 
-	if(!item) return
+	if(!istype(item) || !(item in get_held_items()))
+		return
 
 	var/throw_range = item.throw_range
 	var/itemsize
@@ -271,7 +252,7 @@
 	if(!item || !isturf(item.loc))
 		return
 
-	var/message = "\The [src] has thrown \the [item]."
+	var/message = "\The [src] has thrown \the [item]!"
 	var/skill_mod = 0.2
 	if(!skill_check(SKILL_HAULING, min(round(itemsize - ITEM_SIZE_HUGE) + 2, SKILL_MAX)))
 		if(prob(30))
@@ -338,30 +319,26 @@
 	..()
 
 /mob/living/carbon/slip(slipped_on, stun_duration = 8)
-	if(!has_gravity())
-		return FALSE
-	if(buckled)
-		return FALSE
-	to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
-	playsound(loc, 'sound/misc/slip.ogg', 50, 1, -3)
-	SET_STATUS_MAX(src, STAT_WEAK, Floor(stun_duration/2))
-	return TRUE
+	if(has_gravity() && !buckled && !lying)
+		to_chat(src, SPAN_DANGER("You slipped on [slipped_on]!"))
+		playsound(loc, 'sound/misc/slip.ogg', 50, 1, -3)
+		SET_STATUS_MAX(src, STAT_WEAK, stun_duration)
+		. = TRUE
 
 /mob/living/carbon/get_default_language()
 	. = ..()
 	if(. && !can_speak(.))
 		. = null
 
-/mob/living/carbon/proc/get_any_good_language(set_default=FALSE)
-	var/decl/language/result = get_default_language()
-	if (!result)
+/mob/living/carbon/get_any_good_language(set_default=FALSE)
+	. = ..()
+	if(!.)
 		for (var/decl/language/L in languages)
-			if (can_speak(L))
-				result = L
+			if(can_speak(L))
+				. = L
 				if (set_default)
-					set_default_language(result)
+					set_default_language(.)
 				break
-	return result
 
 /mob/living/carbon/show_inv(mob/user)
 	user.set_machine(src)
@@ -427,9 +404,6 @@
 	for(var/source in stasis_sources)
 		stasis_value += stasis_sources[source]
 	stasis_sources.Cut()
-
-/mob/living/carbon/get_sex()
-	return species.get_sex(src)
 
 /mob/living/carbon/proc/set_nutrition(var/amt)
 	nutrition = Clamp(amt, 0, initial(nutrition))

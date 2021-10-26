@@ -45,6 +45,9 @@
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
 
+	drop_sound = 'sound/foley/drop1.ogg'
+	pickup_sound = 'sound/foley/pickup2.ogg'
+
 	var/waterproof = FALSE
 	var/burst = 1
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again. Cannot be less than [burst_delay+1]
@@ -64,7 +67,6 @@
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 	var/one_hand_penalty
-	var/wielded_item_state
 	var/combustion	//whether it creates hotspot when fired
 
 	var/next_fire_time = 0
@@ -158,7 +160,7 @@
 	overlays.Cut()
 	update_base_icon()
 	if(istype(M))
-		if(M.skill_check(SKILL_WEAPONS,SKILL_BASIC))
+		if(has_safety && M.skill_check(SKILL_WEAPONS,SKILL_BASIC))
 			overlays += image('icons/obj/guns/gui.dmi',"safety[safety()]")
 		if(src in M.get_held_items())
 			M.update_inv_hands()
@@ -170,17 +172,10 @@
 /obj/item/gun/proc/get_safety_indicator()
 	return mutable_appearance(icon, "[get_world_inventory_state()][safety_icon][safety()]")
 
-/obj/item/gun/get_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/I = ..()
-	if(wielded_item_state && user_mob.can_wield_item(src) && is_held_twohanded(user_mob))
-		I.icon_state = wielded_item_state
-	return I
-
-/obj/item/gun/experimental_mob_overlay(mob/user_mob, slot, bodypart)
-	var/image/ret = ..()
-	if(ret && user_mob.can_wield_item(src) && is_held_twohanded(user_mob) && check_state_in_icon("[ret.icon_state]-wielded", icon))
-		ret.icon_state = "[ret.icon_state]-wielded"
-	return ret
+/obj/item/gun/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay && user_mob.can_wield_item(src) && is_held_twohanded(user_mob) && check_state_in_icon("[overlay.icon_state]-wielded", overlay.icon))
+		overlay.icon_state = "[overlay.icon_state]-wielded"
+	. = ..()
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -198,17 +193,20 @@
 			toggle_safety()
 			return 1
 	if(MUTATION_HULK in M.mutations)
-		to_chat(M, "<span class='danger'>Your fingers are much too large for the trigger guard!</span>")
+		to_chat(M, SPAN_WARNING("Your fingers are much too large for the trigger guard!"))
 		return 0
 	if((MUTATION_CLUMSY in M.mutations) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
-			if(process_projectile(P, user, user, pick(BP_L_FOOT, BP_R_FOOT)))
+			var/pew_loc = pick(BP_L_FOOT, BP_R_FOOT)
+			if(process_projectile(P, user, user, pew_loc))
+				var/decl/pronouns/G = user.get_pronouns()
 				handle_post_fire(user, user)
+				var/obj/item/affecting = user.get_organ(pew_loc)
+				pew_loc = affecting ? "\the [affecting]" : "the foot"
 				user.visible_message(
-					"<span class='danger'>\The [user] shoots \himself in the foot with \the [src]!</span>",
-					"<span class='danger'>You shoot yourself in the foot with \the [src]!</span>"
-					)
+					SPAN_DANGER("\The [user] shoots [G.self] in [pew_loc] with \the [src]!"),
+					SPAN_DANGER("You shoot yourself in [pew_loc] with \the [src]!"))
 				M.unEquip(src)
 		else
 			handle_click_empty(user)
@@ -383,7 +381,7 @@
 					to_chat(user, "<span class='warning'>You struggle to hold \the [src] steady!</span>")
 
 	if(screen_shake)
-		shake_camera(user, max(burst_delay*burst, fire_delay), screen_shake)
+		shake_camera(user, (burst > 1? burst_delay : fire_delay), screen_shake)
 
 	if(combustion)
 		var/turf/curloc = get_turf(src)
@@ -623,6 +621,9 @@
 		to_chat(user, "<span class='notice'>\The [src] is now set to [new_mode.name].</span>")
 
 /obj/item/gun/proc/toggle_safety(var/mob/user)
+	if(!has_safety)
+		to_chat(user,SPAN_NOTICE("You can't find a safety on \the [src]!"))
+		return
 	safety_state = !safety_state
 	update_icon()
 	if(user)
@@ -672,12 +673,26 @@
 	return (autofire_enabled && world.time >= next_fire_time)
 
 /obj/item/gun/proc/check_accidents(mob/living/user, message = "[user] fumbles with the [src] and it goes off!",skill_path = SKILL_WEAPONS, fail_chance = 20, no_more_fail = SKILL_EXPERT, factor = 2)
-	if(istype(user))
-		if(!safety() && user.skill_fail_prob(skill_path, fail_chance, no_more_fail, factor) && special_check(user))
-			user.visible_message(SPAN_WARNING(message))
-			var/list/targets = list(user)
-			var/turf/checking = get_turf(src)
-			targets += RANGE_TURFS(checking, 2)
-			var/picked = pick(targets)
-			afterattack(picked, user)
-			return 1
+	if(istype(user) && !safety() && user.skill_fail_prob(skill_path, fail_chance, no_more_fail, factor) && special_check(user))
+		user.visible_message(SPAN_WARNING(message))
+		var/list/targets = list(user)
+		var/turf/checking = get_turf(src)
+		targets += RANGE_TURFS(checking, 2)
+		var/picked = pick(targets)
+		afterattack(picked, user)
+		return TRUE
+	return FALSE
+
+/obj/item/gun/handle_reflexive_fire(var/mob/user, var/atom/aiming_at)
+	. = ..()
+	if(. && isliving(user))
+		var/mob/living/M = user
+		if(prob(M.skill_fail_chance(SKILL_WEAPONS, 30, SKILL_ADEPT, 3)))
+			to_chat(user, SPAN_WARNING("You fumble with \the [src], throwing off your aim!"))
+			M.stop_aiming(src)
+		else
+			M.setClickCooldown(DEFAULT_QUICK_COOLDOWN) // Spam prevention, essentially.
+			M.visible_message(SPAN_DANGER("\The [M] pulls the trigger reflexively!"))
+			Fire(aiming_at, M)
+			if(M.aiming)
+				M.aiming.toggle_active(FALSE, TRUE)

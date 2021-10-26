@@ -19,8 +19,7 @@
 /obj/item/frame/attackby(obj/item/W, mob/user)
 	if(isWrench(W))
 		for(var/key in matter)
-			var/decl/material/material = GET_DECL(key)
-			material.place_sheet(get_turf(src), matter[key]/SHEET_MATERIAL_AMOUNT)
+			SSmaterials.create_object(key, get_turf(src), round(matter[key]/SHEET_MATERIAL_AMOUNT))
 		qdel(src)
 		return TRUE
 	. = ..()
@@ -38,7 +37,7 @@
 	else
 		ndir = get_dir(on_wall,usr)
 
-	if (!(ndir in GLOB.cardinal))
+	if (!(ndir in global.cardinal))
 		return
 
 	var/turf/loc = get_turf(usr)
@@ -81,6 +80,30 @@
 	name = "air alarm kit"
 	desc = "An all-in-one air alarm kit, comes preassembled."
 
+/obj/item/frame/wall_router
+	name = "wall-mounted router frame"
+	desc = "Used for building wall-mounted network routers."
+	icon = 'icons/obj/machines/wall_router.dmi'
+	icon_state = "wall_router_o_off"
+	build_machine_type = /obj/machinery/network/router/wall_mounted
+
+/obj/item/frame/wall_router/kit
+	fully_construct = TRUE
+	name = "wall-mounted router kit"
+	desc = "An all-in-one wall-mounted router kit, comes preassembled."
+
+/obj/item/frame/wall_relay
+	name = "wall-mounted relay frame"
+	desc = "Used for building wall-mounted network relays."
+	icon = 'icons/obj/machines/wall_router.dmi'
+	icon_state = "wall_router_o_off"
+	build_machine_type = /obj/machinery/network/relay/wall_mounted
+
+/obj/item/frame/wall_relay/kit
+	fully_construct = TRUE
+	name = "wall-mounted relay kit"
+	desc = "An all-in-one wall-mounted relay kit, comes preassembled."
+
 /obj/item/frame/light
 	name = "light fixture frame"
 	desc = "Used for building lights."
@@ -113,6 +136,18 @@
 	icon_state = "launcherbtt"
 	material = /decl/material/solid/metal/steel
 	build_machine_type = /obj/machinery/button/buildable
+
+/obj/item/frame/camera
+	name = "security camera frame"
+	icon = 'icons/obj/monitors.dmi'
+	icon_state = "cameracase"
+	material = /decl/material/solid/metal/aluminium
+	build_machine_type = /obj/machinery/camera
+
+/obj/item/frame/camera/kit
+	fully_construct = TRUE
+	name = "security camera kit"
+	desc = "An all-in-one wall-mounted security camera kit, comes preassembled."
 
 /obj/item/frame/button/modify_positioning(var/obj/machinery/button/product, _dir, click_params)
 	var/list/params = params2list(click_params)

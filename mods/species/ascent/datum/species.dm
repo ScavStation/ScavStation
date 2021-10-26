@@ -1,19 +1,48 @@
+/datum/appearance_descriptor/age/kharmaani
+	chargen_min_index = 3
+	chargen_max_index = 6
+	standalone_value_descriptors = list(
+		"a larva" =         1,
+		"a nymph" =         2,
+		"a juvenile" =      3,
+		"an adolescent" =   5,
+		"a young adult" =  12,
+		"a full adult" =   30,
+		"a matriarch" =    45,
+		"a queen" =        60,
+		"an imperatrix" = 150,
+		"a crone" =       500
+	)
+
+/datum/appearance_descriptor/age/kharmaani/gyne
+	chargen_min_index = 5
+	chargen_max_index = 9
+
+/datum/appearance_descriptor/age/serpentid
+	chargen_min_index = 3
+	chargen_max_index = 6
+	standalone_value_descriptors = list(
+		"a larva" =         1,
+		"a nymph" =         2,
+		"a juvenile" =      3,
+		"an adolescent" =   5,
+		"a young adult" =  12,
+		"a full adult" =   30,
+		"senescent" =      45
+	)
+
 /decl/species/mantid
 
 	name =                   SPECIES_MANTID_ALATE
 	name_plural =            "Kharmaan Alates"
 	show_ssd =               "quiescent"
 
+	available_bodytypes = list(/decl/bodytype/alate)
+
 	description = "When human surveyors finally arrived at the outer reaches of explored space, they hoped to find \
 	new frontiers and new planets to exploit. They were largely not expecting to have entire expeditions lost \
 	amid reports of highly advanced, astonishingly violent mantid-cephlapodean sentients with particle cannons."
-
-	icobase =                 'mods/species/ascent/icons/species/body/alate/body.dmi'
-	deform =                  'mods/species/ascent/icons/species/body/alate/body.dmi'
-	damage_overlays =         'mods/species/ascent/icons/species/body/alate/damage_mask.dmi'
-	blood_mask =              'mods/species/ascent/icons/species/body/alate/blood_mask.dmi'
-	organs_icon =             'mods/species/ascent/icons/species/body/organs.dmi'
-	bodytype = BODYTYPE_MANTID_SMALL
+	organs_icon =       'mods/species/ascent/icons/species/body/organs.dmi'
 
 	blood_color =             "#660066"
 	flesh_color =             "#009999"
@@ -36,8 +65,7 @@
 	radiation_mod =         0.5 // Not as biologically fragile as meatboys.
 	flash_mod =               2 // Highly photosensitive.
 
-	min_age =                 1
-	max_age =                20
+	age_descriptor = /datum/appearance_descriptor/age/kharmaani
 	slowdown =               -1
 	rarity_value =            3
 	gluttonous =              2
@@ -49,7 +77,7 @@
 	poison_types =            list(/decl/material/gas/chlorine)
 
 	reagent_tag =             IS_MANTID
-	genders =                 list(MALE)
+	available_pronouns = list(/decl/pronouns/male)
 
 	appearance_flags =        0
 	species_flags =           SPECIES_FLAG_NO_SCAN  | SPECIES_FLAG_NO_SLIP        | SPECIES_FLAG_NO_MINOR_CUT
@@ -96,6 +124,8 @@
 		BP_SYSTEM_CONTROLLER = /obj/item/organ/internal/controller
 	)
 
+	limb_mapping = list(BP_CHEST = list(BP_CHEST, BP_M_HAND))
+
 	force_cultural_info = list(
 		TAG_CULTURE =   /decl/cultural_info/culture/ascent,
 		TAG_HOMEWORLD = /decl/cultural_info/location/kharmaani,
@@ -103,21 +133,16 @@
 		TAG_RELIGION =  /decl/cultural_info/religion/kharmaani
 	)
 
-	descriptors = list(
-		/datum/mob_descriptor/height = -1,
-		/datum/mob_descriptor/body_length = -2
-		)
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height =      0.75,
+		/datum/appearance_descriptor/body_length = 0.5
+	)
 
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/visible/ascent_shine, /decl/emote/visible/ascent_dazzle) = 80,
 			list(/decl/emote/visible/ascent_glimmer, /decl/emote/visible/ascent_pulse) = 50,
 			list(/decl/emote/visible/ascent_flicker, /decl/emote/visible/ascent_glint) = 20,
 		)
-
-///decl/species/mantid/New()
-	//..()
-	//LAZYINITLIST(limb_mapping)
-	//LAZYDISTINCTADD(limb_mapping, BP_CHEST, BP_M_HAND)
 
 /decl/species/mantid/handle_sleeping(var/mob/living/carbon/human/H)
 	return
@@ -133,28 +158,19 @@
 
 /decl/species/mantid/gyne
 
-	name =                    SPECIES_MANTID_GYNE
-	name_plural =             "Kharmaan Gynes"
+	name =        SPECIES_MANTID_GYNE
+	name_plural = "Kharmaan Gynes"
 
-	genders =                 list(FEMALE)
-	icobase =                 'mods/species/ascent/icons/species/body/gyne/body.dmi'
-	deform =                  'mods/species/ascent/icons/species/body/gyne/body.dmi'
-	icon_template =           'mods/species/ascent/icons/species/body/gyne/template.dmi'
-	damage_overlays =         'mods/species/ascent/icons/species/body/gyne/damage_mask.dmi'
-	blood_mask =              'mods/species/ascent/icons/species/body/gyne/blood_mask.dmi'
-	bodytype = BODYTYPE_MANTID_LARGE
+	available_bodytypes = list(/decl/bodytype/gyne)
+	available_pronouns = list(/decl/pronouns/female)
 
 	gluttonous =              3
 	slowdown =                2
 	rarity_value =           10
-	min_age =                 5
-	max_age =               500
+
+	age_descriptor = /datum/appearance_descriptor/age/kharmaani/gyne
 	blood_volume =         1200
 	spawns_with_stack =       0
-
-	pixel_offset_x =        -4
-	antaghud_offset_y =      18
-	antaghud_offset_x =      4
 
 	bump_flag =               HEAVY
 	push_flags =              ALLMOBS
@@ -166,9 +182,9 @@
 		BP_EGG = /obj/item/organ/internal/egg_sac/insectoid
 	)
 
-	descriptors = list(
-		/datum/mob_descriptor/height = 5,
-		/datum/mob_descriptor/body_length = 2
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height =      2,
+		/datum/appearance_descriptor/body_length = 1.25
 	)
 
 	force_cultural_info = list(
@@ -178,16 +194,6 @@
 		TAG_RELIGION =  /decl/cultural_info/religion/kharmaani
 	)
 
-/decl/species/mantid/gyne/New()
-	equip_adjust = list(
-		BP_L_HAND = list(
-			"[NORTH]" = list("x" = -4, "y" = 12),
-			"[EAST]" = list("x" =  -4, "y" = 12),
-			"[SOUTH]" = list("x" = -4, "y" = 12),
-			"[WEST]" = list("x" =  -4, "y" = 12)
-		)
-	)
-	..()
 
 /datum/hud_data/mantid
 	gear = list(
@@ -212,6 +218,7 @@
 	name = SPECIES_SERPENTID
 	name_plural = "Serpentids"
 	spawn_flags = SPECIES_IS_RESTRICTED
+
 	has_organ = list(
 		BP_BRAIN =             /obj/item/organ/internal/brain/insectoid/serpentid,
 		BP_EYES =              /obj/item/organ/internal/eyes/insectoid/serpentid,
@@ -221,6 +228,7 @@
 		BP_STOMACH =           /obj/item/organ/internal/stomach/insectoid,
 		BP_SYSTEM_CONTROLLER = /obj/item/organ/internal/controller
 	)
+
 	has_limbs = list(
 		BP_CHEST =        list("path" = /obj/item/organ/external/chest/insectoid/serpentid),
 		BP_GROIN =        list("path" = /obj/item/organ/external/groin/insectoid/serpentid),
@@ -236,17 +244,22 @@
 		BP_L_FOOT =       list("path" = /obj/item/organ/external/foot/insectoid),
 		BP_R_FOOT =       list("path" = /obj/item/organ/external/foot/right/insectoid)
 		)
+
+	limb_mapping = list(
+		BP_L_HAND = list(BP_L_HAND, BP_L_HAND_UPPER),
+		BP_R_HAND = list(BP_R_HAND, BP_R_HAND_UPPER)
+	)
+
 	force_cultural_info = list(
 		TAG_CULTURE =   /decl/cultural_info/culture/ascent,
 		TAG_HOMEWORLD = /decl/cultural_info/location/kharmaani,
 		TAG_FACTION =   /decl/cultural_info/faction/ascent_serpentid,
 		TAG_RELIGION =  /decl/cultural_info/religion/kharmaani
 	)
+
 	hidden_from_codex = TRUE
 	silent_steps = TRUE
-	antaghud_offset_y = 8
-	min_age = 8
-	max_age = 40
+	age_descriptor = /datum/appearance_descriptor/age/serpentid
 	skin_material = /decl/material/solid/skin/insect
 	bone_material = null
 	speech_sounds = list('sound/voice/bug.ogg')
@@ -258,21 +271,20 @@
 	flesh_color = "#525252"
 	blood_oxy = 0
 	reagent_tag = IS_SERPENTID
-	icon_template = 'icons/mob/human_races/species/template_tall.dmi'
-	icobase = 'mods/species/ascent/icons/species/body/serpentid/body.dmi'
-	deform = 'mods/species/ascent/icons/species/body/serpentid/body.dmi'
-	preview_icon = 'mods/species/ascent/icons/species/body/serpentid/preview.dmi'
-	blood_mask = 'mods/species/ascent/icons/species/body/serpentid/blood_mask.dmi'
-	limb_blend = ICON_MULTIPLY
+
+	available_bodytypes = list(
+		/decl/bodytype/serpentid,
+		/decl/bodytype/serpentid/green
+	)
+
 	darksight_range = 8
-	darksight_tint = DARKTINT_GOOD
 	slowdown = -0.5
 	rarity_value = 4
 	hud_type = /datum/hud_data/serpentid
 	total_health = 200
 	brute_mod = 0.9
 	burn_mod =  1.35
-	bodytype = BODYTYPE_SNAKE
+
 	natural_armour_values = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -290,41 +302,23 @@
 	heat_level_2 = 440 //Default 400
 	heat_level_3 = 800 //Default 1000
 	species_flags = SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_BLOCK | SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NEED_DIRECT_ABSORB
-	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_SKIN_TONE_NORMAL | HAS_BASE_SKIN_COLOURS
+	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_SKIN_TONE_NORMAL
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
 	bump_flag = HEAVY
 	push_flags = ALLMOBS
 	swap_flags = ALLMOBS
 	breathing_organ = BP_TRACH
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/snake
-	base_skin_colours = list(
-		"Grey"   = "",
-		"Green"  = "_green"
-	)
+
 	unarmed_attacks = list(/decl/natural_attack/serpentid)
-	descriptors = list(
-		/datum/mob_descriptor/height = 3,
-		/datum/mob_descriptor/body_length = 0
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height =      1.75,
+		/datum/appearance_descriptor/body_length = 1
 		)
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/audible/bug_hiss) = 40
 	)
-
-/decl/species/serpentid/New()
-	..()
-	//LAZYINITLIST(limb_mapping)
-	//LAZYDISTINCTADD(limb_mapping, BP_L_HAND, BP_L_HAND_UPPER)
-	//LAZYDISTINCTADD(limb_mapping, BP_R_HAND, BP_R_HAND_UPPER)
-	equip_adjust = list(
-		BP_L_HAND_UPPER =  list("[NORTH]" = list("x" =  0, "y" = 8),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" = -0, "y" = 8),  "[WEST]" = list("x" =  0, "y" = 8)),
-		BP_R_HAND_UPPER =  list("[NORTH]" = list("x" =  0, "y" = 8),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" =  0, "y" = 8),  "[WEST]" = list("x" =  0, "y" = 8)),
-		BP_L_HAND =        list("[NORTH]" = list("x" =  4, "y" = 0),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = -4, "y" = 0),  "[WEST]" = list("x" =  0, "y" = 0)),
-		BP_R_HAND =        list("[NORTH]" = list("x" = -4, "y" = 0),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" =  4, "y" = 0),  "[WEST]" = list("x" =  0, "y" = 0)),
-		slot_head_str =    list("[NORTH]" = list("x" =  0, "y" = 7),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" =  0, "y" = 8),  "[WEST]" = list("x" =  0, "y" = 8)),
-		slot_back_str =    list("[NORTH]" = list("x" =  0, "y" = 7),  "[EAST]" = list("x" = 0, "y" = 8),  "[SOUTH]" = list("x" =  0, "y" = 8),  "[WEST]" = list("x" =  0, "y" = 8)),
-		slot_belt_str =    list("[NORTH]" = list("x" =  0, "y" = 0),  "[EAST]" = list("x" = 8, "y" = 0),  "[SOUTH]" = list("x" =  0, "y" = 0),  "[WEST]" = list("x" = -8, "y" = 0)),
-		slot_glasses_str = list("[NORTH]" = list("x" =  0, "y" = 10), "[EAST]" = list("x" = 0, "y" = 11), "[SOUTH]" = list("x" =  0, "y" = 11), "[WEST]" = list("x" =  0, "y" = 11))
-	)
+	var/list/skin_overlays = list()
 
 /decl/species/serpentid/get_blood_name()
 	return "haemolymph"
@@ -406,7 +400,7 @@
 			return
 		if(SKIN_THREAT)
 
-			var/image_key = "[H.species.get_icon_cache_uid(H)]"
+			var/image_key = "[H.bodytype.get_icon_cache_uid(H)]"
 
 			for(var/organ_tag in H.species.has_limbs)
 				var/obj/item/organ/external/part = H.organs_by_name[organ_tag]
@@ -414,8 +408,7 @@
 					image_key += "0"
 					continue
 				if(part)
-					image_key += "[part.species.get_icon_cache_uid(part.owner)]"
-					image_key += "[part.dna.GetUIState(DNA_UI_GENDER)]"
+					image_key += "[part.bodytype.get_icon_cache_uid(part.owner)]"
 				if(BP_IS_PROSTHETIC(part))
 					image_key += "2[part.model ? "-[part.model]": ""]"
 				else if(part.status & ORGAN_DEAD)
@@ -450,7 +443,7 @@
 	else
 		target.turf_collision(T, target.throw_speed / 2)
 	if(prob(50))
-		target.set_dir(GLOB.reverse_dir[target.dir])
+		target.set_dir(global.reverse_dir[target.dir])
 
 /decl/species/serpentid/skills_from_age(age)	//Converts an age into a skill point allocation modifier. Can be used to give skill point bonuses/penalities not depending on job.
 	switch(age)

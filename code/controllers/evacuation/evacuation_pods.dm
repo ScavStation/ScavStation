@@ -42,11 +42,11 @@
 				pod.move_time = (evac_transit_delay/10)
 				pod.launch(src)
 
-		priority_announcement.Announce(replacetext(replacetext(GLOB.using_map.emergency_shuttle_leaving_dock, "%dock_name%", "[GLOB.using_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+		priority_announcement.Announce(replacetext(replacetext(global.using_map.emergency_shuttle_leaving_dock, "%dock_name%", "[global.using_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 	else
 		// FTL Jump
-		priority_announcement.Announce(replacetext(replacetext(GLOB.using_map.shuttle_leaving_dock, "%dock_name%", "[GLOB.using_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
-		SetUniversalState(/datum/universal_state/jump, arguments=list(GLOB.using_map.station_levels))
+		priority_announcement.Announce(replacetext(replacetext(global.using_map.shuttle_leaving_dock, "%dock_name%", "[global.using_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
+		SetUniversalState(/datum/universal_state/jump, arguments=list(global.using_map.station_levels))
 
 /datum/evacuation_controller/starship/finish_evacuation()
 	..()
@@ -117,7 +117,7 @@
 	silicon_allowed = FALSE
 
 /datum/evacuation_option/cancel_abandon_ship/execute(mob/user)
-	if (SSevac.evacuation_controller && SSevac.evacuation_controller.cancel_evacuation())
+	if (SSevac.evacuation_controller?.cancel_evacuation())
 		log_and_message_admins("[key_name(user)] has cancelled abandonment of the spacecraft.")
 
 /datum/evacuation_option/cancel_jump
@@ -128,7 +128,7 @@
 	silicon_allowed = FALSE
 
 /datum/evacuation_option/cancel_jump/execute(mob/user)
-	if (SSevac.evacuation_controller && SSevac.evacuation_controller.cancel_evacuation())
+	if (SSevac.evacuation_controller?.cancel_evacuation())
 		log_and_message_admins("[key_name(user)] has cancelled the FTL jump.")
 
 /obj/screen/fullscreen/jump_overlay

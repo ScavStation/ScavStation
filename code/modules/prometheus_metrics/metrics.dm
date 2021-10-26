@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(prometheus_metrics, /datum/prometheus_metrics, new)
+var/global/datum/prometheus_metrics/prometheus_metrics = new
 
 // prometheus_metrics holds a list of metric_family datums and uses them to
 // create a json protobuf.
@@ -7,7 +7,7 @@ GLOBAL_DATUM_INIT(prometheus_metrics, /datum/prometheus_metrics, new)
 
 /datum/prometheus_metrics/New()
 	metric_families = list()
-	for(var/T in typesof(/datum/metric_family) - /datum/metric_family)
+	for(var/T in subtypesof(/datum/metric_family))
 		var/datum/metric_family/mf = T
 		if(initial(mf.name) == null || initial(mf.metric_type) == null)
 			continue

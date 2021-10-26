@@ -72,7 +72,7 @@
 
 		var/mob/playermob
 
-		for(var/mob/M in GLOB.player_list)
+		for(var/mob/M in global.player_list)
 			if(M.ckey == banckey)
 				playermob = M
 				break
@@ -163,7 +163,7 @@
 			else
 				D = new /datum/admins(new_rank, rights, adm_ckey)
 
-			var/client/C = GLOB.ckey_directory[adm_ckey]					//find the client with the specified ckey (if they are logged in)
+			var/client/C = global.ckey_directory[adm_ckey]					//find the client with the specified ckey (if they are logged in)
 			D.associate(C)											//link up with the client and add verbs
 
 			to_chat(C, "[key_name_admin(usr)] has set your admin rank to: [new_rank].")
@@ -174,13 +174,13 @@
 		else if(task == "permissions")
 			if(!D)	return
 			var/list/permissionlist = list()
-			for(var/i=1, i<=R_MAXPERMISSION, i<<=1)		//that <<= is shorthand for i = i << 1. Which is a left bitshift
+			for(var/i=1, i<=R_MAXPERMISSION, i<<=1)		//that <<= is shorthand for i = i << 1. Which is a left BITSHIFT_LEFT
 				permissionlist[rights2text(i)] = i
 			var/new_permission = input("Select a permission to turn on/off", "Permission toggle", null, null) as null|anything in permissionlist
 			if(!new_permission)	return
 			D.rights ^= permissionlist[new_permission]
 
-			var/client/C = GLOB.ckey_directory[adm_ckey]
+			var/client/C = global.ckey_directory[adm_ckey]
 			to_chat(C, "[key_name_admin(usr)] has toggled your permission: [new_permission].")
 			message_admins("[key_name_admin(usr)] toggled the [new_permission] permission of [adm_ckey]")
 			log_admin("[key_name(usr)] toggled the [new_permission] permission of [adm_ckey]")
@@ -308,10 +308,10 @@
 		ban_unban_log_save("[key_name(usr)] edited [banned_key]'s ban. Reason: [reason] Duration: [duration]")
 		log_and_message_admins("edited [banned_key]'s ban. Reason: [reason] Duration: [duration]")
 		Banlist.cd = "/base/[banfolder]"
-		Banlist["reason"] << reason
-		Banlist["temp"] << temp
-		Banlist["minutes"] << minutes
-		Banlist["bannedby"] << usr.ckey
+		to_savefile(Banlist, "reason",   reason)
+		to_savefile(Banlist, "temp",     temp)
+		to_savefile(Banlist, "minutes",  minutes)
+		to_savefile(Banlist, "bannedby", usr.ckey)
 		Banlist.cd = "/base"
 		SSstatistics.add_field("ban_edit",1)
 		unbanpanel()
@@ -780,159 +780,6 @@
 		speech = sanitize(speech) // Nah, we don't trust them
 		log_and_message_admins("forced [key_name_admin(M)] to say: [speech]")
 
-	else if(href_list["sendtoprison"])
-		if(!check_rights(R_ADMIN))	return
-
-		if(alert(usr, "Send to admin prison for the round?", "Message", "Yes", "No") != "Yes")
-			return
-
-		var/mob/M = locate(href_list["sendtoprison"])
-		if(!ismob(M))
-			to_chat(usr, "This can only be used on instances of type /mob")
-			return
-		if(istype(M, /mob/living/silicon/ai))
-			to_chat(usr, "This cannot be used on instances of type /mob/living/silicon/ai")
-			return
-
-		var/turf/prison_cell = pick(GLOB.prisonwarp)
-		if(!prison_cell)	return
-
-		var/obj/structure/closet/secure_closet/brig/locker = new /obj/structure/closet/secure_closet/brig(prison_cell)
-		locker.opened = 0
-		locker.locked = 1
-
-		//strip their stuff and stick it in the crate
-		for(var/obj/item/I in M)
-			M.drop_from_inventory(I, locker)
-		M.update_icons()
-
-		//so they black out before warping
-		if(isliving(M))
-			var/mob/living/L = M
-			SET_STATUS_MAX(L, STAT_PARA, 5)
-		sleep(5)
-		if(!M)	return
-
-		M.forceMove(prison_cell)
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/prisoner = M
-			prisoner.equip_to_slot_or_del(new /obj/item/clothing/under/color/orange(prisoner), slot_w_uniform_str)
-			prisoner.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/orange(prisoner), slot_shoes_str)
-
-		to_chat(M, "<span class='warning'>You have been sent to the prison station!</span>")
-		log_and_message_admins("sent [key_name_admin(M)] to the prison station.")
-
-	else if(href_list["tdome1"])
-		if(!check_rights(R_FUN))	return
-
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
-			return
-
-		var/mob/M = locate(href_list["tdome1"])
-		if(!ismob(M))
-			to_chat(usr, "This can only be used on instances of type /mob")
-			return
-		if(istype(M, /mob/living/silicon/ai))
-			to_chat(usr, "This cannot be used on instances of type /mob/living/silicon/ai")
-			return
-
-		for(var/obj/item/I in M)
-			M.drop_from_inventory(I)
-
-		if(isliving(M))
-			var/mob/living/L = M
-			SET_STATUS_MAX(L, STAT_PARA, 5)
-		sleep(5)
-		M.forceMove(pick(GLOB.tdome1))
-		spawn(50)
-			to_chat(M, "<span class='notice'>You have been sent to the Thunderdome.</span>")
-		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 1)")
-		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Team 1)", 1)
-
-	else if(href_list["tdome2"])
-		if(!check_rights(R_FUN))	return
-
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
-			return
-
-		var/mob/M = locate(href_list["tdome2"])
-		if(!ismob(M))
-			to_chat(usr, "This can only be used on instances of type /mob")
-			return
-		if(istype(M, /mob/living/silicon/ai))
-			to_chat(usr, "This cannot be used on instances of type /mob/living/silicon/ai")
-			return
-
-		for(var/obj/item/I in M)
-			M.drop_from_inventory(I)
-
-		if(isliving(M))
-			var/mob/living/L = M
-			SET_STATUS_MAX(L, STAT_PARA, 5)
-		sleep(5)
-		M.forceMove(pick(GLOB.tdome2))
-		spawn(50)
-			to_chat(M, "<span class='notice'>You have been sent to the Thunderdome.</span>")
-		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Team 2)")
-		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Team 2)", 1)
-
-	else if(href_list["tdomeadmin"])
-		if(!check_rights(R_FUN))	return
-
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
-			return
-
-		var/mob/M = locate(href_list["tdomeadmin"])
-		if(!ismob(M))
-			to_chat(usr, "This can only be used on instances of type /mob")
-			return
-		if(istype(M, /mob/living/silicon/ai))
-			to_chat(usr, "This cannot be used on instances of type /mob/living/silicon/ai")
-			return
-		
-		if(isliving(M))
-			var/mob/living/L = M
-			SET_STATUS_MAX(L, STAT_PARA, 5)
-		sleep(5)
-		M.forceMove(pick(GLOB.tdomeadmin))
-		spawn(50)
-			to_chat(M, "<span class='notice'>You have been sent to the Thunderdome.</span>")
-		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Admin.)")
-		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Admin.)", 1)
-
-	else if(href_list["tdomeobserve"])
-		if(!check_rights(R_FUN))	return
-
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
-			return
-
-		var/mob/M = locate(href_list["tdomeobserve"])
-		if(!ismob(M))
-			to_chat(usr, "This can only be used on instances of type /mob")
-			return
-		if(istype(M, /mob/living/silicon/ai))
-			to_chat(usr, "This cannot be used on instances of type /mob/living/silicon/ai")
-			return
-
-		for(var/obj/item/I in M)
-			M.drop_from_inventory(I)
-
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/observer = M
-			observer.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket(observer), slot_w_uniform_str)
-			observer.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/black(observer), slot_shoes_str)
-
-		if(isliving(M))
-			var/mob/living/L = M
-			SET_STATUS_MAX(L, STAT_PARA, 5)
-
-		sleep(5)
-		M.forceMove(pick(GLOB.tdomeobserve))
-		spawn(50)
-			to_chat(M, "<span class='notice'>You have been sent to the Thunderdome.</span>")
-		log_admin("[key_name(usr)] has sent [key_name(M)] to the thunderdome. (Observer.)")
-		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Observer.)", 1)
-
 	else if(href_list["revive"])
 		if(!check_rights(R_REJUVENATE))	return
 
@@ -986,10 +833,8 @@
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 		var/block=text2num(href_list["block"])
-		//testing("togmutate([href_list["block"]] -> [block])")
 		usr.client.cmd_admin_toggle_block(H,block)
 		show_player_panel(H)
-		//H.regenerate_icons()
 
 	else if(href_list["adminplayeropts"])
 		var/mob/M = locate(href_list["adminplayeropts"])
@@ -1033,7 +878,7 @@
 		var/mob/M = locate(href_list["take_question"])
 		if(ismob(M))
 			var/take_msg = "<span class='notice'><b>[key_name(usr.client)]</b> is attending to <b>[key_name(M)]'s</b> message.</span>"
-			for(var/client/X in GLOB.admins)
+			for(var/client/X in global.admins)
 				if((R_ADMIN|R_MOD) & X.holder.rights)
 					to_chat(X, take_msg)
 			to_chat(M, "<span class='notice'><b>Your message is being attended to by [usr.client]. Thanks for your patience!</b></span>")
@@ -1072,7 +917,6 @@
 		var/location_description = ""
 		var/special_role_description = ""
 		var/health_description = ""
-		var/gender_description = ""
 		var/turf/T = get_turf(M)
 
 		//Location
@@ -1101,13 +945,8 @@
 		else
 			health_description = "This mob type has no health to speak of."
 
-		//Gener
-		switch(M.gender)
-			if(MALE,FEMALE)	gender_description = "[M.gender]"
-			else			gender_description = "<font color='red'><b>[M.gender]</b></font>"
-
 		to_chat(src.owner, "<b>Info about [M.name]:</b> ")
-		to_chat(src.owner, "Mob type = [M.type]; Gender = [gender_description] Damage = [health_description]")
+		to_chat(src.owner, "Mob type = [M.type]; Gender = [M.gender] Damage = [health_description]")
 		to_chat(src.owner, "Name = <b>[M.name]</b>; Real_name = [M.real_name]; Mind_name = [M.mind?"[M.mind.name]":""]; Key = <b>[M.key]</b>;")
 		to_chat(src.owner, "Location = [location_description];")
 		to_chat(src.owner, "[special_role_description]")
@@ -1121,7 +960,7 @@
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
-		var/obj/item/C = new GLOB.using_map.pray_reward_type(get_turf(H))
+		var/obj/item/C = new global.using_map.pray_reward_type(get_turf(H))
 		H.put_in_hands(C)
 		if(C.loc !=H)
 			message_admins("[key_name(H)] has their hands full, so they did not receive their [C.name], spawned by [key_name(src.owner)].")
@@ -1357,10 +1196,6 @@
 			else if(!ispath(path, /obj) && !ispath(path, /turf) && !ispath(path, /mob))
 				removed_paths += dirty_path
 				continue
-			else if(ispath(path, /obj/item/energy_blade/blade))//Not an item one should be able to spawn./N
-				if(!check_rights(R_FUN,0))
-					removed_paths += dirty_path
-					continue
 			else if(ispath(path, /obj/effect/bhole))
 				if(!check_rights(R_FUN,0))
 					removed_paths += dirty_path
@@ -1790,5 +1625,5 @@
 
 /client/get_admin_jump_link(var/atom/target, var/delimiter, var/prefix, var/sufix)
 	if(holder)
-		var/short_links = get_preference_value(/datum/client_preference/ghost_follow_link_length) == GLOB.PREF_SHORT
+		var/short_links = get_preference_value(/datum/client_preference/ghost_follow_link_length) == PREF_SHORT
 		return admin_jump_link(target, src, delimiter, prefix, sufix, short_links)

@@ -16,7 +16,7 @@
 	material = /decl/material/solid/metal/steel
 	matter = list(
 		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/glass = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_TRACE
 	)
 
 	var/damage = 0
@@ -284,6 +284,10 @@
 		else
 			air_tank = "NOT FOUND"
 		stat("Tank Pressure:", air_tank)
+		for(var/obj/item/rig_module/maneuvering_jets/M in R.installed_modules)
+			if(M.jets)
+				var/prop_tank_pressure = "[round(M.jets.air_contents.return_pressure())] kPa"
+				stat("Propellant Tank Pressure:", prop_tank_pressure)
 		for(var/obj/item/rig_module/module in R.installed_modules)
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())

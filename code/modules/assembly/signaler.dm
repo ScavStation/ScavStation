@@ -6,8 +6,8 @@
 	origin_tech = "{'magnets':1}"
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/slag = MATTER_AMOUNT_TRACE
+		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/copper = MATTER_AMOUNT_TRACE
 	)
 	wires = WIRE_RECEIVE | WIRE_PULSE | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
 
@@ -66,7 +66,7 @@
 	return
 
 
-/obj/item/assembly/signaler/Topic(href, href_list, state = GLOB.physical_state)
+/obj/item/assembly/signaler/Topic(href, href_list, state = global.physical_topic_state)
 	if((. = ..()))
 		close_browser(usr, "window=radio")
 		onclose(usr, "radio")
@@ -102,15 +102,6 @@
 	signal.encryption = code
 	signal.data["message"] = "ACTIVATE"
 	radio_connection.post_signal(src, signal)
-	return
-/*
-	for(var/obj/item/assembly/signaler/S in world)
-		if(!S)	continue
-		if(S == src)	continue
-		if((S.frequency == src.frequency) && (S.code == src.code))
-			spawn(0)
-				if(S)	S.pulse(0)
-	return 0*/
 
 
 /obj/item/assembly/signaler/pulse(var/radio = 0)

@@ -35,7 +35,7 @@
 
 /obj/effect/landmark/corpse/Initialize()
 	..()
-	if(!species) species = GLOB.using_map.default_species
+	if(!species) species = global.using_map.default_species
 	var/species_choice = islist(species) ? pickweight(species) : species 
 	new /mob/living/carbon/human/corpse(loc, species_choice, src)
 	return INITIALIZE_HINT_QDEL
@@ -43,7 +43,7 @@
 /obj/effect/landmark/corpse/proc/randomize_appearance(var/mob/living/carbon/human/M, species_choice)
 	if((spawn_flags & CORPSE_SPAWNER_RANDOM_GENDER))
 		if(species_choice in genders_per_species)
-			M.change_gender(pick(genders_per_species[species_choice]))
+			M.set_gender(pick(genders_per_species[species_choice]), TRUE)
 		else
 			M.randomize_gender()
 

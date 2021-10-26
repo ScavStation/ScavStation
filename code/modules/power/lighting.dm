@@ -41,7 +41,6 @@
 	var/flickering = 0
 	var/light_type = /obj/item/light/tube		// the type of light item
 	var/accepts_light_type = /obj/item/light/tube
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 
 	var/obj/item/light/lightbulb
 
@@ -93,7 +92,15 @@
 /obj/machinery/light/Initialize(mapload, d=0, populate_parts = TRUE)
 	. = ..()
 
-	s.set_up(1, 1, src)
+	switch (dir)
+		if (NORTH)
+			light_offset_y = WORLD_ICON_SIZE * 0.5
+		if (SOUTH)
+			light_offset_y = WORLD_ICON_SIZE * -0.5
+		if (EAST)
+			light_offset_x = WORLD_ICON_SIZE * 0.5
+		if (WEST)
+			light_offset_x = WORLD_ICON_SIZE * -0.5
 
 	if(populate_parts)
 		lightbulb = new light_type(src)
@@ -105,22 +112,22 @@
 
 /obj/machinery/light/Destroy()
 	QDEL_NULL(lightbulb)
-	QDEL_NULL(s)
 	. = ..()
 
 /obj/machinery/light/on_update_icon(var/trigger = 1)
 	atom_flags = atom_flags & ~ATOM_FLAG_CAN_BE_PAINTED
 	// Handle pixel offsets
-	pixel_y = 0
-	pixel_x = 0
+	default_pixel_y = 0
+	default_pixel_x = 0
 	var/turf/T = get_step(get_turf(src), src.dir)
 	if(istype(T) && T.density)
 		if(src.dir == NORTH)
-			pixel_y = 21
+			default_pixel_y = 21
 		else if(src.dir == EAST)
-			pixel_x = 10
+			default_pixel_x = 10
 		else if(src.dir == WEST)
-			pixel_x = -10
+			default_pixel_x = -10
+	reset_offsets(0)
 
 	// Update icon state
 	cut_overlays()
@@ -153,9 +160,6 @@
 	if(istype(lightbulb, /obj/item/light))
 		var/image/I = image(icon, _state)
 		I.color = get_mode_color()
-		if(on)
-			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-			I.layer = ABOVE_LIGHTING_LAYER
 		add_overlay(I)
 
 	if(on)
@@ -166,14 +170,14 @@
 		if(current_mode && (current_mode in lightbulb.lighting_modes))
 			changed = set_light(arglist(lightbulb.lighting_modes[current_mode]))
 		else
-			changed = set_light(lightbulb.b_max_bright, lightbulb.b_inner_range, lightbulb.b_outer_range, lightbulb.b_curve, lightbulb.b_colour)
+			changed = set_light(lightbulb.b_range, lightbulb.b_power, lightbulb.b_color)
 
 		if(trigger && changed && get_status() == LIGHT_OK)
 			switch_check()
 	else
 		update_use_power(POWER_USE_OFF)
 		set_light(0)
-	change_power_consumption((light_outer_range * light_max_bright) * LIGHTING_POWER_FACTOR, POWER_USE_ACTIVE)
+	change_power_consumption((light_range * light_power) * LIGHTING_POWER_FACTOR, POWER_USE_ACTIVE)
 
 /obj/machinery/light/proc/get_status()
 	if(!lightbulb)
@@ -195,7 +199,7 @@
 	if (current_mode && (current_mode in lightbulb.lighting_modes))
 		return lightbulb.lighting_modes[current_mode]["l_color"]
 	else
-		return lightbulb.b_colour
+		return lightbulb.b_color
 
 /obj/machinery/light/proc/set_emergency_lighting(var/enable)
 	if(!lightbulb)
@@ -294,9 +298,7 @@
 	else if(!lightbulb)
 		to_chat(user, "You stick \the [W] into the light socket!")
 		if(powered() && (W.obj_flags & OBJ_FLAG_CONDUCTIBLE))
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
-			s.set_up(3, 1, src)
-			s.start()
+			spark_at(src, cardinal_only = TRUE)
 			if (prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
 
@@ -362,12 +364,15 @@
 			var/obj/item/organ/external/hand = H.organs_by_name[user.get_active_held_item_slot()]
 			if(hand && hand.is_usable() && !hand.can_feel_pain())
 				user.apply_damage(3, BURN, hand.organ_tag, used_weapon = src)
-				user.visible_message(SPAN_WARNING("\The [user]'s [hand] burns and sizzles as \he touches the hot [get_fitting_name()]."), SPAN_WARNING("Your [hand] burns and sizzles as you remove the hot [get_fitting_name()]."))
+				var/decl/pronouns/G = user.get_pronouns()
+				user.visible_message( \
+					SPAN_DANGER("\The [user]'s [hand.name] burns and sizzles as [G.he] touch[G.es] the hot [get_fitting_name()]."), \
+					SPAN_DANGER("Your [hand.name] burns and sizzles as you remove the hot [get_fitting_name()]."))
 		else
-			to_chat(user, "You try to remove the [get_fitting_name()], but it's too hot and you don't want to burn your hand.")
+			to_chat(user, SPAN_WARNING("You try to remove the [get_fitting_name()], but it's too hot and you don't want to burn your hand."))
 			return TRUE
 	else
-		to_chat(user, "You remove the [get_fitting_name()].")
+		to_chat(user, SPAN_NOTICE("You remove the [get_fitting_name()]."))
 
 	// create a light tube/bulb item and put it in the user's hand
 	user.put_in_active_hand(remove_bulb())	//puts it in our active hand
@@ -388,8 +393,7 @@
 		if(lightbulb && !(lightbulb.status == LIGHT_BROKEN))
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
-			s.set_up(3, 1, src)
-			s.start()
+			spark_at(src, cardinal_only = TRUE)
 	lightbulb.status = LIGHT_BROKEN
 	update_icon()
 
@@ -491,6 +495,7 @@
 	w_class = ITEM_SIZE_TINY
 	material = /decl/material/solid/metal/steel
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CAN_BE_PAINTED
+	item_flags = ITEM_FLAG_HOLLOW
 
 	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
 	var/base_state
@@ -498,31 +503,17 @@
 	var/rigged = 0		// true if rigged to explode
 	var/broken_chance = 2
 
-	var/b_max_bright = 0.9
-	var/b_inner_range = 1
-	var/b_outer_range = 5
-	var/b_curve = 2
-	var/b_colour = "#fffee0"
+	var/b_power = 0.7
+	var/b_range = 5
+	var/b_color = LIGHT_COLOR_HALOGEN
 	var/list/lighting_modes = list()
 	var/sound_on
-	var/random_tone = TRUE
-	var/static/list/random_tone_options = list(
-		"#fffee0",
-		"#e0fefe",
-		"#fefefe",
-	)
-
-/obj/item/light/Initialize()
-	. = ..()
-	if (random_tone)
-		b_colour = pick(random_tone_options)
-		update_icon()
 
 /obj/item/light/get_color()
-	return b_colour
+	return b_color
 
 /obj/item/light/set_color(color)
-	b_colour = isnull(color) ? COLOR_WHITE : color
+	b_color = isnull(color) ? COLOR_WHITE : color
 	update_icon()
 
 /obj/item/light/tube
@@ -534,28 +525,27 @@
 	material = /decl/material/solid/glass
 	matter = list(/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT)
 
-	b_outer_range = 5
-	b_colour = "#fffee0"
+	b_range = 8
+	b_power = 0.8
+	b_color = LIGHT_COLOR_HALOGEN
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_outer_range = 4, l_max_bright = 1, l_color = "#da0205"),
-		)
+		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 1, l_color = LIGHT_COLOR_EMERGENCY),
+	)
 	sound_on = 'sound/machines/lightson.ogg'
 
 /obj/item/light/tube/party/Initialize() //Randomly colored light tubes. Mostly for testing, but maybe someone will find a use for them.
 	. = ..()
-	b_colour = rgb(pick(0,255), pick(0,255), pick(0,255))
+	b_color = rgb(pick(0,255), pick(0,255), pick(0,255))
 
 /obj/item/light/tube/large
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
-	b_max_bright = 0.95
-	b_inner_range = 2
-	b_outer_range = 8
-	b_curve = 2.5
+	b_power = 4
+	b_range = 12
 
 /obj/item/light/tube/large/party/Initialize() //Randomly colored light tubes. Mostly for testing, but maybe someone will find a use for them.
 	. = ..()
-	b_colour = rgb(pick(0,255), pick(0,255), pick(0,255))
+	b_color = rgb(pick(0,255), pick(0,255), pick(0,255))
 
 /obj/item/light/bulb
 	name = "light bulb"
@@ -565,25 +555,19 @@
 	item_state = "contvapour"
 	broken_chance = 3
 	material = /decl/material/solid/glass
-
-	b_max_bright = 0.6
-	b_inner_range = 0.1
-	b_outer_range = 4
-	b_curve = 3
-	b_colour = "#fcfcc7"
+	b_color = LIGHT_COLOR_TUNGSTEN
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_outer_range = 3, l_max_bright = 1, l_color = "#da0205"),
-		)
+		LIGHTMODE_EMERGENCY = list(l_range = 3, l_power = 1, l_color = LIGHT_COLOR_EMERGENCY),
+	)
 
 /obj/item/light/bulb/red
-	color = "#da0205"
-	b_colour = "#da0205"
-	random_tone = FALSE
+	color = LIGHT_COLOR_RED
+	b_color = LIGHT_COLOR_RED
 
 /obj/item/light/bulb/red/readylight
 	lighting_modes = list(
-		LIGHTMODE_READY = list(l_outer_range = 5, l_max_bright = 1, l_color = "#00ff00"),
-		)
+		LIGHTMODE_READY = list(l_range = 5, l_power = 1, l_color = LIGHT_COLOR_GREEN),
+	)
 
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()
@@ -599,7 +583,7 @@
 
 // update the icon state and description of the light
 /obj/item/light/on_update_icon()
-	color = b_colour
+	color = b_color
 	var/broken
 	switch(status)
 		if(LIGHT_OK)

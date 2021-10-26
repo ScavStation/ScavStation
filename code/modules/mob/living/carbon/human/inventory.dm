@@ -76,6 +76,15 @@ This saves us from having to call add_fingerprint() any time something is put in
 		else
 			return has_organ(slot)
 
+/mob/living/carbon/human/refresh_mask(var/obj/item/removed)
+	..()
+	if(istype(removed) && (removed.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR)))
+		update_hair(0)	//rebuild hair
+		update_inv_ears(0)
+	var/obj/item/clothing/mask/head = src.get_equipped_item(slot_head_str)
+	if(!(head && (head.item_flags & ITEM_FLAG_AIRTIGHT)))
+		set_internals(null)
+
 /mob/living/carbon/human/u_equip(obj/W)
 	. = ..()
 	if(!.)
@@ -131,17 +140,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 		else if (W == belt)
 			belt = null
 			update_inv_belt()
-		else if (W == wear_mask)
-			wear_mask = null
-			if(istype(W, /obj/item))
-				var/obj/item/I = W
-				if(I.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR))
-					update_hair(0)	//rebuild hair
-					update_inv_ears(0)
-			var/obj/item/clothing/mask/head = src.get_equipped_item(slot_head_str)
-			if(!(head && (head.item_flags & ITEM_FLAG_AIRTIGHT)))
-				set_internals(null)
-			update_inv_wear_mask()
 		else if (W == wear_id)
 			wear_id = null
 			update_inv_wear_id()
@@ -154,9 +152,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 		else if (W == s_store)
 			s_store = null
 			update_inv_s_store()
-		else if (W == back)
-			back = null
-			update_inv_back()
 		else if (W == handcuffed)
 			handcuffed = null
 			if(buckled && buckled.buckle_require_restraints)
@@ -363,22 +358,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 /mob/living/carbon/human/get_equipped_items(var/include_carried = 0)
 	. = ..()
-	if(belt)      . += belt
-	if(l_ear)     . += l_ear
-	if(r_ear)     . += r_ear
-	if(glasses)   . += glasses
-	if(gloves)    . += gloves
-	if(head)      . += head
-	if(shoes)     . += shoes
-	if(wear_id)   . += wear_id
-	if(wear_suit) . += wear_suit
-	if(w_uniform) . += w_uniform
-
+	for(var/obj/item/thing in list(belt, l_ear, r_ear, glasses, gloves, head, shoes, wear_id, wear_suit, w_uniform))
+		LAZYADD(., thing)
 	if(include_carried)
-		if(l_store)    . += l_store
-		if(r_store)    . += r_store
-		if(handcuffed) . += handcuffed
-		if(s_store)    . += s_store
+		for(var/obj/item/thing in list(l_store, r_store, handcuffed, s_store))
+			LAZYADD(., thing)
 
 //Same as get_covering_equipped_items, but using target zone instead of bodyparts flags
 /mob/living/carbon/human/proc/get_covering_equipped_item_by_zone(var/zone)

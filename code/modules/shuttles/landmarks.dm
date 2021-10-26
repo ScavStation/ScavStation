@@ -1,3 +1,5 @@
+var/global/list/shuttle_landmarks = list()
+
 //making this separate from /obj/effect/landmark until that mess can be dealt with
 /obj/effect/shuttle_landmark
 	name = "Nav Point"
@@ -11,7 +13,7 @@
 	var/landmark_tag
 	//ID of the controller on the dock side
 	var/datum/computer/file/embedded_program/docking/docking_controller
-	//ID of controller used for this landmark for shuttles with multiple ones.
+	//Docking cues for shuttles with multiple docking controllers. Format: shuttle type -> string cue. On the shuttle, set docking_cues as well.
 	var/list/special_dock_targets
 
 	//when the shuttle leaves this landmark, it will leave behind the base area
@@ -19,12 +21,18 @@
 	var/area/base_area
 	//Will also leave this type of turf behind if set, if the turfs do not have prev_type set.
 	var/turf/base_turf
-	//Name of the shuttle, null for generic waypoint
+	//Type path of a shuttle to which this landmark is restricted, null for generic waypoint.
 	var/shuttle_restricted
+	var/overmap_id = OVERMAP_ID_SPACE
 	var/flags = 0
+
+/obj/effect/shuttle_landmark/Destroy()
+	global.shuttle_landmarks -= src
+	. = ..()
 
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
+	global.shuttle_landmarks += src
 	if(docking_controller)
 		. = INITIALIZE_HINT_LATELOAD
 
@@ -46,15 +54,21 @@
 	docking_controller = SSshuttle.docking_registry[docking_tag]
 	if(!istype(docking_controller))
 		log_error("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
-	if(GLOB.using_map.use_overmap)
-		var/obj/effect/overmap/visitable/location = map_sectors["[z]"]
-		if(location && location.docking_codes)
-			docking_controller.docking_codes = location.docking_codes
+
+	var/obj/effect/overmap/visitable/location = global.overmap_sectors["[z]"]
+	if(location && location.docking_codes)
+		docking_controller.docking_codes = location.docking_codes
+
+/obj/effect/shuttle_landmark/modify_mapped_vars(map_hash)
+	..()
+	ADJUST_TAG_VAR(landmark_tag, map_hash)
+	if(docking_controller)
+		ADJUST_TAG_VAR(docking_controller, map_hash)
 
 /obj/effect/shuttle_landmark/forceMove()
-	var/obj/effect/overmap/visitable/map_origin = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_origin = global.overmap_sectors["[z]"]
 	. = ..()
-	var/obj/effect/overmap/visitable/map_destination = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_destination = global.overmap_sectors["[z]"]
 	if(map_origin != map_destination)
 		if(map_origin)
 			map_origin.remove_landmark(src, shuttle_restricted)
@@ -62,8 +76,8 @@
 			map_destination.add_landmark(src, shuttle_restricted)
 
 //Called when the landmark is added to an overmap sector.
-/obj/effect/shuttle_landmark/proc/sector_set(var/obj/effect/overmap/visitable/O, shuttle_name)
-	shuttle_restricted = shuttle_name
+/obj/effect/shuttle_landmark/proc/sector_set(var/obj/effect/overmap/visitable/O, shuttle_restricted_type)
+	shuttle_restricted = shuttle_restricted_type
 
 /obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
 	if(shuttle.current_location == src)
@@ -185,4 +199,4 @@
 /obj/item/spaceflare/on_update_icon()
 	if(active)
 		icon_state = "bluflare_on"
-		set_light(0.3, 0.1, 6, 2, "85d1ff")
+		set_light(6, 2, "#85d1ff")

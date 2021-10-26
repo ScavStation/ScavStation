@@ -23,25 +23,29 @@
 				"bribe_accept"      = "You know what, I wasn't doing anything for TIME minutes anyways.",
 				)
 
-	possible_wanted_items = list(/obj/item/toy/figure       = TRADER_THIS_TYPE,
-								/obj/item/toy/figure/ert    = TRADER_THIS_TYPE,
-								/obj/item/toy/prize/honk    = TRADER_THIS_TYPE)
+	possible_wanted_items = list(
+		/obj/item/toy/figure             = TRADER_THIS_TYPE,
+		/obj/item/toy/figure/ert         = TRADER_THIS_TYPE,
+		/obj/item/toy/prize/honk         = TRADER_THIS_TYPE
+	)
 
-	possible_trading_items = list(/obj/item/toy/prize                 = TRADER_SUBTYPES_ONLY,
-								/obj/item/toy/prize/honk              = TRADER_BLACKLIST,
-								/obj/item/toy/figure                  = TRADER_SUBTYPES_ONLY,
-								/obj/item/toy/figure/ert              = TRADER_BLACKLIST,
-								/obj/item/toy/plushie                 = TRADER_SUBTYPES_ONLY,
-								/obj/item/sword/katana/toy                  = TRADER_THIS_TYPE,
-								/obj/item/toy/sword                   = TRADER_THIS_TYPE,
-								/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
-								/obj/item/board                = TRADER_THIS_TYPE,
-								/obj/item/storage/box/checkers = TRADER_ALL,
-								/obj/item/deck                 = TRADER_SUBTYPES_ONLY,
-								/obj/item/pack                 = TRADER_SUBTYPES_ONLY,
-								/obj/item/dice                 = TRADER_ALL,
-								/obj/item/dice/d20/cursed      = TRADER_BLACKLIST,
-								/obj/item/gun/launcher/money   = TRADER_THIS_TYPE)
+	possible_trading_items = list(
+		/obj/item/toy/prize              = TRADER_SUBTYPES_ONLY,
+		/obj/item/toy/prize/honk         = TRADER_BLACKLIST,
+		/obj/item/toy/figure             = TRADER_SUBTYPES_ONLY,
+		/obj/item/toy/figure/ert         = TRADER_BLACKLIST,
+		/obj/item/toy/plushie            = TRADER_SUBTYPES_ONLY,
+		/obj/item/sword/katana/toy       = TRADER_THIS_TYPE,
+		/obj/item/energy_blade/sword/toy = TRADER_THIS_TYPE,
+		/obj/item/toy/bosunwhistle       = TRADER_THIS_TYPE,
+		/obj/item/board                  = TRADER_THIS_TYPE,
+		/obj/item/storage/box/checkers   = TRADER_ALL,
+		/obj/item/deck                   = TRADER_SUBTYPES_ONLY,
+		/obj/item/pack                   = TRADER_SUBTYPES_ONLY,
+		/obj/item/dice                   = TRADER_ALL,
+		/obj/item/dice/d20/cursed        = TRADER_BLACKLIST,
+		/obj/item/gun/launcher/money     = TRADER_THIS_TYPE
+	)
 
 /datum/trader/ship/electronics
 	name = "Electronic Shop Employee"
@@ -318,7 +322,7 @@ Sells devices, odds and ends, and medical stuff
 				"insult_bad"        = "*muffled laughter* Sorry, was that you trying to talk shit? Adorable.",
 				)
 
-	possible_wanted_items = list(/obj/item/chems/food/drinks/bottle = TRADER_THIS_TYPE,
+	possible_wanted_items = list(/obj/item/chems/drinks/bottle = TRADER_THIS_TYPE,
 								/obj/item/organ/internal/liver = TRADER_THIS_TYPE,
 								/obj/item/organ/internal/kidneys = TRADER_THIS_TYPE,
 								/obj/item/organ/internal/lungs = TRADER_THIS_TYPE,
@@ -337,7 +341,7 @@ Sells devices, odds and ends, and medical stuff
 								  /obj/item/cautery = TRADER_THIS_TYPE,
 								  /obj/item/surgicaldrill = TRADER_THIS_TYPE,
 								  /obj/item/scalpel = TRADER_THIS_TYPE,
-								  /obj/item/scalpel/manager = TRADER_THIS_TYPE,
+								  /obj/item/incision_manager = TRADER_THIS_TYPE,
 								  /obj/item/circular_saw = TRADER_THIS_TYPE,
 								  /obj/item/bonegel = TRADER_THIS_TYPE,
 								  /obj/item/bonesetter = TRADER_THIS_TYPE,
@@ -371,17 +375,20 @@ Sells devices, odds and ends, and medical stuff
 				"insult_bad"        = "This is not acceptable, please cease.",
 				)
 
-	possible_wanted_items = list(/obj/item/ore/ = TRADER_SUBTYPES_ONLY,
-								/obj/item/disk/survey = TRADER_THIS_TYPE,
-								/obj/item/ore/slag = TRADER_BLACKLIST)
+	possible_wanted_items = list(
+		/obj/item/ore/ =        TRADER_SUBTYPES_ONLY,
+		/obj/item/disk/survey = TRADER_THIS_TYPE,
+		/obj/item/ore/slag =    TRADER_BLACKLIST
+	)
 
-	possible_trading_items = list(/obj/machinery/mining/drill = TRADER_THIS_TYPE,
-								  /obj/machinery/mining/brace = TRADER_THIS_TYPE,
-								  /obj/machinery/floodlight = TRADER_THIS_TYPE,
-								  /obj/machinery/floodlight = TRADER_THIS_TYPE,
-								  /obj/item/storage/box/greenglowsticks = TRADER_THIS_TYPE,
-								  /obj/item/clothing/suit/space/void/engineering/salvage/prepared  = TRADER_THIS_TYPE,
-								  /obj/item/stack/material/uranium/ten = TRADER_THIS_TYPE,
-								  /obj/item/stack/material/plasteel/fifty = TRADER_THIS_TYPE,
-								  /obj/item/stack/material/steel/fifty = TRADER_THIS_TYPE
-								)
+	possible_trading_items = list(
+		/obj/machinery/mining/drill =                                     TRADER_THIS_TYPE,
+		/obj/machinery/mining/brace =                                     TRADER_THIS_TYPE,
+		/obj/machinery/floodlight =                                       TRADER_THIS_TYPE,
+		/obj/item/storage/box/greenglowsticks =                           TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/engineering/salvage/prepared = TRADER_THIS_TYPE,
+		/obj/item/stack/material/puck/mapped/uranium/ten =                TRADER_THIS_TYPE,
+		/obj/item/stack/material/reinforced/mapped/plasteel/fifty =       TRADER_THIS_TYPE,
+		/obj/item/stack/material/sheet/mapped/steel/fifty =               TRADER_THIS_TYPE,
+		/obj/item/stack/material/ingot/mapped/copper/fifty =              TRADER_THIS_TYPE
+	)

@@ -8,16 +8,11 @@
 		/datum/job/submap
 	)
 
-/decl/submap_archetype/New()
+/decl/submap_archetype/Initialize()
 	if(islist(whitelisted_species) && !length(whitelisted_species))
 		whitelisted_species |= SSmodpacks.default_submap_whitelisted_species
 	if(islist(blacklisted_species) && !length(blacklisted_species))
 		blacklisted_species |= SSmodpacks.default_submap_blacklisted_species
-	..()
-
-/decl/submap_archetype/Destroy()
-	if(SSmapping.submap_archetypes[descriptor] == src)
-		SSmapping.submap_archetypes -= descriptor
 	. = ..()
 
 // Generic ships to populate the list.

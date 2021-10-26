@@ -1,9 +1,9 @@
 //this file left in for legacy support
-var/eventchance = 10 // Percent chance per 5 minutes.
-var/hadevent    = 0
+var/global/eventchance = 10 // Percent chance per 5 minutes.
+var/global/hadevent    = 0
 
 /proc/appendicitis()
-	for(var/mob/living/carbon/human/H in shuffle(GLOB.living_mob_list_))
+	for(var/mob/living/carbon/human/H in shuffle(global.living_mob_list_))
 		if(H.client && H.stat != DEAD)
 			var/obj/item/organ/internal/appendix/A = H.get_internal_organ(BP_APPENDIX)
 			if(!istype(A) || (A && A.inflamed))
@@ -13,12 +13,12 @@ var/hadevent    = 0
 			break
 
 /proc/carp_migration() // -- Darem
-	for(var/obj/effect/landmark/C in landmarks_list)
+	for(var/obj/effect/landmark/C in global.landmarks_list)
 		if(C.name == "carpspawn")
 			new /mob/living/simple_animal/hostile/carp(C.loc)
 	//sleep(100)
 	spawn(rand(300, 600)) //Delayed announcements to keep the crew on their toes.
-		GLOB.using_map.unknown_biological_entities_announcement()
+		global.using_map.unknown_biological_entities_announcement()
 
 /proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25) //leave lightsoutAmount as 0 to break ALL lights
 	if(isEvent)
@@ -29,7 +29,7 @@ var/hadevent    = 0
 
 		for(var/i=1,i<=lightsoutAmount,i++)
 			var/list/possibleEpicentres = list()
-			for(var/obj/effect/landmark/newEpicentre in landmarks_list)
+			for(var/obj/effect/landmark/newEpicentre in global.landmarks_list)
 				if(newEpicentre.name == "lightsout" && !(newEpicentre in epicentreList))
 					possibleEpicentres += newEpicentre
 			if(possibleEpicentres.len)
@@ -58,7 +58,7 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 */
 
 	//AI laws
-	for(var/mob/living/silicon/ai/M in GLOB.living_mob_list_)
+	for(var/mob/living/silicon/ai/M in global.living_mob_list_)
 		if(M.stat != 2 && M.see_in_dark != 0)
 			var/who2 = pick("ALIENS", "BEARS", "CLOWNS", "XENOS", "PETES", "BOMBS", "FETISHES", "WIZARDS", "SYNDICATE AGENTS", "CENTCOM OFFICERS", "SPACE PIRATES", "TRAITORS", "MONKEYS",  "BEES", "CARP", "CRABS", "EELS", "BANDITS", "LIGHTS")
 			var/what2 = pick("BOLTERS", "STAVES", "DICE", "SINGULARITIES", "TOOLBOXES", "NETTLES", "AIRLOCKS", "CLOTHES", "WEAPONS", "MEDKITS", "BOMBS", "CANISTERS", "CHAIRS", "BBQ GRILLS", "ID CARDS", "CAPTAINS")
@@ -77,7 +77,7 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 			var/allergysev = pick("deathly", "mildly", "severely", "contagiously")
 			var/crew
 			var/list/pos_crew = list()
-			for(var/mob/living/carbon/human/pos in GLOB.player_list)
+			for(var/mob/living/carbon/human/pos in global.player_list)
 				pos_crew += pos.real_name
 			if(pos_crew.len)
 				crew = pick(pos_crew)

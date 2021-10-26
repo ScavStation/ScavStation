@@ -8,17 +8,13 @@
 	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 
 /datum/codex_entry/glass
-	associated_paths = list(/obj/item/stack/material/glass)
-	mechanics_text = "Use in your hand to build a window.  Can be upgraded to reinforced glass by adding metal rods, which are made from metal sheets."
+	associated_paths = list(/obj/item/stack/material/pane)
+	mechanics_text = "Use in your hand to build a window. Glass can be upgraded to reinforced glass by adding metal rods, which are made from metal sheets. Reinforced glass is much stronger against damage."
 
 /datum/codex_entry/glass_borg
 	associated_paths = list(/obj/item/stack/material/cyborg/glass)
 	mechanics_text = "Use in your hand to build a window.  Can be upgraded to reinforced glass by adding metal rods, which are made from metal sheets.<br>\
 	As a synthetic, you can acquire more sheets of glass by recharging."
-
-/datum/codex_entry/glass_reinf
-	associated_paths = list(/obj/item/stack/material/glass/reinforced)
-	mechanics_text = "Use in your hand to build a window.  Reinforced glass is much stronger against damage."
 
 /datum/codex_entry/glass_reinf_borg
 	associated_paths = list(/obj/item/stack/material/cyborg/glass/reinforced)
@@ -31,6 +27,6 @@
 	You can replenish your supply of metal as a synthetic by recharging."
 
 /datum/codex_entry/material_sheet
-	display_name = "material sheet"
+	name = "material sheet"
 	associated_paths = list(/obj/item/stack/material)
 	mechanics_text = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."

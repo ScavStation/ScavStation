@@ -9,7 +9,7 @@
 #define PRESSURE_TANK_VOLUME 150	//L
 #define PUMP_MAX_FLOW_RATE 90		//L/s - 4 m/s using a 15 cm by 15 cm inlet
 
-GLOBAL_LIST_EMPTY(diversion_junctions)
+var/global/list/diversion_junctions = list()
 
 /obj/machinery/disposal
 	name = "disposal unit"
@@ -81,10 +81,6 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 	if(stat & BROKEN || !I || !user)
 		return
 
-	if(istype(I, /obj/item/energy_blade/blade))
-		to_chat(user, "You can't place that item inside the disposal unit.")
-		return
-
 	if(istype(I, /obj/item/storage/bag/trash))
 		var/obj/item/storage/bag/trash/T = I
 		to_chat(user, "<span class='notice'>You empty the bag.</span>")
@@ -109,7 +105,7 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 				admin_attack_log(usr, GM, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
 		return
 
-	if(!user.unEquip(I, src))
+	if(!user.unEquip(I, src) || QDELETED(I))
 		return
 
 	user.visible_message("\The [user] places \the [I] into \the [src].", "You place \the [I] into \the [src].")
@@ -117,7 +113,9 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 	update_icon()
 
 /obj/machinery/disposal/receive_mouse_drop(atom/dropping, mob/user)
-	. = ..()
+	
+	. = (user?.a_intent != I_HURT && ..())
+
 	if(!. && !(stat & BROKEN))
 
 		if(isanimal(user) && dropping != user)
@@ -204,7 +202,7 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 	return
 
 /obj/machinery/disposal/DefaultTopicState()
-	return GLOB.outside_state
+	return global.outside_topic_state
 
 // human interact with machine
 /obj/machinery/disposal/physical_attack_hand(mob/user)
@@ -461,7 +459,7 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 	. = ..(mapload)
 	if(!id_tag)
 		id_tag = newid
-	for(var/obj/structure/disposalpipe/diversion_junction/D in GLOB.diversion_junctions)
+	for(var/obj/structure/disposalpipe/diversion_junction/D in global.diversion_junctions)
 		if(D.id_tag && !D.linked && D.id_tag == src.id_tag)
 			junctions += D
 			D.linked = src
@@ -508,10 +506,13 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 		id_tag = "ds[sequential_id(/obj/item/disposal_switch_construct)]"
 
 /obj/item/disposal_switch_construct/afterattack(atom/A, mob/user, proximity)
-	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated() || !id_tag)
+	if(!proximity || !istype(A, /turf/simulated/floor) || user.incapacitated() || !id_tag)
 		return
+	var/area/area = get_area(A)
+	if(!istype(area) || (area.area_flags & AREA_FLAG_SHUTTLE))
+		return FALSE
 	var/found = 0
-	for(var/obj/structure/disposalpipe/diversion_junction/D in GLOB.diversion_junctions)
+	for(var/obj/structure/disposalpipe/diversion_junction/D in global.diversion_junctions)
 		if(D.id_tag == src.id_tag)
 			found = 1
 			break
@@ -624,7 +625,7 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 	if(direction)
 		dirs = list( direction, turn(direction, -45), turn(direction, 45))
 	else
-		dirs = GLOB.alldirs.Copy()
+		dirs = global.alldirs.Copy()
 
 	src.streak(dirs)
 
@@ -633,6 +634,6 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 	if(direction)
 		dirs = list( direction, turn(direction, -45), turn(direction, 45))
 	else
-		dirs = GLOB.alldirs.Copy()
+		dirs = global.alldirs.Copy()
 
 	src.streak(dirs)

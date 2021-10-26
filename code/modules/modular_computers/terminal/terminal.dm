@@ -4,13 +4,27 @@
 	var/datum/browser/panel
 	var/list/history = list()
 	var/list/history_max_length = 20
-	var/datum/extension/interactive/ntos/computer
 
-/datum/terminal/New(mob/user, datum/extension/interactive/ntos/computer)
+	var/network_target // Network tag of whatever device is being targeted on the network by commands.
+
+	// Terminal can act as a file transfer utility.
+	var/list/disks = list(
+		/datum/file_storage/disk,
+		/datum/file_storage/disk/removable,
+		/datum/file_storage/network
+	)
+	var/datum/file_storage/current_disk
+	var/datum/file_transfer/current_move
+
+	var/datum/extension/interactive/os/computer
+
+/datum/terminal/New(mob/user, datum/extension/interactive/os/computer)
 	..()
 	src.computer = computer
 	if(user && can_use(user))
 		show_terminal(user)
+	for(var/D in disks)
+		disks[D] = new D(computer)
 	START_PROCESSING(SSprocessing, src)
 
 /datum/terminal/Destroy()
@@ -18,6 +32,12 @@
 	if(computer && computer.terminals)
 		computer.terminals -= src
 	computer = null
+	current_disk = null
+	for(var/D in disks)
+		qdel(disks[D])
+	disks = null
+	if(current_move)
+		qdel(current_move)
 	if(panel)
 		panel.close()
 		QDEL_NULL(panel)
@@ -26,18 +46,34 @@
 /datum/terminal/proc/can_use(mob/user)
 	if(!user)
 		return FALSE
-	if(!CanInteractWith(user, computer, GLOB.default_state))
+	if(!CanInteractWith(user, computer, global.default_topic_state))
 		return FALSE
 	if(!computer || !computer.on)
 		return FALSE
 	return TRUE
 
 /datum/terminal/Process()
+	if(current_move)
+		var/result = current_move.update_progress()
+		if(!result)
+			if(QDELETED(current_move))
+				append_to_history("File Move Cancelled: Unknown error.")
+			else
+				append_to_history("File Move Cancelled: Unable to store '[current_move.transferring.filename]' at [current_move.transfer_to]")
+			QDEL_NULL(current_move)
+			return
+		if(current_move.left_to_transfer)
+			var/completion = round(1 - (current_move.left_to_transfer / current_move.transferring.size), 0.01) * 100
+			append_to_history("File Move: [completion]% complete.")
+		else
+			append_to_history("File Move: Successfully copied file '[current_move.transferring.filename]' to [current_move.transfer_to].")
+			QDEL_NULL(current_move)
+
 	if(!can_use(get_user()))
 		qdel(src)
 
 /datum/terminal/proc/command_by_name(name)
-	for(var/command in GLOB.terminal_commands)
+	for(var/command in get_terminal_commands())
 		var/datum/terminal_command/command_datum = command
 		if(command_datum.name == name)
 			return command
@@ -69,16 +105,21 @@
 		var/output = parse(input, usr)
 		if(QDELETED(src)) // Check for exit.
 			return 1
-		history += output
-		if(length(history) > history_max_length)
-			history.Cut(1, length(history) - history_max_length + 1)
-		update_content()
-		panel.update()
+		append_to_history(output)
 		return 1
 
+/datum/terminal/proc/append_to_history(var/text)
+	history += text
+	if(length(history) > history_max_length)
+		history.Cut(1, length(history) - history_max_length + 1)
+	update_content()
+	panel.update()
+
 /datum/terminal/proc/parse(text, mob/user)
+	if(current_move)
+		return "File transfer in progress."
 	if(user.skill_check(SKILL_COMPUTER, SKILL_BASIC))
-		for(var/datum/terminal_command/command in GLOB.terminal_commands)
+		for(var/datum/terminal_command/command in get_terminal_commands())
 			. = command.parse(text, user, src)
 			if(!isnull(.))
 				return
@@ -90,7 +131,7 @@
 
 /datum/terminal/proc/skill_critical_fail(user)
 	var/list/candidates = list()
-	for(var/datum/terminal_skill_fail/scf in GLOB.terminal_fails)
+	for(var/datum/terminal_skill_fail/scf in get_terminal_fails())
 		if(scf.can_run(user, src))
 			candidates[scf] = scf.weight
 	var/datum/terminal_skill_fail/chosen = pickweight(candidates)

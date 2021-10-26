@@ -25,7 +25,7 @@
 
 	if(!enabled)
 		return
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in global.cardinal)
 		var/turf/simulated/shielded_tile = get_step(get_turf(src), direction)
 		for(var/obj/effect/shield/S in shielded_tile)
 			S.diffuse(5)
@@ -49,7 +49,6 @@
 		return TRUE
 	enabled = !enabled
 	update_use_power(enabled + 1)
-	update_icon()
 	to_chat(user, "You turn \the [src] [enabled ? "on" : "off"].")
 	return TRUE
 

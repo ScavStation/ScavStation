@@ -22,7 +22,7 @@
 	var/list/possibleEpicentres = list()
 	var/list/apcs = list()
 
-	for(var/obj/effect/landmark/newEpicentre in landmarks_list)
+	for(var/obj/effect/landmark/newEpicentre in global.landmarks_list)
 		if(newEpicentre.name == "lightsout")
 			possibleEpicentres += newEpicentre
 
@@ -35,7 +35,7 @@
 			apcs += apc
 			// Greatly increase the chance for APCs in maintenance areas to be selected
 			var/area/A = get_area(apc)
-			if(istype(A,/area/maintenance))
+			if(istype(A) && (A.area_flags & AREA_FLAG_MAINTENANCE))
 				apcs += apc
 				apcs += apc
 
@@ -46,4 +46,4 @@
 
 /datum/event/apc_damage/proc/is_valid_apc(var/obj/machinery/power/apc/apc)
 	var/turf/T = get_turf(apc)
-	return !apc.is_critical && !apc.emagged && T && (T.z in GLOB.using_map.player_levels)
+	return !apc.is_critical && !apc.emagged && T && (T.z in global.using_map.player_levels)

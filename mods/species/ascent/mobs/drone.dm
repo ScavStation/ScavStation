@@ -3,8 +3,8 @@
 	display_name = "Ascent"
 	upgrade_locked = TRUE
 	hide_on_manifest = TRUE
-	sprites = list(
-		"Drone" = "drone-ascent"
+	module_sprites = list(
+		"Drone" = 'mods/species/ascent/icons/drone.dmi'
 	)
 	// The duplicate clustertools in this list are so that they can set up to
 	// hack doors, windows etc. without having to constantly cycle through tools.
@@ -35,18 +35,20 @@
 		/obj/item/stack/material/cyborg/steel,
 		/obj/item/stack/material/cyborg/aluminium,
 		/obj/item/stack/material/rods/cyborg,
+		/obj/item/stack/material/strut/cyborg,
 		/obj/item/stack/tile/floor/cyborg,
 		/obj/item/stack/material/cyborg/glass,
 		/obj/item/stack/material/cyborg/glass/reinforced,
+		/obj/item/stack/material/cyborg/fiberglass,
 		/obj/item/stack/cable_coil/cyborg,
 		/obj/item/stack/material/cyborg/plasteel,
 		/obj/item/stack/nanopaste
 	)
 	synths = list(
-		/datum/matter_synth/metal = 	30000,
-		/datum/matter_synth/glass = 	20000,
-		/datum/matter_synth/plasteel = 	10000,
-		/datum/matter_synth/nanite =    10000,
+		/datum/matter_synth/metal =    30000,
+		/datum/matter_synth/glass =    20000,
+		/datum/matter_synth/plasteel = 10000,
+		/datum/matter_synth/nanite =   10000,
 		/datum/matter_synth/wire
 	)
 
@@ -83,16 +85,17 @@
 // Copypasted from repair bot - todo generalize this step.
 /obj/item/robot_module/flying/ascent/finalize_synths()
 	. = ..()
-	var/datum/matter_synth/metal/metal =       locate() in synths
-	var/datum/matter_synth/glass/glass =       locate() in synths
-	var/datum/matter_synth/plasteel/plasteel = locate() in synths
-	var/datum/matter_synth/wire/wire =         locate() in synths
-	var/datum/matter_synth/nanite/nanite =     locate() in synths
+	var/datum/matter_synth/metal/metal =           locate() in synths
+	var/datum/matter_synth/glass/glass =           locate() in synths
+	var/datum/matter_synth/plasteel/plasteel =     locate() in synths
+	var/datum/matter_synth/wire/wire =             locate() in synths
+	var/datum/matter_synth/nanite/nanite =         locate() in synths
 
 	for(var/thing in list(
 		 /obj/item/stack/material/cyborg/steel,
 		 /obj/item/stack/material/cyborg/aluminium,
 		 /obj/item/stack/material/rods/cyborg,
+		 /obj/item/stack/material/strut/cyborg,
 		 /obj/item/stack/tile/floor/cyborg,
 		 /obj/item/stack/material/cyborg/glass/reinforced
 		))
@@ -101,7 +104,8 @@
 
 	for(var/thing in list(
 		 /obj/item/stack/material/cyborg/glass/reinforced,
-		 /obj/item/stack/material/cyborg/glass
+		 /obj/item/stack/material/cyborg/glass,
+		 /obj/item/stack/material/cyborg/fiberglass
 		))
 		var/obj/item/stack/stack = locate(thing) in equipment
 		LAZYDISTINCTADD(stack.synths, glass)
@@ -148,7 +152,7 @@
 	module = /obj/item/robot_module/flying/ascent
 	req_access = list(access_ascent)
 	silicon_radio = null
-	var/global/ascent_drone_count = 0
+	var/static/ascent_drone_count = 0
 
 /mob/living/silicon/robot/flying/ascent/add_ion_law(law)
 	return FALSE
@@ -173,7 +177,7 @@
 
 /mob/living/silicon/robot/flying/ascent/Initialize()
 	. = ..()
-	name = "[uppertext(pick(GLOB.gyne_geoforms))]-[++ascent_drone_count]"
+	name = "[uppertext(pick(global.gyne_geoforms))]-[++ascent_drone_count]"
 
 // Sorry, you're going to have to actually deal with these guys.
 /mob/living/silicon/robot/flying/ascent/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)

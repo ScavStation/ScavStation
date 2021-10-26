@@ -74,7 +74,7 @@
 	if(isnull(markup))
 		markup = 1.1 + (rand() * 0.4)
 	if(!ispath(vendor_currency, /decl/currency))
-		vendor_currency = GLOB.using_map.default_currency
+		vendor_currency = global.using_map.default_currency
 	if(product_slogans)
 		slogan_list += splittext(product_slogans, ";")
 
@@ -112,6 +112,12 @@
 			product.category = category
 			if(product && populate_parts)
 				product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
+			if(ispath(product.item_path, /obj/item/stack/material))
+				var/obj/item/stack/material/M = product.item_path
+				var/decl/material/mat = GET_DECL(initial(M.material))
+				if(mat)
+					var/mat_amt = initial(M.amount)
+					product.item_name = "[mat.solid_name] [mat_amt == 1 ? initial(M.singular_name) : initial(M.plural_name)] ([mat_amt]x)"
 			product_records.Add(product)
 
 /obj/machinery/vending/Destroy()
@@ -264,7 +270,7 @@
 		data["mode"] = 1
 		data["product"] = currently_vending.item_name
 		data["price"] = cur.format_value(currently_vending.price)
-		data["message_err"] = 0
+		data["price_num"] = FLOOR(currently_vending.price / cur.absolute_value)
 		data["message"] = status_message
 		data["message_err"] = status_error
 	else
@@ -281,6 +287,7 @@
 				"key" =    key,
 				"name" =   I.item_name,
 				"price" =  cur.format_value(I.price),
+				"price_num" = FLOOR(I.price / cur.absolute_value),
 				"color" =  I.display_color,
 				"amount" = I.get_amount())))
 
@@ -294,7 +301,7 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "vending_machine.tmpl", name, 440, 600)
+		ui = new(user, src, ui_key, "vending_machine.tmpl", name, 520, 600)
 		ui.set_initial_data(data)
 		ui.open()
 
@@ -426,8 +433,7 @@
 	if (!message)
 		return
 
-	for(var/mob/O in hearers(src, null))
-		O.show_message("<span class='game say'><span class='name'>\The [src]</span> beeps, \"[message]\"</span>",2)
+	audible_message("<span class='game say'><span class='name'>\The [src]</span> beeps, \"[message]\"</span>")
 	return
 
 /obj/machinery/vending/powered()
@@ -463,9 +469,9 @@
 
 	for(var/datum/stored_items/vending_products/R in shuffle(product_records))
 		throw_item = R.get_product(loc)
-		if (throw_item)
+		if(!QDELETED(throw_item))
 			break
-	if (!throw_item)
+	if(QDELETED(throw_item))
 		return 0
 	spawn(0)
 		throw_item.throw_at(target, rand(1,2), 3)

@@ -1,4 +1,4 @@
-var/list/trading_hub_names = list()
+var/global/list/trading_hub_names = list()
 
 /obj/effect/overmap/trade_hub
 	name = "trading post"
@@ -33,15 +33,15 @@ var/list/trading_hub_names = list()
 
 /datum/trade_hub/overmap/proc/get_new_name()
 	if(prob(30))
-		. = pick(GLOB.station_prefixes)
-	. = trim("[.] [pick(GLOB.station_names)]")
-	. = trim("[.] [pick(GLOB.station_suffixes)]")
+		. = pick(global.station_prefixes)
+	. = trim("[.] [pick(global.station_names)]")
+	. = trim("[.] [pick(global.station_suffixes)]")
 	if(prob(30))
-		. = trim("[.] [pick(GLOB.greek_letters)]")
+		. = trim("[.] [pick(global.greek_letters)]")
 	else if(prob(30))
-		. = trim("[.] [pick(GLOB.phonetic_alphabet)]")
+		. = trim("[.] [pick(global.phonetic_alphabet)]")
 	if(prob(25))
-		. = trim("[.] [pick(GLOB.numbers_as_words)]")
+		. = trim("[.] [pick(global.numbers_as_words)]")
 
 /datum/trade_hub/overmap/proc/generate_name()
 	var/newname
@@ -66,7 +66,7 @@ var/list/trading_hub_names = list()
 
 /datum/trade_hub/overmap/is_accessible_from(var/turf/check)
 	if(istype(check))
-		var/obj/effect/overmap/customer = map_sectors["[check.z]"]
+		var/obj/effect/overmap/customer = global.overmap_sectors["[check.z]"]
 		return customer && owner && get_turf(customer) == get_turf(owner)
 
 /datum/trade_hub/overmap/proc/update_hub(var/obj/effect/overmap/trade_hub/hub)
