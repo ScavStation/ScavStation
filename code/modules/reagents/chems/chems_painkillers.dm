@@ -9,9 +9,7 @@
 	ingest_met = 0.02
 	flags = IGNORE_MOB_SIZE
 	value = 1.8
-	uid = "chem_painkillers"
-
-	var/pain_power = 80 //magnitide of painkilling effect
+	var/pain_power = 80 //magnitude of painkilling effect
 	var/effective_dose = 0.5 //how many units it need to process to reach max power
 	var/additional_effect_threshold = 15 // cumulative dosage at which slowdown and drowsiness are applied
 	var/sedation = 0 //how strong is this chemical as a sedative
@@ -40,22 +38,22 @@
 		return
 	if(dose > 0.5 * additional_effect_threshold)
 		M.add_chemical_effect(CE_SLOWDOWN, slowdown_severity)
-		if(prob(15))
+		if(prob(15) && slur_severity)
 			SET_STATUS_MAX(M, STAT_SLUR, (slur_severity * 10))
 
 	if(dose > 0.75 * additional_effect_threshold) //minor side effects may start here
 		M.add_chemical_effect(CE_SLOWDOWN, slowdown_severity)
-		if(prob(30))
+		if(prob(30) && slur_severity)
 			SET_STATUS_MAX(M, STAT_SLUR, (slur_severity * 20))
-		if(prob(30))
+		if(prob(30) && dizziness_severity)
 			SET_STATUS_MAX(M, STAT_DIZZY, (dizziness_severity * 20))
-		if(prob(30))
+		if(prob(30) && confusion_severity)
 			SET_STATUS_MAX(M, STAT_CONFUSE, (confusion_severity * 20))
-		if(prob(75))
+		if(prob(75) && blurred_vision)
 			SET_STATUS_MAX(M, STAT_BLURRY, (blurred_vision * 20))
-		if(prob(30))
+		if(prob(30) && stuttering_severity)
 			SET_STATUS_MAX(M, STAT_STUTTER, (stuttering_severity * 20))
-		if(prob(10))
+		if(prob(30) && weakness_severity)
 			SET_STATUS_MAX(M, STAT_WEAK, (weakness_severity * 10))
 		if(sedation > 0)
 			if(prob(20))
@@ -67,15 +65,15 @@
 	if(dose > additional_effect_threshold) //not quite an overdose yet, but it's a lot of medicine to take at once.
 		M.add_chemical_effect(CE_SLOWDOWN, (slowdown_severity * 2))
 		SET_STATUS_MAX(M, STAT_BLURRY, (blurred_vision * 40))
-		if(prob(75))
+		if(prob(75) && slur_severity)
 			SET_STATUS_MAX(M, STAT_SLUR, (slur_severity * 40))
-		if(prob(75))
+		if(prob(75) && dizziness_severity)
 			SET_STATUS_MAX(M, STAT_DIZZY, (dizziness_severity * 40))
-		if(prob(75))
+		if(prob(75) && confusion_severity)
 			SET_STATUS_MAX(M, STAT_CONFUSE, (confusion_severity * 40))
-		if(prob(75))
+		if(prob(75) && stuttering_severity)
 			SET_STATUS_MAX(M, STAT_STUTTER, (stuttering_severity * 40))
-		if(prob(50))
+		if(prob(75) && weakness_severity)
 			SET_STATUS_MAX(M, STAT_WEAK, (weakness_severity * 20))
 		if(sedation > 0)
 			if(prob(50)) //fall asleep
@@ -89,7 +87,7 @@
 	var/boozed = isboozed(M)
 	if(boozed)
 		M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
-		M.add_chemical_effect(CE_BREATHLOSS, 1 * boozed) //drinking and opiating supreesses breathing.
+		M.add_chemical_effect(CE_BREATHLOSS, 1 * boozed) //drinking and opiating suppreesses breathing.
 
 /decl/material/liquid/painkillers/affect_overdose(var/mob/living/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -100,7 +98,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, pain_power*0.5) //extra painkilling for extra trouble
 	M.add_chemical_effect(CE_BREATHLOSS, breathloss_severity*2) //ODing on opiates can be deadly.
 	if(isboozed(M))
-		M.add_chemical_effect(CE_BREATHLOSS, 4) //Don't drink and OD on opiates folks
+		M.add_chemical_effect(CE_BREATHLOSS, breathloss_severity*4) //Don't drink and OD on opiates folks
 
 /decl/material/liquid/painkillers/proc/isboozed(var/mob/living/carbon/M)
 	. = 0
