@@ -40,7 +40,7 @@
 /area/ship/trade/enclave)
 "ae" = (
 /obj/effect/decal/cleanable/generic,
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Patriarch"
 	},
 /obj/item/stool/wood,
@@ -209,7 +209,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Patriarch"
 	},
 /turf/simulated/floor/tiled,
@@ -234,7 +234,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Scout"
 	},
 /turf/simulated/floor/tiled,
@@ -565,7 +565,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor/tiled,
@@ -654,7 +654,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -970,7 +970,7 @@
 	dir = 9;
 	icon_state = "warning"
 	},
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor,
@@ -1183,7 +1183,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Patriarch"
 	},
 /turf/simulated/floor/tiled,
@@ -1235,7 +1235,7 @@
 /turf/simulated/floor,
 /area/ship/trade/livestock)
 "nC" = (
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Scout"
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -1366,7 +1366,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "rt" = (
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Matriarch"
 	},
 /obj/structure/bed/chair/padded/beige,
@@ -1435,7 +1435,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor/tiled,
@@ -1928,7 +1928,7 @@
 	dir = 1;
 	pixel_y = 32
 	},
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Worker"
 	},
 /turf/simulated/floor,
@@ -2072,7 +2072,7 @@
 /obj/item/stack/tile/floor/five,
 /obj/item/crowbar/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Patriarch"
 	},
 /obj/item/stool/padded,
@@ -2127,7 +2127,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/livestock)
 "Ua" = (
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Matriarch"
 	},
 /obj/structure/bed/chair/wood/walnut,

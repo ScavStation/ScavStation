@@ -12793,7 +12793,7 @@
 /obj/structure/bed/chair/wood/maple{
 	dir = 8
 	},
-/obj/effect/landmark/start{
+/obj/abstract/landmark/start{
 	name = "Enclave Representative"
 	},
 /turf/simulated/floor/carpet/green,
