@@ -11,8 +11,6 @@ var/global/list/pheromone_markers = list()
 	bodytype_flag =     BODY_FLAG_INDREL
 	icon_base =         'mods/valsalia/icons/species/indrel/body.dmi'
 	damage_overlays =   'mods/valsalia/icons/species/indrel/damage_overlay.dmi'
-	damage_mask =       'mods/valsalia/icons/species/indrel/damage_mask.dmi'
-	blood_mask =        'mods/valsalia/icons/species/indrel/blood_mask.dmi'
 	icon_template =     'mods/valsalia/icons/species/indrel/template.dmi'
 
 /decl/bodytype/indrel/Initialize()
