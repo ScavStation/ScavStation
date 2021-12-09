@@ -20,7 +20,7 @@ DEFINE_ROBOLIMB_DESIGNS(/decl/prosthetics_manufacturer/ying_metal, lunar_transit
 /decl/material/solid/wood/generate_recipes(var/reinforce_material)
 	. = ..()
 	if(!reinforce_material)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_arm_ying(src)
+		. += new/datum/stack_recipe/wooden_prosthetic/left_arm_ying(src) 
 		. += new/datum/stack_recipe/wooden_prosthetic/right_arm_ying(src)
 		. += new/datum/stack_recipe/wooden_prosthetic/left_leg_ying(src)
 		. += new/datum/stack_recipe/wooden_prosthetic/right_leg_ying(src)
@@ -61,42 +61,58 @@ DEFINE_ROBOLIMB_DESIGNS(/decl/prosthetics_manufacturer/ying_metal, lunar_transit
 	title = "small right foot"
 	result_type = /obj/item/organ/external/foot/right/yinglet/wooden
 
+/obj/item/organ/external/arm/yinglet/wooden
+	material = /decl/material/solid/wood
 /obj/item/organ/external/arm/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_HUMAN]
 	. = ..()
-	robotize(/decl/prosthetics_manufacturer/ying_wooden)
+	robotize(/decl/prosthetics_manufacturer/ying_wooden, apply_material = material.type)
 
+/obj/item/organ/external/arm/right/yinglet/wooden
+	material = /decl/material/solid/wood
 /obj/item/organ/external/arm/right/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize(/decl/prosthetics_manufacturer/ying_wooden)
+	robotize(/decl/prosthetics_manufacturer/ying_wooden, apply_material = material.type)
 
+/obj/item/organ/external/leg/yinglet/wooden
+	material = /decl/material/solid/wood
 /obj/item/organ/external/leg/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize(/decl/prosthetics_manufacturer/ying_wooden)
+	robotize(/decl/prosthetics_manufacturer/ying_wooden, apply_material = material.type)
 
+/obj/item/organ/external/leg/right/yinglet/wooden
+	material = /decl/material/solid/wood
 /obj/item/organ/external/leg/right/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize(/decl/prosthetics_manufacturer/ying_wooden)
+	robotize(/decl/prosthetics_manufacturer/ying_wooden, apply_material = material.type)
 
+/obj/item/organ/external/hand/yinglet/wooden
+	material = /decl/material/solid/wood
 /obj/item/organ/external/hand/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize(/decl/prosthetics_manufacturer/ying_wooden)
+	robotize(/decl/prosthetics_manufacturer/ying_wooden, apply_material = material.type)
 
+/obj/item/organ/external/hand/right/yinglet/wooden
+	material = /decl/material/solid/wood
 /obj/item/organ/external/hand/right/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize(/decl/prosthetics_manufacturer/ying_wooden)
+	robotize(/decl/prosthetics_manufacturer/ying_wooden, apply_material = material.type)
 
+/obj/item/organ/external/foot/yinglet/wooden
+	material = /decl/material/solid/wood
 /obj/item/organ/external/foot/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize(/decl/prosthetics_manufacturer/ying_wooden)
+	robotize(/decl/prosthetics_manufacturer/ying_wooden, apply_material = material.type)
 
+/obj/item/organ/external/foot/right/yinglet/wooden
+	material = /decl/material/solid/wood
 /obj/item/organ/external/foot/right/yinglet/wooden/Initialize()
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	robotize(/decl/prosthetics_manufacturer/ying_wooden)
+	robotize(/decl/prosthetics_manufacturer/ying_wooden, apply_material = material.type)
