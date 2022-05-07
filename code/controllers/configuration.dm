@@ -1,7 +1,7 @@
 var/global/list/gamemode_cache = list()
 
 /datum/configuration
-	var/server_name = "Nebula 13"		// server name (for world name / status)
+	var/server_name = "Scav Station 13"	// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
 	var/log_ooc = 0						// log OOC channel
@@ -254,6 +254,8 @@ var/global/list/gamemode_cache = list()
 	var/allow_diagonal_movement = FALSE
 
 	var/no_throttle_localhost
+
+	var/dex_malus_brainloss_threshold = 30 //The threshold of when brainloss begins to affect dexterity. 
 
 	var/static/list/protected_vars = list(
 		"comms_password",
@@ -893,6 +895,8 @@ var/global/list/gamemode_cache = list()
 
 				if("use_loyalty_implants")
 					config.use_loyalty_implants = 1
+				if("dexterity_malus_brainloss_threshold")
+					config.dex_malus_brainloss_threshold = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

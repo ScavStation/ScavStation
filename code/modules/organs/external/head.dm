@@ -26,12 +26,12 @@
 
 /obj/item/organ/external/head/proc/get_eye_overlay()
 	if(glowing_eyes || owner?.has_chemical_effect(CE_GLOWINGEYES, 1))
-		var/obj/item/organ/internal/eyes/eyes = owner.get_internal_organ(owner.species.vision_organ || BP_EYES)
+		var/obj/item/organ/internal/eyes/eyes = owner.get_organ(owner.species.vision_organ || BP_EYES)
 		if(eyes)
 			return eyes.get_special_overlay()
 
 /obj/item/organ/external/head/proc/get_eyes()
-	var/obj/item/organ/internal/eyes/eyes = owner.get_internal_organ(owner.species.vision_organ || BP_EYES)
+	var/obj/item/organ/internal/eyes/eyes = owner.get_organ(owner.species.vision_organ || BP_EYES)
 	if(eyes)
 		return eyes.get_onhead_icon()
 
@@ -52,7 +52,7 @@
 		to_chat(penman, "<span class='notice'>There is no room left to write on [head_name]!</span>")
 		return
 
-	var/graffiti = sanitizeSafe(input(penman, "Enter a message to write on [head_name]:") as text|null, MAX_NAME_LEN)
+	var/graffiti = sanitize_safe(input(penman, "Enter a message to write on [head_name]:") as text|null, MAX_NAME_LEN)
 	if(graffiti)
 		if(!target.Adjacent(penman))
 			to_chat(penman, "<span class='notice'>[head_name] is too far away.</span>")
@@ -76,8 +76,8 @@
 /obj/item/organ/external/head/get_agony_multiplier()
 	return (owner && owner.headcheck(organ_tag)) ? 1.50 : 1
 
-/obj/item/organ/external/head/robotize(var/company = /decl/prosthetics_manufacturer, var/skip_prosthetics, var/keep_organs, var/apply_material = /decl/material/solid/metal/steel)
-	. = ..(company, skip_prosthetics, 1)
+/obj/item/organ/external/head/robotize(var/company = /decl/prosthetics_manufacturer, var/skip_prosthetics = 0, var/keep_organs = 1, var/apply_material = /decl/material/solid/metal/steel, var/check_bodytype, var/check_species)
+	. = ..()
 	has_lips = null
 	if(model)
 		var/decl/prosthetics_manufacturer/R = GET_DECL(model)

@@ -23,6 +23,7 @@
 
 /mob/new_player/Initialize()
 	. = ..()
+	forceMove(null)
 	verbs += /mob/proc/toggle_antag_pool
 
 /mob/new_player/proc/show_lobby_menu(force = FALSE)
@@ -365,7 +366,7 @@
 			return null
 		new_character = new(spawn_turf, chosen_species.name)
 		if(chosen_species.has_organ[BP_POSIBRAIN] && client && client.prefs.is_shackled)
-			var/obj/item/organ/internal/posibrain/B = new_character.get_internal_organ(BP_POSIBRAIN)
+			var/obj/item/organ/internal/posibrain/B = new_character.get_organ(BP_POSIBRAIN)
 			if(B)	B.shackle(client.prefs.get_lawset())
 
 	if(!new_character)
@@ -469,7 +470,7 @@
 	if(new_track)
 		new_track.play_to(src)
 
-/mob/new_player/handle_reading_literacy(var/mob/user, var/text_content, var/skip_delays)
+/mob/new_player/handle_reading_literacy(var/mob/user, var/text_content, var/skip_delays, var/digital = FALSE)
 	. = text_content
 
 /mob/new_player/handle_writing_literacy(var/mob/user, var/text_content, var/skip_delays)

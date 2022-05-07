@@ -1,14 +1,11 @@
 /decl/bodytype/yinglet
 	name =                "yinglet, feminine"
-	damage_overlays =     'mods/valsalia/icons/species/yinglet/damage_overlay.dmi'
-	damage_mask =         'mods/valsalia/icons/species/yinglet/damage_mask.dmi'
 	icon_base =           'mods/valsalia/icons/species/yinglet/body_female.dmi'
 	husk_icon =           'mods/valsalia/icons/species/yinglet/husk.dmi'
+	lip_icon =            'mods/valsalia/icons/species/yinglet/lips.dmi'
 	limb_blend =          ICON_MULTIPLY
 	bodytype_category =   BODYTYPE_YINGLET
 	bodytype_flag =       BODY_FLAG_YINGLET
-	blood_mask =          'mods/valsalia/icons/species/yinglet/blood_mask.dmi'
-	lip_icon =            'mods/valsalia/icons/species/yinglet/lips.dmi'
 
 /decl/bodytype/yinglet/masculine
 	name =      "yinglet, masculine"

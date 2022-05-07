@@ -45,6 +45,7 @@
 /decl/material/liquid/nutriment/soggy_food
 	name = "soggy food"
 	taste_description = "blandness"
+	uid = "chem_nutriment_soggy"
 
 /decl/chemical_reaction/recipe/soggy_food
 	name = "Soggy Bread"

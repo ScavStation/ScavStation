@@ -119,10 +119,10 @@
 	icon_state = ICON_STATE_WORLD
 	if(stat == DEAD && (mob_icon_state_flags & MOB_ICON_HAS_DEAD_STATE))
 		icon_state += "-dead"
-	else if(!incapacitated() && resting && (mob_icon_state_flags & MOB_ICON_HAS_REST_STATE))
-		icon_state += "-resting"
-	else if((lying || incapacitated()) && (mob_icon_state_flags & MOB_ICON_HAS_SLEEP_STATE))
+	else if(stat == UNCONSCIOUS && (mob_icon_state_flags & MOB_ICON_HAS_SLEEP_STATE))
 		icon_state += "-sleeping"
+	else if(resting && (mob_icon_state_flags & MOB_ICON_HAS_REST_STATE))
+		icon_state += "-resting"
 
 	z_flags &= ~ZMM_MANGLE_PLANES
 	if(stat == CONSCIOUS)
@@ -415,7 +415,7 @@
 
 	return 1
 
-/mob/living/simple_animal/movement_delay()
+/mob/living/simple_animal/get_movement_delay(var/travel_dir)
 	var/tally = ..() //Incase I need to add stuff other than "speed" later
 
 	tally += speed

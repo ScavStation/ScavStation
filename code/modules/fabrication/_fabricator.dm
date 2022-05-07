@@ -63,6 +63,12 @@
 	// If TRUE, fills fabricator with material on initalize
 	var/prefilled = FALSE
 
+	//Collapsing Menus stuff
+	var/ui_expand_queue     = FALSE
+	var/ui_expand_resources = FALSE
+	var/ui_expand_config    = FALSE
+	var/ui_nb_categories    = 1      //Cached amount of categories in loaded designs. Used to decide if we display the category filter or not 
+
 /obj/machinery/fabricator/Destroy()
 	QDEL_NULL(currently_building)
 	QDEL_NULL_LIST(queued_orders)
@@ -106,14 +112,14 @@
 	if(prefilled)
 		fill_to_capacity()
 
+	refresh_design_cache()
+
 /obj/machinery/fabricator/modify_mapped_vars(map_hash)
 	..()
 	ADJUST_TAG_VAR(initial_network_id, map_hash)
 
 /obj/machinery/fabricator/handle_post_network_connection()
 	..()
-	var/list/base_designs = SSfabrication.get_initial_recipes(fabricator_class)
-	design_cache = islist(base_designs) ? base_designs.Copy() : list() // Don't want to mutate the subsystem cache.
 	refresh_design_cache()
 
 /obj/machinery/fabricator/proc/fill_to_capacity()
@@ -121,10 +127,15 @@
 		stored_material[mat] = storage_capacity[mat]
 
 /obj/machinery/fabricator/proc/refresh_design_cache(var/list/known_tech)
+
+	var/list/base_designs = SSfabrication.get_initial_recipes(fabricator_class)
+	design_cache = islist(base_designs) ? base_designs.Copy() : list() // Don't want to mutate the subsystem cache.
+
 	if(length(installed_designs))
 		design_cache |= installed_designs
+
 	if(!known_tech)
-		known_tech = list()
+		known_tech = get_default_initial_tech_levels()
 		var/datum/extension/network_device/device = get_extension(src, /datum/extension/network_device)
 		var/datum/computer_network/network = device.get_network()
 		if(network)
@@ -137,7 +148,9 @@
 	if(length(unlocked_tech))
 		design_cache |= unlocked_tech
 
+	var/list/unique_categories
 	for(var/datum/fabricator_recipe/R in design_cache)
+		LAZYDISTINCTADD(unique_categories, R.category)
 		if(!length(R.species_locked))
 			continue
 
@@ -151,6 +164,7 @@
 				return
 
 	design_cache = sortTim(design_cache, /proc/cmp_name_asc)
+	ui_nb_categories = LAZYLEN(unique_categories)
 
 /obj/machinery/fabricator/state_transition(var/decl/machine_construction/default/new_state)
 	. = ..()

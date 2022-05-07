@@ -1,5 +1,3 @@
-var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
-
 /datum/preferences
 	var/species
 	var/b_type                           //blood type
@@ -93,9 +91,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	pref.b_type = sanitize_text(pref.b_type, initial(pref.b_type))
 
-	if(!pref.b_type || !(pref.b_type in global.valid_bloodtypes))
-		pref.b_type = RANDOM_BLOOD_TYPE
-
 	// Grandfather clause for loading old saves.
 	if(lowertext(pref.species) == "southern yinglet")
 		pref.species = "Yinglet"
@@ -105,6 +100,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.species = global.using_map.default_species
 
 	var/decl/species/mob_species = get_species_by_key(pref.species)
+	if(!pref.b_type || !(pref.b_type in mob_species.blood_types))
+		pref.b_type = pickweight(mob_species.blood_types)
 
 	var/low_skin_tone = mob_species ? (35 - mob_species.max_skin_tone()) : -185
 	sanitize_integer(pref.skin_tone, low_skin_tone, 34, initial(pref.skin_tone))
@@ -235,10 +232,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["blood_type"])
-		var/new_b_type = input(user, "Choose your character's blood-type:", CHARACTER_PREFERENCE_INPUT_TITLE) as null|anything in global.valid_bloodtypes
+		var/new_b_type = input(user, "Choose your character's blood type:", CHARACTER_PREFERENCE_INPUT_TITLE) as null|anything in mob_species.blood_types
 		if(new_b_type && CanUseTopic(user))
-			pref.b_type = new_b_type
-			return TOPIC_REFRESH
+			mob_species = get_species_by_key(pref.species)
+			if(new_b_type in mob_species.blood_types)
+				pref.b_type = new_b_type
+				return TOPIC_REFRESH
 
 	else if(href_list["hair_color"])
 		if(!has_flag(mob_species, HAS_HAIR_COLOR))

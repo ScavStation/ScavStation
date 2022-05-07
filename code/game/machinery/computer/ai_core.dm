@@ -96,6 +96,7 @@ var/global/list/empty_playable_ai_cores = list()
 		. = ..()
 
 /obj/structure/aicore/on_update_icon()
+	..()
 	if(glass_installed)
 		icon_state = "4"
 	else if(brain)
@@ -247,7 +248,7 @@ var/global/list/deactivated_ai_cores = list()
 
 	var/list/cores = list()
 	for(var/obj/structure/aicore/deactivated/D in global.deactivated_ai_cores)
-		cores["[D] ([D.loc.loc])"] = D
+		cores["[D] ([get_area(D)])"] = D
 
 	var/id = input("Which core?", "Toggle AI Core Latejoin", null) as null|anything in cores
 	if(!id) return
