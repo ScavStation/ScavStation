@@ -31,7 +31,7 @@
 
 	adjustOxyLoss(maxHealth)//cease life functions
 	setBrainLoss(maxHealth)
-	var/obj/item/organ/internal/heart/corpse_heart = get_internal_organ(BP_HEART)
+	var/obj/item/organ/internal/heart/corpse_heart = get_organ(BP_HEART)
 	if(corpse_heart)
 		corpse_heart.pulse = PULSE_NONE//actually stops heart to make worried explorers not care too much
 	if(corpse)
@@ -45,7 +45,7 @@
 /mob/living/carbon/human/dummy/mannequin/add_to_dead_mob_list()
 	return FALSE
 
-/mob/living/carbon/human/dummy/mannequin/fully_replace_character_name(new_name)
+/mob/living/carbon/human/dummy/mannequin/fully_replace_character_name(new_name, in_depth = TRUE)
 	..("[new_name] (mannequin)", FALSE)
 
 /mob/living/carbon/human/dummy/mannequin/InitializeHud()

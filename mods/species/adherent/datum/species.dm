@@ -59,7 +59,7 @@
 	heat_level_2 = SYNTH_HEAT_LEVEL_2
 	heat_level_3 = SYNTH_HEAT_LEVEL_3
 
-	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_MINOR_CUT
+	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_CRYSTALLINE
 	spawn_flags =   SPECIES_CAN_JOIN
 
 	appearance_flags = HAS_EYE_COLOR
@@ -105,13 +105,14 @@
 		BP_CELL =         /obj/item/organ/internal/cell/adherent,
 		BP_COOLING_FINS = /obj/item/organ/internal/powered/cooling_fins
 		)
+
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/snake
 	max_players = 3
 
 /decl/species/adherent/can_overcome_gravity(var/mob/living/carbon/human/H)
 	. = FALSE
 	if(H && H.stat == CONSCIOUS)
-		for(var/obj/item/organ/internal/powered/float/float in H.internal_organs)
+		for(var/obj/item/organ/internal/powered/float/float in H.get_internal_organs())
 			if(float.active && float.is_usable())
 				. = TRUE
 				break
@@ -125,7 +126,7 @@
 /decl/species/adherent/handle_fall_special(var/mob/living/carbon/human/H, var/turf/landing)
 	var/float_is_usable = FALSE
 	if(H && H.stat == CONSCIOUS)
-		for(var/obj/item/organ/internal/powered/float/float in H.internal_organs)
+		for(var/obj/item/organ/internal/powered/float/float in H.get_internal_organs())
 			if(float.is_usable())
 				float_is_usable = TRUE
 				break

@@ -203,7 +203,7 @@ Please contact me on #coderbus IRC. ~Carn x
 					overlay.transform = M
 				add_overlay(overlay)
 
-	var/obj/item/organ/external/head/head = organs_by_name[BP_HEAD]
+	var/obj/item/organ/external/head/head = get_organ(BP_HEAD)
 	if(istype(head) && !head.is_stump())
 		var/image/I = head.get_eye_overlay()
 		if(I)
@@ -236,15 +236,21 @@ Please contact me on #coderbus IRC. ~Carn x
 			turn_angle = -90
 		else if(dir & EAST)
 			turn_angle = 90
-		else 
+		else
 			turn_angle = pick(-90, 90)
 		M.Turn(turn_angle)
 		M.Scale(desired_scale_y, desired_scale_x)
-		M.Translate(1, -6-default_pixel_z)
+		M.Translate(turn_angle == 90 ? 1 : -2, (turn_angle == 90 ? -6 : -5) - default_pixel_z)
 	else
 		M.Scale(desired_scale_x, desired_scale_y)
-		M.Translate(0, 16*(desired_scale_y-1))
-	animate(src, transform = M, time = transform_animate_time)
+		M.Translate(0, 16 * (desired_scale_y - 1))
+
+	if(transform_animate_time)
+		animate(src, transform = M, time = transform_animate_time)
+	else
+		transform = M
+
+	return transform
 
 var/global/list/damage_icon_parts = list()
 
@@ -254,7 +260,7 @@ var/global/list/damage_icon_parts = list()
 
 	// first check whether something actually changed about damage appearance
 	var/damage_appearance = ""
-	for(var/obj/item/organ/external/O in organs)
+	for(var/obj/item/organ/external/O in get_external_organs())
 		if(O.is_stump())
 			continue
 		damage_appearance += O.damage_state
@@ -268,7 +274,7 @@ var/global/list/damage_icon_parts = list()
 	var/image/standing_image = image(bodytype.get_damage_overlays(src), icon_state = "00")
 
 	// blend the individual damage states with our icons
-	for(var/obj/item/organ/external/O in organs)
+	for(var/obj/item/organ/external/O in get_external_organs())
 		if(O.is_stump())
 			continue
 
@@ -299,7 +305,7 @@ var/global/list/damage_icon_parts = list()
 		return
 	var/image/standing_image = overlays_standing[HO_DAMAGE_LAYER]
 	if(standing_image)
-		for(var/obj/item/organ/external/O in organs)
+		for(var/obj/item/organ/external/O in get_external_organs())
 			if(O.is_stump())
 				continue
 			var/bandage_level = O.bandage_level()
@@ -313,7 +319,8 @@ var/global/list/damage_icon_parts = list()
 //BASE MOB SPRITE
 /mob/living/carbon/human/update_body(var/update_icons=1)
 
-	if(!length(organs))
+	var/list/limbs = get_external_organs()
+	if(!LAZYLEN(limbs))
 		return // Something is trying to update our body pre-init (probably loading a preview image during world startup).
 
 	var/husk_color_mod = rgb(96,88,80)
@@ -337,11 +344,11 @@ var/global/list/damage_icon_parts = list()
 		icon_key += "[lip_style]"
 	else
 		icon_key += "nolips"
-	var/obj/item/organ/internal/eyes/eyes = get_internal_organ(species.vision_organ || BP_EYES)
+	var/obj/item/organ/internal/eyes/eyes = get_organ(species.vision_organ || BP_EYES)
 	icon_key += istype(eyes) ? eyes.eye_colour : COLOR_BLACK
 
 	for(var/organ_tag in species.has_limbs)
-		var/obj/item/organ/external/part = organs_by_name[organ_tag]
+		var/obj/item/organ/external/part = get_organ(organ_tag)
 		if(isnull(part) || part.is_stump() || part.organ_tag == BP_TAIL)
 			icon_key += "0"
 			continue
@@ -372,7 +379,7 @@ var/global/list/damage_icon_parts = list()
 		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 		base_icon = chest.get_icon()
 
-		for(var/obj/item/organ/external/part in (organs-chest))
+		for(var/obj/item/organ/external/part in (limbs - chest))
 			var/icon/temp = part.get_icon()
 			//That part makes left and right legs drawn topmost and lowermost when human looks WEST or EAST
 			//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
@@ -610,7 +617,7 @@ var/global/list/damage_icon_parts = list()
 
 /mob/living/carbon/human/update_inv_belt(var/update_icons=1)
 	if(belt)
-		overlays_standing[belt.use_alt_layer ? HO_BELT_LAYER_ALT : HO_BELT_LAYER] = belt.get_mob_overlay(src, slot_belt_str)
+		overlays_standing[belt.use_alt_layer ? HO_BELT_LAYER_ALT : HO_BELT_LAYER] = belt.get_mob_overlay(src,slot_belt_str)
 		overlays_standing[belt.use_alt_layer ? HO_BELT_LAYER : HO_BELT_LAYER_ALT] = null
 	else
 		overlays_standing[HO_BELT_LAYER] = null
@@ -699,7 +706,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/get_tail_icon(var/obj/item/organ/external/tail/tail_organ)
 	if(!istype(tail_organ))
 		return
-	var/icon_key = "[tail_organ.get_tail()][tail_organ.icon][tail_organ.get_tail_blend(src)][species.appearance_flags & HAS_SKIN_COLOR][skin_colour][tail_organ.get_tail_hair()][tail_organ.get_tail_hair_blend()][hair_colour]"
+	var/icon_key = "[tail_organ.get_tail()]\ref[tail_organ.icon][tail_organ.get_tail_blend(src)][species.appearance_flags & HAS_SKIN_COLOR][skin_colour][tail_organ.get_tail_hair()][tail_organ.get_tail_hair_blend()][hair_colour]"
 	var/icon/tail_icon = tail_icon_cache[icon_key]
 	if(!tail_icon)
 		//generate a new one
@@ -821,7 +828,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
 	overlays_standing[HO_SURGERY_LAYER] = null
 	var/image/total = new
-	for(var/obj/item/organ/external/E in organs)
+	for(var/obj/item/organ/external/E in get_external_organs())
 		if(BP_IS_PROSTHETIC(E) || E.is_stump())
 			continue
 		var/how_open = round(E.how_open())

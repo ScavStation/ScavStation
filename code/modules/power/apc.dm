@@ -99,7 +99,7 @@ var/global/list/all_apcs = list()
 	initial_access = list(access_engine_equip)
 	clicksound = "switch"
 	layer = ABOVE_WINDOW_LAYER
-	var/needs_powerdown_sound
+	var/powered_down = FALSE
 	var/area/area
 	var/areastring = null
 	var/shorted = 0
@@ -147,6 +147,7 @@ var/global/list/all_apcs = list()
 	uncreated_component_parts = list(
 		/obj/item/cell/apc
 	)
+	stock_part_presets = list(/decl/stock_part_preset/terminal_setup)
 
 /obj/machinery/power/apc/buildable
 	uncreated_component_parts = null
@@ -190,11 +191,10 @@ var/global/list/all_apcs = list()
 
 	. = ..()
 
-	if (populate_parts)
-		init_round_start()
-	else
+	if(!populate_parts)
 		operating = 0
-		queue_icon_update()
+	
+	queue_icon_update()
 
 	if(operating)
 		force_update_channels()
@@ -226,13 +226,9 @@ var/global/list/all_apcs = list()
 /obj/machinery/power/apc/proc/energy_fail(var/duration)
 	if(emp_hardened)
 		return
+	if(!failure_timer && duration)
+		playsound(src, 'sound/machines/apc_nopower.ogg', 75, 0)
 	failure_timer = max(failure_timer, round(duration))
-	playsound(src, 'sound/machines/apc_nopower.ogg', 75, 0)
-
-/obj/machinery/power/apc/proc/init_round_start()
-	var/obj/item/stock_parts/power/terminal/term = get_component_of_type(/obj/item/stock_parts/power/terminal)
-	term.make_terminal(src) // intentional crash if there is no terminal
-	queue_icon_update()
 
 /obj/machinery/power/apc/proc/terminal(var/functional_only)
 	var/obj/item/stock_parts/power/terminal/term = get_component_of_type(/obj/item/stock_parts/power/terminal)
@@ -458,7 +454,7 @@ var/global/list/all_apcs = list()
 				cover_removed = TRUE
 				user.visible_message("<span class='danger'>The APC cover was knocked down with the [W.name] by [user.name]!</span>", \
 					"<span class='danger'>You knock down the APC cover with your [W.name]!</span>", \
-					"You hear a bang")
+					"You hear a bang.")
 			return TRUE
 	return ..()
 
@@ -611,12 +607,13 @@ var/global/list/all_apcs = list()
 		area.power_change()
 
 	var/obj/item/cell/cell = get_cell()
-	if(!cell || cell.charge <= 0)
-		if(needs_powerdown_sound == TRUE)
+	if(!powered_down)
+		if(!cell || cell.charge <= 0)
 			playsound(src, 'sound/machines/apc_nopower.ogg', 75, 0)
-			needs_powerdown_sound = FALSE
-		else
-			needs_powerdown_sound = TRUE
+			powered_down  = TRUE
+
+	else if(cell?.charge > 0)
+		powered_down  = FALSE
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)
 	return wires.IsIndexCut(wireIndex)

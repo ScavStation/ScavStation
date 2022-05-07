@@ -182,7 +182,10 @@
 	override_limb_types = list(
 		BP_HEAD = /obj/item/organ/external/head/insectoid/mantid,
 		BP_GROIN = /obj/item/organ/external/groin/insectoid/mantid/gyne,
-		BP_EGG = /obj/item/organ/internal/egg_sac/insectoid
+	)
+
+	override_organ_types = list(
+		BP_EGG = /obj/item/organ/internal/egg_sac/insectoid,
 	)
 
 	appearance_descriptors = list(
@@ -385,7 +388,7 @@
 
 	H.remove_cloaking_source(src)
 
-	var/obj/item/organ/internal/B = H.get_internal_organ(BP_BRAIN)
+	var/obj/item/organ/internal/B = H.get_organ(BP_BRAIN)
 	if(istype(B,/obj/item/organ/internal/brain/insectoid/serpentid))
 		var/obj/item/organ/internal/brain/insectoid/serpentid/N = B
 		tally += N.lowblood_tally * 2
@@ -404,7 +407,7 @@
 			var/image_key = "[H.bodytype.get_icon_cache_uid(H)]"
 
 			for(var/organ_tag in H.species.has_limbs)
-				var/obj/item/organ/external/part = H.organs_by_name[organ_tag]
+				var/obj/item/organ/external/part = H.get_organ(organ_tag)
 				if(isnull(part) || part.is_stump())
 					image_key += "0"
 					continue

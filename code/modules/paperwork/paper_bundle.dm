@@ -46,7 +46,7 @@
 		to_chat(user, "<span class='notice'>You add \the [W.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
 		qdel(W)
 	else
-		if(istype(W, /obj/item/tape_roll))
+		if(istype(W, /obj/item/ducttape))
 			return 0
 		if(istype(W, /obj/item/pen))
 			show_browser(user, "", "window=[name]") //Closes the dialog
@@ -185,7 +185,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the bundle?", "Bundle Labelling", null)  as text, MAX_NAME_LEN)
+	var/n_name = sanitize_safe(input(usr, "What would you like to label the bundle?", "Bundle Labelling", null)  as text, MAX_NAME_LEN)
 	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
 		SetName("[(n_name ? text("[n_name]") : "paper")]")
 	add_fingerprint(usr)

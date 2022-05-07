@@ -13,7 +13,6 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/ooc_codex_information
 	var/cyborg_noun = "Cyborg"
 	var/hidden_from_codex = TRUE
-	var/is_crystalline = FALSE
 
 	var/holder_icon
 	var/list/available_bodytypes = list()
@@ -188,6 +187,10 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/breathing_organ           // If set, this organ is required for breathing.
 
 	var/list/override_organ_types // Used for species that only need to change one or two entries in has_organ.
+
+	//List of organ tags, with the amount and type required for living by this species
+	//#REMOVEME: The vital organ stuff was apparently mostly dropped, so its a bit pointless to improve it...
+	var/list/vital_organs
 
 	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
 
@@ -438,49 +441,87 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 /decl/species/proc/get_manual_dexterity(var/mob/living/carbon/human/H)
 	. = manual_dexterity
 
-/decl/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
+//Checks if an existing organ is the species default
+/decl/species/proc/is_default_organ(var/obj/item/organ/O)
+	for(var/tag in has_organ)
+		if(O.organ_tag == tag)
+			if(ispath(O.type, has_organ[tag]))
+				return TRUE
+	return FALSE
 
-	H.mob_size = mob_size
+//Checks if an existing limbs is the species default
+/decl/species/proc/is_default_limb(var/obj/item/organ/external/E)
+	// We don't have ^^ (logical XOR), so !x != !y will suffice.
+	if(!(species_flags & SPECIES_FLAG_CRYSTALLINE) != !BP_IS_CRYSTAL(E))
+		return FALSE
+	if(!(species_flags & SPECIES_FLAG_SYNTHETIC) != !BP_IS_PROSTHETIC(E))
+		return FALSE
+	for(var/tag in has_limbs)
+		if(E.organ_tag == tag)
+			var/list/organ_data = has_limbs[tag]
+			if(ispath(E.type, organ_data["path"]))
+				return TRUE
+	return FALSE
 
-	// TODO: only qdel limbs that are in the wrong location
-	// or are not present in the mob bodyplan; currently
-	// set_species and rejuvenate just trash the entire organ
-	// list, which is really horrible.
+/decl/species/proc/is_missing_vital_organ(var/mob/living/carbon/human/H)
+	for(var/tag in vital_organs)
+		var/obj/item/organ/internal/I = H.get_organ(tag)
+		var/list/organ_data = vital_organs[tag]
+		//#TODO: whenever we implement having several organs of the same type change this to check for the minimum amount!
+		if(!I || !ispath(I.type, organ_data["path"]))
+			return TRUE
+	return FALSE
 
-	QDEL_LIST(H.organs)
-	if(!islist(H.organs))
-		H.organs = list()
-	H.organs_by_name = list()
+/decl/species/proc/is_vital_organ(var/mob/living/carbon/human/H, var/obj/item/organ/O)
+	if(!LAZYLEN(vital_organs))
+		return FALSE
+	//An organ organ is considered vital if there's less than the required amount of said organ type in the mob after we remove it
+	var/list/organ_data = vital_organs[O.organ_tag]
+	if(!organ_data || !ispath(O.type, organ_data["path"]))
+		return FALSE
+	//#TODO: whenever we implement having several organs of the same type change this to check for the minimum amount!
+	return TRUE
 
-	QDEL_LIST(H.internal_organs)
-	if(!islist(H.internal_organs))
-		H.internal_organs = list()
-	H.internal_organs_by_name = list()
+//fully_replace: If true, all existing organs will be discarded. Useful when doing mob transformations, and not caring about the existing organs
+/decl/species/proc/create_missing_organs(var/mob/living/carbon/human/H, var/fully_replace = FALSE)
+	if(fully_replace)
+		H.delete_organs()
 
+	//Clear invalid limbs
+	if(H.has_external_organs())
+		for(var/obj/item/organ/external/E in H.get_external_organs())
+			if(!is_default_limb(E))
+				H.remove_organ(E, FALSE, FALSE, TRUE, TRUE, FALSE) //Remove them first so we don't trigger removal effects by just calling delete on them
+				qdel(E)
+
+	//Clear invalid internal organs
+	if(H.has_internal_organs())
+		for(var/obj/item/organ/O in H.get_internal_organs())
+			if(!is_default_organ(O))
+				H.remove_organ(O, FALSE, FALSE, TRUE, TRUE, FALSE) //Remove them first so we don't trigger removal effects by just calling delete on them
+				qdel(O)
+
+	//Create missing limbs
 	for(var/limb_type in has_limbs)
+		if(H.get_organ(limb_type)) //Skip existing
+			continue
 		var/list/organ_data = has_limbs[limb_type]
 		var/limb_path = organ_data["path"]
-		new limb_path(H)
+		var/obj/item/organ/external/E = new limb_path(H, null, H.dna) //explicitly specify the dna
+		H.add_organ(E, null, FALSE, FALSE)
+		post_organ_rejuvenate(E, H)
 
+	//Create missing internal organs
 	for(var/organ_tag in has_organ)
+		if(H.get_organ(organ_tag)) //Skip existing
+			continue
 		var/organ_type = has_organ[organ_tag]
-		var/obj/item/organ/O = new organ_type(H)
+		var/obj/item/organ/O = new organ_type(H, null, H.dna)
 		if(organ_tag != O.organ_tag)
 			warning("[O.type] has a default organ tag \"[O.organ_tag]\" that differs from the species' organ tag \"[organ_tag]\". Updating organ_tag to match.")
 			O.organ_tag = organ_tag
-		H.internal_organs_by_name[organ_tag] = O
-
-	for(var/name in H.organs_by_name)
-		H.organs |= H.organs_by_name[name]
-
-	for(var/name in H.internal_organs_by_name)
-		H.internal_organs |= H.get_internal_organ(name)
-
-	for(var/obj/item/organ/O in (H.organs|H.internal_organs))
-		O.owner = H
+		H.add_organ(O, H.get_organ(O.parent_organ), FALSE, FALSE)
 		post_organ_rejuvenate(O, H)
-
-	H.sync_organ_dna()
 
 /decl/species/proc/add_base_auras(var/mob/living/carbon/human/H)
 	if(base_auras)
@@ -512,11 +553,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 /decl/species/proc/handle_post_spawn(var/mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
 	add_inherent_verbs(H)
 	add_base_auras(H)
-	H.mob_bump_flag = bump_flag
-	H.mob_swap_flags = swap_flags
-	H.mob_push_flags = push_flags
-	H.pass_flags = pass_flags
-	handle_limbs_setup(H)
+	handle_movement_flags_setup(H)
 
 /decl/species/proc/handle_pre_spawn(var/mob/living/carbon/human/H)
 	return
@@ -680,11 +717,6 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 /decl/species/proc/handle_death_check(var/mob/living/carbon/human/H)
 	return FALSE
 
-//Mostly for toasters
-/decl/species/proc/handle_limbs_setup(var/mob/living/carbon/human/H)
-	for(var/thing in H.organs)
-		post_organ_rejuvenate(thing, H)
-
 // Impliments different trails for species depending on if they're wearing shoes.
 /decl/species/proc/get_move_trail(var/mob/living/carbon/human/H)
 	if(H.lying)
@@ -829,7 +861,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		else			. = 8
 
 /decl/species/proc/post_organ_rejuvenate(var/obj/item/organ/org, var/mob/living/carbon/human/H)
-	if(org && (org.species ? org.species.is_crystalline : is_crystalline))
+	if(org && (org.species ? (org.species.species_flags & SPECIES_FLAG_CRYSTALLINE) : (species_flags & SPECIES_FLAG_CRYSTALLINE)))
 		org.status |= (ORGAN_BRITTLE|ORGAN_CRYSTAL)
 
 /decl/species/proc/check_no_slip(var/mob/living/carbon/human/H)
@@ -858,7 +890,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		var/synthetic = H.isSynthetic()
 		if (synthetic)
 			if (exertion_charge_scale)
-				var/obj/item/organ/internal/cell/cell = locate() in H.internal_organs
+				var/obj/item/organ/internal/cell/cell = H.get_organ(BP_CELL)
 				if (cell)
 					cell.use(cell.get_power_drain() * exertion_charge_scale)
 		else
@@ -880,13 +912,36 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 /decl/species/proc/get_holder_color(var/mob/living/carbon/human/H)
 	return
 
+//Called after a mob's species is set, organs were created, and we're about to update the icon, color, and etc of the mob being created.
+//Consider this might be called post-init
+/decl/species/proc/apply_appearance(var/mob/living/carbon/human/H)
+	H.icon_state = lowertext(src.name)
+	H.skin_colour = src.base_color
+	update_appearance_descriptors(H)
+
+/decl/species/proc/update_appearance_descriptors(var/mob/living/carbon/human/H)
+	if(!LAZYLEN(src.appearance_descriptors))
+		H.appearance_descriptors = null
+		return
+
+	var/list/new_descriptors = list()
+	//Add missing descriptors, and sanitize any existing ones
+	for(var/desctype in src.appearance_descriptors)
+		var/datum/appearance_descriptor/descriptor = src.appearance_descriptors[desctype]
+		if(H.appearance_descriptors && H.appearance_descriptors[descriptor.name])
+			new_descriptors[descriptor.name] = descriptor.sanitize_value(H.appearance_descriptors[descriptor.name])
+		else
+			new_descriptors[descriptor.name] = descriptor.default_value
+	//Make sure only supported descriptors are left
+	H.appearance_descriptors = new_descriptors
+
 /decl/species/proc/get_preview_icon()
 	if(!preview_icon)
 
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = get_mannequin("#species_[ckey(name)]")
 		if(mannequin)
 
-			mannequin.set_species(name)
+			mannequin.change_species(name)
 			customize_preview_mannequin(mannequin)
 
 			preview_icon = getFlatIcon(mannequin)
@@ -896,3 +951,9 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 			preview_icon_path = "species_preview_[ckey(name)].png"
 
 	return preview_icon
+
+/decl/species/proc/handle_movement_flags_setup(var/mob/living/carbon/human/H)
+	H.mob_bump_flag = bump_flag
+	H.mob_swap_flags = swap_flags
+	H.mob_push_flags = push_flags
+	H.pass_flags = pass_flags
