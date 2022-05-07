@@ -1,6 +1,6 @@
 <!-- !! PLEASE, READ THIS !! -->
 <!-- We recommend to check the contributing page before opening pull requests. -->
-<!-- https://github.com/NebulaSS13/Nebula/blob/dev/CONTRIBUTING.md -->
+<!-- https://github.com/ScavStation/ScavStation/blob/dev/CONTRIBUTING.md -->
 <!-- If you opening a pull request which changes A LOT icon/map files: -->
 <!-- Add [IDB IGNORE] (to ignore icon files diff) or [MDB IGNORE] (to ignore map files diff) in the PR title. -->
 <!-- These tags created to prevent parsing a huge diffs and not overload IconDiffBot and MapDiffBot. -->

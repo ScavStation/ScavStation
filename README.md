@@ -1,8 +1,8 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/ScavStation/ScavStation"><img src="https://avatars1.githubusercontent.com/u/61128341" alt="Nebula 13" width="200"></a>
+  <a href="https://github.com/ScavStation/ScavStation"><img src="https://avatars1.githubusercontent.com/u/61128341" alt="Scav Station 13" width="200"></a>
   <br>
-  Nebula 13
+  Scav Station 13
   <br>
 </h1>
 
