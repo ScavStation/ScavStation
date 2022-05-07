@@ -1,7 +1,7 @@
 var/global/list/gamemode_cache = list()
 
 /datum/configuration
-	var/server_name = "Nebula 13"		// server name (for world name / status)
+	var/server_name = "Scav Station 13"	// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
 	var/log_ooc = 0						// log OOC channel
