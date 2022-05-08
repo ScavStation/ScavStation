@@ -72,8 +72,8 @@
 	)
 
 	appearance_descriptors = list(
-		/datum/appearance_descriptor/height = -3,
-		/datum/appearance_descriptor/build =  -3
+		/datum/appearance_descriptor/height = 0.5,
+		/datum/appearance_descriptor/build =  0.5
 	)
 	slowdown = -0.5
 	total_health = 150
