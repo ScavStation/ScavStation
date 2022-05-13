@@ -21,7 +21,8 @@
 	)
 
 /datum/computer_file/program/merchant //wild capitalism
-	required_access = null
+	read_access = null
+	write_access = null
 
 /datum/trader/books
 	name = "Yinglet book merchant"
