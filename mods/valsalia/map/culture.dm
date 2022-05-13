@@ -1,3 +1,5 @@
+var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z")
+
 /decl/cultural_info/faction/enclave_ying
 	name = "Scav"
 	description = "Your people are scavengers and survivors, many of them living by riding the coattails of humanity. Any day where you aren't stepped on or beaten down by those much bigger and stronger than you is a good day."

@@ -37,6 +37,7 @@
 	global.human_mob_list -= src
 	worn_underwear = null
 	QDEL_NULL(attack_selector)
+	QDEL_NULL(vessel)
 	LAZYCLEARLIST(smell_cooldown)
 	. = ..()
 
@@ -1018,7 +1019,7 @@
 				status += "MISSING"
 			if(org.status & ORGAN_MUTATED)
 				status += "misshapen"
-			if(org.dislocated == 2)
+			if(org.is_dislocated())
 				status += "dislocated"
 			if(org.status & ORGAN_BROKEN)
 				status += "hurts when touched"
