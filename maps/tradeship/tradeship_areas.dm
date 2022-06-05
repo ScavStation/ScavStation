@@ -160,7 +160,6 @@
 /area/ship/trade/maintenance/eva
 	name = "\improper EVA Storage"
 	icon_state = "eva"
-	req_access = list(access_eva)
 
 /area/ship/trade/maintenance/engineering
 	name = "\improper Engineering Bay"
