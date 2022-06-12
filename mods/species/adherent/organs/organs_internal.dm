@@ -1,6 +1,6 @@
 #define PROTOCOL_ARTICLE "Protocol article [rand(100,999)]-[uppertext(pick(global.alphabet))] subsection #[rand(10,99)]"
 
-/obj/item/organ/internal/brain/adherent
+/obj/item/organ/internal/posibrain/adherent
 	name = "mentality matrix"
 	desc = "The self-contained, self-supporting internal 'brain' of an Adherent unit."
 	icon = 'mods/species/adherent/icons/organs.dmi'
@@ -10,13 +10,13 @@
 	var/next_rename
 	var/rename_delay = 15 MINUTES
 
-/obj/item/organ/internal/brain/adherent/refresh_action_button()
+/obj/item/organ/internal/posibrain/adherent/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "adherent-brain"
 		if(action.button) action.button.UpdateIcon()
 
-/obj/item/organ/internal/brain/adherent/attack_self(var/mob/user)
+/obj/item/organ/internal/posibrain/adherent/attack_self(var/mob/user)
 	. = ..()
 	if(.)
 
@@ -111,7 +111,7 @@
 		else
 			owner.pass_flags &= ~PASS_FLAG_TABLE
 
-/obj/item/organ/internal/eyes/adherent
+/obj/item/organ/internal/eyes/robot/adherent
 	name = "receptor prism"
 	icon = 'mods/species/adherent/icons/organs.dmi'
 	eye_icon = 'mods/species/adherent/icons/eyes.dmi'
@@ -120,7 +120,7 @@
 	contaminant_guard = TRUE
 	innate_flash_protection = FLASH_PROTECTION_MAJOR
 
-/obj/item/organ/internal/eyes/adherent/Initialize()
+/obj/item/organ/internal/eyes/robot/adherent/Initialize()
 	. = ..()
 	verbs |= /obj/item/organ/internal/eyes/proc/change_eye_color
 
