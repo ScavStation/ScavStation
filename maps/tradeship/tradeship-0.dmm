@@ -1353,7 +1353,7 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet,
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet,
-/obj/item/clothing/suit/yinglet,
+/obj/item/clothing/suit/yingcape,
 /obj/machinery/firealarm{
 	pixel_y = 25
 	},
