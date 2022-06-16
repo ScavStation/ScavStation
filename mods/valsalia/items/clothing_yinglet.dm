@@ -9,6 +9,7 @@
 	has_buttons = "buttons_gold"
 	has_collar =  "collar_gold"
 	has_buckle =  "buckle_gold"
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/under/yinglet
 	name = "small loincloth"
@@ -23,6 +24,7 @@
 	desc = "An expensive and well-made garment for the enclave matriarch."
 	icon = 'mods/valsalia/icons/clothing/under/matriarch.dmi'
 	color = null
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/under/yinglet/yinglibrarian
 	name = "librarian robe"
@@ -52,6 +54,7 @@
 	desc = "A layered loincloth and skirtlike garment worn by enclave scouts."
 	color = "#917756"
 	detail_color = "#698a71"
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/head/yinglet
 	name = "small hood"
@@ -67,6 +70,7 @@
 	desc = "The well-crafted and heavily decorated hood of an enclave matriarch."
 	icon = 'mods/valsalia/icons/clothing/head/hood_matriarch.dmi'
 	color = null
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/head/yinglet/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
@@ -82,6 +86,7 @@
 	desc = "A layered hood and mantle worn by enclave scouts."
 	color = "#917756"
 	detail_color = "#698a71"
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/glasses/yinggoggles
 	name = "yinglet goggles"
@@ -91,11 +96,11 @@
 	body_parts_covered = SLOT_EYES
 	slot_flags = SLOT_EYES
 
-/obj/item/clothing/suit/yinglet
+/obj/item/clothing/suit/yingcape
 	name = "small cape"
 	desc = "A short length of cloth worked into a cape. Some people would say it looks stupid."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	icon = 'mods/valsalia/icons/clothing/suit/cape.dmi'
+	icon = 'mods/valsalia/icons/clothing/suit/cape_yinglet.dmi'
 	color = COLOR_DARK_RED
 
 /obj/item/clothing/suit/yinglabcoat
@@ -114,6 +119,7 @@
 	name = "yinglet tail glove"
 	desc = "A nitrile tail covering, sterile!"
 	icon = 'mods/valsalia/icons/clothing/accessories/tailglove.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 	slot = ACCESSORY_SLOT_MEDAL
 
 /obj/item/clothing/suit/yingtrashbag
@@ -124,4 +130,36 @@
 
 /obj/item/clothing/suit/yingtrashbag/blue
 	desc = "A blue trashbag with tiny arm holes."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/suit/trashbag_blue.dmi'
+
+/obj/item/clothing/head/fancyhat
+	name = "yinglet fancy hat"
+	desc = "A blue hat with a white feather. A fancy hat for a fancy lad."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/head/fancy_hat_yinglet.dmi'
+
+/obj/item/clothing/suit/yingapron
+	name = "yinglet apron"
+	desc = "An apron tailored for a yinglet."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/apron_yinglet.dmi'
+
+/obj/item/clothing/suit/fancyclothes
+	name = "yinglet fancy clothes"
+	desc = "White shorts and a shirt with a blue scarf made for a yinglet. A fancy outfit for a fancy lad."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/fancy_clothes_yinglet.dmi'
+
+/obj/item/clothing/suit/yingjacket
+	name = "yinglet jacket"
+	desc = "A green jacket. It looks like it might fit a yinglet."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/green_jacket_yinglet.dmi'
+
+/obj/item/clothing/suit/fancyrobe
+	name = "yinglet robe"
+	desc = "A well made robe tailored for a yinglet."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/fancy_robe_yinglet.dmi'
+
