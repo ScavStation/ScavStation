@@ -481,13 +481,14 @@ default behaviour is:
 /mob/living/carbon/basic_revival(var/repair_brain = TRUE)
 	if(repair_brain && should_have_organ(BP_BRAIN))
 		repair_brain = FALSE
-		var/obj/item/organ/internal/brain/brain = get_organ(BP_BRAIN)
-		if(brain.damage > (brain.max_damage/2))
-			brain.damage = (brain.max_damage/2)
-		if(brain.status & ORGAN_DEAD)
-			brain.status &= ~ORGAN_DEAD
-			START_PROCESSING(SSobj, brain)
-		brain.update_icon()
+		var/obj/item/organ/internal/brain/brain = get_organ(BP_BRAIN, /obj/item/organ/internal/brain)
+		if(brain)
+			if(brain.damage > (brain.max_damage/2))
+				brain.damage = (brain.max_damage/2)
+			if(brain.status & ORGAN_DEAD)
+				brain.status &= ~ORGAN_DEAD
+				START_PROCESSING(SSobj, brain)
+			brain.update_icon()
 	..(repair_brain)
 
 /mob/living/proc/UpdateDamageIcon()
@@ -688,11 +689,8 @@ default behaviour is:
 
 /mob/living/carbon/get_contained_external_atoms()
 	. = ..()
-	LAZYREMOVE(., get_organs())
-	//Since organs are cleared on destroy, add this separate check here
-	for(var/obj/item/organ/O in .)
-		if(!O.is_droppable())
-			LAZYREMOVE(., O)
+	if(.)
+		LAZYREMOVE(., get_organs())
 
 /mob/proc/can_be_possessed_by(var/mob/observer/ghost/possessor)
 	return istype(possessor) && possessor.client

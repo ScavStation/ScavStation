@@ -147,34 +147,40 @@ Please contact me on #coderbus IRC. ~Carn x
 	if(HasMovementHandler(/datum/movement_handler/mob/transformation) || QDELETED(src))
 		return
 
-	update_mutations(0)
-	update_body(0)
-	update_skin(0)
-	update_underwear(0)
-	update_hair(0)
-	update_inv_w_uniform(0)
-	update_inv_wear_id(0)
-	update_inv_gloves(0)
-	update_inv_glasses(0)
-	update_inv_ears(0)
-	update_inv_shoes(0)
-	update_inv_s_store(0)
-	update_inv_wear_mask(0)
-	update_inv_head(0)
-	update_inv_belt(0)
-	update_inv_back(0)
-	update_inv_wear_suit(0)
-	update_inv_hands(0)
-	update_inv_handcuffed(0)
-	update_inv_pockets(0)
-	update_fire(0)
-	update_surgery(0)
-	UpdateDamageIcon()
+	update_mutations(FALSE)
+	update_body(FALSE)
+	update_skin(FALSE)
+	update_underwear(FALSE)
+	update_hair(FALSE)
+	update_inv_w_uniform(FALSE)
+	update_inv_wear_id(FALSE)
+	update_inv_gloves(FALSE)
+	update_inv_glasses(FALSE)
+	update_inv_ears(FALSE)
+	update_inv_shoes(FALSE)
+	update_inv_s_store(FALSE)
+	update_inv_wear_mask(FALSE)
+	update_inv_head(FALSE)
+	update_inv_belt(FALSE)
+	update_inv_back(FALSE)
+	update_inv_wear_suit(FALSE)
+	update_inv_hands(FALSE)
+	update_inv_handcuffed(FALSE)
+	update_inv_pockets(FALSE)
+	update_fire(FALSE)
+	update_surgery(FALSE)
+	update_bandages(FALSE)
+	UpdateDamageIcon(FALSE)
 	update_icon()
 
 /mob/living/carbon/human/on_update_icon()
 
 	..()
+
+	if(regenerate_body_icon)
+		regenerate_body_icon = FALSE
+		update_body(FALSE)
+		refresh_visible_overlays()
 
 	var/list/visible_overlays
 	if(is_cloaked())
@@ -203,8 +209,8 @@ Please contact me on #coderbus IRC. ~Carn x
 					overlay.transform = M
 				add_overlay(overlay)
 
-	var/obj/item/organ/external/head/head = get_organ(BP_HEAD)
-	if(istype(head) && !head.is_stump())
+	var/obj/item/organ/external/head/head = get_organ(BP_HEAD, /obj/item/organ/external/head)
+	if(head)
 		var/image/I = head.get_eye_overlay()
 		if(I)
 			add_overlay(I)
@@ -261,8 +267,6 @@ var/global/list/damage_icon_parts = list()
 	// first check whether something actually changed about damage appearance
 	var/damage_appearance = ""
 	for(var/obj/item/organ/external/O in get_external_organs())
-		if(O.is_stump())
-			continue
 		damage_appearance += O.damage_state
 
 	if(damage_appearance == previous_damage_appearance)
@@ -275,12 +279,10 @@ var/global/list/damage_icon_parts = list()
 
 	// blend the individual damage states with our icons
 	for(var/obj/item/organ/external/O in get_external_organs())
-		if(O.is_stump())
-			continue
-
 		O.update_damstate()
 		O.update_icon()
-		if(O.damage_state == "00") continue
+		if(O.damage_state == "00")
+			continue
 		var/icon/DI
 		var/use_colour = (BP_IS_PROSTHETIC(O) ? SYNTH_BLOOD_COLOR : O.species.get_blood_color(src))
 		var/cache_index = "[O.damage_state]/[O.icon_name]/[use_colour]/[species.name]"
@@ -306,8 +308,6 @@ var/global/list/damage_icon_parts = list()
 	var/image/standing_image = overlays_standing[HO_DAMAGE_LAYER]
 	if(standing_image)
 		for(var/obj/item/organ/external/O in get_external_organs())
-			if(O.is_stump())
-				continue
 			var/bandage_level = O.bandage_level()
 			if(bandage_level)
 				standing_image.overlays += image(bandage_icon, "[O.icon_name][bandage_level]")
@@ -344,12 +344,12 @@ var/global/list/damage_icon_parts = list()
 		icon_key += "[lip_style]"
 	else
 		icon_key += "nolips"
-	var/obj/item/organ/internal/eyes/eyes = get_organ(species.vision_organ || BP_EYES)
+	var/obj/item/organ/internal/eyes/eyes = get_organ((species.vision_organ || BP_EYES), /obj/item/organ/internal/eyes)
 	icon_key += istype(eyes) ? eyes.eye_colour : COLOR_BLACK
 
-	for(var/organ_tag in species.has_limbs)
-		var/obj/item/organ/external/part = get_organ(organ_tag)
-		if(isnull(part) || part.is_stump() || part.organ_tag == BP_TAIL)
+	for(var/organ_tag in global.all_limb_tags)
+		var/obj/item/organ/external/part = GET_EXTERNAL_ORGAN(src, organ_tag)
+		if(isnull(part) || part.skip_body_icon_draw)
 			icon_key += "0"
 			continue
 		for(var/M in part.markings)
@@ -376,26 +376,24 @@ var/global/list/damage_icon_parts = list()
 		base_icon = human_icon_cache[icon_key]
 	else
 		//BEGIN CACHED ICON GENERATION.
-		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
-		base_icon = chest.get_icon()
-
-		for(var/obj/item/organ/external/part in (limbs - chest))
+		base_icon = icon(bodytype.icon_template)
+		for(var/obj/item/organ/external/part in limbs)
 			var/icon/temp = part.get_icon()
 			//That part makes left and right legs drawn topmost and lowermost when human looks WEST or EAST
 			//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
 			if(part.icon_position & (LEFT | RIGHT))
-				var/icon/temp2 = new('icons/mob/human.dmi',"blank")
-				temp2.Insert(new/icon(temp,dir=NORTH),dir=NORTH)
-				temp2.Insert(new/icon(temp,dir=SOUTH),dir=SOUTH)
+				var/icon/temp2 = icon(bodytype.icon_template)
+				temp2.Insert(new /icon(temp,dir=NORTH),dir=NORTH)
+				temp2.Insert(new /icon(temp,dir=SOUTH),dir=SOUTH)
 				if(!(part.icon_position & LEFT))
-					temp2.Insert(new/icon(temp,dir=EAST),dir=EAST)
+					temp2.Insert(new /icon(temp,dir=EAST),dir=EAST)
 				if(!(part.icon_position & RIGHT))
-					temp2.Insert(new/icon(temp,dir=WEST),dir=WEST)
+					temp2.Insert(new /icon(temp,dir=WEST),dir=WEST)
 				base_icon.Blend(temp2, ICON_OVERLAY)
 				if(part.icon_position & LEFT)
-					temp2.Insert(new/icon(temp,dir=EAST),dir=EAST)
+					temp2.Insert(new /icon(temp,dir=EAST),dir=EAST)
 				if(part.icon_position & RIGHT)
-					temp2.Insert(new/icon(temp,dir=WEST),dir=WEST)
+					temp2.Insert(new /icon(temp,dir=WEST),dir=WEST)
 				base_icon.Blend(temp2, ICON_UNDERLAY)
 			else if(part.icon_position & UNDER)
 				base_icon.Blend(temp, ICON_UNDERLAY)
@@ -453,8 +451,8 @@ var/global/list/damage_icon_parts = list()
 	//Reset our hair
 	overlays_standing[HO_HAIR_LAYER]	= null
 
-	var/obj/item/organ/external/head/head_organ = get_organ(BP_HEAD)
-	if(!head_organ || head_organ.is_stump() )
+	var/obj/item/organ/external/head/head_organ = get_organ(BP_HEAD, /obj/item/organ/external/head)
+	if(!head_organ)
 		if(update_icons)
 			queue_icon_update()
 		return
@@ -585,8 +583,8 @@ var/global/list/damage_icon_parts = list()
 	else
 		var/list/blood_color
 		for(var/bp in list(BP_L_FOOT, BP_R_FOOT))
-			var/obj/item/organ/external/stomper = get_organ(bp)
-			if(istype(stomper) && !stomper.is_stump() && stomper.coating)
+			var/obj/item/organ/external/stomper = GET_EXTERNAL_ORGAN(src, bp)
+			if(stomper && stomper.coating)
 				blood_color = stomper.coating.get_color()
 
 		overlays_standing[HO_SHOES_LAYER] = null
@@ -691,7 +689,7 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	overlays_standing[HO_TAIL_OVER_LAYER] =  null
 	overlays_standing[HO_TAIL_UNDER_LAYER] = null
-	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL)
+	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL, /obj/item/organ/external/tail)
 	if(!istype(tail_organ))
 		return
 	var/tail_state = tail_organ.get_tail(tail_organ)
@@ -726,17 +724,16 @@ var/global/list/damage_icon_parts = list()
 
 /mob/living/carbon/human/set_dir()
 	. = ..()
-	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL)
-	if(!istype(tail_organ))
-		return
-	if(. && tail_organ.get_tail())
-		update_tail_showing()
+	if(.)
+		var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL, /obj/item/organ/external/tail)
+		if(tail_organ && tail_organ.get_tail())
+			update_tail_showing()
 
 
 /mob/living/carbon/human/proc/set_tail_state(var/t_state)
 	var/image/tail_overlay = overlays_standing[(dir == NORTH) ? HO_TAIL_OVER_LAYER : HO_TAIL_UNDER_LAYER]
-	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL)
-	if(!istype(tail_organ))
+	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL, /obj/item/organ/external/tail)
+	if(!tail_organ)
 		return null
 
 	if(tail_overlay && tail_organ.get_tail_animation())
@@ -746,8 +743,8 @@ var/global/list/damage_icon_parts = list()
 //Not really once, since BYOND can't do that.
 //Update this if the ability to flick() images or make looping animation start at the first frame is ever added.
 /mob/living/carbon/human/proc/animate_tail_once(var/update_icons=1)
-	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL)
-	if(!istype(tail_organ))
+	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL, /obj/item/organ/external/tail)
+	if(!tail_organ)
 		return
 	var/t_state = "[tail_organ.get_tail()]_once"
 
@@ -766,8 +763,8 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 /mob/living/carbon/human/proc/animate_tail_start(var/update_icons=1)
-	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL)
-	if(!istype(tail_organ))
+	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL, /obj/item/organ/external/tail)
+	if(!tail_organ)
 		return
 	var/tail_states = tail_organ.get_tail_states()
 	if(tail_states)
@@ -776,8 +773,8 @@ var/global/list/damage_icon_parts = list()
 			queue_icon_update()
 
 /mob/living/carbon/human/proc/animate_tail_fast(var/update_icons=1)
-	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL)
-	if(!istype(tail_organ))
+	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL, /obj/item/organ/external/tail)
+	if(!tail_organ)
 		return
 	var/tail_states = tail_organ.get_tail_states()
 	if(tail_states)
@@ -786,8 +783,8 @@ var/global/list/damage_icon_parts = list()
 			queue_icon_update()
 
 /mob/living/carbon/human/proc/animate_tail_reset(var/update_icons=1)
-	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL)
-	if(!istype(tail_organ))
+	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL, /obj/item/organ/external/tail)
+	if(!tail_organ)
 		return
 	var/tail_states = tail_organ.get_tail_states(src)
 	if(stat != DEAD && tail_states)
@@ -799,8 +796,8 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 /mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
-	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL)
-	if(!istype(tail_organ))
+	var/obj/item/organ/external/tail/tail_organ = get_organ(BP_TAIL, /obj/item/organ/external/tail)
+	if(!tail_organ)
 		return
 	set_tail_state("[tail_organ.get_tail()]_static")
 
@@ -829,7 +826,7 @@ var/global/list/damage_icon_parts = list()
 	overlays_standing[HO_SURGERY_LAYER] = null
 	var/image/total = new
 	for(var/obj/item/organ/external/E in get_external_organs())
-		if(BP_IS_PROSTHETIC(E) || E.is_stump())
+		if(BP_IS_PROSTHETIC(E))
 			continue
 		var/how_open = round(E.how_open())
 		if(how_open <= 0)
