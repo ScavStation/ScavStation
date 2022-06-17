@@ -207,7 +207,7 @@ By design, d1 is the smallest direction and d2 is the highest
 				if(c.d1 == UP || c.d2 == UP)
 					qdel(c)
 
-	investigate_log("was cut by [key_name(usr, usr.client)] in [get_area(user)]","wires")
+	investigate_log("was cut by [key_name(usr, usr.client)] in [get_area_name(user)]","wires")
 
 	qdel(src)
 
@@ -528,7 +528,7 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/item/stack/cable_coil/attack(var/atom/A, var/mob/living/user, var/def_zone)
 	if(ishuman(A) && user.a_intent == I_HELP)
 		var/mob/living/carbon/human/H = A
-		var/obj/item/organ/external/S = H.get_organ(user.zone_sel.selecting)
+		var/obj/item/organ/external/S = GET_EXTERNAL_ORGAN(H, user.zone_sel.selecting)
 
 		if (!S) return
 		if(!BP_IS_PROSTHETIC(S) || user.a_intent != I_HELP)

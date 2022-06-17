@@ -6,7 +6,7 @@
 	scan["time"] = stationtime2text()
 	var/brain_result
 	if(H.should_have_organ(BP_BRAIN))
-		var/obj/item/organ/internal/brain/brain = H.get_organ(BP_BRAIN)
+		var/obj/item/organ/internal/brain = GET_INTERNAL_ORGAN(H, BP_BRAIN)
 		if(!brain || H.stat == DEAD || (H.status_flags & FAKEDEATH))
 			brain_result = 0
 		else if(H.stat != DEAD)
@@ -17,7 +17,7 @@
 
 	var/pulse_result
 	if(H.should_have_organ(BP_HEART))
-		var/obj/item/organ/internal/heart/heart = H.get_organ(BP_HEART)
+		var/obj/item/organ/internal/heart/heart = H.get_organ(BP_HEART, /obj/item/organ/internal/heart)
 		if(!heart)
 			pulse_result = 0
 		else if(BP_IS_PROSTHETIC(heart))
@@ -61,7 +61,6 @@
 	for(var/obj/item/organ/external/E in H.get_external_organs())
 		var/list/O =               list()
 		O["name"] =                E.name
-		O["is_stump"] =            E.is_stump()
 		O["brute_ratio"] =         E.brute_ratio
 		O["burn_ratio"] =          E.burn_ratio
 		O["limb_flags"] =          E.limb_flags
@@ -263,24 +262,21 @@
 			break
 		var/row = list()
 		row += "<tr><td>[E["name"]]</td>"
-		if(E["is_stump"])
-			row += "<td><span class='bad'>Missing</span></td>"
+		row += "<td>"
+		var/rowdata = list()
+		if(E["brute_dam"] + E["burn_dam"] == 0)
+			rowdata += "None"
+		else if(skill_level < SKILL_ADEPT)
+			if(E["brute_dam"])
+				rowdata += "<span class='bad'>Damaged</span>"
+			if(E["burn_dam"])
+				rowdata += "<span class='average'>Burned</span>"
 		else
-			row += "<td>"
-			var/rowdata = list()
-			if(E["brute_dam"] + E["burn_dam"] == 0)
-				rowdata += "None"
-			else if(skill_level < SKILL_ADEPT)
-				if(E["brute_dam"])
-					rowdata += "<span class='bad'>Damaged</span>"
-				if(E["burn_dam"])
-					rowdata += "<span class='average'>Burned</span>"
-			else
-				if(E["brute_dam"])
-					rowdata += "<span class='bad'>[capitalize(get_wound_severity(E["brute_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] physical trauma</span>"
-				if(E["burn_dam"])
-					rowdata += "<span class='average'>[capitalize(get_wound_severity(E["burn_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] burns</span>"
-			row += "</td><td>[jointext(rowdata, "<br>")]</td>"
+			if(E["brute_dam"])
+				rowdata += "<span class='bad'>[capitalize(get_wound_severity(E["brute_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] physical trauma</span>"
+			if(E["burn_dam"])
+				rowdata += "<span class='average'>[capitalize(get_wound_severity(E["burn_ratio"], (E["limb_flags"] & ORGAN_FLAG_HEALS_OVERKILL)))] burns</span>"
+		row += "</td><td>[jointext(rowdata, "<br>")]</td>"
 
 		if(skill_level >= SKILL_ADEPT)
 			var/list/status = list()

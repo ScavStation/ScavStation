@@ -193,7 +193,7 @@
 
 // Handles when they change targeted areas and something is supposed to happen.
 /decl/grab/normal/special_target_change(var/obj/item/grab/G, old_zone, new_zone)
-	if(old_zone != BP_HEAD && old_zone != BP_CHEST || !G.get_affecting_mob())
+	if((old_zone != BP_HEAD && old_zone != BP_CHEST) || !G.get_affecting_mob())
 		return
 	switch(new_zone)
 		if(BP_MOUTH)
@@ -277,7 +277,7 @@
 	if(!W.edge || !W.force || W.damtype != BRUTE)
 		return 0 //unsuitable weapon
 	var/obj/item/organ/external/O = G.get_targeted_organ()
-	if(!O || O.is_stump() || !(O.limb_flags & ORGAN_FLAG_HAS_TENDON) || (O.status & ORGAN_TENDON_CUT))
+	if(!O || !(O.limb_flags & ORGAN_FLAG_HAS_TENDON) || (O.status & ORGAN_TENDON_CUT))
 		return FALSE
 	user.visible_message(SPAN_DANGER("\The [user] begins to cut \the [affecting]'s [O.tendon_name] with \the [W]!"))
 	user.next_move = world.time + 20
@@ -285,7 +285,7 @@
 		return 0
 	if(!(G && G.affecting == affecting)) //check that we still have a grab
 		return 0
-	if(!O || O.is_stump() || !O.sever_tendon())
+	if(!O || !O.sever_tendon())
 		return 0
 	user.visible_message(SPAN_DANGER("\The [user] cut \the [affecting]'s [O.tendon_name] with \the [W]!"))
 	if(W.hitsound) playsound(affecting.loc, W.hitsound, 50, 1, -1)

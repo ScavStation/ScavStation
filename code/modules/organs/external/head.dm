@@ -26,12 +26,12 @@
 
 /obj/item/organ/external/head/proc/get_eye_overlay()
 	if(glowing_eyes || owner?.has_chemical_effect(CE_GLOWINGEYES, 1))
-		var/obj/item/organ/internal/eyes/eyes = owner.get_organ(owner.species.vision_organ || BP_EYES)
+		var/obj/item/organ/internal/eyes/eyes = owner.get_organ((owner.species.vision_organ || BP_EYES), /obj/item/organ/internal/eyes)
 		if(eyes)
 			return eyes.get_special_overlay()
 
 /obj/item/organ/external/head/proc/get_eyes()
-	var/obj/item/organ/internal/eyes/eyes = owner.get_organ(owner.species.vision_organ || BP_EYES)
+	var/obj/item/organ/internal/eyes/eyes = owner.get_organ((owner.species.vision_organ || BP_EYES), /obj/item/organ/internal/eyes)
 	if(eyes)
 		return eyes.get_onhead_icon()
 
@@ -122,6 +122,9 @@
 
 /obj/item/organ/external/head/proc/get_hair_icon()
 	var/image/res = image(bodytype.icon_template,"")
+	if(!owner)
+		return res
+
 	if(owner.f_style)
 		var/decl/sprite_accessory/facial_hair_style = GET_DECL(owner.f_style)
 		if(facial_hair_style)
