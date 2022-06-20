@@ -163,3 +163,10 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/suit/fancy_robe_yinglet.dmi'
 
+/obj/item/clothing/suit/radiation/Initialize()
+  . = ..()
+  LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/radsuit_yinglet.dmi')
+
+/obj/item/clothing/head/radiation/Initialize()
+  . = ..()
+  LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/head/radsuit_hood_yinglet.dmi')
