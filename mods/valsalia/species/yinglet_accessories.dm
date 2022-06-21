@@ -77,6 +77,11 @@
 	icon_state = "hair_updo"
 	flags = HAIR_TIEABLE
 
+/decl/sprite_accessory/hair/yinglet/bald
+	name = "Ying Bald"
+	icon_state = "hair_bald"
+	flags = VERY_SHORT | HAIR_BALD
+
 /datum/category_item/underwear/bottom/yinglet_wraps
 	name = "Yinglet Wraps"
 	underwear_name = "wraps"
