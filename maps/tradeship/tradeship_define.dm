@@ -17,7 +17,8 @@
 	lobby_screens = list('mods/valsalia/lobby/yingspace.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
-	num_exoplanets = 1
+	num_exoplanets = 3
+	away_site_budget = 3
 	welcome_sound = 'sound/effects/cowboysting.ogg'
 	emergency_shuttle_leaving_dock = "Attention all hands: the escape pods have been launched, maintaining burn for %ETA%."
 	emergency_shuttle_called_message = "Attention all hands: emergency evacuation procedures are now in effect. Escape pods will launch in %ETA%"
