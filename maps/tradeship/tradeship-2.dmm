@@ -2090,18 +2090,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "fo" = (
-/obj/structure/table,
-/obj/item/glass_extra/straw,
-/obj/item/toy/therapy_blue,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/item/modular_computer/telescreen/preset/medical{
 	pixel_x = 31;
 	pixel_y = -2
 	},
-/obj/structure/closet/emcloset,
-/obj/item/tank/oxygen/yellow,
-/obj/item/clothing/head/helmet/space/void/scav/medical,
-/obj/item/clothing/suit/space/void/scav/medical,
+/obj/structure/closet/crate/freezer,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fp" = (
@@ -2165,6 +2159,11 @@
 /obj/item/defibrillator/compact/loaded,
 /obj/item/toy/therapy_blue,
 /obj/item/glass_extra/straw,
+/obj/item/clothing/head/helmet/space/void/scav/medical,
+/obj/item/clothing/suit/space/void/scav/medical,
+/obj/item/tank/oxygen/yellow,
+/obj/structure/closet/emcloset,
+/obj/item/clothing/accessory/tailglove,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fx" = (
@@ -2459,6 +2458,10 @@
 /obj/item/clothing/under/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/head/fancyhat,
+/obj/item/clothing/suit/fancyclothes,
+/obj/item/clothing/suit/yingapron,
+/obj/item/clothing/suit/yingjacket,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
 "gp" = (

@@ -39,3 +39,23 @@
 	name = "a simple jumpsuit, made for a yinglet, color select"
 	path = /obj/item/clothing/under/yinglet/yingjumpsuit
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/decl/loadout_option/suit/yingapron
+	name = "yinglet apron"
+	path = /obj/item/clothing/suit/yingapron
+
+/decl/loadout_option/suit/fancyclothes
+	name = "yinglet fancy clothes"
+	path = /obj/item/clothing/suit/fancyclothes
+
+/decl/loadout_option/head/fancyhat
+	name = "yinglet fancy hat"
+	path = /obj/item/clothing/head/fancyhat
+
+/decl/loadout_option/suit/yingjacket
+	name = "yinglet jacket"
+	path = /obj/item/clothing/suit/yingjacket
+	
+/decl/loadout_option/suit/yingcape
+	name = "small cape"
+	path = /obj/item/clothing/suit/yingcape

@@ -1606,6 +1606,7 @@
 	icon_state = "warning"
 	},
 /obj/random/trash,
+/obj/item/clothing/suit/yingtrashbag,
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
 "zw" = (
@@ -2197,6 +2198,7 @@
 /obj/item/clothing/accessory/medal/gold,
 /obj/item/clothing/accessory/locket,
 /obj/random_multi/single_item/captains_spare_id,
+/obj/item/clothing/suit/yingtrashbag/blue,
 /turf/simulated/floor,
 /area/ship/trade/aft_starboard_underside_maint)
 "YL" = (
