@@ -5825,6 +5825,7 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/crew/hallway/port)
 "Hs" = (
+/obj/machinery/light,
 /turf/simulated/floor/wood/yew,
 /area/ship/trade/unused)
 "HA" = (
