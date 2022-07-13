@@ -11,6 +11,10 @@
 	name =      "yinglet, masculine"
 	icon_base = 'mods/valsalia/icons/species/yinglet/body_male.dmi'
 
+/decl/bodytype/yinglet/hairymasculine
+	name =      "yinglet, masculine with more hair"
+	icon_base = 'mods/valsalia/icons/species/yinglet/body_male.dmi'
+
 /datum/appearance_descriptor/age/yinglet
 	chargen_min_index = 3
 	chargen_max_index = 5
@@ -87,6 +91,8 @@
 	. = ..()
 	if(human.bodytype.type == /decl/bodytype/yinglet/masculine)
 		tail_hair = "male"
-	else
+	else if(human.bodytype.type == /decl/bodytype/yinglet)
 		tail_hair = "female"
+	else
+		tail_hair = "hairymale"
 	human.update_tail_showing()

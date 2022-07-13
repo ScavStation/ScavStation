@@ -18,6 +18,7 @@
 
 	available_bodytypes = list(
 		/decl/bodytype/yinglet/masculine,
+		/decl/bodytype/yinglet/hairymasculine,
 		/decl/bodytype/yinglet
 	)
 
