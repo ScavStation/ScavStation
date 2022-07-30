@@ -126,6 +126,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ship/trade/crew/hallway/starboard)
 "am" = (
