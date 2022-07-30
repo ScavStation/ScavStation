@@ -117,9 +117,6 @@
 	dir = 6
 	},
 /obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
@@ -127,7 +124,6 @@
 	dir = 8;
 	name = "Crew Deck APC"
 	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -2358,13 +2354,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
-"gg" = (
-/obj/effect/paint/brown,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/ship/trade/hidden)
 "gh" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/warning/hot_exhaust,
@@ -11253,7 +11242,7 @@ KR
 KR
 KR
 aM
-gg
+sI
 sI
 sI
 sI
