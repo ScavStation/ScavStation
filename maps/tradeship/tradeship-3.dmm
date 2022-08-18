@@ -484,6 +484,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/solars)
+"oO" = (
+/obj/machinery/door/airlock/hatch/autoname/general,
+/turf/space,
+/area/space)
 "oY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -777,7 +781,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch/autoname/general,
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/trade/command/bridge_upper)
+/area/ship/trade/unused)
 "DZ" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/solars)
@@ -4492,12 +4496,12 @@ aa
 aa
 aa
 ac
-tJ
-Xb
-Xb
+zY
+cB
+cB
 DY
-Xb
-Xb
+cB
+cB
 Xb
 wc
 nZ
@@ -5398,7 +5402,7 @@ aa
 aa
 aa
 aa
-aa
+oO
 aa
 aa
 aa

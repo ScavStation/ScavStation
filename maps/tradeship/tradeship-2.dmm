@@ -2025,6 +2025,7 @@
 /obj/structure/cable{
 	icon_state = "6-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/trade/crew/medbay)
 "fg" = (
@@ -2350,9 +2351,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/sign/warning/nosmoking_1{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "gh" = (
@@ -2657,24 +2655,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/machinery/door/airlock/hatch/autoname/general,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "hl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/cash/c1000,
-/obj/random/coin,
-/obj/structure/closet/crate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "hm" = (
-/obj/item/stool/padded,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -2869,15 +2863,10 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "hC" = (
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
 /obj/structure/closet/crate,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/projectile,
-/obj/random/projectile,
-/obj/item/clothing/head/helmet/space/void/scav/merc,
-/obj/item/clothing/suit/space/void/scav/merc,
-/obj/item/tank/oxygen/yellow,
 /turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "hD" = (
@@ -4610,6 +4599,7 @@
 "qg" = (
 /obj/random/drinkbottle,
 /obj/random/drinkbottle,
+/obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "qp" = (
@@ -4731,6 +4721,11 @@
 /obj/machinery/newscaster{
 	pixel_x = 30
 	},
+/obj/structure/closet/secure_closet{
+	req_access = list("ACCESS_HEAD_OF_PERSONNEL")
+	},
+/obj/random/projectile,
+/obj/random/projectile,
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "rR" = (
@@ -5639,11 +5634,7 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/hallway)
 "FW" = (
-/obj/structure/table/reinforced,
-/obj/item/flashlight/lamp,
 /obj/random_multi/single_item/captains_spare_id,
-/obj/item/cash/c1000,
-/obj/random/single/textbook,
 /turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "Gb" = (
@@ -6023,6 +6014,12 @@
 	},
 /turf/simulated/open,
 /area/ship/trade/cargo)
+"KL" = (
+/obj/machinery/light_switch{
+	pixel_x = -25
+	},
+/turf/simulated/floor/plating,
+/area/ship/trade/hidden)
 "KO" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6231,6 +6228,9 @@
 /obj/item/clothing/head/helmet/space/void/scav/security,
 /obj/item/clothing/suit/space/void/scav/security,
 /obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/helmet/space/void/scav/merc,
+/obj/item/clothing/suit/space/void/scav/merc,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
@@ -6489,12 +6489,20 @@
 	dir = 1;
 	pixel_y = -24
 	},
+/obj/machinery/door/airlock/hatch/autoname/general,
 /turf/simulated/floor/carpet/blue,
 /area/ship/trade/command/captain)
 "Rc" = (
-/obj/machinery/light_switch{
-	pixel_y = 25
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id_tag = "scraplock";
+	name = "External Blast Doors";
+	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/trade/hidden)
 "Rl" = (
@@ -10835,10 +10843,10 @@ ee
 gc
 gQ
 gQ
-gP
+gQ
 hk
-gP
-gP
+gQ
+gQ
 hJ
 Jb
 ip
@@ -10916,8 +10924,8 @@ QH
 rR
 gd
 gQ
-Rc
-sS
+ev
+KL
 hl
 Gj
 hA
@@ -10998,7 +11006,7 @@ Kw
 fV
 ge
 gQ
-Dl
+sS
 sS
 hm
 sS
@@ -11080,9 +11088,9 @@ Kw
 Kw
 NI
 gQ
+Dl
 sS
 sS
-ev
 sS
 qg
 gP
@@ -11246,7 +11254,7 @@ aM
 sI
 sI
 sI
-sI
+Rc
 sI
 sI
 Fm
