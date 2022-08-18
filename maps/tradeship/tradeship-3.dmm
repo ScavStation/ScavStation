@@ -484,10 +484,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/solars)
-"oO" = (
-/obj/machinery/door/airlock/hatch/autoname/general,
-/turf/space,
-/area/space)
 "oY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -5402,7 +5398,7 @@ aa
 aa
 aa
 aa
-oO
+aa
 aa
 aa
 aa
