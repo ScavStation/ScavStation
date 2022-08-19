@@ -16,7 +16,7 @@
 		/mob/living/simple_animal/hostile/retaliate/jelly/alt,
 		/mob/living/simple_animal/hostile/leech
 	)
-	spawn_weight = 10	// meat
+	spawn_weight = 50	// meat
 
 /obj/effect/overmap/visitable/sector/exoplanet/meat/generate_map()
 	lightlevel = rand(1,7)/10
