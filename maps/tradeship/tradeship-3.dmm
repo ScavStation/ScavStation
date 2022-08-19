@@ -12,7 +12,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/airless,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/command/bridge_upper)
 "ac" = (
 /obj/structure/lattice,
 /turf/space,
@@ -29,7 +29,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/command/bridge_upper)
 "ae" = (
 /turf/simulated/floor/airless,
 /area/space)
@@ -261,13 +261,14 @@
 /turf/simulated/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "cB" = (
-/obj/structure/girder,
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/turf/simulated/wall/r_wall,
+/area/ship/trade/unused)
 "cO" = (
-/obj/structure/grille/broken,
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/effect/decal/cleanable/cobweb2,
+/obj/structure/skele_stand,
+/obj/item/synthesized_instrument/trumpet,
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "dm" = (
 /obj/abstract/level_data/main_level,
 /turf/space,
@@ -308,7 +309,6 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/solars)
 "gw" = (
-/obj/item/caution/cone,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -318,8 +318,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/random/junk,
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "gx" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
@@ -353,7 +354,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/command/bridge_upper)
 "iz" = (
 /obj/structure/cable/yellow{
 	icon_state = "5-10"
@@ -372,7 +373,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/unused)
 "jy" = (
 /obj/machinery/constructable_frame/computerframe{
 	dir = 4
@@ -428,7 +429,7 @@
 /area/ship/trade/maintenance/solars)
 "mn" = (
 /turf/simulated/floor/tiled/dark,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/command/bridge_upper)
 "mV" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-9"
@@ -442,8 +443,8 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "ne" = (
-/turf/simulated/wall/r_wall,
-/area/ship/trade/bridge_unused)
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "nZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -460,15 +461,23 @@
 /turf/simulated/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "oq" = (
-/obj/random/trash,
-/obj/machinery/power/apc{
-	dir = 8
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/structure/table,
+/obj/machinery/fabricator/book,
+/obj/machinery/fabricator/book,
+/obj/item/stack/material/plank/mapped/wood/ten,
+/obj/item/stack/material/panel/mapped/plastic/ten,
+/obj/random/maintenance,
+/obj/machinery/light_switch{
+	pixel_x = -25
+	},
+/obj/machinery/power/apc{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "oE" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -486,7 +495,7 @@
 	},
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/unused)
 "pt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -562,13 +571,16 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/ship/trade/maintenance/solars)
 "uT" = (
-/obj/random/shoes,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -24
 	},
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/random/maintenance,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "vi" = (
 /obj/structure/handrail{
 	dir = 8
@@ -604,10 +616,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "wq" = (
-/obj/item/stack/material/rods,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/structure/bookcase/skill_books/random,
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "xe" = (
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -675,8 +687,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/item/flashlight,
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "zH" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -689,7 +702,7 @@
 "zY" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/unused)
 "Al" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
@@ -717,7 +730,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/airless,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/unused)
 "Dg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -728,7 +741,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/command/bridge_upper)
 "Dl" = (
 /obj/item/mollusc/barnacle,
 /turf/simulated/floor/reinforced/airless,
@@ -752,7 +765,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "DY" = (
-/obj/machinery/door/airlock/hatch/autoname/command,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -763,9 +775,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/item/taperoll/engineering/applied,
+/obj/machinery/door/airlock/hatch/autoname/general,
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/unused)
 "DZ" = (
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/solars)
@@ -874,8 +886,9 @@
 	dir = 1;
 	level = 2
 	},
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/machinery/icecream_vat,
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "Lf" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner"
@@ -1092,9 +1105,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "XF" = (
-/obj/random/trash,
-/turf/simulated/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
+/turf/simulated/floor/wood,
+/area/ship/trade/unused)
 "XQ" = (
 /obj/machinery/door/airlock/double/engineering,
 /obj/machinery/door/firedoor,
@@ -4478,11 +4493,11 @@ aa
 aa
 ac
 zY
-ne
-ne
+cB
+cB
 DY
-ne
-ne
+cB
+cB
 Xb
 wc
 nZ
@@ -4560,7 +4575,7 @@ aa
 aa
 aa
 zY
-ne
+cB
 oq
 gw
 uT
@@ -4642,7 +4657,7 @@ aa
 aa
 aa
 zY
-ne
+cB
 wq
 zn
 KS
@@ -4726,7 +4741,7 @@ aa
 zY
 cB
 cO
-XF
+ne
 XF
 zY
 ax
@@ -4806,8 +4821,8 @@ aa
 aa
 aa
 zY
-ne
-ne
+cB
+cB
 jv
 cB
 zY
