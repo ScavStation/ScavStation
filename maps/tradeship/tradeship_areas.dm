@@ -220,12 +220,12 @@
 /area/ship/trade/command/bridge_upper
 	name = "\improper Upper Bridge"
 	icon_state = "blue"
+	req_access = list(access_heads)
 
 /area/ship/trade/comms
 	name = "\improper Communications Relay"
 	icon_state = "tcomsatcham"
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/signal.ogg','sound/ambience/sonar.ogg')
-	req_access = list(access_heads)
 
 /area/ship/trade/bridge_unused
 	name = "\improper Bridge Starboard Storage"
