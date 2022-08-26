@@ -237,30 +237,6 @@
 				return 0
 	return 1 //Nothing found to block so return success!
 
-var/global/const/enterloopsanity = 100
-/turf/Entered(var/atom/atom, var/atom/old_loc)
-
-	..()
-
-	QUEUE_TEMPERATURE_ATOMS(atom)
-
-	if(!istype(atom, /atom/movable))
-		return
-
-	var/atom/movable/A = atom
-
-	var/objects = 0
-	if(A && (A.movable_flags & MOVABLE_FLAG_PROXMOVE))
-		for(var/atom/movable/thing in range(1))
-			if(objects > enterloopsanity) break
-			objects++
-			spawn(0)
-				if(A)
-					A.HasProximity(thing, 1)
-					if ((thing && A) && (thing.movable_flags & MOVABLE_FLAG_PROXMOVE))
-						thing.HasProximity(A, 1)
-	return
-
 /turf/proc/adjacent_fire_act(turf/simulated/floor/source, exposed_temperature, exposed_volume)
 	return
 
@@ -461,10 +437,14 @@ var/global/const/enterloopsanity = 100
 		return TRUE
 	return FALSE
 
-/turf/get_vis_contents_to_add()
-	var/datum/gas_mixture/air = return_air()
-	if(air && length(air.graphic))
-		LAZYADD(., air.graphic)
+/turf/proc/get_air_graphic()
+	var/datum/gas_mixture/environment = return_air()
+	return environment?.graphic
+
+/turf/proc/get_vis_contents_to_add()
+	var/air_graphic = get_air_graphic()
+	if(length(air_graphic))
+		LAZYADD(., air_graphic)
 	if(weather)
 		LAZYADD(., weather)
 	if(flooded)
