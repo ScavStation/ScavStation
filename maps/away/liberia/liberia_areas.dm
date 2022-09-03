@@ -28,7 +28,6 @@
 /area/liberia/engineeringlobby
 	name = "\improper Liberia - Engineering Lobby"
 	icon_state = "primarystorage"
-	req_access = list(access_merchant)
 
 /area/liberia/engineeringstorage
 	name = "\improper Liberia - Engineering Storage"
@@ -45,27 +44,22 @@
 /area/liberia/personellroom1
 	name = "\improper Liberia - Personell Room 1"
 	icon_state = "dk_yellow"
-	req_access = list(access_merchant)
 
 /area/liberia/personellroom2
 	name = "\improper Liberia - Personell Room 2"
 	icon_state = "purple"
-	req_access = list(access_merchant)
 
 /area/liberia/traidingroom
 	name = "\improper Liberia - Traiding Room"
 	icon_state = "purple"
-	req_access = list(access_merchant)
 
 /area/liberia/bridge
 	name = "\improper Liberia - Bridge"
 	icon_state = "bridge"
-	req_access = list(access_merchant)
 
 /area/liberia/cryo
 	name = "\improper Liberia - Cryo"
 	icon_state = "crew_quarters"
-	req_access = list(access_merchant)
 
 /area/liberia/medbay
 	name = "\improper Liberia - Medbay"
@@ -74,7 +68,6 @@
 /area/liberia/officeroom
 	name = "\improper Liberia - Office Room"
 	icon_state = "observatory"
-	req_access = list(access_merchant)
 
 /area/liberia/toiletroom1
 	name = "\improper Liberia - Shower"
@@ -96,7 +89,6 @@
 /area/liberia/atmos
 	name = "\improper Liberia - Atmos Chamber"
 	icon_state = "atmos"
-	req_access = list(access_merchant)
 
 /area/liberia/mule
 	name = "\improper Mule"
