@@ -792,7 +792,7 @@ default behaviour is:
 
 /mob/living/handle_drowning()
 	var/turf/T = get_turf(src)
-	if(!can_drown() || !loc.is_flooded(lying))
+	if(!can_drown() || !loc.is_flooded(lying) || holding_breath)
 		return FALSE
 	if(!lying && T.above && T.above.is_open() && !T.above.is_flooded() && can_overcome_gravity())
 		return FALSE
