@@ -145,3 +145,26 @@
 	armour_colour = COLOR_GRAY40
 	faceplate_colour = COLOR_PALE_PURPLE_GRAY
 	stripe_colour = COLOR_PURPLE
+/obj/item/clothing/suit/space/void/scav/matriarch
+	name = "small matriarch voidsuit"
+	color = COLOR_BEASTY_BROWN
+	armour_colour = COLOR_GOLD
+	stripe_colour = COLOR_GREEN
+	
+/obj/item/clothing/head/helmet/space/void/scav/matriarch
+	name = "small matriarch voidsuit helmet"
+	color = COLOR_GREEN
+	armour_colour = COLOR_GOLD
+	faceplate_colour = COLOR_WHITE
+	stripe_colour = COLOR_GREEN
+
+/obj/item/clothing/suit/space/void/scav/merchant
+	name = "small merchant voidsuit"
+	color = COLOR_CHESTNUT
+	armour_colour = COLOR_CHESTNUT
+
+/obj/item/clothing/head/helmet/space/void/scav/merchant
+	name = "small merchant voidsuit helmet"
+	color = COLOR_CHESTNUT
+	armour_colour = COLOR_CHESTNUT
+	faceplate_colour = COLOR_RED
