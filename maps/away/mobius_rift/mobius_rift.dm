@@ -1,4 +1,5 @@
 #include "mobius_rift_areas.dm"
+#include "../../../mods/valsalia/_valsalia.dme"
 
 /obj/effect/overmap/visitable/sector/mobius_rift
 	name = "unusual asteroid"

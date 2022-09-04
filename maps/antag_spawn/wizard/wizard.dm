@@ -1,3 +1,5 @@
+#include "../../../mods/valsalia/_valsalia.dme"
+
 /datum/map_template/ruin/antag_spawn/wizard
 	name = "Wizard Base"
 	id = "wizard_spawn"

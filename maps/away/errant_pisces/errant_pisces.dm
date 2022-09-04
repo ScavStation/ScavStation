@@ -1,5 +1,6 @@
 #include "../../../mods/content/corporate/_corporate.dme"
 #include "errant_pisces_areas.dm"
+#include "../../../mods/valsalia/_valsalia.dme"
 
 /obj/effect/overmap/visitable/ship/errant_pisces
 	name = "CV Ahab's Harpoon"
