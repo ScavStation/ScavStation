@@ -1,6 +1,8 @@
 #include "casino_areas.dm"
 #include "../mining/mining_areas.dm"
 
+#include "../../../mods/valsalia/_valsalia.dme"
+
 /obj/effect/overmap/visitable/ship/casino
 	name = "passenger liner"
 	desc = "Sensors detect an undamaged vessel without any signs of activity."

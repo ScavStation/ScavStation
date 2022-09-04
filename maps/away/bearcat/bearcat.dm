@@ -1,6 +1,7 @@
 #include "bearcat_areas.dm"
 #include "bearcat_jobs.dm"
 #include "bearcat_access.dm"
+#include "../../../mods/valsalia/_valsalia.dme"
 
 /obj/effect/submap_landmark/joinable_submap/bearcat
 	name = "FTV Bearcat"

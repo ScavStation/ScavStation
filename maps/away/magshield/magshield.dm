@@ -1,4 +1,5 @@
 #include "magshield_areas.dm"
+#include "../../../mods/valsalia/_valsalia.dme"
 
 /obj/effect/overmap/visitable/sector/magshield
 	name = "orbital station"

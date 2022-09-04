@@ -1,3 +1,5 @@
+#include "../../../mods/valsalia/_valsalia.dme"
+
 /datum/map_template/ruin/antag_spawn/ninja
 	name = "Ninja Base"
 	id = "ninja_spawn"
