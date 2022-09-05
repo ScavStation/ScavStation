@@ -1,5 +1,4 @@
 #include "yacht_areas.dm"
-#include "../../../mods/valsalia/_valsalia.dme"
 
 /obj/effect/overmap/visitable/ship/yacht
 	name = "private yacht"
