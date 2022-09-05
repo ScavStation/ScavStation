@@ -1,3 +1,7 @@
+#ifndef CONTENT_PACKAGE_VALSALIA
+#define CONTENT_PACKAGE_VALSALIA
+// BEGIN_INCLUDE
+#include "valsalia.dm"
 #include "items\chemistry.dm"
 #include "items\clothing.dm"
 #include "items\clothing_baxxid.dm"
@@ -11,3 +15,22 @@
 #include "items\suit_cycler.dm"
 #include "items\turfs.dm"
 #include "items\voidsuits.dm"
+#include "jobs\enclave_department.dm"
+#include "jobs\yinglet_job.dm"
+#include "jobs\yinglet_outfit.dm"
+#include "lobby\music.dm"
+#include "machines\cargo_train.dm"
+#include "map\culture.dm"
+#include "map\culturebaxxid.dm"
+#include "map\languagebaxxid.dm"
+#include "map\loadout.dm"
+#include "map\overrides.dm"
+#include "species\baxxid.dm"
+#include "species\indrel.dm"
+#include "species\yinglet.dm"
+#include "species\yinglet_accessories.dm"
+#include "species\yinglet_bodytype.dm"
+#include "species\yinglet_organs.dm"
+#include "structures\hoard.dm"
+// END_INCLUDE
+#endif
