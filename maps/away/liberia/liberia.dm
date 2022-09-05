@@ -2,7 +2,7 @@
 #include "liberia_jobs.dm"
 #include "liberia_shuttles.dm"
 #include "liberia_machinery.dm"
-#include "../../../mode/valsalia/valsalia.dm"
+#include "../../../mods/valsalia/valsalia.dm"
 #include "../../../mods/valsalia/items/voidsuits.dm"
 
 // Map template data.
