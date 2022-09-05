@@ -1,7 +1,7 @@
 #if !defined(USING_MAP_DATUM)
 
 	//Content & etc
-
+	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/content/bigpharma/_bigpharma.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
