@@ -10,6 +10,9 @@
 	var/datum/reagents/metabolism/touching
 	var/losebreath = 0 //if we failed to breathe last tick
 
+	var/datum/gas_mixture/breath = null
+	var/last_breath_tick = 0
+
 	var/coughedtime = null
 	var/ignore_rads = FALSE
 	/// Whether the mob is performing cpr or not.
