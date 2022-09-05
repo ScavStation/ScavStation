@@ -1,6 +1,5 @@
 #include "slavers_base_areas.dm"
 #include "../mining/mining_areas.dm"
-#include "../../../mods/valsalia/_valsalia.dme"
 
 /obj/effect/overmap/visitable/sector/slavers_base
 	name = "large asteroid"

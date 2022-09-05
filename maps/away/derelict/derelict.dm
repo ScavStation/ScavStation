@@ -1,5 +1,4 @@
 #include "derelict_areas.dm"
-#include "../../../mods/valsalia/_valsalia.dme"
 
 /obj/effect/overmap/visitable/sector/derelict
 	name = "debris field"

@@ -1,5 +1,4 @@
 #include "mining_areas.dm"
-#include "../../../mods/valsalia/_valsalia.dme"
 
 //MINING-1 // CLUSTER
 /obj/effect/overmap/visitable/sector/cluster

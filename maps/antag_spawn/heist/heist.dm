@@ -1,6 +1,5 @@
 #include "heist_antag.dm"
 #include "heist_outfit.dm"
-#include "../../../mods/valsalia/_valsalia.dme"
 
 /datum/map_template/ruin/antag_spawn/heist
 	name = "Heist Base"

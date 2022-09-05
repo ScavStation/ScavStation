@@ -1,5 +1,3 @@
-#include "../../../mods/valsalia/_valsalia.dme"
-
 /datum/map_template/ruin/antag_spawn/ert
 	name = "ERT Base"
 	id = "ert_spawn"
