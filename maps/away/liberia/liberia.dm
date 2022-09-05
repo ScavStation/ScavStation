@@ -2,7 +2,6 @@
 #include "liberia_jobs.dm"
 #include "liberia_shuttles.dm"
 #include "liberia_machinery.dm"
-#include "../../../mods/valsalia/map_includes.dm"
 
 // Map template data.
 /datum/map_template/ruin/away_site/liberia
