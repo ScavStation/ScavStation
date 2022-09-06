@@ -4,11 +4,11 @@
 	var/obj/item/clothing/head/hood
 
 /obj/item/clothing/suit/storage/toggle/Initialize()
-	. = ..()
 	if(check_state_in_icon("[icon_state]_open", icon))
 		buttons = TRUE
 	if(ispath(hood))
 		hood = new hood(src)
+	. = ..()
 
 /obj/item/clothing/suit/storage/toggle/Destroy()
 	if(istype(hood))
@@ -47,7 +47,7 @@
 		return FALSE
 	buttons = !buttons
 	if(user)
-		to_chat(user, "You [buttons ? "un" : ""]button up the coat.")
+		to_chat(user, SPAN_NOTICE("You [buttons ? "unbutton" : "button up"] \the [src]."))
 	update_icon()
 	update_clothing_icon()	//so our overlays update
 
