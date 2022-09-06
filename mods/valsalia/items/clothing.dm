@@ -51,25 +51,23 @@
 		to_chat(user, "This one has a badge sewn to the front indicating the wearer is recognized by the Tradehouse.")
 
 /obj/item/clothing/suit/storage/toggle/redcoat/proc/collect_overlays(var/use_state)
-	var/list/adding_overlays
-	var/state_modifier = open ? "_open" : ""
 	if(has_badge)
-		LAZYADD(adding_overlays, "[use_state]-[has_badge][state_modifier]")
+		LAZYADD(., "[use_state]-[has_badge]")
 	if(has_buttons)
-		LAZYADD(adding_overlays, "[use_state]-[has_buttons][state_modifier]")
+		LAZYADD(., "[use_state]-[has_buttons]")
 	if(has_collar)
-		LAZYADD(adding_overlays, "[use_state]-[has_collar][state_modifier]")
+		LAZYADD(., "[use_state]-[has_collar]")
 	if(has_buckle)
-		LAZYADD(adding_overlays, "[use_state]-[has_buckle][state_modifier]")
-	. = adding_overlays
+		LAZYADD(., "[use_state]-[has_buckle]")
 
 /obj/item/clothing/suit/storage/toggle/redcoat/on_update_icon()
-	set_overlays(collect_overlays(get_world_inventory_state()))
+	. = ..()
+	set_overlays(collect_overlays(icon_state))
 
-/obj/item/clothing/suit/storage/toggle/redcoat/get_mob_overlay(var/mob/user_mob, var/slot)
-	var/image/ret = ..()
-	ret.overlays += collect_overlays(ret.icon_state)
-	return ret
+/obj/item/clothing/suit/storage/toggle/redcoat/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	. = ..()
+	if(overlay)
+		overlay.overlays += collect_overlays(overlay.icon_state)
 
 /obj/item/clothing/suit/storage/toggle/redcoat/service
 	name = "\improper Tradehouse service coat"
@@ -89,3 +87,33 @@
 	has_buttons = "buttons_gold"
 	has_collar =  "collar_gold"
 	has_buckle =  "buckle_gold"
+
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet
+	name = "small winter coat"
+	icon = 'mods/valsalia/icons/clothing/suit/wintercoat.dmi'
+	hood = /obj/item/clothing/head/winterhood/yinglet
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/winterhood/yinglet
+	name = "small winter hood"
+	icon = 'mods/valsalia/icons/clothing/head/winterhood.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/toggle_hood()
+	. = ..()
+	if(hood.loc != src)
+		update_icon()
+
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/remove_hood()
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	. = ..()
+	if(hood.loc == src && overlay)
+		overlay.icon_state = "[overlay.icon_state]_hood"
+
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/on_update_icon()
+	. = ..()
+	if(hood.loc == src)
+		icon_state = "[icon_state]_hood"

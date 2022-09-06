@@ -15,20 +15,19 @@
 /obj/item/ducttape/attack(var/mob/living/carbon/human/H, var/mob/user)
 	if(istype(H))
 		if(user.zone_sel.selecting == BP_EYES)
-
 			if(!GET_EXTERNAL_ORGAN(H, BP_HEAD))
-				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head."))
 				return
 			if(!H.check_has_eyes())
-				to_chat(user, "<span class='warning'>\The [H] doesn't have any eyes.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have any eyes."))
 				return
-			if(H.glasses)
-				to_chat(user, "<span class='warning'>\The [H] is already wearing somethign on their eyes.</span>")
+			if(H.get_equipped_item(slot_glasses_str))
+				to_chat(user, SPAN_WARNING("\The [H] is already wearing something on their eyes."))
 				return
 			if(H.head && (H.head.body_parts_covered & SLOT_FACE))
-				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
+				to_chat(user, SPAN_WARNING("Remove their [H.head] first."))
 				return
-			user.visible_message("<span class='danger'>\The [user] begins taping over \the [H]'s eyes!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] begins taping over \the [H]'s eyes!"))
 
 			if(!do_mob(user, H, 30))
 				return
