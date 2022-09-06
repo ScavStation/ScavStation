@@ -65,9 +65,9 @@
 	set_overlays(collect_overlays(icon_state))
 
 /obj/item/clothing/suit/storage/toggle/redcoat/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
-	. = ..()
 	if(overlay)
 		overlay.overlays += collect_overlays(overlay.icon_state)
+	. = ..()
 
 /obj/item/clothing/suit/storage/toggle/redcoat/service
 	name = "\improper Tradehouse service coat"
