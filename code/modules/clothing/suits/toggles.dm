@@ -4,6 +4,7 @@
 	var/obj/item/clothing/head/hood
 
 /obj/item/clothing/suit/storage/toggle/Initialize()
+	. = ..()
 	if(check_state_in_icon("[icon_state]_open", icon))
 		buttons = TRUE
 	if(ispath(hood))
