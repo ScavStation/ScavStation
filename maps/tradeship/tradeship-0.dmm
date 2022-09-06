@@ -1363,6 +1363,8 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/suit/space/void/scav/matriarch,
+/obj/item/clothing/head/helmet/space/void/scav/matriarch,
 /turf/simulated/floor/tiled,
 /area/ship/trade/enclave)
 "rt" = (
