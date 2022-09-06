@@ -66,10 +66,10 @@
 /obj/item/clothing/suit/storage/toggle/redcoat/on_update_icon()
 	set_overlays(collect_overlays(get_world_inventory_state()))
 
-/obj/item/clothing/suit/storage/toggle/redcoat/get_mob_overlay(var/mob/user_mob, var/slot)
-	var/image/ret = ..()
-	ret.overlays += collect_overlays(ret.icon_state)
-	return ret
+/obj/item/clothing/suit/storage/toggle/redcoat/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+	if(overlay)
+		overlay.overlays += collect_overlays(overlay.icon_state)
+	. = ..()
 
 /obj/item/clothing/suit/storage/toggle/redcoat/service
 	name = "\improper Tradehouse service coat"
