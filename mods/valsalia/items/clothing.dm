@@ -52,7 +52,7 @@
 
 /obj/item/clothing/suit/storage/toggle/redcoat/proc/collect_overlays(var/use_state)
 	var/list/adding_overlays
-	var/state_modifier = open ? "_open" : ""
+	var/state_modifier = buttons ? "_open" : ""
 	if(has_badge)
 		LAZYADD(adding_overlays, "[use_state]-[has_badge][state_modifier]")
 	if(has_buttons)
