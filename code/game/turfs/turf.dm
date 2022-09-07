@@ -61,7 +61,7 @@
 		PRINT_STACK_TRACE("Warning: [src]([type]) initialized multiple times!")
 	atom_flags |= ATOM_FLAG_INITIALIZED
 
-	if(light_power && light_range)
+	if (light_range && light_power)
 		update_light()
 
 	if(dynamic_lighting)
@@ -87,20 +87,12 @@
 	if(flooded && !density)
 		make_flooded(TRUE)
 
-	initialize_ambient_light(mapload)
-
 	return INITIALIZE_HINT_NORMAL
 
 /turf/examine(mob/user, distance, infix, suffix)
 	. = ..()
 	if(user && weather)
 		weather.examine(user)
-
-/turf/proc/initialize_ambient_light(var/mapload)
-	return
-
-/turf/proc/update_ambient_light(var/mapload)
-	return
 
 /turf/Destroy()
 
@@ -109,7 +101,9 @@
 
 	changing_turf = FALSE
 
-	remove_cleanables()
+	if (contents.len > !!lighting_overlay)
+		remove_cleanables()
+
 	REMOVE_ACTIVE_FLUID_SOURCE(src)
 
 	if (ao_queued)
@@ -137,7 +131,7 @@
 	return
 
 /turf/proc/is_solid_structure()
-	return 1
+	return !(turf_flags & TURF_FLAG_BACKGROUND) || locate(/obj/structure/lattice, src)
 
 /turf/proc/get_base_movement_delay()
 	return movement_delay

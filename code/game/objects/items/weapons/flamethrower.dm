@@ -70,19 +70,14 @@
 		location.hotspot_expose(700, 2)
 
 /obj/item/flamethrower/on_update_icon()
-	cut_overlays()
+	. = ..()
 	add_overlay("_[initial(welding_tool.icon_state)]")
 
 	if(igniter)
 		add_overlay("igniter_[secured]")
 
 	if(tank)
-		if(istype(tank, /obj/item/tank/hydrogen))
-			add_overlay("tank_hydrogen")
-		else
-			var/mutable_appearance/M = mutable_appearance(icon, "tank")
-			M.color = tank.color
-			add_overlay(M)
+		add_overlay(mutable_appearance(icon, istype(tank, /obj/item/tank/hydrogen)? "tank_hydrogen" : "tank", tank.color))			
 
 	if(lit)
 		add_overlay("lit")
@@ -119,7 +114,7 @@
 	if(user.incapacitated())
 		return TRUE
 	
-	if(isWrench(W) && !secured)//Taking this apart
+	if(IS_WRENCH(W) && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(welding_tool)
 			welding_tool.dropInto(T)
@@ -137,7 +132,7 @@
 		qdel(src)
 		return TRUE
 
-	if(isScrewdriver(W) && igniter && !lit)
+	if(IS_SCREWDRIVER(W) && igniter && !lit)
 		secured = !secured
 		to_chat(user, SPAN_NOTICE("\The [igniter] is now [secured ? "secured" : "unsecured"]!"))
 		update_icon()

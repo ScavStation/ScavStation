@@ -1,10 +1,12 @@
 /obj/item/on_update_icon()
-	overlays.Cut()
+	. = ..()
+	SHOULD_CALL_PARENT(TRUE)
+	cut_overlays()
 	if(applies_material_colour && material)
 		color = material.color
 		alpha = 100 + material.opacity * 255
 	if(blood_overlay)
-		overlays += blood_overlay
+		add_overlay(blood_overlay)
 	if(global.contamination_overlay && contaminated)
 		overlays += global.contamination_overlay
 

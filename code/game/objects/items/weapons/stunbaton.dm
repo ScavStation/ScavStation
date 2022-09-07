@@ -54,7 +54,7 @@
 	return null
 
 /obj/item/baton/on_update_icon()
-	cut_overlays()
+	. = ..()
 	if(status)
 		add_overlay("[icon_state]-active")
 		set_light(1.5, 2, "#ff6a00")
@@ -84,7 +84,7 @@
 			update_icon()
 		else
 			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
-	else if(isScrewdriver(W))
+	else if(IS_SCREWDRIVER(W))
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)
@@ -226,6 +226,7 @@
 	icon_state = "electrified_arm"
 
 /obj/item/baton/robot/electrified_arm/on_update_icon()
+	. = ..()
 	if(status)
 		icon_state = "electrified_arm_active"
 		set_light(1.5, 2, "#006aff")

@@ -40,13 +40,6 @@
 		return TRUE
 	. = ..()
 
-/obj/item/storage/secure/AltClick(mob/user)
-	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)
-	if(lock.locked)
-		src.add_fingerprint(user)
-		return
-	..()
-
 /obj/item/storage/secure/attack_self(var/mob/user)
 	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)
 	lock.ui_interact(user)
@@ -64,17 +57,20 @@
 
 /obj/item/storage/secure/on_update_icon()
 	. = ..()
-
 	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)
 	if(!istype(lock))
 		return
-
-	overlays.Cut()
 	if(lock.emagged)
-		overlays += image(icon, icon_locking)
+		add_overlay(icon_locking)
 	else if(lock.open)
-		overlays += image(icon, icon_opened)
+		add_overlay(icon_opened)
 
+/obj/item/storage/secure/open(mob/user)
+	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)
+	if(lock.locked)
+		add_fingerprint(user)
+		return
+	. = ..()
 
 // -----------------------------
 //        Secure Briefcase
@@ -102,7 +98,7 @@
 	else
 		..()
 		for(var/mob/M in range(1))
-			if (M.s_active == src)
+			if (M.active_storage == src)
 				src.close(M)
 	src.add_fingerprint(user)
 	return

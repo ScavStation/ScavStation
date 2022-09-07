@@ -5,6 +5,7 @@
 	anchored = FALSE
 	density =  TRUE
 	layer =    BELOW_OBJ_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	material_alteration =    MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_COLOR
 	tool_interaction_flags = (TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT)
 	maxhealth = 100
@@ -186,14 +187,6 @@
 	reinf_material = M
 	update_icon()
 	return 1
-
-/obj/structure/girder/attack_hand(mob/user)
-	if (MUTATION_HULK in user.mutations)
-		visible_message(SPAN_DANGER("\The [user] smashes \the [src] apart!"))
-		dismantle()
-		return
-	return ..()
-
 
 /obj/structure/girder/explosion_act(severity)
 	..()

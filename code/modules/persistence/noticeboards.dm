@@ -83,7 +83,7 @@
 	. = ..()
 	if(!.)
 
-		if(isScrewdriver(thing))
+		if(IS_SCREWDRIVER(thing))
 			var/choice = input("Which direction do you wish to place the noticeboard?", "Noticeboard Offset") as null|anything in list("North", "South", "East", "West")
 			if(choice && CanPhysicallyInteract(user))
 				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -152,8 +152,8 @@
 		var/obj/item/P = locate(href_list["write"])
 		if(!P)
 			return
-		var/obj/item/pen/pen = locate() in user.get_held_items()
-		if(istype(pen))
+		var/obj/item/pen = locate() in user.get_held_items()
+		if(IS_PEN(pen))
 			add_fingerprint(user)
 			P.attackby(pen, user)
 		else

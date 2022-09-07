@@ -27,7 +27,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/mono,
-/obj/effect/submap_landmark/joinable_submap/liberia,
+/obj/abstract/submap_landmark/joinable_submap/liberia,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/liberia/bridge)
 "ae" = (
@@ -68,7 +68,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
@@ -88,7 +88,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/carpet,
 /area/liberia/personellroom2)
 "ak" = (
@@ -407,7 +407,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 4
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/tiled/techfloor,
 /area/liberia/cryo)
 "aY" = (
@@ -632,7 +632,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/tiled,
 /area/liberia/hallway)
 "bo" = (
@@ -2978,7 +2978,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/tiled/techfloor,
 /area/liberia/cryo)
 "fi" = (
@@ -2988,7 +2988,7 @@
 /obj/structure/cable/blue{
 	icon_state = "2-8"
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/tiled/techfloor,
 /area/liberia/cryo)
 "fk" = (
@@ -3344,7 +3344,7 @@
 /obj/machinery/alarm/liberia{
 	pixel_y = 24
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/wood/ebony,
 /area/liberia/bar)
 "fS" = (
@@ -3367,7 +3367,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/wood/ebony,
 /area/liberia/bar)
 "fU" = (
@@ -3530,7 +3530,7 @@
 "gj" = (
 /obj/structure/bed/chair/wood/walnut,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/wood/ebony,
 /area/liberia/bar)
 "gk" = (
@@ -4028,20 +4028,20 @@
 /obj/effect/floor_decal/spline/plain/brown{
 	dir = 10
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/wood/ebony,
 /area/liberia/bar)
 "gY" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/spline/plain/brown,
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/wood/ebony,
 /area/liberia/bar)
 "gZ" = (
 /obj/item/stool/padded,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/plain/brown,
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/wood/ebony,
 /area/liberia/bar)
 "ha" = (
@@ -5501,7 +5501,7 @@
 /obj/structure/cable/blue{
 	icon_state = "2-8"
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/carpet,
 /area/liberia/library)
 "kr" = (
@@ -6306,7 +6306,7 @@
 /area/liberia/atmos)
 "nH" = (
 /obj/structure/bed/chair/wood/walnut,
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/tiled,
 /area/liberia/hallway)
 "nO" = (
@@ -7669,7 +7669,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/carpet/blue,
 /area/liberia/personellroom1)
 "HQ" = (
@@ -7757,7 +7757,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/tiled,
 /area/liberia/hallway)
 "Jf" = (
@@ -8544,7 +8544,7 @@
 	},
 /obj/structure/bed/padded,
 /obj/item/bedsheet/hos,
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/carpet/blue,
 /area/liberia/personellroom1)
 "Xe" = (
@@ -8628,7 +8628,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/liberia/engineeringstorage)
 "YW" = (
-/obj/effect/submap_landmark/spawnpoint/liberia,
+/obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/simulated/floor/tiled/techfloor,
 /area/liberia/cryo)
 "YX" = (

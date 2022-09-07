@@ -30,7 +30,9 @@ By design, d1 is the smallest direction and d2 is the highest
 	layer =    EXPOSED_WIRE_LAYER
 	color =    COLOR_MAROON
 	anchored = TRUE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	level = 1
+	
 	var/d1
 	var/d2
 	var/datum/powernet/powernet
@@ -140,17 +142,17 @@ By design, d1 is the smallest direction and d2 is the highest
 //
 
 /obj/structure/cable/attackby(obj/item/W, mob/user)
-	if(isWirecutter(W))
+	if(IS_WIRECUTTER(W))
 		cut_wire(W, user)
 
-	else if(isCoil(W))
+	else if(IS_COIL(W))
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
 			to_chat(user, "You don't have enough cable to lay down.")
 			return
 		coil.cable_join(src, user)
 
-	else if(isMultitool(W))
+	else if(IS_MULTITOOL(W))
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			to_chat(user, SPAN_WARNING("[get_wattage()] in power network."))
@@ -546,7 +548,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	return ..()
 
 /obj/item/stack/cable_coil/on_update_icon()
-	cut_overlays()
+	. = ..()
 	if (!color)
 		var/list/possible_cable_colours = get_global_cable_colors()
 		color = possible_cable_colours[pick(possible_cable_colours)]
@@ -620,7 +622,7 @@ By design, d1 is the smallest direction and d2 is the highest
 // Items usable on a cable coil :
 //   - Wirecutters : cut them duh !
 //   - Cable coil : merge cables
-/obj/item/stack/cable_coil/proc/can_merge(var/obj/item/stack/cable_coil/C)
+/obj/item/stack/cable_coil/can_merge(var/obj/item/stack/cable_coil/C)
 	return color == C.color
 
 /obj/item/stack/cable_coil/cyborg/can_merge()

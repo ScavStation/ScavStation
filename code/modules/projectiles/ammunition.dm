@@ -81,7 +81,7 @@
 		forensics.add_from_atom(/datum/forensics/gunshot_residue, src)
 
 /obj/item/ammo_casing/attackby(obj/item/W, mob/user)
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		if(!BB)
 			to_chat(user, "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>")
 			return
@@ -99,8 +99,8 @@
 	else ..()
 
 /obj/item/ammo_casing/on_update_icon()
+	. = ..()
 	if(use_single_icon)
-		cut_overlays()
 		if(BB)
 			var/image/I = overlay_image(icon, "[icon_state]-bullet", bullet_color, flags=RESET_COLOR)
 			I.dir = dir
@@ -210,6 +210,7 @@
 		return
 
 /obj/item/ammo_magazine/on_update_icon()
+	. = ..()
 	if(multiple_sprites)
 		//find the lowest key greater than or equal to stored_ammo.len
 		var/new_state = null

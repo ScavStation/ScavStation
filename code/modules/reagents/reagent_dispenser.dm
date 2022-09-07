@@ -49,7 +49,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /obj/structure/reagent_dispensers/attackby(obj/item/W, mob/user)
-	if(isWrench(W))
+	if(IS_WRENCH(W))
 		unwrenched = !unwrenched
 		visible_message(SPAN_NOTICE("\The [user] wrenches \the [src]'s tap [unwrenched ? "open" : "shut"]."))
 		if(unwrenched)
@@ -98,12 +98,6 @@
 	. = ..()
 	if(. && (severity == 1) || (severity == 2 && prob(50)) || (severity == 3 && prob(5)))
 		physically_destroyed()
-
-/obj/structure/reagent_dispensers/AltClick(var/mob/user)
-	if(possible_transfer_amounts)
-		set_amount_per_transfer_from_this()
-	else
-		return ..()
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
@@ -267,3 +261,20 @@
 	amount_per_transfer_from_this = 10
 	anchored = 1
 	initial_reagent_types = list(/decl/material/liquid/acid = 1)
+
+/obj/structure/reagent_dispensers/get_alt_interactions(var/mob/user)
+	. = ..()
+	LAZYADD(., /decl/interaction_handler/set_transfer/reagent_dispenser)
+
+/decl/interaction_handler/set_transfer/reagent_dispenser
+	expected_target_type = /obj/structure/reagent_dispensers
+
+/decl/interaction_handler/set_transfer/reagent_dispenser/is_possible(var/atom/target, var/mob/user)
+	. = ..()
+	if(.)
+		var/obj/structure/reagent_dispensers/R = target
+		return !!R.possible_transfer_amounts
+
+/decl/interaction_handler/set_transfer/reagent_dispenser/invoked(var/atom/target, var/mob/user)
+	var/obj/structure/reagent_dispensers/R = target
+	R.set_amount_per_transfer_from_this()

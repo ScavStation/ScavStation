@@ -20,7 +20,7 @@
 	. = ..()
 
 /obj/item/weldpack/attackby(obj/item/W, mob/user)
-	if(isWelder(W))
+	if(IS_WELDER(W))
 		var/obj/item/weldingtool/T = W
 		if(T.welding & prob(50))
 			log_and_message_admins("triggered a fueltank explosion.", user)
@@ -70,9 +70,9 @@
 		..()
 
 /obj/item/weldpack/on_update_icon()
-	cut_overlays()
+	. = ..()
 	if(welder)
-		var/image/welder_image = image(welder.icon, icon_state = welder.icon_state)
+		var/mutable_appearance/welder_image = new(welder)
 		welder_image.pixel_x = 16
 		add_overlay(welder_image)
 

@@ -130,7 +130,7 @@
 	icon = 'icons/clothing/head/hood_winter.dmi'
 	body_parts_covered = SLOT_HEAD
 	cold_protection = SLOT_HEAD
-	flags_inv = HIDEEARS | BLOCKHEADHAIR
+	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	protects_against_weather = TRUE
 
@@ -248,4 +248,4 @@
 	body_parts_covered = SLOT_HEAD
 	min_cold_protection_temperature = T0C - 20
 	cold_protection = SLOT_HEAD
-	flags_inv = HIDEEARS | BLOCKHEADHAIR
+	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR

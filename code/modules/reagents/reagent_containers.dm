@@ -6,11 +6,12 @@
 	w_class = ITEM_SIZE_SMALL
 
 	var/base_name
+	var/base_desc
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = @"[5,10,15,25,30]"
 	var/volume = 30
 	var/label_text
-	var/show_reagent_name = FALSE
+	var/presentation_flags = 0
 
 /obj/item/chems/proc/cannot_interact(mob/user)
 	if(!CanPhysicallyInteract(user))
@@ -26,14 +27,33 @@
 		base_name = initial(name)
 	. = base_name
 
-/obj/item/chems/on_reagent_change()
-	if(show_reagent_name)
+/obj/item/chems/proc/update_container_name()
+	var/newname = get_base_name()
+	if(presentation_flags & PRESENTATION_FLAG_NAME)
 		var/decl/material/R = reagents?.get_primary_reagent_decl()
-		var/newname = get_base_name()
 		if(R)
-			newname = "[newname] of [R.get_presentation_name(src)]"
-		if(newname != name)
-			SetName(newname)
+			newname += " of [R.get_presentation_name(src)]"
+	if(length(label_text))
+		newname += " ([label_text])"
+	if(newname != name)
+		SetName(newname)
+
+/obj/item/chems/proc/get_base_desc()
+	if(!base_desc)
+		base_desc = initial(desc)
+	. = base_desc
+
+/obj/item/chems/proc/update_container_desc()
+	var/list/new_desc_list = list(get_base_desc())
+	if(presentation_flags & PRESENTATION_FLAG_DESC)
+		var/decl/material/R = reagents?.get_primary_reagent_decl()
+		if(R)
+			new_desc_list += R.get_presentation_desc(src)
+	desc = new_desc_list.Join("\n")
+
+/obj/item/chems/on_reagent_change()
+	update_container_name()
+	update_container_desc()
 	update_icon()
 
 /obj/item/chems/verb/set_amount_per_transfer_from_this()
@@ -59,22 +79,16 @@
 	return
 
 /obj/item/chems/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/pen) || istype(W, /obj/item/flashlight/pen))
+	if(IS_PEN(W))
 		var/tmp_label = sanitize_safe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(length(tmp_label) > 10)
 			to_chat(user, "<span class='notice'>The label can be at most 10 characters long.</span>")
 		else
 			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
 			label_text = tmp_label
-			update_name_label()
+			update_container_name()
 	else
 		return ..()
-
-/obj/item/chems/proc/update_name_label()
-	if(!label_text || label_text == "")
-		SetName(get_base_name())
-	else
-		SetName("[get_base_name()] ([label_text])")
 
 /obj/item/chems/proc/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target) // This goes into afterattack
 	if(!istype(target))
@@ -210,12 +224,6 @@
 	if(user.zone_sel.selecting != BP_MOUTH) //in case it is ever used as a surgery tool
 		return ..()
 
-/obj/item/chems/AltClick(var/mob/user)
-	if(possible_transfer_amounts)
-		set_amount_per_transfer_from_this()
-	else
-		return ..()
-
 /obj/item/chems/examine(mob/user)
 	. = ..()
 	if(!reagents)
@@ -229,3 +237,20 @@
 /obj/item/chems/shatter(consumed)
 	reagents.splash(get_turf(src), reagents.total_volume)
 	. = ..()
+
+/obj/item/chems/get_alt_interactions(var/mob/user)
+	. = ..()
+	LAZYADD(., /decl/interaction_handler/set_transfer/chems)
+
+/decl/interaction_handler/set_transfer/chems
+	expected_target_type = /obj/item/chems
+
+/decl/interaction_handler/set_transfer/chems/is_possible(var/atom/target, var/mob/user)
+	. = ..()
+	if(.)
+		var/obj/item/chems/C = target
+		return !!C.possible_transfer_amounts
+
+/decl/interaction_handler/set_transfer/chems/invoked(var/atom/target, var/mob/user)
+	var/obj/item/chems/C = target
+	C.set_amount_per_transfer_from_this()

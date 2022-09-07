@@ -229,6 +229,7 @@
 	..()
 
 /obj/item/mech_equipment/light/on_update_icon()
+	. = ..()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
 		set_light(l_range, l_power)
@@ -736,7 +737,7 @@
 /obj/item/mech_equipment/camera/attackby(obj/item/W, mob/user)
 	. = ..()
 
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		var/datum/extension/network_device/camera/mech/D = get_extension(src, /datum/extension/network_device)
 		D.ui_interact(user)
 

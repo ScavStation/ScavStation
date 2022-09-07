@@ -287,16 +287,14 @@
 	return FALSE
 
 /obj/item/electronic_assembly/on_update_icon()
+	. = ..()
 	if(opened)
 		icon_state = initial(icon_state) + "-open"
 	else
 		icon_state = initial(icon_state)
-	overlays.Cut()
 	if(detail_color == COLOR_ASSEMBLY_BLACK) //Black colored overlay looks almost but not exactly like the base sprite, so just cut the overlay and avoid it looking kinda off.
 		return
-	var/image/detail_overlay = image('icons/obj/assemblies/electronic_setups.dmi', src,"[icon_state]-color")
-	detail_overlay.color = detail_color
-	overlays += detail_overlay
+	add_overlay(overlay_image('icons/obj/assemblies/electronic_setups.dmi', "[icon_state]-color", detail_color))
 
 /obj/item/electronic_assembly/examine(mob/user)
 	. = ..()
@@ -411,7 +409,7 @@
 
 
 /obj/item/electronic_assembly/attackby(obj/item/I, mob/user)
-	if(isWrench(I))
+	if(IS_WRENCH(I))
 		if(isturf(loc) && (IC_FLAG_ANCHORABLE & circuit_flags))
 			user.visible_message("\The [user] wrenches \the [src]'s anchoring bolts [anchored ? "back" : "into position"].")
 			playsound(get_turf(user), 'sound/items/Ratchet.ogg',50)
@@ -426,7 +424,7 @@
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
-	else if(isMultitool(I) || istype(I, /obj/item/integrated_electronics/wirer) || istype(I, /obj/item/integrated_electronics/debugger))
+	else if(IS_MULTITOOL(I) || istype(I, /obj/item/integrated_electronics/wirer) || istype(I, /obj/item/integrated_electronics/debugger))
 		if(opened)
 			interact(user)
 			return TRUE
@@ -459,7 +457,7 @@
 		var/obj/item/integrated_electronics/detailer/D = I
 		detail_color = D.detail_color
 		update_icon()
-	else if(isScrewdriver(I))
+	else if(IS_SCREWDRIVER(I))
 		var/hatch_locked = FALSE
 		for(var/obj/item/integrated_circuit/manipulation/hatchlock/H in assembly_components)
 			// If there's more than one hatch lock, only one needs to be enabled for the assembly to be locked
@@ -475,7 +473,7 @@
 		opened = !opened
 		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] the maintenance hatch of [src].</span>")
 		update_icon()
-	else if(isCoil(I))
+	else if(IS_COIL(I))
 		var/obj/item/stack/cable_coil/C = I
 		if(health != initial(health) && do_after(user, 10, src) && C.use(1))
 			user.visible_message("\The [user] patches up \the [src].")

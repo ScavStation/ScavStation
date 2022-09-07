@@ -20,7 +20,7 @@
 	color = "#0033cc"
 
 /obj/item/organ/internal/eyes/vox
-	eye_icon = 'mods/species/vox/icons/body/eyes.dmi'
+	eye_icon = 'mods/species/vox/icons/body/soldier/eyes.dmi'
 	color = "#0033cc"
 
 /obj/item/organ/internal/stomach/vox
@@ -153,7 +153,7 @@
 	parent_organ = BP_HEAD
 	icon_state = "cortical-stack"
 	organ_tag = BP_STACK
-	status = ORGAN_PROSTHETIC
+	organ_properties = ORGAN_PROP_PROSTHETIC
 	vital = 1
 	origin_tech = @"{'biotech':4,'materials':4,'magnets':2,'programming':3}"
 	relative_size = 10

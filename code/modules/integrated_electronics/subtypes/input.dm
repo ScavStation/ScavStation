@@ -363,7 +363,7 @@
 		activate_pin(2)
 
 /obj/item/integrated_circuit/input/turfpoint
-	name = "Tile pointer"
+	name = "tile pointer"
 	desc = "This circuit will get a tile ref with the provided absolute coordinates."
 	extended_desc = "If the machine	cannot see the target, it will not be able to calculate the correct direction.\
 	This circuit only works while inside an assembly."

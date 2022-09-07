@@ -91,11 +91,6 @@ default behaviour is:
 				now_pushing = 0
 				return
 			if(tmob.a_intent != I_HELP)
-				if(istype(tmob, /mob/living/carbon/human) && (MUTATION_FAT in tmob.mutations))
-					if(prob(40) && !(MUTATION_FAT in src.mutations))
-						to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
-						now_pushing = 0
-						return
 				for(var/obj/item/shield/riot/shield in tmob.get_held_items())
 					if(prob(99))
 						now_pushing = 0
@@ -386,9 +381,9 @@ default behaviour is:
 
 
 /mob/living/carbon/revive()
-	if(handcuffed && !initial(handcuffed))
-		drop_from_inventory(handcuffed)
-	handcuffed = initial(handcuffed)
+	var/obj/item/cuffs = get_equipped_item(slot_handcuffed_str)
+	if (cuffs)
+		unEquip(cuffs, get_turf(src))
 	. = ..()
 
 /mob/living/proc/revive()
@@ -482,7 +477,7 @@ default behaviour is:
 /mob/living/carbon/basic_revival(var/repair_brain = TRUE)
 	if(repair_brain && should_have_organ(BP_BRAIN))
 		repair_brain = FALSE
-		var/obj/item/organ/internal/brain = GET_INTERNAL_ORGAN(src, BP_BRAIN)
+		var/obj/item/organ/internal/brain/brain = get_organ(BP_BRAIN, /obj/item/organ/internal/brain)
 		if(brain)
 			if(brain.damage > (brain.max_damage/2))
 				brain.damage = (brain.max_damage/2)
@@ -505,13 +500,13 @@ default behaviour is:
 			return
 
 	if(isturf(old_loc))
-		for(var/atom/movable/AM AS_ANYTHING in ret_grab())
+		for(var/atom/movable/AM as anything in ret_grab())
 			if(AM != src && AM.loc != loc && !AM.anchored && old_loc.Adjacent(AM))
 				AM.glide_size = glide_size // This is adjusted by grabs again from events/some of the procs below, but doing it here makes it more likely to work with recursive movement.
 				AM.DoMove(get_dir(get_turf(AM), old_loc), src, TRUE)
 
 	var/list/mygrabs = get_active_grabs()
-	for(var/obj/item/grab/G AS_ANYTHING in mygrabs)
+	for(var/obj/item/grab/G as anything in mygrabs)
 		if(G.assailant_reverse_facing())
 			set_dir(global.reverse_dir[direction])
 		G.assailant_moved()
@@ -529,7 +524,7 @@ default behaviour is:
 		var/txt_dir = (direction & UP) ? "upwards" : "downwards"
 		if(old_loc)
 			old_loc.visible_message(SPAN_NOTICE("\The [src] moves [txt_dir]."))
-		for(var/obj/item/grab/G AS_ANYTHING in mygrabs)
+		for(var/obj/item/grab/G as anything in mygrabs)
 			var/turf/start = G.affecting.loc
 			var/turf/destination = (direction == UP) ? GetAbove(G.affecting) : GetBelow(G.affecting)
 			if(!start.CanZPass(G.affecting, direction))
@@ -549,7 +544,7 @@ default behaviour is:
 			continue
 
 	if(length(mygrabs) && !skill_check(SKILL_MEDICAL, SKILL_BASIC))
-		for(var/obj/item/grab/grab AS_ANYTHING in mygrabs)
+		for(var/obj/item/grab/grab as anything in mygrabs)
 			var/mob/living/affecting_mob = grab.get_affecting_mob()
 			if(affecting_mob)
 				affecting_mob.handle_grab_damage()
@@ -561,8 +556,8 @@ default behaviour is:
 	. = ..()
 	if(.)
 		handle_grabs_after_move(old_loc, Dir)
-		if (s_active && !( s_active in contents ) && get_turf(s_active) != get_turf(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
-			s_active.close(src)
+		if (active_storage && !( active_storage in contents ) && get_turf(active_storage) != get_turf(src))	//check !( active_storage in contents ) first so we hopefully don't have to call get_turf() so much.
+			active_storage.close(src)
 
 /mob/living/verb/resist()
 	set name = "Resist"
@@ -750,7 +745,7 @@ default behaviour is:
 	..()
 	cut_overlays()
 	if(auras)
-		for(var/obj/aura/aura AS_ANYTHING in auras)
+		for(var/obj/aura/aura as anything in auras)
 			var/image/A = new()
 			A.appearance = aura
 			add_overlay(A)
@@ -1059,4 +1054,33 @@ default behaviour is:
 
 /mob/living/proc/apply_fall_damage(var/turf/landing)
 	adjustBruteLoss(rand(max(1, CEILING(mob_size * 0.33)), max(1, CEILING(mob_size * 0.66))))
-	
+
+/mob/living/get_alt_interactions(mob/user)
+	. = ..()
+	LAZYADD(., /decl/interaction_handler/admin_kill)
+
+/decl/interaction_handler/admin_kill
+	name = "Admin Kill"
+	expected_user_type = /mob/observer
+	expected_target_type = /mob/living
+	interaction_flags = 0
+
+/decl/interaction_handler/admin_kill/is_possible(atom/target, mob/user, obj/item/prop)
+	. = ..()
+	if(.)
+		if(!check_rights(R_INVESTIGATE, 0, user))
+			return FALSE
+		var/mob/living/M = target
+		if(M.stat == DEAD)
+			return FALSE
+
+/decl/interaction_handler/admin_kill/invoked(atom/target, mob/user, obj/item/prop)
+	var/mob/living/M = target
+	var/key_name = key_name(M)
+	if(alert(user, "Do you wish to kill [key_name]?", "Kill \the [M]?", "No", "Yes") != "Yes")
+		return FALSE
+	if(!is_possible(target, user, prop))
+		to_chat(user, SPAN_NOTICE("You were unable to kill [key_name]."))
+		return FALSE
+	M.death()
+	log_and_message_admins("\The [user] admin-killed [key_name].")

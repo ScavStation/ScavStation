@@ -89,7 +89,7 @@
 		return 1
 
 /obj/item/modular_computer/on_update_icon()
-	cut_overlays()
+	. = ..()
 	for(var/decal_state in decals)
 		var/image/I = image(icon, "[icon_state]-[decal_state]")
 		I.color = decals[decal_state]
@@ -129,11 +129,12 @@
 		if(user)
 			ui_interact(user)
 
-/obj/item/modular_computer/GetIdCard()
+/obj/item/modular_computer/GetIdCards()
+	. = ..()
 	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)
 	var/obj/item/stock_parts/computer/card_slot/card_slot = assembly.get_component(PART_CARD)
 	if(card_slot && card_slot.can_broadcast && istype(card_slot.stored_card) && card_slot.check_functionality())
-		return card_slot.stored_card
+		LAZYDISTINCTADD(., card_slot.stored_card)
 
 /obj/item/modular_computer/GetChargeStick()
 	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)

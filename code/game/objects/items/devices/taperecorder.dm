@@ -45,7 +45,7 @@
 
 
 /obj/item/taperecorder/attackby(obj/item/I, mob/user, params)
-	if(isScrewdriver(I))
+	if(IS_SCREWDRIVER(I))
 		maintenance = !maintenance
 		to_chat(user, "<span class='notice'>You [maintenance ? "open" : "secure"] the lid.</span>")
 		return
@@ -368,6 +368,7 @@
 
 
 /obj/item/taperecorder/on_update_icon()
+	. = ..()
 	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 
 	if(!mytape)
@@ -400,11 +401,12 @@
 	var/ruined = 0
 	var/doctored = 0
 
-
-/obj/item/magnetic_tape/on_update_icon()
-	overlays.Cut()
-	if(ruined && max_capacity)
-		overlays += "ribbonoverlay"
+//draw_ribbon: Whether we draw the ruined ribbon overlay. Only used by quantum tape. 
+//#FIXME: Probably should be handled better.
+/obj/item/magnetic_tape/on_update_icon(var/draw_ribbon = TRUE)
+	. = ..()
+	if(draw_ribbon && ruined && max_capacity)
+		add_overlay(overlay_image(icon, "ribbonoverlay", flags = RESET_COLOR))
 
 
 /obj/item/magnetic_tape/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -441,7 +443,7 @@
 /obj/item/magnetic_tape/attackby(obj/item/I, mob/user, params)
 	if(user.incapacitated())
 		return
-	if(ruined && isScrewdriver(I))
+	if(ruined && IS_SCREWDRIVER(I))
 		if(!max_capacity)
 			to_chat(user, "<span class='notice'>There is no tape left inside.</span>")
 			return
@@ -450,7 +452,7 @@
 			to_chat(user, "<span class='notice'>You wound the tape back in.</span>")
 			fix()
 		return
-	else if(istype(I, /obj/item/pen))
+	else if(IS_PEN(I))
 		if(loc == user)
 			var/new_name = input(user, "What would you like to label the tape?", "Tape labeling") as null|text
 			if(isnull(new_name)) return
@@ -462,7 +464,7 @@
 				SetName("tape")
 				to_chat(user, "<span class='notice'>You scratch off the label.</span>")
 		return
-	else if(isWirecutter(I))
+	else if(IS_WIRECUTTER(I))
 		cut(user)
 	else if(istype(I, /obj/item/magnetic_tape/loose))
 		join(user, I)
@@ -539,7 +541,7 @@
 	return
 
 /obj/item/magnetic_tape/loose/on_update_icon()
-	return
+	. = ..(FALSE)
 
 /obj/item/magnetic_tape/loose/get_loose_tape()
 	return

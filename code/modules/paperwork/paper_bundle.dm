@@ -46,9 +46,9 @@
 		to_chat(user, "<span class='notice'>You add \the [W.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
 		qdel(W)
 	else
-		if(istype(W, /obj/item/ducttape))
+		if(istype(W, /obj/item/stack/tape_roll/duct_tape))
 			return 0
-		if(istype(W, /obj/item/pen))
+		if(IS_PEN(W))
 			show_browser(user, "", "window=[name]") //Closes the dialog
 		var/obj/P = pages[page]
 		P.attackby(W, user)
@@ -206,9 +206,11 @@
 
 
 /obj/item/paper_bundle/on_update_icon()
+	. = ..()
 	var/obj/item/paper/P = pages[1]
 	icon_state = P.icon_state
-	overlays = P.overlays
+	if(length(P.overlays))
+		set_overlays(P.overlays.Copy())
 	underlays.Cut()
 	var/i = 0
 	var/photo
@@ -227,12 +229,12 @@
 			var/obj/item/photo/Ph = O
 			img = Ph.tiny
 			photo = 1
-			overlays += img
+			add_overlay(img)
 	if(i>1)
 		desc =  "[i] papers clipped to each other."
 	else
 		desc = "A single sheet of paper."
 	if(photo)
 		desc += "\nThere is a photo attached to it."
-	overlays += image('icons/obj/bureaucracy.dmi', "clip")
+	add_overlay(image('icons/obj/bureaucracy.dmi', "clip"))
 	return

@@ -36,7 +36,7 @@
 	bcell = /obj/item/cell/apc
 
 /obj/item/defibrillator/on_update_icon()
-	cut_overlays()
+	. = ..()
 	if(paddles) //in case paddles got destroyed somehow.
 		if(paddles.loc == src)
 			add_overlay("[icon_state]-paddles")
@@ -91,7 +91,7 @@
 			to_chat(user, "<span class='notice'>You install a cell in \the [src].</span>")
 			update_icon()
 
-	else if(isScrewdriver(W))
+	else if(IS_SCREWDRIVER(W))
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)
@@ -231,7 +231,7 @@
 	..()
 
 /obj/item/shockpaddles/on_update_icon()
-	cut_overlay()
+	. = ..()
 	if(cooldown)
 		add_overlay("[icon_state]-cooldown")
 
@@ -263,8 +263,9 @@
 
 /obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
 	if(!combat)
-		for(var/obj/item/clothing/cloth in list(H.wear_suit, H.w_uniform))
-			if((cloth.body_parts_covered & SLOT_UPPER_BODY) && (cloth.item_flags & ITEM_FLAG_THICKMATERIAL))
+		for(var/slot in list(slot_wear_suit_str, slot_w_uniform_str))
+			var/obj/item/clothing/cloth = H.get_equipped_item(slot)
+			if(istype(cloth) && (cloth.body_parts_covered & SLOT_UPPER_BODY) && (cloth.item_flags & ITEM_FLAG_THICKMATERIAL))
 				return FALSE
 	return TRUE
 

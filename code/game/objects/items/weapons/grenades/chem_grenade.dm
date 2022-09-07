@@ -47,7 +47,7 @@
 			C.throw_mode_on()
 
 /obj/item/grenade/chem_grenade/on_update_icon()
-	..()
+	. = ..()
 	if(detonator)
 		add_overlay("[icon_state]-assembled")
 	if(path == 1)
@@ -77,7 +77,7 @@
 			det_time = 10*T.time
 		SetName("unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]")
 		stage = 1
-	else if(isScrewdriver(W) && path != 2)
+	else if(IS_SCREWDRIVER(W) && path != 2)
 		if(stage == 1)
 			path = 1
 			if(beakers.len)

@@ -1728,7 +1728,7 @@
 	locked = 1;
 	name = "External Construction Airlock"
 	},
-/obj/item/taperoll/engineering/applied,
+/obj/structure/tape_barricade/engineering,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exodus/maintenance/security_starboard)
 "adP" = (
@@ -5450,7 +5450,7 @@
 	locked = 1;
 	name = "External Construction Airlock"
 	},
-/obj/item/taperoll/engineering/applied,
+/obj/structure/tape_barricade/engineering,
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exodus/maintenance/security_starboard)
@@ -5899,7 +5899,7 @@
 	},
 /obj/item/clipboard,
 /obj/item/hand_labeler,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /turf/simulated/floor/tiled/dark,
 /area/exodus/lawoffice)
 "amt" = (
@@ -8644,7 +8644,7 @@
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
 /obj/item/hand_labeler,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /turf/simulated/floor/tiled/dark,
 /area/exodus/lawoffice)
 "arR" = (
@@ -10710,7 +10710,7 @@
 /area/exodus/security/prison)
 "awt" = (
 /obj/structure/table,
-/obj/structure/bedsheetbin,
+/obj/structure/bedsheetbin/mapped,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/security/prison)
 "awu" = (
@@ -14517,7 +14517,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /turf/simulated/floor/wood/walnut,
 /area/exodus/library)
 "aEG" = (
@@ -22318,18 +22318,18 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/hallway/secondary/exit)
 "aUZ" = (
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/bush/brflowers,
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
 /turf/simulated/floor/grass,
 /area/exodus/hydroponics/garden)
 "aVa" = (
-/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/bush/ppflowers,
 /turf/simulated/floor/grass,
 /area/exodus/hydroponics/garden)
 "aVb" = (
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/bush/brflowers,
 /obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
 	},
@@ -22393,7 +22393,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/hallway/secondary/entry/port)
 "aVk" = (
-/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/bush/sunnybush,
 /obj/item/radio/intercom{
 	dir = 8;
 	pixel_x = 22
@@ -22984,7 +22984,7 @@
 /turf/simulated/floor/grass,
 /area/exodus/hydroponics/garden)
 "aWE" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/bush/sparsegrass,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -23671,7 +23671,7 @@
 /turf/simulated/floor/plating,
 /area/exodus/storage/tech)
 "aYh" = (
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/bush/brflowers,
 /turf/simulated/floor/grass,
 /area/exodus/hydroponics/garden)
 "aYi" = (
@@ -23878,7 +23878,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/structure/table,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/crew_quarters/locker)
@@ -24356,7 +24356,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/quartermaster/storage)
 "aZy" = (
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/bush/brflowers,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -25306,7 +25306,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/hallway/secondary/entry/aft)
 "bbC" = (
-/obj/structure/flora/ausbushes/fernybush,
+/obj/structure/flora/bush/fernybush,
 /turf/simulated/floor/grass,
 /area/exodus/hydroponics/garden)
 "bbD" = (
@@ -25906,7 +25906,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/exodus/crew_quarters/bar)
 "bcP" = (
-/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/bush/brflowers,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
@@ -26022,7 +26022,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/exodus/chapel/main)
 "bcY" = (
-/obj/structure/flora/ausbushes,
+/obj/structure/flora/bush,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -31905,7 +31905,7 @@
 	pixel_x = -27;
 	pixel_y = 1
 	},
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/structure/table{
 	name = "plastic table frame"
 	},
@@ -43635,7 +43635,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/item/taperoll/medical,
+/obj/item/stack/tape_roll/barricade_tape/medical,
 /turf/simulated/floor/tiled/white,
 /area/exodus/medical/sleeper)
 "bMy" = (
@@ -54102,7 +54102,7 @@
 /turf/simulated/floor/tiled/white,
 /area/exodus/medical/biostorage)
 "chM" = (
-/obj/structure/bedsheetbin,
+/obj/structure/bedsheetbin/mapped,
 /obj/structure/table,
 /obj/machinery/power/apc{
 	dir = 8;
@@ -54949,7 +54949,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /turf/simulated/floor/tiled/white,
 /area/exodus/research/xenobiology/xenoflora)
 "cjD" = (
@@ -55628,7 +55628,7 @@
 "clf" = (
 /obj/structure/table/reinforced,
 /obj/item/clipboard,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/engineering/foyer)
 "clg" = (
@@ -59192,7 +59192,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /turf/simulated/floor/tiled/white,
 /area/exodus/research/xenobiology)
 "ctX" = (

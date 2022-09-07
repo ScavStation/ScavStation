@@ -50,7 +50,7 @@ var/global/list/supermatter_delam_accent_sounds = list(
 	'sound/machines/sm/accent/delam/4.ogg',
 	'sound/machines/sm/accent/delam/5.ogg',
 
-	
+
 )
 
 // Returns a truthy value that is also used for power generation by the supermatter core itself.
@@ -413,7 +413,7 @@ var/global/list/supermatter_delam_accent_sounds = list(
 			global.using_map.unbolt_saferooms()
 			for(var/mob/M in global.player_list)
 				var/turf/T = get_turf(M)
-				if(T && (T.z in global.using_map.station_levels) && !istype(M,/mob/new_player) && !isdeaf(M))
+				if(T && isStationLevel(T.z) && !istype(M,/mob/new_player) && !isdeaf(M))
 					sound_to(M, 'sound/ambience/matteralarm.ogg')
 		else if(safe_warned && public_alert)
 			announcer.autosay(alert_msg, "Supermatter Monitor")
@@ -431,14 +431,14 @@ var/global/list/supermatter_delam_accent_sounds = list(
 
 	if(damage > explosion_point)
 		if(!exploded)
-			if(!isspaceturf(L) && (L.z in global.using_map.station_levels))
+			if(!isspaceturf(L) && isStationLevel(L.z))
 				announce_warning()
 			explode()
 	else if(damage > warning_point) // while the core is still damaged and it's still worth noting its status
 		shift_light(5, warning_color)
 		if(damage > emergency_point)
 			shift_light(7, emergency_color)
-		if(!isspaceturf(L) && ((world.timeofday - lastwarning) >= WARNING_DELAY * 10) && (L.z in global.using_map.station_levels))
+		if(!isspaceturf(L) && ((world.timeofday - lastwarning) >= WARNING_DELAY * 10) && isStationLevel(L.z))
 			announce_warning()
 	else
 		shift_light(4,base_color)
@@ -457,7 +457,7 @@ var/global/list/supermatter_delam_accent_sounds = list(
 		soundloop.mid_sounds = list('sound/machines/sm/loops/delamming.ogg' = 1)
 	else
 		soundloop.mid_sounds = list('sound/machines/sm/loops/calm.ogg' = 1)
-	
+
 	// Play Delam/Neutral sounds at rate determined by power and damage.
 	if(last_accent_sound < world.time && prob(20))
 		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
@@ -558,7 +558,7 @@ var/global/list/supermatter_delam_accent_sounds = list(
 	power -= (power/decay_factor)**3		//energy losses due to radiation
 	handle_admin_warnings()
 
-	return 1	
+	return 1
 
 /obj/machinery/power/supermatter/bullet_act(var/obj/item/projectile/Proj)
 	var/turf/L = loc
@@ -621,15 +621,24 @@ var/global/list/supermatter_delam_accent_sounds = list(
 
 /obj/machinery/power/supermatter/attackby(obj/item/W, mob/user)
 
-	if(istype(W, /obj/item/ducttape))
-		to_chat(user, "You repair some of the damage to \the [src] with \the [W].")
+	if(istype(W, /obj/item/stack/tape_roll/duct_tape))
+		var/obj/item/stack/tape_roll/duct_tape/T = W
+		if(!T.can_use(20))
+			to_chat(user, SPAN_WARNING("You need at least 20 [T.plural_name] to repair \the [src]."))
+			return
+		T.use(20)
+		playsound(src, 'sound/effects/tape.ogg', 100, TRUE)
+		to_chat(user, SPAN_NOTICE("You begin to repair some of the damage to \the [src] with \the [W]."))
 		damage = max(damage -10, 0)
 
-	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
-		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
-		"<span class=\"warning\">Everything suddenly goes silent.</span>")
-	user.drop_from_inventory(W)
-	Consume(user, W, TRUE)
+	if(!QDELETED(W))
+		user.visible_message(SPAN_WARNING("\The [user] touches \the [src] with \a [W] as silence fills the room..."),\
+			SPAN_DANGER("You touch \the [W] to \the [src] when everything suddenly goes quiet."),\
+			SPAN_WARNING("Everything suddenly goes silent."))
+
+		to_chat(user, SPAN_NOTICE("\The [W] flashes into dust as you flinch away from \the [src]."))
+		user.drop_from_inventory(W)
+		Consume(user, W, TRUE)
 	user.apply_damage(150, IRRADIATE, damage_flags = DAM_DISPERSED)
 
 /obj/machinery/power/supermatter/Bumped(atom/AM)

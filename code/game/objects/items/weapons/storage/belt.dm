@@ -21,17 +21,23 @@
 	update_icon()
 
 /obj/item/storage/belt/on_update_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
-		M.update_inv_belt()
-
-	overlays.Cut()
+	. = ..()
 	if(overlay_flags & BELT_OVERLAY_ITEMS)
+		var/list/cur_overlays
 		for(var/obj/item/I in contents)
 			if(I.use_single_icon)
-				overlays += I.get_on_belt_overlay()
+				LAZYADD(cur_overlays, I.get_on_belt_overlay())
 			else
-				overlays += image('icons/obj/clothing/obj_belt_overlays.dmi', "[I.icon_state]")
+				LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', I.icon_state))
+				
+		if(LAZYLEN(cur_overlays))
+			add_overlay(cur_overlays)
+	update_clothing_icon()
+
+/obj/item/storage/belt/update_clothing_icon()
+	if(ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_belt()
 
 /obj/item/storage/belt/get_mob_overlay(mob/user_mob, slot, bodypart)
 	var/image/ret = ..()
@@ -80,19 +86,21 @@
 	H.examine_holster(user)
 
 /obj/item/storage/belt/holster/on_update_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
-		M.update_inv_belt()
-
-	overlays.Cut()
+	. = ..()
 	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
 	if(overlay_flags)
+		var/list/cur_overlays
 		for(var/obj/item/I in contents)
 			if(I == H.holstered)
 				if(overlay_flags & BELT_OVERLAY_HOLSTER)
-					overlays += image('icons/obj/clothing/obj_belt_overlays.dmi', "[I.icon_state]")
+					LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', I.icon_state))
 			else if(overlay_flags & BELT_OVERLAY_ITEMS)
-				overlays += image('icons/obj/clothing/obj_belt_overlays.dmi', "[I.icon_state]")
+				LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', I.icon_state))
+
+		if(LAZYLEN(cur_overlays))
+			add_overlay(cur_overlays)
+
+	update_clothing_icon()
 
 /obj/item/storage/belt/utility
 	name = "tool belt"
@@ -111,13 +119,12 @@
 		/obj/item/stack/cable_coil,
 		/obj/item/t_scanner,
 		/obj/item/scanner/gas,
-		/obj/item/taperoll/engineering,
 		/obj/item/inducer/,
 		/obj/item/robotanalyzer,
 		/obj/item/minihoe,
 		/obj/item/hatchet,
 		/obj/item/scanner/plant,
-		/obj/item/taperoll,
+		/obj/item/stack/tape_roll,
 		/obj/item/extinguisher/mini,
 		/obj/item/marshalling_wand,
 		/obj/item/geiger,
@@ -169,7 +176,7 @@
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/crowbar,
 		/obj/item/flashlight,
-		/obj/item/taperoll,
+		/obj/item/stack/tape_roll,
 		/obj/item/extinguisher/mini,
 		/obj/item/storage/med_pouch,
 		/obj/item/bodybag,
@@ -207,7 +214,7 @@
 		/obj/item/megaphone,
 		/obj/item/energy_blade,
 		/obj/item/baton,
-		/obj/item/taperoll,
+		/obj/item/stack/tape_roll,
 		/obj/item/holowarrant,
 		/obj/item/magnetic_ammo,
 		/obj/item/binoculars,
@@ -239,7 +246,7 @@
 		/obj/item/megaphone,
 		/obj/item/energy_blade,
 		/obj/item/baton,
-		/obj/item/taperoll,
+		/obj/item/stack/tape_roll,
 		/obj/item/holowarrant,
 		/obj/item/magnetic_ammo,
 		/obj/item/binoculars,
@@ -264,7 +271,7 @@
 		/obj/item/modular_computer/pda,
 		/obj/item/radio/headset,
 		/obj/item/megaphone,
-		/obj/item/taperoll,
+		/obj/item/stack/tape_roll,
 		/obj/item/magnetic_tape,
 		/obj/item/holowarrant,
 		/obj/item/radio,
@@ -311,7 +318,7 @@
 		/obj/item/telebaton,
 		/obj/item/taperecorder,
 		/obj/item/magnetic_tape,
-		/obj/item/taperoll,
+		/obj/item/stack/tape_roll,
 		/obj/item/folder,
 		/obj/item/paper,
 		/obj/item/clipboard,
@@ -455,17 +462,20 @@
 	name = "firefighting equipment belt"
 	desc = "A belt specially designed for firefighting."
 	icon = 'icons/clothing/belt/firefighter.dmi'
-	storage_slots = 5
+	storage_slots = 6
 	overlay_flags = BELT_OVERLAY_ITEMS
 	can_hold = list(
 		/obj/item/grenade/chem_grenade/water,
 		/obj/item/extinguisher/mini,
+		/obj/item/inflatable,
 		/obj/item/inflatable/door
 		)
 
 
 /obj/item/storage/belt/fire_belt/full
 	startswith = list(
+		/obj/item/inflatable,
+		/obj/item/inflatable,
 		/obj/item/inflatable/door,
 		/obj/item/extinguisher/mini,
 		/obj/item/grenade/chem_grenade/water = 2

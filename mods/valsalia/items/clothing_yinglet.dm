@@ -60,7 +60,7 @@
 	name = "small hood"
 	desc = "A yinglet-sized cloth hood and mantle. It has ear holes."
 	icon = 'mods/valsalia/icons/clothing/head/hood_yinglet.dmi'
-	flags_inv = BLOCKHAIR
+	flags_inv = BLOCK_HEAD_HAIR
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	color = COLOR_BEIGE
 	var/detail_color

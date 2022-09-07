@@ -20,6 +20,7 @@
 	. = ..()
 
 /obj/item/storage/slide_projector/on_update_icon()
+	. = ..()
 	icon_state = "projector[!!projection]"
 
 /obj/item/storage/slide_projector/get_mechanics_info()
@@ -130,7 +131,7 @@
 	var/weakref/source
 
 /obj/effect/projection/on_update_icon()
-	filters = filter(type="drop_shadow", color = COLOR_WHITE, size = 4, offset = 1,x = 0, y = 0)
+	add_filter("glow", 1, list("drop_shadow", color = COLOR_WHITE, size = 4, offset = 1,x = 0, y = 0))
 	project_icon()
 
 /obj/effect/projection/proc/project_icon()

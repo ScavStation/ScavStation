@@ -6,7 +6,7 @@
 
 //Food items that aren't eaten normally and leave an empty container behind.
 /obj/item/chems/condiment
-	name = "Condiment Container"
+	name = "condiment container"
 	desc = "Just your average condiment container."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "emptycondiment"
@@ -32,7 +32,7 @@
 		)
 
 /obj/item/chems/condiment/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/pen) || istype(W, /obj/item/flashlight/pen))
+	if(IS_PEN(W))
 		var/tmp_label = sanitize_safe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(tmp_label == label_text)
 			return

@@ -30,8 +30,8 @@
 	var/obj/structure/cable/attached		// the attached cable
 
 /obj/item/powersink/on_update_icon()
+	. = ..()
 	z_flags &= ~ZMM_MANGLE_PLANES
-	cut_overlays()
 	if(mode == OPERATING)
 		if(plane == HUD_PLANE)
 			add_overlay("[icon_state]-on")
@@ -72,7 +72,7 @@
 	. = ..()
 
 /obj/item/powersink/attackby(var/obj/item/I, var/mob/user)
-	if(isScrewdriver(I))
+	if(IS_SCREWDRIVER(I))
 		if(mode == DISCONNECTED)
 			var/turf/T = loc
 			if(isturf(T) && !!T.is_plating())
