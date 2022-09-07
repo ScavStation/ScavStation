@@ -1608,7 +1608,6 @@
 	icon_state = "warning"
 	},
 /obj/random/trash,
-/obj/item/clothing/suit/yingtrashbag,
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
 "zw" = (
@@ -1902,6 +1901,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/item/clothing/suit/yingtrashbag,
 /turf/simulated/floor,
 /area/ship/trade/fore_port_underside_maint)
 "LI" = (
@@ -1952,6 +1952,8 @@
 /obj/structure/table,
 /obj/item/stack/material/puck/mapped/uranium/ten,
 /obj/item/storage/box/syringes,
+/obj/item/clothing/head/helmet/space/void/scav/science,
+/obj/item/clothing/suit/space/void/scav/science,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/livestock)
 "MI" = (

@@ -20,3 +20,18 @@
 		return list(access_maint_tunnels)
 	else
 		return list()
+
+/datum/job/tradeship_helmsman
+	title = "Helmsman"
+	total_positions = 1
+	spawn_positions = -1
+	supervisors = "Command, so dont mess up!"
+	outfit_type = /decl/hierarchy/outfit/job/tradeship/hand
+	min_skill = list( SKILL_PILOT    = SKILL_ADEPT )
+	max_skill = list( SKILL_PILOT    = SKILL_MAX )
+	skill_points = 10
+	alt_titles = list("Helmsying")
+	department_types = list(/decl/department/civilian)
+	economic_power = 1
+	access = list( access_heads )
+	minimal_access = list( access_heads )

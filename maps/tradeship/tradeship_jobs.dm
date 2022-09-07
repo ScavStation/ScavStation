@@ -11,6 +11,7 @@
 	id_hud_icons = 'maps/tradeship/hud.dmi'
 	allowed_jobs = list(
 		/datum/job/tradeship_deckhand,
+		/datum/job/tradeship_helmsman,
 		/datum/job/tradeship_captain,
 		/datum/job/tradeship_first_mate,
 		/datum/job/tradeship_doctor/head,
@@ -46,10 +47,14 @@
 			/datum/job/yinglet/patriarch,
 			/datum/job/yinglet/matriarch,
 			/datum/job/tradeship_deckhand,
+			/datum/job/tradeship_helmsman,
 			/datum/job/tradeship_engineer,
+			/datum/job/tradeship_engineer/head,
 			/datum/job/tradeship_robot,
 			/datum/job/tradeship_doctor,
-			/datum/job/tradeship_researcher
+			/datum/job/tradeship_doctor/head,
+			/datum/job/tradeship_researcher,
+			/datum/job/tradeship_researcher/head
 		)
 	)
 
