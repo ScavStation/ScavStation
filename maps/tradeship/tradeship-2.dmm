@@ -295,6 +295,8 @@
 /obj/structure/closet/emcloset,
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled/techmaint,
 /area/ship/trade/maintenance/hallway)
 "aC" = (
@@ -2164,6 +2166,8 @@
 /obj/item/tank/oxygen/yellow,
 /obj/structure/closet/emcloset,
 /obj/item/clothing/accessory/tailglove,
+/obj/item/clothing/head/helmet/space/void/scav/medical,
+/obj/item/clothing/suit/space/void/scav/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fx" = (
@@ -5582,6 +5586,8 @@
 /obj/item/storage/briefcase/crimekit,
 /obj/item/taperecorder,
 /obj/item/camera,
+/obj/item/clothing/head/helmet/space/void/scav/security,
+/obj/item/clothing/suit/space/void/scav/security,
 /turf/simulated/floor/wood,
 /area/ship/trade/command/fmate)
 "Ec" = (
@@ -6038,6 +6044,8 @@
 /obj/random/voidhelmet,
 /obj/random/voidhelmet,
 /obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled,
 /area/ship/trade/crew/saloon)
 "JX" = (
@@ -6326,10 +6334,10 @@
 /obj/structure/closet/emcloset,
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
-/obj/item/clothing/head/helmet/space/void/scav/security,
-/obj/item/clothing/suit/space/void/scav/security,
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "Nx" = (

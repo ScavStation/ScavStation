@@ -145,6 +145,7 @@
 	armour_colour = COLOR_GRAY40
 	faceplate_colour = COLOR_PALE_PURPLE_GRAY
 	stripe_colour = COLOR_PURPLE
+
 /obj/item/clothing/suit/space/void/scav/matriarch
 	name = "small matriarch voidsuit"
 	color = COLOR_BEASTY_BROWN
@@ -168,3 +169,16 @@
 	color = COLOR_CHESTNUT
 	armour_colour = COLOR_CHESTNUT
 	faceplate_colour = COLOR_RED
+
+/obj/item/clothing/suit/space/void/scav/science
+	name = "small science voidsuit"
+	color = COLOR_ASTEROID_ROCK
+	armour_colour = COLOR_PALE_YELLOW
+	stripe_colour = COLOR_PALE_YELLOW
+	
+/obj/item/clothing/head/helmet/space/void/scav/science
+	name = "small science voidsuit helmet"
+	color = COLOR_PALE_YELLOW
+	armour_colour = COLOR_ASTEROID_ROCK
+	faceplate_colour = COLOR_PALE_BLUE_GRAY
+	stripe_colour = COLOR_DARK_RED

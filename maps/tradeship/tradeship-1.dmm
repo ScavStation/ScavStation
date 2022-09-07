@@ -796,6 +796,8 @@
 	},
 /obj/structure/table,
 /obj/item/integrated_circuit_printer,
+/obj/item/clothing/head/helmet/space/void/scav/science,
+/obj/item/clothing/suit/space/void/scav/science,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "ce" = (
