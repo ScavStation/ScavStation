@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(129 modules,
-    44/4040 macros, 1.1%)</aside></h3>
+<aside>(134 modules,
+    45/4097 macros, 1.1%)</aside></h3>
 <ul class="index-tree modules">
     <li><a href="(builtins).html" title="(builtins)">(builtins)</a></li>
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
@@ -41,6 +41,7 @@ General Public License version 3.
     <li><a href="code/__defines/admin.html" title="code&#x2F;__defines&#x2F;admin">admin</a></li>
     <li><a href="code/__defines/gamemode.html" title="code&#x2F;__defines&#x2F;gamemode">gamemode</a></li>
     <li><a href="code/__defines/lists.html" title="code&#x2F;__defines&#x2F;lists">lists</a></li>
+    <li><a href="code/__defines/mapping.html" title="code&#x2F;__defines&#x2F;mapping">mapping</a></li>
     <li><a href="code/__defines/zmimic.html" title="code&#x2F;__defines&#x2F;zmimic">zmimic</a></li>
     </ul></li>
     <li><span class="no-substance">_global_vars&#x2F;lists&#x2F;</span><a href="code/_global_vars/lists/objects.html" title="code&#x2F;_global_vars&#x2F;lists&#x2F;objects">objects</a></li>
@@ -62,7 +63,10 @@ General Public License version 3.
     <li><a href="code/controllers/hooks.html" title="code&#x2F;controllers&#x2F;hooks">hooks</a></li>
     <li><a href="code/controllers/hooks-defs.html" title="code&#x2F;controllers&#x2F;hooks-defs">hooks-defs</a></li>
     <li><a href="code/controllers/master.html" title="code&#x2F;controllers&#x2F;master">master</a></li>
-    <li><span class="no-substance">subsystems&#x2F;</span><a href="code/controllers/subsystems/timer.html" title="code&#x2F;controllers&#x2F;subsystems&#x2F;timer">timer</a></li>
+    <li class="has-children"><span title="code&#x2F;controllers&#x2F;subsystems">subsystems</span><ul class="index-tree">
+    <li><a href="code/controllers/subsystems/garbage.html" title="code&#x2F;controllers&#x2F;subsystems&#x2F;garbage">garbage</a> - Number of times it was destroyed before Initialize().</li>
+    <li><a href="code/controllers/subsystems/timer.html" title="code&#x2F;controllers&#x2F;subsystems&#x2F;timer">timer</a></li>
+    </ul></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;datums">datums</span><ul class="index-tree">
     <li><a href="code/datums/ai_law_sets.html" title="code&#x2F;datums&#x2F;ai_law_sets">ai_law_sets</a></li>
@@ -140,6 +144,7 @@ General Public License version 3.
     <li><a href="code/game/objects/items/weapons/AI_modules.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;weapons&#x2F;AI_modules">AI_modules</a></li>
     <li><a href="code/game/objects/items/weapons/lighter.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;weapons&#x2F;lighter">lighter</a></li>
     <li><span class="no-substance">tanks&#x2F;</span><a href="code/game/objects/items/weapons/tanks/tanks.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;weapons&#x2F;tanks&#x2F;tanks">tanks</a></li>
+    <li><a href="code/game/objects/items/weapons/tape.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;weapons&#x2F;tape">tape</a></li>
     </ul></li>
     </ul></li>
     <li><span class="no-substance">random&#x2F;</span><a href="code/game/objects/random/date_based.html" title="code&#x2F;game&#x2F;objects&#x2F;random&#x2F;date_based">date_based</a></li>
@@ -232,13 +237,19 @@ Thanks to forum_account for saving the day, the library can be found
     <li><span class="no-substance">mobs&#x2F;borers&#x2F;datum&#x2F;</span><a href="maps/tradeship/../../mods/mobs/borers/datum/ghost_trap.html" title="maps&#x2F;tradeship&#x2F;..&#x2F;..&#x2F;mods&#x2F;mobs&#x2F;borers&#x2F;datum&#x2F;ghost_trap">ghost_trap</a></li>
     </ul></li>
     </ul></li>
-    <li><span class="no-substance">mods&#x2F;</span><a href="mods/_modpack.html" title="mods&#x2F;_modpack">_modpack</a> - A list of strings that are used by the end of round credits roll.</li>
+    <li class="has-children"><span title="mods">mods</span><ul class="index-tree">
+    <li><a href="mods/_modpack.html" title="mods&#x2F;_modpack">_modpack</a> - A list of strings that are used by the end of round credits roll.</li>
+    <li class="has-children"><span class="no-substance">species&#x2F;bayliens&#x2F;skrell&#x2F;</span><span title="mods&#x2F;species&#x2F;bayliens&#x2F;skrell&#x2F;names">names</span><ul class="index-tree">
+    <li><a href="mods/species/bayliens/skrell/names/first_name_skrell.html" title="mods&#x2F;species&#x2F;bayliens&#x2F;skrell&#x2F;names&#x2F;first_name_skrell">first_name_skrell</a></li>
+    <li><a href="mods/species/bayliens/skrell/names/last_name_skrell.html" title="mods&#x2F;species&#x2F;bayliens&#x2F;skrell&#x2F;names&#x2F;last_name_skrell">last_name_skrell</a></li>
+    </ul></li>
+    </ul></li>
     </ul>
 
 
 
 <h3 id="types">Types
-<aside>(83 detailed/261 documented/17612 total, 1.5%)</aside></h3>
+<aside>(95 detailed/275 documented/17924 total, 1.5%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li><a href="area.html" title="&#x2F;area">area</a></li>
@@ -292,6 +303,7 @@ Thanks to forum_account for saving the day, the library can be found
     <li><a href="datum/controller/subsystem/jobs.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;jobs">jobs</a></li>
     <li><a href="datum/controller/subsystem/networking.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;networking">networking</a></li>
     <li><span class="no-substance">processing&#x2F;</span><a href="datum/controller/subsystem/processing/nano.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;processing&#x2F;nano">nano</a></li>
+    <li><a href="datum/controller/subsystem/secrets.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;secrets">secrets</a></li>
     <li><a href="datum/controller/subsystem/shuttle.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;shuttle">shuttle</a></li>
     <li><a href="datum/controller/subsystem/timer.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;timer">timer</a></li>
     <li><a href="datum/controller/subsystem/zcopy.html" title="&#x2F;datum&#x2F;controller&#x2F;subsystem&#x2F;zcopy">zcopy</a></li>
@@ -304,7 +316,8 @@ Then do start() to start it and stop() to stop it, obviously
 and don't call start() in a loop that will be repeated otherwise it'll get spammed!<ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;effect&#x2F;effect&#x2F;system&#x2F;trail&#x2F;steam">steam</span> - Attach a steam trail to an object (eg. a reacting beaker) that will follow it</li>
     </ul></li>
-    <li class="has-children"><span class="no-substance">extension&#x2F;</span><span title="&#x2F;datum&#x2F;extension&#x2F;scent">scent</span> - Scent extensions
+    <li class="has-children"><span title="&#x2F;datum&#x2F;extension">extension</span><ul class="index-tree">
+    <li class="has-children"><span title="&#x2F;datum&#x2F;extension&#x2F;scent">scent</span> - Scent extensions
 Usage:
 To add:
 set_extension(atom, /datum/extension/scent/PATH/TO/SPECIFIC/SCENT)
@@ -312,6 +325,8 @@ This will set up the extension and will make it begin to emit_scent.
 To remove:
 remove_extension(atom, /datum/extension/scent)<ul class="index-tree">
     <li><a href="datum/extension/scent/custom.html" title="&#x2F;datum&#x2F;extension&#x2F;scent&#x2F;custom">custom</a></li>
+    </ul></li>
+    <li><a href="datum/extension/tool.html" title="&#x2F;datum&#x2F;extension&#x2F;tool">tool</a></li>
     </ul></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;follow_holder">follow_holder</span> - Follow Metadata</li>
     <li class="has-children"><a href="datum/game_mode.html" title="&#x2F;datum&#x2F;game_mode">game_mode</a><ul class="index-tree">
@@ -334,6 +349,14 @@ Variable model is one full map line (e.g /turf/unsimulated/wall{icon_state = &qu
     <li><span class="no-substance">node&#x2F;</span><span class="no-substance" title="&#x2F;datum&#x2F;node&#x2F;test">test</span> - Helpers</li>
     <li><a href="datum/powernet.html" title="&#x2F;datum&#x2F;powernet">powernet</a></li>
     <li><a href="datum/preferences.html" title="&#x2F;datum&#x2F;preferences">preferences</a></li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;qdel_item">qdel_item</span> - Total number of times its passed thru qdel.
+Total amount of milliseconds spent processing this type's Destroy().
+Times it was queued for soft deletion but failed to soft delete.
+Different from failures because it also includes QDEL_HINT_HARDDEL deletions.
+Total amount of milliseconds spent hard deleting this type.
+Number of times its not respected force=TRUE.
+Number of times it hasn't bothered to give a qdel hint.
+Number of times slept in its destroy.</li>
     <li class="has-children"><a href="datum/shuttle.html" title="&#x2F;datum&#x2F;shuttle">shuttle</a><ul class="index-tree">
     <li><span class="no-substance">autodock&#x2F;ferry&#x2F;</span><a href="datum/shuttle/autodock/ferry/specops.html" title="&#x2F;datum&#x2F;shuttle&#x2F;autodock&#x2F;ferry&#x2F;specops">specops</a></li>
     </ul></li>
@@ -376,6 +399,7 @@ the timer.</li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;decl">decl</span><ul class="index-tree">
     <li><span class="no-substance">backpack_outfit&#x2F;</span><span class="no-substance" title="&#x2F;decl&#x2F;backpack_outfit&#x2F;nothing">nothing</span> - Outfit Backpacks</li>
+    <li><a href="decl/cocktail.html" title="&#x2F;decl&#x2F;cocktail">cocktail</a></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;decl&#x2F;ghosttrap">ghosttrap</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;decl&#x2F;ghosttrap&#x2F;cortical_borer">cortical_borer</span> - Cortical Borer</li>
     <li><span class="no-substance" title="&#x2F;decl&#x2F;ghosttrap&#x2F;maintenance_drone">maintenance_drone</span> - Maintenance Drone</li>
@@ -398,6 +422,7 @@ A list of strings that are used by the end of round credits roll.</li>
     <li><span class="no-substance" title="&#x2F;decl&#x2F;observ&#x2F;sight_set">sight_set</span> - Shuttle Moved/Pre Move Handling</li>
     </ul></li>
     <li><span class="no-substance" title="&#x2F;decl&#x2F;scent_intensity">scent_intensity</span> - Scent intensity</li>
+    <li><span class="no-substance">tool_archetype&#x2F;</span><a href="decl/tool_archetype/pen.html" title="&#x2F;decl&#x2F;tool_archetype&#x2F;pen">pen</a></li>
     <li><a href="decl/topic_command.html" title="&#x2F;decl&#x2F;topic_command">topic_command</a></li>
     </ul></li>
     <li><a href="dmm_suite.html" title="&#x2F;dmm_suite">dmm_suite</a></li>
@@ -473,6 +498,7 @@ Parameters: var/obj/item/card/id</li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;obj">obj</span><ul class="index-tree">
     <li><span class="no-substance">abstract&#x2F;</span><a href="obj/abstract/map_data.html" title="&#x2F;obj&#x2F;abstract&#x2F;map_data">map_data</a></li>
+    <li><a href="obj/compass_holder.html" title="&#x2F;obj&#x2F;compass_holder">compass_holder</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;effect">effect</span><ul class="index-tree">
     <li><span class="no-substance">decal&#x2F;cleanable&#x2F;blood&#x2F;</span><a href="obj/effect/decal/cleanable/blood/tracks.html" title="&#x2F;obj&#x2F;effect&#x2F;decal&#x2F;cleanable&#x2F;blood&#x2F;tracks">tracks</a></li>
     <li><span class="no-substance">effect&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;effect&#x2F;effect&#x2F;smoke">smoke</span> - SMOKE SYSTEMS</li>
@@ -512,6 +538,7 @@ Parameters: var/obj/item/card/id</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;camera&#x2F;siliconcam">siliconcam</span> - AI-specific</li>
     </ul></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;camera_film">camera_film</span> - film</li>
+    <li><a href="obj/item/cataloguer.html" title="&#x2F;obj&#x2F;item&#x2F;cataloguer">cataloguer</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;chems">chems</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;condiment">condiment</span> - Condiments</li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;drinks">drinks</span> - Drinks.<ul class="index-tree">
@@ -535,6 +562,7 @@ Parameters: var/obj/item/card/id</li>
     </ul></li>
     <li><span class="no-substance">syringe&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;syringe&#x2F;stabilizer">stabilizer</span> - Syringes. END</li>
     </ul></li>
+    <li><a href="obj/item/clipboard.html" title="&#x2F;obj&#x2F;item&#x2F;clipboard">clipboard</a></li>
     <li><a href="obj/item/clothing.html" title="&#x2F;obj&#x2F;item&#x2F;clothing">clothing</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;debugger">debugger</span> - Multitool -- A multitool is used for hacking electronic devices.
 TO-DO -- Using it as a power measurement tool for cables etc. Nannek.</li>
@@ -563,7 +591,11 @@ TO-DO -- Using it as a power measurement tool for cables etc. Nannek.</li>
     <li><span class="no-substance">radio&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;radio&#x2F;borg">borg</span> - Borg Radios</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;scrying">scrying</span> - Scrying orb</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;shovel">shovel</span> - Shovel</li>
-    <li><a href="obj/item/stack.html" title="&#x2F;obj&#x2F;item&#x2F;stack">stack</a></li>
+    <li class="has-children"><a href="obj/item/stack.html" title="&#x2F;obj&#x2F;item&#x2F;stack">stack</a><ul class="index-tree">
+    <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;tape_roll">tape_roll</span> - Base class for all things tape, with a limit amount of uses.<ul class="index-tree">
+    <li><a href="obj/item/stack/tape_roll/barricade_tape.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;tape_roll&#x2F;barricade_tape">barricade_tape</a></li>
+    </ul></li>
+    </ul></li>
     <li><span class="no-substance">stock_parts&#x2F;circuitboard&#x2F;</span><a href="obj/item/stock_parts/circuitboard/air_management.html" title="&#x2F;obj&#x2F;item&#x2F;stock_parts&#x2F;circuitboard&#x2F;air_management">air_management</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;storage">storage</span><ul class="index-tree">
     <li><span class="no-substance">belt&#x2F;</span><a href="obj/item/storage/belt/utility.html" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;belt&#x2F;utility">utility</a></li>
@@ -588,6 +620,7 @@ TO-DO -- Using it as a power measurement tool for cables etc. Nannek.</li>
     <li><a href="obj/machinery/microwave.html" title="&#x2F;obj&#x2F;machinery&#x2F;microwave">microwave</a></li>
     <li><a href="obj/machinery/newscaster.html" title="&#x2F;obj&#x2F;machinery&#x2F;newscaster">newscaster</a></li>
     <li><span class="no-substance">nuclear_cylinder_storage&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;nuclear_cylinder_storage&#x2F;prefilled">prefilled</span> - Special subtype for mapping.</li>
+    <li><a href="obj/machinery/papershredder.html" title="&#x2F;obj&#x2F;machinery&#x2F;papershredder">papershredder</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;shieldwall">shieldwall</span> - Containment Field START</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;shieldwallgen">shieldwallgen</span> - FIELD GEN START //shameless copypasta from fieldgen, powersink, and grille</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;sleeper">sleeper</span> - We have only 6 rod overlays, so lets clamp it.</li>
@@ -615,13 +648,16 @@ TO-DO -- Using it as a power measurement tool for cables etc. Nannek.</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;singularity&#x2F;narsie&#x2F;wizard">wizard</span> - Wizard narsie.</li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;structure">structure</span><ul class="index-tree">
+    <li><a href="obj/structure/bedsheetbin.html" title="&#x2F;obj&#x2F;structure&#x2F;bedsheetbin">bedsheetbin</a></li>
     <li><span class="no-substance">closet&#x2F;secure_closet&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;closet&#x2F;secure_closet&#x2F;miner">miner</span> - Miner Lockers</li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;disposalpipe">disposalpipe</span><ul class="index-tree">
     <li><span class="no-substance">junction&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;disposalpipe&#x2F;junction&#x2F;yjunction">yjunction</span> - Z-Level stuff</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;disposalpipe&#x2F;up">up</span> - Z-Level stuff</li>
     </ul></li>
+    <li><a href="obj/structure/flora.html" title="&#x2F;obj&#x2F;structure&#x2F;flora">flora</a></li>
     <li><a href="obj/structure/fuel_port.html" title="&#x2F;obj&#x2F;structure&#x2F;fuel_port">fuel_port</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;ore_box">ore_box</span> - Ore box</li>
+    <li><a href="obj/structure/tape_barricade.html" title="&#x2F;obj&#x2F;structure&#x2F;tape_barricade">tape_barricade</a></li>
     </ul></li>
     </ul></li>
     <li class="has-children"><a href="spell.html" title="&#x2F;spell">spell</a><ul class="index-tree">
@@ -637,7 +673,7 @@ TO-DO -- Using it as a power measurement tool for cables etc. Nannek.</li>
 </main>
 <footer>
     scavstation.dme
-    <a href="https://github.com/ScavStation/ScavStation/tree/d7bbe16780341539db8e570c0e890b2122e05ce6">d7bbe16</a>
+    <a href="https://github.com/ScavStation/ScavStation/tree/effc646cfcdf7c928ea3f834aa811355060f6d74">effc646</a>
         (dev) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.4.1</a></footer>
 </body>
 </html>
