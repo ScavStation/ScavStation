@@ -4,6 +4,7 @@
 	icon_state = "launcherbtt"
 	desc = "A remote control switch for something."
 	anchored = 1
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	layer = ABOVE_WINDOW_LAYER
 	power_channel = ENVIRON
 	idle_power_usage = 10
@@ -16,8 +17,8 @@
 	public_methods = list(/decl/public_access/public_method/toggle_input_toggle)
 	stock_part_presets = list(/decl/stock_part_preset/radio/basic_transmitter/button = 1)
 	uncreated_component_parts = list(
-		/obj/item/stock_parts/power/apc/buildable,
-		/obj/item/stock_parts/radio/transmitter/basic/buildable
+		/obj/item/stock_parts/power/apc = 1,
+		/obj/item/stock_parts/radio/transmitter/basic/buildable = 1
 	)
 	base_type = /obj/machinery/button/buildable
 	construct_state = /decl/machine_construction/wall_frame/panel_closed/simple
@@ -30,7 +31,9 @@
 	var/cooldown = 1 SECOND
 
 /obj/machinery/button/buildable
-	uncreated_component_parts = null
+	uncreated_component_parts = list(
+		/obj/item/stock_parts/power/apc = 1,
+	)
 
 /obj/machinery/button/Initialize()
 	. = ..()

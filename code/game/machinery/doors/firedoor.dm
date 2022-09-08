@@ -73,22 +73,37 @@
 	for(var/obj/machinery/door/firedoor/F in loc)
 		if(F != src && !F.allow_multiple_instances_on_same_tile)
 			return INITIALIZE_HINT_QDEL
-	var/area/A = get_area(src)
-	ASSERT(istype(A))
 
-	LAZYADD(A.all_doors, src)
-	areas_added = list(A)
-
-	for(var/direction in global.cardinal)
-		A = get_area(get_step(src,direction))
-		if(istype(A) && !(A in areas_added))
-			LAZYADD(A.all_doors, src)
-			areas_added += A
+	update_area_registrations()
 
 /obj/machinery/door/firedoor/Destroy()
 	for(var/area/A in areas_added)
-		LAZYREMOVE(A.all_doors, src)
+		unregister_area(A)
 	. = ..()
+
+/obj/machinery/door/firedoor/proc/register_area(area/A)
+	if(A && !(A in areas_added))
+		LAZYADD(A.all_doors, src)
+		LAZYADD(areas_added, A)
+
+/obj/machinery/door/firedoor/proc/unregister_area(area/A)
+		LAZYREMOVE(A.all_doors, src)
+		LAZYREMOVE(areas_added, A)
+
+/obj/machinery/door/firedoor/proc/update_area_registrations()
+	var/list/new_areas = list()
+	var/area/A = get_area(src)
+	if(A)
+		new_areas += A
+		for(var/direction in global.cardinal)
+			A = get_area(get_step(src,direction))
+			if(A)
+				new_areas |= A
+	for(var/area in areas_added)
+		if(!(area in new_areas))
+			unregister_area(area)
+	for(var/area in (new_areas - areas_added))
+		register_area(area)
 
 /obj/machinery/door/firedoor/get_material()
 	return GET_DECL(/decl/material/solid/metal/steel)
@@ -196,7 +211,7 @@
 	add_fingerprint(user, 0, C)
 	if(operating)
 		return//Already doing something.
-	if(isWelder(C) && !repairing)
+	if(IS_WELDER(C) && !repairing)
 		var/obj/item/weldingtool/W = C
 		if(W.remove_fuel(0, user))
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
@@ -213,13 +228,13 @@
 				to_chat(user, SPAN_WARNING("You must remain still to complete this task."))
 				return TRUE
 
-	if(blocked && isCrowbar(C))
+	if(blocked && IS_CROWBAR(C))
 		user.visible_message("<span class='danger'>\The [user] pries at \the [src] with \a [C], but \the [src] is welded in place!</span>",\
 		"You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
 		"You hear someone struggle and metal straining.")
 		return TRUE
 
-	if(!blocked && (isCrowbar(C) || istype(C,/obj/item/twohanded/fireaxe)))
+	if(!blocked && (IS_CROWBAR(C) || istype(C,/obj/item/twohanded/fireaxe)))
 		if(operating)
 			return ..()
 
@@ -232,7 +247,7 @@
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
 				"You hear metal strain.")
 		if(do_after(user,30,src))
-			if(isCrowbar(C))
+			if(IS_CROWBAR(C))
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message("<span class='danger'>\The [user] forces \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 					"You force \the [src] [density ? "open" : "closed"] with \the [C]!",\

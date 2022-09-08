@@ -12,7 +12,7 @@
 		fingerprintshidden = list()
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if (H.gloves)
+		if (H.get_equipped_item(slot_gloves_str))
 			src.fingerprintshidden += "\[[time_stamp()]\] (Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 			return 0
 
@@ -60,7 +60,7 @@
 
 //on examination get hints of evidence
 /mob/examinate(atom/A as mob|obj|turf in view())
-	if(UNLINT(..()))
+	if(..())
 		return 1 //I'll admit I am just imitating examine.dm
 
 

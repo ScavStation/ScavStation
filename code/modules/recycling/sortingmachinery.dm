@@ -41,7 +41,7 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(istype(W, /obj/item/pen))
+	else if(IS_PEN(W))
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitize_safe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
@@ -166,7 +166,7 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(istype(W, /obj/item/pen))
+	else if(IS_PEN(W))
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitize_safe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
@@ -199,14 +199,14 @@
 	return
 
 /obj/item/smallDelivery/on_update_icon()
-	overlays.Cut()
+	. = ..()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
-		var/image/I = new/image(icon,"delivery_label")
+		var/image/I = new/image(icon, "delivery_label")
 		if(icon_state == "deliverycrate5")
 			I.pixel_y = -1
-		overlays += I
+		add_overlay(I)
 	if(src.sortTag)
-		var/image/I = new/image(icon,"delivery_tag")
+		var/image/I = new/image(icon, "delivery_tag")
 		switch(icon_state)
 			if("deliverycrate1")
 				I.pixel_y = -5
@@ -221,7 +221,7 @@
 				I.pixel_y = 3
 			if("deliverycrate5")
 				I.pixel_y = -3
-		overlays += I
+		add_overlay(I)
 
 /obj/item/smallDelivery/examine(mob/user, distance)
 	. = ..()
@@ -471,7 +471,7 @@
 	if(!I || !user)
 		return
 
-	if(isScrewdriver(I))
+	if(IS_SCREWDRIVER(I))
 		if(c_mode==0)
 			c_mode=1
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -482,7 +482,7 @@
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(isWelder(I) && c_mode==1)
+	else if(IS_WELDER(I) && c_mode==1)
 		var/obj/item/weldingtool/W = I
 		if(W.remove_fuel(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")

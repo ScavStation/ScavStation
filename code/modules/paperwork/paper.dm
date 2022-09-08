@@ -71,6 +71,7 @@
 	updateinfolinks()
 
 /obj/item/paper/on_update_icon()
+	. = ..()
 	if(icon_state == "paper_talisman")
 		return
 	else if(info)
@@ -212,8 +213,9 @@
 	update_icon()
 
 /obj/item/paper/proc/get_signature(var/obj/item/pen/P, mob/user)
-	if(P && istype(P, /obj/item/pen))
-		return P.get_signature(user)
+	if(P && IS_PEN(P))
+		var/decl/tool_archetype/pen/parch = GET_DECL(TOOL_PEN)
+		return parch.get_signature(user, P)
 	return (user && user.real_name) ? user.real_name : "Anonymous"
 
 /obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfancy)
@@ -236,12 +238,13 @@
 		t = replacetext(t, "\[cell\]", "")
 		t = replacetext(t, "\[logo\]", "")
 
+	var/pen_color = P? P.get_tool_property(TOOL_PEN, TOOL_PROP_COLOR) : "black"
 	if(iscrayon)
-		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
+		t = "<font face=\"[crayonfont]\" color=[pen_color]><b>[t]</b></font>"
 	else if(isfancy)
-		t = "<font face=\"[fancyfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
+		t = "<font face=\"[fancyfont]\" color=[pen_color]><i>[t]</i></font>"
 	else
-		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
+		t = "<font face=\"[deffont]\" color=[pen_color]>[t]</font>"
 
 	t = pencode2html(t)
 
@@ -296,9 +299,9 @@
 		var/obj/item/I = usr.get_active_hand() // Check to see if he still got that darn pen, also check what type of pen
 		var/iscrayon = 0
 		var/isfancy = 0
-		if(!istype(I, /obj/item/pen))
-			if(usr.back && istype(usr.back,/obj/item/rig))
-				var/obj/item/rig/r = usr.back
+		if(!IS_PEN(I))
+			var/obj/item/rig/r = usr.get_equipped_item(slot_back_str)
+			if(istype(r))
 				var/obj/item/rig_module/device/pen/m = locate(/obj/item/rig_module/device/pen) in r.installed_modules
 				if(!r.offline && m)
 					I = m.device
@@ -307,15 +310,12 @@
 			else
 				return
 
-		var/obj/item/pen/P = I
-		if(!P.active)
-			P.toggle()
-
-		if(P.iscrayon)
-			iscrayon = TRUE
-
-		if(P.isfancy)
-			isfancy = TRUE
+		var/pen_flags = I.get_tool_property(TOOL_PEN, TOOL_PROP_PEN_FLAG)
+		if(!(pen_flags & PEN_FLAG_ACTIVE))
+			var/decl/tool_archetype/pen/parch = GET_DECL(TOOL_PEN)
+			parch.toggle_active(usr, I)
+		iscrayon = pen_flags & PEN_FLAG_CRAYON
+		isfancy  = pen_flags & PEN_FLAG_FANCY
 
 		var/t =  sanitize(input("Enter what you want to write:", "Write", null, null) as message, free_space, extra = 0, trim = 0)
 
@@ -360,8 +360,8 @@
 	if(user.mind && (user.mind.assigned_role == "Clown"))
 		clown = 1
 
-	if(istype(P, /obj/item/ducttape))
-		var/obj/item/ducttape/tape = P
+	if(istype(P, /obj/item/stack/tape_roll/duct_tape))
+		var/obj/item/stack/tape_roll/duct_tape/tape = P
 		tape.stick(src, user)
 		return
 
@@ -393,7 +393,7 @@
 		B.pages.Add(P)
 		B.update_icon()
 
-	else if(istype(P, /obj/item/pen))
+	else if(IS_PEN(P))
 		if(icon_state == "scrap")
 			to_chat(usr, "<span class='warning'>\The [src] is too crumpled to write on.</span>")
 			return
@@ -480,6 +480,7 @@
 	icon_state = "scrap"
 
 /obj/item/paper/crumpled/on_update_icon()
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /obj/item/paper/crumpled/bloody

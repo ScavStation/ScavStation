@@ -82,6 +82,11 @@
 
 	return ..()
 
+// Called if an atom is deleted before it initializes. Only call Destroy in this if you know what you're doing.
+/atom/proc/EarlyDestroy(force = FALSE)
+	return QDEL_HINT_QUEUE
+
+
 // Movable level stuff
 
 /atom/movable/Initialize(ml, ...)
@@ -98,7 +103,6 @@
 		loc.Entered(src, null)
 
 /atom/movable/Destroy()
-
 	// Clear this up early so it doesn't complain about events being disposed while it's listening.
 	if(isatom(virtual_mob))
 		QDEL_NULL(virtual_mob)
@@ -110,13 +114,6 @@
 	unregister_all_movement(loc, src) // unregister events before destroy to avoid expensive checking
 
 	. = ..()
-
-#ifdef DISABLE_DEBUG_CRASH
-	// meh do nothing. we know what we're doing. pro engineers.
-#else
-	if(!(atom_flags & ATOM_FLAG_INITIALIZED))
-		PRINT_STACK_TRACE("Was deleted before initialization")
-#endif
 
 	for(var/A in src)
 		qdel(A)

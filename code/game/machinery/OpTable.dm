@@ -1,5 +1,5 @@
 /obj/machinery/optable
-	name = "Operating Table"
+	name = "operating table"
 	desc = "Used for advanced medical procedures."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
@@ -44,11 +44,6 @@
 		updateUsrDialog()
 
 /obj/machinery/optable/physical_attack_hand(var/mob/user)
-	if(MUTATION_HULK in user.mutations)
-		visible_message("<span class='danger'>\The [usr] destroys \the [src]!</span>")
-		src.set_density(0)
-		qdel(src)
-		return TRUE
 
 	if(!victim)
 		to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")

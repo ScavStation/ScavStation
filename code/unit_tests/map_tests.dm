@@ -261,7 +261,7 @@
 
 /datum/unit_test/correct_allowed_spawn_test/start_test()
 	var/list/failed = list()
-	for(var/decl/spawnpoint/spawnpoint AS_ANYTHING in global.using_map.allowed_spawns)
+	for(var/decl/spawnpoint/spawnpoint as anything in global.using_map.allowed_spawns)
 		if(!length(spawnpoint.turfs))
 			log_unit_test("Map allows spawning in [spawnpoint.name], but [spawnpoint.name] has no associated spawn turfs.")
 			failed += spawnpoint.type
@@ -804,6 +804,9 @@
 /datum/unit_test/doors_shall_be_on_appropriate_turfs
 	name = "MAP: Doors shall be on appropriate turfs"
 
+/obj/abstract/map_data/proc/get_door_turf_exceptions(var/obj/machinery/door/D)
+	return LAZYACCESS(UT_turf_exceptions_by_door_type, D.type)
+
 /datum/unit_test/doors_shall_be_on_appropriate_turfs/start_test()
 	var/bad_doors = 0
 	for(var/obj/machinery/door/D in SSmachines.machinery)
@@ -813,10 +816,8 @@
 			bad_doors++
 			log_bad("Invalid door turf: [log_info_line(D.loc)]]")
 		else
-			var/list/turf_exceptions
 			var/obj/abstract/map_data/MD = get_map_data(D.loc.z)
-			if(UNLINT(MD?.UT_turf_exceptions_by_door_type))
-				turf_exceptions = UNLINT(MD.UT_turf_exceptions_by_door_type[D.type])
+			var/list/turf_exceptions = MD?.get_door_turf_exceptions(D)
 
 			var/is_bad_door = FALSE
 			for(var/turf/T in D.locs)

@@ -22,7 +22,7 @@
 	)
 	relative_size = 60
 	req_access = list(access_robotics)
-	status = ORGAN_PROSTHETIC //triggers robotization on init
+	organ_properties = ORGAN_PROP_PROSTHETIC //triggers robotization on init
 	scale_max_damage_to_species_health = FALSE
 
 	var/mob/living/silicon/sil_brainmob/brainmob = null
@@ -138,14 +138,14 @@
 	update_icon()
 
 /obj/item/organ/internal/posibrain/on_update_icon()
+	. = ..()
 	if(src.brainmob && src.brainmob.key)
 		icon_state = "posibrain-occupied"
 	else
 		icon_state = "posibrain"
 
-	overlays.Cut()
 	if(shackle)
-		overlays |= image('icons/obj/assemblies.dmi', "posibrain-shackles")
+		add_overlay("posibrain-shackles")
 
 /obj/item/organ/internal/posibrain/proc/transfer_identity(var/mob/living/carbon/H)
 	if(H && H.mind)
@@ -215,7 +215,7 @@
 	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
 	vital = 1
-	status = ORGAN_PROSTHETIC //triggers robotization on init
+	organ_properties = ORGAN_PROP_PROSTHETIC //triggers robotization on init
 	var/open
 	var/obj/item/cell/cell = /obj/item/cell/hyper
 	//at 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still
@@ -272,7 +272,7 @@
 		cell.emp_act(severity)
 
 /obj/item/organ/internal/cell/attackby(obj/item/W, mob/user)
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		if(open)
 			open = 0
 			to_chat(user, "<span class='notice'>You screw the battery panel in place.</span>")
@@ -280,7 +280,7 @@
 			open = 1
 			to_chat(user, "<span class='notice'>You unscrew the battery panel.</span>")
 
-	if(isCrowbar(W))
+	if(IS_CROWBAR(W))
 		if(open)
 			if(cell)
 				user.put_in_hands(cell)
@@ -313,7 +313,7 @@
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
 	vital = TRUE
-	status = ORGAN_PROSTHETIC //triggers robotization on init
+	organ_properties = ORGAN_PROP_PROSTHETIC //triggers robotization on init
 	scale_max_damage_to_species_health = FALSE
 	var/obj/item/mmi/stored_mmi
 	var/datum/mind/persistantMind //Mind that the organ will hold on to after being removed, used for transfer_and_delete

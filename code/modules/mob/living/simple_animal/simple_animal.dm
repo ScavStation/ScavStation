@@ -91,6 +91,8 @@
 	var/glowing_eyes = FALSE
 	var/mob_icon_state_flags = 0
 
+	var/scannable_result // Codex page generated when this mob is scanned.
+
 /mob/living/simple_animal/Initialize()
 	. = ..()
 	check_mob_icon_states()
@@ -98,6 +100,8 @@
 		set_extension(src, armor_type, natural_armor)
 	if(islist(hat_offsets))
 		set_extension(src, /datum/extension/hattable/directional, hat_offsets)
+	if(scannable_result)
+		set_extension(src, /datum/extension/scannable, scannable_result)
 
 /mob/living/simple_animal/proc/check_mob_icon_states()
 	mob_icon_state_flags = 0
@@ -595,3 +599,15 @@
 
 /mob/living/simple_animal/get_telecomms_race_info()
 	return list("Domestic Animal", FALSE)
+
+/mob/living/simple_animal/handle_flashed(var/obj/item/flash/flash, var/flash_strength)
+	var/safety = eyecheck()
+	if(safety < FLASH_PROTECTION_MAJOR)
+		SET_STATUS_MAX(src, STAT_WEAK, 2)
+		if(safety < FLASH_PROTECTION_MODERATE)
+			SET_STATUS_MAX(src, STAT_STUN, (flash_strength - 2))
+			SET_STATUS_MAX(src, STAT_BLURRY, flash_strength)
+			SET_STATUS_MAX(src, STAT_CONFUSE, flash_strength)
+			flash_eyes(2)
+		return TRUE
+	return FALSE

@@ -4,6 +4,7 @@
 	icon_state = "globe"
 	sector_flags = OVERMAP_SECTOR_KNOWN
 	free_landing = TRUE
+
 	var/area/planetary_area
 
 	var/lightlevel = 0 		//This default makes turfs not generate light. Adjust to have exoplanents be lit.
@@ -155,6 +156,7 @@
 	return engravings
 
 /obj/effect/overmap/visitable/sector/exoplanet/Process(wait, tick)
+
 	if(animals.len < 0.5*max_animal_count && !repopulating)
 		repopulating = 1
 		max_animal_count = round(max_animal_count * 0.5)
@@ -163,10 +165,11 @@
 		handle_repopulation()
 
 	if(daycycle)
+		wait = max(1, wait)
 		if(tick % round(daycycle / wait) == 0)
 			night = !night
 			daycolumn = 1
-		if(daycolumn && tick % round(daycycle_column_delay / wait) == 0)
+		if(daycolumn && (tick % round(daycycle_column_delay / wait)) == 0)
 			update_daynight()
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/update_daynight()
@@ -174,7 +177,10 @@
 	if(!night)
 		light = lightlevel
 	for(var/turf/exterior/T in block(locate(daycolumn,1,min(map_z)),locate(daycolumn,maxy,max(map_z))))
-		T.set_light(light)
+		if (light)
+			T.set_ambient_light(COLOR_WHITE, light)
+		else
+			T.clear_ambient_light()
 	daycolumn++
 	if(daycolumn > maxx)
 		daycolumn = 0
@@ -202,14 +208,16 @@
 				new map_type(x_origin, y_origin, zlevel, x_size, y_size, FALSE, TRUE, planetary_area)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
-	for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
-		var/datum/map_template/ruin/exoplanet/ruin = T
-		if(ruin_tags_whitelist && !(ruin_tags_whitelist & initial(ruin.ruin_tags)))
+	var/list/ruins = SSmapping.get_templates_by_category(MAP_TEMPLATE_CATEGORY_EXOPLANET)
+	for(var/ruin_name in ruins)
+		var/datum/map_template/ruin = ruins[ruin_name]
+		var/ruin_tags = ruin.get_ruin_tags()
+		if(ruin_tags_whitelist && !(ruin_tags_whitelist & ruin_tags))
 			continue
-		if(ruin_tags_blacklist & initial(ruin.ruin_tags))
+		if(ruin_tags_blacklist & ruin_tags)
 			continue
-		possible_features += new ruin
-	spawned_features = seedRuins(map_z, features_budget, /area/exoplanet, possible_features, maxx, maxy)
+		possible_features += ruin
+	spawned_features = seed_ruins(map_z, features_budget, /area/exoplanet, possible_features, maxx, maxy)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_daycycle()
 	if(lightlevel)
@@ -218,6 +226,16 @@
 		//When you set daycycle ensure that the minimum is larger than [maxx * daycycle_column_delay].
 		//Otherwise the right side of the exoplanet can get stuck in a forever day.
 		daycycle = rand(10 MINUTES, 40 MINUTES)
+
+	// This was formerly done in Initialize, but that caused problems with ChangeTurf. The initialize logic is now
+	// mapload-only, and so the exoplanet step (which uses ChangeTurf) has to be done here.
+	for(var/target_z in map_z)
+		for(var/turf/exterior/exterior_turf in block(
+			locate(TRANSITIONEDGE, TRANSITIONEDGE, target_z),
+			locate(world.maxx - TRANSITIONEDGE, world.maxy - TRANSITIONEDGE, target_z)
+		))
+			exterior_turf.setup_environmental_lighting()
+			CHECK_TICK
 
 //Tries to generate num landmarks, but avoids repeats.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_landing()
@@ -275,8 +293,8 @@
 
 	if(LAZYLEN(spawned_features) && user.skill_check(SKILL_SCIENCE, SKILL_ADEPT))
 		var/ruin_num = 0
-		for(var/datum/map_template/ruin/exoplanet/R in spawned_features)
-			if(!(R.ruin_tags & RUIN_NATURAL))
+		for(var/datum/map_template/R in spawned_features)
+			if(!(R.get_ruin_tags() & RUIN_NATURAL))
 				ruin_num++
 		if(ruin_num)
 			extra_data += "<br>[ruin_num] possible artificial structure\s detected."

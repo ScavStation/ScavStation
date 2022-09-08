@@ -10,7 +10,7 @@
 	var/buckle_dir = 0
 	var/buckle_lying = -1             // bed-like behavior, forces mob.lying = buckle_lying if != -1
 	var/buckle_pixel_shift            // ex. @"{'x':0,'y':0,'z':0}" //where the buckled mob should be pixel shifted to, or null for no pixel shift control
-	var/buckle_require_restraints = 0 // require people to be handcuffed before being able to buckle. eg: pipes
+	var/buckle_require_restraints = 0 // require people to be cuffed before being able to buckle. eg: pipes
 	var/buckle_require_same_tile = FALSE
 	var/buckle_sound
 	var/mob/living/buckled_mob = null
@@ -321,7 +321,7 @@
 	if(!simulated)
 		return
 
-	if(!z || (z in global.using_map.sealed_levels))
+	if(!z || isSealedLevel(z))
 		return
 
 	if(!global.universe.OnTouchMapEdge(src))
@@ -470,7 +470,7 @@
 	var/mob/living/M = unbuckle_mob()
 	if(M)
 		show_unbuckle_message(M, user)
-		for(var/obj/item/grab/G AS_ANYTHING in (M.grabbed_by|grabbed_by))
+		for(var/obj/item/grab/G as anything in (M.grabbed_by|grabbed_by))
 			qdel(G)
 		add_fingerprint(user)
 	return M
@@ -492,3 +492,28 @@
 
 /atom/movable/proc/try_make_grab(var/mob/living/user, var/defer_hand = FALSE)
 	return istype(user) && CanPhysicallyInteract(user) && !user.lying && user.make_grab(src)
+
+/atom/movable/get_alt_interactions(var/mob/user)
+	. = ..()
+	if(config.expanded_alt_interactions)
+		LAZYADD(., list(
+			/decl/interaction_handler/look,
+			/decl/interaction_handler/grab
+		))
+
+/decl/interaction_handler/look
+	name = "Examine"
+	expected_user_type = /mob
+	interaction_flags = 0
+
+/decl/interaction_handler/look/invoked(atom/target, mob/user, obj/item/prop)
+	target.examine(user, get_dist(user, target))
+
+/decl/interaction_handler/grab
+	name = "Grab"
+	expected_target_type = /atom/movable
+	interaction_flags = INTERACTION_NEEDS_PHYSICAL_INTERACTION | INTERACTION_NEEDS_TURF
+
+/decl/interaction_handler/grab/invoked(atom/target, mob/user, obj/item/prop)
+	var/atom/movable/AM = target
+	AM.try_make_grab(user, defer_hand = TRUE)

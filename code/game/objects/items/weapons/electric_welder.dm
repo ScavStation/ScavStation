@@ -49,7 +49,7 @@
 /obj/item/weldingtool/electric/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W,/obj/item/stack/material/rods) || istype(W, /obj/item/welder_tank))
 		return
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		if(cell)
 			cell.dropInto(get_turf(src))
 			user.put_in_hands(cell)
@@ -78,7 +78,7 @@
 		T.hotspot_expose(700, 5)
 
 /obj/item/weldingtool/electric/on_update_icon()
-	..()
+	. = ..()
 	if(cell)
 		add_overlay("[icon_state]-cell")
 

@@ -41,8 +41,9 @@
 		affecting_mob.UpdateLyingBuckledAndVerbStatus()
 		if(ishuman(affecting_mob))
 			var/mob/living/carbon/human/H = affecting_mob
-			if(H.w_uniform)
-				H.w_uniform.add_fingerprint(assailant)
+			var/obj/item/uniform = H.get_equipped_item(slot_w_uniform_str)
+			if(uniform)
+				uniform.add_fingerprint(assailant)
 
 	LAZYADD(affecting.grabbed_by, src) // This is how we handle affecting being deleted.
 	adjust_position()
@@ -229,6 +230,7 @@
 		update_icon()
 
 /obj/item/grab/on_update_icon()
+	. = ..()
 	if(current_grab.icon)
 		icon = current_grab.icon
 	if(current_grab.icon_state)

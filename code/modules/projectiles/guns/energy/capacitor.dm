@@ -83,8 +83,9 @@ var/global/list/laser_wavelengths
 /obj/item/gun/energy/capacitor/Initialize()
 	if(!laser_wavelengths)
 		laser_wavelengths = list()
-		for(var/laser in subtypesof(/decl/laser_wavelength))
-			laser_wavelengths += GET_DECL(laser)
+		var/list/all_wavelengths = decls_repository.get_decls_of_subtype(/decl/laser_wavelength)
+		for(var/laser in all_wavelengths)
+			laser_wavelengths += all_wavelengths[laser]
 	selected_wavelength = pick(laser_wavelengths)
 	if(ispath(capacitors))
 		var/capacitor_type = capacitors
@@ -101,7 +102,7 @@ var/global/list/laser_wavelengths
 	if(charging)
 		return ..()
 
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		if(length(capacitors))
 			var/obj/item/stock_parts/capacitor/capacitor = capacitors[1]
 			capacitor.charge = 0
@@ -185,7 +186,7 @@ var/global/list/laser_wavelengths
 	. = round(power_supply?.charge / (total_charge_cost / capacitor_charge_constant))
 
 /obj/item/gun/energy/capacitor/on_update_icon()
-	cut_overlays()
+	. = ..()
 	var/image/I = image(icon, "[icon_state]-wiring")
 	I.color = wiring_color
 	I.appearance_flags |= RESET_COLOR
@@ -281,7 +282,7 @@ var/global/list/laser_wavelengths
 	wiring_color = COLOR_GOLD
 
 /obj/item/gun/energy/capacitor/rifle/linear_fusion/attackby(obj/item/W, mob/user)
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed; you can't get the components out."))
 		return TRUE
 	. = ..()

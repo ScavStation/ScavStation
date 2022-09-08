@@ -22,6 +22,8 @@
 	burn_product = /decl/material/gas/carbon_monoxide // placeholder for more appropriate toxins
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	default_solid_form = /obj/item/stack/material/sheet
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/plastic/generate_recipes(var/reinforce_material)
 	. = ..()
@@ -70,6 +72,8 @@
 	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	default_solid_form = /obj/item/stack/material/cardstock
 	exoplanet_rarity = MAT_RARITY_NOWHERE
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/cardboard/generate_recipes(var/reinforce_material)
 	. = ..()
@@ -79,6 +83,11 @@
 	. += new/datum/stack_recipe/cardborg_suit(src)
 	. += new/datum/stack_recipe/cardborg_helmet(src)
 	. += new/datum/stack_recipe_list("folders", create_recipe_list(/datum/stack_recipe/folder))
+
+/decl/material/solid/paper
+	name = "paper"
+	uid = "solid_paper"
+	//STUB: Waiting on papwerork PR
 
 /decl/material/solid/cloth //todo
 	name = "cotton"
@@ -100,6 +109,8 @@
 	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	default_solid_form = /obj/item/stack/material/bolt
 	exoplanet_rarity = MAT_RARITY_NOWHERE
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/cloth/yellow
 	name = "yellow"
@@ -172,6 +183,8 @@
 	hidden_from_codex = TRUE
 	default_solid_form = /obj/item/stack/material/bolt
 	exoplanet_rarity = MAT_RARITY_NOWHERE
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/plantmatter
 	name = "plant matter"
@@ -191,6 +204,8 @@
 	wall_support_value = MAT_VALUE_LIGHT
 	value = 0.8
 	default_solid_form = /obj/item/stack/material/slab
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/meat
 	name = "meat"
@@ -210,6 +225,8 @@
 	wall_support_value = MAT_VALUE_LIGHT
 	value = 0.8
 	default_solid_form = /obj/item/stack/material/slab
+	sound_manipulate = 'sound/foley/meat1.ogg'
+	sound_dropped = 'sound/foley/meat2.ogg'
 
 /decl/material/solid/skin
 	name = "skin"
@@ -229,6 +246,8 @@
 	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	value = 1.2
 	default_solid_form = /obj/item/stack/material/skin
+	sound_manipulate = 'sound/foley/meat1.ogg'
+	sound_dropped = 'sound/foley/meat2.ogg'
 	var/tans_to = /decl/material/solid/leather
 
 /decl/material/solid/skin/generate_recipes(var/reinforce_material)
@@ -256,6 +275,8 @@
 	hardness = MAT_VALUE_RIGID
 	weight = MAT_VALUE_VERY_LIGHT
 	brute_armor = 2
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/skin/fur
 	name = "fur"
@@ -263,6 +284,8 @@
 	color = "#7a726d"
 	tans_to = /decl/material/solid/leather/fur
 	default_solid_form = /obj/item/stack/material/skin/pelt
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/skin/fur/gray
 	uid = "solid_fur_gray"
@@ -309,6 +332,8 @@
 	uid = "solid_feathers"
 	color = COLOR_SILVER
 	default_solid_form = /obj/item/stack/material/skin/feathers
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/skin/feathers/purple
 	color = COLOR_PALE_PURPLE_GRAY
@@ -350,6 +375,8 @@
 	weight = MAT_VALUE_NORMAL
 	wall_support_value = MAT_VALUE_NORMAL
 	default_solid_form = /obj/item/stack/material/bone
+	sound_manipulate = 'sound/foley/stickspickup1.ogg'
+	sound_dropped = 'sound/foley/sticksdrop1.ogg'
 
 /decl/material/solid/bone/generate_recipes(var/reinforce_material)
 	. = ..()
@@ -389,6 +416,8 @@
 	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	default_solid_form = /obj/item/stack/material/skin
 	exoplanet_rarity = MAT_RARITY_NOWHERE
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/leather/generate_recipes(var/reinforce_material)
 	. = ..()

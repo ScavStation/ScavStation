@@ -14,6 +14,7 @@
 
 	// Status tracking.
 	var/status = 0                         // Various status flags (such as robotic)
+	var/organ_properties = 0               // A flag for telling what capabilities this organ has. ORGAN_PROP_PROSTHETIC, ORGAN_PROP_CRYSTAL, etc..
 	var/vital                              // Lose a vital limb, die immediately.
 
 	// Reference data.
@@ -89,7 +90,7 @@
 
 //Allows specialization of roboticize() calls on initialization meant to be used when loading prosthetics
 // NOTE: This wouldn't be necessary if prothetics were a subclass
-/obj/item/organ/proc/setup_as_prosthetic(var/forced_model = /decl/prosthetics_manufacturer)
+/obj/item/organ/proc/setup_as_prosthetic()
 	if(!species)
 		if(owner?.species)
 			set_species(owner.species)
@@ -97,9 +98,9 @@
 			set_species(global.using_map.default_species)
 
 	if(istype(material))
-		robotize(forced_model, apply_material = material.type)
+		robotize(apply_material = material.type)
 	else 
-		robotize(forced_model)
+		robotize()
 	return TRUE
 
 //Called on initialization to add the neccessary reagents
@@ -145,6 +146,8 @@
 		min_broken_damage = max(1, FLOOR(min_broken_damage * total_health_coefficient))
 		absolute_max_damage = max(1, FLOOR(min_broken_damage * 2))
 	max_damage = absolute_max_damage // resets scarring, but ah well
+
+	reset_status()
 
 /obj/item/organ/proc/die()
 	damage = max_damage
@@ -286,14 +289,18 @@
 	qdel(src)
 
 /obj/item/organ/proc/rejuvenate(var/ignore_prosthetic_prefs)
+	SHOULD_CALL_PARENT(TRUE)
 	damage = 0
-	status = initial(status)
-	if(ignore_prosthetic_prefs && ishuman(owner) && owner.client && owner.client.prefs && owner.client.prefs.real_name == owner.real_name)
+	reset_status()
+	if(!ignore_prosthetic_prefs && owner?.client?.prefs && owner.client.prefs.real_name == owner.real_name)
 		for(var/decl/aspect/aspect as anything in owner.personal_aspects)
 			if(aspect.applies_to_organ(organ_tag))
 				aspect.apply(owner)
-	if(species)
-		species.post_organ_rejuvenate(src, owner)
+
+/obj/item/organ/proc/reset_status()
+	status = initial(status)
+	if(species) // qdel clears species ref
+		species.apply_species_organ_modifications(src)
 
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
@@ -321,19 +328,16 @@
 	if (can_recover())
 		damage = between(0, damage - round(amount, 0.1), max_damage)
 
-/obj/item/organ/proc/robotize(var/company = /decl/prosthetics_manufacturer, var/skip_prosthetics = 0, var/keep_organs = 0, var/apply_material = /decl/material/solid/metal/steel, var/check_bodytype, var/check_species)
-	status = ORGAN_PROSTHETIC
+/obj/item/organ/proc/robotize(var/company, var/skip_prosthetics = 0, var/keep_organs = 0, var/apply_material = /decl/material/solid/metal/steel, var/check_bodytype, var/check_species)
+	BP_SET_PROSTHETIC(src)
 	QDEL_NULL(dna)
 	reagents?.clear_reagents()
 	material = GET_DECL(apply_material)
 	matter = null
 	create_matter()
 
-/obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
-	status = ORGAN_ASSISTED
-
 /obj/item/organ/attack(var/mob/target, var/mob/user)
-	if(status & ORGAN_PROSTHETIC || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
+	if(BP_IS_PROSTHETIC(src) || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"Ew, no.","Bon appetit!") == "Ew, no.")
@@ -369,8 +373,6 @@
 	. = list()
 	if(BP_IS_CRYSTAL(src))
 		. += tag ? "<span class='average'>Crystalline</span>" : "Crystalline"
-	else if(BP_IS_ASSISTED(src))
-		. += tag ? "<span class='average'>Assisted</span>" : "Assisted"
 	else if(BP_IS_PROSTHETIC(src))
 		. += tag ? "<span class='average'>Mechanical</span>" : "Mechanical"
 	if(status & ORGAN_CUT_AWAY)

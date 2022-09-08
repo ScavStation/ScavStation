@@ -88,11 +88,16 @@
 	playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 /decl/crafting_stage/screwdriver/progress_to(obj/item/thing, mob/user)
-	. = ..() && isScrewdriver(thing)
+	. = ..() && IS_SCREWDRIVER(thing)
 
 /decl/crafting_stage/tape
+	stack_consume_amount = 4
 	consume_completion_trigger = FALSE
-	completion_trigger_type = /obj/item/ducttape
+	completion_trigger_type = /obj/item/stack/tape_roll/duct_tape
+
+/decl/crafting_stage/tape/on_progress(var/mob/user)
+	..()
+	playsound(user.loc, 'sound/effects/tape.ogg', 100, 1)
 
 /decl/crafting_stage/pipe
 	completion_trigger_type = /obj/item/pipe

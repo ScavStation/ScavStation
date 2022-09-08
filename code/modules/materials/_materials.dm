@@ -112,7 +112,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	// Attributes
 	/// How rare is this material generally?
-	var/exoplanet_rarity = MAT_RARITY_MUNDANE 
+	var/exoplanet_rarity = MAT_RARITY_MUNDANE
 	/// Delay in ticks when cutting through this wall.
 	var/cut_delay = 0
 	/// Radiation var. Used in wall and object processing to irradiate surroundings.
@@ -125,7 +125,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/boiling_point = 3000
 	/// kJ/kg, enthalpy of vaporization
 	var/latent_heat = 7000
-	/// kg/mol, 
+	/// kg/mol,
 	var/molar_mass = 0.06
 	/// Brute damage to a wall is divided by this value if the wall is reinforced by this material.
 	var/brute_armor = 2
@@ -144,18 +144,18 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	/// Used for checking if a material can function as a wall support.
 	var/wall_support_value = 30
 	/// Ore generation constant for rare materials.
-	var/sparse_material_weight                
+	var/sparse_material_weight
 	/// Ore generation constant for common materials.
-	var/rich_material_weight                  
+	var/rich_material_weight
 	/// How transparent can fluids be?
-	var/min_fluid_opacity = FLUID_MIN_ALPHA   
+	var/min_fluid_opacity = FLUID_MIN_ALPHA
 	/// How opaque can fluids be?
 	var/max_fluid_opacity = FLUID_MAX_ALPHA
 	/// Point at which the fluid will proc turf interaction logic. Workaround for mops being ruined forever by 1u of anything else being added.
-	var/turf_touch_threshold = FLUID_QDEL_POINT 
+	var/turf_touch_threshold = FLUID_QDEL_POINT
 
 	// Damage values.
-	var/hardness = MAT_VALUE_HARD            // Prob of wall destruction by hulk, used for edge damage in weapons.
+	var/hardness = MAT_VALUE_HARD            // Used for edge damage in weapons.
 	var/reflectiveness = MAT_VALUE_DULL
 
 	var/weight = MAT_VALUE_NORMAL             // Determines blunt damage/throwforce for weapons.
@@ -268,6 +268,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/moderation_target		  // The 'target' neutron energy value that the fission environment shifts towards after a moderation event.
 								  // Neutron moderators can only slow down neutrons.
 
+	var/sound_manipulate          //Default sound something like a material stack made of this material does when picked up
+	var/sound_dropped             //Default sound something like a material stack made of this material does when hitting the ground or placed down
+
 // Placeholders for light tiles and rglass.
 /decl/material/proc/reinforce(var/mob/user, var/obj/item/stack/material/used_stack, var/obj/item/stack/material/target_stack, var/use_sheets = 1)
 	if(!used_stack.can_use(use_sheets))
@@ -300,6 +303,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 // Make sure we have a use name and shard icon even if they aren't explicitly set.
 /decl/material/Initialize()
 	. = ..()
+	if(!name)
+		CRASH("Unnamed material /decl tried to initialize.")
 	if(!use_name)
 		use_name = name
 	if(!liquid_name)
@@ -426,6 +431,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	if(shard_type)
 		return create_object(target, 1, /obj/item/shard)
 
+/**Places downa as many shards as needed for the given amount of matter units. Returns a list of all the cuttings. */
+/decl/material/proc/place_cuttings(var/turf/target, var/matter_units)
+	//STUB: Waiting on papwerork PR
+
 // Used by walls and weapons to determine if they break or not.
 /decl/material/proc/is_brittle()
 	return !!(flags & MAT_FLAG_BRITTLE)
@@ -504,44 +513,48 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 			T.assume_gas(vapor, (volume * vapor_products[vapor]), temperature)
 		holder.remove_reagent(type, volume)
 
-/decl/material/proc/on_mob_life(var/mob/living/M, var/alien, var/location, var/datum/reagents/holder) // Currently, on_mob_life is called on carbons. Any interaction with non-carbon mobs (lube) will need to be done in touch_mob.
+/decl/material/proc/on_mob_life(var/mob/living/M, var/metabolism_class, var/datum/reagents/holder, var/list/life_dose_tracker)
+
 	if(QDELETED(src))
 		return // Something else removed us.
 	if(!istype(M))
 		return
 	if(!(flags & AFFECTS_DEAD) && M.stat == DEAD && (world.time - M.timeofdeath > 150))
 		return
-	if(overdose && (location != CHEM_TOUCH))
-		var/overdose_threshold = overdose * (flags & IGNORE_MOB_SIZE? 1 : MOB_SIZE_MEDIUM/M.mob_size)
-		if(REAGENT_VOLUME(holder, type) > overdose_threshold)
-			affect_overdose(M, alien, holder)
+
+	// Keep track of dosage of chems across holders for overdosing purposes
+	if(overdose && metabolism_class != CHEM_TOUCH && islist(life_dose_tracker))
+		life_dose_tracker[src] += REAGENT_VOLUME(holder, type)
 
 	//determine the metabolism rate
-	var/removed = metabolism
-	if(ingest_met && (location == CHEM_INGEST))
-		removed = ingest_met
-	if(touch_met && (location == CHEM_TOUCH))
-		removed = touch_met
+	var/removed
+	switch(metabolism_class)
+		if(CHEM_INGEST)
+			removed = ingest_met
+		if(CHEM_TOUCH)
+			removed = touch_met
+	if(!removed)
+		removed = metabolism
 	removed = M.get_adjusted_metabolism(removed)
 
 	//adjust effective amounts - removed, dose, and max_dose - for mob size
 	var/effective = removed
-	if(!(flags & IGNORE_MOB_SIZE) && location != CHEM_TOUCH)
+	if(!(flags & IGNORE_MOB_SIZE) && metabolism_class != CHEM_TOUCH)
 		effective *= (MOB_SIZE_MEDIUM/M.mob_size)
 
 	var/dose = LAZYACCESS(M.chem_doses, type) + effective
 	LAZYSET(M.chem_doses, type, dose)
 	if(effective >= (metabolism * 0.1) || effective >= 0.1) // If there's too little chemical, don't affect the mob, just remove it
-		switch(location)
+		switch(metabolism_class)
 			if(CHEM_INJECT)
-				affect_blood(M, alien, effective, holder)
+				affect_blood(M, effective, holder)
 			if(CHEM_INGEST)
-				affect_ingest(M, alien, effective, holder)
+				affect_ingest(M, effective, holder)
 			if(CHEM_TOUCH)
-				affect_touch(M, alien, effective, holder)
+				affect_touch(M, effective, holder)
 	holder.remove_reagent(type, removed)
 
-/decl/material/proc/affect_blood(var/mob/living/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/material/proc/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(radioactivity)
 		M.apply_damage(radioactivity * removed, IRRADIATE, armor_pen = 100)
 
@@ -575,11 +588,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	if(euphoriant)
 		SET_STATUS_MAX(M, STAT_DRUGGY, euphoriant)
 
-/decl/material/proc/affect_ingest(var/mob/living/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/material/proc/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(affect_blood_on_ingest)
-		affect_blood(M, alien, removed * 0.5, holder)
+		affect_blood(M, removed * 0.5, holder)
 
-/decl/material/proc/affect_touch(var/mob/living/M, var/alien, var/removed, var/datum/reagents/holder)
+/decl/material/proc/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
 
 	if(!istype(M))
 		return
@@ -597,18 +610,25 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	if(dirtiness <= DIRTINESS_CLEAN)
 		for(var/obj/item/thing in M.get_held_items())
 			thing.clean_blood()
-		if(M.wear_mask)
-			M.wear_mask.clean_blood()
+		var/obj/item/mask = M.get_equipped_item(slot_wear_mask_str)
+		if(mask)
+			mask.clean_blood()
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			if(H.head)
-				H.head.clean_blood()
-			if(H.wear_suit)
-				H.wear_suit.clean_blood()
-			else if(H.w_uniform)
-				H.w_uniform.clean_blood()
-			if(H.shoes)
-				H.shoes.clean_blood()
+			var/obj/item/head = H.get_equipped_item(slot_head_str)
+			if(head)
+				head.clean_blood()
+			var/obj/item/suit = H.get_equipped_item(slot_wear_suit_str)
+			if(suit)
+				suit.clean_blood()
+			else
+				var/obj/item/uniform = H.get_equipped_item(slot_w_uniform_str)
+				if(uniform)
+					uniform.clean_blood()
+
+			var/obj/item/shoes = H.get_equipped_item(slot_shoes_str)
+			if(shoes)
+				shoes.clean_blood()
 			else
 				H.clean_blood(1)
 				return
@@ -618,7 +638,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			for(var/obj/item/thing in list(H.head, H.wear_mask, H.glasses))
+			for(var/slot in global.standard_headgear_slots)
+				var/obj/item/thing = H.get_equipped_item(slot)
+				if(!istype(thing))
+					continue
 				if(thing.unacidable || !H.unEquip(thing))
 					to_chat(H, SPAN_NOTICE("Your [thing] protects you from the acid."))
 					holder.remove_reagent(type, REAGENT_VOLUME(holder, type))
@@ -640,7 +663,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		if(!M.unacidable)
 			M.take_organ_damage(0, min(removed * solvent_power * ((removed < solvent_melt_dose) ? 0.1 : 0.2), solvent_max_damage), override_droplimb = DISMEMBER_METHOD_ACID)
 
-/decl/material/proc/affect_overdose(var/mob/living/M, var/alien, var/datum/reagents/holder) // Overdose effect. Doesn't happen instantly.
+/decl/material/proc/affect_overdose(var/mob/living/M) // Overdose effect. Doesn't happen instantly.
 	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustToxLoss(REM)
 
@@ -673,6 +696,19 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	if(prop.reagents.has_reagent(/decl/material/solid/ice))
 		. = "iced [.]"
+
+/decl/material/proc/get_presentation_desc(var/obj/item/prop)
+	. = glass_desc
+	if(prop?.reagents?.total_volume)
+		. = build_presentation_desc_from_reagents(prop, .)
+
+/decl/material/proc/build_presentation_desc_from_reagents(var/obj/item/prop, var/supplied)
+	. = supplied
+
+	if(cocktail_ingredient)
+		for(var/decl/cocktail/cocktail in SSmaterials.get_cocktails_by_primary_ingredient(type))
+			if(cocktail.matches(prop))
+				return cocktail.get_presentation_desc(prop)
 
 /decl/material/proc/neutron_interact(var/neutron_energy, var/total_interacted_units, var/total_units)
 	. = list() // Returns associative list of interaction -> interacted units

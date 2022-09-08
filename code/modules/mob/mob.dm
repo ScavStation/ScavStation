@@ -9,8 +9,8 @@
 
 	unset_machine()
 	QDEL_NULL(hud_used)
-	if(s_active)
-		s_active.close(src)
+	if(active_storage)
+		active_storage.close(src)
 	if(istype(ability_master))
 		QDEL_NULL(ability_master)
 	if(istype(skillset))
@@ -214,7 +214,7 @@
 #undef ENCUMBERANCE_MOVEMENT_MOD
 
 /mob/proc/encumbrance()
-	for(var/obj/item/grab/G AS_ANYTHING in get_active_grabs())
+	for(var/obj/item/grab/G as anything in get_active_grabs())
 		. = max(., G.grab_slowdown())
 	. *= (0.8 ** size_strength_mod())
 	. *= (0.5 + 1.5 * (SKILL_MAX - get_skill_value(SKILL_HAULING))/(SKILL_MAX - SKILL_MIN))
@@ -1071,7 +1071,7 @@
 		if(brolly.gives_weather_protection())
 			LAZYADD(., brolly)
 	if(!LAZYLEN(.))
-		for(var/turf/T AS_ANYTHING in RANGE_TURFS(loc, 1))
+		for(var/turf/T as anything in RANGE_TURFS(loc, 1))
 			for(var/obj/structure/flora/tree/tree in T)
 				if(tree.protects_against_weather)
 					LAZYADD(., tree)
@@ -1079,10 +1079,10 @@
 /mob/living/carbon/human/get_weather_protection()
 	. = ..()
 	if(!LAZYLEN(.))
-		var/obj/item/clothing/head/check_head = head
+		var/obj/item/clothing/head/check_head = get_equipped_item(slot_head_str)
 		if(!istype(check_head) || !check_head.protects_against_weather)
 			return
-		var/obj/item/clothing/suit/check_body = wear_suit
+		var/obj/item/clothing/suit/check_body = get_equipped_item(slot_wear_suit_str)
 		if(!istype(check_body) || !check_body.protects_against_weather)
 			return
 		LAZYADD(., check_head)
@@ -1149,3 +1149,9 @@
 		return A.is_open() && neighbor.Adjacent(A)
 
 	return FALSE
+
+/mob/proc/handle_flashed(var/obj/item/flash/flash, var/flash_strength)
+	return FALSE
+
+/mob/proc/do_flash_animation()
+	return

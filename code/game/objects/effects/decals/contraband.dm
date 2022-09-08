@@ -19,11 +19,10 @@
 		. = INITIALIZE_HINT_QDEL
 		CRASH("Invalid poster type: [log_info_line(given_poster_type)]")
 
+	var/list/posters = decls_repository.get_decl_paths_of_subtype(/decl/poster)
 	poster_type = given_poster_type || poster_type
 	if(!poster_type)
-		poster_type = pick(subtypesof(/decl/poster))
-
-	var/list/posters = subtypesof(/decl/poster)
+		poster_type = pick(posters)
 	var/serial_number = posters.Find(poster_type)
 	name += " - No. [serial_number]"
 
@@ -97,7 +96,7 @@
 		if(give_poster_type)
 			poster_type = give_poster_type
 		else
-			poster_type = pick(subtypesof(/decl/poster))
+			poster_type = pick(decls_repository.get_decl_paths_of_subtype(/decl/poster))
 	set_poster(poster_type)
 
 	pixel_x = 0
@@ -120,7 +119,7 @@
 	icon_state = design.icon_state
 
 /obj/structure/sign/poster/attackby(obj/item/W, mob/user)
-	if(isWirecutter(W))
+	if(IS_WIRECUTTER(W))
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
 			to_chat(user, "<span class='notice'>You remove the remnants of the poster.</span>")

@@ -12,7 +12,6 @@
 
 /datum/map_template/ruin/away_site/errant_pisces
 	name = "Errant Pisces"
-	id = "awaysite_errant_pisces"
 	description = "Carp trawler"
 	suffixes = list("errant_pisces/errant_pisces.dmm")
 	cost = 1
@@ -192,6 +191,7 @@
 	amount = 30
 
 /obj/item/stack/net/on_update_icon()
+	. = ..()
 	if(amount == 1)
 		icon_state = "net"
 	else

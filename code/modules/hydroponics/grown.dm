@@ -20,6 +20,9 @@
 	if(!seed)
 		return INITIALIZE_HINT_QDEL
 
+	if(seed.scannable_result)
+		set_extension(src, /datum/extension/scannable, seed.scannable_result)
+
 	SetName("[seed.seed_name]")
 	trash = seed.get_trash_type()
 	if(!dried_type)
@@ -112,15 +115,15 @@
 	desc += ". Delicious! Probably."
 
 /obj/item/chems/food/grown/on_update_icon()
+	. = ..()
 	if(!seed)
 		return
-	overlays.Cut()
 	icon_state = "[seed.get_trait(TRAIT_PRODUCT_ICON)]-product"
 	color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 	if("[seed.get_trait(TRAIT_PRODUCT_ICON)]-leaf" in icon_states('icons/obj/hydroponics/hydroponics_products.dmi'))
 		var/image/fruit_leaves = image('icons/obj/hydroponics/hydroponics_products.dmi',"[seed.get_trait(TRAIT_PRODUCT_ICON)]-leaf")
 		fruit_leaves.color = seed.get_trait(TRAIT_PLANT_COLOUR)
-		overlays |= fruit_leaves
+		add_overlay(fruit_leaves)
 
 /obj/item/chems/food/grown/Crossed(var/mob/living/M)
 	set waitfor = FALSE
@@ -132,7 +135,8 @@
 
 			if(istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
-				if(H.shoes && H.shoes.item_flags & ITEM_FLAG_NOSLIP)
+				var/obj/item/shoes = H.get_equipped_item(slot_shoes_str)
+				if(shoes && shoes.item_flags & ITEM_FLAG_NOSLIP)
 					return
 
 			to_chat(M, SPAN_DANGER("You slipped on \the [src]!"))
@@ -160,7 +164,7 @@ var/global/list/_wood_materials = list(
 /obj/item/chems/food/grown/attackby(var/obj/item/W, var/mob/user)
 
 	if(seed)
-		if(seed.get_trait(TRAIT_PRODUCES_POWER) && isCoil(W))
+		if(seed.get_trait(TRAIT_PRODUCES_POWER) && IS_COIL(W))
 			var/obj/item/stack/cable_coil/C = W
 			if(C.use(5))
 				//TODO: generalize this.
@@ -180,7 +184,7 @@ var/global/list/_wood_materials = list(
 				return TRUE
 
 			if(seed.chems)
-				if(isHatchet(W))
+				if(IS_HATCHET(W))
 					for(var/wood_mat in global._wood_materials)
 						if(!isnull(seed.chems[wood_mat]))
 							user.visible_message("<span class='notice'>\The [user] makes planks out of \the [src].</span>")
@@ -297,7 +301,7 @@ var/global/list/_wood_materials = list(
 		return
 	if(seed.get_trait(TRAIT_STINGS))
 		var/mob/living/carbon/human/H = user
-		if(istype(H) && H.gloves)
+		if(istype(H) && H.get_equipped_item(slot_gloves_str))
 			return
 		if(!reagents || reagents.total_volume <= 0)
 			return

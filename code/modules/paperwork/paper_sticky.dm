@@ -22,6 +22,7 @@
 	update_matter()
 
 /obj/item/sticky_pad/on_update_icon()
+	. = ..()
 	if(papers <= 15)
 		icon_state = "pad_empty"
 	else if(papers <= 50)
@@ -32,7 +33,7 @@
 		icon_state = "[icon_state]_writing"
 
 /obj/item/sticky_pad/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing, /obj/item/pen))
+	if(IS_PEN(thing))
 
 		if(jobban_isbanned(user, "Graffiti"))
 			to_chat(user, SPAN_WARNING("You are banned from leaving persistent information across rounds."))
@@ -106,6 +107,7 @@
 	. = ..()
 
 /obj/item/paper/sticky/on_update_icon()
+	. = ..()
 	if(icon_state != "scrap")
 		icon_state = info ? "paper_words" : "paper"
 

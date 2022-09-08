@@ -25,11 +25,11 @@
 		update_icon()
 
 /obj/item/grenade/on_update_icon()
-	cut_overlays()
+	. = ..()
 	if(active)
 		if(check_state_in_icon("[icon_state]-active", icon))
 			if(plane == HUD_PLANE)
-				add_overlay(image(icon, "[icon_state]-active"))
+				add_overlay("[icon_state]-active")
 			else
 				add_overlay(emissive_overlay(icon, "[icon_state]-active"))
 	else if(check_state_in_icon("[icon_state]-pin", icon))
@@ -81,7 +81,7 @@
 		T.hotspot_expose(700,125)
 
 /obj/item/grenade/attackby(obj/item/W, mob/user)
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		switch(det_time)
 			if (1)
 				det_time = 10

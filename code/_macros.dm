@@ -7,6 +7,8 @@
 
 #define get_turf(A) get_step(A,0)
 
+#define get_area(A) (get_step(A, 0)?.loc)
+
 #define get_x(A) (get_step(A, 0)?.x || 0)
 
 #define get_y(A) (get_step(A, 0)?.y || 0)
@@ -162,6 +164,8 @@
 #define SPAN_SUBTLE(X) "<span class='subtle'>[X]</span>"
 
 #define SPAN_INFO(X) "<span class='info'>[X]</span>"
+
+#define STYLE_SMALLFONTS(X, S, C1) "<span style=\"font-family: 'Small Fonts'; color: [C1]; font-size: [S]px\">[X]</span>"
 
 #define STYLE_SMALLFONTS_OUTLINE(X, S, C1, C2) "<span style=\"font-family: 'Small Fonts'; color: [C1]; -dm-text-outline: 1 [C2]; font-size: [S]px\">[X]</span>"
 

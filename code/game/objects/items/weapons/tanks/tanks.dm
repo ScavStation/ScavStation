@@ -23,6 +23,7 @@ var/global/list/global/tank_gauge_cache = list()
 	name = "tank"
 	icon = 'icons/obj/items/tanks/tank_blue.dmi'
 	icon_state = ICON_STATE_WORLD
+	material = /decl/material/solid/metal/steel
 
 	var/gauge_icon = "indicator_tank"
 	var/gauge_cap = 6
@@ -131,14 +132,14 @@ var/global/list/global/tank_gauge_cache = list()
 		LB.blow(src)
 		add_fingerprint(user)
 
-	if(isCoil(W))
+	if(IS_COIL(W))
 		var/obj/item/stack/cable_coil/C = W
 		if(C.use(1))
 			wired = 1
 			to_chat(user, "<span class='notice'>You attach the wires to the tank.</span>")
 			update_icon(TRUE)
 
-	if(isWirecutter(W))
+	if(IS_WIRECUTTER(W))
 		if(wired && proxyassembly.assembly)
 
 			to_chat(user, "<span class='notice'>You carefully begin clipping the wires that attach to the tank.</span>")
@@ -187,7 +188,7 @@ var/global/list/global/tank_gauge_cache = list()
 		else
 			to_chat(user, "<span class='notice'>You need to wire the device up first.</span>")
 
-	if(isWelder(W))
+	if(IS_WELDER(W))
 		var/obj/item/weldingtool/WT = W
 		if(WT.remove_fuel(1,user))
 			if(!valve_welded)
@@ -256,11 +257,13 @@ var/global/list/global/tank_gauge_cache = list()
 				mask_check = 1
 
 		if(mask_check)
-			if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
+			var/obj/item/mask = location.get_equipped_item(slot_wear_mask_str)
+			if(mask && (mask.item_flags & ITEM_FLAG_AIRTIGHT))
 				data["maskConnected"] = 1
 			else if(istype(location, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = location
-				if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
+				var/obj/item/head = H.get_equipped_item(slot_head_str)
+				if(head && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
 
 	// update the ui if it exists, returns null if no ui is passed/found
@@ -312,11 +315,13 @@ var/global/list/global/tank_gauge_cache = list()
 		location.set_internals(null)
 	else
 		var/can_open_valve
-		if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
+		var/obj/item/mask = location.get_equipped_item(slot_wear_mask_str)
+		if(mask && (mask.item_flags & ITEM_FLAG_AIRTIGHT))
 			can_open_valve = 1
 		else if(istype(location,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = location
-			if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
+			var/obj/item/head = H.get_equipped_item(slot_head_str)
+			if(head && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 				can_open_valve = 1
 
 		if(can_open_valve)
@@ -371,13 +376,13 @@ var/global/list/global/tank_gauge_cache = list()
 	check_status()
 
 /obj/item/tank/on_update_icon(var/override)
-
+	. = ..()
 	var/list/overlays_to_add
 	if(override && (proxyassembly.assembly || wired))
-		LAZYADD(overlays_to_add, image('icons/obj/items/tanks/tank_components.dmi',"bomb_assembly"))
+		LAZYADD(overlays_to_add, overlay_image('icons/obj/items/tanks/tank_components.dmi', "bomb_assembly"))
 		if(proxyassembly.assembly)
-			var/image/bombthing = image(proxyassembly.assembly.icon, proxyassembly.assembly.icon_state)
-			bombthing.overlays |= proxyassembly.assembly.overlays
+			var/mutable_appearance/bombthing = new(proxyassembly.assembly)
+			bombthing.appearance_flags = RESET_COLOR
 			bombthing.pixel_y = -1
 			bombthing.pixel_x = -3
 			LAZYADD(overlays_to_add, bombthing)
@@ -396,8 +401,7 @@ var/global/list/global/tank_gauge_cache = list()
 				tank_gauge_cache[indicator] = image('icons/obj/items/tanks/tank_indicators.dmi', indicator)
 			LAZYADD(overlays_to_add, tank_gauge_cache[indicator])
 		previous_gauge_pressure = gauge_pressure
-
-	overlays = overlays_to_add
+	add_overlay(overlays_to_add)
 
 //Handle exploding, leaking, and rupturing of the tank
 /obj/item/tank/proc/check_status()
@@ -580,6 +584,7 @@ var/global/list/global/tank_gauge_cache = list()
 	air_contents.add_thermal_energy(15000)
 
 /obj/item/tankassemblyproxy/on_update_icon()
+	. = ..()
 	tank.update_icon()
 
 /obj/item/tankassemblyproxy/HasProximity(atom/movable/AM)
