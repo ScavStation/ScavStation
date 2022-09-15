@@ -184,13 +184,13 @@
 	stripe_colour = COLOR_DARK_RED
 
 /obj/item/clothing/suit/space/void/scav/indie
-	name = "small science voidsuit"
+	name = "small Verne voidsuit"
 	color = COLOR_WHITE
 	armour_colour = COLOR_CYAN_BLUE
 	stripe_colour = COLOR_TEAL
 	
 /obj/item/clothing/head/helmet/space/void/scav/indie
-	name = "small science voidsuit helmet"
+	name = "small Verne voidsuit helmet"
 	color = COLOR_WHITE
 	armour_colour = COLOR_CYAN_BLUE
 	faceplate_colour = COLOR_PURPLE_GRAY
