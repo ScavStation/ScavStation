@@ -182,3 +182,16 @@
 	armour_colour = COLOR_ASTEROID_ROCK
 	faceplate_colour = COLOR_PALE_BLUE_GRAY
 	stripe_colour = COLOR_DARK_RED
+
+/obj/item/clothing/suit/space/void/scav/indie
+	name = "small science voidsuit"
+	color = COLOR_WHITE
+	armour_colour = COLOR_CYAN_BLUE
+	stripe_colour = COLOR_TEAL
+	
+/obj/item/clothing/head/helmet/space/void/scav/indie
+	name = "small science voidsuit helmet"
+	color = COLOR_WHITE
+	armour_colour = COLOR_CYAN_BLUE
+	faceplate_colour = COLOR_PURPLE_GRAY
+	stripe_colour = COLOR_TEAL
