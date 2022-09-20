@@ -458,6 +458,11 @@
 	dir = 4
 	},
 /obj/random/closet,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/item/stack/material/reinforced/mapped/plasteel/fifty,
+/obj/item/stack/material/reinforced/mapped/plasteel/fifty,
+/obj/item/stack/material/reinforced/mapped/plasteel/fifty,
+/obj/item/stack/material/reinforced/mapped/plasteel/fifty,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
 "be" = (
