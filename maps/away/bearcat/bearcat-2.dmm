@@ -115,9 +115,12 @@
 /area/ship/scrap/comms)
 "as" = (
 /obj/machinery/door/blast/regular{
-	id_tag = "sensor"
+	id_tag = "sensor";
+	dir = 4
 	},
-/turf/simulated/floor/usedup,
+/turf/simulated/floor/usedup{
+	initial_gas = null
+	},
 /area/ship/scrap/comms)
 "at" = (
 /obj/effect/paint/brown,
@@ -154,7 +157,9 @@
 /area/ship/scrap/command/bridge)
 "ax" = (
 /obj/machinery/shipsensors,
-/turf/simulated/floor/usedup,
+/turf/simulated/floor/usedup{
+	initial_gas = null
+	},
 /area/ship/scrap/comms)
 "ay" = (
 /obj/machinery/light,
@@ -286,8 +291,6 @@
 /obj/item/storage/backpack/dufflebag/syndie,
 /obj/item/storage/box/ammo/shotgunshells,
 /obj/item/handcuffs,
-/obj/item/clothing/suit/space/void/scav/security,
-/obj/item/clothing/head/helmet/space/void/scav/security,
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
 "aL" = (
@@ -491,7 +494,7 @@
 /obj/item/chems/drinks/glass2/coffeecup/one,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/emergency,
-/obj/item/clothing/head/helmet/space/void/scav/security,
+/obj/item/flashlight,
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
 "bd" = (
@@ -1214,6 +1217,7 @@
 	},
 /obj/item/trash/tray,
 /obj/item/circular_saw,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/crew/saloon)
 "cz" = (
@@ -1317,7 +1321,8 @@
 /obj/random/voidsuit,
 /obj/item/clothing/head/helmet/space/void/scav/security,
 /obj/item/clothing/suit/space/void/scav/security,
-/obj/item/tank/oxygen,
+/obj/item/clothing/head/helmet/space/void/scav/security,
+/obj/item/clothing/suit/space/void/scav/security,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/crew/saloon)
 "cM" = (
@@ -4739,6 +4744,7 @@
 /obj/structure/window/reinforced{
 	health = 1e+007
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/scrap/maintenance/atmos)
 "je" = (
@@ -5150,6 +5156,7 @@
 "uM" = (
 /obj/item/stack/material/sheet/mapped/steel,
 /obj/structure/lattice,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/space,
 /area/ship/scrap/maintenance/atmos)
 "vs" = (
@@ -5174,6 +5181,10 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/space)
+"zq" = (
+/obj/item/stack/material/rods,
+/turf/space,
+/area/ship/scrap/maintenance/atmos)
 "zT" = (
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
@@ -5226,9 +5237,12 @@
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/crew/kitchen)
 "Hd" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/space,
-/area/space)
+/obj/item/stack/material/sheet/mapped/steel,
+/obj/machinery/atmospherics/unary/tank/nitrogen{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/ship/scrap/maintenance/atmos)
 "HQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/reinforced/airless,
@@ -5275,9 +5289,9 @@
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/engineering)
 "KW" = (
-/obj/item/stack/material/rods,
+/obj/item/shard,
 /obj/structure/lattice,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/space,
 /area/ship/scrap/maintenance/atmos)
 "Lp" = (
@@ -5319,6 +5333,12 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/hidden)
+"Nc" = (
+/obj/machinery/network/router{
+	initial_network_id = "bearnet"
+	},
+/turf/simulated/floor/bluegrid/airless,
+/area/ship/scrap/comms)
 "Od" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -11202,7 +11222,7 @@ aa
 xU
 vs
 sy
-KW
+hM
 id
 io
 id
@@ -11325,14 +11345,14 @@ wp
 gY
 hx
 hx
-ie
+Hd
 iQ
-hw
+zq
 iP
 Eq
-id
+KW
 Yl
-Hd
+aa
 aa
 aa
 aa
@@ -11576,7 +11596,7 @@ IG
 Mm
 hN
 hx
-hM
+hw
 aa
 aa
 aa
@@ -12023,7 +12043,7 @@ xU
 Yv
 Yv
 ar
-aH
+Nc
 aO
 aX
 Yv
