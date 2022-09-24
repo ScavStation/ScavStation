@@ -11,5 +11,6 @@
 
 	initial_generic_waypoints = list("nav_tradeship_below_bow", "nav_tradeship_below_starboardastern", "nav_tradeship_port_dock_shuttle")
 	initial_restricted_waypoints = list(
-		/datum/shuttle/autodock/overmap/exploration = list("nav_tradeship_starboard_dock_pod"), //pod can only dock starboard-side, b/c there's only one door.
+		/datum/shuttle/autodock/overmap/exploration = list("nav_tradeship_starboard_dock_rescue"), //pod can only dock starboard-side, b/c there's only one door.
+		/datum/shuttle/autodock/overmap/rescue = list("nav_tradeship_port_dock_shuttle")
 	)
