@@ -192,7 +192,7 @@
 /mob/living/carbon/human/proc/regenerate_blood(var/amount)
 	amount *= (species.blood_volume / SPECIES_BLOOD_DEFAULT)
 	var/blood_volume_raw = vessel.total_volume
-	amount = FLOAT_FLOOR(max(0,min(amount, species.blood_volume - blood_volume_raw)), MINIMUM_CHEMICAL_VOLUME)
+	amount = max(0,min(amount, species.blood_volume - blood_volume_raw))
 	if(amount)
 		adjust_blood(amount, get_blood_data())
 	return amount
