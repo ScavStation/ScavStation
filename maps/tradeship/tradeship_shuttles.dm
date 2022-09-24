@@ -12,7 +12,7 @@
 	dock_target = "tradeship_shuttle"
 	current_location = "nav_tradeship_port_dock_shuttle"
 
-	/datum/shuttle/autodock/overmap/rescue
+/datum/shuttle/autodock/overmap/rescue
 	name = "Rescue Shuttle"
 	shuttle_area = /area/ship/trade/shuttle/rescue
 	dock_target = "rescue_shuttle"
