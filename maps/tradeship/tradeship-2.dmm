@@ -5731,7 +5731,6 @@
 	dir = 8
 	},
 /obj/effect/decal/warning_stripes,
-/obj/item/taperoll/engineering/applied,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/shuttle/rescue)
 "Eb" = (
