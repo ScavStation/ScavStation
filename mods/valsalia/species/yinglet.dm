@@ -66,8 +66,8 @@
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_STOMACH =  /obj/item/organ/internal/stomach/yinglet,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_LIVER =    /obj/item/organ/internal/liver/yinglet,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/yinglet,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes/yinglet
 	)
@@ -127,6 +127,10 @@
 		. = autohiss_basic_map?.Copy()
 	if(!islist(.))
 		. = list()
+
+/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
+	return
+
 /obj/item/holder/yinglet
 	sharp = 1
 	edge = 1
@@ -145,5 +149,14 @@
 		return TRUE
 	. = ..()
 
-/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
-	return
+/obj/item/organ/internal/liver/yinglet
+	scale_max_damage_to_species_health = FALSE
+	min_bruised_damage = 30
+	min_broken_damage = 60
+	max_damage = 85
+
+/obj/item/organ/internal/kidneys/yinglet
+	scale_max_damage_to_species_health = FALSE
+	min_bruised_damage = 30
+	min_broken_damage = 60
+	max_damage = 85
