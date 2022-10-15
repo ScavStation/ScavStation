@@ -1059,4 +1059,7 @@ default behaviour is:
 
 /mob/living/proc/apply_fall_damage(var/turf/landing)
 	adjustBruteLoss(rand(max(1, CEILING(mob_size * 0.33)), max(1, CEILING(mob_size * 0.66))))
-	
+
+/mob/living/proc/get_toxin_resistance()
+	var/decl/species/species = get_species()
+	return isnull(species) ? 1 : species.toxins_mod

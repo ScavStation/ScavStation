@@ -85,6 +85,7 @@
 	blood_volume = 350
 	hunger_factor = 0.1
 	inherent_verbs = list(/mob/living/proc/hide)
+	toxins_mod = 0.65
 
 	available_cultural_info = list(
 		TAG_CULTURE =   list(
