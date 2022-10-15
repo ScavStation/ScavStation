@@ -122,6 +122,42 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	slot = ACCESSORY_SLOT_MEDAL
 
+/obj/item/clothing/accessory/tailbells
+	name = "tail bells"
+	desc = "A set of lightweight, jangly tail bells."
+	icon = 'mods/valsalia/icons/clothing/accessories/tailbells.dmi'
+	gender = PLURAL
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	slot = ACCESSORY_SLOT_MEDAL
+	slot_flags = SLOT_TIE | SLOT_UPPER_BODY
+	material = /decl/material/solid/metal/gold
+	item_flags = ITEM_FLAG_HOLLOW
+	var/tmp/dingaling_sound = list(
+		'mods/valsalia/sounds/dingaling1.ogg',
+		'mods/valsalia/sounds/dingaling2.ogg',
+		'mods/valsalia/sounds/dingaling3.ogg',
+		'mods/valsalia/sounds/dingaling4.ogg'
+	)
+	var/tmp/dingaling_volume = 80
+	var/tmp/dingaling_chance = 30
+	var/tmp/dingaling_vary = FALSE
+
+/obj/item/clothing/accessory/tailbells/Initialize()
+	. = ..()
+	if(dingaling_sound && dingaling_chance)
+		events_repository.register(/decl/observ/moved, src, src, .proc/dingaling)
+
+/obj/item/clothing/accessory/tailbells/Destroy()
+	events_repository.unregister(/decl/observ/moved, src, src)
+	return ..()
+
+/obj/item/clothing/accessory/tailbells/proc/dingaling()
+	if(dingaling_sound && prob(dingaling_chance))
+		if(islist(dingaling_sound) && length(dingaling_sound))
+			playsound(get_turf(src), pick(dingaling_sound), dingaling_volume, dingaling_vary)
+		else
+			playsound(get_turf(src), dingaling_sound, dingaling_volume, dingaling_vary)
+
 /obj/item/clothing/suit/yingtrashbag
 	name = "trashbag"
 	desc = "A trashbag with tiny arm holes."

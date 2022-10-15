@@ -1,3 +1,6 @@
+/decl/material/liquid/nutriment/slime_meat
+	overdose = 5
+
 /decl/material/liquid/nutriment/slime_meat/affect_overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	if(alien == IS_YINGLET)
 		M.reagents.add_reagent(/decl/material/liquid/psychoactives, 0.1)
@@ -14,9 +17,9 @@
 // a pre-decl reagent system - will need to rewrite nutriment to pass these values into data
 // to do it properly, long-term TODO.
 /decl/material/liquid/nutriment/bread/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder)
-	if(ishuman(M) && alien == IS_YINGLET) 
+	if(ishuman(M) && alien == IS_YINGLET)
 		// Yings do not process bread or breadlike substances well.
-		ingest_met =       0.1 // Make sure there's something to 
+		ingest_met =       0.1 // Make sure there's something to
 		touch_met =        0.1 // throw up when we inevitably puke.
 		nutriment_factor = 0.1 // Don't get much nutrition out of it either.
 		. = ..()
