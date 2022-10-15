@@ -549,7 +549,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		M.add_chemical_effect(CE_TOXIN, toxicity)
 		var/dam = (toxicity * removed)
 		if(toxicity_targets_organ && ishuman(M))
-			var/datum/species/species = M.get_species()
+			var/decl/species/species = M.get_species()
 			var/organ_damage = species ? round(dam * species.toxins_mod) : dam
 			if(organ_damage > 0)
 				var/mob/living/carbon/human/H = M
