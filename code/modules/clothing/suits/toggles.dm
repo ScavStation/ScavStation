@@ -41,6 +41,7 @@
 		var/mob/M = hood.loc
 		M.drop_from_inventory(hood)
 	hood.forceMove(src)
+	update_clothing_icon()
 
 /obj/item/clothing/suit/storage/toggle/proc/toggle_buttons(var/mob/user)
 	if(!CanPhysicallyInteract(usr) || isnull(buttons))
@@ -81,6 +82,7 @@
 		remove_hood()
 	else
 		M.equip_to_slot_if_possible(hood, slot_head_str, 0, 0, 1)
+	update_clothing_icon()
 	return TRUE
 
 // Short-circuit this for quick interaction when worn.

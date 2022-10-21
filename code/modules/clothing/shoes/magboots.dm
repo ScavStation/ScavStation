@@ -50,7 +50,7 @@
 	if(check_state_in_icon(new_state, icon))
 		icon_state = new_state
 	update_clothing_icon()
-	
+
 /obj/item/clothing/shoes/magboots/adjust_mob_overlay(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
 	if(overlay)
 		var/new_state = overlay.icon_state
