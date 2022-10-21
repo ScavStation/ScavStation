@@ -50,7 +50,7 @@
 	if(M.HasTrait(/decl/trait/metabolically_inert))
 		return
 
-	M.heal_organ_damage(0.5 * removed, 0) //what	
+	M.heal_organ_damage(0.5 * removed, 0) //what
 	M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
 
 /decl/material/liquid/nutriment/proc/adjust_nutrition(var/mob/living/carbon/M, var/alien, var/removed)
@@ -66,7 +66,6 @@
 	lore_text = "Mollusc meat, or slug meat - something slimy, anyway."
 	scannable = 1
 	taste_description = "cold, bitter slime"
-	overdose = 10
 	hydration_factor = 6
 	uid = "chem_nutriment_slime"
 

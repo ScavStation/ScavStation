@@ -112,7 +112,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	// Attributes
 	/// How rare is this material generally?
-	var/exoplanet_rarity = MAT_RARITY_MUNDANE 
+	var/exoplanet_rarity = MAT_RARITY_MUNDANE
 	/// Delay in ticks when cutting through this wall.
 	var/cut_delay = 0
 	/// Radiation var. Used in wall and object processing to irradiate surroundings.
@@ -125,7 +125,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/boiling_point = 3000
 	/// kJ/kg, enthalpy of vaporization
 	var/latent_heat = 7000
-	/// kg/mol, 
+	/// kg/mol,
 	var/molar_mass = 0.06
 	/// Brute damage to a wall is divided by this value if the wall is reinforced by this material.
 	var/brute_armor = 2
@@ -144,15 +144,15 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	/// Used for checking if a material can function as a wall support.
 	var/wall_support_value = 30
 	/// Ore generation constant for rare materials.
-	var/sparse_material_weight                
+	var/sparse_material_weight
 	/// Ore generation constant for common materials.
-	var/rich_material_weight                  
+	var/rich_material_weight
 	/// How transparent can fluids be?
-	var/min_fluid_opacity = FLUID_MIN_ALPHA   
+	var/min_fluid_opacity = FLUID_MIN_ALPHA
 	/// How opaque can fluids be?
 	var/max_fluid_opacity = FLUID_MAX_ALPHA
 	/// Point at which the fluid will proc turf interaction logic. Workaround for mops being ruined forever by 1u of anything else being added.
-	var/turf_touch_threshold = FLUID_QDEL_POINT 
+	var/turf_touch_threshold = FLUID_QDEL_POINT
 
 	// Damage values.
 	var/hardness = MAT_VALUE_HARD            // Prob of wall destruction by hulk, used for edge damage in weapons.
@@ -549,17 +549,20 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		M.add_chemical_effect(CE_TOXIN, toxicity)
 		var/dam = (toxicity * removed)
 		if(toxicity_targets_organ && ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(H, toxicity_targets_organ)
-			if(I)
-				var/can_damage = I.max_damage - I.damage
-				if(can_damage > 0)
-					if(dam > can_damage)
-						I.take_internal_damage(can_damage, silent=TRUE)
-						dam -= can_damage
-					else
-						I.take_internal_damage(dam, silent=TRUE)
-						dam = 0
+			var/decl/species/species = M.get_species()
+			var/organ_damage = species ? round(dam * species.toxins_mod) : dam
+			if(organ_damage > 0)
+				var/mob/living/carbon/human/H = M
+				var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(H, toxicity_targets_organ)
+				if(I)
+					var/can_damage = I.max_damage - I.damage
+					if(can_damage > 0)
+						if(organ_damage > can_damage)
+							I.take_internal_damage(can_damage, silent=TRUE)
+							dam -= can_damage
+						else
+							I.take_internal_damage(organ_damage, silent=TRUE)
+							dam = 0
 		if(dam > 0)
 			M.adjustToxLoss(toxicity_targets_organ ? (dam * 0.75) : dam)
 

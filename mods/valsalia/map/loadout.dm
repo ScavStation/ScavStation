@@ -4,6 +4,10 @@
 	slot = slot_wear_suit_str
 	flags = GEAR_HAS_COLOR_SELECTION
 
+/decl/loadout_option/accessory/yinglet_tailbells
+	name = "yinglet tailbells"
+	path = /obj/item/clothing/accessory/tailbells
+
 /decl/loadout_option/head/yinglet_hood
 	name = "yinglet hood, colour select"
 	path = /obj/item/clothing/head/yinglet
