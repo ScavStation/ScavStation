@@ -5,7 +5,7 @@
 	whisper_verb = "hisses"
 	colour = ""
 	key = "a"
-	flags = WHITELISTED
+	flags = LANG_FLAG_WHITELISTED
 	shorthand = "BX"
 	partial_understanding = list()
 	syllables = list(
