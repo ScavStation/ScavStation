@@ -1,3 +1,7 @@
+/decl/loadout_option/suit/wintercoat_yinglet
+	name = "winter coat, yinglet"
+	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet
+
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
@@ -200,9 +204,17 @@
 	icon = 'mods/valsalia/icons/clothing/suit/fancy_robe_yinglet.dmi'
 
 /obj/item/clothing/suit/radiation/Initialize()
-  . = ..()
-  LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/radsuit_yinglet.dmi')
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/radsuit_yinglet.dmi')
 
 /obj/item/clothing/head/radiation/Initialize()
-  . = ..()
-  LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/head/radsuit_hood_yinglet.dmi')
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/head/radsuit_hood_yinglet.dmi')
+
+/obj/item/clothing/shoes/magboots/Initialize()
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/shoes/magboots.dmi')
+
+/obj/item/clothing/suit/armor/bulletproof/Initialize()
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/ballistic_vest.dmi')
