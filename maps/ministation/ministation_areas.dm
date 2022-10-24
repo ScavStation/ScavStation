@@ -196,6 +196,11 @@
 	req_access = list(access_lawyer)
 	icon_state = "brown"
 
+/area/ministation/yinglet_enclave
+	name = "\improper Abandoned section"
+	req_access = list(access_lawyer)
+	icon_state = "white"
+
 //satellite
 /area/ministation/ai_sat
 	name = "\improper Satellite"

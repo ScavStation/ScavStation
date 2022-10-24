@@ -11,6 +11,7 @@
 		/datum/job/ministation/detective,
 		/datum/job/ministation/doctor,
 		/datum/job/ministation/engineer,
+		/datum/job/ministation/engineer/head,
 		/datum/job/ministation/hop,
 		/datum/job/ministation/janitor,
 		/datum/job/ministation/scientist,
