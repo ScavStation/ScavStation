@@ -18,13 +18,12 @@
 	name = "short baxxid hood"
 	desc = "A large piece of cloth with holes in it, designed to be worn by baxxid."
 	icon = 'mods/valsalia/icons/clothing/head/hood_short_baxxid.dmi'
-	var/apply_trim = FALSE
 
 /obj/item/clothing/head/baxxid/hood/long
 	name = "baxxid hood"
 	icon = 'mods/valsalia/icons/clothing/head/hood_long_baxxid.dmi'
 	color = COLOR_PURPLE
-	apply_trim = TRUE
+	var/apply_trim = TRUE
 
 /obj/item/clothing/head/baxxid/hood/long/on_update_icon()
 	. = ..()
@@ -38,7 +37,7 @@
 	if(overlay && slot == slot_head_str && apply_trim)
 		var/image/I = image(overlay.icon, "[overlay.icon_state]-trim")
 		I.appearance_flags |= RESET_COLOR
-		overlay.overlays = list(overlay)
+		overlay.overlays = list(I)
 	return overlay
 
 /obj/item/clothing/head/baxxid/big_wig
