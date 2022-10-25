@@ -222,3 +222,7 @@
 
 /datum/goal/scav_hoard_junk
 	valid_areas = list(/area/ministation/yinglet_rep)
+
+/area/shuttle/escape_shuttle
+	name = "\improper Emergency Shuttle"
+	icon_state = "shuttle"

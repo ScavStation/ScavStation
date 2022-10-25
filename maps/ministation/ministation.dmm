@@ -3463,10 +3463,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "jc" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Dock Airlock"
-	},
-/obj/effect/shuttle_landmark/escape_pod/start/pod1,
+/obj/effect/shuttle_landmark/escape_shuttle/station,
 /turf/space,
 /area/space)
 "jd" = (
@@ -4900,13 +4897,6 @@
 /obj/machinery/suit_cycler/ministation,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
-"mN" = (
-/obj/machinery/door/airlock/external/escapepod{
-	id_tag = "escape_pod_1_berth_hatch";
-	name = "Escape Shuttle Docking Airlock"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/hall/w)
 "mO" = (
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
@@ -5382,12 +5372,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
+/obj/machinery/embedded_controller/radio/docking_port_multi{
 	dir = 4;
-	frequency = null;
-	id_tag = "escape_pod_1_berth";
-	pixel_x = -30;
-	tag_door = "escape_pod_1_berth_hatch"
+	name = "escape docking port controller";
+	pixel_x = -24;
+	child_names_txt = "Airlock One;Airlock Two;Airlock Three";
+	child_tags_txt = "escape_dock_first_airlock;escape_dock_second_airlock;escape_dock_third_airlock"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
@@ -17116,12 +17106,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"WM" = (
-/obj/machinery/door/airlock/external/glass{
-	name = "Dock Airlock"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/hall/w)
 "WN" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -41500,7 +41484,7 @@ aa
 aa
 aa
 aa
-aa
+jc
 aa
 aa
 aa
@@ -41757,7 +41741,7 @@ aa
 aa
 aa
 aa
-jc
+aa
 aa
 aa
 aa
@@ -42779,17 +42763,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+la
+mO
+kZ
+ad
+ad
+ad
+la
+mO
+kZ
+mO
+la
 aa
 aa
 aa
@@ -43037,15 +43021,15 @@ ac
 ac
 ad
 la
-mN
-la
+mO
+kZ
 ad
 ad
 ad
 la
-mN
-la
-mN
+mO
+kZ
+mO
 la
 aa
 aa
@@ -43295,13 +43279,13 @@ ac
 ad
 la
 mO
-la
+kZ
 ad
 ad
 ad
 la
 mO
-la
+kZ
 mO
 la
 ad
@@ -43551,15 +43535,15 @@ Pp
 kZ
 kZ
 la
-WM
+mO
 Sd
 kZ
 la
 kZ
 la
-WM
+mO
 Sd
-WM
+mO
 la
 ad
 kZ
