@@ -197,7 +197,7 @@
 	icon_state = "centcom"
 
 /area/ship/trade/command/bridge
-	name = "\improper Bridge"
+	name = "\improper Tradeship Bridge"
 	icon_state = "bridge"
 	req_access = list(access_heads)
 
