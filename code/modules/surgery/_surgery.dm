@@ -4,8 +4,10 @@ var/global/list/surgeries_in_progress = list()
 var/global/list/surgery_tool_exceptions = list(
 	/obj/item/auto_cpr,
 	/obj/item/scanner/health,
+	/obj/item/scanner/breath,
 	/obj/item/shockpaddles,
 	/obj/item/chems/hypospray,
+	/obj/item/chems/inhaler,
 	/obj/item/modular_computer,
 	/obj/item/chems/syringe,
 	/obj/item/chems/borghypo
@@ -183,8 +185,9 @@ var/global/list/surgery_tool_exception_cache = list()
 	if(!istype(user) || !istype(E)) return
 
 	var/germ_level = user.germ_level
-	if(user.gloves)
-		germ_level = user.gloves.germ_level
+	var/obj/item/gloves = user.get_equipped_item(slot_gloves_str)
+	if(gloves)
+		germ_level = gloves.germ_level
 
 	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
 

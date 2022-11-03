@@ -2,6 +2,7 @@
 	icon = 'icons/obj/structures/barricade.dmi'
 	w_class = ITEM_SIZE_STRUCTURE
 	layer = STRUCTURE_LAYER
+	abstract_type = /obj/structure
 
 	var/last_damage_message
 	var/health = 0
@@ -112,8 +113,8 @@
 			damage *= STRUCTURE_BRITTLE_MATERIAL_DAMAGE_MULTIPLIER
 
 	playsound(loc, hitsound, 75, 1)
-	health = Clamp(health - damage, 0, maxhealth)
-	
+	health = clamp(health - damage, 0, maxhealth)
+
 	show_damage_message(health/maxhealth)
 
 	if(health == 0)
@@ -133,8 +134,8 @@
 		last_damage_message = 0.75
 
 /obj/structure/physically_destroyed(var/skip_qdel)
-	. = ..(TRUE)
-	dismantle()
+	if(..(TRUE))
+		return dismantle()
 
 /obj/structure/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	. = ..()
@@ -175,7 +176,7 @@
 		if(T)
 			T.fluid_update()
 			for(var/atom/movable/AM in T)
-				AM.reset_offsets()	
+				AM.reset_offsets()
 				AM.reset_plane_and_layer()
 
 /obj/structure/grab_attack(var/obj/item/grab/G)
@@ -263,8 +264,8 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 	// Calculation to apply new pixelshift.
 	var/mouse_x = text2num(click_data["icon-x"])-1 // Ranging from 0 to 31
 	var/mouse_y = text2num(click_data["icon-y"])-1
-	var/cell_x = Clamp(round(mouse_x/CELLSIZE), 0, CELLS-1) // Ranging from 0 to CELLS-1
-	var/cell_y = Clamp(round(mouse_y/CELLSIZE), 0, CELLS-1)
+	var/cell_x = clamp(round(mouse_x/CELLSIZE), 0, CELLS-1) // Ranging from 0 to CELLS-1
+	var/cell_y = clamp(round(mouse_y/CELLSIZE), 0, CELLS-1)
 	var/list/center = cached_json_decode(W.center_of_mass)
 	W.pixel_x = (CELLSIZE * (cell_x + 0.5)) - center["x"]
 	W.pixel_y = (CELLSIZE * (cell_y + 0.5)) - center["y"]

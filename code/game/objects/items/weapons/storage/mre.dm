@@ -11,6 +11,8 @@ MRE Stuff
 	max_w_class = ITEM_SIZE_SMALL
 	opened = FALSE
 	open_sound = 'sound/effects/rip1.ogg'
+	material = /decl/material/solid/plastic
+	item_flags = ITEM_FLAG_HOLLOW
 	var/main_meal = /obj/item/storage/mrebag
 	var/meal_desc = "This one is menu 1, meat pizza."
 	startswith = list(
@@ -32,9 +34,9 @@ MRE Stuff
 	to_chat(user, meal_desc)
 
 /obj/item/storage/mre/on_update_icon()
+	. = ..()
 	if(opened)
 		icon_state = "[initial(icon_state)][opened]"
-	. = ..()
 
 /obj/item/storage/mre/attack_self(mob/user)
 	open(user)
@@ -128,14 +130,13 @@ MRE Stuff
 	opened = FALSE
 	open_sound = 'sound/effects/bubbles.ogg'
 	startswith = list(/obj/item/chems/food/slice/meatpizza/filled)
-
-/obj/item/storage/mrebag/Initialize()
-	. = ..()
+	material = /decl/material/solid/plastic
+	matter = list(/decl/material/solid/metal/aluminium = MATTER_AMOUNT_TRACE)
 
 /obj/item/storage/mrebag/on_update_icon()
+	. = ..()
 	if(opened)
 		icon_state = "[initial(icon_state)][opened]"
-	. = ..()
 
 /obj/item/storage/mrebag/attack_self(mob/user)
 	open(user)

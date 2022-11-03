@@ -6,7 +6,7 @@
 	icon_state = "pad_full"
 	item_state = "paper"
 	w_class = ITEM_SIZE_SMALL
-	material = /decl/material/solid/wood
+	material = /decl/material/solid/paper
 
 	var/papers = 50
 	var/written_text
@@ -15,13 +15,14 @@
 
 /obj/item/sticky_pad/proc/update_matter()
 	matter = list(
-		/decl/material/solid/wood = round((papers * SHEET_MATERIAL_AMOUNT) * 0.2)
+		/decl/material/solid/paper = round((papers * SHEET_MATERIAL_AMOUNT) * 0.2)
 	)
 
 /obj/item/sticky_pad/create_matter()
 	update_matter()
 
 /obj/item/sticky_pad/on_update_icon()
+	. = ..()
 	if(papers <= 15)
 		icon_state = "pad_empty"
 	else if(papers <= 50)
@@ -32,7 +33,7 @@
 		icon_state = "[icon_state]_writing"
 
 /obj/item/sticky_pad/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing, /obj/item/pen))
+	if(IS_PEN(thing))
 
 		if(jobban_isbanned(user, "Graffiti"))
 			to_chat(user, SPAN_WARNING("You are banned from leaving persistent information across rounds."))
@@ -106,6 +107,7 @@
 	. = ..()
 
 /obj/item/paper/sticky/on_update_icon()
+	. = ..()
 	if(icon_state != "scrap")
 		icon_state = info ? "paper_words" : "paper"
 

@@ -27,7 +27,7 @@ var/global/list/aspect_categories = list() // Containers for ease of printing da
 	var/list/incompatible_with                           // Typelist of aspects that prevent this one from being taken
 	var/available_at_chargen = TRUE                      // Whether or not aspect is shown in chargen prefs
 	var/aspect_flags = 0
-	var/transfer_with_mind = TRUE
+	var/transfer_with_mind = TRUE // TODO: IMPLEMENT
 	var/sort_value = 0
 	var/list/permitted_species
 	var/list/blocked_species

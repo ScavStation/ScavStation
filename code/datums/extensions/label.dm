@@ -20,12 +20,14 @@
 		atom_holder.verbs += /atom/proc/RemoveLabel
 	LAZYADD(labels, label)
 
-	user.visible_message("<span class='notice'>\The [user] attaches a label to \the [atom_holder].</span>", \
-						 "<span class='notice'>You attach a label, '[label]', to \the [atom_holder].</span>")
+	if(user)
+		user.visible_message("<span class='notice'>\The [user] attaches a label to \the [atom_holder].</span>", \
+							"<span class='notice'>You attach a label, '[label]', to \the [atom_holder].</span>")
 
 	var/old_name = atom_holder.name
 	atom_holder.name = "[atom_holder.name] ([label])"
 	events_repository.raise_event(/decl/observ/name_set, src, old_name, atom_holder.name)
+	return TRUE
 
 /datum/extension/labels/proc/RemoveLabel(var/mob/user, var/label)
 	if(!(label in labels))
@@ -40,13 +42,21 @@
 	if(!index) // Playing it safe, something might not have set the name properly
 		return
 
-	user.visible_message("<span class='notice'>\The [user] removes a label from \the [atom_holder].</span>", \
-						 "<span class='notice'>You remove a label, '[label]', from \the [atom_holder].</span>")
+	if(user)
+		user.visible_message("<span class='notice'>\The [user] removes a label from \the [atom_holder].</span>", \
+							"<span class='notice'>You remove a label, '[label]', from \the [atom_holder].</span>")
 
 	var/old_name = atom_holder.name
 	// We find and replace the first instance, since that's the one we removed from the list
 	atom_holder.name = replacetext(atom_holder.name, full_label, "", index, index + length(full_label))
 	events_repository.raise_event(/decl/observ/name_set, src, old_name, atom_holder.name)
+	return TRUE
+
+/datum/extension/labels/proc/RemoveAllLabels()
+	. = TRUE
+	for(var/lbl in labels)
+		if(!RemoveLabel(null, lbl))
+			. = FALSE
 
 // We may have to do something more complex here
 // in case something appends strings to something that's labelled rather than replace the name outright
@@ -92,3 +102,9 @@
 		if(has_extension(src, /datum/extension/labels))
 			var/datum/extension/labels/L = get_extension(src, /datum/extension/labels)
 			L.RemoveLabel(usr, label)
+
+//Single label allowed for this one
+/datum/extension/labels/single/CanAttachLabel(user, label)
+	if(LAZYLEN(labels) >= 1) //Only allow a single label
+		return FALSE
+	. = ..()

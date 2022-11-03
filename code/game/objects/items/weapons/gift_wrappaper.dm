@@ -14,6 +14,7 @@
 	icon_state = "gift1"
 	item_state = "gift1"
 	randpixel = 10
+	material = /decl/material/solid/cardboard
 
 /obj/item/a_gift/Initialize()
 	. = ..()
@@ -35,7 +36,7 @@
 /obj/effect/spresent/attackby(obj/item/W, mob/user)
 	..()
 
-	if(!isWirecutter(W))
+	if(!IS_WIRECUTTER(W))
 		to_chat(user, "<span class='warning'>I need wirecutters for that.</span>")
 		return
 
@@ -112,10 +113,10 @@
 	desc = "A wrapped item."
 	icon = 'icons/obj/items/gift_wrapped.dmi'
 	icon_state = "gift3"
-	var/size = 3.0
 	var/obj/item/gift = null
 	item_state = "gift"
 	w_class = ITEM_SIZE_HUGE
+	material = /decl/material/solid/cardboard
 
 /obj/item/gift/Initialize(mapload, obj/item/wrapped = null)
 	. = ..(mapload)
@@ -148,6 +149,7 @@
 	desc = "You can use this to wrap items in."
 	icon = 'icons/obj/items/gift_wrapper.dmi'
 	icon_state = "wrap_paper"
+	material = /decl/material/solid/paper
 	var/amount = 2.5*BASE_STORAGE_COST(ITEM_SIZE_HUGE)
 
 /obj/item/wrapping_paper/attackby(obj/item/W, mob/user)
@@ -162,7 +164,7 @@
 
 	var/found_scissors = FALSE
 	for(var/obj/item/thing in user.get_held_items())
-		if(isWirecutter(thing))
+		if(IS_WIRECUTTER(thing))
 			found_scissors = TRUE
 			break
 
@@ -198,7 +200,7 @@
 	if (!istype(target, /mob/living/carbon/human)) return
 	var/mob/living/carbon/human/H = target
 
-	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket) || H.stat)
+	if (istype(H.get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/straight_jacket) || H.stat)
 		if (src.amount > 2)
 			var/obj/effect/spresent/present = new /obj/effect/spresent (H.loc)
 			src.amount -= 2

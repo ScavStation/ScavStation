@@ -27,12 +27,12 @@
 /decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/carbon/human/H, var/title)
 	if(!H || H.species.name != SPECIES_YINGLET)
 		return
-	var/previous_suit = H.wear_suit
+	var/previous_suit = H.get_equipped_item(slot_wear_suit_str)
 	if(previous_suit)
 		H.unEquip(previous_suit)
-	if(shoes && !H.shoes)
+	if(shoes && !H.get_equipped_item(slot_shoes_str))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/yinglet(H), slot_shoes_str)
-	if(uniform && !H.w_uniform)
+	if(uniform && !H.get_equipped_item(slot_w_uniform_str))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/yinglet(H), slot_w_uniform_str)
 	if(previous_suit)
 		H.equip_to_slot_if_possible(previous_suit, slot_wear_suit_str)

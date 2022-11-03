@@ -6,7 +6,6 @@
 	item_state = "walkietalkie"
 
 	var/on = 1 // 0 for off
-	var/last_transmission
 	var/frequency = PUB_FREQ //common chat
 	var/traitor_frequency = 0 //tune to frequency to unlock traitor supplies
 	var/canhear_range = 3 // the range which mobs can hear this radio from
@@ -570,7 +569,7 @@
 /obj/item/radio/attackby(obj/item/W, mob/user)
 	..()
 	user.set_machine(src)
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		b_stat = !b_stat
 		if(!istype(src, /obj/item/radio/beacon))
 			if (b_stat)
@@ -602,15 +601,16 @@
 //Giving borgs their own radio to have some more room to work with -Sieve
 
 /obj/item/radio/borg
-	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
-	var/obj/item/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
-	var/shut_up = 1
 	icon = 'icons/obj/robot_component.dmi' // Cyborgs radio icons should look like the component.
 	icon_state = "radio"
 	canhear_range = 0
 	subspace_transmission = 1
 	cell = null
 	power_usage = 0
+	is_spawnable_type = FALSE
+	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
+	var/obj/item/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
+	var/shut_up = 1
 
 /obj/item/radio/borg/ert
 	keyslot = /obj/item/encryptionkey/ert
@@ -646,10 +646,10 @@
 /obj/item/radio/borg/attackby(obj/item/W, mob/user)
 //	..()
 	user.set_machine(src)
-	if (!( isScrewdriver(W) || (istype(W, /obj/item/encryptionkey/ ))))
+	if (!( IS_SCREWDRIVER(W) || (istype(W, /obj/item/encryptionkey/ ))))
 		return
 
-	if(isScrewdriver(W))
+	if(IS_SCREWDRIVER(W))
 		if(keyslot)
 			for(var/ch_name in channels)
 				radio_controller.remove_object(src, radiochannels[ch_name])
@@ -798,6 +798,7 @@
 	power_usage = 0
 	channels=list("Engineering" = 1, "Security" = 1, "Medical" = 1, "Command" = 1, "Common" = 1, "Science" = 1, "Supply" = 1, "Service" = 1, "Exploration" = 1)
 	cell = null
+	is_spawnable_type = FALSE
 
 /obj/item/radio/announcer/Destroy()
 	SHOULD_CALL_PARENT(FALSE)

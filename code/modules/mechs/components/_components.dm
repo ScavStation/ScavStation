@@ -59,7 +59,7 @@
 	total_damage = brute_damage + burn_damage
 	if(total_damage > max_damage) total_damage = max_damage
 	var/prev_state = damage_state
-	damage_state = Clamp(round((total_damage/max_damage) * 4), MECH_COMPONENT_DAMAGE_UNDAMAGED, MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL)
+	damage_state = clamp(round((total_damage/max_damage) * 4), MECH_COMPONENT_DAMAGE_UNDAMAGED, MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL)
 	if(damage_state > prev_state)
 		if(damage_state == MECH_COMPONENT_DAMAGE_DAMAGED_BAD)
 			playsound(src.loc, 'sound/mecha/internaldmgalarm.ogg', 40, 1)
@@ -98,7 +98,7 @@
 		update_components()
 
 /obj/item/mech_component/attackby(var/obj/item/thing, var/mob/user)
-	if(isScrewdriver(thing))
+	if(IS_SCREWDRIVER(thing))
 		if(contents.len)
 			//Filter non movables
 			var/list/valid_contents = list()
@@ -117,10 +117,10 @@
 		else
 			to_chat(user, SPAN_WARNING("There is nothing to remove."))
 		return
-	if(isWelder(thing))
+	if(IS_WELDER(thing))
 		repair_brute_generic(thing, user)
 		return
-	if(isCoil(thing))
+	if(IS_COIL(thing))
 		repair_burn_generic(thing, user)
 		return
 	if(istype(thing, /obj/item/robotanalyzer))
@@ -179,14 +179,14 @@
 /obj/item/mech_component/proc/get_damage_string()
 	switch(damage_state)
 		if(MECH_COMPONENT_DAMAGE_UNDAMAGED)
-			return FONT_COLORED(COLOR_GREEN, "undamaged")
+			return SPAN_GREEN("undamaged")
 		if(MECH_COMPONENT_DAMAGE_DAMAGED)
-			return FONT_COLORED(COLOR_YELLOW, "damaged")
+			return SPAN_YELLOW("damaged")
 		if(MECH_COMPONENT_DAMAGE_DAMAGED_BAD)
-			return FONT_COLORED(COLOR_ORANGE, "badly damaged")
+			return SPAN_ORANGE("badly damaged")
 		if(MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL)
-			return FONT_COLORED(COLOR_RED, "almost destroyed")
-	return FONT_COLORED(COLOR_RED, "destroyed")
+			return SPAN_RED("almost destroyed")
+	return SPAN_RED("destroyed")
 
 /obj/item/mech_component/proc/return_diagnostics(var/mob/user)
 	to_chat(user, SPAN_NOTICE("[capitalize(src.name)]:"))

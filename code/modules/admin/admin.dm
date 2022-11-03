@@ -822,7 +822,7 @@ var/global/floorIsLava = 0
 		return 0
 	if(SSticker.start_now())
 		log_admin("[usr.key] has started the game.")
-		message_admins("<font color='blue'>[usr.key] has started the game.</font>")
+		message_admins(SPAN_BLUE("[usr.key] has started the game."))
 		SSstatistics.add_field_details("admin_verb","SN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		return 1
 	else
@@ -1023,7 +1023,7 @@ var/global/floorIsLava = 0
 		log_admin("[key_name(usr)] mass-spawned closets (icon debug), if this is a live server you should yell at them.")
 		var/x = 0
 		var/y = 0
-		for(var/check_appearance in typesof(/decl/closet_appearance))
+		for(var/check_appearance in decls_repository.get_decl_paths_of_type(/decl/closet_appearance))
 			x++
 			if(x > 10)
 				x = 0
@@ -1119,13 +1119,17 @@ var/global/floorIsLava = 0
 	set desc = "(atom path) Spawn an atom"
 	set name = "Spawn"
 
-	if(!check_rights(R_SPAWN))	return
+	if(!check_rights(R_SPAWN))
+		return
 
-	var/list/types = typesof(/atom)
+	object = lowertext(trim(object))
+	if(!object)
+		return
+
 	var/list/matches = new()
-
-	for(var/path in types)
-		if(findtext("[path]", object))
+	for(var/path in subtypesof(/atom))
+		var/atom/path_cast = path
+		if(TYPE_IS_SPAWNABLE(path_cast) && findtext(lowertext("[path]"), object))
 			matches += path
 
 	if(matches.len==0)

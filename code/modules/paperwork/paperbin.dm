@@ -9,6 +9,7 @@
 	throw_speed = 3
 	throw_range = 7
 	layer = BELOW_OBJ_LAYER
+	material = /decl/material/solid/plastic
 	var/amount = 30					//How much paper is in the bin.
 	var/list/papers = new/list()	//List of papers put in the bin for reference.
 
@@ -95,6 +96,7 @@
 
 
 /obj/item/paper_bin/on_update_icon()
+	. = ..()
 	if(amount < 1)
 		icon_state = "paper_bin0"
 	else

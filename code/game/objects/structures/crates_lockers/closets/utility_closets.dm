@@ -24,7 +24,7 @@
 	. = list(/obj/item/tank/emergency/oxygen = 2,
 			/obj/item/clothing/mask/breath = 2)
 
-	. += new/datum/atom_creator/simple(list(/obj/item/storage/toolbox/emergency, /obj/item/inflatable/wall = 2), 75)
+	. += new/datum/atom_creator/simple(list(/obj/item/storage/toolbox/emergency, /obj/item/inflatable = 2, /obj/item/inflatable/door = 1), 75)
 	. += new/datum/atom_creator/simple(list(/obj/item/tank/emergency/oxygen/engi, /obj/item/clothing/mask/gas/half), 10)
 	. += new/datum/atom_creator/simple(/obj/item/oxycandle, 15)
 	. += new/datum/atom_creator/simple(/obj/item/storage/firstaid/o2, 25)
@@ -150,7 +150,7 @@
  * Hydrant
  */
 /obj/structure/closet/hydrant //wall mounted fire closet
-	name = "fire-safety closet"
+	name = "fire-safety wall closet"
 	desc = "It's a storage unit for fire-fighting supplies."
 	closet_appearance = /decl/closet_appearance/wall/hydrant
 	anchored = 1
@@ -158,6 +158,8 @@
 	wall_mounted = 1
 	storage_types = CLOSET_STORAGE_ITEMS
 	setup = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	directional_offset = "{'NORTH':{'y':-32}, 'SOUTH':{'y':32}, 'EAST':{'x':-32}, 'WEST':{'x':32}}"
 	
 /obj/structure/closet/hydrant/Initialize()
 	. = ..()
@@ -165,6 +167,7 @@
 
 /obj/structure/closet/hydrant/WillContain()
 	return list(
+		/obj/item/inflatable = 2,
 		/obj/item/inflatable/door = 2,
 		/obj/item/storage/med_pouch/burn = 2,
 		/obj/item/clothing/mask/gas/half,
@@ -175,7 +178,7 @@
  * First Aid
  */
 /obj/structure/closet/medical_wall //wall mounted medical closet
-	name = "first-aid closet"
+	name = "first-aid wall closet"
 	desc = "It's a wall-mounted storage unit for first aid supplies."
 	closet_appearance = /decl/closet_appearance/wall/medical
 	anchored = 1
@@ -183,6 +186,8 @@
 	wall_mounted = 1
 	storage_types = CLOSET_STORAGE_ITEMS
 	setup = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	directional_offset = "{'NORTH':{'y':-32}, 'SOUTH':{'y':32}, 'EAST':{'x':-32}, 'WEST':{'x':32}}"
 
 /obj/structure/closet/medical_wall/Initialize()
 	. = ..()
@@ -194,7 +199,7 @@
 		/obj/random/medical/lite = 12)
 
 /obj/structure/closet/shipping_wall
-	name = "shipping supplies closet"
+	name = "shipping supplies wall closet"
 	desc = "It's a wall-mounted storage unit containing supplies for preparing shipments."
 	closet_appearance = /decl/closet_appearance/wall/shipping
 	anchored = 1
@@ -202,6 +207,8 @@
 	wall_mounted = 1
 	storage_types = CLOSET_STORAGE_ITEMS
 	setup = 0
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	directional_offset = "{'NORTH':{'y':-32}, 'SOUTH':{'y':32}, 'EAST':{'x':-32}, 'WEST':{'x':32}}"
 
 /obj/structure/closet/shipping_wall/Initialize()
 	. = ..()

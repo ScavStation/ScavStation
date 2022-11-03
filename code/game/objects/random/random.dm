@@ -3,8 +3,8 @@
 	desc = "This item type is used to spawn random objects at round-start."
 	icon = 'icons/misc/mark.dmi'
 	icon_state = "rup"
+	abstract_type = /obj/random
 	var/spawn_nothing_percentage = 0 // this variable determines the likelyhood that this random object will not spawn anything
-
 	var/spawn_method = /obj/random/proc/spawn_item
 
 // creates a new object and deletes itself
@@ -21,14 +21,14 @@
 	if(isnull(loc))
 		return
 
-	var/build_path = pickweight(spawn_choices())
-
-	var/atom/A = new build_path(src.loc)
-	if(pixel_x || pixel_y)
+	var/atom/A = create_instance(pickweight(spawn_choices()), loc)
+	if(A && (pixel_x || pixel_y))
 		A.pixel_x = pixel_x
 		A.pixel_y = pixel_y
-
 	return A
+
+/obj/random/proc/create_instance(var/build_path, var/spawn_loc)
+	return new build_path(spawn_loc)
 
 // Returns an associative list in format path:weight
 /obj/random/proc/spawn_choices()
@@ -51,13 +51,29 @@
 	icon_state = ICON_STATE_WORLD
 
 /obj/random/tool/spawn_choices()
-	return list(/obj/item/screwdriver,
-				/obj/item/wirecutters,
-				/obj/item/weldingtool,
-				/obj/item/weldingtool/largetank,
-				/obj/item/crowbar,
-				/obj/item/wrench,
-				/obj/item/flashlight)
+	return list(
+		/obj/item/screwdriver,
+		/obj/item/wirecutters,
+		/obj/item/weldingtool,
+		/obj/item/weldingtool/largetank,
+		/obj/item/crowbar,
+		/obj/item/wrench,
+		/obj/item/flashlight
+	)
+
+/obj/random/tool/power
+	name = "random powertool"
+	desc = "This is a random rare powertool for maintenance"
+	icon_state = "tool_2"
+
+/obj/random/tool/power/spawn_choices()
+	return list(
+		/obj/random/tool =                 320,
+		/obj/item/weldingtool/electric =    15,
+		/obj/item/weldingtool/experimental = 3,
+		/obj/item/hydraulic_cutter =         1,
+		/obj/item/power_drill =              1
+	)
 
 /obj/random/technology_scanner
 	name = "random scanner"
@@ -131,7 +147,7 @@
 				/obj/item/storage/belt/utility = 2,
 				/obj/item/storage/belt/utility/atmostech = 1,
 				/obj/random/tool = 5,
-				/obj/item/ducttape = 2)
+				/obj/item/stack/tape_roll/duct_tape = 2)
 
 /obj/random/medical
 	name = "Random Medical equipment"
@@ -172,13 +188,15 @@
 				/obj/item/stack/medical/advanced/ointment = 2,
 				/obj/item/stack/medical/splint = 1,
 				/obj/item/chems/hypospray/autoinjector = 3,
+				/obj/item/chems/inhaler = 3,
 				/obj/item/storage/pill_bottle/burn_meds = 2,
 				/obj/item/storage/pill_bottle/antitox = 2,
 				/obj/item/storage/med_pouch/trauma = 2,
 				/obj/item/storage/med_pouch/burn = 2,
 				/obj/item/storage/med_pouch/toxin = 2,
 				/obj/item/storage/med_pouch/radiation = 2,
-				/obj/item/storage/med_pouch/oxyloss = 2)
+				/obj/item/storage/med_pouch/oxyloss = 2,
+				/obj/item/storage/med_pouch/overdose = 2)
 
 /obj/random/firstaid
 	name = "Random First Aid Kit"
@@ -440,6 +458,7 @@
 	var/vermin_chance = 0.1
 	var/list/locker_vermin = list(
 		/mob/living/simple_animal/mouse,
+		/mob/living/simple_animal/mouse/rat,
 		/mob/living/simple_animal/opossum
 	)
 
@@ -995,7 +1014,7 @@ something, make sure it's not in one of the other lists.*/
 				/obj/item/storage/box/monkeycubes = 5,
 				/obj/item/storage/firstaid/surgery = 4,
 				/obj/item/cell/infinite = 1,
-				/obj/item/archaeological_find = 2,
+				/obj/random/archaeological_find = 2,
 				/obj/structure/artifact = 1,
 				/obj/item/multitool/hacktool = 2,
 				/obj/item/surgicaldrill = 7,
@@ -1139,7 +1158,7 @@ var/global/list/random_useful_
 /proc/get_random_useful_type()
 	if(!random_useful_)
 		random_useful_ = list()
-		random_useful_ += /obj/item/pen/crayon/random
+		random_useful_ += /obj/random/crayon
 		random_useful_ += /obj/item/pen
 		random_useful_ += /obj/item/pen/blue
 		random_useful_ += /obj/item/pen/red
@@ -1372,15 +1391,18 @@ var/global/list/random_useful_
 	icon_state = "lipstick_closed"
 
 /obj/random/lipstick/spawn_choices()
-	return list(/obj/item/lipstick,
-				/obj/item/lipstick/blue,
-				/obj/item/lipstick/green,
-				/obj/item/lipstick/turquoise,
-				/obj/item/lipstick/violet,
-				/obj/item/lipstick/yellow,
-				/obj/item/lipstick/orange,
-				/obj/item/lipstick/white,
-				/obj/item/lipstick/black)
+	return list(
+		/obj/item/lipstick,
+		/obj/item/lipstick/blue,
+		/obj/item/lipstick/green,
+		/obj/item/lipstick/turquoise,
+		/obj/item/lipstick/violet,
+		/obj/item/lipstick/yellow,
+		/obj/item/lipstick/orange,
+		/obj/item/lipstick/white,
+		/obj/item/lipstick/black,
+		/obj/item/lipstick/purple
+	)
 
 /obj/random/seaweed
 	name = "random seaweed"
@@ -1400,10 +1422,36 @@ var/global/list/random_useful_
 	name = "random potted plant"
 	desc = "This is a random potted plant."
 	icon = 'icons/obj/structures/potted_plants.dmi'
-	icon_state = "plant-26"	
+	icon_state = "plant-26"
 	spawn_nothing_percentage = 0
 	var/static/list/blacklisted_plants = list(/obj/structure/flora/pottedplant/unusual)
 
 /obj/random/pottedplant/spawn_choices()
 	return subtypesof(/obj/structure/flora/pottedplant) - blacklisted_plants
 
+/obj/random/crayon
+	name = "random crayon"
+	desc = "This is a random crayon."
+	icon = 'icons/obj/items/crayons.dmi'
+	icon_state = "crayonred"
+
+/obj/random/crayon/spawn_choices()
+	return subtypesof(/obj/item/pen/crayon)
+
+/obj/random/umbrella
+	name = "Random Umbrella"
+	desc = "This is a random umbrella."
+	icon = 'icons/obj/items/umbrella.dmi'
+	icon_state = "map"
+	color = COLOR_GRAY20
+
+/obj/random/umbrella/spawn_choices()
+	return list(
+		/obj/item/umbrella,
+		/obj/item/umbrella/blue,
+		/obj/item/umbrella/green,
+		/obj/item/umbrella/red,
+		/obj/item/umbrella/yellow,
+		/obj/item/umbrella/orange,
+		/obj/item/umbrella/purple
+	)

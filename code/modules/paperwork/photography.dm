@@ -16,7 +16,7 @@
 	icon_state = "film"
 	item_state = "electropack"
 	w_class = ITEM_SIZE_TINY
-
+	material = /decl/material/solid/plastic
 
 /********
 * photo *
@@ -30,6 +30,7 @@ var/global/photo_count = 0
 	item_state = "paper"
 	randpixel = 10
 	w_class = ITEM_SIZE_TINY
+	material = /decl/material/solid/plastic
 	var/id
 	var/icon/img	//Big photo image
 	var/scribble	//Scribble on the back.
@@ -44,14 +45,14 @@ var/global/photo_count = 0
 	user.examinate(src)
 
 /obj/item/photo/on_update_icon()
-	overlays.Cut()
+	. = ..()
 	var/scale = 8/(photo_size*32)
 	var/image/small_img = image(img)
 	small_img.transform *= scale
 	small_img.pixel_x = -32*(photo_size-1)/2 - 3
 	small_img.pixel_y = -32*(photo_size-1)/2
-	overlays |= small_img
-
+	add_overlay(small_img)
+	
 	tiny = image(img)
 	tiny.transform *= 0.5*scale
 	tiny.underlays += image('icons/obj/bureaucracy.dmi',"photo")
@@ -59,7 +60,7 @@ var/global/photo_count = 0
 	tiny.pixel_y = -32*(photo_size-1)/2 + 3
 
 /obj/item/photo/attackby(obj/item/P, mob/user)
-	if(istype(P, /obj/item/pen))
+	if(IS_PEN(P))
 		var/txt = sanitize(input(user, "What would you like to write on the back?", "Photo Writing", null)  as text, 128)
 		if(loc == user && user.stat == 0)
 			scribble = txt
@@ -105,25 +106,26 @@ var/global/photo_count = 0
 * photo album *
 **************/
 /obj/item/storage/photo_album
-	name = "Photo album"
+	name = "photo album"
 	icon = 'icons/obj/photography.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
 	w_class = ITEM_SIZE_NORMAL //same as book
 	storage_slots = DEFAULT_BOX_STORAGE //yes, that's storage_slots. Photos are w_class 1 so this has as many slots equal to the number of photos you could put in a box
 	can_hold = list(/obj/item/photo)
+	material = /decl/material/solid/cardboard
 
 /obj/item/storage/photo_album/handle_mouse_drop(atom/over, mob/user)
 	if(istype(over, /obj/screen/inventory))
 		var/obj/screen/inventory/inv = over
 		playsound(loc, "rustle", 50, 1, -5)
-		if(user.back == src)
+		if(user.get_equipped_item(slot_back_str) == src)
 			add_fingerprint(user)
 			if(user.unEquip(src))
 				user.equip_to_slot_if_possible(src, inv.slot_id)
 		else if(over == user && in_range(src, user) || loc == user)
-			if(user.s_active)
-				user.s_active.close(user)
+			if(user.active_storage)
+				user.active_storage.close(user)
 			show_to(user)
 		return TRUE
 	. = ..()
@@ -145,11 +147,10 @@ var/global/photo_count = 0
 	var/pictures_max = 10
 	var/pictures_left = 10
 	var/on = 1
-	var/icon_on = "camera"
-	var/icon_off = "camera_off"
 	var/size = 3
 
 /obj/item/camera/on_update_icon()
+	. = ..()
 	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 	if(on)
 		icon_state = "[bis.base_icon_state]"

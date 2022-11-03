@@ -5,6 +5,7 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "target_h"
 	density = 0
+	material = /decl/material/solid/plastic
 	var/obj/structure/target_stake/stake
 	var/hp = 1800
 	var/icon/virtualIcon
@@ -16,7 +17,7 @@
 		stake.set_target(null)
 
 /obj/item/target/attackby(var/obj/item/W, var/mob/user)
-	if(isWelder(W))
+	if(IS_WELDER(W))
 		var/obj/item/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			overlays.Cut()

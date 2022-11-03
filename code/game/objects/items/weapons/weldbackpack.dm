@@ -5,6 +5,7 @@
 	icon = 'icons/obj/items/welderpack.dmi'
 	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_HUGE
+	material = /decl/material/solid/metal/steel
 	var/max_fuel = 350
 	var/obj/item/weldingtool/welder
 
@@ -20,7 +21,7 @@
 	. = ..()
 
 /obj/item/weldpack/attackby(obj/item/W, mob/user)
-	if(isWelder(W))
+	if(IS_WELDER(W))
 		var/obj/item/weldingtool/T = W
 		if(T.welding & prob(50))
 			log_and_message_admins("triggered a fueltank explosion.", user)
@@ -34,13 +35,13 @@
 				to_chat(user, "<span class='danger'>That was close!</span>")
 			if(!T.tank)
 				to_chat(user, "\The [T] has no tank attached!")
-			src.reagents.trans_to_obj(T.tank, T.tank.max_fuel)
+			src.reagents.trans_to_obj(T.tank, T.tank.reagents.maximum_volume)
 			to_chat(user, "<span class='notice'>You refuel \the [W].</span>")
 			playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 			return
 	else if(istype(W, /obj/item/welder_tank))
 		var/obj/item/welder_tank/tank = W
-		src.reagents.trans_to_obj(tank, tank.max_fuel)
+		src.reagents.trans_to_obj(tank, tank.reagents.maximum_volume)
 		to_chat(user, "<span class='notice'>You refuel \the [W].</span>")
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
@@ -70,9 +71,9 @@
 		..()
 
 /obj/item/weldpack/on_update_icon()
-	cut_overlays()
+	. = ..()
 	if(welder)
-		var/image/welder_image = image(welder.icon, icon_state = welder.icon_state)
+		var/mutable_appearance/welder_image = new(welder)
 		welder_image.pixel_x = 16
 		add_overlay(welder_image)
 

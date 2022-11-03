@@ -45,8 +45,6 @@
 
 	age_descriptor = /datum/appearance_descriptor/age/yinglet
 
-	reagent_tag = IS_YINGLET
-
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/yinglet),

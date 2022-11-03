@@ -31,6 +31,7 @@
 
 /obj/item/shield
 	name = "abstract shield"
+	abstract_type = /obj/item/shield
 	var/base_block_chance = 60
 
 /obj/item/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -152,6 +153,13 @@
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = "{'materials':4,'magnets':3,'esoteric':4}"
 	attack_verb = list("shoved", "bashed")
+	material = /decl/material/solid/metal/titanium
+	matter = list(
+		/decl/material/solid/fiberglass       = MATTER_AMOUNT_SECONDARY,
+		/decl/material/solid/metal/gold       = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/silicon          = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_TRACE,
+	)
 	var/active = 0
 	var/shield_light_color = "#006aff"
 
@@ -204,6 +212,7 @@
 	return
 
 /obj/item/shield/energy/on_update_icon()
+	. = ..()
 	icon_state = "[initial(icon_state)][active]"
 	if(active)
 		set_light(1.5, 1.5, shield_light_color)

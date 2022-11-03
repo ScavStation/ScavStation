@@ -12,14 +12,17 @@
 /obj/item/storage/fancy
 	item_state = "syringe_kit" //placeholder, many of these don't have inhands
 	opened = 0 //if an item has been removed from this container
+	item_flags = ITEM_FLAG_HOLLOW
+	material = /decl/material/solid/cardboard
 	var/obj/item/key_type //path of the key item that this "fancy" container is meant to store
 
 /obj/item/storage/fancy/on_update_icon()
+	. = ..()
 	if(!opened)
-		src.icon_state = initial(icon_state)
+		icon_state = initial(icon_state)
 	else
 		var/key_count = count_by_type(contents, key_type)
-		src.icon_state = "[initial(icon_state)][key_count]"
+		icon_state = "[initial(icon_state)][key_count]"
 
 /obj/item/storage/fancy/examine(mob/user, distance)
 	. = ..()
@@ -44,14 +47,13 @@
 	storage_slots = 12
 	max_w_class = ITEM_SIZE_SMALL
 	w_class = ITEM_SIZE_NORMAL
-
 	key_type = /obj/item/chems/food/egg
 	can_hold = list(
 		/obj/item/chems/food/egg,
 		/obj/item/chems/food/boiledegg
 		)
-
 	startswith = list(/obj/item/chems/food/egg = 12)
+	material = /decl/material/solid/cardboard
 
 /obj/item/storage/fancy/egg_box/empty
 	startswith = null
@@ -70,6 +72,7 @@
 	key_type = /obj/item/chems/food/cracker
 	can_hold = list(/obj/item/chems/food/cracker)
 	startswith = list(/obj/item/chems/food/cracker = 6)
+	material = /decl/material/solid/cardboard
 
 /*
  * Crayon Box
@@ -83,7 +86,6 @@
 	w_class = ITEM_SIZE_SMALL
 	max_w_class = ITEM_SIZE_TINY
 	max_storage_space = 6
-
 	key_type = /obj/item/pen/crayon
 	startswith = list(
 		/obj/item/pen/crayon/red,
@@ -93,12 +95,16 @@
 		/obj/item/pen/crayon/blue,
 		/obj/item/pen/crayon/purple,
 		)
+	material = /decl/material/solid/cardboard
 
 /obj/item/storage/fancy/crayons/on_update_icon()
-	overlays = list() //resets list
-	overlays += image(icon,"crayonbox")
+	. = ..()
+	//#FIXME: This can't handle all crayons types and colors.
+	var/list/cur_overlays
 	for(var/obj/item/pen/crayon/crayon in contents)
-		overlays += image(icon,crayon.colourName)
+		LAZYADD(cur_overlays, overlay_image(icon, crayon.stroke_colour_name, flags = RESET_COLOR))
+	if(LAZYLEN(cur_overlays))
+		add_overlay(cur_overlays)
 
 ////////////
 //CIG PACK//
@@ -114,7 +120,7 @@
 	max_storage_space = 6
 	throwforce = 2
 	slot_flags = SLOT_LOWER_BODY
-
+	material = /decl/material/solid/cardboard
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 	startswith = list(/obj/item/clothing/mask/smokable/cigarette = 6)
 
@@ -134,7 +140,7 @@
 	if(!istype(M, /mob))
 		return
 
-	if(M == user && user.zone_sel.selecting == BP_MOUTH && contents.len > 0 && !user.wear_mask)
+	if(M == user && user.zone_sel.selecting == BP_MOUTH && contents.len > 0 && !user.get_equipped_item(slot_wear_mask_str))
 		// Find ourselves a cig. Note that we could be full of lighters.
 		var/obj/item/clothing/mask/smokable/cigarette/cig = null
 		for(var/obj/item/clothing/mask/smokable/cigarette/C in contents)
@@ -263,7 +269,7 @@
 	throwforce = 2
 	slot_flags = SLOT_LOWER_BODY
 	storage_slots = 7
-
+	material = /decl/material/solid/wood/mahogany
 	key_type = /obj/item/clothing/mask/smokable/cigarette/cigar
 	startswith = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 6)
 
@@ -289,13 +295,14 @@
 	w_class = ITEM_SIZE_NORMAL
 	max_w_class = ITEM_SIZE_TINY
 	storage_slots = 12
-
+	material = /decl/material/solid/plastic
 	key_type = /obj/item/chems/glass/beaker/vial
 	startswith = list(/obj/item/chems/glass/beaker/vial = 12)
 
 /obj/item/storage/fancy/vials/on_update_icon()
+	. = ..()
 	var/key_count = count_by_type(contents, key_type)
-	src.icon_state = "[initial(icon_state)][FLOOR(key_count/2)]"
+	icon_state = "[initial(icon_state)][FLOOR(key_count/2)]"
 
 /*
  * Not actually a "fancy" storage...
@@ -311,22 +318,22 @@
 	max_storage_space = null
 	storage_slots = 12
 	req_access = list(access_virology)
+	material = /decl/material/solid/metal/stainlesssteel
 
 /obj/item/storage/lockbox/vials/Initialize()
 	. = ..()
 	update_icon()
 
 /obj/item/storage/lockbox/vials/on_update_icon()
+	. = ..()
 	var/total_contents = count_by_type(contents, /obj/item/chems/glass/beaker/vial)
-	src.icon_state = "vialbox[FLOOR(total_contents/2)]"
-	src.overlays.Cut()
+	icon_state = "vialbox[FLOOR(total_contents/2)]"
 	if (!broken)
-		overlays += image(icon, src, "led[locked]")
+		add_overlay("led[locked]")
 		if(locked)
-			overlays += image(icon, src, "cover")
+			add_overlay("cover")
 	else
-		overlays += image(icon, src, "ledb")
-	return
+		add_overlay("ledb")
 
 /obj/item/storage/lockbox/vials/attackby(obj/item/W, mob/user)
 	. = ..()

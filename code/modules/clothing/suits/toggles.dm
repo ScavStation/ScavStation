@@ -4,6 +4,7 @@
 	var/obj/item/clothing/head/hood
 
 /obj/item/clothing/suit/storage/toggle/Initialize()
+	. = ..()
 	if(check_state_in_icon("[icon_state]_open", icon))
 		buttons = TRUE
 	if(ispath(hood))
@@ -88,28 +89,36 @@
 // Short-circuit this for quick interaction when worn.
 /obj/item/clothing/suit/storage/toggle/AltClick(var/mob/user)
 	if(user.get_equipped_item(slot_wear_suit_str) == src)
-
-		var/has_buttons = !isnull(buttons)
-		var/has_hood = !!hood
-
-		if(has_buttons && has_hood)
-			var/choice = input(user, "Do you want to adjust the hood, or the buttons?", "Adjust Coat") as null|anything in list("Buttons", "Hood")
-			if(choice && CanPhysicallyInteract(user) && user.get_equipped_item(slot_wear_suit_str) == src)
-				if(choice == "Buttons")
-					toggle_buttons(user)
-				else
-					toggle_hood(user)
-				return TRUE
-
-		if(!has_buttons && has_hood)
+		if(isnull(buttons) && hood)
 			toggle_hood(user)
 			return TRUE
-
-		if(has_buttons && !has_hood)
+		if(!hood && !isnull(buttons))
 			toggle_buttons(user)
 			return TRUE
-
 	return ..()
+
+/obj/item/clothing/suit/storage/toggle/get_alt_interactions(var/mob/user)
+	. = ..()
+	if(!isnull(buttons))
+		LAZYADD(., /decl/interaction_handler/toggle_buttons)
+	if(hood)
+		LAZYADD(., /decl/interaction_handler/toggle_hood)
+
+/decl/interaction_handler/toggle_buttons
+	name = "Toggle Coat Buttons"
+	expected_target_type = /obj/item/clothing/suit/storage/toggle
+
+/decl/interaction_handler/toggle_buttons/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/clothing/suit/storage/toggle/coat = target
+	coat.toggle_buttons(user)
+
+/decl/interaction_handler/toggle_hood
+	name = "Toggle Coat Hood"
+	expected_target_type = /obj/item/clothing/suit/storage/toggle
+
+/decl/interaction_handler/toggle_hood/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/clothing/suit/storage/toggle/coat = target
+	coat.toggle_hood(user)
 
 /obj/item/clothing/suit/storage/toggle/wintercoat
 	name = "winter coat"
@@ -132,7 +141,7 @@
 	icon = 'icons/clothing/head/hood_winter.dmi'
 	body_parts_covered = SLOT_HEAD
 	cold_protection = SLOT_HEAD
-	flags_inv = HIDEEARS | BLOCKHEADHAIR
+	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	protects_against_weather = TRUE
 
@@ -250,4 +259,4 @@
 	body_parts_covered = SLOT_HEAD
 	min_cold_protection_temperature = T0C - 20
 	cold_protection = SLOT_HEAD
-	flags_inv = HIDEEARS | BLOCKHEADHAIR
+	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR

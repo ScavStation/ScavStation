@@ -11,7 +11,6 @@
 
 /datum/map_template/ruin/away_site/smugglers
 	name = "Smugglers' Base"
-	id = "awaysite_smugglers"
 	description = "Yarr."
 	suffixes = list("smugglers/smugglers.dmm")
 	cost = 1
@@ -82,7 +81,7 @@
 	icon = 'icons/obj/materials/ore.dmi'
 
 /obj/random/ore_smug/spawn_choices()
-	return subtypesof(/obj/item/ore)
+	return subtypesof(/obj/item/stack/material/ore)
 
 /obj/random/ammo_magazine_smug
 	name = "Random Ammo Magazine"

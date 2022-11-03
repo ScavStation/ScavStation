@@ -14,10 +14,12 @@
 	var/tag_x
 
 /obj/structure/bigDelivery/attack_robot(mob/user)
-	unwrap(user)
+	if(CanPhysicallyInteract(user))
+		return attack_hand(user)
 
 /obj/structure/bigDelivery/attack_hand(mob/user)
 	unwrap(user)
+	return TRUE
 
 /obj/structure/bigDelivery/proc/unwrap(var/mob/user)
 	if(Adjacent(user))
@@ -41,7 +43,7 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(istype(W, /obj/item/pen))
+	else if(IS_PEN(W))
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitize_safe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
@@ -126,6 +128,7 @@
 	name = "small parcel"
 	icon = 'icons/obj/items/storage/deliverypackage.dmi'
 	icon_state = "deliverycrate3"
+	material = /decl/material/solid/cardboard
 	var/obj/item/wrapped = null
 	var/sortTag = null
 	var/examtext = null
@@ -144,10 +147,12 @@
 	qdel(src)
 
 /obj/item/smallDelivery/attack_robot(mob/user)
-	unwrap(user)
+	if(CanPhysicallyInteract(user))
+		return attack_self(user)
 
 /obj/item/smallDelivery/attack_self(mob/user)
 	unwrap(user)
+	return TRUE
 
 /obj/item/smallDelivery/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/destTagger))
@@ -166,7 +171,7 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(istype(W, /obj/item/pen))
+	else if(IS_PEN(W))
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitize_safe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
@@ -199,14 +204,14 @@
 	return
 
 /obj/item/smallDelivery/on_update_icon()
-	overlays.Cut()
+	. = ..()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
-		var/image/I = new/image(icon,"delivery_label")
+		var/image/I = new/image(icon, "delivery_label")
 		if(icon_state == "deliverycrate5")
 			I.pixel_y = -1
-		overlays += I
+		add_overlay(I)
 	if(src.sortTag)
-		var/image/I = new/image(icon,"delivery_tag")
+		var/image/I = new/image(icon, "delivery_tag")
 		switch(icon_state)
 			if("deliverycrate1")
 				I.pixel_y = -5
@@ -221,7 +226,7 @@
 				I.pixel_y = 3
 			if("deliverycrate5")
 				I.pixel_y = -3
-		overlays += I
+		add_overlay(I)
 
 /obj/item/smallDelivery/examine(mob/user, distance)
 	. = ..()
@@ -253,6 +258,7 @@
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 4
 	throw_range = 5
+	material = /decl/material/solid/cardboard
 
 /obj/item/stack/package_wrap/afterattack(var/obj/target, mob/user, proximity)
 	if(!proximity) return
@@ -417,7 +423,7 @@
 
 /obj/machinery/disposal/deliveryChute/Bumped(var/atom/movable/AM) //Go straight into the chute
 
-	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))	
+	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))
 		return
 
 	if(get_dir(src, AM) != dir)
@@ -471,7 +477,7 @@
 	if(!I || !user)
 		return
 
-	if(isScrewdriver(I))
+	if(IS_SCREWDRIVER(I))
 		if(c_mode==0)
 			c_mode=1
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
@@ -482,7 +488,7 @@
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(isWelder(I) && c_mode==1)
+	else if(IS_WELDER(I) && c_mode==1)
 		var/obj/item/weldingtool/W = I
 		if(W.remove_fuel(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
@@ -512,3 +518,4 @@
 	uses_charge = 1
 	charge_costs = list(1)
 	stack_merge_type = /obj/item/stack/package_wrap
+	health = ITEM_HEALTH_NO_DAMAGE

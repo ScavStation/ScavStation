@@ -48,6 +48,7 @@
 
 
 /obj/item/airlock_brace/on_update_icon()
+	. = ..()
 	if(airlock)
 		icon_state = "brace_closed"
 	else
@@ -99,7 +100,7 @@
 			unlock_brace(user)
 		return
 
-	if(isWelder(W))
+	if(IS_WELDER(W))
 		var/obj/item/weldingtool/C = W
 		if(health == max_health)
 			to_chat(user, "\The [src] does not require repairs.")
@@ -114,7 +115,7 @@
 
 
 /obj/item/airlock_brace/proc/take_damage(var/amount)
-	health = between(0, health - amount, max_health)
+	health = clamp(0, health - amount, max_health)
 	if(!health)
 		if(airlock)
 			airlock.visible_message("<span class='danger'>\The [src] breaks off of \the [airlock]!</span>")

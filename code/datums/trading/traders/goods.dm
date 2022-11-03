@@ -194,6 +194,7 @@ Sells devices, odds and ends, and medical stuff
 								/obj/item/megaphone                 = TRADER_THIS_TYPE,
 								/obj/item/paicard                   = TRADER_THIS_TYPE,
 								/obj/item/scanner/health            = TRADER_THIS_TYPE,
+								/obj/item/scanner/breath            = TRADER_THIS_TYPE,
 								/obj/item/scanner/gas                  = TRADER_ALL,
 								/obj/item/scanner/spectrometer         = TRADER_ALL,
 								/obj/item/scanner/reagent           = TRADER_ALL,
@@ -376,9 +377,9 @@ Sells devices, odds and ends, and medical stuff
 				)
 
 	possible_wanted_items = list(
-		/obj/item/ore/ =        TRADER_SUBTYPES_ONLY,
-		/obj/item/disk/survey = TRADER_THIS_TYPE,
-		/obj/item/ore/slag =    TRADER_BLACKLIST
+		/obj/item/stack/material/ore      = TRADER_SUBTYPES_ONLY,
+		/obj/item/disk/survey             = TRADER_THIS_TYPE,
+		/obj/item/stack/material/ore/slag = TRADER_BLACKLIST
 	)
 
 	possible_trading_items = list(
