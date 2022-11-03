@@ -27,9 +27,9 @@ var/global/const/PREF_SHORTHAND = "Shorthand"
 var/global/const/PREF_NON_ANTAG = "Non-Antag Only"
 var/global/const/PREF_NEVER = "Never"
 var/global/const/PREF_ALWAYS = "Always"
+var/global/const/PREF_MYSELF = "Only Against Self"
 var/global/const/PREF_DARKMODE = "Darkmode"
 var/global/const/PREF_LIGHTMODE = "Lightmode"
-var/global/const/PREF_MYSELF = "Only Against Self"
 
 var/global/list/_client_preferences
 var/global/list/_client_preferences_by_key

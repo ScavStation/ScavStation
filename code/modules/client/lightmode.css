@@ -1,14 +1,3 @@
-<<<<<<<< HEAD:code/stylesheet.dm
-var/global/lightmode_style = url_encode(file2text('code/modules/client/lightmode.css'))
-var/global/darkmode_style = url_encode(file2text('code/modules/client/darkmode.css'))
-
-/client/New()
-	if(get_preference_value(/datum/client_preference/chat_color_mode) == PREF_DARKMODE)
-		activate_darkmode(clear_chat = FALSE)
-	else
-		deactivate_darkmode(clear_chat = FALSE)
-	. = ..()
-========
 body					{font-family: Verdana, sans-serif;}
 
 h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: Georgia, Verdana, sans-serif;}
@@ -142,4 +131,3 @@ h1.alert, h2.alert		{color: #000000;}
 .bad					{color: #ee0000; font-weight: bold;}
 
 BIG IMG.icon 			{width: 32px; height: 32px;}
->>>>>>>> 7e06f06974f2b598ab9b2ca8d84b282419a6be56:code/modules/client/lightmode.css
