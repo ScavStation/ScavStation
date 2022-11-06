@@ -38,3 +38,63 @@
 	outfit_type = /decl/hierarchy/outfit/job/ministation/doctor
 	minimal_player_age = 3
 	event_categories = list(ASSIGNMENT_MEDICAL)
+
+/datum/job/ministation/doctor/head
+	title = "Head Doctor"
+	head_position = 1
+	department_types = list(
+		/decl/department/medical,
+		/decl/department/command
+	)
+	supervisors = "the Captain and your own ethics"
+	outfit_type = /decl/hierarchy/outfit/job/ministation/doctor/head
+	alt_titles = list("Surgeon")
+	total_positions = 1
+	spawn_positions = 1
+	skill_points = 28
+	guestbanned = 1	
+	must_fill = 1
+	not_random_selectable = 1
+	selection_color = "#026865"
+	req_admin_notify = 1
+	economic_power = 10
+	hud_icon = "hudmedicaldoctor"
+	access = list(
+		access_medical,
+		access_medical_equip,
+		access_morgue,
+		access_bridge,
+		access_heads,
+		access_chemistry,
+		access_virology,
+		access_cmo,
+		access_surgery,
+		access_RC_announce,
+		access_keycard_auth,
+		access_sec_doors,
+		access_psychiatrist,
+		access_eva,
+		access_maint_tunnels,
+		access_external_airlocks
+	)
+	minimal_access = list(
+		access_medical,
+		access_medical_equip,
+		access_morgue,
+		access_bridge,
+		access_heads,
+		access_chemistry,
+		access_virology,
+		access_cmo,
+		access_surgery,
+		access_RC_announce,
+		access_keycard_auth,
+		access_sec_doors,
+		access_psychiatrist,
+		access_eva,
+		access_maint_tunnels,
+		access_external_airlocks
+	)
+	minimal_player_age = 14
+	ideal_character_age = 50
+	event_categories = list(ASSIGNMENT_MEDICAL)

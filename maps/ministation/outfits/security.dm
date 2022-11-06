@@ -4,7 +4,6 @@
 
 /decl/hierarchy/outfit/job/ministation/security
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	l_ear = /obj/item/radio/headset/headset_sec
 	gloves = /obj/item/clothing/gloves/thick
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/handcuffs = 1)
@@ -15,10 +14,27 @@
 	id_type = /obj/item/card/id/ministation/security
 	pda_type = /obj/item/modular_computer/pda/security
 
+/decl/hierarchy/outfit/job/ministation/security/head
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	l_ear = /obj/item/radio/headset/headset_sec
+	gloves = /obj/item/clothing/gloves/thick
+	shoes = /obj/item/clothing/shoes/jackboots
+	backpack_contents = list(/obj/item/handcuffs = 1)
+	name = "Ministation - Job - Head of Security"
+	uniform = /obj/item/clothing/under/security
+	l_pocket = /obj/item/flash
+	r_pocket = /obj/item/handcuffs
+	id_type = /obj/item/card/id/ministation/security
+	pda_type = /obj/item/modular_computer/pda/security
+
 /decl/hierarchy/outfit/job/ministation/security/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_SECURITY
 
+/decl/hierarchy/outfit/job/ministation/security/head/Initialize()
+	. = ..()
+	BACKPACK_OVERRIDE_SECURITY
+	
 /obj/item/modular_computer/pda/forensics
 	color = COLOR_DARK_RED
 	decals = list("stripe" = COLOR_SKY_BLUE)

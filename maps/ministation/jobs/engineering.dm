@@ -65,6 +65,7 @@
 	guestbanned = 1	
 	must_fill = 1
 	not_random_selectable = 1
+	hud_icon = "hudstationengineer"
 	access = list(
 		access_engine, 
 		access_engine_equip, 
