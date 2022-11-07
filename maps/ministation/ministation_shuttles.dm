@@ -21,7 +21,7 @@
 	name = "Escape Shuttle"
 	warmup_time = 10
 	location = 1
-	//dock_target = "escape_shuttle"
+	dock_target = "shuttle1"
 	shuttle_area = /area/shuttle/escape_shuttle
 	waypoint_offsite = "nav_escape_shuttle_start"
 	waypoint_station = "nav_escape_shuttle_station"
@@ -36,4 +36,4 @@
 
 /obj/effect/shuttle_landmark/escape_shuttle/station
 	landmark_tag = "nav_escape_shuttle_station"
-	//docking_controller = "escape_dock"
+	docking_controller = "station1"

@@ -1388,8 +1388,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/nw)
 "dO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
@@ -1463,6 +1463,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"ea" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "eb" = (
 /obj/structure/cable,
 /obj/structure/cable{
@@ -1583,8 +1590,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/hall/s)
 "eq" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 6
+	},
+/obj/machinery/atmospherics/binary/pump/on{
+	target_pressure = 200
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
@@ -2445,6 +2455,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"gA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "gB" = (
 /obj/machinery/door/airlock/glass/command{
 	autoset_access = 0;
@@ -4284,7 +4301,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
 "lb" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/atmospherics/portables_connector{
+	pixel_x = -3
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "lc" = (
@@ -4297,14 +4317,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "ld" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/trash,
 /obj/random/trash,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "le" = (
@@ -4537,14 +4557,23 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/bin/ministation,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "lL" = (
 /obj/machinery/vending/snack,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "lM" = (
 /obj/machinery/vending/cola,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "lN" = (
@@ -4741,6 +4770,7 @@
 "mo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "mp" = (
@@ -4914,6 +4944,9 @@
 "mR" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
@@ -5171,13 +5204,17 @@
 	},
 /obj/item/clothing/glasses/meson,
 /obj/item/flashlight,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "nF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/random/trash,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "nI" = (
@@ -5372,12 +5409,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/docking_port_multi{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
-	name = "escape docking port controller";
-	pixel_x = -24;
-	child_names_txt = "Airlock One;Airlock Two;Airlock Three";
-	child_tags_txt = "escape_dock_first_airlock;escape_dock_second_airlock;escape_dock_third_airlock"
+	id_tag = "station1";
+	tag_airpump = "escape1_vent";
+	tag_chamber_sensor = "escape1_sensor";
+	tag_exterior_door = "escape1_airlock_exterior";
+	tag_interior_door = "escape1_airlock_interior";
+	pixel_x = -20
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
@@ -5429,12 +5468,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "on" = (
@@ -5582,12 +5619,19 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "oK" = (
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -22
+	},
+/obj/machinery/atmospherics/binary/pump/on{
+	target_pressure = 200;
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
@@ -5601,6 +5645,9 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/ministation/janitor)
@@ -5721,6 +5768,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "pi" = (
@@ -5732,6 +5782,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
 "pj" = (
@@ -5742,6 +5795,10 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/light/small,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "pk" = (
@@ -6202,6 +6259,13 @@
 /obj/effect/wallframe_spawn/no_grille,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
+"qj" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	target_pressure = 200;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/w)
 "qk" = (
 /turf/simulated/wall,
 /area/ministation/hall/e)
@@ -6628,6 +6692,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "rr" = (
@@ -6726,6 +6793,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
+"rE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "rF" = (
 /obj/item/soap{
 	icon_state = "soap-oval"
@@ -6855,12 +6929,18 @@
 "rW" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "rX" = (
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
@@ -10402,6 +10482,17 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/ministation/ai_sat)
+"Bj" = (
+/obj/machinery/airlock_sensor{
+	id_tag = "escape3_sensor";
+	pixel_y = 20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "escape1_vent"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/hall/w)
 "Bl" = (
 /obj/structure/rack,
 /obj/item/beartrap,
@@ -11116,6 +11207,18 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
+"Da" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
+"Db" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -13297,6 +13400,9 @@
 "Is" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
 "It" = (
@@ -14763,6 +14869,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/nw)
+"MG" = (
+/obj/structure/bed/chair,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "MH" = (
 /obj/structure/table,
 /obj/item/implantcase/tracking,
@@ -14879,6 +14992,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"MY" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "MZ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/effect/wallframe_spawn/reinforced,
@@ -14964,6 +15087,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"Nu" = (
+/obj/machinery/airlock_sensor{
+	id_tag = "escape2_sensor";
+	pixel_y = -20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "escape1_vent"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/hall/w)
 "Nw" = (
 /turf/simulated/floor/tiled,
 /area/ministation/court)
@@ -15180,6 +15314,12 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/maint/se)
+"Os" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/wall,
+/area/ministation/hall/w)
 "Ou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15309,6 +15449,18 @@
 /obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
+"OT" = (
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "External Airlock Hatch";
+	locked = 1;
+	id_tag = "escape1_airlock_interior"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/hall/w)
 "OU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -15447,7 +15599,6 @@
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
 	name = "External Airlock Hatch";
-	req_access = list("ACCESS_EXTERNAL");
 	locked = 1;
 	id_tag = "pfm_airlock_exterior"
 	},
@@ -15556,6 +15707,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"PN" = (
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "External Airlock Hatch";
+	locked = 1;
+	id_tag = "escape1_airlock_exterior"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/hall/w)
 "PP" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -15598,6 +15758,23 @@
 /obj/item/mollusc/clam,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
+"PX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
+"PY" = (
+/obj/machinery/airlock_sensor{
+	id_tag = "escape1_sensor";
+	pixel_y = -20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "escape1_vent"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/hall/w)
 "Qb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -15639,6 +15816,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"Qp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/hall/w)
 "Qq" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -15651,6 +15834,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/ne)
+"Qr" = (
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/w)
 "Qu" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -15683,6 +15874,13 @@
 /obj/structure/sign/botany,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
+"QA" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/ministation/maint/w)
 "QB" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -15803,6 +16001,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"QZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "Ra" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -15877,6 +16080,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/yinglet_enclave)
+"Rn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "Rr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -15917,6 +16129,13 @@
 "Rx" = (
 /turf/simulated/wall,
 /area/ministation/court)
+"Ry" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "RB" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -16118,6 +16337,13 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
+"Sn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "So" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
@@ -16150,6 +16376,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"Sv" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/w)
 "Sy" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16164,6 +16400,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"SA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/w)
 "SC" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -16259,7 +16506,6 @@
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
 	name = "External Airlock Hatch";
-	req_access = list("ACCESS_EXTERNAL");
 	locked = 1;
 	id_tag = "pfm_airlock_interior"
 	},
@@ -16287,6 +16533,12 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor,
 /area/ministation/atmospherics)
+"Ta" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/w)
 "Tb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -16356,6 +16608,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/court)
+"Ts" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/w)
 "Tv" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 1;
@@ -16405,6 +16665,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"TD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "TF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -16689,7 +16956,9 @@
 /area/ministation/court)
 "UK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/atmospherics/portables_connector{
+	pixel_x = -3
+	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/maint/sw)
@@ -16824,6 +17093,12 @@
 /obj/structure/bookcase/skill_books/random,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"Vs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "Vt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -17029,6 +17304,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"Wo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "Wr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
@@ -17044,8 +17326,11 @@
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "Wt" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
@@ -17400,6 +17685,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"XV" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/w)
 "XX" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -42764,15 +43056,15 @@ aa
 aa
 aa
 la
-mO
+PN
 kZ
 ad
 ad
 ad
 la
-mO
+PN
 kZ
-mO
+PN
 la
 aa
 aa
@@ -43021,15 +43313,15 @@ ac
 ac
 ad
 la
-mO
+PY
 kZ
 ad
 ad
 ad
 la
-mO
+Nu
 kZ
-mO
+Bj
 la
 aa
 aa
@@ -43278,15 +43570,15 @@ Pp
 ac
 ad
 la
-mO
+Qp
 kZ
 ad
 ad
 ad
 la
-mO
+Qp
 kZ
-mO
+Qp
 la
 ad
 ad
@@ -43535,15 +43827,15 @@ Pp
 kZ
 kZ
 la
-mO
+OT
 Sd
 kZ
 la
 kZ
 la
-mO
+OT
 Sd
-mO
+OT
 la
 ad
 kZ
@@ -43792,13 +44084,13 @@ Pp
 kZ
 lI
 mh
-mQ
+Ry
 mh
 oh
 oH
 rc
 mh
-mQ
+Ry
 mh
 rW
 kZ
@@ -44304,17 +44596,17 @@ Pp
 Pp
 Pp
 la
-lJ
-mj
-mS
-mS
-mS
-mS
-mS
-mS
-nB
+MG
+Rn
+Da
+Db
+PX
+PX
+PX
+PX
+rE
 rn
-mS
+Vs
 mS
 te
 mS
@@ -44564,14 +44856,14 @@ kZ
 lK
 mj
 mS
-nB
+Sn
 oi
 oI
 oI
 pY
 oI
 ro
-pY
+MY
 oI
 tf
 tW
@@ -44820,15 +45112,15 @@ Pp
 kZ
 lL
 mk
-nC
-nC
+Wo
+QZ
 oj
 nC
 nC
 nC
 nC
 rp
-nC
+TD
 ss
 tg
 tX
@@ -45077,15 +45369,15 @@ au
 kZ
 lM
 mS
-mS
-mS
+Vs
+Vs
 ok
 oJ
 ph
-nD
-nD
+ea
+ea
 rq
-nD
+gA
 st
 th
 tY
@@ -45332,13 +45624,13 @@ hQ
 fq
 au
 kZ
+Os
 kZ
-kZ
-kZ
-kZ
+Os
+Os
 ol
-kZ
-kZ
+Os
+Os
 kZ
 qE
 rr
@@ -45589,9 +45881,9 @@ ej
 dI
 au
 lb
-lN
-lN
-mq
+Ta
+qj
+XV
 nE
 om
 oK
@@ -45846,12 +46138,12 @@ SR
 jV
 au
 lc
-jY
+Ts
 mo
-mo
+SA
 Is
 it
-DJ
+Sv
 pj
 kZ
 qG
@@ -46103,7 +46395,7 @@ fF
 jW
 au
 ld
-Zf
+Qr
 eq
 Wt
 WH
@@ -46360,7 +46652,7 @@ Zk
 jX
 au
 YM
-iq
+QA
 mp
 mY
 nF
@@ -47911,7 +48203,7 @@ BX
 pq
 mq
 iq
-iq
+lN
 mq
 LI
 mS
@@ -48425,7 +48717,7 @@ oR
 mq
 mq
 is
-iq
+lN
 mq
 mS
 tq
