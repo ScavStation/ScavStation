@@ -3221,11 +3221,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"im" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/ministation/cargo)
 "in" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
@@ -15001,11 +14996,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
-"MZ" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/ministation/yinglet_enclave)
 "Na" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -15243,9 +15233,7 @@
 /obj/effect/decal/cleanable/dirt{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/ministation/maint/sw)
 "NX" = (
@@ -45149,7 +45137,7 @@ ad
 au
 Rq
 cy
-im
+cy
 Rh
 au
 ad
@@ -56435,7 +56423,7 @@ aa
 aa
 aa
 aa
-MZ
+VD
 Ux
 Ux
 Rm

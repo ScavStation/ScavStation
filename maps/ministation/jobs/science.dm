@@ -6,6 +6,7 @@
 	total_positions = 2
 	department_types = list(/decl/department/science)
 	outfit_type = /decl/hierarchy/outfit/job/ministation/scientist
+	hud_icon = "hudscientist"
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_COMPUTER = SKILL_BASIC,

@@ -5,7 +5,7 @@
 	supervisors = "the Lieutenant and the Captain"
 	total_positions = 2
 	spawn_positions = 2
-	alt_titles = list("Surgeon","Chemist","Nurse")
+	alt_titles = list("Chemist","Nurse")
 	skill_points = 24
 	min_skill = list(
 		SKILL_LITERACY  = SKILL_ADEPT,
