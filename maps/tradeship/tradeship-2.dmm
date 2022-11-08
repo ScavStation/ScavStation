@@ -911,20 +911,20 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
-	id_tag = "rescue_shuttle_pump_out_internal"
+	id_tag = "tradeship_rescue_shuttle_pump_out_internal"
 	},
 /obj/machinery/airlock_sensor{
-	id_tag = "rescue_shuttle_sensor";
+	id_tag = "tradeship_rescue_shuttle_sensor";
 	pixel_y = 20;
 	pixel_x = -22
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
-	id_tag = "rescue_shuttle";
+	id_tag = "tradeship_rescue_shuttle";
 	pixel_y = 32;
-	tag_airpump = "rescue_shuttle_pump";
-	tag_chamber_sensor = "rescue_shuttle_sensor";
-	tag_exterior_door = "rescue_shuttle_out";
+	tag_airpump = "tradeship_rescue_shuttle_pump";
+	tag_chamber_sensor = "tradeship_rescue_shuttle_sensor";
+	tag_exterior_door = "tradeship_rescue_shuttle_out";
 	dir = 4;
 	pixel_x = -20
 	},
@@ -3577,7 +3577,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
-	id_tag = "rescue_shuttle_pump"
+	id_tag = "tradeship_rescue_shuttle_pump"
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 6
@@ -4517,7 +4517,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
-	id_tag = "rescue_shuttle_pump"
+	id_tag = "tradeship_rescue_shuttle_pump"
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 6
@@ -4667,7 +4667,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
-	id_tag = "rescue_shuttle_pump_out_internal"
+	id_tag = "tradeship_rescue_shuttle_pump_out_internal"
 	},
 /obj/structure/handrail{
 	dir = 4
@@ -4804,7 +4804,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
-	id_tag = "rescue_shuttle_pump_out_internal"
+	id_tag = "tradeship_rescue_shuttle_pump_out_internal"
 	},
 /obj/structure/handrail{
 	dir = 4
@@ -5721,7 +5721,7 @@
 /area/ship/trade/command/bridge)
 "DY" = (
 /obj/machinery/door/airlock/external/bolted{
-	id_tag = "rescue_shuttle_out"
+	id_tag = "tradeship_rescue_shuttle_out"
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6671,7 +6671,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
-	id_tag = "rescue_shuttle_pump"
+	id_tag = "tradeship_rescue_shuttle_pump"
 	},
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
@@ -7286,7 +7286,7 @@
 "WK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
-	id_tag = "rescue_shuttle_pump_out_internal"
+	id_tag = "tradeship_rescue_shuttle_pump_out_internal"
 	},
 /obj/structure/handrail{
 	dir = 4
@@ -7391,7 +7391,7 @@
 "Yl" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
-	id_tag = "rescue_shuttle_pump"
+	id_tag = "tradeship_rescue_shuttle_pump"
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 6
@@ -7497,7 +7497,7 @@
 "ZK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 1;
-	id_tag = "rescue_shuttle_pump_out_external"
+	id_tag = "tradeship_rescue_shuttle_pump_out_external"
 	},
 /turf/simulated/floor/airless,
 /area/ship/trade/shuttle/rescue)
