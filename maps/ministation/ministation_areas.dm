@@ -13,14 +13,6 @@
 	icon = 'maps/ministation/ministation_areas.dmi'
 	icon_state = "default"
 
-/area/ministation/arrival_shuttle
-	name = "Arrivals Shuttle"
-	requires_power = 0
-	icon_state = "light_blue"
-	sound_env = SMALL_ENCLOSED
-	base_turf = /turf/space
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-
 /area/ministation/supply_dock
 	name = "Supply Shuttle Dock"
 	icon_state = "yellow"
