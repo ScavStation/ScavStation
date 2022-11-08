@@ -4339,6 +4339,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"kX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/abstract/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w)
 "kY" = (
 /obj/structure/closet,
 /obj/item/clothing/mask/gas/clown_hat,
@@ -9648,6 +9655,12 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"yS" = (
+/obj/abstract/landmark{
+	name = "bluespace_a"
+	},
+/turf/space,
 /area/space)
 "yU" = (
 /obj/machinery/alarm{
@@ -41022,7 +41035,7 @@ aa
 aa
 aa
 aa
-aa
+yS
 aa
 aa
 aa
@@ -45148,7 +45161,7 @@ TD
 ss
 tg
 tX
-nC
+kX
 vb
 mS
 mS
