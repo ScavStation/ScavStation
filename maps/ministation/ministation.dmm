@@ -1466,7 +1466,7 @@
 "ea" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
@@ -2151,7 +2151,7 @@
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -4970,7 +4970,7 @@
 /area/ministation/science)
 "mI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -6761,7 +6761,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
@@ -15776,7 +15776,7 @@
 /area/ministation/yinglet_rep)
 "PX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
@@ -16112,7 +16112,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
@@ -16445,7 +16445,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
