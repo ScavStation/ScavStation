@@ -18,6 +18,7 @@
 	hands = list(/obj/item/storage/firstaid/adv)
 	r_pocket = /obj/item/flashlight/pen
 	id_type = /obj/item/card/id/ministation/doctor
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 
 /decl/hierarchy/outfit/job/ministation/doctor/Initialize()
 	. = ..()

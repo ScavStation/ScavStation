@@ -10,7 +10,6 @@
 		SKILL_WEAPONS  = SKILL_ADEPT,
 		SKILL_LITERACY = SKILL_BASIC
 	)
-	var/required_gender
 
 /datum/job/yinglet/is_species_allowed(var/decl/species/S)
 	if(S && !istype(S))

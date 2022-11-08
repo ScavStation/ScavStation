@@ -1,10 +1,9 @@
 /decl/hierarchy/outfit/job/ministation/captain
 	name = "Ministation - Job - Captain"
-	head = /obj/item/clothing/head/caphat
+	uniform = /obj/item/clothing/under/yinglet/matriarch
+	head = /obj/item/clothing/head/yinglet/matriarch
 	glasses = /obj/item/clothing/glasses/sunglasses
-	uniform = /obj/item/clothing/under/captain
 	l_ear = /obj/item/radio/headset/heads/captain
-	shoes = /obj/item/clothing/shoes/color/brown
 	id_type = /obj/item/card/id/gold
 	pda_type = /obj/item/modular_computer/pda/heads/captain
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
@@ -17,7 +16,7 @@
 
 /decl/hierarchy/outfit/job/captain/post_equip(var/mob/living/carbon/human/H)
 	..()
-	if(H.get_age() > 49)
+	if(H.get_age() > 20)
 		// Since we can have something other than the default uniform at this
 		// point, check if we can actually attach the medal
 		var/obj/item/clothing/uniform = H.w_uniform

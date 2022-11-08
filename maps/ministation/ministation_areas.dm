@@ -184,7 +184,7 @@
 	icon_state = "light_blue"
 
 /area/ministation/yinglet_rep
-	name = "\improper Yinglet Representative Chamber"
+	name = "\improper Tradehouse Representative Chamber"
 	req_access = list(access_lawyer)
 	icon_state = "brown"
 

@@ -10,6 +10,7 @@
 	r_pocket = /obj/item/t_scanner
 	id_type = /obj/item/card/id/ministation/engineering
 	pda_type = /obj/item/modular_computer/pda/engineering
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 
 /decl/hierarchy/outfit/job/ministation/engineer/Initialize()
 	. = ..()

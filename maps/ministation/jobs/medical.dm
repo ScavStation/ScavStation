@@ -2,7 +2,7 @@
 	title = "Medical Doctor"
 	department_types = list(/decl/department/medical)
 	head_position = 0
-	supervisors = "the Lieutenant and the Captain"
+	supervisors = "the Head Doctor"
 	total_positions = 2
 	spawn_positions = 2
 	alt_titles = list("Chemist","Nurse")
@@ -46,9 +46,9 @@
 		/decl/department/medical,
 		/decl/department/command
 	)
-	supervisors = "the Captain and your own ethics"
+	supervisors = "the Matriarch and your own ethics"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/doctor/head
-	alt_titles = list("Surgeon")
+	alt_titles = list("Surgeon","Patriarch of Medicine")
 	total_positions = 1
 	spawn_positions = 1
 	skill_points = 28

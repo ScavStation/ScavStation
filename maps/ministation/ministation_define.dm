@@ -4,14 +4,14 @@
 	path = "ministation"
 	ground_noun = "floor"
 
-	station_name = "Space Station Zebra"
-	station_short = "Zebra"
+	station_name = "Tradepost Mollusc"
+	station_short = "Mollusc"
 
-	dock_name     = "Finite Beginnings Free Dock"
-	boss_name     = "Trade Administration"
+	dock_name     = "Val Salia Station"
+	boss_name     = "Trademaster"
 	boss_short    = "Admin"
-	company_name  = "Free Trade Union Residual Delta"
-	company_short = "RD"
+	company_name  = "Tradehouse Ivenmoth"
+	company_short = "Ivenmoth"
 
 	default_law_type = /datum/ai_laws/nanotrasen
 
@@ -47,5 +47,5 @@
 
 
 /datum/map/ministation/get_map_info()
-	return "You're aboard the <b>[station_name],</b> an older station once used for unethical scientific research. It has long since been repurposed as deep space communication relay, though only on paper. \
-	Onboard activity is at the whims of the [boss_name] who treat the station as a glorafied dogsbody, and sometimes guinea pig."
+	return "You're aboard the <b>[station_name],</b> an older station once used for unethical economic research. It has long since been repurposed as deep space communication relay, though only on paper. \
+	Onboard activity is at the whims of the [boss_name] who treat the station as a dumping ground for less desired tradehouse personell."

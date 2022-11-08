@@ -1,7 +1,7 @@
 /datum/job/ministation/scientist
 	title = "Researcher"
 	alt_titles = list("Scientist","Xenobiologist","Roboticist","Xenobotanist")
-	supervisors = "the Lieutenant and the Captain"
+	supervisors = "the Head Researcher"
 	spawn_positions = 1
 	total_positions = 2
 	department_types = list(/decl/department/science)
@@ -41,10 +41,10 @@
 
 /datum/job/ministation/scientist/head
 	title = "Head Researcher"
-	supervisors = "the Captain"
+	supervisors = "the Matriarch"
 	spawn_positions = 1
 	total_positions = 1
-	alt_titles = list()
+	alt_titles = list("Patriarch of Science")
 	outfit_type = /decl/hierarchy/outfit/job/ministation/scientist/head
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,

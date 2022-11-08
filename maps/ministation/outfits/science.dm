@@ -4,6 +4,7 @@
 	name = "Ministation - Job - Researcher"
 	uniform = /obj/item/clothing/under/color/white
 	id_type = /obj/item/card/id/ministation/scientist
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 
 /obj/item/card/id/ministation/scientist
 	name = "identification card"

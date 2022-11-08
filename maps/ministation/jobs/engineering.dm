@@ -1,6 +1,6 @@
 /datum/job/ministation/engineer
 	title = "Station Engineer"
-	supervisors = "the Lieutenant and the Captain"
+	supervisors = "the Head Engineer"
 	total_positions = 2
 	spawn_positions = 2
 	outfit_type = /decl/hierarchy/outfit/job/ministation/engineer
@@ -105,7 +105,7 @@
 		access_ai_upload
 	)
 	minimal_player_age = 14
-	supervisors = "the Captain"
+	supervisors = "the Matriarch"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/chief_engineer
 	min_skill = list(
 		SKILL_LITERACY     = SKILL_ADEPT,
@@ -123,5 +123,5 @@
 		SKILL_ENGINES      = SKILL_MAX
 	)
 	skill_points = 30
-	alt_titles = list()
+	alt_titles = list("Patriarch of Engineering")
 	event_categories = list(ASSIGNMENT_ENGINEER)
