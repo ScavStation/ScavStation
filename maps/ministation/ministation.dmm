@@ -1542,14 +1542,6 @@
 	},
 /turf/simulated/floor,
 /area/ministation/science)
-"ei" = (
-/obj/machinery/door/airlock/external/shuttle{
-	autoset_access = 0;
-	name = "Arrivals Shuttle Airlock";
-	autoclose = 0
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "ej" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -3504,7 +3496,7 @@
 /turf/simulated/wall,
 /area/ministation/commons)
 "iY" = (
-/obj/machinery/door/window/eastright,
+/obj/machinery/door/airlock/double/glass/civilian,
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
 "iZ" = (
@@ -4238,7 +4230,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
 "kK" = (
-/obj/machinery/door/window/eastleft,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -4348,11 +4339,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"kX" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/toolbox/emergency,
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "kY" = (
 /obj/structure/closet,
 /obj/item/clothing/mask/gas/clown_hat,
@@ -5001,12 +4987,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "mO" = (
+/obj/abstract/landmark/latejoin,
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
 "mP" = (
-/obj/machinery/door/airlock/external/glass{
-	autoset_access = 0;
-	name = "Dock Airlock"
+/obj/machinery/door/airlock/external{
+	name = "Arrival Airlock";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
@@ -9430,16 +9417,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
-"yi" = (
-/turf/simulated/shuttle/wall,
-/area/ministation/arrival_shuttle)
-"yj" = (
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"yk" = (
-/obj/structure/shuttle/window,
-/turf/simulated/floor/shuttle/black,
-/area/ministation/arrival_shuttle)
 "yl" = (
 /obj/structure/displaycase,
 /obj/item/clothing/mask/gas/owl_mask{
@@ -9647,16 +9624,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
-"yL" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"yM" = (
-/obj/machinery/computer/arcade/battle,
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "yN" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9682,24 +9649,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
-"yR" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = 32
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"yS" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"yT" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/ministation/arrival_shuttle)
 "yU" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -9851,35 +9800,6 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/ministation/hydro)
-"zl" = (
-/obj/structure/table/reinforced,
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"zm" = (
-/obj/structure/bed/chair/shuttle/white{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"zo" = (
-/obj/structure/bed/chair/shuttle/white{
-	dir = 8
-	},
-/obj/abstract/landmark/latejoin,
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"zp" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 4
-	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/ministation/arrival_shuttle)
 "zq" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10047,18 +9967,6 @@
 "zQ" = (
 /turf/simulated/wall,
 /area/ministation/hydro)
-"zR" = (
-/obj/machinery/computer/modular/preset/civilian{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
-"zS" = (
-/obj/abstract/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "zT" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -12871,10 +12779,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"GU" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "GV" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -15541,10 +15445,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/ministation/cargo)
-"OS" = (
-/obj/machinery/computer/arcade/orion_trail,
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "OT" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -16766,13 +16666,6 @@
 	},
 /turf/simulated/floor,
 /area/ministation/atmospherics)
-"Tw" = (
-/obj/item/radio/intercom{
-	dir = 4;
-	pixel_x = -25
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "Ty" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -17032,7 +16925,7 @@
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
 	name = "Dock Airlock";
-	autoclose = 0
+	locked = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
@@ -17598,10 +17491,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/se)
-"WX" = (
-/obj/machinery/cryopod,
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "WY" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -18379,12 +18268,6 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
-"ZY" = (
-/obj/structure/cryofeed{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/blue,
-/area/ministation/arrival_shuttle)
 "ZZ" = (
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/bell,
@@ -42702,11 +42585,11 @@ aa
 aa
 aa
 aa
-yi
-yk
-yk
-yk
-yi
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42959,11 +42842,11 @@ aa
 aa
 aa
 aa
-yk
-kX
-zR
-zl
-yk
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43216,11 +43099,11 @@ aa
 aa
 aa
 aa
-yk
-zm
-yj
-zm
-yk
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43472,13 +43355,13 @@ aa
 aa
 aa
 aa
-yi
-yi
-yi
-GU
-yi
-yi
-yi
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43729,13 +43612,13 @@ aa
 aa
 aa
 aa
-yi
-yL
-Tw
-yj
-yj
-yL
-yi
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43986,13 +43869,13 @@ kZ
 kZ
 kZ
 kZ
-yi
-OS
-zo
-zo
-zo
-yj
-yi
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44243,13 +44126,13 @@ vO
 mP
 mO
 Uz
-ei
-yj
-yj
-yj
-yj
-yj
-yk
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44498,15 +44381,15 @@ uC
 mS
 vP
 kZ
-la
 kZ
-yi
-yM
-zo
-zo
-zo
-yj
-yi
+kZ
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44757,13 +44640,13 @@ nB
 mS
 xf
 la
-yk
-yj
-yj
-zS
-yj
-yj
-yk
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45014,13 +44897,13 @@ mS
 mS
 xf
 la
-yk
-yj
-zo
-zo
-zo
-yj
-yk
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45271,13 +45154,13 @@ mS
 mS
 kE
 la
-yk
-yj
-yj
-yj
-yj
-yj
-yk
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45528,13 +45411,13 @@ mS
 mS
 xh
 la
-yk
-yj
-zo
-zo
-zo
-yj
-yk
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45783,15 +45666,15 @@ mS
 mS
 vQ
 kZ
-la
 kZ
-yi
-yR
-yj
-yj
-yj
-yj
-yi
+kZ
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -46042,13 +45925,13 @@ vP
 mP
 mO
 Uz
-ei
-yS
-WX
-ZY
-WX
-yS
-yk
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 ad
@@ -46299,13 +46182,13 @@ Yg
 kZ
 kZ
 kZ
-yi
-yi
-zp
-zp
-zp
-yi
-yi
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ad
 ad
 ad
@@ -46556,13 +46439,13 @@ VQ
 kZ
 aa
 ad
-yi
-yT
-yT
-yT
-yT
-yT
-yi
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ad
 aa
 aa
