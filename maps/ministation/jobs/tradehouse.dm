@@ -1,6 +1,6 @@
 /datum/job/ministation/tradehouse/rep
 	title = "Tradehouse Representative"
-	alt_titles = list()
+	alt_titles = list("Narc")
 	hud_icon = "hudyingmatriarch"
 	spawn_positions = 1
 	total_positions = 2

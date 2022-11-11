@@ -64,7 +64,6 @@
 	)
 	total_positions = 1
 	spawn_positions = 1
-	required_gender = MALE
 	selection_color = "#2f2f7f"
 	hud_icon = "hudyingpatriarch"
 	req_admin_notify = 1
@@ -161,4 +160,4 @@
 		SKILL_FINANCE = SKILL_MAX
 	)
 	skill_points = 30
-	alt_titles = list()
+	alt_titles = list("Head of Personnel")

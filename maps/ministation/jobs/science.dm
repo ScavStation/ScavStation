@@ -40,11 +40,11 @@
 	event_categories = list(ASSIGNMENT_SCIENTIST)
 
 /datum/job/ministation/scientist/head
-	title = "Head Researcher"
+	title = "Patriarch of Science"
 	supervisors = "the Matriarch"
 	spawn_positions = 1
 	total_positions = 1
-	alt_titles = list("Patriarch of Science")
+	alt_titles = list("Head Researcher", "Chief Researcher")
 	outfit_type = /decl/hierarchy/outfit/job/ministation/scientist/head
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,

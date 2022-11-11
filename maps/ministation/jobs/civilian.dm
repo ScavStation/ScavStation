@@ -1,12 +1,12 @@
 /datum/job/ministation/assistant
-	title = "Assistant"
+	title = "Recruit"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "absolutely everyone"
 	economic_power = 1
 	access = list()
 	minimal_access = list()
-	alt_titles = list("Technical Assistant","Medical Intern","Research Assistant","Visitor")
+	alt_titles = list("Technical Recruit","Medical Recruit","Research Recruit","Visitor")
 	outfit_type = /decl/hierarchy/outfit/job/ministation_assistant
 	department_types = list(/decl/department/civilian)
 	event_categories = list(ASSIGNMENT_GARDENER)
