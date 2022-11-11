@@ -34,7 +34,7 @@
 	name = "Lubricant"
 	result = /decl/material/liquid/lube
 	required_reagents = list(/decl/material/liquid/water = 1, /decl/material/solid/silicon = 1, /decl/material/liquid/acetone = 1)
-	result_amount = 4
+	result_amount = 3
 	mix_message = "The solution becomes thick and slimy."
 
 /decl/chemical_reaction/pacid
@@ -257,6 +257,7 @@
 	)
 
 /decl/chemical_reaction/immunobooster
+	name = "Immunobooster"
 	result = /decl/material/liquid/immunobooster
 	required_reagents = list(/decl/material/liquid/presyncopics = 1, /decl/material/liquid/antitoxins = 1)
 	minimum_temperature = 40 CELSIUS

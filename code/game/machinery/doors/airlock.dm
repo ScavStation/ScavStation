@@ -30,14 +30,12 @@ var/global/list/airlock_overlays = list()
 	var/backup_power_lost_until = -1	//World time when backup power is restored.
 	var/next_beep_at = 0				//World time when we may next beep due to doors being blocked by mobs
 	var/shockedby = list()              //Some sort of admin logging var
-	var/spawnPowerRestoreRunning = 0
 	var/welded = null
 	var/locked = FALSE
 	var/lock_cut_state = BOLTS_FINE
 	var/lights = 1 // Lights show by default
 	var/aiDisabledIdScanner = 0
 	var/aiHacking = 0
-	var/lockdownbyai = 0
 	autoclose = 1
 	var/mineral = null
 	var/justzap = 0
@@ -458,6 +456,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/attack_robot(mob/user)
 	ui_interact(user)
+	return TRUE
 
 /obj/machinery/door/airlock/attack_ai(mob/living/silicon/ai/user)
 	ui_interact(user)

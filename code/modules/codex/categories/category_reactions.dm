@@ -19,7 +19,7 @@
 		</p>
 		<h3>Reactions</h3>
 		<table border = '1px'>
-		<tr><td><b>Product name</b></td><td><b>Product amount</b></td><td><b>Required reagents</b></td><td><b>Catalysts</b></td><td><b>Inhibitors</b></td><td><b>Min temperature</b></td><td><b>Max temperature</b></td><td><b>Notes</b></td></tr>"}
+		<tr><th><b>Product name</b></th><th><b>Product amount</b></th><th><b>Required reagents</b></th><th><b>Catalysts</b></th><th><b>Inhibitors</b></th><th><b>Min temperature</b></th><th><b>Max temperature</b></th><th><b>Notes</b></th></tr>"}
 
 	var/list/entries_to_register = list()
 	var/list/all_reactions = decls_repository.get_decls_of_subtype(/decl/chemical_reaction)
@@ -57,7 +57,7 @@
 		if(reaction.result && reaction.result_amount)
 			var/decl/material/product = GET_DECL(reaction.result)
 			produces = product.codex_name || product.name
-			mechanics_text += "<br>It will produce [reaction.result_amount]u [product.name]."
+			mechanics_text += "<br>It will produce [reaction.result_amount]u <span codexlink='[product.codex_name || product.name] (substance)'>[product.name]</span>."
 		if(reaction.maximum_temperature != INFINITY)
 			mechanics_text += "<br>The reaction will not occur if the temperature is above [reaction.maximum_temperature]K."
 		if(reaction.minimum_temperature > 0)
@@ -95,10 +95,11 @@
 			guide_html += reaction.lore_text
 		guide_html += "</td></tr>"
 
-		entries_to_register += new /datum/codex_entry(       \
-		 _display_name =       "[reaction.name] (reaction)", \
-		 _lore_text =          reaction.lore_text,           \
-		 _mechanics_text =     mechanics_text                \
+		entries_to_register += new /datum/codex_entry(                      \
+		 _display_name =       "[reaction.name] (reaction)",                \
+		 _associated_strings = list("[reaction.name] (chemical reaction)"), \
+		 _lore_text =          reaction.lore_text,                          \
+		 _mechanics_text =     mechanics_text                               \
 		)
 	guide_html += "</table>"
 

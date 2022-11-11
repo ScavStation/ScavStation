@@ -16,6 +16,7 @@ And then imported back to ScavStation!
 	#include "../../mods/species/ascent/_ascent.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
 
+	#include "../../mods/species/serpentid/_serpentid.dme"
 	#include "ministation.dmm"
 	#include "space.dmm"
 	#include "ministation_unit_testing.dm"

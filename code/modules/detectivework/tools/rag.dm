@@ -11,6 +11,7 @@
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	unacidable = 0
+	material = /decl/material/solid/cloth
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
@@ -122,8 +123,7 @@
 						SPAN_DANGER("\The [user] smothers \the [target] with \the [src]!"),
 						SPAN_DANGER("You smother \the [target] with \the [src]!")
 					)
-					//it's inhaled, so... maybe CHEM_INJECT doesn't make a whole lot of sense but it's the best we can do for now
-					var/trans_amt = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INJECT)
+					var/trans_amt = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INHALE)
 					var/contained_reagents = reagents.get_reagents()
 					admin_inject_log(user, M, src, contained_reagents, trans_amt)
 					update_name()

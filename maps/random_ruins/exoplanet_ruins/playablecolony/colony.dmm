@@ -1519,7 +1519,7 @@
 /turf/simulated/floor/plating,
 /area/map_template/colony/atmospherics)
 "dA" = (
-/obj/structure/dispenser,
+/obj/structure/tank_rack,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -3018,7 +3018,7 @@
 /obj/item/chems/drinks/shaker,
 /obj/item/chems/drinks/pitcher,
 /obj/item/chems/glass/beaker/bowl,
-/obj/item/chems/condiment/salt,
+/obj/item/chems/condiment/large/salt,
 /obj/item/chems/condiment/enzyme,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/colony/messhall)
@@ -4944,7 +4944,7 @@
 	dir = 1;
 	pixel_y = 16
 	},
-/obj/item/storage/mirror{
+/obj/structure/mirror{
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{

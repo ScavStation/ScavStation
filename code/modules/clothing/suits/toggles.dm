@@ -41,6 +41,7 @@
 		var/mob/M = hood.loc
 		M.drop_from_inventory(hood)
 	hood.forceMove(src)
+	update_clothing_icon()
 
 /obj/item/clothing/suit/storage/toggle/proc/toggle_buttons(var/mob/user)
 	if(!CanPhysicallyInteract(usr) || isnull(buttons))
@@ -81,33 +82,42 @@
 		remove_hood()
 	else
 		M.equip_to_slot_if_possible(hood, slot_head_str, 0, 0, 1)
+	update_clothing_icon()
 	return TRUE
 
 // Short-circuit this for quick interaction when worn.
 /obj/item/clothing/suit/storage/toggle/AltClick(var/mob/user)
 	if(user.get_equipped_item(slot_wear_suit_str) == src)
-
-		var/has_buttons = !isnull(buttons)
-		var/has_hood = !!hood
-
-		if(has_buttons && has_hood)
-			var/choice = input(user, "Do you want to adjust the hood, or the buttons?", "Adjust Coat") as null|anything in list("Buttons", "Hood")
-			if(choice && CanPhysicallyInteract(user) && user.get_equipped_item(slot_wear_suit_str) == src)
-				if(choice == "Buttons")
-					toggle_buttons(user)
-				else
-					toggle_hood(user)
-				return TRUE
-
-		if(!has_buttons && has_hood)
+		if(isnull(buttons) && hood)
 			toggle_hood(user)
 			return TRUE
-
-		if(has_buttons && !has_hood)
+		if(!hood && !isnull(buttons))
 			toggle_buttons(user)
 			return TRUE
-
 	return ..()
+
+/obj/item/clothing/suit/storage/toggle/get_alt_interactions(var/mob/user)
+	. = ..()
+	if(!isnull(buttons))
+		LAZYADD(., /decl/interaction_handler/toggle_buttons)
+	if(hood)
+		LAZYADD(., /decl/interaction_handler/toggle_hood)
+
+/decl/interaction_handler/toggle_buttons
+	name = "Toggle Coat Buttons"
+	expected_target_type = /obj/item/clothing/suit/storage/toggle
+
+/decl/interaction_handler/toggle_buttons/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/clothing/suit/storage/toggle/coat = target
+	coat.toggle_buttons(user)
+
+/decl/interaction_handler/toggle_hood
+	name = "Toggle Coat Hood"
+	expected_target_type = /obj/item/clothing/suit/storage/toggle
+
+/decl/interaction_handler/toggle_hood/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/clothing/suit/storage/toggle/coat = target
+	coat.toggle_hood(user)
 
 /obj/item/clothing/suit/storage/toggle/wintercoat
 	name = "winter coat"

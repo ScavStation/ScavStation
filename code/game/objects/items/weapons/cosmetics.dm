@@ -4,9 +4,11 @@
 	desc = "An unbranded tube of lipstick."
 	icon = 'icons/obj/items/lipstick.dmi'
 	icon_state = "lipstick_0"
+	item_flags = ITEM_FLAG_HOLLOW
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	color = "#e00606"
+	material = /decl/material/solid/plastic
 	var/color_desc = "ruby"
 	var/open = FALSE
 
@@ -23,9 +25,9 @@
 		icon_state = "the_stick"
 	else
 		icon_state = ""
-		
+
 	add_overlay(list(
-		overlay_image(icon, "lipstick_[open]", flags=RESET_COLOR), 
+		overlay_image(icon, "lipstick_[open]", flags=RESET_COLOR),
 		overlay_image(icon, "key")
 	))
 
@@ -86,7 +88,7 @@
 	color = "#218c17"
 	color_desc = "emerald"
 
-/obj/item/lipstick/turquoise 
+/obj/item/lipstick/turquoise
 	name = "turquoise lipstick"
 	color = "#0098f0"
 	color_desc = "turquoise"
@@ -105,6 +107,11 @@
 	name = "moonstone lipstick"
 	color = "#d8d5d5"
 	color_desc = "moonstone"
+
+/obj/item/lipstick/purple
+	name = "garnet lipstick"
+	color = "#440044"
+	color_desc = "garnet"
 
 /obj/item/lipstick/black
 	name = "onyx lipstick"

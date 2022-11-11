@@ -22,7 +22,7 @@
 /turf/exterior/wall/random/ministation,
 /area/space)
 "ag" = (
-/obj/item/storage/mirror{
+/obj/structure/mirror{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -657,7 +657,7 @@
 	pixel_x = -23
 	},
 /obj/machinery/keycard_auth{
-	pixel_y = -24
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -703,7 +703,7 @@
 /area/ministation/bridge)
 "bQ" = (
 /obj/machinery/keycard_auth{
-	pixel_y = -24
+	dir = 1
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -796,15 +796,15 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "cb" = (
-/obj/item/ore/iron{
+/obj/item/stack/material/ore/iron{
 	pixel_x = -1;
 	pixel_y = -4
 	},
-/obj/item/ore/iron{
+/obj/item/stack/material/ore/iron{
 	pixel_x = 2;
 	pixel_y = 4
 	},
-/obj/item/ore/iron,
+/obj/item/stack/material/ore/iron,
 /turf/simulated/floor/airless,
 /area/space)
 "cc" = (
@@ -1651,7 +1651,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "eG" = (
-/obj/structure/dispenser/oxygen,
+/obj/structure/tank_rack/oxygen,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
@@ -2924,13 +2924,13 @@
 "hS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/closet/crate,
-/obj/item/ore/slag,
+/obj/item/stack/material/ore/slag,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hT" = (
 /obj/structure/closet/crate,
-/obj/item/ore/glass,
+/obj/item/stack/material/ore/glass,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/mining{
 	dir = 8
@@ -3315,7 +3315,7 @@
 "iV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/closet/crate,
-/obj/item/ore/glass,
+/obj/item/stack/material/ore/glass,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -3752,7 +3752,7 @@
 /area/ministation/cargo)
 "jX" = (
 /obj/structure/closet/crate,
-/obj/item/ore/iron,
+/obj/item/stack/material/ore/iron,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -5169,7 +5169,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "nU" = (
-/obj/structure/dispenser/oxygen,
+/obj/structure/tank_rack/oxygen,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -9405,7 +9405,7 @@
 /area/space)
 "yR" = (
 /obj/machinery/computer/cryopod{
-	pixel_y = 32
+	dir = 2
 	},
 /turf/simulated/floor/shuttle/blue,
 /area/ministation/arrival_shuttle)
@@ -11840,7 +11840,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/dispenser/oxygen,
+/obj/structure/tank_rack/oxygen,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Fs" = (
@@ -15123,7 +15123,7 @@
 "Qm" = (
 /obj/machinery/cryopod/robot,
 /obj/machinery/computer/cryopod/robot{
-	pixel_y = -32
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -17023,7 +17023,7 @@
 /area/ministation/cryo)
 "ZK" = (
 /obj/machinery/computer/cryopod{
-	pixel_y = 32
+	dir = 2
 	},
 /obj/machinery/alarm{
 	dir = 8;

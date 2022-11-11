@@ -97,7 +97,20 @@ var/global/list/channel_to_radio_key = new
 	return FALSE
 
 /mob/living/proc/get_default_language()
-	. = ispath(default_language, /decl/language) && GET_DECL(default_language)
+	var/lang = ispath(default_language, /decl/language) && GET_DECL(default_language)
+	if(can_speak(lang))
+		return lang
+
+/mob/living/proc/get_any_good_language(set_default=FALSE)
+	. = get_default_language()
+	if(!.)
+		for(var/decl/language/L in languages)
+			if(can_speak(L))
+				. = L
+				if(set_default)
+					set_default_language(.)
+				return
+
 
 /mob/living/is_silenced()
 	. = ..() || HAS_STATUS(src, STAT_SILENCE)
@@ -201,11 +214,11 @@ var/global/list/channel_to_radio_key = new
 
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
-	if(speaking && (speaking.flags & HIVEMIND))
+	if(speaking && (speaking.flags & LANG_FLAG_HIVEMIND))
 		speaking.broadcast(src,trim(message))
 		return 1
 
-	if((is_muzzled()) && !(speaking && (speaking.flags & SIGNLANG)))
+	if((is_muzzled()) && !(speaking && (speaking.flags & LANG_FLAG_SIGNLANG)))
 		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
 		return
 
@@ -223,7 +236,7 @@ var/global/list/channel_to_radio_key = new
 	if(speaking && !speaking.can_be_spoken_properly_by(src))
 		message = speaking.muddle(message)
 
-	if(!(speaking && (speaking.flags & NO_STUTTER)))
+	if(!(speaking && (speaking.flags & LANG_FLAG_NO_STUTTER)))
 		var/list/message_data = list(message, verb, 0)
 		if(handle_speech_problems(message_data))
 			message = message_data[1]
@@ -254,7 +267,7 @@ var/global/list/channel_to_radio_key = new
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
 		var/msg
-		if(!speaking || !(speaking.flags & NO_TALK_MSG))
+		if(!speaking || !(speaking.flags & LANG_FLAG_NO_TALK_MSG))
 			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]].</span>"
 		for(var/mob/living/M in hearers(5, src))
 			if((M != src) && msg)
@@ -268,11 +281,11 @@ var/global/list/channel_to_radio_key = new
 
 	//handle nonverbal and sign languages here
 	if (speaking)
-		if (speaking.flags & NONVERBAL)
+		if (speaking.flags & LANG_FLAG_NONVERBAL)
 			if (prob(30))
 				src.custom_emote(1, "[pick(speaking.signlang_verb)].")
 
-		if (speaking.flags & SIGNLANG)
+		if (speaking.flags & LANG_FLAG_SIGNLANG)
 			log_say("[name]/[key] : SIGN: [message]")
 			return say_signlang(message, pick(speaking.signlang_verb), speaking)
 
@@ -289,11 +302,16 @@ var/global/list/channel_to_radio_key = new
 
 		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, /datum/client_preference/ghost_ears)
 
+	var/speech_bubble_state = check_speech_punctuation_state(message)
+	var/speech_state_modifier = get_speech_bubble_state_modifier()
+	if(speech_bubble_state && speech_state_modifier)
+		speech_bubble_state = "[speech_state_modifier]_[speech_bubble_state]"
 
-	var/speech_bubble_test = say_test(message)
-	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-	speech_bubble.layer = layer
-	speech_bubble.plane = plane
+	var/image/speech_bubble
+	if(speech_bubble_state)
+		speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
+		speech_bubble.layer = layer
+		speech_bubble.plane = plane
 
 	var/list/speech_bubble_recipients = list()
 	for(var/mob/M in listening)
@@ -342,8 +360,5 @@ var/global/list/channel_to_radio_key = new
 		O.hear_signlang(message, verb, language, src)
 	return 1
 
-/obj/effect/speech_bubble
-	var/mob/parent
-
-/mob/living/proc/GetVoice()
+/mob/proc/GetVoice()
 	return name

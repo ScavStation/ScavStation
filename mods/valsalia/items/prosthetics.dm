@@ -1,8 +1,9 @@
 /decl/prosthetics_manufacturer/ying_wooden
-	name = "scavenged prosthesis"
+	name = "scavenged"
 	desc = "A stick, tied to the owner's body with rags. Very scav chic."
 	icon = 'mods/valsalia/icons/wooden_main.dmi'
 	allowed_bodytypes = list(BODYTYPE_YINGLET)
+	species_restricted = list(SPECIES_YINGLET)
 	modifier_string = "wooden"
 	hardiness = 0.75
 	manual_dexterity = DEXTERITY_SIMPLE_MACHINES
@@ -14,13 +15,15 @@
 	desc = "A cheap robotic prosthetic designed for yinglet owners."
 	icon = 'mods/valsalia/icons/metal_main.dmi'
 	allowed_bodytypes = list(BODYTYPE_YINGLET)
+	species_restricted = list(SPECIES_YINGLET)
 
+DEFINE_ROBOLIMB_MODEL_ASPECTS_WITH_SPECIES_BODYTYPE(/decl/prosthetics_manufacturer/ying_metal, yinglet_scavenged, 0, SPECIES_YINGLET, BODYTYPE_YINGLET)
 DEFINE_ROBOLIMB_DESIGNS(/decl/prosthetics_manufacturer/ying_metal, lunar_transit)
 
 /decl/material/solid/wood/generate_recipes(var/reinforce_material)
 	. = ..()
 	if(!reinforce_material)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_arm_ying(src) 
+		. += new/datum/stack_recipe/wooden_prosthetic/left_arm_ying(src)
 		. += new/datum/stack_recipe/wooden_prosthetic/right_arm_ying(src)
 		. += new/datum/stack_recipe/wooden_prosthetic/left_leg_ying(src)
 		. += new/datum/stack_recipe/wooden_prosthetic/right_leg_ying(src)

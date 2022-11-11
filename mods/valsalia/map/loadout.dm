@@ -4,6 +4,10 @@
 	slot = slot_wear_suit_str
 	flags = GEAR_HAS_COLOR_SELECTION
 
+/decl/loadout_option/accessory/yinglet_tailbells
+	name = "yinglet tailbells"
+	path = /obj/item/clothing/accessory/tailbells
+
 /decl/loadout_option/head/yinglet_hood
 	name = "yinglet hood, colour select"
 	path = /obj/item/clothing/head/yinglet
@@ -14,7 +18,7 @@
 	name = "yinglet jumpsuit, colour select"
 	path = /obj/item/clothing/under/yinglet/yingjumpsuit
 	flags = GEAR_HAS_COLOR_SELECTION
-	description = "a simple jumpsuit, made for a yinglet, color select"
+	description = "A simple jumpsuit, made for a yinglet."
 
 /decl/loadout_option/scav_medical_belt
 	name = "medical belt"
@@ -35,11 +39,6 @@
 	name = "yinglet goggles"
 	path = /obj/item/clothing/glasses/yinggoggles
 
-/decl/loadout_option/uniform/yingletjumpsuit
-	name = "a simple jumpsuit, made for a yinglet, color select"
-	path = /obj/item/clothing/under/yinglet/yingjumpsuit
-	flags = GEAR_HAS_COLOR_SELECTION
-
 /decl/loadout_option/suit/yingapron
 	name = "yinglet apron"
 	path = /obj/item/clothing/suit/yingapron
@@ -55,7 +54,7 @@
 /decl/loadout_option/suit/yingjacket
 	name = "yinglet jacket"
 	path = /obj/item/clothing/suit/yingjacket
-	
+
 /decl/loadout_option/suit/yingcape
 	name = "small cape"
 	path = /obj/item/clothing/suit/yingcape

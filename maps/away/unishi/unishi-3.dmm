@@ -1151,7 +1151,7 @@
 	dir = 8;
 	pixel_x = -15
 	},
-/obj/item/storage/mirror{
+/obj/structure/mirror{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1743,6 +1743,9 @@
 	dir = 10
 	},
 /obj/structure/closet/crate/bin,
+/obj/item/clothing/suit/space/void/scav/indie,
+/obj/item/clothing/head/helmet/space/void/scav/indie,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/unishi/living)
 "eM" = (
@@ -1975,6 +1978,20 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/unishi/living)
+"Dj" = (
+/obj/structure/closet/emcloset,
+/obj/item/clothing/suit/space/void/scav/indie,
+/obj/item/clothing/head/helmet/space/void/scav/indie,
+/obj/item/tank/oxygen,
+/turf/simulated/floor/tiled,
+/area/unishi/living)
+"Ew" = (
+/obj/structure/closet/emcloset,
+/obj/item/clothing/head/helmet/space/void/scav/indie,
+/obj/item/clothing/suit/space/void/scav/indie,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/unishi/living)
 "Um" = (
@@ -6838,7 +6855,7 @@ bf
 bf
 bf
 eq
-dF
+Ew
 bf
 bf
 eD
@@ -7135,7 +7152,7 @@ bf
 dm
 du
 bf
-dF
+Dj
 dM
 bf
 dV

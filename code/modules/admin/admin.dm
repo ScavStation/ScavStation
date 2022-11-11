@@ -175,27 +175,25 @@ var/global/floorIsLava = 0
 					body+="</td>"
 				body += "</tr></table>"
 
-			body += {"<br><br>
-				<b>Rudimentary transformation:</b><font size=2><br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.</font><br>
-				<A href='?src=\ref[src];simplemake=observer;mob=\ref[M]'>Observer</A> |
-				\[ Xenos: <A href='?src=\ref[src];simplemake=larva;mob=\ref[M]'>Larva</A>
-				\[ Crew: <A href='?src=\ref[src];simplemake=human;mob=\ref[M]'>Human</A>
-				\[ slime: <A href='?src=\ref[src];simplemake=slime;mob=\ref[M]'>Baby</A>,
-				<A href='?src=\ref[src];simplemake=adultslime;mob=\ref[M]'>Adult</A> \]
-				<A href='?src=\ref[src];simplemake=monkey;mob=\ref[M]'>Monkey</A> |
-				<A href='?src=\ref[src];simplemake=robot;mob=\ref[M]'>Cyborg</A> |
-				<A href='?src=\ref[src];simplemake=cat;mob=\ref[M]'>Cat</A> |
-				<A href='?src=\ref[src];simplemake=runtime;mob=\ref[M]'>Runtime</A> |
-				<A href='?src=\ref[src];simplemake=corgi;mob=\ref[M]'>Corgi</A> |
-				<A href='?src=\ref[src];simplemake=ian;mob=\ref[M]'>Ian</A> |
-				<A href='?src=\ref[src];simplemake=crab;mob=\ref[M]'>Crab</A> |
-				<A href='?src=\ref[src];simplemake=coffee;mob=\ref[M]'>Coffee</A> |
-				\[ Construct: <A href='?src=\ref[src];simplemake=constructarmoured;mob=\ref[M]'>Armoured</A> ,
-				<A href='?src=\ref[src];simplemake=constructbuilder;mob=\ref[M]'>Builder</A> ,
-				<A href='?src=\ref[src];simplemake=constructwraith;mob=\ref[M]'>Wraith</A> \]
-				<A href='?src=\ref[src];simplemake=shade;mob=\ref[M]'>Shade</A>
-				<br>
-			"}
+			body += "<br><br><b>Rudimentary transformation:</b><font size=2><br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.</font><br>"
+
+			var/list/href_transform_strings = list()
+			for(var/href_string in global.href_to_mob_type)
+				var/transform_data = global.href_to_mob_type[href_string]
+
+				// It's a category - iterate the contents.
+				if(islist(transform_data))
+					var/list/href_subcat_strings = list()
+					for(var/transform_string in transform_data)
+						href_subcat_strings += "<a href='?src=\ref[src];simplemake=[replacetext(transform_string, " ", "_")];mob=\ref[M]'>[transform_string]</a>"
+					href_transform_strings += "\[ <b>[href_string]:</b> [jointext(href_subcat_strings, " | ")] \]"
+
+				 // It's a single mob type - link it directly.
+				else if(ispath(transform_data))
+					href_transform_strings += "<a href='?src=\ref[src];simplemake=[replacetext(href_string, " ", "_")];mob=\ref[M]'>[href_string]</a>"
+
+			body += jointext(href_transform_strings, " | ")
+
 	body += {"<br><br>
 			<b>Other actions:</b>
 			<br>
@@ -207,7 +205,7 @@ var/global/floorIsLava = 0
 	var/list/language_types = decls_repository.get_decls_of_subtype(/decl/language)
 	for(var/k in language_types)
 		var/decl/language/L = language_types[k]
-		if(!(L.flags & INNATE))
+		if(!(L.flags & LANG_FLAG_INNATE))
 			if(!f)
 				body += " | "
 			else
@@ -824,7 +822,7 @@ var/global/floorIsLava = 0
 		return 0
 	if(SSticker.start_now())
 		log_admin("[usr.key] has started the game.")
-		message_admins("<font color='blue'>[usr.key] has started the game.</font>")
+		message_admins(SPAN_BLUE("[usr.key] has started the game."))
 		SSstatistics.add_field_details("admin_verb","SN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		return 1
 	else
@@ -1121,13 +1119,17 @@ var/global/floorIsLava = 0
 	set desc = "(atom path) Spawn an atom"
 	set name = "Spawn"
 
-	if(!check_rights(R_SPAWN))	return
+	if(!check_rights(R_SPAWN))
+		return
 
-	var/list/types = typesof(/atom)
+	object = lowertext(trim(object))
+	if(!object)
+		return
+
 	var/list/matches = new()
-
-	for(var/path in types)
-		if(findtext("[path]", object))
+	for(var/path in subtypesof(/atom))
+		var/atom/path_cast = path
+		if(TYPE_IS_SPAWNABLE(path_cast) && findtext(lowertext("[path]"), object))
 			matches += path
 
 	if(matches.len==0)

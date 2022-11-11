@@ -42,8 +42,9 @@
 #define MAX_TEMPERATURE 90
 #define MIN_TEMPERATURE -40
 
+#define BASE_ALARM_NAME "environment alarm"
 /obj/machinery/alarm
-	name = "alarm"
+	name = BASE_ALARM_NAME
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm0"
 	anchored = 1
@@ -61,7 +62,7 @@
 	uncreated_component_parts = list(/obj/item/stock_parts/power/apc = 1)
 	construct_state = /decl/machine_construction/wall_frame/panel_closed
 	wires = /datum/wires/alarm
-
+	directional_offset = "{'NORTH':{'y':-21}, 'SOUTH':{'y':21}, 'EAST':{'x':-21}, 'WEST':{'x':21}}"
 
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not
@@ -69,7 +70,6 @@
 	var/alarm_frequency = 1437
 	var/remote_control = 0
 	var/rcon_setting = 2
-	var/rcon_time = 0
 	var/rcon_remote_override_access = list(access_ce)
 	var/locked = 1
 	var/aidisabled = 0
@@ -142,6 +142,8 @@
 	reset_area(null, get_area(src))
 	if(!alarm_area)
 		return // spawned in nullspace, presumably as a prototype for construction purposes.
+	area_uid = alarm_area.uid
+	update_name(FALSE)
 
 	// breathable air according to human/Life()
 	var/decl/material/gas_mat = GET_DECL(/decl/material/gas/oxygen)
@@ -158,6 +160,16 @@
 			trace_gas += g
 
 	queue_icon_update()
+
+/obj/machinery/alarm/area_changed(area/old_area, area/new_area)
+	. = ..()
+	alarm_area = get_area(src)
+	update_name(TRUE)
+
+/obj/machinery/alarm/proc/update_name(var/reset = TRUE)
+	name = initial(name)
+	if(name == BASE_ALARM_NAME && alarm_area && alarm_area != global.space_area)
+		SetName("[alarm_area.proper_name] [BASE_ALARM_NAME]")
 
 /obj/machinery/alarm/modify_mapped_vars(map_hash)
 	..()
@@ -309,21 +321,6 @@
 	return 0
 
 /obj/machinery/alarm/on_update_icon()
-	// Set pixel offsets
-	default_pixel_x = 0
-	default_pixel_y = 0
-	var/turf/T = get_step(get_turf(src), turn(dir, 180))
-	if(istype(T) && T.density)
-		if(dir == NORTH)
-			default_pixel_y = -21
-		else if(dir == SOUTH)
-			default_pixel_y = 21
-		else if(dir == WEST)
-			default_pixel_x = 21
-		else if(dir == EAST)
-			default_pixel_x = -21
-	reset_offsets(0)
-
 	// Broken or deconstructed states
 	if(!istype(construct_state, /decl/machine_construction/wall_frame/panel_closed))
 		icon_state = "alarmx"
@@ -701,7 +698,7 @@
 				if("set_threshold")
 					var/static/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
 					var/env = href_list["env"]
-					var/threshold = Clamp(text2num(href_list["var"]), 1, 4)
+					var/threshold = clamp(text2num(href_list["var"]), 1, 4)
 					var/list/selected = TLV[env]
 					if(!threshold || !selected || !selected[threshold])
 						return TOPIC_NOACTION
@@ -838,14 +835,13 @@ FIRE ALARM
 	frame_type = /obj/item/frame/fire_alarm
 	uncreated_component_parts = list(/obj/item/stock_parts/power/apc = 1)
 	construct_state = /decl/machine_construction/wall_frame/panel_closed
+	directional_offset = "{'NORTH':{'y':-21}, 'SOUTH':{'y':21}, 'EAST':{'x':21}, 'WEST':{'x':-21}}"
 
 	var/detecting =    TRUE
 	var/working =      TRUE
 	var/time =         1 SECOND
 	var/timing =       FALSE
-	var/lockdownbyai = FALSE
 	var/last_process = 0
-	var/seclevel
 	var/static/list/overlays_cache
 
 	var/sound_id
@@ -874,22 +870,6 @@ FIRE ALARM
 
 /obj/machinery/firealarm/on_update_icon()
 	overlays.Cut()
-
-	default_pixel_x = 0
-	default_pixel_y = 0
-	var/walldir = (dir & (NORTH|SOUTH)) ? global.reverse_dir[dir] : dir
-	var/turf/T = get_step(get_turf(src), walldir)
-	if(istype(T) && T.density)
-		if(dir == SOUTH)
-			default_pixel_y = 21
-		else if(dir == NORTH)
-			default_pixel_y = -21
-		else if(dir == EAST)
-			default_pixel_x = 21
-		else if(dir == WEST)
-			default_pixel_x = -21
-	reset_offsets(0)
-
 	icon_state = "casing"
 	if(construct_state && !istype(construct_state, /decl/machine_construction/wall_frame/panel_closed))
 		overlays += get_cached_overlay(construct_state.type)
@@ -1066,10 +1046,10 @@ FIRE ALARM
 	anchored = TRUE
 	idle_power_usage = 2
 	active_power_usage = 6
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	directional_offset = "{'NORTH':{'y':-21}, 'SOUTH':{'y':21}, 'EAST':{'x':21}, 'WEST':{'x':-21}}"
 	var/time =         1 SECOND
 	var/timing =       FALSE
-	var/lockdownbyai = FALSE
-	var/detecting =    TRUE
 	var/working =      TRUE
 
 /obj/machinery/partyalarm/interface_interact(mob/user)

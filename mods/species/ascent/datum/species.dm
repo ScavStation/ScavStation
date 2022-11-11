@@ -29,6 +29,7 @@
 	name_plural =            "Kharmaan Alates"
 	show_ssd =               "quiescent"
 
+	base_prosthetics_model = null
 	available_bodytypes = list(/decl/bodytype/alate)
 
 	description = "When human surveyors finally arrived at the outer reaches of explored space, they hoped to find \
@@ -160,7 +161,6 @@
 
 	age_descriptor = /datum/appearance_descriptor/age/kharmaani/gyne
 	blood_volume =         1200
-	spawns_with_stack =       0
 
 	bump_flag =               HEAVY
 	push_flags =              ALLMOBS

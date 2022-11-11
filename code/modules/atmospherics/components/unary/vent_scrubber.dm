@@ -72,6 +72,8 @@
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
 /obj/machinery/atmospherics/unary/vent_scrubber/reset_area(area/old_area, area/new_area)
+	if(!controlled)
+		return
 	if(old_area == new_area)
 		return
 	if(old_area)
@@ -99,11 +101,32 @@
 	build_device_underlays()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/proc/change_area_name(var/area/A, var/old_area_name, var/new_area_name)
+	if(!controlled)
+		return
 	if(get_area(src) != A)
 		return
-	var/new_name = replacetext(A.air_scrub_names[id_tag], old_area_name, new_area_name)
-	SetName(new_name)
+	update_name()
+
+/obj/machinery/atmospherics/unary/vent_scrubber/area_changed(area/old_area, area/new_area)
+	if(old_area)
+		old_area.air_scrub_names -= id_tag
+	. = ..()
+	update_name()
+
+/obj/machinery/atmospherics/unary/vent_scrubber/proc/update_name()
+	var/area/A = get_area(src)
+	if(!A || A == global.space_area)
+		SetName("vent scrubber")
+		return
+	var/index
+	if(A.air_scrub_names[id_tag])
+		index = A.air_scrub_names.Find(id_tag)
+	else
+		A.air_scrub_names[id_tag] = TRUE
+		index = length(A.air_scrub_names)
+	var/new_name = "[A.proper_name] vent scrubber #[index]"
 	A.air_scrub_names[id_tag] = new_name
+	SetName(new_name)
 
 /obj/machinery/atmospherics/unary/vent_scrubber/RefreshParts()
 	. = ..()

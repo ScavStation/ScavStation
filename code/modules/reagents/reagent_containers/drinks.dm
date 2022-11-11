@@ -139,9 +139,8 @@
 	item_state = "carton"
 	center_of_mass = @"{'x':16,'y':9}"
 
-/obj/item/chems/drinks/milk/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/milk, 50)
+/obj/item/chems/drinks/milk/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/milk, reagents.maximum_volume)
 
 /obj/item/chems/drinks/soymilk
 	name = "soymilk carton"
@@ -150,27 +149,23 @@
 	item_state = "carton"
 	center_of_mass = @"{'x':16,'y':9}"
 
-/obj/item/chems/drinks/soymilk/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/milk/soymilk, 50)
+/obj/item/chems/drinks/soymilk/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/milk/soymilk, reagents.maximum_volume)
 
 /obj/item/chems/drinks/milk/smallcarton
 	name = "small milk carton"
 	volume = 30
 	icon_state = "mini-milk"
 
-/obj/item/chems/drinks/milk/smallcarton/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/milk, 30)
+/obj/item/chems/drinks/milk/smallcarton/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/milk, reagents.maximum_volume)
 
 /obj/item/chems/drinks/milk/smallcarton/chocolate
 	name = "small chocolate milk carton"
 	desc = "It's milk! This one is in delicious chocolate flavour."
 
-/obj/item/chems/drinks/milk/smallcarton/chocolate/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/milk/chocolate, 30)
-
+/obj/item/chems/drinks/milk/smallcarton/chocolate/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/milk/chocolate, reagents.maximum_volume)
 
 /obj/item/chems/drinks/coffee
 	name = "\improper Robust Coffee"
@@ -178,9 +173,8 @@
 	icon_state = "coffee"
 	center_of_mass = @"{'x':15,'y':10}"
 
-/obj/item/chems/drinks/coffee/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/coffee, 30)
+/obj/item/chems/drinks/coffee/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/coffee, reagents.maximum_volume)
 
 /obj/item/chems/drinks/ice
 	name = "cup of ice"
@@ -188,9 +182,8 @@
 	icon_state = "coffee"
 	center_of_mass = @"{'x':15,'y':10}"
 
-/obj/item/chems/drinks/ice/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/solid/ice, 30)
+/obj/item/chems/drinks/ice/populate_reagents()
+	reagents.add_reagent(/decl/material/solid/ice, reagents.maximum_volume)
 
 /obj/item/chems/drinks/h_chocolate
 	name = "cup of hot cocoa"
@@ -199,9 +192,8 @@
 	item_state = "coffee"
 	center_of_mass = @"{'x':15,'y':13}"
 
-/obj/item/chems/drinks/h_chocolate/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/hot_coco, 30)
+/obj/item/chems/drinks/h_chocolate/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/hot_coco, reagents.maximum_volume)
 
 /obj/item/chems/drinks/dry_ramen
 	name = "cup ramen"
@@ -210,10 +202,8 @@
 	icon_state = "ramen"
 	center_of_mass = @"{'x':16,'y':11}"
 
-/obj/item/chems/drinks/dry_ramen/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/dry_ramen, 30)
-
+/obj/item/chems/drinks/dry_ramen/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/dry_ramen, reagents.maximum_volume)
 
 /obj/item/chems/drinks/sillycup
 	name = "paper cup"
@@ -305,27 +295,26 @@
 	filling_states = @"[100]"
 	base_name = "cup"
 	base_icon = "cup"
+	volume = 30
 
 /obj/item/chems/drinks/tea/black
 	name = "cup of black tea"
 	desc = "A tall plastic cup of hot black tea."
 
-/obj/item/chems/drinks/tea/black/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/tea/black, 30)
+/obj/item/chems/drinks/tea/black/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/tea/black, reagents.maximum_volume)
 
 /obj/item/chems/drinks/tea/green
 	name = "cup of green tea"
 	desc = "A tall plastic cup of hot green tea."
 
-/obj/item/chems/drinks/tea/green/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/tea/green, 30)
+/obj/item/chems/drinks/tea/green/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/tea/green, reagents.maximum_volume)
 
 /obj/item/chems/drinks/tea/chai
 	name = "cup of chai tea"
 	desc = "A tall plastic cup of hot chai tea."
 
-/obj/item/chems/drinks/tea/chai/Initialize()
-	. = ..()
-	reagents.add_reagent(/decl/material/liquid/drink/tea/chai, 30)
+/obj/item/chems/drinks/tea/chai/populate_reagents()
+	reagents.add_reagent(/decl/material/liquid/drink/tea/chai, reagents.maximum_volume)
+

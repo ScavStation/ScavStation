@@ -14,10 +14,12 @@
 	var/tag_x
 
 /obj/structure/bigDelivery/attack_robot(mob/user)
-	unwrap(user)
+	if(CanPhysicallyInteract(user))
+		return attack_hand(user)
 
 /obj/structure/bigDelivery/attack_hand(mob/user)
 	unwrap(user)
+	return TRUE
 
 /obj/structure/bigDelivery/proc/unwrap(var/mob/user)
 	if(Adjacent(user))
@@ -126,6 +128,7 @@
 	name = "small parcel"
 	icon = 'icons/obj/items/storage/deliverypackage.dmi'
 	icon_state = "deliverycrate3"
+	material = /decl/material/solid/cardboard
 	var/obj/item/wrapped = null
 	var/sortTag = null
 	var/examtext = null
@@ -144,10 +147,12 @@
 	qdel(src)
 
 /obj/item/smallDelivery/attack_robot(mob/user)
-	unwrap(user)
+	if(CanPhysicallyInteract(user))
+		return attack_self(user)
 
 /obj/item/smallDelivery/attack_self(mob/user)
 	unwrap(user)
+	return TRUE
 
 /obj/item/smallDelivery/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/destTagger))
@@ -253,6 +258,7 @@
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 4
 	throw_range = 5
+	material = /decl/material/solid/cardboard
 
 /obj/item/stack/package_wrap/afterattack(var/obj/target, mob/user, proximity)
 	if(!proximity) return
@@ -417,7 +423,7 @@
 
 /obj/machinery/disposal/deliveryChute/Bumped(var/atom/movable/AM) //Go straight into the chute
 
-	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))	
+	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))
 		return
 
 	if(get_dir(src, AM) != dir)
@@ -512,3 +518,4 @@
 	uses_charge = 1
 	charge_costs = list(1)
 	stack_merge_type = /obj/item/stack/package_wrap
+	health = ITEM_HEALTH_NO_DAMAGE

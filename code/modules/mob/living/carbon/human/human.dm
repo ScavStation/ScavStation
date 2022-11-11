@@ -43,11 +43,10 @@
 	. = ..()
 
 /mob/living/carbon/human/get_ingested_reagents()
-	if(should_have_organ(BP_STOMACH))
-		var/obj/item/organ/internal/stomach/stomach = get_organ(BP_STOMACH, /obj/item/organ/internal/stomach)
-		if(stomach)
-			return stomach.ingested
-	return get_contact_reagents() // Kind of a shitty hack, but makes more sense to me than digesting them.
+	if(!should_have_organ(BP_STOMACH))
+		return
+	var/obj/item/organ/internal/stomach/stomach = get_organ(BP_STOMACH)
+	return stomach?.ingested
 
 /mob/living/carbon/human/get_fullness()
 	if(!should_have_organ(BP_STOMACH))
@@ -56,6 +55,12 @@
 	if(stomach)
 		return nutrition + (stomach.ingested?.total_volume * 10)
 	return 0 //Always hungry, but you can't actually eat. :(
+
+/mob/living/carbon/human/get_inhaled_reagents()
+	if(!should_have_organ(BP_LUNGS))
+		return
+	var/obj/item/organ/internal/lungs/lungs = get_organ(BP_LUNGS)
+	return lungs?.inhaled
 
 /mob/living/carbon/human/Stat()
 	. = ..()
@@ -510,8 +515,8 @@
 			return
 		timevomit = max(timevomit, 5)
 
-	timevomit = Clamp(timevomit, 1, 10)
-	level = Clamp(level, 1, 3)
+	timevomit = clamp(timevomit, 1, 10)
+	level = clamp(level, 1, 3)
 
 	lastpuke = TRUE
 	to_chat(src, SPAN_WARNING("You feel nauseous..."))
@@ -774,10 +779,18 @@
 				permitted_languages |= lang
 
 	for(var/decl/language/lang in languages)
-		if(lang.type in permitted_languages)
-			continue
-		if(!(lang.flags & RESTRICTED) && (lang.flags & WHITELISTED) && is_alien_whitelisted(src, lang))
-			continue
+		// Forbidden languages are always removed.
+		if(!(lang.flags & LANG_FLAG_FORBIDDEN))
+			// Admin can have whatever available language they want.
+			if(has_admin_rights())
+				continue
+			// Whitelisted languages are fine.
+			if((lang.flags & LANG_FLAG_WHITELISTED) && is_alien_whitelisted(src, lang))
+				continue
+			// Culture-granted languages are fine.
+			if(lang.type in permitted_languages)
+				continue
+		// This language is Not Fine, remove it.
 		if(lang.type == default_language)
 			default_language = null
 		remove_language(lang.type)
@@ -787,7 +800,6 @@
 
 	if(length(default_languages) && isnull(default_language))
 		default_language = default_languages[1]
-
 
 /mob/living/carbon/human/can_inject(var/mob/user, var/target_zone)
 	var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(src, target_zone)

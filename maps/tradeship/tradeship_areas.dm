@@ -197,7 +197,7 @@
 	icon_state = "centcom"
 
 /area/ship/trade/command/bridge
-	name = "\improper Bridge"
+	name = "\improper Tradeship Bridge"
 	icon_state = "bridge"
 	req_access = list(access_heads)
 
@@ -236,6 +236,10 @@
 
 /area/ship/trade/shuttle/outgoing
 	name = "\improper Exploration Shuttle"
+	icon_state = "tcomsatcham"
+
+/area/ship/trade/shuttle/rescue
+	name = "\improper Rescue Shuttle"
 	icon_state = "tcomsatcham"
 
 /area/ship/trade/maintenance/solars

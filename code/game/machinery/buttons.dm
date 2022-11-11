@@ -24,6 +24,7 @@
 	construct_state = /decl/machine_construction/wall_frame/panel_closed/simple
 	frame_type = /obj/item/frame/button
 	required_interaction_dexterity = DEXTERITY_SIMPLE_MACHINES
+	directional_offset = "{'NORTH':{'y':-32}, 'SOUTH':{'y':30}, 'EAST':{'x':-24}, 'WEST':{'x':24}}"
 
 	var/active = FALSE
 	var/operating = FALSE
@@ -141,6 +142,12 @@
 /obj/machinery/button/alternate
 	icon = 'icons/obj/machines/button_door.dmi'
 	icon_state = "doorctrl"
+	frame_type = /obj/item/frame/button/alternate
+
+/obj/machinery/button/alternate/buildable
+	uncreated_component_parts = list(
+		/obj/item/stock_parts/radio/transmitter/basic = 1,
+	)
 
 /obj/machinery/button/alternate/on_update_icon()
 	if(operating)
@@ -169,6 +176,7 @@
 /obj/machinery/button/toggle/alternate
 	icon = 'icons/obj/machines/button_door.dmi'
 	icon_state = "doorctrl"
+	frame_type = /obj/item/frame/button/alternate
 
 /obj/machinery/button/toggle/alternate/on_update_icon()
 	if(active)

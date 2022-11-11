@@ -32,7 +32,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	level = 1
-	
+
 	var/d1
 	var/d2
 	var/datum/powernet/powernet
@@ -513,6 +513,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	matter = null
 	uses_charge = 1
 	charge_costs = list(1)
+	health = ITEM_HEALTH_NO_DAMAGE
 
 /obj/item/stack/cable_coil/Initialize(mapload, c_length = MAXCOIL, var/param_color = null)
 	. = ..(mapload, c_length)
@@ -840,6 +841,9 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/item/stack/cable_coil/white
 	color = COLOR_SILVER
+
+/obj/item/stack/cable_coil/lime
+	color = COLOR_LIME
 
 /obj/item/stack/cable_coil/random/Initialize()
 	var/list/possible_cable_colours = get_global_cable_colors()

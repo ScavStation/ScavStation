@@ -2155,6 +2155,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/trade/loading_bay)
+"VT" = (
+/obj/machinery/hologram/holopad/longrange,
+/turf/simulated/floor/wood/walnut,
+/area/ship/trade/enclave)
 "Xe" = (
 /turf/simulated/wall,
 /area/ship/trade/fore_port_underside_maint)
@@ -5336,7 +5340,7 @@ aa
 ab
 en
 ae
-en
+VT
 DV
 ax
 pU

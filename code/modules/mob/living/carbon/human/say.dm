@@ -3,7 +3,7 @@
 		var/obj/item/organ/internal/voicebox/voice = locate() in get_internal_organs()
 		// Check if the language they're speaking is vocal and not supplied by a machine, and if they are currently suffocating.
 		whispering = (whispering || has_chemical_effect(CE_VOICELOSS, 1))
-		if((!speaking || !(speaking.flags & (NONVERBAL|SIGNLANG))) && (!voice || !voice.is_usable() || !voice.assists_languages[speaking]) && !isSynthetic() && need_breathe() && failed_last_breath)
+		if((!speaking || !(speaking.flags & (LANG_FLAG_NONVERBAL|LANG_FLAG_SIGNLANG))) && (!voice || !voice.is_usable() || !voice.assists_languages[speaking]) && !isSynthetic() && need_breathe() && failed_last_breath)
 			var/obj/item/organ/internal/lungs/L = get_organ(species.breathing_organ, /obj/item/organ/internal/lungs)
 			if(!L || L.breath_fail_ratio > 0.9)
 				if(L && world.time < L.last_successful_breath + 2 MINUTES) //if we're in grace suffocation period, give it up for last words
@@ -54,17 +54,8 @@
 					say(temp)
 				winset(client, "input", "text=[null]")
 
-/mob/living/carbon/human/say_understands(var/mob/other,var/decl/language/speaking = null)
-	if(species.can_understand(other))
-		return TRUE
-	if(!speaking)
-		if(istype(other, /mob/living/silicon))
-			return TRUE
-		if(istype(other, /mob/announcer))
-			return TRUE
-		if(istype(other, /mob/living/carbon/brain))
-			return TRUE
-	return ..()
+/mob/living/carbon/human/say_understands(mob/speaker, decl/language/speaking)
+	return (!speaking && (issilicon(speaker) || istype(speaker, /mob/announcer) || isbrain(speaker))) || ..()
 
 /mob/living/carbon/human/GetVoice()
 
@@ -99,7 +90,7 @@
 	var/ending = copytext(message, length(message))
 
 	if(speaking)
-		verb = speaking.get_spoken_verb(ending)
+		verb = speaking.get_spoken_verb(src, ending)
 	else
 		if(ending == "!")
 			verb=pick("exclaims","shouts","yells")

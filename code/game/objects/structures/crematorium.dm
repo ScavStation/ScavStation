@@ -64,7 +64,7 @@
 /obj/structure/crematorium/proc/close()
 	if(!open)
 		return
-	
+
 	if(!connected_tray)
 		return
 
@@ -82,7 +82,7 @@
 	if(locked)
 		to_chat(usr, SPAN_WARNING("It's currently locked."))
 		return
-	
+
 	if(open)
 		close()
 	else
@@ -91,7 +91,7 @@
 	return ..()
 
 /obj/structure/crematorium/attack_robot(mob/user)
-	if(Adjacent(user))
+	if(CanPhysicallyInteract(user))
 		return attack_hand(user)
 
 /obj/structure/crematorium/relaymove(mob/user)
@@ -196,6 +196,7 @@
 	anchored = TRUE
 	throwpass = TRUE
 	layer = BELOW_OBJ_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_NOFALL
 
 	var/obj/structure/crematorium/connected_crematorium
 
@@ -210,8 +211,8 @@
 	return ..()
 
 /obj/structure/crematorium_tray/attack_robot(mob/user)
-	if(Adjacent(user))
-		attack_hand(user)
+	if(CanPhysicallyInteract(user))
+		return attack_hand(user)
 
 /obj/structure/crematorium_tray/receive_mouse_drop(atom/dropping, mob/user)
 	. = ..()

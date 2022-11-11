@@ -16,6 +16,7 @@
 	lock_picking_level = 3
 	matter_multiplier = 0.3
 	material = /decl/material/solid/metal/steel
+	is_spawnable_type = TRUE
 
 	pickup_sound = 'sound/foley/tooldrop3.ogg'
 	drop_sound = 'sound/foley/tooldrop2.ogg'
@@ -37,6 +38,7 @@
 	matter = null
 	uses_charge = 1
 	charge_costs = list(500)
+	health = ITEM_HEALTH_NO_DAMAGE
 
 /obj/item/stack/material/rods/Initialize()
 	. = ..()

@@ -20,7 +20,6 @@
 	var/obj/item/chems/glass/beaker = null
 	var/points = 0
 	var/state = BG_READY
-	var/denied = 0
 	var/build_eff = 1
 	var/eat_eff = 1
 	var/ingredients = 0 //How many processable ingredients are stored inside.
@@ -234,5 +233,5 @@
 
 /obj/machinery/biogenerator/RefreshParts()
 	..()
-	build_eff = Clamp(total_component_rating_of_type(/obj/item/stock_parts/manipulator), 1, 10)
-	eat_eff = Clamp(total_component_rating_of_type(/obj/item/stock_parts/matter_bin), 1, 10)
+	build_eff = clamp(total_component_rating_of_type(/obj/item/stock_parts/manipulator), 1, 10)
+	eat_eff = clamp(total_component_rating_of_type(/obj/item/stock_parts/matter_bin), 1, 10)

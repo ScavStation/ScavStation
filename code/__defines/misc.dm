@@ -267,9 +267,10 @@
 #define OUTSIDE_YES  TRUE
 
 // Weather exposure values for being rained on or hailed on.
-#define WEATHER_IGNORE    -1
-#define WEATHER_PROTECTED  0
-#define WEATHER_EXPOSED    1
+#define WEATHER_IGNORE   -1
+#define WEATHER_EXPOSED   0
+#define WEATHER_ROOFED    1
+#define WEATHER_PROTECTED 2
 
 // Literacy check constants.
 #define WRITTEN_SKIP     0
@@ -279,5 +280,9 @@
 // arbitrary low pressure bound for wind weather effects
 #define MIN_WIND_PRESSURE 10
 
-#define DECL_TYPE_IS_ABSTRACT(DECL) (initial(DECL.abstract_type) == DECL)
-#define DECL_INSTANCE_IS_ABSTRACT(DECL) (DECL.abstract_type == DECL.type)
+#define TYPE_IS_ABSTRACT(D) (initial(D.abstract_type) == D)
+#define TYPE_IS_SPAWNABLE(D) (!TYPE_IS_ABSTRACT(D) && initial(D.is_spawnable_type))
+#define INSTANCE_IS_ABSTRACT(D) (D.abstract_type == D.type)
+
+//Damage stuff
+#define ITEM_HEALTH_NO_DAMAGE -1

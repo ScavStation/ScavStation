@@ -201,6 +201,8 @@ var/global/list/hygiene_props = list()
 	icon_state = "urinal"
 	density = 0
 	anchored = 1
+	directional_offset = "{'NORTH':{'y':-32}, 'SOUTH':{'y':32}, 'EAST':{'x':-32}, 'WEST':{'x':32}}"
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 /obj/structure/hygiene/urinal/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/grab))
@@ -316,10 +318,10 @@ var/global/list/hygiene_props = list()
 			reagents.splash(get_turf(src), reagents.total_volume, max_spill = 0)
 
 /obj/structure/hygiene/shower/proc/process_heat(mob/living/M)
-	if(!on || !istype(M)) 
+	if(!on || !istype(M))
 		return
 	var/water_temperature = temperature_settings[watertemp]
-	var/temp_adj = between(BODYTEMP_COOLING_MAX, water_temperature - M.bodytemperature, BODYTEMP_HEATING_MAX)
+	var/temp_adj = clamp(BODYTEMP_COOLING_MAX, water_temperature - M.bodytemperature, BODYTEMP_HEATING_MAX)
 	M.bodytemperature += temp_adj
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -579,7 +581,7 @@ var/global/list/hygiene_props = list()
 
 /obj/structure/hygiene/faucet/Process()
 	..()
-	if(open) 
+	if(open)
 		water_flow()
 
 /obj/structure/hygiene/faucet/examine(mob/user)

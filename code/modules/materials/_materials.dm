@@ -83,6 +83,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/default_solid_form = /obj/item/stack/material/sheet
 
 	var/affect_blood_on_ingest = TRUE
+	var/affect_blood_on_inhale = TRUE
 
 	var/narcosis = 0 // Not a great word for it. Constant for causing mild confusion when ingested.
 	var/toxicity = 0 // Organ damage from ingestion.
@@ -176,7 +177,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	// Mining behavior.
 	var/ore_name
 	var/ore_desc
-	var/ore_smelts_to
 	var/ore_compresses_to
 	var/ore_result_amount
 	var/ore_spread_chance
@@ -209,6 +209,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/metabolism = REM // This would be 0.2 normally
 	var/ingest_met = 0
 	var/touch_met = 0
+	var/inhale_met = 0
 	var/overdose = 0
 	var/scannable = 0 // Shows up on health analyzers.
 	var/color = COLOR_BEIGE
@@ -367,18 +368,15 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 /decl/material/proc/get_boiling_temp(var/pressure = ONE_ATMOSPHERE)
 	return (1 / (1/max(boiling_point, TCMB)) - ((R_IDEAL_GAS_EQUATION * log(pressure / ONE_ATMOSPHERE)) / (latent_heat * molar_mass)))
 
-// Returns the phase of the matterial at the given temperature and pressure
-/decl/material/proc/phase_at_temperature(var/temperature, var/pressure = ONE_ATMOSPHERE)
+/// Returns the phase of the matterial at the given temperature and pressure
+/// Defaults to standard temperature and pressure (20c at one atmosphere)
+/decl/material/proc/phase_at_temperature(var/temperature = T20C, var/pressure = ONE_ATMOSPHERE)
 	//#TODO: implement plasma temperature and do pressure checks
-	if(temperature >= get_boiling_temp(pressure))
+	if(!isnull(boiling_point) && temperature >= get_boiling_temp(pressure))
 		return MAT_PHASE_GAS
-	else if(temperature >= heating_point)
+	else if(!isnull(heating_point) && temperature >= heating_point)
 		return MAT_PHASE_LIQUID
 	return MAT_PHASE_SOLID
-
-// Returns the phase of matter this material is a standard temperature and pressure (20c at one atmosphere)
-/decl/material/proc/phase_at_stp()
-	return phase_at_temperature(T20C, ONE_ATMOSPHERE)
 
 // Used by walls when qdel()ing to avoid neighbor merging.
 /decl/material/placeholder
@@ -427,13 +425,29 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		return create_object(target, amount, object_type = drop_type)
 
 // As above.
-/decl/material/proc/place_shard(var/turf/target)
+/decl/material/proc/place_shards(var/turf/target, var/amount = 1)
 	if(shard_type)
-		return create_object(target, 1, /obj/item/shard)
+		return create_object(target, amount, /obj/item/shard)
 
 /**Places downa as many shards as needed for the given amount of matter units. Returns a list of all the cuttings. */
 /decl/material/proc/place_cuttings(var/turf/target, var/matter_units)
-	//STUB: Waiting on papwerork PR
+	if(!shard_type && matter_units <= 0)
+		return
+	var/list/shard_mat = atom_info_repository.get_matter_for(shard_type, type, 1)
+	var/amount_per_shard = LAZYACCESS(shard_mat, type)
+	if(amount_per_shard < 1)
+		return
+
+	//Make all the shards we can
+	var/shard_amount = round(matter_units / amount_per_shard)
+	var/matter_left  = round(matter_units % amount_per_shard)
+	LAZYADD(., create_object(target, shard_amount, shard_type))
+
+	//If we got more than expected, just make a shard with that amount
+	if(matter_left > 0)
+		var/obj/S = create_object(target, 1, shard_type)
+		LAZYSET(S.matter, type, matter_left)
+		LAZYADD(., S)
 
 // Used by walls and weapons to determine if they break or not.
 /decl/material/proc/is_brittle()
@@ -533,6 +547,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 			removed = ingest_met
 		if(CHEM_TOUCH)
 			removed = touch_met
+		if(CHEM_INHALE)
+			removed = inhale_met
+	if(!removed)
+		removed = metabolism
 	if(!removed)
 		removed = metabolism
 	removed = M.get_adjusted_metabolism(removed)
@@ -552,6 +570,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 				affect_ingest(M, effective, holder)
 			if(CHEM_TOUCH)
 				affect_touch(M, effective, holder)
+			if(CHEM_INHALE)
+				affect_inhale(M, effective, holder)
 	holder.remove_reagent(type, removed)
 
 /decl/material/proc/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
@@ -562,17 +582,20 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		M.add_chemical_effect(CE_TOXIN, toxicity)
 		var/dam = (toxicity * removed)
 		if(toxicity_targets_organ && ishuman(M))
-			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(H, toxicity_targets_organ)
-			if(I)
-				var/can_damage = I.max_damage - I.damage
-				if(can_damage > 0)
-					if(dam > can_damage)
-						I.take_internal_damage(can_damage, silent=TRUE)
-						dam -= can_damage
-					else
-						I.take_internal_damage(dam, silent=TRUE)
-						dam = 0
+			var/decl/species/species = M.get_species()
+			var/organ_damage = species ? round(dam * species.toxins_mod) : dam
+			if(organ_damage > 0)
+				var/mob/living/carbon/human/H = M
+				var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(H, toxicity_targets_organ)
+				if(I)
+					var/can_damage = I.max_damage - I.damage
+					if(can_damage > 0)
+						if(organ_damage > can_damage)
+							I.take_internal_damage(can_damage, silent=TRUE)
+							dam -= can_damage
+						else
+							I.take_internal_damage(organ_damage, silent=TRUE)
+							dam = 0
 		if(dam > 0)
 			M.adjustToxLoss(toxicity_targets_organ ? (dam * 0.75) : dam)
 
@@ -591,6 +614,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 /decl/material/proc/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(affect_blood_on_ingest)
 		affect_blood(M, removed * 0.5, holder)
+
+/decl/material/proc/affect_inhale(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(affect_blood_on_inhale)
+		affect_blood(M, removed * 0.75, holder)
 
 /decl/material/proc/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
 
@@ -716,7 +743,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		return
 	for(var/interaction in neutron_interactions)
 		var/ideal_energy = neutron_interactions[interaction]
-		var/interacted_units_ratio = (Clamp(-((((neutron_energy-ideal_energy)**2)/(neutron_cross_section*1000)) - 100), 0, 100))/100
+		var/interacted_units_ratio = (clamp(-((((neutron_energy-ideal_energy)**2)/(neutron_cross_section*1000)) - 100), 0, 100))/100
 		var/interacted_units = round(interacted_units_ratio*total_interacted_units, 0.001)
 
 		if(interacted_units > 0)

@@ -4,7 +4,7 @@
 	name_plural = "Yinglets"
 	description = "A species of short, slender rat-birds with a fondness for clams. Commonly found wherever humans are, \
 	either scavenging amongst their leavings, or benefiting from adjacency to an older and more developed culture."
-
+	base_prosthetics_model = /decl/prosthetics_manufacturer/ying_wooden
 	autohiss_basic_map = list(
 		"th" = list("z")
 	)
@@ -64,8 +64,8 @@
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_STOMACH =  /obj/item/organ/internal/stomach/yinglet,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_LIVER =    /obj/item/organ/internal/liver/yinglet,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/yinglet,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes/yinglet
 	)
@@ -83,6 +83,7 @@
 	blood_volume = 350
 	hunger_factor = 0.1
 	inherent_verbs = list(/mob/living/proc/hide)
+	toxins_mod = 0.65
 
 	available_cultural_info = list(
 		TAG_CULTURE =   list(
@@ -125,6 +126,10 @@
 		. = autohiss_basic_map?.Copy()
 	if(!islist(.))
 		. = list()
+
+/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
+	return
+
 /obj/item/holder/yinglet
 	sharp = 1
 	edge = 1
@@ -143,5 +148,14 @@
 		return TRUE
 	. = ..()
 
-/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
-	return
+/obj/item/organ/internal/liver/yinglet
+	scale_max_damage_to_species_health = FALSE
+	min_bruised_damage = 30
+	min_broken_damage = 60
+	max_damage = 85
+
+/obj/item/organ/internal/kidneys/yinglet
+	scale_max_damage_to_species_health = FALSE
+	min_bruised_damage = 30
+	min_broken_damage = 60
+	max_damage = 85

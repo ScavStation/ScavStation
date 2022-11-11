@@ -100,6 +100,7 @@ var/global/list/all_apcs = list()
 	initial_access = list(access_engine_equip)
 	clicksound = "switch"
 	layer = ABOVE_WINDOW_LAYER
+	directional_offset = "{'NORTH':{'y':22}, 'SOUTH':{'y':-22}, 'EAST':{'x':22}, 'WEST':{'x':-22}}"
 
 	var/powered_down = FALSE
 	var/area/area
@@ -293,21 +294,6 @@ var/global/list/all_apcs = list()
 			channel_leds[POWERCHAN_ON_AUTO + 1] = overlay_image(icon,"apco[channel]",COLOR_BLUE)
 			channel++
 
-	if(update_state < 0)
-		default_pixel_x = 0
-		default_pixel_y = 0
-		var/turf/T = get_step(get_turf(src), dir)
-		if(istype(T) && T.density)
-			if(dir == SOUTH)
-				default_pixel_y = -22
-			else if(dir == NORTH)
-				default_pixel_y = 22
-			else if(dir == EAST)
-				default_pixel_x = 22
-			else if(dir == WEST)
-				default_pixel_x = -22
-		reset_offsets()
-
 	var/update = check_updates() 		//returns 0 if no need to update icons.
 						// 1 if we need to update the icon_state
 						// 2 if we need to update the overlays
@@ -431,8 +417,12 @@ var/global/list/all_apcs = list()
 		update()
 
 /obj/machinery/power/apc/cannot_transition_to(state_path, mob/user)
+	if(ispath(state_path, /decl/machine_construction/wall_frame/panel_open))
+		for(var/obj/item/stock_parts/access_lock/lock in get_all_components_of_type(/obj/item/stock_parts/access_lock))
+			if(lock.locked)
+				return SPAN_WARNING("You cannot open the cover: it is locked!")
 	if(ispath(state_path, /decl/machine_construction/wall_frame/panel_closed) && cover_removed)
-		return SPAN_NOTICE("You cannot close the cover: it was completely removed!")
+		return SPAN_WARNING("You cannot close the cover: it was completely removed!")
 	. = ..()
 
 /obj/machinery/power/apc/proc/force_open_panel(mob/user)

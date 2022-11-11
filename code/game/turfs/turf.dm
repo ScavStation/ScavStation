@@ -1,7 +1,8 @@
 /turf
 	icon = 'icons/turf/floors.dmi'
 	level = 1
-
+	abstract_type = /turf
+	is_spawnable_type = TRUE
 	layer = TURF_LAYER
 
 	var/turf_flags
@@ -19,9 +20,7 @@
 	var/blocks_air = 0          // Does this turf contain air/let air through?
 
 	// General properties.
-	var/icon_old = null
 	var/pathweight = 1          // How much does it cost to pathfind over this turf?
-	var/blessed = 0             // Has the turf been blessed?
 
 	var/list/decals
 
@@ -37,11 +36,11 @@
 	var/tmp/changing_turf
 	var/tmp/prev_type // Previous type of the turf, prior to turf translation.
 
-	// Some quick notes on the vars below: is_outside should be left set to OUTSIDE_AREA unless you 
+	// Some quick notes on the vars below: is_outside should be left set to OUTSIDE_AREA unless you
 	// EXPLICITLY NEED a turf to have a different outside state to its area (ie. you have used a
-	// roofing tile). By default, it will ask the area for the state to use, and will update on 
-	// area change. When dealing with weather, it will check the entire z-column for interruptions 
-	// that will prevent it from using its own state, so a floor above a level will generally 
+	// roofing tile). By default, it will ask the area for the state to use, and will update on
+	// area change. When dealing with weather, it will check the entire z-column for interruptions
+	// that will prevent it from using its own state, so a floor above a level will generally
 	// override both area is_outside, and turf is_outside. The only time the base value will be used
 	// by itself is if you are dealing with a non-multiz level, or the top level of a multiz chunk.
 
@@ -69,6 +68,7 @@
 	else
 		luminosity = 1
 
+	SSambience.queued += src
 
 	if (opacity)
 		has_opaque_atom = TRUE
@@ -160,8 +160,8 @@
 		return THE.OnHandInterception(user)
 
 /turf/attack_robot(var/mob/user)
-	if(Adjacent(user))
-		attack_hand(user)
+	if(CanPhysicallyInteract(user))
+		return attack_hand(user)
 
 /turf/attackby(obj/item/W, mob/user)
 
@@ -412,7 +412,7 @@
 	// Notes for future self when confused: is_open() on higher
 	// turfs must match effective is_outside value if the turf
 	// should get to use the is_outside value it wants to. If it
-	// doesn't line up, we invert the outside value (roof is not 
+	// doesn't line up, we invert the outside value (roof is not
 	// open but turf wants to be outside, invert to OUTSIDE_NO).
 
 	// Do we have a roof over our head? Should we care?
@@ -428,6 +428,7 @@
 		is_outside = new_outside
 		if(!skip_weather_update)
 			update_weather()
+		SSambience.queued += src
 		return TRUE
 	return FALSE
 
