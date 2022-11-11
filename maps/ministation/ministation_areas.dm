@@ -13,14 +13,6 @@
 	icon = 'maps/ministation/ministation_areas.dmi'
 	icon_state = "default"
 
-/area/ministation/arrival_shuttle
-	name = "Arrivals Shuttle"
-	requires_power = 0
-	icon_state = "light_blue"
-	sound_env = SMALL_ENCLOSED
-	base_turf = /turf/space
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-
 /area/ministation/supply_dock
 	name = "Supply Shuttle Dock"
 	icon_state = "yellow"
@@ -196,6 +188,11 @@
 	req_access = list(access_lawyer)
 	icon_state = "brown"
 
+/area/ministation/yinglet_enclave
+	name = "\improper Abandoned section"
+	req_access = list(access_lawyer)
+	icon_state = "white"
+
 //satellite
 /area/ministation/ai_sat
 	name = "\improper Satellite"
@@ -217,3 +214,7 @@
 
 /datum/goal/scav_hoard_junk
 	valid_areas = list(/area/ministation/yinglet_rep)
+
+/area/shuttle/escape_shuttle
+	name = "\improper Emergency Shuttle"
+	icon_state = "shuttle"
