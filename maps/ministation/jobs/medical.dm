@@ -52,13 +52,13 @@
 	total_positions = 1
 	spawn_positions = 1
 	skill_points = 28
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	selection_color = "#026865"
 	req_admin_notify = 1
 	economic_power = 10
-	hud_icon = "hudmedicaldoctor"
+	hud_icon = "hudheaddoctor"
 	access = list(
 		access_medical,
 		access_medical_equip,

@@ -85,7 +85,7 @@
 	ideal_character_age = 50
 	guestbanned = 1
 	not_random_selectable = 1
-	hud_icon = "hudsecurityofficer"
+	hud_icon = "hudhos"
 	access = list(
 		access_security,
 		access_sec_doors,
