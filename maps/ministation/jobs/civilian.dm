@@ -6,6 +6,7 @@
 	economic_power = 1
 	access = list()
 	minimal_access = list()
+	hud_icon = "hudassistant"
 	alt_titles = list("Technical Recruit","Medical Recruit","Research Recruit","Visitor")
 	outfit_type = /decl/hierarchy/outfit/job/ministation_assistant
 	department_types = list(/decl/department/civilian)
