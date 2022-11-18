@@ -18,6 +18,7 @@
 #include "jobs\enclave_department.dm"
 #include "jobs\yinglet_job.dm"
 #include "jobs\yinglet_outfit.dm"
+#include "jobs\job.dm"
 #include "lobby\music.dm"
 #include "machines\cargo_train.dm"
 #include "map\culture.dm"

@@ -1,7 +1,7 @@
 /datum/job/ministation/security
 	title = "Security Officer"
-	alt_titles = list("Warden")
-	supervisors = "the Lieutenant and the Captain"
+	alt_titles = list("Warden","Scout")
+	supervisors = "the Head of Security"
 	spawn_positions = 1
 	total_positions = 2
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security
@@ -68,8 +68,8 @@
 	skill_points = 24
 
 /datum/job/ministation/security/head
-	title = "Head of Security"
-	supervisors = "the Captain"
+	title = "Patriarch of Security"
+	supervisors = "the Matriarch"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security/head
 	head_position = 1
 	department_types = list(
@@ -85,7 +85,7 @@
 	ideal_character_age = 50
 	guestbanned = 1
 	not_random_selectable = 1
-	hud_icon = "hudsecurityofficer"
+	hud_icon = "hudhos"
 	access = list(
 		access_security,
 		access_sec_doors,
@@ -115,4 +115,4 @@
 		SKILL_WEAPONS	= SKILL_MAX
 	)
 	skill_points = 30
-	alt_titles = list()
+	alt_titles = list("Head of Security","Patriarch of Scouting")

@@ -1,7 +1,7 @@
 /datum/job/ministation/scientist
 	title = "Researcher"
 	alt_titles = list("Scientist","Xenobiologist","Roboticist","Xenobotanist")
-	supervisors = "the Lieutenant and the Captain"
+	supervisors = "the Head Researcher"
 	spawn_positions = 1
 	total_positions = 2
 	department_types = list(/decl/department/science)
@@ -40,11 +40,11 @@
 	event_categories = list(ASSIGNMENT_SCIENTIST)
 
 /datum/job/ministation/scientist/head
-	title = "Head Researcher"
-	supervisors = "the Captain"
+	title = "Patriarch of Science"
+	supervisors = "the Matriarch"
 	spawn_positions = 1
 	total_positions = 1
-	alt_titles = list()
+	alt_titles = list("Head Researcher", "Chief Researcher")
 	outfit_type = /decl/hierarchy/outfit/job/ministation/scientist/head
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
@@ -69,52 +69,52 @@
 	selection_color = "#ad6bad"
 	req_admin_notify = 1
 	economic_power = 15
-	hud_icon = "hudscientist"
+	hud_icon = "hudheadscientist"
 	access = list(
 		access_rd,
 		access_bridge,
 		access_tox,
 		access_morgue,
-		access_tox_storage, 
-		access_teleporter, 
-		access_sec_doors, 
+		access_tox_storage,
+		access_teleporter,
+		access_sec_doors,
 		access_heads,
 		access_research,
-		access_robotics, 
-		access_xenobiology, 
-		access_ai_upload, 
+		access_robotics,
+		access_xenobiology,
+		access_ai_upload,
 		access_tech_storage,
-		access_RC_announce, 
-		access_keycard_auth, 
-		access_tcomsat, 
-		access_gateway, 
-		access_xenoarch, 
+		access_RC_announce,
+		access_keycard_auth,
+		access_tcomsat,
+		access_gateway,
+		access_xenoarch,
 		access_network
 	)
 	minimal_access = list(
-		access_rd, 
-		access_bridge, 
-		access_tox, 
+		access_rd,
+		access_bridge,
+		access_tox,
 		access_morgue,
 		access_tox_storage,
-		access_teleporter, 
+		access_teleporter,
 		access_sec_doors,
 		access_heads,
-		access_research, 
+		access_research,
 		access_robotics,
 		access_xenobiology,
-		access_ai_upload, 
+		access_ai_upload,
 		access_tech_storage,
-		access_RC_announce, 
+		access_RC_announce,
 		access_keycard_auth,
-		access_tcomsat, 
-		access_gateway, 
-		access_xenoarch, 
+		access_tcomsat,
+		access_gateway,
+		access_xenoarch,
 		access_network
 	)
 	minimal_player_age = 14
 	ideal_character_age = 50
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	event_categories = list(ASSIGNMENT_SCIENTIST)

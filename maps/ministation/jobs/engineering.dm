@@ -1,6 +1,6 @@
 /datum/job/ministation/engineer
 	title = "Station Engineer"
-	supervisors = "the Lieutenant and the Captain"
+	supervisors = "the Head Engineer"
 	total_positions = 2
 	spawn_positions = 2
 	outfit_type = /decl/hierarchy/outfit/job/ministation/engineer
@@ -50,7 +50,7 @@
 	event_categories = list(ASSIGNMENT_ENGINEER)
 
 /datum/job/ministation/engineer/head
-	title = "Head Engineer"
+	title = "Patriarch of Engineering"
 	head_position = 1
 	department_types = list(
 		/decl/department/engineering,
@@ -62,24 +62,24 @@
 	req_admin_notify = 1
 	economic_power = 10
 	ideal_character_age = 50
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
-	hud_icon = "hudstationengineer"
+	hud_icon = "hudchiefengineer"
 	access = list(
-		access_engine, 
-		access_engine_equip, 
-		access_tech_storage, 
-		access_maint_tunnels, 
+		access_engine,
+		access_engine_equip,
+		access_tech_storage,
+		access_maint_tunnels,
 		access_heads,
 		access_teleporter,
 		access_external_airlocks,
-		access_atmospherics, 
+		access_atmospherics,
 		access_emergency_storage,
 		access_eva,
 		access_bridge,
 		access_construction, access_sec_doors,
-		access_ce, 
+		access_ce,
 		access_RC_announce,
 		access_keycard_auth,
 		access_tcomsat,
@@ -87,9 +87,9 @@
 	)
 	minimal_access = list(
 		access_engine,
-		access_engine_equip, 
-		access_tech_storage, 
-		access_maint_tunnels, 
+		access_engine_equip,
+		access_tech_storage,
+		access_maint_tunnels,
 		access_heads,
 		access_teleporter,
 		access_external_airlocks,
@@ -105,7 +105,7 @@
 		access_ai_upload
 	)
 	minimal_player_age = 14
-	supervisors = "the Captain"
+	supervisors = "the Matriarch"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/chief_engineer
 	min_skill = list(
 		SKILL_LITERACY     = SKILL_ADEPT,
@@ -123,5 +123,5 @@
 		SKILL_ENGINES      = SKILL_MAX
 	)
 	skill_points = 30
-	alt_titles = list()
+	alt_titles = list("Head Engineer", "Chief Engineer")
 	event_categories = list(ASSIGNMENT_ENGINEER)

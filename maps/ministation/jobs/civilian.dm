@@ -1,12 +1,13 @@
 /datum/job/ministation/assistant
-	title = "Assistant"
+	title = "Recruit"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "absolutely everyone"
 	economic_power = 1
 	access = list()
 	minimal_access = list()
-	alt_titles = list("Technical Assistant","Medical Intern","Research Assistant","Visitor")
+	hud_icon = "hudassistant"
+	alt_titles = list("Technical Recruit","Medical Recruit","Research Recruit","Visitor")
 	outfit_type = /decl/hierarchy/outfit/job/ministation_assistant
 	department_types = list(/decl/department/civilian)
 	event_categories = list(ASSIGNMENT_GARDENER)
@@ -23,7 +24,7 @@
 /datum/job/ministation/bartender
 	title = "Bartender"
 	alt_titles = list("Cook","Barista")
-	supervisors = "the Lieutenant and the Captain"
+	supervisors = "the Patriarch of Personnel and the Matriarch"
 	total_positions = 1
 	spawn_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/ministation/bartender
@@ -54,8 +55,8 @@
 /datum/job/ministation/cargo
 	title = "Cargo Technician"
 	alt_titles = list("Shaft Miner","Drill Technician","Prospector")
-	supervisors = "the Lieutenant and the Captain"
-	total_positions = 2
+	supervisors = "the Patriarch of Personnel and the Matriarch"
+	total_positions = 3
 	spawn_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/ministation/cargo
 	department_types = list(/decl/department/service)
@@ -103,9 +104,9 @@
 	title = "Janitor"
 	event_categories = list(ASSIGNMENT_JANITOR)
 	department_types = list(/decl/department/service)
-	total_positions = 1
+	total_positions = 2
 	spawn_positions = 1
-	supervisors = "the Lieutenant and the Captain"
+	supervisors = "the Patriarch of Personnel and the Matriarch"
 	economic_power = 3
 	selection_color = "#940088"
 	access = list(
@@ -139,7 +140,7 @@
 	department_types = list(/decl/department/service)
 	total_positions = 1
 	spawn_positions = 2
-	supervisors = "the Lieutenant, the Captain, and the smell of old paper"
+	supervisors = "the Patriarch of Personnel, the Matriarch, and the smell of old paper"
 	economic_power = 5
 	selection_color = "#008800"
 	access = list(access_library)

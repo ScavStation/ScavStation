@@ -2,7 +2,7 @@
 	title = "Medical Doctor"
 	department_types = list(/decl/department/medical)
 	head_position = 0
-	supervisors = "the Lieutenant and the Captain"
+	supervisors = "the Head Doctor"
 	total_positions = 2
 	spawn_positions = 2
 	alt_titles = list("Chemist","Nurse")
@@ -40,25 +40,25 @@
 	event_categories = list(ASSIGNMENT_MEDICAL)
 
 /datum/job/ministation/doctor/head
-	title = "Head Doctor"
+	title = "Patriarch of Medicine"
 	head_position = 1
 	department_types = list(
 		/decl/department/medical,
 		/decl/department/command
 	)
-	supervisors = "the Captain and your own ethics"
+	supervisors = "the Matriarch and your own ethics"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/doctor/head
-	alt_titles = list("Surgeon")
+	alt_titles = list("Surgeon","Head Doctor")
 	total_positions = 1
 	spawn_positions = 1
 	skill_points = 28
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	selection_color = "#026865"
 	req_admin_notify = 1
 	economic_power = 10
-	hud_icon = "hudmedicaldoctor"
+	hud_icon = "hudheaddoctor"
 	access = list(
 		access_medical,
 		access_medical_equip,

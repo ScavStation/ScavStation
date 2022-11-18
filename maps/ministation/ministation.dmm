@@ -313,7 +313,9 @@
 	pixel_x = -22
 	},
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/carpet/blue,
+/obj/item/clothing/under/yinglet/matriarch,
+/obj/item/clothing/head/yinglet/matriarch,
+/turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "aS" = (
 /turf/simulated/wall,
@@ -322,7 +324,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "aU" = (
 /obj/structure/table/reinforced,
@@ -358,7 +360,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "aX" = (
 /obj/structure/cable{
@@ -500,14 +502,14 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "bs" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	level = 2
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "bt" = (
 /obj/item/flashlight/lamp/green,
@@ -516,7 +518,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/carpet/blue,
+/obj/item/gun/launcher/crossbow,
+/obj/item/arrow,
+/obj/item/arrow,
+/obj/item/cell/crap,
+/obj/item/mollusc/clam,
+/turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "bv" = (
 /obj/machinery/light{
@@ -620,8 +627,8 @@
 /area/ministation/bridge/vault)
 "bG" = (
 /obj/structure/closet/secure_closet/captains,
-/obj/item/clothing/suit/storage/leather_jacket/nanotrasen,
-/turf/simulated/floor/carpet/blue,
+/obj/item/clothing/shoes/sandal/yinglet,
+/turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "bH" = (
 /obj/machinery/camera{
@@ -634,7 +641,7 @@
 /obj/structure/bed/chair/comfy/captain{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "bI" = (
 /obj/structure/table/woodentable/mahogany,
@@ -642,7 +649,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "bK" = (
 /obj/machinery/alarm{
@@ -704,14 +711,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/ministation/bridge/vault)
-"bS" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled,
-/area/ministation/bridge/vault)
 "bT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge/vault)
 "bU" = (
@@ -1915,7 +1919,9 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/machinery/suit_cycler/mining/ministation,
+/obj/machinery/suit_cycler/mining/ministation{
+	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fj" = (
@@ -2843,6 +2849,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/head/yinglet/scout,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hw" = (
@@ -4155,6 +4164,7 @@
 	},
 /obj/item/pen,
 /obj/item/eftpos,
+/obj/item/mollusc/clam,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "kE" = (
@@ -4738,6 +4748,12 @@
 /obj/item/clothing/under/yinglet/yingjumpsuit{
 	color = "#808080"
 	},
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
 "lZ" = (
@@ -5215,7 +5231,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/suit_cycler/ministation,
+/obj/structure/closet/secure_closet{
+	closet_appearance = /decl/closet_appearance/secure_closet/engineering/welding;
+	name = "Engineer locker";
+	req_access = list("ACCESS_CONSTRUCTION")
+	},
+/obj/item/clothing/head/helmet/space/void/scav/engineering,
+/obj/item/clothing/suit/space/void/scav/engineering,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "ny" = (
@@ -5226,11 +5248,20 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/suit_cycler/ministation,
+/obj/structure/closet/secure_closet{
+	req_access = list("ACCESS_MEDICAL_EQUIP");
+	closet_appearance = /decl/closet_appearance/secure_closet/medical/alt;
+	name = "Doctor locker"
+	},
+/obj/item/clothing/head/helmet/space/void/scav/medical,
+/obj/item/clothing/suit/space/void/scav/medical,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "nz" = (
-/obj/machinery/suit_cycler/engineering/ministation,
+/obj/machinery/suit_cycler/engineering/ministation{
+	suit = /obj/item/clothing/suit/space/void/scav/engineering;
+	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "nA" = (
@@ -5373,13 +5404,26 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet{
+	closet_appearance = /decl/closet_appearance/secure_closet/security;
+	req_access = list("ACCESS_BRIG");
+	name = "Security locker"
+	},
+/obj/item/clothing/head/helmet/space/void/scav/security,
+/obj/item/clothing/suit/space/void/scav/security,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "nU" = (
-/obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/structure/closet/secure_closet{
+	closet_appearance = /decl/closet_appearance/secure_closet/rd;
+	req_access = list("ACCESS_RESEARCH");
+	name = "Science locker"
+	},
+/obj/item/clothing/head/helmet/space/void/scav/science,
+/obj/item/clothing/suit/space/void/scav/science,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "nV" = (
@@ -6009,19 +6053,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
-/area/ministation/eva)
-"pz" = (
 /obj/structure/rack{
 	dir = 8
 	},
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/turf/simulated/floor/tiled,
+/area/ministation/eva)
+"pz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "pA" = (
@@ -9425,7 +9470,7 @@
 /turf/simulated/floor/carpet,
 /area/ministation/hop)
 "ym" = (
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/yinglet_nest,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge/vault)
 "yn" = (
@@ -9659,6 +9704,7 @@
 	},
 /obj/structure/closet/secure_closet/hop2,
 /obj/item/book/skill/organizational/finance,
+/obj/item/clothing/suit/fancyrobe,
 /turf/simulated/floor/carpet,
 /area/ministation/hop)
 "yV" = (
@@ -10192,8 +10238,8 @@
 "Au" = (
 /obj/structure/closet/chefcloset,
 /obj/item/storage/box/ammo/beanbags,
-/obj/item/gun/projectile/shotgun/doublebarrel,
 /obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
 /turf/simulated/floor/wood,
 /area/ministation/cafe)
 "Av" = (
@@ -10206,6 +10252,9 @@
 	},
 /obj/structure/table/woodentable,
 /obj/item/chems/condiment/enzyme,
+/obj/item/mollusc/clam,
+/obj/item/mollusc/clam,
+/obj/item/mollusc/clam,
 /turf/simulated/floor/wood,
 /area/ministation/cafe)
 "Ax" = (
@@ -13372,9 +13421,6 @@
 /obj/structure/bed/chair/wood/maple{
 	dir = 8
 	},
-/obj/abstract/landmark/start{
-	name = "Enclave Representative"
-	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "Ip" = (
@@ -13446,7 +13492,6 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "IC" = (
-/obj/structure/yinglet_nest,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "ID" = (
@@ -13622,9 +13667,10 @@
 /turf/simulated/wall/r_wall,
 /area/ministation/ai_core)
 "Jk" = (
-/obj/item/clothing/under/librarian,
 /obj/structure/closet,
 /obj/item/multitool,
+/obj/item/clothing/under/yinglet/yinglibrarian,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "Jm" = (
@@ -14929,22 +14975,6 @@
 /area/ministation/library)
 "MQ" = (
 /obj/structure/closet,
-/obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/suit/fancyrobe,
-/obj/item/clothing/under/yinglet,
-/obj/item/clothing/under/yinglet,
-/obj/item/clothing/under/yinglet/scout,
-/obj/item/clothing/under/yinglet/scout,
-/obj/item/clothing/under/yinglet/matriarch,
-/obj/item/clothing/head/yinglet,
-/obj/item/clothing/head/yinglet/scout,
-/obj/item/clothing/head/yinglet/scout,
-/obj/item/clothing/head/yinglet/matriarch,
-/obj/item/gun/launcher/crossbow,
-/obj/item/arrow,
-/obj/item/arrow,
-/obj/item/cell/crap,
 /obj/item/storage/briefcase,
 /obj/machinery/firealarm{
 	dir = 4;
@@ -14956,7 +14986,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/item/clothing/under/yinglet/yinglibrarian,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "MT" = (
@@ -15104,7 +15133,10 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Nz" = (
-/obj/machinery/suit_cycler,
+/obj/machinery/suit_cycler/engineering/ministation{
+	suit = /obj/item/clothing/suit/space/void/scav/engineering;
+	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	},
 /turf/simulated/floor,
 /area/ministation/atmospherics)
 "NA" = (
@@ -15757,7 +15789,6 @@
 	level = 2
 	},
 /obj/item/modular_computer/tablet/preset/custom_loadout/cheap,
-/obj/item/mollusc/clam,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "PX" = (
@@ -17401,6 +17432,9 @@
 /area/ministation/yinglet_rep)
 "WF" = (
 /obj/structure/closet/secure_closet/security,
+/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/head/yinglet/scout,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "WG" = (
@@ -53338,7 +53372,7 @@ aa
 aa
 bg
 by
-bS
+ym
 ym
 bg
 ad

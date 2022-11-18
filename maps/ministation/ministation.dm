@@ -15,6 +15,9 @@ And then imported back to ScavStation!
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/species/ascent/_ascent.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
+	#include "../../mods/species/neoavians/_neoavians.dme"
+	#include "../../mods/species/vox/_vox.dme"
+	#include "../../mods/species/adherent/_adherent.dme"
 
 	#include "ministation.dmm"
 	#include "space.dmm"
@@ -35,6 +38,7 @@ And then imported back to ScavStation!
 	#include "jobs/security.dm"
 	#include "jobs/science.dm"
 	#include "jobs/yinglets.dm"
+	#include "jobs/tradehouse.dm"
 	#include "jobs/synthetics.dm"
 
 	#include "outfits/_outfits.dm"
@@ -45,6 +49,7 @@ And then imported back to ScavStation!
 	#include "outfits/science.dm"
 	#include "outfits/security.dm"
 	#include "outfits/yinglets.dm"
+	#include "outfits/tradehouse.dm"
 
 #elif !defined(MAP_OVERRIDE)
 
