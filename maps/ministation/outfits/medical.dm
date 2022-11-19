@@ -5,6 +5,7 @@
 	shoes = /obj/item/clothing/shoes/dress
 	pda_type = /obj/item/modular_computer/pda/medical
 	pda_slot = slot_l_store_str
+	r_pocket = /obj/item/chems/hypospray
 	hands = list(/obj/item/storage/firstaid/adv)
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 	id_type = /obj/item/card/id/ministation/doctor
