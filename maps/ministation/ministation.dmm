@@ -2859,7 +2859,7 @@
 	},
 /obj/item/clothing/under/yinglet/scout,
 /obj/item/clothing/head/yinglet/scout,
-/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/suit/armor/bulletproof,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hw" = (
@@ -16585,6 +16585,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"SK" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "SN" = (
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -17074,12 +17080,6 @@
 /obj/structure/bookcase/skill_books/random,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
-"UH" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/ministation/Arrival)
 "UI" = (
 /obj/effect/wallframe_spawn/no_grille,
 /obj/machinery/door/firedoor{
@@ -17399,6 +17399,7 @@
 /obj/item/classic_baton{
 	pixel_w = -7
 	},
+/obj/item/clothing/suit/armor/bulletproof,
 /turf/simulated/floor/plating,
 /area/ministation/security)
 "VV" = (
@@ -17534,7 +17535,7 @@
 /obj/structure/closet/secure_closet/security,
 /obj/item/clothing/under/yinglet/scout,
 /obj/item/clothing/head/yinglet/scout,
-/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/suit/armor/bulletproof,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "WG" = (
@@ -45049,7 +45050,7 @@ SD
 LN
 UN
 Pf
-UH
+SK
 Pf
 ed
 ed
