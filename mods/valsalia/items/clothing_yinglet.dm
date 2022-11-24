@@ -218,3 +218,13 @@
 /obj/item/clothing/suit/armor/bulletproof/Initialize()
 	. = ..()
 	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/ballistic_vest.dmi')
+
+/obj/item/clothing/head/cakehat/Initialize()
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/head/cakehat.dmi')
+
+/obj/item/clothing/head/cakehat/get_mob_flame_overlay(var/image/overlay, var/bodytype)
+	var/image/I = ..()
+	if(I && bodytype == BODYTYPE_YINGLET)
+		I.pixel_y = 3
+	return I
