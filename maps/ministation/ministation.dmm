@@ -881,6 +881,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"cq" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "cr" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1227,6 +1231,12 @@
 "dr" = (
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"ds" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -27
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "dt" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -1503,6 +1513,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science)
+"ed" = (
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "ee" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2918,6 +2931,12 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/detective)
+"hD" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "hE" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
@@ -4994,7 +5013,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "mO" = (
-/obj/abstract/landmark/latejoin,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
 "mP" = (
@@ -8827,6 +8848,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
+"wI" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/hall/w)
 "wJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -9441,6 +9468,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"yi" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/space,
+/area/ministation/Arrival)
 "yl" = (
 /obj/structure/displaycase,
 /obj/item/clothing/mask/gas/owl_mask{
@@ -13465,6 +13498,14 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/ministation/ai_sat)
+"IA" = (
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "Dock Airlock";
+	autoclose = 0
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "IB" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -14598,6 +14639,10 @@
 "LM" = (
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"LN" = (
+/obj/machinery/computer/dummy,
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "LP" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -15250,6 +15295,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/se)
+"NZ" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/space,
+/area/ministation/Arrival)
+"Ob" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "Oc" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -15552,6 +15607,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"Pf" = (
+/turf/simulated/wall,
+/area/ministation/Arrival)
 "Pg" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -15914,6 +15972,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s)
+"QH" = (
+/obj/machinery/door/airlock{
+	name = "ATMOS";
+	locked = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "QI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15999,6 +16064,14 @@
 /obj/machinery/firealarm,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"QX" = (
+/obj/machinery/cryopod,
+/obj/abstract/landmark/latejoin,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "QY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16080,6 +16153,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"Rk" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/abstract/landmark/latejoin,
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "Rl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -16365,6 +16445,13 @@
 /obj/machinery/camera/network/ministation/sat,
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"Sl" = (
+/obj/machinery/door/airlock{
+	locked = 1;
+	name = "helm"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "Sm" = (
 /obj/machinery/fabricator/robotics,
 /turf/simulated/floor/tiled/white,
@@ -16421,6 +16508,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/w)
+"Sx" = (
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "Dock Airlock"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "Sy" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16452,6 +16546,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/detective)
+"SD" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "SE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -16675,6 +16773,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/ministation/atmospherics)
+"TA" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/abstract/landmark/latejoin,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "TC" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -16927,7 +17035,7 @@
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
 	name = "Dock Airlock";
-	locked = 1
+	autoclose = 0
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
@@ -16966,6 +17074,12 @@
 /obj/structure/bookcase/skill_books/random,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"UH" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "UI" = (
 /obj/effect/wallframe_spawn/no_grille,
 /obj/machinery/door/firedoor{
@@ -16985,6 +17099,12 @@
 /obj/effect/decal/cleanable/filth,
 /turf/simulated/floor/plating,
 /area/ministation/maint/ne)
+"UN" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "UO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -17033,6 +17153,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/cargo)
+"UZ" = (
+/turf/simulated/wall/r_wall/hull,
+/area/ministation/Arrival)
 "Va" = (
 /obj/structure/bed/chair/wheelchair,
 /obj/machinery/camera/network/medbay,
@@ -17217,6 +17340,13 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
+"VL" = (
+/obj/structure/closet/emcloset,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "VN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -17341,6 +17471,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
+"Wq" = (
+/obj/structure/closet/emcloset,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "Wr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
@@ -17373,6 +17510,11 @@
 "Wv" = (
 /turf/simulated/floor/plating,
 /area/ministation/maint/detective)
+"Ww" = (
+/obj/machinery/cryopod,
+/obj/abstract/landmark/latejoin,
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "WB" = (
 /turf/simulated/floor,
 /area/ministation/atmospherics)
@@ -17807,6 +17949,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"Yn" = (
+/obj/machinery/door/airlock{
+	name = "Cryo A"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "Yo" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -17973,6 +18121,12 @@
 /obj/machinery/camera/network/ministation/sat,
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"YV" = (
+/obj/machinery/door/airlock{
+	name = "Cryo B"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "YY" = (
 /obj/structure/closet/wardrobe/lawyer_black,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -18014,6 +18168,11 @@
 	},
 /turf/simulated/floor,
 /area/ministation/atmospherics)
+"Zf" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/unary/engine,
+/turf/space,
+/area/ministation/Arrival)
 "Zh" = (
 /obj/machinery/network/relay,
 /turf/simulated/floor/tiled,
@@ -43600,19 +43759,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+NZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+yi
 aa
 aa
 aa
@@ -43857,18 +44016,18 @@ kZ
 kZ
 kZ
 kZ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+UZ
+UZ
+UZ
+UZ
+ed
+Ob
+Pf
+TA
+Rk
+Rk
+VL
+UZ
 aa
 aa
 aa
@@ -44114,18 +44273,18 @@ vO
 mP
 mO
 Uz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IA
+ed
+Ob
+Sx
+ed
+ed
+Yn
+ed
+ed
+ed
+ds
+UZ
 aa
 aa
 aa
@@ -44371,18 +44530,18 @@ vP
 kZ
 kZ
 kZ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+UZ
+UZ
+Pf
+Pf
+Pf
+ed
+Pf
+Ww
+Ww
+Ww
+cq
+UZ
 aa
 aa
 aa
@@ -44629,17 +44788,17 @@ mS
 xf
 la
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SD
+ed
+ed
+Pf
+ed
+Pf
+Pf
+Pf
+Pf
+Pf
+UZ
 aa
 aa
 aa
@@ -44886,18 +45045,18 @@ mS
 xf
 la
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SD
+LN
+UN
+Pf
+UH
+Pf
+ed
+ed
+ed
+ed
+UZ
+yi
 aa
 aa
 aa
@@ -45143,18 +45302,18 @@ mS
 kE
 la
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SD
+ed
+ed
+Sl
+ed
+QH
+ed
+ed
+hD
+ed
+UZ
+yi
 aa
 aa
 aa
@@ -45400,17 +45559,17 @@ mS
 xh
 la
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SD
+ed
+ed
+Pf
+ed
+Pf
+Pf
+Pf
+Pf
+Pf
+UZ
 aa
 aa
 aa
@@ -45656,18 +45815,18 @@ vQ
 kZ
 kZ
 kZ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+UZ
+UZ
+Pf
+Pf
+Pf
+ed
+Pf
+Rk
+Rk
+Rk
+cq
+UZ
 aa
 aa
 aa
@@ -45911,20 +46070,20 @@ mS
 nB
 vP
 mP
-mO
+wI
 Uz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ad
-aa
-aa
+IA
+ed
+hD
+Sx
+ed
+ed
+YV
+ed
+ed
+ed
+ds
+UZ
 aa
 aa
 aa
@@ -46170,19 +46329,19 @@ Yg
 kZ
 kZ
 kZ
+UZ
+UZ
+UZ
+UZ
+ed
+hD
+Pf
+QX
+Ww
+Ww
+Wq
+UZ
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-ad
-ad
-ad
-ad
-ad
-ad
 ad
 ad
 ad
@@ -46426,20 +46585,20 @@ nD
 VQ
 kZ
 aa
-ad
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-ad
-aa
-aa
-aa
-ad
-aa
+Zf
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+yi
 ad
 aa
 uK
