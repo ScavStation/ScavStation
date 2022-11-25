@@ -193,6 +193,11 @@
 	req_access = list(access_lawyer)
 	icon_state = "white"
 
+/area/ministation/Arrival
+	name = "\improper Arrival Shuttle" // I hate this ugly thing
+	icon_state = "white"
+	requires_power = 0
+
 //satellite
 /area/ministation/ai_sat
 	name = "\improper Satellite"
