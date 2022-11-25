@@ -25,7 +25,7 @@
 	title = "Bartender"
 	alt_titles = list("Cook","Barista")
 	supervisors = "the Patriarch of Personnel and the Matriarch"
-	total_positions = 1
+	total_positions = 2
 	spawn_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/ministation/bartender
 	department_types = list(/decl/department/service)

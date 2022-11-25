@@ -46,10 +46,13 @@
 	minimal_player_age = 3
 	access = list(
 		access_forensics_lockers,
+		access_brig,
+		access_security,
 		access_maint_tunnels
 	)
 	minimal_access = list(
 		access_security,
+		access_brig,
 		access_forensics_lockers,
 		access_maint_tunnels
 	)

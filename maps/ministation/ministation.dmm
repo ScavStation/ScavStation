@@ -562,7 +562,7 @@
 /area/ministation/bridge/vault)
 "bz" = (
 /obj/abstract/landmark/start{
-	name = "Captain"
+	name = "Matriarch"
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1552,7 +1552,6 @@
 /area/ministation/cargo)
 "ek" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
@@ -2586,10 +2585,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"gN" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
 "gO" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -3301,7 +3296,7 @@
 /area/ministation/security)
 "ix" = (
 /obj/abstract/landmark/start{
-	name = "Security Officer"
+	name = "Patriarch of Security"
 	},
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
@@ -3345,10 +3340,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
-"iC" = (
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled,
-/area/ministation/security)
 "iD" = (
 /obj/structure/table/reinforced,
 /obj/item/synthesized_instrument/violin,
@@ -3373,6 +3364,7 @@
 /obj/machinery/newscaster{
 	pixel_x = 32
 	},
+/obj/item/clothing/head/beret/corp/sec,
 /turf/simulated/floor/carpet/red,
 /area/ministation/detective)
 "iH" = (
@@ -3961,7 +3953,7 @@
 /area/ministation/commons)
 "kd" = (
 /obj/abstract/landmark/start{
-	name = "Assistant"
+	name = "Recruit"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
@@ -4199,9 +4191,6 @@
 /turf/simulated/floor,
 /area/ministation/atmospherics)
 "kI" = (
-/obj/abstract/landmark/start{
-	name = "Assistant"
-	},
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -24
@@ -4211,6 +4200,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
@@ -4337,7 +4329,7 @@
 /area/ministation/science)
 "kW" = (
 /obj/abstract/landmark/start{
-	name = "Scientist"
+	name = "Patriarch of Science"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -6248,7 +6240,6 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/vomit,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -6760,10 +6751,6 @@
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
-"rl" = (
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled/white,
-/area/ministation/medical)
 "rm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -6963,7 +6950,6 @@
 /obj/item/chems/syringe,
 /obj/item/trash/stick,
 /obj/item/organ/internal/appendix,
-/obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rN" = (
@@ -6976,6 +6962,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/abstract/landmark/start{
+	name = "Patriarch of Medicine"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -7168,7 +7157,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "so" = (
-/obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
@@ -8580,7 +8568,7 @@
 /area/ministation/hop)
 "vW" = (
 /obj/abstract/landmark/start{
-	name = "Lieutenant"
+	name = "Patriarch of Personnel"
 	},
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled,
@@ -9111,11 +9099,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/ministation/cafe)
-"xr" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/decal/cleanable/vomit,
-/turf/simulated/floor/tiled,
-/area/ministation/cafe)
 "xs" = (
 /obj/structure/table/marble,
 /obj/machinery/door/firedoor{
@@ -9335,7 +9318,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "xW" = (
@@ -9534,7 +9516,6 @@
 "yv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/ministation/cafe)
 "yw" = (
@@ -9586,7 +9567,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
 	},
-/obj/effect/decal/cleanable/filth,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "yC" = (
@@ -11165,15 +11145,15 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/se)
 "CP" = (
-/obj/abstract/landmark/start{
-	name = "Assistant"
-	},
 /obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
@@ -11930,8 +11910,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Ez" = (
-/obj/effect/decal/cleanable/blood/oil,
-/obj/effect/decal/cleanable/dirt,
+/obj/abstract/landmark/start{
+	name = "Patriarch of Engineering"
+	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "EB" = (
@@ -12074,7 +12056,6 @@
 	dir = 1;
 	pixel_y = -32
 	},
-/obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s)
 "EW" = (
@@ -12139,10 +12120,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Fg" = (
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = -24
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/yinglet_rep)
 "Fh" = (
@@ -12176,14 +12153,14 @@
 /turf/simulated/wall/r_wall,
 /area/ministation/engine)
 "Fl" = (
-/obj/abstract/landmark/start{
-	name = "Assistant"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
@@ -13420,6 +13397,9 @@
 	},
 /obj/structure/bed/chair/wood/maple{
 	dir = 8
+	},
+/obj/abstract/landmark/start{
+	name = "Tradehouse Representative"
 	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
@@ -14962,10 +14942,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/nw)
-"MO" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ministation/maint/e)
 "MP" = (
 /obj/machinery/light_switch{
 	dir = 8;
@@ -15711,7 +15687,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "PI" = (
@@ -16024,10 +15999,6 @@
 /obj/machinery/firealarm,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
-"QX" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ministation/maint/ne)
 "QY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16395,9 +16366,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "Sm" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ministation/maint/w)
+/obj/machinery/fabricator/robotics,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "Sn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -16584,11 +16555,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/nw)
-"SY" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/decal/cleanable/filth,
-/turf/simulated/floor/tiled,
-/area/ministation/cafe)
 "SZ" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -16984,10 +16950,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
-"UC" = (
-/obj/effect/decal/cleanable/flour,
-/turf/simulated/floor/tiled/dark,
-/area/ministation/cafe)
 "UD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -17195,10 +17157,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/se)
-"Vx" = (
-/obj/effect/decal/cleanable/filth,
-/turf/simulated/floor/tiled,
-/area/ministation/hall/e)
 "Vy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -17280,14 +17238,14 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "VR" = (
-/obj/abstract/landmark/start{
-	name = "Assistant"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
@@ -17955,14 +17913,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
-"YH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ministation/maint/sw)
 "YI" = (
 /obj/machinery/light{
 	dir = 4
@@ -18064,10 +18014,6 @@
 	},
 /turf/simulated/floor,
 /area/ministation/atmospherics)
-"Zf" = (
-/obj/effect/decal/cleanable/filth,
-/turf/simulated/floor/plating,
-/area/ministation/maint/w)
 "Zh" = (
 /obj/machinery/network/relay,
 /turf/simulated/floor/tiled,
@@ -18206,11 +18152,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/se)
 "ZE" = (
-/obj/abstract/landmark/start{
-	name = "Assistant"
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
@@ -18270,14 +18216,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/court)
 "ZQ" = (
-/obj/abstract/landmark/start{
-	name = "Assistant"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/commons)
@@ -45941,7 +45887,7 @@ yO
 mI
 mI
 SO
-gN
+dI
 cf
 Pe
 IH
@@ -47480,7 +47426,7 @@ eF
 fo
 fP
 dI
-gN
+dI
 Zk
 au
 iq
@@ -48768,7 +48714,7 @@ ej
 Ti
 ht
 au
-Sm
+iq
 iX
 jE
 kd
@@ -48816,7 +48762,7 @@ Am
 av
 DZ
 En
-EL
+Ez
 Ff
 Fw
 Ad
@@ -49036,7 +48982,7 @@ iX
 ne
 nK
 oo
-Zf
+iq
 pr
 qd
 qN
@@ -49562,7 +49508,7 @@ CZ
 uJ
 vm
 wc
-YH
+wL
 wL
 wL
 wL
@@ -51871,7 +51817,7 @@ RH
 qk
 sG
 ty
-Vx
+ty
 bj
 vs
 wj
@@ -52413,7 +52359,7 @@ bm
 DC
 DC
 Ej
-Ez
+En
 Tg
 TY
 FD
@@ -53161,7 +53107,7 @@ bj
 vv
 vv
 vv
-xr
+vv
 xS
 wi
 bj
@@ -53381,7 +53327,7 @@ aa
 VV
 pp
 cw
-QX
+cJ
 Rx
 MA
 YQ
@@ -53415,7 +53361,7 @@ sM
 Xw
 um
 bj
-SY
+vv
 wm
 wm
 wm
@@ -53638,7 +53584,7 @@ aa
 cw
 Tc
 Yq
-QX
+cJ
 Rx
 Nw
 dq
@@ -53651,7 +53597,7 @@ dr
 eZ
 da
 gb
-iC
+dr
 eZ
 cY
 ki
@@ -54188,7 +54134,7 @@ uo
 bj
 vz
 wp
-UC
+wp
 wp
 wp
 wp
@@ -54435,7 +54381,7 @@ nZ
 nS
 nZ
 nS
-MO
+nS
 nS
 nS
 zz
@@ -56230,7 +56176,7 @@ ls
 ae
 my
 nS
-NC
+nZ
 oz
 oz
 pG
@@ -57760,7 +57706,7 @@ fb
 fK
 gd
 ae
-db
+Sm
 db
 ih
 iL
@@ -59833,7 +59779,7 @@ mK
 oz
 pS
 pD
-rl
+pD
 pD
 pD
 ta
