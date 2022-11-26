@@ -1739,7 +1739,7 @@
 /area/ministation/hall/n)
 "eM" = (
 /obj/machinery/camera/autoname,
-/obj/machinery/newscaster{
+/obj/machinery/atm{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -1997,13 +1997,13 @@
 /area/ministation/cargo)
 "fr" = (
 /obj/structure/table,
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
 /obj/item/stack/material/cardstock/mapped/cardboard/fifty,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
+	},
+/obj/machinery/atm{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -2413,6 +2413,9 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/fabricator,
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "gr" = (
@@ -2425,10 +2428,10 @@
 /obj/abstract/landmark/start{
 	name = "Cargo Technician"
 	},
-/obj/structure/bed/chair,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/obj/structure/bed/chair/office,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "gt" = (
@@ -3317,7 +3320,7 @@
 /obj/abstract/landmark/start{
 	name = "Patriarch of Security"
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed/chair/comfy/blue,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "iy" = (
@@ -7217,6 +7220,9 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname,
+/obj/machinery/atm{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "sv" = (
@@ -8338,10 +8344,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cafe)
 "vs" = (
-/obj/machinery/newscaster{
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atm{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/ministation/cafe)
 "vt" = (
@@ -17691,6 +17697,14 @@
 /obj/structure/lattice,
 /turf/simulated/wall/r_wall,
 /area/ministation/cryo)
+"Xn" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/newscaster{
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/cafe)
 "Xo" = (
 /obj/effect/decal/cleanable/filth,
 /obj/effect/decal/cleanable/filth,
@@ -53269,7 +53283,7 @@ vv
 vv
 vv
 xS
-wi
+Xn
 bj
 zG
 Ag
