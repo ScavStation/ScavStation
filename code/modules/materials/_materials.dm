@@ -66,6 +66,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 /decl/material
 
 	abstract_type = /decl/material
+	decl_flags = DECL_FLAG_MANDATORY_UID
 
 	var/name               // Prettier name for display.
 	var/codex_name         // Override for the codex article name.
@@ -334,6 +335,67 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 			cocktail_ingredient = TRUE
 			break
 
+#define FALSEWALL_STATE "fwall_open"
+/decl/material/validate()
+	. = ..()
+	if(length(dissolves_into) && isnull(dissolves_in))
+		. += "dissolves_into set but dissolves_in is undefined"
+	if(length(heating_products) && isnull(heating_point))
+		. += "heating_products set but heating_point is undefined"
+	if(length(chilling_products) && isnull(chilling_point))
+		. += "chilling_products set but chilling_point is undefined"
+	var/list/checking = list(
+		"dissolves" = dissolves_into,
+		"heats" = heating_products,
+		"chills" = chilling_products
+	)
+	for(var/field in checking)
+		var/list/checking_list = checking[field]
+		if(length(checking_list))
+			var/total = 0
+			for(var/chem in checking_list)
+				total += checking_list[chem]
+			if(total != 1)
+				. += "[field] adds up to [total] (should be 1)"
+	if(icon_base && !check_state_in_icon(FALSEWALL_STATE, icon_base))
+		. += "[type] - '[icon_base]' - missing false wall opening animation '[FALSEWALL_STATE]'"
+
+	for(var/i = 0 to 7)
+		if(icon_base)
+			if(!check_state_in_icon("[i]", icon_base))
+				. += "'[icon_base]' - missing directional base icon state '[i]'"
+			if(!check_state_in_icon("other[i]", icon_base))
+				. += "'[icon_base]' - missing connective base icon state 'other[i]'"
+
+		if(wall_flags & PAINT_PAINTABLE)
+			if(!check_state_in_icon("paint[i]", icon_base))
+				. += "'[icon_base]' - missing directional paint icon state '[i]'"
+		if(wall_flags & PAINT_STRIPABLE)
+			if(!check_state_in_icon("stripe[i]", icon_base))
+				. += "'[icon_base]' - missing directional stripe icon state '[i]'"
+		if(wall_flags & WALL_HAS_EDGES)
+			if(!check_state_in_icon("other[i]", icon_base))
+				. += "'[icon_base]' - missing directional edge icon state '[i]'"
+
+		if(icon_base_natural)
+			if(!check_state_in_icon("[i]", icon_base_natural))
+				. += "'[icon_base_natural]' - missing directional natural icon state '[i]'"
+			if(!check_state_in_icon("shine[i]", icon_base_natural))
+				. += "'[icon_base_natural]' - missing natural shine icon state 'shine[i]'"
+
+	if(icon_reinf)
+		if(use_reinf_state)
+			if(!check_state_in_icon(use_reinf_state, icon_reinf))
+				. += "'[icon_reinf]' - missing reinf icon state '[use_reinf_state]'"
+		else
+			for(var/i = 0 to 7)
+				if(!check_state_in_icon("[i]", icon_reinf))
+					. += "'[icon_reinf]' - missing directional reinf icon state '[i]'"
+
+	if(length(color) != 7)
+		. += "invalid color (not #RRGGBB)"
+#undef FALSEWALL_STATE
+
 // Return the matter comprising this material.
 /decl/material/proc/get_matter()
 	var/list/temp_matter = list()
@@ -445,7 +507,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	//If we got more than expected, just make a shard with that amount
 	if(matter_left > 0)
-		var/obj/S = create_object(target, 1, shard_type)
+		var/list/O = create_object(target, 1, shard_type)
+		var/obj/S = O[O.len]
 		LAZYSET(S.matter, type, matter_left)
 		LAZYADD(., S)
 
@@ -582,8 +645,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		M.add_chemical_effect(CE_TOXIN, toxicity)
 		var/dam = (toxicity * removed)
 		if(toxicity_targets_organ && ishuman(M))
-			var/decl/species/species = M.get_species()
-			var/organ_damage = species ? round(dam * species.toxins_mod) : dam
+			var/organ_damage = dam * M.get_toxin_resistance()
 			if(organ_damage > 0)
 				var/mob/living/carbon/human/H = M
 				var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(H, toxicity_targets_organ)

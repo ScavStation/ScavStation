@@ -106,7 +106,7 @@
 /area/ministation/medical)
 "ao" = (
 /obj/structure/table/reinforced,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "ap" = (
@@ -444,7 +444,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bi" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
@@ -1617,7 +1617,7 @@
 /area/ministation/atmospherics)
 "eB" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "eC" = (
@@ -2131,7 +2131,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fS" = (
@@ -2438,11 +2438,11 @@
 /area/ministation/science)
 "gI" = (
 /obj/structure/table,
-/obj/item/extinguisher{
+/obj/item/chems/spray/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2779,11 +2779,7 @@
 /area/ministation/detective)
 "hC" = (
 /obj/structure/table/woodentable,
-/obj/item/camera{
-	desc = "A one use - polaroid camera. 30 photos left.";
-	name = "detectives camera";
-	pictures_left = 30
-	},
+/obj/item/camera/detective,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/taperecorder,
 /obj/item/folder/yellow,
@@ -2791,7 +2787,7 @@
 	pixel_x = 4;
 	pixel_y = 26
 	},
-/obj/structure/filingcabinet/wallcabinet{
+/obj/structure/filing_cabinet/wall{
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/red,
@@ -4478,7 +4474,7 @@
 /obj/structure/rack{
 	dir = 1
 	},
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/random/gloves,
 /turf/simulated/floor/plating,
@@ -5735,7 +5731,7 @@
 	pixel_x = -2;
 	pixel_y = -1
 	},
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -8765,7 +8761,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "xm" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "xn" = (
@@ -8966,7 +8962,7 @@
 /area/ministation/hop)
 "xL" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "xM" = (
@@ -10941,7 +10937,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -35
 	},
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Dg" = (
@@ -10949,7 +10945,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -11969,7 +11965,7 @@
 /obj/structure/rack{
 	dir = 8
 	},
-/obj/item/extinguisher{
+/obj/item/chems/spray/extinguisher{
 	pixel_x = 8
 	},
 /obj/item/clothing/gloves/thick,
@@ -16077,7 +16073,7 @@
 /turf/simulated/floor,
 /area/ministation/atmospherics)
 "Vd" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24

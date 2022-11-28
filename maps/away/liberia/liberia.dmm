@@ -2249,7 +2249,7 @@
 	pixel_y = -21;
 	req_access = list("ACCESS_MERCHANT")
 	},
-/obj/structure/filingcabinet/wallcabinet{
+/obj/structure/filing_cabinet/wall{
 	pixel_x = 28
 	},
 /obj/item/folder,
@@ -3497,7 +3497,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /turf/simulated/floor/tiled/monotile,
 /area/liberia/officeroom)
 "gf" = (
@@ -5088,10 +5088,8 @@
 /area/liberia/bridge)
 "jD" = (
 /obj/structure/table/glass,
-/obj/machinery/photocopier/faxmachine{
-	department = "Merchant Outpost";
+/obj/machinery/faxmachine{
 	req_access = list("ACCESS_MERCHANT");
-	send_access = list("ACCESS_MERCHANT")
 	},
 /obj/effect/floor_decal/corner/blue/mono,
 /turf/simulated/floor/tiled/dark/monotile,

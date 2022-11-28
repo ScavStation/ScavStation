@@ -1231,7 +1231,7 @@
 /area/lar_maria/library)
 "dM" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/faxmachine,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm{
 	dir = 8;
@@ -1490,7 +1490,7 @@
 /turf/simulated/floor/tiled,
 /area/lar_maria/office)
 "eE" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /turf/simulated/floor/tiled,
 /area/lar_maria/office)
 "eF" = (

@@ -52,7 +52,7 @@
 	else
 		to_chat(user, SPAN_DANGER("It looks heavily damaged."))
 
-/obj/structure/examine(mob/user, var/distance)
+/obj/structure/examine(mob/user, distance, infix, suffix)
 	. = ..()
 	if(distance <= 3)
 
@@ -96,9 +96,6 @@
 
 /obj/structure/proc/mob_breakout(var/mob/living/escapee)
 	set waitfor = FALSE
-	return FALSE
-
-/obj/structure/proc/is_pressurized_fluid_source()
 	return FALSE
 
 /obj/structure/proc/take_damage(var/damage)

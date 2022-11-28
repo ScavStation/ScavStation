@@ -47,9 +47,9 @@
 	return list(
 		/obj/item/clothing/head/welding = 3,
 		/obj/item/weldingtool/largetank = 3,
-		/obj/item/weldpack = 3,
+		/obj/item/chems/weldpack = 3,
 		/obj/item/clothing/glasses/welding = 3,
-		/obj/item/welder_tank = 6
+		/obj/item/chems/welder_tank = 6
 	)
 
 /obj/structure/closet/secure_closet/engineering_personal
@@ -83,7 +83,7 @@
 		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/eng, 50),
 		/obj/item/clothing/suit/fire,
 		/obj/item/flashlight,
-		/obj/item/extinguisher,
+		/obj/item/chems/spray/extinguisher,
 		/obj/item/radio/headset/headset_eng,
 		/obj/item/clothing/suit/storage/hazardvest,
 		/obj/item/clothing/mask/gas,

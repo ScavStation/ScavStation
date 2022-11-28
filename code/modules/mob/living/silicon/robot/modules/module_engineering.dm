@@ -24,11 +24,11 @@
 	equipment = list(
 		/obj/item/flash,
 		/obj/item/borg/sight/meson,
-		/obj/item/extinguisher,
+		/obj/item/chems/spray/extinguisher,
 		/obj/item/weldingtool/largetank,
 		/obj/item/screwdriver,
 		/obj/item/wrench,
-		/obj/item/crowbar,
+		/obj/item/crowbar/brace_jack,
 		/obj/item/wirecutters,
 		/obj/item/multitool,
 		/obj/item/t_scanner,

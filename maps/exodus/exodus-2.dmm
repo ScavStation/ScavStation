@@ -2886,7 +2886,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/security/meeting)
 "agp" = (
@@ -3433,9 +3433,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/exodus/security/warden)
 "ahv" = (
-/obj/machinery/photocopier/faxmachine{
-	department = "Warden's Office"
-	},
+/obj/machinery/faxmachine,
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/exodus/security/warden)
@@ -3601,9 +3599,7 @@
 /obj/machinery/keycard_auth{
 	dir = 8
 	},
-/obj/machinery/photocopier/faxmachine{
-	department = "Head of Security"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled/dark,
 /area/exodus/crew_quarters/heads/hos)
 "ahP" = (
@@ -3715,7 +3711,7 @@
 /obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -3832,7 +3828,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/exodus/crew_quarters/heads/hos)
 "aiu" = (
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/flashlight,
 /obj/structure/rack,
@@ -3951,7 +3947,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/exodus/security/brig/interrogation)
 "aiI" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled/dark,
 /area/exodus/security/brig/processing)
 "aiJ" = (
@@ -4464,7 +4460,7 @@
 /obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -6736,7 +6732,7 @@
 /obj/item/storage/secure/safe{
 	pixel_x = 32
 	},
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /turf/simulated/floor/tiled/dark,
 /area/exodus/lawoffice)
 "anX" = (
@@ -6783,7 +6779,7 @@
 /turf/simulated/floor/plating,
 /area/exodus/maintenance/substation/security)
 "aod" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /turf/simulated/floor/lino,
 /area/exodus/security/detectives_office)
 "aoe" = (
@@ -7062,9 +7058,8 @@
 /turf/simulated/floor/plating,
 /area/exodus/maintenance/auxsolarstarboard)
 "aoK" = (
-/obj/machinery/photocopier/faxmachine{
+/obj/machinery/faxmachine{
 	anchored = 0;
-	department = "Internal Affairs"
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/newscaster{
@@ -8376,7 +8371,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -24
 	},
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled/dark,
 /area/exodus/lawoffice)
 "arq" = (
@@ -15729,9 +15724,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/modular_computer/telescreen/preset/generic{
-	name = "west bump";
-	pixel_x = -32
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/hallway/secondary/entry/port)
@@ -17066,7 +17060,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/hallway/secondary/entry/starboard)
 "aJI" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/wood/walnut,
 /area/exodus/library)
 "aJJ" = (
@@ -18192,7 +18186,7 @@
 /obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -19501,9 +19495,8 @@
 	dir = 4
 	},
 /obj/machinery/recharger,
-/obj/item/modular_computer/telescreen/preset/generic{
-	name = "east bump";
-	pixel_x = 32
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 8
 	},
 /turf/simulated/floor/carpet,
 /area/exodus/crew_quarters/bar)
@@ -20675,7 +20668,7 @@
 /obj/item/flashlight,
 /obj/item/flashlight,
 /obj/item/storage/box/lights/mixed,
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /turf/simulated/floor/plating,
 /area/exodus/storage/emergency2)
 "aRt" = (
@@ -21196,9 +21189,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/item/modular_computer/telescreen/preset/generic{
-	name = "south bump";
-	pixel_y = -32
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -21947,9 +21939,8 @@
 	pixel_x = -22
 	},
 /obj/item/stool/bar/padded,
-/obj/item/modular_computer/telescreen/preset/generic{
-	name = "west bump";
-	pixel_x = -32
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/exodus/crew_quarters/bar)
@@ -25323,9 +25314,7 @@
 /area/exodus/library)
 "bbF" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine{
-	department = "Vacant Office"
-	},
+/obj/machinery/faxmachine,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -26641,7 +26630,7 @@
 /turf/simulated/floor/lino,
 /area/exodus/security/vacantoffice)
 "bew" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled/dark,
 /area/exodus/security/vacantoffice)
 "bex" = (
@@ -27427,8 +27416,8 @@
 /area/exodus/maintenance/locker)
 "bgj" = (
 /obj/structure/table,
-/obj/item/wrapping_paper,
-/obj/item/wrapping_paper,
+/obj/item/stack/package_wrap/fifty,
+/obj/item/stack/package_wrap/fifty,
 /obj/machinery/network/requests_console{
 	department = "Cargo Bay";
 	pixel_y = 30
@@ -28490,9 +28479,7 @@
 /area/exodus/bridge/meeting_room)
 "biv" = (
 /obj/structure/table/woodentable,
-/obj/machinery/photocopier/faxmachine{
-	department = "Bridge"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/wood/walnut,
 /area/exodus/bridge/meeting_room)
 "biw" = (
@@ -28770,7 +28757,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/quartermaster/office)
 "bja" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /obj/effect/floor_decal/corner/white{
 	dir = 4
 	},
@@ -28897,8 +28884,8 @@
 /obj/structure/rack{
 	dir = 8
 	},
-/obj/item/extinguisher,
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -30733,7 +30720,7 @@
 	name = "Captain RC";
 	pixel_x = -30
 	},
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/wood/walnut,
 /area/exodus/crew_quarters/captain)
 "bmP" = (
@@ -31359,7 +31346,7 @@
 /obj/structure/rack{
 	dir = 1
 	},
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/flashlight,
 /obj/item/clothing/mask/gas,
@@ -31560,9 +31547,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/exodus/research/chargebay)
 "boF" = (
-/obj/machinery/photocopier/faxmachine{
-	department = "Captain's Office"
-	},
+/obj/machinery/faxmachine,
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31640,7 +31625,7 @@
 /turf/simulated/floor/tiled/white,
 /area/exodus/research/robotics)
 "boN" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 25
 	},
@@ -32391,7 +32376,7 @@
 /turf/simulated/wall/prepainted,
 /area/exodus/engineering/atmos/storage)
 "bqm" = (
-/obj/structure/filingcabinet/chestdrawer{
+/obj/structure/filing_cabinet/chestdrawer{
 	desc = "A large drawer filled with autopsy reports.";
 	name = "Autopsy Reports"
 	},
@@ -33951,7 +33936,7 @@
 /turf/simulated/floor/tiled/white,
 /area/exodus/medical/reception)
 "btx" = (
-/obj/structure/filingcabinet/chestdrawer{
+/obj/structure/filing_cabinet/chestdrawer{
 	name = "Medical Forms"
 	},
 /obj/structure/window/reinforced{
@@ -33994,9 +33979,8 @@
 /obj/item/deck/cards{
 	pixel_y = 4
 	},
-/obj/item/modular_computer/telescreen/preset/generic{
-	name = "south bump";
-	pixel_y = -32
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/exodus/crew_quarters/bar)
@@ -36927,7 +36911,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/quartermaster/office)
 "bzw" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/quartermaster/office)
 "bzx" = (
@@ -38203,9 +38187,8 @@
 /turf/simulated/floor/tiled/white,
 /area/exodus/medical/chemistry)
 "bBV" = (
-/obj/item/modular_computer/telescreen/preset/generic{
-	name = "north bump";
-	pixel_y = 32
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 2
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -38426,9 +38409,7 @@
 /area/ship/exodus_pod_research)
 "bCs" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine{
-	department = "Research Director's Office"
-	},
+/obj/machinery/faxmachine,
 /obj/effect/floor_decal/corner/purple/diagonal{
 	dir = 4
 	},
@@ -38476,7 +38457,7 @@
 /obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -39365,7 +39346,7 @@
 /turf/simulated/floor/plating,
 /area/exodus/quartermaster/storage)
 "bEg" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -39551,9 +39532,7 @@
 /turf/simulated/floor/tiled/white,
 /area/exodus/medical/medbay3)
 "bEA" = (
-/obj/machinery/photocopier/faxmachine{
-	department = "Head of Personnel's Office"
-	},
+/obj/machinery/faxmachine,
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/crew_quarters/heads/hop)
@@ -40127,9 +40106,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/item/modular_computer/telescreen/preset/generic{
-	name = "east bump";
-	pixel_x = 32
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/hallway/primary/central_one)
@@ -40314,7 +40292,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exodus/hallway/primary/starboard)
 "bGe" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/quartermaster/qm)
 "bGf" = (
@@ -43158,7 +43136,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/filingcabinet/chestdrawer{
+/obj/structure/filing_cabinet/chestdrawer{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -43702,9 +43680,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/machinery/photocopier/faxmachine{
-	department = "CMO's Office"
-	},
+/obj/machinery/faxmachine,
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/white,
 /area/exodus/crew_quarters/heads/cmo)
@@ -44194,9 +44170,7 @@
 /area/exodus/hallway/primary/aft)
 "bNG" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine{
-	department = "Quartermaster's Office"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/quartermaster/qm)
 "bNH" = (
@@ -47861,7 +47835,7 @@
 "bVa" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled/white,
 /area/exodus/crew_quarters/medbreak)
 "bVb" = (
@@ -48823,9 +48797,8 @@
 	pixel_x = -22;
 	pixel_y = -10
 	},
-/obj/item/modular_computer/telescreen/preset/generic{
-	name = "west bump";
-	pixel_x = -32
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/exodus/engineering/break_room)
@@ -51049,9 +51022,7 @@
 /area/exodus/crew_quarters/heads/chief)
 "cbC" = (
 /obj/structure/table/reinforced,
-/obj/machinery/photocopier/faxmachine{
-	department = "Chief Engineer's Office"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/crew_quarters/heads/chief)
 "cbD" = (
@@ -52764,7 +52735,7 @@
 	c_tag = "Medbay Mental Health Room";
 	dir = 1
 	},
-/obj/structure/filingcabinet/chestdrawer{
+/obj/structure/filing_cabinet/chestdrawer{
 	name = "Medical Forms"
 	},
 /turf/simulated/floor/carpet/blue,
@@ -54759,7 +54730,7 @@
 /obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -59666,7 +59637,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exodus/security/warden)
 "cuZ" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -60267,7 +60238,7 @@
 	dir = 1;
 	pixel_y = -25
 	},
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -61108,7 +61079,7 @@
 /obj/item/clothing/suit/fire,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /obj/structure/cable{

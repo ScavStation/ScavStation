@@ -2123,7 +2123,8 @@
 /area/ship/trade/crew/kitchen)
 "fo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/modular_computer/telescreen/preset/medical{
+/obj/machinery/computer/modular/telescreen/preset/medical{
+	dir = 8;
 	pixel_x = 31;
 	pixel_y = -2
 	},
