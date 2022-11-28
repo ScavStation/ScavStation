@@ -5,5 +5,5 @@
 #define REQUIRED_DM_VERSION 514
 
 #if DM_VERSION < REQUIRED_DM_VERSION
-#warn Nebula is not tested on BYOND versions older than 514. The code may not compile, and if it does compile it may have severe problems.
+#warn ScavStation is not tested on BYOND versions older than 514. The code may not compile, and if it does compile it may have severe problems.
 #endif

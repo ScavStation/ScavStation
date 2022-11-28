@@ -1,5 +1,6 @@
 /decl/hierarchy/outfit/job/tradeship/hand/researcher
 	name = "Tradeship - Job - Head Researcher"
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 	shoes = /obj/item/clothing/shoes/dress
 	pda_type = /obj/item/modular_computer/pda/science
 	id_type = /obj/item/card/id/tradeship/science/head
@@ -11,6 +12,7 @@
 
 /decl/hierarchy/outfit/job/tradeship/hand/researcher/junior
 	name = "Tradeship - Job - Junior Researcher"
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 	id_type = /obj/item/card/id/tradeship/science
 
 /obj/item/card/id/tradeship/science/head

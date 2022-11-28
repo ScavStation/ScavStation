@@ -25,6 +25,7 @@
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
 	#include "../../mods/species/bayliens/_bayliens.dme"
 	#include "../../mods/species/vox/_vox.dme"
+	#include "../../mods/valsalia/_valsalia.dme"
 
 	#define USING_MAP_DATUM /datum/map/modpack_testing
 

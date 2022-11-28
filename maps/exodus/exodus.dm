@@ -24,6 +24,8 @@
 	#include "../../mods/content/government/away_sites/icarus/icarus.dm"
 	#include "../../mods/content/corporate/away_sites/lar_maria/lar_maria.dm"
 
+	#include "../../mods/valsalia/_valsalia.dme"
+
 	#include "../away/liberia/liberia.dm"
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/casino/casino.dm"

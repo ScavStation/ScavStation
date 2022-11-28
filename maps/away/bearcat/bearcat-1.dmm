@@ -914,6 +914,7 @@
 "bX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/frame/light/small,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
 "bY" = (
@@ -927,6 +928,7 @@
 /obj/machinery/power/apc/derelict{
 	dir = 1
 	},
+/obj/structure/closet/crate/uranium,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/broken2)
 "bZ" = (
@@ -1651,6 +1653,8 @@
 /obj/item/clothing/glasses/welding,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
 "dy" = (
@@ -2000,9 +2004,7 @@
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
 "ej" = (
-/obj/structure/rack,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/clothing/mask/breath,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
 "ek" = (
@@ -2012,6 +2014,8 @@
 	icon_state = "bulb1"
 	},
 /obj/structure/rack,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/clothing/mask/breath,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/usedup,
@@ -2419,6 +2423,9 @@
 /obj/item/stack/material/pane/mapped/glass/fifty,
 /obj/item/stack/material/pane/mapped/rglass/fifty,
 /obj/item/stack/material/reinforced/mapped/fiberglass/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/reinforced/mapped/plasteel/fifty,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
 "eT" = (
@@ -2442,6 +2449,7 @@
 "eW" = (
 /obj/machinery/suit_cycler,
 /obj/machinery/light/small,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
 "eX" = (
@@ -2451,6 +2459,7 @@
 	pixel_x = 24;
 	req_access = newlist()
 	},
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
 "eY" = (

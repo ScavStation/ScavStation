@@ -1,39 +1,40 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/NebulaSS13/Nebula"><img src="https://avatars1.githubusercontent.com/u/61128341" alt="Nebula 13" width="200"></a>
+  <a href="https://github.com/ScavStation/ScavStation"><img src="https://avatars1.githubusercontent.com/u/61128341" alt="Scav Station 13" width="200"></a>
   <br>
-  Nebula 13
+  Scav Station 13
   <br>
 </h1>
 
 <p align="center">
-  <a href="https://github.com/NebulaSS13/Nebula/actions">
-    <img src="https://github.com/NebulaSS13/Nebula/workflows/Run%20Tests/badge.svg"
+  <a href="https://github.com/ScavStation/ScavStation/actions">
+    <img src="https://github.com/ScavStation/ScavStation/workflows/Run%20Tests/badge.svg"
          alt="Build Status">
   </a>
-  <a href="https://www.codefactor.io/repository/github/NebulaSS13/Nebula">
-    <img src="https://www.codefactor.io/repository/github/NebulaSS13/Nebula/badge"
+  <a href="https://www.codefactor.io/repository/github/ScavStation/ScavStation">
+    <img src="https://www.codefactor.io/repository/github/ScavStation/ScavStation/badge"
          alt="CodeFactor">
   </a>
-  <a href="https://github.com/NebulaSS13/Nebula/commits/dev">
-    <img src="https://img.shields.io/github/last-commit/NebulaSS13/Nebula"
+  <a href="https://github.com/ScavStation/ScavStation/commits/dev">
+    <img src="https://img.shields.io/github/last-commit/ScavStation/ScavStation"
          alt="Last Commit">
   </a>
-  <a href="https://github.com/NebulaSS13/Nebula/issues">
-    <img src="https://img.shields.io/github/issues/NebulaSS13/Nebula"
+  <a href="https://github.com/ScavStation/ScavStation/issues">
+    <img src="https://img.shields.io/github/issues/ScavStation/ScavStation"
          alt="Issues">
   </a>
-  <a href="https://discord.gg/Ddw58yF">
+  <a href="https://discord.gg/bPMNJnnxNZ">
     <img src="https://img.shields.io/discord/678820025355862045?style=plastic"
          alt="Discord">
   </a>
-  <a href="https://github.com/NebulaSS13/Nebula/blob/dev/LICENSE">
-    <img src="https://img.shields.io/github/license/NebulaSS13/Nebula"
+  <a href="https://github.com/ScavStation/ScavStation/blob/dev/LICENSE">
+    <img src="https://img.shields.io/github/license/ScavStation/ScavStation"
          alt="License">
   </a>
 </p>
 
 <p align="center">
+  <a href="https://www.valsalia.com/">Val Salia Website</a> •
   <a href="#contributing-guidelines">Contributing Guidelines</a> •
   <a href="#security">Security</a> •
   <a href="#license">License</a> •
@@ -62,7 +63,7 @@ Please see [/docs/SECURITY.md](/docs/SECURITY.md) for this repository's security
 
 ### LICENSE
 
-The code for Nebula13 is licensed under the [GNU Affero General Public License v3](http://www.gnu.org/licenses/agpl.html), which can be found in full in [/LICENSE](/LICENSE).
+The code for ScavStation is licensed under the [GNU Affero General Public License v3](http://www.gnu.org/licenses/agpl.html), which can be found in full in [/LICENSE](/LICENSE).
 
 Code with a git authorship date prior to `1420675200 +0000` (2015/01/08 00:00 GMT) is licensed under the GNU General Public License version 3, which can be found in full in [/docs/GPL3.txt](/docs/GPL3.txt)
 

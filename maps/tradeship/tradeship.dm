@@ -17,8 +17,8 @@
 	#include "../../mods/mobs/borers/_borers.dme"
 
 	#include "../../mods/species/ascent/_ascent.dme"
-	#include "../../mods/species/serpentid/_serpentid.dme"
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
+	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
 	#include "../../mods/species/bayliens/_bayliens.dme"
 	#include "../../mods/species/vox/_vox.dme"
@@ -39,8 +39,9 @@
 
 	#include "tradeship_antagonists.dm"
 	#include "tradeship_areas.dm"
+	#include "tradeship_chems.dm"
 	#include "tradeship_departments.dm"
-	#include "tradeship_documents.dm"
+
 	#include "tradeship_jobs.dm"
 	#include "tradeship_loadouts.dm"
 	#include "tradeship_overmap.dm"
@@ -60,12 +61,13 @@
 	#include "jobs/medical.dm"
 	#include "jobs/science.dm"
 	#include "jobs/synthetics.dm"
-
+	#include "jobs/yinglets.dm"
 	#include "outfits/_outfits.dm"
 	#include "outfits/command.dm"
 	#include "outfits/engineering.dm"
 	#include "outfits/medical.dm"
 	#include "outfits/science.dm"
+	#include "outfits/yinglets.dm"
 
 	#define USING_MAP_DATUM /datum/map/tradeship
 

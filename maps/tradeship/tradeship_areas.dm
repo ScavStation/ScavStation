@@ -90,13 +90,8 @@
 	icon_state = "red"
 	req_access = list(access_xenobiology)
 
-/area/ship/trade/fore_starboard_underside_maint
-	name = "\improper Underside - Fore Starboard Maintenance"
-	icon_state = "locker"
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_MAINTENANCE
-
-/area/ship/trade/disused
-	name = "\improper Underside - Disused"
+/area/ship/trade/enclave
+	name = "\improper Underside - Enclave"
 	icon_state = "yellow"
 
 /area/ship/trade/undercomms
@@ -165,7 +160,6 @@
 /area/ship/trade/maintenance/eva
 	name = "\improper EVA Storage"
 	icon_state = "eva"
-	req_access = list(access_eva)
 
 /area/ship/trade/maintenance/engineering
 	name = "\improper Engineering Bay"
@@ -203,7 +197,7 @@
 	icon_state = "centcom"
 
 /area/ship/trade/command/bridge
-	name = "\improper Bridge"
+	name = "\improper Tradeship Bridge"
 	icon_state = "bridge"
 	req_access = list(access_heads)
 
@@ -244,6 +238,10 @@
 	name = "\improper Exploration Shuttle"
 	icon_state = "tcomsatcham"
 
+/area/ship/trade/shuttle/rescue
+	name = "\improper Rescue Shuttle"
+	icon_state = "tcomsatcham"
+
 /area/ship/trade/maintenance/solars
 	name = "\improper Solar Array Access"
 	icon_state = "SolarcontrolA"
@@ -277,7 +275,7 @@
 		SSpersistence.elevator_fall_shifts = -1
 
 /area/turbolift/tradeship_enclave
-	name = "Disused Sublevel"
+	name = "Enclave Sublevel"
 	base_turf = /turf/simulated/floor
 
 /area/turbolift/tradeship_cargo

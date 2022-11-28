@@ -796,6 +796,8 @@
 	},
 /obj/structure/table,
 /obj/item/integrated_circuit_printer,
+/obj/item/clothing/head/helmet/space/void/scav/science,
+/obj/item/clothing/suit/space/void/scav/science,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "ce" = (
@@ -1524,10 +1526,17 @@
 	},
 /obj/structure/closet/secure_closet{
 	name = "secure engineering voidsuit locker";
-	req_access = list("ACCESS_CHIEF_ENGINEER")
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/item/clothing/head/helmet/space/void/engineering/salvage,
 /obj/item/clothing/suit/space/void/engineering/salvage,
+/obj/item/clothing/suit/space/void/scav/engineering,
+/obj/item/clothing/suit/space/void/scav/engineering,
+/obj/item/clothing/head/helmet/space/void/scav/engineering,
+/obj/item/clothing/head/helmet/space/void/scav/engineering,
+/obj/item/tank/oxygen/yellow,
+/obj/item/tank/oxygen/yellow,
+/obj/item/tank/oxygen/yellow,
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/storage)
 "eo" = (
@@ -1881,6 +1890,10 @@
 /area/ship/trade/maintenance/eva)
 "fs" = (
 /obj/structure/closet/wardrobe/mixed,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/storage/backpack/dufflebag,
 /obj/machinery/light/small/red{
 	dir = 8;
@@ -2498,6 +2511,10 @@
 /area/ship/trade/maintenance/lower)
 "uY" = (
 /obj/structure/closet/wardrobe/mixed,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/storage/backpack/dufflebag,
 /obj/machinery/light/small/red{
 	dir = 4;

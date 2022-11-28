@@ -211,7 +211,7 @@ function run_code_tests {
     run_test "check icon state limit (mods)" "python3 tools/check_icon_state_limit.py mods"
     run_test "check icon state limit (maps)" "python3 tools/check_icon_state_limit.py maps"
     run_test_ci "check changelog builds" "python3 tools/changelog/ss13_genchangelog.py html/changelog.html html/changelogs"
-    run_test "check files included" "python3 tools/validate_dme.py < nebula.dme"
+    run_test "check files included" "python3 tools/validate_dme.py < scavstation.dme"
 }
 
 function run_byond_tests {
@@ -228,9 +228,9 @@ function run_byond_tests {
         ./install-byond.sh || exit 1
         source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
     fi
-    run_test "build map unit tests" "scripts/dm.sh -DUNIT_TEST -M$MAP_PATH nebula.dme"
+    run_test "build map unit tests" "scripts/dm.sh -DUNIT_TEST -M$MAP_PATH scavstation.dme"
     run_test "check no warnings in build" "grep ', 0 warnings' build_log.txt"
-    run_test "run unit tests" "DreamDaemon nebula.dmb -invisible -trusted -core 2>&1 | tee log.txt"
+    run_test "run unit tests" "DreamDaemon scavstation.dmb -invisible -trusted -core 2>&1 | tee log.txt"
     run_test "check tests passed" "grep 'All Unit Tests Passed' log.txt"
     run_test "check no runtimes" "grep 'Caught 0 Runtimes' log.txt"
     run_test_fail "check no runtimes 2" "grep 'runtime error:' log.txt"

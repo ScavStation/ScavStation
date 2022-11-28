@@ -1,5 +1,11 @@
 <h1>Welcome to Space Station 13!</h1>
 
--<i>This server is running <a href="https://github.com/NebulaSS13/Nebula">Nebula</a>, a modification of the <a href="https://github.com/Baystation12/Baystation12">Baystation12</a> SS13 code.</i>
+-<i>Zhis server is running <a href="https://github.com/ScavStation/ScavStation">ScavStation</a>, a modification of zhe <a href="https://github.com/NebulaSS13/Nebula">Nebula</a> SS13 code.</i>
+<br>
+-<i>ScavStation content is themed around the webcomic <a href="http://www.valsalia.com">Out-Of-Placers</a>.</i>
 <br><br>
-<strong>Bugtracker:</strong> <a href="https://github.com/NebulaSS13/Nebula/issues">Go here for posting of bugs and issues.</a>
+<strong>Bugtrackers:</strong>
+<br>
+<a href="https://github.com/NebulaSS13/Nebula/issues">Go here for posts on bugs and issues with core code.</a>
+<br>
+<a href="https://github.com/ScavStation/ScavStation/issues">Go here for posts on ScavStation specific bugs and issues.</a>

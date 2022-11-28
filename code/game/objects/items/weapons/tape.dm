@@ -40,7 +40,6 @@
 	if(!istype(H))
 		return
 	if(user.zone_sel.selecting == BP_EYES)
-
 		if(!GET_EXTERNAL_ORGAN(H, BP_HEAD))
 			to_chat(user, SPAN_WARNING("\The [H] doesn't have a head."))
 			return

@@ -3,6 +3,7 @@
 	uniform = /obj/item/clothing/under/det/black
 	shoes = /obj/item/clothing/shoes/dress
 	pda_type = /obj/item/modular_computer/pda/medical
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 	id_type = /obj/item/card/id/tradeship/medical
 
 /obj/item/card/id/tradeship/medical
@@ -12,3 +13,4 @@
 
 /decl/hierarchy/outfit/job/tradeship/doc/junior
 	name = "Tradeship - Job - Junior Doctor"
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service

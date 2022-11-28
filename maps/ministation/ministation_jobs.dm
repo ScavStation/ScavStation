@@ -15,5 +15,24 @@
 		/datum/job/ministation/janitor,
 		/datum/job/ministation/scientist,
 		/datum/job/ministation/security,
-		/datum/job/ministation/librarian
+		/datum/job/ministation/librarian,
+		/datum/job/yinglet/yinglet_rep
+	)
+	species_to_job_whitelist = list(
+		/decl/species/baxxid = list(
+			/datum/job/ministation/assistant
+		),
+		/decl/species/yinglet = list(
+			/datum/job/ministation/assistant,
+			/datum/job/ministation/bartender,
+			/datum/job/ministation/cargo,
+			/datum/job/ministation/robot,
+			/datum/job/ministation/detective,
+			/datum/job/ministation/doctor,
+			/datum/job/ministation/engineer,
+			/datum/job/ministation/janitor,
+			/datum/job/ministation/scientist,
+			/datum/job/ministation/security,
+			/datum/job/yinglet/yinglet_rep
+		)
 	)

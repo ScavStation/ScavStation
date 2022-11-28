@@ -30,6 +30,7 @@ var/global/const/PREF_ALWAYS = "Always"
 var/global/const/PREF_MYSELF = "Only Against Self"
 var/global/const/PREF_DARKMODE = "Darkmode"
 var/global/const/PREF_LIGHTMODE = "Lightmode"
+
 var/global/list/_client_preferences
 var/global/list/_client_preferences_by_key
 var/global/list/_client_preferences_by_type

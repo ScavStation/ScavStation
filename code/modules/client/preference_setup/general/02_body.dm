@@ -91,6 +91,11 @@
 
 	pref.b_type = sanitize_text(pref.b_type, initial(pref.b_type))
 
+	// Grandfather clause for loading old saves.
+	if(lowertext(pref.species) == "southern yinglet")
+		pref.species = "Yinglet"
+	// End grandfather clause.
+
 	if(!pref.species || !(pref.species in get_playable_species()))
 		pref.species = global.using_map.default_species
 
