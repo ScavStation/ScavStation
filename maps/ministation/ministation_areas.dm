@@ -176,6 +176,20 @@
 	secure = TRUE
 	icon_state = "yellow"
 
+/area/ministation/supermatter
+	name = "\improper Supermatter Engine"
+	req_access = list(access_engine)
+	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
+	secure = TRUE
+	icon_state = "brown"
+
+/area/ministation/smcontrol
+	name = "\improper Supermatter Control"
+	req_access = list(access_engine)
+	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
+	secure = TRUE
+	icon_state = "red"
+
 /area/ministation/telecomms
 	name = "\improper Telecommunications Control"
 	req_access = list(list(access_engine),list(access_heads)) //can get inside to monitor but not actually access anything important. Inner doors have tcomm access
