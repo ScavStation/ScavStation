@@ -159,6 +159,7 @@ var/global/list/adminfaxes = list()	//cache for faxes that have been sent to adm
 		visible_message("[src] beeps, \"Message transmitted successfully.\"")
 		if (istype(copyitem, /obj/item/paper))
 			var/obj/item/paper/paper = copyitem
+			visible_message("Code's working to this point")
 			SSwebhooks.send(WEBHOOK_FAX_SENT, list("title" = "Incoming fax transmission from [department] for [destination].", "body" = "[paper.info]"))
 		//sendcooldown = 600
 	else
