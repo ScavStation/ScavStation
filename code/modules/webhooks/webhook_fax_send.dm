@@ -5,7 +5,7 @@
 /decl/webhook/fax_send/get_message(var/list/data)
 	. = ..()
 	.["embeds"] = list(list(
-		"title" = (data && data["text"]) || "undefined",
-		"body" = (data && data["text"]) || "undefined",
+		"title" = (data && data["title"]) || "undefined",
+		"body" = (data && data["body"]) || "undefined",
 		"color" = COLOR_WEBHOOK_DEFAULT
 	))
