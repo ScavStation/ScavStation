@@ -157,10 +157,6 @@ var/global/list/adminfaxes = list()	//cache for faxes that have been sent to adm
 
 	if (success)
 		visible_message("[src] beeps, \"Message transmitted successfully.\"")
-		if (istype(copyitem, /obj/item/paper))
-			var/obj/item/paper/paper = copyitem
-			visible_message("Code's working to this point")
-			SSwebhooks.send(WEBHOOK_FAX_SENT, list("title" = "Incoming fax transmission from [department] for [destination].", "body" = "[paper.info]"))
 		//sendcooldown = 600
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")
@@ -200,6 +196,8 @@ var/global/list/adminfaxes = list()	//cache for faxes that have been sent to adm
 	var/obj/item/rcvdcopy
 	if (istype(copyitem, /obj/item/paper))
 		rcvdcopy = copy(copyitem, 0)
+		var/obj/item/paper/paper = copyitem
+		SSwebhooks.send(WEBHOOK_FAX_SENT, list("title" = "Incoming fax transmission from [department] for [destination].", "body" = "[paper.info]"))
 	else if (istype(copyitem, /obj/item/photo))
 		rcvdcopy = photocopy(copyitem, 0)
 	else if (istype(copyitem, /obj/item/paper_bundle))
