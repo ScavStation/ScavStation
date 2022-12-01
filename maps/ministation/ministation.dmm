@@ -2331,8 +2331,8 @@
 /obj/item/gun/energy/taser,
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/energy/taser,
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/shotgun/pump,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
 /turf/simulated/floor/plating,
 /area/ministation/security)
 "fY" = (
