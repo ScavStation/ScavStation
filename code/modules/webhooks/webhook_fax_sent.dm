@@ -1,8 +1,8 @@
-/decl/webhook/fax_send
-	id = WEBHOOK_FAX_SEND
+/decl/webhook/fax_sent
+	id = WEBHOOK_FAX_SENT
 
 // Data expects a "text" field containing a message.
-/decl/webhook/fax_send/get_message(var/list/data)
+/decl/webhook/fax_sent/get_message(var/list/data)
 	. = ..()
 	.["embeds"] = list(list(
 		"title" = (data && data["title"]) || "undefined",
