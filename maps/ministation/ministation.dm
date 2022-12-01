@@ -14,7 +14,6 @@ And then imported back to ScavStation!
 	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/species/ascent/_ascent.dme"
-	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
 	#include "../../mods/species/vox/_vox.dme"
 	#include "../../mods/species/adherent/_adherent.dme"
