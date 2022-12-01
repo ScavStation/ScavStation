@@ -196,8 +196,6 @@ var/global/list/adminfaxes = list()	//cache for faxes that have been sent to adm
 	var/obj/item/rcvdcopy
 	if (istype(copyitem, /obj/item/paper))
 		rcvdcopy = copy(copyitem, 0)
-		var/obj/item/paper/paper = copyitem
-		SSwebhooks.send(WEBHOOK_FAX_SENT, list("title" = "Incoming fax transmission from [department] for [destination].", "body" = "[paper.info]"))
 	else if (istype(copyitem, /obj/item/photo))
 		rcvdcopy = photocopy(copyitem, 0)
 	else if (istype(copyitem, /obj/item/paper_bundle))
@@ -230,6 +228,10 @@ var/global/list/adminfaxes = list()	//cache for faxes that have been sent to adm
 	var/msg = "<span class='notice'><b><font color='[font_colour]'>[faxname]: </font>[get_options_bar(sender, 2,1,1)]"
 	msg += "(<A HREF='?_src_=holder;take_ic=\ref[sender]'>TAKE</a>) (<a href='?_src_=holder;FaxReply=\ref[sender];originfax=\ref[src];replyorigin=[reply_type]'>REPLY</a>)</b>: "
 	msg += "Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a></span>"
+
+	if (istype (sent, /obj/item/paper))
+		var/obj/item/paper/paper = sent
+		SSwebhooks.send(WEBHOOK_FAX_SENT, list("title" = "Incoming fax transmission from [sender] in [department] for [destination].", "body" = "[paper.info]"))
 
 	for(var/client/C in global.admins)
 		if(check_rights((R_ADMIN|R_MOD),0,C))
