@@ -1506,11 +1506,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/sec)
 "dV" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 8
-	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -4186,15 +4186,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"kq" = (
-/obj/effect/wallframe_spawn/reinforced_borosilicate,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id_tag = "SupermatterPort";
-	name = "Reactor Blast Door"
-	},
-/turf/space,
-/area/ministation/supermatter)
 "kr" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -8332,7 +8323,7 @@
 "uG" = (
 /obj/machinery/door/airlock/atmos,
 /turf/simulated/floor/tiled,
-/area/ministation/supermatter)
+/area/ministation/smcontrol)
 "uI" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/hop)
@@ -8534,9 +8525,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "vl" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 6
 	},
@@ -13721,12 +13709,12 @@
 /turf/simulated/floor/plating,
 /area/space)
 "HU" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 8
-	},
 /obj/structure/cable/yellow{
 	icon_state = "1-4";
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -14098,9 +14086,6 @@
 "Jc" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -16204,7 +16189,6 @@
 	id_tag = "EngineEmitter";
 	state = 2
 	},
-/obj/structure/cable/cyan,
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -16505,9 +16489,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/detective)
 "PK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -17715,8 +17696,12 @@
 /turf/simulated/floor,
 /area/ministation/atmospherics)
 "Tw" = (
-/turf/simulated/floor/bluegrid,
-/area/ministation/ai_sat)
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "Tx" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -18101,9 +18086,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "UC" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
@@ -19023,9 +19005,6 @@
 /area/ministation/maint/nw)
 "XE" = (
 /obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
-/obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
 /obj/structure/cable{
@@ -19506,9 +19485,6 @@
 "YW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
@@ -48627,7 +48603,7 @@ ad
 ad
 Dt
 GW
-Eo
+Tw
 ad
 ad
 ad
@@ -51966,7 +51942,7 @@ NS
 Xf
 Ui
 Ui
-kq
+zR
 eK
 eK
 MX
@@ -52480,7 +52456,7 @@ Di
 NV
 Ui
 Ui
-kq
+zR
 eK
 fE
 MX
@@ -68179,7 +68155,7 @@ IG
 Ce
 Cp
 Jn
-Tw
+Jn
 Jn
 JD
 Ku
