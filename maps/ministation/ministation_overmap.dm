@@ -1,9 +1,3 @@
-/obj/effect/shuttle_landmark/bridge_north
-	landmark_tag = "nav_ministation_bridge_north"
-
-/obj/effect/shuttle_landmark/arrivas_south
-	landmark_tag = "nav_ministation_arrivals_south"
-
 /obj/effect/overmap/visitable/ship/ministation
 	name = "Tradepost Mollusc"
 	color = "#00ffff"
@@ -19,6 +13,7 @@
 		"nav_ministation_bridge_north",
 		"nav_ministation_arrivals_south"
 	)
+
 
 	//exploration and rescue shuttles can only dock port side, b/c there's only one door.
 	//initial_restricted_waypoints = list(
