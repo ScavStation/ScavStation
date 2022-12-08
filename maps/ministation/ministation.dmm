@@ -3988,6 +3988,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/ministation/detective)
+"jN" = (
+/obj/effect/shuttle_landmark/bridge_north,
+/turf/space,
+/area/space)
 "jO" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -12477,6 +12481,10 @@
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"EA" = (
+/obj/effect/shuttle_landmark/arrivas_south,
+/turf/space,
+/area/space)
 "EB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -45170,7 +45178,7 @@ aa
 aa
 aa
 aa
-aa
+EA
 aa
 aa
 aa
@@ -55109,7 +55117,7 @@ aa
 aa
 aa
 aa
-aa
+jN
 aa
 aa
 aa

@@ -10,9 +10,15 @@
 	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_BASE|OVERMAP_SECTOR_IN_SPACE
 
 	initial_generic_waypoints = list(
-		"nav_tradeship_below_bow",
-		"nav_tradeship_below_starboardastern"
+		"nav_ministation_bridge_north",
+		"nav_ministation_arrivals_south"
 	)
+
+	/obj/effect/shuttle_landmark/bridge_north
+	landmark_tag = "nav_ministation_bridge_north"
+
+	/obj/effect/shuttle_landmark/arrivas_south
+	landmark_tag = "nav_ministation_arrivals_south"
 	//exploration and rescue shuttles can only dock port side, b/c there's only one door.
 	//initial_restricted_waypoints = list(
 	//	/datum/shuttle/autodock/overmap/exploration = list("nav_tradeship_port_dock_shuttle"),
