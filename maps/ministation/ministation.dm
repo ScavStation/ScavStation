@@ -28,10 +28,6 @@ And then imported back to ScavStation!
 //	#include "../../mods/content/psionics/_psionics.dme"
 //	#include "../../mods/content/scaling_descriptors.dm"
 
-	#include "ministation.dmm"
-	#include "space.dmm"
-	#include "ministation_unit_testing.dm"
-
 	#include "ministation_antagonists.dm"
 	#include "ministation_areas.dm"
 	#include "ministation_departments.dm"
@@ -39,6 +35,9 @@ And then imported back to ScavStation!
 	#include "ministation_jobs.dm"
 	#include "ministation_shuttles.dm"
 	#include "ministation_objects.dm"
+	#include "ministation.dmm"
+	#include "space.dmm"
+	#include "ministation_unit_testing.dm"
 
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/casino/casino.dm"
