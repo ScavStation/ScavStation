@@ -37,3 +37,9 @@
 /obj/effect/shuttle_landmark/escape_shuttle/station
 	landmark_tag = "nav_escape_shuttle_station"
 	docking_controller = "station1"
+
+/obj/effect/shuttle_landmark/bridge_north
+	landmark_tag = "nav_ministation_bridge_north"
+
+/obj/effect/shuttle_landmark/arrivas_south
+	landmark_tag = "nav_ministation_arrivals_south"

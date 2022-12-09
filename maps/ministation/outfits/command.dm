@@ -32,6 +32,8 @@
 	uniform = /obj/item/clothing/under/head_of_personnel
 	l_ear = /obj/item/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/color/brown
+	r_pocket = /obj/item/gun/energy/taser
+	hands = list(/obj/item/clothing/suit/armor/bulletproof)
 	id_type = /obj/item/card/id/silver
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/storage/box/ids = 1)
