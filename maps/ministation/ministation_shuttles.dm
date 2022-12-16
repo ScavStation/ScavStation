@@ -43,3 +43,29 @@
 
 /obj/effect/shuttle_landmark/arrivas_south
 	landmark_tag = "nav_ministation_arrivals_south"
+
+/obj/machinery/computer/shuttle_control/explore/ministation
+	name = "science shuttle console"
+	shuttle_tag = "Science Shuttle"
+
+/datum/shuttle/autodock/overmap/science_shuttle
+	name = "Science Shuttle"
+	shuttle_area = /area/ministation/shuttle/outgoing
+	dock_target = "science_shuttle"
+	current_location = "nav_ministation_science_dock_shuttle"
+
+/obj/effect/shuttle_landmark/science_dock
+	name = "Tradepost Science Department Docking Arm"
+	docking_controller = "ministation_science_dock"
+	landmark_tag = "nav_ministation_science_dock_shuttle"
+
+/obj/effect/overmap/visitable/ship/landable/science_shuttle
+	name = "Science Shuttle"
+	shuttle = "Science Shuttle"
+	moving_state = "ship_moving"
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 3000
+	fore_dir = EAST
+	skill_needed = SKILL_BASIC
+	vessel_size = SHIP_SIZE_SMALL

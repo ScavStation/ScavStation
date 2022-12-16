@@ -212,6 +212,10 @@
 	icon_state = "white"
 	requires_power = 0
 
+/area/ministation/shuttle/outgoing
+	name = "\improper Science Shuttle"
+	icon_state = "shuttle"
+
 //satellite
 /area/ministation/ai_sat
 	name = "\improper Satellite"
