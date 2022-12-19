@@ -69,3 +69,24 @@
 	fore_dir = EAST
 	skill_needed = SKILL_BASIC
 	vessel_size = SHIP_SIZE_SMALL
+
+// Essentially a bare platform that moves up and down.
+/obj/turbolift_map_holder/ministation
+	name = "Tradestation cargo elevator placeholder"
+	depth = 3
+	lift_size_x = 3
+	lift_size_y = 3
+	door_type =     null
+	wall_type =     null
+	firedoor_type = null
+	light_type =    null
+	floor_type =  /turf/simulated/floor/tiled/steel_grid
+	button_type = /obj/structure/lift/button/standalone
+	panel_type =  /obj/structure/lift/panel/standalone
+	areas_to_use = list(
+		/area/elevator/l1,
+		/area/elevator/l2,
+		/area/elevator/l3
+	)
+	floor_departure_sound = 'sound/effects/lift_heavy_start.ogg'
+	floor_arrival_sound =   'sound/effects/lift_heavy_stop.ogg'

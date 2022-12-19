@@ -28,7 +28,9 @@ And then imported back to ScavStation!
 	#include "../../mods/content/psionics/_psionics.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
 
-	#include "ministation.dmm"
+	#include "ministation-0.dmm"
+	#include "ministation-1.dmm"
+	#include "ministation-2.dmm"
 	#include "space.dmm"
 	#include "ministation_unit_testing.dm"
 
