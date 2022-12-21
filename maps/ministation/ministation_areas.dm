@@ -49,6 +49,14 @@
 /area/ministation/hall/n1
 	name = "\improper L1 Forward Hallway"
 
+//  second floor hallways
+
+/area/ministation/hall/w2
+	name = "\improper L2 Port Hallway"
+
+/area/ministation/hall/e2
+	name = "\improper L2 Starboard Hallway"
+
 //Maintenance
 /area/ministation/maint
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_MAINTENANCE
@@ -97,6 +105,27 @@
 
 /area/ministation/maint/l1central
 	name = "\improper Level One Central Maintenance"
+
+// Second Floor Maint
+
+/area/ministation/maint/arrivalnorth
+	name = "\improper Arrivals North Maintenance"
+
+/area/ministation/maint/arrivalsouth
+	name = "\improper Arrivals South Maintenance"
+
+/area/ministation/maint/l2centraln
+	name = "\improper Level Two Central North Maintenance"
+
+/area/ministation/maint/l2centrals
+	name = "\improper Level Two Central South Maintenance"
+
+/area/ministation/maint/secmaint
+	name = "\improper Security Maintenance"
+
+/area/ministation/maint/hydromaint
+	name = "\improper Hydro Maintenance"
+
 
 //Departments
 /area/ministation/hop
