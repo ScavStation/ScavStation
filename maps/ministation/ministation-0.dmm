@@ -117,6 +117,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "bk" = (
@@ -381,6 +384,11 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"cL" = (
+/obj/structure/table/woodentable,
+/obj/item/paicard,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "cM" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1246,6 +1254,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/cargo)
+"gJ" = (
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/obj/structure/window/basic/full,
+/turf/simulated/floor/plating,
+/area/ministation/hall/n)
 "gL" = (
 /obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled,
@@ -1333,6 +1348,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
+"gX" = (
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "gY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 9
@@ -1350,9 +1371,8 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_y = -23
+/obj/machinery/computer/modular/preset/civilian{
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
@@ -1722,6 +1742,9 @@
 "jO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
@@ -2377,6 +2400,11 @@
 "oy" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/smcontrol)
+"oC" = (
+/obj/structure/table/woodentable,
+/obj/machinery/recharger,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "oE" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2823,6 +2851,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "tU" = (
@@ -2834,6 +2865,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
@@ -2925,6 +2959,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "uE" = (
@@ -3157,6 +3194,9 @@
 	dir = 4;
 	pixel_x = 24
 	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "xj" = (
@@ -3266,6 +3306,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
+"yH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "yO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3425,6 +3474,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"Ai" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/washing_machine,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "Am" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3684,6 +3740,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "Bz" = (
@@ -3783,6 +3842,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
@@ -4942,6 +5004,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "FN" = (
@@ -5530,6 +5595,29 @@
 /obj/structure/transit_tube,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"Hn" = (
+/obj/structure/closet/wardrobe/mixed,
+/obj/item/clothing/under/yinglet/yingjumpsuit,
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#ff00ff"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#000000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#008000"
+	},
+/obj/item/clothing/under/yinglet/yingjumpsuit{
+	color = "#808080"
+	},
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/yinglet,
+/obj/item/clothing/under/yinglet,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/commons)
 "Ho" = (
 /obj/structure/transit_tube,
 /turf/space,
@@ -7229,6 +7317,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "MI" = (
@@ -8806,6 +8897,10 @@
 	dir = 4;
 	level = 2
 	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = -23
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "UA" = (
@@ -9540,6 +9635,9 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "YW" = (
@@ -9582,6 +9680,9 @@
 "Zf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
+	},
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
@@ -42770,9 +42871,9 @@ zW
 zW
 di
 di
-di
-di
-di
+gJ
+gJ
+gJ
 di
 di
 di
@@ -43014,10 +43115,10 @@ AF
 jq
 qM
 eu
-qe
-qe
+gX
+gX
 Cb
-qe
+gX
 tH
 hc
 zW
@@ -43271,7 +43372,7 @@ AF
 vK
 IM
 eu
-qe
+gX
 jO
 tU
 Zf
@@ -43528,7 +43629,7 @@ Sa
 qN
 ws
 Az
-qe
+gX
 FM
 Bx
 MF
@@ -43785,11 +43886,11 @@ BD
 AF
 aL
 zW
-qe
+gX
 Cb
 YV
 xg
-qt
+yH
 ne
 zW
 Vf
@@ -44303,12 +44404,12 @@ Wt
 QH
 Xm
 zW
-qt
+Ai
 ne
 zW
 IP
 dN
-dN
+Hn
 zW
 aa
 aa
@@ -44817,8 +44918,8 @@ Lt
 BS
 Ju
 zW
-qe
-qe
+cL
+oC
 zW
 Vl
 nu
