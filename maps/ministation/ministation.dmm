@@ -264,10 +264,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aL" = (
-/obj/structure/bed/chair/comfy/blue,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/bed/chair/office/comfy/blue,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aM" = (
@@ -281,13 +281,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aN" = (
-/obj/structure/bed/chair/comfy/blue,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
+/obj/structure/bed/chair/office/comfy/blue,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aO" = (
@@ -3077,7 +3077,7 @@
 	id_tag = "science_shuttle_vent_out_internal"
 	},
 /obj/machinery/airlock_sensor{
-	id_tag = "science_shuttle__sensor";
+	id_tag = "science_shuttle_sensor";
 	pixel_y = 10;
 	pixel_x = -20
 	},
@@ -10979,7 +10979,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/airlock_sensor{
-	id_tag = "stern_engineering_sensor_exterior";
+	id_tag = "stern_engineering_sensor";
 	pixel_y = 10;
 	pixel_x = -20
 	},
@@ -10991,8 +10991,7 @@
 	tag_exterior_door = "stern_engineering_airlock_exterior";
 	tag_interior_door = "stern_engineering_airlock_interior";
 	dir = 4;
-	pixel_x = -20;
-	tag_exterior_sensor = "stern_engineering_sensor_exterior"
+	pixel_x = -20
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
@@ -17864,14 +17863,6 @@
 /obj/structure/sign/warning/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/hall/w)
-"Se" = (
-/obj/machinery/airlock_sensor{
-	id_tag = "stern_engineering_sensor";
-	pixel_y = 10;
-	pixel_x = -20
-	},
-/turf/space,
-/area/space)
 "Sf" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/light{
@@ -53670,7 +53661,7 @@ HO
 Eo
 aa
 aa
-Se
+aa
 aa
 HY
 Uu
