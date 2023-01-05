@@ -67,6 +67,7 @@
 		access_cargo_bot,
 		access_mining,
 		access_mailsorting,
+		access_eva,
 		access_mining,
 		access_mining_station,
 		access_external_airlocks
