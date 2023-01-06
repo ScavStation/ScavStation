@@ -89,6 +89,7 @@
 		access_tcomsat,
 		access_gateway,
 		access_xenoarch,
+		access_eva,
 		access_network
 	)
 	minimal_access = list(
@@ -110,6 +111,7 @@
 		access_tcomsat,
 		access_gateway,
 		access_xenoarch,
+		access_eva,
 		access_network
 	)
 	minimal_player_age = 14

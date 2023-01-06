@@ -2300,6 +2300,8 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/oxygen/yellow,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fM" = (

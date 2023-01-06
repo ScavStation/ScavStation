@@ -96,6 +96,7 @@
 		access_forensics_lockers,
 		access_heads,
 		access_maint_tunnels,
+		access_eva,
 		access_armory
 	)
 	minimal_access = list(
@@ -105,6 +106,7 @@
 		access_forensics_lockers,
 		access_heads,
 		access_maint_tunnels,
+		access_eva,
 		access_armory
 	)
 	min_skill = list(
