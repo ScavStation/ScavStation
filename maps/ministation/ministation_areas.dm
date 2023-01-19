@@ -41,22 +41,6 @@
 /area/ministation/hall/n
 	name = "\improper Forward Hallway"
 
-// first floor hallways
-
-/area/ministation/hall/s1
-	name = "\improper L1 Aft Hallway"
-
-/area/ministation/hall/n1
-	name = "\improper L1 Forward Hallway"
-
-//  second floor hallways
-
-/area/ministation/hall/w2
-	name = "\improper L2 Port Hallway"
-
-/area/ministation/hall/e2
-	name = "\improper L2 Starboard Hallway"
-
 //Maintenance
 /area/ministation/maint
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_MAINTENANCE
@@ -88,44 +72,6 @@
 
 /area/ministation/maint/detective
 	name = "\improper Detective Office Maintenance"
-
-// First floor maint
-
-/area/ministation/maint/westatmos
-	name = "\improper West Atmos Maintenance"
-
-/area/ministation/maint/eastatmos
-	name = "\improper East Atmos Maintenance"
-
-/area/ministation/maint/l1nw
-	name = "\improper Level One North West Maintenance"
-
-/area/ministation/maint/l1ne
-	name = "\improper Level One North East Maintenance"
-
-/area/ministation/maint/l1central
-	name = "\improper Level One Central Maintenance"
-
-// Second Floor Maint
-
-/area/ministation/maint/arrivalnorth
-	name = "\improper Arrivals North Maintenance"
-
-/area/ministation/maint/arrivalsouth
-	name = "\improper Arrivals South Maintenance"
-
-/area/ministation/maint/l2centraln
-	name = "\improper Level Two Central North Maintenance"
-
-/area/ministation/maint/l2centrals
-	name = "\improper Level Two Central South Maintenance"
-
-/area/ministation/maint/secmaint
-	name = "\improper Security Maintenance"
-
-/area/ministation/maint/hydromaint
-	name = "\improper Hydro Maintenance"
-
 
 //Departments
 /area/ministation/hop
@@ -208,21 +154,9 @@
 	secure = TRUE
 
 /area/ministation/cryo
-	name = "\improper Medical Cryogenics"
-	req_access = list()
-	icon_state = "green"
-	secure = FALSE
-
-/area/ministation/crewstorage
 	name = "\improper Cryogenic Storage"
 	req_access = list()
 	icon_state = "green"
-	secure = FALSE
-
-/area/ministation/dorms
-	name = "\improper Dormatories"
-	req_access = list()
-	icon_state = "red"
 	secure = FALSE
 
 /area/ministation/hydro
@@ -307,33 +241,3 @@
 /area/shuttle/escape_shuttle
 	name = "\improper Emergency Shuttle"
 	icon_state = "shuttle"
-
-//Elevator
-
-/area/elevator
-	name = "\improper Elevator"
-	icon_state = "shuttle"
-	requires_power = 0
-	dynamic_lighting = TRUE
-	sound_env = STANDARD_STATION
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambigen12.ogg')
-	arrival_sound = null
-	lift_announce_str = null
-
-//	/area/turbolift/alert_on_fall(var/mob/living/carbon/human/H)
-//	if(H.client && SSpersistence.elevator_fall_shifts > 0)
-//		SSwebhooks.send(WEBHOOK_ELEVATOR_FALL, list("text" = "We managed to make it [SSpersistence.elevator_fall_shifts] shift\s without someone falling down an elevator shaft."))
-//		SSpersistence.elevator_fall_shifts = -1
-
-/area/elevator/l1
-	name = "Level 1"
-	base_turf = /turf/simulated/floor
-
-/area/elevator/l2
-	name = "Level 2"
-	base_turf = /turf/simulated/open
-
-/area/elevator/l3
-	name = "Level 3"
-	base_turf = /turf/simulated/open
