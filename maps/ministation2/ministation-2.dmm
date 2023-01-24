@@ -1609,10 +1609,10 @@
 "hy" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
-	id_tag = "science_shuttle_vent_out_internal"
+	id_tag = "science_shuttle_pump_out_internal"
 	},
 /obj/machinery/airlock_sensor{
-	id_tag = "science_shuttle__sensor";
+	id_tag = "science_shuttle_sensor";
 	pixel_y = 10;
 	pixel_x = -20
 	},
@@ -4861,14 +4861,14 @@
 /area/ministation/maint/l3ne)
 "PL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	id_tag = "science_shuttle_vent";
+	id_tag = "science_shuttle_pump";
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/science_dock,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
 	id_tag = "science_shuttle";
-	tag_airpump = "science_shuttle_vent";
+	tag_airpump = "science_shuttle_pump";
 	tag_chamber_sensor = "science_shuttle_sensor";
 	tag_exterior_door = "science_shuttle_exterior";
 	tag_interior_door = "science_shuttle_interior";
@@ -5255,7 +5255,8 @@
 "SS" = (
 /obj/machinery/power/smes/buildable/max_cap_in_out{
 	RCon_tag = null;
-	capacity = 5e+009
+	capacity = 5e+009;
+	charge = 2.5e+006
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -5924,7 +5925,7 @@
 "YX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
-	id_tag = "science_shuttle_vent_out_external"
+	id_tag = "science_shuttle_pump_out_external"
 	},
 /turf/simulated/floor/airless,
 /area/ministation/shuttle/outgoing)
