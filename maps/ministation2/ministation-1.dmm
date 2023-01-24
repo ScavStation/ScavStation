@@ -371,7 +371,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "dQ" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -632,7 +632,7 @@
 /area/ministation/maint/l2centrals)
 "gz" = (
 /turf/simulated/open,
-/area/turbolift/l2)
+/area/ministation/hall/e2)
 "gB" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2904,13 +2904,13 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "tv" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
 /turf/simulated/open,
-/area/turbolift/l2)
+/area/ministation/hall/e2)
 "tx" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -4365,7 +4365,7 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "zx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4378,7 +4378,7 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "zy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5597,7 +5597,7 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "MQ" = (
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning{
@@ -5651,7 +5651,7 @@
 	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "Nm" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5867,7 +5867,7 @@
 	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "OY" = (
 /obj/machinery/camera/network/medbay{
 	dir = 1
@@ -6373,7 +6373,7 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "TV" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -6547,6 +6547,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/Arrival)
+"VR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
 "VU" = (
 /obj/structure/rack,
 /obj/item/radio/intercom{
@@ -6682,7 +6687,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/hall/e2)
 "Xq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -38318,7 +38323,7 @@ HO
 HO
 HO
 HO
-HO
+kZ
 kZ
 kZ
 zA
@@ -38575,12 +38580,12 @@ HO
 HO
 HO
 HO
-HO
 oX
 al
-aV
 te
+aV
 oX
+ty
 OW
 zv
 TO
@@ -38832,12 +38837,12 @@ HO
 HO
 HO
 HO
-HO
 oX
 aV
 aV
 aV
 oX
+ty
 Xl
 gz
 gz
@@ -39089,12 +39094,12 @@ HO
 HO
 HO
 HO
-HO
 oX
 pf
 zZ
 Ci
 MG
+VR
 dN
 gz
 tv
@@ -39346,12 +39351,12 @@ HO
 HO
 HO
 HO
-HO
 oX
 qe
 Qj
 lR
 oX
+ty
 sC
 gz
 gz
@@ -39603,12 +39608,12 @@ HO
 HO
 HO
 HO
-HO
 oX
 qe
 qe
 rA
 oX
+ty
 Yv
 AX
 AX
@@ -39860,11 +39865,11 @@ HO
 HO
 HO
 HO
-HO
 oX
 Mb
 Mb
 Mb
+oX
 mH
 sD
 tx
