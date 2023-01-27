@@ -180,7 +180,9 @@
 /area/ministation/bridge)
 "az" = (
 /obj/effect/floor_decal/corner/yellow/full,
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	id_tag = "stationsensors"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aA" = (
@@ -535,7 +537,9 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "bu" = (
-/obj/machinery/shipsensors,
+/obj/machinery/shipsensors{
+	id_tag = "stationsensors"
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -3076,7 +3080,7 @@
 "hy" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
-	id_tag = "science_shuttle_vent_out_internal"
+	id_tag = "science_shuttle_pump_out_internal"
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "science_shuttle_sensor";
@@ -13536,7 +13540,8 @@
 /area/space)
 "GK" = (
 /obj/machinery/computer/ship/sensors{
-	dir = 8
+	dir = 8;
+	id_tag = "sciencesensors"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
@@ -17041,14 +17046,14 @@
 /area/ministation/engine)
 "PL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	id_tag = "science_shuttle_vent";
+	id_tag = "science_shuttle_pump";
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/science_dock,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
 	id_tag = "science_shuttle";
-	tag_airpump = "science_shuttle_vent";
+	tag_airpump = "science_shuttle_pump";
 	tag_chamber_sensor = "science_shuttle_sensor";
 	tag_exterior_door = "science_shuttle_exterior";
 	tag_interior_door = "science_shuttle_interior";
@@ -17885,6 +17890,9 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"Si" = (
+/turf/exterior/wall/random/high_chance,
+/area/space)
 "Sj" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -18254,7 +18262,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Tn" = (
-/obj/machinery/shipsensors,
+/obj/machinery/shipsensors{
+	id_tag = "sciencesensors"
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -20377,7 +20387,7 @@
 "YX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
-	id_tag = "science_shuttle_vent_out_external"
+	id_tag = "science_shuttle_pump_out_external"
 	},
 /turf/simulated/floor/airless,
 /area/ministation/shuttle/outgoing)
@@ -36320,9 +36330,9 @@ aa
 af
 af
 af
-af
-af
-af
+Si
+Si
+Si
 af
 af
 af
@@ -36577,9 +36587,9 @@ aa
 af
 af
 af
-af
-af
-af
+Si
+Si
+Si
 af
 af
 af
@@ -36834,9 +36844,9 @@ aa
 af
 af
 af
-af
-af
-af
+Si
+Si
+Si
 af
 af
 af
@@ -37102,7 +37112,7 @@ aa
 aa
 af
 af
-af
+Si
 af
 af
 aa
@@ -37359,7 +37369,7 @@ aa
 af
 af
 af
-af
+Si
 af
 af
 aa
@@ -39384,10 +39394,10 @@ aa
 aa
 af
 af
-af
-af
-af
-af
+Si
+Si
+Si
+Si
 af
 af
 aa
@@ -39641,9 +39651,9 @@ aa
 aa
 af
 af
-af
-af
-af
+Si
+Si
+Si
 af
 af
 af
@@ -40460,8 +40470,8 @@ af
 af
 af
 af
-af
-af
+Si
+Si
 af
 af
 aa
@@ -40717,8 +40727,8 @@ af
 af
 af
 af
-af
-af
+Si
+Si
 af
 af
 af
@@ -40972,10 +40982,10 @@ aa
 aa
 af
 af
-af
-af
-af
-af
+Si
+Si
+Si
+Si
 af
 af
 af
@@ -47104,8 +47114,8 @@ aa
 aa
 af
 af
-af
-af
+Si
+Si
 af
 af
 aa
@@ -47361,8 +47371,8 @@ aa
 aa
 af
 af
-af
-af
+Si
+Si
 af
 af
 aa
