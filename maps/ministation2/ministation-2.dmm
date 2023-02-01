@@ -5144,7 +5144,7 @@
 /obj/machinery/power/smes/buildable/max_cap_in_out{
 	RCon_tag = null;
 	capacity = 5e+009;
-	charge = 2.5e+006
+	charge = 5e+009
 	},
 /obj/structure/cable{
 	icon_state = "0-2";
