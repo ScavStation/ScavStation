@@ -8769,7 +8769,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/structure/bed/chair/comfy/blue,
+/obj/structure/bed/chair/office,
 /turf/simulated/floor/tiled,
 /area/ministation/smcontrol)
 "SO" = (

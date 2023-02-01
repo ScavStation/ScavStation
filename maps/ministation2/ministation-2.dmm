@@ -1061,10 +1061,10 @@
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
 "eA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 5
+/obj/machinery/computer/shuttle_control/explore/ministation{
+	dir = 8
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "eB" = (
 /obj/structure/table,
@@ -1092,10 +1092,24 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "eH" = (
-/obj/machinery/computer/shuttle_control/explore/ministation{
-	dir = 1
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "External Airlock Hatch";
+	req_access = list("ACCESS_EXTERNAL");
+	locked = 1;
+	id_tag = "science_airlock_exterior"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/button/access/interior{
+	id_tag = "ministation_science_dock";
+	name = "exterior access button";
+	pixel_x = -20;
+	pixel_y = -10;
+	command = "cycle_exterior"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
 /area/ministation/science)
 "eM" = (
 /obj/structure/cable{
@@ -1466,12 +1480,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "gN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/structure/bed/chair/shuttle/blue{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
+/obj/item/clothing/head/helmet/space/void/scav/science,
+/obj/item/clothing/suit/space/void/scav/science,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "gQ" = (
@@ -1557,14 +1571,20 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hi" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/wall/titanium,
-/area/ministation/shuttle/outgoing)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/sign/xenoarch{
+	pixel_y = 30
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "hj" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1607,22 +1627,16 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "hy" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	dir = 8;
-	id_tag = "science_shuttle_pump_out_internal"
-	},
-/obj/machinery/airlock_sensor{
-	id_tag = "science_shuttle_sensor";
-	pixel_y = 10;
-	pixel_x = -20
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
 "hF" = (
 /obj/machinery/button/blast_door{
@@ -1791,24 +1805,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "im" = (
-/obj/machinery/door/airlock/external/glass{
-	autoset_access = 0;
-	name = "External Airlock Hatch";
-	req_access = list("ACCESS_EXTERNAL");
-	locked = 1;
-	id_tag = "science_airlock_interior"
-	},
-/obj/machinery/button/access/interior{
-	id_tag = "ministation_science_dock";
-	name = "interior access button";
-	pixel_x = 20;
-	pixel_y = -10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "in" = (
 /obj/structure/extinguisher_cabinet{
@@ -1855,9 +1853,15 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "iC" = (
-/obj/machinery/network/relay,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
+/obj/machinery/atmospherics/binary/pump/on{
+	target_pressure = 200;
+	name = "fuel pump"
+	},
+/obj/structure/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/shuttle/outgoing)
 "iG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1892,12 +1896,9 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "iM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/ministation/shuttle/outgoing)
 "iN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2518,34 +2519,43 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/chair/padded/blue,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "ml" = (
-/obj/machinery/button/blast_door{
-	id_tag = "anomvent";
-	name = "emergency vent control";
-	pixel_y = -24
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
-"mm" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/structure/bed/chair/shuttle/blue{
+/obj/machinery/mass_driver{
+	id_tag = "artifactlauncher";
 	dir = 4
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
+/turf/simulated/floor/reinforced,
+/area/ministation/science)
+"mm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/bed/chair/shuttle/blue{
+	dir = 1
+	},
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "ms" = (
-/turf/simulated/wall,
-/area/ministation/hall/s)
+/obj/machinery/atmospherics/unary/tank/air,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/shuttle/outgoing)
 "mA" = (
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled/white,
@@ -2630,12 +2640,15 @@
 /turf/simulated/floor/grass,
 /area/ministation/science)
 "mU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
+/obj/structure/bed/chair/shuttle/blue{
+	dir = 1
 	},
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "mW" = (
@@ -2943,7 +2956,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/chair/padded/blue,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "qY" = (
@@ -2970,24 +2983,19 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "rl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+	dir = 5
 	},
 /obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
-/obj/machinery/light{
-	dir = 1
+	icon_state = "1-4"
 	},
 /obj/structure/handrail{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "rx" = (
@@ -3373,16 +3381,17 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "zs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3485,24 +3494,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/yinglet_rep)
 "AZ" = (
-/obj/machinery/door/airlock/external/glass{
-	autoset_access = 0;
-	name = "External Airlock Hatch";
-	req_access = list("ACCESS_EXTERNAL");
-	locked = 1;
-	id_tag = "science_airlock_exterior"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/obj/machinery/button/access/interior{
-	id_tag = "ministation_science_dock";
-	name = "exterior access button";
-	pixel_x = -20;
-	pixel_y = 10;
-	command = "cycle_exterior"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Be" = (
 /obj/machinery/light/small{
@@ -4047,6 +4043,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
+"EP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "ET" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/cable{
@@ -4086,14 +4091,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "Go" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/structure/bed/chair/shuttle/blue{
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/item/clothing/suit/space/void/scav/explorer,
-/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "Gu" = (
@@ -4153,33 +4154,31 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "Hw" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
-/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
-	start_pressure = 10000
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
-/turf/simulated/floor/tiled,
-/area/ministation/shuttle/outgoing)
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "HB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "HX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 23
+/obj/structure/handrail{
+	dir = 1
 	},
-/obj/structure/bed/chair/shuttle/blue{
-	dir = 8
-	},
-/obj/item/clothing/suit/space/void/scav/explorer,
-/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "Ia" = (
@@ -4263,9 +4262,9 @@
 /area/ministation/telecomms)
 "IT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+	dir = 9
 	},
-/turf/simulated/wall/titanium,
+/turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "IV" = (
 /obj/machinery/door/airlock/glass/command,
@@ -4473,27 +4472,23 @@
 /turf/simulated/floor/carpet/red,
 /area/ministation/court)
 "My" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Mz" = (
-/obj/machinery/door/airlock/hatch,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide{
+	start_pressure = 10000
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
@@ -4547,9 +4542,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "Nb" = (
-/obj/machinery/door/airlock/double/glass/science,
+/obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "Nc" = (
 /obj/machinery/light{
@@ -4558,14 +4556,11 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Ng" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
 	},
 /obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
@@ -4582,8 +4577,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "Nm" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "1-2"
 	},
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
@@ -4594,15 +4592,12 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "Nr" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+/obj/machinery/door/airlock/double/glass/science,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -27
-	},
-/obj/structure/cable,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "Nw" = (
 /turf/simulated/floor/tiled,
@@ -4660,12 +4655,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "NN" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/table,
+/obj/machinery/alarm{
+	pixel_y = -2;
+	dir = 4;
+	pixel_x = -24
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "NO" = (
@@ -4746,19 +4742,26 @@
 /turf/simulated/open,
 /area/ministation/hall/n3)
 "OG" = (
-/obj/machinery/power/terminal{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/machinery/light,
-/obj/machinery/atmospherics/unary/tank/air,
-/turf/simulated/floor/tiled,
-/area/ministation/shuttle/outgoing)
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "OK" = (
-/obj/structure/table,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "External Airlock Hatch";
+	req_access = list("ACCESS_EXTERNAL");
+	locked = 1;
+	id_tag = "science_shuttle_interior"
+	},
+/obj/machinery/button/access/interior{
+	id_tag = "science_shuttle";
+	name = "interior access button";
+	pixel_x = 20;
+	pixel_y = -13
+	},
+/turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "OL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4984,13 +4987,15 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "Qx" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/structure/table,
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = -25
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/simulated/floor/plating,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "QD" = (
 /obj/structure/table/woodentable,
@@ -5004,11 +5009,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "QK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/wall/titanium,
-/area/ministation/shuttle/outgoing)
+/obj/machinery/computer/shuttle_control/explore/ministation,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "QP" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
@@ -5090,14 +5093,20 @@
 /turf/simulated/wall,
 /area/ministation/court)
 "RE" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock{
-	start_pressure = 730
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
 	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/structure/handrail{
+	dir = 1
+	},
+/obj/machinery/firealarm{
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
@@ -5132,9 +5141,14 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "RS" = (
-/obj/machinery/hologram/holopad/longrange,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/power/smes/buildable/max_cap_in_out{
+	RCon_tag = null;
+	capacity = 5e+009;
+	charge = 2.5e+006
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
@@ -5253,13 +5267,9 @@
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "SS" = (
-/obj/machinery/power/smes/buildable/max_cap_in_out{
-	RCon_tag = null;
-	capacity = 5e+009;
-	charge = 2.5e+006
+/obj/machinery/computer/ship/engines{
+	dir = 8
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "ST" = (
@@ -5313,17 +5323,21 @@
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "Tr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Tz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
+/obj/machinery/portable_atmospherics/canister/air/airlock{
+	start_pressure = 730
+	},
+/obj/machinery/atmospherics/portables_connector,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/shuttle/outgoing)
 "TE" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5332,7 +5346,7 @@
 	dir = 5
 	},
 /obj/effect/overmap/visitable/ship/ministation,
-/obj/structure/bed/chair/comfy/black,
+/obj/structure/bed/chair/padded/blue,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "TF" = (
@@ -5371,51 +5385,23 @@
 /area/ministation/yinglet_rep)
 "TS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/handrail,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/shuttle/outgoing)
-"TZ" = (
-/obj/machinery/door/airlock/external/glass{
-	autoset_access = 0;
-	name = "External Airlock Hatch";
-	req_access = list("ACCESS_EXTERNAL");
-	locked = 1;
-	id_tag = "science_shuttle_exterior"
-	},
-/obj/machinery/button/access/interior{
-	id_tag = "science_shuttle";
-	name = "exterior access button";
-	pixel_x = 21;
-	pixel_y = -11;
-	command = "cycle_exterior"
+	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/ministation/shuttle/outgoing)
-"Uo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/item/radio/intercom{
-	dir = 4;
-	pixel_x = -25
-	},
-/obj/machinery/computer/shuttle_control/explore/ministation,
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
+"TZ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/ministation/shuttle/outgoing)
+"Uo" = (
+/obj/item/radio/intercom{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "Up" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5446,14 +5432,11 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "UE" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
-	},
+/obj/structure/closet/crate/uranium,
+/obj/item/wrench,
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "UG" = (
@@ -5552,47 +5535,42 @@
 /turf/simulated/floor/carpet/red,
 /area/ministation/court)
 "Vx" = (
-/obj/structure/sign/xenoarch{
-	pixel_y = -30
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "VB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
 "VI" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
-/obj/machinery/alarm{
-	pixel_y = -2;
-	dir = 4;
-	pixel_x = -24
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/ministation/shuttle/outgoing)
-"VJ" = (
-/turf/simulated/floor/plating,
-/area/ministation/maint/l3ne)
-"VT" = (
 /obj/machinery/light/small{
 	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	id_tag = "science_vent"
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	id_tag = "science_vent";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ministation/science)
+"VJ" = (
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
+"VT" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/wall/titanium,
+/area/ministation/shuttle/outgoing)
 "VW" = (
 /obj/machinery/light{
 	dir = 1
@@ -5610,12 +5588,23 @@
 /area/ministation/science)
 "VY" = (
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "External Airlock Hatch";
+	req_access = list("ACCESS_EXTERNAL");
+	locked = 1;
+	id_tag = "science_shuttle_exterior"
 	},
-/turf/simulated/wall/titanium,
+/obj/machinery/button/access/interior{
+	id_tag = "science_shuttle";
+	name = "exterior access button";
+	pixel_x = 21;
+	pixel_y = 11;
+	command = "cycle_exterior"
+	},
+/turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "VZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5673,9 +5662,19 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "WM" = (
-/obj/machinery/atmospherics/binary/pump/on{
-	target_pressure = 200;
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -26
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
@@ -5701,12 +5700,11 @@
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "Xa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/item/radio/intercom{
-	pixel_y = -31;
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -5779,8 +5777,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "Ye" = (
-/obj/item/wrench,
-/obj/structure/closet/crate/uranium,
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -5845,16 +5843,20 @@
 	name = "External Airlock Hatch";
 	req_access = list("ACCESS_EXTERNAL");
 	locked = 1;
-	id_tag = "science_shuttle_interior"
+	id_tag = "science_airlock_interior"
 	},
 /obj/machinery/button/access/interior{
-	id_tag = "science_shuttle";
+	id_tag = "ministation_science_dock";
 	name = "interior access button";
 	pixel_x = 20;
-	pixel_y = 13
+	pixel_y = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/ministation/shuttle/outgoing)
+/area/ministation/science)
 "YH" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -5868,22 +5870,29 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "YL" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "YO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 8;
+	id_tag = "science_shuttle_pump_out_internal"
+	},
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
-/turf/simulated/wall/titanium,
+/obj/machinery/airlock_sensor{
+	id_tag = "science_shuttle_sensor";
+	pixel_y = 10;
+	pixel_x = -20
+	},
+/turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "YP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5905,13 +5914,20 @@
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "YR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/chair/shuttle/blue{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
-/turf/simulated/floor/tiled,
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -27
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "YS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5939,11 +5955,20 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "Zd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+/obj/machinery/button/blast_door{
+	id_tag = "anomvent";
+	name = "emergency vent control";
+	pixel_y = -24;
+	pixel_x = -5
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/button/mass_driver{
+	pixel_y = -22;
+	pixel_x = 7;
+	id_tag = "artifactlauncher";
+	name = "LAUNCH"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -6031,20 +6056,16 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "ZS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/firealarm{
-	pixel_y = 24
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/bed/chair/shuttle/blue{
 	dir = 4
+	},
+/obj/item/clothing/head/helmet/space/void/scav/science,
+/obj/item/clothing/suit/space/void/scav/science,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
@@ -39139,12 +39160,12 @@ ae
 ae
 kP
 ae
-ms
-ms
-ms
-ms
-ms
-ms
+ae
+ae
+ae
+ae
+ae
+ae
 RT
 Zv
 aa
@@ -42738,11 +42759,11 @@ db
 NM
 db
 ae
-PW
-Yl
-Yw
-WK
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 oc
 ap
@@ -42991,15 +43012,15 @@ QP
 BC
 jx
 db
-db
+Xa
 My
 Tr
-ii
-Tz
-iM
-OL
-Xa
 ae
+aa
+aa
+aa
+aa
+aa
 aa
 oc
 ap
@@ -43248,15 +43269,15 @@ ae
 tT
 ae
 jR
-db
+NM
 ob
 Vx
 ae
-db
-Qf
-db
-ml
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 oc
 UQ
@@ -43499,21 +43520,21 @@ cw
 cw
 cw
 cw
-cw
-cw
 ae
 ae
 ae
 ae
-db
+ae
+ae
+NM
 ob
 jM
 ae
-aZ
-gn
-CR
-Sh
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 oc
 ap
@@ -43756,21 +43777,21 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-aa
-aa
-cL
-db
+ae
+PW
+Yl
+Yw
+WK
+ae
+hi
 ob
 Oy
 ae
-UH
-ey
-mJ
-mJ
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 oc
 ap
@@ -44013,21 +44034,21 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-aa
-aa
-cL
-db
+ae
+Uo
+OG
+im
+AZ
+ii
+Hw
 IP
 oP
 ae
-uH
-ey
-mJ
-mJ
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 oc
 ap
@@ -44270,21 +44291,21 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cL
+ae
+db
+Qf
+db
+Zd
+ae
 db
 VX
 WA
 ae
-ae
-ae
-vo
-ae
-ae
+cw
+aa
+aa
+aa
+aa
 aa
 oc
 Vb
@@ -44527,11 +44548,11 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
+ae
+aZ
+gn
+CR
+Sh
 ae
 db
 VX
@@ -44784,11 +44805,11 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
+ae
+UH
+ey
+ml
+mJ
 ae
 db
 VX
@@ -44797,12 +44818,12 @@ ae
 cw
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+hl
+YX
+yR
+yR
+Tn
+hl
 aa
 aa
 aa
@@ -45041,11 +45062,11 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
+ae
+uH
+ey
+mJ
+mJ
 ae
 db
 VX
@@ -45054,12 +45075,12 @@ cL
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ok
+sE
+Ng
+Nm
+VB
+Ok
 aa
 aa
 aa
@@ -45298,25 +45319,25 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
 ae
-uH
+ae
+ae
+vo
+ae
+ae
+db
 VX
 db
 cL
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+nG
+FM
+UE
+YR
+rl
+nG
 aa
 aa
 aa
@@ -45561,19 +45582,19 @@ cw
 cw
 cw
 ae
-db
+QK
 VX
 db
-cL
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+ae
+ae
+ae
+nG
+hy
+VT
+nG
+zl
+nG
 aa
 aa
 aa
@@ -45819,18 +45840,18 @@ cw
 cw
 ae
 db
-VX
-db
-ae
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+EP
+gp
+Yy
+VI
+uR
+eH
+VY
+YO
+PL
+OK
+HX
+nG
 aa
 aa
 aa
@@ -46076,18 +46097,18 @@ cw
 cw
 ae
 db
-VX
+db
 db
 ae
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ae
+cL
+ae
+nG
+Ye
+Nb
+nG
+RE
+nG
 aa
 aa
 aa
@@ -46331,20 +46352,20 @@ aa
 aa
 cw
 cw
+ae
 cL
-db
-VX
-db
+cL
+cL
 ae
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Yk
+Mz
+Go
+iC
+WM
+nG
 aa
 aa
 aa
@@ -46588,11 +46609,6 @@ aa
 aa
 cw
 cw
-cL
-db
-VX
-GJ
-ae
 aa
 aa
 aa
@@ -46601,7 +46617,12 @@ aa
 aa
 aa
 aa
-aa
+nG
+Tz
+IT
+TZ
+YL
+ei
 aa
 aa
 aa
@@ -46845,11 +46866,6 @@ aa
 aa
 aa
 aa
-cL
-db
-VX
-db
-ae
 aa
 aa
 aa
@@ -46858,7 +46874,12 @@ aa
 aa
 aa
 aa
-aa
+nG
+ms
+iM
+Pn
+mU
+ei
 aa
 aa
 aa
@@ -47102,11 +47123,6 @@ aa
 aa
 aa
 aa
-ae
-db
-VX
-db
-ae
 aa
 aa
 aa
@@ -47115,7 +47131,12 @@ aa
 aa
 aa
 aa
-aa
+nG
+RS
+ON
+TS
+mm
+nG
 aa
 aa
 aa
@@ -47359,11 +47380,6 @@ aa
 aa
 aa
 aa
-ae
-db
-VX
-db
-cL
 aa
 aa
 aa
@@ -47372,7 +47388,12 @@ aa
 aa
 aa
 aa
-aa
+nG
+nG
+YH
+Nr
+nG
+nG
 aa
 aa
 aa
@@ -47616,11 +47637,6 @@ aa
 aa
 aa
 aa
-ae
-db
-VX
-db
-cL
 aa
 aa
 aa
@@ -47629,7 +47645,12 @@ aa
 aa
 aa
 aa
-aa
+nG
+Qx
+gN
+ZS
+NN
+nG
 aa
 aa
 aa
@@ -47873,11 +47894,6 @@ aa
 aa
 aa
 aa
-ae
-uH
-VX
-db
-cL
 aa
 aa
 aa
@@ -47886,7 +47902,12 @@ aa
 aa
 aa
 aa
-aa
+ei
+eA
+rB
+GK
+SS
+ei
 aa
 aa
 aa
@@ -48130,11 +48151,6 @@ aa
 aa
 aa
 aa
-ae
-db
-VX
-iC
-ae
 aa
 aa
 aa
@@ -48143,7 +48159,12 @@ aa
 aa
 aa
 aa
-aa
+ei
+ei
+ei
+ei
+ei
+ei
 aa
 aa
 aa
@@ -48387,11 +48408,11 @@ cw
 aa
 aa
 aa
-ae
-db
-VX
-db
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -48644,11 +48665,11 @@ cw
 aa
 aa
 aa
-cL
-db
-VX
-db
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -48901,11 +48922,11 @@ cw
 aa
 aa
 aa
-cL
-db
-VX
-GJ
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -49158,11 +49179,11 @@ cw
 aa
 aa
 aa
-cL
-db
-VX
-db
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -49415,11 +49436,11 @@ cw
 aa
 aa
 aa
-ae
-db
-VX
-db
-cL
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -49672,11 +49693,11 @@ aa
 aa
 aa
 aa
-ae
-db
-VX
-db
-cL
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -49929,11 +49950,11 @@ aa
 aa
 aa
 aa
-ae
-uH
-VX
-db
-cL
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -50186,11 +50207,11 @@ aa
 aa
 aa
 aa
-cL
-db
-VX
-db
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -50443,11 +50464,11 @@ aa
 aa
 aa
 aa
-cL
-db
-VX
-db
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -50700,11 +50721,11 @@ aa
 aa
 aa
 aa
-cL
-db
-VX
-GJ
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -50957,11 +50978,11 @@ aa
 aa
 aa
 aa
-ae
-db
-VX
-db
-ae
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -51205,20 +51226,20 @@ aa
 aa
 aa
 aa
-hl
-Tn
-yR
-yR
-YX
-hl
 aa
 aa
 aa
-ae
-db
-VX
-db
-cL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -51462,20 +51483,20 @@ aa
 aa
 aa
 aa
-Ok
-VY
-hi
-YO
-sE
-Ok
 aa
 aa
 aa
-ae
-db
-VX
-db
-cL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -51719,20 +51740,20 @@ aa
 aa
 aa
 aa
-nG
-rl
-Nr
-Ye
-FM
-nG
 aa
 aa
 aa
-ae
-uH
-VX
-db
-cL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -51976,20 +51997,20 @@ aa
 aa
 aa
 aa
-nG
-Mz
-nG
-Nm
-Ng
-nG
-ae
-ae
-ae
-ae
-db
-VX
-eH
-ae
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -52233,20 +52254,20 @@ aa
 aa
 aa
 aa
-nG
-TS
-Yy
-PL
-hy
-TZ
-AZ
-uR
-VT
-im
-gp
-Zd
-db
-ae
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -52490,20 +52511,20 @@ aa
 aa
 aa
 aa
-nG
-TS
-nG
-UE
-Qx
-eA
-ae
-cL
-ae
-ae
-cL
-cL
-cL
-ae
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -52747,12 +52768,12 @@ aa
 aa
 aa
 aa
-nG
-ZS
-Go
-mU
-Hw
-Yk
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -53004,12 +53025,12 @@ aa
 aa
 aa
 aa
-ei
-zl
-WM
-gN
-RE
-nG
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -53261,12 +53282,12 @@ aa
 aa
 aa
 aa
-ei
-YL
-Pn
-RS
-OG
-IT
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -53518,12 +53539,12 @@ aa
 aa
 aa
 aa
-nG
-HX
-ON
-NN
-SS
-VB
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -53775,12 +53796,12 @@ aa
 aa
 aa
 aa
-nG
-QK
-YH
-Nb
-nG
-nG
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -54032,12 +54053,12 @@ aa
 aa
 aa
 aa
-nG
-Uo
-YR
-mm
-VI
-nG
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -54289,12 +54310,12 @@ aa
 aa
 aa
 aa
-ei
-OK
-rB
-GK
-OK
-ei
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -54546,12 +54567,12 @@ aa
 aa
 aa
 aa
-ei
-ei
-ei
-ei
-ei
-ei
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

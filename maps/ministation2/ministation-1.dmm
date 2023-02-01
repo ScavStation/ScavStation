@@ -786,12 +786,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
-"hq" = (
-/obj/structure/bed/chair/office/comfy/brown{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/hop)
 "hr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1038,7 +1032,7 @@
 /obj/abstract/landmark/start{
 	name = "Patriarch of Security"
 	},
-/obj/structure/bed/chair/comfy/blue,
+/obj/structure/bed/chair/padded/blue,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "iy" = (
@@ -3212,7 +3206,9 @@
 /obj/abstract/landmark/start{
 	name = "Patriarch of Personnel"
 	},
-/obj/item/stool/padded,
+/obj/structure/bed/chair/office/comfy/brown{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "uI" = (
@@ -35766,7 +35762,7 @@ aV
 aR
 uI
 Ir
-hq
+wF
 jF
 Dw
 uI
