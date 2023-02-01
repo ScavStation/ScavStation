@@ -4557,7 +4557,10 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/smes/buildable/max_cap_in_out,
+/obj/machinery/power/smes/buildable/max_cap_in_out{
+	capacity = 5e+009;
+	charge = 5e+009
+	},
 /obj/machinery/camera/network/engineering,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -8321,6 +8324,9 @@
 /area/ministation/hall/n)
 "Qv" = (
 /obj/machinery/power/supermatter,
+/obj/machinery/mass_driver{
+	id_tag = "eject"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/ministation/supermatter)
 "Qw" = (
@@ -10058,6 +10064,11 @@
 	name = "Vent Safety";
 	pixel_x = -36;
 	pixel_y = 9
+	},
+/obj/machinery/button/mass_driver{
+	pixel_y = -4;
+	pixel_x = -35;
+	id_tag = "eject"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)

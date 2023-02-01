@@ -3471,6 +3471,7 @@
 	dir = 1;
 	pixel_y = -32
 	},
+/obj/item/scanner/autopsy,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/medical)
 "vO" = (
