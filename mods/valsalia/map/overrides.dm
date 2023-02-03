@@ -33,5 +33,8 @@
 	)
 	want_multiplier = 50 // pay good money for clam
 
+/datum/map/ministation
+	lobby_tracks = list(/decl/music_track/zazie)
+
 /datum/map/ministation2
 	lobby_tracks = list(/decl/music_track/zazie)
