@@ -1,7 +1,7 @@
 /datum/map/ministation
-	name = "Ministation Mk2"
+	name = "Ministation"
 	full_name = "Tradepost Mollusc"
-	path = "ministation2"
+	path = "ministation"
 	ground_noun = "floor"
 
 	station_name = "Tradepost Mollusc"
