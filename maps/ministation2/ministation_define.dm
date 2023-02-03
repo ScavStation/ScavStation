@@ -1,7 +1,7 @@
-/datum/map/ministation
-	name = "Ministation"
+/datum/map/ministation2
+	name = "Ministation2"
 	full_name = "Tradepost Mollusc"
-	path = "ministation"
+	path = "ministation2"
 	ground_noun = "floor"
 
 	station_name = "Tradepost Mollusc"
@@ -15,7 +15,7 @@
 
 	default_law_type = /datum/ai_laws/nanotrasen
 
-	lobby_screens = list('maps/ministation/ministation_lobby.png')
+	lobby_screens = list('maps/ministation2/ministation_lobby.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 3
@@ -49,6 +49,6 @@
 	)
 	default_spawn = /decl/spawnpoint/arrivals
 
-/datum/map/ministation/get_map_info()
+/datum/map/ministation2/get_map_info()
 	return "You're aboard the <b>[station_name],</b> an older station once used for unethical economic research. It has long since been repurposed as deep space communication relay, though only on paper. \
 	Onboard activity is at the whims of the [boss_name] who treat the station as a dumping ground for less desired tradehouse personnel."

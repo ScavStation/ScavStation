@@ -7,7 +7,7 @@ And then imported back to ScavStation!
 
 #if !defined(USING_MAP_DATUM)
 
-	#define USING_MAP_DATUM /datum/map/ministation
+	#define USING_MAP_DATUM /datum/map/ministation2
 
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
 
