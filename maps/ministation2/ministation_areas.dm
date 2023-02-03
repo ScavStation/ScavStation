@@ -29,15 +29,6 @@
 	icon_state = "white"
 	area_flags = AREA_FLAG_HALLWAY
 
-/area/ministation/hall/w
-	name = "\improper Port Hallway"
-
-/area/ministation/hall/s
-	name = "\improper Aft Hallway"
-
-/area/ministation/hall/e
-	name = "\improper Starboard Hallway"
-
 /area/ministation/hall/n
 	name = "\improper Forward Hallway"
 
@@ -45,9 +36,6 @@
 
 /area/ministation/hall/s1
 	name = "\improper L1 Aft Hallway"
-
-/area/ministation/hall/n1
-	name = "\improper L1 Forward Hallway"
 
 //  second floor hallways
 
@@ -73,30 +61,6 @@
 	icon_state = "orange"
 	secure = TRUE
 
-/area/ministation/maint/nw
-	name = "\improper Port Forward Maintenance"
-
-/area/ministation/maint/ne
-	name = "\improper Starboard Forward Maintenance"
-
-/area/ministation/maint/w
-	name = "\improper Port Maintenance"
-
-/area/ministation/maint/e
-	name = "\improper Starboard Maintenance"
-
-/area/ministation/maint/sw
-	name = "\improper Port Quarter Maintenance"
-
-/area/ministation/maint/se
-	name = "\improper Starboard Quarter Maintenance"
-
-/area/ministation/maint/sec
-	name = "\improper Security Maintenance"
-
-/area/ministation/maint/detective
-	name = "\improper Detective Office Maintenance"
-
 // First floor maint
 
 /area/ministation/maint/westatmos
@@ -115,12 +79,6 @@
 	name = "\improper Level One Central Maintenance"
 
 // Second Floor Maint
-
-/area/ministation/maint/arrivalnorth
-	name = "\improper Arrivals North Maintenance"
-
-/area/ministation/maint/arrivalsouth
-	name = "\improper Arrivals South Maintenance"
 
 /area/ministation/maint/l2centraln
 	name = "\improper Level Two Central North Maintenance"
@@ -170,10 +128,6 @@
 	name = "\improper Custodial Closet"
 	req_access = list(access_janitor)
 	icon_state = "janitor"
-
-/area/ministation/commons
-	name = "\improper Common Area"
-	icon_state = "pink"
 
 /area/ministation/cargo
 	name = "\improper Cargo Bay"
@@ -245,12 +199,6 @@
 	icon_state = "green"
 	secure = FALSE
 
-/area/ministation/crewstorage
-	name = "\improper Cryogenic Storage"
-	req_access = list()
-	icon_state = "green"
-	secure = FALSE
-
 /area/ministation/dorms
 	name = "\improper Dormatories"
 	req_access = list()
@@ -299,11 +247,6 @@
 	name = "\improper Tradehouse Representative Chamber"
 	req_access = list(access_lawyer)
 	icon_state = "brown"
-
-/area/ministation/yinglet_enclave
-	name = "\improper Abandoned section"
-	req_access = list(access_lawyer)
-	icon_state = "white"
 
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
