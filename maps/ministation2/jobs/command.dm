@@ -32,7 +32,7 @@
 
 /datum/job/ministation/captain/equip(var/mob/living/carbon/human/H)
 	. = ..()
-	if(H) 
+	if(H)
 		H.verbs |= /mob/proc/freetradeunion_rename_company
 
 /datum/job/ministation/captain/get_access()
@@ -81,6 +81,7 @@
 		access_heads,
 		access_medical,
 		access_engine,
+		access_atmospherics,
 		access_change_ids,
 		access_ai_upload,
 		access_eva,
@@ -119,6 +120,7 @@
 		access_heads,
 		access_medical,
 		access_engine,
+		access_atmospherics,
 		access_change_ids,
 		access_ai_upload,
 		access_eva,

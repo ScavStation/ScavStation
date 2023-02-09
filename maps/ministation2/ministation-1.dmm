@@ -255,6 +255,9 @@
 /area/ministation/maint/l2centraln)
 "cH" = (
 /obj/structure/catwalk,
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/ministation/hall/w2)
 "cN" = (
@@ -2163,9 +2166,6 @@
 /area/ministation/hydro)
 "qN" = (
 /obj/structure/catwalk,
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
 	icon_state = "warningcorner"
@@ -4281,8 +4281,9 @@
 /area/ministation/hall/w2)
 "zC" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/westleft,
-/obj/machinery/door/window/eastleft,
+/obj/machinery/door/airlock/glass/freezer{
+	autoset_access = 0
+	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/ministation/cafe)
 "zD" = (
@@ -5223,6 +5224,10 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/machinery/alarm{
+	pixel_y = -24;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/e2)
 "Jz" = (
@@ -5481,6 +5486,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"Nj" = (
+/obj/structure/table/reinforced,
+/obj/item/folder,
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/paleblue/full,
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "quarantine";
+	name = "quarantine shutters"
+	},
+/obj/item/bell,
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "Nm" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6472,6 +6491,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"Xm" = (
+/obj/structure/closet/crate/freezer,
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "Xq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -48137,7 +48160,7 @@ qs
 oz
 oz
 ov
-ON
+Nj
 iE
 ON
 Hy
@@ -51217,7 +51240,7 @@ aa
 oz
 pT
 qB
-pD
+Xm
 rS
 pD
 pD
