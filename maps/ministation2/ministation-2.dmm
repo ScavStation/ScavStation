@@ -478,6 +478,9 @@
 "bG" = (
 /obj/structure/closet/secure_closet/captains,
 /obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/head/helmet/space/void/scav/matriarch,
+/obj/item/clothing/suit/space/void/scav/matriarch,
+/obj/item/storage/belt/holster,
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "bH" = (
@@ -620,9 +623,6 @@
 /area/ministation/bridge)
 "cg" = (
 /obj/structure/catwalk,
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner"
 	},
@@ -1042,10 +1042,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "eF" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
 /obj/structure/fireaxecabinet{
 	pixel_x = 32
 	},
@@ -2470,7 +2466,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "ms" = (
-/obj/machinery/atmospherics/unary/tank/air,
+/obj/machinery/atmospherics/unary/tank/air{
+	start_pressure = 6000
+	},
 /obj/machinery/power/terminal{
 	dir = 4
 	},
@@ -2667,6 +2665,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
+	},
+/obj/machinery/alarm{
+	pixel_y = -24;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/s3)
@@ -3839,6 +3841,9 @@
 	icon_state = "warning"
 	},
 /obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/simulated/open,

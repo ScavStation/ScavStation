@@ -129,6 +129,11 @@
 	req_access = list(access_janitor)
 	icon_state = "janitor"
 
+/area/ministation/trash
+	name = "\improper Trash Room"
+	req_access = list(access_janitor)
+	icon_state = "janitor"
+
 /area/ministation/cargo
 	name = "\improper Cargo Bay"
 	req_access = list(access_cargo)
