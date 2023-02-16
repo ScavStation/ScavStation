@@ -107,8 +107,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "aW" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/turf/simulated/wall,
+/turf/simulated/floor/wood,
 /area/ministation/detective)
 "bj" = (
 /turf/simulated/wall,
@@ -125,6 +124,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
+"bx" = (
+/obj/item/storage/secure/safe{
+	pixel_x = 4;
+	pixel_y = 26
+	},
+/obj/machinery/network/requests_console{
+	department = "Detective's office";
+	pixel_x = 30
+	},
+/turf/simulated/floor/wood,
+/area/ministation/detective)
+"bA" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/secmaint)
 "bG" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -192,15 +208,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/Arrival)
 "cg" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
+/obj/abstract/landmark{
+	name = "carpspawn"
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/secmaint)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "cm" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -580,6 +592,7 @@
 /area/ministation/cafe)
 "fF" = (
 /obj/structure/ladder,
+/obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "fY" = (
@@ -854,10 +867,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/taperecorder,
 /obj/item/folder/yellow,
-/obj/item/storage/secure/safe{
-	pixel_x = 4;
-	pixel_y = 26
-	},
 /obj/structure/filingcabinet/wallcabinet{
 	pixel_x = 32
 	},
@@ -936,9 +945,6 @@
 /obj/structure/table/woodentable,
 /obj/item/folder/red,
 /obj/item/hand_labeler,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/detective)
 "if" = (
@@ -1015,7 +1021,7 @@
 /obj/abstract/landmark/start{
 	name = "Patriarch of Security"
 	},
-/obj/structure/bed/chair/padded/blue,
+/obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "iy" = (
@@ -1094,6 +1100,9 @@
 	pixel_x = 32
 	},
 /obj/item/clothing/head/beret/corp/sec,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/detective)
 "iH" = (
@@ -1476,9 +1485,13 @@
 	},
 /area/ministation/cafe)
 "mp" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/plating,
-/area/ministation/maint/secmaint)
+/obj/structure/closet/secure_closet{
+	req_access = list("ACCESS_FORENSICS");
+	name = "evidence locker";
+	closet_appearance = /decl/closet_appearance/secure_closet/security
+	},
+/turf/simulated/floor/wood,
+/area/ministation/detective)
 "mq" = (
 /turf/simulated/wall,
 /area/ministation/maint/l2centraln)
@@ -1491,7 +1504,7 @@
 	},
 /area/ministation/cafe)
 "mz" = (
-/obj/machinery/door/airlock/hatch/maintenance,
+/obj/machinery/door/airlock/security,
 /turf/simulated/floor/plating,
 /area/ministation/security)
 "mC" = (
@@ -1655,6 +1668,7 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
+/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ministation/security)
 "oc" = (
@@ -1728,9 +1742,6 @@
 "oB" = (
 /obj/machinery/light/small{
 	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2804,6 +2815,12 @@
 /obj/effect/floor_decal/ss13/l9,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"tl" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/security)
 "tm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -3286,6 +3303,13 @@
 /obj/machinery/door/window/brigdoor/eastleft,
 /turf/simulated/floor/plating,
 /area/ministation/medical)
+"vq" = (
+/obj/structure/closet/secure_closet/detective,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/ministation/detective)
 "vt" = (
 /obj/machinery/light{
 	dir = 1
@@ -4766,12 +4790,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "DC" = (
-/obj/machinery/network/requests_console{
-	department = "Detective's office";
-	pixel_x = -30
+/obj/machinery/computer/modular/preset/security{
+	dir = 4
 	},
-/obj/machinery/forensic,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet/red,
 /area/ministation/detective)
 "DF" = (
 /obj/abstract/landmark/start{
@@ -5033,6 +5055,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cryo)
+"HF" = (
+/obj/item/radio/intercom{
+	name = "Common Channel";
+	pixel_y = 25
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_y = -1;
+	pixel_x = -25
+	},
+/turf/simulated/floor/wood,
+/area/ministation/detective)
 "HJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 2
@@ -5286,8 +5320,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "KK" = (
-/obj/structure/closet/secure_closet/detective,
-/turf/simulated/floor/wood,
+/obj/machinery/forensic/microscope,
+/turf/simulated/floor/carpet/red,
 /area/ministation/detective)
 "KN" = (
 /obj/structure/cable{
@@ -5311,14 +5345,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "KW" = (
-/obj/item/radio/intercom{
-	name = "Common Channel";
-	pixel_y = 25
-	},
-/obj/machinery/computer/modular/preset/security{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
+/obj/machinery/forensic/dnascanner,
+/turf/simulated/floor/carpet/red,
 /area/ministation/detective)
 "KX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5466,6 +5494,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"Ne" = (
+/obj/structure/closet/secure_closet/warden,
+/turf/simulated/floor/plating,
+/area/ministation/security)
 "Nf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5821,6 +5853,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"PU" = (
+/obj/structure/closet/secure_closet/hos,
+/turf/simulated/floor/plating,
+/area/ministation/security)
 "PX" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -6170,6 +6206,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/Arrival)
+"TB" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/ministation/detective)
 "TD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -30175,7 +30215,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -33236,7 +33276,7 @@ aa
 aa
 HO
 HO
-HO
+cg
 HO
 HO
 HO
@@ -36576,7 +36616,7 @@ HO
 HO
 HO
 HO
-HO
+cg
 aa
 aa
 aa
@@ -38387,7 +38427,7 @@ HO
 HO
 HO
 HO
-oX
+rt
 al
 te
 aV
@@ -38644,7 +38684,7 @@ HO
 HO
 HO
 HO
-oX
+rt
 aV
 aV
 aV
@@ -38901,7 +38941,7 @@ HO
 HO
 HO
 HO
-oX
+rt
 pf
 zZ
 Ci
@@ -38924,7 +38964,7 @@ HO
 HO
 HO
 HO
-HO
+cg
 HO
 HO
 HO
@@ -39158,7 +39198,7 @@ HO
 HO
 HO
 HO
-oX
+rt
 qe
 Qj
 lR
@@ -39415,7 +39455,7 @@ HO
 HO
 HO
 HO
-oX
+rt
 qe
 qe
 rA
@@ -39663,6 +39703,7 @@ HO
 HO
 HO
 HO
+cg
 HO
 HO
 HO
@@ -39671,12 +39712,11 @@ HO
 HO
 HO
 HO
-HO
-oX
-Mb
-Mb
-Mb
-oX
+rt
+rt
+rt
+rt
+rt
 mH
 sD
 tx
@@ -40189,7 +40229,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 la
 RB
@@ -41210,8 +41250,8 @@ HO
 aa
 aa
 cY
-oj
-oj
+PU
+Ne
 fy
 cY
 DH
@@ -41468,7 +41508,7 @@ aa
 aa
 cY
 oj
-oj
+tl
 oj
 mz
 pd
@@ -42744,7 +42784,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -44037,7 +44077,7 @@ aa
 aa
 aa
 Rx
-mp
+jW
 cY
 cY
 cY
@@ -44295,7 +44335,7 @@ aa
 aa
 Rx
 ef
-jW
+bA
 ob
 oB
 Am
@@ -44551,10 +44591,10 @@ aa
 aa
 aa
 Rx
-Rx
-Rx
 ef
-cg
+zo
+Rx
+Rx
 JZ
 JZ
 JZ
@@ -44807,12 +44847,12 @@ aa
 aa
 aa
 aa
-aa
-aa
 Rx
 oc
 db
 JZ
+HF
+mp
 KW
 DC
 KK
@@ -45064,11 +45104,11 @@ aa
 aa
 aa
 aa
-aa
-aa
 Rx
 od
 zo
+TB
+aW
 aW
 HP
 Jo
@@ -45321,12 +45361,12 @@ aa
 aa
 aa
 aa
-aa
-aa
 Rx
 oD
 nX
 JZ
+bx
+vq
 hC
 id
 iG
@@ -45578,11 +45618,11 @@ aa
 aa
 aa
 aa
-aa
-aa
 Rx
 Rx
 zo
+Rx
+Rx
 Rx
 Rx
 JZ
@@ -45836,10 +45876,10 @@ aa
 aa
 aa
 aa
-aa
-aa
 Rx
 oE
+Am
+Am
 UB
 ul
 ef
@@ -46093,8 +46133,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+Rx
+Rx
 Rx
 Rx
 oz
@@ -47667,7 +47707,7 @@ ad
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -49207,7 +49247,7 @@ aa
 aa
 ad
 aa
-aa
+ab
 aa
 aa
 aa
