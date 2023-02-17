@@ -533,6 +533,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bO" = (
@@ -692,6 +693,10 @@
 "cw" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"cx" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "cD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1834,6 +1839,7 @@
 /area/ministation/science)
 "iM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/hologram/holopad/longrange,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "iN" = (
@@ -2755,6 +2761,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
+"ot" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "oB" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green/full,
@@ -32568,7 +32578,7 @@ cw
 cw
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -35867,7 +35877,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -39992,7 +40002,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 cw
 cw
@@ -43582,8 +43592,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -43839,8 +43849,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -44096,8 +44106,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -44353,8 +44363,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -44610,8 +44620,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -44867,8 +44877,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -45125,8 +45135,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -45155,7 +45165,7 @@ ae
 vo
 ae
 ae
-db
+ot
 VX
 db
 cL
@@ -45382,8 +45392,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -45926,7 +45936,7 @@ cw
 cw
 cw
 ae
-db
+cx
 db
 db
 ae
