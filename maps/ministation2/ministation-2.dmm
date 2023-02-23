@@ -293,7 +293,6 @@
 "be" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
-/obj/random_multi/single_item/captains_spare_id,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bf" = (
@@ -2810,11 +2809,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "nZ" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/item/handcuffs,
-/obj/effect/decal/cleanable/blood,
 /obj/machinery/network/relay,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
@@ -4560,7 +4554,6 @@
 	},
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/folder,
-/obj/random_multi/single_item/captains_spare_id,
 /turf/simulated/floor/carpet/red,
 /area/ministation/court)
 "My" = (
@@ -5420,6 +5413,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/closet/secure_closet/RD,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Tz" = (

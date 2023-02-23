@@ -1233,6 +1233,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"gg" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "trash_sort"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/ministation/trash)
 "gi" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -2091,10 +2102,12 @@
 /turf/simulated/floor/plating,
 /area/ministation/atmospherics)
 "kA" = (
-/obj/structure/closet/crate/bin/ministation,
 /obj/machinery/light_switch{
 	dir = 1;
 	pixel_y = -23
+	},
+/obj/structure/bed/chair/janicart{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
@@ -3555,17 +3568,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
-"vS" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id_tag = "trash_sort"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/ministation/trash)
 "vV" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -10661,6 +10663,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
+/obj/item/janicart_key,
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
 "YM" = (
@@ -41647,7 +41650,7 @@ eB
 rT
 WF
 hf
-vS
+gg
 lB
 MX
 MX
