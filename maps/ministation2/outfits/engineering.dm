@@ -6,7 +6,7 @@
 	pda_slot = slot_l_store_str
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 	head = /obj/item/clothing/head/hardhat
-	uniform = /obj/item/clothing/under/engineer
+	uniform = /obj/item/clothing/under/hazardjumpsuit/yinglet
 	r_pocket = /obj/item/t_scanner
 	id_type = /obj/item/card/id/ministation/engineering
 	pda_type = /obj/item/modular_computer/pda/engineering
@@ -23,7 +23,7 @@
 
 /decl/hierarchy/outfit/job/ministation/chief_engineer
 	name = "Job - Head Engineer"
-	uniform = /obj/item/clothing/under/chief_engineer
+	uniform = /obj/item/clothing/under/hazardjumpsuit/yinglet
 	glasses = /obj/item/clothing/glasses/welding/superior
 	suit = /obj/item/clothing/suit/storage/hazardvest
 	gloves = /obj/item/clothing/gloves/thick

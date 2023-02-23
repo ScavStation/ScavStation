@@ -2821,6 +2821,7 @@
 	},
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "pQ" = (
@@ -5698,6 +5699,8 @@
 "FH" = (
 /obj/structure/closet/secure_closet/engineering_personal,
 /obj/machinery/light,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "FI" = (
@@ -8426,7 +8429,8 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/structure/closet/secure_closet/atmos_personal,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "NX" = (

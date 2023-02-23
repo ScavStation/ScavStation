@@ -228,3 +228,9 @@
 	if(I && bodytype == BODYTYPE_YINGLET)
 		I.pixel_y = 3
 	return I
+
+/obj/item/clothing/under/hazardjumpsuit/yinglet
+	name = "small hazard jumpsuit"
+	icon = 'mods/valsalia/icons/clothing/under/hazardjumpsuit_yinglet.dmi'
+	icon_state = "yinglet body-slot_w_uniform"
+	bodytype_equip_flags = BODY_FLAG_YINGLET
