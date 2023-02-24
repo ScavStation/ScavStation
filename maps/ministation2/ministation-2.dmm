@@ -480,6 +480,7 @@
 /obj/item/clothing/head/helmet/space/void/scav/matriarch,
 /obj/item/clothing/suit/space/void/scav/matriarch,
 /obj/item/storage/belt/holster,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/captain,
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "bH" = (
@@ -740,6 +741,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"cI" = (
+/obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/robotics,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/science,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "cJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
@@ -5028,6 +5035,7 @@
 /area/ministation/yinglet_rep)
 "PW" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/science,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Qf" = (
@@ -5415,6 +5423,7 @@
 	},
 /obj/structure/closet/secure_closet/RD,
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/rd,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Tz" = (
@@ -42820,7 +42829,7 @@ db
 jw
 db
 NM
-db
+cI
 ae
 aa
 aa

@@ -1015,13 +1015,11 @@
 /area/ministation/Arrival)
 "ii" = (
 /obj/structure/closet/secure_closet/medical3,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#ffffff"
-	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
-	color = "#ffffff"
-	},
 /obj/item/clothing/suit/yinglabcoat,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/medical,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/medical,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/chemistry,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/paramedic,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "in" = (
@@ -4401,6 +4399,12 @@
 /obj/item/flashlight/pen,
 /obj/item/flashlight/pen,
 /obj/item/clothing/suit/straight_jacket,
+/obj/item/chems/hypospray/vial{
+	desc = "One of the first hyposprays ever made. Supposedly only a handful exist.";
+	name = "prototype hypospray";
+	origin_tech = null
+	},
+/obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "yK" = (
@@ -4765,6 +4769,7 @@
 /obj/item/storage/box/ammo/beanbags,
 /obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/hydroponics,
 /turf/simulated/floor/wood,
 /area/ministation/cafe)
 "Av" = (
@@ -5111,6 +5116,7 @@
 /obj/item/clothing/under/yinglet/scout,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/security,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "DJ" = (
@@ -5543,6 +5549,7 @@
 /obj/item/clothing/under/yinglet/scout,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/security,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Jl" = (
@@ -5777,6 +5784,7 @@
 /obj/structure/closet/secure_closet/hop2,
 /obj/item/book/skill/organizational/finance,
 /obj/item/clothing/suit/fancyrobe,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/HoP,
 /turf/simulated/floor/carpet,
 /area/ministation/hop)
 "MG" = (
@@ -5851,6 +5859,7 @@
 /area/ministation/hall/w2)
 "Ne" = (
 /obj/structure/closet/secure_closet/warden,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/security,
 /turf/simulated/floor/plating,
 /area/ministation/security)
 "Nf" = (
@@ -5944,13 +5953,9 @@
 /turf/simulated/open,
 /area/ministation/hall/w2)
 "ND" = (
-/obj/structure/table,
-/obj/item/clothing/accessory/stethoscope,
-/obj/item/chems/hypospray/vial{
-	desc = "One of the first hyposprays ever made. Supposedly only a handful exist.";
-	name = "prototype hypospray";
-	origin_tech = null
-	},
+/obj/structure/closet/secure_closet/CMO,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cmo,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "NO" = (
@@ -6221,6 +6226,7 @@
 /area/ministation/medical)
 "PU" = (
 /obj/structure/closet/secure_closet/hos,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/HoS,
 /turf/simulated/floor/plating,
 /area/ministation/security)
 "PX" = (

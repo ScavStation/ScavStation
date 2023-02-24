@@ -1155,6 +1155,8 @@
 	},
 /obj/item/key/cargo_train,
 /obj/structure/disposalpipe/segment,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cargo,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cargo,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fR" = (
@@ -2822,6 +2824,7 @@
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/ce,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "pQ" = (
@@ -3098,6 +3101,8 @@
 	level = 2
 	},
 /obj/structure/closet/jcloset,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/janitor,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/janitor,
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
 "sz" = (
@@ -4683,6 +4688,8 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet/miner,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/mining,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/mining,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "Di" = (
@@ -5701,6 +5708,8 @@
 /obj/machinery/light,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "FI" = (
@@ -8431,6 +8440,7 @@
 	},
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
 /obj/structure/closet/secure_closet/atmos_personal,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/atmos,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "NX" = (
