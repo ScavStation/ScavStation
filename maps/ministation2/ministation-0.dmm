@@ -79,7 +79,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "aW" = (
-/obj/machinery/camera/autoname,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -96,6 +95,7 @@
 	},
 /obj/item/clothing/head/helmet/space/void/scav/engineering,
 /obj/item/clothing/suit/space/void/scav/engineering,
+/obj/machinery/camera/network/command,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "bb" = (
@@ -821,10 +821,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "eM" = (
-/obj/machinery/camera/autoname,
 /obj/machinery/atm{
 	pixel_y = 32
 	},
+/obj/machinery/camera/network/hallway,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "eO" = (
@@ -3301,11 +3301,12 @@
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "ue" = (
-/obj/machinery/camera/autoname{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/camera/network/hallway{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/n)
+/area/ministation/hall/s1)
 "ug" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -3621,14 +3622,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "we" = (
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/hallway{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "wm" = (
@@ -4694,10 +4695,10 @@
 /area/ministation/supermatter)
 "Dk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/camera/autoname{
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/hallway{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "Dl" = (
@@ -9466,12 +9467,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "SE" = (
-/obj/machinery/camera/autoname{
-	dir = 8
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/ministation/hall/s1)
+/obj/machinery/camera/autoname,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "SF" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -41427,7 +41428,7 @@ dU
 di
 di
 gQ
-ue
+gQ
 kZ
 sy
 MN
@@ -43759,8 +43760,8 @@ zy
 ui
 ui
 ui
+ue
 ui
-SE
 ui
 QG
 ui
@@ -44232,7 +44233,7 @@ AF
 AF
 qM
 eu
-gX
+SE
 gX
 xm
 gX

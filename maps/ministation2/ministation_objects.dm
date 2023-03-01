@@ -1,5 +1,5 @@
 /turf/exterior/wall/random/ministation/get_weighted_mineral_list()
-	if(prob(80))	
+	if(prob(80))
 		. = list()
 	else if(prob(75))
 		if(strata)
@@ -61,3 +61,10 @@
 
 /obj/machinery/camera/motion/ministation
 	preset_channels = list("Satellite")
+
+/obj/machinery/camera/network/command
+	preset_channels = list("Command")
+	initial_access = list(access_bridge)
+
+/obj/machinery/camera/network/hallway
+	preset_channels = list("Hallway")

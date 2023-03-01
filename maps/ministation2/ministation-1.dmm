@@ -291,9 +291,6 @@
 /area/ministation/maint/l2centraln)
 "cH" = (
 /obj/structure/catwalk,
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /turf/simulated/open,
 /area/ministation/hall/w2)
 "cN" = (
@@ -1293,6 +1290,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"jO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/hallway{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "jR" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -2712,10 +2718,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/autoname,
 /obj/machinery/atm{
 	pixel_y = 32
 	},
+/obj/machinery/camera/network/hallway,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "sv" = (
@@ -4354,13 +4360,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "yD" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/camera/network/hallway{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -4428,6 +4434,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
+"yN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/hallway{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
 "yS" = (
 /obj/effect/floor_decal/ss13/l11,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5664,7 +5679,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/autoname{
+/obj/machinery/camera/network/hallway{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -6718,11 +6733,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/cryo)
 "Vr" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
+	},
+/obj/machinery/camera/network/command{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
@@ -37296,7 +37311,7 @@ PI
 aV
 aV
 GZ
-Sq
+jO
 kZ
 Wd
 qf
@@ -41151,7 +41166,7 @@ RB
 ty
 ty
 ty
-sM
+yN
 mH
 qf
 qf
