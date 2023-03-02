@@ -4095,6 +4095,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
+"DB" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/smartfridge/drying_rack,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "DF" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -40797,7 +40802,7 @@ ae
 mF
 db
 As
-oB
+DB
 ae
 iG
 ap

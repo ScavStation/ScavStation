@@ -6871,6 +6871,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "WL" = (
+/obj/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "WQ" = (
