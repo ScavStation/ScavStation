@@ -69,7 +69,8 @@
 		access_mailsorting,
 		access_mining,
 		access_mining_station,
-		access_external_airlocks
+		access_external_airlocks,
+		access_eva
 	)
 	minimal_access = list(
 		access_cargo,
