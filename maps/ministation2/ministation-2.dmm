@@ -32,7 +32,10 @@
 /area/ministation/bridge)
 "ao" = (
 /obj/structure/table/reinforced,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	name = "bridge fax machine";
+	department = "Bridge"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "ap" = (
@@ -1077,7 +1080,9 @@
 /area/ministation/shuttle/outgoing)
 "eB" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	department = "Court"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "eD" = (

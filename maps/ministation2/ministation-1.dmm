@@ -2597,7 +2597,9 @@
 /area/ministation/medical)
 "rU" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	department = "HoP"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "rW" = (
