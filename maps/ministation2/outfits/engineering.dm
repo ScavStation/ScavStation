@@ -32,6 +32,6 @@
 	hands = list(/obj/item/wrench)
 	belt = /obj/item/storage/belt/utility/full
 	id_type = /obj/item/card/id/ministation/engineering
-	r_pocket = /obj/item/radio
+	l_ear = /obj/item/radio/headset/heads/ce
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated

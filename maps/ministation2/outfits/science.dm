@@ -13,7 +13,7 @@
 
 /decl/hierarchy/outfit/job/ministation/scientist/head
 	name = "Tradeship - Job - Head Researcher"
-	l_ear = /obj/item/radio/headset/headset_sci
+	l_ear = /obj/item/radio/headset/heads/rd
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 	shoes = /obj/item/clothing/shoes/dress
 	pda_type = /obj/item/modular_computer/pda/science
