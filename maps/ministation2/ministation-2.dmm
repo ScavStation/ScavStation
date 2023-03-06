@@ -169,6 +169,9 @@
 "aQ" = (
 /obj/structure/displaycase,
 /obj/item/sword/replica/officersword,
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aR" = (
@@ -614,12 +617,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bZ" = (
-/obj/machinery/network/requests_console{
-	announcementConsole = 1;
-	department = "Bridge";
-	name = "Bridge RC";
-	pixel_y = -30
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -664,6 +661,14 @@
 "co" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/yinglet_rep)
+"cp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "cr" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -756,6 +761,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/ministation/science)
+"cP" = (
+/obj/machinery/network/acl,
+/turf/simulated/floor/bluegrid{
+	name = "Mainframe Base";
+	temperature = 263
+	},
+/area/ministation/telecomms)
 "cU" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -1567,6 +1579,10 @@
 /obj/item/clothing/mask/gas/budget,
 /obj/item/clothing/glasses/science,
 /obj/machinery/camera/network/research,
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hh" = (
@@ -1873,11 +1889,6 @@
 /obj/structure/table,
 /obj/item/hand_labeler,
 /obj/item/pen,
-/obj/machinery/network/requests_console{
-	department = "Science";
-	name = "Science Requests Console";
-	pixel_x = -30
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "iJ" = (
@@ -3659,6 +3670,10 @@
 /area/ministation/telecomms)
 "Bu" = (
 /obj/machinery/computer/telecomms/server,
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Bv" = (
@@ -3945,6 +3960,10 @@
 	pixel_y = 32
 	},
 /obj/structure/table,
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "De" = (
@@ -3979,12 +3998,6 @@
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
-	},
-/obj/machinery/network/requests_console{
-	announcementConsole = 1;
-	department = "Telecoms Admin";
-	name = "Telecoms RC";
-	pixel_x = 30
 	},
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
@@ -4178,6 +4191,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
+"FW" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/network/pager,
+/turf/simulated/floor/tiled,
+/area/ministation/bridge)
 "Gh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5158,6 +5178,13 @@
 /obj/structure/sign/warning/server_room,
 /turf/simulated/floor/plating,
 /area/ministation/science)
+"QR" = (
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
+/turf/simulated/floor/wood/yew,
+/area/ministation/court)
 "QW" = (
 /obj/machinery/firealarm,
 /turf/simulated/floor/wood/mahogany,
@@ -5693,6 +5720,10 @@
 "VW" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
@@ -35402,7 +35433,7 @@ aG
 of
 Aa
 Ax
-sr
+cP
 AM
 AV
 Bq
@@ -37947,7 +37978,7 @@ OW
 Qu
 OW
 uV
-OW
+cp
 zs
 hS
 hS
@@ -38943,7 +38974,7 @@ Dz
 az
 pM
 aJ
-aY
+FW
 bO
 bY
 ci
@@ -40495,7 +40526,7 @@ nl
 nl
 Tc
 Rx
-Ir
+QR
 Ir
 ND
 Ir

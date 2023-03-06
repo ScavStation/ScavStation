@@ -375,10 +375,13 @@
 /turf/simulated/floor/plating,
 /area/ministation/cargo)
 "cz" = (
-/obj/machinery/status_display{
-	pixel_y = 2
+/obj/effect/floor_decal/industrial/loading{
+	dir = 4
 	},
-/turf/simulated/wall,
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
+/turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "cA" = (
 /obj/machinery/door/airlock/external/glass{
@@ -999,8 +1002,7 @@
 	pixel_y = -5
 	},
 /obj/item/multitool,
-/obj/machinery/network/requests_console{
-	department = "Cargo Bay";
+/obj/machinery/status_display{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
@@ -3671,9 +3673,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "wS" = (
-/obj/machinery/network/requests_console{
-	department = "Janitorial";
-	pixel_y = -29
+/obj/machinery/status_display{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
@@ -5083,9 +5084,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/network/requests_console{
-	department = "Engineering";
-	name = "Engineering RC";
+/obj/machinery/status_display{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
@@ -7386,11 +7385,6 @@
 /obj/abstract/landmark/start{
 	name = "AI"
 	},
-/obj/machinery/network/requests_console{
-	department = "AI";
-	pixel_x = 32;
-	pixel_y = 32
-	},
 /obj/machinery/newscaster{
 	pixel_x = -32;
 	pixel_y = 32
@@ -7398,6 +7392,10 @@
 /obj/structure/cable{
 	icon_state = "0-2";
 	pixel_y = 1
+	},
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = 31
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
@@ -7731,6 +7729,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
+	},
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = 31
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/ai_sat)
@@ -8511,6 +8513,9 @@
 	dir = 4;
 	pixel_x = -23
 	},
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/supermatter)
 "Oj" = (
@@ -9170,6 +9175,9 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "Rp" = (
@@ -10174,6 +10182,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"Wd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "We" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -38318,7 +38335,7 @@ ad
 cn
 cn
 au
-cN
+cz
 dC
 dI
 cl
@@ -39602,7 +39619,7 @@ aa
 aa
 cn
 cn
-cz
+au
 cR
 cx
 dG
@@ -45009,7 +45026,7 @@ Cb
 YV
 xg
 yH
-ne
+Wd
 zW
 Vf
 AX

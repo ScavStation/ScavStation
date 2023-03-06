@@ -855,8 +855,7 @@
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/earmuffs,
 /obj/item/clothing/head/earmuffs,
-/obj/machinery/network/requests_console{
-	department = "Security";
+/obj/machinery/status_display{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
@@ -2012,6 +2011,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/status_display{
+	pixel_y = 33;
+	pixel_x = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "pJ" = (
@@ -2536,16 +2539,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rM" = (
-/obj/machinery/network/requests_console{
-	department = "Medbay";
-	name = "Medbay RC";
-	pixel_y = -30
-	},
 /obj/structure/closet/crate/bin/ministation,
 /obj/random/trash,
 /obj/item/chems/syringe,
 /obj/item/trash/stick,
 /obj/item/organ/internal/appendix,
+/obj/machinery/status_display{
+	pixel_y = -29
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rN" = (
@@ -3857,10 +3858,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wS" = (
-/obj/machinery/network/requests_console{
-	department = "Bar";
-	pixel_x = 30
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -4607,6 +4604,9 @@
 /area/ministation/cafe)
 "zI" = (
 /obj/machinery/cooker/oven,
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
 /turf/simulated/floor/wood,
 /area/ministation/cafe)
 "zJ" = (
@@ -5449,6 +5449,12 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
+"Ie" = (
+/obj/machinery/status_display{
+	pixel_y = -29
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "Ij" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -5485,13 +5491,10 @@
 "Ir" = (
 /obj/structure/table,
 /obj/item/folder/blue,
-/obj/machinery/network/requests_console{
-	announcementConsole = 1;
-	department = "Lieutenant Office";
-	name = "Lieutenant RC";
+/obj/item/storage/box/PDAs,
+/obj/machinery/status_display{
 	pixel_y = 30
 	},
-/obj/item/storage/box/PDAs,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "Iw" = (
@@ -5789,6 +5792,10 @@
 	dir = 1
 	},
 /obj/abstract/landmark/latejoin/cryo,
+/obj/machinery/status_display{
+	pixel_y = -1;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cryo)
 "MA" = (
@@ -6613,6 +6620,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"TS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
 "TV" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -6764,9 +6786,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Vu" = (
-/obj/machinery/network/requests_console{
-	department = "Garden";
-	pixel_x = 30
+/obj/machinery/status_display{
+	pixel_y = -1;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
@@ -31670,7 +31692,7 @@ UZ
 Pf
 Pf
 Pf
-ed
+Ie
 Pf
 Ww
 Ww
@@ -32955,7 +32977,7 @@ UZ
 Pf
 Pf
 Pf
-ed
+Ie
 Pf
 Rk
 Rk
@@ -41420,7 +41442,7 @@ cY
 aa
 aa
 mH
-RB
+TS
 ty
 ty
 ty
