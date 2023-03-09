@@ -4813,6 +4813,7 @@
 /obj/item/storage/backpack/clown,
 /obj/item/bikehorn,
 /obj/item/storage/fancy/crayons,
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "Ay" = (
@@ -5249,6 +5250,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "Fr" = (
@@ -5665,6 +5667,7 @@
 "Kd" = (
 /obj/structure/closet,
 /obj/random/maintenance,
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "Kr" = (
@@ -6310,6 +6313,7 @@
 /obj/structure/closet,
 /obj/random/maintenance,
 /obj/random/suit,
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "QF" = (

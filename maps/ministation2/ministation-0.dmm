@@ -443,6 +443,8 @@
 "cL" = (
 /obj/structure/table/woodentable,
 /obj/item/paicard,
+/obj/item/contraband/poster,
+/obj/item/contraband/poster,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "cM" = (
@@ -2722,6 +2724,7 @@
 "oC" = (
 /obj/structure/table/woodentable,
 /obj/machinery/recharger,
+/obj/item/contraband/poster,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "oE" = (
