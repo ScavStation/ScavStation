@@ -393,3 +393,14 @@
 	name = "small security winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/sec.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat
+	name = "small Ivenmoth winter coat"
+	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/red.dmi'
+	hood = /obj/item/clothing/head/winterhood/yinglet/redcoat
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/winterhood/yinglet/redcoat
+	name = "small Ivenmoth winter hood"
+	icon = 'mods/valsalia/icons/clothing/head/winterhood/red.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET

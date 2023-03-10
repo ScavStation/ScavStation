@@ -58,3 +58,7 @@
 /decl/loadout_option/suit/yingcape
 	name = "small cape"
 	path = /obj/item/clothing/suit/yingcape
+
+/decl/loadout_option/suit/winterredcoat
+	name = "winter coat, yinglet, Ivenmoth"
+	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat

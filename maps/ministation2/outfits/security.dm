@@ -17,7 +17,7 @@
 
 /decl/hierarchy/outfit/job/ministation/security/head
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	l_ear = /obj/item/radio/headset/headset_sec
+	l_ear = /obj/item/radio/headset/heads/hos
 	gloves = /obj/item/clothing/gloves/thick
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/handcuffs = 1)
