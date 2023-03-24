@@ -3020,6 +3020,12 @@
 /obj/structure/bed/chair/padded/blue,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"qN" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/bridge)
 "qY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3351,6 +3357,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
+"vU" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "wa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -4274,6 +4289,12 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
+"Hl" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/bridge)
 "Ho" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -5133,6 +5154,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "Qt" = (
@@ -5402,6 +5426,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
+"SF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/bridge)
 "SG" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -5968,6 +6001,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"Yp" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "Yv" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6172,6 +6211,9 @@
 "ZB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -38213,9 +38255,9 @@ Qs
 yd
 ZB
 bM
-aJ
+qN
 yd
-sC
+Yp
 sB
 sC
 sC
@@ -38725,11 +38767,11 @@ bA
 bM
 Qs
 yd
-aJ
+Hl
 bM
-bM
+SF
 yd
-sB
+vU
 sC
 sC
 sC
