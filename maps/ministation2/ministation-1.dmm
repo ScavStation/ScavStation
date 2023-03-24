@@ -4522,6 +4522,7 @@
 /obj/item/minihoe,
 /obj/item/minihoe,
 /obj/item/book/skill/service/botany,
+/obj/item/wirecutters/clippers,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "zl" = (
