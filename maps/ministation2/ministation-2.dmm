@@ -32,7 +32,10 @@
 /area/ministation/bridge)
 "ao" = (
 /obj/structure/table/reinforced,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	name = "bridge fax machine";
+	department = "Bridge"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "ap" = (
@@ -169,6 +172,9 @@
 "aQ" = (
 /obj/structure/displaycase,
 /obj/item/sword/replica/officersword,
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aR" = (
@@ -484,15 +490,14 @@
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "bH" = (
-/obj/machinery/camera{
-	c_tag = "Captain's Quarters";
-	dir = 1
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/bed/chair/comfy/captain{
 	dir = 4
+	},
+/obj/machinery/camera/network/command{
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
@@ -563,9 +568,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge/vault)
 "bV" = (
-/obj/machinery/camera/autoname{
-	dir = 1
-	},
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
@@ -576,6 +578,9 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/machinery/camera/network/command{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -615,12 +620,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bZ" = (
-/obj/machinery/network/requests_console{
-	announcementConsole = 1;
-	department = "Bridge";
-	name = "Bridge RC";
-	pixel_y = -30
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -665,6 +664,14 @@
 "co" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/yinglet_rep)
+"cp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "cr" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -757,6 +764,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/ministation/science)
+"cP" = (
+/obj/machinery/network/acl,
+/turf/simulated/floor/bluegrid{
+	name = "Mainframe Base";
+	temperature = 263
+	},
+/area/ministation/telecomms)
 "cU" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -838,9 +852,6 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/n3)
@@ -1069,7 +1080,9 @@
 /area/ministation/shuttle/outgoing)
 "eB" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	department = "Court"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "eD" = (
@@ -1113,9 +1126,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3nw)
 "eO" = (
@@ -1574,6 +1584,10 @@
 /obj/item/clothing/mask/gas/budget,
 /obj/item/clothing/glasses/science,
 /obj/machinery/camera/network/research,
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hh" = (
@@ -1880,11 +1894,6 @@
 /obj/structure/table,
 /obj/item/hand_labeler,
 /obj/item/pen,
-/obj/machinery/network/requests_console{
-	department = "Science";
-	name = "Science Requests Console";
-	pixel_x = -30
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "iJ" = (
@@ -2541,9 +2550,6 @@
 /area/ministation/science)
 "lH" = (
 /obj/machinery/door/airlock/civilian,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/library)
 "mf" = (
@@ -2671,7 +2677,6 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/research,
-/obj/item/wirecutters/clippers,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "mH" = (
@@ -2711,9 +2716,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "nj" = (
-/obj/machinery/camera/autoname{
-	dir = 1
-	},
+/obj/machinery/camera/network/command,
 /turf/simulated/floor/bluegrid,
 /area/ministation/bridge/vault)
 "nl" = (
@@ -2800,9 +2803,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "nQ" = (
@@ -2811,9 +2811,6 @@
 /area/ministation/maint/l3ne)
 "nS" = (
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "nW" = (
@@ -2860,9 +2857,6 @@
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
 "of" = (
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /obj/machinery/commsrelay,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -3018,12 +3012,6 @@
 	dir = 5
 	},
 /obj/structure/bed/chair/padded/blue,
-/turf/simulated/floor/tiled,
-/area/ministation/bridge)
-"qN" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "qY" = (
@@ -3288,9 +3276,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "uR" = (
@@ -3357,15 +3342,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
-"vU" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/hall/n3)
 "wa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -3379,10 +3355,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "we" = (
-/obj/machinery/camera/autoname{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/camera/network/hallway{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "wM" = (
@@ -3418,6 +3394,12 @@
 	},
 /turf/space,
 /area/space)
+"yc" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/ministation/library)
 "yd" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
@@ -3425,9 +3407,6 @@
 /area/ministation/bridge)
 "yh" = (
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "ym" = (
@@ -3446,9 +3425,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/science)
 "yz" = (
@@ -3526,6 +3502,9 @@
 /area/ministation/maint/l3sw)
 "Aa" = (
 /obj/machinery/telecomms/bus/preset_one/ministation,
+/obj/machinery/camera/network/command{
+	dir = 4
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3609,9 +3588,6 @@
 /area/ministation/telecomms)
 "AX" = (
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/yinglet_rep)
 "AZ" = (
@@ -3634,9 +3610,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
@@ -3677,7 +3650,7 @@
 	},
 /area/ministation/telecomms)
 "Bq" = (
-/obj/machinery/camera/autoname{
+/obj/machinery/camera/network/command{
 	dir = 4
 	},
 /turf/simulated/floor/bluegrid{
@@ -3702,6 +3675,10 @@
 /area/ministation/telecomms)
 "Bu" = (
 /obj/machinery/computer/telecomms/server,
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Bv" = (
@@ -3815,7 +3792,6 @@
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Cl" = (
-/obj/machinery/camera/autoname,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
@@ -3824,6 +3800,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/camera/network/command,
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Co" = (
@@ -3988,6 +3965,10 @@
 	pixel_y = 32
 	},
 /obj/structure/table,
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "De" = (
@@ -4023,12 +4004,6 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/network/requests_console{
-	announcementConsole = 1;
-	department = "Telecoms Admin";
-	name = "Telecoms RC";
-	pixel_x = 30
-	},
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Dh" = (
@@ -4046,7 +4021,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "Dk" = (
-/obj/machinery/camera/autoname{
+/obj/machinery/camera/network/hallway{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -4104,9 +4079,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "Dx" = (
@@ -4141,6 +4113,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
+"DB" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/smartfridge/drying_rack,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
+"DF" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/court)
 "Ec" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4222,9 +4205,6 @@
 /area/ministation/maint/l3sw)
 "Gi" = (
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "Go" = (
@@ -4247,9 +4227,6 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
@@ -4289,12 +4266,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
-"Hl" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/bridge)
 "Ho" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -4343,9 +4314,6 @@
 /obj/machinery/door/airlock,
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/court)
@@ -4443,13 +4411,6 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
-"JE" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/court)
 "JJ" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -4690,6 +4651,13 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"MU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/camera/network/hallway{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "MV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5154,9 +5122,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "Qt" = (
@@ -5202,6 +5167,7 @@
 /area/ministation/hall/s3)
 "QK" = (
 /obj/machinery/computer/shuttle_control/explore/ministation,
+/obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "QP" = (
@@ -5210,6 +5176,13 @@
 /obj/structure/sign/warning/server_room,
 /turf/simulated/floor/plating,
 /area/ministation/science)
+"QR" = (
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
+	},
+/turf/simulated/floor/wood/yew,
+/area/ministation/court)
 "QW" = (
 /obj/machinery/firealarm,
 /turf/simulated/floor/wood/mahogany,
@@ -5341,9 +5314,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "RV" = (
@@ -5420,21 +5390,12 @@
 /area/ministation/hall/s3)
 "SE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/camera/autoname{
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/hallway{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
-"SF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/bridge)
 "SG" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -5498,11 +5459,13 @@
 /turf/simulated/floor/airless,
 /area/ministation/shuttle/outgoing)
 "Tq" = (
-/obj/machinery/camera/network/security{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/hallway{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/court)
+/area/ministation/hall/n3)
 "Tr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -5710,7 +5673,7 @@
 /obj/structure/bed/chair/comfy/captain{
 	dir = 8
 	},
-/obj/machinery/camera/network/security{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/red,
@@ -5755,6 +5718,10 @@
 "VW" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -33
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
@@ -5827,9 +5794,6 @@
 /area/ministation/library)
 "Wx" = (
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "WA" = (
@@ -6001,12 +5965,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
-"Yp" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/hall/n3)
 "Yv" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6123,9 +6081,6 @@
 	dir = 4;
 	id_tag = "science_shuttle_pump_out_external"
 	},
-/obj/structure/handrail{
-	dir = 8
-	},
 /turf/simulated/floor/airless,
 /area/ministation/shuttle/outgoing)
 "YZ" = (
@@ -6211,9 +6166,6 @@
 "ZB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -35479,7 +35431,7 @@ aG
 of
 Aa
 Ax
-sr
+cP
 AM
 AV
 Bq
@@ -38005,7 +37957,7 @@ cr
 So
 So
 fz
-OW
+MU
 OW
 OW
 Md
@@ -38024,7 +37976,7 @@ OW
 Qu
 OW
 uV
-OW
+cp
 zs
 hS
 hS
@@ -38255,9 +38207,9 @@ Qs
 yd
 ZB
 bM
-qN
+aJ
 yd
-Yp
+sC
 sB
 sC
 sC
@@ -38767,11 +38719,11 @@ bA
 bM
 Qs
 yd
-Hl
+aJ
 bM
-SF
+bM
 yd
-vU
+sB
 sC
 sC
 sC
@@ -39042,7 +38994,7 @@ gy
 VZ
 Qt
 hV
-VZ
+Tq
 VZ
 cJ
 VZ
@@ -40572,7 +40524,7 @@ nl
 nl
 Tc
 Rx
-Ir
+QR
 Ir
 ND
 Ir
@@ -40582,7 +40534,7 @@ rW
 Sa
 LM
 OM
-LM
+yc
 MP
 UG
 Vq
@@ -40879,7 +40831,7 @@ ae
 mF
 db
 As
-oB
+DB
 ae
 iG
 ap
@@ -41077,7 +41029,7 @@ aa
 bg
 bp
 bR
-nj
+bq
 bg
 ad
 aa
@@ -41332,7 +41284,7 @@ aa
 aa
 aa
 bg
-bq
+nj
 bq
 bq
 bg
@@ -42114,13 +42066,13 @@ aa
 nl
 Vt
 yH
-JE
+tZ
 Nw
 OP
 Nw
 Nw
 Nw
-Tq
+Nw
 Sa
 Sa
 Sa
@@ -42376,7 +42328,7 @@ SW
 et
 aq
 nW
-Nw
+DF
 Nw
 Rx
 WJ

@@ -44,9 +44,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
 "ax" = (
@@ -294,9 +291,6 @@
 /area/ministation/maint/l2centraln)
 "cH" = (
 /obj/structure/catwalk,
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /turf/simulated/open,
 /area/ministation/hall/w2)
 "cN" = (
@@ -523,9 +517,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
-	},
-/obj/machinery/door/firedoor{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
@@ -864,8 +855,7 @@
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/earmuffs,
 /obj/item/clothing/head/earmuffs,
-/obj/machinery/network/requests_console{
-	department = "Security";
+/obj/machinery/status_display{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
@@ -1299,6 +1289,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"jO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/hallway{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "jR" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -2012,6 +2011,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/status_display{
+	pixel_y = 33;
+	pixel_x = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "pJ" = (
@@ -2536,16 +2539,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rM" = (
-/obj/machinery/network/requests_console{
-	department = "Medbay";
-	name = "Medbay RC";
-	pixel_y = -30
-	},
 /obj/structure/closet/crate/bin/ministation,
 /obj/random/trash,
 /obj/item/chems/syringe,
 /obj/item/trash/stick,
 /obj/item/organ/internal/appendix,
+/obj/machinery/status_display{
+	pixel_y = -29
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rN" = (
@@ -2596,7 +2597,9 @@
 /area/ministation/medical)
 "rU" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	department = "HoP"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "rW" = (
@@ -2718,10 +2721,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/autoname,
 /obj/machinery/atm{
 	pixel_y = 32
 	},
+/obj/machinery/camera/network/hallway,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "sv" = (
@@ -2857,9 +2860,6 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
@@ -3860,10 +3860,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wS" = (
-/obj/machinery/network/requests_console{
-	department = "Bar";
-	pixel_x = 30
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -4363,13 +4359,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "yD" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/camera/network/hallway{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -4437,6 +4433,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
+"yN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/hallway{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
 "yS" = (
 /obj/effect/floor_decal/ss13/l11,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4517,7 +4522,6 @@
 /obj/item/minihoe,
 /obj/item/minihoe,
 /obj/item/book/skill/service/botany,
-/obj/item/wirecutters/clippers,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "zl" = (
@@ -4602,6 +4606,9 @@
 /area/ministation/cafe)
 "zI" = (
 /obj/machinery/cooker/oven,
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
 /turf/simulated/floor/wood,
 /area/ministation/cafe)
 "zJ" = (
@@ -4806,6 +4813,7 @@
 /obj/item/storage/backpack/clown,
 /obj/item/bikehorn,
 /obj/item/storage/fancy/crayons,
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "Ay" = (
@@ -5031,12 +5039,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "Cx" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/secmaint)
+/obj/effect/wallframe_spawn/reinforced,
+/turf/space,
+/area/ministation/cafe)
 "CD" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
@@ -5115,9 +5120,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "DH" = (
@@ -5137,9 +5139,6 @@
 /area/ministation/security)
 "DJ" = (
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "Ea" = (
@@ -5251,6 +5250,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "Fr" = (
@@ -5370,9 +5370,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "Hy" = (
@@ -5456,6 +5453,12 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
+"Ie" = (
+/obj/machinery/status_display{
+	pixel_y = -29
+	},
+/turf/simulated/floor/plating,
+/area/ministation/Arrival)
 "Ij" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -5492,13 +5495,10 @@
 "Ir" = (
 /obj/structure/table,
 /obj/item/folder/blue,
-/obj/machinery/network/requests_console{
-	announcementConsole = 1;
-	department = "Lieutenant Office";
-	name = "Lieutenant RC";
+/obj/item/storage/box/PDAs,
+/obj/machinery/status_display{
 	pixel_y = 30
 	},
-/obj/item/storage/box/PDAs,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "Iw" = (
@@ -5667,6 +5667,7 @@
 "Kd" = (
 /obj/structure/closet,
 /obj/random/maintenance,
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "Kr" = (
@@ -5686,7 +5687,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/camera/autoname{
+/obj/machinery/camera/network/hallway{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -5796,6 +5797,10 @@
 	dir = 1
 	},
 /obj/abstract/landmark/latejoin/cryo,
+/obj/machinery/status_display{
+	pixel_y = -1;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cryo)
 "MA" = (
@@ -6308,6 +6313,7 @@
 /obj/structure/closet,
 /obj/random/maintenance,
 /obj/random/suit,
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "QF" = (
@@ -6467,9 +6473,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "Sp" = (
@@ -6607,9 +6610,6 @@
 /area/ministation/Arrival)
 "TB" = (
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/detective)
 "TD" = (
@@ -6623,6 +6623,21 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
+"TS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/status_display{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
@@ -6746,11 +6761,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/cryo)
 "Vr" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
+	},
+/obj/machinery/camera/network/command{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
@@ -6777,9 +6792,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Vu" = (
-/obj/machinery/network/requests_console{
-	department = "Garden";
-	pixel_x = 30
+/obj/machinery/status_display{
+	pixel_y = -1;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
@@ -6884,6 +6899,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "WL" = (
+/obj/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "WQ" = (
@@ -6908,6 +6924,8 @@
 /obj/item/clothing/under/yinglet/yingjumpsuit{
 	color = "#808080"
 	},
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "WY" = (
@@ -31682,7 +31700,7 @@ UZ
 Pf
 Pf
 Pf
-ed
+Ie
 Pf
 Ww
 Ww
@@ -32967,7 +32985,7 @@ UZ
 Pf
 Pf
 Pf
-ed
+Ie
 Pf
 Rk
 Rk
@@ -37324,7 +37342,7 @@ PI
 aV
 aV
 GZ
-Sq
+jO
 kZ
 Wd
 qf
@@ -41179,7 +41197,7 @@ RB
 ty
 ty
 ty
-sM
+yN
 mH
 qf
 qf
@@ -41432,7 +41450,7 @@ cY
 aa
 aa
 mH
-RB
+TS
 ty
 ty
 ty
@@ -44275,7 +44293,7 @@ zf
 zE
 Ae
 Au
-ED
+Cx
 aa
 aa
 aa
@@ -44532,7 +44550,7 @@ bj
 zF
 Af
 Av
-ED
+Cx
 aa
 aa
 aa
@@ -46568,7 +46586,7 @@ Rx
 Rx
 oz
 oz
-Cx
+jW
 oz
 oz
 wc
