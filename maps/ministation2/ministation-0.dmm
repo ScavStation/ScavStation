@@ -1236,6 +1236,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "ga" = (
@@ -4912,9 +4915,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
@@ -10182,6 +10182,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
@@ -43035,7 +43038,7 @@ sC
 aV
 VZ
 Fi
-DC
+bk
 tg
 DC
 Zi
@@ -43549,7 +43552,7 @@ aV
 aV
 fZ
 Fi
-DC
+bk
 Gt
 DC
 Zi
