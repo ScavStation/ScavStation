@@ -1860,7 +1860,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "jd" = (
-/obj/machinery/door/airlock/hatch/maintenance,
+/obj/machinery/door/airlock/hatch/maintenance{
+	autoset_access = 0
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "je" = (
@@ -4480,11 +4482,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
-"Cd" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/ministation/hall/s1)
 "Cg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -6137,7 +6134,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "GL" = (
-/obj/machinery/door/airlock/civilian,
+/obj/machinery/door/airlock/civilian{
+	autoset_access = 0
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -8783,6 +8782,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"Pa" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/ministation/hall/s1)
 "Pb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1
@@ -42485,9 +42489,9 @@ wM
 ms
 ms
 ms
-Cd
-Cd
-Cd
+Pa
+Pa
+Pa
 ms
 ms
 ms
@@ -44015,16 +44019,16 @@ di
 di
 ms
 ms
-Cd
-Cd
-Cd
+Pa
+Pa
+Pa
 ms
 ms
 ms
 ms
-Cd
-Cd
-Cd
+Pa
+Pa
+Pa
 ms
 ms
 ms
@@ -44033,9 +44037,9 @@ ms
 ms
 ms
 ms
-Cd
-Cd
-Cd
+Pa
+Pa
+Pa
 ms
 ms
 ms
