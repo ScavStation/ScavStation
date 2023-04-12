@@ -483,8 +483,6 @@
 "bG" = (
 /obj/structure/closet/secure_closet/captains,
 /obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/head/helmet/space/void/scav/matriarch,
-/obj/item/clothing/suit/space/void/scav/matriarch,
 /obj/item/storage/belt/holster,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/captain,
 /turf/simulated/floor/carpet/red,
@@ -5182,6 +5180,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
+"QC" = (
+/obj/structure/closet/secure_closet{
+	closet_appearance = /decl/closet_appearance/secure_closet/rd;
+	req_access = list("ACCESS_RESEARCH");
+	name = "Science locker"
+	},
+/obj/item/clothing/head/helmet/space/void/scav/science,
+/obj/item/clothing/suit/space/void/scav/science,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "QD" = (
 /obj/structure/table/woodentable,
 /obj/item/book/printable_red,
@@ -45225,7 +45233,7 @@ ey
 mJ
 mJ
 ae
-db
+QC
 VX
 db
 cL

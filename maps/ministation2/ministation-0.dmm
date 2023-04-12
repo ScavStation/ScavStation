@@ -89,13 +89,13 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet{
-	closet_appearance = /decl/closet_appearance/secure_closet/engineering/welding;
-	name = "Engineer locker";
-	req_access = list("ACCESS_CONSTRUCTION")
+	closet_appearance = /decl/closet_appearance/secure_closet/command;
+	name = "Matriarch's locker";
+	req_access = list("ACCESS_CAPTAIN")
 	},
-/obj/item/clothing/head/helmet/space/void/scav/engineering,
-/obj/item/clothing/suit/space/void/scav/engineering,
 /obj/machinery/camera/network/command,
+/obj/item/clothing/head/helmet/space/void/scav/matriarch,
+/obj/item/clothing/suit/space/void/scav/matriarch,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "bb" = (
@@ -921,7 +921,8 @@
 	dir = 9
 	},
 /obj/machinery/suit_cycler/mining/ministation{
-	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	helmet = /obj/item/clothing/head/helmet/space/void/scav/mining;
+	suit = /obj/item/clothing/suit/space/void/scav/mining
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -2067,12 +2068,10 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet{
-	closet_appearance = /decl/closet_appearance/secure_closet/rd;
-	req_access = list("ACCESS_RESEARCH");
-	name = "Science locker"
+	closet_appearance = /decl/closet_appearance/secure_closet/command/hop;
+	req_access = list("ACCESS_HEAD_OF_PERSONNEL");
+	name = "Head Patriarch's locker"
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "kh" = (
@@ -2097,8 +2096,8 @@
 "kv" = (
 /obj/machinery/light,
 /obj/machinery/suit_cycler/engineering/ministation{
-	suit = /obj/item/clothing/suit/space/void/scav/engineering;
-	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	suit = /obj/item/clothing/suit/space/void/scav/atmos;
+	helmet = /obj/item/clothing/head/helmet/space/void/scav/atmos
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
