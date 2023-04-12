@@ -2159,6 +2159,7 @@
 /area/ministation/science)
 "kg" = (
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/hall/s3)
 "kh" = (
@@ -3171,11 +3172,9 @@
 /turf/simulated/open,
 /area/ministation/hall/n3)
 "tx" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/effect/wallframe_spawn/no_grille,
-/turf/simulated/floor/tiled,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/ministation/hall/n3)
 "tA" = (
 /obj/effect/floor_decal/corner/yellow/full,
@@ -37737,9 +37736,9 @@ sD
 sD
 sD
 sD
-sD
-sD
-sD
+tx
+tx
+tx
 sD
 sD
 iu
@@ -37764,9 +37763,9 @@ Zv
 Mn
 Hj
 Zv
-Zv
-Zv
-Zv
+kg
+kg
+kg
 Zv
 Zv
 Zv

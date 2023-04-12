@@ -1439,10 +1439,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
 "gJ" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/structure/window/basic/full,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/hall/n)
 "gL" = (
@@ -3448,10 +3446,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
-"uU" = (
-/obj/structure/window/basic/full,
-/turf/simulated/floor/plating,
-/area/ministation/hall/s1)
 "uX" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -4487,11 +4481,9 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "Cd" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/effect/wallframe_spawn/no_grille,
-/turf/simulated/floor/tiled,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/ministation/hall/s1)
 "Cg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8571,10 +8563,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Ov" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/structure/window/basic/full,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -8793,13 +8783,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
-"Pa" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/structure/window/basic/full,
-/turf/simulated/floor/plating,
-/area/ministation/hall/s1)
 "Pb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1
@@ -42502,9 +42485,9 @@ wM
 ms
 ms
 ms
-Pa
-Pa
-Pa
+Cd
+Cd
+Cd
 ms
 ms
 ms
@@ -44039,9 +44022,9 @@ ms
 ms
 ms
 ms
-Pa
-Pa
-Pa
+Cd
+Cd
+Cd
 ms
 ms
 ms
@@ -44050,9 +44033,9 @@ ms
 ms
 ms
 ms
-uU
-uU
-uU
+Cd
+Cd
+Cd
 ms
 ms
 ms

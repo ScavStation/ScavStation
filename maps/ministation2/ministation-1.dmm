@@ -247,6 +247,11 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/ministation/Arrival)
+"cr" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/ministation/hall/w2)
 "ct" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1394,6 +1399,7 @@
 /area/ministation/hall/w2)
 "la" = (
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/hall/e2)
 "ln" = (
@@ -31179,8 +31185,8 @@ aa
 aa
 aa
 kZ
-rt
-rt
+cr
+cr
 kZ
 kZ
 kZ
@@ -31682,7 +31688,7 @@ rt
 OT
 Sd
 kZ
-rt
+cr
 kZ
 rt
 OT
@@ -32190,7 +32196,7 @@ aa
 aa
 aa
 aa
-rt
+cr
 aH
 hi
 mR
@@ -32447,7 +32453,7 @@ aa
 aa
 aa
 aa
-rt
+cr
 hm
 fe
 Bz
