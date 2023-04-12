@@ -12,12 +12,14 @@
 	access = list(
 		access_security,
 		access_brig,
+		access_lawyer,
 		access_maint_tunnels
 	)
 	minimal_access = list(
 		access_security,
 		access_forensics_lockers,
 		access_maint_tunnels,
+		access_lawyer,
 		access_brig
 	)
 	min_skill = list(
@@ -48,11 +50,13 @@
 		access_forensics_lockers,
 		access_brig,
 		access_security,
+		access_lawyer,
 		access_maint_tunnels
 	)
 	minimal_access = list(
 		access_security,
 		access_brig,
+		access_lawyer,
 		access_forensics_lockers,
 		access_maint_tunnels
 	)
@@ -96,6 +100,7 @@
 		access_eva,
 		access_forensics_lockers,
 		access_heads,
+		access_lawyer,
 		access_maint_tunnels,
 		access_armory,
 		access_hos
@@ -104,6 +109,7 @@
 		access_security,
 		access_sec_doors,
 		access_brig,
+		access_lawyer,
 		access_eva,
 		access_forensics_lockers,
 		access_heads,
