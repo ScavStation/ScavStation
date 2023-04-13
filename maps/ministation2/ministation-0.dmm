@@ -2048,7 +2048,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "kd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/drone_fabricator/maintenance,
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "ke" = (
@@ -2974,9 +2974,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/eastatmos)
 "re" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "rf" = (
@@ -3685,6 +3683,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
+"wX" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "xg" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -4062,7 +4066,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "Am" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -4188,6 +4192,10 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "AN" = (
@@ -4234,11 +4242,14 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "AW" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor,
 /area/ministation/maint/westatmos)
 "AX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6280,7 +6291,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "GZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
@@ -9731,6 +9742,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"TD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "TH" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/no_grille,
@@ -10803,15 +10820,9 @@
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "Zg" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
+/obj/machinery/drone_fabricator/construction,
 /turf/simulated/floor,
-/area/ministation/maint/westatmos)
+/area/ministation/maint/eastatmos)
 "Zh" = (
 /obj/machinery/light{
 	dir = 4;
@@ -39418,8 +39429,8 @@ aa
 aa
 aa
 uK
-Zg
 zr
+kd
 zr
 PD
 PD
@@ -39675,7 +39686,7 @@ uK
 uK
 uK
 uK
-RO
+zr
 zr
 zr
 zr
@@ -39933,8 +39944,8 @@ nY
 bl
 XA
 re
+wX
 oi
-kd
 Am
 DD
 av
@@ -40190,7 +40201,7 @@ uK
 uK
 uK
 nA
-zr
+RO
 zr
 GZ
 Am
@@ -40450,7 +40461,7 @@ AM
 AW
 iz
 uK
-TX
+RO
 av
 DW
 Er
@@ -40707,7 +40718,7 @@ uK
 uK
 uK
 uK
-TX
+TD
 av
 DX
 Es
@@ -48669,7 +48680,7 @@ aa
 aa
 aa
 Cn
-WB
+Zg
 Xj
 PC
 OX
