@@ -3683,12 +3683,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
-"wX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/westatmos)
 "xg" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -8905,6 +8899,12 @@
 /obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"PH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "PI" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9
@@ -9037,6 +9037,12 @@
 	},
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
+"Qz" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "QA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/machinery/meter,
@@ -9742,12 +9748,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"TD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/westatmos)
 "TH" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/no_grille,
@@ -39944,7 +39944,7 @@ nY
 bl
 XA
 re
-wX
+Qz
 oi
 Am
 DD
@@ -40718,7 +40718,7 @@ uK
 uK
 uK
 uK
-TD
+PH
 av
 DX
 Es
