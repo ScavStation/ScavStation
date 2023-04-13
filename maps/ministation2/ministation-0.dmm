@@ -2072,6 +2072,8 @@
 	req_access = list("ACCESS_HEAD_OF_PERSONNEL");
 	name = "Head Patriarch's locker"
 	},
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "kh" = (
