@@ -15,6 +15,7 @@
 #include "items\prosthetics.dm"
 #include "items\seed_storage.dm"
 #include "items\suit_cycler.dm"
+#include "items\supply.dm"
 #include "items\turfs.dm"
 #include "items\voidsuits.dm"
 #include "jobs\enclave_department.dm"

@@ -89,13 +89,13 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet{
-	closet_appearance = /decl/closet_appearance/secure_closet/engineering/welding;
-	name = "Engineer locker";
-	req_access = list("ACCESS_CONSTRUCTION")
+	closet_appearance = /decl/closet_appearance/secure_closet/command;
+	name = "Matriarch's locker";
+	req_access = list("ACCESS_CAPTAIN")
 	},
-/obj/item/clothing/head/helmet/space/void/scav/engineering,
-/obj/item/clothing/suit/space/void/scav/engineering,
 /obj/machinery/camera/network/command,
+/obj/item/clothing/head/helmet/space/void/scav/matriarch,
+/obj/item/clothing/suit/space/void/scav/matriarch,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "bb" = (
@@ -921,7 +921,8 @@
 	dir = 9
 	},
 /obj/machinery/suit_cycler/mining/ministation{
-	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	helmet = /obj/item/clothing/head/helmet/space/void/scav/mining;
+	suit = /obj/item/clothing/suit/space/void/scav/mining
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -1439,10 +1440,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
 "gJ" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/structure/window/basic/full,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/hall/n)
 "gL" = (
@@ -1862,7 +1861,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "jd" = (
-/obj/machinery/door/airlock/hatch/maintenance,
+/obj/machinery/door/airlock/hatch/maintenance{
+	autoset_access = 0
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "je" = (
@@ -2047,7 +2048,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "kd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/drone_fabricator/maintenance,
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "ke" = (
@@ -2067,12 +2068,12 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet{
-	closet_appearance = /decl/closet_appearance/secure_closet/rd;
-	req_access = list("ACCESS_RESEARCH");
-	name = "Science locker"
+	closet_appearance = /decl/closet_appearance/secure_closet/command/hop;
+	req_access = list("ACCESS_HEAD_OF_PERSONNEL");
+	name = "Head Patriarch's locker"
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
+/obj/item/clothing/suit/space/void/scav/explorer,
+/obj/item/clothing/head/helmet/space/void/scav/explorer,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "kh" = (
@@ -2097,8 +2098,8 @@
 "kv" = (
 /obj/machinery/light,
 /obj/machinery/suit_cycler/engineering/ministation{
-	suit = /obj/item/clothing/suit/space/void/scav/engineering;
-	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	suit = /obj/item/clothing/suit/space/void/scav/atmos;
+	helmet = /obj/item/clothing/head/helmet/space/void/scav/atmos
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -2973,9 +2974,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/eastatmos)
 "re" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "rf" = (
@@ -3448,10 +3447,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
-"uU" = (
-/obj/structure/window/basic/full,
-/turf/simulated/floor/plating,
-/area/ministation/hall/s1)
 "uX" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -4065,7 +4060,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "Am" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -4191,6 +4186,10 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "AN" = (
@@ -4237,11 +4236,14 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "AW" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor,
 /area/ministation/maint/westatmos)
 "AX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4486,13 +4488,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
-"Cd" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/effect/wallframe_spawn/no_grille,
-/turf/simulated/floor/tiled,
-/area/ministation/hall/s1)
 "Cg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -6145,7 +6140,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "GL" = (
-/obj/machinery/door/airlock/civilian,
+/obj/machinery/door/airlock/civilian{
+	autoset_access = 0
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -6288,7 +6285,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "GZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
@@ -8571,10 +8568,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Ov" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/structure/window/basic/full,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -8794,10 +8789,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "Pa" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/structure/window/basic/full,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/hall/s1)
 "Pb" = (
@@ -8906,6 +8899,12 @@
 /obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"PH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "PI" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9
@@ -9038,6 +9037,12 @@
 	},
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
+"Qz" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "QA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/machinery/meter,
@@ -10815,15 +10820,9 @@
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "Zg" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
+/obj/machinery/drone_fabricator/construction,
 /turf/simulated/floor,
-/area/ministation/maint/westatmos)
+/area/ministation/maint/eastatmos)
 "Zh" = (
 /obj/machinery/light{
 	dir = 4;
@@ -39430,8 +39429,8 @@ aa
 aa
 aa
 uK
-Zg
 zr
+kd
 zr
 PD
 PD
@@ -39687,7 +39686,7 @@ uK
 uK
 uK
 uK
-RO
+zr
 zr
 zr
 zr
@@ -39945,8 +39944,8 @@ nY
 bl
 XA
 re
+Qz
 oi
-kd
 Am
 DD
 av
@@ -40202,7 +40201,7 @@ uK
 uK
 uK
 nA
-zr
+RO
 zr
 GZ
 Am
@@ -40462,7 +40461,7 @@ AM
 AW
 iz
 uK
-TX
+RO
 av
 DW
 Er
@@ -40719,7 +40718,7 @@ uK
 uK
 uK
 uK
-TX
+PH
 av
 DX
 Es
@@ -44032,9 +44031,9 @@ di
 di
 ms
 ms
-Cd
-Cd
-Cd
+Pa
+Pa
+Pa
 ms
 ms
 ms
@@ -44050,9 +44049,9 @@ ms
 ms
 ms
 ms
-uU
-uU
-uU
+Pa
+Pa
+Pa
 ms
 ms
 ms
@@ -48681,7 +48680,7 @@ aa
 aa
 aa
 Cn
-WB
+Zg
 Xj
 PC
 OX
