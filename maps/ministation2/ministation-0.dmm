@@ -94,8 +94,8 @@
 	req_access = list("ACCESS_CAPTAIN")
 	},
 /obj/machinery/camera/network/command,
-/obj/item/clothing/head/helmet/space/void/scav/matriarch,
-/obj/item/clothing/suit/space/void/scav/matriarch,
+/obj/random_multi/single_item/matriarch_voidsuit,
+/obj/random_multi/single_item/matriarch_helmet,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "bb" = (
@@ -1915,6 +1915,8 @@
 	},
 /obj/item/clothing/head/helmet/space/void/scav/security,
 /obj/item/clothing/suit/space/void/scav/security,
+/obj/random_multi/single_item/matriarch_voidsuit,
+/obj/random_multi/single_item/matriarch_helmet,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "jA" = (
@@ -2927,6 +2929,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"qI" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "qM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7978,12 +7986,6 @@
 /obj/effect/shuttle_landmark/supply/station,
 /turf/space,
 /area/ministation/supply_dock)
-"LL" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/hall/n)
 "LO" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 4
@@ -43234,8 +43236,8 @@ YY
 Qk
 oE
 px
-LL
-LL
+qI
+qI
 fA
 hY
 gx

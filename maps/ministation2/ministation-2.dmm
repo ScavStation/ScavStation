@@ -3269,6 +3269,11 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"vA" = (
+/obj/random_multi/single_item/matriarch_voidsuit,
+/obj/random_multi/single_item/matriarch_helmet,
+/turf/space,
+/area/space)
 "vJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc{
@@ -36262,7 +36267,7 @@ aa
 aa
 aa
 aa
-aa
+vA
 Mo
 aT
 bs
