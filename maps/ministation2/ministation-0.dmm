@@ -7412,6 +7412,7 @@
 	pixel_y = 30;
 	pixel_x = 31
 	},
+/obj/structure/aicore/deactivated,
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
 "Ko" = (
