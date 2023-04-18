@@ -5229,6 +5229,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/camera/network/command,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "ER" = (
@@ -6773,9 +6774,6 @@
 "Vr" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
-	},
-/obj/machinery/camera/network/command{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)

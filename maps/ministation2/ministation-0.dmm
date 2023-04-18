@@ -787,14 +787,21 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "eE" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 9
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
-/obj/machinery/alarm{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
-	pixel_x = -22
+	id_tag = "cargo_bay";
+	tag_airpump = "cargo_vent";
+	tag_chamber_sensor = "cargo_sensor";
+	tag_exterior_door = "cargo_airlock_exterior";
+	tag_interior_door = "cargo_airlock_interior";
+	pixel_x = -20
 	},
-/obj/vehicle/train/cargo/engine,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "eF" = (
@@ -942,12 +949,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/table,
+/obj/item/stack/package_wrap,
+/obj/item/storage/box,
+/obj/item/megaphone,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fn" = (
@@ -956,6 +968,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fo" = (
@@ -998,6 +1011,9 @@
 /obj/machinery/atm{
 	pixel_y = 32
 	},
+/obj/item/stack/material/pane/mapped/glass/ten,
+/obj/item/stack/material/sheet/mapped/steel/ten,
+/obj/item/stack/material/shiny/mapped/aluminium/ten,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fs" = (
@@ -1289,14 +1305,11 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/item/radio/intercom{
-	dir = 4;
-	pixel_x = -25
-	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/vehicle/train/cargo/trolley,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/mining/brace,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "gk" = (
@@ -1445,7 +1458,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/hall/n)
 "gL" = (
-/obj/vehicle/train/cargo/trolley,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/mining/drill,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "gM" = (
@@ -1584,20 +1598,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hp" = (
-/obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hq" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 5;
-	pixel_y = -32
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1689,9 +1693,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hR" = (
@@ -1704,8 +1705,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hS" = (
-/obj/structure/closet/crate,
-/obj/item/ore/slag,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1713,12 +1712,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hT" = (
-/obj/structure/closet/crate,
-/obj/item/ore/glass,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/camera/network/mining{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -1840,20 +1834,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "iV" = (
-/obj/structure/closet/crate,
-/obj/item/ore/glass,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "cargo_vent"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/ministation/cargo)
 "iW" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -2007,11 +1994,15 @@
 /area/ministation/cargo)
 "jV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
 	dir = 8
 	},
+/obj/machinery/camera/network/mining{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/item/ore/slag,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "jW" = (
@@ -2029,6 +2020,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "jY" = (
@@ -2121,6 +2113,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/atmospherics)
+"ky" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "kA" = (
 /obj/machinery/light_switch{
 	dir = 1;
@@ -2249,6 +2246,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"lq" = (
+/obj/machinery/camera/network/mining{
+	dir = 8
+	},
+/obj/vehicle/train/cargo/trolley,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "lr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -2575,6 +2580,10 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -21
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "nk" = (
@@ -2870,6 +2879,11 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
+"pS" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "pZ" = (
 /obj/effect/floor_decal/industrial/custodial/corner{
 	dir = 4
@@ -3260,6 +3274,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"tu" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "tv" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
@@ -3966,6 +3984,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"zz" = (
+/obj/vehicle/train/cargo/engine,
+/obj/item/radio/intercom{
+	dir = 8;
+	pixel_x = 25
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "zB" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/structure/cable/yellow{
@@ -4335,6 +4362,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"Bp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table,
+/obj/item/stack/package_wrap,
+/obj/item/hand_labeler,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "Bq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/bed/chair/wood{
@@ -6849,6 +6883,10 @@
 /area/ministation/ai_sat)
 "IH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "II" = (
@@ -6900,19 +6938,13 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "IO" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 4;
-	id_tag = "cargo_bay";
-	tag_airpump = "cargo_vent";
-	tag_chamber_sensor = "cargo_sensor";
-	tag_exterior_door = "cargo_airlock_exterior";
-	tag_interior_door = "cargo_airlock_interior";
-	pixel_x = -20
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/table,
+/obj/item/wrapping_paper,
+/obj/item/stack/package_wrap,
+/obj/item/storage/box,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "IP" = (
@@ -8821,9 +8853,7 @@
 /area/ministation/ai_core)
 "Pe" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "Pg" = (
@@ -9205,15 +9235,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Rq" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	dir = 4;
-	id_tag = "cargo_vent"
+/obj/structure/table,
+/obj/item/stack/package_wrap,
+/obj/item/destTagger{
+	pixel_x = 4;
+	pixel_y = 3
 	},
-/obj/machinery/airlock_sensor{
-	id_tag = "cargo_sensor";
-	pixel_y = -20
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "Rr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10088,9 +10116,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "VA" = (
@@ -10205,6 +10231,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"Wc" = (
+/obj/structure/closet/crate,
+/obj/item/ore/glass,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "Wd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10274,6 +10306,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1nw)
+"Ws" = (
+/obj/vehicle/train/cargo/trolley,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "Wt" = (
 /obj/machinery/light{
 	dir = 8;
@@ -10465,9 +10502,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "Xu" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/sign/warning/airlock,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "Xx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10536,6 +10574,14 @@
 /obj/structure/lattice,
 /turf/simulated/wall/r_wall,
 /area/ministation/engine)
+"XQ" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/mining/brace,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "XR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable{
@@ -10574,6 +10620,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"XZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/item/stool/padded,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -37334,10 +37385,10 @@ ad
 ad
 ad
 au
-ie
-cy
 cy
 ie
+ie
+cy
 au
 AC
 ac
@@ -37591,10 +37642,10 @@ ad
 ad
 ad
 au
-Rq
 cy
-cy
+iV
 Rh
+cy
 au
 ac
 aa
@@ -37848,10 +37899,10 @@ au
 au
 au
 au
-hP
 cy
-Xu
+hP
 jU
+cy
 au
 au
 aa
@@ -38099,14 +38150,14 @@ cM
 de
 dB
 cc
-eE
 fi
 fL
+XQ
 gj
 gL
 ho
+eE
 fB
-IO
 Vy
 hQ
 fq
@@ -38354,7 +38405,7 @@ cn
 au
 cz
 dC
-dI
+tu
 cl
 dI
 fj
@@ -38364,7 +38415,7 @@ mI
 mI
 SO
 dI
-cf
+Xu
 Pe
 IH
 au
@@ -38878,7 +38929,7 @@ fO
 fF
 hS
 fJ
-iV
+hS
 dI
 jW
 au
@@ -39129,7 +39180,7 @@ dI
 dI
 dI
 fm
-dI
+Rq
 cf
 gM
 Zk
@@ -39385,16 +39436,16 @@ Df
 mW
 SO
 eF
-fm
-ej
+IO
+Bp
 Ss
 dI
+Zk
 hp
-au
-au
-au
-el
-au
+dI
+hp
+dI
+Wc
 au
 aa
 aa
@@ -39643,16 +39694,16 @@ dG
 ek
 ZA
 fn
-ZA
+XZ
 ZL
 dI
 hq
+dI
+dI
+dI
+dI
+pS
 au
-NX
-NX
-NX
-CN
-jh
 aa
 aa
 aa
@@ -39904,12 +39955,12 @@ fP
 dI
 dI
 Zk
+zz
+lq
+Ws
+dI
+Wc
 au
-NX
-jh
-NX
-NX
-jh
 aa
 jh
 jh
@@ -40162,11 +40213,11 @@ go
 XV
 nj
 au
-sV
-jh
-NX
-NX
-jh
+au
+au
+el
+au
+au
 jh
 jh
 CN
@@ -40420,7 +40471,7 @@ gO
 MT
 au
 NX
-jh
+NX
 NX
 NX
 CN
@@ -41186,7 +41237,7 @@ IK
 au
 ft
 dI
-ej
+ky
 Ti
 ht
 au
