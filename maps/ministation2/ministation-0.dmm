@@ -5471,6 +5471,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "EY" = (
