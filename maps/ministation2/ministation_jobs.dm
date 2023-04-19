@@ -8,6 +8,7 @@
 		/datum/job/ministation/captain,
 		/datum/job/ministation/cargo,
 		/datum/job/ministation/robot,
+		/datum/job/computer,
 		/datum/job/ministation/detective,
 		/datum/job/ministation/doctor,
 		/datum/job/ministation/doctor/head,
@@ -25,6 +26,7 @@
 	species_to_job_whitelist = list(
 		/decl/species/baxxid = list(
 			/datum/job/ministation/tradehouse/rep,
+			/datum/job/computer,
 			/datum/job/ministation/assistant
 		),
 		/decl/species/yinglet = list(
@@ -33,6 +35,7 @@
 			/datum/job/ministation/captain,
 			/datum/job/ministation/cargo,
 			/datum/job/ministation/robot,
+			/datum/job/computer,
 			/datum/job/ministation/detective,
 			/datum/job/ministation/doctor,
 			/datum/job/ministation/doctor/head,

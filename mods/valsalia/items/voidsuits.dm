@@ -221,3 +221,13 @@
 	armour_colour = COLOR_CYAN_BLUE
 	faceplate_colour = COLOR_PURPLE_GRAY
 	stripe_colour = COLOR_TEAL
+
+/obj/random_multi/single_item/matriarch_voidsuit
+	name = "Multi Point - matrisuit"
+	id = "small matriarch voidsuit"
+	item_path = /obj/item/clothing/suit/space/void/scav/matriarch
+
+/obj/random_multi/single_item/matriarch_helmet
+	name = "Multi Point - matrisuit helmet"
+	id = "small matriarch voidsuit helmet"
+	item_path = /obj/item/clothing/head/helmet/space/void/scav/matriarch

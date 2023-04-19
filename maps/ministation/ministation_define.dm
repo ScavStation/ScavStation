@@ -18,8 +18,8 @@
 	lobby_screens = list('maps/ministation/ministation_lobby.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
-	num_exoplanets = 3
-	away_site_budget = 3
+	num_exoplanets = 0
+	away_site_budget = 0
 
 	shuttle_docked_message = "The public ferry to %dock_name% has docked with the station. It will depart in approximately %ETD%"
 	shuttle_leaving_dock   = "The public ferry has left the station. Estimate %ETA% until the ferry docks at %dock_name%."
