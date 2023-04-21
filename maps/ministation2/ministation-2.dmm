@@ -1720,6 +1720,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "im" = (
