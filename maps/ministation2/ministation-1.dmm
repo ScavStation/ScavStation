@@ -959,6 +959,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hY" = (
@@ -2034,10 +2035,12 @@
 	dir = 4
 	},
 /obj/machinery/body_scan_display{
-	pixel_y = 20
+	pixel_y = 20;
+	id_tag = "mediscanner"
 	},
 /obj/machinery/bodyscanner{
-	dir = 8
+	dir = 8;
+	id_tag = "mediscanner"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -7115,6 +7118,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
+"Zz" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "ZK" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
@@ -49171,7 +49178,7 @@ sk
 js
 pD
 zd
-pD
+Zz
 Gu
 oz
 jT
