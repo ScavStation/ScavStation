@@ -43,7 +43,7 @@
 	desc = "A backpack that opens into a localized pocket of Blue Space."
 	origin_tech = "{'wormholes':4}"
 	icon = 'icons/obj/items/storage/backpack/backpack_holding.dmi'
-	max_w_class = ITEM_SIZE_NORMAL
+	max_w_class = ITEM_SIZE_LARGE
 	max_storage_space = 56
 	material = /decl/material/solid/metal/gold
 	matter = list(
@@ -383,7 +383,7 @@
 		var/image/I = image(overlay.icon, "[overlay.icon_state]-[marking_state]")
 		I.color = marking_colour
 		I.appearance_flags |= RESET_COLOR
-		overlay.add_overlay(I)	
+		overlay.add_overlay(I)
 	. = ..()
 
 /obj/item/storage/backpack/ert/commander
