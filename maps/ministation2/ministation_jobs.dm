@@ -27,7 +27,10 @@
 		/decl/species/baxxid = list(
 			/datum/job/ministation/tradehouse/rep,
 			/datum/job/computer,
-			/datum/job/ministation/assistant
+			/datum/job/ministation/assistant,
+			/datum/job/ministation/tradehouse/rep,
+			/datum/job/ministation/librarian,
+			/datum/job/ministation/robot
 		),
 		/decl/species/yinglet = list(
 			/datum/job/ministation/assistant,

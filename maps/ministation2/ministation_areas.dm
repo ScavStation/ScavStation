@@ -109,6 +109,10 @@
 /area/ministation/maint/l3se
 	name = "\improper Level Three Southeast Maintenance"
 
+// Fourth Floor Maint
+/area/ministation/maint/l4central
+	name = "\improper Level Four Central Maintenance"
+
 //Maint Bypasses
 
 /area/ministation/maint/sebypass
