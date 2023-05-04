@@ -18,5 +18,4 @@
 	//exploration and rescue shuttles can only dock port side, b/c there's only one door.
 	initial_restricted_waypoints = list(
 		/datum/shuttle/autodock/overmap/science_shuttle = list("nav_ministation_science_dock_shuttle")
-	//	/datum/shuttle/autodock/overmap/rescue = list("nav_tradeship_starboard_dock_rescue")
 	)
