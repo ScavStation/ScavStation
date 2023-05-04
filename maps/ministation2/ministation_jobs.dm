@@ -28,7 +28,9 @@
 			/datum/job/ministation/tradehouse/rep,
 			/datum/job/computer,
 			/datum/job/ministation/assistant,
-			/datum/job/ministation/tradehouse/rep,
+			/datum/job/ministation/doctor,
+			/datum/job/ministation/engineer,
+			/datum/job/ministation/scientist,
 			/datum/job/ministation/librarian,
 			/datum/job/ministation/robot
 		),
