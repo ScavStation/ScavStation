@@ -11,41 +11,51 @@
 "af" = (
 /turf/exterior/wall/random/ministation,
 /area/space)
-"av" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
-"cw" = (
-/turf/simulated/floor/reinforced/airless,
-/area/space)
-"cV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
-"jN" = (
-/obj/effect/shuttle_landmark/bridge_north,
-/turf/space,
-/area/space)
-"mm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
-"sD" = (
+"as" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
 	dir = 4
 	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"bF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"cw" = (
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"eD" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high{
+	dir = 1;
+	pixel_y = 20
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"ls" = (
+/turf/simulated/wall,
+/area/ministation/maint/l4central)
+"sr" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"sD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
@@ -66,7 +76,30 @@
 	},
 /turf/simulated/floor/airless,
 /area/ministation/maint/l4central)
-"uG" = (
+"xN" = (
+/obj/abstract/map_data{
+	height = 4
+	},
+/turf/space,
+/area/space)
+"yu" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/obj/structure/cable{
+	icon_state = "32-4"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/ministation/maint/l4central)
+"yS" = (
+/obj/abstract/landmark{
+	name = "bluespace_a"
+	},
+/turf/space,
+/area/space)
+"AL" = (
 /obj/machinery/light/small,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -79,48 +112,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
-"xN" = (
-/obj/abstract/map_data{
-	height = 4
-	},
-/turf/space,
-/area/space)
-"yS" = (
-/obj/abstract/landmark{
-	name = "bluespace_a"
-	},
-/turf/space,
-/area/space)
-"AX" = (
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	pixel_y = 20
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
-"Bp" = (
-/obj/structure/lattice,
-/obj/structure/ladder,
-/obj/structure/cable{
-	icon_state = "32-4"
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/ministation/maint/l4central)
 "Cd" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch/maintenance{
 	autoset_access = 0;
-	req_access = "access_eva"
+	req_access = list("access_eva")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"CL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -143,9 +149,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "Np" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
@@ -153,9 +158,6 @@
 /obj/abstract/level_data/main_level,
 /turf/space,
 /area/space)
-"Pe" = (
-/turf/simulated/wall,
-/area/ministation/maint/l4central)
 "XA" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -186,12 +188,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
-"YI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
@@ -29120,9 +29116,9 @@ cw
 cw
 cw
 aa
-Pe
-Pe
-Pe
+ls
+ls
+ls
 aa
 aa
 aa
@@ -29377,9 +29373,9 @@ cw
 cw
 cw
 aa
-Pe
-Bp
-Pe
+ls
+yu
+ls
 aa
 aa
 aa
@@ -29634,9 +29630,9 @@ cw
 cw
 cw
 aa
-Pe
-uG
-Pe
+ls
+AL
+ls
 aa
 aa
 aa
@@ -29891,9 +29887,9 @@ cw
 cw
 cw
 cw
-Pe
+ls
 Cd
-Pe
+ls
 cw
 aa
 aa
@@ -30147,11 +30143,11 @@ cw
 cw
 cw
 cw
-Pe
-Pe
+ls
+ls
 Yv
-Pe
-Pe
+ls
+ls
 aa
 aa
 aa
@@ -30404,11 +30400,11 @@ cw
 cw
 cw
 cw
-Pe
-AX
-mm
-Np
-Pe
+ls
+eD
+sD
+sr
+ls
 aa
 aa
 aa
@@ -30660,12 +30656,12 @@ aa
 cw
 cw
 cw
-Pe
-Pe
-Pe
-sD
-YI
-Pe
+ls
+ls
+ls
+as
+bF
+ls
 aa
 aa
 aa
@@ -30920,9 +30916,9 @@ cw
 ug
 XA
 GD
-cV
-av
-Pe
+CL
+Np
+ls
 cw
 cw
 cw
@@ -31174,12 +31170,12 @@ cw
 cw
 cw
 cw
-Pe
-Pe
-Pe
-Pe
-Pe
-Pe
+ls
+ls
+ls
+ls
+ls
+ls
 cw
 cw
 cw
@@ -34217,7 +34213,7 @@ aa
 aa
 aa
 aa
-jN
+aa
 aa
 aa
 aa

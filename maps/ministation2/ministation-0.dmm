@@ -2922,7 +2922,8 @@
 /area/ministation/supermatter)
 "qg" = (
 /obj/machinery/door/airlock/hatch/maintenance{
-	req_access = list("ACCESS_CARGO")
+	req_access = list("ACCESS_CARGO");
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating,
 /area/ministation/cargo)
