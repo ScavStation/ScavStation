@@ -11,7 +11,16 @@
 "af" = (
 /turf/exterior/wall/random/ministation,
 /area/space)
-"as" = (
+"aF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"aV" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
 	dir = 4
@@ -21,16 +30,39 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
-"bF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+"cw" = (
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"es" = (
+/obj/machinery/light/small,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/sign/warning/airlock{
+	pixel_y = 26
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"jq" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
-"cw" = (
-/turf/simulated/floor/reinforced/airless,
-/area/space)
-"eD" = (
+"kV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"rB" = (
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -40,22 +72,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
-"ls" = (
-/turf/simulated/wall,
-/area/ministation/maint/l4central)
-"sr" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
 "sD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
@@ -82,52 +101,25 @@
 	},
 /turf/space,
 /area/space)
-"yu" = (
-/obj/structure/lattice,
-/obj/structure/ladder,
-/obj/structure/cable{
-	icon_state = "32-4"
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/ministation/maint/l4central)
 "yS" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
 /turf/space,
 /area/space)
-"AL" = (
-/obj/machinery/light/small,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/sign/warning/airlock{
-	pixel_y = 26
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
 "Cd" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/hatch/maintenance{
-	autoset_access = 0;
-	req_access = list("access_eva")
-	},
+/obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
-"CL" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
+"Dc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
@@ -150,7 +142,7 @@
 /area/ministation/maint/l4central)
 "Np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
@@ -158,6 +150,17 @@
 /obj/abstract/level_data/main_level,
 /turf/space,
 /area/space)
+"Uw" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/obj/structure/cable{
+	icon_state = "32-4"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/ministation/maint/l4central)
 "XA" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -183,13 +186,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "Yv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall,
 /area/ministation/maint/l4central)
 
 (1,1,1) = {"
@@ -29116,9 +29113,9 @@ cw
 cw
 cw
 aa
-ls
-ls
-ls
+Yv
+Yv
+Yv
 aa
 aa
 aa
@@ -29373,9 +29370,9 @@ cw
 cw
 cw
 aa
-ls
-yu
-ls
+Yv
+Uw
+Yv
 aa
 aa
 aa
@@ -29630,9 +29627,9 @@ cw
 cw
 cw
 aa
-ls
-AL
-ls
+Yv
+es
+Yv
 aa
 aa
 aa
@@ -29887,9 +29884,9 @@ cw
 cw
 cw
 cw
-ls
+Yv
 Cd
-ls
+Yv
 cw
 aa
 aa
@@ -30143,11 +30140,11 @@ cw
 cw
 cw
 cw
-ls
-ls
 Yv
-ls
-ls
+Yv
+kV
+Yv
+Yv
 aa
 aa
 aa
@@ -30400,11 +30397,11 @@ cw
 cw
 cw
 cw
-ls
-eD
-sD
-sr
-ls
+Yv
+rB
+aF
+jq
+Yv
 aa
 aa
 aa
@@ -30656,12 +30653,12 @@ aa
 cw
 cw
 cw
-ls
-ls
-ls
-as
-bF
-ls
+Yv
+Yv
+Yv
+aV
+Np
+Yv
 aa
 aa
 aa
@@ -30916,9 +30913,9 @@ cw
 ug
 XA
 GD
-CL
-Np
-ls
+sD
+Dc
+Yv
 cw
 cw
 cw
@@ -31170,12 +31167,12 @@ cw
 cw
 cw
 cw
-ls
-ls
-ls
-ls
-ls
-ls
+Yv
+Yv
+Yv
+Yv
+Yv
+Yv
 cw
 cw
 cw
