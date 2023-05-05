@@ -1203,10 +1203,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fS" = (
-/obj/machinery/computer/modular/preset/supply_public,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/obj/machinery/computer/modular/preset/merchant/ministation,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fU" = (
@@ -1646,7 +1646,10 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/airlock/mining,
+/obj/machinery/door/airlock/mining{
+	req_access = list("ACCESS_CARGO");
+	autoset_access = 0
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1811,6 +1814,10 @@
 "iF" = (
 /turf/simulated/wall,
 /area/ministation/smcontrol)
+"iH" = (
+/obj/machinery/merchant_pad,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "iM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2880,9 +2887,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "pS" = (
-/obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/hatch/maintenance{
+	autoset_access = 0;
+	req_access = list("ACCESS_CARGO")
+	},
+/turf/simulated/floor/plating,
 /area/ministation/cargo)
 "pZ" = (
 /obj/effect/floor_decal/industrial/custodial/corner{
@@ -2911,6 +2920,13 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"qg" = (
+/obj/machinery/door/airlock/hatch/maintenance{
+	req_access = list("ACCESS_CARGO");
+	autoset_access = 0
+	},
+/turf/simulated/floor/plating,
+/area/ministation/cargo)
 "qt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6887,6 +6903,10 @@
 	pixel_x = 5;
 	pixel_y = -32
 	},
+/obj/structure/closet/secure_closet/quartermaster{
+	req_access = list("ACCESS_CARGO")
+	},
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/quartermaster,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "II" = (
@@ -39702,7 +39722,7 @@ dI
 dI
 dI
 dI
-pS
+hp
 au
 aa
 aa
@@ -39959,7 +39979,7 @@ zz
 lq
 Ws
 dI
-Wc
+hp
 au
 aa
 jh
@@ -40215,7 +40235,7 @@ nj
 au
 au
 au
-el
+pS
 au
 au
 jh
@@ -41236,7 +41256,7 @@ wm
 IK
 au
 ft
-dI
+iH
 ky
 Ti
 ht
@@ -41497,7 +41517,7 @@ fS
 gs
 gP
 JV
-el
+qg
 rn
 jh
 xX

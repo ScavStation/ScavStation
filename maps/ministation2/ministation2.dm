@@ -36,10 +36,12 @@ And then imported back to ScavStation!
 	#include "ministation_shuttles.dm"
 	#include "ministation_objects.dm"
 	#include "ministation_unit_testing.dm"
+	#include "ministation_overrides.dm"
 
 	#include "ministation-0.dmm"
 	#include "ministation-1.dmm"
 	#include "ministation-2.dmm"
+	#include "ministation-3.dmm"
 	#include "space.dmm"
 
 	#include "../away/bearcat/bearcat.dm"
