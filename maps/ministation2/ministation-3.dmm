@@ -18,8 +18,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "aV" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
@@ -28,8 +27,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "cw" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -44,15 +42,13 @@
 /obj/structure/sign/warning/airlock{
 	pixel_y = 26
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "jq" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "kV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -60,8 +56,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "rB" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -70,14 +65,12 @@
 	dir = 1;
 	pixel_y = 20
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "sD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "ug" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -93,8 +86,7 @@
 	pixel_y = 10;
 	command = "cycle_exterior"
 	},
-/turf/simulated/floor/airless,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/airless)
 "xN" = (
 /obj/abstract/map_data{
 	height = 4
@@ -115,14 +107,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "Dc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "GD" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -138,14 +128,12 @@
 	pixel_y = -10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "Np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "NO" = (
 /obj/abstract/level_data/main_level,
 /turf/space,
@@ -159,8 +147,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
 	dir = 4
 	},
-/turf/simulated/open,
-/area/ministation/maint/l4central)
+/turf/simulated/open)
 "XA" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -183,11 +170,9 @@
 	pixel_y = 10;
 	pixel_x = -20
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l4central)
+/turf/simulated/floor/plating)
 "Yv" = (
-/turf/simulated/wall,
-/area/ministation/maint/l4central)
+/turf/simulated/wall)
 
 (1,1,1) = {"
 aa
@@ -34257,9 +34242,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 cw
 cw
 cw
@@ -34513,10 +34498,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -34770,10 +34755,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -35027,10 +35012,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -35284,10 +35269,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -35541,9 +35526,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 cw
 cw
