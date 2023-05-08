@@ -11086,11 +11086,6 @@
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"Yg" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -42279,9 +42274,9 @@ ms
 ms
 ms
 ms
-Yg
 ad
-Yg
+ad
+ad
 ad
 ad
 ad
@@ -49751,7 +49746,7 @@ ad
 aa
 aa
 aa
-Yg
+ad
 aa
 aa
 aa
