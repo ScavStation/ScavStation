@@ -195,12 +195,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "bB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -4099,20 +4101,17 @@
 /turf/simulated/floor/plating,
 /area/ministation/medical)
 "wB" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "wC" = (
 /obj/machinery/camera/network/medbay{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -4205,6 +4204,9 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4369,9 +4371,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "xE" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -4384,10 +4388,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/medical)
-"xG" = (
-/obj/structure/flora/plant,
-/turf/simulated/floor/grass,
-/area/ministation/hall/w2)
 "xH" = (
 /obj/structure/table,
 /obj/item/storage/firstaid/fire{
@@ -5439,6 +5439,7 @@
 	name = "Warden"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/blue3,
 /area/ministation/security)
 "CP" = (
@@ -5513,6 +5514,12 @@
 "DD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "DF" = (
@@ -5744,6 +5751,7 @@
 	name = "Patriarch of Security"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
 "Gd" = (
@@ -6451,7 +6459,7 @@
 	pixel_x = 1;
 	pixel_y = -63
 	},
-/obj/structure/flora/plant,
+/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "Nh" = (
@@ -6846,12 +6854,14 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "PS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -7129,7 +7139,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/flora/plant,
+/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "Sq" = (
@@ -37058,7 +37068,7 @@ jy
 kZ
 Kr
 wx
-xG
+BW
 WQ
 aR
 uI
@@ -50684,7 +50694,7 @@ Uv
 Uv
 XA
 Uv
-wB
+XA
 bB
 xE
 PS
@@ -50943,8 +50953,8 @@ tO
 vJ
 wC
 wZ
-uW
-qu
+pD
+wB
 AJ
 Wb
 ZK
