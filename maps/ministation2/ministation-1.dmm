@@ -5517,9 +5517,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "DF" = (
