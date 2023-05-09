@@ -90,6 +90,10 @@
 		access_tcomsat,
 		access_gateway,
 		access_xenoarch,
+		access_engine_equip,
+		access_mining,
+		access_kitchen,
+		access_hydroponics,
 		access_network
 	)
 	minimal_access = list(
@@ -112,6 +116,10 @@
 		access_tcomsat,
 		access_gateway,
 		access_xenoarch,
+		access_engine_equip,
+		access_mining,
+		access_kitchen,
+		access_hydroponics,
 		access_network
 	)
 	minimal_player_age = 14

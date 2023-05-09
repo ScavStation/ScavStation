@@ -83,6 +83,10 @@
 		access_RC_announce,
 		access_keycard_auth,
 		access_tcomsat,
+		access_mining,
+		access_kitchen,
+		access_robotics,
+		access_hydroponics,
 		access_ai_upload
 	)
 	minimal_access = list(
@@ -102,6 +106,10 @@
 		access_ce, access_RC_announce,
 		access_keycard_auth,
 		access_tcomsat,
+		access_mining,
+		access_kitchen,
+		access_robotics,
+		access_hydroponics,
 		access_ai_upload
 	)
 	minimal_player_age = 14

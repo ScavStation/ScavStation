@@ -140,7 +140,7 @@
 
 /area/ministation/cargo
 	name = "\improper Cargo Bay"
-	req_access = list(access_cargo)
+	req_access = list(access_mining)
 	icon_state = "brown"
 	secure = TRUE
 
@@ -186,7 +186,7 @@
 
 /area/ministation/science
 	name = "\improper Research & Development Laboratory"
-	req_access = list(access_research)
+	req_access = list(access_robotics)
 	secure = TRUE
 	icon_state = "purple"
 
@@ -226,7 +226,7 @@
 
 /area/ministation/engine
 	name = "Engineering"
-	req_access = list(access_engine)
+	req_access = list(access_engine_equip)
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
 	secure = TRUE
 	icon_state = "yellow"
