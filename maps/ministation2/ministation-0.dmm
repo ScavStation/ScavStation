@@ -79,6 +79,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/dorms)
+"aQ" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/trash)
 "aS" = (
 /turf/simulated/wall,
 /area/ministation/ai_sat)
@@ -2800,12 +2806,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
-"oa" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/trash)
 "oi" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
@@ -3031,6 +3031,14 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
+"qy" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/camera/network/engineering{
+	name = "SM East";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/supermatter)
 "qA" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -3443,13 +3451,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/ministation/ai_upload)
-"tx" = (
-/obj/machinery/camera/network/engineering{
-	name = "SM West";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/supermatter)
 "tB" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -4408,16 +4409,6 @@
 /obj/effect/wallframe_spawn/no_grille,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
-"Ay" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/camera/network/engineering{
-	name = "Office";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/engine)
 "Az" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -4952,14 +4943,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
-"CP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/obj/machinery/camera/network/engineering{
-	name = "SM East";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/supermatter)
 "CQ" = (
 /obj/machinery/door/airlock/external{
 	autoset_access = 0;
@@ -5822,7 +5805,7 @@
 /area/ministation/engine)
 "Fa" = (
 /obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = list("ACCESS_ENGINE")
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -6066,7 +6049,7 @@
 /area/space)
 "FH" = (
 /obj/structure/closet/secure_closet/engineering_personal{
-	req_access = list("ACCESS_ENGINE")
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/machinery/light,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
@@ -8904,6 +8887,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"NZ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/engineering{
+	name = "Office";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "Oa" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
@@ -10550,6 +10543,13 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/simulated/floor/plating,
 /area/space)
+"Va" = (
+/obj/machinery/camera/network/engineering{
+	name = "SM West";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/supermatter)
 "Vc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -10655,7 +10655,7 @@
 /area/ministation/engine)
 "VH" = (
 /obj/machinery/door/airlock/double/glass/atmos{
-	req_access = list("ACCESS_ENGINE");
+	req_access = list("ACCESS_ENGINEERING");
 	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -41564,7 +41564,7 @@ Gb
 Gf
 Gb
 Gb
-Ay
+NZ
 CS
 Gb
 Gb
@@ -42795,7 +42795,7 @@ di
 di
 yL
 hf
-oa
+aQ
 hf
 Gd
 Kz
@@ -42854,7 +42854,7 @@ df
 vp
 YE
 jA
-tx
+Va
 eI
 QM
 dD
@@ -45680,7 +45680,7 @@ oO
 XW
 UA
 Ol
-CP
+qy
 We
 eK
 BW
