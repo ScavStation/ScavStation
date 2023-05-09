@@ -2465,6 +2465,8 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/closet/secure_closet/CMO,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cmo,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "qz" = (
@@ -3156,6 +3158,7 @@
 /area/ministation/medical)
 "sZ" = (
 /obj/structure/table,
+/obj/machinery/camera/network/medbay,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "ta" = (
@@ -4500,11 +4503,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "ya" = (
-/obj/structure/closet/secure_closet/CMO,
-/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cmo,
-/turf/simulated/floor/tiled/white,
-/area/ministation/medical)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/camera/network/security{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "yb" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder/juicer,
@@ -43990,7 +43995,7 @@ hQ
 oZ
 Ou
 vi
-Ou
+ya
 Ou
 FL
 NE
@@ -51982,7 +51987,7 @@ oz
 xc
 uW
 pD
-ya
+pD
 vK
 aa
 aa

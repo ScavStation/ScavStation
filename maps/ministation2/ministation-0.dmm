@@ -2960,10 +2960,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/engineering_chief,
-/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
-/obj/item/clothing/under/hazardjumpsuit/yinglet,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/ce,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "pQ" = (
@@ -3052,6 +3048,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"qL" = (
+/obj/machinery/camera/network/engineering{
+	name = "SM West";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/supermatter)
 "qM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3195,6 +3198,9 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/engineering_chief,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/ce,
 /turf/simulated/floor/carpet/orange,
 /area/ministation/engine)
 "sb" = (
@@ -3612,7 +3618,9 @@
 /area/ministation/maint/westatmos)
 "uL" = (
 /obj/machinery/door/airlock/glass/engineering{
-	name = "Patriarch of Electricity"
+	name = "Patriarch of Electricity";
+	autoset_access = 0;
+	req_access = list("ACCESS_CHIEF_ENGINEER")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3893,6 +3901,12 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
+"wJ" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/trash)
 "wK" = (
 /obj/structure/bed/padded,
 /turf/simulated/floor/carpet/orange,
@@ -4313,6 +4327,16 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
+"Ae" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/engineering{
+	name = "Office";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Ai" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5789,7 +5813,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Fa" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = list("ACCESS_ENGINEERING")
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Fb" = (
@@ -6031,7 +6057,9 @@
 /turf/simulated/floor/airless,
 /area/space)
 "FH" = (
-/obj/structure/closet/secure_closet/engineering_personal,
+/obj/structure/closet/secure_closet/engineering_personal{
+	req_access = list("ACCESS_ENGINEERING")
+	},
 /obj/machinery/light,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
@@ -8347,8 +8375,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/ai_sat)
 "LG" = (
-/obj/machinery/port_gen/pacman,
 /obj/structure/cable,
+/obj/machinery/port_gen/pacman/super,
 /turf/simulated/floor/tiled,
 /area/ministation/ai_sat)
 "LJ" = (
@@ -8740,6 +8768,9 @@
 	},
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/engineering{
+	name = "SM North"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -10615,7 +10646,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "VH" = (
-/obj/machinery/door/airlock/double/glass/atmos,
+/obj/machinery/door/airlock/double/glass/atmos{
+	req_access = list("ACCESS_ENGINEERING");
+	autoset_access = 0
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
@@ -10956,6 +10990,14 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
+"Xo" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/camera/network/engineering{
+	name = "SM East";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/supermatter)
 "Xt" = (
 /obj/machinery/turretid{
 	control_area = "\improper AI Upload Chamber";
@@ -34551,7 +34593,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -41522,7 +41564,7 @@ Gb
 Gf
 Gb
 Gb
-Gb
+Ae
 CS
 Gb
 Gb
@@ -42753,7 +42795,7 @@ di
 di
 yL
 hf
-hf
+wJ
 hf
 Gd
 Kz
@@ -42812,7 +42854,7 @@ df
 vp
 YE
 jA
-eK
+qL
 eI
 QM
 dD
@@ -45638,7 +45680,7 @@ oO
 XW
 UA
 Ol
-Ol
+Xo
 We
 eK
 BW

@@ -65,6 +65,7 @@
 		access_morgue,
 		access_bridge,
 		access_heads,
+		access_engine_equip,
 		access_eva,
 		access_chemistry,
 		access_virology,
@@ -75,6 +76,11 @@
 		access_sec_doors,
 		access_psychiatrist,
 		access_eva,
+		access_mining,
+		access_kitchen,
+		access_xenobiology,
+		access_robotics,
+		access_hydroponics,
 		access_maint_tunnels,
 		access_external_airlocks
 	)
@@ -84,6 +90,7 @@
 		access_morgue,
 		access_bridge,
 		access_heads,
+		access_engine_equip,
 		access_eva,
 		access_chemistry,
 		access_virology,
@@ -94,6 +101,11 @@
 		access_sec_doors,
 		access_psychiatrist,
 		access_eva,
+		access_mining,
+		access_kitchen,
+		access_xenobiology,
+		access_robotics,
+		access_hydroponics,
 		access_maint_tunnels,
 		access_external_airlocks
 	)

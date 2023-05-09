@@ -103,6 +103,11 @@
 		access_lawyer,
 		access_maint_tunnels,
 		access_armory,
+		access_engine_equip,
+		access_mining,
+		access_kitchen,
+		access_robotics,
+		access_hydroponics,
 		access_hos
 	)
 	minimal_access = list(
@@ -115,6 +120,11 @@
 		access_heads,
 		access_maint_tunnels,
 		access_armory,
+		access_engine_equip,
+		access_mining,
+		access_kitchen,
+		access_robotics,
+		access_hydroponics,
 		access_hos
 	)
 	min_skill = list(
