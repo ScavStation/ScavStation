@@ -223,6 +223,10 @@
 	. = ..()
 	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/head/cakehat.dmi')
 
+/obj/item/clothing/suit/armor/hos/jensen/Initialize()
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/jensen_yinglet.dmi')
+
 /obj/item/clothing/head/cakehat/get_mob_flame_overlay(var/image/overlay, var/bodytype)
 	var/image/I = ..()
 	if(I && bodytype == BODYTYPE_YINGLET)

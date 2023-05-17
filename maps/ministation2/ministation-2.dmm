@@ -854,9 +854,6 @@
 	dir = 1;
 	icon_state = "warning"
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "di" = (
@@ -1637,6 +1634,7 @@
 /obj/item/disk/tech_disk,
 /obj/item/disk/tech_disk,
 /obj/item/disk/design_disk,
+/obj/item/stack/material/ingot/mapped/osmium/twentyfive,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hJ" = (
@@ -3381,6 +3379,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"uZ" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "vc" = (
 /obj/item/stool/padded,
 /obj/abstract/landmark/start{
@@ -3413,6 +3415,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"vq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "vs" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
@@ -39063,7 +39072,7 @@ sC
 sC
 ZJ
 sC
-hx
+uZ
 GD
 tv
 GD
@@ -39324,7 +39333,7 @@ wa
 GD
 GD
 GD
-BS
+vq
 Gy
 tt
 tt

@@ -926,6 +926,24 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
+"eY" = (
+/obj/structure/rack{
+	dir = 8
+	},
+/obj/item/stack/material/ingot/mapped/osmium/forty,
+/obj/item/stack/material/ingot/mapped/iron/fifty,
+/obj/item/stack/material/ingot/mapped/copper/fifty,
+/obj/item/stack/material/ingot/mapped/chromium/fifty,
+/obj/item/stack/material/ingot/mapped/brass/fifty,
+/obj/item/stack/material/ingot/mapped/blackbronze/fifty,
+/obj/item/stack/material/ingot/mapped/gold/fifty,
+/obj/item/stack/material/ingot/mapped/platinum/twenty,
+/obj/item/stack/material/ingot/mapped/silver/fifty,
+/obj/item/stack/material/ingot/mapped/stainlesssteel/forty,
+/obj/item/stack/material/ingot/mapped/tin/fifty,
+/obj/item/stack/material/ingot/mapped/zinc/fifty,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "eZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
@@ -3797,6 +3815,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "vV" = (
@@ -11503,6 +11522,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/rack{
+	dir = 8
+	},
+/obj/item/storage/belt,
+/obj/item/storage/belt,
+/obj/item/storage/belt,
+/obj/item/storage/belt,
+/obj/item/storage/belt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "ZX" = (
@@ -39399,7 +39426,7 @@ Ow
 au
 cP
 dE
-dI
+eY
 dI
 ej
 fl
