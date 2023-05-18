@@ -255,6 +255,16 @@
 /obj/effect/wallframe_spawn/no_grille,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
+"bU" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/item/chems/drinks/juicebox/random,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "bV" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical{
@@ -587,17 +597,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
-"dA" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/beige{
-	dir = 9
-	},
-/obj/item/chems/drinks/juicebox/random,
-/obj/item/chems/drinks/juicebox/sensible_random,
-/turf/simulated/floor/tiled,
-/area/ministation/hall/n)
 "dB" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -1143,6 +1142,7 @@
 	dir = 9
 	},
 /obj/item/chems/drinks/juicebox/random,
+/obj/item/chems/drinks/juicebox/sensible_random,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "fz" = (
@@ -1251,6 +1251,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cargo,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cargo,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/quartermaster,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fR" = (
@@ -1262,10 +1263,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fS" = (
-/obj/machinery/computer/modular/preset/supply_public,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/obj/machinery/computer/modular/preset/merchant/ministation,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fU" = (
@@ -2029,13 +2030,6 @@
 "jI" = (
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1nw)
-"jJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/obj/machinery/recharge_station,
-/turf/simulated/floor/plating,
-/area/ministation/maint/westatmos)
 "jL" = (
 /obj/item/pen,
 /turf/simulated/floor/tiled,
@@ -2777,6 +2771,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
+"nB" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = 20
+	},
+/turf/space,
+/area/space)
 "nE" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2840,6 +2840,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
+"og" = (
+/obj/machinery/merchant_pad,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "oi" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
@@ -3902,12 +3906,6 @@
 "wm" = (
 /turf/simulated/wall,
 /area/ministation/maint/l1nw)
-"wo" = (
-/obj/item/mollusc/barnacle{
-	pixel_x = 20
-	},
-/turf/space,
-/area/space)
 "wp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood/yew,
@@ -4032,13 +4030,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
-"xx" = (
-/obj/item/mollusc/barnacle{
-	pixel_x = -13;
-	pixel_y = -14
-	},
-/turf/space,
-/area/space)
 "xE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -4992,6 +4983,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ministation/atmospherics)
+"CK" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = -13;
+	pixel_y = -14
+	},
+/turf/space,
+/area/space)
 "CL" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
@@ -7292,8 +7290,6 @@
 	pixel_x = 5;
 	pixel_y = -32
 	},
-/obj/structure/closet/secure_closet/quartermaster,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/quartermaster,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "II" = (
@@ -10201,12 +10197,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
-"Tk" = (
-/obj/item/mollusc/barnacle{
-	pixel_x = 20
-	},
-/turf/simulated/floor/airless,
-/area/space)
 "Tl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10525,6 +10515,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"UD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "UG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -10859,6 +10856,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"Wp" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = 20
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Wr" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -38224,7 +38227,7 @@ aa
 aa
 aa
 aa
-wo
+nB
 aa
 ad
 ad
@@ -40278,7 +40281,7 @@ aa
 aa
 aa
 cn
-Tk
+Wp
 au
 cR
 cx
@@ -40593,7 +40596,7 @@ XA
 re
 Qz
 oi
-jJ
+UD
 DD
 av
 av
@@ -41102,7 +41105,7 @@ aa
 aa
 aa
 aa
-xx
+CK
 uK
 AM
 AW
@@ -41828,7 +41831,7 @@ wm
 IK
 au
 ft
-dI
+og
 ky
 Ti
 ht
@@ -42588,7 +42591,7 @@ aa
 aa
 aa
 aa
-wo
+nB
 aa
 aa
 wm
@@ -43112,8 +43115,8 @@ wm
 me
 wm
 eM
+bU
 fy
-dA
 gw
 uY
 TC
@@ -44925,7 +44928,7 @@ aa
 aa
 aa
 DU
-xx
+CK
 aa
 aa
 aa
@@ -48060,7 +48063,7 @@ ad
 aa
 aa
 ad
-xx
+CK
 aa
 aa
 aa
@@ -50615,7 +50618,7 @@ aa
 aa
 aa
 aa
-xx
+CK
 aa
 aa
 aa
