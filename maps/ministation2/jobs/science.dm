@@ -18,7 +18,7 @@
 		SKILL_DEVICES  = SKILL_MAX,
 		SKILL_SCIENCE  = SKILL_MAX
 	)
-	skill_points = 24
+	skill_points = 34
 	access = list(
 		access_robotics,
 		access_tox,
@@ -60,7 +60,7 @@
 		SKILL_DEVICES  = SKILL_MAX,
 		SKILL_SCIENCE  = SKILL_MAX
 	)
-	skill_points = 30
+	skill_points = 40
 	head_position = 1
 	department_types = list(
 		/decl/department/science,

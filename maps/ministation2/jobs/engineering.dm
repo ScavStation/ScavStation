@@ -45,7 +45,7 @@
 		SKILL_ATMOS        = SKILL_MAX,
 		SKILL_ENGINES      = SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 	alt_titles = list("Atmospheric Technician")
 	event_categories = list(ASSIGNMENT_ENGINEER)
 
@@ -130,6 +130,6 @@
 		SKILL_ATMOS        = SKILL_MAX,
 		SKILL_ENGINES      = SKILL_MAX
 	)
-	skill_points = 30
+	skill_points = 40
 	alt_titles = list("Head Engineer", "Chief Engineer", "Patriarch of Electricity")
 	event_categories = list(ASSIGNMENT_ENGINEER)
