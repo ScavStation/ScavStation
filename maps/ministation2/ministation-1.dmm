@@ -2198,6 +2198,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall,
 /area/ministation/hall/w2)
+"pu" = (
+/obj/structure/closet/crate/bin/ministation,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "pA" = (
 /obj/structure/table,
 /obj/item/chems/drinks/glass2/mug,
@@ -39929,7 +39933,7 @@ HO
 HO
 HO
 rt
-aV
+pu
 aV
 aV
 oX
