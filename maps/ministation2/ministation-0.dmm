@@ -541,6 +541,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"dg" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = -13;
+	pixel_y = -14
+	},
+/turf/space,
+/area/space)
 "di" = (
 /turf/simulated/wall,
 /area/ministation/hall/n)
@@ -1131,6 +1138,8 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
+/obj/item/chems/drinks/juicebox/random,
+/obj/item/chems/drinks/juicebox/sensible_random,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "fz" = (
@@ -1452,6 +1461,9 @@
 	id_tag = "cargoshut";
 	name = "cargo shutters"
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "gu" = (
@@ -1465,13 +1477,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "gw" = (
-/obj/structure/closet/crate/bin/ministation,
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/item/chems/drinks/juicebox/random,
-/obj/item/chems/drinks/juicebox/random,
-/obj/item/chems/drinks/juicebox/sensible_random,
+/obj/structure/disposalpipe/trunk{
+	dir = 2
+	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "gx" = (
@@ -3492,6 +3504,12 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
+"tJ" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = 20
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "tU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -3544,7 +3562,6 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/structure/closet/crate/bin/ministation,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -3982,6 +3999,12 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
+"xp" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = 20
+	},
+/turf/space,
+/area/space)
 "xq" = (
 /obj/structure/ladder,
 /turf/simulated/floor/plating,
@@ -4296,6 +4319,13 @@
 /obj/effect/wallframe_spawn/reinforced_borosilicate,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"zV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "zW" = (
 /turf/simulated/wall,
 /area/ministation/dorms)
@@ -5256,6 +5286,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
 "DK" = (
@@ -7243,6 +7274,16 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"IE" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/item/chems/drinks/juicebox/random,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "IF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/r_wall,
@@ -10280,7 +10321,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
+/obj/structure/disposalpipe/junction/mirrored{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -38181,7 +38222,7 @@ aa
 aa
 aa
 aa
-aa
+xp
 aa
 ad
 ad
@@ -40235,7 +40276,7 @@ aa
 aa
 aa
 cn
-cn
+tJ
 au
 cR
 cx
@@ -40550,7 +40591,7 @@ XA
 re
 Qz
 oi
-Am
+zV
 DD
 av
 av
@@ -41059,7 +41100,7 @@ aa
 aa
 aa
 aa
-aa
+dg
 uK
 AM
 AW
@@ -42545,7 +42586,7 @@ aa
 aa
 aa
 aa
-aa
+xp
 aa
 aa
 wm
@@ -43069,10 +43110,10 @@ wm
 me
 wm
 eM
-fy
+IE
 fy
 gw
-gQ
+uY
 TC
 di
 iu
@@ -44882,7 +44923,7 @@ aa
 aa
 aa
 DU
-aa
+dg
 aa
 aa
 aa
@@ -48017,7 +48058,7 @@ ad
 aa
 aa
 ad
-aa
+dg
 aa
 aa
 aa
@@ -50572,7 +50613,7 @@ aa
 aa
 aa
 aa
-aa
+dg
 aa
 aa
 aa
