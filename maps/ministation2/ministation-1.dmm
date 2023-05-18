@@ -5670,6 +5670,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
+/obj/item/ammo_magazine/smg/rubber,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Fn" = (
@@ -6268,9 +6271,6 @@
 /area/ministation/hall/w2)
 "Lr" = (
 /obj/structure/table/woodentable,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/reagentgrinder/juicer,
 /obj/item/chems/glass/beaker,
 /turf/simulated/floor/lino,
@@ -6557,6 +6557,14 @@
 /obj/abstract/level_data/main_level,
 /turf/space,
 /area/space)
+"NR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
 "NU" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -7280,9 +7288,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
-	},
-/obj/structure/railing/mapped{
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
@@ -40668,7 +40673,7 @@ oX
 ty
 Yv
 AX
-AX
+NR
 AX
 ui
 mH

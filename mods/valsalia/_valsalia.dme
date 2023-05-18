@@ -7,22 +7,23 @@
 #include "items\clothing.dm"
 #include "items\clothing_baxxid.dm"
 #include "items\clothing_yinglet.dm"
+#include "items\contraband.dm"
 #include "items\documents.dm"
 #include "items\egg_yinglet.dm"
 #include "items\javelin.dm"
 #include "items\mollusc.dm"
-#include "items\contraband.dm"
-#include "items\tailbags.dm"
 #include "items\prosthetics.dm"
+#include "items\sec_vend.dm"
 #include "items\seed_storage.dm"
 #include "items\suit_cycler.dm"
 #include "items\supply.dm"
+#include "items\tailbags.dm"
 #include "items\turfs.dm"
 #include "items\voidsuits.dm"
 #include "jobs\enclave_department.dm"
+#include "jobs\job.dm"
 #include "jobs\yinglet_job.dm"
 #include "jobs\yinglet_outfit.dm"
-#include "jobs\job.dm"
 #include "lobby\music.dm"
 #include "machines\cargo_train.dm"
 #include "map\culture.dm"
@@ -39,3 +40,10 @@
 #include "structures\hoard.dm"
 // END_INCLUDE
 #endif
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
