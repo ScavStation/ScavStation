@@ -2737,6 +2737,15 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"nz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/disposalpipe/junction/mirrored{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "nA" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -41436,7 +41445,7 @@ Sm
 te
 LC
 iJ
-hG
+nz
 hG
 hG
 hG
