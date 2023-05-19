@@ -50,7 +50,7 @@
 		SKILL_COOKING	= SKILL_MAX,
 		SKILL_BOTANY	= SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 
 /datum/job/ministation/cargo
 	title = "Cargo Technician"
@@ -94,7 +94,7 @@
 		SKILL_EVA		= SKILL_MAX,
 		SKILL_FINANCE	= SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 	software_on_spawn = list(
 		/datum/computer_file/program/supply,
 		/datum/computer_file/program/deck_management,
@@ -134,7 +134,7 @@
 	min_skill = list(
 		SKILL_HAULING  = SKILL_BASIC
 	)
-	skill_points = 18
+	skill_points = 28
 
 /datum/job/ministation/librarian
 	title = "Librarian"

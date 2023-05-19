@@ -1131,6 +1131,8 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
+/obj/item/chems/drinks/juicebox/random,
+/obj/item/chems/drinks/juicebox/sensible_random,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "fz" = (
@@ -1250,10 +1252,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fS" = (
-/obj/machinery/computer/modular/preset/supply_public,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/obj/machinery/computer/modular/preset/merchant/ministation,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fU" = (
@@ -1452,6 +1454,9 @@
 	id_tag = "cargoshut";
 	name = "cargo shutters"
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "gu" = (
@@ -1465,13 +1470,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "gw" = (
-/obj/structure/closet/crate/bin/ministation,
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/item/chems/drinks/juicebox/random,
-/obj/item/chems/drinks/juicebox/random,
-/obj/item/chems/drinks/juicebox/sensible_random,
+/obj/structure/disposalpipe/trunk{
+	dir = 2
+	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "gx" = (
@@ -3492,6 +3497,13 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
+"tO" = (
+/obj/effect/floor_decal/carpet/blue2{
+	dir = 8
+	},
+/obj/structure/closet/crate/bin/ministation,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s1)
 "tU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -3539,12 +3551,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"uj" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/item/chems/drinks/juicebox/random,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "ul" = (
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/structure/closet/crate/bin/ministation,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -3940,6 +3961,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
+"wZ" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = 20
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "xg" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -4005,6 +4032,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
+"xw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "xE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -5256,6 +5290,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
 "DK" = (
@@ -7257,6 +7292,10 @@
 	pixel_x = 5;
 	pixel_y = -32
 	},
+/obj/structure/closet/secure_closet/quartermaster{
+	req_access = list("ACCESS_MINING")
+	},
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/quartermaster,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "II" = (
@@ -9317,6 +9356,13 @@
 "Pp" = (
 /turf/space,
 /area/ministation/supply_dock)
+"Pr" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = -13;
+	pixel_y = -14
+	},
+/turf/space,
+/area/space)
 "Ps" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -9485,6 +9531,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"Qq" = (
+/obj/structure/closet/crate/bin/ministation,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "Qt" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -10280,7 +10330,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
+/obj/structure/disposalpipe/junction/mirrored{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -10608,6 +10658,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/smcontrol)
+"Vq" = (
+/obj/machinery/merchant_pad,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "Vr" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -10940,6 +10994,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/eastatmos)
+"WY" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = 20
+	},
+/turf/space,
+/area/space)
 "Xb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -11519,6 +11579,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
+"ZK" = (
+/obj/structure/closet/crate/bin/ministation,
+/turf/simulated/floor/plating,
+/area/ministation/trash)
 "ZL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -38181,7 +38245,7 @@ aa
 aa
 aa
 aa
-aa
+WY
 aa
 ad
 ad
@@ -40235,7 +40299,7 @@ aa
 aa
 aa
 cn
-cn
+wZ
 au
 cR
 cx
@@ -40550,7 +40614,7 @@ XA
 re
 Qz
 oi
-Am
+xw
 DD
 av
 av
@@ -41059,7 +41123,7 @@ aa
 aa
 aa
 aa
-aa
+Pr
 uK
 AM
 AW
@@ -41538,7 +41602,7 @@ jh
 Yx
 pZ
 hf
-hf
+ZK
 uM
 do
 jh
@@ -41785,7 +41849,7 @@ wm
 IK
 au
 ft
-dI
+Vq
 ky
 Ti
 ht
@@ -42062,7 +42126,7 @@ dU
 di
 di
 gQ
-gQ
+Qq
 kZ
 sy
 MN
@@ -42545,7 +42609,7 @@ aa
 aa
 aa
 aa
-aa
+WY
 aa
 aa
 wm
@@ -43069,10 +43133,10 @@ wm
 me
 wm
 eM
-fy
+uj
 fy
 gw
-gQ
+uY
 TC
 di
 iu
@@ -43111,7 +43175,7 @@ Pa
 ms
 Aj
 Bn
-Bn
+tO
 Bn
 Ec
 ms
@@ -44882,7 +44946,7 @@ aa
 aa
 aa
 DU
-aa
+Pr
 aa
 aa
 aa
@@ -48017,7 +48081,7 @@ ad
 aa
 aa
 ad
-aa
+Pr
 aa
 aa
 aa
@@ -50572,7 +50636,7 @@ aa
 aa
 aa
 aa
-aa
+Pr
 aa
 aa
 aa

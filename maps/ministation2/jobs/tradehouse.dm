@@ -21,7 +21,7 @@
 		SKILL_MEDICAL  = SKILL_MAX,
 		SKILL_ANATOMY  = SKILL_EXPERT
 	)
-	skill_points = 25
+	skill_points = 35
 	department_types = list(/decl/department/tradehouse)
 	selection_color = "#a89004"
 	access = list(

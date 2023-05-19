@@ -1253,7 +1253,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "fh" = (
-/obj/structure/closet/crate/bin/ministation,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "fi" = (
@@ -1365,6 +1368,9 @@
 /area/ministation/science)
 "gi" = (
 /obj/machinery/smartfridge/secure/extract,
+/obj/structure/disposalpipe/segment/bent{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "gn" = (
@@ -1400,14 +1406,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "gF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/item/mollusc/barnacle{
+	pixel_x = -13;
+	pixel_y = -14
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "gG" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1609,6 +1613,9 @@
 /obj/structure/table,
 /obj/item/storage/box/syringes,
 /obj/item/chems/glass/beaker/large,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "hG" = (
@@ -1873,6 +1880,9 @@
 	name = "Xenobiology"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "iQ" = (
@@ -2225,7 +2235,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/closet/crate/bin/ministation,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "kx" = (
@@ -2728,6 +2737,15 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"nz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/disposalpipe/junction/mirrored{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "nA" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -2918,6 +2936,13 @@
 /obj/machinery/computer/modular/preset/engineering,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"pa" = (
+/obj/item/mollusc/barnacle{
+	pixel_x = -13;
+	pixel_y = -14
+	},
+/turf/space,
+/area/space)
 "pb" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -3196,6 +3221,9 @@
 /obj/item/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -4031,6 +4059,9 @@
 /obj/structure/table,
 /obj/item/storage/box/monkeycubes,
 /obj/item/stack/material/puck/mapped/uranium/ten,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Cy" = (
@@ -5313,6 +5344,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "OM" = (
@@ -5700,6 +5734,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -6307,6 +6344,9 @@
 	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -36474,7 +36514,7 @@ aa
 aa
 aa
 aa
-aa
+pa
 ah
 aR
 br
@@ -36759,7 +36799,7 @@ aa
 aa
 aa
 cw
-cw
+gF
 Cd
 Oo
 Lq
@@ -40112,7 +40152,7 @@ cw
 cw
 cw
 cw
-cw
+gF
 ae
 dw
 dt
@@ -41405,7 +41445,7 @@ Sm
 te
 LC
 iJ
-hG
+nz
 hG
 hG
 hG
@@ -42433,7 +42473,7 @@ db
 fb
 db
 db
-gF
+RV
 GJ
 ae
 hK
@@ -43717,7 +43757,7 @@ dA
 eh
 ae
 fh
-db
+LC
 gi
 ae
 hM
@@ -45016,7 +45056,7 @@ VX
 WA
 ae
 cw
-aa
+pa
 aa
 aa
 aa

@@ -32,7 +32,7 @@
 		SKILL_COMBAT	= SKILL_MAX,
 		SKILL_WEAPONS	= SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 	event_categories = list(ASSIGNMENT_SECURITY)
 
 /datum/job/ministation/detective
@@ -72,7 +72,7 @@
 		SKILL_WEAPONS	= SKILL_MAX,
 		SKILL_FORENSICS	= SKILL_MAX
 	)
-	skill_points = 24
+	skill_points = 34
 
 /datum/job/ministation/security/head
 	title = "Patriarch of Security"
@@ -137,5 +137,5 @@
 		SKILL_COMBAT	= SKILL_MAX,
 		SKILL_WEAPONS	= SKILL_MAX
 	)
-	skill_points = 30
+	skill_points = 40
 	alt_titles = list("Head of Security","Patriarch of Scouting")

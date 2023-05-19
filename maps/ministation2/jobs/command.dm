@@ -12,7 +12,7 @@
 		SKILL_PILOT   = SKILL_MAX,
 		SKILL_WEAPONS = SKILL_MAX
 	)
-	skill_points = 30
+	skill_points = 40
 	head_position = 1
 	department_types = list(/decl/department/command)
 	total_positions = 1
@@ -169,5 +169,5 @@
 		SKILL_PILOT =   SKILL_MAX,
 		SKILL_FINANCE = SKILL_MAX
 	)
-	skill_points = 30
+	skill_points = 40
 	alt_titles = list("Head of Personnel")

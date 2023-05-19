@@ -6,7 +6,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	alt_titles = list("Chemist","Nurse")
-	skill_points = 24
+	skill_points = 34
 	min_skill = list(
 		SKILL_LITERACY  = SKILL_ADEPT,
 		SKILL_MEDICAL   = SKILL_EXPERT,
@@ -51,7 +51,7 @@
 	alt_titles = list("Surgeon","Head Doctor")
 	total_positions = 1
 	spawn_positions = 1
-	skill_points = 28
+	skill_points = 38
 	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
