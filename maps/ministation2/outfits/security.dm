@@ -3,6 +3,7 @@
 	decals = list("stripe" = COLOR_RED_LIGHT)
 
 /decl/hierarchy/outfit/job/ministation/security
+	l_ear = /obj/item/radio/headset/headset_sec
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	gloves = /obj/item/clothing/gloves/thick
 	shoes = /obj/item/clothing/shoes/jackboots
