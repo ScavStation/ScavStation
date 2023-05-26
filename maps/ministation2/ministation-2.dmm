@@ -5549,6 +5549,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/light_switch{
+	pixel_y = 27;
+	pixel_x = -23
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/ministation/science)
 "Qf" = (

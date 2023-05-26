@@ -525,10 +525,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/civilian{
-	autoset_access = 0;
+/obj/machinery/door/airlock/glass/civilian{
 	name = "Kitchen airlock";
-	req_access = list("ACCESS_KITCHEN")
+	req_access = list("ACCESS_KITCHEN");
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -3167,11 +3167,6 @@
 /obj/item/chems/glass/beaker,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
-"sZ" = (
-/obj/structure/table,
-/obj/machinery/camera/network/medbay,
-/turf/simulated/floor/tiled/white,
-/area/ministation/medical)
 "ta" = (
 /obj/structure/iv_drip,
 /turf/simulated/floor/tiled/white,
@@ -3813,6 +3808,9 @@
 	},
 /obj/structure/flora/pottedplant/minitree,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "vu" = (
@@ -3821,9 +3819,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "vv" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/structure/flora/pottedplant/unusual,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -5944,7 +5939,9 @@
 /obj/structure/closet/chefcloset,
 /obj/item/storage/box/ammo/beanbags,
 /obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	},
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/hydroponics,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
@@ -6986,7 +6983,9 @@
 /area/ministation/medical)
 "QC" = (
 /obj/structure/iv_drip,
-/obj/machinery/light,
+/obj/machinery/camera/network/medbay{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "QE" = (
@@ -51247,7 +51246,7 @@ nf
 vK
 oz
 oz
-sZ
+HG
 aA
 QC
 oz
