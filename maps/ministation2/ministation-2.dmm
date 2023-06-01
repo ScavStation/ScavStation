@@ -763,7 +763,7 @@
 /obj/item/gun/energy/gun/nuclear,
 /obj/item/hatchet/machete,
 /obj/item/clothing/accessory/storage/holster/machete,
-/obj/item/storage/med_pouch,
+/obj/item/storage/med_pouch/trauma,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "cJ" = (
@@ -3676,7 +3676,7 @@
 /obj/item/gun/energy/gun/nuclear,
 /obj/item/hatchet/machete,
 /obj/item/clothing/accessory/storage/holster/machete,
-/obj/item/storage/med_pouch,
+/obj/item/storage/med_pouch/trauma,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zT" = (
@@ -5646,7 +5646,7 @@
 /obj/item/gun/energy/gun/nuclear,
 /obj/item/hatchet/machete,
 /obj/item/clothing/accessory/storage/holster/machete,
-/obj/item/storage/med_pouch,
+/obj/item/storage/med_pouch/trauma,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "QD" = (
