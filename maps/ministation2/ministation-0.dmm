@@ -2090,6 +2090,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/item/ore/glass,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "jX" = (
@@ -2338,8 +2339,8 @@
 /obj/machinery/camera/network/mining{
 	dir = 8
 	},
-/obj/vehicle/train/cargo/trolley,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "lr" = (
@@ -3002,8 +3003,8 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "pS" = (
-/obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "pZ" = (
@@ -4276,12 +4277,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "zz" = (
-/obj/vehicle/train/cargo/engine,
 /obj/item/radio/intercom{
 	dir = 8;
 	pixel_x = 25
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "zB" = (
@@ -10880,8 +10881,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1nw)
 "Ws" = (
-/obj/vehicle/train/cargo/trolley,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/vehicle/train/cargo/engine,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "Wt" = (
@@ -40572,7 +40573,7 @@ zz
 lq
 Ws
 dI
-Wc
+pS
 au
 aa
 jh
