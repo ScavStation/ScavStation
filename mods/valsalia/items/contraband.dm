@@ -17,3 +17,8 @@
 	icon_state="poster6"
 	name = "HONK"
 	desc = "This is a poster reminding you of the dangers of clowns."
+
+/decl/poster/bay_62
+	icon_state="poster8"
+	name = "Merry Crimbo"
+	desc = "Merry Crimbo from Engineering!."

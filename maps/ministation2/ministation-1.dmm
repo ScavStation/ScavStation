@@ -2761,6 +2761,9 @@
 	pixel_x = -22
 	},
 /obj/structure/closet/secure_closet/hop,
+/obj/item/contraband/poster{
+	poster_type = /decl/poster/bay_62
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "rE" = (
