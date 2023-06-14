@@ -7846,9 +7846,6 @@
 	pixel_x = 27;
 	pixel_y = 5
 	},
-/obj/abstract/landmark/start{
-	name = "AI"
-	},
 /obj/machinery/newscaster{
 	pixel_x = -32;
 	pixel_y = 32
@@ -7862,6 +7859,7 @@
 	pixel_x = 31
 	},
 /obj/structure/aicore/deactivated,
+/obj/abstract/landmark/start/ai,
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
 "Ko" = (
