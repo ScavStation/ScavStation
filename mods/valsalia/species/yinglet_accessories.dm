@@ -38,6 +38,23 @@
 	name = "Ying Long Ears"
 	icon_state = "longears"
 
+/decl/sprite_accessory/marking/yinglet/recolour_front_body
+	name = "Body Colour (Front)"
+	icon_state = "frontfluff"
+
+/decl/sprite_accessory/marking/yinglet/recolour_front_head
+	name = "Head Colour (Front)"
+	icon_state = "fronthead"
+
+/decl/sprite_accessory/marking/yinglet/recolour_front_torso
+	name = "Torso Colour (Front)"
+	icon_state = "torsofront"
+
+// this doesnt function do to how the tail code works
+// /decl/sprite_accessory/marking/yinglet/recolour_under_tail
+//	name = "Tail Underfluff Colour"
+//	icon_state = "underfluff"
+
 /decl/sprite_accessory/hair/yinglet
 	name = "Ying Messy"
 	icon_state = "hair_messy"

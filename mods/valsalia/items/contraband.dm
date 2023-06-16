@@ -21,4 +21,9 @@
 /decl/poster/bay_62
 	icon_state="poster8"
 	name = "Merry Crimbo"
-	desc = "Merry Crimbo from Engineering!."
+	desc = "Merry Crimbo from Engineering!"
+
+/decl/poster/bay_63
+	icon_state="poster7"
+	name = "Danger Chair"
+	desc = "40% of accidents are caused by chair riding, dont become a statistic."
