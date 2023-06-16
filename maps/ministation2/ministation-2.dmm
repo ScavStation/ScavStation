@@ -764,6 +764,7 @@
 /obj/item/hatchet/machete,
 /obj/item/clothing/accessory/storage/holster/machete,
 /obj/item/storage/med_pouch/trauma,
+/obj/item/ducttape,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "cJ" = (
@@ -2635,6 +2636,7 @@
 	},
 /obj/machinery/camera/network/research,
 /obj/item/wirecutters/clippers,
+/obj/item/scanner/plant,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "mH" = (
@@ -3677,6 +3679,7 @@
 /obj/item/hatchet/machete,
 /obj/item/clothing/accessory/storage/holster/machete,
 /obj/item/storage/med_pouch/trauma,
+/obj/item/ducttape,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zT" = (
@@ -5647,6 +5650,7 @@
 /obj/item/hatchet/machete,
 /obj/item/clothing/accessory/storage/holster/machete,
 /obj/item/storage/med_pouch/trauma,
+/obj/item/ducttape,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "QD" = (
