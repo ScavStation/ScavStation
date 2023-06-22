@@ -2341,6 +2341,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
+/obj/item/stack/material/brick/mapped/sandstone/forty,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "lr" = (
@@ -4284,6 +4285,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
+/obj/item/stack/material/brick/mapped/sandstone/five,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "zB" = (
