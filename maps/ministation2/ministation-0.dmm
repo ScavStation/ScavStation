@@ -2341,6 +2341,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
+/obj/item/stack/material/brick/mapped/sandstone/forty,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "lr" = (
@@ -4284,6 +4285,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
+/obj/item/stack/material/brick/mapped/sandstone/five,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "zB" = (
@@ -5755,11 +5757,13 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/item/chems/chem_disp_cartridge/water,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/table/woodentable_reinforced/walnut/maple,
+/obj/item/chems/chem_disp_cartridge/coffee{
+	name = "coffee canister"
+	},
 /turf/simulated/floor/wood,
 /area/ministation/engine)
 "EO" = (
@@ -5903,8 +5907,6 @@
 	},
 /obj/item/chems/drinks/glass2/coffeecup/metal,
 /obj/item/chems/drinks/glass2/coffeecup/metal,
-/obj/item/chems/condiment/small/packet/coffee,
-/obj/item/chems/condiment/small/packet/coffee,
 /obj/structure/table/woodentable_reinforced/walnut/maple,
 /turf/simulated/floor/wood,
 /area/ministation/engine)

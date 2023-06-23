@@ -760,11 +760,10 @@
 	},
 /obj/item/clothing/suit/space/void/scav/explorer,
 /obj/item/clothing/head/helmet/space/void/scav/explorer,
-/obj/item/gun/energy/gun/nuclear,
-/obj/item/hatchet/machete,
-/obj/item/clothing/accessory/storage/holster/machete,
 /obj/item/storage/med_pouch/trauma,
 /obj/item/ducttape,
+/obj/item/twohanded/spear/diamond,
+/obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "cJ" = (
@@ -3675,11 +3674,10 @@
 /obj/item/clothing/head/helmet/space/void/scav/science,
 /obj/item/clothing/suit/space/void/scav/science,
 /obj/machinery/light,
-/obj/item/gun/energy/gun/nuclear,
-/obj/item/hatchet/machete,
-/obj/item/clothing/accessory/storage/holster/machete,
 /obj/item/storage/med_pouch/trauma,
 /obj/item/ducttape,
+/obj/item/twohanded/spear/diamond,
+/obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zT" = (
@@ -5646,11 +5644,10 @@
 	},
 /obj/item/clothing/head/helmet/space/void/scav/science,
 /obj/item/clothing/suit/space/void/scav/science,
-/obj/item/gun/energy/gun/nuclear,
-/obj/item/hatchet/machete,
-/obj/item/clothing/accessory/storage/holster/machete,
 /obj/item/storage/med_pouch/trauma,
 /obj/item/ducttape,
+/obj/item/twohanded/spear/diamond,
+/obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "QD" = (
