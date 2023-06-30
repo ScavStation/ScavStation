@@ -2435,7 +2435,8 @@
 /obj/machinery/door/airlock/double/medical{
 	name = "medbay airlock";
 	autoset_access = 0;
-	id_tag = "medleave"
+	id_tag = "medleave";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
