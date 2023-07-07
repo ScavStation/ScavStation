@@ -5146,10 +5146,12 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "Nr" = (
-/obj/machinery/door/airlock/double/glass/science,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/door/airlock/double/glass/science{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
