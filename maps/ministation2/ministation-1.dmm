@@ -7384,6 +7384,13 @@
 /obj/item/eftpos,
 /obj/item/chems/spray/cleaner,
 /obj/machinery/light,
+/obj/item/chems/condiment/small/packet/honey,
+/obj/item/chems/condiment/small/packet/honey,
+/obj/item/chems/condiment/small/packet/honey,
+/obj/item/chems/condiment/small/packet/honey,
+/obj/item/chems/condiment/small/packet/honey,
+/obj/item/chems/condiment/small/packet/honey,
+/obj/item/chems/condiment/small/packet/honey,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Ug" = (
