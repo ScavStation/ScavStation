@@ -87,13 +87,21 @@
 
 /datum/hud_data/baxxid
 	has_hands = FALSE
-	gear = list(
-		"id" =           list("loc" = ui_id,                "name" = "ID",   "slot" = slot_wear_id_str,   "state" = "id"),
-		"back" =         list("loc" = ui_sstore1,           "name" = "Back", "slot" = slot_back_str,      "state" = "back"),
-		"o_clothing" =   list("loc" = ui_iclothing,         "name" = "Suit", "slot" = slot_wear_suit_str, "state" = "suit", "toggle" = 1),
-		"head" =         list("loc" = "LEFT:6,BOTTOM+3:11", "name" = "Hat",  "slot" = slot_head_str,      "state" = "hair", "toggle" = 1),
-		"mask" =         list("loc" = ui_glasses,           "name" = "Mask", "slot" = slot_wear_mask_str, "state" = "mask", "toggle" = 1)
-		)
+	inventory_slots = list(
+		/datum/inventory_slot/handcuffs,
+		/datum/inventory_slot/id,
+		/datum/inventory_slot/back,
+		/datum/inventory_slot/pocket,
+		/datum/inventory_slot/pocket/right,
+		/datum/inventory_slot/suit,
+		/datum/inventory_slot/suit_storage,
+		/datum/inventory_slot/mask,
+		/datum/inventory_slot/head,
+		/datum/inventory_slot/glasses,
+		/datum/inventory_slot/ear,
+		/datum/inventory_slot/ear/right,
+		/datum/inventory_slot/belt
+	)
 
 /decl/natural_attack/claws/strong/baxxid
 	name = "forelimb stab"

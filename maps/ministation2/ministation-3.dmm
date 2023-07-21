@@ -147,7 +147,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "NO" = (
-/obj/abstract/level_data/main_level,
+/obj/abstract/level_data_spawner/main_level,
 /turf/space,
 /area/space)
 "Uw" = (

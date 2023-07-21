@@ -214,6 +214,10 @@
 		//If we're here, then holder is a buffer containing the total reagents for all the results.
 		//So now we redistribute it among them
 		var/total = holder.total_volume
-		for(var/atom/a AS_ANYTHING in results)
+		for(var/atom/a as anything in results)
 			holder.trans_to(a, total / length(results))
+
+	for(var/obj/item/chems/food/food in results)
+		food.cooked_food = TRUE
+
 	return results

@@ -28,7 +28,7 @@
 	. = ..()
 
 /obj/machinery/power/terminal/attackby(obj/item/W, mob/user)
-	if(isWirecutter(W))
+	if(IS_WIRECUTTER(W))
 		var/turf/T = get_turf(src)
 		var/obj/machinery/machine = master_machine()
 
@@ -90,7 +90,7 @@
 		var/obj/machinery/machine = master_machine()
 		
 		// Wall frames and SMES have directional terminals.
-		if(!master.terminal_dir && !ispath(machine.frame_type, /obj/item/frame))
+		if(!master.terminal_dir && !ispath(machine.frame_type, /obj/item/frame) && master.loc == loc)
 			icon_state = "term-omni"
 		else
 			icon_state = "term"

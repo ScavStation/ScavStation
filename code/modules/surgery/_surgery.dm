@@ -4,8 +4,10 @@ var/global/list/surgeries_in_progress = list()
 var/global/list/surgery_tool_exceptions = list(
 	/obj/item/auto_cpr,
 	/obj/item/scanner/health,
+	/obj/item/scanner/breath,
 	/obj/item/shockpaddles,
 	/obj/item/chems/hypospray,
+	/obj/item/chems/inhaler,
 	/obj/item/modular_computer,
 	/obj/item/chems/syringe,
 	/obj/item/chems/borghypo
@@ -30,7 +32,14 @@ var/global/list/surgery_tool_exception_cache = list()
 	var/hidden_from_codex                // Is this surgery a secret?
 	var/list/additional_codex_lines
 	var/expected_mob_type = /mob/living/carbon/human
-	var/surgery_step_category = /decl/surgery_step
+	abstract_type = /decl/surgery_step
+
+/decl/surgery_step/validate()
+	. = ..()
+	if (!description)
+		. += "Missing description"
+	else if (!istext(description))
+		. += "Non-text description"
 
 //returns how fast the tool is for this step
 /decl/surgery_step/proc/get_speed_modifier(var/mob/user, var/mob/target, var/obj/item/tool)
@@ -183,19 +192,23 @@ var/global/list/surgery_tool_exception_cache = list()
 	if(!istype(user) || !istype(E)) return
 
 	var/germ_level = user.germ_level
-	if(user.gloves)
-		germ_level = user.gloves.germ_level
+	var/obj/item/gloves = user.get_equipped_item(slot_gloves_str)
+	if(gloves)
+		germ_level = gloves.germ_level
 
 	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
 
 /obj/item/proc/do_surgery(mob/living/M, mob/living/user, fuckup_prob)
 
 	// Check for the Hippocratic oath.
-	if(!istype(M) || user.a_intent == I_HURT)
+	if(!istype(M) || !istype(user) || user.a_intent == I_HURT)
 		return FALSE
 
 	// Check for multi-surgery drifting.
-	var/zone = user.zone_sel.selecting
+	var/zone = user.get_target_zone()
+	if(!zone)
+		return FALSE // Erroneous mob interaction
+
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(length(LAZYACCESS(H.species.limb_mapping, zone)) > 1)
@@ -291,7 +304,7 @@ var/global/list/surgery_tool_exception_cache = list()
 	else
 		. = OPERATE_DENY
 	if(. != OPERATE_DENY && M == user)
-		var/hitzone = check_zone(user.zone_sel.selecting, M)
+		var/hitzone = check_zone(user.get_target_zone(), M)
 		var/list/badzones = list(BP_HEAD)
 		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(M, M.get_active_held_item_slot())
 		if(E)

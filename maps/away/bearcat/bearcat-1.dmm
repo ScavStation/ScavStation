@@ -37,6 +37,17 @@
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/cargo/lower)
+"af" = (
+/obj/machinery/cryopod/robot{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/cryopod/robot{
+	dir = 8;
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/usedup,
+/area/ship/scrap/broken1)
 "ag" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -834,7 +845,7 @@
 /obj/item/fossil/animal,
 /obj/item/fossil/animal,
 /obj/item/fossil,
-/obj/item/ore/strangerock,
+/obj/item/strangerock,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
 "bQ" = (
@@ -1093,7 +1104,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/taperoll/engineering/applied,
+/obj/structure/tape_barricade/engineering,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -1545,7 +1556,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/taperoll/engineering/applied,
+/obj/structure/tape_barricade/engineering,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -1721,16 +1732,6 @@
 /area/ship/scrap/broken1)
 "dI" = (
 /obj/item/stool/padded,
-/turf/simulated/floor/tiled/usedup,
-/area/ship/scrap/broken1)
-"dJ" = (
-/obj/machinery/cryopod/robot{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/cryopod/robot{
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/broken1)
 "dK" = (
@@ -1942,7 +1943,7 @@
 	pixel_y = 32;
 	req_access = newlist()
 	},
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/machinery/light_switch{
 	pixel_x = -24
 	},
@@ -2395,7 +2396,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/item/taperoll/engineering,
+/obj/item/stack/tape_roll/barricade_tape/engineering,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
 "eR" = (
@@ -2410,7 +2411,7 @@
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
 "eS" = (
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/stack/material/reinforced/mapped/plasteel/fifty,
 /obj/item/stack/material/ingot/mapped/copper/fifty,
 /obj/item/stack/material/rods/fifty,
@@ -2430,7 +2431,7 @@
 "eT" = (
 /obj/item/clothing/head/welding,
 /obj/item/radio,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/structure/table,
 /obj/item/radio/intercom{
 	pixel_y = -32
@@ -2442,7 +2443,7 @@
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/storage)
 "eV" = (
-/obj/structure/dispenser/oxygen,
+/obj/structure/tank_rack/oxygen,
 /turf/simulated/floor/usedup,
 /area/ship/scrap/maintenance/eva)
 "eW" = (
@@ -8836,7 +8837,7 @@ cN
 cX
 dm
 dz
-dJ
+af
 cN
 ec
 eo

@@ -45,8 +45,6 @@
 
 	age_descriptor = /datum/appearance_descriptor/age/yinglet
 
-	reagent_tag = IS_YINGLET
-
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/yinglet),
@@ -104,6 +102,12 @@
 			/decl/cultural_info/religion/other
 		)
 	)
+
+	traits = list(
+		/decl/trait/mollusc_lover = TRAIT_LEVEL_EXISTS,
+		/decl/trait/gluten_allergy = TRAIT_LEVEL_EXISTS
+	)
+
 /decl/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
 	return SPECIES_YINGLET
 

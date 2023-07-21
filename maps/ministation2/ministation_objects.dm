@@ -2,14 +2,15 @@
 	if(prob(80))
 		. = list()
 	else if(prob(75))
-		if(strata)
-			var/decl/strata/strata_info = GET_DECL(strata)
+		if(strata_override)
+			var/decl/strata/strata_info = GET_DECL(strata_override)
+			. = strata_info.ores_sparse
 			. = strata_info.ores_sparse
 		if(!.)
 			. = SSmaterials.weighted_minerals_sparse
 	else
-		if(strata)
-			var/decl/strata/strata_info = GET_DECL(strata)
+		if(strata_override)
+			var/decl/strata/strata_info = GET_DECL(strata_override)
 			. = strata_info.ores_rich
 		if(!.)
 			. = SSmaterials.weighted_minerals_rich

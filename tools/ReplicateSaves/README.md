@@ -4,4 +4,4 @@ Very quick and dirty script used to replicate the player saves for a given map f
 
 # Usage
 
-`python tools/ReplicateSaves/replicate_saves.py ministation`
+`python tools/ReplicateSaves/replicate_saves.py [map to copy saves from]`

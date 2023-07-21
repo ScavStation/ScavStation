@@ -26,6 +26,9 @@ var/global/list/pai_cards = list()
 	overlays += "pai-off"
 	global.pai_cards += src
 
+/obj/item/paicard/preserve_in_cryopod(var/obj/machinery/cryopod/pod)
+	return TRUE
+
 /obj/item/paicard/Destroy()
 	global.pai_cards -= src
 	//Will stop people throwing friend pAIs into the singularity so they can respawn
@@ -258,19 +261,19 @@ var/global/list/pai_cards = list()
 		var/confirm = input("Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe") in list("Yes", "No")
 		if(confirm == "Yes")
 			for(var/mob/M in src)
-				to_chat(M, "<font color = #ff0000><h2>You feel yourself slipping away from reality.</h2></font>")
-				to_chat(M, "<font color = #ff4d4d><h3>Byte by byte you lose your sense of self.</h3></font>")
-				to_chat(M, "<font color = #ff8787><h4>Your mental faculties leave you.</h4></font>")
-				to_chat(M, "<font color = #ffc4c4><h5>oblivion... </h5></font>")
+				to_chat(M, SPAN_RED("<h2>You feel yourself slipping away from reality.</h2>"))
+				to_chat(M, SPAN_ORANGE("<h3>Byte by byte you lose your sense of self.</h3>"))
+				to_chat(M, SPAN_PINK("<h4>Your mental faculties leave you.</h4>"))
+				to_chat(M, SPAN_PALEPINK("<h5>oblivion... </h5>"))
 				M.death(0)
 			removePersonality()
 	if(href_list["wires"])
 		var/t1 = text2num(href_list["wires"])
 		switch(t1)
 			if(4)
-				radio.ToggleBroadcast()
+				radio.toggle_broadcast()
 			if(2)
-				radio.ToggleReception()
+				radio.toggle_reception()
 	if(href_list["setlaws"])
 		var/newlaws = sanitize(input("Enter any additional directives you would like your pAI personality to follow. Note that these directives will not override the personality's allegiance to its imprinted master. Conflicting directives will be ignored.", "pAI Directive Configuration", pai.pai_laws) as message)
 		if(newlaws)
@@ -298,7 +301,7 @@ var/global/list/pai_cards = list()
 		current_emotion = emotion
 
 /obj/item/paicard/on_update_icon()
-	cut_overlays()
+	. = ..()
 	if(pai)
 		switch(current_emotion)
 			if(1)  add_overlay("pai-happy")

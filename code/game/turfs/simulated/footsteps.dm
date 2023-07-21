@@ -30,6 +30,7 @@
 	if(species.silent_steps || buckled || lying || throwing)
 		return //people flying, lying down or sitting do not step
 
+	var/obj/item/shoes = get_equipped_item(slot_shoes_str)
 	if(shoes && (shoes.item_flags & ITEM_FLAG_SILENT))
 		return // quiet shoes
 
@@ -52,15 +53,27 @@
 		return
 
 	var/turf/T = get_turf(src)
-	if(T)
-		var/footsound = T.get_footstep_sound(src)
-		if(footsound)
-			var/range = -(world.view - 2)
-			var/volume = 70
-			if(MOVING_DELIBERATELY(src))
-				volume -= 45
-				range -= 0.333
-			if(!shoes)
-				volume -= 60
-				range -= 0.333
-			playsound(T, footsound, volume, 1, range)
+	if(!T)
+		return
+
+	var/footsound = T.get_footstep_sound(src)
+	if(!footsound)
+		return
+
+	var/range = -(world.view - 2)
+	var/volume = 70
+	if(MOVING_DELIBERATELY(src))
+		volume -= 45
+		range -= 0.333
+	var/obj/item/clothing/shoes/shoes = get_equipped_item(slot_shoes_str)
+	if(istype(shoes))
+		volume *= shoes.footstep_volume_mod
+		range  *= shoes.footstep_range_mod
+	else if(!shoes)
+		volume -= 60
+		range -= 0.333
+
+	range = round(range)
+	volume = round(volume)
+	if(volume > 0 && range > 0)
+		playsound(T, footsound, volume, 1, range)

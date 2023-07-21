@@ -2,6 +2,7 @@
 	universal_speak = TRUE
 	mob_sort_value = 10
 	invisibility = 101
+	simulated = FALSE
 
 	density = 0
 	stat = DEAD
@@ -34,26 +35,22 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 /mob/new_player/proc/show_lobby_menu(force = FALSE)
 	if(!SScharacter_setup.initialized && !force)
 		return // Not ready yet.
-	var/output = list()
-	output += "<div align='center'>"
-	output += "<i>[global.using_map.get_map_info()]</i>"
-	output +="<hr>"
-	output += "<a href='byond://?src=\ref[src];lobby_setup=1'>Setup Character</A> "
 
-	if(GAME_STATE > RUNLEVEL_LOBBY)
-		output += "<a href='byond://?src=\ref[src];lobby_crew=1'>View the Crew Manifest</A> "
+	var/output = list("<div align='center'>")
 
-	output += "<a href='byond://?src=\ref[src];lobby_observe=1'>Observe</A> "
-
-	output += "<hr>Current character: <a href='byond://?src=\ref[client.prefs];load=1'><b>[client.prefs.real_name]</b></a>[client.prefs.job_high ? ", [client.prefs.job_high]" : null]<br>"
-	if(GAME_STATE <= RUNLEVEL_LOBBY)
-		if(ready)
-			output += "<a class='linkOn' href='byond://?src=\ref[src];lobby_ready=1'>Un-Ready</a>"
-		else
-			output += "<a href='byond://?src=\ref[src];lobby_ready=1'>Ready Up</a>"
-	else
-		output += "<a href='byond://?src=\ref[src];lobby_join=1'>Join Game!</A>"
-
+	var/decl/lobby_handler/lobby_handler = GET_DECL(global.using_map.lobby_handler)
+	var/lobby_header = lobby_handler.get_lobby_header(src)
+	if(lobby_header)
+		output += lobby_header
+	for(var/datum/lobby_option/option in lobby_handler.lobby_options)
+		if(!option.visible(src))
+			continue
+		var/option_string = option.get_lobby_menu_string(src)
+		if(option_string)
+			output += option_string
+	var/lobby_footer = lobby_handler.get_lobby_footer(src)
+	if(lobby_footer)
+		output += lobby_footer
 	output += "</div>"
 
 	panel = new(src, "Welcome","Welcome to [global.using_map.full_name]", 560, 280, src)
@@ -211,7 +208,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 		var/obj/S = job.get_roundstart_spawnpoint()
 		spawn_turf = get_turf(S)
 
-	if(!SSjobs.check_unsafe_spawn(src, spawn_turf))
+	if(!job.no_warn_unsafe && !SSjobs.check_unsafe_spawn(src, spawn_turf))
 		return
 
 	// Just in case someone stole our position while we were waiting for input from alert() proc
@@ -247,14 +244,12 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 
 	qdel(src)
 
-
 /mob/new_player/proc/AnnounceCyborg(var/mob/living/character, var/rank, var/join_message)
 	if (GAME_STATE == RUNLEVEL_GAME)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-		var/obj/item/radio/announcer = get_global_announcer()
-		announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived"].", "Arrivals Announcement Computer")
+		do_telecomms_announcement(character, "A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived"].", "Arrivals Announcement Computer")
 
 /mob/new_player/proc/LateChoices()
 	var/name = client.prefs.be_random_name ? "friend" : client.prefs.real_name
@@ -370,10 +365,6 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 			spawning = 0 //abort
 			return null
 		new_character = new(spawn_turf, chosen_species.name)
-		if(chosen_species.has_organ[BP_POSIBRAIN] && client && client.prefs.is_shackled)
-			var/obj/item/organ/internal/posibrain/B = new_character.get_organ(BP_POSIBRAIN, /obj/item/organ/internal/posibrain)
-			if(B)
-				B.shackle(client.prefs.get_lawset())
 
 	if(!new_character)
 		new_character = new(spawn_turf)

@@ -8,6 +8,7 @@
 	hands = list(/obj/item/wrench)
 	belt = /obj/item/storage/belt/utility/full
 	r_pocket = /obj/item/radio
+	l_ear = /obj/item/radio/headset/headset_eng
 
 /obj/item/card/id/tradeship/engineering
 	name = "identification card"
@@ -27,6 +28,7 @@
 	id_type = /obj/item/card/id/tradeship/engineering/head
 	r_pocket = /obj/item/radio
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
+	l_ear = /obj/item/radio/headset/heads/ce
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 
 /obj/item/card/id/tradeship/engineering/head

@@ -1,6 +1,6 @@
 //Jackets with buttons, used for labcoats, IA jackets, First Responder jackets, and brown jackets.
 /obj/item/clothing/suit/storage/toggle
-	var/buttons // null means no toggle, TRUE means unbuttoned, FALSE means buttoned closed
+	var/buttons // null means no toggle, TRUE means unbuttoned, FALSE means buttoned closed. Set during Initialize() based on icon
 	var/obj/item/clothing/head/hood
 
 /obj/item/clothing/suit/storage/toggle/Initialize()
@@ -88,28 +88,36 @@
 // Short-circuit this for quick interaction when worn.
 /obj/item/clothing/suit/storage/toggle/AltClick(var/mob/user)
 	if(user.get_equipped_item(slot_wear_suit_str) == src)
-
-		var/has_buttons = !isnull(buttons)
-		var/has_hood = !!hood
-
-		if(has_buttons && has_hood)
-			var/choice = input(user, "Do you want to adjust the hood, or the buttons?", "Adjust Coat") as null|anything in list("Buttons", "Hood")
-			if(choice && CanPhysicallyInteract(user) && user.get_equipped_item(slot_wear_suit_str) == src)
-				if(choice == "Buttons")
-					toggle_buttons(user)
-				else
-					toggle_hood(user)
-				return TRUE
-
-		if(!has_buttons && has_hood)
+		if(isnull(buttons) && hood)
 			toggle_hood(user)
 			return TRUE
-
-		if(has_buttons && !has_hood)
+		if(!hood && !isnull(buttons))
 			toggle_buttons(user)
 			return TRUE
-
 	return ..()
+
+/obj/item/clothing/suit/storage/toggle/get_alt_interactions(var/mob/user)
+	. = ..()
+	if(!isnull(buttons))
+		LAZYADD(., /decl/interaction_handler/toggle_buttons)
+	if(hood)
+		LAZYADD(., /decl/interaction_handler/toggle_hood)
+
+/decl/interaction_handler/toggle_buttons
+	name = "Toggle Coat Buttons"
+	expected_target_type = /obj/item/clothing/suit/storage/toggle
+
+/decl/interaction_handler/toggle_buttons/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/clothing/suit/storage/toggle/coat = target
+	coat.toggle_buttons(user)
+
+/decl/interaction_handler/toggle_hood
+	name = "Toggle Coat Hood"
+	expected_target_type = /obj/item/clothing/suit/storage/toggle
+
+/decl/interaction_handler/toggle_hood/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/clothing/suit/storage/toggle/coat = target
+	coat.toggle_hood(user)
 
 /obj/item/clothing/suit/storage/toggle/wintercoat
 	name = "winter coat"
@@ -119,7 +127,7 @@
 	cold_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		ARMOR_BIO = ARMOR_BIO_MINOR
 		)
 	hood = /obj/item/clothing/head/winterhood
 	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight,/obj/item/storage/fancy/cigarettes, /obj/item/storage/box/matches, /obj/item/chems/drinks/flask)
@@ -132,7 +140,7 @@
 	icon = 'icons/clothing/head/hood_winter.dmi'
 	body_parts_covered = SLOT_HEAD
 	cold_protection = SLOT_HEAD
-	flags_inv = HIDEEARS | BLOCKHEADHAIR
+	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	protects_against_weather = TRUE
 
@@ -141,11 +149,11 @@
 	icon = 'icons/clothing/suit/wintercoat/captain.dmi'
 	hood = /obj/item/clothing/head/winterhood/captain
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
+		ARMOR_BULLET = ARMOR_BALLISTIC_MINOR,
+		ARMOR_LASER = ARMOR_LASER_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/head/winterhood/captain
@@ -156,11 +164,11 @@
 	icon = 'icons/clothing/suit/wintercoat/sec.dmi'
 	hood = /obj/item/clothing/head/winterhood/security
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER = ARMOR_LASER_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/head/winterhood/security
@@ -171,7 +179,7 @@
 	icon = 'icons/clothing/suit/wintercoat/med.dmi'
 	hood = /obj/item/clothing/head/winterhood/medical
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT
+		ARMOR_BIO = ARMOR_BIO_RESISTANT
 	)
 
 /obj/item/clothing/head/winterhood/medical
@@ -182,7 +190,7 @@
 	icon = 'icons/clothing/suit/wintercoat/sci.dmi'
 	hood = /obj/item/clothing/head/winterhood/science
 	armor = list(
-		bomb = ARMOR_BOMB_MINOR
+		ARMOR_BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/head/winterhood/science
@@ -193,7 +201,7 @@
 	icon = 'icons/clothing/suit/wintercoat/eng.dmi'
 	hood = /obj/item/clothing/head/winterhood/engineering
 	armor = list(
-		rad = ARMOR_RAD_MINOR
+		ARMOR_RAD = ARMOR_RAD_MINOR
 	)
 
 /obj/item/clothing/head/winterhood/engineering
@@ -228,7 +236,7 @@
 	hood = /obj/item/clothing/head/winterhood/mining
 	icon = 'icons/clothing/suit/wintercoat/mining.dmi'
 	armor = list(
-		melee = ARMOR_MELEE_SMALL
+		ARMOR_MELEE = ARMOR_MELEE_SMALL
 	)
 
 /obj/item/clothing/head/winterhood/mining
@@ -250,4 +258,4 @@
 	body_parts_covered = SLOT_HEAD
 	min_cold_protection_temperature = T0C - 20
 	cold_protection = SLOT_HEAD
-	flags_inv = HIDEEARS | BLOCKHEADHAIR
+	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR

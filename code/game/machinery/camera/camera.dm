@@ -9,11 +9,16 @@
 	layer = CAMERA_LAYER
 	anchored = 1
 	movable_flags = MOVABLE_FLAG_PROXMOVE
-
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	directional_offset = "{'SOUTH':{'y':21}, 'EAST':{'x':-10}, 'WEST':{'x':10}}"
 	base_type = /obj/machinery/camera
 	uncreated_component_parts = null
 	construct_state = /decl/machine_construction/wall_frame/panel_closed
 	frame_type = /obj/item/frame/camera
+	//Deny all by default, so mapped presets can't be messed with during a network outage.
+	stock_part_presets = list(
+		/decl/stock_part_preset/network_lock/camera,
+	)
 	var/list/preset_channels
 	var/cameranet_enabled = TRUE
 	var/requires_connection = TRUE
@@ -25,7 +30,6 @@
 
 	var/number = 1
 	var/c_tag = null
-	var/c_tag_order = 999
 	var/status = 1
 	var/cut_power = FALSE
 
@@ -246,7 +250,7 @@
 				add_hiddenprint(user)
 			else
 				visible_message(SPAN_NOTICE("\The [src] clicks and reactivates itself."))
-			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)
 		else
@@ -255,24 +259,11 @@
 				add_hiddenprint(user)
 			else
 				visible_message(SPAN_NOTICE("\The [src] clicks and shuts down."))
-			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 			icon_state = "[initial(icon_state)]1"
 		update_coverage()
 
 /obj/machinery/camera/on_update_icon()
-	default_pixel_x = 0
-	default_pixel_y = 0
-
-	var/turf/T = get_step(get_turf(src), turn(src.dir, 180))
-	if(istype(T, /turf/simulated/wall))
-		if(dir == SOUTH)
-			default_pixel_y = 21
-		else if(dir == WEST)
-			default_pixel_x = 10
-		else if(dir == EAST)
-			default_pixel_x = -10
-	reset_offsets(0)
-
 	if (!status || (stat & BROKEN))
 		icon_state = "[initial(icon_state)]1"
 	else if (stat & EMPED)
@@ -345,3 +336,58 @@
 /obj/machinery/camera/proc/nano_structure()
 	var/datum/extension/network_device/camera/D = get_extension(src, /datum/extension/network_device/)
 	return D.nano_structure()
+
+//Prevent literally anyone without access from tampering with the cameras if there's a network outage
+/decl/stock_part_preset/network_lock/camera
+	expected_part_type = /obj/item/stock_parts/network_receiver/network_lock
+
+/decl/stock_part_preset/network_lock/camera/do_apply(obj/machinery/camera/machine, obj/item/stock_parts/network_receiver/network_lock/part)
+	part.auto_deny_all = TRUE
+
+/obj/machinery/camera
+	public_methods = list(
+		/decl/public_access/public_method/toggle_camera
+	)
+
+	public_variables = list(
+		/decl/public_access/public_variable/camera_state,
+		/decl/public_access/public_variable/camera_name,
+		/decl/public_access/public_variable/camera_channels
+	)
+
+/obj/machinery/camera/proc/toggle_status()
+	set_status(!status)
+
+/decl/public_access/public_method/toggle_camera
+	name = "toggle camera"
+	desc = "Toggles camera on or off."
+	call_proc = /obj/machinery/camera/proc/toggle_status
+
+/decl/public_access/public_variable/camera_state
+	expected_type = /obj/machinery/camera
+	name = "camera status"
+	desc = "Status of the camera."
+	can_write = FALSE
+
+/decl/public_access/public_variable/camera_state/access_var(obj/machinery/camera/C)
+	return C.status ? "enabled" : "disabled"
+
+/decl/public_access/public_variable/camera_name
+	expected_type = /obj/machinery/camera
+	name = "camera name"
+	desc = "Displayed name of the camera."
+	can_write = FALSE
+
+/decl/public_access/public_variable/camera_name/access_var(obj/machinery/camera/C)
+	var/datum/extension/network_device/camera/camera_device = get_extension(C, /datum/extension/network_device/)
+	return camera_device?.display_name
+
+/decl/public_access/public_variable/camera_channels
+	expected_type = /obj/machinery/camera
+	name = "camera channels"
+	desc = "List of the channels this camera broadcasts on."
+	can_write = FALSE
+
+/decl/public_access/public_variable/camera_channels/access_var(obj/machinery/camera/C)
+	var/datum/extension/network_device/camera/camera_device = get_extension(C, /datum/extension/network_device/)
+	return english_list(camera_device?.channels)

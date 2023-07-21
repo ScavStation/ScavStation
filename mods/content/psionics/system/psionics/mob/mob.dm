@@ -13,7 +13,7 @@
 	. = ..()
 
 /mob/living/proc/set_psi_rank(var/faculty, var/rank, var/take_larger, var/defer_update, var/temporary)
-	if(!src.zone_sel)
+	if(!get_target_zone()) // Can't target a zone, so you can't really invoke psionics.
 		to_chat(src, SPAN_NOTICE("You feel something strange brush against your mind... but your brain is not able to grasp it."))
 		return
 	if(!psi)
@@ -42,7 +42,7 @@
 /mob/living/carbon/get_cuff_breakout_mod()
 	. = ..()
 	if(psi)
-		. = Clamp(. - (psi.get_rank(PSI_PSYCHOKINESIS)*0.2), 0, 1)
+		. = clamp(. - (psi.get_rank(PSI_PSYCHOKINESIS)*0.2), 0, 1)
 
 /mob/living/can_break_cuffs()
 	. = (psi && psi.can_use() && psi.get_rank(PSI_PSYCHOKINESIS) >= PSI_RANK_PARAMOUNT)

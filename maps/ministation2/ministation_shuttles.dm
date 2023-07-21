@@ -71,7 +71,7 @@
 	vessel_size = SHIP_SIZE_SMALL
 
 // Essentially a bare platform that moves up and down.
-/obj/turbolift_map_holder/ministation
+/obj/abstract/turbolift_spawner/ministation
 	name = "Tradestation cargo elevator placeholder"
 //	icon = 'icons/obj/turbolift_preview_nowalls_3x3.dmi'
 	depth = 3

@@ -97,12 +97,12 @@
 	if(capacitor)
 		to_chat(user, "<span class='notice'>The installed [capacitor.name] has a charge level of [round((capacitor.charge/capacitor.max_charge)*100)]%.</span>")
 	if(!cell || !capacitor)
-		to_chat(user, "<span class='notice'>The capacitor charge indicator is blinking <font color ='[COLOR_RED]'>red</font>. Maybe you should check the cell or capacitor.</span>")
+		to_chat(user, "<span class='notice'>The capacitor charge indicator is blinking [SPAN_RED("red")]. Maybe you should check the cell or capacitor.</span>")
 	else
 		if(capacitor.charge < power_cost)
-			to_chat(user, "<span class='notice'>The capacitor charge indicator is <font color ='[COLOR_ORANGE]'>amber</font>.</span>")
+			to_chat(user, "<span class='notice'>The capacitor charge indicator is [SPAN_ORANGE("amber")].</span>")
 		else
-			to_chat(user, "<span class='notice'>The capacitor charge indicator is <font color ='[COLOR_GREEN]'>green</font>.</span>")
+			to_chat(user, "<span class='notice'>The capacitor charge indicator is [SPAN_GREEN("green")].</span>")
 
 /obj/item/gun/magnetic/attackby(var/obj/item/thing, var/mob/user)
 
@@ -111,7 +111,7 @@
 			if(cell)
 				to_chat(user, "<span class='warning'>\The [src] already has \a [cell] installed.</span>")
 				return
-			if(!user.unEquip(thing, src))
+			if(!user.try_unequip(thing, src))
 				return
 			cell = thing
 			playsound(loc, 'sound/machines/click.ogg', 10, 1)
@@ -119,7 +119,7 @@
 			update_icon()
 			return
 
-		if(isScrewdriver(thing))
+		if(IS_SCREWDRIVER(thing))
 			if(!capacitor)
 				to_chat(user, "<span class='warning'>\The [src] has no capacitor installed.</span>")
 				return
@@ -134,7 +134,7 @@
 			if(capacitor)
 				to_chat(user, "<span class='warning'>\The [src] already has \a [capacitor] installed.</span>")
 				return
-			if(!user.unEquip(thing, src))
+			if(!user.try_unequip(thing, src))
 				return
 			capacitor = thing
 			playsound(loc, 'sound/machines/click.ogg', 10, 1)
@@ -158,7 +158,7 @@
 					to_chat(user, "<span class='warning'>\The [src] doesn't seem to accept \a [mag].</span>")
 					return
 				projectile_type = mag.projectile_type
-			if(!user.unEquip(thing, src))
+			if(!user.try_unequip(thing, src))
 				return
 
 			loaded = thing
@@ -190,23 +190,21 @@
 	. = ..()
 
 /obj/item/gun/magnetic/attack_hand(var/mob/user)
-	if(user.is_holding_offhand(src))
-		var/obj/item/removing
-
-		if(loaded)
-			removing = loaded
-			loaded = null
-		else if(cell && removable_components)
-			removing = cell
-			cell = null
-
-		if(removing)
-			user.put_in_hands(removing)
-			user.visible_message("<span class='notice'>\The [user] removes \the [removing] from \the [src].</span>")
-			playsound(loc, 'sound/machines/click.ogg', 10, 1)
-			update_icon()
-			return
-	. = ..()
+	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_GRIP, TRUE))
+		return ..()
+	var/obj/item/removing
+	if(loaded)
+		removing = loaded
+		loaded = null
+	else if(cell && removable_components)
+		removing = cell
+		cell = null
+	if(removing)
+		user.put_in_hands(removing)
+		user.visible_message(SPAN_NOTICE("\The [user] removes \the [removing] from \the [src]."))
+		playsound(loc, 'sound/machines/click.ogg', 10, 1)
+		update_icon()
+	return TRUE
 
 /obj/item/gun/magnetic/proc/check_ammo()
 	return loaded

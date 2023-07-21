@@ -32,10 +32,7 @@
 /area/ministation/bridge)
 "ao" = (
 /obj/structure/table/reinforced,
-/obj/machinery/photocopier/faxmachine{
-	name = "bridge fax machine";
-	department = "Bridge"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "ap" = (
@@ -125,7 +122,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/telecomms/broadcaster/preset_right,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -299,7 +295,7 @@
 /turf/simulated/wall/r_wall,
 /area/ministation/bridge/vault)
 "bi" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
@@ -583,7 +579,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/sign/bridge{
+/obj/structure/sign/department/bridge{
 	dir = 4;
 	pixel_x = -32
 	},
@@ -761,7 +757,7 @@
 /obj/item/clothing/suit/space/void/scav/explorer,
 /obj/item/clothing/head/helmet/space/void/scav/explorer,
 /obj/item/storage/med_pouch/trauma,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
@@ -1075,9 +1071,7 @@
 /area/ministation/shuttle/outgoing)
 "eB" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine{
-	department = "Court"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "eD" = (
@@ -1550,7 +1544,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/sign/xenoarch{
+/obj/structure/sign/department/xenoarch{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
@@ -2087,7 +2081,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 8
 	},
-/obj/structure/sign/eva{
+/obj/structure/sign/department/eva{
 	pixel_y = -23
 	},
 /turf/simulated/floor/tiled/white,
@@ -2469,7 +2463,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 8
 	},
-/obj/structure/sign/xenoflora{
+/obj/structure/sign/department/xenoflora{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
@@ -2751,7 +2745,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/telecomms/receiver/preset_right,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -2792,7 +2785,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "nW" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
@@ -2859,7 +2852,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "ot" = (
-/obj/structure/dispenser/oxygen,
+/obj/structure/tank_rack/oxygen,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "oB" = (
@@ -2893,13 +2886,7 @@
 	pixel_x = 24
 	},
 /obj/structure/closet/crate,
-/obj/item/stock_parts/circuitboard/telecomms/broadcaster,
-/obj/item/stock_parts/circuitboard/telecomms/bus,
-/obj/item/stock_parts/circuitboard/telecomms/hub,
-/obj/item/stock_parts/circuitboard/telecomms/message_server,
-/obj/item/stock_parts/circuitboard/telecomms/processor,
-/obj/item/stock_parts/circuitboard/telecomms/receiver,
-/obj/item/stock_parts/circuitboard/telecomms/server,
+/obj/item/stock_parts/circuitboard/telecomms_hub,
 /obj/item/cell,
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
@@ -3182,7 +3169,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/fullgrass,
 /turf/exterior/grass,
 /area/ministation/hall/n3)
 "tc" = (
@@ -3215,11 +3202,11 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/extinguisher{
+/obj/item/chems/spray/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/item/extinguisher{
+/obj/item/chems/spray/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
 	},
@@ -3265,7 +3252,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/structure/sign/science_2{
+/obj/structure/sign/department/science_2{
 	pixel_x = 31
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3531,7 +3518,6 @@
 /turf/simulated/open,
 /area/ministation/maint/l3ne)
 "xg" = (
-/obj/machinery/computer/telecomms/monitor,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -3572,7 +3558,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge/vault)
 "ys" = (
-/obj/machinery/telecomms/server/presets/ministation,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3675,7 +3660,7 @@
 /obj/item/clothing/suit/space/void/scav/science,
 /obj/machinery/light,
 /obj/item/storage/med_pouch/trauma,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
@@ -3685,7 +3670,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "Aa" = (
-/obj/machinery/telecomms/bus/preset_one/ministation,
 /obj/machinery/camera/network/command{
 	dir = 4
 	},
@@ -3754,7 +3738,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Ax" = (
-/obj/machinery/telecomms/processor/preset_one/ministation,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3765,7 +3748,7 @@
 /turf/simulated/wall,
 /area/ministation/hall/n3)
 "AL" = (
-/obj/machinery/telecomms/hub/preset/ministation,
+/obj/machinery/network/telecomms_hub,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3904,7 +3887,6 @@
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Bu" = (
-/obj/machinery/computer/telecomms/server,
 /obj/machinery/status_display{
 	pixel_y = 30;
 	pixel_x = -33
@@ -4257,7 +4239,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -35
 	},
-/obj/item/extinguisher,
+/obj/item/chems/spray/extinguisher,
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Dg" = (
@@ -4265,7 +4247,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -4276,7 +4258,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 1
 	},
-/obj/structure/sign/telecomms{
+/obj/structure/sign/department/telecomms{
 	dir = 4;
 	pixel_x = -32
 	},
@@ -5222,7 +5204,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "NO" = (
-/obj/abstract/level_data/main_level,
+/obj/abstract/level_data_spawner/main_level,
 /turf/space,
 /area/space)
 "NR" = (
@@ -5648,7 +5630,7 @@
 /obj/item/clothing/head/helmet/space/void/scav/science,
 /obj/item/clothing/suit/space/void/scav/science,
 /obj/item/storage/med_pouch/trauma,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
@@ -5733,7 +5715,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/structure/sign/xenobio_3{
+/obj/structure/sign/department/xenobio_3{
 	pixel_y = 32;
 	pixel_x = 32
 	},
@@ -6098,10 +6080,7 @@
 	pixel_y = 30;
 	pixel_x = -33
 	},
-/obj/machinery/photocopier/faxmachine{
-	name = "rep office fax machine";
-	department = "Bridge"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "Uo" = (
@@ -6582,7 +6561,7 @@
 /area/ministation/science)
 "Ym" = (
 /obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/bush/grassybush,
 /turf/exterior/grass,
 /area/ministation/hall/n3)
 "Yv" = (

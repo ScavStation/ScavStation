@@ -1,4 +1,4 @@
-#define DRYING_TIME 5 * 60*10 //for 1 unit of depth in puddle (amount var)
+#define DRYING_TIME 5 MINUTES //for 1 unit of depth in puddle (amount var)
 #define BLOOD_SIZE_SMALL     1
 #define BLOOD_SIZE_MEDIUM    2
 #define BLOOD_SIZE_BIG       3
@@ -43,7 +43,7 @@ var/global/list/image/splatter_cache=list()
 		amount = 0
 		STOP_PROCESSING(SSobj, src)
 		remove_extension(src, /datum/extension/scent)
-	 . = ..(ignore = TRUE)
+	. = ..(ignore = TRUE)
 
 /obj/effect/decal/cleanable/blood/hide()
 	return
@@ -97,12 +97,11 @@ var/global/list/image/splatter_cache=list()
 	var/obj/item/organ/external/l_foot = GET_EXTERNAL_ORGAN(perp, BP_L_FOOT)
 	var/obj/item/organ/external/r_foot = GET_EXTERNAL_ORGAN(perp, BP_R_FOOT)
 	var/hasfeet = l_foot && r_foot
-	
+
 	var/transferred_data = blood_data ? blood_data[pick(blood_data)] : null
-	if(perp.shoes && !perp.buckled)//Adding blood to shoes
-		var/obj/item/clothing/shoes/S = perp.shoes
-		if(istype(S))
-			S.add_coating(chemical, amount, transferred_data)
+	var/obj/item/clothing/shoes/shoes = perp.get_equipped_item(slot_shoes_str)
+	if(istype(shoes) && !perp.buckled)//Adding blood to shoes
+		shoes.add_coating(chemical, amount, transferred_data)
 	else if (hasfeet)//Or feet
 		if(l_foot)
 			l_foot.add_coating(chemical, amount, transferred_data)
@@ -125,17 +124,18 @@ var/global/list/image/splatter_cache=list()
 	STOP_PROCESSING(SSobj, src)
 
 /obj/effect/decal/cleanable/blood/attack_hand(mob/user)
-	..()
-	if (amount && length(blood_data) && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.gloves)
-			return
-		var/taken = rand(1,amount)
-		amount -= taken
-		to_chat(user, SPAN_NOTICE("You get some of \the [src] on your hands."))
-		for(var/bloodthing in blood_data)
-			user.add_blood(null, max(1, amount/length(blood_data)), blood_data[bloodthing])
-		user.verbs += /mob/living/carbon/human/proc/bloody_doodle
+	if(!amount || !length(blood_data) || !ishuman(user))
+		return ..()
+	var/mob/living/carbon/human/H = user
+	if(H.get_equipped_item(slot_gloves_str))
+		return ..()
+	var/taken = rand(1,amount)
+	amount -= taken
+	to_chat(user, SPAN_NOTICE("You get some of \the [src] on your hands."))
+	for(var/bloodthing in blood_data)
+		user.add_blood(null, max(1, amount/length(blood_data)), blood_data[bloodthing])
+	user.verbs += /mob/living/carbon/human/proc/bloody_doodle
+	return TRUE
 
 /obj/effect/decal/cleanable/blood/splatter
 	random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
@@ -259,12 +259,6 @@ var/global/list/image/splatter_cache=list()
 	icon_state = "mucus"
 	generic_filth = TRUE
 	persistent = TRUE
-	var/dry=0 // Keeps the lag down
-
-/obj/effect/decal/cleanable/mucus/Initialize()
-	. = ..()
-	spawn(DRYING_TIME * 2)
-		dry=1
 
 #undef BLOOD_SIZE_SMALL
 #undef BLOOD_SIZE_MEDIUM

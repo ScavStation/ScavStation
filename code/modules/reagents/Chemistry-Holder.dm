@@ -17,12 +17,27 @@ var/global/obj/temp_reagents_holder = new
 /datum/reagents/Destroy()
 	. = ..()
 	UNQUEUE_REACTIONS(src) // While marking for reactions should be avoided just before deleting if possible, the async nature means it might be impossible.
+	if(SSfluids.holders_to_update[src])
+		SSfluids.holders_to_update -= src
 	reagent_volumes = null
 	reagent_data = null
 	if(my_atom)
 		if(my_atom.reagents == src)
 			my_atom.reagents = null
 		my_atom = null
+
+/datum/reagents/GetCloneArgs()
+	return list(maximum_volume, global.temp_reagents_holder) //Always clone with the dummy holder to prevent things being done on the owner atom
+
+//Don't forget to call set_holder() after getting the copy!
+/datum/reagents/PopulateClone(datum/reagents/clone)
+	clone.primary_reagent = primary_reagent
+	clone.reagent_volumes = reagent_volumes?.Copy()
+	clone.reagent_data    = listDeepClone(reagent_data, TRUE)
+	clone.total_volume    = total_volume
+	clone.maximum_volume  = maximum_volume
+	clone.cached_color    = cached_color
+	return clone
 
 /datum/reagents/proc/get_reaction_loc()
 	return my_atom
@@ -162,8 +177,16 @@ var/global/obj/temp_reagents_holder = new
 	if(my_atom)
 		my_atom.on_reagent_change()
 
-/datum/reagents/proc/add_reagent(var/reagent_type, var/amount, var/data = null, var/safety = 0, var/defer_update = FALSE)
+///Set and call updates on the target holder.
+/datum/reagents/proc/set_holder(var/obj/new_holder)
+	if(my_atom == new_holder)
+		return
+	my_atom = new_holder
+	if(my_atom)
+		my_atom.on_reagent_change()
+	handle_update()
 
+/datum/reagents/proc/add_reagent(var/reagent_type, var/amount, var/data = null, var/safety = 0, var/defer_update = FALSE)
 	amount = NONUNIT_FLOOR(min(amount, REAGENTS_FREE_SPACE(src)), MINIMUM_CHEMICAL_VOLUME)
 	if(amount <= 0)
 		return FALSE
@@ -184,7 +207,7 @@ var/global/obj/temp_reagents_holder = new
 	UNSETEMPTY(reagent_volumes)
 
 	if(defer_update)
-		total_volume = Clamp(total_volume + amount, 0, maximum_volume) // approximation, call update_total() if deferring
+		total_volume = clamp(total_volume + amount, 0, maximum_volume) // approximation, call update_total() if deferring
 	else
 		handle_update(safety)
 	return TRUE
@@ -197,7 +220,7 @@ var/global/obj/temp_reagents_holder = new
 	if(reagent_volumes.len > 1 || reagent_volumes[reagent_type] <= 0)
 		cached_color = null
 	if(defer_update)
-		total_volume = Clamp(total_volume - amount, 0, maximum_volume) // approximation, call update_total() if deferring
+		total_volume = clamp(total_volume - amount, 0, maximum_volume) // approximation, call update_total() if deferring
 	else
 		handle_update(safety)
 	return TRUE
@@ -213,7 +236,7 @@ var/global/obj/temp_reagents_holder = new
 		cached_color = null
 
 		if(defer_update)
-			total_volume = Clamp(total_volume - amount, 0, maximum_volume) // approximation, call update_total() if deferring
+			total_volume = clamp(total_volume - amount, 0, maximum_volume) // approximation, call update_total() if deferring
 		else
 			handle_update()
 
@@ -276,7 +299,7 @@ var/global/obj/temp_reagents_holder = new
 		clear_reagents()
 		return
 
-	var/removing = Clamp(NONUNIT_FLOOR(amount, MINIMUM_CHEMICAL_VOLUME), 0, total_volume) // not ideal but something is making total_volume become NaN
+	var/removing = clamp(NONUNIT_FLOOR(amount, MINIMUM_CHEMICAL_VOLUME), 0, total_volume) // not ideal but something is making total_volume become NaN
 	if(!removing || total_volume <= 0)
 		. = 0
 		clear_reagents()
@@ -536,6 +559,10 @@ var/global/obj/temp_reagents_holder = new
 				return L.ingest(src, R, amount, multiplier, copy) //perhaps this is a bit of a hack, but currently there's no common proc for eating reagents
 		if(type == CHEM_TOUCH)
 			var/datum/reagents/R = L.get_contact_reagents()
+			if(R)
+				return trans_to_holder(R, amount, multiplier, copy, defer_update = defer_update)
+		if(type == CHEM_INHALE)
+			var/datum/reagents/R = L.get_inhaled_reagents()
 			if(R)
 				return trans_to_holder(R, amount, multiplier, copy, defer_update = defer_update)
 	var/datum/reagents/R = new /datum/reagents(amount, global.temp_reagents_holder)
