@@ -107,7 +107,8 @@
 	holomap_color = HOLOMAP_AREACOLOR_MAINTENANCE
 
 /area/ship/trade/enclave
-	name = "\improper Underside - Enclave"	icon_state = "yellow"
+	name = "\improper Underside - Enclave"
+	icon_state = "yellow"
 	holomap_color = HOLOMAP_AREACOLOR_MAINTENANCE
 
 /area/ship/trade/undercomms

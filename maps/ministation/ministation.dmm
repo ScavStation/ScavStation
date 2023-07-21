@@ -3118,11 +3118,7 @@
 /area/ministation/detective)
 "hC" = (
 /obj/structure/table/woodentable,
-/obj/item/camera{
-	desc = "A one use - polaroid camera. 30 photos left.";
-	name = "detectives camera";
-	pictures_left = 30
-	},
+/obj/item/camera/loaded,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/taperecorder,
 /obj/item/folder/yellow,
@@ -6082,13 +6078,7 @@
 	pixel_x = 24
 	},
 /obj/structure/closet/crate,
-/obj/item/stock_parts/circuitboard/telecomms/broadcaster,
-/obj/item/stock_parts/circuitboard/telecomms/bus,
-/obj/item/stock_parts/circuitboard/telecomms/hub,
-/obj/item/stock_parts/circuitboard/telecomms/message_server,
-/obj/item/stock_parts/circuitboard/telecomms/processor,
-/obj/item/stock_parts/circuitboard/telecomms/receiver,
-/obj/item/stock_parts/circuitboard/telecomms/server,
+/obj/item/stock_parts/circuitboard/telecomms_hub,
 /obj/item/cell,
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
@@ -7837,7 +7827,7 @@
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 1
 	},
-/obj/structure/sign/watercloset{
+/obj/structure/sign/department/watercloset{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -9212,7 +9202,7 @@
 /area/ministation/cafe)
 "wn" = (
 /obj/structure/table/marble,
-/obj/structure/sign/monkey_painting{
+/obj/structure/sign/painting/monkey_painting{
 	pixel_y = 24
 	},
 /obj/machinery/door/firedoor{

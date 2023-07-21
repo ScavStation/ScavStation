@@ -2123,7 +2123,7 @@
 /area/ship/trade/crew/kitchen)
 "fo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/modular_computer/telescreen/preset/medical{
+/obj/machinery/computer/modular/telescreen/preset/medical{
 	pixel_x = 31;
 	pixel_y = -2
 	},
@@ -2180,7 +2180,7 @@
 /obj/structure/sign/warning/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/structure/sign/goldenplaque/medical{
+/obj/structure/sign/plaque/golden/medical{
 	pixel_x = 32
 	},
 /obj/item/storage/firstaid/adv,
@@ -5150,7 +5150,7 @@
 /obj/item/storage/box/ammo/shotgunshells,
 /obj/item/handcuffs,
 /obj/item/boombox,
-/obj/item/stack/tape_roll/bureaucracy,
+/obj/item/stack/tape_roll/barricade_tape/bureaucracy,
 /obj/machinery/keycard_auth{
 	pixel_y = 21
 	},
@@ -5538,7 +5538,7 @@
 /obj/structure/table,
 /obj/machinery/reagentgrinder/juicer,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/sign/monkey_painting{
+/obj/structure/sign/painting/monkey_painting{
 	pixel_y = 32
 	},
 /obj/machinery/firealarm{
@@ -5760,7 +5760,7 @@
 /obj/item/flash,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/storage/box/evidence,
-/obj/item/stack/tape_roll/police,
+/obj/item/stack/tape_roll/barricade_tape/police,
 /obj/item/holowarrant,
 /obj/item/storage/briefcase/crimekit,
 /obj/item/taperecorder,
