@@ -1,10 +1,13 @@
 /decl/bodytype/baxxid
 	bodytype_category = BODYTYPE_BAXXID
 	bodytype_flag =     BODY_FLAG_BAXXID
-	damage_overlays =   'mods/valsalia/icons/species/baxxid/damage_overlay.dmi'
 	icon_template =     'mods/valsalia/icons/species/baxxid/template.dmi'
 	icon_base =         'mods/valsalia/icons/species/baxxid/body.dmi'
 	limb_blend = ICON_MULTIPLY
+
+/decl/hierarchy/outfit/baxxid
+	name = "Baxxid Hood"
+	head = /obj/item/clothing/head/baxxid/hood/long
 
 /decl/species/baxxid
 	name = SPECIES_BAXXID
@@ -19,6 +22,15 @@
 		/decl/natural_attack/claws/strong/baxxid,
 		/decl/natural_attack/bite/strong
 	)
+
+	base_color = "#c7b8aa"
+	base_eye_color = "#003366"
+	base_markings = list(
+		/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
+		/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
+		/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
+	)
+	preview_outfit = /decl/hierarchy/outfit/baxxid
 
 	hud_type = /datum/hud_data/baxxid
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
@@ -74,6 +86,7 @@
 	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
 	icon_state = "crest"
 	blend = ICON_MULTIPLY
+	mask_to_bodypart = FALSE
 
 /decl/sprite_accessory/marking/baxxid/plates
 	name = "Armour Plates"

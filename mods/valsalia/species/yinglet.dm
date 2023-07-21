@@ -13,6 +13,7 @@
 		"th" = list("d")
 	)
 
+	preview_outfit = /decl/hierarchy/outfit/job/yinglet/assistant
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
 

@@ -10,7 +10,6 @@ var/global/list/pheromone_markers = list()
 	bodytype_category = BODYTYPE_INDREL
 	bodytype_flag =     BODY_FLAG_INDREL
 	icon_base =         'mods/valsalia/icons/species/indrel/body.dmi'
-	damage_overlays =   'mods/valsalia/icons/species/indrel/damage_overlay.dmi'
 	icon_template =     'mods/valsalia/icons/species/indrel/template.dmi'
 
 /decl/bodytype/indrel/Initialize()
@@ -52,7 +51,7 @@ var/global/list/pheromone_markers = list()
 			"[WEST]" =  list("x" = -3, "y" = 4),
 			"[SOUTH]" = list("x" =  0, "y" = 4)
 		)
-	)	
+	)
 /decl/species/indrel
 	name = SPECIES_INDREL
 	name_plural = SPECIES_INDREL
@@ -184,7 +183,7 @@ var/global/list/pheromone_markers = list()
 	invisibility = INVISIBILITY_MAXIMUM
 	alpha = 0
 	scent_type = /datum/extension/scent/custom/pheromone
-	var/image/marker 
+	var/image/marker
 
 /obj/effect/decal/cleanable/pheromone/proc/fade()
 	alpha = max(alpha-15, 0)
@@ -193,7 +192,7 @@ var/global/list/pheromone_markers = list()
 	else
 		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 1 MINUTE)
 		update_scent_marker()
-	
+
 /obj/effect/decal/cleanable/pheromone/Initialize(ml, _age)
 	. = ..()
 	addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 1 MINUTE)

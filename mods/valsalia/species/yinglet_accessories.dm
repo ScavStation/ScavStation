@@ -5,6 +5,7 @@
 	icon = 'mods/valsalia/icons/species/yinglet/markings.dmi'
 	icon_state = "shelltooth"
 	blend = ICON_MULTIPLY
+	mask_to_bodypart = FALSE
 
 /decl/sprite_accessory/marking/yinglet/longtooth
 	name = "Long Shelltooth"
@@ -41,14 +42,17 @@
 /decl/sprite_accessory/marking/yinglet/recolour_front_body
 	name = "Body Colour (Front)"
 	icon_state = "frontfluff"
+	mask_to_bodypart = TRUE
 
 /decl/sprite_accessory/marking/yinglet/recolour_front_head
 	name = "Head Colour (Front)"
 	icon_state = "fronthead"
+	mask_to_bodypart = TRUE
 
 /decl/sprite_accessory/marking/yinglet/recolour_front_torso
 	name = "Torso Colour (Front)"
 	icon_state = "torsofront"
+	mask_to_bodypart = TRUE
 
 // this doesnt function do to how the tail code works
 // /decl/sprite_accessory/marking/yinglet/recolour_under_tail
