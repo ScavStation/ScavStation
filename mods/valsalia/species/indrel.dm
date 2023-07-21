@@ -15,6 +15,18 @@ var/global/list/pheromone_markers = list()
 /decl/bodytype/indrel/Initialize()
 	. = ..()
 	equip_adjust = list(
+		BP_L_HAND_UPPER =  list(
+			"[NORTH]" = list("x" =  0, "y" = 8),
+			"[EAST]"  = list("x" =  0, "y" = 8),
+			"[SOUTH]" = list("x" = -0, "y" = 8),
+			"[WEST]"  = list("x" =  0, "y" = 8)
+		),
+		BP_R_HAND_UPPER =  list(
+			"[NORTH]" = list("x" =  0, "y" = 8),
+			"[EAST]"  = list("x" =  0, "y" = 8),
+			"[SOUTH]" = list("x" =  0, "y" = 8),
+			"[WEST]"  = list("x" =  0, "y" = 8)
+		),
 		slot_head_str = list(
 			"[NORTH]" = list("x" =  0, "y" = 3),
 			"[EAST]" =  list("x" =  3, "y" = 3),
@@ -82,25 +94,76 @@ var/global/list/pheromone_markers = list()
 		BP_EYES =     /obj/item/organ/internal/eyes/indrel
 		)
 
+	has_limbs = list(
+		BP_CHEST =        list("path" = /obj/item/organ/external/chest/insectoid),
+		BP_GROIN =        list("path" = /obj/item/organ/external/groin/insectoid),
+		BP_HEAD =         list("path" = /obj/item/organ/external/head/insectoid),
+		BP_L_ARM =        list("path" = /obj/item/organ/external/arm/insectoid),
+		BP_L_HAND =       list("path" = /obj/item/organ/external/hand/insectoid),
+		BP_L_HAND_UPPER = list("path" = /obj/item/organ/external/hand/insectoid/upper/indrel),
+		BP_R_ARM =        list("path" = /obj/item/organ/external/arm/right/insectoid),
+		BP_R_HAND =       list("path" = /obj/item/organ/external/hand/right/insectoid),
+		BP_R_HAND_UPPER = list("path" = /obj/item/organ/external/hand/right/insectoid/upper/indrel),
+		BP_R_LEG =        list("path" = /obj/item/organ/external/leg/right/insectoid),
+		BP_L_LEG =        list("path" = /obj/item/organ/external/leg/insectoid),
+		BP_L_FOOT =       list("path" = /obj/item/organ/external/foot/insectoid),
+		BP_R_FOOT =       list("path" = /obj/item/organ/external/foot/right/insectoid)
+	)
+
+	limb_mapping = list(
+		BP_L_HAND = list(BP_L_HAND, BP_L_HAND_UPPER),
+		BP_R_HAND = list(BP_R_HAND, BP_R_HAND_UPPER)
+	)
 	hazard_low_pressure = -1
 
-	// Why are they using baxxid culture??
 	available_cultural_info = list(
 		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/baxxid,
+			/decl/cultural_info/culture/indrel,
 			/decl/cultural_info/culture/other
 		),
 		TAG_HOMEWORLD = list(
 			/decl/cultural_info/location/stateless
 		),
 		TAG_FACTION =   list(
-			/decl/cultural_info/faction/baxxid,
+			/decl/cultural_info/faction/indrel,
 			/decl/cultural_info/faction/other
 		),
 		TAG_RELIGION =  list(
 			/decl/cultural_info/religion/other
 		)
 	)
+
+// TODO: stronger melee attack from these limbs.
+/datum/inventory_slot/gripper/right_hand/indrel
+	slot_name = "Upper Right Hand"
+	slot_id = BP_R_HAND_UPPER
+	requires_organ_tag = BP_R_HAND_UPPER
+	can_use_held_item = FALSE
+	overlay_slot = BP_R_HAND_UPPER
+	ui_label = "UR"
+	hand_sort_priority = 2
+
+/datum/inventory_slot/gripper/left_hand/indrel
+	slot_name = "Upper Left Hand"
+	slot_id = BP_L_HAND_UPPER
+	requires_organ_tag = BP_L_HAND_UPPER
+	can_use_held_item = FALSE
+	overlay_slot = BP_L_HAND_UPPER
+	ui_label = "UL"
+	hand_sort_priority = 2
+
+/obj/item/organ/external/hand/right/insectoid/upper/indrel
+	gripper_type = /datum/inventory_slot/gripper/right_hand/indrel
+
+/obj/item/organ/external/hand/right/insectoid/upper/indrel/get_dexterity()
+	return min(DEXTERITY_GRIP, ..())
+
+/obj/item/organ/external/hand/insectoid/upper/indrel
+	gripper_type = /datum/inventory_slot/gripper/left_hand/indrel
+
+/obj/item/organ/external/hand/insectoid/upper/indrel/get_dexterity()
+	return min(DEXTERITY_GRIP, ..())
+
 
 /obj/item/organ/internal/eyes/indrel
 	eye_icon = 'mods/valsalia/icons/species/indrel/eyes.dmi'

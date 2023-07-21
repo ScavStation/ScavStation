@@ -191,3 +191,19 @@
 			owner.add_cloaking_source(species)
 			owner.apply_effect(2, STUN, 0)
 		refresh_action_button()
+
+/obj/item/organ/external/foot/insectoid/serpentid
+	name = "left tail tip"
+	icon_position = LEFT
+
+/obj/item/organ/external/foot/right/insectoid/serpentid
+	name = "right tail tip"
+	icon_position = RIGHT
+
+/obj/item/organ/external/leg/insectoid/serpentid
+	name = "left tail side"
+	icon_position = LEFT
+
+/obj/item/organ/external/leg/right/insectoid/serpentid
+	name = "right tail side"
+	icon_position = RIGHT

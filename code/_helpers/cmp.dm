@@ -124,3 +124,6 @@
 	. = istype(b, /datum/computer_file/directory) - istype(a, /datum/computer_file/directory) // Prioritize directories over other files.
 	if(!.)
 		return sorttext(b.filename, a.filename)
+
+/proc/cmp_gripper_asc(datum/inventory_slot/gripper/a, datum/inventory_slot/gripper/b)
+	return a.hand_sort_priority - b.hand_sort_priority

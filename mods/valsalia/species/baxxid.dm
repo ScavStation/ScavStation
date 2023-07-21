@@ -5,6 +5,17 @@
 	icon_base =         'mods/valsalia/icons/species/baxxid/body.dmi'
 	limb_blend = ICON_MULTIPLY
 
+/decl/bodytype/baxxid/Initialize()
+	. = ..()
+	equip_adjust = list(
+		slot_back_str = list(
+			"[NORTH]" = list("x" =  0, "y" = 0),
+			"[EAST]" =  list("x" =  6, "y" = 0),
+			"[WEST]" =  list("x" = -6, "y" = 0),
+			"[SOUTH]" = list("x" =  0, "y" = 0)
+		)
+	)
+
 /decl/hierarchy/outfit/baxxid
 	name = "Baxxid Hood"
 	head = /obj/item/clothing/head/baxxid/hood/long
@@ -15,7 +26,7 @@
 	available_bodytypes = list(
 		/decl/bodytype/baxxid
 	)
-	manual_dexterity = DEXTERITY_KEYBOARDS
+	manual_dexterity = DEXTERITY_GRIP
 	mob_size = MOB_SIZE_LARGE
 
 	unarmed_attacks = list(
@@ -44,6 +55,12 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes/baxxid
+	)
+
+	override_limb_types = list(
+		BP_L_HAND = /obj/item/organ/external/hand/baxxid,
+		BP_R_HAND = /obj/item/organ/external/hand/right/baxxid,
+		BP_HEAD =   /obj/item/organ/external/head/baxxid
 	)
 
 	available_cultural_info = list(
@@ -99,7 +116,6 @@
 	icon_state = "bones"
 
 /datum/hud_data/baxxid
-	has_hands = FALSE
 	inventory_slots = list(
 		/datum/inventory_slot/handcuffs,
 		/datum/inventory_slot/id,
@@ -125,3 +141,43 @@
 	delay = 15
 	eye_attack_text = "an enormous forelimb"
 	eye_attack_text_victim = "an enormous forelimb"
+
+/obj/item/organ/external/hand/baxxid
+	gripper_type = /datum/inventory_slot/gripper/left_hand/baxxid
+
+/obj/item/organ/external/hand/baxxid/get_dexterity()
+	return min(..(), DEXTERITY_KEYBOARDS)
+
+/obj/item/organ/external/hand/right/baxxid
+	gripper_type = /datum/inventory_slot/gripper/right_hand/baxxid
+
+/obj/item/organ/external/hand/right/baxxid/get_dexterity()
+	return min(..(), DEXTERITY_KEYBOARDS)
+
+/datum/inventory_slot/gripper/left_hand/baxxid
+	can_use_held_item = FALSE
+
+/datum/inventory_slot/gripper/right_hand/baxxid
+	can_use_held_item = FALSE
+
+/datum/inventory_slot/gripper/baxxid_mouth
+	slot_name = "Mouth"
+	slot_id = BP_HEAD
+	requires_organ_tag = BP_HEAD
+	can_use_held_item = FALSE
+	overlay_slot = BP_HEAD
+	ui_label = "M"
+	hand_sort_priority = 3
+
+/datum/inventory_slot/gripper/baxxid_mouth/get_examined_string(mob/owner, mob/user, distance, hideflags, decl/pronouns/pronouns)
+	if(_holding)
+		return "[pronouns.He] [pronouns.is] holding [_holding.get_examine_line()] in [pronouns.his] mandibles."
+
+/obj/item/organ/external/head/baxxid/do_install(mob/living/carbon/human/target, affected, in_place, update_icon, detached)
+	. = ..()
+	if(. && owner)
+		owner.add_held_item_slot(new /datum/inventory_slot/gripper/baxxid_mouth)
+
+/obj/item/organ/external/head/baxxid/do_uninstall(in_place, detach, ignore_children, update_icon)
+	owner?.remove_held_item_slot(organ_tag)
+	. = ..()
