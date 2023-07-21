@@ -433,6 +433,10 @@
 	},
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
+"Pe" = (
+/obj/abstract/level_data_spawner/admin_level,
+/turf/space,
+/area/space)
 "Qd" = (
 /obj/machinery/atmospherics/pipe/manifold{
 	dir = 8
@@ -711,7 +715,7 @@ aa
 aa
 aa
 aa
-aa
+Pe
 aa
 "}
 (3,1,1) = {"

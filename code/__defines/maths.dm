@@ -20,6 +20,3 @@
 
 #define IS_POWER_OF_TWO(VAL) ((VAL & (VAL-1)) == 0)
 #define ROUND_UP_TO_POWER_OF_TWO(VAL) (2 ** CEILING(log(2,VAL)))
-
-// Float-aware floor since round() will round upwards when given a second arg
-#define FLOAT_FLOOR(X, N) (round(X/N)*N)
