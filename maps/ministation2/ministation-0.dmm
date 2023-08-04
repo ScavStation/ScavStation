@@ -8486,7 +8486,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/double,
+/obj/machinery/door/airlock/double{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "Ma" = (
