@@ -11303,7 +11303,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
 "VK" = (
 /obj/machinery/ai_slipper{
