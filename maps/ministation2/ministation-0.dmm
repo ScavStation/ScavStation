@@ -574,6 +574,9 @@
 /area/ministation/hall/n)
 "dl" = (
 /obj/machinery/power/solar,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "do" = (
@@ -3753,6 +3756,13 @@
 /obj/item/contraband/poster,
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
+"ua" = (
+/obj/machinery/power/solar,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "ue" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/camera/network/hallway{
@@ -38948,19 +38958,19 @@ aa
 aa
 aa
 GF
-dl
-dl
-dl
-dl
-dl
+ua
+ua
+ua
+ua
+ua
 aa
 Jt
 aa
-dl
-dl
-dl
-dl
-dl
+ua
+ua
+ua
+ua
+ua
 VM
 oC
 mT
@@ -54624,19 +54634,19 @@ aa
 aa
 aa
 ad
-dl
-dl
-dl
-dl
-dl
+ua
+ua
+ua
+ua
+ua
 aa
 Jt
 aa
-dl
-dl
-dl
-dl
-dl
+ua
+ua
+ua
+ua
+ua
 ad
 aa
 aa
