@@ -223,15 +223,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/eastatmos)
-"bJ" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 1
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/supermatter)
 "bN" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -337,12 +328,11 @@
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/hall/s1)
 "cj" = (
-/obj/machinery/atmospherics/valve/digital{
-	dir = 1;
-	name = "Emergency Cooling Valve 2"
+/obj/machinery/generator{
+	anchored = 1
 	},
 /obj/structure/cable/yellow{
-	icon_state = "1-4"
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -550,11 +540,11 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ministation/atmospherics)
 "dc" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/ministation/engine)
+/area/ministation/supermatter)
 "de" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -1367,12 +1357,6 @@
 /obj/structure/flora/pottedplant/minitree,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
-"gc" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall,
-/area/ministation/engine)
 "ge" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/warning{
@@ -1940,9 +1924,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
-"iF" = (
-/turf/simulated/wall,
-/area/ministation/smcontrol)
 "iM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2805,9 +2786,7 @@
 	dir = 1;
 	pixel_y = -34
 	},
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "nu" = (
@@ -3109,10 +3088,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/engineering_chief,
-/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
-/obj/item/clothing/under/hazardjumpsuit/yinglet,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/ce,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3500,6 +3475,9 @@
 /obj/item/chems/spray/cleaner,
 /obj/item/chems/spray/cleaner,
 /obj/item/chems/spray/cleaner,
+/obj/item/chems/spray/cleaner,
+/obj/item/chems/spray/cleaner,
+/obj/item/chems/spray/cleaner,
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
 "sA" = (
@@ -3806,6 +3784,9 @@
 	pixel_x = -24
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/rack{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "um" = (
@@ -4237,6 +4218,7 @@
 /obj/machinery/status_display{
 	pixel_y = -32
 	},
+/obj/item/plunger,
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
 "wT" = (
@@ -4414,8 +4396,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "yk" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -4549,8 +4531,9 @@
 /turf/space,
 /area/space)
 "yT" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -4768,7 +4751,7 @@
 /area/ministation/hall/s1)
 "Ak" = (
 /obj/structure/table/gamblingtable,
-/obj/machinery/chemical_dispenser/bar_soft,
+/obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Al" = (
@@ -5194,12 +5177,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "BM" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -6478,7 +6460,7 @@
 /area/ministation/engine)
 "Fy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/ministation/engine)
 "Fz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -6521,7 +6503,7 @@
 /area/ministation/engine)
 "FC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/ministation/engine)
 "FD" = (
 /obj/abstract/landmark/start{
@@ -6574,6 +6556,7 @@
 /obj/item/hoist_kit,
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
+/obj/item/mobile_ladder,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "FJ" = (
@@ -7554,7 +7537,7 @@
 	dir = 4
 	},
 /obj/structure/cable/yellow{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -9288,6 +9271,9 @@
 /obj/structure/bed/chair/office{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/engine)
 "Nw" = (
@@ -9461,11 +9447,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Oa" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
-	dir = 8
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
+/obj/machinery/shield_generator,
 /turf/simulated/floor/plating,
-/area/ministation/supermatter)
+/area/ministation/engine)
 "Oe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating,
@@ -9521,10 +9508,6 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
 /turf/simulated/floor/plating,
 /area/space)
-"Ol" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor/plating,
-/area/ministation/supermatter)
 "Om" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -9834,6 +9817,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"Ph" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood/yew,
+/area/ministation/engine)
 "Pl" = (
 /obj/structure/sign/warning/airlock{
 	pixel_x = 32
@@ -10998,7 +10988,7 @@
 /area/ministation/engine)
 "Ue" = (
 /obj/structure/table/gamblingtable,
-/obj/machinery/chemical_dispenser/bar_alc,
+/obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/wood/yew,
 /area/ministation/engine)
 "Ug" = (
@@ -11006,6 +10996,9 @@
 	dir = 1
 	},
 /obj/machinery/meter,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "Uh" = (
@@ -11016,11 +11009,8 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ministation/supermatter)
 "Uj" = (
-/obj/machinery/generator{
-	anchored = 1
-	},
 /obj/structure/cable/yellow{
-	icon_state = "0-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -11042,6 +11032,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -11072,9 +11065,6 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "UA" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 10
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -11413,11 +11403,9 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "We" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 9
-	},
+/obj/machinery/shield_generator,
 /turf/simulated/floor/plating,
-/area/ministation/supermatter)
+/area/ministation/engine)
 "Wj" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/blast_door{
@@ -12207,6 +12195,10 @@
 	id_tag = "eject";
 	name = "4. SM CORE EJECT"
 	},
+/obj/machinery/atmospherics/valve/digital{
+	dir = 1;
+	name = "Emergency Cooling Valve 2"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "ZJ" = (
@@ -12259,8 +12251,8 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "ZU" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
@@ -40482,10 +40474,10 @@ aa
 aa
 aa
 aa
-uK
-uK
-uK
-uK
+DD
+DD
+DD
+DD
 PD
 NW
 pQ
@@ -40505,9 +40497,9 @@ aa
 aa
 aa
 ad
-Gm
+XO
 AB
-Gm
+XO
 ad
 aa
 aa
@@ -40739,7 +40731,7 @@ aa
 aa
 aa
 aa
-uK
+DD
 zr
 kd
 zr
@@ -40762,7 +40754,7 @@ av
 av
 ad
 ad
-Dt
+av
 GW
 Ma
 ad
@@ -40993,10 +40985,10 @@ aa
 aa
 aa
 WU
-uK
-uK
-uK
-uK
+DD
+DD
+DD
+DD
 zr
 zr
 zr
@@ -41280,7 +41272,7 @@ VG
 GV
 gm
 Eo
-Dt
+av
 aa
 aa
 aa
@@ -41507,10 +41499,10 @@ aa
 aa
 aa
 WU
-uK
-uK
-uK
-uK
+DD
+DD
+DD
+DD
 nA
 RO
 zr
@@ -41527,7 +41519,7 @@ Dt
 Ak
 uS
 vL
-vL
+Ph
 uL
 MC
 bj
@@ -41537,7 +41529,7 @@ Gx
 GX
 XU
 Hf
-Dt
+av
 aa
 aa
 aa
@@ -41767,7 +41759,7 @@ aa
 aa
 aa
 Pr
-uK
+DD
 AM
 AW
 iz
@@ -41794,10 +41786,10 @@ Um
 UT
 mV
 Ft
-Dt
-Dt
-Dt
-Dt
+av
+av
+av
+av
 aa
 aa
 aa
@@ -42024,11 +42016,11 @@ aa
 aa
 aa
 aa
-uK
-uK
-uK
-uK
-uK
+DD
+DD
+DD
+DD
+DD
 PH
 av
 DX
@@ -42054,7 +42046,7 @@ ln
 Hs
 zg
 HI
-Dt
+av
 aa
 aa
 aa
@@ -42285,7 +42277,7 @@ ad
 aa
 aa
 aa
-uK
+DD
 TX
 av
 DY
@@ -42311,7 +42303,7 @@ YA
 Ht
 HB
 HJ
-Dt
+av
 aa
 aa
 aa
@@ -42542,7 +42534,7 @@ ad
 aa
 aa
 aa
-uK
+DD
 TX
 av
 DZ
@@ -42551,24 +42543,24 @@ Ez
 Ff
 Fw
 Ad
-Dt
-Dt
-Dt
-Dt
-Dt
-Dt
-Dt
-Dt
-Dt
+av
+av
+av
+av
+av
+av
+av
+av
+av
 Ac
 Ac
 YN
-Dt
+av
 Hg
 DC
 ex
 HK
-Dt
+av
 aa
 aa
 aa
@@ -42799,7 +42791,7 @@ ad
 aa
 aa
 aa
-uK
+DD
 Yi
 av
 va
@@ -42808,7 +42800,7 @@ BY
 EY
 XQ
 Aq
-Dt
+av
 eK
 eK
 ur
@@ -42821,11 +42813,11 @@ Yz
 Pz
 VP
 eK
-Dt
+av
 SQ
 QS
-Dt
-Dt
+av
+av
 aa
 aa
 aa
@@ -43056,7 +43048,7 @@ ad
 ad
 ad
 ad
-uK
+DD
 TX
 av
 Eb
@@ -43078,10 +43070,10 @@ Yz
 Pz
 VP
 eK
-Dt
+av
 Hu
 ST
-Dt
+av
 ad
 ad
 ad
@@ -43313,7 +43305,7 @@ aa
 aa
 aa
 aa
-uK
+DD
 ZJ
 av
 vI
@@ -43322,7 +43314,7 @@ EQ
 nx
 nx
 eX
-Dt
+av
 AJ
 Lr
 ZY
@@ -43338,7 +43330,7 @@ eK
 MZ
 Da
 SF
-Dt
+av
 aa
 aa
 aa
@@ -43570,7 +43562,7 @@ aa
 aa
 aa
 aa
-uK
+DD
 Dw
 fe
 AR
@@ -43579,7 +43571,7 @@ ER
 yz
 Fx
 Se
-Dt
+av
 As
 ME
 LO
@@ -43592,11 +43584,11 @@ qL
 eI
 QM
 dD
-Dt
+av
 Hv
 MM
-Dt
-Dt
+av
+av
 ad
 ad
 ad
@@ -43836,8 +43828,8 @@ ES
 Fh
 Fy
 FP
-Dt
-Dt
+av
+av
 NB
 UJ
 eK
@@ -43849,7 +43841,7 @@ il
 il
 Qa
 Qa
-Dt
+av
 ae
 HE
 HL
@@ -44370,7 +44362,7 @@ QC
 Eo
 Eo
 Eo
-Dt
+av
 TZ
 aa
 Jt
@@ -44884,7 +44876,7 @@ VX
 Ys
 Ys
 ZM
-Dt
+av
 TZ
 aa
 sT
@@ -45378,8 +45370,8 @@ EW
 Fk
 FC
 FT
-iF
-vp
+oy
+il
 ly
 AQ
 oy
@@ -45391,7 +45383,7 @@ zR
 il
 Qa
 TL
-Dt
+av
 Hx
 Gt
 HO
@@ -45635,7 +45627,7 @@ av
 mg
 XQ
 Py
-iF
+oy
 Oi
 SM
 Wj
@@ -45648,11 +45640,11 @@ yk
 ZG
 Ur
 nn
-Dt
+av
 Hv
 HD
-Dt
-Dt
+av
+av
 ad
 ad
 ad
@@ -45898,17 +45890,17 @@ QE
 gZ
 pB
 HU
-ZU
-ZU
-ZU
-bJ
+eK
+eK
+eK
+jf
 cj
-Oa
-VP
-Dt
+Qj
+Rz
+av
 Tj
 OF
-Dt
+av
 aa
 aa
 aa
@@ -46149,23 +46141,23 @@ DC
 PF
 Eu
 FW
-iF
+oy
 HN
 DB
 Pm
 AP
 Ug
 yT
-eK
-eK
-jf
+yT
+yT
+BM
 Uj
-Qj
-Rz
-Dt
+BW
+dc
+av
 DC
 Gt
-Dt
+av
 ad
 ad
 ad
@@ -46406,24 +46398,24 @@ DC
 cp
 Gb
 FX
-iF
+oy
 Qg
 Vm
 Zh
 oO
 XW
 UA
-Ol
-Ol
-We
 eK
-BW
-BM
-Dt
+eK
+eK
+eK
+ZU
+UA
+av
 DC
 Gt
-Dt
-Dt
+av
+av
 aa
 aa
 aa
@@ -46663,24 +46655,24 @@ Tg
 TY
 FD
 FY
-iF
+oy
 uG
-iF
-iF
-iF
+oy
+oy
+oy
 PZ
-vp
+il
 Zi
-Dt
+av
 Zi
 Zi
 Oz
-Dt
+av
 Hh
 En
 HC
 HP
-Dt
+av
 aa
 tl
 xZ
@@ -46937,7 +46929,7 @@ DC
 Eu
 HF
 HQ
-Dt
+av
 aa
 oC
 oC
@@ -47194,7 +47186,7 @@ Hi
 Hy
 HG
 HR
-Dt
+av
 aa
 oC
 oC
@@ -47448,10 +47440,10 @@ TO
 Xb
 Hb
 Hj
-gc
-Dt
-Dt
-Dt
+AR
+av
+av
+av
 aa
 oC
 oC
@@ -48469,14 +48461,14 @@ Dt
 Dt
 Dt
 Dt
-Dt
-Gm
+av
+XO
 Dt
 CQ
 gm
 Eo
 zk
-gc
+AR
 aa
 aa
 oC
@@ -48725,8 +48717,8 @@ Ii
 WJ
 pf
 pf
-Dt
-aa
+pf
+av
 aa
 Eo
 Ig
@@ -48982,10 +48974,10 @@ mC
 cv
 ph
 NQ
-Dt
+NQ
+av
 aa
-aa
-Dt
+av
 Tt
 ZM
 aa
@@ -49238,13 +49230,13 @@ vA
 Cv
 NQ
 pV
-dc
-Dt
+cv
+Oa
+av
 aa
-aa
-Dt
+av
 Og
-Dt
+av
 aa
 Ho
 QV
@@ -49487,17 +49479,17 @@ av
 Eo
 Eo
 Eo
-Dt
-Dt
-Dt
-Gm
-Dt
+av
+av
+av
+XO
+av
 Sg
 xo
 xo
 ta
-Dt
-aa
+We
+av
 aa
 aa
 Tx
@@ -49748,13 +49740,13 @@ aa
 aa
 aa
 ad
-Dt
+av
 Mo
 xo
 XC
 ta
-Dt
-aa
+We
+av
 aa
 aa
 mu
@@ -50005,13 +49997,13 @@ aa
 aa
 aa
 ad
-Dt
-Dt
-Dt
-Gm
-Dt
-Dt
-aa
+av
+av
+av
+XO
+av
+av
+av
 aa
 aa
 mu
