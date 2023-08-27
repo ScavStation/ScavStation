@@ -9450,7 +9450,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/shield_generator,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Oe" = (
@@ -11402,10 +11401,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
-"We" = (
-/obj/machinery/shield_generator,
-/turf/simulated/floor/plating,
-/area/ministation/engine)
 "Wj" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/blast_door{
@@ -49488,7 +49483,7 @@ Sg
 xo
 xo
 ta
-We
+NQ
 av
 aa
 aa
@@ -49745,7 +49740,7 @@ Mo
 xo
 XC
 ta
-We
+NQ
 av
 aa
 aa
