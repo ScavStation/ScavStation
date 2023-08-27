@@ -125,5 +125,11 @@
 	if(!.)
 		return sorttext(b.filename, a.filename)
 
+/proc/cmp_submap_archetype_asc(var/decl/submap_archetype/A, var/decl/submap_archetype/B)
+	return A.sort_priority - B.sort_priority
+
+/proc/cmp_submap_asc(var/datum/submap/A, var/datum/submap/B)
+	return A.archetype.sort_priority - B.archetype.sort_priority
+
 /proc/cmp_gripper_asc(datum/inventory_slot/gripper/a, datum/inventory_slot/gripper/b)
 	return a.hand_sort_priority - b.hand_sort_priority

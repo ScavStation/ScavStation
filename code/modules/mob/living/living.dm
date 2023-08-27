@@ -788,19 +788,23 @@ default behaviour is:
 	return TRUE // Presumably chemical smoke can't be breathed while you're underwater.
 
 /mob/living/fluid_act(var/datum/reagents/fluids)
-	for(var/thing in get_equipped_items(TRUE))
-		if(isnull(thing)) continue
-		var/atom/movable/A = thing
-		if(A.simulated)
-			A.fluid_act(fluids)
-	if(fluids.total_volume)
-		var/datum/reagents/touching_reagents = get_contact_reagents()
-		if(touching_reagents)
-			var/saturation =  min(fluids.total_volume, round(mob_size * 1.5 * reagent_permeability()) - touching_reagents.total_volume)
-			if(saturation > 0)
-				fluids.trans_to_holder(touching_reagents, saturation)
-	if(fluids.total_volume)
-		. = ..()
+	..()
+	if(QDELETED(src) || !fluids?.total_volume)
+		return
+	fluids.touch_mob(src)
+	if(QDELETED(src) || !fluids.total_volume)
+		return
+	for(var/atom/movable/A as anything in get_equipped_items(TRUE))
+		if(!A.simulated)
+			continue
+		A.fluid_act(fluids)
+		if(QDELETED(src) || !fluids.total_volume)
+			return
+	var/datum/reagents/touching_reagents = get_contact_reagents()
+	if(touching_reagents)
+		var/saturation =  min(fluids.total_volume, round(mob_size * 1.5 * reagent_permeability()) - touching_reagents.total_volume)
+		if(saturation > 0)
+			fluids.trans_to_holder(touching_reagents, saturation)
 
 /mob/living/proc/nervous_system_failure()
 	return FALSE
@@ -1113,3 +1117,7 @@ default behaviour is:
 
 /mob/living/proc/get_seconds_until_next_special_ability_string()
 	return ticks2readable(next_special_ability - world.time)
+
+/mob/living/proc/get_mob_footstep(var/footstep_type)
+	var/decl/species/my_species = get_species()
+	return my_species?.get_footstep(src, footstep_type)

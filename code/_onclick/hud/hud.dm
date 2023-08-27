@@ -137,9 +137,13 @@
 		gripper_datums += mymob.get_inventory_slot_datum(hand_tag)
 	gripper_datums = sortTim(gripper_datums, /proc/cmp_gripper_asc)
 
-	// Generate slot UI.
 	for(var/datum/inventory_slot/inv_slot in gripper_datums)
+
+		// Re-order the held slot list so it aligns with the display order.
 		var/hand_tag = inv_slot.slot_id
+		held_slots -= hand_tag
+		held_slots += hand_tag
+
 		var/obj/screen/inventory/inv_box
 		for(var/obj/screen/inventory/existing_box in hand_hud_objects)
 			if(existing_box.slot_id == hand_tag)

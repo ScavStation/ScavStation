@@ -278,22 +278,22 @@
 	QDEL_NULL(station_map)
 	QDEL_NULL(cursor)
 	QDEL_NULL_LIST(legend)
-	QDEL_NULL_LIST(levels)
 	QDEL_NULL_LIST(lbuttons)
-	QDEL_NULL_LIST(maptexts)
-	QDEL_NULL_LIST(z_levels)
+	QDEL_LIST_ASSOC_VAL(maptexts)
+	QDEL_LIST_ASSOC_VAL(levels)
+	LAZYCLEARLIST(maptexts)
+	LAZYCLEARLIST(levels)
+	LAZYCLEARLIST(z_levels)
 	. = ..()
 
 /datum/station_holomap/proc/initialize_holomap(turf/T, isAI = null, mob/user = null, reinit = FALSE)
 	z = T.z
-	if(!station_map || reinit)
-		station_map = image(SSminimap.holomaps[z].holomap_combined)
 	if(!cursor || reinit)
 		cursor = image('icons/misc/holomap_markers.dmi', "you")
 		cursor.layer = HUD_ABOVE_ITEM_LAYER
 
 	if(!LAZYLEN(legend) || reinit)
-		QDEL_NULL_LIST(legend)
+		QDEL_LIST_ASSOC_VAL(legend)
 		legend = list(
 			new /obj/screen/legend(null, HOLOMAP_AREACOLOR_COMMAND, "■ Command"),
 			new /obj/screen/legend(null, HOLOMAP_AREACOLOR_SECURITY, "■ Security"),
@@ -308,10 +308,11 @@
 			new /obj/screen/legend/cursor(null, HOLOMAP_AREACOLOR_BASE, "You are here")
 		)
 	if(reinit)
-		QDEL_NULL_LIST(maptexts)
-		QDEL_NULL_LIST(levels)
-		QDEL_NULL_LIST(z_levels)
 		QDEL_NULL_LIST(lbuttons)
+		QDEL_LIST_ASSOC_VAL(maptexts)
+		LAZYCLEARLIST(maptexts)
+		LAZYCLEARLIST(levels)
+		LAZYCLEARLIST(z_levels)
 
 	station_map = image(icon(HOLOMAP_ICON, "stationmap"))
 	station_map.layer = UNDER_HUD_LAYER
@@ -320,8 +321,10 @@
 	if(length(global.using_map.overmap_ids))
 		var/obj/effect/overmap/visitable/O = global.overmap_sectors["[z]"]
 
-		var/current_z_offset_x = (HOLOMAP_ICON_SIZE / 2) - WORLD_CENTER_X
-		var/current_z_offset_y = (HOLOMAP_ICON_SIZE / 2) - WORLD_CENTER_Y
+		if(isAI)
+			T = get_turf(user.client.eye)
+		cursor.pixel_x = (T.x - 6 + (HOLOMAP_ICON_SIZE / 2) - WORLD_CENTER_X) * PIXEL_MULTIPLIER
+		cursor.pixel_y = (T.y - 6 + (HOLOMAP_ICON_SIZE / 2) - WORLD_CENTER_Y) * PIXEL_MULTIPLIER
 
 		//For the given z level fetch the related map sector and build the list
 		if(istype(O))
@@ -370,11 +373,6 @@
 
 			//Reset to starting zlevel
 			set_level(current_z_index)
-		if(isAI)
-			T = get_turf(user.client.eye)
-		cursor.pixel_x = (T.x - 6 + current_z_offset_x) * PIXEL_MULTIPLIER
-		cursor.pixel_y = (T.y - 6 + current_z_offset_y) * PIXEL_MULTIPLIER
-
 
 /datum/station_holomap/proc/set_level(level)
 	if(level > z_levels.len)
@@ -388,8 +386,8 @@
 	if(z == z_levels[displayed_level])
 		station_map.overlays += cursor
 
-	station_map.overlays += levels["[z_levels[displayed_level]]"]
-	station_map.vis_contents += maptexts["[z_levels[displayed_level]]"]
+	station_map.overlays += LAZYACCESS(levels, "[z_levels[displayed_level]]")
+	station_map.vis_contents += LAZYACCESS(maptexts, "[z_levels[displayed_level]]")
 
 	//Fix legend position
 	var/pixel_y = HOLOMAP_LEGEND_Y
