@@ -519,16 +519,17 @@
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "dZ" = (
+/obj/machinery/door/window/brigdoor/westleft,
+/obj/structure/table/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "barshut";
+	name = "bar shutters"
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/door/airlock/glass/civilian{
-	name = "Kitchen airlock";
-	req_access = list("ACCESS_KITCHEN");
-	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -3789,6 +3790,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /turf/simulated/floor/wood,
 /area/ministation/detective)
 "vr" = (
@@ -4255,6 +4258,8 @@
 	},
 /obj/structure/table,
 /obj/item/defibrillator,
+/obj/item/cell/device/high,
+/obj/item/cell/device/high,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "xd" = (
@@ -4843,6 +4848,8 @@
 /obj/item/minihoe,
 /obj/item/book/skill/service/botany,
 /obj/item/wirecutters/clippers,
+/obj/item/scanner/plant,
+/obj/item/storage/plants,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "zl" = (
@@ -4967,18 +4974,12 @@
 /area/ministation/cafe)
 "zK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "zL" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/turf/simulated/floor/lino,
+/obj/machinery/smartfridge/foods,
+/turf/simulated/floor/plating,
 /area/ministation/cafe)
 "zM" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -5059,6 +5060,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Ai" = (
@@ -5076,7 +5081,10 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/machinery/icecream_vat,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Ak" = (
@@ -42480,13 +42488,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -42737,13 +42745,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -42994,13 +43002,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -43251,13 +43259,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -43508,19 +43516,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 cY
 cY
 cY
@@ -43765,19 +43773,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 cY
 Ft
 dr
@@ -44022,19 +44030,19 @@ ab
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 cY
 Ft
 dr
@@ -44279,19 +44287,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 cY
 Ft
 dr
@@ -44347,14 +44355,14 @@ HO
 HO
 HO
 HO
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 aa
 aa
 HO
@@ -44536,19 +44544,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 cY
 Ft
 dr
@@ -44604,14 +44612,14 @@ HO
 HO
 HO
 HO
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 aa
 aa
 HO
@@ -44793,19 +44801,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 cY
 cY
 cY
@@ -44861,14 +44869,14 @@ HO
 HO
 HO
 HO
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 aa
 aa
 HO
@@ -45057,12 +45065,12 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
-aa
-aa
-aa
+HO
+cg
+HO
+HO
+HO
+HO
 aa
 aa
 aa
@@ -45117,15 +45125,15 @@ HO
 HO
 HO
 HO
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
+HO
 aa
 aa
 aa
@@ -45377,12 +45385,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
 aa
 aa
 aa
@@ -45634,12 +45642,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+HO
 aa
 aa
 aa
@@ -46894,7 +46902,7 @@ xt
 wq
 yB
 bj
-zL
+zF
 Aj
 AA
 bj
@@ -47151,7 +47159,7 @@ bj
 bj
 dZ
 bj
-bj
+zL
 bj
 bj
 bj
