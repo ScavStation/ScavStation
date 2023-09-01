@@ -775,6 +775,13 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/ministation/cargo)
+"en" = (
+/obj/machinery/camera/network/engineering{
+	name = "Tube Entrance";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "eo" = (
 /obj/structure/disposalpipe/segment/bent{
 	dir = 8
@@ -4399,6 +4406,10 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
 	},
+/obj/machinery/camera/network/engineering{
+	name = "SM East";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "ym" = (
@@ -7205,9 +7216,6 @@
 /area/ministation/engine)
 "Hh" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/camera/network/engineering{
-	name = "Tube Entrance"
-	},
 /turf/simulated/floor,
 /area/ministation/engine)
 "Hi" = (
@@ -46919,7 +46927,7 @@ US
 Gr
 Gr
 Xh
-DC
+en
 DC
 Eu
 HF
