@@ -560,6 +560,11 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
+/obj/item/ammo_magazine/rifle/practice,
+/obj/item/ammo_magazine/rifle/practice,
+/obj/item/ammo_magazine/rifle/practice,
+/obj/item/ammo_magazine/rifle/practice,
+/obj/item/ammo_magazine/rifle/practice,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge/vault)
 "bV" = (

@@ -68,6 +68,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
+"az" = (
+/obj/structure/rack,
+/obj/machinery/door/window/brigdoor/southleft,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "aA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -188,6 +202,22 @@
 	},
 /turf/simulated/floor/wood,
 /area/ministation/detective)
+"by" = (
+/obj/structure/rack,
+/obj/machinery/door/window/brigdoor/southleft,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "bA" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -507,15 +537,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "dW" = (
-/obj/structure/rack,
-/obj/item/shield/riot,
-/obj/item/shield/riot,
-/obj/item/clothing/suit/armor/reactive,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9
+	dir = 8
 	},
-/obj/item/storage/box/ammo/beanbags,
-/obj/item/storage/box/ammo/beanbags,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "dZ" = (
@@ -635,6 +659,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
+"eK" = (
+/obj/machinery/door/airlock/hatch/autoname/command,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "eV" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -653,6 +681,14 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
+	},
+/obj/item/modular_computer/telescreen/preset/generic{
+	name = "south bump";
+	pixel_y = -32
+	},
+/obj/item/radio/intercom/entertainment{
+	dir = 1;
+	pixel_y = -22
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
@@ -1463,6 +1499,12 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"kh" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "km" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/item/clothing/suit/yinglabcoat,
@@ -1886,6 +1928,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"nu" = (
+/obj/structure/rack,
+/obj/machinery/door/window/brigdoor/southleft,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/gun/projectile/automatic/yassault_rifle,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "nx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2807,11 +2864,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rM" = (
-/obj/structure/closet/crate/bin/ministation,
-/obj/random/trash,
-/obj/item/chems/syringe,
-/obj/item/trash/stick,
-/obj/item/organ/internal/appendix,
 /obj/machinery/status_display{
 	pixel_y = -29
 	},
@@ -4202,8 +4254,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table,
-/obj/item/flame/lighter/zippo,
-/obj/item/clothing/head/collectable/tophat,
+/obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wW" = (
@@ -4263,9 +4314,9 @@
 	pixel_y = 24
 	},
 /obj/structure/table,
-/obj/item/defibrillator,
 /obj/item/cell/device/high,
 /obj/item/cell/device/high,
+/obj/item/defibrillator/loaded,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "xd" = (
@@ -4331,6 +4382,8 @@
 "xt" = (
 /obj/item/chems/drinks/shaker,
 /obj/structure/table,
+/obj/item/clothing/head/collectable/tophat,
+/obj/item/flame/lighter/zippo,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "xx" = (
@@ -5308,6 +5361,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
+"Bs" = (
+/obj/structure/rack,
+/obj/machinery/door/window/brigdoor/southleft,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/ammo_magazine/rifle,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "Bv" = (
 /obj/machinery/light{
 	dir = 1
@@ -5327,8 +5395,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/newscaster{
-	pixel_y = -30
+/obj/item/modular_computer/telescreen/preset/generic{
+	name = "south bump";
+	pixel_y = -32
+	},
+/obj/item/radio/intercom/entertainment{
+	dir = 1;
+	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -5510,6 +5583,7 @@
 /obj/item/mollusc/clam,
 /obj/item/mollusc/clam,
 /obj/item/mollusc/clam,
+/obj/item/chems/spray/cleaner,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Dn" = (
@@ -5584,6 +5658,14 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
+"DY" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "Ea" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6250,6 +6332,28 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
+"KG" = (
+/obj/structure/table,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
+"KH" = (
+/obj/structure/rack,
+/obj/machinery/door/window/brigdoor/southleft,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "KK" = (
 /obj/machinery/forensic/microscope,
 /turf/simulated/floor/carpet/red,
@@ -6310,6 +6414,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
+"LE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "LI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -6356,6 +6467,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"Me" = (
+/obj/structure/rack,
+/obj/item/target,
+/obj/item/target/alien,
+/obj/item/target/syndicate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/target/syndicate,
+/obj/item/target/syndicate,
+/obj/item/target/syndicate,
+/obj/item/target/alien,
+/obj/item/target/alien,
+/obj/item/target/alien,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "Mp" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -7453,6 +7580,16 @@
 /obj/structure/closet/wardrobe/chemistry_white,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"UJ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/disposal,
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "UL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7473,6 +7610,13 @@
 "UY" = (
 /obj/structure/bed,
 /obj/item/bedsheet/hos,
+/obj/item/modular_computer/telescreen/preset/generic{
+	name = "north bump";
+	pixel_y = 32
+	},
+/obj/item/radio/intercom/entertainment{
+	pixel_y = 22
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
 "UZ" = (
@@ -7488,6 +7632,9 @@
 /obj/structure/table,
 /obj/machinery/recharger,
 /obj/item/storage/box/ammo/beanbags,
+/obj/item/ammo_magazine/rifle/practice,
+/obj/item/ammo_magazine/rifle/practice,
+/obj/item/ammo_magazine/rifle/practice,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Vc" = (
@@ -7659,21 +7806,14 @@
 /area/ministation/hall/w2)
 "Wr" = (
 /obj/structure/rack,
-/obj/item/target,
-/obj/item/target/alien,
-/obj/item/target/syndicate,
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/item/shield/riot,
+/obj/item/shield/riot,
+/obj/item/clothing/suit/armor/reactive,
+/obj/item/storage/box/ammo/beanbags,
+/obj/item/storage/box/ammo/beanbags,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/alien,
-/obj/item/target/alien,
-/obj/item/target/alien,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Ww" = (
@@ -39938,7 +40078,7 @@ HO
 HO
 HO
 HO
-HO
+cg
 HO
 HO
 HO
@@ -40969,7 +41109,7 @@ HO
 HO
 HO
 HO
-cg
+HO
 HO
 HO
 HO
@@ -41224,10 +41364,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+cY
+cY
+cY
+cY
 aa
 aa
 aa
@@ -41481,10 +41621,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+cY
+kh
+dr
+cY
 cY
 cY
 cY
@@ -41738,10 +41878,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+cY
+az
+dr
+dr
 cY
 OK
 un
@@ -41995,10 +42135,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+cY
+KH
+dr
+dr
 cY
 UY
 BA
@@ -42252,10 +42392,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+cY
+nu
+dr
+dr
 cY
 cY
 cY
@@ -42509,10 +42649,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+cY
+Bs
+dr
+dr
 cY
 zq
 WN
@@ -42766,10 +42906,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+cY
+by
+dr
+dr
 cY
 HX
 Ow
@@ -43023,10 +43163,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+cY
+DY
+dr
+dr
 cY
 cY
 cY
@@ -43280,11 +43420,11 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
 cY
+KG
+dr
+dr
+eK
 dW
 Wr
 EV
@@ -43797,7 +43937,7 @@ Ft
 dr
 Wi
 kE
-dr
+Me
 cY
 cY
 cY
@@ -50751,7 +50891,7 @@ rg
 rO
 rO
 Be
-rO
+LE
 Pj
 Uv
 Uv
@@ -51008,7 +51148,7 @@ rh
 rP
 sm
 qA
-pD
+Vx
 aA
 pD
 ux
@@ -51265,7 +51405,7 @@ nf
 vK
 oz
 oz
-HG
+UJ
 aA
 QC
 oz
