@@ -3,6 +3,7 @@
 // BEGIN_INCLUDE
 #include "valsalia.dm"
 #include "ai\ai_holo.dm"
+#include "items\booze_vend.dm"
 #include "items\chemistry.dm"
 #include "items\clothing.dm"
 #include "items\clothing_baxxid.dm"
@@ -10,6 +11,7 @@
 #include "items\contraband.dm"
 #include "items\documents.dm"
 #include "items\egg_yinglet.dm"
+#include "items\firesticks.dm"
 #include "items\javelin.dm"
 #include "items\mollusc.dm"
 #include "items\prosthetics.dm"

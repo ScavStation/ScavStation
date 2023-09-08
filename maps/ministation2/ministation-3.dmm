@@ -18,6 +18,9 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "aV" = (
@@ -28,10 +31,23 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "cw" = (
 /turf/simulated/floor/reinforced/airless,
+/area/space)
+"dp" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"dH" = (
+/turf/simulated/floor/plating,
 /area/space)
 "es" = (
 /obj/machinery/light/small,
@@ -46,6 +62,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"gu" = (
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"hx" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/tracker,
+/turf/simulated/floor/plating,
+/area/space)
+"hC" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "jq" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -62,6 +97,43 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"ld" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"mI" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"nf" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"nY" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"rw" = (
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "rB" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -75,6 +147,9 @@
 "sD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
@@ -93,19 +168,59 @@
 	pixel_y = 10;
 	command = "cycle_exterior"
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/airless,
 /area/ministation/maint/l4central)
+"uG" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"vD" = (
+/obj/machinery/power/solar_control{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"wi" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "xN" = (
 /obj/abstract/map_data{
 	height = 4
 	},
 /turf/space,
 /area/space)
+"xZ" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "yS" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
 /turf/space,
+/area/space)
+"Aj" = (
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/space)
+"AT" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/solar,
+/turf/simulated/floor/plating,
 /area/space)
 "Cd" = (
 /obj/structure/cable{
@@ -117,12 +232,49 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"Cl" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"CJ" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/solar,
+/turf/simulated/floor/airless,
+/area/space)
 "Dc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"DX" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Ed" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "GD" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -138,17 +290,77 @@
 	pixel_y = -10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"Hs" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"IZ" = (
+/obj/machinery/power/solar,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Lu" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/solar,
+/turf/simulated/floor/airless,
+/area/space)
+"Lx" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"MF" = (
+/obj/machinery/power/solar,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "Np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"Nz" = (
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "NO" = (
 /obj/abstract/level_data_spawner/main_level,
 /turf/space,
+/area/space)
+"SJ" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "Uw" = (
 /obj/structure/lattice,
@@ -160,6 +372,34 @@
 	dir = 4
 	},
 /turf/simulated/open,
+/area/ministation/maint/l4central)
+"VO" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
+"Wi" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Wl" = (
+/obj/machinery/power/smes/buildable/preset,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "XA" = (
 /obj/machinery/light/small{
@@ -182,6 +422,9 @@
 	id_tag = "roof_sensor";
 	pixel_y = 10;
 	pixel_x = -20
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
@@ -26534,7 +26777,7 @@ aa
 aa
 aa
 aa
-aa
+hx
 aa
 aa
 aa
@@ -26791,7 +27034,7 @@ aa
 aa
 aa
 aa
-aa
+Cl
 aa
 aa
 aa
@@ -27044,14 +27287,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uG
+uG
+uG
+uG
+Cl
+uG
+uG
+uG
 aa
 aa
 aa
@@ -27299,19 +27542,19 @@ aa
 aa
 aa
 aa
+Lu
+Lu
+Lu
+AT
+AT
 aa
+wi
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+AT
+AT
+Lu
+Lu
+Lu
 aa
 aa
 aa
@@ -27556,19 +27799,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+xZ
+mI
+mI
+mI
+mI
+Aj
+dH
+rw
+Lx
+Lx
+Lx
+Lx
+hC
 aa
 aa
 aa
@@ -27813,19 +28056,19 @@ aa
 aa
 aa
 aa
+CJ
+CJ
+CJ
+CJ
+CJ
 aa
+dH
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+CJ
+CJ
+CJ
+CJ
+CJ
 aa
 aa
 aa
@@ -28072,18 +28315,18 @@ aa
 aa
 aa
 aa
+uG
 aa
 aa
 aa
+dH
 aa
 aa
 aa
+uG
 aa
 aa
-aa
-aa
-aa
-aa
+uG
 aa
 aa
 aa
@@ -28327,21 +28570,21 @@ aa
 aa
 aa
 aa
+Lu
+Lu
+Lu
+Lu
+Lu
 aa
+dH
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Lu
+Lu
+Lu
+Lu
+Lu
+uG
+uG
 aa
 aa
 aa
@@ -28584,22 +28827,22 @@ aa
 aa
 aa
 aa
+xZ
+mI
+mI
+mI
+mI
+Aj
+dH
+rw
+Lx
+Lx
+Lx
+Lx
+hC
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uG
+uG
 aa
 aa
 aa
@@ -28841,23 +29084,23 @@ aa
 aa
 aa
 aa
+CJ
+CJ
+CJ
+CJ
+CJ
 aa
+dH
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+CJ
+CJ
+CJ
+CJ
+CJ
 cw
-cw
-cw
 aa
-aa
-aa
+uG
+uG
 aa
 aa
 aa
@@ -29100,15 +29343,15 @@ aa
 aa
 aa
 aa
+uG
 aa
 aa
 aa
+dH
 aa
 aa
 aa
-aa
-aa
-aa
+uG
 cw
 cw
 cw
@@ -29355,19 +29598,19 @@ aa
 aa
 aa
 aa
+IZ
+IZ
+IZ
+IZ
+IZ
 aa
+dH
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-cw
-cw
+IZ
+IZ
+IZ
+IZ
+IZ
 cw
 aa
 Yv
@@ -29612,19 +29855,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-cw
-cw
+SJ
+Wi
+Wi
+Wi
+Wi
+Aj
+dH
+rw
+Ed
+Ed
+Ed
+Ed
+DX
 cw
 aa
 Yv
@@ -29869,19 +30112,19 @@ aa
 aa
 aa
 aa
+MF
+MF
+MF
+MF
+MF
 aa
+dH
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-cw
-cw
-cw
+MF
+MF
+MF
+MF
+MF
 cw
 cw
 Yv
@@ -30128,11 +30371,11 @@ aa
 aa
 aa
 aa
+uG
 aa
 aa
 aa
-aa
-aa
+dH
 aa
 aa
 aa
@@ -30383,13 +30626,13 @@ aa
 aa
 aa
 aa
+Lu
+Lu
+Lu
+Lu
+Lu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+dH
 aa
 aa
 aa
@@ -30640,13 +30883,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+xZ
+mI
+mI
+mI
+mI
+Aj
+nf
 aa
 aa
 aa
@@ -30897,19 +31140,19 @@ aa
 aa
 aa
 aa
+CJ
+CJ
+CJ
+CJ
+CJ
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-cw
-cw
-cw
+Hs
+nY
+nY
+nY
+nY
+nY
+nY
 ug
 XA
 GD
@@ -31156,11 +31399,11 @@ aa
 aa
 aa
 aa
+uG
 aa
 aa
 aa
-aa
-aa
+dH
 aa
 cw
 cw
@@ -31170,8 +31413,8 @@ cw
 Yv
 Yv
 Yv
-Yv
-Yv
+Nz
+Wl
 Yv
 cw
 cw
@@ -31413,9 +31656,9 @@ aa
 aa
 aa
 aa
+uG
 aa
 aa
-aa
 cw
 cw
 cw
@@ -31425,11 +31668,11 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
+Yv
+gu
+VO
+dp
+Yv
 cw
 cw
 cw
@@ -31682,11 +31925,11 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
+Yv
+gu
+ld
+vD
+Yv
 cw
 cw
 cw
@@ -31939,11 +32182,11 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
+Yv
+Yv
+Yv
+Yv
+Yv
 cw
 cw
 cw
