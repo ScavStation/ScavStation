@@ -682,11 +682,11 @@
 	dir = 1;
 	level = 2
 	},
-/obj/item/modular_computer/telescreen/preset/generic{
+/obj/machinery/computer/modular/telescreen/preset/generic{
 	name = "south bump";
 	pixel_y = -32
 	},
-/obj/item/radio/intercom/entertainment{
+/obj/item/radio/intercom/locked/entertainment{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -5389,11 +5389,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/item/modular_computer/telescreen/preset/generic{
+/obj/machinery/computer/modular/telescreen/preset/generic{
 	name = "south bump";
 	pixel_y = -32
 	},
-/obj/item/radio/intercom/entertainment{
+/obj/item/radio/intercom/locked/entertainment{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -7604,11 +7604,11 @@
 "UY" = (
 /obj/structure/bed,
 /obj/item/bedsheet/hos,
-/obj/item/modular_computer/telescreen/preset/generic{
+/obj/machinery/computer/modular/telescreen/preset/generic{
 	name = "north bump";
 	pixel_y = 32
 	},
-/obj/item/radio/intercom/entertainment{
+/obj/item/radio/intercom/locked/entertainment{
 	pixel_y = 22
 	},
 /turf/simulated/floor/carpet/blue2,
