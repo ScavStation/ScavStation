@@ -9,6 +9,7 @@
 /decl/natural_attack/claws
 	attack_verb = list("scratched", "clawed", "slashed")
 	attack_noun = list("claws")
+	selector_icon_state = "attack_claws"
 	eye_attack_text = "claws"
 	eye_attack_text_victim = "sharp claws"
 	attack_sound = 'sound/weapons/slice.ogg'
@@ -82,10 +83,11 @@
 	name = "strong bite"
 
 /decl/natural_attack/slime_glomp
+	name = "glomp"
+	selector_icon_state = "attack_glomp"
 	attack_verb = list("glomped")
 	attack_noun = list("body")
 	damage = 2
-	name = "glomp"
 	usable_with_limbs = list(BP_CHEST, BP_GROIN)
 
 /decl/natural_attack/slime_glomp/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
@@ -108,9 +110,10 @@
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /decl/natural_attack/tail
+	name = "tail swipe"
+	selector_icon_state = "attack_tail"
 	attack_verb = list ("bludgeoned", "lashed", "smacked", "whapped")
 	attack_noun = list ("tail")
-	name = "tail swipe"
 	usable_with_limbs = list(BP_GROIN)
 	var/static/list/can_hit_zones = list(
 		BP_L_LEG,
@@ -123,8 +126,8 @@
 /decl/natural_attack/tail/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone) //ensures that you can't tail someone in the skull
 	if(!(zone in can_hit_zones))
 		return FALSE
-	for(var/bp in list(BP_L_FOOT, BP_R_FOOT))
-		if(GET_EXTERNAL_ORGAN(user, bp))
+	for(var/foot_tag in list(BP_L_FOOT, BP_R_FOOT))
+		if(GET_EXTERNAL_ORGAN(user, foot_tag))
 			return TRUE
 	return FALSE
 

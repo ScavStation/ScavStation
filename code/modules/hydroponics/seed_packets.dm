@@ -7,6 +7,7 @@ var/global/list/plant_seed_sprites = list()
 	icon_state = "seedy"
 	w_class = ITEM_SIZE_SMALL
 	abstract_type = /obj/item/seeds
+	max_health = 10 //Can't set a material, otherwise extracting seeds would generate free materials
 
 	var/seed_type
 	var/datum/seed/seed
@@ -27,8 +28,10 @@ var/global/list/plant_seed_sprites = list()
 /obj/item/seeds/proc/update_seed()
 	if(!seed && seed_type && !isnull(SSplants.seeds) && SSplants.seeds[seed_type])
 		seed = SSplants.seeds[seed_type]
-		if(seed.scannable_result)
+		if(seed?.scannable_result)
 			set_extension(src, /datum/extension/scannable, seed.scannable_result)
+		else if(has_extension(src, /datum/extension/scannable))
+			remove_extension(src, /datum/extension/scannable)
 	update_appearance()
 
 //Updates strings and icon appropriately based on seed datum.
@@ -292,9 +295,6 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/bamboo
 	seed_type = "bamboo"
-
-/obj/item/seeds/bruisegrassseed
-	seed_type = "bruisegrass"
 
 /obj/item/seeds/clam
 	seed_type = "clam"

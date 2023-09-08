@@ -12,8 +12,7 @@
 /obj/item/stack
 	gender = PLURAL
 	origin_tech = "{'materials':1}"
-	health = 32      //Stacks should take damage even if no materials
-	max_health = 32
+	max_health = 32 //Stacks should take damage even if no materials
 	/// A copy of initial matter list when this atom initialized. Stack matter should always assume a single tile.
 	var/list/matter_per_piece
 	var/singular_name
@@ -22,7 +21,6 @@
 	var/plural_icon_state
 	var/max_icon_state
 	var/amount = 1
-	var/list/initial_matter
 	var/matter_multiplier = 1
 	var/max_amount //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
 	var/stack_merge_type  //determines whether different stack types can merge
@@ -47,11 +45,20 @@
 		plural_name = "[singular_name]s"
 
 /obj/item/stack/Destroy()
-	if(uses_charge)
-		return 1
 	if (src && usr && usr.machine == src)
 		close_browser(usr, "window=stack")
+	if(length(synths))
+		synths.Cut()
 	return ..()
+
+/obj/item/stack/proc/delete_if_empty()
+	if (uses_charge)
+		return FALSE
+	var/real_amount = get_amount()
+	if (real_amount <= 0)
+		on_used_last()
+		return TRUE
+	return FALSE
 
 /obj/item/stack/examine(mob/user, distance)
 	. = ..()
@@ -188,7 +195,8 @@
 		list_recipes(usr, text2num(href_list["sublist"]))
 
 	if (href_list["make"])
-		if (src.get_amount() < 1) qdel(src) //Never should happen
+		if(delete_if_empty()) // Should never happen
+			return
 
 		var/list/recipes_list = get_recipes()
 		if (href_list["sublist"])
@@ -202,11 +210,8 @@
 
 		src.produce_recipe(R, multiplier, usr)
 
-	if (src && usr.machine==src) //do not reopen closed window
-		spawn( 0 )
-			src.interact(usr)
-			return
-	return
+	if(!QDELETED(src))
+		interact(usr)
 
 /**
  * Return 1 if an immediate subsequent call to use() would succeed.
@@ -216,25 +221,38 @@
 	return get_amount() >= used
 
 /obj/item/stack/create_matter()
-	matter_per_piece = matter?.Copy() // this is used for refreshing matter amount in update_matter()
-	if(istype(material))
-		LAZYINITLIST(matter_per_piece)
-		matter_per_piece[material.type] = max(matter_per_piece[material.type], round(MATTER_AMOUNT_PRIMARY * matter_multiplier))
-	. = ..()
 
+	// Append our material, if set; this would normally be done in the parent call.
+	if(istype(material))
+		LAZYSET(matter, material.type, MATTER_AMOUNT_PRIMARY) // No matter_multiplier as this is applied below.
+
+	// We do this here rather than a parent call because the base application would multiply by our stack amount.
+	// We want to keep a base init matter list so that we know how much matter is in one unit of the stack.
+	if(LAZYLEN(matter))
+		matter_per_piece = list()
+		for(var/mat in matter)
+			matter_per_piece[mat] = round(matter[mat] * matter_multiplier)
+
+	// No parent call because we're already tracking our materials and we're going to rebuild the matter list in
+	// update_matter() immediately anyway.
+	update_matter()
+
+// Nuke and rebuild matter from our matter_per_piece list to keep all our values in line.
 /obj/item/stack/proc/update_matter()
-	matter = list()
-	for(var/mat in matter_per_piece)
-		matter[mat] = (matter_per_piece[mat] * amount)
+	if(length(matter_per_piece))
+		matter = list()
+		for(var/mat in matter_per_piece)
+			matter[mat] = (matter_per_piece[mat] * amount)
+	else
+		matter_per_piece = null
+		matter = null
 
 /obj/item/stack/proc/use(var/used)
 	if (!can_use(used))
 		return FALSE
 	if(!uses_charge)
 		amount -= used
-		if (amount <= 0)
-			on_used_last()
-		else
+		if(!delete_if_empty())
 			update_icon()
 			update_matter()
 		return TRUE
@@ -337,8 +355,6 @@
 	return max_amount
 
 /obj/item/stack/proc/add_to_stacks(mob/user, check_hands)
-	if(!can_merge())
-		return
 	var/list/stacks = list()
 	if(check_hands && user)
 		for(var/obj/item/stack/item in user.get_held_items())
@@ -346,7 +362,7 @@
 	for (var/obj/item/stack/item in user?.loc)
 		stacks |= item
 	for (var/obj/item/stack/item in stacks)
-		if (item==src)
+		if(item == src || !(can_merge_stacks(item) || item.can_merge_stacks(src)))
 			continue
 		var/transfer = src.transfer_to(item)
 		if(user && transfer)
@@ -360,24 +376,25 @@
 		. = CEILING(. * amount / max_amount)
 
 /obj/item/stack/attack_hand(mob/user)
-	if(user.is_holding_offhand(src) && can_split())
-		var/N = input("How many stacks of [src] would you like to split off?", "Split stacks", 1) as num|null
-		if(N)
-			var/obj/item/stack/F = src.split(N)
-			if (F)
-				user.put_in_hands(F)
-				src.add_fingerprint(user)
-				F.add_fingerprint(user)
-				spawn(0)
-					if (src && usr.machine==src)
-						src.interact(usr)
-				return TRUE
-		return FALSE
-	return ..()
+	if(!user.is_holding_offhand(src) || !can_split())
+		return ..()
 
+	var/N = input("How many stacks of [src] would you like to split off?", "Split stacks", 1) as num|null
+	if(!N)
+		return TRUE
+
+	var/obj/item/stack/F = src.split(N)
+	if(F)
+		user.put_in_hands(F)
+		src.add_fingerprint(user)
+		F.add_fingerprint(user)
+		spawn(0)
+			if (src && usr.machine==src)
+				src.interact(usr)
+	return TRUE
 
 /obj/item/stack/attackby(obj/item/W, mob/user)
-	if (istype(W, /obj/item/stack) && can_merge())
+	if (istype(W, /obj/item/stack) && can_merge_stacks(W))
 		var/obj/item/stack/S = W
 		. = src.transfer_to(S)
 
@@ -395,5 +412,5 @@
 	return !(uses_charge && !force) //#TODO: The !force was a hacky way to tell if its a borg or rigsuit module. Probably would be good to find a better way..
 
 /**Whether a stack type has the capability to be merged. */
-/obj/item/stack/proc/can_merge()
+/obj/item/stack/proc/can_merge_stacks(var/obj/item/stack/other)
 	return !(uses_charge && !force)

@@ -13,6 +13,7 @@
 		"th" = list("d")
 	)
 
+	preview_outfit = /decl/hierarchy/outfit/job/yinglet/assistant
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
 
@@ -102,6 +103,12 @@
 			/decl/cultural_info/religion/other
 		)
 	)
+
+	traits = list(
+		/decl/trait/mollusc_lover = TRAIT_LEVEL_EXISTS,
+		/decl/trait/gluten_allergy = TRAIT_LEVEL_EXISTS
+	)
+
 /decl/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
 	return SPECIES_YINGLET
 
@@ -117,7 +124,7 @@
 			. = 8
 
 /decl/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
-	. = H && H.change_skin_color(189, 171, 143)
+	. = H && H.change_skin_color(rgb(189, 171, 143))
 
 /decl/species/yinglet/get_autohiss_map(var/mode)
 	if(mode == PREF_FULL)

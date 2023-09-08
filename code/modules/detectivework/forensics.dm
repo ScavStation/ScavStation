@@ -24,6 +24,8 @@
 	if(isAI(M)) return
 	if(!M || !M.key)
 		return
+	if(QDELETED(src))
+		return
 	if(istype(tool) && (tool.item_flags & ITEM_FLAG_NO_PRINT))
 		return
 
@@ -33,6 +35,10 @@
 
 	add_hiddenprint(M)
 	return 1
+
+/// Reveal any blood on the item and update its color to that of luminol
+/atom/proc/reveal_blood()
+	return
 
 /atom/proc/add_fibers(obj/item/clothing/source)
 	if(!istype(source) || (source.item_flags & ITEM_FLAG_NO_PRINT))

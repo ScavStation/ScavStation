@@ -158,7 +158,6 @@
 #define INCAPACITATION_ALL         (~INCAPACITATION_NONE)
 
 // Organs.
-#define BP_MOUTH    "mouth"
 #define BP_EYES     "eyes"
 #define BP_HEART    "heart"
 #define BP_LUNGS    "lungs"
@@ -230,6 +229,9 @@
 #define TASTE_NORMAL 1 //anything below 15%
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
+
+// One 'unit' of taste sensitivity probability, used in mob/living/carbon/proc/ingest
+#define TASTE_DEGREE_PROB 15
 
 //Used by show_message() and emotes
 #define VISIBLE_MESSAGE 1
@@ -335,3 +337,5 @@
 #define MOB_ICON_HAS_REST_STATE   BITFLAG(2)
 #define MOB_ICON_HAS_SLEEP_STATE  BITFLAG(3)
 #define MOB_ICON_HAS_GIB_STATE    BITFLAG(4)
+
+#define NEUTER_ANIMATE "animate singular neutral"

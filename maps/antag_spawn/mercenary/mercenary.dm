@@ -2,9 +2,23 @@
 	name = "Mercenary Base"
 	suffixes = list("mercenary/mercenary_base.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/merc_shuttle)
-	template_flags = TEMPLATE_FLAG_TEST_DUPLICATES
 	apc_test_exempt_areas = list(
 		/area/map_template/merc_spawn = NO_SCRUBBER|NO_VENT
+	)
+
+/obj/machinery/network/telecomms_hub/mercenary
+	req_access = list(access_mercenary)
+	initial_network_id = "mercnet"
+	channels = list(
+		COMMON_FREQUENCY_DATA,
+		list(
+			"name" = "Mercenary",
+			"key" = "t",
+			"frequency" = PUB_FREQ,
+			"color" = COMMS_COLOR_SYNDICATE,
+			"span_class" = CSS_CLASS_RADIO,
+			"secured" = access_mercenary
+		)
 	)
 
 /obj/effect/overmap/visitable/merc_base

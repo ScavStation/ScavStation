@@ -135,7 +135,7 @@
 	slot = ACCESSORY_SLOT_MEDAL
 	slot_flags = SLOT_TIE | SLOT_UPPER_BODY
 	material = /decl/material/solid/metal/gold
-	item_flags = ITEM_FLAG_HOLLOW
+	obj_flags = OBJ_FLAG_HOLLOW
 	var/tmp/dingaling_sound = list(
 		'mods/valsalia/sounds/dingaling1.ogg',
 		'mods/valsalia/sounds/dingaling2.ogg',
@@ -218,3 +218,22 @@
 /obj/item/clothing/suit/armor/bulletproof/Initialize()
 	. = ..()
 	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/ballistic_vest.dmi')
+
+/obj/item/clothing/head/cakehat/Initialize()
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/head/cakehat.dmi')
+
+/obj/item/clothing/suit/armor/hos/jensen/Initialize()
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/jensen_yinglet.dmi')
+
+/obj/item/clothing/head/cakehat/get_mob_flame_overlay(var/image/overlay, var/bodytype)
+	var/image/I = ..()
+	if(I && bodytype == BODYTYPE_YINGLET)
+		I.pixel_y = 3
+	return I
+
+/obj/item/clothing/under/hazardjumpsuit/yinglet
+	name = "small hazard jumpsuit"
+	icon = 'mods/valsalia/icons/clothing/under/hazardjumpsuit_yinglet.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET

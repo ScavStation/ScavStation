@@ -10,7 +10,6 @@
 		SKILL_WEAPONS  = SKILL_ADEPT,
 		SKILL_LITERACY = SKILL_BASIC
 	)
-	var/required_gender
 
 /datum/job/yinglet/is_species_allowed(var/decl/species/S)
 	if(S && !istype(S))
@@ -29,7 +28,7 @@
 		return
 	var/previous_suit = H.get_equipped_item(slot_wear_suit_str)
 	if(previous_suit)
-		H.unEquip(previous_suit)
+		H.try_unequip(previous_suit)
 	if(shoes && !H.get_equipped_item(slot_shoes_str))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/yinglet(H), slot_shoes_str)
 	if(uniform && !H.get_equipped_item(slot_w_uniform_str))

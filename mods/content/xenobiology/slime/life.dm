@@ -3,7 +3,6 @@
 	if(. && stat != DEAD)
 		handle_turf_contents()
 		handle_local_conditions()
-		handle_nutrition()
 		if(feeding_on)
 			slime_feed()
 		ingested.metabolize()
@@ -15,12 +14,12 @@
 
 /mob/living/slime/fluid_act(datum/reagents/fluids)
 	. = ..()
-	if(stat == DEAD)
-		var/obj/effect/fluid/F = locate() in loc
-		if(F && F.reagents?.total_volume >= FLUID_SHALLOW)
-			F.reagents.add_reagent(/decl/material/liquid/slimejelly, (is_adult ? rand(30, 40) : rand(10, 30)))
-			visible_message(SPAN_DANGER("\The [src] melts away...")) // Slimes are water soluble.
-			qdel(src)
+	if(!QDELETED(src) && fluids?.total_volume >= FLUID_SHALLOW && stat == DEAD)
+		var/turf/T = get_turf(src)
+		if(T)
+			T.add_fluid(/decl/material/liquid/slimejelly, (is_adult ? rand(30, 40) : rand(10, 30)))
+		visible_message(SPAN_DANGER("\The [src] melts away...")) // Slimes are water soluble.
+		qdel(src)
 
 /mob/living/slime/proc/handle_local_conditions()
 	var/datum/gas_mixture/environment = loc?.return_air()
@@ -81,7 +80,7 @@
 	if(length(contents) != last_contents_length)
 		queue_icon_update()
 
-/mob/living/slime/proc/handle_nutrition()
+/mob/living/slime/handle_nutrition_and_hydration()
 
 	adjust_nutrition(-(0.1 + 0.05 * is_adult))
 
@@ -128,7 +127,9 @@
 		adjust_nutrition(-20)
 		amount_grown++
 
-/mob/living/slime/proc/get_max_nutrition() // Can't go above it
+	..()
+
+/mob/living/slime/get_max_nutrition() // Can't go above it
 	. = is_adult ? 1200 : 1000
 
 /mob/living/slime/proc/get_grow_nutrition() // Above it we grow, below it we can eat

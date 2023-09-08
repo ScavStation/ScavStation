@@ -5,9 +5,14 @@
 	else
 		add_to_living_mob_list()
 
-/mob/living/examine(mob/user, distance, infix, suffix)
-	. = ..()
-	if (admin_paralyzed)
+/mob/living/get_ai_type()
+	var/decl/species/my_species = get_species()
+	if(ispath(my_species?.ai))
+		return my_species.ai
+	return ..()
+
+/mob/living/show_other_examine_strings(mob/user, distance, infix, suffix, hideflags, decl/pronouns/pronouns)
+	if(admin_paralyzed)
 		to_chat(user, SPAN_OCCULT("OOC: They have been paralyzed by staff. Please avoid interacting with them unless cleared to do so by staff."))
 
 //mob verbs are faster than object verbs. See above.
@@ -63,7 +68,7 @@ default behaviour is:
 	// End boilerplate.
 
 	spawn(0)
-		if ((!( yes ) || now_pushing) || !loc)
+		if (!yes || now_pushing || QDELETED(src) || QDELETED(AM) || !loc || !AM.loc)
 			return
 
 		now_pushing = 1
@@ -108,6 +113,8 @@ default behaviour is:
 
 		now_pushing = 0
 		spawn(0)
+			if (QDELETED(src) || QDELETED(AM) || !loc || !AM.loc)
+				return
 			..()
 			var/saved_dir = AM.dir
 			if (!istype(AM, /atom/movable) || AM.anchored)
@@ -323,7 +330,7 @@ default behaviour is:
 
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
-	var/t = shooter.zone_sel?.selecting
+	var/t = shooter.get_target_zone()
 	if ((t in list( BP_EYES, BP_MOUTH )))
 		t = BP_HEAD
 	var/obj/item/organ/external/def_zone = ran_zone(t, target = src)
@@ -363,7 +370,7 @@ default behaviour is:
 /mob/living/carbon/revive()
 	var/obj/item/cuffs = get_equipped_item(slot_handcuffed_str)
 	if (cuffs)
-		unEquip(cuffs, get_turf(src))
+		try_unequip(cuffs, get_turf(src))
 	. = ..()
 
 /mob/living/proc/revive()
@@ -690,7 +697,7 @@ default behaviour is:
 		to_chat(src, "<span class='notice'>Due to the spookiness of the round, you have taken control of the poor animal as an invading, possessing spirit - roleplay accordingly.</span>")
 		src.universal_speak = TRUE
 		src.universal_understand = TRUE
-		//src.cultify() // Maybe another time.
+		//src.on_defilement() // Maybe another time.
 		return
 
 	to_chat(src, "<b>You are now \the [src]!</b>")
@@ -722,6 +729,8 @@ default behaviour is:
 			add_overlay(A)
 
 /mob/living/Destroy()
+	if(stressors) // Do not QDEL_NULL, keys are managed instances.
+		stressors = null
 	if(auras)
 		for(var/a in auras)
 			remove_aura(a)
@@ -779,19 +788,23 @@ default behaviour is:
 	return TRUE // Presumably chemical smoke can't be breathed while you're underwater.
 
 /mob/living/fluid_act(var/datum/reagents/fluids)
-	for(var/thing in get_equipped_items(TRUE))
-		if(isnull(thing)) continue
-		var/atom/movable/A = thing
-		if(A.simulated)
-			A.fluid_act(fluids)
-	if(fluids.total_volume)
-		var/datum/reagents/touching_reagents = get_contact_reagents()
-		if(touching_reagents)
-			var/saturation =  min(fluids.total_volume, round(mob_size * 1.5 * reagent_permeability()) - touching_reagents.total_volume)
-			if(saturation > 0)
-				fluids.trans_to_holder(touching_reagents, saturation)
-	if(fluids.total_volume)
-		. = ..()
+	..()
+	if(QDELETED(src) || !fluids?.total_volume)
+		return
+	fluids.touch_mob(src)
+	if(QDELETED(src) || !fluids.total_volume)
+		return
+	for(var/atom/movable/A as anything in get_equipped_items(TRUE))
+		if(!A.simulated)
+			continue
+		A.fluid_act(fluids)
+		if(QDELETED(src) || !fluids.total_volume)
+			return
+	var/datum/reagents/touching_reagents = get_contact_reagents()
+	if(touching_reagents)
+		var/saturation =  min(fluids.total_volume, round(mob_size * 1.5 * reagent_permeability()) - touching_reagents.total_volume)
+		if(saturation > 0)
+			fluids.trans_to_holder(touching_reagents, saturation)
 
 /mob/living/proc/nervous_system_failure()
 	return FALSE
@@ -811,11 +824,26 @@ default behaviour is:
 /mob/living/proc/get_digestion_product()
 	return null
 
+/mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+	vomit.reagents.add_reagent(/decl/material/liquid/acid/stomach, 5)
+
 /mob/living/proc/eyecheck()
 	return FLASH_PROTECTION_NONE
 
+/mob/living/proc/get_max_nutrition()
+	return 500
+
+/mob/living/proc/get_nutrition()
+	return get_max_nutrition()
+
 /mob/living/proc/adjust_nutrition(var/amt)
 	return
+
+/mob/living/proc/get_max_hydration()
+	return 500
+
+/mob/living/proc/get_hydration()
+	return get_max_hydration()
 
 /mob/living/proc/adjust_hydration(var/amt)
 	return
@@ -1080,3 +1108,16 @@ default behaviour is:
 
 /mob/living/get_speech_bubble_state_modifier()
 	return isSynthetic() ? "synth" : ..()
+
+/mob/living/proc/is_on_special_ability_cooldown()
+	return world.time < next_special_ability
+
+/mob/living/proc/set_special_ability_cooldown(var/amt)
+	next_special_ability = max(next_special_ability, world.time+amt)
+
+/mob/living/proc/get_seconds_until_next_special_ability_string()
+	return ticks2readable(next_special_ability - world.time)
+
+/mob/living/proc/get_mob_footstep(var/footstep_type)
+	var/decl/species/my_species = get_species()
+	return my_species?.get_footstep(src, footstep_type)

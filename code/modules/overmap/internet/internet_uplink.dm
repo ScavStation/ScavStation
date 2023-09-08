@@ -8,11 +8,13 @@ var/global/list/internet_uplinks = list()
 	icon_state = "unpowered"
 	density = 1
 	anchored = 1
-	stat_immune = 0
-
 	construct_state = /decl/machine_construction/default/panel_closed
-	uncreated_component_parts = list(/obj/item/stock_parts/power/terminal)
-	stock_part_presets = list(/decl/stock_part_preset/terminal_setup)
+	uncreated_component_parts = list(
+		/obj/item/stock_parts/power/terminal,
+	)
+	stock_part_presets = list(
+		/decl/stock_part_preset/terminal_setup,
+	)
 
 	var/overmap_range = BASE_INTERNET_RANGE
 	var/max_overmap_range = BASE_INTERNET_RANGE
@@ -113,7 +115,7 @@ var/global/list/internet_uplinks = list()
 				permitted_networks += network_id
 				return TOPIC_REFRESH
 			else
-				to_chat(user, SPAN_WARNING("\The network '[network_id]' could not be found!"))
+				to_chat(user, SPAN_WARNING("The network '[network_id]' could not be found!"))
 				return TOPIC_HANDLED
 
 /obj/machinery/internet_uplink/proc/update_range(new_range)
@@ -162,7 +164,6 @@ var/global/list/internet_uplinks = list()
 	idle_power_usage = 250
 	active_power_usage = 500
 	var/initial_id_tag = "plexus"
-
 	var/current_uplink = 1
 
 /obj/machinery/computer/internet_uplink/Initialize()

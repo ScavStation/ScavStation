@@ -10,6 +10,7 @@
 	pen_flag           = PEN_FLAG_ACTIVE | PEN_FLAG_CRAYON | PEN_FLAG_DEL_EMPTY
 	pen_quality        = TOOL_QUALITY_BAD //Writing with those things is awkward
 	max_uses           = 30
+	pen_font           = PEN_FONT_CRAYON
 	var/shade_colour   = "#220000" //RGB
 
 /obj/item/pen/crayon/make_pen_description()
@@ -47,7 +48,7 @@
 /obj/item/pen/crayon/attack(mob/living/M, mob/user)
 	if(istype(M) && M == user)
 		var/decl/tool_archetype/pen/parch = GET_DECL(TOOL_PEN)
-		playsound(src, 'sound/weapons/bite.ogg')
+		playsound(src, 'sound/weapons/bite.ogg', 40)
 		to_chat(M, SPAN_NOTICE("You take a bite of the crayon and swallow it."))
 		M.adjust_nutrition(1)
 		var/uses = get_tool_property(TOOL_PEN, TOOL_PROP_USES)

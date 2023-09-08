@@ -17,6 +17,7 @@
 	#include "../../mods/mobs/borers/_borers.dme"
 
 	#include "../../mods/species/ascent/_ascent.dme"
+	#include "../../mods/species/serpentid/_serpentid.dme"
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"

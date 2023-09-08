@@ -43,7 +43,7 @@
 	desc = "A backpack that opens into a localized pocket of Blue Space."
 	origin_tech = "{'wormholes':4}"
 	icon = 'icons/obj/items/storage/backpack/backpack_holding.dmi'
-	max_w_class = ITEM_SIZE_NORMAL
+	max_w_class = ITEM_SIZE_LARGE
 	max_storage_space = 56
 	material = /decl/material/solid/metal/gold
 	matter = list(
@@ -51,6 +51,11 @@
 		/decl/material/solid/metal/uranium = MATTER_AMOUNT_TRACE,
 		/decl/material/solid/plastic = MATTER_AMOUNT_TRACE
 	)
+
+/obj/item/storage/backpack/holding/singularity_act(S, current_size)
+	var/dist = max((current_size - 2), 1)
+	explosion(src.loc,(dist),(dist*2),(dist*4))
+	return 1000
 
 /obj/item/storage/backpack/holding/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/storage/backpack/holding) || istype(W, /obj/item/storage/bag/trash/advanced))
@@ -385,7 +390,7 @@
 		var/image/I = image(overlay.icon, "[overlay.icon_state]-[marking_state]")
 		I.color = marking_colour
 		I.appearance_flags |= RESET_COLOR
-		overlay.add_overlay(I)	
+		overlay.add_overlay(I)
 	. = ..()
 
 /obj/item/storage/backpack/ert/commander

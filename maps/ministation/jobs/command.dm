@@ -1,6 +1,6 @@
 /datum/job/ministation/captain
-	title = "Captain"
-	supervisors = "your profit margin, your conscience, and the Trademaster"
+	title = "Matriarch"
+	supervisors = "your profit margin, your conscience, and the watchful eye of the Tradehouse Rep"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/captain
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
@@ -17,7 +17,9 @@
 	department_types = list(/decl/department/command)
 	total_positions = 1
 	spawn_positions = 1
+	required_gender = FEMALE
 	selection_color = "#1d1d4f"
+	hud_icon = "hudyingmatriarch"
 	req_admin_notify = 1
 	access = list()
 	minimal_access = list()
@@ -37,7 +39,7 @@
 	return get_all_station_access()
 
 /mob/proc/freetradeunion_rename_company()
-	set name = "Rename Free Trade Union"
+	set name = "Defect from Tradehouse Ivenmoth"
 	set category = "Captain's Powers"
 	var/company = sanitize(input(src, "What should your enterprise be called?", "Company name", global.using_map.company_name), MAX_NAME_LEN)
 	if(!company)
@@ -52,8 +54,8 @@
 	verbs -= /mob/proc/freetradeunion_rename_company
 
 /datum/job/ministation/hop
-	title = "Lieutenant"
-	supervisors = "the Captain"
+	title = "Patriarch of Personnel"
+	supervisors = "the Matriarch"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/hop
 	head_position = 1
 	department_types = list(
@@ -63,6 +65,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	selection_color = "#2f2f7f"
+	hud_icon = "hudyingpatriarch"
 	req_admin_notify = 1
 	minimal_player_age = 14
 	economic_power = 10
@@ -74,6 +77,7 @@
 		access_sec_doors,
 		access_brig,
 		access_forensics_lockers,
+		access_armory,
 		access_heads,
 		access_medical,
 		access_engine,
@@ -111,6 +115,7 @@
 		access_sec_doors,
 		access_brig,
 		access_forensics_lockers,
+		access_armory,
 		access_heads,
 		access_medical,
 		access_engine,
@@ -155,4 +160,4 @@
 		SKILL_FINANCE = SKILL_MAX
 	)
 	skill_points = 30
-	alt_titles = list()
+	alt_titles = list("Head of Personnel")

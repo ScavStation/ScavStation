@@ -11,6 +11,8 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	icon = 'icons/obj/drink_glasses/square.dmi'
 	icon_state = null
 	base_icon = "square" // Base icon name
+	/// The icon state prefix used for overlay/addon sprites. If unset, defaults to base_icon.
+	var/overlay_base_icon = null
 	filling_states = @"[20,40,60,80,100]"
 	volume = 30
 	material = /decl/material/solid/glass
@@ -31,7 +33,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	presentation_flags = PRESENTATION_FLAG_NAME | PRESENTATION_FLAG_DESC
 	temperature_coefficient = 4
-	item_flags = ITEM_FLAG_HOLLOW
+	obj_flags = OBJ_FLAG_HOLLOW
 
 	var/custom_name
 	var/custom_desc
@@ -95,6 +97,8 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	. = ..()
 	if(!icon_state)
 		icon_state = base_icon
+	if(!overlay_base_icon)
+		overlay_base_icon = base_icon
 
 /obj/item/chems/drinks/glass2/get_base_name()
 	. = base_name
@@ -107,9 +111,9 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	..()
 
 /obj/item/chems/drinks/glass2/proc/can_add_extra(obj/item/glass_extra/GE)
-	if(!("[base_icon]_[GE.glass_addition]left" in icon_states(icon)))
+	if(!("[overlay_base_icon]_[GE.glass_addition]left" in icon_states(icon)))
 		return 0
-	if(!("[base_icon]_[GE.glass_addition]right" in icon_states(icon)))
+	if(!("[overlay_base_icon]_[GE.glass_addition]right" in icon_states(icon)))
 		return 0
 
 	return 1
@@ -131,13 +135,13 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 
 /obj/item/chems/drinks/glass2/proc/get_filling_overlay(amount, overlay)
 	var/image/I = new()
-	if(!filling_icons_cache["[base_icon][amount][overlay]"])
-		var/icon/base = new/icon(icon, "[base_icon][amount]")
+	if(!filling_icons_cache["[overlay_base_icon][amount][overlay]"])
+		var/icon/base = new/icon(icon, "[overlay_base_icon][amount]")
 		if(overlay)
 			var/icon/extra = new/icon('icons/obj/drink_glasses/extras.dmi', overlay)
 			base.Blend(extra, ICON_MULTIPLY)
-		filling_icons_cache["[base_icon][amount][overlay]"] = image(base)
-	I.appearance = filling_icons_cache["[base_icon][amount][overlay]"]
+		filling_icons_cache["[overlay_base_icon][amount][overlay]"] = image(base)
+	I.appearance = filling_icons_cache["[overlay_base_icon][amount][overlay]"]
 	return I
 
 /obj/item/chems/drinks/glass2/on_update_icon()
@@ -160,19 +164,19 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 		var/amnt = get_filling_state()
 
 		if(has_ice())
-			over_liquid |= image(icon, src, "[base_icon][amnt]_ice")
+			over_liquid |= image(icon, src, "[overlay_base_icon][amnt]_ice")
 
 		if(has_fizz())
 			over_liquid |= get_filling_overlay(amnt, "fizz")
 
 		if(has_vapor())
-			over_liquid |= image(icon, src, "[base_icon]_vapor")
+			over_liquid |= image(icon, src, "[overlay_base_icon]_vapor")
 
 		for(var/S in R.glass_special)
-			if("[base_icon]_[S]" in icon_states(icon))
-				under_liquid |= image(icon, src, "[base_icon]_[S]")
-			else if("[base_icon][amnt]_[S]" in icon_states(icon))
-				over_liquid |= image(icon, src, "[base_icon][amnt]_[S]")
+			if("[overlay_base_icon]_[S]" in icon_states(icon))
+				under_liquid |= image(icon, src, "[overlay_base_icon]_[S]")
+			else if("[overlay_base_icon][amnt]_[S]" in icon_states(icon))
+				over_liquid |= image(icon, src, "[overlay_base_icon][amnt]_[S]")
 
 		underlays += under_liquid
 
@@ -189,7 +193,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	for(var/item in extras)
 		if(istype(item, /obj/item/glass_extra))
 			var/obj/item/glass_extra/GE = item
-			var/image/I = image(icon, src, "[base_icon]_[GE.glass_addition][side]")
+			var/image/I = image(icon, src, "[overlay_base_icon]_[GE.glass_addition][side]")
 			I.color = GE.color
 			underlays += I
 		else if(rim_pos && istype(item, /obj/item/chems/food/fruit_slice))
@@ -227,3 +231,10 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	. = ..()
 	if(old_temp != temperature)
 		update_icon()
+
+/obj/item/chems/drinks/glass2/physically_destroyed(var/skip_qdel)
+	reagents.splash(loc, reagents.total_volume)
+	if(istype(material))
+		playsound(src, "shatter", 30, 1)
+		material.place_shards(get_turf(src), w_class)
+	return ..()

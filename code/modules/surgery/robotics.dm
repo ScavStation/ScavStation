@@ -449,7 +449,7 @@
 		return FALSE
 	var/obj/item/organ/internal/augment/A = organ_to_replace
 	if(istype(A) && !(A.augment_flags & AUGMENTATION_MECHANIC))
-		to_chat(user, SPAN_WARNING("\the [A] cannot function within a robotic limb"))
+		to_chat(user, SPAN_WARNING("\The [A] cannot function within a robotic limb."))
 		return FALSE
 	return organ_to_replace
 
@@ -517,7 +517,7 @@
 	..()
 
 /decl/surgery_step/robotics/install_mmi/end_step(mob/living/user, mob/living/target, target_zone, obj/item/tool)
-	if(!user.unEquip(tool) || !ishuman(target))
+	if(!user.try_unequip(tool) || !ishuman(target))
 		return
 	var/obj/item/organ/external/affected = GET_EXTERNAL_ORGAN(target, target_zone)
 	user.visible_message("<span class='notice'>[user] has installed \the [tool] into [target]'s [affected.name].</span>", \

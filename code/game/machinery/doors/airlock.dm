@@ -91,9 +91,6 @@ var/global/list/airlock_overlays = list()
 /obj/machinery/door/airlock/proc/get_window_material()
 	return GET_DECL(window_material)
 
-/obj/machinery/door/airlock/get_codex_value()
-	return "airlock"
-
 /obj/machinery/door/airlock/Process()
 	if(main_power_lost_until > 0 && world.time >= main_power_lost_until)
 		regainMainPower()
@@ -720,7 +717,7 @@ About the new airlock wires panel:
 		if(!length(A.req_access) && (alert("\the [A]'s 'Access Not Set' light is flashing. Install it anyway?", "Access not set", "Yes", "No") == "No"))
 			return TRUE
 
-		if(do_after(user, 50, src) && density && A && user.unEquip(A, src))
+		if(do_after(user, 50, src) && density && A && user.try_unequip(A, src))
 			to_chat(user, SPAN_NOTICE("You successfully install \the [A]."))
 			brace = A
 			brace.airlock = src
@@ -804,7 +801,7 @@ About the new airlock wires panel:
 	else if((stat & (BROKEN|NOPOWER)) && istype(user, /mob/living/simple_animal))
 		var/mob/living/simple_animal/A = user
 		var/obj/item/I = A.get_natural_weapon()
-		if(I.force >= 10)
+		if(I?.force >= 10)
 			if(density)
 				visible_message(SPAN_DANGER("\The [A] forces \the [src] open!"))
 				open(1)

@@ -209,7 +209,7 @@
 	dir = 1
 	},
 /obj/machinery/computer/cryopod{
-	dir = 1
+	pixel_y = -32
 	},
 /obj/abstract/landmark/latejoin/cryo,
 /obj/structure/cable{
@@ -287,7 +287,7 @@
 	dir = 1
 	},
 /obj/machinery/computer/cryopod{
-	dir = 1
+	pixel_y = -32
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1837,7 +1837,7 @@
 /area/ship/trade/maintenance/techstorage)
 "eW" = (
 /obj/machinery/computer/cryopod{
-	dir = 8
+	pixel_x = 32
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2038,7 +2038,7 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 4
 	},
-/obj/structure/sign/science_1{
+/obj/structure/sign/department/science_1{
 	pixel_x = -30
 	},
 /turf/simulated/floor/tiled,
@@ -2056,7 +2056,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "iS" = (
-/obj/abstract/level_data/main_level,
+/obj/abstract/level_data_spawner/main_level,
 /turf/space,
 /area/space)
 "iW" = (
@@ -2480,7 +2480,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/sign/xenoflora{
+/obj/structure/sign/department/xenoflora{
 	pixel_x = -30
 	},
 /obj/structure/disposalpipe/segment,
@@ -3008,7 +3008,7 @@
 /area/ship/trade/escape_port)
 "Nb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/radio/intercom/department/security{
+/obj/item/radio/intercom{
 	pixel_y = 20
 	},
 /turf/simulated/floor/tiled/dark,

@@ -3,6 +3,7 @@
 
 /datum/codex_entry
 	var/name
+	var/store_codex_entry = TRUE
 	var/list/associated_strings
 	var/list/associated_paths
 	var/lore_text
@@ -10,10 +11,15 @@
 	var/antag_text
 	var/disambiguator
 	var/list/categories
+	/// If TRUE, don't create this entry in codex init. Where possible, consider using abstract_type or store_codex_entry = FALSE instead.
+	var/skip_hardcoded_generation = FALSE
+	/// If TRUE, associated_paths is set to include each path's subtypes in New().
+	var/include_subtypes = FALSE
+
+/datum/codex_entry/temporary
+	store_codex_entry = FALSE
 
 /datum/codex_entry/New(var/_display_name, var/list/_associated_paths, var/list/_associated_strings, var/_lore_text, var/_mechanics_text, var/_antag_text)
-
-	SScodex.all_entries += src
 
 	if(_display_name)       name =               _display_name
 	if(_associated_paths)   associated_paths =   _associated_paths
@@ -22,16 +28,26 @@
 	if(_mechanics_text)     mechanics_text =     _mechanics_text
 	if(_antag_text)         antag_text =         _antag_text
 
-	if(length(associated_paths))
+	if(store_codex_entry && length(associated_paths))
 		for(var/tpath in associated_paths)
 			var/atom/thing = tpath
 			var/thing_name = codex_sanitize(initial(thing.name))
 			if(disambiguator)
 				thing_name = "[thing_name] ([disambiguator])"
 			LAZYDISTINCTADD(associated_strings, thing_name)
+		// Don't move this any earlier, adding strings for subtypes can cause overlaps.
+		if(include_subtypes)
+			var/new_assoc_paths = list()
+			for(var/path in associated_paths)
+				new_assoc_paths |= typesof(path)
+			associated_paths = new_assoc_paths
 		for(var/associated_path in associated_paths)
-			if(SScodex.entries_by_path[associated_path])
-				PRINT_STACK_TRACE("Trying to save codex entry for [name] by path [associated_path] but one already exists!")
+			// This fix assumes more specific codex entries always follow more general ones.
+			// TODO: Refactor to be order-agnostic.
+			var/datum/codex_entry/predecessor = SScodex.entries_by_path[associated_path]
+			if(predecessor)
+				log_debug("Trying to save codex entry for [name] by path [associated_path] but entry [predecessor.name] already uses it, overwriting.")
+				predecessor.associated_paths -= SScodex.entries_by_path[associated_path]
 			SScodex.entries_by_path[associated_path] = src
 
 	if(!name)
@@ -40,23 +56,41 @@
 		else
 			CRASH("Attempted to instantiate unnamed codex entry with no associated strings!")
 
-	LAZYDISTINCTADD(associated_strings, codex_sanitize(name))
-	for(var/associated_string in associated_strings)
-		var/clean_string = codex_sanitize(associated_string)
-		if(!clean_string)
-			associated_strings -= associated_string
-			continue
-		if(clean_string != associated_string)
-			associated_strings -= associated_string
-			associated_strings |= clean_string
-		if(SScodex.entries_by_string[clean_string])
-			PRINT_STACK_TRACE("Trying to save codex entry for [name] by string [clean_string] but one already exists!")
-		SScodex.entries_by_string[clean_string] = src
+	if(store_codex_entry)
+		SScodex.all_entries += src
+		LAZYDISTINCTADD(associated_strings, codex_sanitize(name))
+		for(var/associated_string in associated_strings)
+			var/clean_string = codex_sanitize(associated_string)
+			if(!clean_string)
+				associated_strings -= associated_string
+				continue
+			if(clean_string != associated_string)
+				associated_strings -= associated_string
+				associated_strings |= clean_string
+			// This fix assumes more specific codex entries always follow more general ones.
+			// TODO: Refactor to be order-agnostic.
+			var/datum/codex_entry/predecessor = SScodex.entries_by_string[clean_string]
+			if(predecessor)
+				log_debug("Trying to save codex entry for [name] by string [clean_string] but entry [predecessor.name] already uses it, overwriting.")
+				predecessor.associated_strings -= clean_string
+			SScodex.entries_by_string[clean_string] = src
 
 	..()
 
 /datum/codex_entry/Destroy(force)
-	SScodex.all_entries -= src
+	if(store_codex_entry) // Gating here to avoid unnecessary list checking overhead.
+		SScodex.all_entries -= src
+		for(var/associated_string in associated_strings)
+			SScodex.entries_by_string -= associated_string
+		for(var/associated_path in associated_paths)
+			SScodex.entries_by_path -= associated_path
+		for(var/thing in SScodex.index_file)
+			if(src == SScodex.index_file[thing])
+				SScodex.index_file -= thing
+		for(var/thing in SScodex.search_cache)
+			var/list/cached = SScodex.search_cache[thing]
+			if(src in cached)
+				cached -= src
 	. = ..()
 
 /datum/codex_entry/proc/get_codex_header(var/mob/presenting_to)
@@ -67,7 +101,7 @@
 		if(presenting_to.client)
 			. += "<a href='?src=\ref[presenting_to.client];codex_search=1'>Search Codex</a>"
 			. += "<a href='?src=\ref[presenting_to.client];codex_index=1'>List All Entries</a>"
-	. += "<hr>"
+	. += "<hr><h2>[name]</h2>"
 
 /datum/codex_entry/proc/get_codex_footer(var/mob/presenting_to)
 	. = list()
@@ -87,14 +121,14 @@
 			. += header
 			. += "</span>"
 
-	. += "<span class='dmCodexBody'>"
+	. += "<div class='dmCodexBody'>"
 	if(lore_text)
-		. += "<p><span class='codexLore'>[TRIM_LINEBREAKS(lore_text)]</span></p>"
+		. += "<p><div class='codexLore'>[TRIM_LINEBREAKS(lore_text)]</div></p>"
 	if(mechanics_text)
-		. += "<h3>OOC Information</h3>\n<p><span class='codexMechanics'>[TRIM_LINEBREAKS(mechanics_text)]</span></p>"
+		. += "<h3>OOC Information</h3>\n<p><div class='codexMechanics'>[TRIM_LINEBREAKS(mechanics_text)]</div></p>"
 	if(antag_text && (!presenting_to || (presenting_to.mind && player_is_antag(presenting_to.mind))))
-		. += "<h3>Antagonist Information</h3>\n<p><span class='codexAntag'>[TRIM_LINEBREAKS(antag_text)]</span></p>"
-	. += "</span>"
+		. += "<h3>Antagonist Information</h3>\n<p><div class='codexAntag'>[TRIM_LINEBREAKS(antag_text)]</div></p>"
+	. += "</div>"
 
 	if(include_footer)
 		var/footer = get_codex_footer(presenting_to)

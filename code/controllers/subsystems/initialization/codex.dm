@@ -7,11 +7,11 @@ SUBSYSTEM_DEF(codex)
 	var/regex/trailingLinebreakRegexStart
 	var/regex/trailingLinebreakRegexEnd
 
-	var/list/all_entries =       list()
-	var/list/entries_by_path =   list()
-	var/list/entries_by_string = list()
-	var/list/index_file =        list()
-	var/list/search_cache =      list()
+	var/list/datum/codex_entry/all_entries =       list()
+	var/list/datum/codex_entry/entries_by_path =   list()
+	var/list/datum/codex_entry/entries_by_string = list()
+	var/list/index_file =                          list()
+	var/list/search_cache =                        list()
 
 /datum/controller/subsystem/codex/Initialize()
 	// Codex link syntax is such:
@@ -27,8 +27,9 @@ SUBSYSTEM_DEF(codex)
 	// Create general hardcoded entries.
 	for(var/ctype in subtypesof(/datum/codex_entry))
 		var/datum/codex_entry/centry = ctype
-		if(initial(centry.name))
-			centry = new centry()
+		if(TYPE_IS_ABSTRACT(centry) || !initial(centry.store_codex_entry) || initial(centry.skip_hardcoded_generation))
+			continue
+		centry = new centry()
 
 	// Create categorized entries.
 	var/list/deferred_population = list()
@@ -65,8 +66,9 @@ SUBSYSTEM_DEF(codex)
 /datum/controller/subsystem/codex/proc/get_codex_entry(var/entry)
 	if(istype(entry, /atom))
 		var/atom/entity = entry
-		if(entity.get_specific_codex_entry())
-			return entity.get_specific_codex_entry()
+		var/specific_codex_entry = entity.get_specific_codex_entry()
+		if(specific_codex_entry)
+			return specific_codex_entry
 		return get_entry_by_string(entity.name) || entries_by_path[entity.type]
 	if(ispath(entry))
 		return entries_by_path[entry]

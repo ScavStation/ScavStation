@@ -4,7 +4,7 @@
 
 /decl/hierarchy/outfit/job/ministation/security
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	l_ear = /obj/item/radio/headset/headset_sec
+	l_ear = /obj/item/radio/headset/ministation_headset_sec
 	gloves = /obj/item/clothing/gloves/thick
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/handcuffs = 1)
@@ -14,8 +14,38 @@
 	r_pocket = /obj/item/handcuffs
 	id_type = /obj/item/card/id/ministation/security
 	pda_type = /obj/item/modular_computer/pda/security
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officiated
+
+/decl/hierarchy/outfit/job/ministation/security/head
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	l_ear = /obj/item/radio/headset/headset_sec
+	gloves = /obj/item/clothing/gloves/thick
+	shoes = /obj/item/clothing/shoes/jackboots
+	backpack_contents = list(/obj/item/handcuffs = 1)
+	name = "Ministation - Job - Head of Security"
+	uniform = /obj/item/clothing/under/security
+	l_pocket = /obj/item/flash
+	r_pocket = /obj/item/handcuffs
+	id_type = /obj/item/card/id/ministation/security
+	pda_type = /obj/item/modular_computer/pda/security
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
+
+/obj/item/encryptionkey/ministation_headset_sec
+	name = "security radio encryption key"
+	icon_state = "srv_cypherkey"
+	can_decrypt = list(access_security)
+
+/obj/item/radio/headset/ministation_headset_sec
+	name = "security radio headset"
+	desc = "This is used by your elite security force."
+	icon = 'maps/ministation/icons/headset_security.dmi'
+	encryption_keys = list(/obj/item/encryptionkey/ministation_headset_sec)
 
 /decl/hierarchy/outfit/job/ministation/security/Initialize()
+	. = ..()
+	BACKPACK_OVERRIDE_SECURITY
+
+/decl/hierarchy/outfit/job/ministation/security/head/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_SECURITY
 
@@ -29,13 +59,15 @@
 
 /decl/hierarchy/outfit/job/ministation/detective
 	name = "Ministation - Job - Detective"
-	head = /obj/item/clothing/head/det
+//	head = /obj/item/clothing/head/det
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	l_ear = /obj/item/radio/headset/headset_sec
-	uniform = /obj/item/clothing/under/det
-	suit = /obj/item/clothing/suit/storage/det_trench
+	l_ear = /obj/item/radio/headset/ministation_headset_sec
+	uniform = /obj/item/clothing/under/yinglet/scout
+	head = /obj/item/clothing/head/yinglet/scout
+//	uniform = /obj/item/clothing/under/det
+//	suit = /obj/item/clothing/suit/storage/det_trench
 	l_pocket = /obj/item/flame/lighter/zippo
-	shoes = /obj/item/clothing/shoes/dress
+//	shoes = /obj/item/clothing/shoes/dress
 	hands = list(/obj/item/storage/briefcase/crimekit)
 	id_type = /obj/item/card/id/ministation/security
 	pda_type = /obj/item/modular_computer/pda/forensics

@@ -7,29 +7,30 @@
 
 /obj/random/contraband/spawn_choices()
 	var/static/list/spawnable_choices = list(
-		/obj/item/haircomb =                             4,
-		/obj/item/storage/pill_bottle/painkillers =      3,
-		/obj/item/storage/pill_bottle/happy =            2,
-		/obj/item/storage/pill_bottle/zoom =             2,
-		/obj/item/chems/glass/beaker/vial/random/toxin = 1,
-		/obj/item/chems/glass/beaker/sulphuric =         1,
-		/obj/item/contraband/poster =                    5,
-		/obj/item/butterflyblade =                       3,
-		/obj/item/butterflyhandle =                      3,
-		/obj/item/baton/cattleprod =                     1,
-		/obj/item/knife/combat =                         1,
-		/obj/item/knife/folding =                        1,
-		/obj/item/knife/folding/wood =                   1,
-		/obj/item/knife/folding/combat/balisong =        2,
-		/obj/item/knife/folding/combat/switchblade =     1,
-		/obj/item/storage/secure/briefcase/money =       1,
-		/obj/item/storage/box/syndie_kit/cigarette =     1,
-		/obj/item/stack/telecrystal =                    1,
-		/obj/item/clothing/under/syndicate =             2,
-		/obj/item/chems/syringe =                        3,
-		/obj/item/chems/syringe/steroid =                2,
-		/obj/item/chems/syringe/drugs =                  1,
-		/obj/item/chems/food/egg/lizard =                3
+		/obj/item/haircomb =                               4,
+		/obj/item/storage/pill_bottle/painkillers =        3,
+		/obj/item/storage/pill_bottle/strong_painkillers = 1,
+		/obj/item/storage/pill_bottle/happy =              2,
+		/obj/item/storage/pill_bottle/zoom =               2,
+		/obj/item/chems/glass/beaker/vial/random/toxin =   1,
+		/obj/item/chems/glass/beaker/sulphuric =           1,
+		/obj/item/contraband/poster =                      5,
+		/obj/item/butterflyblade =                         3,
+		/obj/item/butterflyhandle =                        3,
+		/obj/item/baton/cattleprod =                       1,
+		/obj/item/knife/combat =                           1,
+		/obj/item/knife/folding =                          1,
+		/obj/item/knife/folding/wood =                     1,
+		/obj/item/knife/folding/combat/balisong =          2,
+		/obj/item/knife/folding/combat/switchblade =       1,
+		/obj/item/storage/secure/briefcase/money =         1,
+		/obj/item/storage/box/syndie_kit/cigarette =       1,
+		/obj/item/stack/telecrystal =                      1,
+		/obj/item/clothing/under/syndicate =               2,
+		/obj/item/chems/syringe =                          3,
+		/obj/item/chems/syringe/steroid =                  2,
+		/obj/item/chems/syringe/drugs =                    1,
+		/obj/item/chems/food/egg/lizard =                  3
 	)
 	return spawnable_choices
 
@@ -73,14 +74,59 @@
 	)
 	return spawnable_choices
 
+/obj/random/useful
+	name = "random useful item"
+	desc = "This is a random useful item."
+	icon = 'icons/obj/items/storage/trashbag.dmi'
+	icon_state = "trashbag3"
+
+/obj/random/useful/spawn_choices()
+	var/static/list/spawnable_choices = list(
+		/obj/random/crayon,
+		/obj/item/pen,
+		/obj/item/pen/blue,
+		/obj/item/pen/red,
+		/obj/item/pen/multi,
+		/obj/item/storage/box/matches,
+		/obj/item/stack/material/cardstock/mapped/cardboard,
+		/obj/item/storage/fancy/cigarettes,
+		/obj/item/deck/cards
+	)
+	return spawnable_choices
+
 /obj/random/junk //Broken items, or stuff that could be picked up
 	name = "random junk"
 	desc = "This is some random junk."
 	icon = 'icons/obj/items/storage/trashbag.dmi'
 	icon_state = "trashbag3"
+	var/spawn_choice
 
 /obj/random/junk/spawn_choices()
-	var/static/list/spawnable_choices = list(get_random_junk_type())
+	var/static/list/spawnable_choices
+	if(!spawnable_choices)
+		spawnable_choices = list(
+			/obj/effect/decal/cleanable/generic = 20,
+			/obj/effect/decal/cleanable/spiderling_remains = 95,
+			/obj/item/remains/mouse = 95,
+			/obj/item/remains/robot = 95,
+			/obj/item/paper/crumpled = 95,
+			/obj/item/inflatable/torn = 95,
+			/obj/effect/decal/cleanable/molten_item = 95,
+			/obj/item/shard = 95,
+			/obj/item/hand/missing_card = 95,
+			/obj/random/useful = 4
+		)
+		for(var/trash_type in subtypesof(/obj/item/trash))
+			spawnable_choices[trash_type] = 95
+		for(var/trash_type in typesof(/obj/item/trash/cigbutt))
+			spawnable_choices[trash_type] = 95
+		spawnable_choices -= /obj/item/trash/plate
+		spawnable_choices -= /obj/item/trash/snack_bowl
+		spawnable_choices -= /obj/item/trash/syndi_cakes
+		spawnable_choices -= /obj/item/trash/tray
+		var/lunches = lunchables_lunches()
+		for(var/lunch in lunches)
+			spawnable_choices[lunches[lunch]] = 1
 	return spawnable_choices
 
 /obj/random/trash //Mostly remains and cleanable decals. Stuff a janitor could clean up
@@ -305,7 +351,6 @@
 		/obj/item/storage/firstaid/surgery =                      4,
 		/obj/item/cell/infinite =                                 1,
 		/obj/random/archaeological_find =                         2,
-		/obj/structure/artifact =                                 1,
 		/obj/item/multitool/hacktool =                            2,
 		/obj/item/surgicaldrill =                                 7,
 		/obj/item/sutures =                                       7,
@@ -317,7 +362,7 @@
 		/obj/item/circular_saw =                                  7,
 		/obj/item/scalpel =                                       7,
 		/obj/item/baton/loaded =                                  9,
-		/obj/item/radio/headset/syndicate =                       6
+		/obj/item/radio/headset/hacked =                          6
 	)
 	return spawnable_choices
 

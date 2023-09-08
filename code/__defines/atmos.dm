@@ -21,7 +21,7 @@
 #define SOUND_MINIMUM_PRESSURE 10
 
 #define PRESSURE_DAMAGE_COEFFICIENT 4   // The amount of pressure damage someone takes is equal to (pressure / HAZARD_HIGH_PRESSURE)*PRESSURE_DAMAGE_COEFFICIENT, with the maximum of MAX_PRESSURE_DAMAGE.
-#define    MAX_HIGH_PRESSURE_DAMAGE 4   // This used to be 20... I got this much random rage for some retarded decision by polymorph?! Polymorph now lies in a pool of blood with a katana jammed in his spleen. ~Errorage --PS: The katana did less than 20 damage to him :(
+#define    MAX_HIGH_PRESSURE_DAMAGE 4   // Caps the amount of pressure damage taken in one tick from a high pressure area.
 #define         LOW_PRESSURE_DAMAGE 0.6 // The amount of damage someone takes when in a low pressure area. (The pressure threshold is so low that it doesn't make sense to do any calculations, so it just applies this flat value).
 
 #define MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND (MINIMUM_AIR_TO_SUSPEND*R_IDEAL_GAS_EQUATION*T20C)/CELL_VOLUME			// Minimum pressure difference between zones to suspend
@@ -73,10 +73,10 @@
 #define XGM_GAS_OXIDIZER    2
 #define XGM_GAS_CONTAMINANT 4
 
-#define TANK_LEAK_PRESSURE     (30 * ONE_ATMOSPHERE) // Tank starts leaking.
-#define TANK_RUPTURE_PRESSURE  (40 * ONE_ATMOSPHERE) // Tank spills all contents into atmosphere.
-#define TANK_FRAGMENT_PRESSURE (50 * ONE_ATMOSPHERE) // Boom 3x3 base explosion.
-#define TANK_FRAGMENT_SCALE    (10 * ONE_ATMOSPHERE) // +1 for each SCALE kPa above threshold. Was 2 atm.
+#define TANK_LEAK_PRESSURE     (30 ATM) // Tank starts leaking.
+#define TANK_RUPTURE_PRESSURE  (40 ATM) // Tank spills all contents into atmosphere.
+#define TANK_FRAGMENT_PRESSURE (50 ATM) // Boom 3x3 base explosion.
+#define TANK_FRAGMENT_SCALE    (10 ATM) // +1 for each SCALE kPa above threshold. Was 2 atm.
 
 #define NORMPIPERATE             30   // Pipe-insulation rate divisor.
 #define HEATPIPERATE             8    // Heat-exchange pipe insulation.

@@ -2,7 +2,9 @@ var/global/list/sparring_attack_cache = list()
 
 //Species unarmed attacks
 /decl/natural_attack
+	abstract_type = /decl/natural_attack
 	var/name
+	var/selector_icon_state
 	var/attack_verb = list("attacks")	// Empty hand hurt intent verb.
 	var/attack_noun = list("fist")
 	var/damage = 0						// Extra empty hand attack damage.
@@ -18,6 +20,16 @@ var/global/list/sparring_attack_cache = list()
 	var/eye_attack_text_victim
 	var/list/usable_with_limbs = list(BP_L_HAND, BP_R_HAND)
 	var/is_starting_default = FALSE
+
+/decl/natural_attack/validate()
+	. = ..()
+	if(selector_icon_state)
+		for(var/check_icon_name in global.all_ui_styles)
+			var/check_icon = global.all_ui_styles[check_icon_name]
+			if(!check_state_in_icon(selector_icon_state, check_icon))
+				. += "missing state '[selector_icon_state]' from icon '[check_icon]'"
+	else
+		. += "no selector_icon_state set"
 
 /decl/natural_attack/proc/summarize()
 	var/list/usable_limbs = list()
@@ -42,8 +54,8 @@ var/global/list/sparring_attack_cache = list()
 
 /decl/natural_attack/proc/padded_by_user_gear(var/mob/living/carbon/human/user)
 	if(istype(user) && length(usable_with_limbs))
-		for(var/bp in usable_with_limbs)
-			var/obj/item/gear = user.get_covering_equipped_item_by_zone(bp)
+		for(var/limb_slot in usable_with_limbs)
+			var/obj/item/gear = user.get_covering_equipped_item_by_zone(limb_slot)
 			if(istype(gear) && (gear.item_flags & ITEM_FLAG_PADDED))
 				return TRUE
 	return FALSE
@@ -89,11 +101,10 @@ var/global/list/sparring_attack_cache = list()
 					check_zone = BP_L_HAND
 				else if(check_zone == BP_R_ARM)
 					check_zone = BP_R_HAND
-				var/datum/inventory_slot/inv_slot = LAZYACCESS(target.held_item_slots, check_zone)
-				if(inv_slot?.holding)
-					// Disarm left hand
-					target.visible_message(SPAN_DANGER("\The [inv_slot.holding] was knocked right out of [target]'s grasp!"))
-					target.drop_from_inventory(inv_slot.holding)
+				var/equipped = target.get_equipped_item(check_zone)
+				if(equipped)
+					target.visible_message(SPAN_DANGER("\The [equipped] was knocked right out of [target]'s grasp!"))
+					target.drop_from_inventory(equipped)
 			if(BP_CHEST)
 				if(!target.lying)
 					var/turf/T = get_step(get_turf(target), get_dir(get_turf(user), get_turf(target)))
@@ -154,6 +165,7 @@ var/global/list/sparring_attack_cache = list()
 
 /decl/natural_attack/bite
 	name = "bite"
+	selector_icon_state = "attack_bite"
 	attack_verb = list("bit")
 	attack_noun = list("mouth")
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -170,7 +182,7 @@ var/global/list/sparring_attack_cache = list()
 
 /decl/natural_attack/bite/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
 
-	if(user.is_muzzled())
+	if(user.get_item_blocking_speech())
 		return 0
 	for(var/slot in list(slot_wear_mask_str, slot_head_str, slot_wear_suit_str))
 		var/obj/item/clothing/C = user.get_equipped_item(slot)
@@ -182,6 +194,7 @@ var/global/list/sparring_attack_cache = list()
 
 /decl/natural_attack/punch
 	name = "punch"
+	selector_icon_state = "attack_punch"
 	attack_verb = list("punched")
 	attack_noun = list("fist")
 	eye_attack_text = "fingers"
@@ -244,6 +257,7 @@ var/global/list/sparring_attack_cache = list()
 
 /decl/natural_attack/kick
 	name = "kick"
+	selector_icon_state = "attack_kick"
 	attack_verb = list("struck")
 	attack_noun = list("foot", "knee")
 	attack_sound = "swing_hit"
@@ -276,6 +290,7 @@ var/global/list/sparring_attack_cache = list()
 
 /decl/natural_attack/stomp
 	name = "stomp"
+	selector_icon_state = "attack_stomp"
 	attack_verb = list("stomped on")
 	attack_noun = list("foot")
 	attack_sound = "swing_hit"
@@ -288,8 +303,8 @@ var/global/list/sparring_attack_cache = list()
 	if (!user.lying && (target.lying || (zone in list(BP_L_FOOT, BP_R_FOOT))))
 		if((user in target.grabbed_by) && target.lying)
 			return FALSE
-		for(var/bp in list(BP_L_FOOT, BP_R_FOOT))
-			if(GET_EXTERNAL_ORGAN(user, bp))
+		for(var/foot_tag in list(BP_L_FOOT, BP_R_FOOT))
+			if(GET_EXTERNAL_ORGAN(user, foot_tag))
 				return TRUE
 	return FALSE
 
@@ -324,6 +339,7 @@ var/global/list/sparring_attack_cache = list()
 /decl/natural_attack/light_strike
 	name = "light strike"
 	deal_halloss = 3
+	selector_icon_state = "attack_light_strike"
 	attack_noun = list("limb")
 	attack_verb = list("tapped", "lightly struck")
 	shredding = 0
@@ -334,11 +350,13 @@ var/global/list/sparring_attack_cache = list()
 
 /decl/natural_attack/light_strike/punch
 	name = "light punch"
+	selector_icon_state = "attack_light_punch"
 	attack_noun = list("fist")
 	usable_with_limbs = list(BP_L_HAND, BP_R_HAND)
 
 /decl/natural_attack/light_strike/kick
 	name = "light kick"
+	selector_icon_state = "attack_light_kick"
 	attack_noun = list("foot")
 	usable_with_limbs = list(BP_L_FOOT, BP_R_FOOT)
 

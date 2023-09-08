@@ -96,12 +96,38 @@
 	armour_colour = COLOR_YELLOW_GRAY
 	stripe_colour = COLOR_BEASTY_BROWN
 
+/obj/item/clothing/suit/space/void/scav/atmos
+	name = "small atmospherics voidsuit"
+	color = COLOR_PALE_BTL_GREEN
+	armour_colour = COLOR_YELLOW_GRAY
+	stripe_colour = COLOR_PALE_BTL_GREEN
+
+/obj/item/clothing/head/helmet/space/void/scav/atmos
+	name = "small atmospherics voidsuit helmet"
+	color = COLOR_PALE_BTL_GREEN
+	faceplate_colour = COLOR_SKY_BLUE
+	armour_colour = COLOR_YELLOW_GRAY
+	stripe_colour = COLOR_PALE_BTL_GREEN
+
+/obj/item/clothing/suit/space/void/scav/mining
+	name = "small mining voidsuit"
+	color = COLOR_GRAY15
+	armour_colour = COLOR_BROWN_ORANGE
+	stripe_colour = COLOR_CHESTNUT
+
+/obj/item/clothing/head/helmet/space/void/scav/mining
+	name = "small mining voidsuit helmet"
+	color = COLOR_GRAY15
+	faceplate_colour = COLOR_BLUE_GRAY
+	armour_colour = COLOR_BROWN_ORANGE
+	stripe_colour = COLOR_CHESTNUT
+
 /obj/item/clothing/suit/space/void/scav/security
 	name = "small security voidsuit"
 	color = COLOR_GRAY20
 	armour_colour = COLOR_GRAY40
 	stripe_colour = COLOR_DARK_RED
-	
+
 /obj/item/clothing/head/helmet/space/void/scav/security
 	name = "small security voidsuit helmet"
 	color = COLOR_GRAY20
@@ -113,7 +139,7 @@
 	name = "small blood-red voidsuit"
 	color = COLOR_GRAY40
 	armour_colour = COLOR_RED
-	
+
 /obj/item/clothing/head/helmet/space/void/scav/merc
 	name = "small blood-red voidsuit helmet"
 	color = COLOR_GRAY40
@@ -125,7 +151,7 @@
 	color = COLOR_GRAY40
 	armour_colour = COLOR_OFF_WHITE
 	stripe_colour = COLOR_CYAN_BLUE
-	
+
 /obj/item/clothing/head/helmet/space/void/scav/medical
 	name = "small medical voidsuit helmet"
 	color = COLOR_GRAY20
@@ -138,7 +164,7 @@
 	color = COLOR_GRAY20
 	armour_colour = COLOR_GRAY40
 	stripe_colour = COLOR_PURPLE
-	
+
 /obj/item/clothing/head/helmet/space/void/scav/explorer
 	name = "small exploration voidsuit helmet"
 	color = COLOR_GRAY20
@@ -151,7 +177,7 @@
 	color = COLOR_BEASTY_BROWN
 	armour_colour = COLOR_GOLD
 	stripe_colour = COLOR_GREEN
-	
+
 /obj/item/clothing/head/helmet/space/void/scav/matriarch
 	name = "small matriarch voidsuit helmet"
 	color = COLOR_GREEN
@@ -175,7 +201,7 @@
 	color = COLOR_ASTEROID_ROCK
 	armour_colour = COLOR_PALE_YELLOW
 	stripe_colour = COLOR_PALE_YELLOW
-	
+
 /obj/item/clothing/head/helmet/space/void/scav/science
 	name = "small science voidsuit helmet"
 	color = COLOR_PALE_YELLOW
@@ -188,10 +214,20 @@
 	color = COLOR_WHITE
 	armour_colour = COLOR_CYAN_BLUE
 	stripe_colour = COLOR_TEAL
-	
+
 /obj/item/clothing/head/helmet/space/void/scav/indie
 	name = "small Verne voidsuit helmet"
 	color = COLOR_WHITE
 	armour_colour = COLOR_CYAN_BLUE
 	faceplate_colour = COLOR_PURPLE_GRAY
 	stripe_colour = COLOR_TEAL
+
+/obj/random_multi/single_item/matriarch_voidsuit
+	name = "Multi Point - matrisuit"
+	id = "small matriarch voidsuit"
+	item_path = /obj/item/clothing/suit/space/void/scav/matriarch
+
+/obj/random_multi/single_item/matriarch_helmet
+	name = "Multi Point - matrisuit helmet"
+	id = "small matriarch voidsuit helmet"
+	item_path = /obj/item/clothing/head/helmet/space/void/scav/matriarch

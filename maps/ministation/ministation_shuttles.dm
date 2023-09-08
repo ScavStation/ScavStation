@@ -1,30 +1,3 @@
-#define ESCAPE_POD(NUMBER) \
-/datum/shuttle/autodock/ferry/escape_pod/pod##NUMBER { \
-	shuttle_area = /area/shuttle/escape_pod_##NUMBER; \
-	name = "Escape Pod " + #NUMBER; \
-	dock_target = "escape_pod_" + #NUMBER; \
-	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \
-	waypoint_station = "escape_pod_"+ #NUMBER +"_start"; \
-	landmark_transition = "escape_pod_"+ #NUMBER +"_transit"; \
-	waypoint_offsite = "escape_pod_"+ #NUMBER +"_out"; \
-} \
-/obj/effect/shuttle_landmark/escape_pod/start/pod##NUMBER { \
-	landmark_tag = "escape_pod_"+ #NUMBER +"_start"; \
-	docking_controller = "escape_pod_"+ #NUMBER +"_berth"; \
-} \
-/obj/effect/shuttle_landmark/escape_pod/transit/pod##NUMBER { \
-	landmark_tag = "escape_pod_"+ #NUMBER +"_transit"; \
-} \
-/obj/effect/shuttle_landmark/escape_pod/out/pod##NUMBER { \
-	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
-} \
-/area/shuttle/escape_pod_##NUMBER { \
-	name = "Escape Pod " + #NUMBER; \
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_IS_NOT_PERSISTENT; \
-}
-
-ESCAPE_POD(1)
-
 //supply
 /datum/shuttle/autodock/ferry/supply/cargo
 	name = "Supply"
@@ -43,3 +16,56 @@ ESCAPE_POD(1)
 	docking_controller = "cargo_bay"
 	base_area = /area/ministation/supply_dock
 	base_turf = /turf/space
+
+/datum/shuttle/autodock/ferry/emergency/escape_shuttle
+	name = "Escape Shuttle"
+	warmup_time = 10
+	location = 1
+	dock_target = "shuttle1"
+	shuttle_area = /area/shuttle/escape_shuttle
+	waypoint_offsite = "nav_escape_shuttle_start"
+	waypoint_station = "nav_escape_shuttle_station"
+	landmark_transition = "nav_escape_shuttle_transit"
+
+/obj/effect/shuttle_landmark/escape_shuttle/start
+	landmark_tag = "nav_escape_shuttle_start"
+	//docking_controller = "centcom_escape_dock"
+
+/obj/effect/shuttle_landmark/escape_shuttle/transit
+	landmark_tag = "nav_escape_shuttle_transit"
+
+/obj/effect/shuttle_landmark/escape_shuttle/station
+	landmark_tag = "nav_escape_shuttle_station"
+	docking_controller = "station1"
+
+/obj/effect/shuttle_landmark/bridge_north
+	landmark_tag = "nav_ministation_bridge_north"
+
+/obj/effect/shuttle_landmark/arrivas_south
+	landmark_tag = "nav_ministation_arrivals_south"
+
+/obj/machinery/computer/shuttle_control/explore/ministation
+	name = "science shuttle console"
+	shuttle_tag = "Science Shuttle"
+
+/datum/shuttle/autodock/overmap/science_shuttle
+	name = "Science Shuttle"
+	shuttle_area = /area/ministation/shuttle/outgoing
+	dock_target = "science_shuttle"
+	current_location = "nav_ministation_science_dock_shuttle"
+
+/obj/effect/shuttle_landmark/science_dock
+	name = "Tradepost Science Department Docking Arm"
+	docking_controller = "ministation_science_dock"
+	landmark_tag = "nav_ministation_science_dock_shuttle"
+
+/obj/effect/overmap/visitable/ship/landable/science_shuttle
+	name = "Science Shuttle"
+	shuttle = "Science Shuttle"
+	moving_state = "ship_moving"
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 3000
+	fore_dir = EAST
+	skill_needed = SKILL_BASIC
+	vessel_size = SHIP_SIZE_SMALL

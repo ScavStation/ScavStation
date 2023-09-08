@@ -33,6 +33,7 @@
 /obj/item/ammo_casing/pistol/small
 	desc = "A small pistol bullet casing."
 	color = COLOR_POLISHED_BRASS
+	bullet_color = COLOR_POLISHED_BRASS
 	icon = 'icons/obj/ammo/casings/small_pistol.dmi'
 	caliber = CALIBER_PISTOL_SMALL
 	projectile_type = /obj/item/projectile/bullet/pistol/holdout
@@ -59,9 +60,32 @@
 	desc = "A high-power pistol bullet casing."
 	caliber = CALIBER_PISTOL_MAGNUM
 	color = COLOR_POLISHED_BRASS
+	bullet_color = COLOR_POLISHED_BRASS
 	marking_color = COLOR_MAROON
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
 	icon = 'icons/obj/ammo/casings/magnum.dmi'
+
+/obj/item/ammo_casing/pistol/magnum/rubber
+	desc = "A rubber bullet casing."
+	projectile_type = /obj/item/projectile/bullet/pistol/rubber/strong
+	bullet_color = COLOR_GRAY40
+
+/obj/item/ammo_casing/pistol/magnum/practice
+	desc = "A practice bullet casing."
+	projectile_type = /obj/item/projectile/bullet/pistol/practice
+	bullet_color = COLOR_OFF_WHITE
+	marking_color = COLOR_SUN
+
+/obj/item/ammo_casing/pistol/magnum/stun
+	name = "stun round"
+	desc = "An energy stun cartridge."
+	icon_state = "stunshell"
+	spent_icon = "stunshell-spent"
+	projectile_type = /obj/item/projectile/energy/electrode/stunshot
+	leaves_residue = 0
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
+	origin_tech = "{'combat':3,'materials':3}"
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
@@ -71,7 +95,7 @@
 	caliber = CALIBER_SHOTGUN
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	material = /decl/material/solid/metal/steel
-	fall_sounds = list('sound/weapons/guns/shotgun_fall.ogg')
+	drop_sound = 'sound/weapons/guns/shotgun_fall.ogg'
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
@@ -149,6 +173,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/shell
 	material = /decl/material/solid/metal/steel
 	color = COLOR_POLISHED_BRASS
+	bullet_color = COLOR_POLISHED_BRASS
 	icon = 'icons/obj/ammo/casings/anti_materiel.dmi'
 
 /obj/item/ammo_casing/shell/apds

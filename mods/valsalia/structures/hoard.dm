@@ -5,7 +5,7 @@ var/global/list/junk_piles = list()
 		if(locate(/obj/structure/junkpile) in loc)
 			to_chat(user, SPAN_WARNING("There is already a junk pile here, no need to make another one."))
 			return TRUE
-		if(user.unEquip(W))
+		if(user.try_unequip(W))
 			var/obj/structure/junkpile/hoard = new(get_turf(src))
 			W.forceMove(hoard)
 			forceMove(hoard)
@@ -40,17 +40,16 @@ var/global/list/junk_piles = list()
 	global.junk_piles += src
 	if(min_initial_junk > 0)
 		for(var/i = 1 to rand(min_initial_junk, max_initial_junk))
-			var/jtype = get_random_junk_type()
-			new jtype(src)
+			new /obj/random/junk(src)
 		update_icon()
 
 /obj/structure/junkpile/attackby(obj/item/O, mob/user)
-	if((O.w_class <= ITEM_SIZE_SMALL || istype(O, /obj/item/trash)) && user.unEquip(O, src))
+	if((O.w_class <= ITEM_SIZE_SMALL || istype(O, /obj/item/trash)) && user.try_unequip(O, src))
 		to_chat(user, SPAN_NOTICE("You shove \the [O] into \the [src]."))
 		update_icon()
 		return TRUE
 	. = ..()
-	
+
 /obj/structure/junkpile/attack_hand(mob/user)
 	visible_message(SPAN_NOTICE("\The [user] begins rummaging around in \the [src]."))
 	playsound(loc, 'sound/effects/rustle1.ogg', 100, 1)
@@ -68,7 +67,8 @@ var/global/list/junk_piles = list()
 				qdel(src)
 			else
 				update_icon()
-	return TRUE
+		return TRUE
+	return ..()
 
 /obj/structure/junkpile/on_update_icon()
 	icon_state = "no_state"
@@ -76,7 +76,7 @@ var/global/list/junk_piles = list()
 	for(var/obj/item/thing in contents)
 		var/image/I = new /image
 		I.appearance = thing
-		I.layer = FLOAT_LAYER 
+		I.layer = FLOAT_LAYER
 		I.plane = FLOAT_PLANE
 		I.appearance_flags |= RESET_COLOR
 		if(prob(75))

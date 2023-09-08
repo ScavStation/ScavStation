@@ -1,5 +1,5 @@
 /mob/living/proc/ingest(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-	events_repository.raise_event(/decl/observ/ingested, src, from, target, amount, multiplier, copy)
+	RAISE_EVENT(/decl/observ/ingested, src, from, target, amount, multiplier, copy)
 	. = from.trans_to_holder(target,amount,multiplier,copy)
 
 /mob/living/carbon/ingest(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0) //we kind of 'sneak' a proc in here for ingesting stuff so we can play with it.
@@ -17,13 +17,23 @@
 catalogue the 'taste strength' of each one
 calculate text size per text.
 */
-/datum/reagents/proc/generate_taste_message(mob/living/carbon/taster = null, datum/reagents/source_holder = null)
-	var/minimum_percent = 15
-	if(ishuman(taster))
-		var/mob/living/carbon/human/H = taster
-		// the taste bonus makes it so that sipping a drink lets you taste it better
-		var/taste_bonus = clamp(1 + (1/total_volume), 1, 2) // 1u makes it 2x as strong, 2u makes it 1.5x, 5u makes it 1.2x, etc
-		minimum_percent = round(15/ (H.isSynthetic() ? TASTE_DULL : H.species.taste_sensitivity * taste_bonus))
+/datum/reagents/proc/generate_taste_message(mob/living/taster, datum/reagents/source_holder)
+
+	if(!istype(taster))
+		return
+
+	var/minimum_percent
+	if(taster.isSynthetic())
+		minimum_percent = TASTE_DULL
+	else
+		var/decl/species/my_species = istype(taster) && taster?.get_species()
+		if(my_species)
+			// the taste bonus makes it so that sipping a drink lets you taste it better
+			// 1u makes it 2x as strong, 2u makes it 1.5x, 5u makes it 1.2x, etc
+			minimum_percent = (my_species.taste_sensitivity * clamp(1 + (1/max(total_volume, 1)), 1, 2))
+		else
+			minimum_percent = TASTE_NORMAL
+	minimum_percent = round(TASTE_DEGREE_PROB/minimum_percent)
 
 	var/list/out = list()
 	var/list/tastes = list() //descriptor = strength

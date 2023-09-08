@@ -1,10 +1,11 @@
 
 /obj/item/strangerock
-	name = "strange rock"
-	desc = "Seems to have some unusal strata evident throughout it."
-	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "strange"
+	name        = "strange rock"
+	desc        = "Seems to have some unusal strata evident throughout it."
+	icon        = 'icons/obj/xenoarchaeology.dmi'
+	icon_state  = "strange"
 	origin_tech = "{'materials':5}"
+	material    = /decl/material/solid/stone/sandstone
 	var/obj/item/inside
 
 /obj/item/strangerock/Initialize(mapload, var/find_type = 0)
@@ -16,12 +17,13 @@
 /obj/item/strangerock/Destroy()
 	QDEL_NULL(inside)
 	. = ..()
-	
+
 /obj/item/strangerock/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/pickaxe/xeno/brush))
 		if(inside)
 			inside.dropInto(loc)
 			visible_message(SPAN_NOTICE("\The [src] is brushed away, revealing \the [inside]."))
+			inside = null
 		else
 			visible_message(SPAN_NOTICE("\The [src] is brushed away into nothing."))
 		physically_destroyed()
@@ -34,6 +36,7 @@
 				if(inside)
 					inside.dropInto(loc)
 					visible_message(SPAN_NOTICE("\The [src] burns away revealing \the [inside]."))
+					inside = null
 				else
 					visible_message(SPAN_NOTICE("\The [src] burns away into nothing."))
 				physically_destroyed()

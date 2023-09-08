@@ -3,7 +3,9 @@
 	desc = "You're not sure what this is. You should probably ahelp it."
 	icon = 'icons/clothing/mask/smokables/cigarette.dmi'
 	body_parts_covered = 0
+	bodytype_equip_flags = null
 	z_flags = ZMM_MANGLE_PLANES
+
 	var/lit = 0
 	var/waterproof = FALSE
 	var/type_butt = null
@@ -116,7 +118,10 @@
 
 /obj/item/clothing/mask/smokable/fluid_act(var/datum/reagents/fluids)
 	..()
-	if(!waterproof && lit)
+	if(!QDELETED(src) && fluids?.total_volume && !waterproof && lit)
+		var/turf/location = get_turf(src)
+		if(location)
+			location.hotspot_expose(700, 5)
 		extinguish(no_message = TRUE)
 
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
