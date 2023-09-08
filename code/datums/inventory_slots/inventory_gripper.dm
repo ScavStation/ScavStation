@@ -76,3 +76,17 @@
 	requires_organ_tag = BP_R_HAND
 	overlay_slot = BP_R_HAND
 	ui_label = "R"
+
+/datum/inventory_slot/gripper/upper_left_hand
+	slot_name = "Left Upper Hand"
+	slot_id = BP_L_HAND_UPPER
+	requires_organ_tag = BP_L_HAND_UPPER
+	ui_label = "UL"
+	hand_sort_priority = 2
+
+/datum/inventory_slot/gripper/upper_right_hand
+	slot_name = "Right Upper Hand"
+	slot_id = BP_R_HAND_UPPER
+	requires_organ_tag = BP_R_HAND_UPPER
+	ui_label = "UR"
+	hand_sort_priority = 2
