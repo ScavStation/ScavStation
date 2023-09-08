@@ -137,14 +137,6 @@
 	name = "\improper Library"
 	icon_state = "LIB"
 
-/area/ministation/disused
-	name = "\improper Disused Section"
-	icon_state = "pink"
-
-/area/ministation/disused_office
-	name = "\improper Disused Office"
-	icon_state = "dark_blue"
-
 /area/ministation/atmospherics
 	name = "\improper Atmospherics"
 	req_access = list(access_atmospherics)
