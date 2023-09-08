@@ -160,24 +160,11 @@
 /datum/inventory_slot/gripper/right_hand/baxxid
 	can_use_held_item = FALSE
 
-/datum/inventory_slot/gripper/baxxid_mouth
-	slot_name = "Mouth"
-	slot_id = BP_HEAD
-	requires_organ_tag = BP_HEAD
-	can_use_held_item = FALSE
-	overlay_slot = BP_HEAD
-	ui_label = "M"
-	hand_sort_priority = 3
-
-/datum/inventory_slot/gripper/baxxid_mouth/get_examined_string(mob/owner, mob/user, distance, hideflags, decl/pronouns/pronouns)
-	if(_holding)
-		return "[pronouns.He] [pronouns.is] holding [_holding.get_examine_line()] in [pronouns.his] mandibles."
-
 /obj/item/organ/external/head/baxxid/do_install(mob/living/carbon/human/target, affected, in_place, update_icon, detached)
 	. = ..()
 	if(. && owner)
-		owner.add_held_item_slot(new /datum/inventory_slot/gripper/baxxid_mouth)
+		owner.add_held_item_slot(new /datum/inventory_slot/gripper/mouth)
 
 /obj/item/organ/external/head/baxxid/do_uninstall(in_place, detach, ignore_children, update_icon)
-	owner?.remove_held_item_slot(organ_tag)
+	owner?.remove_held_item_slot(BP_MOUTH)
 	. = ..()
