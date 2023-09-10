@@ -3888,9 +3888,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "vz" = (
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
 /obj/structure/table,
 /obj/machinery/chemical_dispenser/bar_coffee/full,
 /turf/simulated/floor/tiled/dark,
@@ -4106,9 +4103,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wq" = (
-/obj/structure/reagent_dispensers/beerkeg,
-/obj/machinery/newscaster{
-	pixel_x = 32
+/obj/structure/hygiene/sink/kitchen{
+	dir = 8;
+	pixel_x = 21
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -4248,7 +4245,9 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table,
-/obj/machinery/chemical_dispenser/bar_alc/full,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wW" = (
@@ -4378,6 +4377,9 @@
 /obj/structure/table,
 /obj/item/clothing/head/collectable/tophat,
 /obj/item/flame/lighter/zippo,
+/obj/machinery/newscaster{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "xx" = (
@@ -4726,6 +4728,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "yC" = (
