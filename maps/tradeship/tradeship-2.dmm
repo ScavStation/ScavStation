@@ -3016,6 +3016,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "bulb1"
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/atmos)
 "hP" = (
@@ -4816,7 +4820,6 @@
 /area/ship/trade/shuttle/rescue)
 "qE" = (
 /obj/machinery/atmospherics/omni/mixer{
-	active_power_usage = 7500;
 	tag_east_con = 0;
 	tag_north = 1;
 	tag_north_con = 0.21;
@@ -7305,10 +7308,6 @@
 "Xc" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
-	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "bulb1"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
