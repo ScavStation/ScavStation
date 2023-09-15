@@ -22,6 +22,9 @@
 /obj/machinery/camera/network/engineering{
 	name = "SM Airlock"
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "af" = (
@@ -2704,7 +2707,7 @@
 /area/space)
 "mV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2989,7 +2992,7 @@
 	pixel_y = null;
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/tiled,
 /area/ministation/supermatter)
 "oM" = (
@@ -3302,7 +3305,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "rp" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -3988,9 +3991,6 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "vl" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 6
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -4002,6 +4002,9 @@
 	pixel_y = -10;
 	dir = 4;
 	pixel_x = -34
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -4712,11 +4715,6 @@
 /obj/machinery/meter/turf,
 /turf/simulated/floor/reinforced/oxygen,
 /area/ministation/atmospherics)
-"Ac" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor/plating,
-/area/ministation/supermatter)
 "Ad" = (
 /obj/structure/rack{
 	dir = 8
@@ -5043,7 +5041,7 @@
 "Bk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -5056,7 +5054,7 @@
 /area/ministation/hall/s1)
 "Bo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -5987,6 +5985,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_y = -24;
+	dir = 1;
+	pixel_x = -1
+	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/engine)
 "Ej" = (
@@ -6878,7 +6881,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Gs" = (
@@ -7140,7 +7143,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -7161,7 +7164,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -7866,7 +7869,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -9057,7 +9060,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "Mv" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Mx" = (
@@ -9089,6 +9092,11 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_y = 12;
+	dir = 8;
+	pixel_x = 24
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ministation/engine)
@@ -9449,7 +9457,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -9591,7 +9599,7 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "EngineBlastexterior"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -9639,8 +9647,8 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/green,
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -10619,7 +10627,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -10953,7 +10961,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "TT" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -11079,7 +11087,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "UC" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -11125,7 +11133,7 @@
 	pixel_x = -24
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "UT" = (
@@ -11300,7 +11308,7 @@
 	autoset_access = 0;
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/ministation/engine)
 "VJ" = (
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -11361,11 +11369,11 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/sign/warning/vent_port{
 	dir = 1;
 	pixel_y = -34
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "VZ" = (
@@ -11600,7 +11608,7 @@
 /area/space)
 "Xb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -11631,7 +11639,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible/green,
+/obj/machinery/atmospherics/pipe/manifold/hidden/green,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Xi" = (
@@ -11704,7 +11712,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "XA" = (
@@ -11797,7 +11805,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -12004,7 +12012,9 @@
 /area/ministation/atmospherics)
 "YN" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular,
+/obj/machinery/door/blast/regular{
+	id_tag = "EngineBlastexterior"
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
@@ -12040,7 +12050,7 @@
 "YW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/visible/green{
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -42553,8 +42563,8 @@ av
 av
 av
 av
-Ac
-Ac
+Zi
+Zi
 YN
 av
 Hg
@@ -47431,7 +47441,7 @@ Eo
 Eo
 Dt
 Dt
-UC
+UU
 VH
 Dt
 Dt

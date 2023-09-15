@@ -995,6 +995,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cryo)
+"hu" = (
+/obj/abstract/landmark/start{
+	name = "Patriarch of Personnel"
+	},
+/turf/simulated/floor/carpet,
+/area/ministation/hop)
 "hv" = (
 /obj/machinery/seed_extractor,
 /obj/effect/floor_decal/corner/beige/half,
@@ -1222,10 +1228,7 @@
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "ix" = (
-/obj/abstract/landmark/start{
-	name = "Patriarch of Security"
-	},
-/obj/structure/bed/chair,
+/obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "iy" = (
@@ -3658,9 +3661,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "uG" = (
-/obj/abstract/landmark/start{
-	name = "Patriarch of Personnel"
-	},
 /obj/structure/bed/chair/office/comfy/brown{
 	dir = 8
 	},
@@ -4638,6 +4638,10 @@
 	pixel_x = 1;
 	pixel_y = -5
 	},
+/obj/machinery/light_switch{
+	pixel_y = 29;
+	pixel_x = 7
+	},
 /turf/simulated/floor/carpet,
 /area/ministation/hop)
 "yn" = (
@@ -5415,6 +5419,9 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
+	},
+/obj/abstract/landmark/start{
+	name = "Patriarch of Security"
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
@@ -7613,6 +7620,10 @@
 	},
 /obj/item/radio/intercom/locked/entertainment{
 	pixel_y = 22
+	},
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
@@ -35736,7 +35747,7 @@ Ez
 wF
 Np
 gT
-gT
+hu
 Gz
 Wd
 qf
