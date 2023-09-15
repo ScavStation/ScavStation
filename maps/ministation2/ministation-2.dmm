@@ -732,6 +732,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/sign/warning/high_voltage{
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "cF" = (
@@ -785,7 +788,6 @@
 /area/ministation/telecomms)
 "cU" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/structure/sign/warning/high_voltage,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
