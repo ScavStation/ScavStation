@@ -784,7 +784,9 @@
 /turf/simulated/wall,
 /area/ministation/science)
 "cP" = (
-/obj/machinery/network/acl,
+/obj/machinery/network/acl{
+	initial_network_id = "tradenet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -2761,15 +2763,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"nA" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "nG" = (
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
@@ -3327,7 +3320,9 @@
 	},
 /area/ministation/telecomms)
 "tV" = (
-/obj/machinery/network/router,
+/obj/machinery/network/router{
+	initial_network_id = "tradenet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3359,7 +3354,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "uA" = (
-/obj/machinery/network/mainframe,
+/obj/machinery/network/mainframe{
+	initial_network_id = "tradenet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3575,6 +3572,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "xt" = (
@@ -3851,24 +3849,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"Ax" = (
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "AH" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall,
 /area/ministation/hall/n3)
 "AL" = (
-/obj/machinery/network/telecomms_hub,
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
+/obj/machinery/network/telecomms_hub{
+	initial_network_id = "tradenet"
 	},
-/area/ministation/telecomms)
-"AM" = (
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3985,15 +3973,6 @@
 	temperature = 263
 	},
 /area/ministation/telecomms)
-"Bq" = (
-/obj/machinery/camera/network/command{
-	dir = 4
-	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "Br" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/bluegrid{
@@ -4014,6 +3993,7 @@
 	pixel_y = 30;
 	pixel_x = -33
 	},
+/obj/machinery/computer/station_alert/all,
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "Bv" = (
@@ -4060,7 +4040,9 @@
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "BE" = (
-/obj/structure/bed/chair/padded/blue,
+/obj/structure/bed/chair/padded/blue{
+	dir = 1
+	},
 /turf/simulated/floor/holofloor/lino,
 /area/ministation/telecomms)
 "BG" = (
@@ -36375,11 +36357,11 @@ bl
 aG
 of
 Aa
-Ax
+ys
 cP
-AM
+ys
 AV
-Bq
+Aa
 bl
 Am
 Dt
@@ -36634,7 +36616,7 @@ sr
 sr
 sr
 sr
-AM
+ys
 AW
 Br
 bl
@@ -36886,14 +36868,14 @@ aa
 Dt
 sh
 bl
-nA
+aG
 ys
 Ab
 AL
 sr
-AM
+ys
 Bp
-AM
+ys
 bl
 Am
 Dt
