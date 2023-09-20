@@ -41,7 +41,7 @@
 	base_eye_color = "#f5c842"
 	base_markings = list(
 		/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
-		/decl/sprite_accessory/marking/yinglet = "#cccccc"
+		/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"
 	)
 
 	age_descriptor = /datum/appearance_descriptor/age/yinglet
