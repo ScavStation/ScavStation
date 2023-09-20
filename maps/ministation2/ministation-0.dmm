@@ -3190,6 +3190,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
+"qD" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/network/relay,
+/turf/simulated/floor/tiled,
+/area/ministation/ai_sat)
 "qG" = (
 /obj/effect/floor_decal/industrial/custodial/corner{
 	dir = 1
@@ -54924,7 +54931,7 @@ ad
 Ih
 Bz
 aS
-sJ
+qD
 Kf
 Ih
 aa

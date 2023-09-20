@@ -301,6 +301,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"HM" = (
+/obj/machinery/network/relay,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
 "IZ" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
@@ -31926,7 +31930,7 @@ cw
 cw
 cw
 Yv
-gu
+HM
 ld
 vD
 Yv

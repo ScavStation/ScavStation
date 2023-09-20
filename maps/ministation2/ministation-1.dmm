@@ -6418,6 +6418,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
+"Lt" = (
+/obj/machinery/network/relay,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
 "LE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/junction{
@@ -7357,6 +7361,10 @@
 	},
 /turf/simulated/open,
 /area/ministation/hall/w2)
+"SA" = (
+/obj/machinery/network/relay,
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "SB" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -35723,7 +35731,7 @@ HO
 HO
 HO
 mq
-dd
+Lt
 dd
 dd
 dd
@@ -52196,7 +52204,7 @@ oz
 xc
 uW
 pD
-pD
+SA
 vK
 aa
 aa

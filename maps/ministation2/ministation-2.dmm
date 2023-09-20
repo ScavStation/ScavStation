@@ -2798,6 +2798,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/s3)
+"nL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/network/relay,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3sw)
 "nP" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -3692,6 +3697,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
+"yP" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/network/relay,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "yR" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
@@ -3956,6 +3968,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/network/relay,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "Bf" = (
@@ -4540,6 +4553,10 @@
 /obj/item/storage/pill_bottle/dice,
 /turf/simulated/floor/carpet/green,
 /area/ministation/library)
+"DX" = (
+/obj/machinery/network/relay,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3se)
 "Ec" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -37684,7 +37701,7 @@ aa
 aa
 aa
 Dt
-HB
+nL
 sh
 bl
 Bu
@@ -40468,7 +40485,7 @@ aD
 cu
 Mk
 cV
-cW
+yP
 dS
 Rx
 Qh
@@ -43093,7 +43110,7 @@ mJ
 mJ
 oE
 ae
-ap
+DX
 op
 ap
 oc
