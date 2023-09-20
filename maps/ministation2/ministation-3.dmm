@@ -302,7 +302,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "HM" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "IZ" = (

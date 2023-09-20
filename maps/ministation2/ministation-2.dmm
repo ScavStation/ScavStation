@@ -779,7 +779,7 @@
 /area/ministation/science)
 "cP" = (
 /obj/machinery/network/acl{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -2800,7 +2800,9 @@
 /area/ministation/hall/s3)
 "nL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "nP" = (
@@ -2834,7 +2836,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "nZ" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "ob" = (
@@ -3347,7 +3351,7 @@
 /area/ministation/telecomms)
 "tV" = (
 /obj/machinery/network/router{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -3381,7 +3385,7 @@
 /area/ministation/hall/s3)
 "uA" = (
 /obj/machinery/network/mainframe{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -3701,7 +3705,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "yR" = (
@@ -3808,7 +3814,9 @@
 	},
 /area/ministation/telecomms)
 "Ab" = (
-/obj/machinery/network/message_server,
+/obj/machinery/network/message_server{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3968,7 +3976,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "Bf" = (
@@ -4554,7 +4564,9 @@
 /turf/simulated/floor/carpet/green,
 /area/ministation/library)
 "DX" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "Ec" = (
