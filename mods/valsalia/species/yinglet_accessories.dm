@@ -1,58 +1,66 @@
 /decl/sprite_accessory/marking/yinglet
-	name = "Shelltooth"
-	body_parts = list(BP_HEAD)
 	species_allowed = list(SPECIES_YINGLET)
 	icon = 'mods/valsalia/icons/species/yinglet/markings.dmi'
-	icon_state = "shelltooth"
 	blend = ICON_MULTIPLY
+	mask_to_bodypart = TRUE
+	abstract_type = /decl/sprite_accessory/marking/yinglet
+
+/decl/sprite_accessory/marking/yinglet/shelltooth
+	name = "Shelltooth"
+	body_parts = list(BP_HEAD)
+	icon_state = "shelltooth"
 	mask_to_bodypart = FALSE
 
 /decl/sprite_accessory/marking/yinglet/longtooth
 	name = "Long Shelltooth"
+	body_parts = list(BP_HEAD)
 	icon_state = "longtooth"
+	mask_to_bodypart = FALSE
 
-/decl/sprite_accessory/marking/yinglet/recolour_left_hand
+/decl/sprite_accessory/marking/yinglet/recolour_limb
 	name = "Body Colour (Left Arm)"
-	icon_state = "lh"
-	body_parts = list(BP_L_HAND)
+	icon_state = "limbs"
+	body_parts = list(BP_L_ARM, BP_L_HAND)
 
-/decl/sprite_accessory/marking/yinglet/recolour_right_hand
+/decl/sprite_accessory/marking/yinglet/recolour_limb/right_hand
 	name = "Body Colour (Right Arm)"
-	icon_state = "rh"
-	body_parts = list(BP_R_HAND)
+	body_parts = list(BP_R_ARM, BP_R_HAND)
 
-/decl/sprite_accessory/marking/yinglet/recolour_left_foot
+/decl/sprite_accessory/marking/yinglet/recolour_limb/left_foot
 	name = "Body Colour (Left Leg)"
-	icon_state = "lf"
-	body_parts = list(BP_L_FOOT)
+	body_parts = list(BP_L_LEG, BP_L_FOOT)
 
-/decl/sprite_accessory/marking/yinglet/recolour_right_foot
+/decl/sprite_accessory/marking/yinglet/recolour_limb/right_foot
 	name = "Body Colour (Right Leg)"
-	icon_state = "rf"
-	body_parts = list(BP_R_FOOT)
+	body_parts = list(BP_R_LEG, BP_R_FOOT)
 
 /decl/sprite_accessory/marking/yinglet/short_ears
 	name = "Ying Short Ears"
 	icon_state = "shortears"
+	mask_to_bodypart = FALSE
 
 /decl/sprite_accessory/marking/yinglet/long_ears
 	name = "Ying Long Ears"
 	icon_state = "longears"
+	mask_to_bodypart = FALSE
 
 /decl/sprite_accessory/marking/yinglet/recolour_front_body
 	name = "Body Colour (Front)"
 	icon_state = "frontfluff"
 	mask_to_bodypart = TRUE
+	body_parts = list(BP_CHEST, BP_GROIN)
 
 /decl/sprite_accessory/marking/yinglet/recolour_front_head
 	name = "Head Colour (Front)"
 	icon_state = "fronthead"
 	mask_to_bodypart = TRUE
+	body_parts = list(BP_HEAD)
 
 /decl/sprite_accessory/marking/yinglet/recolour_front_torso
 	name = "Torso Colour (Front)"
 	icon_state = "torsofront"
 	mask_to_bodypart = TRUE
+	body_parts = list(BP_CHEST, BP_GROIN)
 
 // this doesnt function do to how the tail code works
 // /decl/sprite_accessory/marking/yinglet/recolour_under_tail

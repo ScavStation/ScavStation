@@ -198,7 +198,8 @@
 	},
 /obj/machinery/network/requests_console{
 	department = "Detective's office";
-	pixel_x = 30
+	pixel_x = 30;
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/wood,
 /area/ministation/detective)
@@ -2177,7 +2178,9 @@
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical)
 "oW" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "oX" = (
@@ -6295,7 +6298,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "JX" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "JZ" = (
@@ -6418,6 +6423,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
+"Lt" = (
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
 "LE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/junction{
@@ -7357,6 +7368,12 @@
 	},
 /turf/simulated/open,
 /area/ministation/hall/w2)
+"SA" = (
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "SB" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -35723,7 +35740,7 @@ HO
 HO
 HO
 mq
-dd
+Lt
 dd
 dd
 dd
@@ -52196,7 +52213,7 @@ oz
 xc
 uW
 pD
-pD
+SA
 vK
 aa
 aa
