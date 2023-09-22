@@ -3695,7 +3695,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ministation/library)
 "yH" = (
 /obj/structure/cable{
