@@ -4,16 +4,15 @@
 	blend = ICON_MULTIPLY
 	mask_to_bodypart = TRUE
 	abstract_type = /decl/sprite_accessory/marking/yinglet
+	body_parts = list(BP_HEAD)
 
 /decl/sprite_accessory/marking/yinglet/shelltooth
 	name = "Shelltooth"
-	body_parts = list(BP_HEAD)
 	icon_state = "shelltooth"
 	mask_to_bodypart = FALSE
 
 /decl/sprite_accessory/marking/yinglet/longtooth
 	name = "Long Shelltooth"
-	body_parts = list(BP_HEAD)
 	icon_state = "longtooth"
 	mask_to_bodypart = FALSE
 
@@ -54,7 +53,6 @@
 	name = "Head Colour (Front)"
 	icon_state = "fronthead"
 	mask_to_bodypart = TRUE
-	body_parts = list(BP_HEAD)
 
 /decl/sprite_accessory/marking/yinglet/recolour_front_torso
 	name = "Torso Colour (Front)"
