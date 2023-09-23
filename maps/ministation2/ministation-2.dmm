@@ -270,7 +270,9 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/item/radio/intercom,
+/obj/item/radio/intercom{
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "be" = (
@@ -2911,7 +2913,7 @@
 /obj/structure/closet/crate,
 /obj/item/stock_parts/circuitboard/telecomms_hub,
 /obj/item/cell,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "oN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3593,7 +3595,7 @@
 	dir = 1
 	},
 /obj/machinery/computer/modular/preset/cardslot/command,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "xt" = (
 /obj/structure/cable{
@@ -4026,7 +4028,7 @@
 /area/ministation/telecomms)
 "Bt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Bu" = (
 /obj/machinery/status_display{
@@ -4034,21 +4036,21 @@
 	pixel_x = -33
 	},
 /obj/machinery/computer/station_alert/all,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Bv" = (
 /obj/structure/table,
 /obj/item/folder/blue,
 /obj/item/pen/blue,
 /obj/item/paper/monitorkey,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Bw" = (
 /obj/machinery/computer/message_monitor,
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Bx" = (
 /obj/structure/table,
@@ -4058,12 +4060,12 @@
 	pixel_y = 20
 	},
 /obj/item/radio,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "By" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4077,13 +4079,13 @@
 "BD" = (
 /obj/structure/table,
 /obj/item/paper_bin,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BE" = (
 /obj/structure/bed/chair/padded/blue{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BG" = (
 /obj/structure/table,
@@ -4092,20 +4094,20 @@
 	},
 /obj/item/disk/nuclear,
 /obj/machinery/recharger,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	level = 2
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4114,7 +4116,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BS" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4142,7 +4144,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Cd" = (
 /turf/simulated/wall,
@@ -4161,12 +4163,12 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Ck" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Cl" = (
 /obj/machinery/firealarm{
@@ -4178,7 +4180,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/command,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Co" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -4208,7 +4210,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "CB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4218,7 +4220,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/hologram/holopad/longrange,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "CC" = (
 /obj/machinery/newscaster{
@@ -4231,7 +4233,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "CD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4294,7 +4296,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "CU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4382,7 +4384,7 @@
 	dir = 1;
 	pixel_y = -23
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Df" = (
 /obj/structure/table,
@@ -4392,7 +4394,7 @@
 	pixel_y = -35
 	},
 /obj/item/chems/spray/extinguisher,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Dg" = (
 /obj/machinery/alarm{
@@ -4404,7 +4406,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Dh" = (
 /obj/effect/floor_decal/corner/black{
@@ -4940,7 +4942,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "IT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
