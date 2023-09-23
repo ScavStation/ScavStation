@@ -271,7 +271,7 @@
 	icon_state = "2-8"
 	},
 /obj/item/radio/intercom{
-	pixel_y = -24
+	pixel_y = -1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)

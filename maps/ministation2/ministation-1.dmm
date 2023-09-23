@@ -1428,7 +1428,7 @@
 "jA" = (
 /obj/effect/wallframe_spawn/no_grille,
 /obj/structure/sign/department/botany{
-	pixel_y = -31
+	pixel_y = -1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
@@ -7314,7 +7314,7 @@
 "Sd" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/airlock{
-	pixel_y = -24
+	pixel_y = -1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w2)
