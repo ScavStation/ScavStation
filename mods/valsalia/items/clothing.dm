@@ -128,7 +128,7 @@
 
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/on_update_icon()
 	. = ..()
-	if(hood.loc == src)
+	if(hood?.loc == src)
 		icon_state = "[icon_state]_hood"
 
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/atmos

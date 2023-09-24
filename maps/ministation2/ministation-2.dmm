@@ -1346,7 +1346,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "gd" = (
-/obj/machinery/destructive_analyzer,
+/obj/machinery/destructive_analyzer{
+	initial_network_id = "molluscnet"
+	},
 /obj/machinery/camera/network/research,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
@@ -1528,7 +1530,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "hf" = (
-/obj/machinery/fabricator/protolathe,
+/obj/machinery/fabricator/protolathe{
+	initial_network_id = "molluscnet"
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1545,7 +1549,9 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/science)
 "hh" = (
-/obj/machinery/fabricator/bioprinter,
+/obj/machinery/fabricator/bioprinter{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -1585,7 +1591,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/design_database,
+/obj/machinery/design_database{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/science)
 "hv" = (
@@ -1829,7 +1837,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "iI" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -1841,7 +1851,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "iK" = (
-/obj/machinery/fabricator/imprinter,
+/obj/machinery/fabricator/imprinter{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -3715,7 +3727,9 @@
 /turf/space,
 /area/space)
 "zd" = (
-/obj/machinery/fabricator/industrial,
+/obj/machinery/fabricator/industrial{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -3895,7 +3909,9 @@
 /turf/simulated/wall,
 /area/ministation/hall/n3)
 "AL" = (
-/obj/machinery/network/telecomms_hub,
+/obj/machinery/network/telecomms_hub{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -4254,7 +4270,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "CL" = (
-/obj/machinery/fabricator/robotics,
+/obj/machinery/fabricator/robotics{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -5908,7 +5926,8 @@
 /area/ministation/court)
 "QT" = (
 /obj/machinery/computer/design_console{
-	dir = 8
+	dir = 8;
+	initial_network_id = "molluscnet"
 	},
 /obj/machinery/light{
 	dir = 1
