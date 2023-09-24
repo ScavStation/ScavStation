@@ -1427,7 +1427,9 @@
 /area/ministation/maint/l2centraln)
 "jA" = (
 /obj/effect/wallframe_spawn/no_grille,
-/obj/structure/sign/department/botany,
+/obj/structure/sign/department/botany{
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "jF" = (
@@ -7311,7 +7313,9 @@
 /area/ministation/maint/hydromaint)
 "Sd" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/structure/sign/warning/airlock,
+/obj/structure/sign/warning/airlock{
+	pixel_y = -1
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w2)
 "Sg" = (
