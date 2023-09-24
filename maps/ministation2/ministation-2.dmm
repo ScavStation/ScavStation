@@ -1345,7 +1345,7 @@
 /area/ministation/hall/s3)
 "gd" = (
 /obj/machinery/destructive_analyzer{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /obj/machinery/camera/network/research,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1529,7 +1529,7 @@
 /area/ministation/maint/l3ne)
 "hf" = (
 /obj/machinery/fabricator/protolathe{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -1548,7 +1548,7 @@
 /area/ministation/science)
 "hh" = (
 /obj/machinery/fabricator/bioprinter{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
@@ -1590,7 +1590,7 @@
 	dir = 1
 	},
 /obj/machinery/design_database{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/science)
@@ -1836,7 +1836,7 @@
 /area/ministation/maint/l3se)
 "iI" = (
 /obj/machinery/fabricator{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
@@ -1850,7 +1850,7 @@
 /area/ministation/science)
 "iK" = (
 /obj/machinery/fabricator/imprinter{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
@@ -3726,7 +3726,7 @@
 /area/space)
 "zd" = (
 /obj/machinery/fabricator/industrial{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
@@ -3908,7 +3908,7 @@
 /area/ministation/hall/n3)
 "AL" = (
 /obj/machinery/network/telecomms_hub{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -4269,7 +4269,7 @@
 /area/ministation/hall/s3)
 "CL" = (
 /obj/machinery/fabricator/robotics{
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
@@ -5925,7 +5925,7 @@
 "QT" = (
 /obj/machinery/computer/design_console{
 	dir = 8;
-	initial_network_id = "tradenet"
+	initial_network_id = "molluscnet"
 	},
 /obj/machinery/light{
 	dir = 1
