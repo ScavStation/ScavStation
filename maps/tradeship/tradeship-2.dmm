@@ -4590,26 +4590,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/airlock_sensor{
-	id_tag = "dock_port_sensor";
-	pixel_y = 36
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	id_tag = "tradeship_port_dock";
-	pixel_y = 25;
-	tag_airpump = "dock_port_pump";
-	tag_chamber_sensor = "dock_port_sensor";
-	tag_exterior_door = "dock_port_out";
-	tag_interior_door = "dock_port_in"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/ship/trade/dock)
+/turf/space,
+/area/ship/trade/shuttle/outgoing/general)
 "oi" = (
 /obj/machinery/vending/snack{
 	dir = 4
@@ -6490,10 +6472,14 @@
 /turf/simulated/floor/plating,
 /area/ship/trade/crew/hallway/port)
 "Nb" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
+/obj/structure/handrail{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space,
 /area/ship/trade/shuttle/outgoing/general)
 "Nc" = (
 /obj/structure/disposalpipe/segment{
@@ -6928,6 +6914,15 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/trade/crew/toilets)
+"Sj" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 10
+	},
+/obj/structure/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ship/trade/shuttle/outgoing/general)
 "Sr" = (
 /turf/simulated/floor/plating,
 /area/ship/trade/maintenance/hallway)
@@ -9163,17 +9158,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+WM
+gN
+qv
+Sj
+Eq
+DH
+UA
+sm
+Ys
+nD
+GB
 aa
 aa
 aa
@@ -9898,10 +9893,10 @@ aa
 aa
 aa
 aa
-at
-xb
-aL
-aL
+aa
+aa
+aa
+Bi
 Tb
 Ub
 Wb
