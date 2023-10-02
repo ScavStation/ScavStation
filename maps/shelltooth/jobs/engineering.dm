@@ -5,32 +5,32 @@
 	spawn_positions = 2
 	hud_icon = "hudengineer"
 	outfit_type = /decl/hierarchy/outfit/job/shelltooth/hand/engine
-	department_refs = list(DEPT_ENGINEERING)
+	department_types = list(/decl/department/engineering)
 	total_positions = 8
 	spawn_positions = 7
 	selection_color = "#5b4d20"
 	economic_power = 5
 	minimal_player_age = 7
 	access = list(
-		access_eva, 
-		access_engine, 
-		access_engine_equip, 
-		access_tech_storage, 
-		access_maint_tunnels, 
-		access_external_airlocks, 
-		access_construction, 
-		access_atmospherics, 
+		access_eva,
+		access_engine,
+		access_engine_equip,
+		access_tech_storage,
+		access_maint_tunnels,
+		access_external_airlocks,
+		access_construction,
+		access_atmospherics,
 		access_emergency_storage
 	)
 	minimal_access = list(
-		access_eva, 
-		access_engine, 
-		access_engine_equip, 
-		access_tech_storage, 
-		access_maint_tunnels, 
-		access_external_airlocks, 
-		access_construction, 
-		access_atmospherics, 
+		access_eva,
+		access_engine,
+		access_engine_equip,
+		access_tech_storage,
+		access_maint_tunnels,
+		access_external_airlocks,
+		access_construction,
+		access_atmospherics,
 		access_emergency_storage
 	)
 	min_skill = list(
@@ -54,9 +54,9 @@
 /datum/job/shelltooth_engineer/head
 	title = "Head Engineer"
 	head_position = 1
-	department_refs = list(
-		DEPT_ENGINEERING,
-		DEPT_COMMAND
+	department_types = list(
+		/decl/department/engineering,
+		/decl/department/command
 	)
 	total_positions = 1
 	spawn_positions = 1
@@ -64,23 +64,23 @@
 	req_admin_notify = 1
 	economic_power = 10
 	ideal_character_age = 50
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	access = list(
-		access_engine, 
-		access_engine_equip, 
-		access_tech_storage, 
-		access_maint_tunnels, 
+		access_engine,
+		access_engine_equip,
+		access_tech_storage,
+		access_maint_tunnels,
 		access_heads,
 		access_teleporter,
 		access_external_airlocks,
-		access_atmospherics, 
+		access_atmospherics,
 		access_emergency_storage,
 		access_eva,
 		access_bridge,
 		access_construction, access_sec_doors,
-		access_ce, 
+		access_ce,
 		access_RC_announce,
 		access_keycard_auth,
 		access_tcomsat,
@@ -88,9 +88,9 @@
 	)
 	minimal_access = list(
 		access_engine,
-		access_engine_equip, 
-		access_tech_storage, 
-		access_maint_tunnels, 
+		access_engine_equip,
+		access_tech_storage,
+		access_maint_tunnels,
 		access_heads,
 		access_teleporter,
 		access_external_airlocks,

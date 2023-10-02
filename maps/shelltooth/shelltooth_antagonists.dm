@@ -11,35 +11,35 @@
 		"the integrated circuit printer"		= /obj/item/integrated_circuit_printer,
 		"a whole uneaten mollusc"				= /obj/item/mollusc
 	)
-	
-/datum/antagonist
+
+/decl/special_role
 	initial_spawn_req = 1
 	initial_spawn_target = 1
-	
-/datum/antagonist/borer
+
+/decl/special_role/borer
 	initial_spawn_req = 1
 	initial_spawn_target = 1
-	
-/datum/antagonist/mercenary
-	initial_spawn_req = 1
-	initial_spawn_target = 2
-	
-/datum/antagonist/raider
-	initial_spawn_req = 1
-	initial_spawn_target = 2
-	
-/datum/antagonist/cultist
-	initial_spawn_req = 1
-	initial_spawn_target = 2
-	
-/datum/antagonist/renegade
-	initial_spawn_req = 1
-	initial_spawn_target = 2
-	
-/datum/antagonist/loyalist
+
+/decl/special_role/mercenary
 	initial_spawn_req = 1
 	initial_spawn_target = 2
 
-/datum/antagonist/revolutionary
+/decl/special_role/raider
+	initial_spawn_req = 1
+	initial_spawn_target = 2
+
+/decl/special_role/cultist
+	initial_spawn_req = 1
+	initial_spawn_target = 2
+
+/decl/special_role/renegade
+	initial_spawn_req = 1
+	initial_spawn_target = 2
+
+/decl/special_role/loyalist
+	initial_spawn_req = 1
+	initial_spawn_target = 2
+
+/decl/special_role/revolutionary
 	initial_spawn_req = 1
 	initial_spawn_target = 2

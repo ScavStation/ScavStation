@@ -4,10 +4,6 @@
 	path = "shelltooth"
 	ground_noun = "deck"
 
-	station_levels = list(1, 2, 3, 4, 5)
-	contact_levels = list(1, 2, 3, 4, 5)
-	player_levels = list(1, 2, 3, 4, 5)
-
 	station_name  = "Shelltooth Station"
 	station_short = "Shelltooth"
 
@@ -16,15 +12,17 @@
 	boss_short    = "Admin"
 	company_name  = "Tradehouse Ivenmoth"
 	company_short = "Ivenmoth"
-	overmap_event_areas = 11
+
+	allowed_spawns = list(/decl/spawnpoint/arrivals)
 
 	default_law_type = /datum/ai_laws/corporate
 
 	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
 	lobby_screens = list('maps/shelltooth/lobby/yingspace.png')
 
-	use_overmap = 1
-	num_exoplanets = 3
+	overmap_ids = list(OVERMAP_ID_SPACE)
+	num_exoplanets = 0
+
 	welcome_sound = 'sound/effects/cowboysting.ogg'
 	emergency_shuttle_leaving_dock = "Attention all hands: the escape pods have been launched, maintaining burn for %ETA%."
 	emergency_shuttle_called_message = "Attention all hands: emergency evacuation procedures are now in effect. Escape pods will launch in %ETA%"
@@ -39,8 +37,13 @@
 /datum/map/shelltooth/get_map_info()
 	return "You're aboard the <b>[station_name],</b> a scav space station. This message isn't written yet."
 
-/datum/map/shelltooth/setup_map()
-	..()
-	SStrade.traders += new /datum/trader/xeno_shop
-	SStrade.traders += new /datum/trader/medical
-	SStrade.traders += new /datum/trader/mining
+/datum/map/shelltooth/create_trade_hubs()
+	new /datum/trade_hub/singleton/tradeship
+
+/datum/trade_hub/singleton/shelltooth/get_initial_traders()
+	return list(
+		/datum/trader/xeno_shop,
+		/datum/trader/medical,
+		/datum/trader/mining,
+		/datum/trader/books
+	)

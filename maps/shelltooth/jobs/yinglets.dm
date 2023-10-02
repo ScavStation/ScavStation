@@ -8,15 +8,15 @@
 	title = "Enclave Scout"
 	spawn_positions = 1
 	total_positions = 3
-	department_refs = list(
-		DEPT_ENCLAVE,
-		DEPT_EXPLORATION
+	department_types = list(
+		/decl/department/enclave,
+		/decl/department/exploration
 	)
 	hud_icon = "hudyingscout"
 	supervisors = "the Matriarch and the Patriarches"
 	outfit_type = /decl/hierarchy/outfit/job/yinglet/scout
 	access = list(
-		access_eva, 
+		access_eva,
 		access_research
 	)
 	min_skill = list(
@@ -60,11 +60,11 @@
 	)
 	skill_points = 26
 	head_position = 1
-	guestbanned = 1	
-	department_refs = list(DEPT_ENCLAVE)
+	guestbanned = 1
+	department_types = list(/decl/department/enclave)
 	access = list(
 		access_heads,
-		access_medical, 
+		access_medical,
 		access_engine,
 		access_change_ids,
 		access_eva,
@@ -122,31 +122,31 @@
 	)
 	skill_points = 30
 	head_position = 1
-	department_refs = list(
-		DEPT_ENCLAVE,
-		DEPT_COMMAND
+	department_types = list(
+		/decl/department/enclave,
+		/decl/department/command
 	)
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	access = list(
-		access_heads, 
-		access_medical, 
+		access_heads,
+		access_medical,
 		access_engine,
-		access_change_ids, 
-		access_eva, 
+		access_change_ids,
+		access_eva,
 		access_bridge,
-		access_maint_tunnels, 
-		access_bar, 
-		access_janitor, 
-		access_cargo, 
-		access_cargo_bot, 
-		access_research, 
+		access_maint_tunnels,
+		access_bar,
+		access_janitor,
+		access_cargo,
+		access_cargo_bot,
+		access_research,
 		access_heads_vault,
-		access_hop, 
-		access_RC_announce, 
+		access_hop,
+		access_RC_announce,
 		access_keycard_auth
 	)
 	minimal_access = list(

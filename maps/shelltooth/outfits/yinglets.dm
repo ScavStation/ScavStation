@@ -8,7 +8,7 @@
 
 /decl/hierarchy/outfit/job/yinglet/patriarch
 	name = SHELLTOOTH_OUTFIT_JOB_NAME("Enclave Patriarch")
-	suit = /obj/item/clothing/suit/yinglet
+	suit = /obj/item/clothing/suit/yingcape
 	id_type = /obj/item/card/id/silver
 	pda_type = /obj/item/modular_computer/pda/heads
 

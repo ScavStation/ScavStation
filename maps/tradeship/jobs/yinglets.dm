@@ -16,7 +16,7 @@
 	supervisors = "the Matriarch and the Patriarches"
 	outfit_type = /decl/hierarchy/outfit/job/yinglet/scout
 	access = list(
-		access_eva, 
+		access_eva,
 		access_research
 	)
 	min_skill = list(
@@ -65,7 +65,7 @@
 	)
 	skill_points = 26
 	head_position = 1
-	guestbanned = 1	
+	guestbanned = 1
 	department_types = list(/decl/department/enclave)
 	access = list(
 		access_security,
@@ -73,7 +73,7 @@
 		access_brig,
 		access_forensics_lockers,
 		access_heads,
-		access_medical, 
+		access_medical,
 		access_engine,
 		access_change_ids,
 		access_eva,
@@ -141,7 +141,7 @@
 	)
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	access = list(

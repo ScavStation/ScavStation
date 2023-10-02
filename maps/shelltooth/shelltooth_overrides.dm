@@ -1,8 +1,9 @@
 /datum/map/shelltooth
-	lobby_tracks = list(/music_track/zazie)
+	lobby_tracks = list(/decl/music_track/zazie)
 
 /datum/computer_file/program/merchant //wild capitalism
-	required_access = null
+	read_access = null
+	write_access = null
 
 /turf/simulated/floor
 	name = "bare deck"
@@ -37,7 +38,3 @@
 
 /obj/machinery/door/airlock/hatch/autoname/science
 	stripe_color = COLOR_PURPLE
-
-//wild capitalism
-/datum/computer_file/program/merchant
-	required_access = null

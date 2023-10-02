@@ -289,3 +289,24 @@
 	name = "Command Deck Landing"
 	icon_state = "5"
 
+/area/shelltooth/surface
+	name = "Wasteland"
+	is_outside = OUTSIDE_YES
+
+/area/shelltooth/underground
+	name = "Underground"
+	is_outside = OUTSIDE_NO
+
+/area/shelltooth/underground/abyss
+	name = "Depths"
+
+/area/shelltooth/heights
+	name = "Heights"
+	is_outside = OUTSIDE_YES
+
+/area/shelltooth/heights/sky
+	name = "Sky"
+
+/area/shelltooth/wetland
+	name = "Wetland"
+	is_outside = OUTSIDE_YES

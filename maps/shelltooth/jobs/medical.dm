@@ -1,6 +1,6 @@
 /datum/job/shelltooth_doctor
 	title = "Junior Doctor"
-	department_refs = list(DEPT_MEDICAL)
+	department_types = list(/decl/department/medical)
 	head_position = 0
 	supervisors = "the Head Doctor and the Captain"
 	total_positions = 2
@@ -44,9 +44,9 @@
 /datum/job/shelltooth_doctor/head
 	title = "Head Doctor"
 	head_position = 1
-	department_refs = list(
-		DEPT_MEDICAL,
-		DEPT_COMMAND
+	department_types = list(
+		/decl/department/medical,
+		/decl/department/command
 	)
 	supervisors = "the Captain and your own ethics"
 	outfit_type = /decl/hierarchy/outfit/job/shelltooth/doc
@@ -54,7 +54,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	skill_points = 28
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	selection_color = "#026865"

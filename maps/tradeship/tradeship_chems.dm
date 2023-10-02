@@ -17,7 +17,7 @@
 	name = "Old Dinnish Firewater"
 	desc = "This rich, smooth, hideously expensive beverage was distilled in old Dinland.  I hope they're still producing under their new government."
 
-/obj/item/chems/food/snacks/syndicake
+/obj/item/chems/food/syndicake
 	name = "scav cakes"
 	desc = "Made using extremely unethical labour, ingredients and marketing methods. Guess what it's made from?"
 	nutriment_desc = list("sweetness" = 3, "cake" = 1, "something that you hope is not yinglet" = 1)

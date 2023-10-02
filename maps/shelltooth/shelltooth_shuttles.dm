@@ -1,4 +1,4 @@
-/obj/turbolift_map_holder/shelltooth
+/obj/abstract/turbolift_spawner/shelltooth
 	name = "Shelltooth central elevator placeholder"
 	depth = 5
 	lift_size_x = 4

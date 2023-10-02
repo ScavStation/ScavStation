@@ -14,7 +14,7 @@
 	)
 	skill_points = 30
 	head_position = 1
-	department_refs = list(DEPT_COMMAND)
+	department_types = list(/decl/department/command)
 	total_positions = 1
 	spawn_positions = 1
 	selection_color = "#1d1d4f"
@@ -24,9 +24,9 @@
 	minimal_player_age = 14
 	economic_power = 20
 	ideal_character_age = 70
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
-	not_random_selectable = 1	
+	not_random_selectable = 1
 
 /datum/job/shelltooth_captain/get_access()
 	return get_all_station_access()
@@ -37,9 +37,9 @@
 	outfit_type = /decl/hierarchy/outfit/job/shelltooth/mate
 	hud_icon = "hudheadofpersonnel"
 	head_position = 1
-	department_refs = list(
-		DEPT_COMMAND,
-		DEPT_CIVILIAN
+	department_types = list(
+		/decl/department/command,
+		/decl/department/civilian
 	)
 	total_positions = 1
 	spawn_positions = 1
@@ -48,12 +48,12 @@
 	minimal_player_age = 14
 	economic_power = 10
 	ideal_character_age = 50
-	guestbanned = 1	
+	guestbanned = 1
 	not_random_selectable = 1
 	access = list(
-		access_security, 
-		access_sec_doors, 
-		access_brig, 
+		access_security,
+		access_sec_doors,
+		access_brig,
 		access_forensics_lockers,
 		access_heads,
 		access_medical,
