@@ -1,5 +1,6 @@
-/obj/machinery/suit_cycler
-	available_bodytypes = list(BODYTYPE_HUMANOID, BODYTYPE_YINGLET)
+/obj/machinery/suit_cycler/Initialize()
+	. = ..()
+	available_bodytypes += BODYTYPE_YINGLET
 
 /obj/machinery/suit_cycler/tradeship
 	boots = /obj/item/clothing/shoes/magboots
