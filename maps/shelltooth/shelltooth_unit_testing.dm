@@ -1,0 +1,35 @@
+/datum/map/shelltooth
+	// Unit test exemptions
+	apc_test_exempt_areas = list(
+		/area/exoplanet =                               NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/space =                                   NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/turbolift =                               NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_one/south =        NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/level_one/disposals =          NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_one/north =        NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_one/secret =       NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_two/south =        NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/level_two/nursery =            NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_two/south_west =   NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_two/south_east =   NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_two/west =         NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_two/east =         NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_two/north_west =   NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_two/north_east =   NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_three/south_east = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_five/north =       NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shelltooth/maint/level_three/north_east = NO_SCRUBBER|NO_VENT,
+		/area/shelltooth/maint/level_four/east =        NO_SCRUBBER|NO_VENT,
+		/area/shelltooth/level_one/tools =              NO_APC,
+		/area/shelltooth/level_one/atmos =              NO_APC,
+		/area/shelltooth/level_one/engineering =        NO_APC,
+		/area/shelltooth/level_one/engine =             NO_APC,
+		/area/shelltooth/level_one/smes =               NO_APC,
+		/area/shelltooth/level_two/chem =               NO_APC,
+		/area/shelltooth/level_two/med =                NO_APC,
+		/area/shelltooth/level_two/cryo =               NO_APC,
+		/area/shelltooth/level_two/bathroom =           NO_APC,
+		/area/shelltooth/level_two/dorm =               NO_APC,
+		/area/shelltooth/level_two/laundry =            NO_APC
+
+	)
