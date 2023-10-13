@@ -85,13 +85,6 @@
 	else
 		return
 
-/client/verb/drop_item()
-	set hidden = 1
-	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
-		var/obj/item/I = mob.get_active_hand()
-		if(I && I.can_be_dropped_by_client(mob))
-			mob.drop_item()
-
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
 /atom/movable/Move(newloc, direct)
 	if (direct & (direct - 1))
@@ -162,6 +155,12 @@
 		if(istype(backup) && allow_movement)
 			return backup
 		return -1
+
+/mob/living/Process_Spacemove(allow_movement)
+	var/obj/item/tank/jetpack/thrust = get_jetpack()
+	if(thrust?.on && (allow_movement || thrust.stabilization_on) && thrust.allow_thrust(0.01, src))
+		return TRUE
+	return ..()
 
 /mob/proc/space_do_move(var/allow_move, var/direction)
 	if(ismovable(allow_move))//push off things in space

@@ -198,7 +198,8 @@
 	},
 /obj/machinery/network/requests_console{
 	department = "Detective's office";
-	pixel_x = 30
+	pixel_x = 30;
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/wood,
 /area/ministation/detective)
@@ -682,11 +683,11 @@
 	dir = 1;
 	level = 2
 	},
-/obj/item/modular_computer/telescreen/preset/generic{
+/obj/machinery/computer/modular/telescreen/preset/generic{
 	name = "south bump";
 	pixel_y = -32
 	},
-/obj/item/radio/intercom/entertainment{
+/obj/item/radio/intercom/locked/entertainment{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -747,7 +748,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
-/obj/structure/sign/redcross{
+/obj/structure/sign/department/redcross{
 	pixel_y = 32
 	},
 /obj/structure/disposalpipe/segment{
@@ -798,7 +799,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/fullgrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "gp" = (
@@ -941,7 +942,7 @@
 "hd" = (
 /obj/structure/bed,
 /obj/item/bedsheet/mime,
-/obj/item/radio/intercom/department/security{
+/obj/item/radio/intercom{
 	dir = 1;
 	pixel_y = -27
 	},
@@ -995,6 +996,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cryo)
+"hu" = (
+/obj/abstract/landmark/start{
+	name = "Patriarch of Personnel"
+	},
+/turf/simulated/floor/carpet,
+/area/ministation/hop)
 "hv" = (
 /obj/machinery/seed_extractor,
 /obj/effect/floor_decal/corner/beige/half,
@@ -1055,15 +1062,11 @@
 /area/ministation/medical)
 "hC" = (
 /obj/structure/table/woodentable,
-/obj/item/camera{
-	desc = "A one use - polaroid camera. 30 photos left.";
-	name = "detectives camera";
-	pictures_left = 30
-	},
+/obj/item/camera/loaded,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/taperecorder,
 /obj/item/folder/yellow,
-/obj/structure/filingcabinet/wallcabinet{
+/obj/structure/filing_cabinet/wall{
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/red,
@@ -1222,14 +1225,11 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/fullgrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "ix" = (
-/obj/abstract/landmark/start{
-	name = "Patriarch of Security"
-	},
-/obj/structure/bed/chair,
+/obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "iy" = (
@@ -1427,7 +1427,9 @@
 /area/ministation/maint/l2centraln)
 "jA" = (
 /obj/effect/wallframe_spawn/no_grille,
-/obj/structure/sign/botany,
+/obj/structure/sign/department/botany{
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "jF" = (
@@ -1842,8 +1844,8 @@
 /area/ministation/hall/e2)
 "mJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/bush/fullgrass,
+/obj/structure/flora/bush/lavendergrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "mL" = (
@@ -1916,7 +1918,7 @@
 /turf/simulated/floor,
 /area/ministation/maint/l2centraln)
 "ns" = (
-/obj/structure/sign/id_office{
+/obj/structure/sign/department/id_office{
 	dir = 1;
 	pixel_y = -32
 	},
@@ -2178,7 +2180,9 @@
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical)
 "oW" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "oX" = (
@@ -2280,7 +2284,7 @@
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/medical)
 "pG" = (
-/obj/item/sign/medipolma{
+/obj/structure/sign/plaque/diploma/medical{
 	pixel_y = 31
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2909,9 +2913,7 @@
 /area/ministation/medical)
 "rU" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine{
-	department = "HoP"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "rW" = (
@@ -3001,7 +3003,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "sp" = (
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/fullgrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/w2)
 "sq" = (
@@ -3124,7 +3126,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/sign/forensics{
+/obj/structure/sign/department/forensics{
 	pixel_y = 32
 	},
 /obj/structure/disposalpipe/segment{
@@ -3169,7 +3171,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/sign/security/alt{
+/obj/structure/sign/department/security/alt{
 	pixel_y = 32
 	},
 /obj/structure/disposalpipe/segment{
@@ -3622,7 +3624,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/fullgrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "uv" = (
@@ -3664,9 +3666,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "uG" = (
-/obj/abstract/landmark/start{
-	name = "Patriarch of Personnel"
-	},
 /obj/structure/bed/chair/office/comfy/brown{
 	dir = 8
 	},
@@ -4074,7 +4073,7 @@
 /area/ministation/cafe)
 "wn" = (
 /obj/structure/table/marble,
-/obj/structure/sign/monkey_painting{
+/obj/structure/sign/painting/monkey_painting{
 	pixel_y = 24
 	},
 /obj/machinery/door/firedoor{
@@ -4643,6 +4642,10 @@
 	name = "replica 'The Owl' mask";
 	pixel_x = 1;
 	pixel_y = -5
+	},
+/obj/machinery/light_switch{
+	pixel_y = 29;
+	pixel_x = 7
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/hop)
@@ -5398,11 +5401,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/item/modular_computer/telescreen/preset/generic{
+/obj/machinery/computer/modular/telescreen/preset/generic{
 	name = "south bump";
 	pixel_y = -32
 	},
-/obj/item/radio/intercom/entertainment{
+/obj/item/radio/intercom/locked/entertainment{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -5421,6 +5424,9 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
+	},
+/obj/abstract/landmark/start{
+	name = "Patriarch of Security"
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
@@ -5471,7 +5477,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
 "BW" = (
-/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/bush/lavendergrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/w2)
 "Ca" = (
@@ -6249,7 +6255,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/fullgrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "Jz" = (
@@ -6294,7 +6300,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "JX" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "JZ" = (
@@ -6322,7 +6330,7 @@
 /area/ministation/hall/w2)
 "Kv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/fullgrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "Kz" = (
@@ -6332,7 +6340,7 @@
 /obj/machinery/camera/network/hallway{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/bush/lavendergrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "KG" = (
@@ -6417,6 +6425,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
+"Lt" = (
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
 "LE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/junction{
@@ -6580,7 +6594,7 @@
 /turf/simulated/open,
 /area/ministation/hall/w2)
 "MU" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "MW" = (
@@ -6620,7 +6634,7 @@
 	pixel_x = 1;
 	pixel_y = -63
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/bush/lavendergrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "Nh" = (
@@ -6713,7 +6727,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "NO" = (
-/obj/abstract/level_data/main_level,
+/obj/abstract/level_data_spawner/main_level,
 /turf/space,
 /area/space)
 "NR" = (
@@ -7299,7 +7313,9 @@
 /area/ministation/maint/hydromaint)
 "Sd" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/structure/sign/warning/airlock,
+/obj/structure/sign/warning/airlock{
+	pixel_y = -1
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w2)
 "Sg" = (
@@ -7320,7 +7336,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/bush/lavendergrass,
 /turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "Sq" = (
@@ -7356,6 +7372,12 @@
 	},
 /turf/simulated/open,
 /area/ministation/hall/w2)
+"SA" = (
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "SB" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7537,7 +7559,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "Ut" = (
-/obj/structure/sign/goldenplaque/security{
+/obj/structure/sign/plaque/golden/security{
 	pixel_y = 32
 	},
 /obj/machinery/vending/security,
@@ -7613,12 +7635,16 @@
 "UY" = (
 /obj/structure/bed,
 /obj/item/bedsheet/hos,
-/obj/item/modular_computer/telescreen/preset/generic{
+/obj/machinery/computer/modular/telescreen/preset/generic{
 	name = "north bump";
 	pixel_y = 32
 	},
-/obj/item/radio/intercom/entertainment{
+/obj/item/radio/intercom/locked/entertainment{
 	pixel_y = 22
+	},
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
@@ -7906,7 +7932,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/structure/sign/chemistry{
+/obj/structure/sign/department/chemistry{
 	pixel_x = 32;
 	pixel_y = -5
 	},
@@ -7919,7 +7945,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/sign/warning/secure_area/armory{
+/obj/structure/sign/warning/armory{
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -35718,7 +35744,7 @@ HO
 HO
 HO
 mq
-dd
+Lt
 dd
 dd
 dd
@@ -35742,7 +35768,7 @@ Ez
 wF
 Np
 gT
-gT
+hu
 Gz
 Wd
 qf
@@ -52191,7 +52217,7 @@ oz
 xc
 uW
 pD
-pD
+SA
 vK
 aa
 aa

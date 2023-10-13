@@ -7,7 +7,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "ac" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "tradeship_shuttle_sensor";
@@ -21,7 +21,7 @@
 	id_tag = "tradeship_shuttle_pump_out_internal"
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "ad" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -213,7 +213,7 @@
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "au" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -380,7 +380,7 @@
 /area/ship/trade/maintenance/hallway)
 "aL" = (
 /turf/simulated/wall/titanium,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "aM" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -608,15 +608,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "bh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "bi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "bj" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -688,7 +688,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "bq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -698,7 +698,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "br" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/emergency_dispenser/north,
@@ -722,7 +722,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "bA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -944,11 +944,11 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/titanium,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cf" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -985,15 +985,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cq" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cs" = (
 /obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "ct" = (
 /obj/structure/sign/warning/docking_area,
 /obj/effect/paint/brown,
@@ -1038,7 +1038,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cA" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1048,7 +1048,7 @@
 	},
 /obj/item/wrench,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -1057,7 +1057,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cC" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -1068,7 +1068,7 @@
 	},
 /obj/machinery/floodlight,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cE" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/port)
@@ -1085,12 +1085,12 @@
 	level = 2
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cI" = (
 /obj/structure/cable,
 /obj/machinery/port_gen/pacman/super,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "cL" = (
 /obj/random/maintenance,
 /turf/simulated/floor/tiled/techmaint,
@@ -2123,7 +2123,7 @@
 /area/ship/trade/crew/kitchen)
 "fo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/modular_computer/telescreen/preset/medical{
+/obj/machinery/computer/modular/telescreen/preset/medical{
 	pixel_x = 31;
 	pixel_y = -2
 	},
@@ -2180,7 +2180,7 @@
 /obj/structure/sign/warning/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/structure/sign/goldenplaque/medical{
+/obj/structure/sign/plaque/golden/medical{
 	pixel_x = 32
 	},
 /obj/item/storage/firstaid/adv,
@@ -2710,7 +2710,7 @@
 "hb" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
 /turf/simulated/floor/airless,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "hd" = (
 /obj/structure/closet/crate/uranium,
 /obj/machinery/button/blast_door{
@@ -3016,6 +3016,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "bulb1"
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/atmos)
 "hP" = (
@@ -3309,7 +3313,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/fluid_mapped/fuel,
+/obj/abstract/fluid_mapped/fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/trade/maintenance/engineering)
 "in" = (
@@ -3696,7 +3700,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "jd" = (
 /obj/structure/emergency_dispenser/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -4381,7 +4385,7 @@
 "lx" = (
 /obj/structure/shuttle/engine/propulsion/burst/right,
 /turf/simulated/floor/airless,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "lC" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/machinery/atmospherics/portables_connector{
@@ -4390,7 +4394,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/trade/maintenance/atmos)
 "lZ" = (
-/obj/structure/sign/redcross{
+/obj/structure/sign/department/redcross{
 	pixel_w = 32
 	},
 /turf/simulated/floor/plating,
@@ -4448,7 +4452,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/hologram/holopad/longrange,
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "my" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating,
@@ -4475,7 +4479,7 @@
 	dir = 8;
 	icon_state = "bulb1"
 	},
-/obj/item/storage/mirror{
+/obj/structure/mirror{
 	pixel_y = 29
 	},
 /obj/structure/hygiene/sink{
@@ -4532,7 +4536,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "nv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -4581,7 +4585,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "oc" = (
 /obj/machinery/light{
 	dir = 1
@@ -4816,7 +4820,6 @@
 /area/ship/trade/shuttle/rescue)
 "qE" = (
 /obj/machinery/atmospherics/omni/mixer{
-	active_power_usage = 7500;
 	tag_east_con = 0;
 	tag_north = 1;
 	tag_north_con = 0.21;
@@ -5150,7 +5153,7 @@
 /obj/item/storage/box/ammo/shotgunshells,
 /obj/item/handcuffs,
 /obj/item/boombox,
-/obj/item/taperoll/bureaucracy,
+/obj/item/stack/tape_roll/barricade_tape/bureaucracy,
 /obj/machinery/keycard_auth{
 	pixel_y = 21
 	},
@@ -5202,7 +5205,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "we" = (
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall/hull,
@@ -5248,7 +5251,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "xc" = (
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -5259,7 +5262,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/trade/crew/saloon)
 "xh" = (
-/obj/abstract/level_data/main_level,
+/obj/abstract/level_data_spawner/main_level,
 /turf/space,
 /area/space)
 "xn" = (
@@ -5385,7 +5388,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "zc" = (
 /obj/structure/hygiene/shower{
 	dir = 4
@@ -5457,7 +5460,7 @@
 /obj/item/deck/tarot,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Ai" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5538,7 +5541,7 @@
 /obj/structure/table,
 /obj/machinery/reagentgrinder/juicer,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/sign/monkey_painting{
+/obj/structure/sign/painting/monkey_painting{
 	pixel_y = 32
 	},
 /obj/machinery/firealarm{
@@ -5760,7 +5763,7 @@
 /obj/item/flash,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/storage/box/evidence,
-/obj/item/taperoll/police,
+/obj/item/stack/tape_roll/barricade_tape/police,
 /obj/item/holowarrant,
 /obj/item/storage/briefcase/crimekit,
 /obj/item/taperecorder,
@@ -5942,7 +5945,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Gw" = (
 /obj/machinery/computer/ship/sensors,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -6359,7 +6362,7 @@
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Lc" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/cobweb2,
@@ -6415,7 +6418,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Mc" = (
 /obj/machinery/light{
 	dir = 1;
@@ -6491,7 +6494,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Nc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -6778,7 +6781,7 @@
 /obj/structure/closet/medical_wall/filled{
 	pixel_y = -32
 	},
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/crew/medbay)
@@ -6888,7 +6891,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Sc" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/corner/blue{
@@ -7016,7 +7019,7 @@
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Tp" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7063,7 +7066,7 @@
 /obj/item/storage/backpack/dufflebag,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Uc" = (
 /obj/machinery/seed_storage/garden{
 	dir = 1
@@ -7154,7 +7157,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Vc" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -7221,7 +7224,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Wc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7306,10 +7309,6 @@
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "bulb1"
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -7374,7 +7373,7 @@
 	pixel_y = 20
 	},
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Yc" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -7461,7 +7460,7 @@
 	},
 /obj/effect/shuttle_landmark/docking_arm_port/shuttle,
 /turf/simulated/floor/plating,
-/area/ship/trade/shuttle/outgoing)
+/area/ship/trade/shuttle/outgoing/general)
 "Zc" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/item/cell/device/standard,

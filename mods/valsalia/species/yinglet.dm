@@ -13,6 +13,7 @@
 		"th" = list("d")
 	)
 
+	preview_outfit = /decl/hierarchy/outfit/job/yinglet/assistant
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
 
@@ -40,12 +41,10 @@
 	base_eye_color = "#f5c842"
 	base_markings = list(
 		/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
-		/decl/sprite_accessory/marking/yinglet = "#cccccc"
+		/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"
 	)
 
 	age_descriptor = /datum/appearance_descriptor/age/yinglet
-
-	reagent_tag = IS_YINGLET
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
@@ -104,6 +103,12 @@
 			/decl/cultural_info/religion/other
 		)
 	)
+
+	traits = list(
+		/decl/trait/mollusc_lover = TRAIT_LEVEL_EXISTS,
+		/decl/trait/gluten_allergy = TRAIT_LEVEL_EXISTS
+	)
+
 /decl/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
 	return SPECIES_YINGLET
 

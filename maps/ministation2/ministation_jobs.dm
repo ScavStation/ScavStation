@@ -26,12 +26,19 @@
 	species_to_job_whitelist = list(
 		/decl/species/baxxid = list(
 			/datum/job/ministation/tradehouse/rep,
+			/datum/job/ministation/cargo,
 			/datum/job/computer,
+			/datum/job/ministation/bartender,
 			/datum/job/ministation/assistant,
 			/datum/job/ministation/doctor,
+			/datum/job/ministation/doctor/head,
 			/datum/job/ministation/engineer,
+			/datum/job/ministation/engineer/head,
 			/datum/job/ministation/scientist,
+			/datum/job/ministation/scientist/head,
 			/datum/job/ministation/librarian,
+			/datum/job/ministation/detective,
+			/datum/job/ministation/janitor,
 			/datum/job/ministation/robot
 		),
 		/decl/species/yinglet = list(

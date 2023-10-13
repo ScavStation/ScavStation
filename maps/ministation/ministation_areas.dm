@@ -12,22 +12,26 @@
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambigen12.ogg')
 	icon = 'maps/ministation/ministation_areas.dmi'
 	icon_state = "default"
+	holomap_color = HOLOMAP_AREACOLOR_CREW
 
 /area/ministation/supply_dock
 	name = "Supply Shuttle Dock"
 	icon_state = "yellow"
 	base_turf = /turf/space
+	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/ministation/supply
 	name = "Supply Shuttle"
 	icon_state = "shuttle3"
 	req_access = list(access_cargo)
 	requires_power = 0
+	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 //Hallways
 /area/ministation/hall
 	icon_state = "white"
 	area_flags = AREA_FLAG_HALLWAY
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/ministation/hall/w
 	name = "\improper Port Hallway"
@@ -48,6 +52,7 @@
 	turf_initializer = /decl/turf_initializer/maintenance
 	icon_state = "orange"
 	secure = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_MAINTENANCE
 
 /area/ministation/maint/nw
 	name = "\improper Port Forward Maintenance"
@@ -94,6 +99,7 @@
 	req_access = list(access_cargo)
 	icon_state = "brown"
 	secure = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/ministation/bridge
 	name = "\improper Bridge"
@@ -113,6 +119,7 @@
 	secure = TRUE
 	icon_state = "red"
 	area_flags = AREA_FLAG_SECURITY
+	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/ministation/detective
 	name = "\improper Detective Office"
@@ -134,12 +141,14 @@
 	name = "\improper Atmospherics"
 	req_access = list(access_atmospherics)
 	icon_state = "ATMOS"
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/ministation/science
 	name = "\improper Research & Development Laboratory"
 	req_access = list(access_research)
 	secure = TRUE
 	icon_state = "purple"
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/ministation/eva
 	name = "\improper EVA Storage"
@@ -152,6 +161,7 @@
 	req_access = list(access_medical)
 	icon_state = "light_blue"
 	secure = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
 /area/ministation/cryo
 	name = "\improper Cryogenic Storage"
@@ -175,6 +185,7 @@
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
 	secure = TRUE
 	icon_state = "yellow"
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/ministation/supermatter
 	name = "\improper Supermatter Engine"
@@ -196,6 +207,7 @@
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/signal.ogg','sound/ambience/sonar.ogg')
 	secure = TRUE
 	icon_state = "light_blue"
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/ministation/yinglet_rep
 	name = "\improper Tradehouse Representative Chamber"

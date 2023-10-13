@@ -4,6 +4,7 @@
 	shoes = /obj/item/clothing/shoes/dress
 	pda_type = /obj/item/modular_computer/pda/science
 	id_type = /obj/item/card/id/tradeship/science/head
+	l_ear = /obj/item/radio/headset/heads/rd
 
 /obj/item/card/id/tradeship/science
 	name = "identification card"
@@ -14,6 +15,7 @@
 	name = "Tradeship - Job - Junior Researcher"
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 	id_type = /obj/item/card/id/tradeship/science
+	l_ear = /obj/item/radio/headset/headset_sci
 
 /obj/item/card/id/tradeship/science/head
 	name = "identification card"

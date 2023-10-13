@@ -1,10 +1,24 @@
 /decl/bodytype/baxxid
 	bodytype_category = BODYTYPE_BAXXID
 	bodytype_flag =     BODY_FLAG_BAXXID
-	damage_overlays =   'mods/valsalia/icons/species/baxxid/damage_overlay.dmi'
 	icon_template =     'mods/valsalia/icons/species/baxxid/template.dmi'
 	icon_base =         'mods/valsalia/icons/species/baxxid/body.dmi'
 	limb_blend = ICON_MULTIPLY
+
+/decl/bodytype/baxxid/Initialize()
+	. = ..()
+	equip_adjust = list(
+		slot_back_str = list(
+			"[NORTH]" = list("x" =  0, "y" = 0),
+			"[EAST]" =  list("x" =  6, "y" = 0),
+			"[WEST]" =  list("x" = -6, "y" = 0),
+			"[SOUTH]" = list("x" =  0, "y" = 0)
+		)
+	)
+
+/decl/hierarchy/outfit/baxxid
+	name = "Baxxid Hood"
+	head = /obj/item/clothing/head/baxxid/hood/long
 
 /decl/species/baxxid
 	name = SPECIES_BAXXID
@@ -12,13 +26,22 @@
 	available_bodytypes = list(
 		/decl/bodytype/baxxid
 	)
-	manual_dexterity = DEXTERITY_KEYBOARDS
+	manual_dexterity = DEXTERITY_GRIP
 	mob_size = MOB_SIZE_LARGE
 
 	unarmed_attacks = list(
 		/decl/natural_attack/claws/strong/baxxid,
 		/decl/natural_attack/bite/strong
 	)
+
+	base_color = "#c7b8aa"
+	base_eye_color = "#003366"
+	base_markings = list(
+		/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
+		/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
+		/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
+	)
+	preview_outfit = /decl/hierarchy/outfit/baxxid
 
 	hud_type = /datum/hud_data/baxxid
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
@@ -32,6 +55,12 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes/baxxid
+	)
+
+	override_limb_types = list(
+		BP_L_HAND = /obj/item/organ/external/hand/baxxid,
+		BP_R_HAND = /obj/item/organ/external/hand/right/baxxid,
+		BP_HEAD =   /obj/item/organ/external/head/baxxid
 	)
 
 	available_cultural_info = list(
@@ -74,6 +103,7 @@
 	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
 	icon_state = "crest"
 	blend = ICON_MULTIPLY
+	mask_to_bodypart = FALSE
 
 /decl/sprite_accessory/marking/baxxid/plates
 	name = "Armour Plates"
@@ -86,14 +116,21 @@
 	icon_state = "bones"
 
 /datum/hud_data/baxxid
-	has_hands = FALSE
-	gear = list(
-		"id" =           list("loc" = ui_id,                "name" = "ID",   "slot" = slot_wear_id_str,   "state" = "id"),
-		"back" =         list("loc" = ui_sstore1,           "name" = "Back", "slot" = slot_back_str,      "state" = "back"),
-		"o_clothing" =   list("loc" = ui_iclothing,         "name" = "Suit", "slot" = slot_wear_suit_str, "state" = "suit", "toggle" = 1),
-		"head" =         list("loc" = "LEFT:6,BOTTOM+3:11", "name" = "Hat",  "slot" = slot_head_str,      "state" = "hair", "toggle" = 1),
-		"mask" =         list("loc" = ui_glasses,           "name" = "Mask", "slot" = slot_wear_mask_str, "state" = "mask", "toggle" = 1)
-		)
+	inventory_slots = list(
+		/datum/inventory_slot/handcuffs,
+		/datum/inventory_slot/id,
+		/datum/inventory_slot/back,
+		/datum/inventory_slot/pocket,
+		/datum/inventory_slot/pocket/right,
+		/datum/inventory_slot/suit,
+		/datum/inventory_slot/suit_storage,
+		/datum/inventory_slot/mask,
+		/datum/inventory_slot/head,
+		/datum/inventory_slot/glasses,
+		/datum/inventory_slot/ear,
+		/datum/inventory_slot/ear/right,
+		/datum/inventory_slot/belt
+	)
 
 /decl/natural_attack/claws/strong/baxxid
 	name = "forelimb stab"
@@ -104,3 +141,30 @@
 	delay = 15
 	eye_attack_text = "an enormous forelimb"
 	eye_attack_text_victim = "an enormous forelimb"
+
+/obj/item/organ/external/hand/baxxid
+	gripper_type = /datum/inventory_slot/gripper/left_hand/baxxid
+
+/obj/item/organ/external/hand/baxxid/get_dexterity()
+	return min(..(), DEXTERITY_KEYBOARDS)
+
+/obj/item/organ/external/hand/right/baxxid
+	gripper_type = /datum/inventory_slot/gripper/right_hand/baxxid
+
+/obj/item/organ/external/hand/right/baxxid/get_dexterity()
+	return min(..(), DEXTERITY_KEYBOARDS)
+
+/datum/inventory_slot/gripper/left_hand/baxxid
+	can_use_held_item = FALSE
+
+/datum/inventory_slot/gripper/right_hand/baxxid
+	can_use_held_item = FALSE
+
+/obj/item/organ/external/head/baxxid/do_install(mob/living/carbon/human/target, affected, in_place, update_icon, detached)
+	. = ..()
+	if(. && owner)
+		owner.add_held_item_slot(new /datum/inventory_slot/gripper/mouth)
+
+/obj/item/organ/external/head/baxxid/do_uninstall(in_place, detach, ignore_children, update_icon)
+	owner?.remove_held_item_slot(BP_MOUTH)
+	. = ..()

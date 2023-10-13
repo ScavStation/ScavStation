@@ -40,6 +40,16 @@
 	},
 /turf/simulated/floor/usedup,
 /area/ship/scrap/command/bridge)
+"ae" = (
+/obj/machinery/cryopod,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24;
+	req_access = newlist()
+	},
+/obj/machinery/computer/cryopod,
+/turf/simulated/floor/tiled/white,
+/area/ship/scrap/crew/cryo)
 "ag" = (
 /obj/machinery/computer/modular/preset/cardslot/command,
 /turf/simulated/floor/bluegrid/airless,
@@ -229,7 +239,7 @@
 /obj/machinery/cryopod/lifepod,
 /obj/machinery/door/window/southright,
 /obj/machinery/computer/cryopod{
-	pixel_x = 32
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
@@ -298,7 +308,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/gun/projectile/pistol/holdout,
 /obj/structure/bed/padded,
-/obj/effect/submap_landmark/spawnpoint/captain,
+/obj/abstract/submap_landmark/spawnpoint/captain,
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
 "aM" = (
@@ -652,7 +662,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/effect/submap_landmark/joinable_submap/bearcat,
+/obj/abstract/submap_landmark/joinable_submap/bearcat,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/dock)
 "bs" = (
@@ -1247,10 +1257,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/crew/cryo)
-"cD" = (
-/obj/machinery/computer/cryopod,
-/turf/simulated/wall,
-/area/ship/scrap/crew/cryo)
 "cE" = (
 /obj/structure/hygiene/shower{
 	dir = 4
@@ -1359,16 +1365,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	level = 2
 	},
-/obj/effect/submap_landmark/spawnpoint/crewman,
-/turf/simulated/floor/tiled/white,
-/area/ship/scrap/crew/cryo)
-"cP" = (
-/obj/machinery/cryopod,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24;
-	req_access = newlist()
-	},
+/obj/abstract/submap_landmark/spawnpoint/crewman,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/cryo)
 "cQ" = (
@@ -1559,7 +1556,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/effect/submap_landmark/spawnpoint/crewman,
+/obj/abstract/submap_landmark/spawnpoint/crewman,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/cryo)
 "dg" = (
@@ -1714,7 +1711,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/submap_landmark/spawnpoint/crewman,
+/obj/abstract/submap_landmark/spawnpoint/crewman,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/cryo)
 "dv" = (
@@ -1771,7 +1768,7 @@
 /obj/structure/table,
 /obj/machinery/reagentgrinder,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/sign/monkey_painting{
+/obj/structure/sign/painting/monkey_painting{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/usedup,
@@ -2023,7 +2020,7 @@
 /turf/simulated/floor/usedup,
 /area/ship/scrap/crew/hallway/starboard)
 "ed" = (
-/obj/structure/sign/redcross,
+/obj/structure/sign/department/redcross,
 /turf/simulated/wall,
 /area/ship/scrap/crew/medbay)
 "ee" = (
@@ -2485,7 +2482,7 @@
 /obj/structure/closet/medical_wall/filled{
 	pixel_y = -32
 	},
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/retractor,
 /obj/item/scalpel,
 /obj/item/tank/oxygen,
@@ -2506,7 +2503,7 @@
 /obj/structure/sign/warning/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/structure/sign/goldenplaque/medical{
+/obj/structure/sign/plaque/golden/medical{
 	pixel_x = 32
 	},
 /obj/item/storage/firstaid/adv,
@@ -3709,6 +3706,7 @@
 	},
 /obj/effect/floor_decal/corner/blue,
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/airless,
 /area/ship/scrap/maintenance/atmos)
 "hi" = (
@@ -3723,6 +3721,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/airless,
 /area/ship/scrap/maintenance/atmos)
 "hj" = (
@@ -3745,6 +3744,7 @@
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/carp,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/airless,
 /area/ship/scrap/maintenance/atmos)
 "hl" = (
@@ -4037,7 +4037,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/fluid_mapped/fuel,
+/obj/abstract/fluid_mapped/fuel,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/engineering)
 "hI" = (
@@ -4225,7 +4225,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/effect/fluid_mapped/fuel,
+/obj/abstract/fluid_mapped/fuel,
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/usedup,
 /area/ship/scrap/maintenance/engineering)
@@ -4234,7 +4234,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/effect/fluid_mapped/fuel,
+/obj/abstract/fluid_mapped/fuel,
 /obj/structure/sign/warning/nosmoking_1{
 	pixel_y = -32
 	},
@@ -4419,6 +4419,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/tiled/airless,
 /area/ship/scrap/maintenance/atmos)
 "iu" = (
@@ -4500,14 +4501,14 @@
 /turf/simulated/floor/tiled/airless,
 /area/ship/scrap/maintenance/atmos)
 "iE" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/blue{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
 	},
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/visible/blue{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless,
 /area/ship/scrap/maintenance/atmos)
 "iF" = (
@@ -4568,12 +4569,10 @@
 	id_tag = "radaway";
 	opacity = 0
 	},
-/obj/structure/sign{
-	icon_state = "radiation";
+/obj/structure/sign/warning/radioactive{
 	pixel_x = -32
 	},
-/obj/structure/sign{
-	icon_state = "radiation";
+/obj/structure/sign/warning/radioactive{
 	pixel_x = 32
 	},
 /turf/simulated/floor/usedup,
@@ -4832,6 +4831,7 @@
 "js" = (
 /obj/machinery/atmospherics/valve/open,
 /obj/item/shard/borosilicate,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jt" = (
@@ -4944,6 +4944,7 @@
 /area/ship/scrap/maintenance/engine/aft)
 "jH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jI" = (
@@ -4995,6 +4996,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /mob/living/simple_animal/hostile/carp,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jQ" = (
@@ -5075,7 +5077,7 @@
 	dir = 8;
 	icon_state = "bulb1"
 	},
-/obj/item/storage/mirror{
+/obj/structure/mirror{
 	pixel_y = 29
 	},
 /obj/structure/hygiene/sink{
@@ -13520,8 +13522,8 @@ bY
 bY
 aa
 xU
-cD
-cP
+cB
+ae
 dg
 oa
 dB

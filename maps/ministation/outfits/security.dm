@@ -4,6 +4,7 @@
 
 /decl/hierarchy/outfit/job/ministation/security
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	l_ear = /obj/item/radio/headset/ministation_headset_sec
 	gloves = /obj/item/clothing/gloves/thick
 	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(/obj/item/handcuffs = 1)
@@ -29,6 +30,17 @@
 	pda_type = /obj/item/modular_computer/pda/security
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 
+/obj/item/encryptionkey/ministation_headset_sec
+	name = "security radio encryption key"
+	icon_state = "srv_cypherkey"
+	can_decrypt = list(access_security)
+
+/obj/item/radio/headset/ministation_headset_sec
+	name = "security radio headset"
+	desc = "This is used by your elite security force."
+	icon = 'maps/ministation/icons/headset_security.dmi'
+	encryption_keys = list(/obj/item/encryptionkey/ministation_headset_sec)
+
 /decl/hierarchy/outfit/job/ministation/security/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_SECURITY
@@ -49,7 +61,7 @@
 	name = "Ministation - Job - Detective"
 //	head = /obj/item/clothing/head/det
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	l_ear = /obj/item/radio/headset/headset_sec
+	l_ear = /obj/item/radio/headset/ministation_headset_sec
 	uniform = /obj/item/clothing/under/yinglet/scout
 	head = /obj/item/clothing/head/yinglet/scout
 //	uniform = /obj/item/clothing/under/det

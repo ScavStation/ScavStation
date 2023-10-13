@@ -301,6 +301,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"HM" = (
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4central)
 "IZ" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
@@ -350,7 +356,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "NO" = (
-/obj/abstract/level_data/main_level,
+/obj/abstract/level_data_spawner/main_level,
 /turf/space,
 /area/space)
 "SJ" = (
@@ -31926,7 +31932,7 @@ cw
 cw
 cw
 Yv
-gu
+HM
 ld
 vD
 Yv

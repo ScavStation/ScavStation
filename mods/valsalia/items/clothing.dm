@@ -108,7 +108,7 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	body_parts_covered = SLOT_HEAD
 	cold_protection = SLOT_HEAD
-	flags_inv = HIDEEARS | BLOCKHEADHAIR
+	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	protects_against_weather = TRUE
 
@@ -128,7 +128,7 @@
 
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/on_update_icon()
 	. = ..()
-	if(hood.loc == src)
+	if(hood?.loc == src)
 		icon_state = "[icon_state]_hood"
 
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/atmos

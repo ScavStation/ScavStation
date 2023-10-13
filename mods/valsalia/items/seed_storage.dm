@@ -1,3 +1,6 @@
+/obj/item/seeds/bruisegrassseed
+	seed_type = "bruisegrass"
+
 /obj/machinery/vending/hydroseeds/Initialize()
 	products = products || list()
 	products[/obj/item/seeds/bruisegrassseed] = products[/obj/item/seeds/poppyseed] || 3

@@ -12,16 +12,16 @@ Contains helper procs for airflow, called by /connection_group.
 	if(check_airflow_movable(differential) && length(connecting_turfs))
 		//Check for things that are in range of the midpoint turfs.
 		var/list/close_turfs
-		for(var/turf/connecting_turf AS_ANYTHING in connecting_turfs)
+		for(var/turf/connecting_turf as anything in connecting_turfs)
 			if(get_dist(src, connecting_turf) < world.view)
 				LAZYADD(close_turfs, connecting_turf)
 			if(LAZYLEN(close_turfs))
 				airflow_dest = pick(close_turfs) //Pick a random midpoint to fly towards.
 
 				if(repelled)
-					addtimer(CALLBACK(src, .proc/RepelAirflowDest, differential / 5), 0)
+					RepelAirflowDest(differential / 5)
 				else
-					addtimer(CALLBACK(src, .proc/GotoAirflowDest, differential / 10), 0)
+					GotoAirflowDest(differential / 10)
 
 /atom/movable/proc/handle_airflow_stun(var/differential)
 	return
@@ -119,16 +119,14 @@ Contains helper procs for airflow, called by /connection_group.
 	airborne_acceleration = 0
 
 /mob/airflow_hit(atom/A)
-	for(var/mob/M in hearers(src))
-		M.show_message("<span class='danger'>\The [src] slams into \a [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
+	visible_message(SPAN_DANGER("\The [src] slams into \the [A]!"), SPAN_DANGER("You slam into \the [A]!"), SPAN_DANGER("You hear a loud slam!"))
 	playsound(src.loc, "smash.ogg", 25, 1, -1)
 	var/weak_amt = istype(A,/obj/item) ? A:w_class : rand(1,5) //Heheheh
 	SET_STATUS_MAX(src, STAT_WEAK, weak_amt)
 	. = ..()
 
 /obj/airflow_hit(atom/A)
-	for(var/mob/M in hearers(src))
-		M.show_message("<span class='danger'>\The [src] slams into \a [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
+	visible_message(SPAN_DANGER("\The [src] slams into \the [A]!"), null, SPAN_DANGER("You hear a loud slam!"))
 	playsound(src.loc, "smash.ogg", 25, 1, -1)
 	. = ..()
 
@@ -160,7 +158,7 @@ Contains helper procs for airflow, called by /connection_group.
 
 /zone/proc/movables()
 	. = list()
-	for(var/turf/T in contents)
+	for(var/turf/T as anything in contents)
 		for(var/atom/movable/A in T)
 			if(!A.simulated || A.anchored || istype(A, /obj/effect) || isobserver(A))
 				continue

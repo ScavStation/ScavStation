@@ -64,7 +64,7 @@
 	name = "small hood"
 	desc = "A yinglet-sized cloth hood and mantle. It has ear holes."
 	icon = 'mods/valsalia/icons/clothing/head/hood_yinglet.dmi'
-	flags_inv = BLOCKHAIR
+	flags_inv = BLOCK_HEAD_HAIR
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	color = COLOR_BEIGE
 	var/detail_color
@@ -135,7 +135,7 @@
 	slot = ACCESSORY_SLOT_MEDAL
 	slot_flags = SLOT_TIE | SLOT_UPPER_BODY
 	material = /decl/material/solid/metal/gold
-	item_flags = ITEM_FLAG_HOLLOW
+	obj_flags = OBJ_FLAG_HOLLOW
 	var/tmp/dingaling_sound = list(
 		'mods/valsalia/sounds/dingaling1.ogg',
 		'mods/valsalia/sounds/dingaling2.ogg',

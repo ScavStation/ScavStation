@@ -32,10 +32,7 @@
 /area/ministation/bridge)
 "ao" = (
 /obj/structure/table/reinforced,
-/obj/machinery/photocopier/faxmachine{
-	name = "bridge fax machine";
-	department = "Bridge"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "ap" = (
@@ -121,16 +118,6 @@
 /mob/living/simple_animal/aquatic/fish/grump,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
-"aG" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/telecomms/broadcaster/preset_right,
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "aI" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -283,7 +270,9 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/item/radio/intercom,
+/obj/item/radio/intercom{
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "be" = (
@@ -299,7 +288,7 @@
 /turf/simulated/wall/r_wall,
 /area/ministation/bridge/vault)
 "bi" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
@@ -533,7 +522,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/longrange,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bO" = (
@@ -588,7 +577,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/sign/bridge{
+/obj/structure/sign/department/bridge{
 	dir = 4;
 	pixel_x = -32
 	},
@@ -745,6 +734,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/sign/warning/high_voltage{
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "cF" = (
@@ -766,7 +758,7 @@
 /obj/item/clothing/suit/space/void/scav/explorer,
 /obj/item/clothing/head/helmet/space/void/scav/explorer,
 /obj/item/storage/med_pouch/trauma,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
@@ -788,7 +780,9 @@
 /turf/simulated/wall,
 /area/ministation/science)
 "cP" = (
-/obj/machinery/network/acl,
+/obj/machinery/network/acl{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -796,7 +790,6 @@
 /area/ministation/telecomms)
 "cU" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/structure/sign/warning/high_voltage,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
@@ -1080,9 +1073,7 @@
 /area/ministation/shuttle/outgoing)
 "eB" = (
 /obj/structure/table,
-/obj/machinery/photocopier/faxmachine{
-	department = "Court"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "eD" = (
@@ -1355,7 +1346,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "gd" = (
-/obj/machinery/destructive_analyzer,
+/obj/machinery/destructive_analyzer{
+	initial_network_id = "molluscnet"
+	},
 /obj/machinery/camera/network/research,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
@@ -1537,7 +1530,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "hf" = (
-/obj/machinery/fabricator/protolathe,
+/obj/machinery/fabricator/protolathe{
+	initial_network_id = "molluscnet"
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1554,7 +1549,9 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/science)
 "hh" = (
-/obj/machinery/fabricator/bioprinter,
+/obj/machinery/fabricator/bioprinter{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -1565,7 +1562,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/sign/xenoarch{
+/obj/structure/sign/department/xenoarch{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
@@ -1594,7 +1591,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/design_database,
+/obj/machinery/design_database{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/science)
 "hv" = (
@@ -1612,9 +1611,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
 	},
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
@@ -1841,7 +1837,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "iI" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -1853,7 +1851,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "iK" = (
-/obj/machinery/fabricator/imprinter,
+/obj/machinery/fabricator/imprinter{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -2099,7 +2099,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 8
 	},
-/obj/structure/sign/eva{
+/obj/structure/sign/department/eva{
 	pixel_y = -23
 	},
 /turf/simulated/floor/tiled/white,
@@ -2487,7 +2487,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 8
 	},
-/obj/structure/sign/xenoflora{
+/obj/structure/sign/department/xenoflora{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
@@ -2546,7 +2546,9 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/bed/chair/padded/blue,
+/obj/structure/bed/chair/padded/blue{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "ml" = (
@@ -2771,7 +2773,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/telecomms/receiver/preset_right,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -2796,6 +2797,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/s3)
+"nL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3sw)
 "nP" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -2812,7 +2820,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "nW" = (
-/obj/structure/filingcabinet,
+/obj/structure/filing_cabinet,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
@@ -2827,7 +2835,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "nZ" = (
-/obj/machinery/network/relay,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "ob" = (
@@ -2879,7 +2889,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "ot" = (
-/obj/structure/dispenser/oxygen,
+/obj/structure/tank_rack/oxygen,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "oB" = (
@@ -2913,15 +2923,9 @@
 	pixel_x = 24
 	},
 /obj/structure/closet/crate,
-/obj/item/stock_parts/circuitboard/telecomms/broadcaster,
-/obj/item/stock_parts/circuitboard/telecomms/bus,
-/obj/item/stock_parts/circuitboard/telecomms/hub,
-/obj/item/stock_parts/circuitboard/telecomms/message_server,
-/obj/item/stock_parts/circuitboard/telecomms/processor,
-/obj/item/stock_parts/circuitboard/telecomms/receiver,
-/obj/item/stock_parts/circuitboard/telecomms/server,
+/obj/item/stock_parts/circuitboard/telecomms_hub,
 /obj/item/cell,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "oN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3018,7 +3022,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/structure/bed/chair/padded/blue,
+/obj/structure/bed/chair/padded/blue{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "pP" = (
@@ -3078,6 +3084,9 @@
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "rp" = (
@@ -3147,6 +3156,9 @@
 /obj/machinery/door/airlock/glass{
 	name = "Library"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ministation/library)
 "sr" = (
@@ -3182,7 +3194,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/wall/titanium,
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "sM" = (
 /obj/structure/closet,
@@ -3222,7 +3236,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/fullgrass,
 /turf/exterior/grass,
 /area/ministation/hall/n3)
 "tc" = (
@@ -3255,11 +3269,11 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/extinguisher{
+/obj/item/chems/spray/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/item/extinguisher{
+/obj/item/chems/spray/extinguisher{
 	pixel_x = 4;
 	pixel_y = 3
 	},
@@ -3305,7 +3319,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/structure/sign/science_2{
+/obj/structure/sign/department/science_2{
 	pixel_x = 31
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3340,7 +3354,9 @@
 	},
 /area/ministation/telecomms)
 "tV" = (
-/obj/machinery/network/router,
+/obj/machinery/network/router{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3372,7 +3388,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "uA" = (
-/obj/machinery/network/mainframe,
+/obj/machinery/network/mainframe{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3585,11 +3603,11 @@
 /turf/simulated/open,
 /area/ministation/maint/l3ne)
 "xg" = (
-/obj/machinery/computer/telecomms/monitor,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/lino,
+/obj/machinery/computer/modular/preset/cardslot/command,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "xt" = (
 /obj/structure/cable{
@@ -3661,13 +3679,6 @@
 /obj/structure/yinglet_nest,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge/vault)
-"ys" = (
-/obj/machinery/telecomms/server/presets/ministation,
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "yu" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3686,11 +3697,20 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ministation/library)
 "yH" = (
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
+"yP" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
@@ -3707,7 +3727,9 @@
 /turf/space,
 /area/space)
 "zd" = (
-/obj/machinery/fabricator/industrial,
+/obj/machinery/fabricator/industrial{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -3777,7 +3799,7 @@
 /obj/item/clothing/suit/space/void/scav/science,
 /obj/machinery/light,
 /obj/item/storage/med_pouch/trauma,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
@@ -3787,7 +3809,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "Aa" = (
-/obj/machinery/telecomms/bus/preset_one/ministation,
 /obj/machinery/camera/network/command{
 	dir = 4
 	},
@@ -3797,7 +3818,9 @@
 	},
 /area/ministation/telecomms)
 "Ab" = (
-/obj/machinery/network/message_server,
+/obj/machinery/network/message_server{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3868,24 +3891,27 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Ax" = (
-/obj/machinery/telecomms/processor/preset_one/ministation,
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
 	},
 /area/ministation/telecomms)
+"AE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/ministation/library)
 "AH" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall,
 /area/ministation/hall/n3)
 "AL" = (
-/obj/machinery/telecomms/hub/preset/ministation,
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
+/obj/machinery/network/telecomms_hub{
+	initial_network_id = "molluscnet"
 	},
-/area/ministation/telecomms)
-"AM" = (
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -3954,6 +3980,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "Bf" = (
@@ -4002,15 +4031,6 @@
 	temperature = 263
 	},
 /area/ministation/telecomms)
-"Bq" = (
-/obj/machinery/camera/network/command{
-	dir = 4
-	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "Br" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/bluegrid{
@@ -4024,29 +4044,29 @@
 /area/ministation/telecomms)
 "Bt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Bu" = (
-/obj/machinery/computer/telecomms/server,
 /obj/machinery/status_display{
 	pixel_y = 30;
 	pixel_x = -33
 	},
-/turf/simulated/floor/holofloor/lino,
+/obj/machinery/computer/station_alert/all,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Bv" = (
 /obj/structure/table,
 /obj/item/folder/blue,
 /obj/item/pen/blue,
 /obj/item/paper/monitorkey,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Bw" = (
 /obj/machinery/computer/message_monitor,
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Bx" = (
 /obj/structure/table,
@@ -4056,12 +4076,12 @@
 	pixel_y = 20
 	},
 /obj/item/radio,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "By" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4075,11 +4095,13 @@
 "BD" = (
 /obj/structure/table,
 /obj/item/paper_bin,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BE" = (
-/obj/structure/bed/chair/padded/blue,
-/turf/simulated/floor/holofloor/lino,
+/obj/structure/bed/chair/padded/blue{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BG" = (
 /obj/structure/table,
@@ -4088,20 +4110,20 @@
 	},
 /obj/item/disk/nuclear,
 /obj/machinery/recharger,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	level = 2
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4110,7 +4132,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BS" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4138,7 +4160,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Cd" = (
 /turf/simulated/wall,
@@ -4157,12 +4179,12 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Ck" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Cl" = (
 /obj/machinery/firealarm{
@@ -4174,7 +4196,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/command,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Co" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -4204,7 +4226,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "CB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4214,7 +4236,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/hologram/holopad/longrange,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "CC" = (
 /obj/machinery/newscaster{
@@ -4227,7 +4249,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "CD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4248,7 +4270,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "CL" = (
-/obj/machinery/fabricator/robotics,
+/obj/machinery/fabricator/robotics{
+	initial_network_id = "molluscnet"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -4290,7 +4314,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "CU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4378,7 +4402,7 @@
 	dir = 1;
 	pixel_y = -23
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Df" = (
 /obj/structure/table,
@@ -4387,26 +4411,26 @@
 	name = "Station Intercom (General)";
 	pixel_y = -35
 	},
-/obj/item/extinguisher,
-/turf/simulated/floor/holofloor/lino,
+/obj/item/chems/spray/extinguisher,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Dg" = (
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/filing_cabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Dh" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
 	},
-/obj/structure/sign/telecomms{
+/obj/structure/sign/department/telecomms{
 	dir = 4;
 	pixel_x = -32
 	},
@@ -4543,6 +4567,12 @@
 /obj/item/storage/pill_bottle/dice,
 /turf/simulated/floor/carpet/green,
 /area/ministation/library)
+"DX" = (
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3se)
 "Ec" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4930,7 +4960,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/lino,
+/turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "IT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5250,7 +5280,8 @@
 	dir = 8;
 	pixel_x = 32
 	},
-/obj/structure/bed/chair/armchair/black{
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
 /turf/simulated/floor/wood/mahogany,
@@ -5312,9 +5343,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
 "Nh" = (
@@ -5333,9 +5361,6 @@
 "Nm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
@@ -5422,7 +5447,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "NO" = (
-/obj/abstract/level_data/main_level,
+/obj/abstract/level_data_spawner/main_level,
 /turf/space,
 /area/space)
 "NR" = (
@@ -5829,7 +5854,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction/mirrored,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "Qu" = (
@@ -5861,7 +5886,7 @@
 /obj/item/clothing/head/helmet/space/void/scav/science,
 /obj/item/clothing/suit/space/void/scav/science,
 /obj/item/storage/med_pouch/trauma,
-/obj/item/ducttape,
+/obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
 /turf/simulated/floor/tiled/white,
@@ -5901,7 +5926,8 @@
 /area/ministation/court)
 "QT" = (
 /obj/machinery/computer/design_console{
-	dir = 8
+	dir = 8;
+	initial_network_id = "molluscnet"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -5948,6 +5974,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "Rl" = (
@@ -5957,7 +5986,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/structure/sign/xenobio_3{
+/obj/structure/sign/department/xenobio_3{
 	pixel_y = 32;
 	pixel_x = 32
 	},
@@ -6353,10 +6382,7 @@
 	pixel_y = 30;
 	pixel_x = -33
 	},
-/obj/machinery/photocopier/faxmachine{
-	name = "rep office fax machine";
-	department = "Bridge"
-	},
+/obj/machinery/faxmachine,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "Um" = (
@@ -6382,11 +6408,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "Uq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
@@ -6408,9 +6441,6 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "UE" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/structure/closet/crate/uranium,
 /obj/item/wrench,
 /turf/simulated/floor/plating,
@@ -6543,9 +6573,11 @@
 	dir = 5
 	},
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
-/turf/simulated/wall/titanium,
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "VI" = (
 /obj/machinery/light/small{
@@ -6571,12 +6603,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
-"VT" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/wall/titanium,
-/area/ministation/shuttle/outgoing)
 "VW" = (
 /obj/machinery/light{
 	dir = 1
@@ -6892,7 +6918,7 @@
 /area/ministation/science)
 "Ym" = (
 /obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/bush/grassybush,
 /turf/exterior/grass,
 /area/ministation/hall/n3)
 "Yv" = (
@@ -7004,6 +7030,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "YX" = (
@@ -7048,7 +7077,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "Zj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -36393,14 +36422,14 @@ rk
 Wx
 sh
 bl
-aG
+nA
 of
 Aa
 Ax
 cP
-AM
+Ax
 AV
-Bq
+Aa
 bl
 Am
 Dt
@@ -36655,7 +36684,7 @@ sr
 sr
 sr
 sr
-AM
+Ax
 AW
 Br
 bl
@@ -36908,13 +36937,13 @@ Dt
 sh
 bl
 nA
-ys
+Ax
 Ab
 AL
 sr
-AM
+Ax
 Bp
-AM
+Ax
 bl
 Am
 Dt
@@ -37675,7 +37704,7 @@ aa
 aa
 aa
 Dt
-HB
+nL
 sh
 bl
 Bu
@@ -40459,7 +40488,7 @@ aD
 cu
 Mk
 cV
-cW
+yP
 dS
 Rx
 Qh
@@ -41244,7 +41273,7 @@ Sa
 PB
 QD
 Uq
-RG
+AE
 RG
 Jz
 LM
@@ -43084,7 +43113,7 @@ mJ
 mJ
 oE
 ae
-ap
+DX
 op
 ap
 oc
@@ -46682,7 +46711,7 @@ ae
 ae
 nG
 hy
-VT
+nG
 nG
 zl
 nG

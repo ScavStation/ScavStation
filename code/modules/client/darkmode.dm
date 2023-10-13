@@ -1,7 +1,10 @@
-//Darkmode preference by Kmc2000//
+//Darkmode preference by Kmc2000 and in_phaze//
+
+var/global/lightmode_style = url_encode(file2text('code/modules/client/lightmode.css'))
+var/global/darkmode_style = url_encode(file2text('code/modules/client/darkmode.css'))
 
 /*
-This lets you switch chat themes by using winset and CSS loading, you must relog to see this change (or rebuild your browseroutput datum)
+This lets you switch chat themes by using winset and CSS loading.
 Things to note:
 If you change ANYTHING in interface/skin.dmf you need to change it here:
 Format:
@@ -48,7 +51,7 @@ winset(src, "window as appears in skin.dmf after elem", "var to change = current
 	//Status and verb tabs
 	winset(src, "output", "background-color = [COLOR_DARKMODE_BACKGROUND];background-color = none")
 	winset(src, "output", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
-	winset(src, "output", "style=[lightmode_style]")
+	winset(src, "output", "style=[global.lightmode_style]")
 	winset(src, "info", "background-color = [COLOR_DARKMODE_DARKBACKGROUND];background-color = #FFFFFF")
 	winset(src, "info", "tab-background-color = [COLOR_DARKMODE_BACKGROUND];tab-background-color = none")
 	winset(src, "info", "text-color = [COLOR_DARKMODE_TEXT];text-color = #000000")
@@ -110,7 +113,7 @@ winset(src, "window as appears in skin.dmf after elem", "var to change = current
 	//Chat pane
 	winset(src, "output", "background-color = none;background-color = [COLOR_DARKMODE_DARKBACKGROUND]")
 	winset(src, "output", "text-color = #000000;text-color = [COLOR_DARKMODE_TEXT]")
-	winset(src, "output", "style=[darkmode_style]")
+	winset(src, "output", "style=[global.darkmode_style]")
 	//Status and verb tabs
 	winset(src, "info", "background-color = #FFFFFF;background-color = [COLOR_DARKMODE_DARKBACKGROUND]")
 	winset(src, "info", "tab-background-color = none;tab-background-color = [COLOR_DARKMODE_BACKGROUND]")

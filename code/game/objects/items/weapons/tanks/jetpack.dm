@@ -10,7 +10,6 @@
 	var/datum/effect/effect/system/trail/ion/ion_trail
 	var/on = 0.0
 	var/stabilization_on = 0
-	var/volume_rate = 500              //Needed for borg jetpack transfer
 	action_button_name = "Toggle Jetpack"
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT)
@@ -20,6 +19,7 @@
 	. = ..()
 	ion_trail = new /datum/effect/effect/system/trail/ion()
 	ion_trail.set_up(src)
+	refresh_ion_trail()
 
 /obj/item/tank/jetpack/Destroy()
 	QDEL_NULL(ion_trail)
@@ -37,7 +37,7 @@
 	to_chat(usr, "You toggle the stabilization [stabilization_on? "on":"off"].")
 
 /obj/item/tank/jetpack/on_update_icon(override)
-	cut_overlays()
+	. = ..()
 	if(on)
 		add_overlay("[icon_state]-on")
 
@@ -46,15 +46,24 @@
 		overlay.icon_state = "[overlay.icon_state]-on"
 	. = ..()
 
+/obj/item/tank/jetpack/equipped(mob/user, slot)
+	. = ..()
+	refresh_ion_trail()
+
+/obj/item/tank/jetpack/proc/refresh_ion_trail()
+	if(on && isliving(loc))
+		var/mob/living/wearer = loc
+		if(wearer.get_jetpack() == src)
+			ion_trail.start()
+			return
+	ion_trail.stop()
+
 /obj/item/tank/jetpack/verb/toggle()
 	set name = "Toggle Jetpack"
 	set category = "Object"
 
 	on = !on
-	if(on)
-		ion_trail.start()
-	else
-		ion_trail.stop()
+	refresh_ion_trail()
 	update_icon()
 
 	if (ismob(usr))
@@ -86,22 +95,22 @@
 	name = "void jetpack (oxygen)"
 	desc = "It works well in a void."
 	icon = 'icons/obj/items/tanks/jetpack_void.dmi'
-	starting_pressure = list(/decl/material/gas/oxygen = 6*ONE_ATMOSPHERE)
+	starting_pressure = list(/decl/material/gas/oxygen = 6 ATM)
 
 /obj/item/tank/jetpack/oxygen
 	name = "jetpack (oxygen)"
 	desc = "A tank of compressed oxygen for use as propulsion in zero-gravity areas. Use with caution."
-	starting_pressure = list(/decl/material/gas/oxygen = 6*ONE_ATMOSPHERE)
+	starting_pressure = list(/decl/material/gas/oxygen = 6 ATM)
 
 /obj/item/tank/jetpack/carbondioxide
 	name = "jetpack (carbon dioxide)"
 	desc = "A tank of compressed carbon dioxide for use as propulsion in zero-gravity areas. Painted black to indicate that it should not be used as a source for internals."
 	icon = 'icons/obj/items/tanks/jetpack_co2.dmi'
 	distribute_pressure = 0
-	starting_pressure = list(/decl/material/gas/carbon_dioxide = 6*ONE_ATMOSPHERE)
+	starting_pressure = list(/decl/material/gas/carbon_dioxide = 6 ATM)
 
 /obj/item/tank/jetpack/rig
 	name = "integrated manuvering module thrusterpack"
 	desc = "The 'manuvering' part of a manuvering jet module for a hardsuit. You could... probably use this standalone?"
 	var/obj/item/rig/holder
-	
+

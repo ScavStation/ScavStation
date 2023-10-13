@@ -5,6 +5,8 @@
 	pda_type = /obj/item/modular_computer/pda/medical
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 	id_type = /obj/item/card/id/tradeship/medical
+	l_ear = /obj/item/radio/headset/heads/cmo
+
 
 /obj/item/card/id/tradeship/medical
 	name = "identification card"
@@ -13,4 +15,5 @@
 
 /decl/hierarchy/outfit/job/tradeship/doc/junior
 	name = "Tradeship - Job - Junior Doctor"
+	l_ear = /obj/item/radio/headset/headset_med
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service

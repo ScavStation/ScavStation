@@ -1,12 +1,20 @@
+/decl/trait/gluten_allergy
+	name = "Gluten Allergy"
+	description = "You derive less nutrition from bread, and will vomit it up."
+
+/decl/trait/mollusc_lover
+	name = "Mollusc Lover"
+	description = "You greatly enjoy molluscs, deriving a lot of nutrition from them, and can even experience a 'clam high'."
+
 /decl/material/liquid/nutriment/slime_meat
 	overdose = 5
 
-/decl/material/liquid/nutriment/slime_meat/affect_overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	if(alien == IS_YINGLET)
+/decl/material/liquid/nutriment/slime_meat/affect_overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
+	if(M.HasTrait(/decl/trait/mollusc_lover))
 		M.reagents.add_reagent(/decl/material/liquid/psychoactives, 0.1)
 
-/decl/material/liquid/nutriment/slime_meat/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(alien == IS_YINGLET)
+/decl/material/liquid/nutriment/slime_meat/affect_ingest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+	if(M.HasTrait(/decl/trait/mollusc_lover))
 		nutriment_factor = 12
 		M.add_chemical_effect(CE_PAINKILLER, 15)
 	else
@@ -16,8 +24,8 @@
 // This is an appalingly bad way to handle per-species values but it is being inherited from
 // a pre-decl reagent system - will need to rewrite nutriment to pass these values into data
 // to do it properly, long-term TODO.
-/decl/material/liquid/nutriment/bread/on_mob_life(var/mob/living/carbon/M, var/alien, var/location, var/datum/reagents/holder)
-	if(ishuman(M) && alien == IS_YINGLET)
+/decl/material/liquid/nutriment/bread/on_mob_life(var/mob/living/carbon/M, var/location, var/datum/reagents/holder)
+	if(ishuman(M) && M.HasTrait(/decl/trait/gluten_allergy))
 		// Yings do not process bread or breadlike substances well.
 		ingest_met =       0.1 // Make sure there's something to
 		touch_met =        0.1 // throw up when we inevitably puke.
@@ -31,8 +39,8 @@
 		// Process as normal.
 		. = ..()
 
-/decl/material/liquid/nutriment/bread/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(ishuman(M) && alien == IS_YINGLET && prob(ying_puke_prob) && !M.lastpuke)
+/decl/material/liquid/nutriment/bread/affect_ingest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+	if(ishuman(M) && M.HasTrait(/decl/trait/gluten_allergy) && prob(ying_puke_prob) && !M.lastpuke)
 		to_chat(M, SPAN_WARNING("Your gut churns as it struggles to digest \the [lowertext(name)]..."))
 		var/mob/living/carbon/human/H = M
 		H.vomit(timevomit = 3)
