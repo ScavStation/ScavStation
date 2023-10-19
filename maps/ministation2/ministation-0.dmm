@@ -130,7 +130,9 @@
 	name = "Matriarch's locker";
 	req_access = list("ACCESS_CAPTAIN")
 	},
-/obj/machinery/camera/network/command,
+/obj/machinery/camera/network/command{
+	initial_access = null
+	},
 /obj/random_multi/single_item/matriarch_voidsuit,
 /obj/random_multi/single_item/matriarch_helmet,
 /turf/simulated/floor/tiled,
@@ -903,6 +905,10 @@
 "eK" = (
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"eL" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "eM" = (
 /obj/machinery/atm{
 	pixel_y = 32
@@ -1913,6 +1919,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"iL" = (
+/obj/structure/filing_cabinet,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "iM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4232,10 +4242,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
-"wg" = (
-/obj/structure/filing_cabinet,
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
 "wm" = (
 /obj/structure/closet/secure_closet/quartermaster{
 	req_access = list("ACCESS_MINING")
@@ -12463,10 +12469,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
-"ZZ" = (
-/obj/machinery/photocopier,
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
 
 (1,1,1) = {"
 aa
@@ -43679,7 +43681,7 @@ cr
 cr
 cr
 dI
-ZZ
+eL
 au
 gV
 fx
@@ -43936,7 +43938,7 @@ BC
 bV
 cr
 dI
-wg
+iL
 au
 eM
 uj

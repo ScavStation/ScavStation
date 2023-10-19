@@ -484,7 +484,8 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	dir = 1
+	dir = 1;
+	initial_access = null
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
@@ -569,7 +570,8 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	dir = 1
+	dir = 1;
+	initial_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -2714,7 +2716,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "nj" = (
-/obj/machinery/camera/network/command,
+/obj/machinery/camera/network/command{
+	initial_access = null
+	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/bridge/vault)
 "nl" = (
@@ -3834,7 +3838,8 @@
 /area/ministation/maint/l3sw)
 "Aa" = (
 /obj/machinery/camera/network/command{
-	dir = 4
+	dir = 4;
+	initial_access = null
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -4219,7 +4224,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/camera/network/command,
+/obj/machinery/camera/network/command{
+	initial_access = null
+	},
 /turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Co" = (
