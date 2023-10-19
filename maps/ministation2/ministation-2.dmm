@@ -1067,10 +1067,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
-"ez" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/plating,
-/area/ministation/maint/l3se)
 "eA" = (
 /obj/machinery/computer/shuttle_control/explore/ministation{
 	dir = 8
@@ -1741,13 +1737,13 @@
 /area/ministation/maint/l3nw)
 "if" = (
 /obj/machinery/door/window/eastright,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "scishut";
-	name = "science shutters"
-	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	name = "science shutters";
+	id_tag = "scishut"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/science)
@@ -1938,10 +1934,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"iY" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/plating,
-/area/ministation/maint/l3nw)
 "iZ" = (
 /obj/machinery/vending/coffee{
 	dir = 4;
@@ -2717,6 +2709,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3nw)
+"mX" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/library)
 "mY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light/small{
@@ -3051,18 +3049,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
-"pN" = (
-/obj/effect/floor_decal/carpet/green{
-	dir = 8
-	},
-/obj/effect/floor_decal/stoneborder{
-	dir = 8
-	},
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/simulated/floor/wood/walnut,
-/area/ministation/library)
 "pP" = (
 /obj/effect/floor_decal/techfloor/orange,
 /turf/simulated/floor/tiled,
@@ -3152,6 +3138,10 @@
 /obj/effect/overmap/visitable/ship/landable/science_shuttle,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
+"rI" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3se)
 "rK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -3218,6 +3208,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"st" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/stoneborder{
+	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/library)
 "sB" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3376,9 +3378,9 @@
 	icon_state = "0-4"
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -3718,6 +3720,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"yf" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3nw)
 "yh" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -3788,13 +3794,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
-"zf" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/camera/network/research{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3918,7 +3917,7 @@
 /obj/machinery/button/blast_door{
 	id_tag = "scishut";
 	name = "Science Shutter Button";
-	pixel_x = -25;
+	pixel_x = 5;
 	pixel_y = -6
 	},
 /obj/item/radio/intercom{
@@ -3975,12 +3974,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall,
 /area/ministation/hall/n3)
-"AI" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/simulated/floor/wood/walnut,
-/area/ministation/library)
 "AL" = (
 /obj/machinery/network/telecomms_hub{
 	initial_network_id = "molluscnet"
@@ -4005,6 +3998,14 @@
 /obj/effect/floor_decal/techfloor/orange,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"AU" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters{
+	name = "science shutters";
+	id_tag = "scishut"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/science)
 "AV" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -4602,9 +4603,9 @@
 	icon_state = "0-4"
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -4831,6 +4832,13 @@
 "GD" = (
 /turf/simulated/open,
 /area/ministation/hall/n3)
+"GF" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/research{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "GJ" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
@@ -5206,6 +5214,10 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/machinery/camera/network/command{
+	dir = 1;
+	initial_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "LS" = (
@@ -5252,9 +5264,9 @@
 	icon_state = "0-8"
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -5284,11 +5296,11 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
-	},
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
+	},
 /turf/simulated/floor/airless,
 /area/ministation/bridge)
 "Ms" = (
@@ -6762,9 +6774,9 @@
 	pixel_y = 1
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -37480,7 +37492,7 @@ Ua
 ZV
 PV
 co
-iY
+yf
 av
 PO
 aa
@@ -40350,7 +40362,7 @@ ae
 ae
 ae
 if
-cL
+AU
 ae
 ae
 EB
@@ -41884,7 +41896,7 @@ Ix
 hj
 Sm
 te
-zf
+GF
 iJ
 nz
 hG
@@ -41905,7 +41917,7 @@ DB
 ae
 iG
 ap
-ez
+rI
 oc
 aa
 aa
@@ -42635,7 +42647,7 @@ LA
 lH
 Sa
 wY
-AI
+mX
 BV
 KU
 Vw
@@ -43153,7 +43165,7 @@ nZ
 nl
 RR
 RR
-pN
+st
 RR
 Aj
 XI

@@ -49,12 +49,12 @@
 "aq" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/westleft,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "cargoshut";
-	name = "cargo shutters"
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 2
+	},
+/obj/machinery/door/blast/shutters{
+	id_tag = "cargoshut";
+	name = "cargo shutters"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -806,10 +806,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"er" = (
-/obj/structure/filing_cabinet,
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
 "es" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -1008,10 +1004,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
-"fa" = (
-/obj/machinery/photocopier,
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
 "fe" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/hall/s1)
@@ -1112,6 +1104,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"fs" = (
+/obj/structure/tank_rack/oxygen,
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "ft" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/hologram/holopad,
@@ -1132,11 +1128,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fv" = (
-/obj/machinery/door/blast/shutters/open{
+/obj/effect/wallframe_spawn,
+/obj/machinery/door/blast/shutters{
 	id_tag = "cargoshut";
 	name = "cargo shutters"
 	},
-/obj/effect/wallframe_spawn,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fw" = (
@@ -1749,10 +1745,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/double/glass/mining{
+/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/machinery/door/airlock/double/mining{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning/fulltile,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hv" = (
@@ -3104,13 +3100,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"py" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/camera/autoname,
-/turf/simulated/floor/wood/walnut,
-/area/ministation/dorms)
 "pz" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -4253,6 +4242,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"wg" = (
+/turf/simulated/wall/r_wall,
+/area/space)
 "wm" = (
 /obj/structure/closet/secure_closet/quartermaster{
 	req_access = list("ACCESS_MINING")
@@ -4783,6 +4775,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ministation/atmospherics)
+"zJ" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l1central)
 "zN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5083,6 +5079,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
+"AV" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "AW" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -5608,13 +5608,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"Dg" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green,
-/obj/machinery/camera/network/engineering{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/engine)
 "Di" = (
 /obj/machinery/door/airlock/atmos,
 /turf/simulated/floor/reinforced/airless,
@@ -9332,13 +9325,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/double/glass/mining{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/machinery/door/airlock/double/mining{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "MW" = (
@@ -10000,6 +9993,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood/yew,
+/area/ministation/engine)
+"Pi" = (
+/obj/machinery/drone_fabricator/maintenance,
+/turf/simulated/floor/plating,
 /area/ministation/engine)
 "Pl" = (
 /obj/structure/sign/warning/airlock{
@@ -10909,11 +10906,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "SW" = (
-/obj/machinery/camera/network/engineering{
-	dir = 1;
-	name = "Tank Storage"
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/camera/network/engineering,
+/turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "SZ" = (
 /obj/machinery/light/small{
@@ -10942,9 +10939,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Ti" = (
-/obj/machinery/drone_fabricator/maintenance,
-/turf/simulated/floor/plating,
-/area/ministation/engine)
+/obj/structure/filing_cabinet,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "Tj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -11054,8 +11051,12 @@
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
 "Tz" = (
-/turf/simulated/wall/r_wall,
-/area/space)
+/obj/machinery/camera/network/engineering{
+	dir = 1;
+	name = "Tank Storage"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "TA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -11162,10 +11163,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/engine)
-"TV" = (
-/obj/machinery/drone_fabricator/construction,
-/turf/simulated/floor/plating,
 /area/ministation/engine)
 "TX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11677,11 +11674,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Wr" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/camera/network/engineering{
+	dir = 8
 	},
-/obj/machinery/camera/network/engineering,
-/turf/simulated/floor/tiled/steel_grid,
+/turf/simulated/floor/plating,
 /area/ministation/engine)
 "Ws" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -11972,6 +11969,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"XF" = (
+/obj/machinery/drone_fabricator/construction,
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "XI" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
@@ -12327,9 +12328,12 @@
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "Zg" = (
-/obj/structure/tank_rack/oxygen,
-/turf/simulated/floor/plating,
-/area/ministation/engine)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/camera/autoname,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "Zh" = (
 /obj/machinery/light{
 	dir = 4;
@@ -12496,10 +12500,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
-"ZV" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/plating,
-/area/ministation/maint/l1central)
 "ZX" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -43487,7 +43487,7 @@ Xg
 Ia
 Lq
 di
-ZV
+zJ
 jh
 RH
 bt
@@ -43733,7 +43733,7 @@ cr
 cr
 cr
 dI
-fa
+AV
 au
 gV
 fx
@@ -43990,7 +43990,7 @@ BC
 bV
 cr
 dI
-er
+Ti
 au
 eM
 uj
@@ -45081,7 +45081,7 @@ aV
 aV
 fZ
 Fi
-Wr
+SW
 PW
 XQ
 Zi
@@ -47853,7 +47853,7 @@ zW
 zW
 ev
 zW
-py
+Zg
 ne
 zW
 zW
@@ -48427,7 +48427,7 @@ yo
 Ql
 Zn
 Ot
-Dg
+Wr
 gY
 NQ
 NQ
@@ -48942,11 +48942,11 @@ wP
 Sg
 Ii
 WJ
-Ti
+Pi
 NQ
-TV
+XF
 NQ
-Tz
+wg
 av
 Ig
 gm
@@ -49203,7 +49203,7 @@ ph
 NQ
 NQ
 NQ
-Tz
+wg
 av
 Tt
 ZM
@@ -49459,8 +49459,8 @@ NQ
 pV
 cv
 Oa
-SW
 Tz
+wg
 av
 Og
 av
@@ -49717,7 +49717,7 @@ xo
 ta
 pf
 NQ
-Tz
+wg
 aa
 Tx
 aa
@@ -49973,8 +49973,8 @@ xo
 XC
 ta
 pf
-Zg
-Tz
+fs
+wg
 aa
 mu
 aa
@@ -50231,7 +50231,7 @@ XO
 av
 av
 av
-Tz
+wg
 aa
 mu
 aa

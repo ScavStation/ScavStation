@@ -559,12 +559,12 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "barshut";
-	name = "bar shutters"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -723,11 +723,11 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/southright,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "hopshut";
-	name = "office shutters"
-	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/blast/shutters{
+	name = "office shutters";
+	id_tag = "hopshut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hop)
 "fw" = (
@@ -2579,7 +2579,7 @@
 /area/ministation/medical)
 "qB" = (
 /obj/structure/table/marble,
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	id_tag = "Kitchen1";
 	name = "Kitchen"
 	},
@@ -3808,22 +3808,22 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "hopshut";
-	name = "office shutters"
-	},
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters{
+	name = "office shutters";
+	id_tag = "hopshut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hop)
 "vf" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "hopshut";
-	name = "office shutters"
-	},
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters{
+	name = "office shutters";
+	id_tag = "hopshut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hop)
 "vi" = (
@@ -4111,15 +4111,11 @@
 	pixel_x = -8;
 	pixel_y = 1
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "barshut";
-	name = "bar shutters"
-	},
-/obj/machinery/light_switch{
-	pixel_x = -5;
-	pixel_y = 35
-	},
 /obj/structure/flora/pottedplant/flower,
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
+	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "wo" = (
@@ -4139,6 +4135,10 @@
 /obj/structure/hygiene/sink/kitchen{
 	dir = 8;
 	pixel_x = 21
+	},
+/obj/machinery/light_switch{
+	pixel_x = 27;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -4262,9 +4262,9 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	id_tag = "barshut";
-	name = "bar shutters"
+	name = "Bar Shutters"
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
@@ -4398,11 +4398,11 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "barshut";
-	name = "bar shutters"
-	},
 /obj/item/trash/tray,
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
+	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "xt" = (
@@ -4561,9 +4561,9 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	id_tag = "barshut";
-	name = "bar shutters"
+	name = "Bar Shutters"
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
@@ -4581,13 +4581,13 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "barshut";
-	name = "bar shutters"
-	},
 /obj/item/chems/condiment/ketchup,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
@@ -6235,6 +6235,13 @@
 /obj/item/flashlight/maglight,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"Jd" = (
+/obj/machinery/light_switch{
+	pixel_x = -26;
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/ministation/cafe)
 "Jl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
@@ -6441,16 +6448,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
-"Lf" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
 "Lm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -7226,9 +7223,9 @@
 "QL" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "secshut";
-	name = "security shutter"
+/obj/machinery/door/blast/shutters{
+	name = "security shutter";
+	id_tag = "secshut"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/security)
@@ -7355,6 +7352,16 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
+"RZ" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -8029,14 +8036,14 @@
 /area/ministation/hall/w2)
 "XY" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "secshut";
-	name = "security shutter"
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/blast/shutters{
+	name = "security shutter";
+	id_tag = "secshut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/security)
 "Yj" = (
@@ -39915,7 +39922,7 @@ HO
 HO
 rt
 al
-Lf
+RZ
 aV
 oX
 ty
@@ -45075,7 +45082,7 @@ bj
 zD
 tS
 At
-zF
+Jd
 vr
 bj
 aa
