@@ -183,6 +183,9 @@
 /obj/structure/ladder,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
+"bu" = (
+/turf/simulated/wall,
+/area/ministation/maint/l2underpass)
 "bv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1320,6 +1323,12 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
+"iK" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2underpass)
 "iN" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -3239,12 +3248,6 @@
 /obj/item/chems/glass/beaker,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
-"sZ" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l2underpass)
 "ta" = (
 /obj/structure/iv_drip,
 /turf/simulated/floor/tiled/white,
@@ -5600,9 +5603,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/hall/w2)
-"CY" = (
-/turf/simulated/wall,
-/area/ministation/maint/l2underpass)
 "Dj" = (
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -37556,7 +37556,7 @@ aa
 aa
 aa
 aa
-aa
+HO
 HO
 HO
 HO
@@ -37813,11 +37813,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -38070,11 +38070,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -38327,10 +38327,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -38584,10 +38584,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -38841,10 +38841,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -39098,7 +39098,7 @@ aa
 aa
 aa
 aa
-aa
+HO
 HO
 HO
 HO
@@ -39159,9 +39159,9 @@ aa
 aa
 HO
 HO
-CY
-CY
-CY
+bu
+bu
+bu
 HO
 HO
 HO
@@ -39416,9 +39416,9 @@ aa
 aa
 HO
 HO
-CY
+bu
 LH
-CY
+bu
 HO
 HO
 HO
@@ -39673,9 +39673,9 @@ HO
 HO
 HO
 HO
-CY
+bu
 Ck
-CY
+bu
 HO
 HO
 HO
@@ -39930,9 +39930,9 @@ HO
 HO
 HO
 HO
-CY
+bu
 Ck
-CY
+bu
 HO
 HO
 HO
@@ -40187,9 +40187,9 @@ HO
 HO
 HO
 HO
-CY
+bu
 Ck
-CY
+bu
 HO
 HO
 HO
@@ -40444,9 +40444,9 @@ HO
 HO
 HO
 HO
-CY
-sZ
-CY
+bu
+iK
+bu
 HO
 HO
 HO
@@ -40701,9 +40701,9 @@ HO
 HO
 HO
 HO
-CY
+bu
 Ck
-CY
+bu
 HO
 HO
 HO
@@ -40958,9 +40958,9 @@ HO
 HO
 HO
 HO
-CY
+bu
 Ck
-CY
+bu
 HO
 HO
 HO
@@ -41215,9 +41215,9 @@ HO
 HO
 HO
 HO
-CY
+bu
 Ck
-CY
+bu
 HO
 HO
 HO
@@ -41472,9 +41472,9 @@ HO
 HO
 HO
 HO
-CY
+bu
 LH
-CY
+bu
 HO
 HO
 HO
@@ -41729,9 +41729,9 @@ HO
 HO
 HO
 HO
-CY
-CY
-CY
+bu
+bu
+bu
 HO
 HO
 HO
