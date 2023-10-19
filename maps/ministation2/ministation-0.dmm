@@ -135,17 +135,6 @@
 /obj/random_multi/single_item/matriarch_helmet,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
-"aX" = (
-/obj/structure/table,
-/obj/machinery/cell_charger,
-/obj/item/radio/intercom{
-	name = "Common Channel";
-	pixel_y = 25
-	},
-/obj/item/eftpos,
-/obj/machinery/camera/network/mining,
-/turf/simulated/floor/tiled,
-/area/space)
 "aZ" = (
 /obj/structure/fitness/punchingbag,
 /turf/simulated/floor/wood/walnut,
@@ -814,17 +803,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"er" = (
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "cargoshut";
-	name = "cargo shutters"
-	},
-/obj/effect/wallframe_spawn,
-/obj/machinery/status_display/supply_display{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
 "es" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -925,18 +903,6 @@
 "eK" = (
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
-"eL" = (
-/obj/structure/table,
-/obj/item/storage/firstaid/regular{
-	pixel_x = 6;
-	pixel_y = -5
-	},
-/obj/item/multitool,
-/obj/machinery/status_display{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "eM" = (
 /obj/machinery/atm{
 	pixel_y = 32
@@ -1035,14 +1001,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
-"fa" = (
-/obj/machinery/photocopier,
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
-/area/space)
 "fe" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/hall/s1)
@@ -1143,21 +1101,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"fs" = (
-/obj/structure/table,
-/obj/item/stack/material/cardstock/mapped/cardboard/fifty,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = -1
-	},
-/obj/machinery/atm{
-	pixel_y = 32
-	},
-/obj/item/stack/material/pane/mapped/glass/ten,
-/obj/item/stack/material/sheet/mapped/steel/ten,
-/obj/item/stack/material/shiny/mapped/aluminium/ten,
-/turf/simulated/floor/tiled,
-/area/space)
 "ft" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/hologram/holopad,
@@ -1932,6 +1875,9 @@
 "iq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/newscaster{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "iu" = (
@@ -1967,11 +1913,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
-"iL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
-/area/space)
 "iM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2615,8 +2556,15 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ministation/atmospherics)
 "me" = (
-/obj/machinery/camera/network/mining,
 /obj/structure/table,
+/obj/item/storage/firstaid/regular{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/obj/item/multitool,
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "mg" = (
@@ -3146,10 +3094,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"py" = (
-/obj/machinery/merchant_pad,
-/turf/simulated/floor/tiled,
-/area/space)
 "pz" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -4289,15 +4233,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "wg" = (
-/obj/abstract/landmark/start{
-	name = "Cargo Technician"
-	},
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/obj/structure/bed/chair/office,
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/cargo)
 "wm" = (
 /obj/structure/closet/secure_closet/quartermaster{
 	req_access = list("ACCESS_MINING")
@@ -4467,17 +4405,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
-"xn" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/obj/machinery/fabricator,
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "xo" = (
 /obj/machinery/emitter,
 /turf/simulated/floor/plating,
@@ -5140,14 +5067,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
-"AV" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
-/obj/structure/filing_cabinet,
-/turf/simulated/floor/tiled,
-/area/space)
 "AW" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -5650,22 +5569,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
-"CX" = (
-/obj/structure/table/reinforced,
-/obj/item/folder/yellow,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/machinery/door/window/brigdoor/westleft,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "cargoshut";
-	name = "cargo shutters"
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 2
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "CZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -5689,17 +5592,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"Dg" = (
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "cargoshut";
-	name = "cargo shutters"
-	},
-/obj/effect/wallframe_spawn,
-/obj/machinery/status_display/supply_display{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "Di" = (
 /obj/machinery/door/airlock/atmos,
 /turf/simulated/floor/reinforced/airless,
@@ -7987,6 +7879,10 @@
 	dir = 8;
 	pixel_x = -24
 	},
+/obj/machinery/status_display{
+	pixel_y = 30;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "IL" = (
@@ -9289,6 +9185,9 @@
 /area/ministation/engine)
 "Mx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "MB" = (
@@ -10076,19 +9975,6 @@
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/engine)
-"Pi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "Pl" = (
 /obj/structure/sign/warning/airlock{
 	pixel_x = 32
@@ -10946,10 +10832,6 @@
 /obj/structure/bed/chair/office,
 /turf/simulated/floor/tiled,
 /area/ministation/smcontrol)
-"SN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/space)
 "SO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -10997,18 +10879,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
-"SW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "SZ" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -11035,13 +10905,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
-"Ti" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/obj/machinery/computer/modular/preset/merchant/ministation,
-/turf/simulated/floor/tiled,
-/area/space)
 "Tj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -11071,6 +10934,7 @@
 /obj/item/stack/material/pane/mapped/glass/ten,
 /obj/item/stack/material/sheet/mapped/steel/ten,
 /obj/item/stack/material/shiny/mapped/aluminium/ten,
+/obj/machinery/camera/network/mining,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "Tt" = (
@@ -11149,21 +11013,6 @@
 	},
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
-"Tz" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "TA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -11254,6 +11103,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/machinery/newscaster{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "TR" = (
@@ -11268,28 +11120,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
-"TV" = (
-/obj/structure/table,
-/obj/item/paper_bin{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/obj/item/stamp/denied{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/obj/item/pen/red,
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/obj/machinery/button/blast_door{
-	id_tag = "cargoshut";
-	name = "Cargo Shutters Button";
-	pixel_y = 23
-	},
-/obj/item/stamp/cargo,
-/turf/simulated/floor/tiled,
-/area/space)
 "TX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11416,9 +11246,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
-"UF" = (
-/turf/simulated/floor/tiled,
-/area/space)
 "UG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -11802,14 +11629,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
-"Wr" = (
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "cargoshut";
-	name = "cargo shutters"
-	},
-/obj/effect/wallframe_spawn,
-/turf/simulated/floor/tiled,
-/area/space)
 "Ws" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/vehicle/train/cargo/engine,
@@ -12099,22 +11918,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
-"XF" = (
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_y = -23
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "XI" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
@@ -12639,25 +12442,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
-"ZV" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/machinery/door/airlock/mining,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "ZX" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -12680,9 +12464,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "ZZ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/cargo)
 
 (1,1,1) = {"
 aa
@@ -39801,12 +39585,12 @@ fq
 au
 aa
 aa
-ac
-fs
-AV
-xn
-ZZ
-SW
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -40058,12 +39842,12 @@ IH
 au
 aa
 aa
-ac
-eL
-UF
-UF
-UF
-XF
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -40315,12 +40099,12 @@ jV
 au
 aa
 aa
-ac
-aX
-py
-iL
-SN
-Tz
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -40572,12 +40356,12 @@ jW
 au
 aa
 aa
-ac
-TV
-Ti
-wg
-fa
-Pi
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -40829,12 +40613,12 @@ jX
 au
 aa
 aa
-ac
-Dg
-Wr
-CX
-Wr
-ZV
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43384,7 +43168,7 @@ wN
 ZH
 au
 au
-er
+fv
 fv
 aq
 fv
@@ -43895,7 +43679,7 @@ cr
 cr
 cr
 dI
-dI
+ZZ
 au
 gV
 fx
@@ -44152,7 +43936,7 @@ BC
 bV
 cr
 dI
-dI
+wg
 au
 eM
 uj
