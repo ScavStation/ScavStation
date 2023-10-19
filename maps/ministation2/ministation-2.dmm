@@ -1067,6 +1067,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"ez" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3se)
 "eA" = (
 /obj/machinery/computer/shuttle_control/explore/ministation{
 	dir = 8
@@ -1934,6 +1938,10 @@
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"iY" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3nw)
 "iZ" = (
 /obj/machinery/vending/coffee{
 	dir = 4;
@@ -2174,6 +2182,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "kp" = (
@@ -3042,6 +3051,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"pN" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/stoneborder{
+	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/library)
 "pP" = (
 /obj/effect/floor_decal/techfloor/orange,
 /turf/simulated/floor/tiled,
@@ -3437,6 +3458,10 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/command{
+	dir = 8;
+	initial_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "uH" = (
@@ -3701,6 +3726,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "ym" = (
@@ -3761,6 +3789,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
+"zf" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/research{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "zl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -3787,6 +3822,9 @@
 	dir = 1;
 	pixel_y = 42;
 	pixel_x = -28
+	},
+/obj/machinery/camera/network/hallway{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
@@ -3937,6 +3975,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall,
 /area/ministation/hall/n3)
+"AI" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/library)
 "AL" = (
 /obj/machinery/network/telecomms_hub{
 	initial_network_id = "molluscnet"
@@ -37436,7 +37480,7 @@ Ua
 ZV
 PV
 co
-Ee
+iY
 av
 PO
 aa
@@ -41840,7 +41884,7 @@ Ix
 hj
 Sm
 te
-LC
+zf
 iJ
 nz
 hG
@@ -41861,7 +41905,7 @@ DB
 ae
 iG
 ap
-ap
+ez
 oc
 aa
 aa
@@ -42591,7 +42635,7 @@ LA
 lH
 Sa
 wY
-kk
+AI
 BV
 KU
 Vw
@@ -43109,7 +43153,7 @@ nZ
 nl
 RR
 RR
-RR
+pN
 RR
 Aj
 XI

@@ -199,6 +199,7 @@
 /area/ministation/maint/westatmos)
 "bm" = (
 /obj/structure/closet/radiation,
+/obj/machinery/camera/network/engineering,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "bp" = (
@@ -805,6 +806,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"er" = (
+/obj/structure/filing_cabinet,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "es" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -905,10 +910,6 @@
 "eK" = (
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
-"eL" = (
-/obj/machinery/photocopier,
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
 "eM" = (
 /obj/machinery/atm{
 	pixel_y = 32
@@ -1007,6 +1008,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"fa" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "fe" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/hall/s1)
@@ -1226,6 +1231,9 @@
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
+	},
+/obj/machinery/camera/network/mining{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -1501,10 +1509,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "gD" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/machinery/port_gen/pacman/super,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "gE" = (
@@ -1919,10 +1927,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
-"iL" = (
-/obj/structure/filing_cabinet,
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
 "iM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2161,10 +2165,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
-"kd" = (
-/obj/machinery/drone_fabricator/maintenance,
-/turf/simulated/floor/plating,
-/area/ministation/maint/westatmos)
 "ke" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -3104,6 +3104,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"py" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/camera/autoname,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "pz" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -4125,6 +4132,10 @@
 	dir = 4;
 	pixel_x = 21
 	},
+/obj/machinery/camera/network/engineering{
+	dir = 8;
+	name = "Tank Storage"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "vC" = (
@@ -4275,6 +4286,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/camera/network/hallway{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "wA" = (
@@ -4343,7 +4357,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/cable,
+/obj/structure/table/steel,
+/obj/item/stack/material/puck/mapped/uranium/ten,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "wS" = (
@@ -4768,11 +4783,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ministation/atmospherics)
-"zJ" = (
-/obj/item/stack/material/puck/mapped/uranium/ten,
-/obj/structure/table/steel,
-/turf/simulated/floor/plating,
-/area/ministation/engine)
 "zN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5598,6 +5608,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"Dg" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/camera/network/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "Di" = (
 /obj/machinery/door/airlock/atmos,
 /turf/simulated/floor/reinforced/airless,
@@ -5922,6 +5939,9 @@
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
+	},
+/obj/machinery/camera/network/engineering{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -10754,6 +10774,9 @@
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "Sw" = (
@@ -10885,6 +10908,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
+"SW" = (
+/obj/machinery/camera/network/engineering{
+	dir = 1;
+	name = "Tank Storage"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "SZ" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -10910,6 +10940,10 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
+/area/ministation/engine)
+"Ti" = (
+/obj/machinery/drone_fabricator/maintenance,
+/turf/simulated/floor/plating,
 /area/ministation/engine)
 "Tj" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -11019,6 +11053,9 @@
 	},
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
+"Tz" = (
+/turf/simulated/wall/r_wall,
+/area/space)
 "TA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -11125,6 +11162,10 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
+/area/ministation/engine)
+"TV" = (
+/obj/machinery/drone_fabricator/construction,
+/turf/simulated/floor/plating,
 /area/ministation/engine)
 "TX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11635,6 +11676,13 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"Wr" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/camera/network/engineering,
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "Ws" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/vehicle/train/cargo/engine,
@@ -11714,7 +11762,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "WJ" = (
-/obj/structure/tank_rack,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "WK" = (
@@ -12279,9 +12327,9 @@
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "Zg" = (
-/obj/machinery/drone_fabricator/construction,
-/turf/simulated/floor,
-/area/ministation/maint/eastatmos)
+/obj/structure/tank_rack/oxygen,
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "Zh" = (
 /obj/machinery/light{
 	dir = 4;
@@ -12448,6 +12496,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"ZV" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l1central)
 "ZX" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -40908,7 +40960,7 @@ aa
 aa
 DD
 aE
-kd
+zr
 zr
 PD
 PD
@@ -43435,7 +43487,7 @@ Xg
 Ia
 Lq
 di
-NX
+ZV
 jh
 RH
 bt
@@ -43681,7 +43733,7 @@ cr
 cr
 cr
 dI
-eL
+fa
 au
 gV
 fx
@@ -43938,7 +43990,7 @@ BC
 bV
 cr
 dI
-iL
+er
 au
 eM
 uj
@@ -45029,7 +45081,7 @@ aV
 aV
 fZ
 Fi
-iB
+Wr
 PW
 XQ
 Zi
@@ -47801,7 +47853,7 @@ zW
 zW
 ev
 zW
-cL
+py
 ne
 zW
 zW
@@ -48375,7 +48427,7 @@ yo
 Ql
 Zn
 Ot
-Ot
+Dg
 gY
 NQ
 NQ
@@ -48887,15 +48939,15 @@ Fr
 Dt
 gD
 wP
-zJ
+Sg
 Ii
 WJ
-pf
-pf
-pf
+Ti
+NQ
+TV
+NQ
+Tz
 av
-aa
-Eo
 Ig
 gm
 aa
@@ -49150,8 +49202,8 @@ cv
 ph
 NQ
 NQ
-av
-aa
+NQ
+Tz
 av
 Tt
 ZM
@@ -49407,8 +49459,8 @@ NQ
 pV
 cv
 Oa
-av
-aa
+SW
+Tz
 av
 Og
 av
@@ -49659,13 +49711,13 @@ av
 av
 XO
 av
-Sg
+pf
 xo
 xo
 ta
+pf
 NQ
-av
-aa
+Tz
 aa
 Tx
 aa
@@ -49920,9 +49972,9 @@ Mo
 xo
 XC
 ta
-NQ
-av
-aa
+pf
+Zg
+Tz
 aa
 mu
 aa
@@ -50158,7 +50210,7 @@ aa
 aa
 aa
 Cn
-Zg
+WB
 Xj
 PC
 OX
@@ -50179,7 +50231,7 @@ XO
 av
 av
 av
-aa
+Tz
 aa
 mu
 aa
