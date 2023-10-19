@@ -179,6 +179,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"bs" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
 "bv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -2264,6 +2268,15 @@
 /obj/structure/closet/crate/bin/ministation,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"pw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
 "pA" = (
 /obj/structure/table,
 /obj/item/chems/drinks/glass2/mug,
@@ -3226,6 +3239,12 @@
 /obj/item/chems/glass/beaker,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"sZ" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2underpass)
 "ta" = (
 /obj/structure/iv_drip,
 /turf/simulated/floor/tiled/white,
@@ -5498,6 +5517,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"Ck" = (
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2underpass)
 "Co" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -5578,6 +5600,9 @@
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/hall/w2)
+"CY" = (
+/turf/simulated/wall,
+/area/ministation/maint/l2underpass)
 "Dj" = (
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -6438,6 +6463,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"LH" = (
+/obj/structure/ladder,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2underpass)
 "LI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -35221,16 +35253,16 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
 mq
-ez
+mq
+mq
+mq
+mq
+mq
+mq
+mq
+mq
+pw
 uK
 aG
 mf
@@ -35478,16 +35510,16 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
 mq
-Co
+dd
+dd
+dd
+dd
+dd
+pl
+dd
+ir
+dd
 PL
 dd
 dd
@@ -35735,14 +35767,14 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
+mq
+Co
+mq
+mq
+mq
+mq
+mq
+mq
 mq
 Lt
 dd
@@ -35992,9 +36024,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -36249,9 +36281,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -36506,9 +36538,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -36763,9 +36795,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -36805,9 +36837,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+HO
+HO
+HO
 HO
 HO
 HO
@@ -37020,9 +37052,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -37062,9 +37094,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+HO
+HO
+HO
 HO
 HO
 HO
@@ -37277,9 +37309,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -37315,14 +37347,14 @@ Wd
 DJ
 ph
 qf
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-HO
+qf
+qf
+qf
+qf
+qf
+qf
+qf
+qf
 HO
 HO
 HO
@@ -37532,11 +37564,11 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
+mq
+mq
+mq
+Co
+mq
 HO
 HO
 HO
@@ -37572,14 +37604,14 @@ Oc
 qf
 qf
 qf
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-HO
+Wd
+Wd
+Wd
+Dn
+Wd
+Wd
+wr
+qf
 HO
 HO
 HO
@@ -37789,11 +37821,11 @@ aa
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
+mq
+bs
+dd
+dd
+mq
 HO
 HO
 HO
@@ -37826,17 +37858,17 @@ An
 An
 zl
 Wd
+DJ
+Wd
+Dn
+Wd
 qf
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-aa
-aa
-HO
+qf
+qf
+qf
+qf
+qf
+qf
 HO
 HO
 HO
@@ -38046,11 +38078,11 @@ aa
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
+mq
+mq
+mq
+mq
+mq
 cg
 HO
 HO
@@ -38084,10 +38116,10 @@ Qs
 DF
 Wd
 qf
-aa
-aa
-aa
-aa
+qf
+qf
+qf
+qf
 aa
 aa
 aa
@@ -39118,7 +39150,7 @@ HO
 HO
 HO
 HO
-HO
+cg
 aa
 aa
 aa
@@ -39127,9 +39159,9 @@ aa
 aa
 HO
 HO
-HO
-HO
-HO
+CY
+CY
+CY
 HO
 HO
 HO
@@ -39384,9 +39416,9 @@ aa
 aa
 HO
 HO
-HO
-HO
-HO
+CY
+LH
+CY
 HO
 HO
 HO
@@ -39641,9 +39673,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+Ck
+CY
 HO
 HO
 HO
@@ -39898,9 +39930,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+Ck
+CY
 HO
 HO
 HO
@@ -40155,9 +40187,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+Ck
+CY
 HO
 HO
 HO
@@ -40412,9 +40444,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+sZ
+CY
 HO
 HO
 HO
@@ -40669,9 +40701,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+Ck
+CY
 HO
 HO
 HO
@@ -40926,9 +40958,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+Ck
+CY
 HO
 HO
 HO
@@ -41183,9 +41215,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+Ck
+CY
 HO
 HO
 HO
@@ -41440,9 +41472,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+LH
+CY
 HO
 HO
 HO
@@ -41697,9 +41729,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+CY
+CY
+CY
 HO
 HO
 HO

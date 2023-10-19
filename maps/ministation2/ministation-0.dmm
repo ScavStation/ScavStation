@@ -72,6 +72,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
+"aE" = (
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "aG" = (
 /obj/structure/table,
 /obj/effect/floor_decal/industrial/warning{
@@ -920,6 +926,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/junction,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "eR" = (
@@ -1776,6 +1785,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "hv" = (
@@ -1894,6 +1906,18 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
+"ij" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "il" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/supermatter)
@@ -2474,6 +2498,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
@@ -3075,6 +3102,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"ps" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/ministation/maint/westatmos)
 "px" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
@@ -3091,6 +3122,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"pz" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/cargo)
 "pB" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
@@ -3144,6 +3186,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"qa" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/cargo)
 "qb" = (
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -3167,6 +3216,13 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"qr" = (
+/obj/structure/closet,
+/obj/random/maintenance,
+/obj/item/clothing/accessory/toggleable/hawaii,
+/obj/random/gloves,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l1ne)
 "qt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3315,6 +3371,9 @@
 /area/ministation/hall/s1)
 "rn" = (
 /obj/machinery/light/small,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "rp" = (
@@ -4918,9 +4977,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "AM" = (
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
@@ -4971,9 +5027,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "AW" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -7781,15 +7834,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "IK" = (
-/obj/machinery/power/apc{
-	name = "_South APC";
-	pixel_y = -24
-	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/ministation/cargo)
+/area/ministation/maint/l1nw)
 "IL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/maintenance,
@@ -8178,6 +8227,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -8780,6 +8832,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "Lr" = (
@@ -9345,17 +9400,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "NH" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 24
-	},
 /obj/structure/cable{
 	icon_state = "0-8"
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24
 	},
 /turf/simulated/floor/plating,
 /area/ministation/eva)
@@ -9648,6 +9694,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"OG" = (
+/obj/machinery/power/apc{
+	areastring = null;
+	name = "_South APC";
+	pixel_y = -24
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/eva)
 "OH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -9746,6 +9803,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
@@ -10051,6 +10111,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "Ql" = (
@@ -10171,6 +10234,9 @@
 /area/ministation/dorms)
 "QP" = (
 /obj/machinery/door/airlock/command,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/eva)
 "QR" = (
@@ -10561,6 +10627,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "Sk" = (
@@ -10911,6 +10980,9 @@
 	},
 /obj/structure/disposalpipe/junction/mirrored{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
@@ -40760,7 +40832,7 @@ aa
 aa
 aa
 DD
-zr
+aE
 kd
 zr
 PD
@@ -41785,9 +41857,9 @@ aa
 aa
 aa
 aa
-aa
-Pr
 DD
+ps
+Dv
 AM
 AW
 iz
@@ -42042,8 +42114,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+DD
+DD
 DD
 DD
 DD
@@ -42517,7 +42589,7 @@ ky
 Ti
 ht
 au
-NX
+pz
 jh
 AN
 nG
@@ -42773,7 +42845,7 @@ fS
 gs
 gP
 JV
-el
+qa
 rn
 jh
 xX
@@ -44314,7 +44386,7 @@ Xx
 kh
 gQ
 kh
-Jk
+ij
 gQ
 gQ
 gQ
@@ -45333,7 +45405,7 @@ dR
 ml
 cr
 MK
-AF
+OG
 eu
 nS
 eu
@@ -45591,7 +45663,7 @@ cr
 cr
 pa
 AF
-AF
+qr
 qM
 eu
 SE

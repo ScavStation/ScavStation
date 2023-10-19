@@ -1320,7 +1320,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "fU" = (
@@ -1726,6 +1728,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"hY" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/ministation/maint/l3nw)
 "if" = (
 /obj/machinery/door/window/eastright,
 /obj/machinery/door/blast/shutters/open{
@@ -2804,6 +2811,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
+"nN" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "nP" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -3031,6 +3042,10 @@
 /obj/effect/floor_decal/techfloor/orange,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"qi" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3nw)
 "qx" = (
 /obj/machinery/keycard_auth{
 	pixel_x = -24
@@ -3310,6 +3325,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/hall/n3)
+"ty" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/ministation/maint/l3se)
 "tA" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/machinery/computer/modular/preset/civilian,
@@ -3387,6 +3407,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
+"ur" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3nw)
 "uA" = (
 /obj/machinery/network/mainframe{
 	initial_network_id = "molluscnet"
@@ -34325,14 +34349,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -34582,14 +34606,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -34839,14 +34863,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -35096,9 +35120,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -35353,9 +35377,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -35610,9 +35634,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -35867,9 +35891,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -36124,9 +36148,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -36381,9 +36405,9 @@ PO
 PO
 PO
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -36637,10 +36661,10 @@ mW
 mW
 dZ
 PO
-aa
-aa
-aa
-aa
+PO
+PO
+cw
+cw
 aa
 aa
 aa
@@ -36893,11 +36917,11 @@ Il
 Af
 mW
 qY
+ur
+hY
 PO
-aa
-aa
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -36931,8 +36955,8 @@ cw
 cw
 cw
 cw
-aa
-aa
+cw
+cw
 Dt
 sh
 bl
@@ -37151,10 +37175,10 @@ co
 Ee
 av
 PO
-aa
-aa
-aa
-aa
+PO
+PO
+cw
+cw
 aa
 aa
 ab
@@ -37188,8 +37212,8 @@ cw
 cw
 cw
 cw
-aa
-aa
+cw
+cw
 Dt
 sh
 bl
@@ -38179,8 +38203,8 @@ co
 co
 av
 PO
-aa
-aa
+PO
+PO
 aa
 aa
 aa
@@ -38232,8 +38256,8 @@ Df
 bl
 Am
 Dt
-aa
-aa
+Dt
+Dt
 aa
 aa
 aa
@@ -38435,9 +38459,9 @@ co
 co
 fU
 av
+ur
+qi
 PO
-aa
-aa
 aa
 aa
 aa
@@ -38488,9 +38512,9 @@ CT
 Dg
 bl
 fN
+Wx
+pb
 Dt
-aa
-aa
 aa
 aa
 aa
@@ -38746,8 +38770,8 @@ bl
 bl
 Dw
 Dt
-aa
-aa
+Dt
+Dt
 aa
 aa
 aa
@@ -39003,8 +39027,8 @@ Dh
 Dk
 Dx
 Zv
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -39260,8 +39284,8 @@ tt
 tt
 Mn
 kg
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -39517,8 +39541,8 @@ Rt
 Pg
 Dy
 kg
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -39774,8 +39798,8 @@ tt
 tt
 Mn
 kg
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -40031,8 +40055,8 @@ tt
 oN
 Dx
 Zv
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -40287,9 +40311,9 @@ ae
 ae
 ae
 RT
-Zv
-aa
-aa
+oc
+oc
+oc
 aa
 aa
 aa
@@ -40544,9 +40568,9 @@ MF
 Mi
 ae
 iG
+yh
+ty
 oc
-aa
-aa
 aa
 aa
 aa
@@ -40802,8 +40826,8 @@ oB
 ae
 iG
 oc
-aa
-aa
+oc
+oc
 aa
 aa
 aa
@@ -41517,7 +41541,7 @@ nl
 nl
 nl
 nl
-Tc
+LW
 Rx
 QR
 Ir
@@ -42028,8 +42052,8 @@ bq
 bg
 ad
 aa
-aa
-aa
+nl
+nl
 nl
 Tc
 Rx
@@ -42285,9 +42309,9 @@ bq
 bg
 ad
 ad
-aa
-aa
 nl
+nN
+nS
 Tc
 Rx
 Rx
@@ -42542,8 +42566,8 @@ ym
 bg
 ad
 aa
-aa
-aa
+nl
+nl
 nQ
 ET
 VJ
