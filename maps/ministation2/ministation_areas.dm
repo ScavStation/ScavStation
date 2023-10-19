@@ -69,8 +69,8 @@
 /area/ministation/maint/eastatmos
 	name = "\improper East Atmos Maintenance"
 
-/area/ministation/maint/l1nw
-	name = "\improper Level One North West Maintenance"
+// /area/ministation/maint/l1nw
+//	name = "\improper Level One North West Maintenance"
 
 /area/ministation/maint/l1ne
 	name = "\improper Level One North East Maintenance"
