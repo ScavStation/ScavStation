@@ -179,6 +179,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"br" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/mouse/brown/Tom,
+/turf/simulated/floor/lino,
+/area/ministation/cafe)
+"bs" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
+"bu" = (
+/turf/simulated/wall,
+/area/ministation/maint/l2underpass)
 "bv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -302,7 +320,6 @@
 	pixel_y = 24
 	},
 /obj/machinery/camera/autoname,
-/obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer{
 	name = "kitchen freezer floor";
 	temperature = 263
@@ -389,6 +406,9 @@
 /area/ministation/maint/l2centraln)
 "cH" = (
 /obj/structure/catwalk,
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/ministation/hall/w2)
 "cN" = (
@@ -549,12 +569,12 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "barshut";
-	name = "bar shutters"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -713,11 +733,11 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/southright,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "hopshut";
-	name = "office shutters"
-	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/blast/shutters{
+	name = "office shutters";
+	id_tag = "hopshut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hop)
 "fw" = (
@@ -1316,6 +1336,12 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
+"iK" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2underpass)
 "iN" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -1469,6 +1495,9 @@
 "jS" = (
 /obj/structure/table,
 /obj/item/book/skill/service/cooking,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "jT" = (
@@ -1722,14 +1751,15 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -23
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "conpipe-c"
 	},
+/obj/structure/hygiene/sink{
+	dir = 8;
+	pixel_x = -11
+	},
+/obj/item/chems/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "lR" = (
@@ -2057,6 +2087,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/camera/network/security{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "ol" = (
@@ -2264,6 +2297,15 @@
 /obj/structure/closet/crate/bin/ministation,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"pw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
 "pA" = (
 /obj/structure/table,
 /obj/item/chems/drinks/glass2/mug,
@@ -2551,7 +2593,7 @@
 /area/ministation/medical)
 "qB" = (
 /obj/structure/table/marble,
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	id_tag = "Kitchen1";
 	name = "Kitchen"
 	},
@@ -3442,7 +3484,7 @@
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/mouse/brown/Tom,
+/obj/machinery/cooker/fryer,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "tT" = (
@@ -3780,22 +3822,22 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "hopshut";
-	name = "office shutters"
-	},
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters{
+	name = "office shutters";
+	id_tag = "hopshut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hop)
 "vf" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "hopshut";
-	name = "office shutters"
-	},
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters{
+	name = "office shutters";
+	id_tag = "hopshut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hop)
 "vi" = (
@@ -3852,9 +3894,6 @@
 /turf/simulated/floor/wood,
 /area/ministation/detective)
 "vr" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -27
-	},
 /obj/machinery/chem_master/condimaster{
 	name = "CondiMaster Neo"
 	},
@@ -4083,15 +4122,11 @@
 	pixel_x = -8;
 	pixel_y = 1
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "barshut";
-	name = "bar shutters"
-	},
-/obj/machinery/light_switch{
-	pixel_x = -5;
-	pixel_y = 35
-	},
 /obj/structure/flora/pottedplant/flower,
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
+	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "wo" = (
@@ -4112,6 +4147,10 @@
 	dir = 8;
 	pixel_x = 21
 	},
+/obj/machinery/light_switch{
+	pixel_x = 27;
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wr" = (
@@ -4123,6 +4162,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "wt" = (
+/obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer{
 	name = "kitchen freezer floor";
 	temperature = 263
@@ -4234,9 +4274,9 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	id_tag = "barshut";
-	name = "bar shutters"
+	name = "Bar Shutters"
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
@@ -4250,9 +4290,9 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table,
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	dir = 8
-	},
+/obj/item/flame/lighter/zippo,
+/obj/item/chems/drinks/shaker,
+/obj/item/clothing/head/collectable/tophat,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wW" = (
@@ -4370,20 +4410,20 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "barshut";
-	name = "bar shutters"
-	},
 /obj/item/trash/tray,
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
+	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "xt" = (
-/obj/item/chems/drinks/shaker,
 /obj/structure/table,
-/obj/item/clothing/head/collectable/tophat,
-/obj/item/flame/lighter/zippo,
 /obj/machinery/newscaster{
 	pixel_x = 32
+	},
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -4533,9 +4573,9 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
+/obj/machinery/door/blast/shutters{
 	id_tag = "barshut";
-	name = "bar shutters"
+	name = "Bar Shutters"
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
@@ -4553,13 +4593,13 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "barshut";
-	name = "bar shutters"
-	},
 /obj/item/chems/condiment/ketchup,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
@@ -4728,6 +4768,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "yB" = (
@@ -4737,7 +4781,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "yC" = (
@@ -4777,11 +4820,6 @@
 /obj/machinery/newscaster{
 	pixel_x = 32
 	},
-/obj/structure/hygiene/sink{
-	dir = 4;
-	pixel_x = 11
-	},
-/obj/item/chems/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "yG" = (
@@ -5192,20 +5230,33 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "At" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -27
-	},
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/cooker/grill,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Au" = (
-/obj/machinery/cooker/fryer,
-/turf/simulated/floor/lino,
-/area/ministation/cafe)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hydro)
 "Av" = (
-/obj/machinery/cooker/grill,
+/obj/structure/closet/chefcloset,
+/obj/item/storage/box/ammo/beanbags,
+/obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	},
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/hydroponics,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 30
+	},
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Aw" = (
@@ -5498,6 +5549,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"Ck" = (
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2underpass)
 "Co" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -6039,13 +6093,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "HN" = (
-/obj/structure/closet/chefcloset,
-/obj/item/storage/box/ammo/beanbags,
-/obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = -29
 	},
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/hydroponics,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "HO" = (
@@ -6201,6 +6252,10 @@
 /obj/item/flashlight/maglight,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"Jd" = (
+/obj/structure/closet/secure_closet/freezer/kitchen,
+/turf/simulated/floor/lino,
+/area/ministation/cafe)
 "Jl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
@@ -6438,6 +6493,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"LH" = (
+/obj/structure/ladder,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2underpass)
 "LI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -7175,9 +7237,9 @@
 "QL" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "secshut";
-	name = "security shutter"
+/obj/machinery/door/blast/shutters{
+	name = "security shutter";
+	id_tag = "secshut"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/security)
@@ -7304,6 +7366,16 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
+"RZ" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/machinery/camera/autoname{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -7978,14 +8050,14 @@
 /area/ministation/hall/w2)
 "XY" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "secshut";
-	name = "security shutter"
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/blast/shutters{
+	name = "security shutter";
+	id_tag = "secshut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/security)
 "Yj" = (
@@ -35221,16 +35293,16 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
 mq
-ez
+mq
+mq
+mq
+mq
+mq
+mq
+mq
+mq
+pw
 uK
 aG
 mf
@@ -35478,16 +35550,16 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
 mq
-Co
+dd
+dd
+dd
+dd
+dd
+pl
+dd
+ir
+dd
 PL
 dd
 dd
@@ -35735,14 +35807,14 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
+mq
+Co
+mq
+mq
+mq
+mq
+mq
+mq
 mq
 Lt
 dd
@@ -35992,9 +36064,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -36249,9 +36321,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -36506,9 +36578,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -36763,9 +36835,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -36805,9 +36877,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+HO
+HO
+HO
 HO
 HO
 HO
@@ -37020,9 +37092,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -37062,9 +37134,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+HO
+HO
+HO
 HO
 HO
 HO
@@ -37277,9 +37349,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+mq
+dd
+mq
 HO
 HO
 HO
@@ -37315,14 +37387,14 @@ Wd
 DJ
 ph
 qf
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-HO
+qf
+qf
+qf
+qf
+qf
+qf
+qf
+qf
 HO
 HO
 HO
@@ -37524,7 +37596,6 @@ aa
 aa
 aa
 aa
-aa
 HO
 HO
 HO
@@ -37533,10 +37604,11 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+mq
+mq
+mq
+Co
+mq
 HO
 HO
 HO
@@ -37572,14 +37644,14 @@ Oc
 qf
 qf
 qf
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-HO
+Wd
+Wd
+Wd
+Dn
+Wd
+Wd
+wr
+qf
 HO
 HO
 HO
@@ -37781,11 +37853,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 HO
 HO
 HO
@@ -37794,6 +37861,11 @@ HO
 HO
 HO
 HO
+mq
+bs
+dd
+dd
+mq
 HO
 HO
 HO
@@ -37826,17 +37898,17 @@ An
 An
 zl
 Wd
+DJ
+Wd
+Dn
+Wd
 qf
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-aa
-aa
-HO
+qf
+qf
+qf
+qf
+qf
+qf
 HO
 HO
 HO
@@ -38038,11 +38110,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 HO
 HO
 HO
@@ -38051,6 +38118,11 @@ HO
 HO
 HO
 HO
+mq
+mq
+mq
+mq
+mq
 cg
 HO
 HO
@@ -38084,10 +38156,10 @@ Qs
 DF
 Wd
 qf
-aa
-aa
-aa
-aa
+qf
+qf
+qf
+qf
 aa
 aa
 aa
@@ -38295,10 +38367,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -38552,10 +38624,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -38809,10 +38881,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
 HO
 HO
 HO
@@ -39066,7 +39138,7 @@ aa
 aa
 aa
 aa
-aa
+HO
 HO
 HO
 HO
@@ -39118,7 +39190,7 @@ HO
 HO
 HO
 HO
-HO
+cg
 aa
 aa
 aa
@@ -39127,9 +39199,9 @@ aa
 aa
 HO
 HO
-HO
-HO
-HO
+bu
+bu
+bu
 HO
 HO
 HO
@@ -39384,9 +39456,9 @@ aa
 aa
 HO
 HO
-HO
-HO
-HO
+bu
+LH
+bu
 HO
 HO
 HO
@@ -39641,9 +39713,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+Ck
+bu
 HO
 HO
 HO
@@ -39864,7 +39936,7 @@ HO
 HO
 rt
 al
-te
+RZ
 aV
 oX
 ty
@@ -39898,9 +39970,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+Ck
+bu
 HO
 HO
 HO
@@ -40155,9 +40227,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+Ck
+bu
 HO
 HO
 HO
@@ -40412,9 +40484,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+iK
+bu
 HO
 HO
 HO
@@ -40669,9 +40741,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+Ck
+bu
 HO
 HO
 HO
@@ -40926,9 +40998,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+Ck
+bu
 HO
 HO
 HO
@@ -41183,9 +41255,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+Ck
+bu
 HO
 HO
 HO
@@ -41440,9 +41512,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+LH
+bu
 HO
 HO
 HO
@@ -41697,9 +41769,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+bu
+bu
+bu
 HO
 HO
 HO
@@ -45024,7 +45096,7 @@ bj
 zD
 tS
 At
-zF
+Aw
 vr
 bj
 aa
@@ -45280,9 +45352,9 @@ yw
 zf
 zE
 Ae
-Au
 zF
-HN
+zF
+zF
 ED
 aa
 aa
@@ -45537,7 +45609,7 @@ yx
 qB
 zF
 Af
-Av
+zF
 zF
 Lr
 ED
@@ -45794,7 +45866,7 @@ IX
 qB
 zF
 Ag
-Aw
+zF
 zF
 Dj
 bj
@@ -46050,9 +46122,9 @@ xT
 yy
 bj
 zH
-Rw
-zF
-zF
+br
+Jd
+Av
 TX
 bj
 aa
@@ -46822,7 +46894,7 @@ aB
 zh
 zK
 Ah
-zF
+HN
 bj
 rq
 WL
@@ -47586,7 +47658,7 @@ up
 tL
 dq
 is
-EL
+Au
 lQ
 qM
 yM

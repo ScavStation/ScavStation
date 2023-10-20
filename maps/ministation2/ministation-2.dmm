@@ -484,7 +484,8 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	dir = 1
+	dir = 1;
+	initial_access = null
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
@@ -569,7 +570,8 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	dir = 1
+	dir = 1;
+	initial_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -1320,7 +1322,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "fU" = (
@@ -1726,15 +1730,20 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"hY" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/ministation/maint/l3nw)
 "if" = (
 /obj/machinery/door/window/eastright,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "scishut";
-	name = "science shutters"
-	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	name = "science shutters";
+	id_tag = "scishut"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/science)
@@ -2165,6 +2174,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "kp" = (
@@ -2699,6 +2709,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3nw)
+"mX" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/library)
 "mY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light/small{
@@ -2707,7 +2723,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "nj" = (
-/obj/machinery/camera/network/command,
+/obj/machinery/camera/network/command{
+	initial_access = null
+	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/bridge/vault)
 "nl" = (
@@ -2804,6 +2822,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
+"nN" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "nP" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -3031,6 +3053,10 @@
 /obj/effect/floor_decal/techfloor/orange,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"qi" = (
+/obj/structure/ladder,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3nw)
 "qx" = (
 /obj/machinery/keycard_auth{
 	pixel_x = -24
@@ -3112,6 +3138,10 @@
 /obj/effect/overmap/visitable/ship/landable/science_shuttle,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
+"rI" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3se)
 "rK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -3178,6 +3208,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"st" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/stoneborder{
+	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/library)
 "sB" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3310,6 +3352,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/hall/n3)
+"ty" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/turf/simulated/open,
+/area/ministation/maint/l3se)
 "tA" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/machinery/computer/modular/preset/civilian,
@@ -3331,9 +3378,9 @@
 	icon_state = "0-4"
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -3387,6 +3434,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
+"ur" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3nw)
 "uA" = (
 /obj/machinery/network/mainframe{
 	initial_network_id = "molluscnet"
@@ -3409,6 +3460,10 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/command{
+	dir = 8;
+	initial_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "uH" = (
@@ -3665,6 +3720,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"yf" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3nw)
 "yh" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -3672,6 +3731,9 @@
 "yj" = (
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 4
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
@@ -3760,6 +3822,9 @@
 	pixel_y = 42;
 	pixel_x = -28
 	},
+/obj/machinery/camera/network/hallway{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "zt" = (
@@ -3810,7 +3875,8 @@
 /area/ministation/maint/l3sw)
 "Aa" = (
 /obj/machinery/camera/network/command{
-	dir = 4
+	dir = 4;
+	initial_access = null
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -3851,7 +3917,7 @@
 /obj/machinery/button/blast_door{
 	id_tag = "scishut";
 	name = "Science Shutter Button";
-	pixel_x = -25;
+	pixel_x = 5;
 	pixel_y = -6
 	},
 /obj/item/radio/intercom{
@@ -3932,6 +3998,14 @@
 /obj/effect/floor_decal/techfloor/orange,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"AU" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters{
+	name = "science shutters";
+	id_tag = "scishut"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/science)
 "AV" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -4195,7 +4269,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/camera/network/command,
+/obj/machinery/camera/network/command{
+	initial_access = null
+	},
 /turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Co" = (
@@ -4527,9 +4603,9 @@
 	icon_state = "0-4"
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -4756,6 +4832,13 @@
 "GD" = (
 /turf/simulated/open,
 /area/ministation/hall/n3)
+"GF" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/research{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "GJ" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
@@ -5131,6 +5214,10 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/machinery/camera/network/command{
+	dir = 1;
+	initial_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "LS" = (
@@ -5177,9 +5264,9 @@
 	icon_state = "0-8"
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -5209,11 +5296,11 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
-	},
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
+	},
 /turf/simulated/floor/airless,
 /area/ministation/bridge)
 "Ms" = (
@@ -6687,9 +6774,9 @@
 	pixel_y = 1
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "bridgeblast";
-	name = "bridge blast door"
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -34325,14 +34412,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -34582,14 +34669,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -34839,14 +34926,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -35096,9 +35183,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -35353,9 +35440,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -35610,9 +35697,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -35867,9 +35954,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -36124,9 +36211,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -36381,9 +36468,9 @@ PO
 PO
 PO
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -36637,10 +36724,10 @@ mW
 mW
 dZ
 PO
-aa
-aa
-aa
-aa
+PO
+PO
+cw
+cw
 aa
 aa
 aa
@@ -36893,11 +36980,11 @@ Il
 Af
 mW
 qY
+ur
+hY
 PO
-aa
-aa
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -36931,8 +37018,8 @@ cw
 cw
 cw
 cw
-aa
-aa
+cw
+cw
 Dt
 sh
 bl
@@ -37151,10 +37238,10 @@ co
 Ee
 av
 PO
-aa
-aa
-aa
-aa
+PO
+PO
+cw
+cw
 aa
 aa
 ab
@@ -37188,8 +37275,8 @@ cw
 cw
 cw
 cw
-aa
-aa
+cw
+cw
 Dt
 sh
 bl
@@ -37405,7 +37492,7 @@ Ua
 ZV
 PV
 co
-Ee
+yf
 av
 PO
 aa
@@ -38179,8 +38266,8 @@ co
 co
 av
 PO
-aa
-aa
+PO
+PO
 aa
 aa
 aa
@@ -38232,8 +38319,8 @@ Df
 bl
 Am
 Dt
-aa
-aa
+Dt
+Dt
 aa
 aa
 aa
@@ -38435,9 +38522,9 @@ co
 co
 fU
 av
+ur
+qi
 PO
-aa
-aa
 aa
 aa
 aa
@@ -38488,9 +38575,9 @@ CT
 Dg
 bl
 fN
+Wx
+pb
 Dt
-aa
-aa
 aa
 aa
 aa
@@ -38746,8 +38833,8 @@ bl
 bl
 Dw
 Dt
-aa
-aa
+Dt
+Dt
 aa
 aa
 aa
@@ -39003,8 +39090,8 @@ Dh
 Dk
 Dx
 Zv
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -39260,8 +39347,8 @@ tt
 tt
 Mn
 kg
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -39517,8 +39604,8 @@ Rt
 Pg
 Dy
 kg
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -39774,8 +39861,8 @@ tt
 tt
 Mn
 kg
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -40031,8 +40118,8 @@ tt
 oN
 Dx
 Zv
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -40275,7 +40362,7 @@ ae
 ae
 ae
 if
-cL
+AU
 ae
 ae
 EB
@@ -40287,9 +40374,9 @@ ae
 ae
 ae
 RT
-Zv
-aa
-aa
+oc
+oc
+oc
 aa
 aa
 aa
@@ -40544,9 +40631,9 @@ MF
 Mi
 ae
 iG
+yh
+ty
 oc
-aa
-aa
 aa
 aa
 aa
@@ -40802,8 +40889,8 @@ oB
 ae
 iG
 oc
-aa
-aa
+oc
+oc
 aa
 aa
 aa
@@ -41517,7 +41604,7 @@ nl
 nl
 nl
 nl
-Tc
+LW
 Rx
 QR
 Ir
@@ -41809,7 +41896,7 @@ Ix
 hj
 Sm
 te
-LC
+GF
 iJ
 nz
 hG
@@ -41830,7 +41917,7 @@ DB
 ae
 iG
 ap
-ap
+rI
 oc
 aa
 aa
@@ -42028,8 +42115,8 @@ bq
 bg
 ad
 aa
-aa
-aa
+nl
+nl
 nl
 Tc
 Rx
@@ -42285,9 +42372,9 @@ bq
 bg
 ad
 ad
-aa
-aa
 nl
+nN
+nS
 Tc
 Rx
 Rx
@@ -42542,8 +42629,8 @@ ym
 bg
 ad
 aa
-aa
-aa
+nl
+nl
 nQ
 ET
 VJ
@@ -42560,7 +42647,7 @@ LA
 lH
 Sa
 wY
-kk
+mX
 BV
 KU
 Vw
@@ -43078,7 +43165,7 @@ nZ
 nl
 RR
 RR
-RR
+st
 RR
 Aj
 XI
