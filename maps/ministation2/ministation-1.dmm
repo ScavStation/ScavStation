@@ -179,6 +179,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"br" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/mouse/brown/Tom,
+/turf/simulated/floor/lino,
+/area/ministation/cafe)
 "bs" = (
 /obj/structure/ladder,
 /turf/simulated/floor/plating,
@@ -309,7 +320,6 @@
 	pixel_y = 24
 	},
 /obj/machinery/camera/autoname,
-/obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer{
 	name = "kitchen freezer floor";
 	temperature = 263
@@ -1485,6 +1495,9 @@
 "jS" = (
 /obj/structure/table,
 /obj/item/book/skill/service/cooking,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "jT" = (
@@ -1738,14 +1751,15 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -23
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "conpipe-c"
 	},
+/obj/structure/hygiene/sink{
+	dir = 8;
+	pixel_x = -11
+	},
+/obj/item/chems/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "lR" = (
@@ -3470,7 +3484,7 @@
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/mouse/brown/Tom,
+/obj/machinery/cooker/fryer,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "tT" = (
@@ -3880,9 +3894,6 @@
 /turf/simulated/floor/wood,
 /area/ministation/detective)
 "vr" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -27
-	},
 /obj/machinery/chem_master/condimaster{
 	name = "CondiMaster Neo"
 	},
@@ -4151,6 +4162,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "wt" = (
+/obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer{
 	name = "kitchen freezer floor";
 	temperature = 263
@@ -4278,9 +4290,9 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table,
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	dir = 8
-	},
+/obj/item/flame/lighter/zippo,
+/obj/item/chems/drinks/shaker,
+/obj/item/clothing/head/collectable/tophat,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wW" = (
@@ -4406,12 +4418,12 @@
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "xt" = (
-/obj/item/chems/drinks/shaker,
 /obj/structure/table,
-/obj/item/clothing/head/collectable/tophat,
-/obj/item/flame/lighter/zippo,
 /obj/machinery/newscaster{
 	pixel_x = 32
+	},
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
@@ -4759,6 +4771,7 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
+/obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "yB" = (
@@ -4768,7 +4781,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "yC" = (
@@ -4808,11 +4820,6 @@
 /obj/machinery/newscaster{
 	pixel_x = 32
 	},
-/obj/structure/hygiene/sink{
-	dir = 4;
-	pixel_x = 11
-	},
-/obj/item/chems/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "yG" = (
@@ -5223,20 +5230,33 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "At" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -27
-	},
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/cooker/grill,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Au" = (
-/obj/machinery/cooker/fryer,
-/turf/simulated/floor/lino,
-/area/ministation/cafe)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hydro)
 "Av" = (
-/obj/machinery/cooker/grill,
+/obj/structure/closet/chefcloset,
+/obj/item/storage/box/ammo/beanbags,
+/obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	},
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/hydroponics,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 30
+	},
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Aw" = (
@@ -6073,13 +6093,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "HN" = (
-/obj/structure/closet/chefcloset,
-/obj/item/storage/box/ammo/beanbags,
-/obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = -29
 	},
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/hydroponics,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "HO" = (
@@ -6236,10 +6253,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Jd" = (
-/obj/machinery/light_switch{
-	pixel_x = -26;
-	dir = 4
-	},
+/obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Jl" = (
@@ -45082,7 +45096,7 @@ bj
 zD
 tS
 At
-Jd
+Aw
 vr
 bj
 aa
@@ -45338,9 +45352,9 @@ yw
 zf
 zE
 Ae
-Au
 zF
-HN
+zF
+zF
 ED
 aa
 aa
@@ -45595,7 +45609,7 @@ yx
 qB
 zF
 Af
-Av
+zF
 zF
 Lr
 ED
@@ -45852,7 +45866,7 @@ IX
 qB
 zF
 Ag
-Aw
+zF
 zF
 Dj
 bj
@@ -46108,9 +46122,9 @@ xT
 yy
 bj
 zH
-Rw
-zF
-zF
+br
+Jd
+Av
 TX
 bj
 aa
@@ -46880,7 +46894,7 @@ aB
 zh
 zK
 Ah
-zF
+HN
 bj
 rq
 WL
@@ -47644,7 +47658,7 @@ up
 tL
 dq
 is
-EL
+Au
 lQ
 qM
 yM
