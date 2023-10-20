@@ -69,8 +69,8 @@
 /area/ministation/maint/eastatmos
 	name = "\improper East Atmos Maintenance"
 
-/area/ministation/maint/l1nw
-	name = "\improper Level One North West Maintenance"
+// /area/ministation/maint/l1nw
+//	name = "\improper Level One North West Maintenance"
 
 /area/ministation/maint/l1ne
 	name = "\improper Level One North East Maintenance"
@@ -91,6 +91,9 @@
 
 /area/ministation/maint/hydromaint
 	name = "\improper Hydro Maintenance"
+
+/area/ministation/maint/l2underpass
+	name = "\improper Level Two Maintenance Underpass"
 
 // Third Floor Maint
 
@@ -113,13 +116,16 @@
 /area/ministation/maint/l4central
 	name = "\improper Level Four Central Maintenance"
 
+/area/ministation/maint/l4overpass
+	name = "\improper Level Four Maintenance Overpass"
+
 //Maint Bypasses
 
 /area/ministation/maint/sebypass
-	name = "\improper Southeast Bypass"
+	name = "\improper Southeast Maintenance Shaft"
 
 /area/ministation/maint/nebypass
-	name = "\improper Northeast Bypass"
+	name = "\improper Northeast Maintenance Shaft"
 
 //Departments
 /area/ministation/hop

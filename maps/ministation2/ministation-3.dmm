@@ -153,6 +153,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"tN" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4overpass)
 "ug" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -177,6 +183,9 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"uQ" = (
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4overpass)
 "vD" = (
 /obj/machinery/power/solar_control{
 	dir = 8
@@ -211,6 +220,17 @@
 	},
 /turf/space,
 /area/space)
+"yX" = (
+/turf/simulated/wall,
+/area/ministation/maint/l4overpass)
+"zd" = (
+/obj/structure/ladder,
+/obj/structure/lattice,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/ministation/maint/l4overpass)
 "Aj" = (
 /obj/structure/cable,
 /turf/simulated/floor/plating,
@@ -238,6 +258,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Cu" = (
+/obj/structure/ladder,
+/obj/structure/lattice,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/ministation/maint/l4overpass)
 "CJ" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -275,6 +303,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Fa" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l4overpass)
 "GD" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -31397,9 +31431,9 @@ cw
 cw
 cw
 cw
-cw
-aa
-aa
+yX
+yX
+yX
 aa
 aa
 aa
@@ -31451,8 +31485,8 @@ cw
 cw
 cw
 cw
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -31654,9 +31688,9 @@ cw
 cw
 cw
 cw
-cw
-aa
-aa
+yX
+Cu
+yX
 aa
 aa
 aa
@@ -31708,8 +31742,8 @@ cw
 cw
 cw
 cw
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -31911,9 +31945,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -31965,8 +31999,8 @@ cw
 cw
 cw
 cw
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -32168,9 +32202,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -32425,9 +32459,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+tN
+yX
 cw
 cw
 cw
@@ -32682,9 +32716,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -32939,9 +32973,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -33196,9 +33230,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -33453,6 +33487,9 @@ cw
 cw
 cw
 cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -33506,9 +33543,6 @@ cw
 cw
 cw
 cw
-cw
-aa
-aa
 aa
 aa
 aa
@@ -33710,43 +33744,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -33766,6 +33766,40 @@ cw
 cw
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -33967,43 +34001,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -34023,6 +34023,40 @@ cw
 cw
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -34224,9 +34258,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -34481,9 +34515,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+tN
+yX
 cw
 cw
 cw
@@ -34738,9 +34772,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -34995,9 +35029,9 @@ aa
 cw
 cw
 cw
-cw
-cw
-cw
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -35247,14 +35281,14 @@ cw
 cw
 aa
 aa
-aa
-aa
-cw
-cw
-cw
-cw
-cw
-cw
+yX
+yX
+yX
+yX
+yX
+yX
+uQ
+yX
 cw
 cw
 cw
@@ -35504,14 +35538,14 @@ cw
 cw
 aa
 aa
-aa
-aa
-cw
-cw
-cw
-cw
-cw
-cw
+yX
+zd
+uQ
+Fa
+uQ
+uQ
+uQ
+yX
 cw
 cw
 cw
@@ -35761,14 +35795,14 @@ cw
 cw
 aa
 aa
-aa
-aa
-cw
-cw
-cw
-cw
-cw
-cw
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
 cw
 cw
 cw
