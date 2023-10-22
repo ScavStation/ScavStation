@@ -10,8 +10,32 @@
 	equip_adjust = list(
 		slot_back_str = list(
 			"[NORTH]" = list("x" =  0, "y" = 0),
-			"[EAST]" =  list("x" =  6, "y" = 0),
-			"[WEST]" =  list("x" = -6, "y" = 0),
+			"[EAST]"  = list("x" =  6, "y" = 0),
+			"[WEST]"  = list("x" = -6, "y" = 0),
+			"[SOUTH]" = list("x" =  0, "y" = 0),
+		),
+		slot_wear_mask_str = list (
+			"[NORTH]" = list("x" = -1, "y" = 2),
+			"[EAST]"  = list("x" =  4, "y" = 4),
+			"[WEST]"  = list("x" = -4, "y" = 4),
+			"[SOUTH]" = list("x" = -1, "y" = 2)
+		),
+		slot_head_str = list (
+			"[NORTH]" = list("x" =  0, "y" = 10),
+			"[EAST]"  = list("x" = -1, "y" = 10),
+			"[WEST]"  = list("x" =  1, "y" = 10),
+			"[SOUTH]" = list("x" =  0, "y" = 10)
+		),
+		slot_glasses_str  = list (
+			"[NORTH]" = list("x" =  0, "y" = 1),
+			"[EAST]"  = list("x" =  4, "y" = 4),
+			"[WEST]"  = list("x" = -4, "y" = 4),
+			"[SOUTH]" = list("x" =  0, "y" = 1)
+		),
+		slot_belt_str = list (
+			"[NORTH]" = list("x" =  0, "y" = 0),
+			"[EAST]"  = list("x" =  6, "y" = 0),
+			"[WEST]"  = list("x" = -6, "y" = 0),
 			"[SOUTH]" = list("x" =  0, "y" = 0)
 		)
 	)
@@ -109,11 +133,13 @@
 	name = "Armour Plates"
 	body_parts = list(BP_CHEST, BP_GROIN)
 	icon_state = "plates"
+	mask_to_bodypart = TRUE
 
 /decl/sprite_accessory/marking/baxxid/bones
 	name = "Bony Segments"
 	body_parts = list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_R_FOOT, BP_L_FOOT)
 	icon_state = "bones"
+	mask_to_bodypart = TRUE
 
 /datum/hud_data/baxxid
 	inventory_slots = list(
