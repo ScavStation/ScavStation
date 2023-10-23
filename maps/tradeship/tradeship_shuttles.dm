@@ -6,10 +6,6 @@
 	name = "rescue shuttle console"
 	shuttle_tag = "Rescue Shuttle"
 
-/obj/machinery/computer/shuttle_control/explore/rescue
-	name = "rescue shuttle console"
-	shuttle_tag = "Rescue Shuttle"
-
 /datum/shuttle/autodock/overmap/exploration
 	name = "Bee Shuttle"
 	shuttle_area = list(/area/ship/trade/shuttle/outgoing/general, /area/ship/trade/shuttle/outgoing/engineering)
@@ -33,7 +29,7 @@
 
 /obj/effect/shuttle_landmark/docking_arm_port
 	name = "Tradeship Port-side Docking Arm"
-	docking_controller = "tradeship_port_dock"
+	docking_controller = "tradeship_dock_port"
 
 /obj/effect/shuttle_landmark/docking_arm_port/shuttle
 	landmark_tag = "nav_tradeship_port_dock_shuttle"

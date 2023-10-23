@@ -186,6 +186,7 @@
 /area/ship/trade/maintenance/eva
 	name = "\improper EVA Storage"
 	icon_state = "eva"
+	req_access = list(access_eva)
 
 /area/ship/trade/maintenance/engineering
 	name = "\improper Engineering Bay"
@@ -271,10 +272,6 @@
 /area/ship/trade/shuttle/outgoing/engineering
 	name = "\improper Bee Skiff Engineering Compartment"
 	icon_state = "yellow"
-
-/area/ship/trade/shuttle/rescue
-	name = "\improper Rescue Shuttle"
-	icon_state = "tcomsatcham"
 
 /area/ship/trade/shuttle/rescue
 	name = "\improper Rescue Shuttle"
