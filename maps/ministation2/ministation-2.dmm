@@ -32,7 +32,7 @@
 /area/ministation/bridge)
 "ao" = (
 /obj/structure/table/reinforced,
-/obj/machinery/faxmachine,
+/obj/machinery/faxmachine/mapped,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "ap" = (
@@ -1075,7 +1075,7 @@
 /area/ministation/shuttle/outgoing)
 "eB" = (
 /obj/structure/table,
-/obj/machinery/faxmachine,
+/obj/machinery/faxmachine/mapped,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "eD" = (
@@ -6469,7 +6469,7 @@
 	pixel_y = 30;
 	pixel_x = -33
 	},
-/obj/machinery/faxmachine,
+/obj/machinery/faxmachine/mapped,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "Um" = (

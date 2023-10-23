@@ -4359,7 +4359,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/nexus/command/starboard)
 "Px" = (
-/obj/machinery/faxmachine,
+/obj/machinery/faxmachine/mapped,
 /obj/structure/table/reinforced,
 /obj/structure/closet/medical_wall/filled{
 	pixel_x = -32
