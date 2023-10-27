@@ -79,6 +79,8 @@ var/global/list/pheromone_markers = list()
 	appearance_flags = HAS_EYE_COLOR
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT
 
+	base_prosthetics_model = null
+
 	unarmed_attacks = list(
 		/decl/natural_attack/claws/strong,
 		/decl/natural_attack/bite/strong
