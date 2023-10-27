@@ -2866,9 +2866,7 @@
 	pixel_x = -22
 	},
 /obj/structure/closet/secure_closet/hop,
-/obj/item/contraband/poster{
-	poster_type = /decl/poster/bay_62
-	},
+/obj/item/poster/scav_2,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "rE" = (
@@ -5272,7 +5270,7 @@
 /obj/item/storage/backpack/clown,
 /obj/item/bikehorn,
 /obj/item/storage/fancy/crayons,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "Ay" = (
@@ -5853,7 +5851,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "Fo" = (
@@ -6366,7 +6364,7 @@
 "Kd" = (
 /obj/structure/closet,
 /obj/random/maintenance,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "Kk" = (
@@ -7213,7 +7211,7 @@
 /obj/structure/closet,
 /obj/random/maintenance,
 /obj/random/suit,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "QF" = (

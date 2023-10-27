@@ -8,7 +8,6 @@
 	var/datum/reagents/metabolism/bloodstr
 	var/datum/reagents/metabolism/touching
 
-	var/datum/gas_mixture/breath = null
 	var/last_breath_tick = 0
 
 	var/coughedtime = null

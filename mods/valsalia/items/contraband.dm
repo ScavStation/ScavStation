@@ -1,29 +1,10 @@
-/obj/item/contraband/Initialize()
-	. = ..()
-	LAZYREMOVE(icon, 'icons/obj/contraband.dmi')
-	LAZYADD(icon, 'mods/valsalia/icons/yinglet_contraband.dmi')
+DEFINE_POSTER(scav/s1, "scav1", "poster - Yinglet Killer Whisky", "This is a poster reminding you of the dangers of alchohol consumption.")
+DEFINE_POSTER(scav/s2, "scav2", "poster - Merry Crimbo", "Merry Crimbo from Engineering!")
+DEFINE_POSTER(scav/s3, "scav3", "poster - Danger Chair", "40% of accidents are caused by chair riding, dont become a statistic.")
 
-/obj/structure/sign/poster/Initialize()
-	. = ..()
-	LAZYREMOVE(icon, 'icons/obj/contraband.dmi')
-	LAZYADD(icon, 'mods/valsalia/icons/yinglet_contraband.dmi')
+/decl/poster_design/scav
+	abstract_type = /decl/poster_design/scav
+	icon = 'mods/valsalia/icons/posters.dmi'
 
-/decl/poster_design/bay_60
-	icon_state="poster2"
-	name = "Yinglet Killer Whisky"
-	desc = "This is a poster reminding you of the dangers of alchohol consumption."
-
-/decl/poster_design/bay_61
-	icon_state="poster6"
-	name = "HONK"
-	desc = "This is a poster reminding you of the dangers of clowns."
-
-/decl/poster_design/bay_62
-	icon_state="poster8"
-	name = "Merry Crimbo"
-	desc = "Merry Crimbo from Engineering!"
-
-/decl/poster_design/bay_63
-	icon_state="poster7"
-	name = "Danger Chair"
-	desc = "40% of accidents are caused by chair riding, dont become a statistic."
+/obj/item/poster/scav_2
+	poster_design = /decl/poster_design/scav/s2

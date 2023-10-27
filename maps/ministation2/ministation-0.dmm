@@ -3214,7 +3214,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "qu" = (
@@ -3809,7 +3809,7 @@
 	dir = 4
 	},
 /obj/item/flashlight/lamp/green,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "tW" = (
@@ -6734,7 +6734,7 @@
 	},
 /obj/structure/table/gamblingtable,
 /obj/machinery/recharger,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "FN" = (

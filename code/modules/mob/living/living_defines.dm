@@ -67,3 +67,5 @@
 	var/original_genetic_seed
 	var/unique_enzymes
 	var/blood_type = "A+"
+
+	var/datum/gas_mixture/breath = null

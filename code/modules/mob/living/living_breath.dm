@@ -26,7 +26,13 @@
 	if(lungs)
 		active_breathe = lungs.active_breathing
 
-	var/datum/gas_mixture/breath = null
+	if(stat != CONSCIOUS && holding_breath)
+		holding_breath = (holding_breath >= 2 ? 3 : 0)
+
+	if(holding_breath == 3)
+		holding_breath = 0
+		handle_post_breath(breath)
+
 	//First, check if we can breathe at all
 	if(handle_drowning() || (is_asystole() && !GET_CHEMICAL_EFFECT(src, CE_STABLE) && active_breathe)) //crit aka circulatory shock
 		ticks_since_last_successful_breath = max(2, ticks_since_last_successful_breath + 1)
@@ -35,7 +41,7 @@
 		ticks_since_last_successful_breath--
 		if (prob(10) && !is_asystole() && active_breathe) //Gasp per 10 ticks? Sounds about right.
 			INVOKE_ASYNC(src, .proc/emote, "gasp")
-	else
+	else if(holding_breath < 2 || !breath)
 		//Okay, we can breathe, now check if we can get air
 		var/volume_needed = get_breath_volume()
 		breath = get_breath_from_internal(volume_needed) //First, check for air from internals
@@ -48,6 +54,8 @@
 
 	//if breath is null or vacuum, the lungs will handle it for us
 	failed_last_breath = (!lungs || nervous_system_failure()) ? 1 : lungs.handle_owner_breath(breath)
+	if(holding_breath == 1)
+		holding_breath = 2
 	handle_post_breath(breath)
 
 /mob/living/proc/get_breath_from_environment(var/volume_needed=STD_BREATH_VOLUME, var/atom/location = src.loc)
@@ -56,7 +64,6 @@
 		return
 
 	// First handle being in a submerged environment.
-	var/datum/gas_mixture/breath
 	var/turf/my_turf = get_turf(src)
 	if(istype(my_turf) && my_turf.is_flooded(lying))
 
@@ -137,7 +144,7 @@
 
 /mob/living/proc/handle_post_breath(datum/gas_mixture/breath)
 
-	if(!breath)
+	if(!breath || !holding_breath)
 		return
 
 	var/datum/gas_mixture/loc_air = loc?.return_air()
