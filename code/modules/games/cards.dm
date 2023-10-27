@@ -137,7 +137,7 @@ var/global/list/card_decks = list()
 			cards += P
 
 /obj/item/deck/attack_hand(mob/user)
-	if(user.a_intent == I_GRAB || !user.check_dexterity(DEXTERITY_GRIP, TRUE))
+	if(user.a_intent == I_GRAB || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
 	draw_card(user)
 	return TRUE
@@ -168,7 +168,7 @@ var/global/list/card_decks = list()
 
 	if(usr.stat || !Adjacent(usr)) return
 
-	if(!istype(usr,/mob/living/carbon))
+	if(!iscarbon(usr))
 		return
 
 	var/mob/living/carbon/user = usr
@@ -307,7 +307,7 @@ var/global/list/card_decks = list()
 	user.visible_message("\The [user] [concealed ? "conceals" : "reveals"] their hand.")
 
 /obj/item/hand/attack_hand(mob/user)
-	if(loc != user && !user.check_dexterity(DEXTERITY_GRIP, TRUE))
+	if(loc != user && !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
 
 	// build the list of cards in the hand

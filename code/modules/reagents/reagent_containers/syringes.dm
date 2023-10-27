@@ -19,18 +19,14 @@
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	sharp = 1
-	unacidable = 1 //glass
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/mode = SYRINGE_DRAW
 	var/image/filling //holds a reference to the current filling overlay
 	var/visible_name = "a syringe"
 	var/time = 30
+	var/can_stab = TRUE
 
 /obj/item/chems/syringe/Initialize(var/mapload)
-	. = ..()
-	update_icon()
-
-/obj/item/chems/syringe/on_reagent_change()
 	. = ..()
 	update_icon()
 
@@ -75,7 +71,10 @@
 		return
 
 	if((user.a_intent == I_HURT) && ismob(target))
-		syringestab(target, user)
+		if(can_stab)
+			syringestab(target, user)
+		else
+			to_chat(user, SPAN_WARNING("This syringe is too big to stab someone with it."))
 		return
 
 	handleTarget(target, user)
@@ -122,12 +121,12 @@
 		if(reagents.total_volume)
 			to_chat(user, SPAN_NOTICE("There is already a blood sample in this syringe."))
 			return
-		if(istype(target, /mob/living/carbon))
+		if(iscarbon(target))
 			var/amount = REAGENTS_FREE_SPACE(reagents)
 			var/mob/living/carbon/T = target
 			if(!T.dna)
 				to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
-				if(istype(target, /mob/living/carbon/human))
+				if(ishuman(target))
 					CRASH("[T] \[[T.type]\] was missing their dna datum!")
 				return
 
@@ -182,7 +181,7 @@
 
 /obj/item/chems/syringe/proc/injectReagents(var/atom/target, var/mob/user)
 
-	if(ismob(target) && !user.skill_check(SKILL_MEDICAL, SKILL_BASIC))
+	if(ismob(target) && !user.skill_check(SKILL_MEDICAL, SKILL_BASIC) && (can_stab == TRUE))
 		syringestab(target, user)
 		return
 
@@ -261,7 +260,7 @@
 
 /obj/item/chems/syringe/proc/syringestab(var/mob/living/carbon/target, var/mob/living/carbon/user)
 
-	if(istype(target, /mob/living/carbon/human))
+	if(ishuman(target))
 
 		var/mob/living/carbon/human/H = target
 
@@ -315,13 +314,10 @@
 	visible_name = "a giant syringe"
 	time = 300
 	mode = SYRINGE_INJECT
+	can_stab = FALSE
 
 /obj/item/chems/syringe/ld50_syringe/populate_reagents()
 	reagents.add_reagent(/decl/material/liquid/heartstopper, reagents.maximum_volume)
-
-/obj/item/chems/syringe/ld50_syringe/syringestab(var/mob/living/carbon/target, var/mob/living/carbon/user)
-	to_chat(user, SPAN_NOTICE("This syringe is too big to stab someone with it."))
-	return // No instant injecting
 
 /obj/item/chems/syringe/ld50_syringe/drawReagents(var/target, var/mob/user)
 	if(ismob(target)) // No drawing 60 units of blood at once
@@ -397,7 +393,7 @@
 	name = "cryostasis syringe"
 	desc = "An advanced syringe that stops reagents inside from reacting. It can hold up to 20 units."
 	volume = 20
-	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_CHEM_CHANGE
 	icon_state = "cs"
 	material = /decl/material/solid/glass
 	matter = list(

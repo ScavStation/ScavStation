@@ -6,6 +6,41 @@
 	limb_blend =          ICON_MULTIPLY
 	bodytype_category =   BODYTYPE_YINGLET
 	bodytype_flag =       BODY_FLAG_YINGLET
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach/yinglet,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver/yinglet,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/yinglet,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes/yinglet
+	)
+	movement_slowdown = -0.5
+	mob_size = MOB_SIZE_SMALL
+	eye_blend = ICON_MULTIPLY
+	eye_icon = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	base_color = "#ab8c65"
+	base_hair_color = "#6e5331"
+	base_eye_color = "#f5c842"
+	base_markings = list(
+		/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
+		/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"
+	)
+	has_limbs = list(
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/yinglet),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/yinglet),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/yinglet),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/yinglet),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/yinglet),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/yinglet),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/yinglet),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/yinglet),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/yinglet),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/yinglet),
+		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet)
+	)
 
 /decl/bodytype/yinglet/masculine
 	name =      "yinglet, masculine"
@@ -89,9 +124,10 @@
 
 /obj/item/organ/external/tail/yinglet/sync_colour_to_human(var/mob/living/carbon/human/human)
 	. = ..()
-	if(human.bodytype.type == /decl/bodytype/yinglet/masculine)
+	var/decl/bodytype/human_bodytype = human.get_bodytype()?.type
+	if(human_bodytype == /decl/bodytype/yinglet/masculine)
 		tail_hair = "male"
-	else if(human.bodytype.type == /decl/bodytype/yinglet)
+	else if(human_bodytype == /decl/bodytype/yinglet)
 		tail_hair = "female"
 	else
 		tail_hair = "hairymale"

@@ -23,6 +23,7 @@
 	tool_interaction_flags = TOOL_INTERACTION_DECONSTRUCT
 	parts_amount = 2
 	parts_type = /obj/item/stack/material/strut
+	var/base_icon = "bed"
 
 /obj/structure/bed/user_can_mousedrop_onto(var/mob/user, var/atom/being_dropped, var/incapacitation_flags)
 	if(user == being_dropped)
@@ -143,7 +144,7 @@
 	name = "roller bed"
 	icon = 'icons/obj/structures/rollerbed.dmi'
 	icon_state = "down"
-	anchored = 0
+	anchored = FALSE
 	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 6)
 	movable_flags = MOVABLE_FLAG_WHEELED
 	var/item_form_type = /obj/item/roller	//The folded-up object path.
@@ -182,7 +183,7 @@
 	..()
 
 /obj/structure/bed/roller/attack_hand(mob/user)
-	if(!beaker || buckled_mob || !user.check_dexterity(DEXTERITY_GRIP, TRUE))
+	if(!beaker || buckled_mob || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
 	remove_beaker(user)
 	return TRUE
@@ -295,7 +296,7 @@
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "mattress"
 	desc = "A bare mattress. It doesn't look very comfortable."
-	anchored = 0
+	anchored = FALSE
 
 /obj/structure/mattress/dirty
 	name = "dirty mattress"

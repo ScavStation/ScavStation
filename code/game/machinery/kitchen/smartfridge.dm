@@ -6,11 +6,11 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "fridge_sci"
 	layer = BELOW_OBJ_LAYER
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	idle_power_usage = 5
 	active_power_usage = 100
-	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_CHEM_CHANGE
 	obj_flags = OBJ_FLAG_ANCHORABLE | OBJ_FLAG_ROTATABLE
 	atmos_canpass = CANPASS_NEVER
 	required_interaction_dexterity = DEXTERITY_SIMPLE_MACHINES
@@ -71,11 +71,11 @@
 	initial_access = list(list(access_medical, access_chemistry))
 
 /obj/machinery/smartfridge/secure/medbay/accept_check(var/obj/item/O)
-	if(istype(O,/obj/item/chems/glass/))
+	if(istype(O,/obj/item/chems/glass))
 		return 1
-	if(istype(O,/obj/item/storage/pill_bottle/))
+	if(istype(O,/obj/item/storage/pill_bottle))
 		return 1
-	if(istype(O,/obj/item/chems/pill/))
+	if(istype(O,/obj/item/chems/pill))
 		return 1
 	return 0
 

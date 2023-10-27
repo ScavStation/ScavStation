@@ -4,8 +4,8 @@
 	icon = 'icons/obj/structures/network_cable.dmi'
 	icon_state = "dot"
 	layer = WIRE_LAYER
-	anchored = 1
-	level = 1
+	anchored = TRUE
+	level = LEVEL_BELOW_PLATING
 	var/datum/node/physical/network_node
 
 /obj/structure/network_cable/Initialize(ml, _mat, _reinf_mat)

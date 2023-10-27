@@ -2,7 +2,7 @@
 	name = "rag"
 	desc = "For cleaning up messes, you suppose."
 	w_class = ITEM_SIZE_TINY
-	icon = 'icons/obj/toy.dmi'
+	icon = 'icons/obj/toy/toy.dmi'
 	icon_state = "rag"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = @"[5]"
@@ -10,7 +10,6 @@
 	can_be_placed_into = null
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	unacidable = 0
 	material = /decl/material/solid/cloth
 
 	var/on_fire = 0

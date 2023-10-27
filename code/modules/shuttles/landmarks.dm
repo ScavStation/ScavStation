@@ -5,10 +5,9 @@ var/global/list/shuttle_landmarks = list()
 	name = "Nav Point"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "energynet"
-	anchored = 1
-	unacidable = 1
-	simulated = 0
-	invisibility = 101
+	anchored = TRUE
+	simulated = FALSE
+	invisibility = INVISIBILITY_ABSTRACT
 
 	var/landmark_tag
 	//ID of the controller on the dock side
@@ -193,7 +192,7 @@ var/global/list/shuttle_landmarks = list()
 		return
 
 	active = 1
-	anchored = 1
+	anchored = TRUE
 
 	var/obj/effect/shuttle_landmark/automatic/mark = new(T)
 	mark.SetName("Beacon signal ([T.x],[T.y])")

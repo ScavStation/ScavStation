@@ -85,7 +85,6 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = @"[5,10,15,25,30,60,180]"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	unacidable = 0
 	material = /decl/material/solid/metal/steel
 	material_force_multiplier = 0.2
 
@@ -96,7 +95,7 @@
 	center_of_mass = @"{'x':16,'y':8}"
 	volume = 60
 	amount_per_transfer_from_this = 10
-	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_CHEM_CHANGE
 	presentation_flags = PRESENTATION_FLAG_NAME
 	material = /decl/material/solid/metal/steel
 	material_alteration = MAT_FLAG_ALTERATION_NONE

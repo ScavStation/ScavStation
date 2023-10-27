@@ -1,15 +1,12 @@
 /mob/new_player
 	universal_speak = TRUE
 	mob_sort_value = 10
-	invisibility = 101
+	invisibility = INVISIBILITY_ABSTRACT
 	simulated = FALSE
-
-	density = 0
+	density = FALSE
 	stat = DEAD
-
 	movement_handlers = list()
-	anchored = 1	//  don't get pushed around
-
+	anchored = TRUE	//  don't get pushed around
 	virtual_mob = null // Hear no evil, speak no evil
 
 	var/ready = 0
@@ -19,7 +16,6 @@
 	var/totalPlayers = 0
 	var/totalPlayersReady = 0
 	var/show_invalid_jobs = 0
-
 	var/datum/browser/panel
 
 INITIALIZE_IMMEDIATE(/mob/new_player)
@@ -374,7 +370,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 	new_character.lastarea = get_area(spawn_turf)
 
 	if(global.random_players)
-		var/decl/species/current_species = get_species_by_key(client.prefs.species || global.using_map.default_species)
+		var/decl/species/current_species = client.prefs.get_species_decl()
 		var/decl/pronouns/pronouns = pick(current_species.available_pronouns)
 		client.prefs.gender = pronouns.name
 		client.prefs.real_name = client.prefs.get_random_name()
@@ -391,13 +387,8 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 			mind.StoreMemory(memory)
 		mind.transfer_to(new_character)					//won't transfer key since the mind is not active
 
-	new_character.dna.ready_dna(new_character)
-	new_character.dna.b_type = client.prefs.b_type
-	new_character.sync_organ_dna()
-
 	// Do the initial caching of the player's body icons.
 	new_character.force_update_limbs()
-	new_character.update_eyes()
 	new_character.refresh_visible_overlays()
 
 	new_character.key = key		//Manually transfer the key to log them in

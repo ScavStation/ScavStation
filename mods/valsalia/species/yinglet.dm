@@ -4,7 +4,7 @@
 	name_plural = "Yinglets"
 	description = "A species of short, slender rat-birds with a fondness for clams. Commonly found wherever humans are, \
 	either scavenging amongst their leavings, or benefiting from adjacency to an older and more developed culture."
-	base_prosthetics_model = /decl/prosthetics_manufacturer/ying_wooden
+	base_prosthetics_model = /decl/bodytype/prosthetic/ying_wooden
 	autohiss_basic_map = list(
 		"th" = list("z")
 	)
@@ -31,55 +31,18 @@
 
 	flesh_color = "#ab8c65"
 	spawn_flags = SPECIES_CAN_JOIN
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	age_descriptor = /datum/appearance_descriptor/age/yinglet
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
-
-	base_color = "#ab8c65"
-	base_hair_color = "#6e5331"
-	base_eye_color = "#f5c842"
-	base_markings = list(
-		/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
-		/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"
-	)
-
-	age_descriptor = /datum/appearance_descriptor/age/yinglet
-
-	has_limbs = list(
-		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
-		BP_GROIN =  list("path" = /obj/item/organ/external/groin/yinglet),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/yinglet),
-		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/yinglet),
-		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/yinglet),
-		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/yinglet),
-		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/yinglet),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/yinglet),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/yinglet),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/yinglet),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/yinglet),
-		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet)
-	)
-
-	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart,
-		BP_STOMACH =  /obj/item/organ/internal/stomach/yinglet,
-		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver/yinglet,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/yinglet,
-		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes/yinglet
-	)
 
 	appearance_descriptors = list(
 		/datum/appearance_descriptor/height = 0.5,
 		/datum/appearance_descriptor/build =  0.5
 	)
-	slowdown = -0.5
 	total_health = 150
 	brute_mod = 1.25
 	burn_mod =  1.25
-	mob_size = MOB_SIZE_SMALL
 	holder_type = /obj/item/holder/human/yinglet
 	blood_volume = 350
 	hunger_factor = 0.1

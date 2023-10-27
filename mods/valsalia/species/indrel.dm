@@ -11,6 +11,37 @@ var/global/list/pheromone_markers = list()
 	bodytype_flag =     BODY_FLAG_INDREL
 	icon_base =         'mods/valsalia/icons/species/indrel/body.dmi'
 	icon_template =     'mods/valsalia/icons/species/indrel/template.dmi'
+	eye_icon = 'mods/valsalia/icons/species/indrel/eyes.dmi'
+
+	appearance_flags = HAS_EYE_COLOR
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes
+	)
+	has_limbs = list(
+		BP_CHEST =        list("path" = /obj/item/organ/external/chest/insectoid),
+		BP_GROIN =        list("path" = /obj/item/organ/external/groin/insectoid),
+		BP_HEAD =         list("path" = /obj/item/organ/external/head/insectoid),
+		BP_L_ARM =        list("path" = /obj/item/organ/external/arm/insectoid),
+		BP_L_HAND =       list("path" = /obj/item/organ/external/hand/insectoid),
+		BP_L_HAND_UPPER = list("path" = /obj/item/organ/external/hand/insectoid/upper/indrel),
+		BP_R_ARM =        list("path" = /obj/item/organ/external/arm/right/insectoid),
+		BP_R_HAND =       list("path" = /obj/item/organ/external/hand/right/insectoid),
+		BP_R_HAND_UPPER = list("path" = /obj/item/organ/external/hand/right/insectoid/upper/indrel),
+		BP_R_LEG =        list("path" = /obj/item/organ/external/leg/right/insectoid),
+		BP_L_LEG =        list("path" = /obj/item/organ/external/leg/insectoid),
+		BP_L_FOOT =       list("path" = /obj/item/organ/external/foot/insectoid),
+		BP_R_FOOT =       list("path" = /obj/item/organ/external/foot/right/insectoid)
+	)
+	limb_mapping = list(
+		BP_L_HAND = list(BP_L_HAND, BP_L_HAND_UPPER),
+		BP_R_HAND = list(BP_R_HAND, BP_R_HAND_UPPER)
+	)
 
 /decl/bodytype/indrel/Initialize()
 	. = ..()
@@ -76,43 +107,11 @@ var/global/list/pheromone_markers = list()
 	)
 
 	spawn_flags = SPECIES_CAN_JOIN
-	appearance_flags = HAS_EYE_COLOR
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT
 
 	unarmed_attacks = list(
 		/decl/natural_attack/claws/strong,
 		/decl/natural_attack/bite/strong
-	)
-
-	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
-		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes/indrel
-		)
-
-	has_limbs = list(
-		BP_CHEST =        list("path" = /obj/item/organ/external/chest/insectoid),
-		BP_GROIN =        list("path" = /obj/item/organ/external/groin/insectoid),
-		BP_HEAD =         list("path" = /obj/item/organ/external/head/insectoid),
-		BP_L_ARM =        list("path" = /obj/item/organ/external/arm/insectoid),
-		BP_L_HAND =       list("path" = /obj/item/organ/external/hand/insectoid),
-		BP_L_HAND_UPPER = list("path" = /obj/item/organ/external/hand/insectoid/upper/indrel),
-		BP_R_ARM =        list("path" = /obj/item/organ/external/arm/right/insectoid),
-		BP_R_HAND =       list("path" = /obj/item/organ/external/hand/right/insectoid),
-		BP_R_HAND_UPPER = list("path" = /obj/item/organ/external/hand/right/insectoid/upper/indrel),
-		BP_R_LEG =        list("path" = /obj/item/organ/external/leg/right/insectoid),
-		BP_L_LEG =        list("path" = /obj/item/organ/external/leg/insectoid),
-		BP_L_FOOT =       list("path" = /obj/item/organ/external/foot/insectoid),
-		BP_R_FOOT =       list("path" = /obj/item/organ/external/foot/right/insectoid)
-	)
-
-	limb_mapping = list(
-		BP_L_HAND = list(BP_L_HAND, BP_L_HAND_UPPER),
-		BP_R_HAND = list(BP_R_HAND, BP_R_HAND_UPPER)
 	)
 	hazard_low_pressure = -1
 
@@ -155,18 +154,8 @@ var/global/list/pheromone_markers = list()
 /obj/item/organ/external/hand/right/insectoid/upper/indrel
 	gripper_type = /datum/inventory_slot/gripper/right_hand/indrel
 
-/obj/item/organ/external/hand/right/insectoid/upper/indrel/get_dexterity()
-	return min(DEXTERITY_GRIP, ..())
-
 /obj/item/organ/external/hand/insectoid/upper/indrel
 	gripper_type = /datum/inventory_slot/gripper/left_hand/indrel
-
-/obj/item/organ/external/hand/insectoid/upper/indrel/get_dexterity()
-	return min(DEXTERITY_GRIP, ..())
-
-
-/obj/item/organ/internal/eyes/indrel
-	eye_icon = 'mods/valsalia/icons/species/indrel/eyes.dmi'
 
 /decl/species/indrel/handle_autohiss(message, decl/language/lang, mode)
 	if(autohiss_exempt && (lang.name in autohiss_exempt))

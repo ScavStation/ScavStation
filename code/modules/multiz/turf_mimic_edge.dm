@@ -9,7 +9,7 @@
 /obj/effect/overlay/click_bait
 	name = "distant terrain"
 	desc = "You need to come over there to take a better look."
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_PRIORITY
 
 ////////////////////////////////
 // Shared Mimic Edges
@@ -67,6 +67,9 @@
 		var/turf/drop_turf = get_mimic_turf()
 		if(drop_turf)
 			O.forceMove(drop_turf)
+
+/turf/simulated/mimic_edge/resolve_to_actual_turf()
+	return get_mimic_turf()
 
 //Properly install itself, and allow overriding how the target turf is picked
 /turf/simulated/mimic_edge/proc/setup_mimic()
@@ -140,6 +143,9 @@
 		var/turf/drop_turf = get_mimic_turf()
 		if(drop_turf)
 			O.forceMove(drop_turf)
+
+/turf/unsimulated/mimic_edge/resolve_to_actual_turf()
+	return get_mimic_turf()
 
 //Properly install itself, and allow overriding how the target turf is picked
 /turf/unsimulated/mimic_edge/proc/setup_mimic()

@@ -4,8 +4,8 @@
 	desc = "A portable generator for emergency backup power."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "portgen0"
-	density = 1
-	anchored = 0
+	density = TRUE
+	anchored = FALSE
 	interact_offline = TRUE
 
 	var/active = 0
@@ -338,9 +338,9 @@
 
 	var/data[0]
 	data["active"] = active
-	if(istype(user, /mob/living/silicon/ai))
+	if(isAI(user))
 		data["is_ai"] = 1
-	else if(istype(user, /mob/living/silicon/robot) && !Adjacent(user))
+	else if(isrobot(user) && !Adjacent(user))
 		data["is_ai"] = 1
 	else
 		data["is_ai"] = 0
@@ -455,7 +455,7 @@
 	time_per_sheet = 400
 	rad_power = 12
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	anchored = 1
+	anchored = TRUE
 
 /obj/machinery/port_gen/pacman/super/potato/Initialize()
 	create_reagents(120)

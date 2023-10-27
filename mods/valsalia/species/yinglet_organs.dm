@@ -1,7 +1,5 @@
 /obj/item/organ/internal/eyes/yinglet
 	relative_size = 15
-	eye_blend = ICON_MULTIPLY
-	eye_icon = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
 
 // Copied from vox stomach, upstream Baycode.
 /obj/item/organ/internal/stomach/yinglet

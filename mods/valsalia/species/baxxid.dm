@@ -4,6 +4,31 @@
 	icon_template =     'mods/valsalia/icons/species/baxxid/template.dmi'
 	icon_base =         'mods/valsalia/icons/species/baxxid/body.dmi'
 	limb_blend = ICON_MULTIPLY
+	manual_dexterity = (DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
+	mob_size = MOB_SIZE_LARGE
+	base_color = "#c7b8aa"
+	base_eye_color = "#003366"
+	base_markings = list(
+		/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
+		/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
+		/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
+	)
+	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes
+	)
+	override_limb_types = list(
+		BP_L_HAND = /obj/item/organ/external/hand/baxxid,
+		BP_R_HAND = /obj/item/organ/external/hand/right/baxxid,
+		BP_HEAD =   /obj/item/organ/external/head/baxxid
+	)
 
 /decl/bodytype/baxxid/Initialize()
 	. = ..()
@@ -50,42 +75,17 @@
 	available_bodytypes = list(
 		/decl/bodytype/baxxid
 	)
-	manual_dexterity = DEXTERITY_GRIP
-	mob_size = MOB_SIZE_LARGE
 
 	unarmed_attacks = list(
 		/decl/natural_attack/claws/strong/baxxid,
 		/decl/natural_attack/bite/strong
 	)
 
-	base_color = "#c7b8aa"
-	base_eye_color = "#003366"
-	base_markings = list(
-		/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
-		/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
-		/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
-	)
 	preview_outfit = /decl/hierarchy/outfit/baxxid
 
 	hud_type = /datum/hud_data/baxxid
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
 	spawn_flags = SPECIES_CAN_JOIN
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
-	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
-		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes/baxxid
-	)
-
-	override_limb_types = list(
-		BP_L_HAND = /obj/item/organ/external/hand/baxxid,
-		BP_R_HAND = /obj/item/organ/external/hand/right/baxxid,
-		BP_HEAD =   /obj/item/organ/external/head/baxxid
-	)
 
 	available_cultural_info = list(
 		TAG_CULTURE =   list(
@@ -116,9 +116,6 @@
 		if(first_char != lowertext(first_char))
 			hnnn = uppertext(capitalize(hnnn))
 		. = "[hnnn][uppertext(.)]"
-
-/obj/item/organ/internal/eyes/baxxid
-	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
 
 /decl/sprite_accessory/marking/baxxid
 	name = "Crest"
@@ -171,14 +168,14 @@
 /obj/item/organ/external/hand/baxxid
 	gripper_type = /datum/inventory_slot/gripper/left_hand/baxxid
 
-/obj/item/organ/external/hand/baxxid/get_dexterity()
-	return min(..(), DEXTERITY_KEYBOARDS)
+/obj/item/organ/external/hand/baxxid/get_manual_dexterity()
+	return (DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /obj/item/organ/external/hand/right/baxxid
 	gripper_type = /datum/inventory_slot/gripper/right_hand/baxxid
 
-/obj/item/organ/external/hand/right/baxxid/get_dexterity()
-	return min(..(), DEXTERITY_KEYBOARDS)
+/obj/item/organ/external/hand/right/baxxid/get_manual_dexterity()
+	return (DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /datum/inventory_slot/gripper/left_hand/baxxid
 	can_use_held_item = FALSE

@@ -1,5 +1,3 @@
-//Common breathing procs
-
 #define MOB_BREATH_DELAY 2
 
 //Start of a breath chain, calls breathe()
@@ -114,3 +112,4 @@
 			internals_air?.merge(breath)
 		else
 			loc_air?.merge(breath)
+

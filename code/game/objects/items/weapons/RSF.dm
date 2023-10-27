@@ -9,9 +9,9 @@ RSF
 	desc = "A device used to rapidly deploy service items."
 	icon = 'icons/obj/items/device/rcd.dmi'
 	icon_state = "rcd"
-	opacity = 0
-	density = 0
-	anchored = 0.0
+	opacity = FALSE
+	density = FALSE
+	anchored = FALSE
 	var/stored_matter = 30
 	var/mode = 1
 	w_class = ITEM_SIZE_NORMAL
@@ -69,7 +69,7 @@ RSF
 
 	if(!proximity) return
 
-	if(istype(user,/mob/living/silicon/robot))
+	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 0)
 			return

@@ -53,10 +53,8 @@
 	organ_tag = BP_L_HAND_UPPER
 	gripper_type = /datum/inventory_slot/gripper/upper_left_hand
 
-/obj/item/organ/external/hand/insectoid/upper/get_dexterity()
-	. = DEXTERITY_GRIP
-	if(model)
-		. = min(., ..())
+/obj/item/organ/external/hand/insectoid/upper/get_manual_dexterity()
+	return (..() & ~(DEXTERITY_WEAPONS|DEXTERITY_COMPLEX_TOOLS))
 
 /obj/item/organ/external/hand/right/insectoid/upper
 	name = "right raptorial"
@@ -65,7 +63,5 @@
 	organ_tag = BP_R_HAND_UPPER
 	gripper_type = /datum/inventory_slot/gripper/upper_right_hand
 
-/obj/item/organ/external/hand/right/insectoid/upper/get_dexterity()
-	. = DEXTERITY_GRIP
-	if(model)
-		. = min(., ..())
+/obj/item/organ/external/hand/right/insectoid/upper/get_manual_dexterity()
+	return (..() & ~(DEXTERITY_WEAPONS|DEXTERITY_COMPLEX_TOOLS))

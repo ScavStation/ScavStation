@@ -34,7 +34,7 @@
 
 	holder_type = /obj/item/holder/diona
 	possession_candidate = 1
-	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_CHEM_CHANGE
 	hud_type = /datum/hud/diona_nymph
 
 	ai = /datum/ai/nymph
@@ -86,5 +86,5 @@
 	if(hattable?.hat)
 		to_chat(user, SPAN_NOTICE("It is wearing [html_icon(hattable.hat)] \a [hattable.hat]."))
 
-/mob/living/carbon/alien/diona/has_dexterity()
-	return FALSE
+/mob/living/carbon/alien/diona/get_dexterity(var/silent = FALSE)
+	return DEXTERITY_NONE

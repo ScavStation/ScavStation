@@ -17,7 +17,7 @@
 	var/last_pump
 	var/skilled_setup
 
-/obj/item/auto_cpr/mob_can_equip(mob/user, slot, disable_warning = FALSE, force = FALSE)
+/obj/item/auto_cpr/mob_can_equip(mob/user, slot, disable_warning = FALSE, force = FALSE, ignore_equipped = FALSE)
 	. = ..()
 	if(. && slot == slot_wear_suit_str)
 		. = user?.get_bodytype_category() == BODYTYPE_HUMANOID

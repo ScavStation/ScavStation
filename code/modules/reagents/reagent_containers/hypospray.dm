@@ -10,7 +10,6 @@
 	icon_state = "hypo"
 	origin_tech = "{'materials':4,'biotech':5}"
 	amount_per_transfer_from_this = 5
-	unacidable = 1
 	volume = 30
 	possible_transfer_amounts = null
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
@@ -142,7 +141,7 @@
 	return TRUE
 
 /obj/item/chems/hypospray/vial/attack_hand(mob/user)
-	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_GRIP, TRUE))
+	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
 	if(!loaded_vial)
 		to_chat(user, SPAN_NOTICE("There is no vial loaded in \the [src]."))

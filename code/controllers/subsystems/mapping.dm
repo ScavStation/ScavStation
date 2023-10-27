@@ -22,9 +22,9 @@ SUBSYSTEM_DEF(mapping)
 	 * Z-Level Handling Stuff
 	 */
 	/// Associative list of levels by strict z-level
-	var/list/levels_by_z =  list()
+	var/list/datum/level_data/levels_by_z =  list()
 	/// Associative list of levels by string ID
-	var/list/levels_by_id = list()
+	var/list/datum/level_data/levels_by_id = list()
 	/// List of z-levels containing the 'main map'
 	var/list/station_levels = list()
 	/// List of z-levels for admin functionality (Centcom, shuttle transit, etc)
@@ -53,6 +53,8 @@ SUBSYSTEM_DEF(mapping)
 	var/list/planetoid_data_by_id
 	///List of all z-levels in the world where the index corresponds to a z-level, and the key at that index is the planetoid_data datum for the associated planet
 	var/list/planetoid_data_by_z = list()
+	///A list of queued markers to initialize during SSmapping init.
+	var/list/obj/abstract/landmark/map_load_mark/queued_markers = list()
 
 /datum/controller/subsystem/mapping/PreInit()
 	reindex_lists()
@@ -90,14 +92,7 @@ SUBSYSTEM_DEF(mapping)
 	// This needs to be non-null even if the overmap isn't created for this map.
 	overmap_event_handler = GET_DECL(/decl/overmap_event_handler)
 
-	// Build away sites.
-	global.using_map.build_away_sites()
-	global.using_map.build_planets()
-
-	// Initialize z-level objects.
-#ifdef UNIT_TEST
-	config.roundstart_level_generation = FALSE
-#endif
+	var/old_maxz
 	for(var/z = 1 to world.maxz)
 		var/datum/level_data/level = levels_by_z[z]
 		if(!istype(level))
@@ -105,9 +100,24 @@ SUBSYSTEM_DEF(mapping)
 			PRINT_STACK_TRACE("Missing z-level data object for z[num2text(z)]!")
 		level.setup_level_data()
 
-	// Generate turbolifts.
+	// Build away sites.
+	global.using_map.build_away_sites()
+	global.using_map.build_planets()
+	for(var/z = old_maxz + 1 to world.maxz)
+		var/datum/level_data/level = levels_by_z[z]
+		if(!istype(level))
+			level = new /datum/level_data/space(z)
+			PRINT_STACK_TRACE("Missing z-level data object for z[num2text(z)]!")
+		level.setup_level_data()
+
+	// Generate turbolifts last, since away sites may have elevators to generate too.
 	for(var/obj/abstract/turbolift_spawner/turbolift as anything in turbolifts_to_initialize)
 		turbolift.build_turbolift()
+
+	// Initialize z-level objects.
+#ifdef UNIT_TEST
+	config.roundstart_level_generation = FALSE //#FIXME: Shouldn't this be set before running level_data/setup_level_data()?
+#endif
 
 	. = ..()
 

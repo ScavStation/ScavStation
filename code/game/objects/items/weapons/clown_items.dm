@@ -7,7 +7,7 @@
 /*
  * Banana Peals
  */
-/obj/item/bananapeel/Crossed(atom/movable/AM)
+/obj/item/bananapeel/Crossed(var/atom/movable/AM)
 	if(!isliving(AM))
 		return
 	var/mob/living/M = AM

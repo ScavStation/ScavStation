@@ -91,6 +91,9 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	// The list of lobby tracks to pick() from. If left unset will randomly select among all available /music_track subtypes.
 	var/list/lobby_tracks = list()
 
+	// A server logo displayed on the taskbar and top-left part of the window. Leave null for the default DM icon.
+	var/window_icon
+
 	// Sounds played on roundstart
 	var/list/welcome_sound = 'sound/AI/welcome.ogg'
 	// Sounds played with end titles (credits)
@@ -123,7 +126,6 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/list/station_departments = list()//Gets filled automatically depending on jobs allowed
 
 	var/default_species = SPECIES_HUMAN
-	var/default_bodytype = BODYTYPE_HUMANOID
 
 	var/list/available_cultural_info = list(
 		TAG_HOMEWORLD = list(/decl/cultural_info/location/other),

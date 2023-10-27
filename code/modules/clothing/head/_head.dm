@@ -87,11 +87,10 @@
 		if(ishuman(user_mob))
 			var/mob/living/carbon/human/H = user_mob
 			if(H.get_bodytype_category() != bodytype)
-				light_overlay = H.bodytype.get_offset_overlay_image(FALSE, light_overlay.icon, light_overlay.icon_state, null, slot)
+				light_overlay = H.get_bodytype().get_offset_overlay_image(FALSE, light_overlay.icon, light_overlay.icon_state, null, slot)
 		overlay.overlays += light_overlay
 	. = ..()
 
-/obj/item/clothing/head/update_clothing_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
-		M.update_inv_head()
+/obj/item/clothing/head/get_associated_equipment_slots()
+	. = ..()
+	LAZYDISTINCTADD(., slot_head_str)

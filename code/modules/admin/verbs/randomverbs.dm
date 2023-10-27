@@ -450,7 +450,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.real_name = record_found.get_name()
 		new_character.set_gender(record_found.get_gender())
 		new_character.set_age(record_found.get_age())
-		new_character.b_type = record_found.get_bloodtype()
+		new_character.blood_type = record_found.get_bloodtype()
 	else
 		new_character.set_gender(pick(MALE,FEMALE))
 		var/datum/preferences/A = new()
@@ -473,9 +473,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.mind.assigned_role = global.using_map.default_job_title//If they somehow got a null assigned role.
 
 	//DNA
-	new_character.dna.ready_dna(new_character)
-	if(record_found)//Pull up their name from database records if they did have a mind.
-		new_character.dna.unique_enzymes = record_found.get_dna()//Enzymes are based on real name but we'll use the record for conformity.
+	if(new_character.dna)
+		new_character.dna.ready_dna(new_character)
+		if(record_found)//Pull up their name from database records if they did have a mind.
+			new_character.dna.unique_enzymes = record_found.get_dna()
 	new_character.key = G_found.key
 
 	/*
@@ -516,7 +517,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!input)
 		return
 	for(var/mob/living/silicon/ai/M in SSmobs.mob_list)
-		if (M.stat == 2)
+		if (M.stat == DEAD)
 			to_chat(usr, "Upload failed. No signal is being detected from the AI.")
 		else if (M.see_in_dark == 0)
 			to_chat(usr, "Upload failed. Only a faint signal is being detected from the AI, and it is not responding to our requests. It may be low on power.")

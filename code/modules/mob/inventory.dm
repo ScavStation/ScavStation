@@ -15,10 +15,10 @@
 //set disable_warning to disable the 'you are unable to equip that' warning.
 //unset redraw_mob to prevent the mob from being redrawn at the end.
 //set force to replace items in the slot and ignore blocking overwear
-/mob/proc/equip_to_slot_if_possible(obj/item/W, slot, del_on_fail = 0, disable_warning = 0, redraw_mob = 1, force = FALSE, delete_old_item = TRUE)
+/mob/proc/equip_to_slot_if_possible(obj/item/W, slot, del_on_fail = 0, disable_warning = 0, redraw_mob = 1, force = FALSE, delete_old_item = TRUE, ignore_equipped = FALSE)
 	if(!istype(W) || !slot)
 		return FALSE
-	. = (canUnEquip(W) && can_equip_anything_to_slot(slot) && has_organ_for_slot(slot) && W.mob_can_equip(src, slot, disable_warning, force))
+	. = (canUnEquip(W) && can_equip_anything_to_slot(slot) && has_organ_for_slot(slot) && W.mob_can_equip(src, slot, disable_warning, force, ignore_equipped = ignore_equipped))
 	if(.)
 		equip_to_slot(W, slot, redraw_mob, delete_old_item = delete_old_item) //This proc should not ever fail.
 	else if(del_on_fail)
@@ -175,13 +175,11 @@
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
-/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target = null, var/play_dropsound = TRUE)
-	if(W)
-		remove_from_mob(W, target, play_dropsound)
-		if(!(W && W.loc)) return 1 // self destroying objects (tk, grabs)
-		update_icon()
-		return 1
-	return 0
+/mob/proc/drop_from_inventory(var/obj/item/dropping_item, var/atom/target = null, var/play_dropsound = TRUE)
+	if(dropping_item)
+		remove_from_mob(dropping_item, target, play_dropsound)
+		return TRUE
+	return FALSE
 
 // Drops a held item from a given slot.
 /mob/proc/drop_from_hand(var/slot, var/atom/Target)
@@ -341,7 +339,7 @@
 	return FALSE
 
 /mob/proc/can_be_buckled(var/mob/user)
-	. = user.Adjacent(src) && !istype(user, /mob/living/silicon/pai)
+	. = user.Adjacent(src) && !ispAI(user)
 
 /// If this proc returns false, reconsider_client_screen_presence will set the item's screen_loc to null.
 /mob/proc/item_should_have_screen_presence(obj/item/item, slot)
