@@ -58,6 +58,7 @@
 		/decl/natural_attack/bite/strong
 	)
 
+	base_prosthetics_model = null
 	base_color = "#c7b8aa"
 	base_eye_color = "#003366"
 	base_markings = list(
