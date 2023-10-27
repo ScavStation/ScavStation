@@ -42,6 +42,6 @@
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/yinglet, slot_wear_suit_str)
 
-/decl/hierarchy/outfit/job/equip(mob/living/carbon/human/H, rank, assignment, equip_adjustments)
+/decl/hierarchy/outfit/job/equip_outfit(mob/living/carbon/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	. = ..()
 	try_give_yinglet_fallbacks(H, rank)
