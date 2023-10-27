@@ -2,9 +2,6 @@
 	name = "ICON STATE template"
 	template = /datum/unit_test/icon_test
 
-/datum/unit_test/icon_test/posters_shall_have_icon_states
-	name = "ICON STATE - Posters Shall Have Icon States"
-
 /datum/unit_test/icon_test/item_modifiers_shall_have_icon_states
 	name = "ICON STATE - Item Modifiers Shall Have Icon Sates"
 	var/list/icon_states_by_type
