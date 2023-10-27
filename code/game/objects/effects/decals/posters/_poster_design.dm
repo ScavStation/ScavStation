@@ -4,6 +4,7 @@
 
 ///Contains information on what a poster displays.
 /decl/poster_design
+	abstract_type = /decl/poster_design
 	///The display name/title of the design. Suffixed to the name of the medium displaying the design.
 	var/name
 	///The description of the design shown to users. This is suffixed to the description of the medium displaying this design.

@@ -125,10 +125,13 @@
 /obj/item/organ/external/tail/yinglet/sync_colour_to_human(var/mob/living/carbon/human/human)
 	. = ..()
 	var/decl/bodytype/human_bodytype = human.get_bodytype()?.type
-	if(human_bodytype == /decl/bodytype/yinglet/masculine)
+	if(human_bodytype == /decl/bodytype/yinglet/masculine || human_bodytype == /decl/bodytype/prosthetic/ying/metal/fbp/masculine)
 		tail_hair = "male"
-	else if(human_bodytype == /decl/bodytype/yinglet)
+	else if(human_bodytype == /decl/bodytype/yinglet || human_bodytype == /decl/bodytype/prosthetic/ying/metal/fbp)
 		tail_hair = "female"
 	else
 		tail_hair = "hairymale"
 	human.update_tail_showing()
+
+/obj/item/organ/external/tail/yinglet/robot
+	tail_icon = 'mods/valsalia/icons/species/yinglet/tail_robot.dmi'

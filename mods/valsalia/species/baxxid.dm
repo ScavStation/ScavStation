@@ -125,18 +125,21 @@
 	icon_state = "crest"
 	blend = ICON_MULTIPLY
 	mask_to_bodypart = FALSE
+	uid = "marking_baxxid_crest"
 
 /decl/sprite_accessory/marking/baxxid/plates
 	name = "Armour Plates"
 	body_parts = list(BP_CHEST, BP_GROIN)
 	icon_state = "plates"
 	mask_to_bodypart = TRUE
+	uid = "marking_baxxid_plates"
 
 /decl/sprite_accessory/marking/baxxid/bones
 	name = "Bony Segments"
 	body_parts = list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_R_FOOT, BP_L_FOOT)
 	icon_state = "bones"
 	mask_to_bodypart = TRUE
+	uid = "marking_baxxid_bones"
 
 /datum/hud_data/baxxid
 	inventory_slots = list(
