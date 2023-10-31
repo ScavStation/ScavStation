@@ -32,13 +32,27 @@
 
 /datum/unit_test/icon_test/signs_shall_have_existing_icon_states
 	name = "ICON STATE - Signs shall have existing icon states"
+	var/list/skip_types = list(
+		// Posters use a decl to set their icon and handle their own validation.
+		/obj/structure/sign/poster
+	)
 
 /datum/unit_test/icon_test/signs_shall_have_existing_icon_states/start_test()
 	var/list/failures = list()
 	for(var/sign_type in typesof(/obj/structure/sign))
+
 		var/obj/structure/sign/sign = sign_type
 		if(TYPE_IS_ABSTRACT(sign))
 			continue
+
+		var/skip = FALSE
+		for(var/skip_type in skip_types)
+			if(ispath(sign_type, skip_type))
+				skip = TRUE
+				break
+		if(skip)
+			continue
+
 		var/check_state = initial(sign.icon_state)
 		if(!check_state)
 			failures += "[sign] - null icon_state"
