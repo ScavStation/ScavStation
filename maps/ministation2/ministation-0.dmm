@@ -634,7 +634,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "dx" = (
-/obj/item/beach_ball,
+/obj/item/ball,
 /turf/simulated/floor/pool,
 /area/ministation/dorms)
 "dB" = (

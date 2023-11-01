@@ -37,11 +37,13 @@
 	movement_slowdown = 2
 	is_robotic = FALSE
 	eye_icon = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
+	material = /decl/material/solid/wood
 
 /decl/bodytype/prosthetic/ying/metal
 	name = "Lunar Transit"
 	desc = "A cheap robotic prosthetic designed for yinglet owners."
 	icon_base = 'mods/valsalia/icons/metal_main.dmi'
+	material = /decl/material/solid/metal/steel
 
 /decl/bodytype/prosthetic/ying/metal/fbp
 	name = "yinglet, gynoid"
@@ -100,56 +102,56 @@ DEFINE_ROBOLIMB_DESIGNS(/decl/bodytype/prosthetic/ying/metal, lunar_transit)
 
 /obj/item/organ/external/arm/yinglet/wooden
 	material = /decl/material/solid/wood
-/obj/item/organ/external/arm/yinglet/wooden/Initialize()
+/obj/item/organ/external/arm/yinglet/wooden/Initialize(var/ml, var/material_key)
 	species = all_species[SPECIES_HUMAN]
 	. = ..()
-	set_bodytype(/decl/bodytype/prosthetic/ying/wooden)
+	set_bodytype(/decl/bodytype/prosthetic/ying/wooden, material_key)
 
 /obj/item/organ/external/arm/right/yinglet/wooden
 	material = /decl/material/solid/wood
-/obj/item/organ/external/arm/right/yinglet/wooden/Initialize()
+/obj/item/organ/external/arm/right/yinglet/wooden/Initialize(var/ml, var/material_key)
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	set_bodytype(/decl/bodytype/prosthetic/ying/wooden)
+	set_bodytype(/decl/bodytype/prosthetic/ying/wooden, material_key)
 
 /obj/item/organ/external/leg/yinglet/wooden
 	material = /decl/material/solid/wood
-/obj/item/organ/external/leg/yinglet/wooden/Initialize()
+/obj/item/organ/external/leg/yinglet/wooden/Initialize(var/ml, var/material_key)
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	set_bodytype(/decl/bodytype/prosthetic/ying/wooden)
+	set_bodytype(/decl/bodytype/prosthetic/ying/wooden, material_key)
 
 /obj/item/organ/external/leg/right/yinglet/wooden
 	material = /decl/material/solid/wood
-/obj/item/organ/external/leg/right/yinglet/wooden/Initialize()
+/obj/item/organ/external/leg/right/yinglet/wooden/Initialize(var/ml, var/material_key)
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	set_bodytype(/decl/bodytype/prosthetic/ying/wooden)
+	set_bodytype(/decl/bodytype/prosthetic/ying/wooden, material_key)
 
 /obj/item/organ/external/hand/yinglet/wooden
 	material = /decl/material/solid/wood
-/obj/item/organ/external/hand/yinglet/wooden/Initialize()
+/obj/item/organ/external/hand/yinglet/wooden/Initialize(var/ml, var/material_key)
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	set_bodytype(/decl/bodytype/prosthetic/ying/wooden)
+	set_bodytype(/decl/bodytype/prosthetic/ying/wooden, material_key)
 
 /obj/item/organ/external/hand/right/yinglet/wooden
 	material = /decl/material/solid/wood
-/obj/item/organ/external/hand/right/yinglet/wooden/Initialize()
+/obj/item/organ/external/hand/right/yinglet/wooden/Initialize(var/ml, var/material_key)
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	set_bodytype(/decl/bodytype/prosthetic/ying/wooden)
+	set_bodytype(/decl/bodytype/prosthetic/ying/wooden, material_key)
 
 /obj/item/organ/external/foot/yinglet/wooden
 	material = /decl/material/solid/wood
-/obj/item/organ/external/foot/yinglet/wooden/Initialize()
+/obj/item/organ/external/foot/yinglet/wooden/Initialize(var/ml, var/material_key)
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	set_bodytype(/decl/bodytype/prosthetic/ying/wooden)
+	set_bodytype(/decl/bodytype/prosthetic/ying/wooden, material_key)
 
 /obj/item/organ/external/foot/right/yinglet/wooden
 	material = /decl/material/solid/wood
-/obj/item/organ/external/foot/right/yinglet/wooden/Initialize()
+/obj/item/organ/external/foot/right/yinglet/wooden/Initialize(var/ml, var/material_key)
 	species = all_species[SPECIES_YINGLET]
 	. = ..()
-	set_bodytype(/decl/bodytype/prosthetic/ying/wooden)
+	set_bodytype(/decl/bodytype/prosthetic/ying/wooden, material_key)
