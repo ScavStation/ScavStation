@@ -85,7 +85,7 @@ var/global/list/bodytypes_by_category = list()
 	var/base_hair_color = COLOR_BLACK
 
 	/// Used to initialize organ material
-	var/material =        /decl/material/solid/meat
+	var/material =        /decl/material/solid/organic/meat
 	/// Used to initialize organ matter
 	var/list/matter =     null
 	/// The reagent organs are filled with, which currently affects what mobs that eat the organ will receive.
@@ -382,9 +382,10 @@ var/global/list/bodytypes_by_category = list()
 	mannequin.update_icon()
 
 /decl/species/proc/customize_preview_mannequin(mob/living/carbon/human/dummy/mannequin/mannequin)
-	if(mannequin.species.preview_outfit)
+	if(preview_outfit)
 		var/decl/hierarchy/outfit/outfit = outfit_by_type(preview_outfit)
 		outfit.equip_outfit(mannequin, equip_adjustments = (OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR|OUTFIT_ADJUSTMENT_SKIP_BACKPACK))
+		mannequin.update_icon()
 	mannequin.update_transform()
 
 /decl/bodytype/proc/rebuild_internal_organs(var/obj/item/organ/external/limb, var/override_material)

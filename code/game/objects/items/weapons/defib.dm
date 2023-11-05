@@ -13,7 +13,7 @@
 	w_class = ITEM_SIZE_LARGE
 	origin_tech = "{'biotech':4,'powerstorage':2}"
 	action_button_name = "Remove/Replace Paddles"
-	material = /decl/material/solid/plastic
+	material = /decl/material/solid/organic/plastic
 	matter = list(
 		/decl/material/solid/metal/copper = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/steel  = MATTER_AMOUNT_REINFORCEMENT,
@@ -192,7 +192,7 @@
 	force = 2
 	throwforce = 6
 	w_class = ITEM_SIZE_LARGE
-	material = /decl/material/solid/plastic
+	material = /decl/material/solid/organic/plastic
 	matter = list(/decl/material/solid/metal/copper = MATTER_AMOUNT_SECONDARY, /decl/material/solid/metal/steel = MATTER_AMOUNT_SECONDARY)
 	max_health = ITEM_HEALTH_NO_DAMAGE
 
@@ -436,7 +436,7 @@
 	M.switch_from_dead_to_living_mob_list()
 	M.timeofdeath = 0
 	M.set_stat(UNCONSCIOUS) //Life() can bring them back to consciousness if it needs to.
-	M.refresh_visible_overlays()
+	M.try_refresh_visible_overlays()
 	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 	M.reload_fullscreen()
 
