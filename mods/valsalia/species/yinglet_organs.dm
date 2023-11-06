@@ -5,26 +5,26 @@
 /obj/item/organ/internal/stomach/yinglet
 	name = "scav stomach"
 	var/static/list/gains_nutriment_from_inedible_reagents = list(
-		/decl/material/solid/wood =           3,
-		/decl/material/liquid/anfo/plus =     2,
-		/decl/material/liquid/anfo =          1,
-		/decl/material/liquid/lube =          1,
-		/decl/material/liquid/cleaner =       1,
-		/decl/material/liquid/foaming_agent = 1,
-		/decl/material/liquid/surfactant =    1,
-		/decl/material/liquid/paint =         1
+		/decl/material/solid/organic/wood =          3,
+		/decl/material/liquid/anfo/plus =            2,
+		/decl/material/liquid/anfo =                 1,
+		/decl/material/liquid/lube =                 1,
+		/decl/material/liquid/cleaner =              1,
+		/decl/material/liquid/foaming_agent =        1,
+		/decl/material/liquid/surfactant =           1,
+		/decl/material/liquid/paint =                1
 	)
 	var/static/list/gains_nutriment_from_matter = list(
-		/decl/material/solid/wood =           TRUE,
-		/decl/material/solid/wood/mahogany =  TRUE,
-		/decl/material/solid/wood/maple =     TRUE,
-		/decl/material/solid/wood/ebony =     TRUE,
-		/decl/material/solid/wood/walnut =    TRUE,
-		/decl/material/solid/leather =        TRUE,
-		/decl/material/solid/plastic =        TRUE,
-		/decl/material/solid/cardboard =      TRUE,
-		/decl/material/solid/cloth =          TRUE,
-		/decl/material/solid/sodiumchloride = TRUE
+		/decl/material/solid/organic/wood =          TRUE,
+		/decl/material/solid/organic/wood/mahogany = TRUE,
+		/decl/material/solid/organic/wood/maple =    TRUE,
+		/decl/material/solid/organic/wood/ebony =    TRUE,
+		/decl/material/solid/organic/wood/walnut =   TRUE,
+		/decl/material/solid/organic/leather =       TRUE,
+		/decl/material/solid/organic/plastic =       TRUE,
+		/decl/material/solid/organic/cardboard =     TRUE,
+		/decl/material/solid/organic/cloth =         TRUE,
+		/decl/material/solid/sodiumchloride =        TRUE
 	)
 
 /obj/item/organ/internal/stomach/yinglet/Process()

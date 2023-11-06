@@ -131,7 +131,6 @@
 		tail_hair = "female"
 	else
 		tail_hair = "hairymale"
-	human.update_tail_showing()
 
 /obj/item/organ/external/tail/yinglet/robot
 	tail_icon = 'mods/valsalia/icons/species/yinglet/tail_robot.dmi'
