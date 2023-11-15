@@ -60,6 +60,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10
 	},
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/plating,
 /area/map_template/crashed_pod)
 "ah" = (
@@ -170,6 +171,7 @@
 /obj/item/wrench,
 /obj/item/storage/toolbox/repairs,
 /obj/effect/decal/cleanable/dirt,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "ao" = (
@@ -179,6 +181,7 @@
 	},
 /obj/structure/closet/crate/solar,
 /obj/effect/decal/cleanable/dirt,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "ap" = (
@@ -195,6 +198,7 @@
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/dirt,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "aq" = (
@@ -269,6 +273,7 @@
 /obj/item/chems/drinks/cans/speer,
 /obj/item/chems/drinks/cans/speer,
 /obj/effect/decal/cleanable/dirt,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "ax" = (
