@@ -1,3 +1,7 @@
+/obj/structure/closet/emcloset/WillContain()
+	. = ..()
+	. += new /datum/atom_creator/simple(list(/obj/item/clothing/head/helmet/space/void/scav,/obj/item/clothing/suit/space/void/scav), 25)
+
 /obj/item/clothing/suit/space/void/scav
 	name = "small voidsuit"
 	desc = "A compact, lightly armoured voidsuit for a nonhuman with a tail."
