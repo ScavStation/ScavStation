@@ -5950,7 +5950,7 @@
 	id_tag = "toxinsburnvent";
 	name = "Toxins Blast Door Vent"
 	},
-/turf/space,
+/turf/simulated/floor/reinforced/airless,
 /area/ministation/science)
 "MY" = (
 /obj/structure/cable{
