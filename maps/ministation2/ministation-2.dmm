@@ -3403,7 +3403,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ministation/science)
 "sM" = (
 /obj/structure/closet,
@@ -4861,7 +4861,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ministation/science)
 "Do" = (
 /obj/structure/catwalk,
@@ -5118,7 +5118,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ministation/science)
 "EW" = (
 /obj/structure/cable{
@@ -5950,7 +5950,7 @@
 	id_tag = "toxinsburnvent";
 	name = "Toxins Blast Door Vent"
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ministation/science)
 "MY" = (
 /obj/structure/cable{
@@ -7564,7 +7564,7 @@
 /obj/machinery/igniter{
 	id_tag = "toxinsigniter"
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ministation/science)
 "Xa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7920,7 +7920,7 @@
 	id_tag = "n2_in";
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ministation/science)
 "Zd" = (
 /obj/machinery/button/blast_door{
@@ -7976,7 +7976,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ministation/science)
 "Zr" = (
 /obj/structure/cable{
