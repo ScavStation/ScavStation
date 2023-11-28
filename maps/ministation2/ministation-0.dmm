@@ -2553,6 +2553,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
+/obj/machinery/atmospherics/valve,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "ly" = (
@@ -10277,8 +10278,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "OE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -10565,10 +10566,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/machinery/atmospherics/valve/open,
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
 "Px" = (
@@ -11543,9 +11544,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Tm" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/visible/red,
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
 "Tp" = (
@@ -38319,8 +38318,8 @@ xW
 un
 OE
 lu
-QA
-SG
+sp
+RS
 Tm
 wi
 sp
