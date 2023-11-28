@@ -1278,13 +1278,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"fG" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/blue,
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/atmospherics)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -40903,7 +40896,7 @@ zH
 Yk
 Rw
 pw
-fG
+nR
 PD
 aa
 GF
