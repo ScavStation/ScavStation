@@ -44,6 +44,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "aq" = (
@@ -78,12 +79,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
-"aE" = (
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/westatmos)
 "aG" = (
 /obj/structure/table,
 /obj/effect/floor_decal/industrial/warning{
@@ -1494,6 +1489,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "gn" = (
@@ -1681,7 +1677,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/hall/n)
 "gW" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1749,6 +1745,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/maint/eastatmos)
 "ho" = (
@@ -1965,6 +1962,11 @@
 "il" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/supermatter)
+"im" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "iq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3139,6 +3141,7 @@
 /area/ministation/eva)
 "oF" = (
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/ministation/engine)
 "oI" = (
@@ -3529,6 +3532,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "qQ" = (
@@ -4736,6 +4740,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Hard Storage"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "xm" = (
@@ -4910,6 +4915,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "yo" = (
@@ -5466,6 +5472,14 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"AT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s1)
 "AU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/warning{
@@ -6154,10 +6168,6 @@
 /obj/machinery/power/apc/high{
 	dir = 1;
 	pixel_y = 20
-	},
-/obj/machinery/alarm{
-	pixel_y = -24;
-	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/s1)
@@ -7688,6 +7698,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "Ha" = (
@@ -8048,8 +8062,8 @@
 "HP" = (
 /obj/structure/table,
 /obj/item/stack/material/pane/mapped/glass/fifty,
-/obj/item/stack/material/pane/mapped/rglass,
 /obj/item/stack/material/reinforced/mapped/fiberglass/fifty,
+/obj/item/stack/material/pane/mapped/rglass/fifty,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "HQ" = (
@@ -8060,7 +8074,7 @@
 /area/ministation/engine)
 "HR" = (
 /obj/structure/table,
-/obj/item/stack/material/reinforced/mapped/plasteel,
+/obj/item/stack/material/reinforced/mapped/plasteel/fifty,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "HS" = (
@@ -9539,6 +9553,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Mc" = (
@@ -9654,7 +9669,7 @@
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/hall/n)
 "MB" = (
 /obj/abstract/landmark/start{
 	name = "Recruit"
@@ -12112,6 +12127,7 @@
 "VG" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/airlock,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "VH" = (
@@ -12717,6 +12733,7 @@
 "Ys" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Yt" = (
@@ -13142,6 +13159,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "ZR" = (
@@ -41628,7 +41646,7 @@ aa
 aa
 aa
 DD
-aE
+zr
 zr
 zr
 PD
@@ -41907,7 +41925,7 @@ rU
 av
 XO
 aa
-Eo
+im
 Yt
 gm
 aa
@@ -42163,11 +42181,11 @@ Dt
 Ic
 wK
 Dt
-Eo
+im
 VG
 GV
 gm
-Eo
+im
 av
 aa
 aa
@@ -44741,7 +44759,7 @@ av
 ae
 HE
 HL
-Eo
+im
 aa
 aa
 aa
@@ -45255,9 +45273,9 @@ Zi
 bk
 ST
 QC
-Eo
-Eo
-Eo
+im
+im
+im
 av
 TZ
 aa
@@ -46002,7 +46020,7 @@ ui
 ui
 AH
 ui
-ui
+AT
 Eg
 ui
 EV
@@ -46026,7 +46044,7 @@ Zi
 bk
 HC
 PW
-Eo
+im
 aa
 aa
 aa
@@ -46283,7 +46301,7 @@ av
 Hx
 Gt
 HO
-Eo
+im
 aa
 aa
 aa
@@ -48321,9 +48339,9 @@ Ek
 lr
 Fn
 Dt
-Eo
-Eo
-Eo
+im
+im
+im
 Dt
 Dt
 UU
@@ -49362,7 +49380,7 @@ XO
 Dt
 CQ
 gm
-Eo
+im
 zk
 AR
 aa
