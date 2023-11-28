@@ -6004,7 +6004,6 @@
 /area/ministation/court)
 "Ne" = (
 /obj/structure/table,
-/obj/structure/table,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
