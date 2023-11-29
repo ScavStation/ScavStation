@@ -346,7 +346,6 @@
 	armour_colour = COLOR_GOLD
 	faceplate_colour = COLOR_WHITE
 	stripe_colour = COLOR_GREEN
-	camera = /obj/machinery/camera/network/command
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_MAJOR,
 		ARMOR_BULLET = ARMOR_BALLISTIC_RESISTANT,
