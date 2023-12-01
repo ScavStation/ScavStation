@@ -79,6 +79,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
+"ay" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/atmospherics)
 "aG" = (
 /obj/structure/table,
 /obj/effect/floor_decal/industrial/warning{
@@ -1444,10 +1451,6 @@
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "bulb1"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/item/radio/intercom{
@@ -4064,6 +4067,11 @@
 /obj/machinery/portable_atmospherics/canister/helium{
 	start_pressure = 2559.63
 	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "tF" = (
@@ -4366,10 +4374,6 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "bulb1"
-	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "vl" = (
@@ -4398,6 +4402,11 @@
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -10270,6 +10279,10 @@
 "OE" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -39593,7 +39606,7 @@ mT
 aa
 PD
 QA
-QA
+ay
 gc
 SG
 Ki
