@@ -94,10 +94,12 @@
 			/decl/cultural_info/culture/other
 		),
 		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/tradehousespace,
 			/decl/cultural_info/location/stateless
 		),
 		TAG_FACTION =   list(
 			/decl/cultural_info/faction/baxxid,
+			/decl/cultural_info/faction/tradehouse_baxxid,
 			/decl/cultural_info/faction/other
 		),
 		TAG_RELIGION =  list(

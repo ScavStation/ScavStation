@@ -5,7 +5,13 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 	description = "Your people are scavengers and survivors, many of them living by riding the coattails of humanity. Any day where you aren't stepped on or beaten down by those much bigger and stronger than you is a good day."
 	subversive_potential = 25
 
+/decl/cultural_info/faction/tradehouse_ying
+	name = "Tradehouse Ivenmoth"
+	description = "You are a member of Tradehouse Ivenmoth, one of the most successful tradehouses in the universe and you know it which is why you wear your tradehouse reds with pride."
+
+
 /decl/cultural_info/culture/yinglet
+
 	name = "Enclave Yinglet"
 	description = "You are a contributing member of a yinglet enclave, or at least someone who isn't too much of \
 	a nusiance, and are likely in good standing with the matriarch and patriarches."
@@ -122,3 +128,34 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 
 /decl/cultural_info/culture/yinglet/tribal/get_random_name(var/gender)
 	. = pick(all_scav_names)
+
+/decl/cultural_info/culture/yinglet/void
+	name = "Void Scav"
+	description = "You are a crew member of a space station or ship that is usually not completely controlled by \
+	Yinglets and as such you are accustomed to living amogst the stars."
+	secondary_langs = list(
+		/decl/language/human/common,
+		/decl/language/sign
+	)
+
+/decl/cultural_info/location/yingletacrology
+	name = "Enclave Arcology"
+	description = "Out of the many known planets, it is without a doubt that there are some that have been completely overrun by Yinglets to the point that \
+	the planet is essentially one giant enclave."
+	distance = "Various"
+	capital = "Various"
+	economic_power = 1
+	ruling_body = "The Great Enclaves"
+
+/decl/cultural_info/location/tradehousespace
+	name = "Tradehouse Controlled"
+	description = "Tradehouse Ivenmoth grew from humble beginnings within the city of Val Salia to spanning multiple planets and stations."
+	distance = "Various"
+	capital = "Val Salia"
+	economic_power = 1
+	ruling_body = "Tradehouse Ivenmoth"
+
+/decl/cultural_info/religion/enclave
+	name = "Enclave Pantheon"
+	description = " You are one of the many yinglets who believe in the spiritual guidance of the The Great Leader and the many Matriarchs and Patriarchs he spanwed \
+	from his bloodline."
