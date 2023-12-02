@@ -3120,6 +3120,14 @@
 "oy" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/smcontrol)
+"oB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/obj/machinery/camera/network/engineering{
+	dir = 8;
+	name = "Atmospherics"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/atmospherics)
 "oC" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 8
@@ -4586,6 +4594,13 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/quartermaster,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"wo" = (
+/obj/machinery/camera/network/engineering{
+	dir = 4;
+	name = "Atmospherics"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/atmospherics)
 "wp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood/yew,
@@ -6850,6 +6865,10 @@
 "Fa" = (
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = list("ACCESS_ENGINEERING")
+	},
+/obj/machinery/camera/network/engineering{
+	name = "Engineering Hub";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -38330,7 +38349,7 @@ Tm
 wi
 sp
 mY
-QA
+wo
 Uq
 ma
 aa
@@ -39092,7 +39111,7 @@ mT
 PD
 qK
 sp
-sp
+oB
 ze
 PT
 cB
