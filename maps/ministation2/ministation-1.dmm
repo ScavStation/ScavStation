@@ -82,7 +82,6 @@
 /area/ministation/security)
 "az" = (
 /obj/structure/rack,
-/obj/machinery/door/window/brigdoor/southleft,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -91,6 +90,11 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 1
+	},
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY")
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -246,7 +250,6 @@
 /area/ministation/detective)
 "by" = (
 /obj/structure/rack,
-/obj/machinery/door/window/brigdoor/southleft,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -258,6 +261,9 @@
 	},
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY")
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "bA" = (
@@ -278,6 +284,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"bC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "bG" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -316,6 +335,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"bO" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "bQ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -338,6 +364,16 @@
 /obj/item/mollusc/clam,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"bR" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "bU" = (
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -616,6 +652,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "dZ" = (
@@ -749,7 +791,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "eK" = (
-/obj/machinery/door/airlock/hatch/autoname/command,
+/obj/machinery/door/airlock/hatch/autoname/command{
+	req_access = list("ACCESS_ARMORY")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "eV" = (
@@ -795,6 +841,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"fs" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	level = 2
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "fu" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/southright,
@@ -870,6 +922,10 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
+"fH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "fL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1103,6 +1159,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"ho" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "hr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1119,6 +1180,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cryo)
+"ht" = (
+/obj/structure/sign/warning/lethal_turrets,
+/turf/simulated/wall/r_wall,
+/area/ministation/security)
 "hu" = (
 /obj/abstract/landmark/start{
 	name = "Patriarch of Personnel"
@@ -1252,6 +1317,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"hU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/radio/intercom{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "hX" = (
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1291,6 +1369,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
+"ic" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "id" = (
 /obj/structure/table/woodentable,
 /obj/item/folder/red,
@@ -1566,6 +1654,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/ministation/detective)
+"jl" = (
+/obj/machinery/porta_turret{
+	dir = 4;
+	id_tag = "goodstuff"
+	},
+/turf/simulated/floor/bluegrid,
+/area/ministation/security)
 "js" = (
 /obj/machinery/computer/modular/preset/medical,
 /obj/structure/disposalpipe/segment{
@@ -1681,6 +1776,13 @@
 "kh" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/turretid/stun{
+	dir = 4;
+	pixel_x = -26;
+	initial_access = null;
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	id_tag = "goodstuff"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -2020,6 +2122,18 @@
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"mo" = (
+/obj/machinery/door/airlock/highsecurity{
+	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/blast/regular{
+	name = "High Risk Armory";
+	id_tag = "goodstuff2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "mp" = (
 /obj/structure/closet/secure_closet{
 	req_access = list("ACCESS_FORENSICS");
@@ -2147,18 +2261,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "nu" = (
-/obj/structure/rack,
-/obj/machinery/door/window/brigdoor/southleft,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
-/obj/item/gun/projectile/automatic/yassault_rifle,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "nx" = (
@@ -2224,13 +2332,22 @@
 /obj/item/gun/energy/taser,
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/energy/taser,
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/item/storage/box/ammo/shotgunshells,
-/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	},
+/obj/item/storage/box/ammo/beanbags,
+/obj/item/storage/box/ammo/beanbags,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/item/storage/box/ammo/stunshells/large,
+/obj/item/storage/box/ammo/stunshells/large,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "nX" = (
@@ -3665,6 +3782,13 @@
 /obj/effect/floor_decal/ss13/l10,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"tQ" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/bluegrid,
+/area/ministation/security)
 "tS" = (
 /obj/item/radio/intercom{
 	dir = 4;
@@ -3702,6 +3826,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"tV" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "tW" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -5138,6 +5271,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
+"zi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "zj" = (
 /obj/structure/table/glass,
 /obj/item/hatchet,
@@ -5571,6 +5710,32 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"Bh" = (
+/obj/machinery/camera/motion/ministation{
+	req_access = list("ACCESS_SECURITY");
+	name = "High Risk Armory";
+	preset_channels = list("Security")
+	},
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	},
+/obj/item/storage/box/ammo/shotgunammo/large,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "Bj" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "escape3_sensor";
@@ -5613,7 +5778,9 @@
 /area/ministation/maint/hydromaint)
 "Bs" = (
 /obj/structure/rack,
-/obj/machinery/door/window/brigdoor/southleft,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY")
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -5623,8 +5790,13 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/ammo_magazine/rifle,
-/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/pistol/flash,
+/obj/item/ammo_magazine/pistol/flash,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/gun/projectile/pistol/rubber,
+/obj/item/gun/projectile/pistol/rubber,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Bu" = (
@@ -5734,6 +5906,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
+"BU" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	},
+/turf/simulated/floor/bluegrid,
+/area/ministation/security)
 "BW" = (
 /obj/structure/flora/bush/lavendergrass,
 /turf/simulated/floor/grass,
@@ -6075,6 +6265,10 @@
 /obj/item/ammo_magazine/smg/rubber,
 /obj/item/ammo_magazine/smg/rubber,
 /obj/item/ammo_magazine/smg/rubber,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Fn" = (
@@ -6190,6 +6384,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"Gp" = (
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/turf/simulated/floor/bluegrid,
+/area/ministation/security)
 "Gu" = (
 /obj/machinery/light_switch{
 	dir = 1;
@@ -6227,6 +6428,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"GO" = (
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "GR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6381,6 +6589,9 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
+"Ik" = (
+/turf/simulated/floor/bluegrid,
+/area/ministation/security)
 "Im" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/southleft,
@@ -6654,7 +6865,6 @@
 /area/ministation/security)
 "KH" = (
 /obj/structure/rack,
-/obj/machinery/door/window/brigdoor/southleft,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -6667,6 +6877,9 @@
 /obj/item/gun/energy/laser,
 /obj/item/gun/energy/laser,
 /obj/item/gun/energy/laser,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY")
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "KK" = (
@@ -6683,6 +6896,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
+"KS" = (
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "KV" = (
 /obj/machinery/door/airlock/glass/command{
 	autoset_access = 0;
@@ -6691,6 +6907,12 @@
 	},
 /obj/machinery/door/firedoor{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -7044,6 +7266,10 @@
 /obj/machinery/camera/network/security{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Nz" = (
@@ -7127,11 +7353,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Oq" = (
@@ -7579,6 +7805,13 @@
 /obj/abstract/landmark/latejoin,
 /turf/simulated/floor/plating,
 /area/ministation/Arrival)
+"Rl" = (
+/obj/item/radio/intercom{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/bluegrid,
+/area/ministation/security)
 "Rp" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -7876,6 +8109,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"TQ" = (
+/obj/structure/rack,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/ammo_magazine/rifle,
+/turf/simulated/floor/bluegrid,
+/area/ministation/security)
 "TS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7950,6 +8202,23 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"Ur" = (
+/obj/machinery/camera/network/security{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/button/blast_door{
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	dir = 1;
+	pixel_y = -24;
+	name = "High Risk Armory Button";
+	id_tag = "goodstuff2"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "Ut" = (
 /obj/structure/sign/plaque/golden/security{
 	pixel_y = 32
@@ -8260,6 +8529,26 @@
 	},
 /turf/simulated/floor/wood,
 /area/ministation/detective)
+"Wm" = (
+/obj/item/gun/energy/xray,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/rack,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ministation/security)
 "Wo" = (
 /obj/structure/stairs/long/east,
 /turf/simulated/floor/tiled,
@@ -8269,8 +8558,6 @@
 /obj/item/shield/riot,
 /obj/item/shield/riot,
 /obj/item/clothing/suit/armor/reactive,
-/obj/item/storage/box/ammo/beanbags,
-/obj/item/storage/box/ammo/beanbags,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -8467,6 +8754,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"YF" = (
+/obj/item/gun/projectile/automatic/yassault_rifle,
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ministation/security)
 "YT" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -8479,6 +8786,12 @@
 "YU" = (
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -41839,7 +42152,7 @@ HO
 HO
 HO
 HO
-HO
+cY
 cY
 cY
 cY
@@ -42092,14 +42405,14 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
+cY
+cY
+cY
+cY
+cY
 cY
 kh
-dr
+GO
 cY
 cY
 cY
@@ -42348,12 +42661,12 @@ lF
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
+cY
+cY
+jl
+bR
+jl
+tQ
 cY
 az
 dr
@@ -42605,16 +42918,16 @@ lF
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
 cY
+TQ
+KS
+YF
+KS
+Ik
+ht
 KH
-dr
-dr
+fH
+zi
 cY
 UY
 BA
@@ -42862,16 +43175,16 @@ lF
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
 cY
-nu
-dr
-dr
+Bh
+KS
+ic
+ho
+ho
+mo
+Ou
+Ou
+Ur
 cY
 cY
 cY
@@ -43119,16 +43432,16 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
+cY
+BU
+KS
+Wm
+KS
+Rl
 cY
 Bs
 dr
-dr
+bC
 cY
 zq
 WN
@@ -43376,16 +43689,16 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
+cY
+cY
+jl
+tV
+jl
+Gp
 cY
 by
 dr
-dr
+hU
 cY
 HX
 Ow
@@ -43634,15 +43947,15 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
+cY
+cY
+cY
+cY
+cY
 cY
 DY
 dr
-dr
+QR
 cY
 cY
 cY
@@ -43895,11 +44208,11 @@ HO
 HO
 HO
 HO
-HO
+cY
 cY
 KG
-dr
-dr
+fs
+nu
 eK
 dW
 Wr
@@ -44159,10 +44472,10 @@ cY
 cY
 cY
 YU
-dr
-dr
+Ou
+bO
 Nv
-dr
+bp
 cY
 hx
 MH
