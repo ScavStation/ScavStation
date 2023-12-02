@@ -94,7 +94,8 @@
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_ARMORY")
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -262,7 +263,8 @@
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_ARMORY")
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -792,7 +794,8 @@
 /area/ministation/maint/hydromaint)
 "eK" = (
 /obj/machinery/door/airlock/hatch/autoname/command{
-	req_access = list("ACCESS_ARMORY")
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2124,7 +2127,8 @@
 /area/ministation/security)
 "mo" = (
 /obj/machinery/door/airlock/highsecurity{
-	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5732,7 +5736,8 @@
 	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
@@ -5778,9 +5783,6 @@
 /area/ministation/maint/hydromaint)
 "Bs" = (
 /obj/structure/rack,
-/obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_ARMORY")
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -5797,6 +5799,10 @@
 /obj/item/ammo_magazine/pistol/rubber,
 /obj/item/gun/projectile/pistol/rubber,
 /obj/item/gun/projectile/pistol/rubber,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Bu" = (
@@ -5920,7 +5926,8 @@
 /obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/pistol,
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	autoset_access = 0
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/security)
@@ -6878,7 +6885,8 @@
 /obj/item/gun/energy/laser,
 /obj/item/gun/energy/laser,
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_ARMORY")
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -8113,9 +8121,6 @@
 /obj/structure/rack,
 /obj/item/ammo_magazine/rifle,
 /obj/item/ammo_magazine/rifle,
-/obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY")
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -8126,6 +8131,10 @@
 	dir = 8
 	},
 /obj/item/ammo_magazine/rifle,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	autoset_access = 0
+	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/security)
 "TS" = (
@@ -8541,11 +8550,12 @@
 	dir = 1
 	},
 /obj/structure/rack,
-/obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY")
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	autoset_access = 0
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ministation/security)
@@ -8767,7 +8777,8 @@
 	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
