@@ -90,16 +90,21 @@
 		TAG_CULTURE =   list(
 			/decl/cultural_info/culture/yinglet,
 			/decl/cultural_info/culture/yinglet/tribal,
+			/decl/cultural_info/culture/yinglet/void,
 			/decl/cultural_info/culture/other
 		),
 		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/yingletacrology,
+			/decl/cultural_info/location/tradehousespace,
 			/decl/cultural_info/location/stateless
 		),
 		TAG_FACTION =   list(
 			/decl/cultural_info/faction/enclave_ying,
+			/decl/cultural_info/faction/tradehouse_ying,
 			/decl/cultural_info/faction/other
 		),
 		TAG_RELIGION =  list(
+			/decl/cultural_info/religion/enclave,
 			/decl/cultural_info/religion/other
 		)
 	)

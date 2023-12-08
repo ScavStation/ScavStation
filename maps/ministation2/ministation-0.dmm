@@ -79,6 +79,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
+"ay" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/atmospherics)
 "aG" = (
 /obj/structure/table,
 /obj/effect/floor_decal/industrial/warning{
@@ -1444,10 +1451,6 @@
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "bulb1"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/item/radio/intercom{
@@ -3117,6 +3120,14 @@
 "oy" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/smcontrol)
+"oB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/obj/machinery/camera/network/engineering{
+	dir = 8;
+	name = "Atmospherics"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/atmospherics)
 "oC" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 8
@@ -4064,6 +4075,11 @@
 /obj/machinery/portable_atmospherics/canister/helium{
 	start_pressure = 2559.63
 	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "tF" = (
@@ -4366,10 +4382,6 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "bulb1"
-	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "vl" = (
@@ -4398,6 +4410,11 @@
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -4577,6 +4594,13 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/quartermaster,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"wo" = (
+/obj/machinery/camera/network/engineering{
+	dir = 4;
+	name = "Atmospherics"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/atmospherics)
 "wp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood/yew,
@@ -6841,6 +6865,10 @@
 "Fa" = (
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = list("ACCESS_ENGINEERING")
+	},
+/obj/machinery/camera/network/engineering{
+	name = "Engineering Hub";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -10270,6 +10298,10 @@
 "OE" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -38317,7 +38349,7 @@ Tm
 wi
 sp
 mY
-QA
+wo
 Uq
 ma
 aa
@@ -39079,7 +39111,7 @@ mT
 PD
 qK
 sp
-sp
+oB
 ze
 PT
 cB
@@ -39593,7 +39625,7 @@ mT
 aa
 PD
 QA
-QA
+ay
 gc
 SG
 Ki
