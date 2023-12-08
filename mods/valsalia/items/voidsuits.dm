@@ -1,6 +1,22 @@
+// Add some storage capacity so it can fit the extra suit.
+/obj/structure/closet/emcloset/Initialize()
+	var/static/list/scav_suit = list(
+		/obj/item/clothing/head/helmet/space/void/scav,
+		/obj/item/clothing/suit/space/void/scav
+	)
+	for(var/suit_part_type in scav_suit)
+		var/obj/item/suit_part = suit_part_type
+		storage_capacity += initial(suit_part.w_class)
+	. = ..()
+
 /obj/structure/closet/emcloset/WillContain()
 	. = ..()
-	. += new /datum/atom_creator/simple(list(/obj/item/clothing/head/helmet/space/void/scav,/obj/item/clothing/suit/space/void/scav), 25)
+	. += new /datum/atom_creator/simple(
+		list(
+			/obj/item/clothing/head/helmet/space/void/scav,
+			/obj/item/clothing/suit/space/void/scav),
+		25
+	)
 
 /obj/item/clothing/suit/space/void/scav
 	name = "small voidsuit"
