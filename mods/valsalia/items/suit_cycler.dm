@@ -127,11 +127,11 @@
 
 /obj/item/clothing/suit/space/void/expedition/Initialize()
 	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/pilot/suit.dmi')
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/expedition/suit.dmi')
 
 /obj/item/clothing/head/helmet/space/void/expedition/Initialize()
 	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/pilot/helmet.dmi')
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/expedition/helmet.dmi')
 
 /obj/item/clothing/suit/space/void/Initialize()
 	. = ..()

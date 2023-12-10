@@ -381,7 +381,7 @@
 /obj/item/clothing/head/helmet/space/void/expedition
 	desc = "An atmos-resistant helmet for space and planet exploration."
 	name = "expedition voidsuit helmet"
-	icon = 'icons/clothing/spacesuit/void/pilot/helmet.dmi'
+	icon = 'icons/clothing/spacesuit/void/expedition/helmet.dmi'
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
 		ARMOR_BULLET = ARMOR_BALLISTIC_MINOR,
@@ -393,7 +393,7 @@
 /obj/item/clothing/suit/space/void/expedition
 	desc = "An atmos-resistant voidsuit for space and planet exploration."
 	name = "expedition voidsuit"
-	icon = 'icons/clothing/spacesuit/void/pilot/suit.dmi'
+	icon = 'icons/clothing/spacesuit/void/expedition/suit.dmi'
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
 		ARMOR_BULLET = ARMOR_BALLISTIC_MINOR,
