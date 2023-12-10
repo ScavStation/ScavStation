@@ -11,7 +11,7 @@
 		suit = pick(list(
 			/obj/item/clothing/suit/space/void/mining,
 			/obj/item/clothing/suit/space/void/engineering,
-			/obj/item/clothing/suit/space/void/pilot,
+			/obj/item/clothing/suit/space/void/expedition,
 			/obj/item/clothing/suit/space/void/excavation,
 			/obj/item/clothing/suit/space/void/engineering/salvage
 		))
@@ -19,7 +19,7 @@
 		helmet = pick(list(
 			/obj/item/clothing/head/helmet/space/void/mining,
 			/obj/item/clothing/head/helmet/space/void/engineering,
-			/obj/item/clothing/head/helmet/space/void/pilot,
+			/obj/item/clothing/head/helmet/space/void/expedition,
 			/obj/item/clothing/head/helmet/space/void/excavation,
 			/obj/item/clothing/head/helmet/space/void/engineering/salvage
 		))
@@ -125,11 +125,11 @@
 	. = ..()
 	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/salvage/helmet.dmi')
 
-/obj/item/clothing/suit/space/void/pilot/Initialize()
+/obj/item/clothing/suit/space/void/expedition/Initialize()
 	. = ..()
 	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/pilot/suit.dmi')
 
-/obj/item/clothing/head/helmet/space/void/pilot/Initialize()
+/obj/item/clothing/head/helmet/space/void/expedition/Initialize()
 	. = ..()
 	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/pilot/helmet.dmi')
 
@@ -156,3 +156,234 @@
 /obj/item/clothing/head/helmet/space/void/excavation/Initialize()
 	. = ..()
 	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/excavation/helmet.dmi')
+
+/obj/item/clothing/suit/space/void/merc/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/merc/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/swat/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/engineering/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/engineering/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/mining/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/mining/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/medical/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/medical/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/security/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/security/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/atmos/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/atmos/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/engineering/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/engineering/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/mining/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/mining/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/medical/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/medical/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/security/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/security/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/atmos/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/atmos/alt/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/engineering/salvage/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/engineering/salvage/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/expedition/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/expedition/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/wizard/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/wizard/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/space/void/excavation/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/helmet/space/void/excavation/scav/Initialize()
+	. = ..()
+	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		bodytype_equip_flags &= ~BODY_FLAG_YINGLET
+	else
+		bodytype_equip_flags |= BODY_FLAG_YINGLET

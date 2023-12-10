@@ -2464,8 +2464,8 @@
 	anchored = 1;
 	name = "anchored emergency closet"
 	},
-/obj/item/clothing/head/helmet/space/void/scav/merchant,
-/obj/item/clothing/suit/space/void/scav/merchant,
+/obj/item/clothing/head/helmet/space/void/merchant/scav,
+/obj/item/clothing/suit/space/void/merchant/scav,
 /turf/simulated/floor/tiled/monotile,
 /area/liberia/hallway)
 "em" = (
@@ -3239,8 +3239,8 @@
 "fI" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/head/helmet/space/void/scav/merchant,
-/obj/item/clothing/suit/space/void/scav/merchant,
+/obj/item/clothing/head/helmet/space/void/merchant/scav,
+/obj/item/clothing/suit/space/void/merchant/scav,
 /turf/simulated/floor/tiled/monotile,
 /area/liberia/hallway)
 "fJ" = (
@@ -3551,8 +3551,8 @@
 	},
 /obj/effect/floor_decal/corner/green,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/head/helmet/space/void/scav/merchant,
-/obj/item/clothing/suit/space/void/scav/merchant,
+/obj/item/clothing/head/helmet/space/void/merchant/scav,
+/obj/item/clothing/suit/space/void/merchant/scav,
 /turf/simulated/floor/tiled,
 /area/liberia/hallway)
 "gn" = (
@@ -3766,8 +3766,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/head/helmet/space/void/scav/merchant,
-/obj/item/clothing/suit/space/void/scav/merchant,
+/obj/item/clothing/head/helmet/space/void/merchant/scav,
+/obj/item/clothing/suit/space/void/merchant/scav,
 /turf/simulated/floor/tiled,
 /area/liberia/hallway)
 "gE" = (
@@ -6673,8 +6673,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/head/helmet/space/void/scav/merchant,
-/obj/item/clothing/suit/space/void/scav/merchant,
+/obj/item/clothing/head/helmet/space/void/merchant/scav,
+/obj/item/clothing/suit/space/void/merchant/scav,
 /turf/simulated/floor/tiled/monotile,
 /area/liberia/hallway)
 "rZ" = (

@@ -761,8 +761,8 @@
 	req_access = list("ACCESS_RESEARCH");
 	name = "Science locker"
 	},
-/obj/item/clothing/suit/space/void/scav/explorer,
-/obj/item/clothing/head/helmet/space/void/scav/explorer,
+/obj/item/clothing/suit/space/void/expedition/scav,
+/obj/item/clothing/head/helmet/space/void/expedition/scav,
 /obj/item/storage/med_pouch/trauma,
 /obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
@@ -4146,8 +4146,8 @@
 	req_access = list("ACCESS_RESEARCH");
 	name = "Science locker"
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
+/obj/item/clothing/head/helmet/space/void/excavation/scav,
+/obj/item/clothing/suit/space/void/excavation/scav,
 /obj/machinery/light,
 /obj/item/storage/med_pouch/trauma,
 /obj/item/stack/tape_roll/duct_tape,
@@ -6566,8 +6566,8 @@
 	req_access = list("ACCESS_RESEARCH");
 	name = "Science locker"
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
+/obj/item/clothing/head/helmet/space/void/excavation/scav,
+/obj/item/clothing/suit/space/void/excavation/scav,
 /obj/item/storage/med_pouch/trauma,
 /obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
