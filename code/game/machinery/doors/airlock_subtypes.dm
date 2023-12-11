@@ -18,6 +18,10 @@
 	door_color = COLOR_WHITE
 	stripe_color = COLOR_DEEP_SKY_BLUE
 
+/obj/machinery/door/airlock/medical/open
+	icon_state = "open"
+	begins_closed = FALSE
+
 /obj/machinery/door/airlock/virology
 	door_color = COLOR_WHITE
 	stripe_color = COLOR_GREEN
@@ -144,6 +148,10 @@
 		/decl/stock_part_preset/radio/receiver/airlock/external_air = 1,
 		/decl/stock_part_preset/radio/event_transmitter/airlock/external_air = 1
 	)
+
+/obj/machinery/door/airlock/external/open
+	icon_state = "open"
+	begins_closed = FALSE
 
 /obj/machinery/door/airlock/external/get_auto_access()
 	. = ..()

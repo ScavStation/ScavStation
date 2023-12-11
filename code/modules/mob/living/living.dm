@@ -275,9 +275,6 @@ default behaviour is:
 /mob/living/proc/setHalLoss(var/amount)
 	adjustBruteLoss((amount * 0.5)-getBruteLoss())
 
-/mob/living/proc/getBrainLoss()
-	return 0
-
 /mob/living/proc/adjustBrainLoss(var/amount)
 	return
 
@@ -900,9 +897,6 @@ default behaviour is:
 		else if(skip_delays || do_after(src, 5 SECONDS, user))
 			. = ..()
 
-/mob/living/can_be_injected_by(var/atom/injector)
-	return ..() && (can_inject(null, 0, BP_CHEST) || can_inject(null, 0, BP_GROIN))
-
 /mob/living/handle_grab_damage()
 	..()
 	if(!has_gravity())
@@ -951,7 +945,7 @@ default behaviour is:
 /mob/living/get_admin_job_string()
 	return "Living"
 
-/mob/living/handle_mouse_drop(atom/over, mob/user)
+/mob/living/handle_mouse_drop(atom/over, mob/user, params)
 	if(!anchored && user == src && user != over)
 
 		if(isturf(over))

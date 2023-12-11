@@ -206,12 +206,13 @@
 
 /obj/item/examine(mob/user, distance)
 	var/desc_comp = "" //For "description composite"
-	desc_comp += "It is a [w_class_description()] item."
+	desc_comp += "It is a [w_class_description()] item.<BR>"
 
 	var/desc_damage = get_examined_damage_string(health / max_health)
 	if(length(desc_damage))
-		desc_comp += "<BR/>[desc_damage]"
+		desc_comp += "[desc_damage]<BR>"
 
+	var/added_header = FALSE
 	if(user?.get_preference_value(/datum/client_preference/inquisitive_examine) == PREF_ON)
 
 		var/list/available_recipes = list()
@@ -224,44 +225,81 @@
 					available_recipes[initial_stage] = "\a [initial(prop.name)]"
 
 		if(length(available_recipes))
-			desc_comp += "<BR>*--------* <BR>"
+
+			if(!added_header)
+				added_header = TRUE
+				desc_comp += "*--------*<BR>"
+
 			for(var/decl/crafting_stage/initial_stage in available_recipes)
 				desc_comp += SPAN_NOTICE("With [available_recipes[initial_stage]], you could start making \a [initial_stage.descriptor] out of this.")
 				desc_comp += "<BR>"
-			desc_comp += "*--------*"
+			desc_comp += "*--------*<BR>"
+
+	if(distance <= 1 && has_extension(src, /datum/extension/loaded_cell))
+
+		if(!added_header)
+			added_header = TRUE
+			desc_comp += "*--------*<BR>"
+
+		var/datum/extension/loaded_cell/cell_loaded = get_extension(src, /datum/extension/loaded_cell)
+		var/obj/item/cell/loaded_cell  = cell_loaded?.get_cell()
+		var/obj/item/cell/current_cell = get_cell()
+		// Some items use the extension but may return something else to get_cell().
+		// In these cases, don't print the removal info etc.
+		if(current_cell && current_cell != loaded_cell)
+			desc_comp += SPAN_NOTICE("\The [src] is using an external [current_cell.name] as a power supply.")
+		else
+			desc_comp += jointext(cell_loaded.get_examine_text(current_cell), "<BR>")
+		desc_comp += "<BR>*--------*<BR>"
 
 	if(hasHUD(user, HUD_SCIENCE)) //Mob has a research scanner active.
-		desc_comp += "<BR>*--------* <BR>"
+
+		if(!added_header)
+			added_header = TRUE
+			desc_comp += "*--------*<BR>"
 
 		if(origin_tech)
-			desc_comp += SPAN_NOTICE("Testing potentials:<BR>")
+			desc_comp += SPAN_NOTICE("Testing potentials:")
+			desc_comp += "<BR>"
 			var/list/techlvls = cached_json_decode(origin_tech)
 			for(var/T in techlvls)
 				var/decl/research_field/field = SSfabrication.get_research_field_by_id(T)
-				desc_comp += "Tech: Level [techlvls[T]] [field.name] <BR>"
+				desc_comp += "Tech: Level [techlvls[T]] [field.name].<BR>"
 		else
 			desc_comp += "No tech origins detected.<BR>"
 
 		if(LAZYLEN(matter))
-			desc_comp += SPAN_NOTICE("Extractable materials:<BR>")
+			desc_comp += SPAN_NOTICE("Extractable materials:")
+			desc_comp += "<BR>"
 			for(var/mat in matter)
 				var/decl/material/M = GET_DECL(mat)
 				desc_comp += "[capitalize(M.solid_name)]<BR>"
 		else
 			desc_comp += SPAN_DANGER("No extractable materials detected.<BR>")
-		desc_comp += "*--------*"
+		desc_comp += "*--------*<BR>"
 
 	return ..(user, distance, "", desc_comp)
 
 /obj/item/check_mousedrop_adjacency(var/atom/over, var/mob/user)
 	. = (loc == user && istype(over, /obj/screen/inventory)) || ..()
 
-/obj/item/handle_mouse_drop(atom/over, mob/user)
-
+/obj/item/handle_mouse_drop(atom/over, mob/user, params)
 	if(over == user)
 		usr.face_atom(src)
 		dragged_onto(over)
 		return TRUE
+
+	// Allow dragging items onto/around tables and racks.
+	if(istype(over, /obj/structure))
+		var/obj/structure/struct = over
+		if(struct.structure_flags & STRUCTURE_FLAG_SURFACE)
+			if(user == loc && !user.try_unequip(src, get_turf(user)))
+				return TRUE
+			if(!isturf(loc))
+				return TRUE
+			var/list/click_data = params2list(params)
+			do_visual_slide(src, get_turf(src), pixel_x, pixel_y, get_turf(over), text2num(click_data["icon-x"])-1, text2num(click_data["icon-y"])-1, center_of_mass && cached_json_decode(center_of_mass))
+			return TRUE
 
 	// Try to drag-equip the item.
 	var/obj/screen/inventory/inv = over
@@ -281,6 +319,7 @@
 			add_fingerprint(user)
 			user.equip_to_slot_if_possible(src, inv.slot_id)
 		return TRUE
+
 
 	. = ..()
 
@@ -332,6 +371,11 @@
 	if(!QDELETED(throwing))
 		throwing.finalize(hit=TRUE)
 
+	if(has_extension(src, /datum/extension/loaded_cell) && user.is_holding_offhand(src))
+		var/datum/extension/loaded_cell/cell_handler = get_extension(src, /datum/extension/loaded_cell)
+		if(cell_handler.try_unload(user))
+			return TRUE
+
 	if (loc == user)
 		if(!user.try_unequip(src))
 			return TRUE
@@ -377,6 +421,16 @@
 					S.gather_all(src.loc, user)
 			else if(S.can_be_inserted(src, user))
 				S.handle_item_insertion(src)
+		return TRUE
+
+	if(has_extension(src, /datum/extension/loaded_cell))
+		var/datum/extension/loaded_cell/cell_loaded = get_extension(src, /datum/extension/loaded_cell)
+		if(cell_loaded.has_tool_unload_interaction(W))
+			return cell_loaded.try_unload(user, W)
+		else if(istype(W, /obj/item/cell))
+			return cell_loaded.try_load(user, W)
+
+	return FALSE
 
 /obj/item/proc/talk_into(mob/living/M, message, message_mode, var/verb = "says", var/decl/language/speaking = null)
 	return
@@ -867,3 +921,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/check_mousedrop_adjacency(var/atom/over, var/mob/user)
 	. = (loc == user && istype(over, /obj/screen)) || ..()
+
+/obj/item/proc/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
+	SHOULD_CALL_PARENT(FALSE)
+	if(loaded_cell_type && accepted_cell_type)
+		set_extension(src, (power_supply_extension_type || /datum/extension/loaded_cell), accepted_cell_type, loaded_cell_type, charge_value)
+
+/obj/item/proc/handle_loadout_equip_replacement(obj/item/old_item)
+	return
+

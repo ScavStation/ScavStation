@@ -42,5 +42,6 @@
 /obj/item/gun/energy/gun/reloadable
 	name = "reloadable energy gun"
 	desc = "Another bestseller of Lawson Arms and the FTU, the LAEP90 Perun is a versatile energy based sidearm, capable of switching between low, medium and high power projectile settings. In other words: stun, shock or kill."
-	power_supply = null
-	accepts_cell_type = /obj/item/cell/gun
+
+/obj/item/gun/energy/gun/reloadable/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
+	return ..(/obj/item/cell/gun, /obj/item/cell/gun, /datum/extension/loaded_cell, charge_value)

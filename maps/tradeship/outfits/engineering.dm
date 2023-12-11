@@ -1,7 +1,6 @@
 /decl/hierarchy/outfit/job/tradeship/hand/engine
 	name = "Tradeship - Job - Junior Engineer"
 	head = /obj/item/clothing/head/hardhat
-	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
 	id_type = /obj/item/card/id/tradeship/engineering
 	shoes = /obj/item/clothing/shoes/workboots
@@ -9,6 +8,7 @@
 	belt = /obj/item/storage/belt/utility/full
 	r_pocket = /obj/item/radio
 	l_ear = /obj/item/radio/headset/headset_eng
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 
 /obj/item/card/id/tradeship/engineering
 	name = "identification card"
@@ -27,7 +27,7 @@
 	belt = /obj/item/storage/belt/utility/full
 	id_type = /obj/item/card/id/tradeship/engineering/head
 	r_pocket = /obj/item/radio
-	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 	l_ear = /obj/item/radio/headset/heads/ce
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 

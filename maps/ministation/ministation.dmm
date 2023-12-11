@@ -5638,15 +5638,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
-"nA" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "nB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -10693,12 +10684,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
-"Aa" = (
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "Ab" = (
 /obj/machinery/network/message_server,
 /turf/simulated/floor/bluegrid{
@@ -10888,12 +10873,6 @@
 /obj/item/mollusc/clam,
 /turf/simulated/floor/wood,
 /area/ministation/cafe)
-"Ax" = (
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
 "Ay" = (
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/wood,
@@ -10988,12 +10967,6 @@
 /area/ministation/engine)
 "AL" = (
 /obj/machinery/network/telecomms_hub,
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
-/area/ministation/telecomms)
-"AM" = (
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
 	temperature = 263
@@ -13770,8 +13743,7 @@
 /area/ministation/engine)
 "Hk" = (
 /obj/structure/transit_tube{
-	dir = 4;
-	icon_state = "Block"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -14853,8 +14825,7 @@
 /area/ministation/ai_sat)
 "Kh" = (
 /obj/structure/transit_tube{
-	dir = 8;
-	icon_state = "Block"
+	dir = 8
 	},
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -16293,7 +16264,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "NO" = (
-/obj/abstract/level_data_spawner/main_level,
+/obj/abstract/level_data_spawner/main_level{
+	name = "Outpost Zebra"
+	},
 /turf/space,
 /area/space)
 "NQ" = (
@@ -50276,10 +50249,10 @@ KI
 bl
 aG
 of
-Aa
-Ax
+ys
+ys
 sr
-AM
+ys
 AV
 Bq
 bl
@@ -50536,7 +50509,7 @@ sr
 sr
 sr
 sr
-AM
+ys
 AW
 Br
 bl
@@ -50788,14 +50761,14 @@ YB
 yN
 Jf
 bl
-nA
+aG
 ys
 Ab
 AL
 sr
-AM
+ys
 Bp
-AM
+ys
 bl
 Am
 av

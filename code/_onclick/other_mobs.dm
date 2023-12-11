@@ -2,26 +2,6 @@
 /atom/proc/attack_generic(mob/user)
 	return 0
 
-/*
-	Humans:
-	Adds an exception for gloves, to allow special glove types like the ninja ones.
-
-	Otherwise pretty standard.
-*/
-/mob/living/carbon/human/UnarmedAttack(var/atom/A, var/proximity)
-
-	if(!..())
-		return
-
-	// Special glove functions:
-	// If the gloves do anything, have them return 1 to stop
-	// normal attack_hand() here.
-	var/obj/item/clothing/gloves/G = get_equipped_item(slot_gloves_str) // not typecast specifically enough in defines
-	if(istype(G) && G.Touch(A,1))
-		return
-
-	A.attack_hand(src)
-
 /atom/proc/handle_grab_interaction(var/mob/user)
 	return FALSE
 
@@ -29,7 +9,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(handle_grab_interaction(user))
 		return TRUE
-	if(!LAZYLEN(climbers) || (user in climbers) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
+	if(!LAZYLEN(climbers) || (user in climbers) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, silent = TRUE))
 		return FALSE
 	user.visible_message(
 		SPAN_DANGER("\The [user] shakes \the [src]!"),
@@ -92,6 +72,7 @@
 
 	if(!..())
 		return
+
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(isliving(A))
 		if(a_intent == I_HELP || !get_natural_weapon())
