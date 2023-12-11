@@ -1616,9 +1616,7 @@
 /area/ministation/medical)
 "kX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/abstract/landmark{
-	name = "Observer-Start"
-	},
+/obj/abstract/landmark/latejoin/observer,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "kZ" = (

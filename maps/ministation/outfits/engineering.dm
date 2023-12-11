@@ -33,5 +33,5 @@
 	belt = /obj/item/storage/belt/utility/full
 	id_type = /obj/item/card/id/ministation/engineering
 	r_pocket = /obj/item/radio
-	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
