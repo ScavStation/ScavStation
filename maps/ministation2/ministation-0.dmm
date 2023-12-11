@@ -39,6 +39,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/eastatmos)
+"al" = (
+/obj/machinery/network/relay,
+/turf/simulated/floor/plating,
+/area/ministation/engine)
 "am" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable{
@@ -1106,6 +1110,12 @@
 /obj/effect/floor_decal/corner/purple/full,
 /turf/simulated/floor/reinforced/hydrogen,
 /area/ministation/atmospherics)
+"fh" = (
+/obj/machinery/network/relay/wall_mounted{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/orange,
+/area/ministation/engine)
 "fi" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -41698,7 +41708,7 @@ av
 av
 av
 av
-ad
+av
 ad
 av
 GW
@@ -41954,7 +41964,7 @@ cu
 Ei
 Dt
 rU
-av
+fh
 XO
 aa
 im
@@ -49664,7 +49674,7 @@ WJ
 Pi
 NQ
 XF
-NQ
+al
 av
 av
 Ig
