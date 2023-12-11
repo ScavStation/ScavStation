@@ -109,6 +109,8 @@ var/global/list/pheromone_markers = list()
 	spawn_flags = SPECIES_CAN_JOIN
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT
 
+	base_prosthetics_model = null
+
 	unarmed_attacks = list(
 		/decl/natural_attack/claws/strong,
 		/decl/natural_attack/bite/strong
@@ -121,6 +123,7 @@ var/global/list/pheromone_markers = list()
 			/decl/cultural_info/culture/other
 		),
 		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/tradehousespace,
 			/decl/cultural_info/location/stateless
 		),
 		TAG_FACTION =   list(

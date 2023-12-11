@@ -2033,7 +2033,7 @@
 	dir = 9
 	},
 /obj/machinery/suit_cycler/mining/ministation{
-	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	helmet = /obj/item/clothing/head/helmet/space/void/engineering/scav
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -5147,8 +5147,8 @@
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 4
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
+/obj/item/clothing/head/helmet/space/void/excavation/scav,
+/obj/item/clothing/suit/space/void/excavation/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "mn" = (
@@ -5610,8 +5610,8 @@
 	name = "Engineer locker";
 	req_access = list("ACCESS_CONSTRUCTION")
 	},
-/obj/item/clothing/head/helmet/space/void/scav/engineering,
-/obj/item/clothing/suit/space/void/scav/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering/scav,
+/obj/item/clothing/suit/space/void/engineering/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "ny" = (
@@ -5627,14 +5627,14 @@
 	closet_appearance = /decl/closet_appearance/secure_closet/medical/alt;
 	name = "Doctor locker"
 	},
-/obj/item/clothing/head/helmet/space/void/scav/medical,
-/obj/item/clothing/suit/space/void/scav/medical,
+/obj/item/clothing/head/helmet/space/void/medical/scav,
+/obj/item/clothing/suit/space/void/medical/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "nz" = (
 /obj/machinery/suit_cycler/engineering/ministation{
-	suit = /obj/item/clothing/suit/space/void/scav/engineering;
-	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	suit = /obj/item/clothing/suit/space/void/engineering/scav;
+	helmet = /obj/item/clothing/head/helmet/space/void/engineering/scav
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -5785,8 +5785,8 @@
 	req_access = list("ACCESS_BRIG");
 	name = "Security locker"
 	},
-/obj/item/clothing/head/helmet/space/void/scav/security,
-/obj/item/clothing/suit/space/void/scav/security,
+/obj/item/clothing/head/helmet/space/void/security/scav,
+/obj/item/clothing/suit/space/void/security/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "nU" = (
@@ -5798,8 +5798,8 @@
 	req_access = list("ACCESS_RESEARCH");
 	name = "Science locker"
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
+/obj/item/clothing/head/helmet/space/void/excavation/scav,
+/obj/item/clothing/suit/space/void/excavation/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "nV" = (
@@ -13348,8 +13348,8 @@
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 4
 	},
-/obj/item/clothing/suit/space/void/scav/explorer,
-/obj/item/clothing/head/helmet/space/void/scav/explorer,
+/obj/item/clothing/suit/space/void/expedition/scav,
+/obj/item/clothing/head/helmet/space/void/expedition/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "Gp" = (
@@ -14070,8 +14070,8 @@
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 8
 	},
-/obj/item/clothing/suit/space/void/scav/explorer,
-/obj/item/clothing/head/helmet/space/void/scav/explorer,
+/obj/item/clothing/suit/space/void/expedition/scav,
+/obj/item/clothing/head/helmet/space/void/expedition/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "HY" = (
@@ -16146,8 +16146,8 @@
 /area/ministation/court)
 "Nz" = (
 /obj/machinery/suit_cycler/engineering/ministation{
-	suit = /obj/item/clothing/suit/space/void/scav/engineering;
-	helmet = /obj/item/clothing/head/helmet/space/void/scav/engineering
+	suit = /obj/item/clothing/suit/space/void/engineering/scav;
+	helmet = /obj/item/clothing/head/helmet/space/void/engineering/scav
 	},
 /turf/simulated/floor,
 /area/ministation/atmospherics)
@@ -20296,8 +20296,8 @@
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 4
 	},
-/obj/item/clothing/head/helmet/space/void/scav/science,
-/obj/item/clothing/suit/space/void/scav/science,
+/obj/item/clothing/head/helmet/space/void/excavation/scav,
+/obj/item/clothing/suit/space/void/excavation/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "YS" = (

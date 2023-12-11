@@ -1743,8 +1743,8 @@
 	dir = 10
 	},
 /obj/structure/closet/crate/bin,
-/obj/item/clothing/suit/space/void/scav/indie,
-/obj/item/clothing/head/helmet/space/void/scav/indie,
+/obj/item/clothing/suit/space/void/yinglet/indie,
+/obj/item/clothing/head/helmet/space/void/yinglet/indie,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/unishi/living)
@@ -2006,15 +2006,15 @@
 /area/unishi/living)
 "Dj" = (
 /obj/structure/closet/emcloset,
-/obj/item/clothing/suit/space/void/scav/indie,
-/obj/item/clothing/head/helmet/space/void/scav/indie,
+/obj/item/clothing/suit/space/void/yinglet/indie,
+/obj/item/clothing/head/helmet/space/void/yinglet/indie,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/unishi/living)
 "Ew" = (
 /obj/structure/closet/emcloset,
-/obj/item/clothing/head/helmet/space/void/scav/indie,
-/obj/item/clothing/suit/space/void/scav/indie,
+/obj/item/clothing/head/helmet/space/void/yinglet/indie,
+/obj/item/clothing/suit/space/void/yinglet/indie,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/unishi/living)

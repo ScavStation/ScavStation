@@ -14,3 +14,8 @@
 		/decl/language/sign,
 		/decl/language/baxxid
 	)
+
+/decl/cultural_info/faction/tradehouse_baxxid
+	name = "Tradehouse Ivenmoth"
+	description = "Like many before you, you are a member of Tradehouse Ivenmoth, one of the most successful tradehouses in the universe and you know it which is why \
+	 you wear your tradehouse reds with pride."
