@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(186 modules,
-    67/4285 macros, 1.6%)</aside></h3>
+<aside>(193 modules,
+    77/4365 macros, 1.8%)</aside></h3>
 <ul class="index-tree modules">
     <li><a href="(builtins).html" title="(builtins)">(builtins)</a></li>
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
@@ -41,11 +41,13 @@ General Public License version 3.
     <li><a href="code/__defines/_tick.html" title="code&#x2F;__defines&#x2F;_tick">_tick</a></li>
     <li><a href="code/__defines/admin.html" title="code&#x2F;__defines&#x2F;admin">admin</a></li>
     <li><a href="code/__defines/armor.html" title="code&#x2F;__defines&#x2F;armor">armor</a></li>
+    <li><a href="code/__defines/definition_helpers.html" title="code&#x2F;__defines&#x2F;definition_helpers">definition_helpers</a></li>
     <li><a href="code/__defines/gamemode.html" title="code&#x2F;__defines&#x2F;gamemode">gamemode</a></li>
     <li><a href="code/__defines/lists.html" title="code&#x2F;__defines&#x2F;lists">lists</a></li>
     <li><a href="code/__defines/mapping.html" title="code&#x2F;__defines&#x2F;mapping">mapping</a></li>
     <li><a href="code/__defines/misc.html" title="code&#x2F;__defines&#x2F;misc">misc</a></li>
     <li><a href="code/__defines/paperwork.html" title="code&#x2F;__defines&#x2F;paperwork">paperwork</a></li>
+    <li><a href="code/__defines/spawn.html" title="code&#x2F;__defines&#x2F;spawn">spawn</a></li>
     <li><a href="code/__defines/tools.html" title="code&#x2F;__defines&#x2F;tools">tools</a></li>
     <li><a href="code/__defines/turfs.html" title="code&#x2F;__defines&#x2F;turfs">turfs</a></li>
     <li><a href="code/__defines/zmimic.html" title="code&#x2F;__defines&#x2F;zmimic">zmimic</a></li>
@@ -59,6 +61,7 @@ General Public License version 3.
     <li><a href="code/_helpers/lists.html" title="code&#x2F;_helpers&#x2F;lists">lists</a></li>
     <li><a href="code/_helpers/matrices.html" title="code&#x2F;_helpers&#x2F;matrices">matrices</a></li>
     <li><a href="code/_helpers/overmap.html" title="code&#x2F;_helpers&#x2F;overmap">overmap</a></li>
+    <li><a href="code/_helpers/profiling.html" title="code&#x2F;_helpers&#x2F;profiling">profiling</a></li>
     <li><a href="code/_helpers/text.html" title="code&#x2F;_helpers&#x2F;text">text</a></li>
     <li><a href="code/_helpers/time.html" title="code&#x2F;_helpers&#x2F;time">time</a></li>
     <li><a href="code/_helpers/unsorted.html" title="code&#x2F;_helpers&#x2F;unsorted">unsorted</a></li>
@@ -67,6 +70,7 @@ General Public License version 3.
     <li class="has-children"><span class="no-substance">_onclick&#x2F;</span><span title="code&#x2F;_onclick&#x2F;hud">hud</span><ul class="index-tree">
     <li><a href="code/_onclick/hud/ability_screen_objects.html" title="code&#x2F;_onclick&#x2F;hud&#x2F;ability_screen_objects">ability_screen_objects</a></li>
     <li><a href="code/_onclick/hud/human.html" title="code&#x2F;_onclick&#x2F;hud&#x2F;human">human</a></li>
+    <li><a href="code/_onclick/hud/other_mobs.html" title="code&#x2F;_onclick&#x2F;hud&#x2F;other_mobs">other_mobs</a></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;controllers">controllers</span><ul class="index-tree">
     <li><a href="code/controllers/failsafe.html" title="code&#x2F;controllers&#x2F;failsafe">failsafe</a></li>
@@ -118,10 +122,7 @@ General Public License version 3.
     <li><span class="no-substance">vending&#x2F;</span><a href="code/datums/vending/vending.html" title="code&#x2F;datums&#x2F;vending&#x2F;vending">vending</a></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;game">game</span><ul class="index-tree">
-    <li class="has-children"><span title="code&#x2F;game&#x2F;dna">dna</span><ul class="index-tree">
-    <li><a href="code/game/dna/dna2.html" title="code&#x2F;game&#x2F;dna&#x2F;dna2">dna2</a></li>
-    <li><span class="no-substance">genes&#x2F;</span><a href="code/game/dna/genes/gene.html" title="code&#x2F;game&#x2F;dna&#x2F;genes&#x2F;gene">gene</a></li>
-    </ul></li>
+    <li><span class="no-substance">dna&#x2F;</span><a href="code/game/dna/dna2.html" title="code&#x2F;game&#x2F;dna&#x2F;dna2">dna2</a></li>
     <li class="has-children"><span title="code&#x2F;game&#x2F;gamemodes">gamemodes</span><ul class="index-tree">
     <li><span class="no-substance">calamity&#x2F;</span><a href="code/game/gamemodes/calamity/calamity.html" title="code&#x2F;game&#x2F;gamemodes&#x2F;calamity&#x2F;calamity">calamity</a></li>
     <li class="has-children"><span title="code&#x2F;game&#x2F;gamemodes&#x2F;endgame">endgame</span><ul class="index-tree">
@@ -151,13 +152,19 @@ General Public License version 3.
     <li><a href="code/game/machinery/wall_frames.html" title="code&#x2F;game&#x2F;machinery&#x2F;wall_frames">wall_frames</a></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;game&#x2F;objects">objects</span><ul class="index-tree">
-    <li><span class="no-substance">effects&#x2F;</span><a href="code/game/objects/effects/effect_system.html" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;effect_system">effect_system</a></li>
+    <li class="has-children"><span title="code&#x2F;game&#x2F;objects&#x2F;effects">effects</span><ul class="index-tree">
+    <li class="has-children"><span class="no-substance">decals&#x2F;</span><span title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;decals&#x2F;posters">posters</span><ul class="index-tree">
+    <li><a href="code/game/objects/effects/decals/posters/_poster.html" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;decals&#x2F;posters&#x2F;_poster">_poster</a></li>
+    <li><a href="code/game/objects/effects/decals/posters/_poster_design.html" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;decals&#x2F;posters&#x2F;_poster_design">_poster_design</a></li>
+    </ul></li>
+    <li><a href="code/game/objects/effects/effect_system.html" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;effect_system">effect_system</a></li>
+    </ul></li>
     <li class="has-children"><span title="code&#x2F;game&#x2F;objects&#x2F;items">items</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;devices">devices</span><ul class="index-tree">
-    <li><a href="code/game/objects/items/devices/flashlight.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;devices&#x2F;flashlight">flashlight</a></li>
     <li><a href="code/game/objects/items/devices/multitool.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;devices&#x2F;multitool">multitool</a></li>
     <li><span class="no-substance">radio&#x2F;</span><a href="code/game/objects/items/devices/radio/radio_analog.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;devices&#x2F;radio&#x2F;radio_analog">radio_analog</a></li>
     </ul></li>
+    <li><span class="no-substance">flashlights&#x2F;</span><a href="code/game/objects/items/flashlights/misc.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;flashlights&#x2F;misc">misc</a></li>
     <li><span class="no-substance">robot&#x2F;</span><a href="code/game/objects/items/robot/robot_items.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;robot&#x2F;robot_items">robot_items</a></li>
     <li class="has-children"><span title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;weapons">weapons</span><ul class="index-tree">
     <li><a href="code/game/objects/items/weapons/AI_modules.html" title="code&#x2F;game&#x2F;objects&#x2F;items&#x2F;weapons&#x2F;AI_modules">AI_modules</a></li>
@@ -228,7 +235,7 @@ Thanks to forum_account for saving the day, the library can be found
     </ul></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;mob">mob</span><ul class="index-tree">
     <li><a href="code/modules/mob/floating_message.html" title="code&#x2F;modules&#x2F;mob&#x2F;floating_message">floating_message</a></li>
-    <li><span class="no-substance">living&#x2F;simple_animal&#x2F;constructs&#x2F;</span><a href="code/modules/mob/living/simple_animal/constructs/constructs.html" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;constructs&#x2F;constructs">constructs</a></li>
+    <li><span class="no-substance">living&#x2F;simple_animal&#x2F;hostile&#x2F;</span><a href="code/modules/mob/living/simple_animal/hostile/giant_spider.html" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;hostile&#x2F;giant_spider">giant_spider</a></li>
     <li><span class="no-substance">observer&#x2F;virtual&#x2F;</span><a href="code/modules/mob/observer/virtual/helpers.html" title="code&#x2F;modules&#x2F;mob&#x2F;observer&#x2F;virtual&#x2F;helpers">helpers</a></li>
     <li><span class="no-substance">skills&#x2F;</span><a href="code/modules/mob/skills/README_skills.html" title="code&#x2F;modules&#x2F;mob&#x2F;skills&#x2F;README_skills">README_skills</a></li>
     </ul></li>
@@ -289,6 +296,7 @@ Thanks to forum_account for saving the day, the library can be found
     <li><a href="code/modules/recycling/wrapped_package.html" title="code&#x2F;modules&#x2F;recycling&#x2F;wrapped_package">wrapped_package</a></li>
     </ul></li>
     <li><span class="no-substance">shieldgen&#x2F;</span><a href="code/modules/shieldgen/shieldwallgen.html" title="code&#x2F;modules&#x2F;shieldgen&#x2F;shieldwallgen">shieldwallgen</a></li>
+    <li><span class="no-substance">species&#x2F;</span><a href="code/modules/species/species_crystalline_bodytypes.html" title="code&#x2F;modules&#x2F;species&#x2F;species_crystalline_bodytypes">species_crystalline_bodytypes</a></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;spells">spells</span><ul class="index-tree">
     <li><span class="no-substance">aoe_turf&#x2F;conjure&#x2F;</span><a href="code/modules/spells/aoe_turf/conjure/construct.html" title="code&#x2F;modules&#x2F;spells&#x2F;aoe_turf&#x2F;conjure&#x2F;construct">construct</a></li>
     <li><a href="code/modules/spells/artifacts.html" title="code&#x2F;modules&#x2F;spells&#x2F;artifacts">artifacts</a></li>
@@ -303,6 +311,7 @@ Thanks to forum_account for saving the day, the library can be found
     <li class="has-children"><span title="code&#x2F;unit_tests">unit_tests</span><ul class="index-tree">
     <li><a href="code/unit_tests/food_tests.html" title="code&#x2F;unit_tests&#x2F;food_tests">food_tests</a></li>
     <li><a href="code/unit_tests/graph_tests.html" title="code&#x2F;unit_tests&#x2F;graph_tests">graph_tests</a></li>
+    <li><a href="code/unit_tests/zas_tests.html" title="code&#x2F;unit_tests&#x2F;zas_tests">zas_tests</a></li>
     </ul></li>
     </ul></li>
     <li class="has-children"><span title="maps">maps</span><ul class="index-tree">
@@ -327,7 +336,7 @@ Thanks to forum_account for saving the day, the library can be found
 
 
 <h3 id="types">Types
-<aside>(191 detailed/407 documented/18581 total, 2.2%)</aside></h3>
+<aside>(208 detailed/425 documented/18849 total, 2.3%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -403,7 +412,6 @@ Thanks to forum_account for saving the day, the library can be found
     </ul></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;decompose_matrix">decompose_matrix</span> - Datum which stores information about a matrix decomposed with decompose().</li>
     <li><a href="datum/diploma_details.html" title="&#x2F;datum&#x2F;diploma_details">diploma_details</a> - Details used by the diploma plaques for display.</li>
-    <li><span class="no-substance">dna&#x2F;</span><a href="datum/dna/gene.html" title="&#x2F;datum&#x2F;dna&#x2F;gene">gene</a> - Gene Datum</li>
     <li class="has-children"><span class="no-substance">effect&#x2F;effect&#x2F;system&#x2F;</span><span class="no-substance" title="&#x2F;datum&#x2F;effect&#x2F;effect&#x2F;system&#x2F;trail">trail</span> - ///// Attach an Ion trail to any object, that spawns when it moves (like for the jetpack)
 just pass in the object to attach it to in set_up
 Then do start() to start it and stop() to stop it, obviously
@@ -426,9 +434,6 @@ remove_extension(atom, /datum/extension/scent)<ul class="index-tree">
     </ul></li>
     <li><a href="datum/fauna_generator.html" title="&#x2F;datum&#x2F;fauna_generator">fauna_generator</a></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;follow_holder">follow_holder</span> - Follow Metadata</li>
-    <li class="has-children"><a href="datum/game_mode.html" title="&#x2F;datum&#x2F;game_mode">game_mode</a><ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;datum&#x2F;game_mode&#x2F;calamity">calamity</span> - .</li>
-    </ul></li>
     <li><a href="datum/gas_mixture.html" title="&#x2F;datum&#x2F;gas_mixture">gas_mixture</a></li>
     <li><a href="datum/generated_fauna_template.html" title="&#x2F;datum&#x2F;generated_fauna_template">generated_fauna_template</a> - An internal template to generate randomized planet fauna that's adapted to where it was generated to spawn on.</li>
     <li><a href="datum/grid_load_metadata.html" title="&#x2F;datum&#x2F;grid_load_metadata">grid_load_metadata</a> - Fill a given tile with its area/turf/objects/mobs
@@ -488,10 +493,12 @@ Total amount of milliseconds spent hard deleting this type.
 Number of times its not respected force=TRUE.
 Number of times it hasn't bothered to give a qdel hint.
 Number of times slept in its destroy.</li>
-    <li class="has-children"><span class="no-substance">random_map&#x2F;noise&#x2F;</span><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet">exoplanet</span> - Place down flora/fauna spawners, grass, water, and apply selected land type.<ul class="index-tree">
+    <li class="has-children"><span class="no-substance">random_map&#x2F;</span><a href="datum/random_map/noise.html" title="&#x2F;datum&#x2F;random_map&#x2F;noise">noise</a><ul class="index-tree">
+    <li class="has-children"><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet">exoplanet</span> - Place down flora/fauna spawners, grass, water, and apply selected land type.<ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet&#x2F;barren">barren</span> - Generator for fauna and flora spawners for the surface of the barren exoplanet</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet&#x2F;grass">grass</span> - Map generator for the grass exoplanet surface</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet&#x2F;mantle">mantle</span> - Random map generator for generating underground planetary levels.</li>
+    </ul></li>
     </ul></li>
     <li><a href="datum/reagents.html" title="&#x2F;datum&#x2F;reagents">reagents</a></li>
     <li><a href="datum/seed.html" title="&#x2F;datum&#x2F;seed">seed</a></li>
@@ -511,6 +518,7 @@ the timer.</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;unit_test&#x2F;graph_test&#x2F;simple_merge">simple_merge</span> - Tests</li>
     </ul></li>
     <li><a href="datum/unit_test/items_test.html" title="&#x2F;datum&#x2F;unit_test&#x2F;items_test">items_test</a></li>
+    <li><a href="datum/unit_test/zas_supply_shuttle_moved.html" title="&#x2F;datum&#x2F;unit_test&#x2F;zas_supply_shuttle_moved">zas_supply_shuttle_moved</a> - Here we move a shuttle then test it's area once the shuttle has arrived.</li>
     </ul></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;universal_state">universal_state</span> - ENDGAME STUFF</li>
     <li class="has-children"><span class="no-substance">uplink_item&#x2F;</span><a href="datum/uplink_item/item.html" title="&#x2F;datum&#x2F;uplink_item&#x2F;item">item</a><ul class="index-tree">
@@ -542,8 +550,21 @@ the timer.</li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;decl">decl</span><ul class="index-tree">
     <li><span class="no-substance">backpack_outfit&#x2F;</span><span class="no-substance" title="&#x2F;decl&#x2F;backpack_outfit&#x2F;nothing">nothing</span> - Outfit Backpacks</li>
+    <li class="has-children"><a href="decl/bodytype.html" title="&#x2F;decl&#x2F;bodytype">bodytype</a><ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;decl&#x2F;bodytype&#x2F;crystalline">crystalline</span> - This is NOT to be used in place of ORGAN_PROP_CRYSTAL.
+It doesn't handle crystalline logic, only setting up organs as crystalline
+on their initial creation.</li>
+    <li><a href="decl/bodytype/prosthetic.html" title="&#x2F;decl&#x2F;bodytype&#x2F;prosthetic">prosthetic</a></li>
+    </ul></li>
     <li><a href="decl/chemical_reaction.html" title="&#x2F;decl&#x2F;chemical_reaction">chemical_reaction</a></li>
     <li><a href="decl/cocktail.html" title="&#x2F;decl&#x2F;cocktail">cocktail</a></li>
+    <li class="has-children"><a href="decl/game_mode.html" title="&#x2F;decl&#x2F;game_mode">game_mode</a><ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;decl&#x2F;game_mode&#x2F;calamity">calamity</span> - .</li>
+    </ul></li>
+    <li class="has-children"><a href="decl/gene.html" title="&#x2F;decl&#x2F;gene">gene</a><ul class="index-tree">
+    <li><a href="decl/gene/basic.html" title="&#x2F;decl&#x2F;gene&#x2F;basic">basic</a></li>
+    <li><a href="decl/gene/disability.html" title="&#x2F;decl&#x2F;gene&#x2F;disability">disability</a></li>
+    </ul></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;decl&#x2F;ghosttrap">ghosttrap</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;decl&#x2F;ghosttrap&#x2F;cortical_borer">cortical_borer</span> - Cortical Borer</li>
     <li><span class="no-substance" title="&#x2F;decl&#x2F;ghosttrap&#x2F;maintenance_drone">maintenance_drone</span> - Maintenance Drone</li>
@@ -571,10 +592,13 @@ A list of strings that are used by the end of round credits roll.</li>
     <li><span class="no-substance" title="&#x2F;decl&#x2F;observ&#x2F;entered">entered</span> - Dismembered Handling</li>
     <li><span class="no-substance" title="&#x2F;decl&#x2F;observ&#x2F;sight_set">sight_set</span> - Shuttle Moved/Pre Move Handling</li>
     </ul></li>
+    <li><a href="decl/poster_design.html" title="&#x2F;decl&#x2F;poster_design">poster_design</a> - Contains information on what a poster displays.</li>
     <li><span class="no-substance" title="&#x2F;decl&#x2F;scent_intensity">scent_intensity</span> - Scent intensity</li>
     <li><a href="decl/singularity_stage.html" title="&#x2F;decl&#x2F;singularity_stage">singularity_stage</a></li>
+    <li><a href="decl/spawnpoint.html" title="&#x2F;decl&#x2F;spawnpoint">spawnpoint</a></li>
     <li><a href="decl/species.html" title="&#x2F;decl&#x2F;species">species</a></li>
     <li><a href="decl/submap_archetype.html" title="&#x2F;decl&#x2F;submap_archetype">submap_archetype</a></li>
+    <li><a href="decl/surgery_step.html" title="&#x2F;decl&#x2F;surgery_step">surgery_step</a></li>
     <li><span class="no-substance">tool_archetype&#x2F;</span><a href="decl/tool_archetype/pen.html" title="&#x2F;decl&#x2F;tool_archetype&#x2F;pen">pen</a></li>
     <li><a href="decl/topic_command.html" title="&#x2F;decl&#x2F;topic_command">topic_command</a></li>
     </ul></li>
@@ -641,7 +665,7 @@ Parameters: var/obj/item/card/id</li>
     <li><span class="no-substance" title="&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;construct&#x2F;wraith">wraith</span> - Wraith</li>
     </ul></li>
     <li class="has-children"><span class="no-substance">hostile&#x2F;</span><span title="&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;hostile&#x2F;giant_spider">giant_spider</span><ul class="index-tree">
-    <li><a href="mob/living/simple_animal/hostile/giant_spider/guard.html" title="&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;hostile&#x2F;giant_spider&#x2F;guard">guard</a></li>
+    <li><span class="no-substance" title="&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;hostile&#x2F;giant_spider&#x2F;guard">guard</span> - Guard caste procs</li>
     <li><a href="mob/living/simple_animal/hostile/giant_spider/hunter.html" title="&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;hostile&#x2F;giant_spider&#x2F;hunter">hunter</a></li>
     <li><a href="mob/living/simple_animal/hostile/giant_spider/nurse.html" title="&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;hostile&#x2F;giant_spider&#x2F;nurse">nurse</a></li>
     <li><a href="mob/living/simple_animal/hostile/giant_spider/spitter.html" title="&#x2F;mob&#x2F;living&#x2F;simple_animal&#x2F;hostile&#x2F;giant_spider&#x2F;spitter">spitter</a></li>
@@ -703,6 +727,7 @@ Parameters: var/obj/item/card/id</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;aiModule&#x2F;teleporterOffline">teleporterOffline</span> - TeleporterOffline</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;aiModule&#x2F;tyrant">tyrant</span> - T.Y.R.A.N.T.</li>
     </ul></li>
+    <li><a href="obj/item/assembly.html" title="&#x2F;obj&#x2F;item&#x2F;assembly">assembly</a></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;borg">borg</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;borg&#x2F;overdrive">overdrive</span> - Cyborg Spec Items</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;borg&#x2F;sight">sight</span> - HUD/SIGHT things</li>
@@ -751,10 +776,7 @@ Parameters: var/obj/item/card/id</li>
     <li><a href="obj/item/disk.html" title="&#x2F;obj&#x2F;item&#x2F;disk">disk</a></li>
     <li><span class="no-substance">flame&#x2F;lighter&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flame&#x2F;lighter&#x2F;zippo">zippo</span> - Zippo</li>
     <li><a href="obj/item/flamethrower.html" title="&#x2F;obj&#x2F;item&#x2F;flamethrower">flamethrower</a></li>
-    <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flashlight">flashlight</span><ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flashlight&#x2F;drone">drone</span> - Lantern</li>
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flashlight&#x2F;lantern">lantern</span> - Lantern</li>
-    </ul></li>
+    <li><span class="no-substance">flashlight&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flashlight&#x2F;lantern">lantern</span> - Lantern</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;fossil">fossil</span> - Objects themselves</li>
     <li class="has-children"><span class="no-substance">frame&#x2F;</span><span title="&#x2F;obj&#x2F;item&#x2F;frame&#x2F;button">button</span><ul class="index-tree">
     <li><a href="obj/item/frame/button/airlock_controller.html" title="&#x2F;obj&#x2F;item&#x2F;frame&#x2F;button&#x2F;airlock_controller">airlock_controller</a></li>
@@ -770,12 +792,14 @@ Parameters: var/obj/item/card/id</li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;organ">organ</span><ul class="index-tree">
     <li class="has-children"><a href="obj/item/organ/external.html" title="&#x2F;obj&#x2F;item&#x2F;organ&#x2F;external">external</a> - EXTERNAL ORGANS<ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;organ&#x2F;external&#x2F;chest">chest</span> - ORGAN DEFINES</li>
+    <li><a href="obj/item/organ/external/tail.html" title="&#x2F;obj&#x2F;item&#x2F;organ&#x2F;external&#x2F;tail">tail</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/item/organ/internal.html" title="&#x2F;obj&#x2F;item&#x2F;organ&#x2F;internal">internal</a> - INTERNAL ORGANS DEFINES<ul class="index-tree">
     <li><a href="obj/item/organ/internal/lungs.html" title="&#x2F;obj&#x2F;item&#x2F;organ&#x2F;internal&#x2F;lungs">lungs</a></li>
     </ul></li>
     </ul></li>
     <li class="has-children"><a href="obj/item/paper.html" title="&#x2F;obj&#x2F;item&#x2F;paper">paper</a><ul class="index-tree">
+    <li><a href="obj/item/paper/carbon.html" title="&#x2F;obj&#x2F;item&#x2F;paper&#x2F;carbon">carbon</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;paper&#x2F;cig">cig</span> - Ported Straight from TG. I am not sorry. - BloodyMan  //YOU SHOULD BE</li>
     </ul></li>
     <li><a href="obj/item/paper_bundle.html" title="&#x2F;obj&#x2F;item&#x2F;paper_bundle">paper_bundle</a></li>
@@ -783,6 +807,7 @@ Parameters: var/obj/item/card/id</li>
     <li><a href="obj/item/pen.html" title="&#x2F;obj&#x2F;item&#x2F;pen">pen</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;photo">photo</span> - photo</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;pickaxe">pickaxe</span> - 'pickaxes' but theyre drills actually</li>
+    <li><a href="obj/item/poster.html" title="&#x2F;obj&#x2F;item&#x2F;poster">poster</a> - A rolled up version of the wall-mounted poster structure</li>
     <li class="has-children"><a href="obj/item/radio.html" title="&#x2F;obj&#x2F;item&#x2F;radio">radio</a><ul class="index-tree">
     <li><a href="obj/item/radio/exosuit.html" title="&#x2F;obj&#x2F;item&#x2F;radio&#x2F;exosuit">exosuit</a></li>
     </ul></li>
@@ -793,6 +818,7 @@ Takes on the appearence and properties of whatever sign structure type it contai
     <li><a href="obj/item/sign/diploma.html" title="&#x2F;obj&#x2F;item&#x2F;sign&#x2F;diploma">diploma</a> - A displayable diploma</li>
     </ul></li>
     <li class="has-children"><a href="obj/item/stack.html" title="&#x2F;obj&#x2F;item&#x2F;stack">stack</a><ul class="index-tree">
+    <li><a href="obj/item/stack/cable_coil.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;cable_coil">cable_coil</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;material">material</span> - Material will be set only during Initialize, or the stack is invalid.
 As with material, these stacks should only set this in Initialize as they are abstract 'shapes' rather than discrete objects.<ul class="index-tree">
     <li><a href="obj/item/stack/material/ore.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;material&#x2F;ore">ore</a></li>
@@ -859,6 +885,7 @@ As with material, these stacks should only set this in Initialize as they are ab
     <li><span class="no-substance">nuclear_cylinder_storage&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;nuclear_cylinder_storage&#x2F;prefilled">prefilled</span> - Special subtype for mapping.</li>
     <li><a href="obj/machinery/papershredder.html" title="&#x2F;obj&#x2F;machinery&#x2F;papershredder">papershredder</a></li>
     <li><a href="obj/machinery/photocopier.html" title="&#x2F;obj&#x2F;machinery&#x2F;photocopier">photocopier</a></li>
+    <li><span class="no-substance">power&#x2F;smes&#x2F;</span><a href="obj/machinery/power/smes/buildable.html" title="&#x2F;obj&#x2F;machinery&#x2F;power&#x2F;smes&#x2F;buildable">buildable</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;shieldwall">shieldwall</span> - Containment Field START</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;shieldwallgen">shieldwallgen</span> - FIELD GEN START //shameless copypasta from fieldgen, powersink, and grille</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;singularity_generator">singularity_generator</span> - SINGULARITY SPAWNER</li>
@@ -880,9 +907,10 @@ As with material, these stacks should only set this in Initialize as they are ab
     </ul></li>
     <li><a href="obj/screen/zone_selector.html" title="&#x2F;obj&#x2F;screen&#x2F;zone_selector">zone_selector</a></li>
     </ul></li>
-    <li class="has-children"><span title="&#x2F;obj&#x2F;structure">structure</span><ul class="index-tree">
+    <li class="has-children"><a href="obj/structure.html" title="&#x2F;obj&#x2F;structure">structure</a><ul class="index-tree">
     <li><a href="obj/structure/banner_frame.html" title="&#x2F;obj&#x2F;structure&#x2F;banner_frame">banner_frame</a></li>
     <li><a href="obj/structure/bedsheetbin.html" title="&#x2F;obj&#x2F;structure&#x2F;bedsheetbin">bedsheetbin</a></li>
+    <li><a href="obj/structure/cable.html" title="&#x2F;obj&#x2F;structure&#x2F;cable">cable</a></li>
     <li><span class="no-substance">closet&#x2F;secure_closet&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;closet&#x2F;secure_closet&#x2F;miner">miner</span> - Miner Lockers</li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;disposalpipe">disposalpipe</span><ul class="index-tree">
     <li><span class="no-substance">junction&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;disposalpipe&#x2F;junction&#x2F;yjunction">yjunction</span> - Z-Level stuff</li>
@@ -896,8 +924,10 @@ As with material, these stacks should only set this in Initialize as they are ab
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;sign&#x2F;directions">directions</span> - Signs for showing the way to passerby. The dir of the sign is the direction it points towards. The icon of the sign itself is always south facing.</li>
     <li><span class="no-substance">painting&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;sign&#x2F;painting&#x2F;monkey_painting">monkey_painting</span> - A painting of amonkey</li>
     <li><span class="no-substance">plaque&#x2F;</span><a href="obj/structure/sign/plaque/diploma.html" title="&#x2F;obj&#x2F;structure&#x2F;sign&#x2F;plaque&#x2F;diploma">diploma</a> - A display for diploma details</li>
+    <li><a href="obj/structure/sign/poster.html" title="&#x2F;obj&#x2F;structure&#x2F;sign&#x2F;poster">poster</a> - A wall mounted poster</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;sign&#x2F;warning">warning</span> - Base warning sign type</li>
     </ul></li>
+    <li><a href="obj/structure/table.html" title="&#x2F;obj&#x2F;structure&#x2F;table">table</a></li>
     <li><a href="obj/structure/tape_barricade.html" title="&#x2F;obj&#x2F;structure&#x2F;tape_barricade">tape_barricade</a></li>
     </ul></li>
     </ul></li>
@@ -908,7 +938,6 @@ As with material, these stacks should only set this in Initialize as they are ab
     <li class="has-children"><a href="turf.html" title="&#x2F;turf">turf</a><ul class="index-tree">
     <li class="has-children"><a href="turf/exterior.html" title="&#x2F;turf&#x2F;exterior">exterior</a><ul class="index-tree">
     <li><a href="turf/exterior/mimic_edge.html" title="&#x2F;turf&#x2F;exterior&#x2F;mimic_edge">mimic_edge</a> - Exterior turf meant to replicate the appearence of another.</li>
-    <li><a href="turf/exterior/wall.html" title="&#x2F;turf&#x2F;exterior&#x2F;wall">wall</a></li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;turf&#x2F;simulated">simulated</span><ul class="index-tree">
     <li><span class="no-substance">floor&#x2F;</span><span class="no-substance" title="&#x2F;turf&#x2F;simulated&#x2F;floor&#x2F;asteroid">asteroid</span> - Asteroid</li>
@@ -931,7 +960,7 @@ As with material, these stacks should only set this in Initialize as they are ab
 </main>
 <footer>
     scavstation.dme
-    <a href="https://github.com/ScavStation/ScavStation/tree/432a7689b1cd1d0e0f271a5e2ac32209bc5f0505">432a768</a>
+    <a href="https://github.com/ScavStation/ScavStation/tree/987826807d2aa2d33d1fadd2fc238883dd104b96">9878268</a>
         (dev) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.4.1</a></footer>
 </body>
 </html>
