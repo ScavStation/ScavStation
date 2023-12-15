@@ -1,5 +1,6 @@
 /datum/job/ministation/captain
-	title = "Matriarch"
+	title = "Captain"
+	alt_titles = list("Matriarch")
 	supervisors = "your profit margin, your conscience, and the watchful eye of the Tradehouse Rep"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/captain
 	min_skill = list(
@@ -54,8 +55,9 @@
 	verbs -= /mob/proc/freetradeunion_rename_company
 
 /datum/job/ministation/hop
-	title = "Patriarch of Personnel"
-	supervisors = "the Matriarch"
+	title = "Head of Personnel"
+	alt_titles = list("Patriarch of Personnel","Lieutenant")
+	supervisors = "the Captain"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/hop
 	head_position = 1
 	department_types = list(
@@ -170,4 +172,3 @@
 		SKILL_FINANCE = SKILL_MAX
 	)
 	skill_points = 40
-	alt_titles = list("Head of Personnel")
