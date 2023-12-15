@@ -3,7 +3,7 @@
 	event_categories = list(ASSIGNMENT_ROBOT)
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "your laws, the Patriarch of Personnel, and the Matriarch"
+	supervisors = "your laws, the Head of Personnel, and the Captain"
 	selection_color = "#254c25"
 	minimal_player_age = 7
 	account_allowed = 0

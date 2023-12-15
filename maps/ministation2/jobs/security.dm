@@ -75,8 +75,8 @@
 	skill_points = 34
 
 /datum/job/ministation/security/head
-	title = "Patriarch of Security"
-	supervisors = "the Matriarch"
+	title = "Head of Security"
+	supervisors = "the Captain"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security/head
 	head_position = 1
 	department_types = list(
@@ -138,4 +138,4 @@
 		SKILL_WEAPONS	= SKILL_MAX
 	)
 	skill_points = 40
-	alt_titles = list("Head of Security","Patriarch of Scouting")
+	alt_titles = list("Patriarch of Security","Patriarch of Scouting")
