@@ -40,15 +40,15 @@
 	event_categories = list(ASSIGNMENT_MEDICAL)
 
 /datum/job/ministation/doctor/head
-	title = "Patriarch of Medicine"
+	title = "Medical Director"
 	head_position = 1
 	department_types = list(
 		/decl/department/medical,
 		/decl/department/command
 	)
-	supervisors = "the Matriarch and your own ethics"
+	supervisors = "the Captain and your own ethics"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/doctor/head
-	alt_titles = list("Surgeon","Head Doctor")
+	alt_titles = list("Surgeon","Patriarch of Medicine", "Head Doctor")
 	total_positions = 1
 	spawn_positions = 1
 	skill_points = 38

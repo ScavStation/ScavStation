@@ -2891,7 +2891,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/wall/r_wall{
+/turf/simulated/wall{
 	can_open = 1
 	},
 /area/ship/trade/hidden)
@@ -5263,8 +5263,8 @@
 /obj/structure/closet/crate,
 /obj/item/radio,
 /obj/item/spaceflare,
-/obj/item/clothing/head/helmet/space/void/pilot,
-/obj/item/clothing/suit/space/void/pilot,
+/obj/item/clothing/head/helmet/space/void/expedition,
+/obj/item/clothing/suit/space/void/expedition,
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
@@ -11893,8 +11893,8 @@ gu
 gu
 gP
 hk
-gP
-gP
+gQ
+gQ
 hJ
 Jb
 ip

@@ -124,6 +124,7 @@ var/global/list/pheromone_markers = list()
 			/decl/cultural_info/culture/other
 		),
 		TAG_HOMEWORLD = list(
+			/decl/cultural_info/location/tradehousespace,
 			/decl/cultural_info/location/stateless
 		),
 		TAG_FACTION =   list(

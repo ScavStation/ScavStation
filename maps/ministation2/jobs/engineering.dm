@@ -50,7 +50,7 @@
 	event_categories = list(ASSIGNMENT_ENGINEER)
 
 /datum/job/ministation/engineer/head
-	title = "Patriarch of Engineering"
+	title = "Chief Engineer"
 	head_position = 1
 	department_types = list(
 		/decl/department/engineering,
@@ -113,7 +113,7 @@
 		access_ai_upload
 	)
 	minimal_player_age = 14
-	supervisors = "the Matriarch"
+	supervisors = "the Captain"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/chief_engineer
 	min_skill = list(
 		SKILL_LITERACY     = SKILL_ADEPT,
@@ -131,5 +131,5 @@
 		SKILL_ENGINES      = SKILL_MAX
 	)
 	skill_points = 40
-	alt_titles = list("Head Engineer", "Chief Engineer", "Patriarch of Electricity")
+	alt_titles = list("Head Engineer", "Patriarch of Engineering", "Patriarch of Electricity")
 	event_categories = list(ASSIGNMENT_ENGINEER)
