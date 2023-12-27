@@ -169,6 +169,7 @@
 /obj/structure/curtain/open/bed,
 /obj/item/clothing/under/yinglet/matriarch,
 /obj/item/clothing/head/yinglet/matriarch,
+/obj/random/plushie,
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "aT" = (
@@ -761,12 +762,11 @@
 	req_access = list("ACCESS_RESEARCH");
 	name = "Science locker"
 	},
-/obj/item/clothing/suit/space/void/expedition/scav,
-/obj/item/clothing/head/helmet/space/void/expedition/scav,
 /obj/item/storage/med_pouch/trauma,
 /obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
+/obj/item/gps/explorer,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "cJ" = (
@@ -823,6 +823,7 @@
 "cX" = (
 /obj/structure/rack,
 /obj/random/maintenance,
+/obj/random_multi/single_item/captains_spare_id,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "da" = (
@@ -3436,6 +3437,7 @@
 	},
 /obj/structure/bed,
 /obj/item/bedsheet/purple,
+/obj/random/plushie,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "sW" = (
@@ -3861,6 +3863,19 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"wH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/item/radio/intercom{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "wJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on{
 	external_pressure_bound = 98;
@@ -4146,13 +4161,12 @@
 	req_access = list("ACCESS_RESEARCH");
 	name = "Science locker"
 	},
-/obj/item/clothing/head/helmet/space/void/excavation/scav,
-/obj/item/clothing/suit/space/void/excavation/scav,
 /obj/machinery/light,
 /obj/item/storage/med_pouch/trauma,
 /obj/item/stack/tape_roll/duct_tape,
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
+/obj/item/gps/explorer,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zT" = (
@@ -4909,6 +4923,9 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/abstract/landmark{
+	name = "blobstart"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "Dw" = (
@@ -5644,6 +5661,15 @@
 "Kr" = (
 /obj/effect/floor_decal/corner/b_green/half{
 	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s3)
+"Kv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/item/radio/intercom{
+	dir = 8;
+	pixel_x = 25
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
@@ -6560,20 +6586,6 @@
 /obj/item/storage/firstaid/stab,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
-"QC" = (
-/obj/structure/closet/secure_closet{
-	closet_appearance = /decl/closet_appearance/secure_closet/rd;
-	req_access = list("ACCESS_RESEARCH");
-	name = "Science locker"
-	},
-/obj/item/clothing/head/helmet/space/void/excavation/scav,
-/obj/item/clothing/suit/space/void/excavation/scav,
-/obj/item/storage/med_pouch/trauma,
-/obj/item/stack/tape_roll/duct_tape,
-/obj/item/twohanded/spear/diamond,
-/obj/item/shield/buckler,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
 "QD" = (
 /obj/structure/table/woodentable,
 /obj/item/book/printable_red,
@@ -6926,6 +6938,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
+"SL" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 1
+	},
+/obj/structure/skeleton,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "SP" = (
 /obj/item/stool/padded,
 /turf/simulated/floor/wood/mahogany,
@@ -7019,6 +7038,7 @@
 	},
 /obj/structure/bed,
 /obj/item/bedsheet/rd,
+/obj/random/plushie,
 /turf/simulated/floor/carpet/magenta,
 /area/ministation/science)
 "Tz" = (
@@ -7183,6 +7203,7 @@
 "UE" = (
 /obj/structure/closet/crate/uranium,
 /obj/item/wrench,
+/obj/item/inflatable_dispenser,
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "UG" = (
@@ -40889,7 +40910,7 @@ iN
 iN
 iN
 QG
-fJ
+Kv
 zy
 Co
 fJ
@@ -43460,7 +43481,7 @@ db
 rp
 Je
 Wg
-gI
+SL
 ae
 hJ
 db
@@ -45224,17 +45245,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 nl
 xc
 nl
@@ -45481,17 +45502,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 nl
 nl
 nl
@@ -45530,7 +45551,7 @@ ae
 gI
 db
 db
-QC
+cI
 ae
 aa
 oc
@@ -45738,17 +45759,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -45995,17 +46016,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -46252,17 +46273,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -46509,17 +46530,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -46766,17 +46787,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+aA
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -47023,17 +47044,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -47281,16 +47302,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 cw
 cw
@@ -47538,13 +47559,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -47572,7 +47593,7 @@ Fv
 BK
 vj
 LD
-Hw
+wH
 dz
 uH
 ey
@@ -47795,13 +47816,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -48052,13 +48073,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -48309,13 +48330,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -48566,13 +48587,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -48824,11 +48845,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
