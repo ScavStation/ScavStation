@@ -19,8 +19,8 @@
 		new /datum/wire_description(AIRLOCK_WIRE_OPEN_DOOR, "This wire connects to the door motors."),
 		new /datum/wire_description(AIRLOCK_WIRE_AI_CONTROL, "This wire connects to automated control systems."),
 		new /datum/wire_description(AIRLOCK_WIRE_ELECTRIFY, "This wire seems to be carrying a heavy current."),
-		new /datum/wire_description(AIRLOCK_WIRE_SAFETY, "This wire connects to a safety override."),
-		new /datum/wire_description(AIRLOCK_WIRE_SPEED, "This wire appears to connect to the airlock's proximity detector modules."),
+		new /datum/wire_description(AIRLOCK_WIRE_SAFETY, "This wire appears to connect to the airlock's proximity detector modules."),
+		new /datum/wire_description(AIRLOCK_WIRE_SPEED, "This wire connects to the airlock's timing mechanism."),
 		new /datum/wire_description(AIRLOCK_WIRE_LIGHT, "This wire powers the airlock's built-in lighting.", SKILL_EXPERT),
 		new /datum/wire_description(AIRLOCK_WIRE_SPEAKER, "This wire connects to the door speaker.")
 	)
