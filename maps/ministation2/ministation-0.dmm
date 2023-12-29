@@ -85,8 +85,7 @@
 /area/ministation/maint/l1ne)
 "ay" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -211,6 +210,7 @@
 /obj/structure/table/reinforced,
 /obj/item/rcd,
 /obj/item/rcd_ammo/large,
+/obj/item/gun/launcher/sealant,
 /turf/simulated/floor/carpet/orange,
 /area/ministation/engine)
 "bk" = (
@@ -588,6 +588,20 @@
 /obj/machinery/material_processing/stacker,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"cR" = (
+/obj/structure/closet,
+/obj/item/light/bulb/fire,
+/obj/item/light/bulb/fire,
+/obj/item/light/bulb/fire,
+/obj/item/light/bulb/fire,
+/obj/item/light/bulb/fire,
+/obj/item/light/tube/party,
+/obj/item/light/tube/party,
+/obj/item/light/tube/party,
+/obj/item/light/tube/party,
+/obj/item/light/tube/party,
+/turf/simulated/floor,
+/area/ministation/maint/eastatmos)
 "cS" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -930,6 +944,9 @@
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -2150,12 +2167,8 @@
 	req_access = list("ACCESS_BRIG");
 	name = "Security locker"
 	},
-/obj/item/clothing/head/helmet/space/void/security/scav,
-/obj/item/clothing/suit/space/void/security/scav,
 /obj/random_multi/single_item/matriarch_voidsuit,
 /obj/random_multi/single_item/matriarch_helmet,
-/obj/item/clothing/suit/space/void/security/scav,
-/obj/item/clothing/head/helmet/space/void/security/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "jA" = (
@@ -2323,10 +2336,6 @@
 	req_access = list("ACCESS_HEAD_OF_PERSONNEL");
 	name = "Head Patriarch's locker"
 	},
-/obj/item/clothing/suit/space/void/expedition/scav,
-/obj/item/clothing/head/helmet/space/void/expedition/scav,
-/obj/item/clothing/suit/space/void/expedition/scav,
-/obj/item/clothing/head/helmet/space/void/expedition/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "kh" = (
@@ -3501,6 +3510,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"qH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/abstract/landmark{
+	name = "lightsout"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "qI" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3685,6 +3706,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/hygiene/drain,
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
 "rI" = (
@@ -3729,6 +3751,9 @@
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/ce,
+/obj/item/telebaton,
+/obj/item/sealant_tank/mapped,
+/obj/item/sealant_tank/mapped,
 /turf/simulated/floor/carpet/orange,
 /area/ministation/engine)
 "rX" = (
@@ -3898,6 +3923,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table,
+/obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -4084,11 +4110,6 @@
 	},
 /obj/machinery/portable_atmospherics/canister/helium{
 	start_pressure = 2559.63
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -4421,11 +4442,6 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_y = -6
-	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "vv" = (
@@ -4525,6 +4541,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/yew,
+/area/ministation/engine)
+"vM" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/plating,
 /area/ministation/engine)
 "vP" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -4697,6 +4717,8 @@
 /area/ministation/trash)
 "wK" = (
 /obj/structure/bed/padded,
+/obj/random/plushie,
+/obj/item/bedsheet/ce,
 /turf/simulated/floor/carpet/orange,
 /area/ministation/engine)
 "wM" = (
@@ -5851,7 +5873,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/airlock/highsecurity{
+	id_tag = "upload"
+	},
 /turf/simulated/floor/airless,
 /area/ministation/ai_upload)
 "Ci" = (
@@ -5924,7 +5948,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/highsecurity/bolted,
+/obj/machinery/door/airlock/highsecurity/bolted{
+	id_tag = "aibolt"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_core)
 "Cy" = (
@@ -6168,6 +6194,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
+/obj/machinery/floodlight,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Dt" = (
@@ -6710,6 +6737,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"EG" = (
+/obj/structure/lattice,
+/obj/item/stack/cable_coil,
+/turf/space,
+/area/space)
 "EJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -8051,6 +8083,7 @@
 /obj/item/stock_parts/circuitboard/airlock_electronics,
 /obj/item/stock_parts/circuitboard/airlock_electronics,
 /obj/item/scanner/gas,
+/obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "HJ" = (
@@ -8580,7 +8613,8 @@
 	dir = 8
 	},
 /obj/machinery/button/alternate/door/bolts{
-	name = "AI core door bolts"
+	name = "AI core door bolts";
+	id_tag = "aibolt"
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_upload)
@@ -8679,7 +8713,8 @@
 /area/ministation/ai_core)
 "JC" = (
 /obj/machinery/porta_turret{
-	dir = 4
+	dir = 4;
+	id_tag = "upload"
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_upload)
@@ -8688,7 +8723,8 @@
 /area/ministation/ai_upload)
 "JE" = (
 /obj/machinery/porta_turret{
-	dir = 8
+	dir = 8;
+	id_tag = "upload"
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_upload)
@@ -8901,7 +8937,8 @@
 /area/ministation/ai_core)
 "Kk" = (
 /obj/machinery/porta_turret{
-	dir = 4
+	dir = 4;
+	id_tag = "aihome"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_core)
@@ -8952,7 +8989,8 @@
 /area/ministation/ai_core)
 "Ko" = (
 /obj/machinery/porta_turret{
-	dir = 8
+	dir = 8;
+	id_tag = "aihome"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_core)
@@ -9043,11 +9081,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/turretid{
-	name = "AI Chamber turret control";
-	pixel_x = 5;
-	pixel_y = 24
-	},
 /obj/machinery/flasher{
 	pixel_x = -6;
 	pixel_y = 24
@@ -9424,6 +9457,9 @@
 	dir = 4
 	},
 /obj/machinery/meter,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "Lt" = (
@@ -9661,6 +9697,12 @@
 	},
 /obj/machinery/camera/network/ministation/sat{
 	dir = 1
+	},
+/obj/machinery/turretid{
+	control_area = "\improper AI Upload Chamber";
+	name = "AI Upload turret control";
+	pixel_y = -25;
+	id_tag = "aihome"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
@@ -9922,6 +9964,12 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
+"Nm" = (
+/obj/abstract/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor,
+/area/ministation/maint/eastatmos)
 "Nq" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -10128,6 +10176,9 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -10763,6 +10814,10 @@
 "Qh" = (
 /obj/structure/table/gamblingtable,
 /obj/item/flashlight/lamp/green,
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = -25
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/hall/s1)
 "Qj" = (
@@ -11124,10 +11179,6 @@
 	closet_appearance = /decl/closet_appearance/secure_closet/medical/alt;
 	name = "Doctor locker"
 	},
-/obj/item/clothing/head/helmet/space/void/medical/scav,
-/obj/item/clothing/suit/space/void/medical/scav,
-/obj/item/clothing/head/helmet/space/void/medical/scav,
-/obj/item/clothing/suit/space/void/medical/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "RC" = (
@@ -11318,10 +11369,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "Sm" = (
-/obj/structure/table,
-/obj/item/multitool{
-	pixel_x = 5
-	},
+/obj/structure/tank_rack/oxygen,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "So" = (
@@ -12277,6 +12325,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/abstract/landmark{
+	name = "lightsout"
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Wc" = (
@@ -12585,7 +12636,8 @@
 /obj/machinery/turretid{
 	control_area = "\improper AI Upload Chamber";
 	name = "AI Upload turret control";
-	pixel_y = -25
+	pixel_y = -25;
+	id_tag = "upload"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -39634,8 +39686,8 @@ xZ
 mT
 aa
 PD
-QA
 ay
+QA
 gc
 SG
 Ki
@@ -41387,7 +41439,7 @@ fm
 Rq
 cf
 gM
-Zk
+qH
 hT
 NI
 iW
@@ -43523,20 +43575,20 @@ aa
 aa
 aa
 ad
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 aa
 aa
@@ -43790,10 +43842,10 @@ HY
 GS
 If
 aa
-aa
-aa
-aa
-aa
+HY
+GS
+If
+ad
 aa
 aa
 aa
@@ -44034,7 +44086,7 @@ ad
 ad
 ad
 ad
-aa
+ad
 HY
 GT
 If
@@ -44047,10 +44099,10 @@ HY
 GT
 If
 aa
-aa
-aa
-aa
-aa
+HY
+GT
+If
+ad
 aa
 aa
 aa
@@ -44303,11 +44355,11 @@ ad
 HY
 GT
 If
-aa
-aa
-aa
-aa
-aa
+EG
+HY
+GT
+If
+ad
 aa
 aa
 aa
@@ -44548,7 +44600,7 @@ av
 ad
 ad
 ad
-aa
+ad
 HY
 GT
 If
@@ -44561,10 +44613,10 @@ HY
 GT
 If
 aa
-aa
-aa
-aa
-aa
+HY
+GT
+If
+ad
 aa
 aa
 aa
@@ -44818,10 +44870,10 @@ HY
 GT
 If
 aa
-aa
-aa
-aa
-aa
+HY
+GT
+If
+ad
 aa
 aa
 aa
@@ -45076,9 +45128,9 @@ GH
 aa
 aa
 aa
+GH
 aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -45333,9 +45385,9 @@ Jt
 aa
 aa
 aa
+Jt
 aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -45587,13 +45639,13 @@ Jt
 Jt
 Jt
 Jt
+Jt
+Jt
+Jt
+Jt
 GM
 GR
 yv
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -45846,12 +45898,12 @@ aa
 Jt
 aa
 aa
+aa
+Jt
+aa
+ad
 OV
 JO
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -46104,9 +46156,9 @@ GI
 aa
 aa
 aa
+GI
 aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -46360,10 +46412,10 @@ HY
 He
 If
 aa
-aa
-aa
-aa
-aa
+HY
+He
+If
+ad
 aa
 aa
 aa
@@ -46604,7 +46656,7 @@ av
 ad
 ad
 ad
-aa
+ad
 HY
 Uu
 If
@@ -46617,10 +46669,10 @@ HY
 He
 If
 aa
-aa
-aa
-aa
-aa
+HY
+He
+If
+ad
 aa
 aa
 aa
@@ -46873,11 +46925,11 @@ ad
 HY
 He
 If
-aa
-aa
-aa
-aa
-aa
+ad
+HY
+He
+If
+ad
 aa
 aa
 aa
@@ -47118,7 +47170,7 @@ ad
 ad
 ad
 ad
-aa
+ad
 HY
 Uu
 If
@@ -47131,10 +47183,10 @@ HY
 He
 If
 aa
-aa
-aa
-aa
-aa
+HY
+He
+If
+ad
 aa
 aa
 aa
@@ -47388,10 +47440,10 @@ HY
 HT
 If
 aa
-aa
-aa
-aa
-aa
+HY
+HT
+If
+ad
 aa
 aa
 aa
@@ -47635,20 +47687,20 @@ xZ
 tl
 xZ
 VM
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 aa
 aa
@@ -50445,7 +50497,7 @@ xo
 xo
 ta
 pf
-NQ
+vM
 av
 aa
 Tx
@@ -50939,7 +50991,7 @@ aa
 aa
 aa
 Cn
-WB
+Nm
 Xj
 PC
 OX
@@ -51196,7 +51248,7 @@ aa
 aa
 aa
 Cn
-WB
+cR
 WB
 Qw
 Je
