@@ -614,7 +614,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/ammo_magazine/rifle/drum,
 /obj/item/ammo_magazine/rifle,
 /obj/item/ammo_magazine/rifle,
 /obj/item/ammo_magazine/rifle,
@@ -1492,9 +1491,6 @@
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun/reloadable,
-/obj/item/cell/gun,
-/obj/item/cell/gun,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "hX" = (
@@ -4656,11 +4652,12 @@
 	dir = 4
 	},
 /obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/pistol,
 /obj/item/classic_baton{
 	pixel_w = -7
 	},
 /obj/item/chems/drinks/bottle/whiskey,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/flash,
 /turf/simulated/floor/wood,
 /area/ministation/detective)
 "vr" = (
@@ -7394,9 +7391,7 @@
 	},
 /obj/item/gun/energy/laser,
 /obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser/reloadable,
-/obj/item/cell/gun,
-/obj/item/cell/gun,
+/obj/item/gun/energy/laser,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "Jo" = (
