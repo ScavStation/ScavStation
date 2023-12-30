@@ -132,7 +132,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/fountain,
+/obj/structure/fountain/mundane,
 /turf/simulated/floor/tiled/stone,
 /area/ministation/hall/e2)
 "aD" = (
