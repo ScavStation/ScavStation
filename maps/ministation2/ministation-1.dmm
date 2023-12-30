@@ -620,14 +620,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "dC" = (
-/obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	autoset_access = 0;
+	dir = 8
+	},
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/gun/projectile/automatic/yassault_rifle,
+/turf/simulated/floor/reinforced,
 /area/ministation/security)
 "dE" = (
 /obj/machinery/camera/autoname{
@@ -1377,6 +1390,9 @@
 	pixel_x = 32
 	},
 /obj/item/flashlight/lamp/green,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hz" = (
@@ -1838,27 +1854,15 @@
 "jl" = (
 /obj/machinery/porta_turret{
 	dir = 4;
-	id_tag = "goodstuff"
+	id_tag = "goodstuff";
+	maxhealth = 160;
+	health = 160
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/security)
 "jq" = (
-/obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY");
-	autoset_access = 0;
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/rack,
-/obj/item/gun/projectile/automatic/yassault_rifle,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "js" = (
 /obj/machinery/computer/modular/preset/medical,
@@ -7533,22 +7537,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "Ke" = (
-/obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY");
-	autoset_access = 0;
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/rack,
-/obj/item/gun/energy/xray,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "Kk" = (
 /obj/structure/bed,
@@ -7893,9 +7883,6 @@
 /obj/item/implantcase/tracking,
 /obj/item/implantcase/chem,
 /obj/item/implanter,
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/button/alternate/door{
 	dir = 8;
 	id_tag = "secdoor";
@@ -8971,6 +8958,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"Tk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "Tr" = (
 /obj/structure/rack,
 /obj/item/beartrap,
@@ -49580,7 +49577,7 @@ aa
 cY
 jl
 KS
-ho
+Tk
 KS
 jl
 cY

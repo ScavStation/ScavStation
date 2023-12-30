@@ -2169,6 +2169,10 @@
 	},
 /obj/random_multi/single_item/matriarch_voidsuit,
 /obj/random_multi/single_item/matriarch_helmet,
+/obj/item/clothing/suit/space/void/security/scav,
+/obj/item/clothing/suit/space/void/security/scav,
+/obj/item/clothing/head/helmet/space/void/security/scav,
+/obj/item/clothing/head/helmet/space/void/security/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "jA" = (
@@ -2336,6 +2340,10 @@
 	req_access = list("ACCESS_HEAD_OF_PERSONNEL");
 	name = "Head Patriarch's locker"
 	},
+/obj/item/clothing/suit/space/void/expedition/scav,
+/obj/item/clothing/suit/space/void/expedition/scav,
+/obj/item/clothing/head/helmet/space/void/expedition/scav,
+/obj/item/clothing/head/helmet/space/void/expedition/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "kh" = (
@@ -11179,6 +11187,10 @@
 	closet_appearance = /decl/closet_appearance/secure_closet/medical/alt;
 	name = "Doctor locker"
 	},
+/obj/item/clothing/suit/space/void/medical/scav,
+/obj/item/clothing/suit/space/void/medical/scav,
+/obj/item/clothing/head/helmet/space/void/medical/scav,
+/obj/item/clothing/head/helmet/space/void/medical/scav,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "RC" = (
