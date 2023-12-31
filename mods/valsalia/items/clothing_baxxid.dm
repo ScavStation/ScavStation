@@ -1,7 +1,7 @@
 /decl/loadout_option/head/baxxid_hood
 	name = "baxxid hood"
 	path = /obj/item/clothing/head/baxxid/hood/long
-	flags = GEAR_HAS_COLOR_SELECTION
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
 
 /decl/loadout_option/head/baxxid_wig
 	name = "baxxid wig"
