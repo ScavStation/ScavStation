@@ -621,7 +621,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "dC" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad{
+	holopad_id = "Armory"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -2418,7 +2420,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad{
+	holopad_id = "Security Meeting Room"
+	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/security)
 "mw" = (
