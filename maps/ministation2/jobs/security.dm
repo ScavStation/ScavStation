@@ -13,14 +13,16 @@
 		access_security,
 		access_brig,
 		access_lawyer,
-		access_maint_tunnels
+		access_maint_tunnels,
+		access_cameras
 	)
 	minimal_access = list(
 		access_security,
 		access_forensics_lockers,
 		access_maint_tunnels,
 		access_lawyer,
-		access_brig
+		access_brig,
+		access_cameras
 	)
 	min_skill = list(
 		SKILL_LITERACY = SKILL_BASIC,
@@ -51,14 +53,16 @@
 		access_brig,
 		access_security,
 		access_lawyer,
-		access_maint_tunnels
+		access_maint_tunnels,
+		access_cameras
 	)
 	minimal_access = list(
 		access_security,
 		access_brig,
 		access_lawyer,
 		access_forensics_lockers,
-		access_maint_tunnels
+		access_maint_tunnels,
+		access_cameras
 	)
 	min_skill = list(
 		SKILL_LITERACY	= SKILL_BASIC,
@@ -108,7 +112,8 @@
 		access_kitchen,
 		access_robotics,
 		access_hydroponics,
-		access_hos
+		access_hos,
+		access_cameras
 	)
 	minimal_access = list(
 		access_security,
@@ -125,7 +130,8 @@
 		access_kitchen,
 		access_robotics,
 		access_hydroponics,
-		access_hos
+		access_hos,
+		access_cameras
 	)
 	min_skill = list(
 		SKILL_LITERACY = SKILL_BASIC,

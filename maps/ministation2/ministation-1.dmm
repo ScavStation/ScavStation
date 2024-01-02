@@ -132,7 +132,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/fountain,
+/obj/structure/fountain/mundane,
 /turf/simulated/floor/tiled/stone,
 /area/ministation/hall/e2)
 "aD" = (
@@ -345,7 +345,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "bO" = (
-/obj/machinery/camera/motion,
+/obj/machinery/camera/motion{
+	req_access = list("ACCESS_SECURITY")
+	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/security)
 "bQ" = (
@@ -614,21 +616,33 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/ammo_magazine/rifle/drum,
 /obj/item/ammo_magazine/rifle,
 /obj/item/ammo_magazine/rifle,
 /obj/item/ammo_magazine/rifle,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "dC" = (
-/obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_HEAD_OF_SECURITY");
+	autoset_access = 0;
+	dir = 8
+	},
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/gun/projectile/automatic/yassault_rifle,
+/turf/simulated/floor/reinforced,
 /area/ministation/security)
 "dE" = (
 /obj/machinery/camera/autoname{
@@ -641,7 +655,8 @@
 /area/ministation/hall/w2)
 "dH" = (
 /obj/machinery/camera/network/medbay{
-	dir = 8
+	dir = 8;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/structure/hygiene/sink{
 	dir = 4;
@@ -964,8 +979,12 @@
 	req_access = list("ACCESS_ARMORY");
 	autoset_access = 0
 	},
-/obj/item/gun/projectile/pistol/rubber,
-/obj/item/gun/projectile/pistol/rubber,
+/obj/item/gun/projectile/pistol/rubber{
+	name = "pistol SN 3001"
+	},
+/obj/item/gun/projectile/pistol/rubber{
+	name = "pistol SN 3002"
+	},
 /obj/item/ammo_magazine/pistol/rubber,
 /obj/item/ammo_magazine/pistol/rubber,
 /obj/item/ammo_magazine/pistol/rubber,
@@ -1347,7 +1366,7 @@
 /area/ministation/security)
 "hu" = (
 /obj/abstract/landmark/start{
-	name = "Patriarch of Personnel"
+	name = "Head of Personnel"
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/hop)
@@ -1378,6 +1397,9 @@
 	pixel_x = 32
 	},
 /obj/item/flashlight/lamp/green,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hz" = (
@@ -1489,12 +1511,15 @@
 	req_access = list("ACCESS_ARMORY");
 	autoset_access = 0
 	},
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun/reloadable,
-/obj/item/cell/gun,
-/obj/item/cell/gun,
+/obj/item/gun/energy/gun{
+	name = "energy gun SN 1003"
+	},
+/obj/item/gun/energy/gun{
+	name = "energy gun SN 1002"
+	},
+/obj/item/gun/energy/gun{
+	name = "energy gun SN 1001"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "hX" = (
@@ -1801,13 +1826,6 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/machinery/button/alternate/door{
-	dir = 1;
-	id_tag = "secdoor";
-	name = "security airlock access button";
-	pixel_x = -25;
-	pixel_y = -25
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1842,27 +1860,15 @@
 "jl" = (
 /obj/machinery/porta_turret{
 	dir = 4;
-	id_tag = "goodstuff"
+	id_tag = "goodstuff";
+	maxhealth = 160;
+	health = 160
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/security)
 "jq" = (
-/obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY");
-	autoset_access = 0;
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/rack,
-/obj/item/gun/projectile/automatic/yassault_rifle,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "js" = (
 /obj/machinery/computer/modular/preset/medical,
@@ -2005,7 +2011,6 @@
 	},
 /obj/random/maintenance,
 /obj/structure/closet,
-/obj/item/gun/projectile/zipgun/unloaded,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "kg" = (
@@ -2466,7 +2471,8 @@
 	pixel_x = -32
 	},
 /obj/machinery/camera/network/security{
-	dir = 4
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/structure/flora/pottedplant/largebush,
 /turf/simulated/floor/tiled,
@@ -3082,6 +3088,11 @@
 	pixel_x = 4
 	},
 /obj/item/sutures,
+/obj/machinery/button/blast_door{
+	id_tag = "SURG1";
+	name = "Surgery Shutter Button";
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "pU" = (
@@ -3382,7 +3393,8 @@
 /area/ministation/medical)
 "rh" = (
 /obj/machinery/camera/network/medbay{
-	dir = 8
+	dir = 8;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/machinery/firealarm{
 	dir = 4;
@@ -3392,6 +3404,11 @@
 /obj/item/sutures,
 /obj/item/cautery{
 	pixel_x = 4
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "SURG2";
+	name = "Surgery Shutter Button";
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -4347,7 +4364,8 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/security{
-	dir = 4
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
@@ -4656,11 +4674,12 @@
 	dir = 4
 	},
 /obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/pistol,
 /obj/item/classic_baton{
 	pixel_w = -7
 	},
 /obj/item/chems/drinks/bottle/whiskey,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/flash,
 /turf/simulated/floor/wood,
 /area/ministation/detective)
 "vr" = (
@@ -4957,6 +4976,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/camera/network/medbay{
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "wx" = (
@@ -4994,7 +5017,8 @@
 /area/ministation/medical)
 "wC" = (
 /obj/machinery/camera/network/medbay{
-	dir = 8
+	dir = 8;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -5277,7 +5301,8 @@
 /area/ministation/medical)
 "xF" = (
 /obj/machinery/camera/network/medbay{
-	dir = 1
+	dir = 1;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -5688,7 +5713,8 @@
 /obj/structure/table,
 /obj/machinery/reagent_temperature,
 /obj/machinery/camera/network/medbay{
-	dir = 8
+	dir = 8;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -6076,6 +6102,8 @@
 	pixel_x = 30
 	},
 /obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/item/chems/condiment/small/peppermill,
+/obj/item/chems/condiment/small/saltshaker,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Aw" = (
@@ -6479,7 +6507,9 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/security,
 /obj/item/flashlight/maglight,
 /obj/item/chems/spray/pepper,
-/obj/structure/closet/secure_closet/warden,
+/obj/structure/closet/secure_closet/warden{
+	req_access = list("ACCESS_BRIG")
+	},
 /turf/simulated/floor/carpet/blue3,
 /area/ministation/security)
 "CP" = (
@@ -6793,7 +6823,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/camera/network/command,
+/obj/machinery/camera/network/command{
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "EO" = (
@@ -7043,7 +7076,9 @@
 	dir = 4;
 	icon_state = "warning"
 	},
-/obj/machinery/camera/motion,
+/obj/machinery/camera/motion{
+	req_access = list("ACCESS_SECURITY")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "GO" = (
@@ -7180,7 +7215,10 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/suit_cycler/security/prepared,
+/obj/machinery/suit_cycler/security/prepared{
+	helmet = /obj/item/clothing/head/helmet/space/void/security/alt;
+	suit = /obj/item/clothing/suit/space/void/security/alt
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "HX" = (
@@ -7392,11 +7430,15 @@
 	req_access = list("ACCESS_ARMORY");
 	autoset_access = 0
 	},
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser/reloadable,
-/obj/item/cell/gun,
-/obj/item/cell/gun,
+/obj/item/gun/energy/laser{
+	name = "laser carbine SN 2003"
+	},
+/obj/item/gun/energy/laser{
+	name = "laser carbine SN 2002"
+	},
+/obj/item/gun/energy/laser{
+	name = "laser carbine SN 2001"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "Jo" = (
@@ -7481,17 +7523,29 @@
 /obj/item/storage/box/ammo/beanbags,
 /obj/item/storage/box/ammo/beanbags,
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn{
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag;
+	name = "sawn-off shotgun SN 101"
 	},
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn{
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag;
+	name = "sawn-off shotgun SN 102"
 	},
-/obj/item/gun/energy/taser,
-/obj/item/gun/energy/taser,
-/obj/item/gun/energy/gun/secure,
-/obj/item/gun/energy/gun/secure,
+/obj/item/gun/energy/taser{
+	name = "electrolaser SN 22"
+	},
+/obj/item/gun/energy/taser{
+	name = "electrolaser SN 21"
+	},
+/obj/item/gun/energy/gun/secure{
+	name = "smartgun SN 11"
+	},
+/obj/item/gun/energy/gun/secure{
+	name = "smartgun SN 12"
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/gun/energy/gun/secure,
+/obj/item/gun/energy/gun/secure{
+	name = "smartgun SN 13"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "JQ" = (
@@ -7538,22 +7592,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "Ke" = (
-/obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_SECURITY");
-	autoset_access = 0;
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/rack,
-/obj/item/gun/energy/xray,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "Kk" = (
 /obj/structure/bed,
@@ -7658,7 +7698,10 @@
 	autoset_access = 0;
 	dir = 4
 	},
-/obj/machinery/suit_cycler/security/prepared,
+/obj/machinery/suit_cycler/security/prepared{
+	suit = /obj/item/clothing/suit/space/void/security/alt;
+	helmet = /obj/item/clothing/head/helmet/space/void/security/alt
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "KW" = (
@@ -7685,6 +7728,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/item/gun/energy/laser/practice,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Lk" = (
@@ -7898,9 +7942,6 @@
 /obj/item/implantcase/tracking,
 /obj/item/implantcase/chem,
 /obj/item/implanter,
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/button/alternate/door{
 	dir = 8;
 	id_tag = "secdoor";
@@ -8039,7 +8080,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/camera/network/security{
-	dir = 4
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/vending/wallmed1{
@@ -8067,12 +8109,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w2)
-"Nv" = (
-/obj/machinery/camera/network/security{
-	dir = 8
-	},
-/turf/simulated/wall/r_wall,
-/area/ministation/security)
 "Ny" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/ammo_magazine/smg/rubber,
@@ -8081,9 +8117,15 @@
 /obj/item/ammo_magazine/smg/rubber,
 /obj/item/ammo_magazine/smg/rubber,
 /obj/item/ammo_magazine/smg/rubber,
-/obj/item/gun/projectile/automatic/smg,
-/obj/item/gun/projectile/automatic/smg,
-/obj/item/gun/energy/plasmastun,
+/obj/item/gun/projectile/automatic/smg{
+	name = "submachine gun SN 301"
+	},
+/obj/item/gun/projectile/automatic/smg{
+	name = "submachine gun SN 302"
+	},
+/obj/item/gun/energy/plasmastun{
+	name = "plasma pulse projector SN 444"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "Nz" = (
@@ -8139,6 +8181,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/gun/projectile/zipgun/unloaded,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
 "NX" = (
@@ -8325,6 +8368,15 @@
 "OZ" = (
 /turf/simulated/floor/tiled/stone,
 /area/ministation/hall/e2)
+"Pb" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "SURG2";
+	name = "Surgery Shutters"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/medical)
 "Pc" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -8596,14 +8648,15 @@
 	icon_state = "pipe-c"
 	},
 /obj/abstract/landmark/start{
-	name = "Patriarch of Medicine"
+	name = "Medical Director"
 	},
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical)
 "QC" = (
 /obj/structure/iv_drip,
 /obj/machinery/camera/network/medbay{
-	dir = 1
+	dir = 1;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -8781,7 +8834,8 @@
 /area/ministation/hall/w2)
 "RU" = (
 /obj/machinery/camera/network/medbay{
-	dir = 4
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -8976,10 +9030,21 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"Tk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/security)
 "Tr" = (
 /obj/structure/rack,
 /obj/item/beartrap,
 /obj/random/maintenance,
+/obj/item/gun/projectile/zipgun/unloaded,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "Ts" = (
@@ -9230,7 +9295,9 @@
 /area/ministation/Arrival)
 "Va" = (
 /obj/structure/bed/chair/wheelchair,
-/obj/machinery/camera/network/medbay,
+/obj/machinery/camera/network/medbay{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "Vb" = (
@@ -9394,12 +9461,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/security)
-"VU" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/ministation/security)
 "VY" = (
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
@@ -9480,6 +9541,10 @@
 	dir = 8;
 	pixel_x = 20
 	},
+/obj/machinery/camera/network/security{
+	dir = 8;
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/carpet/blue3,
 /area/ministation/security)
 "Wt" = (
@@ -9524,6 +9589,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"WX" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "SURG1";
+	name = "Surgery Shutters"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/medical)
 "WY" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -45226,7 +45300,7 @@ dW
 Wr
 EV
 nS
-VU
+cY
 cY
 hw
 EE
@@ -45482,7 +45556,7 @@ cY
 cY
 cY
 cY
-Nv
+cY
 cY
 cY
 hx
@@ -49585,7 +49659,7 @@ aa
 cY
 jl
 KS
-ho
+Tk
 KS
 jl
 cY
@@ -55505,15 +55579,15 @@ aa
 aa
 aa
 oz
-vK
-vK
-vK
+WX
+WX
+WX
 oz
 oz
 oz
-vK
-vK
-vK
+Pb
+Pb
+Pb
 oz
 Cx
 Cx
