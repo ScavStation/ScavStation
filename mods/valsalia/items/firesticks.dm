@@ -41,7 +41,7 @@
 		return FALSE
 
 	var/mob/living/M = user
-	if(M.mob_size >= MOB_SIZE_SMALL)
+	if(M.mob_size > MOB_SIZE_SMALL)
 		to_chat(user, SPAN_WARNING("The trigger guard of \the [src] is too small for your fingers."))
 		return FALSE
 	return TRUE
