@@ -58,7 +58,8 @@
 		access_hop,
 		access_RC_announce,
 		access_keycard_auth,
-		access_gateway
+		access_gateway,
+		access_cameras
 		)
 
 	minimal_access = list(
@@ -92,5 +93,6 @@
 		access_hop,
 		access_RC_announce,
 		access_keycard_auth,
-		access_gateway
+		access_gateway,
+		access_cameras
 		)
