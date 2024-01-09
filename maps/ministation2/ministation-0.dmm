@@ -251,6 +251,13 @@
 /obj/structure/wall_frame,
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"bA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = list("ACCESS_ENGINEERING")
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "bB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -590,16 +597,8 @@
 /area/ministation/cargo)
 "cR" = (
 /obj/structure/closet,
-/obj/item/light/bulb/fire,
-/obj/item/light/bulb/fire,
-/obj/item/light/bulb/fire,
-/obj/item/light/bulb/fire,
-/obj/item/light/bulb/fire,
-/obj/item/light/tube/party,
-/obj/item/light/tube/party,
-/obj/item/light/tube/party,
-/obj/item/light/tube/party,
-/obj/item/light/tube/party,
+/obj/item/gun/projectile/zipgun/unloaded,
+/obj/item/bikehorn/airhorn,
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
 "cS" = (
@@ -2989,6 +2988,11 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"nq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "nu" = (
 /obj/structure/closet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3151,7 +3155,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/machinery/camera/network/engineering{
 	dir = 8;
-	name = "Atmospherics"
+	name = "Atmospherics";
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -4635,7 +4640,8 @@
 "wo" = (
 /obj/machinery/camera/network/engineering{
 	dir = 4;
-	name = "Atmospherics"
+	name = "Atmospherics";
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -6757,11 +6763,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+/obj/structure/closet/secure_closet/engineering_personal{
+	req_access = list("ACCESS_ENGINEERING")
 	},
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/item/storage/backpack/dufflebag/eng,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "EK" = (
@@ -6773,7 +6783,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "EL" = (
 /obj/abstract/landmark/start{
@@ -6913,9 +6923,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Fa" = (
-/obj/structure/closet/secure_closet/engineering_electrical{
+/obj/structure/closet/secure_closet/engineering_personal{
 	req_access = list("ACCESS_ENGINEERING")
 	},
+/obj/item/storage/backpack/dufflebag/eng,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
 /obj/machinery/camera/network/engineering{
 	name = "Engineering Hub";
 	dir = 4
@@ -7169,15 +7182,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "FH" = (
-/obj/structure/closet/secure_closet/engineering_personal{
-	req_access = list("ACCESS_ENGINEERING")
-	},
 /obj/machinery/light,
-/obj/item/clothing/under/hazardjumpsuit/yinglet,
-/obj/item/clothing/under/hazardjumpsuit/yinglet,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
-/obj/item/storage/backpack/dufflebag/eng,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "FI" = (
@@ -7192,6 +7197,7 @@
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
 /obj/item/mobile_ladder,
+/obj/item/storage/backpack/dufflebag/eng,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "FJ" = (
@@ -9706,11 +9712,10 @@
 /obj/machinery/camera/network/ministation/sat{
 	dir = 1
 	},
-/obj/machinery/turretid{
+/obj/machinery/turretid/stun{
 	control_area = "\improper AI Upload Chamber";
-	name = "AI Upload turret control";
-	pixel_y = -25;
-	id_tag = "aihome"
+	id_tag = "aihome";
+	pixel_y = -24
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
@@ -10001,7 +10006,7 @@
 /area/ministation/ai_sat)
 "Nu" = (
 /obj/abstract/landmark/start{
-	name = "Patriarch of Engineering"
+	name = "Chief Engineer"
 	},
 /obj/structure/bed/chair/office{
 	dir = 6
@@ -12645,14 +12650,14 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "Xt" = (
-/obj/machinery/turretid{
-	control_area = "\improper AI Upload Chamber";
-	name = "AI Upload turret control";
-	pixel_y = -25;
-	id_tag = "upload"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/turretid/stun{
+	name = "AI Upload turret control";
+	id_tag = "upload";
+	control_area = "\improper AI Upload Chamber";
+	pixel_y = -24
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
@@ -12996,7 +13001,8 @@
 	},
 /obj/machinery/camera/network/engineering{
 	dir = 8;
-	name = "Atmospherics"
+	name = "Atmospherics";
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
@@ -50240,8 +50246,8 @@ av
 OQ
 av
 Re
-En
-En
+bA
+nq
 XQ
 xk
 NQ

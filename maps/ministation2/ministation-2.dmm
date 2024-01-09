@@ -344,6 +344,9 @@
 	dir = 4;
 	level = 2
 	},
+/obj/abstract/landmark/start{
+	name = "Captain"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "bt" = (
@@ -481,7 +484,8 @@
 	},
 /obj/machinery/camera/network/command{
 	dir = 1;
-	initial_access = null
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
@@ -567,7 +571,8 @@
 	},
 /obj/machinery/camera/network/command{
 	dir = 1;
-	initial_access = null
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -1383,7 +1388,9 @@
 /obj/machinery/destructive_analyzer{
 	initial_network_id = "molluscnet"
 	},
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -1488,7 +1495,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "gJ" = (
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /obj/structure/table,
 /obj/machinery/status_display{
 	pixel_y = 30;
@@ -2094,7 +2103,8 @@
 /obj/item/stack/material/shiny/mapped/aluminium/fifty,
 /obj/item/stack/material/ingot/mapped/copper/fifty,
 /obj/machinery/camera/network/research{
-	dir = 1
+	dir = 1;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -2235,7 +2245,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "kp" = (
@@ -2317,7 +2329,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "kx" = (
@@ -2327,7 +2341,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "ky" = (
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "kz" = (
@@ -2584,7 +2600,9 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 4
 	},
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "lG" = (
@@ -2754,7 +2772,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /obj/machinery/vending/hydroseeds,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -2818,7 +2838,8 @@
 /area/ministation/science)
 "nj" = (
 /obj/machinery/camera/network/command{
-	initial_access = null
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/bridge/vault)
@@ -3178,6 +3199,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
+/obj/machinery/camera/network/research{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
 "qi" = (
@@ -3413,6 +3437,11 @@
 	dir = 4;
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/command{
+	dir = 8;
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "sQ" = (
@@ -3640,7 +3669,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera/network/command{
 	dir = 8;
-	initial_access = null
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -3774,6 +3804,10 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"vz" = (
+/obj/machinery/camera/network/research,
+/turf/simulated/floor/reinforced,
+/area/ministation/science)
 "vA" = (
 /obj/random_multi/single_item/matriarch_voidsuit,
 /obj/random_multi/single_item/matriarch_helmet,
@@ -3982,7 +4016,8 @@
 /area/ministation/library)
 "yc" = (
 /obj/machinery/camera/autoname{
-	dir = 8
+	dir = 8;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
@@ -4020,6 +4055,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/science)
+"yx" = (
+/obj/machinery/camera/network/command{
+	dir = 4;
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
+	},
+/turf/simulated/floor/bluegrid{
+	name = "Mainframe Base";
+	temperature = 263
+	},
+/area/ministation/telecomms)
 "yz" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -4584,7 +4630,8 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/command{
-	initial_access = null
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/lino,
 /area/ministation/telecomms)
@@ -5120,7 +5167,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "ER" = (
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /obj/machinery/portable_atmospherics/canister/helium,
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
@@ -5214,6 +5263,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
+"FS" = (
+/obj/machinery/camera/network/research{
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "Gh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5272,7 +5328,8 @@
 "GF" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera/network/research{
-	dir = 4
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -5530,9 +5587,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "Je" = (
-/obj/machinery/camera/network/research{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 8
 	},
@@ -5788,12 +5842,15 @@
 	},
 /obj/machinery/camera/network/command{
 	dir = 1;
-	initial_access = null
+	initial_access = null;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "LQ" = (
-/obj/machinery/camera/network/research,
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /obj/structure/table,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -5;
@@ -6487,7 +6544,7 @@
 /area/ministation/science)
 "PX" = (
 /obj/abstract/landmark/start{
-	name = "Patriarch of Science"
+	name = "Research Director"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -7048,6 +7105,9 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
@@ -8085,7 +8145,8 @@
 /area/ministation/shuttle/outgoing)
 "ZT" = (
 /obj/machinery/camera/network/research{
-	dir = 4
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/item/radio/intercom{
 	dir = 4;
@@ -37322,7 +37383,7 @@ sh
 bl
 nA
 of
-Aa
+yx
 Ax
 cP
 Ax
@@ -43477,7 +43538,7 @@ Wj
 Dl
 db
 db
-db
+FS
 rp
 Je
 Wg
@@ -44006,7 +44067,7 @@ kx
 NM
 rQ
 ae
-mJ
+vz
 mJ
 mJ
 oE
