@@ -1520,7 +1520,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "hX" = (
-/obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
