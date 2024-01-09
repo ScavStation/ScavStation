@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/yassault_rifle
-	name = "Yinglet assault rifle"
+	name = "Yinglet Assault Rifle"
 	desc = "The ST-4 is a bulpup rifle designed off the Z8 Bulldog but scaled down for use by yinglets. You fear your knuckles may get burned using this."
 	icon = 'mods/valsalia/icons/weapons/yar.dmi'
 	w_class = ITEM_SIZE_NORMAL
@@ -33,6 +33,19 @@
 
 	var/use_launcher = 0
 	var/obj/item/gun/launcher/grenade/underslung/launcher
+
+/obj/item/gun/projectile/automatic/yassault_rifle/special_check(mob/user)
+	if(!istype(user, /mob/living))
+		return FALSE
+	if(!user.check_dexterity(DEXTERITY_WEAPONS))
+		return FALSE
+
+	var/mob/living/M = user
+	if(M.mob_size > MOB_SIZE_SMALL)
+		to_chat(user, SPAN_WARNING("The trigger guard of \the [src] is too small for your fingers."))
+		return FALSE
+	return TRUE
+
 
 /obj/item/gun/projectile/automatic/yassault_rifle/Initialize()
 	. = ..()
