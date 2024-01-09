@@ -623,10 +623,6 @@
 /area/ministation/security)
 "dC" = (
 
-/obj/machinery/hologram/holopad{
-	holopad_id = "Armory"
-	},
-
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
