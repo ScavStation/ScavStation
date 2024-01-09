@@ -2,7 +2,7 @@
 	name = "cloak, colour select"
 	path = /obj/item/clothing/accessory/cloak
 	slot = slot_wear_suit_str
-	flags = GEAR_HAS_COLOR_SELECTION
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
 
 /decl/loadout_option/accessory/yinglet_tailbells
 	name = "yinglet tailbells"
@@ -11,13 +11,13 @@
 /decl/loadout_option/head/yinglet_hood
 	name = "yinglet hood, colour select"
 	path = /obj/item/clothing/head/yinglet
-	flags = GEAR_HAS_COLOR_SELECTION
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
 	description = "A simple cloth hood with ear-holes. Not suitable for human use."
 
 /decl/loadout_option/uniform/yingjumpsuit
 	name = "yinglet jumpsuit, colour select"
 	path = /obj/item/clothing/under/yinglet/yingjumpsuit
-	flags = GEAR_HAS_COLOR_SELECTION
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
 	description = "A simple jumpsuit, made for a yinglet."
 
 /decl/loadout_option/scav_medical_belt
