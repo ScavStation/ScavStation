@@ -418,6 +418,7 @@
 	},
 /obj/structure/ore_box,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/plaque/ai_dev/pod,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/crashed_pod)
 "aL" = (
@@ -1281,10 +1282,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/crashed_pod)
-"uw" = (
-/obj/structure/sign/plaque/ai_dev/pod,
-/turf/simulated/wall,
-/area/map_template/crashed_pod)
 "yo" = (
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/privacy,
@@ -1307,18 +1304,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
-"Li" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt{
-	dir = 9
-	},
-/obj/machinery/alarm{
-	pixel_y = -18;
-	dir = 1;
-	locked = 0
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/map_template/crashed_pod)
 "Ta" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1332,6 +1317,9 @@
 "Ut" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "Ys" = (
@@ -1417,7 +1405,7 @@ ac
 ae
 ay
 as
-uw
+ay
 aK
 aO
 bQ
@@ -1455,7 +1443,7 @@ ak
 at
 ay
 aS
-Li
+aB
 bL
 ay
 bk
