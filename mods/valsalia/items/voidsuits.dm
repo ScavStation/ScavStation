@@ -28,6 +28,9 @@
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour
 
+/obj/item/clothing/suit/space/void/yinglet/set_yinglet_sprite_override()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, icon)
+
 /obj/item/clothing/suit/space/void/yinglet/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
 	if(slot == slot_wear_suit_str)
@@ -65,6 +68,9 @@
 	var/faceplate_colour = COLOR_SKY_BLUE
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour
+
+/obj/item/clothing/head/helmet/space/void/yinglet/set_yinglet_sprite_override()
+	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, icon)
 
 /obj/item/clothing/head/helmet/space/void/yinglet/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
