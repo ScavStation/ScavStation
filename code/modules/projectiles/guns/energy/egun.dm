@@ -7,7 +7,7 @@
 	safety_icon = "safety"
 	max_shots = 10
 	fire_delay = 10 // To balance for the fact that it is a pistol and can be used one-handed without penalty
-
+	fire_sound = 'sound/weapons/gunshot/lasdoot.ogg'
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = "{'combat':3,'magnets':2}"
 	indicator_color = COLOR_CYAN

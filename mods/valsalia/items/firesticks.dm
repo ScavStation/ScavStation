@@ -4,6 +4,7 @@
 	icon = 'mods/valsalia/icons/weapons/yar.dmi'
 	w_class = ITEM_SIZE_NORMAL
 	force = 10
+	fire_sound = 'sound/weapons/gunshot/rifshot.ogg'
 	caliber = CALIBER_RIFLE
 	origin_tech = "{'combat':8,'materials':3}"
 	ammo_type = /obj/item/ammo_casing/rifle
@@ -28,7 +29,8 @@
 	firemodes = list(
 		list(mode_name="semi auto",      burst=1,    fire_delay=null, use_launcher=null, one_hand_penalty=8,  burst_accuracy=null,            dispersion=null),
 		list(mode_name="3-round bursts", burst=3,    fire_delay=null, use_launcher=null, one_hand_penalty=9,  burst_accuracy=list(0,0,-1),   dispersion=list(0.0, 0.4, 0.8)),
-		list(mode_name="full auto",      burst=1,    fire_delay=0,    burst_delay=1,     use_launcher=null,   one_hand_penalty=7,             burst_accuracy = list(0,0,-1), dispersion=list(0.0, 0.4, 0.8), autofire_enabled=1)
+		list(mode_name="full auto",      burst=1,    fire_delay=0,    burst_delay=1,     use_launcher=null,   one_hand_penalty=7,             burst_accuracy = list(0,0,-1), dispersion=list(0.0, 0.4, 0.8), autofire_enabled=1),
+		list(mode_name="fire grenades",  burst=null, fire_delay=null, use_launcher=1,    one_hand_penalty=10, burst_accuracy=null,            dispersion=null)
 	)
 
 	var/use_launcher = 0

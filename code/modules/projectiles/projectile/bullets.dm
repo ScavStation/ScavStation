@@ -1,7 +1,6 @@
 /obj/item/projectile/bullet
 	name = "bullet"
 	icon_state = "bullet"
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	damage = 50
 	damage_type = BRUTE
 	damage_flags = DAM_BULLET | DAM_SHARP
@@ -68,11 +67,12 @@
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	fire_sound = 'sound/weapons/gunshot/pistol10mm.ogg'
 	damage = 45
 	distance_falloff = 3
 
 /obj/item/projectile/bullet/pistol/holdout
+	fire_sound = 'sound/weapons/gunshot/pistol7mm.ogg'
 	damage = 40
 	penetration_modifier = 1.2
 	distance_falloff = 4
@@ -118,7 +118,6 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	damage = 45
 	armor_penetration = 25
 	penetration_modifier = 1.5
