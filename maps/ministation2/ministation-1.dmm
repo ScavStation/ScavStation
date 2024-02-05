@@ -622,7 +622,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "dC" = (
-
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -730,6 +729,10 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "dU" = (
@@ -1411,6 +1414,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/flora/pottedplant/minitree,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hA" = (
@@ -1512,11 +1516,9 @@
 	req_access = list("ACCESS_ARMORY");
 	autoset_access = 0
 	},
-
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
-
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "hX" = (
@@ -2009,6 +2011,23 @@
 /obj/structure/closet,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
+"ke" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "kg" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -5018,6 +5037,10 @@
 	dir = 8;
 	req_access = list("ACCESS_CAMERAS")
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "wD" = (
@@ -5589,6 +5612,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "yC" = (
@@ -6102,6 +6126,7 @@
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/item/chems/condiment/small/peppermill,
 /obj/item/chems/condiment/small/saltshaker,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "Aw" = (
@@ -7000,6 +7025,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"Gh" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "Gi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -7323,6 +7355,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "IA" = (
@@ -7346,6 +7379,7 @@
 	pixel_y = 30
 	},
 /obj/item/stack/medical/advanced/bruise_pack,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "IP" = (
@@ -7428,11 +7462,9 @@
 	req_access = list("ACCESS_ARMORY");
 	autoset_access = 0
 	},
-  
 /obj/item/gun/energy/laser,
 /obj/item/gun/energy/laser,
 /obj/item/gun/energy/laser,
-
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "Jo" = (
@@ -7539,6 +7571,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/gun/energy/gun/secure{
 	name = "smartgun SN 13"
+	},
+/obj/item/gun/energy/gun/secure{
+	name = "smartgun SN 14"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
@@ -7736,6 +7771,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"Lp" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/security)
 "Lr" = (
 /obj/structure/table/woodentable,
 /obj/machinery/reagentgrinder/juicer,
@@ -7831,6 +7873,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
+/area/ministation/hall/e2)
+"LV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/fire/fulltile,
+/turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "LY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8175,7 +8231,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/gun/projectile/zipgun/unloaded,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
 "NX" = (
@@ -8493,6 +8548,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/w2)
+"PO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
 "PR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8831,6 +8903,10 @@
 	dir = 4;
 	req_access = list("ACCESS_CAMERAS")
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "RW" = (
@@ -8951,9 +9027,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "SG" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 27
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -9038,7 +9111,6 @@
 /obj/structure/rack,
 /obj/item/beartrap,
 /obj/random/maintenance,
-/obj/item/gun/projectile/zipgun/unloaded,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "Ts" = (
@@ -9239,6 +9311,7 @@
 	pixel_x = -27
 	},
 /obj/structure/closet/wardrobe/chemistry_white,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "UJ" = (
@@ -36571,7 +36644,7 @@ tP
 ua
 aV
 aV
-aV
+Gh
 kZ
 aa
 aa
@@ -40419,7 +40492,7 @@ mc
 qN
 cH
 kZ
-PI
+ke
 GZ
 aV
 aV
@@ -45559,7 +45632,7 @@ hY
 QR
 je
 cY
-RB
+PO
 wD
 ty
 OY
@@ -45804,7 +45877,7 @@ cY
 Fj
 QR
 DY
-dr
+Lp
 YS
 Db
 HW
@@ -50185,7 +50258,7 @@ qn
 qZ
 oz
 oz
-lw
+LV
 ty
 Xw
 ty

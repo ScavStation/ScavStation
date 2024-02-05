@@ -104,6 +104,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
+"aK" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "aL" = (
 /obj/machinery/power/apc{
 	name = "_South APC";
@@ -251,13 +258,6 @@
 /obj/structure/wall_frame,
 /turf/simulated/floor/plating,
 /area/ministation/trash)
-"bA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = list("ACCESS_ENGINEERING")
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/engine)
 "bB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -597,7 +597,6 @@
 /area/ministation/cargo)
 "cR" = (
 /obj/structure/closet,
-/obj/item/gun/projectile/zipgun/unloaded,
 /obj/item/bikehorn/airhorn,
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
@@ -750,6 +749,11 @@
 	dir = 4;
 	icon_state = "warning"
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "dE" = (
@@ -1742,6 +1746,11 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 1
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "hc" = (
@@ -2126,6 +2135,14 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
+"jo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "jq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2429,6 +2446,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/fire/fulltile,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "kL" = (
@@ -2761,6 +2779,10 @@
 	icon_state = "warning"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "mr" = (
@@ -2861,6 +2883,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
+"mQ" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "mS" = (
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
@@ -2988,11 +3018,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
-"nq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/secure_closet/engineering_welding,
-/turf/simulated/floor/tiled,
-/area/ministation/engine)
 "nu" = (
 /obj/structure/closet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3435,6 +3460,17 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"qm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "qo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -4396,6 +4432,7 @@
 /obj/structure/closet/crate,
 /obj/item/cell,
 /obj/item/cell,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "vf" = (
@@ -4606,6 +4643,11 @@
 	dir = 1;
 	pixel_x = -8
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
 "we" = (
@@ -4723,6 +4765,14 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
+"wG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "wJ" = (
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -5239,6 +5289,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "zR" = (
@@ -5942,6 +5996,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"Cu" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/atmospherics)
 "Cv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -6751,6 +6812,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
+"EF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s1)
 "EG" = (
 /obj/structure/lattice,
 /obj/item/stack/cable_coil,
@@ -6763,14 +6832,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/closet/secure_closet/engineering_personal{
-	req_access = list("ACCESS_ENGINEERING")
-	},
-/obj/item/storage/backpack/dufflebag/eng,
-/obj/item/clothing/under/hazardjumpsuit/yinglet,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -6923,16 +6989,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Fa" = (
-/obj/structure/closet/secure_closet/engineering_personal{
-	req_access = list("ACCESS_ENGINEERING")
-	},
-/obj/item/storage/backpack/dufflebag/eng,
-/obj/item/clothing/under/hazardjumpsuit/yinglet,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
 /obj/machinery/camera/network/engineering{
 	name = "Engineering Hub";
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/engineering_welding,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Fb" = (
@@ -7183,6 +7244,13 @@
 /area/space)
 "FH" = (
 /obj/machinery/light,
+/obj/structure/closet/secure_closet/engineering_personal{
+	req_access = list("ACCESS_ENGINEERING")
+	},
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/storage/backpack/dufflebag/eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "FI" = (
@@ -7365,6 +7433,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "FY" = (
@@ -7959,6 +8028,11 @@
 	pixel_y = 42;
 	pixel_x = 9
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Hv" = (
@@ -8396,6 +8470,7 @@
 	pixel_x = 5;
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/industrial/fire/fulltile,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "II" = (
@@ -9763,6 +9838,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"Mz" = (
+/obj/abstract/landmark/start{
+	name = "Recruit"
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "MB" = (
 /obj/abstract/landmark/start{
 	name = "Recruit"
@@ -10055,6 +10140,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/supermatter)
+"NF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s1)
 "NH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -10218,6 +10312,10 @@
 /area/ministation/engine)
 "Oe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "Of" = (
@@ -11580,6 +11678,11 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/engineering,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "SY" = (
@@ -11973,6 +12076,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Uv" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/plating,
+/area/ministation/supermatter)
 "Ux" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -12595,6 +12705,10 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "Xh" = (
@@ -39705,7 +39819,7 @@ mT
 aa
 PD
 ay
-QA
+Cu
 gc
 SG
 Ki
@@ -45062,7 +45176,7 @@ fz
 fz
 NR
 fz
-fz
+jo
 fz
 mr
 OK
@@ -45099,7 +45213,7 @@ uh
 uh
 ZR
 uh
-uh
+NF
 uh
 Dk
 Fg
@@ -46077,7 +46191,7 @@ cr
 QP
 cr
 Rf
-gT
+wG
 gT
 gT
 Po
@@ -46116,7 +46230,7 @@ ui
 QG
 ui
 zy
-ui
+EF
 ui
 gb
 ue
@@ -47181,7 +47295,7 @@ Uj
 BW
 dc
 av
-DC
+mQ
 Gt
 av
 ad
@@ -47363,7 +47477,7 @@ BD
 ax
 aL
 zW
-gX
+Mz
 Cb
 YV
 xg
@@ -47432,7 +47546,7 @@ oO
 XW
 UA
 eK
-eK
+Uv
 eK
 eK
 ZU
@@ -48395,7 +48509,7 @@ Lt
 BS
 Ju
 zW
-cL
+qm
 ne
 zW
 Vl
@@ -50246,9 +50360,9 @@ av
 OQ
 av
 Re
-bA
-nq
-XQ
+En
+En
+aK
 xk
 NQ
 Bj

@@ -384,6 +384,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bw" = (
@@ -1835,6 +1836,7 @@
 	},
 /obj/machinery/recharger,
 /obj/structure/table,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "io" = (
@@ -2046,6 +2048,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "jq" = (
@@ -2273,6 +2279,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/science)
 "ks" = (
@@ -2658,6 +2669,10 @@
 /obj/structure/bed/chair/shuttle/blue{
 	dir = 1
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "mn" = (
@@ -2860,6 +2875,7 @@
 /obj/item/minihoe,
 /obj/item/wrench,
 /obj/item/wirecutters/clippers,
+/obj/effect/floor_decal/industrial/fire/fulltile,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "ns" = (
@@ -3804,6 +3820,13 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"vv" = (
+/obj/effect/floor_decal/industrial/fire/fulltile,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/court)
 "vz" = (
 /obj/machinery/camera/network/research,
 /turf/simulated/floor/reinforced,
@@ -3837,6 +3860,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
+"vP" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "vT" = (
 /obj/machinery/light{
 	dir = 4
@@ -4196,10 +4227,21 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "zC" = (
 /turf/simulated/floor/carpet/magenta,
+/area/ministation/science)
+"zP" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zQ" = (
 /obj/structure/closet/secure_closet{
@@ -4535,6 +4577,7 @@
 	},
 /obj/item/disk/nuclear,
 /obj/machinery/recharger,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "BK" = (
@@ -4897,6 +4940,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Dk" = (
@@ -5213,6 +5257,15 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"Fo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "Fv" = (
 /obj/machinery/door/airlock/glass/science{
 	name = "Toxins";
@@ -5331,6 +5384,10 @@
 	dir = 4;
 	req_access = list("ACCESS_CAMERAS")
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "GJ" = (
@@ -5622,6 +5679,7 @@
 	},
 /obj/structure/closet/firecloset,
 /obj/item/storage/firstaid/fire,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Ju" = (
@@ -5856,6 +5914,7 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "LS" = (
@@ -6674,6 +6733,11 @@
 	pixel_y = 30;
 	pixel_x = -33
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "QT" = (
@@ -7185,6 +7249,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
+"TY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "TZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -7367,6 +7439,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
+"Vu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s3)
 "Vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -39913,7 +39993,7 @@ xH
 fz
 MU
 RY
-OW
+TY
 Md
 OW
 So
@@ -40953,7 +41033,7 @@ VZ
 cJ
 VZ
 tY
-VZ
+Fo
 VZ
 VZ
 VZ
@@ -40983,7 +41063,7 @@ tB
 CM
 SG
 ui
-ui
+Vu
 CE
 SI
 tt
@@ -44283,7 +44363,7 @@ et
 aq
 nW
 DF
-Nw
+vv
 Rx
 WJ
 pp
@@ -46890,9 +46970,9 @@ Qf
 db
 Zd
 ae
-db
+vP
 VX
-db
+zP
 ae
 cw
 aa

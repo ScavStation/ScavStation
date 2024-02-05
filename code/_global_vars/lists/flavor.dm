@@ -34,10 +34,10 @@ var/global/list/station_prefixes = list("", "Imperium", "Heretical", "Cuban",
 
 var/global/list/station_names = list("", "Stanford", "Dwarf", "Alien",
 	"Aegis", "Death-World", "Rogue", "Safety", "Paranoia",
-	"Explosive", "North", "West", "East", "South", "Slant-ways", 
-	"Widdershins", "Rimward", "Expensive", "Procreatory", "Imperial", 
-	"Unidentified", "Immoral", "Carp", "Orc", "Pete", "Control", 
-	"Nettle", "Class", "Crab", "Fist", "Corrogated", "Skeleton", 
+	"Explosive", "North", "West", "East", "South", "Slant-ways",
+	"Widdershins", "Rimward", "Expensive", "Procreatory", "Imperial",
+	"Unidentified", "Immoral", "Carp", "Orc", "Pete", "Control",
+	"Nettle", "Class", "Crab", "Fist", "Corrogated", "Skeleton",
 	"Gentleman", "Capitalist", "Communist", "Bear", "Beard", "Space",
 	"Star", "Moon", "System", "Mining", "Research", "Supply", "Military",
 	"Orbital", "Battle", "Science", "Asteroid", "Home", "Production",
@@ -88,6 +88,7 @@ var/global/list/music_tracks = list(
 	"Human" = /decl/music_track/human,
 	"Memories of Lysendraa" = /decl/music_track/lysendraa,
 	"Marhaba" = /decl/music_track/marhaba,
+	"Space Asshole" = /decl/music_track/space_asshole,
 	"Space Oddity" = /decl/music_track/space_oddity,
 	"THUNDERDOME" = /decl/music_track/thunderdome,
 	"Treacherous Voyage" = /decl/music_track/treacherous_voyage,
@@ -101,7 +102,9 @@ var/global/list/music_tracks = list(
 	"80s All Over Again" = /decl/music_track/eighties,
 	"Wild Encounters" = /decl/music_track/wildencounters,
 	"Torn" = /decl/music_track/torn,
-	"Nebula" = /decl/music_track/nebula
+	"Nebula" = /decl/music_track/nebula,
+	"Tintin" = /decl/music_track/tintin,
+	"Unatco" = /decl/music_track/unatco
 )
 
 /proc/setup_music_tracks(var/list/tracks)

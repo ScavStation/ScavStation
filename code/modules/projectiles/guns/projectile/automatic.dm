@@ -28,9 +28,9 @@
 
 	firemodes = list(
 		list(mode_name="semi auto",      burst=1, fire_delay=null, one_hand_penalty=3, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, one_hand_penalty=4, burst_accuracy=list(0,-0.1,-0.5),       dispersion=list(0.0, 1.6, 2.4, 2.4)),
-		list(mode_name="short bursts",   burst=5, fire_delay=null, one_hand_penalty=5, burst_accuracy=list(0,-0.1,-0.5,-0.8,-1), dispersion=list(0, 0.2, 0.5, 1.1, 1.5)),
-		list(mode_name="full auto",      burst=1, fire_delay=0,    burst_delay=1,      one_hand_penalty=5,                 burst_accuracy=list(0,-0.1,-0.5,-0.8,-1), dispersion=list(0, 0.2, 0.5, 1.1, 1.5), autofire_enabled=1)
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, one_hand_penalty=4, burst_accuracy=list(0,-0.1,-0.5),       dispersion=list(0, 0.5, 1.1, 1.5)),
+		list(mode_name="short bursts",   burst=5, fire_delay=null, one_hand_penalty=5, burst_accuracy=list(0,-0.1,-0.5,-0.8,-1), dispersion=list(0, 0.5, 1.1, 1.5, 2.1)),
+		list(mode_name="full auto",      burst=1, fire_delay=0,    burst_delay=1,      one_hand_penalty=5,                 burst_accuracy=list(0,-0.1,-0.5,-0.8,-1), dispersion=list(0, 0.5, 1.1, 1.5, 2.1), autofire_enabled=1)
 	)
 
 /obj/item/gun/projectile/automatic/smg/on_update_icon()
@@ -57,6 +57,7 @@
 	accuracy_power = 7
 	one_hand_penalty = 8
 	bulk = GUN_BULK_RIFLE
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	burst_delay = 1
 	mag_insert_sound = 'sound/weapons/guns/interaction/batrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/batrifle_magout.ogg'
@@ -147,7 +148,7 @@
 	accuracy_power = 7
 	one_hand_penalty = 3000
 	bulk = GUN_BULK_RIFLE
-
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	burst_delay = 1
 	burst = 3
 	burst_accuracy = list(0,-1,-1)

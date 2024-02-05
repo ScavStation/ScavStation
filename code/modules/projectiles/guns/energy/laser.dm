@@ -17,6 +17,7 @@
 	)
 
 /obj/item/gun/energy/laser/mounted
+	fire_sound='sound/weapons/Laser.ogg'
 	self_recharge = 1
 	use_external_power = 1
 	one_hand_penalty = 0 //just in case

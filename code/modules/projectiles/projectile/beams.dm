@@ -2,7 +2,6 @@
 	name = "laser"
 	icon_state = "laser"
 	temperature = T0C + 300
-	fire_sound='sound/weapons/Laser.ogg'
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 40
@@ -14,7 +13,7 @@
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
 	penetration_modifier = 0.3
 	distance_falloff = 2.5
-
+	fire_sound = 'sound/weapons/gunshot/lasdoot.ogg'
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	tracer_type = /obj/effect/projectile/tracer/laser
 	impact_type = /obj/effect/projectile/impact/laser
@@ -75,6 +74,7 @@
 	damage = 50
 	armor_penetration = 20
 	distance_falloff = 1
+	fire_sound = 'sound/weapons/gunshot/lascarb.ogg'
 
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
