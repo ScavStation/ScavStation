@@ -23,7 +23,7 @@
 		else
 			visible_message(SPAN_NOTICE("\The [src] starts breathing again."), SPAN_NOTICE("You stop holding your breath."))
 			holding_breath = (holding_breath >= 2 ? 3 : 0)
-		breathe()
+		try_breathe()
 
 /mob/living/carbon/human/proc/tie_hair()
 	set name = "Tie Hair"

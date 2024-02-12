@@ -718,7 +718,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "dx" = (
-/obj/item/beach_ball,
+/obj/item/ball,
 /turf/simulated/floor/pool,
 /area/ministation/dorms)
 "dB" = (
@@ -3519,7 +3519,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "qu" = (
@@ -4202,7 +4202,7 @@
 	dir = 4
 	},
 /obj/item/flashlight/lamp/green,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "tW" = (
@@ -7306,7 +7306,7 @@
 	},
 /obj/structure/table/gamblingtable,
 /obj/machinery/recharger,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "FN" = (
