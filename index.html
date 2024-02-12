@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(193 modules,
-    77/4365 macros, 1.8%)</aside></h3>
+<aside>(196 modules,
+    77/4357 macros, 1.8%)</aside></h3>
 <ul class="index-tree modules">
     <li><a href="(builtins).html" title="(builtins)">(builtins)</a></li>
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
@@ -60,6 +60,7 @@ General Public License version 3.
     <li><a href="code/_helpers/icons.html" title="code&#x2F;_helpers&#x2F;icons">icons</a></li>
     <li><a href="code/_helpers/lists.html" title="code&#x2F;_helpers&#x2F;lists">lists</a></li>
     <li><a href="code/_helpers/matrices.html" title="code&#x2F;_helpers&#x2F;matrices">matrices</a></li>
+    <li><a href="code/_helpers/names.html" title="code&#x2F;_helpers&#x2F;names">names</a></li>
     <li><a href="code/_helpers/overmap.html" title="code&#x2F;_helpers&#x2F;overmap">overmap</a></li>
     <li><a href="code/_helpers/profiling.html" title="code&#x2F;_helpers&#x2F;profiling">profiling</a></li>
     <li><a href="code/_helpers/text.html" title="code&#x2F;_helpers&#x2F;text">text</a></li>
@@ -77,6 +78,7 @@ General Public License version 3.
     <li><a href="code/controllers/hooks.html" title="code&#x2F;controllers&#x2F;hooks">hooks</a></li>
     <li><a href="code/controllers/hooks-defs.html" title="code&#x2F;controllers&#x2F;hooks-defs">hooks-defs</a></li>
     <li><a href="code/controllers/master.html" title="code&#x2F;controllers&#x2F;master">master</a></li>
+    <li><a href="code/controllers/subsystem.html" title="code&#x2F;controllers&#x2F;subsystem">subsystem</a> - A stringified version of the variable name for this subsystem. Used by the processing subsystem to make sure is_processing is unset properly.</li>
     <li class="has-children"><span title="code&#x2F;controllers&#x2F;subsystems">subsystems</span><ul class="index-tree">
     <li><a href="code/controllers/subsystems/daycycle.html" title="code&#x2F;controllers&#x2F;subsystems&#x2F;daycycle">daycycle</a></li>
     <li><a href="code/controllers/subsystems/garbage.html" title="code&#x2F;controllers&#x2F;subsystems&#x2F;garbage">garbage</a> - Number of times it was destroyed before Initialize().</li>
@@ -122,6 +124,7 @@ General Public License version 3.
     <li><span class="no-substance">vending&#x2F;</span><a href="code/datums/vending/vending.html" title="code&#x2F;datums&#x2F;vending&#x2F;vending">vending</a></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;game">game</span><ul class="index-tree">
+    <li><span class="no-substance">area&#x2F;</span><a href="code/game/area/areas.html" title="code&#x2F;game&#x2F;area&#x2F;areas">areas</a></li>
     <li><span class="no-substance">dna&#x2F;</span><a href="code/game/dna/dna2.html" title="code&#x2F;game&#x2F;dna&#x2F;dna2">dna2</a></li>
     <li class="has-children"><span title="code&#x2F;game&#x2F;gamemodes">gamemodes</span><ul class="index-tree">
     <li><span class="no-substance">calamity&#x2F;</span><a href="code/game/gamemodes/calamity/calamity.html" title="code&#x2F;game&#x2F;gamemodes&#x2F;calamity&#x2F;calamity">calamity</a></li>
@@ -336,7 +339,7 @@ Thanks to forum_account for saving the day, the library can be found
 
 
 <h3 id="types">Types
-<aside>(208 detailed/425 documented/18849 total, 2.3%)</aside></h3>
+<aside>(207 detailed/423 documented/18704 total, 2.3%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -493,12 +496,10 @@ Total amount of milliseconds spent hard deleting this type.
 Number of times its not respected force=TRUE.
 Number of times it hasn't bothered to give a qdel hint.
 Number of times slept in its destroy.</li>
-    <li class="has-children"><span class="no-substance">random_map&#x2F;</span><a href="datum/random_map/noise.html" title="&#x2F;datum&#x2F;random_map&#x2F;noise">noise</a><ul class="index-tree">
-    <li class="has-children"><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet">exoplanet</span> - Place down flora/fauna spawners, grass, water, and apply selected land type.<ul class="index-tree">
+    <li class="has-children"><span class="no-substance">random_map&#x2F;noise&#x2F;</span><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet">exoplanet</span> - Place down flora/fauna spawners, grass, water, and apply selected land type.<ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet&#x2F;barren">barren</span> - Generator for fauna and flora spawners for the surface of the barren exoplanet</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet&#x2F;grass">grass</span> - Map generator for the grass exoplanet surface</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;random_map&#x2F;noise&#x2F;exoplanet&#x2F;mantle">mantle</span> - Random map generator for generating underground planetary levels.</li>
-    </ul></li>
     </ul></li>
     <li><a href="datum/reagents.html" title="&#x2F;datum&#x2F;reagents">reagents</a></li>
     <li><a href="datum/seed.html" title="&#x2F;datum&#x2F;seed">seed</a></li>
@@ -507,7 +508,7 @@ Number of times slept in its destroy.</li>
     </ul></li>
     <li><a href="datum/sortInstance.html" title="&#x2F;datum&#x2F;sortInstance">sortInstance</a></li>
     <li><a href="datum/ssdaycycle_registered.html" title="&#x2F;datum&#x2F;ssdaycycle_registered">ssdaycycle_registered</a> - Data on a set of z-levels getting daylight updates</li>
-    <li><span class="no-substance">stored_items&#x2F;</span><span class="no-substance" title="&#x2F;datum&#x2F;stored_items&#x2F;vending_products">vending_products</span> - Datum used to hold information about a product in a vending machine</li>
+    <li><span class="no-substance">stored_items&#x2F;</span><a href="datum/stored_items/vending_products.html" title="&#x2F;datum&#x2F;stored_items&#x2F;vending_products">vending_products</a> - Datum used to hold information about a product in a vending machine</li>
     <li><a href="datum/stressor.html" title="&#x2F;datum&#x2F;stressor">stressor</a></li>
     <li><a href="datum/timedevent.html" title="&#x2F;datum&#x2F;timedevent">Timed Event</a> - This is the actual timer, it contains the callback and necessary data to maintain
 the timer.</li>
@@ -762,7 +763,7 @@ Parameters: var/obj/item/card/id</li>
     </ul></li>
     <li><a href="obj/item/chems/inhaler.html" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;inhaler">inhaler</a></li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;pill">pill</span> - Pills.<ul class="index-tree">
-    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;pill&#x2F;antitox">antitox</span> - Pills. END</li>
+    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;pill&#x2F;bromide">bromide</span> - Pills. END</li>
     </ul></li>
     <li><a href="obj/item/chems/spray.html" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;spray">spray</a></li>
     <li><span class="no-substance">syringe&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;chems&#x2F;syringe&#x2F;stabilizer">stabilizer</span> - Syringes. END</li>
@@ -818,7 +819,6 @@ Takes on the appearence and properties of whatever sign structure type it contai
     <li><a href="obj/item/sign/diploma.html" title="&#x2F;obj&#x2F;item&#x2F;sign&#x2F;diploma">diploma</a> - A displayable diploma</li>
     </ul></li>
     <li class="has-children"><a href="obj/item/stack.html" title="&#x2F;obj&#x2F;item&#x2F;stack">stack</a><ul class="index-tree">
-    <li><a href="obj/item/stack/cable_coil.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;cable_coil">cable_coil</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;material">material</span> - Material will be set only during Initialize, or the stack is invalid.
 As with material, these stacks should only set this in Initialize as they are abstract 'shapes' rather than discrete objects.<ul class="index-tree">
     <li><a href="obj/item/stack/material/ore.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;material&#x2F;ore">ore</a></li>
@@ -864,7 +864,10 @@ As with material, these stacks should only set this in Initialize as they are ab
     <li><span class="no-substance">access&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;button&#x2F;access&#x2F;interior">interior</span> - Whether the master airlock controller is actually cycling so we can update our icon</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;button&#x2F;holosign">holosign</span> - SWITCH</li>
     </ul></li>
-    <li><span class="no-substance">computer&#x2F;ship&#x2F;</span><a href="obj/machinery/computer/ship/helm.html" title="&#x2F;obj&#x2F;machinery&#x2F;computer&#x2F;ship&#x2F;helm">helm</a></li>
+    <li class="has-children"><span title="&#x2F;obj&#x2F;machinery&#x2F;computer">computer</span><ul class="index-tree">
+    <li><span class="no-substance">modular&#x2F;</span><a href="obj/machinery/computer/modular/preset.html" title="&#x2F;obj&#x2F;machinery&#x2F;computer&#x2F;modular&#x2F;preset">preset</a></li>
+    <li><span class="no-substance">ship&#x2F;</span><a href="obj/machinery/computer/ship/helm.html" title="&#x2F;obj&#x2F;machinery&#x2F;computer&#x2F;ship&#x2F;helm">helm</a></li>
+    </ul></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;machinery&#x2F;constructable_frame">constructable_frame</span> - Made into a seperate type to make future revisions easier.</li>
     <li><a href="obj/machinery/dummy_airlock_controller.html" title="&#x2F;obj&#x2F;machinery&#x2F;dummy_airlock_controller">dummy_airlock_controller</a> - Provides remote access to a controller (since they must be unique).</li>
     <li class="has-children"><span class="no-substance">embedded_controller&#x2F;</span><a href="obj/machinery/embedded_controller/radio.html" title="&#x2F;obj&#x2F;machinery&#x2F;embedded_controller&#x2F;radio">radio</a><ul class="index-tree">
@@ -910,7 +913,6 @@ As with material, these stacks should only set this in Initialize as they are ab
     <li class="has-children"><a href="obj/structure.html" title="&#x2F;obj&#x2F;structure">structure</a><ul class="index-tree">
     <li><a href="obj/structure/banner_frame.html" title="&#x2F;obj&#x2F;structure&#x2F;banner_frame">banner_frame</a></li>
     <li><a href="obj/structure/bedsheetbin.html" title="&#x2F;obj&#x2F;structure&#x2F;bedsheetbin">bedsheetbin</a></li>
-    <li><a href="obj/structure/cable.html" title="&#x2F;obj&#x2F;structure&#x2F;cable">cable</a></li>
     <li><span class="no-substance">closet&#x2F;secure_closet&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;closet&#x2F;secure_closet&#x2F;miner">miner</span> - Miner Lockers</li>
     <li class="has-children"><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;disposalpipe">disposalpipe</span><ul class="index-tree">
     <li><span class="no-substance">junction&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;structure&#x2F;disposalpipe&#x2F;junction&#x2F;yjunction">yjunction</span> - Z-Level stuff</li>
@@ -960,7 +962,7 @@ As with material, these stacks should only set this in Initialize as they are ab
 </main>
 <footer>
     scavstation.dme
-    <a href="https://github.com/ScavStation/ScavStation/tree/987826807d2aa2d33d1fadd2fc238883dd104b96">9878268</a>
+    <a href="https://github.com/ScavStation/ScavStation/tree/c960fa076b5293f211a43b7aae92f2a3443b01a3">c960fa0</a>
         (dev) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.4.1</a></footer>
 </body>
 </html>
