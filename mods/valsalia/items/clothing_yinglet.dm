@@ -76,7 +76,7 @@
 	color = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/head/yinglet/get_mob_overlay(mob/user_mob, slot)
+/obj/item/clothing/head/yinglet/get_mob_overlay(mob/user_mob, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	var/image/ret = ..()
 	if(detail_color && slot == slot_head_str)
 		var/image/I = image(icon, "[ret.icon_state]-detail")
