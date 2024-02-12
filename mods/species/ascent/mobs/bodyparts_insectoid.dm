@@ -16,44 +16,6 @@
 	encased = "carapace"
 	gripper_type = /datum/inventory_slot/gripper/midlimb
 
-/datum/inventory_slot/gripper/upper_left_hand
-	slot_name = "Left Upper Hand"
-	slot_id = BP_L_HAND_UPPER
-	requires_organ_tag = BP_L_HAND_UPPER
-	ui_label = "UL"
-	hand_sort_priority = 2
-	covering_slot_flags = SLOT_HAND_LEFT
-
-/obj/item/organ/external/hand/insectoid/upper
-	name = "left raptorial"
-	joint = "upper left wrist"
-	amputation_point = "upper left shoulder"
-	organ_tag = BP_L_HAND_UPPER
-	parent_organ = BP_CHEST
-	gripper_type = /datum/inventory_slot/gripper/upper_left_hand
-
-/obj/item/organ/external/hand/insectoid/upper/get_manual_dexterity()
-	return (..() & ~(DEXTERITY_WEAPONS|DEXTERITY_COMPLEX_TOOLS))
-
-/datum/inventory_slot/gripper/upper_right_hand
-	slot_name = "Right Upper Hand"
-	slot_id = BP_R_HAND_UPPER
-	requires_organ_tag = BP_R_HAND_UPPER
-	ui_label = "UR"
-	hand_sort_priority = 2
-	covering_slot_flags = SLOT_HAND_RIGHT
-
-/obj/item/organ/external/hand/right/insectoid/upper
-	name = "right raptorial"
-	joint = "upper right wrist"
-	amputation_point = "upper right shoulder"
-	organ_tag = BP_R_HAND_UPPER
-	parent_organ = BP_CHEST
-	gripper_type = /datum/inventory_slot/gripper/upper_right_hand
-
-/obj/item/organ/external/hand/right/insectoid/upper/get_manual_dexterity()
-	return (..() & ~(DEXTERITY_WEAPONS|DEXTERITY_COMPLEX_TOOLS))
-
 /obj/item/organ/internal/egg_sac/insectoid
 	name = "gyne egg-sac"
 	action_button_name = "Produce Egg"
