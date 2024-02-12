@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 /obj/effect/effect/smoke/chem
 	icon = 'icons/effects/chemsmoke.dmi'
-	opacity = 0
+	opacity = FALSE
 	layer = ABOVE_PROJECTILE_LAYER
 	time_to_live = 300
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GRILLE | PASS_FLAG_GLASS //PASS_FLAG_GLASS is fine here, it's just so the visual effect can "flow" around glass
@@ -162,7 +162,7 @@
 			chemholder.reagents.touch_turf(T)
 		for(var/turf/T in targetTurfs)
 			for(var/atom/A in T.contents)
-				if(istype(A, /obj/effect/effect/smoke/chem) || istype(A, /mob))
+				if(istype(A, /obj/effect/effect/smoke/chem) || ismob(A))
 					continue
 				else if(isobj(A) && !A.simulated)
 					chemholder.reagents.touch_obj(A)
@@ -243,6 +243,7 @@
 
 	pending += location
 
+	var/airblock // zeroed by ATMOS_CANPASS_TURF
 	while(pending.len)
 		for(var/turf/current in pending)
 			for(var/D in global.cardinal)
@@ -259,9 +260,11 @@
 					continue
 				if(!(target in targetTurfs))
 					continue
-				if(current.c_airblock(target)) //this is needed to stop chemsmoke from passing through thin window walls
+				ATMOS_CANPASS_TURF(airblock, current, target)
+				if(airblock) //this is needed to stop chemsmoke from passing through thin window walls
 					continue
-				if(target.c_airblock(current))
+				ATMOS_CANPASS_TURF(airblock, target, current)
+				if(airblock)
 					continue
 				pending += target
 

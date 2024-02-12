@@ -7,7 +7,7 @@
 	desc = "A kit containing all the needed tools and parts to modify a hardsuit for another user."
 	icon = 'icons/obj/items/modkit.dmi'
 	icon_state = "modkit"
-	material = /decl/material/solid/plastic
+	material = /decl/material/solid/organic/plastic
 	var/parts = MODKIT_FULL
 	var/target_bodytype = BODYTYPE_HUMANOID
 

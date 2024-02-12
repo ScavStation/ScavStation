@@ -5,12 +5,12 @@
 "ab" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
-	density = 0;
+	density = FALSE;
 	dir = 2;
 	icon_state = "pdoor0";
 	id_tag = "scraplock";
 	name = "External Blast Doors";
-	opacity = 0
+	opacity = FALSE
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
@@ -60,12 +60,12 @@
 "ah" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
-	density = 0;
+	density = FALSE;
 	dir = 4;
 	icon_state = "pdoor0";
 	id_tag = "scraplock";
 	name = "External Blast Doors";
-	opacity = 0
+	opacity = FALSE
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
@@ -76,12 +76,12 @@
 "aj" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
-	density = 0;
+	density = FALSE;
 	dir = 4;
 	icon_state = "pdoor0";
 	id_tag = "scraplock";
 	name = "External Blast Doors";
-	opacity = 0
+	opacity = FALSE
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
@@ -155,12 +155,12 @@
 "at" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
-	density = 0;
+	density = FALSE;
 	dir = 4;
 	icon_state = "pdoor0";
 	id_tag = "scraplock";
 	name = "External Blast Doors";
-	opacity = 0
+	opacity = FALSE
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
@@ -475,12 +475,12 @@
 "aV" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
-	density = 0;
+	density = FALSE;
 	dir = 4;
 	icon_state = "pdoor0";
 	id_tag = "scraplock";
 	name = "External Blast Doors";
-	opacity = 0
+	opacity = FALSE
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -497,12 +497,12 @@
 "aX" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
-	density = 0;
+	density = FALSE;
 	dir = 2;
 	icon_state = "pdoor0";
 	id_tag = "scraplock";
 	name = "External Blast Doors";
-	opacity = 0
+	opacity = FALSE
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
@@ -510,12 +510,12 @@
 "aY" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
-	density = 0;
+	density = FALSE;
 	dir = 2;
 	icon_state = "pdoor0";
 	id_tag = "scraplock";
 	name = "External Blast Doors";
-	opacity = 0
+	opacity = FALSE
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
@@ -523,12 +523,12 @@
 "aZ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
-	density = 0;
+	density = FALSE;
 	dir = 2;
 	icon_state = "pdoor0";
 	id_tag = "scraplock";
 	name = "External Blast Doors";
-	opacity = 0
+	opacity = FALSE
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating,
@@ -1057,7 +1057,7 @@
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed{
 	icon_state = "closed";
-	opacity = 1
+	opacity = TRUE
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -1343,7 +1343,7 @@
 /obj/structure/window/basic,
 /obj/structure/curtain/open/bed{
 	icon_state = "closed";
-	opacity = 1
+	opacity = TRUE
 	},
 /turf/simulated/floor/plating,
 /area/ship/trade/loading_bay)
