@@ -65,52 +65,52 @@
 /decl/bodytype/yinglet/Initialize()
 	equip_adjust = list(
 		slot_undershirt_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  1, "y" = -3),
-			"[WEST]" =  list("x" = -1, "y" = -3),
-			"[SOUTH]" = list("x" =  0, "y" = -3)
+			"[NORTH]" = list( 0, -3),
+			"[EAST]" =  list( 1, -3),
+			"[WEST]" =  list(-1, -3),
+			"[SOUTH]" = list( 0, -3)
 		),
 		slot_head_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  3, "y" = -3),
-			"[WEST]" =  list("x" = -3, "y" = -3),
-			"[SOUTH]" = list("x" =  0, "y" = -3)
+			"[NORTH]" = list( 0, -3),
+			"[EAST]" =  list( 3, -3),
+			"[WEST]" =  list(-3, -3),
+			"[SOUTH]" = list( 0, -3)
 		),
 		slot_back_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -5),
-			"[EAST]" =  list("x" =  3, "y" = -5),
-			"[WEST]" =  list("x" = -3, "y" = -5),
-			"[SOUTH]" = list("x" =  0, "y" = -5)
+			"[NORTH]" = list( 0, -5),
+			"[EAST]" =  list( 3, -5),
+			"[WEST]" =  list(-3, -5),
+			"[SOUTH]" = list( 0, -5)
 		),
 		slot_belt_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -1),
-			"[EAST]" =  list("x" =  2, "y" = -1),
-			"[WEST]" =  list("x" = -2, "y" = -1),
-			"[SOUTH]" = list("x" =  0, "y" = -1)
+			"[NORTH]" = list( 0, -1),
+			"[EAST]" =  list( 2, -1),
+			"[WEST]" =  list(-2, -1),
+			"[SOUTH]" = list( 0, -1)
 		),
 		slot_glasses_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  2, "y" = -3),
-			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" =  0, "y" = -3)
+			"[NORTH]" = list( 0, -3),
+			"[EAST]" =  list( 2, -3),
+			"[WEST]" =  list(-2, -3),
+			"[SOUTH]" = list( 0, -3)
 		),
 		BP_L_HAND = list(
-			"[NORTH]" = list("x" = 2,  "y" = -3),
-			"[EAST]" =  list("x" = 2,  "y" = -3),
-			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" = -2, "y" = -3)
+			"[NORTH]" = list( 2, -3),
+			"[EAST]" =  list( 2, -3),
+			"[WEST]" =  list(-2, -3),
+			"[SOUTH]" = list(-2, -3)
 		),
 		BP_R_HAND = list(
-			"[NORTH]" = list("x" = -2, "y" = -3),
-			"[EAST]" =  list("x" =  2, "y" = -3),
-			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" =  2, "y" = -3)
+			"[NORTH]" = list(-2, -3),
+			"[EAST]" =  list( 2, -3),
+			"[WEST]" =  list(-2, -3),
+			"[SOUTH]" = list( 2, -3)
 		),
 		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" =  0, "y" = -3),
-			"[EAST]" =  list("x" =  2, "y" = -3),
-			"[WEST]" =  list("x" = -2, "y" = -3),
-			"[SOUTH]" = list("x" =  0, "y" = -3)
+			"[NORTH]" = list( 0, -3),
+			"[EAST]" =  list( 2, -3),
+			"[WEST]" =  list(-2, -3),
+			"[SOUTH]" = list( 0, -3)
 		)
 	)
 	. = ..()
