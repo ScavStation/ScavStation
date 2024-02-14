@@ -34,34 +34,34 @@
 	. = ..()
 	equip_adjust = list(
 		slot_back_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 0),
-			"[EAST]"  = list("x" =  6, "y" = 0),
-			"[WEST]"  = list("x" = -6, "y" = 0),
-			"[SOUTH]" = list("x" =  0, "y" = 0),
+			"[NORTH]" = list( 0, 0),
+			"[EAST]"  = list( 6, 0),
+			"[WEST]"  = list(-6, 0),
+			"[SOUTH]" = list( 0, 0),
 		),
 		slot_wear_mask_str = list (
-			"[NORTH]" = list("x" = -1, "y" = 2),
-			"[EAST]"  = list("x" =  4, "y" = 4),
-			"[WEST]"  = list("x" = -4, "y" = 4),
-			"[SOUTH]" = list("x" = -1, "y" = 2)
+			"[NORTH]" = list(-1, 2),
+			"[EAST]"  = list( 4, 4),
+			"[WEST]"  = list(-4, 4),
+			"[SOUTH]" = list(-1, 2)
 		),
 		slot_head_str = list (
-			"[NORTH]" = list("x" =  0, "y" = 10),
-			"[EAST]"  = list("x" = -1, "y" = 10),
-			"[WEST]"  = list("x" =  1, "y" = 10),
-			"[SOUTH]" = list("x" =  0, "y" = 10)
+			"[NORTH]" = list( 0, 10),
+			"[EAST]"  = list(-1, 10),
+			"[WEST]"  = list( 1, 10),
+			"[SOUTH]" = list( 0, 10)
 		),
 		slot_glasses_str  = list (
-			"[NORTH]" = list("x" =  0, "y" = 1),
-			"[EAST]"  = list("x" =  4, "y" = 4),
-			"[WEST]"  = list("x" = -4, "y" = 4),
-			"[SOUTH]" = list("x" =  0, "y" = 1)
+			"[NORTH]" = list( 0, 1),
+			"[EAST]"  = list( 4, 4),
+			"[WEST]"  = list(-4, 4),
+			"[SOUTH]" = list( 0, 1)
 		),
 		slot_belt_str = list (
-			"[NORTH]" = list("x" =  0, "y" = 0),
-			"[EAST]"  = list("x" =  6, "y" = 0),
-			"[WEST]"  = list("x" = -6, "y" = 0),
-			"[SOUTH]" = list("x" =  0, "y" = 0)
+			"[NORTH]" = list( 0, 0),
+			"[EAST]"  = list( 6, 0),
+			"[WEST]"  = list(-6, 0),
+			"[SOUTH]" = list( 0, 0)
 		)
 	)
 

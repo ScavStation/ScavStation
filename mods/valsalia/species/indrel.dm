@@ -47,52 +47,52 @@ var/global/list/pheromone_markers = list()
 	. = ..()
 	equip_adjust = list(
 		BP_L_HAND_UPPER =  list(
-			"[NORTH]" = list("x" =  0, "y" = 8),
-			"[EAST]"  = list("x" =  0, "y" = 8),
-			"[SOUTH]" = list("x" = -0, "y" = 8),
-			"[WEST]"  = list("x" =  0, "y" = 8)
+			"[NORTH]" = list( 0, 8),
+			"[EAST]"  = list( 0, 8),
+			"[SOUTH]" = list(-0, 8),
+			"[WEST]"  = list( 0, 8)
 		),
 		BP_R_HAND_UPPER =  list(
-			"[NORTH]" = list("x" =  0, "y" = 8),
-			"[EAST]"  = list("x" =  0, "y" = 8),
-			"[SOUTH]" = list("x" =  0, "y" = 8),
-			"[WEST]"  = list("x" =  0, "y" = 8)
+			"[NORTH]" = list( 0, 8),
+			"[EAST]"  = list( 0, 8),
+			"[SOUTH]" = list( 0, 8),
+			"[WEST]"  = list( 0, 8)
 		),
 		slot_head_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  3, "y" = 3),
-			"[WEST]" =  list("x" = -3, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
+			"[NORTH]" = list( 0, 3),
+			"[EAST]" =  list( 3, 3),
+			"[WEST]" =  list(-3, 3),
+			"[SOUTH]" = list( 0, 3)
 		),
 		slot_wear_suit_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  1, "y" = 3),
-			"[WEST]" =  list("x" = -1, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
+			"[NORTH]" = list( 0, 3),
+			"[EAST]" =  list( 1, 3),
+			"[WEST]" =  list(-1, 3),
+			"[SOUTH]" = list( 0, 3)
 		),
 		slot_back_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  3, "y" = 3),
-			"[WEST]" =  list("x" = -3, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
+			"[NORTH]" = list( 0, 3),
+			"[EAST]" =  list( 3, 3),
+			"[WEST]" =  list(-3, 3),
+			"[SOUTH]" = list( 0, 3)
 		),
 		slot_belt_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 1),
-			"[EAST]" =  list("x" =  1, "y" = 1),
-			"[WEST]" =  list("x" = -1, "y" = 1),
-			"[SOUTH]" = list("x" =  0, "y" = 1)
+			"[NORTH]" = list( 0, 1),
+			"[EAST]" =  list( 1, 1),
+			"[WEST]" =  list(-1, 1),
+			"[SOUTH]" = list( 0, 1)
 		),
 		slot_glasses_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 4),
-			"[EAST]" =  list("x" =  3, "y" = 4),
-			"[WEST]" =  list("x" = -3, "y" = 4),
-			"[SOUTH]" = list("x" =  0, "y" = 4)
+			"[NORTH]" = list( 0, 4),
+			"[EAST]" =  list( 3, 4),
+			"[WEST]" =  list(-3, 4),
+			"[SOUTH]" = list( 0, 4)
 		),
 		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 4),
-			"[EAST]" =  list("x" =  3, "y" = 4),
-			"[WEST]" =  list("x" = -3, "y" = 4),
-			"[SOUTH]" = list("x" =  0, "y" = 4)
+			"[NORTH]" = list( 0, 4),
+			"[EAST]" =  list( 3, 4),
+			"[WEST]" =  list(-3, 4),
+			"[SOUTH]" = list( 0, 4)
 		)
 	)
 /decl/species/indrel
