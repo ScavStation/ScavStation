@@ -6,6 +6,21 @@
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
+/obj/item/clothing/suit/storage/toggle/redcoat/officiated/yinglet
+	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
+	has_badge =   "badge"
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/storage/toggle/redcoat/service/yinglet
+	name = "\improper Tradehouse service coat"
+	desc = "The brown-collared uniform of Tradehouse service staff. This one seems to be sized for a yinglet."
+	has_collar = "collar_brown"
+
+/obj/item/clothing/suit/storage/toggle/redcoat/service/officiated/yinglet
+	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	has_badge =   "badge"
+
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer
 	name = "\improper Tradehouse officer's coat"
 	desc = "The striking uniform of a Tradehouse guard officer, complete with gold collar, buttons and trim. This one seems to be sized for a yinglet."
