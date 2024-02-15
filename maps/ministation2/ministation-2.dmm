@@ -370,6 +370,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/machinery/power/terminal{
+	icon_state = "term-omni"
+	},
 /turf/simulated/floor/airless,
 /area/ministation/maint/l3sw)
 "bv" = (
@@ -7114,6 +7117,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
+	},
+/obj/machinery/power/terminal{
+	icon_state = "term-omni"
 	},
 /turf/simulated/floor/airless,
 /area/ministation/shuttle/outgoing)
