@@ -1961,6 +1961,9 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 30
 	},
+/obj/machinery/fabricator/micro/bartender{
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "jT" = (
