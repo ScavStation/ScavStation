@@ -776,6 +776,8 @@
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
 /obj/item/gps/explorer,
+/obj/item/clothing/head/helmet/space/void/expedition/scav,
+/obj/item/clothing/suit/space/void/expedition/scav,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "cJ" = (
@@ -4258,6 +4260,8 @@
 /obj/item/twohanded/spear/diamond,
 /obj/item/shield/buckler,
 /obj/item/gps/explorer,
+/obj/item/clothing/head/helmet/space/void/expedition/scav,
+/obj/item/clothing/suit/space/void/expedition/scav,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zT" = (
