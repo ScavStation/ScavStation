@@ -4,7 +4,8 @@
 	name_plural = "Yinglets"
 	description = "A species of short, slender rat-birds with a fondness for clams. Commonly found wherever humans are, \
 	either scavenging amongst their leavings, or benefiting from adjacency to an older and more developed culture."
-	base_prosthetics_model = /decl/bodytype/prosthetic/ying/wooden
+	base_external_prosthetics_model = /decl/bodytype/prosthetic/ying/wooden
+	base_internal_prosthetics_model = /decl/bodytype/prosthetic/ying/metal
 	autohiss_basic_map = list(
 		"th" = list("z")
 	)

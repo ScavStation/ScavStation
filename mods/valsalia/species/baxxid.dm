@@ -81,7 +81,7 @@
 		/decl/natural_attack/bite/strong
 	)
 
-	base_prosthetics_model = null
+	base_external_prosthetics_model = null
 	preview_outfit = /decl/hierarchy/outfit/baxxid
 
 	hud_type = /datum/hud_data/baxxid

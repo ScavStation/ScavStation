@@ -109,7 +109,7 @@ var/global/list/pheromone_markers = list()
 	spawn_flags = SPECIES_CAN_JOIN
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT
 
-	base_prosthetics_model = null
+	base_external_prosthetics_model = null
 
 	unarmed_attacks = list(
 		/decl/natural_attack/claws/strong,
