@@ -1331,7 +1331,7 @@
 	return
 
 /mob/proc/get_target_zone()
-	return zone_sel?.selecting
+	return zone_sel?.selecting || BP_CHEST
 
 /mob/proc/get_temperature_threshold(var/threshold)
 	switch(threshold)

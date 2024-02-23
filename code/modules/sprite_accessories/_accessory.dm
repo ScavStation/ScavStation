@@ -29,6 +29,8 @@
 	var/body_flags_denied =  null                  // Restrict some styles to specific bodytype flags
 	var/list/bodytype_categories_allowed = null    // Restricts some styles to specific bodytype categories
 	var/list/bodytype_categories_denied = null     // Restricts some styles to specific bodytype categories
+	/// Bitflags indicating what grooming tools work on this accessory.
+	var/grooming_flags = GROOMABLE_NONE
 
 	var/do_colouration = 1                         // Whether or not the accessory can be affected by colouration
 	var/blend = ICON_ADD
@@ -69,3 +71,11 @@
 			. += "missing icon_state"
 		else if(!check_state_in_icon(actual_icon_state, icon))
 			. += "missing icon state \"[actual_icon_state]\" in [icon]"
+/decl/sprite_accessory/proc/can_be_groomed_with(obj/item/organ/external/organ, obj/item/grooming/tool)
+	if(istype(tool) && (grooming_flags & tool.grooming_flags))
+		return GROOMING_RESULT_SUCCESS
+	return GROOMING_RESULT_FAILED
+
+/decl/sprite_accessory/proc/get_grooming_descriptor(grooming_result, obj/item/organ/external/organ, obj/item/grooming/tool)
+	return "mystery grooming target"
+

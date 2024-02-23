@@ -9,9 +9,18 @@
 /decl/sprite_accessory/facial_hair
 	abstract_type = /decl/sprite_accessory/facial_hair
 	icon = 'icons/mob/human_races/species/human/facial.dmi'
+	grooming_flags        = GROOMABLE_BRUSH | GROOMABLE_COMB
 
 /decl/sprite_accessory/facial_hair/get_validatable_icon_state()
 	return "[icon_state]_s"
+
+/decl/sprite_accessory/facial_hair/get_grooming_descriptor(grooming_result, obj/item/organ/external/organ, obj/item/grooming/tool)
+	return grooming_result == GROOMING_RESULT_PARTIAL ? "chin and cheeks" : "facial hair"
+
+/decl/sprite_accessory/facial_hair/can_be_groomed_with(obj/item/organ/external/organ, obj/item/grooming/tool)
+	. = ..()
+	if(. == GROOMING_RESULT_SUCCESS && (flags & VERY_SHORT))
+		return GROOMING_RESULT_PARTIAL
 
 /decl/sprite_accessory/facial_hair/shaved
 	name = "Shaved"
@@ -24,6 +33,7 @@
 	body_flags_allowed = null
 	body_flags_denied = null
 	uid = "acc_fhair_shaved"
+	grooming_flags              = null
 
 /decl/sprite_accessory/facial_hair/watson
 	name = "Watson Mustache"

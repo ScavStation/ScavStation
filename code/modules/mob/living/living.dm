@@ -1323,3 +1323,9 @@ default behaviour is:
 //Useful when player is being seen by other mobs
 /mob/living/proc/get_id_name(if_no_id = "Unknown")
 	return GetIdCard(exceptions = list(/obj/item/holder))?.registered_name || if_no_id
+/mob/living/proc/handle_general_grooming(user, obj/item/grooming/tool)
+	if(tool.grooming_flags & (GROOMABLE_BRUSH|GROOMABLE_COMB))
+		visible_message(SPAN_NOTICE(tool.replace_message_tokens((user == src) ? tool.message_target_self_generic : tool.message_target_other_generic, user, src, tool)))
+		add_stressor(/datum/stressor/well_groomed, 5 MINUTES)
+		return TRUE
+	return FALSE

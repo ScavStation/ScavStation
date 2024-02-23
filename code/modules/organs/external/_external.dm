@@ -1582,3 +1582,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 					vital_to_owner = TRUE
 					break
 	return vital_to_owner
+
+/obj/item/organ/external/proc/get_grooming_results(obj/item/grooming/tool)
+	var/default_results = bodytype.get_default_grooming_results(src, tool)
+	if(default_results)
+		. = default_results

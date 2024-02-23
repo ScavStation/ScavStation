@@ -41,6 +41,7 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/yinglet),
 		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet)
 	)
+	nail_noun = "claws"
 
 /decl/bodytype/yinglet/masculine
 	name =      "yinglet, masculine"
@@ -131,6 +132,20 @@
 		tail_hair = "female"
 	else
 		tail_hair = "hairymale"
+
+/obj/item/organ/external/tail/get_grooming_results(obj/item/grooming/tool)
+	if(tool?.grooming_flags & (GROOMABLE_COMB|GROOMABLE_BRUSH))
+		if(tail_hair == "female")
+			return list(
+				"success"    = GROOMING_RESULT_SUCCESS,
+				"descriptor" = "tailpoof"
+			)
+		if(tail_hair == "hairymale")
+			return list(
+				"success"    = GROOMING_RESULT_PARTIAL,
+				"descriptor" = "tail's ridge fur"
+			)
+	return ..()
 
 /obj/item/organ/external/tail/yinglet/robot
 	tail_icon = 'mods/valsalia/icons/species/yinglet/tail_robot.dmi'

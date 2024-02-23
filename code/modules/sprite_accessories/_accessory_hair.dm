@@ -9,9 +9,18 @@
 /decl/sprite_accessory/hair
 	abstract_type = /decl/sprite_accessory/hair
 	icon = 'icons/mob/human_races/species/human/hair.dmi'
+	grooming_flags        = GROOMABLE_BRUSH | GROOMABLE_COMB
 
 /decl/sprite_accessory/hair/get_validatable_icon_state()
 	return "[icon_state]_s"
+
+/decl/sprite_accessory/hair/get_grooming_descriptor(grooming_result, obj/item/organ/external/organ, obj/item/grooming/tool)
+	return grooming_result == GROOMING_RESULT_PARTIAL ? "scalp" : "hair"
+
+/decl/sprite_accessory/hair/can_be_groomed_with(obj/item/organ/external/organ, obj/item/grooming/tool)
+	. = ..()
+	if(. == GROOMING_RESULT_SUCCESS && (flags & VERY_SHORT))
+		return GROOMING_RESULT_PARTIAL
 
 /decl/sprite_accessory/hair/bald
 	name = "Bald"
@@ -25,6 +34,7 @@
 	body_flags_allowed = null
 	body_flags_denied = null
 	uid = "acc_hair_bald"
+	grooming_flags              = null
 
 /decl/sprite_accessory/hair/short
 	name = "Short Hair"	  // try to capatilize the names please~
