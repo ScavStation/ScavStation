@@ -69,7 +69,7 @@
 
 /decl/loadout_option/grooming
 	name = "grooming tool selection"
-	path = /obj/item/grooming/comb/colorable
+	path = /obj/item/grooming
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
 
 /decl/loadout_option/grooming/get_gear_tweak_options()

@@ -143,7 +143,7 @@
 		if(tail_hair == "hairymale")
 			return list(
 				"success"    = GROOMING_RESULT_PARTIAL,
-				"descriptor" = "sparse tailpoof"
+				"descriptor" = "tail's ridge fur"
 			)
 	return ..()
 
