@@ -17,6 +17,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	eye_darksight_range = 3
 	eye_flash_mod = 1.2
+	nail_noun = "claws"
 
 	override_organ_types = list(
 		BP_EYES = /obj/item/organ/internal/eyes/lizard,
@@ -26,6 +27,14 @@
 	override_limb_types = list(BP_TAIL = /obj/item/organ/external/tail/lizard)
 
 	default_h_style = /decl/sprite_accessory/hair/lizard/frills_long
+
+/decl/bodytype/lizard/get_default_grooming_results(obj/item/organ/external/limb, obj/item/grooming/tool)
+	if(tool?.grooming_flags & GROOMABLE_FILE)
+		return list(
+			"success"    = GROOMING_RESULT_SUCCESS,
+			"descriptor" = "[limb.name] scales"
+		)
+	return ..()
 
 /decl/bodytype/lizard/masculine
 	name =                   "masculine"

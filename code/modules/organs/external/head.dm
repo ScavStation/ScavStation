@@ -162,3 +162,26 @@
 
 /obj/item/organ/external/head/no_eyes
 	draw_eyes = FALSE
+
+// Override for head stuff since the appearance rework hasn't made it downstream yet.
+/obj/item/organ/external/head/get_grooming_results(obj/item/grooming/tool)
+	if(owner)
+		if(owner.h_style)
+			var/decl/sprite_accessory/accessory_decl = GET_DECL(owner.h_style)
+			var/grooming_result = accessory_decl.can_be_groomed_with(src, tool)
+			. = list(
+				"success"    = grooming_result,
+				"descriptor" = accessory_decl.get_grooming_descriptor(grooming_result, src, tool)
+			)
+			if(grooming_result != GROOMING_RESULT_FAILED)
+				return
+		if(owner.f_style)
+			var/decl/sprite_accessory/accessory_decl = GET_DECL(owner.f_style)
+			var/grooming_result = accessory_decl.can_be_groomed_with(src, tool)
+			. = list(
+				"success"    = grooming_result,
+				"descriptor" = accessory_decl.get_grooming_descriptor(grooming_result, src, tool)
+			)
+			if(grooming_result != GROOMING_RESULT_FAILED)
+				return
+	return ..()
