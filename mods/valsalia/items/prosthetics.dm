@@ -27,6 +27,11 @@
 		/decl/sprite_accessory/marking/yinglet/shelltooth = COLOR_GUNMETAL
 	)
 
+/decl/bodytype/prosthetic/ying/Initialize()
+	var/decl/bodytype/meatying = GET_DECL(/decl/bodytype/yinglet)
+	equip_adjust = deepCopyList(meatying.equip_adjust)
+	. = ..()
+
 /decl/bodytype/prosthetic/ying/wooden
 	name = "scavenged"
 	desc = "A stick, tied to the owner's body with rags. Very scav chic."
