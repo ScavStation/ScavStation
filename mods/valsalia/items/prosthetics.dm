@@ -26,6 +26,7 @@
 		/decl/sprite_accessory/marking/yinglet/long_ears  = COLOR_GUNMETAL,
 		/decl/sprite_accessory/marking/yinglet/shelltooth = COLOR_GUNMETAL
 	)
+	var/tail_hair = "hairymale"
 
 /decl/bodytype/prosthetic/ying/Initialize()
 	var/decl/bodytype/meatying = GET_DECL(/decl/bodytype/yinglet)
@@ -53,12 +54,14 @@
 /decl/bodytype/prosthetic/ying/metal/fbp
 	name = "yinglet, gynoid"
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	tail_hair = "female"
 
 /decl/bodytype/prosthetic/ying/metal/fbp/masculine
 	name = "yinglet, android"
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	tail_hair = "male"
 
-DEFINE_ROBOLIMB_MODEL_ASPECTS(/decl/bodytype/prosthetic/ying/metal, yinglet_scavenged, 0)
+DEFINE_ROBOLIMB_MODEL_ASPECTS(/decl/bodytype/prosthetic/ying/metal, lunar_transit, 0)
 DEFINE_ROBOLIMB_DESIGNS(/decl/bodytype/prosthetic/ying/metal, lunar_transit)
 
 /decl/material/solid/organic/wood/generate_recipes(var/reinforce_material)

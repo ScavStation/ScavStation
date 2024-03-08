@@ -42,14 +42,17 @@
 		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet)
 	)
 	nail_noun = "claws"
+	var/tail_hair = "female"
 
 /decl/bodytype/yinglet/masculine
 	name =      "yinglet, masculine"
 	icon_base = 'mods/valsalia/icons/species/yinglet/body_male.dmi'
+	tail_hair = "male"
 
 /decl/bodytype/yinglet/hairymasculine
 	name =      "yinglet, masculine with more hair"
 	icon_base = 'mods/valsalia/icons/species/yinglet/body_male.dmi'
+	tail_hair = "hairymale"
 
 /datum/appearance_descriptor/age/yinglet
 	chargen_min_index = 3
@@ -125,11 +128,13 @@
 
 /obj/item/organ/external/tail/yinglet/sync_colour_to_human(var/mob/living/carbon/human/human)
 	. = ..()
-	var/decl/bodytype/human_bodytype = human.get_bodytype()?.type
-	if(human_bodytype == /decl/bodytype/yinglet/masculine || human_bodytype == /decl/bodytype/prosthetic/ying/metal/fbp/masculine)
-		tail_hair = "male"
-	else if(human_bodytype == /decl/bodytype/yinglet || human_bodytype == /decl/bodytype/prosthetic/ying/metal/fbp)
-		tail_hair = "female"
+	var/decl/bodytype/human_bodytype = human.get_bodytype()
+	if(istype(human_bodytype, /decl/bodytype/yinglet))
+		var/decl/bodytype/yinglet/yingbody = human_bodytype
+		tail_hair = yingbody.tail_hair
+	else if(istype(human_bodytype, /decl/bodytype/prosthetic/ying))
+		var/decl/bodytype/prosthetic/ying/yingbody = human_bodytype
+		tail_hair = yingbody.tail_hair
 	else
 		tail_hair = "hairymale"
 
