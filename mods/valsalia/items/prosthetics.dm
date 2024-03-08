@@ -47,11 +47,12 @@
 /decl/bodytype/prosthetic/ying/metal
 	name = "Lunar Transit"
 	desc = "A cheap robotic prosthetic designed for yinglet owners."
-	icon_base = 'mods/valsalia/icons/metal_main.dmi'
+	icon_base = 'mods/valsalia/icons/metal_male.dmi'
 	material = /decl/material/solid/metal/steel
 
 /decl/bodytype/prosthetic/ying/metal/fbp
 	name = "yinglet, gynoid"
+	icon_base = 'mods/valsalia/icons/metal_female.dmi'
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
 
 /decl/bodytype/prosthetic/ying/metal/fbp/masculine
