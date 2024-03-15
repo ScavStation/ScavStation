@@ -7,8 +7,6 @@
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
 	desc = "A mysterious stone artefact, careful if you're human!"
-	material = /decl/material/solid/cardboard
-	matter = list(/decl/material/solid/leather = MATTER_AMOUNT_REINFORCEMENT)
 
 var/transform_impact_prob = 65
 var/transform_passive_prob = 10
