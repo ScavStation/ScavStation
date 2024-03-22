@@ -2165,6 +2165,18 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/simulated/floor/grass,
 /area/ministation/security)
+"kj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "_West APC";
+	pixel_x = -25
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "km" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/item/clothing/suit/yinglabcoat,
@@ -6801,18 +6813,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
-"CM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "_West APC";
-	pixel_x = -25
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/medical)
 "CO" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -53301,7 +53301,7 @@ Tj
 rf
 rf
 uV
-CM
+kj
 rf
 rN
 xD

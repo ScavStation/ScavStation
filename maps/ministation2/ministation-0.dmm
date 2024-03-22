@@ -887,6 +887,8 @@
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
+/obj/item/clothing/suit/yingcape,
+/obj/item/clothing/suit/yingcape,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "dR" = (
@@ -5873,9 +5875,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "AJ" = (
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
 /obj/machinery/power/smes/buildable/max_cap_in_out{
 	capacity = 5e+009;
 	charge = 5e+009
@@ -6743,10 +6742,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "DF" = (
-/obj/item/rig/ce,
 /obj/structure/rack{
 	dir = 8
 	},
+/obj/item/rig/ce/equipped,
 /turf/simulated/floor/carpet/orange,
 /area/ministation/engine)
 "DG" = (
@@ -8390,9 +8389,6 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/under/yinglet,
 /obj/item/clothing/under/yinglet,
-/obj/item/clothing/suit/yingcape,
-/obj/item/clothing/suit/yingcape,
-/obj/item/clothing/suit/yingcape,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "Ho" = (
