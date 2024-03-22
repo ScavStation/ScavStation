@@ -1447,9 +1447,8 @@
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "fW" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
+/obj/machinery/light,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "fZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1647,6 +1646,12 @@
 /obj/structure/bookcase/skill_books/random,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"hd" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "he" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -2723,12 +2728,6 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
-"lZ" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "mf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -3351,10 +3350,6 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/space,
 /area/ministation/science)
-"qr" = (
-/obj/machinery/light,
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "qx" = (
 /obj/machinery/keycard_auth{
 	pixel_x = -24
@@ -50923,7 +50918,7 @@ cw
 cw
 ad
 ad
-fW
+ad
 aa
 aa
 aa
@@ -58120,9 +58115,9 @@ aa
 ad
 Hw
 Bo
-lZ
+hd
 cw
-qr
+fW
 Bo
 Hw
 ad
@@ -58637,7 +58632,7 @@ uW
 cw
 cw
 cw
-qr
+fW
 Hw
 aa
 aa
@@ -59148,9 +59143,9 @@ aa
 aa
 Hw
 Hw
-lZ
+hd
 cw
-qr
+fW
 Hw
 Hw
 aa
