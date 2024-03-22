@@ -4897,8 +4897,10 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -6962,6 +6964,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/sensor{
+	id_tag = "Station Power";
+	name = "Powernet Sensor - Station Power"
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Ec" = (
@@ -6976,6 +6985,9 @@
 	dir = 4;
 	pixel_x = -5
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "Ee" = (
@@ -6984,6 +6996,9 @@
 	level = 2
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "Ef" = (
@@ -6994,6 +7009,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "Eg" = (
@@ -12970,10 +12988,6 @@
 	},
 /obj/abstract/landmark{
 	name = "lightsout"
-	},
-/obj/machinery/power/sensor{
-	id_tag = "Station Power";
-	name = "Powernet Sensor - Station Power"
 	},
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -45247,7 +45261,7 @@ aa
 DD
 Dw
 fe
-av
+AR
 av
 av
 yz
@@ -46018,7 +46032,7 @@ aV
 Sq
 sC
 aV
-aV
+sC
 aV
 VZ
 av
