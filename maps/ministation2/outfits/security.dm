@@ -15,6 +15,7 @@
 	id_type = /obj/item/card/id/ministation/security
 	pda_type = /obj/item/modular_computer/pda/security
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officiated
+	yinglet_suit_officiated = TRUE
 
 /decl/hierarchy/outfit/job/ministation/security/head
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
@@ -28,7 +29,7 @@
 	r_pocket = /obj/item/handcuffs
 	id_type = /obj/item/card/id/ministation/security
 	pda_type = /obj/item/modular_computer/pda/security
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
 
 /decl/hierarchy/outfit/job/ministation/security/Initialize()
 	. = ..()
@@ -48,20 +49,19 @@
 
 /decl/hierarchy/outfit/job/ministation/detective
 	name = "Ministation - Job - Detective"
-//	head = /obj/item/clothing/head/det
+	head = /obj/item/clothing/head/det
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	l_ear = /obj/item/radio/headset/headset_sec
-	uniform = /obj/item/clothing/under/yinglet/scout
-	head = /obj/item/clothing/head/yinglet/scout
-//	uniform = /obj/item/clothing/under/det
-//	suit = /obj/item/clothing/suit/storage/det_trench
+	uniform = /obj/item/clothing/under/det
+	suit = /obj/item/clothing/suit/storage/det_trench
 	l_pocket = /obj/item/flame/lighter/zippo
-//	shoes = /obj/item/clothing/shoes/dress
+	shoes = /obj/item/clothing/shoes/dress
 	hands = list(/obj/item/storage/briefcase/crimekit)
 	id_type = /obj/item/card/id/ministation/security
 	pda_type = /obj/item/modular_computer/pda/forensics
 	backpack_contents = list(/obj/item/storage/box/evidence = 1)
 	gloves = /obj/item/clothing/gloves/thick
+	yinglet_suit_officiated = TRUE
 
 /decl/hierarchy/outfit/job/ministation/detective/Initialize()
 	. = ..()

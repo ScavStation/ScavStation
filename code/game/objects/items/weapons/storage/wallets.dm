@@ -11,7 +11,7 @@
 		/obj/item/card,
 		/obj/item/clothing/mask/smokable,
 		/obj/item/lipstick,
-		/obj/item/haircomb,
+		/obj/item/grooming,
 		/obj/item/mirror,
 		/obj/item/clothing/accessory/locket,
 		/obj/item/clothing/head/hairflower,
@@ -43,7 +43,7 @@
 		/obj/item/clothing/accessory/armor/tag,
 		)
 	slot_flags = SLOT_ID
-	material = /decl/material/solid/leather
+	material = /decl/material/solid/organic/leather
 
 	var/obj/item/card/id/front_id = null
 	var/obj/item/charge_stick/front_stick = null

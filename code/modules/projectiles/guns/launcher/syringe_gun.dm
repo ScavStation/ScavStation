@@ -3,7 +3,6 @@
 	desc = "An impact-triggered compressed gas cartridge that can be fitted to a syringe for rapid injection."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "syringe-cartridge"
-	var/icon_flight = "syringe-cartridge-flight" //so it doesn't look so weird when shot
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -11,14 +10,21 @@
 	throwforce = 3
 	force = 3
 	w_class = ITEM_SIZE_TINY
+	var/icon_flight = "syringe-cartridge-flight" //so it doesn't look so weird when shot
 	var/obj/item/chems/syringe/syringe
 
 /obj/item/syringe_cartridge/on_update_icon()
 	. = ..()
 	underlays.Cut()
 	if(syringe)
-		underlays += image(syringe.icon, src, syringe.icon_state)
-		underlays += syringe.filling
+		var/mutable_appearance/MA = new /mutable_appearance(syringe)
+		MA.pixel_x = 0
+		MA.pixel_y = 0
+		MA.pixel_w = 0
+		MA.pixel_z = 0
+		MA.layer = FLOAT_LAYER
+		MA.plane = FLOAT_PLANE
+		underlays += MA
 
 /obj/item/syringe_cartridge/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/chems/syringe) && user.try_unequip(I, src))
@@ -52,7 +58,7 @@
 			//unfortuately we don't know where the dart will actually hit, since that's done by the parent.
 			if(L.can_inject(null, ran_zone(TT.target_zone, 30, L)) == CAN_INJECT && syringe.reagents)
 				var/reagent_log = syringe.reagents.get_reagents()
-				syringe.reagents.trans_to_mob(L, 15, CHEM_INJECT)
+				syringe.reagents.trans_to_mob(L, syringe.reagents.total_volume, CHEM_INJECT)
 				admin_inject_log(TT.thrower? TT.thrower : null, L, src, reagent_log, 15, violent=1)
 
 		syringe.break_syringe(iscarbon(hit_atom)? hit_atom : null)
@@ -103,7 +109,7 @@
 	add_fingerprint(user)
 
 /obj/item/gun/launcher/syringe/attack_hand(mob/user)
-	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_GRIP, TRUE))
+	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
 	if(!darts.len)
 		to_chat(user, SPAN_WARNING("\The [src] is empty."))

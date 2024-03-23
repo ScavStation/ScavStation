@@ -42,8 +42,6 @@
 	var/max_themes = 2
 	///List of theme types that can be picked by this planet when generating.
 	var/list/possible_themes
-	///A list of /datum/random_map types to apply to every z-level of this planet, in order.
-	var/list/map_generators
 	///Bit flag of the only ruin tags that may be picked by this planet.
 	var/ruin_tags_whitelist
 	///Bit flag of the ruin tags that may never be picked for this planet.
@@ -96,9 +94,10 @@
 		log_debug("Setting up level [LD] ([LD.level_z]).")
 		//place level transition borders and etc, but skip level gen
 		LD.setup_level_data(TRUE)
-		//Apply our own level gen and the theme's level gen (rock walls, debris, buildings, etc..)
-		LD.apply_map_generators(length(theme_generators)? (map_generators | theme_generators) : map_generators) //#TODO: Theme generators should probably selectively apply to levels
-		//Let the level apply its level-specific generators (flora/fauna/grass)
+		//Apply the theme's level gen (rock walls, debris, buildings, etc..)
+		if(length(theme_generators))
+			LD.apply_map_generators(theme_generators) //#TODO: Theme generators should probably selectively apply to levels
+		//Let the level apply its level-specific generators (terrain/flora/fauna/grass)
 		LD.generate_level()
 
 ///Build a stack that's adjacent to the specified stack.
@@ -154,6 +153,10 @@
 /datum/map_template/planetoid/random/load_new_z(no_changeturf = TRUE, centered = TRUE, var/datum/planetoid_data/gen_data) //centered == false should probably runtime, because it will never work properly
 	if(!gen_data)
 		gen_data = create_planetoid_instance()
+
+	// Update our blacklist for habitability
+	if(gen_data.habitability_class >= HABITABILITY_BAD)
+		ruin_tags_blacklist |= RUIN_HABITABLE
 
 	//Generate some of the background stuff for our new planet
 	before_planet_gen(gen_data)

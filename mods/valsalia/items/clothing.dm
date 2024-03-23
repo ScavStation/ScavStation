@@ -94,7 +94,7 @@
 	hood = /obj/item/clothing/head/winterhood/yinglet
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS
-	cold_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS
+	cold_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS|SLOT_TAIL
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
 		bio = ARMOR_BIO_MINOR

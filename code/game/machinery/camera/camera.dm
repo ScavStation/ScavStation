@@ -7,7 +7,7 @@
 	idle_power_usage = 5
 	active_power_usage = 10
 	layer = CAMERA_LAYER
-	anchored = 1
+	anchored = TRUE
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	directional_offset = "{'SOUTH':{'y':21}, 'EAST':{'x':-10}, 'WEST':{'x':10}}"
@@ -130,7 +130,7 @@
 /obj/machinery/camera/proc/newTarget(var/mob/target)
 	if (!motion_sensor)
 		return FALSE
-	if (istype(target, /mob/living/silicon/ai))
+	if (isAI(target))
 		return FALSE
 	if (detectTime == 0)
 		detectTime = world.time // start the clock
@@ -187,8 +187,8 @@
 		set_broken(TRUE)
 
 /obj/machinery/camera/hitby(var/atom/movable/AM)
-	..()
-	if (istype(AM, /obj))
+	. = ..()
+	if(. && istype(AM, /obj))
 		var/obj/O = AM
 		if (O.throwforce >= src.toughness)
 			visible_message(SPAN_WARNING("[src] was hit by [O]!"))
@@ -240,7 +240,7 @@
 	if (status != newstatus && (!cut_power || status == TRUE))
 		status = newstatus
 		// The only way for AI to reactivate cameras are malf abilities, this gives them different messages.
-		if(istype(user, /mob/living/silicon/ai))
+		if(isAI(user))
 			user = null
 
 		if(status)

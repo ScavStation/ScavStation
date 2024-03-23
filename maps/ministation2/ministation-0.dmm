@@ -771,7 +771,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "dx" = (
-/obj/item/beach_ball,
+/obj/item/ball,
 /turf/simulated/floor/pool,
 /area/ministation/dorms)
 "dB" = (
@@ -4503,7 +4503,7 @@
 	dir = 4
 	},
 /obj/item/flashlight/lamp/green,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "tW" = (
@@ -7702,7 +7702,7 @@
 	},
 /obj/structure/table/gamblingtable,
 /obj/machinery/recharger,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "FN" = (
@@ -9672,9 +9672,9 @@
 	pixel_x = 24
 	},
 /obj/structure/table/marble,
-/obj/item/haircomb/brush,
-/obj/item/haircomb/brush,
-/obj/item/haircomb,
+/obj/item/grooming/brush,
+/obj/item/grooming/brush,
+/obj/item/grooming/comb,
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
 "KJ" = (
@@ -13761,7 +13761,7 @@
 	},
 /obj/machinery/camera/autoname,
 /obj/structure/table/woodentable,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /obj/item/pen,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)

@@ -46,6 +46,7 @@ SUBSYSTEM_DEF(supply)
 			for(var/decl/hierarchy/supply_pack/spc in sp.get_descendents())
 				spc.setup()
 				master_supply_list += spc
+				CHECK_TICK
 
 // Just add points over time.
 /datum/controller/subsystem/supply/fire()
@@ -63,7 +64,7 @@ SUBSYSTEM_DEF(supply)
 
 	//To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
 /datum/controller/subsystem/supply/proc/forbidden_atoms_check(atom/A)
-	if(istype(A,/mob/living))
+	if(isliving(A))
 		return 1
 	if(istype(A,/obj/item/disk/nuclear))
 		return 1

@@ -63,7 +63,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	allowed = list(/obj/item/flashlight,/obj/item/tank/emergency,/obj/item/toy)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS|SLOT_HANDS|SLOT_LEGS|SLOT_FEET
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS|SLOT_HANDS|SLOT_LEGS|SLOT_FEET|SLOT_TAIL
 
 /obj/item/clothing/suit/hastur
 	name = "Hastur's Robes"
@@ -121,7 +121,7 @@
 	name = "straitjacket"
 	desc = "A suit that completely restrains the wearer."
 	icon = 'icons/clothing/suit/straightjacket.dmi'
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS|SLOT_TAIL
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	matter = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_TRACE)
 
@@ -147,7 +147,7 @@
 	icon = 'icons/clothing/suit/leathercoat.dmi'
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	material_armor_multiplier = 0.8
-	material = /decl/material/solid/leather
+	material = /decl/material/solid/organic/leather
 	var/shine
 	var/artificial_shine
 
@@ -166,7 +166,7 @@
 	. = ..()
 
 /obj/item/clothing/suit/leathercoat/synth
-	material = /decl/material/solid/leather/synth
+	material = /decl/material/solid/organic/leather/synth
 	artificial_shine = 80
 
 //stripper
@@ -193,7 +193,7 @@
 	cold_protection = SLOT_UPPER_BODY|SLOT_ARMS
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.7
-	material = /decl/material/solid/leather
+	material = /decl/material/solid/organic/leather
 
 /obj/item/clothing/suit/storage/leather_jacket
 	name = "black leather jacket"

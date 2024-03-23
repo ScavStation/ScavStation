@@ -7,7 +7,7 @@
 	metabolism = REM * 2
 	touch_met = 50 // It's acid!
 	value = 1.2
-	solvent_power = MAT_SOLVENT_STRONG + 2
+	solvent_power = MAT_SOLVENT_VERY_STRONG
 	solvent_melt_dose = 10
 	boiling_point = 290 CELSIUS
 	melting_point = 10 CELSIUS
@@ -34,11 +34,12 @@
 	lore_text = "Polytrinic acid is a an extremely corrosive chemical substance."
 	taste_description = "acid"
 	color = "#8e18a9"
-	solvent_power = MAT_SOLVENT_STRONG + 7
+	solvent_power = MAT_SOLVENT_STRONGEST
 	solvent_melt_dose = 4
 	solvent_max_damage = 60
 	value = 1.8
-	exoplanet_rarity = MAT_RARITY_UNCOMMON
+	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
+	exoplanet_rarity_gas = MAT_RARITY_UNCOMMON
 
 /decl/material/liquid/acid/stomach
 	name = "stomach acid"
@@ -48,7 +49,8 @@
 	color = "#d8ff00"
 	hidden_from_codex = TRUE
 	value = 0
-	exoplanet_rarity = MAT_RARITY_UNCOMMON
+	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
+	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 
 /decl/material/liquid/acetone
 	name = "acetone"

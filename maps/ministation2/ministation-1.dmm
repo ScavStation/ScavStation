@@ -2077,6 +2077,9 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 30
 	},
+/obj/machinery/fabricator/micro/bartender{
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "jT" = (
@@ -2299,9 +2302,7 @@
 /area/ministation/medical)
 "kX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/abstract/landmark{
-	name = "Observer-Start"
-	},
+/obj/abstract/landmark/latejoin/observer,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "kZ" = (
@@ -3691,9 +3692,7 @@
 	pixel_x = -22
 	},
 /obj/structure/closet/secure_closet/hop,
-/obj/item/contraband/poster{
-	poster_type = /decl/poster/bay_62
-	},
+/obj/item/poster/scav_2,
 /obj/item/stamp/hop,
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
@@ -7234,7 +7233,7 @@
 /obj/item/storage/backpack/clown,
 /obj/item/bikehorn,
 /obj/item/storage/fancy/crayons,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
 "Fh" = (
@@ -7254,7 +7253,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/contraband/poster,
+/obj/item/poster,
 /obj/item/cash/scavbucks,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
@@ -9236,7 +9235,7 @@
 /obj/structure/closet,
 /obj/random/maintenance,
 /obj/random/suit,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "QF" = (
@@ -9841,7 +9840,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "Ur" = (
@@ -10587,7 +10586,7 @@
 "YH" = (
 /obj/random/maintenance,
 /obj/structure/closet,
-/obj/item/contraband/poster,
+/obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "YS" = (

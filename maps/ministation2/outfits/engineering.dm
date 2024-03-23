@@ -10,7 +10,8 @@
 	r_pocket = /obj/item/t_scanner
 	id_type = /obj/item/card/id/ministation/engineering
 	pda_type = /obj/item/modular_computer/pda/engineering
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officiated
+	yinglet_suit_officiated = TRUE
 
 /decl/hierarchy/outfit/job/ministation/engineer/Initialize()
 	. = ..()
@@ -34,4 +35,4 @@
 	id_type = /obj/item/card/id/ministation/engineering
 	l_ear = /obj/item/radio/headset/heads/ce
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer

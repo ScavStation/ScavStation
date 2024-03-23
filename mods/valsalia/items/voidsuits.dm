@@ -28,10 +28,7 @@
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour
 
-/obj/item/clothing/suit/space/void/yinglet/set_yinglet_sprite_override()
-	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, icon)
-
-/obj/item/clothing/suit/space/void/yinglet/get_mob_overlay(mob/user_mob, slot)
+/obj/item/clothing/suit/space/void/yinglet/get_mob_overlay(mob/user_mob, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	var/image/ret = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/I = image(ret.icon, "[ret.icon_state]-armour")
@@ -69,10 +66,7 @@
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour
 
-/obj/item/clothing/head/helmet/space/void/yinglet/set_yinglet_sprite_override()
-	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, icon)
-
-/obj/item/clothing/head/helmet/space/void/yinglet/get_mob_overlay(mob/user_mob, slot)
+/obj/item/clothing/head/helmet/space/void/yinglet/get_mob_overlay(mob/user_mob, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	var/image/ret = ..()
 	if(slot == slot_head_str)
 		var/new_overlays = list()

@@ -28,6 +28,7 @@ var/global/list/string_part_flags = list(
 	"ears" =       SLOT_EARS,
 	"upper body" = SLOT_UPPER_BODY,
 	"lower body" = SLOT_LOWER_BODY,
+	"tail" =       SLOT_TAIL,
 	"legs" =       SLOT_LEGS,
 	"feet" =       SLOT_FEET,
 	"arms" =       SLOT_ARMS,
@@ -39,6 +40,7 @@ var/global/list/string_slot_flags = list(
 	"back" =     SLOT_BACK,
 	"face" =     SLOT_FACE,
 	"waist" =    SLOT_LOWER_BODY,
+	"tail" =     SLOT_TAIL,
 	"ID slot" =  SLOT_ID,
 	"ears" =     SLOT_EARS,
 	"eyes" =     SLOT_EYES,
@@ -81,6 +83,8 @@ var/global/list/string_slot_flags = list(
 // This is all placeholder procs for an eventual PR to change them to use decls.
 var/global/list/all_species
 var/global/list/playable_species // A list of ALL playable species, whitelisted, latejoin or otherwise.
+var/global/list/all_bodytypes = list()
+var/global/list/bodytype_species_pairs = list() // A list of bodytypes -> species, used for mainly unit testing.
 /proc/build_species_lists()
 	if(global.all_species)
 		return
@@ -91,6 +95,8 @@ var/global/list/playable_species // A list of ALL playable species, whitelisted,
 		var/decl/species/species = species_decls[species_type]
 		if(species.name)
 			global.all_species[species.name] = species
+			for(var/decl/bodytype/bodytype in species.available_bodytypes)
+				global.bodytype_species_pairs[GET_DECL(bodytype)] = species
 			if(!(species.spawn_flags & SPECIES_IS_RESTRICTED))
 				global.playable_species += species.name
 	if(global.using_map.default_species)
@@ -105,3 +111,9 @@ var/global/list/playable_species // A list of ALL playable species, whitelisted,
 /proc/get_playable_species()
 	build_species_lists()
 	. = global.playable_species
+/proc/get_all_bodytypes()
+	build_species_lists()
+	. = global.all_bodytypes
+/proc/get_bodytype_species_pairs()
+	build_species_lists()
+	. = global.bodytype_species_pairs

@@ -4,39 +4,64 @@
 	icon_template =     'mods/valsalia/icons/species/baxxid/template.dmi'
 	icon_base =         'mods/valsalia/icons/species/baxxid/body.dmi'
 	limb_blend = ICON_MULTIPLY
+	manual_dexterity = (DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
+	mob_size = MOB_SIZE_LARGE
+	base_color = "#c7b8aa"
+	base_eye_color = "#003366"
+	base_markings = list(
+		/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
+		/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
+		/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
+	)
+	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes
+	)
+	override_limb_types = list(
+		BP_L_HAND = /obj/item/organ/external/hand/baxxid,
+		BP_R_HAND = /obj/item/organ/external/hand/right/baxxid,
+		BP_HEAD =   /obj/item/organ/external/head/baxxid
+	)
 
 /decl/bodytype/baxxid/Initialize()
 	. = ..()
 	equip_adjust = list(
 		slot_back_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 0),
-			"[EAST]"  = list("x" =  6, "y" = 0),
-			"[WEST]"  = list("x" = -6, "y" = 0),
-			"[SOUTH]" = list("x" =  0, "y" = 0),
+			"[NORTH]" = list( 0, 0),
+			"[EAST]"  = list( 6, 0),
+			"[WEST]"  = list(-6, 0),
+			"[SOUTH]" = list( 0, 0),
 		),
 		slot_wear_mask_str = list (
-			"[NORTH]" = list("x" = -1, "y" = 2),
-			"[EAST]"  = list("x" =  4, "y" = 4),
-			"[WEST]"  = list("x" = -4, "y" = 4),
-			"[SOUTH]" = list("x" = -1, "y" = 2)
+			"[NORTH]" = list(-1, 2),
+			"[EAST]"  = list( 4, 4),
+			"[WEST]"  = list(-4, 4),
+			"[SOUTH]" = list(-1, 2)
 		),
 		slot_head_str = list (
-			"[NORTH]" = list("x" =  0, "y" = 10),
-			"[EAST]"  = list("x" = -1, "y" = 10),
-			"[WEST]"  = list("x" =  1, "y" = 10),
-			"[SOUTH]" = list("x" =  0, "y" = 10)
+			"[NORTH]" = list( 0, 10),
+			"[EAST]"  = list(-1, 10),
+			"[WEST]"  = list( 1, 10),
+			"[SOUTH]" = list( 0, 10)
 		),
 		slot_glasses_str  = list (
-			"[NORTH]" = list("x" =  0, "y" = 1),
-			"[EAST]"  = list("x" =  4, "y" = 4),
-			"[WEST]"  = list("x" = -4, "y" = 4),
-			"[SOUTH]" = list("x" =  0, "y" = 1)
+			"[NORTH]" = list( 0, 1),
+			"[EAST]"  = list( 4, 4),
+			"[WEST]"  = list(-4, 4),
+			"[SOUTH]" = list( 0, 1)
 		),
 		slot_belt_str = list (
-			"[NORTH]" = list("x" =  0, "y" = 0),
-			"[EAST]"  = list("x" =  6, "y" = 0),
-			"[WEST]"  = list("x" = -6, "y" = 0),
-			"[SOUTH]" = list("x" =  0, "y" = 0)
+			"[NORTH]" = list( 0, 0),
+			"[EAST]"  = list( 6, 0),
+			"[WEST]"  = list(-6, 0),
+			"[SOUTH]" = list( 0, 0)
 		)
 	)
 
@@ -50,43 +75,18 @@
 	available_bodytypes = list(
 		/decl/bodytype/baxxid
 	)
-	manual_dexterity = DEXTERITY_GRIP
-	mob_size = MOB_SIZE_LARGE
 
 	unarmed_attacks = list(
 		/decl/natural_attack/claws/strong/baxxid,
 		/decl/natural_attack/bite/strong
 	)
 
-	base_prosthetics_model = null
-	base_color = "#c7b8aa"
-	base_eye_color = "#003366"
-	base_markings = list(
-		/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
-		/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
-		/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
-	)
+	base_external_prosthetics_model = null
 	preview_outfit = /decl/hierarchy/outfit/baxxid
 
 	hud_type = /datum/hud_data/baxxid
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
 	spawn_flags = SPECIES_CAN_JOIN
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
-	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
-		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes/baxxid
-	)
-
-	override_limb_types = list(
-		BP_L_HAND = /obj/item/organ/external/hand/baxxid,
-		BP_R_HAND = /obj/item/organ/external/hand/right/baxxid,
-		BP_HEAD =   /obj/item/organ/external/head/baxxid
-	)
 
 	available_cultural_info = list(
 		TAG_CULTURE =   list(
@@ -120,9 +120,6 @@
 			hnnn = uppertext(capitalize(hnnn))
 		. = "[hnnn][uppertext(.)]"
 
-/obj/item/organ/internal/eyes/baxxid
-	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
-
 /decl/sprite_accessory/marking/baxxid
 	name = "Crest"
 	body_parts = list(BP_HEAD)
@@ -131,18 +128,21 @@
 	icon_state = "crest"
 	blend = ICON_MULTIPLY
 	mask_to_bodypart = FALSE
+	uid = "marking_baxxid_crest"
 
 /decl/sprite_accessory/marking/baxxid/plates
 	name = "Armour Plates"
 	body_parts = list(BP_CHEST, BP_GROIN)
 	icon_state = "plates"
 	mask_to_bodypart = TRUE
+	uid = "marking_baxxid_plates"
 
 /decl/sprite_accessory/marking/baxxid/bones
 	name = "Bony Segments"
 	body_parts = list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_R_FOOT, BP_L_FOOT)
 	icon_state = "bones"
 	mask_to_bodypart = TRUE
+	uid = "marking_baxxid_bones"
 
 /datum/hud_data/baxxid
 	inventory_slots = list(
@@ -174,14 +174,14 @@
 /obj/item/organ/external/hand/baxxid
 	gripper_type = /datum/inventory_slot/gripper/left_hand/baxxid
 
-/obj/item/organ/external/hand/baxxid/get_dexterity()
-	return min(..(), DEXTERITY_KEYBOARDS)
+/obj/item/organ/external/hand/baxxid/get_manual_dexterity()
+	return (DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /obj/item/organ/external/hand/right/baxxid
 	gripper_type = /datum/inventory_slot/gripper/right_hand/baxxid
 
-/obj/item/organ/external/hand/right/baxxid/get_dexterity()
-	return min(..(), DEXTERITY_KEYBOARDS)
+/obj/item/organ/external/hand/right/baxxid/get_manual_dexterity()
+	return (DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /datum/inventory_slot/gripper/left_hand/baxxid
 	can_use_held_item = FALSE
