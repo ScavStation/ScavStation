@@ -7,8 +7,8 @@
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
 	desc = "A mysterious stone artefact, careful if you're human!"
-	health = 999999999 //un-fecking-breakable
-	max_health = 999999999 //un-fecking-breakable
+	health = 9999 //un-fecking-breakable
+	max_health = 9999 //un-fecking-breakable
 
 var/transform_impact_prob = 65
 var/transform_passive_prob = 10
