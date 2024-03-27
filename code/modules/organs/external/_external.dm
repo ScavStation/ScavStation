@@ -7,8 +7,9 @@
 	min_broken_damage = 30
 	dir = SOUTH
 	organ_tag = "limb"
-	appearance_flags = PIXEL_SCALE | LONG_GLIDE
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | LONG_GLIDE
 	scale_max_damage_to_species_health = TRUE
+	abstract_type = /obj/item/organ/external
 
 	var/slowdown = 0
 	var/tmp/icon_cache_key
@@ -31,7 +32,6 @@
 	// Appearance vars.
 	var/body_part = null               // Part flag
 	var/icon_position = 0              // Used in mob overlay layering calculations.
-	var/model                          // Used when caching robolimb icons.
 	var/icon/mob_icon                  // Cached icon for use in mob overlays.
 	var/skin_tone                      // Skin tone.
 	var/skin_colour                    // skin colour
@@ -79,11 +79,14 @@
 
 	// HUD element variable, see organ_icon.dm get_damage_hud_image()
 	var/image/hud_damage_image
+	var/fingerprint
 
 /obj/item/organ/external/proc/get_fingerprint()
 
-	if((limb_flags & ORGAN_FLAG_FINGERPRINT) && dna && !BP_IS_PROSTHETIC(src))
-		return md5(dna.uni_identity)
+	if((limb_flags & ORGAN_FLAG_FINGERPRINT) && !BP_IS_PROSTHETIC(src))
+		if(!owner) // We need to generate a fingerprint as we've never been supplied one before.
+			fingerprint = md5(sequential_id(/mob))
+		return fingerprint
 
 	for(var/obj/item/organ/external/E in children)
 		var/print = E.get_fingerprint()
@@ -99,10 +102,12 @@
 		F.completeness = rand(10,90)
 		forensics.add_data(/datum/forensics/fingerprints, F)
 
-/obj/item/organ/external/Initialize(mapload, material_key, datum/dna/given_dna)
+/obj/item/organ/external/Initialize(mapload, material_key, datum/dna/given_dna, decl/bodytype/new_bodytype)
 	. = ..()
 	if(. != INITIALIZE_HINT_QDEL && isnull(pain_disability_threshold))
 		pain_disability_threshold = (max_damage * 0.75)
+	if(force_limb_dir && force_limb_dir != SOUTH)
+		set_dir(force_limb_dir)
 
 /obj/item/organ/external/Destroy()
 	//Update the hierarchy BEFORE clearing all the vars and refs
@@ -123,12 +128,25 @@
 /obj/item/organ/external/set_species(specie_name)
 	. = ..()
 	skin_blend = bodytype.limb_blend
-	slowdown = species.get_slowdown(owner) // TODO make this a getter so octopodes can override it based on flooding
 	for(var/attack_type in species.unarmed_attacks)
 		var/decl/natural_attack/attack = GET_DECL(attack_type)
 		if(istype(attack) && (organ_tag in attack.usable_with_limbs))
 			LAZYADD(unarmed_attacks, attack_type)
 	get_icon()
+
+/obj/item/organ/external/set_bodytype(decl/bodytype/new_bodytype, override_material = null, apply_to_internal_organs = TRUE)
+	var/decl/bodytype/old_bodytype = bodytype
+	. = ..(new_bodytype, override_material)
+	if(bodytype != old_bodytype && apply_to_internal_organs)
+		bodytype.rebuild_internal_organs(src, override_material)
+	slowdown = bodytype.movement_slowdown
+	if(.)
+		update_icon(TRUE)
+
+/obj/item/organ/external/proc/set_bodytype_with_children(decl/bodytype/new_bodytype, override_material = null)
+	set_bodytype(new_bodytype, override_material)
+	for(var/obj/item/organ/external/child in children)
+		child.set_bodytype_with_children(new_bodytype, override_material)
 
 /obj/item/organ/external/proc/check_pain_disarm()
 	if(owner && prob((pain/max_damage)*100))
@@ -415,6 +433,13 @@
 
 	//If attached to an owner mob
 	if(istype(owner))
+
+		owner.full_prosthetic = null
+
+		// Initialize fingerprints if we don't already have some (TODO: we're assuming this is our first owner, maybe check for this elsewhere?).
+		if((limb_flags & ORGAN_FLAG_FINGERPRINT) && !fingerprint && !BP_IS_PROSTHETIC(src))
+			fingerprint = owner.get_full_print(ignore_blockers = TRUE)
+
 		//If we expect a parent organ set it up here
 		if(!affected && parent_organ)
 			parent = GET_EXTERNAL_ORGAN(owner, parent_organ)
@@ -542,7 +567,7 @@
 	switch(damage_type)
 		if(BRUTE) src.heal_damage(repair_amount, 0, 0, 1)
 		if(BURN)  src.heal_damage(0, repair_amount, 0, 1)
-	owner.refresh_visible_overlays()
+	owner.try_refresh_visible_overlays()
 	if(user == src.owner)
 		var/decl/pronouns/G = user.get_pronouns()
 		user.visible_message(SPAN_NOTICE("\The [user] patches [damage_desc] on [G.his] [name] with \the [tool]."))
@@ -553,7 +578,7 @@
 /*
 This function completely restores a damaged organ to perfect condition.
 */
-/obj/item/organ/external/rejuvenate(var/ignore_prosthetic_prefs)
+/obj/item/organ/external/rejuvenate(var/ignore_organ_aspects)
 
 	damage_state = "00"
 	brute_dam = 0
@@ -571,7 +596,7 @@ This function completely restores a damaged organ to perfect condition.
 
 	// handle internal organs
 	for(var/obj/item/organ/current_organ in internal_organs)
-		current_organ.rejuvenate(ignore_prosthetic_prefs)
+		current_organ.rejuvenate(ignore_organ_aspects)
 
 	// remove embedded objects and drop them on the floor
 	for(var/obj/implanted_object in implants)
@@ -872,7 +897,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(update_surgery)
 			owner.update_surgery()
 		if (update_damstate())
-			owner.UpdateDamageIcon(1)
+			owner.update_damage_overlays(TRUE)
 
 //Updates brute_damn and burn_damn from wound damages. Updates BLEEDING status.
 /obj/item/organ/external/proc/update_damages()
@@ -883,7 +908,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/clamped = 0
 
 	var/mob/living/carbon/human/H
-	if(istype(owner,/mob/living/carbon/human))
+	if(ishuman(owner))
 		H = owner
 
 	//update damage counts
@@ -919,8 +944,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/n_is = damage_state_text()
 	if (n_is != damage_state)
 		damage_state = n_is
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 // new damage icon system
 // returns just the brute/burn damage code
@@ -1253,85 +1278,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return 1
 	return 0
 
-/obj/item/organ/external/proc/get_dexterity()
-	if(model)
-		var/decl/prosthetics_manufacturer/R = GET_DECL(model)
-		if(R)
-			return R.manual_dexterity
+/obj/item/organ/external/proc/get_manual_dexterity()
+	if(!isnull(bodytype?.manual_dexterity))
+		return bodytype.manual_dexterity
 	if(species)
 		return species.get_manual_dexterity(owner)
-
-//Completely override, so we can slap in the model
-/obj/item/organ/external/setup_as_prosthetic()
-	. = ..(model ? model : /decl/prosthetics_manufacturer/basic_human)
-
-/obj/item/organ/external/robotize(var/company = /decl/prosthetics_manufacturer/basic_human, var/skip_prosthetics = 0, var/keep_organs = 0, var/apply_material = /decl/material/solid/metal/steel, var/check_bodytype, var/check_species)
-	. = ..()
-
-	slowdown = 0
-
-	// Don't override our existing model unless a specific model is being passed in.
-	if(!company)
-		company = model || /decl/prosthetics_manufacturer
-
-	var/decl/prosthetics_manufacturer/R
-	if(istype(company, /decl/prosthetics_manufacturer))
-		//Handling for decl
-		R = company
-		company = R.type
-	else
-		//Handling for paths
-		if(!ispath(company))
-			PRINT_STACK_TRACE("Limb [type] robotize() was supplied a null or non-decl manufacturer: '[company]'")
-			company = /decl/prosthetics_manufacturer/basic_human
-		R = GET_DECL(company)
-
-	if(!check_species)
-		check_species = owner?.get_species_name() || global.using_map.default_species
-	if(!check_bodytype)
-		if(owner)
-			check_bodytype = owner.get_bodytype_category()
-		else
-			var/decl/species/species_data = get_species_by_key(check_species)
-			if(species_data)
-				check_bodytype = species_data.default_bodytype.bodytype_category
-			else
-				check_bodytype = global.using_map.default_bodytype
-
-	//If can't install fallback to defaults.
-	if(!R.check_can_install(organ_tag, check_bodytype, check_species))
-		company = /decl/prosthetics_manufacturer/basic_human
-		R = GET_DECL(company)
-
-	model = company
-	name = "[R ? R.modifier_string : "robotic"] [initial(name)]"
-	desc = "[R.desc] It looks like it was produced by [R.name]."
-	origin_tech = R.limb_tech
-	slowdown = R.movement_slowdown
-	max_damage *= R.hardiness
-	min_broken_damage *= R.hardiness
-	status &= (~ORGAN_DISLOCATED)
-	limb_flags &= (~ORGAN_FLAG_CAN_DISLOCATE)
-	remove_splint()
-	update_icon(1)
-	unmutate()
-
-	for(var/obj/item/organ/external/T in children)
-		T.robotize(company, 1)
-
-	if(owner)
-
-		if(!skip_prosthetics)
-			owner.full_prosthetic = null // Will be rechecked next isSynthetic() call.
-
-		if(!keep_organs)
-			for(var/obj/item/organ/thing in internal_organs)
-				if(!thing.is_vital_to_owner() && !BP_IS_PROSTHETIC(thing))
-					qdel(thing)
-
-		owner.refresh_modular_limb_verbs()
-
-	return 1
+	return DEXTERITY_NONE
 
 /obj/item/organ/external/proc/get_damage()	//returns total damage
 	return (brute_dam+burn_dam)	//could use max_damage?
@@ -1359,7 +1311,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/is_malfunctioning()
 	return (is_robotic() && (brute_dam + burn_dam) >= 10 && prob(brute_dam + burn_dam))
 
-/obj/item/organ/external/proc/embed(var/obj/item/W, var/silent = 0, var/supplied_message, var/datum/wound/supplied_wound)
+/obj/item/organ/external/proc/embed_in_organ(var/obj/item/W, var/silent = FALSE, var/supplied_message, var/datum/wound/supplied_wound)
 	if(!owner || loc != owner)
 		return
 	if(species.species_flags & SPECIES_FLAG_NO_EMBED)
@@ -1443,6 +1395,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 					LAZYREMOVE(internal_organs, organ)
 					continue
 				organ.do_install(null, src, FALSE, update_icon, FALSE) //Forcemove the organ and properly set it up in our internal data
+
+		victim.full_prosthetic = null
 
 	//Note that we don't need to change our own hierarchy when not removing from a mob
 
@@ -1585,10 +1539,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		. += max_delay * CLAMP01(damage/max_damage)
 
 /obj/item/organ/external/proc/is_robotic()
-	. = FALSE
-	if(BP_IS_PROSTHETIC(src) && model)
-		var/decl/prosthetics_manufacturer/R = GET_DECL(model)
-		. = R && R.is_robotic
+	return bodytype.is_robotic
 
 /obj/item/organ/external/proc/has_growths()
 	return FALSE
@@ -1633,3 +1584,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 					vital_to_owner = TRUE
 					break
 	return vital_to_owner
+
+/obj/item/organ/external/proc/get_grooming_results(obj/item/grooming/tool)
+	var/default_results = bodytype.get_default_grooming_results(src, tool)
+	if(default_results)
+		. = default_results

@@ -1,7 +1,10 @@
 var/global/list/limb_icon_cache = list()
 
+/obj/item/organ/external
+	var/force_limb_dir = SOUTH
+
 /obj/item/organ/external/set_dir()
-	return ..(SOUTH)
+	return ..(force_limb_dir)
 
 /obj/item/organ/external/proc/compile_icon()
 	//#FIXME: We REALLY shouldn't be messing with overlays outside on_update_icon. And on_update_icon doesn't call this.
@@ -17,31 +20,20 @@ var/global/list/limb_icon_cache = list()
 	skin_tone = null
 	skin_colour = null
 	hair_colour = human.hair_colour
-	bodytype = human.bodytype
-	reset_status() // since we may have changed bodytype
-	if(BP_IS_PROSTHETIC(src) && model)
-		var/decl/prosthetics_manufacturer/franchise = GET_DECL(model)
-		if(!(franchise && franchise.skintone))
-			return
-		skin_blend = franchise.limb_blend
-	if(species && human.species && species.name != human.species.name)
-		return
-	if(!isnull(human.skin_tone) && (human.species.appearance_flags & HAS_A_SKIN_TONE))
+	// This used to do a bodytype set but that was *really really bad.* Things that need that should do it themselves.
+	skin_blend = bodytype.limb_blend
+	if(!isnull(human.skin_tone) && bodytype?.appearance_flags & HAS_A_SKIN_TONE)
 		skin_tone = human.skin_tone
-	if(human.species.appearance_flags & HAS_SKIN_COLOR)
+	if(bodytype.appearance_flags & HAS_SKIN_COLOR)
 		skin_colour = human.skin_colour
 
 /obj/item/organ/external/proc/sync_colour_to_dna()
 	skin_tone = null
 	skin_colour = null
 	hair_colour = rgb(dna.GetUIValue(DNA_UI_HAIR_R),dna.GetUIValue(DNA_UI_HAIR_G),dna.GetUIValue(DNA_UI_HAIR_B))
-	if(BP_IS_PROSTHETIC(src) && model)
-		var/decl/prosthetics_manufacturer/franchise = GET_DECL(model)
-		if(!(franchise && franchise.skintone))
-			return
-	if(!isnull(dna.GetUIValue(DNA_UI_SKIN_TONE)) && (species.appearance_flags & HAS_A_SKIN_TONE))
+	if(!isnull(dna.GetUIValue(DNA_UI_SKIN_TONE)) && (bodytype.appearance_flags & HAS_A_SKIN_TONE))
 		skin_tone = dna.GetUIValue(DNA_UI_SKIN_TONE)
-	if(species.appearance_flags & HAS_SKIN_COLOR)
+	if(bodytype.appearance_flags & HAS_SKIN_COLOR)
 		skin_colour = rgb(dna.GetUIValue(DNA_UI_SKIN_R), dna.GetUIValue(DNA_UI_SKIN_G), dna.GetUIValue(DNA_UI_SKIN_B))
 
 /obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
@@ -60,20 +52,14 @@ var/global/list/limb_icon_cache = list()
 		var/decl/sprite_accessory/marking/mark_style = GET_DECL(M)
 		if (mark_style.draw_target == MARKING_TARGET_SKIN)
 			var/mark_color = markings[M]
-			var/icon/mark_s = mark_style.get_cached_marking_icon(bodytype, icon_state, mark_color)
+			var/icon/mark_s = mark_style.get_cached_marking_icon(src, mark_color)
 			//#TODO: This probably should be added to a list that's applied on update icon, otherwise its gonna act really wonky!
 			add_overlay(mark_s) //So when it's not on your body, it has icons
 			mob_icon.Blend(mark_s, mark_style.layer_blend) //So when it's on your body, it has icons
 			icon_cache_key += "[M][mark_color]"
 
 /obj/item/organ/external/proc/update_limb_icon_file()
-	if (BP_IS_PROSTHETIC(src))
-		if(!model)
-			icon = 'icons/mob/human_races/cyberlimbs/robotic.dmi'
-		else
-			var/decl/prosthetics_manufacturer/R = GET_DECL(model)
-			icon = R.get_base_icon(owner)
-	else if(status & ORGAN_MUTATED)
+	if(!BP_IS_PROSTHETIC(src) && (status & ORGAN_MUTATED))
 		icon = bodytype.get_base_icon(owner, get_deform = TRUE)
 	else if(owner && (limb_flags & ORGAN_FLAG_SKELETAL))
 		icon = bodytype.get_skeletal_icon(owner)
@@ -83,23 +69,23 @@ var/global/list/limb_icon_cache = list()
 /obj/item/organ/external/on_update_icon(var/regenerate = 0)
 	. = ..()
 	icon_state = organ_tag
-	icon_cache_key = "[icon_state]_[species ? species.name : "unknown"][render_alpha]"
-	if(model)
-		icon_cache_key += "_model_[model]"
+	icon_cache_key = list(icon_state, species.name, bodytype.type, render_alpha)
 
 	update_limb_icon_file()
-	mob_icon = apply_colouration(new/icon(icon, icon_state))
+	mob_icon = apply_colouration(new /icon(icon, icon_state))
 
 	//Body markings, does not include head, duplicated (sadly) above.
 	for(var/M in markings)
 		var/decl/sprite_accessory/marking/mark_style = GET_DECL(M)
 		if (mark_style.draw_target == MARKING_TARGET_SKIN)
 			var/mark_color = markings[M]
-			var/icon/mark_s = mark_style.get_cached_marking_icon(bodytype, icon_state, mark_color)
+			var/icon/mark_s = mark_style.get_cached_marking_icon(src, mark_color)
 			//#TODO: This probably should be added to a list that's applied on update icon, otherwise its gonna act really wonky!
 			add_overlay(mark_s) //So when it's not on your body, it has icons
 			mob_icon.Blend(mark_s, mark_style.layer_blend) //So when it's on your body, it has icons
 			icon_cache_key += "[M][mark_color]"
+
+	icon_cache_key = JOINTEXT(icon_cache_key)
 
 	if(render_alpha < 255)
 		mob_icon += rgb(,,,render_alpha)
@@ -119,6 +105,9 @@ var/global/list/flesh_hud_colours = list("#00ff00","#aaff00","#ffff00","#ffaa00"
 var/global/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888","#666666","#444444","#222222","#000000")
 
 /obj/item/organ/external/proc/get_damage_hud_image()
+
+	if(skip_body_icon_draw)
+		return null
 
 	// Generate the greyscale base icon and cache it for later.
 	// icon_cache_key is set by any get_icon() calls that are made.
@@ -163,7 +152,8 @@ var/global/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888"
 		else
 			applying.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
 		icon_cache_key += "_tone_[skin_tone]"
-	if(species.appearance_flags & HAS_SKIN_COLOR)
+
+	if(bodytype.appearance_flags & HAS_SKIN_COLOR)
 		if(skin_colour)
 			applying.Blend(skin_colour, skin_blend)
 			icon_cache_key += "_color_[skin_colour]_[skin_blend]"

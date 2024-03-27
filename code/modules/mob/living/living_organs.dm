@@ -20,6 +20,11 @@
 /mob/living/proc/has_internal_organs()
 	return LAZYLEN(get_internal_organs()) > 0
 
+/mob/living/get_contained_matter()
+	. = ..()
+	for(var/obj/item/organ in get_organs())
+		. = MERGE_ASSOCS_WITH_NUM_VALUES(., organ.get_contained_matter())
+
 //Can be called when we want to add an organ in a detached state or an attached state.
 /mob/living/proc/add_organ(var/obj/item/organ/O, var/obj/item/organ/external/affected = null, var/in_place = FALSE, var/update_icon = TRUE, var/detached = FALSE)
 	. = O.do_install(src, affected, in_place, update_icon, detached)
@@ -64,3 +69,9 @@
 		return FALSE //When deleting don't bother running effects
 	O.on_add_effects(src)
 	return TRUE
+
+/mob/living/proc/delete_organs()
+	SHOULD_CALL_PARENT(TRUE)
+	var/list/organs = get_organs()
+	QDEL_LIST(organs)
+	return

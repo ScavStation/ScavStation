@@ -4,10 +4,10 @@
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "shield_normal"
 	alpha = 100
-	anchored = 1
+	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
-	density = 1
-	invisibility = 0
+	density = TRUE
+	invisibility = INVISIBILITY_NONE
 	atmos_canpass = CANPASS_PROC
 	var/obj/machinery/shield_generator/gen = null
 	var/disabled_for = 0
@@ -94,7 +94,7 @@
 
 	if(!disabled_for && !diffused_for)
 		set_density(1)
-		set_invisibility(0)
+		set_invisibility(INVISIBILITY_NONE)
 		update_nearby_tiles()
 		update_icon(TRUE)
 		update_explosion_resistance()
@@ -169,22 +169,14 @@
 	if(!gen)
 		qdel(src)
 		return 1
-
 	if(disabled_for || diffused_for)
 		return 1
-
 	// Atmosphere containment.
 	if(air_group)
 		return !gen.check_flag(MODEFLAG_ATMOSPHERIC)
-
 	if(mover)
 		return mover.can_pass_shield(gen)
 	return 1
-
-
-/obj/effect/shield/c_airblock(turf/other)
-	return gen.check_flag(MODEFLAG_ATMOSPHERIC) ? BLOCKED : 0
-
 
 // EMP. It may seem weak but keep in mind that multiple shield segments are likely to be affected.
 /obj/effect/shield/emp_act(var/severity)

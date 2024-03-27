@@ -23,7 +23,7 @@
 		else
 			visible_message(SPAN_NOTICE("\The [src] starts breathing again."), SPAN_NOTICE("You stop holding your breath."))
 			holding_breath = (holding_breath >= 2 ? 3 : 0)
-		breathe()
+		try_breathe()
 
 /mob/living/carbon/human/proc/tie_hair()
 	set name = "Tie Hair"
@@ -55,7 +55,7 @@
 			return
 		if(selected_type && h_style != selected_type)
 			h_style = selected_type
-			refresh_visible_overlays()
+			try_refresh_visible_overlays()
 			visible_message(SPAN_NOTICE("\The [src] pauses a moment to style their hair."))
 		else
 			to_chat(src, SPAN_NOTICE("You're already using that style."))
@@ -92,7 +92,7 @@
 	log_say("[key_name(src)] communed to [key_name(M)]: [text]")
 
 	to_chat(M, "<span class='notice'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: <i>[text]</i></span>")
-	if(istype(M,/mob/living/carbon/human))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.name == src.species.name)
 			return

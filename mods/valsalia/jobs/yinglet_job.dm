@@ -22,10 +22,14 @@
 
 /decl/hierarchy/outfit/job
 	var/yinglet_suit_fallback
+	var/yinglet_suit_service
+	var/yinglet_suit_officiated
 
 /decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/carbon/human/H, var/title)
-	if(!H || H.species.name != SPECIES_YINGLET)
+
+	if(H?.species.name != SPECIES_YINGLET)
 		return
+
 	var/previous_suit = H.get_equipped_item(slot_wear_suit_str)
 	if(previous_suit)
 		H.try_unequip(previous_suit)
@@ -35,13 +39,18 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/yinglet(H), slot_w_uniform_str)
 	if(previous_suit)
 		H.equip_to_slot_if_possible(previous_suit, slot_wear_suit_str)
-	else if(suit && yinglet_suit_fallback)
+
+	if(yinglet_suit_fallback && !H.get_equipped_item(slot_wear_suit_str))
 		var/datum/job/J = SSjobs.get_by_title(title)
-		if(J && J.head_position)
+		if(J?.head_position)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer, slot_wear_suit_str)
+		if(yinglet_suit_service)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated/yinglet, slot_wear_suit_str)
+		else if(yinglet_suit_officiated)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/officiated/yinglet, slot_wear_suit_str)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/yinglet, slot_wear_suit_str)
 
 /decl/hierarchy/outfit/job/equip_outfit(mob/living/carbon/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	. = ..()
-	try_give_yinglet_fallbacks(H, rank)
+	try_give_yinglet_fallbacks(H, assignment)

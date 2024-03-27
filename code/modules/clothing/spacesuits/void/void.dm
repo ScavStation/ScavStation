@@ -35,7 +35,7 @@
 		ARMOR_RAD = ARMOR_RAD_MINOR
 		)
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit)
-	heat_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
+	heat_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS|SLOT_TAIL
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
 	siemens_coefficient = 0.4
@@ -152,7 +152,7 @@ else if(##equipment_var) {\
 	set category = "Object"
 	set src in usr
 
-	if(!istype(src.loc,/mob/living)) return
+	if(!isliving(src.loc)) return
 
 	if(!helmet)
 		to_chat(usr, "There is no helmet installed.")
@@ -187,7 +187,7 @@ else if(##equipment_var) {\
 	set category = "Object"
 	set src in usr
 
-	if(!istype(src.loc,/mob/living)) return
+	if(!isliving(src.loc)) return
 
 	if(!tank)
 		to_chat(usr, "There is no tank inserted.")
@@ -210,7 +210,7 @@ else if(##equipment_var) {\
 
 /obj/item/clothing/suit/space/void/attackby(obj/item/W, mob/user)
 
-	if(!istype(user,/mob/living)) return
+	if(!isliving(user)) return
 
 	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/hand_labeler))
 		return ..()
@@ -230,11 +230,11 @@ else if(##equipment_var) {\
 				user.put_in_hands(tank)
 				src.tank = null
 			else if(choice == helmet)
-				to_chat(user, "You detatch \the [helmet] from \the [src]'s helmet mount.")
+				to_chat(user, "You detach \the [helmet] from \the [src]'s helmet mount.")
 				user.put_in_hands(helmet)
 				src.helmet = null
 			else if(choice == boots)
-				to_chat(user, "You detatch \the [boots] from \the [src]'s boot mounts.")
+				to_chat(user, "You detach \the [boots] from \the [src]'s boot mounts.")
 				user.put_in_hands(boots)
 				src.boots = null
 		else

@@ -2,11 +2,11 @@
 	name = "window"
 	desc = "A window."
 	icon = 'icons/obj/structures/window.dmi'
-	density = 1
+	density = TRUE
 	w_class = ITEM_SIZE_NORMAL
 
 	layer = SIDE_WINDOW_LAYER
-	anchored = 1.0
+	anchored = TRUE
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	alpha = 180
@@ -128,27 +128,28 @@
 	return 1
 
 /obj/structure/window/hitby(atom/movable/AM, var/datum/thrownthing/TT)
-	..()
-	visible_message(SPAN_DANGER("[src] was hit by [AM]."))
-	var/tforce = 0
-	if(ismob(AM)) // All mobs have a multiplier and a size according to mob_defines.dm
-		var/mob/I = AM
-		tforce = I.mob_size * (TT.speed/THROWFORCE_SPEED_DIVISOR)
-	else if(isobj(AM))
-		var/obj/item/I = AM
-		tforce = I.throwforce * (TT.speed/THROWFORCE_SPEED_DIVISOR)
-	if(reinf_material) tforce *= 0.25
-	if(health - tforce <= 7 && !reinf_material)
-		set_anchored(FALSE)
-		step(src, get_dir(AM, src))
-	take_damage(tforce)
+	. = ..()
+	if(.)
+		visible_message(SPAN_DANGER("[src] was hit by [AM]."))
+		var/tforce = 0
+		if(ismob(AM)) // All mobs have a multiplier and a size according to mob_defines.dm
+			var/mob/I = AM
+			tforce = I.mob_size * (TT.speed/THROWFORCE_SPEED_DIVISOR)
+		else if(isobj(AM))
+			var/obj/item/I = AM
+			tforce = I.throwforce * (TT.speed/THROWFORCE_SPEED_DIVISOR)
+		if(reinf_material) tforce *= 0.25
+		if(health - tforce <= 7 && !reinf_material)
+			set_anchored(FALSE)
+			step(src, get_dir(AM, src))
+		take_damage(tforce)
 
 /obj/structure/window/attack_hand(mob/user)
 	SHOULD_CALL_PARENT(FALSE)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (user.a_intent && user.a_intent == I_HURT)
 
-		if (istype(user,/mob/living/carbon/human))
+		if (ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.species.can_shred(H))
 				attack_generic(H,25)
@@ -497,7 +498,7 @@
 
 /obj/structure/window/reinforced/tinted
 	name = "tinted window"
-	opacity = 1
+	opacity = TRUE
 	color = GLASS_COLOR_TINTED
 
 /obj/structure/window/reinforced/tinted/frosted
@@ -589,7 +590,7 @@
 
 /obj/structure/window/reinforced/crescent/hitby()
 	SHOULD_CALL_PARENT(FALSE)
-	return
+	return FALSE
 
 /obj/structure/window/reinforced/crescent/take_damage()
 	return

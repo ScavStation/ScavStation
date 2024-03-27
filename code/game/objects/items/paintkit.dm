@@ -1,12 +1,13 @@
 /obj/item/kit
 	icon_state = "modkit"
 	icon = 'icons/obj/items/modkit.dmi'
-	material = /decl/material/solid/plastic
-	var/new_name = "exosuit"     // What is the variant called?
-	var/new_desc = "An exosuit." // How is the new exosuit described?
-	var/new_icon                 // What base icon will the new exosuit use?
-	var/new_state = "ripley"     // What base icon state with the new exosuit use.
-	var/uses = 1                 // Uses before the kit deletes itself.
+	material = /decl/material/solid/organic/plastic
+	var/new_name = "exosuit"       // What is the variant called?
+	var/new_desc = "An exosuit."   // How is the new exosuit described?
+	var/new_icon                   // What base icon will the new exosuit use?
+	var/new_state                  // What base icon state with the new exosuit use.
+	var/new_blend = BLEND_MULTIPLY // What decal blend mode does this kit use?
+	var/uses = 1                   // Uses before the kit deletes itself.
 	var/custom = FALSE
 
 /obj/item/kit/get_single_monetary_worth()
@@ -41,15 +42,11 @@
 
 	if(istype(O,/obj/item/kit/suit))
 		var/obj/item/kit/suit/kit = O
-
 		to_chat(user, SPAN_NOTICE("You set about modifying \the [src] into \a [kit.new_name] void helmet."))
 		SetName("[kit.new_name] void helmet")
 		desc = kit.new_desc
 		icon = kit.new_icon
-
-		var/mob/living/carbon/human/H = user
-		if(istype(H))
-			bodytype_equip_flags = H.bodytype.bodytype_flag
+		bodytype_equip_flags = user.get_bodytype()?.bodytype_flag
 		kit.use(1,user)
 		reconsider_single_icon()
 		return TRUE
@@ -60,15 +57,11 @@
 
 	if(istype(O, /obj/item/kit/suit))
 		var/obj/item/kit/suit/kit = O
-
 		to_chat(user, SPAN_NOTICE("You set about modifying \the [src] into \a [kit.new_name] voidsuit."))
 		SetName("[kit.new_name] voidsuit")
 		desc = kit.new_desc
 		icon = kit.new_icon
-
-		var/mob/living/carbon/human/H = user
-		if(istype(H))
-			bodytype_equip_flags = H.bodytype.bodytype_flag
+		bodytype_equip_flags = user.get_bodytype()?.bodytype_flag
 		kit.use(1,user)
 		reconsider_single_icon()
 		return TRUE
@@ -79,6 +72,7 @@
 /obj/item/kit/paint
 	name = "exosuit decal kit"
 	desc = "A kit containing all the needed tools and parts to repaint a exosuit."
+	abstract_type = /obj/item/kit/paint
 
 /obj/item/kit/paint/examine(mob/user)
 	. = ..()
@@ -87,18 +81,20 @@
 // exosuit kits.
 /obj/item/kit/paint/flames_red
 	name = "\"Firestarter\" exosuit customisation kit"
-	new_icon = "flames_red"
+	new_state = "flames_red"
+	new_blend = BLEND_OVERLAY
 
 /obj/item/kit/paint/flames_blue
 	name = "\"Burning Chrome\" exosuit customisation kit"
-	new_icon = "flames_blue"
+	new_state = "flames_blue"
+	new_blend = BLEND_OVERLAY
 
 /obj/item/kit/paint/camouflage
 	name = "\"Guerilla\" exosuit customisation kit"
 	desc = "An old military pattern for jungle warfare, now available for general use."
-	new_icon = "cammo1"
+	new_state = "cammo1"
 
 /obj/item/kit/paint/camouflage/forest
 	name = "\"Alpine\" exosuit customisation kit"
-	new_icon = "cammo2"
+	new_state = "cammo2"
 	desc = "A muted pattern for alpine environments. Don't miss the forest for the trees!"

@@ -1,10 +1,9 @@
 /obj/item/gun/projectile/automatic/yassault_rifle
-	name = "Yinglet Assault Rifle"
+	name = "Yinglet assault rifle"
 	desc = "The ST-4 is a bulpup rifle designed off the Z8 Bulldog but scaled down for use by yinglets. You fear your knuckles may get burned using this."
 	icon = 'mods/valsalia/icons/weapons/yar.dmi'
 	w_class = ITEM_SIZE_NORMAL
 	force = 10
-	fire_sound = 'sound/weapons/gunshot/rifshot.ogg'
 	caliber = CALIBER_RIFLE
 	origin_tech = "{'combat':8,'materials':3}"
 	ammo_type = /obj/item/ammo_casing/rifle
@@ -29,25 +28,11 @@
 	firemodes = list(
 		list(mode_name="semi auto",      burst=1,    fire_delay=null, use_launcher=null, one_hand_penalty=8,  burst_accuracy=null,            dispersion=null),
 		list(mode_name="3-round bursts", burst=3,    fire_delay=null, use_launcher=null, one_hand_penalty=9,  burst_accuracy=list(0,0,-1),   dispersion=list(0.0, 0.4, 0.8)),
-		list(mode_name="full auto",      burst=1,    fire_delay=0,    burst_delay=1,     use_launcher=null,   one_hand_penalty=7,             burst_accuracy = list(0,0,-1), dispersion=list(0.0, 0.4, 0.8), autofire_enabled=1),
-		list(mode_name="fire grenades",  burst=null, fire_delay=null, use_launcher=1,    one_hand_penalty=10, burst_accuracy=null,            dispersion=null)
+		list(mode_name="full auto",      burst=1,    fire_delay=0,    burst_delay=1,     use_launcher=null,   one_hand_penalty=7,             burst_accuracy = list(0,0,-1), dispersion=list(0.0, 0.4, 0.8), autofire_enabled=1)
 	)
 
 	var/use_launcher = 0
 	var/obj/item/gun/launcher/grenade/underslung/launcher
-
-/obj/item/gun/projectile/automatic/yassault_rifle/special_check(mob/user)
-	if(!istype(user, /mob/living))
-		return FALSE
-	if(!user.check_dexterity(DEXTERITY_WEAPONS))
-		return FALSE
-
-	var/mob/living/M = user
-	if(M.mob_size > MOB_SIZE_SMALL)
-		to_chat(user, SPAN_WARNING("The trigger guard of \the [src] is too small for your fingers."))
-		return FALSE
-	return TRUE
-
 
 /obj/item/gun/projectile/automatic/yassault_rifle/Initialize()
 	. = ..()
