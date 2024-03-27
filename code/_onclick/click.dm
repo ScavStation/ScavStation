@@ -108,7 +108,7 @@
 	if(W == A) // Handle attack_self
 		W.attack_self(src)
 		trigger_aiming(TARGET_CAN_CLICK)
-		update_inv_hands(0)
+		usr.update_inhand_overlays(FALSE)
 		return 1
 
 	//Atoms on your person
@@ -264,7 +264,7 @@
 	A.AltClick(src)
 
 /atom/proc/AltClick(var/mob/user)
-	if(try_handle_interactions(user, get_alt_interactions(user)))
+	if(try_handle_interactions(user, get_alt_interactions(user), user?.get_active_hand()))
 		return TRUE
 	if(user?.get_preference_value(/datum/client_preference/show_turf_contents) == PREF_ALT_CLICK)
 		. = show_atom_list_for_turf(user, get_turf(src))
@@ -354,7 +354,7 @@ var/global/list/click_catchers
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "click_catcher"
 	plane = CLICKCATCHER_PLANE
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_PRIORITY
 	screen_loc = "CENTER-7,CENTER-7"
 	var/x_offset = 0
 	var/y_offset = 0
@@ -365,7 +365,7 @@ var/global/list/click_catchers
 
 /obj/screen/click_catcher/Click(location, control, params)
 	var/list/modifiers = params2list(params)
-	if(modifiers["middle"] && istype(usr, /mob/living/carbon))
+	if(modifiers["middle"] && iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		C.swap_hand()
 	else

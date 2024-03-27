@@ -1,20 +1,21 @@
 /obj/random/contraband
 	name = "Random Illegal Item"
 	desc = "Hot Stuff."
-	icon = 'icons/obj/items/comb.dmi'
-	icon_state = "purplecomb"
+	icon = 'icons/obj/items/grooming/comb.dmi'
+	icon_state = ICON_STATE_WORLD
+	color = COLOR_PURPLE
 	spawn_nothing_percentage = 50
 
 /obj/random/contraband/spawn_choices()
 	var/static/list/spawnable_choices = list(
-		/obj/item/haircomb =                               4,
+		/obj/item/grooming/comb =                               4,
 		/obj/item/storage/pill_bottle/painkillers =        3,
 		/obj/item/storage/pill_bottle/strong_painkillers = 1,
 		/obj/item/storage/pill_bottle/happy =              2,
 		/obj/item/storage/pill_bottle/zoom =               2,
 		/obj/item/chems/glass/beaker/vial/random/toxin =   1,
 		/obj/item/chems/glass/beaker/sulphuric =           1,
-		/obj/item/contraband/poster =                      5,
+		/obj/item/poster =                                 5,
 		/obj/item/butterflyblade =                         3,
 		/obj/item/butterflyhandle =                        3,
 		/obj/item/baton/cattleprod =                       1,

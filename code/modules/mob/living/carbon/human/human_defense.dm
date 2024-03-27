@@ -112,16 +112,6 @@ meteor_act
 		if(istype(gear) && (gear.body_parts_covered & SLOT_FACE) && !(gear.item_flags & ITEM_FLAG_FLEXIBLEMATERIAL))
 			return gear
 
-/mob/living/carbon/human/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	var/list/checking_slots = get_held_items()
-	var/obj/item/suit = get_equipped_item(slot_wear_suit_str)
-	if(suit)
-		LAZYDISTINCTADD(checking_slots, suit)
-	for(var/obj/item/shield in checking_slots)
-		if(shield.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text))
-			return TRUE
-	return FALSE
-
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 
 	for (var/obj/item/grab/G in grabbed_by)
@@ -242,15 +232,15 @@ meteor_act
 				var/obj/item/mask = get_equipped_item(slot_wear_mask_str)
 				if(mask)
 					mask.add_blood(src)
-					update_inv_wear_mask(0)
+					update_equipment_overlay(slot_wear_mask_str, FALSE)
 				var/obj/item/head = get_equipped_item(slot_head_str)
 				if(head)
 					head.add_blood(src)
-					update_inv_head(0)
+					update_equipment_overlay(slot_head_str, FALSE)
 				var/obj/item/glasses = get_equipped_item(slot_glasses_str)
 				if(glasses && prob(33))
 					glasses.add_blood(src)
-					update_inv_glasses(0)
+					update_equipment_overlay(slot_glasses_str, FALSE)
 			if(BP_CHEST)
 				bloody_body(src)
 
@@ -297,84 +287,15 @@ meteor_act
 	affecting.status |= ORGAN_SABOTAGED
 	return 1
 
-//this proc handles being hit by a thrown atom
 /mob/living/carbon/human/hitby(atom/movable/AM, var/datum/thrownthing/TT)
-
-	if(istype(AM,/obj/))
-		var/obj/O = AM
-
-		if(in_throw_mode && !get_active_hand() && TT.speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
-			if(!incapacitated())
-				if(isturf(O.loc))
-					put_in_active_hand(O)
-					visible_message("<span class='warning'>[src] catches [O]!</span>")
-					throw_mode_off()
-					process_momentum(AM, TT)
-					return
-
-		var/dtype = O.damtype
-		var/throw_damage = O.throwforce*(TT.speed/THROWFORCE_SPEED_DIVISOR)
-
-		var/zone = BP_CHEST
-		if (TT.target_zone)
-			zone = check_zone(TT.target_zone, src)
-		else
-			zone = ran_zone()	//Hits a random part of the body, -was already geared towards the chest
-
-		//check if we hit
-		var/miss_chance = max(15*(TT.dist_travelled-2),0)
-		zone = get_zone_with_miss_chance(zone, src, miss_chance, ranged_attack=1)
-
-		if(zone && TT.thrower && TT.thrower != src)
-			var/shield_check = check_shields(throw_damage, O, TT.thrower, zone, "[O]")
-			if(shield_check == PROJECTILE_FORCE_MISS)
-				zone = null
-			else if(shield_check)
-				return
-
-		var/obj/item/organ/external/affecting = (zone && GET_EXTERNAL_ORGAN(src, zone))
-		if(!affecting)
-			visible_message(SPAN_NOTICE("\The [O] misses \the [src] narrowly!"))
-			return
-
-		var/datum/wound/created_wound
-		visible_message(SPAN_DANGER("\The [src] has been hit in \the [affecting.name] by \the [O]."))
-		created_wound = apply_damage(throw_damage, dtype, zone, O.damage_flags(), O, O.armor_penetration)
-
-		if(TT.thrower)
-			var/client/assailant = TT.thrower.client
-			if(assailant)
-				admin_attack_log(TT.thrower, src, "Threw \an [O] at their victim.", "Had \an [O] thrown at them", "threw \an [O] at")
-
-		//thrown weapon embedded object code.
-		if(dtype == BRUTE && istype(O,/obj/item))
-			var/obj/item/I = O
-			if (!is_robot_module(I))
-				var/sharp = I.can_embed()
-				var/damage = throw_damage //the effective damage used for embedding purposes, no actual damage is dealt here
-				damage *= (1 - get_blocked_ratio(zone, BRUTE, O.damage_flags(), O.armor_penetration, I.force))
-
-				//blunt objects should really not be embedding in things unless a huge amount of force is involved
-				var/embed_chance = sharp? damage/I.w_class : damage/(I.w_class*3)
-				var/embed_threshold = sharp? 5*I.w_class : 15*I.w_class
-
-				//Sharp objects will always embed if they do enough damage.
-				//Thrown sharp objects have some momentum already and have a small chance to embed even if the damage is below the threshold
-				if((sharp && prob(damage/(10*I.w_class)*100)) || (damage > embed_threshold && prob(embed_chance)))
-					affecting.embed(I, supplied_wound = created_wound)
-					I.has_embedded()
-
+	// empty active hand and we're in throw mode, so we can catch it
+	if(isobj(AM) && in_throw_mode && !get_active_hand() && TT.speed <= THROWFORCE_SPEED_DIVISOR && !incapacitated() && isturf(AM.loc))
+		put_in_active_hand(AM)
+		visible_message(SPAN_NOTICE("\The [src] catches \the [AM]!"))
+		throw_mode_off()
 		process_momentum(AM, TT)
-
-	else
-		..()
-
-/mob/living/carbon/human/embed(var/obj/O, var/def_zone=null, var/datum/wound/supplied_wound)
-	if(!def_zone) ..()
-
-	var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(src, def_zone)
-	if(affecting)
-		affecting.embed(O, supplied_wound = supplied_wound)
+		return FALSE
+	return ..()
 
 /mob/living/carbon/human/proc/bloody_hands(var/mob/living/source, var/amount = 2)
 	var/obj/item/clothing/gloves/gloves = get_equipped_item(slot_gloves_str)
@@ -382,17 +303,18 @@ meteor_act
 		gloves.add_blood(source, amount)
 	else
 		add_blood(source, amount)
-	update_inv_gloves()		//updates on-mob overlays for bloody hands and/or bloody gloves
+	//updates on-mob overlays for bloody hands and/or bloody gloves
+	update_equipment_overlay(slot_gloves_str)
 
 /mob/living/carbon/human/proc/bloody_body(var/mob/living/source)
 	var/obj/item/gear = get_equipped_item(slot_wear_suit_str)
 	if(gear)
 		gear.add_blood(source)
-		update_inv_wear_suit(0)
+		update_equipment_overlay(slot_wear_suit_str, redraw_mob = FALSE)
 	gear = get_equipped_item(slot_w_uniform_str)
 	if(gear)
 		gear.add_blood(source)
-		update_inv_w_uniform(0)
+		update_equipment_overlay(slot_w_uniform_str, redraw_mob = FALSE)
 
 /mob/living/carbon/human/proc/handle_suit_punctures(var/damtype, var/damage, var/def_zone)
 
@@ -400,8 +322,8 @@ meteor_act
 	if(damtype != BURN && damtype != BRUTE) return
 
 	// The rig might soak this hit, if we're wearing one.
-	var/obj/item/rig/rig = get_equipped_item(slot_back_str)
-	if(istype(rig))
+	var/obj/item/rig/rig = get_rig()
+	if(rig)
 		rig.take_hit(damage)
 
 	// We may also be taking a suit breach.
@@ -528,8 +450,9 @@ meteor_act
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/eyecheck()
 	var/total_protection = flash_protection
-	if(species.has_organ[species.vision_organ])
-		var/obj/item/organ/internal/eyes/I = get_organ(species.vision_organ, /obj/item/organ/internal/eyes)
+	var/decl/bodytype/root_bodytype = get_bodytype()
+	if(root_bodytype.has_organ[root_bodytype.vision_organ])
+		var/obj/item/organ/internal/eyes/I = get_organ(root_bodytype.vision_organ, /obj/item/organ/internal/eyes)
 		if(!I?.is_usable())
 			return FLASH_PROTECTION_MAJOR
 		total_protection = I.get_total_protection(flash_protection)
@@ -538,15 +461,17 @@ meteor_act
 	return total_protection
 
 /mob/living/carbon/human/flash_eyes(var/intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(species.has_organ[species.vision_organ])
-		var/obj/item/organ/internal/eyes/I = get_organ(species.vision_organ, /obj/item/organ/internal/eyes)
+	var/decl/bodytype/root_bodytype = get_bodytype()
+	if(root_bodytype.has_organ[root_bodytype.vision_organ])
+		var/obj/item/organ/internal/eyes/I = get_organ(root_bodytype.vision_organ, /obj/item/organ/internal/eyes)
 		if(I)
 			I.additional_flash_effects(intensity)
 	return ..()
 
 /mob/living/carbon/human/proc/getFlashMod()
-	if(species.vision_organ)
-		var/obj/item/organ/internal/eyes/I = get_organ(species.vision_organ, /obj/item/organ/internal/eyes)
-		if(istype(I))
-			return I.flash_mod
-	return species.flash_mod
+	var/decl/bodytype/root_bodytype = get_bodytype()
+	if(root_bodytype.vision_organ)
+		var/obj/item/organ/internal/eyes/I = get_organ(root_bodytype.vision_organ, /obj/item/organ/internal/eyes)
+		if(I) // get_organ with a type passed already does a typecheck
+			return I.get_flash_mod()
+	return root_bodytype.eye_flash_mod

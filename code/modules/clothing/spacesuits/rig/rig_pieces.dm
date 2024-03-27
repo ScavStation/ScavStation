@@ -5,8 +5,8 @@
 	return 0
 
 /mob/living/carbon/human/check_rig_status(check_offline)
-	var/obj/item/rig/rig = get_equipped_item(slot_back_str)
-	if(!istype(rig) || rig.canremove)
+	var/obj/item/rig/rig = get_rig()
+	if(!rig || rig.canremove)
 		return 0 //not wearing a rig control unit or it's offline or unsealed
 	if(check_offline)
 		return !rig.offline
@@ -77,9 +77,9 @@
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit)
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
-	heat_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
-	cold_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL
+	heat_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL
+	cold_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL
 	// HIDEJUMPSUIT no longer needed, see "hides_uniform" and "update_component_sealed()" in rig.dm
 	flags_inv =          HIDETAIL
 	item_flags =         ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
@@ -173,9 +173,9 @@
 	name = "suit"
 	icon = 'icons/clothing/rigs/chests/chest_light.dmi'
 	allowed = list(/obj/item/flashlight)
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
-	heat_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
-	cold_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL
+	heat_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL
+	cold_protection =    SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL
 	flags_inv =          HIDEJUMPSUIT
 	item_flags =         ITEM_FLAG_THICKMATERIAL
 

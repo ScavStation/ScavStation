@@ -6,9 +6,9 @@
 	desc = "It opens and closes."
 	icon = 'icons/obj/doors/Doorint.dmi'
 	icon_state = "door1"
-	anchored = 1
-	opacity = 1
-	density = 1
+	anchored = TRUE
+	opacity = TRUE
+	density = TRUE
 	layer = CLOSED_DOOR_LAYER
 	interact_offline = TRUE
 	construct_state = /decl/machine_construction/default/panel_closed/door
@@ -52,7 +52,7 @@
 	var/set_dir_on_update = TRUE
 
 /obj/machinery/door/proc/can_operate(var/mob/user)
-	. = istype(user) && !user.restrained() && (!issmall(user) || ishuman(user) || issilicon(user) || istype(user, /mob/living/bot))
+	. = istype(user) && !user.restrained() && (!issmall(user) || ishuman(user) || issilicon(user) || isbot(user))
 
 /obj/machinery/door/attack_generic(var/mob/user, var/damage, var/attack_verb, var/environment_smash)
 	if(environment_smash >= 1)
@@ -216,15 +216,16 @@
 		take_damage(min(damage, 100), Proj.damage_type)
 
 /obj/machinery/door/hitby(var/atom/movable/AM, var/datum/thrownthing/TT)
-	..()
-	visible_message("<span class='danger'>[src.name] was hit by [AM].</span>")
-	var/tforce = 0
-	if(ismob(AM))
-		tforce = 3 * TT.speed
-	else
-		tforce = AM:throwforce * (TT.speed/THROWFORCE_SPEED_DIVISOR)
-	playsound(src.loc, hitsound, 100, 1)
-	take_damage(tforce)
+	. = ..()
+	if(.)
+		visible_message("<span class='danger'>[src.name] was hit by [AM].</span>")
+		var/tforce = 0
+		if(ismob(AM))
+			tforce = 3 * TT.speed
+		else
+			tforce = AM:throwforce * (TT.speed/THROWFORCE_SPEED_DIVISOR)
+		playsound(src.loc, hitsound, 100, 1)
+		take_damage(tforce)
 
 // This is legacy code that should be revisited, probably by moving the bulk of the logic into here.
 /obj/machinery/door/physical_attack_hand(user)
@@ -521,8 +522,8 @@
 			success = 1
 		else
 			for(var/obj/O in T)
-				for(var/b_type in blend_objects)
-					if( istype(O, b_type))
+				for(var/blend_type in blend_objects)
+					if( istype(O, blend_type))
 						success = 1
 
 					if(success)

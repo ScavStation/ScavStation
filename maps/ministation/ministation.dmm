@@ -4615,9 +4615,7 @@
 /area/ministation/science)
 "kX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/abstract/landmark{
-	name = "Observer-Start"
-	},
+/obj/abstract/landmark/latejoin/observer,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w)
 "kY" = (
@@ -14127,7 +14125,7 @@
 	},
 /obj/structure/curtain/open/bed{
 	icon_state = "closed";
-	opacity = 1
+	opacity = TRUE
 	},
 /turf/simulated/floor/plating,
 /area/ministation/yinglet_rep)

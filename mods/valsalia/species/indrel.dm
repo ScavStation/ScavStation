@@ -11,81 +11,9 @@ var/global/list/pheromone_markers = list()
 	bodytype_flag =     BODY_FLAG_INDREL
 	icon_base =         'mods/valsalia/icons/species/indrel/body.dmi'
 	icon_template =     'mods/valsalia/icons/species/indrel/template.dmi'
+	eye_icon = 'mods/valsalia/icons/species/indrel/eyes.dmi'
 
-/decl/bodytype/indrel/Initialize()
-	. = ..()
-	equip_adjust = list(
-		BP_L_HAND_UPPER =  list(
-			"[NORTH]" = list("x" =  0, "y" = 8),
-			"[EAST]"  = list("x" =  0, "y" = 8),
-			"[SOUTH]" = list("x" = -0, "y" = 8),
-			"[WEST]"  = list("x" =  0, "y" = 8)
-		),
-		BP_R_HAND_UPPER =  list(
-			"[NORTH]" = list("x" =  0, "y" = 8),
-			"[EAST]"  = list("x" =  0, "y" = 8),
-			"[SOUTH]" = list("x" =  0, "y" = 8),
-			"[WEST]"  = list("x" =  0, "y" = 8)
-		),
-		slot_head_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  3, "y" = 3),
-			"[WEST]" =  list("x" = -3, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
-		),
-		slot_wear_suit_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  1, "y" = 3),
-			"[WEST]" =  list("x" = -1, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
-		),
-		slot_back_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 3),
-			"[EAST]" =  list("x" =  3, "y" = 3),
-			"[WEST]" =  list("x" = -3, "y" = 3),
-			"[SOUTH]" = list("x" =  0, "y" = 3)
-		),
-		slot_belt_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 1),
-			"[EAST]" =  list("x" =  1, "y" = 1),
-			"[WEST]" =  list("x" = -1, "y" = 1),
-			"[SOUTH]" = list("x" =  0, "y" = 1)
-		),
-		slot_glasses_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 4),
-			"[EAST]" =  list("x" =  3, "y" = 4),
-			"[WEST]" =  list("x" = -3, "y" = 4),
-			"[SOUTH]" = list("x" =  0, "y" = 4)
-		),
-		slot_wear_mask_str = list(
-			"[NORTH]" = list("x" =  0, "y" = 4),
-			"[EAST]" =  list("x" =  3, "y" = 4),
-			"[WEST]" =  list("x" = -3, "y" = 4),
-			"[SOUTH]" = list("x" =  0, "y" = 4)
-		)
-	)
-/decl/species/indrel
-	name = SPECIES_INDREL
-	name_plural = SPECIES_INDREL
-
-	sniff_message_3p = "waves their antennae."
-	sniff_message_1p = "You wave your antennae, searching for scents."
-
-	available_bodytypes = list(
-		/decl/bodytype/indrel
-	)
-
-	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_EYE_COLOR
-	species_flags = SPECIES_FLAG_NO_MINOR_CUT
-
-	base_prosthetics_model = null
-
-	unarmed_attacks = list(
-		/decl/natural_attack/claws/strong,
-		/decl/natural_attack/bite/strong
-	)
-
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
@@ -93,9 +21,8 @@ var/global/list/pheromone_markers = list()
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes/indrel
-		)
-
+		BP_EYES =     /obj/item/organ/internal/eyes
+	)
 	has_limbs = list(
 		BP_CHEST =        list("path" = /obj/item/organ/external/chest/insectoid),
 		BP_GROIN =        list("path" = /obj/item/organ/external/groin/insectoid),
@@ -111,10 +38,82 @@ var/global/list/pheromone_markers = list()
 		BP_L_FOOT =       list("path" = /obj/item/organ/external/foot/insectoid),
 		BP_R_FOOT =       list("path" = /obj/item/organ/external/foot/right/insectoid)
 	)
-
 	limb_mapping = list(
 		BP_L_HAND = list(BP_L_HAND, BP_L_HAND_UPPER),
 		BP_R_HAND = list(BP_R_HAND, BP_R_HAND_UPPER)
+	)
+
+/decl/bodytype/indrel/Initialize()
+	. = ..()
+	equip_adjust = list(
+		BP_L_HAND_UPPER =  list(
+			"[NORTH]" = list( 0, 8),
+			"[EAST]"  = list( 0, 8),
+			"[SOUTH]" = list(-0, 8),
+			"[WEST]"  = list( 0, 8)
+		),
+		BP_R_HAND_UPPER =  list(
+			"[NORTH]" = list( 0, 8),
+			"[EAST]"  = list( 0, 8),
+			"[SOUTH]" = list( 0, 8),
+			"[WEST]"  = list( 0, 8)
+		),
+		slot_head_str = list(
+			"[NORTH]" = list( 0, 3),
+			"[EAST]" =  list( 3, 3),
+			"[WEST]" =  list(-3, 3),
+			"[SOUTH]" = list( 0, 3)
+		),
+		slot_wear_suit_str = list(
+			"[NORTH]" = list( 0, 3),
+			"[EAST]" =  list( 1, 3),
+			"[WEST]" =  list(-1, 3),
+			"[SOUTH]" = list( 0, 3)
+		),
+		slot_back_str = list(
+			"[NORTH]" = list( 0, 3),
+			"[EAST]" =  list( 3, 3),
+			"[WEST]" =  list(-3, 3),
+			"[SOUTH]" = list( 0, 3)
+		),
+		slot_belt_str = list(
+			"[NORTH]" = list( 0, 1),
+			"[EAST]" =  list( 1, 1),
+			"[WEST]" =  list(-1, 1),
+			"[SOUTH]" = list( 0, 1)
+		),
+		slot_glasses_str = list(
+			"[NORTH]" = list( 0, 4),
+			"[EAST]" =  list( 3, 4),
+			"[WEST]" =  list(-3, 4),
+			"[SOUTH]" = list( 0, 4)
+		),
+		slot_wear_mask_str = list(
+			"[NORTH]" = list( 0, 4),
+			"[EAST]" =  list( 3, 4),
+			"[WEST]" =  list(-3, 4),
+			"[SOUTH]" = list( 0, 4)
+		)
+	)
+/decl/species/indrel
+	name = SPECIES_INDREL
+	name_plural = SPECIES_INDREL
+
+	sniff_message_3p = "waves their antennae."
+	sniff_message_1p = "You wave your antennae, searching for scents."
+
+	available_bodytypes = list(
+		/decl/bodytype/indrel
+	)
+
+	spawn_flags = SPECIES_CAN_JOIN
+	species_flags = SPECIES_FLAG_NO_MINOR_CUT
+
+	base_external_prosthetics_model = null
+
+	unarmed_attacks = list(
+		/decl/natural_attack/claws/strong,
+		/decl/natural_attack/bite/strong
 	)
 	hazard_low_pressure = -1
 
@@ -158,18 +157,8 @@ var/global/list/pheromone_markers = list()
 /obj/item/organ/external/hand/right/insectoid/upper/indrel
 	gripper_type = /datum/inventory_slot/gripper/right_hand/indrel
 
-/obj/item/organ/external/hand/right/insectoid/upper/indrel/get_dexterity()
-	return min(DEXTERITY_GRIP, ..())
-
 /obj/item/organ/external/hand/insectoid/upper/indrel
 	gripper_type = /datum/inventory_slot/gripper/left_hand/indrel
-
-/obj/item/organ/external/hand/insectoid/upper/indrel/get_dexterity()
-	return min(DEXTERITY_GRIP, ..())
-
-
-/obj/item/organ/internal/eyes/indrel
-	eye_icon = 'mods/valsalia/icons/species/indrel/eyes.dmi'
 
 /decl/species/indrel/handle_autohiss(message, decl/language/lang, mode)
 	if(autohiss_exempt && (lang.name in autohiss_exempt))

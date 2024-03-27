@@ -3,7 +3,7 @@
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation."
 	icon = 'icons/obj/structures/inflatable.dmi'
 	icon_state = "folded_wall"
-	material = /decl/material/solid/plastic
+	material = /decl/material/solid/organic/plastic
 	w_class = ITEM_SIZE_NORMAL
 	var/deploy_path = /obj/structure/inflatable/wall
 	var/inflatable_health
@@ -36,15 +36,15 @@
 /obj/structure/inflatable
 	name = "inflatable structure"
 	desc = "An inflated membrane. Do not puncture."
-	density = 1
-	anchored = 1
-	opacity = 0
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
 	icon = 'icons/obj/structures/inflatable.dmi'
 	icon_state = "wall"
 	maxhealth = 20
 	hitsound = 'sound/effects/Glasshit.ogg'
 	atmos_canpass = CANPASS_DENSITY
-	material = /decl/material/solid/plastic
+	material = /decl/material/solid/organic/plastic
 
 	var/undeploy_path = null
 	var/taped
@@ -75,19 +75,32 @@
 	check_environment()
 
 /obj/structure/inflatable/proc/check_environment()
-	var/min_pressure = INFINITY
-	var/max_pressure = 0
+
+	var/turf/my_turf = get_turf(src)
+	if(!my_turf || !prob(50))
+		return
+
+	var/airblock // zeroed by ATMOS_CANPASS_TURF
 	var/max_local_temp = 0
+	var/take_environment_damage = get_surrounding_pressure_differential(my_turf, src) > max_pressure_diff
+	if(!take_environment_damage)
+		for(var/check_dir in global.cardinal)
+			var/turf/neighbour = get_step(my_turf, check_dir)
+			if(!istype(neighbour))
+				continue
+			for(var/obj/O in my_turf)
+				if(O == src)
+					continue
+				ATMOS_CANPASS_MOVABLE(airblock, O, neighbour)
+				. |= airblock
+			if(airblock & AIR_BLOCKED)
+				continue
+			ATMOS_CANPASS_TURF(airblock, neighbour, my_turf)
+			if(airblock & AIR_BLOCKED)
+				continue
+			max_local_temp = max(max_local_temp, neighbour.return_air()?.temperature)
 
-	for(var/check_dir in global.cardinal)
-		var/turf/T = get_step(get_turf(src), check_dir)
-		var/datum/gas_mixture/env = T.return_air()
-		var/pressure = env.return_pressure()
-		min_pressure = min(min_pressure, pressure)
-		max_pressure = max(max_pressure, pressure)
-		max_local_temp = max(max_local_temp, env.temperature)
-
-	if(prob(50) && (max_pressure - min_pressure > max_pressure_diff || max_local_temp > max_temp))
+	if(take_environment_damage || max_local_temp > max_temp)
 		take_damage(1)
 
 /obj/structure/inflatable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -177,9 +190,9 @@
 
 /obj/structure/inflatable/door //Based on mineral door code
 	name = "inflatable door"
-	density = 1
-	anchored = 1
-	opacity = 0
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
 
 	icon_state = "door_closed"
 	undeploy_path = /obj/item/inflatable/door

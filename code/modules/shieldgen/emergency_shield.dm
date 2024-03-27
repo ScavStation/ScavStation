@@ -1,12 +1,11 @@
 /obj/machinery/shield
-	name = "Emergency energy shield"
+	name = "emergency energy shield"
 	desc = "An energy shield used to contain hull breaches."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "shield-old"
-	density = 1
-	opacity = 0
-	anchored = 1
-	unacidable = 1
+	density = TRUE
+	opacity = FALSE
+	anchored = TRUE
 	var/const/max_health = 200
 	var/health = max_health //The shield can only take so much beating (prevents perma-prisons)
 	var/shield_generate_power = 7500	//how much power we use when regenerating
@@ -81,35 +80,36 @@
 				qdel(src)
 
 /obj/machinery/shield/hitby(AM, var/datum/thrownthing/TT)
-	..()
-	//Let everyone know we've been hit!
-	visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
-	//Super realistic, resource-intensive, real-time damage calculations.
-	var/tforce = 0
-	if(ismob(AM)) // All mobs have a multiplier and a size according to mob_defines.dm
-		var/mob/I = AM
-		tforce = I.mob_size * (TT.speed/THROWFORCE_SPEED_DIVISOR)
-	else
-		var/obj/O = AM
-		tforce = O.throwforce * (TT.speed/THROWFORCE_SPEED_DIVISOR)
-	src.health -= tforce
-	//This seemed to be the best sound for hitting a force field.
-	playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
-	check_failure()
-	//The shield becomes dense to absorb the blow.. purely asthetic.
-	set_opacity(1)
-	spawn(20)
-		if(!QDELETED(src))
-			set_opacity(0)
+	. = ..()
+	if(.)
+		//Let everyone know we've been hit!
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+		//Super realistic, resource-intensive, real-time damage calculations.
+		var/tforce = 0
+		if(ismob(AM)) // All mobs have a multiplier and a size according to mob_defines.dm
+			var/mob/I = AM
+			tforce = I.mob_size * (TT.speed/THROWFORCE_SPEED_DIVISOR)
+		else
+			var/obj/O = AM
+			tforce = O.throwforce * (TT.speed/THROWFORCE_SPEED_DIVISOR)
+		src.health -= tforce
+		//This seemed to be the best sound for hitting a force field.
+		playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
+		check_failure()
+		//The shield becomes dense to absorb the blow.. purely asthetic.
+		set_opacity(1)
+		spawn(20)
+			if(!QDELETED(src))
+				set_opacity(0)
 
 /obj/machinery/shieldgen
 	name = "Emergency shield projector"
 	desc = "Used to seal minor hull breaches."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "shieldoff"
-	density = 1
-	opacity = 0
-	anchored = 0
+	density = TRUE
+	opacity = FALSE
+	anchored = FALSE
 	initial_access = list(access_engine)
 	var/const/max_health = 100
 	var/health = max_health
@@ -295,12 +295,12 @@
 			if(active)
 				to_chat(user, "<span class='notice'>The [src] shuts off!</span>")
 				src.shields_down()
-			anchored = 0
+			anchored = FALSE
 		else
 			if(isspaceturf(get_turf(src))) return //No wrenching these in space!
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>You secure the [src] to the floor!</span>")
-			anchored = 1
+			anchored = TRUE
 
 
 	else if(istype(W, /obj/item/card/id) || istype(W, /obj/item/modular_computer/pda))

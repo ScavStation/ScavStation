@@ -53,6 +53,10 @@
 	set category = "Object"
 	set src in usr
 
+	var/mob/living/user = usr
+	if(!istype(user))
+		return
+
 	if(ispath(camera))
 		camera = new camera(src)
 		camera.set_status(0)
@@ -60,10 +64,10 @@
 	if(camera)
 		camera.set_status(!camera.status)
 		if(camera.status)
-			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, "<span class='notice'>User scanned as [camera.c_tag]. Camera activated.</span>")
+			camera.c_tag = user.get_id_name()
+			to_chat(user, "<span class='notice'>User scanned as [camera.c_tag]. Camera activated.</span>")
 		else
-			to_chat(usr, "<span class='notice'>Camera deactivated.</span>")
+			to_chat(user, "<span class='notice'>Camera deactivated.</span>")
 
 /obj/item/clothing/head/helmet/space/examine(mob/user, distance)
 	. = ..()
@@ -116,14 +120,14 @@
 	gas_transfer_coefficient = 0
 	permeability_coefficient = 0
 	item_flags = ITEM_FLAG_THICKMATERIAL
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS|SLOT_TAIL
 	allowed = list(/obj/item/flashlight,/obj/item/tank/emergency,/obj/item/suit_cooling_unit)
 	armor = list(
 		ARMOR_BIO = ARMOR_BIO_SHIELDED,
 		ARMOR_RAD = ARMOR_RAD_SMALL
 		)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
-	cold_protection = SLOT_UPPER_BODY | SLOT_LOWER_BODY | SLOT_LEGS | SLOT_FEET | SLOT_ARMS | SLOT_HANDS
+	cold_protection = SLOT_UPPER_BODY | SLOT_LOWER_BODY | SLOT_LEGS | SLOT_FEET | SLOT_ARMS | SLOT_HANDS | SLOT_TAIL
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	min_pressure_protection = 0
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
@@ -132,11 +136,11 @@
 	randpixel = 0
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_OVER)
 	origin_tech = "{'materials':3, 'engineering':3}"
-	material = /decl/material/solid/plastic
+	material = /decl/material/solid/organic/plastic
 	matter = list(
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT,
-		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT
+		/decl/material/solid/organic/plastic = MATTER_AMOUNT_REINFORCEMENT
 	)
 	protects_against_weather = TRUE
 

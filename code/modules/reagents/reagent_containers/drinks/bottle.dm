@@ -8,21 +8,19 @@
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 5
-
+	material = /decl/material/solid/glass
 	drop_sound = 'sound/foley/bottledrop1.ogg'
 	pickup_sound = 'sound/foley/bottlepickup1.ogg'
+	abstract_type = /obj/item/chems/drinks/bottle
 
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
-	var/isGlass = TRUE //Whether the 'bottle' is made of glass or not so that milk cartons dont shatter when someone gets hit by it
 	var/obj/item/chems/glass/rag/rag = null
 	var/rag_underlay = "rag"
 	var/stop_spin_bottle = FALSE //Gotta stop the rotation.
 
 /obj/item/chems/drinks/bottle/Initialize()
 	. = ..()
-	if(isGlass)
-		unacidable = TRUE
-	else
+	if(material?.type != /decl/material/solid/glass)
 		verbs -= .verb/spin_bottle
 
 /obj/item/chems/drinks/bottle/Destroy()
@@ -31,18 +29,21 @@
 	rag = null
 	return ..()
 
-/obj/item/chems/drinks/bottle/on_reagent_change()
+/obj/item/chems/drinks/bottle/update_container_name()
+	return
+
+/obj/item/chems/drinks/bottle/update_container_desc()
 	return
 
 //when thrown on impact, bottles smash and spill their contents
 /obj/item/chems/drinks/bottle/throw_impact(atom/hit_atom, var/datum/thrownthing/TT)
 	..()
-	if(isGlass && TT.thrower && TT.thrower.a_intent != I_HELP)
+	if(material?.is_brittle() && TT.thrower && TT.thrower.a_intent != I_HELP)
 		if(TT.speed > throw_speed || smash_check(TT.dist_travelled)) //not as reliable as smashing directly
 			smash(loc, hit_atom)
 
 /obj/item/chems/drinks/bottle/proc/smash_check(var/distance)
-	if(!isGlass)
+	if(!material?.is_brittle())
 		return 0
 	if(rag && rag.on_fire) // Molotovs should be somewhat reliable, they're a pain to make.
 		return TRUE
@@ -97,22 +98,23 @@
 	return B
 
 /obj/item/chems/drinks/bottle/attackby(obj/item/W, mob/user)
-	if(!rag && istype(W, /obj/item/chems/glass/rag))
-		insert_rag(W, user)
-		return
+	if(istype(W, /obj/item/chems/glass/rag))
+		return insert_rag(W, user)
 	if(rag && W.isflamesource())
-		rag.attackby(W, user)
-		return
-	..()
+		return rag.attackby(W, user)
+	return ..()
 
 /obj/item/chems/drinks/bottle/attack_self(mob/user)
-	if(rag)
-		remove_rag(user)
-	else
-		..()
+	return rag ? remove_rag(user) : ..()
 
 /obj/item/chems/drinks/bottle/proc/insert_rag(obj/item/chems/glass/rag/R, mob/user)
-	if(!isGlass || rag) return
+	if(material?.type != /decl/material/solid/glass)
+		to_chat(user, SPAN_WARNING("\The [src] isn't made of glass, you can't make a good Molotov with it."))
+		return TRUE
+
+	if(rag) 
+		to_chat(user, SPAN_WARNING("\The [src] already has \a [rag] stuffed into it."))
+		return TRUE
 
 	if(user.try_unequip(R))
 		to_chat(user, SPAN_NOTICE("You stuff [R] into [src]."))
@@ -131,6 +133,7 @@
 
 		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
+	return TRUE
 
 /obj/item/chems/drinks/bottle/proc/remove_rag(mob/user)
 	if(!rag) return
@@ -504,7 +507,10 @@
 	icon_state = "orangejuice"
 	item_state = "carton"
 	center_of_mass = @"{'x':16,'y':7}"
-	isGlass = 0
+	material = /decl/material/solid/organic/cardboard
+	matter = list(
+		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
+	)
 	drop_sound = 'sound/foley/drop1.ogg'
 	pickup_sound = 'sound/foley/paperpickup2.ogg'
 
@@ -517,7 +523,10 @@
 	icon_state = "cream"
 	item_state = "carton"
 	center_of_mass = @"{'x':16,'y':8}"
-	isGlass = 0
+	material = /decl/material/solid/organic/cardboard
+	matter = list(
+		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
+	)
 	drop_sound = 'sound/foley/drop1.ogg'
 	pickup_sound = 'sound/foley/paperpickup2.ogg'
 
@@ -530,7 +539,10 @@
 	icon_state = "tomatojuice"
 	item_state = "carton"
 	center_of_mass = @"{'x':16,'y':8}"
-	isGlass = 0
+	material = /decl/material/solid/organic/cardboard
+	matter = list(
+		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
+	)
 	drop_sound = 'sound/foley/drop1.ogg'
 	pickup_sound = 'sound/foley/paperpickup2.ogg'
 
@@ -543,7 +555,10 @@
 	icon_state = "limejuice"
 	item_state = "carton"
 	center_of_mass = @"{'x':16,'y':8}"
-	isGlass = 0
+	material = /decl/material/solid/organic/cardboard
+	matter = list(
+		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
+	)
 	drop_sound = 'sound/foley/drop1.ogg'
 	pickup_sound = 'sound/foley/paperpickup2.ogg'
 

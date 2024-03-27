@@ -8,7 +8,6 @@
 	var/list/req_access
 	var/list/matter //Used to store information about the contents of the object.
 	var/w_class // Size of the object.
-	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
 	var/throwforce = 1
 	var/sharp = 0		// whether this object cuts
 	var/edge = 0		// whether this object is more likely to dismember
@@ -20,8 +19,8 @@
 	var/tmp/directional_offset ///JSON list of directions to x,y offsets to be applied to the object depending on its direction EX: {'NORTH':{'x':12,'y':5}, 'EAST':{'x':10,'y':50}}
 
 /obj/hitby(atom/movable/AM, var/datum/thrownthing/TT)
-	..()
-	if(!anchored)
+	. = ..()
+	if(. && !anchored)
 		step(src, AM.last_move)
 
 /obj/proc/create_matter()
@@ -87,7 +86,7 @@
 	set_invisibility(hide ? INVISIBILITY_MAXIMUM : initial(invisibility))
 
 /obj/proc/hides_under_flooring()
-	return level == 1
+	return level == LEVEL_BELOW_PLATING
 
 /obj/proc/hear_talk(mob/M, text, verb, decl/language/speaking)
 	if(talking_atom)
@@ -272,6 +271,11 @@
 /obj/proc/WillContain()
 	return
 
+/obj/get_contained_matter()
+	. = ..()
+	if(length(matter))
+		. = MERGE_ASSOCS_WITH_NUM_VALUES(., matter.Copy())
+
 ////////////////////////////////////////////////////////////////
 // Interactions
 ////////////////////////////////////////////////////////////////
@@ -313,3 +317,20 @@
 	..()
 	if(!QDELETED(src) && fluids?.total_volume)
 		fluids.touch_obj(src)
+
+// TODO: maybe iterate the entire matter list or do some partial damage handling
+/obj/proc/solvent_can_melt(var/solvent_power = MAT_SOLVENT_STRONG)
+	if(!simulated)
+		return FALSE
+	var/decl/material/mat = get_material()
+	return !mat || mat.dissolves_in <= solvent_power
+
+/obj/melt()
+	if(length(matter))
+		var/datum/gas_mixture/environment = loc?.return_air()
+		for(var/mat in matter)
+			var/decl/material/M = GET_DECL(mat)
+			M.add_burn_product(environment, MOLES_PER_MATERIAL_UNIT(matter[mat]))
+		matter = null
+	new /obj/effect/decal/cleanable/molten_item(src)
+	qdel(src)

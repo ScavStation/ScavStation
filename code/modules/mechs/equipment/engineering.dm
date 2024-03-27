@@ -5,7 +5,7 @@
 	restricted_software = list(MECH_SOFTWARE_ENGINEERING)
 	material = /decl/material/solid/metal/steel
 	matter = list(
-		/decl/material/solid/plastic = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/organic/plastic = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE,
 		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE
 	)
@@ -53,15 +53,15 @@
 	var/current_mode = 0  //0 barrier, 1 bubble
 	var/shield_range = 2
 
-/obj/item/mech_equipment/atmos_shields/CtrlClick(mob/user)
-	if (owner && ((user in owner.pilots) || user == owner))
+/obj/item/mech_equipment/atmos_shields/AltClick(mob/user)
+	if (owner?.hatch_closed && ((user in owner.pilots) || user == owner))
 		if (active)
 			to_chat(user, SPAN_WARNING("You cannot modify the projection mode while the shield is active."))
 		else
 			current_mode = !current_mode
 			to_chat(user, SPAN_NOTICE("You set the shields to [current_mode ? "bubble" : "barrier"] mode."))
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/effect/mech_shield
 	name = "energy shield"
@@ -71,7 +71,7 @@
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	density = FALSE
-	invisibility = 0
+	invisibility = INVISIBILITY_NONE
 	atmos_canpass = CANPASS_NEVER
 	var/obj/item/mech_equipment/atmos_shields/shields
 	color = COLOR_SABER_BLUE
