@@ -9,9 +9,8 @@
 	desc = "A mysterious stone artefact, careful if you're human!"
 	health = 9999 //un-fecking-breakable
 	max_health = 9999 //un-fecking-breakable
-
-var/transform_impact_prob = 65
-var/transform_passive_prob = 10
+	var/transform_impact_prob = 65
+	var/transform_passive_prob = 10
 
 /obj/item/zat_zhing/equipped()
 	. = ..()
