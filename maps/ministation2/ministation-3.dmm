@@ -130,6 +130,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"oZ" = (
+/obj/structure/lattice,
+/obj/item/stack/cable_coil,
+/turf/space,
+/area/space)
 "rw" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -189,6 +194,18 @@
 "uQ" = (
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4overpass)
+"vm" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "vD" = (
 /obj/machinery/power/solar_control{
 	dir = 8
@@ -27588,8 +27605,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+Lu
+Lu
 Lu
 Lu
 Lu
@@ -27845,9 +27862,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 xZ
+mI
+mI
 mI
 mI
 mI
@@ -28102,8 +28119,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+CJ
+CJ
 CJ
 CJ
 CJ
@@ -28616,8 +28633,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+Lu
+Lu
 Lu
 Lu
 Lu
@@ -28873,9 +28890,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 xZ
+mI
+mI
 mI
 mI
 mI
@@ -29130,8 +29147,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+CJ
+CJ
 CJ
 CJ
 CJ
@@ -29644,8 +29661,8 @@ cw
 aa
 aa
 aa
-aa
-aa
+IZ
+IZ
 IZ
 IZ
 IZ
@@ -29901,9 +29918,9 @@ cw
 cw
 cw
 aa
-aa
-aa
 SJ
+Wi
+vm
 Wi
 Wi
 Wi
@@ -30158,8 +30175,8 @@ cw
 cw
 cw
 aa
-aa
-aa
+MF
+MF
 MF
 MF
 MF
@@ -30425,7 +30442,7 @@ aa
 aa
 dH
 aa
-aa
+uG
 aa
 cw
 cw
@@ -30672,8 +30689,8 @@ cw
 aa
 aa
 aa
-aa
-aa
+Lu
+Lu
 Lu
 Lu
 Lu
@@ -30682,7 +30699,7 @@ Lu
 aa
 dH
 aa
-aa
+uG
 aa
 cw
 cw
@@ -30929,9 +30946,9 @@ cw
 aa
 aa
 aa
-aa
-aa
 xZ
+mI
+mI
 mI
 mI
 mI
@@ -30939,7 +30956,7 @@ mI
 Aj
 nf
 aa
-aa
+oZ
 aa
 cw
 cw
@@ -31186,8 +31203,8 @@ cw
 aa
 aa
 aa
-aa
-aa
+CJ
+CJ
 CJ
 CJ
 CJ
@@ -40990,11 +41007,11 @@ cw
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -41247,11 +41264,11 @@ cw
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -41504,11 +41521,11 @@ cw
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -41761,11 +41778,11 @@ cw
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -42019,9 +42036,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -49729,9 +49746,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -49984,13 +50001,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -50241,13 +50258,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -50498,13 +50515,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -50755,13 +50772,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -51012,13 +51029,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -51270,11 +51287,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -51529,7 +51546,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 aa
 aa
 aa

@@ -149,6 +149,11 @@
 	req_access = list(access_mining)
 	icon_state = "brown"
 	secure = TRUE
+/area/ministation/mining
+	name = "\improper Mineral Processing"
+	req_access = list(access_mining)
+	icon_state = "mining_production"
+	secure = TRUE
 
 /area/ministation/bridge
 	name = "\improper Bridge"
