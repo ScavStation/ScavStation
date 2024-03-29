@@ -22,6 +22,7 @@
 #include "items\tailbags.dm"
 #include "items\turfs.dm"
 #include "items\voidsuits.dm"
+#include "items\zat_zhing.dm"
 #include "jobs\enclave_department.dm"
 #include "jobs\job.dm"
 #include "jobs\yinglet_job.dm"
