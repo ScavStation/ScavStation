@@ -1,5 +1,6 @@
 /datum/job/ministation/captain
-	title = "Matriarch"
+	title = "Captain"
+	alt_titles = list("Matriarch", "Supreme Patriarch")
 	supervisors = "your profit margin, your conscience, and the watchful eye of the Tradehouse Rep"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/captain
 	min_skill = list(
@@ -17,7 +18,6 @@
 	department_types = list(/decl/department/command)
 	total_positions = 1
 	spawn_positions = 1
-	required_gender = FEMALE
 	selection_color = "#1d1d4f"
 	hud_icon = "hudyingmatriarch"
 	req_admin_notify = 1
@@ -30,7 +30,7 @@
 	must_fill = 1
 	not_random_selectable = 1
 
-/datum/job/ministation/captain/equip_job(var/mob/living/carbon/human/H)
+/datum/job/ministation/captain/equip_job(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
 	. = ..()
 	if(H)
 		H.verbs |= /mob/proc/freetradeunion_rename_company
@@ -54,8 +54,9 @@
 	verbs -= /mob/proc/freetradeunion_rename_company
 
 /datum/job/ministation/hop
-	title = "Patriarch of Personnel"
-	supervisors = "the Matriarch"
+	title = "Head of Personnel"
+	alt_titles = list("Patriarch of Personnel","Lieutenant")
+	supervisors = "the Captain"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/hop
 	head_position = 1
 	department_types = list(
@@ -113,7 +114,8 @@
 		access_hop,
 		access_RC_announce,
 		access_keycard_auth,
-		access_gateway
+		access_gateway,
+		access_cameras
 	)
 	minimal_access = list(
 		access_security,
@@ -156,7 +158,8 @@
 		access_hop,
 		access_RC_announce,
 		access_keycard_auth,
-		access_gateway
+		access_gateway,
+		access_cameras
 	)
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
@@ -169,5 +172,4 @@
 		SKILL_PILOT =   SKILL_MAX,
 		SKILL_FINANCE = SKILL_MAX
 	)
-	skill_points = 30
-	alt_titles = list("Head of Personnel")
+	skill_points = 40

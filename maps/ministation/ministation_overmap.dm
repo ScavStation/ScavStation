@@ -1,8 +1,8 @@
 /obj/effect/overmap/visitable/ship/ministation
 	name = "Tradepost Mollusc"
 	color = "#00ffff"
-	start_x = 4
-	start_y = 4
+//	start_x = 4
+//	start_y = 4
 	vessel_mass = 5000
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
@@ -18,5 +18,4 @@
 	//exploration and rescue shuttles can only dock port side, b/c there's only one door.
 	initial_restricted_waypoints = list(
 		/datum/shuttle/autodock/overmap/science_shuttle = list("nav_ministation_science_dock_shuttle")
-	//	/datum/shuttle/autodock/overmap/rescue = list("nav_tradeship_starboard_dock_rescue")
 	)
