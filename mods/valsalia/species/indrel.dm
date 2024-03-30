@@ -297,6 +297,7 @@ var/global/list/pheromone_markers = list()
 				to_chat(H, SPAN_NOTICE("The scent of [smell.scent] intensifies."))
 
 /decl/emote/pheromone
+	abstract_type = /decl/emote/pheromone
 	var/smell_message
 	var/self_smell_descriptor
 	var/scent_color

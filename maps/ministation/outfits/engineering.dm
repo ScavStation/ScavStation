@@ -19,20 +19,6 @@
 
 /decl/hierarchy/outfit/job/ministation/engineer/head
 	name = "Job - Head Engineer"
-	glasses = /obj/item/clothing/glasses/welding/superior
-	suit = /obj/item/clothing/suit/storage/hazardvest
-	gloves = /obj/item/clothing/gloves/thick
-	pda_type = /obj/item/modular_computer/pda/heads/ce
-	hands = list(/obj/item/wrench)
-	l_ear = /obj/item/radio/headset/heads/ce
-
-/obj/item/card/id/ministation/engineering
-	name = "identification card"
-	desc = "A card issued to engineering staff."
-	detail_color = COLOR_SUN
-
-/decl/hierarchy/outfit/job/ministation/chief_engineer
-	name = "Job - Head Engineer"
 	uniform = /obj/item/clothing/under/hazardjumpsuit/yinglet
 	glasses = /obj/item/clothing/glasses/welding/superior
 	suit = /obj/item/clothing/suit/storage/hazardvest
@@ -43,5 +29,10 @@
 	belt = /obj/item/storage/belt/utility/full
 	id_type = /obj/item/card/id/ministation/engineering
 	l_ear = /obj/item/radio/headset/heads/ce
-	outfit_flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
+
+/obj/item/card/id/ministation/engineering
+	name = "identification card"
+	desc = "A card issued to engineering staff."
+	detail_color = COLOR_SUN

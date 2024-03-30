@@ -1930,17 +1930,18 @@
 	id_tag = "xenovent";
 	name = "vent control";
 	pixel_x = 6;
-	pixel_y = -24
+	pixel_y = -24;
+	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -8;
-	pixel_y = -28
+	pixel_y = -28;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/trade/livestock)
 "LO" = (
 /obj/structure/sign/warning/deathsposal{
-	dir = 1;
 	pixel_y = 32
 	},
 /obj/abstract/landmark/start{
