@@ -24,7 +24,7 @@
 /datum/job/ministation/bartender
 	title = "Bartender"
 	alt_titles = list("Cook","Barista")
-	supervisors = "the Patriarch of Personnel and the Matriarch"
+	supervisors = "the Head of Personnel and the Captain"
 	total_positions = 2
 	spawn_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/ministation/bartender
@@ -50,12 +50,12 @@
 		SKILL_COOKING	= SKILL_MAX,
 		SKILL_BOTANY	= SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 
 /datum/job/ministation/cargo
 	title = "Cargo Technician"
 	alt_titles = list("Shaft Miner","Drill Technician","Prospector")
-	supervisors = "the Patriarch of Personnel and the Matriarch"
+	supervisors = "the Head of Personnel and the Captain"
 	total_positions = 3
 	spawn_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/ministation/cargo
@@ -67,10 +67,10 @@
 		access_cargo_bot,
 		access_mining,
 		access_mailsorting,
-		access_eva,
 		access_mining,
 		access_mining_station,
-		access_external_airlocks
+		access_external_airlocks,
+		access_eva
 	)
 	minimal_access = list(
 		access_cargo,
@@ -94,7 +94,7 @@
 		SKILL_EVA		= SKILL_MAX,
 		SKILL_FINANCE	= SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 	software_on_spawn = list(
 		/datum/computer_file/program/supply,
 		/datum/computer_file/program/deck_management,
@@ -107,7 +107,7 @@
 	department_types = list(/decl/department/service)
 	total_positions = 2
 	spawn_positions = 1
-	supervisors = "the Patriarch of Personnel and the Matriarch"
+	supervisors = "the Head of Personnel and the Captain"
 	economic_power = 3
 	selection_color = "#940088"
 	access = list(
@@ -134,14 +134,14 @@
 	min_skill = list(
 		SKILL_HAULING  = SKILL_BASIC
 	)
-	skill_points = 18
+	skill_points = 28
 
 /datum/job/ministation/librarian
 	title = "Librarian"
 	department_types = list(/decl/department/service)
 	total_positions = 1
 	spawn_positions = 2
-	supervisors = "the Patriarch of Personnel, the Matriarch, and the smell of old paper"
+	supervisors = "the Head of Personnel, the Captain, and the smell of old paper"
 	economic_power = 5
 	selection_color = "#008800"
 	access = list(access_library)

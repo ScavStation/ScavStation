@@ -17,7 +17,8 @@
 		access_external_airlocks,
 		access_construction,
 		access_atmospherics,
-		access_emergency_storage
+		access_emergency_storage,
+		access_cameras
 	)
 	minimal_access = list(
 		access_eva,
@@ -28,7 +29,8 @@
 		access_external_airlocks,
 		access_construction,
 		access_atmospherics,
-		access_emergency_storage
+		access_emergency_storage,
+		access_cameras
 	)
 	min_skill = list(
 		SKILL_LITERACY     = SKILL_ADEPT,
@@ -45,12 +47,12 @@
 		SKILL_ATMOS        = SKILL_MAX,
 		SKILL_ENGINES      = SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 	alt_titles = list("Atmospheric Technician")
 	event_categories = list(ASSIGNMENT_ENGINEER)
 
 /datum/job/ministation/engineer/head
-	title = "Patriarch of Engineering"
+	title = "Chief Engineer"
 	head_position = 1
 	department_types = list(
 		/decl/department/engineering,
@@ -83,7 +85,12 @@
 		access_RC_announce,
 		access_keycard_auth,
 		access_tcomsat,
-		access_ai_upload
+		access_mining,
+		access_kitchen,
+		access_robotics,
+		access_hydroponics,
+		access_ai_upload,
+		access_cameras
 	)
 	minimal_access = list(
 		access_engine,
@@ -102,10 +109,15 @@
 		access_ce, access_RC_announce,
 		access_keycard_auth,
 		access_tcomsat,
-		access_ai_upload
+		access_mining,
+		access_kitchen,
+		access_robotics,
+		access_hydroponics,
+		access_ai_upload,
+		access_cameras
 	)
 	minimal_player_age = 14
-	supervisors = "the Matriarch"
+	supervisors = "the Captain"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/chief_engineer
 	min_skill = list(
 		SKILL_LITERACY     = SKILL_ADEPT,
@@ -122,6 +134,6 @@
 		SKILL_ATMOS        = SKILL_MAX,
 		SKILL_ENGINES      = SKILL_MAX
 	)
-	skill_points = 30
-	alt_titles = list("Head Engineer", "Chief Engineer")
+	skill_points = 40
+	alt_titles = list("Head Engineer", "Patriarch of Engineering", "Patriarch of Electricity")
 	event_categories = list(ASSIGNMENT_ENGINEER)

@@ -12,13 +12,17 @@
 	access = list(
 		access_security,
 		access_brig,
-		access_maint_tunnels
+		access_lawyer,
+		access_maint_tunnels,
+		access_cameras
 	)
 	minimal_access = list(
 		access_security,
 		access_forensics_lockers,
 		access_maint_tunnels,
-		access_brig
+		access_lawyer,
+		access_brig,
+		access_cameras
 	)
 	min_skill = list(
 		SKILL_LITERACY = SKILL_BASIC,
@@ -30,7 +34,7 @@
 		SKILL_COMBAT	= SKILL_MAX,
 		SKILL_WEAPONS	= SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 	event_categories = list(ASSIGNMENT_SECURITY)
 
 /datum/job/ministation/detective
@@ -48,13 +52,17 @@
 		access_forensics_lockers,
 		access_brig,
 		access_security,
-		access_maint_tunnels
+		access_lawyer,
+		access_maint_tunnels,
+		access_cameras
 	)
 	minimal_access = list(
 		access_security,
 		access_brig,
+		access_lawyer,
 		access_forensics_lockers,
-		access_maint_tunnels
+		access_maint_tunnels,
+		access_cameras
 	)
 	min_skill = list(
 		SKILL_LITERACY	= SKILL_BASIC,
@@ -68,11 +76,11 @@
 		SKILL_WEAPONS	= SKILL_MAX,
 		SKILL_FORENSICS	= SKILL_MAX
 	)
-	skill_points = 24
+	skill_points = 34
 
 /datum/job/ministation/security/head
-	title = "Patriarch of Security"
-	supervisors = "the Matriarch"
+	title = "Head of Security"
+	supervisors = "the Captain"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security/head
 	head_position = 1
 	department_types = list(
@@ -93,21 +101,37 @@
 		access_security,
 		access_sec_doors,
 		access_brig,
+		access_eva,
 		access_forensics_lockers,
 		access_heads,
+		access_lawyer,
 		access_maint_tunnels,
-		access_eva,
-		access_armory
+		access_armory,
+		access_engine_equip,
+		access_mining,
+		access_kitchen,
+		access_robotics,
+		access_hydroponics,
+		access_hos,
+		access_cameras
 	)
 	minimal_access = list(
 		access_security,
 		access_sec_doors,
 		access_brig,
+		access_lawyer,
+		access_eva,
 		access_forensics_lockers,
 		access_heads,
 		access_maint_tunnels,
-		access_eva,
-		access_armory
+		access_armory,
+		access_engine_equip,
+		access_mining,
+		access_kitchen,
+		access_robotics,
+		access_hydroponics,
+		access_hos,
+		access_cameras
 	)
 	min_skill = list(
 		SKILL_LITERACY = SKILL_BASIC,
@@ -119,5 +143,5 @@
 		SKILL_COMBAT	= SKILL_MAX,
 		SKILL_WEAPONS	= SKILL_MAX
 	)
-	skill_points = 30
-	alt_titles = list("Head of Security","Patriarch of Scouting")
+	skill_points = 40
+	alt_titles = list("Patriarch of Security","Patriarch of Scouting")
