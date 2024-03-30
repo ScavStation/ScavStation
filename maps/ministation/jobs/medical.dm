@@ -6,7 +6,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	alt_titles = list("Chemist","Nurse")
-	skill_points = 24
+	skill_points = 34
 	min_skill = list(
 		SKILL_LITERACY  = SKILL_ADEPT,
 		SKILL_MEDICAL   = SKILL_EXPERT,
@@ -26,32 +26,34 @@
 		access_morgue,
 		access_surgery,
 		access_chemistry,
-		access_virology
+		access_virology,
+		access_cameras
 	)
 	minimal_access = list(
 		access_medical,
 		access_medical_equip,
 		access_morgue,
 		access_surgery,
-		access_virology
+		access_virology,
+		access_cameras
 	)
 	outfit_type = /decl/hierarchy/outfit/job/ministation/doctor
 	minimal_player_age = 3
 	event_categories = list(ASSIGNMENT_MEDICAL)
 
 /datum/job/ministation/doctor/head
-	title = "Patriarch of Medicine"
+	title = "Medical Director"
 	head_position = 1
 	department_types = list(
 		/decl/department/medical,
 		/decl/department/command
 	)
-	supervisors = "the Matriarch and your own ethics"
+	supervisors = "the Captain and your own ethics"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/doctor/head
-	alt_titles = list("Surgeon","Head Doctor")
+	alt_titles = list("Surgeon","Patriarch of Medicine", "Head Doctor")
 	total_positions = 1
 	spawn_positions = 1
-	skill_points = 28
+	skill_points = 38
 	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
@@ -65,6 +67,8 @@
 		access_morgue,
 		access_bridge,
 		access_heads,
+		access_engine_equip,
+		access_eva,
 		access_chemistry,
 		access_virology,
 		access_cmo,
@@ -74,8 +78,14 @@
 		access_sec_doors,
 		access_psychiatrist,
 		access_eva,
+		access_mining,
+		access_kitchen,
+		access_xenobiology,
+		access_robotics,
+		access_hydroponics,
 		access_maint_tunnels,
-		access_external_airlocks
+		access_external_airlocks,
+		access_cameras
 	)
 	minimal_access = list(
 		access_medical,
@@ -83,6 +93,8 @@
 		access_morgue,
 		access_bridge,
 		access_heads,
+		access_engine_equip,
+		access_eva,
 		access_chemistry,
 		access_virology,
 		access_cmo,
@@ -92,8 +104,14 @@
 		access_sec_doors,
 		access_psychiatrist,
 		access_eva,
+		access_mining,
+		access_kitchen,
+		access_xenobiology,
+		access_robotics,
+		access_hydroponics,
 		access_maint_tunnels,
-		access_external_airlocks
+		access_external_airlocks,
+		access_cameras
 	)
 	minimal_player_age = 14
 	ideal_character_age = 50
