@@ -1,24 +1,13 @@
 /decl/hierarchy/outfit/job/ministation/cargo
-	l_ear = /obj/item/radio/headset/ministation_headset_cargo
+	l_ear = /obj/item/radio/headset/headset_cargo
 	name = "Ministation - Job - Cargo technician"
 	uniform = /obj/item/clothing/under/cargotech
 	id_type = /obj/item/card/id/ministation/cargo
 	pda_type = /obj/item/modular_computer/pda/cargo
 	backpack_contents = list(/obj/item/crowbar = 1, /obj/item/storage/ore = 1)
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
-
-/obj/item/encryptionkey/ministation_headset_cargo
-	name = "cargo radio encryption key"
-	icon_state = "srv_cypherkey"
-	can_decrypt = list(access_cargo)
-
-/obj/item/radio/headset/ministation_headset_cargo
-	name = "supply radio headset"
-	desc = "A headset used by the box-pushers."
-	icon = 'maps/ministation/icons/headset_cargo.dmi'
-	encryption_keys = list(/obj/item/encryptionkey/ministation_headset_cargo)
-
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
+	yinglet_suit_service = TRUE
 /decl/hierarchy/outfit/job/ministation/cargo/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_ENGINEERING
@@ -29,8 +18,9 @@
 	uniform = /obj/item/clothing/under/bartender
 	id_type = /obj/item/card/id/ministation/bartender
 	pda_type = /obj/item/modular_computer/pda
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 	head = /obj/item/clothing/head/chefhat
+	yinglet_suit_service = TRUE
 
 /decl/hierarchy/outfit/job/ministation/janitor
 	l_ear = /obj/item/radio/headset/headset_service
@@ -38,7 +28,8 @@
 	uniform = /obj/item/clothing/under/janitor
 	id_type = /obj/item/card/id/ministation/janitor
 	pda_type = /obj/item/modular_computer/pda
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
+	yinglet_suit_service = TRUE
 
 /decl/hierarchy/outfit/job/ministation/librarian
 	l_ear = /obj/item/radio/headset/headset_service
@@ -46,6 +37,8 @@
 	uniform = /obj/item/clothing/under/yinglet/yinglibrarian
 	id_type = /obj/item/card/id/ministation/librarian
 	pda_type = /obj/item/modular_computer/pda
+	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
+	yinglet_suit_service = TRUE
 
 //cards
 /obj/item/card/id/ministation/cargo
