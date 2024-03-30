@@ -7,8 +7,7 @@
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
 	desc = "A mysterious stone artefact, careful if you're human!"
-	health = 9999 //un-fecking-breakable
-	max_health = 9999 //un-fecking-breakable
+	max_health = ITEM_HEALTH_NO_DAMAGE //un-fecking-breakable
 	var/transform_impact_prob = 65
 	var/transform_passive_prob = 10
 
@@ -45,7 +44,7 @@
 		// zhis allows us to make sure each person turned into a yinglet may vary from base coloring
 		var/color = pick(prob(20); rgb(171,140,101), prob(20); rgb(95,95,95), prob(10); rgb(8,8,8), prob(19); rgb(234,234,234), prob(18); rgb(102,51,0), prob(8); rgb(204,102,0), prob(5); rgb(155,51,155))
 		if(color == null){color = rgb(171,140,101)}
-		victim.change_skin_color(color)
+		victim.set_skin_colour(color)
 		//victim.accessories += list(/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",	/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc")
 		//victim.UpdateAppearance()
 		Destroy()

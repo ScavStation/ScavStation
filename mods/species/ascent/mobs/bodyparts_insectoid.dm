@@ -1,21 +1,3 @@
-/datum/inventory_slot/gripper/midlimb
-	slot_name = "Midlimb"
-	slot_id = BP_M_HAND
-	requires_organ_tag = BP_M_HAND
-	ui_label = "M"
-	ui_loc = "CENTER,BOTTOM+1:14"
-	covering_slot_flags = SLOT_HAND_LEFT|SLOT_HAND_RIGHT // todo: generalize?
-
-/obj/item/organ/external/hand/insectoid/midlimb
-	name = "central grasper"
-	joint = "central wrist"
-	organ_tag = BP_M_HAND
-	parent_organ = BP_CHEST
-	amputation_point = "central wrist"
-	icon_position = 0
-	encased = "carapace"
-	gripper_type = /datum/inventory_slot/gripper/midlimb
-
 /obj/item/organ/internal/egg_sac/insectoid
 	name = "gyne egg-sac"
 	action_button_name = "Produce Egg"
@@ -26,7 +8,7 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "egg-on"
-		if(action.button) action.button.UpdateIcon()
+		action.button?.update_icon()
 
 /obj/item/organ/internal/egg_sac/insectoid/attack_self(var/mob/user)
 	. = ..()

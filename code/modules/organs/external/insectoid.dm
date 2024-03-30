@@ -39,20 +39,21 @@
 
 /obj/item/organ/external/head/insectoid
 	name = "head"
-	has_lips = 0
 	encased = "carapace"
 
 /obj/item/organ/external/chest/insectoid
 	name = "thorax"
 	encased = "carapace"
 
-/datum/inventory_slot/gripper/upper_left_hand
-	slot_name = "Left Upper Hand"
-	slot_id = BP_L_HAND_UPPER
-	requires_organ_tag = BP_L_HAND_UPPER
-	ui_label = "UL"
-	hand_sort_priority = 2
-	covering_slot_flags = SLOT_HAND_LEFT
+/obj/item/organ/external/hand/insectoid/midlimb
+	name = "central grasper"
+	joint = "central wrist"
+	organ_tag = BP_M_HAND
+	parent_organ = BP_CHEST
+	amputation_point = "central wrist"
+	icon_position = 0
+	encased = "carapace"
+	gripper_type = /datum/inventory_slot/gripper/midlimb
 
 /obj/item/organ/external/hand/insectoid/upper
 	name = "left raptorial"
@@ -64,14 +65,6 @@
 
 /obj/item/organ/external/hand/insectoid/upper/get_manual_dexterity()
 	return (..() & ~(DEXTERITY_WEAPONS|DEXTERITY_COMPLEX_TOOLS))
-
-/datum/inventory_slot/gripper/upper_right_hand
-	slot_name = "Right Upper Hand"
-	slot_id = BP_R_HAND_UPPER
-	requires_organ_tag = BP_R_HAND_UPPER
-	ui_label = "UR"
-	hand_sort_priority = 2
-	covering_slot_flags = SLOT_HAND_RIGHT
 
 /obj/item/organ/external/hand/right/insectoid/upper
 	name = "right raptorial"

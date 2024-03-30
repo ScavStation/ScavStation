@@ -12,7 +12,7 @@
 		SKILL_PILOT   = SKILL_MAX,
 		SKILL_WEAPONS = SKILL_MAX
 	)
-	skill_points = 30
+	skill_points = 40
 	head_position = 1
 	department_types = list(/decl/department/command)
 	total_positions = 1
@@ -81,6 +81,7 @@
 		access_heads,
 		access_medical,
 		access_engine,
+		access_atmospherics,
 		access_change_ids,
 		access_ai_upload,
 		access_eva,
@@ -93,6 +94,10 @@
 		access_morgue,
 		access_crematorium,
 		access_kitchen,
+		access_mining,
+		access_xenobiology,
+		access_robotics,
+		access_engine_equip,
 		access_cargo,
 		access_cargo_bot,
 		access_mailsorting,
@@ -119,6 +124,7 @@
 		access_heads,
 		access_medical,
 		access_engine,
+		access_atmospherics,
 		access_change_ids,
 		access_ai_upload,
 		access_eva,
@@ -128,6 +134,10 @@
 		access_bar,
 		access_janitor,
 		access_construction,
+		access_mining,
+		access_xenobiology,
+		access_robotics,
+		access_engine_equip,
 		access_morgue,
 		access_crematorium,
 		access_kitchen,

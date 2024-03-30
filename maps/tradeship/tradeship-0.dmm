@@ -137,7 +137,8 @@
 	dir = 9
 	},
 /obj/machinery/newscaster{
-	pixel_y = -30
+	pixel_y = -30;
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -454,7 +455,8 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_y = -20
+	pixel_y = -20;
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1481,7 +1483,8 @@
 	name = "shank"
 	},
 /obj/machinery/newscaster{
-	pixel_x = 30
+	pixel_x = 30;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/trade/fore_port_underside_maint)
@@ -1758,7 +1761,7 @@
 /area/ship/trade/livestock)
 "Hk" = (
 /obj/item/radio/intercom{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /obj/machinery/optable,
 /obj/machinery/light{
@@ -1965,7 +1968,8 @@
 /area/ship/trade/livestock)
 "MI" = (
 /obj/machinery/light_switch{
-	pixel_x = 20
+	pixel_x = 20;
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2124,7 +2128,7 @@
 /area/ship/trade/loading_bay)
 "SS" = (
 /obj/item/radio/intercom{
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -2240,7 +2244,7 @@
 	},
 /obj/structure/table,
 /obj/item/stack/material/puck/mapped/uranium,
-/obj/item/knife/table/plastic,
+/obj/item/utensil/knife/plastic,
 /obj/item/clothing/accessory/bowtie/ugly,
 /obj/random/action_figure,
 /turf/simulated/floor,

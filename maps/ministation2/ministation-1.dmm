@@ -66,7 +66,7 @@
 	pixel_y = 24
 	},
 /obj/item/flashlight/lamp/green,
-/obj/item/storage/fancy/cigarettes/tricord,
+/obj/item/storage/box/fancy/cigarettes/tricord,
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical)
 "at" = (
@@ -317,7 +317,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/structure/disposalpipe/down,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/l2centraln)
 "bH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -508,7 +508,7 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/w2)
 "cL" = (
 /obj/machinery/firealarm{
@@ -658,7 +658,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	max_health = -1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -725,7 +725,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/w2)
 "dN" = (
 /obj/structure/cable{
@@ -1224,7 +1224,7 @@
 /turf/simulated/floor/grass,
 /area/ministation/hydro)
 "gz" = (
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/e2)
 "gB" = (
 /obj/structure/table/woodentable/mahogany,
@@ -1969,8 +1969,7 @@
 /obj/machinery/porta_turret{
 	dir = 4;
 	id_tag = "goodstuff";
-	maxhealth = 160;
-	health = 160
+	max_health = 160
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/security)
@@ -2279,7 +2278,7 @@
 /obj/structure/table,
 /obj/item/chems/glass/rag,
 /obj/item/trash/stick,
-/obj/item/kitchen/utensil/spoon,
+/obj/item/utensil/spoon,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "kS" = (
@@ -2531,7 +2530,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/w2)
 "md" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3386,7 +3385,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cmo,
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
 /obj/item/gun/projectile/dartgun/medical,
@@ -3466,7 +3465,7 @@
 	dir = 4;
 	icon_state = "warningcorner"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/w2)
 "qO" = (
 /obj/machinery/cryopod{
@@ -3659,7 +3658,7 @@
 	dir = 1;
 	icon_state = "warningcorner"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/w2)
 "rA" = (
 /obj/structure/table/woodentable,
@@ -4056,7 +4055,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	max_health = -1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4276,7 +4275,7 @@
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/e2)
 "tx" = (
 /obj/machinery/door/firedoor{
@@ -5176,7 +5175,7 @@
 "wr" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/l2centrals)
 "ws" = (
 /turf/simulated/floor/tiled,
@@ -5286,8 +5285,8 @@
 /area/ministation/hydro)
 "wO" = (
 /obj/item/chems/condiment/small/peppermill,
-/obj/item/knife/table,
-/obj/item/kitchen/utensil/fork,
+/obj/item/utensil/knife,
+/obj/item/utensil/fork,
 /obj/structure/table/gamblingtable,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -5300,7 +5299,7 @@
 /area/ministation/cafe)
 "wQ" = (
 /obj/structure/table/marble,
-/obj/item/storage/box/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
@@ -5446,7 +5445,7 @@
 /turf/simulated/floor/carpet/red,
 /area/ministation/security)
 "xo" = (
-/obj/item/kitchen/utensil/spoon,
+/obj/item/utensil/spoon,
 /obj/item/chems/condiment/small/saltshaker,
 /obj/item/chems/condiment/small/sugar,
 /obj/structure/table/gamblingtable,
@@ -5485,7 +5484,7 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/item/trash/tray,
+/obj/item/plate/tray,
 /obj/machinery/door/blast/shutters{
 	id_tag = "barshut";
 	name = "Bar Shutters"
@@ -5734,8 +5733,8 @@
 /obj/item/hatchet,
 /obj/item/minihoe,
 /obj/item/minihoe,
-/obj/item/shovel/spade,
-/obj/item/shovel/spade,
+/obj/item/tool/spade,
+/obj/item/tool/spade,
 /obj/item/honey_frame,
 /obj/item/honey_frame,
 /obj/item/honey_frame,
@@ -5771,7 +5770,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/nebypass)
 "yl" = (
 /obj/structure/displaycase,
@@ -7232,7 +7231,7 @@
 /obj/item/stamp/clown,
 /obj/item/storage/backpack/clown,
 /obj/item/bikehorn,
-/obj/item/storage/fancy/crayons,
+/obj/item/storage/box/fancy/crayons,
 /obj/item/poster,
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
@@ -7908,7 +7907,7 @@
 /area/ministation/security)
 "Jo" = (
 /obj/structure/table/woodentable,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /obj/item/pen,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8018,7 +8017,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	max_health = -1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -8359,7 +8358,7 @@
 /obj/item/storage/box/beakers,
 /obj/item/chems/glass/beaker/large,
 /obj/item/chems/glass/beaker/large,
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "LY" = (
@@ -8510,7 +8509,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/w2)
 "MT" = (
 /obj/machinery/body_scan_display{
@@ -8669,7 +8668,7 @@
 /turf/simulated/floor/grass,
 /area/ministation/hydro)
 "NC" = (
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/w2)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8933,7 +8932,7 @@
 /area/ministation/medical)
 "Pd" = (
 /obj/structure/table/woodentable,
-/obj/item/storage/fancy/cigarettes{
+/obj/item/storage/box/fancy/cigarettes{
 	pixel_y = 2
 	},
 /obj/item/flame/lighter/random,
@@ -9397,7 +9396,7 @@
 /obj/structure/cable{
 	icon_state = "32-1"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/hydromaint)
 "RQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9509,7 +9508,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/w2)
 "SA" = (
 /obj/machinery/network/relay{
@@ -10190,7 +10189,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/sebypass)
 "Wi" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{

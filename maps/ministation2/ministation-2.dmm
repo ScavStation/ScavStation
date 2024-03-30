@@ -646,7 +646,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "ch" = (
 /obj/structure/cable{
@@ -1859,7 +1859,7 @@
 "hY" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/l3nw)
 "if" = (
 /obj/machinery/door/window/eastright,
@@ -2185,9 +2185,9 @@
 /obj/structure/table,
 /obj/item/clothing/glasses/welding,
 /obj/item/stack/material/pane/mapped/glass/fifty,
-/obj/item/stack/material/reinforced/mapped/fiberglass/fifty,
+/obj/item/stack/material/sheet/reinforced/mapped/fiberglass/fifty,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
-/obj/item/stack/material/shiny/mapped/aluminium/fifty,
+/obj/item/stack/material/sheet/shiny/mapped/aluminium/fifty,
 /obj/item/stack/material/ingot/mapped/copper/fifty,
 /obj/machinery/camera/network/research{
 	dir = 1;
@@ -3250,7 +3250,7 @@
 "pb" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/l3sw)
 "pf" = (
 /obj/effect/floor_decal/corner/blue{
@@ -3703,7 +3703,7 @@
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "tx" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -3713,7 +3713,7 @@
 "ty" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/l3se)
 "tA" = (
 /obj/effect/floor_decal/corner/yellow/full,
@@ -3790,7 +3790,7 @@
 /area/ministation/court)
 "ug" = (
 /obj/structure/catwalk,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "uh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4127,7 +4127,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	max_health = -1
 	},
 /obj/machinery/vending/cola{
 	dir = 1
@@ -4137,7 +4137,7 @@
 "wY" = (
 /obj/structure/table/woodentable/ebony,
 /obj/item/pen/fancy,
-/obj/item/storage/fancy/crayons,
+/obj/item/storage/box/fancy/crayons,
 /obj/effect/floor_decal/stoneborder{
 	dir = 6
 	},
@@ -4147,7 +4147,7 @@
 "xc" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/l3ne)
 "xg" = (
 /obj/machinery/light{
@@ -5197,7 +5197,7 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "Dp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5625,7 +5625,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "GD" = (
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "GE" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -5955,7 +5955,7 @@
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
 "Jx" = (
-/obj/structure/closet/secure_closet/RD,
+/obj/structure/closet/secure_closet/research_director,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/rd,
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
 /obj/item/stamp/rd,
@@ -6001,7 +6001,7 @@
 /obj/structure/disposalpipe/down{
 	dir = 4
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/l3central)
 "JN" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -6640,7 +6640,7 @@
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "OG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6742,7 +6742,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "Pg" = (
 /obj/structure/cable{
@@ -7538,7 +7538,7 @@
 	dir = 8;
 	icon_state = "warning"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "TR" = (
 /obj/structure/window/basic{
@@ -7606,7 +7606,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	max_health = -1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -7750,7 +7750,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/maint/l3se)
 "Vi" = (
 /obj/machinery/light_switch{
@@ -8140,7 +8140,7 @@
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "XE" = (
 /obj/structure/catwalk,
@@ -8148,7 +8148,7 @@
 	dir = 8;
 	icon_state = "warningcorner"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "XI" = (
 /obj/effect/floor_decal/carpet/green/corners,

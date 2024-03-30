@@ -29,11 +29,11 @@
 	initial_spawn_target = 2
 	command_department_id = /decl/department/command
 
-/datum/map/ministation/potential_theft_targets = list(
+/datum/map/ministation
+	potential_theft_targets = list(
 		"an owl mask"                        = /obj/item/clothing/mask/gas/owl_mask,
 		"a toy ripley"                       = /obj/item/toy/prize/powerloader,
 		"a collectable top hat"              = /obj/item/clothing/head/collectable/tophat,
-		"the reactive teleport armor"        = /obj/item/clothing/suit/armor/reactive,
 		"a jetpack"                          = /obj/item/tank/jetpack,
 		"a captain's jumpsuit"               = /obj/item/clothing/under/captain,
 		"a pair of magboots"                 = /obj/item/clothing/shoes/magboots,

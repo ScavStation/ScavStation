@@ -95,7 +95,7 @@
 			. = 8
 
 /decl/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
-	. = H && H.change_skin_color(rgb(189, 171, 143))
+	. = H && H.set_skin_colour(rgb(189, 171, 143))
 
 /decl/species/yinglet/get_autohiss_map(var/mode)
 	if(mode == PREF_FULL)

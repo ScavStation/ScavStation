@@ -18,7 +18,7 @@
 		SKILL_DEVICES  = SKILL_MAX,
 		SKILL_SCIENCE  = SKILL_MAX
 	)
-	skill_points = 24
+	skill_points = 34
 	access = list(
 		access_robotics,
 		access_tox,

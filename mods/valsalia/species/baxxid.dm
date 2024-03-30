@@ -8,13 +8,15 @@
 	mob_size = MOB_SIZE_LARGE
 	base_color = "#c7b8aa"
 	base_eye_color = "#003366"
-	base_markings = list(
-		/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
-		/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
-		/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
+	default_sprite_accessories = list(
+		SAC_MARKINGS = list(
+			/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
+			/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
+			/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
+		)
 	)
 	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
@@ -126,7 +128,7 @@
 	species_allowed = list(SPECIES_BAXXID)
 	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
 	icon_state = "crest"
-	blend = ICON_MULTIPLY
+	color_blend = ICON_MULTIPLY
 	mask_to_bodypart = FALSE
 	uid = "marking_baxxid_crest"
 

@@ -13,10 +13,9 @@
 	event_categories = list(ASSIGNMENT_GARDENER)
 
 /datum/job/ministation/assistant/get_access()
-	if(config.assistant_maint)
+	if(get_config_value(/decl/config/toggle/assistant_maint))
 		return list(access_maint_tunnels)
-	else
-		return list()
+	return list()
 
 /decl/hierarchy/outfit/job/ministation_assistant
 	name = "Job - Ministation Assistant"
@@ -50,7 +49,7 @@
 		SKILL_COOKING	= SKILL_MAX,
 		SKILL_BOTANY	= SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 
 /datum/job/ministation/cargo
 	title = "Cargo Technician"
@@ -70,7 +69,8 @@
 		access_eva,
 		access_mining,
 		access_mining_station,
-		access_external_airlocks
+		access_external_airlocks,
+		access_eva
 	)
 	minimal_access = list(
 		access_cargo,
@@ -94,7 +94,7 @@
 		SKILL_EVA		= SKILL_MAX,
 		SKILL_FINANCE	= SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 30
 	software_on_spawn = list(
 		/datum/computer_file/program/supply,
 		/datum/computer_file/program/deck_management,
@@ -134,7 +134,7 @@
 	min_skill = list(
 		SKILL_HAULING  = SKILL_BASIC
 	)
-	skill_points = 18
+	skill_points = 28
 
 /datum/job/ministation/librarian
 	title = "Librarian"

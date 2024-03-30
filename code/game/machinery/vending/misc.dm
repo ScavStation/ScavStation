@@ -26,7 +26,9 @@
 	markup = 0
 	base_type = /obj/machinery/vending/dinnerware
 	products = list(
-		/obj/item/chems/glass/beaker/bowl =2,
+		/obj/item/plate = 10,
+		/obj/item/plate/platter = 5,
+		/obj/item/chems/glass/beaker/bowl = 2,
 		/obj/item/storage/tray/metal/aluminium = 8,
 		/obj/item/knife/kitchen = 3,
 		/obj/item/kitchen/rollingpin = 2,
@@ -60,8 +62,7 @@
 		/obj/item/grooming/comb = 8,
 		/obj/item/clothing/glasses/eyepatch/monocle = 5,
 		/obj/item/clothing/glasses/sunglasses = 5,
-		/obj/item/lipstick = 3,
-		/obj/random/lipstick = 3,
+		/obj/random/makeup = 3,
 		/obj/item/storage/wallet/poly = 2
 	)
 	contraband = list(

@@ -7,7 +7,7 @@
 	limb_blend        = ICON_MULTIPLY
 	eye_blend         = ICON_MULTIPLY
 	eye_icon          = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
-	lip_icon          = 'mods/valsalia/icons/species/yinglet/lips.dmi'
+	cosmetics_icon    = 'mods/valsalia/icons/species/yinglet/cosmetics.dmi'
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/yinglet),
@@ -22,9 +22,11 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/yinglet),
 		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet/robot)
 	)
-	base_markings = list(
-		/decl/sprite_accessory/marking/yinglet/long_ears  = COLOR_GUNMETAL,
-		/decl/sprite_accessory/marking/yinglet/shelltooth = COLOR_GUNMETAL
+	default_sprite_accessories = list(
+		SAC_MARKINGS = list(
+			/decl/sprite_accessory/marking/yinglet/long_ears  = COLOR_GUNMETAL,
+			/decl/sprite_accessory/marking/yinglet/shelltooth = COLOR_GUNMETAL
+		)
 	)
 
 /decl/bodytype/prosthetic/ying/Initialize()
@@ -53,57 +55,49 @@
 /decl/bodytype/prosthetic/ying/metal/fbp
 	name = "yinglet, gynoid"
 	icon_base = 'mods/valsalia/icons/metal_female.dmi'
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
 
 /decl/bodytype/prosthetic/ying/metal/fbp/masculine
 	name = "yinglet, android"
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
 
 DEFINE_ROBOLIMB_MODEL_ASPECTS(/decl/bodytype/prosthetic/ying/metal, yinglet_scavenged, 0)
 DEFINE_ROBOLIMB_DESIGNS(/decl/bodytype/prosthetic/ying/metal, lunar_transit)
 
-/decl/material/solid/organic/wood/generate_recipes(var/reinforce_material)
-	. = ..()
-	if(!reinforce_material)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_arm_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/right_arm_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_leg_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/right_leg_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_hand_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/right_hand_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_foot_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/right_foot_ying(src)
+/decl/stack_recipe/wooden_prosthetic
+	abstract_type = /decl/stack_recipe/wooden_prosthetic
+	required_material = /decl/material/solid/organic/wood
 
-/datum/stack_recipe/wooden_prosthetic/left_arm_ying
-	title = "small left arm"
+/decl/stack_recipe/wooden_prosthetic/left_arm_ying
+	name = "small left arm"
 	result_type = /obj/item/organ/external/arm/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/right_arm_ying
-	title = "small right arm"
+/decl/stack_recipe/wooden_prosthetic/right_arm_ying
+	name = "small right arm"
 	result_type = /obj/item/organ/external/arm/right/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/left_leg_ying
-	title = "small left leg"
+/decl/stack_recipe/wooden_prosthetic/left_leg_ying
+	name = "small left leg"
 	result_type = /obj/item/organ/external/leg/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/right_leg_ying
-	title = "small right leg"
+/decl/stack_recipe/wooden_prosthetic/right_leg_ying
+	name = "small right leg"
 	result_type = /obj/item/organ/external/leg/right/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/left_hand_ying
-	title = "small left hand"
+/decl/stack_recipe/wooden_prosthetic/left_hand_ying
+	name = "small left hand"
 	result_type = /obj/item/organ/external/hand/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/right_hand_ying
-	title = "small right hand"
+/decl/stack_recipe/wooden_prosthetic/right_hand_ying
+	name = "small right hand"
 	result_type = /obj/item/organ/external/hand/right/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/left_foot_ying
-	title = "small left foot"
+/decl/stack_recipe/wooden_prosthetic/left_foot_ying
+	name = "small left foot"
 	result_type = /obj/item/organ/external/foot/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/right_foot_ying
-	title = "small right foot"
+/decl/stack_recipe/wooden_prosthetic/right_foot_ying
+	name = "small right foot"
 	result_type = /obj/item/organ/external/foot/right/yinglet/wooden
 
 /obj/item/organ/external/arm/yinglet/wooden

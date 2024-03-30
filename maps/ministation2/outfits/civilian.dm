@@ -5,9 +5,10 @@
 	id_type = /obj/item/card/id/ministation/cargo
 	pda_type = /obj/item/modular_computer/pda/cargo
 	backpack_contents = list(/obj/item/crowbar = 1, /obj/item/storage/ore = 1)
-	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
+	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated
 	yinglet_suit_service = TRUE
+
 /decl/hierarchy/outfit/job/ministation/cargo/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_ENGINEERING
