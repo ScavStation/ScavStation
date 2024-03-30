@@ -1,37 +1,19 @@
 /decl/bodytype/prosthetic/ying
-	bodytype_flag     = BODY_FLAG_YINGLET
-	bodytype_category = BODYTYPE_YINGLET
-	mob_size          = MOB_SIZE_SMALL
 	abstract_type     = /decl/bodytype/prosthetic/ying
-	movement_slowdown = -0.5
-	limb_blend        = ICON_MULTIPLY
-	eye_blend         = ICON_MULTIPLY
-	eye_icon          = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
-	cosmetics_icon    = 'mods/valsalia/icons/species/yinglet/cosmetics.dmi'
-	has_limbs = list(
-		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
-		BP_GROIN =  list("path" = /obj/item/organ/external/groin/yinglet),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/yinglet),
-		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/yinglet),
-		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/yinglet),
-		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/yinglet),
-		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/yinglet),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/yinglet),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/yinglet),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/yinglet),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/yinglet),
-		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet/robot)
-	)
-	default_sprite_accessories = list(
-		SAC_MARKINGS = list(
-			/decl/sprite_accessory/marking/yinglet/long_ears  = COLOR_GUNMETAL,
-			/decl/sprite_accessory/marking/yinglet/shelltooth = COLOR_GUNMETAL
-		)
-	)
 
 /decl/bodytype/prosthetic/ying/Initialize()
 	var/decl/bodytype/meatying = GET_DECL(/decl/bodytype/yinglet)
-	equip_adjust = deepCopyList(meatying.equip_adjust)
+	bodytype_flag              = meatying.bodytype_flag
+	bodytype_category          = meatying.bodytype_category
+	mob_size                   = meatying.mob_size
+	movement_slowdown          = meatying.movement_slowdown
+	limb_blend                 = meatying.limb_blend
+	eye_blend                  = meatying.eye_blend
+	eye_icon                   = meatying.eye_icon
+	cosmetics_icon             = meatying.cosmetics_icon
+	equip_adjust               = deepCopyList(meatying.equip_adjust)
+	has_limbs                  = deepCopyList(meatying.has_limbs)
+	default_sprite_accessories = deepCopyList(meatying.default_sprite_accessories)
 	. = ..()
 
 /decl/bodytype/prosthetic/ying/wooden
@@ -43,7 +25,6 @@
 	manual_dexterity = DEXTERITY_SIMPLE_MACHINES
 	movement_slowdown = 2
 	is_robotic = FALSE
-	eye_icon = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
 	material = /decl/material/solid/organic/wood
 
 /decl/bodytype/prosthetic/ying/metal

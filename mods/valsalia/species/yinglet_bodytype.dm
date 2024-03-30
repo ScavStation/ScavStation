@@ -23,6 +23,9 @@
 	base_color = "#ab8c65"
 	base_eye_color = "#f5c842"
 	default_sprite_accessories = list(
+		SAC_HAIR = list(
+			/decl/sprite_accessory/hair/yinglet = "#6e5331"
+		),
 		SAC_MARKINGS = list(
 			/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
 			/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"

@@ -199,7 +199,7 @@ var/global/list/pheromone_markers = list()
 	. = capitalize(trim(.))
 
 /decl/species/indrel/Initialize()
-	default_emotes |= list(
+	LAZYDISTINCTADD(default_emotes, list(
 		/decl/emote/pheromone/fear,
 		/decl/emote/pheromone/calm,
 		/decl/emote/pheromone/storm,
@@ -210,7 +210,7 @@ var/global/list/pheromone_markers = list()
 		/decl/emote/pheromone/happy,
 		/decl/emote/pheromone/sad,
 		/decl/emote/pheromone/custom
-	)
+	))
 	. = ..()
 
 /datum/extension/scent/custom/pheromone/check_smeller(var/mob/living/carbon/human/smeller)
