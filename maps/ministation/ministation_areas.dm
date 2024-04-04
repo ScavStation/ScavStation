@@ -121,8 +121,9 @@
 
 // Fourth Floor Deck
 
-/area/ministation/l4observation_deck
+/area/ministation/observation_deck
 	name = "\improper Observation Deck"
+	icon_state = "white"
 
 //Maint Bypasses
 

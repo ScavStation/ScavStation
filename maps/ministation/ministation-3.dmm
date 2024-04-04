@@ -58,7 +58,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "cw" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -80,7 +80,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "eo" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -116,10 +116,10 @@
 "eu" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "fD" = (
 /turf/simulated/open,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "gu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -153,7 +153,7 @@
 	level = 2
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "jq" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -204,7 +204,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "nu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -212,13 +212,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "nE" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "nY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -230,7 +230,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "oZ" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 4
@@ -239,14 +239,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "qD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "qH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -255,7 +255,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "qK" = (
 /obj/item/stack/cable_coil,
 /obj/structure/cable{
@@ -266,13 +266,13 @@
 "qU" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "rn" = (
 /obj/structure/bed/sofa/left/beige{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "rw" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -282,7 +282,7 @@
 /area/space)
 "rB" = (
 /turf/simulated/wall,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "sD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -303,11 +303,11 @@
 /area/ministation/maint/l4central)
 "tu" = (
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "tB" = (
 /obj/structure/flora/bush/grassybush,
 /turf/simulated/floor/grass,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "tN" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -344,7 +344,7 @@
 "vh" = (
 /obj/structure/table/woodentable,
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "vm" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -372,7 +372,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "wi" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -386,7 +386,7 @@
 	level = 2
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "xN" = (
 /obj/abstract/map_data{
 	height = 4
@@ -432,7 +432,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "AT" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -469,7 +469,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Cu" = (
 /obj/structure/ladder,
 /obj/structure/lattice,
@@ -491,7 +491,7 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Da" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -508,7 +508,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Dc" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -542,7 +542,7 @@
 "EA" = (
 /obj/structure/flora/bush/ppflowers,
 /turf/simulated/floor/grass,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Fa" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -554,7 +554,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "GD" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -583,12 +583,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Hf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Hm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -600,13 +600,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Hs" = (
 /obj/structure/bed/sofa/middle/beige{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "HM" = (
 /obj/machinery/network/relay{
 	initial_network_id = "molluscnet"
@@ -615,7 +615,7 @@
 /area/ministation/maint/l4central)
 "Id" = (
 /turf/simulated/floor/grass,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "IZ" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
@@ -634,7 +634,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Lu" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -662,7 +662,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "MF" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
@@ -707,7 +707,7 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "Sj" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -715,7 +715,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 "SJ" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -819,7 +819,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/maint/l4observation_deck)
+/area/ministation/observation_deck)
 
 (1,1,1) = {"
 aa
