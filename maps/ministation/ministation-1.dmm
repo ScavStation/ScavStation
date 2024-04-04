@@ -610,7 +610,7 @@
 	name = "bluespace_a"
 	},
 /turf/simulated/open,
-/area/ministation/hall/w2)
+/area/ministation/maint/l2centraln)
 "dm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1753,7 +1753,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/maint/l2centraln)
 "iv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2349,7 +2349,7 @@
 	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/maint/l2centraln)
 "lg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -2452,6 +2452,9 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
+"lC" = (
+/turf/simulated/open,
 /area/ministation/maint/l2centraln)
 "lF" = (
 /turf/simulated/wall,
@@ -6682,7 +6685,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/maint/l2centraln)
 "BS" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
@@ -6810,6 +6813,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/medical)
+"CF" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/ministation/maint/l2centraln)
 "CJ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -7297,6 +7304,9 @@
 /obj/structure/target_stake,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"Fv" = (
+/turf/simulated/floor/tiled,
+/area/ministation/maint/l2centraln)
 "Fy" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8289,7 +8299,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/maint/l2centraln)
 "LE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/junction{
@@ -8730,7 +8740,7 @@
 	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/maint/l2centraln)
 "NU" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -10104,7 +10114,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/area/ministation/maint/l2centraln)
 "VC" = (
 /obj/structure/table,
 /obj/item/chems/spray/cleaner,
@@ -38659,12 +38669,12 @@ mq
 HO
 HO
 HO
-kZ
+mq
 Lt
-aV
-aV
-aV
-aV
+Fv
+Fv
+Fv
+Fv
 BN
 mq
 mq
@@ -38916,8 +38926,8 @@ mq
 HO
 HO
 HO
-kZ
-aV
+mq
+Fv
 NR
 it
 it
@@ -39173,12 +39183,12 @@ mq
 HO
 HO
 HO
-kZ
-aV
-vP
-NC
-NC
-NC
+mq
+Fv
+CF
+lC
+lC
+lC
 VB
 aV
 aV
@@ -39430,15 +39440,15 @@ mq
 HO
 HO
 HO
-kZ
-aV
-vP
-NC
+mq
+Fv
+CF
+lC
 dj
-NC
-kZ
-kZ
-kZ
+lC
+mq
+mq
+mq
 mq
 mq
 mq
@@ -39687,13 +39697,13 @@ mq
 HO
 HO
 HO
-kZ
+mq
 Lt
-vP
-NC
-NC
-NC
-kZ
+CF
+lC
+lC
+lC
+mq
 HO
 HO
 mq
@@ -39944,13 +39954,13 @@ mq
 HO
 HO
 HO
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
+mq
+mq
+mq
+mq
+mq
+mq
+mq
 HO
 mq
 mq
