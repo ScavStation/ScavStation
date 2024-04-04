@@ -107,9 +107,9 @@
 	button_type = /obj/structure/lift/button/standalone
 	panel_type =  /obj/structure/lift/panel/standalone
 	areas_to_use = list(
-		/area/turbolift/l1,
-		/area/turbolift/l2,
-		/area/turbolift/l3
+		/area/turbolift/l1p,
+		/area/turbolift/l2p,
+		/area/turbolift/l3p
 	)
 	floor_departure_sound = 'sound/effects/lift_heavy_start.ogg'
 	floor_arrival_sound =   'sound/effects/lift_heavy_stop.ogg'

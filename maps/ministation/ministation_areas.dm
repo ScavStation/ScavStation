@@ -121,7 +121,7 @@
 
 // Fourth Floor Deck
 
-/area/ministation/maint/l4observation_deck
+/area/ministation/l4observation_deck
 	name = "\improper Observation Deck"
 
 //Maint Bypasses
