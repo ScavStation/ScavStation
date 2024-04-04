@@ -119,6 +119,11 @@
 /area/ministation/maint/l4overpass
 	name = "\improper Level Four Maintenance Overpass"
 
+// Fourth Floor Deck
+
+/area/ministation/maint/l4observation_deck
+	name = "\improper Observation Deck"
+
 //Maint Bypasses
 
 /area/ministation/maint/sebypass

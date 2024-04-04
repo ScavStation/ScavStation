@@ -605,6 +605,12 @@
 	},
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
+"dj" = (
+/obj/abstract/landmark{
+	name = "bluespace_a"
+	},
+/turf/simulated/open,
+/area/ministation/hall/w2)
 "dm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -739,6 +745,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "dQ" = (
@@ -1737,6 +1744,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
+"it" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "iv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2275,6 +2292,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/stone,
 /area/ministation/hall/e2)
+"kQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "kR" = (
 /obj/structure/table,
 /obj/item/chems/glass/rag,
@@ -2290,6 +2316,10 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/ministation/medical)
+"kU" = (
+/obj/machinery/door/airlock/double/mining,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "kV" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -2313,6 +2343,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/hall/e2)
+"le" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4;
+	icon_state = "warningcorner"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "lg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -2513,14 +2550,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "lR" = (
-/obj/structure/bed/chair/comfy/beige{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
+/obj/structure/reagent_dispensers/beerkeg,
+/turf/simulated/floor/plating,
+/area/ministation/hall/e2)
 "mc" = (
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning{
@@ -2694,6 +2726,12 @@
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"nj" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "no" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -2784,6 +2822,9 @@
 "nF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
+	},
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
@@ -3038,7 +3079,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "pf" = (
-/obj/structure/table/woodentable,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
@@ -3286,10 +3326,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/detective)
-"qe" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
 "qf" = (
 /turf/simulated/wall,
 /area/ministation/maint/l2centrals)
@@ -3660,13 +3696,6 @@
 	icon_state = "warningcorner"
 	},
 /turf/simulated/open,
-/area/ministation/hall/w2)
-"rA" = (
-/obj/structure/table/woodentable,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "rC" = (
 /obj/machinery/airlock_sensor{
@@ -4273,11 +4302,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "tv" = (
-/obj/abstract/landmark{
-	name = "bluespace_a"
+/obj/machinery/light/small{
+	dir = 4
 	},
-/turf/simulated/open,
-/area/ministation/hall/e2)
+/turf/simulated/floor/plating,
+/area/ministation/maint/l2centraln)
 "tx" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -6261,14 +6290,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/ministation/detective)
-"zZ" = (
-/obj/structure/bed/chair/comfy/beige{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
 "Ae" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -6656,6 +6677,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ministation/cafe)
+"BN" = (
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "BS" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
@@ -8257,11 +8284,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
 "Lt" = (
-/obj/machinery/network/relay{
-	initial_network_id = "molluscnet"
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l2centraln)
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "LE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/junction{
@@ -8698,13 +8726,11 @@
 /turf/space,
 /area/space)
 "NR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/e2)
+/area/ministation/hall/w2)
 "NU" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -9171,12 +9197,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
-"Qj" = (
-/obj/structure/bed/chair/comfy/beige{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/hall/w2)
 "Qk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9732,6 +9752,9 @@
 	dir = 4;
 	icon_state = "warning"
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
 "TQ" = (
@@ -10072,6 +10095,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"VB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "VC" = (
 /obj/structure/table,
 /obj/item/chems/spray/cleaner,
@@ -38120,7 +38153,7 @@ PL
 dd
 kb
 dd
-mq
+dd
 mq
 mq
 kZ
@@ -38372,16 +38405,16 @@ mq
 mq
 mq
 mq
-Lt
-dd
-dd
-dd
-dd
+mq
+mq
+mq
+mq
+mq
 dd
 pl
 dd
 dd
-dd
+tv
 dd
 kZ
 tY
@@ -38626,20 +38659,20 @@ mq
 HO
 HO
 HO
-HO
-HO
+kZ
+Lt
+aV
+aV
+aV
+aV
+BN
 mq
 mq
 mq
 mq
 mq
 mq
-mq
-mq
-mq
-mq
-mq
-Co
+ir
 kZ
 sv
 aV
@@ -38883,21 +38916,21 @@ mq
 HO
 HO
 HO
-HO
-HO
-HO
-aa
-aa
-aa
-aa
-aa
-aa
-DI
-aa
-aa
-mq
-dd
 kZ
+aV
+NR
+it
+it
+it
+le
+kU
+aV
+aV
+aV
+aV
+aV
+aV
+aV
 Ak
 hl
 zG
@@ -39140,21 +39173,21 @@ mq
 HO
 HO
 HO
-HO
-HO
-HO
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-mq
-dd
 kZ
+aV
+vP
+NC
+NC
+NC
+VB
+aV
+aV
+aV
+aV
+nj
+aV
+aV
+aV
 Kr
 wx
 sp
@@ -39397,20 +39430,20 @@ mq
 HO
 HO
 HO
-HO
-HO
-HO
-aa
-aa
-aa
-aa
-aa
-aa
+kZ
+aV
+vP
+NC
+dj
+NC
+kZ
+kZ
+kZ
 mq
 mq
 mq
 mq
-dd
+ir
 kZ
 tW
 Gg
@@ -39654,13 +39687,13 @@ mq
 HO
 HO
 HO
-HO
-HO
-HO
-aa
-HO
-HO
-HO
+kZ
+Lt
+vP
+NC
+NC
+NC
+kZ
 HO
 HO
 mq
@@ -39911,13 +39944,13 @@ mq
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
-HO
-HO
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 HO
 mq
 mq
@@ -43006,13 +43039,13 @@ HO
 HO
 rt
 pf
-zZ
+uD
 Ci
 MG
 VR
 dN
 gz
-tv
+gz
 gz
 ML
 DJ
@@ -43262,9 +43295,9 @@ HO
 HO
 HO
 rt
-qe
-Qj
-lR
+aV
+aV
+Sq
 oX
 ty
 sC
@@ -43519,14 +43552,14 @@ HO
 HO
 HO
 rt
-qe
-qe
-rA
+aV
+aV
+kQ
 oX
 ty
 Yv
 AX
-NR
+AX
 AX
 ui
 mH
@@ -43776,10 +43809,10 @@ HO
 HO
 HO
 rt
-rt
-rt
-rt
-rt
+kZ
+NC
+NC
+kZ
 mH
 sD
 tx
@@ -44030,13 +44063,13 @@ HO
 aa
 aa
 aa
+ab
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+kZ
+NC
+NC
+kZ
 mH
 RB
 ty
@@ -44290,11 +44323,11 @@ cY
 cY
 aa
 aa
-aa
-aa
-ab
-aa
-la
+kZ
+kZ
+kZ
+kZ
+mH
 RB
 ty
 ty
@@ -44549,9 +44582,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-la
+mH
+lR
+mH
 RB
 ty
 wD
@@ -44807,8 +44840,8 @@ cY
 cY
 cY
 cY
-aa
-la
+lR
+mH
 RB
 ty
 ty
