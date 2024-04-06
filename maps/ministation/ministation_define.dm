@@ -18,8 +18,12 @@
 	lobby_screens = list('maps/ministation/ministation_lobby.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
-	num_exoplanets = 0
-	away_site_budget = 0
+	num_exoplanets = 3
+	away_site_budget = 3
+	lobby_tracks = list(/decl/music_track/absconditus,
+/decl/music_track/level3_mod, /decl/music_track/tintin, /decl/music_track/zazie
+
+	)
 
 	shuttle_docked_message = "The public ferry to %dock_name% has docked with the station. It will depart in approximately %ETD%"
 	shuttle_leaving_dock   = "The public ferry has left the station. Estimate %ETA% until the ferry docks at %dock_name%."
@@ -61,7 +65,6 @@
 		list("name" = "Engineering",   "key" = "e", "frequency" = 1357, "color" = COMMS_COLOR_ENGINEER,  "span_class" = "engradio", "secured" = list(access_engine)),
 		list("name" = "Security",      "key" = "s", "frequency" = 1359, "color" = COMMS_COLOR_SECURITY,  "span_class" = "secradio", "secured" = list(access_security))
 		)
-
 
 /datum/map/ministation/get_map_info()
 	return "You're aboard the <b>[station_name],</b> an older station once used for unethical economic research. It has long since been repurposed as deep space communication relay, though only on paper. \
