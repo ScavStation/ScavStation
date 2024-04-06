@@ -68,4 +68,6 @@
 	var/unique_enzymes
 	var/blood_type = "A+"
 
-	var/datum/gas_mixture/breath = null
+	// Used to track appearance descriptor datums.
+	// Currently only on humans due to the spaghetti code involved, TODO: generalize.
+	var/list/appearance_descriptors
