@@ -4769,10 +4769,6 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
-"vc" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/turf/simulated/wall,
-/area/ministation/maint/l1central)
 "ve" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -43447,7 +43443,7 @@ CN
 NX
 NX
 CN
-vc
+wD
 NX
 jh
 NX
