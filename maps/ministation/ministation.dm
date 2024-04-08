@@ -9,6 +9,11 @@ And then imported back to ScavStation!
 
 	#define USING_MAP_DATUM /datum/map/ministation
 
+// Uncomment when someone is willing to fix the ~80 map issues.
+//	#ifdef UNIT_TEST
+//		#include "../../code/unit_tests/offset_tests.dm"
+//	#endif
+
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
 
 	#include "../../mods/content/xenobiology/_xenobiology.dme"

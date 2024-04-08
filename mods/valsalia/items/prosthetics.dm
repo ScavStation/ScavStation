@@ -1,35 +1,19 @@
 /decl/bodytype/prosthetic/ying
-	bodytype_flag     = BODY_FLAG_YINGLET
-	bodytype_category = BODYTYPE_YINGLET
-	mob_size          = MOB_SIZE_SMALL
 	abstract_type     = /decl/bodytype/prosthetic/ying
-	movement_slowdown = -0.5
-	limb_blend        = ICON_MULTIPLY
-	eye_blend         = ICON_MULTIPLY
-	eye_icon          = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
-	lip_icon          = 'mods/valsalia/icons/species/yinglet/lips.dmi'
-	has_limbs = list(
-		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
-		BP_GROIN =  list("path" = /obj/item/organ/external/groin/yinglet),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/yinglet),
-		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/yinglet),
-		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/yinglet),
-		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/yinglet),
-		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/yinglet),
-		BP_L_HAND = list("path" = /obj/item/organ/external/hand/yinglet),
-		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/yinglet),
-		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/yinglet),
-		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/yinglet),
-		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet/robot)
-	)
-	base_markings = list(
-		/decl/sprite_accessory/marking/yinglet/long_ears  = COLOR_GUNMETAL,
-		/decl/sprite_accessory/marking/yinglet/shelltooth = COLOR_GUNMETAL
-	)
 
 /decl/bodytype/prosthetic/ying/Initialize()
 	var/decl/bodytype/meatying = GET_DECL(/decl/bodytype/yinglet)
-	equip_adjust = deepCopyList(meatying.equip_adjust)
+	bodytype_flag              = meatying.bodytype_flag
+	bodytype_category          = meatying.bodytype_category
+	mob_size                   = meatying.mob_size
+	movement_slowdown          = meatying.movement_slowdown
+	limb_blend                 = meatying.limb_blend
+	eye_blend                  = meatying.eye_blend
+	eye_icon                   = meatying.eye_icon
+	cosmetics_icon             = meatying.cosmetics_icon
+	equip_adjust               = deepCopyList(meatying.equip_adjust)
+	has_limbs                  = deepCopyList(meatying.has_limbs)
+	default_sprite_accessories = deepCopyList(meatying.default_sprite_accessories)
 	. = ..()
 
 /decl/bodytype/prosthetic/ying/wooden
@@ -41,7 +25,6 @@
 	manual_dexterity = DEXTERITY_SIMPLE_MACHINES
 	movement_slowdown = 2
 	is_robotic = FALSE
-	eye_icon = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
 	material = /decl/material/solid/organic/wood
 
 /decl/bodytype/prosthetic/ying/metal
@@ -53,57 +36,49 @@
 /decl/bodytype/prosthetic/ying/metal/fbp
 	name = "yinglet, gynoid"
 	icon_base = 'mods/valsalia/icons/metal_female.dmi'
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
 
 /decl/bodytype/prosthetic/ying/metal/fbp/masculine
 	name = "yinglet, android"
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
 
 DEFINE_ROBOLIMB_MODEL_ASPECTS(/decl/bodytype/prosthetic/ying/metal, yinglet_scavenged, 0)
 DEFINE_ROBOLIMB_DESIGNS(/decl/bodytype/prosthetic/ying/metal, lunar_transit)
 
-/decl/material/solid/organic/wood/generate_recipes(var/reinforce_material)
-	. = ..()
-	if(!reinforce_material)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_arm_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/right_arm_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_leg_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/right_leg_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_hand_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/right_hand_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/left_foot_ying(src)
-		. += new/datum/stack_recipe/wooden_prosthetic/right_foot_ying(src)
+/decl/stack_recipe/wooden_prosthetic
+	abstract_type = /decl/stack_recipe/wooden_prosthetic
+	required_material = /decl/material/solid/organic/wood
 
-/datum/stack_recipe/wooden_prosthetic/left_arm_ying
-	title = "small left arm"
+/decl/stack_recipe/wooden_prosthetic/left_arm_ying
+	name = "small left arm"
 	result_type = /obj/item/organ/external/arm/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/right_arm_ying
-	title = "small right arm"
+/decl/stack_recipe/wooden_prosthetic/right_arm_ying
+	name = "small right arm"
 	result_type = /obj/item/organ/external/arm/right/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/left_leg_ying
-	title = "small left leg"
+/decl/stack_recipe/wooden_prosthetic/left_leg_ying
+	name = "small left leg"
 	result_type = /obj/item/organ/external/leg/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/right_leg_ying
-	title = "small right leg"
+/decl/stack_recipe/wooden_prosthetic/right_leg_ying
+	name = "small right leg"
 	result_type = /obj/item/organ/external/leg/right/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/left_hand_ying
-	title = "small left hand"
+/decl/stack_recipe/wooden_prosthetic/left_hand_ying
+	name = "small left hand"
 	result_type = /obj/item/organ/external/hand/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/right_hand_ying
-	title = "small right hand"
+/decl/stack_recipe/wooden_prosthetic/right_hand_ying
+	name = "small right hand"
 	result_type = /obj/item/organ/external/hand/right/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/left_foot_ying
-	title = "small left foot"
+/decl/stack_recipe/wooden_prosthetic/left_foot_ying
+	name = "small left foot"
 	result_type = /obj/item/organ/external/foot/yinglet/wooden
 
-/datum/stack_recipe/wooden_prosthetic/right_foot_ying
-	title = "small right foot"
+/decl/stack_recipe/wooden_prosthetic/right_foot_ying
+	name = "small right foot"
 	result_type = /obj/item/organ/external/foot/right/yinglet/wooden
 
 /obj/item/organ/external/arm/yinglet/wooden

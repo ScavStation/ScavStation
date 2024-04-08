@@ -2,7 +2,7 @@
 	name =                "yinglet, feminine"
 	icon_base =           'mods/valsalia/icons/species/yinglet/body_female.dmi'
 	husk_icon =           'mods/valsalia/icons/species/yinglet/husk.dmi'
-	lip_icon =            'mods/valsalia/icons/species/yinglet/lips.dmi'
+	cosmetics_icon =      'mods/valsalia/icons/species/yinglet/cosmetics.dmi'
 	limb_blend =          ICON_MULTIPLY
 	bodytype_category =   BODYTYPE_YINGLET
 	bodytype_flag =       BODY_FLAG_YINGLET
@@ -19,13 +19,17 @@
 	mob_size = MOB_SIZE_SMALL
 	eye_blend = ICON_MULTIPLY
 	eye_icon = 'mods/valsalia/icons/species/yinglet/eyes.dmi'
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_LIPS | HAS_UNDERWEAR
+	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
 	base_color = "#ab8c65"
-	base_hair_color = "#6e5331"
 	base_eye_color = "#f5c842"
-	base_markings = list(
-		/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
-		/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"
+	default_sprite_accessories = list(
+		SAC_HAIR = list(
+			/decl/sprite_accessory/hair/yinglet = "#6e5331"
+		),
+		SAC_MARKINGS = list(
+			/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
+			/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"
+		)
 	)
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/yinglet),
