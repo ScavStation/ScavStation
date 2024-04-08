@@ -119,6 +119,12 @@
 /area/ministation/maint/l4overpass
 	name = "\improper Level Four Maintenance Overpass"
 
+// Fourth Floor Deck
+
+/area/ministation/observation_deck
+	name = "\improper Observation Deck"
+	icon_state = "white"
+
 //Maint Bypasses
 
 /area/ministation/maint/sebypass
@@ -333,5 +339,17 @@
 	base_turf = /turf/simulated/open
 
 /area/turbolift/l3
+	name = "Station Level 3"
+	base_turf = /turf/simulated/open
+
+/area/turbolift/l1p
+	name = "Station Level 1"
+	base_turf = /turf/simulated/floor
+
+/area/turbolift/l2p
+	name = "Station Level 2"
+	base_turf = /turf/simulated/open
+
+/area/turbolift/l3p
 	name = "Station Level 3"
 	base_turf = /turf/simulated/open
