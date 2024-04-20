@@ -2745,6 +2745,9 @@
 	dir = 1;
 	pixel_y = 20
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/n)
 "kN" = (
@@ -4614,6 +4617,9 @@
 /obj/machinery/power/apc/high{
 	dir = 1;
 	pixel_y = 20
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
@@ -11366,6 +11372,9 @@
 	dir = 1;
 	pixel_y = 20
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/janitor)
 "Re" = (
@@ -12313,12 +12322,6 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
-"UX" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/ministation/enginecontrol)
 "UY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -12829,6 +12832,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"Xy" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/ministation/enginecontrol)
 "Xz" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -47743,7 +47752,7 @@ FY
 AD
 Oe
 oz
-UX
+Xy
 Oe
 Oe
 tG
