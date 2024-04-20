@@ -1277,12 +1277,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
-"fc" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/ministation/enginecontrol)
 "fe" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/hall/s1)
@@ -2065,13 +2059,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "hG" = (
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/machinery/power/smes/buildable/max_cap_in_out{
 	capacity = 5e+009;
 	charge = 5e+009
 	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/enginecontrol)
 "hK" = (
@@ -2749,10 +2741,6 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
 "kM" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
 /obj/machinery/power/apc/high{
 	dir = 1;
 	pixel_y = 20
@@ -4623,10 +4611,6 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "tB" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
 /obj/machinery/power/apc/high{
 	dir = 1;
 	pixel_y = 20
@@ -4868,6 +4852,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
+"uD" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/ministation/enginecontrol)
 "uE" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 4
@@ -8165,10 +8155,6 @@
 /obj/machinery/power/terminal{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
 /obj/structure/sign/warning/airlock{
 	pixel_x = 32
 	},
@@ -8182,10 +8168,6 @@
 /turf/simulated/floor/plating,
 /area/space)
 "Gx" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
 /obj/machinery/power/terminal{
 	dir = 1
 	},
@@ -8264,13 +8246,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/trash)
-"GM" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "GN" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -9405,10 +9380,6 @@
 /obj/machinery/newscaster{
 	pixel_x = -32;
 	pixel_y = 32
-	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
 	},
 /obj/machinery/status_display{
 	pixel_y = 30;
@@ -11382,10 +11353,6 @@
 /turf/simulated/wall/r_wall,
 /area/ministation/ai_core)
 "Rb" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
 /obj/machinery/power/apc/high{
 	dir = 1;
 	pixel_y = 20
@@ -37747,7 +37714,7 @@ Ga
 Ga
 Gw
 Jt
-GM
+Jt
 GN
 GN
 GN
@@ -38775,7 +38742,7 @@ Ga
 Ga
 Gw
 Jt
-GM
+Jt
 GN
 GN
 GN
@@ -39803,7 +39770,7 @@ tj
 tj
 Gw
 Jt
-GM
+Jt
 YF
 YF
 YF
@@ -40831,7 +40798,7 @@ Ga
 Ga
 Gw
 Jt
-GM
+Jt
 GN
 GN
 GN
@@ -47761,7 +47728,7 @@ FY
 AD
 Oe
 oz
-fc
+uD
 Oe
 Oe
 tG
@@ -53423,7 +53390,7 @@ Ga
 Ga
 Gw
 Jt
-GM
+Jt
 GN
 GN
 GN
@@ -54451,7 +54418,7 @@ Ga
 Ga
 Gw
 Jt
-GM
+Jt
 GN
 GN
 GN
@@ -55479,7 +55446,7 @@ BP
 BP
 Gw
 Jt
-GM
+Jt
 GG
 GG
 GG
@@ -56507,7 +56474,7 @@ Ga
 Ga
 Gw
 Jt
-GM
+Jt
 GN
 GN
 GN
