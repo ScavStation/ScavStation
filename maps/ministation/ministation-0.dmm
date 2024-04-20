@@ -2922,6 +2922,12 @@
 /obj/machinery/atmospherics/valve,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
+"lv" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/ministation/enginecontrol)
 "lA" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -3638,9 +3644,6 @@
 /area/ministation/atmospherics)
 "oT" = (
 /obj/machinery/door/airlock/atmos,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
@@ -3959,6 +3962,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enginecontrol)
@@ -4875,13 +4881,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
-"uD" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/green,
-/turf/simulated/floor/plating,
-/area/ministation/engineroom)
 "uE" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 4
@@ -5407,6 +5406,9 @@
 	pixel_y = 2
 	},
 /obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/enginecontrol)
 "wJ" = (
@@ -13304,9 +13306,6 @@
 "Zm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
@@ -47549,7 +47548,7 @@ wI
 bT
 Xy
 Zm
-uD
+xu
 xu
 xu
 Wj
@@ -47802,7 +47801,7 @@ FY
 AD
 Oe
 oz
-Oe
+lv
 Oe
 Oe
 tG

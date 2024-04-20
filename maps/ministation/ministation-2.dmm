@@ -4734,13 +4734,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/library)
-"yC" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
 "yH" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -4946,10 +4939,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"zX" = (
-/obj/structure/sign/directions/medical,
-/turf/simulated/wall,
-/area/ministation/science)
 "Aa" = (
 /obj/machinery/camera/network/command{
 	dir = 4;
@@ -5076,6 +5065,15 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment/bent,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
+"AN" = (
+/obj/structure/table,
+/obj/item/clothing/glasses/welding,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "AQ" = (
@@ -6032,13 +6030,6 @@
 /obj/machinery/door/airlock/glass/science,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"Fd" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
 "Fe" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -6083,6 +6074,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
+/area/ministation/science)
+"Fw" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Fx" = (
 /obj/structure/disposalpipe/segment/bent{
@@ -6148,6 +6146,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
+"FT" = (
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "FV" = (
@@ -6498,6 +6500,13 @@
 "IC" = (
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
+"IE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "IL" = (
 /obj/machinery/door/blast/regular/open{
 	id_tag = "slimeblast3";
@@ -6610,15 +6619,6 @@
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
 /obj/item/stamp/rd,
 /obj/item/rig/eva/equipped,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
-"Jy" = (
-/obj/structure/table,
-/obj/machinery/cell_charger,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/item/cell/crap,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Jz" = (
@@ -7252,6 +7252,10 @@
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
+"NB" = (
+/obj/structure/sign/directions/medical,
+/turf/simulated/wall,
+/area/ministation/science)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7321,6 +7325,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
+"NV" = (
+/obj/structure/table,
+/obj/machinery/cell_charger,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/item/cell/crap,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "NW" = (
 /obj/effect/decal/cleanable/dirt{
 	dir = 9
@@ -7568,6 +7581,11 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 8
 	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
+"Pp" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/industrial/hatch/blue,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Pq" = (
@@ -8653,15 +8671,6 @@
 	},
 /turf/simulated/open,
 /area/ministation/maint/l3se)
-"Vg" = (
-/obj/structure/table,
-/obj/item/clothing/glasses/welding,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = -1
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
 "Vi" = (
 /obj/machinery/light_switch{
 	pixel_y = 25
@@ -8950,11 +8959,6 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
-"Wz" = (
-/obj/machinery/optable,
-/obj/effect/floor_decal/industrial/hatch/blue,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
 "WA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -9151,10 +9155,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
-"XN" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
 "XP" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -51390,7 +51390,7 @@ aa
 aa
 aa
 aa
-zX
+NB
 iP
 Ug
 As
@@ -52165,7 +52165,7 @@ ae
 CL
 pV
 As
-Vg
+AN
 ae
 yM
 IL
@@ -52421,8 +52421,8 @@ cw
 ae
 iL
 pV
-yC
-Jy
+Fw
+NV
 ae
 pr
 pm
@@ -52678,7 +52678,7 @@ cw
 ae
 EN
 pV
-Fd
+IE
 Hv
 ae
 ae
@@ -52935,7 +52935,7 @@ cw
 ae
 RA
 pV
-Fd
+IE
 iL
 ae
 YF
@@ -53192,7 +53192,7 @@ cw
 ae
 iL
 pV
-Fd
+IE
 Hv
 ae
 XR
@@ -53449,7 +53449,7 @@ cw
 ae
 KE
 wD
-Fd
+IE
 iL
 ae
 ve
@@ -53706,7 +53706,7 @@ cw
 ae
 db
 JX
-Fd
+IE
 Hv
 ae
 dd
@@ -54218,8 +54218,8 @@ aa
 cw
 cw
 ae
-XN
-Wz
+FT
+Pp
 EU
 XP
 ae
