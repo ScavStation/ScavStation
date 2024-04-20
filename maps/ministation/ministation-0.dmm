@@ -4852,12 +4852,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
-"uD" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/ministation/enginecontrol)
 "uE" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 4
@@ -8161,6 +8155,9 @@
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Gw" = (
@@ -8173,6 +8170,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -8246,6 +8246,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"GM" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "GN" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -9387,6 +9393,9 @@
 	},
 /obj/structure/aicore/deactivated,
 /obj/abstract/landmark/start/ai,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/ai_core)
 "Ko" = (
@@ -12304,6 +12313,12 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
+"UX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/ministation/enginecontrol)
 "UY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -37714,7 +37729,7 @@ Ga
 Ga
 Gw
 Jt
-Jt
+GM
 GN
 GN
 GN
@@ -38742,7 +38757,7 @@ Ga
 Ga
 Gw
 Jt
-Jt
+GM
 GN
 GN
 GN
@@ -39770,7 +39785,7 @@ tj
 tj
 Gw
 Jt
-Jt
+GM
 YF
 YF
 YF
@@ -40798,7 +40813,7 @@ Ga
 Ga
 Gw
 Jt
-Jt
+GM
 GN
 GN
 GN
@@ -47728,7 +47743,7 @@ FY
 AD
 Oe
 oz
-uD
+UX
 Oe
 Oe
 tG
@@ -53390,7 +53405,7 @@ Ga
 Ga
 Gw
 Jt
-Jt
+GM
 GN
 GN
 GN
@@ -54418,7 +54433,7 @@ Ga
 Ga
 Gw
 Jt
-Jt
+GM
 GN
 GN
 GN
@@ -55446,7 +55461,7 @@ BP
 BP
 Gw
 Jt
-Jt
+GM
 GG
 GG
 GG
@@ -56474,7 +56489,7 @@ Ga
 Ga
 Gw
 Jt
-Jt
+GM
 GN
 GN
 GN
