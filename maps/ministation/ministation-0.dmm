@@ -5457,11 +5457,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
 "xd" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/ministation/enginecontrol)
 "xf" = (
 /obj/structure/table,
 /obj/item/stack/material/reinforced/mapped/plasteel/fifty,
@@ -10627,14 +10627,6 @@
 	},
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
-"Ol" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 9
-	},
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "Om" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -12832,12 +12824,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"Xy" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/ministation/enginecontrol)
 "Xz" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -44433,7 +44419,7 @@ Rl
 ad
 Rl
 Rl
-SJ
+Rl
 Rl
 Rl
 Rl
@@ -45204,14 +45190,14 @@ Gc
 ad
 Rl
 Rl
-SJ
 Rl
 Rl
 Rl
 Rl
-SJ
 Rl
 SJ
+Rl
+Rl
 aa
 aa
 aa
@@ -45975,14 +45961,14 @@ sY
 GB
 GB
 GB
-xd
 GB
 GB
 GB
 GB
 GB
 GB
-Ol
+GB
+Gc
 aa
 aa
 aa
@@ -47517,7 +47503,7 @@ GB
 GB
 GB
 GB
-xd
+GB
 GB
 GB
 GB
@@ -47752,7 +47738,7 @@ FY
 AD
 Oe
 oz
-Xy
+xd
 Oe
 Oe
 tG
