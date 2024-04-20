@@ -2906,6 +2906,12 @@
 /obj/machinery/atmospherics/valve,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
+"lv" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/ministation/enginecontrol)
 "lA" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -5456,12 +5462,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
-"xd" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/ministation/enginecontrol)
 "xf" = (
 /obj/structure/table,
 /obj/item/stack/material/reinforced/mapped/plasteel/fifty,
@@ -11817,14 +11817,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
-"SJ" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 4
-	},
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "SK" = (
 /obj/machinery/material_processing/smeltery,
 /obj/machinery/light{
@@ -44424,7 +44416,7 @@ Rl
 Rl
 Rl
 Rl
-SJ
+Rl
 Rl
 Rl
 aa
@@ -45195,7 +45187,7 @@ Rl
 Rl
 Rl
 Rl
-SJ
+Rl
 Rl
 Rl
 aa
@@ -47738,7 +47730,7 @@ FY
 AD
 Oe
 oz
-xd
+lv
 Oe
 Oe
 tG
