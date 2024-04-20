@@ -102,7 +102,7 @@
 /obj/machinery/door/airlock{
 	name = "Gas Testing Room"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/ministation/sciencetesting)
 "cw" = (
 /turf/simulated/floor/reinforced/airless,
@@ -110,6 +110,9 @@
 "cQ" = (
 /obj/structure/railing/mapped{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
@@ -189,6 +192,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
 "fD" = (
@@ -211,6 +215,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"gB" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "hd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -237,7 +248,7 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "gasventdoor"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ministation/sciencetesting)
 "hR" = (
 /obj/structure/table/woodentable,
@@ -267,14 +278,20 @@
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "jg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
+"ji" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
@@ -291,6 +308,13 @@
 "jt" = (
 /obj/machinery/alarm{
 	pixel_y = 23
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
@@ -438,6 +462,7 @@
 	pixel_x = 25;
 	pixel_y = null
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "pS" = (
@@ -1176,6 +1201,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"NE" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	icon_state = "map_injector";
+	id_tag = "n2_in";
+	use_power = 1
+	},
+/obj/structure/lattice,
+/turf/space,
+/area/ministation/sciencetesting)
 "NO" = (
 /obj/abstract/level_data_spawner/main_level,
 /turf/space,
@@ -1232,6 +1267,12 @@
 	},
 /turf/space,
 /area/ministation/sciencetesting)
+"QX" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "Rx" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
@@ -1283,6 +1324,12 @@
 /area/ministation/science2nddeck)
 "Tg" = (
 /obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
 "Ts" = (
@@ -1290,7 +1337,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "Ul" = (
@@ -1326,6 +1372,10 @@
 	name = "Blast Monitoring Room Blast Doors";
 	pixel_y = -3;
 	pixel_x = -5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
@@ -1480,7 +1530,7 @@
 /obj/machinery/door/blast/regular/open,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/ministation/sciencetesting)
 "YK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -42782,7 +42832,7 @@ pB
 pB
 jt
 fo
-KS
+ji
 pB
 cw
 cw
@@ -43553,7 +43603,7 @@ pB
 Zd
 pB
 KS
-KS
+QX
 pB
 cw
 cw
@@ -47117,7 +47167,7 @@ Bx
 nT
 bX
 Ny
-ev
+gB
 ev
 JK
 ev
@@ -47624,10 +47674,10 @@ aa
 aa
 aa
 aa
+NE
 aa
 aa
-aa
-aa
+NE
 aa
 aa
 aa
