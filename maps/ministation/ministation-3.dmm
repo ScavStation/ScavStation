@@ -107,6 +107,12 @@
 "cw" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"cK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "cQ" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -436,16 +442,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
-"pj" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8;
-	icon_state = "map_injector";
-	id_tag = "n2_in";
-	use_power = 1
-	},
-/obj/structure/lattice,
-/turf/space,
-/area/ministation/sciencetesting)
 "pB" = (
 /turf/simulated/wall,
 /area/ministation/science2nddeck)
@@ -502,12 +498,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
-"rr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/sciencetesting)
 "rw" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -518,6 +508,12 @@
 "rB" = (
 /turf/simulated/wall,
 /area/ministation/observation_deck)
+"rZ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "sD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -723,6 +719,13 @@
 "yX" = (
 /turf/simulated/wall,
 /area/ministation/maint/l4overpass)
+"yY" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "zd" = (
 /obj/structure/ladder,
 /obj/structure/lattice,
@@ -740,12 +743,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/science2nddeck)
-"AI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
@@ -909,18 +906,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
 /area/ministation/sciencetesting)
+"DB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "DI" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
 	icon_state = "warningcorner"
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/sciencetesting)
-"DS" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 22
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
@@ -1074,12 +1070,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
-"Hx" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/science2nddeck)
 "HM" = (
 /obj/machinery/network/relay{
 	initial_network_id = "molluscnet"
@@ -1477,6 +1467,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"WW" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	icon_state = "map_injector";
+	id_tag = "n2_in";
+	use_power = 1
+	},
+/obj/structure/lattice,
+/turf/space,
+/area/ministation/sciencetesting)
 "Xs" = (
 /turf/simulated/wall,
 /area/ministation/sciencetesting)
@@ -42831,7 +42831,7 @@ pB
 pB
 jt
 fo
-AI
+cK
 pB
 cw
 cw
@@ -43602,7 +43602,7 @@ pB
 Zd
 pB
 KS
-Hx
+rZ
 pB
 cw
 cw
@@ -44343,7 +44343,7 @@ XQ
 XQ
 mG
 ev
-ev
+CM
 Xs
 aa
 aa
@@ -46654,7 +46654,7 @@ Hi
 CV
 ev
 ev
-rr
+DB
 ev
 jS
 Xs
@@ -46911,7 +46911,7 @@ Dk
 DI
 ev
 ev
-rr
+DB
 ev
 VH
 Xs
@@ -47166,7 +47166,7 @@ Bx
 nT
 bX
 Ny
-DS
+yY
 ev
 JK
 ev
@@ -47673,10 +47673,10 @@ aa
 aa
 aa
 aa
-pj
+WW
 aa
 aa
-pj
+WW
 aa
 aa
 aa
