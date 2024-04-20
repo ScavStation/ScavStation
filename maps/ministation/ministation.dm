@@ -28,6 +28,9 @@ And then imported back to ScavStation!
 	#include "../../mods/content/psionics/_psionics.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
 
+	#include "_submaps.dm"
+	#include "submaps/engines/engine.dm"
+
 	#include "ministation_antagonists.dm"
 	#include "ministation_areas.dm"
 	#include "ministation_departments.dm"

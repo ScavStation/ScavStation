@@ -1,0 +1,102 @@
+"aa" = (/obj/item/stock_parts/circuitboard/geothermal,/obj/item/stock_parts/circuitboard/geothermal,/obj/item/stock_parts/circuitboard/geothermal,/obj/item/stock_parts/circuitboard/geothermal,/obj/structure/rack{dir = 8},/turf/simulated/floor/airless,/area/space)
+"ab" = (/turf/simulated/floor/airless,/area/space)
+"ac" = (/obj/item/stock_parts/capacitor,/obj/item/stock_parts/capacitor,/obj/item/stock_parts/capacitor,/obj/item/stock_parts/capacitor,/obj/structure/rack{dir = 8},/turf/simulated/floor/airless,/area/space)
+"ad" = (/obj/item/stock_parts/manipulator,/obj/item/stock_parts/manipulator,/obj/item/stock_parts/manipulator,/obj/item/stock_parts/manipulator,/obj/item/stock_parts/manipulator,/obj/item/stock_parts/manipulator,/obj/item/stock_parts/manipulator,/obj/item/stock_parts/manipulator,/obj/structure/rack{dir = 8},/turf/simulated/floor/airless,/area/space)
+"ae" = (/obj/item/stack/material/sheet/mapped/steel/fifty,/obj/item/stack/material/sheet/mapped/steel/fifty,/obj/structure/rack{dir = 8},/obj/item/stack/material/strut/mapped/steel/fifty,/obj/item/stack/material/rods/fifty,/turf/simulated/floor/airless,/area/space)
+"al" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"aO" = (/obj/machinery/door/airlock/external/glass{autoset_access = 0; id_tag = "sing_engineering_airlock_exterior"; locked = 1},/turf/simulated/floor/plating,/area/ministation/enginecontrol)
+"bu" = (/obj/structure/cable{icon_state = "1-4"},/obj/machinery/power/apc{dir = 1; name = "_North APC"; pixel_y = 24},/obj/structure/cable{icon_state = "0-4"},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"bx" = (/obj/structure/cable/yellow,/turf/exterior/rock,/area/ministation/engineroom)
+"bK" = (/obj/machinery/door/airlock/glass/engineering,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/door/firedoor{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"cJ" = (/obj/machinery/door/blast/regular{id_tag = "EngineBlastinterior"},/turf/simulated/floor/airless,/area/ministation/engineroom)
+"dl" = (/obj/structure/closet/emcloset,/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"dX" = (/obj/structure/cable{icon_state = "4-8"},/obj/effect/floor_decal/industrial/hatch/red,/obj/structure/extinguisher_cabinet{pixel_x = -5; pixel_y = 30},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"fe" = (/turf/exterior/wall,/area/space)
+"fW" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/binary/pump/on{target_pressure = 200; dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"hI" = (/obj/structure/cable/yellow{icon_state = "1-2"},/obj/machinery/door/blast/regular{id_tag = "EngineBlastinterior"},/turf/simulated/floor/airless,/area/ministation/engineroom)
+"jE" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"jJ" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/power/terminal{dir = 1},/obj/structure/cable/yellow{icon_state = "0-4"},/obj/machinery/button/access/interior{id_tag = "sing_engineering_airlock1"; name = "exterior access button"; pixel_y = -25; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"kr" = (/obj/machinery/door/airlock/external/glass{autoset_access = 0; id_tag = "sing_engineering_airlock_exterior1"; locked = 1},/obj/structure/cable/yellow{icon_state = "1-2"},/turf/simulated/floor/plating,/area/ministation/enginecontrol)
+"ma" = (/obj/effect/catwalk_plated,/turf/simulated/floor/plating,/area/ministation/engineroom)
+"nx" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"nC" = (/turf/space,/area/space)
+"nI" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"nK" = (/obj/machinery/atmospherics/pipe/simple/hidden/universal{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"oJ" = (/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"pP" = (/obj/structure/cable{icon_state = "4-8"},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"pU" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/structure/cable/yellow{icon_state = "0-4"},/obj/machinery/power/apc{dir = 1; name = "_North APC"; pixel_y = 24},/turf/exterior/rock,/area/ministation/engineroom)
+"qe" = (/turf/simulated/wall/r_wall,/area/ministation/engineroom)
+"rq" = (/obj/machinery/firealarm{dir = 4; pixel_x = 24},/obj/effect/wallframe_spawn/reinforced,/obj/machinery/door/firedoor,/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"rs" = (/obj/machinery/button/access/interior{id_tag = "sing_engineering_airlock"; name = "interior access button"; pixel_x = 20; pixel_y = 20; command = "cycle_exterior"},/obj/effect/catwalk_plated,/turf/simulated/floor/plating,/area/ministation/engineroom)
+"sk" = (/turf/exterior/wall/volcanic,/area/space)
+"sz" = (/obj/effect/catwalk_plated,/obj/structure/cable/yellow{icon_state = "1-2"},/obj/structure/cable/yellow{icon_state = "1-8"},/turf/simulated/floor/plating,/area/ministation/engineroom)
+"sL" = (/obj/abstract/landmark/map_load_mark/engine_loader,/turf/exterior/rock/volcanic,/area/ministation/engineroom)
+"ur" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"uv" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{dir = 1; id_tag = "sing_engineering_vent"},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{id_tag = "sing_engineering_airlock"; tag_airpump = "sing_engineering_vent"; tag_chamber_sensor = "sing_engineering_sensor"; tag_exterior_door = "sing_engineering_airlock_exterior"; tag_interior_door = "sing_engineering_airlock_interior"; dir = 8; pixel_x = 24},/obj/machinery/airlock_sensor{id_tag = "sing_engineering_sensor"; dir = 4; pixel_x = -20},/turf/simulated/floor/plating,/area/ministation/enginecontrol)
+"vH" = (/turf/exterior/lava,/area/ministation/engineroom)
+"wA" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/turf/exterior/rock,/area/ministation/engineroom)
+"wH" = (/obj/structure/cable{icon_state = "2-8"},/obj/machinery/atmospherics/portables_connector,/obj/machinery/portable_atmospherics/canister/air/airlock{pixel_x = 1},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"wW" = (/obj/effect/wallframe_spawn/reinforced,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/ministation/enginecontrol)
+"yg" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"yI" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{dir = 1; id_tag = "sing_engineering_vent1"},/obj/structure/cable/yellow{icon_state = "1-2"},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{id_tag = "sing_engineering_airlock1"; tag_airpump = "sing_engineering_vent1"; tag_chamber_sensor = "sing_engineering_sensor1"; tag_exterior_door = "sing_engineering_airlock_exterior1"; tag_interior_door = "sing_engineering_airlock_interior1"; dir = 4; pixel_x = -24},/obj/machinery/airlock_sensor{id_tag = "sing_engineering_sensor1"; dir = 8; pixel_x = 20},/turf/simulated/floor/plating,/area/ministation/enginecontrol)
+"zN" = (/obj/effect/wallframe_spawn/reinforced,/obj/machinery/door/firedoor{dir = 8},/turf/simulated/floor/plating,/area/ministation/engineroom)
+"zT" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"Ap" = (/turf/simulated/wall/r_wall,/area/ministation/enginecontrol)
+"BT" = (/turf/exterior/wall,/area/ministation/engineroom)
+"BW" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"Ds" = (/obj/machinery/atmospherics/portables_connector,/obj/machinery/portable_atmospherics/canister/air/airlock{pixel_x = 1},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"EN" = (/obj/structure/cable{icon_state = "1-2"},/turf/simulated/wall/r_wall,/area/ministation/enginecontrol)
+"Fz" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/obj/machinery/atmospherics/binary/pump/on{target_pressure = 200; dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"FI" = (/obj/structure/cable{icon_state = "1-2"},/obj/structure/cable{icon_state = "1-4"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable/yellow{icon_state = "2-8"},/obj/machinery/atmospherics/pipe/manifold/hidden{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"Gi" = (/obj/effect/geyser,/turf/exterior/rock/volcanic,/area/ministation/engineroom)
+"GD" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"Ix" = (/turf/space,/area/ministation/engineroom)
+"Jj" = (/obj/item/stack/cable_coil/yellow,/turf/exterior/rock,/area/ministation/engineroom)
+"Kt" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/door/airlock/glass/engineering,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/door/firedoor{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"LN" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/button/access/interior{id_tag = "sing_engineering_airlock"; name = "exterior access button"; pixel_y = -25; dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"NF" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"NT" = (/turf/exterior/rock/volcanic,/area/ministation/engineroom)
+"OU" = (/obj/machinery/alarm{pixel_y = 23},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"Qh" = (/obj/structure/cable{icon_state = "1-2"},/obj/machinery/door/airlock/external/glass{autoset_access = 0; id_tag = "sing_engineering_airlock_interior1"; locked = 1},/obj/machinery/atmospherics/pipe/simple/hidden{dir = 2},/obj/structure/cable/yellow{icon_state = "1-2"},/turf/simulated/floor/plating,/area/ministation/enginecontrol)
+"Qs" = (/obj/machinery/button/access/interior{id_tag = "sing_engineering_airlock1"; name = "interior access button"; pixel_x = -20; pixel_y = 20; command = "cycle_exterior"},/obj/effect/catwalk_plated,/obj/structure/cable/yellow{icon_state = "1-2"},/obj/machinery/button/blast_door{desc = "A remote control-switch for the engine control room blast doors."; id_tag = "EngineBlastinterior"; name = "Geo parts room doors"; pixel_x = -20},/turf/simulated/floor/plating,/area/ministation/engineroom)
+"RN" = (/turf/exterior/rock,/area/ministation/engineroom)
+"Vk" = (/obj/effect/wallframe_spawn/reinforced,/obj/machinery/door/firedoor,/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"XR" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"Zm" = (/obj/machinery/door/airlock/external/glass{autoset_access = 0; id_tag = "sing_engineering_airlock_interior"; locked = 1},/obj/machinery/atmospherics/pipe/simple/hidden{dir = 2},/turf/simulated/floor/plating,/area/ministation/enginecontrol)
+"Zs" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/machinery/power/smes/buildable/max_cap_in_out{capacity = 5e+009; charge = 5e+009},/obj/structure/cable{icon_state = "0-8"},/turf/simulated/floor/tiled/steel_grid,/area/ministation/enginecontrol)
+"ZG" = (/turf/exterior/wall/volcanic,/area/ministation/engineroom)
+
+(1,1,1) = {"
+ApwWApApApApApwWENwWApApApApApwWAp
+ApnIdldlDsurOUoJbupPdXZswHdldlGDAp
+bKNFnKfWBWLNnKFzzTalygjJFInxnxnxKt
+ApwWwWApZmApnIjEoJXRGDApQhApwWwWAp
+qeIxRNApuvApVkVkVkVkrqApyIApRNRNqe
+zNRNRNApaOApaaabacadaeApkrApRNRNzN
+zNRNRNRNrsqecJcJhIcJcJqeQsRNRNRNzN
+qeRNRNRNmawARNRNRNRNRNpUszRNRNRNqe
+qeRNRNRNRNRNRNRNRNRNRNRNbxRNRNRNqe
+zNRNRNRNJjRNRNRNJjRNRNRNRNRNRNRNzN
+zNRNRNRNRNRNNTNTNTNTGiNTNTJjRNRNzN
+qeBTRNRNRNNTNTGiNTNTNTNTNTRNRNBTqe
+qeBTRNRNGiNTNTNTNTNTNTNTvHvHZGBTqe
+qeBTRNNTNTNTNTNTNTNTNTNTvHZGZGBTqe
+qeBTZGNTNTNTNTNTGiNTNTNTNTZGZGBTqe
+qeBTZGZGvHvHNTNTsLNTNTNTZGZGBTBTqe
+qeBTBTZGZGZGZGZGZGZGZGZGZGBTBTBTqe
+fefefefeskskskskskskfefefefefefefe
+fefefefefefefefefefefefefefefefefe
+fefefefefefefefefefefefefefefefefe
+fefefefefefefefefefefefefefefefefe
+fefefefefefefefefefefefefefefefefe
+nCfefefefefefefefefefefefefefefefe
+nCfefefefefefefefefefefefefefefenC
+nCnCfefefefefefefefefefefefefefenC
+nCnCnCfefefefefefefefefefefefenCnC
+nCnCnCnCnCnCfefefenCnCnCnCnCnCnCnC
+nCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnC
+nCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnC
+nCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnC
+nCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnC
+nCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnCnC
+"}
