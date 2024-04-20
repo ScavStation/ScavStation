@@ -1278,14 +1278,10 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
 "fc" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular{
-	id_tag = "EngineBlastinterior"
-	},
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/r_wall,
 /area/ministation/enginecontrol)
 "fe" = (
 /turf/simulated/wall/r_wall,
@@ -2075,9 +2071,6 @@
 /obj/machinery/power/smes/buildable/max_cap_in_out{
 	capacity = 5e+009;
 	charge = 5e+009
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/enginecontrol)
@@ -2922,12 +2915,6 @@
 /obj/machinery/atmospherics/valve,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
-"lv" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/ministation/enginecontrol)
 "lA" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -5479,16 +5466,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
-"xb" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular{
-	id_tag = "EngineBlastinterior"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/enginecontrol)
 "xd" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
@@ -7963,17 +7940,17 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/structure/disposalpipe/segment/bent{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "FS" = (
@@ -12603,15 +12580,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "Wb" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/abstract/landmark{
 	name = "lightsout"
-	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -12877,16 +12847,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
-"Xy" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular{
-	id_tag = "EngineBlastinterior"
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/enginecontrol)
 "Xz" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -46517,7 +46477,7 @@ av
 Oe
 Oe
 qy
-xb
+wL
 Oe
 aF
 Ri
@@ -47289,7 +47249,7 @@ Oe
 JZ
 dv
 hG
-fc
+wL
 Nl
 Ri
 Ri
@@ -47546,7 +47506,7 @@ Oe
 hM
 wI
 bT
-Xy
+wL
 Zm
 xu
 xu
@@ -47801,7 +47761,7 @@ FY
 AD
 Oe
 oz
-lv
+fc
 Oe
 Oe
 tG
