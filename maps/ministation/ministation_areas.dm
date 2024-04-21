@@ -125,6 +125,18 @@
 	name = "\improper Observation Deck"
 	icon_state = "white"
 
+/area/ministation/science2nddeck
+	name = "\improper 2nd Floor Research & Development Laboratory"
+	req_access = list(access_robotics)
+	secure = TRUE
+	icon_state = "purple"
+
+/area/ministation/sciencetesting
+	name = "\improper 2nd Floor Testing Rooms"
+	req_access = list(access_robotics)
+	secure = TRUE
+	icon_state = "purple"
+
 //Maint Bypasses
 
 /area/ministation/maint/sebypass
@@ -248,15 +260,15 @@
 	secure = TRUE
 	icon_state = "yellow"
 
-/area/ministation/supermatter
-	name = "\improper Supermatter Engine"
+/area/ministation/engineroom
+	name = "\improper Engine Room"
 	req_access = list(access_engine)
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
 	secure = TRUE
 	icon_state = "brown"
 
-/area/ministation/smcontrol
-	name = "\improper Supermatter Control"
+/area/ministation/enginecontrol
+	name = "\improper Engine Control Room"
 	req_access = list(access_engine)
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
 	secure = TRUE

@@ -1855,14 +1855,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "iJ" = (
-/obj/structure/table,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/masks,
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/door/airlock/glass/science{
+	name = "Robotics";
+	req_access = list("ACCESS_XENOBIO");
+	autoset_access = 0
 	},
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "iK" = (
@@ -2094,9 +2091,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 30
 	},
-/obj/machinery/fabricator/micro/bartender{
-	pixel_x = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "jT" = (
@@ -2299,6 +2293,10 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "kR" = (
@@ -2375,6 +2373,13 @@
 /obj/item/chems/ivbag/blood/oplus,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"lj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "ln" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/ss13/l12,
@@ -3033,8 +3038,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "oX" = (
-/obj/machinery/door/firedoor,
-/obj/effect/wallframe_spawn/no_grille,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4;
+	icon_state = "warningcorner"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
 "oY" = (
@@ -3233,6 +3240,13 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/obj/item/radio/intercom{
+	name = "Common Channel";
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "pM" = (
@@ -3255,6 +3269,10 @@
 	pixel_x = -2
 	},
 /obj/machinery/camera/network/medbay,
+/obj/structure/sign/directions/science{
+	dir = 1;
+	pixel_y = 34
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "pO" = (
@@ -3777,6 +3795,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "rM" = (
+/obj/structure/table,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/masks,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/advanced/bruise_pack,
 /obj/machinery/status_display{
 	pixel_y = -29
 	},
@@ -4293,6 +4316,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"ts" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "tt" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/warning{
@@ -5355,7 +5384,9 @@
 /obj/item/flame/lighter/zippo,
 /obj/item/chems/drinks/shaker,
 /obj/item/clothing/head/collectable/tophat,
-/obj/machinery/fabricator/micro,
+/obj/machinery/fabricator/micro/bartender{
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wU" = (
@@ -6538,6 +6569,11 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
+"AT" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/no_grille,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
 "AX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/warning{
@@ -8498,8 +8534,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "MG" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -8551,14 +8585,7 @@
 /turf/simulated/open,
 /area/ministation/hall/w2)
 "MT" = (
-/obj/machinery/body_scan_display{
-	pixel_y = 20;
-	id_tag = "mediscanner1"
-	},
-/obj/machinery/bodyscanner{
-	dir = 8;
-	id_tag = "mediscanner1"
-	},
+/obj/structure/stairs/long/west,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "MU" = (
@@ -9429,6 +9456,12 @@
 	},
 /turf/simulated/open,
 /area/ministation/maint/hydromaint)
+"RL" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/w2)
 "RQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10139,12 +10172,16 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "VJ" = (
-/obj/item/radio/intercom{
-	name = "Common Channel";
-	pixel_y = 25
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/body_scanconsole{
-	dir = 8
+/obj/machinery/bodyscanner{
+	dir = 8;
+	id_tag = "mediscanner1"
+	},
+/obj/machinery/body_scan_display{
+	pixel_y = 20;
+	id_tag = "mediscanner1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -10173,6 +10210,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "VR" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -42537,8 +42576,8 @@ rt
 al
 RZ
 aV
-oX
-ty
+aV
+AT
 OW
 zv
 TO
@@ -42794,8 +42833,8 @@ rt
 pu
 aV
 aV
-oX
-ty
+aV
+AT
 Xl
 gz
 gz
@@ -43308,8 +43347,8 @@ rt
 aV
 aV
 Sq
-oX
-ty
+aV
+AT
 sC
 gz
 gz
@@ -43562,11 +43601,11 @@ HO
 HO
 HO
 rt
-aV
-aV
+RL
+lj
 kQ
 oX
-ty
+AT
 Yv
 AX
 AX
@@ -52297,7 +52336,7 @@ aa
 aa
 ad
 aa
-aa
+hp
 oz
 oz
 pJ
@@ -52554,10 +52593,10 @@ aa
 aa
 ad
 aa
-aa
-oz
+hp
 MT
-uW
+oz
+VJ
 qt
 rd
 rL
@@ -52811,9 +52850,9 @@ aa
 aa
 ad
 aa
-aa
+hp
+pD
 oz
-VJ
 pL
 Kt
 re
@@ -53068,8 +53107,8 @@ aa
 aa
 ad
 aa
-aa
-oz
+hp
+ts
 iJ
 uW
 qu
@@ -53325,7 +53364,7 @@ aa
 aa
 ad
 aa
-aa
+hp
 oz
 oz
 pN
