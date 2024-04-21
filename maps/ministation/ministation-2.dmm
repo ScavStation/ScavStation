@@ -22,9 +22,11 @@
 /turf/simulated/wall,
 /area/ministation/bridge)
 "ak" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
@@ -7376,8 +7378,10 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "NB" = (
-/obj/structure/sign/directions/medical,
-/turf/simulated/wall,
+/obj/structure/sign/directions/medical{
+	pixel_y = 34
+	},
+/turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8399,10 +8403,12 @@
 /turf/simulated/floor/airless,
 /area/ministation/shuttle/outgoing)
 "Tq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera/network/hallway{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
@@ -51276,7 +51282,7 @@ aa
 aa
 aa
 ae
-db
+NB
 jC
 cN
 RL
@@ -51532,7 +51538,7 @@ aa
 aa
 aa
 aa
-NB
+ae
 iP
 Ug
 As
