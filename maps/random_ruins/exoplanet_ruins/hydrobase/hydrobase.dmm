@@ -1000,8 +1000,7 @@
 /obj/machinery/power/solar,
 /obj/effect/floor_decal/solarpanel,
 /obj/structure/cable{
-	dir = 4;
-	icon_state = "0-2"
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/fixed/alium/airless,
 /area/map_template/hydrobase/solars)
@@ -1787,8 +1786,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	dir = 4;
-	icon_state = "0-2"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/fixed/alium/airless,
 /area/map_template/hydrobase/solars)
@@ -1811,7 +1809,7 @@
 "eL" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable{
-	dir = 4
+	icon_state = "0-8"
 	},
 /turf/exterior/concrete,
 /area/template_noop)
@@ -2184,8 +2182,7 @@
 /obj/machinery/power/solar,
 /obj/effect/floor_decal/solarpanel,
 /obj/structure/cable{
-	dir = 4;
-	icon_state = "0-2"
+	icon_state = "0-4"
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2621,6 +2618,9 @@
 /obj/effect/floor_decal/solarpanel,
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/fixed/alium/airless,
 /area/map_template/hydrobase/solars)
