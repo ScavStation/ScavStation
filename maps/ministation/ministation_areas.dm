@@ -83,6 +83,9 @@
 /area/ministation/maint/l2centraln
 	name = "\improper Level Two Central North Maintenance"
 
+/area/ministation/maint/l2central
+	name = "\improper Level Two Central Maintenance"
+
 /area/ministation/maint/l2centrals
 	name = "\improper Level Two Central South Maintenance"
 
@@ -171,6 +174,18 @@
 	name = "\improper Mineral Processing"
 	req_access = list(access_mining)
 	icon_state = "mining_production"
+	secure = TRUE
+
+/area/ministation/cargo/f2
+	name = "\improper Cargo Bay"
+	req_access = list(access_mining)
+	icon_state = "brown"
+	secure = TRUE
+
+/area/ministation/cargo/f3
+	name = "\improper Cargo Bay"
+	req_access = list(access_mining)
+	icon_state = "brown"
 	secure = TRUE
 
 /area/ministation/bridge

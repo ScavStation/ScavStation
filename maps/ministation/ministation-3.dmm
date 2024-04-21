@@ -11,6 +11,11 @@
 "af" = (
 /turf/exterior/wall/random/ministation,
 /area/space)
+"ap" = (
+/obj/structure/lattice,
+/obj/item/chems/food/hydration,
+/turf/space,
+/area/space)
 "aq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -103,6 +108,20 @@
 	name = "Gas Testing Room"
 	},
 /turf/simulated/floor/reinforced,
+/area/ministation/sciencetesting)
+"cu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/button/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id_tag = "lockdown";
+	name = "Lockdown Doors";
+	pixel_x = -25
+	},
+/turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "cw" = (
 /turf/simulated/floor/reinforced/airless,
@@ -433,6 +452,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
+"oS" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/turf/space,
+/area/ministation/sciencetesting)
 "oZ" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 4
@@ -539,6 +565,13 @@
 /obj/structure/flora/bush/grassybush,
 /turf/simulated/floor/grass,
 /area/ministation/observation_deck)
+"tG" = (
+/obj/structure/hygiene/sink{
+	dir = 4;
+	pixel_x = 11
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "tN" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -590,7 +623,9 @@
 /area/ministation/sciencetesting)
 "ux" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular/open,
+/obj/machinery/door/blast/regular/open{
+	id_tag = "lockdown"
+	},
 /obj/machinery/door/airlock,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -651,6 +686,15 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"vO" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	icon_state = "map_injector";
+	use_power = 1
+	},
+/turf/space,
+/area/ministation/sciencetesting)
 "vR" = (
 /obj/structure/bed/sofa/left/beige{
 	dir = 8
@@ -674,6 +718,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
+"xi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/button/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id_tag = "lockdown";
+	name = "Lockdown Doors";
+	pixel_x = -25
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "xN" = (
 /obj/abstract/map_data{
 	height = 4
@@ -734,6 +792,11 @@
 	},
 /turf/simulated/open,
 /area/ministation/maint/l4overpass)
+"zR" = (
+/obj/structure/table,
+/obj/random/plushie,
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "Aj" = (
 /obj/structure/cable,
 /turf/simulated/floor/plating,
@@ -777,6 +840,9 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/sciencetesting)
+"BP" = (
+/turf/simulated/wall,
+/area/space)
 "Cd" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -918,6 +984,7 @@
 	dir = 4;
 	icon_state = "warningcorner"
 	},
+/obj/item/storage/box/monkeycubes,
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "DX" = (
@@ -1076,6 +1143,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"HR" = (
+/obj/structure/reagent_dispensers/water_cooler/ascent,
+/turf/simulated/floor/airless,
+/area/space)
 "Id" = (
 /turf/simulated/floor/grass,
 /area/ministation/observation_deck)
@@ -1110,6 +1181,10 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
+/area/ministation/sciencetesting)
+"JR" = (
+/obj/structure/table/bench,
+/turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "Kw" = (
 /obj/structure/cable{
@@ -1169,6 +1244,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Nb" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	icon_state = "map_injector";
+	use_power = 1
+	},
+/turf/space,
+/area/ministation/sciencetesting)
 "Np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -1329,6 +1412,11 @@
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
 /turf/simulated/floor/reinforced,
 /area/ministation/sciencetesting)
+"TO" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/monkeycubes,
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "Ul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/trunk{
@@ -1468,13 +1556,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "WW" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8;
-	icon_state = "map_injector";
-	id_tag = "n2_in";
-	use_power = 1
-	},
 /obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
 /turf/space,
 /area/ministation/sciencetesting)
 "Xs" = (
@@ -34869,7 +34954,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -35126,7 +35211,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -35383,7 +35468,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -36925,7 +37010,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -37182,7 +37267,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -37439,7 +37524,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -37696,7 +37781,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -37952,8 +38037,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -38202,15 +38287,15 @@ cw
 cw
 cw
 cw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -43058,11 +43143,11 @@ ev
 ev
 Jp
 OQ
-OQ
+cu
 ux
 An
 An
-An
+xi
 An
 An
 An
@@ -44086,7 +44171,7 @@ ev
 ev
 mG
 ev
-CM
+TO
 Xs
 aa
 aa
@@ -44096,10 +44181,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+BP
+HR
+ap
+BP
 aa
 aa
 cw
@@ -45371,7 +45456,7 @@ aq
 XQ
 mG
 ev
-ev
+JR
 Xs
 aa
 aa
@@ -45628,7 +45713,7 @@ lk
 XQ
 EL
 ev
-ev
+zR
 Xs
 aa
 aa
@@ -45885,7 +45970,7 @@ UW
 XQ
 Fm
 ev
-ev
+JR
 Xs
 aa
 aa
@@ -47167,7 +47252,7 @@ nT
 bX
 Ny
 yY
-ev
+tG
 JK
 ev
 qG
@@ -47674,9 +47759,9 @@ aa
 aa
 aa
 WW
-aa
-aa
-WW
+vO
+Nb
+oS
 aa
 aa
 aa
