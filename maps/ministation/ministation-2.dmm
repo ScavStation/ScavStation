@@ -744,6 +744,11 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"cA" = (
+/obj/structure/table/woodentable/ebony,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "cD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2424,6 +2429,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "kb" = (
@@ -2758,6 +2764,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo/f3)
+"kZ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/science)
 "lb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -3670,6 +3682,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "qx" = (
@@ -3777,6 +3792,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "rB" = (
@@ -3972,6 +3988,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
+"sU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "sV" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -4476,6 +4500,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "vP" = (
@@ -4780,6 +4805,13 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3nw)
+"yg" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "yh" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/door/firedoor,
@@ -7220,6 +7252,12 @@
 /obj/structure/bed/chair/armchair/black,
 /turf/simulated/floor/carpet/green,
 /area/ministation/library)
+"MO" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/science)
 "MP" = (
 /obj/machinery/light_switch{
 	dir = 8;
@@ -7378,8 +7416,8 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "NB" = (
-/obj/structure/sign/directions/medical{
-	pixel_y = 34
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -9418,10 +9456,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/science)
 "YA" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/sign/directions/medical{
+	pixel_y = 34
 	},
-/turf/simulated/wall,
+/turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "YE" = (
 /obj/machinery/vending/wallmed1{
@@ -9677,6 +9715,15 @@
 "Zv" = (
 /turf/simulated/wall,
 /area/ministation/hall/s3)
+"Zx" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "Zz" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -44876,7 +44923,7 @@ ae
 ae
 ae
 ae
-ob
+Zx
 As
 ae
 hI
@@ -45905,7 +45952,7 @@ ae
 ae
 ae
 ob
-As
+yg
 ae
 ae
 ae
@@ -46669,12 +46716,12 @@ sD
 db
 db
 db
-db
+NB
 db
 db
 ZO
 db
-db
+NB
 ob
 As
 ae
@@ -47180,7 +47227,7 @@ sD
 Wa
 gQ
 sD
-db
+uH
 kO
 NZ
 NZ
@@ -47448,7 +47495,7 @@ UH
 Dd
 oP
 lM
-HQ
+sU
 HQ
 zW
 wk
@@ -47956,7 +48003,7 @@ kO
 Dl
 MG
 JX
-MG
+cA
 dz
 pF
 UT
@@ -48465,7 +48512,7 @@ tx
 sC
 gQ
 sD
-db
+uH
 kO
 Dl
 Fn
@@ -48743,7 +48790,7 @@ JX
 VX
 db
 CX
-aa
+cw
 aa
 aa
 Ok
@@ -49000,7 +49047,7 @@ JX
 VX
 db
 CX
-aa
+cw
 aa
 aa
 nG
@@ -49750,7 +49797,7 @@ gG
 gG
 gG
 ae
-db
+uH
 em
 Dl
 wg
@@ -50518,7 +50565,7 @@ ar
 ar
 uJ
 ar
-ar
+MO
 ar
 ae
 fC
@@ -50774,9 +50821,9 @@ QK
 hg
 eD
 mO
-YA
-YA
-YA
+ae
+ae
+ae
 ae
 UH
 em
@@ -51282,7 +51329,7 @@ aa
 aa
 aa
 ae
-NB
+YA
 jC
 cN
 RL
@@ -51291,7 +51338,7 @@ RL
 RL
 zq
 HQ
-HQ
+sU
 Lp
 kS
 dx
@@ -52567,7 +52614,7 @@ aa
 aa
 cw
 ae
-iL
+kZ
 pV
 Fw
 NV
@@ -53338,7 +53385,7 @@ aa
 cw
 cw
 ae
-iL
+kZ
 pV
 IE
 Hv

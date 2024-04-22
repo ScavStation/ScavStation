@@ -90,6 +90,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"aW" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/reinforced,
+/area/ministation/sciencetesting)
 "bx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -108,20 +115,6 @@
 	name = "Gas Testing Room"
 	},
 /turf/simulated/floor/reinforced,
-/area/ministation/sciencetesting)
-"cu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/button/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	id_tag = "lockdown";
-	name = "Lockdown Doors";
-	pixel_x = -25
-	},
-/turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "cw" = (
 /turf/simulated/floor/reinforced/airless,
@@ -148,9 +141,39 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"dC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "dH" = (
 /turf/simulated/floor/plating,
 /area/space)
+"dO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/button/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id_tag = "lockdown";
+	name = "Lockdown Doors";
+	pixel_x = -25
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "en" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -220,6 +243,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
+"fv" = (
+/obj/machinery/light/spot,
+/turf/simulated/floor/reinforced,
+/area/ministation/sciencetesting)
 "fD" = (
 /turf/simulated/open,
 /area/ministation/observation_deck)
@@ -240,6 +267,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"gE" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/turf/space,
+/area/ministation/sciencetesting)
 "hd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -348,6 +382,10 @@
 /obj/structure/target_stake,
 /turf/simulated/floor/reinforced,
 /area/ministation/sciencetesting)
+"kq" = (
+/obj/structure/closet/crate/bin/ministation,
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "kQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -393,6 +431,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "ll" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "bulb1"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/science2nddeck)
 "mG" = (
@@ -452,13 +494,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
-"oS" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/space,
-/area/ministation/sciencetesting)
 "oZ" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 4
@@ -487,6 +522,14 @@
 "pS" = (
 /turf/simulated/open,
 /area/ministation/science2nddeck)
+"qa" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	icon_state = "map_injector";
+	use_power = 1
+	},
+/turf/space,
+/area/ministation/sciencetesting)
 "qD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -496,6 +539,10 @@
 /area/ministation/observation_deck)
 "qG" = (
 /obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "qH" = (
@@ -534,6 +581,18 @@
 "rB" = (
 /turf/simulated/wall,
 /area/ministation/observation_deck)
+"rW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "rZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -558,6 +617,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"tg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/button/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id_tag = "lockdown";
+	name = "Lockdown Doors";
+	pixel_x = -25
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "tu" = (
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
@@ -686,7 +763,7 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
-"vO" = (
+"vH" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
@@ -718,20 +795,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
-"xi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/button/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	id_tag = "lockdown";
-	name = "Lockdown Doors";
-	pixel_x = -25
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/science2nddeck)
 "xN" = (
 /obj/abstract/map_data{
 	height = 4
@@ -1072,6 +1135,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
+"FV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
+"Gg" = (
+/obj/structure/table/bench,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "GD" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -1228,6 +1309,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"LI" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "Mj" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 4
@@ -1237,6 +1325,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
+"Mt" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "MF" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
@@ -1244,14 +1339,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"Nb" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/outlet_injector{
-	icon_state = "map_injector";
-	use_power = 1
-	},
-/turf/space,
-/area/ministation/sciencetesting)
 "Np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -1354,6 +1441,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
+"RO" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/reinforced,
+/area/ministation/sciencetesting)
 "RY" = (
 /obj/machinery/vending/coffee{
 	dir = 4;
@@ -1402,6 +1496,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
@@ -1522,6 +1620,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "WG" = (
@@ -1565,6 +1667,17 @@
 "Xs" = (
 /turf/simulated/wall,
 /area/ministation/sciencetesting)
+"Xw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/sciencetesting)
 "XA" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1592,6 +1705,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"XK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/reinforced,
+/area/ministation/sciencetesting)
 "XQ" = (
 /turf/simulated/wall/r_wall,
 /area/ministation/sciencetesting)
@@ -37778,9 +37899,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cw
+cw
+cw
 cw
 cw
 cw
@@ -38035,8 +38156,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -43138,34 +43259,34 @@ nT
 nT
 nT
 Pm
-Ny
+Xw
 ev
 ev
 Jp
 OQ
-cu
+dO
 ux
 An
 An
-xi
+tg
 An
 An
 An
 An
 An
-An
+dC
 An
 An
 AZ
 An
 An
+rW
 An
 An
 An
 An
 An
-An
-An
+dC
 An
 An
 An
@@ -43187,9 +43308,9 @@ cw
 cw
 cw
 cw
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
@@ -43905,7 +44026,7 @@ aa
 gb
 ko
 nT
-nT
+aW
 nT
 nT
 CM
@@ -44168,7 +44289,7 @@ gb
 gb
 OR
 ev
-ev
+Mt
 mG
 ev
 TO
@@ -44428,7 +44549,7 @@ XQ
 XQ
 mG
 ev
-CM
+LI
 Xs
 aa
 aa
@@ -44677,7 +44798,7 @@ nT
 nT
 nT
 nT
-nT
+fv
 XQ
 CI
 Kw
@@ -44685,7 +44806,7 @@ US
 XQ
 WG
 ev
-ev
+kq
 Xs
 aa
 aa
@@ -45705,7 +45826,7 @@ nT
 nT
 nT
 nT
-nT
+fv
 XQ
 CI
 pP
@@ -45743,9 +45864,9 @@ cw
 cw
 cw
 cw
-aa
-aa
-aa
+cw
+cw
+cw
 cw
 aa
 aa
@@ -45970,7 +46091,7 @@ UW
 XQ
 Fm
 ev
-JR
+Gg
 Xs
 aa
 aa
@@ -46473,10 +46594,10 @@ aa
 aa
 hQ
 nT
-nT
+RO
 SO
 ZM
-ZM
+XK
 ZM
 QM
 Ul
@@ -47250,7 +47371,7 @@ nT
 Bx
 nT
 bX
-Ny
+FV
 yY
 tG
 JK
@@ -47759,9 +47880,9 @@ aa
 aa
 aa
 WW
-vO
-Nb
-oS
+vH
+qa
+gE
 aa
 aa
 aa

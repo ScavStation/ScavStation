@@ -301,6 +301,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "bt" = (
@@ -1096,7 +1099,7 @@
 /obj/structure/closet/secure_closet/atmos_personal,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/atmos,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/light{
@@ -1869,7 +1872,7 @@
 /area/ministation/hall/n)
 "gU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -3778,7 +3781,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "pQ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/blue,
@@ -4751,6 +4754,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "ug" = (
@@ -4840,6 +4844,14 @@
 /obj/effect/wallframe_spawn/no_grille,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
+"uv" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/machinery/light_switch{
+	pixel_x = 27;
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/engineroom)
 "uy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -6356,12 +6368,10 @@
 /turf/simulated/floor/carpet/green,
 /area/ministation/dorms)
 "By" = (
-/obj/machinery/door/airlock/external/glass{
-	autoset_access = 0;
-	id_tag = "stern_engineering_airlock_interior";
-	locked = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/door/blast/regular{
+	id_tag = "EngineSpace"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
 "Bz" = (
@@ -7367,7 +7377,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "EE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7555,9 +7565,6 @@
 	name = "Engineering Hub";
 	dir = 4
 	},
-/obj/machinery/vending/coffee{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Fb" = (
@@ -7657,7 +7664,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Fn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7724,19 +7731,19 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Fv" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Fw" = (
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Fx" = (
 /obj/machinery/vending/engivend{
@@ -10548,7 +10555,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "NW" = (
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/machinery/meter,
@@ -11106,7 +11113,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel_grid,
+/turf/simulated/floor/wood,
 /area/ministation/engine)
 "PX" = (
 /obj/effect/wallframe_spawn/reinforced_borosilicate,
@@ -11281,6 +11288,12 @@
 /obj/machinery/atmospherics/valve/digital{
 	dir = 1;
 	name = "Emergency Cooling Valve 2"
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "EngineSpace";
+	name = "2. Reactor Space Doors";
+	pixel_x = -22;
+	pixel_y = -9
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
@@ -12380,7 +12393,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "Vn" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "Vp" = (
@@ -12426,14 +12439,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
 "Vu" = (
-/obj/machinery/door/airlock/external/glass{
-	locked = 1;
-	id_tag = "stern_engineering_airlock_exterior";
-	autoset_access = 0
+/obj/machinery/vending/cola{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/plating,
-/area/ministation/engineroom)
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "Vv" = (
 /obj/abstract/turbolift_spawner/ministationpass{
 	dir = 8
@@ -13101,11 +13111,6 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "YP" = (
-/obj/machinery/light_switch{
-	pixel_y = 26;
-	dir = 4;
-	pixel_x = -23
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -13236,6 +13241,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 10
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
 "Zn" = (
@@ -13245,10 +13251,10 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Zo" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "Zs" = (
@@ -13263,14 +13269,10 @@
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
 "Zw" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+/obj/machinery/vending/coffee{
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Zx" = (
 /obj/structure/cable{
@@ -42586,7 +42588,7 @@ PW
 EL
 Fb
 EB
-XQ
+Zw
 Dt
 Ak
 uS
@@ -42843,7 +42845,7 @@ Er
 EM
 Fc
 Fm
-XQ
+Vu
 Dt
 Dt
 rq
@@ -45691,7 +45693,7 @@ wy
 By
 xa
 xa
-Vu
+By
 rS
 kC
 nD
@@ -47478,7 +47480,7 @@ bT
 wL
 Zm
 xu
-xu
+uv
 xu
 Wj
 xu
@@ -47985,10 +47987,10 @@ FL
 kw
 FU
 DC
-DC
-Zw
-bq
+Hs
 vl
+bq
+DC
 XW
 oK
 DC
