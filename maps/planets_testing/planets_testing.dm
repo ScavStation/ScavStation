@@ -2,6 +2,8 @@
 
 	//Include Static Planet
 	#include "../planets/test_planet/test_planet.dm"
+	#include "../../mods/content/pheromones/_pheromones.dme"
+	#include "../../mods/valsalia/_valsalia.dme"
 
 	#define USING_MAP_DATUM /datum/map/planet_testing
 
