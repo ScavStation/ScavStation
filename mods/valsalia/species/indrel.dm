@@ -15,28 +15,29 @@ var/global/list/pheromone_markers = list()
 
 	appearance_flags = HAS_EYE_COLOR
 	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_LUNGS =    /obj/item/organ/internal/lungs,
-		BP_LIVER =    /obj/item/organ/internal/liver,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
-		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes
+		BP_HEART           = /obj/item/organ/internal/heart,
+		BP_STOMACH         = /obj/item/organ/internal/stomach,
+		BP_LUNGS           = /obj/item/organ/internal/lungs,
+		BP_LIVER           = /obj/item/organ/internal/liver,
+		BP_KIDNEYS         = /obj/item/organ/internal/kidneys,
+		BP_BRAIN           = /obj/item/organ/internal/brain,
+		BP_EYES            = /obj/item/organ/internal/eyes,
+		BP_PHEREMONE_GLAND = /obj/item/organ/internal/pheremone_gland
 	)
 	has_limbs = list(
-		BP_CHEST =        list("path" = /obj/item/organ/external/chest/insectoid),
-		BP_GROIN =        list("path" = /obj/item/organ/external/groin/insectoid),
-		BP_HEAD =         list("path" = /obj/item/organ/external/head/insectoid),
-		BP_L_ARM =        list("path" = /obj/item/organ/external/arm/insectoid),
-		BP_L_HAND =       list("path" = /obj/item/organ/external/hand/insectoid),
-		BP_L_HAND_UPPER = list("path" = /obj/item/organ/external/hand/insectoid/upper/indrel),
-		BP_R_ARM =        list("path" = /obj/item/organ/external/arm/right/insectoid),
-		BP_R_HAND =       list("path" = /obj/item/organ/external/hand/right/insectoid),
-		BP_R_HAND_UPPER = list("path" = /obj/item/organ/external/hand/right/insectoid/upper/indrel),
-		BP_R_LEG =        list("path" = /obj/item/organ/external/leg/right/insectoid),
-		BP_L_LEG =        list("path" = /obj/item/organ/external/leg/insectoid),
-		BP_L_FOOT =       list("path" = /obj/item/organ/external/foot/insectoid),
-		BP_R_FOOT =       list("path" = /obj/item/organ/external/foot/right/insectoid)
+		BP_CHEST           = list("path" = /obj/item/organ/external/chest/insectoid),
+		BP_GROIN           = list("path" = /obj/item/organ/external/groin/insectoid),
+		BP_HEAD            = list("path" = /obj/item/organ/external/head/insectoid),
+		BP_L_ARM           = list("path" = /obj/item/organ/external/arm/insectoid),
+		BP_L_HAND          = list("path" = /obj/item/organ/external/hand/insectoid),
+		BP_L_HAND_UPPER    = list("path" = /obj/item/organ/external/hand/insectoid/upper/indrel),
+		BP_R_ARM           = list("path" = /obj/item/organ/external/arm/right/insectoid),
+		BP_R_HAND          = list("path" = /obj/item/organ/external/hand/right/insectoid),
+		BP_R_HAND_UPPER    = list("path" = /obj/item/organ/external/hand/right/insectoid/upper/indrel),
+		BP_R_LEG           = list("path" = /obj/item/organ/external/leg/right/insectoid),
+		BP_L_LEG           = list("path" = /obj/item/organ/external/leg/insectoid),
+		BP_L_FOOT          = list("path" = /obj/item/organ/external/foot/insectoid),
+		BP_R_FOOT          = list("path" = /obj/item/organ/external/foot/right/insectoid)
 	)
 	limb_mapping = list(
 		BP_L_HAND = list(BP_L_HAND, BP_L_HAND_UPPER),
@@ -213,7 +214,7 @@ var/global/list/pheromone_markers = list()
 	)
 	. = ..()
 
-/datum/extension/scent/custom/pheromone/check_smeller(var/mob/living/carbon/human/smeller)
+/datum/extension/scent/custom/pheromone/check_smeller(var/mob/living/smeller)
 	. = (..() && istype(smeller) && smeller.can_read_pheromones())
 
 /mob/living/carbon/human/Login()
@@ -227,11 +228,18 @@ var/global/list/pheromone_markers = list()
 		else
 			client.images -= global.pheromone_markers
 
-/mob/living/carbon/human/proc/can_read_pheromones()
-	. = (species.name == SPECIES_INDREL)
-	if(!.)
-		var/obj/item/implant/pheromone/imp = locate() in get_organ(BP_HEAD)
-		. = (imp && imp.implanted && !imp.malfunction)
+/obj/item/organ/internal/pheremone_gland
+	name = "pheremone gland"
+	organ_tag = BP_PHEREMONE_GLAND
+
+/mob/living/proc/can_read_pheromones()
+	var/obj/item/organ/internal/pheremone_gland/gland = GET_INTERNAL_ORGAN(src, BP_PHEREMONE_GLAND)
+	if(istype(gland) && !gland.is_broken())
+		return TRUE
+	var/obj/item/implant/pheromone/imp = locate() in get_organ(BP_HEAD)
+	if(imp && imp.implanted && !imp.malfunction)
+		return TRUE
+	return FALSE
 
 /obj/effect/decal/cleanable/pheromone
 	name = "pheromone trace"
@@ -241,16 +249,16 @@ var/global/list/pheromone_markers = list()
 	var/image/marker
 
 /obj/effect/decal/cleanable/pheromone/proc/fade()
-	alpha = max(alpha-15, 0)
+	alpha = max(alpha-5, 0)
 	if(alpha <= 0)
 		qdel(src)
 	else
-		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 1 MINUTE)
+		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 300 SECONDS)
 		update_scent_marker()
 
 /obj/effect/decal/cleanable/pheromone/Initialize(ml, _age)
 	. = ..()
-	addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 1 MINUTE)
+	addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 300 SECONDS)
 	marker = image(loc = src, icon = 'icons/effects/blood.dmi', icon_state = pick(list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")))
 	marker.alpha = 90
 	marker.plane = ABOVE_LIGHTING_PLANE
@@ -287,19 +295,25 @@ var/global/list/pheromone_markers = list()
 	update_scent_marker()
 	var/datum/extension/scent/custom/pheromone/smell = get_extension(src, /datum/extension/scent)
 	if(istype(smell))
-		for(var/mob/living/carbon/human/H in all_hearers(smell.holder, smell.range))
-			var/turf/T = get_turf(H.loc)
+		for(var/mob/living/smeller in all_hearers(smell.holder, smell.range))
+			var/turf/T = get_turf(smeller.loc)
 			if(!T || !T.return_air())
 				continue
-			if(!smell.check_smeller(H))
+			if(!smell.check_smeller(smeller))
 				continue
-			if(smell.scent in H.smell_cooldown)
-				to_chat(H, SPAN_NOTICE("The scent of [smell.scent] intensifies."))
+			if(smell.scent in smeller.smell_cooldown)
+				to_chat(smeller, SPAN_NOTICE("The scent of [smell.scent] intensifies."))
 
 /decl/emote/pheromone
 	var/smell_message
 	var/self_smell_descriptor
 	var/scent_color
+
+/decl/emote/pheromone/check_user(var/atom/user)
+	if(isliving(user))
+		var/mob/living/user_mob = user
+		return user_mob.can_read_pheromones()
+	return FALSE
 
 /decl/emote/pheromone/fear
 	key = "scentfear"

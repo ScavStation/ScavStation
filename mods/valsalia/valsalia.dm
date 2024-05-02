@@ -10,6 +10,8 @@
 #define BODYTYPE_BAXXID          "baxxid body"
 #define BODYTYPE_INDREL          "indrel body"
 
+#define BP_PHEREMONE_GLAND       "pheremone gland"
+
 /decl/modpack/valsalia
 	name = "Val Salia Content"
 	credits_topics = list(
