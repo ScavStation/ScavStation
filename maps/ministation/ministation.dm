@@ -10,7 +10,7 @@ And then imported back to ScavStation!
 	#define USING_MAP_DATUM /datum/map/ministation
 
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
-
+	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/corporate/_corporate.dme"
 	#include "../../mods/valsalia/_valsalia.dme"

@@ -1,16 +1,6 @@
 /****************
  true human verbs
 ****************/
-/mob/living/carbon/human/verb/sniff_verb()
-	set name = "Sniff"
-	set desc = "Smell the local area."
-	set category = "IC"
-	set src = usr
-	if(!incapacitated() && !holding_breath)
-		if(species.sniff_message_3p && species.sniff_message_1p)
-			visible_message(SPAN_NOTICE("\The [src] [species.sniff_message_3p]."), SPAN_NOTICE(species.sniff_message_1p))
-		LAZYCLEARLIST(smell_cooldown)
-
 /mob/living/carbon/human/verb/hold_breath()
 	set name = "Hold Breath"
 	set desc = "Hold your breath, or stop holding your breath."
