@@ -107,6 +107,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/camera/autoname,
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
 "bX" = (
@@ -122,6 +123,9 @@
 "cK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/machinery/camera/autoname{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
@@ -141,6 +145,17 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"dv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "dC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -250,6 +265,17 @@
 "fD" = (
 /turf/simulated/open,
 /area/ministation/observation_deck)
+"fJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/science2nddeck)
 "gb" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/ministation/sciencetesting)
@@ -517,6 +543,9 @@
 	pixel_y = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "pS" = (
@@ -581,6 +610,12 @@
 "rB" = (
 /turf/simulated/wall,
 /area/ministation/observation_deck)
+"rT" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/ministation/sciencetesting)
 "rW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1265,6 +1300,9 @@
 /area/ministation/sciencetesting)
 "JR" = (
 /obj/structure/table/bench,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "Kw" = (
@@ -1406,6 +1444,9 @@
 /obj/item/target/alien,
 /obj/item/target/alien,
 /obj/item/target/alien,
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "Pt" = (
@@ -1465,6 +1506,12 @@
 	pixel_x = 24
 	},
 /obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/ministation/observation_deck)
+"SC" = (
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
 "SJ" = (
@@ -33780,7 +33827,7 @@ tu
 RY
 nf
 CY
-tu
+SC
 ou
 tu
 eu
@@ -43271,7 +43318,7 @@ An
 tg
 An
 An
-An
+fJ
 An
 An
 dC
@@ -43283,7 +43330,7 @@ An
 rW
 An
 An
-An
+dv
 An
 An
 dC
@@ -47369,7 +47416,7 @@ Bx
 nT
 nT
 Bx
-nT
+rT
 bX
 FV
 yY
