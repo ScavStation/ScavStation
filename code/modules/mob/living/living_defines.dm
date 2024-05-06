@@ -72,3 +72,5 @@
 	// Used to track appearance descriptor datums.
 	// Currently only on humans due to the spaghetti code involved, TODO: generalize.
 	var/list/appearance_descriptors
+
+	var/list/smell_cooldown

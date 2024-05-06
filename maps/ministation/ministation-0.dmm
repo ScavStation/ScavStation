@@ -8378,6 +8378,10 @@
 	pixel_x = 27;
 	pixel_y = -3
 	},
+/obj/machinery/camera/network/engineering{
+	name = "SM West";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Hb" = (

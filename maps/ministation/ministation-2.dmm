@@ -320,7 +320,6 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/structure/closet/l3closet/scientist,
 /obj/effect/floor_decal/corner/purple{
 	dir = 1
 	},
@@ -1074,6 +1073,9 @@
 /obj/machinery/status_display{
 	pixel_y = 30;
 	pixel_x = -33
+	},
+/obj/structure/reagent_dispensers/acid{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -1950,6 +1952,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/science)
+"hP" = (
+/obj/machinery/camera/network/research{
+	dir = 1;
+	req_access = list("ACCESS_CAMERAS")
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/ministation/science)
 "hS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -2354,6 +2363,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/camera/network/research{
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "jF" = (
@@ -2619,6 +2632,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/magenta,
+/area/ministation/science)
+"kJ" = (
+/obj/machinery/camera/network/research{
+	dir = 1;
+	req_access = list("ACCESS_CAMERAS")
+	},
+/turf/simulated/floor/reinforced,
 /area/ministation/science)
 "kO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3643,9 +3663,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
-/obj/machinery/camera/network/research{
-	dir = 4
-	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
 "pV" = (
@@ -3870,6 +3887,15 @@
 /obj/structure/sign/warning/nosmoking_burned,
 /turf/simulated/wall/r_wall,
 /area/ministation/science)
+"se" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "sh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4249,9 +4275,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "uD" = (
-/obj/structure/reagent_dispensers/acid,
-/turf/simulated/wall,
-/area/ministation/science)
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "uG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -5139,6 +5167,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
+"An" = (
+/obj/machinery/camera/network/research,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "Ar" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5530,6 +5562,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
+"Cp" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	dir = 1;
+	req_access = list("ACCESS_CAMERAS")
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "Cs" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6252,6 +6294,10 @@
 /obj/item/stool/padded,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"FG" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "FM" = (
 /obj/machinery/port_gen/pacman/super,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6358,6 +6404,7 @@
 /area/ministation/science)
 "GJ" = (
 /obj/machinery/light,
+/obj/structure/closet/l3closet/scientist,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "GK" = (
@@ -6905,6 +6952,12 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
+/obj/structure/rack{
+	dir = 8
+	},
+/obj/item/weldingtool,
+/obj/item/clothing/head/welding/fancy,
+/obj/item/storage/belt/utility,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "KQ" = (
@@ -7761,6 +7814,12 @@
 	},
 /turf/space,
 /area/space)
+"Pt" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "Pw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
@@ -8034,7 +8093,6 @@
 /area/ministation/cargo/f3)
 "QT" = (
 /obj/machinery/computer/design_console{
-	dir = 8;
 	initial_network_id = "molluscnet"
 	},
 /obj/machinery/light{
@@ -8886,10 +8944,23 @@
 /obj/structure/bookcase/manuals,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"Vp" = (
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/obj/machinery/camera/network/research,
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "Vq" = (
 /obj/structure/bookcase/skill_books/random,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"Vs" = (
+/obj/machinery/camera/network/research{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ministation/science)
 "Vt" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -43380,7 +43451,7 @@ cw
 aa
 aa
 aa
-uD
+ae
 ee
 iL
 iL
@@ -43883,7 +43954,7 @@ SP
 FE
 SP
 sD
-kh
+se
 gQ
 tx
 cw
@@ -44924,7 +44995,7 @@ ae
 ae
 ae
 Zx
-As
+Cp
 ae
 hI
 db
@@ -46196,7 +46267,7 @@ cw
 cw
 cw
 sD
-sC
+uD
 gQ
 sD
 cw
@@ -46713,7 +46784,7 @@ tx
 sC
 gQ
 sD
-db
+An
 db
 db
 NB
@@ -46967,7 +47038,7 @@ cw
 cw
 cw
 sD
-sC
+uD
 gQ
 sD
 gf
@@ -47238,7 +47309,7 @@ Jr
 XS
 vw
 Xd
-db
+Vs
 db
 ZO
 db
@@ -47738,7 +47809,7 @@ cw
 cw
 cw
 sD
-sC
+uD
 gQ
 sD
 db
@@ -48766,7 +48837,7 @@ cw
 cw
 cw
 sD
-sC
+uD
 bS
 sD
 db
@@ -49275,10 +49346,10 @@ cw
 cw
 cw
 sD
+Pt
 sC
 sC
-sC
-sC
+Pt
 sC
 sC
 sC
@@ -49298,7 +49369,7 @@ dz
 KC
 Ky
 Fm
-mJ
+kJ
 dz
 ky
 VX
@@ -50825,7 +50896,7 @@ ae
 ae
 ae
 ae
-UH
+Vp
 em
 db
 db
@@ -53645,7 +53716,7 @@ ae
 KE
 wD
 IE
-iL
+hP
 ae
 ve
 RD
@@ -53899,7 +53970,7 @@ aa
 cw
 cw
 ae
-db
+FG
 JX
 IE
 Hv
