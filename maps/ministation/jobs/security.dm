@@ -13,7 +13,6 @@
 		access_security,
 		access_brig,
 		access_lawyer,
-		access_eva,
 		access_maint_tunnels,
 		access_cameras,
 		access_eva
@@ -58,8 +57,7 @@
 		access_morgue,
 		access_lawyer,
 		access_maint_tunnels,
-		access_cameras,
-		access_eva
+		access_cameras
 	)
 	minimal_access = list(
 		access_security,
