@@ -227,7 +227,7 @@
 				tank.reagents.splash(A, 100)
 	return TRUE
 
-/mob/living/bot/farmbot/gib(do_gibs)
+/mob/living/bot/farmbot/gib(do_gibs = TRUE)
 	var/turf/my_turf = get_turf(src)
 	. = ..()
 	if(. && my_turf)
@@ -264,7 +264,7 @@
 	if(tray.dead && removes_dead || tray.harvest && collects_produce)
 		return FARMBOT_COLLECT
 
-	else if(refills_water && tray.waterlevel < 40 && !tray.reagents.has_reagent(/decl/material/liquid/water))
+	else if(refills_water && tray.waterlevel < 40 && !tray.reagents.has_reagent(/decl/material/liquid/water) && (tank?.reagents.total_volume > 0))
 		return FARMBOT_WATER
 
 	else if(uproots_weeds && tray.weedlevel > 3)
