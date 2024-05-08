@@ -2174,7 +2174,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "iP" = (
-/turf/simulated/open,
+/turf/open,
 /area/ministation/science)
 "iQ" = (
 /obj/abstract/landmark/start{
@@ -7677,7 +7677,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "OK" = (
 /obj/machinery/door/airlock/external/glass{
@@ -8103,7 +8103,7 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "QS" = (
-/turf/simulated/open,
+/turf/open,
 /area/ministation/cargo/f3)
 "QT" = (
 /obj/machinery/computer/design_console{
@@ -9379,7 +9379,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/hall/n3)
 "XD" = (
 /obj/effect/wallframe_spawn/no_grille,

@@ -612,7 +612,7 @@
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
-/turf/simulated/open,
+/turf/open,
 /area/ministation/cargo/f2)
 "dm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2488,7 +2488,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2central)
 "lC" = (
-/turf/simulated/open,
+/turf/open,
 /area/ministation/cargo/f2)
 "lF" = (
 /turf/simulated/wall,

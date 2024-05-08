@@ -4,11 +4,8 @@
 	var/self_smell_descriptor
 	var/scent_color
 
-/decl/emote/pheromone/check_user(var/atom/user)
-	if(isliving(user))
-		var/mob/living/user_mob = user
-		return user_mob.can_read_pheromones()
-	return FALSE
+/decl/emote/pheromone/mob_can_use(mob/living/user, assume_available = FALSE)
+	return istype(user) && user.can_read_pheromones() && ..()
 
 /decl/emote/pheromone/fear
 	key = "scentfear"

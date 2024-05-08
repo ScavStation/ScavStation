@@ -2273,7 +2273,7 @@
 "iL" = (
 /obj/structure/table,
 /obj/item/stack/material/pane/mapped/glass/fifty,
-/obj/item/stack/material/reinforced/mapped/fiberglass/fifty,
+/obj/item/stack/material/sheet/reinforced/mapped/fiberglass/fifty,
 /obj/item/stack/material/pane/mapped/rglass/fifty,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
@@ -2314,7 +2314,7 @@
 	dir = 8
 	},
 /obj/structure/closet/crate,
-/obj/item/stack/material/ore/glass,
+/obj/item/stack/material/ore/sand,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "iV" = (
@@ -5486,7 +5486,7 @@
 /area/ministation/engineroom)
 "xf" = (
 /obj/structure/table,
-/obj/item/stack/material/reinforced/mapped/plasteel/fifty,
+/obj/item/stack/material/sheet/reinforced/mapped/plasteel/fifty,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "xg" = (
@@ -10154,7 +10154,7 @@
 "Mr" = (
 /obj/structure/table,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
-/obj/item/stack/material/shiny/mapped/aluminium/fifty,
+/obj/item/stack/material/sheet/shiny/mapped/aluminium/fifty,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Ms" = (
