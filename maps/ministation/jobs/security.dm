@@ -14,7 +14,8 @@
 		access_brig,
 		access_lawyer,
 		access_maint_tunnels,
-		access_cameras
+		access_cameras,
+		access_eva
 	)
 	minimal_access = list(
 		access_security,
@@ -27,7 +28,7 @@
 	min_skill = list(
 		SKILL_LITERACY = SKILL_BASIC,
 		SKILL_COMPUTER = SKILL_BASIC,
-		SKILL_COMBAT	= SKILL_BASIC,
+		SKILL_COMBAT	= SKILL_ADEPT,
 		SKILL_WEAPONS	= SKILL_BASIC
 	)
 	max_skill = list(
@@ -52,6 +53,8 @@
 		access_forensics_lockers,
 		access_brig,
 		access_security,
+		access_eva,
+		access_morgue,
 		access_lawyer,
 		access_maint_tunnels,
 		access_cameras
@@ -65,18 +68,22 @@
 		access_cameras
 	)
 	min_skill = list(
-		SKILL_LITERACY	= SKILL_BASIC,
+		SKILL_LITERACY	= SKILL_ADEPT,
 		SKILL_COMPUTER	= SKILL_BASIC,
 		SKILL_COMBAT	= SKILL_BASIC,
 		SKILL_WEAPONS	= SKILL_BASIC,
-		SKILL_FORENSICS	= SKILL_ADEPT
+		SKILL_FORENSICS	= SKILL_ADEPT,
+		SKILL_MEDICAL   = SKILL_BASIC,
+		SKILL_ANATOMY   = SKILL_ADEPT
 	)
 	max_skill = list(
-		SKILL_COMBAT	= SKILL_MAX,
-		SKILL_WEAPONS	= SKILL_MAX,
-		SKILL_FORENSICS	= SKILL_MAX
+		SKILL_COMBAT	= SKILL_EXPERT,
+		SKILL_WEAPONS	= SKILL_EXPERT,
+		SKILL_FORENSICS	= SKILL_MAX,
+		SKILL_MEDICAL   = SKILL_EXPERT,
+		SKILL_ANATOMY   = SKILL_EXPERT
 	)
-	skill_points = 34
+	skill_points = 30
 
 /datum/job/ministation/security/head
 	title = "Head of Security"
@@ -134,10 +141,11 @@
 		access_cameras
 	)
 	min_skill = list(
-		SKILL_LITERACY = SKILL_BASIC,
+		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_COMPUTER = SKILL_BASIC,
 		SKILL_COMBAT	= SKILL_ADEPT,
-		SKILL_WEAPONS	= SKILL_ADEPT
+		SKILL_WEAPONS	= SKILL_ADEPT,
+		SKILL_FORENSICS	= SKILL_BASIC
 	)
 	max_skill = list(
 		SKILL_COMBAT	= SKILL_MAX,

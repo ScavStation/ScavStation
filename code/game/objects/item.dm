@@ -451,6 +451,10 @@
 /obj/item/proc/dropped(var/mob/user, var/play_dropsound = TRUE)
 
 	SHOULD_CALL_PARENT(TRUE)
+
+	if(QDELETED(src))
+		return
+
 	if(randpixel)
 		pixel_z = randpixel //an idea borrowed from some of the older pixel_y randomizations. Intended to make items appear to drop at a character
 	update_twohanding()
@@ -487,7 +491,11 @@
 // for items that can be placed in multiple slots
 // note this isn't called during the initial dressing of a player
 /obj/item/proc/equipped(var/mob/user, var/slot)
+
 	SHOULD_CALL_PARENT(TRUE)
+
+	if(QDELETED(src))
+		return
 
 	add_fingerprint(user)
 
@@ -946,9 +954,3 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	// delay for 1ds to allow the rest of the call stack to resolve
 	if(!QDELETED(src) && !QDELETED(user) && user.get_equipped_slot_for_item(src) == slot)
 		try_burn_wearer(user, slot, 1)
-
-/obj/item/ProcessAtomTemperature()
-	if(material && material.bakes_into_material && !isnull(material.bakes_into_at_temperature) && temperature >= material.bakes_into_at_temperature)
-		set_material(material.bakes_into_material)
-	. = ..()
-

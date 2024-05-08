@@ -1,8 +1,8 @@
 /datum/job/ministation/engineer
 	title = "Station Engineer"
 	supervisors = "the Head Engineer"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	outfit_type = /decl/hierarchy/outfit/job/ministation/engineer
 	department_types = list(/decl/department/engineering)
 	selection_color = "#5b4d20"
@@ -37,7 +37,7 @@
 		SKILL_COMPUTER     = SKILL_BASIC,
 		SKILL_EVA          = SKILL_BASIC,
 		SKILL_CONSTRUCTION = SKILL_ADEPT,
-		SKILL_ELECTRICAL   = SKILL_BASIC,
+		SKILL_ELECTRICAL   = SKILL_ADEPT,
 		SKILL_ATMOS        = SKILL_BASIC,
 		SKILL_ENGINES      = SKILL_BASIC
 	)
@@ -90,7 +90,8 @@
 		access_robotics,
 		access_hydroponics,
 		access_ai_upload,
-		access_cameras
+		access_cameras,
+		access_security
 	)
 	minimal_access = list(
 		access_engine,
