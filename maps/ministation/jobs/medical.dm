@@ -11,7 +11,8 @@
 		SKILL_LITERACY  = SKILL_ADEPT,
 		SKILL_MEDICAL   = SKILL_EXPERT,
 		SKILL_ANATOMY   = SKILL_EXPERT,
-		SKILL_CHEMISTRY = SKILL_BASIC
+		SKILL_CHEMISTRY = SKILL_BASIC,
+		SKILL_COMBAT	= SKILL_BASIC
 	)
 	max_skill = list(
 		SKILL_MEDICAL   = SKILL_MAX,
@@ -27,7 +28,8 @@
 		access_surgery,
 		access_chemistry,
 		access_virology,
-		access_cameras
+		access_cameras,
+		access_maint_tunnels
 	)
 	minimal_access = list(
 		access_medical,
@@ -35,7 +37,8 @@
 		access_morgue,
 		access_surgery,
 		access_virology,
-		access_cameras
+		access_cameras,
+		access_maint_tunnels
 	)
 	outfit_type = /decl/hierarchy/outfit/job/ministation/doctor
 	minimal_player_age = 3
@@ -77,7 +80,6 @@
 		access_keycard_auth,
 		access_sec_doors,
 		access_psychiatrist,
-		access_eva,
 		access_mining,
 		access_kitchen,
 		access_xenobiology,
@@ -85,7 +87,8 @@
 		access_hydroponics,
 		access_maint_tunnels,
 		access_external_airlocks,
-		access_cameras
+		access_cameras,
+		access_security
 	)
 	minimal_access = list(
 		access_medical,
@@ -103,7 +106,6 @@
 		access_keycard_auth,
 		access_sec_doors,
 		access_psychiatrist,
-		access_eva,
 		access_mining,
 		access_kitchen,
 		access_xenobiology,
@@ -111,7 +113,8 @@
 		access_hydroponics,
 		access_maint_tunnels,
 		access_external_airlocks,
-		access_cameras
+		access_cameras,
+		access_security
 	)
 	minimal_player_age = 14
 	ideal_character_age = 50

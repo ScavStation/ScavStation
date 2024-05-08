@@ -18,6 +18,7 @@
 	#include "../../mods/content/psionics/_psionics.dme"
 	#include "../../mods/content/shackles/_shackles.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
+	#include "../../mods/content/pheromones/_pheromones.dme"
 
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
 	#include "../../mods/mobs/borers/_borers.dme"

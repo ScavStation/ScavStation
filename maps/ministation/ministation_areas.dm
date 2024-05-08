@@ -83,6 +83,9 @@
 /area/ministation/maint/l2centraln
 	name = "\improper Level Two Central North Maintenance"
 
+/area/ministation/maint/l2central
+	name = "\improper Level Two Central Maintenance"
+
 /area/ministation/maint/l2centrals
 	name = "\improper Level Two Central South Maintenance"
 
@@ -119,6 +122,24 @@
 /area/ministation/maint/l4overpass
 	name = "\improper Level Four Maintenance Overpass"
 
+// Fourth Floor Deck
+
+/area/ministation/observation_deck
+	name = "\improper Observation Deck"
+	icon_state = "white"
+
+/area/ministation/science2nddeck
+	name = "\improper 2nd Floor Research & Development Laboratory"
+	req_access = list(access_robotics)
+	secure = TRUE
+	icon_state = "purple"
+
+/area/ministation/sciencetesting
+	name = "\improper 2nd Floor Testing Rooms"
+	req_access = list(access_robotics)
+	secure = TRUE
+	icon_state = "purple"
+
 //Maint Bypasses
 
 /area/ministation/maint/sebypass
@@ -153,6 +174,18 @@
 	name = "\improper Mineral Processing"
 	req_access = list(access_mining)
 	icon_state = "mining_production"
+	secure = TRUE
+
+/area/ministation/cargo/f2
+	name = "\improper Cargo Bay"
+	req_access = list(access_mining)
+	icon_state = "brown"
+	secure = TRUE
+
+/area/ministation/cargo/f3
+	name = "\improper Cargo Bay"
+	req_access = list(access_mining)
+	icon_state = "brown"
 	secure = TRUE
 
 /area/ministation/bridge
@@ -242,15 +275,15 @@
 	secure = TRUE
 	icon_state = "yellow"
 
-/area/ministation/supermatter
-	name = "\improper Supermatter Engine"
+/area/ministation/engineroom
+	name = "\improper Engine Room"
 	req_access = list(access_engine)
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
 	secure = TRUE
 	icon_state = "brown"
 
-/area/ministation/smcontrol
-	name = "\improper Supermatter Control"
+/area/ministation/enginecontrol
+	name = "\improper Engine Control Room"
 	req_access = list(access_engine)
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambieng1.ogg')
 	secure = TRUE
@@ -333,5 +366,17 @@
 	base_turf = /turf/open
 
 /area/turbolift/l3
+	name = "Station Level 3"
+	base_turf = /turf/open
+
+/area/turbolift/l1p
+	name = "Station Level 1"
+	base_turf = /turf/floor
+
+/area/turbolift/l2p
+	name = "Station Level 2"
+	base_turf = /turf/open
+
+/area/turbolift/l3p
 	name = "Station Level 3"
 	base_turf = /turf/open

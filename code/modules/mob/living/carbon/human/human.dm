@@ -40,7 +40,6 @@
 	worn_underwear = null
 	QDEL_NULL(attack_selector)
 	QDEL_NULL(vessel)
-	LAZYCLEARLIST(smell_cooldown)
 	. = ..()
 
 /mob/living/carbon/human/get_ingested_reagents()

@@ -34,6 +34,7 @@
 		access_hydroponics,
 		access_bar,
 		access_kitchen
+
 	)
 	minimal_access = list(
 		access_hydroponics,
@@ -69,7 +70,7 @@
 		access_mining,
 		access_mining_station,
 		access_external_airlocks,
-		access_eva
+		access_maint_tunnels
 	)
 	minimal_access = list(
 		access_cargo,
@@ -151,5 +152,5 @@
 	)
 	outfit_type = /decl/hierarchy/outfit/job/ministation/librarian
 	min_skill = list(
-		SKILL_LITERACY = SKILL_AVERAGE
+		SKILL_LITERACY = SKILL_ADEPT
 	)
