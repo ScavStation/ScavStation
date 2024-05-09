@@ -29,7 +29,7 @@
 /area/ministation/engineroom)
 "ai" = (
 /obj/structure/table/woodentable,
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "ak" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -855,7 +855,7 @@
 /area/ministation/maint/l1central)
 "dx" = (
 /obj/item/ball,
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "dB" = (
 /obj/machinery/conveyor{
@@ -1145,9 +1145,7 @@
 	tag_interior_door = "cargo_airlock_interior";
 	pixel_x = -20
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "eF" = (
@@ -1811,7 +1809,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "gI" = (
 /obj/machinery/light/small{
@@ -3162,11 +3160,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "mI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 2
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/cargo)
+/obj/abstract/landmark/mapped_fluid/fill,
+/turf/simulated/floor/pool/deep,
+/area/ministation/dorms)
 "mJ" = (
 /obj/structure/closet/secure_closet/atmos_personal,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/atmos,
@@ -3465,7 +3461,7 @@
 "nO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "nR" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -3524,7 +3520,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "od" = (
 /obj/structure/bed/chair/comfy/black{
@@ -3944,7 +3940,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "qy" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -4333,6 +4329,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "sq" = (
+/obj/abstract/landmark/mapped_fluid/fill,
 /turf/simulated/floor/pool,
 /area/ministation/dorms)
 "sr" = (
@@ -5598,7 +5595,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "xP" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -5936,6 +5933,9 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
+"zI" = (
+/turf/simulated/floor/tiled/white,
+/area/ministation/dorms)
 "zJ" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
@@ -6049,7 +6049,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Am" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6455,7 +6455,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "BN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -7649,7 +7649,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Fj" = (
 /obj/machinery/door/firedoor,
@@ -7670,7 +7670,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Fm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8800,7 +8800,7 @@
 /area/ministation/ai_sat)
 "IA" = (
 /obj/machinery/camera/autoname,
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "ID" = (
 /obj/structure/closet/emcloset,
@@ -9466,7 +9466,6 @@
 "Ks" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
-	areastring = null;
 	name = "_South APC";
 	pixel_y = -24
 	},
@@ -10766,7 +10765,6 @@
 /area/ministation/atmospherics)
 "OG" = (
 /obj/machinery/power/apc{
-	areastring = null;
 	name = "_South APC";
 	pixel_y = -24
 	},
@@ -11189,7 +11187,7 @@
 /area/ministation/eva)
 "Qn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Qo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11350,7 +11348,7 @@
 	dir = 4;
 	icon_state = "conpipe-c"
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "QU" = (
 /obj/machinery/vending/coffee{
@@ -11489,9 +11487,7 @@
 /turf/space,
 /area/space)
 "Rm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/mining/brace,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -11507,7 +11503,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Rp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -12162,7 +12158,7 @@
 /obj/structure/table/woodentable,
 /obj/item/clothing/mask/snorkel,
 /obj/item/clothing/mask/snorkel,
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Uc" = (
 /obj/structure/cable{
@@ -12273,7 +12269,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "UO" = (
 /obj/structure/cable{
@@ -12395,7 +12391,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Vk" = (
 /obj/structure/lattice,
@@ -12445,7 +12441,7 @@
 	dir = 4;
 	icon_state = "conpipe-c"
 	},
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Vt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -12783,7 +12779,7 @@
 /area/ministation/engine)
 "Xi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "Xj" = (
 /obj/machinery/light/small{
@@ -12907,7 +12903,7 @@
 /area/ministation/atmospherics)
 "XL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/pool,
+/turf/simulated/floor/tiled/white,
 /area/ministation/dorms)
 "XO" = (
 /obj/structure/lattice,
@@ -40758,7 +40754,7 @@ fj
 fM
 yO
 Rm
-mI
+ZA
 SO
 dI
 Xu
@@ -47943,7 +47939,7 @@ aa
 aa
 zW
 Fi
-sq
+zI
 Qn
 Xi
 Al
@@ -48199,11 +48195,11 @@ ad
 aa
 aa
 zW
-sq
-sq
-sq
-sq
-sq
+zI
+mI
+mI
+mI
+mI
 xN
 kP
 jF
@@ -48457,10 +48453,10 @@ aa
 aa
 zW
 Vj
-sq
-sq
-sq
-sq
+mI
+mI
+mI
+mI
 xN
 zW
 fa
@@ -48714,10 +48710,10 @@ aa
 aa
 zw
 IA
-sq
-sq
-sq
-sq
+mI
+mI
+mI
+mI
 xN
 zW
 kL
@@ -48970,11 +48966,11 @@ ad
 aa
 aa
 zw
-sq
-sq
-sq
-sq
-sq
+zI
+mI
+mI
+mI
+mI
 Fk
 zW
 Lt
@@ -49227,7 +49223,7 @@ ad
 ad
 ad
 zw
-sq
+zI
 sq
 sq
 sq
@@ -49484,7 +49480,7 @@ ad
 aa
 aa
 zw
-sq
+zI
 sq
 sq
 sq
@@ -49741,7 +49737,7 @@ ad
 aa
 aa
 zw
-sq
+zI
 sq
 sq
 sq
@@ -49998,7 +49994,7 @@ ad
 aa
 aa
 zw
-sq
+zI
 sq
 sq
 sq
@@ -50256,7 +50252,7 @@ aa
 aa
 zw
 dx
-sq
+zI
 XL
 Vs
 nO
@@ -50514,7 +50510,7 @@ aa
 zW
 Ro
 Ua
-sq
+zI
 BK
 gF
 ai
