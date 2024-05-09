@@ -84,6 +84,11 @@
 	color_blend = ICON_MULTIPLY
 	uid = "hair_ying_messy"
 
+/decl/sprite_accessory/hair/yinglet/get_hidden_substitute()
+	if(accessory_flags & VERY_SHORT)
+		return src
+	return GET_DECL(/decl/sprite_accessory/hair/yinglet/bald)
+
 /decl/sprite_accessory/hair/yinglet/afro
 	name = "Ying Afro"
 	icon_state = "hair_afro"
