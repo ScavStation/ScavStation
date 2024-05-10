@@ -46,6 +46,15 @@
 		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet)
 	)
 	nail_noun = "claws"
+#ifdef MODPACK_SCALING_MODIFIERS
+	scaling_adjustments_x = list(
+		-0.07,
+		-0.05,
+		0,
+		0.054,
+		0.095
+	)
+#endif
 
 /decl/bodytype/yinglet/masculine
 	name =      "yinglet, masculine"
