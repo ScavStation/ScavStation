@@ -14,6 +14,10 @@
 	equip_adjust               = deepCopyList(meatying.equip_adjust)
 	has_limbs                  = deepCopyList(meatying.has_limbs)
 	default_sprite_accessories = deepCopyList(meatying.default_sprite_accessories)
+#ifdef MODPACK_SCALING_MODIFIERS
+	scaling_adjustments_x      = meatying.scaling_adjustments_x?.Copy()
+	scaling_adjustments_y      = meatying.scaling_adjustments_y?.Copy()
+#endif
 	. = ..()
 
 /decl/bodytype/prosthetic/ying/wooden

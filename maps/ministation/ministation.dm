@@ -18,7 +18,6 @@ And then imported back to ScavStation!
 	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/corporate/_corporate.dme"
-	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/species/ascent/_ascent.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
@@ -32,6 +31,7 @@ And then imported back to ScavStation!
 	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
 	#include "../../mods/content/psionics/_psionics.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
+	#include "../../mods/valsalia/_valsalia.dme"
 
 	#include "ministation_antagonists.dm"
 	#include "ministation_areas.dm"
