@@ -37,6 +37,9 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/yinglet(H), slot_shoes_str)
 	if(uniform && !H.get_equipped_item(slot_w_uniform_str))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/yinglet(H), slot_w_uniform_str)
+		if(outfit_flags & OUTFIT_HAS_VITALS_SENSOR)
+			try_equip_vitals_sensor(H)
+
 	if(previous_suit)
 		H.equip_to_slot_if_possible(previous_suit, slot_wear_suit_str)
 
