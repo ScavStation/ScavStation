@@ -177,13 +177,13 @@
 	gripper_type = /datum/inventory_slot/gripper/left_hand/baxxid
 
 /obj/item/organ/external/hand/baxxid/get_manual_dexterity()
-	return (DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
+	return (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /obj/item/organ/external/hand/right/baxxid
 	gripper_type = /datum/inventory_slot/gripper/right_hand/baxxid
 
 /obj/item/organ/external/hand/right/baxxid/get_manual_dexterity()
-	return (DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
+	return (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /datum/inventory_slot/gripper/left_hand/baxxid
 	can_use_held_item = FALSE
