@@ -1,7 +1,3 @@
-/decl/loadout_option/suit/wintercoat_yinglet
-	name = "winter coat, yinglet"
-	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet
-
 /obj/item/clothing/suit/storage/toggle/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
@@ -75,6 +71,14 @@
 	detail_color = "#698a71"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
+/obj/item/clothing/under/yinglet/zhorin_robe
+	name = "fancy robe"
+	desc = "A very comfortable-looking robe fashioned from a large piece of fabric."
+	icon = 'mods/valsalia/icons/clothing/under/zhorin_robe.dmi'
+	color = "#009fee"
+	detail_color = COLOR_WHITE
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
 /obj/item/clothing/head/yinglet
 	name = "small hood"
 	desc = "A yinglet-sized cloth hood and mantle. It has ear holes."
@@ -105,6 +109,20 @@
 	desc = "A layered hood and mantle worn by enclave scouts."
 	color = "#917756"
 	detail_color = "#698a71"
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/yinglet/pekhat
+	name = "sunhat"
+	desc = "A wooden sunhat common among yinglets."
+	icon = 'mods/valsalia/icons/clothing/head/pekhat.dmi'
+	color = null
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/yinglet/pekhat_painted
+	name = "sunhat"
+	desc = "A wooden sunhat common among yinglets. This one is painted with a smile."
+	icon = 'mods/valsalia/icons/clothing/head/pekhat_painted.dmi'
+	color = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/glasses/yinggoggles
