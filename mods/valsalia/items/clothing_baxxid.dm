@@ -1,13 +1,3 @@
-/decl/loadout_option/head/baxxid_hood
-	name = "baxxid hood"
-	path = /obj/item/clothing/head/baxxid/hood/long
-	loadout_flags = GEAR_HAS_COLOR_SELECTION
-
-/decl/loadout_option/head/baxxid_wig
-	name = "baxxid wig"
-	path = /obj/item/clothing/head/baxxid/big_wig
-	description = "A large blonde wig"
-
 /obj/item/clothing/head/baxxid
 	name = "baxxid head clothing"
 	desc = "A parent item for stuff you put on top of a baxxid."
@@ -24,6 +14,15 @@
 	icon = 'mods/valsalia/icons/clothing/head/hood_long_baxxid.dmi'
 	color = COLOR_PURPLE
 	var/apply_trim = TRUE
+
+/obj/item/clothing/head/baxxid/headflag
+	name = "baxxid headflag"
+	icon = 'mods/valsalia/icons/clothing/head/headflag_baxxid.dmi'
+	color = COLOR_RED
+
+/obj/item/clothing/head/baxxid/headflag_officer
+	name = "baxxid headflag"
+	icon = 'mods/valsalia/icons/clothing/head/headflag_officer_baxxid.dmi'
 
 /obj/item/clothing/head/baxxid/hood/long/on_update_icon()
 	. = ..()
