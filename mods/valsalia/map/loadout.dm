@@ -82,3 +82,22 @@
 /decl/loadout_option/suit/wintercoat_yinglet
 	name = "winter coat, yinglet"
 	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet
+
+/decl/loadout_option/head/baxxid_hood
+	name = "baxxid hood"
+	path = /obj/item/clothing/head/baxxid/hood/long
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
+
+/decl/loadout_option/head/baxxid_wig
+	name = "baxxid wig"
+	path = /obj/item/clothing/head/baxxid/big_wig
+	description = "A large blonde wig"
+
+/decl/loadout_option/head/baxxid_headflag
+	name = "baxxid headflag"
+	path = /obj/item/clothing/head/baxxid/headflag
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
+
+/decl/loadout_option/head/baxxid_headflag_officer
+	name = "baxxid headflag (officer)"
+	path = /obj/item/clothing/head/baxxid/headflag_officer

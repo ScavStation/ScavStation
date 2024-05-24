@@ -31,8 +31,8 @@
 #include "machines\cargo_train.dm"
 #include "map\culture.dm"
 #include "map\culture_baxxid.dm"
-#include "map\language_baxxid.dm"
 #include "map\culture_indrel.dm"
+#include "map\language_baxxid.dm"
 #include "map\language_indrel.dm"
 #include "map\loadout.dm"
 #include "map\overrides.dm"
@@ -43,7 +43,6 @@
 #include "species\yinglet_bodytype.dm"
 #include "species\yinglet_organs.dm"
 #include "structures\hoard.dm"
-
 // END_INCLUDE
 #endif
 // BEGIN_INTERNALS
