@@ -697,7 +697,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/gun/projectile/automatic/yassault_rifle,
+/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
 /turf/floor/reinforced,
 /area/ministation/security)
 "dE" = (
