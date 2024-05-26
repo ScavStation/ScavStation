@@ -71,10 +71,22 @@
 					else
 						to_chat(user, "<span class='deadsay'>[use_He] [use_has] a pulse!</span>")
 
+	var/datum/reagents/touching_reagents = get_contact_reagents()
+	if(touching_reagents?.total_volume)
+		var/saturation = touching_reagents.total_volume / touching_reagents.maximum_volume
+		if(saturation > 0.9)
+			msg += "[use_He] [use_is] completely saturated.\n"
+		else if(saturation > 0.6)
+			msg += "[use_He] [use_is] looking like a drowned cat.\n"
+		else if(saturation > 0.3)
+			msg += "[use_He] [use_is] looking notably soggy.\n"
+		else
+			msg += "[use_He] [use_is] looking a bit damp.\n"
+
 	if(fire_stacks > 0)
-		msg += "[use_He] is covered in flammable liquid!\n"
+		msg += "[use_He] [use_is] looking highly flammable!\n"
 	else if(fire_stacks < 0)
-		msg += "[use_He] [use_is] soaking wet.\n"
+		msg += "[use_He] [use_is] looking rather damp.\n"
 
 	if(on_fire)
 		msg += "<span class='warning'>[use_He] [use_is] on fire!.</span>\n"
@@ -259,14 +271,14 @@
 	var/obj/item/clothing/glasses/G = get_equipped_item(slot_glasses_str)
 	if(!istype(G))
 		return
-	if(G.hud_type & hudtype)
+	if(G.glasses_hud_type & hudtype)
 		return G
-	if(G.hud && (G.hud.hud_type & hudtype))
+	if(G.hud && (G.hud.glasses_hud_type & hudtype))
 		return G.hud
 
 /mob/living/silicon/robot/getHUDsource(hudtype)
 	for(var/obj/item/borg/sight/sight in list(module_state_1, module_state_2, module_state_3))
-		if(istype(sight) && (sight.hud_type & hudtype))
+		if(istype(sight) && (sight.glasses_hud_type & hudtype))
 			return sight
 
 //Gets the computer network M's source of hudtype is using

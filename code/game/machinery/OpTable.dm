@@ -70,18 +70,18 @@
 /obj/machinery/optable/receive_mouse_drop(atom/dropping, mob/user, params)
 	. = ..()
 	if(!.)
-		if(istype(dropping, /obj/item) && user.get_active_hand() == dropping && user.try_unequip(dropping, loc))
+		if(istype(dropping, /obj/item) && user.get_active_held_item() == dropping && user.try_unequip(dropping, loc))
 			return FALSE
 		if(isliving(dropping) && check_table(dropping))
 			take_victim(dropping, user)
 			return FALSE
 
 /obj/machinery/optable/proc/check_victim()
-	if(!victim || !victim.lying || victim.loc != loc)
+	if(!victim || !victim.current_posture.prone || victim.loc != loc)
 		suppressing = FALSE
 		victim = null
 		for(var/mob/living/carbon/human/H in loc)
-			if(H.lying)
+			if(H.current_posture.prone)
 				victim = H
 				break
 	if(victim)
@@ -107,7 +107,7 @@
 		SPAN_NOTICE("You climb on \the [src]."))
 	else
 		visible_message(SPAN_NOTICE("\The [target] has been laid on \the [src] by \the [user]."))
-	target.resting = 1
+	target.set_posture(/decl/posture/lying/deliberate)
 	target.dropInto(loc)
 	add_fingerprint(user)
 	update_icon()
@@ -119,7 +119,7 @@
 
 /obj/machinery/optable/proc/check_table(mob/living/patient)
 	check_victim()
-	if(src.victim && get_turf(victim) == get_turf(src) && victim.lying)
+	if(src.victim && get_turf(victim) == get_turf(src) && victim.current_posture.prone)
 		to_chat(usr, "<span class='warning'>\The [src] is already occupied!</span>")
 		return FALSE
 	if(patient.buckled)

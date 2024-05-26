@@ -125,6 +125,7 @@ var/global/list/localhost_addresses = list(
 
 	switch (connection)
 		if ("seeker", "web") // check for invalid connection type. do nothing if valid
+			pass()
 		else return null
 
 	deactivate_darkmode(clear_chat = FALSE) // Overwritten if the pref is set later.
@@ -697,6 +698,6 @@ var/global/const/MAX_VIEW = 41
 /client/verb/drop_item()
 	set hidden = 1
 	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
-		var/obj/item/I = mob.get_active_hand()
+		var/obj/item/I = mob.get_active_held_item()
 		if(I && I.can_be_dropped_by_client(mob))
 			mob.drop_item()

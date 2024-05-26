@@ -115,7 +115,7 @@ var/global/const/FALLOFF_SOUNDS = 0.5
 				S.environment = DIZZY
 			else if (M.stat == UNCONSCIOUS)
 				S.environment = UNDERWATER
-			else if (T?.is_flooded(M.lying))
+			else if (T?.is_flooded(M.current_posture.prone))
 				S.environment = UNDERWATER
 			else
 				var/area/A = get_area(src)
@@ -160,4 +160,5 @@ var/global/const/FALLOFF_SOUNDS = 0.5
 			if ("button") soundin = pick(global.button_sound)
 			if ("chop") soundin = pick(global.chop_sound)
 			if ("glasscrack") soundin = pick(global.glasscrack_sound)
+			if ("tray_hit") soundin = pick(global.tray_hit_sound)
 	return soundin

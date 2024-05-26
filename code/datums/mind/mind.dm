@@ -399,6 +399,7 @@
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].")
 			else
+				pass()
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
 		switch(href_list["silicon"])
@@ -466,11 +467,9 @@
 			obj_count++
 
 /datum/mind/proc/find_syndicate_uplink()
-	var/list/L = current.get_contents()
-	for (var/obj/item/I in L)
+	for (var/obj/item/I in current?.get_mob_contents())
 		if (I.hidden_uplink)
 			return I.hidden_uplink
-	return null
 
 /datum/mind/proc/take_uplink()
 	var/obj/item/uplink/H = find_syndicate_uplink()

@@ -5,6 +5,7 @@
 	value = 0.4
 	abstract_type = /decl/material/liquid/drink
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE // Please, no more berry juice atmosphere planets.
+	compost_value = 1
 
 	var/nutrition = 0 // Per unit
 	var/hydration = 6 // Per unit
@@ -14,7 +15,7 @@
 	var/adj_temp = 0
 
 /decl/material/liquid/drink/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
+	M.take_damage(removed, TOX) // Probably not a good idea; not very deadly though
 
 /decl/material/liquid/drink/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(M.HasTrait(/decl/trait/metabolically_inert))
@@ -118,7 +119,7 @@
 	if(M.HasTrait(/decl/trait/metabolically_inert))
 		return
 
-	M.adjustToxLoss(-0.5 * removed)
+	M.heal_damage(TOX, 0.5 * removed)
 
 /decl/material/liquid/drink/juice/orange
 	name = "orange juice"
@@ -137,7 +138,7 @@
 	if(M.HasTrait(/decl/trait/metabolically_inert))
 		return
 
-	M.adjustOxyLoss(-2 * removed)
+	M.heal_damage(OXY, 2 * removed)
 
 /decl/material/liquid/poisonberryjuice
 	name = "poison berry juice"
@@ -352,7 +353,7 @@
 	..()
 	M.add_chemical_effect(CE_PULSE, 2)
 
-/decl/material/liquid/drink/coffee/affect_overdose(var/mob/living/M)
+/decl/material/liquid/drink/coffee/affect_overdose(mob/living/M, total_dose)
 	ADJ_STATUS(M, STAT_JITTER, 5)
 	M.add_chemical_effect(CE_PULSE, 1)
 
@@ -664,7 +665,7 @@
 	if(M.HasTrait(/decl/trait/metabolically_inert))
 		return
 
-	M.adjustToxLoss(-0.5 * removed)
+	M.heal_damage(TOX, 0.5 * removed)
 
 /decl/material/liquid/drink/tea/black
 	name = "black tea"

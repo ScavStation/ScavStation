@@ -2,7 +2,7 @@
 	abstract_type = /decl/hierarchy/outfit/nanotrasen
 	uniform = /obj/item/clothing/under/centcom
 	shoes = /obj/item/clothing/shoes/dress
-	gloves = /obj/item/clothing/gloves/color/white
+	gloves = /obj/item/clothing/gloves
 	l_ear = /obj/item/radio/headset/heads/hop
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id_slot = slot_wear_id_str
@@ -40,7 +40,7 @@
 	gloves = /obj/item/clothing/gloves/thick/swat
 	l_ear =  /obj/item/radio/headset/heads/captain
 	glasses = /obj/item/clothing/glasses/eyepatch
-	l_pocket = /obj/item/flame/lighter/zippo
+	l_pocket = /obj/item/flame/fuelled/lighter/zippo
 	id_pda_assignment = "Corporate Commander"
 
 /decl/hierarchy/outfit/death_command

@@ -38,12 +38,12 @@
 	scan["blood_volume"] =     H.vessel.total_volume
 	scan["blood_volume_max"] = H.vessel.maximum_volume
 	scan["temperature"] =      H.bodytemperature
-	scan["trauma"] =           H.getBruteLoss()
-	scan["burn"] =             H.getFireLoss()
-	scan["toxin"] =            H.getToxLoss()
-	scan["oxygen"] =           H.getOxyLoss()
+	scan["trauma"] =           H.get_damage(BRUTE)
+	scan["burn"] =             H.get_damage(BURN)
+	scan["toxin"] =            H.get_damage(TOX)
+	scan["oxygen"] =           H.get_damage(OXY)
 	scan["radiation"] =        H.radiation
-	scan["genetic"] =          H.getCloneLoss()
+	scan["genetic"] =          H.get_damage(CLONE)
 	scan["paralysis"] =        GET_STATUS(H, STAT_PARA)
 	scan["immune_system"] =    H.get_immunity()
 	scan["reagents"] = list()
@@ -52,7 +52,7 @@
 		for(var/reagent_type in H.reagents.reagent_volumes)
 			var/decl/material/R = GET_DECL(reagent_type)
 			var/list/reagent  = list()
-			reagent["name"]= R.name
+			reagent["name"]= R.get_reagent_name(H.reagents)
 			reagent["quantity"] = round(REAGENT_VOLUME(H.reagents, R.type),1)
 			reagent["scannable"] = R.scannable
 			scan["reagents"] += list(reagent)

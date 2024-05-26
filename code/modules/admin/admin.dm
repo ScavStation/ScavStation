@@ -1,6 +1,5 @@
 
 var/global/BSACooldown = 0
-var/global/floorIsLava = 0
 
 
 ////////////////////////////////
@@ -171,7 +170,7 @@ var/global/floorIsLava = 0
 				body += "<A href='?src=\ref[src];makeanimal=\ref[M]'>Animalize</A> | "
 
 			// DNA2 - Admin Hax
-			if(M.dna && iscarbon(M))
+			if(M.dna)
 				body += "<br><br>"
 				body += "<b>DNA Blocks:</b><br><table border='0'><tr><th>&nbsp;</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>"
 				var/bname
@@ -975,20 +974,6 @@ var/global/floorIsLava = 0
 
 	world.Reboot()
 
-/datum/admins/proc/unprison(var/mob/M in SSmobs.mob_list)
-	set category = "Admin"
-	set name = "Unprison"
-	if (isAdminLevel(M.z))
-		if (get_config_value(/decl/config/toggle/on/admin_jump))
-			M.forceMove(get_random_spawn_turf(SPAWN_FLAG_PRISONERS_CAN_SPAWN))
-			message_admins("[key_name_admin(usr)] has unprisoned [key_name_admin(M)]", 1)
-			log_admin("[key_name(usr)] has unprisoned [key_name(M)]")
-		else
-			alert("Admin jumping disabled")
-	else
-		alert("[M.name] is not prisoned.")
-	SSstatistics.add_field_details("admin_verb","UP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
 
 /proc/is_special_character(var/character) // returns 1 for special characters and 2 for heroes of gamemode
@@ -1058,14 +1043,13 @@ var/global/floorIsLava = 0
 	set category = "Debug"
 	set desc = "Spawn the product of a seed."
 	set name = "Spawn Fruit"
-
-	if(!check_rights(R_SPAWN))	return
-
-	if(!seedtype || !SSplants.seeds[seedtype])
+	if(!check_rights(R_SPAWN) || !seedtype || !SSplants.seeds[seedtype])
 		return
 	var/datum/seed/S = SSplants.seeds[seedtype]
-	S.harvest(usr,0,0,1)
-	log_admin("[key_name(usr)] spawned [seedtype] fruit at ([usr.x],[usr.y],[usr.z])")
+	if(S?.harvest(usr, 0, FALSE, 1))
+		log_admin("[key_name(usr)] spawned [seedtype] fruit at ([usr.x],[usr.y],[usr.z])")
+	else
+		to_chat(usr, SPAN_WARNING("Failed to harvest [seedtype]."))
 
 /datum/admins/proc/spawn_custom_item()
 	set category = "Debug"
@@ -1318,18 +1302,6 @@ var/global/floorIsLava = 0
 		NM = /datum/nano_module/skill_ui/admin //They get the fancy version that lets you change skills and debug stuff.
 	NM = new NM(usr, override = M.skillset)
 	NM.ui_interact(usr)
-
-/client/proc/update_mob_sprite(mob/living/carbon/human/H)
-	set category = "Admin"
-	set name = "Update Mob Sprite"
-	set desc = "Should fix any mob sprite update errors."
-
-	if (!holder)
-		to_chat(src, "Only administrators may use this command.")
-		return
-
-	if(istype(H))
-		H.try_refresh_visible_overlays()
 
 /proc/get_options_bar(whom, detail = 2, name = 0, link = 1, highlight_special = 1, var/datum/ticket/ticket = null)
 	if(!whom)

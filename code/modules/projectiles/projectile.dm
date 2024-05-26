@@ -12,6 +12,7 @@
 	randpixel = 0
 	material = null
 	is_spawnable_type = FALSE
+	atom_damage_type = BRUTE //BRUTE, BURN, TOX, OXY, CLONE, ELECTROCUTE are the only things that should be in here, Try not to use PAIN as it doesn't go through stun_effect_act
 
 	var/bumped = 0		//Prevents it from hitting more than one guy at once
 	var/def_zone = ""	//Aiming at
@@ -33,11 +34,10 @@
 	var/distance_falloff = 2  //multiplier, higher value means accuracy drops faster with distance
 
 	var/damage = 10
-	var/damage_type = BRUTE //BRUTE, BURN, TOX, OXY, CLONE, ELECTROCUTE are the only things that should be in here, Try not to use PAIN as it doesn't go through stun_effect_act
 	var/nodamage = 0 //Determines if the projectile will skip any damage inflictions
 	var/damage_flags = DAM_BULLET
 	var/penetrating = 0 //If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
-	var/life_span = 50 //This will de-increment every process(). When 0, it will delete the projectile.
+	var/life_span //If non-null, this will de-increment every after_move(). When 0, it will delete the projectile.
 		//Effects
 	var/stun = 0
 	var/weaken = 0
@@ -92,7 +92,6 @@
 	var/turf/hitscan_last	//last turf touched during hitscanning.
 
 /obj/item/projectile/Initialize()
-	damtype = damage_type //TODO unify these vars properly
 	if(!hitscan)
 		animate_movement = SLIDE_STEPS
 	else animate_movement = NO_STEPS
@@ -121,7 +120,7 @@
 
 //called when the projectile stops flying because it collided with something
 /obj/item/projectile/proc/on_impact(var/atom/A)
-	if(damage && damage_type == BURN)
+	if(damage && atom_damage_type == BURN)
 		var/turf/T = get_turf(A)
 		if(T)
 			T.hotspot_expose(700, 5)
@@ -140,12 +139,12 @@
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
 /obj/item/projectile/can_embed()
 	//embed must be enabled and damage type must be brute
-	if(!embed || damage_type != BRUTE)
+	if(!embed || atom_damage_type != BRUTE)
 		return FALSE
 	return TRUE
 
 /obj/item/projectile/proc/get_structure_damage()
-	if(damage_type == BRUTE || damage_type == BURN)
+	if(atom_damage_type == BRUTE || atom_damage_type == BURN)
 		return damage
 	return 0
 
@@ -327,6 +326,8 @@
 		light.forceMove(loc)
 		light.copy_from(tracer_type)
 		QDEL_IN(light, 3)
+	if(!isnull(life_span) && --life_span <= 0)
+		qdel(src)
 
 /obj/item/projectile/after_wounding(obj/item/organ/external/organ, datum/wound/wound)
 	//Check if we even broke skin in first place
@@ -363,11 +364,6 @@
 		qdel(src)
 		return
 	return TRUE	//Bullets don't drift in space
-
-/obj/item/projectile/proc/old_style_target(atom/target, atom/source)
-	if(!source)
-		source = get_turf(src)
-	setAngle(get_projectile_angle(source, target))
 
 /obj/item/projectile/proc/fire(angle, atom/direct_target)
 	//If no Angle needs to resolve it from xo/yo!
@@ -547,21 +543,6 @@
 	beam_index = pcache
 	beam_segments[beam_index] = null
 
-/obj/item/projectile/proc/return_predicted_turf_after_moves(moves, forced_Angle)		//I say predicted because there's no telling that the projectile won't change direction/location in flight.
-	if(!trajectory && isnull(forced_Angle) && isnull(Angle))
-		return FALSE
-	var/datum/point/vector/current = trajectory
-	if(!current)
-		var/turf/T = get_turf(src)
-		current = new(T.x, T.y, T.z, pixel_x, pixel_y, isnull(forced_Angle)? Angle : forced_Angle, pixel_speed)
-	var/datum/point/vector/v = current.return_vector_after_increments(moves)
-	return v.return_turf()
-
-/obj/item/projectile/proc/return_pathing_turfs_in_moves(moves, forced_Angle)
-	var/turf/current = get_turf(src)
-	var/turf/ending = return_predicted_turf_after_moves(moves, forced_Angle)
-	return getline(current, ending)
-
 /obj/item/projectile/proc/process_hitscan()
 	set waitfor = FALSE
 	var/safety = range * 3
@@ -582,12 +563,6 @@
 	beam_segments = list()	//initialize segment list with the list for the first segment
 	beam_index = pcache
 	beam_segments[beam_index] = null	//record start.
-
-/obj/item/projectile/proc/vol_by_damage()
-	if(src.damage)
-		return clamp((src.damage) * 0.67, 30, 100)// Multiply projectile damage by 0.67, then CLAMP the value between 30 and 100
-	else
-		return 50 //if the projectile doesn't do damage, play its hitsound at 50% volume.
 
 /obj/item/projectile/proc/before_z_change(turf/oldloc, turf/newloc)
 	var/datum/point/pcache = trajectory.copy_to()

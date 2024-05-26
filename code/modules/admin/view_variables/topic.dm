@@ -580,22 +580,11 @@
 			to_chat(usr, "Mob doesn't exist anymore")
 			return
 
-		switch(Text)
-			if(BRUTE)
-				L.adjustBruteLoss(amount)
-			if(BURN)
-				L.adjustFireLoss(amount)
-			if(TOX)
-				L.adjustToxLoss(amount)
-			if(OXY)
-				L.adjustOxyLoss(amount)
-			if(BP_BRAIN)
-				L.adjustBrainLoss(amount)
-			if(CLONE)
-				L.adjustCloneLoss(amount)
-			else
-				to_chat(usr, "You caused an error. DEBUG: Text:[Text] Mob:[L]")
-				return
+		if(istext(Text))
+			L.take_damage(amount, Text)
+		else
+			to_chat(usr, "You caused an error. DEBUG: Text:[Text] Mob:[L]")
+			return
 
 		if(amount != 0)
 			log_admin("[key_name(usr)] dealt [amount] amount of [Text] damage to [L]")
@@ -685,15 +674,13 @@
 			to_chat(usr, "This can only be done to instances of type /obj/item")
 			return
 
-		var/new_material = input("Please choose a new material.","Materials",null) as null|anything in SSmaterials.materials_by_name
-		if(!new_material)
+		var/decl/material/new_material = input("Please choose a new material.","Materials",null) as null|anything in decls_repository.get_decls_of_subtype_unassociated(/decl/material)
+		if(!istype(new_material))
 			return
 		if(QDELETED(I))
 			to_chat(usr, "Item doesn't exist anymore")
 			return
-
-		var/decl/material/M = SSmaterials.materials_by_name[new_material]
-		I.set_material(M.type)
+		I.set_material(new_material.type)
 		to_chat(usr, "Set material of [I] to [I.get_material()].")
 
 	if(href_list["datumrefresh"])

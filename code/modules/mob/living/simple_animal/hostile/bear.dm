@@ -23,11 +23,7 @@
 	max_gas = null
 	minbodytemp = 0
 
-	meat_type = /obj/item/chems/food/bearmeat
-	meat_amount = 10
-	bone_amount = 20
-	skin_amount = 20
-	skin_material = /decl/material/solid/organic/skin/fur/heavy
+	butchery_data = /decl/butchery_data/animal/space_bear
 
 	var/stance_step = 0
 
@@ -108,7 +104,7 @@
 /mob/living/simple_animal/hostile/bear/LoseTarget()
 	..(5)
 
-/mob/living/simple_animal/hostile/bear/AttackingTarget()
+/mob/living/simple_animal/hostile/bear/attack_target(mob/target)
 	if(!Adjacent(target_mob))
 		return
 	custom_emote(1, pick( list("slashes at [target_mob]", "bites [target_mob]") ) )
@@ -123,5 +119,5 @@
 		return H
 	else if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		L.adjustBruteLoss(damage)
+		L.take_damage(damage)
 		return L

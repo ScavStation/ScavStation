@@ -69,7 +69,7 @@ var/global/list/outfits_decls_by_type_
 		if(!ispath(uniform, /obj/item/clothing))
 			. += "outfit is flagged for sensors, but uniform cannot take accessories"
 		var/succeeded = FALSE
-		var/obj/item/sensor = new /obj/item/clothing/accessory/vitals_sensor
+		var/obj/item/sensor = new /obj/item/clothing/sensor/vitals
 		if(uniform)
 			var/obj/item/clothing/wear_uniform = new uniform // sadly we need to read a list
 			if(wear_uniform.can_attach_accessory(sensor))
@@ -145,7 +145,7 @@ var/global/list/outfits_decls_by_type_
 
 		var/obj/item/equip_uniform = H.get_equipped_item(slot_w_uniform_str)
 		if(holster && equip_uniform)
-			var/obj/item/clothing/accessory/equip_holster = new holster
+			var/obj/item/clothing/equip_holster = new holster
 			equip_uniform.attackby(equip_holster, H)
 			if(equip_holster.loc != equip_uniform && !QDELETED(equip_holster))
 				qdel(equip_holster)
@@ -204,13 +204,12 @@ var/global/list/outfits_decls_by_type_
 				H.equip_to_slot_or_del(backpack, slot_back_str)
 
 	if(H.species && !(OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR & equip_adjustments))
-		if(outfit_flags & OUTFIT_EXTENDED_SURVIVAL)
-			H.species.equip_survival_gear(H, /obj/item/storage/box/engineer)
-		else if(H.client?.prefs?.survival_box_choice && global.survival_box_choices[H.client.prefs.survival_box_choice])
-			var/decl/survival_box_option/box = global.survival_box_choices[H.client.prefs.survival_box_choice]
-			H.species.equip_survival_gear(H, box.box_type)
-		else
-			H.species.equip_survival_gear(H)
+		var/decl/survival_box_option/chosen_survival_box = H?.client?.prefs.survival_box_choice
+		if(chosen_survival_box?.box_type)
+			if(outfit_flags & OUTFIT_EXTENDED_SURVIVAL)
+				H.species.equip_survival_gear(H, /obj/item/box/engineer)
+			else
+				H.species.equip_survival_gear(H, chosen_survival_box.box_type)
 
 	if(H.client?.prefs?.give_passport)
 		global.using_map.create_passport(H)

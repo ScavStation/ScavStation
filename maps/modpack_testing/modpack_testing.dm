@@ -19,11 +19,14 @@
 	#include "../../mods/content/shackles/_shackles.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/pheromones/_pheromones.dme"
+	#include "../../mods/content/fantasy/_fantasy.dme"
 
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
 	#include "../../mods/mobs/borers/_borers.dme"
 
+	#include "../../mods/species/serpentid/_serpentid.dme"
 	#include "../../mods/species/ascent/_ascent.dme"
+	#include "../../mods/species/drakes/_drakes.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
 	#include "../../mods/species/utility_frames/_utility_frames.dme"
 	#include "../../mods/species/bayliens/_bayliens.dme"

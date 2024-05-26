@@ -22,7 +22,7 @@
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone)
 
 	//Being hit while using a deadman switch
-	var/obj/item/assembly/signaler/signaler = get_active_hand()
+	var/obj/item/assembly/signaler/signaler = get_active_held_item()
 	if(istype(signaler) && signaler.deadman)
 		log_and_message_admins("has triggered a signaler deadman's switch")
 		src.visible_message("<span class='warning'>[src] triggers their deadman's switch!</span>")
@@ -33,10 +33,10 @@
 	var/flags = P.damage_flags()
 	var/damaged
 	if(!P.nodamage)
-		damaged = apply_damage(damage, P.damage_type, def_zone, flags, P, P.armor_penetration)
+		damaged = apply_damage(damage, P.atom_damage_type, def_zone, flags, P, P.armor_penetration)
 		bullet_impact_visuals(P, def_zone, damaged)
 	if(damaged || P.nodamage) // Run the block computation if we did damage or if we only use armor for effects (nodamage)
-		. = get_blocked_ratio(def_zone, P.damage_type, flags, P.armor_penetration, P.damage)
+		. = get_blocked_ratio(def_zone, P.atom_damage_type, flags, P.armor_penetration, P.damage)
 	P.on_hit(src, ., def_zone)
 
 // For visuals and blood splatters etc
@@ -46,7 +46,7 @@
 		playsound(src, pick(impact_sounds), 75)
 	if(get_bullet_impact_effect_type(def_zone) != BULLET_IMPACT_MEAT)
 		return
-	if(!damage || P.damtype != BRUTE)
+	if(!damage || P.atom_damage_type != BRUTE)
 		return
 	var/hit_dir = get_dir(P.starting, src)
 	var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
@@ -100,8 +100,7 @@
 	  return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
-	var/list/L = src.get_contents()
-	for(var/obj/O in L)
+	for(var/obj/O in get_mob_contents())
 		O.emp_act(severity)
 	..()
 
@@ -118,13 +117,13 @@
 	else
 		visible_message(SPAN_WARNING("\The [src] has been [DEFAULTPICK(I.attack_verb, "attacked")][weapon_mention] by \the [user]!"))
 	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
-	if(I.damtype == BRUTE && prob(33))
+	if(I.atom_damage_type == BRUTE && prob(33))
 		blood_splatter(get_turf(loc), src)
 
 //returns 0 if the effects failed to apply for some reason, 1 otherwise.
 /mob/living/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	if(effective_force)
-		return apply_damage(effective_force, I.damtype, hit_zone, I.damage_flags(), used_weapon=I, armor_pen=I.armor_penetration)
+		return apply_damage(effective_force, I.atom_damage_type, hit_zone, I.damage_flags(), used_weapon=I, armor_pen=I.armor_penetration)
 
 /mob/living/hitby(var/atom/movable/AM, var/datum/thrownthing/TT)
 
@@ -151,7 +150,7 @@
 
 /mob/living/proc/handle_thrown_obj_damage(obj/O, datum/thrownthing/TT)
 
-	var/dtype = O.damtype
+	var/dtype = O.atom_damage_type
 	var/throw_damage = O.throwforce*(TT?.speed/THROWFORCE_SPEED_DIVISOR)
 	var/zone = BP_CHEST
 
@@ -276,7 +275,7 @@
 	admin_attack_log(user, src, "Attacked", "Was attacked", "attacked")
 
 	src.visible_message("<span class='danger'>\The [user] has [attack_message] \the [src]!</span>")
-	adjustBruteLoss(damage)
+	take_damage(damage)
 	user.do_attack_animation(src)
 	return 1
 

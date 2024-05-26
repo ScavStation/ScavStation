@@ -1,5 +1,5 @@
 /decl/bodytype/skrell
-	name                 = BODYTYPE_SKRELL
+	name                 = "skrellian body"
 	icon_base            = 'mods/species/bayliens/skrell/icons/body/body.dmi'
 	bandages_icon        = 'icons/mob/bandage.dmi'
 	bandages_icon        = 'icons/mob/bandage.dmi'
@@ -18,6 +18,11 @@
 		SAC_HAIR = list(
 			/decl/sprite_accessory/hair/skrell/short = "#006666"
 		)
+	)
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height = 1,
+		/datum/appearance_descriptor/build = 0.8,
+		/datum/appearance_descriptor/headtail_length = 1
 	)
 
 	has_organ = list(

@@ -71,10 +71,10 @@ meteor_act
 		var/obj/item/clothing/gear = get_equipped_item(slot)
 		if(!istype(gear))
 			continue
-		if(gear.accessories.len)
-			for(var/obj/item/clothing/accessory/bling in gear.accessories)
-				if(bling.body_parts_covered & def_zone.body_part)
-					var/armor = get_extension(bling, /datum/extension/armor)
+		if(LAZYLEN(gear.accessories))
+			for(var/obj/item/clothing/accessory in gear.accessories)
+				if(accessory.body_parts_covered & def_zone.body_part)
+					var/armor = get_extension(accessory, /datum/extension/armor)
 					if(armor)
 						. += armor
 		if(gear.body_parts_covered & def_zone.body_part)
@@ -90,7 +90,7 @@ meteor_act
 	if (!def_zone)
 		return 1.0
 
-	var/siemens_coefficient = max(species.siemens_coefficient,0)
+	var/siemens_coefficient = max(species.get_shock_vulnerability(src), 0)
 	for(var/slot in global.standard_clothing_slots)
 		var/obj/item/clothing/C = get_equipped_item(slot)
 		if(istype(C) && (C.body_parts_covered & def_zone.body_part)) // Is that body part being targeted covered?
@@ -163,7 +163,7 @@ meteor_act
 	if(!affecting)
 		return 0
 
-	var/blocked = get_blocked_ratio(hit_zone, I.damtype, I.damage_flags(), I.armor_penetration, I.force)
+	var/blocked = get_blocked_ratio(hit_zone, I.atom_damage_type, I.damage_flags(), I.armor_penetration, I.force)
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
 		effective_force *= 0.66 //reduced effective force...
@@ -180,19 +180,19 @@ meteor_act
 		forcesay(global.hit_appends)	//forcesay checks stat already
 		radio_interrupt_cooldown = world.time + (RADIO_INTERRUPT_DEFAULT * 0.8) //getting beat on can briefly prevent radio use
 
-	if((I.damtype == BRUTE || I.damtype == PAIN) && prob(25 + (effective_force * 2)))
+	if((I.atom_damage_type == BRUTE || I.atom_damage_type == PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force))
 					apply_effect(20, PARALYZE, blocked)
-					if(lying)
+					if(current_posture.prone)
 						visible_message("<span class='danger'>[src] [species.knockout_message]</span>")
 			else
 				//Easier to score a stun but lasts less time
 				if(prob(effective_force + 5))
 					apply_effect(3, WEAKEN, blocked)
-					if(lying)
+					if(current_posture.prone)
 						visible_message("<span class='danger'>[src] has been knocked down!</span>")
 
 		//Apply blood
@@ -203,7 +203,7 @@ meteor_act
 	return 1
 
 /mob/living/carbon/human/proc/attack_bloody(obj/item/W, mob/attacker, var/effective_force, var/hit_zone)
-	if(W.damtype != BRUTE)
+	if(W.atom_damage_type != BRUTE)
 		return
 
 	if(!should_have_organ(BP_HEART))
@@ -245,7 +245,7 @@ meteor_act
 				bloody_body(src)
 
 /mob/living/carbon/human/proc/projectile_hit_bloody(obj/item/projectile/P, var/effective_force, var/hit_zone, var/obj/item/organ/external/organ)
-	if(P.damage_type != BRUTE || P.nodamage)
+	if(P.atom_damage_type != BRUTE || P.nodamage)
 		return
 	if(!(P.sharp || prob(effective_force*4)))
 		return
@@ -264,7 +264,7 @@ meteor_act
 /mob/living/carbon/human/proc/attack_joint(var/obj/item/organ/external/organ, var/obj/item/W, var/effective_force, var/dislocate_mult, var/blocked)
 	if(!organ || organ.is_dislocated() || !(organ.limb_flags & ORGAN_FLAG_CAN_DISLOCATE) || blocked >= 100)
 		return 0
-	if(W.damtype != BRUTE)
+	if(W.atom_damage_type != BRUTE)
 		return 0
 
 	//want the dislocation chance to be such that the limb is expected to dislocate after dealing a fraction of the damage needed to break the limb
@@ -289,10 +289,10 @@ meteor_act
 
 /mob/living/carbon/human/hitby(atom/movable/AM, var/datum/thrownthing/TT)
 	// empty active hand and we're in throw mode, so we can catch it
-	if(isobj(AM) && in_throw_mode && !get_active_hand() && TT.speed <= THROWFORCE_SPEED_DIVISOR && !incapacitated() && isturf(AM.loc))
+	if(isobj(AM) && in_throw_mode && !get_active_held_item() && TT.speed <= THROWFORCE_SPEED_DIVISOR && !incapacitated() && isturf(AM.loc))
 		put_in_active_hand(AM)
 		visible_message(SPAN_NOTICE("\The [src] catches \the [AM]!"))
-		throw_mode_off()
+		toggle_throw_mode(FALSE)
 		process_momentum(AM, TT)
 		return FALSE
 	return ..()
@@ -379,7 +379,7 @@ meteor_act
 
 	if(status_flags & GODMODE)	return 0	//godmode
 
-	if(species.siemens_coefficient == -1)
+	if(species.get_shock_vulnerability(src) == -1)
 		if(stored_shock_by_ref["\ref[src]"])
 			stored_shock_by_ref["\ref[src]"] += shock_damage
 		else

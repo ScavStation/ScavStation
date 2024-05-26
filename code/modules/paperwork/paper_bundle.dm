@@ -45,7 +45,7 @@
 		return TRUE
 
 	// burning
-	else if(istype(W, /obj/item/flame))
+	else if(W.isflamesource())
 		burnpaper(W, user)
 		return TRUE
 
@@ -167,7 +167,7 @@
 /obj/item/paper_bundle/proc/burn_callback(var/obj/item/flame/P, var/mob/user, var/span_class)
 	if(QDELETED(P) || QDELETED(user))
 		return
-	if(!Adjacent(user) || user.get_active_hand() != P || !P.lit)
+	if(!Adjacent(user) || user.get_active_held_item() != P || !P.lit)
 		to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 		return
 	user.visible_message( \
@@ -176,10 +176,10 @@
 	new /obj/effect/decal/cleanable/ash(loc)
 	qdel(src)
 
-/obj/item/paper_bundle/proc/burnpaper(var/obj/item/flame/P, var/mob/user)
-	if(!P.lit || user.incapacitated())
+/obj/item/paper_bundle/proc/burnpaper(var/obj/item/P, var/mob/user)
+	if(!P.isflamesource() || user.incapacitated())
 		return
-	var/span_class = istype(P, /obj/item/flame/lighter/zippo) ? "rose" : "warning"
+	var/span_class = istype(P, /obj/item/flame/fuelled/lighter/zippo) ? "rose" : "warning"
 	var/decl/pronouns/G = user.get_pronouns()
 	user.visible_message( \
 		"<span class='[span_class]'>\The [user] holds \the [P] up to \the [src]. It looks like [G.he] [G.is] trying to burn it!</span>", \

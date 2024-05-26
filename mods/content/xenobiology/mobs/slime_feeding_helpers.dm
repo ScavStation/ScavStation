@@ -16,28 +16,21 @@ var/global/list/slime_pain_messages = list(
 	if(QDELETED(src))
 		return
 	new /obj/effect/decal/cleanable/mucus(get_turf(src))
+	var/remains_type = get_remains_type()
+	if(remains_type)
+		new remains_type(get_turf(src))
 	dump_contents()
 	qdel(src)
 	. = rand(2,3)
 
-/mob/living/simple_animal/mouse/eaten_by_slime()
-	new /obj/item/remains/mouse(get_turf(src))
-	. = ..()
-
-/mob/living/simple_animal/lizard/eaten_by_slime()
-	new /obj/item/remains/lizard(get_turf(src))
-	. = ..()
-
 /mob/living/carbon/human/eaten_by_slime()
-	var/chomp_loc = loc
 	var/list/limbs = get_external_organs()
 	if(LAZYLEN(limbs) > 1)
 		var/obj/item/organ/external/E = pick(limbs)
 		if(E.limb_flags & ORGAN_FLAG_CAN_AMPUTATE)
 			E.dismember(FALSE, DISMEMBER_METHOD_ACID)
 			. = 1
-	if((QDELETED(src) || LAZYLEN(limbs) <= 1) && species.remains_type)
-		new species.remains_type(get_turf(chomp_loc))
+	if((QDELETED(src) || LAZYLEN(limbs) <= 1))
 		. = ..()
 
 // Simple check to ensure a target is currently being fed on.
@@ -70,12 +63,12 @@ var/global/list/slime_pain_messages = list(
 // The return value is the nutrition provided to the slime.
 /mob/living/proc/slime_feed_act(var/mob/living/slime/attacker)
 	var/protection = (1 - get_blocked_ratio(null, TOX, damage_flags = DAM_DISPERSED | DAM_BIO))
-	adjustCloneLoss((attacker.is_adult ? 10 : 5) * protection)
-	adjustToxLoss(1 * protection)
+	take_damage((attacker.is_adult ? 10 : 5) * protection, CLONE)
+	take_damage(1 * protection, TOX)
 	if(current_health <= 0)
-		adjustToxLoss(1 * protection)
+		take_damage(1 * protection, TOX)
 	if(prob(15) && client)
 		handle_additional_slime_effects()
 	. = 15 * protection
-	if(stat == DEAD || getCloneLoss() >= get_max_health())
+	if(stat == DEAD || get_damage(CLONE) >= get_max_health())
 		eaten_by_slime()

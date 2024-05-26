@@ -21,6 +21,7 @@
 	parts_amount = 2
 	parts_type = /obj/item/stack/material/strut
 	structure_flags = STRUCTURE_FLAG_SURFACE
+	can_support_butchery = TRUE
 
 	var/can_flip = TRUE
 	var/is_flipped = FALSE
@@ -72,7 +73,10 @@
 		reinf_material.place_shards(loc)
 		reinf_material = null
 	if(material && !prob(20))
-		material.place_shards(loc)
+		var/shards = material.place_shards(loc)
+		if(paint_color)
+			for(var/obj/item/shard in shards)
+				shard.set_color(paint_color)
 		material = null
 	if(additional_reinf_material && !prob(20))
 		additional_reinf_material.place_shards(loc)
@@ -83,13 +87,17 @@
 	. = ..()
 
 /obj/structure/table/create_dismantled_products(var/turf/T)
-	if(felted)
-		new /obj/item/stack/tile/carpet(T)
-		felted = FALSE
-	if(additional_reinf_material)
-		additional_reinf_material.place_dismantled_product(T)
-		additional_reinf_material = null
 	. = ..()
+	if(felted)
+		// TODO: padding_color for tables
+		new /obj/item/stack/tile/carpet(T)
+	if(additional_reinf_material)
+		LAZYADD(., additional_reinf_material.place_dismantled_product(T))
+
+/obj/structure/table/clear_materials()
+	..()
+	felted = FALSE
+	additional_reinf_material = null
 
 /obj/structure/table/Destroy()
 	var/turf/oldloc = loc
@@ -443,7 +451,7 @@
 	var/chance = 20
 	if(ismob(P.original) && get_turf(P.original) == cover)
 		var/mob/M = P.original
-		if (M.lying)
+		if (M.current_posture.prone)
 			chance += 20				//Lying down lets you catch less bullets
 	if(is_flipped)
 		if(get_dir(loc, from) == dir)	//Flipped tables catch mroe bullets
@@ -467,7 +475,7 @@
 
 /obj/structure/table/receive_mouse_drop(atom/dropping, mob/user, params)
 	. = ..()
-	if(!. && !isrobot(user) && isitem(dropping) && user.get_active_hand() == dropping && user.try_unequip(dropping))
+	if(!. && !isrobot(user) && isitem(dropping) && user.get_active_held_item() == dropping && user.try_unequip(dropping))
 		var/obj/item/I = dropping
 		I.dropInto(get_turf(src))
 		return TRUE

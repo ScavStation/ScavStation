@@ -7,6 +7,7 @@
 	w_class = ITEM_SIZE_SMALL
 	body_parts_covered = SLOT_EYES
 	slot_flags = SLOT_EYES
+	fallback_slot = slot_glasses_str
 
 	var/vision_flags =     0
 	var/darkness_view =    0
@@ -17,7 +18,7 @@
 	var/active =           TRUE
 	var/electric =         FALSE //if the glasses should be disrupted by EMP
 
-	var/hud_type
+	var/glasses_hud_type
 	var/obj/screen/screen_overlay
 	var/obj/item/clothing/glasses/hud/hud // Hud glasses, if any
 	var/activation_sound =   'sound/items/goggles_charge.ogg'

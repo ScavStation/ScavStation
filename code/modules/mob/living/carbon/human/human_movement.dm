@@ -6,7 +6,7 @@
 
 	var/obj/item/organ/external/H = GET_EXTERNAL_ORGAN(src, BP_GROIN) // gets bodytype slowdown, which can be reset by set_bodytype
 	if(H)
-		tally += H.slowdown
+		tally += H.bodytype.get_movement_slowdown(src)
 
 	tally += species.handle_movement_delay_special(src)
 
@@ -58,8 +58,6 @@
 	var/decl/bodytype/root_bodytype = get_bodytype()
 	if (root_bodytype && bodytemperature < root_bodytype.cold_discomfort_level)
 		tally += (root_bodytype.cold_discomfort_level - bodytemperature) / 10 * 1.75
-
-	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 
 	if(mRun in mutations)
 		tally = 0
@@ -139,17 +137,3 @@
 
 /mob/living/carbon/human/can_sprint()
 	return (stamina > 0)
-
-/mob/living/carbon/human/UpdateLyingBuckledAndVerbStatus()
-	var/old_buckled_lying = !!buckled?.buckle_lying
-	var/old_lying = lying
-	. = ..()
-	if(!buckled)
-		if(lying && !old_lying && !resting) // fell down
-			if(ismob(buckled))
-				var/mob/M = buckled
-				M.unbuckle_mob()
-			var/decl/bodytype/B = get_bodytype()
-			playsound(loc, B.bodyfall_sounds, 50, TRUE, -1)
-		else if(!lying && !old_buckled_lying)
-			handle_stance() // Force an immediate stance update.

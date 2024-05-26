@@ -12,7 +12,7 @@
 	..()
 	var/obj/item/clothing/uniform = H.get_equipped_item(slot_w_uniform_str)
 	if(uniform)
-		var/obj/item/clothing/accessory/toggleable/hawaii/random/eyegore = new()
+		var/obj/item/clothing/shirt/hawaii/random/eyegore = new()
 		if(uniform.can_attach_accessory(eyegore))
 			uniform.attach_accessory(null, eyegore)
 		else
@@ -20,7 +20,7 @@
 
 /decl/hierarchy/outfit/job/tradeship/mate
 	name = "Tradeship - Job - Tradehouse First Mate"
-	uniform = /obj/item/clothing/under/suit_jacket/checkered
+	uniform = /obj/item/clothing/pants/slacks/black/outfit/checkered
 	shoes = /obj/item/clothing/shoes/dress
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	pda_type = /obj/item/modular_computer/pda/cargo

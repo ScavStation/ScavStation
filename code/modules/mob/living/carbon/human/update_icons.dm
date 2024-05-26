@@ -20,7 +20,6 @@ var/global/list/_limb_mask_cache = list()
 var/global/list/human_icon_cache    = list()
 var/global/list/eye_icon_cache      = list()
 var/global/list/tail_icon_cache     = list() //key is [bodytype.get_icon_cache_uid(src)][skin_colour]
-var/global/list/light_overlay_cache = list()
 
 /proc/overlay_image(icon,icon_state,color,flags)
 	var/image/ret = image(icon,icon_state)
@@ -42,7 +41,7 @@ versions. Instead, we generate both and store them in two fixed-length lists, bo
 (The indexes are in update_icons.dm): Each list for humans is (at the time of writing) of length 19.
 This will hopefully be reduced as the system is refined.
 
-When we call update_icons, the 'lying' variable is checked and then the appropriate list is assigned to our overlays!
+When we call update_icons, the 'current_posture.prone' variable is checked and then the appropriate list is assigned to our overlays!
 That in itself uses a tiny bit more memory (no more than all the ridiculous lists the game has already mind you).
 
 On the other-hand, it should be very CPU cheap in comparison to the old system.
@@ -74,7 +73,6 @@ There are several things that need to be remembered:
 		update_body()	//Handles updating your mob's icon to reflect their gender/race/complexion etc
 		update_hair()	//Handles updating your hair overlay (used to be update_face, but mouth and
 																			...eyes were merged into update_body)
-		update_targeted() // Updates the target overlay when someone points a gun at you
 
 >	All of these procs update our overlay lists, and then call update_icon() by default.
 	If you wish to update several overlays at once, you can set the argument to 0 to disable the update and call
@@ -137,7 +135,7 @@ Please contact me on #coderbus IRC. ~Carn x
 
 	var/decl/bodytype/root_bodytype = get_bodytype()
 	var/matrix/M = matrix()
-	if(lying && (root_bodytype.prone_overlay_offset[1] || root_bodytype.prone_overlay_offset[2]))
+	if(current_posture?.prone && (root_bodytype.prone_overlay_offset[1] || root_bodytype.prone_overlay_offset[2]))
 		M.Translate(root_bodytype.prone_overlay_offset[1], root_bodytype.prone_overlay_offset[2])
 
 	var/mangle_planes = FALSE
@@ -180,7 +178,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if(.)
 		update_icon()
 
-// Separate and duplicated from human logic due to humans having `lying` and many overlays.
+// Separate and duplicated from human logic due to humans having postures and many overlays.
 /mob/living/update_transform()
 	var/list/icon_scale_values = get_icon_scale_mult()
 	var/desired_scale_x = icon_scale_values[1]
@@ -204,7 +202,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	// Apply KEEP_TOGETHER so all the component overlays move properly when
 	// applying a transform, or remove it if we aren't doing any transforms
 	// (due to cost).
-	if(!lying && desired_scale_x == 1 && desired_scale_y == 1 && !("turf_alpha_mask" in filter_data))
+	if(!current_posture.prone && desired_scale_x == 1 && desired_scale_y == 1 && !("turf_alpha_mask" in filter_data))
 		update_appearance_flags(remove_flags = KEEP_TOGETHER)
 	else
 		update_appearance_flags(add_flags = KEEP_TOGETHER)
@@ -213,11 +211,12 @@ Please contact me on #coderbus IRC. ~Carn x
 	var/turn_angle
 	var/matrix/M = matrix()
 	M.Scale(desired_scale_x, desired_scale_y)
-	if(lying)
-		if(dir & WEST)
-			turn_angle = -90
-		else if(dir & EAST)
+	if(current_posture.prone && get_bodytype()?.rotate_on_prone)
+		// This locate is very bad but trying to get it to respect the buckled dir is proving tricky.
+		if((dir & EAST) || (isturf(loc) && (locate(/obj/structure/bed) in loc)))
 			turn_angle = 90
+		else if(dir & WEST)
+			turn_angle = -90
 		else
 			turn_angle = pick(-90, 90)
 		M.Turn(turn_angle)
@@ -234,7 +233,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if(mask)
 		var/matrix/inverted_transform = matrix()
 		inverted_transform.Scale(desired_scale_y, desired_scale_x)
-		if(lying)
+		if(current_posture.prone)
 			inverted_transform.Turn(-turn_angle)
 			inverted_transform.Translate(turn_angle == -90 ? 1 : -2, (turn_angle == -90 ? -6 : -5) - default_pixel_z)
 		else
@@ -344,7 +343,7 @@ Please contact me on #coderbus IRC. ~Carn x
 
 		var/image/I
 		if(UW.slot_offset_str && LAZYACCESS(root_bodytype.equip_adjust, UW.slot_offset_str))
-			I = root_bodytype.get_offset_overlay_image(UW.icon, UW.icon_state, UW.color, UW.slot_offset_str)
+			I = root_bodytype.get_offset_overlay_image(src, UW.icon, UW.icon_state, UW.color, UW.slot_offset_str)
 		else
 			I = image(icon = UW.icon, icon_state = UW.icon_state)
 			I.color = UW.color
@@ -545,7 +544,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		return .
 	for(var/obj/item/gear in get_equipped_items(TRUE))
 		client.screen |= gear
-	if(hud_used)
+	if(istype(hud_used))
 		hud_used.hidden_inventory_update()
 		hud_used.persistant_inventory_update()
 		update_action_buttons()

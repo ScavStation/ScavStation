@@ -30,13 +30,7 @@
 	mob_push_flags = ALLMOBS
 	bleed_colour = "#331111"
 	gene_damage = -1
-
-	meat_type =     null
-	meat_amount =   0
-	bone_material = null
-	bone_amount =   0
-	skin_material = null
-	skin_amount =   0
+	butchery_data = /decl/butchery_data/occult
 
 	z_flags = ZMM_MANGLE_PLANES
 	glowing_eyes = TRUE
@@ -75,7 +69,7 @@
 /mob/living/simple_animal/construct/attack_animal(var/mob/user)
 	if(istype(user, /mob/living/simple_animal/construct/builder))
 		if(current_health < get_max_health())
-			adjustBruteLoss(-5)
+			heal_damage(BRUTE, 5)
 			user.visible_message("<span class='notice'>\The [user] mends some of \the [src]'s wounds.</span>")
 		else
 			to_chat(user, "<span class='notice'>\The [src] is undamaged.</span>")
@@ -137,7 +131,7 @@
 	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
-			adjustBruteLoss(P.damage * 0.5)
+			take_damage(P.damage * 0.5)
 			visible_message("<span class='danger'>The [P.name] gets reflected by [src]'s shell!</span>", \
 							"<span class='userdanger'>The [P.name] gets reflected by [src]'s shell!</span>")
 
@@ -266,7 +260,7 @@
 	. = ..()
 	if(.)
 		if(fire)
-			fire.icon_state = "fire[!!fire_alert]"
+			fire.icon_state = "fire[!!GET_HUD_ALERT(src, /decl/hud_element/condition/fire)]"
 		silence_spells(purge)
 		if(healths)
 			switch(current_health)

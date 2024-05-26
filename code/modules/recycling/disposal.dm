@@ -81,14 +81,14 @@ var/global/list/diversion_junctions = list()
 	if(stat & BROKEN || !I || !user)
 		return
 
-	if(istype(I, /obj/item/storage/bag/trash))
-		var/obj/item/storage/bag/trash/T = I
-		to_chat(user, "<span class='notice'>You empty the bag.</span>")
-		for(var/obj/item/O in T.contents)
-			T.remove_from_storage(O,src, 1)
-		T.finish_bulk_removal()
-		update_icon()
-		return
+	if(istype(I, /obj/item/bag/trash))
+		if(I.storage)
+			to_chat(user, "<span class='notice'>You empty the bag.</span>")
+			for(var/obj/item/O in I.storage.get_contents())
+				I.storage.remove_from_storage(user, O, src, TRUE)
+			I.storage.finish_bulk_removal()
+			update_icon()
+			return
 
 	var/obj/item/grab/G = I
 	if(istype(G))	// handle grabbed mob
@@ -152,7 +152,7 @@ var/global/list/diversion_junctions = list()
 			user.visible_message("<span class='warning'>[user] starts climbing into [src].</span>", \
 								"<span class='notice'>You start climbing into [src].</span>")
 		else
-			if(istype(M) && iscarbon(user))
+			if(istype(M) && isliving(user))
 				M.last_handled_by_mob = weakref(user)
 			user.visible_message("<span class='[is_dangerous ? "warning" : "notice"]'>[user] starts stuffing [AM] into [src].</span>", \
 								"<span class='notice'>You start stuffing [AM] into [src].</span>")
@@ -510,7 +510,7 @@ var/global/list/diversion_junctions = list()
 		id_tag = "ds[sequential_id(/obj/item/disposal_switch_construct)]"
 
 /obj/item/disposal_switch_construct/afterattack(atom/A, mob/user, proximity)
-	if(!proximity || !istype(A, /turf/simulated/floor) || user.incapacitated() || !id_tag)
+	if(!proximity || !istype(A, /turf/floor) || user.incapacitated() || !id_tag)
 		return
 	var/area/area = get_area(A)
 	if(!istype(area) || (area.area_flags & AREA_FLAG_SHUTTLE))

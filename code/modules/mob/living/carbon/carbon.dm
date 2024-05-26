@@ -5,7 +5,7 @@
 	if(!reagents)
 		reagents = bloodstr
 	if(!touching)
-		touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
+		touching = new/datum/reagents/metabolism(mob_size * 100, src, CHEM_TOUCH)
 
 	if (!default_language && species_language)
 		default_language = species_language
@@ -52,7 +52,7 @@
 		return
 	user.set_special_ability_cooldown(5 SECONDS)
 	visible_message(SPAN_DANGER("You hear something rumbling inside [src]'s stomach..."))
-	var/obj/item/I = user.get_active_hand()
+	var/obj/item/I = user.get_active_held_item()
 	if(!I?.force)
 		return
 	var/d = rand(round(I.force / 4), I.force)
@@ -63,7 +63,7 @@
 		organ.take_external_damage(d, 0)
 	else
 		take_organ_damage(d)
-	if(prob(getBruteLoss() - 50))
+	if(prob(get_damage(BRUTE) - 50))
 		gib()
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null)
@@ -120,160 +120,17 @@
 /mob/proc/swap_hand()
 	SHOULD_CALL_PARENT(TRUE)
 
-/mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
-	if(!is_asystole())
-		if (on_fire)
-			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			if (M.on_fire)
-				M.visible_message("<span class='warning'>[M] tries to pat out [src]'s flames, but to no avail!</span>",
-				"<span class='warning'>You try to pat out [src]'s flames, but to no avail! Put yourself out first!</span>")
-			else
-				M.visible_message("<span class='warning'>[M] tries to pat out [src]'s flames!</span>",
-				"<span class='warning'>You try to pat out [src]'s flames! Hot!</span>")
-				if(do_mob(M, src, 15))
-					src.fire_stacks -= 0.5
-					if (prob(10) && (M.fire_stacks <= 0))
-						M.fire_stacks += 1
-					M.IgniteMob()
-					if (M.on_fire)
-						M.visible_message("<span class='danger'>The fire spreads from [src] to [M]!</span>",
-						"<span class='danger'>The fire spreads to you as well!</span>")
-					else
-						src.fire_stacks -= 0.5 //Less effective than stop, drop, and roll - also accounting for the fact that it takes half as long.
-						if (src.fire_stacks <= 0)
-							M.visible_message("<span class='warning'>[M] successfully pats out [src]'s flames.</span>",
-							"<span class='warning'>You successfully pat out [src]'s flames.</span>")
-							src.ExtinguishMob()
-							src.fire_stacks = 0
-		else
-			var/t_him = "it"
-			if (src.gender == MALE)
-				t_him = "him"
-			else if (src.gender == FEMALE)
-				t_him = "her"
-
-			var/obj/item/uniform = get_equipped_item(slot_w_uniform_str)
-			if(uniform)
-				uniform.add_fingerprint(M)
-
-			var/show_ssd = get_species_name()
-			if(show_ssd && ssd_check())
-				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
-				"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
-			else if(lying ||HAS_STATUS(src, STAT_ASLEEP) || player_triggered_sleeping)
-				player_triggered_sleeping = 0
-				ADJ_STATUS(src, STAT_ASLEEP, -5)
-				if(!HAS_STATUS(src, STAT_ASLEEP))
-					resting = FALSE
-				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
-									"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
-			else
-				M.attempt_hug(src)
-
-			if(stat != DEAD)
-				ADJ_STATUS(src, STAT_PARA, -3)
-				ADJ_STATUS(src, STAT_STUN, -3)
-				ADJ_STATUS(src, STAT_WEAK, -3)
-
-			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-
 /mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	if(eyecheck() < intensity || override_blindness_check)
 		return ..()
-
-//Throwing stuff
-/mob/proc/throw_item(atom/target)
-	return
-
-/mob/living/carbon/throw_item(atom/target, obj/item/item)
-	src.throw_mode_off()
-	if(src.stat || !target)
-		return
-	if(target.type == /obj/screen)
-		return
-
-	if(!item)
-		item = get_active_hand()
-
-	if(!istype(item) || !(item in get_held_items()))
-		return
-
-	var/throw_range = item.throw_range
-	var/itemsize
-	if (istype(item, /obj/item/grab))
-		var/obj/item/grab/G = item
-		item = G.throw_held() //throw the person instead of the grab
-		if(ismob(item))
-			var/mob/M = item
-
-			//limit throw range by relative mob size
-			throw_range = round(M.throw_range * min(src.mob_size/M.mob_size, 1))
-			itemsize = round(M.mob_size/4)
-			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
-			var/turf/end_T = get_turf(target)
-			if(start_T && end_T && usr == src)
-				var/start_T_descriptor = "<font color='#6b5d00'>[start_T] \[[start_T.x],[start_T.y],[start_T.z]\] ([start_T.loc])</font>"
-				var/end_T_descriptor = "<font color='#6b4400'>[start_T] \[[end_T.x],[end_T.y],[end_T.z]\] ([end_T.loc])</font>"
-				admin_attack_log(usr, M, "Threw the victim from [start_T_descriptor] to [end_T_descriptor].", "Was from [start_T_descriptor] to [end_T_descriptor].", "threw, from [start_T_descriptor] to [end_T_descriptor], ")
-
-	else if (istype(item, /obj/item/))
-		var/obj/item/I = item
-		itemsize = I.w_class
-
-	if(!try_unequip(item, play_dropsound = FALSE))
-		return
-	if(!item || !isturf(item.loc))
-		return
-
-	var/message = "\The [src] has thrown \the [item]!"
-	var/skill_mod = 0.2
-	if(!skill_check(SKILL_HAULING, min(round(itemsize - ITEM_SIZE_HUGE) + 2, SKILL_MAX)))
-		if(prob(30))
-			SET_STATUS_MAX(src, STAT_WEAK, 2)
-			message = "\The [src] barely manages to throw \the [item], and is knocked off-balance!"
-	else
-		skill_mod += 0.2
-
-	skill_mod += 0.8 * (get_skill_value(SKILL_HAULING) - SKILL_MIN)/(SKILL_MAX - SKILL_MIN)
-	throw_range *= skill_mod
-
-	//actually throw it!
-	src.visible_message("<span class='warning'>[message]</span>", range = min(itemsize*2,world.view))
-
-	if(!src.lastarea)
-		src.lastarea = get_area(src.loc)
-	if(!check_space_footing())
-		if(prob((itemsize * itemsize * 10) * MOB_SIZE_MEDIUM/src.mob_size))
-			var/direction = get_dir(target, src)
-			step(src,direction)
-			space_drift(direction)
-
-	item.throw_at(target, throw_range, item.throw_speed * skill_mod, src)
-
-	playsound(src, 'sound/effects/throw.ogg', 50, 1)
-	animate_throw(src)
 
 /mob/living/carbon/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	..()
 	var/temp_inc = max(min(BODYTEMP_HEATING_MAX*(1-get_heat_protection()), exposed_temperature - bodytemperature), 0)
 	bodytemperature += temp_inc
 
-/mob/living/carbon/can_use_hands()
-	if(get_equipped_item(slot_handcuffed_str))
-		return 0
-	if(buckled && ! istype(buckled, /obj/structure/bed/chair)) // buckling does not restrict hands
-		return 0
-	return 1
-
 /mob/living/carbon/restrained()
 	return get_equipped_item(slot_handcuffed_str)
-
-/mob/living/carbon/verb/mob_sleep()
-	set name = "Sleep"
-	set category = "IC"
-
-	if(alert("Are you sure you want to [player_triggered_sleeping ? "wake up?" : "sleep for a while? Use 'sleep' again to wake up"]", "Sleep", "No", "Yes") == "Yes")
-		player_triggered_sleeping = !player_triggered_sleeping
 
 /mob/living/carbon/Bump(var/atom/movable/AM, yes)
 	if(now_pushing || !yes)
@@ -281,17 +138,11 @@
 	..()
 
 /mob/living/carbon/slip(slipped_on, stun_duration = 8)
-	if(has_gravity() && !buckled && !lying)
+	if(has_gravity() && !buckled && !current_posture.prone)
 		to_chat(src, SPAN_DANGER("You slipped on [slipped_on]!"))
 		playsound(loc, 'sound/misc/slip.ogg', 50, 1, -3)
 		SET_STATUS_MAX(src, STAT_WEAK, stun_duration)
 		. = TRUE
-
-/**
- *  Return FALSE if victim can't be devoured, DEVOUR_FAST if they can be devoured quickly, DEVOUR_SLOW for slow devour
- */
-/mob/living/carbon/proc/can_devour(atom/movable/victim)
-	return FALSE
 
 /mob/living/carbon/get_satiated_nutrition()
 	return 350
@@ -304,8 +155,9 @@
 
 /mob/living/carbon/fluid_act(var/datum/reagents/fluids)
 	..()
-	if(QDELETED(src) || !fluids?.total_volume || !touching)
+	if(QDELETED(src) || !fluids?.total_volume || !touching || fluids.total_volume <= touching.total_volume)
 		return
+	// TODO: review saturation logic so we can end up with more than like 15 water in our contact reagents.
 	var/saturation =  min(fluids.total_volume, round(mob_size * 1.5 * reagent_permeability()) - touching.total_volume)
 	if(saturation > 0)
 		fluids.trans_to_holder(touching, saturation)
@@ -342,6 +194,6 @@
 	set name = "Show Held Item"
 	set category = "Object"
 
-	var/obj/item/I = get_active_hand()
+	var/obj/item/I = get_active_held_item()
 	if(I && I.simulated)
 		I.showoff(src)

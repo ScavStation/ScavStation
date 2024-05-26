@@ -3,7 +3,7 @@
 /turf/space,
 /area/space)
 "ab" = (
-/turf/exterior/wall,
+/turf/wall/natural,
 /area/space)
 "ac" = (
 /turf/unsimulated/mineral,
@@ -28,7 +28,7 @@
 /area/map_template/syndicate_mothership/raider_base)
 "ah" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/tray{
+/obj/item/plate/tray{
 	pixel_y = 5
 	},
 /turf/unsimulated/floor{
@@ -108,7 +108,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "at" = (
-/obj/structure/kitchenspike,
+/obj/structure/meat_hook,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -171,7 +171,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "aC" = (
-/turf/exterior/wall,
+/turf/wall/natural,
 /area/map_template/syndicate_mothership/raider_base)
 "aD" = (
 /obj/machinery/door/airlock/hatch,
@@ -449,7 +449,7 @@
 /obj/structure/sign/warning/nosmoking_1/heist{
 	pixel_y = 32
 	},
-/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/item/box/fancy/cigarettes/dromedaryco,
 /turf/unsimulated/floor{
 	icon_state = "plating";
 	name = "plating"
@@ -623,11 +623,6 @@
 	icon_state = "asteroid"
 	},
 /area/map_template/syndicate_mothership/raider_base)
-"bz" = (
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/map_template/syndicate_mothership/raider_base)
 "bC" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
@@ -640,7 +635,7 @@
 "bD" = (
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -30
 	},
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
@@ -668,8 +663,8 @@
 /obj/effect/floor_decal/carpet,
 /obj/item/clothing/under/lawyer,
 /obj/item/clothing/under/lawyer/bluesuit,
-/obj/item/clothing/under/mailman,
-/obj/item/clothing/accessory/storage,
+/obj/item/clothing/jumpsuit/mailman,
+/obj/item/clothing/webbing,
 /obj/item/clothing/under/dispatch,
 /turf/unsimulated/floor{
 	icon_state = "carpet";
@@ -718,17 +713,17 @@
 /area/map_template/syndicate_mothership/raider_base)
 "bL" = (
 /obj/structure/table/woodentable,
-/obj/item/storage/tray{
+/obj/item/plate/tray{
 	pixel_y = 5
 	},
-/obj/item/storage/backpack,
+/obj/item/backpack,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "bM" = (
 /obj/structure/table/woodentable,
-/obj/item/storage/box/glasses/rocks,
+/obj/item/box/glasses/rocks,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -856,7 +851,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	markup = 0;
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo/random = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/box/fancy/cigarettes = 10, /obj/item/box/matches = 10, /obj/item/flame/fuelled/lighter/zippo/random = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -869,7 +864,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "cf" = (
-/obj/item/storage/backpack,
+/obj/item/backpack,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
@@ -995,14 +990,14 @@
 /area/space)
 "cw" = (
 /obj/effect/paint/black,
-/turf/simulated/wall/raidershuttle,
+/turf/wall/raidershuttle,
 /area/map_template/skipjack_station/start)
 "cx" = (
 /obj/machinery/door/airlock/external{
 	id_tag = "raider_northwest_lock"
 	},
 /obj/machinery/shield_diffuser,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cy" = (
 /obj/machinery/button/access/shuttle/exterior{
@@ -1010,16 +1005,17 @@
 	req_access = list("ACCESS_RAIDER")
 	},
 /obj/effect/paint/black,
-/turf/simulated/wall/raidershuttle,
+/turf/wall/raidershuttle,
 /area/map_template/skipjack_station/start)
 "cz" = (
 /obj/machinery/door/blast/regular/open{
 	id_tag = "SkipjackShuttersNorth";
 	name = "Blast Doors";
+	
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cA" = (
 /obj/machinery/door/airlock/external{
@@ -1028,34 +1024,35 @@
 	},
 /obj/machinery/shield_diffuser,
 /obj/effect/shuttle_landmark/skipjack/start,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cB" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	id_tag = "raider_west_vent"
 	},
 /obj/random/junk,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cC" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "raider_west_sensor";
-	pixel_x = 25
+	pixel_x = 25;
+	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cD" = (
 /obj/machinery/constructable_frame/computerframe,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cE" = (
 /obj/machinery/computer/shuttle_control/multi/raider,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cF" = (
 /obj/structure/table/steel,
 /obj/random/plushie,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cG" = (
 /obj/random/trash,
@@ -1064,20 +1061,20 @@
 	pixel_x = 8;
 	pixel_y = 25
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cH" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	id_tag = "merc_shuttle_pump"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
 	},
 /obj/machinery/meter,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cJ" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -1087,14 +1084,15 @@
 	tag_airpump = "raider_west_vent";
 	tag_chamber_sensor = "raider_west_sensor";
 	tag_exterior_door = "raider_northwest_lock";
-	tag_interior_door = "raider_southwest_lock"
+	tag_interior_door = "raider_southwest_lock";
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 8;
 	id_tag = "raider_west_vent"
 	},
 /obj/machinery/light/small,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cK" = (
 /obj/machinery/light/small{
@@ -1103,13 +1101,13 @@
 /obj/machinery/computer/station_alert/all{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cL" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cM" = (
 /obj/machinery/button/blast_door{
@@ -1129,13 +1127,13 @@
 	pixel_x = 5;
 	pixel_y = 31
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cN" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cO" = (
 /obj/machinery/constructable_frame/computerframe,
@@ -1143,7 +1141,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cP" = (
 /obj/machinery/light/small,
@@ -1157,49 +1155,49 @@
 	dir = 4;
 	id_tag = "skipjack_shuttle_pump"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cQ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/machinery/meter,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cR" = (
 /obj/effect/paint/brown,
-/turf/simulated/wall/raidershuttle,
+/turf/wall/raidershuttle,
 /area/map_template/skipjack_station/start)
 "cS" = (
 /obj/machinery/door/airlock/external{
 	id_tag = "raider_southwest_lock"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cT" = (
 /obj/structure/rack,
 /obj/random/hardsuit,
 /obj/item/clothing/glasses/thermal/plain/monocle,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cU" = (
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cV" = (
 /obj/random/maintenance,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cW" = (
 /obj/random/junk,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cX" = (
 /obj/structure/rack,
 /obj/random/hardsuit,
 /obj/item/clothing/head/pirate,
 /obj/item/gun/launcher/money,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "cY" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -1207,16 +1205,17 @@
 	id_tag = "skipjack_shuttle_inner";
 	name = "Ship External Access"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "cZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/button/access/shuttle/interior{
 	id_tag = "raider_west_control";
 	pixel_x = -22;
-	req_access = list("ACCESS_RAIDER")
+	req_access = list("ACCESS_RAIDER");
+	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "da" = (
 /obj/structure/rack,
@@ -1227,7 +1226,7 @@
 /obj/random/voidhelmet,
 /obj/item/harpoon,
 /obj/random/energy,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "db" = (
 /obj/machinery/microwave{
@@ -1235,20 +1234,20 @@
 	pixel_y = 8
 	},
 /obj/structure/table/steel,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dc" = (
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/minihoe,
+/obj/item/tool/hoe/mini,
 /obj/item/beartrap,
 /obj/structure/table/steel,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dd" = (
 /obj/machinery/vending/hydroseeds,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "de" = (
 /obj/structure/rack,
@@ -1263,7 +1262,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "df" = (
 /obj/structure/rack,
@@ -1279,12 +1278,12 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dg" = (
 /obj/structure/rack,
-/obj/item/storage/belt/utility/full,
-/obj/item/storage/belt/utility/full,
+/obj/item/belt/utility/full,
+/obj/item/belt/utility/full,
 /obj/item/multitool,
 /obj/item/multitool,
 /obj/item/clothing/shoes/magboots,
@@ -1293,21 +1292,21 @@
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
 /obj/random/maintenance,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dh" = (
 /obj/machinery/washing_machine,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "di" = (
 /obj/structure/table,
-/obj/item/storage/box/fancy/cigarettes,
-/obj/item/flame/lighter/zippo/random,
+/obj/item/box/fancy/cigarettes,
+/obj/item/flame/fuelled/lighter/zippo/random,
 /obj/item/clothing/gloves/insulated,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
 /obj/item/stack/material/pane/mapped/glass/fifty,
 /obj/item/card/emag,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dj" = (
 /obj/structure/rack,
@@ -1317,7 +1316,7 @@
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
 /obj/random/energy,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dk" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -1328,30 +1327,30 @@
 	pixel_y = 25;
 	req_access = list("ACCESS_RAIDER")
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dl" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dm" = (
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dn" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "do" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dp" = (
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dq" = (
 /obj/machinery/light/small{
@@ -1364,60 +1363,62 @@
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
 /obj/random/projectile,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dr" = (
 /obj/random/loot,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "ds" = (
 /obj/item/robot_parts/head,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dt" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id_tag = "SkipjackShuttersWest";
 	name = "Skipjack Shutters";
+	
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "du" = (
 /obj/random/trash,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dv" = (
 /obj/random/maintenance,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dw" = (
 /obj/random/trash,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dx" = (
 /obj/item/robot_parts/l_leg,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dy" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
 	id_tag = "SkipjackShuttersEast";
 	name = "Skipjack Shutters";
+	
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dz" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dA" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dB" = (
 /obj/structure/rack,
@@ -1432,7 +1433,7 @@
 /obj/item/beartrap,
 /obj/item/beartrap,
 /obj/item/beartrap,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dC" = (
 /obj/structure/rack,
@@ -1440,13 +1441,13 @@
 /obj/item/grenade/flashbang,
 /obj/item/grenade/spawnergrenade/manhacks,
 /obj/random/energy,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dD" = (
 /obj/machinery/suit_cycler/nonstandard/raider{
 	locked = 0
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dE" = (
 /obj/structure/table/steel,
@@ -1454,41 +1455,42 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dF" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dG" = (
 /obj/item/robot_parts/robot_suit,
 /obj/item/robot_parts/r_leg,
 /obj/item/robot_parts/r_arm,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dH" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/random/maintenance,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dI" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id_tag = "SkipjackShuttersWest";
 	name = "Skipjack Shutters";
+	
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dJ" = (
 /obj/random/loot,
 /obj/vehicle/bike/thermal,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dK" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/item/clothing/mask/gas/cyborg,
-/obj/item/storage/box/donkpockets{
+/obj/item/box/donkpockets{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -1501,7 +1503,7 @@
 /area/map_template/skipjack_station/start)
 "dL" = (
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dM" = (
 /obj/structure/bed/chair{
@@ -1510,12 +1512,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dN" = (
 /obj/structure/table/steel,
 /obj/random/maintenance,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dO" = (
 /obj/structure/bed/chair{
@@ -1524,7 +1526,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dP" = (
 /obj/structure/hygiene/sink{
@@ -1532,17 +1534,17 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dQ" = (
 /obj/item/wrench,
 /obj/item/mop,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dR" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/item/crowbar,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dS" = (
 /obj/machinery/light/small{
@@ -1552,49 +1554,49 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dT" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dU" = (
-/turf/simulated/floor/shuttle/black,
+/turf/floor/shuttle/black,
 /area/map_template/skipjack_station/start)
 "dV" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/floor/shuttle/black,
 /area/map_template/skipjack_station/start)
 "dW" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "dX" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dY" = (
 /obj/item/deck/cards,
 /obj/structure/table/steel,
 /obj/random/projectile,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "dZ" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "ea" = (
 /obj/machinery/bodyscanner{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "eb" = (
 /obj/machinery/light/small{
@@ -1603,21 +1605,21 @@
 /obj/machinery/body_scanconsole{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "ec" = (
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "ed" = (
 /obj/structure/hygiene/toilet{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "ee" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/tank/nitrogen,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "ef" = (
 /obj/machinery/light/small{
@@ -1627,7 +1629,7 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "eg" = (
 /obj/structure/shuttle/engine/heater,
@@ -1635,50 +1637,50 @@
 	dir = 1
 	},
 /obj/effect/paint/black,
-/turf/simulated/wall/raidershuttle,
+/turf/wall/raidershuttle,
 /area/map_template/skipjack_station/start)
 "eh" = (
 /obj/random/trash,
-/turf/simulated/floor/shuttle/black,
+/turf/floor/shuttle/black,
 /area/map_template/skipjack_station/start)
 "ei" = (
 /obj/structure/table/steel,
 /obj/random/loot,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "ej" = (
 /obj/random/junk,
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "ek" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
 	pixel_x = 11
 	},
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "el" = (
 /obj/structure/shuttle/engine/propulsion,
 /obj/effect/paint/black,
-/turf/simulated/wall/raidershuttle,
+/turf/wall/raidershuttle,
 /area/map_template/skipjack_station/start)
 "em" = (
 /obj/structure/table,
 /obj/random/maintenance,
-/turf/simulated/floor/shuttle/black,
+/turf/floor/shuttle/black,
 /area/map_template/skipjack_station/start)
 "en" = (
 /obj/structure/table,
 /obj/item/deck/cards,
-/turf/simulated/floor/shuttle/black,
+/turf/floor/shuttle/black,
 /area/map_template/skipjack_station/start)
 "eo" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "ep" = (
 /obj/random/trash,
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "eq" = (
 /obj/structure/table,
@@ -1688,16 +1690,16 @@
 /obj/item/hemostat,
 /obj/item/scalpel,
 /obj/item/stack/medical/advanced/bruise_pack,
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "er" = (
 /obj/random/junk,
-/turf/simulated/floor/shuttle/black,
+/turf/floor/shuttle/black,
 /area/map_template/skipjack_station/start)
 "es" = (
 /obj/machinery/optable,
 /obj/item/clothing/mask/gas,
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "et" = (
 /obj/structure/table,
@@ -1707,29 +1709,29 @@
 /obj/item/chems/glass/bottle/sedatives,
 /obj/item/chems/syringe,
 /obj/item/gun/launcher/syringe/rapid,
-/obj/item/storage/box/syringegun,
+/obj/item/box/syringegun,
 /obj/item/chems/glass/beaker/vial/random/toxin,
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "eu" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
 	pixel_x = 11
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/floor/shuttle/black,
 /area/map_template/skipjack_station/start)
 "ev" = (
 /obj/structure/bed,
 /obj/item/bedsheet/rainbow,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "ew" = (
 /obj/structure/bed,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "ex" = (
 /obj/random/maintenance,
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "ey" = (
 /obj/structure/table,
@@ -1738,7 +1740,7 @@
 /obj/item/sutures,
 /obj/item/chems/syringe/antibiotic,
 /obj/item/chems/syringe/antibiotic,
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "ez" = (
 /obj/structure/hygiene/toilet{
@@ -1747,13 +1749,14 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/floor/shuttle/black,
 /area/map_template/skipjack_station/start)
 "eA" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/suit/armor/pirate,
-/obj/item/clothing/under/medical/scrubs/black,
-/turf/simulated/floor/shuttle/red,
+/obj/item/clothing/shirt/scrubs/black,
+/obj/item/clothing/pants/scrubs/black,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "eB" = (
 /obj/structure/bed,
@@ -1761,25 +1764,25 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "eC" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/fire{
+/obj/item/firstaid/fire{
 	pixel_x = 1
 	},
-/obj/item/storage/firstaid/o2{
+/obj/item/firstaid/o2{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "eD" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/adv{
+/obj/item/firstaid/adv{
 	pixel_x = 1
 	},
-/obj/item/storage/firstaid/toxin{
+/obj/item/firstaid/toxin{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -1787,27 +1790,21 @@
 	dir = 4
 	},
 /obj/item/baton/cattleprod,
-/turf/simulated/floor/shuttle/white,
+/turf/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "eF" = (
 /obj/structure/bed,
 /obj/item/bedsheet/rd,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "eG" = (
 /obj/item/pizzabox/meat,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
 "eH" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/shuttle/red,
+/turf/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
-"eI" = (
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
-/area/map_template/syndicate_mothership/raider_base)
 "jf" = (
 /obj/machinery/network/acl{
 	initial_network_id = "piratenet";
@@ -1831,7 +1828,7 @@
 	initial_network_id = "piratenet";
 	req_access = list("ACCESS_RAIDER")
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/map_template/skipjack_station/start)
 "PS" = (
 /obj/machinery/network/telecomms_hub/raider,
@@ -2674,7 +2671,7 @@ ab
 ab
 aQ
 aq
-bz
+aq
 aq
 aq
 ce
@@ -5187,7 +5184,7 @@ ab
 ab
 ab
 ae
-eI
+aj
 aj
 av
 av

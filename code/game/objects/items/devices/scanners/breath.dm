@@ -9,13 +9,16 @@
 	var/mode = 1
 
 /obj/item/scanner/breath/is_valid_scan_target(atom/O)
-	return iscarbon(O)
+	if(isliving(O))
+		var/mob/living/M = O
+		return !!M.get_inhaled_reagents()
+	return FALSE
 
 /obj/item/scanner/breath/scan(atom/A, mob/user)
 	scan_data = breath_scan_action(A, user, src, mode)
 	playsound(src, 'sound/effects/fastbeep.ogg', 20)
 
-/proc/breath_scan_action(mob/living/carbon/target, mob/living/user, obj/scanner, var/verbose)
+/proc/breath_scan_action(mob/living/target, mob/living/user, obj/scanner, var/verbose)
 	if (!user.check_dexterity(DEXTERITY_COMPLEX_TOOLS) || !istype(target))
 		return
 
@@ -24,7 +27,7 @@
 	to_chat(user, .)
 	to_chat(user, "<hr>")
 
-/proc/breath_scan_results(var/mob/living/carbon/C, var/verbose, var/skill_level = SKILL_DEFAULT)
+/proc/breath_scan_results(var/mob/living/C, var/verbose, var/skill_level = SKILL_DEFAULT)
 	. = list()
 	var/header = list()
 	var/b
@@ -63,7 +66,7 @@
 
 	// Other general warnings.
 	if(skill_level >= SKILL_BASIC)
-		switch(C.getOxyLoss())
+		switch(C.get_damage(OXY))
 			if(0 to 25)
 				dat += "<span class='scan_green'>Subject oxygen levels nominal.</span>"
 			if(25 to 50)

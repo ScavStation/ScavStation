@@ -932,7 +932,7 @@
 				if (1) status = "<font color='orange'><b>Unconscious</b></font>"
 				if (2) status = "<font color='red'><b>Dead</b></font>"
 			health_description = "Status = [status]"
-			health_description += "<BR>Oxy: [L.getOxyLoss()] - Tox: [L.getToxLoss()] - Fire: [L.getFireLoss()] - Brute: [L.getBruteLoss()] - Clone: [L.getCloneLoss()] - Brain: [L.getBrainLoss()]"
+			health_description += "<BR>Oxy: [L.get_damage(OXY)] - Tox: [L.get_damage(TOX)] - Fire: [L.get_damage(BURN)] - Brute: [L.get_damage(BRUTE)] - Clone: [L.get_damage(CLONE)] - Brain: [L.get_damage(BRAIN)]"
 		else
 			health_description = "This mob type has no health to speak of."
 
@@ -993,7 +993,7 @@
 		spawn(20)
 			qdel(S)
 
-		var/turf/simulated/floor/T = get_turf(M)
+		var/turf/floor/T = get_turf(M)
 		if(istype(T))
 			if(prob(80))	T.break_tile_to_plating()
 			else			T.break_tile()
@@ -1001,7 +1001,7 @@
 		if(M.current_health == 1)
 			M.gib()
 		else
-			M.adjustBruteLoss(min(99, M.current_health - 1))
+			M.take_damage(min(99, M.current_health - 1))
 			SET_STATUS_MAX(M, STAT_STUN, 20)
 			SET_STATUS_MAX(M, STAT_WEAK, 20)
 			M.set_status(STAT_STUTTER, 20)
@@ -1186,10 +1186,6 @@
 			else if(!ispath(path, /obj) && !ispath(path, /turf) && !ispath(path, /mob))
 				removed_paths += dirty_path
 				continue
-			else if(ispath(path, /obj/effect/bhole))
-				if(!check_rights(R_FUN,0))
-					removed_paths += dirty_path
-					continue
 			paths += path
 
 		if(!paths)
@@ -1223,7 +1219,7 @@
 			if ( !( ishuman(usr) || issmall(usr) ) )
 				to_chat(usr, "Can only spawn in hand when you're a human or a monkey.")
 				where = "onfloor"
-			else if ( usr.get_active_hand() )
+			else if ( usr.get_active_held_item() )
 				to_chat(usr, "Your active hand is full. Spawning on floor.")
 				where = "onfloor"
 

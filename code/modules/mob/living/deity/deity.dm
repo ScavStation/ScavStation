@@ -8,13 +8,8 @@
 	max_health = 100
 	universal_understand = TRUE
 	mob_sort_value = 5
-
-	meat_type = null
-	meat_amount = 0
-	skin_material = null
-	skin_amount = 0
-	bone_material = null
-	bone_amount = 0
+	is_spawnable_type = FALSE
+	butchery_data = null
 
 	var/eye_type = /mob/observer/eye/freelook/cult
 	var/datum/visualnet/cultnet/eyenet

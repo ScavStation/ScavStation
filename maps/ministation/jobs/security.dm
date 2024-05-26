@@ -6,7 +6,7 @@
 	total_positions = 2
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security
 	department_types = list(/decl/department/security)
-	selection_color = COLOR_BLOOD_RED
+	selection_color = "#990000"
 	economic_power = 7
 	minimal_player_age = 7
 	access = list(
@@ -41,7 +41,7 @@
 /datum/job/ministation/detective
 	title = "Detective"
 	alt_titles = list("Inspector")
-	supervisors = "Justice... and the Captain"
+	supervisors = "Justice... and the Trademaster"
 	spawn_positions = 1
 	total_positions = 1
 	outfit_type = /decl/hierarchy/outfit/job/ministation/detective

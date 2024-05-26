@@ -365,7 +365,7 @@
 	if(GAME_STATE < RUNLEVEL_GAME)
 		alert("Wait until the game starts")
 		return
-	if(iscarbon(M))
+	if(M.dna)
 		M.dna.SetSEState(block,!M.dna.GetSEState(block))
 		domutcheck(M,null,MUTCHK_FORCED)
 		M.update_mutations()
@@ -457,11 +457,10 @@
 	set name = "Spawn Material Stack"
 	if(!check_rights(R_DEBUG)) return
 
-	var/material = input("Select material to spawn") as null|anything in SSmaterials.materials_by_name
-	if(!material)
+	var/decl/material/material = input("Select material to spawn") as null|anything in decls_repository.get_decls_of_subtype_unassociated(/decl/material)
+	if(!istype(material))
 		return
-	var/decl/material/M = SSmaterials.materials_by_name[material]
-	M.create_object(get_turf(mob), 50)
+	material.create_object(get_turf(mob), 50)
 
 /client/proc/force_ghost_trap_trigger()
 	set category = "Debug"
@@ -508,8 +507,7 @@
 		PD._theme_forced = theme
 	planet_template.load_new_z(gen_data = PD)
 	if(!daycycle)
-		PD.day_duration = null
-		SSdaycycle.remove_linked_levels(PD.topmost_level_id)
+		SSdaycycle.remove_level(PD.get_linked_level_zs(), PD.daycycle_id)
 
 /client/proc/display_del_log()
 	set category = "Debug"
