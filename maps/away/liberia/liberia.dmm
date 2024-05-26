@@ -179,7 +179,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id_tag = "merch_radaway";
-	
+
 	},
 /obj/machinery/door/window/northleft{
 	dir = 8;
@@ -208,7 +208,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id_tag = "merch_radaway";
-	
+
 	},
 /turf/floor,
 /area/liberia/engineeringreactor)
@@ -642,7 +642,7 @@
 	dir = 2;
 	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
-	
+
 	},
 /obj/effect/paint/silver,
 /obj/effect/paint_stripe/yellow,
@@ -827,7 +827,7 @@
 	dir = 4;
 	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
-	
+
 	},
 /obj/effect/paint/silver,
 /obj/effect/paint_stripe/yellow,
@@ -1252,7 +1252,7 @@
 	dir = 4;
 	id_tag = "merchantdesk";
 	name = "Merchant Desk Shutters";
-	
+
 	},
 /obj/effect/paint/silver,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1572,7 +1572,7 @@
 	dir = 4;
 	id_tag = "merchantdesk";
 	name = "Merchant Desk Shutters";
-	
+
 	},
 /obj/structure/cable/blue{
 	icon_state = "4-8"
@@ -4254,7 +4254,7 @@
 "hz" = (
 /obj/machinery/vending/cigarette{
 	dir = 1;
-	products = list(/obj/item/storage/box/fancy/cigarettes=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/box/fancy/cigarettes=10,/obj/item/box/matches=10,/obj/item/flame/fuelled/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/floor/wood/walnut,
 /area/liberia/bar)
@@ -5086,7 +5086,7 @@
 /obj/structure/table/glass,
 /obj/machinery/faxmachine/mapped{
 	req_access = list("ACCESS_MERCHANT");
-	
+
 	},
 /obj/effect/floor_decal/corner/blue/mono,
 /turf/floor/tiled/dark/monotile,
@@ -6355,7 +6355,7 @@
 "oJ" = (
 /obj/abstract/level_data_spawner/player{
 	name = "Liberia";
-	
+
 	},
 /turf/space,
 /area/space)
@@ -8148,7 +8148,7 @@
 	dir = 2;
 	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
-	
+
 	},
 /obj/effect/paint/silver,
 /obj/effect/paint_stripe/yellow,
