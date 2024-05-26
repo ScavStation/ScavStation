@@ -259,7 +259,7 @@
 
 	if (operating_temperature > cooling_temperature)
 		var/temp_loss = (operating_temperature - cooling_temperature)/TEMPERATURE_DIVISOR
-		temp_loss = clamp(2, round(temp_loss, 1), TEMPERATURE_CHANGE_MAX)
+		temp_loss = clamp(round(temp_loss, 1), 2, TEMPERATURE_CHANGE_MAX)
 		operating_temperature = max(operating_temperature - temp_loss, cooling_temperature)
 		src.updateDialog()
 
@@ -467,7 +467,7 @@
 	if(reagents.has_reagent(/decl/material/liquid/ethanol/vodka))
 		rad_power = 4
 		temperature_gain = 60
-		reagents.remove_any(1)
+		remove_any_reagents(1)
 		if(prob(2))
 			audible_message("<span class='notice'>[src] churns happily</span>")
 	else

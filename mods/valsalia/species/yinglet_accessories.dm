@@ -1,7 +1,7 @@
 /decl/sprite_accessory/marking/yinglet
 	species_allowed = list(SPECIES_YINGLET)
 	icon = 'mods/valsalia/icons/species/yinglet/markings.dmi'
-	blend = ICON_MULTIPLY
+	color_blend = ICON_MULTIPLY
 	mask_to_bodypart = TRUE
 	abstract_type = /decl/sprite_accessory/marking/yinglet
 	body_parts = list(BP_HEAD)
@@ -81,8 +81,13 @@
 	icon_state = "hair_messy"
 	species_allowed = list(SPECIES_YINGLET)
 	icon = 'mods/valsalia/icons/species/yinglet/hair.dmi'
-	blend = ICON_MULTIPLY
+	color_blend = ICON_MULTIPLY
 	uid = "hair_ying_messy"
+
+/decl/sprite_accessory/hair/yinglet/get_hidden_substitute()
+	if(accessory_flags & VERY_SHORT)
+		return src
+	return GET_DECL(/decl/sprite_accessory/hair/yinglet/bald)
 
 /decl/sprite_accessory/hair/yinglet/afro
 	name = "Ying Afro"
@@ -102,31 +107,31 @@
 /decl/sprite_accessory/hair/yinglet/ponytail
 	name = "Ying Ponytail"
 	icon_state = "hair_ponytail"
-	flags = HAIR_TIEABLE
+	accessory_flags = HAIR_TIEABLE
 	uid = "hair_ying_ponytail"
 
 /decl/sprite_accessory/hair/yinglet/long
 	name = "Ying Long Hair"
 	icon_state = "hair_long"
-	flags = HAIR_TIEABLE
+	accessory_flags = HAIR_TIEABLE
 	uid = "hair_ying_long"
 
 /decl/sprite_accessory/hair/yinglet/longmessy
 	name = "Ying Long Messy Hair"
 	icon_state = "hair_longmessy"
-	flags = HAIR_TIEABLE
+	accessory_flags = HAIR_TIEABLE
 	uid = "hair_ying_longmessy"
 
 /decl/sprite_accessory/hair/yinglet/updo
 	name = "Ying Updo"
 	icon_state = "hair_updo"
-	flags = HAIR_TIEABLE
+	accessory_flags = HAIR_TIEABLE
 	uid = "hair_ying_updo"
 
 /decl/sprite_accessory/hair/yinglet/bald
 	name = "Ying Bald"
 	icon_state = "hair_bald"
-	flags = VERY_SHORT | HAIR_BALD
+	accessory_flags = VERY_SHORT | HAIR_BALD
 	uid = "hair_ying_bald"
 
 /datum/category_item/underwear/bottom/yinglet_wraps

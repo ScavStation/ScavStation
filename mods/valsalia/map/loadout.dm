@@ -20,6 +20,12 @@
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
 	description = "A simple jumpsuit, made for a yinglet."
 
+/decl/loadout_option/uniform/zhorin_robe
+	name = "yinglet robe, colour select"
+	path = /obj/item/clothing/under/yinglet/zhorin_robe
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
+	description = "A very comfortable-looking robe fashioned from a large piece of fabric."
+
 /decl/loadout_option/scav_medical_belt
 	name = "medical belt"
 	path = /obj/item/storage/belt/medical
@@ -51,6 +57,16 @@
 	name = "yinglet fancy hat"
 	path = /obj/item/clothing/head/fancyhat
 
+/decl/loadout_option/head/pekhat
+	name = "yinglet sunhat"
+	path = /obj/item/clothing/head/yinglet/pekhat
+	description = "A wooden sunhat popular with yinglets."
+
+/decl/loadout_option/head/pekhat_painted
+	name = "yinglet sunhat (painted)"
+	path = /obj/item/clothing/head/yinglet/pekhat_painted
+	description = "A wooden sunhat popular with yinglets. This one is painted with a smile."
+
 /decl/loadout_option/suit/yingjacket
 	name = "yinglet jacket"
 	path = /obj/item/clothing/suit/yingjacket
@@ -62,3 +78,26 @@
 /decl/loadout_option/suit/winterredcoat
 	name = "winter coat, yinglet, Ivenmoth"
 	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat
+
+/decl/loadout_option/suit/wintercoat_yinglet
+	name = "winter coat, yinglet"
+	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet
+
+/decl/loadout_option/head/baxxid_hood
+	name = "baxxid hood"
+	path = /obj/item/clothing/head/baxxid/hood/long
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
+
+/decl/loadout_option/head/baxxid_wig
+	name = "baxxid wig"
+	path = /obj/item/clothing/head/baxxid/big_wig
+	description = "A large blonde wig"
+
+/decl/loadout_option/head/baxxid_headflag
+	name = "baxxid headflag"
+	path = /obj/item/clothing/head/baxxid/headflag
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
+
+/decl/loadout_option/head/baxxid_headflag_officer
+	name = "baxxid headflag (officer)"
+	path = /obj/item/clothing/head/baxxid/headflag_officer

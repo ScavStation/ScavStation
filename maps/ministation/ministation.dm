@@ -9,11 +9,15 @@ And then imported back to ScavStation!
 
 	#define USING_MAP_DATUM /datum/map/ministation
 
+// Uncomment when someone is willing to fix the ~80 map issues.
+//	#ifdef UNIT_TEST
+//		#include "../../code/unit_tests/offset_tests.dm"
+//	#endif
+
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
 	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/corporate/_corporate.dme"
-	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/species/ascent/_ascent.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
@@ -27,6 +31,7 @@ And then imported back to ScavStation!
 	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
 	#include "../../mods/content/psionics/_psionics.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
+	#include "../../mods/valsalia/_valsalia.dme"
 
 	#include "ministation_antagonists.dm"
 	#include "ministation_areas.dm"
