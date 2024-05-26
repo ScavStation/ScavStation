@@ -135,11 +135,13 @@
 
 /obj/item/clothing/suit/space/void/Initialize()
 	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/nasa/suit.dmi')
+	if(!(bodytype_equip_flags & BODY_FLAG_YINGLET) && !(BODYTYPE_YINGLET in sprite_sheets))
+		LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/nasa/suit.dmi')
 
 /obj/item/clothing/head/helmet/space/void/Initialize()
 	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/nasa/helmet.dmi')
+	if(!(bodytype_equip_flags & BODY_FLAG_YINGLET) && !(BODYTYPE_YINGLET in sprite_sheets))
+		LAZYSET(sprite_sheets, BODYTYPE_YINGLET, 'mods/valsalia/icons/clothing/suit/void/nasa/helmet.dmi')
 
 /obj/item/clothing/suit/space/void/wizard/Initialize()
 	. = ..()
