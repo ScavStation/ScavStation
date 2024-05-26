@@ -895,7 +895,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/frame/light/small,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/usedup,
+/turf/floor/usedup,
 /area/ship/scrap/broken2)
 "bY" = (
 /obj/structure/cable{
@@ -910,7 +910,7 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/uranium,
-/turf/simulated/floor/usedup,
+/turf/floor/usedup,
 /area/ship/scrap/broken2)
 "bZ" = (
 /turf/wall,
@@ -1628,7 +1628,7 @@
 /obj/item/stack/cable_coil,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
-/turf/simulated/floor/tiled/usedup,
+/turf/floor/tiled/usedup,
 /area/ship/scrap/broken1)
 "dy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1995,7 +1995,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/clothing/mask/breath,
-/turf/simulated/floor/usedup,
+/turf/floor/usedup,
 /area/ship/scrap/maintenance/eva)
 "el" = (
 /obj/machinery/power/apc/derelict{
@@ -2400,7 +2400,7 @@
 /obj/item/stack/material/sheet/mapped/steel/fifty,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
 /obj/item/stack/material/sheet/reinforced/mapped/plasteel/fifty,
-/turf/simulated/floor/tiled/usedup,
+/turf/floor/tiled/usedup,
 /area/ship/scrap/maintenance/storage)
 "eT" = (
 /obj/item/clothing/head/welding,
@@ -2425,7 +2425,7 @@
 /obj/machinery/suit_cycler,
 /obj/machinery/light/small,
 /obj/item/clothing/shoes/magboots,
-/turf/simulated/floor/tiled/usedup,
+/turf/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
 "eX" = (
 /obj/machinery/suit_cycler,
@@ -2435,7 +2435,7 @@
 	req_access = newlist()
 	},
 /obj/item/clothing/shoes/magboots,
-/turf/simulated/floor/tiled/usedup,
+/turf/floor/tiled/usedup,
 /area/ship/scrap/maintenance/eva)
 "eY" = (
 /obj/machinery/door/blast/regular/open{

@@ -491,7 +491,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/emergency,
 /obj/item/flashlight,
-/turf/simulated/floor/wood,
+/turf/floor/wood,
 /area/ship/scrap/command/captain)
 "bd" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -1177,7 +1177,7 @@
 /obj/item/plate/tray,
 /obj/item/circular_saw,
 /obj/item/flashlight/lamp,
-/turf/simulated/floor/tiled/usedup,
+/turf/floor/tiled/usedup,
 /area/ship/scrap/crew/saloon)
 "cz" = (
 /obj/machinery/light/small{
@@ -1275,7 +1275,7 @@
 /obj/item/clothing/suit/space/void/security/scav,
 /obj/item/clothing/head/helmet/space/void/security/scav,
 /obj/item/clothing/suit/space/void/security/scav,
-/turf/simulated/floor/tiled/usedup,
+/turf/floor/tiled/usedup,
 /area/ship/scrap/crew/saloon)
 "cM" = (
 /obj/machinery/door/airlock/autoname/bearcat,
@@ -2425,7 +2425,7 @@
 /obj/item/retractor,
 /obj/item/scalpel,
 /obj/item/tank/oxygen,
-/turf/simulated/floor/tiled/white,
+/turf/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "eP" = (
 /obj/machinery/light,
@@ -4670,7 +4670,7 @@
 	current_health = 1e+007
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/reinforced/airless,
+/turf/floor/reinforced/airless,
 /area/ship/scrap/maintenance/atmos)
 "je" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -5160,7 +5160,7 @@
 /obj/machinery/atmospherics/unary/tank/nitrogen{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/floor/airless,
 /area/ship/scrap/maintenance/atmos)
 "HQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -5262,7 +5262,7 @@
 /obj/machinery/network/router{
 	initial_network_id = "bearnet"
 	},
-/turf/simulated/floor/bluegrid/airless,
+/turf/floor/bluegrid/airless,
 /area/ship/scrap/comms)
 "Od" = (
 /obj/effect/floor_decal/corner/blue,

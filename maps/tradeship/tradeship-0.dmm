@@ -1083,7 +1083,7 @@
 /area/ship/trade/fore_port_underside_maint)
 "fB" = (
 /obj/structure/yinglet_nest,
-/turf/simulated/floor/carpet/red,
+/turf/floor/carpet/red,
 /area/ship/trade/enclave)
 "fV" = (
 /obj/item/mollusc,
@@ -1232,7 +1232,7 @@
 "lv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/junkpile/mapped,
-/turf/simulated/floor/bluegrid,
+/turf/floor/bluegrid,
 /area/ship/trade/undercomms)
 "lA" = (
 /turf/wall,
@@ -1383,7 +1383,7 @@
 /obj/abstract/landmark/start{
 	name = "Enclave Matriarch"
 	},
-/turf/simulated/floor/carpet/red,
+/turf/floor/carpet/red,
 /area/ship/trade/enclave)
 "rv" = (
 /obj/item/radio/intercom{
@@ -1414,7 +1414,7 @@
 /area/ship/trade/livestock)
 "rX" = (
 /obj/structure/yinglet_nest,
-/turf/simulated/floor/carpet/green,
+/turf/floor/carpet/green,
 /area/ship/trade/enclave)
 "sO" = (
 /turf/floor,
@@ -1437,7 +1437,7 @@
 /obj/abstract/landmark/start{
 	name = "Enclave Scout"
 	},
-/turf/simulated/floor/tiled/steel_grid,
+/turf/floor/tiled/steel_grid,
 /area/ship/trade/loading_bay)
 "tD" = (
 /obj/structure/cable{
@@ -1461,7 +1461,7 @@
 /obj/abstract/landmark/start{
 	name = "Enclave Worker"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ship/trade/loading_bay)
 "un" = (
 /obj/structure/janitorialcart,
@@ -1779,7 +1779,7 @@
 	pixel_y = -22
 	},
 /obj/structure/junkpile/mapped,
-/turf/simulated/floor/bluegrid,
+/turf/floor/bluegrid,
 /area/ship/trade/undercomms)
 "HS" = (
 /obj/structure/disposalpipe/trunk{
@@ -1947,7 +1947,7 @@
 /obj/abstract/landmark/start{
 	name = "Enclave Worker"
 	},
-/turf/simulated/floor,
+/turf/floor,
 /area/ship/trade/loading_bay)
 "Mb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -2024,7 +2024,7 @@
 /area/ship/trade/fore_port_underside_maint)
 "OY" = (
 /obj/structure/junkpile/mapped,
-/turf/simulated/floor/carpet/red,
+/turf/floor/carpet/red,
 /area/ship/trade/enclave)
 "Pa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2057,7 +2057,7 @@
 /obj/item/cell/crap/empty,
 /obj/item/gun/launcher/crossbow,
 /obj/item/stack/material/rods,
-/turf/simulated/floor/wood/walnut,
+/turf/floor/wood/walnut,
 /area/ship/trade/enclave)
 "Qv" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2097,7 +2097,7 @@
 /obj/abstract/landmark/start{
 	name = "Enclave Patriarch"
 	},
-/turf/simulated/floor,
+/turf/floor,
 /area/ship/trade/enclave)
 "Ss" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2143,7 +2143,7 @@
 /obj/abstract/landmark/start{
 	name = "Enclave Matriarch"
 	},
-/turf/simulated/floor/carpet/red,
+/turf/floor/carpet/red,
 /area/ship/trade/enclave)
 "Ug" = (
 /obj/structure/curtain/medical,
