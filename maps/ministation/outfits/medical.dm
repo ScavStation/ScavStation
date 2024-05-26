@@ -7,7 +7,7 @@
 	pda_slot = slot_l_store_str
 	r_pocket = /obj/item/chems/hypospray
 	hands = list(/obj/item/firstaid/adv)
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
+	suit = /obj/item/clothing/suit/jacket/redcoat/officer
 	id_type = /obj/item/card/id/ministation/doctor
 
 /decl/hierarchy/outfit/job/ministation/doctor
@@ -20,7 +20,7 @@
 	hands = list(/obj/item/firstaid/adv)
 	r_pocket = /obj/item/flashlight/pen
 	id_type = /obj/item/card/id/ministation/doctor
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officiated
+	suit = /obj/item/clothing/suit/jacket/redcoat/officiated
 	yinglet_suit_officiated = TRUE
 
 /decl/hierarchy/outfit/job/ministation/doctor/Initialize()

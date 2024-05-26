@@ -176,7 +176,7 @@
 	pixel_x = -22
 	},
 /obj/structure/curtain/open/bed,
-/obj/item/clothing/under/yinglet/matriarch,
+/obj/item/clothing/suit/robe/yinglet/matriarch,
 /obj/item/clothing/head/yinglet/matriarch,
 /obj/random/plushie,
 /turf/floor/carpet/red,
@@ -2806,7 +2806,7 @@
 /area/ministation/hall/n3)
 "lh" = (
 /obj/structure/closet,
-/obj/item/clothing/under/yinglet/yinglibrarian,
+/obj/item/clothing/suit/robe/yinglet/librarian,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/multitool,
 /turf/floor/wood/mahogany,
@@ -4059,7 +4059,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/fullgrass,
-/turf/exterior/grass,
+/turf/floor/natural/grass,
 /area/ministation/hall/n3)
 "tc" = (
 /obj/structure/cable{
@@ -4710,7 +4710,7 @@
 /obj/effect/floor_decal/stoneborder{
 	dir = 6
 	},
-/obj/item/candle_box,
+/obj/item/box/candles,
 /turf/floor/wood/walnut,
 /area/ministation/library)
 "xc" = (
@@ -5782,7 +5782,7 @@
 	dir = 4
 	},
 /obj/structure/flora/grass/both,
-/turf/exterior/grass,
+/turf/floor/natural/grass,
 /area/ministation/hall/n3)
 "Dc" = (
 /obj/item/radio/intercom{
@@ -6819,7 +6819,7 @@
 "Jx" = (
 /obj/structure/closet/secure_closet/research_director,
 /obj/item/clothing/suit/jacket/winter/yinglet/rd,
-/obj/item/clothing/suit/toggle/redcoat/yinglet/officer,
+/obj/item/clothing/suit/jacket/redcoat/yinglet/officer,
 /obj/item/stamp/rd,
 /obj/item/rig/hazmat/equipped,
 /turf/floor/tiled/white,
@@ -9512,7 +9512,7 @@
 "Ym" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/bush/grassybush,
-/turf/exterior/grass,
+/turf/floor/natural/grass,
 /area/ministation/hall/n3)
 "Yv" = (
 /obj/structure/cable{

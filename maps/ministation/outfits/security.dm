@@ -14,7 +14,7 @@
 	r_pocket = /obj/item/handcuffs
 	id_type = /obj/item/card/id/ministation/security
 	pda_type = /obj/item/modular_computer/pda/security
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officiated
+	suit = /obj/item/clothing/suit/jacket/redcoat/officiated
 	yinglet_suit_officiated = TRUE
 
 /decl/hierarchy/outfit/job/ministation/security/head
@@ -29,7 +29,7 @@
 	r_pocket = /obj/item/handcuffs
 	id_type = /obj/item/card/id/ministation/security
 	pda_type = /obj/item/modular_computer/pda/security
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
+	suit = /obj/item/clothing/suit/jacket/redcoat/officer
 
 /decl/hierarchy/outfit/job/ministation/security/Initialize()
 	. = ..()

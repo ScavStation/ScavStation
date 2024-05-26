@@ -1556,7 +1556,7 @@
 /area/ministation/hall/w2)
 "hI" = (
 /obj/structure/closet/secure_closet/security,
-/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/pants/yinglet/scout,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/jacket/winter/yinglet/security,
@@ -3505,7 +3505,7 @@
 	},
 /obj/structure/closet/secure_closet/cmo,
 /obj/item/clothing/suit/jacket/winter/yinglet/cmo,
-/obj/item/clothing/suit/toggle/redcoat/yinglet/officer,
+/obj/item/clothing/suit/jacket/redcoat/yinglet/officer,
 /obj/item/gun/projectile/dartgun/medical,
 /obj/item/ammo_magazine/chemdart,
 /obj/item/ammo_magazine/chemdart,
@@ -6633,19 +6633,19 @@
 /obj/structure/closet/wardrobe/mixed,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/under/yinglet,
-/obj/item/clothing/under/yinglet,
-/obj/item/clothing/under/yinglet/yingjumpsuit,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/pants/yinglet,
+/obj/item/clothing/pants/yinglet,
+/obj/item/clothing/jumpsuit/yinglet,
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#ff00ff"
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#000000"
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#008000"
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#808080"
 	},
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
@@ -9358,7 +9358,7 @@
 /area/ministation/cafe)
 "Qg" = (
 /obj/structure/closet/secure_closet/security,
-/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/pants/yinglet/scout,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/jacket/winter/yinglet/security,

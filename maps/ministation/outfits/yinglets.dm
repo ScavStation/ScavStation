@@ -5,7 +5,7 @@
 
 /decl/hierarchy/outfit/job/yinglet/yinglet_rep/matriarch
 	name = "Ministation - Enclave Matriarch"
-	uniform = /obj/item/clothing/under/yinglet/matriarch
+	uniform = /obj/item/clothing/suit/robe/yinglet/matriarch
 	head = /obj/item/clothing/head/yinglet/matriarch
 	id_type = /obj/item/card/id/ministation/yinglet_rep
 	suit = null

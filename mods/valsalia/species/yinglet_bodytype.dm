@@ -46,6 +46,12 @@
 		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet)
 	)
 	nail_noun = "claws"
+	age_descriptor = /datum/appearance_descriptor/age/yinglet
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height = 0.5,
+		/datum/appearance_descriptor/build =  0.5
+	)
+
 #ifdef MODPACK_SCALING_MODIFIERS
 	scaling_adjustments_x = list(
 		-0.07,

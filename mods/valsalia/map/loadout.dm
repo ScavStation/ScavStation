@@ -1,40 +1,31 @@
-/decl/loadout_option/clothing/cloak
-	name = "cloak, colour select"
-	path = /obj/item/clothing/accessory/cloak
-	slot = slot_wear_suit_str
-	loadout_flags = GEAR_HAS_COLOR_SELECTION
-
 /decl/loadout_option/accessory/yinglet_tailbells
 	name = "yinglet tailbells"
-	path = /obj/item/clothing/accessory/tailbells
+	path = /obj/item/clothing/tail/bells
 
 /decl/loadout_option/head/yinglet_hood
 	name = "yinglet hood, colour select"
 	path = /obj/item/clothing/head/yinglet
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
-	description = "A simple cloth hood with ear-holes. Not suitable for human use."
 
 /decl/loadout_option/uniform/yingjumpsuit
 	name = "yinglet jumpsuit, colour select"
-	path = /obj/item/clothing/under/yinglet/yingjumpsuit
+	path = /obj/item/clothing/jumpsuit/yinglet
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
-	description = "A simple jumpsuit, made for a yinglet."
 
 /decl/loadout_option/uniform/zhorin_robe
 	name = "yinglet robe, colour select"
-	path = /obj/item/clothing/under/yinglet/zhorin_robe
+	path = /obj/item/clothing/suit/robe/yinglet/zhorin
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
-	description = "A very comfortable-looking robe fashioned from a large piece of fabric."
 
 /decl/loadout_option/scav_medical_belt
 	name = "medical belt"
-	path = /obj/item/storage/belt/medical
+	path = /obj/item/belt/medical
 	cost = 3
 	slot = slot_belt_str
 
 /decl/loadout_option/uniform/librarian
 	name = "Yinglet Librarian Robes"
-	path= /obj/item/clothing/under/yinglet/yinglibrarian
+	path= /obj/item/clothing/suit/robe/yinglet/librarian
 
 /decl/loadout_option/suit/yinglabcoat
 	name = "Yinglet labcoat"
@@ -77,11 +68,11 @@
 
 /decl/loadout_option/suit/winterredcoat
 	name = "winter coat, yinglet, Ivenmoth"
-	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat
+	path = /obj/item/clothing/suit/jacket/winter/yinglet/redcoat
 
 /decl/loadout_option/suit/wintercoat_yinglet
 	name = "winter coat, yinglet"
-	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet
+	path = /obj/item/clothing/suit/jacket/winter/yinglet
 
 /decl/loadout_option/head/baxxid_hood
 	name = "baxxid hood"

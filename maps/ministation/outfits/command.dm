@@ -1,12 +1,12 @@
 /decl/hierarchy/outfit/job/ministation/captain
 	name = "Ministation - Job - Captain"
-	uniform = /obj/item/clothing/under/yinglet/matriarch
+	uniform = /obj/item/clothing/suit/robe/yinglet/matriarch
 	head = /obj/item/clothing/head/yinglet/matriarch
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_ear = /obj/item/radio/headset/heads/captain
 	id_type = /obj/item/card/id/gold
 	pda_type = /obj/item/modular_computer/pda/heads/captain
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
+	suit = /obj/item/clothing/suit/jacket/redcoat/officer
 
 /decl/hierarchy/outfit/job/ministation/captain/Initialize()
 	. = ..()
@@ -37,4 +37,4 @@
 	id_type = /obj/item/card/id/silver
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/box/ids = 1)
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
+	suit = /obj/item/clothing/suit/jacket/redcoat/officer

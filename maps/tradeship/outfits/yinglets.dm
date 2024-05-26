@@ -3,7 +3,7 @@
 
 /decl/hierarchy/outfit/job/yinglet/scout
 	name = "Tradeship - Enclave Scout"
-	uniform = /obj/item/clothing/under/yinglet/scout
+	uniform = /obj/item/clothing/pants/yinglet/scout
 	head = /obj/item/clothing/head/yinglet/scout
 
 /decl/hierarchy/outfit/job/yinglet/patriarch
@@ -14,7 +14,7 @@
 
 /decl/hierarchy/outfit/job/yinglet/matriarch
 	name = "Tradeship - Enclave Matriarch"
-	uniform = /obj/item/clothing/under/yinglet/matriarch
+	uniform = /obj/item/clothing/suit/robe/yinglet/matriarch
 	head = /obj/item/clothing/head/yinglet/matriarch
 	id_type = /obj/item/card/id/silver
 	pda_type = /obj/item/modular_computer/pda/heads

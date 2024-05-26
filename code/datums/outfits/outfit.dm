@@ -112,12 +112,12 @@ var/global/list/outfits_decls_by_type_
 	// Check if they already have one.
 	for(var/check_slot in global.vitals_sensor_equip_slots)
 		var/obj/item/clothing/equipped = H.get_equipped_item(check_slot)
-		if(istype(equipped) && (locate(/obj/item/clothing/accessory/vitals_sensor) in equipped.accessories))
+		if(istype(equipped) && (locate(/obj/item/clothing/sensor/vitals) in equipped.accessories))
 			return
 
 	// Check if one has been spawned or dropped by previous equip procs.
 	var/turf/working_turf = get_turf(H)
-	var/obj/item/clothing/accessory/vitals_sensor/sensor = (locate() in get_turf(H)) || (locate() in H.get_held_items()) || new(working_turf)
+	var/obj/item/clothing/sensor/vitals/sensor = (locate() in get_turf(H)) || (locate() in H.get_held_items()) || new(working_turf)
 	if(ismob(sensor.loc))
 		var/mob/M = sensor.loc
 		M.drop_from_inventory(sensor)
@@ -125,7 +125,7 @@ var/global/list/outfits_decls_by_type_
 	// Try to equip it to something.
 	for(var/check_slot in global.vitals_sensor_equip_slots)
 		var/obj/item/clothing/equipped = H.get_equipped_item(check_slot)
-		if(istype(equipped) && !(locate(/obj/item/clothing/accessory/vitals_sensor) in equipped.accessories) && equipped.can_attach_accessory(sensor))
+		if(istype(equipped) && !(locate(/obj/item/clothing/sensor/vitals) in equipped.accessories) && equipped.can_attach_accessory(sensor))
 			equipped.attach_accessory(null, sensor)
 			break
 

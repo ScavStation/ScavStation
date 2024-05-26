@@ -1,23 +1,23 @@
-/obj/item/clothing/suit/storage/toggle/redcoat/yinglet
+/obj/item/clothing/suit/jacket/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/suit/storage/toggle/redcoat/officiated/yinglet
+/obj/item/clothing/suit/jacket/redcoat/officiated/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	has_badge =   "badge"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/suit/storage/toggle/redcoat/service/yinglet
+/obj/item/clothing/suit/jacket/redcoat/service/yinglet
 	name = "\improper Tradehouse service coat"
 	desc = "The brown-collared uniform of Tradehouse service staff. This one seems to be sized for a yinglet."
 	has_collar = "collar_brown"
 
-/obj/item/clothing/suit/storage/toggle/redcoat/service/officiated/yinglet
+/obj/item/clothing/suit/jacket/redcoat/service/officiated/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	has_badge =   "badge"
 
-/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer
+/obj/item/clothing/suit/jacket/redcoat/yinglet/officer
 	name = "\improper Tradehouse officer's coat"
 	desc = "The striking uniform of a Tradehouse guard officer, complete with gold collar, buttons and trim. This one seems to be sized for a yinglet."
 	has_badge =   "badge"
@@ -26,57 +26,43 @@
 	has_buckle =  "buckle_gold"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/under/yinglet
+/obj/item/clothing/pants/yinglet
 	name = "small loincloth"
 	desc = "A few rags that wrap around the legs and crotch for a semblance of modesty."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/under/loincloth.dmi'
-	color = COLOR_BEIGE
-	var/detail_color
+	paint_color = COLOR_BEIGE
+	markings_state_modifier = "-detail"
 
-/obj/item/clothing/under/yinglet/matriarch
+/obj/item/clothing/suit/robe/yinglet
+	abstract_type = /obj/item/clothing/suit/robe/yinglet
+	material_alteration = MAT_FLAG_ALTERATION_NONE
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	paint_color = null
+
+/obj/item/clothing/suit/robe/yinglet/matriarch
 	name = "matriarch robe"
 	desc = "An expensive and well-made garment for the enclave matriarch."
 	icon = 'mods/valsalia/icons/clothing/under/matriarch.dmi'
-	color = null
-	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/under/yinglet/yinglibrarian
+/obj/item/clothing/suit/robe/yinglet/librarian
 	name = "librarian robe"
 	desc = "a well made robe for a clan librarian."
-	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/under/librarian.dmi'
-	color = null
 
-/obj/item/clothing/under/yinglet/yingjumpsuit
-	name = "yinglet jumpsuit"
-	desc = "a jumpsuit in yinglet size, of yinglet quality craftsmenship"
-	bodytype_equip_flags = BODY_FLAG_YINGLET
-	icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
-	color = COLOR_BEIGE
-
-/obj/item/clothing/under/yinglet/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart)
-	. = ..()
-	if(overlay && detail_color && check_state_in_icon("[overlay.icon_state]-detail", overlay.icon))
-		var/image/I = image(overlay.icon, "[overlay.icon_state]-detail")
-		I.color = detail_color
-		I.appearance_flags |= RESET_COLOR
-		overlay.overlays += I
-	return overlay
-
-/obj/item/clothing/under/yinglet/scout
+/obj/item/clothing/pants/yinglet/scout
 	name = "scout loincloth"
 	desc = "A layered loincloth and skirtlike garment worn by enclave scouts."
-	color = "#917756"
-	detail_color = "#698a71"
+	paint_color = "#917756"
+	markings_color = "#698a71"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/under/yinglet/zhorin_robe
+/obj/item/clothing/suit/robe/yinglet/zhorin
 	name = "fancy robe"
 	desc = "A very comfortable-looking robe fashioned from a large piece of fabric."
 	icon = 'mods/valsalia/icons/clothing/under/zhorin_robe.dmi'
-	color = "#009fee"
-	detail_color = COLOR_WHITE
+	paint_color = "#009fee"
+	markings_color = COLOR_WHITE
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/head/yinglet
@@ -85,44 +71,35 @@
 	icon = 'mods/valsalia/icons/clothing/head/hood_yinglet.dmi'
 	flags_inv = BLOCK_HEAD_HAIR
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	color = COLOR_BEIGE
-	var/detail_color
+	paint_color = COLOR_BEIGE
+	markings_state_modifier = "-detail"
 
 /obj/item/clothing/head/yinglet/matriarch
 	name = "matriarch hood"
 	desc = "The well-crafted and heavily decorated hood of an enclave matriarch."
 	icon = 'mods/valsalia/icons/clothing/head/hood_matriarch.dmi'
-	color = null
+	paint_color = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-
-/obj/item/clothing/head/yinglet/get_mob_overlay(mob/user_mob, slot, bodypart, use_fallback_if_icon_missing = TRUE)
-	var/image/ret = ..()
-	if(detail_color && slot == slot_head_str)
-		var/image/I = image(icon, "[ret.icon_state]-detail")
-		I.color = detail_color
-		I.appearance_flags |= RESET_COLOR
-		ret.overlays += I
-	. = ret
 
 /obj/item/clothing/head/yinglet/scout
 	name = "scout hood"
 	desc = "A layered hood and mantle worn by enclave scouts."
-	color = "#917756"
-	detail_color = "#698a71"
+	paint_color = "#917756"
+	markings_color = "#698a71"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/head/yinglet/pekhat
 	name = "sunhat"
 	desc = "A wooden sunhat common among yinglets."
 	icon = 'mods/valsalia/icons/clothing/head/pekhat.dmi'
-	color = null
+	paint_color = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/head/yinglet/pekhat_painted
 	name = "sunhat"
 	desc = "A wooden sunhat common among yinglets. This one is painted with a smile."
 	icon = 'mods/valsalia/icons/clothing/head/pekhat_painted.dmi'
-	color = null
+	paint_color = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/glasses/yinggoggles
@@ -138,7 +115,7 @@
 	desc = "A short length of cloth worked into a cape. Some people would say it looks stupid."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/suit/cape_yinglet.dmi'
-	color = COLOR_DARK_RED
+	paint_color = COLOR_DARK_RED
 
 /obj/item/clothing/suit/yinglabcoat
 	name = "yinglet labcoat"
@@ -152,21 +129,18 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/shoes/sandals.dmi'
 
-/obj/item/clothing/accessory/tailglove
+/obj/item/clothing/tail/glove
 	name = "yinglet tail glove"
 	desc = "A nitrile tail covering, sterile!"
 	icon = 'mods/valsalia/icons/clothing/accessories/tailglove.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	slot = ACCESSORY_SLOT_MEDAL
 
-/obj/item/clothing/accessory/tailbells
+/obj/item/clothing/tail/bells
 	name = "tail bells"
 	desc = "A set of lightweight, jangly tail bells."
 	icon = 'mods/valsalia/icons/clothing/accessories/tailbells.dmi'
 	gender = PLURAL
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	slot = ACCESSORY_SLOT_MEDAL
-	slot_flags = SLOT_TIE | SLOT_UPPER_BODY
 	material = /decl/material/solid/metal/gold
 	obj_flags = OBJ_FLAG_HOLLOW
 	var/tmp/dingaling_sound = list(
@@ -179,16 +153,16 @@
 	var/tmp/dingaling_chance = 30
 	var/tmp/dingaling_vary = FALSE
 
-/obj/item/clothing/accessory/tailbells/Initialize()
+/obj/item/clothing/tail/bells/Initialize()
 	. = ..()
 	if(dingaling_sound && dingaling_chance)
 		events_repository.register(/decl/observ/moved, src, src, .proc/dingaling)
 
-/obj/item/clothing/accessory/tailbells/Destroy()
+/obj/item/clothing/tail/bells/Destroy()
 	events_repository.unregister(/decl/observ/moved, src, src)
 	return ..()
 
-/obj/item/clothing/accessory/tailbells/proc/dingaling()
+/obj/item/clothing/tail/bells/proc/dingaling()
 	if(dingaling_sound && prob(dingaling_chance))
 		if(islist(dingaling_sound) && length(dingaling_sound))
 			playsound(get_turf(src), pick(dingaling_sound), dingaling_volume, dingaling_vary)
@@ -266,7 +240,14 @@
 		I.pixel_y = 3
 	return I
 
-/obj/item/clothing/under/hazardjumpsuit/yinglet
+/obj/item/clothing/jumpsuit/yinglet
+	name = "yinglet jumpsuit"
+	desc = "a jumpsuit in yinglet size, of yinglet-quality craftsmanship."
+	icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
+	paint_color = COLOR_BEIGE
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/jumpsuit/yinglet/hazard
 	name = "small hazard jumpsuit"
 	icon = 'mods/valsalia/icons/clothing/under/hazardjumpsuit_yinglet.dmi'
-	bodytype_equip_flags = BODY_FLAG_YINGLET
+	paint_color = null
