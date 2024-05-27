@@ -21,8 +21,12 @@
 	if(!(BODYTYPE_YINGLET in sprite_sheets))
 		LAZYSET(sprite_sheets, BODYTYPE_YINGLET, yinglet_icon)
 
+/obj/item/clothing/shoes
+	yinglet_icon = 'mods/valsalia/icons/clothing/shoes/shoes.dmi'
+
 /obj/item/clothing/gloves
 	yinglet_icon = 'mods/valsalia/icons/clothing/gloves/gloves_yinglet.dmi'
+	guarantee_body_flag_compatible = BODY_FLAG_YINGLET | BODY_FLAG_INDREL | BODY_FLAG_BAXXID
 
 /obj/item/clothing/under/tradeship_plain
 	name = "plain clothes"
