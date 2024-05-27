@@ -8480,8 +8480,8 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/pants/yinglet,
-/obj/item/clothing/pants/yinglet,
+/obj/item/clothing/pants/loincloth/yinglet,
+/obj/item/clothing/pants/loincloth/yinglet,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "Ho" = (

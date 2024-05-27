@@ -3,7 +3,7 @@
 
 /decl/hierarchy/outfit/job/yinglet/scout
 	name = "Tradeship - Enclave Scout"
-	uniform = /obj/item/clothing/pants/yinglet/scout
+	uniform = /obj/item/clothing/pants/loincloth/yinglet/scout
 	head = /obj/item/clothing/head/yinglet/scout
 
 /decl/hierarchy/outfit/job/yinglet/patriarch

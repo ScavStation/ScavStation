@@ -1556,7 +1556,7 @@
 /area/ministation/hall/w2)
 "hI" = (
 /obj/structure/closet/secure_closet/security,
-/obj/item/clothing/pants/yinglet/scout,
+/obj/item/clothing/pants/loincloth/yinglet/scout,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/jacket/winter/yinglet/security,
@@ -6633,8 +6633,8 @@
 /obj/structure/closet/wardrobe/mixed,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/pants/yinglet,
-/obj/item/clothing/pants/yinglet,
+/obj/item/clothing/pants/loincloth/yinglet,
+/obj/item/clothing/pants/loincloth/yinglet,
 /obj/item/clothing/jumpsuit/yinglet,
 /obj/item/clothing/jumpsuit/yinglet{
 	color = "#ff00ff"
@@ -9358,7 +9358,7 @@
 /area/ministation/cafe)
 "Qg" = (
 /obj/structure/closet/secure_closet/security,
-/obj/item/clothing/pants/yinglet/scout,
+/obj/item/clothing/pants/loincloth/yinglet/scout,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/jacket/winter/yinglet/security,

@@ -26,11 +26,13 @@
 	has_buckle =  "buckle_gold"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/pants/yinglet
+/obj/item/clothing/pants/loincloth
+	yinglet_icon = 'mods/valsalia/icons/clothing/under/loincloth.dmi'
+
+/obj/item/clothing/pants/loincloth/yinglet
 	name = "small loincloth"
 	desc = "A few rags that wrap around the legs and crotch for a semblance of modesty."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	icon = 'mods/valsalia/icons/clothing/under/loincloth.dmi'
 	paint_color = COLOR_BEIGE
 	markings_state_modifier = "-detail"
 
@@ -39,6 +41,15 @@
 	material_alteration = MAT_FLAG_ALTERATION_NONE
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	paint_color = null
+
+/obj/item/clothing/pants
+	yinglet_icon = 'mods/valsalia/icons/clothing/under/pants.dmi'
+
+/obj/item/clothing/shirt
+	yinglet_icon = 'mods/valsalia/icons/clothing/under/shirt.dmi'
+
+/obj/item/clothing/shirt/toga
+	yinglet_icon = 'mods/valsalia/icons/clothing/under/toga.dmi'
 
 /obj/item/clothing/suit/robe/yinglet/matriarch
 	name = "matriarch robe"
@@ -50,7 +61,7 @@
 	desc = "a well made robe for a clan librarian."
 	icon = 'mods/valsalia/icons/clothing/under/librarian.dmi'
 
-/obj/item/clothing/pants/yinglet/scout
+/obj/item/clothing/pants/loincloth/yinglet/scout
 	name = "scout loincloth"
 	desc = "A layered loincloth and skirtlike garment worn by enclave scouts."
 	paint_color = "#917756"
