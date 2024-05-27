@@ -12,7 +12,6 @@
 		ARMOR_LASER = ARMOR_LASER_MINOR,
 		ARMOR_ENERGY = ARMOR_ENERGY_SMALL
 	)
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 /obj/item/clothing/under/familiargarb/Initialize()
 	. = ..()

@@ -69,15 +69,15 @@ var/global/list/outfits_decls_by_type_
 		if(!ispath(uniform, /obj/item/clothing))
 			. += "outfit is flagged for sensors, but uniform cannot take accessories"
 		var/succeeded = FALSE
-		var/obj/item/sensor = new /obj/item/clothing/accessory/vitals_sensor
 		if(uniform)
+			var/obj/item/sensor = new /obj/item/clothing/accessory/vitals_sensor
 			var/obj/item/clothing/wear_uniform = new uniform // sadly we need to read a list
 			if(wear_uniform.can_attach_accessory(sensor))
 				succeeded = TRUE
 			qdel(wear_uniform)
+			qdel(sensor)
 		if(!succeeded)
 			. += "outfit is flagged for sensors, but uniform does not accept sensors"
-		qdel(sensor)
 
 /decl/hierarchy/outfit/proc/pre_equip(mob/living/carbon/human/H)
 	if(outfit_flags & OUTFIT_RESET_EQUIPMENT)
