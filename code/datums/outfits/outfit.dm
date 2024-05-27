@@ -70,7 +70,7 @@ var/global/list/outfits_decls_by_type_
 			. += "outfit is flagged for sensors, but uniform cannot take accessories"
 		var/succeeded = FALSE
 		if(uniform)
-			var/obj/item/sensor = new /obj/item/clothing/sensor/vitalsr
+			var/obj/item/sensor = new /obj/item/clothing/sensor/vitals
 			var/obj/item/clothing/wear_uniform = new uniform // sadly we need to read a list
 			if(wear_uniform.can_attach_accessory(sensor))
 				succeeded = TRUE
