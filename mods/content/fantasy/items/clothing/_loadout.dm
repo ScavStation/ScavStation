@@ -119,6 +119,7 @@
 /decl/loadout_option/fantasy/shoes/sandal
 	name = "sandals"
 	slot = slot_shoes_str
+	path = /obj/item/clothing/shoes/sandal
 	available_materials = list(
 		/decl/material/solid/organic/leather,
 		/decl/material/solid/organic/wood,

@@ -51,7 +51,7 @@
 /decl/loadout_option/head/pekhat
 	name = "yinglet sunhat"
 	path = /obj/item/clothing/head/yinglet/pekhat
-	loadout_flags = GEAR_HAS_SUBTYPE_SELECTION
+	loadout_flags = GEAR_HAS_TYPE_SELECTION
 
 /decl/loadout_option/suit/yingjacket
 	name = "yinglet jacket"

@@ -27,6 +27,7 @@
 	paint_color = null
 
 /obj/item/clothing/head/yinglet/pekhat/painted
+	name = "painted sunhat"
 	desc = "A wooden sunhat common among yinglets. This one is painted with a smile."
 	icon = 'mods/valsalia/icons/clothing/head/pekhat_painted.dmi'
 

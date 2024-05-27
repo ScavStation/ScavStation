@@ -5,4 +5,3 @@
 	name = "small sandals"
 	desc = "A pair of rather plain wooden sandals. They seem to be the right size and shape for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	yinglet_icon = null
