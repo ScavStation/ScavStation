@@ -958,8 +958,8 @@
 /obj/structure/closet,
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
-/obj/item/clothing/suit/yingcape,
-/obj/item/clothing/suit/yingcape,
+/obj/item/clothing/suit/yinglet/cape,
+/obj/item/clothing/suit/yinglet/cape,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "dP" = (
@@ -3377,7 +3377,7 @@
 	},
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
-/obj/item/clothing/suit/fancyrobe,
+/obj/item/clothing/suit/robe/yinglet/fancy,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "nw" = (
@@ -6485,7 +6485,7 @@
 /obj/structure/closet,
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
-/obj/item/clothing/suit/fancyrobe,
+/obj/item/clothing/suit/robe/yinglet/fancy,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "BV" = (

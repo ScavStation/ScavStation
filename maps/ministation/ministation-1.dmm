@@ -2196,7 +2196,7 @@
 /area/ministation/security)
 "km" = (
 /obj/structure/closet/secure_closet/medical3,
-/obj/item/clothing/suit/yinglabcoat,
+/obj/item/clothing/suit/toggle/labcoat/yinglet,
 /obj/item/clothing/suit/jacket/winter/yinglet/medical,
 /obj/item/clothing/suit/jacket/winter/yinglet/medical,
 /obj/item/clothing/suit/jacket/winter/yinglet/chemistry,
@@ -8644,7 +8644,7 @@
 	},
 /obj/structure/closet/secure_closet/hop2,
 /obj/item/book/skill/organizational/finance,
-/obj/item/clothing/suit/fancyrobe,
+/obj/item/clothing/suit/robe/yinglet/fancy,
 /obj/item/clothing/suit/jacket/winter/yinglet/HoP,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;

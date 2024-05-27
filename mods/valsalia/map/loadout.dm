@@ -24,47 +24,42 @@
 	slot = slot_belt_str
 
 /decl/loadout_option/uniform/librarian
-	name = "Yinglet Librarian Robes"
+	name = "yinglet librarian robes"
 	path= /obj/item/clothing/suit/robe/yinglet/librarian
 
 /decl/loadout_option/suit/yinglabcoat
-	name = "Yinglet labcoat"
-	path = /obj/item/clothing/suit/yinglabcoat
+	name = "yinglet labcoat"
+	path = /obj/item/clothing/suit/toggle/labcoat/yinglet
 	cost = 2
 
 /decl/loadout_option/eyes/yinggoggles
 	name = "yinglet goggles"
-	path = /obj/item/clothing/glasses/yinggoggles
+	path = /obj/item/clothing/glasses/yinglet
 
 /decl/loadout_option/suit/yingapron
 	name = "yinglet apron"
-	path = /obj/item/clothing/suit/yingapron
+	path = /obj/item/clothing/suit/apron/yinglet
 
 /decl/loadout_option/suit/fancyclothes
 	name = "yinglet fancy clothes"
-	path = /obj/item/clothing/suit/fancyclothes
+	path = /obj/item/clothing/suit/yinglet/fancy_clothes
 
 /decl/loadout_option/head/fancyhat
 	name = "yinglet fancy hat"
-	path = /obj/item/clothing/head/fancyhat
+	path = /obj/item/clothing/head/yinglet/fancy
 
 /decl/loadout_option/head/pekhat
 	name = "yinglet sunhat"
 	path = /obj/item/clothing/head/yinglet/pekhat
-	description = "A wooden sunhat popular with yinglets."
-
-/decl/loadout_option/head/pekhat_painted
-	name = "yinglet sunhat (painted)"
-	path = /obj/item/clothing/head/yinglet/pekhat_painted
-	description = "A wooden sunhat popular with yinglets. This one is painted with a smile."
+	loadout_flags = GEAR_HAS_SUBTYPE_SELECTION
 
 /decl/loadout_option/suit/yingjacket
 	name = "yinglet jacket"
-	path = /obj/item/clothing/suit/yingjacket
+	path = /obj/item/clothing/suit/jacket/yinglet
 
 /decl/loadout_option/suit/yingcape
 	name = "small cape"
-	path = /obj/item/clothing/suit/yingcape
+	path = /obj/item/clothing/suit/yinglet/cape
 
 /decl/loadout_option/suit/winterredcoat
 	name = "winter coat, yinglet, Ivenmoth"
@@ -82,7 +77,6 @@
 /decl/loadout_option/head/baxxid_wig
 	name = "baxxid wig"
 	path = /obj/item/clothing/head/baxxid/big_wig
-	description = "A large blonde wig"
 
 /decl/loadout_option/head/baxxid_headflag
 	name = "baxxid headflag"
@@ -90,5 +84,5 @@
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
 
 /decl/loadout_option/head/baxxid_headflag_officer
-	name = "baxxid headflag (officer)"
-	path = /obj/item/clothing/head/baxxid/headflag_officer
+	name = "baxxid headflag, officer"
+	path = /obj/item/clothing/head/baxxid/headflag/officer

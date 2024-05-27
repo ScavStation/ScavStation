@@ -35,6 +35,7 @@
 	desc = "The signature uniform of Tradeshouse guardsmen."
 	icon = 'mods/valsalia/icons/clothing/suit/redcoat.dmi'
 	bodytype_equip_flags = BODY_FLAG_HUMANOID
+	yinglet_icon = null
 	var/has_badge
 	var/has_buttons
 	var/has_collar
