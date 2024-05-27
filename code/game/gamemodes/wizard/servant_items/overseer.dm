@@ -12,7 +12,6 @@
 	item_flags = ITEM_FLAG_AIRTIGHT
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	min_pressure_protection = 0
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
 	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR
 
 /obj/item/clothing/suit/straight_jacket/overseercloak
@@ -35,7 +34,6 @@
 	name = "black hoodie"
 	desc = "A generic black hoodie. There's a pattern akin to splattered blood along the bottom."
 	icon = 'icons/clothing/under/grim_hoodie.dmi'
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 //These are the ones that it gets when they toggle it off
 /obj/item/clothing/shoes/sandal/grimboots
