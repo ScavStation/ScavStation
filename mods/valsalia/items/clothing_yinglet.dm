@@ -51,6 +51,9 @@
 /obj/item/clothing/shirt/toga
 	yinglet_icon = 'mods/valsalia/icons/clothing/under/toga.dmi'
 
+/obj/item/clothing/suit/robe
+	yinglet_icon = 'mods/valsalia/icons/clothing/under/robe.dmi'
+
 /obj/item/clothing/suit/robe/yinglet/matriarch
 	name = "matriarch robe"
 	desc = "An expensive and well-made garment for the enclave matriarch."
