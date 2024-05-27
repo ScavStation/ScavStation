@@ -23,15 +23,8 @@
 	supernatural = 1
 	status_flags = CANPUSH
 	gene_damage = -1
-
 	bleed_colour = "#181933"
-
-	meat_type =     null
-	meat_amount =   0
-	bone_material = null
-	bone_amount =   0
-	skin_material = null
-	skin_amount =   0
+	butchery_data = null
 
 /mob/living/simple_animal/shade/check_has_mouth()
 	return FALSE
@@ -39,7 +32,7 @@
 /obj/item/natural_weapon/shade
 	name = "foul touch"
 	attack_verb = list("drained")
-	damtype = BURN
+	atom_damage_type =  BURN
 	force = 10
 
 /mob/living/simple_animal/shade/on_defilement()

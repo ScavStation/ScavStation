@@ -20,7 +20,7 @@
 	var/list/outfits_per_species
 
 /decl/special_role/raider/update_access(var/mob/living/player)
-	for(var/obj/item/storage/wallet/W in player.contents)
+	for(var/obj/item/wallet/W in player.contents)
 		for(var/obj/item/card/id/id in W.contents)
 			id.SetName("[player.real_name]'s Passport")
 			id.registered_name = player.real_name
@@ -52,16 +52,6 @@
 		i++
 
 	global_objectives |= new /datum/objective/heist/preserve_crew
-	return 1
-
-/decl/special_role/raider/proc/is_raider_crew_safe()
-
-	if(!current_antagonists || current_antagonists.len == 0)
-		return 0
-
-	for(var/datum/mind/player in current_antagonists)
-		if(!player.current || get_area(player.current) != locate(/area/map_template/skipjack_station/start))
-			return 0
 	return 1
 
 /decl/special_role/raider/equip_role(var/mob/living/carbon/human/player)

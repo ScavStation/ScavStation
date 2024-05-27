@@ -86,7 +86,7 @@
 	base_external_prosthetics_model = null
 	preview_outfit = /decl/hierarchy/outfit/baxxid
 
-	hud_type = /datum/hud_data/baxxid
+	species_hud = /datum/hud_data/baxxid
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
 	spawn_flags = SPECIES_CAN_JOIN
 

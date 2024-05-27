@@ -9,7 +9,6 @@
 		ARMOR_ENERGY = ARMOR_ENERGY_SMALL,
 		ARMOR_RAD = ARMOR_RAD_SHIELDED
 	)
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
 	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR
 
 /obj/item/clothing/suit/fiendcowl
@@ -29,7 +28,6 @@
 	name = "black suit"
 	desc = "A snappy black suit with red trim. The undershirt's stained with something, though..."
 	icon = 'icons/clothing/under/suits/suit_fiend.dmi'
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 /obj/item/clothing/shoes/dress/devilshoes
 	desc = "Off-colour leather dress shoes. Their footsteps are silent."
@@ -47,8 +45,3 @@
 	name = "fiend's robe"
 	icon = 'icons/clothing/suit/wizard/servant/fiend_robe.dmi'
 	desc = "A tattered, black and red robe. Nothing is visible through the holes in its fabric, except for a strange, inky blackness. It looks as if it was stitched together with other clothing..."
-
-/obj/item/clothing/under/devildress
-	name = "old dress"
-	desc = "An elegant - if tattered - black and red dress. There's nothing visible through the holes in the fabric; nothing but darkness."
-	icon = 'icons/clothing/under/dresses/dress_fiend.dmi'

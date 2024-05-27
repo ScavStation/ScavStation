@@ -11,6 +11,13 @@
 		"senescent" =      45
 	)
 
+/decl/butchery_data/humanoid/serpentid
+	skin_material     = /decl/material/solid/organic/skin/insect
+
+	bone_material     = null
+	bone_amount       = null
+	bone_type         = null
+
 /decl/species/serpentid
 	name = SPECIES_SERPENTID
 	name_plural = "Serpentids"
@@ -22,9 +29,7 @@
 
 	hidden_from_codex = TRUE
 	silent_steps = TRUE
-	age_descriptor = /datum/appearance_descriptor/age/serpentid
-	skin_material = /decl/material/solid/organic/skin/insect
-	bone_material = null
+	butchery_data = /decl/butchery_data/humanoid/serpentid
 	speech_sounds = list('sound/voice/bug.ogg')
 	speech_chance = 2
 	warning_low_pressure = 50
@@ -39,7 +44,7 @@
 	)
 
 	rarity_value = 4
-	hud_type = /datum/hud_data/serpentid
+	species_hud = /datum/hud_data/serpentid
 	total_health = 200
 	brute_mod = 0.9
 	burn_mod =  1.35
@@ -63,10 +68,7 @@
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/snake
 
 	unarmed_attacks = list(/decl/natural_attack/forelimb_slash)
-	appearance_descriptors = list(
-		/datum/appearance_descriptor/height =      1.75,
-		/datum/appearance_descriptor/body_length = 1
-		)
+
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/audible/bug_hiss) = 40
 	)
@@ -177,7 +179,7 @@
 
 
 /decl/species/serpentid/disarm_attackhand(var/mob/living/carbon/human/attacker, var/mob/living/carbon/human/target)
-	if(attacker.pulling_punches || target.lying || attacker == target)
+	if(attacker.pulling_punches || target.current_posture.prone || attacker == target)
 		return ..(attacker, target)
 	if(world.time < attacker.last_attack + 20)
 		to_chat(attacker, SPAN_NOTICE("You can't attack again so soon."))

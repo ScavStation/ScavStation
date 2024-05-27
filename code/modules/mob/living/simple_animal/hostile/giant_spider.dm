@@ -33,14 +33,7 @@
 	pry_time = 8 SECONDS
 	pry_desc = "clawing"
 	base_animal_type = /mob/living/simple_animal/hostile/giant_spider
-
-	meat_type = /obj/item/chems/food/spider
-	meat_amount = 3
-	bone_material = null
-	bone_amount =   0
-	skin_material = /decl/material/solid/organic/skin/insect
-	skin_amount =   5
-
+	butchery_data = /decl/butchery_data/animal/arthropod/giant_spider
 	glowing_eyes = TRUE
 	ai = /datum/ai/giant_spider
 
@@ -63,7 +56,7 @@
 //guards - less venomous, tanky, slower, prioritises protecting nurses
 /mob/living/simple_animal/hostile/giant_spider/guard
 	desc = "A monstrously huge brown spider with shimmering eyes."
-	meat_amount = 4
+	butchery_data = /decl/butchery_data/animal/arthropod/giant_spider/guard
 	max_health = 200
 	natural_weapon = /obj/item/natural_weapon/bite/strong
 	poison_per_bite = 5
@@ -140,14 +133,9 @@
 //General spider procs
 /mob/living/simple_animal/hostile/giant_spider/Initialize(var/mapload, var/atom/parent)
 	color = parent?.color || color
-	spider_randomify()
-	update_icon()
-	. = ..()
-
-/mob/living/simple_animal/hostile/giant_spider/proc/spider_randomify() //random math nonsense to get their damage, health and venomness values
 	set_max_health(rand(initial(max_health), (1.4 * initial(max_health))))
 	eye_colour = pick(allowed_eye_colours)
-	update_icon()
+	. = ..()
 
 /mob/living/simple_animal/hostile/giant_spider/FindTarget()
 	. = ..()
@@ -158,7 +146,7 @@
 			if(prob(15))
 				custom_emote(1,"locks its eyes on [.]")
 
-/mob/living/simple_animal/hostile/giant_spider/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/attack_target(mob/target)
 	. = ..()
 	if(isliving(.))
 		if(current_health < get_max_health())
@@ -284,7 +272,7 @@ Nurse caste procs
 	. = ..()
 	divorce()
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/AttackingTarget()
+/mob/living/simple_animal/hostile/giant_spider/nurse/attack_target(mob/target)
 	. = ..()
 	if(ishuman(.))
 		var/mob/living/carbon/human/H = .

@@ -25,6 +25,7 @@
 	icon = 'mods/valsalia/icons/clothing/suit/voidsuit_yinglet.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	color = COLOR_BRONZE
+	sprite_sheets = null
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour
 
@@ -62,6 +63,7 @@
 	icon = 'mods/valsalia/icons/clothing/head/voidsuit_helmet_yinglet.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	color = COLOR_BRONZE
+	sprite_sheets = null
 	var/faceplate_colour = COLOR_SKY_BLUE
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour

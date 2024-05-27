@@ -34,15 +34,10 @@
 
 	flesh_color = "#ab8c65"
 	spawn_flags = SPECIES_CAN_JOIN
-	age_descriptor = /datum/appearance_descriptor/age/yinglet
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
-	appearance_descriptors = list(
-		/datum/appearance_descriptor/height = 0.5,
-		/datum/appearance_descriptor/build =  0.5
-	)
 	total_health = 150
 	brute_mod = 1.25
 	burn_mod =  1.25

@@ -11,7 +11,7 @@
 	var/guestbanned = FALSE                   // If set to 1 this job will be unavalible to guests
 	var/must_fill = FALSE                     // If set to 1 this job will be have priority over other job preferences. Do not recommend on jobs with more than one position.
 	var/not_random_selectable = FALSE         // If set to 1 this job will not be selected when a player asks for a random job.
-	var/description                           // If set, returns a static description. To add dynamic text, overwrite this proc, call parent aka . = ..() and then . += "extra text" on the line after that.
+	var/description                           // If set, returns a static description. To add dynamic text, override get_description_blurb, call parent aka . = ..() and then . += "extra text" on the line after that.
 	var/list/event_categories                 // A set of tags used to check jobs for suitability for things like random event selection.
 	var/skip_loadout_preview = FALSE          // Whether or not the job should render loadout items in char preview.
 	var/supervisors = null                    // Supervisors, who this person answers to directly
@@ -35,6 +35,9 @@
 	var/latejoin_at_spawnpoints               // If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
 	var/forced_spawnpoint                     // If set to a spawnpoint name, will use that spawn point for joining as this job.
 	var/hud_icon                              // icon used for Sec HUD overlay
+
+	// A list of string IDs for keys to grant on join.
+	var/list/lock_keys = list()
 
 	//Job access. The use of minimal_access or access is determined by a config setting: jobs_have_minimal_access
 	var/list/minimal_access = list()          // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
@@ -86,14 +89,29 @@
 	return title
 
 /datum/job/proc/equip_job(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
+	H.add_language(/decl/language/human/common)
 	if (required_language)
 		H.add_language(required_language)
 		H.set_default_language(required_language)
-	H.add_language(/decl/language/human/common)
-	H.set_default_language(/decl/language/human/common)
+	else
+		H.set_default_language(/decl/language/human/common)
+
 	var/decl/hierarchy/outfit/outfit = get_outfit(H, alt_title, branch, grade)
 	if(outfit)
-		return outfit.equip_outfit(H, alt_title || title, job = src, rank = grade)
+		. = outfit.equip_outfit(H, alt_title || title, job = src, rank = grade)
+
+	if(length(lock_keys) == 1)
+		var/lock_key = lock_keys[1]
+		var/obj/item/key/new_key = new(get_turf(H), lock_keys[lock_key] || /decl/material/solid/metal/iron, lock_key)
+		H.put_in_hands_or_store_or_drop(new_key)
+	else if(length(lock_keys))
+		var/obj/item/keyring/keyring
+		for(var/lock_key in lock_keys)
+			if(!keyring)
+				keyring = new(get_turf(H))
+				H.put_in_hands_or_store_or_drop(keyring)
+			var/obj/item/key/new_key = new(get_turf(H), lock_keys[lock_key] || /decl/material/solid/metal/iron, lock_key)
+			keyring.storage?.handle_item_insertion(null, new_key)
 
 /datum/job/proc/get_outfit(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
 	if(alt_title && alt_titles)
@@ -106,10 +124,9 @@
 	. = outfit_by_type(.)
 
 /datum/job/proc/create_cash_on_hand(var/mob/living/carbon/human/H, var/datum/money_account/M)
-	if(!istype(M) || !ispath(H.client?.prefs?.starting_cash_choice, /decl/starting_cash_choice))
+	if(!istype(M) || !H.client?.prefs?.starting_cash_choice)
 		return 0
-	var/decl/starting_cash_choice/cash = GET_DECL(H.client.prefs.starting_cash_choice)
-	for(var/obj/item/thing in cash.get_cash_objects(H, M))
+	for(var/obj/item/thing in H.client.prefs.starting_cash_choice.get_cash_objects(H, M))
 		. += thing.get_base_value()
 		H.equip_to_storage_or_put_in_hands(thing)
 
@@ -353,6 +370,17 @@
 	if(!SSjobs.job_icons[title])
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = get_mannequin("#job_icon")
 		if(mannequin)
+			var/decl/species/mannequin_species = get_species_by_key(global.using_map.default_species)
+			if(!is_species_allowed(mannequin_species))
+				// Don't just default to the first species allowed, pick one at random.
+				for(var/other_species in shuffle(get_playable_species()))
+					var/decl/species/other_species_decl = get_species_by_key(other_species)
+					if(is_species_allowed(other_species_decl))
+						mannequin_species = other_species_decl
+						break
+			if(!is_species_allowed(mannequin_species))
+				PRINT_STACK_TRACE("No allowed species allowed for job [title] ([type]), falling back to default!")
+			mannequin.change_species(mannequin_species.name)
 			dress_mannequin(mannequin)
 			mannequin.set_dir(SOUTH)
 			var/icon/preview_icon = getFlatIcon(mannequin)

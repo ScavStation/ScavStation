@@ -11,7 +11,6 @@
 		ARMOR_BOMB = ARMOR_BOMB_RESISTANT,
 		ARMOR_BIO = ARMOR_BIO_MINOR
 		)
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 /obj/item/clothing/suit/champarmor
 	name = "champion's armor"
@@ -28,16 +27,17 @@
 		ARMOR_BIO = ARMOR_BIO_MINOR
 		)
 
-/obj/item/clothing/under/bluetunic
-	name = "blue tunic"
-	desc = "A royal blue tunic. Beautifully archaic."
-	icon = 'icons/clothing/under/tunic.dmi'
+/obj/item/clothing/pants/champion
+	name = "champion's garb"
+	desc = "Some dark, archaic leggings."
+	icon = 'icons/clothing/pants/leggings/leggings_champion.dmi'
 	siemens_coefficient = 0.8
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_MINOR
 	)
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
+	starting_accessories = list(
+		/obj/item/clothing/shirt/tunic/blue/champion
+	)
 
 /obj/item/clothing/shoes/jackboots/medievalboots
 	name = "leather boots"
@@ -75,7 +75,7 @@
 			E?.take_external_damage(burn=2,used_weapon="stovetop")
 		else
 			var/mob/living/M = loc
-			M.adjustFireLoss(2)
+			M.take_damage(2, BURN)
 		if(prob(2))
 			to_chat(loc,"<span class='danger'>\The [src] is burning you!</span>")
 	return 1

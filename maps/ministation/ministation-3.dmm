@@ -9,7 +9,7 @@
 /turf/space,
 /area/space)
 "af" = (
-/turf/exterior/wall/random/ministation,
+/turf/wall/natural/random/ministation,
 /area/space)
 "ap" = (
 /obj/structure/lattice,
@@ -26,13 +26,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "as" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "bombventdoor"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/sciencetesting)
 "aF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -50,7 +50,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "aS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -70,7 +70,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "aV" = (
 /obj/machinery/light/small{
@@ -88,14 +88,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "aW" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "bx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -108,17 +108,17 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/camera/autoname,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "bX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Gas Testing Room"
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "cw" = (
-/turf/simulated/floor/reinforced/airless,
+/turf/floor/reinforced/airless,
 /area/space)
 "cK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -127,7 +127,7 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "cQ" = (
 /obj/structure/railing/mapped{
@@ -136,14 +136,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "dp" = (
 /obj/machinery/power/terminal{
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "dv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -154,7 +154,7 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "dC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -166,10 +166,10 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "dH" = (
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "dO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -181,13 +181,14 @@
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id_tag = "lockdown";
 	name = "Lockdown Doors";
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "en" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -196,7 +197,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "eo" = (
 /obj/structure/cable{
@@ -212,7 +213,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "es" = (
 /obj/machinery/light/small,
@@ -228,15 +229,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "eu" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/observation_deck)
 "ev" = (
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "eQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -246,21 +247,21 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "eT" = (
-/turf/simulated/wall/r_wall/hull,
+/turf/wall/r_wall/hull,
 /area/ministation/sciencetesting)
 "fo" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "fv" = (
 /obj/machinery/light/spot,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "fD" = (
 /turf/open,
@@ -274,14 +275,14 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "gb" = (
-/turf/simulated/wall/r_wall/prepainted,
+/turf/wall/r_wall/prepainted,
 /area/ministation/sciencetesting)
 "gr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "gu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -291,7 +292,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "gE" = (
 /obj/structure/lattice,
@@ -304,14 +305,14 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "hx" = (
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/tracker,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "hC" = (
 /obj/structure/cable{
@@ -320,13 +321,13 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "hQ" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "gasventdoor"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/sciencetesting)
 "hR" = (
 /obj/structure/table/woodentable,
@@ -334,17 +335,17 @@
 	dir = 4;
 	level = 2
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "hW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "hY" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/briefcase/inflatable,
-/turf/simulated/floor/tiled,
+/obj/item/briefcase/inflatable,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "iP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -353,7 +354,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "jg" = (
 /obj/structure/cable{
@@ -365,7 +366,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "jq" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -375,7 +376,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "jt" = (
 /obj/machinery/alarm{
@@ -388,11 +389,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "jS" = (
 /obj/structure/closet/firecloset,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "kg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -402,15 +403,15 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "ko" = (
 /obj/structure/target_stake,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "kq" = (
 /obj/structure/closet/crate/bin/ministation,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "kQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -420,7 +421,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "kV" = (
 /obj/structure/cable{
@@ -432,7 +433,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "ld" = (
 /obj/structure/cable{
@@ -441,7 +442,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "lk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -454,14 +455,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "ll" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "bulb1"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/science2nddeck)
 "mG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -473,7 +474,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "mI" = (
 /obj/structure/cable{
@@ -485,11 +486,11 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "nf" = (
 /obj/structure/closet/crate/bin/ministation,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "nu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -497,28 +498,28 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "nE" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "nT" = (
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "nY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "ou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "oZ" = (
 /obj/structure/bed/chair/comfy/beige{
@@ -527,10 +528,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "pB" = (
-/turf/simulated/wall,
+/turf/wall,
 /area/ministation/science2nddeck)
 "pP" = (
 /obj/structure/cable{
@@ -546,7 +547,7 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "pS" = (
 /turf/open,
@@ -564,7 +565,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "qG" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -572,7 +573,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "qH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -581,40 +582,40 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "qK" = (
 /obj/item/stack/cable_coil,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "qU" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "rn" = (
 /obj/structure/bed/sofa/left/beige{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "rw" = (
 /obj/structure/cable{
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "rB" = (
-/turf/simulated/wall,
+/turf/wall,
 /area/ministation/observation_deck)
 "rT" = (
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "rW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -626,13 +627,13 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "rZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "sD" = (
 /obj/structure/cable{
@@ -650,7 +651,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "tg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -662,33 +663,34 @@
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id_tag = "lockdown";
 	name = "Lockdown Doors";
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "tu" = (
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "tB" = (
 /obj/structure/flora/bush/grassybush,
-/turf/simulated/floor/grass,
+/turf/floor/fake_grass,
 /area/ministation/observation_deck)
 "tG" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
 	pixel_x = 11
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "tN" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4overpass)
 "tO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -704,7 +706,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "ug" = (
 /obj/machinery/door/airlock/external/glass{
@@ -724,14 +726,14 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/airless,
+/turf/floor/airless,
 /area/ministation/maint/l4central)
 "uo" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "ux" = (
 /obj/machinery/door/firedoor,
@@ -744,24 +746,24 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "uG" = (
 /obj/structure/lattice,
 /turf/space,
 /area/space)
 "uQ" = (
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4overpass)
 "vb" = (
 /obj/machinery/network/relay{
 	initial_network_id = "molluscnet"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/science2nddeck)
 "vh" = (
 /obj/structure/table/woodentable,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "vm" = (
 /obj/structure/cable{
@@ -773,11 +775,11 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "vn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "vq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -789,14 +791,14 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "vD" = (
 /obj/machinery/power/solar_control{
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "vH" = (
 /obj/structure/lattice,
@@ -814,13 +816,13 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "wi" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "wH" = (
 /obj/structure/table/woodentable,
@@ -828,7 +830,7 @@
 	dir = 8;
 	level = 2
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "xN" = (
 /obj/abstract/map_data{
@@ -843,7 +845,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "yB" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -851,20 +853,20 @@
 	icon_state = "warning"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "yD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "yI" = (
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -26
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "yS" = (
 /obj/abstract/landmark{
@@ -873,14 +875,14 @@
 /turf/space,
 /area/space)
 "yX" = (
-/turf/simulated/wall,
+/turf/wall,
 /area/ministation/maint/l4overpass)
 "yY" = (
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 22
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "zd" = (
 /obj/structure/ladder,
@@ -893,11 +895,11 @@
 "zR" = (
 /obj/structure/table,
 /obj/random/plushie,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Aj" = (
 /obj/structure/cable,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "An" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -905,20 +907,20 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "AJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/simulated/wall/r_wall/hull,
+/turf/wall/r_wall/hull,
 /area/ministation/sciencetesting)
 "AT" = (
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/solar,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "AZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -930,16 +932,16 @@
 	dir = 8;
 	pixel_x = 22
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "Bx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "BP" = (
-/turf/simulated/wall,
+/turf/wall,
 /area/space)
 "Cd" = (
 /obj/structure/cable{
@@ -952,24 +954,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "Cg" = (
 /obj/structure/lattice,
-/turf/simulated/floor/reinforced/airless,
+/turf/floor/reinforced/airless,
 /area/space)
 "Cl" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "Cs" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "Cu" = (
 /obj/structure/ladder,
@@ -985,25 +987,25 @@
 	icon_state = "warning"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "CI" = (
 /obj/machinery/shieldwallgen,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "CJ" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/solar,
-/turf/simulated/floor/airless,
+/turf/floor/airless,
 /area/space)
 "CM" = (
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "CS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1015,7 +1017,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "CV" = (
 /obj/structure/table/reinforced,
@@ -1023,7 +1025,7 @@
 	id_tag = "gasventdoor";
 	name = "Gas vent control"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "CY" = (
 /obj/machinery/vending/cigarette{
@@ -1034,7 +1036,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "Da" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1054,7 +1056,7 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "Dc" = (
 /obj/structure/cable{
@@ -1063,18 +1065,18 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "Dk" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "DB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "DI" = (
 /obj/structure/table/reinforced,
@@ -1082,8 +1084,8 @@
 	dir = 4;
 	icon_state = "warningcorner"
 	},
-/obj/item/storage/box/monkeycubes,
-/turf/simulated/floor/tiled,
+/obj/item/box/monkeycubes,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "DX" = (
 /obj/structure/cable{
@@ -1092,7 +1094,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "Ed" = (
 /obj/structure/cable{
@@ -1104,11 +1106,11 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "EA" = (
 /obj/structure/flora/bush/ppflowers,
-/turf/simulated/floor/grass,
+/turf/floor/fake_grass,
 /area/ministation/observation_deck)
 "EL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1123,20 +1125,20 @@
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "EX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Fa" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4overpass)
 "Fm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1151,24 +1153,24 @@
 /obj/machinery/firealarm{
 	pixel_y = 21
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "FD" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "FF" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "FH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "FV" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1179,14 +1181,14 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Gg" = (
 /obj/structure/table/bench,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "GD" = (
 /obj/machinery/door/airlock/external/glass{
@@ -1206,7 +1208,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "GY" = (
 /obj/structure/bed/chair/comfy/beige{
@@ -1215,17 +1217,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "Hf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "Hg" = (
 /obj/effect/floor_decal/industrial/hatch/orange,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "Hi" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
@@ -1233,7 +1235,7 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "Hm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1245,33 +1247,33 @@
 /obj/structure/bed/sofa/right/beige{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "Hs" = (
 /obj/structure/bed/sofa/middle/beige{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "HM" = (
 /obj/machinery/network/relay{
 	initial_network_id = "molluscnet"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "HR" = (
 /obj/structure/reagent_dispensers/water_cooler/ascent,
-/turf/simulated/floor/airless,
+/turf/floor/airless,
 /area/space)
 "Id" = (
-/turf/simulated/floor/grass,
+/turf/floor/fake_grass,
 /area/ministation/observation_deck)
 "IZ" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "Jp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1283,34 +1285,34 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "JK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "JO" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
 /obj/machinery/door/blast/regular/open,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "JR" = (
 /obj/structure/table/bench,
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Kw" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/structure/closet/bombcloset,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "KM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1323,17 +1325,17 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "KS" = (
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "Lu" = (
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/solar,
-/turf/simulated/floor/airless,
+/turf/floor/airless,
 /area/space)
 "Lx" = (
 /obj/structure/cable{
@@ -1345,14 +1347,14 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "LI" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Mj" = (
 /obj/structure/bed/chair/comfy/beige{
@@ -1361,21 +1363,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "Mt" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "MF" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "Np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1384,7 +1386,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "Ns" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1397,14 +1399,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/science2nddeck)
 "Ny" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Nz" = (
 /obj/structure/cable{
@@ -1413,7 +1415,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "NO" = (
 /obj/abstract/level_data_spawner/main_level,
@@ -1425,13 +1427,13 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "OR" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Pm" = (
 /obj/structure/rack,
@@ -1447,13 +1449,13 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Pt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Qh" = (
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -1472,7 +1474,7 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "Rx" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -1480,14 +1482,14 @@
 	icon_state = "warningcorner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "RO" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "RY" = (
 /obj/machinery/vending/coffee{
@@ -1498,7 +1500,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "Sj" = (
 /obj/machinery/alarm{
@@ -1506,13 +1508,13 @@
 	pixel_x = 24
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "SC" = (
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "SJ" = (
 /obj/structure/cable{
@@ -1521,20 +1523,20 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "SO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "ST" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/science2nddeck)
 "Tg" = (
 /obj/structure/railing/mapped,
@@ -1548,19 +1550,19 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/science2nddeck)
 "Ts" = (
 /obj/machinery/door/blast/regular/open,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "TO" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/monkeycubes,
-/turf/simulated/floor/tiled,
+/obj/item/box/monkeycubes,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Ul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1568,7 +1570,7 @@
 	dir = 1
 	},
 /obj/machinery/disposal,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Uw" = (
 /obj/structure/lattice,
@@ -1600,7 +1602,7 @@
 	dir = 4;
 	level = 2
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "UW" = (
 /obj/machinery/door/airlock{
@@ -1615,22 +1617,22 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Vc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "Vx" = (
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "VH" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "VO" = (
 /obj/structure/cable{
@@ -1642,7 +1644,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "Wi" = (
 /obj/structure/cable{
@@ -1654,14 +1656,14 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/space)
 "Wl" = (
 /obj/machinery/power/smes/buildable/preset,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "Wr" = (
 /obj/structure/cable{
@@ -1671,7 +1673,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "WG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1688,7 +1690,7 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "WI" = (
 /obj/structure/extinguisher_cabinet{
@@ -1702,7 +1704,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "WW" = (
 /obj/structure/lattice,
@@ -1712,7 +1714,7 @@
 /turf/space,
 /area/ministation/sciencetesting)
 "Xs" = (
-/turf/simulated/wall,
+/turf/wall,
 /area/ministation/sciencetesting)
 "Xw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1723,7 +1725,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "XA" = (
 /obj/machinery/light/small{
@@ -1750,7 +1752,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/maint/l4central)
 "XK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1758,32 +1760,32 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "XQ" = (
-/turf/simulated/wall/r_wall,
+/turf/wall/r_wall,
 /area/ministation/sciencetesting)
 "XZ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/observation_deck)
 "Yv" = (
-/turf/simulated/wall,
+/turf/wall,
 /area/ministation/maint/l4central)
 "Yy" = (
 /obj/structure/bed/sofa/right/beige{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/observation_deck)
 "YJ" = (
 /obj/machinery/door/blast/regular/open,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "YK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1792,7 +1794,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/ministation/sciencetesting)
 "Zd" = (
 /obj/structure/lattice,
@@ -1809,11 +1811,11 @@
 /area/ministation/science2nddeck)
 "Zs" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/ministation/science2nddeck)
 "ZM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/reinforced,
+/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 
 (1,1,1) = {"

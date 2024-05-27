@@ -669,7 +669,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			mobs += M
 	return mobs
 
-
 /proc/parse_zone(zone)
 	var/static/list/zone_to_descriptor_mapping = list(
 		BP_R_HAND = "right hand",
@@ -720,9 +719,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /obj/item/screwdriver/can_puncture()
 	return 1
 
-/obj/item/flame/can_puncture()
-	return src.lit
-
 /obj/item/clothing/mask/smokable/cigarette/can_puncture()
 	return src.lit
 
@@ -734,7 +730,7 @@ var/global/list/WALLITEMS = list(
 	/obj/structure/extinguisher_cabinet, /obj/structure/reagent_dispensers/peppertank,
 	/obj/machinery/status_display, /obj/machinery/network/requests_console, /obj/machinery/light_switch, /obj/structure/sign,
 	/obj/machinery/newscaster, /obj/machinery/firealarm, /obj/structure/noticeboard,
-	/obj/item/storage/secure/safe, /obj/machinery/door_timer, /obj/machinery/flasher, /obj/machinery/keycard_auth,
+	/obj/item/secure_storage/safe, /obj/machinery/door_timer, /obj/machinery/flasher, /obj/machinery/keycard_auth,
 	/obj/structure/mirror, /obj/structure/fireaxecabinet, /obj/structure/filing_cabinet/wall
 	)
 /proc/gotwallitem(loc, dir)
@@ -772,8 +768,7 @@ var/global/list/WALLITEMS = list(
 /proc/get_random_colour(var/simple = FALSE, var/lower = 0, var/upper = 255)
 	if(simple)
 		return pick(list("#ff0000","#ff7f00","#ffff00","#00ff00","#0000ff","#4b0082","#8f00ff"))
-	else
-		return rgb(rand(lower, upper), rand(lower, upper), rand(lower, upper))
+	return rgb(rand(lower, upper), rand(lower, upper), rand(lower, upper))
 
 // call to generate a stack trace and print to runtime logs
 /proc/get_stack_trace(msg, file, line)
@@ -790,3 +785,8 @@ var/global/list/WALLITEMS = list(
 			if(3)
 				return "[num]rd"
 	return "[num]th"
+
+///A do nothing proc used to prevent empty block warnings
+///In hot code (like atmos checks), use EMPTY_BLOCK_GUARD instead.
+/proc/pass(...)
+	return

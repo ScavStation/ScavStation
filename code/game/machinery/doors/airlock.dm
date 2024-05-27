@@ -9,8 +9,6 @@
 #define AIRLOCK_DENY	5
 #define AIRLOCK_EMAG	6
 
-var/global/list/airlock_overlays = list()
-
 /obj/machinery/door/airlock
 	name = "airlock"
 	icon = 'icons/obj/doors/station/door.dmi'
@@ -135,7 +133,7 @@ About the new airlock wires panel:
 			var/mob/living/carbon/C = user
 			if(istype(C) && C.hallucination_power > 25)
 				to_chat(user, SPAN_DANGER("You feel a powerful shock course through your body!"))
-				user.adjustHalLoss(10)
+				user.take_damage(10, PAIN)
 				SET_STATUS_MAX(user, STAT_STUN, 10)
 				return
 	..(user)
@@ -1075,9 +1073,9 @@ About the new airlock wires panel:
 	return
 
 // Braces can act as an extra layer of armor - they will take damage first.
-/obj/machinery/door/airlock/take_damage(var/amount, damtype=BRUTE)
+/obj/machinery/door/airlock/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent = FALSE)
 	if(brace)
-		brace.take_damage(amount)
+		brace.take_damage(damage)
 	else
 		..()
 	update_icon()
@@ -1092,24 +1090,25 @@ About the new airlock wires panel:
 		to_chat(user, "\The [brace] is installed on \the [src], preventing it from opening.")
 		to_chat(user, brace.examine_health())
 
-/obj/machinery/door/airlock/autoname
-
 /obj/machinery/door/airlock/autoname/Initialize()
 	var/area/A = get_area(src)
-	name = A.proper_name
+	if(A?.proper_name)
+		name = A.proper_name
 	. = ..()
 
-/obj/machinery/door/airlock/proc/paint_airlock(var/paint_color)
-	door_color = paint_color
-	update_icon()
+/obj/machinery/door/airlock/proc/paint_airlock(var/new_color)
+	if(door_color != new_color)
+		door_color = new_color
+		update_icon()
 
-/obj/machinery/door/airlock/proc/stripe_airlock(var/paint_color)
-	stripe_color = paint_color
-	update_icon()
+/obj/machinery/door/airlock/proc/stripe_airlock(var/new_color)
+	if(stripe_color != new_color)
+		stripe_color = new_color
+		update_icon()
 
-/obj/machinery/door/airlock/proc/paint_window(paint_color)
-	if (paint_color)
-		window_color = paint_color
+/obj/machinery/door/airlock/proc/paint_window(new_color)
+	if (new_color)
+		window_color = new_color
 	else if (window_material)
 		var/decl/material/window = get_window_material()
 		window_color = window.color

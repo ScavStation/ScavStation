@@ -20,6 +20,7 @@
 		return FALSE
 
 	var/obj/item/holder/H = new holder_type(get_turf(src))
+	H.w_class = get_object_size()
 	if(initiator == src)
 		if(!target.equip_to_slot_if_possible(H, slot_back_str, del_on_fail=0, disable_warning=1))
 			to_chat(initiator, "<span class='warning'>You can't climb onto [target]!</span>")
@@ -41,7 +42,7 @@
 	return H
 
 /mob/living/proc/scoop_check(var/mob/living/scooper)
-	if(!isliving(scooper) || scooper == src || scooper.lying)
+	if(!isliving(scooper) || scooper == src || scooper.current_posture.prone)
 		return FALSE
 	if(QDELETED(scooper) || QDELETED(src))
 		return FALSE

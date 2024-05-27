@@ -177,7 +177,7 @@
 /mob/living/bot/secbot/handleAdjacentTarget()
 	var/mob/living/carbon/human/H = target
 	var/threat = check_threat(target)
-	if(awaiting_surrender < SECBOT_WAIT_TIME && istype(H) && !H.lying && threat < SECBOT_THREAT_ATTACK)
+	if(awaiting_surrender < SECBOT_WAIT_TIME && istype(H) && !H.current_posture.prone && threat < SECBOT_THREAT_ATTACK)
 		if(awaiting_surrender == -1)
 			begin_arrest(target, threat)
 		++awaiting_surrender
@@ -189,6 +189,11 @@
 		handcuffs.place_handcuffs(C, src)
 	resetTarget() //we're done, failed or not. Don't want to get stuck if C is not
 
+/mob/living/bot/get_target_zone()
+	if(!client)
+		return BP_CHEST
+	return ..()
+
 /mob/living/bot/secbot/UnarmedAttack(var/mob/M, var/proximity)
 
 	. = ..()
@@ -199,7 +204,7 @@
 		return FALSE
 
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && H.lying)
+	if(istype(H) && H.current_posture.prone)
 		cuff_target(H)
 		return TRUE
 
@@ -208,7 +213,7 @@
 	else
 		a_intent = I_GRAB
 
-	stun_baton.attack(M, src, BP_CHEST) //robots and turrets aim for center of mass
+	stun_baton.use_on_mob(M, src) //robots and turrets aim for center of mass
 	flick(attack_state, src)
 	return TRUE
 

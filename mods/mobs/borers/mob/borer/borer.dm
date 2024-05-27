@@ -15,7 +15,6 @@
 	stop_automated_movement = 1
 	status_flags = CANPUSH
 	natural_weapon = /obj/item/natural_weapon/bite/weak
-	friendly = "prods"
 	wander = 0
 	pass_flags = PASS_FLAG_TABLE
 	universal_understand = TRUE
@@ -103,7 +102,7 @@
 	if(!host || host.stat)
 		return
 
-	if(prob(host.getBrainLoss()/20))
+	if(prob(host.get_damage(BRAIN)/20))
 		INVOKE_ASYNC(host, TYPE_PROC_REF(/mob, say), "*[pick(list("blink","blink_r","choke","aflap","drool","twitch","twitch_v","gasp"))]")
 
 	if(stat)
@@ -134,7 +133,7 @@
 			host.release_control()
 			return
 		if(prob(5))
-			host.adjustBrainLoss(0.1)
+			host.take_damage(0.1, BRAIN)
 
 /mob/living/simple_animal/borer/Stat()
 	. = ..()

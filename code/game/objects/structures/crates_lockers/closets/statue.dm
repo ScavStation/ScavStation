@@ -24,10 +24,10 @@
 		L.forceMove(src)
 		L.set_sdisability(MUTED)
 		current_health = L.current_health + 100 //stoning damaged mobs will result in easier to shatter statues
-		intialTox = L.getToxLoss()
-		intialFire = L.getFireLoss()
-		intialBrute = L.getBruteLoss()
-		intialOxy = L.getOxyLoss()
+		intialTox = L.get_damage(TOX)
+		intialFire = L.get_damage(BURN)
+		intialBrute = L.get_damage(BRUTE)
+		intialOxy = L.get_damage(OXY)
 		if(ishuman(L))
 			name = "statue of [L.name]"
 			if(L.gender == "female")
@@ -49,31 +49,31 @@
 /obj/structure/closet/statue/Process()
 	timer--
 	for(var/mob/living/M in src) //Go-go gadget stasis field
-		M.setToxLoss(intialTox)
-		M.adjustFireLoss(intialFire - M.getFireLoss(), do_update_health = FALSE)
-		M.adjustBruteLoss(intialBrute - M.getBruteLoss())
-		M.setOxyLoss(intialOxy)
+		M.set_damage(TOX, intialTox)
+		M.take_damage(intialFire - M.get_damage(BURN), BURN, do_update_health = FALSE)
+		M.take_damage(intialBrute - M.get_damage(BRUTE))
+		M.set_damage(OXY, intialOxy)
 	if (timer <= 0)
 		dump_contents()
 		STOP_PROCESSING(SSobj, src)
 		qdel(src)
 
-/obj/structure/closet/statue/dump_contents()
+/obj/structure/closet/statue/dump_contents(atom/forced_loc = loc, mob/user)
 	for(var/obj/O in src)
-		O.dropInto(loc)
+		O.dropInto(forced_loc)
 
 	for(var/mob/living/M in src)
-		M.dropInto(loc)
+		M.dropInto(forced_loc)
 		M.unset_sdisability(MUTED)
 		M.take_overall_damage((M.current_health - current_health - 100),0) //any new damage the statue incurred is transfered to the mob
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
 
-/obj/structure/closet/statue/open()
+/obj/structure/closet/statue/open(mob/user)
 	return
 
-/obj/structure/closet/statue/close()
+/obj/structure/closet/statue/close(mob/user)
 	return
 
 /obj/structure/closet/statue/toggle()

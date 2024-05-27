@@ -21,18 +21,13 @@
 	faction = "faithless"
 	supernatural = 1
 
-	meat_type =     null
-	meat_amount =   0
-	bone_material = null
-	bone_amount =   0
-	skin_material = null
-	skin_amount =   0
+	butchery_data = /decl/butchery_data/occult
 
 /obj/item/natural_weapon/faithless
 	name = "shadow tendril"
 	attack_verb = list("gripped")
 	hitsound = 'sound/hallucinations/growl1.ogg'
-	damtype = BURN
+	atom_damage_type =  BURN
 	force = 15
 
 /mob/living/simple_animal/hostile/faithless/Process_Spacemove()
@@ -43,7 +38,7 @@
 	if(.)
 		audible_emote("wails at [.]")
 
-/mob/living/simple_animal/hostile/faithless/AttackingTarget()
+/mob/living/simple_animal/hostile/faithless/attack_target(mob/target)
 	. =..()
 	var/mob/living/L = .
 	if(istype(L))

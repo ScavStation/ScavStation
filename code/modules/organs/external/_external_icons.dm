@@ -81,8 +81,11 @@ var/global/list/organ_icon_cache = list()
 		var/list/draw_accessories = _sprite_accessories[accessory_category]
 		for(var/accessory in draw_accessories)
 			var/decl/sprite_accessory/accessory_decl = resolve_accessory_to_decl(accessory)
-			if(istype(accessory_decl) && !accessory_decl.sprite_overlay_layer)
-				ret.Blend(accessory_decl.get_cached_accessory_icon(src, draw_accessories[accessory] || COLOR_WHITE), accessory_decl.layer_blend)
+			if(!istype(accessory_decl))
+				continue
+			if(!isnull(accessory_decl.sprite_overlay_layer) || !accessory_decl.draw_accessory)
+				continue
+			ret.Blend(accessory_decl.get_cached_accessory_icon(src, draw_accessories[accessory] || COLOR_WHITE), accessory_decl.layer_blend)
 	if(render_alpha < 255)
 		ret += rgb(,,,render_alpha)
 	global.organ_icon_cache[_icon_cache_key] = ret
@@ -93,13 +96,16 @@ var/global/list/organ_icon_cache = list()
 		var/list/draw_accessories = _sprite_accessories[accessory_category]
 		for(var/accessory in draw_accessories)
 			var/decl/sprite_accessory/accessory_decl = resolve_accessory_to_decl(accessory)
-			if(istype(accessory_decl) && !isnull(accessory_decl.sprite_overlay_layer))
-				var/image/accessory_image = image(accessory_decl.get_cached_accessory_icon(src, draw_accessories[accessory] || COLOR_WHITE))
-				if(accessory_decl.sprite_overlay_layer != FLOAT_LAYER)
-					accessory_image.layer = accessory_decl.sprite_overlay_layer
-				if(accessory_decl.layer_blend != ICON_OVERLAY)
-					accessory_image.blend_mode = iconMode2blendMode(accessory_decl.layer_blend)
-				LAZYADD(., accessory_image)
+			if(!istype(accessory_decl))
+				continue
+			if(isnull(accessory_decl.sprite_overlay_layer) || !accessory_decl.draw_accessory)
+				continue
+			var/image/accessory_image = image(accessory_decl.get_cached_accessory_icon(src, draw_accessories[accessory] || COLOR_WHITE))
+			if(accessory_decl.sprite_overlay_layer != FLOAT_LAYER)
+				accessory_image.layer = accessory_decl.sprite_overlay_layer
+			if(accessory_decl.layer_blend != ICON_OVERLAY)
+				accessory_image.blend_mode = iconMode2blendMode(accessory_decl.layer_blend)
+			LAZYADD(., accessory_image)
 
 /obj/item/organ/external/proc/get_icon_cache_key_components()
 	. = list("[icon_state]_[species.name]_[bodytype?.name || "BAD_BODYTYPE"]_[render_alpha]_[icon]")
@@ -260,9 +266,10 @@ var/global/list/organ_icon_cache = list()
 		return
 
 	// Update our cache key and refresh or create our base icon.
+	var/next_state = owner ? "[organ_tag][owner.get_overlay_state_modifier()]" : organ_tag
 	update_limb_icon_file()
-	if(icon_state != organ_tag)
-		icon_state = organ_tag
+	if(icon_state != next_state)
+		icon_state = next_state
 
 	_icon_cache_key = jointext(get_icon_cache_key_components(), null)
 	var/icon/mob_icon = global.organ_icon_cache[_icon_cache_key] || generate_mob_icon()

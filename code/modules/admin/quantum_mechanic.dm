@@ -48,12 +48,12 @@
 /decl/hierarchy/outfit/quantum
 	name = "Quantum Mechanic"
 	glasses =  /obj/item/clothing/glasses/sunglasses/quantum
-	uniform =  /obj/item/clothing/under/color/quantum
+	uniform =  /obj/item/clothing/jumpsuit/quantum
 	shoes =    /obj/item/clothing/shoes/color/black/quantum
 	l_ear =    /obj/item/radio/headset/ert/quantum
-	back =     /obj/item/storage/backpack/holding/quantum
+	back =     /obj/item/backpack/holding/quantum
 	head =     /obj/item/clothing/head/beret
-	belt =     /obj/item/storage/belt/utility/full/quantum
+	belt =     /obj/item/belt/utility/full/quantum
 	id_slot =  slot_wear_id_str
 
 /mob/living/carbon/human/quantum
@@ -151,11 +151,10 @@
 	to_chat(usr, SPAN_NOTICE("God mode is now [(status_flags & GODMODE) ? "enabled" : "disabled"]."))
 
 // Bag o Holding
-/obj/item/storage/backpack/holding/quantum
-	storage_slots = 56
-	max_w_class = 400
+/obj/item/backpack/holding/quantum
+	storage = /datum/storage/bag/quantum
 
-/obj/item/storage/backpack/holding/quantum/attack_hand(mob/user)
+/obj/item/backpack/holding/quantum/attack_hand(mob/user)
 	if(!user)
 		return TRUE
 
@@ -185,7 +184,7 @@
 	return ..()
 
 // Clothes
-/obj/item/clothing/under/color/quantum
+/obj/item/clothing/jumpsuit/quantum
 	name = "quantum mechanic's uniform"
 	desc = "A quantum mechanic's uniform. There is a letter on front that reads 'Q'."
 	icon = 'icons/clothing/under/uniform_quantum.dmi'
@@ -193,7 +192,7 @@
 	heat_protection = SLOT_FULL_BODY
 	siemens_coefficient = 0
 
-/obj/item/clothing/under/color/quantum/attack_hand(mob/user)
+/obj/item/clothing/jumpsuit/quantum/attack_hand(mob/user)
 	if(!user)
 		return TRUE
 
@@ -204,13 +203,13 @@
 	return ..()
 
 // Gloves
-/obj/item/clothing/gloves/color/white/quantum
+/obj/item/clothing/gloves/quantum
 	name = "quantum mechanic's gloves"
 	desc = "A pair of modified gloves. The letter 'Ω' is stamped on the side."
 	siemens_coefficient = 0
 	permeability_coefficient = 0
 
-/obj/item/clothing/gloves/color/white/quantum/attack_hand(mob/user)
+/obj/item/clothing/gloves/quantum/attack_hand(mob/user)
 	if(!user)
 		return TRUE
 
@@ -292,7 +291,7 @@
 	return ..()
 
 // Belt
-/obj/item/storage/belt/utility/full/quantum/Initialize()
+/obj/item/belt/utility/full/quantum/Initialize()
 	. = ..()
 	// Full set of tools
 	new /obj/item/multitool(src)

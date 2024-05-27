@@ -37,11 +37,14 @@
 		corpse.equip_corpse_outfit(src)
 	return INITIALIZE_HINT_LATELOAD
 
+/mob/living/carbon/human/corpse/get_death_message(gibbed)
+	return SKIP_DEATH_MESSAGE
+
 /mob/living/carbon/human/corpse/LateInitialize()
 	..()
 	var/current_max_health = get_max_health()
-	adjustOxyLoss(current_max_health)//cease life functions
-	setBrainLoss(current_max_health)
+	take_damage(current_max_health, OXY) //cease life functions
+	set_damage(BRAIN, current_max_health)
 	death()
 	var/obj/item/organ/internal/heart/corpse_heart = get_organ(BP_HEART, /obj/item/organ/internal/heart)
 	if(corpse_heart)

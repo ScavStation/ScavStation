@@ -1,11 +1,14 @@
-/mob/living/carbon/human/get_total_life_damage()
-	return getBrainLoss()
+/mob/living/carbon/human/get_life_damage_types()
+	var/static/list/life_damage_types = list(
+		BRAIN
+	)
+	return life_damage_types
 
 //Updates the mob's health from organs and mob damage variables
 /mob/living/carbon/human/update_health()
 	. = ..()
 	//TODO: fix husking
-	if(. && stat == DEAD && (get_max_health() - getFireLoss()) < get_config_value(/decl/config/num/health_health_threshold_dead))
+	if(. && stat == DEAD && (get_damage(BRUTE) - get_damage(BURN)) < get_config_value(/decl/config/num/health_health_threshold_dead))
 		make_husked()
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount, var/do_update_health = TRUE)
@@ -45,7 +48,7 @@
 	return last_pain
 
 /mob/living/carbon/human/setHalLoss(var/amount)
-	adjustHalLoss(getHalLoss()-amount)
+	take_damage(get_damage(PAIN)-amount, PAIN)
 
 /mob/living/carbon/human/adjustHalLoss(var/amount, var/do_update_health = TRUE)
 	var/heal = (amount < 0)
@@ -106,7 +109,7 @@
 	return amount
 
 /mob/living/carbon/human/setCloneLoss(var/amount)
-	adjustCloneLoss(getCloneLoss()-amount)
+	take_damage(get_damage(CLONE)-amount, CLONE)
 
 /mob/living/carbon/human/adjustCloneLoss(var/amount, var/do_update_health = TRUE)
 	var/heal = amount < 0
@@ -125,7 +128,7 @@
 	..()
 
 /mob/living/carbon/human/proc/getOxyLossPercent()
-	return (getOxyLoss() / species.total_health) * 100
+	return (get_damage(OXY) / species.total_health) * 100
 
 /mob/living/carbon/human/getOxyLoss()
 	if(need_breathe())
@@ -134,7 +137,7 @@
 	return 0
 
 /mob/living/carbon/human/setOxyLoss(var/amount)
-	adjustOxyLoss(amount - getOxyLoss())
+	take_damage(amount - get_damage(OXY), OXY)
 
 /mob/living/carbon/human/adjustOxyLoss(var/damage, var/do_update_health = TRUE)
 	. = FALSE
@@ -156,7 +159,7 @@
 
 /mob/living/carbon/human/setToxLoss(var/amount)
 	if(!(species.species_flags & SPECIES_FLAG_NO_POISON) && !isSynthetic())
-		adjustToxLoss(getToxLoss()-amount)
+		take_damage(get_damage(TOX)-amount, TOX)
 
 // TODO: better internal organ damage procs.
 /mob/living/carbon/human/adjustToxLoss(var/amount, var/do_update_health = TRUE)
@@ -216,12 +219,10 @@
 		update_health()
 
 /mob/living/carbon/human/proc/can_autoheal(var/dam_type)
-	if(!species || !dam_type) return FALSE
-
-	if(dam_type == BRUTE)
-		return(getBruteLoss() < species.total_health / 2)
-	else if(dam_type == BURN)
-		return(getFireLoss() < species.total_health / 2)
+	if(!species || !dam_type)
+		return FALSE
+	if(dam_type == BRUTE || dam_type == BURN)
+		return(get_damage(dam_type) < species.total_health / 2)
 	return FALSE
 
 ////////////////////////////////////////////
@@ -328,13 +329,6 @@ This function restores all organs.
 	recheck_bad_external_organs()
 	verbs -= /mob/living/carbon/human/proc/undislocate
 
-/mob/living/carbon/human/proc/HealDamage(zone, brute, burn)
-	var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, zone)
-	if(!E)
-		return FALSE
-	if(E.heal_damage(brute, burn))
-		BITSET(hud_updateflag, HEALTH_HUD)
-
 /mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/damage_flags = 0, var/obj/used_weapon = null, var/armor_pen, var/silent = FALSE, var/obj/item/organ/external/given_organ = null)
 	if(status_flags & GODMODE)	return	//godmode
 	var/obj/item/organ/external/organ = given_organ
@@ -397,7 +391,7 @@ This function restores all organs.
 	if (!can_feel_pain())
 		return 0
 
-	var/traumatic_shock = getHalLoss()
+	var/traumatic_shock = get_damage(PAIN)
 	traumatic_shock -= GET_CHEMICAL_EFFECT(src, CE_PAINKILLER)
 
 	if(stat == UNCONSCIOUS)
@@ -413,7 +407,7 @@ This function restores all organs.
 
 	var/obj/item/organ/external/floor_organ
 
-	if(!lying)
+	if(!current_posture.prone)
 		var/list/obj/item/organ/external/standing = list()
 		for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
 			var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, limb_tag)

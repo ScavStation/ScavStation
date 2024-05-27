@@ -25,6 +25,11 @@
 	var/bullet_color = COLOR_COPPER
 	var/marking_color
 
+/obj/item/ammo_casing/get_contained_external_atoms()
+	. = ..()
+	if(. && BB)
+		LAZYREMOVE(., BB)
+
 /obj/item/ammo_casing/Initialize()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)

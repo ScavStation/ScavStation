@@ -10,7 +10,8 @@
 	QDEL_NULL(typing_indicator)
 
 	unset_machine()
-	QDEL_NULL(hud_used)
+	if(istype(hud_used))
+		QDEL_NULL(hud_used)
 	if(active_storage)
 		active_storage.close(src)
 	if(istype(ability_master))
@@ -205,12 +206,6 @@
 /atom/proc/drain_power(var/drain_check,var/surge, var/amount = 0)
 	return -1
 
-/mob/proc/findname(msg)
-	for(var/mob/M in SSmobs.mob_list)
-		if (M.real_name == msg)
-			return M
-	return 0
-
 #define ENCUMBERANCE_MOVEMENT_MOD 0.35
 /mob/proc/get_movement_delay(var/travel_dir)
 	. = 0
@@ -219,7 +214,7 @@
 		. += T.get_terrain_movement_delay(travel_dir, src)
 	if(HAS_STATUS(src, STAT_DROWSY))
 		. += 6
-	if(lying) //Crawling, it's slower
+	if(current_posture.prone) //Crawling, it's slower
 		. += (8 + ((GET_STATUS(src, STAT_WEAK) * 3) + (GET_STATUS(src, STAT_CONFUSE) * 2)))
 	. += move_intent.move_delay + (ENCUMBERANCE_MOVEMENT_MOD * encumbrance())
 #undef ENCUMBERANCE_MOVEMENT_MOD
@@ -270,7 +265,7 @@
 			return TRUE
 		if((incapacitation_flags & INCAPACITATION_FORCELYING) && HAS_STATUS(src, STAT_WEAK))
 			return TRUE
-		if((incapacitation_flags & INCAPACITATION_KNOCKOUT)   && (HAS_STATUS(src, STAT_PARA)|| HAS_STATUS(src, STAT_ASLEEP)))
+		if((incapacitation_flags & INCAPACITATION_KNOCKOUT)   && (HAS_STATUS(src, STAT_PARA) || HAS_STATUS(src, STAT_ASLEEP)))
 			return TRUE
 		if((incapacitation_flags & INCAPACITATION_WEAKENED)   && HAS_STATUS(src, STAT_WEAK))
 			return TRUE
@@ -278,7 +273,7 @@
 /mob/proc/incapacitated(var/incapacitation_flags = INCAPACITATION_DEFAULT)
 	if(status_flags & ENABLE_AI)
 		return TRUE
-	if((incapacitation_flags & INCAPACITATION_FORCELYING) && (resting || LAZYLEN(pinned)))
+	if((incapacitation_flags & INCAPACITATION_FORCELYING) && LAZYLEN(pinned))
 		return TRUE
 	if((incapacitation_flags & INCAPACITATION_RESTRAINED) && restrained())
 		return TRUE
@@ -351,8 +346,8 @@
 			dat += "<B>[capitalize(get_descriptive_slot_name(slot))]:</b> <a href='?src=\ref[src];item=[slot]'>[thing_in_slot || "nothing"]</a>"
 			if(istype(thing_in_slot, /obj/item/clothing))
 				var/obj/item/clothing/C = thing_in_slot
-				if(C.accessories.len)
-					dat += "<A href='?src=\ref[src];item=[slot_tie_str];holder=\ref[C]'>Remove accessory</A>"
+				if(LAZYLEN(C.accessories))
+					dat += "<A href='?src=\ref[src];item=accessory;holder=\ref[C]'>Remove accessory</A>"
 
 	// Do they get an option to set internals?
 	if(istype(get_equipped_item(slot_wear_mask_str), /obj/item/clothing/mask) || istype(get_equipped_item(slot_head_str), /obj/item/clothing/head/helmet/space))
@@ -366,7 +361,7 @@
 	var/obj/item/clothing/suit = get_equipped_item(slot_w_uniform_str)
 	if(istype(suit))
 		dat += "<BR><b>Pockets:</b> <A href='?src=\ref[src];item=pockets'>Empty or Place Item</A>"
-	var/obj/item/clothing/accessory/vitals_sensor/sensor = get_vitals_sensor()
+	var/obj/item/clothing/sensor/vitals/sensor = get_vitals_sensor()
 	if(sensor)
 		if(sensor.get_sensors_locked())
 			dat += "<BR><A href='?src=\ref[src];item=lock_sensors'>Unlock vitals sensors</A>"
@@ -474,7 +469,7 @@
 	set name = "Activate Held Object"
 	set category = "Object"
 	set src = usr
-	var/obj/item/W = get_active_hand()
+	var/obj/item/W = get_active_held_item()
 	W?.attack_self(src)
 	return W
 
@@ -488,11 +483,6 @@
 		return
 	if(msg != null)
 		flavor_text = msg
-
-/mob/proc/warn_flavor_changed()
-	if(flavor_text && flavor_text != "") // don't spam people that don't use it!
-		to_chat(src, "<h2 class='alert'>OOC Warning:</h2>")
-		to_chat(src, "<span class='alert'>Your flavor text is likely out of date! <a href='byond://?src=\ref[src];flavor_change=1'>Change</a></span>")
 
 /mob/proc/print_flavor_text()
 	if (flavor_text && flavor_text != "")
@@ -589,14 +579,14 @@
 		if(.)
 			return
 	else if(href_list["flavor_change"] && !is_admin(usr) && (usr != src))
-		log_and_message_admins(usr, "is suspected of trying to change flavor text on [key_name_admin(src)] via Topic exploits.")
+		log_and_message_admins("is suspected of trying to change flavor text on [key_name_admin(src)] via Topic exploits.", usr)
 	return ..()
 
 /mob/proc/pull_damage()
 	return 0
 
 /mob/living/carbon/human/pull_damage()
-	if(!lying || getBruteLoss() + getFireLoss() < 100)
+	if(!current_posture.prone|| get_damage(BRUTE) + get_damage(BURN) < 100)
 		return FALSE
 	for(var/obj/item/organ/external/e in get_external_organs())
 		if((e.status & ORGAN_BROKEN) && !e.splinted)
@@ -616,23 +606,8 @@
 		return TRUE
 	. = ..()
 
-/mob/proc/can_use_hands()
-	return
-
 /mob/proc/is_active()
 	return (0 >= usr.stat)
-
-/mob/proc/is_dead()
-	return stat == DEAD
-
-/mob/proc/is_mechanical()
-	return FALSE
-
-/mob/living/silicon/is_mechanical()
-	return TRUE
-
-/mob/proc/is_ready()
-	return client && !!mind
 
 /mob/proc/can_touch(var/atom/touching)
 	if(!touching.Adjacent(src) || incapacitated())
@@ -714,41 +689,34 @@
 /mob/proc/can_stand_overridden()
 	return 0
 
-//Updates lying and icons
-/mob/proc/update_lying()
-	if(!resting && cannot_stand() && can_stand_overridden())
-		lying = FALSE
-	else if(buckled)
-		anchored = TRUE
-		if(istype(buckled))
-			if(buckled.buckle_lying == -1)
-				lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			else
-				lying = buckled.buckle_lying
-			if(buckled.buckle_movable)
-				anchored = FALSE
-	else
-		lying = incapacitated(INCAPACITATION_KNOCKDOWN)
+//Updates lying, transform and icons
+/mob/proc/update_posture(force_update)
 
-/mob/proc/UpdateLyingBuckledAndVerbStatus()
-	var/last_lying = lying
-	update_lying()
-	if(buckled)
-		anchored = (!istype(buckled) || !buckled.buckle_movable)
-	if(lying)
-		set_density(0)
-		drop_held_items()
+	var/list/available_postures = get_available_postures()
+	if(length(available_postures) <= 0)
+		return // No postures, no point doing any of this.
+
+	if(length(available_postures) == 1)
+		// If we only have one posture, use that.
+		. = set_posture(available_postures[1], skip_buckled_update = TRUE)
+	else if(istype(buckled) && buckled.buckle_lying != -1)
+		// If we're buckled to something that forces a posture, use that.
+		. = set_posture(buckled.buckle_lying ? /decl/posture/lying : /decl/posture/standing, skip_buckled_update = TRUE)
+	else if(incapacitated(INCAPACITATION_KNOCKDOWN) || (cannot_stand() && !can_stand_overridden()))
+		// If we're straight up knocked over, set that.
+		if(!current_posture.prone)
+			. = set_posture(/decl/posture/lying, skip_buckled_update = TRUE)
+	else if(!current_posture.deliberate)
+		// If we're not deliberately lying, and we can stand, stand up.
+		. = set_posture(/decl/posture/standing, skip_buckled_update = TRUE)
 	else
-		set_density(initial(density))
+		. = FALSE
+
+	anchored = buckled ? (!istype(buckled) || !buckled.buckle_movable) : initial(anchored)
 	reset_layer()
 
-	//Temporarily moved here from the various life() procs
-	//I'm fixing stuff incrementally so this will likely find a better home.
-	//It just makes sense for now. ~Carn
-	if( update_icon )	//forces a full overlay update
-		update_icon = 0
+	if(. || force_update)
 		update_icon()
-	if( lying != last_lying )
 		update_transform()
 
 /mob/proc/facedir(var/ndir)
@@ -759,7 +727,6 @@
 		buckled.set_dir(ndir)
 	SetMoveCooldown(get_movement_delay(ndir))
 	return 1
-
 
 /mob/verb/eastface()
 	set hidden = 1
@@ -779,19 +746,6 @@
 /mob/verb/southface()
 	set hidden = 1
 	return facedir(client.client_dir(SOUTH))
-
-/mob/proc/Resting(amount)
-	facing_dir = null
-	resting = max(max(resting,amount),0)
-	return
-
-/mob/proc/SetResting(amount)
-	resting = max(amount,0)
-	return
-
-/mob/proc/AdjustResting(amount)
-	resting = max(resting + amount,0)
-	return
 
 /mob/proc/get_species_name()
 	SHOULD_CALL_PARENT(TRUE)
@@ -829,8 +783,8 @@
 
 /mob/living/silicon/robot/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
 	LAZYREMOVE(embedded, implant)
-	adjustBruteLoss(5, do_update_health = FALSE)
-	adjustFireLoss(10)
+	take_damage(5, do_update_health = FALSE)
+	take_damage(10, BURN)
 	. = ..()
 
 /mob/living/carbon/human/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE, var/obj/item/organ/external/affected)
@@ -934,7 +888,7 @@
 
 /mob/set_dir()
 	if(facing_dir)
-		if(!canface() || lying || restrained())
+		if(!canface() || current_posture.prone || restrained())
 			facing_dir = null
 		else if(buckled)
 			if(buckled.obj_flags & OBJ_FLAG_ROTATABLE)
@@ -969,29 +923,11 @@
 	set hidden = 1
 	set_face_dir(client.client_dir(WEST))
 
-/mob/proc/adjustEarDamage()
-	return
-
-/mob/proc/setEarDamage()
-	return
-
 //Throwing stuff
 
-/mob/proc/toggle_throw_mode()
-	if (src.in_throw_mode)
-		throw_mode_off()
-	else
-		throw_mode_on()
-
-/mob/proc/throw_mode_off()
-	src.in_throw_mode = 0
-	if(src.throw_icon) //in case we don't have the HUD and we use the hotkey
-		src.throw_icon.icon_state = "act_throw_off"
-
-/mob/proc/throw_mode_on()
-	src.in_throw_mode = 1
-	if(src.throw_icon)
-		src.throw_icon.icon_state = "act_throw_on"
+/mob/proc/toggle_throw_mode(force_set)
+	in_throw_mode = isnull(force_set) ? !in_throw_mode : force_set
+	throw_icon?.icon_state = "act_throw_[in_throw_mode ? "on" : "off"]"
 
 /mob/proc/toggle_antag_pool()
 	set name = "Toggle Add-Antag Candidacy"
@@ -1069,10 +1005,10 @@
 	return gender
 
 /mob/is_fluid_pushable(var/amt)
-	if(..() && !buckled && (lying || !Check_Shoegrip()) && (amt >= mob_size * (lying ? 5 : 10)))
-		if(!lying)
+	if(..() && !buckled && (current_posture.prone || !Check_Shoegrip()) && (amt >= mob_size * (current_posture.prone ? 5 : 10)))
+		if(!current_posture.prone)
 			SET_STATUS_MAX(src, STAT_WEAK, 1)
-			if(lying && prob(10))
+			if(current_posture.prone && prob(10))
 				to_chat(src, "<span class='danger'>You are pushed down by the flood!</span>")
 		return TRUE
 	return FALSE
@@ -1100,7 +1036,7 @@
 
 	// Work out if we have any brain damage impacting our dexterity.
 	var/dex_malus = 0
-	var/braindamage = getBrainLoss()
+	var/braindamage = get_damage(BRAIN)
 	if(braindamage)
 		var/brainloss_threshold = get_config_value(/decl/config/num/dex_malus_brainloss_threshold)
 		if(braindamage > brainloss_threshold) ///brainloss shouldn't instantly cripple you, so the effects only start once past the threshold and escalate from there.
@@ -1185,9 +1121,6 @@
 		else if(!is_blind())
 			flash_eyes()
 
-/mob/proc/get_telecomms_race_info()
-	return list("Unknown", FALSE)
-
 /mob/proc/can_enter_cryopod(var/mob/user)
 	if(stat == DEAD)
 		if(user == src)
@@ -1238,58 +1171,6 @@
 
 /mob/proc/set_glide_size(var/delay)
 	glide_size = ADJUSTED_GLIDE_SIZE(delay)
-
-/mob/proc/get_weather_protection()
-	for(var/obj/item/brolly in get_held_items())
-		if(brolly.gives_weather_protection())
-			LAZYADD(., brolly)
-	if(!LAZYLEN(.))
-		for(var/turf/T as anything in RANGE_TURFS(loc, 1))
-			for(var/obj/structure/flora/tree/tree in T)
-				if(tree.protects_against_weather)
-					LAZYADD(., tree)
-
-/mob/living/carbon/human/get_weather_protection()
-	. = ..()
-	if(!LAZYLEN(.))
-		var/obj/item/clothing/head/check_head = get_equipped_item(slot_head_str)
-		if(!istype(check_head) || !check_head.protects_against_weather)
-			return
-		var/obj/item/clothing/suit/check_body = get_equipped_item(slot_wear_suit_str)
-		if(!istype(check_body) || !check_body.protects_against_weather)
-			return
-		LAZYADD(., check_head)
-		LAZYADD(., check_body)
-
-/mob/proc/get_weather_exposure()
-
-	// We're inside something else.
-	if(!isturf(loc))
-		return WEATHER_IGNORE
-
-	var/turf/T = loc
-	// We're under a roof or otherwise shouldn't be being rained on.
-	if(!T.is_outside())
-
-		// For non-multiz we'll give everyone some nice ambience.
-		if(!HasAbove(T.z))
-			return WEATHER_ROOFED
-
-		// For multi-z, check the actual weather on the turf above.
-		// TODO: maybe make this a property of the z-level marker.
-		var/turf/above = GetAbove(T)
-		if(above.weather)
-			return WEATHER_ROOFED
-
-		// Being more than one level down should exempt us from ambience.
-		return WEATHER_IGNORE
-
-	// Nothing's protecting us from the rain here
-	var/list/weather_protection = get_weather_protection()
-	if(LAZYLEN(weather_protection))
-		return WEATHER_PROTECTED
-
-	return WEATHER_EXPOSED
 
 /mob/proc/IsMultiZAdjacent(var/atom/neighbor)
 
@@ -1457,7 +1338,14 @@
 	return get_bodytype()?.bodytype_category
 
 /mob/proc/get_overlay_state_modifier()
-	return
+	return current_posture?.overlay_modifier
 
 /mob/proc/nervous_system_failure()
 	return FALSE
+
+/mob/proc/mob_throw_item(atom/target)
+	return
+
+/mob/living/proc/get_butchery_product_name()
+	var/decl/butchery_data/butchery_decl = GET_DECL(butchery_data)
+	. = butchery_decl?.meat_name || name

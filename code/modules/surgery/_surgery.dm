@@ -207,7 +207,7 @@ var/global/list/surgery_tool_exception_cache = list()
 	if(delicate)
 		if(HAS_STATUS(user, STAT_SLUR))
 			. -= 10
-		if(!target.lying)
+		if(!target.current_posture.prone)
 			. -= 30
 		var/turf/T = get_turf(target)
 		if(locate(/obj/machinery/optable, T))
@@ -290,7 +290,7 @@ var/global/list/surgery_tool_exception_cache = list()
 			return TRUE
 
 	// Otherwise we can make a start on surgery!
-	else if(istype(M) && !QDELETED(M) && user.a_intent != I_HURT && user.get_active_hand() == src)
+	else if(istype(M) && !QDELETED(M) && user.a_intent != I_HURT && user.get_active_held_item() == src)
 		// Double-check this in case it changed between initial check and now.
 		if(zone in global.surgeries_in_progress[operation_ref])
 			to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))

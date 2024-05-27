@@ -9,7 +9,6 @@
 		ARMOR_ENERGY = ARMOR_ENERGY_SMALL,
 		ARMOR_RAD = ARMOR_RAD_SHIELDED
 	)
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
 	flags_inv = HIDEEARS | BLOCK_HEAD_HAIR
 
 /obj/item/clothing/suit/caretakercloak
@@ -23,12 +22,6 @@
 		ARMOR_ENERGY = ARMOR_ENERGY_RESISTANT,
 		ARMOR_RAD = ARMOR_RAD_SHIELDED
 	)
-
-/obj/item/clothing/under/caretaker
-	name = "caretaker's jumpsuit"
-	desc = "A holy jumpsuit. Treat it well."
-	icon = 'icons/clothing/under/caretaker.dmi'
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 /obj/item/clothing/shoes/dress/caretakershoes
 	name = "black leather shoes"

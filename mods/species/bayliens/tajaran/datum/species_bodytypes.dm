@@ -16,6 +16,8 @@
 	nail_noun            = "claws"
 	nail_noun            = "claws"
 
+	age_descriptor = /datum/appearance_descriptor/age/tajaran
+
 	eye_darksight_range  = 7
 	eye_flash_mod        = 2
 	eye_blend            = ICON_MULTIPLY

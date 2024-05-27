@@ -13,8 +13,8 @@ var/global/list/stored_shock_by_ref = list()
 /decl/species/proc/fluid_act(var/mob/living/carbon/human/H, var/datum/reagents/fluids)
 	SHOULD_CALL_PARENT(TRUE)
 	var/water = REAGENT_VOLUME(fluids, /decl/material/liquid/water)
-	if(water >= 40 && H.getHalLoss())
-		H.adjustHalLoss(-(water_soothe_amount))
+	if(water >= 40 && H.get_damage(PAIN))
+		H.heal_damage(PAIN, water_soothe_amount)
 		if(prob(5))
 			to_chat(H, SPAN_NOTICE("The water ripples gently over your skin in a soothing balm."))
 
@@ -45,3 +45,28 @@ var/global/list/stored_shock_by_ref = list()
 /decl/species/proc/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
 	if(istype(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/harness, slot_w_uniform_str)
+
+/decl/species/proc/get_hazard_high_pressure(var/mob/living/carbon/human/H)
+	return hazard_high_pressure
+
+/decl/species/proc/get_warning_high_pressure(var/mob/living/carbon/human/H)
+	return warning_high_pressure
+
+/decl/species/proc/get_warning_low_pressure(var/mob/living/carbon/human/H)
+	return warning_low_pressure
+
+/decl/species/proc/get_hazard_low_pressure(var/mob/living/carbon/human/H)
+	return hazard_low_pressure
+
+/decl/species/proc/get_shock_vulnerability(var/mob/living/carbon/human/H)
+	return shock_vulnerability
+
+/decl/species/proc/adjust_status(mob/living/target, condition, amount)
+	switch(condition)
+		if(STAT_WEAK)
+			return amount * weaken_mod
+		if(STAT_STUN)
+			return amount * stun_mod
+		if(STAT_PARA)
+			return amount * paralysis_mod
+	return amount

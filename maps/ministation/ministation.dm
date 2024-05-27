@@ -3,6 +3,7 @@ Ministation "Zebra"
 A butchered variant on Giacom's Ministation designed for 5 to 10 players.
 Now poorly imported for Nebula!
 And then imported back to ScavStation!
+Twice...
 */
 
 #if !defined(USING_MAP_DATUM)
@@ -15,13 +16,12 @@ And then imported back to ScavStation!
 //	#endif
 
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
-	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/corporate/_corporate.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/species/ascent/_ascent.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
-	//#include "../../mods/species/vox/_vox.dme"
+	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/species/serpentid/_serpentid.dme"
 	#include "../../mods/species/bayliens/_bayliens.dme"
 	#include "../../mods/content/mundane.dm"

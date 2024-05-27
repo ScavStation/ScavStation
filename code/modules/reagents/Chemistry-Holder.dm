@@ -14,6 +14,46 @@ var/global/obj/temp_reagents_holder = new
 		return 0
 	return reagents.maximum_volume - reagents.total_volume
 
+/atom/proc/get_reagents()
+	return reagents
+
+/atom/proc/take_waste_burn_products(list/materials, exposed_temperature)
+
+	// This might not be needed. Leaving it in for safety.
+	var/turf/T = get_turf(src)
+	if(T != src)
+		return T?.take_waste_burn_products(materials, exposed_temperature)
+
+	var/datum/reagents/liquids
+	var/datum/gas_mixture/vapor
+	var/obj/item/debris/scraps/scraps
+	for(var/mat in materials)
+		var/amount = materials[mat]
+		var/decl/material/material_data = GET_DECL(mat)
+		switch(material_data.phase_at_temperature(exposed_temperature))
+
+			if(MAT_PHASE_SOLID)
+				if(!scraps)
+					scraps = (locate() in src) || new(src)
+					LAZYINITLIST(scraps.matter)
+				scraps.matter[mat] += amount
+
+			if(MAT_PHASE_LIQUID)
+				if(!liquids)
+					liquids = get_reagents()
+				liquids?.add_reagent(mat, max(1, round(amount * REAGENT_UNITS_PER_MATERIAL_UNIT)), defer_update = TRUE)
+
+			if(MAT_PHASE_GAS)
+				if(!vapor)
+					vapor = return_air()
+				vapor?.adjust_gas_temp(mat, MOLES_PER_MATERIAL_UNIT(amount), exposed_temperature, update = FALSE)
+
+	if(scraps)
+		UNSETEMPTY(scraps.matter)
+		scraps.update_primary_material()
+	vapor?.update_values()
+	liquids?.update_total()
+
 /datum/reagents
 	var/primary_reagent
 	var/list/reagent_volumes
@@ -66,7 +106,7 @@ var/global/obj/temp_reagents_holder = new
 		if(codex && reagent.codex_name)
 			. = reagent.codex_name
 		else
-			. = reagent.name
+			. = reagent.get_reagent_name(src)
 
 /datum/reagents/proc/get_primary_reagent_decl()
 	. = GET_DECL(primary_reagent)
@@ -110,12 +150,12 @@ var/global/obj/temp_reagents_holder = new
 			if(!isnull(R.chilling_point) && R.type != R.bypass_chilling_products_for_root_type && LAZYLEN(R.chilling_products) && temperature <= R.chilling_point)
 				replace_self_with = R.chilling_products
 				if(R.chilling_message)
-					replace_message = "\The [lowertext(R.name)] [R.chilling_message]"
+					replace_message = "\The [R.get_reagent_name(src)] [R.chilling_message]"
 				replace_sound = R.chilling_sound
 			else if(!isnull(R.heating_point) && R.type != R.bypass_heating_products_for_root_type && LAZYLEN(R.heating_products) && temperature >= R.heating_point)
 				replace_self_with = R.heating_products
 				if(R.heating_message)
-					replace_message = "\The [lowertext(R.name)] [R.heating_message]"
+					replace_message = "\The [R.get_reagent_name(src)] [R.heating_message]"
 				replace_sound = R.heating_sound
 
 		if(isnull(replace_self_with) && !isnull(R.dissolves_in) && !(check_flags & ATOM_FLAG_NO_DISSOLVE) && LAZYLEN(R.dissolves_into))
@@ -126,7 +166,7 @@ var/global/obj/temp_reagents_holder = new
 				if(solvent.solvent_power >= R.dissolves_in)
 					replace_self_with = R.dissolves_into
 					if(R.dissolve_message)
-						replace_message = "\The [lowertext(R.name)] [R.dissolve_message] \the [lowertext(solvent.name)]."
+						replace_message = "\The [R.get_reagent_name(src)] [R.dissolve_message] \the [solvent.get_reagent_name(src)]."
 					replace_sound = R.dissolve_sound
 					break
 
@@ -209,11 +249,15 @@ var/global/obj/temp_reagents_holder = new
 	handle_update()
 
 /datum/reagents/proc/add_reagent(var/reagent_type, var/amount, var/data = null, var/safety = 0, var/defer_update = FALSE)
+
 	amount = NONUNIT_FLOOR(min(amount, REAGENTS_FREE_SPACE(src)), MINIMUM_CHEMICAL_VOLUME)
 	if(amount <= 0)
 		return FALSE
 
 	var/decl/material/newreagent = GET_DECL(reagent_type)
+	if(!istype(newreagent))
+		return FALSE
+
 	LAZYINITLIST(reagent_volumes)
 	if(!reagent_volumes[reagent_type])
 		reagent_volumes[reagent_type] = amount
@@ -307,7 +351,7 @@ var/global/obj/temp_reagents_holder = new
 		if(precision)
 			volume = round(volume, precision)
 		if(volume)
-			. += "[current.name] ([volume])"
+			. += "[current.get_reagent_name(src)] ([volume])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
 /datum/reagents/proc/get_dirtiness()
@@ -391,9 +435,6 @@ var/global/obj/temp_reagents_holder = new
 			return TRUE
 		return splash_mob(target, amount, copy, defer_update = defer_update)
 	if(isturf(target))
-		touch_turf(target)
-		if(QDELETED(target))
-			return TRUE
 		return trans_to_turf(target, amount, multiplier, copy, defer_update = defer_update)
 	if(isobj(target))
 		touch_obj(target)
@@ -594,17 +635,16 @@ var/global/obj/temp_reagents_holder = new
 	R.touch_mob(target)
 	qdel(R)
 
-/datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/defer_update = FALSE) // Turfs don't have any reagents (at least, for now). Just touch it.
-	if(!target || !target.simulated)
-		return
-	var/datum/reagents/R = new /datum/reagents(amount * multiplier, global.temp_reagents_holder)
-	. = trans_to_holder(R, amount, multiplier, copy, TRUE, defer_update = defer_update)
-	R.touch_turf(target)
-	if(R?.total_volume <= FLUID_QDEL_POINT || QDELETED(target))
+/datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/defer_update = FALSE)
+	if(!target?.simulated)
 		return
 	if(!target.reagents)
 		target.create_reagents(FLUID_MAX_DEPTH)
 	trans_to_holder(target.reagents, amount, multiplier, copy, defer_update = defer_update)
+	// Deferred updates are presumably being done by SSfluids.
+	// Do an immediate fluid_act call rather than waiting for SSfluids to proc.
+	if(!defer_update)
+		target.fluid_act(target.reagents)
 
 /datum/reagents/proc/trans_to_obj(var/obj/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/defer_update = FALSE) // Objects may or may not; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
 	if(!target || !target.simulated)

@@ -1,5 +1,3 @@
-var/global/list/pheromone_markers = list()
-
 /decl/species/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	if(H)

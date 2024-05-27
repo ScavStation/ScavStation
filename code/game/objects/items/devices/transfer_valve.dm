@@ -12,9 +12,6 @@
 	var/toggle = 1
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 
-/obj/item/transfer_valve/IsAssemblyHolder()
-	return 1
-
 /obj/item/transfer_valve/attackby(obj/item/item, mob/user)
 	var/turf/location = get_turf(src) // For admin logs
 	if(istype(item, /obj/item/tank))
@@ -218,8 +215,3 @@
 		split_gases()
 
 	src.update_icon()
-
-// this doesn't do anything but the timer etc. expects it to be here
-// eventually maybe have it update icon to show state (timer, prox etc.) like old bombs
-/obj/item/transfer_valve/proc/c_state()
-	return

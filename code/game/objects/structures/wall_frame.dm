@@ -19,8 +19,6 @@
 	max_health = 40
 	parts_amount = 2
 	parts_type = /obj/item/stack/material/strut
-
-	var/paint_color
 	var/stripe_color
 	var/list/connections
 	var/list/other_connections
@@ -86,7 +84,7 @@
 			visible_message(SPAN_NOTICE("\The [user] begins slicing through \the [src] with \the [W]."))
 			if(do_after(user, 20,src))
 				visible_message(SPAN_NOTICE("\The [user] slices \the [src] apart with \the [W]."))
-				dismantle()
+				dismantle_structure(user)
 			return TRUE
 
 /obj/structure/wall_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -138,7 +136,7 @@
 /obj/structure/wall_frame/bullet_act(var/obj/item/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	var/damage = min(proj_damage, 100)
-	take_damage(damage)
+	take_damage(damage, Proj.atom_damage_type)
 	return
 
 /obj/structure/wall_frame/hitby(AM, var/datum/thrownthing/TT)
@@ -154,13 +152,6 @@
 		if (tforce < 15)
 			return
 		take_damage(tforce)
-
-/obj/structure/wall_frame/get_color()
-	return paint_color
-
-/obj/structure/wall_frame/set_color(new_color)
-	paint_color = new_color
-	update_icon()
 
 //Subtypes
 /obj/structure/wall_frame/standard

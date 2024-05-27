@@ -8,16 +8,8 @@
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 
-	meat_type = /obj/item/chems/food/meat
-	meat_amount = 3
-	bone_material = /decl/material/solid/organic/bone
-	bone_amount = 5
-	skin_material = /decl/material/solid/organic/skin
-	skin_amount = 5
-
 	icon_state = ICON_STATE_WORLD
 	buckle_pixel_shift = @"{'x':0,'y':0,'z':8}"
-
 
 	var/can_have_rider = TRUE
 	var/max_rider_size = MOB_SIZE_SMALL
@@ -52,7 +44,6 @@
 	var/maxbodytemp = 350
 	var/heat_damage_per_tick = 3	//amount of damage applied if animal's body temperature is higher than maxbodytemp
 	var/cold_damage_per_tick = 2	//same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
-	var/fire_alert = 0
 
 	//Atmos effect - Yes, you can make creatures that require arbitrary gasses to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
 	var/list/min_gas = list(/decl/material/gas/oxygen = 5)
@@ -66,7 +57,6 @@
 
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/obj/item/natural_weapon/natural_weapon
-	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
 	var/armor_type = /datum/extension/armor
@@ -163,7 +153,7 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 		icon_state += "-dead"
 	else if(stat == UNCONSCIOUS && (mob_icon_state_flags & MOB_ICON_HAS_SLEEP_STATE))
 		icon_state += "-sleeping"
-	else if(resting && (mob_icon_state_flags & MOB_ICON_HAS_REST_STATE))
+	else if(current_posture?.deliberate && (mob_icon_state_flags & MOB_ICON_HAS_REST_STATE))
 		icon_state += "-resting"
 
 	z_flags &= ~ZMM_MANGLE_PLANES
@@ -239,12 +229,11 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 			visible_message("<span class='warning'>\The [src] struggles against \the [buckled]!</span>")
 
 	//Movement
-	if(lying)
+	if(current_posture.prone)
 		if(!incapacitated())
-			lying = FALSE
-			update_icon()
+			set_posture(/decl/posture/standing)
 	else if(!stop_automated_movement && !buckled_mob && wander && !anchored)
-		if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		if(isturf(src.loc) && !current_posture.prone)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
 			if(turns_since_move >= turns_per_move && (!(stop_automated_movement_when_pulled) || !LAZYLEN(grabbed_by))) //Some animals don't move when pulled
 				var/direction = pick(global.cardinal)
@@ -294,16 +283,16 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 			bodytemperature += ((environment.temperature - bodytemperature) / 5)
 
 	if(bodytemperature < minbodytemp)
-		fire_alert = 2
-		adjustFireLoss(cold_damage_per_tick)
+		SET_HUD_ALERT(src, /decl/hud_element/condition/fire, 2)
+		take_damage(cold_damage_per_tick, BURN)
 	else if(bodytemperature > maxbodytemp)
-		fire_alert = 1
-		adjustFireLoss(heat_damage_per_tick)
+		SET_HUD_ALERT(src, /decl/hud_element/condition/fire, 1)
+		take_damage(heat_damage_per_tick, BURN)
 	else
-		fire_alert = 0
+		SET_HUD_ALERT(src, /decl/hud_element/condition/fire, 0)
 
 	if(!atmos_suitable)
-		adjustBruteLoss(unsuitable_atmos_damage)
+		take_damage(unsuitable_atmos_damage)
 
 /mob/living/simple_animal/proc/escape(mob/living/M, obj/O)
 	O.unbuckle_mob(M)
@@ -328,11 +317,11 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 		return
 
 	var/damage = Proj.damage
-	if(Proj.damtype == STUN)
+	if(Proj.atom_damage_type == STUN)
 		damage = Proj.damage / 6
-	if(Proj.damtype == BRUTE)
+	if(Proj.atom_damage_type == BRUTE)
 		damage = Proj.damage / 2
-	if(Proj.damtype == BURN)
+	if(Proj.atom_damage_type == BURN)
 		damage = Proj.damage / 1.5
 	if(Proj.agony)
 		damage += Proj.agony / 6
@@ -341,7 +330,7 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 			visible_message("<span class='warning'>[src] is stunned momentarily!</span>")
 
 	bullet_impact_visuals(Proj)
-	adjustBruteLoss(damage)
+	take_damage(damage)
 	Proj.on_hit(src)
 	return 0
 
@@ -374,7 +363,7 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 				harm_verb = pick(attack.attack_verb)
 				if(attack.sharp || attack.edge)
 					adjustBleedTicks(dealt_damage)
-		adjustBruteLoss(dealt_damage)
+		take_damage(dealt_damage)
 		user.visible_message(SPAN_DANGER("\The [user] [harm_verb] \the [src]!"))
 		user.do_attack_animation(src)
 		return TRUE
@@ -387,30 +376,12 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 			if(!MED.animal_heal)
 				to_chat(user, SPAN_WARNING("\The [MED] won't help \the [src] at all!"))
 			else if(current_health < get_max_health() && MED.can_use(1))
-				adjustBruteLoss(-MED.animal_heal)
+				heal_damage(BRUTE, MED.animal_heal)
 				visible_message(SPAN_NOTICE("\The [user] applies \the [MED] to \the [src]."))
 				MED.use(1)
 		else
 			var/decl/pronouns/G = get_pronouns()
 			to_chat(user, SPAN_WARNING("\The [src] is dead, medical items won't bring [G.him] back to life."))
-		return TRUE
-
-	if(meat_type && (stat == DEAD) && meat_amount && istype(O, /obj/item/knife/kitchen/cleaver))
-		var/victim_turf = get_turf(src)
-		if(!locate(/obj/structure/table, victim_turf))
-			to_chat(user, SPAN_WARNING("You need to place \the [src] on a table to butcher it."))
-			return TRUE
-		var/time_to_butcher = (mob_size)
-		to_chat(user, SPAN_WARNING("You begin harvesting \the [src]."))
-		if(do_after(user, time_to_butcher, src, same_direction = TRUE))
-			if(prob(user.skill_fail_chance(SKILL_COOKING, 60, SKILL_ADEPT)))
-				to_chat(user, SPAN_DANGER("You botch harvesting \the [src], and ruin some of the meat in the process."))
-				subtract_meat(user)
-			else
-				harvest(user, user.get_skill_value(SKILL_COOKING))
-		else
-			to_chat(user, SPAN_DANGER("Your hand slips with your movement, and some of the meat is ruined."))
-			subtract_meat(user)
 		return TRUE
 
 	return ..()
@@ -424,14 +395,14 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 		return 0
 
 	var/damage = O.force
-	if (O.damtype == PAIN)
+	if (O.atom_damage_type == PAIN)
 		damage = 0
-	if (O.damtype == STUN)
+	if (O.atom_damage_type == STUN)
 		damage = (O.force / 8)
 	if(supernatural && istype(O,/obj/item/nullrod))
 		damage *= 2
 		purge = 3
-	adjustBruteLoss(damage)
+	take_damage(damage)
 	if(O.edge || O.sharp)
 		adjustBleedTicks(damage)
 
@@ -492,35 +463,12 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 
 	..(message, null, verb)
 
-/mob/living/simple_animal/get_speech_ending(verb, var/ending)
-	return verb
-
 /mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
 	W.forceMove(get_turf(src))
 	return 1
 
-// Harvest an animal's delicious byproducts
-/mob/living/simple_animal/proc/harvest(var/mob/user, var/skill_level)
-	var/actual_meat_amount = round(max(1,(meat_amount / 2) + skill_level / 2))
-	user.visible_message("<span class='danger'>\The [user] chops up \the [src]!</span>")
-	if(meat_type && actual_meat_amount > 0 && (stat == DEAD))
-		for(var/i=0;i<actual_meat_amount;i++)
-			var/obj/item/meat = new meat_type(get_turf(src))
-			meat.SetName("[src.name] [meat.name]")
-			if(can_bleed)
-				var/obj/effect/decal/cleanable/blood/splatter/splat = new(get_turf(src))
-				splat.basecolor = bleed_colour
-				splat.update_icon()
-			qdel(src)
-
-/mob/living/simple_animal/proc/subtract_meat(var/mob/user)
-	meat_amount--
-	if(meat_amount <= 0)
-		to_chat(user, SPAN_NOTICE("\The [src] carcass is ruined beyond use."))
-
 /mob/living/simple_animal/handle_fire()
 	return
-
 /mob/living/simple_animal/update_fire()
 	return
 /mob/living/simple_animal/IgniteMob()
@@ -542,13 +490,13 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 
 	bleed_ticks = round(bleed_ticks)
 
+/mob/living/simple_animal/get_blood_color()
+	return bleed_colour
+
 /mob/living/simple_animal/proc/handle_bleeding()
 	bleed_ticks--
-	adjustBruteLoss(1)
-
-	var/obj/effect/decal/cleanable/blood/drip/drip = new(get_turf(src))
-	drip.basecolor = bleed_colour
-	drip.update_icon()
+	take_damage(1)
+	blood_splatter(get_turf(src), src, FALSE)
 
 /mob/living/simple_animal/get_digestion_product()
 	return /decl/material/liquid/nutriment
@@ -577,9 +525,6 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 
 /mob/living/simple_animal/get_admin_job_string()
 	return "Animal"
-
-/mob/living/simple_animal/get_telecomms_race_info()
-	return list("Domestic Animal", FALSE)
 
 /mob/living/simple_animal/handle_flashed(var/obj/item/flash/flash, var/flash_strength)
 	var/safety = eyecheck()
@@ -648,6 +593,12 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 	bodytype_flag = 0
 	bodytype_category = "animal body"
 
+/decl/bodytype/quadruped/animal
+	abstract_type = /decl/bodytype/quadruped/animal
+	name = "quadruped animal"
+	bodytype_flag = 0
+	bodytype_category = "quadrupedal animal body"
+
 /mob/living/simple_animal/proc/get_melee_accuracy()
 	return clamp(sa_accuracy - melee_accuracy_mods(), 0, 100)
 
@@ -657,3 +608,20 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 /mob/living/simple_animal/can_buckle_mob(var/mob/living/dropping)
 	. = ..() && can_have_rider && (dropping.mob_size <= max_rider_size)
 
+/mob/living/simple_animal/get_available_postures()
+	var/static/list/available_postures = list(
+		/decl/posture/standing,
+		/decl/posture/lying,
+		/decl/posture/lying/deliberate
+	)
+	return available_postures
+
+/mob/living/simple_animal/get_default_3p_hug_message(mob/living/target)
+	return "$USER$ nuzzles $TARGET$."
+
+/mob/living/simple_animal/get_default_1p_hug_message(mob/living/target)
+	return "You nuzzle $TARGET$."
+
+/mob/living/simple_animal/handle_stance()
+	stance_damage = 0
+	return

@@ -36,7 +36,7 @@
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_eyes)), 5 SECONDS)
 	. = ..()
 
-/decl/material/liquid/glowsap/affect_overdose(var/mob/living/M)
+/decl/material/liquid/glowsap/affect_overdose(mob/living/M, total_dose)
 	. = ..()
 	M.add_chemical_effect(CE_TOXIN, 1)
 	M.set_hallucination(60, 20)
@@ -59,6 +59,12 @@
 	color = "#365e30"
 	overdose = REAGENTS_OVERDOSE
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+
+/decl/material/liquid/enzyme/rennet
+	name = "rennet"
+	uid = "chem_rennet"
+	lore_text = "A complex mix of enzymes extracted from a ruminant's stomach. Important to cheesemaking, and as a chemical precursor."
+	taste_description = "sweet bile"
 
 /decl/material/liquid/frostoil
 	name = "chilly oil"
@@ -100,7 +106,7 @@
 	var/slime_temp_adj = 10
 
 /decl/material/liquid/capsaicin/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	M.adjustToxLoss(0.5 * removed)
+	M.take_damage(0.5 * removed, TOX)
 
 /decl/material/liquid/capsaicin/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	holder.remove_reagent(/decl/material/liquid/frostoil, 5)
@@ -185,11 +191,13 @@
 			to_chat(M, "<span class='warning'>Your [partial_face_protection] partially protects you from the pepperspray!</span>")
 			stun_probability *= 0.5
 		to_chat(M, "<span class='danger'>Your face and throat burn!</span>")
-		if(HAS_STATUS(M, STAT_STUN)  && !M.lying)
+		if(HAS_STATUS(M, STAT_STUN)  && !M.current_posture.prone)
 			SET_STATUS_MAX(M, STAT_WEAK, 4)
 		if(prob(stun_probability))
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
 			SET_STATUS_MAX(M, STAT_STUN, 3)
+
+	return TRUE
 
 /decl/material/liquid/capsaicin/condensed/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	holder.remove_reagent(/decl/material/liquid/frostoil, 5)
@@ -223,6 +231,7 @@
 /decl/material/liquid/mutagenics/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(prob(33))
 		affect_blood(M, removed, holder)
+	return TRUE
 
 /decl/material/liquid/mutagenics/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(prob(67))
@@ -289,9 +298,9 @@
 	if(!H.should_have_organ(BP_HEART)) //We want the var for safety but we can do without the actual blood.
 		return
 	if(H.regenerate_blood(4 * removed))
-		H.immunity = max(H.immunity - 0.1, 0)
+		H.adjust_immunity(-0.1)
 		if(LAZYACCESS(H.chem_doses, type) > H.species.blood_volume/8) //half of blood was replaced with us, rip white bodies
-			H.immunity = max(H.immunity - 0.5, 0)
+			H.adjust_immunity(-0.5)
 
 /decl/material/solid/tobacco
 	name = "tobacco"
@@ -445,6 +454,6 @@
 			break
 	else
 		to_chat(M, SPAN_DANGER("Your flesh is being lacerated from within!"))
-		M.adjustBruteLoss(rand(3,6))
+		M.take_damage(rand(3,6))
 		if(prob(10))
 			new /obj/item/shard(get_turf(M), result_mat)

@@ -22,6 +22,7 @@
 	glass_name = "water"
 	glass_desc = "The father of all refreshments."
 	slipperiness = 8
+	slippery_amount = 5
 	dirtiness = DIRTINESS_CLEAN
 	turf_touch_threshold = 0.1
 	chilling_point = T0C
@@ -45,8 +46,8 @@
 				var/decl/special_role/godcult = GET_DECL(/decl/special_role/godcultist)
 				if(M.mind && godcult.is_antagonist(M.mind))
 					if(REAGENT_VOLUME(holder, type) > 5)
-						M.adjustHalLoss(5, do_update_health = FALSE)
-						M.adjustBruteLoss(1)
+						M.take_damage(5, PAIN, do_update_health = FALSE)
+						M.take_damage(1)
 						if(prob(10)) //Only annoy them a /bit/
 							to_chat(M,"<span class='danger'>You feel your insides curdle and burn!</span> \[<a href='?src=\ref[holder];deconvert=\ref[M]'>Give Into Purity</a>\]")
 

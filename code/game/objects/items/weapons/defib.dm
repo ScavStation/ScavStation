@@ -1,6 +1,3 @@
-#define DEFIB_TIME_LIMIT (8 MINUTES) //past this many seconds, defib is useless. Currently 8 Minutes
-#define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs. Currently 2 minutes
-
 //backpack item
 /obj/item/defibrillator
 	name = "auto-resuscitator"
@@ -281,21 +278,17 @@
 /obj/item/shockpaddles/proc/checked_use(var/charge_amt)
 	return 0
 
-/obj/item/shockpaddles/attack(mob/living/M, mob/living/user, var/target_zone)
-	var/mob/living/carbon/human/H = M
-	if(!istype(H) || user.a_intent == I_HURT)
+/obj/item/shockpaddles/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	if(!ishuman(target) || user.a_intent == I_HURT)
 		return ..() //Do a regular attack. Harm intent shocking happens as a hit effect
-
+	var/mob/living/carbon/human/H = target
 	if(can_use(user, H))
 		busy = 1
 		update_icon()
-
 		do_revive(H, user)
-
 		busy = 0
 		update_icon()
-
-	return 1
+	return TRUE
 
 //Since harm-intent now skips the delay for deliberate placement, you have to be able to hit them in combat in order to shock people.
 /obj/item/shockpaddles/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
@@ -429,31 +422,6 @@
 		doki.pulse = PULSE_NONE
 
 	admin_attack_log(user, H, "Electrocuted using \a [src]", "Was electrocuted with \a [src]", "used \a [src] to electrocute")
-
-/obj/item/shockpaddles/proc/make_alive(mob/living/carbon/human/M) //This revives the mob
-	var/deadtime = world.time - M.timeofdeath
-
-	M.switch_from_dead_to_living_mob_list()
-	M.timeofdeath = 0
-	M.set_stat(UNCONSCIOUS)
-	M.try_refresh_visible_overlays()
-	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
-	M.reload_fullscreen()
-
-	M.emote(/decl/emote/audible/gasp)
-	SET_STATUS_MAX(M, STAT_WEAK, rand(10,25))
-	apply_brain_damage(M, deadtime)
-
-/obj/item/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
-	if(deadtime < DEFIB_TIME_LOSS) return
-
-	if(!H.should_have_organ(BP_BRAIN)) return //no brain
-
-	var/obj/item/organ/internal/brain = GET_INTERNAL_ORGAN(H, BP_BRAIN)
-	if(!brain) return //no brain
-
-	var/brain_damage = clamp((deadtime - DEFIB_TIME_LOSS)/(DEFIB_TIME_LIMIT - DEFIB_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)
-	H.setBrainLoss(brain_damage)
 
 /obj/item/shockpaddles/proc/make_announcement(var/message, var/msg_class)
 	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
@@ -615,6 +583,3 @@
 	safety = 0
 	chargetime = (1 SECONDS)
 	burn_damage_amt = 15
-
-#undef DEFIB_TIME_LIMIT
-#undef DEFIB_TIME_LOSS

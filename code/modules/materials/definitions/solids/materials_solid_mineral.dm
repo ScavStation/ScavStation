@@ -41,6 +41,7 @@
 	sparse_material_weight = 35
 	rich_material_weight = 20
 	dirtiness = 15
+	burn_temperature = 1350 CELSIUS
 
 	flags = MAT_FLAG_FISSIBLE
 	neutron_cross_section = 30
@@ -222,11 +223,15 @@
 	ore_type_value = ORE_SURFACE
 	ore_data_value = 1
 	value = 0.8
+	hardness = MAT_VALUE_MALLEABLE
+	integrity = 10
 	dirtiness = 15
 	dissolves_into = list(
 		/decl/material/solid/silicon = 1
 	)
-	default_solid_form = /obj/item/stack/material/lump
+	dug_drop_type = /obj/item/stack/material/ore/handful
+	default_solid_form = /obj/item/stack/material/ore/handful
+	can_backfill_turf_type = /turf/floor/natural/sand
 
 /decl/material/solid/clay
 	name = "clay"
@@ -235,23 +240,38 @@
 	color = "#807f7a"
 	ore_name = "clay"
 	ore_compresses_to = null
-	ore_icon_overlay = "lump"
+	ore_icon_overlay = "lump_large"
+	ore_type_value = ORE_SURFACE
+	ore_data_value = 1
 	value = 0.8
-	default_solid_form = /obj/item/stack/material/lump
+	hardness = MAT_VALUE_MALLEABLE
+	integrity = 10
+	dirtiness = 10
+	dug_drop_type = /obj/item/stack/material/lump/large
+	default_solid_form = /obj/item/stack/material/lump/large
 	bakes_into_material = /decl/material/solid/stone/pottery
 	melting_point = null // Clay is already almost a liquid...
-	bakes_into_at_temperature = 1100 CELSIUS // roughly the temperature expected from a kiln
+	// lower than the temperature expected from a kiln so that clay can be used to make bricks to make a high-temperature kiln.
+	bakes_into_at_temperature = 950 CELSIUS
+	can_backfill_turf_type = /turf/floor/natural/clay
 
 /decl/material/solid/soil
 	name = "soil"
 	codex_name = "soil"
 	uid = "solid_soil"
-	color = COLOR_BEASTY_BROWN
+	color = "#41311b"
 	value = 0
-	default_solid_form = /obj/item/stack/material/lump
+	default_solid_form = /obj/item/stack/material/lump/large
 	melting_point = null
-	hardness = 0
-	integrity = 0
+	hardness = MAT_VALUE_MALLEABLE
+	integrity = 10
+	dirtiness = 30
+	dug_drop_type = /obj/item/stack/material/lump/large
+	tillable = TRUE
+	can_backfill_turf_type = list(
+		/turf/floor/natural/mud,
+		/turf/floor/natural/dirt
+	)
 
 /decl/material/solid/hematite
 	name = "hematite"
@@ -382,6 +402,7 @@
 		/decl/material/solid/gemstone/diamond = 0.02,
 		/decl/material/solid/carbon = 0.98
 	)
+	burn_temperature = 1750 CELSIUS
 	heating_point = GENERIC_SMELTING_HEAT_POINT
 	heating_sound = null
 	heating_message = null

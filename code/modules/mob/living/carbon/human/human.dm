@@ -1,7 +1,6 @@
 /mob/living/carbon/human
 	name = "unknown"
 	real_name = "unknown"
-	voice_name = "unknown"
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 	mob_sort_value = 6
@@ -58,7 +57,7 @@
 	. = ..()
 	if(statpanel("Status"))
 
-		var/obj/item/gps/G = get_active_hand()
+		var/obj/item/gps/G = get_active_held_item()
 		if(istype(G))
 			stat("Coordinates:", "[G.get_coordinates()]")
 
@@ -468,19 +467,24 @@
 	organ.take_external_damage(rand(1,3) + O.w_class, DAM_EDGE, 0)
 
 /mob/living/carbon/human/proc/set_bodytype(var/decl/bodytype/new_bodytype)
+	var/decl/bodytype/old_bodytype = get_bodytype()
 	if(ispath(new_bodytype))
 		new_bodytype = GET_DECL(new_bodytype)
 	// No check to see if it's the same as our current one, because we don't have a 'mob bodytype' anymore
 	// just the torso. It's assumed if we call this we want a full regen.
-	if(istype(new_bodytype))
-		mob_size = new_bodytype.mob_size
-		new_bodytype.create_missing_organs(src, TRUE) // actually rebuild the body
-		apply_bodytype_appearance()
-		force_update_limbs()
-		update_hair()
-		update_eyes()
-		return TRUE
-	return FALSE
+	if(!istype(new_bodytype))
+		return FALSE
+
+	mob_size = new_bodytype.mob_size
+	new_bodytype.create_missing_organs(src, TRUE) // actually rebuild the body
+	if(istype(old_bodytype))
+		old_bodytype.remove_abilities(src)
+	new_bodytype.grant_abilities(src)
+	apply_bodytype_appearance()
+	force_update_limbs()
+	update_hair()
+	update_eyes()
+	return TRUE
 
 //set_species should not handle the entirety of initing the mob, and should not trigger deep updates
 //It focuses on setting up species-related data, without force applying them uppon organs and the mob's appearance.
@@ -524,12 +528,7 @@
 
 	available_maneuvers = species.maneuvers.Copy()
 
-	meat_type =     species.meat_type
-	meat_amount =   species.meat_amount
-	skin_material = species.skin_material
-	skin_amount =   species.skin_amount
-	bone_material = species.bone_material
-	bone_amount =   species.bone_amount
+	butchery_data = species.butchery_data
 
 	full_prosthetic = null //code dum thinks ur robot always
 	default_walk_intent = null
@@ -574,16 +573,17 @@
 
 	var/list/new_slots
 	var/list/held_slots = get_held_item_slots()
-	for(var/slot_id in species.hud.inventory_slots)
-		var/datum/inventory_slot/old_slot = get_inventory_slot_datum(slot_id)
-		if(slot_id in held_slots)
-			LAZYSET(new_slots, slot_id, old_slot)
-			continue
-		var/datum/inventory_slot/new_slot = species.hud.inventory_slots[slot_id]
-		if(!old_slot || !old_slot.equivalent_to(new_slot))
-			LAZYSET(new_slots, slot_id, new_slot.Clone())
-		else
-			LAZYSET(new_slots, slot_id, old_slot)
+	if(istype(species.species_hud))
+		for(var/slot_id in species.species_hud.inventory_slots)
+			var/datum/inventory_slot/old_slot = get_inventory_slot_datum(slot_id)
+			if(slot_id in held_slots)
+				LAZYSET(new_slots, slot_id, old_slot)
+				continue
+			var/datum/inventory_slot/new_slot = species.species_hud.inventory_slots[slot_id]
+			if(!old_slot || !old_slot.equivalent_to(new_slot))
+				LAZYSET(new_slots, slot_id, new_slot.Clone())
+			else
+				LAZYSET(new_slots, slot_id, old_slot)
 	set_inventory_slots(new_slots)
 
 	//recheck species-restricted clothing
@@ -828,63 +828,6 @@
 /mob/living/carbon/human/is_invisible_to(var/mob/viewer)
 	return (is_cloaked() || ..())
 
-/mob/living/carbon/human/help_shake_act(mob/living/carbon/M)
-	if(src != M)
-		..()
-	else
-		var/decl/pronouns/G = get_pronouns()
-		visible_message( \
-			SPAN_NOTICE("[src] examines [G.self]."), \
-			SPAN_NOTICE("You check yourself for injuries.") \
-			)
-
-		for(var/obj/item/organ/external/org in get_external_organs())
-			var/list/status = list()
-
-			var/feels = 1 + round(org.pain/100, 0.1)
-			var/feels_brute = (org.brute_dam * feels)
-			if(feels_brute > 0)
-				switch(feels_brute / org.max_damage)
-					if(0 to 0.35)
-						status += "slightly sore"
-					if(0.35 to 0.65)
-						status += "very sore"
-					if(0.65 to INFINITY)
-						status += "throbbing with agony"
-
-			var/feels_burn = (org.burn_dam * feels)
-			if(feels_burn > 0)
-				switch(feels_burn / org.max_damage)
-					if(0 to 0.35)
-						status += "tingling"
-					if(0.35 to 0.65)
-						status += "stinging"
-					if(0.65 to INFINITY)
-						status += "burning fiercely"
-
-			if(org.status & ORGAN_MUTATED)
-				status += "misshapen"
-			if(org.status & ORGAN_BLEEDING)
-				status += "<b>bleeding</b>"
-			if(org.is_dislocated())
-				status += "dislocated"
-			if(org.status & ORGAN_BROKEN)
-				status += "hurts when touched"
-
-			if(org.status & ORGAN_DEAD)
-				if(BP_IS_PROSTHETIC(org) || BP_IS_CRYSTAL(org))
-					status += "is irrecoverably damaged"
-				else
-					status += "is grey and necrotic"
-			else if(org.damage >= org.max_damage && org.germ_level >= INFECTION_LEVEL_TWO)
-				status += "is likely beyond saving, and has begun to decay"
-			if(!org.is_usable() || org.is_dislocated())
-				status += "dangling uselessly"
-			if(status.len)
-				src.show_message("My [org.name] is <span class='warning'>[english_list(status)].</span>",1)
-			else
-				src.show_message("My [org.name] is <span class='notice'>OK.</span>",1)
-
 /mob/living/carbon/human/proc/resuscitate()
 	if(!is_asystole() || !should_have_organ(BP_HEART))
 		return
@@ -904,8 +847,8 @@
 
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		var/oxyloss_threshold = round(species.total_health * 0.35)
-		if(getOxyLoss() >= oxyloss_threshold)
-			setOxyLoss(oxyloss_threshold)
+		if(get_damage(OXY) >= oxyloss_threshold)
+			set_damage(OXY, oxyloss_threshold)
 		heart.pulse = PULSE_NORM
 		heart.handle_pulse()
 		return TRUE
@@ -924,7 +867,7 @@
 
 //Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
 /mob/living/carbon/human/nervous_system_failure()
-	return getBrainLoss() >= get_max_health() * 0.75
+	return get_damage(BRAIN) >= get_max_health() * 0.75
 
 /mob/living/carbon/human/melee_accuracy_mods()
 	. = ..()
@@ -965,19 +908,14 @@
 		if(!defer_language_update)
 			update_languages()
 
-/mob/living/carbon/human/proc/get_cultural_value(var/token)
+/mob/living/proc/get_cultural_value(var/token)
+	return null
+
+/mob/living/carbon/human/get_cultural_value(var/token)
 	. = LAZYACCESS(cultural_info, token)
 	if(!istype(., /decl/cultural_info))
 		. = global.using_map.default_cultural_info[token]
 		PRINT_STACK_TRACE("get_cultural_value() tried to return a non-instance value for token '[token]' - full culture list: [json_encode(cultural_info)] default species culture list: [json_encode(global.using_map.default_cultural_info)]")
-
-/mob/living/carbon/human/needs_wheelchair()
-	var/stance_damage = 0
-	for(var/limb_tag in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
-		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, limb_tag)
-		if(!E || !E.is_usable())
-			stance_damage += 2
-	return stance_damage >= 4
 
 /mob/living/carbon/human/get_digestion_product()
 	return species.get_digestion_product(src)
@@ -1037,11 +975,6 @@
 /mob/living/carbon/human/can_change_intent()
 	return TRUE
 
-/mob/living/carbon/human/get_telecomms_race_info()
-	if(isMonkey())
-		return list("Monkey", FALSE)
-	return list("Sapient Race", TRUE)
-
 /mob/living/carbon/human/breathing_hole_covered()
 	. = ..()
 	if(!.)
@@ -1051,27 +984,6 @@
 
 /mob/living/carbon/human/set_internals_to_best_available_tank(var/breathes_gas = /decl/material/gas/oxygen, var/list/poison_gas = list(/decl/material/gas/chlorine))
 	. = ..(species.breath_type, species.poison_types)
-
-//Set and force the mob to update according to the given DNA
-// Will reset the entire mob's state, regrow limbs/organ etc
-/mob/living/carbon/human/proc/apply_dna(var/datum/dna/new_dna)
-	if(!new_dna)
-		CRASH("mob/living/carbon/human/proc/apply_dna() : Got null dna")
-	src.dna = new_dna
-
-	//Set species and real name data
-	set_real_name(new_dna.real_name)
-	set_species(new_dna.species)
-	//Revive actually regen organs, reset their appearance and makes sure if the player is kicked out they get reinserted in
-	revive()
-
-	species.handle_pre_spawn(src)
-	apply_species_appearance()
-	apply_species_cultural_info()
-	apply_species_inventory_restrictions()
-	species.handle_post_spawn(src)
-
-	try_refresh_visible_overlays()
 
 //Sets the mob's real name and update all the proper fields
 /mob/living/carbon/human/proc/set_real_name(var/newname)
@@ -1172,93 +1084,13 @@
 		return SScharacter_info.get_record(comments_record_id, TRUE)
 	return ..()
 
-/mob/living/carbon/human/get_default_emotes()
-	var/static/list/default_emotes = list(
-		/decl/emote/visible/blink,
-		/decl/emote/audible/synth,
-		/decl/emote/audible/synth/ping,
-		/decl/emote/audible/synth/buzz,
-		/decl/emote/audible/synth/confirm,
-		/decl/emote/audible/synth/deny,
-		/decl/emote/visible/nod,
-		/decl/emote/visible/shake,
-		/decl/emote/visible/shiver,
-		/decl/emote/visible/collapse,
-		/decl/emote/audible/gasp,
-		/decl/emote/audible/sneeze,
-		/decl/emote/audible/sniff,
-		/decl/emote/audible/snore,
-		/decl/emote/audible/whimper,
-		/decl/emote/audible/yawn,
-		/decl/emote/audible/clap,
-		/decl/emote/audible/chuckle,
-		/decl/emote/audible/cough,
-		/decl/emote/audible/cry,
-		/decl/emote/audible/sigh,
-		/decl/emote/audible/laugh,
-		/decl/emote/audible/mumble,
-		/decl/emote/audible/grumble,
-		/decl/emote/audible/groan,
-		/decl/emote/audible/moan,
-		/decl/emote/audible/grunt,
-		/decl/emote/audible/slap,
-		/decl/emote/audible/deathgasp,
-		/decl/emote/audible/giggle,
-		/decl/emote/audible/scream,
-		/decl/emote/visible/airguitar,
-		/decl/emote/visible/blink_r,
-		/decl/emote/visible/bow,
-		/decl/emote/visible/salute,
-		/decl/emote/visible/flap,
-		/decl/emote/visible/aflap,
-		/decl/emote/visible/drool,
-		/decl/emote/visible/eyebrow,
-		/decl/emote/visible/twitch,
-		/decl/emote/visible/dance,
-		/decl/emote/visible/twitch_v,
-		/decl/emote/visible/faint,
-		/decl/emote/visible/frown,
-		/decl/emote/visible/blush,
-		/decl/emote/visible/wave,
-		/decl/emote/visible/glare,
-		/decl/emote/visible/stare,
-		/decl/emote/visible/look,
-		/decl/emote/visible/point,
-		/decl/emote/visible/raise,
-		/decl/emote/visible/grin,
-		/decl/emote/visible/shrug,
-		/decl/emote/visible/smile,
-		/decl/emote/visible/pale,
-		/decl/emote/visible/tremble,
-		/decl/emote/visible/wink,
-		/decl/emote/visible/hug,
-		/decl/emote/visible/dap,
-		/decl/emote/visible/signal,
-		/decl/emote/visible/handshake,
-		/decl/emote/visible/afold,
-		/decl/emote/visible/alook,
-		/decl/emote/visible/eroll,
-		/decl/emote/visible/hbow,
-		/decl/emote/visible/hip,
-		/decl/emote/visible/holdup,
-		/decl/emote/visible/hshrug,
-		/decl/emote/visible/crub,
-		/decl/emote/visible/erub,
-		/decl/emote/visible/fslap,
-		/decl/emote/visible/ftap,
-		/decl/emote/visible/hrub,
-		/decl/emote/visible/hspread,
-		/decl/emote/visible/pocket,
-		/decl/emote/visible/rsalute,
-		/decl/emote/visible/rshoulder,
-		/decl/emote/visible/squint,
-		/decl/emote/visible/tfist,
-		/decl/emote/visible/tilt,
-		/decl/emote/visible/spin,
-		/decl/emote/visible/sidestep,
-		/decl/emote/visible/vomit
-	)
-	return default_emotes
+/mob/living/carbon/human/proc/get_age()
+	. = LAZYACCESS(appearance_descriptors, "age") || 30
+
+/mob/living/carbon/human/proc/set_age(var/val)
+	var/decl/bodytype/bodytype = get_bodytype()
+	var/datum/appearance_descriptor/age = LAZYACCESS(bodytype.appearance_descriptors, "age")
+	LAZYSET(appearance_descriptors, "age", (age ? age.sanitize_value(val) : 30))
 
 /mob/living/carbon/human/HandleBloodTrail(turf/T, old_loc)
 	// Tracking blood
@@ -1294,3 +1126,57 @@
 			var/turf/old_turf = old_loc
 			old_turf.AddTracks(species.get_move_trail(src), bloodDNA, 0, dir, bloodcolor) // Going
 
+/mob/living/carbon/human/proc/has_footsteps()
+	if(species.silent_steps || buckled || current_posture.prone || throwing)
+		return //people flying, lying down or sitting do not step
+
+	var/obj/item/shoes = get_equipped_item(slot_shoes_str)
+	if(shoes && (shoes.item_flags & ITEM_FLAG_SILENT))
+		return // quiet shoes
+
+	if(!has_organ(BP_L_FOOT) && !has_organ(BP_R_FOOT))
+		return //no feet no footsteps
+
+	return TRUE
+
+/mob/living/carbon/human/handle_footsteps()
+	step_count++
+	if(!has_footsteps())
+		return
+
+	 //every other turf makes a sound
+	if((step_count % 2) && !MOVING_DELIBERATELY(src))
+		return
+
+	// don't need to step as often when you hop around
+	if((step_count % 3) && !has_gravity())
+		return
+
+	var/turf/T = get_turf(src)
+	if(!T)
+		return
+
+	var/footsound = T.get_footstep_sound(src)
+	if(!footsound)
+		return
+
+	var/range = world.view - 2
+	var/volume = 70
+	if(MOVING_DELIBERATELY(src))
+		volume -= 45
+		range -= 0.333
+	var/obj/item/clothing/shoes/shoes = get_equipped_item(slot_shoes_str)
+	if(istype(shoes))
+		volume *= shoes.footstep_volume_mod
+		range  *= shoes.footstep_range_mod
+	else if(!shoes)
+		volume -= 60
+		range -= 0.333
+
+	range  = round(range)
+	volume = round(volume)
+	if(volume > 0 && range > 0)
+		playsound(T, footsound, volume, 1, range)
+
+/mob/living/carbon/human/try_awaken(mob/user)
+	return !is_asystole() && ..()

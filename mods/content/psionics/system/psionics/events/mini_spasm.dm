@@ -31,9 +31,9 @@
 		do_spasm(victim, source)
 
 /datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/radio/source)
-	set waitfor = 0
+	set waitfor = FALSE
 
-	if(iscarbon(victim) && !victim.isSynthetic())
+	if(isliving(victim) && !victim.isSynthetic())
 		var/list/disabilities = list(NEARSIGHTED, EPILEPSY, TOURETTES, NERVOUS)
 		for(var/disability in disabilities)
 			if(victim.disabilities & disability)
@@ -54,7 +54,7 @@
 		var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 		for(var/i = 1 to new_latencies)
 			to_chat(victim, SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"))
-			victim.adjustBrainLoss(rand(10,20))
+			victim.take_damage(rand(10,20), BRAIN)
 			victim.set_psi_rank(pick_n_take(faculties), 1)
 			sleep(30)
 		psi = victim.get_ability_handler(/datum/ability_handler/psionics)

@@ -19,11 +19,21 @@
 	randpixel                  = 6
 	is_spawnable_type          = TRUE
 	crafting_stack_type        = /obj/item/stack/material/ore
+	craft_verb                 = "knap"
+	craft_verbing              = "knapping"
+	can_be_pulverized          = TRUE
+	matter_multiplier          = 1.5
 
 	///Associative list of cache key to the generate icons for the ore piles. We pre-generate a pile of all possible ore icon states, and make them available
 	var/static/list/cached_ore_icon_states
 	///A list of all the existing ore icon states in the ore file
 	var/static/list/ore_icon_states = icon_states('icons/obj/materials/ore.dmi')
+
+/obj/item/stack/material/ore/get_stack_conversion_dictionary()
+	var/static/list/converts_into = list(
+		TOOL_HAMMER = /obj/item/stack/material/brick
+	)
+	return converts_into
 
 ///Returns a cached ore pile icon state
 /obj/item/stack/material/ore/proc/get_cached_ore_pile_overlay(var/state_name, var/stack_icon_index)
@@ -80,7 +90,6 @@
 	. = ..()
 	if(istype(material))
 		LAZYSET(matter, material.type, SHEET_MATERIAL_AMOUNT)
-		set_color(material.color)
 		icon_state = material.ore_icon_overlay ? material.ore_icon_overlay : initial(icon_state)
 		if(icon_state == "dust")
 			slot_flags = SLOT_HOLSTER
@@ -94,7 +103,6 @@
 /obj/item/stack/material/ore/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/stack/material) && !is_same(W))
 		return FALSE //Don't reinforce
-
 	if(reinf_material && reinf_material.default_solid_form && IS_WELDER(W))
 		return FALSE //Don't melt stuff with welder
 	return ..()
@@ -117,10 +125,6 @@
 	material = /decl/material/solid/hematite
 /obj/item/stack/material/ore/coal
 	material = /decl/material/solid/graphite
-/obj/item/stack/material/ore/sand
-	material = /decl/material/solid/sand
-/obj/item/stack/material/ore/clay
-	material = /decl/material/solid/clay
 /obj/item/stack/material/ore/silver
 	material = /decl/material/solid/metal/silver
 /obj/item/stack/material/ore/gold
@@ -160,6 +164,23 @@
 /obj/item/stack/material/ore/meat
 	material = /decl/material/solid/organic/meat
 
+/obj/item/stack/material/ore/handful
+	singular_name         = "handful"
+	plural_name           = "handfuls"
+	stack_merge_type      = /obj/item/stack/material/ore/handful
+	matter_multiplier     = 1
+	can_be_pulverized     = FALSE
+
+// Override as it doesn't make much sense to squash sand.
+/obj/item/stack/material/ore/handful/squash_item(skip_qdel = FALSE)
+	return
+
+/obj/item/stack/material/ore/handful/get_stack_conversion_dictionary()
+	return
+
+/obj/item/stack/material/ore/handful/sand
+	material      = /decl/material/solid/sand
+
 /client/proc/spawn_ore_pile()
 	set name = "Spawn Ore Pile"
 	set category = "Debug"
@@ -176,7 +197,8 @@
 	for(var/mtype in all_materials)
 		var/decl/material/mat = all_materials[mtype]
 		if(mat.ore_result_amount)
-			new /obj/item/stack/material/ore(T, mat.ore_result_amount, mtype)
+			var/drop_type = mat.ore_type || /obj/item/stack/material/ore
+			new drop_type(T, mat.ore_result_amount, mtype)
 
 #undef ORE_MAX_AMOUNT
 #undef ORE_MAX_OVERLAYS

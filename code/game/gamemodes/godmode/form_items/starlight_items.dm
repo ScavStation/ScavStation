@@ -1,44 +1,44 @@
-/obj/item/clothing/ring/aura_ring
+/obj/item/clothing/gloves/ring/aura_ring
 	var/obj/aura/granted_aura
 
-/obj/item/clothing/ring/aura_ring/equipped(var/mob/living/L, var/slot)
+/obj/item/clothing/gloves/ring/aura_ring/equipped(var/mob/living/L, var/slot)
 	..()
 	if(granted_aura && slot == slot_gloves_str)
 		L.add_aura(granted_aura)
 
-/obj/item/clothing/ring/aura_ring/dropped(var/mob/living/L)
+/obj/item/clothing/gloves/ring/aura_ring/dropped(var/mob/living/L)
 	..()
 	if(granted_aura)
 		L.remove_aura(granted_aura)
 
-/obj/item/clothing/ring/aura_ring/Destroy()
+/obj/item/clothing/gloves/ring/aura_ring/Destroy()
 	QDEL_NULL(granted_aura)
 	. = ..()
 
-/obj/item/clothing/ring/aura_ring/talisman_of_starborn
+/obj/item/clothing/gloves/ring/aura_ring/talisman_of_starborn
 	name = "Talisman of the Starborn"
 	desc = "This ring seems to shine with more light than is put on it."
-	icon = 'icons/clothing/rings/ring_star.dmi'
+	icon = 'icons/clothing/accessories/jewelry/rings/ring_star.dmi'
 
-/obj/item/clothing/ring/aura_ring/talisman_of_starborn/Initialize()
+/obj/item/clothing/gloves/ring/aura_ring/talisman_of_starborn/Initialize()
 	. = ..()
 	granted_aura = new /obj/aura/starborn()
 
-/obj/item/clothing/ring/aura_ring/talisman_of_blueforged
+/obj/item/clothing/gloves/ring/aura_ring/talisman_of_blueforged
 	name = "Talisman of the Blueforged"
 	desc = "The gem on this ring is quite peculiar..."
-	icon = 'icons/clothing/rings/ring_blue.dmi'
+	icon = 'icons/clothing/accessories/jewelry/rings/ring_blue.dmi'
 
-/obj/item/clothing/ring/aura_ring/talisman_of_blueforged/Initialize()
+/obj/item/clothing/gloves/ring/aura_ring/talisman_of_blueforged/Initialize()
 	. = ..()
 	granted_aura = new /obj/aura/blueforge_aura()
 
-/obj/item/clothing/ring/aura_ring/talisman_of_shadowling
+/obj/item/clothing/gloves/ring/aura_ring/talisman_of_shadowling
 	name = "Talisman of the Shadowling"
 	desc = "If you weren't looking at this, you probably wouldn't have noticed it."
-	icon = 'icons/clothing/rings/ring_shadow.dmi'
+	icon = 'icons/clothing/accessories/jewelry/rings/ring_shadow.dmi'
 
-/obj/item/clothing/ring/aura_ring/talisman_of_shadowling/Initialize()
+/obj/item/clothing/gloves/ring/aura_ring/talisman_of_shadowling/Initialize()
 	. = ..()
 	granted_aura = new /obj/aura/shadowling_aura()
 
@@ -100,7 +100,7 @@
 /obj/item/knife/ritual/shadow/apply_hit_effect(var/mob/living/target, var/mob/living/user, var/hit_zone)
 	. = ..()
 	if(charge)
-		if(target.getBruteLoss() > 15)
+		if(target.get_damage(BRUTE) > 15)
 			var/datum/reagents/R = target.reagents
 			if(!R)
 				return
@@ -108,7 +108,7 @@
 			new /obj/effect/temporary(get_turf(target),3, 'icons/effects/effects.dmi', "fire_goon")
 			charge--
 	else
-		user.adjustFireLoss(5)
+		user.take_damage(5, BURN)
 		if(prob(5))
 			to_chat(user, "<span class='warning'>\The [src] appears to be out of power!</span>")
 		new /obj/effect/temporary(get_turf(user),3, 'icons/effects/effects.dmi', "fire_goon")
@@ -126,7 +126,7 @@
 /obj/item/sword/blazing
 	name = "blazing blade"
 	icon = 'icons/obj/items/weapon/swords/flaming.dmi'
-	damtype = BURN
+	atom_damage_type =  BURN
 	material_alteration = MAT_FLAG_ALTERATION_NONE
 	var/last_near_structure = 0
 	var/mob/living/deity/linked

@@ -210,14 +210,14 @@
 	if(is_bruised() && prob(1) && !HAS_STATUS(owner, STAT_BLURRY))
 		to_chat(owner, "<span class='warning'>It becomes hard to see for some reason.</span>")
 		owner.set_status(STAT_BLURRY, 10)
-	var/held = owner.get_active_hand()
+	var/held = owner.get_active_held_item()
 	if(damage >= 0.5*max_damage && prob(1) && held)
 		to_chat(owner, "<span class='danger'>Your hand won't respond properly, and you drop what you are holding!</span>")
 		owner.try_unequip(held)
 	if(damage >= 0.6*max_damage)
 		SET_STATUS_MAX(owner, STAT_SLUR, 2)
 	if(is_broken())
-		if(!owner.lying)
+		if(!owner.current_posture.prone)
 			to_chat(owner, "<span class='danger'>You black out!</span>")
 		SET_STATUS_MAX(owner, STAT_PARA, 10)
 
@@ -227,9 +227,6 @@
 		to_chat(user, SPAN_DANGER("Parts of \the [src] didn't survive the procedure due to lack of air supply!"))
 		set_max_damage(FLOOR(max_damage - 0.25*damage))
 	heal_damage(damage)
-
-/obj/item/organ/internal/brain/get_mechanical_assisted_descriptor()
-	return "machine-interface [name]"
 
 /obj/item/organ/internal/brain/die()
 	if(istype(_brainmob) && _brainmob.stat != DEAD)
