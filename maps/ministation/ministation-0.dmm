@@ -11006,6 +11006,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
+"Mt" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "Mw" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
@@ -43433,7 +43442,7 @@ au
 au
 dH
 nf
-rC
+Mt
 fo
 fP
 rC

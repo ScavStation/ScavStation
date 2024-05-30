@@ -318,12 +318,6 @@
 	icon_state = "light_blue"
 	secure = FALSE
 
-/area/ministation/enclave/reception
-	name = "\improper Enclave Reception"
-	req_access = list()
-	icon_state = "white"
-	secure = FALSE
-
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
 	icon_state = "white"
