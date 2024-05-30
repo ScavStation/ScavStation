@@ -1500,6 +1500,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
+"fQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "fS" = (
 /obj/structure/sign/warning/nosmoking_2,
 /turf/simulated/wall/r_wall,
@@ -2221,6 +2228,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/science)
+"jj" = (
+/obj/structure/lattice,
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "jm" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "sensor"
@@ -2977,6 +2988,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"lR" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/structure/cable{
+	icon_state = "32-8"
+	},
+/turf/open,
+/area/ministation/enclave/gatehouse)
 "mf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -3597,6 +3626,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"ph" = (
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "pi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -4172,6 +4204,15 @@
 	},
 /turf/simulated/wall,
 /area/ministation/hall/n3)
+"tM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "tQ" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -4287,6 +4328,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"uE" = (
+/obj/item/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/obj/structure/table/bench/padded,
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "uG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -4776,6 +4825,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"xM" = (
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
 "xN" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7679,6 +7733,9 @@
 	},
 /turf/open,
 /area/ministation/hall/n3)
+"OH" = (
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "OK" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -8150,6 +8207,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/library)
+"Rg" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/ministation/enclave/gatehouse)
 "Ri" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9219,6 +9281,16 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"Ww" = (
+/obj/structure/table/bench/padded,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "Wx" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -9307,6 +9379,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"WY" = (
+/obj/structure/cable{
+	icon_state = "0-4";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "Xa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -32619,12 +32698,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+QF
+QF
+QF
+QF
+QF
+QF
 aa
 aa
 aa
@@ -32876,12 +32955,12 @@ aa
 aa
 aa
 aa
-aa
-af
-aa
+QF
 aa
 aa
 aa
+aa
+QF
 aa
 aa
 aa
@@ -33133,12 +33212,12 @@ aa
 aa
 aa
 aa
-aa
+QF
+ad
 af
-af
-aa
-aa
-aa
+ad
+ad
+QF
 aa
 aa
 aa
@@ -33390,11 +33469,11 @@ af
 aa
 aa
 aa
-aa
+ad
 af
 af
 af
-aa
+ad
 aa
 aa
 aa
@@ -33644,13 +33723,13 @@ af
 af
 af
 af
+ad
 aa
 aa
-aa
+ad
 af
-af
-af
-aa
+ad
+ad
 aa
 aa
 aa
@@ -33901,13 +33980,13 @@ af
 af
 af
 af
-aa
-aa
-aa
-af
-af
-af
-aa
+ad
+ad
+ad
+ad
+ad
+ad
+xM
 aa
 aa
 aa
@@ -34158,15 +34237,15 @@ af
 af
 af
 af
-aa
+ad
 aa
 aa
 af
+ad
+ad
+ad
 aa
-aa
-aa
-aa
-aa
+QF
 aa
 aa
 aa
@@ -34414,16 +34493,16 @@ aa
 af
 af
 af
+xM
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+QF
+QF
+ad
 aa
 aa
 af
@@ -34671,7 +34750,7 @@ aa
 af
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -34928,7 +35007,7 @@ aa
 aa
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -35185,7 +35264,7 @@ aa
 aa
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -35442,7 +35521,7 @@ aa
 aa
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -35699,13 +35778,13 @@ aa
 aa
 aa
 aa
+ad
 aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -35956,13 +36035,13 @@ aa
 aa
 aa
 aa
+ad
+ad
 aa
 aa
-aa
-aa
-aa
+ad
 af
-aa
+ad
 aa
 aa
 aa
@@ -36214,15 +36293,15 @@ aa
 aa
 aa
 af
-aa
-aa
-aa
-af
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+ad
+jj
+ph
+Rg
+Rg
+ph
+ad
 aa
 aa
 aa
@@ -36474,14 +36553,14 @@ af
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Rg
+OH
+WY
+Ww
+Rg
+ad
+af
+ad
 aa
 aa
 aa
@@ -36731,11 +36810,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Rg
+OH
+OH
+tM
+Rg
 aa
 aa
 aa
@@ -36988,13 +37067,13 @@ aa
 aa
 aa
 aa
+Rg
+uE
+fQ
+lR
+Rg
 aa
 aa
-aa
-aa
-aa
-af
-af
 aa
 aa
 aa
@@ -37245,13 +37324,13 @@ aa
 aa
 aa
 aa
+ph
+ph
+ph
+ph
+ph
 aa
 aa
-aa
-aa
-aa
-af
-af
 aa
 aa
 aa
@@ -37504,8 +37583,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -37762,8 +37841,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ad
+xM
 aa
 aa
 aa
@@ -38020,8 +38099,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -38278,8 +38357,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -38536,8 +38615,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -38794,8 +38873,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -39052,8 +39131,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
