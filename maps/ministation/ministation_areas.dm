@@ -301,6 +301,24 @@
 	req_access = list(access_lawyer)
 	icon_state = "brown"
 
+/area/ministation/enclave/entrance
+	name = "\improper Enclave Entrance"
+	req_access = list()
+	icon_state = "white"
+	secure = FALSE
+
+/area/ministation/enclave/gatehouse
+	name = "\improper Enclave Gatehouse"
+	req_access = list()
+	icon_state = "light_blue"
+	secure = FALSE
+
+/area/ministation/enclave/reception
+	name = "\improper Enclave Reception"
+	req_access = list()
+	icon_state = "white"
+	secure = FALSE
+
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
 	icon_state = "white"
