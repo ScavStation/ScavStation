@@ -263,7 +263,6 @@
 /turf/simulated/floor/reinforced,
 /area/ministation/sciencetesting)
 "fD" = (
-/turf/open,
 /area/ministation/observation_deck)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -549,7 +548,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/sciencetesting)
 "pS" = (
-/turf/open,
 /area/ministation/science2nddeck)
 "qa" = (
 /obj/structure/lattice,
@@ -888,7 +886,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/open,
 /area/ministation/maint/l4overpass)
 "zR" = (
 /obj/structure/table,
@@ -977,7 +974,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/open,
 /area/ministation/maint/l4overpass)
 "CH" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1582,7 +1578,6 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
 	dir = 4
 	},
-/turf/open,
 /area/ministation/maint/l4central)
 "US" = (
 /obj/structure/table/reinforced,
@@ -1805,7 +1800,6 @@
 /obj/structure/cable{
 	icon_state = "32-8"
 	},
-/turf/open,
 /area/ministation/science2nddeck)
 "Zs" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -36103,7 +36097,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -36360,7 +36354,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -36617,7 +36611,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -36874,7 +36868,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -37131,7 +37125,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -37388,7 +37382,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 cw
 cw
 cw
@@ -38192,8 +38186,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -38449,8 +38443,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -38706,8 +38700,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -38963,8 +38957,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -39220,8 +39214,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -39477,8 +39471,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -39734,8 +39728,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -39991,8 +39985,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -40248,8 +40242,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -40505,8 +40499,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -40762,8 +40756,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
