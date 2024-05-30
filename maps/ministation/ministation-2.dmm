@@ -1792,9 +1792,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"hk" = (
-/turf/simulated/floor/tiled,
-/area/ministation/enclave/gatehouse)
 "hl" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8
@@ -2381,11 +2378,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo/f3)
-"jI" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "jL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2987,11 +2979,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"lO" = (
-/obj/machinery/door/firedoor,
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/ministation/enclave/gatehouse)
 "mf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -3060,16 +3047,6 @@
 /obj/machinery/camera/network/research,
 /turf/simulated/floor/tiled,
 /area/ministation/science)
-"mq" = (
-/obj/structure/table/bench/padded,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/enclave/gatehouse)
 "mr" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3602,14 +3579,6 @@
 /obj/machinery/computer/modular/preset/engineering,
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
-"oW" = (
-/obj/item/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/obj/structure/table/bench/padded,
-/turf/simulated/floor/tiled,
-/area/ministation/enclave/gatehouse)
 "pa" = (
 /obj/item/mollusc/barnacle{
 	pixel_x = -13;
@@ -3639,13 +3608,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/court)
-"pk" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/enclave/gatehouse)
 "pm" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/wallframe_spawn/reinforced,
@@ -4558,13 +4520,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"vI" = (
-/obj/structure/cable{
-	icon_state = "0-4";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/enclave/gatehouse)
 "vJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc{
@@ -5048,15 +5003,6 @@
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
-"zm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/enclave/gatehouse)
 "zq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5660,10 +5606,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
-"Cu" = (
-/obj/structure/lattice,
-/turf/simulated/wall,
-/area/ministation/enclave/gatehouse)
 "Cw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6156,24 +6098,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
-"Ej" = (
-/obj/structure/lattice,
-/obj/structure/ladder,
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	dir = 8
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/obj/structure/cable{
-	icon_state = "32-8"
-	},
-/turf/open,
-/area/ministation/enclave/gatehouse)
 "Er" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -9510,9 +9434,6 @@
 /obj/item/sign/plaque,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/hall/n3)
-"Xs" = (
-/turf/simulated/wall,
-/area/ministation/enclave/gatehouse)
 "Xt" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/table/bench/wooden,
@@ -32771,12 +32692,12 @@ aa
 aa
 aa
 aa
-QF
-QF
-QF
-QF
-QF
-QF
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33028,12 +32949,12 @@ aa
 aa
 aa
 aa
-QF
+aa
+af
 aa
 aa
 aa
 aa
-QF
 aa
 aa
 aa
@@ -33285,12 +33206,12 @@ aa
 aa
 aa
 aa
-QF
-ad
+aa
 af
-ad
-ad
-QF
+af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33542,11 +33463,11 @@ af
 aa
 aa
 aa
-ad
+aa
 af
 af
 af
-ad
+aa
 aa
 aa
 aa
@@ -33796,13 +33717,13 @@ af
 af
 af
 af
-ad
 aa
 aa
-ad
+aa
 af
-ad
-ad
+af
+af
+aa
 aa
 aa
 aa
@@ -34053,13 +33974,13 @@ af
 af
 af
 af
-ad
-ad
-ad
-ad
-ad
-ad
-jI
+aa
+aa
+aa
+af
+af
+af
+aa
 aa
 aa
 aa
@@ -34310,15 +34231,15 @@ af
 af
 af
 af
-ad
+aa
 aa
 aa
 af
-ad
-ad
-ad
 aa
-QF
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34566,16 +34487,16 @@ aa
 af
 af
 af
-jI
 aa
 aa
 aa
 aa
-ad
-ad
-QF
-QF
-ad
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 af
@@ -34823,7 +34744,7 @@ aa
 af
 aa
 aa
-ad
+aa
 aa
 aa
 aa
@@ -35080,7 +35001,7 @@ aa
 aa
 aa
 aa
-ad
+aa
 aa
 aa
 aa
@@ -35337,7 +35258,7 @@ aa
 aa
 aa
 aa
-ad
+aa
 aa
 aa
 aa
@@ -35594,7 +35515,7 @@ aa
 aa
 aa
 aa
-ad
+aa
 aa
 aa
 aa
@@ -35851,13 +35772,13 @@ aa
 aa
 aa
 aa
-ad
 aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36108,13 +36029,13 @@ aa
 aa
 aa
 aa
-ad
-ad
 aa
 aa
-ad
+aa
+aa
+aa
 af
-ad
+aa
 aa
 aa
 aa
@@ -36366,15 +36287,15 @@ aa
 aa
 aa
 af
-ad
-ad
-ad
-Cu
-Xs
-lO
-lO
-Xs
-ad
+aa
+aa
+aa
+af
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36626,14 +36547,14 @@ af
 aa
 aa
 aa
-lO
-hk
-vI
-mq
-lO
-ad
-af
-ad
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -36883,11 +36804,11 @@ aa
 aa
 aa
 aa
-lO
-hk
-hk
-zm
-lO
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -37140,13 +37061,13 @@ aa
 aa
 aa
 aa
-lO
-oW
-pk
-Ej
-lO
 aa
 aa
+aa
+aa
+aa
+af
+af
 aa
 aa
 aa
@@ -37397,13 +37318,13 @@ aa
 aa
 aa
 aa
-Xs
-Xs
-Xs
-Xs
-Xs
 aa
 aa
+aa
+aa
+aa
+af
+af
 aa
 aa
 aa
@@ -37656,8 +37577,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -37914,8 +37835,8 @@ aa
 aa
 aa
 aa
-ad
-jI
+aa
+aa
 aa
 aa
 aa
@@ -38172,8 +38093,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -38430,8 +38351,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -38688,8 +38609,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -38946,8 +38867,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -39204,8 +39125,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
