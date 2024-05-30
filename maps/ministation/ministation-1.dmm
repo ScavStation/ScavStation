@@ -5918,6 +5918,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/turf/open,
 /area/ministation/maint/nebypass)
 "yl" = (
 /obj/structure/displaycase,

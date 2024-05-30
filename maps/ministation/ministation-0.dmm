@@ -10563,7 +10563,6 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/valve/shutoff,
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
 "Mj" = (
