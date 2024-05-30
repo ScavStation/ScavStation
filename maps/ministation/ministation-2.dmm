@@ -647,6 +647,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner"
 	},
+/turf/open,
 /area/ministation/hall/n3)
 "ch" = (
 /obj/structure/cable{
@@ -1471,7 +1472,7 @@
 "fF" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ministation/bombrange)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -1513,7 +1514,7 @@
 "fW" = (
 /obj/machinery/light,
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/ministation/bombrange)
 "fZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1750,7 +1751,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/ministation/bombrange)
 "he" = (
 /obj/structure/closet,
 /obj/random/maintenance,
@@ -1977,12 +1978,16 @@
 "hY" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
+/turf/open,
 /area/ministation/maint/l3nw)
 "if" = (
 /obj/machinery/door/window/eastright,
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "scishut"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/science)
@@ -2165,6 +2170,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "iP" = (
+/turf/open,
 /area/ministation/science)
 "iQ" = (
 /obj/abstract/landmark/start{
@@ -3583,6 +3589,7 @@
 "pb" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
+/turf/open,
 /area/ministation/maint/l3sw)
 "pf" = (
 /obj/effect/floor_decal/corner/blue{
@@ -3689,7 +3696,7 @@
 /obj/structure/target_stake,
 /obj/item/toy/figure/clown,
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/ministation/bombrange)
 "qk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/table/woodentable/ebony,
@@ -3730,6 +3737,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"qU" = (
+/obj/structure/lattice,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/space,
+/area/ministation/bombrange)
 "qY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4118,6 +4132,7 @@
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
+/turf/open,
 /area/ministation/cargo/f3)
 "tw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4135,6 +4150,7 @@
 "ty" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
+/turf/open,
 /area/ministation/maint/l3se)
 "tA" = (
 /obj/effect/floor_decal/corner/yellow/full,
@@ -4367,7 +4383,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/ministation/bombrange)
 "uX" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
@@ -4674,7 +4690,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/machinery/vending/cola{
 	dir = 1
@@ -4708,6 +4724,7 @@
 "xc" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
+/turf/open,
 /area/ministation/maint/l3ne)
 "xg" = (
 /obj/machinery/light{
@@ -5257,11 +5274,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "AU" = (
-/obj/machinery/door/blast/shutters{
-	name = "science shutters";
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters/open{
 	id_tag = "scishut"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/ministation/science)
 "AV" = (
 /obj/structure/cable{
@@ -5358,9 +5375,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "Bo" = (
-/obj/structure/sign/warning/bomb_range,
+/obj/structure/sign/warning/bomb_range{
+	pixel_y = -32
+	},
 /turf/simulated/wall/r_wall/prepainted,
-/area/space)
+/area/ministation/bombrange)
 "Bp" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -5878,6 +5897,7 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
+/turf/open,
 /area/ministation/hall/n3)
 "Dp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6402,6 +6422,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge/vault)
 "GD" = (
+/turf/open,
 /area/ministation/hall/n3)
 "GE" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -6493,7 +6514,7 @@
 /area/ministation/science)
 "Hw" = (
 /turf/simulated/wall/r_wall/prepainted,
-/area/space)
+/area/ministation/bombrange)
 "HB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -6887,6 +6908,7 @@
 /obj/structure/disposalpipe/down{
 	dir = 4
 	},
+/turf/open,
 /area/ministation/maint/l3central)
 "JN" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -6955,6 +6977,9 @@
 	dir = 8
 	},
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "scishut"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/science)
 "Kw" = (
@@ -7697,7 +7722,11 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/turf/open,
 /area/ministation/hall/n3)
+"OF" = (
+/turf/simulated/floor/reinforced/airless,
+/area/ministation/bombrange)
 "OK" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -7789,6 +7818,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/turf/open,
 /area/ministation/hall/n3)
 "Pg" = (
 /obj/structure/cable{
@@ -8125,6 +8155,7 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "QS" = (
+/turf/open,
 /area/ministation/cargo/f3)
 "QT" = (
 /obj/machinery/computer/design_console{
@@ -8678,6 +8709,7 @@
 	dir = 8;
 	icon_state = "warning"
 	},
+/turf/open,
 /area/ministation/hall/n3)
 "TQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8778,7 +8810,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -8945,6 +8977,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/turf/open,
 /area/ministation/maint/l3se)
 "Vi" = (
 /obj/machinery/light_switch{
@@ -9414,6 +9447,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/turf/open,
 /area/ministation/hall/n3)
 "XD" = (
 /obj/effect/wallframe_spawn/no_grille,
@@ -9427,6 +9461,7 @@
 	dir = 8;
 	icon_state = "warningcorner"
 	},
+/turf/open,
 /area/ministation/hall/n3)
 "XI" = (
 /obj/effect/floor_decal/carpet/green/corners,
@@ -42999,7 +43034,7 @@ Kv
 Kv
 ae
 if
-cL
+AU
 ae
 ae
 EB
@@ -44026,7 +44061,7 @@ iL
 iL
 iL
 ig
-AU
+db
 jo
 ae
 ae
@@ -59191,11 +59226,11 @@ aa
 aa
 ad
 aa
-ad
+qU
 fF
-cw
+OF
 fF
-ad
+qU
 aa
 ad
 aa
@@ -59450,7 +59485,7 @@ ad
 Hw
 Bo
 hd
-cw
+OF
 fW
 Bo
 Hw
@@ -59705,11 +59740,11 @@ aa
 aa
 ad
 Hw
-cw
-cw
-cw
-cw
-cw
+OF
+OF
+OF
+OF
+OF
 Hw
 ad
 aa
@@ -59963,9 +59998,9 @@ aa
 aa
 Hw
 uW
-cw
-cw
-cw
+OF
+OF
+OF
 fW
 Hw
 aa
@@ -60219,11 +60254,11 @@ aa
 aa
 aa
 Hw
-cw
-cw
+OF
+OF
 qj
-cw
-cw
+OF
+OF
 Hw
 aa
 aa
@@ -60478,7 +60513,7 @@ aa
 Hw
 Hw
 hd
-cw
+OF
 fW
 Hw
 Hw
@@ -60735,7 +60770,7 @@ aa
 Xm
 Bo
 Hw
-cw
+OF
 Hw
 Bo
 Pq

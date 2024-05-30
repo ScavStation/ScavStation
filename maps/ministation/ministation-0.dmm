@@ -636,7 +636,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	icon_state = "map_injector";
@@ -1388,7 +1388,7 @@
 /area/ministation/hall/s1)
 "fg" = (
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3124,7 +3124,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ministation/atmospherics)
@@ -4182,7 +4182,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	external_pressure_bound = 0;
@@ -4999,7 +4999,7 @@
 "tK" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -5156,7 +5156,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/meter/turf,
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ministation/atmospherics)
@@ -11512,7 +11512,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/effect/floor_decal/corner/purple/full,
 /turf/simulated/floor/reinforced/hydrogen,

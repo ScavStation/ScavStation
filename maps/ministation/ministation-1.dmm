@@ -316,6 +316,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/structure/disposalpipe/down,
+/turf/open,
 /area/ministation/maint/l2central)
 "bH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -506,6 +507,7 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
+/turf/open,
 /area/ministation/hall/w2)
 "cL" = (
 /obj/machinery/firealarm{
@@ -609,6 +611,7 @@
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
+/turf/open,
 /area/ministation/cargo/f2)
 "dm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -663,7 +666,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -716,6 +719,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/turf/open,
 /area/ministation/hall/w2)
 "dN" = (
 /obj/structure/cable{
@@ -817,11 +821,6 @@
 "ed" = (
 /turf/simulated/floor/plating,
 /area/ministation/Arrival)
-"ee" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/computer/arcade,
-/turf/simulated/floor/tiled/dark,
-/area/ministation/cafe)
 "ef" = (
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
@@ -1225,6 +1224,7 @@
 /turf/simulated/floor/grass,
 /area/ministation/hydro)
 "gz" = (
+/turf/open,
 /area/ministation/hall/e2)
 "gB" = (
 /obj/structure/table/woodentable/mahogany,
@@ -1994,8 +1994,8 @@
 /obj/machinery/porta_turret{
 	dir = 4;
 	id_tag = "goodstuff";
-	maxhealth = 160;
-	health = 160;
+	max_health = 160;
+	current_health = 160;
 	installation = /obj/item/gun/energy/gun/small
 	},
 /turf/simulated/floor/bluegrid,
@@ -2497,6 +2497,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2central)
 "lC" = (
+/turf/open,
 /area/ministation/cargo/f2)
 "lF" = (
 /turf/simulated/wall,
@@ -2608,6 +2609,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/turf/open,
 /area/ministation/hall/w2)
 "md" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2660,12 +2662,6 @@
 "mq" = (
 /turf/simulated/wall,
 /area/ministation/maint/l2centraln)
-"ms" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/item/stool/padded,
-/turf/simulated/floor/tiled/dark,
-/area/ministation/cafe)
 "mu" = (
 /obj/structure/flora/bush/fullgrass,
 /turf/simulated/floor/grass,
@@ -3593,6 +3589,7 @@
 	dir = 4;
 	icon_state = "warningcorner"
 	},
+/turf/open,
 /area/ministation/hall/w2)
 "qO" = (
 /obj/machinery/cryopod{
@@ -3785,6 +3782,7 @@
 	dir = 1;
 	icon_state = "warningcorner"
 	},
+/turf/open,
 /area/ministation/hall/w2)
 "rC" = (
 /obj/machinery/airlock_sensor{
@@ -4185,7 +4183,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -5319,6 +5317,7 @@
 "wr" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
+/turf/open,
 /area/ministation/maint/l2centrals)
 "ws" = (
 /turf/simulated/floor/tiled,
@@ -5413,8 +5412,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hop)
 "wL" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/table/gamblingtable,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wN" = (
@@ -5439,9 +5439,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "wQ" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/bed/sofa/left/black,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/marble,
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	id_tag = "barshut";
+	name = "Bar Shutters"
+	},
+/turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "wR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5614,15 +5620,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
 "xs" = (
-/obj/structure/table/marble,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters{
-	id_tag = "barshut";
-	name = "Bar Shutters"
-	},
-/turf/simulated/floor/carpet,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/table/gamblingtable,
+/turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "xt" = (
 /obj/structure/table,
@@ -6414,6 +6414,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/ministation/detective)
+"zY" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/computer/arcade,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/cafe)
 "Ae" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -7036,6 +7041,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
+"Da" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/bed/sofa/left/black,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/cafe)
 "Db" = (
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
@@ -8227,7 +8237,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	health = 1e+007
+	current_health = 1e+007
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -8735,6 +8745,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/turf/open,
 /area/ministation/hall/w2)
 "MT" = (
 /obj/structure/stairs/long/west,
@@ -8889,6 +8900,7 @@
 /turf/simulated/floor/grass,
 /area/ministation/hydro)
 "NC" = (
+/turf/open,
 /area/ministation/hall/w2)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9633,6 +9645,7 @@
 /obj/structure/cable{
 	icon_state = "32-1"
 	},
+/turf/open,
 /area/ministation/maint/hydromaint)
 "RL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -9761,6 +9774,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/turf/open,
 /area/ministation/hall/w2)
 "SA" = (
 /obj/machinery/network/relay{
@@ -10463,6 +10477,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/turf/open,
 /area/ministation/maint/sebypass)
 "Wi" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -45881,7 +45896,7 @@ ty
 wD
 sM
 la
-wQ
+Da
 am
 zn
 BE
@@ -46652,7 +46667,7 @@ ty
 OY
 Jx
 uM
-ee
+zY
 BE
 BE
 BE
@@ -47169,7 +47184,7 @@ bj
 vF
 wk
 Rd
-ms
+wL
 xZ
 FJ
 bj
@@ -47425,8 +47440,8 @@ Jx
 bj
 vG
 Rd
-wL
-wL
+xs
+xs
 Rd
 Bw
 bj
@@ -49224,8 +49239,8 @@ iv
 bj
 bj
 wn
-xs
-xs
+wQ
+wQ
 xU
 xW
 bj
