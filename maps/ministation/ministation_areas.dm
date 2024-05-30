@@ -140,6 +140,11 @@
 	secure = TRUE
 	icon_state = "purple"
 
+/area/ministation/bombrange
+	name = "\improper Bomb Range"
+	requires_power = 0
+	icon_state = "blue"
+
 //Maint Bypasses
 
 /area/ministation/maint/sebypass
