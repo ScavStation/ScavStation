@@ -2262,11 +2262,9 @@
 	icon_state = "16-0"
 	},
 /obj/structure/cable{
-	icon_state = "32-1"
+	icon_state = "32-8"
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
+/obj/structure/cable,
 /turf/open,
 /area/ministation/enclave/gatehouse)
 "ky" = (

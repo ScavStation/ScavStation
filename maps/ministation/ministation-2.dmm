@@ -5267,12 +5267,6 @@
 	temperature = 263
 	},
 /area/ministation/telecomms)
-"Az" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/enclave/gatehouse)
 "AE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
@@ -7122,6 +7116,12 @@
 /obj/item/chems/drinks/cans/waterbottle,
 /turf/simulated/floor/carpet/green,
 /area/ministation/library)
+"Lh" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "Lk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -36893,7 +36893,7 @@ aa
 aa
 aa
 lO
-Az
+Lh
 hk
 zm
 lO
