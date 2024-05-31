@@ -2381,11 +2381,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo/f3)
-"jI" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "jL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -34050,7 +34045,7 @@ ad
 ad
 ad
 ad
-jI
+ad
 aa
 aa
 aa
@@ -34557,7 +34552,7 @@ aa
 af
 af
 af
-jI
+ad
 aa
 aa
 aa
@@ -37906,7 +37901,7 @@ aa
 aa
 aa
 ad
-jI
+ad
 aa
 aa
 aa
