@@ -2080,9 +2080,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/wall,
 /area/ministation/enclave/gatehouse)
 "jM" = (
@@ -2256,16 +2253,6 @@
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
 	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "32-2"
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "16-0"
 	},
 /turf/open,
 /area/ministation/enclave/gatehouse)
@@ -2639,9 +2626,6 @@
 "ma" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
 	},
 /turf/simulated/wall,
 /area/ministation/enclave/gatehouse)
@@ -5079,12 +5063,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
-"vs" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/wall,
-/area/ministation/enclave/gatehouse)
 "vt" = (
 /obj/item/radio/intercom{
 	pixel_y = 25
@@ -7365,9 +7343,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/wall,
 /area/ministation/enclave/gatehouse)
 "Es" = (
@@ -8212,9 +8187,6 @@
 "Jv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
 	},
 /turf/simulated/wall,
 /area/ministation/enclave/gatehouse)
@@ -37967,7 +37939,7 @@ aa
 aa
 aa
 aa
-vs
+Uk
 jI
 ma
 HO
