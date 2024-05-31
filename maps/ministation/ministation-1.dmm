@@ -2076,6 +2076,12 @@
 	},
 /turf/simulated/floor/tiled/stone,
 /area/ministation/hall/e2)
+"jI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "jM" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/borderfloorblack/corner{
@@ -2232,6 +2238,24 @@
 /obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
+"kx" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 1
+	},
+/turf/open,
+/area/ministation/enclave/gatehouse)
 "ky" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2599,6 +2623,12 @@
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/plating,
 /area/ministation/hall/e2)
+"ma" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "mc" = (
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning{
@@ -5247,6 +5277,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/ministation/medical)
+"wg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "wj" = (
 /obj/effect/shuttle_landmark/arrivas_south{
 	landmark_tag = "nav_ministation_arrivals_west"
@@ -7303,6 +7339,12 @@
 /obj/structure/bed/chair/comfy/beige,
 /turf/simulated/floor/carpet,
 /area/ministation/hall/w2)
+"Ek" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "Es" = (
 /obj/machinery/light{
 	dir = 4
@@ -8142,6 +8184,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"Jv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "Jx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9664,6 +9712,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"RS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "RU" = (
 /obj/machinery/camera/network/medbay{
 	dir = 4;
@@ -10108,6 +10162,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
+"Uk" = (
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "Up" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -33768,12 +33825,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+ad
+ad
+ad
+ad
 aa
 aa
 aa
@@ -34025,12 +34082,12 @@ aa
 aa
 aa
 aa
-aa
-af
-aa
+ad
 aa
 aa
 aa
+aa
+ad
 aa
 aa
 aa
@@ -34282,12 +34339,12 @@ aa
 aa
 aa
 aa
-aa
-af
-af
+ad
 aa
 aa
 aa
+aa
+ad
 aa
 aa
 aa
@@ -34539,12 +34596,12 @@ af
 aa
 aa
 aa
-aa
+ad
+ad
 af
 af
-af
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -34796,12 +34853,12 @@ af
 aa
 aa
 aa
-af
-af
-af
 aa
-aa
-aa
+ad
+ad
+ad
+ad
+ad
 aa
 aa
 aa
@@ -35055,10 +35112,10 @@ aa
 aa
 af
 af
-af
+ad
+ad
 aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -35311,11 +35368,11 @@ aa
 aa
 aa
 af
+ad
+ad
 aa
 aa
-aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -35567,8 +35624,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -37111,8 +37168,8 @@ aa
 aa
 aa
 af
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -37363,17 +37420,17 @@ aa
 aa
 aa
 af
-aa
-aa
-aa
 af
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+af
+ad
+HO
+HO
+HO
+HO
+HO
+ad
 aa
 aa
 aa
@@ -37619,18 +37676,18 @@ aa
 aa
 aa
 aa
+aa
 af
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
+af
 aa
 aa
 aa
@@ -37882,18 +37939,18 @@ aa
 aa
 aa
 aa
+Uk
+jI
+ma
+HO
+HO
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
 HO
 HO
 HO
@@ -38139,17 +38196,17 @@ aa
 aa
 aa
 aa
+Jv
+kx
+Ek
+HO
+HO
 aa
 aa
 aa
-af
-af
 aa
 aa
-aa
-aa
-aa
-aa
+HO
 HO
 HO
 HO
@@ -38396,17 +38453,17 @@ aa
 aa
 aa
 aa
+RS
+wg
+Uk
+HO
+HO
 aa
 aa
 aa
-af
-af
 aa
 aa
-aa
-aa
-aa
-aa
+HO
 HO
 HO
 HO
@@ -38653,17 +38710,17 @@ aa
 aa
 aa
 aa
+HO
+HO
+HO
+HO
+HO
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+HO
 HO
 HO
 HO
@@ -38910,11 +38967,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+HO
+HO
+HO
+HO
+HO
 HO
 HO
 HO
