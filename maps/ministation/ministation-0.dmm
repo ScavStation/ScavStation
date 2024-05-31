@@ -3061,9 +3061,6 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/structure/table/bench/padded,
 /obj/item/stack/material/ore/iron{
 	pixel_x = -1;
@@ -4624,9 +4621,6 @@
 "rg" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /obj/structure/table/bench/padded,
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/entrance)
@@ -5013,9 +5007,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	icon_state = "16-0"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
@@ -11187,10 +11178,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
-	},
-/obj/machinery/light_switch{
-	pixel_x = 27;
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)

@@ -3605,9 +3605,6 @@
 	pixel_x = 22
 	},
 /obj/structure/table/bench/padded,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
 "pa" = (
@@ -3643,9 +3640,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
@@ -4562,9 +4556,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "vI" = (
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /obj/machinery/light_switch{
 	dir = 4;
 	pixel_x = -23
@@ -6172,9 +6163,6 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/structure/cable{
-	icon_state = "32-1"
-	},
 /turf/open,
 /area/ministation/enclave/gatehouse)
 "Er" = (
@@ -7116,12 +7104,6 @@
 /obj/item/chems/drinks/cans/waterbottle,
 /turf/simulated/floor/carpet/green,
 /area/ministation/library)
-"Lh" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/enclave/gatehouse)
 "Lk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -36893,7 +36875,7 @@ aa
 aa
 aa
 lO
-Lh
+hk
 hk
 zm
 lO
