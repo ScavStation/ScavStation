@@ -2257,9 +2257,6 @@
 /obj/structure/cable{
 	icon_state = "16-0"
 	},
-/obj/structure/cable{
-	icon_state = "32-1"
-	},
 /turf/open,
 /area/ministation/enclave/gatehouse)
 "ky" = (
@@ -9697,9 +9694,6 @@
 "RK" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
-/obj/structure/cable{
-	icon_state = "32-1"
-	},
 /turf/open,
 /area/ministation/maint/hydromaint)
 "RL" = (
