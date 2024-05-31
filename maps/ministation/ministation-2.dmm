@@ -3605,6 +3605,9 @@
 	pixel_x = 22
 	},
 /obj/structure/table/bench/padded,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
 "pa" = (
@@ -3640,6 +3643,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
@@ -4555,6 +4561,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"vI" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "vJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc{
@@ -5251,6 +5267,12 @@
 	temperature = 263
 	},
 /area/ministation/telecomms)
+"Az" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "AE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
@@ -6157,7 +6179,7 @@
 	pixel_x = 24
 	},
 /obj/structure/cable{
-	icon_state = "16-0"
+	icon_state = "32-1"
 	},
 /turf/open,
 /area/ministation/enclave/gatehouse)
@@ -36614,7 +36636,7 @@ aa
 aa
 aa
 lO
-hk
+vI
 hk
 mq
 lO
@@ -36871,7 +36893,7 @@ aa
 aa
 aa
 lO
-hk
+Az
 hk
 zm
 lO

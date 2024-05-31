@@ -2080,6 +2080,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable{
+	icon_state = "2-8";
+	dir = 1
+	},
 /turf/simulated/wall,
 /area/ministation/enclave/gatehouse)
 "jM" = (
@@ -2256,6 +2260,12 @@
 	},
 /obj/structure/cable{
 	icon_state = "16-0"
+	},
+/obj/structure/cable{
+	icon_state = "32-1"
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
 	},
 /turf/open,
 /area/ministation/enclave/gatehouse)
@@ -5066,6 +5076,12 @@
 	},
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
+"vs" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/wall,
+/area/ministation/enclave/gatehouse)
 "vt" = (
 /obj/item/radio/intercom{
 	pixel_y = 25
@@ -8191,6 +8207,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/wall,
 /area/ministation/enclave/gatehouse)
 "Jx" = (
@@ -9694,6 +9713,9 @@
 "RK" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
+/obj/structure/cable{
+	icon_state = "32-1"
+	},
 /turf/open,
 /area/ministation/maint/hydromaint)
 "RL" = (
@@ -37939,7 +37961,7 @@ aa
 aa
 aa
 aa
-Uk
+vs
 jI
 ma
 HO
