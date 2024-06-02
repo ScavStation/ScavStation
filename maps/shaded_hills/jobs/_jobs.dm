@@ -2,6 +2,7 @@
 	id_hud_icons            = 'maps/shaded_hills/icons/hud.dmi'
 	allowed_jobs            = list(
 		/datum/job/shaded_hills/visitor/traveller,
+		/datum/job/shaded_hills/visitor/traveller/learned,
 		/datum/job/shaded_hills/local/miner,
 		/datum/job/shaded_hills/local/herbalist,
 		/datum/job/shaded_hills/local/forester,
@@ -37,3 +38,10 @@
 	department_types        = list(
 		/decl/department/shaded_hills/locals
 	)
+	min_skill               = list()
+	// if you consider adding something like literacy to this list to make it rarer/more exclusive
+	// consider making the higher levels cost more points instead
+	max_skill               = list(
+		SKILL_CHEMISTRY     = SKILL_BASIC, // this is the domain of the herbalist
+	)
+	skill_points            = 20
