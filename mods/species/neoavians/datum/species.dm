@@ -63,7 +63,7 @@
 /decl/species/neoavian/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
 	if(istype(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/avian_smock/worker, slot_w_uniform_str)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/avian, slot_shoes_str)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes, slot_shoes_str)
 
 /decl/species/neoavian/get_holder_color(var/mob/living/carbon/human/H)
 	return H.get_skin_colour()
