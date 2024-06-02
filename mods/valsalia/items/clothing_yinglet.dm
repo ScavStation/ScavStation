@@ -31,6 +31,7 @@
 	desc = "A few rags that wrap around the legs and crotch for a semblance of modesty."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/under/loincloth.dmi'
+	yinglet_icon = null
 	color = COLOR_BEIGE
 	var/detail_color
 
@@ -262,7 +263,11 @@
 		I.pixel_y = 3
 	return I
 
+/obj/item/clothing/under/color
+	yinglet_icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
+
 /obj/item/clothing/under/hazardjumpsuit/yinglet
 	name = "small hazard jumpsuit"
 	icon = 'mods/valsalia/icons/clothing/under/hazardjumpsuit_yinglet.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
+	yinglet_icon = null
