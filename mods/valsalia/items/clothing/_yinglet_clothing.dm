@@ -3,6 +3,9 @@
 // - /obj/item/clothing/skirt
 // - /obj/item/clothing/suit/poncho
 
+/obj/item/clothing/under/color
+	yinglet_icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
+
 /obj/item/clothing/suit/radiation
 	yinglet_icon = 'mods/valsalia/icons/clothing/suit/radsuit_yinglet.dmi'
 

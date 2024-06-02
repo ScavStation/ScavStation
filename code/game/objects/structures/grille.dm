@@ -148,7 +148,7 @@
 
 	if(passthrough)
 		. = PROJECTILE_CONTINUE
-		damage = clamp(0, (damage - Proj.damage)*(Proj.atom_damage_type == BRUTE? 0.4 : 1), 10) //if the bullet passes through then the grille avoids most of the damage
+		damage = clamp((damage - Proj.damage)*(Proj.atom_damage_type == BRUTE? 0.4 : 1), 0, 10) //if the bullet passes through then the grille avoids most of the damage
 
 	take_damage(damage*0.2, Proj.atom_damage_type)
 
