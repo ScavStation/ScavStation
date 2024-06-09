@@ -50,7 +50,7 @@
 /obj/machinery/door/window/brigdoor/southright{
 	dir = 1;
 	autoset_access = 0;
-	req_access = list("ACCESS_CMO")
+	req_access = list("ACCESS_CHIEF_MEDICAL_OFFICER")
 	},
 /obj/item/chems/chem_disp_cartridge/hydrazine{
 	desc = "This has a printed label on the side that says DRINK ME.";
