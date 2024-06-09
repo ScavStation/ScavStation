@@ -37,6 +37,28 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
+"ai" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	current_health = 1e+007
+	},
+/obj/machinery/door/window/brigdoor/southright{
+	dir = 1;
+	autoset_access = 0;
+	req_access = list("ACCESS_CMO")
+	},
+/obj/item/chems/chem_disp_cartridge/hydrazine{
+	desc = "This has a printed label on the side that says DRINK ME.";
+	name = "Station's Emergency Supply of Hydrazine"
+	},
+/obj/structure/table/glass/pglass,
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "aj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -53,6 +75,13 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
+"ap" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "ar" = (
 /obj/structure/table,
 /obj/item/clothing/head/winterhood/yinglet/cmo,
@@ -1289,6 +1318,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centraln)
+"gP" = (
+/turf/simulated/floor/carpet/blue,
+/area/ministation/medical)
+"gR" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "gS" = (
 /obj/machinery/cryopod{
 	dir = 1
@@ -1556,6 +1592,8 @@
 	},
 /obj/item/chems/spray/pepper,
 /obj/item/telebaton,
+/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "hO" = (
@@ -2219,6 +2257,10 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/paramedic,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"kq" = (
+/obj/structure/catwalk,
+/turf/space,
+/area/space)
 "kr" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -3119,11 +3161,7 @@
 /turf/space,
 /area/space)
 "oS" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/machinery/light{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/blue,
@@ -3540,13 +3578,6 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cmo,
-/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
-/obj/item/gun/projectile/dartgun/medical,
-/obj/item/ammo_magazine/chemdart,
-/obj/item/ammo_magazine/chemdart,
-/obj/item/telebaton,
-/obj/item/stamp/cmo,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "qz" = (
@@ -3632,6 +3663,13 @@
 /obj/abstract/landmark/latejoin/cryo,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cryo)
+"qR" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/blue,
+/area/ministation/medical)
 "qS" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/plating,
@@ -6692,6 +6730,8 @@
 	},
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "AK" = (
@@ -6953,6 +6993,7 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "Cu" = (
@@ -7040,6 +7081,8 @@
 /obj/structure/closet/secure_closet/warden{
 	req_access = list("ACCESS_BRIG")
 	},
+/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/carpet/blue3,
 /area/ministation/security)
 "CP" = (
@@ -7176,6 +7219,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2central)
+"Dr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/obj/structure/sign/warning/fire,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Ds" = (
 /obj/structure/bed,
 /obj/item/bedsheet/hop,
@@ -7393,6 +7444,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cryo)
+"EI" = (
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/stamp/cmo,
+/obj/item/ammo_magazine/chemdart,
+/obj/item/ammo_magazine/chemdart,
+/obj/item/gun/projectile/dartgun/medical,
+/obj/item/telebaton,
+/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cmo,
+/obj/structure/closet/secure_closet/cmo,
+/turf/simulated/floor/tiled/white,
+/area/ministation/medical)
 "EL" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7911,13 +7974,15 @@
 	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_EVA");
+	req_access = list("ACCESS_SECURITY");
 	autoset_access = 0;
 	dir = 4
 	},
 /obj/machinery/suit_cycler/security/prepared{
 	suit = /obj/item/clothing/suit/space/void/security/alt/scav;
-	helmet = /obj/item/clothing/head/helmet/space/void/security/alt/scav
+	helmet = /obj/item/clothing/head/helmet/space/void/security/alt/scav;
+	req_access = list("ACCESS_SECURITY");
+	initial_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -8165,8 +8230,8 @@
 	},
 /obj/item/cell/gun,
 /obj/item/cell/gun,
-/obj/item/cell/gun,
-/obj/item/cell/gun,
+/obj/item/gun/energy/gun/reloadable,
+/obj/item/gun/energy/gun/reloadable,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/security)
 "Jo" = (
@@ -8470,13 +8535,15 @@
 /area/ministation/security)
 "KV" = (
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_EVA");
+	req_access = list("ACCESS_SECURITY");
 	autoset_access = 0;
 	dir = 4
 	},
 /obj/machinery/suit_cycler/security/prepared{
 	suit = /obj/item/clothing/suit/space/void/security/alt/scav;
-	helmet = /obj/item/clothing/head/helmet/space/void/security/alt/scav
+	helmet = /obj/item/clothing/head/helmet/space/void/security/alt/scav;
+	req_access = list("ACCESS_SECURITY");
+	initial_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
@@ -8577,6 +8644,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/w2)
+"LJ" = (
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "CMO1";
+	name = "CMO Shutters"
+	},
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/space,
+/area/ministation/medical)
 "LK" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -8733,6 +8809,7 @@
 	level = 2
 	},
 /obj/item/gun/energy/laser/practice,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/carpet,
 /area/ministation/hop)
 "MF" = (
@@ -9448,6 +9525,8 @@
 /obj/item/flashlight/maglight,
 /obj/item/chems/spray/pepper,
 /obj/item/telebaton,
+/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Qh" = (
@@ -10591,6 +10670,7 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/hydro,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/hydroponics,
 /obj/structure/closet/chefcloset,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "Wv" = (
@@ -10621,13 +10701,11 @@
 /turf/space,
 /area/space)
 "WJ" = (
-/obj/machinery/suit_cycler/security/prepared{
-	suit = /obj/item/clothing/suit/space/void/security/alt/scav;
-	helmet = /obj/item/clothing/head/helmet/space/void/security/alt/scav;
-	available_bodytypes = list("yinglet body")
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/medical)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "WL" = (
 /obj/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/plating,
@@ -10701,6 +10779,14 @@
 	pixel_x = -13;
 	pixel_y = -14
 	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"Xk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/structure/sign/warning/fire,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "Xl" = (
@@ -10786,6 +10872,8 @@
 /obj/item/flashlight/maglight,
 /obj/item/chems/spray/pepper,
 /obj/item/stamp/hos,
+/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/security)
 "Xw" = (
@@ -11028,6 +11116,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
+"Zo" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/blue,
+/area/ministation/medical)
 "Zz" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
@@ -21214,7 +21308,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
@@ -23528,7 +23622,7 @@ af
 aa
 aa
 aa
-ab
+aa
 aa
 aa
 aa
@@ -23785,9 +23879,9 @@ af
 aa
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -24040,9 +24134,9 @@ af
 af
 af
 aa
-aa
-aa
-aa
+af
+af
+af
 af
 af
 af
@@ -24296,8 +24390,8 @@ af
 af
 af
 af
-aa
-aa
+af
+af
 af
 af
 af
@@ -24552,9 +24646,9 @@ aa
 af
 af
 af
-aa
-aa
-aa
+af
+af
+af
 af
 af
 af
@@ -24809,9 +24903,9 @@ aa
 aa
 af
 af
-aa
-aa
-aa
+af
+af
+af
 af
 af
 af
@@ -25065,11 +25159,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
 af
 af
 af
@@ -25322,12 +25416,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
 af
 af
 aa
@@ -25579,15 +25673,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -25838,14 +25932,14 @@ aa
 af
 af
 af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -26095,16 +26189,16 @@ af
 af
 af
 af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -26353,16 +26447,16 @@ af
 af
 af
 af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -26611,16 +26705,16 @@ af
 af
 af
 af
-aa
-aa
-aa
-aa
-aa
 af
 af
 af
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -26868,11 +26962,11 @@ af
 af
 af
 af
-aa
-aa
-aa
 af
-aa
+af
+af
+af
+af
 af
 af
 af
@@ -27125,9 +27219,9 @@ af
 af
 af
 af
-aa
-aa
-aa
+af
+af
+af
 af
 af
 af
@@ -27381,10 +27475,10 @@ af
 af
 af
 af
-aa
-aa
-aa
-aa
+af
+af
+af
+af
 af
 af
 af
@@ -27638,9 +27732,9 @@ af
 af
 af
 af
-aa
-aa
-aa
+af
+af
+af
 af
 af
 af
@@ -39230,9 +39324,9 @@ aa
 aa
 aa
 HO
+Xk
 HO
-HO
-HO
+Xk
 HO
 HO
 HO
@@ -39486,11 +39580,11 @@ aa
 aa
 aa
 aa
-HO
-HO
-HO
-HO
-HO
+gR
+kq
+ap
+kq
+WJ
 HO
 HO
 HO
@@ -39743,11 +39837,11 @@ aa
 aa
 aa
 aa
-HO
-HO
-HO
-HO
-HO
+gR
+kq
+ap
+kq
+WJ
 HO
 HO
 HO
@@ -40000,11 +40094,11 @@ aa
 aa
 aa
 aa
-HO
-HO
-HO
-HO
-HO
+gR
+kq
+ap
+kq
+WJ
 HO
 HO
 HO
@@ -40257,11 +40351,11 @@ aa
 aa
 aa
 aa
-HO
-HO
-HO
-HO
-HO
+gR
+kq
+ap
+kq
+WJ
 HO
 HO
 HO
@@ -40515,9 +40609,9 @@ aa
 aa
 aa
 HO
+Dr
 HO
-HO
-HO
+Dr
 HO
 HO
 HO
@@ -50827,7 +50921,7 @@ ef
 wd
 pD
 RU
-WJ
+pD
 FF
 oz
 UW
@@ -55976,7 +56070,7 @@ xd
 Qz
 qy
 oz
-aa
+oz
 aa
 aa
 aa
@@ -56232,8 +56326,8 @@ oz
 Kk
 bH
 oS
-Cx
-aa
+ai
+LJ
 aa
 aa
 aa
@@ -56488,9 +56582,9 @@ tb
 oz
 ar
 Ts
+oS
+EI
 oz
-oz
-aa
 aa
 aa
 aa
@@ -56743,11 +56837,11 @@ Pb
 Pb
 Pb
 oz
-Cx
-Cx
+Zo
+gP
+qR
 oz
-aa
-aa
+oz
 aa
 aa
 aa
@@ -57000,10 +57094,10 @@ aa
 aa
 aa
 oz
-aa
-aa
-aa
-aa
+Cx
+Cx
+oz
+oz
 aa
 aa
 aa
@@ -57850,8 +57944,8 @@ HO
 HO
 HO
 HO
-aa
-aa
+HO
+HO
 aa
 aa
 aa
@@ -58107,8 +58201,8 @@ HO
 HO
 HO
 HO
-aa
-aa
+HO
+HO
 aa
 aa
 aa
@@ -58364,8 +58458,8 @@ HO
 HO
 HO
 HO
-aa
-aa
+HO
+HO
 aa
 aa
 aa
