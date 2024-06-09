@@ -5802,9 +5802,6 @@
 /area/ministation/engine)
 "vM" = (
 /obj/machinery/floodlight,
-/obj/machinery/atmospherics/pipe/manifold{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "vP" = (
