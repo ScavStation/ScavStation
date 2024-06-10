@@ -73,6 +73,8 @@ DEFINE_CARTRIDGE_FOR_CHEM(syrup_chocolate, /decl/material/liquid/drink/syrup/cho
 DEFINE_CARTRIDGE_FOR_CHEM(syrup_caramel,   /decl/material/liquid/drink/syrup/caramel)
 DEFINE_CARTRIDGE_FOR_CHEM(syrup_vanilla,   /decl/material/liquid/drink/syrup/vanilla)
 DEFINE_CARTRIDGE_FOR_CHEM(syrup_pumpkin,   /decl/material/liquid/drink/syrup/pumpkin)
+DEFINE_CARTRIDGE_FOR_CHEM(syrup_lavender,  /decl/material/liquid/drink/syrup/lavender)
+DEFINE_CARTRIDGE_FOR_CHEM(cinnamon,        /decl/material/solid/cinnamon)
 
 // Bar, coffee
 DEFINE_CARTRIDGE_FOR_CHEM(coffee,   /decl/material/liquid/drink/coffee)
