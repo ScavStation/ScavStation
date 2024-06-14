@@ -2112,6 +2112,7 @@
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/item/chems/condiment/small/saltshaker,
 /obj/item/chems/condiment/small/peppermill,
+/obj/item/chems/condiment/cinnamon,
 /turf/simulated/floor/lino,
 /area/ministation/cafe)
 "jR" = (
