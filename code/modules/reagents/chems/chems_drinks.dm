@@ -550,6 +550,11 @@
 	glass_desc = "A glass of refreshing cola."
 	glass_special = list(DRINK_FIZZ)
 
+/decl/material/liquid/drink/cola/build_presentation_name_from_reagents(var/obj/item/prop, var/supplied)
+	if(prop.reagents.has_reagent(/decl/material/liquid/drink/milk))
+		. = "pilk"
+	. = ..(prop, .)
+
 /decl/material/liquid/drink/citrussoda
 	name = "citrus soda"
 	lore_text = "Fizzy and tangy."
@@ -878,3 +883,15 @@
 
 	glass_name = "Compote"
 	glass_desc = "Traditional dessert drink made from fruits or berries. Grandma would be proud."
+
+/decl/material/liquid/drink/horchata
+	name = "horchata"
+	lore_text = "A traditional mexican drink made from rice, milk, vanilla, and cinnamon."
+	taste_description = "refreshing vanilla and cinnamon"
+	color = "#d6c9be"
+	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
+	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
+	uid = "chem_drink_horchata"
+
+	glass_name = "Horchata"
+	glass_desc = "A traditional mexican drink made from rice, milk, vanilla, and cinnamon."
