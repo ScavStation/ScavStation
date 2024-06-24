@@ -2333,6 +2333,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"hF" = (
+/obj/structure/closet/secure_closet/engineering_personal{
+	req_access = list("ACCESS_ENGINEERING")
+	},
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/storage/backpack/dufflebag/eng,
+/obj/item/storage/backpack/dufflebag/eng,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/avian_smock/engineering,
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "hG" = (
 /obj/machinery/power/smes/buildable/max_cap_in_out{
 	capacity = 5e+009;
@@ -5261,6 +5273,7 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/bin/ministation,
+/obj/item/clothing/suit/yingtrashbag,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "tP" = (
@@ -6759,7 +6772,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/weeb,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "Ak" = (
@@ -7967,7 +7980,7 @@
 /area/ministation/engine)
 "Ec" = (
 /obj/machinery/light,
-/obj/machinery/vending/snack{
+/obj/machinery/vending/coffee{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -12169,6 +12182,7 @@
 /area/ministation/engine)
 "Qq" = (
 /obj/structure/closet/crate/bin/ministation,
+/obj/item/clothing/suit/yingtrashbag,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "Qt" = (
@@ -14503,6 +14517,9 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/railing/mapped,
+/obj/item/clothing/suit/yingtrashbag/blue{
+	name = "shiny trashbag"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "ZL" = (
@@ -48144,8 +48161,8 @@ av
 av
 nz
 nz
-EX
-EX
+hF
+hF
 EX
 XQ
 FV
