@@ -204,6 +204,13 @@
 /obj/item/chems/condiment/small/peppermill/populate_reagents()
 	add_to_reagents(/decl/material/solid/blackpepper, reagents.maximum_volume)
 
+/obj/item/chems/condiment/cinnamon
+	name = "cinnamon"
+	desc = "Used to flavor food and drinks."
+
+/obj/item/chems/condiment/cinnamon/populate_reagents()
+	add_to_reagents(/decl/material/solid/cinnamon, reagents.maximum_volume)
+
 /obj/item/chems/condiment/small/sugar
 	name = "sugar"
 	desc = "Sweetness in a bottle"

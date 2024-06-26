@@ -1,55 +1,57 @@
+/obj/item/clothing
+	var/avian_icon
 
+/obj/item/clothing/under/color
+	avian_icon = 'mods/species/neoavians/icons/clothing/under/jumpsuit.dmi'
+
+/obj/item/clothing/Initialize()
+	. = ..()
+	if(avian_icon && !(BODYTYPE_AVIAN in sprite_sheets))
+		LAZYSET(sprite_sheets, BODYTYPE_AVIAN, avian_icon)
 
 //Shoes
+/obj/item/clothing/shoes/magboots
+	avian_icon = 'mods/species/neoavians/icons/clothing/feet/magboots.dmi'
 
-/obj/item/clothing/shoes/magboots/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/feet/magboots.dmi')
-
-/obj/item/clothing/shoes/galoshes/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/feet/galoshes.dmi')
+/obj/item/clothing/shoes/galoshes
+	avian_icon = 'mods/species/neoavians/icons/clothing/feet/galoshes.dmi'
 
 //Gloves
+/obj/item/clothing/gloves
+	avian_icon = 'mods/species/neoavians/icons/clothing/gloves.dmi'
 
 /obj/item/clothing/gloves/Initialize()
 	. = ..()
 	if(!isnull(bodytype_equip_flags) && !(bodytype_equip_flags & BODY_FLAG_EXCLUDE))
 		bodytype_equip_flags |= BODY_FLAG_AVIAN
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/gloves.dmi')
 
 //Backpacks & tanks
-
 /obj/item/storage/backpack/satchel/Initialize()
 	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/satchel.dmi')
+	if(!(BODYTYPE_AVIAN in sprite_sheets))
+		LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/satchel.dmi')
 
 //Radsuits (theyre essential?)
+/obj/item/clothing/head/radiation
+	avian_icon = 'mods/species/neoavians/icons/clothing/head/rad_helm.dmi'
 
-/obj/item/clothing/head/radiation/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/head/rad_helm.dmi')
-
-/obj/item/clothing/suit/radiation/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/suit/rad_suit.dmi')
+/obj/item/clothing/suit/radiation
+	avian_icon = 'mods/species/neoavians/icons/clothing/suit/rad_suit.dmi'
 
 //cloaks
-/obj/item/clothing/accessory/cloak/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/accessory/cloak.dmi')
+/obj/item/clothing/accessory/cloak
+	avian_icon = 'mods/species/neoavians/icons/clothing/accessory/cloak.dmi'
 
-/obj/item/clothing/accessory/cloak/hide/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/accessory/cloak_hide.dmi')
+/obj/item/clothing/accessory/cloak/hide
+	avian_icon = 'mods/species/neoavians/icons/clothing/accessory/cloak_hide.dmi'
 
 //clothing
 /obj/item/clothing/under/avian_smock
 	name = "smock"
 	desc = "A loose-fitting smock favoured by neo-avians."
 	icon = 'mods/species/neoavians/icons/clothing/under/smock.dmi'
-	icon_state = ICON_STATE_WORLD
 	bodytype_equip_flags = BODY_FLAG_AVIAN
+	avian_icon = null
 
 /obj/item/clothing/under/avian_smock/worker
 	name = "worker's smock"
@@ -82,11 +84,15 @@
 	name = "stylish uniform"
 	icon = 'mods/species/neoavians/icons/clothing/under/stylish_form.dmi'
 
+/obj/item/clothing/shoes
+	avian_icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
+
 /obj/item/clothing/shoes/avian
 	name = "small shoes"
-	icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
 	color = COLOR_GRAY
 	bodytype_equip_flags = BODY_FLAG_AVIAN
+	avian_icon = null
+	icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
 
 /obj/item/clothing/shoes/avian/footwraps
 	name = "cloth footwraps"

@@ -1191,6 +1191,10 @@
 /area/ministation/janitor)
 "ej" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/item/stool/padded,
+/obj/abstract/landmark/start{
+	name = "Cargo Technician"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "ek" = (
@@ -1243,6 +1247,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "eu" = (
@@ -1265,6 +1270,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "ez" = (
@@ -1345,6 +1351,14 @@
 /obj/structure/tank_rack/oxygen,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
+"eI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/stool/padded,
+/obj/abstract/landmark/start{
+	name = "Cargo Technician"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -1724,6 +1738,8 @@
 /area/ministation/cargo)
 "fO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/table,
+/obj/item/chems/chem_disp_cartridge/cherrycola,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "fP" = (
@@ -2317,6 +2333,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"hF" = (
+/obj/structure/closet/secure_closet/engineering_personal{
+	req_access = list("ACCESS_ENGINEERING")
+	},
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/engineering,
+/obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/storage/backpack/dufflebag/eng,
+/obj/item/storage/backpack/dufflebag/eng,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/avian_smock/engineering,
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "hG" = (
 /obj/machinery/power/smes/buildable/max_cap_in_out{
 	capacity = 5e+009;
@@ -2760,6 +2788,7 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cargo,
 /obj/item/key/cargo_train,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/cargo,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "jK" = (
@@ -3610,6 +3639,7 @@
 /obj/structure/closet/secure_closet/atmos_personal,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/atmos,
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "mK" = (
@@ -3903,7 +3933,7 @@
 /area/ministation/dorms)
 "nJ" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/manifold{
+/obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
 	},
 /turf/space,
@@ -4783,6 +4813,7 @@
 /obj/item/telebaton,
 /obj/item/sealant_tank/mapped,
 /obj/item/sealant_tank/mapped,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/carpet/orange,
 /area/ministation/engine)
 "rX" = (
@@ -5242,6 +5273,7 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/bin/ministation,
+/obj/item/clothing/suit/yingtrashbag,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "tP" = (
@@ -5759,6 +5791,12 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
+"vJ" = (
+/obj/item/helpinghands,
+/obj/item/clothing/suit/poncho/roles/engineering,
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/plating,
+/area/space)
 "vK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
@@ -5889,6 +5927,8 @@
 	req_access = list("ACCESS_MINING")
 	},
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/quartermaster,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "wo" = (
@@ -6348,9 +6388,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/double/engineering{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "yi" = (
@@ -6380,6 +6417,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/double/engineering,
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "yp" = (
@@ -6734,7 +6772,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/weeb,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
 "Ak" = (
@@ -7104,6 +7142,8 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/freezer/rations,
+/obj/item/plastique,
+/obj/item/plastique,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "BB" = (
@@ -7940,7 +7980,7 @@
 /area/ministation/engine)
 "Ec" = (
 /obj/machinery/light,
-/obj/machinery/vending/snack{
+/obj/machinery/vending/coffee{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -8312,6 +8352,7 @@
 /obj/item/clothing/under/hazardjumpsuit/yinglet,
 /obj/item/storage/backpack/dufflebag/eng,
 /obj/item/storage/backpack/dufflebag/eng,
+/obj/item/clothing/shoes/sandal/yinglet,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "EY" = (
@@ -12141,6 +12182,7 @@
 /area/ministation/engine)
 "Qq" = (
 /obj/structure/closet/crate/bin/ministation,
+/obj/item/clothing/suit/yingtrashbag,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "Qt" = (
@@ -13227,6 +13269,10 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
+"UC" = (
+/obj/structure/table,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "UE" = (
 /obj/machinery/door/window/southleft,
 /obj/structure/window/reinforced{
@@ -14471,6 +14517,9 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/railing/mapped,
+/obj/item/clothing/suit/yingtrashbag/blue{
+	name = "shiny trashbag"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "ZL" = (
@@ -28485,8 +28534,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 af
 af
 af
@@ -28742,12 +28791,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 af
 af
-aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -28997,14 +29046,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -29255,13 +29304,13 @@ aa
 af
 af
 af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -29512,14 +29561,14 @@ af
 af
 af
 af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -29770,14 +29819,14 @@ af
 af
 af
 af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -30028,11 +30077,11 @@ af
 af
 af
 af
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
 af
 af
 af
@@ -30285,11 +30334,11 @@ af
 af
 af
 af
-aa
-aa
-aa
 af
-aa
+af
+af
+af
+af
 af
 af
 af
@@ -30542,9 +30591,9 @@ af
 af
 af
 af
-aa
-aa
-aa
+af
+af
+af
 af
 af
 af
@@ -30798,10 +30847,10 @@ af
 af
 af
 af
-aa
-aa
-aa
-aa
+af
+af
+af
+af
 af
 af
 af
@@ -31053,11 +31102,11 @@ af
 af
 af
 af
+aa
+aa
+aa
+aa
 af
-af
-aa
-aa
-aa
 af
 af
 af
@@ -31309,12 +31358,12 @@ aa
 aa
 aa
 af
+aa
+aa
+aa
+aa
+aa
 af
-af
-aa
-aa
-aa
-aa
 af
 af
 af
@@ -31572,7 +31621,7 @@ aa
 aa
 aa
 aa
-aa
+af
 af
 af
 af
@@ -41867,7 +41916,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 iH
@@ -42147,7 +42196,7 @@ fN
 fN
 eF
 fk
-fN
+eI
 gk
 pT
 Mq
@@ -42661,7 +42710,7 @@ rC
 bn
 my
 fm
-dI
+UC
 cf
 gM
 qH
@@ -48112,8 +48161,8 @@ av
 av
 nz
 nz
-EX
-EX
+hF
+hF
 EX
 XQ
 FV
@@ -61011,7 +61060,7 @@ KF
 SU
 aS
 aS
-ad
+ac
 aa
 aa
 aa
@@ -61267,8 +61316,8 @@ Jh
 lS
 Mj
 aS
-ad
-ad
+Jt
+ac
 aa
 aa
 aa
@@ -61524,8 +61573,8 @@ ID
 KF
 IQ
 aS
-ad
-ad
+vJ
+ac
 aa
 aa
 aa
@@ -61781,8 +61830,8 @@ yx
 lR
 Lc
 aS
-ad
-ad
+Jt
+ac
 ad
 aa
 aa

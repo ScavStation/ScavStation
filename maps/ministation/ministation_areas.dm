@@ -251,6 +251,12 @@
 	icon_state = "light_blue"
 	secure = TRUE
 
+/area/ministation/medical/nursery
+	name = "\improper Nursery"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	icon_state = "green"
+	secure = TRUE
+
 /area/ministation/cryo
 	name = "\improper Medical Cryogenics"
 	req_access = list()

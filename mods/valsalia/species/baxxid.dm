@@ -109,18 +109,91 @@
 		)
 	)
 
+/decl/species/baxxid/proc/generate_autohnnn(var/first_char)
+	var/ptr = first_char
+	switch(first_char)
+		if("?") return pick("hnnngh", "hnnnngh")
+		if("a","e","i","o","u") ptr=pick(35; "h", 43; "n", 10; "r", 8; "m")
+		if("c","g","k","q","w","x","y") ptr=pick(41; "n", 20; "h", 6; "r", 3; "w")
+		if("n","t","d","s","z","r","l") ptr=pick(60; "n", 26; "h", 6; "r", 6; "m")
+		if("m","p","b","f","v") ptr=pick(50; "m", 25; "h", 25; "n")
+		if("h") ptr=pick(4; "n", 6; "h")
+		else ptr="n"
+	. = ptr
+	var/t = 0
+	for(var/i = 1 to 8)
+		t += rand()
+		if(t>1.8)
+			break
+		switch(ptr)
+			if("h") ptr=pick(81; "h",  5; "g", 2; "n", 2; "r")
+			if("n") ptr=pick(29; "h", 95; "n", 5; "m", 3; "r")
+			if("m") ptr=pick(1;  "r", 48; "m", 5; "h")
+			if("g") ptr=pick(3;  "n",  1; "h")
+			if("r") ptr=pick(12; "h", 19; "r")
+			if("w") ptr=pick(30; "w",  1; "h")
+		. = ptr + .
+
+/decl/species/baxxid/proc/autodrawl(message, var/k=1)
+	. = "*"
+	var/word = ""
+	var/ch = ""
+	var/p = 1
+	while (length(message))
+		var/c = copytext_char(message, 1, 2)
+		ch = lowertext(c)
+		if ((text2ascii(ch, 0)<97)||(text2ascii(ch, 0)>122))
+			if (p!=0) // previous character was alpha, ch is not alpha
+				p = 0
+				. += word
+				word = ""
+				k = min(k*1.2, 100) // increasing for next step
+			else
+				p = 0 // don't double non-alphabet
+		else // ch isalpha
+			p = 0.1 // default for various
+			switch(ch)
+				if("x","n","s") p = 33
+				if("l","g","y","f","w") p=10
+				if("u","e","i","h","v","o") p=5
+				if("r","m") p = 3
+		word += c
+		if(prob(p*k))
+			if (ch == uppertext(c)) // upper or nonascii
+				switch (text2ascii(message,2))
+					if (65 to 90)
+						word += c + c // caps
+					else
+						word += ch + ch // capitalized
+			else
+				word += c+c
+			k *= 0.8	
+		message = copytext_char(message, 2)
+	switch(text2ascii(uppertext(ch)))
+		if (65 to 90)
+			. += word + "*"
+		else
+			if (. == "*")
+				. = word // skip over **
+			else
+				. += "*" + word //punctuation to get correct vervs
+
+
 /decl/species/baxxid/handle_autohiss(message, decl/language/lang, mode)
+	if(lang.flags & LANG_FLAG_NO_STUTTER)
+		return message
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
 		return message
 	. = message
 	if(!istype(lang, /decl/language/baxxid))
-		var/hnnn = "H"
-		for(var/i = 1 to rand(3,5))
-			hnnn += "n"
-		var/first_char = copytext(message, 1, 1)
-		if(first_char != lowertext(first_char))
-			hnnn = uppertext(capitalize(hnnn))
-		. = "[hnnn][uppertext(.)]"
+		var/first_char = copytext(message, 1, 2)
+		var/hnnn = capitalize(generate_autohnnn(lowertext(first_char)))
+		if (mode == PREF_BASIC)
+			. = "[hnnn][uppertext(message)]"
+		else
+			if ((message == uppertext(message)) && (message != lowertext(message)))
+				hnnn = uppertext(hnnn) // capitalize if all caps
+			. = "[hnnn][autodrawl(message)]"
 
 /decl/sprite_accessory/marking/baxxid
 	name = "Crest"
