@@ -8,6 +8,8 @@
 	slot_flags = SLOT_UPPER_BODY // SLOT_LOWER_BODY when pants slot exists
 	w_class = ITEM_SIZE_NORMAL
 	force = 0
+	bodytype_equip_flags = BODY_FLAG_HUMANOID
+
 	valid_accessory_slots = list(
 		ACCESSORY_SLOT_SENSORS,
 		ACCESSORY_SLOT_UTILITY,
