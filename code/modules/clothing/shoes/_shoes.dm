@@ -14,6 +14,7 @@
 	blood_overlay_type = "shoeblood"
 	material = /decl/material/solid/organic/leather
 	origin_tech = @'{"materials":1,"engineering":1}'
+	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 	var/can_fit_under_magboots = TRUE
 	var/can_add_cuffs = TRUE
