@@ -30,7 +30,8 @@
 	if(!growing)
 		growing = TRUE
 		visible_message(SPAN_NOTICE("\The [src] expands!"))
-		var/mob/monkey = new monkey_type
+		var/mob/monkey = islist(monkey_type) ? pickweight(monkey_type) : monkey_type
+		monkey = new monkey
 		monkey.dropInto(force_loc || loc)
 		qdel(src)
 
@@ -73,3 +74,12 @@
 /obj/item/chems/food/monkeycube/wrapped/spidercube
 	name = "spider cube"
 	monkey_type = /obj/effect/spider/spiderling
+
+//Carp cubes
+/obj/item/chems/food/monkeycube/carpcube
+	name = "carp cube"
+	monkey_type = list(/mob/living/simple_animal/hostile/carp = 10, /mob/living/simple_animal/hostile/carp/pike = 3, /mob/living/simple_animal/hostile/carp/shark = 1)
+
+/obj/item/chems/food/monkeycube/wrapped/carpcube
+	name = "carp cube"
+	monkey_type = list(/mob/living/simple_animal/hostile/carp = 10, /mob/living/simple_animal/hostile/carp/pike = 3, /mob/living/simple_animal/hostile/carp/shark = 1)
