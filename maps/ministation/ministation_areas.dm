@@ -324,6 +324,12 @@
 	icon_state = "light_blue"
 	secure = FALSE
 
+/area/ministation/enclave/tower
+	name = "\improper Enclave Tower"
+	req_access = list()
+	icon_state = "dark_blue"
+	secure = FALSE
+
 /area/ministation/enclave/scikitchen
 	name = "\improper Enclave SCI-Kitchen"
 	req_access = list()
@@ -352,6 +358,12 @@
 	name = "\improper Enclave Sleeping Room"
 	req_access = list()
 	icon_state = "pink"
+	secure = FALSE
+
+/area/ministation/enclave/atrium
+	name = "\improper Enclave Atrium"
+	req_access = list()
+	icon_state = "white"
 	secure = FALSE
 
 /area/ministation/Arrival

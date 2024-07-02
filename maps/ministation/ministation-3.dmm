@@ -34,6 +34,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/sciencetesting)
+"aw" = (
+/obj/structure/lattice,
+/obj/structure/dogbed,
+/obj/item/shreddedp,
+/obj/item/shreddedp,
+/obj/item/shreddedp,
+/obj/item/trash/mollusc_shell/clam,
+/obj/item/mollusc/barnacle,
+/turf/simulated/floor/wood/bamboo,
+/area/ministation/enclave/sleepingroom)
 "aF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -256,7 +266,7 @@
 /area/ministation/sciencetesting)
 "eW" = (
 /obj/structure/lattice,
-/obj/structure/railing{
+/obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/item/shreddedp,
@@ -264,6 +274,7 @@
 /obj/machinery/light{
 	dir = 2
 	},
+/obj/item/mollusc/clam,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/enclave/sleepingroom)
 "fo" = (
@@ -286,11 +297,12 @@
 /obj/item/shreddedp,
 /obj/item/shreddedp,
 /obj/item/shreddedp,
-/turf/simulated/floor/tiled/stone,
+/obj/item/trash/mollusc_shell,
+/turf/simulated/floor/tiled/white,
 /area/ministation/enclave/sleepingroom)
 "fG" = (
 /turf/open,
-/area/ministation/enclave/sleepingroom)
+/area/ministation/enclave/atrium)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -307,7 +319,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/wall/alium,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/wall,
 /area/ministation/enclave/sleepingroom)
 "gb" = (
 /turf/simulated/wall/r_wall/prepainted,
@@ -339,26 +354,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/sciencetesting)
-"ho" = (
-/obj/structure/lattice,
-/obj/structure/railing{
-	icon_state = "railing0-0";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing{
-	icon_state = "_mcorneroverlay1"
-	},
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/enclave/sleepingroom)
 "hx" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -375,18 +370,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"hJ" = (
-/obj/structure/lattice,
-/obj/structure/railing{
-	icon_state = "frontoverlay_l1";
-	dir = 1
-	},
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/turf/simulated/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "hQ" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "gasventdoor"
@@ -413,16 +396,12 @@
 /area/ministation/sciencetesting)
 "iD" = (
 /obj/structure/lattice,
-/obj/structure/railing{
+/obj/structure/railing/mapped{
 	icon_state = "railing0-0";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/structure/railing{
-	icon_state = "mcorneroverlay1";
-	dir = 4
 	},
 /obj/item/shreddedp,
 /obj/item/shreddedp,
@@ -430,8 +409,8 @@
 /obj/item/shreddedp,
 /obj/item/shreddedp,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/enclave/sleepingroom)
+/turf/simulated/floor/tiled/techmaint,
+/area/ministation/enclave/atrium)
 "iP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -531,9 +510,7 @@
 /area/ministation/maint/l4central)
 "lf" = (
 /obj/structure/lattice,
-/obj/structure/railing{
-	icon_state = "railing_preview"
-	},
+/obj/structure/railing/mapped,
 /obj/structure/dogbed,
 /obj/item/shreddedp,
 /obj/item/shreddedp,
@@ -568,12 +545,8 @@
 "ly" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/basic/full,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "quarantine";
-	name = "quarantine shutters"
-	},
 /turf/simulated/floor/plating,
-/area/ministation/enclave/sleepingroom)
+/area/ministation/enclave/atrium)
 "mG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -771,6 +744,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
+"sR" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	icon_state = "railing0-0";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/shreddedp,
+/obj/item/shreddedp,
+/obj/item/shreddedp,
+/obj/item/shreddedp,
+/obj/item/shreddedp,
+/obj/machinery/door/firedoor,
+/obj/item/mollusc/barnacle,
+/turf/simulated/floor/tiled/techmaint,
+/area/ministation/enclave/atrium)
 "tg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -831,8 +822,9 @@
 /obj/item/shreddedp,
 /obj/item/shreddedp,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+	dir = 1
 	},
+/obj/item/trash/mollusc_shell/clam,
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "ug" = (
@@ -954,27 +946,20 @@
 "wm" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
+/obj/structure/cable{
+	icon_state = "32-2"
+	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 24
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "32-2"
-	},
-/obj/structure/cable{
-	icon_state = "0-1";
-	dir = 4
-	},
 /obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
 	dir = 1
 	},
 /turf/open,
@@ -1025,10 +1010,8 @@
 /area/ministation/sciencetesting)
 "yL" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "2-4";
-	dir = 1
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
@@ -1070,14 +1053,14 @@
 /area/ministation/enclave/sleepingroom)
 "zz" = (
 /obj/structure/lattice,
-/obj/structure/railing{
+/obj/structure/railing/mapped{
 	icon_state = "railing0-0";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/railing{
+/obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/item/shreddedp,
@@ -1086,8 +1069,8 @@
 /obj/item/shreddedp,
 /obj/item/shreddedp,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/enclave/sleepingroom)
+/turf/simulated/floor/tiled/stone,
+/area/ministation/enclave/atrium)
 "zR" = (
 /obj/structure/table,
 /obj/random/plushie,
@@ -1263,10 +1246,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
-"Dh" = (
-/obj/structure/lattice,
-/turf/simulated/wall/r_titanium,
-/area/ministation/enclave/sleepingroom)
 "Dk" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
 /obj/machinery/door/firedoor,
@@ -1407,6 +1386,7 @@
 	dir = 8;
 	pixel_x = 22
 	},
+/obj/item/trash/mollusc_shell/clam,
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "Gv" = (
@@ -1416,9 +1396,7 @@
 /obj/item/shreddedp,
 /obj/item/shreddedp,
 /obj/item/shreddedp,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
+/obj/item/trash/mollusc_shell/barnacle,
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "Gy" = (
@@ -1428,7 +1406,10 @@
 /obj/item/shreddedp,
 /obj/item/shreddedp,
 /obj/item/shreddedp,
-/turf/simulated/floor/tiled/stone,
+/obj/item/mollusc/clam,
+/obj/item/mollusc/clam,
+/obj/item/mollusc/clam,
+/turf/simulated/floor/tiled/white,
 /area/ministation/enclave/sleepingroom)
 "GD" = (
 /obj/machinery/door/airlock/external/glass{
@@ -1500,13 +1481,20 @@
 /obj/item/shreddedp,
 /obj/item/shreddedp,
 /obj/item/shreddedp,
-/obj/structure/railing{
+/obj/structure/railing/mapped{
 	icon_state = "railing0-0";
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
 	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/mollusc/clam,
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "HM" = (
@@ -1613,9 +1601,11 @@
 "LM" = (
 /obj/structure/lattice,
 /obj/structure/cable{
-	icon_state = "2-4";
-	dir = 4
+	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/trash/mollusc_shell/clam,
+/obj/item/trash/mollusc_shell/barnacle,
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "Mj" = (
@@ -1648,19 +1638,20 @@
 /area/space)
 "MQ" = (
 /obj/structure/lattice,
-/obj/structure/railing{
+/obj/structure/railing/mapped{
 	icon_state = "railing0-0";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/railing{
+/obj/machinery/door/firedoor,
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/enclave/sleepingroom)
+/obj/item/trash/mollusc_shell/clam,
+/turf/simulated/floor/tiled/stone,
+/area/ministation/enclave/atrium)
 "Np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -1722,17 +1713,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/wall/alium,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/wall,
 /area/ministation/enclave/sleepingroom)
 "Pi" = (
 /obj/structure/lattice,
-/obj/structure/railing{
-	icon_state = "_frontoverlay_r1"
-	},
 /obj/structure/dogbed,
 /obj/item/shreddedp,
 /obj/item/shreddedp,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light_switch{
+	pixel_y = 25
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "Pm" = (
@@ -1762,7 +1756,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/wall/alium,
+/turf/simulated/wall,
 /area/ministation/enclave/sleepingroom)
 "Qh" = (
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -1832,6 +1826,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"SM" = (
+/obj/structure/lattice,
+/turf/simulated/wall/r_wall,
+/area/ministation/enclave/atrium)
 "SO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1967,7 +1965,7 @@
 /area/space)
 "Wk" = (
 /obj/structure/lattice,
-/turf/simulated/wall/alium,
+/turf/simulated/wall,
 /area/ministation/enclave/sleepingroom)
 "Wl" = (
 /obj/machinery/power/smes/buildable/preset,
@@ -18954,7 +18952,7 @@ aa
 aa
 aa
 aa
-af
+aa
 af
 af
 aa
@@ -19213,7 +19211,7 @@ aa
 aa
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -19468,9 +19466,9 @@ aa
 aa
 aa
 aa
-af
-af
-af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -23573,8 +23571,8 @@ aa
 aa
 aa
 aa
-af
-af
+uG
+uG
 aa
 aa
 aa
@@ -25361,12 +25359,12 @@ aa
 aa
 aa
 aa
-Dh
-ho
+SM
+sR
 MQ
 zz
 iD
-Dh
+SM
 aa
 aa
 aa
@@ -25618,12 +25616,12 @@ af
 aa
 aa
 aa
-Dh
+Wk
 lf
 Gy
 fE
 eW
-Dh
+Wk
 aa
 aa
 aa
@@ -25879,7 +25877,7 @@ PH
 Pi
 zn
 DE
-hJ
+aw
 Mw
 aa
 aa
