@@ -7,6 +7,7 @@
 	slot_flags = SLOT_UPPER_BODY
 	w_class = ITEM_SIZE_NORMAL
 	force = 0
+	bodytype_equip_flags = BODY_FLAG_HUMANOID
 
 	valid_accessory_slots = list(
 		ACCESSORY_SLOT_SENSORS,
