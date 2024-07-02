@@ -7801,11 +7801,6 @@
 	},
 /turf/simulated/wall,
 /area/ministation/enclave/tower)
-"En" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "Es" = (
 /obj/machinery/light{
 	dir = 4
@@ -29855,7 +29850,7 @@ aa
 aa
 aa
 ad
-En
+ad
 ad
 aa
 aa

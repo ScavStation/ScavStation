@@ -8533,11 +8533,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
-"Qg" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "Qh" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4
@@ -27665,7 +27660,7 @@ aa
 aa
 aa
 af
-Qg
+ad
 ad
 aa
 aa
@@ -32530,7 +32525,7 @@ aa
 aa
 aa
 ad
-Qg
+ad
 ad
 ad
 aa
