@@ -324,6 +324,48 @@
 	icon_state = "light_blue"
 	secure = FALSE
 
+/area/ministation/enclave/tower
+	name = "\improper Enclave Tower"
+	req_access = list()
+	icon_state = "dark_blue"
+	secure = FALSE
+
+/area/ministation/enclave/scikitchen
+	name = "\improper Enclave SCI-Kitchen"
+	req_access = list()
+	icon_state = "green"
+	secure = FALSE
+
+/area/ministation/enclave/evacloset
+	name = "\improper Enclave EVA Closet"
+	req_access = list()
+	icon_state = "brown"
+	secure = FALSE
+
+/area/ministation/enclave/messhall
+	name = "\improper Enclave Mess Hall"
+	req_access = list()
+	icon_state = "red"
+	secure = FALSE
+
+/area/ministation/enclave/foyer
+	name = "\improper Enclave Foyer"
+	req_access = list()
+	icon_state = "yellow"
+	secure = FALSE
+
+/area/ministation/enclave/sleepingroom
+	name = "\improper Enclave Sleeping Room"
+	req_access = list()
+	icon_state = "pink"
+	secure = FALSE
+
+/area/ministation/enclave/atrium
+	name = "\improper Enclave Atrium"
+	req_access = list()
+	icon_state = "white"
+	secure = FALSE
+
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
 	icon_state = "white"
