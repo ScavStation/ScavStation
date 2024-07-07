@@ -976,12 +976,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"dr" = (
-/turf/exterior/wall/random/ministation{
-	initial_gas = list(/decl/material/gas/oxygen = 21.8366, /decl/material/gas/nitrogen = 82.1472);
-	floor_type = /turf/simulated/floor/tiled/stone
-	},
-/area/ministation/enclave/scikitchen)
 "du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4374,11 +4368,11 @@
 /area/space)
 "os" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "mining_airlock";
+	id_tag = "enclave_airlock";
 	pixel_y = null;
-	tag_airpump = "mining_vent";
-	tag_chamber_sensor = "mining_sensor";
-	tag_exterior_door = "mining_airlock_exterior";
+	tag_airpump = "enclave_vent";
+	tag_chamber_sensor = "enclave_sensor";
+	tag_exterior_door = "enclave_airlock_exterior";
 	tag_interior_door = "mining_airlock_interior";
 	dir = 4;
 	pixel_x = -20
@@ -4653,7 +4647,6 @@
 	level = 2
 	},
 /obj/structure/cable,
-/obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/enclave/scikitchen)
 "pE" = (
@@ -5487,7 +5480,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/eastatmos)
 "sI" = (
-/turf/simulated/wall/concrete,
+/turf/simulated/wall/r_wall,
 /area/ministation/enclave/evacloset)
 "sJ" = (
 /obj/structure/cable{
@@ -6196,7 +6189,9 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	autoset_access = 0
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -6996,10 +6991,6 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/structure/table/steel_reinforced,
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/enclave/scikitchen)
@@ -13440,10 +13431,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/exterior/wall/random/ministation{
-	initial_gas = list(/decl/material/gas/oxygen = 21.8366, /decl/material/gas/nitrogen = 82.1472);
-	floor_type = /turf/simulated/floor/tiled/stone
-	},
+/turf/simulated/wall,
 /area/ministation/enclave/scikitchen)
 "RH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13688,6 +13676,9 @@
 	dir = 4
 	},
 /obj/item/trash/mollusc_shell/barnacle,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/enclave/scikitchen)
 "SI" = (
@@ -38759,9 +38750,9 @@ aa
 aa
 Yw
 RG
-dr
-dr
-dr
+dj
+dj
+dj
 dj
 ad
 aa

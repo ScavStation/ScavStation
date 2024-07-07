@@ -2162,10 +2162,7 @@
 /turf/simulated/floor/bluegrid,
 /area/ministation/security)
 "jn" = (
-/turf/exterior/wall/random/ministation{
-	initial_gas = list(/decl/material/gas/oxygen = 21.8366, /decl/material/gas/nitrogen = 82.1472);
-	floor_type = /turf/simulated/floor/tiled/stone
-	},
+/turf/simulated/wall,
 /area/ministation/enclave/atrium)
 "jq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2605,6 +2602,9 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/vending/dinnerware{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/ministation/enclave/messhall)
@@ -3185,7 +3185,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
 "nO" = (
-/turf/simulated/wall/concrete,
+/turf/simulated/wall,
 /area/ministation/enclave/messhall)
 "nS" = (
 /obj/machinery/camera/network/security{

@@ -3929,7 +3929,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "qD" = (
-/turf/simulated/wall/concrete,
+/turf/simulated/wall,
 /area/ministation/enclave/foyer)
 "qJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -4321,6 +4321,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/transit_tube_pod,
 /turf/simulated/floor,
 /area/ministation/enclave/foyer)
 "tm" = (
@@ -4792,7 +4793,6 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/structure/transit_tube_pod,
 /obj/structure/transit_tube/station{
 	dir = 4
 	},
@@ -5277,10 +5277,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "yY" = (
-/turf/exterior/wall/random/ministation{
-	initial_gas = list(/decl/material/gas/oxygen = 21.8366, /decl/material/gas/nitrogen = 82.1472);
-	floor_type = /turf/simulated/floor/tiled/stone
-	},
+/turf/simulated/wall,
 /area/ministation/enclave/atrium)
 "zd" = (
 /obj/machinery/camera/network/research{
