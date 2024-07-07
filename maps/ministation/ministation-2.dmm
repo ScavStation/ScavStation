@@ -2257,8 +2257,14 @@
 "iN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/industrial/loading{
-	dir = 8
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 27;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
@@ -2427,17 +2433,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "jy" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2446,6 +2441,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
@@ -2487,6 +2485,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo/f3)
+"jJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "jL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2545,11 +2550,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "jR" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/reagent_dispensers/watertank/firefighter,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "jU" = (
@@ -3496,21 +3500,12 @@
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
 "nI" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "_East APC";
-	pixel_x = 27;
-	pixel_y = 2
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/machinery/alarm{
 	pixel_y = -24;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/ministation/hall/s3)
+/area/ministation/maint/l3central)
 "nL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/network/relay{
@@ -3841,7 +3836,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/plating,
-/area/ministation/hall/n3)
+/area/ministation/maint/l3central)
 "pB" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube{
@@ -3964,11 +3959,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3nw)
-"rc" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/double/glass/science,
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
 "rf" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
@@ -4154,7 +4144,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/ministation/library)
 "sp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4925,12 +4915,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "wk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "wl" = (
@@ -5514,9 +5501,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "zW" = (
+/obj/machinery/door/airlock/double/glass/science,
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Aa" = (
@@ -6464,11 +6450,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "DI" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -6728,6 +6714,16 @@
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
+"Ft" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "_West APC";
+	pixel_x = -25
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "Fv" = (
@@ -8378,6 +8374,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "OW" = (
@@ -8835,7 +8834,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "Ri" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8852,14 +8851,11 @@
 /turf/simulated/floor/grass,
 /area/ministation/science)
 "Rp" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/loading{
+	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l3central)
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "Rt" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8951,6 +8947,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"RH" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s3)
 "RI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -9850,13 +9855,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "VN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/item/stool,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "VW" = (
 /obj/machinery/light{
@@ -10405,20 +10409,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
-"YJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/door/airlock/glass/science{
-	name = "Toxins";
-	req_access = list("ACCESS_XENOBIO");
-	autoset_access = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
 "YL" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
@@ -41745,7 +41735,7 @@ Yv
 Yv
 Yv
 Yv
-Rp
+Yv
 Bh
 ls
 Cd
@@ -42504,8 +42494,8 @@ ak
 OW
 tw
 OU
-OW
-OW
+jJ
+Ft
 Qu
 OW
 LI
@@ -43033,7 +43023,7 @@ Gy
 oN
 tt
 uS
-Pg
+RH
 Pg
 Pg
 Pg
@@ -43290,7 +43280,7 @@ Gy
 tt
 tt
 tt
-tt
+Mn
 tt
 tt
 tt
@@ -43546,9 +43536,9 @@ lb
 eZ
 MB
 fJ
+fJ
 iN
-iN
-iN
+fJ
 QG
 fJ
 zy
@@ -47667,7 +47657,7 @@ As
 ae
 yN
 cZ
-cZ
+VN
 tT
 jx
 Xa
@@ -48180,8 +48170,8 @@ vw
 Xd
 Vs
 db
-rc
 db
+zW
 TO
 yZ
 XS
@@ -48437,7 +48427,7 @@ oP
 lM
 sU
 HQ
-zW
+HQ
 wk
 HQ
 HQ
@@ -48695,8 +48685,8 @@ dz
 dz
 dz
 fS
-YJ
-VN
+dz
+dz
 dz
 it
 IP
@@ -50472,13 +50462,13 @@ cw
 cw
 cw
 sD
+Rp
+Rp
+Rp
 sC
-sC
-sC
-sC
-sC
-sC
-sC
+Rp
+Rp
+Rp
 sD
 db
 em

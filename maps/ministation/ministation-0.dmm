@@ -196,10 +196,6 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "aL" = (
-/obj/machinery/power/apc{
-	name = "_South APC";
-	pixel_y = -24
-	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -209,8 +205,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 27;
+	pixel_y = 2
+	},
 /turf/simulated/floor/plating,
-/area/ministation/dorms)
+/area/ministation/maint/l1ne)
 "aM" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
@@ -1193,6 +1195,9 @@
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "dV" = (
@@ -1570,8 +1575,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
 "fe" = (
-/turf/simulated/wall/r_wall,
-/area/ministation/hall/s1)
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "fg" = (
 /obj/structure/window/reinforced{
 	current_health = 1e+007
@@ -2361,13 +2370,12 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "ht" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3110,9 +3118,6 @@
 /area/ministation/cargo)
 "jY" = (
 /obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3331,15 +3336,17 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
 "kM" = (
-/obj/machinery/power/apc/high{
+/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/machinery/power/apc{
 	dir = 1;
-	pixel_y = 20
+	name = "_North APC";
+	pixel_y = 24
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/plating,
-/area/ministation/hall/n)
+/turf/simulated/floor/tiled,
+/area/ministation/cargo)
 "kN" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3565,6 +3572,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
@@ -4115,6 +4125,9 @@
 	icon_state = "1-8"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "nj" = (
@@ -4137,9 +4150,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "nk" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
@@ -4463,6 +4473,12 @@
 /obj/item/stool,
 /turf/simulated/floor/tiled,
 /area/ministation/janitor)
+"oJ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l1ne)
 "oK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4619,16 +4635,13 @@
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
 "pz" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 24
-	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/ministation/cargo)
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n)
 "pA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/railing/mapped{
@@ -4740,12 +4753,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "qa" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/abstract/landmark/start{
+	name = "Recruit"
 	},
-/turf/simulated/floor/plating,
-/area/ministation/cargo)
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "qb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 4
@@ -5005,9 +5020,6 @@
 /area/ministation/maint/l1ne)
 "qN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
 "qO" = (
@@ -5157,9 +5169,6 @@
 /area/ministation/hall/s1)
 "rn" = (
 /obj/machinery/light/small,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "rq" = (
@@ -5348,12 +5357,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/enclave/scikitchen)
 "sh" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -5362,6 +5365,12 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
@@ -5732,7 +5741,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
-/area/ministation/trash)
+/area/ministation/maint/l1central)
 "tD" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -6191,7 +6200,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/ministation/hall/s1)
+/area/ministation/maint/l1central)
 "vh" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -6249,6 +6258,9 @@
 "vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
@@ -6484,7 +6496,7 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
@@ -6552,6 +6564,10 @@
 /obj/effect/floor_decal/industrial/warning/fulltile,
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
@@ -6779,7 +6795,7 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
@@ -6846,6 +6862,9 @@
 /area/ministation/atmospherics)
 "xQ" = (
 /obj/machinery/light/small,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "xR" = (
@@ -7460,6 +7479,9 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
 "AA" = (
@@ -7965,7 +7987,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/ministation/hall/n)
+/area/ministation/maint/l1central)
 "Cm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -8331,17 +8353,10 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	pixel_y = 20
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/ministation/hall/s1)
+/area/ministation/maint/westatmos)
 "Dx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -9767,6 +9782,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "GM" = (
@@ -10434,21 +10452,17 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "IM" = (
-/obj/machinery/power/apc{
-	name = "_South APC";
-	pixel_y = -24
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
@@ -10595,14 +10609,18 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/eastatmos)
 "Jk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "0-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 27;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/hall/n)
+/area/ministation/hall/s1)
 "Jl" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -10838,9 +10856,6 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -11122,6 +11137,13 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	name = "_South APC";
+	pixel_y = -24
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
@@ -11631,6 +11653,9 @@
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "LZ" = (
@@ -11810,6 +11835,14 @@
 	name = "Recruit"
 	},
 /obj/item/stool/padded,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "MC" = (
@@ -12365,16 +12398,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "On" = (
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	pixel_y = 20
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -12383,6 +12406,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
@@ -12502,7 +12528,12 @@
 "OK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "_West APC";
+	pixel_x = -25
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
@@ -12510,7 +12541,7 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/ministation/hall/n)
+/area/ministation/maint/l1central)
 "OO" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -13481,6 +13512,9 @@
 	dir = 1;
 	icon_state = "warning"
 	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "RS" = (
@@ -13515,9 +13549,6 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/engine)
 "Sa" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
 	dir = 1
@@ -14440,6 +14471,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "VO" = (
@@ -14860,6 +14894,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
@@ -15353,6 +15390,9 @@
 /area/ministation/cargo)
 "Zl" = (
 /obj/structure/reagent_dispensers/watertank,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
 "Zm" = (
@@ -45207,14 +45247,14 @@ gP
 wB
 au
 NX
-jh
+MX
 MX
 MX
 jd
 MX
 MX
 MX
-jh
+MX
 Bu
 jh
 jh
@@ -45460,18 +45500,18 @@ fu
 au
 au
 au
-gP
+kM
 hs
 au
 NX
-jh
+MX
 Yx
 pZ
 WF
 ZK
 uM
 do
-jh
+MX
 cw
 qd
 dw
@@ -45720,17 +45760,17 @@ au
 gP
 ht
 au
-pz
-jh
+NX
+MX
 AN
 nG
 Os
 qW
 WR
 TJ
-jh
-jh
-jh
+MX
+MX
+MX
 dF
 di
 di
@@ -45976,9 +46016,9 @@ fS
 gq
 gP
 JV
-qa
+el
 rn
-jh
+MX
 xX
 CL
 ez
@@ -46235,7 +46275,7 @@ gO
 hu
 au
 NX
-jh
+MX
 eB
 hA
 rT
@@ -46244,7 +46284,7 @@ gg
 lB
 MX
 MX
-jh
+MX
 On
 di
 dM
@@ -46492,7 +46532,7 @@ Ia
 Lq
 di
 zJ
-jh
+MX
 RH
 rT
 qG
@@ -46757,7 +46797,7 @@ hf
 Gd
 Kz
 MX
-kM
+NX
 nk
 jY
 di
@@ -46795,7 +46835,7 @@ mZ
 ms
 DD
 Dw
-fe
+av
 AR
 av
 av
@@ -47050,7 +47090,7 @@ SC
 uQ
 xw
 ms
-uK
+ms
 qP
 ms
 Ed
@@ -47271,8 +47311,8 @@ jo
 fz
 mr
 OK
-Rs
-Rs
+fz
+fz
 sh
 Rs
 qO
@@ -47530,7 +47570,7 @@ iN
 ll
 gQ
 gQ
-Jk
+ij
 gQ
 gQ
 iN
@@ -47785,8 +47825,8 @@ iM
 iM
 na
 ni
-OY
-uY
+pz
+fe
 LY
 uY
 OY
@@ -48074,7 +48114,7 @@ aV
 aV
 aV
 Rr
-aV
+sC
 aV
 Ox
 aV
@@ -48331,7 +48371,7 @@ QG
 ui
 Ib
 ui
-ui
+Jk
 eZ
 Hg
 ui
@@ -48539,7 +48579,7 @@ MK
 OG
 eu
 nS
-eu
+zW
 fU
 fU
 es
@@ -48593,8 +48633,8 @@ ms
 ms
 ms
 hn
-Dt
-Dt
+ms
+ms
 Eh
 Ex
 av
@@ -48796,7 +48836,7 @@ pa
 AF
 qr
 qM
-eu
+zW
 SE
 gX
 xm
@@ -48850,7 +48890,7 @@ Cn
 Wy
 hU
 ak
-Je
+av
 av
 av
 av
@@ -49050,10 +49090,10 @@ eu
 eu
 Xl
 vv
-AF
+oJ
 Zl
 IM
-eu
+zW
 MB
 jO
 tU
@@ -49311,7 +49351,7 @@ Sa
 qN
 ws
 Az
-gX
+qa
 FM
 Bx
 MF
@@ -49819,11 +49859,11 @@ aa
 aa
 zW
 zW
-eu
-eu
-eu
+zW
+zW
+zW
 VJ
-eu
+zW
 zW
 zW
 rH
