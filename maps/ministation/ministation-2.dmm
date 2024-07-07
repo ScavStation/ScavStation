@@ -9293,7 +9293,7 @@
 	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 25
+	pixel_y = 23
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
