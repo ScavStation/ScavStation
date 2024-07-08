@@ -241,7 +241,7 @@
 /area/ministation/eva)
 "aX" = (
 /obj/structure/lattice{
-	icon_state = "lattice11"
+	icon_state = "lattice9"
 	},
 /turf/space,
 /area/space)
@@ -1021,7 +1021,8 @@
 /area/ministation/cargo)
 "dr" = (
 /obj/structure/lattice{
-	icon_state = "lattice2"
+	icon_state = "lattice10";
+	dir = 8
 	},
 /turf/space,
 /area/space)
@@ -2666,6 +2667,9 @@
 	},
 /obj/effect/decal/cleanable/ash,
 /obj/item/organ/internal/liver/yinglet,
+/obj/structure/lattice{
+	icon_state = "lattice2"
+	},
 /turf/space,
 /area/space)
 "ie" = (
@@ -3050,6 +3054,10 @@
 "jN" = (
 /obj/machinery/atmospherics/pipe/cap/visible/scrubbers{
 	dir = 4
+	},
+/obj/structure/lattice{
+	icon_state = "lattice13";
+	dir = 8
 	},
 /turf/space,
 /area/space)
@@ -4355,6 +4363,10 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/structure/lattice{
+	icon_state = "lattice1";
+	dir = 1
+	},
 /turf/space,
 /area/space)
 "nV" = (
@@ -4410,8 +4422,8 @@
 /area/space)
 "op" = (
 /obj/structure/lattice{
-	icon_state = "lattice10";
-	dir = 8
+	icon_state = "lattice2";
+	dir = 1
 	},
 /turf/space,
 /area/space)
@@ -4526,6 +4538,9 @@
 "oP" = (
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/structure/lattice{
+	icon_state = "lattice3"
 	},
 /turf/space,
 /area/space)
@@ -5255,8 +5270,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice{
-	icon_state = "lattice10";
-	dir = 4
+	icon_state = "lattice15"
 	},
 /obj/machinery/atmospherics/pipe/cap/visible/supply{
 	dir = 4
@@ -5924,8 +5938,12 @@
 /turf/simulated/wall/r_wall,
 /area/ministation/ai_upload)
 "tx" = (
-/obj/structure/cable{
-	icon_state = "2-10"
+/obj/structure/lattice{
+	icon_state = "lattice10";
+	dir = 4
+	},
+/obj/structure/lattice{
+	icon_state = "lattice2"
 	},
 /turf/space,
 /area/space)
@@ -6012,6 +6030,9 @@
 	icon_state = "2-4"
 	},
 /obj/item/organ/external/head/yinglet,
+/obj/structure/lattice{
+	icon_state = "lattice12"
+	},
 /turf/space,
 /area/space)
 "tR" = (
@@ -7594,8 +7615,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "zE" = (
+/obj/item/stack/material/rods,
 /obj/structure/lattice{
-	icon_state = "lattice1"
+	icon_state = "lattice9"
 	},
 /turf/space,
 /area/space)
@@ -8121,6 +8143,9 @@
 	icon_state = "5-8"
 	},
 /obj/item/stack/material/rods,
+/obj/structure/lattice{
+	icon_state = "lattice12"
+	},
 /turf/space,
 /area/space)
 "Bw" = (
@@ -8281,6 +8306,12 @@
 /obj/item/clothing/suit/fancyrobe,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
+"BT" = (
+/obj/structure/lattice{
+	icon_state = "lattice1"
+	},
+/turf/space,
+/area/space)
 "BV" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/corner/blue{
@@ -10621,6 +10652,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice{
+	icon_state = "lattice15"
+	},
 /turf/space,
 /area/space)
 "HV" = (
@@ -12394,6 +12428,10 @@
 	icon_state = "2-10"
 	},
 /obj/item/organ/internal/eyes/yinglet,
+/obj/structure/lattice{
+	icon_state = "lattice9";
+	dir = 1
+	},
 /turf/space,
 /area/space)
 "MX" = (
@@ -12472,6 +12510,12 @@
 /obj/structure/ore_box,
 /turf/space,
 /area/space)
+"Nk" = (
+/obj/structure/lattice{
+	icon_state = "lattice11"
+	},
+/turf/space,
+/area/space)
 "Nl" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -12490,6 +12534,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
+"Np" = (
+/obj/structure/lattice{
+	icon_state = "lattice9";
+	dir = 8
+	},
+/turf/space,
+/area/space)
 "Nq" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -13040,7 +13091,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "OV" = (
-/obj/structure/lattice,
+/obj/structure/lattice{
+	icon_state = "lattice10";
+	dir = 8
+	},
 /obj/item/organ/external/tail/yinglet,
 /turf/space,
 /area/space)
@@ -14185,6 +14239,9 @@
 	icon_state = "1-4"
 	},
 /obj/item/organ/external/groin/yinglet,
+/obj/structure/lattice{
+	icon_state = "lattice3"
+	},
 /turf/space,
 /area/space)
 "SQ" = (
@@ -14952,6 +15009,12 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"VP" = (
+/obj/structure/lattice{
+	icon_state = "lattice2"
+	},
+/turf/space,
 /area/space)
 "VQ" = (
 /obj/structure/lattice,
@@ -40568,7 +40631,7 @@ aa
 af
 Zr
 bG
-op
+dr
 yJ
 HW
 st
@@ -40831,7 +40894,7 @@ aa
 Ur
 AO
 hg
-aa
+aX
 Pr
 iY
 pE
@@ -41088,7 +41151,7 @@ Uv
 tx
 oP
 aB
-zE
+BT
 tf
 ep
 os
@@ -41859,7 +41922,7 @@ MW
 HU
 SP
 jN
-aa
+op
 sl
 yJ
 aa
@@ -42113,12 +42176,12 @@ aa
 aa
 mA
 DB
-yJ
+zE
 ib
 qV
 Gt
 AZ
-aa
+Np
 aa
 aa
 aa
@@ -42369,7 +42432,7 @@ aa
 aa
 aa
 oo
-aX
+Nk
 Tj
 BX
 Dc
@@ -42628,7 +42691,7 @@ aa
 aa
 aa
 aa
-dr
+VP
 Dc
 iH
 NA

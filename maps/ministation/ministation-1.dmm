@@ -3798,6 +3798,7 @@
 	dir = 4;
 	pixel_x = 21
 	},
+/obj/item/boombox,
 /turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/atrium)
 "pZ" = (
