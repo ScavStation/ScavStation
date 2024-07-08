@@ -342,6 +342,18 @@
 	icon_state = "brown"
 	secure = FALSE
 
+/area/ministation/enclave/engineering
+	name = "\improper Enclave Engineering"
+	req_access = list()
+	icon_state = "yellow"
+	secure = FALSE
+
+/area/ministation/enclave/airroom
+	name = "\improper Enclave Air Room"
+	req_access = list()
+	icon_state = "light_blue"
+	secure = FALSE
+
 /area/ministation/enclave/messhall
 	name = "\improper Enclave Mess Hall"
 	req_access = list()
