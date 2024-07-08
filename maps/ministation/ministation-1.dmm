@@ -1071,6 +1071,12 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/messhall)
 "eV" = (
@@ -9896,7 +9902,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/enclave/engineering)
 "Nw" = (
-/obj/machinery/atmospherics/unary/tank/air,
+/obj/machinery/atmospherics/unary/tank/air{
+	start_pressure = 6000;
+	dir = 4
+	},
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/airroom)
 "Ny" = (

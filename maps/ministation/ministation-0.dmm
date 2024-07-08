@@ -240,12 +240,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "aX" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 4
+/obj/structure/lattice{
+	icon_state = "lattice11"
 	},
 /turf/space,
 /area/space)
@@ -1024,10 +1020,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "dr" = (
-/obj/item/trash/mollusc_shell/barnacle,
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 4
+/obj/structure/lattice{
+	icon_state = "lattice2"
 	},
 /turf/space,
 /area/space)
@@ -3932,9 +3926,6 @@
 	icon_state = "S-NE"
 	},
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 4
-	},
 /turf/space,
 /area/space)
 "mC" = (
@@ -4416,6 +4407,13 @@
 "oo" = (
 /obj/structure/lattice,
 /turf/exterior/wall/random/ministation,
+/area/space)
+"op" = (
+/obj/structure/lattice{
+	icon_state = "lattice10";
+	dir = 8
+	},
+/turf/space,
 /area/space)
 "os" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -5256,7 +5254,10 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/lattice,
+/obj/structure/lattice{
+	icon_state = "lattice10";
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/cap/visible/supply{
 	dir = 4
 	},
@@ -6360,9 +6361,6 @@
 	pixel_y = -14
 	},
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 4
-	},
 /turf/space,
 /area/space)
 "uX" = (
@@ -7595,6 +7593,12 @@
 /obj/item/stack/material/brick/mapped/sandstone/five,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"zE" = (
+/obj/structure/lattice{
+	icon_state = "lattice1"
+	},
+/turf/space,
+/area/space)
 "zH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 1
@@ -7917,7 +7921,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "AO" = (
-/obj/structure/lattice,
+/obj/structure/lattice{
+	icon_state = "lattice10"
+	},
 /obj/structure/cable{
 	icon_state = "5-8"
 	},
@@ -8009,7 +8015,9 @@
 /turf/simulated/wall,
 /area/ministation/enclave/scikitchen)
 "AZ" = (
-/obj/structure/lattice,
+/obj/structure/lattice{
+	icon_state = "lattice-simple"
+	},
 /obj/effect/decal/cleanable/ash,
 /turf/space,
 /area/space)
@@ -8568,9 +8576,7 @@
 /area/ministation/dorms)
 "CX" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8777,7 +8783,9 @@
 /area/ministation/engine)
 "DA" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -10055,7 +10063,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Gt" = (
-/obj/structure/lattice,
+/obj/structure/lattice{
+	icon_state = "lattice13";
+	dir = 8
+	},
 /obj/item/organ/internal/stomach/yinglet,
 /turf/space,
 /area/space)
@@ -12479,13 +12490,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
-"Np" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 4
-	},
-/turf/space,
-/area/space)
 "Nq" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -14279,6 +14283,12 @@
 /obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"Tj" = (
+/obj/structure/lattice{
+	icon_state = "lattice-simple"
+	},
+/turf/space,
+/area/space)
 "Tl" = (
 /obj/structure/transit_tube{
 	icon_state = "D-SE"
@@ -40558,7 +40568,7 @@ aa
 af
 Zr
 bG
-ad
+op
 yJ
 HW
 st
@@ -41078,7 +41088,7 @@ Uv
 tx
 oP
 aB
-ad
+zE
 tf
 ep
 os
@@ -41858,7 +41868,7 @@ aa
 sl
 aa
 aa
-aX
+aa
 aa
 aa
 aa
@@ -42115,7 +42125,7 @@ aa
 aa
 aa
 aa
-dr
+sl
 aa
 aa
 aa
@@ -42359,8 +42369,8 @@ aa
 aa
 aa
 oo
-ad
-ad
+aX
+Tj
 BX
 Dc
 SQ
@@ -42372,7 +42382,7 @@ ad
 aa
 aa
 aa
-Np
+aa
 aa
 aa
 aa
@@ -42618,7 +42628,7 @@ aa
 aa
 aa
 aa
-ad
+dr
 Dc
 iH
 NA
@@ -42629,7 +42639,7 @@ oo
 aa
 sl
 aa
-Np
+ad
 ad
 aa
 aa
@@ -42886,7 +42896,7 @@ af
 aa
 aa
 aa
-Np
+ad
 YB
 YB
 YB
