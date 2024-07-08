@@ -993,6 +993,9 @@
 /obj/structure/sign/warning/deathsposal{
 	pixel_x = -30
 	},
+/obj/vehicle/bike/electric{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "dp" = (
@@ -12458,15 +12461,6 @@
 /obj/structure/ore_box,
 /turf/space,
 /area/space)
-"Nk" = (
-/obj/machinery/conveyor{
-	id_tag = "recycler"
-	},
-/obj/vehicle/bike/electric{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ministation/trash)
 "Nl" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -46767,7 +46761,7 @@ NX
 jh
 eB
 hA
-Nk
+rT
 rT
 gg
 lB
