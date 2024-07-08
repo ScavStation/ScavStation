@@ -76,22 +76,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/cafe)
 "an" = (
-/obj/item/storage/toolbox/electrical{
-	pixel_x = -7;
-	pixel_y = 6
-	},
-/obj/item/storage/toolbox/repairs{
-	pixel_x = 4;
-	pixel_y = 12
-	},
 /obj/structure/closet/crate/solar_assembly{
 	pixel_y = -6;
 	pixel_x = 4;
 	dir = 1
-	},
-/obj/item/stack/material/pane/mapped/glass/thirty{
-	pixel_y = -2;
-	pixel_x = -12
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/engineering)
@@ -5684,8 +5672,8 @@
 	},
 /obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "0-4";
-	dir = 8
+	icon_state = "0-2";
+	pixel_y = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/engineering)
@@ -8506,8 +8494,8 @@
 	},
 /obj/machinery/power/smes/buildable/preset,
 /obj/structure/cable{
-	icon_state = "0-4";
-	dir = 8
+	icon_state = "0-2";
+	pixel_y = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/engineering)
@@ -10564,6 +10552,10 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/item/stack/material/pane/mapped/glass/thirty{
+	pixel_y = -2;
+	pixel_x = -12
+	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/engineering)
 "Qm" = (
@@ -10952,10 +10944,19 @@
 	pixel_y = 2
 	},
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "0-2";
+	pixel_y = 1
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/repairs{
+	pixel_x = 4;
+	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/engineering)
