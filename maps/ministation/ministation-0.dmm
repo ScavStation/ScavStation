@@ -5942,8 +5942,8 @@
 	icon_state = "lattice10";
 	dir = 4
 	},
-/obj/structure/lattice{
-	icon_state = "lattice2"
+/obj/structure/cable{
+	icon_state = "2-10"
 	},
 /turf/space,
 /area/space)
