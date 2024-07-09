@@ -2304,16 +2304,24 @@
 /area/ministation/cafe)
 "jT" = (
 /obj/structure/table,
-/obj/item/hand_labeler,
+/obj/item/hand_labeler{
+	pixel_y = 11;
+	pixel_x = -6
+	},
 /obj/item/radio/intercom{
 	name = "Common Channel";
 	pixel_y = 25
 	},
-/obj/item/storage/pill_bottle,
+/obj/item/storage/pill_bottle{
+	pixel_x = -7
+	},
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/eftpos,
+/obj/item/eftpos{
+	pixel_y = 5;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "jU" = (
@@ -4217,10 +4225,21 @@
 /area/ministation/medical)
 "rM" = (
 /obj/structure/table,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/masks,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/advanced/bruise_pack{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/storage/box/masks{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 1
+	},
+/obj/item/stack/medical/advanced/bruise_pack{
+	pixel_y = 8;
+	pixel_x = 8
+	},
 /obj/machinery/status_display{
 	pixel_y = -29
 	},
@@ -5486,13 +5505,20 @@
 /area/ministation/cafe)
 "vH" = (
 /obj/structure/table,
-/obj/item/chems/dropper,
-/obj/item/storage/box/syringes,
-/obj/item/mollusc/clam,
+/obj/item/storage/box/syringes{
+	pixel_y = 8;
+	pixel_x = 11
+	},
+/obj/item/mollusc/clam{
+	pixel_y = 2
+	},
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/item/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 11;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "vJ" = (
@@ -6246,14 +6272,22 @@
 /obj/structure/table,
 /obj/machinery/reagentgrinder/juicer,
 /obj/item/chems/glass/beaker,
+/obj/item/chems/dropper{
+	pixel_x = 16;
+	pixel_y = 2
+	},
+/obj/item/book/manual/chemistry_recipes{
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "yc" = (
 /obj/structure/table,
 /obj/machinery/reagent_temperature/cooler,
-/obj/item/book/manual/chemistry_recipes,
-/obj/item/modular_computer/holotablet/wide,
-/obj/item/storage/pill_bottle/antidepressants,
+/obj/item/storage/pill_bottle/antidepressants{
+	pixel_x = 16;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "ye" = (
@@ -6472,16 +6506,18 @@
 /area/ministation/medical)
 "yJ" = (
 /obj/structure/table,
-/obj/item/gun/launcher/syringe,
+/obj/item/gun/launcher/syringe{
+	pixel_x = -4;
+	pixel_y = 6
+	},
 /obj/item/flashlight/pen,
 /obj/item/flashlight/pen,
-/obj/item/clothing/suit/straight_jacket,
 /obj/item/chems/hypospray/vial{
 	desc = "One of the first hyposprays ever made. Supposedly only a handful exist.";
 	name = "prototype hypospray";
-	origin_tech = null
+	origin_tech = null;
+	pixel_x = 6
 	},
-/obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "yK" = (
@@ -6667,7 +6703,10 @@
 	dir = 8
 	},
 /obj/structure/table,
-/obj/item/chems/spray/cleaner,
+/obj/item/chems/spray/cleaner{
+	pixel_x = 4;
+	pixel_y = 8
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -6675,6 +6714,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
+/obj/item/clothing/suit/straight_jacket,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "zv" = (
@@ -7977,7 +8017,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/ministation/medical/nursery)
 "Fn" = (
 /obj/structure/closet,
@@ -8405,6 +8445,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/modular_computer/holotablet/wide,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "HJ" = (
@@ -10672,7 +10713,10 @@
 /obj/structure/table,
 /obj/item/storage/belt/medical/emt,
 /obj/item/bodybag/rescue,
-/obj/item/auto_cpr,
+/obj/item/auto_cpr{
+	pixel_y = 6;
+	pixel_x = 3
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "Td" = (
@@ -11981,6 +12025,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "ZX" = (
