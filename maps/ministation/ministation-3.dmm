@@ -36,12 +36,30 @@
 /area/ministation/sciencetesting)
 "aw" = (
 /obj/structure/lattice,
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/trash/mollusc_shell/clam,
-/obj/item/mollusc/barnacle,
+/obj/structure/dogbed{
+	pixel_y = 18;
+	pixel_x = 5
+	},
+/obj/item/shreddedp{
+	pixel_y = 16;
+	pixel_x = -6
+	},
+/obj/item/shreddedp{
+	pixel_y = 19;
+	pixel_x = 12
+	},
+/obj/item/shreddedp{
+	pixel_y = 10;
+	pixel_x = 11
+	},
+/obj/item/trash/mollusc_shell/clam{
+	pixel_y = 6;
+	pixel_x = -9
+	},
+/obj/item/mollusc/barnacle{
+	pixel_y = 3;
+	pixel_x = 2
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "aF" = (
@@ -269,12 +287,25 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/item/shreddedp{
+	pixel_y = 10;
+	pixel_x = -7
+	},
+/obj/item/shreddedp{
+	pixel_y = 4;
+	pixel_x = 6
+	},
 /obj/machinery/light{
 	dir = 2
 	},
-/obj/item/mollusc/clam,
+/obj/item/mollusc/clam{
+	pixel_y = 2;
+	pixel_x = -10
+	},
+/obj/item/radio/intercom{
+	dir = 1;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/enclave/sleepingroom)
 "fo" = (
@@ -292,11 +323,25 @@
 /turf/open,
 /area/ministation/observation_deck)
 "fE" = (
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/structure/dogbed{
+	pixel_y = -2;
+	pixel_x = -7
+	},
+/obj/item/shreddedp{
+	pixel_y = 13;
+	pixel_x = -8
+	},
+/obj/item/shreddedp{
+	pixel_y = 6
+	},
+/obj/item/shreddedp{
+	pixel_y = -4;
+	pixel_x = -8
+	},
+/obj/item/shreddedp{
+	pixel_x = 7;
+	pixel_y = -6
+	},
 /obj/item/trash/mollusc_shell,
 /turf/simulated/floor/tiled/white,
 /area/ministation/enclave/sleepingroom)
@@ -403,11 +448,26 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/item/shreddedp{
+	pixel_y = -11;
+	pixel_x = 5
+	},
+/obj/item/shreddedp{
+	pixel_y = -5;
+	pixel_x = -3
+	},
+/obj/item/shreddedp{
+	pixel_y = 13;
+	pixel_x = -4
+	},
+/obj/item/shreddedp{
+	pixel_y = 7;
+	pixel_x = 6
+	},
+/obj/item/shreddedp{
+	pixel_y = 2;
+	pixel_x = -3
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/enclave/atrium)
@@ -432,6 +492,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
+"jo" = (
+/turf/simulated/wall,
+/area/ministation/enclave/sleepingroom)
 "jq" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -511,9 +574,17 @@
 "lf" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped,
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/structure/dogbed{
+	pixel_y = 18
+	},
+/obj/item/shreddedp{
+	pixel_y = 8;
+	pixel_x = 11
+	},
+/obj/item/shreddedp{
+	pixel_y = 17;
+	pixel_x = -6
+	},
 /obj/machinery/firealarm{
 	pixel_y = 21
 	},
@@ -547,6 +618,11 @@
 /obj/structure/window/basic/full,
 /turf/simulated/floor/plating,
 /area/ministation/enclave/atrium)
+"lX" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/basic/full,
+/turf/simulated/floor/plating,
+/area/ministation/enclave/sleepingroom)
 "mG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -607,6 +683,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
+"oP" = (
+/obj/structure/lattice,
+/turf/exterior/wall/random/ministation,
+/area/space)
 "oZ" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 4
@@ -651,6 +731,10 @@
 	},
 /turf/space,
 /area/ministation/sciencetesting)
+"qq" = (
+/obj/structure/emergency_dispenser/north,
+/turf/simulated/floor,
+/area/ministation/enclave/sleepingroom)
 "qD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -753,13 +837,30 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/item/shreddedp{
+	pixel_y = 20
+	},
+/obj/item/shreddedp{
+	pixel_y = 15;
+	pixel_x = 3
+	},
+/obj/item/shreddedp{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/obj/item/shreddedp{
+	pixel_x = 10;
+	pixel_y = 6
+	},
+/obj/item/shreddedp{
+	pixel_y = -3;
+	pixel_x = -2
+	},
 /obj/machinery/door/firedoor,
-/obj/item/mollusc/barnacle,
+/obj/item/mollusc/barnacle{
+	pixel_y = -7;
+	pixel_x = 9
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/enclave/atrium)
 "tg" = (
@@ -818,13 +919,25 @@
 /area/ministation/science2nddeck)
 "ue" = (
 /obj/structure/lattice,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/item/shreddedp{
+	pixel_y = 6;
+	pixel_x = -13
+	},
+/obj/item/shreddedp{
+	pixel_y = -2;
+	pixel_x = -6
+	},
+/obj/item/shreddedp{
+	pixel_y = 8;
+	pixel_x = 5
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/item/trash/mollusc_shell/clam,
+/obj/item/trash/mollusc_shell/clam{
+	pixel_y = -3;
+	pixel_x = 8
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "ug" = (
@@ -949,10 +1062,6 @@
 /obj/structure/cable{
 	icon_state = "32-2"
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24
-	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
 	dir = 1
 	},
@@ -1041,10 +1150,21 @@
 /area/ministation/maint/l4overpass)
 "zn" = (
 /obj/structure/lattice,
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/structure/dogbed{
+	pixel_y = 14
+	},
+/obj/item/shreddedp{
+	pixel_y = 13;
+	pixel_x = -10
+	},
+/obj/item/shreddedp{
+	pixel_y = 8;
+	pixel_x = 8
+	},
+/obj/item/shreddedp{
+	pixel_y = 7;
+	pixel_x = -7
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -1063,11 +1183,26 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/item/shreddedp{
+	pixel_y = 6;
+	pixel_x = -2
+	},
+/obj/item/shreddedp{
+	pixel_x = 6;
+	pixel_y = 14
+	},
+/obj/item/shreddedp{
+	pixel_x = 7;
+	pixel_y = -10
+	},
+/obj/item/shreddedp{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/shreddedp{
+	pixel_y = -5;
+	pixel_x = -3
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/atrium)
@@ -1113,6 +1248,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/science2nddeck)
+"Bc" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/ministation/enclave/sleepingroom)
 "Bx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1259,10 +1398,22 @@
 /area/ministation/sciencetesting)
 "DE" = (
 /obj/structure/lattice,
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/structure/dogbed{
+	pixel_y = -1;
+	pixel_x = -9
+	},
+/obj/item/shreddedp{
+	pixel_y = -3;
+	pixel_x = -8
+	},
+/obj/item/shreddedp{
+	pixel_y = -3;
+	pixel_x = 8
+	},
+/obj/item/shreddedp{
+	pixel_y = 5;
+	pixel_x = -8
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "DI" = (
@@ -1379,36 +1530,92 @@
 /area/ministation/sciencetesting)
 "Gj" = (
 /obj/structure/lattice,
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/radio/intercom{
-	dir = 8;
-	pixel_x = 22
+/obj/structure/dogbed{
+	pixel_y = 10;
+	pixel_x = -8
 	},
-/obj/item/trash/mollusc_shell/clam,
+/obj/item/shreddedp{
+	pixel_y = 4;
+	pixel_x = -11
+	},
+/obj/item/shreddedp{
+	pixel_y = 9;
+	pixel_x = 6
+	},
+/obj/item/trash/mollusc_shell/clam{
+	pixel_x = 8
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "Gv" = (
 /obj/structure/lattice,
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/trash/mollusc_shell/barnacle,
+/obj/structure/dogbed{
+	pixel_y = -7;
+	pixel_x = 3
+	},
+/obj/item/shreddedp{
+	pixel_y = -13;
+	pixel_x = 5
+	},
+/obj/item/shreddedp{
+	pixel_y = -6;
+	pixel_x = -3
+	},
+/obj/item/shreddedp{
+	pixel_y = -1;
+	pixel_x = 5
+	},
+/obj/item/shreddedp{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/trash/mollusc_shell/barnacle{
+	pixel_y = 12;
+	pixel_x = 11
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "Gy" = (
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/mollusc/clam,
-/obj/item/mollusc/clam,
-/obj/item/mollusc/clam,
+/obj/structure/dogbed{
+	pixel_x = -5;
+	pixel_y = 16
+	},
+/obj/item/shreddedp{
+	pixel_y = 14;
+	pixel_x = 5
+	},
+/obj/item/shreddedp{
+	pixel_x = -7;
+	pixel_y = 9
+	},
+/obj/item/shreddedp{
+	pixel_y = 9;
+	pixel_x = 9
+	},
+/obj/item/shreddedp{
+	pixel_y = 1;
+	pixel_x = -9
+	},
+/obj/item/shreddedp{
+	pixel_y = -5;
+	pixel_x = -9
+	},
+/obj/item/mollusc/clam{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/mollusc/clam{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/mollusc/clam{
+	pixel_x = 12;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/enclave/sleepingroom)
 "GD" = (
@@ -1478,9 +1685,18 @@
 /area/ministation/observation_deck)
 "Hy" = (
 /obj/structure/lattice,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/item/shreddedp{
+	pixel_y = 5;
+	pixel_x = 6
+	},
+/obj/item/shreddedp{
+	pixel_y = 10;
+	pixel_x = -9
+	},
+/obj/item/shreddedp{
+	pixel_y = 15;
+	pixel_x = 4
+	},
 /obj/structure/railing/mapped{
 	icon_state = "railing0-0";
 	dir = 4
@@ -1494,7 +1710,10 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/mollusc/clam,
+/obj/item/mollusc/clam{
+	pixel_y = 7;
+	pixel_x = -6
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "HM" = (
@@ -1604,8 +1823,14 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/trash/mollusc_shell/clam,
-/obj/item/trash/mollusc_shell/barnacle,
+/obj/item/trash/mollusc_shell/clam{
+	pixel_y = 11;
+	pixel_x = 11
+	},
+/obj/item/trash/mollusc_shell/barnacle{
+	pixel_y = 6;
+	pixel_x = 6
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "Mj" = (
@@ -1649,7 +1874,10 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/item/trash/mollusc_shell/clam,
+/obj/item/trash/mollusc_shell/clam{
+	pixel_y = 16;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/atrium)
 "Np" = (
@@ -1720,9 +1948,17 @@
 /area/ministation/enclave/sleepingroom)
 "Pi" = (
 /obj/structure/lattice,
-/obj/structure/dogbed,
-/obj/item/shreddedp,
-/obj/item/shreddedp,
+/obj/structure/dogbed{
+	pixel_y = 16
+	},
+/obj/item/shreddedp{
+	pixel_y = 12;
+	pixel_x = -12
+	},
+/obj/item/shreddedp{
+	pixel_y = 14;
+	pixel_x = 7
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light_switch{
 	pixel_y = 25
@@ -2022,6 +2258,9 @@
 	},
 /turf/space,
 /area/ministation/sciencetesting)
+"Xq" = (
+/turf/open,
+/area/ministation/enclave/sleepingroom)
 "Xs" = (
 /turf/simulated/wall,
 /area/ministation/sciencetesting)
@@ -18695,9 +18934,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+uG
+uG
+uG
 aa
 aa
 aa
@@ -18952,7 +19191,7 @@ aa
 aa
 aa
 aa
-aa
+uG
 af
 af
 aa
@@ -19208,10 +19447,10 @@ aa
 aa
 aa
 aa
-aa
+uG
+oP
 af
-af
-aa
+uG
 aa
 aa
 aa
@@ -19964,7 +20203,7 @@ aa
 aa
 aa
 aa
-aa
+af
 aa
 aa
 aa
@@ -20220,9 +20459,9 @@ aa
 ab
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -20477,9 +20716,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -20735,9 +20974,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -20992,11 +21231,11 @@ aa
 aa
 aa
 aa
+af
+af
+af
+af
 aa
-aa
-af
-af
-af
 aa
 aa
 aa
@@ -21248,12 +21487,12 @@ aa
 aa
 aa
 aa
+aa
+aa
 af
 af
 af
-af
-af
-af
+aa
 aa
 aa
 aa
@@ -21505,13 +21744,13 @@ aa
 aa
 aa
 aa
+aa
+aa
 af
 af
 af
-af
-af
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -21761,14 +22000,14 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -22018,15 +22257,15 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -22275,15 +22514,15 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -22533,13 +22772,13 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -22790,13 +23029,13 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -25108,7 +25347,7 @@ fG
 fG
 fG
 ly
-aa
+uG
 aa
 aa
 aa
@@ -25365,8 +25604,8 @@ MQ
 zz
 iD
 SM
-aa
-aa
+uG
+uG
 aa
 aa
 aa
@@ -25622,8 +25861,8 @@ Gy
 fE
 eW
 Wk
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -25879,8 +26118,8 @@ zn
 DE
 aw
 Mw
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -26136,8 +26375,8 @@ LM
 ue
 XY
 Mw
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -26393,8 +26632,8 @@ yL
 Gv
 Gj
 Mw
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -26645,13 +26884,13 @@ aa
 aa
 aa
 Wk
+Bc
+lX
+lX
+jo
 Wk
-Mw
-Mw
-Wk
-Wk
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -26901,12 +27140,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+jo
+qq
+Xq
+Xq
+jo
+cw
 aa
 aa
 aa
@@ -27158,12 +27397,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+jo
+Mw
+Mw
+Mw
+jo
+cw
 aa
 aa
 aa
@@ -28187,7 +28426,7 @@ aa
 aa
 aa
 aa
-af
+oP
 uG
 aa
 aa
@@ -28696,7 +28935,7 @@ aa
 aa
 aa
 aa
-af
+oP
 aa
 aa
 aa
