@@ -2002,7 +2002,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ministation/maint/l4central)
 "QM" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
