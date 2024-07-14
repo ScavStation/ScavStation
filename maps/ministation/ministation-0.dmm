@@ -1409,6 +1409,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"eA" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "eB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3566,9 +3570,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "lv" = (
-/obj/machinery/floodlight,
-/turf/simulated/floor/tiled,
-/area/ministation/engine)
+/obj/vehicle/bike/electric{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l1central)
 "lw" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -7112,7 +7118,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/atmospump)
@@ -7624,12 +7630,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "zl" = (
-/obj/structure/table/marble,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
+/obj/machinery/vending/lavatory{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
 "zn" = (
@@ -10617,12 +10620,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
-"HE" = (
-/obj/vehicle/bike/electric{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l1central)
 "HF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -11733,6 +11730,10 @@
 /obj/item/grooming/brush,
 /obj/item/grooming/brush,
 /obj/item/grooming/comb,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
 /turf/simulated/floor/tiled/freezer,
 /area/ministation/dorms)
 "KJ" = (
@@ -13204,10 +13205,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s1)
-"OX" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled,
-/area/ministation/engine)
 "OY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
@@ -15950,6 +15947,10 @@
 /obj/structure/bed/chair/office,
 /turf/simulated/floor/tiled,
 /area/ministation/enginecontrol)
+"YQ" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "YR" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/airlock,
@@ -47493,7 +47494,7 @@ hf
 Gd
 Kz
 MX
-HE
+lv
 nk
 jY
 di
@@ -53183,7 +53184,7 @@ aa
 Cn
 bE
 av
-lv
+YQ
 DC
 DC
 DC
@@ -53958,7 +53959,7 @@ RX
 DC
 av
 Eo
-OX
+eA
 DC
 XQ
 XQ
