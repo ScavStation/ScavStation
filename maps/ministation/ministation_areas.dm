@@ -206,10 +206,24 @@
 	icon_state = "green"
 
 /area/ministation/security
-	name = "\improper Security Office"
+	name = "\improper Security Department"
 	req_access = list(access_security)
 	secure = TRUE
 	icon_state = "red"
+	area_flags = AREA_FLAG_SECURITY
+
+/area/ministation/securityoffice
+	name = "\improper Security Meeting Office"
+	req_access = list(access_security)
+	secure = TRUE
+	icon_state = "light_blue"
+	area_flags = AREA_FLAG_SECURITY
+
+/area/ministation/armory
+	name = "\improper Armory"
+	req_access = list(access_armory)
+	secure = TRUE
+	icon_state = "purple"
 	area_flags = AREA_FLAG_SECURITY
 
 /area/ministation/detective
@@ -217,6 +231,12 @@
 	req_access = list(access_forensics_lockers)
 	secure = TRUE
 	icon_state = "dark_blue"
+
+/area/ministation/perma
+	name = "\improper Perma Prison"
+	req_access = list(access_brig)
+	secure = TRUE
+	icon_state = "green"
 
 /area/ministation/court
 	name = "\improper Court Room"
@@ -233,11 +253,21 @@
 	req_access = list(access_atmospherics)
 	icon_state = "ATMOS"
 
+/area/ministation/atmospump
+	name = "\improper Atmospherics Aux Pump Room"
+	req_access = list(access_atmospherics)
+	icon_state = "ATMOS"
+
 /area/ministation/science
 	name = "\improper Research & Development Laboratory"
 	req_access = list(access_robotics)
 	secure = TRUE
 	icon_state = "purple"
+
+/area/ministation/biodome
+	name = "\improper Science Biodome"
+
+	icon_state = "white"
 
 /area/ministation/eva
 	name = "\improper EVA Storage"
@@ -249,6 +279,18 @@
 	name = "\improper Infirmary"
 	req_access = list(access_medical)
 	icon_state = "light_blue"
+	secure = TRUE
+
+/area/ministation/surgicaln
+	name = "\improper Surgery North"
+	req_access = list(access_medical)
+	icon_state = "yellow"
+	secure = TRUE
+
+/area/ministation/surgicals
+	name = "\improper Surgery South"
+	req_access = list(access_medical)
+	icon_state = "purple"
 	secure = TRUE
 
 /area/ministation/medical/nursery
@@ -275,8 +317,13 @@
 	icon_state = "green"
 
 /area/ministation/cafe // no access requirement to get in. inner doors need access kitchen
-	name = "\improper Cafeteria"
+	name = "\improper Dining Lounge"
 	icon_state = "red"
+	secure = TRUE
+
+/area/ministation/kitchen // no access requirement to get in. inner doors need access kitchen
+	name = "\improper Kitchen"
+	icon_state = "orange"
 	secure = TRUE
 
 /area/ministation/engine
