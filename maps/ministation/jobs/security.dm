@@ -15,6 +15,7 @@
 		access_lawyer,
 		access_maint_tunnels,
 		access_cameras,
+		access_brig,
 		access_eva
 	)
 	minimal_access = list(
@@ -84,6 +85,55 @@
 		SKILL_ANATOMY   = SKILL_EXPERT
 	)
 	skill_points = 30
+
+/datum/job/ministation/warden
+	title = "Warden"
+	alt_titles = list("Wrangler")
+	supervisors = "the Head of Security"
+	spawn_positions = 1
+	total_positions = 1
+	outfit_type = /decl/hierarchy/outfit/job/ministation/security
+	department_types = list(/decl/department/security)
+	selection_color = COLOR_BLOOD_RED
+	economic_power = 7
+	minimal_player_age = 4
+	access = list(
+		access_security,
+		access_brig,
+		access_lawyer,
+		access_maint_tunnels,
+		access_cameras,
+		access_brig,
+		access_armory,
+		access_mining,
+		access_kitchen,
+		access_eva
+	)
+	minimal_access = list(
+		access_security,
+		access_forensics_lockers,
+		access_maint_tunnels,
+		access_lawyer,
+		access_brig,
+		access_armory,
+		access_cameras,
+		access_mining,
+		access_kitchen,
+		access_eva
+	)
+	min_skill = list(
+		SKILL_LITERACY = SKILL_BASIC,
+		SKILL_COMPUTER = SKILL_BASIC,
+		SKILL_COMBAT	= SKILL_ADEPT,
+		SKILL_WEAPONS	= SKILL_BASIC
+	)
+	max_skill = list(
+		SKILL_COMBAT	= SKILL_MAX,
+		SKILL_WEAPONS	= SKILL_MAX
+	)
+	skill_points = 34
+	event_categories = list(ASSIGNMENT_SECURITY)
+
 
 /datum/job/ministation/security/head
 	title = "Head of Security"
