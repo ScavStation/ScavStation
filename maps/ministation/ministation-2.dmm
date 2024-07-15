@@ -75,9 +75,6 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "av" = (
@@ -158,24 +155,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
-"aL" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/black{
-	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/biodome)
 "aN" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1637,9 +1616,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "fN" = (
@@ -2166,9 +2142,6 @@
 "hR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "hS" = (
@@ -3054,13 +3027,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/ministation/maint/l3se)
 "lb" = (
@@ -3611,9 +3580,6 @@
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -5147,9 +5113,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/maint/l3se)
 "vL" = (
@@ -5662,18 +5625,15 @@
 /turf/simulated/floor/plating,
 /area/ministation/science)
 "yv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
 /obj/item/trash/mollusc_shell/clam,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "yw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "yx" = (
@@ -5713,9 +5673,6 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/reinforced,
 /area/ministation/biodome)
 "yH" = (
@@ -6079,9 +6036,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/biodome)
@@ -6602,7 +6556,7 @@
 /area/ministation/hall/s3)
 "CF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -6650,9 +6604,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -7436,7 +7387,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "Gh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7593,9 +7544,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "Hj" = (
@@ -7705,9 +7653,6 @@
 	dir = 8
 	},
 /obj/item/storage/plants,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "HU" = (
@@ -8361,12 +8306,6 @@
 "Lu" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "Lv" = (
@@ -8624,9 +8563,6 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "My" = (
@@ -8706,24 +8642,6 @@
 "MR" = (
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/hall/n3)
-"MT" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/black{
-	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/biodome)
 "MU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/camera/network/hallway{
@@ -9218,9 +9136,6 @@
 /obj/item/seeds/clam,
 /obj/item/seeds/clam,
 /obj/item/seeds/clam,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "Pe" = (
@@ -9237,9 +9152,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -10501,17 +10413,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "UF" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "_West APC";
-	pixel_x = -25
-	},
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/black{
 	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -10675,17 +10579,8 @@
 /turf/simulated/floor/wood,
 /area/ministation/maint/l3ne)
 "Vo" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "_East APC";
-	pixel_x = 27;
-	pixel_y = 2
-	},
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/black,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "Vp" = (
@@ -11217,13 +11112,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
-"XO" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/maint/l3se)
 "XP" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -11355,9 +11243,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -11706,9 +11591,6 @@
 	icon_state = "1-8"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "ZH" = (
@@ -44361,7 +44243,7 @@ aa
 VF
 Hc
 Vo
-MT
+Mv
 tJ
 Hc
 VF
@@ -46408,7 +46290,7 @@ As
 DB
 ae
 ua
-XO
+oX
 rI
 oc
 EX
@@ -48987,7 +48869,7 @@ aa
 VF
 Hc
 UF
-aL
+np
 JD
 Hc
 VF
@@ -53811,14 +53693,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 cw
@@ -54067,16 +53949,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 cw
 cw
@@ -54323,18 +54205,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 ae
@@ -54579,20 +54461,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 ae
 kZ
@@ -54835,20 +54717,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 ae
@@ -55092,20 +54974,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 ae
@@ -55349,20 +55231,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 ae
@@ -55607,19 +55489,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 ae
@@ -55865,18 +55747,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 ae
@@ -56123,16 +56005,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 cw
 cw
@@ -56381,14 +56263,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 cw
