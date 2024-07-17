@@ -3025,11 +3025,11 @@
 /obj/machinery/generator{
 	anchored = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 8
-	},
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/engine)
@@ -9297,12 +9297,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/cable/yellow{
-	icon_state = "0-8";
-	dir = 4
-	},
 /obj/machinery/power/terminal{
 	dir = 8
+	},
+/obj/structure/cable/yellow{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
