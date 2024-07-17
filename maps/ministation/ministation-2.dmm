@@ -599,6 +599,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "bT" = (
@@ -3793,6 +3796,9 @@
 /obj/effect/floor_decal/corner/green/border{
 	dir = 8
 	},
+/obj/machinery/camera/network/hallway{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
 "ot" = (
@@ -3899,6 +3905,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	dir = 8;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
@@ -5163,6 +5173,9 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27
 	},
+/obj/machinery/camera/network/hallway{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "vX" = (
@@ -5491,7 +5504,6 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/multitool,
 /obj/item/storage/plants,
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
@@ -5613,13 +5625,19 @@
 /obj/machinery/vending/hydronutrients{
 	dir = 8
 	},
+/obj/machinery/camera/network/hallway{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "yu" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/hatch/maintenance,
+/obj/machinery/door/airlock/hatch/maintenance{
+	autoset_access = 0;
+	req_access = list("ACCESS_XENOBIO")
+	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -5672,7 +5690,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	autoset_access = 0
+	},
 /turf/simulated/floor/reinforced,
 /area/ministation/biodome)
 "yH" = (
@@ -5755,6 +5775,9 @@
 /obj/machinery/light{
 	dir = 2
 	},
+/obj/machinery/camera/network/hallway{
+	dir = 1
+	},
 /turf/simulated/floor/grass,
 /area/ministation/biodome)
 "zc" = (
@@ -5780,6 +5803,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"zj" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/camera/network/hallway{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ministation/enclave/foyer)
 "zl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -6182,9 +6212,8 @@
 /area/ministation/science)
 "Ba" = (
 /obj/structure/barricade,
-/obj/machinery/door/airlock/glass/command{
-	name = "Bridge"
-	},
+/obj/structure/tape_barricade/engineering,
+/obj/structure/door_assembly,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "Bb" = (
@@ -6192,6 +6221,10 @@
 /obj/machinery/doppler_array,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/camera/network/research{
+	dir = 4;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
@@ -7064,9 +7097,6 @@
 /obj/structure/table,
 /obj/item/scanner/gas,
 /obj/item/scanner/plant,
-/obj/structure/fireaxecabinet{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -7334,6 +7364,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
 "FQ" = (
@@ -7386,7 +7419,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	autoset_access = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "Gh" = (
@@ -9088,6 +9123,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"OR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/camera/autoname,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "OU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -9492,6 +9534,9 @@
 	dir = 4;
 	pixel_x = -23
 	},
+/obj/machinery/camera/network/research{
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "Qz" = (
@@ -9807,7 +9852,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	autoset_access = 0
+	},
 /turf/simulated/floor/plating,
 /area/ministation/hall/s3)
 "RV" = (
@@ -10120,9 +10167,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/camera/network/research{
-	req_access = list("ACCESS_CAMERAS")
-	},
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 23
 	},
@@ -10417,6 +10461,9 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 8
 	},
+/obj/machinery/camera/network/hallway{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "UG" = (
@@ -10581,6 +10628,9 @@
 "Vo" = (
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/black,
+/obj/machinery/camera/network/hallway{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "Vp" = (
@@ -10600,11 +10650,9 @@
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "Vs" = (
-/obj/machinery/camera/network/research{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/ministation/science)
+/obj/machinery/camera/autoname,
+/turf/simulated/floor/tiled,
+/area/ministation/cargo/f3)
 "Vt" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/cable{
@@ -10923,6 +10971,10 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -26
+	},
+/obj/machinery/camera/network/research{
+	dir = 1;
+	req_access = list("ACCESS_CAMERAS")
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/shuttle/outgoing)
@@ -36197,7 +36249,7 @@ Ol
 Ol
 QZ
 cd
-St
+zj
 Ol
 SM
 SM
@@ -40078,7 +40130,7 @@ aa
 aa
 aa
 tf
-yk
+Vs
 uZ
 QS
 QS
@@ -42383,10 +42435,10 @@ Ib
 AX
 av
 PO
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -42642,14 +42694,14 @@ av
 PO
 PO
 PO
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 rf
 gQ
 na
@@ -42899,16 +42951,16 @@ av
 ur
 qi
 PO
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 sD
-gQ
+OR
 na
 sD
 pz
@@ -45527,7 +45579,7 @@ Hb
 qE
 hB
 hB
-hB
+zG
 fM
 zG
 hB
@@ -47583,7 +47635,7 @@ Hb
 Et
 hB
 hB
-hB
+zG
 fM
 zG
 hB
@@ -48576,7 +48628,7 @@ nh
 sC
 gQ
 tx
-An
+db
 db
 db
 NB
@@ -49101,7 +49153,7 @@ Jr
 XS
 vw
 Xd
-Vs
+db
 db
 db
 zW
@@ -49347,7 +49399,7 @@ dh
 sC
 gQ
 sD
-db
+An
 gP
 US
 dc

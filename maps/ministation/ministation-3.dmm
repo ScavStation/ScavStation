@@ -1048,6 +1048,10 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/machinery/camera/autoname{
+	dir = 8;
+	req_access = list("ACCESS_CAMERAS")
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
 "wi" = (
@@ -1250,6 +1254,7 @@
 /area/ministation/science2nddeck)
 "Bc" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/camera/network/hallway,
 /turf/simulated/floor,
 /area/ministation/enclave/sleepingroom)
 "Bx" = (
@@ -2045,12 +2050,6 @@
 	pixel_x = 24
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled,
-/area/ministation/observation_deck)
-"SC" = (
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
 "SJ" = (
@@ -34381,7 +34380,7 @@ tu
 RY
 nf
 CY
-SC
+tu
 ou
 tu
 eu
