@@ -1648,6 +1648,9 @@
 	dir = 1;
 	id_tag = "FIZZ"
 	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "eW" = (
@@ -2343,7 +2346,7 @@
 /area/ministation/hall/n)
 "gK" = (
 /obj/structure/cable/yellow{
-	icon_state = "1-2"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -7331,7 +7334,7 @@
 /area/ministation/hall/n)
 "wH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/engine)
@@ -9301,7 +9304,7 @@
 	dir = 8
 	},
 /obj/structure/cable/yellow{
-	dir = 1
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -53472,9 +53475,9 @@ aa
 aa
 av
 De
-gK
-df
-yq
+DC
+UH
+rZ
 UD
 TD
 xT
@@ -53728,10 +53731,10 @@ am
 aa
 aa
 av
-DC
+gK
 eV
-UH
-ZS
+df
+yq
 UD
 UN
 SX
