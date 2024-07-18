@@ -15,7 +15,6 @@
 		/area/ministation/maint/l4overpass = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/ministation/maint/l2underpass = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/turbolift = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/ministation/atmospherics = NO_SCRUBBER,
 		/area/ministation/mining = NO_SCRUBBER|NO_VENT,
 		/area/ministation/bombrange = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/ministation/atmospump = NO_SCRUBBER|NO_VENT,
