@@ -5089,6 +5089,12 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
+/obj/machinery/button/blast_door{
+	id_tag = "toxingasroom";
+	name = "Gas Storage";
+	pixel_x = 8;
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "vI" = (
@@ -51975,10 +51981,10 @@ Dl
 qk
 vM
 ae
-ae
-ae
-ae
-ae
+dz
+dz
+dz
+dz
 dz
 dz
 Wo

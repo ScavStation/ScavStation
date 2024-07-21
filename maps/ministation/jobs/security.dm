@@ -2,8 +2,8 @@
 	title = "Security Officer"
 	alt_titles = list("Warden","Scout")
 	supervisors = "the Head of Security"
-	spawn_positions = 1
-	total_positions = 2
+	spawn_positions = 3
+	total_positions = 3
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security
 	department_types = list(/decl/department/security)
 	selection_color = COLOR_BLOOD_RED

@@ -3656,7 +3656,8 @@
 /area/ministation/maint/hydromaint)
 "mX" = (
 /obj/machinery/door/airlock{
-	name = "Visitation Area"
+	name = "Visitation Area";
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/perma)
@@ -8648,7 +8649,8 @@
 /area/ministation/security)
 "Df" = (
 /obj/machinery/door/airlock{
-	name = "Brig Restroom"
+	name = "Brig Restroom";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -10387,7 +10389,8 @@
 /area/ministation/kitchen)
 "Kp" = (
 /obj/machinery/door/airlock{
-	name = "Brig Restroom"
+	name = "Brig Restroom";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
