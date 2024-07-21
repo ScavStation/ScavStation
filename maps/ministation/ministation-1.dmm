@@ -374,6 +374,12 @@
 	pixel_x = 4;
 	pixel_y = 26
 	},
+/obj/machinery/network/requests_console{
+	department = "Detective's office";
+	pixel_x = 32;
+	initial_network_id = "molluscnet";
+	dir = 4
+	},
 /obj/machinery/camera/network/security,
 /turf/simulated/floor/wood,
 /area/ministation/detective)
