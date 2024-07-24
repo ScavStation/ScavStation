@@ -11824,11 +11824,6 @@
 "Po" = (
 /turf/simulated/wall,
 /area/ministation/surgicals)
-"Pq" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "Ps" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -60425,7 +60420,7 @@ oz
 oz
 aa
 aa
-Pq
+ad
 ad
 oz
 oz
