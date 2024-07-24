@@ -7269,12 +7269,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/science)
-"Es" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/ladder,
-/obj/structure/ladder,
-/turf/simulated/floor/airless,
-/area/ministation/science)
 "Et" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -8141,11 +8135,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
-"IH" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/ladder,
-/turf/simulated/floor/airless,
-/area/ministation/science)
 "IL" = (
 /obj/machinery/door/blast/regular/open{
 	id_tag = "slimeblast3";
@@ -54193,7 +54182,7 @@ cw
 JN
 JN
 ez
-Es
+JN
 JN
 ad
 ad
@@ -54450,7 +54439,7 @@ aa
 aa
 JN
 xT
-IH
+JN
 aa
 aa
 ad
