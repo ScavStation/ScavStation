@@ -1405,6 +1405,10 @@
 "fi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -23
+	},
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical/psychology)
 "fl" = (
@@ -2522,9 +2526,6 @@
 	name = "Nursery Pod Airlock";
 	autoclose = 0;
 	req_access = list("ACCESS_CHIEF_MEDICAL_OFFICER")
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/medical/nursery)
@@ -10631,7 +10632,7 @@
 "KL" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ministation/medical/nursery)
 "KM" = (
 /obj/structure/lattice,
@@ -11772,7 +11773,7 @@
 	name = "Common Channel";
 	pixel_y = 25
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/ministation/surgicals)
 "Pd" = (
 /obj/structure/table/woodentable,

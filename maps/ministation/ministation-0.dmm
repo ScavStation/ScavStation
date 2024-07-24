@@ -6050,6 +6050,15 @@
 	},
 /turf/simulated/wall,
 /area/ministation/enclave/scikitchen)
+"su" = (
+/obj/structure/curtain/open/bed,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/ce,
+/obj/machinery/computer/cryopod{
+	pixel_y = 28
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "sx" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -50334,7 +50343,7 @@ gX
 tH
 hc
 zW
-Vf
+su
 jj
 Vf
 jk

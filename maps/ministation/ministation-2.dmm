@@ -8008,7 +8008,8 @@
 /area/ministation/maint/l3central)
 "Ig" = (
 /obj/structure/bed/chair/armchair/beige{
-	dir = 8
+	dir = 8;
+	desc = "It's an armchair. It didnt use to be beige..."
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
@@ -8077,7 +8078,6 @@
 /obj/machinery/door/airlock/glass/science{
 	name = "Xenobiology"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -8395,6 +8395,7 @@
 	id_tag = "mech2";
 	name = "Mech Bay"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "JX" = (
