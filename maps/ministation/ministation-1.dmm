@@ -444,13 +444,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
-"bE" = (
-/obj/structure/bookcase/manuals/medical,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/blue,
-/area/ministation/medical/psychology)
 "bG" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -1895,7 +1888,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/boombox,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical/psychology)
 "gZ" = (
@@ -3921,6 +3917,9 @@
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "ob" = (
@@ -4525,6 +4524,9 @@
 /obj/machinery/door/airlock/hatch/maintenance{
 	req_access = list("ACCESS_MAINT");
 	autoset_access = 0
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ministation/medical/psychology)
@@ -6991,7 +6993,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/bed/psych,
+/obj/structure/bed/psych/leather,
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical/psychology)
 "xl" = (
@@ -8752,6 +8754,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/perma)
+"CZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/secmaint)
 "Da" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/sofa/left/black,
@@ -8893,6 +8902,9 @@
 /turf/simulated/floor/carpet/red,
 /area/ministation/securityoffice)
 "Dz" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical/psychology)
 "DA" = (
@@ -14398,9 +14410,13 @@
 	pixel_x = 2;
 	pixel_y = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -23
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "_West APC";
+	pixel_x = -25
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/carpet/blue,
 /area/ministation/medical/psychology)
@@ -53453,7 +53469,7 @@ va
 cY
 EH
 lJ
-oq
+CZ
 JZ
 qa
 to
@@ -53710,7 +53726,7 @@ ob
 cY
 tQ
 oE
-oq
+CZ
 JZ
 ae
 UB
@@ -53967,7 +53983,7 @@ cT
 cY
 tQ
 Ze
-ef
+zo
 Rx
 oz
 oz
@@ -54224,7 +54240,7 @@ aa
 nu
 tQ
 oq
-ef
+zo
 oq
 wd
 nn
@@ -54481,7 +54497,7 @@ aa
 nu
 tQ
 fU
-oq
+CZ
 oq
 oz
 pe
@@ -55765,7 +55781,7 @@ ad
 aa
 aa
 Nl
-bE
+Ha
 xk
 gY
 fB

@@ -11728,7 +11728,8 @@
 	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/machinery/light_switch{
-	pixel_y = 25
+	pixel_y = 25;
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
