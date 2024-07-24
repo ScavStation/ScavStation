@@ -3135,6 +3135,15 @@
 	dir = 4;
 	pixel_x = -24
 	},
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
+"jk" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "jn" = (
@@ -4509,6 +4518,8 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
 /obj/item/clothing/suit/fancyrobe,
+/obj/item/clothing/under/avian_smock/utility,
+/obj/item/clothing/shoes/avian/footwraps,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "nw" = (
@@ -8930,6 +8941,8 @@
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
 /obj/item/clothing/suit/fancyrobe,
+/obj/item/clothing/under/avian_smock/utility/gray,
+/obj/item/clothing/shoes/avian/footwraps,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "BT" = (
@@ -15703,6 +15716,9 @@
 	},
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
 /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat,
+/obj/item/clothing/under/avian_smock/worker,
+/obj/item/clothing/under/avian_smock/worker,
+/obj/item/clothing/shoes/avian/footwraps,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "Vm" = (
@@ -50321,8 +50337,8 @@ zW
 Vf
 jj
 Vf
-qe
-nN
+jk
+Vf
 zW
 aa
 DU
@@ -51093,7 +51109,7 @@ Vf
 AX
 Vf
 qe
-Vf
+nN
 zW
 aa
 aa
