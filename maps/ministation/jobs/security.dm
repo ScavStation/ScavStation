@@ -1,9 +1,9 @@
 /datum/job/ministation/security
 	title = "Security Officer"
-	alt_titles = list("Warden","Scout")
+	alt_titles = list("Scout")
 	supervisors = "the Head of Security"
-	spawn_positions = 1
-	total_positions = 2
+	spawn_positions = 3
+	total_positions = 3
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security
 	department_types = list(/decl/department/security)
 	selection_color = COLOR_BLOOD_RED
@@ -97,6 +97,7 @@
 	selection_color = COLOR_BLOOD_RED
 	economic_power = 7
 	minimal_player_age = 4
+	hud_icon = "hudwarden"
 	access = list(
 		access_security,
 		access_brig,

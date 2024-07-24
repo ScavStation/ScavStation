@@ -7639,6 +7639,9 @@
 /obj/structure/table,
 /obj/item/blueprints,
 /obj/item/cell,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "xP" = (
@@ -13693,6 +13696,9 @@
 /area/ministation/maint/eastatmos)
 "OC" = (
 /obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "OE" = (
@@ -16628,6 +16634,9 @@
 /obj/structure/table,
 /obj/machinery/recharger,
 /obj/item/clothing/head/welding,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "YF" = (

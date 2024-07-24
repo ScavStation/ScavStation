@@ -21,5 +21,6 @@
 		/datum/job/ministation/security,
 		/datum/job/ministation/security/head,
 		/datum/job/ministation/librarian,
-		/datum/job/ministation/tradehouse/rep
+		/datum/job/ministation/tradehouse/rep,
+		/datum/job/ministation/warden
 	)

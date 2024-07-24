@@ -253,6 +253,7 @@
 	dir = 4;
 	req_access = list("ACCESS_CAMERAS")
 	},
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "aQ" = (
@@ -3662,7 +3663,8 @@
 /area/ministation/maint/hydromaint)
 "mX" = (
 /obj/machinery/door/airlock{
-	name = "Visitation Area"
+	name = "Visitation Area";
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/perma)
@@ -8584,6 +8586,7 @@
 	},
 /obj/item/clothing/under/yinglet/scout,
 /obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/carpet/blue3,
 /area/ministation/securityoffice)
 "CP" = (
@@ -8654,7 +8657,8 @@
 /area/ministation/security)
 "Df" = (
 /obj/machinery/door/airlock{
-	name = "Brig Restroom"
+	name = "Brig Restroom";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -10393,7 +10397,8 @@
 /area/ministation/kitchen)
 "Kp" = (
 /obj/machinery/door/airlock{
-	name = "Brig Restroom"
+	name = "Brig Restroom";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11844,6 +11849,7 @@
 /obj/item/clothing/under/yinglet/scout,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/under/avian_smock/security,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Qh" = (
@@ -13143,6 +13149,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"Vf" = (
+/turf/simulated/floor/carpet/blue2,
+/area/ministation/securityoffice)
 "Vg" = (
 /obj/machinery/light{
 	dir = 8
@@ -13750,6 +13759,7 @@
 /obj/item/stamp/hos,
 /obj/item/clothing/under/yinglet/scout,
 /obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/carpet/blue2,
 /area/ministation/securityoffice)
 "Xw" = (
@@ -14269,6 +14279,9 @@
 	pixel_y = 30
 	},
 /obj/machinery/camera/motion,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "ZT" = (
@@ -48608,7 +48621,7 @@ Ne
 hZ
 PV
 Xv
-QB
+Vf
 cY
 dr
 bf

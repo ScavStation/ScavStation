@@ -3,8 +3,8 @@
 	department_types = list(/decl/department/medical)
 	head_position = 0
 	supervisors = "the Head Doctor"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 4
 	alt_titles = list("Chemist","Nurse")
 	skill_points = 34
 	min_skill = list(
