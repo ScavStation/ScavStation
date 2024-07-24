@@ -258,7 +258,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/curtain/bed,
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/ministation/medical/nursery)
 "aR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
