@@ -241,6 +241,7 @@
 /area/ministation/court
 	name = "\improper Court Room"
 	req_access =list(access_lawyer)
+	turf_initializer = /decl/turf_initializer/maintenance
 	secure = TRUE
 	icon_state = "pink"
 
@@ -296,6 +297,11 @@
 /area/ministation/medical/nursery
 	name = "\improper Nursery"
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	icon_state = "green"
+	secure = TRUE
+
+/area/ministation/medical/psychology
+	name = "\improper Psychology"
 	icon_state = "green"
 	secure = TRUE
 
