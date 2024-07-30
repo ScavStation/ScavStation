@@ -26,6 +26,7 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	color = COLOR_BRONZE
 	sprite_sheets = null
+	yinglet_icon = null
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour
 
@@ -64,6 +65,7 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	color = COLOR_BRONZE
 	sprite_sheets = null
+	yinglet_icon = null
 	var/faceplate_colour = COLOR_SKY_BLUE
 	var/armour_colour = COLOR_BEIGE
 	var/stripe_colour
