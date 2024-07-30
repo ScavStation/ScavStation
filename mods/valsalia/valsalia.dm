@@ -45,3 +45,9 @@
 	)
 	credits_crew_names = list("THE CREW", "THE ENCLAVE", "THE EXILES", "THE TRADEHOUSE", "THE BAXXID")
 	credits_nouns = list("GOOD SCAVS", "VERY BAD SCAVS", "BROKEN MARKET PRICES", "SHINIEST GEMS FOR ZA MATRIARCH, YES")
+
+/decl/modpack/valsalia/pre_initialize()
+	..()
+	SSmodpacks.default_submap_whitelisted_species |= SPECIES_YINGLET
+	SSmodpacks.default_submap_whitelisted_species |= SPECIES_BAXXID
+	SSmodpacks.default_submap_whitelisted_species |= SPECIES_INDREL
