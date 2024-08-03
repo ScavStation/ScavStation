@@ -8851,8 +8851,6 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/freezer/rations,
-/obj/item/plastique,
-/obj/item/plastique,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "BB" = (
