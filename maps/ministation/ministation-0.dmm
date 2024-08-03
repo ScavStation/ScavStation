@@ -9348,6 +9348,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"Dg" = (
+)
 "Dk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -65612,7 +65614,7 @@ ad
 Ih
 Il
 xO
-uI
+Dg
 Cw
 Cp
 Jn
