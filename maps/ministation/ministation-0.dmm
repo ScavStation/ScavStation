@@ -2482,7 +2482,6 @@
 /turf/space,
 /area/space)
 "hh" = (
-/obj/machinery/portable_atmospherics/canister/chlorine,
 /turf/simulated/floor/plating,
 /area/ministation/atmospump)
 "hj" = (
@@ -4739,6 +4738,10 @@
 "oi" = (
 /turf/simulated/floor,
 /area/ministation/maint/westatmos)
+"ol" = (
+/mob/living/simple_animal/hostile/giant_spider/guard,
+/turf/simulated/floor/plating,
+/area/ministation/atmospump)
 "oo" = (
 /obj/structure/lattice,
 /turf/exterior/wall/random/ministation,
@@ -8339,6 +8342,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
+"Ag" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table,
+/mob/living/simple_animal/opossum/poppy,
+/obj/structure/window/reinforced{
+	max_health = -1
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "Ah" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "EngineVent"
@@ -10209,7 +10229,6 @@
 /area/ministation/engine)
 "Ff" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/opossum/poppy,
 /obj/item/stool/padded,
 /obj/abstract/landmark/start{
 	name = "Station Engineer"
@@ -11020,14 +11039,15 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "Ha" = (
+/obj/machinery/camera/network/engineering{
+	name = "SM West";
+	dir = 8
+	},
 /obj/item/radio/intercom{
 	canhear_range = 3;
 	name = "Common Channel";
 	pixel_x = 27;
-	pixel_y = -3
-	},
-/obj/machinery/camera/network/engineering{
-	name = "SM West";
+	pixel_y = -3;
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -47063,7 +47083,7 @@ cC
 Fe
 XQ
 jK
-XQ
+Ag
 tG
 Nt
 Nt
@@ -47310,7 +47330,7 @@ SC
 ux
 eP
 up
-hh
+ol
 DD
 Dw
 av

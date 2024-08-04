@@ -1130,9 +1130,6 @@
 	req_access = list("ACCESS_ARMORY")
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/camera/network/security{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/securityoffice)
 "dX" = (
@@ -4416,8 +4413,7 @@
 "pN" = (
 /obj/machinery/vending/medical{
 	pixel_x = -2;
-	initial_access = null;
-	req_access = list("ACCESS_MEDICAL_EQUIP")
+	initial_access = null
 	},
 /obj/machinery/camera/network/medbay,
 /obj/structure/sign/directions/science{
@@ -7578,12 +7574,6 @@
 	},
 /obj/item/flashlight/pen,
 /obj/item/flashlight/pen,
-/obj/item/chems/hypospray/vial{
-	desc = "One of the first hyposprays ever made. Supposedly only a handful exist.";
-	name = "prototype hypospray";
-	origin_tech = null;
-	pixel_x = 6
-	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
 "yK" = (
