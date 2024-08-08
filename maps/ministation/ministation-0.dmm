@@ -2482,7 +2482,6 @@
 /turf/space,
 /area/space)
 "hh" = (
-/obj/machinery/portable_atmospherics/canister/chlorine,
 /turf/simulated/floor/plating,
 /area/ministation/atmospump)
 "hj" = (
@@ -4911,6 +4910,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
 "oT" = (
@@ -5924,12 +5926,10 @@
 /turf/simulated/floor/carpet/orange,
 /area/ministation/engine)
 "rX" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
 "rY" = (
@@ -7096,6 +7096,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"vD" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table,
+/mob/living/simple_animal/opossum/poppy,
+/obj/structure/window/reinforced{
+	max_health = -1
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "vF" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 8
@@ -8882,8 +8899,6 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/freezer/rations,
-/obj/item/plastique,
-/obj/item/plastique,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "BB" = (
@@ -8995,12 +9010,14 @@
 /turf/space,
 /area/space)
 "BV" = (
-/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
@@ -9483,6 +9500,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
 "Dv" = (
@@ -10246,7 +10264,6 @@
 /area/ministation/engine)
 "Ff" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/opossum/poppy,
 /obj/item/stool/padded,
 /obj/abstract/landmark/start{
 	name = "Station Engineer"
@@ -11057,14 +11074,15 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "Ha" = (
+/obj/machinery/camera/network/engineering{
+	name = "SM West";
+	dir = 8
+	},
 /obj/item/radio/intercom{
 	canhear_range = 3;
 	name = "Common Channel";
 	pixel_x = 27;
-	pixel_y = -3
-	},
-/obj/machinery/camera/network/engineering{
-	name = "SM West";
+	pixel_y = -3;
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -12852,6 +12870,10 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
+"LX" = (
+/mob/living/simple_animal/hostile/giant_spider/guard,
+/turf/simulated/floor/plating,
+/area/ministation/atmospump)
 "LY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -47111,7 +47133,7 @@ cC
 Fe
 XQ
 jK
-XQ
+vD
 tG
 Nt
 Nt
@@ -47358,7 +47380,7 @@ SC
 ux
 eP
 up
-hh
+LX
 DD
 Dw
 av

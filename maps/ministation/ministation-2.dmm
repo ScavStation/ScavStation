@@ -2205,7 +2205,9 @@
 /turf/open,
 /area/ministation/maint/l3nw)
 "if" = (
-/obj/machinery/door/window/eastright,
+/obj/machinery/door/window/eastright{
+	autoset_access = 0
+	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -3702,6 +3704,8 @@
 /obj/machinery/light/alien{
 	dir = 1
 	},
+/obj/structure/table/woodentable_reinforced/walnut/maple,
+/obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "nA" = (
@@ -6270,6 +6274,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
+"AJ" = (
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3se)
 "AK" = (
 /obj/machinery/portable_atmospherics/canister/helium,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -7186,9 +7196,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "DX" = (
-/obj/machinery/network/relay{
-	initial_network_id = "molluscnet"
-	},
 /obj/effect/floor_decal/corner/green/border{
 	dir = 9
 	},
@@ -7610,8 +7617,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "FV" = (
-/obj/structure/table/woodentable,
-/obj/item/mollusc/clam,
 /obj/machinery/light/small,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
@@ -8755,6 +8760,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
+"LZ" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/obj/structure/table/woodentable,
+/obj/item/mollusc/clam,
+/obj/item/mollusc/clam,
+/turf/simulated/floor/wood/mahogany,
+/area/ministation/library)
 "Ma" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -9222,6 +9236,12 @@
 	},
 /turf/simulated/floor/grass,
 /area/ministation/biodome)
+"NT" = (
+/obj/machinery/door/window/eastleft{
+	autoset_access = 0
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "NV" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
@@ -9424,12 +9444,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "OR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/camera/autoname,
-/turf/simulated/floor/tiled,
-/area/ministation/hall/n3)
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3se)
 "OU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -9453,8 +9470,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "OX" = (
-/obj/machinery/door/airlock/hatch/maintenance{
-	autoset_access = 0
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
@@ -11574,6 +11591,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"XU" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 4
+	},
+/obj/machinery/camera/autoname,
+/turf/simulated/floor/tiled,
+/area/ministation/hall/n3)
 "XX" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/steel_grid,
@@ -42846,7 +42870,7 @@ aa
 aa
 aa
 Mi
-yU
+XU
 gQ
 na
 sC
@@ -43361,7 +43385,7 @@ cw
 cw
 Xq
 SV
-OR
+gQ
 na
 sD
 pz
@@ -46197,7 +46221,7 @@ LM
 Vl
 SP
 FE
-SP
+LM
 tq
 Wa
 VJ
@@ -46454,7 +46478,7 @@ PE
 Vl
 Ji
 Ji
-Ji
+LZ
 Sa
 cz
 VJ
@@ -47998,7 +48022,7 @@ Aj
 XI
 Sa
 OX
-nl
+NT
 rM
 VJ
 Ik
@@ -48541,8 +48565,8 @@ ae
 ae
 ae
 ae
-aa
-oc
+AJ
+OR
 IX
 oc
 aa
@@ -48798,7 +48822,7 @@ bF
 db
 cI
 ae
-aa
+oc
 oc
 ap
 oc
