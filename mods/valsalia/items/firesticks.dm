@@ -58,7 +58,7 @@
 	else
 		..()
 
-/obj/item/gun/projectile/automatic/yassault_rifle/update_base_icon()
+/obj/item/gun/projectile/automatic/yassault_rifle/update_base_icon_state()
 	if(ammo_magazine)
 		if(ammo_magazine.stored_ammo.len)
 			icon_state = "[get_world_inventory_state()]-loaded"
