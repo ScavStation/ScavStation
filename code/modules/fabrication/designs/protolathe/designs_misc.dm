@@ -62,3 +62,6 @@
 
 /datum/fabricator_recipe/protolathe/integrated_printer_upgrade_clone
 	path = /obj/item/disk/integrated_circuit/upgrade/clone
+
+/datum/fabricator_recipe/protolathe/integrated_printer_upgrade_clone
+	path = /obj/item/zat_zhing

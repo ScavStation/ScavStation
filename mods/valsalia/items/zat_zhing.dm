@@ -11,6 +11,15 @@
 	var/transform_impact_prob = 65
 	var/transform_passive_prob = 10
 
+	material = /decl/material/solid/stone/sandstone
+	matter = list(
+		/decl/material/liquid/mutagenics = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/uranium = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/liquid/blood = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/copper = MATTER_AMOUNT_TRACE // zhe costs of one copper to buy :smugviz:s
+	)
+	origin_tech = @'{"engineering":7,"materials":7,"biotech":6, "esoteric":8}'
+
 /obj/item/zat_zhing/equipped()
 	. = ..()
 	if(!is_processing)
@@ -42,9 +51,14 @@
 		victim.worn_underwear = null
 		victim.change_species(SPECIES_YINGLET)
 		// zhis allows us to make sure each person turned into a yinglet may vary from base coloring
-		var/color = pick(prob(20); rgb(171,140,101), prob(20); rgb(95,95,95), prob(10); rgb(8,8,8), prob(19); rgb(234,234,234), prob(18); rgb(102,51,0), prob(8); rgb(204,102,0), prob(5); rgb(155,51,155))
+		var/color = pick(prob(20); rgb(171,140,101), prob(20); rgb(95,95,95), prob(10); rgb(8,8,8), prob(19); rgb(224, 217, 217), prob(18); rgb(102,51,0), prob(8); rgb(204,102,0), prob(5); rgb(192, 84, 192, 255))
 		if(color == null){color = rgb(171,140,101)}
 		victim.set_skin_colour(color)
-		//victim.accessories += list(/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",	/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc")
-		//victim.UpdateAppearance()
+
+		// add the marking for yinglets correctly, seem to be having trouble finding the correct method to apply markings to the marking list
+		//var ears = pick(/decl/sprite_accessory/marking/yinglet/long_ears, /decl/sprite_accessory/marking/yinglet/short_ears)
+		//var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(victim, tag)
+		//E.set_sprite_accessory(ears, SAC_MARKINGS, color, skip_update = TRUE)
+		//E.set_sprite_accessory(/decl/sprite_accessory/marking/yinglet/shelltooth, SAC_MARKINGS, "#cccccc", skip_update = TRUE)
+
 		Destroy()
