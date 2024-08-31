@@ -4708,7 +4708,7 @@
 "nY" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "westatmos_airlock";
-	pixel_y = null;
+	pixel_y = -3;
 	tag_airpump = "westatmos_vent";
 	tag_chamber_sensor = "westatmos_sensor";
 	tag_exterior_door = "westatmos_airlock_exterior";
@@ -4718,8 +4718,9 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "westatmos_sensor";
-	pixel_y = 10;
-	pixel_x = -20
+	pixel_y = 11;
+	pixel_x = -20;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
