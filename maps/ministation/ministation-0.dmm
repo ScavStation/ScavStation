@@ -251,12 +251,6 @@
 /obj/random_multi/single_item/matriarch_helmet,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
-"aX" = (
-/obj/structure/lattice{
-	icon_state = "lattice9"
-	},
-/turf/space,
-/area/space)
 "aY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -678,6 +672,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/bench/padded,
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/entrance)
 "cf" = (
@@ -722,9 +717,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "cm" = (
-/obj/structure/table/bench/padded,
 /obj/machinery/light_switch{
-	pixel_y = 25
+	pixel_y = 28;
+	pixel_x = -13
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/entrance)
@@ -821,8 +816,9 @@
 /obj/machinery/button/access/interior{
 	id_tag = "mining_airlock";
 	name = "interior access button";
-	pixel_x = 20;
-	pixel_y = -10
+	pixel_x = 18;
+	pixel_y = -22;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable{
@@ -1106,13 +1102,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"dr" = (
-/obj/structure/lattice{
-	icon_state = "lattice10";
-	dir = 8
-	},
-/turf/space,
-/area/space)
 "ds" = (
 /turf/simulated/floor,
 /area/ministation/enclave/scikitchen)
@@ -1268,7 +1257,8 @@
 	tag_airpump = "sat1_vent";
 	tag_chamber_sensor = "sat1_sensor";
 	tag_exterior_door = "sat1_airlock_exterior";
-	tag_interior_door = "sat1_airlock_interior"
+	tag_interior_door = "sat1_airlock_interior";
+	pixel_x = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
@@ -1276,7 +1266,8 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "sat1_sensor";
-	pixel_y = 20
+	pixel_y = 20;
+	pixel_x = -9
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
@@ -1435,13 +1426,13 @@
 	name = "External Airlock Hatch";
 	req_access = list("ACCESS_EXTERNAL");
 	locked = 1;
-	id_tag = "mining_airlock_exterior"
+	id_tag = "enclave_airlock_exterior"
 	},
 /obj/machinery/button/access/interior{
-	id_tag = "mining_airlock";
+	id_tag = "enclave_airlock";
 	name = "exterior access button";
-	pixel_x = -20;
-	pixel_y = 10;
+	pixel_x = 25;
+	pixel_y = 6;
 	command = "cycle_exterior"
 	},
 /turf/simulated/floor/airless,
@@ -2330,8 +2321,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "l1ne_airlock";
 	name = "interior access button";
-	pixel_x = 20;
-	pixel_y = -10
+	pixel_x = 22;
+	pixel_y = -12
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable{
@@ -2830,9 +2821,7 @@
 	},
 /obj/effect/decal/cleanable/ash,
 /obj/item/organ/internal/liver/yinglet,
-/obj/structure/lattice{
-	icon_state = "lattice2"
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "ie" = (
@@ -3308,10 +3297,7 @@
 /obj/machinery/atmospherics/pipe/cap/visible/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice{
-	icon_state = "lattice13";
-	dir = 8
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "jO" = (
@@ -3970,9 +3956,10 @@
 /obj/machinery/button/access/interior{
 	id_tag = "westatmos_airlock";
 	name = "exterior access button";
-	pixel_x = -20;
-	pixel_y = 10;
-	command = "cycle_exterior"
+	pixel_x = -25;
+	pixel_y = 11;
+	command = "cycle_exterior";
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/ministation/maint/westatmos)
@@ -3992,9 +3979,10 @@
 /obj/machinery/button/access/interior{
 	id_tag = "sat1_airlock";
 	name = "exterior access button";
-	pixel_x = -10;
-	pixel_y = 20;
-	command = "cycle_exterior"
+	pixel_x = -13;
+	pixel_y = 26;
+	command = "cycle_exterior";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
@@ -4700,10 +4688,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice{
-	icon_state = "lattice1";
-	dir = 1
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "nV" = (
@@ -4764,28 +4749,12 @@
 /obj/structure/lattice,
 /turf/exterior/wall/random/ministation,
 /area/space)
-"op" = (
-/obj/structure/lattice{
-	icon_state = "lattice2";
-	dir = 1
-	},
-/turf/space,
-/area/space)
 "os" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "enclave_airlock";
-	pixel_y = null;
-	tag_airpump = "enclave_vent";
-	tag_chamber_sensor = "enclave_sensor";
-	tag_exterior_door = "enclave_airlock_exterior";
-	tag_interior_door = "mining_airlock_interior";
-	dir = 4;
-	pixel_x = -20
-	},
 /obj/machinery/airlock_sensor{
-	id_tag = "mining_sensor";
+	id_tag = "enclave_sensor";
 	pixel_y = 10;
-	pixel_x = -20
+	pixel_x = 18;
+	dir = 8
 	},
 /obj/item/trash/mollusc_shell/clam{
 	pixel_y = 11;
@@ -4889,9 +4858,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/lattice{
-	icon_state = "lattice3"
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "oQ" = (
@@ -5650,9 +5617,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/lattice{
-	icon_state = "lattice15"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/cap/visible/supply{
 	dir = 4
 	},
@@ -6428,10 +6393,7 @@
 /turf/simulated/wall/r_wall,
 /area/ministation/ai_upload)
 "tx" = (
-/obj/structure/lattice{
-	icon_state = "lattice10";
-	dir = 4
-	},
+/obj/structure/lattice,
 /obj/structure/cable{
 	icon_state = "2-10"
 	},
@@ -6527,9 +6489,7 @@
 	icon_state = "2-4"
 	},
 /obj/item/organ/external/head/yinglet,
-/obj/structure/lattice{
-	icon_state = "lattice12"
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "tR" = (
@@ -6934,18 +6894,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
-"ve" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "_East APC";
-	pixel_x = 27;
-	pixel_y = 2
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless,
-/area/ministation/mining)
 "vf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8273,9 +8221,7 @@
 /area/ministation/cargo)
 "zE" = (
 /obj/item/stack/material/rods,
-/obj/structure/lattice{
-	icon_state = "lattice9"
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "zH" = (
@@ -8547,9 +8493,10 @@
 /obj/machinery/button/access/interior{
 	id_tag = "port_engineering_airlock";
 	name = "exterior access button";
-	pixel_x = -10;
-	pixel_y = 20;
-	command = "cycle_exterior"
+	pixel_x = -14;
+	pixel_y = 27;
+	command = "cycle_exterior";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
@@ -8602,11 +8549,21 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	id_tag = "mining_vent"
+	id_tag = "enclave_vent"
 	},
 /obj/item/trash/mollusc_shell/barnacle{
 	pixel_x = -9;
 	pixel_y = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	id_tag = "enclave_airlock";
+	pixel_y = 7;
+	tag_airpump = "enclave_vent";
+	tag_chamber_sensor = "enclave_sensor";
+	tag_exterior_door = "enclave_airlock_exterior";
+	tag_interior_door = "enclave_airlock_interior";
+	dir = 4;
+	pixel_x = -20
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/evacloset)
@@ -8625,9 +8582,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "AO" = (
-/obj/structure/lattice{
-	icon_state = "lattice10"
-	},
+/obj/structure/lattice,
 /obj/structure/cable{
 	icon_state = "5-8"
 	},
@@ -8727,9 +8682,7 @@
 /turf/simulated/wall,
 /area/ministation/enclave/scikitchen)
 "AZ" = (
-/obj/structure/lattice{
-	icon_state = "lattice-simple"
-	},
+/obj/structure/lattice,
 /obj/effect/decal/cleanable/ash,
 /turf/space,
 /area/space)
@@ -8840,9 +8793,7 @@
 	icon_state = "5-8"
 	},
 /obj/item/stack/material/rods,
-/obj/structure/lattice{
-	icon_state = "lattice12"
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "Bw" = (
@@ -8888,8 +8839,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "sat2_airlock";
 	name = "exterior access button";
-	pixel_x = -10;
-	pixel_y = 20;
+	pixel_x = -22;
+	pixel_y = 21;
 	command = "cycle_exterior"
 	},
 /turf/simulated/floor/plating,
@@ -9003,12 +8954,6 @@
 /obj/item/clothing/shoes/avian/footwraps,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
-"BT" = (
-/obj/structure/lattice{
-	icon_state = "lattice1"
-	},
-/turf/space,
-/area/space)
 "BV" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -9281,8 +9226,9 @@
 /obj/machinery/button/access/interior{
 	id_tag = "starboard_engineering_airlock";
 	name = "interior access button";
-	pixel_x = -10;
-	pixel_y = 20
+	pixel_x = -15;
+	pixel_y = 23;
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ministation/engine)
@@ -10377,9 +10323,10 @@
 /obj/machinery/button/access/interior{
 	id_tag = "l1ne_airlock";
 	name = "exterior access button";
-	pixel_x = -20;
-	pixel_y = 10;
-	command = "cycle_exterior"
+	pixel_x = -22;
+	pixel_y = 11;
+	command = "cycle_exterior";
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10824,10 +10771,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Gt" = (
-/obj/structure/lattice{
-	icon_state = "lattice13";
-	dir = 8
-	},
+/obj/structure/lattice,
 /obj/item/organ/internal/stomach/yinglet,
 /turf/space,
 /area/space)
@@ -11019,8 +10963,9 @@
 /obj/machinery/button/access/interior{
 	id_tag = "port_engineering_airlock";
 	name = "interior access button";
-	pixel_x = 10;
-	pixel_y = 20
+	pixel_x = 14;
+	pixel_y = 20;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
@@ -11030,15 +10975,17 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "port_engineering_sensor";
-	pixel_y = 20
+	pixel_y = 20;
+	pixel_x = -7
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "port_engineering_airlock";
-	pixel_y = 24;
+	pixel_y = 23;
 	tag_airpump = "port_engineering_vent";
 	tag_chamber_sensor = "port_engineering_sensor";
 	tag_exterior_door = "port_engineering_airlock_exterior";
-	tag_interior_door = "port_engineering_airlock_interior"
+	tag_interior_door = "port_engineering_airlock_interior";
+	pixel_x = 10
 	},
 /obj/machinery/camera/network/security,
 /turf/simulated/floor/plating,
@@ -11496,7 +11443,7 @@
 /obj/machinery/button/access/interior{
 	id_tag = "sat2_airlock";
 	name = "interior access button";
-	pixel_x = 10;
+	pixel_x = 23;
 	pixel_y = 20
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -11766,11 +11713,12 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 0;
 	id_tag = "sat3_airlock";
-	pixel_y = 24;
+	pixel_y = 23;
 	tag_airpump = "sat3_vent";
 	tag_chamber_sensor = "sat3_sensor";
 	tag_exterior_door = "sat3_airlock_exterior";
-	tag_interior_door = "sat3_airlock_interior"
+	tag_interior_door = "sat3_airlock_interior";
+	pixel_x = 7
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
@@ -11778,7 +11726,8 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "sat3_sensor";
-	pixel_y = 20
+	pixel_y = 20;
+	pixel_x = -7
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
@@ -12619,7 +12568,7 @@
 /area/ministation/ai_sat)
 "Lk" = (
 /obj/structure/rack,
-/obj/item/crowbar/red,
+/obj/item/crowbar/brace_jack,
 /obj/item/wrench,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -13223,10 +13172,7 @@
 	icon_state = "2-10"
 	},
 /obj/item/organ/internal/eyes/yinglet,
-/obj/structure/lattice{
-	icon_state = "lattice9";
-	dir = 1
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "MX" = (
@@ -13313,12 +13259,6 @@
 /obj/structure/ore_box,
 /turf/space,
 /area/space)
-"Nk" = (
-/obj/structure/lattice{
-	icon_state = "lattice11"
-	},
-/turf/space,
-/area/space)
 "Nl" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -13337,13 +13277,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
-"Np" = (
-/obj/structure/lattice{
-	icon_state = "lattice9";
-	dir = 8
-	},
-/turf/space,
-/area/space)
 "Nq" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -13473,7 +13406,7 @@
 "NL" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "l1ne_airlock";
-	pixel_y = null;
+	pixel_y = -6;
 	tag_airpump = "l1ne_vent";
 	tag_chamber_sensor = "l1ne_sensor";
 	tag_exterior_door = "l1ne_airlock_exterior";
@@ -13483,8 +13416,9 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "l1ne_sensor";
-	pixel_y = 10;
-	pixel_x = -20
+	pixel_y = 11;
+	pixel_x = -19;
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -13546,7 +13480,8 @@
 	tag_airpump = "sat2_vent";
 	tag_chamber_sensor = "sat2_sensor";
 	tag_exterior_door = "sat2_airlock_exterior";
-	tag_interior_door = "sat2_airlock_interior"
+	tag_interior_door = "sat2_airlock_interior";
+	pixel_x = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
@@ -13554,8 +13489,9 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "sat2_sensor";
-	pixel_y = -20;
-	pixel_x = -10
+	pixel_y = -22;
+	pixel_x = -11;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
@@ -13632,9 +13568,10 @@
 /obj/machinery/button/access/interior{
 	id_tag = "starboard_engineering_airlock";
 	name = "exterior access button";
-	pixel_x = 2;
-	pixel_y = 20;
-	command = "cycle_exterior"
+	pixel_x = 14;
+	pixel_y = 25;
+	command = "cycle_exterior";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
@@ -13835,8 +13772,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "sat3_airlock";
 	name = "exterior access button";
-	pixel_x = -10;
-	pixel_y = 20;
+	pixel_x = -21;
+	pixel_y = 21;
 	command = "cycle_exterior"
 	},
 /turf/simulated/floor/plating,
@@ -13870,15 +13807,16 @@
 	locked = 1;
 	id_tag = "mining_airlock_exterior"
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/button/access/interior{
 	id_tag = "mining_airlock";
 	name = "exterior access button";
-	pixel_x = -20;
-	pixel_y = 10;
-	command = "cycle_exterior"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
+	pixel_x = 18;
+	pixel_y = 22;
+	command = "cycle_exterior";
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/ministation/cargo)
@@ -13904,10 +13842,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "OV" = (
-/obj/structure/lattice{
-	icon_state = "lattice10";
-	dir = 8
-	},
+/obj/structure/lattice,
 /obj/item/organ/external/tail/yinglet,
 /turf/space,
 /area/space)
@@ -14366,13 +14301,14 @@
 	name = "External Airlock Hatch";
 	req_access = list("ACCESS_EXTERNAL");
 	locked = 1;
-	id_tag = "mining_airlock_interior"
+	id_tag = "enclave_airlock_interior"
 	},
 /obj/machinery/button/access/interior{
-	id_tag = "mining_airlock";
+	id_tag = "enclave_airlock";
 	name = "interior access button";
-	pixel_x = 20;
-	pixel_y = -10
+	pixel_x = -18;
+	pixel_y = -23;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -14585,8 +14521,9 @@
 	id_tag = "cargo_vent"
 	},
 /obj/machinery/airlock_sensor{
-	id_tag = "cargo2_sensor";
-	pixel_y = -20
+	id_tag = "cargo_sensor";
+	pixel_y = -19;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/cargo)
@@ -15087,9 +15024,7 @@
 	icon_state = "1-4"
 	},
 /obj/item/organ/external/groin/yinglet,
-/obj/structure/lattice{
-	icon_state = "lattice3"
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "SQ" = (
@@ -15201,12 +15136,6 @@
 /obj/structure/filing_cabinet,
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
-"Tj" = (
-/obj/structure/lattice{
-	icon_state = "lattice-simple"
-	},
-/turf/space,
-/area/space)
 "Tl" = (
 /obj/structure/transit_tube{
 	icon_state = "D-SE"
@@ -15251,11 +15180,12 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "starboard_engineering_airlock";
-	pixel_y = 24;
+	pixel_y = 23;
 	tag_airpump = "starboard_engineering_vent";
 	tag_chamber_sensor = "starboard_engineering_sensor";
 	tag_exterior_door = "starboard_engineering_airlock_exterior";
-	tag_interior_door = "starboard_engineering_airlock_interior"
+	tag_interior_door = "starboard_engineering_airlock_interior";
+	pixel_x = -13
 	},
 /obj/machinery/camera/network/security,
 /turf/simulated/floor/plating,
@@ -15332,7 +15262,13 @@
 /area/ministation/engine)
 "TE" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 24;
+	pixel_y = 9
 	},
 /turf/simulated/floor/airless,
 /area/ministation/mining)
@@ -15692,18 +15628,19 @@
 "UV" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "mining_airlock";
-	pixel_y = null;
+	pixel_y = -5;
 	tag_airpump = "mining_vent";
 	tag_chamber_sensor = "mining_sensor";
 	tag_exterior_door = "mining_airlock_exterior";
 	tag_interior_door = "mining_airlock_interior";
 	dir = 4;
-	pixel_x = -20
+	pixel_x = -19
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "mining_sensor";
-	pixel_y = 10;
-	pixel_x = -20
+	pixel_y = -22;
+	pixel_x = -18;
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -15890,8 +15827,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "sat1_airlock";
 	name = "interior access button";
-	pixel_x = 10;
-	pixel_y = 20
+	pixel_x = 23;
+	pixel_y = 21
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -15959,12 +15896,6 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
-"VP" = (
-/obj/structure/lattice{
-	icon_state = "lattice2"
-	},
-/turf/space,
 /area/space)
 "VQ" = (
 /obj/structure/lattice,
@@ -16378,8 +16309,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "westatmos_airlock";
 	name = "interior access button";
-	pixel_x = 20;
-	pixel_y = -10
+	pixel_x = 23;
+	pixel_y = -8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -16755,8 +16686,9 @@
 /obj/machinery/button/access/interior{
 	id_tag = "sat3_airlock";
 	name = "interior access button";
-	pixel_x = 10;
-	pixel_y = 20
+	pixel_x = 13;
+	pixel_y = 26;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -41651,7 +41583,7 @@ aa
 af
 Zr
 bG
-dr
+ad
 yJ
 HW
 st
@@ -41914,7 +41846,7 @@ aa
 Ur
 AO
 hg
-aX
+ad
 Pr
 iY
 pE
@@ -42171,7 +42103,7 @@ Uv
 tx
 oP
 aB
-BT
+ad
 tf
 ep
 os
@@ -42942,7 +42874,7 @@ MW
 HU
 SP
 jN
-op
+ad
 sl
 yJ
 aa
@@ -43201,7 +43133,7 @@ ib
 qV
 Gt
 AZ
-Np
+ad
 aa
 aa
 aa
@@ -43452,8 +43384,8 @@ aa
 aa
 aa
 oo
-Nk
-Tj
+ad
+ad
 BX
 Dc
 SQ
@@ -43711,7 +43643,7 @@ aa
 aa
 aa
 aa
-VP
+ad
 Dc
 iH
 NA
@@ -46293,7 +46225,7 @@ WP
 Bd
 Fq
 Bd
-ve
+Bd
 TE
 OR
 UV

@@ -1361,8 +1361,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "ministation_science_dock";
 	name = "exterior access button";
-	pixel_x = -20;
-	pixel_y = -10;
+	pixel_x = -21;
+	pixel_y = -13;
 	command = "cycle_exterior"
 	},
 /obj/structure/cable{
@@ -1917,8 +1917,9 @@
 /obj/machinery/button/access/interior{
 	id_tag = "pqm_airlock";
 	name = "interior access button";
-	pixel_x = 10;
-	pixel_y = 20
+	pixel_x = 21;
+	pixel_y = -22;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4999,7 +5000,8 @@
 /obj/machinery/airlock_sensor{
 	id_tag = "science_sensor";
 	pixel_y = 10;
-	pixel_x = -20
+	pixel_x = -21;
+	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	tag_airpump = "science_vent";
@@ -7046,9 +7048,10 @@
 /obj/machinery/button/access/interior{
 	id_tag = "pqm_airlock";
 	name = "exterior access button";
-	pixel_x = -10;
-	pixel_y = 20;
-	command = "cycle_exterior"
+	pixel_x = -14;
+	pixel_y = 25;
+	command = "cycle_exterior";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
@@ -9396,8 +9399,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "science_shuttle";
 	name = "interior access button";
-	pixel_x = 20;
-	pixel_y = -13
+	pixel_x = 21;
+	pixel_y = -10
 	},
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
@@ -11195,7 +11198,8 @@
 	name = "exterior access button";
 	pixel_x = 21;
 	pixel_y = 11;
-	command = "cycle_exterior"
+	command = "cycle_exterior";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
@@ -11730,8 +11734,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "ministation_science_dock";
 	name = "interior access button";
-	pixel_x = 20;
-	pixel_y = 10
+	pixel_x = 25;
+	pixel_y = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable{
@@ -11809,8 +11813,9 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "science_shuttle_sensor";
-	pixel_y = 10;
-	pixel_x = -20
+	pixel_y = 6;
+	pixel_x = -18;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/shuttle/outgoing)
@@ -11972,7 +11977,8 @@
 	tag_airpump = "pqm_vent";
 	tag_chamber_sensor = "pqm_sensor";
 	tag_exterior_door = "pqm_airlock_exterior";
-	tag_interior_door = "pqm_airlock_interior"
+	tag_interior_door = "pqm_airlock_interior";
+	pixel_x = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
@@ -11980,7 +11986,8 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "pqm_sensor";
-	pixel_y = 20
+	pixel_y = 20;
+	pixel_x = -8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
