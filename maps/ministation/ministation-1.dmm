@@ -3265,9 +3265,10 @@
 /obj/machinery/button/access/interior{
 	id_tag = "l2_central_north_airlock";
 	name = "exterior access button";
-	pixel_x = 10;
-	pixel_y = 20;
-	command = "cycle_exterior"
+	pixel_x = 14;
+	pixel_y = 26;
+	command = "cycle_exterior";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2central)
@@ -3301,7 +3302,8 @@
 	id_tag = "sqm_airlock";
 	name = "interior access button";
 	pixel_x = -10;
-	pixel_y = 20
+	pixel_y = 26;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -3760,8 +3762,9 @@
 /obj/machinery/button/access/interior{
 	id_tag = "l2_central_north_airlock";
 	name = "interior access button";
-	pixel_x = -10;
-	pixel_y = 20
+	pixel_x = -15;
+	pixel_y = -25;
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ministation/maint/l2central)
@@ -3881,8 +3884,9 @@
 /obj/machinery/button/access/interior{
 	id_tag = "l2_central_south_airlock";
 	name = "interior access button";
-	pixel_x = 20;
-	pixel_y = 10
+	pixel_x = -21;
+	pixel_y = 10;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2centrals)
@@ -4693,15 +4697,17 @@
 "qL" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "l2_central_north_sensor";
-	pixel_y = 20
+	pixel_y = 19;
+	pixel_x = 10
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "l2_central_north_airlock";
-	pixel_y = 24;
+	pixel_y = 22;
 	tag_airpump = "l2_central_north_vent";
 	tag_chamber_sensor = "l2_central_north_sensor";
 	tag_exterior_door = "l2_central_north_airlock_exterior";
-	tag_interior_door = "l2_central_north_airlock_interior"
+	tag_interior_door = "l2_central_north_airlock_interior";
+	pixel_x = -6
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l2central)
@@ -4999,12 +5005,13 @@
 "rC" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "l2_central_south_sensor";
-	pixel_y = 10;
-	pixel_x = -20
+	pixel_y = 21;
+	pixel_x = -19;
+	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "l2_central_south_airlock";
-	pixel_y = null;
+	pixel_y = 6;
 	tag_airpump = "l2_central_south_vent";
 	tag_chamber_sensor = "l2_central_south_sensor";
 	tag_exterior_door = "l2_central_south_airlock_exterior";
@@ -11345,7 +11352,8 @@
 "Nu" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "escape2_sensor";
-	pixel_y = -20
+	pixel_y = -20;
+	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
@@ -11984,7 +11992,8 @@
 "PY" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "escape1_sensor";
-	pixel_y = -20
+	pixel_y = -20;
+	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
@@ -12631,8 +12640,8 @@
 /obj/machinery/button/access/interior{
 	id_tag = "sqm_airlock";
 	name = "exterior access button";
-	pixel_x = 10;
-	pixel_y = 20;
+	pixel_x = 23;
+	pixel_y = 17;
 	command = "cycle_exterior"
 	},
 /turf/simulated/floor/plating,
@@ -12941,11 +12950,13 @@
 	tag_airpump = "sqm_vent";
 	tag_chamber_sensor = "sqm_sensor";
 	tag_exterior_door = "sqm_airlock_exterior";
-	tag_interior_door = "sqm_airlock_interior"
+	tag_interior_door = "sqm_airlock_interior";
+	pixel_x = -8
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "sqm_sensor";
-	pixel_y = 20
+	pixel_y = 20;
+	pixel_x = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/hydromaint)
@@ -13428,7 +13439,7 @@
 /obj/machinery/button/access/interior{
 	id_tag = "l2_central_south_airlock";
 	name = "exterior access button";
-	pixel_x = -20;
+	pixel_x = 22;
 	pixel_y = -10;
 	command = "cycle_exterior"
 	},
