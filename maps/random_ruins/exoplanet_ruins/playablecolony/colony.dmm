@@ -6027,7 +6027,9 @@
 	tag_exterior_door = "playablecolonymain_exterior_door";
 	tag_exterior_sensor = "playablecolonymain_sensor_external";
 	tag_interior_door = "playablecolonymain_interior_door";
-	tag_interior_sensor = "playablecolonymain_sensor_interior"
+	tag_interior_sensor = "playablecolonymain_sensor_interior";
+	tag_pump_out_internal = "playablecolonymain_pump_out_internal";
+	tag_pump_out_external = "playablecolonymain_pump_out_external"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	id_tag = "playablecolonymain_pump";

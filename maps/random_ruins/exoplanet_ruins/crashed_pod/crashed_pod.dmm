@@ -10,6 +10,12 @@
 	dir = 1;
 	name = "exterior access button"
 	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_x = -1;
+	id_tag = "crashed_pod_ext_sensor";
+	pixel_y = -19
+	},
 /turf/simulated/floor/plating,
 /area/map_template/crashed_pod)
 "ab" = (
@@ -905,7 +911,9 @@
 	pixel_x = -20;
 	tag_pump_out_external = "crashed_pod_pump_out_external";
 	tag_pump_out_internal = "crashed_pod_pump_out_internal";
-	cycle_to_external_air = 1
+	cycle_to_external_air = 1;
+	tag_exterior_sensor = "crashed_pod_ext_sensor";
+	tag_interior_sensor = "crashed_pod_int_sensor"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
@@ -1297,6 +1305,11 @@
 "DM" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/airlock_sensor{
+	dir = 4;
+	pixel_x = -15;
+	id_tag = "crashed_pod_int_sensor"
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "GT" = (
