@@ -70,6 +70,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/random/trash,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/enclave/scikitchen)
 "ao" = (
@@ -721,6 +722,8 @@
 	pixel_y = 28;
 	pixel_x = -13
 	},
+/obj/random/trash,
+/obj/structure/ladder,
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/entrance)
 "cn" = (
@@ -1431,9 +1434,10 @@
 /obj/machinery/button/access/interior{
 	id_tag = "enclave_airlock";
 	name = "exterior access button";
-	pixel_x = 25;
-	pixel_y = 6;
-	command = "cycle_exterior"
+	pixel_x = 23;
+	pixel_y = 8;
+	command = "cycle_exterior";
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/ministation/enclave/evacloset)
@@ -4080,6 +4084,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
 "md" = (
@@ -4573,6 +4578,7 @@
 /obj/machinery/camera/network/hallway{
 	dir = 1
 	},
+/obj/random/trash,
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
 "nD" = (
@@ -4764,6 +4770,7 @@
 /obj/item/trash/mollusc_shell/barnacle{
 	pixel_x = 5
 	},
+/obj/random/trash,
 /turf/simulated/floor/plating,
 /area/ministation/enclave/evacloset)
 "ov" = (
@@ -4829,6 +4836,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/ministation/engine)
+"oG" = (
+/obj/structure/lattice,
+/obj/structure/ladder,
+/turf/space,
+/area/space)
 "oI" = (
 /obj/abstract/landmark/start{
 	name = "Janitor"
@@ -6920,16 +6932,14 @@
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/machinery/door/airlock/glass{
-	autoset_access = 0
-	},
+/obj/machinery/door/airlock/mining,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/ministation/enclave/entrance)
+/area/ministation/cargo)
 "vk" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -7476,6 +7486,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/entrance)
 "xa" = (
@@ -8079,13 +8090,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "yP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	pixel_x = 2;
-	pixel_y = 1
-	},
-/turf/simulated/floor/plating,
-/area/ministation/ai_sat)
+/obj/item/twohanded/spear/diamond,
+/turf/space,
+/area/space)
 "yR" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -8604,6 +8611,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/random/trash,
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
 "AQ" = (
@@ -13260,6 +13268,10 @@
 /obj/structure/ore_box,
 /turf/space,
 /area/space)
+"Nk" = (
+/obj/item/gun/projectile/flare/loaded,
+/turf/space,
+/area/space)
 "Nl" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -16131,13 +16143,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
-"WT" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ministation/enclave/entrance)
 "WU" = (
 /turf/simulated/floor,
 /area/space)
@@ -16810,6 +16815,7 @@
 	pixel_x = -10;
 	pixel_y = -6
 	},
+/obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
 "Zd" = (
@@ -33369,8 +33375,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -33625,6 +33631,8 @@ aa
 aa
 aa
 aa
+af
+af
 aa
 aa
 aa
@@ -33636,10 +33644,8 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -33883,8 +33889,6 @@ aa
 aa
 aa
 aa
-af
-aa
 aa
 aa
 aa
@@ -33899,6 +33903,8 @@ aa
 ad
 ad
 ad
+ad
+aa
 aa
 aa
 aa
@@ -34145,15 +34151,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 ad
 ad
+ad
+ad
+ad
+ad
+ad
+ad
+oo
 af
 ad
 aa
@@ -34401,19 +34407,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
 aa
 aa
 ad
+ad
 af
 oo
 af
-aa
+ad
 aa
 aa
 aa
@@ -34658,6 +34664,7 @@ aa
 aa
 aa
 aa
+ad
 aa
 aa
 aa
@@ -34669,7 +34676,6 @@ aa
 ad
 ad
 ad
-aa
 aa
 aa
 aa
@@ -34915,7 +34921,7 @@ aa
 aa
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -35165,14 +35171,14 @@ ab
 aa
 aa
 aa
+ad
+af
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -35422,14 +35428,14 @@ aa
 aa
 aa
 aa
+ad
+oo
+ad
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -35679,14 +35685,14 @@ aa
 aa
 aa
 aa
+af
+af
+ad
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -35918,32 +35924,32 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+oo
 af
-af
+oo
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -36174,33 +36180,33 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
 af
 af
-af
+oo
+ad
 aa
 aa
 aa
-aa
-af
-af
-af
-af
-af
-af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ad
 aa
 aa
 aa
@@ -36430,34 +36436,34 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-aa
-aa
-aa
-af
-af
-af
-af
-af
-af
-af
 aa
 aa
 aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+ad
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+oo
 af
-af
+oo
+ad
 aa
 aa
-aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -36688,18 +36694,7 @@ aa
 aa
 aa
 af
-af
-af
-af
 aa
-aa
-aa
-aa
-af
-af
-af
-af
-af
 aa
 aa
 aa
@@ -36708,12 +36703,23 @@ aa
 aa
 aa
 af
-af
-af
-af
+oo
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+ad
+oo
+af
+oo
+oo
+ad
+ad
+ad
 aa
 aa
 aa
@@ -36944,32 +36950,32 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-aa
-aa
-aa
-af
-af
-af
-af
-af
 aa
 aa
 aa
 aa
 aa
 aa
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+oo
 af
 af
 af
 af
 oo
-aa
+ad
 aa
 aa
 aa
@@ -37201,16 +37207,6 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-aa
-aa
-aa
-af
-af
 aa
 aa
 aa
@@ -37221,12 +37217,22 @@ aa
 aa
 aa
 aa
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+oo
 af
 af
 af
 oo
-aa
+ad
 aa
 aa
 aa
@@ -37460,9 +37466,6 @@ aa
 aa
 aa
 aa
-af
-af
-af
 aa
 aa
 aa
@@ -37479,6 +37482,9 @@ aa
 aa
 aa
 aa
+aa
+aa
+ad
 oo
 af
 af
@@ -37737,7 +37743,7 @@ aa
 aa
 aa
 ad
-af
+oo
 af
 ad
 aa
@@ -37981,9 +37987,9 @@ aa
 aa
 aa
 aa
-af
-af
-af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -38238,10 +38244,10 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -38495,10 +38501,10 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
+aa
+aa
+aa
+aa
 af
 aa
 aa
@@ -38751,13 +38757,13 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
 aa
+aa
+aa
+aa
+oo
+oo
+oG
 aa
 aa
 aa
@@ -38767,11 +38773,11 @@ aa
 aa
 ad
 ad
-ad
-ad
-ad
-ad
-ad
+aa
+aa
+aa
+aa
+aa
 ad
 ad
 aa
@@ -38999,8 +39005,6 @@ aa
 aa
 aa
 aa
-af
-af
 aa
 aa
 aa
@@ -39008,12 +39012,14 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+oo
+ad
+aa
 aa
 aa
 aa
@@ -39029,8 +39035,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -39256,21 +39262,21 @@ aa
 aa
 aa
 aa
-af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
-af
-af
-af
+oo
+aa
 aa
 aa
 aa
@@ -39285,8 +39291,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -39513,18 +39519,18 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
 aa
 aa
 aa
 aa
 aa
 aa
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -39541,8 +39547,8 @@ kt
 ad
 aa
 aa
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -39769,11 +39775,11 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -39797,8 +39803,8 @@ af
 NY
 Hv
 ad
-ad
-ad
+aa
+aa
 aa
 aa
 aa
@@ -40026,11 +40032,11 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -40284,8 +40290,8 @@ aa
 aa
 aa
 af
-af
-af
+aa
+aa
 af
 aa
 aa
@@ -40310,7 +40316,7 @@ rN
 rN
 dj
 ad
-aa
+ad
 aa
 aa
 aa
@@ -40805,8 +40811,8 @@ aa
 aa
 aa
 aa
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -41062,8 +41068,8 @@ aa
 aa
 aa
 aa
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -41319,8 +41325,8 @@ aa
 aa
 aa
 aa
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -41576,8 +41582,8 @@ af
 aa
 aa
 aa
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -42606,7 +42612,7 @@ aa
 aa
 aa
 aa
-aa
+Nk
 aa
 aa
 aa
@@ -43137,7 +43143,7 @@ AZ
 ad
 aa
 aa
-aa
+yP
 aa
 aa
 aa
@@ -43916,7 +43922,7 @@ ad
 YB
 YB
 YB
-YB
+au
 au
 au
 au
@@ -44173,7 +44179,7 @@ mB
 yr
 cb
 ck
-WT
+bX
 cM
 de
 dB
@@ -44430,7 +44436,7 @@ CX
 bQ
 UR
 rg
-YB
+au
 cz
 dC
 tu
@@ -44687,7 +44693,7 @@ Nj
 Bp
 Yo
 kK
-WT
+bX
 cO
 GR
 fN
@@ -44944,7 +44950,7 @@ Xw
 aw
 cd
 Ow
-YB
+au
 cP
 dE
 eY
@@ -45458,7 +45464,7 @@ Fq
 aw
 cm
 YB
-YB
+au
 cQ
 xd
 mW
@@ -60978,7 +60984,7 @@ RC
 Il
 Td
 hE
-yP
+Ns
 Il
 Il
 Il
