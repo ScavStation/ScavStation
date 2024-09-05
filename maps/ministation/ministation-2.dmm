@@ -3952,11 +3952,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/matriarch)
-"oo" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "op" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -34351,7 +34346,7 @@ aa
 aa
 aa
 aa
-oo
+ad
 af
 af
 af

@@ -500,6 +500,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/wall/r_wall,
 /area/ministation/enclave/eggclave)
 "hd" = (
@@ -861,23 +864,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/observation_deck)
-"pl" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/space,
-/area/space)
 "pn" = (
 /obj/item/bot_kit,
 /obj/item/bot_controller,
@@ -2222,6 +2208,10 @@
 	pixel_y = 6;
 	pixel_x = 6
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/ministation/enclave/sleepingroom)
 "Mj" = (
@@ -2736,6 +2726,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/wall/r_wall,
@@ -26379,7 +26372,7 @@ aa
 uG
 uG
 oP
-pl
+eJ
 aa
 aa
 Wk
