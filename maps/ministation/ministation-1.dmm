@@ -812,6 +812,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc{
+	areastring = null;
 	name = "_South APC";
 	pixel_y = -24
 	},
@@ -10393,8 +10394,7 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/enclave/matriarch)
@@ -14215,8 +14215,7 @@
 /obj/machinery/power/apc{
 	areastring = null;
 	name = "_South APC";
-	pixel_y = -24;
-	pixel_x = 1
+	pixel_y = -24
 	},
 /obj/effect/floor_decal/carpet/green{
 	dir = 4
@@ -16288,8 +16287,7 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	icon_state = "4-8"
 	},
 /obj/item/radio/intercom{
 	dir = 1;
