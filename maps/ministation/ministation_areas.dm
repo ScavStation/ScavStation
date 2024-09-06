@@ -431,6 +431,31 @@
 	icon_state = "white"
 	secure = FALSE
 
+/area/ministation/enclave/armory
+	name = "\improper Enclave Armory"
+	req_access = list(access_security)
+	icon_state = "dark_blue"
+	secure = TRUE
+
+/area/ministation/enclave/badclamrock
+	name = "\improper Bad Clam Rock"
+	req_access = list(access_security)
+	icon_state = "brown"
+	secure = TRUE
+
+/area/ministation/enclave/matriarch
+	name = "\improper Matriarch's Chambers"
+	req_access = list(access_heads)
+	icon_state = "green"
+	secure = TRUE
+
+/area/ministation/enclave/eggclave
+	name = "\improper Eggclave"
+	req_access = list(access_medical)
+	icon_state = "white"
+	secure = TRUE
+
+
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
 	icon_state = "white"
