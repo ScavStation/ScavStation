@@ -977,7 +977,7 @@
 /turf/simulated/floor/plating,
 /area/ministation/perma)
 "di" = (
-/turf/space,
+/turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/matriarch)
 "dj" = (
 /obj/abstract/landmark{
@@ -8605,10 +8605,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/emergency_dispenser/west{
-	pixel_y = 36;
-	pixel_x = 0
-	},
+/obj/structure/emergency_dispenser/north,
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/badclamrock)
 "zq" = (
@@ -15361,7 +15358,7 @@
 /area/ministation/hydro)
 "Vv" = (
 /obj/structure/stairs/long/east,
-/turf/space,
+/turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/matriarch)
 "Vx" = (
 /obj/structure/disposalpipe/segment{
