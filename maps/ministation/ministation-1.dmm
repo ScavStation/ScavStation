@@ -3105,8 +3105,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -4316,6 +4315,22 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/item/storage/box/mousetraps{
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/obj/item/beartrap{
+	pixel_y = 11;
+	pixel_x = 9
+	},
+/obj/item/beartrap{
+	pixel_y = 15;
+	pixel_x = -9
+	},
+/obj/item/beartrap{
+	pixel_y = -2;
+	pixel_x = 1
+	},
 /turf/simulated/floor/tiled/old_tile,
 /area/ministation/enclave/armory)
 "nK" = (
@@ -4628,8 +4643,7 @@
 "oJ" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /turf/simulated/floor/grass,
 /area/ministation/enclave/badclamrock)
@@ -10782,8 +10796,7 @@
 "GM" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /obj/item/radio/intercom{
 	dir = 8;

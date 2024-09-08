@@ -975,8 +975,7 @@
 /area/ministation/science)
 "de" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
@@ -1035,8 +1034,7 @@
 /area/ministation/bridge)
 "ds" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -1270,6 +1268,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"en" = (
+/mob/living/exosuit/premade/heavy,
+/turf/simulated/floor/reinforced/airless,
+/area/ministation/bombrange)
 "eq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
@@ -1799,6 +1801,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"go" = (
+/mob/living/simple_animal/hostile/retaliate/goose,
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "gp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable{
@@ -4447,7 +4453,8 @@
 /area/ministation/bridge)
 "rj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 1;
+	level = 2
 	},
 /obj/machinery/computer/modular/preset/civilian{
 	dir = 4
@@ -5111,8 +5118,7 @@
 /area/ministation/telecomms)
 "uB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/b_green/three_quarters,
 /turf/simulated/floor/tiled,
@@ -5385,6 +5391,9 @@
 /obj/item/chems/drinks/glass2/wine{
 	pixel_y = 14;
 	pixel_x = -5
+	},
+/obj/abstract/landmark/start{
+	name = "Matriarch"
 	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/enclave/matriarch)
@@ -6121,10 +6130,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "yM" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	external_pressure_bound = 103;
-	external_pressure_bound_default = 102
-	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor,
 /area/ministation/science)
 "yN" = (
@@ -6857,6 +6863,7 @@
 	pixel_y = 12;
 	pixel_x = 1
 	},
+/obj/item/card/id/ministation/yinglet_rep,
 /turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/matriarch)
 "BK" = (
@@ -6985,6 +6992,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"Cr" = (
+/mob/living/carbon/human/monkey,
+/turf/open,
+/area/ministation/hall/n3)
 "Cs" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -7900,9 +7911,9 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/random/plush/therapy{
-	name = "Cornstarch Squisher";
-	desc = "It's squishy and quite soft-spoken."
+/obj/item/toy/plushie/therapy/blue{
+	desc = "It's squishy and quite soft-spoken.";
+	name = "Cornstarch Squisher"
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/enclave/matriarch)
@@ -8784,6 +8795,10 @@
 /obj/structure/hygiene/drain/bath,
 /turf/unsimulated/floor,
 /area/ministation/enclave/matriarch)
+"Ka" = (
+/mob/living/simple_animal/hostile/retaliate/clown,
+/turf/simulated/floor,
+/area/ministation/science)
 "Kf" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/reinforced,
@@ -11052,7 +11067,8 @@
 /area/ministation/library)
 "TK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 1;
+	level = 2
 	},
 /obj/structure/table,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
@@ -12434,6 +12450,9 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/vehicle/bike/thermal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/science)
@@ -44940,7 +44959,7 @@ sC
 ZJ
 hx
 GD
-GD
+Cr
 GD
 BS
 Gy
@@ -49551,7 +49570,7 @@ nl
 nl
 nl
 nl
-VJ
+go
 Vj
 nl
 VJ
@@ -57016,7 +57035,7 @@ hu
 jU
 ae
 dd
-dd
+Ka
 aw
 ae
 dd
@@ -63463,7 +63482,7 @@ aa
 Hw
 uW
 OF
-OF
+en
 OF
 fW
 Hw
