@@ -27,8 +27,8 @@
 
 /datum/job/yinglet/matriarch
 	title = "Matriarch"
-	alt_titles = list("Her Muchliest Bestest", "Patriarch of Matriarching")
-	supervisors = "The yinglets of the enclave, the Captain, and the whims of your own ideals."
+	alt_titles = list("Her Muchliest Bestest", "Patriarch of Matriarching", "Matriarch of Patriarching")
+	supervisors = "The yinglets of the enclave, the Captain, and the whims of your own ideals"
 	outfit_type = /decl/hierarchy/outfit/job/yinglet/yinglet_rep/matriarch
 	head_position = 1
 	department_types = list(
