@@ -8331,11 +8331,6 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/structure/closet/statue{
-	dir = 4;
-	desc = "He looks thirsty.";
-	name = "The Silent Boozeguzzler, by Yingksy"
-	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
 "yA" = (
