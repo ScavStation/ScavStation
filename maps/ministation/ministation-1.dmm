@@ -27,7 +27,7 @@
 "ag" = (
 /obj/machinery/firealarm{
 	dir = 4;
-	pixel_x = 21
+	pixel_x = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1226,7 +1226,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/securityoffice)
 "dX" = (
-/obj/machinery/camera/network/hallway{
+/obj/machinery/camera/autoname{
 	dir = 8
 	},
 /turf/open,
@@ -1272,9 +1272,6 @@
 	},
 /obj/structure/transit_tube/station{
 	dir = 4
-	},
-/obj/structure/transit_tube_pod{
-	dir = 1
 	},
 /obj/machinery/light{
 	dir = 8
@@ -1410,11 +1407,6 @@
 	dir = 1;
 	pixel_x = 6;
 	pixel_y = -29
-	},
-/obj/machinery/firealarm{
-	pixel_y = -22;
-	dir = 1;
-	pixel_x = -11
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/ministation/enclave/armory)
@@ -1598,6 +1590,9 @@
 /obj/structure/lattice,
 /obj/random/trash,
 /obj/structure/closet/crate/freezer/rations,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/yellow,
 /area/ministation/enclave/badclamrock)
 "fl" = (
@@ -2246,6 +2241,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/toy/plushie/carp/silent{
+	name = "Spookums the Teleporting Trout";
+	desc = "Who put this here!?"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "hp" = (
@@ -2398,6 +2397,9 @@
 /obj/structure/transit_tube{
 	dir = 4;
 	icon_state = "Block"
+	},
+/obj/machinery/camera/autoname{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/matriarch)
@@ -4811,6 +4813,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ministation/enclave/messhall)
 "pr" = (
@@ -5064,7 +5069,7 @@
 	},
 /obj/machinery/firealarm{
 	dir = 4;
-	pixel_x = 21
+	pixel_x = 24
 	},
 /obj/item/boombox,
 /turf/simulated/floor/tiled/stone,
@@ -6315,10 +6320,9 @@
 	pixel_y = 2;
 	pixel_x = 21
 	},
-/obj/item/frame/fire_alarm{
+/obj/machinery/firealarm{
 	dir = 8;
-	pixel_y = 2;
-	pixel_x = -18
+	pixel_x = -24
 	},
 /obj/structure/flora/pottedplant/unusual{
 	pixel_y = 14;
@@ -7586,6 +7590,9 @@
 	dir = 8;
 	pixel_x = 22
 	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/badclamrock)
 "wL" = (
@@ -8323,6 +8330,11 @@
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
+	},
+/obj/structure/closet/statue{
+	dir = 4;
+	desc = "He looks thirsty.";
+	name = "The Silent Boozeguzzler, by Yingksy"
 	},
 /turf/simulated/floor/carpet,
 /area/ministation/cafe)
@@ -9130,7 +9142,9 @@
 /turf/simulated/floor/tiled/stone,
 /area/ministation/hall/e2)
 "AJ" = (
-/obj/structure/closet/wardrobe/mixed,
+/obj/structure/closet/wardrobe/mixed{
+	anchored = 1
+	},
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/under/yinglet,
@@ -10407,6 +10421,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/abstract/landmark/start{
+	name = "Matriarch"
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/enclave/matriarch)
 "Fr" = (
@@ -11399,9 +11416,8 @@
 	dir = 8
 	},
 /obj/machinery/firealarm{
-	pixel_y = -24;
 	dir = 1;
-	pixel_x = -2
+	pixel_y = -24
 	},
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/badclamrock)
@@ -13677,6 +13693,7 @@
 	pixel_y = -2;
 	pixel_x = -12
 	},
+/obj/random_multi/single_item/captains_spare_id,
 /turf/simulated/floor/plating,
 /area/ministation/enclave/engineering)
 "Qm" = (
@@ -15043,9 +15060,8 @@
 	dir = 4
 	},
 /obj/machinery/firealarm{
-	pixel_y = -1;
 	dir = 4;
-	pixel_x = 18
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/ministation/enclave/armory)
@@ -15854,7 +15870,7 @@
 "Xj" = (
 /obj/machinery/firealarm{
 	dir = 4;
-	pixel_x = 21
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/perma)

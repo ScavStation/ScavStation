@@ -666,6 +666,7 @@
 	dir = 4;
 	icon_state = "Block"
 	},
+/obj/machinery/camera/autoname,
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/entrance)
 "ce" = (
@@ -2791,6 +2792,9 @@
 /obj/item/clothing/head/helmet/space/void/excavation/scav,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/emergency/oxygen/double,
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
 "hY" = (
@@ -4566,9 +4570,6 @@
 /obj/structure/lattice,
 /obj/machinery/light/small,
 /obj/structure/emergency_dispenser/south,
-/obj/machinery/camera/network/hallway{
-	dir = 1
-	},
 /obj/random/trash,
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
@@ -6503,6 +6504,10 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
+"tS" = (
+/obj/random_multi/single_item/captains_spare_id,
+/turf/simulated/floor/airless,
+/area/ministation/mining)
 "tT" = (
 /obj/machinery/light{
 	dir = 8;
@@ -8224,6 +8229,10 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"zG" = (
+/obj/random_multi/single_item/captains_spare_id,
+/turf/space,
+/area/space)
 "zH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 1
@@ -8542,6 +8551,9 @@
 /area/ministation/hall/s1)
 "AJ" = (
 /obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ministation/enclave/scikitchen)
 "AL" = (
@@ -14140,7 +14152,13 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ministation/atmospherics)
 "PU" = (
-/obj/item/chems/food/meatball,
+/obj/item/chems/food/meatball{
+	filling_color = "#000099";
+	color = "#000099";
+	desc = "...You feel like you've met this one before.";
+	name = "blue meatball";
+	nutriment_type = list(/decl/material/liquid/nutriment = 10, /decl/material/liquid/amphetamines = 30, /decl/material/liquid/zombie = 10, /decl/material/liquid/psychoactives = 25, /decl/material/liquid/hallucinogenics = 25)
+	},
 /turf/space,
 /area/space)
 "PW" = (
@@ -16638,7 +16656,9 @@
 	dir = 4
 	},
 /obj/vehicle/bike/gyroscooter{
-	dir = 8
+	dir = 8;
+	name = "Impossible Dreams, by Yingksy";
+	desc = "It's not worth it, dude."
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/ministation/atmospherics)
@@ -16811,6 +16831,9 @@
 	pixel_y = -6
 	},
 /obj/random/trash,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
 "Zd" = (
@@ -42609,7 +42632,7 @@ aa
 aa
 Nk
 aa
-aa
+PU
 aa
 aa
 bu
@@ -43398,7 +43421,7 @@ bH
 ad
 aa
 aa
-aa
+PU
 aa
 aa
 aa
@@ -45195,7 +45218,7 @@ aa
 ad
 ad
 Xw
-Bd
+tS
 Bd
 Bd
 Zz
@@ -51085,7 +51108,7 @@ aa
 aa
 aa
 aa
-aa
+zG
 aa
 aa
 aa

@@ -1,6 +1,6 @@
 /datum/job/ministation/captain
 	title = "Captain"
-	alt_titles = list("Matriarch", "Supreme Patriarch")
+	alt_titles = list("El Capitán", "Big Cheese")
 	supervisors = "your profit margin, your conscience, and the watchful eye of the Tradehouse Rep"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/captain
 	min_skill = list(
@@ -175,3 +175,4 @@
 		SKILL_FINANCE = SKILL_MAX
 	)
 	skill_points = 40
+

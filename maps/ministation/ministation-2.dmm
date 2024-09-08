@@ -1269,7 +1269,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "en" = (
-/mob/living/exosuit/premade/heavy,
+/mob/living/exosuit/premade/heavy{
+	name = "Chrome Cog, by Yingksy";
+	desc = "Honestly? A little terrifying that this exists."
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/ministation/bombrange)
 "eq" = (
@@ -4119,10 +4122,11 @@
 "oT" = (
 /obj/structure/lattice,
 /obj/structure/flora/pottedplant/tropical{
-	pixel_y = 10
+	pixel_y = 10;
+	anchored = 1
 	},
-/obj/item/frame/fire_alarm{
-	pixel_y = 24
+/obj/machinery/firealarm{
+	pixel_y = 21
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/enclave/matriarch)
@@ -4345,6 +4349,9 @@
 /area/ministation/maint/l3se)
 "qo" = (
 /obj/structure/emergency_dispenser/south,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ministation/enclave/foyer)
 "qp" = (
@@ -4556,6 +4563,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
+"rL" = (
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
+/turf/open,
+/area/ministation/enclave/foyer)
 "rM" = (
 /obj/structure/table/woodentable_reinforced/walnut/maple,
 /turf/simulated/floor/plating,
@@ -5057,7 +5070,9 @@
 /area/ministation/maint/l3nw)
 "ut" = (
 /obj/structure/lattice,
-/obj/structure/closet,
+/obj/structure/closet{
+	anchored = 1
+	},
 /obj/item/clothing/head/winterhood/yinglet/captain,
 /obj/item/clothing/head/yinglet/pekhat_painted,
 /obj/item/clothing/head/yinglet/scout,
@@ -5588,6 +5603,9 @@
 	dir = 1
 	},
 /obj/structure/lattice,
+/obj/abstract/landmark/start{
+	name = "Matriarch"
+	},
 /turf/unsimulated/floor,
 /area/ministation/enclave/matriarch)
 "wo" = (
@@ -6208,12 +6226,22 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "zj" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/camera/network/hallway{
-	dir = 1
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	icon_state = "railing0-0";
+	dir = 8
 	},
-/turf/simulated/floor,
-/area/ministation/enclave/foyer)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/bed/chair/padded{
+	dir = 8
+	},
+/obj/abstract/landmark/start{
+	name = "Matriarch"
+	},
+/turf/simulated/floor/tiled/stone,
+/area/ministation/enclave/matriarch)
 "zl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -6863,7 +6891,6 @@
 	pixel_y = 12;
 	pixel_x = 1
 	},
-/obj/item/card/id/ministation/yinglet_rep,
 /turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/matriarch)
 "BK" = (
@@ -6993,7 +7020,26 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Cr" = (
-/mob/living/carbon/human/monkey,
+/mob/living/carbon/human/monkey{
+	name = "Fall of Kong, by Yingksy";
+	bodytemperature = 620.11;
+	real_name = "Fall of Kong, by Yingksy";
+	voice_name = "Fall of Kong, by Yingksy";
+	stamina = 0;
+	skin_amount = 2;
+	on_fire = 1;
+	move_speed = 50;
+	mob_size = 30;
+	meat_amount = 10;
+	max_health = 1;
+	immunity = 0;
+	immunity_norm = 0;
+	holding_breath = 1;
+	damage_multiplier = 5;
+	bone_amount = 5;
+	a_intent = "harm";
+	color = "#5fffdd"
+	},
 /turf/open,
 /area/ministation/hall/n3)
 "Cs" = (
@@ -8796,7 +8842,20 @@
 /turf/unsimulated/floor,
 /area/ministation/enclave/matriarch)
 "Ka" = (
-/mob/living/simple_animal/hostile/retaliate/clown,
+/mob/living/simple_animal/hostile/retaliate/clown{
+	color = "#600000";
+	name = "He, by Yingksy";
+	desc = "Oh god.";
+	emote_see = list("screams incoherently");
+	emote_speech = list("HAaaAAAUGHNNK!!!","HAAWAAAWAUUGHHNNKKGG!!!","hhhhHHHHAAAAUUUGGHHHNNNKK!!!!!");
+	bleed_colour = "#000000";
+	move_speed = 1;
+	max_health = 5000;
+	minbodytemp = 0;
+	maxbodytemp = 1000;
+	mob_size = 25;
+	death_message = "gurgles hideously and drops to the floor!"
+	},
 /turf/simulated/floor,
 /area/ministation/science)
 "Kf" = (
@@ -11824,7 +11883,8 @@
 /area/ministation/science)
 "WL" = (
 /obj/structure/flora/pottedplant/tropical{
-	pixel_y = 8
+	pixel_y = 8;
+	anchored = 1
 	},
 /obj/machinery/light_switch{
 	pixel_y = 29
@@ -11876,6 +11936,17 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
+	},
+/mob/living/simple_animal/hostile/retaliate/goose{
+	death_message = "screams with the anguish of a thousand lifetimes, and drops dead!";
+	desc = "He stares at you unblinkingly, a quiet rage seething within.";
+	bleed_colour = "#8ffff8";
+	name = "The Trademaster's Favourite, by Yingksy";
+	emote_hear = list("honks... HONKS","honks loudly","screams", "reprimands the nearest person with a loud scream");
+	emote_see = list("screams and flaps its wings","pecks viciously at the air");
+	emote_speech = list("Honk!", "HONK!!", "HONKhonkHONK!!!", "HOOOOOONK!!!", "AAAIIIIGHHH!!!!!", "AUGHHH!!!", "HONK HONK HONKITYhonkHONKhonkHONK!!!");
+	move_speed = 15;
+	color = "#5fffdd"
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/bridge/vault)
@@ -30522,7 +30593,7 @@ aa
 aa
 aa
 pW
-Tb
+zj
 BH
 Tb
 ph
@@ -36438,7 +36509,7 @@ Yr
 ZX
 dR
 cd
-Sm
+rL
 BU
 cw
 cw
@@ -37207,7 +37278,7 @@ Ol
 Ol
 QZ
 cd
-zj
+St
 Ol
 SM
 SM
