@@ -660,13 +660,13 @@
 /area/ministation/cargo)
 "cd" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /obj/structure/transit_tube{
 	dir = 4;
 	icon_state = "Block"
 	},
+/obj/machinery/camera/autoname,
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/entrance)
 "ce" = (
@@ -1488,12 +1488,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
-"eA" = (
-/obj/vehicle/bike/electric{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l1central)
 "eB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1704,9 +1698,7 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	level = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/hemostat,
 /obj/structure/window/reinforced/tinted{
 	dir = 8
@@ -2477,6 +2469,7 @@
 /turf/space,
 /area/space)
 "hh" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
 /turf/simulated/floor/plating,
 /area/ministation/atmospump)
 "hj" = (
@@ -2799,6 +2792,9 @@
 /obj/item/clothing/head/helmet/space/void/excavation/scav,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/emergency/oxygen/double,
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
 "hY" = (
@@ -2934,8 +2930,7 @@
 /area/ministation/engineroom)
 "iE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4575,9 +4570,6 @@
 /obj/structure/lattice,
 /obj/machinery/light/small,
 /obj/structure/emergency_dispenser/south,
-/obj/machinery/camera/network/hallway{
-	dir = 1
-	},
 /obj/random/trash,
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
@@ -6003,8 +5995,7 @@
 "sj" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /obj/item/clothing/head/helmet/space/void/engineering/salvage/scav,
 /turf/simulated/floor/shuttle_ceiling/air,
@@ -6399,6 +6390,7 @@
 /area/ministation/cargo)
 "tv" = (
 /obj/structure/flora/bush/sunnybush,
+/obj/item/harpoon,
 /turf/simulated/floor/grass,
 /area/ministation/hall/s1)
 "tw" = (
@@ -6512,6 +6504,10 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
+"tS" = (
+/obj/random_multi/single_item/captains_spare_id,
+/turf/simulated/floor/airless,
+/area/ministation/mining)
 "tT" = (
 /obj/machinery/light{
 	dir = 8;
@@ -6746,7 +6742,8 @@
 /area/ministation/engine)
 "uC" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 1;
+	level = 2
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
@@ -8232,6 +8229,10 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"zG" = (
+/obj/random_multi/single_item/captains_spare_id,
+/turf/space,
+/area/space)
 "zH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 1
@@ -8550,6 +8551,9 @@
 /area/ministation/hall/s1)
 "AJ" = (
 /obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ministation/enclave/scikitchen)
 "AL" = (
@@ -9104,8 +9108,7 @@
 /area/ministation/atmospherics)
 "Cv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ministation/engine)
@@ -11181,7 +11184,8 @@
 /area/ministation/engine)
 "Ht" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 1;
+	level = 2
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -13034,7 +13038,8 @@
 /area/ministation/dorms)
 "MC" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 1;
+	level = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -13190,8 +13195,7 @@
 "Na" = (
 /obj/machinery/door/window/brigdoor/northright,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
+	dir = 8
 	},
 /obj/machinery/camera/network/hallway{
 	dir = 8
@@ -14148,7 +14152,13 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ministation/atmospherics)
 "PU" = (
-/obj/item/chems/food/meatball,
+/obj/item/chems/food/meatball{
+	filling_color = "#000099";
+	color = "#000099";
+	desc = "...You feel like you've met this one before.";
+	name = "blue meatball";
+	nutriment_type = list(/decl/material/liquid/nutriment = 10, /decl/material/liquid/amphetamines = 30, /decl/material/liquid/zombie = 10, /decl/material/liquid/psychoactives = 25, /decl/material/liquid/hallucinogenics = 25)
+	},
 /turf/space,
 /area/space)
 "PW" = (
@@ -14609,6 +14619,12 @@
 "Rq" = (
 /obj/structure/lattice,
 /obj/machinery/mech_recharger,
+/obj/vehicle/bike/thermal{
+	dir = 4;
+	name = "Bast Fastard";
+	desc = "A reliable piece of trash that's gotten the mining crew out of more scrapes than is deemed reasonable by OSHA.";
+	max_health = 500
+	},
 /turf/simulated/floor/airless,
 /area/ministation/mining)
 "Rr" = (
@@ -16645,6 +16661,11 @@
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
+/obj/vehicle/bike/gyroscooter{
+	dir = 8;
+	name = "Impossible Dreams, by Yingksy";
+	desc = "It's not worth it, dude."
+	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/ministation/atmospherics)
 "YA" = (
@@ -16816,6 +16837,9 @@
 	pixel_y = -6
 	},
 /obj/random/trash,
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/gatehouse)
 "Zd" = (
@@ -26137,7 +26161,7 @@ aa
 aa
 aa
 aa
-af
+aa
 af
 af
 af
@@ -26393,9 +26417,9 @@ aa
 aa
 aa
 aa
-af
-af
-af
+aa
+aa
+aa
 af
 af
 aa
@@ -26650,9 +26674,9 @@ aa
 aa
 aa
 aa
+aa
 af
-af
-af
+aa
 af
 af
 af
@@ -26909,7 +26933,7 @@ aa
 aa
 af
 af
-af
+aa
 af
 af
 af
@@ -27157,16 +27181,16 @@ aa
 aa
 aa
 aa
-af
-af
-aa
-aa
-aa
-aa
-aa
 aa
 af
+aa
+aa
+aa
+aa
+aa
+aa
 af
+aa
 af
 af
 aa
@@ -27433,7 +27457,7 @@ aa
 aa
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -27690,7 +27714,7 @@ aa
 aa
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -27933,21 +27957,21 @@ aa
 aa
 aa
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
 af
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-af
-af
-af
 aa
 aa
 aa
@@ -28190,7 +28214,6 @@ aa
 aa
 aa
 af
-af
 aa
 aa
 aa
@@ -28201,10 +28224,11 @@ aa
 aa
 aa
 aa
-af
-af
+aa
 af
 af
+af
+aa
 aa
 aa
 aa
@@ -28461,7 +28485,7 @@ aa
 af
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -28700,14 +28724,6 @@ aa
 af
 af
 af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-af
 aa
 aa
 aa
@@ -28716,8 +28732,16 @@ aa
 aa
 aa
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
 af
+aa
 aa
 aa
 aa
@@ -28978,7 +29002,7 @@ aa
 aa
 aa
 aa
-af
+aa
 af
 aa
 aa
@@ -29222,20 +29246,20 @@ aa
 aa
 af
 af
-af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
 aa
 aa
@@ -29472,12 +29496,10 @@ aa
 aa
 aa
 aa
-af
-af
-af
 aa
 af
 af
+aa
 af
 af
 af
@@ -29485,14 +29507,16 @@ aa
 aa
 aa
 aa
-af
+aa
+aa
 af
 aa
 aa
 aa
 aa
+aa
 af
-af
+aa
 af
 af
 aa
@@ -29730,26 +29754,26 @@ aa
 aa
 aa
 af
-af
-af
 aa
-af
-af
-af
-af
-af
 aa
 aa
 af
 af
 af
 af
+aa
+aa
+aa
+af
+af
+af
+aa
 af
 aa
 aa
 af
 af
-af
+aa
 af
 af
 aa
@@ -29994,20 +30018,20 @@ af
 af
 af
 af
-af
-aa
-af
-af
-af
-af
-af
-af
-aa
 aa
 aa
 af
 af
 af
+aa
+af
+af
+aa
+aa
+aa
+af
+aa
+af
 af
 aa
 aa
@@ -30015,7 +30039,7 @@ aa
 aa
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -30253,17 +30277,17 @@ af
 af
 aa
 aa
-af
-af
-af
-af
+aa
+aa
+aa
+aa
 af
 af
 aa
 aa
 aa
 af
-af
+aa
 af
 af
 aa
@@ -30272,7 +30296,7 @@ af
 af
 af
 af
-af
+aa
 af
 aa
 aa
@@ -30520,7 +30544,7 @@ aa
 aa
 aa
 af
-af
+aa
 af
 aa
 aa
@@ -30529,8 +30553,8 @@ af
 af
 af
 af
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -30777,7 +30801,7 @@ aa
 aa
 aa
 aa
-af
+aa
 af
 aa
 aa
@@ -30787,7 +30811,7 @@ af
 af
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -31043,8 +31067,8 @@ af
 af
 af
 af
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -31298,9 +31322,9 @@ aa
 af
 af
 af
-af
-af
-af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -31550,12 +31574,12 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
 af
 af
 aa
@@ -31794,8 +31818,8 @@ af
 af
 af
 af
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -32049,8 +32073,8 @@ aa
 aa
 af
 af
-af
-af
+aa
+aa
 af
 af
 aa
@@ -32059,6 +32083,7 @@ aa
 aa
 aa
 aa
+aa
 af
 af
 af
@@ -32071,8 +32096,7 @@ af
 af
 af
 af
-af
-af
+aa
 aa
 aa
 aa
@@ -32306,7 +32330,7 @@ aa
 aa
 af
 af
-af
+aa
 af
 aa
 aa
@@ -32316,6 +32340,8 @@ aa
 aa
 aa
 af
+aa
+aa
 af
 af
 af
@@ -32325,11 +32351,9 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
+aa
+aa
+aa
 af
 aa
 aa
@@ -32562,8 +32586,8 @@ aa
 aa
 aa
 aa
-af
-af
+aa
+aa
 af
 aa
 aa
@@ -32574,17 +32598,17 @@ aa
 aa
 af
 af
+aa
+aa
 af
 af
 af
 af
 af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
 af
 af
 af
@@ -32595,9 +32619,9 @@ aa
 aa
 aa
 aa
-af
-af
-af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32832,13 +32856,13 @@ aa
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
 af
 af
@@ -32854,7 +32878,7 @@ aa
 aa
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -33610,7 +33634,7 @@ aa
 aa
 aa
 aa
-af
+aa
 af
 af
 af
@@ -33846,7 +33870,7 @@ aa
 aa
 aa
 af
-af
+aa
 aa
 aa
 aa
@@ -34103,13 +34127,13 @@ aa
 aa
 af
 af
-af
-af
+aa
+aa
 aa
 aa
 af
-af
-af
+aa
+aa
 af
 aa
 aa
@@ -34361,13 +34385,13 @@ aa
 af
 af
 af
+aa
+aa
+aa
+af
 af
 aa
 aa
-af
-af
-af
-af
 aa
 aa
 aa
@@ -34618,24 +34642,13 @@ aa
 af
 af
 af
-af
-aa
-aa
-af
-af
-af
-af
-af
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
 af
 af
+af
+aa
 af
 aa
 aa
@@ -34645,11 +34658,22 @@ aa
 aa
 aa
 aa
+aa
+aa
+af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
 af
 af
 af
-af
+aa
 af
 aa
 aa
@@ -34874,8 +34898,8 @@ af
 aa
 af
 af
-af
-af
+aa
+aa
 aa
 aa
 af
@@ -34891,7 +34915,7 @@ aa
 aa
 aa
 af
-af
+aa
 af
 af
 aa
@@ -34905,8 +34929,8 @@ aa
 af
 af
 af
-af
-af
+aa
+aa
 af
 aa
 aa
@@ -35126,12 +35150,6 @@ aa
 aa
 af
 af
-af
-af
-af
-af
-af
-af
 aa
 aa
 aa
@@ -35147,10 +35165,6 @@ aa
 aa
 aa
 aa
-aa
-af
-af
-af
 aa
 aa
 aa
@@ -35161,8 +35175,18 @@ aa
 aa
 af
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
 af
+af
+aa
 af
 af
 aa
@@ -35383,28 +35407,9 @@ aa
 aa
 af
 af
-af
-af
-af
-af
-af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 af
-aa
-aa
-aa
-aa
-aa
+af
 af
 af
 af
@@ -35416,9 +35421,28 @@ aa
 aa
 aa
 aa
+aa
+aa
+af
+aa
+aa
+aa
+aa
+aa
 af
 af
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35640,11 +35664,11 @@ aa
 af
 af
 af
+aa
+af
 af
 af
 af
-af
-af
 aa
 aa
 aa
@@ -35655,7 +35679,7 @@ aa
 aa
 aa
 aa
-af
+aa
 af
 af
 aa
@@ -35897,23 +35921,23 @@ aa
 af
 af
 af
-af
-af
-af
-af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 af
 af
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+aa
+aa
 af
 af
 aa
@@ -36155,22 +36179,22 @@ af
 af
 af
 af
-af
-af
-af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 af
 af
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
+aa
 af
 af
 aa
@@ -36413,21 +36437,21 @@ af
 af
 af
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
 af
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-af
-af
-af
 af
 af
 aa
@@ -36685,7 +36709,7 @@ aa
 aa
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -36944,8 +36968,8 @@ aa
 aa
 aa
 aa
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -37201,8 +37225,8 @@ aa
 aa
 aa
 aa
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -37445,7 +37469,7 @@ aa
 af
 af
 af
-af
+aa
 af
 af
 aa
@@ -37702,7 +37726,7 @@ aa
 aa
 af
 af
-af
+aa
 af
 af
 aa
@@ -37959,7 +37983,7 @@ aa
 aa
 af
 af
-af
+aa
 af
 af
 af
@@ -38215,8 +38239,8 @@ aa
 aa
 aa
 af
-af
-af
+aa
+aa
 af
 af
 af
@@ -38472,7 +38496,7 @@ aa
 aa
 aa
 aa
-af
+aa
 af
 af
 aa
@@ -40016,12 +40040,12 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
+aa
+aa
+aa
+aa
+aa
+aa
 af
 af
 af
@@ -40278,8 +40302,8 @@ af
 af
 af
 af
-af
-af
+aa
+aa
 af
 aa
 aa
@@ -40537,7 +40561,7 @@ aa
 af
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -41568,8 +41592,8 @@ aa
 aa
 aa
 aa
-af
-af
+aa
+aa
 af
 af
 aa
@@ -41826,8 +41850,8 @@ aa
 aa
 aa
 af
-af
-af
+aa
+aa
 af
 aa
 aa
@@ -42084,8 +42108,8 @@ aa
 aa
 af
 af
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -42614,7 +42638,7 @@ aa
 aa
 Nk
 aa
-aa
+PU
 aa
 aa
 bu
@@ -42847,7 +42871,7 @@ aa
 af
 af
 af
-af
+aa
 aa
 aa
 aa
@@ -43101,23 +43125,23 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 af
+aa
+af
+af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
 af
 af
@@ -43357,26 +43381,26 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
-af
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
 aa
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
-af
+aa
+aa
 aa
 aa
 aa
@@ -43403,7 +43427,7 @@ bH
 ad
 aa
 aa
-aa
+PU
 aa
 aa
 aa
@@ -43616,10 +43640,10 @@ aa
 aa
 af
 af
+aa
+aa
 af
-af
-af
-af
+aa
 aa
 aa
 aa
@@ -43872,10 +43896,10 @@ aa
 aa
 aa
 aa
+aa
+aa
 af
-af
-af
-af
+aa
 af
 aa
 aa
@@ -44120,19 +44144,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 af
 af
+aa
 af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44372,12 +44396,13 @@ aa
 aa
 aa
 aa
+af
+aa
+af
 aa
 aa
 aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -44391,8 +44416,7 @@ aa
 aa
 af
 aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -44629,14 +44653,13 @@ aa
 aa
 aa
 aa
+af
+af
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
 af
 aa
 aa
@@ -44647,10 +44670,11 @@ aa
 aa
 aa
 aa
+af
+af
 aa
-aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -44886,6 +44910,24 @@ aa
 aa
 aa
 aa
+af
+aa
+aa
+af
+af
+af
+af
+af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
 aa
 aa
 aa
@@ -44904,27 +44946,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -45145,6 +45169,10 @@ aa
 aa
 aa
 aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -45156,23 +45184,10 @@ aa
 aa
 aa
 aa
+af
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -45188,6 +45203,15 @@ aa
 aa
 aa
 af
+af
+af
+af
+aa
+aa
+aa
+aa
+aa
+aa
 af
 aa
 aa
@@ -45200,7 +45224,7 @@ aa
 ad
 ad
 Xw
-Bd
+tS
 Bd
 Bd
 Zz
@@ -45403,6 +45427,8 @@ aa
 aa
 aa
 aa
+af
+af
 aa
 aa
 aa
@@ -45417,16 +45443,8 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -45445,7 +45463,13 @@ aa
 aa
 aa
 af
-af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45677,6 +45701,8 @@ aa
 aa
 aa
 aa
+aa
+aa
 af
 af
 aa
@@ -45690,10 +45716,8 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -45934,10 +45958,10 @@ aa
 aa
 aa
 aa
-af
-af
 aa
 aa
+af
+af
 aa
 aa
 aa
@@ -46177,6 +46201,12 @@ aa
 aa
 aa
 aa
+af
+af
+af
+aa
+aa
+af
 aa
 aa
 aa
@@ -46187,15 +46217,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -46435,17 +46459,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -46462,6 +46476,7 @@ aa
 aa
 af
 af
+af
 aa
 aa
 aa
@@ -46469,6 +46484,15 @@ aa
 aa
 aa
 aa
+af
+aa
+af
+aa
+aa
+aa
+aa
+aa
+af
 aa
 aa
 aa
@@ -46692,20 +46716,10 @@ aa
 aa
 aa
 aa
+af
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -46718,14 +46732,24 @@ aa
 aa
 aa
 af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 af
 aa
 aa
 aa
+af
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -46949,6 +46973,11 @@ aa
 aa
 aa
 aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -46959,12 +46988,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -47207,11 +47231,11 @@ aa
 aa
 aa
 aa
+af
+af
+af
 aa
-aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -47982,8 +48006,8 @@ aa
 aa
 aa
 aa
-af
-af
+aa
+aa
 aa
 aa
 aa
@@ -48239,13 +48263,13 @@ aa
 aa
 aa
 aa
+aa
+aa
 af
 af
 aa
 aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -48312,7 +48336,7 @@ hf
 Gd
 Kz
 MX
-eA
+NX
 nk
 jY
 di
@@ -48498,8 +48522,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -48751,15 +48775,15 @@ aa
 aa
 aa
 aa
+af
+af
+af
+af
+af
+af
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -49008,13 +49032,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -49265,14 +49289,14 @@ aa
 aa
 aa
 aa
+af
+af
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -49780,7 +49804,7 @@ aa
 aa
 aa
 aa
-ab
+aa
 aa
 aa
 aa
@@ -50047,9 +50071,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -50303,10 +50327,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -50552,18 +50576,18 @@ aa
 aa
 aa
 aa
+af
+af
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -50817,8 +50841,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -51074,6 +51098,10 @@ aa
 aa
 aa
 aa
+af
+aa
+aa
+af
 aa
 aa
 aa
@@ -51086,11 +51114,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+zG
 aa
 aa
 aa
@@ -51331,10 +51355,10 @@ aa
 aa
 aa
 aa
+af
+af
 aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -51579,9 +51603,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -51836,8 +51860,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -52092,12 +52116,12 @@ aa
 aa
 aa
 aa
+af
+af
+af
 aa
 aa
-aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -52349,8 +52373,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -52607,11 +52631,11 @@ aa
 aa
 aa
 aa
+af
 aa
-aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -52865,9 +52889,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -53124,7 +53148,7 @@ aa
 aa
 aa
 aa
-aa
+af
 aa
 aa
 aa
@@ -53372,7 +53396,7 @@ aa
 aa
 aa
 aa
-aa
+af
 aa
 aa
 aa
@@ -54412,8 +54436,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -54669,8 +54693,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -56717,8 +56741,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -56974,8 +56998,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -58515,7 +58539,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 aa
 aa
 aa
