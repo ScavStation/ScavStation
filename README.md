@@ -45,7 +45,7 @@
 
 ### NOTICE OF MODIFICATION
 
-This project was forked from [Baystation 12](https://github.com/Baystation12/Baystation12) on 6 Jan 2020.
+This project was forked from [ScavStation](https://github.com/ScavStation/ScavStation) on 13 September 2024.
 
 ---
 
