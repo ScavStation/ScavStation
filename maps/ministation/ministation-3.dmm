@@ -1499,6 +1499,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/eggclave)
+"Ai" = (
+/obj/structure/lattice,
+/obj/item/chems/food/meatball{
+	filling_color = "#000099";
+	color = "#000099";
+	desc = "...You feel like you've met this one before.";
+	name = "blue meatball";
+	nutriment_type = list(/decl/material/liquid/nutriment = 1, /decl/material/liquid/amphetamines = 3, /decl/material/liquid/zombie = 2, /decl/material/liquid/psychoactives = 15, /decl/material/liquid/hallucinogenics = 25);
+	nutriment_desc = list("hell" = 1);
+	germ_level = 9001;
+	material = list(/decl/material/liquid/nutriment = 1, /decl/material/liquid/amphetamines = 3, /decl/material/liquid/zombie = 2, /decl/material/liquid/psychoactives = 15, /decl/material/liquid/hallucinogenics = 25);
+	matter = list(/decl/material/liquid/nutriment = 1, /decl/material/liquid/amphetamines = 3, /decl/material/liquid/zombie = 2, /decl/material/liquid/psychoactives = 15, /decl/material/liquid/hallucinogenics = 25)
+	},
+/turf/space,
+/area/space)
 "Aj" = (
 /obj/structure/cable,
 /turf/simulated/floor/plating,
@@ -2317,10 +2332,6 @@
 	pixel_y = 12;
 	pixel_x = -13
 	},
-/obj/structure/mirror{
-	pixel_y = 4;
-	pixel_x = -24
-	},
 /obj/machinery/light{
 	dir = 2
 	},
@@ -2795,6 +2806,9 @@
 	pixel_y = 14
 	},
 /obj/structure/emergency_dispenser/south,
+/obj/structure/mirror{
+	pixel_y = 29
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/eggclave)
 "XQ" = (
@@ -24577,13 +24591,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -24834,13 +24848,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -25092,12 +25106,12 @@ ly
 ly
 ly
 ly
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -25349,12 +25363,12 @@ fG
 fG
 fG
 ly
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -25606,12 +25620,12 @@ fG
 fG
 fG
 ly
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -25863,12 +25877,12 @@ fG
 fG
 fG
 ly
-uG
-aa
-aa
-aa
-aa
-aa
+Cg
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -26120,12 +26134,12 @@ MQ
 zz
 iD
 SM
-uG
-uG
-aa
-aa
-aa
-aa
+Cg
+Cg
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -26379,10 +26393,10 @@ eW
 Wk
 cw
 cw
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -27138,7 +27152,7 @@ aa
 aa
 af
 oP
-uG
+Ai
 uG
 aa
 aa
@@ -29710,8 +29724,8 @@ aa
 aa
 af
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -29967,8 +29981,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -30224,8 +30238,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+cw
+cw
 cw
 cw
 cw
@@ -30481,12 +30495,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -30738,12 +30752,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -30995,12 +31009,12 @@ aa
 aa
 af
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -31252,12 +31266,12 @@ aa
 af
 af
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -48000,15 +48014,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -48257,15 +48271,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -48514,15 +48528,15 @@ aa
 aa
 aa
 aa
+cw
+cw
+cw
+cw
+cw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
 aa
 aa
 aa
