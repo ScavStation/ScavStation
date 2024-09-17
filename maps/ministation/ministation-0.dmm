@@ -5468,7 +5468,8 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock{
-	pixel_x = 1
+	pixel_x = 1;
+	start_pressure = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -14362,10 +14363,7 @@
 	pixel_y = -23;
 	dir = 4
 	},
-/obj/machinery/atmospherics/binary/pump/on{
-	target_pressure = 200;
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/ministation/enclave/evacloset)
 "QF" = (

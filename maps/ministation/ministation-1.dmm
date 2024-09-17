@@ -3351,7 +3351,6 @@
 	dir = 4
 	},
 /obj/structure/table/bench/padded,
-/obj/structure/emergency_dispenser/west,
 /turf/simulated/floor/tiled/stone,
 /area/ministation/enclave/messhall)
 "kx" = (
@@ -10203,7 +10202,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/emergency_dispenser/west,
 /turf/simulated/floor/shuttle_ceiling/air,
 /area/ministation/enclave/airroom)
 "Es" = (

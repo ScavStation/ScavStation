@@ -4177,6 +4177,12 @@
 	icon_state = "dir_splatter_2";
 	dir = 9
 	},
+/obj/item/chems/drinks/zombiedrink{
+	color = "#600000";
+	desc = "Oh no.";
+	name = "Clown-Shaped Vial";
+	germ_level = 9001
+	},
 /mob/living/simple_animal/hostile/retaliate/clown{
 	color = "#600000";
 	name = "We, by Yingksy";
@@ -4184,53 +4190,49 @@
 	emote_see = list("screams incoherently");
 	emote_speech = list("HAaaAAAUGHNNK!!!","HAAWAAAWAUUGHHNNKKGG!!!", "hhhhHHHHAAAAUUUGGHHHNNNKK!!!!!", "hhhHHhhhhHAAAAUGGHHHGhhhAAAUUGHhhhHHAAAAUGHHHNnggnnkk!!!!!");
 	bleed_colour = "#000000";
-	move_speed = 1;
+	move_speed = 2;
 	max_health = 9001;
 	minbodytemp = -666;
 	maxbodytemp = 666;
-	mob_size = 25;
+	mob_size = 50;
 	death_message = "gurgles hideously and drops to the floor!";
 	break_stuff_probability = 50;
 	cold_damage_per_tick = 1;
 	emote_hear = list("cackles horrendously");
 	faction = "He";
 	friendly = "";
-	harm_intent_damage = 15;
+	harm_intent_damage = 50;
 	heat_damage_per_tick = 1;
 	climb_speed_mult = 3;
 	hydration = 9001;
 	meat_amount = 20;
 	throw_range = 15;
 	throw_speed = 5;
-	speak_chance = 10;
+	speak_chance = 25;
 	see_invisible = 100;
 	see_infrared = 100;
 	see_in_dark = 100;
 	response_disarm = "";
-	response_harm = list("slashes", "shreds", "tears", "rips", "gores");
+	response_harm = list("claws desperately");
 	response_help_1p = "";
 	response_help_3p = "";
 	pry_desc = list("prying", "pushing", "ripping", "smashing");
-	pry_time = 45;
-	reagents = list(/decl/material/liquid/nutriment = 10, /decl/material/liquid/amphetamines = 30, /decl/material/liquid/zombie = 20, /decl/material/liquid/psychoactives = 15, /decl/material/liquid/hallucinogenics = 25);
+	pry_time = 90;
 	ranged_range = 12;
-	glowing_eyes = 1;
+	glowing_eyes = 2;
 	germ_level = 9001;
 	fire_desc = "";
-	can_pull_size = 60;
+	can_pull_size = 120;
 	can_buckle = 1;
 	bone_amount = 10;
 	blood_type = "X";
 	unsuitable_atmos_damage = 1;
 	nutrition = 9001;
 	bodytemperature = 0;
-	speak_emote = list("screeches")
-	},
-/obj/item/chems/drinks/zombiedrink{
-	color = "#600000";
-	desc = "Oh no.";
-	name = "Clown-Shaped Vial";
-	germ_level = 9001
+	speak_emote = list("screeches", "shrieks", "cackles", "rasps");
+	shakecamera = 1;
+	move_to_delay = 2;
+	step_size = 8
 	},
 /turf/exterior/mud{
 	color = "#600000";
@@ -9352,26 +9354,25 @@
 	emote_hear = list("cackles horrendously");
 	faction = "He";
 	friendly = "";
-	harm_intent_damage = 15;
+	harm_intent_damage = 25;
 	heat_damage_per_tick = 1;
 	climb_speed_mult = 3;
 	hydration = 9001;
 	meat_amount = 20;
 	throw_range = 15;
 	throw_speed = 5;
-	speak_chance = 10;
+	speak_chance = 25;
 	see_invisible = 100;
 	see_infrared = 100;
 	see_in_dark = 100;
 	response_disarm = "";
-	response_harm = list("slashes", "shreds", "tears", "rips", "gores");
+	response_harm = list("claws desperately");
 	response_help_1p = "";
 	response_help_3p = "";
 	pry_desc = list("prying", "pushing", "ripping", "smashing");
 	pry_time = 45;
-	reagents = list(/decl/material/liquid/nutriment = 10, /decl/material/liquid/amphetamines = 30, /decl/material/liquid/zombie = 20, /decl/material/liquid/psychoactives = 15, /decl/material/liquid/hallucinogenics = 25);
 	ranged_range = 12;
-	glowing_eyes = 1;
+	glowing_eyes = 2;
 	germ_level = 9001;
 	fire_desc = "";
 	can_pull_size = 60;
@@ -9381,7 +9382,10 @@
 	unsuitable_atmos_damage = 1;
 	nutrition = 9001;
 	bodytemperature = 0;
-	speak_emote = list("screeches")
+	speak_emote = list("screeches", "shrieks", "cackles", "rasps");
+	shakecamera = 1;
+	move_to_delay = 8;
+	step_size = 16
 	},
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor2"
