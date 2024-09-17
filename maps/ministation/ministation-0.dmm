@@ -2469,7 +2469,9 @@
 /turf/space,
 /area/space)
 "hh" = (
-/mob/living/simple_animal/hostile/giant_spider/hunter,
+/mob/living/simple_animal/hostile/giant_spider/hunter{
+	name = "Timmy"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/atmospump)
 "hj" = (
@@ -3280,7 +3282,11 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "jL" = (
-/obj/item/pen,
+/obj/item/pen{
+	name = "Gikka's Lost Pen";
+	pen_font = "Times New Roman";
+	desc = "Not to be confused with Gikka's Pen."
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "jM" = (
@@ -3926,6 +3932,9 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/structure/transit_tube_pod{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ministation/enclave/evacloset)
 "lK" = (
@@ -4127,6 +4136,15 @@
 /obj/structure/tank_rack/oxygen,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
+"mm" = (
+/obj/item/pen{
+	pixel_x = 4;
+	pixel_y = 4;
+	name = "Gikka's Pen";
+	desc = "Oh! Found it!"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/ministation/ai_upload)
 "mo" = (
 /obj/machinery/light{
 	dir = 1
@@ -5449,7 +5467,10 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/portable_atmospherics/canister/air/airlock{
+	pixel_x = 1;
+	start_pressure = 0
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -7580,6 +7601,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
+"xs" = (
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "xt" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -8560,7 +8590,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "enclave_vent"
 	},
 /obj/item/trash/mollusc_shell/barnacle{
@@ -11316,9 +11346,7 @@
 /obj/structure/transit_tube/station{
 	dir = 4
 	},
-/obj/structure/transit_tube_pod{
-	dir = 1
-	},
+/obj/structure/transit_tube_pod,
 /turf/simulated/floor,
 /area/ministation/enclave/scikitchen)
 "HN" = (
@@ -11837,10 +11865,6 @@
 /obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
-	},
-/obj/item/pen{
-	pixel_x = 4;
-	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/ministation/ai_upload)
@@ -12833,7 +12857,9 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "LX" = (
-/mob/living/simple_animal/hostile/giant_spider/guard,
+/mob/living/simple_animal/hostile/giant_spider/guard{
+	name = "Jimmy"
+	},
 /turf/simulated/floor/plating,
 /area/ministation/atmospump)
 "LY" = (
@@ -14157,7 +14183,11 @@
 	color = "#000099";
 	desc = "...You feel like you've met this one before.";
 	name = "blue meatball";
-	nutriment_type = list(/decl/material/liquid/nutriment = 10, /decl/material/liquid/amphetamines = 30, /decl/material/liquid/zombie = 10, /decl/material/liquid/psychoactives = 25, /decl/material/liquid/hallucinogenics = 25)
+	nutriment_type = list(/decl/material/liquid/nutriment = 1, /decl/material/liquid/amphetamines = 3, /decl/material/liquid/zombie = 2, /decl/material/liquid/psychoactives = 15, /decl/material/liquid/hallucinogenics = 25);
+	nutriment_desc = list("hell" = 1);
+	germ_level = 9001;
+	material = list(/decl/material/liquid/nutriment = 1, /decl/material/liquid/amphetamines = 3, /decl/material/liquid/zombie = 2, /decl/material/liquid/psychoactives = 15, /decl/material/liquid/hallucinogenics = 25);
+	matter = list(/decl/material/liquid/nutriment = 1, /decl/material/liquid/amphetamines = 3, /decl/material/liquid/zombie = 2, /decl/material/liquid/psychoactives = 15, /decl/material/liquid/hallucinogenics = 25)
 	},
 /turf/space,
 /area/space)
@@ -14623,7 +14653,8 @@
 	dir = 4;
 	name = "Bast Fastard";
 	desc = "A reliable piece of trash that's gotten the mining crew out of more scrapes than is deemed reasonable by OSHA.";
-	max_health = 500
+	max_health = 500;
+	color = "#ff9494"
 	},
 /turf/simulated/floor/airless,
 /area/ministation/mining)
@@ -14860,6 +14891,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
+"Sd" = (
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "Se" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15920,6 +15954,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"VN" = (
+/obj/structure/stairs/long/catwalk/north,
+/turf/simulated/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "VO" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16590,6 +16628,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/structure/transit_tube_pod{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ministation/enclave/entrance)
 "Yr" = (
@@ -16664,7 +16705,8 @@
 /obj/vehicle/bike/gyroscooter{
 	dir = 8;
 	name = "Impossible Dreams, by Yingksy";
-	desc = "It's not worth it, dude."
+	desc = "It's not worth it, dude.";
+	color = "#ffbd00"
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/ministation/atmospherics)
@@ -16828,9 +16870,6 @@
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
-	},
-/obj/machinery/alarm{
-	pixel_y = 22
 	},
 /obj/item/trash/mollusc_shell/clam{
 	pixel_x = -10;
@@ -44446,7 +44485,7 @@ aa
 aa
 ab
 aa
-aa
+iH
 PM
 As
 mG
@@ -44701,10 +44740,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 iH
+iH
+iH
+xs
 Zc
 Na
 kR
@@ -44958,10 +44997,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 iH
+VN
+Sd
+Sd
 iH
 iH
 iH
@@ -45215,11 +45254,11 @@ aa
 af
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+iH
+iH
+iH
+iH
+iH
 aa
 ad
 ad
@@ -64862,7 +64901,7 @@ jx
 JN
 Jo
 JD
-JD
+mm
 JD
 Kr
 JN
