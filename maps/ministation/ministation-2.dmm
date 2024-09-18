@@ -4217,7 +4217,7 @@
 	response_help_1p = "";
 	response_help_3p = "";
 	pry_desc = list("prying", "pushing", "ripping", "smashing");
-	pry_time = 90;
+	pry_time = 15;
 	ranged_range = 12;
 	glowing_eyes = 2;
 	germ_level = 9001;
@@ -4229,10 +4229,7 @@
 	unsuitable_atmos_damage = 1;
 	nutrition = 9001;
 	bodytemperature = 0;
-	speak_emote = list("screeches", "shrieks", "cackles", "rasps");
-	shakecamera = 1;
-	move_to_delay = 2;
-	step_size = 8
+	speak_emote = list("screeches", "shrieks", "cackles", "rasps")
 	},
 /turf/exterior/mud{
 	color = "#600000";
@@ -9383,9 +9380,7 @@
 	nutrition = 9001;
 	bodytemperature = 0;
 	speak_emote = list("screeches", "shrieks", "cackles", "rasps");
-	shakecamera = 1;
-	move_to_delay = 8;
-	step_size = 16
+	move_to_delay = 8
 	},
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor2"
