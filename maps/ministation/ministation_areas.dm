@@ -455,6 +455,12 @@
 	icon_state = "white"
 	secure = TRUE
 
+/area/ministation/enclave/conference
+	name = "\improper Table of Meeting"
+	req_access = list(access_security)
+	icon_state = "green"
+	secure = TRUE
+
 
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
