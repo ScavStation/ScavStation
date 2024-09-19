@@ -213,6 +213,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
 "aT" = (
@@ -227,6 +230,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
@@ -3663,6 +3669,12 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ministation/psion)
 "my" = (
@@ -4013,11 +4025,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "nM" = (
-/obj/structure/bed/chair/comfy/captain,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-4"
 	},
-/turf/simulated/floor/carpet/green,
+/turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "nN" = (
 /obj/structure/ladder,
@@ -4586,6 +4597,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "qF" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/ministation/psion)
 "qJ" = (
@@ -4642,6 +4656,7 @@
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/ministation/psion)
 "rf" = (
@@ -4741,6 +4756,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
@@ -4864,11 +4882,22 @@
 /obj/effect/decal/cleanable/filth,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
+"sf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "sg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
@@ -5402,13 +5431,6 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/science)
-"ux" = (
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -23
-	},
-/turf/simulated/floor/wood,
-/area/ministation/psion)
 "uz" = (
 /obj/machinery/door/airlock/glass/science{
 	name = "Robotics";
@@ -5884,13 +5906,15 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "we" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/camera/network/hallway{
 	dir = 4
 	},
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -24
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
@@ -6090,6 +6114,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
+"wU" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "matriblast"
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/ministation/bridge)
 "wY" = (
 /obj/structure/table/woodentable/ebony,
 /obj/item/pen/fancy,
@@ -6863,6 +6899,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "Ar" = (
@@ -7368,6 +7407,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/lino,
 /area/ministation/telecomms)
+"Ca" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "Cd" = (
 /turf/simulated/wall,
 /area/ministation/maint/l3central)
@@ -7891,6 +7934,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "DB" = (
@@ -8213,6 +8259,9 @@
 	},
 /obj/item/toy/plushie/carp/gold,
 /obj/structure/table/woodentable/mahogany,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "ET" = (
@@ -8281,6 +8330,12 @@
 /obj/item/radio/intercom{
 	pixel_y = 25
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "Fd" = (
@@ -8318,6 +8373,9 @@
 "Fj" = (
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/ministation/psion)
@@ -8357,6 +8415,9 @@
 "Fs" = (
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/ministation/psion)
@@ -8525,6 +8586,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	level = 2
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
@@ -8700,6 +8764,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
@@ -9009,6 +9076,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"In" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "Io" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10270,6 +10343,16 @@
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
+"NE" = (
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -23
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "NF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -11172,6 +11255,12 @@
 	dir = 4;
 	level = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "Re" = (
@@ -11274,6 +11363,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
@@ -11592,6 +11684,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
 "SG" = (
@@ -11618,6 +11713,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
@@ -12287,6 +12385,12 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/wood,
 /area/ministation/psion)
 "Vo" = (
@@ -12847,6 +12951,9 @@
 /obj/item/clothing/under/yinglet/matriarch,
 /obj/item/clothing/head/yinglet/matriarch,
 /obj/random/plushie,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "Xr" = (
@@ -13332,6 +13439,9 @@
 /obj/structure/bed/chair/armchair/black{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ministation/psion)
 "Zd" = (
@@ -13519,6 +13629,10 @@
 /obj/machinery/door/blast/regular{
 	name = "bridge blast door";
 	id_tag = "matriblast"
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
@@ -41217,9 +41331,9 @@ aa
 aa
 aa
 ah
-ZF
+wU
 ah
-ZF
+wU
 ah
 aa
 aa
@@ -41731,7 +41845,7 @@ aa
 aa
 ZF
 Rc
-cy
+In
 cy
 cy
 ac
@@ -43012,7 +43126,7 @@ aa
 aa
 aa
 wI
-pR
+nM
 xp
 GM
 un
@@ -43270,7 +43384,7 @@ aa
 Jq
 wI
 FX
-nM
+xp
 ld
 xz
 aR
@@ -45627,7 +45741,7 @@ GD
 de
 Gy
 tt
-tt
+Sq
 Mn
 tt
 Ou
@@ -45884,7 +45998,7 @@ GD
 BS
 Gy
 oN
-tt
+Sq
 uS
 RH
 Pg
@@ -46141,7 +46255,7 @@ GD
 BS
 Gy
 tt
-tt
+Sq
 Mn
 Mn
 tt
@@ -46653,13 +46767,13 @@ sD
 uJ
 sD
 sD
-ae
-ae
+IZ
+IZ
 mx
-ae
-ae
-ae
-ae
+IZ
+IZ
+IZ
+IZ
 Kv
 ae
 Kv
@@ -46914,8 +47028,8 @@ xf
 Fj
 Vn
 ra
-qF
-ux
+Ca
+NE
 XN
 iL
 iL
@@ -47168,12 +47282,12 @@ VJ
 VJ
 nl
 gl
-qF
+sf
 Zs
 Pt
 dk
 Zc
-ae
+IZ
 ee
 iL
 iL
@@ -47430,7 +47544,7 @@ IZ
 vO
 Fz
 Fs
-ae
+IZ
 QT
 iL
 iL
@@ -47683,11 +47797,11 @@ VJ
 nl
 zD
 zD
-ae
-ae
-ae
-ae
-ae
+IZ
+IZ
+IZ
+IZ
+IZ
 gd
 iL
 iL
