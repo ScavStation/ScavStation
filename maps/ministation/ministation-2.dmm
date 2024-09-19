@@ -8,6 +8,21 @@
 	},
 /turf/space,
 /area/space)
+"ac" = (
+/obj/structure/closet/secure_closet/captains,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/storage/belt/holster,
+/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/captain,
+/obj/item/stamp/captain,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/arrow,
+/obj/item/arrow,
+/obj/item/gun/launcher/crossbow,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "ad" = (
 /obj/structure/lattice,
 /turf/space,
@@ -58,7 +73,6 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "ar" = (
@@ -188,23 +202,33 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "aR" = (
-/obj/structure/bed,
-/obj/item/bedsheet/captain,
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -22
+/obj/structure/table/woodentable/mahogany,
+/obj/item/mollusc/clam{
+	pixel_x = -3;
+	pixel_y = 1
 	},
-/obj/structure/curtain/open/bed,
-/obj/item/clothing/under/yinglet/matriarch,
-/obj/item/clothing/head/yinglet/matriarch,
-/obj/random/plushie,
-/turf/simulated/floor/carpet/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
 "aT" = (
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/structure/bed/chair/comfy/captain{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
 "aU" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -220,27 +244,15 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/button/alternate/door/bolts{
-	id_tag = "vaultbolt";
-	name = "Vault Deadbolt Button";
-	pixel_y = 27
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "aX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/command{
-	autoset_access = 0;
-	req_access = list("ACCESS_CAPTAIN");
-	name = "Matriarch's Dormitory"
 	},
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -251,6 +263,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/airlock/glass/command,
 /turf/simulated/floor/carpet,
 /area/ministation/bridge)
 "aY" = (
@@ -365,37 +378,18 @@
 /turf/simulated/floor/bluegrid,
 /area/ministation/bridge/vault)
 "br" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
-/obj/item/toy/plushie/carp/gold,
-/turf/simulated/floor/carpet/red,
+/obj/structure/table/woodentable/mahogany,
+/obj/item/cell/crap,
+/turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
 "bs" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
-	},
-/obj/abstract/landmark/start{
-	name = "Captain"
-	},
-/turf/simulated/floor/wood/walnut,
+/turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
 "bt" = (
-/obj/item/flashlight/lamp/green{
-	pixel_y = 12;
-	pixel_x = 5
-	},
-/obj/structure/table/woodentable/mahogany,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/item/cell/crap,
-/obj/item/mollusc/clam{
-	pixel_x = -3;
-	pixel_y = 1
+/obj/item/radio/intercom{
+	dir = 8;
+	pixel_x = 22
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
@@ -416,14 +410,18 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -27
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "bw" = (
@@ -507,48 +505,42 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "bG" = (
-/obj/structure/closet/secure_closet/captains,
-/obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/storage/belt/holster,
-/obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/captain,
-/obj/item/stamp/captain,
-/obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/arrow,
-/obj/item/arrow,
-/obj/item/gun/launcher/crossbow,
-/turf/simulated/floor/carpet/red,
-/area/ministation/bridge)
-"bH" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/structure/bed/chair/comfy/captain{
-	dir = 4
-	},
 /obj/machinery/camera/network/command{
 	dir = 1;
 	initial_access = null;
 	req_access = list("ACCESS_CAMERAS")
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
+"bH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "bI" = (
-/obj/structure/table/woodentable/mahogany,
-/obj/item/modular_computer/tablet/lease/preset/command{
-	pixel_y = 2
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal,
 /turf/simulated/floor/wood/walnut,
 /area/ministation/bridge)
 "bK" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -23
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -799,9 +791,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "cy" = (
-/obj/structure/bookcase,
-/turf/simulated/floor/wood,
-/area/ministation/maint/l3ne)
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "cz" = (
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/plating,
@@ -859,8 +850,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "cH" = (
-/obj/structure/bed/chair/armchair/black,
-/turf/simulated/floor/carpet/red,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "cI" = (
 /obj/structure/closet/secure_closet{
@@ -1010,12 +1004,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
+"dk" = (
+/obj/machinery/psi_meter,
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "dn" = (
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/paper_bin,
 /obj/item/pen/retractable,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "dq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1213,10 +1211,6 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/science)
 "ee" = (
-/obj/machinery/status_display{
-	pixel_y = 30;
-	pixel_x = -33
-	},
 /obj/structure/reagent_dispensers/acid{
 	pixel_y = 30
 	},
@@ -1279,9 +1273,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "en" = (
-/mob/living/exosuit/premade/heavy{
-	name = "Chrome Cog, by Yingksy";
-	desc = "Honestly? A little terrifying that this exists."
+/obj/vehicle/bike/gyroscooter{
+	dir = 8;
+	name = "Impossible Dreams, by Yingksy";
+	desc = "It's not worth it, dude.";
+	color = "#ffbd00"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ministation/bombrange)
@@ -1416,6 +1412,12 @@
 /obj/structure/lattice,
 /turf/simulated/wall/wood,
 /area/ministation/enclave/matriarch)
+"eK" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "eM" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1828,6 +1830,10 @@
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"gl" = (
+/obj/structure/bookcase,
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "gn" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1871,15 +1877,19 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "gz" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/machinery/computer/teleporter,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "gA" = (
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/carpet/red,
-/area/ministation/maint/l3ne)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "gC" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -2483,6 +2493,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"iB" = (
+/obj/machinery/teleport/hub,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "iC" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
@@ -2497,13 +2517,14 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor2"
 	},
-/turf/simulated/wall,
-/area/ministation/science)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "iG" = (
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/stack/material/nullglass/fifty,
-/turf/simulated/floor/wood,
-/area/ministation/maint/l3ne)
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "iI" = (
 /obj/machinery/fabricator{
 	initial_network_id = "molluscnet"
@@ -2596,6 +2617,12 @@
 /obj/structure/flora/pottedplant/aquatic,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"je" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "jm" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "sensor"
@@ -3067,6 +3094,14 @@
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/ministation/science)
+"kH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "kJ" = (
 /obj/machinery/camera/network/research{
 	dir = 1;
@@ -3235,10 +3270,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "ld" = (
-/obj/structure/bed,
-/obj/item/bedsheet/brown,
-/turf/simulated/floor/carpet/red,
-/area/ministation/maint/l3ne)
+/obj/structure/table/woodentable/mahogany,
+/obj/random_multi/single_item/captains_spare_id,
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "lh" = (
 /obj/structure/closet,
 /obj/item/clothing/under/yinglet/yinglibrarian,
@@ -3458,6 +3493,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/ministation/enclave/tower)
+"lQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/carpet/green,
+/area/ministation/yinglet_rep)
 "lR" = (
 /obj/machinery/light{
 	dir = 2
@@ -3472,6 +3514,20 @@
 /obj/item/trash/mollusc_shell/clam,
 /turf/simulated/floor/grass,
 /area/ministation/biodome)
+"lY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s3)
+"md" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/yinglet_rep)
 "mf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -3492,6 +3548,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"mi" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/carpet/green,
+/area/ministation/yinglet_rep)
 "mk" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -3592,6 +3652,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"mx" = (
+/obj/machinery/door/airlock/science{
+	autoset_access = 0;
+	req_access = list("ACCESS_XENOBIO")
+	},
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "my" = (
 /obj/machinery/light/small,
 /obj/item/stool/padded,
@@ -3770,16 +3843,24 @@
 /turf/simulated/wall/r_wall,
 /area/ministation/enclave/conference)
 "nc" = (
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/flashlight/lamp/green{
-	pixel_y = 12;
-	pixel_x = 5
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = -32
 	},
-/turf/simulated/floor/carpet/red,
-/area/ministation/maint/l3ne)
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
+/area/ministation/bridge)
 "ne" = (
-/turf/simulated/floor/wood,
-/area/ministation/court)
+/obj/item/radio/intercom{
+	pixel_y = 25
+	},
+/obj/structure/table,
+/obj/item/card/data/disk{
+	name = "Sharah Nude Photoshoot 2304";
+	desc = "A plastic magstripe card for simple and speedy data storage and transfer. This one inexplicibly looks like a floppy disk and looks HEAVILY used."
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/yinglet_rep)
 "nh" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -3931,6 +4012,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
+"nM" = (
+/obj/structure/bed/chair/comfy/captain,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "nN" = (
 /obj/structure/ladder,
 /obj/effect/decal/cleanable/dirt,
@@ -4177,67 +4265,8 @@
 	icon_state = "dir_splatter_2";
 	dir = 9
 	},
-/obj/item/chems/drinks/zombiedrink{
-	color = "#600000";
-	desc = "Oh no.";
-	name = "Clown-Shaped Vial";
-	germ_level = 9001
-	},
-/mob/living/simple_animal/hostile/retaliate/clown{
-	color = "#600000";
-	name = "We, by Yingksy";
-	desc = "Oh gods.";
-	emote_see = list("screams incoherently");
-	emote_speech = list("HAaaAAAUGHNNK!!!","HAAWAAAWAUUGHHNNKKGG!!!", "hhhhHHHHAAAAUUUGGHHHNNNKK!!!!!", "hhhHHhhhhHAAAAUGGHHHGhhhAAAUUGHhhhHHAAAAUGHHHNnggnnkk!!!!!");
-	bleed_colour = "#000000";
-	move_speed = 2;
-	max_health = 9001;
-	minbodytemp = -666;
-	maxbodytemp = 666;
-	mob_size = 50;
-	death_message = "gurgles hideously and drops to the floor!";
-	break_stuff_probability = 50;
-	cold_damage_per_tick = 1;
-	emote_hear = list("cackles horrendously");
-	faction = "He";
-	friendly = "";
-	harm_intent_damage = 50;
-	heat_damage_per_tick = 1;
-	climb_speed_mult = 3;
-	hydration = 9001;
-	meat_amount = 20;
-	throw_range = 15;
-	throw_speed = 5;
-	speak_chance = 25;
-	see_invisible = 100;
-	see_infrared = 100;
-	see_in_dark = 100;
-	response_disarm = "";
-	response_harm = list("claws desperately");
-	response_help_1p = "";
-	response_help_3p = "";
-	pry_desc = list("prying", "pushing", "ripping", "smashing");
-	pry_time = 15;
-	ranged_range = 12;
-	glowing_eyes = 2;
-	germ_level = 9001;
-	fire_desc = "";
-	can_pull_size = 120;
-	can_buckle = 1;
-	bone_amount = 10;
-	blood_type = "X";
-	unsuitable_atmos_damage = 1;
-	nutrition = 9001;
-	bodytemperature = 0;
-	speak_emote = list("screeches", "shrieks", "cackles", "rasps")
-	},
-/turf/exterior/mud{
-	color = "#600000";
-	desc = "Oh hell.";
-	name = "congealed gunk";
-	germ_level = 9001
-	},
-/area/ministation/science)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "oN" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -4333,7 +4362,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment{
+/obj/structure/disposalpipe/junction/mirrored{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -4347,7 +4376,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "pk" = (
@@ -4400,6 +4428,10 @@
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"pv" = (
+/obj/structure/flora/bush/lavendergrass,
+/turf/simulated/floor/grass,
+/area/ministation/bridge)
 "pz" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -4448,19 +4480,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "pR" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	color = "#600000";
-	germ_level = 9001;
-	name = "suspiciously blood-red disposal pipe";
-	desc = "Oh crap."
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 10
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "pS" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -4565,19 +4586,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "qF" = (
-/obj/abstract/landmark/mapped_fluid/fill{
-	fluid_type = /decl/material/liquid/zombie;
-	germ_level = 9001;
-	color = "#600000"
-	},
-/turf/exterior/mud/flooded{
-	flooded = /decl/material/liquid/zombie;
-	germ_level = 9001;
-	color = "#600000";
-	name = "putrid sludge";
-	desc = "Oh jeez."
-	},
-/area/ministation/science)
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "qJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -4621,29 +4631,19 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3nw)
 "qZ" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "ra" = (
-/obj/abstract/landmark/mapped_fluid/fill{
-	fluid_type = /decl/material/liquid/psychoactives;
-	germ_level = 9001;
-	color = "#600000"
+/obj/machinery/camera/autoname{
+	dir = 4
 	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 1
-	},
-/turf/exterior/mud/flooded{
-	flooded = /decl/material/liquid/psychoactives;
-	germ_level = 9001;
-	color = "#600000";
-	name = "congealed gunk";
-	desc = "Oh hell."
-	},
-/area/ministation/science)
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "rf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -4734,6 +4734,16 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"rA" = (
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "rB" = (
 /obj/machinery/computer/ship/helm{
 	dir = 8
@@ -4836,6 +4846,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
+"sc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -25;
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "se" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -4844,6 +4864,14 @@
 /obj/effect/decal/cleanable/filth,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
+"sg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/s3)
 "sh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4868,20 +4896,14 @@
 /turf/simulated/floor/tiled,
 /area/ministation/library)
 "so" = (
-/obj/machinery/light/small{
-	dir = 4;
-	color = "#600000";
-	flickering = 1;
-	name = "suspiciously blood-red light fixture";
-	desc = "Oh gosh.";
-	germ_level = 9001
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 4
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 25
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "sp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4983,6 +5005,7 @@
 	initial_access = null;
 	req_access = list("ACCESS_CAMERAS")
 	},
+/obj/item/radio/headset/heads,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "sQ" = (
@@ -5041,6 +5064,16 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/exterior/grass,
 /area/ministation/hall/n3)
+"sZ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/light,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "tc" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -5125,10 +5158,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "tu" = (
-/obj/structure/table,
-/obj/item/integrated_circuit_printer,
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "tv" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
@@ -5306,29 +5341,16 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor5"
 	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/obj/machinery/light/small{
-	dir = 1;
-	color = "#600000";
-	name = "suspiciously blood-red light fixture";
-	desc = "Oh gosh.";
-	germ_level = 9001
-	},
-/turf/exterior/mud{
-	color = "#600000";
-	desc = "Oh hell.";
-	name = "congealed gunk";
-	germ_level = 9001
-	},
-/area/ministation/science)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "un" = (
-/obj/structure/bed/chair/wood/walnut{
-	dir = 1
+/obj/structure/table/woodentable/mahogany,
+/obj/item/mollusc/clam{
+	pixel_x = -3;
+	pixel_y = 1
 	},
-/turf/simulated/floor/wood,
-/area/ministation/maint/l3ne)
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "uq" = (
 /obj/structure/lattice,
 /turf/simulated/floor/tiled/stone,
@@ -5380,6 +5402,13 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/science)
+"ux" = (
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "uz" = (
 /obj/machinery/door/airlock/glass/science{
 	name = "Robotics";
@@ -5491,6 +5520,9 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "uV" = (
@@ -5563,9 +5595,8 @@
 	icon_state = "0-8"
 	},
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "slimeblast1";
-	name = "enclosure 1 blast door"
+/obj/machinery/door/blast/regular{
+	id_tag = "slimeblast1"
 	},
 /turf/simulated/floor,
 /area/ministation/science)
@@ -5658,7 +5689,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "vw" = (
@@ -5690,10 +5720,11 @@
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
 "vA" = (
-/obj/random_multi/single_item/matriarch_voidsuit,
-/obj/random_multi/single_item/matriarch_helmet,
-/turf/space,
-/area/space)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "vE" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -5781,6 +5812,18 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"vO" = (
+/obj/structure/bed/chair/wood/walnut,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "vP" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -5;
@@ -5962,12 +6005,18 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "wI" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 5
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
 	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/bridge)
 "wJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on{
 	external_pressure_bound = 98;
@@ -6073,6 +6122,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
+"xf" = (
+/obj/structure/closet/secure_closet/counselor,
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "xg" = (
 /obj/machinery/light{
 	dir = 1
@@ -6113,12 +6166,9 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo/f3)
 "xp" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/obj/structure/bed/chair/comfy/captain,
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "xr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6151,6 +6201,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
+"xz" = (
+/obj/structure/table/woodentable/mahogany,
+/obj/item/mollusc/clam{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/obj/item/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "xH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
@@ -6160,8 +6222,8 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
 "xK" = (
-/obj/machinery/psi_monitor,
-/turf/simulated/floor/wood,
+/obj/item/radio/beacon,
+/turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
 "xN" = (
 /obj/structure/cable{
@@ -6329,16 +6391,8 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor3"
 	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/turf/exterior/mud{
-	color = "#600000";
-	desc = "Oh hell.";
-	name = "congealed gunk";
-	germ_level = 9001
-	},
-/area/ministation/science)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "yt" = (
 /obj/machinery/vending/hydronutrients{
 	dir = 8
@@ -6383,6 +6437,12 @@
 	temperature = 263
 	},
 /area/ministation/telecomms)
+"yy" = (
+/obj/structure/bed/chair/comfy/captain{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "yz" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -6585,6 +6645,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/tower)
+"zp" = (
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "zq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6633,9 +6700,8 @@
 	},
 /obj/structure/cable,
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "slimeblast1";
-	name = "enclosure 1 blast door"
+/obj/machinery/door/blast/regular{
+	id_tag = "slimeblast1"
 	},
 /turf/simulated/floor,
 /area/ministation/science)
@@ -6661,9 +6727,10 @@
 /turf/simulated/floor/carpet/magenta,
 /area/ministation/science)
 "zD" = (
-/obj/structure/closet/secure_closet/counselor,
-/turf/simulated/floor/carpet/red,
-/area/ministation/maint/l3ne)
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/ministation/psion)
 "zG" = (
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
@@ -6784,6 +6851,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"Ao" = (
+/obj/machinery/button/alternate/door/bolts{
+	id_tag = "matriblast";
+	name = "Vault Deadbolt Button";
+	pixel_y = 27
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "Ar" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6915,8 +6996,8 @@
 	icon_state = "dir_splatter_2";
 	dir = 4
 	},
-/turf/simulated/wall,
-/area/ministation/science)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "AQ" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 4
@@ -7004,7 +7085,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "Bd" = (
-/turf/simulated/floor/carpet/red,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid/airless,
 /area/ministation/maint/l3ne)
 "Be" = (
 /obj/machinery/light/small{
@@ -7324,9 +7408,13 @@
 /turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "Cm" = (
-/obj/machinery/psi_meter,
-/turf/simulated/floor/carpet/red,
-/area/ministation/maint/l3ne)
+/obj/machinery/button/alternate/door/bolts{
+	id_tag = "vaultbolt";
+	name = "Vault Deadbolt Button";
+	pixel_y = 27
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "Co" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -7345,28 +7433,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Cr" = (
-/mob/living/carbon/human/monkey{
-	name = "Fall of Kong, by Yingksy";
-	bodytemperature = 620.11;
-	real_name = "Fall of Kong, by Yingksy";
-	voice_name = "Fall of Kong, by Yingksy";
-	stamina = 0;
-	skin_amount = 2;
-	on_fire = 1;
-	move_speed = 50;
-	mob_size = 30;
-	meat_amount = 10;
-	max_health = 1;
-	immunity = 0;
-	immunity_norm = 0;
-	holding_breath = 1;
-	damage_multiplier = 10;
-	bone_amount = 5;
-	a_intent = "harm";
-	color = "#6878ff"
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
 	},
-/turf/open,
-/area/ministation/hall/n3)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "Cs" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -7608,9 +7681,7 @@
 /turf/unsimulated/floor,
 /area/ministation/enclave/matriarch)
 "Dc" = (
-/obj/item/radio/intercom{
-	pixel_y = 25
-	},
+/obj/structure/filing_cabinet,
 /turf/simulated/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "Dd" = (
@@ -7813,6 +7884,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/bridge)
+"DA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "DB" = (
 /obj/effect/floor_decal/corner/green/full,
 /obj/machinery/smartfridge/drying_rack,
@@ -7851,7 +7931,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spider/stickyweb,
+/obj/structure/table,
+/obj/item/toy/figure/janitor,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "DI" = (
@@ -7875,7 +7956,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "DO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7999,23 +8080,9 @@
 /turf/simulated/floor/plating,
 /area/ministation/science)
 "Es" = (
-/obj/abstract/landmark/mapped_fluid/fill{
-	fluid_type = /decl/material/liquid/hallucinogenics;
-	germ_level = 9001;
-	color = "#600000"
-	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 1
-	},
-/obj/structure/window/borosilicate_reinforced,
-/turf/exterior/mud/flooded{
-	flooded = /decl/material/liquid/hallucinogenics;
-	germ_level = 9001;
-	color = "#600000";
-	name = "congealed gunk";
-	desc = "Oh hell."
-	},
-/area/ministation/science)
+/obj/structure/flora/tree/hardwood/maple,
+/turf/simulated/floor/grass,
+/area/ministation/bridge)
 "Et" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -8140,6 +8207,14 @@
 /obj/machinery/portable_atmospherics/canister/helium,
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"ES" = (
+/obj/machinery/light{
+	dir = 2
+	},
+/obj/item/toy/plushie/carp/gold,
+/obj/structure/table/woodentable/mahogany,
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "ET" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/cable{
@@ -8181,20 +8256,17 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "EY" = (
-/obj/abstract/landmark/mapped_fluid/fill{
-	fluid_type = /decl/material/liquid/amphetamines;
-	germ_level = 9001;
-	color = "#600000"
+/obj/structure/bed/chair/comfy/captain{
+	dir = 1
 	},
-/obj/structure/window/borosilicate_reinforced,
-/turf/exterior/mud/flooded{
-	flooded = /decl/material/liquid/amphetamines;
-	germ_level = 9001;
-	color = "#600000";
-	name = "congealed gunk";
-	desc = "Oh hell."
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/area/ministation/science)
+/obj/abstract/landmark/start{
+	name = "Captain"
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "Fa" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8203,16 +8275,25 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Fc" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
-/area/ministation/court)
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/radio/intercom{
+	pixel_y = 25
+	},
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "Fd" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
-/area/ministation/court)
+/turf/simulated/floor/plating,
+/area/ministation/bridge)
 "Fe" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -8234,6 +8315,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
+"Fj" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "Fl" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/door/firedoor,
@@ -8261,27 +8348,18 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"Fr" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid/airless,
+/area/ministation/maint/l3ne)
 "Fs" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8;
-	germ_level = 9001;
-	color = "#600000";
-	name = "suspiciously blood-red disposal pipe";
-	desc = "Oh crap."
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/structure/disposaloutlet{
-	dir = 1;
-	color = "#600000";
-	germ_level = 9001;
-	desc = "Oh shit.";
-	name = "suspiciously blood-red disposal outlet"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "Ft" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable,
@@ -8336,14 +8414,19 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3central)
 "Fz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/radio/intercom{
+	dir = 8;
+	pixel_x = 25
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/item/flashlight/lamp/green{
+	pixel_y = 12;
+	pixel_x = 5
 	},
+/obj/item/stack/material/nullglass/fifty,
+/obj/item/stack/material/nullglass/fifty,
 /turf/simulated/floor/wood,
-/area/ministation/court)
+/area/ministation/psion)
 "FA" = (
 /obj/structure/lattice,
 /obj/machinery/alarm{
@@ -8435,13 +8518,23 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
+"FX" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "Ga" = (
 /obj/structure/stairs/long/catwalk/north,
 /turf/simulated/floor,
 /area/ministation/enclave/foyer)
 "Gb" = (
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/bluegrid/airless,
 /area/ministation/maint/l3ne)
 "Gd" = (
 /obj/machinery/door/firedoor,
@@ -8569,6 +8662,11 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
+"GM" = (
+/obj/structure/table/woodentable/mahogany,
+/obj/machinery/recharger,
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "GN" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/door/firedoor,
@@ -8597,11 +8695,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/court)
 "GV" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor5"
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
-/turf/simulated/wall,
-/area/ministation/science)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "GW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -9058,6 +9159,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/item/radio/beacon,
 /turf/simulated/floor/lino,
 /area/ministation/telecomms)
 "IT" = (
@@ -9076,6 +9178,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3se)
+"IZ" = (
+/turf/simulated/wall,
+/area/ministation/psion)
 "Jb" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
 /turf/simulated/floor/tiled/white,
@@ -9143,6 +9248,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n3)
+"Jq" = (
+/obj/random_multi/single_item/matriarch_helmet,
+/obj/random_multi/single_item/matriarch_voidsuit,
+/turf/space,
+/area/space)
 "Jr" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 5;
@@ -9333,58 +9443,7 @@
 /turf/unsimulated/floor,
 /area/ministation/enclave/matriarch)
 "Ka" = (
-/mob/living/simple_animal/hostile/retaliate/clown{
-	color = "#600000";
-	name = "He, by Yingksy";
-	desc = "Oh god.";
-	emote_see = list("screams incoherently");
-	emote_speech = list("HAaaAAAUGHNNK!!!","HAAWAAAWAUUGHHNNKKGG!!!", "hhhhHHHHAAAAUUUGGHHHNNNKK!!!!!", "hhhHHhhhhHAAAAUGGHHHGhhhAAAUUGHhhhHHAAAAUGHHHNnggnnkk!!!!!");
-	bleed_colour = "#000000";
-	move_speed = 1;
-	max_health = 9001;
-	minbodytemp = -666;
-	maxbodytemp = 666;
-	mob_size = 25;
-	death_message = "gurgles hideously and drops to the floor!";
-	break_stuff_probability = 50;
-	cold_damage_per_tick = 1;
-	emote_hear = list("cackles horrendously");
-	faction = "He";
-	friendly = "";
-	harm_intent_damage = 25;
-	heat_damage_per_tick = 1;
-	climb_speed_mult = 3;
-	hydration = 9001;
-	meat_amount = 20;
-	throw_range = 15;
-	throw_speed = 5;
-	speak_chance = 25;
-	see_invisible = 100;
-	see_infrared = 100;
-	see_in_dark = 100;
-	response_disarm = "";
-	response_harm = list("claws desperately");
-	response_help_1p = "";
-	response_help_3p = "";
-	pry_desc = list("prying", "pushing", "ripping", "smashing");
-	pry_time = 45;
-	ranged_range = 12;
-	glowing_eyes = 2;
-	germ_level = 9001;
-	fire_desc = "";
-	can_pull_size = 60;
-	can_buckle = 1;
-	bone_amount = 10;
-	blood_type = "X";
-	unsuitable_atmos_damage = 1;
-	nutrition = 9001;
-	bodytemperature = 0;
-	speak_emote = list("screeches", "shrieks", "cackles", "rasps");
-	move_to_delay = 8
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor2"
-	},
+/obj/random/hostile,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "Kf" = (
@@ -9437,16 +9496,16 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "Ks" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/cigbutt{
-	pixel_x = -13;
-	pixel_y = -7
-	},
-/turf/simulated/floor/wood/yew,
-/area/ministation/court)
+/obj/structure/table/woodentable/mahogany,
+/obj/item/mollusc/clam,
+/obj/item/mollusc/clam,
+/obj/item/mollusc/clam,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "Kv" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -9469,23 +9528,8 @@
 	icon_state = "dir_splatter_2";
 	dir = 6
 	},
-/obj/machinery/light/small{
-	dir = 2;
-	color = "#600000";
-	desc = "Oh gosh.";
-	name = "suspiciously blood-red light fixture";
-	germ_level = 9001
-	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/turf/exterior/mud{
-	color = "#600000";
-	desc = "Oh hell.";
-	name = "congealed gunk";
-	germ_level = 9001
-	},
-/area/ministation/science)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Ky" = (
 /obj/machinery/light{
 	dir = 1
@@ -9594,6 +9638,15 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"Ll" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -3;
+	pixel_x = 24;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "Lm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -9869,15 +9922,12 @@
 /area/ministation/hall/s3)
 "Mo" = (
 /obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
+	icon_state = "1-2"
 	},
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/blast/regular{
-	name = "bridge blast door";
-	id_tag = "bridgeblast"
+/obj/structure/bed/chair/comfy/captain{
+	dir = 8
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/carpet/green,
 /area/ministation/bridge)
 "Mq" = (
 /obj/item/cash/scavbucks,
@@ -9897,7 +9947,7 @@
 	},
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/folder,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Mu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9948,7 +9998,6 @@
 /obj/structure/closet/secure_closet/courtroom,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "MB" = (
@@ -9960,7 +10009,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "MD" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/bluegrid/airless,
 /area/ministation/maint/l3ne)
 "MF" = (
 /obj/machinery/disposal,
@@ -10033,6 +10082,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "MW" = (
@@ -10043,15 +10095,13 @@
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
 "MX" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
 	},
-/obj/item/radio/intercom{
-	pixel_y = 25
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "MY" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -10103,7 +10153,7 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Nd" = (
 /obj/machinery/door/firedoor,
@@ -10162,6 +10212,15 @@
 	},
 /turf/simulated/wall/titanium,
 /area/ministation/shuttle/outgoing)
+"Nn" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "Np" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -10180,16 +10239,8 @@
 /area/ministation/shuttle/outgoing)
 "Nv" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/turf/exterior/mud{
-	color = "#600000";
-	desc = "Oh hell.";
-	name = "congealed gunk";
-	germ_level = 9001
-	},
-/area/ministation/science)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Nw" = (
 /turf/simulated/floor/tiled,
 /area/ministation/court)
@@ -10235,6 +10286,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -10353,7 +10407,7 @@
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Oh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -10608,19 +10662,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "Ph" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	color = "#600000";
-	germ_level = 9001;
-	name = "suspiciously blood-red disposal pipe";
-	desc = "Oh crap."
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 2
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/simulated/floor/carpet/green,
+/area/ministation/yinglet_rep)
 "Pi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -10643,7 +10689,7 @@
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Pm" = (
-/obj/structure/flora/bush/palebush,
+/obj/structure/flora/tree/hardwood/yew,
 /turf/simulated/floor/grass,
 /area/ministation/science)
 "Pn" = (
@@ -10679,12 +10725,12 @@
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/tower)
 "Pt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spider/stickyweb,
-/turf/simulated/floor/tiled,
-/area/ministation/court)
+/obj/structure/bed/chair/wood/walnut,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "Pu" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -10776,12 +10822,11 @@
 /area/ministation/enclave/tower)
 "PD" = (
 /obj/structure/table/woodentable/mahogany,
-/obj/item/flashlight/lamp/green{
-	pixel_y = 12;
-	pixel_x = 5
+/obj/item/modular_computer/tablet/lease/preset/command{
+	pixel_y = 2
 	},
-/turf/simulated/floor/wood,
-/area/ministation/maint/l3ne)
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "PE" = (
 /obj/structure/bed/chair/armchair/black{
 	dir = 8
@@ -10800,6 +10845,19 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
+"PJ" = (
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "bridgeblast"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/airless,
+/area/ministation/bridge)
 "PL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	id_tag = "science_shuttle_pump";
@@ -10835,6 +10893,7 @@
 /obj/structure/closet,
 /obj/random/maintenance,
 /obj/item/flashlight,
+/obj/item/storage/pill_bottle/gleam,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3sw)
 "PR" = (
@@ -10850,12 +10909,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/paper/crumpled,
-/obj/item/paper/crumpled/bloody{
-	pixel_y = 6;
-	pixel_x = -3
-	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "PV" = (
 /obj/structure/table,
@@ -10927,7 +10981,6 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/cobweb,
-/obj/item/broken_bottle,
 /turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Qj" = (
@@ -11114,6 +11167,13 @@
 /obj/structure/window/basic/full,
 /turf/simulated/floor/plating,
 /area/ministation/enclave/foyer)
+"Rc" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "Re" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -11203,6 +11263,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
+"Rw" = (
+/obj/machinery/door/airlock/command{
+	autoset_access = 0;
+	req_access = list("ACCESS_CAPTAIN");
+	name = "Matriarch's Dormitory"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "Rx" = (
 /turf/simulated/wall,
 /area/ministation/court)
@@ -11239,17 +11313,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/window/eastleft{
-	color = "#600000";
-	germ_level = 9001;
-	name = "suspiciously blood-red glass door";
-	desc = "Oh man."
+/obj/machinery/door/window/eastleft,
+/obj/machinery/door/blast/regular{
+	id_tag = "slimeblast1"
 	},
-/obj/machinery/door/blast/regular/open{
-	id_tag = "slimeblast1";
-	name = "enclosure 1 blast door"
-	},
-/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "RE" = (
@@ -11432,12 +11499,8 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/head/collectable/paper{
-	pixel_x = 2;
-	pixel_y = -1
-	},
 /obj/item/pen/fancy,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Sh" = (
 /obj/structure/window/reinforced{
@@ -11520,9 +11583,17 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "SF" = (
-/obj/effect/spider/stickyweb,
-/turf/simulated/floor/wood,
-/area/ministation/maint/l3ne)
+/obj/structure/bed/chair/comfy/captain{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "SG" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -11537,8 +11608,19 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/s3)
 "SK" = (
-/turf/simulated/wall/r_wall/hull,
-/area/ministation/science)
+/obj/structure/table/woodentable/mahogany,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 12;
+	pixel_x = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
+/area/ministation/bridge)
 "SL" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 1
@@ -11773,6 +11855,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
@@ -12109,6 +12194,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/bridge)
 "US" = (
@@ -12195,12 +12284,11 @@
 /turf/simulated/floor/wood/mahogany,
 /area/ministation/library)
 "Vn" = (
-/obj/machinery/door/airlock/glass/command{
-	name = "Bridge"
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/structure/barricade,
 /turf/simulated/floor/wood,
-/area/ministation/maint/l3ne)
+/area/ministation/psion)
 "Vo" = (
 /obj/machinery/atmospherics/unary/vent_pump,
 /obj/effect/floor_decal/corner/black,
@@ -12261,7 +12349,7 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Vw" = (
 /obj/structure/table/woodentable,
@@ -12707,7 +12795,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 "Xj" = (
 /obj/machinery/alarm{
@@ -12753,10 +12841,14 @@
 /turf/space,
 /area/space)
 "Xq" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/space)
+/obj/structure/bed,
+/obj/item/bedsheet/captain,
+/obj/structure/curtain/open/bed,
+/obj/item/clothing/under/yinglet/matriarch,
+/obj/item/clothing/head/yinglet/matriarch,
+/obj/random/plushie,
+/turf/simulated/floor/carpet/red,
+/area/ministation/bridge)
 "Xr" = (
 /obj/machinery/light{
 	dir = 8
@@ -12837,6 +12929,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
+"XN" = (
+/obj/machinery/door/airlock/glass/science{
+	name = "Research and Development";
+	req_access = list("ACCESS_XENOBIO");
+	autoset_access = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "XP" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -12845,11 +12946,18 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "XQ" = (
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/folder,
-/obj/item/pen,
-/turf/simulated/floor/carpet/red,
-/area/ministation/maint/l3ne)
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/table/woodentable/mahogany,
+/obj/machinery/chemical_dispenser/bar_coffee/full{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/ministation/bridge)
 "XR" = (
 /obj/structure/table/reinforced,
 /obj/structure/cable{
@@ -13052,10 +13160,21 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
+"YD" = (
+/obj/machinery/teleport/station{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ministation/maint/l3ne)
 "YE" = (
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32
 	},
+/obj/structure/table,
+/obj/item/integrated_circuit_printer,
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/science)
 "YF" = (
@@ -13137,7 +13256,6 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "YR" = (
@@ -13210,6 +13328,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ministation/science)
+"Zc" = (
+/obj/structure/bed/chair/armchair/black{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "Zd" = (
 /obj/machinery/button/blast_door{
 	id_tag = "anomvent";
@@ -13312,6 +13436,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
+"Zs" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/wood,
+/area/ministation/psion)
 "Zt" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4
@@ -13351,6 +13481,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/status_display{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Zz" = (
@@ -13381,15 +13514,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/biodome)
 "ZF" = (
-/obj/machinery/door/window/westleft,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular{
+	name = "bridge blast door";
+	id_tag = "matriblast"
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
-	},
-/turf/simulated/floor/tiled,
-/area/ministation/science)
+/turf/simulated/floor/plating,
+/area/ministation/bridge)
 "ZH" = (
 /obj/effect/floor_decal/carpet/green,
 /turf/simulated/floor/wood/walnut,
@@ -13475,8 +13607,7 @@
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/bell,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/trash/cigbutt/cigarbutt,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/wood/yew,
 /area/ministation/court)
 
 (1,1,1) = {"
@@ -41085,11 +41216,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ah
+ZF
+ah
+ZF
+ah
 aa
 aa
 aa
@@ -41341,13 +41472,13 @@ ad
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ah
+ah
+Fc
+Xq
+ES
+ah
+ah
 aa
 aa
 aa
@@ -41598,13 +41729,13 @@ ad
 ad
 aa
 aa
-aa
-aa
-aa
-aa
-cw
-cw
-cw
+ZF
+Rc
+cy
+cy
+cy
+ac
+ah
 cw
 cw
 cw
@@ -41855,13 +41986,13 @@ aa
 ad
 ad
 aa
-aa
-aa
-aa
-aa
-cw
-cw
-cw
+ah
+Ao
+Ll
+kH
+MX
+sc
+ah
 cw
 cw
 cw
@@ -42109,23 +42240,23 @@ aa
 aa
 aa
 aa
-aa
 ad
-ad
-aa
-aa
-aa
-aa
+ah
+ah
+ah
+Rw
+ah
+ah
+ah
+ah
+ah
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+PO
+PO
+PO
+PO
+PO
+PO
 cw
 cw
 cw
@@ -42366,23 +42497,23 @@ aa
 aa
 aa
 aa
+ah
+ah
+so
+zp
+DA
+rA
+pv
+Es
+ah
 aa
 aa
-ad
-ad
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+PO
+Re
+mW
+mW
+dZ
+PO
 aa
 cw
 cw
@@ -42622,23 +42753,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-ad
-ad
-aa
-aa
-aa
-aa
+pa
+ah
+Cm
+pR
+bs
+yy
+SF
+iG
+sZ
+ah
 aa
 aa
 PO
-PO
-PO
-PO
-PO
+Il
+Af
+mW
+qY
 PO
 aa
 cw
@@ -42880,22 +43011,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+wI
+pR
+xp
+GM
+un
+SK
+PD
+EY
 ah
-ah
-ah
-ah
-ah
-aa
-aa
-PO
-Re
-mW
-mW
-dZ
+co
+co
+co
+co
+co
+Ee
+av
 PO
 PO
 PO
@@ -43136,23 +43267,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-pa
-ah
+Jq
+wI
+FX
+nM
+ld
+xz
 aR
 br
 bG
 ah
-aa
-aa
-PO
-Il
-Af
-mW
-qY
+co
+Ua
+ZV
+PV
+co
+Ee
+av
 ur
 hY
 PO
@@ -43394,9 +43525,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+PJ
+GV
+eK
 vA
 Mo
 aT
@@ -43404,9 +43535,9 @@ bs
 bH
 ah
 co
-co
-co
-co
+ne
+Io
+YP
 co
 Ee
 av
@@ -43420,7 +43551,7 @@ aa
 ab
 aa
 aa
-Xq
+tx
 yU
 gQ
 gC
@@ -43651,19 +43782,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 ah
+XQ
+Ks
+qZ
+Cr
 aW
 bt
 bI
 ah
 co
-Ua
-ZV
-PV
+mi
+md
+Ph
 co
 yf
 av
@@ -43677,7 +43808,7 @@ aa
 aa
 aa
 aa
-Xq
+tx
 fj
 gQ
 na
@@ -43908,19 +44039,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ah
+ah
+ah
 ah
 ah
 aX
 ah
-ah
+Fd
 ah
 co
 Dc
-Io
-YP
+md
+lQ
 co
 co
 av
@@ -43934,7 +44065,7 @@ aa
 aa
 aa
 aa
-Mi
+sD
 SV
 gQ
 na
@@ -44186,12 +44317,12 @@ cw
 cw
 cw
 cw
+cw
+cw
 aa
 aa
 aa
-aa
-aa
-Mi
+sD
 XU
 gQ
 na
@@ -44448,7 +44579,7 @@ cw
 cw
 cw
 cw
-Xq
+tx
 fj
 gQ
 na
@@ -44687,7 +44818,7 @@ aJ
 aY
 aJ
 MV
-aJ
+nc
 co
 co
 vl
@@ -44705,7 +44836,7 @@ cw
 cw
 cw
 cw
-Xq
+tx
 SV
 gQ
 na
@@ -45748,7 +45879,7 @@ sC
 ZJ
 hx
 GD
-Cr
+GD
 GD
 BS
 Gy
@@ -46011,7 +46142,7 @@ BS
 Gy
 tt
 tt
-tt
+Mn
 Mn
 tt
 tt
@@ -46267,8 +46398,8 @@ Xb
 lb
 eZ
 MB
-fJ
-fJ
+sg
+lY
 iN
 fJ
 QG
@@ -46524,7 +46655,7 @@ sD
 sD
 ae
 ae
-ae
+mx
 ae
 ae
 ae
@@ -46754,7 +46885,7 @@ Rx
 Qh
 Od
 DL
-Ks
+lu
 Xe
 Rx
 BV
@@ -46779,14 +46910,14 @@ VJ
 VJ
 UL
 nl
-cw
-cw
-cw
-aa
-aa
-aa
-ae
-tu
+xf
+Fj
+Vn
+ra
+qF
+ux
+XN
+iL
 iL
 hf
 iK
@@ -47010,8 +47141,8 @@ dT
 Rx
 Zt
 lu
-Fz
-Fd
+ND
+lu
 qO
 Rx
 Sk
@@ -47036,12 +47167,12 @@ Ig
 VJ
 VJ
 nl
-cw
-cw
-cw
-aa
-aa
-aa
+gl
+qF
+Zs
+Pt
+dk
+Zc
 ae
 ee
 iL
@@ -47265,10 +47396,10 @@ cW
 cW
 Zr
 tZ
-ne
+Ir
 ow
 UD
-ne
+Ir
 Ny
 Rx
 rW
@@ -47293,12 +47424,12 @@ VJ
 VJ
 Di
 nl
-cw
-cw
-cw
-aa
-aa
-aa
+gl
+qF
+IZ
+vO
+Fz
+Fs
 ae
 QT
 iL
@@ -47550,12 +47681,12 @@ VJ
 UL
 VJ
 nl
-cw
-cw
+zD
+zD
 ae
 ae
-kW
-kW
+ae
+ae
 ae
 gd
 iL
@@ -47783,7 +47914,7 @@ QR
 Ir
 ND
 Ir
-Fc
+ow
 Rx
 rW
 Sa
@@ -48040,7 +48171,7 @@ IB
 ZZ
 PT
 dn
-ne
+Ir
 Rx
 rW
 Sa
@@ -49067,7 +49198,7 @@ VJ
 Rx
 Nw
 dq
-Pt
+WZ
 dY
 WZ
 eY
@@ -50612,9 +50743,9 @@ cw
 cw
 cw
 nl
-ld
-zD
-PD
+nl
+nl
+nl
 nl
 nl
 nl
@@ -50870,10 +51001,10 @@ cw
 cw
 nl
 MD
+Fr
 MD
-gz
-nl
-iG
+MD
+MD
 nl
 CZ
 Di
@@ -51126,10 +51257,10 @@ cw
 cw
 cw
 nl
-Vn
-nl
-nl
-nl
+MD
+gz
+je
+cH
 MD
 nl
 jH
@@ -51384,10 +51515,10 @@ cw
 cw
 nl
 Gb
-MD
+YD
 xK
-SF
-MD
+VJ
+Nn
 Ba
 xR
 VJ
@@ -51640,10 +51771,10 @@ cw
 cw
 cw
 nl
-cy
 MD
-MD
-MD
+iB
+OX
+tu
 MD
 nl
 wx
@@ -51897,10 +52028,10 @@ cw
 cw
 cw
 nl
-cy
+MD
 Bd
-XQ
-un
+MD
+MD
 MD
 nl
 nl
@@ -52155,10 +52286,10 @@ cw
 cw
 nl
 nl
-cH
-Cm
-un
-MD
+nl
+nl
+nl
+nl
 nl
 nl
 Wa
@@ -52411,11 +52542,11 @@ cw
 cw
 cw
 cw
-nl
+cw
 gA
-nc
-MD
-SF
+cw
+cw
+cw
 nl
 Kz
 VJ
@@ -52668,11 +52799,11 @@ cw
 cw
 cw
 cw
-nl
-nl
-nl
-nl
-nl
+cw
+cw
+cw
+cw
+cw
 nl
 nl
 nl
@@ -55509,22 +55640,22 @@ iP
 Ug
 As
 rz
-ae
-ae
-ae
-ae
-ae
-ae
+dz
+dz
+dz
+dz
+dz
+dz
 ii
-ae
-ae
-ae
+dz
+dz
+dz
 Iw
-ae
-ae
-ae
+dz
+dz
+dz
 vo
-ae
+dz
 dz
 cw
 cw
@@ -55766,20 +55897,20 @@ Ni
 Ru
 mg
 TK
-ae
+dz
 wJ
 PA
 kc
 Lv
-ae
-ae
-ae
+dz
+dz
+dz
 zd
 eg
 FS
 rp
 SL
-ae
+dz
 cw
 cw
 cw
@@ -56023,7 +56154,7 @@ CL
 pV
 As
 AN
-ae
+dz
 yM
 IL
 EF
@@ -56036,7 +56167,7 @@ ny
 fb
 Dn
 GJ
-ae
+dz
 cw
 cw
 cw
@@ -56280,7 +56411,7 @@ kZ
 pV
 Fw
 NV
-ae
+dz
 pr
 pm
 yK
@@ -56288,12 +56419,12 @@ sW
 ob
 db
 XS
-ae
+dz
 fd
 gf
 OL
 gK
-ae
+dz
 cw
 cw
 cw
@@ -56537,7 +56668,7 @@ EN
 pV
 IE
 Hv
-ae
+dz
 ae
 ae
 LK
@@ -56545,12 +56676,12 @@ PY
 ob
 gh
 Lk
-ae
+dz
 fe
 db
 tm
-ae
-ae
+dz
+dz
 cw
 cw
 cw
@@ -56794,7 +56925,7 @@ RA
 pV
 IE
 iL
-ae
+dz
 YF
 aN
 aN
@@ -56802,11 +56933,11 @@ aN
 mr
 im
 DO
-ae
+dz
 ff
 vc
 Cw
-ae
+dz
 cw
 cw
 cw
@@ -57051,19 +57182,19 @@ kZ
 pV
 IE
 Hv
-ae
+dz
 XR
-ZF
+dy
 ef
-ae
+dz
 mn
 dy
 ef
-ae
+dz
 fg
 gh
 hF
-ae
+dz
 cw
 cw
 cw
@@ -57308,19 +57439,19 @@ KE
 wD
 IE
 hP
-ae
+dz
 ve
 RD
 zx
-ae
+dz
 MY
 HN
 JF
-ae
+dz
 fh
 LC
 gi
-ae
+dz
 cw
 cw
 cw
@@ -57565,19 +57696,19 @@ FG
 JX
 IE
 Hv
-ae
-qZ
-xp
-pR
-ae
+dz
 iL
 iL
 tl
-ae
+dz
+iL
+iL
+tl
+dz
 CX
 CX
 CX
-ae
+dz
 cw
 cw
 cw
@@ -57822,15 +57953,15 @@ gh
 qA
 hu
 jU
-ae
-MX
+dz
+iL
 Ka
-Ph
-ae
+tl
+dz
 iL
 du
 aw
-ae
+dz
 cw
 cw
 cw
@@ -58079,15 +58210,15 @@ FT
 Pp
 EU
 XP
-ae
-wI
-so
-Fs
-ae
+dz
+iL
+iL
+eh
+dz
 iL
 dA
 eh
-ae
+dz
 cw
 cw
 cw
@@ -58338,7 +58469,7 @@ ae
 ae
 dz
 dz
-GV
+dz
 dz
 dz
 dz
@@ -58593,7 +58724,7 @@ cw
 cw
 cw
 cw
-SK
+cw
 um
 Nv
 yr
@@ -58601,7 +58732,7 @@ AP
 oM
 iD
 Kx
-SK
+cw
 aa
 aa
 aa
@@ -58850,15 +58981,15 @@ cw
 cw
 cw
 cw
-SK
-EY
-Es
-ra
-SK
-dz
-SK
-qF
-SK
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa
@@ -59107,15 +59238,15 @@ cw
 cw
 cw
 cw
-SK
-SK
-SK
-SK
-SK
 cw
-SK
-SK
-SK
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 aa

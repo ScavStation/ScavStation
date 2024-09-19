@@ -2109,6 +2109,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"gh" = (
+/obj/machinery/port_gen/pacman/super,
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "gi" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -2524,6 +2528,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"hr" = (
+/obj/item/stack/material/puck/mapped/uranium/twenty,
+/obj/structure/rack{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/ministation/engine)
 "hs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3862,6 +3873,9 @@
 /obj/item/fuel_assembly/plutonium,
 /obj/item/fuel_assembly/plutonium,
 /obj/item/stack/material/puck/mapped/uranium/twentyfive,
+/obj/item/fuel_assembly/uranium,
+/obj/item/fuel_assembly/uranium,
+/obj/item/fuel_assembly/uranium,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "lw" = (
@@ -4926,6 +4940,9 @@
 /area/ministation/ai_sat)
 "oX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "oY" = (
@@ -6411,7 +6428,6 @@
 /area/ministation/cargo)
 "tv" = (
 /obj/structure/flora/bush/sunnybush,
-/obj/item/harpoon,
 /turf/simulated/floor/grass,
 /area/ministation/hall/s1)
 "tw" = (
@@ -7010,6 +7026,10 @@
 	},
 /turf/space,
 /area/space)
+"vu" = (
+/obj/structure/flora/tree/hardwood/mahogany,
+/turf/simulated/floor/grass,
+/area/ministation/engine)
 "vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -7754,6 +7774,7 @@
 	dir = 4;
 	id_tag = "recycler"
 	},
+/obj/structure/flaps,
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "xZ" = (
@@ -8260,7 +8281,10 @@
 /turf/space,
 /area/space)
 "zG" = (
-/obj/random_multi/single_item/captains_spare_id,
+/obj/structure/lattice,
+/obj/structure/sign/warning/vent_port{
+	pixel_y = 28
+	},
 /turf/space,
 /area/space)
 "zH" = (
@@ -10063,6 +10087,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "EK" = (
@@ -10221,7 +10246,8 @@
 	name = "Engineering Hub";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel_grid,
+/obj/structure/flora/bush/sunnybush,
+/turf/simulated/floor/grass,
 /area/ministation/engine)
 "Fb" = (
 /obj/item/stool/padded,
@@ -10377,6 +10403,9 @@
 /area/ministation/maint/l1ne)
 "Fs" = (
 /obj/structure/closet/emcloset,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Ft" = (
@@ -10484,7 +10513,6 @@
 /area/space)
 "FH" = (
 /obj/machinery/light,
-/obj/machinery/port_gen/pacman/super,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "FK" = (
@@ -14151,6 +14179,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "PR" = (
@@ -16701,12 +16732,6 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
-	},
-/obj/vehicle/bike/gyroscooter{
-	dir = 8;
-	name = "Impossible Dreams, by Yingksy";
-	desc = "It's not worth it, dude.";
-	color = "#ffbd00"
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/ministation/atmospherics)
@@ -45334,7 +45359,7 @@ DT
 qA
 EJ
 Fa
-XQ
+vu
 Fs
 Dt
 wp
@@ -45849,7 +45874,7 @@ PW
 EL
 Fb
 EB
-Zw
+hr
 Dt
 Ak
 uS
@@ -46106,7 +46131,7 @@ Er
 EM
 Fc
 Fm
-Vu
+gh
 Dt
 Dt
 rq
@@ -47649,7 +47674,7 @@ BY
 EY
 XQ
 Aq
-Fo
+Zw
 tG
 ME
 aI
@@ -47906,7 +47931,7 @@ FS
 ER
 ER
 FO
-Fo
+Vu
 tG
 Ri
 aI
@@ -47942,8 +47967,8 @@ rl
 aa
 aa
 sx
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -48163,7 +48188,7 @@ EQ
 nx
 nx
 eX
-Zn
+Fo
 tG
 wl
 py
@@ -48200,8 +48225,8 @@ aa
 aa
 sx
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -48458,7 +48483,7 @@ aa
 sx
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -48715,7 +48740,7 @@ aa
 sx
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -48967,12 +48992,12 @@ Rl
 Rl
 Rl
 Rl
-aa
-aa
+ad
 sx
-aa
-aa
-aa
+sx
+sx
+dk
+zG
 aa
 aa
 aa
@@ -49226,7 +49251,7 @@ mT
 mT
 aa
 aa
-sx
+aa
 aa
 aa
 aa
@@ -49483,7 +49508,7 @@ nD
 mT
 aa
 aa
-sx
+aa
 aa
 aa
 aa
@@ -49740,7 +49765,7 @@ GB
 Gc
 aa
 aa
-ad
+aa
 aa
 aa
 aa
@@ -49995,12 +50020,12 @@ kC
 GB
 kC
 ML
-aa
-aa
+ad
 sx
-aa
-aa
-aa
+sx
+sx
+dk
+zG
 aa
 aa
 aa
@@ -50257,7 +50282,7 @@ aa
 sx
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -50514,7 +50539,7 @@ aa
 sx
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -50770,8 +50795,8 @@ aa
 aa
 sx
 aa
-aa
-aa
+ad
+ad
 aa
 aa
 aa
@@ -51027,7 +51052,7 @@ aa
 aa
 sx
 aa
-aa
+ad
 aa
 aa
 aa
@@ -51153,7 +51178,7 @@ aa
 aa
 aa
 aa
-zG
+aa
 aa
 aa
 aa
