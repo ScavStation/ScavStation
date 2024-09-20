@@ -217,7 +217,9 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "ar" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/portable_atmospherics/canister/air/airlock{
+	start_pressure = 0
+	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
@@ -317,7 +319,7 @@
 	},
 /obj/machinery/airlock_sensor{
 	dir = 4;
-	pixel_x = -15;
+	pixel_x = -18;
 	id_tag = "crashed_pod_sensor"
 	},
 /obj/effect/floor_decal/industrial/hatch/orange,
@@ -1307,7 +1309,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airlock_sensor{
 	dir = 4;
-	pixel_x = -15;
+	pixel_x = -17;
 	id_tag = "crashed_pod_int_sensor"
 	},
 /turf/simulated/floor/tiled/techfloor,
