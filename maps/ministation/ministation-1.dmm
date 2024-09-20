@@ -1106,6 +1106,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/surgicaln)
+"dI" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/wood/yew,
+/area/ministation/perma)
 "dK" = (
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning{
@@ -2688,6 +2694,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"iC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/hall/e2)
 "iD" = (
 /obj/structure/table/reinforced,
 /obj/item/synthesized_instrument/violin,
@@ -4432,8 +4448,8 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "oa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/perma)
@@ -5213,6 +5229,9 @@
 "qo" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/perma)
@@ -7483,9 +7502,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/enclave/tower)
 "wh" = (
-/obj/effect/floor_decal/spline/plain/orange,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
 	},
 /turf/simulated/floor/wood/yew,
 /area/ministation/perma)
@@ -9945,6 +9966,10 @@
 /obj/item/mollusc/clam,
 /obj/item/mollusc/clam,
 /obj/item/chems/spray/cleaner,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/simulated/floor/lino,
 /area/ministation/kitchen)
 "Dk" = (
@@ -12450,12 +12475,7 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo/f2)
 "LA" = (
-/obj/effect/floor_decal/spline/plain/orange{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/wood/yew,
 /area/ministation/perma)
 "LC" = (
@@ -15544,9 +15564,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
 /obj/item/ball/basketball,
 /turf/simulated/floor/wood/yew,
 /area/ministation/perma)
@@ -15849,6 +15866,10 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hall/e2)
@@ -47895,9 +47916,9 @@ HO
 HO
 sL
 eO
-wV
+oa
 ZU
-wV
+LA
 PZ
 Fj
 Fj
@@ -48152,9 +48173,9 @@ HO
 HO
 qn
 FA
+oa
 wV
-wV
-wV
+LA
 MZ
 Fj
 ZA
@@ -48409,9 +48430,9 @@ HO
 HO
 Fj
 JU
-wV
-wV
-wV
+oa
+dI
+LA
 MZ
 ah
 of
@@ -48922,11 +48943,11 @@ HO
 HO
 HO
 qn
-LA
+FA
 qo
 RO
-qo
 wh
+MZ
 ah
 ah
 ah
@@ -49181,7 +49202,7 @@ Fj
 Fj
 FA
 wV
-oa
+RO
 wV
 MZ
 rv
@@ -56149,7 +56170,7 @@ sP
 ty
 Xw
 ty
-um
+iC
 bj
 bj
 bj

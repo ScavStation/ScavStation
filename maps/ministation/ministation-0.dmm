@@ -15496,7 +15496,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/ministation/maint/westatmos)
+/area/ministation/atmospump)
 "Ua" = (
 /obj/structure/table/woodentable,
 /obj/item/clothing/mask/snorkel,
@@ -46892,8 +46892,8 @@ DD
 DD
 DD
 TZ
-DD
-DD
+SC
+SC
 DD
 Dw
 av

@@ -4872,6 +4872,9 @@
 	pixel_y = -25;
 	dir = 1
 	},
+/obj/item/storage/secure/safe{
+	pixel_x = 35
+	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
 "se" = (
