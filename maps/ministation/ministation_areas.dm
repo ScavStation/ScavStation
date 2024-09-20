@@ -265,6 +265,12 @@
 	secure = TRUE
 	icon_state = "purple"
 
+/area/ministation/psion
+	name = "\improper Psion Office"
+	req_access = list(access_robotics)
+	secure = TRUE
+	icon_state = "dark_blue"
+
 /area/ministation/biodome
 	name = "\improper Science Biodome"
 
