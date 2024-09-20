@@ -6,6 +6,7 @@
 	force = 10
 	caliber = CALIBER_RIFLE
 	origin_tech = "{'combat':8,'materials':3}"
+	fire_sound = 'sound/weapons/gunshot/rifshot.ogg'
 	ammo_type = /obj/item/ammo_casing/rifle
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -66,3 +67,33 @@
 			icon_state = "[get_world_inventory_state()]-empty"
 	else
 		icon_state = get_world_inventory_state()
+
+
+
+//obj/item/gun/projectile/shotgun/quadbarrel
+//	name = "quad-barreled shotgun"
+//	desc = "A true classic but doubled."
+//	icon = 'icons/obj/guns/shotgun/doublebarrel.dmi'
+//	//SPEEDLOADER because rapid unloading.
+//	//In principle someone could make a speedloader for it, so it makes sense.
+//	load_method = SINGLE_CASING|SPEEDLOADER
+//	handle_casings = CYCLE_CASINGS
+//	max_shells = 4
+//	w_class = ITEM_SIZE_HUGE
+//	force = 10
+//	obj_flags =  OBJ_FLAG_CONDUCTIBLE
+//	slot_flags = SLOT_BACK
+//	caliber = CALIBER_SHOTGUN
+//	origin_tech = @'{"combat":6,"materials,"esoteric":9}'
+//	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+//	one_hand_penalty = 4
+//
+//	burst_delay = 0
+//	firemodes = list(
+//		list(mode_name="fire one barrel at a time", burst=1),
+//		list(mode_name="fire two barrels at once", burst=2),
+//		list(mode_name="fire all barrels at once", burst=4)
+//		)
+
+//obj/item/gun/projectile/shotgun/quadbarrel/unload_ammo(user, allow_dump)
+//	return ..(user, allow_dump=1)

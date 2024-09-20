@@ -6891,11 +6891,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "Ao" = (
-/obj/machinery/button/alternate/door/bolts{
-	id_tag = "matriblast";
-	name = "Vault Deadbolt Button";
-	pixel_y = 27
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6904,6 +6899,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "matriblast";
+	pixel_y = 24
 	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/bridge)
