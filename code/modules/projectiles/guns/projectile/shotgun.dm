@@ -92,7 +92,7 @@
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BACK
 	caliber = CALIBER_SHOTGUN
-	origin_tech = @'{"combat":6,"materials,"esoteric":9}'
+	origin_tech = @'{"combat":6,"materials":3,"esoteric":9}'
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	one_hand_penalty = 4
 
