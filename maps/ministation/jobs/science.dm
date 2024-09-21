@@ -1,6 +1,6 @@
 /datum/job/ministation/scientist
 	title = "Researcher"
-	alt_titles = list("Scientist","Xenobiologist","Roboticist","Xenobotanist")
+	alt_titles = list("Scientist","Xenobiologist","Roboticist","Xenobotanist","Pshychic Analyst")
 	supervisors = "the Head Researcher"
 	spawn_positions = 1
 	total_positions = 2
