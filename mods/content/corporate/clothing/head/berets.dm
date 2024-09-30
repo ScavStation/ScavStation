@@ -2,6 +2,13 @@
 	name = "corporate security beret"
 	desc = "A beret with the security insignia emblazoned on it. For officers that are more inclined towards style than safety."
 	icon = 'mods/content/corporate/icons/clothing/head/beret/red.dmi'
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
+		ARMOR_BULLET = ARMOR_BALLISTIC_MINOR,
+		ARMOR_LASER = ARMOR_LASER_MINOR,
+		ARMOR_ENERGY = ARMOR_ENERGY_SMALL,
+		ARMOR_RAD = ARMOR_RAD_MINOR
+	)
 /obj/item/clothing/head/beret/corp/sec/navy/officer
 	name = "corporate security officer beret"
 	desc = "A navy blue beret with an officer's rank emblem. For officers that are more inclined towards style than safety."

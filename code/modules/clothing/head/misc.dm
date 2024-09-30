@@ -130,6 +130,7 @@
 	name = "fedora"
 	desc = "A sharp, stylish hat."
 	icon = 'icons/clothing/head/fedora.dmi'
+	slot_flags = SLOT_HEAD
 
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
