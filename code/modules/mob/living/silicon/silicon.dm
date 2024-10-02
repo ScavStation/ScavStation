@@ -373,7 +373,7 @@
 			qdel(mind.objectives)
 			mind.assigned_special_role = null
 		clear_antag_roles(mind)
-	ghostize(0)
+	ghostize(CORPSE_CANNOT_REENTER)
 	qdel(src)
 
 /mob/living/silicon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
@@ -403,7 +403,7 @@
 	if(!IS_CROWBAR(W) || user.a_intent == I_HURT)
 		return
 	if(!length(stock_parts))
-		to_chat(user, SPAN_WARNING("No parts left to remove"))
+		to_chat(user, SPAN_WARNING("There are no parts in \the [src] left to remove."))
 		return
 
 	var/obj/item/stock_parts/remove = input(user, "Which component do you want to pry out?", "Remove Component") as null|anything in stock_parts

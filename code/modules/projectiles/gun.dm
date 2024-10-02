@@ -548,7 +548,7 @@
 	admin_attacker_log(user, "is attempting to suicide with \a [src]")
 	M.visible_message("<span class='danger'>[user] sticks their gun in their mouth, ready to pull the trigger...</span>")
 	if(!do_after(user, 40, progress=0))
-		M.visible_message("<span class='notice'>[user] decided life was worth living</span>")
+		M.visible_message(SPAN_NOTICE("[user] decided life was worth living."))
 		mouthshoot = 0
 		return
 
@@ -754,7 +754,7 @@
 /decl/interaction_handler/gun/toggle_safety
 	name = "Toggle Safety"
 
-/decl/interaction_handler/toggle_safety/invoked(atom/target, mob/user, obj/item/prop)
+/decl/interaction_handler/gun/toggle_safety/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/gun/gun = target
 	gun.toggle_safety(user)
 

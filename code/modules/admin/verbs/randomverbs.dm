@@ -340,12 +340,14 @@ Ccomp's first proc.
 		var/response = alert(src, "Are you sure you wish to allow [selection] to respawn?","Allow respawn","No","Yes")
 		if(response == "No") return
 
-	G.timeofdeath=-19999						/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
-									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
-									   there won't be an autopsy.
-									*/
+	/*
+	  time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+	  timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
+	  there won't be an autopsy.
+	*/
+	G.timeofdeath          = -(INFINITY)
 	G.has_enabled_antagHUD = 2
-	G.can_reenter_corpse = CORPSE_CAN_REENTER_AND_RESPAWN
+	G.can_reenter_corpse  |= CORPSE_CAN_RESPAWN
 
 	G.show_message("<span class=notice><b>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</b></span>", 1)
 	log_and_message_admins("has allowed [key_name(G)] to bypass the [get_config_value(/decl/config/num/respawn_delay)] minute respawn limit.")
@@ -496,7 +498,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		else
 			M.add_ion_law(input)
 			for(var/mob/living/silicon/ai/O in SSmobs.mob_list)
-				to_chat(O, "<span class='warning'>" + input + "...LAWS UPDATED</span>")
+				to_chat(O, SPAN_WARNING("[input]... LAWS UPDATED."))
 				O.show_laws()
 
 	log_admin("Admin [key_name(usr)] has added a new AI law - [input]")
