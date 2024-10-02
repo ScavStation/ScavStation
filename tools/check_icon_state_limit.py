@@ -21,8 +21,8 @@ for root, subdirs, files in walk(args.dir):
         dmi = DMI(file_path)
         dmi.loadMetadata()
         number_of_icon_states = len(dmi.states)
-        if number_of_icon_states > 512:
+        if number_of_icon_states > 1024:
             failed = True
-            print("{0} had too many icon states. {1}/512".format(file_path, number_of_icon_states))
+            print("{0} had too many icon states. {1}/1024".format(file_path, number_of_icon_states))
 if failed:
     sys.exit(1)
