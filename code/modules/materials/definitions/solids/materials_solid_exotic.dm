@@ -66,37 +66,3 @@
 	default_solid_form = /obj/item/stack/material/segment
 	exoplanet_rarity_plant = MAT_RARITY_EXOTIC
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
-
-/decl/material/solid/nanite_cluster
-	name = "nanite cluster"
-	uid = "solid_exotic_matter"
-	lore_text = "Living metal that swarms and moves over itself. Unknown in origin and overly overly complex to make, these are usually found in asteroid clusters with extreme rarity."
-	color = "#6b6b68"
-	radioactivity = 20
-	stack_origin_tech = @'{"engineering":5,"materials":5,"exoticmatter":4}'
-	luminescence = 3
-	value = 3
-	icon_base = 'icons/turf/walls/stone.dmi'
-	wall_flags = 0
-	table_icon_base = "stone"
-	shard_type = SHARD_SHARD
-	hardness = MAT_VALUE_RIGID
-	flags = MAT_FLAG_FUSION_FUEL
-	construction_difficulty = MAT_VALUE_HARD_DIY
-	reflectiveness = MAT_VALUE_SHINY
-	ignition_point = FLAMMABLE_GAS_MINIMUM_BURN_TEMPERATURE
-	gas_specific_heat = 200	// J/(mol*K)
-	molar_mass = 0.405	// kg/mol
-	gas_overlay_limit = 0.7
-	gas_flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT
-	gas_symbol_html = "Nc<sub>*</sub>"
-	gas_symbol = "Nc*"
-	toxicity = 10
-	touch_met = 5
-	accelerant_value = FUEL_VALUE_VOLATILE
-	vapor_products = list(
-		/decl/material/solid/exotic_matter = 1
-	)
-	default_solid_form = /obj/item/stack/material/segment
-	exoplanet_rarity_plant = MAT_RARITY_EXOTIC
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
