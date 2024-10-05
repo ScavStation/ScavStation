@@ -20,8 +20,7 @@
 #define BASE_OBJECT_MATTER_MULTPLIER    0.25
 
 #define GENERIC_SMELTING_HEAT_POINT 1350 CELSIUS
-#define HIGH_SMELTING_HEAT_POINT    4000 CELSIUS // must be at least 4074K (3800 C) to melt graphite
-
+#define HIGH_SMELTING_HEAT_POINT 1500 CELSIUS
 #define TECH_MATERIAL      "materials"
 #define TECH_ENGINEERING   "engineering"
 #define TECH_EXOTIC_MATTER "exoticmatter"

@@ -29,6 +29,9 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growX)
 "ag" = (
+/mob/living/bot/farmbot{
+	faction = "farmbots"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/map_template/hydrobase/station/growX)
 "ah" = (
@@ -126,6 +129,9 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growD)
 "av" = (
+/mob/living/bot/farmbot{
+	faction = "farmbots"
+	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growA)
 "aw" = (
@@ -394,6 +400,9 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growF)
 "bi" = (
+/mob/living/bot/farmbot{
+	faction = "farmbots"
+	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growD)
 "bj" = (
@@ -711,6 +720,9 @@
 /area/map_template/hydrobase/station/growF)
 "bZ" = (
 /obj/machinery/mech_recharger,
+/mob/living/bot/farmbot{
+	faction = "farmbots"
+	},
 /turf/simulated/floor/bluegrid,
 /area/map_template/hydrobase/station/growF)
 "ca" = (
@@ -1137,6 +1149,9 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growC)
 "dj" = (
+/mob/living/bot/farmbot{
+	faction = "farmbots"
+	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growC)
 "dk" = (
@@ -2276,6 +2291,9 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growB)
 "fT" = (
+/mob/living/bot/farmbot{
+	faction = "farmbots"
+	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growB)
 "fU" = (
