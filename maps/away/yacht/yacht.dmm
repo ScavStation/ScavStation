@@ -871,6 +871,7 @@
 "cD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
+/mob/living/bot/farmbot,
 /turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cE" = (

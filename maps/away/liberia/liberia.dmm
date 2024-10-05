@@ -5073,7 +5073,9 @@
 /area/liberia/bridge)
 "jD" = (
 /obj/structure/table/glass,
-/obj/machinery/faxmachine/mapped,
+/obj/machinery/faxmachine/mapped{
+	req_access = list("ACCESS_MERCHANT");
+	},
 /obj/effect/floor_decal/corner/blue/mono,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/liberia/bridge)
