@@ -464,10 +464,7 @@
 	else if (istype(O, /obj/item/minihoe))  // The minihoe
 
 		if(weedlevel > 0)
-			user.visible_message(
-				SPAN_NOTICE("\The [user] starts uprooting the weeds."),
-				SPAN_NOTICE("You remove the weeds from \the [src].")
-			)
+			user.visible_message("<span class='notice'>[user] starts uprooting the weeds.</span>", "<span class='notice'>You remove the weeds from the [src].</span>")
 			weedlevel = 0
 			update_icon()
 			if(seed)

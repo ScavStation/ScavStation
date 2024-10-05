@@ -11,7 +11,6 @@
 	material =   /decl/material/solid/metal/steel
 	material_alteration = MAT_FLAG_ALTERATION_DESC | MAT_FLAG_ALTERATION_NAME
 	max_health = 200
-	hitsound = 'sound/effects/bang.ogg'
 	var/secured
 
 /obj/structure/defensive_barrier/Initialize()
@@ -142,9 +141,12 @@
 
 	. = ..()
 
-/obj/structure/defensive_barrier/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
-	damage = round(damage * 0.5)
-	return ..()
+/obj/structure/defensive_barrier/take_damage(damage)
+	if(damage)
+		playsound(src.loc, 'sound/effects/bang.ogg', 75, 1)
+		damage = round(damage * 0.5)
+		if(damage)
+			..()
 
 /obj/structure/defensive_barrier/proc/check_cover(obj/item/projectile/P, turf/from)
 	var/turf/cover = get_turf(src)

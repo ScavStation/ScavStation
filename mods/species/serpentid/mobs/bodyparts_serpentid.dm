@@ -1,10 +1,6 @@
-/datum/action/item_action/organ/serpentid
-	button_icon = 'mods/species/serpentid/icons/actions.dmi'
-
 /obj/item/organ/internal/eyes/insectoid/serpentid
 	name = "compound eyes"
 	action_button_name = "Toggle Eye Shields"
-	default_action_type = /datum/action/item_action/organ/serpentid
 	var/eyes_shielded
 	var/override_flash_protection = FLASH_PROTECTION_VULNERABLE
 
@@ -21,7 +17,7 @@
 /obj/item/organ/internal/eyes/insectoid/serpentid/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "shield-[eyes_shielded ? 1 : 0]"
+		action.button_icon_state = "serpentid-shield-[eyes_shielded ? 1 : 0]"
 		action.button?.update_icon()
 
 /obj/item/organ/internal/eyes/insectoid/serpentid/attack_self(var/mob/user)
@@ -125,12 +121,11 @@
 	name = "thorax"
 	encased = "carapace"
 	action_button_name = "Perform Threat Display"
-	default_action_type = /datum/action/item_action/organ/serpentid
 
 /obj/item/organ/external/chest/insectoid/serpentid/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "threat"
+		action.button_icon_state = "serpentid-threat"
 		action.button?.update_icon()
 
 /obj/item/organ/external/chest/insectoid/serpentid/attack_self(var/mob/user)
@@ -179,13 +174,12 @@
 	icon_position = UNDER
 	encased = "carapace"
 	action_button_name = "Toggle Active Camo"
-	default_action_type = /datum/action/item_action/organ/serpentid
 	cavity_max_w_class = ITEM_SIZE_LARGE
 
 /obj/item/organ/external/groin/insectoid/serpentid/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "cloak-[owner && owner.is_cloaked_by(species) ? 1 : 0]"
+		action.button_icon_state = "serpentid-cloak-[owner && owner.is_cloaked_by(species) ? 1 : 0]"
 		action.button?.update_icon()
 
 /obj/item/organ/external/groin/insectoid/serpentid/attack_self(var/mob/user)
