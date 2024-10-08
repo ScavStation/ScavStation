@@ -18,7 +18,7 @@ env:
 
 jobs:
   DreamChecker:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Setup Cache
@@ -49,7 +49,7 @@ jobs:
           chmod +x send.sh
           ./send.sh failure $WEBHOOK_URL
   Code:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Setup Cache
@@ -75,7 +75,7 @@ jobs:
           chmod +x send.sh
           ./send.sh failure $WEBHOOK_URL
   Maps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         map_path: [example, tradeship, exodus, ministation, away_sites_testing, modpack_testing, planets_testing]
