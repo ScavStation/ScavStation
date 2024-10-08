@@ -56,6 +56,13 @@
 	icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
 	color = COLOR_BEIGE
 
+/obj/item/clothing/under/yinglet/speardance
+	name = "spear dancer outfit"
+	desc = "A skimpy set of 'clothes' for a 'ceremonial' dance. Rumours say this was a joke for an official long, long ago but the style has remained the same."
+	icon = 'mods/valsalia/icons/clothing/under/speardancer.dmi'
+	color = null
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
 /obj/item/clothing/under/yinglet/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart)
 	. = ..()
 	if(overlay && detail_color && check_state_in_icon("[overlay.icon_state]-detail", overlay.icon))
@@ -162,6 +169,131 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	slot = ACCESSORY_SLOT_MEDAL
 
+
+/obj/item/clothing/suit/armor/yavlaserproof
+	name = "yinglet ablative vest"
+	desc = "An armored vest made for a yinglet with advanced shielding to protect against energy weapons."
+	icon = 'mods/valsalia/icons/clothing/suit/reflective.dmi'
+	icon_state = ICON_STATE_WORLD
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L)
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
+		ARMOR_BULLET = ARMOR_BALLISTIC_PISTOL,
+		ARMOR_LASER = ARMOR_LASER_RIFLES,
+		ARMOR_ENERGY = ARMOR_ENERGY_RESISTANT
+		)
+	siemens_coefficient = 0
+
+/obj/item/clothing/suit/armor/yavlaserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
+		var/obj/item/projectile/P = damage_source
+
+		var/reflectchance = 40 - round(damage/3)
+		if(!(def_zone in list(BP_CHEST, BP_GROIN))) //not changing this so arm and leg shots reflect, gives some incentive to not aim center-mass
+			reflectchance /= 2
+		if(P.starting && prob(reflectchance))
+			visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+
+			// Find a turf near or on the original location to bounce to
+			var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+			var/new_y = P.starting.y + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
+			var/turf/curloc = get_turf(user)
+
+			// redirect the projectile
+			P.redirect(new_x, new_y, curloc, user)
+
+			return PROJECTILE_CONTINUE // complete projectile permutation
+
+
+/obj/item/clothing/accessory/yingarmguards/ballistic
+	name = "ballistic arm gauntlets"
+	desc = "A pair of armored arm pads and pauldrons with heavy plates to protect against ballistic projectiles."
+	icon = 'mods/valsalia/icons/clothing/accessories/armor/armguards_ballistic.dmi'
+	icon_state = ICON_STATE_WORLD
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	body_parts_covered = SLOT_ARMS|SLOT_HANDS
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_RESISTANT,
+		ARMOR_BULLET = ARMOR_BALLISTIC_RIFLE,
+		ARMOR_LASER = ARMOR_LASER_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB = ARMOR_BOMB_PADDED
+		)
+	color = null
+	siemens_coefficient = 0.4
+	slot = ACCESSORY_SLOT_ARMOR_A
+
+	material = /decl/material/solid/metal/plasteel
+	matter = list(
+		/decl/material/solid/metal/titanium = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_TRACE
+		)
+	origin_tech = @'{"materials":3,"engineering":4,"combat":3}'
+
+/obj/item/clothing/accessory/yinglegguards/ballistic
+	name = "ballistic side skirt"
+	desc = "A skirt of armor with heavy plated leggings to protect against ballistic projectiles. Looks like they might impair movement."
+	icon = 'mods/valsalia/icons/clothing/accessories/armor/legguards_ballistic.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	body_parts_covered = SLOT_LEGS|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_TAIL
+	slot = ACCESSORY_SLOT_ARMOR_L
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_RESISTANT,
+		ARMOR_BULLET = ARMOR_BALLISTIC_RIFLE,
+		ARMOR_LASER = ARMOR_LASER_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB = ARMOR_BOMB_PADDED
+		)
+	siemens_coefficient = 0.4
+	matter = list(
+		/decl/material/solid/metal/steel = MATTER_AMOUNT_SECONDARY
+	)
+	origin_tech = @'{"materials":3,"engineering":4,"combat":3}'
+	slowdown = 0.3
+
+/obj/item/clothing/accessory/yingarmguards/ablative
+	name = "ablative arm guards"
+	desc = "A pair of armored arm pads and pauldrons with advanced shielding to protect against energy weapons."
+	icon = 'mods/valsalia/icons/clothing/accessories/armor/armguards_ablative.dmi'
+	icon_state = ICON_STATE_WORLD
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	body_parts_covered = SLOT_ARMS|SLOT_HANDS
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER = ARMOR_LASER_RIFLES,
+		ARMOR_ENERGY = ARMOR_ENERGY_RESISTANT,
+		ARMOR_BOMB = ARMOR_BOMB_PADDED
+		)
+	color = null
+	siemens_coefficient = 0
+	slot = ACCESSORY_SLOT_ARMOR_A
+	origin_tech = @'{"materials":6,"engineering":7,"combat":5}'
+
+/obj/item/clothing/accessory/yinglegguards/ablative
+	name = "ablative leg guards"
+	desc = "A skirt of armor with armored leg pads with advanced shielding to protect against energy weapons. Looks like they might impair movement."
+	icon = 'mods/valsalia/icons/clothing/accessories/armor/legguards_ablative.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	body_parts_covered = SLOT_LEGS|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_TAIL
+	slot = ACCESSORY_SLOT_ARMOR_L
+	color = null
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER = ARMOR_LASER_RIFLES,
+		ARMOR_ENERGY = ARMOR_ENERGY_RESISTANT,
+		ARMOR_BOMB = ARMOR_BOMB_PADDED
+		)
+	siemens_coefficient = 0
+	slot = ACCESSORY_SLOT_ARMOR_L
+	slowdown = 0.3
+	origin_tech = @'{"materials":6,"engineering":7,"combat":5}'
+
+
 /obj/item/clothing/accessory/tailbells
 	name = "tail bells"
 	desc = "A set of lightweight, jangly tail bells."
@@ -181,6 +313,52 @@
 	var/tmp/dingaling_volume = 80
 	var/tmp/dingaling_chance = 30
 	var/tmp/dingaling_vary = FALSE
+
+/obj/item/clothing/accessory/yinglegguards/riot
+	name = "riot leg guards"
+	desc = "A pair of armored leg pads with heavy padding to protect against melee attacks. Looks like they might impair movement."
+	icon = 'mods/valsalia/icons/clothing/accessories/armor/legguards_riot.dmi'
+	color = null
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_VERY_HIGH,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER = ARMOR_LASER_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB = ARMOR_BOMB_PADDED
+		)
+	siemens_coefficient = 0.5
+	slot = ACCESSORY_SLOT_ARMOR_L
+	slowdown = 0.4
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/organic/cloth = MATTER_AMOUNT_SECONDARY)
+	origin_tech = @'{"materials":1,"engineering":1,"combat":2}'
+
+/obj/item/clothing/accessory/yingarmguards/riot
+	name = "riot arm guards"
+	desc = "A pair of armored arm pads with heavy padding to protect against melee attacks."
+	icon = 'mods/valsalia/icons/clothing/accessories/armor/armguards_riot.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	body_parts_covered = SLOT_LEGS|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_TAIL
+	slot = ACCESSORY_SLOT_ARMOR_L
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_VERY_HIGH,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER = ARMOR_LASER_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB = ARMOR_BOMB_PADDED
+		)
+	color = null
+	siemens_coefficient = 0.5
+	slot = ACCESSORY_SLOT_ARMOR_A
+	material = /decl/material/solid/metal/steel
+	matter = list(/decl/material/solid/organic/cloth = MATTER_AMOUNT_SECONDARY)
+	origin_tech = @'{"materials":1,"engineering":1,"combat":2}'
+
+
+
+
+
+
 
 /obj/item/clothing/accessory/tailbells/Initialize()
 	. = ..()
@@ -251,11 +429,26 @@
 /obj/item/clothing/suit/armor/bulletproof
 	yinglet_icon = 'mods/valsalia/icons/clothing/suit/ballistic_vest.dmi'
 
+/obj/item/clothing/suit/armor/riot
+	yinglet_icon = 'mods/valsalia/icons/clothing/suit/riot.dmi'
+
 /obj/item/clothing/head/cakehat
 	yinglet_icon = 'mods/valsalia/icons/clothing/head/cakehat.dmi'
 
 /obj/item/clothing/suit/armor/hos/jensen
 	yinglet_icon = 'mods/valsalia/icons/clothing/suit/jensen_yinglet.dmi'
+
+/obj/item/clothing/suit/armor/warden
+	yinglet_icon = 'mods/valsalia/icons/clothing/suit/wardenlet.dmi'
+
+/obj/item/clothing/suit/armor/hos
+	yinglet_icon = 'mods/valsalia/icons/clothing/suit/hoslet.dmi'
+
+/obj/item/clothing/head/helmet/ablative
+	yinglet_icon = 'mods/valsalia/icons/clothing/head/helmet_ablative.dmi'
+
+/obj/item/clothing/head/helmet/riot
+	yinglet_icon = 'mods/valsalia/icons/clothing/head/helmet_riot.dmi'
 
 /obj/item/clothing/head/cakehat/get_mob_flame_overlay(var/image/overlay, var/bodytype)
 	var/image/I = ..()
@@ -271,3 +464,25 @@
 	icon = 'mods/valsalia/icons/clothing/under/hazardjumpsuit_yinglet.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	yinglet_icon = null
+
+
+/obj/item/clothing/under/yinglet/flexsuit
+	name = "flex suit"
+	desc = "A state of the art mobility suit made for the common yinglet of Mollusc Station. Comes with built in armor and rad padding that can be layered, rumoured to be pressure resistant."
+	icon = 'mods/valsalia/icons/clothing/under/jumpshootsuit.dmi'
+	color = null
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
+	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	min_pressure_protection = 0
+	heat_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER = ARMOR_LASER_HANDGUNS,
+		ARMOR_RAD = ARMOR_RAD_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB = ARMOR_BOMB_PADDED
+		)
+	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
+	siemens_coefficient = 0.3
