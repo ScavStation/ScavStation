@@ -271,6 +271,8 @@
 	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/item/clothing/mask/gas/half,
+/obj/item/clothing/accessory/yinglegguards/ballistic,
+/obj/item/clothing/accessory/yingarmguards/ballistic,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "aQ" = (
@@ -444,6 +446,15 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/ministation/securityoffice)
+"bz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass/command{
+	autoset_access = 0;
+	req_access = list("ACCESS_ARMORY")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "bA" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -770,6 +781,13 @@
 "cw" = (
 /turf/simulated/floor/wood/walnut,
 /area/ministation/medical/nursery)
+"cz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "cA" = (
 /obj/structure/table/woodentable,
 /obj/item/flashlight/lamp/green,
@@ -1073,6 +1091,31 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
+"dD" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
+	},
+/obj/item/clothing/accessory/yingarmguards/ballistic,
+/obj/item/clothing/accessory/yingarmguards/ballistic,
+/obj/item/clothing/accessory/yingarmguards/ballistic,
+/obj/item/clothing/accessory/yingarmguards/ballistic,
+/obj/item/clothing/accessory/yinglegguards/ballistic,
+/obj/item/clothing/accessory/yinglegguards/ballistic,
+/obj/item/clothing/accessory/yinglegguards/ballistic,
+/obj/item/clothing/accessory/yinglegguards/ballistic,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "dE" = (
@@ -1416,6 +1459,32 @@
 	},
 /turf/simulated/floor/lino,
 /area/ministation/kitchen)
+"eD" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
+	},
+/obj/item/shield/riot,
+/obj/item/shield/riot,
+/obj/item/storage/belt/holster/machete,
+/obj/item/storage/belt/holster/machete,
+/obj/item/storage/belt/holster/machete,
+/obj/item/hatchet/machete/deluxe,
+/obj/item/hatchet/machete/deluxe,
+/obj/item/hatchet/machete/deluxe,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "eE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -2851,10 +2920,10 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/perma)
 "iU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3893,6 +3962,30 @@
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/plating,
 /area/ministation/hall/e2)
+"lT" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
+	},
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "lW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3908,6 +4001,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/surgicaln)
+"lY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "ma" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4436,6 +4535,28 @@
 /obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/blue3,
 /area/ministation/securityoffice)
+"nV" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/rack,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/clothing/suit/armor/yavlaserproof,
+/obj/item/clothing/suit/armor/yavlaserproof,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "nX" = (
 /obj/machinery/light/small,
 /obj/structure/cable{
@@ -4669,11 +4790,6 @@
 /area/ministation/medical)
 "oG" = (
 /obj/structure/rack,
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/accessory/armguards/riot,
-/obj/item/clothing/accessory/legguards/riot,
-/obj/item/clothing/head/helmet/riot,
-/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -4685,6 +4801,9 @@
 	autoset_access = 0;
 	dir = 4
 	},
+/obj/item/clothing/suit/armor/laserproof,
+/obj/structure/window/reinforced,
+/obj/item/clothing/head/helmet/ablative,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "oH" = (
@@ -4927,6 +5046,9 @@
 /turf/simulated/floor/lino,
 /area/ministation/kitchen)
 "pz" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
@@ -8269,6 +8391,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"yj" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
+	},
+/obj/item/clothing/head/helmet/ablative,
+/obj/item/clothing/head/helmet/ablative,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "yk" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -8927,6 +9068,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
+	},
+/obj/effect/floor_decal/corner/brown/bordercee{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
@@ -10070,9 +10214,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "DC" = (
@@ -10105,24 +10250,11 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
 "DH" = (
-/obj/structure/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue/border{
 	dir = 1
 	},
-/obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_ARMORY");
-	autoset_access = 0
-	},
-/obj/item/clothing/head/helmet/ablative,
-/obj/item/clothing/accessory/legguards/ablative,
-/obj/item/clothing/accessory/armguards/ablative,
-/obj/item/clothing/suit/armor/laserproof,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "DI" = (
@@ -10601,15 +10733,11 @@
 	dir = 1;
 	pixel_y = -32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "FA" = (
@@ -10943,12 +11071,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/enclave/engineering)
-"GJ" = (
-/obj/item/card/data/disk{
-	name = "Sharah Nude Photoshoot 2304"
-	},
-/turf/simulated/floor/plating,
-/area/ministation/maint/l2centraln)
 "GM" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -11745,6 +11867,26 @@
 /obj/structure/table/steel_reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/perma)
+"Jr" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0;
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/item/clothing/accessory/yingarmguards/ablative,
+/obj/item/clothing/accessory/yingarmguards/ablative,
+/obj/item/clothing/accessory/yinglegguards/ablative,
+/obj/item/clothing/accessory/yinglegguards/ablative,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "Js" = (
 /turf/simulated/floor/tiled/white,
 /area/ministation/surgicals)
@@ -12696,9 +12838,8 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/ministation/enclave/armory)
 "Mk" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "Ml" = (
@@ -13192,6 +13333,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/security)
+"NL" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0;
+	dir = 1
+	},
+/obj/item/clothing/accessory/yinglegguards/riot,
+/obj/item/clothing/accessory/yinglegguards/riot,
+/obj/item/clothing/accessory/yinglegguards/riot,
+/obj/item/clothing/accessory/yinglegguards/riot,
+/obj/item/clothing/accessory/yingarmguards/riot,
+/obj/item/clothing/accessory/yingarmguards/riot,
+/obj/item/clothing/accessory/yingarmguards/riot,
+/obj/item/clothing/accessory/yingarmguards/riot,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "NM" = (
 /obj/machinery/light{
 	dir = 4
@@ -13200,6 +13365,7 @@
 	dir = 4;
 	icon_state = "warning"
 	},
+/obj/effect/floor_decal/corner/brown/bordercee,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "NO" = (
@@ -13416,6 +13582,30 @@
 	},
 /turf/simulated/floor/carpet/blue3,
 /area/ministation/securityoffice)
+"Oy" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
+"OA" = (
+/obj/structure/rack,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "OD" = (
 /obj/structure/yinglet_nest{
 	pixel_y = 8;
@@ -13861,6 +14051,8 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/under/avian_smock/security,
 /obj/item/clothing/mask/gas/half,
+/obj/item/clothing/accessory/yinglegguards/ballistic,
+/obj/item/clothing/accessory/yingarmguards/ballistic,
 /turf/simulated/floor/tiled,
 /area/ministation/security)
 "Qh" = (
@@ -14800,6 +14992,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
+"Tb" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "Tc" = (
 /obj/structure/table/woodentable,
 /obj/item/toy/balloon/nanotrasen,
@@ -14826,6 +15022,12 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
+"Tf" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
@@ -14971,6 +15173,25 @@
 /obj/structure/lattice,
 /turf/simulated/floor/grass,
 /area/ministation/enclave/atrium)
+"TF" = (
+/obj/structure/rack,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/riot,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "TH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15147,6 +15368,13 @@
 /obj/structure/bed/padded,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/perma)
+"Ub" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "Ue" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair/armchair/black{
@@ -15277,7 +15505,6 @@
 /obj/structure/closet/wardrobe/chemistry_white,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/item/clothing/under/avian_smock,
-/obj/item/zat_zhing,
 /obj/item/clothing/under/avian_smock/rainbow,
 /turf/simulated/floor/tiled/white,
 /area/ministation/medical)
@@ -16042,6 +16269,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/hydro)
+"WP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "WQ" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -16099,6 +16332,27 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
+"Xd" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list("ACCESS_ARMORY");
+	autoset_access = 0
+	},
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/turf/simulated/floor/tiled/dark,
+/area/ministation/armory)
 "Xg" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple{
@@ -16528,27 +16782,22 @@
 /area/space)
 "YF" = (
 /obj/structure/rack,
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southleft{
 	req_access = list("ACCESS_ARMORY");
-	autoset_access = 0
+	autoset_access = 0;
+	dir = 4
 	},
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/head/helmet,
+/obj/item/clothing/accessory/armguards/riot,
+/obj/item/clothing/accessory/legguards/riot,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/riot,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "YH" = (
@@ -44082,7 +44331,7 @@ mf
 dd
 ez
 Td
-GJ
+dd
 kZ
 Wa
 qF
@@ -54084,11 +54333,11 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
-HO
+SE
+SE
+SE
+SE
+SE
 SE
 JW
 cL
@@ -54341,10 +54590,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-HO
+SE
+Xd
+Tf
+OA
 SE
 SE
 hU
@@ -54597,12 +54846,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-HO
-HO
-HO
+WF
 SE
+lT
+lY
+TF
+Tb
 Jn
 KS
 Vi
@@ -54855,10 +55104,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-ad
-aa
+SE
+dD
+lY
+NL
 SE
 fn
 lp
@@ -55112,12 +55361,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-ad
-aa
 SE
-fW
+eD
+Ub
+Mk
+bz
+DH
 Mk
 Fz
 SE
@@ -55369,13 +55618,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-ad
-WF
 SE
-YF
-KS
+SE
+SE
+SE
+SE
+fW
+pz
 DA
 SE
 SE
@@ -55626,16 +55875,16 @@ ab
 aa
 aa
 Pn
-aa
-aa
-ad
-aa
 SE
+nV
+WP
+Oy
+bz
 DH
-pz
+Mk
 iU
 fy
-oG
+YF
 oG
 cY
 KI
@@ -55883,10 +56132,10 @@ aa
 aa
 aa
 Pn
-aa
-aa
-ad
-aa
+SE
+yj
+cz
+Jr
 SE
 SE
 GN
@@ -56140,11 +56389,11 @@ aa
 aa
 aa
 Pn
-ad
-ad
-ad
-aa
-aa
+SE
+SE
+SE
+SE
+SE
 SE
 SE
 SE
@@ -56401,7 +56650,7 @@ aa
 aa
 ad
 aa
-aa
+WF
 SE
 bO
 ps

@@ -1892,10 +1892,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/l3ne)
-"gA" = (
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "gC" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -12799,20 +12795,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
-	},
-/mob/living/simple_animal/hostile/retaliate/goose{
-	death_message = "screams with the anguish of a thousand lifetimes, and drops dead!";
-	desc = "He stares at you unblinkingly, a quiet rage seething within.";
-	bleed_colour = "#8ffff8";
-	name = "The Trademaster's Favourite, by Yingksy";
-	emote_hear = list("honks... HONKS","honks loudly","screams", "reprimands the nearest person with a loud scream");
-	emote_see = list("screams and flaps its wings","pecks viciously at the air");
-	emote_speech = list("Honk!", "HONK!!", "HONKhonkHONK!!!", "HOOOOOONK!!!", "AAAIIIIGHHH!!!!!", "AUGHHH!!!", "HONK HONK HONKITYhonkHONKhonkHONK!!!");
-	move_speed = 15;
-	color = "#5fffdd";
-	max_health = 42;
-	harm_intent_damage = 30;
-	speak_emote = list("screams and flaps its wings","pecks viciously at the air","honks","honks... HONKS","honks loudly","screams", "reprimands the nearest person with a loud scream")
 	},
 /turf/simulated/floor/bluegrid,
 /area/ministation/bridge/vault)
@@ -50593,7 +50575,7 @@ aa
 aa
 aa
 aa
-aa
+cw
 nl
 nl
 nl
@@ -50850,10 +50832,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -51107,10 +51089,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -51364,10 +51346,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -51621,10 +51603,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -51878,10 +51860,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -52135,10 +52117,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -52392,10 +52374,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -52649,17 +52631,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 cw
 cw
 cw
 cw
 cw
 cw
-gA
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw

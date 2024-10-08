@@ -4839,6 +4839,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/ministation/atmospherics)
+"oD" = (
+/obj/machinery/light,
+/obj/structure/closet/wardrobe/mixed,
+/obj/item/clothing/under/yinglet/speardance,
+/obj/item/clothing/under/yinglet/speardance,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "oE" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5827,6 +5834,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/trash)
+"rA" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/space)
 "rB" = (
 /turf/simulated/floor/reinforced/hydrogen,
 /area/space)
@@ -11202,10 +11213,6 @@
 /obj/item/clothing/under/yinglet/yingjumpsuit{
 	color = "#808080"
 	},
-/obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/under/yinglet,
 /obj/item/clothing/under/yinglet,
 /turf/simulated/floor/wood/walnut,
@@ -14079,6 +14086,14 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
+"Pz" = (
+/obj/structure/closet/wardrobe/mixed,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/shoes/sandal/yinglet,
+/turf/simulated/floor/wood/walnut,
+/area/ministation/dorms)
 "PA" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -51735,8 +51750,8 @@ zW
 IP
 dN
 Hn
-zW
-aa
+oD
+ac
 ad
 aa
 aa
@@ -51992,8 +52007,8 @@ CW
 je
 du
 QN
-jy
-aa
+qe
+rA
 ad
 aa
 aa
@@ -52249,8 +52264,8 @@ zW
 Vl
 nu
 BS
-zW
-aa
+Pz
+ac
 ad
 aa
 aa
