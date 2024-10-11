@@ -492,21 +492,18 @@
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
 "bN" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	icon_state = "map_injector";
 	id_tag = "n2_in";
 	use_power = 1
 	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/ministation/atmospherics)
 "bO" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	external_pressure_bound = 0;
@@ -519,6 +516,9 @@
 	pressure_checks_default = 2;
 	pump_direction = 0;
 	use_power = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/ministation/atmospherics)
@@ -830,16 +830,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/cargo)
 "cB" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	current_health = 1e+007
-	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	icon_state = "map_injector";
 	id_tag = "n2_in";
 	use_power = 1
+	},
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ministation/atmospherics)
@@ -855,12 +853,6 @@
 /turf/simulated/floor/grass,
 /area/ministation/hall/s1)
 "cG" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	external_pressure_bound = 0;
@@ -873,6 +865,12 @@
 	pressure_checks_default = 2;
 	pump_direction = 0;
 	use_power = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ministation/atmospherics)
@@ -979,17 +977,17 @@
 /turf/simulated/floor/reinforced,
 /area/ministation/engine)
 "cX" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	icon_state = "map_injector";
 	id_tag = "n2_in";
 	use_power = 1;
 	dir = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/ministation/atmospherics)
@@ -1041,6 +1039,9 @@
 /obj/structure/closet/radiation,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -1608,14 +1609,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/atmospump)
 "eR" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/meter/turf,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced/airmix,
 /area/ministation/atmospherics)
 "eS" = (
@@ -1716,13 +1717,11 @@
 /turf/simulated/floor/tiled,
 /area/ministation/hall/n)
 "fg" = (
-/obj/structure/window/reinforced{
-	current_health = 1e+007
-	},
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/corner/purple/full,
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/purple/full,
 /turf/simulated/floor/reinforced/hydrogen,
 /area/ministation/atmospherics)
 "fh" = (
@@ -2285,9 +2284,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/westatmos)
 "gE" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	external_pressure_bound = 0;
@@ -2300,6 +2296,9 @@
 	pressure_checks_default = 2;
 	pump_direction = 0;
 	use_power = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/ministation/atmospherics)
@@ -2698,6 +2697,12 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
+"hL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "hM" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -3301,10 +3306,10 @@
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "jM" = (
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -3501,7 +3506,7 @@
 /turf/simulated/floor,
 /area/ministation/maint/eastatmos)
 "kq" = (
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -3665,9 +3670,6 @@
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
 "kN" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	icon_state = "map_injector";
@@ -3676,6 +3678,9 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/corner/white/diagonal{
+	dir = 4
+	},
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -3837,15 +3842,13 @@
 /turf/simulated/floor/plating,
 /area/ministation/engineroom)
 "lt" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/window/reinforced{
-	current_health = 1e+007
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ministation/atmospherics)
@@ -4558,17 +4561,17 @@
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "nw" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	icon_state = "map_injector";
 	id_tag = "n2_in";
 	use_power = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ministation/atmospherics)
@@ -4945,6 +4948,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
+"oW" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "oX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/railing/mapped{
@@ -4997,10 +5010,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/engine)
 "pi" = (
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -5418,12 +5431,6 @@
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1ne)
 "qs" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	current_health = 1e+007
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
@@ -5435,6 +5442,10 @@
 	pressure_checks_default = 2;
 	pump_direction = 0;
 	use_power = 1
+	},
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ministation/atmospherics)
@@ -5792,6 +5803,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/atmos,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "rs" = (
@@ -6229,6 +6242,11 @@
 /obj/item/stack/material/ingot/mapped/copper/fifty,
 /obj/item/stack/material/pane/mapped/glass/fifty,
 /obj/item/stack/material/pane/mapped/rglass/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/pane/mapped/rglass/fifty,
+/obj/item/stack/material/pane/mapped/rglass/fifty,
+/obj/item/stack/material/pane/mapped/glass/fifty,
 /turf/simulated/floor/tiled,
 /area/ministation/eva)
 "sP" = (
@@ -6391,6 +6409,9 @@
 "tp" = (
 /obj/structure/railing/mapped{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -6680,16 +6701,14 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "um" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/meter/turf,
-/obj/structure/window/reinforced{
-	current_health = 1e+007
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ministation/atmospherics)
@@ -6985,6 +7004,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"vj" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "vk" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -7019,6 +7046,9 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
@@ -7554,6 +7584,8 @@
 /obj/effect/floor_decal/floordetail/edgedrain{
 	dir = 4
 	},
+/obj/item/stack/material/pane/mapped/borosilicate/fifty,
+/obj/item/stack/material/pane/mapped/rborosilicate/fifty,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "xg" = (
@@ -8291,6 +8323,11 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"zF" = (
+/obj/structure/lattice,
+/obj/structure/sign/warning/docking_area,
+/turf/space,
+/area/space)
 "zG" = (
 /obj/structure/lattice,
 /obj/structure/sign/warning/vent_port{
@@ -8377,17 +8414,17 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "Ab" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/meter/turf,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/ministation/atmospherics)
 "Ae" = (
@@ -10913,6 +10950,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "GB" = (
@@ -11163,6 +11201,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Hj" = (
@@ -11284,6 +11323,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "Hz" = (
@@ -11333,12 +11373,13 @@
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "HG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "HH" = (
@@ -11543,13 +11584,13 @@
 /turf/simulated/floor/plating,
 /area/ministation/ai_sat)
 "Io" = (
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/black/full,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ministation/atmospherics)
 "Ip" = (
@@ -13043,6 +13084,8 @@
 /obj/effect/floor_decal/floordetail/edgedrain{
 	dir = 4
 	},
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/engine)
 "Ms" = (
@@ -13513,12 +13556,6 @@
 /turf/simulated/floor/plating,
 /area/space)
 "NN" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	external_pressure_bound = 0;
@@ -13531,6 +13568,12 @@
 	pressure_checks_default = 2;
 	pump_direction = 0;
 	use_power = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/ministation/atmospherics)
@@ -14062,13 +14105,11 @@
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
 "Px" = (
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/corner/purple/full,
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	current_health = 1e+007
-	},
-/obj/effect/floor_decal/corner/purple/full,
 /turf/simulated/floor/reinforced/hydrogen,
 /area/ministation/atmospherics)
 "Py" = (
@@ -14128,6 +14169,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "PH" = (
@@ -14214,13 +14257,13 @@
 /turf/simulated/floor,
 /area/ministation/enclave/gatehouse)
 "PT" = (
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/black/full,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ministation/atmospherics)
 "PU" = (
@@ -14442,6 +14485,8 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "QL" = (
@@ -15146,6 +15191,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ministation/cargo)
+"SS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "SU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -15671,6 +15726,9 @@
 	dir = 1
 	},
 /obj/structure/closet/radiation,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/engine)
 "UI" = (
@@ -16738,14 +16796,14 @@
 /turf/simulated/floor/plating,
 /area/ministation/trash)
 "Yy" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -17068,6 +17126,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/monotile,
 /area/ministation/atmospherics)
+"ZE" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ministation/engine)
 "ZF" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9
@@ -41460,7 +41524,7 @@ ad
 ad
 ad
 ad
-ad
+zF
 ac
 ac
 ac
@@ -43771,7 +43835,7 @@ aa
 aa
 WY
 aa
-ad
+zF
 ad
 ad
 ad
@@ -52583,7 +52647,7 @@ EZ
 EZ
 EZ
 Xh
-EZ
+ZE
 en
 DC
 Eu
@@ -52840,16 +52904,16 @@ IZ
 Gl
 Gs
 Qo
-GA
+SS
 GA
 Hi
 Hy
 HG
-Gb
+vj
 rr
 PG
 QJ
-DC
+oW
 jD
 eL
 hO
@@ -54134,7 +54198,7 @@ aa
 av
 av
 lv
-DC
+hL
 ZS
 UN
 Vm
