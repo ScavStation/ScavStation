@@ -42,8 +42,8 @@ var/global/list/_cooking_recipe_cache = list()
 	var/display_name              // Descriptive name of the recipe, should be unique to avoid codex pages being unsearchable. If not set, codex uses initial name of product.
 	var/list/reagents             // example: = list(/decl/material/liquid/drink/juice/berry = 5) // do not list same reagent twice
 	var/list/items                // example: = list(/obj/item/crowbar, /obj/item/welder, /obj/item/screwdriver = 2) // place /foo/bar before /foo
-	var/list/fruit                // example: = list(RECIPE_COMPONENT_FRUIT = 3)
-	var/cooking_time = 10 SECONDS                // Cooking time in deciseconds.
+	var/list/fruit                // example: = list("potato" = 1, "tomato chopped" = 3)
+	var/cooking_time = 10 SECONDS // Cooking time in deciseconds.
 
 	/// What categories can this recipe be cooked by? Null for any.
 	var/list/container_categories
