@@ -1,8 +1,8 @@
 /datum/job/submap
-	whitelisted_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	//whitelisted_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
 
 /decl/submap_archetype
-	whitelisted_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	//whitelisted_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
 
 /datum/map/tradeship
 	lobby_tracks = list(/decl/music_track/zazie)
