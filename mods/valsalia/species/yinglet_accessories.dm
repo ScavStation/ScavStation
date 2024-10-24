@@ -134,6 +134,14 @@
 	accessory_flags = VERY_SHORT | HAIR_BALD
 	uid = "hair_ying_bald"
 
+/decl/sprite_accessory/hair/yinglet/bedraggled
+	name = "Ying Bedraggled"
+	icon_state = "hair_bedraggled"
+	species_allowed = list(SPECIES_YINGLET)
+	icon = 'mods/valsalia/icons/species/yinglet/bedraggled_hair.dmi'
+	color_blend = ICON_MULTIPLY
+	uid = "hair_ying_bedraggled"
+
 /datum/category_item/underwear/bottom/yinglet_wraps
 	name = "Yinglet Wraps"
 	underwear_name = "wraps"
