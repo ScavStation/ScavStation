@@ -5704,11 +5704,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ministation/science)
 "vv" = (
-/obj/abstract/landmark/start{
-	name = "Warden"
-	},
 /obj/structure/bed/chair/armchair{
 	dir = 1
+	},
+/obj/abstract/landmark/start{
+	name = "Lawyer"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/court)
@@ -10061,7 +10061,7 @@
 "MA" = (
 /obj/structure/bed/chair/armchair,
 /obj/abstract/landmark/start{
-	name = "Warden"
+	name = "Lawyer"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/court)
