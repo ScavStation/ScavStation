@@ -59,13 +59,9 @@
 	access = list(
 		access_security,
 		access_sec_doors,
-		access_brig,
-		access_forensics_lockers,
-		access_armory,
 		access_heads,
 		access_medical,
 		access_engine,
-		access_atmospherics,
 		access_change_ids,
 		access_ai_upload,
 		access_eva,
@@ -103,9 +99,6 @@
 	minimal_access = list(
 		access_security,
 		access_sec_doors,
-		access_brig,
-		access_forensics_lockers,
-		access_armory,
 		access_heads,
 		access_medical,
 		access_engine,

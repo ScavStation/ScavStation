@@ -31,6 +31,21 @@
 	description = "A very comfortable-looking robe fashioned from a large piece of fabric."
 	uid = "gear_clothing_under_yinglet_zhorin_robe"
 
+/decl/loadout_option/uniform/flexsuit
+	name = "yinglet armored undersuit, colour select"
+	path = /obj/item/clothing/under/yinglet/flexsuit
+	cost = 3
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
+	description = "A state of the art mobility suit made for the common yinglet of Mollusc Station. Comes with built in armor and rad padding that can be layered, rumoured to be pressure resistant."
+	uid = "gear_clothing_under_yinglet_flexsuit"
+
+/decl/loadout_option/uniform/ballgown
+	name = "yinglet ballgown"
+	path = /obj/item/clothing/under/yinglet/ball_gown
+	cost = 1
+	description = "A voluminous ball gown made for those prone to have intense intrusive day dreams that parts of the daydream become real. So-so pretty but it looks difficult to run in."
+	uid = "gear_clothing_under_yinglet_ballgown"
+
 /decl/loadout_option/scav_medical_belt
 	name = "medical belt"
 	path = /obj/item/storage/belt/medical
