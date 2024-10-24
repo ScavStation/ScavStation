@@ -162,8 +162,9 @@
 	spawn_positions = 3
 	supervisors = "space law and your law firm"
 	economic_power = 9
-	selection_color = "#008800"
+	selection_color = "#4279d6"
 	access = list(access_lawyer, access_security)
+	hud_icon = "hudlawyer"
 	minimal_access = list(access_lawyer, access_security)
 	alt_titles = list(
 		"Attorney",
