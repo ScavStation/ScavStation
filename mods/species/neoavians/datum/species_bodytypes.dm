@@ -1,13 +1,12 @@
 /decl/bodytype/prosthetic/avian
 	name = "synthetic avian"
 	icon_base            = 'mods/species/neoavians/icons/body_synthetic.dmi'
-	blood_overlays       = /decl/bodytype/avian::blood_overlays
-	skeletal_icon        = /decl/bodytype/avian::skeletal_icon
-	bodytype_category    = /decl/bodytype/avian::bodytype_category
-	bodytype_flag        = /decl/bodytype/avian::bodytype_flag
-	mob_size             = /decl/bodytype/avian::mob_size
-	eye_icon             = /decl/bodytype/avian::eye_icon
-	nail_noun            = /decl/bodytype/avian::nail_noun
+	blood_overlays       = 'mods/species/neoavians/icons/blood_avian.dmi'
+	bodytype_category    = BODYTYPE_AVIAN
+	bodytype_flag        = BODY_FLAG_AVIAN
+	mob_size             = MOB_SIZE_LARGE
+	eye_icon             = 'mods/species/neoavians/icons/eyes.dmi'
+	nail_noun            = "talons"
 	override_limb_types  = list(BP_TAIL = /obj/item/organ/external/tail/avian) // lists cannot use initial()
 	uid                  = "bodytype_prosthetic_avian"
 	var/tail             = "tail_avian"
@@ -36,7 +35,7 @@
 	appearance_flags     = HAS_SKIN_COLOR | HAS_EYE_COLOR
 	base_color           = "#252525"
 	base_eye_color       = "#f5c842"
-	mob_size             = MOB_SIZE_SMALL
+	mob_size             = MOB_SIZE_LARGE
 	nail_noun            = "talons"
 	has_organ            = list(
 		BP_STOMACH = /obj/item/organ/internal/stomach,
