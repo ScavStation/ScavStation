@@ -189,7 +189,9 @@
 "at" = (
 /obj/item/stool/wood,
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -260,7 +262,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories9)
 "aA" = (
@@ -1031,7 +1035,9 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints/reversed{
 	color = "#a10808"
 	},
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /obj/item/clothing/glasses/welding,
 /obj/item/weldingtool/mini,
 /turf/simulated/floor/tiled/old_tile,
@@ -1989,7 +1995,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories8)
 "dd" = (
@@ -2895,7 +2903,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories2)
 "er" = (
@@ -3396,7 +3406,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories6)
 "eY" = (
@@ -5210,7 +5222,9 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
 /obj/machinery/light/small,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories3)
 "hq" = (
@@ -5806,7 +5820,9 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/purple,
 /obj/machinery/light/small,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories5)
 "ii" = (
@@ -6199,7 +6215,9 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/rainbow,
 /obj/machinery/light/small,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories1)
 "iM" = (
@@ -6823,7 +6841,9 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/red,
 /obj/machinery/light/small,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /obj/random/trash,
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories7)
@@ -7849,7 +7869,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories4)
 "lm" = (
@@ -8699,7 +8721,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories10)
 "mz" = (
@@ -9805,7 +9829,9 @@
 /area/template_noop)
 "of" = (
 /obj/item/stool/wood,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -10076,7 +10102,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -13056,7 +13084,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/abstract/submap_landmark/spawnpoint/hateville_spawn,
+/obj/abstract/submap_landmark/spawnpoint/hateville_spawn{
+	name = "Colony Survivor"
+	},
 /turf/simulated/floor/tiled/white{
 	color = "#a9c7cd"
 	},

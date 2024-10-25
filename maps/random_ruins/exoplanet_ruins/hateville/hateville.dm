@@ -70,7 +70,7 @@
 	pda_type = null
 
 /obj/abstract/submap_landmark/spawnpoint/hateville_spawn
-	name = "Survivor"
+	name = "Colony Survivor"
 
 /obj/abstract/submap_landmark/joinable_submap/hateville
 	name = "Overrun Colony"
