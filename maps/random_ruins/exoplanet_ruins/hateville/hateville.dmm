@@ -1544,6 +1544,7 @@
 	dir = 5
 	},
 /obj/machinery/door/firedoor,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/hateville/environment)
 "cu" = (
@@ -10721,13 +10722,13 @@
 /turf/exterior/concrete/reinforced/road,
 /area/map_template/hateville/materials)
 "pV" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 4
+/obj/structure/catwalk,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/techfloor{
+	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/template_noop,
+/turf/exterior/concrete,
 /area/map_template/hateville/power)
 "pW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -11240,9 +11241,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
 	},
 /obj/effect/floor_decal/techfloor{
 	dir = 1
@@ -17831,7 +17829,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/exosuit/premade/firefighter,
+/obj/structure/mech_wreckage/military,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "Fv" = (
@@ -18874,12 +18872,11 @@
 /area/map_template/hateville/mining)
 "HG" = (
 /obj/effect/floor_decal/industrial/warning/dust{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/railing/mapped{
-	dir = 4
+	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
 /area/map_template/hateville/power)
 "HH" = (
@@ -23504,11 +23501,12 @@
 /area/template_noop)
 "Sa" = (
 /obj/effect/floor_decal/industrial/warning/dust{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/railing/mapped{
-	dir = 8
+	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
 /area/map_template/hateville/power)
 "Sb" = (
@@ -23777,6 +23775,7 @@
 	dir = 9
 	},
 /obj/machinery/door/firedoor,
+/obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/hateville/environment)
 "SH" = (
@@ -24829,7 +24828,12 @@
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "UR" = (
-/obj/effect/decal/cleanable/blood,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/template_noop,
 /area/map_template/hateville/power)
 "UT" = (
@@ -27101,13 +27105,8 @@
 /turf/simulated/floor/carpet/green,
 /area/map_template/hateville/medical)
 "ZG" = (
-/obj/structure/catwalk,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/techfloor{
-	dir = 8
-	},
-/turf/exterior/concrete,
+/obj/effect/decal/cleanable/blood,
+/turf/template_noop,
 /area/map_template/hateville/power)
 "ZH" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -31171,7 +31170,7 @@ qZ
 Cr
 am
 rR
-UR
+ZG
 vC
 am
 aa
@@ -31243,7 +31242,7 @@ wM
 ep
 yz
 Dz
-UR
+ZG
 IA
 cv
 IA
@@ -31315,13 +31314,13 @@ qV
 dm
 cv
 hl
-pV
+UR
 dm
 hl
 dm
 og
 dm
-HG
+Sa
 hl
 cv
 dm
@@ -32035,13 +32034,13 @@ qV
 cr
 cv
 df
-Sa
+HG
 cr
 Yl
 cr
 Yl
 cr
-Sa
+HG
 df
 aa
 cr
@@ -32179,13 +32178,13 @@ eZ
 qV
 If
 xJ
-ZG
+pV
 qK
-ZG
+pV
 Sq
-ZG
+pV
 qK
-ZG
+pV
 Vh
 If
 qV
