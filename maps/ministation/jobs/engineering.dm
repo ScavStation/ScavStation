@@ -6,7 +6,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/ministation/engineer
 	department_types = list(/decl/department/engineering)
 	selection_color = "#5b4d20"
-	economic_power = 5
+	economic_power = 7
 	minimal_player_age = 3
 	access = list(
 		access_eva,
@@ -62,7 +62,7 @@
 	spawn_positions = 1
 	selection_color = "#7f6e2c"
 	req_admin_notify = 1
-	economic_power = 10
+	economic_power = 12
 	ideal_character_age = 50
 	guestbanned = 1
 	must_fill = 1
