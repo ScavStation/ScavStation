@@ -87,6 +87,13 @@
 	detail_color = COLOR_WHITE
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
+/obj/item/clothing/under/yinglet/ball_gown
+	name = "ball gown"
+	desc = "A voluminous ball gown made for those prone to have intense intrusive day dreams that parts of the daydream become real. So-so pretty but it looks difficult to run in."
+	icon = 'mods/valsalia/icons/clothing/under/ballgown.dmi'
+	color = null
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
 /obj/item/clothing/head/yinglet
 	name = "small hood"
 	desc = "A yinglet-sized cloth hood and mantle. It has ear holes."
@@ -465,17 +472,32 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	yinglet_icon = null
 
-
 /obj/item/clothing/under/yinglet/flexsuit
 	name = "flex suit"
 	desc = "A state of the art mobility suit made for the common yinglet of Mollusc Station. Comes with built in armor and rad padding that can be layered, rumoured to be pressure resistant."
-	icon = 'mods/valsalia/icons/clothing/under/jumpshootsuit.dmi'
+	icon = 'mods/valsalia/icons/clothing/under/flexsuit.dmi'
 	color = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS|SLOT_TAIL
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	min_pressure_protection = 0
+	min_pressure_protection = -1
 	heat_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS
+	armor = list(
+		ARMOR_MELEE = ARMOR_MELEE_RESISTANT,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER = ARMOR_LASER_SMALL,
+		ARMOR_RAD = ARMOR_RAD_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB = ARMOR_BOMB_PADDED
+		)
+	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
+	detail_color = COLOR_WHITE
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/under/yinglet/flexsuit/xl
+	name = "flex suit"
+	desc = "A state of the art mobility suit custom made for the uncommon yinglet of Mollusc Station. Comes with built in armor, rad and laser padding that can be layered, definitely pressure resistant."
+	icon = 'mods/valsalia/icons/clothing/under/jumpshootsuit.dmi'
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
 		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
@@ -484,5 +506,49 @@
 		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
 		ARMOR_BOMB = ARMOR_BOMB_PADDED
 		)
-	max_pressure_protection = VOIDSUIT_MAX_PRESSURE
 	siemens_coefficient = 0.3
+
+/obj/item/clothing/suit/armor/flexsuitvest
+	name = "flex suit vest"
+	desc = "A custom armor vest chest covering fitted for use with the flex suit."
+	icon = 'mods/valsalia/icons/clothing/suit/jumpshootvest.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	armor = list(
+		ARMOR_MELEE  = ARMOR_MELEE_RESISTANT,
+		ARMOR_BULLET = ARMOR_BALLISTIC_RIFLE,
+		ARMOR_LASER = ARMOR_LASER_HANDGUNS,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB   = ARMOR_BOMB_MINOR
+		)
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS
+	cold_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS
+	heat_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS
+	material = /decl/material/solid/organic/leather
+	matter = list(
+		/decl/material/solid/metal/titanium = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT
+	)
+
+/obj/item/clothing/head/helmet/space/flexsuithelmet
+	name = "flex suit helmet"
+	desc = "A custom sttreamlined armor helmet covering fitted for use with the flex suit. It is noteably shiny, heavy and made for a user with a large shall tooth and long nose."
+	icon = 'mods/valsalia/icons/clothing/head/jumpshoothelm.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	armor = list(
+		ARMOR_MELEE  = ARMOR_MELEE_RESISTANT,
+		ARMOR_BULLET = ARMOR_BALLISTIC_RIFLE,
+		ARMOR_LASER = ARMOR_LASER_MAJOR,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB   = ARMOR_BOMB_PADDED
+		)
+	body_parts_covered = SLOT_HEAD
+	cold_protection = SLOT_HEAD
+	heat_protection = SLOT_HEAD
+	material = /decl/material/solid/organic/leather
+	matter = list(
+		/decl/material/solid/metal/titanium = MATTER_AMOUNT_REINFORCEMENT,
+		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT
+	)
+	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
+	min_pressure_protection = 0
+	siemens_coefficient = 0.7

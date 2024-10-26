@@ -26,17 +26,13 @@
 	selection_color = "#a89004"
 	access = list(
 		access_lawyer,
-		access_security,
 		access_sec_doors,
-		access_brig,
 		access_heads,
 		access_medical,
 		access_engine,
 		access_atmospherics,
-		access_ai_upload,
 		access_eva,
 		access_bridge,
-		access_all_personal_lockers,
 		access_maint_tunnels,
 		access_bar,
 		access_janitor,
@@ -53,7 +49,6 @@
 		access_library,
 		access_research,
 		access_mining,
-		access_heads_vault,
 		access_mining_station,
 		access_hop,
 		access_RC_announce,
@@ -63,7 +58,6 @@
 
 	minimal_access = list(
 		access_lawyer,
-		access_security,
 		access_sec_doors,
 		access_brig,
 		access_medical,
