@@ -57,7 +57,7 @@
 
 /datum/job/ministation/hop
 	title = "Head of Personnel"
-	alt_titles = list("Patriarch of Personnel","Lieutenant")
+	alt_titles = list("Patriarch of Personnel","Lieutenant","Judge")
 	supervisors = "the Captain"
 	outfit_type = /decl/hierarchy/outfit/job/ministation/hop
 	head_position = 1
