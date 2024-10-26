@@ -70,10 +70,10 @@
 	standalone_value_descriptors = list(
 		"a hatchling" =     1,
 		"an younglet" =     3,
-		"an adult" =        6,
-		"middle-aged" =    15,
-		"aging" =          25,
-		"elderly" =        30
+		"an adult" =        18,
+		"middle-aged" =    30,
+		"aging" =          45,
+		"elderly" =        50
 	)
 
 /decl/bodytype/yinglet/Initialize()

@@ -1,5 +1,5 @@
 /datum/appearance_descriptor/age/neoavian
-	chargen_min_index = 3
+	chargen_min_index = 4
 	chargen_max_index = 6
 	standalone_value_descriptors = list(
 		"a hatchling" =     1,
