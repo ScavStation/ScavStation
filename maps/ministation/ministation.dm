@@ -15,6 +15,7 @@ And then imported back to ScavStation!
 //	#endif
 
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
+	#include "../random_ruins/exoplanet_ruins/hateville/hateville.dm"
 	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/corporate/_corporate.dme"
