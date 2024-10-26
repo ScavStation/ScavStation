@@ -28,7 +28,7 @@
 	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
 	#include "../../mods/species/bayliens/_bayliens.dme"
-	//#include "../../mods/species/vox/_vox.dme"
+	#include "../../mods/species/vox/_vox.dme" //ChaosStation Readdition
 
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/casino/casino.dm"
