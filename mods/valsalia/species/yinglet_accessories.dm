@@ -134,6 +134,22 @@
 	accessory_flags = VERY_SHORT | HAIR_BALD
 	uid = "hair_ying_bald"
 
+/decl/sprite_accessory/hair/yinglet/akoll
+	name = "Ying Akoll"
+	icon_state = "hair_akoll"
+	accessory_flags = HAIR_TIEABLE
+	uid = "hair_ying_akoll"
+
+/decl/sprite_accessory/hair/yinglet/fonzie
+	name = "Ying Fonzie"
+	icon_state = "hair_fonzie"
+	uid = "hair_ying_fonzie"
+
+/decl/sprite_accessory/hair/yinglet/pompador
+	name = "Ying Pompador"
+	icon_state = "hair_pompador"
+	uid = "hair_ying_pompador"
+
 /datum/category_item/underwear/bottom/yinglet_wraps
 	name = "Yinglet Wraps"
 	underwear_name = "wraps"
