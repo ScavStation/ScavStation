@@ -1165,7 +1165,7 @@
 "dT" = (
 /obj/structure/closet/lawcloset,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/maint/l3ne)
 "dV" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
@@ -2452,7 +2452,7 @@
 /area/ministation/science)
 "iq" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/maint/l3ne)
 "it" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4367,15 +4367,6 @@
 /obj/structure/lattice,
 /turf/simulated/wall/plastic,
 /area/ministation/enclave/matriarch)
-"pi" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/filing_cabinet/wall{
-	pixel_y = 30
-	},
-/turf/simulated/floor/wood/walnut,
-/area/ministation/court)
 "pk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable{
@@ -5426,7 +5417,10 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/ministation/science)
 "uw" = (
-/obj/machinery/door/airlock/hatch/maintenance,
+/obj/machinery/door/airlock/hatch/maintenance{
+	req_access = list("ACCESS_LAWYER");
+	autoset_access = 0
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/court)
 "uz" = (
@@ -7993,7 +7987,7 @@
 "DL" = (
 /obj/structure/closet/wardrobe/lawyer_black,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/maint/l3ne)
 "DO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -9537,7 +9531,7 @@
 "Kk" = (
 /obj/structure/closet/secure_closet/courtroom,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/maint/l3ne)
 "Kp" = (
 /obj/structure/table/woodentable_reinforced/ebony/walnut,
 /obj/structure/catwalk,
@@ -9962,7 +9956,7 @@
 "Mk" = (
 /obj/structure/closet/secure_closet/lawyer,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/maint/l3ne)
 "Ml" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10971,7 +10965,7 @@
 "PS" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/ministation/maint/l3ne)
 "PT" = (
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11180,7 +11174,10 @@
 /turf/simulated/floor/plating,
 /area/ministation/science)
 "QQ" = (
-/obj/machinery/door/airlock/hatch/maintenance,
+/obj/machinery/door/airlock/hatch/maintenance{
+	req_access = list("ACCESS_LAWYER");
+	autoset_access = 0
+	},
 /turf/simulated/floor/tiled,
 /area/ministation/maint/l3ne)
 "QR" = (
@@ -47751,7 +47748,7 @@ TF
 Px
 Ov
 Rx
-pi
+BV
 Sa
 PB
 QD
@@ -48265,7 +48262,7 @@ PT
 dn
 nW
 Rx
-pi
+BV
 Sa
 Rf
 Sa
@@ -50831,7 +50828,7 @@ cw
 cw
 cw
 cw
-Mi
+nl
 DL
 iq
 nl
@@ -51088,7 +51085,7 @@ cw
 cw
 cw
 cw
-Mi
+nl
 Mk
 PS
 nl
@@ -51345,7 +51342,7 @@ cw
 cw
 cw
 cw
-Mi
+nl
 dT
 iq
 nl
@@ -51602,8 +51599,8 @@ cw
 cw
 cw
 cw
-Mi
-Mi
+nl
+nl
 Kk
 nl
 Gb
@@ -51860,8 +51857,8 @@ cw
 cw
 cw
 cw
-Mi
-Mi
+nl
+nl
 nl
 MD
 iB
