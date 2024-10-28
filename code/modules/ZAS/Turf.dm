@@ -226,6 +226,10 @@
 /turf/return_air()
 	RETURN_TYPE(/datum/gas_mixture)
 
+	// TODO: immutable gas mixtures for stuff like this, to avoid creating new datums every time.
+	if(!simulated)
+		return make_air()
+
 	// ZAS participation
 	if(zone && !zone.invalid)
 		SSair.mark_zone_update(zone)
@@ -256,7 +260,7 @@
 	return FALSE
 
 /turf/proc/make_air()
-	air = new/datum/gas_mixture
+	air = new /datum/gas_mixture
 	air.temperature = temperature
 	if(initial_gas)
 		air.gas = initial_gas.Copy()
