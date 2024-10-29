@@ -33,7 +33,7 @@
 /mob/observer/eye/Move(n, direct)
 	if(owner == src)
 		return EyeMove(direct)
-	return 0
+	return FALSE
 
 /mob/observer/eye/facedir(var/ndir)
 	if(!canface())
@@ -114,7 +114,7 @@
 
 /mob/proc/EyeMove(n, direct)
 	if(!eyeobj)
-		return
+		return FALSE
 
 	return eyeobj.EyeMove(n, direct)
 
@@ -129,10 +129,10 @@
 		var/turf/destination = (direct == UP) ? GetAbove(src) : GetBelow(src)
 		if(!destination)
 			to_chat(owner, "<span class='notice'>There is nothing of interest in this direction.</span>")
-			return
+			return FALSE
 
 		setLoc(destination)		// No sprinting up and down.
-		return
+		return FALSE
 
 	for(var/i = 0; i < max(sprint, initial); i += 20)
 		var/turf/step = get_turf(get_step(src, direct))
@@ -144,7 +144,7 @@
 		sprint = min(sprint + 0.5, max_sprint)
 	else
 		sprint = initial
-	return 1
+	return TRUE
 
 // Used to apply fullscreen effects etc. to owner
 /mob/observer/eye/apply_visual(var/mob/M)

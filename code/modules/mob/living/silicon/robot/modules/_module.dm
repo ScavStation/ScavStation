@@ -7,9 +7,9 @@
 
 	var/associated_department
 	var/hide_on_manifest = 0
-	var/channels = list()
-	var/camera_channels = list()
-	var/languages = list(
+	var/list/channels = list()
+	var/list/camera_channels = list()
+	var/list/languages = list(
 		/decl/language/human/common = TRUE,
 		/decl/language/legal = TRUE,
 		/decl/language/sign = FALSE

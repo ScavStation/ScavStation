@@ -85,16 +85,6 @@
 	update_values()
 
 
-//Variadic version of adjust_gas_temp().  Takes any number of gas, mole and temperature associations and applies them.
-/datum/gas_mixture/proc/adjust_multi_temp()
-	ASSERT(!(args.len % 3))
-
-	for(var/i = 1; i < args.len; i += 3)
-		adjust_gas_temp(args[i], args[i + 1], args[i + 2], update = 0)
-
-	update_values()
-
-
 /// Merges all the gas from another mixture into this one.  Respects group_multipliers and adjusts temperature correctly.
 /// Does not modify giver in any way.
 /datum/gas_mixture/proc/merge(const/datum/gas_mixture/giver)
@@ -375,6 +365,7 @@
 
 //Rechecks the gas_mixture and adjusts the graphic list if needed.
 //Two lists can be passed by reference if you need know specifically which graphics were added and removed.
+// Returns TRUE if the graphics list was mutated.
 /datum/gas_mixture/proc/check_tile_graphic(list/graphic_add = null, list/graphic_remove = null)
 	for(var/obj/effect/gas_overlay/O in graphic)
 		if(gas[O.material.type] <= O.material.gas_overlay_limit)
@@ -388,14 +379,14 @@
 			var/tile_overlay = tile_overlay_cache[g]
 			if(!(tile_overlay in graphic))
 				LAZYADD(graphic_add, tile_overlay)
-	. = 0
+	. = FALSE
 	//Apply changes
 	if(graphic_add && graphic_add.len)
 		graphic |= graphic_add
-		. = 1
+		. = TRUE
 	if(graphic_remove && graphic_remove.len)
 		graphic -= graphic_remove
-		. = 1
+		. = TRUE
 	if(graphic.len)
 		var/pressure_mod = clamp(return_pressure() / ONE_ATMOSPHERE, 0, 2)
 		for(var/obj/effect/gas_overlay/O in graphic)

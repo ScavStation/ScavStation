@@ -106,7 +106,7 @@
 	var/decl/move_intent/default_run_intent
 
 	var/datum/storage/active_storage
-	var/obj/buckled = null//Living
+	var/atom/movable/buckled = null
 	var/in_throw_mode = 0
 
 	var/can_pull_size = ITEM_SIZE_STRUCTURE // Maximum w_class the mob can pull.

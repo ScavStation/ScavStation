@@ -141,10 +141,10 @@
 	return ..(ml, material_key)
 
 /obj/item/poster/proc/set_design(var/decl/poster_design/_design_path)
-	if(_design_path == poster_design)
-		return TRUE
 	if(ispath(_design_path, /decl))
 		_design_path = GET_DECL(_design_path)
+	if(_design_path == poster_design)
+		return TRUE
 	if(!istype(_design_path))
 		CRASH("Invalid poster type: [log_info_line(_design_path)]")
 

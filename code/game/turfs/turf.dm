@@ -14,7 +14,7 @@
 
 	var/turf_flags
 
-	// Initial air contents (in moles)
+	/// Either a mapping of material decls to mol amounts, or a reserved initial gas define like GAS_STANDARD_AIRMIX.
 	var/list/initial_gas
 
 	//Properties for airtight tiles (/wall)

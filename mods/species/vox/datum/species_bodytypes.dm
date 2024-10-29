@@ -56,8 +56,8 @@
 		)
 	)
 
-	var/vox_hair_icon = 'mods/species/vox/icons/body/soldier/hair.dmi'
-	var/vox_marking_icon = 'mods/species/vox/icons/body/soldier/markings.dmi'
+	var/icon/vox_hair_icon = 'mods/species/vox/icons/body/soldier/hair.dmi'
+	var/icon/vox_marking_icon = 'mods/species/vox/icons/body/soldier/markings.dmi'
 
 /decl/bodytype/vox/Initialize()
 	if(!length(equip_adjust))

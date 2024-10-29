@@ -7,7 +7,7 @@
 	backyard_grilling_product = /obj/item/food/flatbread
 	backyard_grilling_announcement = "is baked into a simple flatbread."
 	nutriment_amt = 4
-	nutriment_desc = "raw dough"
+	nutriment_desc = list("raw dough" = 1)
 	slice_path = /obj/item/food/unleaveneddoughslice
 	slice_num = 3
 

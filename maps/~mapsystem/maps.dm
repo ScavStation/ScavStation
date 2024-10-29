@@ -195,7 +195,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 /datum/map/proc/get_random_location()
 	var/list/options = list()
 	for(var/cat_type in available_background_info)
-		var/decl/background_category/background_cat = GET_DECL(available_background_info[cat_type])
+		var/decl/background_category/background_cat = GET_DECL(cat_type)
 		if(istype(background_cat) && (background_cat.background_flags & BACKGROUND_FLAG_LOCATION))
 			options |= available_background_info[cat_type]
 	if(length(options))
@@ -400,7 +400,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		log_unit_test("Loaded template '[PT]' ([PT.type]) at Z-level [world.maxz] with a tallness of [PT.tallness]")
 #endif
 
-// By default transition randomly to another zlevel
+// By default return a random accessible z-level, or the current level if one is unavailable
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
 	var/list/candidates = SSmapping.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))

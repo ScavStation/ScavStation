@@ -8,7 +8,7 @@
 	var/list/appearance_descriptors = list()
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
 
-	var/icon/bgstate
+	var/bgstate
 
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"

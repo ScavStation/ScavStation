@@ -12,9 +12,9 @@
 
 	req_access = list(access_lawyer)
 
-	gloves = FALSE
-	helmet = FALSE
-	boots =  FALSE
+	gloves = null
+	helmet = null
+	boots = null
 	chest = /obj/item/clothing/suit/space/rig/internal_affairs
 
 	hides_uniform = 0
@@ -377,8 +377,8 @@
 
 	chest =  /obj/item/clothing/suit/space/rig/zero
 	helmet = /obj/item/clothing/head/helmet/space/rig/zero
-	boots =  FALSE
-	gloves = FALSE
+	boots = null
+	gloves = null
 	max_pressure_protection = null
 	min_pressure_protection = 0
 

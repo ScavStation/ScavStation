@@ -163,8 +163,10 @@ var/global/list/bodytypes_by_category = list()
 		BP_EYES =     /obj/item/organ/internal/eyes
 	)
 
-	var/vision_organ              // If set, this organ is required for vision.
-	var/breathing_organ           // If set, this organ is required for breathing.
+	/// If set, an organ with this tag is required for vision.
+	var/vision_organ
+	/// If set, an organ with this tag is required for breathing
+	var/breathing_organ
 
 	var/list/override_organ_types // Used for species that only need to change one or two entries in has_organ.
 

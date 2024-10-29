@@ -5,4 +5,4 @@
 	icon_state = ICON_STATE_WORLD
 	center_of_mass = @'{"x":16,"y":16}'
 	nutriment_amt = 4
-	nutriment_desc = "raw pie crust"
+	nutriment_desc = list("raw pie crust" = 1)

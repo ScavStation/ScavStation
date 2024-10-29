@@ -28,7 +28,7 @@
 	var/key = ""                        // Character used to speak in language
 	var/flags = 0                       // Various language flags.
 	var/list/syllables                  // Used when scrambling text for a non-speaker.
-	var/list/space_chance = 55          // Likelihood of getting a space in the random scramble string
+	var/space_chance = 55               // Likelihood of getting a space in the random scramble string
 	var/machine_understands = 1         // Whether machines can parse and understand this language
 	var/shorthand = "???"               // Shorthand that shows up in chat for this language.
 	var/list/partial_understanding      // List of languages that can /somehwat/ understand it, format is: name = chance of understanding a word

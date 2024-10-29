@@ -96,7 +96,7 @@
 	..()
 
 /obj/proc/interact(mob/user)
-	return
+	return FALSE
 
 /obj/proc/hide(var/hide)
 	set_invisibility(hide ? INVISIBILITY_MAXIMUM : initial(invisibility))

@@ -206,7 +206,7 @@
 	volume = 20
 	nutriment_amt = 5
 	nutriment_type = /decl/material/liquid/nutriment
-	nutriment_desc = "crunchy waffle cone"
+	nutriment_desc = list("crunchy waffle cone" = 1)
 	var/ice_creamed
 	var/cone_type
 

@@ -81,32 +81,20 @@
 /obj/machinery/portable_atmospherics/canister/empty
 	start_pressure = 0
 	can_label      = TRUE
-	var/obj/machinery/portable_atmospherics/canister/canister_type = /obj/machinery/portable_atmospherics/canister
 
-/obj/machinery/portable_atmospherics/canister/empty/Initialize()
-	. = ..()
-	name           = initial(canister_type.name)
-	icon_state     = initial(canister_type.icon_state)
-	canister_color = initial(canister_type.canister_color)
+#define EMPTY_CANISTER(TYPE, CTYPE) \
+/obj/machinery/portable_atmospherics/canister/empty/##TYPE{\
+	name = CTYPE::name; \
+	icon_state = CTYPE::icon_state; \
+	canister_color = CTYPE::canister_color; \
+}
 
-/obj/machinery/portable_atmospherics/canister/empty/air
-	icon_state    = "grey"
-	canister_type = /obj/machinery/portable_atmospherics/canister/air
-/obj/machinery/portable_atmospherics/canister/empty/oxygen
-	icon_state    = "blue"
-	canister_type = /obj/machinery/portable_atmospherics/canister/oxygen
-/obj/machinery/portable_atmospherics/canister/empty/nitrogen
-	icon_state    = "red"
-	canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide
-	icon_state    = "black"
-	canister_type = /obj/machinery/portable_atmospherics/canister/carbon_dioxide
-/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent
-	icon_state    = "redws"
-	canister_type = /obj/machinery/portable_atmospherics/canister/sleeping_agent
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen
-	icon_state    = "purple"
-	canister_type = /obj/machinery/portable_atmospherics/canister/hydrogen
+EMPTY_CANISTER(air, /obj/machinery/portable_atmospherics/canister/air)
+EMPTY_CANISTER(oxygen, /obj/machinery/portable_atmospherics/canister/oxygen)
+EMPTY_CANISTER(nitrogen, /obj/machinery/portable_atmospherics/canister/nitrogen)
+EMPTY_CANISTER(carbon_dioxide, /obj/machinery/portable_atmospherics/canister/carbon_dioxide)
+EMPTY_CANISTER(sleeping_agent, /obj/machinery/portable_atmospherics/canister/sleeping_agent)
+EMPTY_CANISTER(hydrogen, /obj/machinery/portable_atmospherics/canister/hydrogen)
 
 /obj/machinery/portable_atmospherics/canister/on_update_icon()
 

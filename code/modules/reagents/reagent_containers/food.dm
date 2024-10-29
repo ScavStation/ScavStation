@@ -37,6 +37,7 @@
 	// List of flavours and flavour strengths.
 	// The flavour strength text is determined by the ratio of flavour strengths in the snack.
 	var/list/nutriment_desc
+	/// Either a path to a sound file, a get_sfx sound string, or a list of any combination of those.
 	var/list/eat_sound = 'sound/items/eatfood.ogg'
 	var/filling_color = "#ffffff" //Used by sandwiches.
 	var/trash

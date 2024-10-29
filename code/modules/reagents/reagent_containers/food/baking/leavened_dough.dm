@@ -30,7 +30,7 @@
 	center_of_mass = @'{"x":16,"y":16}'
 	utensil_flags = UTENSIL_FLAG_COLLECT | UTENSIL_FLAG_SLICE
 	nutriment_amt = 4
-	nutriment_desc = "raw dough"
+	nutriment_desc = list("raw dough" = 1)
 	// TODO: pizza base with no toppings? Some other round leavened bread product?
 	backyard_grilling_product = /obj/item/food/flatbread
 	backyard_grilling_announcement = "is baked into a simple flatbread."

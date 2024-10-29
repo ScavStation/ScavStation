@@ -801,7 +801,7 @@
 	return TRUE
 
 var/global/list/_blood_overlay_cache = list()
-var/global/list/_item_blood_mask = icon('icons/effects/blood.dmi', "itemblood")
+var/global/icon/_item_blood_mask = icon('icons/effects/blood.dmi', "itemblood")
 /obj/item/proc/generate_blood_overlay(force = FALSE)
 	if(blood_overlay && !force)
 		return
@@ -1148,7 +1148,7 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	set name = "Switch Gathering Method"
 	set category = "Object"
 	if(!storage)
-		verbs = /obj/item/proc/toggle_gathering_mode
+		verbs -= /obj/item/proc/toggle_gathering_mode
 		return
 	storage.collection_mode = !storage.collection_mode
 	switch (storage.collection_mode)
@@ -1161,7 +1161,7 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	set name = "Empty Contents"
 	set category = "Object"
 	if(!storage)
-		verbs = /obj/item/proc/quick_empty
+		verbs -= /obj/item/proc/quick_empty
 		return
 	if((!ishuman(usr) && (loc != usr)) || usr.stat || usr.restrained())
 		return

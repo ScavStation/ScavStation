@@ -13,16 +13,6 @@
 	return splittext(safe_file2text(filename), seperator)
 
 // Turns a direction into text
-/proc/num2dir(direction)
-	switch (direction)
-		if (1.0) return NORTH
-		if (2.0) return SOUTH
-		if (4.0) return EAST
-		if (8.0) return WEST
-		else
-			to_world_log("UNKNOWN DIRECTION: [direction]")
-
-// Turns a direction into text
 /proc/dir2text(direction)
 	switch (direction)
 		if (NORTH)     return "north"
@@ -40,14 +30,14 @@
 // Turns text into proper directions
 /proc/text2dir(direction)
 	switch (uppertext(direction))
-		if ("NORTH")     return 1
-		if ("SOUTH")     return 2
-		if ("EAST")      return 4
-		if ("WEST")      return 8
-		if ("NORTHEAST") return 5
-		if ("NORTHWEST") return 9
-		if ("SOUTHEAST") return 6
-		if ("SOUTHWEST") return 10
+		if ("NORTH")     return NORTH
+		if ("SOUTH")     return SOUTH
+		if ("EAST")      return EAST
+		if ("WEST")      return WEST
+		if ("NORTHEAST") return NORTHEAST
+		if ("NORTHWEST") return NORTHWEST
+		if ("SOUTHEAST") return SOUTHEAST
+		if ("SOUTHWEST") return SOUTHWEST
 
 // Converts an angle (degrees) into an ss13 direction
 /proc/angle2dir(var/degree)

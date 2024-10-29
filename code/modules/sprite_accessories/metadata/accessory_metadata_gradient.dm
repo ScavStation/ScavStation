@@ -2,7 +2,7 @@
 	name          = "Gradient"
 	uid           = "sa_metadata_gradient"
 	default_value = "none"
-	var/icon      = 'icons/mob/hair_gradients.dmi'
+	var/icon/icon = 'icons/mob/hair_gradients.dmi'
 	/// A list of text labels for states that need more than just capitalize() to be presentable.
 	var/list/selectable_states_to_labels = list(
 		"fadeup"                 = "Fade Up",
@@ -42,7 +42,7 @@
 	return istext(value) && (value in selectable_states_to_labels)
 
 /decl/sprite_accessory_metadata/gradient/get_metadata_options_string(datum/preferences/pref, decl/sprite_accessory_category/accessory_category_decl, decl/sprite_accessory/accessory_decl, value)
-	if(!value || !validate(value))
+	if(!value || !validate_data(value))
 		value = default_value
 	return "<a href='byond://?src=\ref[pref];acc_cat_decl=\ref[accessory_category_decl];acc_decl=\ref[accessory_decl];acc_metadata=\ref[src]'>[selectable_states_to_labels[value]]</a>"
 
