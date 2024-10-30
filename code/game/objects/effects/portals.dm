@@ -5,7 +5,7 @@
 	icon_state = "portal"
 	density = TRUE
 	anchored = TRUE
-	var/obj/item/target = null
+	var/atom/target = null
 	var/dangerous = FALSE
 	var/failchance = 0
 

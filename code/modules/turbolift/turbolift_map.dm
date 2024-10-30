@@ -210,7 +210,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/turbolift_spawner)
 							newdoor = new door_type(checking)
 							if(internal)
 								lift.doors += newdoor
-								newdoor.lift = cfloor
+								newdoor.lift = lift
 							else
 								cfloor.doors += newdoor
 								newdoor.floor = cfloor

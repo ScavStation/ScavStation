@@ -16,9 +16,9 @@ Basically: I can use it to target things where I click. I can then pass these ta
 	var/next_spell_time = 0
 	var/spell/hand/hand_spell
 
-/obj/item/magic_hand/Initialize()
+/obj/item/magic_hand/Initialize(ml, _hand_spell)
 	. = ..()
-	hand_spell = loc
+	hand_spell = _hand_spell
 	name = "[name] ([hand_spell.name])"
 	icon_state = hand_spell.hand_state
 

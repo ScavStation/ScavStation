@@ -195,16 +195,16 @@ var/global/list/_test_storage_items = list()
 //such as when picking up all the items on a tile with one click.
 /datum/storage/proc/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update, click_params)
 	if(!istype(W))
-		return 0
+		return FALSE
 	if(ismob(W.loc))
 		var/mob/M = W.loc
 		if(!M.try_unequip(W))
-			return
+			return FALSE
 
 	if(holder.reagents?.total_volume)
 		W.fluid_act(holder.reagents)
 		if(QDELETED(W))
-			return
+			return FALSE
 
 	W.forceMove(holder)
 	W.on_enter_storage(src)
@@ -225,7 +225,7 @@ var/global/list/_test_storage_items = list()
 	holder.storage_inserted()
 	if(!skip_update)
 		holder.update_icon()
-	return 1
+	return TRUE
 
 /datum/storage/proc/consolidate_stacks()
 

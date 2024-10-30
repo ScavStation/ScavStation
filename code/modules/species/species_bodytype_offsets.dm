@@ -1,12 +1,12 @@
 /*
 These are all the things that can be adjusted for equipping stuff and
 each one can be in the NORTH, SOUTH, EAST, and WEST direction. Specify
-the direction to shift the thing and what direction.
+the x and y amounts to shift the thing for a given direction.
 
 example:
 	equip_adjust = list(
-		slot_back_str = list(NORTH = list(SOUTH = 12, EAST = 7), EAST = list(SOUTH = 2, WEST = 12))
-			)
+		slot_back_str = list("[NORTH]" = list(-12, 7), "[EAST]" = list(-2, -12))
+	)
 
 This would shift back items (backpacks, axes, etc.) when the mob
 is facing either north or east.

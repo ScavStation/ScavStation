@@ -99,7 +99,7 @@
 			x_offset = max(x_offset - 1, -MAX_OFFSET)
 
 		check_landing()
-		return
+		return FALSE
 	. = ..()
 
 /mob/observer/eye/landing/setLoc(var/turf/T)

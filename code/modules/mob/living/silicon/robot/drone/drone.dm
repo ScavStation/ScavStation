@@ -110,7 +110,7 @@
 	integrated_light_power = 0.8
 	integrated_light_range = 5
 
-/mob/living/silicon/robot/drone/costruction/get_bodytype()
+/mob/living/silicon/robot/drone/construction/get_bodytype()
 	return GET_DECL(/decl/bodytype/drone/construction)
 
 /decl/bodytype/drone/construction

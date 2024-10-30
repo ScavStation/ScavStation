@@ -72,14 +72,14 @@ SUBSYSTEM_DEF(atoms)
 		BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
 		return TRUE
 
-	// This is handled and battle tested by dreamchecker. Limit to UNIT_TESTS just in case that ever fails.
-	#ifdef UNIT_TESTS
+	// This is handled and battle tested by dreamchecker. Limit to UNIT_TEST just in case that ever fails.
+	#ifdef UNIT_TEST
 	var/start_tick = world.time
 	#endif
 
 	var/result = A.Initialize(arglist(arguments))
 
-	#ifdef UNIT_TESTS
+	#ifdef UNIT_TEST
 	if(start_tick != world.time)
 		BadInitializeCalls[the_type] |= BAD_INIT_SLEPT
 	#endif

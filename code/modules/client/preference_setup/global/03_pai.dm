@@ -4,7 +4,7 @@
 
 	var/icon/pai_preview
 	var/datum/paiCandidate/candidate
-	var/icon/bgstate = "steel"
+	var/bgstate = "steel"
 
 /datum/category_item/player_setup_item/player_global/pai/load_preferences(datum/pref_record_reader/R)
 	if(!candidate)

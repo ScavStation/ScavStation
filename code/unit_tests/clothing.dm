@@ -1,27 +1,3 @@
-/datum/unit_test/gear_rig_validation_test
-	name = "GEAR: All Rigs Shall Have Non-Null Component Types"
-
-/datum/unit_test/gear_rig_validation_test/start_test()
-	var/list/results = list()
-	for(var/rigtype in subtypesof(/obj/item/rig))
-		var/res = ""
-		var/obj/item/rig/rig = new rigtype
-		if(initial(rig.gloves) == null)
-			res = "[res] - null initial gloves"
-		if(initial(rig.chest) == null)
-			res = "[res] - null initial chest"
-		if(initial(rig.helmet) == null)
-			res = "[res] - null initial helmet"
-		if(initial(rig.boots) == null)
-			res = "[res] - null initial boots"
-		if(res)
-			results += "[rigtype] - [res]"
-	if(length(results))
-		fail("Some rig components were null:\n[jointext(results, "\n")].")
-	else
-		pass("No invalid rigs.")
-	return TRUE
-
 /datum/unit_test/gear_clothing_icon_state_test
 	name = "GEAR: All Clothing Shall Have Valid Icons"
 

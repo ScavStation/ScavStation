@@ -24,7 +24,7 @@
 	var/useramount = 30 // Last used amount
 	var/pillamount = 10
 	var/pillsprite = "1"
-	var/client/has_sprites = list()
+	var/list/client/has_sprites = list()
 	var/max_pill_count = 20
 	var/sloppy = 1 //Whether reagents will not be fully purified (sloppy = 1) or there will be reagent loss (sloppy = 0) on reagent add.
 	var/reagent_limit = 120

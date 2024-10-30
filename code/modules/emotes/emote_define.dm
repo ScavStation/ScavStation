@@ -66,6 +66,7 @@ var/global/list/_emotes_by_key
 	var/emote_message_impaired
 
 	/// Two-dimensional array: first is list of genders, associated to a list of the sound effects to use.
+	/// Alternatively, just a singular sound.
 	var/list/emote_sound = null
 	/// If set to a string, will ask the bodytype of the user four a sound effect using the string.
 	var/bodytype_emote_sound

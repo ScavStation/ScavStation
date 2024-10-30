@@ -98,7 +98,7 @@ var/global/list/fishtank_cache = list()
 	. = ..()
 	var/turf/T = get_turf(forced_loc)
 	if(reagents?.total_volume && T)
-		reagents.trans_to_turf(T, T.reagents, reagents.total_volume)
+		reagents.trans_to_turf(T, reagents.total_volume)
 
 var/global/list/global/aquarium_states_and_layers = list(
 	"b" = FLY_LAYER - 0.02,

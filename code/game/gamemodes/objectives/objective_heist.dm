@@ -25,44 +25,47 @@
 		explanation_text = "Free Objective"
 	return target
 
+/datum/objective/loot
+	var/target_obj
+
 /datum/objective/loot/find_target()
 	var/loot = "an object"
 	switch(rand(1,8))
 		if(1)
-			target = /obj/structure/particle_accelerator
+			target_obj = /obj/structure/particle_accelerator
 			target_amount = 6
 			loot = "a complete particle accelerator"
 		if(2)
-			target = /obj/machinery/singularity_generator
+			target_obj = /obj/machinery/singularity_generator
 			target_amount = 1
 			loot = "a gravitational generator"
 		if(3)
-			target = /obj/machinery/emitter
+			target_obj = /obj/machinery/emitter
 			target_amount = 4
 			loot = "four emitters"
 		if(4)
-			target = /obj/machinery/nuclearbomb
+			target_obj = /obj/machinery/nuclearbomb
 			target_amount = 1
 			loot = "a nuclear bomb"
 		if(5)
-			target = /obj/item/gun
+			target_obj = /obj/item/gun
 			target_amount = 6
 			loot = "six guns"
 		if(6)
-			target = /obj/item/gun/energy
+			target_obj = /obj/item/gun/energy
 			target_amount = 4
 			loot = "four energy guns"
 		if(7)
-			target = /obj/item/gun/energy/laser
+			target_obj = /obj/item/gun/energy/laser
 			target_amount = 2
 			loot = "two laser guns"
 		if(8)
-			target = /obj/item/gun/energy/ionrifle
+			target_obj = /obj/item/gun/energy/ionrifle
 			target_amount = 1
 			loot = "an ion gun"
 
 	explanation_text = "It's a buyer's market out here. Steal [loot] for resale."
-	return target
+	return target_obj
 
 /datum/objective/salvage/find_target()
 	var/list/loot = list(

@@ -22,8 +22,8 @@
 	)
 	is_spawnable_type = FALSE
 	var/active = 0
-	var/datum/uplink_category/category 	= 0		// The current category we are in
-	var/exploit_id								// Id of the current exploit record we are viewing
+	var/datum/uplink_category/category	// The current category we are in
+	var/exploit_id						// Id of the current exploit record we are viewing
 
 	var/welcome = "Welcome, Operative"	// Welcoming menu message
 	var/uses 							// Numbers of crystals

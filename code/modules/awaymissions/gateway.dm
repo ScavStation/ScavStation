@@ -142,7 +142,7 @@
 	var/calibrated = 1
 	var/list/linked = list()	//a list of the connected gateway chunks
 	var/ready = 0
-	var/obj/machinery/gateway/centeraway/stationgate = null
+	var/obj/machinery/gateway/centerstation/stationgate = null
 
 
 /obj/machinery/gateway/centeraway/Initialize()

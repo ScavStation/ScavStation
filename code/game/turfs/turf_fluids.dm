@@ -157,7 +157,7 @@
 			var/moles = round(reagents.reagent_volumes[rtype] / REAGENT_UNITS_PER_GAS_MOLE)
 			if(moles > 0)
 				air.adjust_gas(rtype, moles, FALSE)
-				remove_from_reagents(round(moles * REAGENT_UNITS_PER_GAS_MOLE))
+				remove_from_reagents(rtype, round(moles * REAGENT_UNITS_PER_GAS_MOLE))
 				update_air = TRUE
 	if(update_air)
 		air.update_values()

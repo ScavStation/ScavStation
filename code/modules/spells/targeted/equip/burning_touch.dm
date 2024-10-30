@@ -48,9 +48,9 @@
 	var/mob/living/human/user = src.loc
 	var/obj/item/organ/external/hand
 	if(src == user.get_equipped_item(BP_L_HAND))
-		hand = GET_INTERNAL_ORGAN(user, BP_L_HAND)
+		hand = GET_EXTERNAL_ORGAN(user, BP_L_HAND)
 	else if(src == user.get_equipped_item(BP_R_HAND))
-		hand = GET_INTERNAL_ORGAN(user, BP_R_HAND)
+		hand = GET_EXTERNAL_ORGAN(user, BP_R_HAND)
 	if(hand)
 		hand.take_external_damage(burn = 2 * burn_power)
 	if(burn_power > 5)

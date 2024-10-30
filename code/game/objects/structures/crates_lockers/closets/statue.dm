@@ -16,7 +16,7 @@
 /obj/structure/closet/statue/Initialize(mapload, var/mob/living/L)
 	if(L && (ishuman(L) || L.isMonkey() || iscorgi(L)))
 		if(L.buckled)
-			L.buckled = 0
+			L.buckled = null
 			L.anchored = FALSE
 		if(L.client)
 			L.client.perspective = EYE_PERSPECTIVE
