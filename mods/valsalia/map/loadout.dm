@@ -23,7 +23,7 @@
 
 /decl/loadout_option/uniform/flexsuit
 	name = "yinglet armored undersuit, colour select"
-	path = /obj/item/clothing/under/yinglet/flexsuit
+	path = /obj/item/clothing/costume/yinglet/flexsuit
 	cost = 3
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
 	description = "A state of the art mobility suit made for the common yinglet of Mollusc Station. Comes with built in armor and rad padding that can be layered, rumoured to be pressure resistant."
@@ -31,7 +31,7 @@
 
 /decl/loadout_option/uniform/ballgown
 	name = "yinglet ballgown"
-	path = /obj/item/clothing/under/yinglet/ball_gown
+	path = /obj/item/clothing/costume/yinglet/ball_gown
 	cost = 1
 	description = "A voluminous ball gown made for those prone to have intense intrusive day dreams that parts of the daydream become real. So-so pretty but it looks difficult to run in."
 	uid = "gear_clothing_under_yinglet_ballgown"
@@ -93,10 +93,12 @@
 /decl/loadout_option/suit/winterredcoat
 	name = "winter coat, yinglet, Ivenmoth"
 	path = /obj/item/clothing/suit/jacket/winter/yinglet/redcoat
+	uid = "gear_clothing_suit_redcoat_winter"
 
 /decl/loadout_option/suit/wintercoat_yinglet
 	name = "winter coat, yinglet"
 	path = /obj/item/clothing/suit/jacket/winter/yinglet
+	uid = "gear_clothing_suit_winter"
 
 /decl/loadout_option/head/baxxid_hood
 	name = "baxxid hood"
@@ -118,3 +120,4 @@
 /decl/loadout_option/head/baxxid_headflag_officer
 	name = "baxxid headflag, officer"
 	path = /obj/item/clothing/head/baxxid/headflag/officer
+	uid = "gear_clothing_head_baxxid_flag_officer"

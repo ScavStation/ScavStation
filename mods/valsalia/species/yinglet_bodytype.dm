@@ -1,5 +1,6 @@
 /decl/bodytype/yinglet
 	name =                "yinglet, feminine"
+	uid =                 "bodytype_yinglet_fem"
 	icon_base =           'mods/valsalia/icons/species/yinglet/body_female.dmi'
 	husk_icon =           'mods/valsalia/icons/species/yinglet/husk.dmi'
 	cosmetics_icon =      'mods/valsalia/icons/species/yinglet/cosmetics.dmi'
@@ -65,10 +66,12 @@
 /decl/bodytype/yinglet/masculine
 	name =      "yinglet, masculine"
 	icon_base = 'mods/valsalia/icons/species/yinglet/body_male.dmi'
+	uid =       "bodytype_yinglet_masc"
 
 /decl/bodytype/yinglet/hairymasculine
 	name =      "yinglet, masculine with more hair"
 	icon_base = 'mods/valsalia/icons/species/yinglet/body_male.dmi'
+	uid =       "bodytype_yinglet_masc_hairy"
 
 /datum/appearance_descriptor/age/yinglet
 	chargen_min_index = 3

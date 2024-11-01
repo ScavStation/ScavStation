@@ -251,7 +251,8 @@
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id_tag = "lockdown";
 	name = "Lockdown Doors";
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -373,7 +374,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -30
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/enclave/sleepingroom)
@@ -473,7 +474,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 23
+	pixel_x = 22
 	},
 /obj/structure/yinglet_nest,
 /turf/floor/wood/bamboo,
@@ -1067,7 +1068,8 @@
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id_tag = "lockdown";
 	name = "Lockdown Doors";
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4;

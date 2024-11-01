@@ -1,4 +1,5 @@
 /decl/bodytype/indrel
+	uid = "bodytype_indrel"
 	name = "indrel"
 	bodytype_category = BODYTYPE_INDREL
 	bodytype_flag =     BODY_FLAG_INDREL

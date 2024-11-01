@@ -241,7 +241,7 @@
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "ay" = (
-/obj/structure/bed/chair/pew/mahogany,
+/obj/structure/bed/chair/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/natural/grass,
 /area/map_template/hateville/command)
@@ -600,7 +600,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/ammo_magazine/pistol,
 /obj/item/radio/intercom{
-	pixel_y = 24;
+	pixel_y = 20;
 	broadcasting = 1
 	},
 /turf/floor/wood/mahogany,
@@ -802,7 +802,7 @@
 /obj/item/gun/energy/gun/small,
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/syndicate,
+/obj/item/clothing/shirt/syndicate,
 /obj/item/clothing/pants/casual/youngfolksjeans,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/radio,
@@ -1491,7 +1491,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 25
+	pixel_x = 22
 	},
 /obj/random_multi/single_item/boombox{
 	pixel_y = 8;
@@ -1587,16 +1587,17 @@
 "cx" = (
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -1604,10 +1605,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /turf/floor/carpet/blue2,
@@ -1941,16 +1942,17 @@
 /obj/item/gun/energy/gun/small,
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -1958,10 +1960,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /turf/floor/carpet/blue2,
@@ -2262,16 +2264,17 @@
 "dw" = (
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -2279,10 +2282,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /turf/floor/carpet/blue2,
@@ -3527,16 +3530,17 @@
 "fj" = (
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -3544,10 +3548,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /turf/floor/carpet/blue2,
@@ -5503,16 +5507,17 @@
 /obj/item/gun/energy/gun/small,
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -5520,10 +5525,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /obj/random/trash,
@@ -5945,7 +5950,7 @@
 	icon_state = "4-8"
 	},
 /obj/item/radio/intercom{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /obj/effect/decal/cleanable/blood/tracks/footprints/reversed{
 	color = "#a10808"
@@ -6226,7 +6231,7 @@
 /obj/item/firstaid/stab,
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -28
+	pixel_y = -30
 	},
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
@@ -6551,7 +6556,7 @@
 "jn" = (
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -21
+	pixel_x = -22
 	},
 /obj/structure/table/woodentable,
 /obj/item/sticky_pad{
@@ -6601,12 +6606,12 @@
 /obj/item/backpack/satchel/leather/reddish,
 /obj/item/backpack/messenger/med,
 /obj/item/backpack/messenger/chem,
-/obj/item/clothing/accessory/storage/drop_pouches/black,
-/obj/item/clothing/accessory/storage/drop_pouches/black,
-/obj/item/clothing/accessory/storage/drop_pouches/brown,
-/obj/item/clothing/accessory/storage/drop_pouches/brown,
-/obj/item/clothing/accessory/storage/drop_pouches/white,
-/obj/item/clothing/accessory/storage/drop_pouches/white,
+/obj/item/clothing/webbing/drop_pouches/black,
+/obj/item/clothing/webbing/drop_pouches/black,
+/obj/item/clothing/webbing/drop_pouches/brown,
+/obj/item/clothing/webbing/drop_pouches/brown,
+/obj/item/clothing/webbing/drop_pouches/white,
+/obj/item/clothing/webbing/drop_pouches/white,
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "jq" = (
@@ -6748,16 +6753,17 @@
 "jD" = (
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -6765,10 +6771,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /turf/floor/carpet/blue2,
@@ -7661,7 +7667,7 @@
 "kV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/radio/intercom{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -7814,16 +7820,17 @@
 "lj" = (
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -7831,10 +7838,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /obj/random/trash,
@@ -7980,7 +7987,7 @@
 /area/map_template/hateville/foodcourt)
 "lu" = (
 /obj/structure/flora/bush/brflowers,
-/obj/structure/bed/chair/pew/mahogany,
+/obj/structure/bed/chair/bench/pew/mahogany,
 /turf/floor/natural/grass,
 /area/map_template/hateville/command)
 "lv" = (
@@ -8074,7 +8081,7 @@
 /area/map_template/hateville/agriculture)
 "lC" = (
 /obj/structure/flora/bush/brflowers,
-/obj/structure/bed/chair/pew/left/mahogany,
+/obj/structure/bed/chair/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/natural/grass,
@@ -8822,7 +8829,7 @@
 /area/map_template/hateville/agricultureOU)
 "mG" = (
 /obj/item/radio/intercom{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -8952,16 +8959,17 @@
 "mR" = (
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -8969,10 +8977,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /turf/floor/carpet/blue2,
@@ -9022,16 +9030,17 @@
 "mV" = (
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -9039,10 +9048,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /turf/floor/carpet/blue2,
@@ -10041,16 +10050,17 @@
 /obj/item/gun/energy/gun/small,
 /obj/item/flashlight/upgraded,
 /obj/item/crowbar,
-/obj/item/clothing/under/captain_fly,
-/obj/item/clothing/under/color/blackjumpshorts,
-/obj/item/clothing/under/frontier,
-/obj/item/clothing/under/hazard,
-/obj/item/clothing/under/skirt,
-/obj/item/clothing/under/suit_jacket/female,
-/obj/item/clothing/under/suit_jacket/navy,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/sterile,
-/obj/item/clothing/under/det/grey,
+/obj/item/clothing/costume/captain_fly,
+/obj/item/clothing/jumpsuit/blackjumpshorts,
+/obj/item/clothing/shirt/flannel/red,
+/obj/item/clothing/suit/apron/overalls/denim,
+/obj/item/clothing/jumpsuit/hazard,
+/obj/item/clothing/skirt,
+/obj/item/clothing/pants/slacks/black/outfit/navy,
+/obj/item/clothing/pants/slacks/black/outfit,
+/obj/item/clothing/shirt/syndicate,
+/obj/item/clothing/jumpsuit/sterile,
+/obj/item/clothing/pants/slacks/outfit/detective_grey,
 /obj/item/clothing/pants/baggy,
 /obj/item/clothing/pants/casual/camo,
 /obj/item/clothing/pants/casual/track,
@@ -10058,10 +10068,10 @@
 /obj/item/clothing/suit/jacket/winter/miner,
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
-/obj/item/clothing/suit/jacket/brown_jacket,
-/obj/item/clothing/suit/jacket/hoodie/nt,
+/obj/item/clothing/suit/jacket/brown,
+/obj/item/clothing/suit/toggle/nt_hoodie,
 /obj/item/clothing/suit/jacket/hoodie,
-/obj/item/clothing/suit/jacket/track,
+/obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
 /obj/structure/closet/cabinet,
 /turf/floor/carpet/blue2,
@@ -10266,7 +10276,7 @@
 "oU" = (
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -21
+	pixel_x = -22
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -10435,7 +10445,8 @@
 /obj/machinery/button/blast_door{
 	id_tag = "secublast";
 	name = "Security Bunker Blast Door Control";
-	pixel_y = -23
+	pixel_y = -23;
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -11318,7 +11329,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -28
+	pixel_y = -30
 	},
 /turf/floor/tiled/white{
 	color = "#d9d9be"
@@ -12971,7 +12982,7 @@
 "uw" = (
 /obj/structure/flora/bush/grassybush,
 /obj/item/radio/intercom{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /turf/floor/natural/grass,
 /area/map_template/hateville/command)
@@ -14180,12 +14191,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -21
+	pixel_x = -22
 	},
 /obj/machinery/button/crematorium{
 	id_tag = "hate_crematorium";
 	req_access = list();
-	pixel_x = 23
+	pixel_x = 23;
+	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/tracks{
 	color = "#a10808"
@@ -15021,7 +15033,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/radio/intercom{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -15191,7 +15203,7 @@
 	},
 /area/map_template/hateville)
 "zC" = (
-/obj/structure/bed/chair/pew/left/mahogany,
+/obj/structure/bed/chair/bench/pew/mahogany,
 /turf/floor/natural/grass,
 /area/map_template/hateville/command)
 "zD" = (
@@ -15953,8 +15965,8 @@
 	},
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/suit/armor/pcarrier/merc,
-/obj/item/clothing/accessory/armor/plate/merc,
-/obj/item/clothing/accessory/armor/plate/merc,
+/obj/item/clothing/armor_attachment/plate/merc,
+/obj/item/clothing/armor_attachment/plate/merc,
 /obj/item/clothing/shoes/jackboots/swat/combat,
 /obj/item/clothing/gloves/guards,
 /obj/item/clothing/glasses/thermal/plain,
@@ -16615,7 +16627,7 @@
 	pixel_x = -8
 	},
 /obj/item/radio/intercom{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -19192,7 +19204,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/radio/intercom{
-	pixel_y = 24
+	pixel_y = 20
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -20882,7 +20894,7 @@
 "Mn" = (
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -28
+	pixel_y = -30
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -22025,7 +22037,7 @@
 /obj/effect/floor_decal/techfloor,
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 25
+	pixel_x = 22
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/tiled/techfloor,

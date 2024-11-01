@@ -104,7 +104,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -30
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/science)
@@ -314,7 +314,8 @@
 	icon_state = "2-8"
 	},
 /obj/item/radio/intercom{
-	pixel_y = -1
+	pixel_y = -30;
+	dir = 1
 	},
 /turf/floor/tiled,
 /area/ministation/bridge)
@@ -583,7 +584,8 @@
 /area/ministation/bridge)
 "bQ" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = -27
+	pixel_x = -29;
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -688,7 +690,8 @@
 /area/ministation/bridge)
 "ca" = (
 /obj/machinery/newscaster{
-	pixel_y = -28
+	pixel_y = -28;
+	dir = 1
 	},
 /obj/structure/closet/emcloset,
 /turf/floor/tiled,
@@ -1319,7 +1322,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 20
+	pixel_x = 22
 	},
 /obj/structure/table/woodentable_reinforced/mahogany,
 /obj/item/paper_bin,
@@ -1365,7 +1368,7 @@
 "eD" = (
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 25
+	pixel_x = 22
 	},
 /obj/abstract/landmark/latejoin/cyborg,
 /turf/floor/tiled/steel_grid,
@@ -1572,7 +1575,7 @@
 "fe" = (
 /obj/machinery/computer/operating,
 /obj/item/radio/intercom{
-	pixel_y = 25
+	pixel_y = 20
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
@@ -2429,7 +2432,8 @@
 /area/ministation/science)
 "in" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/machinery/recharger,
 /obj/structure/table,
@@ -2578,7 +2582,7 @@
 /obj/structure/bed/chair/office/light,
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 20
+	pixel_x = 22
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
@@ -3274,7 +3278,7 @@
 /area/ministation/bridge)
 "lh" = (
 /obj/structure/closet,
-/obj/item/clothing/under/yinglet/yinglibrarian,
+/obj/item/clothing/costume/yinglet/librarian,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/multitool,
 /turf/floor/wood/mahogany,
@@ -3574,7 +3578,8 @@
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+	pixel_y = -29;
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled,
@@ -3698,7 +3703,7 @@
 	dir = 4
 	},
 /obj/item/radio/intercom{
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3853,7 +3858,7 @@
 /area/ministation/bridge)
 "ne" = (
 /obj/item/radio/intercom{
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/structure/table,
 /obj/item/card/data/disk{
@@ -3901,7 +3906,8 @@
 /area/ministation/biodome)
 "nr" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = -27
+	pixel_x = -29;
+	dir = 4
 	},
 /obj/structure/table,
 /obj/item/box/syringes,
@@ -5380,17 +5386,17 @@
 	anchored = 1
 	},
 /obj/item/clothing/head/winterhood/yinglet/captain,
-/obj/item/clothing/head/yinglet/pekhat_painted,
+/obj/item/clothing/head/yinglet/pekhat/painted,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/suit/jacket/winter/yinglet/captain,
-/obj/item/clothing/under/yinglet/matriarch,
-/obj/item/clothing/under/yinglet/zhorin_robe,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/costume/yinglet/matriarch,
+/obj/item/clothing/suit/robe/yinglet/zhorin,
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#008000"
 	},
-/obj/item/clothing/under/yinglet/scout{
+/obj/item/clothing/pants/loincloth/scout{
 	color = "#ff5a15"
 	},
 /obj/item/clothing/suit/fancyrobe,
@@ -5857,7 +5863,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/machinery/camera/network/hallway{
 	dir = 8
@@ -6017,7 +6024,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -30
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
@@ -6677,7 +6684,7 @@
 "zp" = (
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -23
+	pixel_x = -22
 	},
 /turf/floor/wood/walnut,
 /area/ministation/bridge)
@@ -6742,7 +6749,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled,
@@ -6765,7 +6773,8 @@
 /area/ministation/biodome)
 "zP" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+	pixel_y = -29;
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled/white,
@@ -6854,7 +6863,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -25
+	pixel_x = -22
 	},
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -7291,7 +7300,8 @@
 "BG" = (
 /obj/structure/table,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 32
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/item/disk/nuclear,
 /obj/machinery/recharger,
@@ -7469,7 +7479,8 @@
 "Cr" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood/walnut,
@@ -7525,7 +7536,8 @@
 /area/ministation/telecomms)
 "CC" = (
 /obj/machinery/newscaster{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -7745,7 +7757,8 @@
 /obj/item/radio,
 /obj/item/radio/intercom{
 	name = "Station Intercom (General)";
-	pixel_y = -35
+	pixel_y = -30;
+	dir = 1
 	},
 /obj/item/chems/spray/extinguisher,
 /turf/floor/lino,
@@ -8314,7 +8327,7 @@
 	dir = 1
 	},
 /obj/item/radio/intercom{
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8387,7 +8400,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled,
@@ -8464,7 +8478,7 @@
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 25
+	pixel_x = 22
 	},
 /obj/item/flashlight/lamp/green{
 	pixel_y = 12;
@@ -8781,7 +8795,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -25
+	pixel_x = -22
 	},
 /turf/floor/wood/walnut,
 /area/ministation/enclave/conference)
@@ -8962,7 +8976,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -27
+	pixel_y = -30
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9806,7 +9820,8 @@
 "LI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/status_display{
-	pixel_x = -30
+	pixel_x = -30;
+	dir = 8
 	},
 /turf/floor/tiled,
 /area/ministation/hall/n3)
@@ -10001,7 +10016,7 @@
 "Ms" = (
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 20
+	pixel_x = 22
 	},
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/folder,
@@ -10254,7 +10269,7 @@
 	},
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
@@ -10903,7 +10918,7 @@
 	dir = 8
 	},
 /obj/item/radio/intercom{
-	pixel_y = 22
+	pixel_y = 20
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/science)
@@ -11109,7 +11124,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -23
+	pixel_x = -22
 	},
 /obj/machinery/camera/network/research{
 	req_access = list("ACCESS_CAMERAS")
@@ -11145,7 +11160,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 25
+	pixel_x = 22
 	},
 /turf/floor/tiled,
 /area/ministation/hall/s3)
@@ -11622,7 +11637,7 @@
 /obj/structure/flora/pottedplant/floorleaf,
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -23
+	pixel_x = -22
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
@@ -12031,7 +12046,8 @@
 "TY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = -27
+	pixel_x = -29;
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled,
@@ -12056,7 +12072,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = -27
+	pixel_x = -29;
+	dir = 4
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
@@ -12135,7 +12152,7 @@
 /area/ministation/library)
 "Uo" = (
 /obj/item/radio/intercom{
-	pixel_y = 31
+	pixel_y = 20
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -12418,7 +12435,8 @@
 "Vu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled,
@@ -12641,7 +12659,8 @@
 /area/ministation/science)
 "Wm" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 4
@@ -12704,7 +12723,7 @@
 "WI" = (
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -30
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -12869,7 +12888,8 @@
 /area/ministation/enclave/matriarch)
 "Xi" = (
 /obj/machinery/newscaster{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12922,7 +12942,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
 /obj/structure/curtain/open/bed,
-/obj/item/clothing/under/yinglet/matriarch,
+/obj/item/clothing/costume/yinglet/matriarch,
 /obj/item/clothing/head/yinglet/matriarch,
 /obj/random/plushie,
 /obj/structure/cable{

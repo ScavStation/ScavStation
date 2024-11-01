@@ -259,26 +259,27 @@
 /area/ministation/hall/e2)
 "aP" = (
 /obj/structure/closet/secure_closet/security,
-/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/pants/loincloth/scout,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/jacket/winter/yinglet/security,
 /obj/item/flashlight/maglight,
 /obj/item/chems/spray/pepper,
 /obj/item/telebaton,
-/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/pants/loincloth/scout,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/dress/avian_smock/security,
 /obj/machinery/newscaster{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /obj/machinery/camera/network/security{
 	dir = 4;
 	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/accessory/yinglegguards/ballistic,
-/obj/item/clothing/accessory/yingarmguards/ballistic,
+/obj/item/clothing/shoes/legguards/yinglet/ballistic,
+/obj/item/clothing/gloves/armguards/yinglet/ballistic,
 /turf/floor/tiled,
 /area/ministation/security)
 "aQ" = (
@@ -810,7 +811,7 @@
 	},
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -1122,14 +1123,14 @@
 	req_access = list("ACCESS_ARMORY");
 	autoset_access = 0
 	},
-/obj/item/clothing/accessory/yingarmguards/ballistic,
-/obj/item/clothing/accessory/yingarmguards/ballistic,
-/obj/item/clothing/accessory/yingarmguards/ballistic,
-/obj/item/clothing/accessory/yingarmguards/ballistic,
-/obj/item/clothing/accessory/yinglegguards/ballistic,
-/obj/item/clothing/accessory/yinglegguards/ballistic,
-/obj/item/clothing/accessory/yinglegguards/ballistic,
-/obj/item/clothing/accessory/yinglegguards/ballistic,
+/obj/item/clothing/gloves/armguards/yinglet/ballistic,
+/obj/item/clothing/gloves/armguards/yinglet/ballistic,
+/obj/item/clothing/gloves/armguards/yinglet/ballistic,
+/obj/item/clothing/gloves/armguards/yinglet/ballistic,
+/obj/item/clothing/shoes/legguards/yinglet/ballistic,
+/obj/item/clothing/shoes/legguards/yinglet/ballistic,
+/obj/item/clothing/shoes/legguards/yinglet/ballistic,
+/obj/item/clothing/shoes/legguards/yinglet/ballistic,
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "dE" = (
@@ -1241,7 +1242,8 @@
 	dir = 6
 	},
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+	pixel_y = -29;
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled/white,
@@ -1564,7 +1566,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#ffa500"
 	},
 /turf/floor/tiled,
@@ -1637,7 +1639,7 @@
 	},
 /obj/item/radio/intercom/locked/entertainment{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -30
 	},
 /turf/floor/tiled,
 /area/ministation/hop)
@@ -1816,7 +1818,8 @@
 /obj/machinery/button/blast_door{
 	id_tag = "secshut";
 	name = "security shutter button";
-	pixel_y = -32
+	pixel_y = -32;
+	dir = 1
 	},
 /obj/machinery/computer/prisoner{
 	dir = 4
@@ -1993,7 +1996,7 @@
 /area/ministation/security)
 "gc" = (
 /obj/structure/closet/secure_closet/brig,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#ffa500"
 	},
 /turf/floor/tiled,
@@ -2021,7 +2024,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 20
+	pixel_x = 22
 	},
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -2296,7 +2299,8 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /turf/floor/tiled,
 /area/ministation/security)
@@ -2311,7 +2315,7 @@
 /obj/item/bedsheet/mime,
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -27
+	pixel_y = -30
 	},
 /turf/floor/tiled,
 /area/ministation/security)
@@ -2696,7 +2700,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -25
+	pixel_x = -22
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3302,7 +3306,8 @@
 /obj/structure/table,
 /obj/item/book/skill/service/cooking,
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 30
+	pixel_x = 29;
+	dir = 8
 	},
 /turf/floor/wood/walnut,
 /area/ministation/cafe)
@@ -3314,7 +3319,7 @@
 	},
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/item/pill_bottle{
 	pixel_x = -7
@@ -3935,7 +3940,8 @@
 	},
 /obj/structure/bed/chair,
 /obj/machinery/status_display{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/floor/carpet,
 /area/ministation/hall/w2)
@@ -4753,7 +4759,7 @@
 /obj/machinery/camera/autoname,
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -5231,7 +5237,7 @@
 	},
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /turf/floor/tiled/white,
 /area/ministation/medical)
@@ -5243,7 +5249,7 @@
 /obj/item/circular_saw,
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /turf/floor/tiled/white,
 /area/ministation/surgicals)
@@ -5294,7 +5300,7 @@
 /obj/structure/table,
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/item/bonesetter,
 /obj/item/bonegel,
@@ -5654,7 +5660,7 @@
 "qX" = (
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -25
+	pixel_x = -22
 	},
 /obj/machinery/computer/modular/preset/security{
 	dir = 4
@@ -5689,7 +5695,8 @@
 	dir = 8
 	},
 /obj/machinery/status_display{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/floor/natural/grass,
 /area/ministation/hall/w2)
@@ -6023,7 +6030,8 @@
 	pixel_x = 8
 	},
 /obj/machinery/status_display{
-	pixel_y = -29
+	pixel_y = -29;
+	dir = 1
 	},
 /turf/floor/tiled/white,
 /area/ministation/medical)
@@ -6863,7 +6871,7 @@
 "tS" = (
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -25
+	pixel_x = -22
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/cooker/fryer,
@@ -6956,7 +6964,8 @@
 /area/ministation/hall/w2)
 "ub" = (
 /obj/machinery/newscaster{
-	pixel_y = -32
+	pixel_y = -32;
+	dir = 1
 	},
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -7116,7 +7125,8 @@
 /area/ministation/enclave/badclamrock)
 "ux" = (
 /obj/machinery/newscaster{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/machinery/vending/sovietsoda{
 	dir = 8;
@@ -7595,7 +7605,7 @@
 /obj/item/pen,
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -30
 	},
 /obj/item/scanner/autopsy,
 /turf/floor/tiled/dark,
@@ -7877,7 +7887,8 @@
 	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled/white,
@@ -8182,7 +8193,8 @@
 "xt" = (
 /obj/structure/table,
 /obj/machinery/newscaster{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	dir = 8
@@ -8407,7 +8419,8 @@
 "xW" = (
 /obj/structure/table/marble,
 /obj/machinery/status_display{
-	pixel_y = -29
+	pixel_y = -29;
+	dir = 1
 	},
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -8702,7 +8715,8 @@
 /area/ministation/cafe)
 "yB" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+	pixel_y = -29;
+	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -8746,7 +8760,8 @@
 	dir = 8
 	},
 /obj/machinery/newscaster{
-	pixel_x = 32
+	pixel_x = 32;
+	dir = 4
 	},
 /obj/effect/floor_decal/floordetail/edgedrain{
 	dir = 4
@@ -8760,7 +8775,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -30
 	},
 /turf/floor/tiled/white,
 /area/ministation/medical)
@@ -9410,7 +9425,8 @@
 /area/ministation/hydro)
 "Av" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 30
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/camera/autoname{
@@ -9480,19 +9496,19 @@
 	},
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
-/obj/item/clothing/under/yinglet,
-/obj/item/clothing/under/yinglet,
-/obj/item/clothing/under/yinglet/yingjumpsuit,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/costume/yinglet,
+/obj/item/clothing/costume/yinglet,
+/obj/item/clothing/jumpsuit/yinglet,
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#ff00ff"
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#000000"
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#008000"
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#808080"
 	},
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
@@ -9749,7 +9765,7 @@
 	pixel_y = 32
 	},
 /obj/item/radio/intercom/locked/entertainment{
-	pixel_y = 22
+	pixel_y = 20
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10090,7 +10106,7 @@
 /obj/structure/closet/secure_closet/warden{
 	req_access = list("ACCESS_BRIG")
 	},
-/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/pants/loincloth/scout,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/mask/gas/half,
 /turf/floor/carpet/blue3,
@@ -10123,7 +10139,7 @@
 /area/ministation/hall/w2)
 "CV" = (
 /obj/item/radio/intercom{
-	pixel_y = 25
+	pixel_y = 20
 	},
 /turf/floor/carpet,
 /area/ministation/hall/w2)
@@ -10240,7 +10256,7 @@
 "Dk" = (
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/chems/drinks/juicebox/apple,
@@ -10342,7 +10358,8 @@
 /area/ministation/armory)
 "DC" = (
 /obj/machinery/newscaster{
-	pixel_x = -32
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/floor/carpet/red,
 /area/ministation/detective)
@@ -10513,7 +10530,7 @@
 /obj/structure/bed/padded,
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -27
+	pixel_y = -30
 	},
 /turf/floor/tiled/dark,
 /area/ministation/perma)
@@ -10659,7 +10676,7 @@
 	dir = 8
 	},
 /obj/item/radio/intercom{
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -10860,7 +10877,7 @@
 "Fz" = (
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -30
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -10920,7 +10937,7 @@
 	},
 /obj/item/radio/intercom/locked/entertainment{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -30
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -11060,7 +11077,8 @@
 /area/ministation/hall/w2)
 "Gh" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+	pixel_y = -29;
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled,
@@ -11212,7 +11230,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 25
+	pixel_x = 22
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/machinery/light{
@@ -11462,7 +11480,7 @@
 "HF" = (
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/machinery/alarm{
 	dir = 4;
@@ -11471,12 +11489,10 @@
 	},
 /obj/structure/closet/secure_closet/detective,
 /obj/item/chems/drinks/bottle/whiskey,
-/obj/item/ammo_magazine/pistol/flash,
 /obj/item/classic_baton{
 	pixel_w = -7
 	},
 /obj/item/ammo_magazine/pistol/rubber,
-/obj/item/ammo_magazine/pistol,
 /obj/item/camera/loaded,
 /obj/item/hand_labeler,
 /obj/machinery/light{
@@ -11571,7 +11587,7 @@
 /obj/item/chems/drinks/glass2/mug,
 /obj/item/chems/drinks/glass2/mug,
 /obj/item/radio/intercom{
-	pixel_y = 25
+	pixel_y = 20
 	},
 /turf/floor/tiled/dark,
 /area/ministation/securityoffice)
@@ -11635,7 +11651,8 @@
 /area/ministation/security)
 "Ie" = (
 /obj/machinery/status_display{
-	pixel_y = -29
+	pixel_y = -29;
+	dir = 1
 	},
 /turf/floor/plating,
 /area/ministation/Arrival)
@@ -11645,7 +11662,7 @@
 /obj/random/plushie,
 /obj/item/radio/intercom{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -30
 	},
 /turf/floor/carpet/blue2,
 /area/ministation/securityoffice)
@@ -11765,7 +11782,8 @@
 /area/ministation/medical/nursery)
 "Iz" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -12026,10 +12044,10 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/accessory/yingarmguards/ablative,
-/obj/item/clothing/accessory/yingarmguards/ablative,
-/obj/item/clothing/accessory/yinglegguards/ablative,
-/obj/item/clothing/accessory/yinglegguards/ablative,
+/obj/item/clothing/gloves/armguards/yinglet/ablative,
+/obj/item/clothing/gloves/armguards/yinglet/ablative,
+/obj/item/clothing/shoes/legguards/yinglet/ablative,
+/obj/item/clothing/shoes/legguards/yinglet/ablative,
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "Js" = (
@@ -12340,7 +12358,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/gun/projectile/automatic/yassault_rifle,
+/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -12746,7 +12764,8 @@
 /area/ministation/enclave/atrium)
 "Lp" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = -27
+	pixel_x = -29;
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled,
@@ -13198,7 +13217,8 @@
 /area/ministation/hall/e2)
 "MM" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 30
+	pixel_x = 29;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled/white,
@@ -13269,7 +13289,7 @@
 	},
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = -34;
+	pixel_y = -30;
 	dir = 1
 	},
 /turf/floor/carpet/blue,
@@ -13502,14 +13522,14 @@
 	autoset_access = 0;
 	dir = 1
 	},
-/obj/item/clothing/accessory/yinglegguards/riot,
-/obj/item/clothing/accessory/yinglegguards/riot,
-/obj/item/clothing/accessory/yinglegguards/riot,
-/obj/item/clothing/accessory/yinglegguards/riot,
-/obj/item/clothing/accessory/yingarmguards/riot,
-/obj/item/clothing/accessory/yingarmguards/riot,
-/obj/item/clothing/accessory/yingarmguards/riot,
-/obj/item/clothing/accessory/yingarmguards/riot,
+/obj/item/clothing/shoes/legguards/yinglet/riot,
+/obj/item/clothing/shoes/legguards/yinglet/riot,
+/obj/item/clothing/shoes/legguards/yinglet/riot,
+/obj/item/clothing/shoes/legguards/yinglet/riot,
+/obj/item/clothing/gloves/armguards/yinglet/riot,
+/obj/item/clothing/gloves/armguards/yinglet/riot,
+/obj/item/clothing/gloves/armguards/yinglet/riot,
+/obj/item/clothing/gloves/armguards/yinglet/riot,
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "NM" = (
@@ -13917,7 +13937,7 @@
 /obj/machinery/door/firedoor,
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /turf/floor/tiled/dark,
 /area/ministation/surgicals)
@@ -14197,19 +14217,19 @@
 /area/ministation/kitchen)
 "Qg" = (
 /obj/structure/closet/secure_closet/security,
-/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/pants/loincloth/scout,
 /obj/item/clothing/head/yinglet/scout,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/jacket/winter/yinglet/security,
 /obj/item/flashlight/maglight,
 /obj/item/chems/spray/pepper,
 /obj/item/telebaton,
-/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/pants/loincloth/scout,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/dress/avian_smock/security,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/accessory/yinglegguards/ballistic,
-/obj/item/clothing/accessory/yingarmguards/ballistic,
+/obj/item/clothing/shoes/legguards/yinglet/ballistic,
+/obj/item/clothing/gloves/armguards/yinglet/ballistic,
 /turf/floor/tiled,
 /area/ministation/security)
 "Qh" = (
@@ -14760,7 +14780,8 @@
 	req_access = list("ACCESS_CAMERAS")
 	},
 /obj/structure/extinguisher_cabinet{
-	pixel_x = -27
+	pixel_x = -29;
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/tiled/white,
@@ -15650,7 +15671,8 @@
 /area/ministation/detective)
 "UC" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = -27
+	pixel_x = -29;
+	dir = 4
 	},
 /obj/structure/closet/wardrobe/chemistry_white,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -15727,19 +15749,19 @@
 	name = "Prisoner's Locker"
 	},
 /obj/item/clothing/suit/apron/overalls,
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#ffa500"
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#ffa500"
 	},
-/obj/item/clothing/under/yinglet/yingjumpsuit{
+/obj/item/clothing/jumpsuit/yinglet{
 	color = "#ffa500"
 	},
-/obj/item/clothing/under/yinglet/scout{
+/obj/item/clothing/pants/loincloth/scout{
 	color = "#ff5a15"
 	},
-/obj/item/clothing/under/yinglet/scout{
+/obj/item/clothing/pants/loincloth/scout{
 	color = "#ff5a15"
 	},
 /turf/floor/tiled/dark,
@@ -15967,7 +15989,8 @@
 /area/ministation/hydro)
 "Vr" = (
 /obj/structure/extinguisher_cabinet{
-	pixel_x = 27
+	pixel_x = 29;
+	dir = 8
 	},
 /turf/floor/tiled,
 /area/ministation/hop)
@@ -16252,7 +16275,8 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+	pixel_y = -29;
+	dir = 1
 	},
 /turf/floor/tiled,
 /area/ministation/hall/e2)
@@ -16312,7 +16336,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/item/radio/intercom{
 	dir = 8;
-	pixel_x = 20
+	pixel_x = 22
 	},
 /turf/floor/carpet/blue3,
 /area/ministation/securityoffice)
@@ -16634,7 +16658,7 @@
 /obj/item/flashlight/maglight,
 /obj/item/chems/spray/pepper,
 /obj/item/stamp/hos,
-/obj/item/clothing/under/yinglet/scout,
+/obj/item/clothing/pants/loincloth/scout,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/mask/gas/half,
 /turf/floor/carpet/blue2,
@@ -16747,9 +16771,9 @@
 /obj/item/ammo_magazine/rifle,
 /obj/item/ammo_magazine/rifle,
 /obj/item/ammo_magazine/rifle,
-/obj/item/gun/projectile/automatic/yassault_rifle,
-/obj/item/gun/projectile/automatic/yassault_rifle,
-/obj/item/gun/projectile/automatic/yassault_rifle,
+/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
+/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
+/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "XN" = (
@@ -17089,7 +17113,7 @@
 	},
 /obj/item/radio/intercom{
 	dir = 4;
-	pixel_x = -25
+	pixel_x = -22
 	},
 /obj/machinery/light{
 	dir = 8
@@ -17131,7 +17155,7 @@
 "YY" = (
 /obj/item/radio/intercom{
 	name = "Common Channel";
-	pixel_y = 25
+	pixel_y = 20
 	},
 /obj/item/mop,
 /obj/structure/mopbucket,
@@ -17269,7 +17293,8 @@
 /obj/machinery/button/blast_door{
 	id_tag = "Chef1";
 	name = "Kitchen Shutter";
-	pixel_y = -24
+	pixel_y = -24;
+	dir = 1
 	},
 /obj/random/plushie,
 /turf/floor/carpet,
@@ -17294,7 +17319,7 @@
 	},
 /obj/item/clothing/suit/armor/flexsuitvest,
 /obj/item/clothing/head/helmet/space/flexsuithelmet,
-/obj/item/clothing/under/yinglet/flexsuit/xl,
+/obj/item/clothing/costume/yinglet/flexsuit/xl,
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "ZH" = (

@@ -1,4 +1,5 @@
 /decl/bodytype/baxxid
+	uid = "bodytype_baxxid"
 	bodytype_category = BODYTYPE_BAXXID
 	bodytype_flag =     BODY_FLAG_BAXXID
 	icon_template =     'mods/valsalia/icons/species/baxxid/template.dmi'

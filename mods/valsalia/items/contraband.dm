@@ -4,7 +4,7 @@ DEFINE_POSTER(scav/s3, "scav3", "poster - Danger Chair", "40% of accidents are c
 
 /decl/poster_design/scav
 	abstract_type = /decl/poster_design/scav
-//	icon = 'mods/valsalia/icons/posters.dmi'
+	icon = 'mods/valsalia/icons/posters.dmi'
 
 /obj/item/poster/scav_2
 	poster_design = /decl/poster_design/scav/s2
