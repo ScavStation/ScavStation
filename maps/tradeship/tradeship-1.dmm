@@ -189,7 +189,7 @@
 /area/ship/trade/maintenance/eva)
 "ax" = (
 /obj/effect/floor_decal/corner/beige,
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
 "ay" = (
@@ -411,7 +411,7 @@
 /obj/structure/handrail{
 	dir = 4
 	},
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
@@ -2901,7 +2901,7 @@
 /area/ship/trade/science/fabricaton)
 "Js" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /turf/floor/tiled/monotile,
 /area/ship/trade/cargo/lower)
 "JM" = (

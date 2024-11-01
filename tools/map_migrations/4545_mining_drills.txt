@@ -1,0 +1,2 @@
+/obj/machinery/mining_drill/@SUBTYPES : /obj/machinery/mining/drill/@SUBTYPES{@OLD}
+/obj/structure/drill_brace/@SUBTYPES : /obj/machinery/mining/brace/@SUBTYPES{@OLD}

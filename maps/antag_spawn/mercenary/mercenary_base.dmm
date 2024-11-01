@@ -1700,7 +1700,7 @@
 /turf/floor/plating,
 /area/map_template/merc_spawn)
 "fV" = (
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /obj/structure/railing/mapped/no_density{
 	dir = 8
 	},
@@ -1953,7 +1953,7 @@
 /turf/floor/airless,
 /area/space)
 "ls" = (
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /obj/structure/railing/mapped/no_density{
 	dir = 8
 	},
@@ -2070,7 +2070,7 @@
 /turf/floor/tiled,
 /area/map_template/merc_spawn)
 "qq" = (
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /obj/machinery/light/spot,
 /turf/floor/plating,
 /area/map_template/merc_spawn)
@@ -2450,7 +2450,7 @@
 /turf/floor/plating,
 /area/map_template/merc_spawn)
 "LI" = (
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /turf/floor/plating,
 /area/map_template/merc_spawn)
 "LY" = (
@@ -2529,7 +2529,7 @@
 /turf/floor/airless,
 /area/map_template/merc_spawn)
 "Ok" = (
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /obj/structure/railing/mapped/no_density{
 	dir = 1
 	},

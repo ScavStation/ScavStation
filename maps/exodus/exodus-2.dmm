@@ -23358,7 +23358,7 @@
 /area/exodus/research/mixing)
 "aXM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /turf/floor/tiled/steel_grid,
 /area/exodus/quartermaster/storage)
 "aXN" = (
@@ -51492,7 +51492,7 @@
 /area/exodus/maintenance/research_starboard)
 "ccN" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /turf/floor/tiled/steel_grid,
 /area/exodus/quartermaster/storage)
 "ccO" = (

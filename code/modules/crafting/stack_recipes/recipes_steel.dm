@@ -105,3 +105,6 @@
 
 /decl/stack_recipe/steel/furniture/tank
 	result_type       = /obj/item/pipe/tank
+
+/decl/stack_recipe/steel/furniture/drill_brace
+	result_type       = /obj/structure/drill_brace
