@@ -28,6 +28,8 @@
 			/decl/sprite_accessory/marking/frame/plating/head = "#8888cc"
 		)
 	)
+	age_descriptor =        /datum/appearance_descriptor/age/utility_frame
+	uid = "bodytype_prosthetic_utility_frame"
 
 /decl/bodytype/prosthetic/utility_frame/Initialize()
 	equip_adjust = list(

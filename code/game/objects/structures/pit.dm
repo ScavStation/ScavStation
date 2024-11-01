@@ -21,7 +21,7 @@
 			to_chat(user, SPAN_NOTICE("You stop digging."))
 		return TRUE
 
-	if (!open && istype(W, /obj/item/stack/material) && W.material?.type == /decl/material/solid/organic/wood)
+	if (!open && istype(W, /obj/item/stack/material/plank) && istype(W.material, /decl/material/solid/organic/wood))
 		if(locate(/obj/structure/gravemarker) in src.loc)
 			to_chat(user, SPAN_WARNING("There's already a grave marker here."))
 		else
@@ -38,10 +38,11 @@
 /obj/structure/pit/on_update_icon()
 	..()
 	icon_state = "pit[open]"
-	if(istype(loc,/turf/exterior))
-		var/turf/exterior/E = loc
-		if(E.dirt_color)
-			color = E.dirt_color
+	if(isturf(loc))
+		var/turf/T = loc
+		var/soil_color = T.get_soil_color()
+		if(soil_color)
+			color = soil_color
 
 /obj/structure/pit/proc/open()
 	name = initial(name)

@@ -1,10 +1,3 @@
-var/global/list/pheromone_markers = list()
-
-/decl/species/handle_post_spawn(var/mob/living/carbon/human/H)
-	. = ..()
-	if(H)
-		H.update_pheromone_markers()
-
 /decl/bodytype/indrel
 	name = "indrel"
 	bodytype_category = BODYTYPE_INDREL

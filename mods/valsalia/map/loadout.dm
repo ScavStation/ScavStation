@@ -1,6 +1,6 @@
 /decl/loadout_option/clothing/cloak
 	name = "cloak, colour select"
-	path = /obj/item/clothing/accessory/cloak
+	path = /obj/item/clothing/suit/cloak
 	slot = slot_wear_suit_str
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
 	uid = "gear_clothing_accessory_yinglet_cloak"
@@ -48,7 +48,7 @@
 
 /decl/loadout_option/scav_medical_belt
 	name = "medical belt"
-	path = /obj/item/storage/belt/medical
+	path = /obj/item/belt/medical
 	cost = 3
 	slot = slot_belt_str
 	uid = "gear_storage_belt_yinglet_medical"
@@ -108,12 +108,12 @@
 
 /decl/loadout_option/suit/winterredcoat
 	name = "winter coat, yinglet, Ivenmoth"
-	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet/redcoat
+	path = /obj/item/clothing/suit/jacket/winter/yinglet/redcoat
 	uid = "gear_clothing_suit_yinglet_wintercoat_redcoat"
 
 /decl/loadout_option/suit/wintercoat_yinglet
 	name = "winter coat, yinglet"
-	path = /obj/item/clothing/suit/storage/toggle/wintercoat/yinglet
+	path = /obj/item/clothing/suit/jacket/winter/yinglet
 	uid = "gear_clothing_suit_yinglet_wintercoat"
 
 /decl/loadout_option/head/baxxid_hood

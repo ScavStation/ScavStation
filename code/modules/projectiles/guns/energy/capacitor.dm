@@ -155,7 +155,7 @@ var/global/list/laser_wavelengths
 	if(!charging && istype(user))
 		charging = selected_wavelength
 		playsound(loc, 'sound/effects/capacitor_whine.ogg', 100, 0)
-		while(!QDELETED(user) && length(capacitors) && charging && user.get_active_hand() == src)
+		while(!QDELETED(user) && length(capacitors) && charging && user.get_active_held_item() == src)
 			var/charged = TRUE
 			for(var/obj/item/stock_parts/capacitor/capacitor in capacitors)
 				if(capacitor.charge < capacitor.max_charge)
@@ -268,7 +268,7 @@ var/global/list/laser_wavelengths
 
 /obj/item/gun/energy/capacitor/rifle/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
 	loaded_cell_type = loaded_cell_type || /obj/item/cell/super
-	return ..(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
+	return ..(loaded_cell_type, accepted_cell_type, /datum/extension/loaded_cell, charge_value)
 
 /obj/item/gun/energy/capacitor/rifle/linear_fusion
 	name = "linear fusion rifle"

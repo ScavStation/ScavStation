@@ -1,7 +1,7 @@
 /obj/abstract/weather_system
-	var/tmp/wind_direction =    0                        // Bitflag; current wind direction.
-	var/tmp/wind_strength =     1                        // How string is the wind currently?
-	var/const/base_wind_delay = 1                        // What is the base movement delay or increase applied by wind strength?
+	var/tmp/wind_direction =    0   // Bitflag; current wind direction.
+	var/tmp/wind_strength =     1   // How strong is the wind currently?
+	var/const/base_wind_delay = 0.5 // What is the base movement delay or increase applied by wind strength?
 
 // Randomizes wind speed and direction sometimes.
 /obj/abstract/weather_system/proc/handle_wind()
@@ -33,6 +33,6 @@
 		if(environment && environment.return_pressure() >= MIN_WIND_PRESSURE) // Arbitrary low pressure bound.
 			var/absolute_strength = abs(wind_strength)
 			if(absolute_strength <= 0.5 || !wind_direction)
-				to_chat(M, SPAN_NOTICE("The wind is calm."))
+				to_chat(M, SPAN_NOTICE(FONT_SMALL("The wind is calm.")))
 			else
-				to_chat(M, SPAN_NOTICE("The wind is blowing[absolute_strength > 2 ? " strongly" : ""] towards the [dir2text(wind_direction)]."))
+				to_chat(M, SPAN_NOTICE(FONT_SMALL("The wind is blowing[absolute_strength > 2 ? " strongly" : ""] towards the [dir2text(wind_direction)].")))

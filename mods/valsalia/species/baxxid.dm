@@ -86,7 +86,7 @@
 	base_external_prosthetics_model = null
 	preview_outfit = /decl/hierarchy/outfit/baxxid
 
-	hud_type = /datum/hud_data/baxxid
+	species_hud = /datum/hud_data/baxxid
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
 	spawn_flags = SPECIES_CAN_JOIN
 
@@ -167,7 +167,7 @@
 						word += ch + ch // capitalized
 			else
 				word += c+c
-			k *= 0.8	
+			k *= 0.8
 		message = copytext_char(message, 2)
 	switch(text2ascii(uppertext(ch)))
 		if (65 to 90)
@@ -264,7 +264,7 @@
 /datum/inventory_slot/gripper/right_hand/baxxid
 	can_use_held_item = FALSE
 
-/obj/item/organ/external/head/baxxid/do_install(mob/living/carbon/human/target, affected, in_place, update_icon, detached)
+/obj/item/organ/external/head/baxxid/do_install(mob/living/human/target, affected, in_place, update_icon, detached)
 	. = ..()
 	if(. && owner)
 		owner.add_held_item_slot(new /datum/inventory_slot/gripper/mouth)

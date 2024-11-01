@@ -1,9 +1,10 @@
+
 /mob/living/simple_animal/hostile/carp/shark // generally stronger version of a carp that doesn't die from a mean look. Fance new sprites included, credits to F-Tang Steve
 	name = "cosmoshark"
 	desc = "Enormous creature that resembles a shark with magenta glowing lines along its body and set of long deep-purple teeth."
 	icon = 'maps/away/errant_pisces/icons/cosmoshark.dmi'
 	turns_per_move = 5
-	meat_type = /obj/item/chems/food/sharkmeat
+	butchery_data = /decl/butchery_data/animal/fish/space_carp/shark
 	speed = 2
 	max_health = 100
 	natural_weapon = /obj/item/natural_weapon/bite/strong
@@ -14,7 +15,7 @@
 	return
 
 /mob/living/simple_animal/hostile/carp/shark/death(gibbed)
-	..()
+	. = ..()
 	if(. && !gibbed)
 		var/datum/gas_mixture/environment = loc.return_air()
 		if (environment)
@@ -23,7 +24,7 @@
 			environment.merge(sharkmaw_chlorine)
 			visible_message(SPAN_WARNING("\The [src]'s body releases some gas from the gills with a quiet fizz!"))
 
-/mob/living/simple_animal/hostile/carp/shark/AttackingTarget()
+/mob/living/simple_animal/hostile/carp/shark/attack_target(mob/target)
 	set waitfor = 0//to deal with sleep() possibly stalling other procs
 	. =..()
 	var/mob/living/L = .
@@ -40,6 +41,10 @@
 				L.forceMove(T)
 			visible_message("<span class='danger'>\The [src] releases [L].</span>")
 
+/decl/butchery_data/animal/fish/space_carp/shark
+	meat_type = /obj/item/chems/food/sharkmeat
+	must_use_hook = TRUE
+
 /obj/item/chems/food/sharkmeat
 	name = "cosmoshark fillet"
 	desc = "A fillet of cosmoshark meat."
@@ -50,6 +55,6 @@
 
 /obj/item/chems/food/sharkmeat/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/nutriment/protein, 5)
-	add_to_reagents(/decl/material/liquid/psychoactives,     1)
-	add_to_reagents(/decl/material/gas/chlorine,             1)
+	add_to_reagents(/decl/material/solid/organic/meat,   5)
+	add_to_reagents(/decl/material/liquid/psychoactives, 1)
+	add_to_reagents(/decl/material/gas/chlorine,         1)

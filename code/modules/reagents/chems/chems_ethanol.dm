@@ -27,8 +27,6 @@
 	affect_blood_on_ingest = FALSE // prevents automatic toxins/inebriation as though injected
 	affect_blood_on_inhale = FALSE
 
-	var/nutriment_factor = 0
-	var/hydration_factor = 0
 	var/strength = 10 // This is, essentially, units between stages - the lower, the stronger. Less fine tuning, more clarity.
 	var/alcohol_toxicity = 1
 	var/adj_temp = 0
@@ -41,23 +39,21 @@
 
 /decl/material/liquid/ethanol/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
-	M.adjustToxLoss(removed * 2 * alcohol_toxicity)
+	M.take_damage(removed * 2 * alcohol_toxicity, TOX)
 	M.add_chemical_effect(CE_ALCOHOL_TOXIC, alcohol_toxicity)
 
 /decl/material/liquid/ethanol/affect_inhale(mob/living/M, removed, datum/reagents/holder)
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 	..()
 	affect_ingest(M, removed, holder) // a bit of a hack, but it avoids code duplication
 
 /decl/material/liquid/ethanol/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
-	M.adjust_nutrition(nutriment_factor * removed)
-	M.adjust_hydration(hydration_factor * removed)
+	..()
 
 	M.add_chemical_effect(CE_ALCOHOL, 1)
 	var/strength_mod = (M.GetTraitLevel(/decl/trait/malus/ethanol) * 2.5) || 1
@@ -142,7 +138,7 @@
 
 /decl/material/liquid/ethanol/beer/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 	ADJ_STATUS(M, STAT_JITTER, -3)
 
@@ -205,7 +201,7 @@
 /decl/material/liquid/ethanol/coffee/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	ADJ_STATUS(M, STAT_DIZZY, -5)
@@ -214,7 +210,7 @@
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/decl/material/liquid/ethanol/coffee/affect_overdose(var/mob/living/M)
+/decl/material/liquid/ethanol/coffee/affect_overdose(mob/living/M, total_dose)
 	ADJ_STATUS(M, STAT_JITTER, 5)
 
 /decl/material/liquid/ethanol/melonliquor
@@ -287,7 +283,7 @@
 /decl/material/liquid/ethanol/thirteenloko/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	ADJ_STATUS(M, STAT_DROWSY, -7)
@@ -456,14 +452,14 @@
 /decl/material/liquid/ethanol/pwine/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	var/dose = LAZYACCESS(M.chem_doses, type)
 	if(dose > 30)
-		M.adjustToxLoss(2 * removed)
+		M.take_damage(2 * removed, TOX)
 	if(dose > 60 && ishuman(M) && prob(5))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		var/obj/item/organ/internal/heart = GET_INTERNAL_ORGAN(H, BP_HEART)
 		if(heart)
 			if(dose < 120)

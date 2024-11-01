@@ -13,7 +13,7 @@
 	SSmodpacks.default_submap_whitelisted_species |= SPECIES_SKRELL
 	SSmodpacks.default_submap_whitelisted_species |= SPECIES_ADHERENT
 
-/mob/living/carbon/human/Process_Spacemove(allow_movement)
+/mob/living/human/Process_Spacemove(allow_movement)
 	. = ..()
 	if(.)
 		return

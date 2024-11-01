@@ -17,11 +17,6 @@ var/global/list/pipe_colors = list(
 	"white" = PIPE_COLOR_WHITE,
 	"dark gray" = COLOR_DARK_GRAY)
 
-/proc/pipe_color_lookup(var/color)
-	for(var/C in pipe_colors)
-		if(color == pipe_colors[C])
-			return "[C]"
-
 /proc/pipe_color_check(var/color)
 	if(!color)
 		return 1

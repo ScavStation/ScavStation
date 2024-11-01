@@ -20,7 +20,7 @@
 	hardness = MAT_VALUE_FLEXIBLE + 10
 	brute_armor = 1
 	weight = MAT_VALUE_NORMAL
-	melting_point = T0C+300 //okay, not melting in this case, but hot enough to destroy wood
+	burn_temperature = 1000 CELSIUS
 	ignition_point = T0C+288
 	stack_origin_tech = @'{"materials":1,"biotech":1}'
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
@@ -40,12 +40,13 @@
 	default_solid_form = /obj/item/stack/material/plank
 	sound_manipulate = 'sound/foley/woodpickup1.ogg'
 	sound_dropped = 'sound/foley/wooddrop1.ogg'
+	compost_value = 0.2
 
 /decl/material/solid/organic/wood/fungal
 	name = "towercap"
 	uid = "solid_wood_fungal"
 	color = "#e6d8dd"
-	hardness = MAT_VALUE_FLEXIBLE + 1
+	hardness = MAT_VALUE_FLEXIBLE + 10
 
 /decl/material/solid/organic/wood/holographic
 	name = "holographic wood"

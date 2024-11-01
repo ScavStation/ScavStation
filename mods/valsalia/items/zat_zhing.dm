@@ -37,7 +37,7 @@
 	if(ishuman(hit_atom) && prob(transform_impact_prob))
 		try_transform(hit_atom)
 
-/obj/item/zat_zhing/proc/try_transform(mob/living/carbon/human/victim)
+/obj/item/zat_zhing/proc/try_transform(mob/living/human/victim)
 	if(victim.species.name != SPECIES_YINGLET)
 		victim.worn_underwear = null
 		victim.change_species(SPECIES_YINGLET)

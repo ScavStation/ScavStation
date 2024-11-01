@@ -92,7 +92,7 @@ var/global/list/outfits_decls_by_type_
 			. += "outfit is flagged for sensors, but uniform cannot take accessories"
 		var/succeeded = FALSE
 		if(uniform)
-			var/obj/item/sensor = new /obj/item/clothing/accessory/vitals_sensor
+			var/obj/item/sensor = new /obj/item/clothing/sensor/vitals
 			var/obj/item/clothing/wear_uniform = new uniform // sadly we need to read a list
 			if(wear_uniform.can_attach_accessory(sensor))
 				succeeded = TRUE
@@ -101,11 +101,11 @@ var/global/list/outfits_decls_by_type_
 		if(!succeeded)
 			. += "outfit is flagged for sensors, but uniform does not accept sensors"
 
-/decl/hierarchy/outfit/proc/pre_equip(mob/living/carbon/human/H)
+/decl/hierarchy/outfit/proc/pre_equip(mob/living/human/H)
 	if(outfit_flags & OUTFIT_RESET_EQUIPMENT)
 		H.delete_inventory(TRUE)
 
-/decl/hierarchy/outfit/proc/post_equip(mob/living/carbon/human/H)
+/decl/hierarchy/outfit/proc/post_equip(mob/living/human/H)
 	if(outfit_flags & OUTFIT_HAS_JETPACK)
 		var/obj/item/tank/jetpack/J = locate(/obj/item/tank/jetpack) in H
 		if(!J)
@@ -113,7 +113,7 @@ var/global/list/outfits_decls_by_type_
 		J.toggle()
 		J.toggle_valve()
 
-/decl/hierarchy/outfit/proc/equip_outfit(mob/living/carbon/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/hierarchy/outfit/proc/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	equip_base(H, equip_adjustments)
 	equip_id(H, assignment, equip_adjustments, job, rank)
 	for(var/path in backpack_contents)
@@ -129,17 +129,17 @@ var/global/list/outfits_decls_by_type_
 
 	return 1
 
-/decl/hierarchy/outfit/proc/try_equip_vitals_sensor(mob/living/carbon/human/H)
+/decl/hierarchy/outfit/proc/try_equip_vitals_sensor(mob/living/human/H)
 
 	// Check if they already have one.
 	for(var/check_slot in global.vitals_sensor_equip_slots)
 		var/obj/item/clothing/equipped = H.get_equipped_item(check_slot)
-		if(istype(equipped) && (locate(/obj/item/clothing/accessory/vitals_sensor) in equipped.accessories))
+		if(istype(equipped) && (locate(/obj/item/clothing/sensor/vitals) in equipped.accessories))
 			return
 
 	// Check if one has been spawned or dropped by previous equip procs.
 	var/turf/working_turf = get_turf(H)
-	var/obj/item/clothing/accessory/vitals_sensor/sensor = (locate() in get_turf(H)) || (locate() in H.get_held_items()) || new(working_turf)
+	var/obj/item/clothing/sensor/vitals/sensor = (locate() in get_turf(H)) || (locate() in H.get_held_items()) || new(working_turf)
 	if(ismob(sensor.loc))
 		var/mob/M = sensor.loc
 		M.drop_from_inventory(sensor)
@@ -147,7 +147,7 @@ var/global/list/outfits_decls_by_type_
 	// Try to equip it to something.
 	for(var/check_slot in global.vitals_sensor_equip_slots)
 		var/obj/item/clothing/equipped = H.get_equipped_item(check_slot)
-		if(istype(equipped) && !(locate(/obj/item/clothing/accessory/vitals_sensor) in equipped.accessories) && equipped.can_attach_accessory(sensor))
+		if(istype(equipped) && !(locate(/obj/item/clothing/sensor/vitals) in equipped.accessories) && equipped.can_attach_accessory(sensor))
 			equipped.attach_accessory(null, sensor)
 			break
 
@@ -155,7 +155,7 @@ var/global/list/outfits_decls_by_type_
 	if(isturf(sensor.loc))
 		H.put_in_hands(sensor)
 
-/decl/hierarchy/outfit/proc/equip_base(mob/living/carbon/human/H, var/equip_adjustments)
+/decl/hierarchy/outfit/proc/equip_base(mob/living/human/H, var/equip_adjustments)
 	set waitfor = FALSE
 	pre_equip(H)
 
@@ -167,7 +167,7 @@ var/global/list/outfits_decls_by_type_
 
 		var/obj/item/equip_uniform = H.get_equipped_item(slot_w_uniform_str)
 		if(holster && equip_uniform)
-			var/obj/item/clothing/accessory/equip_holster = new holster
+			var/obj/item/clothing/equip_holster = new holster
 			equip_uniform.attackby(equip_holster, H)
 			if(equip_holster.loc != equip_uniform && !QDELETED(equip_holster))
 				qdel(equip_holster)
@@ -226,18 +226,17 @@ var/global/list/outfits_decls_by_type_
 				H.equip_to_slot_or_del(backpack, slot_back_str)
 
 	if(H.species && !(OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR & equip_adjustments))
-		if(outfit_flags & OUTFIT_EXTENDED_SURVIVAL)
-			H.species.equip_survival_gear(H, /obj/item/storage/box/engineer)
-		else if(H.client?.prefs?.survival_box_choice && global.survival_box_choices[H.client.prefs.survival_box_choice])
-			var/decl/survival_box_option/box = global.survival_box_choices[H.client.prefs.survival_box_choice]
-			H.species.equip_survival_gear(H, box.box_type)
-		else
-			H.species.equip_survival_gear(H)
+		var/decl/survival_box_option/chosen_survival_box = H?.client?.prefs.survival_box_choice
+		if(chosen_survival_box?.box_type)
+			if(outfit_flags & OUTFIT_EXTENDED_SURVIVAL)
+				H.species.equip_survival_gear(H, /obj/item/box/engineer)
+			else
+				H.species.equip_survival_gear(H, chosen_survival_box.box_type)
 
 	if(H.client?.prefs?.give_passport)
 		global.using_map.create_passport(H)
 
-/decl/hierarchy/outfit/proc/equip_id(mob/living/carbon/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/hierarchy/outfit/proc/equip_id(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	if(!id_slot || !id_type)
 		return
 	if(OUTFIT_ADJUSTMENT_SKIP_ID_PDA & equip_adjustments)
@@ -259,7 +258,7 @@ var/global/list/outfits_decls_by_type_
 	if(H.equip_to_slot_or_store_or_drop(W, id_slot))
 		return W
 
-/decl/hierarchy/outfit/proc/equip_pda(var/mob/living/carbon/human/H, var/assignment, var/equip_adjustments)
+/decl/hierarchy/outfit/proc/equip_pda(var/mob/living/human/H, var/assignment, var/equip_adjustments)
 	if(!pda_slot || !pda_type)
 		return
 	if(OUTFIT_ADJUSTMENT_SKIP_ID_PDA & equip_adjustments)

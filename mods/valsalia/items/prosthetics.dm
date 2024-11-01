@@ -46,7 +46,7 @@
 	name = "yinglet, android"
 	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
 
-DEFINE_ROBOLIMB_MODEL_ASPECTS(/decl/bodytype/prosthetic/ying/metal, yinglet_scavenged, 0)
+DEFINE_ROBOLIMB_MODEL_TRAITS(/decl/bodytype/prosthetic/ying/metal, yinglet_scavenged, 0, "yinglet_scavenged")
 DEFINE_ROBOLIMB_DESIGNS(/decl/bodytype/prosthetic/ying/metal, lunar_transit)
 
 /decl/stack_recipe/wooden_prosthetic

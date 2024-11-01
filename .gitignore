@@ -26,6 +26,9 @@ sql/test_db
 *.code-workspace
 .history
 
+# git/kdiff4
+*.orig
+
 # swap
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
@@ -51,3 +54,5 @@ lib/*.so
 *.pyc
 __pycache__
 maps/ministation/ministation-2BAK.dmm
+# Running OpenDream locally
+nebula.json

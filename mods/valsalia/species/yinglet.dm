@@ -34,15 +34,10 @@
 
 	flesh_color = "#ab8c65"
 	spawn_flags = SPECIES_CAN_JOIN
-	age_descriptor = /datum/appearance_descriptor/age/yinglet
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
-	appearance_descriptors = list(
-		/datum/appearance_descriptor/height = 0.5,
-		/datum/appearance_descriptor/build =  0.5
-	)
 	total_health = 150
 	brute_mod = 1.25
 	burn_mod =  1.25
@@ -80,7 +75,7 @@
 		/decl/trait/gluten_allergy = TRAIT_LEVEL_EXISTS
 	)
 
-/decl/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
+/decl/species/yinglet/get_root_species_name(mob/living/human/H)
 	return SPECIES_YINGLET
 
 /decl/species/yinglet/skills_from_age(age)
@@ -94,7 +89,7 @@
 		else
 			. = 8
 
-/decl/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
+/decl/species/yinglet/handle_additional_hair_loss(var/mob/living/human/H, var/defer_body_update = TRUE)
 	. = H && H.set_skin_colour(rgb(189, 171, 143))
 
 /decl/species/yinglet/get_autohiss_map(var/mode)
@@ -105,7 +100,7 @@
 	if(!islist(.))
 		. = list()
 
-/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
+/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/human/H)
 	return
 
 /obj/item/holder/yinglet

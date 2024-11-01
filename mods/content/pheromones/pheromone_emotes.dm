@@ -13,6 +13,12 @@
 	self_smell_descriptor = "distressing"
 	scent_color = COLOR_RED
 
+/decl/emote/pheromone/pain
+	key = "scentpain"
+	smell_message = "<span class='danger'>PAIN</span>"
+	self_smell_descriptor = "distressing"
+	scent_color = COLOR_RED
+
 /decl/emote/pheromone/calm
 	key = "scentcalm"
 	smell_message = "<span class='notice'><b>calm</b></span>"
@@ -71,7 +77,7 @@
 	if(!T)
 		return
 	to_chat(user, SPAN_NOTICE("You emit the [self_smell_descriptor ? "[self_smell_descriptor] " : ""]scent of [smell_message]."))
-	for(var/mob/living/carbon/human/H in viewers(world.view, user))
+	for(var/mob/living/human/H in viewers(world.view, user))
 		if(H != user && H.stat == CONSCIOUS && H.can_read_pheromones())
 			to_chat(H, SPAN_NOTICE("\The [user] emits the [self_smell_descriptor ? "[self_smell_descriptor] " : ""]scent of [smell_message]."))
 

@@ -13,20 +13,20 @@
 	base_eye_color =  "#3f0505"
 	mob_size = MOB_SIZE_LARGE
 	has_organ = list(
-		BP_BRAIN             = /obj/item/organ/internal/brain/insectoid/serpentid,
-		BP_EYES              = /obj/item/organ/internal/eyes/insectoid/serpentid,
-		BP_TRACH             = /obj/item/organ/internal/lungs/insectoid/serpentid,
-		BP_HEART             = /obj/item/organ/internal/heart/open,
-		BP_LIVER             = /obj/item/organ/internal/liver/insectoid/serpentid,
-		BP_STOMACH           = /obj/item/organ/internal/stomach/insectoid,
-		BP_SYSTEM_CONTROLLER = /obj/item/organ/internal/controller,
-		BP_PHEROMONE_GLAND   = /obj/item/organ/internal/pheromone_gland
+		BP_BRAIN           = /obj/item/organ/internal/brain/insectoid/serpentid,
+		BP_EYES            = /obj/item/organ/internal/eyes/insectoid/serpentid,
+		BP_TRACH           = /obj/item/organ/internal/lungs/insectoid/serpentid,
+		BP_HEART           = /obj/item/organ/internal/heart/open,
+		BP_LIVER           = /obj/item/organ/internal/liver/insectoid/serpentid,
+		BP_STOMACH         = /obj/item/organ/internal/stomach/insectoid,
+		BP_PHEROMONE_GLAND = /obj/item/organ/internal/pheromone_gland
 	)
-
+	age_descriptor = /datum/appearance_descriptor/age/serpentid
 	eye_darksight_range = 8
 	eye_innate_flash_protection = FLASH_PROTECTION_VULNERABLE
 	eye_contaminant_guard = 1
 	eye_icon = 'mods/species/serpentid/icons/eyes.dmi'
+	uid = "bodytype_serpentid"
 
 	has_limbs = list(
 		BP_CHEST        = list("path" = /obj/item/organ/external/chest/insectoid/serpentid),
@@ -43,7 +43,10 @@
 		BP_L_FOOT       = list("path" = /obj/item/organ/external/foot/insectoid/serpentid),
 		BP_R_FOOT       = list("path" = /obj/item/organ/external/foot/right/insectoid/serpentid)
 	)
-
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height =      1.75,
+		/datum/appearance_descriptor/body_length = 1
+	)
 	limb_mapping = list(
 		BP_L_HAND = list(BP_L_HAND, BP_L_HAND_UPPER),
 		BP_R_HAND = list(BP_R_HAND, BP_R_HAND_UPPER)
@@ -69,3 +72,4 @@
 /decl/bodytype/serpentid/green
 	name = "green"
 	icon_base = 'mods/species/serpentid/icons/body_green.dmi'
+	uid = "bodytype_serpentid_green"

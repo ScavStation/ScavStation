@@ -168,3 +168,8 @@
 	name = "balaclava"
 	path = /obj/item/clothing/mask/balaclava
 	uid = "gear_head_balaclava"
+
+/decl/loadout_option/head/nurse
+	name = "nurse's hat"
+	path = /obj/item/clothing/head/nursehat
+	uid = "gear_head_nursehat"

@@ -119,7 +119,7 @@
 	)
 	minimal_player_age = 14
 	supervisors = "the Captain"
-	outfit_type = /decl/hierarchy/outfit/job/ministation/engineer/head
+	outfit_type = /decl/hierarchy/outfit/job/ministation/chief_engineer
 	min_skill = list(
 		SKILL_LITERACY     = SKILL_ADEPT,
 		SKILL_COMPUTER     = SKILL_ADEPT,

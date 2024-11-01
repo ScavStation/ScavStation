@@ -6,13 +6,13 @@
 	r_pocket = /obj/item/radio
 	id_type = /obj/item/card/id/gold
 	l_ear = /obj/item/radio/headset/heads/captain
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
+	suit = /obj/item/clothing/suit/jacket/redcoat/officer
 
-/decl/hierarchy/outfit/job/tradeship/captain/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/job/tradeship/captain/post_equip(var/mob/living/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.get_equipped_item(slot_w_uniform_str)
 	if(uniform)
-		var/obj/item/clothing/accessory/toggleable/hawaii/random/eyegore = new()
+		var/obj/item/clothing/shirt/hawaii/random/eyegore = new()
 		if(uniform.can_attach_accessory(eyegore))
 			uniform.attach_accessory(null, eyegore)
 		else
@@ -20,12 +20,11 @@
 
 /decl/hierarchy/outfit/job/tradeship/mate
 	name = "Tradeship - Job - Tradehouse First Mate"
-	uniform = /obj/item/clothing/under/suit_jacket/checkered
+	uniform = /obj/item/clothing/pants/slacks/black/outfit/checkered
 	shoes = /obj/item/clothing/shoes/dress
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	pda_type = /obj/item/modular_computer/pda/cargo
 	hands = list(/obj/item/clipboard)
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officiated
+	suit = /obj/item/clothing/suit/jacket/redcoat/officiated
 	id_type = /obj/item/card/id/silver
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	l_ear = /obj/item/radio/headset/heads/hop

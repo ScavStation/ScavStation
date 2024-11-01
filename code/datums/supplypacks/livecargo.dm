@@ -4,20 +4,20 @@
 
 /decl/hierarchy/supply_pack/livecargo/monkey
 	name = "Inert - Monkey cubes"
-	contains = list (/obj/item/storage/box/monkeycubes)
+	contains = list (/obj/item/box/monkeycubes)
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "monkey crate"
 
 /decl/hierarchy/supply_pack/livecargo/spidercubes
 	name = "Inert - Spider Cubes"
-	contains = list(/obj/item/storage/box/monkeycubes/spidercubes)
+	contains = list(/obj/item/box/monkeycubes/spidercubes)
 	containertype = /obj/structure/closet/crate/secure
 	containername = "spiderling crate"
 	access = access_research
 
 /decl/hierarchy/supply_pack/livecargo/carpcubes
 	name = "Inert - Space Carp Cubes"
-	contains = list(/obj/item/storage/box/monkeycubes/carpcubes)
+	contains = list(/obj/item/box/monkeycubes/carpcubes)
 	containertype = /obj/structure/closet/crate/secure
 	containername = "space carp crate"
 	access = access_chemistry

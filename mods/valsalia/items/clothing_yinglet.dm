@@ -1,23 +1,23 @@
-/obj/item/clothing/suit/storage/toggle/redcoat/yinglet
+/obj/item/clothing/suit/jacket/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/suit/storage/toggle/redcoat/officiated/yinglet
+/obj/item/clothing/suit/jacket/redcoat/officiated/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	has_badge =   "badge"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
-/obj/item/clothing/suit/storage/toggle/redcoat/service/yinglet
+/obj/item/clothing/suit/jacket/redcoat/service/yinglet
 	name = "\improper Tradehouse service coat"
 	desc = "The brown-collared uniform of Tradehouse service staff. This one seems to be sized for a yinglet."
 	has_collar = "collar_brown"
 
-/obj/item/clothing/suit/storage/toggle/redcoat/service/officiated/yinglet
+/obj/item/clothing/suit/jacket/redcoat/service/officiated/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	has_badge =   "badge"
 
-/obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer
+/obj/item/clothing/suit/jacket/redcoat/yinglet/officer
 	name = "\improper Tradehouse officer's coat"
 	desc = "The striking uniform of a Tradehouse guard officer, complete with gold collar, buttons and trim. This one seems to be sized for a yinglet."
 	has_badge =   "badge"
@@ -174,7 +174,7 @@
 	desc = "A nitrile tail covering, sterile!"
 	icon = 'mods/valsalia/icons/clothing/accessories/tailglove.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	slot = ACCESSORY_SLOT_MEDAL
+	accessory_slot = ACCESSORY_SLOT_MEDAL
 
 
 /obj/item/clothing/suit/armor/yavlaserproof
@@ -231,7 +231,7 @@
 		)
 	color = null
 	siemens_coefficient = 0.4
-	slot = ACCESSORY_SLOT_ARMOR_A
+	accessory_slot = ACCESSORY_SLOT_ARMOR_A
 
 	material = /decl/material/solid/metal/plasteel
 	matter = list(
@@ -246,7 +246,7 @@
 	icon = 'mods/valsalia/icons/clothing/accessories/armor/legguards_ballistic.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	body_parts_covered = SLOT_LEGS|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_TAIL
-	slot = ACCESSORY_SLOT_ARMOR_L
+	accessory_slot = ACCESSORY_SLOT_ARMOR_L
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_RESISTANT,
 		ARMOR_BULLET = ARMOR_BALLISTIC_RIFLE,
@@ -259,7 +259,7 @@
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_SECONDARY
 	)
 	origin_tech = @'{"materials":3,"engineering":4,"combat":3}'
-	slowdown = 0.3
+	accessory_slowdown = 0.3
 
 /obj/item/clothing/accessory/yingarmguards/ablative
 	name = "ablative arm guards"
@@ -277,7 +277,7 @@
 		)
 	color = null
 	siemens_coefficient = 0
-	slot = ACCESSORY_SLOT_ARMOR_A
+	accessory_slot = ACCESSORY_SLOT_ARMOR_A
 	origin_tech = @'{"materials":6,"engineering":7,"combat":5}'
 
 /obj/item/clothing/accessory/yinglegguards/ablative
@@ -286,7 +286,7 @@
 	icon = 'mods/valsalia/icons/clothing/accessories/armor/legguards_ablative.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	body_parts_covered = SLOT_LEGS|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_TAIL
-	slot = ACCESSORY_SLOT_ARMOR_L
+	accessory_slot = ACCESSORY_SLOT_ARMOR_L
 	color = null
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_KNIVES,
@@ -296,8 +296,8 @@
 		ARMOR_BOMB = ARMOR_BOMB_PADDED
 		)
 	siemens_coefficient = 0
-	slot = ACCESSORY_SLOT_ARMOR_L
-	slowdown = 0.3
+	accessory_slot = ACCESSORY_SLOT_ARMOR_L
+	accessory_slowdown = 0.3
 	origin_tech = @'{"materials":6,"engineering":7,"combat":5}'
 
 
@@ -307,8 +307,8 @@
 	icon = 'mods/valsalia/icons/clothing/accessories/tailbells.dmi'
 	gender = PLURAL
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	slot = ACCESSORY_SLOT_MEDAL
-	slot_flags = SLOT_TIE | SLOT_UPPER_BODY
+	accessory_slot = ACCESSORY_SLOT_MEDAL
+	slot_flags = SLOT_UPPER_BODY
 	material = /decl/material/solid/metal/gold
 	obj_flags = OBJ_FLAG_HOLLOW
 	var/tmp/dingaling_sound = list(
@@ -334,8 +334,8 @@
 		ARMOR_BOMB = ARMOR_BOMB_PADDED
 		)
 	siemens_coefficient = 0.5
-	slot = ACCESSORY_SLOT_ARMOR_L
-	slowdown = 0.4
+	accessory_slot = ACCESSORY_SLOT_ARMOR_L
+	accessory_slowdown = 0.4
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/organic/cloth = MATTER_AMOUNT_SECONDARY)
 	origin_tech = @'{"materials":1,"engineering":1,"combat":2}'
@@ -346,7 +346,7 @@
 	icon = 'mods/valsalia/icons/clothing/accessories/armor/armguards_riot.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	body_parts_covered = SLOT_LEGS|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_TAIL
-	slot = ACCESSORY_SLOT_ARMOR_L
+	accessory_slot = ACCESSORY_SLOT_ARMOR_L
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_VERY_HIGH,
 		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
@@ -356,7 +356,7 @@
 		)
 	color = null
 	siemens_coefficient = 0.5
-	slot = ACCESSORY_SLOT_ARMOR_A
+	accessory_slot = ACCESSORY_SLOT_ARMOR_A
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/organic/cloth = MATTER_AMOUNT_SECONDARY)
 	origin_tech = @'{"materials":1,"engineering":1,"combat":2}'

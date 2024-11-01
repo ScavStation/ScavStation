@@ -1,7 +1,7 @@
 /decl/bodytype/crystalline/mantid
 	abstract_type = /decl/bodytype/crystalline/mantid
 	eye_flash_mod =     2 // Highly photosensitive.
-
+	age_descriptor = /datum/appearance_descriptor/age/kharmaani
 	appearance_flags =  0
 	is_brittle = FALSE
 	has_limbs = list(
@@ -41,6 +41,10 @@
 		"You hear a faint crackle of ice as you shift your freezing body.",
 		"Your movements become sluggish under the weight of the chilly conditions."
 	)
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height =      0.75,
+		/datum/appearance_descriptor/body_length = 0.5
+	)
 
 /decl/bodytype/crystalline/mantid/alate
 	name =              "alate"
@@ -50,6 +54,7 @@
 	associated_gender = MALE
 	bodytype_flag =     BODY_FLAG_ALATE
 	movement_slowdown = -1
+	uid = "bodytype_crystalline_alate"
 
 /decl/bodytype/crystalline/mantid/gyne
 	name =              "gyne"
@@ -71,6 +76,13 @@
 	override_organ_types = list(
 		BP_EGG = /obj/item/organ/internal/egg_sac/insectoid,
 	)
+	age_descriptor = /datum/appearance_descriptor/age/kharmaani/gyne
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height =      2,
+		/datum/appearance_descriptor/body_length = 1.25
+	)
+	z_flags = ZMM_WIDE_LOAD
+	uid = "bodytype_crystalline_gyne"
 
 /decl/bodytype/crystalline/mantid/gyne/Initialize()
 	equip_adjust = list(
