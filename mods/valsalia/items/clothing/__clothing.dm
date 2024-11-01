@@ -15,6 +15,7 @@
 		else if(!isnull(bodytype_equip_flags))
 			bodytype_equip_flags |= guarantee_body_flag_compatible
 
+
 /obj/item/clothing/shoes
 	yinglet_icon = 'mods/valsalia/icons/clothing/shoes/shoes.dmi'
 
@@ -34,6 +35,7 @@
 	desc = "The signature uniform of Tradeshouse guardsmen."
 	icon = 'mods/valsalia/icons/clothing/suit/redcoat.dmi'
 	bodytype_equip_flags = BODY_FLAG_HUMANOID
+	yinglet_icon = null
 	var/has_badge
 	var/has_buttons
 	var/has_collar
@@ -106,9 +108,6 @@
 	yinglet_icon = 'mods/valsalia/icons/clothing/suit/wintercoat/atmos.dmi'
 	hood = /obj/item/clothing/head/winterhood/yinglet/atmos
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	armor = list(
-		rad = ARMOR_RAD_MINOR
-	)
 
 /obj/item/clothing/head/winterhood/yinglet/atmos
 	name = "small atmospherics winter hood"

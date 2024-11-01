@@ -11,7 +11,7 @@
 		"the tradehouse personnel data"			= /obj/item/documents/tradehouse/personnel,
 		"the Captain's spare ID"				= /obj/item/card/id/captains_spare,
 		"the ship's blueprints"					= /obj/item/blueprints,
-		"the Matriarch's robes"					= /obj/item/clothing/under/yinglet/matriarch,
+		"the Matriarch's robes"					= /obj/item/clothing/suit/robe/yinglet/matriarch,
 		"a jetpack"								= /obj/item/tank/jetpack/,
 		"a pump action shotgun"					= /obj/item/gun/projectile/shotgun/pump/,
 		"a health analyzer"						= /obj/item/scanner/health,

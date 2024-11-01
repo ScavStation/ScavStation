@@ -35,7 +35,7 @@
 /decl/hierarchy/outfit/job/ministation/librarian
 	l_ear = /obj/item/radio/headset/headset_service
 	name = "Ministation - Job - Librarian"
-	uniform = /obj/item/clothing/under/yinglet/yinglibrarian
+	uniform = /obj/item/clothing/suit/robe/yinglet/librarian
 	id_type = /obj/item/card/id/ministation/librarian
 	pda_type = /obj/item/modular_computer/pda
 	suit = /obj/item/clothing/suit/jacket/redcoat/service/officiated

@@ -9,5 +9,6 @@
 		/datum/computer_file/program/supply
 	)
 
-/datum/map/ministation
-	lobby_tracks = list(/decl/music_track/zazie)
+/datum/map/ministation/New()
+	lobby_tracks |= /decl/music_track/zazie
+	return ..()

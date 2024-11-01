@@ -65,6 +65,11 @@
 	required_reagents = list(/decl/material/liquid/nutriment/bread = 1)
 	result_amount = 1
 	mix_message = "The food softens into a soggy mess."
+	// To avoid interfering with the stuffing reaction.
+	inhibitors = list(
+		/decl/material/solid/sodiumchloride,
+		/decl/material/solid/blackpepper,
+	)
 	hidden_from_codex = TRUE
 	var/static/list/can_make_soggy = list(
 		/decl/material/liquid/drink,

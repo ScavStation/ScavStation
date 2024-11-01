@@ -768,7 +768,7 @@ default behaviour is:
 	return (!L || L.can_drown())
 
 /mob/living/handle_drowning()
-	if(!can_drown() || !loc?.is_flooded(current_posture.prone))
+	if(!can_drown() || !loc?.is_flooded(current_posture.prone) || holding_breath)
 		return FALSE
 	var/turf/T = get_turf(src)
 	if(!current_posture.prone && T.above && T.above.is_open() && !T.above.is_flooded() && can_overcome_gravity())

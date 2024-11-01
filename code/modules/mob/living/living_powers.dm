@@ -115,7 +115,7 @@
 	set src = usr
 
 	var/decl/species/my_species = get_species()
-	if(incapacitated())
+	if(incapacitated() || holding_breath)
 		to_chat(src, SPAN_WARNING("You can't sniff right now."))
 		return
 

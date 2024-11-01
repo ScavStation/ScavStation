@@ -401,7 +401,7 @@
 	var/list/gear_tweaks = list()         // List of datums which will alter the item after it has been spawned.
 	var/replace_equipped = TRUE           // Whether or not this equipment should replace pre-existing equipment.
 	var/list/faction_restricted           // List of types of cultural datums that will allow this loadout option.
-	var/whitelisted                       // Species name to check the whitelist for.
+	var/whitelisted                       // List of species names to check the whitelist for.
 
 /decl/loadout_option/Initialize()
 

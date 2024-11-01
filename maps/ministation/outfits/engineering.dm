@@ -24,7 +24,7 @@
 
 /decl/hierarchy/outfit/job/ministation/chief_engineer
 	name = "Job - Head Engineer"
-	uniform = /obj/item/clothing/jumpsuit/hazard
+	uniform = /obj/item/clothing/jumpsuit/yinglet/hazard
 	glasses = /obj/item/clothing/glasses/welding/superior
 	suit = /obj/item/clothing/suit/hazardvest
 	gloves = /obj/item/clothing/gloves/thick

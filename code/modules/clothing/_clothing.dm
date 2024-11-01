@@ -210,13 +210,12 @@
 			appearance = I
 			set_dir(SOUTH)
 			set_appearance = TRUE
-	if(!set_appearance)
+
+	if(!set_appearance && markings_color && markings_state_modifier)
 		icon_state = JOINTEXT(list(get_world_inventory_state(), get_clothing_state_modifier()))
-		if(markings_state_modifier && markings_color)
-			add_overlay(mutable_appearance(icon, "[icon_state][markings_state_modifier]", markings_color))
+		add_overlay(mutable_appearance(icon, "[icon_state][markings_state_modifier]", markings_color))
 
 	update_clothing_icon()
-
 
 // Used by washing machines to temporarily make clothes smell
 /obj/item/clothing/proc/change_smell(decl/material/odorant, time = 10 MINUTES)

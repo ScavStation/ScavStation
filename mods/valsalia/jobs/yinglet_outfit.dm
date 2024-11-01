@@ -1,6 +1,6 @@
 /decl/hierarchy/outfit/job/yinglet
 	abstract_type = /decl/hierarchy/outfit/job/yinglet
-	uniform = /obj/item/clothing/under/yinglet
+	uniform = /obj/item/clothing/pants/loincloth/yinglet
 	shoes = /obj/item/clothing/shoes/sandal/yinglet
 	id_type = /obj/item/card/id
 	pda_type = /obj/item/modular_computer/pda
