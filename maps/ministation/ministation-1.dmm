@@ -1678,7 +1678,7 @@
 "fk" = (
 /obj/structure/lattice,
 /obj/random/trash,
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /obj/machinery/camera/autoname{
 	dir = 1
 	},

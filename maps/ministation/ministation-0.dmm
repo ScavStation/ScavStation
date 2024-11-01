@@ -8964,7 +8964,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "BB" = (
