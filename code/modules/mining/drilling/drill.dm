@@ -95,7 +95,7 @@
 
 /obj/machinery/mining_drill/proc/handle_supports()
 	state_machine.evaluate()
-	anchored = supports.len >= 1 ? TRUE : FALSE
+	anchored = length(supports) >= 1 ? TRUE : FALSE
 	if(can_fall())
 		fall()
 
@@ -154,7 +154,7 @@
 	// Was tempted to add a drilling sound but it was awful.
 	var/datum/extension/buried_resources/resources = get_extension(T, /datum/extension/buried_resources)
 	for(var/i in 1 to mining_speed)
-		if(!resources.resources.len)
+		if(!length(resources.resources))
 			break
 		var/material_typepath = pick(resources.resources)
 		contained_ore += new /obj/item/stack/material/ore(src, 1, material_typepath)
@@ -187,7 +187,7 @@
 		return
 
 	if(box?.Adjacent(src))
-		if(!contained_ore.len)
+		if(!length(contained_ore))
 			to_chat(user, SPAN_NOTICE("\The [src]'s storage cache is empty."))
 			return
 		box.insert_ores(contained_ore, user)

@@ -84,14 +84,14 @@
 	target = /decl/state/drill/error
 
 /decl/state_transition/drill/error/is_open(obj/machinery/mining_drill/drill)
-	return drill.supports.len < drill.MINIMUM_SUPPORT_NUMBER
+	return ..() && length(drill.supports) < drill.MINIMUM_SUPPORT_NUMBER
 
 
 /decl/state_transition/drill/recover_from_error
 	target = /decl/state/drill/idle
 
 /decl/state_transition/drill/recover_from_error/is_open(obj/machinery/mining_drill/drill)
-	return drill.supports.len >= drill.MINIMUM_SUPPORT_NUMBER
+	return ..() && length(drill.supports) >= drill.MINIMUM_SUPPORT_NUMBER
 
 
 /// State that follows the starting state, where it determines which turfs to mine, and gives a visual effect of it scanning the surrounding ground.
@@ -114,8 +114,7 @@
 	target = /decl/state/drill/scanning
 
 /decl/state_transition/drill/scanning/is_open(obj/machinery/mining_drill/drill)
-	. = ..()
-	return . && !drill.turfs_to_mine.len
+	return ..() && !length(drill.turfs_to_mine)
 
 
 /// State where the drill is actively mining a specific turf.
@@ -138,8 +137,7 @@
 	target = /decl/state/drill/mining
 
 /decl/state_transition/drill/mining/is_open(obj/machinery/mining_drill/drill)
-	. = ..()
-	return . && drill.turfs_to_mine.len && drill.current_turf
+	return ..() && length(drill.turfs_to_mine) && drill.current_turf
 
 
 /// State which occurs when the currently mined turf is depleted, and there is another turf to mine from,
@@ -163,7 +161,7 @@
 			drill.turfs_to_mine -= drill.current_turf
 			if(has_extension(drill.current_turf, /datum/extension/buried_resources))
 				remove_extension(drill.current_turf, /datum/extension/buried_resources)
-	if(drill.turfs_to_mine.len)
+	if(length(drill.turfs_to_mine))
 		drill.current_turf = drill.turfs_to_mine[1]
 	else
 		drill.current_turf = null
@@ -172,8 +170,7 @@
 	target = /decl/state/drill/switching_target
 
 /decl/state_transition/drill/switching_target/is_open(obj/machinery/mining_drill/drill)
-	. = ..()
-	return . && drill.turfs_to_mine.len && !drill.turf_has_ore(drill.current_turf)
+	return ..() && length(drill.turfs_to_mine) && !drill.turf_has_ore(drill.current_turf)
 
 
 /// State which occurs when the ore storage is full, and the player needs to unload the ore for it to resume mining.
@@ -190,15 +187,13 @@
 	target = /decl/state/drill/storage_full
 
 /decl/state_transition/drill/storage_full/is_open(obj/machinery/mining_drill/drill)
-	. = ..()
-	return . && drill.contained_ore.len >= drill.ore_capacity
+	return ..() && length(drill.contained_ore) >= drill.ore_capacity
 
 /decl/state_transition/drill/recover_from_storage_full
 	target = /decl/state/drill/idle
 
 /decl/state_transition/drill/recover_from_storage_full/is_open(obj/machinery/mining_drill/drill)
-	. = ..()
-	return . && drill.contained_ore.len < drill.ore_capacity
+	return ..() && length(drill.contained_ore) < drill.ore_capacity
 
 
 /// State which occurs when there is no more ore to mine from the surrounding tiles.
@@ -214,5 +209,4 @@
 	target = /decl/state/drill/finished
 
 /decl/state_transition/drill/finished/is_open(obj/machinery/mining_drill/drill)
-	. = ..()
-	return . && !drill.current_turf && !drill.turfs_to_mine.len
+	return ..() && !drill.current_turf && !length(drill.turfs_to_mine)
