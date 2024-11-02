@@ -34,7 +34,7 @@
 /decl/loadout_option/uniform/flexsuit
 	name = "yinglet armored undersuit, colour select"
 	path = /obj/item/clothing/under/yinglet/flexsuit
-	cost = 3
+	cost = 6
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
 	description = "A state of the art mobility suit made for the common yinglet of Mollusc Station. Comes with built in armor and rad padding that can be layered, rumoured to be pressure resistant."
 	uid = "gear_clothing_under_yinglet_flexsuit"
