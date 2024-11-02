@@ -207,19 +207,16 @@
 	if(IS_WRENCH(W))
 		if(active)
 			to_chat(user, "Turn off the field generator first.")
-			return
-
-		else if(anchored == 0)
+			return TRUE
+		if(!anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			to_chat(user, "You secure the external reinforcing bolts to the floor.")
 			src.anchored = TRUE
-			return
-
-		else if(anchored == 1)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
-			to_chat(user, "You undo the external reinforcing bolts.")
-			src.anchored = FALSE
-			return
+			return TRUE
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		to_chat(user, "You undo the external reinforcing bolts.")
+		src.anchored = FALSE
+		return TRUE
 
 	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
 		if (src.allowed(user))
@@ -227,11 +224,8 @@
 			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-		return
-
-	else
-		src.add_fingerprint(user)
-		..()
+		return TRUE
+	return ..()
 
 
 /obj/machinery/shieldwallgen/proc/cleanup(var/NSEW)
@@ -300,14 +294,11 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	playsound(loc, 'sound/weapons/smash.ogg', 75, 1)
+	return TRUE
 
 /obj/machinery/shieldwall/Process()
 	if(needs_power)
-		if(isnull(gen_primary)||isnull(gen_secondary))
-			qdel(src)
-			return
-
-		if(!(gen_primary.active)||!(gen_secondary.active))
+		if(!gen_primary?.active || !gen_secondary?.active)
 			qdel(src)
 			return
 

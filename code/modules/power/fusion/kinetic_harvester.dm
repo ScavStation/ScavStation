@@ -37,7 +37,7 @@
 		var/datum/extension/local_network_member/lanm = get_extension(src, /datum/extension/local_network_member)
 		if(lanm.get_new_tag(user))
 			find_core()
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/kinetic_harvester/proc/find_core()

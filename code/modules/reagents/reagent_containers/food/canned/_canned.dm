@@ -35,22 +35,23 @@
 		unseal()
 
 /obj/item/food/can/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/knife) && !ATOM_IS_OPEN_CONTAINER(src))
-		user.visible_message(
-			SPAN_NOTICE("\The [user] is trying to open \the [src] with \the [W]."),
-			SPAN_NOTICE("You start to open \the [src].")
-		)
-		var/open_timer = istype(W, /obj/item/knife/opener) ? 5 SECONDS : 15 SECONDS
-		if(do_after(user, open_timer, src))
+	if(!ATOM_IS_OPEN_CONTAINER(src))
+		if(istype(W, /obj/item/knife))
+			user.visible_message(
+				SPAN_NOTICE("\The [user] starts trying to open \the [src] with \the [W]."),
+				SPAN_NOTICE("You start to open \the [src].")
+			)
+			var/open_timer = istype(W, /obj/item/knife/opener) ? 5 SECONDS : 15 SECONDS
+			if(!do_after(user, open_timer, src))
+				to_chat(user, SPAN_WARNING("You must remain uninterrupted to open \the [src]."))
+				return TRUE
 			to_chat(user, SPAN_NOTICE("You unseal \the [src] with a crack of metal."))
 			unseal()
-			return
-
-	else if(istype(W,/obj/item/utensil))
-		if(ATOM_IS_OPEN_CONTAINER(src))
-			..()
-		else
-			to_chat(user, SPAN_WARNING("You need a can-opener to open this!"))
+			return TRUE
+		else if(istype(W,/obj/item/utensil))
+			to_chat(user, SPAN_WARNING("You need a can opener to open this!"))
+			return TRUE
+	return ..()
 
 /obj/item/food/can/on_update_icon()
 	. = ..()

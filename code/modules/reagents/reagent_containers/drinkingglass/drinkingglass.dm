@@ -214,10 +214,12 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 				user.visible_message("<span class='notice'>The contents of \the [src] splash all over [user]!</span>")
 				reagents.splash(user, reagents.total_volume)
 			qdel(src)
-			return
+			return TRUE
 		user.visible_message("<span class='notice'>[user] gently strikes \the [src] with a spoon, calling the room to attention.</span>")
 		playsound(src, "sound/items/wineglass.ogg", 65, 1)
-	else return ..()
+		return TRUE
+	else
+		return ..()
 
 /obj/item/chems/drinks/glass2/ProcessAtomTemperature()
 	var/old_temp = temperature

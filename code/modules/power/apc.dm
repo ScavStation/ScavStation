@@ -445,7 +445,7 @@ var/global/list/all_apcs = list()
 
 /obj/machinery/power/apc/bash(obj/item/used_item, mob/user)
 	if (!(user.a_intent == I_HURT) || (used_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
-		return
+		return FALSE
 
 	if(!used_item.user_can_attack_with(user))
 		return FALSE
@@ -505,6 +505,7 @@ var/global/list/all_apcs = list()
 			else
 				beenhit += 1
 			return TRUE
+	return FALSE
 
 /obj/machinery/power/apc/interface_interact(mob/user)
 	ui_interact(user)

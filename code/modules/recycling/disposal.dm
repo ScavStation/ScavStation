@@ -213,6 +213,7 @@ var/global/list/diversion_junctions = list()
 		flush = !flush
 		update_icon()
 		return TRUE
+	return FALSE
 
 /obj/machinery/disposal/interface_interact(mob/user)
 	interact(user)
@@ -571,38 +572,44 @@ var/global/list/diversion_junctions = list()
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
 /obj/structure/disposaloutlet/attackby(var/obj/item/I, var/mob/user)
-	if(!I || !user)
-		return
 	src.add_fingerprint(user, 0, I)
 	if(IS_SCREWDRIVER(I))
-		if(mode==0)
-			mode=1
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_chat(user, "You remove the screws around the power connection.")
-			return
-		else if(mode==1)
-			mode=0
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_chat(user, "You attach the screws around the power connection.")
-			return
+		switch(mode)
+			if(0)
+				mode=1
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				to_chat(user, "You remove the screws around the power connection.")
+				return TRUE
+			if(1)
+				mode=0
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				to_chat(user, "You attach the screws around the power connection.")
+				return TRUE
+			else // This should be invalid?
+				return FALSE
 	else if(istype(I,/obj/item/weldingtool) && mode==1)
 		var/obj/item/weldingtool/W = I
 		if(W.weld(0,user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")
-			if(do_after(user,20, src))
-				if(!src || !W.isOn()) return
-				to_chat(user, "You sliced the floorweld off the disposal outlet.")
-				var/obj/structure/disposalconstruct/machine/outlet/C = new (loc, src)
-				src.transfer_fingerprints_to(C)
-				C.anchored = TRUE
-				C.set_density(1)
-				C.update()
-				qdel(src)
-				return
+			if(!do_after(user, 2 SECONDS, src))
+				to_chat(user, "You must remain still to deconstruct \the [src].")
+				return TRUE
+			if(QDELETED(src) || !W.isOn())
+				return TRUE
+			to_chat(user, "You sliced the floorweld off the disposal outlet.")
+			var/obj/structure/disposalconstruct/machine/outlet/C = new (loc, src)
+			src.transfer_fingerprints_to(C)
+			C.anchored = TRUE
+			C.set_density(1)
+			C.update()
+			qdel(src)
+			return TRUE
 		else
 			to_chat(user, "You need more welding fuel to complete this task.")
-			return
+			return TRUE
+	else
+		return ..()
 
 /obj/structure/disposaloutlet/forceMove()//updates this when shuttle moves. So you can YEET things out the airlock
 	. = ..()

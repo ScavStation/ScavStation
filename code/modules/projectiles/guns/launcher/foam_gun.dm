@@ -19,14 +19,17 @@
 	var/list/darts = new/list()
 
 /obj/item/gun/launcher/foam/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/foam_dart))
-		if(darts.len < max_darts)
-			if(!user.try_unequip(I, src))
-				return
-			darts += I
-			to_chat(user, SPAN_NOTICE("You slot \the [I] into \the [src]."))
-		else
-			to_chat(user, SPAN_WARNING("\The [src] can hold no more darts."))
+	if(!istype(I, /obj/item/foam_dart))
+		return ..()
+	if(darts.len < max_darts)
+		if(!user.try_unequip(I, src))
+			return TRUE
+		darts += I
+		to_chat(user, SPAN_NOTICE("You slot \the [I] into \the [src]."))
+		return TRUE
+	else
+		to_chat(user, SPAN_WARNING("\The [src] can hold no more darts."))
+		return TRUE
 
 /obj/item/gun/launcher/foam/consume_next_projectile()
 	if(darts.len)

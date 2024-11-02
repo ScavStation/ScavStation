@@ -132,7 +132,7 @@
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		else
 			to_chat(user, SPAN_WARNING("\The [D] is saturated."))
-		return
+		return TRUE
 	else
 		return ..()
 

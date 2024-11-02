@@ -65,7 +65,7 @@
 	update_icon()
 
 /obj/item/chems/syringe/attackby(obj/item/I, mob/user)
-	return
+	return FALSE // allow afterattack to proceed
 
 /obj/item/chems/syringe/afterattack(obj/target, mob/user, proximity)
 	if(!proximity)

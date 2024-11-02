@@ -208,12 +208,14 @@ var/global/list/all_conveyor_switches = list()
 		position = 0
 
 /obj/machinery/conveyor_switch/attackby(obj/item/I, mob/user, params)
-	if(IS_CROWBAR(I))
-		var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
-		C.id_tag = id_tag
-		transfer_fingerprints_to(C)
-		to_chat(user, "<span class='notice'>You deattach the conveyor switch.</span>")
-		qdel(src)
+	if(!IS_CROWBAR(I))
+		return ..()
+	var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
+	C.id_tag = id_tag
+	transfer_fingerprints_to(C)
+	to_chat(user, "<span class='notice'>You detach the conveyor switch.</span>")
+	qdel(src)
+	return TRUE
 
 /obj/machinery/conveyor_switch/oneway
 	var/convdir = 1 //Set to 1 or -1 depending on which way you want the convayor to go. (In other words keep at 1 and set the proper dir on the belts.)
@@ -240,11 +242,12 @@ var/global/list/all_conveyor_switches = list()
 	var/id_tag
 
 /obj/item/conveyor_construct/attackby(obj/item/I, mob/user, params)
-	..()
-	if(istype(I, /obj/item/conveyor_switch_construct))
-		to_chat(user, "<span class='notice'>You link the switch to the conveyor belt assembly.</span>")
-		var/obj/item/conveyor_switch_construct/C = I
-		id_tag = C.id_tag
+	if(!istype(I, /obj/item/conveyor_switch_construct))
+		return ..()
+	to_chat(user, "<span class='notice'>You link the switch to the conveyor belt assembly.</span>")
+	var/obj/item/conveyor_switch_construct/C = I
+	id_tag = C.id_tag
+	return TRUE
 
 /obj/item/conveyor_construct/afterattack(atom/A, mob/user, proximity)
 	if(!proximity || !istype(A, /turf/floor) || user.incapacitated())

@@ -13,11 +13,13 @@
 
 // Dough + rolling pin = flat dough
 /obj/item/food/dough/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/kitchen/rollingpin))
-		var/obj/item/food/sliceable/flatdough/result = new()
-		result.dropInto(loc)
-		to_chat(user, "You flatten the dough.")
-		qdel(src)
+	if(!istype(W,/obj/item/kitchen/rollingpin))
+		return ..()
+	var/obj/item/food/sliceable/flatdough/result = new()
+	result.dropInto(loc)
+	to_chat(user, "You flatten the dough.")
+	qdel(src)
+	return TRUE
 
 // slicable into 3x doughslices
 /obj/item/food/sliceable/flatdough

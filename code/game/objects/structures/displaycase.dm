@@ -126,7 +126,7 @@
 		var/obj/item/selected_item
 		selected_item = show_radial_menu(user, src, make_item_radial_menu_choices(src), radius = 42, require_near = TRUE, use_labels = RADIAL_LABELS_OFFSET)
 		if(QDELETED(selected_item) || !contents.Find(selected_item) || !Adjacent(user) || user.incapacitated())
-			return
+			return TRUE
 
 		to_chat(user, SPAN_NOTICE("You remove \the [selected_item] from \the [src]."))
 		selected_item.dropInto(loc)

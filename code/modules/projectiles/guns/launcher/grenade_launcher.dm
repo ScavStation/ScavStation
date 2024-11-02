@@ -79,10 +79,11 @@
 	pump(user)
 
 /obj/item/gun/launcher/grenade/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
+	if(istype(I, /obj/item/grenade))
 		load(I, user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/gun/launcher/grenade/attack_hand(mob/user)
 	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))

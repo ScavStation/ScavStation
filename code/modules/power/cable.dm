@@ -157,6 +157,7 @@ By design, d1 is the smallest direction and d2 is the highest
 //   - Multitool : get the power currently passing through the cable
 //
 
+// TODO: take a closer look at cable attackby, make it call parent?
 /obj/structure/cable/attackby(obj/item/W, mob/user)
 	if(IS_WIRECUTTER(W))
 		cut_wire(W, user)
@@ -165,7 +166,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
 			to_chat(user, "You don't have enough cable to lay down.")
-			return
+			return TRUE
 		coil.cable_join(src, user)
 
 	else if(IS_MULTITOOL(W))
@@ -198,6 +199,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			visible_message(SPAN_WARNING("[user] stops cutting before any damage is done."))
 
 	src.add_fingerprint(user)
+	return TRUE
 
 /obj/structure/cable/proc/cut_wire(obj/item/W, mob/user)
 	var/turf/T = get_turf(src)

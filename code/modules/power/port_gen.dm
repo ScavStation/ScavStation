@@ -306,12 +306,12 @@
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
 			to_chat(user, "<span class='notice'>\The [src] is full!</span>")
-			return
+			return TRUE
 		to_chat(user, "<span class='notice'>You add [amount] sheet\s to \the [src].</span>")
 		sheets += amount
 		addstack.use(amount)
 		updateUsrDialog()
-		return
+		return TRUE
 	if(IS_WRENCH(O) && !active)
 		if(!anchored)
 			to_chat(user, "<span class='notice'>You secure \the [src] to the floor.</span>")
@@ -320,6 +320,7 @@
 
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		anchored = !anchored
+		return TRUE
 	return component_attackby(O, user)
 
 /obj/machinery/port_gen/pacman/dismantle()

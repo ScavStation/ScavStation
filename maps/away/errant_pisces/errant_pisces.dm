@@ -116,12 +116,12 @@
 		var/force = W.get_attack_force(user)
 		if (!(W.sharp) || (W.sharp && force < 10))//is not sharp enough or at all
 			to_chat(user,"<span class='warning'>You can't cut through \the [src] with \the [W], it's too dull.</span>")
-			return
+			return TRUE
 		visible_message("<span class='warning'>[user] starts to cut through \the [src] with \the [W]!</span>")
 		while(current_health > 0 && !QDELETED(src) && !QDELETED(user))
 			if (!do_after(user, 20, src))
 				visible_message("<span class='warning'>[user] stops cutting through \the [src] with \the [W]!</span>")
-				return
+				return TRUE
 			take_damage(20 * (1 + (force-10)/10), W.atom_damage_type) //the sharper the faster, every point of force above 10 adds 10 % to damage
 		new /obj/item/stack/net(src.loc)
 		qdel(src)

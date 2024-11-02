@@ -103,7 +103,7 @@ var/global/list/artefact_feedback = list(
 				if(I.reagents.has_reagent(id, 5))
 					make_sacrifice(I, user, id)
 					return TRUE
-	..()
+	return ..()
 
 /obj/item/book/spell/interact(mob/user)
 	var/dat = null

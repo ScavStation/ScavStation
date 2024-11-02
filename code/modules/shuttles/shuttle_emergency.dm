@@ -175,8 +175,9 @@
 		return 1
 
 /obj/machinery/computer/shuttle_control/emergency/attackby(obj/item/W, mob/user)
-	read_authorization(W)
-	..()
+	if(read_authorization(W))
+		return TRUE
+	return ..()
 
 /obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]

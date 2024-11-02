@@ -23,20 +23,21 @@
 	if(IS_PEN(W))
 		var/tmp_label = sanitize_safe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(tmp_label == label_text)
-			return
+			return TRUE
 		if(length(tmp_label) > 10)
 			to_chat(user, SPAN_NOTICE("The label can be at most 10 characters long."))
+			return TRUE
+		if(length(tmp_label))
+			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
+			label_text = tmp_label
 		else
-			if(length(tmp_label))
-				to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
-				label_text = tmp_label
-			else
-				to_chat(user, SPAN_NOTICE("You remove the label."))
-				label_text = null
-			update_name()
-			update_container_desc()
-			update_icon()
-		return
+			to_chat(user, SPAN_NOTICE("You remove the label."))
+			label_text = null
+		update_name()
+		update_container_desc()
+		update_icon()
+		return TRUE
+	return ..()
 
 /obj/item/chems/condiment/afterattack(var/obj/target, var/mob/user, var/proximity)
 	if(!proximity)

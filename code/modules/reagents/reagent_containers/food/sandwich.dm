@@ -5,7 +5,8 @@
 		S.dropInto(loc)
 		S.attackby(W,user)
 		qdel(src)
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/food/csandwich
 	name = "sandwich"
@@ -17,6 +18,8 @@
 	var/list/ingredients = list()
 
 /obj/item/food/csandwich/attackby(obj/item/W, mob/user)
+	if(!istype(W, /obj/item/food) && !istype(W, /obj/item/shard))
+		return ..()
 
 	var/sandwich_limit = 4
 	for(var/obj/item/O in ingredients)
@@ -24,24 +27,24 @@
 			sandwich_limit += 4
 
 	if(src.contents.len > sandwich_limit)
-		to_chat(user, "<span class='wwarning'>If you put anything else on \the [src] it's going to collapse.</span>")
-		return
-	else if(istype(W,/obj/item/shard))
+		to_chat(user, "<span class='warning'>If you put anything else on \the [src] it's going to collapse.</span>")
+		return TRUE
+	if(istype(W,/obj/item/shard))
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		to_chat(user, "<span class='warning'>You hide [W] in \the [src].</span>")
 		update_icon()
-		return
+		return TRUE
 	else if(istype(W,/obj/item/food))
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		to_chat(user, "<span class='warning'>You layer [W] over \the [src].</span>")
 		var/obj/item/chems/F = W
 		F.reagents.trans_to_obj(src, F.reagents.total_volume)
 		ingredients += W
 		update_icon()
-		return
-	..()
+		return TRUE
+	return FALSE // This shouldn't ever happen but okay.
 
 /obj/item/food/csandwich/on_update_icon()
 	. = ..()

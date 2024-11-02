@@ -47,12 +47,11 @@
 		to_chat(user, "This one is cracked and useless.")
 
 /obj/item/soulstone/attackby(var/obj/item/I, var/mob/user)
-	..()
 	if(is_evil && istype(I, /obj/item/nullrod))
 		to_chat(user, SPAN_NOTICE("You cleanse \the [src] of taint, purging its shackles to its creator."))
-		is_evil = 0
-		return
-	if(I.get_attack_force(user) >= 5)
+		is_evil = FALSE
+		return TRUE
+	else if(I.get_attack_force(user) >= 5)
 		if(full != SOULSTONE_CRACKED)
 			user.visible_message(
 				SPAN_WARNING("\The [user] hits \the [src] with \the [I], and it breaks.[shade.client ? " You hear a terrible scream!" : ""]"),
@@ -63,6 +62,8 @@
 		else
 			user.visible_message(SPAN_DANGER("\The [user] shatters \the [src] with \the [I]!"))
 			shatter()
+		return TRUE
+	return ..()
 
 /obj/item/soulstone/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	if(target == shade)
@@ -117,31 +118,33 @@
 	desc = "This eerie contraption looks like it would come alive if supplied with a missing ingredient."
 
 /obj/structure/constructshell/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/soulstone))
-		var/obj/item/soulstone/S = I
-		if(!S.shade.client)
-			to_chat(user, SPAN_NOTICE("\The [I] has essence, but no soul. Activate it in your hand to find a soul for it first."))
-			return
-		if(S.shade.loc != S)
-			to_chat(user, SPAN_NOTICE("Recapture the shade back into \the [I] first."))
-			return
-		var/construct = alert(user, "Please choose which type of construct you wish to create.",,"Artificer", "Wraith", "Juggernaut")
-		var/ctype
-		switch(construct)
-			if("Artificer")
-				ctype = /mob/living/simple_animal/construct/builder
-			if("Wraith")
-				ctype = /mob/living/simple_animal/construct/wraith
-			if("Juggernaut")
-				ctype = /mob/living/simple_animal/construct/armoured
-		var/mob/living/simple_animal/construct/C = new ctype(get_turf(src))
-		C.key = S.shade.key
-		//C.cancel_camera()
-		if(S.is_evil)
-			var/decl/special_role/cult = GET_DECL(/decl/special_role/cultist)
-			cult.add_antagonist(C.mind)
-		qdel(S)
-		qdel(src)
+	if(!istype(I, /obj/item/soulstone))
+		return ..()
+	var/obj/item/soulstone/S = I
+	if(!S.shade.client)
+		to_chat(user, SPAN_NOTICE("\The [I] has essence, but no soul. Activate it in your hand to find a soul for it first."))
+		return TRUE
+	if(S.shade.loc != S)
+		to_chat(user, SPAN_NOTICE("Recapture the shade back into \the [I] first."))
+		return TRUE
+	var/construct = alert(user, "Please choose which type of construct you wish to create.",,"Artificer", "Wraith", "Juggernaut")
+	var/ctype
+	switch(construct)
+		if("Artificer")
+			ctype = /mob/living/simple_animal/construct/builder
+		if("Wraith")
+			ctype = /mob/living/simple_animal/construct/wraith
+		if("Juggernaut")
+			ctype = /mob/living/simple_animal/construct/armoured
+	var/mob/living/simple_animal/construct/C = new ctype(get_turf(src))
+	C.key = S.shade.key
+	//C.cancel_camera()
+	if(S.is_evil)
+		var/decl/special_role/cult = GET_DECL(/decl/special_role/cultist)
+		cult.add_antagonist(C.mind)
+	qdel(S)
+	qdel(src)
+	return TRUE
 
 /obj/structure/constructshell/get_artifact_scan_data()
 	return "Tribal idol - subject resembles statues/emblems built by superstitious pre-warp civilisations to honour their gods. Material appears to be a rock/plastcrete composite."

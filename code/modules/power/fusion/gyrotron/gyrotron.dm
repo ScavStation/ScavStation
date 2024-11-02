@@ -60,7 +60,7 @@
 	if(IS_MULTITOOL(W))
 		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
 		fusion.get_new_tag(user)
-		return
+		return TRUE
 	return ..()
 
 #undef GYRO_POWER

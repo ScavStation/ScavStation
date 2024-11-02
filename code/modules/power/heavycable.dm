@@ -27,7 +27,7 @@
 	if(istype(item, /obj/item/stack/cable_coil) && !istype(item, /obj/item/stack/cable_coil/heavyduty))
 		to_chat(user, SPAN_WARNING("\The [item] isn't heavy enough to connect to \the [src]."))
 		return TRUE
-	..()
+	return ..()
 
 #undef IS_TOOL_WITH_QUALITY
 

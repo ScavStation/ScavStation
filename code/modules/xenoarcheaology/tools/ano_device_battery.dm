@@ -60,15 +60,16 @@
 	. = ..()
 
 /obj/item/anodevice/attackby(var/obj/I, var/mob/user)
-	if(istype(I, /obj/item/anobattery))
-		if(!inserted_battery)
-			if(!user.try_unequip(I, src))
-				return
-			to_chat(user, "<span class='notice'>You insert \the [I] into \the [src].</span>")
-			inserted_battery = I
-			update_icon()
-	else
+	if(!istype(I, /obj/item/anobattery))
 		return ..()
+	if(inserted_battery)
+		return TRUE
+	if(!user.try_unequip(I, src))
+		return TRUE
+	to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
+	inserted_battery = I
+	update_icon()
+	return TRUE
 
 /obj/item/anodevice/attack_self(var/mob/user)
 	ui_interact(user)

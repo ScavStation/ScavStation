@@ -196,31 +196,31 @@
 	else
 		take_damage(rand(5,15))
 
+/obj/structure/disposalpipe/proc/can_deconstruct()
+	var/turf/T = get_turf(src)
+	return T.is_plating() // prevent interaction with T-scanner revealed pipes
+
 //attack by item
 //weldingtool: unfasten and convert to obj/disposalconstruct
 /obj/structure/disposalpipe/attackby(var/obj/item/I, var/mob/user)
-
-	var/turf/T = src.loc
-	if(!T.is_plating())
-		return		// prevent interaction with T-scanner revealed pipes
+	if(!istype(I, /obj/item/weldingtool))
+		return ..()
+	if(!can_deconstruct())
+		return TRUE
 	src.add_fingerprint(user, 0, I)
-	if(istype(I, /obj/item/weldingtool))
-		var/obj/item/weldingtool/W = I
-		if(W.weld(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-			// check if anything changed over 2 seconds
-			var/turf/uloc = user.loc
-			var/atom/wloc = W.loc
-			to_chat(user, "Slicing the disposal pipe.")
-			sleep(30)
-			if(!W.isOn()) return
-			if(user.loc == uloc && wloc == W.loc)
-				welded()
-			else
-				to_chat(user, "You must stay still while welding the pipe.")
-		else
-			to_chat(user, "You need more welding fuel to cut the pipe.")
-			return
+	var/obj/item/weldingtool/W = I
+	if(W.weld(0,user))
+		playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+		to_chat(user, "You begin slicing \the [src].")
+		if(!do_after(user, 3 SECONDS, src))
+			to_chat(user, "You must stay still while welding the pipe.")
+			return TRUE
+		if(!W.isOn())
+			return TRUE
+		welded()
+		return TRUE
+	to_chat(user, "You need more welding fuel to cut the pipe.")
+	return TRUE
 
 	// called when pipe is cut with welder
 /obj/structure/disposalpipe/proc/welded()
@@ -466,19 +466,17 @@
 	updatedesc()
 	update()
 
-/obj/structure/disposalpipe/tagger/attackby(var/obj/item/I, var/mob/user)
-	if(..())
-		return
-
-	if(istype(I, /obj/item/destTagger))
-		var/obj/item/destTagger/O = I
-		if(O.current_tag)// Tag set
-			sort_tag = O.current_tag
-			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			to_chat(user, SPAN_NOTICE("Changed tag to '[sort_tag]'."))
-			updatename()
-			updatedesc()
-		return TRUE
+/obj/structure/disposalpipe/tagger/attackby(var/obj/item/item, var/mob/user)
+	if(!istype(item, /obj/item/destTagger))
+		return ..()
+	var/obj/item/destTagger/tagger = item
+	if(tagger.current_tag)// Tag set
+		sort_tag = tagger.current_tag
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
+		to_chat(user, SPAN_NOTICE("Changed tag to '[sort_tag]'."))
+		updatename()
+		updatedesc()
+	return TRUE
 
 /obj/structure/disposalpipe/tagger/transfer(var/obj/structure/disposalholder/H)
 	if(sort_tag)
@@ -542,16 +540,15 @@
 	linked = null
 	return ..()
 
-/obj/structure/disposalpipe/diversion_junction/attackby(var/obj/item/I, var/mob/user)
-	if(..())
-		return 1
-
-	if(istype(I, /obj/item/disposal_switch_construct))
-		var/obj/item/disposal_switch_construct/C = I
-		if(C.id_tag)
-			id_tag = C.id_tag
-			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			user.visible_message("<span class='notice'>\The [user] changes \the [src]'s tag.</span>")
+/obj/structure/disposalpipe/diversion_junction/attackby(var/obj/item/item, var/mob/user)
+	if(!istype(item, /obj/item/disposal_switch_construct))
+		return ..()
+	var/obj/item/disposal_switch_construct/switchcon = item
+	if(switchcon.id_tag)
+		id_tag = switchcon.id_tag
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 100, TRUE)
+		user.visible_message("<span class='notice'>\The [user] changes \the [src]'s tag.</span>")
+	return TRUE
 
 
 /obj/structure/disposalpipe/diversion_junction/nextdir(var/fromdir, var/sortTag)
@@ -635,19 +632,17 @@
 	updatedesc()
 	updatename()
 
-/obj/structure/disposalpipe/sortjunction/attackby(var/obj/item/I, var/mob/user)
-	if(..())
-		return
-
-	if(istype(I, /obj/item/destTagger))
-		var/obj/item/destTagger/O = I
-
-		if(O.current_tag)// Tag set
-			sort_type = O.current_tag
-			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			to_chat(user, SPAN_NOTICE("Changed filter to '[sort_type]'."))
-			updatename()
-			updatedesc()
+/obj/structure/disposalpipe/sortjunction/attackby(var/obj/item/item, var/mob/user)
+	if(!istype(item, /obj/item/destTagger))
+		return ..()
+	var/obj/item/destTagger/tagger = item
+	if(tagger.current_tag)// Tag set
+		sort_type = tagger.current_tag
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 100, TRUE)
+		to_chat(user, SPAN_NOTICE("Changed filter to '[sort_type]'."))
+		updatename()
+		updatedesc()
+	return TRUE
 
 /obj/structure/disposalpipe/sortjunction/proc/divert_check(var/checkTag)
 	return sort_type == checkTag
@@ -748,41 +743,22 @@
 	update()
 	return
 
-	// Override attackby so we disallow trunkremoval when somethings ontop
-/obj/structure/disposalpipe/trunk/attackby(var/obj/item/I, var/mob/user)
-
+// Override can_deconstruct so we disallow trunkremoval when something's on top
+/obj/structure/disposalpipe/trunk/can_deconstruct()
+	. = ..()
+	var/turf/T = get_turf(src)
 	//Disposal constructors
-	var/obj/structure/disposalconstruct/C = locate() in src.loc
-	if(C && C.anchored)
-		return
+	for(var/obj/structure/disposalconstruct/C in T)
+		if(C.anchored)
+			return FALSE
+	// Disposal machinery
+	for(var/obj/machinery/disposal/disposal in T)
+		if(disposal.anchored)
+			return FALSE
 
-	var/turf/T = src.loc
-	if(!T.is_plating())
-		return		// prevent interaction with T-scanner revealed pipes
-	src.add_fingerprint(user, 0, I)
-	if(istype(I, /obj/item/weldingtool))
-		var/obj/item/weldingtool/W = I
-
-		if(W.weld(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-			// check if anything changed over 2 seconds
-			var/turf/uloc = user.loc
-			var/atom/wloc = W.loc
-			to_chat(user, "Slicing the disposal pipe.")
-			sleep(30)
-			if(!W.isOn()) return
-			if(user.loc == uloc && wloc == W.loc)
-				welded()
-			else
-				to_chat(user, "You must stay still while welding the pipe.")
-		else
-			to_chat(user, "You need more welding fuel to cut the pipe.")
-			return
-
-	// would transfer to next pipe segment, but we are in a trunk
-	// if not entering from disposal bin,
-	// transfer to linked object (outlet or bin)
-
+// would transfer to next pipe segment, but we are in a trunk
+// if not entering from disposal bin,
+// transfer to linked object (outlet or bin)
 /obj/structure/disposalpipe/trunk/transfer(var/obj/structure/disposalholder/H)
 
 	if(H.dir == DOWN)		// we just entered from a disposer

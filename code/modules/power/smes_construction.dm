@@ -334,16 +334,18 @@
 	// No more disassembling of overloaded SMESs. You broke it, now enjoy the consequences.
 	if (failing)
 		to_chat(user, "<span class='warning'>\The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea.</span>")
+		return TRUE
+	. = ..()
+	if(.)
 		return
-
-	if (!..())
-
-		// Multitool - change RCON tag
-		if(IS_MULTITOOL(W))
-			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
-			if(newtag)
-				RCon_tag = newtag
-				to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+	// Multitool - change RCON tag
+	if(IS_MULTITOOL(W))
+		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
+		if(newtag)
+			RCon_tag = newtag
+			to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+		return TRUE
+	return FALSE
 
 // Proc: toggle_input()
 // Parameters: None

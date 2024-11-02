@@ -70,8 +70,8 @@
 /obj/item/gun/projectile/dartgun/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/chems/glass))
 		add_beaker(I, user)
-		return 1
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/gun/projectile/dartgun/proc/add_beaker(var/obj/item/chems/glass/B, mob/user)
 	if(!istype(B, container_type))

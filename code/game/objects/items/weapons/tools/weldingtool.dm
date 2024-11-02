@@ -213,11 +213,11 @@
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob.
 /obj/item/weldingtool/proc/weld(var/fuel_usage = 1, var/mob/user = null)
 	if(!welding)
-		return
+		return FALSE
 	if(get_fuel() < fuel_usage)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You need more [welding_resource] to complete this task."))
-		return
+		return FALSE
 
 	use_fuel(fuel_usage)
 	if(user)

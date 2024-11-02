@@ -208,22 +208,27 @@
 
 // Attacks with hand tools. Blocked by Hyperkinetic flag.
 /obj/effect/shield/attackby(var/obj/item/I, var/mob/user)
+	return bash(I, user)
+
+/obj/effect/shield/bash(obj/item/weapon, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 
-	if(gen.check_flag(MODEFLAG_HYPERKINETIC))
-		var/force = I.get_attack_force(user)
-		user.visible_message("<span class='danger'>\The [user] [pick(I.attack_verb)] \the [src] with \the [I]!</span>")
-		if(I.atom_damage_type == BURN)
+	if(!gen.check_flag(MODEFLAG_HYPERKINETIC))
+		user.visible_message("<span class='danger'>\The [user] tries to attack \the [src] with \the [weapon], but it passes through!</span>")
+		return TRUE
+	var/force = weapon.get_attack_force(user)
+	user.visible_message("<span class='danger'>\The [user] [pick(weapon.attack_verb)] \the [src] with \the [weapon]!</span>")
+	switch(weapon.atom_damage_type)
+		if(BURN)
 			take_damage(force, SHIELD_DAMTYPE_HEAT)
-		else if (I.atom_damage_type == BRUTE)
+		if (BRUTE)
 			take_damage(force, SHIELD_DAMTYPE_PHYSICAL)
 		else
 			take_damage(force, SHIELD_DAMTYPE_EM)
-		if(gen.check_flag(MODEFLAG_OVERCHARGE) && (I.obj_flags & OBJ_FLAG_CONDUCTIBLE))
-			overcharge_shock(user)
-	else
-		user.visible_message("<span class='danger'>\The [user] tries to attack \the [src] with \the [I], but it passes through!</span>")
+	if(gen.check_flag(MODEFLAG_OVERCHARGE) && (weapon.obj_flags & OBJ_FLAG_CONDUCTIBLE))
+		overcharge_shock(user)
+	return TRUE
 
 
 // Special treatment for meteors because they would otherwise penetrate right through the shield.

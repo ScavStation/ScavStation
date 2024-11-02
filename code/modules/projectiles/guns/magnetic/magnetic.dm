@@ -104,71 +104,71 @@
 		if(IS_SCREWDRIVER(thing))
 			if(!capacitor)
 				to_chat(user, "<span class='warning'>\The [src] has no capacitor installed.</span>")
-				return
+				return TRUE
 			user.put_in_hands(capacitor)
 			user.visible_message("<span class='notice'>\The [user] unscrews \the [capacitor] from \the [src].</span>")
 			playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 			capacitor = null
 			update_icon()
-			return
+			return TRUE
 		if(istype(thing, /obj/item/stock_parts/capacitor))
 			if(capacitor)
 				to_chat(user, "<span class='warning'>\The [src] already has \a [capacitor] installed.</span>")
-				return
+				return TRUE
 			if(!user.try_unequip(thing, src))
-				return
+				return TRUE
 			capacitor = thing
 			playsound(loc, 'sound/machines/click.ogg', 10, 1)
 			power_per_tick = (power_cost*0.15) * capacitor.rating
 			user.visible_message("<span class='notice'>\The [user] slots \the [capacitor] into \the [src].</span>")
 			update_icon()
-			return
+			return TRUE
 
-	if(istype(thing, load_type))
+	if(!istype(thing, load_type))
+		return ..()
 
-		// This is not strictly necessary for the magnetic gun but something using
-		// specific ammo types may exist down the track.
-		var/obj/item/stack/ammo = thing
-		if(!istype(ammo))
-			if(loaded)
-				to_chat(user, "<span class='warning'>\The [src] already has \a [loaded] loaded.</span>")
-				return
-			var/obj/item/magnetic_ammo/mag = thing
-			if(istype(mag))
-				if(!(load_type == mag.basetype))
-					to_chat(user, "<span class='warning'>\The [src] doesn't seem to accept \a [mag].</span>")
-					return
-				projectile_type = mag.projectile_type
-			if(!user.try_unequip(thing, src))
-				return
+	// This is not strictly necessary for the magnetic gun but something using
+	// specific ammo types may exist down the track.
+	var/obj/item/stack/ammo = thing
+	if(!istype(ammo))
+		if(loaded)
+			to_chat(user, "<span class='warning'>\The [src] already has \a [loaded] loaded.</span>")
+			return TRUE
+		var/obj/item/magnetic_ammo/mag = thing
+		if(istype(mag))
+			if(!(load_type == mag.basetype))
+				to_chat(user, "<span class='warning'>\The [src] doesn't seem to accept \a [mag].</span>")
+				return TRUE
+			projectile_type = mag.projectile_type
+		if(!user.try_unequip(thing, src))
+			return TRUE
 
-			loaded = thing
-		else if(load_sheet_max > 1)
-			var ammo_count = 0
-			var/obj/item/stack/loaded_ammo = loaded
-			if(!istype(loaded_ammo))
-				ammo_count = min(load_sheet_max,ammo.amount)
-				loaded = new load_type(src, ammo_count)
-			else
-				ammo_count = min(load_sheet_max-loaded_ammo.amount,ammo.amount)
-				loaded_ammo.amount += ammo_count
-			if(ammo_count <= 0)
-				// This will also display when someone tries to insert a stack of 0, but that shouldn't ever happen anyway.
-				to_chat(user, "<span class='warning'>\The [src] is already fully loaded.</span>")
-				return
-			ammo.use(ammo_count)
+		loaded = thing
+	else if(load_sheet_max > 1)
+		var ammo_count = 0
+		var/obj/item/stack/loaded_ammo = loaded
+		if(!istype(loaded_ammo))
+			ammo_count = min(load_sheet_max,ammo.amount)
+			loaded = new load_type(src, ammo_count)
 		else
-			if(loaded)
-				to_chat(user, "<span class='warning'>\The [src] already has \a [loaded] loaded.</span>")
-				return
-			loaded = new load_type(src, 1)
-			ammo.use(1)
+			ammo_count = min(load_sheet_max-loaded_ammo.amount,ammo.amount)
+			loaded_ammo.amount += ammo_count
+		if(ammo_count <= 0)
+			// This will also display when someone tries to insert a stack of 0, but that shouldn't ever happen anyway.
+			to_chat(user, "<span class='warning'>\The [src] is already fully loaded.</span>")
+			return TRUE
+		ammo.use(ammo_count)
+	else
+		if(loaded)
+			to_chat(user, "<span class='warning'>\The [src] already has \a [loaded] loaded.</span>")
+			return TRUE
+		loaded = new load_type(src, 1)
+		ammo.use(1)
 
-		user.visible_message("<span class='notice'>\The [user] loads \the [src] with \the [loaded].</span>")
-		playsound(loc, 'sound/weapons/flipblade.ogg', 50, 1)
-		update_icon()
-		return
-	. = ..()
+	user.visible_message("<span class='notice'>\The [user] loads \the [src] with \the [loaded].</span>")
+	playsound(loc, 'sound/weapons/flipblade.ogg', 50, 1)
+	update_icon()
+	return TRUE
 
 /obj/item/gun/magnetic/attack_hand(var/mob/user)
 	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
