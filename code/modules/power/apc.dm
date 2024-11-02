@@ -440,7 +440,8 @@ var/global/list/all_apcs = list()
 
 /obj/machinery/power/apc/attackby(obj/item/W, mob/user)
 	if (istype(construct_state, /decl/machine_construction/wall_frame/panel_closed/hackable/hacking) && (IS_MULTITOOL(W) || IS_WIRECUTTER(W) || istype(W, /obj/item/assembly/signaler)))
-		return wires.Interact(user)
+		wires.Interact(user)
+		return TRUE
 	return ..()
 
 /obj/machinery/power/apc/bash(obj/item/used_item, mob/user)

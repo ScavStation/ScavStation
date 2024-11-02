@@ -156,28 +156,28 @@
 		var/datum/extension/atmospherics_connection/connection = get_extension(src, /datum/extension/atmospherics_connection)
 		if(connection.disconnect())
 			to_chat(user, SPAN_NOTICE("You disconnect \the [src] from the port."))
-			return
+			return TRUE
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector) in loc
 			if(possible_port)
 				if(connection.connect(possible_port))
 					to_chat(user, SPAN_NOTICE("You connect \the [src] to the port."))
-					return
+					return TRUE
 				else
 					to_chat(user, SPAN_WARNING("\The [src] failed to connect to the port."))
-					return
+					return TRUE
 
 	if(istype(I, /obj/item/chems/glass))
 		if(isnull(output_container))
 			if(!user.try_unequip(I, src))
-				return
+				return TRUE
 			output_container = I
 			events_repository.register(/decl/observ/destroyed, output_container, src, TYPE_PROC_REF(/obj/machinery/material_processing/extractor, remove_container))
 			user.visible_message(SPAN_NOTICE("\The [user] places \a [I] in \the [src]."), SPAN_NOTICE("You place \a [I] in \the [src]."))
-			return
+			return TRUE
 
 		to_chat(user, SPAN_WARNING("\The [src] already has an output container!"))
-		return
+		return TRUE
 	. = ..()
 
 /obj/machinery/material_processing/extractor/proc/remove_container()

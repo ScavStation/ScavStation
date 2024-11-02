@@ -70,7 +70,7 @@
 	var/obj/item/top_paper = top_paper()
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		push_paper(W)
 		to_chat(user, SPAN_NOTICE("You clip the [W] onto \the [src]."))
 		return TRUE

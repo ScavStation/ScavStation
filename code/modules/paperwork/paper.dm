@@ -377,7 +377,7 @@
 	else if(istype(P, /obj/item/paper) || istype(P, /obj/item/photo))
 		var/obj/item/paper_bundle/B = try_bundle_with(P, user)
 		if(!B)
-			return
+			return TRUE
 		user.put_in_hands(B)
 		to_chat(user, SPAN_NOTICE("You clip \the [P] and \the [name] together."))
 		return TRUE
@@ -385,7 +385,7 @@
 	else if(IS_PEN(P))
 		if(is_crumpled)
 			to_chat(user, SPAN_WARNING("\The [src] is too crumpled to write on."))
-			return
+			return TRUE
 
 		var/obj/item/pen/robopen/RP = P
 		if ( istype(RP) && RP.mode == 2 )

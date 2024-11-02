@@ -260,7 +260,7 @@
 
 			if(length(connecting_limb.children))
 				to_chat(usr, SPAN_WARNING("You cannot connect additional limbs to \the [connecting_limb]."))
-				return
+				return TRUE
 
 			var/mob/holder = loc
 			if(istype(holder))
@@ -270,7 +270,7 @@
 				forceMove(connecting_limb)
 
 			if(loc != connecting_limb)
-				return
+				return TRUE
 
 			if(istype(connecting_limb.owner))
 				connecting_limb.owner.add_organ(src, connecting_limb)
@@ -283,10 +283,10 @@
 
 			if(LAZYLEN(children))
 				to_chat(usr, SPAN_WARNING("You cannot connect additional limbs to \the [src]."))
-				return
+				return TRUE
 
 			if(!user.try_unequip(connecting_limb, src))
-				return
+				return TRUE
 
 			if(istype(connecting_limb.owner))
 				connecting_limb.owner.add_organ(connecting_limb, src)
@@ -297,7 +297,7 @@
 
 		else
 			to_chat(user, SPAN_WARNING("\The [connecting_limb] cannot be connected to \the [src]."))
-			return
+			return TRUE
 
 		if(combined)
 			to_chat(user, SPAN_NOTICE("You connect \the [connecting_limb] to \the [src]."))
@@ -305,15 +305,15 @@
 			update_icon()
 			connecting_limb.compile_icon()
 			connecting_limb.update_icon()
-			return
+			return TRUE
 
 	//Remove sub-limbs
 	if(used_item.get_tool_quality(TOOL_SAW) && LAZYLEN(children) && try_saw_off_child(used_item, user))
-		return
+		return TRUE
 	//Remove internal items/organs/implants
 	if(try_remove_internal_item(used_item, user))
-		return
-	..()
+		return TRUE
+	return ..()
 
 //Handles removing internal organs/implants/items still in the detached limb.
 /obj/item/organ/external/proc/try_remove_internal_item(var/obj/item/used_item, var/mob/user)

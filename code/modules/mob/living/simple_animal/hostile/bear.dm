@@ -108,7 +108,7 @@
 				var/datum/mob_controller/aggressive/bear/bearbrain = ai
 				bearbrain.stance_step = 12
 			ai.set_target(user)
-	..()
+	return ..()
 
 /mob/living/simple_animal/hostile/bear/attack_hand(mob/user)
 	if(istype(ai))

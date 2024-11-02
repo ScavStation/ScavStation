@@ -138,7 +138,8 @@ var/global/list/adminfaxes     = list()	//cache for faxes that have been sent to
 /obj/machinery/faxmachine/attackby(obj/item/I, mob/user)
 	if(istype(construct_state, /decl/machine_construction/default/panel_closed))
 		if(istype(I, /obj/item/paper) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
-			return insert_scanner_item(I, user)
+			insert_scanner_item(I, user)
+			return TRUE
 	. = ..()
 
 /obj/machinery/faxmachine/ui_data(mob/user, ui_key)

@@ -127,15 +127,14 @@
 		dance()
 
 /mob/living/simple_animal/corgi/attackby(var/obj/item/O, var/mob/user)  //Marker -Agouri
-	if(istype(O, /obj/item/newspaper))
-		if(!stat)
-			visible_message(SPAN_NOTICE("\The [user] baps \the [src] on the nose with the rolled-up [O.name]!"))
-			spawn(0)
-				for(var/i in list(1,2,4,8,4,2,1,2))
-					set_dir(i)
-					sleep(1)
+	if(istype(O, /obj/item/newspaper) && !stat)
+		visible_message(SPAN_NOTICE("\The [user] baps \the [src] on the nose with the rolled-up [O.name]!"))
+		var/datum/mob_controller/corgi/corgi_ai = ai
+		if(istype(corgi_ai))
+			corgi_ai.dance()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /mob/living/simple_animal/corgi/puppy
 	name = "\improper corgi puppy"

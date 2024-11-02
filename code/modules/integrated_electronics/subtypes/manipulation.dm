@@ -39,9 +39,9 @@
 		var/obj/item/gun/energy/gun = O
 		if(installed_gun)
 			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
-			return
+			return TRUE
 		if(!user.try_unequip(gun,src))
-			return
+			return TRUE
 		installed_gun = gun
 		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
@@ -56,8 +56,9 @@
 			var/datum/firemode/fm = installed_gun.firemodes[installed_gun.sel_mode]
 			set_pin_data(IC_OUTPUT, 2, fm.name)
 		push_data()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
@@ -184,10 +185,12 @@
 	if(istype(G))
 		if(attached_grenade)
 			to_chat(user, "<span class='warning'>There is already a grenade attached!</span>")
-		else if(user.try_unequip(G,src))
+			return TRUE
+		if(user.try_unequip(G,src))
 			user.visible_message("<span class='warning'>\The [user] attaches \a [G] to \the [src]!</span>", "<span class='notice'>You attach \the [G] to \the [src].</span>")
 			attach_grenade(G)
 			G.forceMove(src)
+		return TRUE
 	else
 		return ..()
 
@@ -650,6 +653,7 @@
 /obj/item/integrated_circuit/manipulation/ai/attackby(var/obj/item/I, var/mob/user)
 	if(is_type_in_list(I, list(/obj/item/aicard, /obj/item/paicard, /obj/item/organ/internal/brain_interface)))
 		load_ai(user, I)
+		return TRUE
 	else return ..()
 
 /obj/item/integrated_circuit/manipulation/ai/attack_self(user)

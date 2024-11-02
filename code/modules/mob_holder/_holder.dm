@@ -143,4 +143,7 @@
 
 /obj/item/holder/attackby(obj/item/W, mob/user)
 	for(var/mob/M in src.contents)
-		M.attackby(W,user)
+		. = M.attackby(W,user)
+		if(.)
+			return
+	return FALSE

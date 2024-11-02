@@ -70,11 +70,13 @@
 		var/amt = M.amount
 		if(amt * SHEET_MATERIAL_AMOUNT + materials[M.material.type] > metal_max)
 			amt = ceil((metal_max - materials[M.material.type]) / SHEET_MATERIAL_AMOUNT)
-		if(M.use(amt))
-			materials[M.material.type] = min(metal_max, materials[M.material.type] + amt * SHEET_MATERIAL_AMOUNT)
-			to_chat(user, "<span class='warning'>You insert [M.material.solid_name] into \the [src].</span>")
-			if(user)
-				attack_self(user) // We're really bad at refreshing the UI, so this is the best we've got.
+		if(!M.use(amt))
+			return FALSE
+		materials[M.material.type] = min(metal_max, materials[M.material.type] + amt * SHEET_MATERIAL_AMOUNT)
+		to_chat(user, "<span class='warning'>You insert [M.material.solid_name] into \the [src].</span>")
+		if(user)
+			attack_self(user) // We're really bad at refreshing the UI, so this is the best we've got.
+		return TRUE
 	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
 			to_chat(user, "<span class='warning'>[src] already has this upgrade. </span>")
@@ -99,22 +101,22 @@
 		var/obj/item/electronic_assembly/EA = O //microtransactions not included
 		if(EA.battery)
 			to_chat(user, "<span class='warning'>Remove [EA]'s power cell first!</span>")
-			return
+			return TRUE
 		if(EA.assembly_components.len)
 			if(recycling)
-				return
+				return TRUE
 			if(!EA.opened)
 				to_chat(user, "<span class='warning'>You can't reach [EA]'s components to remove them!</span>")
-				return
+				return TRUE
 			for(var/V in EA.assembly_components)
 				var/obj/item/integrated_circuit/IC = V
 				if(!IC.removable)
 					to_chat(user, "<span class='warning'>[EA] has irremovable components in the casing, preventing you from emptying it.</span>")
-					return
+					return TRUE
 			to_chat(user, "<span class='notice'>You begin recycling [EA]'s components...</span>")
 			playsound(src, 'sound/items/electronic_assembly_emptying.ogg', 50, TRUE)
 			if(!do_after(user, 30, target = src) || recycling) //short channel so you don't accidentally start emptying out a complex assembly
-				return
+				return TRUE
 			recycling = TRUE
 			for(var/V in EA.assembly_components)
 				recycle(V, null, EA)

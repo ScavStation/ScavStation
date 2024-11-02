@@ -568,6 +568,7 @@
 	if(dead)
 		remove_dead(user)
 		return TRUE
+	return FALSE
 
 /obj/machinery/portable_atmospherics/hydroponics/examine(mob/user)
 	. = ..(user)

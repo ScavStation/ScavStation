@@ -87,20 +87,21 @@
 
 /obj/item/modular_computer/attackby(var/obj/item/W, var/mob/user)
 	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)
-	if(assembly.attackby(W, user))
+	. = assembly.attackby(W, user)
+	if(.)
 		update_verbs()
-		return
+		return TRUE
 
 	if(IS_PEN(W) && (W.w_class <= ITEM_SIZE_TINY) && stores_pen)
 		if(istype(stored_pen))
 			to_chat(user, "<span class='notice'>There is already a pen in [src].</span>")
-			return
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		stored_pen = W
 		update_verbs()
 		to_chat(user, "<span class='notice'>You insert [W] into [src].</span>")
-		return
+		return TRUE
 	return ..()
 
 /obj/item/modular_computer/examine(mob/user)

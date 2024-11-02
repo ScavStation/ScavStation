@@ -149,9 +149,9 @@
 
 /obj/item/stack/tape_roll/duct_tape/proc/stick(var/obj/item/W, mob/user)
 	if(!(W.item_flags & ITEM_FLAG_CAN_TAPE) || !user.try_unequip(W))
-		return
+		return FALSE
 	if(!can_use(1))
-		return
+		return FALSE
 	use(1)
 	var/obj/item/duct_tape/tape = new(get_turf(src))
 	tape.attach(W)

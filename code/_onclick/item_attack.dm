@@ -108,6 +108,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/mob/living/attackee = null
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
+// If this returns TRUE, the interaction has been handled and other interactions like afterattack should be skipped.
 /obj/item/proc/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
 	// TODO: revisit if this should be a silent failure/parent call instead, for mob-level storage interactions?

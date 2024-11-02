@@ -167,33 +167,26 @@
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
-
 	if(istype(W, /obj/item/borg/upgrade))
 		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
 		return TRUE
-
 	else if(IS_CROWBAR(W) && user.a_intent != I_HURT)
 		to_chat(user, "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>")
-		return
-
+		return TRUE
 	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
-
 		if(stat == DEAD)
-
 			if(!get_config_value(/decl/config/toggle/on/allow_drone_spawn) || emagged || should_be_dead()) //It's dead, Dave.
 				to_chat(user, "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>")
-				return
-
+				return TRUE
 			if(!allowed(usr))
 				to_chat(user, "<span class='danger'>Access denied.</span>")
-				return
-
+				return TRUE
 			var/decl/pronouns/pronouns = user.get_pronouns()
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] swipes [pronouns.his] ID card through \the [src], attempting to reboot it."), \
 				SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
-			return
+			return TRUE
 
 		var/decl/pronouns/pronouns = user.get_pronouns()
 		user.visible_message( \
@@ -204,9 +197,8 @@
 				shut_down()
 			else
 				to_chat(user, SPAN_DANGER("Access denied."))
-		return
-
-	..()
+		return TRUE
+	return ..()
 
 /mob/living/silicon/robot/drone/emag_act(var/remaining_charges, var/mob/user)
 	if(!client || stat == DEAD)
