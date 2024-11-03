@@ -120,15 +120,14 @@
 		var/obj/item/assembly/assembly = component
 		if(!assembly.secured && !secured)
 			attach_assembly(assembly, user)
-			return
+			return TRUE
 	if(IS_SCREWDRIVER(component))
 		if(toggle_secure())
 			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] can now be attached!"))
-		return
-	..()
-	return
+		return TRUE
+	return ..()
 
 
 /obj/item/assembly/Process()

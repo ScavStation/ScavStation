@@ -132,7 +132,7 @@
 		var/datum/browser/written_digital/popup = new (user, "Vent Configuration Utility", "[src] Configuration Panel", 600, 200)
 		popup.set_content(jointext(get_console_data(),"<br>"))
 		popup.open()
-		return
+		return TRUE
 	return ..()
 
 /decl/public_access/public_variable/volume_rate

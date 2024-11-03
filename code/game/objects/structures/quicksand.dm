@@ -82,8 +82,9 @@
 /obj/effect/quicksand/attackby(obj/item/W, mob/user)
 	if(!exposed && W.get_attack_force(user))
 		expose()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/effect/quicksand/Crossed(atom/movable/AM)
 	if(!isliving(AM))

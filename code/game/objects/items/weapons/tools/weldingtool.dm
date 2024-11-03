@@ -147,7 +147,7 @@
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(welding)
 		to_chat(user, SPAN_WARNING("Stop welding first!"))
-		return
+		return TRUE
 
 	if (istype(W, /obj/item/chems/welder_tank))
 		return insert_tank(W, user)

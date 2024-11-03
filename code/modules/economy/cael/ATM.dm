@@ -80,19 +80,20 @@
 		if(emagged > 0)
 			//prevent inserting id into an emagged ATM
 			to_chat(user, "[html_icon(src)] <span class='warning'>CARD READER ERROR. This system has been compromised!</span>")
-			return
+			return TRUE
 		if(stat & NOPOWER)
 			to_chat(user, "You try to insert your card into [src], but nothing happens.")
-			return
+			return TRUE
 
 		var/obj/item/card/id/idcard = I
 		if(!held_card)
 			if(!user.try_unequip(idcard, src))
-				return
+				return TRUE
 			held_card = idcard
 			if(authenticated_account && held_card.associated_account_number != authenticated_account.account_number)
 				authenticated_account = null
 			attack_hand_with_interaction_checks(user)
+			return TRUE
 
 	else if(authenticated_account)
 		if(istype(I,/obj/item/cash))
@@ -105,6 +106,7 @@
 				to_chat(user, "<span class='info'>You insert [I] into [src].</span>")
 				attack_hand_with_interaction_checks(user)
 				qdel(I)
+			return TRUE
 
 		if(istype(I,/obj/item/charge_stick))
 			var/obj/item/charge_stick/stick = I
@@ -118,8 +120,8 @@
 					to_chat(user, "<span class='info'>You insert [I] into [src].</span>")
 					attack_hand_with_interaction_checks(user)
 					qdel(I)
-	else
-		..()
+			return TRUE
+	return ..()
 
 /obj/machinery/atm/interface_interact(mob/user)
 	interact(user)

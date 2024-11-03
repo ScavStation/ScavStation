@@ -101,15 +101,15 @@
 	if(IS_WRENCH(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		dismantle()
-		qdel(src)
+		return TRUE
 	else if(istype(W,/obj/item/stack))
 		if(padding_material)
 			to_chat(user, "\The [src] is already padded.")
-			return
+			return TRUE
 		var/obj/item/stack/C = W
 		if(C.get_amount() < 1) // How??
 			qdel(C)
-			return
+			return TRUE
 
 		var/padding_type
 		var/new_padding_color
@@ -124,7 +124,7 @@
 
 		if(!padding_type)
 			to_chat(user, "You cannot pad \the [src] with that.")
-			return
+			return TRUE
 
 		C.use(1)
 		if(!isturf(src.loc))
@@ -132,17 +132,18 @@
 			src.dropInto(loc)
 		to_chat(user, "You add padding to \the [src].")
 		add_padding(padding_type, new_padding_color)
-		return
+		return TRUE
 
 	else if(IS_WIRECUTTER(W))
 		if(!padding_material)
 			to_chat(user, "\The [src] has no padding to remove.")
-			return
+			return TRUE
 		to_chat(user, "You remove the padding from \the [src].")
 		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		remove_padding()
+		return TRUE
 	else
-		..()
+		return ..()
 
 //Generated subtypes for mapping porpoises
 /obj/item/stool/wood

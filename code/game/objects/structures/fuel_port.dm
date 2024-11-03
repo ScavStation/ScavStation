@@ -59,19 +59,22 @@
 		else
 			playsound(src, sound_close, 15, 1, -3)
 			open = TRUE
+		. = TRUE
 
 	else if(istype(W, /obj/item/tank))
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src] door is still closed!"))
-			return
+			return TRUE
 
 		if(locate_tank())
 			to_chat(user, SPAN_WARNING("\The [src] already has a tank inside!"))
-			return
+			return TRUE
 		else
 			user.try_unequip(W, src)
+			. = TRUE
 
-	update_icon()
+	if(.)
+		update_icon()
 
 // Walls hide stuff inside them, but we want to be visible.
 /obj/structure/fuel_port/hide()

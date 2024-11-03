@@ -103,6 +103,7 @@
 	user.do_attack_animation(src)
 	visible_message("<span class='danger'>[user] strikes [src] with [I].</span>")
 	check_health()
+	return TRUE
 
 /obj/structure/closet/statue/receive_mouse_drop(atom/dropping, mob/user, params)
 	return TRUE

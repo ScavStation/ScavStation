@@ -91,8 +91,9 @@
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/shield/riot/metal
 	name = "plasteel combat shield"

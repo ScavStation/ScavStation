@@ -96,22 +96,22 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/obj/item/card/id/id = W.GetIdCard()
 	if(istype(id))
-		if(allowed(usr))
+		if(allowed(user))
 			locked = !locked
 			to_chat(user, "\The [src] was [locked ? "locked" : "unlocked"].")
 		else
 			to_chat(user, "\The [src]'s card reader denies you access.")
-		return
+		return TRUE
 
 	if(isitem(W) && (!locked || destroyed))
 		if(!W.simulated || W.anchored)
-			return
+			return FALSE
 
 		if(user.try_unequip(W, src))
 			W.pixel_x = 0
 			W.pixel_y = -7
 			update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/structure/displaycase/attack_hand(mob/user)
@@ -137,3 +137,4 @@
 		visible_message(SPAN_WARNING("[user] kicks \the [src]."), SPAN_WARNING("You kick \the [src]."))
 		take_damage(2)
 		return TRUE
+	return FALSE

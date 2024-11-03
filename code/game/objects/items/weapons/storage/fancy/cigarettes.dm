@@ -25,10 +25,6 @@
 	. = ..()
 
 /obj/item/box/fancy/cigarettes/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
-
-	if(!ismob(target))
-		return
-
 	if(target == user && user.get_target_zone() == BP_MOUTH && contents.len > 0 && !user.get_equipped_item(slot_wear_mask_str))
 		// Find ourselves a cig. Note that we could be full of lighters.
 		var/obj/item/clothing/mask/smokable/cigarette/cig = null

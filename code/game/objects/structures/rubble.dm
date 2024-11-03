@@ -51,7 +51,7 @@
 	if(!is_rummaging)
 		if(!lootleft)
 			to_chat(user, SPAN_NOTICE("There's nothing left in this one but unusable garbage..."))
-			return
+			return TRUE
 		visible_message(SPAN_NOTICE("\The [user] starts rummaging through \the [src]."))
 		is_rummaging = TRUE
 		if(do_after(user, 30))

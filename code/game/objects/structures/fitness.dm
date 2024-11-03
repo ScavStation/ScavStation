@@ -47,6 +47,8 @@
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 75, 1)
 		weight = (weight % max_weight) + 1
 		to_chat(user, "You set the machine's weight level to [weight].")
+		return TRUE
+	return ..()
 
 /obj/structure/fitness/weightlifter/attack_hand(mob/user)
 	if(!ishuman(user))

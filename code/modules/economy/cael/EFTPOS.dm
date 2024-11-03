@@ -87,7 +87,8 @@
 		if(linked_account)
 			scan_card(I, O)
 		else
-			to_chat(usr, "[html_icon(src)]<span class='warning'>Unable to connect to linked account.</span>")
+			to_chat(user, "[html_icon(src)]<span class='warning'>Unable to connect to linked account.</span>")
+		return TRUE
 	else if (istype(O, /obj/item/charge_stick))
 		var/obj/item/charge_stick/E = O
 		if (linked_account)
@@ -102,14 +103,14 @@
 						visible_message("[html_icon(src)] \The [src] chimes.")
 						transaction_paid = 1
 					else
-						to_chat(usr, "[html_icon(src)]<span class='warning'>Transaction failed! Please try again.</span>")
+						to_chat(user, "[html_icon(src)]<span class='warning'>Transaction failed! Please try again.</span>")
 				else
-					to_chat(usr, "[html_icon(src)]<span class='warning'>\The [O] doesn't have that much money!</span>")
+					to_chat(user, "[html_icon(src)]<span class='warning'>\The [O] doesn't have that much money!</span>")
 		else
-			to_chat(usr, "[html_icon(src)]<span class='warning'>EFTPOS is not connected to an account.</span>")
-
+			to_chat(user, "[html_icon(src)]<span class='warning'>EFTPOS is not connected to an account.</span>")
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/eftpos/Topic(var/href, var/href_list)
 	if(href_list["choice"])

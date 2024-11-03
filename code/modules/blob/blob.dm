@@ -168,16 +168,16 @@
 	if(IS_WIRECUTTER(W))
 		if(prob(user.skill_fail_chance(SKILL_SCIENCE, 90, SKILL_EXPERT)))
 			to_chat(user, SPAN_WARNING("You fail to collect a sample from \the [src]."))
-			return
+			return TRUE
 		else
 			if(!pruned)
 				to_chat(user, SPAN_NOTICE("You collect a sample from \the [src]."))
 				new product(user.loc)
 				pruned = TRUE
-				return
+				return TRUE
 			else
 				to_chat(user, SPAN_WARNING("\The [src] has already been pruned."))
-				return
+				return TRUE
 
 	var/damage = 0
 	switch(W.atom_damage_type)
@@ -189,7 +189,7 @@
 			damage = (W.get_attack_force(user) / brute_resist)
 
 	take_damage(damage, W.atom_damage_type)
-	return
+	return TRUE
 
 /obj/effect/blob/core
 	name = "master nucleus"

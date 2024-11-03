@@ -210,7 +210,7 @@
 /obj/effect/energy_net/attackby(obj/item/W, mob/user)
 	current_health -= W.get_attack_force(user)
 	healthcheck()
-	..()
+	return TRUE
 
 /obj/effect/energy_net/user_unbuckle_mob(mob/user)
 	return escape_net(user)

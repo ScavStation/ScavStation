@@ -1035,7 +1035,7 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		LAZYADD(., slot_belt_str)
 
 // Updates the icons of the mob wearing the clothing item, if any.
-/obj/item/proc/update_clothing_icon()
+/obj/item/proc/update_clothing_icon(do_update_icon = TRUE)
 	var/mob/wearer = loc
 	if(!istype(wearer))
 		return FALSE
@@ -1044,7 +1044,8 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		return FALSE
 	for(var/slot in equip_slots)
 		wearer.update_equipment_overlay(slot, FALSE)
-	wearer.update_icon()
+	if(do_update_icon)
+		wearer.update_icon()
 	return TRUE
 
 /obj/item/proc/reconsider_client_screen_presence(var/client/client, var/slot)

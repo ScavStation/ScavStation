@@ -68,19 +68,22 @@
 	toggle_paddles()
 	return TRUE
 
+// TODO: This should really use the cell extension
 /obj/item/defibrillator/attackby(obj/item/W, mob/user, params)
 	if(W == paddles)
 		reattach_paddles(user)
+		return TRUE
 	else if(istype(W, /obj/item/cell))
 		if(bcell)
-			to_chat(user, "<span class='notice'>\the [src] already has a cell.</span>")
+			to_chat(user, "<span class='notice'>\The [src] already has a cell.</span>")
 		else
 			if(!user.try_unequip(W))
-				return
+				return TRUE
 			W.forceMove(src)
 			bcell = W
 			to_chat(user, "<span class='notice'>You install a cell in \the [src].</span>")
 			update_icon()
+		return TRUE
 
 	else if(IS_SCREWDRIVER(W))
 		if(bcell)
@@ -89,6 +92,8 @@
 			bcell = null
 			to_chat(user, "<span class='notice'>You remove the cell from \the [src].</span>")
 			update_icon()
+			return TRUE
+		return FALSE
 	else
 		return ..()
 

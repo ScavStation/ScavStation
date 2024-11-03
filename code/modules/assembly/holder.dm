@@ -113,7 +113,7 @@
 	if(IS_SCREWDRIVER(W))
 		if(!a_left || !a_right)
 			to_chat(user, "<span class='warning'>BUG:Assembly part missing, please report this!</span>")
-			return
+			return TRUE
 		a_left.toggle_secure()
 		a_right.toggle_secure()
 		secured = !secured
@@ -122,11 +122,8 @@
 		else
 			to_chat(user, "<span class='notice'>\The [src] can now be taken apart!</span>")
 		update_icon()
-		return
-	else
-		..()
-	return
-
+		return TRUE
+	return ..()
 
 /obj/item/assembly_holder/attack_self(mob/user as mob)
 	src.add_fingerprint(user)

@@ -42,28 +42,30 @@
 	return res + ..()
 
 /obj/machinery/forensic/attackby(obj/item/W, mob/user)
+	if(component_attackby(W, user))
+		return TRUE
+
 	if(user?.a_intent == I_HURT)
-		return ..()
+		return ..() // bash, bash!
 
 	if(sample)
-		to_chat(user, SPAN_WARNING("There is already a slide in \the [src]."))
-		return
+		to_chat(user, SPAN_WARNING("There is already a sample in \the [src]."))
+		return TRUE
 
-	if(istype(W))
-		if(istype(W, /obj/item/evidencebag))
-			var/obj/item/evidencebag/B = W
-			if(B.stored_item)
-				to_chat(user, SPAN_NOTICE("You insert \the [B.stored_item] from \the [B]."))
-				B.stored_item.forceMove(src)
-				set_sample(B.stored_item)
-				B.empty()
-				return
-		if(!user.try_unequip(W, src))
-			return
-		to_chat(user, SPAN_NOTICE("You insert \the [W] into  \the [src]."))
-		set_sample(W)
-		update_icon()
-		return
+	if(istype(W, /obj/item/evidencebag))
+		var/obj/item/evidencebag/B = W
+		if(B.stored_item)
+			to_chat(user, SPAN_NOTICE("You insert \the [B.stored_item] from \the [B]."))
+			B.stored_item.forceMove(src)
+			set_sample(B.stored_item)
+			B.empty()
+			return TRUE
+	if(!user.try_unequip(W, src))
+		return TRUE
+	to_chat(user, SPAN_NOTICE("You insert \the [W] into  \the [src]."))
+	set_sample(W)
+	update_icon()
+	return TRUE
 
 /obj/machinery/forensic/proc/get_report()
 	if(!sample)

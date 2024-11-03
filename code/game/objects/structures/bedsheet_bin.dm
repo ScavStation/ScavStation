@@ -26,8 +26,8 @@ LINEN BINS
 			for(var/i in 1 to rand(2,5))
 				new /obj/item/chems/glass/rag(get_turf(src))
 			qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/bedsheet/yellowed
 	desc = "A surprisingly soft bedsheet. This one is old and yellowed."
@@ -142,9 +142,9 @@ LINEN BINS
 	if(istype(I, /obj/item/bedsheet))
 		if(curamount >= max_stored)
 			to_chat(user, SPAN_WARNING("\The [src] is full!"))
-			return
+			return TRUE
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		LAZYDISTINCTADD(sheets, I)
 		update_icon()
 		to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
@@ -156,7 +156,7 @@ LINEN BINS
 	if(!.)
 		if(curamount && !hidden && I.w_class < w_class)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
 			if(!user.try_unequip(I, src))
-				return
+				return TRUE
 			hidden = I
 			to_chat(user, SPAN_NOTICE("You hide [I] among the sheets."))
 			return TRUE
