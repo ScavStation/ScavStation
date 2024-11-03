@@ -116,7 +116,7 @@
 				return TRUE
 	if(.)
 		update_icon()
-		return
+		return TRUE
 	return ..()
 
 /obj/item/grenade/chem_grenade/activate(mob/user)

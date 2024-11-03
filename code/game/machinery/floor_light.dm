@@ -75,6 +75,7 @@ var/global/list/floor_light_cache = list()
 			if(isnull(damaged))
 				damaged = 0
 		return TRUE
+	return FALSE
 
 /obj/machinery/floor_light/interface_interact(var/mob/user)
 	if(!CanInteract(user, DefaultTopicState()))

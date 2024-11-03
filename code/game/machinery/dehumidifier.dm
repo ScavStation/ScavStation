@@ -62,6 +62,7 @@
 			SPAN_NOTICE("[user] switches [active ? "on" : "off"] \the [src]."),
 			SPAN_NOTICE("You switch [active ? "on" : "off"] \the [src]."))
 		return TRUE
+	return FALSE
 
 /obj/machinery/dehumidifier/Process()
 	if(!active)

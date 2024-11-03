@@ -44,14 +44,13 @@ var/global/list/navbeacons = list()
 /obj/machinery/navbeacon/attackby(var/obj/item/I, var/mob/user)
 	var/turf/T = loc
 	if(!T.is_plating())
-		return		// prevent intraction when T-scanner revealed
+		return TRUE // prevent intraction when T-scanner revealed
 
 	if(IS_SCREWDRIVER(I))
 		open = !open
-
 		user.visible_message("\The [user] [open ? "opens" : "closes"] cover of \the [src].", "You [open ? "open" : "close"] cover of \the [src].")
-
 		update_icon()
+		return TRUE
 
 	else if(I.GetIdCard())
 		if(open)
@@ -63,7 +62,8 @@ var/global/list/navbeacons = list()
 			updateDialog()
 		else
 			to_chat(user, "You must open the cover first!")
-	return
+		return TRUE
+	return FALSE
 
 /obj/machinery/navbeacon/interface_interact(var/mob/user)
 	interact(user)

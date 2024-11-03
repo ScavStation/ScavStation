@@ -209,12 +209,12 @@
 	if(istype(I, /obj/item/clothing/shoes/magboots))
 		if(locked)
 			to_chat(user, SPAN_WARNING("The suit cycler is locked."))
-			return
+			return TRUE
 		if(boots)
 			to_chat(user, SPAN_WARNING("The cycler already contains some boots."))
-			return
+			return TRUE
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		to_chat(user, "You fit \the [I] into the suit cycler.")
 		set_boots(I)
 		update_icon()

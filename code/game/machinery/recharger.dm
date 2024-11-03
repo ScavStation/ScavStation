@@ -71,6 +71,7 @@
 		charging = null
 		update_icon()
 		return TRUE
+	return FALSE
 
 /obj/machinery/recharger/Process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)

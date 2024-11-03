@@ -15,15 +15,14 @@
 /obj/item/transfer_valve/attackby(obj/item/item, mob/user)
 	var/turf/location = get_turf(src) // For admin logs
 	if(istype(item, /obj/item/tank))
-
 		var/T1_weight = 0
 		var/T2_weight = 0
 		if(tank_one && tank_two)
 			to_chat(user, "<span class='warning'>There are already two tanks attached, remove one first.</span>")
-			return
+			return TRUE
 
 		if(!user.try_unequip(item, src))
-			return
+			return TRUE
 		if(!tank_one)
 			tank_one = item
 		else
@@ -37,21 +36,18 @@
 			T2_weight = tank_two.w_class
 
 		src.w_class = max(initial(src.w_class),T1_weight,T2_weight) //gets w_class of biggest object, because you shouldn't be able to just shove tanks in and have them be tiny.
-
-		update_icon()
-
-		SSnano.update_uis(src) // update all UIs attached to src
+		. = TRUE
 //TODO: Have this take an assemblyholder
 	else if(isassembly(item))
 		var/obj/item/assembly/A = item
 		if(A.secured)
 			to_chat(user, "<span class='notice'>The device is secured.</span>")
-			return
+			return TRUE
 		if(attached_device)
 			to_chat(user, "<span class='warning'>There is already an device attached to the valve, remove it first.</span>")
-			return
+			return TRUE
 		if(!user.try_unequip(item, src))
-			return
+			return TRUE
 		attached_device = A
 		to_chat(user, "<span class='notice'>You attach \the [item] to the valve controls and secure it.</span>")
 		A.holder = src
@@ -61,8 +57,12 @@
 		message_admins("[key_name_admin(user)] attached a [item] to a transfer valve. (<A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 		log_game("[key_name_admin(user)] attached a [item] to a transfer valve.")
 		attacher = user
+		. = TRUE
+	if(.)
+		update_icon()
 		SSnano.update_uis(src) // update all UIs attached to src
-	return
+		return TRUE
+	return ..()
 
 
 /obj/item/transfer_valve/HasProximity(atom/movable/AM)

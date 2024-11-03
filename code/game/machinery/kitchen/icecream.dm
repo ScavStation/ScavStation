@@ -132,11 +132,11 @@
 				to_chat(user, "<span class='warning'>There is not enough icecream left!</span>")
 		else
 			to_chat(user, "<span class='notice'>[O] already has icecream in it.</span>")
-		return 1
+		return TRUE
 	else if(ATOM_IS_OPEN_CONTAINER(O))
-		return
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/icecream_vat/proc/make(var/mob/user, var/make_type, var/amount)
 	for(var/R in get_ingredient_list(make_type))

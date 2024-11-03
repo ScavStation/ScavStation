@@ -70,29 +70,29 @@
 
 	if(cooking)
 		to_chat(user, "<span class='warning'>\The [src] is running!</span>")
-		return
+		return TRUE
 
 	if((. = component_attackby(I, user)))
 		return
 
 	if(!cook_type || (stat & (NOPOWER|BROKEN)))
 		to_chat(user, "<span class='warning'>\The [src] is not working.</span>")
-		return
+		return TRUE
 
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/food/check = I
 	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
 		to_chat(user, "<span class='warning'>\The [check] has already been [cook_type].</span>")
-		return 0
+		return TRUE
 	else if(istype(check, /obj/item/chems/glass))
 		to_chat(user, "<span class='warning'>That would probably break [src].</span>")
-		return 0
+		return TRUE
 	else if(istype(check, /obj/item/disk/nuclear))
 		to_chat(user, "Central Command would kill you if you [cook_type] that.")
-		return 0
+		return TRUE
 	else if(!istype(check) && !istype(check, /obj/item/holder))
 		to_chat(user, "<span class='warning'>That's not edible.</span>")
-		return 0
+		return TRUE
 
 	// Gotta hurt.
 	if(istype(cooking_obj, /obj/item/holder))
@@ -101,7 +101,7 @@
 
 	// Not sure why a food item that passed the previous checks would fail to drop, but safety first.
 	if(!user.try_unequip(I))
-		return
+		return TRUE
 
 	// We can actually start cooking now.
 	user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
@@ -115,7 +115,7 @@
 
 	// Sanity checks.
 	if(check_cooking_obj())
-		return // Cooking failed/was terminated.
+		return TRUE // Cooking failed/was terminated.
 
 	// RIP slow-moving held mobs.
 	if(istype(cooking_obj, /obj/item/holder))
@@ -183,6 +183,7 @@
 				cooking = 0
 				icon_state = off_icon
 				break
+	return TRUE
 
 /obj/machinery/cooker/proc/check_cooking_obj()
 	if(!cooking_obj || cooking_obj.loc != src)

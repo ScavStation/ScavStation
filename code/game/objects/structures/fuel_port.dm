@@ -52,6 +52,7 @@
 		add_overlay("[icon_state]_closed")
 
 /obj/structure/fuel_port/attackby(obj/item/W, mob/user)
+	. = FALSE
 	if(W.do_tool_interaction(TOOL_CROWBAR, user, src, 1 SECOND))
 		if(open)
 			playsound(src, sound_open, 25, 0, -3)

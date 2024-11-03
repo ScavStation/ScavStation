@@ -55,6 +55,7 @@
 
 	current_health -= damage
 	healthcheck()
+	return TRUE
 
 /obj/effect/spider/bullet_act(var/obj/item/projectile/Proj)
 	..()
@@ -194,7 +195,7 @@
 	. = ..()
 
 /obj/effect/spider/spiderling/attackby(var/obj/item/W, var/mob/user)
-	..()
+	. = ..()
 	if(current_health > 0)
 		disturbed()
 

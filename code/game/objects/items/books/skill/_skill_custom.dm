@@ -54,44 +54,43 @@
 	icon = 'icons/obj/items/books/book_white_question.dmi'
 
 /obj/item/book/skill/custom/attackby(obj/item/pen, mob/user)
-	if(IS_PEN(pen))
+	if(!IS_PEN(pen))
+		return ..()
+	if(!user.skill_check(SKILL_LITERACY, SKILL_BASIC))
+		to_chat(user, SPAN_WARNING("You can't even read, yet you want to write a whole educational textbook?"))
+		return TRUE
+	if(!user.skill_check(SKILL_LITERACY, SKILL_PROF))
+		to_chat(user, SPAN_WARNING("You have no clue as to how to write an entire textbook in a way that is actually useful. Maybe a regular book would be better?"))
+		return TRUE
+	var/state_check = skill_option_string // the state skill_option_string is in just before opening the input
+	var/choice = input(user, "What would you like to change?","Textbook editing") as null|anything in list("Title", "Author", skill_option_string)
+	if(!can_write(pen,user))
+		return TRUE
 
-		if(!user.skill_check(SKILL_LITERACY, SKILL_BASIC))
-			to_chat(user, SPAN_WARNING("You can't even read, yet you want to write a whole educational textbook?"))
-			return
-		if(!user.skill_check(SKILL_LITERACY, SKILL_PROF))
-			to_chat(user, SPAN_WARNING("You have no clue as to how to write an entire textbook in a way that is actually useful. Maybe a regular book would be better?"))
-			return
-		var/state_check = skill_option_string // the state skill_option_string is in just before opening the input
-		var/choice = input(user, "What would you like to change?","Textbook editing") as null|anything in list("Title", "Author", skill_option_string)
-		if(!can_write(pen,user))
-			return
+	switch(choice)
+		if("Title")
+			edit_title(pen, user)
 
-		switch(choice)
-			if("Title")
-				edit_title(pen, user)
+		if("Skill")
+			if(state_check != "Skill") // make sure someone hasn't already started the book while we were staring at menus woops
+				to_chat(user, SPAN_WARNING("The skill has already been selected and the writing started."))
+				return TRUE
+			edit_skill(pen, user)
 
-			if("Skill")
-				if(state_check != "Skill") // make sure someone hasn't already started the book while we were staring at menus woops
-					to_chat(user, SPAN_WARNING("The skill has already been selected and the writing started."))
-					return
-				edit_skill(pen, user)
+		if("Continue writing content")
+			if(state_check != "Continue writing content")
+				return TRUE
+			continue_skill(pen, user)
 
-			if("Continue writing content")
-				if(state_check != "Continue writing content")
-					return
-				continue_skill(pen, user)
+		if("Author")
+			edit_author(pen, user)
 
-			if("Author")
-				edit_author(pen, user)
+		else
+			return TRUE
 
-			else
-				return
-
-		if(skill && title && author) // we have everything we need so lets set a good description
-			desc = "A handwritten textbook titled [title], by [author]. Looks like it teaches [skill_name]."
-		return
-	..()
+	if(skill && title && author) // we have everything we need so lets set a good description
+		desc = "A handwritten textbook titled [title], by [author]. Looks like it teaches [skill_name]."
+	return TRUE
 
 /obj/item/book/skill/custom/proc/can_write(var/obj/item/pen, var/mob/user)
 	if(user.get_active_held_item() == pen && CanPhysicallyInteractWith(user,src) && !QDELETED(src) && !QDELETED(pen))

@@ -58,7 +58,7 @@
 
 /obj/structure/closet/body_bag/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/hand_labeler))
-		return //Prevent the labeler from opening the bag when trying to apply a label
+		return FALSE //Prevent the labeler from opening the bag when trying to apply a label
 	. = ..()
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)

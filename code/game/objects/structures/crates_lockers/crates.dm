@@ -47,12 +47,11 @@
 			rigged = 1
 			return TRUE
 		return FALSE
-	else if(istype(W, /obj/item/assembly_holder) || istype(W, /obj/item/assembly))
-		if(rigged)
-			if(!user.try_unequip(W, src))
-				return TRUE
-			to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
+	else if((istype(W, /obj/item/assembly_holder) || istype(W, /obj/item/assembly)) && rigged)
+		if(!user.try_unequip(W, src))
 			return TRUE
+		to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
+		return TRUE
 	else if(IS_WIRECUTTER(W))
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")

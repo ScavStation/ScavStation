@@ -187,7 +187,7 @@
 /obj/machinery/smartfridge/attackby(var/obj/item/O, var/mob/user)
 	if(accept_check(O))
 		if(!user.try_unequip(O))
-			return
+			return TRUE
 		stock_item(O)
 		user.visible_message("<span class='notice'>\The [user] has added \the [O] to \the [src].</span>", "<span class='notice'>You add \the [O] to \the [src].</span>")
 		update_icon()

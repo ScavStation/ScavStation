@@ -52,7 +52,7 @@
 		. = TRUE
 	if(.)
 		update_icon()
-		return
+		return TRUE
 	return ..()
 
 /obj/item/implantpad/attack_self(mob/user)

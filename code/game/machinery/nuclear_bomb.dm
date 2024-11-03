@@ -67,7 +67,7 @@ var/global/bomb_set
 				to_chat(user, "You screw the control panel of \the [src] back on.")
 				playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			flick("lock", src)
-		return
+		return TRUE
 
 	if(panel_open && (IS_MULTITOOL(O) || IS_WIRECUTTER(O)))
 		return attack_hand_with_interaction_checks(user)
@@ -75,7 +75,7 @@ var/global/bomb_set
 	if(extended)
 		if(istype(O, /obj/item/disk/nuclear))
 			if(!user.try_unequip(O, src))
-				return
+				return TRUE
 			auth = O
 			add_fingerprint(user)
 			return attack_hand_with_interaction_checks(user)
@@ -85,66 +85,67 @@ var/global/bomb_set
 			if(0)
 				if(IS_WELDER(O))
 					var/obj/item/weldingtool/WT = O
-					if(!WT.isOn()) return
+					if(!WT.isOn()) return TRUE
 					if(WT.get_fuel() < 5) // uses up 5 fuel.
 						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
-						return
+						return TRUE
 
 					user.visible_message("[user] starts cutting loose the anchoring bolt covers on [src].", "You start cutting loose the anchoring bolt covers with [O]...")
 
-					if(do_after(user,40, src))
-						if(!src || !user || !WT.weld(5, user)) return
+					if(do_after(user, 4 SECONDS, src))
+						if(QDELETED(src) || QDELETED(user) || !WT.weld(5, user)) return TRUE
 						user.visible_message("\The [user] cuts through the bolt covers on \the [src].", "You cut through the bolt cover.")
 						removal_stage = 1
-				return
+				return TRUE
 
 			if(1)
 				if(IS_CROWBAR(O))
 					user.visible_message("[user] starts forcing open the bolt covers on [src].", "You start forcing open the anchoring bolt covers with [O]...")
 
-					if(do_after(user, 15, src))
-						if(!src || !user) return
+					if(do_after(user, 1.5 SECONDS, src))
+						if(QDELETED(src) || QDELETED(user)) return TRUE
 						user.visible_message("\The [user] forces open the bolt covers on \the [src].", "You force open the bolt covers.")
 						removal_stage = 2
-				return
+				return TRUE
 
 			if(2)
 				if(IS_WELDER(O))
 					var/obj/item/weldingtool/WT = O
-					if(!WT.isOn()) return
+					if(!WT.isOn()) return TRUE
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
 						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
-						return
+						return TRUE
 
 					user.visible_message("[user] starts cutting apart the anchoring system sealant on [src].", "You start cutting apart the anchoring system's sealant with [O]...")
 
-					if(do_after(user, 40, src))
-						if(!src || !user || !WT.weld(5, user)) return
+					if(do_after(user, 4 SECONDS, src))
+						if(QDELETED(src) || QDELETED(user) || !WT.weld(5, user)) return TRUE
 						user.visible_message("\The [user] cuts apart the anchoring system sealant on \the [src].", "You cut apart the anchoring system's sealant.")
 						removal_stage = 3
-				return
+				return TRUE
 
 			if(3)
 				if(IS_WRENCH(O))
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
-					if(do_after(user, 50, src))
-						if(!src || !user) return
+					if(do_after(user, 5 SECONDS, src))
+						if(QDELETED(src) || QDELETED(user)) return TRUE
 						user.visible_message("[user] unwrenches the anchoring bolts on [src].", "You unwrench the anchoring bolts.")
 						removal_stage = 4
-				return
+				return TRUE
 
 			if(4)
 				if(IS_CROWBAR(O))
 					user.visible_message("[user] begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
-					if(do_after(user, 80, src))
-						if(!src || !user) return
+					if(do_after(user, 8 SECONDS, src))
+						if(QDELETED(src) || QDELETED(user)) return TRUE
 						user.visible_message("\The [user] crowbars \the [src] off of the anchors. It can now be moved.", "You jam the crowbar under the nuclear device and lift it off its anchors. You can now move it!")
 						anchored = FALSE
 						removal_stage = 5
-				return
-	..()
+				return TRUE
+	return ..()
 
 /obj/machinery/nuclearbomb/physical_attack_hand(mob/user)
+	. = FALSE
 	if(!extended && deployable)
 		. = TRUE
 		if(removal_stage < 5)
@@ -469,8 +470,7 @@ var/global/bomb_set
 		inserters += ch
 
 /obj/machinery/nuclearbomb/station/attackby(obj/item/O, mob/user)
-	if(IS_WRENCH(O))
-		return
+	return TRUE // cannot be moved
 
 /obj/machinery/nuclearbomb/station/Topic(href, href_list)
 	if((. = ..()))

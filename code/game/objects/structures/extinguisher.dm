@@ -14,9 +14,11 @@
 	. = ..()
 	has_extinguisher = new/obj/item/chems/spray/extinguisher(src)
 
+// TODO: I wanted to make it so you had to actually use your hand to open it if it's closed, but
+// that'd be out of scope for just an attackby audit. Someone fix this so it can call parent please.
 /obj/structure/extinguisher_cabinet/attackby(obj/item/O, mob/user)
 	if(isrobot(user))
-		return
+		return FALSE
 	if(istype(O, /obj/item/chems/spray/extinguisher))
 		if(!has_extinguisher && opened && user.try_unequip(O, src))
 			has_extinguisher = O
@@ -27,6 +29,7 @@
 	else
 		opened = !opened
 	update_icon()
+	return TRUE
 
 
 /obj/structure/extinguisher_cabinet/attack_hand(mob/user)

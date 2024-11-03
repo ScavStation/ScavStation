@@ -236,6 +236,7 @@ var/global/list/turret_icons
 		new /obj/item/assembly/prox_sensor(loc)
 	. = ..()
 
+// TODO: remove these or refactor to use construct states
 /obj/machinery/porta_turret/attackby(obj/item/I, mob/user)
 	if(stat & BROKEN)
 		if(IS_CROWBAR(I))
@@ -248,17 +249,19 @@ var/global/list/turret_icons
 					physically_destroyed()
 				else
 					to_chat(user, "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>")
+			return TRUE
+		return FALSE
 
 	else if(IS_WRENCH(I))
 		if(enabled || raised)
 			to_chat(user, "<span class='warning'>You cannot unsecure an active turret!</span>")
-			return
+			return TRUE
 		if(wrenching)
 			to_chat(user, "<span class='warning'>Someone is already [anchored ? "un" : ""]securing the turret!</span>")
-			return
+			return TRUE
 		if(!anchored && isspaceturf(get_turf(src)))
 			to_chat(user, "<span class='warning'>Cannot secure turrets in space!</span>")
-			return
+			return TRUE
 
 		user.visible_message( \
 				"<span class='warning'>[user] begins [anchored ? "un" : ""]securing the turret.</span>", \
@@ -266,19 +269,14 @@ var/global/list/turret_icons
 			)
 
 		wrenching = 1
-		if(do_after(user, 50, src))
+		if(do_after(user, 5 SECONDS, src))
 			//This code handles moving the turret around. After all, it's a portable turret!
-			if(!anchored)
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
-				anchored = TRUE
-				update_icon()
-				to_chat(user, "<span class='notice'>You secure the exterior bolts on the turret.</span>")
-			else if(anchored)
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
-				anchored = FALSE
-				to_chat(user, "<span class='notice'>You unsecure the exterior bolts on the turret.</span>")
-				update_icon()
+			playsound(loc, 'sound/items/Ratchet.ogg', 100, TRUE)
+			anchored = !anchored
+			update_icon()
+			to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the exterior bolts on [src].</span>")
 		wrenching = 0
+		return TRUE
 
 	else if(istype(I, /obj/item/card/id)||istype(I, /obj/item/modular_computer))
 		//Behavior lock/unlock mangement
@@ -288,6 +286,7 @@ var/global/list/turret_icons
 			updateUsrDialog()
 		else
 			to_chat(user, "<span class='notice'>Access denied.</span>")
+		return TRUE
 
 	else
 		//if the turret was attacked with the intention of harming it:
@@ -298,9 +297,9 @@ var/global/list/turret_icons
 			if(!attacked && !emagged)
 				attacked = 1
 				spawn()
-					sleep(60)
+					sleep(6 SECONDS)
 					attacked = 0
-		..()
+		return TRUE
 
 /obj/machinery/porta_turret/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

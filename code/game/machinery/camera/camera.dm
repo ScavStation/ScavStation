@@ -186,7 +186,7 @@
 
 /obj/machinery/camera/physical_attack_hand(mob/living/human/user)
 	if(!istype(user))
-		return
+		return TRUE
 	if(user.species.can_shred(user))
 		user.do_attack_animation(src)
 		visible_message(SPAN_WARNING("\The [user] slashes at [src]!"))
@@ -194,6 +194,7 @@
 		add_hiddenprint(user)
 		take_damage(25)
 		return TRUE
+	return FALSE
 
 /obj/machinery/camera/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/paper))

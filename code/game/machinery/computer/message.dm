@@ -40,16 +40,14 @@
 
 /obj/machinery/computer/message_monitor/attackby(obj/item/O, mob/user)
 	if(stat & (NOPOWER|BROKEN))
-		..()
-		return
+		return ..()
 	if(!istype(user))
-		return
+		return TRUE
 	if(IS_SCREWDRIVER(O) && emag)
 		//Stops people from just unscrewing the monitor and putting it back to get the console working again.
 		to_chat(user, "<span class='warning'>It is too hot to mess with!</span>")
-		return
-	..()
-	return
+		return TRUE
+	return ..()
 
 /obj/machinery/computer/message_monitor/emag_act(var/remaining_charges, var/mob/user)
 

@@ -134,6 +134,7 @@ Buildable meters
 	playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 	to_chat(user, "<span class='notice'>You have fastened \the [src].</span>")
 	qdel(src)
+	return TRUE
 
 /obj/item/machine_chassis/air_sensor
 	name = "gas sensor"

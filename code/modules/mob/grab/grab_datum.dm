@@ -217,6 +217,7 @@
 // Used when you want an effect to happen when the grab enters this state as an upgrade
 /decl/grab/proc/enter_as_up(var/obj/item/grab/grab)
 
+/decl/grab/proc/item_attack(var/obj/item/grab/grab, var/obj/item)
 	return FALSE
 
 /decl/grab/proc/resolve_item_attack(var/obj/item/grab/grab, var/mob/living/human/user, var/obj/item/I, var/target_zone)

@@ -133,20 +133,18 @@
 	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/turret/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/gun))
-		if(!installed_gun)
-			if(!user.try_unequip(I, src))
-				return
-			to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]!"))
-			installed_gun = I
-			setup_gun()
-			return
+	if(istype(I, /obj/item/gun) && !installed_gun)
+		if(!user.try_unequip(I, src))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]!"))
+		installed_gun = I
+		setup_gun()
+		return TRUE
 
 	if(istype(I, /obj/item/ammo_magazine) || istype(I, /obj/item/ammo_casing))
 		var/obj/item/stock_parts/ammo_box/ammo_box = get_component_of_type(/obj/item/stock_parts/ammo_box)
 		if(istype(ammo_box))
-			ammo_box.attackby(I, user)
-			return
+			return ammo_box.attackby(I, user)
 	. = ..()
 
 // This is called after the gun gets instantiated or slotted in.
