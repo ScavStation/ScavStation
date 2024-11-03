@@ -722,7 +722,7 @@
 /area/map_template/crashed_pod)
 "bi" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /obj/item/chems/food/liquidfood,
 /obj/item/chems/food/liquidfood,
 /obj/item/chems/food/liquidfood,

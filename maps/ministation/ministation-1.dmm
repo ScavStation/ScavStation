@@ -1678,7 +1678,7 @@
 "fk" = (
 /obj/structure/lattice,
 /obj/random/trash,
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
@@ -1844,16 +1844,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/firstaid{
-	dir = 8
-	},
 /obj/structure/sign/department/redcross{
 	pixel_y = 32
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/firstaid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
 "fD" = (
 /obj/structure/kitchenspike,
@@ -1964,11 +1967,14 @@
 /turf/simulated/floor,
 /area/ministation/enclave/messhall)
 "fY" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/firstaid{
 	dir = 8
 	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
 "fZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2094,14 +2100,16 @@
 	id_tag = "Secure Gate";
 	name = "Brig Lockdown";
 	pixel_x = -27;
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list("ACCESS_BRIG")
 	},
 /obj/machinery/button/blast_door{
 	id_tag = "Carp Gate";
 	name = "Brig Lockdown";
 	pixel_x = -27;
 	pixel_y = 36;
-	color = "#800080"
+	color = "#800080";
+	req_access = list("ACCESS_BRIG")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -2133,7 +2141,9 @@
 	dir = 8
 	},
 /obj/machinery/door/window/brigdoor/eastright{
-	id_tag = "Cell 2"
+	id_tag = "Cell 2";
+	autoset_access = 0;
+	req_access = list("ACCESS_BRIG")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -2776,7 +2786,9 @@
 	dir = 8
 	},
 /obj/machinery/door/window/brigdoor/eastright{
-	id_tag = "Cell 1"
+	id_tag = "Cell 1";
+	autoset_access = 0;
+	req_access = list("ACCESS_BRIG")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -4930,7 +4942,7 @@
 /area/ministation/armory)
 "oW" = (
 /obj/machinery/door/airlock/glass/security{
-	req_access = list("ACCESS_SECURITY");
+	req_access = list("ACCESS_BRIG");
 	autoset_access = 0;
 	door_color = "#333333";
 	stripe_color = "#ffcc00"
@@ -8787,7 +8799,7 @@
 /obj/machinery/camera/network/hallway{
 	dir = 1
 	},
-/turf/simulated/floor/glass/boro,
+/turf/simulated/floor/grass,
 /area/ministation/hall/e2)
 "yP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9570,7 +9582,9 @@
 /area/ministation/medical/nursery)
 "Bd" = (
 /obj/machinery/door/airlock/hatch/maintenance{
-	door_color = "#333333"
+	door_color = "#333333";
+	autoset_access = 0;
+	req_access = list("ACCESS_BRIG")
 	},
 /turf/simulated/floor/plating,
 /area/ministation/maint/secmaint)
@@ -10167,7 +10181,7 @@
 	dir = 8
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_EVA");
+	req_access = list("ACCESS_BRIG");
 	autoset_access = 0;
 	dir = 4
 	},
@@ -10249,8 +10263,7 @@
 	req_access = list("ACCESS_KITCHEN")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/ministation/kitchen)
 "Dn" = (
 /obj/machinery/light/small{
@@ -11537,7 +11550,7 @@
 	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_SECURITY");
+	req_access = list("ACCESS_BRIG");
 	autoset_access = 0;
 	dir = 4
 	},
@@ -12663,11 +12676,11 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
@@ -12894,9 +12907,9 @@
 /area/ministation/enclave/badclamrock)
 "LT" = (
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 10
+	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
 "LV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12986,7 +12999,7 @@
 /area/ministation/armory)
 "Ml" = (
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_SECURITY");
+	req_access = list("ACCESS_BRIG");
 	autoset_access = 0;
 	dir = 4
 	},
@@ -15481,7 +15494,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass/security{
-	req_access = list("ACCESS_SECURITY");
+	req_access = list("ACCESS_BRIG");
 	autoset_access = 0;
 	door_color = "#333333";
 	stripe_color = "#ffcc00"
@@ -16465,11 +16478,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
 /obj/structure/disposalpipe/junction{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
@@ -16582,14 +16595,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "Xq" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
 /obj/structure/sign/department/chemistry{
 	pixel_x = 32;
 	pixel_y = -5
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
 /area/ministation/hall/e2)
 "Xr" = (
 /obj/abstract/landmark{
@@ -17279,7 +17292,9 @@
 	name = "evidence locker";
 	closet_appearance = /decl/closet_appearance/secure_closet/security
 	},
-/obj/item/clothing/under/yinglet/flexsuit,
+/obj/item/clothing/suit/armor/flexsuitvest,
+/obj/item/clothing/head/helmet/space/flexsuithelmet,
+/obj/item/clothing/under/yinglet/flexsuit/xl,
 /turf/simulated/floor/tiled/dark,
 /area/ministation/armory)
 "ZH" = (

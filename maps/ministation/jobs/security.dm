@@ -7,7 +7,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security
 	department_types = list(/decl/department/security)
 	selection_color = COLOR_BLOOD_RED
-	economic_power = 7
+	economic_power = 8
 	minimal_player_age = 7
 	access = list(
 		access_security,
@@ -48,7 +48,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/ministation/detective
 	department_types = list(/decl/department/security)
 	selection_color = "#630000"
-	economic_power = 7
+	economic_power = 9
 	minimal_player_age = 3
 	access = list(
 		access_forensics_lockers,
@@ -95,7 +95,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/ministation/security
 	department_types = list(/decl/department/security)
 	selection_color = COLOR_BLOOD_RED
-	economic_power = 7
+	economic_power = 9
 	minimal_player_age = 4
 	hud_icon = "hudwarden"
 	access = list(
@@ -132,7 +132,7 @@
 		SKILL_COMBAT	= SKILL_MAX,
 		SKILL_WEAPONS	= SKILL_MAX
 	)
-	skill_points = 34
+	skill_points = 36
 	event_categories = list(ASSIGNMENT_SECURITY)
 
 
