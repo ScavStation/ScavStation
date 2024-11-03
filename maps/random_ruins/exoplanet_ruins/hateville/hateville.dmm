@@ -8183,6 +8183,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 8
 	},
+/mob/living/simple_animal/hostile/creature/cult,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "lL" = (
@@ -15953,6 +15954,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
+/mob/living/simple_animal/hostile/creature/cult,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "AZ" = (
@@ -21333,7 +21335,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/creature/cult,
+/mob/living/simple_animal/hostile/faithless/cult,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
 "Nl" = (
@@ -23809,6 +23811,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
+/mob/living/simple_animal/hostile/creature/cult,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/materials)
 "SE" = (
