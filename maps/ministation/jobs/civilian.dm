@@ -29,7 +29,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/ministation/bartender
 	department_types = list(/decl/department/service)
 	selection_color = "#3fbe4a"
-	economic_power = 5
+	economic_power = 6
 	access = list(
 		access_hydroponics,
 		access_bar,
@@ -61,7 +61,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/ministation/cargo
 	department_types = list(/decl/department/service)
 	selection_color = "#8a7c00"
-	economic_power = 5
+	economic_power = 8
 	access = list(
 		access_cargo,
 		access_cargo_bot,
@@ -108,7 +108,7 @@
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = "the Head of Personnel and the Captain"
-	economic_power = 3
+	economic_power = 5
 	selection_color = "#940088"
 	access = list(
 		access_janitor,
@@ -142,7 +142,7 @@
 	total_positions = 1
 	spawn_positions = 2
 	supervisors = "the Head of Personnel, the Captain, and the smell of old paper"
-	economic_power = 5
+	economic_power = 6
 	selection_color = "#008800"
 	access = list(access_library)
 	minimal_access = list(access_library)
@@ -154,3 +154,26 @@
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT
 	)
+
+/datum/job/ministation/lawyer
+	title = "Lawyer"
+	department_types = list(/decl/department/service)
+	total_positions = 4
+	spawn_positions = 3
+	supervisors = "space law and your law firm"
+	economic_power = 9
+	selection_color = "#4279d6"
+	access = list(access_lawyer, access_security)
+	hud_icon = "hudlawyer"
+	minimal_access = list(access_lawyer, access_security)
+	alt_titles = list(
+		"Attorney",
+		"Prosecutor",
+		"Law Clerk",
+		"Associate"
+	)
+	outfit_type = /decl/hierarchy/outfit/job/ministation_assistant
+	min_skill = list(
+		SKILL_LITERACY = SKILL_BASIC
+	)
+	skill_points = 30

@@ -8964,7 +8964,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /turf/simulated/floor/plating,
 /area/ministation/maint/l1central)
 "BB" = (
@@ -14133,6 +14133,15 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
 /obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/under/yinglet/flexsuit{
+	detail_color = "#808080"
+	},
+/obj/item/clothing/under/yinglet/flexsuit{
+	detail_color = "#008000"
+	},
+/obj/item/clothing/under/yinglet/flexsuit{
+	detail_color = "#ceb689"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/ministation/dorms)
 "PA" = (

@@ -5622,7 +5622,7 @@
 	},
 /area/map_template/hateville/foodcourt)
 "hT" = (
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /obj/item/storage/mre/menu10,
 /obj/item/storage/mre/menu10,
 /obj/item/storage/mre/menu10,
@@ -8124,7 +8124,7 @@
 /obj/item/chems/welder_tank/experimental,
 /obj/item/chems/welder_tank/experimental,
 /obj/item/chems/welder_tank/experimental,
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /obj/item/chems/welder_tank/experimental,
 /obj/item/chems/welder_tank/experimental,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -13531,7 +13531,7 @@
 /turf/simulated/floor/grass,
 /area/map_template/hateville/command)
 "vv" = (
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -26866,7 +26866,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /obj/item/storage/mre/random,
 /obj/item/storage/mre/random,
 /obj/item/storage/mre/random,
