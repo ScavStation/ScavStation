@@ -8161,7 +8161,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/scarybat/cult,
 /turf/template_noop,
 /area/template_noop)
 "lK" = (
@@ -8862,9 +8861,7 @@
 /turf/simulated/floor/tiled/old_cargo,
 /area/map_template/hateville)
 "mI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/creature/cult,
 /turf/template_noop,
 /area/template_noop)
 "mJ" = (
@@ -12331,12 +12328,10 @@
 /area/map_template/hateville/agricultureOU)
 "tg" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/mech_wreckage/military,
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/decal/cleanable/blood/gibs{
-	color = "#a10808"
-	},
-/obj/abstract/landmark/corpse/syndicate/commando,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/creature/cult,
 /turf/template_noop,
 /area/template_noop)
 "th" = (
@@ -15996,6 +15991,12 @@
 /obj/item/tank/emergency/oxygen/double,
 /turf/simulated/floor/tiled/steel_grid,
 /area/map_template/hateville/medical)
+"Ba" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/creature/cult,
+/turf/template_noop,
+/area/template_noop)
 "Bc" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/firealarm{
@@ -21335,7 +21336,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/creature/cult,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
 "Nl" = (
@@ -22275,6 +22276,13 @@
 	color = "#b9b99e"
 	},
 /area/map_template/hateville/foodcourt)
+"Pr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/trash,
+/mob/living/simple_animal/hostile/creature/cult,
+/turf/template_noop,
+/area/template_noop)
 "Pu" = (
 /obj/effect/floor_decal/techfloor{
 	dir = 9
@@ -27631,7 +27639,7 @@ aa
 MK
 aa
 od
-kN
+Ba
 kN
 aa
 aa
@@ -27769,10 +27777,10 @@ as
 jS
 cv
 aa
-aa
+mI
 cv
 aa
-aa
+mI
 as
 kN
 kN
@@ -27910,10 +27918,10 @@ TB
 qr
 jm
 od
-jS
+tg
 iX
 RL
-cv
+Gh
 aa
 kN
 Xl
@@ -27928,7 +27936,7 @@ aa
 aa
 iX
 cv
-cv
+Gh
 cv
 cv
 as
@@ -28058,11 +28066,11 @@ WN
 lJ
 cv
 cv
-jS
+tg
 as
-tA
+cv
 kN
-kN
+Ba
 Mc
 cv
 cv
@@ -28072,10 +28080,10 @@ kN
 cv
 aa
 ET
-kN
+Ba
 od
 cv
-as
+Pr
 cv
 aa
 cv
@@ -28133,11 +28141,11 @@ Op
 Mc
 kN
 om
-kN
+Ba
 kN
 as
 kN
-cv
+Gh
 kN
 aJ
 kN
@@ -28200,12 +28208,12 @@ Xz
 HL
 ah
 BQ
-cv
+Gh
 kN
 od
-Gh
+cv
 od
-mI
+kN
 kN
 kN
 om
@@ -28221,7 +28229,7 @@ cv
 cv
 iX
 Nz
-kN
+Ba
 kN
 cv
 kN
@@ -28274,8 +28282,8 @@ qp
 nO
 cv
 as
-tA
-aa
+cv
+mI
 cv
 XI
 aa
@@ -28488,12 +28496,12 @@ Ye
 yF
 QH
 cv
-AI
+aa
 cv
 RL
 kN
 cv
-Mi
+cv
 aa
 cv
 aa
@@ -28559,7 +28567,7 @@ Gz
 Qi
 cz
 DX
-tg
+lz
 Ey
 cv
 cv
