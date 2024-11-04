@@ -454,8 +454,8 @@ Sells devices, odds and ends, and medical stuff
 	)
 
 	possible_trading_items = list(
-		/obj/machinery/mining/drill                                     = TRADER_THIS_TYPE,
-		/obj/machinery/mining/brace                                     = TRADER_THIS_TYPE,
+		/obj/machinery/mining_drill                                     = TRADER_THIS_TYPE,
+		/obj/structure/drill_brace                                      = TRADER_THIS_TYPE,
 		/obj/machinery/floodlight                                       = TRADER_THIS_TYPE,
 		/obj/item/box/greenglowsticks                                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/engineering/salvage/prepared = TRADER_THIS_TYPE,

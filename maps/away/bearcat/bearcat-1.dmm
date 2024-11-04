@@ -814,7 +814,7 @@
 	icon_state = "bulb1"
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo/lower)
 "bP" = (

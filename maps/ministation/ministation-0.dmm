@@ -1588,7 +1588,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /turf/floor/tiled,
 /area/ministation/cargo)
 "gk" = (
@@ -1749,7 +1749,7 @@
 /area/ministation/hall/n)
 "gL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /turf/floor/tiled,
 /area/ministation/cargo)
 "gM" = (
@@ -5517,7 +5517,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor/tiled,
 /area/ministation/cargo)
@@ -11751,7 +11751,7 @@
 /area/space)
 "Rm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor/tiled,
 /area/ministation/cargo)

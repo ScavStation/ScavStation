@@ -151,3 +151,15 @@
 	mechanics_text = "Allows for network devices in its sector to connect to and communicate with distant networks over PLEXUS.<BR>Networks requires a modem to utilize PLEXUS connections."
 	disambiguator = "machine"
 	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
+
+/datum/codex_entry/mining_drill
+	associated_paths = list(/obj/machinery/mining_drill)
+	mechanics_text = "When properly supported by two adjacent braces, the mining drill can automatically mine underground mineral deposits.<br>\
+	You can empty the ore storage by click-dragging the drill onto an ore box, or using the <b>Unload Drill</b> verb.<br>\
+	The drill head can be upgraded using a number of different components:<br>\
+	- Micro lasers control the drill's mining speed. The drill's energy usage proportionally increases with faster speed.<br>\
+	- Matter bins expand the drill's internal ore storage, allowing it to mine for longer before it gets fill.<br>\
+	- Scanning modules expand the drill's ore scanner radius, allowing it to mine from farther away.<br>\
+	- Capacitors improve the drill's energy efficiency, reducing how much energy is required to extract a piece of ore from the ground."
+	disambiguator = "machine"
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE

@@ -134,6 +134,13 @@
 	if(. && !QDELETED(src) && (severity == 1 || prob(50)))
 		physically_destroyed()
 
+/obj/structure/ore_box/receive_mouse_drop(atom/dropping, mob/user, params)
+	. = ..()
+	if(!. && istype(dropping, /obj/machinery/mining_drill))
+		var/obj/machinery/mining_drill/D = dropping
+		D.unload_into_box(src, user)
+
+
 /obj/structure/ore_box/get_alt_interactions(mob/user)
 	. = ..()
 	LAZYADD(., /decl/interaction_handler/empty/ore_box)
