@@ -11155,6 +11155,11 @@
 	},
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
+"qM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/turf/template_noop,
+/area/template_noop)
 "qN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/abstract/landmark/corpse/syndicate,
@@ -14098,6 +14103,10 @@
 	},
 /turf/exterior/concrete,
 /area/template_noop)
+"wN" = (
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/turf/template_noop,
+/area/template_noop)
 "wO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -14904,6 +14913,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
+"yI" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/turf/template_noop,
+/area/template_noop)
 "yJ" = (
 /obj/effect/floor_decal/techfloor{
 	dir = 1
@@ -15534,6 +15547,11 @@
 	},
 /turf/exterior/concrete/reinforced/road,
 /area/map_template/hateville/materials)
+"Ai" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/turf/template_noop,
+/area/template_noop)
 "Am" = (
 /turf/template_noop,
 /area/map_template/hateville/operating)
@@ -21051,6 +21069,12 @@
 	color = "#769274"
 	},
 /area/map_template/hateville/agriculture)
+"MA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/turf/template_noop,
+/area/template_noop)
 "MB" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/supply,
 /obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,
@@ -27497,7 +27521,7 @@ aa
 aa
 od
 cv
-kN
+MA
 cv
 aa
 aa
@@ -27783,14 +27807,14 @@ aa
 mI
 as
 kN
-kN
+MA
 aa
 aa
 aa
 aa
 aa
 aa
-aa
+yI
 aa
 aa
 cv
@@ -27861,7 +27885,7 @@ aa
 aa
 aa
 aa
-aa
+wN
 aa
 aa
 cv
@@ -27922,10 +27946,10 @@ tg
 iX
 RL
 Gh
-aa
+yI
 kN
 Xl
-kN
+MA
 cv
 aa
 aa
@@ -28002,7 +28026,7 @@ cv
 aa
 XI
 XI
-aa
+yI
 aa
 iX
 cv
@@ -28010,7 +28034,7 @@ kN
 cv
 cv
 aa
-kN
+MA
 cv
 kN
 cv
@@ -28068,7 +28092,7 @@ cv
 cv
 tg
 as
-cv
+Ai
 kN
 Ba
 Mc
@@ -28149,7 +28173,7 @@ Gh
 kN
 aJ
 kN
-kN
+MA
 kN
 kN
 as
@@ -28286,7 +28310,7 @@ cv
 mI
 cv
 XI
-aa
+yI
 aa
 cv
 aa
@@ -28500,7 +28524,7 @@ aa
 cv
 RL
 kN
-cv
+qM
 cv
 aa
 cv
