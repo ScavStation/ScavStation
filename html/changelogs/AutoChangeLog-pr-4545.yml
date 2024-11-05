@@ -1,8 +1,0 @@
-author: Neerti
-changes:
-  - {tweak: Mining drill braces are now crafted from steel sheets directly.}
-  - {balance: 'Microlasers added to mining drills no longer multiply ore out of the
-      ground, but make the drill mine faster, proportionally increasing the energy
-      usage.'}
-  - {balance: Capacitors added to mining drills are less powerful.}
-delete-after: true
