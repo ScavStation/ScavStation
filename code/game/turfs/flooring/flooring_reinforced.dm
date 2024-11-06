@@ -15,22 +15,28 @@
 	gender         = NEUTER
 
 /decl/flooring/reinforced/circuit
-	name           = "processing strata"
-	desc           = "A complex network of circuits beneath reinforced glass."
-	icon           = 'icons/turf/flooring/circuit.dmi'
-	icon_base      = "bcircuit"
-	build_type     = null
-	flooring_flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_WRENCH
-	can_paint      = 1
-	can_engrave    = FALSE
+	name             = "processing strata"
+	desc             = "A complex network of circuits beneath reinforced glass."
+	icon             = 'icons/turf/flooring/circuit.dmi'
+	icon_base        = "bcircuit"
+	build_type       = null
+	flooring_flags   = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_WRENCH
+	can_paint        = 1
+	can_engrave      = FALSE
+	turf_light_range = 2
+	turf_light_power = 3
+	turf_light_color = COLOR_BLUE
 
 /decl/flooring/reinforced/circuit/green
-	icon_base      = "gcircuit"
+	icon_base        = "gcircuit"
+	turf_light_color = COLOR_GREEN
 
 /decl/flooring/reinforced/circuit/red
-	icon_base      = "rcircuit"
-	flooring_flags = TURF_ACID_IMMUNE
-	can_paint      = 0
+	icon_base        = "rcircuit"
+	flooring_flags   = TURF_ACID_IMMUNE
+	can_paint        = 0
+	turf_light_power = 2
+	turf_light_color = COLOR_RED
 
 /decl/flooring/reinforced/shuttle
 	name           = "floor"
