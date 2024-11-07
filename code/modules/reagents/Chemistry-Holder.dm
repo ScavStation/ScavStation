@@ -761,7 +761,7 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 	if(transferred_phases & MAT_PHASE_SOLID)
 		var/solid_transferred = NONUNIT_FLOOR(min(amount_remaining, SOLID_VOLUME(src, type)), MINIMUM_CHEMICAL_VOLUME)
 		F.add_reagent(type, solid_transferred, REAGENT_DATA(src, type), defer_update = TRUE, phase = MAT_PHASE_SOLID)
-		remove_reagent(type, solid_transferred, defer_update = TRUE, removed_phases = MAT_PHASE_LIQUID)
+		remove_reagent(type, solid_transferred, defer_update = TRUE, removed_phases = MAT_PHASE_SOLID)
 		amount_remaining -= solid_transferred
 
 	// Now that both liquid and solid components are removed, we can update if necessary.
