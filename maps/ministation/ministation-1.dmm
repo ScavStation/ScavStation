@@ -231,13 +231,6 @@
 /obj/structure/bed/chair,
 /turf/floor/carpet,
 /area/ministation/hall/w2)
-"aJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/borderfloorblack{
-	dir = 4
-	},
-/turf/floor/natural/grass,
-/area/ministation/hall/e2)
 "aL" = (
 /obj/structure/bed/sofa/middle/black,
 /turf/floor/carpet/green,
@@ -253,10 +246,6 @@
 /obj/item/surgicaldrill,
 /turf/floor/tiled/white,
 /area/ministation/surgicals)
-"aO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/natural/grass,
-/area/ministation/hall/e2)
 "aP" = (
 /obj/structure/closet/secure_closet/security,
 /obj/item/clothing/pants/loincloth/scout,
@@ -517,7 +506,7 @@
 /area/ministation/hall/w2)
 "bJ" = (
 /obj/structure/bed/sofa/middle/unpadded,
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "bK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1704,7 +1693,7 @@
 /obj/effect/floor_decal/borderfloorblack{
 	dir = 8
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "fn" = (
 /obj/structure/rack,
@@ -1916,7 +1905,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "fP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2493,12 +2482,6 @@
 	},
 /turf/floor/wood/walnut,
 /area/ministation/enclave/matriarch)
-"hH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/floor/natural/grass,
-/area/ministation/hall/w2)
 "hI" = (
 /obj/machinery/vending/hydronutrients{
 	dir = 1
@@ -2729,9 +2712,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled,
 /area/ministation/cargo/f2)
-"iv" = (
-/turf/floor/natural/grass,
-/area/ministation/hall/e2)
 "iw" = (
 /obj/machinery/seed_extractor,
 /obj/effect/floor_decal/corner/beige/half,
@@ -2804,7 +2784,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "iD" = (
 /obj/structure/table/reinforced,
@@ -3246,7 +3226,7 @@
 /obj/effect/floor_decal/borderfloorblack/corner{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "jN" = (
 /obj/structure/railing/mapped{
@@ -3338,7 +3318,7 @@
 /area/ministation/maint/sebypass)
 "jV" = (
 /obj/effect/floor_decal/corner/green/half,
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "jW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3590,7 +3570,7 @@
 /area/ministation/hall/w2)
 "kK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "kM" = (
 /obj/structure/cable{
@@ -4454,7 +4434,7 @@
 	tag_interior_door = "escape1_airlock_interior";
 	pixel_x = -20
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "nz" = (
 /obj/structure/lattice,
@@ -4879,7 +4859,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "oJ" = (
 /obj/structure/lattice,
@@ -5698,7 +5678,7 @@
 	pixel_x = -32;
 	dir = 8
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "rd" = (
 /obj/abstract/landmark/start{
@@ -6653,7 +6633,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "tf" = (
 /obj/effect/floor_decal/ss13/l1,
@@ -6695,7 +6675,7 @@
 /obj/structure/bed/sofa/left/unpadded{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "ts" = (
 /obj/machinery/light{
@@ -6712,7 +6692,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "tv" = (
 /obj/machinery/light/small{
@@ -6960,7 +6940,7 @@
 /obj/abstract/landmark{
 	name = "bluespace_a"
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "ub" = (
 /obj/machinery/newscaster{
@@ -7047,7 +7027,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "un" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7076,12 +7056,6 @@
 	dir = 8
 	},
 /turf/floor/tiled,
-/area/ministation/hall/e2)
-"uq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/floor/natural/grass,
 /area/ministation/hall/e2)
 "us" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7180,7 +7154,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "uI" = (
 /turf/wall/r_wall,
@@ -7899,7 +7873,7 @@
 /area/ministation/hall/e2)
 "wE" = (
 /obj/structure/railing/mapped,
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "wF" = (
 /turf/floor/tiled,
@@ -8814,7 +8788,7 @@
 /obj/machinery/camera/network/hallway{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "yP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9041,7 +9015,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "zy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9565,7 +9539,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "AY" = (
 /obj/structure/lattice,
@@ -9614,10 +9588,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/medical)
-"Bf" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
-/area/ministation/hall/w2)
 "Bh" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/basic/full,
@@ -10154,7 +10124,7 @@
 /obj/effect/floor_decal/borderfloorblack{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "CX" = (
 /obj/structure/lattice,
@@ -10433,7 +10403,7 @@
 /obj/effect/floor_decal/borderfloorblack{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "DQ" = (
 /obj/structure/transit_tube{
@@ -11073,7 +11043,7 @@
 /obj/structure/bed/sofa/right/unpadded{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "Gh" = (
 /obj/structure/extinguisher_cabinet{
@@ -11847,7 +11817,7 @@
 /obj/structure/bed/sofa/middle/unpadded{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "IM" = (
 /obj/structure/lattice,
@@ -11906,10 +11876,6 @@
 /obj/abstract/landmark/mapped_fluid/fill,
 /turf/floor/pool/deep,
 /area/ministation/enclave/matriarch)
-"IV" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
-/area/ministation/hall/e2)
 "IX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -12053,12 +12019,6 @@
 "Js" = (
 /turf/floor/tiled/white,
 /area/ministation/surgicals)
-"Ju" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/natural/grass,
-/area/ministation/hall/e2)
 "Jv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -12082,7 +12042,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "JA" = (
 /obj/structure/lattice,
@@ -12780,9 +12740,6 @@
 /obj/item/chems/glass/beaker,
 /turf/floor/lino,
 /area/ministation/kitchen)
-"Ls" = (
-/turf/floor/natural/grass,
-/area/ministation/hall/w2)
 "Lt" = (
 /obj/machinery/light{
 	dir = 1;
@@ -13667,7 +13624,7 @@
 "Om" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "On" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -13918,7 +13875,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "OZ" = (
 /turf/floor/tiled/stone,
@@ -14955,7 +14912,7 @@
 /area/ministation/enclave/engineering)
 "Sp" = (
 /obj/structure/bed/sofa/left/unpadded,
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "Sq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -15436,7 +15393,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/e2)
 "TQ" = (
 /obj/machinery/door/airlock/hatch/autoname/command{
@@ -16460,7 +16417,7 @@
 /area/ministation/armory)
 "WQ" = (
 /obj/structure/bed/sofa/right/unpadded,
-/turf/floor/natural/grass,
+/turf/floor/tiled,
 /area/ministation/hall/w2)
 "WS" = (
 /obj/structure/lattice,
@@ -17008,15 +16965,6 @@
 "YI" = (
 /turf/floor/tiled/dark,
 /area/ministation/perma)
-"YK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/natural/grass,
-/area/ministation/hall/w2)
 "YL" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -42014,7 +41962,7 @@ ad
 kZ
 kZ
 uC
-Ls
+aV
 vP
 kZ
 kZ
@@ -42257,11 +42205,11 @@ kZ
 lI
 mh
 Ry
-hH
+mh
 nx
 oH
 rc
-hH
+mh
 Ry
 mh
 rW
@@ -42270,8 +42218,8 @@ aa
 ad
 kZ
 Qy
-Ls
-Bf
+aV
+GZ
 GZ
 aV
 xf
@@ -42514,11 +42462,11 @@ cr
 aH
 hi
 mR
-Bf
-Ls
-Ls
-Ls
-Ls
+GZ
+aV
+aV
+aV
+aV
 mR
 rm
 rX
@@ -42526,10 +42474,10 @@ kZ
 kZ
 kZ
 kZ
-Ls
-Ls
-Ls
-Ls
+aV
+aV
+aV
+aV
 aV
 xf
 rt
@@ -42779,14 +42727,14 @@ HJ
 rE
 rn
 md
-Ls
-Ls
+aV
+aV
 te
-Ls
-Ls
-Ls
-Ls
-Ls
+aV
+aV
+aV
+aV
+aV
 aV
 dE
 rt
@@ -43036,13 +42984,13 @@ GZ
 aV
 rn
 in
-Ls
-Ls
+aV
+aV
 tf
 BH
-Ls
-Ls
-Ls
+aV
+aV
+aV
 aV
 aV
 ZR
@@ -43808,12 +43756,12 @@ FZ
 Pd
 Ec
 rn
-Ls
+aV
 ti
 Nq
-Ls
-Ls
-Ls
+aV
+aV
+aV
 vP
 kZ
 rt
@@ -44065,12 +44013,12 @@ Ei
 Bk
 Ec
 rn
-Ls
+aV
 tj
 tP
 ua
-Ls
-Ls
+aV
+aV
 Gh
 kZ
 aa
@@ -44836,10 +44784,10 @@ kZ
 kZ
 kZ
 su
-Ls
+aV
 Nz
 ze
-YK
+aR
 on
 uI
 vT
@@ -45093,10 +45041,10 @@ tv
 vd
 kZ
 tY
-Bf
-Ls
-Ls
-YK
+GZ
+aV
+aV
+aR
 on
 ve
 vU
@@ -45350,9 +45298,9 @@ mq
 gM
 kZ
 sv
-Ls
-Ls
-Ls
+aV
+aV
+aV
 lL
 on
 vf
@@ -45864,9 +45812,9 @@ aV
 RI
 aV
 Kr
-Ls
-Ls
-Ls
+aV
+aV
+aV
 ns
 uI
 uI
@@ -46122,7 +46070,7 @@ Yl
 kZ
 tW
 Gg
-Ls
+aV
 Sp
 aR
 uI
@@ -46379,7 +46327,7 @@ BT
 kZ
 lH
 IK
-Ls
+aV
 bJ
 aR
 uI
@@ -46636,7 +46584,7 @@ jy
 kZ
 ss
 tq
-Ls
+aV
 WQ
 aR
 uI
@@ -46892,9 +46840,9 @@ qk
 eb
 cO
 ss
-Ls
-Ls
-Ls
+aV
+aV
+aV
 sG
 uI
 uI
@@ -47406,9 +47354,9 @@ wv
 Jm
 cO
 PH
-Ls
+aV
 Sq
-Ls
+aV
 iN
 kZ
 Wd
@@ -47663,9 +47611,9 @@ mF
 cO
 kZ
 PI
-Ls
+aV
 dm
-Bf
+GZ
 jO
 kZ
 Wd
@@ -47920,9 +47868,9 @@ qN
 cH
 kZ
 ke
-Ls
-Ls
-Ls
+aV
+aV
+aV
 aR
 kZ
 Wd
@@ -48177,9 +48125,9 @@ Sy
 aV
 kZ
 As
-Ls
-Ls
-Ls
+aV
+aV
+aV
 ue
 ex
 BG
@@ -48434,9 +48382,9 @@ dK
 Wo
 kZ
 PI
-Ls
-Ls
-Ls
+aV
+aV
+aV
 Sq
 kZ
 vm
@@ -48691,9 +48639,9 @@ ry
 kZ
 kZ
 PI
-Ls
-Ls
-Ls
+aV
+aV
+aV
 Sq
 kZ
 vn
@@ -50747,9 +50695,9 @@ NC
 BL
 mH
 RB
-iv
-iv
-iv
+ty
+ty
+ty
 sM
 mH
 AR
@@ -51261,10 +51209,10 @@ cY
 lR
 mH
 RB
-iv
+ty
 wD
-iv
-uq
+ty
+sM
 DJ
 Wd
 qf
@@ -51518,9 +51466,9 @@ cY
 lR
 mH
 RB
-iv
 ty
-iv
+ty
+ty
 yN
 mH
 qf
@@ -51775,7 +51723,7 @@ cY
 cY
 mH
 TS
-iv
+ty
 mj
 qI
 Om
@@ -52032,10 +51980,10 @@ qX
 fA
 cY
 RB
-IV
+wD
 ty
 mJ
-uq
+sM
 la
 Zb
 Zb
@@ -52289,10 +52237,10 @@ dr
 Yj
 QL
 RB
-iv
 ty
-IV
-uq
+ty
+wD
+sM
 la
 Da
 am
@@ -52546,10 +52494,10 @@ iz
 dr
 VS
 nB
-iv
 ty
-iv
-uq
+ty
+ty
+sM
 la
 aL
 Uw
@@ -52803,7 +52751,7 @@ iy
 jd
 XY
 tU
-Ju
+QF
 QF
 fO
 uH
@@ -53060,7 +53008,7 @@ NK
 je
 cY
 PO
-IV
+wD
 ty
 OY
 Jx
@@ -53317,7 +53265,7 @@ TV
 cY
 cY
 JH
-iv
+ty
 ty
 OY
 ge
@@ -53574,7 +53522,7 @@ gX
 jg
 Oq
 ly
-aJ
+Tv
 Tv
 Jz
 ge
@@ -55887,7 +55835,7 @@ KW
 gJ
 zW
 yC
-aO
+iW
 Sg
 wE
 ge
@@ -56144,7 +56092,7 @@ iG
 jk
 JZ
 lw
-iv
+ty
 Cm
 wE
 Kz
@@ -56401,9 +56349,9 @@ Ym
 XE
 JZ
 lw
-iv
+ty
 Cm
-iv
+ty
 Wj
 bj
 vA
@@ -56658,9 +56606,9 @@ Kd
 JZ
 mH
 sP
-iv
+ty
 Cm
-iv
+ty
 iC
 bj
 bj
@@ -57172,7 +57120,7 @@ FF
 oz
 UW
 lw
-iv
+ty
 ZW
 DE
 um
@@ -57429,7 +57377,7 @@ Ic
 oz
 BS
 lw
-iv
+ty
 tE
 mJ
 um
@@ -57686,9 +57634,9 @@ qZ
 oz
 oz
 LV
-iv
+ty
 Xw
-iv
+ty
 um
 jV
 vE
@@ -57945,7 +57893,7 @@ oz
 uP
 kK
 tG
-IV
+wD
 um
 jV
 OV
