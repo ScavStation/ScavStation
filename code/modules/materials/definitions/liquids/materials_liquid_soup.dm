@@ -47,10 +47,11 @@
 		var/list/name_ingredients = ingredients.Copy()
 		if(length(name_ingredients) > 3)
 			name_ingredients.Cut(4)
-		if(allergen_flags & ALLERGEN_DAIRY) // TODO: check ALLEGEN_CHEESE for cheese-based soups
-			LAZYSET(., DATA_MASK_NAME, "[english_list(name_ingredients)] cream [mask_name_suffix]")
-		else
-			LAZYSET(., DATA_MASK_NAME, "[english_list(name_ingredients)] [mask_name_suffix]")
+		if(isnull(.[DATA_MASK_NAME]) || .[DATA_MASK_NAME] != newdata?[DATA_MASK_NAME]) // preserve custom name if both have it
+			if(allergen_flags & ALLERGEN_DAIRY) // TODO: check ALLEGEN_CHEESE for cheese-based soups
+				LAZYSET(., DATA_MASK_NAME, "[english_list(name_ingredients)] cream [mask_name_suffix]")
+			else
+				LAZYSET(., DATA_MASK_NAME, "[english_list(name_ingredients)] [mask_name_suffix]")
 	else
 		LAZYREMOVE(., DATA_MASK_NAME)
 
