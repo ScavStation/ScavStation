@@ -231,6 +231,10 @@ var/global/list/STANDARD_AIRMIX = list(
 /turf/return_air()
 	RETURN_TYPE(/datum/gas_mixture)
 
+	// TODO: immutable gas mixtures for stuff like this, to avoid creating new datums every time.
+	if(!simulated)
+		return make_air()
+
 	// ZAS participation
 	if(zone && !zone.invalid)
 		SSair.mark_zone_update(zone)
@@ -261,7 +265,7 @@ var/global/list/STANDARD_AIRMIX = list(
 	return FALSE
 
 /turf/proc/make_air()
-	air = new/datum/gas_mixture
+	air = new /datum/gas_mixture
 	air.temperature = temperature
 	if(initial_gas)
 		if(initial_gas == GAS_STANDARD_AIRMIX)
