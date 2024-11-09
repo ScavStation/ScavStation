@@ -39,7 +39,7 @@
 /turf/proc/set_flooded(new_flooded, force = FALSE, skip_vis_contents_update = FALSE, mapload = FALSE)
 
 	// Don't do unnecessary work.
-	if(!force && new_flooded == flooded)
+	if(!simulated || (!force && new_flooded == flooded))
 		return
 
 	// Remove our old overlay if necessary.
@@ -163,7 +163,8 @@
 
 /turf/on_reagent_change()
 
-	..()
+	if(!(. = ..()))
+		return
 
 	if(reagents?.total_volume > FLUID_QDEL_POINT)
 		ADD_ACTIVE_FLUID(src)

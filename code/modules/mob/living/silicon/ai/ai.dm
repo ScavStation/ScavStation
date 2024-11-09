@@ -55,7 +55,6 @@ var/global/list/ai_verbs_default = list(
 	anchored = TRUE // -- TLE
 	density = TRUE
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
-	shouldnt_see = list(/obj/effect/rune)
 	max_health = 200
 
 	silicon_camera = /obj/item/camera/siliconcam/ai_camera
@@ -378,7 +377,7 @@ var/global/list/custom_ai_icons_by_ckey_and_name = list()
 
 	if (href_list["track"])
 		var/mob/target = locate(href_list["track"]) in SSmobs.mob_list
-		var/mob/living/carbon/human/H = target
+		var/mob/living/human/H = target
 
 		if(!istype(H) || (html_decode(href_list["trackname"]) == H.get_visible_name()) || (html_decode(href_list["trackname"]) == H.get_id_name()))
 			ai_actual_track(target)
@@ -643,7 +642,7 @@ var/global/list/custom_ai_icons_by_ckey_and_name = list()
 	set category = "Silicon Commands"
 
 	multitool_mode = !multitool_mode
-	to_chat(src, "<span class='notice'>Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged</span>")
+	to_chat(src, SPAN_NOTICE("Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged"))
 
 /mob/living/silicon/ai/on_update_icon()
 	..()

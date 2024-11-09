@@ -2,6 +2,8 @@
 	name = "Ministation - Tradehouse Representative"
 	suit = /obj/item/clothing/suit/jacket/redcoat/officer
 	id_type = /obj/item/card/id/ministation/tradehouse_rep
+	glasses = /obj/item/clothing/glasses/sunglasses
+	l_ear = /obj/item/radio/headset/heads
 
 /obj/item/card/id/ministation/tradehouse_rep
 	name = "identification card"

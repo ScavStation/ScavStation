@@ -25,7 +25,7 @@
 	if(!istype(T)) return
 
 	//blind and confuse adjacent people
-	for (var/mob/living/carbon/M in viewers(T, flash_range))
+	for (var/mob/living/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MAJOR)
 			M.flash_eyes()
 			ADJ_STATUS(M, STAT_BLURRY, brightness / 2)
@@ -157,7 +157,7 @@
 	var/med_dizziness_amt = 120
 	var/max_dizziness_amt = 300
 
-/obj/item/projectile/energy/plasmastun/proc/bang(var/mob/living/carbon/M)
+/obj/item/projectile/energy/plasmastun/proc/bang(var/mob/living/M)
 
 	if(!istype(M))
 		return
@@ -168,7 +168,7 @@
 	if(M.get_sound_volume_multiplier() < 0.2)
 		ear_safety += 2
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		if(istype(H.get_equipped_item(slot_head_str), /obj/item/clothing/head/helmet))
 			ear_safety += 1
 
@@ -186,7 +186,7 @@
 		to_chat(M, SPAN_DANGER("Your ears start to ring badly!"))
 		if(prob(GET_STATUS(M, STAT_TINNITUS) - 5))
 			to_chat(M, SPAN_DANGER("You can't hear anything!"))
-			M.set_sdisability(DEAFENED)
+			M.add_genetic_condition(GENE_COND_DEAFENED)
 	else
 		if(GET_STATUS(M, STAT_TINNITUS) >= 5)
 			to_chat(M, SPAN_DANGER("Your ears start to ring!"))
@@ -209,7 +209,7 @@
 	med_dizziness_amt = 60
 	max_dizziness_amt = 120
 
-/obj/item/projectile/energy/plasmastun/sonic/bang(var/mob/living/carbon/M)
+/obj/item/projectile/energy/plasmastun/sonic/bang(var/mob/living/M)
 	..()
 	if(istype(M, /atom/movable) && M.simulated && !M.anchored)
 		M.throw_at(get_edge_target_turf(M, get_dir(src, M)), rand(1,5), 6)

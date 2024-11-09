@@ -64,18 +64,17 @@
 #define ROBOT_NOTIFICATION_MODULE_RESET 4
 
 // Appearance change flags
-#define APPEARANCE_UPDATE_DNA        BITFLAG(0)
-#define APPEARANCE_RACE              (BITFLAG(1)|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_GENDER            BITFLAG(2)
-#define APPEARANCE_BODY              (BITFLAG(3)|APPEARANCE_UPDATE_DNA)
-#define APPEARANCE_SKIN              BITFLAG(4)
-#define APPEARANCE_HAIR              BITFLAG(5)
-#define APPEARANCE_HAIR_COLOR        BITFLAG(6)
-#define APPEARANCE_FACIAL_HAIR       BITFLAG(7)
-#define APPEARANCE_FACIAL_HAIR_COLOR BITFLAG(8)
-#define APPEARANCE_EYE_COLOR         BITFLAG(9)
+#define APPEARANCE_RACE              BITFLAG(0)
+#define APPEARANCE_GENDER            BITFLAG(1)
+#define APPEARANCE_BODY              BITFLAG(2)
+#define APPEARANCE_SKIN              BITFLAG(3)
+#define APPEARANCE_HAIR              BITFLAG(4)
+#define APPEARANCE_HAIR_COLOR        BITFLAG(5)
+#define APPEARANCE_FACIAL_HAIR       BITFLAG(6)
+#define APPEARANCE_FACIAL_HAIR_COLOR BITFLAG(7)
+#define APPEARANCE_EYE_COLOR         BITFLAG(8)
 #define APPEARANCE_ALL_HAIR          (APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
-#define APPEARANCE_ALL               (APPEARANCE_UPDATE_DNA|APPEARANCE_RACE|APPEARANCE_GENDER|APPEARANCE_BODY|APPEARANCE_SKIN|APPEARANCE_EYE_COLOR|APPEARANCE_ALL_HAIR)
+#define APPEARANCE_ALL               (APPEARANCE_RACE|APPEARANCE_GENDER|APPEARANCE_BODY|APPEARANCE_SKIN|APPEARANCE_EYE_COLOR|APPEARANCE_ALL_HAIR)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -206,6 +205,7 @@
 
 // Prosthetic helpers.
 #define BP_IS_PROSTHETIC(org) (!QDELETED(org) && (org.organ_properties & ORGAN_PROP_PROSTHETIC))
+#define BP_IS_ROBOTIC(org)    (!QDELETED(org) && (org.bodytype?.is_robotic))
 #define BP_IS_BRITTLE(org)    (!QDELETED(org) && (org.status           & ORGAN_BRITTLE))
 #define BP_IS_CRYSTAL(org)    (!QDELETED(org) && (org.organ_properties & ORGAN_PROP_CRYSTAL))
 
@@ -224,14 +224,14 @@
 #define MOB_PULL_SAME 2
 #define MOB_PULL_LARGER 3
 
-//carbon taste sensitivity defines, used in mob/living/carbon/proc/ingest
+// Taste sensitivity defines, used in mob/living/proc/ingest.
 #define TASTE_HYPERSENSITIVE 3 //anything below 5%
 #define TASTE_SENSITIVE 2 //anything below 7%
 #define TASTE_NORMAL 1 //anything below 15%
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
 
-// One 'unit' of taste sensitivity probability, used in mob/living/carbon/proc/ingest
+// One 'unit' of taste sensitivity probability, used in mob/living/proc/ingest
 #define TASTE_DEGREE_PROB 15
 
 //Used by show_message() and emotes
@@ -254,8 +254,9 @@
 #define SYNTH_HEAT_LEVEL_2 1000
 #define SYNTH_HEAT_LEVEL_3 2000
 
-#define CORPSE_CAN_REENTER 1
-#define CORPSE_CAN_REENTER_AND_RESPAWN 2
+#define CORPSE_CANNOT_REENTER          0
+#define CORPSE_CAN_REENTER             BITFLAG(0)
+#define CORPSE_CAN_RESPAWN             BITFLAG(1)
 
 #define SPECIES_HUMAN            "Human"
 #define SPECIES_MONKEY           "Monkey"
@@ -324,7 +325,7 @@ var/global/list/dexterity_levels = list(
 	"[DEXTERITY_BASE]"
 )
 
-// used in /mob/living/carbon/human/can_inject, and by various callers of that proc
+// used in /mob/living/human/can_inject, and by various callers of that proc
 #define CAN_INJECT 1
 #define INJECTION_PORT 2
 #define INJECTION_PORT_DELAY 3 SECONDS // used by injectors to apply delay due to searching for a port on the injectee's suit
@@ -348,7 +349,7 @@ var/global/list/dexterity_levels = list(
 #define NEUTER_ANIMATE "animate singular neutral"
 
 // Equipment Overlays Indices //
-#define HO_MUTATIONS_LAYER  1
+#define HO_CONDITION_LAYER  1
 #define HO_SKIN_LAYER       2
 #define HO_DAMAGE_LAYER     3
 #define HO_SURGERY_LAYER    4 //bs12 specific.

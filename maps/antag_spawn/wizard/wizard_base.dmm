@@ -80,7 +80,7 @@
 /turf/floor/carpet,
 /area/map_template/wizard_station)
 "ap" = (
-/mob/living/carbon/human/monkey{
+/mob/living/human/monkey{
 	name = "Murphey"
 	},
 /turf/unsimulated/floor{
@@ -433,7 +433,7 @@
 /area/map_template/wizard_station)
 "bh" = (
 /obj/structure/closet,
-/obj/item/clothing/under/psysuit,
+/obj/item/clothing/jumpsuit/psysuit,
 /obj/item/clothing/suit/wizrobe/psypurple,
 /turf/unsimulated/floor{
 	icon_state = "lino"
@@ -451,7 +451,8 @@
 	desc = "A set of fancy shoes that are as functional as they are comfortable.";
 	name = "Gentlemans Shoes"
 	},
-/obj/item/clothing/under/gentlesuit,
+/obj/item/clothing/shirt/button/black,
+/obj/item/clothing/suit/jacket/vest/gray,
 /obj/item/clothing/suit/wizrobe/gentlecoat,
 /obj/item/clothing/head/wizard/cap,
 /obj/item/staff/gentcane,
@@ -512,7 +513,7 @@
 	},
 /area/map_template/wizard_station)
 "bq" = (
-/obj/structure/cult/pylon,
+/obj/structure/fake_pylon,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"
@@ -561,7 +562,7 @@
 	},
 /area/map_template/wizard_station)
 "bx" = (
-/obj/structure/cult/talisman,
+/obj/structure/talisman_altar,
 /obj/item/knife/ritual,
 /turf/unsimulated/floor{
 	icon_state = "cult";
@@ -576,7 +577,7 @@
 	},
 /area/map_template/wizard_station)
 "bz" = (
-/obj/effect/gateway/active/cult,
+/obj/effect/gateway/active/spooky,
 /turf/unsimulated/floor{
 	icon_state = "cult";
 	name = "plating"

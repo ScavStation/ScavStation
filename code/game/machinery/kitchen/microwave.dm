@@ -342,8 +342,7 @@
 	SSnano.update_uis(src)
 
 /obj/machinery/microwave/on_reagent_change()
-	..()
-	if(!operating)
+	if((. = ..()) && !operating)
 		SSnano.update_uis(src)
 
 /obj/machinery/microwave/proc/dispose(var/mob/user, var/message = TRUE)
@@ -413,7 +412,7 @@
 	SSnano.update_uis(src)
 	var/obj/item/chems/food/badrecipe/ffuu = new(src)
 	ffuu.add_to_reagents(/decl/material/solid/carbon, amount)
-	ffuu.add_to_reagents(/decl/material/liquid/bromide, amount/10)
+	ffuu.add_to_reagents(/decl/material/liquid/acrylamide, amount/10)
 	return ffuu
 
 /obj/machinery/microwave/OnTopic(href, href_list)

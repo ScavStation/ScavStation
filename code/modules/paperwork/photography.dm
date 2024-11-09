@@ -132,7 +132,8 @@
 	var/photo_html = {"
 		<html><head><title>[name]</title></head>
 		<body style='overflow:hidden;margin:0;text-align:center'>
-		<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />
+		// todo: remove -ms-interpolation-mode once 516 is required
+		<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor;image-rendering:pixelated;' />
 		[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]
 		</body></html>
 	"}
@@ -177,11 +178,10 @@
 //#TODO: This thing is awful. Might as well use a trashbag instead since you get the same thing, just with more space....
 /obj/item/photo_album
 	name          = "photo album"
-	icon          = 'icons/obj/photography.dmi'
-	icon_state    = "album"
-	item_state    = "briefcase"
+	icon          = 'icons/obj/photo_album.dmi'
+	icon_state    = ICON_STATE_WORLD
 	w_class       = ITEM_SIZE_NORMAL //same as book
-	storage       = /datum/storage/photo_album 
+	storage       = /datum/storage/photo_album
 	material      = /decl/material/solid/organic/plastic
 
 /obj/item/photo_album/handle_mouse_drop(atom/over, mob/user, params)
@@ -296,7 +296,7 @@
 
 /obj/item/camera/proc/get_mobs(turf/the_turf)
 	var/mob_detail
-	for(var/mob/living/carbon/A in the_turf)
+	for(var/mob/living/A in the_turf)
 		if(A.invisibility)
 			continue
 		var/holding
@@ -334,7 +334,7 @@
 	film.use()
 	captureimage(target, user, flag)
 	playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 75, 1, -3)
-	to_chat(user, SPAN_NOTICE("[film.get_remaining()] photos left."))
+	to_chat(user, SPAN_NOTICE("[film.get_remaining()] photo\s left."))
 	return TRUE
 
 /obj/item/camera/examine(mob/user)

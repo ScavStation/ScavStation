@@ -49,7 +49,7 @@
 				M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', far_volume, 1, frequency, falloff = 5)
 
 	if(adminlog)
-		log_and_message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
+		log_and_message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
 
 	var/approximate_intensity = (devastation_range * 3) + (heavy_impact_range * 2) + light_impact_range
 	// Large enough explosion. For performance reasons, powernets will be rebuilt manually
@@ -85,7 +85,7 @@
 				var/atom/movable/AM = atom_movable
 				if(AM && AM.simulated && !T.protects_atom(AM))
 					AM.explosion_act(dist)
-					if(!QDELETED(AM) && !AM.anchored)
+					if(!QDELETED(AM) && !AM.anchored && isturf(AM.loc))
 						addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), throw_target, throw_dist, throw_dist), 0)
 
 	var/took = (REALTIMEOFDAY-start_time)/10
@@ -93,10 +93,10 @@
 		to_world_log("## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds.")
 	return 1
 
-#define EXPLFX_BOTH 3
-#define EXPLFX_SOUND 2
-#define EXPLFX_SHAKE 1
-#define EXPLFX_NONE 0
+#define EXPLFX_NONE  0
+#define EXPLFX_SOUND BITFLAG(0)
+#define EXPLFX_SHAKE BITFLAG(1)
+#define EXPLFX_BOTH  (EXPLFX_SOUND|EXPLFX_SHAKE)
 
 // All the vars used on the turf should be on unsimulated turfs too, we just don't care about those generally.
 #define SEARCH_DIR(dir) \
@@ -207,8 +207,9 @@
 			reception = EXPLFX_NONE
 
 			for (var/turf/THING in RANGE_TURFS(M, 1))
-				reception |= EXPLFX_SHAKE
-				break
+				if(THING.simulated)
+					reception |= EXPLFX_SHAKE
+					break
 
 			if (!reception)
 				CHECK_TICK

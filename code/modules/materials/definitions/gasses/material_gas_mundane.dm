@@ -63,7 +63,7 @@
 	var/warning_message
 	var/warning_prob = 10
 	var/dosage = LAZYACCESS(M.chem_doses, type)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/human/H = M
 	if(dosage >= 3)
 		warning_message = pick("extremely dizzy","short of breath","faint","confused")
 		warning_prob = 15
@@ -107,7 +107,7 @@
 	. = ..()
 	if(!ishuman(M))
 		return
-	var/mob/living/carbon/human/H = M
+	var/mob/living/human/H = M
 	for(var/obj/item/organ/external/E in H.get_external_organs())
 		for(var/obj/effect/spider/spider in E.implants)
 			if(prob(25))
@@ -236,7 +236,6 @@
 	boiling_point = -33 CELSIUS
 	gas_symbol_html = "NH<sub>3</sub>"
 	gas_symbol = "NH3"
-	metabolism = 0.05 // So that low dosages have a chance to build up in the body.
 	taste_description = "mordant"
 	taste_mult = 2
 	lore_text = "A caustic substance commonly used in fertilizer or household cleaners."

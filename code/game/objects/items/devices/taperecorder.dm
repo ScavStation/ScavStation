@@ -35,7 +35,6 @@
 
 /obj/item/taperecorder/Destroy()
 	QDEL_NULL(wires)
-	global.listening_objects -= src
 	if(mytape)
 		qdel(mytape)
 		mytape = null
@@ -462,7 +461,7 @@
 	var/list/output = list("<center>")
 	for(var/i=1, i < timestamp.len, i++)
 		var/time = "\[[time2text(timestamp[i]*10,"mm:ss")]\]"
-		output += "[time]<br><a href='?src=\ref[src];cut_after=[i]'>-----CUT------</a><br>"
+		output += "[time]<br><a href='byond://?src=\ref[src];cut_after=[i]'>-----CUT------</a><br>"
 	output += "</center>"
 
 	var/datum/browser/popup = new(user, "tape_cutting", "Cutting tape", 170, 600)

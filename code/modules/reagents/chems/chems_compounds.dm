@@ -27,13 +27,13 @@
 /decl/material/liquid/glowsap/affect_blood(mob/living/M, removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_GLOWINGEYES, 1)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		H.update_eyes()
 
 /decl/material/liquid/glowsap/on_leaving_metabolism(datum/reagents/metabolism/holder)
 	if(ishuman(holder?.my_atom))
-		var/mob/living/carbon/human/H = holder.my_atom
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_eyes)), 5 SECONDS)
+		var/mob/living/human/H = holder.my_atom
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/human, update_eyes)), 5 SECONDS)
 	. = ..()
 
 /decl/material/liquid/glowsap/affect_overdose(mob/living/M, total_dose)
@@ -49,6 +49,14 @@
 	color = "#000000"
 	value = 0.1
 	uid = "chem_blackpepper"
+
+/decl/material/solid/cinnamon
+	name = "cinnamon"
+	lore_text = "A powder used to flavor food and drinks. Unpleasant to eat a full spoonful of"
+	taste_description = "cinnamon"
+	color = "#a34b0d"
+	value = 0.1 //is this the monetary value? if so, should be increased a bit, cinnamon is pretty expensive
+	uid = "chem_cinnamon"
 
 /decl/material/liquid/enzyme
 	name = "universal enzyme"
@@ -111,11 +119,11 @@
 /decl/material/liquid/capsaicin/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	holder.remove_reagent(/decl/material/liquid/frostoil, 5)
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		if(!H.can_feel_pain())
 			return
 
@@ -202,11 +210,11 @@
 /decl/material/liquid/capsaicin/condensed/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	holder.remove_reagent(/decl/material/liquid/frostoil, 5)
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		if(!H.can_feel_pain())
 			return
 	if(LAZYACCESS(M.chem_doses, type) == metabolism)
@@ -241,20 +249,18 @@
 
 	if(M.isSynthetic())
 		return
-
-	var/mob/living/carbon/human/H = M
+	var/mob/living/human/H = M
 	if(istype(H) && (H.get_bodytype()?.body_flags & BODY_FLAG_NO_DNA))
 		return
 
-	if(M.dna)
-		if(prob(removed * 0.1)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
-			randmuti(M)
-			if(prob(98))
-				randmutb(M)
-			else
-				randmutg(M)
-			domutcheck(M, null)
-			M.UpdateAppearance()
+	if(prob(removed * 0.1)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
+		H.set_unique_enzymes(num2text(random_id(/mob, 1000000, 9999999)))
+		if(prob(98))
+			M.add_genetic_condition(pick(decls_repository.get_decls_of_type(/decl/genetic_condition/disability)))
+		else
+			M.add_genetic_condition(pick(decls_repository.get_decls_of_type(/decl/genetic_condition/superpower)))
+
+
 	M.apply_damage(10 * removed, IRRADIATE, armor_pen = 100)
 
 /decl/material/liquid/lactate
@@ -292,7 +298,7 @@
 	uid = "chem_nanoblood"
 
 /decl/material/liquid/nanoblood/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/human/H = M
 	if(!istype(H))
 		return
 	if(!H.should_have_organ(BP_HEART)) //We want the var for safety but we can do without the actual blood.
@@ -384,7 +390,7 @@
 	if(M.bodytemperature < 170)
 		M.heal_organ_damage(30 * removed, 30 * removed, affect_robo = 1)
 		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/human/H = M
 			for(var/obj/item/organ/internal/I in H.get_internal_organs())
 				if(BP_IS_PROSTHETIC(I))
 					I.heal_damage(20*removed)
@@ -407,13 +413,13 @@
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 	uid = "chem_crystalizing_agent"
 
-/decl/material/liquid/crystal_agent/proc/do_material_check(var/mob/living/carbon/M)
+/decl/material/liquid/crystal_agent/proc/do_material_check(var/mob/living/M)
 	. = /decl/material/solid/gemstone/crystal
 
 /decl/material/liquid/crystal_agent/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	var/result_mat = do_material_check(M)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		var/list/limbs = H.get_external_organs()
 		var/list/shuffled_limbs = LAZYLEN(limbs) ? shuffle(limbs.Copy()) : null
 		for(var/obj/item/organ/external/E in shuffled_limbs)

@@ -13,12 +13,18 @@
 	amount_dispensed          = 10
 	possible_transfer_amounts = @"[10,25,50,100]"
 	volume                    = 7500
-	atom_flags                = ATOM_FLAG_CLIMBABLE
 	movable_flags             = MOVABLE_FLAG_WHEELED
 
 /obj/structure/reagent_dispensers/barrel/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/reagent_dispensers/barrel/attackby(obj/item/W, mob/user)
+	. = ..()
+	if(!. && user.a_intent == I_HELP && reagents?.total_volume > FLUID_PUDDLE)
+		user.visible_message(SPAN_NOTICE("\The [user] dips \the [W] into \the [reagents.get_primary_reagent_name()]."))
+		W.fluid_act(reagents)
+		return TRUE
 
 /obj/structure/reagent_dispensers/barrel/LateInitialize(mapload, ...)
 	..()
@@ -30,7 +36,8 @@
 				storage.handle_item_insertion(null, thing)
 
 /obj/structure/reagent_dispensers/barrel/on_reagent_change()
-	. = ..()
+	if(!(. = ..()))
+		return
 	var/primary_mat = reagents?.get_primary_reagent_name()
 	if(primary_mat)
 		SetName("[material.solid_name] [initial(name)] of [primary_mat]")

@@ -1,10 +1,9 @@
 /datum/preferences
 	var/species
-	var/blood_type                           //blood type
-
+	var/blood_type
 	var/eye_colour = COLOR_BLACK
 	var/skin_colour = COLOR_BLACK
-	var/skin_tone = 0                    //Skin tone
+	var/skin_tone = -75
 	var/list/sprite_accessories = list()
 	var/list/appearance_descriptors = list()
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
@@ -24,6 +23,10 @@
 	pref.blood_type =             R.read("b_type")
 	pref.appearance_descriptors = R.read("appearance_descriptors")
 	pref.bgstate =                R.read("bgstate")
+
+	// Null skintone loaded from file -> initial skintone value.
+	if(isnull(pref.skin_tone))
+		pref.skin_tone = initial(pref.skin_tone)
 
 	// Load all of our saved accessories.
 	pref.sprite_accessories = list()
@@ -155,8 +158,8 @@
 
 	var/decl/species/mob_species = get_species_by_key(pref.species)
 	var/decl/bodytype/mob_bodytype = mob_species.get_bodytype_by_name(pref.bodytype) || mob_species.default_bodytype
-	. += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.blood_type]</a><br>"
-	. += "<a href='?src=\ref[src];random=1'>Randomize Appearance</A><br>"
+	. += "Blood Type: <a href='byond://?src=\ref[src];blood_type=1'>[pref.blood_type]</a><br>"
+	. += "<a href='byond://?src=\ref[src];random=1'>Randomize Appearance</A><br>"
 
 	if(LAZYLEN(pref.appearance_descriptors))
 		. += "<h3>Physical Appearance</h3>"
@@ -165,7 +168,7 @@
 			var/datum/appearance_descriptor/descriptor = mob_bodytype.appearance_descriptors[entry]
 			. += "<tr><td><b>[capitalize(descriptor.chargen_label)]</b></td>"
 			if(descriptor.has_custom_value())
-				. += "<td align = 'left' width = '50px'><a href='?src=\ref[src];set_descriptor=\ref[descriptor];set_descriptor_custom=1'>[descriptor.get_value_text(pref.appearance_descriptors[entry])]</a></td><td align = 'left'>"
+				. += "<td align = 'left' width = '50px'><a href='byond://?src=\ref[src];set_descriptor=\ref[descriptor];set_descriptor_custom=1'>[descriptor.get_value_text(pref.appearance_descriptors[entry])]</a></td><td align = 'left'>"
 			else
 				. += "<td align = 'left' colspan = 2>"
 			for(var/i = descriptor.chargen_min_index to descriptor.chargen_max_index)
@@ -174,7 +177,7 @@
 				if(i == desc_index)
 					. += "<span class='linkOn'>[use_string]</span>"
 				else
-					. += "<a href='?src=\ref[src];set_descriptor=\ref[descriptor];set_descriptor_value=[i]'>[use_string]</a>"
+					. += "<a href='byond://?src=\ref[src];set_descriptor=\ref[descriptor];set_descriptor_value=[i]'>[use_string]</a>"
 			. += "</td></tr>"
 		. += "</table>"
 
@@ -186,21 +189,21 @@
 		if(mob_bodytype.appearance_flags & HAS_A_SKIN_TONE)
 			. += "<tr>"
 			. += "<td width = '100px'><b>Skin tone</b></td>"
-			. += "<td width = '100px'><a href='?src=\ref[src];skin_tone=1'>[-pref.skin_tone + 35]/[mob_bodytype.max_skin_tone()]</a></td>"
+			. += "<td width = '100px'><a href='byond://?src=\ref[src];skin_tone=1'>[-pref.skin_tone + 35]/[mob_bodytype.max_skin_tone()]</a></td>"
 			. += "<td colspan = 3 width = '300px'><td>"
 			. += "</tr>"
 
 		if(mob_bodytype.appearance_flags & HAS_SKIN_COLOR)
 			. += "<tr>"
 			. += "<td width = '100px'><b>Skin color</b></td>"
-			. += "<td width = '100px'>[COLORED_SQUARE(pref.skin_colour)] <a href='?src=\ref[src];skin_color=1'>Change</a></td>"
+			. += "<td width = '100px'>[COLORED_SQUARE(pref.skin_colour)] <a href='byond://?src=\ref[src];skin_color=1'>Change</a></td>"
 			. += "<td colspan = 3 width = '300px'><td>"
 			. += "</tr>"
 
 		if(mob_bodytype.appearance_flags & HAS_EYE_COLOR)
 			. += "<tr>"
 			. += "<td width = '100px'><b>Eyes</b></td>"
-			. += "<td width = '100px'>[COLORED_SQUARE(pref.eye_colour)] <a href='?src=\ref[src];eye_color=1'>Change</a></td>"
+			. += "<td width = '100px'>[COLORED_SQUARE(pref.eye_colour)] <a href='byond://?src=\ref[src];eye_color=1'>Change</a></td>"
 			. += "<td colspan = 3 width = '300px'><td>"
 			. += "</tr>"
 
@@ -220,10 +223,10 @@
 				var/acc_decl_ref = "\ref[accessory_decl]"
 				. += "<tr>"
 				. += "<td width = '100px'><b>[accessory_cat_decl.name]</b></td>"
-				. += "<td width = '100px'>[COLORED_SQUARE(accessory_color)] <a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_color=1'>Change</a></td>"
-				. += "<td width = '20px'><a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_prev=1'>[left_arrow]</a></td>"
-				. += "<td width = '260px'><a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_style=1'>[accessory_decl.name]</a></td>"
-				. += "<td width = '20px'><a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_next=1'>[right_arrow]</a></td>"
+				. += "<td width = '100px'>[COLORED_SQUARE(accessory_color)] <a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_color=1'>Change</a></td>"
+				. += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_prev=1'>[left_arrow]</a></td>"
+				. += "<td width = '260px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_style=1'>[accessory_decl.name]</a></td>"
+				. += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_next=1'>[right_arrow]</a></td>"
 				. += "</tr>"
 				continue
 
@@ -237,14 +240,14 @@
 				var/decl/sprite_accessory/accessory_decl = GET_DECL(accessory)
 				var/acc_decl_ref = "\ref[accessory_decl]"
 				. += "<tr>"
-				. += "<td width = '100px'><a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_remove=1'>Remove</a></td>"
-				. += "<td width = '100px'>[COLORED_SQUARE(current_accessories[accessory])] <a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_color=1'>Change</a></td>"
-				. += "<td width = '20px'><a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_move_up=1'>[up_arrow]</a></td>"
+				. += "<td width = '100px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_remove=1'>Remove</a></td>"
+				. += "<td width = '100px'>[COLORED_SQUARE(current_accessories[accessory])] <a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_color=1'>Change</a></td>"
+				. += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_move_up=1'>[up_arrow]</a></td>"
 				. += "<td width = '260px'>[accessory_decl.name]</td>"
-				. += "<td width = '20px'><a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_move_down=1'>[down_arrow]</a></td>"
+				. += "<td width = '20px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_decl=[acc_decl_ref];acc_move_down=1'>[down_arrow]</a></td>"
 				. += "</tr>"
 			if(isnull(accessory_cat_decl.max_selections) || i < accessory_cat_decl.max_selections)
-				. += "<tr><td colspan = 5 width = '500px'><a href='?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_style=1'>Add marking</a></td></tr>"
+				. += "<tr><td colspan = 5 width = '500px'><a href='byond://?src=\ref[src];acc_cat_decl=[cat_decl_ref];acc_style=1'>Add marking</a></td></tr>"
 
 	. += "</table>"
 

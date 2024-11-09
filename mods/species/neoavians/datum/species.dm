@@ -21,7 +21,9 @@
 	description = "Avian species, largely crows, magpies and other corvids, were among the first sophonts uplifted to aid in colonizing Mars. \
 	These days they are more commonly found pursuing their own careers and goals on the fringes of human space or around their adopted homeworld \
 	of Hyperion. Neo-avian naming conventions tend to be a chosen name followed by the species of the person, followed by the location they were hatched."
-	base_external_prosthetics_model = null
+
+	base_external_prosthetics_model = /decl/bodytype/prosthetic/avian
+	base_internal_prosthetics_model = /decl/bodytype/prosthetic/avian
 
 	snow_slowdown_mod = -1
 
@@ -64,12 +66,12 @@
 		)
 	)
 
-/decl/species/neoavian/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
+/decl/species/neoavian/equip_default_fallback_uniform(var/mob/living/human/H)
 	if(istype(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/dress/avian_smock/worker, slot_w_uniform_str)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes, slot_shoes_str)
 
-/decl/species/neoavian/get_holder_color(var/mob/living/carbon/human/H)
+/decl/species/neoavian/get_holder_color(var/mob/living/human/H)
 	return H.get_skin_colour()
 
 /decl/hierarchy/outfit/job/generic/assistant/avian

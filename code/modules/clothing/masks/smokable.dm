@@ -22,7 +22,7 @@
 	var/smoke_effect = 0
 	var/smoke_amount = 1
 
-/obj/item/clothing/mask/smokable/get_tool_quality(archetype, property)
+/obj/item/clothing/mask/smokable/get_tool_quality(archetype)
 	return (!lit && archetype == TOOL_CAUTERY) ? TOOL_QUALITY_NONE : ..()
 
 /obj/item/clothing/mask/smokable/dropped(mob/user)
@@ -60,11 +60,11 @@
 	if(reagents && reagents.total_volume) // check if it has any reagents at all
 		var/smoke_loc = loc
 		if(ishuman(loc))
-			var/mob/living/carbon/human/C = loc
-			smoke_loc = C.loc
-			if ((src == C.get_equipped_item(slot_wear_mask_str) || manual) && C.check_has_mouth()) // if it's in the human/monkey mouth, transfer reagents to the mob
-				reagents.trans_to_mob(C, smoke_amount * amount, CHEM_INHALE, 0.2)
-				add_trace_DNA(C)
+			var/mob/living/human/user = loc
+			smoke_loc = user.loc
+			if ((src == user.get_equipped_item(slot_wear_mask_str) || manual) && user.check_has_mouth()) // if it's in the human/monkey mouth, transfer reagents to the mob
+				reagents.trans_to_mob(user, smoke_amount * amount, CHEM_INHALE, 0.2)
+				add_trace_DNA(user)
 		else // else just remove some of the reagents
 			remove_any_reagents(smoke_amount * amount)
 
@@ -78,9 +78,9 @@
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
 		if(ishuman(loc))
-			var/mob/living/carbon/human/C = loc
-			if (src == C.get_equipped_item(slot_wear_mask_str) && C.internal)
-				environment = C.internal.return_air()
+			var/mob/living/human/user = loc
+			if (src == user.get_equipped_item(slot_wear_mask_str) && user.internal)
+				environment = user.internal.return_air()
 		if(environment.get_by_flag(XGM_GAS_OXIDIZER) < gas_consumption)
 			extinguish()
 		else
@@ -566,18 +566,18 @@
 	..()
 
 	if (istype(W, /obj/item/chems/food))
-		var/obj/item/chems/food/grown/G = W
-		if (!G.dry)
-			to_chat(user, SPAN_NOTICE("[G] must be dried before you stuff it into [src]."))
+		var/obj/item/chems/food/grown/grown = W
+		if (!grown.dry)
+			to_chat(user, SPAN_NOTICE("\The [grown] must be dried before you stuff it into \the [src]."))
 			return
 		if (smoketime)
-			to_chat(user, SPAN_NOTICE("[src] is already packed."))
+			to_chat(user, SPAN_NOTICE("\The [src] is already packed."))
 			return
 		smoketime = 1000
-		if(G.reagents)
-			G.reagents.trans_to_obj(src, G.reagents.total_volume)
-		SetName("[G.name]-packed [initial(name)]")
-		qdel(G)
+		if(grown.reagents)
+			grown.reagents.trans_to_obj(src, grown.reagents.total_volume)
+		SetName("[grown.name]-packed [initial(name)]")
+		qdel(grown)
 
 	else if(istype(W, /obj/item/flame/fuelled/lighter))
 		var/obj/item/flame/fuelled/lighter/L = W

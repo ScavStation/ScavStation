@@ -15,7 +15,7 @@
 /obj/item/clothing/suit/champarmor
 	name = "champion's armor"
 	desc = "A mighty suit of silver and gold armor, with a gleaming blue crystal inlaid into its left gaunlet."
-	icon = 'icons/clothing/suit/wizard/servant/champion.dmi'
+	icon = 'icons/clothing/suits/wizard/servant/champion.dmi'
 	siemens_coefficient = 0.5
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS|SLOT_TAIL
 	armor = list(
@@ -70,7 +70,7 @@
 /obj/item/sword/excalibur/Process()
 	if(isliving(loc))
 		if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
+			var/mob/living/human/H = loc
 			var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(H, H.get_active_held_item_slot())
 			E?.take_external_damage(burn=2,used_weapon="stovetop")
 		else

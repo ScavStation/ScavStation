@@ -7,9 +7,10 @@
 	is_robotic = TRUE
 	body_flags = BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS | BODY_FLAG_NO_PAIN | BODY_FLAG_NO_EAT
 	material = /decl/material/solid/metal/steel
+	appearance_flags = HAS_EYE_COLOR
 	eye_flash_mod = 1
 	eye_darksight_range = 2
-	associated_gender = PLURAL
+	associated_gender = null
 	emote_sounds = list(
 		"whistle" = list('sound/voice/emotes/longwhistle_robot.ogg'),
 		"qwhistle" = list('sound/voice/emotes/shortwhistle_robot.ogg'),
@@ -56,7 +57,7 @@
 			var/decl/species/species = get_species_by_key(species_name)
 			for(var/decl/bodytype/bodytype_data in species.available_bodytypes)
 				if(bodytype_data.bodytype_category == bodytype_category)
-					return species_name
+					return species
 	return ..()
 
 /decl/bodytype/prosthetic/apply_bodytype_organ_modifications(obj/item/organ/org)

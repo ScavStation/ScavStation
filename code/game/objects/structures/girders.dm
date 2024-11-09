@@ -110,8 +110,10 @@
 		return TRUE
 
 	if(IS_PICK(W))
-		if(W.get_tool_quality(TOOL_PICK) < TOOL_QUALITY_GOOD)
-			to_chat(user, SPAN_WARNING("\The [W] is not powerful enough to destroy \the [src]."))
+		if(W.material?.hardness < material.hardness)
+			to_chat(user, SPAN_WARNING("\The [W] is not hard enough to excavate [material.solid_name]."))
+		else if(W.get_tool_quality(TOOL_PICK) < TOOL_QUALITY_GOOD)
+			to_chat(user, SPAN_WARNING("\The [W] is not capable of destroying \the [src]."))
 		else if(W.do_tool_interaction(TOOL_PICK, user, src, (reinf_material ? 6 : 4) SECONDS, set_cooldown = TRUE))
 			dismantle_structure(user)
 		return TRUE
@@ -192,18 +194,6 @@
 	..()
 	if(severity == 1 || (severity == 2 && prob(30)) || (severity == 3 && prob(5)))
 		physically_destroyed()
-
-/obj/structure/girder/cult
-	icon= 'icons/obj/cult.dmi'
-	icon_state= "cultgirder"
-	max_health = 150
-	cover = 70
-
-/obj/structure/girder/cult/dismantle_structure(mob/user)
-	material = null
-	reinf_material = null
-	parts_type = null
-	. = ..()
 
 /obj/structure/girder/wood
 	material = /decl/material/solid/organic/wood/mahogany

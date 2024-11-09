@@ -100,7 +100,7 @@
 	if(on && user.get_target_zone() == BP_EYES && target.should_have_organ(BP_HEAD))
 
 		add_fingerprint(user)
-		if((MUTATION_CLUMSY in user.mutations) && prob(50))	//too dumb to use flashlight properly
+		if(user.has_genetic_condition(GENE_COND_CLUMSY) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
 		for(var/slot in global.standard_headgear_slots)
@@ -111,13 +111,14 @@
 
 		var/obj/item/organ/vision
 		var/decl/bodytype/root_bodytype = target.get_bodytype()
-		if(!root_bodytype?.vision_organ || !target.should_have_organ(root_bodytype.vision_organ))
+		var/vision_organ_tag = target.get_vision_organ_tag()
+		if(!vision_organ_tag || !target.should_have_organ(vision_organ_tag))
 			to_chat(user, SPAN_WARNING("You can't find anything on \the [target] to direct \the [src] into!"))
 			return TRUE
 
-		vision = GET_INTERNAL_ORGAN(target, root_bodytype.vision_organ)
+		vision = GET_INTERNAL_ORGAN(target, vision_organ_tag)
 		if(!vision)
-			vision = root_bodytype.has_organ[root_bodytype.vision_organ]
+			vision = root_bodytype.has_organ[vision_organ_tag]
 			var/decl/pronouns/G = target.get_pronouns()
 			to_chat(user, SPAN_WARNING("\The [target] is missing [G.his] [initial(vision.name)]!"))
 			return TRUE
@@ -135,7 +136,7 @@
 	return ..()
 
 /obj/item/flashlight/proc/inspect_vision(obj/item/organ/vision, mob/living/user)
-	var/mob/living/carbon/human/H = vision.owner
+	var/mob/living/human/H = vision.owner
 
 	if(H == user)	//can't look into your own eyes buster
 		return
@@ -145,7 +146,7 @@
 		if(vision.owner.stat == DEAD || H.is_blind())	//mob is dead or fully blind
 			to_chat(user, SPAN_WARNING("\The [H]'s pupils do not react to the light!"))
 			return
-		if(MUTATION_XRAY in H.mutations)
+		if(H.has_genetic_condition(GENE_COND_XRAY))
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils give an eerie glow!"))
 		if(vision.damage)
 			to_chat(user, SPAN_WARNING("There's visible damage to [H]'s [vision.name]!"))

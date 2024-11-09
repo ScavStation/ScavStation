@@ -68,9 +68,9 @@
 	if(istype(_brainmob) && _brainmob?.client) //if thar be a brain inside... the brain.
 		to_chat(user, "You can feel the small spark of life still left in this one.")
 	else
-		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
+		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later.")
 
-/obj/item/organ/internal/brain/do_install(mob/living/carbon/target, affected, in_place, update_icon, detached)
+/obj/item/organ/internal/brain/do_install(mob/living/target, affected, in_place, update_icon, detached)
 	if(!(. = ..()))
 		return
 	if(istype(owner))
@@ -185,9 +185,9 @@
 /obj/item/organ/internal/brain/proc/handle_disabilities()
 	if(owner.stat)
 		return
-	if((owner.disabilities & EPILEPSY) && prob(1))
+	if(owner.has_genetic_condition(GENE_COND_EPILEPSY) && prob(1))
 		owner.seizure()
-	else if((owner.disabilities & TOURETTES) && prob(10))
+	else if(owner.has_genetic_condition(GENE_COND_TOURETTES) && prob(10))
 		SET_STATUS_MAX(owner, STAT_STUN, 10)
 		switch(rand(1, 3))
 			if(1)
@@ -195,7 +195,7 @@
 			if(2 to 3)
 				owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]")
 		ADJ_STATUS(owner, STAT_JITTER, 100)
-	else if((owner.disabilities & NERVOUS) && prob(10))
+	else if(owner.has_genetic_condition(GENE_COND_NERVOUS) && prob(10))
 		SET_STATUS_MAX(owner, STAT_STUTTER, 10)
 
 

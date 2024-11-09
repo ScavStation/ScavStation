@@ -29,6 +29,7 @@
 
 /obj/structure/railing/mapped/ebony
 	material = /decl/material/solid/organic/wood/ebony
+	parts_type = /obj/item/stack/material/plank
 	color = WOOD_COLOR_BLACK
 	paint_color = null
 
@@ -183,7 +184,7 @@
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(ishuman(G.affecting))
-			var/mob/living/carbon/human/H = G.get_affecting_mob()
+			var/mob/living/human/H = G.get_affecting_mob()
 			var/obj/occupied = turf_is_crowded()
 			if(occupied)
 				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")

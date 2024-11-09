@@ -382,7 +382,7 @@ var/global/list/adminfaxes     = list()	//cache for faxes that have been sent to
 			to_chat(user, SPAN_WARNING("\The [card_reader] is currently set to swipe mode, which is unsupported by this machine. Please contact your system administrator."))
 		return
 	if(user)
-		to_chat(user, SPAN_NOTICE("Loading \the '[C]'..."))
+		to_chat(user, SPAN_NOTICE("You insert \the [C] into \the [src]."))
 	update_ui()
 
 /obj/machinery/faxmachine/proc/eject_card(var/mob/user)
@@ -654,7 +654,7 @@ var/global/list/adminfaxes     = list()	//cache for faxes that have been sent to
 /decl/public_access/public_method/fax_receive_document
 	name = "Send Fax Message"
 	desc = "Sends the specified document over to the specified network tag."
-	call_proc = /obj/machinery/faxmachine/proc/receive_fax
+	call_proc = TYPE_PROC_REF(/obj/machinery/faxmachine, receive_fax)
 	forward_args = TRUE
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -679,8 +679,8 @@ var/global/list/adminfaxes     = list()	//cache for faxes that have been sent to
 		reply_type = "UNKNOWN"
 
 	var/msg = "<span class='notice'><b><font color='[font_colour]'>[faxname]: </font>[get_options_bar(sender, 2,1,1)]"
-	msg += "(<A HREF='?_src_=holder;take_ic=\ref[sender]'>TAKE</a>) (<a href='?_src_=holder;FaxReply=\ref[sender];originfax=\ref[source_fax];replyorigin=[reply_type]'>REPLY</a>)</b>: "
-	msg += "Receiving '[rcvdcopy.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>view message</a></span>"
+	msg += "(<A HREF='byond://?_src_=holder;take_ic=\ref[sender]'>TAKE</a>) (<a href='byond://?_src_=holder;FaxReply=\ref[sender];originfax=\ref[source_fax];replyorigin=[reply_type]'>REPLY</a>)</b>: "
+	msg += "Receiving '[rcvdcopy.name]' via secure connection ... <a href='byond://?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>view message</a></span>"
 
 	if (istype(doc, /obj/item/paper))
 		var/obj/item/paper/paper = doc
@@ -712,3 +712,21 @@ var/global/list/adminfaxes     = list()	//cache for faxes that have been sent to
 	for(var/uri in global.using_map.map_admin_faxes)
 		var/list/contact_info = global.using_map.map_admin_faxes[uri]
 		add_quick_dial_contact(contact_info["name"], uri)
+
+/obj/machinery/faxmachine/get_alt_interactions(mob/user)
+	. = ..()
+	LAZYADD(., /decl/interaction_handler/fax_remove_card)
+
+/decl/interaction_handler/fax_remove_card
+	name = "Remove ID Card"
+	expected_target_type = /obj/machinery/faxmachine
+
+/decl/interaction_handler/fax_remove_card/is_possible(atom/target, mob/user, obj/item/prop)
+	. = ..()
+	if(.)
+		var/obj/machinery/faxmachine/fax = target
+		return !!(fax.card_reader?.get_inserted())
+
+/decl/interaction_handler/fax_remove_card/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/machinery/faxmachine/fax = target
+	fax.eject_card(user)

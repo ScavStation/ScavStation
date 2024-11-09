@@ -105,18 +105,17 @@
 
 //TODO: make it so this is called more reliably, instead of sometimes by bullet_act() and sometimes not
 /obj/item/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
-	if(blocked >= 100)		return 0//Full block
-	if(!isliving(target))	return 0
-	if(isanimal(target))	return 0
+	if(blocked >= 100)
+		return FALSE
+	if(!isliving(target))
+		return FALSE
 
 	var/mob/living/L = target
-
 	L.apply_effects(0, weaken, paralyze, stutter, eyeblur, drowsy, 0, blocked)
 	L.stun_effect_act(stun, agony, def_zone, src)
 	//radiation protection is handled separately from other armour types.
 	L.apply_damage(irradiate, IRRADIATE, damage_flags = DAM_DISPERSED)
-
-	return 1
+	return TRUE
 
 //called when the projectile stops flying because it collided with something
 /obj/item/projectile/proc/on_impact(var/atom/A)
@@ -157,7 +156,9 @@
 	def_zone = check_zone(target_zone)
 	firer = shooter
 	var/direct_target
-	if(get_turf(target) == get_turf(src))
+	var/turf/actual_target_turf = get_turf(target)
+	actual_target_turf = actual_target_turf?.resolve_to_actual_turf()
+	if(actual_target_turf == get_turf(src))
 		direct_target = target
 	preparePixelProjectile(target, shooter ? shooter : get_turf(src), params, forced_spread)
 	return fire(Angle_override, direct_target)
@@ -384,7 +385,7 @@
 			qdel(src)
 			return
 		var/turf/target = locate(clamp(starting + xo, 1, world.maxx), clamp(starting + yo, 1, world.maxy), starting.z)
-		setAngle(get_projectile_angle(src, target))
+		setAngle(get_projectile_angle(src, target.resolve_to_actual_turf()))
 	if(dispersion)
 		var/DeviationAngle = (dispersion * 15)
 		setAngle(Angle + rand(-DeviationAngle, DeviationAngle))
@@ -418,6 +419,7 @@
 /obj/item/projectile/proc/preparePixelProjectile(atom/target, atom/source, params, Angle_offset = 0)
 	var/turf/curloc = get_turf(source)
 	var/turf/targloc = get_turf(target)
+	targloc = targloc?.resolve_to_actual_turf()
 	forceMove(get_turf(source))
 	starting = get_turf(source)
 	original = target
@@ -496,7 +498,7 @@
 
 //Returns true if the target atom is on our current turf and above the right layer
 /obj/item/projectile/proc/can_hit_target(atom/target, var/list/passthrough)
-	return (target && ((target.layer >= TURF_LAYER + 0.3) || ismob(target)) && (loc == get_turf(target)) && (!(target in passthrough)))
+	return (target && ((target.layer >= STRUCTURE_LAYER) || ismob(target)) && (loc == get_turf(target)) && (!(target in passthrough)))
 
 /proc/calculate_projectile_Angle_and_pixel_offsets(mob/user, params)
 	var/list/mouse_control = params2list(params)

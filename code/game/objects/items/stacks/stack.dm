@@ -86,6 +86,8 @@
 		I.maptext_y = 2
 		I.maptext = STYLE_SMALLFONTS_OUTLINE(get_amount(), 6, (color || COLOR_WHITE), COLOR_BLACK)
 		add_overlay(I)
+	else
+		compile_overlays() // prevent maptext from showing when we're dropped
 
 /obj/item/stack/Move()
 	var/on_turf = isturf(loc)
@@ -127,7 +129,7 @@
 	var/datum/stack_recipe_list/recipe_list = recipes
 	if (istype(recipe_list))
 		popup_title = "Crafting [recipe_list.name] with \the [src]"
-		dat += "<p><a href='?src=\ref[src];back=1'>Back</a></p>"
+		dat += "<p><a href='byond://?src=\ref[src];back=1'>Back</a></p>"
 		recipes = recipe_list.recipes
 	else if(islist(recipes) && length(recipes))
 		popup_title = "Crafting with \the [src]"
@@ -182,7 +184,7 @@
 		return
 
 	to_chat(user, SPAN_NOTICE("You [recipe.get_craft_verb(src)] [recipe.get_display_name(producing, mat, reinf_mat)]!"))
-	var/list/atom/results = recipe.spawn_result(user, user.loc, producing, mat, reinf_mat, paint_color)
+	var/list/atom/results = recipe.spawn_result(user, user.loc, producing, mat, reinf_mat, paint_color, crafting_stack_type, expending)
 	var/atom/movable/O = LAZYACCESS(results, 1)
 	if(istype(O) && !QDELETED(O)) // In case of stack merger.
 		O.add_fingerprint(user)
@@ -402,7 +404,7 @@
 			continue
 		var/transfer = transfer_to(item)
 		if(user && transfer)
-			to_chat(user, SPAN_NOTICE("You add a new [item.singular_name] to the stack. It now contains [item.amount] [item.singular_name]\s."))
+			to_chat(user, SPAN_NOTICE("You add [item.get_string_for_amount(transfer)] to the stack. It now contains [item.amount] [item.singular_name]\s."))
 		if(!amount)
 			break
 	return !QDELETED(src)
@@ -411,6 +413,11 @@
 	. = ..()
 	if (amount < max_amount)
 		. = CEILING(. * amount / max_amount)
+
+/obj/item/stack/get_mass() // Scales mass to stack size
+	. = ..()
+	if (amount < max_amount)
+		. *= amount / max_amount // Don't round, this can be non-integer
 
 /obj/item/stack/attack_hand(mob/user)
 	if(!user.is_holding_offhand(src) || !can_split())
@@ -446,7 +453,7 @@
 
 /**Whether a stack has the capability to be split. */
 /obj/item/stack/proc/can_split()
-	return !(uses_charge && !force) //#TODO: The !force was a hacky way to tell if its a borg or rigsuit module. Probably would be good to find a better way..
+	return !(uses_charge && !force) //#TODO: The !force was a hacky way to tell if its a borg or rigsuit module. Probably would be good to find a better way...
 
 /**Whether a stack type has the capability to be merged. */
 /obj/item/stack/proc/can_merge_stacks(var/obj/item/stack/other)

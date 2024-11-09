@@ -34,7 +34,7 @@
 
 // Let people with mouth slots pick things up.
 /obj/item/organ/external/head/get_manual_dexterity()
-	. = ..() | DEXTERITY_BASE
+	. = DEXTERITY_SIMPLE_MACHINES | DEXTERITY_HOLD_ITEM | DEXTERITY_EQUIP_ITEM | DEXTERITY_KEYBOARDS | DEXTERITY_TOUCHSCREENS
 
 /obj/item/organ/external/head/examine(mob/user)
 	. = ..()
@@ -93,7 +93,7 @@
 /obj/item/organ/external/head/proc/get_eyes_organ()
 	RETURN_TYPE(/obj/item/organ/internal/eyes)
 	if(owner)
-		return owner.get_organ((owner.get_bodytype().vision_organ || BP_EYES), /obj/item/organ/internal/eyes)
+		return owner.get_organ((owner.get_vision_organ_tag() || BP_EYES), /obj/item/organ/internal/eyes)
 	return locate(/obj/item/organ/internal/eyes) in contents
 
 /obj/item/organ/external/head/get_icon_cache_key_components()
@@ -114,7 +114,7 @@
 	if(eye_glow)
 		LAZYADD(., eye_glow)
 
-/obj/item/organ/external/head/gripper/do_install(mob/living/carbon/human/target, affected, in_place, update_icon, detached)
+/obj/item/organ/external/head/gripper/do_install(mob/living/human/target, affected, in_place, update_icon, detached)
 	. = ..()
 	if(. && owner)
 		owner.add_held_item_slot(new /datum/inventory_slot/gripper/mouth)

@@ -18,7 +18,7 @@
 	M.take_damage(removed, TOX) // Probably not a good idea; not very deadly though
 
 /decl/material/liquid/drink/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	if(nutrition)
@@ -41,7 +41,7 @@
 
 /decl/material/liquid/drink/juice/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(!M.HasTrait(/decl/trait/metabolically_inert))
+	if(!M.has_trait(/decl/trait/metabolically_inert))
 		M.immunity = min(M.immunity + 0.25, M.immunity_norm*1.5)
 
 /decl/material/liquid/drink/juice/banana
@@ -116,7 +116,7 @@
 /decl/material/liquid/drink/juice/lime/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	M.heal_damage(TOX, 0.5 * removed)
@@ -135,7 +135,7 @@
 /decl/material/liquid/drink/juice/orange/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	M.heal_damage(OXY, 2 * removed)
@@ -198,7 +198,7 @@
 /decl/material/liquid/drink/juice/tomato/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	M.heal_organ_damage(0, 0.5 * removed)
@@ -274,7 +274,7 @@
 
 	holder.remove_reagent(/decl/material/liquid/capsaicin, 10 * removed)
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	M.heal_organ_damage(0.5 * removed, 0)
@@ -340,7 +340,7 @@
 	if(adj_temp > 0)
 		holder.remove_reagent(/decl/material/liquid/frostoil, 10 * removed)
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	var/volume = REAGENT_VOLUME(holder, type)
@@ -513,7 +513,7 @@
 /decl/material/liquid/drink/mutagencola/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
@@ -550,6 +550,11 @@
 	glass_name = "cola"
 	glass_desc = "A glass of refreshing cola."
 	glass_special = list(DRINK_FIZZ)
+
+/decl/material/liquid/drink/cola/build_presentation_name_from_reagents(var/obj/item/prop, var/supplied)
+	if(prop.reagents.has_reagent(/decl/material/liquid/drink/milk))
+		. = "pilk"
+	. = ..(prop, .)
 
 /decl/material/liquid/drink/citrussoda
 	name = "citrus soda"
@@ -643,7 +648,7 @@
 /decl/material/liquid/drink/hell_ramen/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	M.bodytemperature += 10 * TEMPERATURE_DAMAGE_COEFFICIENT
@@ -662,7 +667,7 @@
 /decl/material/liquid/drink/tea/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	M.heal_damage(TOX, 0.5 * removed)
@@ -684,12 +689,12 @@
 
 /decl/material/liquid/drink/tea/black/build_presentation_name_from_reagents(var/obj/item/prop, var/supplied)
 	if(prop.reagents.has_reagent(/decl/material/liquid/drink/juice/orange))
-		if(prop.reagents.has_reagent(/decl/material/liquid/drink/milk))
+		if(prop.reagents.has_reagent(/decl/material/liquid/drink/milk) && prop.reagents.has_reagent(/decl/material/liquid/drink/syrup/vanilla)) //real london fogs need vanilla syrup
 			. = "London Fog"
-		else if(prop.reagents.has_reagent(/decl/material/liquid/drink/milk/soymilk))
+		else if(prop.reagents.has_reagent(/decl/material/liquid/drink/milk/soymilk) && prop.reagents.has_reagent(/decl/material/liquid/drink/syrup/vanilla))
 			. = "soy London Fog"
 		else
-			. = "Baron Grey"
+			. = "Earl Grey"
 	. = ..(prop, .)
 
 //green tea
@@ -812,6 +817,19 @@
 	glass_name = "pumpkin spice syrup"
 	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
 
+/decl/material/liquid/drink/syrup/lavender
+	name = "lavender syrup"
+	lore_text = "Thick lavender syrup used to flavor drinks."
+	taste_description = "lavender"
+	color = "#c38be7"
+	coffee_priority = 1
+	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
+	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
+	uid = "chem_drink_lavendersyrup"
+
+	glass_name = "lavender syrup"
+	glass_desc = "Thick lavender syrup used to flavor drinks."
+
 /decl/material/liquid/drink/gingerbeer
 	name = "ginger beer"
 	lore_text = "A hearty, non-alcoholic beverage brewed from ginger."
@@ -837,7 +855,7 @@
 /decl/material/liquid/drink/beastenergy/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 
 	ADJ_STATUS(M, STAT_DROWSY, -7)
@@ -866,3 +884,15 @@
 
 	glass_name = "Compote"
 	glass_desc = "Traditional dessert drink made from fruits or berries. Grandma would be proud."
+
+/decl/material/liquid/drink/horchata
+	name = "horchata"
+	lore_text = "A traditional mexican drink made from rice, milk, vanilla, and cinnamon."
+	taste_description = "refreshing vanilla and cinnamon"
+	color = "#d6c9be"
+	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
+	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
+	uid = "chem_drink_horchata"
+
+	glass_name = "Horchata"
+	glass_desc = "A traditional mexican drink made from rice, milk, vanilla, and cinnamon."

@@ -56,7 +56,7 @@
 
 /obj/machinery/gibber/examine(mob/user)
 	. = ..()
-	to_chat(user, "The safety guard is [emagged ? "<span class='danger'>disabled</span>" : "enabled"].")
+	to_chat(user, "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"].")
 
 /obj/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
@@ -177,11 +177,9 @@
 	var/slab_nutrition = 20
 
 	if(isliving(occupant))
-		var/mob/living/C = occupant
-		slab_nutrition = round(C.get_nutrition() / 15)
-
-	if(ishuman(occupant))
-		slab_name = occupant.real_name
+		slab_nutrition = round(occupant.get_nutrition() / 15)
+		if(ishuman(occupant))
+			slab_name = occupant.real_name
 
 	// Small mobs don't give as much nutrition.
 	if(issmall(src.occupant))

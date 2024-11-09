@@ -1,5 +1,5 @@
-/mob/living/carbon/human/proc/get_raw_medical_data(var/tag = FALSE)
-	var/mob/living/carbon/human/H = src
+/mob/living/human/proc/get_raw_medical_data(var/tag = FALSE)
+	var/mob/living/human/H = src
 	var/list/scan = list()
 
 	scan["name"] = H.name
@@ -88,9 +88,9 @@
 	for(var/organ_name in root_bodytype.has_organ)
 		if(!GET_INTERNAL_ORGAN(H, organ_name))
 			scan["missing_organs"] += organ_name
-	if(H.sdisabilities & BLINDED)
+	if(H.has_genetic_condition(GENE_COND_BLINDED))
 		scan["blind"] = TRUE
-	if(H.sdisabilities & NEARSIGHTED)
+	if(H.has_genetic_condition(GENE_COND_NEARSIGHTED))
 		scan["nearsight"] = TRUE
 	return scan
 

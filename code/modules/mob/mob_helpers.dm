@@ -13,10 +13,10 @@
 		return FALSE //M is too small to wield this
 	return TRUE
 
-/mob/living/proc/isSynthetic()
+/mob/proc/isSynthetic()
 	return 0
 
-/mob/living/carbon/human/isSynthetic()
+/mob/living/human/isSynthetic()
 	if(isnull(full_prosthetic))
 		robolimb_count = 0
 		var/list/limbs = get_external_organs()
@@ -32,7 +32,7 @@
 /mob/proc/isMonkey()
 	return 0
 
-/mob/living/carbon/human/isMonkey()
+/mob/living/human/isMonkey()
 	return istype(species, /decl/species/monkey)
 
 
@@ -51,7 +51,7 @@
 /proc/isdeaf(A)
 	if(isliving(A))
 		var/mob/living/M = A
-		return (M.sdisabilities & DEAFENED) || GET_STATUS(M, STAT_DEAF)
+		return M.has_genetic_condition(GENE_COND_DEAFENED) || GET_STATUS(M, STAT_DEAF)
 	return 0
 
 /proc/iscuffed(var/mob/mob)
@@ -408,37 +408,25 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/proc/is_client_active(var/active = 1)
 	return client && client.inactivity < active MINUTES
 
-/mob/proc/can_eat()
-	return 1
-
-/mob/proc/can_force_feed()
-	return 1
-
 #define SAFE_PERP -50
 /mob/living/proc/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest, var/check_network)
+
 	if(stat == DEAD)
 		return SAFE_PERP
-
-	return 0
-
-/mob/living/carbon/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest, var/check_network)
 	if(get_equipped_item(slot_handcuffed_str))
 		return SAFE_PERP
 
-	return ..()
-
-/mob/living/carbon/human/assess_perp(var/obj/access_obj, var/check_access, var/auth_weapons, var/check_records, var/check_arrest, var/check_network)
-	var/threatcount = ..()
-	if(. == SAFE_PERP)
-		return SAFE_PERP
-
 	//Agent cards lower threatlevel.
+	var/threatcount = 0
 	var/obj/item/card/id/id = GetIdCard()
-	if(id && istype(id, /obj/item/card/id/syndicate))
-		threatcount -= 2
+
 	// A proper	CentCom id is hard currency.
-	else if(id && istype(id, /obj/item/card/id/centcom))
+	if(istype(id, /obj/item/card/id/centcom))
 		return SAFE_PERP
+
+	// Syndicate IDs have masking I guess.
+	if(istype(id, /obj/item/card/id/syndicate))
+		threatcount -= 2
 
 	if(check_access && !access_obj.allowed(src))
 		threatcount += 4
@@ -452,7 +440,7 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		if(istype(belt, /obj/item/gun) || istype(belt, /obj/item/energy_blade) || istype(belt, /obj/item/baton))
 			threatcount += 2
 
-		if(species.name != global.using_map.default_species)
+		if(get_species_name() != global.using_map.default_species)
 			threatcount += 2
 
 	if(check_records || check_arrest)
@@ -494,7 +482,7 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/observer/ghost/get_multitool()
 	return can_admin_interact() && ..(ghost_multitool)
 
-/mob/living/carbon/human/get_multitool()
+/mob/living/human/get_multitool()
 	return ..(get_active_held_item())
 
 /mob/living/silicon/robot/get_multitool()
@@ -533,8 +521,6 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	SetName(new_name)
 	if(mind)
 		mind.name = new_name
-	if(dna)
-		dna.real_name = real_name
 	return 1
 
 /mob/proc/ssd_check()
@@ -603,12 +589,6 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if(isnull(choice) || src.incapacitated() || (required_item && !global.hands_topic_state.can_use_topic(required_item,src)))
 		return null
 	return choice
-
-/mob/proc/set_sdisability(sdisability)
-	sdisabilities |= sdisability
-
-/mob/proc/unset_sdisability(sdisability)
-	sdisabilities &= ~sdisability
 
 /mob/proc/get_accumulated_vision_handlers()
 	var/result[2]

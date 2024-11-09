@@ -5,6 +5,7 @@
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
+	#include "../../mods/species/drakes/_drakes.dme" // include before _fantasy.dme so overrides work
 	#include "../../mods/content/fantasy/_fantasy.dme"
 
 	#include "_shaded_hills_defines.dm"
@@ -18,6 +19,7 @@
 	#include "jobs/_jobs.dm"
 	#include "jobs/caves.dm"
 	#include "jobs/inn.dm"
+	#include "jobs/shrine.dm"
 	#include "jobs/visitors.dm"
 	#include "jobs/wilderness.dm"
 
@@ -39,12 +41,15 @@
 	#include "outfits/_outfits.dm"
 	#include "outfits/caves.dm"
 	#include "outfits/inn.dm"
+	#include "outfits/shrine.dm"
 	#include "outfits/visitors.dm"
 	#include "outfits/wilderness.dm"
 
 	#include "shaded_hills_currency.dm"
+	#include "shaded_hills_events.dm"
 	#include "shaded_hills_locks.dm"
 	#include "shaded_hills_map.dm"
+	#include "shaded_hills_names.dm"
 	#include "shaded_hills_skills.dm"
 	#include "shaded_hills_testing.dm"
 	#include "shaded_hills_turfs.dm"

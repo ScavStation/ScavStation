@@ -23,7 +23,6 @@
 
 	stop_automated_movement = TRUE
 	universal_speak = TRUE
-	pass_flags = PASS_FLAG_TABLE
 
 
 /mob/living/simple_animal/crow/get_overlay_state_modifier()
@@ -32,6 +31,7 @@
 /decl/bodytype/animal/crow
 	name = "crow"
 	bodytype_category = "crow body"
+	uid = "bodytype_animal_crow"
 
 /mob/living/simple_animal/crow/get_bodytype()
 	return GET_DECL(/decl/bodytype/animal/crow)

@@ -24,16 +24,19 @@
 
 /obj/item/clothing/badge/get_lore_info()
 	. = ..()
-	. += "<br>Denotes affiliation to <l>[badge_string]</l>."
+	if(SScodex.get_codex_entry(badge_string))
+		. += "<br>Denotes affiliation to <l>[badge_string]</l>."
+	else
+		. += "<br>Denotes affiliation to [badge_string]."
 
 /obj/item/clothing/badge/proc/set_name(var/new_name)
 	stored_name = new_name
 
-/obj/item/clothing/badge/proc/set_desc(var/mob/living/carbon/human/H)
+/obj/item/clothing/badge/proc/set_desc(var/mob/living/human/H)
 
 /obj/item/clothing/badge/get_examine_line()
 	. = ..()
-	. += "  <a href='?src=\ref[src];look_at_me=1'>\[View\]</a>"
+	. += "  <a href='byond://?src=\ref[src];look_at_me=1'>\[View\]</a>"
 
 /obj/item/clothing/badge/examine(user)
 	. = ..()

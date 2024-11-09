@@ -207,14 +207,14 @@
 		var/new_row = 5
 		for(var/i = clamp_sheets to max_multiplier step clamp_sheets)
 			var/producing = FLOOR(i * products_per_sheet)
-			. += "<a href='?src=\ref[stack];make=\ref[src];producing=[producing];expending=[i];returning=\ref[sublist]'>[producing]x</a>"
+			. += "<a href='byond://?src=\ref[stack];make=\ref[src];producing=[producing];expending=[i];returning=\ref[sublist]'>[producing]x</a>"
 			if(new_row == 0)
 				new_row = 5
 				. += "<br>"
 			else
 				new_row--
 	else
-		. += "<a href='?src=\ref[stack];make=\ref[src];producing=[FLOOR(clamp_sheets * products_per_sheet)];expending=[clamp_sheets];returning=\ref[sublist]'>1x</a>"
+		. += "<a href='byond://?src=\ref[stack];make=\ref[src];producing=[FLOOR(clamp_sheets * products_per_sheet)];expending=[clamp_sheets];returning=\ref[sublist]'>1x</a>"
 
 	. += "</td>"
 	. += "</tr>"
@@ -346,7 +346,7 @@
 			return mat
 	return null
 
-/decl/stack_recipe/proc/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color)
+/decl/stack_recipe/proc/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color, spent_type, spent_amount = 1)
 	//TODO: standardize material argument passing in Initialize().
 	if(ispath(result_type, /obj/item/stack)) // Amount is set manually in some overrides as well.
 		. = list(new result_type(location, amount, MATERIAL_RECIPE_PARAMS))
@@ -374,8 +374,14 @@
 	for(var/atom/res in .)
 		if(QDELETED(res))
 			. -= res
-		else if(paint_color && (isitem(res) || istype(res, /obj/structure)))
+			continue
+		if(paint_color && (isitem(res) || istype(res, /obj/structure)))
 			res.set_color(paint_color)
+		if(istype(res, /obj/structure) && spent_type)
+			var/obj/structure/res_struct = res
+			if(!isnull(res_struct.parts_type))
+				res_struct.parts_type   = spent_type
+				res_struct.parts_amount = spent_amount
 
 /decl/stack_recipe/proc/can_make(mob/user)
 	if (one_per_turf && (locate(result_type) in user.loc))

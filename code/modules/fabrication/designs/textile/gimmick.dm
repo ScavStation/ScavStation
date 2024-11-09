@@ -10,7 +10,7 @@
 	path = /obj/item/clothing/suit/redtag
 
 /datum/fabricator_recipe/textiles/gimmick/mantle
-	path = /obj/item/clothing/suit/fated
+	path = /obj/item/clothing/suit/mantle/fated
 
 /datum/fabricator_recipe/textiles/gimmick/syndicatefake
 	path = /obj/item/clothing/suit/syndicatefake
@@ -111,14 +111,11 @@
 /datum/fabricator_recipe/textiles/gimmick/capjacket
 	path = /obj/item/clothing/suit/jacket/captain
 
-/datum/fabricator_recipe/textiles/gimmick/robe
-	path = /obj/item/clothing/suit/robe
-
 /datum/fabricator_recipe/textiles/gimmick/xeno
 	path = /obj/item/clothing/head/xeno/scarf
 
 /datum/fabricator_recipe/textiles/gimmick/syndicatetactical
-	path = /obj/item/clothing/under/syndicate/tacticool
+	path = /obj/item/clothing/shirt/syndicate/tacticool
 
 /datum/fabricator_recipe/textiles/gimmick/costumesanta
 	path = /obj/item/clothing/suit/santa

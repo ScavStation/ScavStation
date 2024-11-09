@@ -23,7 +23,7 @@ var/global/list/slime_pain_messages = list(
 	qdel(src)
 	. = rand(2,3)
 
-/mob/living/carbon/human/eaten_by_slime()
+/mob/living/human/eaten_by_slime()
 	var/list/limbs = get_external_organs()
 	if(LAZYLEN(limbs) > 1)
 		var/obj/item/organ/external/E = pick(limbs)
@@ -50,13 +50,10 @@ var/global/list/slime_pain_messages = list(
 
 // Handle cosmetic effects (currently) from being eaten by a slime, mostly pain-related.
 /mob/living/proc/handle_additional_slime_effects()
-	return
-
-/mob/living/carbon/handle_additional_slime_effects()
 	if(can_feel_pain())
 		to_chat(src, SPAN_DANGER(pick(global.slime_pain_messages)))
 
-/mob/living/carbon/human/handle_additional_slime_effects()
+/mob/living/human/handle_additional_slime_effects()
 	custom_pain(pick(global.slime_pain_messages),100)
 
 // Called by a feeding slime on the victim.

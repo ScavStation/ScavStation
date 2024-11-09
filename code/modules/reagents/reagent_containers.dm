@@ -7,6 +7,7 @@
 	material = /decl/material/solid/organic/plastic
 	obj_flags = OBJ_FLAG_HOLLOW
 	abstract_type = /obj/item/chems
+	watertight = TRUE
 
 	var/base_name
 	var/base_desc
@@ -79,10 +80,10 @@
 	desc = new_desc_list.Join("\n")
 
 /obj/item/chems/on_reagent_change()
-	..()
-	update_container_name()
-	update_container_desc()
-	update_icon()
+	if((. = ..()))
+		update_container_name()
+		update_container_desc()
+		update_icon()
 
 /obj/item/chems/verb/set_amount_per_transfer_from_this()
 	set name = "Set Transfer Amount"
@@ -112,7 +113,7 @@
 /obj/item/chems/standard_pour_into(mob/user, atom/target, amount = 5)
 	return ..(user, target, amount_per_transfer_from_this)
 
-/obj/item/chems/do_surgery(mob/living/carbon/M, mob/living/user)
+/obj/item/chems/do_surgery(mob/living/M, mob/living/user)
 	if(user.get_target_zone() != BP_MOUTH) //in case it is ever used as a surgery tool
 		return ..()
 

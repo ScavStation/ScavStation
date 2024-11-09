@@ -21,7 +21,7 @@
 
 /obj/item/robotanalyzer/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
-	if((MUTATION_CLUMSY in user.mutations) && prob(50))
+	if(user.has_genetic_condition(GENE_COND_CLUMSY) && prob(50))
 		user.visible_message(
 			SPAN_WARNING("\The [user] has analyzed the floor's vitals!"),
 			self_message = SPAN_WARNING("You try to analyze the floor's vitals!"))
@@ -70,7 +70,7 @@
 
 		if("prosthetics")
 
-			var/mob/living/carbon/human/H = target
+			var/mob/living/human/H = target
 			to_chat(user, SPAN_NOTICE("Analyzing Results for \the [H]:"))
 			to_chat(user, "Key: [SPAN_ORANGE("Electronics")]/[SPAN_RED("Brute")]")
 			var/obj/item/organ/internal/cell/C = H.get_organ(BP_CELL, /obj/item/organ/internal/cell)

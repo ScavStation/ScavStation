@@ -15,7 +15,7 @@
 	var/power_usage = 450 //value for simple ecig, enough for about 1 cartridge, in JOULES!
 	var/ecig_colors = list(null, COLOR_DARK_GRAY, COLOR_RED_GRAY, COLOR_BLUE_GRAY, COLOR_GREEN_GRAY, COLOR_PURPLE_GRAY)
 	var/idle = 0
-	var/idle_treshold = 30
+	var/idle_threshold = 30
 
 /obj/item/clothing/mask/smokable/ecig/Initialize()
 	setup_power_supply()
@@ -87,7 +87,7 @@
 		Deactivate()
 		return
 
-	if(idle >= idle_treshold) //idle too long -> automatic shut down
+	if(idle >= idle_threshold) //idle too long -> automatic shut down
 		idle = 0
 		visible_message(SPAN_NOTICE("\The [src] powers down automatically."), null, 2)
 		Deactivate()
@@ -96,23 +96,23 @@
 	idle ++
 
 	if(ishuman(loc))
-		var/mob/living/carbon/human/C = loc
+		var/mob/living/human/user = loc
 
 		if (!lit || !ec_cartridge || !ec_cartridge.reagents.total_volume)//no cartridge
 			if(!ec_cartridge.reagents.total_volume)
-				to_chat(C, SPAN_NOTICE("There's no liquid left in \the [src], so you shut it down."))
+				to_chat(user, SPAN_NOTICE("There's no liquid left in \the [src], so you shut it down."))
 			Deactivate()
 			return
 
-		if (src == C.get_equipped_item(slot_wear_mask_str) && C.check_has_mouth()) //transfer, but only when not disabled
+		if (src == user.get_equipped_item(slot_wear_mask_str) && user.check_has_mouth()) //transfer, but only when not disabled
 			idle = 0
 			//here we'll reduce battery by usage, and check powerlevel - you only use batery while smoking
 			var/obj/item/cell/cell = get_cell()
 			if(!cell?.checked_use(power_usage * CELLRATE)) //if this passes, there's not enough power in the battery
 				Deactivate()
-				to_chat(C,SPAN_NOTICE("\The [src]'s power meter flashes a low battery warning and shuts down."))
+				to_chat(user,SPAN_NOTICE("\The [src]'s power meter flashes a low battery warning and shuts down."))
 				return
-			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_INHALE, 0.4) // Most of it is not inhaled... balance reasons.
+			ec_cartridge.reagents.trans_to_mob(user, REM, CHEM_INHALE, 0.4) // Most of it is not inhaled... balance reasons.
 
 /obj/item/clothing/mask/smokable/ecig/on_update_icon()
 	. = ..()

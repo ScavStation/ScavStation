@@ -10,7 +10,7 @@
 	center_of_mass = @'{"x":16,"y":14}'
 
 	var/growing = FALSE
-	var/monkey_type = /mob/living/carbon/human/monkey
+	var/monkey_type = /mob/living/human/monkey
 	var/wrapper_type
 
 /obj/item/chems/food/monkeycube/populate_reagents()
@@ -18,7 +18,8 @@
 	add_to_reagents(/decl/material/solid/organic/meat, 10)
 
 /obj/item/chems/food/monkeycube/get_single_monetary_worth()
-	. = (monkey_type ? round(atom_info_repository.get_combined_worth_for(monkey_type) * 1.25) : 5)
+	//. = (monkey_type ? round(atom_info_repository.get_combined_worth_for(monkey_type) * 1.25) : 5)
+	. = (monkey_type ? round(atom_info_repository.get_combined_worth_for((islist(monkey_type) ? monkey_type[1] : monkey_type)) * 1.25) : 5)
 	if(wrapper_type)
 		. += atom_info_repository.get_combined_worth_for(wrapper_type)
 
@@ -30,7 +31,8 @@
 	if(!growing)
 		growing = TRUE
 		visible_message(SPAN_NOTICE("\The [src] expands!"))
-		var/mob/monkey = new monkey_type
+		var/mob/monkey = islist(monkey_type) ? pickweight(monkey_type) : monkey_type
+		monkey = new monkey
 		monkey.dropInto(force_loc || loc)
 		qdel(src)
 
@@ -54,8 +56,7 @@
 		Expand(get_turf(target))
 
 /obj/item/chems/food/monkeycube/on_reagent_change()
-	..()
-	if(!QDELETED(src) && reagents?.has_reagent(/decl/material/liquid/water))
+	if((. = ..()) && !QDELETED(src) && reagents?.has_reagent(/decl/material/liquid/water))
 		Expand()
 
 /obj/item/chems/food/monkeycube/wrapped
@@ -73,3 +74,12 @@
 /obj/item/chems/food/monkeycube/wrapped/spidercube
 	name = "spider cube"
 	monkey_type = /obj/effect/spider/spiderling
+
+//Carp cubes
+/obj/item/chems/food/monkeycube/carpcube
+	name = "carp cube"
+	monkey_type = list(/mob/living/simple_animal/hostile/carp = 10, /mob/living/simple_animal/hostile/carp/pike = 3, /mob/living/simple_animal/hostile/carp/shark = 1)
+
+/obj/item/chems/food/monkeycube/wrapped/carpcube
+	name = "carp cube"
+	monkey_type = list(/mob/living/simple_animal/hostile/carp = 10, /mob/living/simple_animal/hostile/carp/pike = 3, /mob/living/simple_animal/hostile/carp/shark = 1)

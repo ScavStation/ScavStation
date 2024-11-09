@@ -8,7 +8,7 @@
 	l_ear = /obj/item/radio/headset/heads/captain
 	suit = /obj/item/clothing/suit/jacket/redcoat/officer
 
-/decl/hierarchy/outfit/job/tradeship/captain/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/job/tradeship/captain/post_equip(var/mob/living/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.get_equipped_item(slot_w_uniform_str)
 	if(uniform)
@@ -23,7 +23,6 @@
 	uniform = /obj/item/clothing/pants/slacks/black/outfit/checkered
 	shoes = /obj/item/clothing/shoes/dress
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	pda_type = /obj/item/modular_computer/pda/cargo
 	hands = list(/obj/item/clipboard)
 	suit = /obj/item/clothing/suit/jacket/redcoat/officiated
 	id_type = /obj/item/card/id/silver

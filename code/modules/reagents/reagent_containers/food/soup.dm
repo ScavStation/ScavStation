@@ -128,7 +128,7 @@
 		),
 		list(
 			/decl/material/solid/carbon =              10,
-			/decl/material/liquid/bromide =            10
+			/decl/material/liquid/acrylamide =         10
 		),
 		list(
 			/decl/material/liquid/nutriment =           5,
@@ -264,7 +264,7 @@
 
 /obj/item/chems/food/beetsoup
 	name = "beet soup"
-	desc = "Wait, how do you spell it again..?"
+	desc = "Wait, how do you spell it again...?"
 	icon_state = "beetsoup"
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#fac9ff"

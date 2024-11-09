@@ -13,6 +13,7 @@
 		/decl/material/gas/nitrogen = MOLES_N2STANDARD
 	)
 	zone_membership_candidate = TRUE
+	open_turf_type = /turf/open/airless
 
 	var/can_engrave = TRUE
 
@@ -143,14 +144,6 @@
 
 /turf/floor/is_floor()
 	return !density && !is_open()
-
-/turf/floor/on_defilement()
-	if(flooring?.type != /decl/flooring/reinforced/cult)
-		..()
-		set_flooring(GET_DECL(/decl/flooring/reinforced/cult))
-
-/turf/floor/is_defiled()
-	return flooring?.type == /decl/flooring/reinforced/cult || ..()
 
 /turf/floor/get_physical_height()
 	return flooring?.height || 0

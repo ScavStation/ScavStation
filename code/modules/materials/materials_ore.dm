@@ -14,7 +14,6 @@
 	material                   = /decl/material/solid/stone/granite //By default is just a rock
 	material_health_multiplier = 0.5
 	stack_merge_type           = /obj/item/stack/material/ore
-	randpixel                  = 8
 	material_alteration        = MAT_FLAG_ALTERATION_COLOR //Name is handled in override
 	randpixel                  = 6
 	is_spawnable_type          = TRUE
@@ -111,7 +110,7 @@
 /obj/item/stack/material/ore/throw_impact(atom/hit_atom)
 	. = ..()
 	if(icon_state == "dust")
-		var/mob/living/carbon/human/H = hit_atom
+		var/mob/living/human/H = hit_atom
 		if(istype(H) && H.check_has_eyes() && prob(85))
 			to_chat(H, SPAN_DANGER("Some of \the [src] gets in your eyes!"))
 			ADJ_STATUS(H, STAT_BLIND, 5)
@@ -143,6 +142,8 @@
 	material = /decl/material/solid/bauxite
 /obj/item/stack/material/ore/rutile
 	material = /decl/material/solid/rutile
+/obj/item/stack/material/ore/galena
+	material = /decl/material/solid/galena
 /obj/item/stack/material/ore/hydrogen_hydrate
 	material = /decl/material/solid/ice/hydrogen // todo: set back to hydrate when clathrate is added to hydrogen hydrate dname
 /obj/item/stack/material/ore/methane

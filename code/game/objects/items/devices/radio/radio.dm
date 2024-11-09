@@ -64,6 +64,10 @@
 	var/analog_secured = list() // list of accesses used for encrypted analog, mainly for mercs/raiders
 	var/datum/radio_frequency/analog_radio_connection
 
+/obj/item/radio/proc/get_radio_listeners()
+	for(var/mob/listener in hearers(canhear_range, get_turf(src)))
+		LAZYDISTINCTADD(., listener.resolve_to_radio_listeners())
+
 /obj/item/radio/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
 	return ..(/obj/item/cell/device, /obj/item/cell/device, /datum/extension/loaded_cell, charge_value)
 
@@ -129,7 +133,6 @@
 /obj/item/radio/Destroy()
 	QDEL_NULL(wires)
 	QDEL_NULL_LIST(encryption_keys)
-	global.listening_objects -= src
 	set_frequency(null) // clean up the radio connection
 	channels = null
 	. = ..()
@@ -318,18 +321,17 @@
 	set waitfor = FALSE
 	if(!on) return 0 // the device has to be on
 	//  Fix for permacell radios, but kinda eh about actually fixing them.
-	if(!M || !message) return 0
+	if(!istype(M) || !message) return 0
 
 	if(speaking && (speaking.flags & (LANG_FLAG_NONVERBAL|LANG_FLAG_SIGNLANG))) return 0
 
 	if (!broadcasting)
 		// Sedation chemical effect should prevent radio use.
-		var/mob/living/carbon/C = M
-		if(istype(C) && (C.has_chemical_effect(CE_SEDATE, 1) || C.incapacitated(INCAPACITATION_DISRUPTED)))
+		if((M.has_chemical_effect(CE_SEDATE, 1) || M.incapacitated(INCAPACITATION_DISRUPTED)))
 			to_chat(M, SPAN_WARNING("You're unable to reach \the [src]."))
 			return 0
 
-		if((istype(C)) && C.radio_interrupt_cooldown > world.time)
+		if(M.radio_interrupt_cooldown > world.time)
 			to_chat(M, SPAN_WARNING("You're disrupted as you reach for \the [src]."))
 			return 0
 

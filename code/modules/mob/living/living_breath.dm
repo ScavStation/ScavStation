@@ -5,7 +5,7 @@
 	return FALSE
 
 /mob/living/proc/need_breathe()
-	if(mNobreath in mutations)
+	if(has_genetic_condition(GENE_COND_NO_BREATH))
 		return FALSE
 	var/decl/bodytype/root_bodytype = get_bodytype()
 	if(!root_bodytype || !root_bodytype.breathing_organ || !should_have_organ(root_bodytype.breathing_organ))
@@ -13,7 +13,7 @@
 	return TRUE
 
 /mob/living/proc/should_breathe()
-	return FALSE
+	return ((life_tick % 2) == 0 || failed_last_breath || is_asystole())
 
 /mob/living/proc/try_breathe()
 
@@ -158,4 +158,5 @@
 		if(internals_air && (internals_air.return_pressure() < loc_air.return_pressure())) // based on the assumption it has a one-way valve for gas release
 			internals_air.merge(breath)
 			return
-	loc_air.merge(breath)
+	if(loc)
+		loc.merge_exhaled_volume(breath)

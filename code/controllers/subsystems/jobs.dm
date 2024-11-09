@@ -416,7 +416,7 @@ SUBSYSTEM_DEF(jobs)
 	if(allowed_branches)
 		if(!ishuman(wearer))
 			return FALSE
-		var/mob/living/carbon/human/wearer_human = wearer
+		var/mob/living/human/wearer_human = wearer
 		if(!wearer_human.char_branch || !(wearer_human.char_branch.type in allowed_branches))
 			return FALSE
 	if(allowed_skills)
@@ -427,7 +427,7 @@ SUBSYSTEM_DEF(jobs)
 		return FALSE
 	return TRUE
 
-/datum/controller/subsystem/jobs/proc/equip_custom_loadout(var/mob/living/carbon/human/H, var/datum/job/job)
+/datum/controller/subsystem/jobs/proc/equip_custom_loadout(var/mob/living/human/H, var/datum/job/job)
 
 	if(!H || !H.client)
 		return
@@ -436,13 +436,13 @@ SUBSYSTEM_DEF(jobs)
 	var/list/spawn_in_storage = list()
 	if(H.client.prefs.Gear() && job.loadout_allowed)
 		for(var/thing in H.client.prefs.Gear())
-			var/decl/loadout_option/G = global.gear_datums[thing]
+			var/decl/loadout_option/G = decls_repository.get_decl_by_id_or_var(thing, /decl/loadout_option)
 			if(!istype(G))
 				continue
 			if(!G.is_permitted(H))
 				to_chat(H, SPAN_WARNING("Your current species, job, branch, skills or whitelist status does not permit you to spawn with [thing]!"))
 				continue
-			if(!G.slot || !G.spawn_on_mob(H, H.client.prefs.Gear()[G.name]))
+			if(!G.slot || !G.spawn_on_mob(H, H.client.prefs.Gear()[G.uid]))
 				spawn_in_storage.Add(G)
 
 	// do accessories last so they don't attach to a suit that will be replaced
@@ -463,7 +463,7 @@ SUBSYSTEM_DEF(jobs)
 
 	return spawn_in_storage
 
-/datum/controller/subsystem/jobs/proc/equip_job_title(var/mob/living/carbon/human/H, var/job_title, var/joined_late = 0)
+/datum/controller/subsystem/jobs/proc/equip_job_title(var/mob/living/human/H, var/job_title, var/joined_late = 0)
 	if(!H)
 		return
 
@@ -536,7 +536,7 @@ SUBSYSTEM_DEF(jobs)
 
 	if(spawn_in_storage)
 		for(var/decl/loadout_option/G in spawn_in_storage)
-			G.spawn_in_storage_or_drop(H, H.client.prefs.Gear()[G.name])
+			G.spawn_in_storage_or_drop(H, H.client.prefs.Gear()[G.uid])
 
 	var/article = job.total_positions == 1 ? "the" : "a"
 	to_chat(H, "<font size = 3><B>You are [article] [alt_title || job_title].</B></font>")

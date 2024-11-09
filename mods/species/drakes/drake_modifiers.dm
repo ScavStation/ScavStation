@@ -3,6 +3,7 @@
 	icon = 'icons/effects/sparkles.dmi'
 	icon_state = "cyan_sparkles"
 	var/expiry
+	var/descriptor = "glowing sap"
 
 /obj/aura/sifsap_salve/Initialize(ml, _lifetime)
 	expiry = world.time + _lifetime
@@ -10,10 +11,10 @@
 
 /obj/aura/sifsap_salve/added_to(var/mob/living/L)
 	..()
-	to_chat(user, SPAN_NOTICE("The glowing sap seethes and bubbles in your wounds, tingling and stinging."))
+	to_chat(user, SPAN_NOTICE("The [descriptor] seethes and bubbles in your wounds, tingling and stinging."))
 
 /obj/aura/sifsap_salve/removed()
-	to_chat(user, SPAN_NOTICE("The last of the sap in your wounds fizzles away."))
+	to_chat(user, SPAN_NOTICE("The last of the [descriptor] in your wounds fizzles away."))
 	..()
 
 /obj/aura/sifsap_salve/life_tick()
@@ -26,7 +27,7 @@
 			user.remove_aura(src)
 		return 0
 
-	if(!user.HasTrait(/decl/trait/sivian_biochemistry))
+	if(!user.has_trait(/decl/trait/sivian_biochemistry))
 		user.heal_damage(BRUTE, 1, do_update_health = FALSE)
 		user.heal_damage(BURN,  1, do_update_health = TRUE)
 		return 1

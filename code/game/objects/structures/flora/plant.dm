@@ -38,7 +38,7 @@
 		var/fail_chance = user ? user.skill_fail_chance(SKILL_BOTANY, 30, SKILL_ADEPT) : 30
 		if(!prob(fail_chance))
 			for(var/i = 1 to rand(1,3))
-				new /obj/item/seeds(loc, null, plant)
+				new /obj/item/seeds/extracted(loc, null, plant)
 	return ..()
 
 /obj/structure/flora/plant/Initialize(ml, _mat, _reinf_mat, datum/seed/_plant)
@@ -71,7 +71,7 @@
 	. = ..()
 	icon_state = "blank"
 	color = null
-	set_overlays(plant.get_appearance(dead = dead, growth_stage = growth_stage, can_harvest = length(harvestable)))
+	set_overlays(plant.get_appearance(dead = dead, growth_stage = growth_stage, can_harvest = !!harvestable))
 
 /obj/structure/flora/plant/attackby(obj/item/O, mob/user)
 

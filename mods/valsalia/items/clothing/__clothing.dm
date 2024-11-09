@@ -2,18 +2,18 @@
 	var/yinglet_icon
 	var/guarantee_body_flag_compatible
 
+/obj/item/clothing/setup_sprite_sheets()
+	..()
+	if(yinglet_icon && !(BODYTYPE_YINGLET in sprite_sheets))
+		LAZYSET(sprite_sheets, BODYTYPE_YINGLET, yinglet_icon)
+
 /obj/item/clothing/setup_equip_flags()
-	. = ..()
+	..()
 	if(guarantee_body_flag_compatible)
 		if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
 			bodytype_equip_flags &= ~guarantee_body_flag_compatible
 		else if(!isnull(bodytype_equip_flags))
 			bodytype_equip_flags |= guarantee_body_flag_compatible
-
-/obj/item/clothing/setup_sprite_sheets()
-	. = ..()
-	if(yinglet_icon && !(BODYTYPE_YINGLET in sprite_sheets))
-		LAZYSET(sprite_sheets, BODYTYPE_YINGLET, yinglet_icon)
 
 
 /obj/item/clothing/shoes
@@ -23,7 +23,7 @@
 	yinglet_icon = 'mods/valsalia/icons/clothing/gloves/gloves_yinglet.dmi'
 	guarantee_body_flag_compatible = BODY_FLAG_YINGLET | BODY_FLAG_INDREL | BODY_FLAG_BAXXID
 
-/obj/item/clothing/under/tradeship_plain
+/obj/item/clothing/costume/tradeship_plain
 	name = "plain clothes"
 	desc = "Some very boring clothes."
 	icon = 'mods/valsalia/icons/clothing/under/plainclothes.dmi'

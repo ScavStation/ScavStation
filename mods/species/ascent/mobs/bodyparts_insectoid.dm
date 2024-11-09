@@ -1,7 +1,11 @@
+/datum/action/item_action/organ/ascent
+	button_icon = 'mods/species/ascent/icons/actions.dmi'
+
 /obj/item/organ/internal/egg_sac/insectoid
 	name = "gyne egg-sac"
 	action_button_name = "Produce Egg"
 	organ_tag = BP_EGG
+	default_action_type = /datum/action/item_action/organ/ascent
 	var/egg_metabolic_cost = 100
 
 /obj/item/organ/internal/egg_sac/insectoid/refresh_action_button()
@@ -12,7 +16,7 @@
 
 /obj/item/organ/internal/egg_sac/insectoid/attack_self(var/mob/user)
 	. = ..()
-	var/mob/living/carbon/H = user
+	var/mob/living/H = user
 	if(.)
 		if(H.incapacitated())
 			to_chat(H, SPAN_WARNING("You can't produce eggs in your current state."))
@@ -24,7 +28,7 @@
 			H.adjust_nutrition(-1 * egg_metabolic_cost)
 			H.visible_message(SPAN_NOTICE("\icon[H] [H] carelessly deposits an egg on \the [get_turf(src)]."))
 			var/obj/structure/insectoid_egg/egg = new(get_turf(H)) // splorp
-			egg.lineage = H.dna.lineage
+			egg.lineage = H.get_gyne_lineage()
 
 /obj/item/organ/external/foot/insectoid/mantid
 	name = "left tail tip"

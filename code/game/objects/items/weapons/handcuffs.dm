@@ -43,14 +43,14 @@
 	if(!user.check_dexterity(DEXTERITY_COMPLEX_TOOLS))
 		return ..()
 
-	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
+	if (user.has_genetic_condition(GENE_COND_CLUMSY) && prob(50))
 		to_chat(user, SPAN_WARNING("You can't figure out how to work \the [src]..."))
 		place_handcuffs(user, user)
 		return TRUE
 
 	// only humans can be cuffed for now
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+		var/mob/living/human/H = target
 		if(!H.get_equipped_item(slot_handcuffed_str))
 			if (H == user)
 				place_handcuffs(user, user)
@@ -67,10 +67,10 @@
 
 	return ..()
 
-/obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
+/obj/item/handcuffs/proc/place_handcuffs(var/mob/living/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
 
-	var/mob/living/carbon/human/H = target
+	var/mob/living/human/H = target
 	if(!istype(H))
 		return 0
 
@@ -110,11 +110,11 @@
 	return 1
 
 var/global/last_chew = 0 //#FIXME: Its funny how only one person in the world can chew their restraints every 2.6 seconds
-/mob/living/carbon/human/RestrainedClickOn(var/atom/A)
+/mob/living/human/RestrainedClickOn(var/atom/A)
 	if (A != src) return ..()
 	if (last_chew + 26 > world.time) return
 
-	var/mob/living/carbon/human/H = A
+	var/mob/living/human/H = A
 	if (!H.get_equipped_item(slot_handcuffed_str)) return
 	if (H.a_intent != I_HURT) return
 	if (H.get_target_zone() != BP_MOUTH) return

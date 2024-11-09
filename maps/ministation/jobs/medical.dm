@@ -3,8 +3,8 @@
 	department_types = list(/decl/department/medical)
 	head_position = 0
 	supervisors = "the Head Doctor"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 4
 	alt_titles = list("Chemist","Nurse")
 	skill_points = 34
 	min_skill = list(
@@ -20,7 +20,7 @@
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
 	selection_color = "#013d3b"
-	economic_power = 7
+	economic_power = 12
 	access = list(
 		access_medical,
 		access_medical_equip,
@@ -62,7 +62,7 @@
 	not_random_selectable = 1
 	selection_color = "#026865"
 	req_admin_notify = 1
-	economic_power = 10
+	economic_power = 15
 	hud_icon = "hudheaddoctor"
 	access = list(
 		access_medical,

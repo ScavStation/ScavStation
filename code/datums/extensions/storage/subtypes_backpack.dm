@@ -4,7 +4,6 @@
 	open_sound = 'sound/effects/storage/unzip.ogg'
 
 /datum/storage/backpack/holding
-	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = 56
 
 /datum/storage/backpack/holding/can_be_inserted(obj/item/W, stop_messages = 0)

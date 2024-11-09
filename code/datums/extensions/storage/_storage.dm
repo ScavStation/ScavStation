@@ -6,6 +6,8 @@
 	var/opened = FALSE
 	/// What sound do we make when opened?
 	var/open_sound
+	///Sound played when the storage ui is closed.
+	var/close_sound
 	/// List of objects which this item can store (if set, it can't store anything else)
 	var/list/can_hold  = list()
 	/// List of objects which this item can't store (in effect only if can_hold isn't set)
@@ -87,11 +89,9 @@ var/global/list/_test_storage_items = list()
 /datum/storage/proc/open(mob/user)
 	if(!opened)
 		opened = TRUE
-		if(holder)
-			playsound(holder.loc, open_sound, 50, 0, -5)
-			holder.queue_icon_update()
-	if (use_sound)
-		playsound(holder, use_sound, 50, 0, -5)
+		play_open_sound()
+		holder?.queue_icon_update()
+	play_use_sound()
 	if (isrobot(user) && user.hud_used)
 		var/mob/living/silicon/robot/robot = user
 		if(robot.shown_robot_modules) //The robot's inventory is open, need to close it first.
@@ -105,6 +105,10 @@ var/global/list/_test_storage_items = list()
 	storage_ui.prepare_ui()
 
 /datum/storage/proc/close(mob/user)
+	if(opened)
+		opened = FALSE
+		play_close_sound()
+		holder?.queue_icon_update()
 	hide_from(user)
 	if(storage_ui)
 		storage_ui.after_close(user)
@@ -197,6 +201,12 @@ var/global/list/_test_storage_items = list()
 		var/mob/M = W.loc
 		if(!M.try_unequip(W))
 			return
+
+	if(holder.reagents?.total_volume)
+		W.fluid_act(holder.reagents)
+		if(QDELETED(W))
+			return
+
 	W.forceMove(holder)
 	W.on_enter_storage(src)
 	if(user)
@@ -209,11 +219,36 @@ var/global/list/_test_storage_items = list()
 					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [holder]."), VISIBLE_MESSAGE)
 				else if (W && W.w_class >= ITEM_SIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
 					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [holder]."), VISIBLE_MESSAGE)
+		// Run this regardless of update flag, as it impacts our remaining storage space.
+		consolidate_stacks()
 		if(!skip_update)
 			update_ui_after_item_insertion()
 	holder.storage_inserted()
 	holder.update_icon()
 	return 1
+
+/datum/storage/proc/consolidate_stacks()
+
+	// Collect all stacks.
+	var/list/stacks = list()
+	for(var/obj/item/stack/stack in get_contents())
+		stacks += stack
+
+	// Try to merge them with each other.
+	for(var/obj/item/stack/stack as anything in stacks)
+		for(var/obj/item/stack/other_stack as anything in stacks)
+			if(stack == other_stack)
+				continue
+			if(other_stack.get_amount() >= other_stack.get_max_amount())
+				stacks -= other_stack
+				continue
+			if(!stack.can_merge_stacks(other_stack) && !other_stack.can_merge_stacks(stack))
+				continue
+			stack.transfer_to(other_stack)
+			if(!stack.amount || QDELETED(stack))
+				break
+		if(!stack.amount || QDELETED(stack))
+			stacks -= stack
 
 /datum/storage/proc/update_ui_after_item_insertion()
 	prepare_ui()
@@ -243,7 +278,7 @@ var/global/list/_test_storage_items = list()
 	W.on_exit_storage(src)
 	if(!skip_update && holder)
 		holder.update_icon()
-	return 1
+	return TRUE
 
 // Only do ui functions for now; the obj is responsible for anything else.
 /datum/storage/proc/on_item_pre_deletion(obj/item/W)
@@ -340,3 +375,21 @@ var/global/list/_test_storage_items = list()
 
 /datum/storage/proc/can_view(mob/viewer)
 	return (holder in viewer.contents) || viewer.Adjacent(holder)
+
+///Overridable sound playback parameters. Since not all sounds are created equal.
+/datum/storage/proc/play_open_sound(volume = 50)
+	if(!length(open_sound) || !holder)
+		return
+	playsound(holder, open_sound, volume, FALSE, -5)
+
+///Plays the close sound for this storage. volume as arg so it can be overriden. Since not all sounds are created equal.
+/datum/storage/proc/play_close_sound(volume = 50)
+	if(!length(close_sound) || !holder)
+		return
+	playsound(holder, close_sound, volume, FALSE, -5)
+
+///Plays the use sound for this storage. volume as arg so it can be overriden. Since not all sounds are created equal.
+/datum/storage/proc/play_use_sound(volume = 50)
+	if(!length(use_sound) || !holder)
+		return
+	playsound(holder, use_sound, volume, FALSE, -5)

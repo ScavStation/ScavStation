@@ -44,12 +44,25 @@ var/global/list/wall_fullblend_objects = list(
 	var/decl/material/girder_material = /decl/material/solid/metal/steel
 	var/construction_stage
 	var/hitsound = 'sound/weapons/Genhit.ogg'
+	/// A list of connections to walls for each corner, used for icon generation. Can be converted to a list of dirs with corner_states_to_dirs().
 	var/list/wall_connections
+	/// A list of connections to non-walls for each corner, used for icon generation. Can be converted to a list of dirs with corner_states_to_dirs().
 	var/list/other_connections
 	var/floor_type = /turf/floor/plating //turf it leaves after destruction
 	var/paint_color
 	var/stripe_color
 	var/handle_structure_blending = TRUE
+	var/min_dismantle_amount = 2
+	var/max_dismantle_amount = 2
+
+	/// Icon to use if shutter state is non-null.
+	var/shutter_icon = 'icons/turf/walls/shutter.dmi'
+	/// TRUE = open, FALSE = closed, null = no shutter.
+	var/shutter_state
+	/// Overrides base material for shutter icon if set.
+	var/decl/material/shutter_material
+	/// Shutter open/close sound.
+	var/shutter_sound = 'sound/weapons/Genhit.ogg'
 
 /turf/wall/Initialize(var/ml, var/materialtype, var/rmaterialtype)
 
@@ -59,6 +72,9 @@ var/global/list/wall_fullblend_objects = list(
 	icon = get_wall_icon()
 	icon_state = "blank"
 	color = null
+
+	if(ispath(shutter_material))
+		shutter_material = GET_DECL(shutter_material)
 
 	set_turf_materials((materialtype || material || get_default_material()), (rmaterialtype || reinf_material), TRUE, girder_material, skip_update = TRUE)
 
@@ -144,7 +160,7 @@ var/global/list/wall_fullblend_objects = list(
 			plant.update_icon()
 			plant.reset_offsets(0)
 
-/turf/wall/ChangeTurf(var/turf/N, var/tell_universe = TRUE, var/force_lighting_update = FALSE, var/keep_air = FALSE, var/keep_air_below = FALSE, var/update_open_turfs_above = TRUE)
+/turf/wall/ChangeTurf(var/turf/N, var/tell_universe = TRUE, var/force_lighting_update = FALSE, var/keep_air = FALSE, var/update_open_turfs_above = TRUE)
 	clear_plants()
 	. = ..()
 
@@ -182,7 +198,7 @@ var/global/list/wall_fullblend_objects = list(
 	F.icon_state = "wall_thermite"
 	visible_message(SPAN_DANGER("\The [src] spontaneously combusts!"))
 
-/turf/wall/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0)
+/turf/wall/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	if(damage)
 		src.damage = max(0, src.damage + damage)
 		update_damage()
@@ -225,9 +241,9 @@ var/global/list/wall_fullblend_objects = list(
 		placed_girder.prepped_for_fakewall = can_open
 		placed_girder.update_icon()
 	if(material)
-		material.place_dismantled_product(src, devastated, amount = rand(3, 5), drop_type = get_dismantle_stack_type())
+		material.place_dismantled_product(src, devastated, amount = rand(min_dismantle_amount, max_dismantle_amount), drop_type = get_dismantle_stack_type())
 
-/turf/wall/dismantle_turf(devastated, explode, no_product)
+/turf/wall/dismantle_turf(devastated, explode, no_product, keep_air = TRUE)
 
 	playsound(src, get_dismantle_sound(), 100, 1)
 	if(!no_product)
@@ -240,7 +256,7 @@ var/global/list/wall_fullblend_objects = list(
 		else
 			O.forceMove(src)
 	clear_plants()
-	. = ChangeTurf(floor_type || get_base_turf_by_area(src))
+	. = ChangeTurf(floor_type || get_base_turf_by_area(src), keep_air = keep_air)
 
 /turf/wall/explosion_act(severity)
 	SHOULD_CALL_PARENT(FALSE)
@@ -297,20 +313,6 @@ var/global/list/wall_fullblend_objects = list(
 
 /turf/wall/is_wall()
 	return TRUE
-
-/turf/wall/on_defilement()
-	var/new_material
-	if(material?.type != /decl/material/solid/stone/cult)
-		new_material = /decl/material/solid/stone/cult
-	var/new_rmaterial
-	if(reinf_material && reinf_material.type != /decl/material/solid/stone/cult/reinforced)
-		new_rmaterial = /decl/material/solid/stone/cult/reinforced
-	if(new_material || new_rmaterial)
-		..()
-		set_turf_materials(new_material, new_rmaterial)
-
-/turf/wall/is_defiled()
-	return material?.type == /decl/material/solid/stone/cult || reinf_material?.type == /decl/material/solid/stone/cult/reinforced || ..()
 
 /turf/wall/handle_universal_decay()
 	handle_melting()

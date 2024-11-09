@@ -1,9 +1,5 @@
-/decl/species/handle_post_spawn(var/mob/living/carbon/human/H)
-	. = ..()
-	if(H)
-		H.update_pheromone_markers()
-
 /decl/bodytype/indrel
+	uid = "bodytype_indrel"
 	name = "indrel"
 	bodytype_category = BODYTYPE_INDREL
 	bodytype_flag =     BODY_FLAG_INDREL

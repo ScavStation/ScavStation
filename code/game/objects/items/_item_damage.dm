@@ -1,5 +1,5 @@
 /**Basic damage handling for items. Returns the amount of damage taken after armor if the item was damaged.*/
-/obj/item/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0)
+/obj/item/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	if(!can_take_damage()) // This object does not take damage.
 		return 0 //Must return a number
 	if(damage < 0)
@@ -78,8 +78,8 @@
 		else
 			playsound(hit_atom, 'sound/weapons/throwtap.ogg', volume, TRUE, -1)
 
-/obj/item/proc/eyestab(mob/living/carbon/M, mob/living/carbon/user)
-	var/mob/living/carbon/human/H = M
+/obj/item/proc/eyestab(mob/living/M, mob/living/user)
+	var/mob/living/human/H = M
 	if(istype(H))
 		for(var/slot in global.standard_headgear_slots)
 			var/obj/item/protection = H.get_equipped_item(slot)

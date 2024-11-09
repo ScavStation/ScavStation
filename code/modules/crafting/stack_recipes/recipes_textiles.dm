@@ -47,6 +47,9 @@
 /decl/stack_recipe/textiles/leather/gloves
 	result_type           = /obj/item/clothing/gloves/thick
 
+/decl/stack_recipe/textiles/leather/sling
+	result_type           = /obj/item/gun/launcher/bow/sling
+
 /decl/stack_recipe/textiles/leather/waterskin
 	result_type           = /obj/item/chems/waterskin/crafted
 	required_material     = /decl/material/solid/organic/leather
@@ -84,3 +87,10 @@
 /decl/stack_recipe/textiles/fur/bedding
 	result_type           = /obj/item/bedsheet/furs
 	category              = "bedding"
+
+/decl/stack_recipe/textiles/surgical_sutures
+	result_type           = /obj/item/ancient_surgery/sutures
+	craft_stack_types     = list(/obj/item/stack/material/thread)
+	difficulty            = MAT_VALUE_HARD_DIY
+	category              = "medical"
+	available_to_map_tech_level = MAP_TECH_LEVEL_MEDIEVAL

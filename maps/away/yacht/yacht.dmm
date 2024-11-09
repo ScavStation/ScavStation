@@ -871,7 +871,6 @@
 "cD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/bot/farmbot,
 /turf/floor/wood/yew,
 /area/yacht/living)
 "cE" = (
@@ -997,7 +996,7 @@
 /turf/floor/plating,
 /area/yacht/engine)
 "dg" = (
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/plastic/rations,
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/plating,
 /area/yacht/engine)
@@ -1176,7 +1175,7 @@
 /obj/item/cane,
 /obj/item/clothing/suit/det_trench/grey,
 /obj/item/clothing/gloves/ring/cti,
-/obj/item/clothing/under/lawyer/oldman,
+/obj/item/clothing/costume/oldman,
 /obj/structure/table/woodentable,
 /obj/effect/spider/stickyweb,
 /obj/random/cash,

@@ -21,14 +21,23 @@
 	butchery_data = /decl/butchery_data/animal/arthropod/crab
 
 // TODO
+/decl/bodytype/hexapod
+	abstract_type = /decl/bodytype/hexapod
+
 /decl/bodytype/hexapod/animal
 	abstract_type = /decl/bodytype/hexapod/animal
 	name = "hexapod animal"
 	bodytype_flag = 0
 	bodytype_category = "hexapodal animal body"
 
+/decl/bodytype/hexapod/get_ignited_icon_state(mob/living/victim)
+	return "Generic_mob_burning"
+
 /mob/living/simple_animal/crab/get_bodytype()
 	return GET_DECL(/decl/bodytype/hexapod/animal/crab)
+
+/decl/bodytype/hexapod/animal/crab
+	uid = "bodytype_animal_crab"
 
 /decl/bodytype/hexapod/animal/crab/Initialize()
 	equip_adjust = list(

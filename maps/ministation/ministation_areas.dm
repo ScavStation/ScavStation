@@ -206,10 +206,24 @@
 	icon_state = "green"
 
 /area/ministation/security
-	name = "\improper Security Office"
+	name = "\improper Security Department"
 	req_access = list(access_security)
 	secure = TRUE
 	icon_state = "red"
+	area_flags = AREA_FLAG_SECURITY
+
+/area/ministation/securityoffice
+	name = "\improper Security Meeting Office"
+	req_access = list(access_security)
+	secure = TRUE
+	icon_state = "light_blue"
+	area_flags = AREA_FLAG_SECURITY
+
+/area/ministation/armory
+	name = "\improper Armory"
+	req_access = list(access_armory)
+	secure = TRUE
+	icon_state = "purple"
 	area_flags = AREA_FLAG_SECURITY
 
 /area/ministation/detective
@@ -218,9 +232,16 @@
 	secure = TRUE
 	icon_state = "dark_blue"
 
+/area/ministation/perma
+	name = "\improper Perma Prison"
+	req_access = list(access_brig)
+	secure = TRUE
+	icon_state = "green"
+
 /area/ministation/court
 	name = "\improper Court Room"
 	req_access =list(access_lawyer)
+	turf_initializer = /decl/turf_initializer/maintenance
 	secure = TRUE
 	icon_state = "pink"
 
@@ -233,11 +254,27 @@
 	req_access = list(access_atmospherics)
 	icon_state = "ATMOS"
 
+/area/ministation/atmospump
+	name = "\improper Atmospherics Aux Pump Room"
+	req_access = list(access_atmospherics)
+	icon_state = "ATMOS"
+
 /area/ministation/science
 	name = "\improper Research & Development Laboratory"
 	req_access = list(access_robotics)
 	secure = TRUE
 	icon_state = "purple"
+
+/area/ministation/psion
+	name = "\improper Psion Office"
+	req_access = list(access_robotics)
+	secure = TRUE
+	icon_state = "dark_blue"
+
+/area/ministation/biodome
+	name = "\improper Science Biodome"
+
+	icon_state = "white"
 
 /area/ministation/eva
 	name = "\improper EVA Storage"
@@ -249,6 +286,29 @@
 	name = "\improper Infirmary"
 	req_access = list(access_medical)
 	icon_state = "light_blue"
+	secure = TRUE
+
+/area/ministation/surgicaln
+	name = "\improper Surgery North"
+	req_access = list(access_medical)
+	icon_state = "yellow"
+	secure = TRUE
+
+/area/ministation/surgicals
+	name = "\improper Surgery South"
+	req_access = list(access_medical)
+	icon_state = "purple"
+	secure = TRUE
+
+/area/ministation/medical/nursery
+	name = "\improper Nursery"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	icon_state = "green"
+	secure = TRUE
+
+/area/ministation/medical/psychology
+	name = "\improper Psychology"
+	icon_state = "green"
 	secure = TRUE
 
 /area/ministation/cryo
@@ -269,8 +329,13 @@
 	icon_state = "green"
 
 /area/ministation/cafe // no access requirement to get in. inner doors need access kitchen
-	name = "\improper Cafeteria"
+	name = "\improper Dining Lounge"
 	icon_state = "red"
+	secure = TRUE
+
+/area/ministation/kitchen // no access requirement to get in. inner doors need access kitchen
+	name = "\improper Kitchen"
+	icon_state = "orange"
 	secure = TRUE
 
 /area/ministation/engine
@@ -317,6 +382,91 @@
 	req_access = list()
 	icon_state = "light_blue"
 	secure = FALSE
+
+/area/ministation/enclave/tower
+	name = "\improper Enclave Tower"
+	req_access = list()
+	icon_state = "dark_blue"
+	secure = FALSE
+
+/area/ministation/enclave/scikitchen
+	name = "\improper Enclave SCI-Kitchen"
+	req_access = list()
+	icon_state = "green"
+	secure = FALSE
+
+/area/ministation/enclave/evacloset
+	name = "\improper Enclave EVA Closet"
+	req_access = list()
+	icon_state = "brown"
+	secure = FALSE
+
+/area/ministation/enclave/engineering
+	name = "\improper Enclave Engineering"
+	req_access = list()
+	icon_state = "yellow"
+	secure = FALSE
+
+/area/ministation/enclave/airroom
+	name = "\improper Enclave Air Room"
+	req_access = list()
+	icon_state = "light_blue"
+	secure = FALSE
+
+/area/ministation/enclave/messhall
+	name = "\improper Enclave Mess Hall"
+	req_access = list()
+	icon_state = "red"
+	secure = FALSE
+
+/area/ministation/enclave/foyer
+	name = "\improper Enclave Foyer"
+	req_access = list()
+	icon_state = "yellow"
+	secure = FALSE
+
+/area/ministation/enclave/sleepingroom
+	name = "\improper Enclave Sleeping Room"
+	req_access = list()
+	icon_state = "pink"
+	secure = FALSE
+
+/area/ministation/enclave/atrium
+	name = "\improper Enclave Atrium"
+	req_access = list()
+	icon_state = "white"
+	secure = FALSE
+
+/area/ministation/enclave/armory
+	name = "\improper Enclave Armory"
+	req_access = list(access_security)
+	icon_state = "dark_blue"
+	secure = TRUE
+
+/area/ministation/enclave/badclamrock
+	name = "\improper Bad Clam Rock"
+	req_access = list(access_security)
+	icon_state = "brown"
+	secure = TRUE
+
+/area/ministation/enclave/matriarch
+	name = "\improper Matriarch's Chambers"
+	req_access = list(access_heads)
+	icon_state = "green"
+	secure = TRUE
+
+/area/ministation/enclave/eggclave
+	name = "\improper Eggclave"
+	req_access = list(access_medical)
+	icon_state = "white"
+	secure = TRUE
+
+/area/ministation/enclave/conference
+	name = "\improper Table of Meeting"
+	req_access = list(access_security)
+	icon_state = "green"
+	secure = TRUE
+
 
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
@@ -369,7 +519,7 @@
 	arrival_sound = null
 	lift_announce_str = null
 
-/area/turbolift/alert_on_fall(var/mob/living/carbon/human/H)
+/area/turbolift/alert_on_fall(var/mob/living/human/H)
 	if(H.client && SSpersistence.elevator_fall_shifts > 0)
 		SSwebhooks.send(WEBHOOK_ELEVATOR_FALL, list("text" = "We managed to make it [SSpersistence.elevator_fall_shifts] shift\s without someone falling down an elevator shaft."))
 		SSpersistence.elevator_fall_shifts = -1

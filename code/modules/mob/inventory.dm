@@ -1,14 +1,14 @@
 //This proc is called whenever someone clicks an inventory ui slot.
 /mob/proc/attack_ui(slot)
-	var/obj/item/W = get_active_held_item()
-	var/obj/item/E = get_equipped_item(slot)
-	if (istype(E))
-		if(istype(W))
-			E.attackby(W,src)
+	var/obj/item/holding = get_active_held_item()
+	var/obj/item/equipped = get_equipped_item(slot)
+	if (istype(equipped))
+		if(istype(holding))
+			equipped.attackby(holding, src)
 		else
-			E.attack_hand(src) // We can assume it's physically accessible if it's on our person.
+			equipped.attack_hand(src) // We can assume it's physically accessible if it's on our person.
 	else
-		equip_to_slot_if_possible(W, slot)
+		equip_to_slot_if_possible(holding, slot)
 
 //This is a SAFE proc. Use this instead of equip_to_slot()!
 //set del_on_fail to have it delete W if it fails to equip
@@ -304,22 +304,23 @@
 	return TRUE
 
 //Attemps to remove an object on a mob.
-/mob/proc/remove_from_mob(var/obj/O, var/atom/target, var/play_dropsound = TRUE)
-	if(!O) // Nothing to remove, so we succeed.
-		return 1
-	src.unequip(O)
-	if (src.client)
-		src.client.screen -= O
-	O.reset_plane_and_layer()
-	O.screen_loc = null
-	if(istype(O, /obj/item))
-		var/obj/item/I = O
+/mob/proc/remove_from_mob(var/obj/object, var/atom/target, var/play_dropsound = TRUE)
+	if(!istype(object)) // Nothing to remove, so we succeed.
+		return TRUE
+	unequip(object)
+	if(client)
+		client.screen -= object
+	object.reset_plane_and_layer()
+	object.screen_loc = null
+	if(!QDELETED(object))
 		if(target)
-			I.forceMove(target)
+			object.forceMove(target)
 		else
-			I.dropInto(loc)
-		I.dropped(src, play_dropsound)
-	return 1
+			object.dropInto(loc)
+		if(isitem(object))
+			var/obj/item/item = object
+			item.dropped(src, play_dropsound)
+	return TRUE
 
 /mob/proc/drop_held_items()
 	for(var/thing in get_held_items())

@@ -66,19 +66,19 @@
 	. += "<b>Automatic Security Unit</b>"
 
 /mob/living/bot/secbot/GetInteractPanel()
-	. = "Check for weapon authorization: <a href='?src=\ref[src];command=idcheck'>[idcheck ? "Yes" : "No"]</a>"
-	. += "<br>Check security records: <a href='?src=\ref[src];command=ignorerec'>[check_records ? "Yes" : "No"]</a>"
-	. += "<br>Check arrest status: <a href='?src=\ref[src];command=ignorearr'>[check_arrest ? "Yes" : "No"]</a>"
-	. += "<br>Report arrests: <a href='?src=\ref[src];command=declarearrests'>[declare_arrests ? "Yes" : "No"]</a>"
-	. += "<br>Auto patrol: <a href='?src=\ref[src];command=patrol'>[will_patrol ? "On" : "Off"]</a>"
+	. = "Check for weapon authorization: <a href='byond://?src=\ref[src];command=idcheck'>[idcheck ? "Yes" : "No"]</a>"
+	. += "<br>Check security records: <a href='byond://?src=\ref[src];command=ignorerec'>[check_records ? "Yes" : "No"]</a>"
+	. += "<br>Check arrest status: <a href='byond://?src=\ref[src];command=ignorearr'>[check_arrest ? "Yes" : "No"]</a>"
+	. += "<br>Report arrests: <a href='byond://?src=\ref[src];command=declarearrests'>[declare_arrests ? "Yes" : "No"]</a>"
+	. += "<br>Auto patrol: <a href='byond://?src=\ref[src];command=patrol'>[will_patrol ? "On" : "Off"]</a>"
 
 /mob/living/bot/secbot/GetInteractMaintenance()
 	. = "Threat identifier status: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Normal</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Normal</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 
@@ -175,7 +175,7 @@
 			return
 
 /mob/living/bot/secbot/handleAdjacentTarget()
-	var/mob/living/carbon/human/H = target
+	var/mob/living/human/H = target
 	var/threat = check_threat(target)
 	if(awaiting_surrender < SECBOT_WAIT_TIME && istype(H) && !H.current_posture.prone && threat < SECBOT_THREAT_ATTACK)
 		if(awaiting_surrender == -1)
@@ -184,10 +184,10 @@
 	else
 		UnarmedAttack(target)
 
-/mob/living/bot/secbot/proc/cuff_target(var/mob/living/carbon/C)
-	if(istype(C) && !C.get_equipped_item(slot_handcuffed_str))
-		handcuffs.place_handcuffs(C, src)
-	resetTarget() //we're done, failed or not. Don't want to get stuck if C is not
+/mob/living/bot/secbot/proc/cuff_target(var/mob/living/target)
+	if(istype(target) && !target.get_equipped_item(slot_handcuffed_str))
+		handcuffs.place_handcuffs(target, src)
+	resetTarget() //we're done, failed or not. Don't want to get stuck if target is not
 
 /mob/living/bot/get_target_zone()
 	if(!client)
@@ -203,7 +203,7 @@
 	if(!istype(M))
 		return FALSE
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/human/H = M
 	if(istype(H) && H.current_posture.prone)
 		cuff_target(H)
 		return TRUE
@@ -228,7 +228,7 @@
 
 /mob/living/bot/secbot/proc/target_name(mob/living/T)
 	if(ishuman(T))
-		var/mob/living/carbon/human/H = T
+		var/mob/living/human/H = T
 		return H.get_id_name("unidentified person")
 	return "unidentified lifeform"
 

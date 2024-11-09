@@ -4,13 +4,14 @@
 	layer = STRUCTURE_LAYER
 	abstract_type = /obj/structure
 	max_health = 50
+	temperature_sensitive = TRUE
 
 	/// Multiplier for degree of comfort offered to mobs buckled to this furniture.
 	var/user_comfort = 0 // TODO: extremely uncomfortable chairs
 
 	var/structure_flags
 	var/last_damage_message
-	var/hitsound = 'sound/weapons/smash.ogg'
+	var/hitsound = 'sound/weapons/Genhit.ogg'
 	var/parts_type
 	var/parts_amount
 	var/footstep_type
@@ -61,7 +62,7 @@
 		reinf_material = GET_DECL(reinf_material)
 	. = ..()
 	update_materials()
-	if(lock)
+	if(lock && !istype(loc))
 		lock = new /datum/lock(src, lock)
 	if(!CanFluidPass())
 		fluid_update(TRUE)
@@ -103,7 +104,7 @@
 			if(tool_interaction_flags & TOOL_INTERACTION_ANCHOR)
 				if(wired)
 					if(anchored)
-						to_chat(user, SPAN_SUBTLE("Can have its wiring removed with wirecutters"))
+						to_chat(user, SPAN_SUBTLE("Can have its wiring removed with wirecutters."))
 					else
 						to_chat(user, SPAN_SUBTLE("Can have its wiring removed with wirecutters, if anchored down with a wrench first."))
 				else
@@ -113,7 +114,7 @@
 						to_chat(user, SPAN_SUBTLE("Can have wiring installed with a cable coil, if anchored down with a wrench first."))
 			else
 				if(wired)
-					to_chat(user, SPAN_SUBTLE("Can have its wiring removed with wirecutters"))
+					to_chat(user, SPAN_SUBTLE("Can have its wiring removed with wirecutters."))
 				else
 					to_chat(user, SPAN_SUBTLE("Can have wiring installed with a cable coil."))
 
@@ -121,7 +122,7 @@
 	set waitfor = FALSE
 	return FALSE
 
-/obj/structure/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0)
+/obj/structure/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	if(current_health == -1) // This object does not take damage.
 		return
 
@@ -132,7 +133,7 @@
 		else
 			damage *= STRUCTURE_BRITTLE_MATERIAL_DAMAGE_MULTIPLIER
 
-	playsound(loc, hitsound, 75, 1)
+	playsound(loc, hitsound, 60, 1)
 	var/current_max_health = get_max_health()
 	current_health = clamp(current_health - damage, 0, current_max_health)
 	show_damage_message(current_health/current_max_health)

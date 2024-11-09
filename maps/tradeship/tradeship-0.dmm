@@ -2055,7 +2055,7 @@
 "Qh" = (
 /obj/structure/table/woodentable/mahogany,
 /obj/item/cell/crap/empty,
-/obj/item/gun/launcher/crossbow,
+/obj/item/gun/launcher/bow/crossbow,
 /obj/item/stack/material/rods,
 /turf/floor/wood/walnut,
 /area/ship/trade/enclave)

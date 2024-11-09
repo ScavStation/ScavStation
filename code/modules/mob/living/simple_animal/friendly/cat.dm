@@ -25,6 +25,9 @@
 /mob/living/simple_animal/cat/get_bodytype()
 	return GET_DECL(/decl/bodytype/quadruped/animal/cat)
 
+/decl/bodytype/quadruped/animal/cat
+	uid = "bodytype_animal_cat"
+
 /decl/bodytype/quadruped/animal/cat/Initialize()
 	equip_adjust = list(
 		slot_head_str = list(
@@ -134,7 +137,7 @@
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff
-	var/mob/living/carbon/human/friend
+	var/mob/living/human/friend
 	var/befriend_job = null
 
 /mob/living/simple_animal/cat/fluff/handle_movement_target()
@@ -195,7 +198,7 @@
 	set src in view(1)
 
 	if(!friend)
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/human/H = usr
 		if(istype(H) && (!befriend_job || H.job == befriend_job))
 			friend = usr
 			. = 1
@@ -233,6 +236,9 @@
 
 /mob/living/simple_animal/cat/kitten/get_bodytype()
 	return GET_DECL(/decl/bodytype/quadruped/animal/kitten)
+
+/decl/bodytype/quadruped/animal/kitten
+	uid = "bodytype_animal_kitten"
 
 /decl/bodytype/quadruped/animal/kitten/Initialize()
 	equip_adjust = list(

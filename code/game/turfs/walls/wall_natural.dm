@@ -11,6 +11,10 @@
 	var/static/list/exterior_wall_shine_cache = list()
 	var/being_mined = FALSE
 
+/turf/wall/natural/flooded
+	flooded = /decl/material/liquid/water
+	color = COLOR_LIQUID_WATER
+
 /turf/wall/natural/get_paint_examine_message()
 	return SPAN_NOTICE("It has been <font color = '[paint_color]'>noticeably discoloured</font> by the elements.")
 
@@ -18,10 +22,12 @@
 	return 'icons/turf/walls/natural.dmi'
 
 /turf/wall/natural/Initialize(var/ml, var/materialtype, var/rmaterialtype)
-	if(!SSxenoarch.initialized)
-		SSxenoarch.possible_spawn_walls += src
 	. = ..()
-	set_extension(src, /datum/extension/geological_data)
+	var/area/A = get_area(src)
+	if(A.allow_xenoarchaeology_finds)
+		if(!SSxenoarch.initialized)
+			SSxenoarch.possible_spawn_walls += src
+		set_extension(src, /datum/extension/geological_data)
 	// Init ramp state if needed.
 	if(ramp_slope_direction)
 		make_ramp(null, ramp_slope_direction, TRUE)
@@ -116,13 +122,14 @@
 /turf/wall/natural/get_dismantle_sound()
 	return 'sound/effects/rockcrumble.ogg'
 
-/turf/wall/natural/dismantle_turf(devastated, explode, no_product, ramp_update = TRUE)
+// Natural walls are typically dense, and should not contain any air a-la normal walls, so we set keep_air = FALSE by default.
+/turf/wall/natural/dismantle_turf(devastated, explode, no_product, keep_air = FALSE, ramp_update = TRUE)
 	destroy_artifacts(null, INFINITY)
 	if(ramp_update && !ramp_slope_direction)
 		ramp_slope_direction = NORTH // Temporary so we don't let any neighboring ramps use us as supports.
 		update_neighboring_ramps()
 		ramp_slope_direction = null
-	return ..(devastated, explode, no_product)
+	return ..(devastated, explode, no_product, keep_air)
 
 /turf/wall/natural/Bumped(var/atom/movable/AM)
 	. = ..()
@@ -146,7 +153,7 @@
 
 /turf/wall/natural/proc/pass_geodata_to(obj/O)
 	var/datum/extension/geological_data/ours = get_extension(src, /datum/extension/geological_data)
-	if(ours.geodata)
+	if(ours?.geodata)
 		ours.geodata.UpdateNearbyArtifactInfo(src)
 		set_extension(O, /datum/extension/geological_data)
 		var/datum/extension/geological_data/newdata = get_extension(O, /datum/extension/geological_data)
@@ -167,9 +174,6 @@
 
 /turf/wall/natural/get_default_material()
 	. = GET_DECL(get_strata_material_type() || /decl/material/solid/stone/sandstone)
-
-/turf/wall/natural/on_defilement()
-	ChangeTurf(/turf/wall/cult)
 
 /turf/wall/natural/get_strata_material_type()
 	//Turf strata overrides level strata

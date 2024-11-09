@@ -247,10 +247,10 @@
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
 
 /mob/proc/is_blind()
-	return ((sdisabilities & BLINDED) || incapacitated(INCAPACITATION_KNOCKOUT) || HAS_STATUS(src, STAT_BLIND))
+	return (has_genetic_condition(GENE_COND_BLINDED) || incapacitated(INCAPACITATION_KNOCKOUT) || HAS_STATUS(src, STAT_BLIND))
 
 /mob/proc/is_deaf()
-	return ((sdisabilities & DEAFENED) || incapacitated(INCAPACITATION_KNOCKOUT) || HAS_STATUS(src, STAT_DEAF))
+	return (has_genetic_condition(GENE_COND_DEAFENED) || incapacitated(INCAPACITATION_KNOCKOUT) || HAS_STATUS(src, STAT_DEAF))
 
 /mob/proc/is_physically_disabled()
 	return incapacitated(INCAPACITATION_DISABLED)
@@ -291,8 +291,19 @@
 #undef PARTIALLY_BUCKLED
 #undef FULLY_BUCKLED
 
+/mob/proc/grab_restrained()
+	for (var/obj/item/grab/G in grabbed_by)
+		if(G.restrains())
+			return TRUE
+
 /mob/proc/restrained()
-	return
+	if(get_equipped_item(slot_handcuffed_str))
+		return TRUE
+	if(grab_restrained())
+		return TRUE
+	if (istype(get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/straight_jacket))
+		return TRUE
+	return FALSE
 
 /mob/proc/reset_view(atom/A)
 	set waitfor = 0
@@ -335,7 +346,7 @@
 		if(!inv_slot || inv_slot.skip_on_strip_display)
 			continue
 		var/obj/item/held = inv_slot.get_equipped_item()
-		dat += "<b>[capitalize(inv_slot.slot_name)]:</b> <A href='?src=\ref[src];item=[hand_slot]'>[held?.name || "nothing"]</A>"
+		dat += "<b>[capitalize(inv_slot.slot_name)]:</b> <A href='byond://?src=\ref[src];item=[hand_slot]'>[held?.name || "nothing"]</A>"
 
 	var/list/all_slots = get_all_available_equipment_slots()
 	if(all_slots)
@@ -343,39 +354,39 @@
 			if(slot in my_held_item_slots)
 				continue
 			var/obj/item/thing_in_slot = get_equipped_item(slot)
-			dat += "<B>[capitalize(get_descriptive_slot_name(slot))]:</b> <a href='?src=\ref[src];item=[slot]'>[thing_in_slot || "nothing"]</a>"
+			dat += "<B>[capitalize(get_descriptive_slot_name(slot))]:</b> <a href='byond://?src=\ref[src];item=[slot]'>[thing_in_slot || "nothing"]</a>"
 			if(istype(thing_in_slot, /obj/item/clothing))
 				var/obj/item/clothing/C = thing_in_slot
 				if(LAZYLEN(C.accessories))
-					dat += "<A href='?src=\ref[src];item=accessory;holder=\ref[C]'>Remove accessory</A>"
+					dat += "<A href='byond://?src=\ref[src];item=accessory;holder=\ref[C]'>Remove accessory</A>"
 
 	// Do they get an option to set internals?
 	if(istype(get_equipped_item(slot_wear_mask_str), /obj/item/clothing/mask) || istype(get_equipped_item(slot_head_str), /obj/item/clothing/head/helmet/space))
 		for(var/slot in list(slot_back_str, slot_belt_str, slot_s_store_str))
 			var/obj/item/tank/tank = get_equipped_item(slot)
 			if(istype(tank))
-				dat += "<BR><A href='?src=\ref[src];item=internals'>Toggle internals.</A>"
+				dat += "<BR><A href='byond://?src=\ref[src];item=internals'>Toggle internals.</A>"
 				break
 
 	// Other incidentals.
 	var/obj/item/clothing/suit = get_equipped_item(slot_w_uniform_str)
 	if(istype(suit))
-		dat += "<BR><b>Pockets:</b> <A href='?src=\ref[src];item=pockets'>Empty or Place Item</A>"
+		dat += "<BR><b>Pockets:</b> <A href='byond://?src=\ref[src];item=pockets'>Empty or Place Item</A>"
 	var/obj/item/clothing/sensor/vitals/sensor = get_vitals_sensor()
 	if(sensor)
 		if(sensor.get_sensors_locked())
-			dat += "<BR><A href='?src=\ref[src];item=lock_sensors'>Unlock vitals sensors</A>"
+			dat += "<BR><A href='byond://?src=\ref[src];item=lock_sensors'>Unlock vitals sensors</A>"
 		else if(user.get_multitool())
-			dat += "<BR><A href='?src=\ref[src];item=lock_sensors'>Lock vitals sensors</A>"
-			dat += "<BR><A href='?src=\ref[src];item=sensors'>Set vitals sensors</A>"
+			dat += "<BR><A href='byond://?src=\ref[src];item=lock_sensors'>Lock vitals sensors</A>"
+			dat += "<BR><A href='byond://?src=\ref[src];item=sensors'>Set vitals sensors</A>"
 	if(get_equipped_item(slot_handcuffed_str))
-		dat += "<BR><A href='?src=\ref[src];item=[slot_handcuffed_str]'>Handcuffed</A>"
+		dat += "<BR><A href='byond://?src=\ref[src];item=[slot_handcuffed_str]'>Handcuffed</A>"
 
 	var/list/strip_add = get_additional_stripping_options()
 	if(length(strip_add))
 		dat += strip_add
 
-	dat += "<BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
+	dat += "<BR><A href='byond://?src=\ref[src];refresh=1'>Refresh</A>"
 
 	var/datum/browser/popup = new(user, "[name]", "Inventory of \the [name]", 325, 500, src)
 	popup.set_content(jointext(dat, "<br>"))
@@ -469,9 +480,9 @@
 	set name = "Activate Held Object"
 	set category = "Object"
 	set src = usr
-	var/obj/item/W = get_active_held_item()
-	W?.attack_self(src)
-	return W
+	var/obj/item/holding = get_active_held_item()
+	holding?.attack_self(src)
+	return holding
 
 /mob/living/mode()
 	if(!..())
@@ -585,7 +596,7 @@
 /mob/proc/pull_damage()
 	return 0
 
-/mob/living/carbon/human/pull_damage()
+/mob/living/human/pull_damage()
 	if(!current_posture.prone|| get_damage(BRUTE) + get_damage(BURN) < 100)
 		return FALSE
 	for(var/obj/item/organ/external/e in get_external_organs())
@@ -765,45 +776,8 @@
 /mob/proc/embedded_needs_process()
 	return !!LAZYLEN(embedded)
 
-/mob/proc/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
-	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
-		verbs -= /mob/proc/yank_out_object
-	for(var/obj/item/O in pinned)
-		if(O == implant)
-			LAZYREMOVE(pinned, O)
-		if(!LAZYLEN(pinned))
-			anchored = FALSE
-	implant.dropInto(loc)
-	implant.add_blood(src)
-	implant.update_icon()
-	if(istype(implant,/obj/item/implant))
-		var/obj/item/implant/imp = implant
-		imp.removed()
-	. = TRUE
-
-/mob/living/silicon/robot/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
-	LAZYREMOVE(embedded, implant)
-	take_damage(5, do_update_health = FALSE)
-	take_damage(10, BURN)
-	. = ..()
-
-/mob/living/carbon/human/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE, var/obj/item/organ/external/affected)
-	if(!affected) //Grab the organ holding the implant.
-		for(var/obj/item/organ/external/organ in get_external_organs())
-			for(var/obj/item/O in organ.implants)
-				if(O == implant)
-					affected = organ
-					break
-	if(affected)
-		LAZYREMOVE(affected.implants, implant)
-		for(var/datum/wound/wound in affected.wounds)
-			LAZYREMOVE(wound.embedded_objects, implant)
-		if(!surgical_removal)
-			shock_stage+=20
-			affected.take_external_damage((implant.w_class * 3), 0, DAM_EDGE, "Embedded object extraction")
-			if(!BP_IS_PROSTHETIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
-				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
-	. = ..()
+/mob/proc/remove_implant(obj/item/implant, surgical_removal = FALSE, obj/item/organ/external/affected)
+	return FALSE
 
 /mob/proc/yank_out_object()
 	set category = "Object"
@@ -857,7 +831,7 @@
 	if(U.get_empty_hand_slot())
 		U.put_in_hands(selection)
 	if(ishuman(U))
-		var/mob/living/carbon/human/human_user = U
+		var/mob/living/human/human_user = U
 		human_user.bloody_hands(src)
 	return 1
 
@@ -1019,7 +993,11 @@
 /mob/proc/get_sound_volume_multiplier()
 	if(GET_STATUS(src, STAT_DEAF))
 		return 0
-	return 1
+	. = 1
+	for(var/slot in global.headphone_slots)
+		var/obj/item/clothing/C = get_equipped_item(slot)
+		if(istype(C))
+			. = min(., C.volume_multiplier)
 
 // Mobs further up the chain should override this proc if they want to return a simple dexterity value.
 /mob/proc/get_dexterity(var/silent)
@@ -1314,6 +1292,9 @@
 /mob/proc/get_unique_enzymes()
 	return
 
+/mob/proc/set_unique_enzymes(value)
+	return
+
 /mob/proc/get_blood_type()
 	return
 
@@ -1343,9 +1324,48 @@
 /mob/proc/nervous_system_failure()
 	return FALSE
 
+/mob/proc/resolve_to_radio_listeners()
+	if(status_flags & PASSEMOTES)
+		var/list/listeners = list(src)
+		for(var/obj/item/holder/holder in src.contents)
+			for(var/mob/living/listener in holder)
+				listeners |= listener
+		for(var/mob/living/listener in contents)
+			listeners |= listener
+		return listeners
+	return src
+
 /mob/proc/mob_throw_item(atom/target)
 	return
+
+/mob/proc/swap_hand()
+	SHOULD_CALL_PARENT(TRUE)
+
+/mob/proc/set_skin_tone(value)
+	return
+
+/mob/proc/get_skin_tone(value)
+	return
+
+/mob/proc/force_update_limbs()
+	return
+
+/mob/proc/update_eyes(update_icons = TRUE)
+	var/obj/item/organ/internal/eyes/eyes = get_organ((get_bodytype()?.vision_organ || BP_EYES), /obj/item/organ/internal/eyes)
+	if(eyes)
+		eyes.update_colour()
+		if(update_icons)
+			queue_icon_update()
+
+/mob/proc/has_genetic_information()
+	if(isSynthetic())
+		return FALSE
+	var/decl/bodytype/bodytype = get_bodytype()
+	if(bodytype?.body_flags & BODY_FLAG_NO_DNA)
+		return FALSE
+	return TRUE
 
 /mob/living/proc/get_butchery_product_name()
 	var/decl/butchery_data/butchery_decl = GET_DECL(butchery_data)
 	. = butchery_decl?.meat_name || name
+

@@ -143,7 +143,7 @@
 	if (!intensity)
 		return
 
-	var/mob/living/carbon/human/h_user = null
+	var/mob/living/human/h_user = null
 	if (!ishuman(user))
 		return
 	else
@@ -155,7 +155,7 @@
 	var/obj/item/clothing/gloves/G = h_user.get_equipped_item(slot_gloves_str)
 	if(istype(G) && G.siemens_coefficient == 0)
 		user_protected = 1
-	log_and_message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100 - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>")
+	log_and_message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100 - <A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>")
 
 	switch (intensity)
 		if (0 to 15)
@@ -207,7 +207,7 @@
 			// Sparks, Near - instantkill shock, Strong EMP, 25% light overload, 5% APC failure. 50% of SMES explosion. This is bad.
 			spark_at(src, amount = 10, cardinal_only = TRUE)
 			to_chat(h_user, SPAN_WARNING("Massive electrical arc sparks between you and [src].<br>Last thing you can think about is <span class='danger'>\"Oh shit...\"</span>"))
-			// Remember, we have few gigajoules of electricity here.. Turn them into crispy toast.
+			// Remember, we have few gigajoules of electricity here. Turn them into crispy toast.
 			h_user.electrocute_act(rand(170,210), src, def_zone = ran_zone(null))
 			SET_STATUS_MAX(h_user, STAT_PARA, 8)
 			spawn(0)
@@ -230,7 +230,7 @@
 						return
 					src.ping("DANGER! Magnetic containment field failure in 3 ... 2 ... 1 ...")
 					explosion(src.loc,1,2,4,8)
-					// Not sure if this is necessary, but just in case the SMES *somehow* survived..
+					// Not sure if this is necessary, but just in case the SMES *somehow* survived.
 					qdel(src)
 
 /obj/machinery/power/smes/buildable/proc/check_total_system_failure(var/mob/user)

@@ -62,7 +62,7 @@
 	sign_type = null
 	return S
 
-///Attempts installing the sign and ask the user for direction and etc..
+///Attempts installing the sign and ask the user for direction and etc.
 /obj/item/sign/proc/try_install(var/turf/targeted_turf, var/mob/user)
 	var/facing      = get_cardinal_dir(user, targeted_turf) || user.dir
 	var/install_dir = global.reverse_dir[facing]
@@ -98,6 +98,7 @@
 	abstract_type      = /obj/structure/sign
 	parts_type         = /obj/item/sign
 	parts_amount       = 1
+	material           = /decl/material/solid/organic/plastic
 
 /obj/structure/sign/Initialize(ml, _mat, _reinf_mat)
 	. = ..()

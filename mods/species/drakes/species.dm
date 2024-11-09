@@ -36,12 +36,16 @@
 	)
 	species_hud = /datum/hud_data/grafadreka
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/drake_sit
+		/mob/living/human/proc/drake_sit
 	)
 	traits = list(
 		/decl/trait/sivian_biochemistry = TRAIT_LEVEL_EXISTS
 	)
+
+	// Drakes must be whitelisted for jobs to be able to join as them, see maps.dm.
 	job_blacklist_by_default = TRUE
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+
 	var/list/adult_pain_emotes_with_pain_level = list(
 		list(/decl/emote/audible/drake_huff, /decl/emote/audible/drake_rattle) = 20
 	)
@@ -50,18 +54,18 @@
 	)
 
 // TODO: move pain onto a behavior datum or bodytype.
-/decl/species/grafadreka/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
+/decl/species/grafadreka/get_pain_emote(var/mob/living/human/H, var/pain_power)
 	if(H?.get_bodytype()?.type == /decl/bodytype/quadruped/grafadreka/hatchling)
 		pain_emotes_with_pain_level = hatchling_pain_emotes_with_pain_level
 	else
 		pain_emotes_with_pain_level = adult_pain_emotes_with_pain_level
 	return ..()
 
-/decl/species/grafadreka/get_surgery_overlay_icon(var/mob/living/carbon/human/H)
+/decl/species/grafadreka/get_surgery_overlay_icon(var/mob/living/human/H)
 	return null // todo: 'mods/species/drakes/icons/surgery.dmi'
 
 // Stub for muscle memory of the Sit verb on Polaris.
-/mob/living/carbon/human/proc/drake_sit()
+/mob/living/human/proc/drake_sit()
 	set name = "Sit"
 	set category = "IC"
 	set src = usr

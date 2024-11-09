@@ -64,10 +64,10 @@
 		cameranet.update_visibility(src, FALSE)
 		SET_STATUS_MAX(src, STAT_BLIND, 2)
 
-	if(sdisabilities & BLINDED)
+	if(has_genetic_condition(GENE_COND_BLINDED))
 		SET_STATUS_MAX(src, STAT_BLIND, 2)
 
-	if(src.sdisabilities & DEAFENED)
+	if(has_genetic_condition(GENE_COND_DEAFENED))
 		src.set_status(STAT_DEAF, 1)
 
 	//update the state of modules and components here
@@ -145,17 +145,6 @@
 		else
 			src.healths.icon_state = "health7"
 
-	if (src.syndicate && src.client)
-		var/decl/special_role/traitors = GET_DECL(/decl/special_role/traitor)
-		for(var/datum/mind/tra in traitors.current_antagonists)
-			if(tra.current)
-				// TODO: Update to new antagonist system.
-				var/I = image('icons/mob/mob.dmi', loc = tra.current, icon_state = "traitor")
-				src.client.images += I
-		src.disconnect_from_ai()
-		if(src.mind)
-			traitors.add_antagonist_mind(mind)
-
 	if (src.cells)
 		if (src.cell)
 			var/chargeNum = clamp(CEILING(cell.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
@@ -199,7 +188,7 @@
 			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
 		else
 			clear_fullscreen("blind")
-			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
+			set_fullscreen(has_genetic_condition(GENE_COND_NEARSIGHTED), "impaired", /obj/screen/fullscreen/impaired, 1)
 			set_fullscreen(GET_STATUS(src, STAT_BLURRY), "blurry", /obj/screen/fullscreen/blurry)
 			set_fullscreen(GET_STATUS(src, STAT_DRUGGY), "high", /obj/screen/fullscreen/high)
 
@@ -209,7 +198,7 @@
 /mob/living/silicon/robot/handle_vision()
 	..()
 
-	if (src.stat == DEAD || (MUTATION_XRAY in mutations) || (src.sight_mode & BORGXRAY))
+	if (src.stat == DEAD || has_genetic_condition(GENE_COND_XRAY) || (src.sight_mode & BORGXRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
@@ -253,8 +242,7 @@
 	if(killswitch)
 		killswitch_time --
 		if(killswitch_time <= 0)
-			if(src.client)
-				to_chat(src, "<span class='danger'>Killswitch Activated</span>")
+			to_chat(src, SPAN_DANGER("Killswitch activated."))
 			killswitch = 0
 			spawn(5)
 				gib()
@@ -264,8 +252,7 @@
 		uneq_all()
 		weaponlock_time --
 		if(weaponlock_time <= 0)
-			if(src.client)
-				to_chat(src, "<span class='danger'>Weapon Lock Timed Out!</span>")
+			to_chat(src, SPAN_DANGER("Weapon lock timed out!"))
 			weapon_lock = 0
 			weaponlock_time = 120
 

@@ -151,7 +151,9 @@
 			/obj/item/chems/chem_disp_cartridge/syrup_chocolate,
 			/obj/item/chems/chem_disp_cartridge/syrup_caramel,
 			/obj/item/chems/chem_disp_cartridge/syrup_vanilla,
-			/obj/item/chems/chem_disp_cartridge/syrup_pumpkin
+			/obj/item/chems/chem_disp_cartridge/syrup_pumpkin,
+			/obj/item/chems/chem_disp_cartridge/syrup_lavender,
+			/obj/item/chems/chem_disp_cartridge/cinnamon
 		)
 
 	buildable = FALSE

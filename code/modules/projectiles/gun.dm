@@ -48,6 +48,7 @@
 	drop_sound = 'sound/foley/drop1.ogg'
 	pickup_sound = 'sound/foley/pickup2.ogg'
 
+	var/fire_verb = "fire"
 	var/waterproof = FALSE
 	var/burst = 1
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again. Cannot be less than [burst_delay+1]
@@ -57,7 +58,7 @@
 	var/fire_anim = null
 	var/screen_shake = 0 //shouldn't be greater than 2 unless zoomed
 	var/space_recoil = 0 //knocks back in space
-	var/silenced = 0
+	var/silencer
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	var/accuracy_power = 5  //increase of to-hit chance per 1 point of accuracy
 	var/bulk = 0			//how unwieldy this weapon for its size, affects accuracy when fired without aiming
@@ -153,20 +154,31 @@
 		update_icon() // In case item_state is set somewhere else.
 	..()
 
+/obj/item/gun/proc/update_base_icon_state()
+	icon_state = get_world_inventory_state()
+
 /obj/item/gun/on_update_icon()
 	var/mob/living/M = loc
 	. = ..()
-	update_base_icon()
+	update_base_icon_state()
 	if(istype(M))
 		if(has_safety && M.skill_check(SKILL_WEAPONS,SKILL_BASIC))
 			add_overlay(image('icons/obj/guns/gui.dmi',"safety[safety()]"))
 		if(src in M.get_held_items())
 			M.update_inhand_overlays()
+
+	if(silencer)
+		var/silenced_state = "[icon_state]-silencer"
+		if(check_state_in_icon(silenced_state, icon))
+			add_overlay(mutable_appearance(icon, silenced_state))
+
 	if(safety_icon)
 		add_overlay(get_safety_indicator())
 
-/obj/item/gun/proc/update_base_icon()
-	return
+/obj/item/gun/get_on_belt_overlay()
+	if(silencer && check_state_in_icon("on_belt_silenced", icon))
+		return overlay_image(icon, "on_belt_silenced", color)
+	return ..()
 
 /obj/item/gun/proc/get_safety_indicator()
 	return mutable_appearance(icon, "[get_world_inventory_state()][safety_icon][safety()]")
@@ -197,7 +209,8 @@
 		if(prob(30))
 			toggle_safety()
 			return 1
-	if((MUTATION_CLUMSY in M.mutations) && prob(40)) //Clumsy handling
+
+	if(M.has_genetic_condition(GENE_COND_CLUMSY) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
 			var/pew_loc = pick(BP_L_FOOT, BP_R_FOOT)
@@ -359,13 +372,16 @@
 	playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
+/obj/item/gun/proc/get_firing_name(obj/projectile)
+	return "\the [src]"
+
 /obj/item/gun/proc/handle_post_fire(atom/movable/firer, atom/target, var/pointblank=0, var/reflex=0, var/obj/projectile)
 	if(fire_anim)
 		flick(fire_anim, src)
 
-	if(!silenced && check_fire_message_spam("fire"))
-		var/user_message = SPAN_WARNING("You fire \the [src][pointblank ? " point blank":""] at \the [target][reflex ? " by reflex" : ""]!")
-		if (silenced)
+	if(check_fire_message_spam("fire"))
+		var/user_message = SPAN_WARNING("You [fire_verb] [get_firing_name(projectile)][pointblank ? " point blank":""] at \the [target][reflex ? " by reflex" : ""]!")
+		if (silencer)
 			to_chat(firer, user_message)
 		else
 			firer.visible_message(
@@ -395,7 +411,7 @@
 			shake_camera(user, max(burst_delay*burst, fire_delay), screen_shake)
 
 		if(ishuman(user) && user.is_cloaked()) //shooting will disable a rig cloaking device
-			var/mob/living/carbon/human/H = user
+			var/mob/living/human/H = user
 			var/obj/item/rig/rig = H.get_rig()
 			if(rig)
 				for(var/obj/item/rig_module/stealth_field/S in rig.installed_modules)
@@ -506,7 +522,7 @@
 	//shooting while in shock
 	var/shock_dispersion = 0
 	if(ishuman(firer))
-		var/mob/living/carbon/human/mob = firer
+		var/mob/living/human/mob = firer
 		if(mob.shock_stage > 120)
 			shock_dispersion = rand(-4,4)
 		else if(mob.shock_stage > 70)
@@ -527,7 +543,7 @@
 	if((istype(P) && P.fire_sound))
 		shot_sound = P.fire_sound
 		shot_sound_vol = P.fire_sound_vol
-	if(silenced)
+	if(silencer)
 		shot_sound_vol = 10
 
 	playsound(firer, shot_sound, shot_sound_vol, 1)
@@ -537,13 +553,13 @@
 /obj/item/gun/proc/handle_suicide(mob/living/user)
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/M = user
+	var/mob/living/human/M = user
 
 	mouthshoot = 1
 	admin_attacker_log(user, "is attempting to suicide with \a [src]")
 	M.visible_message("<span class='danger'>[user] sticks their gun in their mouth, ready to pull the trigger...</span>")
 	if(!do_after(user, 40, progress=0))
-		M.visible_message("<span class='notice'>[user] decided life was worth living</span>")
+		M.visible_message(SPAN_NOTICE("[user] decided life was worth living."))
 		mouthshoot = 0
 		return
 
@@ -557,7 +573,7 @@
 	if (istype(in_chamber))
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
 		var/shot_sound = in_chamber.fire_sound? in_chamber.fire_sound : fire_sound
-		if(silenced)
+		if(silencer)
 			playsound(user, shot_sound, 10, 1)
 		else
 			playsound(user, shot_sound, 50, 1)
@@ -624,6 +640,16 @@
 		to_chat(user, "The safety is [safety() ? "on" : "off"].")
 	last_safety_check = world.time
 
+/obj/item/gun/proc/try_switch_firemodes(mob/user)
+	if(!istype(user) || length(firemodes) <= 1)
+		return FALSE
+	var/datum/firemode/new_mode = switch_firemodes()
+	if(prob(20) && !user.skill_check(SKILL_WEAPONS, SKILL_BASIC))
+		new_mode = switch_firemodes()
+	if(new_mode)
+		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+	return !!new_mode
+
 /obj/item/gun/proc/switch_firemodes(next_mode)
 	if(!next_mode)
 		next_mode = get_next_firemode()
@@ -644,11 +670,9 @@
 		. = 1
 
 /obj/item/gun/attack_self(mob/user)
-	var/datum/firemode/new_mode = switch_firemodes()
-	if(prob(20) && !user.skill_check(SKILL_WEAPONS, SKILL_BASIC))
-		new_mode = switch_firemodes()
-	if(new_mode)
-		to_chat(user, "<span class='notice'>\The [src] is now set to [new_mode.name].</span>")
+	if(try_switch_firemodes(user))
+		return TRUE
+	return ..()
 
 /obj/item/gun/proc/toggle_safety(var/mob/user)
 	if(!has_safety)
@@ -730,12 +754,24 @@
 
 /obj/item/gun/get_alt_interactions(mob/user)
 	. = ..()
-	LAZYADD(., /decl/interaction_handler/toggle_safety)
+	LAZYADD(., /decl/interaction_handler/gun/toggle_safety)
+	if(length(firemodes) > 1)
+		LAZYADD(., /decl/interaction_handler/gun/toggle_firemode)
 
-/decl/interaction_handler/toggle_safety
-	name = "Toggle Gun Safety"
+/decl/interaction_handler/gun
+	abstract_type = /decl/interaction_handler/gun
 	expected_target_type = /obj/item/gun
 
-/decl/interaction_handler/toggle_safety/invoked(atom/target, mob/user, obj/item/prop)
+/decl/interaction_handler/gun/toggle_safety
+	name = "Toggle Safety"
+
+/decl/interaction_handler/gun/toggle_safety/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/gun/gun = target
 	gun.toggle_safety(user)
+
+/decl/interaction_handler/gun/toggle_firemode
+	name = "Change Firemode"
+
+/decl/interaction_handler/gun/toggle_firemode/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/gun/gun = target
+	gun.try_switch_firemodes(user)

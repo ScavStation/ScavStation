@@ -36,7 +36,8 @@
 	W.write("real_name",             pref.real_name)
 	W.write("name_is_always_random", pref.be_random_name)
 	var/decl/spawnpoint/spawnpoint = GET_DECL(pref.spawnpoint)
-	W.write("spawnpoint", spawnpoint.uid)
+	if(spawnpoint)
+		W.write("spawnpoint", spawnpoint.uid)
 
 /datum/category_item/player_setup_item/physical/basic/sanitize_character()
 
@@ -69,9 +70,9 @@
 
 	. = list()
 	. += "<b>Name:</b> "
-	. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
-	. += "<a href='?src=\ref[src];random_name=1'>Randomize Name</A><br>"
-	. += "<a href='?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
+	. += "<a href='byond://?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
+	. += "<a href='byond://?src=\ref[src];random_name=1'>Randomize Name</A><br>"
+	. += "<a href='byond://?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
 	. += "<hr>"
 
 	. += "<b>Bodytype:</b> "
@@ -80,14 +81,14 @@
 		if(B.name == pref.bodytype)
 			. += "<span class='linkOn'>[capitalize(B.pref_name)]</span>"
 		else
-			. += "<a href='?src=\ref[src];bodytype=\ref[B]'>[capitalize(B.pref_name)]</a>"
+			. += "<a href='byond://?src=\ref[src];bodytype=\ref[B]'>[capitalize(B.pref_name)]</a>"
 
 	. += "<br><b>Pronouns:</b> "
-	for(var/decl/pronouns/G in S.available_pronouns)
-		if(G.name == pref.gender)
-			. += "<span class='linkOn'>[G.pronoun_string]</span>"
+	for(var/decl/pronouns/pronouns in S.available_pronouns)
+		if(pronouns.name == pref.gender)
+			. += "<span class='linkOn'>[pronouns.pronoun_string]</span>"
 		else
-			. += "<a href='?src=\ref[src];gender=\ref[G]'>[G.pronoun_string]</a>"
+			. += "<a href='byond://?src=\ref[src];gender=\ref[pronouns]'>[pronouns.pronoun_string]</a>"
 
 	. += "<br><b>Spawnpoint</b>:"
 	var/decl/spawnpoint/spawnpoint = GET_DECL(pref.spawnpoint)
@@ -95,7 +96,7 @@
 		if(spawnpoint == allowed_spawnpoint)
 			. += "<span class='linkOn'>[allowed_spawnpoint.name]</span>"
 		else
-			. += "<a href='?src=\ref[src];spawnpoint=\ref[allowed_spawnpoint]'>[allowed_spawnpoint.name]</a>"
+			. += "<a href='byond://?src=\ref[src];spawnpoint=\ref[allowed_spawnpoint]'>[allowed_spawnpoint.name]</a>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/physical/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
@@ -141,7 +142,7 @@
 		var/decl/bodytype/new_body = locate(href_list["bodytype"])
 		if(istype(new_body) && CanUseTopic(user) && (new_body in S.available_bodytypes))
 			pref.set_bodytype(new_body.name)
-			if(new_body.associated_gender) // Set to default for male/female to avoid confusing people
+			if(get_config_value(/decl/config/toggle/on/cisnormativity) && new_body.associated_gender) // Let servers stuck in the 2010s set bodytype default to avoid "confusing" people
 				pref.gender = new_body.associated_gender
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 

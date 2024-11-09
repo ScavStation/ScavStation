@@ -2,12 +2,12 @@
 	chargen_min_index = 2
 	chargen_max_index = 6
 	standalone_value_descriptors = list(
-		"a hatchling" =     1,
-		"an juvenile" =     2,
-		"an adolescent" =   4,
-		"an adult" =        6,
-		"aging" =          20,
-		"elderly" =        30
+		"a hatchling"   = 1,
+		"a juvenile"    = 2,
+		"an adolescent" = 4,
+		"an adult"      = 6,
+		"aging"         = 20,
+		"elderly"       = 30
 	)
 
 /datum/appearance_descriptor/age/grafadreka/hatchling
@@ -22,24 +22,25 @@
 	overlay_modifier = "_sitting"
 
 /decl/bodytype/quadruped/grafadreka
-	name                = "adult drake"
-	icon_base           = 'mods/species/drakes/icons/body.dmi'
-	blood_overlays      = 'mods/species/drakes/icons/blood.dmi'
-	eye_icon            = 'mods/species/drakes/icons/eyes.dmi'
-	icon_template       = 'mods/species/drakes/icons/template.dmi'
-	bodytype_category   = BODYTYPE_GRAFADREKA
-	eye_blend           = ICON_MULTIPLY
-	limb_blend          = ICON_MULTIPLY
-	appearance_flags    = HAS_SKIN_COLOR | HAS_EYE_COLOR
-	mob_size            = MOB_SIZE_LARGE
-	override_limb_types = list(BP_TAIL = /obj/item/organ/external/tail/grafadreka)
-	base_color          = "#608894"
-	base_eye_color      = COLOR_SILVER
-	pixel_offset_x      = -16
-	antaghud_offset_x   = 16
+	name                 = "adult drake"
+	icon_base            = 'mods/species/drakes/icons/body.dmi'
+	blood_overlays       = 'mods/species/drakes/icons/blood.dmi'
+	eye_icon             = 'mods/species/drakes/icons/eyes.dmi'
+	icon_template        = 'mods/species/drakes/icons/template.dmi'
+	skeletal_icon        = 'mods/species/drakes/icons/skeleton.dmi'
+	bodytype_category    = BODYTYPE_GRAFADREKA
+	eye_blend            = ICON_MULTIPLY
+	limb_blend           = ICON_MULTIPLY
+	appearance_flags     = HAS_SKIN_COLOR | HAS_EYE_COLOR
+	mob_size             = MOB_SIZE_LARGE
+	override_limb_types  = list(BP_TAIL = /obj/item/organ/external/tail/grafadreka)
+	base_color           = "#608894"
+	base_eye_color       = COLOR_SILVER
+	pixel_offset_x       = -16
+	antaghud_offset_x    = 16
 	override_organ_types = list(BP_DRAKE_GIZZARD = /obj/item/organ/internal/drake_gizzard)
-
-	additional_emotes = list(
+	uid                  = "bodytype_drake"
+	additional_emotes    = list(
 		/decl/emote/audible/drake_warble,
 		/decl/emote/audible/drake_purr,
 		/decl/emote/audible/drake_grumble,
@@ -113,6 +114,10 @@
 	)
 	z_flags = ZMM_WIDE_LOAD
 
+	eye_low_light_vision_effectiveness    = 0.15
+	eye_low_light_vision_adjustment_speed = 0.3
+	eye_darksight_range                   = 7
+
 	var/list/sitting_equip_adjust
 	var/list/lying_equip_adjust
 
@@ -182,6 +187,7 @@
 		/decl/emote/audible/drake_sneeze
 	)
 	age_descriptor = /datum/appearance_descriptor/age/grafadreka/hatchling
+	uid = "bodytype_drake_hatchling"
 
 /decl/bodytype/quadruped/grafadreka/hatchling/Initialize()
 	if(!length(equip_adjust))

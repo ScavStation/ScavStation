@@ -17,7 +17,7 @@
 
 /decl/hierarchy/outfit/masked_killer
 	name = "Masked killer"
-	uniform = /obj/item/clothing/under/overalls
+	uniform = /obj/item/clothing/pants/mustard/overalls
 	shoes = /obj/item/clothing/shoes/color/white
 	gloves = /obj/item/clothing/gloves/latex
 	mask = /obj/item/clothing/mask/surgical
@@ -29,12 +29,12 @@
 	r_pocket = /obj/item/scalpel
 	hands = list(/obj/item/twohanded/fireaxe)
 
-/decl/hierarchy/outfit/masked_killer/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/masked_killer/post_equip(var/mob/living/human/H)
 	..()
 	var/victim = get_mannequin(H.ckey)
 	if(victim)
 		for(var/obj/item/carried_item in H.get_equipped_items(TRUE))
-			carried_item.add_blood(victim) //Oh yes, there will be blood.. just not blood from the killer because that's odd
+			carried_item.add_blood(victim) //Oh yes, there will be blood... just not blood from the killer because that's odd
 
 /decl/hierarchy/outfit/reaper
 	name = "Reaper"
@@ -50,7 +50,7 @@
 	pda_slot = slot_belt_str
 	pda_type = /obj/item/modular_computer/pda/heads
 
-/decl/hierarchy/outfit/reaper/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/reaper/post_equip(var/mob/living/human/H)
 	..()
 	var/obj/item/secure_storage/briefcase/sec_briefcase = new(H)
 	for(var/obj/item/briefcase_item in sec_briefcase)

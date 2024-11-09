@@ -117,7 +117,7 @@
 	min_rank =       PSI_RANK_MASTER
 	use_description = "Target the arms or hands on disarm intent to use a ranged attack that may rip the weapons away from the target."
 
-/decl/psionic_power/coercion/spasm/invoke(var/mob/living/user, var/mob/living/carbon/human/target)
+/decl/psionic_power/coercion/spasm/invoke(var/mob/living/user, var/mob/living/human/target)
 	if(!istype(target))
 		return FALSE
 
@@ -231,7 +231,7 @@
 	if(.)
 		var/datum/ability_handler/psionics/psi = user?.get_ability_handler(/datum/ability_handler/psionics)
 		user.visible_message(SPAN_WARNING("\The [user] holds the head of \the [target] in both hands..."))
-		to_chat(user, SPAN_NOTICE("You probe \the [target]'s mind for various ailments.."))
+		to_chat(user, SPAN_NOTICE("You probe \the [target]'s mind for various ailments..."))
 		to_chat(target, SPAN_WARNING("Your mind is being cleansed of ailments by \the [user]."))
 		if(!do_after(user, (target.stat == CONSCIOUS ? 50 : 25), target, 0, 1))
 			psi?.backblast(rand(5,10))

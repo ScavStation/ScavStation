@@ -10,14 +10,14 @@
 /datum/artifact_effect/heal/DoEffectAura()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for (var/mob/living/carbon/C in range(src.effect_range,T))
-			heal(C, 1, msg_prob = 5)
+		for (var/mob/living/target in range(src.effect_range,T))
+			heal(target, 1, msg_prob = 5)
 
 /datum/artifact_effect/heal/DoEffectPulse()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for (var/mob/living/carbon/C in range(effect_range,T))
-			heal(C, 5)
+		for (var/mob/living/target in range(effect_range,T))
+			heal(target, 5)
 
 //todo: check over this properly
 /datum/artifact_effect/heal/proc/heal(mob/living/M, amount, strong, msg_prob = 100)
@@ -33,5 +33,5 @@
 			M.bodytemperature = M.get_species()?.body_temperature || initial(M.bodytemperature)
 			M.adjust_nutrition(50 * weakness)
 			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
+				var/mob/living/human/H = M
 				H.regenerate_blood(5 * weakness)

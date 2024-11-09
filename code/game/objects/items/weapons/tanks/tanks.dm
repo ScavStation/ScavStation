@@ -39,7 +39,6 @@ var/global/list/global/tank_gauge_cache = list()
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
-	material = /decl/material/solid/metal/steel
 
 	var/datum/gas_mixture/air_contents = null
 	var/distribute_pressure = ONE_ATMOSPHERE
@@ -262,7 +261,7 @@ var/global/list/global/tank_gauge_cache = list()
 			if(mask && (mask.item_flags & ITEM_FLAG_AIRTIGHT))
 				data["maskConnected"] = 1
 			else if(ishuman(location))
-				var/mob/living/carbon/human/H = location
+				var/mob/living/human/H = location
 				var/obj/item/head = H.get_equipped_item(slot_head_str)
 				if(head && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
@@ -301,7 +300,7 @@ var/global/list/global/tank_gauge_cache = list()
 
 /obj/item/tank/proc/toggle_valve(var/mob/user)
 
-	var/mob/living/carbon/location
+	var/mob/living/location
 	if(isliving(loc))
 		location = loc
 	else if(istype(loc,/obj/item/rig))
@@ -311,7 +310,7 @@ var/global/list/global/tank_gauge_cache = list()
 	else
 		return
 
-	if(location.internal == src)
+	if(location.get_internals() == src)
 		to_chat(user, "<span class='notice'>You close the tank release valve.</span>")
 		location.set_internals(null)
 	else
@@ -320,7 +319,7 @@ var/global/list/global/tank_gauge_cache = list()
 		if(mask && (mask.item_flags & ITEM_FLAG_AIRTIGHT))
 			can_open_valve = 1
 		else if(ishuman(location))
-			var/mob/living/carbon/human/H = location
+			var/mob/living/human/H = location
 			var/obj/item/head = H.get_equipped_item(slot_head_str)
 			if(head && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 				can_open_valve = 1

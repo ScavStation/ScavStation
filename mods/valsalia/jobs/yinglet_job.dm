@@ -25,7 +25,7 @@
 	var/yinglet_suit_service
 	var/yinglet_suit_officiated
 
-/decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/carbon/human/H, var/title)
+/decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/human/H, var/title)
 
 	if(H?.species.name != SPECIES_YINGLET)
 		return
@@ -54,6 +54,6 @@
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/jacket/redcoat/yinglet, slot_wear_suit_str)
 
-/decl/hierarchy/outfit/job/equip_outfit(mob/living/carbon/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/hierarchy/outfit/job/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	. = ..()
 	try_give_yinglet_fallbacks(H, assignment)

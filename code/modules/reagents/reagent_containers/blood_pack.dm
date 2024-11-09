@@ -17,7 +17,7 @@
 	amount_per_transfer_from_this = REM
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-	var/mob/living/carbon/human/attached
+	var/mob/living/human/attached
 
 /obj/item/chems/ivbag/Destroy()
 	STOP_PROCESSING(SSobj,src)
@@ -25,7 +25,8 @@
 	. = ..()
 
 /obj/item/chems/ivbag/on_reagent_change()
-	..()
+	if(!(. = ..()))
+		return
 	if(reagents?.total_volume > volume/2)
 		w_class = ITEM_SIZE_SMALL
 	else

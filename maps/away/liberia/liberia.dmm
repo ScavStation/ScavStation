@@ -701,7 +701,7 @@
 /obj/item/clothing/gloves/insulated,
 /obj/item/clothing/glasses/tacgoggles,
 /obj/item/clothing/shoes/legguards,
-/obj/item/clothing/under/syndicate,
+/obj/item/clothing/shirt/syndicate,
 /turf/floor/tiled/dark/monotile,
 /area/liberia/mule)
 "bt" = (
@@ -3875,8 +3875,10 @@
 "gM" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/craftable,
-/obj/item/clothing/under/blazer,
-/obj/item/clothing/under/lawyer,
+/obj/item/clothing/shirt/button,
+/obj/item/clothing/neck/tie/navy,
+/obj/item/clothing/suit/jacket/blazer,
+/obj/item/clothing/costume/lawyer,
 /obj/item/clothing/suit/jacket/navy,
 /obj/random/handgun,
 /obj/item/chems/drinks/bottle/premiumwine,
@@ -4307,7 +4309,7 @@
 "hG" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/color/black,
-/obj/item/clothing/under/overalls,
+/obj/item/clothing/suit/apron/overalls/laborer,
 /obj/item/clothing/skirt,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -5084,10 +5086,7 @@
 /area/liberia/bridge)
 "jD" = (
 /obj/structure/table/glass,
-/obj/machinery/faxmachine/mapped{
-	req_access = list("ACCESS_MERCHANT");
-
-	},
+/obj/machinery/faxmachine/mapped,
 /obj/effect/floor_decal/corner/blue/mono,
 /turf/floor/tiled/dark/monotile,
 /area/liberia/bridge)

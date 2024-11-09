@@ -52,7 +52,7 @@
 		for(var/turf/T in turfs_to_update)
 			T.update_ambient_light_from_z_or_area()
 
-/obj/structure/flora/tree/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0)
+/obj/structure/flora/tree/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	. = ..()
 	if(!QDELETED(src) && damage >= 5)
 		shake()
@@ -86,7 +86,7 @@
 		LAZYADD(., new log_type(T, rand(max(1,round(log_amount*0.5)), log_amount), material?.type, reinf_material?.type))
 	if(stump_type)
 		var/obj/structure/flora/stump/stump = new stump_type(T, material, reinf_material)
-		stump.icon_state = icon_state //A bit dirty maybe, but its probably not worth writing a whole system for this when we have 3 kinds of trees..
+		stump.icon_state = icon_state //A bit dirty maybe, but its probably not worth writing a whole system for this when we have 3 kinds of trees...
 		if(paint_color)
 			stump.set_color()
 	. = ..()

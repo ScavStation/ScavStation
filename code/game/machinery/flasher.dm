@@ -74,13 +74,13 @@
 			if(O.eyecheck() > FLASH_PROTECTION_NONE)
 				continue
 			if(ishuman(O))
-				var/mob/living/carbon/human/H = O
-				flash_time = round(H.getFlashMod() * flash_time)
+				var/mob/living/human/H = O
+				flash_time = round(H.get_flash_mod() * flash_time)
 				if(flash_time <= 0)
 					return
-				var/vision_organ = H.get_bodytype()?.vision_organ
-				if(vision_organ)
-					var/obj/item/organ/internal/E = GET_INTERNAL_ORGAN(H, vision_organ)
+				var/vision_organ_tag = H.get_vision_organ_tag()
+				if(vision_organ_tag)
+					var/obj/item/organ/internal/E = GET_INTERNAL_ORGAN(H, vision_organ_tag)
 					if(E && E.is_bruised() && prob(E.damage + 50))
 						H.flash_eyes()
 						E.damage += rand(1, 5)
@@ -143,7 +143,7 @@
 /decl/public_access/public_method/flasher_flash
 	name = "flash"
 	desc = "Performs a flash, if possible."
-	call_proc = /obj/machinery/flasher/proc/flash
+	call_proc = TYPE_PROC_REF(/obj/machinery/flasher, flash)
 
 /decl/stock_part_preset/radio/receiver/flasher
 	frequency = BUTTON_FREQ

@@ -17,13 +17,13 @@
 /obj/item/scanner/autopsy/is_valid_scan_target(atom/O)
 	return ishuman(O) || istype(O, /obj/item/organ/external)
 
-/obj/item/scanner/autopsy/do_surgery(mob/living/carbon/M, mob/living/user, fuckup_prob)
+/obj/item/scanner/autopsy/do_surgery(mob/living/M, mob/living/user, fuckup_prob)
 	if(istype(M))
 		scan(M,user)
 
 /obj/item/scanner/autopsy/scan(atom/A, mob/user)
 	if(ishuman(A))
-		var/mob/living/carbon/human/M = A
+		var/mob/living/human/M = A
 		set_target(M, user)
 		timeofdeath = M.timeofdeath
 		var/obj/item/organ/external/S = GET_EXTERNAL_ORGAN(M, user.get_target_zone())

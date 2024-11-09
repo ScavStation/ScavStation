@@ -1,6 +1,7 @@
 /// The number of worms influences the rate at which contents are decomposed into compost.
-var/global/const/COMPOST_WORM_EAT_AMOUNT = 50
-var/global/const/COMPOST_MAX_WORMS       = 10
+var/global/const/COMPOST_WORM_EAT_AMOUNT    = 50
+var/global/const/COMPOST_MAX_WORMS          = 10
+var/global/const/COMPOST_WORM_HUNGER_FACTOR = MINIMUM_CHEMICAL_VOLUME
 
 /obj/structure/reagent_dispensers/compost_bin
 	name                      = "compost bin"
@@ -8,11 +9,15 @@ var/global/const/COMPOST_MAX_WORMS       = 10
 	icon                      = 'icons/obj/structures/compost.dmi'
 	icon_state                = ICON_STATE_WORLD
 	anchored                  = TRUE
-	atom_flags                = ATOM_FLAG_CLIMBABLE | ATOM_FLAG_OPEN_CONTAINER
-	material                  = /decl/material/solid/organic/wood
+	density                   = TRUE
+	atom_flags                = ATOM_FLAG_CLIMBABLE
 	matter                    = null
+	material                  = /decl/material/solid/organic/wood
 	material_alteration       = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
 	wrenchable                = FALSE
+	possible_transfer_amounts = @"[10,25,50,100]"
+	volume                    = 2000
+	can_toggle_open           = FALSE
 	storage                   = /datum/storage/hopper/industrial/compost
 
 /obj/structure/reagent_dispensers/compost_bin/Initialize()
@@ -28,7 +33,6 @@ var/global/const/COMPOST_MAX_WORMS       = 10
 					qdel(worm)
 					break
 	. = ..()
-	atom_flags |= ATOM_FLAG_OPEN_CONTAINER // something seems to be unsetting this :(
 
 /obj/structure/reagent_dispensers/compost_bin/Destroy()
 	if(is_processing)
@@ -117,19 +121,13 @@ var/global/const/COMPOST_MAX_WORMS       = 10
 	if(worms <= 0)
 		return PROCESS_KILL
 
-	// Worm-related tracking values.
-	var/worms_are_hungry  = TRUE
-	var/worm_eat_amount   = max(1, round(worms * COMPOST_WORM_EAT_AMOUNT))
-	var/worm_drink_amount = max(1, round(worm_eat_amount * REAGENT_UNITS_PER_MATERIAL_UNIT))
-
 	// Digest an item.
+	var/worm_eat_amount = max(1, round(worms * COMPOST_WORM_EAT_AMOUNT))
 	if(length(current_contents))
 
 		var/obj/item/composting = pick(current_contents)
 
 		if(composting.is_compostable())
-
-			worms_are_hungry = FALSE
 
 			// We only start composting debris, as we have no proper handling for partial decomposition
 			// and cannot really apply our worm decomp rate to non-debris items without it.
@@ -168,29 +166,22 @@ var/global/const/COMPOST_MAX_WORMS       = 10
 				remains.update_primary_material()
 
 	// Digest reagents.
-	if(worms_are_hungry)
-		for(var/mat in reagents.reagent_volumes)
-			if(ispath(mat, /decl/material/liquid/fertilizer))
-				continue
-			var/decl/material/material_data = GET_DECL(mat)
-			if(!material_data.compost_value)
-				continue
-			var/clamped_worm_drink_amount = min(worm_drink_amount, reagents.reagent_volumes[mat])
-			reagents.add_reagent(/decl/material/liquid/fertilizer/compost, max(1, round(clamped_worm_drink_amount * material_data.compost_value)))
-			reagents.remove_reagent(mat, clamped_worm_drink_amount)
-			worms_are_hungry = FALSE
-			break
+	for(var/mat in reagents.reagent_volumes)
+		if(ispath(mat, /decl/material/liquid/fertilizer))
+			continue
+		var/decl/material/material_data = GET_DECL(mat)
+		if(!material_data.compost_value)
+			continue
+		var/clamped_worm_drink_amount = min(round(worm_eat_amount * REAGENT_UNITS_PER_MATERIAL_UNIT), reagents.reagent_volumes[mat])
+		reagents.add_reagent(/decl/material/liquid/fertilizer/compost, max(1, round(clamped_worm_drink_amount * material_data.compost_value)))
+		reagents.remove_reagent(mat, clamped_worm_drink_amount)
+		break
 
-	// Feed the worms to grow more worms.
-	var/compost_amount = REAGENT_VOLUME(reagents, /decl/material/liquid/fertilizer/compost)
-	if(compost_amount > 0)
-		// Worms gotta eat...
-		if(worms_are_hungry)
-			reagents.remove_reagent(/decl/material/liquid/fertilizer/compost, worm_drink_amount * 0.025)
-		if(prob(1) && worms < COMPOST_MAX_WORMS)
-			var/obj/item/chems/food/worm/worm = new(src)
-			if(!storage.handle_item_insertion(null, worm))
-				qdel(worm)
+	// Grow more worms.
+	if(REAGENT_VOLUME(reagents, /decl/material/liquid/fertilizer/compost) > 0 && prob(0.1) && worms < COMPOST_MAX_WORMS)
+		var/obj/item/chems/food/worm/worm = new(src)
+		if(!storage.handle_item_insertion(null, worm))
+			qdel(worm)
 
 /obj/structure/reagent_dispensers/compost_bin/get_alt_interactions(var/mob/user)
 	. = ..()

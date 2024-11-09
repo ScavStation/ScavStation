@@ -65,7 +65,7 @@
 		if(istype(other_mob))
 			character = other_mob
 
-		var/mob/living/carbon/human/user_human
+		var/mob/living/human/user_human
 		if(ishuman(character))
 			user_human = character
 			if(job.branch && mil_branches)
@@ -79,7 +79,7 @@
 			var/list/spawn_in_storage = SSjobs.equip_custom_loadout(character, job)
 			if(spawn_in_storage)
 				for(var/decl/loadout_option/G in spawn_in_storage)
-					G.spawn_in_storage_or_drop(user_human, user_human.client.prefs.Gear()[G.name])
+					G.spawn_in_storage_or_drop(user_human, user_human.client.prefs.Gear()[G.uid])
 			SScustomitems.equip_custom_items(user_human)
 
 		character.job = job.title
@@ -97,7 +97,7 @@
 		if(istype(ojob) && ojob.info)
 			to_chat(character, ojob.info)
 
-		if(user_human && user_human.disabilities & NEARSIGHTED)
+		if(user_human && user_human.has_genetic_condition(GENE_COND_NEARSIGHTED))
 			var/equipped = user_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/prescription(user_human), slot_glasses_str)
 			if(equipped)
 				var/obj/item/clothing/glasses/G = user_human.get_equipped_item(slot_glasses_str)

@@ -181,7 +181,7 @@ var/global/list/telecomms_hubs = list()
 		// then append the overmap object name to it, so they know where we're from
 		var/listener_overmap_object = istype(speaking_from) && global.overmap_sectors[num2text(speaking_from.z)]
 		var/send_overmap = send_overmap_object && send_overmap_object.ident_transmitter && send_overmap_object != listener_overmap_object
-		for(var/mob/listener in hearers(R.canhear_range, speaking_from))
+		for(var/mob/listener as anything in R.get_radio_listeners())
 			listeners[listener] = send_overmap
 
 	// Ghostship is magic: Ghosts can hear radio chatter from anywhere
@@ -358,7 +358,7 @@ var/global/list/telecomms_hubs = list()
 
 								var/list/all_groups = net_acl.get_all_groups()
 								if(!length(all_groups))
-									to_chat(user, SPAN_WARNING("No groups were found on the network access controller"))
+									to_chat(user, SPAN_WARNING("No groups were found on the network access controller."))
 									return TOPIC_HANDLED
 
 								choice = input(user, "Which group do you wish to add? Adding a parent group will allow all members of its children groups to access the channel.", "Channel Configuration") as null|anything in all_groups

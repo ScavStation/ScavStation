@@ -37,12 +37,13 @@
 
 /obj/abstract/landmark/corpse/Initialize()
 	..()
-	if(!species) species = global.using_map.default_species
+	if(!species)
+		species = global.using_map.default_species
 	var/species_choice = islist(species) ? pickweight(species) : species
-	my_corpse = weakref(new /mob/living/carbon/human/corpse(loc, species_choice, null, null, src))
+	my_corpse = weakref(new /mob/living/human/corpse(loc, species_choice, null, src))
 	return INITIALIZE_HINT_QDEL
 
-/obj/abstract/landmark/corpse/proc/randomize_appearance(var/mob/living/carbon/human/M, species_choice)
+/obj/abstract/landmark/corpse/proc/randomize_appearance(var/mob/living/human/M, species_choice)
 
 	if((spawn_flags & CORPSE_SPAWNER_RANDOM_GENDER))
 		if(species_choice in genders_per_species)
@@ -95,12 +96,12 @@
 
 	var/decl/cultural_info/culture = M.get_cultural_value(TAG_CULTURE)
 	if(culture && CORPSE_SPAWNER_RANDOM_NAME & spawn_flags)
-		M.SetName(M, culture.get_random_name(M.gender))
+		M.SetName(culture.get_random_name(M.gender))
 	else
 		M.SetName(name)
 	M.real_name = M.name
 
-/obj/abstract/landmark/corpse/proc/equip_corpse_outfit(var/mob/living/carbon/human/M)
+/obj/abstract/landmark/corpse/proc/equip_corpse_outfit(var/mob/living/human/M)
 	var/adjustments = 0
 	adjustments = (spawn_flags & CORPSE_SPAWNER_CUT_SURVIVAL)  ? (adjustments|OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR) : adjustments
 	adjustments = (spawn_flags & CORPSE_SPAWNER_CUT_ID_PDA)    ? (adjustments|OUTFIT_ADJUSTMENT_SKIP_ID_PDA)        : adjustments

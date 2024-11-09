@@ -40,7 +40,7 @@ Single Use Emergency Pouches
 
 /obj/item/med_pouch/examine(mob/user)
 	. = ..()
-	to_chat(user, "<A href='?src=\ref[src];show_info=1'>Please read instructions before use.</A>")
+	to_chat(user, "<A href='byond://?src=\ref[src];show_info=1'>Please read instructions before use.</A>")
 
 /obj/item/med_pouch/CanUseTopic()
 	return STATUS_INTERACTIVE
@@ -235,6 +235,7 @@ Single Use Emergency Pouches
 /obj/item/chems/hypospray/autoinjector/pouch_auto
 	name = "emergency autoinjector"
 	desc = "An emergency autoinjector from an emergency medical pouch."
+	abstract_type = /obj/item/chems/hypospray/autoinjector/pouch_auto
 
 /obj/item/chems/hypospray/autoinjector/pouch_auto/stabilizer/populate_reagents()
 	add_to_reagents(/decl/material/liquid/stabilizer, 5)

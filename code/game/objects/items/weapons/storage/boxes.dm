@@ -362,9 +362,17 @@
 
 /obj/item/box/monkeycubes/spidercubes
 	name = "spiderling cube box"
+	icon_state = "spidercubebox"
 	desc = "Drymate brand Instant spiders. WHY WOULD YOU ORDER THIS!?"
 /obj/item/box/monkeycubes/spidercubes/WillContain()
 	return list(/obj/item/chems/food/monkeycube/wrapped/spidercube = 5)
+
+/obj/item/box/monkeycubes/carpcubes
+	name = "space carp cube box"
+	icon_state = "carpcubebox"
+	desc = "Drymate brand Instant carp. Allergen information: May contain pike"
+/obj/item/box/monkeycubes/carpcubes/WillContain()
+	return list(/obj/item/chems/food/monkeycube/wrapped/carpcube = 5)
 
 /obj/item/box/ids
 	name = "box of spare IDs"
@@ -706,7 +714,6 @@
 	name = "assorted parts pack"
 	icon = 'icons/obj/items/storage/part_pack.dmi'
 	icon_state = "big"
-	icon_state = "part"
 	w_class = ITEM_SIZE_NORMAL
 
 /obj/item/box/parts/WillContain()

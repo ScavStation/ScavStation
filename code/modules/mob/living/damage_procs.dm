@@ -24,19 +24,18 @@
 
 	switch(damagetype)
 		if(BURN)
-			if(MUTATION_COLD_RESISTANCE in mutations)
+			if(has_genetic_condition(GENE_COND_COLD_RESISTANCE))
 				return
-			take_damage(damage, BURN)
+			take_damage(damage, BURN, damage_flags, used_weapon, armor_pen)
 		if(ELECTROCUTE)
 			electrocute_act(damage, used_weapon, 1, def_zone)
 		else
-			take_damage(damage, damagetype)
+			take_damage(damage, damagetype, damage_flags, used_weapon, armor_pen)
 	return TRUE
 
 /mob/living/apply_radiation(var/damage = 0)
 	if(!damage)
 		return FALSE
-
 	radiation = max(0, radiation + damage)
 	return TRUE
 

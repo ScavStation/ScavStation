@@ -79,7 +79,7 @@ var/global/obj/temp_reagents_holder = new
 		if(my_atom.reagents == src)
 			my_atom.reagents = null
 			if(total_volume > 0) // we can assume 0 reagents and null reagents are broadly identical for the purposes of atom logic
-				my_atom.on_reagent_change()
+				my_atom.try_on_reagent_change()
 		my_atom = null
 
 /datum/reagents/GetCloneArgs()
@@ -115,10 +115,11 @@ var/global/obj/temp_reagents_holder = new
 	total_volume = 0
 	primary_reagent = null
 	for(var/R in reagent_volumes)
-		var/vol = reagent_volumes[R]
+		var/vol = NONUNIT_FLOOR(reagent_volumes[R], MINIMUM_CHEMICAL_VOLUME)
 		if(vol < MINIMUM_CHEMICAL_VOLUME)
 			clear_reagent(R, defer_update = TRUE, force = TRUE) // defer_update is important to avoid infinite recursion
 		else
+			reagent_volumes[R] = vol
 			total_volume += vol
 			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
 				primary_reagent = R
@@ -190,36 +191,34 @@ var/global/obj/temp_reagents_holder = new
 	if(!(check_flags & ATOM_FLAG_NO_REACT))
 		var/list/active_reactions = list()
 
-		for(var/decl/chemical_reaction/C in eligible_reactions)
-			if(C.can_happen(src))
-				active_reactions[C] = 1 // The number is going to be 1/(fraction of remaining reagents we are allowed to use), computed below
+		for(var/decl/chemical_reaction/reaction in eligible_reactions)
+			if(reaction.can_happen(src))
+				active_reactions[reaction] = 1 // The number is going to be 1/(fraction of remaining reagents we are allowed to use), computed below
 				reaction_occured = 1
 
 		var/list/used_reagents = list()
 		// if two reactions share a reagent, each is allocated half of it, so we compute this here
-		for(var/decl/chemical_reaction/C in active_reactions)
-			var/list/adding = C.get_used_reagents()
+		for(var/decl/chemical_reaction/reaction in active_reactions)
+			var/list/adding = reaction.get_used_reagents()
 			for(var/R in adding)
-				LAZYADD(used_reagents[R], C)
+				LAZYADD(used_reagents[R], reaction)
 
 		for(var/R in used_reagents)
 			var/counter = length(used_reagents[R])
 			if(counter <= 1)
 				continue // Only used by one reaction, so nothing we need to do.
-			for(var/decl/chemical_reaction/C in used_reagents[R])
-				active_reactions[C] = max(counter, active_reactions[C])
+			for(var/decl/chemical_reaction/reaction in used_reagents[R])
+				active_reactions[reaction] = max(counter, active_reactions[reaction])
 				counter-- //so the next reaction we execute uses more of the remaining reagents
 				// Note: this is not guaranteed to maximize the size of the reactions we do (if one reaction is limited by reagent A, we may be over-allocating reagent B to it)
 				// However, we are guaranteed to fully use up the most profligate reagent if possible.
 				// Further reactions may occur on the next tick, when this runs again.
 
-		for(var/thing in active_reactions)
-			var/decl/chemical_reaction/C = thing
-			C.process(src, active_reactions[C])
+		for(var/decl/chemical_reaction/reaction as anything in active_reactions)
+			reaction.process(src, active_reactions[reaction])
 
-		for(var/thing in active_reactions)
-			var/decl/chemical_reaction/C = thing
-			C.post_reaction(src)
+		for(var/decl/chemical_reaction/reaction as anything in active_reactions)
+			reaction.post_reaction(src)
 
 	update_total()
 
@@ -236,16 +235,14 @@ var/global/obj/temp_reagents_holder = new
 	update_total()
 	if(!safety)
 		HANDLE_REACTIONS(src)
-	if(my_atom)
-		my_atom.on_reagent_change()
+	my_atom?.try_on_reagent_change()
 
 ///Set and call updates on the target holder.
 /datum/reagents/proc/set_holder(var/obj/new_holder)
 	if(my_atom == new_holder)
 		return
 	my_atom = new_holder
-	if(my_atom)
-		my_atom.on_reagent_change()
+	my_atom?.try_on_reagent_change()
 	handle_update()
 
 /datum/reagents/proc/add_reagent(var/reagent_type, var/amount, var/data = null, var/safety = 0, var/defer_update = FALSE)
@@ -334,7 +331,7 @@ var/global/obj/temp_reagents_holder = new
 	LAZYCLEARLIST(reagent_volumes)
 	LAZYCLEARLIST(reagent_data)
 	total_volume = 0
-	my_atom?.on_reagent_change()
+	my_atom?.try_on_reagent_change()
 
 /datum/reagents/proc/get_overdose(var/decl/material/current)
 	if(current)
@@ -398,7 +395,7 @@ var/global/obj/temp_reagents_holder = new
 // Transfers [amount] reagents from [src] to [target], multiplying them by [multiplier].
 // Returns actual amount removed from [src] (not amount transferred to [target]).
 // Use safety = 1 for temporary targets to avoid queuing them up for processing.
-/datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/safety = 0, var/defer_update = FALSE)
+/datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/safety = 0, var/defer_update = FALSE, list/skip_reagents)
 
 	if(!target || !istype(target))
 		return
@@ -407,9 +404,19 @@ var/global/obj/temp_reagents_holder = new
 	if(!amount)
 		return
 
-	var/part = amount / total_volume
+	var/part = amount
+	if(skip_reagents)
+		var/using_volume = total_volume
+		for(var/rtype in skip_reagents)
+			using_volume -= LAZYACCESS(reagent_volumes, rtype)
+		if(using_volume <= 0)
+			return
+		part /= using_volume
+	else
+		part /= total_volume
+
 	. = 0
-	for(var/rtype in reagent_volumes)
+	for(var/rtype in reagent_volumes - skip_reagents)
 		var/amount_to_transfer = NONUNIT_FLOOR(REAGENT_VOLUME(src, rtype) * part, MINIMUM_CHEMICAL_VOLUME)
 		target.add_reagent(rtype, amount_to_transfer * multiplier, REAGENT_DATA(src, rtype), TRUE, TRUE) // We don't react until everything is in place
 		. += amount_to_transfer
@@ -668,13 +675,3 @@ var/global/obj/temp_reagents_holder = new
 	else
 		reagents = new/datum/reagents(max_vol, src)
 	return reagents
-
-/datum/reagents/Topic(href, href_list)
-	. = ..()
-	if(!. && href_list["deconvert"])
-		var/list/data = REAGENT_DATA(src, /decl/material/liquid/water)
-		if(LAZYACCESS(data, "holy"))
-			var/mob/living/carbon/C = locate(href_list["deconvert"])
-			if(istype(C) && !QDELETED(C) && C.mind)
-				var/decl/special_role/godcult = GET_DECL(/decl/special_role/godcultist)
-				godcult.remove_antagonist(C.mind,1)

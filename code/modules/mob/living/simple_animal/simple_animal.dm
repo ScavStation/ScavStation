@@ -61,7 +61,6 @@
 	var/resistance		  = 0	// Damage reduction
 	var/armor_type = /datum/extension/armor
 	var/list/natural_armor //what armor animal has
-	var/flash_vulnerability = 1 // whether or not the mob can be flashed; 0 = no, 1 = yes, 2 = very yes
 	var/is_aquatic = FALSE
 
 	//Null rod stuff
@@ -279,7 +278,7 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 							atmos_suitable = FALSE
 							break
 		//Atmos effect
-		if(!(MUTATION_SPACERES in mutations) && abs(environment.temperature - bodytemperature) > 40)
+		if(!has_genetic_condition(GENE_COND_SPACE_RESISTANCE) && abs(environment.temperature - bodytemperature) > 40)
 			bodytemperature += ((environment.temperature - bodytemperature) / 5)
 
 	if(bodytemperature < minbodytemp)
@@ -293,6 +292,13 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 
 	if(!atmos_suitable)
 		take_damage(unsuitable_atmos_damage)
+
+/mob/living/simple_animal/get_mob_temperature_threshold(threshold, bodypart)
+	if(threshold >= HEAT_LEVEL_1)
+		return maxbodytemp
+	if(threshold <= COLD_LEVEL_1)
+		return minbodytemp
+	return ..()
 
 /mob/living/simple_animal/proc/escape(mob/living/M, obj/O)
 	O.unbuckle_mob(M)
@@ -311,28 +317,6 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 
 /mob/living/simple_animal/proc/audible_emote(var/act_desc)
 	custom_emote(2, act_desc)
-
-/mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj || Proj.nodamage)
-		return
-
-	var/damage = Proj.damage
-	if(Proj.atom_damage_type == STUN)
-		damage = Proj.damage / 6
-	if(Proj.atom_damage_type == BRUTE)
-		damage = Proj.damage / 2
-	if(Proj.atom_damage_type == BURN)
-		damage = Proj.damage / 1.5
-	if(Proj.agony)
-		damage += Proj.agony / 6
-		if(current_health < Proj.agony * 3)
-			SET_STATUS_MAX(src, STAT_PARA, Proj.agony / 20)
-			visible_message("<span class='warning'>[src] is stunned momentarily!</span>")
-
-	bullet_impact_visuals(Proj)
-	take_damage(damage)
-	Proj.on_hit(src)
-	return 0
 
 /mob/living/simple_animal/get_hug_zone_messages(var/zone)
 	. = ..() || list(response_help_3p, response_help_1p)
@@ -355,15 +339,17 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 	if(!.)
 		var/dealt_damage = harm_intent_damage
 		var/harm_verb = response_harm
+		var/damage_flags
+		var/damage_type
 		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/human/H = user
 			var/decl/natural_attack/attack = H.get_unarmed_attack(src)
 			if(istype(attack))
 				dealt_damage = attack.damage <= dealt_damage ? dealt_damage : attack.damage
 				harm_verb = pick(attack.attack_verb)
-				if(attack.sharp || attack.edge)
-					adjustBleedTicks(dealt_damage)
-		take_damage(dealt_damage)
+				damage_flags = attack.get_damage_flags()
+				damage_type = attack.get_damage_type()
+		take_damage(dealt_damage, damage_type, damage_flags = damage_flags, inflicter = user)
 		user.visible_message(SPAN_DANGER("\The [user] [harm_verb] \the [src]!"))
 		user.do_attack_animation(src)
 		return TRUE
@@ -402,11 +388,14 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 	if(supernatural && istype(O,/obj/item/nullrod))
 		damage *= 2
 		purge = 3
-	take_damage(damage)
-	if(O.edge || O.sharp)
-		adjustBleedTicks(damage)
+	take_damage(damage, O.atom_damage_type, O.damage_flags())
 
 	return 1
+
+/mob/living/simple_animal/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
+	. = ..()
+	if((damage_type == BRUTE) && (damage_flags & (DAM_EDGE | DAM_SHARP | DAM_BULLET))) // damage flags that should cause bleeding
+		adjustBleedTicks(damage)
 
 /mob/living/simple_animal/get_movement_delay(var/travel_dir)
 	var/tally = ..() //Incase I need to add stuff other than "speed" later
@@ -467,15 +456,6 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 	W.forceMove(get_turf(src))
 	return 1
 
-/mob/living/simple_animal/handle_fire()
-	return
-/mob/living/simple_animal/update_fire()
-	return
-/mob/living/simple_animal/IgniteMob()
-	return
-/mob/living/simple_animal/ExtinguishMob()
-	return
-
 /mob/living/simple_animal/is_burnable()
 	return heat_damage_per_tick
 
@@ -501,18 +481,7 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 /mob/living/simple_animal/get_digestion_product()
 	return /decl/material/liquid/nutriment
 
-/mob/living/simple_animal/eyecheck()
-	switch(flash_vulnerability)
-		if(2 to INFINITY)
-			return FLASH_PROTECTION_REDUCED
-		if(1)
-			return FLASH_PROTECTION_NONE
-		if(0)
-			return FLASH_PROTECTION_MAJOR
-		else
-			return FLASH_PROTECTION_MAJOR
-
-/mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/carbon/human/attacker, var/damage_type, var/description)
+/mob/living/simple_animal/proc/reflect_unarmed_damage(var/mob/living/human/attacker, var/damage_type, var/description)
 	if(attacker.a_intent == I_HURT)
 		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, attacker.get_active_held_item_slot(), used_weapon = description)
 		if(rand(25))
@@ -525,18 +494,6 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 
 /mob/living/simple_animal/get_admin_job_string()
 	return "Animal"
-
-/mob/living/simple_animal/handle_flashed(var/obj/item/flash/flash, var/flash_strength)
-	var/safety = eyecheck()
-	if(safety < FLASH_PROTECTION_MAJOR)
-		SET_STATUS_MAX(src, STAT_WEAK, 2)
-		if(safety < FLASH_PROTECTION_MODERATE)
-			SET_STATUS_MAX(src, STAT_STUN, (flash_strength - 2))
-			SET_STATUS_MAX(src, STAT_BLURRY, flash_strength)
-			SET_STATUS_MAX(src, STAT_CONFUSE, flash_strength)
-			flash_eyes(2)
-		return TRUE
-	return FALSE
 
 /mob/living/simple_animal/get_speech_bubble_state_modifier()
 	return ..() || "rough"
@@ -580,7 +537,7 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 		return
 
 	for(var/gas in level_data.exterior_atmosphere.gas)
-		var/gas_amt = level_data.exterior_atmosphere[gas]
+		var/gas_amt = level_data.exterior_atmosphere.gas[gas]
 		if(min_gas)
 			min_gas[gas] = round(gas_amt * 0.5)
 		if(max_gas)
@@ -607,6 +564,10 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 
 /mob/living/simple_animal/can_buckle_mob(var/mob/living/dropping)
 	. = ..() && can_have_rider && (dropping.mob_size <= max_rider_size)
+
+// Simplemobs have to hang out in the rain so make them immune to weather effects (like hail).
+/mob/living/simple_animal/handle_weather_effects()
+	SHOULD_CALL_PARENT(FALSE)
 
 /mob/living/simple_animal/get_available_postures()
 	var/static/list/available_postures = list(

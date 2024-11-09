@@ -57,6 +57,9 @@
 				W.queue_icon_update()
 
 		for(var/turf/wall/W in RANGE_TURFS(loc, 1))
+			var/turf_dir = get_dir(loc, W)
+			if(turf_dir & (turf_dir - 1)) // if diagonal
+				continue // skip diagonals
 			set_dir(turn(get_dir(loc, W), 90))
 			break
 
@@ -209,9 +212,6 @@
 
 /obj/structure/door/walnut
 	material = /decl/material/solid/organic/wood/walnut
-
-/obj/structure/door/cult
-	material = /decl/material/solid/stone/cult
 
 /obj/structure/door/wood/saloon
 	material = /decl/material/solid/organic/wood

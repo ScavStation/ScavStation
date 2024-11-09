@@ -13,6 +13,9 @@ var/global/list/areas = list()
 	luminosity =    0
 	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
 
+	// If true, will allow natural walls in this area to have xenoarchaeology finds in them.
+	var/allow_xenoarchaeology_finds = TRUE
+
 	// If set, will modify ambient light of ambiently lit turfs under a ceiling.
 	var/interior_ambient_light_modifier
 	// If set, will apply ambient light of this colour to turfs under a ceiling.
@@ -137,20 +140,21 @@ var/global/list/areas = list()
 		if(adjacent_turf)
 			adjacent_turf.update_registrations_on_adjacent_area_change()
 
-	T.last_outside_check = OUTSIDE_UNCERTAIN
-	var/outside_changed = T.is_outside() != old_outside
-	if(T.is_outside == OUTSIDE_AREA && outside_changed)
-		T.update_weather()
-		T.update_external_atmos_participation()
+	// Handle updating weather and atmos if the outside status of the turf changed.
+	if(T.is_outside == OUTSIDE_AREA)
+		T.update_external_atmos_participation() // Refreshes outside status and adds exterior air to turf air if necessary.
 
-	if(A.interior_ambient_light_modifier != old_area_ambience || outside_changed)
+	if(T.is_outside() != old_outside)
+		T.update_weather()
+		SSambience.queued |= T
+	else if(A.interior_ambient_light_modifier != old_area_ambience)
 		SSambience.queued |= T
 
 /turf/proc/update_registrations_on_adjacent_area_change()
 	for(var/obj/machinery/door/firedoor/door in src)
 		door.update_area_registrations()
 
-/area/proc/alert_on_fall(var/mob/living/carbon/human/H)
+/area/proc/alert_on_fall(var/mob/living/human/H)
 	return
 
 /area/proc/get_cameras()
@@ -401,7 +405,7 @@ var/global/list/mob/living/forced_ambiance_list = new
 		return
 
 	if(ishuman(mob))
-		var/mob/living/carbon/human/H = mob
+		var/mob/living/human/H = mob
 		if(prob(H.skill_fail_chance(SKILL_EVA, 100, SKILL_ADEPT)))
 			if(!MOVING_DELIBERATELY(H))
 				ADJ_STATUS(H, STAT_STUN, 6)

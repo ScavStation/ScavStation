@@ -76,9 +76,6 @@
 	var/damageoverlaytemp = 0
 	var/obj/machinery/machine = null
 
-	var/sdisabilities = 0	//Carbon
-	var/disabilities = 0	//Carbon
-
 	var/next_move = null
 	var/real_name = null
 
@@ -115,16 +112,11 @@
 	var/can_pull_size = ITEM_SIZE_STRUCTURE // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_SAME       // Whether or not the mob can pull other mobs.
 
-	var/datum/dna/dna = null//Carbon
-	var/list/active_genes
-	var/list/mutations = list() // TODO: Lazylist this var.
-	//see: setup.dm for list of mutations
-
 	var/radiation = 0.0//Carbon
 
 	var/faction = MOB_FACTION_NEUTRAL //Used for checking whether hostile simple animals will attack you, possibly more stuff later
 
-	//The last mob/living/carbon to push/drag/grab this mob (mostly used by slimes friend recognition)
+	//The last mob/living to push/drag/grab this mob (mostly used by slimes friend recognition)
 	var/weakref/last_handled_by_mob
 
 	var/status_flags = CANSTUN|CANWEAKEN|CANPARALYSE|CANPUSH	//bitflags defining which status effects can be inflicted (replaces canweaken, canstun, etc)

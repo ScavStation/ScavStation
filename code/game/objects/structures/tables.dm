@@ -279,7 +279,10 @@
 /obj/structure/table/update_material_desc(override_desc)
 	desc = initial(desc)
 	if(reinf_material)
-		desc = "[desc] This one has a frame made from [material.solid_name] and \a [top_surface_noun] made from [reinf_material.solid_name]."
+		if(reinf_material == material)
+			desc = "[desc] This one has a frame and \a [top_surface_noun] made from [material.solid_name]."
+		else
+			desc = "[desc] This one has a frame made from [material.solid_name] and \a [top_surface_noun] made from [reinf_material.solid_name]."
 	else if(material)
 		desc = "[desc] This one has a frame made from [material.solid_name]."
 	if(felted)
@@ -638,6 +641,13 @@
 /obj/structure/table/handle_default_crowbar_attackby(var/mob/user, var/obj/item/crowbar)
 	return !reinf_material && ..()
 
+// For doing surgery on tables
+/obj/structure/table/get_surgery_success_modifier(delicate)
+	return delicate ? -10 : 0
+
+/obj/structure/table/get_surgery_surface_quality(mob/living/victim, mob/living/user)
+	return OPERATE_OKAY
+
 // Table presets.
 /obj/structure/table/frame
 	icon_state = "frame"
@@ -707,6 +717,7 @@
 	color = WOOD_COLOR_GENERIC
 	material = /decl/material/solid/organic/wood
 	reinf_material = /decl/material/solid/organic/wood
+	parts_type = /obj/item/stack/material/plank
 
 /obj/structure/table/woodentable/mahogany
 	color = WOOD_COLOR_RICH

@@ -13,10 +13,11 @@
 	base_eye_color    = "#d60093"
 	base_color        = "#526d29"
 	body_flags        = BODY_FLAG_NO_DNA
-	age_descriptor = /datum/appearance_descriptor/age/vox
-	cold_level_1 = 80
-	cold_level_2 = 50
-	cold_level_3 = -1
+	age_descriptor    = /datum/appearance_descriptor/age/vox
+	cold_level_1      = 80
+	cold_level_2      = 50
+	cold_level_3      = -1
+	uid               = "bodytype_vox"
 
 	appearance_descriptors = list(
 		/datum/appearance_descriptor/height =       0.75,
@@ -70,7 +71,7 @@
 		)
 	return ..()
 
-/decl/bodytype/vox/get_movement_slowdown(var/mob/living/carbon/human/H)
+/decl/bodytype/vox/get_movement_slowdown(var/mob/living/human/H)
 	if(H && global.vox_current_pressure_toggle["\ref[H]"])
 		return 1.5
 	return ..()
@@ -83,6 +84,7 @@
 	husk_icon           = 'mods/species/vox/icons/body/husk.dmi'
 	blood_overlays      = 'mods/species/vox/icons/body/blood_overlays.dmi'
 	eye_icon            = 'mods/species/vox/icons/body/servitor/eyes.dmi'
+	uid                 = "bodytype_vox_servitor"
 
 	default_sprite_accessories = list(
 		SAC_HAIR = list(
@@ -109,6 +111,8 @@
 	icon_base           = 'mods/species/vox/icons/body/stanchion/body.dmi'
 	eye_icon            = 'mods/species/vox/icons/body/stanchion/eyes.dmi'
 	icon_template       = 'mods/species/vox/icons/body/stanchion/template.dmi'
+	uid                 = "bodytype_vox_stanchion"
+
 	default_sprite_accessories = list(
 		SAC_HAIR = list(
 			/decl/sprite_accessory/hair/vox/short/stanchion = "#160900"
@@ -131,6 +135,7 @@
 	name       = "alchemist voxform"
 	icon_base  = 'mods/species/vox/icons/body/servitor/body_alchemist.dmi'
 	eye_icon   = 'mods/species/vox/icons/body/servitor/eyes_alchemist.dmi'
+	uid        = "bodytype_vox_alchemist"
 
 /obj/item/organ/external/tail/vox
 	tail       = "voxtail"

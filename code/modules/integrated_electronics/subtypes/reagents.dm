@@ -50,8 +50,8 @@
 	var/notified = FALSE
 
 /obj/item/integrated_circuit/reagent/on_reagent_change()
-	..()
-	push_vol()
+	if((. = ..()))
+		push_vol()
 
 /obj/item/integrated_circuit/reagent/smoke/do_work(ord)
 	switch(ord)
@@ -150,16 +150,16 @@
 
 /obj/item/integrated_circuit/reagent/injector/proc/draw_after(var/weakref/target, var/amount)
 	busy = FALSE
-	var/mob/living/carbon/C = target_nearby(target)
-	if(!C)
+	var/mob/living/target_living = target_nearby(target)
+	if(!target_living)
 		activate_pin(3)
 		return
 	var/atom/movable/acting_object = get_object()
 
-	C.visible_message("<span class='warning'>\The [acting_object] draws blood from \the [C]</span>",
+	target_living.visible_message("<span class='warning'>\The [acting_object] draws blood from \the [target_living]</span>",
 					"<span class='warning'>\The [acting_object] draws blood from you.</span>"
 					)
-	C.take_blood(src, amount)
+	target_living.take_blood(src, amount)
 	activate_pin(2)
 
 
@@ -214,12 +214,12 @@
 		var/tramount = abs(transfer_amount)
 
 		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+			var/mob/living/human/H = AM
 			var/injection_status = H.can_inject(null, BP_CHEST)
 			var/injection_delay = 3 SECONDS
 			if(injection_status == INJECTION_PORT)
 				injection_delay += INJECTION_PORT_DELAY
-			if(!H.dna || !injection_status)
+			if(!H.vessel?.total_volume || !injection_status)
 				activate_pin(3)
 				return
 			H.visible_message(
@@ -485,13 +485,13 @@
 		return
 
 	for(var/rtype in source.reagents.reagent_volumes)
-		var/decl/material/G = GET_DECL(rtype)
+		var/decl/material/mat = GET_DECL(rtype)
 		if(!direction_mode)
-			if(G.name in demand)
-				source.reagents.trans_type_to(target, G.type, transfer_amount)
+			if(mat.name in demand)
+				source.reagents.trans_type_to(target, rtype, transfer_amount)
 		else
-			if(!(G.name in demand))
-				source.reagents.trans_type_to(target, G.type, transfer_amount)
+			if(!(mat.name in demand))
+				source.reagents.trans_type_to(target, rtype, transfer_amount)
 	activate_pin(2)
 	push_data()
 

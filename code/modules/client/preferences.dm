@@ -206,15 +206,15 @@ var/global/list/time_prefs_fixed = list()
 	else
 
 		dat += "<b>Slot</b> - "
-		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
-		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
-		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
-		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a><br>"
+		dat += "<a href='byond://?src=\ref[src];load=1'>Load slot</a> - "
+		dat += "<a href='byond://?src=\ref[src];save=1'>Save slot</a> - "
+		dat += "<a href='byond://?src=\ref[src];resetslot=1'>Reset slot</a> - "
+		dat += "<a href='byond://?src=\ref[src];reload=1'>Reload slot</a><br>"
 
 		dat += "<b>Preview</b> - "
-		dat += "<a href='?src=\ref[src];cycle_bg=1'>Cycle background</a> - "
-		dat += "<a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a> - "
-		dat += "<a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
+		dat += "<a href='byond://?src=\ref[src];cycle_bg=1'>Cycle background</a> - "
+		dat += "<a href='byond://?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a> - "
+		dat += "<a href='byond://?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 
 	dat += "<br>"
 	dat += player_setup.header()
@@ -344,7 +344,7 @@ var/global/list/time_prefs_fixed = list()
 	update_setup_window(usr)
 	return 1
 
-/datum/preferences/proc/copy_to(mob/living/carbon/human/character, is_preview_copy = FALSE)
+/datum/preferences/proc/copy_to(mob/living/human/character, is_preview_copy = FALSE)
 
 	if(!player_setup)
 		return // WHY IS THIS EVEN HAPPENING.
@@ -353,7 +353,8 @@ var/global/list/time_prefs_fixed = list()
 	player_setup.sanitize_setup()
 	validate_comments_record() // Make sure a record has been generated for this character.
 	character.comments_record_id = comments_record_id
-	character.personal_aspects = list()
+	character.traits = null
+
 	var/decl/bodytype/new_bodytype = get_bodytype_decl()
 	if(species == character.get_species_name())
 		character.set_bodytype(new_bodytype)
@@ -369,16 +370,15 @@ var/global/list/time_prefs_fixed = list()
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname
-			real_name += " [pick(global.last_names)]"
+			real_name += " [pick(global.using_map.last_names)]"
 		else if(firstspace == name_length)
-			real_name += "[pick(global.last_names)]"
+			real_name += "[pick(global.using_map.last_names)]"
 
 	character.fully_replace_character_name(real_name)
 
 	character.set_gender(gender)
 	character.blood_type = blood_type
 
-	character.set_eye_colour(eye_colour, skip_update = TRUE)
 
 	character.set_skin_colour(skin_colour, skip_update = TRUE)
 	character.skin_tone = skin_tone
@@ -400,6 +400,12 @@ var/global/list/time_prefs_fixed = list()
 
 	character.backpack_setup = new(backpack, backpack_metadata["[backpack]"])
 
+	if(length(traits))
+		for(var/trait_type in traits)
+			character.set_trait(trait_type, traits[trait_type] || TRAIT_LEVEL_EXISTS)
+
+	character.set_eye_colour(eye_colour, skip_update = TRUE)
+
 	for(var/obj/item/organ/external/O in character.get_external_organs())
 		for(var/decl/sprite_accessory_category/sprite_category in O.get_sprite_accessory_categories())
 			if(!sprite_category.clear_in_pref_apply)
@@ -418,30 +424,16 @@ var/global/list/time_prefs_fixed = list()
 	if(LAZYLEN(appearance_descriptors))
 		character.appearance_descriptors = appearance_descriptors.Copy()
 
-	if(character.dna)
-		character.dna.ready_dna(character)
-		if(blood_type)
-			character.dna.b_type = blood_type
-
 	character.force_update_limbs()
-	character.update_mutations(0)
+	character.update_genetic_conditions(0)
 	character.update_body(0)
 	character.update_underwear(0)
 	character.update_hair(0)
 	character.update_icon()
 	character.update_transform()
 
-	if(length(aspects))
-		for(var/atype in aspects)
-			character.personal_aspects |= GET_DECL(atype)
-		character.need_aspect_sort = TRUE
-		character.apply_aspects(ASPECTS_PHYSICAL)
-
 	if(is_preview_copy)
 		return
-
-	if(length(aspects))
-		character.apply_aspects(ASPECTS_MENTAL)
 
 	for(var/token in cultural_info)
 		character.set_cultural_value(token, cultural_info[token], defer_language_update = TRUE)
@@ -476,7 +468,7 @@ var/global/list/time_prefs_fixed = list()
 		var/name = (slot_names && slot_names[get_slot_key(i)]) || "Character[i]"
 		if(i==default_slot)
 			name = "<b>[name]</b>"
-		dat += "<a href='?src=\ref[src];changeslot=[i]'>[name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];changeslot=[i]'>[name]</a><br>"
 
 	dat += "<hr>"
 	dat += "</center></tt>"

@@ -129,21 +129,25 @@
 			. |= DAM_LASER
 
 /obj/attackby(obj/item/O, mob/user)
-	if((obj_flags & OBJ_FLAG_ANCHORABLE) && IS_WRENCH(O))
-		wrench_floor_bolts(user)
+	if((obj_flags & OBJ_FLAG_ANCHORABLE) && (IS_WRENCH(O) || IS_HAMMER(O)))
+		wrench_floor_bolts(user, null, O)
 		update_icon()
 		return TRUE
 	return ..()
 
-/obj/proc/wrench_floor_bolts(mob/user, delay=20)
-	playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+/obj/proc/wrench_floor_bolts(mob/user, delay = 2 SECONDS, obj/item/tool)
+	if(!istype(tool) || IS_WRENCH(tool))
+		playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+	else if(IS_HAMMER(tool))
+		playsound(loc, 'sound/weapons/Genhit.ogg', 100, 1)
+
 	if(anchored)
 		user.visible_message("\The [user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
 	else
 		user.visible_message("\The [user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
 	if(do_after(user, delay, src))
 		if(!src) return
-		to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured \the [src]!"))
 		anchored = !anchored
 	return 1
 
@@ -156,7 +160,7 @@
 	return ..() && w_class <= round(amt/20)
 
 /obj/proc/can_embed()
-	return is_sharp(src)
+	return FALSE
 
 /obj/examine(mob/user, distance, infix, suffix)
 	. = ..()

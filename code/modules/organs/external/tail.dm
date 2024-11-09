@@ -28,14 +28,18 @@
 	/// How many random tail states are available for animations.
 	var/tail_states = 1
 
+/obj/item/organ/external/tail/skeletonize()
+	. = ..()
+	owner?.update_tail_showing()
+
 /obj/item/organ/external/tail/do_uninstall(in_place, detach, ignore_children, update_icon)
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/human/H = owner
 	if(!(. = ..()))
 		return
 	if(update_icon && !istype(H) && !QDELETED(H) && H != owner)
 		H.update_tail_showing(FALSE)
 
-/obj/item/organ/external/tail/do_install(mob/living/carbon/human/target, affected, in_place, update_icon, detached)
+/obj/item/organ/external/tail/do_install(mob/living/human/target, affected, in_place, update_icon, detached)
 	. = ..()
 	if(update_icon && istype(owner) && !QDELETED(owner))
 		owner.update_tail_showing(FALSE)

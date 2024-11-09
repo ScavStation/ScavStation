@@ -77,7 +77,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 	. = shatter()
 
-/obj/structure/window/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0)
+/obj/structure/window/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	. = ..()
 	if(. && damage_type == BRUTE)
 		playsound(loc, "glasscrack", 100, 1)
@@ -151,7 +151,7 @@
 	if (user.a_intent && user.a_intent == I_HURT)
 
 		if (ishuman(user))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/human/H = user
 			if(H.species.can_shred(H))
 				attack_generic(H,25)
 				return
@@ -265,7 +265,7 @@
 // TODO: generalize to matter list and parts_type.
 /obj/structure/window/create_dismantled_products(turf/T)
 	SHOULD_CALL_PARENT(FALSE)
-	. = material.create_object(loc, is_fulltile() ? 4 : 2)
+	. = material.create_object(loc, 1)
 	if(reinf_material)
 		for(var/obj/item/stack/material/S in .)
 			S.reinf_material = reinf_material
@@ -569,7 +569,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 	return FALSE
 
-/obj/structure/window/reinforced/crescent/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0)
+/obj/structure/window/reinforced/crescent/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	return
 
 /obj/structure/window/reinforced/crescent/shatter()

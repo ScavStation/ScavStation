@@ -306,31 +306,29 @@ var/global/list/_wood_materials = list(
 
 /obj/item/chems/food/grown/attack_self(mob/user)
 
-	if(!seed)
-		return
+	if(seed)
+		if(user.a_intent == I_HURT)
+			user.visible_message(SPAN_DANGER("\The [user] squashes \the [src]!"))
+			seed.thrown_at(src,user)
+			sleep(-1)
+			if(src) qdel(src)
+			return TRUE
 
-	if(isspaceturf(user.loc))
-		return
+		var/turf/user_loc = user.loc
+		if(isturf(user_loc) && !user_loc.is_open() && seed.get_trait(TRAIT_SPREAD) > 0)
+			to_chat(user, SPAN_NOTICE("You plant \the [src]."))
+			new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(user),src.seed)
+			qdel(src)
+			return TRUE
 
-	if(user.a_intent == I_HURT)
-		user.visible_message("<span class='danger'>\The [user] squashes \the [src]!</span>")
-		seed.thrown_at(src,user)
-		sleep(-1)
-		if(src) qdel(src)
-		return
-
-	if(seed.get_trait(TRAIT_SPREAD) > 0)
-		to_chat(user, "<span class='notice'>You plant the [src.name].</span>")
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(user),src.seed)
-		qdel(src)
-		return
+	return ..()
 
 /obj/item/chems/food/grown/on_picked_up(mob/user)
 	..()
 	if(!seed)
 		return
 	if(seed.get_trait(TRAIT_STINGS))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		if(istype(H) && H.get_equipped_item(slot_gloves_str))
 			return
 		if(!reagents || reagents.total_volume <= 0)

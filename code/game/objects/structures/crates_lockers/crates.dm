@@ -16,6 +16,8 @@
 		if(rigged)
 			visible_message("<span class='danger'>There are wires attached to the lid of [src]...</span>")
 			for(var/obj/item/assembly_holder/H in src)
+				// This proc expects an /obj/item, and usr is never that, but it must be non-null for the code to function.
+				// TODO: Rewrite or refactor either this code or the proc itself to avoid that.
 				H.process_activation(usr)
 			for(var/obj/item/assembly/A in src)
 				A.activate()
@@ -74,6 +76,16 @@
 	name = "plastic crate"
 	desc = "A rectangular plastic crate."
 	closet_appearance = /decl/closet_appearance/crate/plastic
+
+/obj/structure/closet/crate/plastic/rations //For use in the escape shuttle
+	name = "emergency rations"
+	desc = "A crate of emergency rations."
+
+/obj/structure/closet/crate/plastic/rations/WillContain()
+	return list(
+		/obj/random/mre = 6,
+		/obj/item/chems/drinks/cans/waterbottle = 12
+	)
 
 /obj/structure/closet/crate/internals
 	name = "internals crate"
@@ -148,13 +160,6 @@
 
 /obj/structure/closet/crate/freezer/ProcessAtomTemperature()
 	return PROCESS_KILL
-
-/obj/structure/closet/crate/freezer/rations //For use in the escape shuttle
-	name = "emergency rations"
-	desc = "A crate of emergency rations."
-
-/obj/structure/closet/crate/freezer/rations/WillContain()
-	return list(/obj/random/mre = 6, /obj/item/chems/drinks/cans/waterbottle = 12)
 
 /obj/structure/closet/crate/freezer/meat
 	name = "meat crate"

@@ -147,7 +147,8 @@
 /obj/machinery/door/blast/attackby(obj/item/C, mob/user)
 	add_fingerprint(user, 0, C)
 	if(!panel_open) //Do this here so the door won't change state while prying out the circuit
-		if(IS_CROWBAR(C) || (istype(C, /obj/item/twohanded/fireaxe) && C:wielded == 1))
+		var/obj/item/twohanded/zweihander = C
+		if(IS_CROWBAR(C) || (istype(C, /obj/item/twohanded/fireaxe) && zweihander.wielded))
 			if(((stat & NOPOWER) || (stat & BROKEN)) && !( operating ))
 				to_chat(user, "<span class='notice'>You begin prying at \the [src]...</span>")
 				if(do_after(user, 2 SECONDS, src))
@@ -235,7 +236,7 @@
 /decl/public_access/public_method/close_door_delayed
 	name = "delayed close door"
 	desc = "Closes the door if possible, after a short delay."
-	call_proc = /obj/machinery/door/blast/proc/delayed_close
+	call_proc = TYPE_PROC_REF(/obj/machinery/door/blast, delayed_close)
 
 /decl/stock_part_preset/radio/receiver/blast_door
 	frequency = BLAST_DOORS_FREQ

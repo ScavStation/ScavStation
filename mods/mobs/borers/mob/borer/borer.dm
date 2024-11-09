@@ -43,7 +43,7 @@
 	var/has_reproduced                      // Whether or not the borer has reproduced, for objective purposes.
 	var/roundstart                          // Whether or not this borer has been mapped and should not look for a player initially.
 	var/neutered                            // 'borer lite' mode - fewer powers, less hostile to the host.
-	var/mob/living/carbon/human/host        // Human host for the brain worm.
+	var/mob/living/human/host        // Human host for the brain worm.
 	var/mob/living/captive_brain/host_brain // Used for swapping control of the body back and forth.
 
 /obj/item/holder/borer
@@ -87,12 +87,18 @@
 
 /mob/living/simple_animal/borer/handle_disabilities()
 	. = ..()
-	sdisabilities = 0
 	if(host)
-		if(host.sdisabilities & BLINDED)
-			sdisabilities |= BLINDED
-		if(host.sdisabilities & DEAFENED)
-			sdisabilities |= DEAFENED
+		if(host.has_genetic_condition(GENE_COND_BLINDED))
+			add_genetic_condition(GENE_COND_BLINDED)
+		else
+			remove_genetic_condition(GENE_COND_BLINDED)
+		if(host.has_genetic_condition(GENE_COND_DEAFENED))
+			add_genetic_condition(GENE_COND_DEAFENED)
+		else
+			remove_genetic_condition(GENE_COND_DEAFENED)
+	else
+		remove_genetic_condition(GENE_COND_BLINDED)
+		remove_genetic_condition(GENE_COND_DEAFENED)
 
 /mob/living/simple_animal/borer/handle_living_non_stasis_processes()
 	. = ..()
@@ -152,16 +158,16 @@
 	if(!host || !controlling) return
 
 	if(ishuman(host))
-		var/mob/living/carbon/human/H = host
+		var/mob/living/human/H = host
 		var/obj/item/organ/external/head = GET_EXTERNAL_ORGAN(H, BP_HEAD)
 		LAZYREMOVE(head.implants, src)
 
 	controlling = FALSE
 
 	host.remove_language(/decl/language/corticalborer)
-	host.verbs -= /mob/living/carbon/proc/release_control
-	host.verbs -= /mob/living/carbon/proc/punish_host
-	host.verbs -= /mob/living/carbon/proc/spawn_larvae
+	host.verbs -= /mob/living/proc/release_control
+	host.verbs -= /mob/living/proc/punish_host
+	host.verbs -= /mob/living/proc/spawn_larvae
 
 	if(host_brain)
 

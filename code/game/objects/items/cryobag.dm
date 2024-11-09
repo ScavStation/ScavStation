@@ -111,7 +111,7 @@
 
 /obj/item/usedcryobag
 	name = "used stasis bag"
-	desc = "Pretty useless now.."
+	desc = "Pretty useless now..."
 	icon_state = "bodybag_used"
 	icon = 'icons/obj/closets/cryobag.dmi'
 	material = /decl/material/solid/organic/plastic
@@ -131,7 +131,7 @@
 	qdel(src)
 
 /obj/structure/closet/body_bag/cryobag/blank/WillContain()
-	return list(/mob/living/carbon/human/blank)
+	return list(/mob/living/human/blank)
 
 /obj/structure/closet/body_bag/cryobag/blank/Initialize()
 	. = ..()

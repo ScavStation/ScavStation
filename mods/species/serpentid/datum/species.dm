@@ -74,37 +74,21 @@
 	)
 	var/list/skin_overlays = list()
 
-/decl/species/serpentid/can_overcome_gravity(var/mob/living/carbon/human/H)
+#define SERPENTID_FLIGHT_PRESSURE_THRESHOLD 80
+/decl/species/serpentid/can_overcome_gravity(var/mob/living/human/H)
 	var/datum/gas_mixture/mixture = H.loc.return_air()
-
-	if(mixture)
-		var/pressure = mixture.return_pressure()
-		if(pressure > 50)
-			var/turf/below = GetBelow(H)
-			var/turf/T = H.loc
-			if(!T.CanZPass(H, DOWN) || !below.CanZPass(H, DOWN))
-				return TRUE
-
+	var/pressure = mixture?.return_pressure()
+	if(pressure >= SERPENTID_FLIGHT_PRESSURE_THRESHOLD)
+		return TRUE
 	return FALSE
+#undef SERPENTID_FLIGHT_PRESSURE_THRESHOLD
 
-/decl/species/serpentid/handle_environment_special(var/mob/living/carbon/human/H)
+/decl/species/serpentid/handle_environment_special(var/mob/living/human/H)
 	if(!H.on_fire && H.fire_stacks < 2)
 		H.fire_stacks += 0.2
 	return
 
-/decl/species/serpentid/can_fall(var/mob/living/carbon/human/H)
-	var/datum/gas_mixture/mixture = H.loc.return_air()
-	var/turf/T = GetBelow(H.loc)
-	for(var/obj/O in T)
-		if(istype(O, /obj/structure/stairs))
-			return TRUE
-	if(mixture)
-		var/pressure = mixture.return_pressure()
-		if(pressure > 80)
-			return FALSE
-	return TRUE
-
-/decl/species/serpentid/handle_fall_special(var/mob/living/carbon/human/H, var/turf/landing)
+/decl/species/serpentid/handle_fall_special(var/mob/living/human/H, var/turf/landing)
 
 	var/datum/gas_mixture/mixture = H.loc.return_air()
 	var/turf/T = GetBelow(H.loc)
@@ -124,13 +108,13 @@
 
 	return FALSE
 
-/decl/species/serpentid/can_shred(var/mob/living/carbon/human/H, var/ignore_intent, var/ignore_antag)
+/decl/species/serpentid/can_shred(var/mob/living/human/H, var/ignore_intent, var/ignore_antag)
 	if(!H.get_equipped_item(slot_handcuffed_str) || H.buckled)
 		return ..(H, ignore_intent, TRUE)
 	else
 		return 0
 
-/decl/species/serpentid/handle_movement_delay_special(var/mob/living/carbon/human/H)
+/decl/species/serpentid/handle_movement_delay_special(var/mob/living/human/H)
 	var/tally = 0
 
 	H.remove_cloaking_source(src)
@@ -142,7 +126,7 @@
 	return tally
 
 // todo: make this on bodytype
-/decl/species/serpentid/update_skin(var/mob/living/carbon/human/H)
+/decl/species/serpentid/update_skin(var/mob/living/human/H)
 
 	if(H.stat)
 		H.skin_state = SKIN_NORMAL
@@ -178,7 +162,7 @@
 			return(threat_image)
 
 
-/decl/species/serpentid/disarm_attackhand(var/mob/living/carbon/human/attacker, var/mob/living/carbon/human/target)
+/decl/species/serpentid/disarm_attackhand(var/mob/living/human/attacker, var/mob/living/human/target)
 	if(attacker.pulling_punches || target.current_posture.prone || attacker == target)
 		return ..(attacker, target)
 	if(world.time < attacker.last_attack + 20)

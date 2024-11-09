@@ -322,12 +322,14 @@ Ccomp's first proc.
 		var/response = alert(src, "Are you sure you wish to allow [selection] to respawn?","Allow respawn","No","Yes")
 		if(response == "No") return
 
-	G.timeofdeath=-19999						/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
-									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
-									   there won't be an autopsy.
-									*/
+	/*
+	  time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+	  timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
+	  there won't be an autopsy.
+	*/
+	G.timeofdeath          = -(INFINITY)
 	G.has_enabled_antagHUD = 2
-	G.can_reenter_corpse = CORPSE_CAN_REENTER_AND_RESPAWN
+	G.can_reenter_corpse  |= CORPSE_CAN_RESPAWN
 
 	G.show_message("<span class=notice><b>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</b></span>", 1)
 	log_and_message_admins("has allowed [key_name(G)] to bypass the [get_config_value(/decl/config/num/respawn_delay)] minute respawn limit.")
@@ -395,7 +397,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		to_chat(usr, SPAN_WARNING("There is no active key like that in the game or the person is not currently a ghost."))
 		return
 
-	var/mob/living/carbon/human/new_character = new(get_random_spawn_turf(SPAWN_FLAG_JOBS_CAN_SPAWN)) //The mob being spawned.
+	var/mob/living/human/new_character = new(get_random_spawn_turf(SPAWN_FLAG_JOBS_CAN_SPAWN)) //The mob being spawned.
 	var/datum/computer_file/report/crew_record/record_found			//Referenced to later to either randomize or not randomize the character.
 	if(G_found.mind && !G_found.mind.active)
 		record_found = get_crewmember_record(G_found.real_name)
@@ -414,9 +416,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(!new_character.real_name)
 		if(new_character.gender == MALE)
-			new_character.real_name = capitalize(pick(global.first_names_male)) + " " + capitalize(pick(global.last_names))
+			new_character.real_name = capitalize(pick(global.using_map.first_names_male)) + " " + capitalize(pick(global.using_map.last_names))
 		else
-			new_character.real_name = capitalize(pick(global.first_names_female)) + " " + capitalize(pick(global.last_names))
+			new_character.real_name = capitalize(pick(global.using_map.first_names_female)) + " " + capitalize(pick(global.using_map.last_names))
 	new_character.SetName(new_character.real_name)
 
 	if(G_found.mind && !G_found.mind.active)
@@ -427,10 +429,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.mind.assigned_role = global.using_map.default_job_title//If they somehow got a null assigned role.
 
 	//DNA
-	if(new_character.dna)
-		new_character.dna.ready_dna(new_character)
-		if(record_found)//Pull up their name from database records if they did have a mind.
-			new_character.dna.unique_enzymes = record_found.get_dna()
+	if(record_found)//Pull up their name from database records if they did have a mind.
+		new_character.set_unique_enzymes(record_found.get_dna())
 	new_character.key = G_found.key
 
 	/*
@@ -478,7 +478,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		else
 			M.add_ion_law(input)
 			for(var/mob/living/silicon/ai/O in SSmobs.mob_list)
-				to_chat(O, "<span class='warning'>" + input + "...LAWS UPDATED</span>")
+				to_chat(O, SPAN_WARNING("[input]... LAWS UPDATED."))
 				O.show_laws()
 
 	log_admin("Admin [key_name(usr)] has added a new AI law - [input]")
@@ -768,8 +768,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set desc = "Toggles random events such as meteors, black holes, blob (but not space dust) on/off"
 	if(!check_rights(R_SERVER))	return
 
-	toggle_config_value(/decl/config/toggle/allow_random_events)
-	if(get_config_value(/decl/config/toggle/allow_random_events))
+	toggle_config_value(/decl/config/toggle/on/allow_random_events)
+	if(get_config_value(/decl/config/toggle/on/allow_random_events))
 		to_chat(usr, "Random events enabled")
 		message_admins("Admin [key_name_admin(usr)] has enabled random events.", 1)
 	else

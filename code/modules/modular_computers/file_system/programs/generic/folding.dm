@@ -46,10 +46,13 @@
 		if(started_on + current_interval > world.timeofday)
 			return TOPIC_HANDLED // not ready to collect.
 		var/obj/item/card/id/I = usr.GetIdCard()
-		if(!I)
+		if(!istype(I))
 			to_chat(usr, SPAN_WARNING("Unable to locate ID card for transaction."))
 			return TOPIC_HANDLED
 		var/datum/money_account/account = get_account(I.associated_account_number)
+		if(!istype(account))
+			to_chat(usr, SPAN_WARNING("Unable to locate account for deposit using account number #[I.associated_account_number || "NULL"]."))
+			return TOPIC_HANDLED
 		var/earned = (current_interval / 10) * (SCIENCE_MONEY_PER_SECOND * computer.get_processing_power()) //Divide by 10 to convert from ticks to seconds
 		account.deposit(earned, "Completed FOLDING@SPACE project.")
 		var/decl/currency/currency = GET_DECL(global.using_map.default_currency)
@@ -64,7 +67,7 @@
 
 	if(world.timeofday < next_event) //Checks if it's time for the next crash chance.
 		return
-	var/mob/living/holder = computer.holder.get_recursive_loc_of_type(/mob/living/carbon/human)
+	var/mob/living/holder = computer.holder.get_recursive_loc_of_type(/mob/living/human)
 	var/host = computer.get_physical_host()
 	if(program_status > PROGRAM_STATUS_CRASHED)
 		if(PROGRAM_STATUS_RUNNING_SCALDING >= program_status)

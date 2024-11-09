@@ -2,7 +2,7 @@
 	name = "vox magclaws"
 	desc = "A pair of heavy, jagged, armoured foot pieces, seemingly suitable for a velociraptor."
 	icon = 'mods/species/vox/icons/clothing/boots_vox.dmi'
-	action_button_name = "Toggle the magclaws"
+	action_button_name = "Toggle Magclaws"
 	bodytype_equip_flags = BODY_FLAG_VOX
 
 /obj/item/clothing/shoes/magboots/vox/attack_self(mob/user)
@@ -14,7 +14,7 @@
 	else
 		if(!ishuman(user))
 			return
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		var/obj/item/shoes = H.get_equipped_item(slot_shoes_str)
 		if(shoes != src)
 			to_chat(user, "You will have to put on the [src] before you can do that.")

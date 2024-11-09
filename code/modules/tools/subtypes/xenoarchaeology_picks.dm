@@ -44,8 +44,8 @@
 	attack_verb       = list("prodded", "attacked")
 	desc              = "A wood-handled brush with thick metallic wires for clearing away dust and loose scree."
 	sharp             = 0
-	material          = /decl/material/solid/organic/wood
-	matter            = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT)
+	material          = /decl/material/solid/metal/steel
+	handle_material   = /decl/material/solid/organic/wood
 	excavation_amount = 1
 	excavation_sound  = 'sound/weapons/thudswoosh.ogg'
 	excavation_verb   = "brushing"
@@ -106,7 +106,6 @@
 	name              = "excavation pick set"
 	icon              = 'icons/obj/items/storage/excavation.dmi'
 	icon_state        = "excavation"
-	item_state        = "utility"
 	desc              = "A rugged case containing a set of standardized picks used in archaeological digs."
 	item_state        = "syringe_kit"
 	slot_flags        = SLOT_LOWER_BODY

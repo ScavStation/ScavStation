@@ -19,6 +19,7 @@
 		machine = null
 
 	CLEAR_HUD_ALERTS(src) // These will be set again in the various update procs below.
+	handle_hud_glasses() // Clear HUD overlay images. Done early so that organs, etc. can add them back.
 
 	//Handle temperature/pressure differences between body and environment
 	handle_environment(loc.return_air())
@@ -283,51 +284,60 @@
 	if(!.) // If we're under or inside shelter, use the z-level rain (for ambience)
 		. = SSweather.weather_by_z[my_turf.z]
 
-/mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
-
-	SHOULD_CALL_PARENT(TRUE)
-
+/mob/living/proc/handle_contact_reagent_dripping()
 	// TODO: process dripping outside of Life() so corpses don't become sponges.
 	// TODO: factor temperature and vapor into this so warmer locations dry you off.
 	// TODO: apply a dripping overlay a la fire to show someone is saturated.
-	if(loc)
-		var/datum/reagents/touching_reagents = get_contact_reagents()
-		if(touching_reagents?.total_volume)
-			var/drip_amount = max(1, round(touching_reagents.total_volume * 0.1))
-			if(drip_amount)
-				touching_reagents.trans_to(loc, drip_amount)
+	if(!loc)
+		return
+	var/datum/reagents/touching_reagents = get_contact_reagents()
+	if(!touching_reagents?.total_volume)
+		return
+	var/drip_amount = max(1, round(touching_reagents.total_volume * 0.1))
+	if(drip_amount)
+		touching_reagents.trans_to(loc, drip_amount)
 
+/mob/living/proc/handle_weather_effects(obj/abstract/weather_system/weather)
 	// Handle physical effects of weather.
-	var/decl/state/weather/weather_state
-	var/obj/abstract/weather_system/weather = get_affecting_weather()
-	if(weather)
-		weather_state = weather.weather_system.current_state
-		if(istype(weather_state))
-			weather_state.handle_exposure(src, get_weather_exposure(weather), weather)
+	if(!istype(weather))
+		return
+	var/decl/state/weather/weather_state = weather.weather_system.current_state
+	if(istype(weather_state))
+		weather_state.handle_exposure(src, get_weather_exposure(weather), weather)
 
+/mob/living/proc/handle_weather_ambience(obj/abstract/weather_system/weather)
 	// Refresh weather ambience.
 	// Show messages and play ambience.
-	if(client && get_preference_value(/datum/client_preference/play_ambiance) == PREF_YES)
+	if(!istype(weather) || !client || get_preference_value(/datum/client_preference/play_ambiance) != PREF_YES)
+		return
 
-		// Work out if we need to change or cancel the current ambience sound.
-		var/send_sound
-		var/mob_ref = weakref(src)
-		if(istype(weather_state))
-			var/ambient_sounds = !is_outside() ? weather_state.ambient_indoors_sounds : weather_state.ambient_sounds
-			var/ambient_sound = length(ambient_sounds) && pick(ambient_sounds)
-			if(global.current_mob_ambience[mob_ref] == ambient_sound)
-				return
-			send_sound = ambient_sound
-			global.current_mob_ambience[mob_ref] = send_sound
-		else if(mob_ref in global.current_mob_ambience)
-			global.current_mob_ambience -= mob_ref
-		else
+	// Work out if we need to change or cancel the current ambience sound.
+	var/send_sound
+	var/mob_ref = weakref(src)
+	var/decl/state/weather/weather_state = weather.weather_system.current_state
+	if(istype(weather_state))
+		var/ambient_sounds = !is_outside() ? weather_state.ambient_indoors_sounds : weather_state.ambient_sounds
+		var/ambient_sound = length(ambient_sounds) && pick(ambient_sounds)
+		if(global.current_mob_ambience[mob_ref] == ambient_sound)
 			return
+		send_sound = ambient_sound
+		global.current_mob_ambience[mob_ref] = send_sound
+	else if(mob_ref in global.current_mob_ambience)
+		global.current_mob_ambience -= mob_ref
+	else
+		return
 
-		// Push sound to client. Pipe dream TODO: crossfade between the new and old weather ambience.
-		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = sound_channels.weather_channel))
-		if(send_sound)
-			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = sound_channels.weather_channel))
+	// Push sound to client. Pipe dream TODO: crossfade between the new and old weather ambience.
+	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = sound_channels.weather_channel))
+	if(send_sound)
+		sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = sound_channels.weather_channel))
+
+/mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
+	SHOULD_CALL_PARENT(TRUE)
+	handle_contact_reagent_dripping() // See comment on proc definition
+	var/weather = get_affecting_weather()
+	handle_weather_effects(weather)
+	handle_weather_ambience(weather)
 
 //This updates the health and status of the mob (conscious, unconscious, dead)
 /mob/living/proc/handle_regular_status_updates()
@@ -434,14 +444,14 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(stat == DEAD)
 		SET_STATUS_MAX(src, STAT_BLIND, 0)
-	if(stat != CONSCIOUS && (sdisabilities & BLINDED)) //blindness from disability or unconsciousness doesn't get better on its own
+	if(stat != CONSCIOUS && has_genetic_condition(GENE_COND_BLINDED)) //blindness from disability or unconsciousness doesn't get better on its own
 		SET_STATUS_MAX(src, STAT_BLIND, 2)
 	else
 		return TRUE
 	return FALSE
 
 /mob/living/proc/handle_impaired_hearing()
-	if((sdisabilities & DEAFENED) || stat) //disabled-deaf, doesn't get better on its own
+	if(has_genetic_condition(GENE_COND_DEAFENED) || stat) //disabled-deaf, doesn't get better on its own
 		SET_STATUS_MAX(src, STAT_TINNITUS, 2)
 
 /mob/living/proc/should_do_hud_updates()
@@ -492,7 +502,7 @@
 		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
 	else
 		clear_fullscreen("blind")
-		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
+		set_fullscreen(has_genetic_condition(GENE_COND_NEARSIGHTED), "impaired", /obj/screen/fullscreen/impaired, 1)
 		set_fullscreen(GET_STATUS(src, STAT_BLURRY), "blurry", /obj/screen/fullscreen/blurry)
 		set_fullscreen(GET_STATUS(src, STAT_DRUGGY), "high", /obj/screen/fullscreen/high)
 	set_fullscreen(stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
@@ -540,7 +550,6 @@
 
 /mob/living/proc/handle_hud_icons()
 	handle_hud_icons_health()
-	handle_hud_glasses()
 
 /mob/living/proc/handle_hud_icons_health()
 	return
@@ -571,6 +580,7 @@
 #define LIMB_UNUSABLE 2
 #define LIMB_DAMAGED  1
 #define LIMB_IMPAIRED 0.5
+
 
 /mob/living/proc/handle_stance()
 	set waitfor = FALSE // Can sleep in emotes.

@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/monkeyize()
+/mob/living/human/proc/monkeyize()
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
 		return
 	for(var/obj/item/W in get_contained_external_atoms())
@@ -29,29 +29,30 @@
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	change_species(species.primitive_form)
-	dna.SetSEState(global.MONKEYBLOCK,1)
-	dna.SetSEValueRange(global.MONKEYBLOCK,0xDAC, 0xFFF)
 
 	to_chat(src, "<B>You are now [species.name]. </B>")
 	qdel(animation)
 
 	return src
 
-/mob/new_player/AIize()
+/mob/new_player/AIize(move = TRUE)
 	spawning = 1
 	return ..()
 
-/mob/living/carbon/human/AIize(move=1) // 'move' argument needs defining here too because BYOND is dumb
+/mob/living/human/AIize(move = TRUE) // 'move' argument needs defining here too because BYOND is dumb
+	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
+		return
+	QDEL_NULL_LIST(worn_underwear)
+	return ..(move)
+
+/mob/living/silicon/ai/AIize(move = TRUE)
+	return src
+
+/mob/living/AIize(move = TRUE)
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
 		return
 	for(var/t in get_external_organs())
 		qdel(t)
-	QDEL_NULL_LIST(worn_underwear)
-	return ..(move)
-
-/mob/living/carbon/AIize()
-	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
-		return
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(src)
@@ -59,7 +60,7 @@
 	set_invisibility(INVISIBILITY_ABSTRACT)
 	return ..()
 
-/mob/proc/AIize(move=1)
+/mob/proc/AIize(move = TRUE)
 	if(client)
 		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = sound_channels.lobby_channel))// stop the jams for AIs
 
@@ -103,7 +104,7 @@
 	return O
 
 //human -> robot
-/mob/living/carbon/human/proc/Robotize(var/supplied_robot_type = /mob/living/silicon/robot)
+/mob/living/human/proc/Robotize(var/supplied_robot_type = /mob/living/silicon/robot)
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
 		return
 	QDEL_NULL_LIST(worn_underwear)
@@ -140,7 +141,7 @@
 	qdel(src) // Queues us for a hard delete
 	return O
 
-/mob/living/carbon/human/proc/corgize()
+/mob/living/human/proc/corgize()
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
 		return
 	for(var/obj/item/W in src)
@@ -160,7 +161,7 @@
 	qdel(src)
 	return
 
-/mob/living/carbon/human/Animalize()
+/mob/living/human/Animalize()
 
 	var/list/mobtypes = typesof(/mob/living/simple_animal)
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
@@ -221,18 +222,6 @@
 	if(!MP)
 		return 0	//Sanity, this should never happen.
 
-	if(ispath(MP, /mob/living/simple_animal/construct/behemoth))
-		return 0 //I think this may have been an unfinished WiP or something. These constructs should really have their own class simple_animal/construct/subtype
-
-	if(ispath(MP, /mob/living/simple_animal/construct/armoured))
-		return 0 //Verbs do not appear for players. These constructs should really have their own class simple_animal/construct/subtype
-
-	if(ispath(MP, /mob/living/simple_animal/construct/wraith))
-		return 0 //Verbs do not appear for players. These constructs should really have their own class simple_animal/construct/subtype
-
-	if(ispath(MP, /mob/living/simple_animal/construct/builder))
-		return 0 //Verbs do not appear for players. These constructs should really have their own class simple_animal/construct/subtype
-
 //Good mobs!
 	if(ispath(MP, /mob/living/simple_animal/cat))
 		return 1
@@ -243,8 +232,6 @@
 	if(ispath(MP, /mob/living/simple_animal/hostile/carp))
 		return 1
 	if(ispath(MP, /mob/living/simple_animal/mushroom))
-		return 1
-	if(ispath(MP, /mob/living/simple_animal/shade))
 		return 1
 	if(ispath(MP, /mob/living/simple_animal/tomato))
 		return 1
@@ -259,9 +246,9 @@
 	return 0
 
 
-/mob/living/carbon/human/proc/zombify()
-	make_husked()
-	mutations |= MUTATION_CLUMSY
+/mob/living/human/proc/zombify()
+	add_genetic_condition(GENE_COND_HUSK)
+	add_genetic_condition(GENE_COND_CLUMSY)
 	src.visible_message("<span class='danger'>\The [src]'s skin decays before your very eyes!</span>", "<span class='danger'>Your entire body is ripe with pain as it is consumed down to flesh and bones. You ... hunger. Not only for flesh, but to spread this gift.</span>")
 	if (src.mind)
 		if (src.mind.assigned_special_role == "Zombie")

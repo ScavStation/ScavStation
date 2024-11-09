@@ -85,6 +85,7 @@ Class Procs:
 	matter = list(
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_PRIMARY
 	)
+	temperature_sensitive = TRUE
 	abstract_type = /obj/machinery
 
 	var/stat = 0
@@ -419,12 +420,12 @@ Class Procs:
 
 	if((stat & NOPOWER))
 		if(interact_offline)
-			to_chat(user, "It is not receiving <a href ='?src=\ref[src];power_text=1'>power</a>.")
+			to_chat(user, "It is not receiving <a href='byond://?src=\ref[src];power_text=1'>power</a>.")
 		else
-			to_chat(user, "It is not receiving <a href ='?src=\ref[src];power_text=1'>power</a>, making it hard to interact with.")
+			to_chat(user, "It is not receiving <a href='byond://?src=\ref[src];power_text=1'>power</a>, making it hard to interact with.")
 
 	if(construct_state && construct_state.mechanics_info())
-		to_chat(user, "It can be <a href='?src=\ref[src];mechanics_text=1'>manipulated</a> using tools.")
+		to_chat(user, "It can be <a href='byond://?src=\ref[src];mechanics_text=1'>manipulated</a> using tools.")
 	var/list/missing = missing_parts()
 	if(missing)
 		var/list/parts = list()

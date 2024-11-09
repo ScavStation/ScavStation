@@ -5,7 +5,6 @@
 	icon = 'icons/obj/items/holder.dmi'
 	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_HEAD | SLOT_HOLSTER
-	origin_tech = null
 	pixel_y = 8
 	origin_tech = @'{"biotech":1}'
 	use_single_icon = TRUE
@@ -135,7 +134,7 @@
 /obj/item/holder/proc/sync(var/mob/living/M)
 	SetName(M.name)
 	desc = M.desc
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/human/H = loc
 	if(istype(H))
 		last_holder = H
 		register_all_movement(H, M)

@@ -97,7 +97,7 @@
 		apply_effect(agony_amount/10, EYE_BLUR)
 
 /mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, def_zone = null)
-	  return 0 //only carbon liveforms have this proc
+	  return 0 // No root logic, implemented separately on human and silicon.
 
 /mob/living/emp_act(severity)
 	for(var/obj/O in get_mob_contents())
@@ -123,7 +123,9 @@
 //returns 0 if the effects failed to apply for some reason, 1 otherwise.
 /mob/living/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	if(effective_force)
-		return apply_damage(effective_force, I.atom_damage_type, hit_zone, I.damage_flags(), used_weapon=I, armor_pen=I.armor_penetration)
+		try_embed_in_mob(I, hit_zone, effective_force, direction = get_dir(user, src))
+		return TRUE
+	return FALSE
 
 /mob/living/hitby(var/atom/movable/AM, var/datum/thrownthing/TT)
 
@@ -182,68 +184,72 @@
 			return FALSE
 
 	visible_message(SPAN_DANGER("\The [src] is hit [affecting ? "in \the [affecting.name] " : ""]by \the [O]!"))
-	var/datum/wound/created_wound = apply_damage(throw_damage, dtype, zone, O.damage_flags(), O, O.armor_penetration)
 	if(TT?.thrower?.client)
 		admin_attack_log(TT.thrower, src, "Threw \an [O] at the victim.", "Had \an [O] thrown at them.", "threw \an [O] at")
-	if(O.can_embed() && (throw_damage > 5*O.w_class)) //Handles embedding for non-humans and simple_animals.
-		embed_in_mob(O, zone, throw_damage, dtype, created_wound, affecting)
+	try_embed_in_mob(O, zone, throw_damage, dtype, null, affecting, direction = TT.init_dir)
 	return TRUE
 
 /mob/living/momentum_power(var/atom/movable/AM, var/datum/thrownthing/TT)
 	if(anchored || buckled)
 		return 0
-
 	. = (AM.get_mass()*TT.speed)/(get_mass()*min(AM.throw_speed,2))
 	if(has_gravity() || check_space_footing())
 		. *= 0.5
 
-/mob/living/momentum_do(var/power, var/datum/thrownthing/TT, var/atom/movable/AM)
-	if(power >= 0.75)		//snowflake to enable being pinned to walls
-		var/direction = TT.init_dir
-		throw_at(get_edge_target_turf(src, direction), min((TT.maxrange - TT.dist_travelled) * power, 10), throw_speed * min(power, 1.5), callback = CALLBACK(src, TYPE_PROC_REF(/mob/living, pin_to_wall), AM, direction))
-		visible_message(SPAN_DANGER("\The [src] staggers under the impact!"),SPAN_DANGER("You stagger under the impact!"))
-		return
-
-	. = ..()
-
-/mob/living/proc/pin_to_wall(var/obj/O, var/direction)
-	if(!istype(O) || O.loc != src || !O.can_embed())//Projectile is suitable for pinning.
-		return
-
-	var/turf/T = near_wall(direction,2)
-
-	if(T)
-		forceMove(T)
-		visible_message(SPAN_DANGER("[src] is pinned to the wall by [O]!"),SPAN_DANGER("You are pinned to the wall by [O]!"))
-		src.anchored = TRUE
-		LAZYADD(pinned, O)
-		if(!LAZYISIN(embedded,O))
-			embed_in_mob(O)
-
-/mob/living/proc/embed_in_mob(obj/O, def_zone, embed_damage = 0, dtype = BRUTE, datum/wound/supplied_wound, obj/item/organ/external/affecting)
+/mob/living/proc/try_embed_in_mob(obj/O, def_zone, embed_damage = 0, dtype = BRUTE, datum/wound/supplied_wound, obj/item/organ/external/affecting, direction)
 
 	if(!istype(O))
 		return FALSE
 
-	if(affecting && supplied_wound && dtype == BRUTE && isitem(O) && !is_robot_module(O))
+	if(!supplied_wound)
+		supplied_wound = apply_damage(embed_damage, dtype, def_zone, O.damage_flags(), O, O.armor_penetration)
+
+	if(!O.can_embed())
+		return FALSE
+
+	if(!affecting)
+		affecting = get_organ(def_zone)
+
+	if(affecting && istype(supplied_wound) && supplied_wound.is_open() && dtype == BRUTE) // Can't embed in a small bruise.
 		var/obj/item/I = O
-		var/sharp = I.can_embed()
+		var/sharp = is_sharp(I)
 		embed_damage *= (1 - get_blocked_ratio(def_zone, BRUTE, O.damage_flags(), O.armor_penetration, I.force))
 
 		//blunt objects should really not be embedding in things unless a huge amount of force is involved
 		var/embed_chance = embed_damage / (sharp ? I.w_class : (I.w_class*3))
-		var/embed_threshold = (sharp ? 5 : 15) * I.w_class
+		var/embed_threshold = (sharp ? 5 : 10) * I.w_class
+		var/sharp_embed_chance = embed_damage/(10*I.w_class)*100
 
 		//Sharp objects will always embed if they do enough damage.
 		//Thrown sharp objects have some momentum already and have a small chance to embed even if the damage is below the threshold
-		if((sharp && prob(embed_damage/(10*I.w_class)*100)) || (embed_damage > embed_threshold && prob(embed_chance)))
-			affecting.embed_in_organ(I, supplied_wound = supplied_wound)
-			I.has_embedded()
-			return TRUE
+		if((sharp && prob(sharp_embed_chance)) || (embed_damage > embed_threshold && prob(embed_chance)))
+			affecting.embed_in_organ(I, supplied_wound = (istype(supplied_wound) ? supplied_wound : null))
+			I.has_embedded(src)
+			. = TRUE
 
-	O.forceMove(src)
-	LAZYDISTINCTADD(embedded, O)
-	verbs += /mob/proc/yank_out_object
+	// Simple embed for mobs with no limbs.
+	if(!. && !length(get_external_organs()))
+		O.forceMove(src)
+		if(isitem(O))
+			var/obj/item/I = O
+			I.has_embedded(src)
+		. = TRUE
+
+	// Allow a tick for throwing/striking to resolve.
+	if(. && direction)
+		addtimer(CALLBACK(src, PROC_REF(check_embed_pinning), O, direction), 1)
+
+/mob/living/proc/check_embed_pinning(obj/O, direction)
+	if(QDELETED(src) || QDELETED(O) || !isturf(loc) || !(O in embedded) || !direction)
+		return FALSE
+	var/turf/wall = get_step_resolving_mimic(loc, direction)
+	if(!istype(wall) || !wall.density)
+		return FALSE
+	LAZYDISTINCTADD(pinned, O)
+	walk_to(src, 0) // cancel any automated movement
+	visible_message("\The [src] is pinned to \the [wall] by \the [O]!")
+	// TODO: cancel all throwing and momentum after this point
+	return TRUE
 
 //This is called when the mob is thrown into a dense turf
 /mob/living/proc/turf_collision(var/turf/T, var/speed)
@@ -295,8 +301,13 @@
 		set_light(0)
 		update_fire()
 
-/mob/living/proc/update_fire()
-	return
+/mob/living/proc/update_fire(var/update_icons=1)
+	if(on_fire)
+		var/decl/bodytype/mob_bodytype = get_bodytype()
+		var/image/standing = overlay_image(mob_bodytype?.get_ignited_icon(src) || 'icons/mob/OnFire.dmi', mob_bodytype?.get_ignited_icon_state(src) || "Generic_mob_burning", RESET_COLOR)
+		set_current_mob_overlay(HO_FIRE_LAYER, standing, update_icons)
+	else
+		set_current_mob_overlay(HO_FIRE_LAYER, null, update_icons)
 
 /mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
 	fire_stacks = clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
@@ -306,20 +317,47 @@
 		fire_stacks = min(0, ++fire_stacks) //If we've doused ourselves in water to avoid fire, dry off slowly
 
 	if(!on_fire)
-		return 1
+		return TRUE
 	else if(fire_stacks <= 0)
 		ExtinguishMob() //Fire's been put out.
-		return 1
+		return TRUE
 
 	fire_stacks = max(0, fire_stacks - 0.2) //I guess the fire runs out of fuel eventually
 
 	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
 	if(G.get_by_flag(XGM_GAS_OXIDIZER) < 1)
 		ExtinguishMob() //If there's no oxygen in the tile we're on, put out the fire
-		return 1
+		return TRUE
 
 	var/turf/location = get_turf(src)
 	location.hotspot_expose(fire_burn_temperature(), 50, 1)
+
+	var/burn_temperature = fire_burn_temperature()
+	var/thermal_protection = get_heat_protection(burn_temperature)
+
+	if (thermal_protection < 1 && bodytemperature < burn_temperature)
+		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection), 1)
+
+	var/species_heat_mod = 1
+
+	var/protected_limbs = get_heat_protection_flags(burn_temperature)
+
+	if(burn_temperature < get_mob_temperature_threshold(HEAT_LEVEL_2))
+		species_heat_mod = 0.5
+	else if(burn_temperature < get_mob_temperature_threshold(HEAT_LEVEL_3))
+		species_heat_mod = 0.75
+
+	burn_temperature -= get_mob_temperature_threshold(HEAT_LEVEL_1)
+
+	if(burn_temperature < 1)
+		return
+
+	if(has_external_organs())
+		for(var/obj/item/organ/external/E in get_external_organs())
+			if(!(E.body_part & protected_limbs) && prob(20))
+				E.take_external_damage(burn = round(species_heat_mod * log(10, (burn_temperature + 10)), 0.1), used_weapon = "fire")
+	else // fallback for simplemobs
+		take_damage(round(species_heat_mod * log(10, (burn_temperature + 10))), 0.1, BURN, DAM_DISPERSED)
 
 /mob/living/proc/increase_fire_stacks(exposed_temperature)
 	if(fire_stacks <= 4 || fire_burn_temperature() < exposed_temperature)

@@ -58,8 +58,6 @@
 		)
 	)
 
-	species_to_job_whitelist = list(SPECIES_GRAFADREKA = list(/datum/job/tradeship_captain))
-
 /obj/machinery/suit_cycler/tradeship
 	boots = /obj/item/clothing/shoes/magboots
 	req_access = list()

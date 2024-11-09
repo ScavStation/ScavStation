@@ -54,7 +54,7 @@
 	blood_splatter(T, W?.resolve() || holder.my_atom, 1)
 
 /decl/material/liquid/blood/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
 	if(LAZYACCESS(M.chem_doses, type) > 5)
 		M.take_damage(removed, TOX)
@@ -64,7 +64,7 @@
 /decl/material/liquid/blood/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
 		var/volume = REAGENT_VOLUME(holder, type)
-		var/mob/living/carbon/H = M
+		var/mob/living/human/H = M
 		H.inject_blood(volume, holder)
 		holder.remove_reagent(type, volume)
 

@@ -39,13 +39,29 @@
 	result_type            = /obj/item/chems/glass/bucket/wood
 	difficulty             = MAT_VALUE_EASY_DIY
 
+/decl/stack_recipe/planks/bolt
+	result_type            = /obj/item/stack/material/bow_ammo/bolt
+	difficulty             = MAT_VALUE_EASY_DIY
+
+/decl/stack_recipe/planks/arrow
+	result_type            = /obj/item/stack/material/bow_ammo/arrow
+	difficulty             = MAT_VALUE_HARD_DIY
+
+/decl/stack_recipe/planks/bow
+	result_type            = /obj/item/gun/launcher/bow/crafted
+	difficulty             = MAT_VALUE_VERY_HARD_DIY
+
+/decl/stack_recipe/planks/bow/fancy
+	name                   = "decorated bow"
+	result_type            = /obj/item/gun/launcher/bow/fancy/crafted
+
 /decl/stack_recipe/planks/noticeboard
 	result_type            = /obj/structure/noticeboard
 	on_floor               = TRUE
 	difficulty             = MAT_VALUE_HARD_DIY
 	set_dir_on_spawn       = FALSE
 
-/decl/stack_recipe/planks/noticeboard/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color)
+/decl/stack_recipe/planks/noticeboard/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color, spent_type, spent_amount = 1)
 	. = ..()
 	if(user)
 		for(var/obj/structure/noticeboard/board in .)
@@ -58,7 +74,7 @@
 	var/prosthetic_species = SPECIES_HUMAN
 	var/prosthetic_model   = /decl/bodytype/prosthetic/wooden
 
-/decl/stack_recipe/planks/prosthetic/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color)
+/decl/stack_recipe/planks/prosthetic/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color, spent_type, spent_amount = 1)
 	. = ..()
 	for(var/obj/item/organ/external/limb in .)
 		limb.set_species(prosthetic_species)
@@ -159,4 +175,9 @@
 
 /decl/stack_recipe/planks/furniture/barrel
 	result_type            = /obj/structure/reagent_dispensers/barrel
+	difficulty             = MAT_VALUE_HARD_DIY
+
+/decl/stack_recipe/planks/furniture/table_frame
+	result_type            = /obj/structure/table/frame
+	category               = "furniture"
 	difficulty             = MAT_VALUE_HARD_DIY

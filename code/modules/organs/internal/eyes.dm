@@ -31,7 +31,7 @@
 	organ_properties = ORGAN_PROP_PROSTHETIC
 	icon = 'icons/obj/robot_component.dmi'
 
-/obj/item/organ/internal/eyes/robot/Initialize(mapload, material_key, datum/dna/given_dna, decl/bodytype/new_bodytype)
+/obj/item/organ/internal/eyes/robot/Initialize(mapload, material_key, datum/mob_snapshot/supplied_appearance, decl/bodytype/new_bodytype)
 	. = ..()
 	verbs |= /obj/item/organ/internal/eyes/proc/change_eye_color_verb
 	verbs |= /obj/item/organ/internal/eyes/proc/toggle_eye_glow
@@ -90,7 +90,7 @@
 /obj/item/organ/internal/eyes/proc/additional_flash_effects(var/intensity)
 	return -1
 
-/obj/item/organ/internal/eyes/do_install(mob/living/carbon/human/target, affected, in_place, update_icon, detached)
+/obj/item/organ/internal/eyes/do_install(mob/living/human/target, affected, in_place, update_icon, detached)
 	// Apply our eye colour to the target.
 	if(istype(target) && eye_colour)
 		target.set_eye_colour(eye_colour, skip_update = TRUE)

@@ -32,7 +32,7 @@
 /decl/hierarchy/outfit/tournament_gear/chef
 	name = "Tournament gear - Chef"
 	head = /obj/item/clothing/head/chefhat
-	uniform = /obj/item/clothing/under/chef
+	uniform = /obj/item/clothing/pants/slacks/outfit_chef
 	suit = /obj/item/clothing/suit/chef
 	hands = list(
 		/obj/item/knife/combat,
@@ -53,7 +53,7 @@
 	r_pocket = /obj/item/grenade/chem_grenade/cleaner
 	backpack_contents = list(/obj/item/stack/tile/floor = 6)
 
-/decl/hierarchy/outfit/tournament_gear/janitor/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/tournament_gear/janitor/post_equip(var/mob/living/human/H)
 	..()
 	var/obj/item/chems/glass/bucket/bucket = locate(/obj/item/chems/glass/bucket) in H
 	if(bucket)

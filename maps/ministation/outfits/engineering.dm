@@ -6,7 +6,7 @@
 	pda_slot = slot_l_store_str
 	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 	head = /obj/item/clothing/head/hardhat
-	uniform = /obj/item/clothing/jumpsuit/yinglet/hazard
+	uniform = /obj/item/clothing/jumpsuit/hazard
 	r_pocket = /obj/item/t_scanner
 	id_type = /obj/item/card/id/ministation/engineering
 	pda_type = /obj/item/modular_computer/pda/engineering
@@ -36,3 +36,8 @@
 	l_ear = /obj/item/radio/headset/heads/ce
 	outfit_flags = OUTFIT_HAS_BACKPACK | OUTFIT_EXTENDED_SURVIVAL | OUTFIT_HAS_VITALS_SENSOR
 	suit = /obj/item/clothing/suit/jacket/redcoat/officer
+
+/obj/item/card/id/ministation/engineering
+	name = "identification card"
+	desc = "A card issued to engineering staff."
+	detail_color = COLOR_SUN
