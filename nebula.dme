@@ -1077,6 +1077,7 @@
 #include "code\game\objects\items\buttons.dm"
 #include "code\game\objects\items\christmas.dm"
 #include "code\game\objects\items\contraband.dm"
+#include "code\game\objects\items\crutches.dm"
 #include "code\game\objects\items\cryobag.dm"
 #include "code\game\objects\items\documents.dm"
 #include "code\game\objects\items\fleece.dm"
