@@ -3592,6 +3592,7 @@
 #include "code\modules\reagents\reagent_containers\blood_pack.dm"
 #include "code\modules\reagents\reagent_containers\borghydro.dm"
 #include "code\modules\reagents\reagent_containers\bowl.dm"
+#include "code\modules\reagents\reagent_containers\bucket.dm"
 #include "code\modules\reagents\reagent_containers\drinks.dm"
 #include "code\modules\reagents\reagent_containers\dropper.dm"
 #include "code\modules\reagents\reagent_containers\food.dm"
