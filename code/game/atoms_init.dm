@@ -118,6 +118,8 @@
 	// Changing this behavior will almost certainly break power; update accordingly.
 	if (!ml && loc)
 		loc.Entered(src, null)
+	if(loc && (z_flags & ZMM_WIDE_LOAD))
+		SSzcopy.discover_movable(src)
 
 /atom/movable/EarlyDestroy(force = FALSE)
 	loc = null // should NOT use forceMove, in order to avoid events

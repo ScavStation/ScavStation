@@ -14,6 +14,7 @@
 	modifier_string =           "crystalline"
 	is_robotic =                FALSE
 	mob_size =                  MOB_SIZE_LARGE
+	z_flags =                   ZMM_WIDE_LOAD
 	arterial_bleed_multiplier = 0
 	age_descriptor = /datum/appearance_descriptor/age/adherent
 	apply_encased =             list(
