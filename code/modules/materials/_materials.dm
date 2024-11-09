@@ -359,6 +359,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	/// How much of this boils away per evaporation run?
 	var/boil_evaporation_per_run = 1
 
+	/// What verb is used when describing a colored piece of this material? e.g. 'dyed' or 'painted'
+	/// If an item has a null paint_verb, it automatically sets it based on material.
+	var/paint_verb = "painted"
+
 // Placeholders for light tiles and rglass.
 /decl/material/proc/reinforce(var/mob/user, var/obj/item/stack/material/used_stack, var/obj/item/stack/material/target_stack, var/use_sheets = 1)
 	if(!used_stack.can_use(use_sheets))
@@ -527,6 +531,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	if(dissolves_in == MAT_SOLVENT_IMMUNE && LAZYLEN(dissolves_into))
 		. += "material is immune to solvents, but has dissolves_into products."
+
+	if(!paint_verb)
+		. += "material does not have a paint_verb set"
+	else if(!istext(paint_verb))
+		. += "material has a non-text paint_verb value"
 
 	for(var/i = 0 to 7)
 		if(icon_base)

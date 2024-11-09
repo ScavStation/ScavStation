@@ -79,6 +79,7 @@
 	singular_name = "feather"
 	plural_name = "feathers"
 	stack_merge_type = /obj/item/stack/material/skin/feathers
+	paint_verb = "dyed"
 
 /obj/item/stack/material/bone
 	name = "bones"

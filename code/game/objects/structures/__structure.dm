@@ -18,7 +18,7 @@
 	var/mob_offset
 
 	var/paint_color
-	var/paint_verb = "painted"
+	var/paint_verb
 
 /obj/structure/get_color()
 	if(paint_color)
@@ -80,7 +80,8 @@
 			to_chat(user, damage_desc)
 
 		if(paint_color)
-			to_chat(user, "\The [src] has been <font color='[paint_color]'>[paint_verb]</font>.")
+			var/decl/pronouns/structure_pronouns = get_pronouns() // so we can do 'have' for plural objects like sheets
+			to_chat(user, "\The [src] [structure_pronouns.has] been <font color='[paint_color]'>[paint_verb]</font>.")
 
 		if(tool_interaction_flags & TOOL_INTERACTION_ANCHOR)
 			if(anchored)

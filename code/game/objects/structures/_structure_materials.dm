@@ -22,6 +22,8 @@
 		set_opacity(FALSE)
 	else
 		set_opacity(initial(opacity))
+	if(isnull(initial(paint_verb)) && !isnull(material))
+		paint_verb = material.paint_verb
 	hitsound = material?.hitsound || initial(hitsound)
 	if(max_health != -1)
 		max_health = initial(max_health) + material?.integrity * get_material_health_modifier()

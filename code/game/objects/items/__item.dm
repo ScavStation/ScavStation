@@ -93,7 +93,7 @@
 	var/replaced_in_loadout = TRUE
 
 	var/paint_color
-	var/paint_verb = "painted"
+	var/paint_verb
 
 	/// What dexterity is required to attack with this item?
 	var/needs_attack_dexterity = DEXTERITY_WIELD_ITEM
@@ -167,6 +167,7 @@
 		material_key = material
 	if(material_key)
 		set_material(material_key)
+	paint_verb ||= "painted" // fallback for the case of no material
 
 	. = ..()
 
@@ -289,7 +290,8 @@
 		desc_comp += "[desc_damage]"
 
 	if(paint_color)
-		desc_comp += "\The [src] has been <font color='[paint_color]'>[paint_verb]</font>."
+		var/decl/pronouns/obj_pronouns = get_pronouns() // so we can do 'have' for plural objects like sheets
+		desc_comp += "\The [src] [obj_pronouns.has] been <font color='[paint_color]'>[paint_verb]</font>."
 
 	var/added_header = FALSE
 	if(user?.get_preference_value(/datum/client_preference/inquisitive_examine) == PREF_ON)
