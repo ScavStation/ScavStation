@@ -1196,7 +1196,11 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	return watertight || ..()
 
 // TODO: merge beakers etc down into this proc.
-/obj/item/proc/get_reagents_overlay()
+/// @params:
+/// - state_prefix as text: if non-null, this string is prepended to the reagent overlay state, typically world/inventory/etc
+/// @returns:
+/// - reagent_overlay as /image|null - the overlay image representing the reagents in this object
+/obj/item/proc/get_reagents_overlay(state_prefix)
 	if(reagents?.total_volume <= 0)
 		return
 	var/decl/material/primary_reagent = reagents.get_primary_reagent_decl()
@@ -1207,11 +1211,14 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		reagents_state = primary_reagent.reagent_overlay_base
 	else
 		reagents_state = "reagent_base"
+	if(state_prefix)
+		reagents_state = "[state_prefix]_[reagents_state]" // prepend world, inventory, or slot
 	if(!reagents_state || !check_state_in_icon(reagents_state, icon))
 		return
 	var/image/reagent_overlay = overlay_image(icon, reagents_state, reagents.get_color(), RESET_COLOR | RESET_ALPHA)
 	for(var/reagent_type in reagents.reagent_volumes)
 		var/decl/material/reagent = GET_DECL(reagent_type)
-		if(reagent.reagent_overlay && check_state_in_icon(reagent.reagent_overlay, icon))
-			reagent_overlay.overlays += overlay_image(icon, reagent.reagent_overlay, reagent.get_reagent_color(), RESET_COLOR | RESET_ALPHA)
+		var/modified_reagent_overlay = state_prefix ? "[state_prefix]_[reagent.reagent_overlay]" : reagent.reagent_overlay
+		if(modified_reagent_overlay && check_state_in_icon(modified_reagent_overlay, icon))
+			reagent_overlay.overlays += overlay_image(icon, modified_reagent_overlay, reagent.get_reagent_color(), RESET_COLOR | RESET_ALPHA)
 	return reagent_overlay
