@@ -21,6 +21,7 @@
 	emote_speech = list("Neigh!","NEIGH!","Neigh?")
 	emote_hear   = list("neighs","whinnies")
 	emote_see    = list("canters", "scuffs the ground", "shakes its mane", "tosses its head")
+	spooked_by_grab = FALSE // todo: tamed vs untamed?
 
 /datum/mob_controller/passive/horse/retaliate(atom/source)
 	SHOULD_CALL_PARENT(FALSE)

@@ -1521,12 +1521,12 @@ default behaviour is:
 			if(grab.get_affecting_mob() == src && !istype(grab.current_grab, /decl/grab/simple/control))
 				qdel(grab)
 	if(istype(ai))
-		ai.retaliate(M)
+		ai.on_buckled(M)
 
 /mob/living/try_make_grab(mob/living/user, defer_hand = FALSE)
 	. = ..()
 	if(istype(ai))
-		ai.retaliate(user)
+		ai.on_grabbed(user)
 
 /mob/living/can_buckle_mob(var/mob/living/dropping)
 	. = ..() && stat == CONSCIOUS && !buckled && dropping.mob_size <= mob_size

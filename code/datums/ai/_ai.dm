@@ -44,6 +44,8 @@
 	/// What directions can we wander in? Uses global.cardinal if unset.
 	var/list/wander_directions
 
+	/// Should we retaliate/startle when grabbed or buckled?
+	var/spooked_by_grab = TRUE
 	/// Can we automatically escape from buckling?
 	var/can_escape_buckles = FALSE
 
@@ -314,3 +316,15 @@
 	if(body)
 		return body.set_target_zone(ran_zone())
 	return FALSE
+
+/datum/mob_controller/proc/on_buckled(mob/scary_grabber)
+	if(!scary_grabber || body.buckled_mob != scary_grabber) // the buckle got cancelled somehow?
+		return
+	if(spooked_by_grab && !is_friend(scary_grabber))
+		retaliate(scary_grabber)
+
+/datum/mob_controller/proc/on_grabbed(mob/scary_grabber)
+	if(!scary_grabber)
+		return
+	if(spooked_by_grab && !is_friend(scary_grabber))
+		retaliate(scary_grabber)
