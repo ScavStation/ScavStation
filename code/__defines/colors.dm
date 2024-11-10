@@ -99,6 +99,7 @@
 #define COLOR_VERDANT_GREEN    "#287d00"
 #define COLOR_SCIENCE_PURPLE   "#6633cc"
 #define COLOR_DAYLIGHT         "#f3e6ca"
+#define COLOR_CHERRY_RED       "#902630"
 
 #define PIPE_COLOR_GREY        "#808080"
 #define PIPE_COLOR_RED         "#ff0000"
