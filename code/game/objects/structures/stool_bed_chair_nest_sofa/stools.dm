@@ -156,6 +156,22 @@
 			return TRUE
 	return ..()
 
+/obj/item/stool/rustic
+	name = "stool"
+	icon = 'icons/obj/stool_rustic.dmi'
+	material = /decl/material/solid/organic/wood/walnut
+	color = /decl/material/solid/organic/wood/walnut::color
+
+/obj/item/stool/rustic/update_name()
+	..()
+	SetName("rustic [name]") // rustic oaken stool, not oaken rustic stool
+
+/obj/item/stool/rustic/can_be_padded()
+	return FALSE
+
+/obj/item/stool/rustic/update_desc()
+	desc = "A rustic stool carved from wood. It's a little rickety and wobbles under any weight, but it'll do."
+
 //Generated subtypes for mapping porpoises
 /obj/item/stool/wood
 	material = /decl/material/solid/organic/wood
