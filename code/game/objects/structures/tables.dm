@@ -296,6 +296,9 @@
 	alpha = 255
 	..()
 
+	if(!handle_generic_blending)
+		return
+
 	icon_state = "blank"
 	if(!is_flipped)
 		mob_offset = initial(mob_offset)
@@ -772,3 +775,25 @@
 
 /obj/structure/table/woodentable_reinforced/ebony/walnut
 	additional_reinf_material = /decl/material/solid/organic/wood/walnut
+
+// A table that doesn't smooth, intended for bedside tables or otherwise standalone tables.
+// TODO: make table legs use material and tabletop use reinf_material
+// theoretically, this could also be made to use the normal table icon system, unlike desks?
+/obj/structure/table/end
+	name = "end table"
+	icon = 'icons/obj/structures/endtable.dmi'
+	icon_state = "end_table_1"
+	handle_generic_blending = FALSE
+	color = /decl/material/solid/organic/wood/walnut::color
+	material = /decl/material/solid/organic/wood/walnut
+	reinf_material = /decl/material/solid/organic/wood/walnut
+	material_alteration = MAT_FLAG_ALTERATION_ALL
+	can_flip = FALSE
+
+/obj/structure/table/end/alt
+	icon_state = "end_table_2"
+
+/obj/structure/table/end/alt/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+	material = /decl/material/solid/organic/wood/ebony
+	reinf_material = /decl/material/solid/organic/wood/ebony
