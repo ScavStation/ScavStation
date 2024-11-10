@@ -4,6 +4,11 @@
 /obj/abstract/exterior_marker/inside,
 /turf/floor/wood/walnut,
 /area/shaded_hills/outside/point_of_interest/old_cabin)
+"g" = (
+/obj/abstract/exterior_marker/inside,
+/obj/structure/table/end,
+/turf/floor/wood/walnut,
+/area/shaded_hills/outside/point_of_interest/old_cabin)
 "h" = (
 /turf/template_noop,
 /area/template_noop)
@@ -83,8 +88,13 @@
 /turf/wall/log/walnut,
 /area/shaded_hills/outside/point_of_interest/old_cabin)
 "N" = (
-/obj/structure/coatrack,
 /obj/abstract/exterior_marker/inside,
+/obj/structure/coatrack/ebony,
+/turf/floor/wood/walnut,
+/area/shaded_hills/outside/point_of_interest/old_cabin)
+"T" = (
+/obj/abstract/exterior_marker/inside,
+/obj/structure/table/desk/dresser,
 /turf/floor/wood/walnut,
 /area/shaded_hills/outside/point_of_interest/old_cabin)
 "W" = (
@@ -171,7 +181,7 @@ o
 I
 I
 M
-I
+T
 Z
 M
 h
@@ -195,7 +205,7 @@ D
 H
 I
 M
-I
+g
 k
 M
 i

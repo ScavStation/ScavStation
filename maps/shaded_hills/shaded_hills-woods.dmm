@@ -8,7 +8,6 @@
 /turf/floor/path/running_bond/basalt,
 /area/shaded_hills/outside/woods)
 "cN" = (
-/obj/structure/table/woodentable/ebony,
 /obj/item/bladed/knife,
 /turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
@@ -78,14 +77,9 @@
 "uA" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/outside/river/woods)
-"vw" = (
-/obj/structure/table/woodentable/ebony,
-/obj/item/stack/material/bundle/grass/dry,
-/turf/floor/wood/walnut,
-/area/shaded_hills/forester_hut)
 "wD" = (
-/obj/structure/table/woodentable/ebony,
 /obj/item/fishing_rod,
+/obj/structure/table/end/alt/ebony,
 /turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "xn" = (
@@ -112,7 +106,7 @@
 /turf/floor/dirt,
 /area/shaded_hills/outside/woods)
 "DB" = (
-/obj/structure/drying_rack,
+/obj/structure/drying_rack/ebony,
 /turf/floor/dirt,
 /area/shaded_hills/outside/river/woods)
 "DX" = (
@@ -131,6 +125,9 @@
 /obj/structure/fire_source/stove,
 /obj/item/stack/material/log/mapped/walnut/ten,
 /turf/floor/wood/walnut,
+/area/shaded_hills/forester_hut)
+"GB" = (
+/turf/floor/carpet/rustic,
 /area/shaded_hills/forester_hut)
 "HA" = (
 /turf/floor/grass,
@@ -157,6 +154,13 @@
 "LJ" = (
 /turf/floor/path/running_bond/basalt,
 /area/shaded_hills/outside/woods)
+"Md" = (
+/obj/structure/table/desk/ebony,
+/obj/item/stack/material/bundle/grass/dry{
+	amount = 5
+	},
+/turf/floor/wood/walnut,
+/area/shaded_hills/forester_hut)
 "My" = (
 /turf/floor/grass,
 /area/shaded_hills/outside/river/lake)
@@ -182,7 +186,7 @@
 /turf/wall/log/walnut,
 /area/shaded_hills/forester_hut)
 "TP" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/desk/dresser/ebony,
 /turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "Uz" = (
@@ -19610,9 +19614,9 @@ YO
 ES
 MU
 TP
-lb
-lb
-lb
+GB
+GB
+GB
 lb
 mo
 zq
@@ -19762,9 +19766,9 @@ YO
 ES
 SI
 Jz
-lb
-lb
-lb
+GB
+GB
+GB
 MR
 SI
 DB
@@ -19913,10 +19917,10 @@ YO
 ES
 ES
 SI
-Oi
-lb
-lb
-lb
+Md
+GB
+GB
+GB
 JJ
 MU
 kx
@@ -20066,7 +20070,7 @@ ES
 ES
 SI
 cN
-vw
+lb
 wD
 lb
 JJ

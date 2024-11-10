@@ -1370,7 +1370,7 @@
 /turf/floor/carpet,
 /area/shaded_hills/inn)
 "MT" = (
-/obj/structure/drying_rack,
+/obj/structure/drying_rack/ebony,
 /turf/floor/path/basalt,
 /area/shaded_hills/slaughterhouse)
 "No" = (

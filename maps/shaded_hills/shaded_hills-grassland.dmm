@@ -24,7 +24,7 @@
 "ex" = (
 /obj/abstract/exterior_marker/inside,
 /obj/item/chems/glass/bucket/wood,
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/end,
 /turf/floor/woven,
 /area/shaded_hills/outside)
 "eL" = (

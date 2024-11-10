@@ -29,6 +29,10 @@
 /obj/item/bladed/knife,
 /turf/floor/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
+"cM" = (
+/obj/item/stool/rustic,
+/turf/floor/path/running_bond/basalt,
+/area/shaded_hills/caves/dungeon/poi)
 "dA" = (
 /obj/structure/bed/chair/bench/ebony{
 	dir = 4
@@ -223,7 +227,8 @@
 /area/shaded_hills/caves/dungeon/poi)
 "oD" = (
 /obj/structure/wall_sconce{
-	dir = 1
+	dir = 1;
+	pixel_y = 10
 	},
 /turf/floor/path/basalt,
 /area/shaded_hills/caves/dungeon/poi)
@@ -249,7 +254,8 @@
 /area/shaded_hills/caves/dungeon/poi)
 "qh" = (
 /obj/structure/wall_sconce{
-	dir = 1
+	dir = 1;
+	pixel_y = 10
 	},
 /turf/floor/path/herringbone/basalt,
 /area/shaded_hills/caves/dungeon/poi)
@@ -499,7 +505,8 @@
 /area/shaded_hills/caves/dungeon/poi)
 "IF" = (
 /obj/structure/wall_sconce{
-	dir = 1
+	dir = 1;
+	pixel_y = 10
 	},
 /turf/floor/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
@@ -554,6 +561,10 @@
 "MW" = (
 /obj/structure/table/woodentable/ebony,
 /obj/item/rock/flint/striker,
+/turf/floor/path/running_bond/basalt,
+/area/shaded_hills/caves/dungeon/poi)
+"NN" = (
+/obj/structure/table/desk/ebony/right,
 /turf/floor/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Og" = (
@@ -646,6 +657,11 @@
 "Xx" = (
 /turf/wall/log/walnut,
 /area/shaded_hills/caves/dungeon)
+"XD" = (
+/obj/item/flame/candle,
+/obj/structure/table/desk/ebony/right,
+/turf/floor/path/running_bond/basalt,
+/area/shaded_hills/caves/dungeon/poi)
 "XX" = (
 /obj/structure/wall_sconce,
 /turf/floor/path/running_bond/basalt,
@@ -17717,8 +17733,8 @@ oF
 oF
 oF
 it
-Hs
-bD
+XD
+cM
 iI
 bD
 LB
@@ -17869,7 +17885,7 @@ oF
 oF
 oF
 it
-LB
+bD
 bD
 bD
 bD
@@ -18173,8 +18189,8 @@ oF
 oF
 oF
 it
-bD
-bD
+NN
+cM
 Ky
 Ky
 bD
@@ -18629,8 +18645,8 @@ oF
 oF
 oF
 it
-LB
-bD
+NN
+cM
 bD
 bD
 bD
@@ -18781,7 +18797,7 @@ oF
 oF
 oF
 it
-LB
+bD
 bD
 bD
 bD
