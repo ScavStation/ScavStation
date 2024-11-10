@@ -30,6 +30,7 @@
 	w_class             = ITEM_SIZE_LARGE
 	directional_offset  = @'{"NORTH":{"y":24}, "SOUTH":{"y":-1}, "EAST":{"x":10,"y":10}, "WEST":{"x":-10,"y":10}}'
 	layer               = ABOVE_HUMAN_LAYER
+	anchored            = TRUE
 	/// Reference to the currently attached item.
 	var/obj/item/flame/light_source
 	/// Whether or not the light source, if present, is automatically lit on Initialize.
