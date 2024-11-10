@@ -3,6 +3,7 @@
 	desc               = "A stretch of closely-fitted wooden planks."
 	icon               = 'icons/turf/flooring/wood.dmi'
 	icon_base          = "wood"
+	has_base_range     = 4
 	damage_temperature = T0C+200
 	descriptor         = "planks"
 	build_type         = /obj/item/stack/tile/wood
