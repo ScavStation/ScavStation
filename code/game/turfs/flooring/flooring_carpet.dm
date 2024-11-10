@@ -6,7 +6,7 @@
 	icon_edge_layer    = FLOOR_EDGE_CARPET
 	build_type         = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
-	flooring_flags     = TURF_REMOVE_CROWBAR | TURF_CAN_BURN
+	flooring_flags     = TURF_REMOVE_CROWBAR
 	can_engrave        = FALSE
 	footstep_type      = /decl/footsteps/carpet
 	force_material     = /decl/material/solid/organic/cloth

@@ -6,7 +6,7 @@
 	descriptor         = "tiles"
 	color              = COLOR_DARK_GUNMETAL
 	damage_temperature = T0C+1400
-	flooring_flags     = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
+	flooring_flags     = TURF_REMOVE_CROWBAR
 	build_type         = /obj/item/stack/tile/floor
 	can_paint          = 1
 	footstep_type      = /decl/footsteps/tiles
@@ -15,6 +15,17 @@
 	space_smooth       = SMOOTH_ALL
 	constructed        = TRUE
 	gender             = NEUTER
+	burned_states  = list(
+		"burned0",
+		"burned1"
+	)
+	broken_states  = list(
+		"broken0",
+		"broken1",
+		"broken2",
+		"broken3",
+		"broken4"
+	)
 
 /decl/flooring/tiling/mono
 	icon_base          = "monotile"

@@ -4,7 +4,7 @@
 	icon       = 'icons/turf/flooring/cult.dmi'
 	icon_base  = "cult"
 	build_type = null
-	turf_flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_WRENCH
+	turf_flags = TURF_ACID_IMMUNE | TURF_REMOVE_WRENCH
 	can_paint  = null
 
 /decl/flooring/reinforced/cult/on_remove()

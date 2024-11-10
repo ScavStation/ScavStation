@@ -16,7 +16,7 @@
 	icon               = 'icons/turf/flooring/crystal.dmi'
 	icon_base          = "crystal"
 	build_type         = null
-	flooring_flags     = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_CROWBAR
+	flooring_flags     = TURF_ACID_IMMUNE | TURF_REMOVE_CROWBAR
 	color              = "#00ffe1"
 	force_material     = /decl/material/solid/gemstone/crystal
 	constructed        = TRUE

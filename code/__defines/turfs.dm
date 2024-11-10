@@ -2,12 +2,10 @@
 #define TURF_REMOVE_SCREWDRIVER BITFLAG(1)
 #define TURF_REMOVE_SHOVEL      BITFLAG(2)
 #define TURF_REMOVE_WRENCH      BITFLAG(3)
-#define TURF_CAN_BREAK          BITFLAG(4)
-#define TURF_CAN_BURN           BITFLAG(5)
-#define TURF_IS_FRAGILE         BITFLAG(6)
-#define TURF_ACID_IMMUNE        BITFLAG(7)
-#define TURF_IS_WET             BITFLAG(8)
-#define TURF_HAS_RANDOM_BORDER  BITFLAG(9)
+#define TURF_IS_FRAGILE         BITFLAG(4)
+#define TURF_ACID_IMMUNE        BITFLAG(5)
+#define TURF_IS_WET             BITFLAG(6)
+#define TURF_HAS_RANDOM_BORDER  BITFLAG(7)
 
 //Used for floor/wall smoothing
 #define SMOOTH_NONE 0	//Smooth only with itself

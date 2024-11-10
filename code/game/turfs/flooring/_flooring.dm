@@ -80,6 +80,9 @@ var/global/list/flooring_cache = list()
 	var/holographic = FALSE
 	var/dirt_color = "#7c5e42"
 
+	var/list/burned_states
+	var/list/broken_states
+
 /decl/flooring/Initialize()
 	. = ..()
 
@@ -134,6 +137,14 @@ var/global/list/flooring_cache = list()
 		. += "null or invalid icon_state '[icon_base]'"
 
 	if(icon && icon_base)
+
+		for(var/check_state in broken_states)
+			if(!check_state_in_icon(check_state, icon))
+				. += "missing broken state '[check_state]' in '[icon]'"
+
+		for(var/check_state in burned_states)
+			if(!check_state_in_icon(check_state, icon))
+				. += "missing burned state '[check_state]' in '[icon]'"
 
 		if(!check_state_in_icon("trench", icon))
 			. += "no trench wall state"
@@ -217,6 +228,20 @@ var/global/list/flooring_cache = list()
 
 	if(length(edge_overlays))
 		target.add_overlay(edge_overlays)
+
+	if(target.is_floor_broken())
+		target.add_overlay(get_damage_overlay(target._floor_broken))
+	if(target.is_floor_burned())
+		target.add_overlay(get_damage_overlay(target._floor_burned))
+
+/decl/flooring/proc/get_damage_overlay(var/overlay_state)
+	var/cache_key = "[icon]-[overlay_state]"
+	if(!global.flooring_cache[cache_key])
+		var/image/I = image(icon = icon, icon_state = overlay_state)
+		I.blend_mode = BLEND_MULTIPLY
+		I.layer = DECAL_LAYER
+		global.flooring_cache[cache_key] = I
+	return global.flooring_cache[cache_key]
 
 /decl/flooring/proc/get_flooring_overlay(var/cache_key, var/icon_base, var/icon_dir = 0, var/external = FALSE, var/edge_layer)
 	cache_key = "[cache_key]-[edge_layer]"
