@@ -44,6 +44,8 @@
 	lore_text = "A plastic polymer in a sponge-like form, filled with air bubbles that make it springy and compressible."
 	hardness = MAT_VALUE_SOFT + 5
 	taste_description = "foam"
+	color = COLOR_BLUE_GRAY // dunno why foam is this gray-teal color in my mind, but it is. maybe gray would also work
+	uid = "solid_foam"
 
 /decl/material/solid/organic/wax
 	name = "wax"
