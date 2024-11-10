@@ -830,6 +830,8 @@
 	material_alteration = MAT_FLAG_ALTERATION_ALL
 	can_flip = FALSE
 	top_surface_noun = "desktop"
+	/// The pixel height at which point clicks start registering for the tabletop and not the drawers.
+	var/tabletop_height = 9
 
 /obj/structure/table/desk/Initialize()
 	. = ..()
@@ -871,11 +873,12 @@
 	use_sound = null
 	open_sound = 'sound/foley/drawer-open.ogg'
 	close_sound = 'sound/foley/drawer-close.ogg'
-	max_storage_space = DEFAULT_LARGEBOX_STORAGE * 2 // two drawers!
+	max_storage_space = DEFAULT_BOX_STORAGE * 2 // two drawers!
 
 /datum/storage/structure/desk/can_be_inserted(obj/item/prop, mob/user, stop_messages = 0, click_params = null)
 	var/list/params = params2list(click_params)
-	if(LAZYLEN(params) && text2num(params["icon-y"]) > 9)
+	var/obj/structure/table/desk/desk = holder
+	if(LAZYLEN(params) && text2num(params["icon-y"]) > desk.tabletop_height)
 		return FALSE // don't insert when clicking the tabletop
 	return ..()
 
@@ -891,3 +894,22 @@
 	if(storage && !storage.opened)
 		playsound(src, 'sound/foley/drawer-oneshot.ogg', 50, FALSE, -5)
 		flick("[initial(icon_state)]_oneoff", src)
+
+/obj/structure/table/desk/dresser
+	icon = 'icons/obj/structures/dresser.dmi'
+	icon_state = "dresser"
+	bound_width = 32
+	top_surface_noun = "surface"
+	tabletop_height = 15
+	mob_offset = 18
+
+/obj/structure/table/desk/dresser/update_material_name(override_name)
+	SetName("[reinf_material.adjective_name] dresser")
+
+/obj/structure/table/desk/dresser/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+	material = /decl/material/solid/organic/wood/ebony
+	reinf_material = /decl/material/solid/organic/wood/ebony
+
+/datum/storage/structure/desk/dresser
+	max_storage_space = DEFAULT_BOX_STORAGE * 3 // THREE drawers!
