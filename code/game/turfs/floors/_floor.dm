@@ -149,7 +149,9 @@
 					CRASH("[src] at ([x], [y], [z]) cannot create stack because it has a bad build_material path: '[_flooring.build_material]'")
 				M.create_object(src, _flooring.build_cost, _flooring.build_type)
 			else
-				new _flooring.build_type(src)
+				var/obj/item/stack/tile/new_tile = new _flooring.build_type(src)
+				if(_flooring.can_paint && paint_color)
+					new_tile.paint_color = paint_color
 
 		if(_flooring.has_environment_proc && is_processing)
 			STOP_PROCESSING(SSobj, src)
