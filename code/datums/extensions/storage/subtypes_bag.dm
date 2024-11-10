@@ -15,7 +15,7 @@
 		var/obj/item/bag/bag = holder
 		bag.update_w_class()
 
-/datum/storage/bag/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+/datum/storage/bag/can_be_inserted(obj/item/W, mob/user, stop_messages = 0, click_params = null)
 	var/mob/living/human/H = ishuman(user) ? user : null // if we're human, then we need to check if bag in a pocket
 	if(holder.loc?.storage || H?.is_in_pocket(holder))
 		if(!stop_messages)
