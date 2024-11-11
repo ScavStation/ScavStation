@@ -42,7 +42,7 @@
 	for(var/stack_type in stack_types)
 		for(var/tool_type in tool_types)
 			for(var/decl/material/material in test_materials)
-				for(var/decl/material/reinforced in test_materials)
+				for(var/decl/material/reinforced as anything in (test_materials + null))
 
 					// Get a linear list of all recipes available to this combination.
 					var/list/recipes = get_stack_recipes(material, reinforced, stack_type, tool_type, flat = TRUE)
@@ -55,31 +55,31 @@
 						if(!test_type || ispath(test_type, /turf)) // Cannot exist without a loc and doesn't have matter, cannot assess here.
 							continue
 						var/atom/product = LAZYACCESS(recipe.spawn_result(null, null, 1, material, reinforced, null), 1)
-						var/failed
+						var/list/failed = list()
 						if(!product)
-							failed = "no product returned"
+							failed += "no product returned"
 						else if(!istype(product, recipe.expected_product_type))
-							failed = "unexpected product type returned ([product.type])"
+							failed += "unexpected product type returned ([product.type])"
 						else if(isobj(product))
 							var/obj/product_obj = product
 							LAZYINITLIST(product_obj.matter) // For the purposes of the following tests not runtiming.
 							if(!material && !reinforced)
 								if(length(product_obj.matter))
-									failed = "unsupplied material types"
+									failed += "unsupplied material types"
 							else if(material && (product_obj.matter[material.type]) > recipe.req_amount)
-								failed = "excessive base material ([recipe.req_amount]/[ceil(product_obj.matter[material.type])])"
+								failed += "excessive base material ([recipe.req_amount]/[ceil(product_obj.matter[material.type])])"
 							else if(reinforced && (product_obj.matter[reinforced.type]) > recipe.req_amount)
-								failed = "excessive reinf material ([recipe.req_amount]/[ceil(product_obj.matter[reinforced.type])])"
+								failed += "excessive reinf material ([recipe.req_amount]/[ceil(product_obj.matter[reinforced.type])])"
 							else
 								for(var/mat in product_obj.matter)
 									if(mat != material?.type && mat != reinforced?.type)
-										failed = "extra material type ([mat])"
+										failed += "extra material type ([mat])"
 
-						if(failed) // Try to prune out some duplicate error spam, we have too many materials now
+						if(length(failed)) // Try to prune out some duplicate error spam, we have too many materials now
 							if(!(recipe.type in seen_design_types))
-								failed_designs += "[material?.type || "null mat"] - [reinforced?.type || "null reinf"] - [tool_type] - [stack_type] - [recipe.type] - [failed]"
+								failed_designs += "[material?.type || "null mat"] - [reinforced?.type || "null reinf"] - [tool_type] - [stack_type] - [recipe.type] - [english_list(failed)]"
 								seen_design_types += recipe.type
-							failed_count++
+								failed_count++
 						else
 							passed_designs += recipe
 						if(!QDELETED(product))

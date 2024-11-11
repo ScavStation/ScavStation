@@ -54,9 +54,11 @@
 	rivet_material = GET_DECL(rivet_material)
 	. = ..()
 
-/obj/item/chems/glass/bucket/wood/create_matter()
-	. = ..()
-	matter[rivet_material.type] += MATTER_AMOUNT_REINFORCEMENT
+// Until a future point where the bucket recipe is redone, the rivet material will be entirely visual.
+// At some point, there could be a create_matter override to handle it, but that would require
+// the crafting recipe to be changed.
+// Also, pre-emptively, the entry needs to be inserted into the matter list BEFORE the parent call.
+// You'll thank me later when you don't make the same mistake a second time.
 
 /obj/item/chems/glass/bucket/wood/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing)
 	overlay.add_overlay(overlay_image(icon, "[overlay.icon_state]_overlay", rivet_material.get_reagent_color(), RESET_COLOR | RESET_ALPHA))
