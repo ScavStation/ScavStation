@@ -70,47 +70,43 @@
 	if(istype(W,/obj/item/seeds))
 		if(seed)
 			to_chat(user, "There is already a seed loaded.")
-			return
-		var/obj/item/seeds/S =W
+			return TRUE
+		var/obj/item/seeds/S = W
 		if(S.seed && S.seed.get_trait(TRAIT_IMMUTABLE) > 0)
 			to_chat(user, "That seed is not compatible with our genetics technology.")
 		else if(user.try_unequip(W, src))
 			seed = W
 			to_chat(user, "You load [W] into [src].")
-		return
+		return TRUE
 
 	if(IS_SCREWDRIVER(W))
 		open = !open
 		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
-		return
+		return TRUE
 
-	if(open)
-		if(IS_CROWBAR(W))
-			dismantle()
-			return
+	if(open && IS_CROWBAR(W))
+		dismantle()
+		return TRUE
 
 	if(istype(W,/obj/item/disk/botany))
 		if(loaded_disk)
 			to_chat(user, "There is already a data disk loaded.")
-			return
+			return TRUE
+		var/obj/item/disk/botany/B = W
+		if(B.genes && B.genes.len)
+			if(!disk_needs_genes)
+				to_chat(user, "That disk already has gene data loaded.")
+				return TRUE
 		else
-			var/obj/item/disk/botany/B = W
-
-			if(B.genes && B.genes.len)
-				if(!disk_needs_genes)
-					to_chat(user, "That disk already has gene data loaded.")
-					return
-			else
-				if(disk_needs_genes)
-					to_chat(user, "That disk does not have any gene data loaded.")
-					return
-			if(!user.try_unequip(W, src))
-				return
-			loaded_disk = W
-			to_chat(user, "You load [W] into [src].")
-
-		return
-	..()
+			if(disk_needs_genes)
+				to_chat(user, "That disk does not have any gene data loaded.")
+				return TRUE
+		if(!user.try_unequip(W, src))
+			return TRUE
+		loaded_disk = W
+		to_chat(user, "You load [W] into [src].")
+		return TRUE
+	return ..()
 
 // Allows for a trait to be extracted from a seed packet, destroying that seed.
 /obj/machinery/botany/extractor

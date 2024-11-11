@@ -48,7 +48,7 @@
 
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "<span class='warning'>You try to switch on the suppressor, yet nothing happens.</span>")
-		return
+		return TRUE
 
 	if(user != victim && !suppressing) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message("<span class='warning'>\The [user] begins switching on \the [src]'s neural suppressor.</span>")

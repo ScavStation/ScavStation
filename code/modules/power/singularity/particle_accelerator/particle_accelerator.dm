@@ -103,8 +103,10 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 
 /obj/structure/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(!has_extension(W, /datum/extension/tool) || !process_tool_hit(W,user))
-		return ..()
+	if(has_extension(W, /datum/extension/tool))
+		if(process_tool_hit(W,user))
+			return TRUE
+	return ..()
 
 /obj/structure/particle_accelerator/Move()
 	..()
@@ -242,8 +244,10 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 
 /obj/machinery/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(!has_extension(W, /datum/extension/tool) || !process_tool_hit(W,user))
-		return ..()
+	if(has_extension(W, /datum/extension/tool))
+		if(process_tool_hit(W,user))
+			return TRUE
+	return ..()
 
 /obj/machinery/particle_accelerator/explosion_act(severity)
 	. = ..()

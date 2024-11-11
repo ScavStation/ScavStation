@@ -60,7 +60,7 @@
 		var/obj/item/cash/cash = W
 		if(cash.currency != currency)
 			to_chat(user, SPAN_WARNING("You can't mix two different currencies, it would be uncivilized."))
-			return
+			return TRUE
 		if(user.try_unequip(W))
 			adjust_worth(cash.absolute_worth)
 			var/decl/currency/cur = GET_DECL(currency)
@@ -71,6 +71,8 @@
 	else if(istype(W, /obj/item/gun/launcher/money))
 		var/obj/item/gun/launcher/money/L = W
 		L.absorb_cash(src, user)
+		return TRUE
+	return ..()
 
 /obj/item/cash/on_update_icon()
 	. = ..()

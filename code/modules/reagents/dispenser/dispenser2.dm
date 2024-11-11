@@ -93,7 +93,7 @@
 
 	if(IS_CROWBAR(hit_with) && !panel_open && length(cartridges))
 		var/label = input(user, "Which cartridge would you like to remove?", "Chemical Dispenser") as null|anything in cartridges
-		if(!label) return
+		if(!label) return TRUE
 		var/obj/item/chems/chem_disp_cartridge/C = remove_cartridge(label)
 		if(C)
 			to_chat(user, SPAN_NOTICE("You remove \the [C] from \the [src]."))

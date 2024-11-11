@@ -26,15 +26,15 @@
 /obj/item/curtain/attackby(obj/item/W, mob/user)
 	if(IS_SCREWDRIVER(W))
 		if(!curtain_kind_path)
-			return
+			return TRUE
 
 		if(!isturf(loc))
 			to_chat(user, SPAN_DANGER("You cannot install \the [src] from your hands."))
-			return
+			return TRUE
 
 		if(isspaceturf(loc))
 			to_chat(user, SPAN_DANGER("You cannot install \the [src] in space."))
-			return
+			return TRUE
 
 		user.visible_message(
 			SPAN_NOTICE("\The [user] begins installing \the [src]."),
@@ -42,17 +42,18 @@
 		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
 		if(!do_after(user, 4 SECONDS, src))
-			return
+			return TRUE
 
 		if(QDELETED(src))
-			return
+			return TRUE
 
 		var/decl/curtain_kind/kind = GET_DECL(curtain_kind_path)
 		var/obj/structure/curtain/C = kind.make_structure(loc, dir)
 		transfer_fingerprints_to(C)
 		qdel(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/curtain/on_update_icon()
 	. = ..()
@@ -110,27 +111,25 @@
 	return ..()
 
 /obj/structure/curtain/attackby(obj/item/W, mob/user)
-	if(IS_SCREWDRIVER(W))
-		if(!curtain_kind_path)
-			return
-
+	if(IS_SCREWDRIVER(W) && curtain_kind_path)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] begins uninstalling \the [src]."),
 			SPAN_NOTICE("You begin uninstalling \the [src]."))
 		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
 		if(!do_after(user, 4 SECONDS, src))
-			return
+			return TRUE
 
 		if(QDELETED(src))
-			return
+			return TRUE
 
 		var/decl/curtain_kind/kind = GET_DECL(curtain_kind_path)
 		var/obj/item/curtain/C = kind.make_item(loc)
 		transfer_fingerprints_to(C)
 		qdel(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/structure/curtain/proc/toggle()
 	playsound(src, 'sound/effects/curtain.ogg', 15, 1, -5)

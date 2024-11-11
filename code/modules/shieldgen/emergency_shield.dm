@@ -40,22 +40,33 @@
 	if(!height || air_group) return 0
 	else return ..()
 
-/obj/machinery/shield/attackby(obj/item/W, mob/user)
-	if(!istype(W)) return
+// Circumvent base machinery attackby
+// TODO: MAKE SHIELDS NOT MACHINERY???
+/obj/machinery/shield/attackby(obj/item/I, mob/user)
+	return bash(I, user)
 
+/obj/machinery/shield/bash(obj/item/W, mob/user)
+	if(isliving(user) && user.a_intent == I_HELP)
+		return FALSE
+	if(!W.user_can_attack_with(user))
+		return FALSE
+	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
+		return FALSE
 	//Calculate damage
-	if(W.atom_damage_type == BRUTE || W.atom_damage_type == BURN)
-		current_health -= W.get_attack_force(user)
+	switch(W.atom_damage_type)
+		if(BRUTE, BURN)
+			current_health -= W.get_attack_force(user)
+		else
+			return FALSE
 
 	//Play a fitting sound
 	playsound(src.loc, 'sound/effects/EMPulse.ogg', 75, 1)
 
 	check_failure()
-	set_opacity(1)
-	spawn(20) if(!QDELETED(src)) set_opacity(0)
+	set_opacity(TRUE)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_opacity), FALSE), 2 SECONDS)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-
-	..()
+	return TRUE
 
 /obj/machinery/shield/bullet_act(var/obj/item/projectile/Proj)
 	current_health -= Proj.get_structure_damage()
@@ -264,21 +275,23 @@
 		else
 			to_chat(user, "<span class='notice'>You open the panel and expose the wiring.</span>")
 			is_open = 1
-
+		return TRUE
 	else if(IS_COIL(W) && malfunction && is_open)
 		var/obj/item/stack/cable_coil/coil = W
 		to_chat(user, "<span class='notice'>You begin to replace the wires.</span>")
-		if(do_after(user, 30,src))
-			if (coil.use(1))
-				current_health = get_max_health()
-				malfunction = 0
-				to_chat(user, "<span class='notice'>You repair \the [src]!</span>")
-				update_icon()
-
+		if(!do_after(user, 3 SECONDS, src))
+			to_chat(user, SPAN_NOTICE("You stop repairing \the [src]."))
+			return TRUE
+		if (coil.use(1))
+			current_health = get_max_health()
+			malfunction = 0
+			to_chat(user, "<span class='notice'>You repair \the [src]!</span>")
+			update_icon()
+		return TRUE
 	else if(IS_WRENCH(W))
 		if(locked)
 			to_chat(user, "The bolts are covered, unlocking this would retract the covers.")
-			return
+			return TRUE
 		if(anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>'You unsecure \the [src] from the floor!</span>")
@@ -286,21 +299,19 @@
 				to_chat(user, "<span class='notice'>\The [src] shuts off!</span>")
 				src.shields_down()
 			anchored = FALSE
-		else
-			if(isspaceturf(get_turf(src))) return //No wrenching these in space!
+		else if(!isspaceturf(get_turf(src))) //No wrenching these in space!
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>You secure \the [src] to the floor!</span>")
 			anchored = TRUE
-
-
+		return TRUE
 	else if(istype(W, /obj/item/card/id) || istype(W, /obj/item/modular_computer/pda))
 		if(src.allowed(user))
 			src.locked = !src.locked
 			to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-	else
-		..()
+		return TRUE
+	return ..()
 
 
 /obj/machinery/shieldgen/on_update_icon()

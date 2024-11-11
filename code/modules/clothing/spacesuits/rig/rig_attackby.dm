@@ -1,10 +1,10 @@
 /obj/item/rig/attackby(obj/item/W, mob/user)
 
-	if(!isliving(user)) return 0
+	if(!isliving(user)) return FALSE
 
 	if(electrified != 0)
 		if(shock(user)) //Handles removing charge from the cell, as well. No need to do that here.
-			return
+			return TRUE
 
 	// Pass repair items on to the chestpiece.
 	if(chest && (istype(W,/obj/item/stack/material) || IS_WELDER(W)))
@@ -15,34 +15,35 @@
 		if(subverted)
 			locked = 0
 			to_chat(user, "<span class='danger'>It looks like the locking system has been shorted out.</span>")
-			return
+			return TRUE
 
 		if(!length(req_access))
 			locked = 0
 			to_chat(user, "<span class='danger'>\The [src] doesn't seem to have a locking mechanism.</span>")
-			return
+			return TRUE
 
 		if(security_check_enabled && !src.allowed(user))
 			to_chat(user, "<span class='danger'>Access denied.</span>")
-			return
+			return TRUE
 
 		locked = !locked
 		to_chat(user, "You [locked ? "lock" : "unlock"] \the [src] access panel.")
-		return
+		return TRUE
 
 	else if(IS_CROWBAR(W))
 
 		if(!open && locked)
 			to_chat(user, "The access panel is locked shut.")
-			return
+			return TRUE
 
 		open = !open
 		to_chat(user, "You [open ? "open" : "close"] the access panel.")
-		return
+		return TRUE
 
 	else if(IS_SCREWDRIVER(W))
 		p_open = !p_open
 		to_chat(user, "You [p_open ? "open" : "close"] the wire cover.")
+		return TRUE
 
 	// Hacking.
 	else if(IS_WIRECUTTER(W) || IS_MULTITOOL(W))
@@ -50,7 +51,7 @@
 			wires.Interact(user)
 		else
 			to_chat(user, "You can't reach the wiring.")
-		return
+		return TRUE
 
 	if(open)
 
@@ -60,13 +61,14 @@
 
 			if(air_supply)
 				to_chat(user, "\The [src] already has a tank installed.")
-				return
+				return TRUE
 
-			if(!user.try_unequip(W)) return
+			if(!user.try_unequip(W))
+				return TRUE
 			air_supply = W
 			W.forceMove(src)
 			to_chat(user, "You slot [W] into [src] and tighten the connecting valve.")
-			return
+			return TRUE
 
 		// Check if this is a hardsuit upgrade or a modification.
 		else if(istype(W,/obj/item/rig_module))
@@ -75,11 +77,11 @@
 				var/mob/living/human/H = src.loc
 				if(H.get_equipped_item(slot_back_str) == src)
 					to_chat(user, "<span class='danger'>You can't install a hardsuit module while the suit is being worn.</span>")
-					return 1
+					return TRUE
 
 			if(is_type_in_list(W,banned_modules))
 				to_chat(user, SPAN_DANGER("\The [src] cannot mount this type of module."))
-				return 1
+				return TRUE
 
 			var/obj/item/rig_module/mod = W
 
@@ -88,35 +90,35 @@
 				for(var/obj/item/rig_module/installed_mod in installed_modules)
 					if(is_type_in_list(installed_mod,mod.banned_modules))
 						to_chat(user, SPAN_DANGER("\The [installed_mod] is incompatible with this module."))
-						return 1
+						return TRUE
 					if(installed_mod.banned_modules.len)
 						if(is_type_in_list(W,installed_mod.banned_modules))
 							to_chat(user, SPAN_DANGER("\The [installed_mod] is incompatible with this module."))
-							return 1
+							return TRUE
 					if(!installed_mod.redundant && installed_mod.type == W.type)
 						to_chat(user, "The hardsuit already has a module of that class installed.")
-						return 1
+						return TRUE
 
 			to_chat(user, "You begin installing \the [mod] into \the [src].")
 			if(!do_after(user,40,src))
-				return
+				return TRUE
 			if(!user || !W)
-				return
-			if(!user.try_unequip(mod)) return
+				return TRUE
+			if(!user.try_unequip(mod)) return TRUE
 			to_chat(user, "You install \the [mod] into \the [src].")
 			installed_modules |= mod
 			mod.forceMove(src)
 			mod.installed(src)
 			update_icon()
-			return 1
+			return TRUE
 
 		else if(!cell && istype(W,/obj/item/cell))
 
-			if(!user.try_unequip(W)) return
+			if(!user.try_unequip(W)) return TRUE
 			to_chat(user, "You jack \the [W] into \the [src]'s battery mount.")
 			W.forceMove(src)
 			src.cell = W
-			return
+			return TRUE
 
 		else if(IS_WRENCH(W))
 
@@ -127,13 +129,13 @@
 
 			var/to_remove = input("Which would you like to modify?") as null|anything in current_mounts
 			if(!to_remove)
-				return
+				return TRUE
 
 			if(ishuman(src.loc) && to_remove != "cell" && to_remove != "tank")
 				var/mob/living/human/H = src.loc
 				if(H.get_equipped_item(slot_back_str) == src)
 					to_chat(user, "You can't remove an installed device while the hardsuit is being worn.")
-					return
+					return TRUE
 
 			switch(to_remove)
 
@@ -151,7 +153,7 @@
 				if("tank")
 					if(!air_supply)
 						to_chat(user, "There is no tank to remove.")
-						return
+						return TRUE
 
 					user.put_in_hands(air_supply)
 					to_chat(user, "You detach and remove \the [air_supply].")
@@ -167,11 +169,11 @@
 
 					if(!possible_removals.len)
 						to_chat(user, "There are no installed modules to remove.")
-						return
+						return TRUE
 
 					var/removal_choice = input("Which module would you like to remove?") as null|anything in possible_removals
 					if(!removal_choice)
-						return
+						return TRUE
 
 					var/obj/item/rig_module/removed = possible_removals[removal_choice]
 					to_chat(user, "You detach \the [removed] from \the [src].")
@@ -191,15 +193,14 @@
 					to_chat(user, "\The [S] is empty!")
 			else
 				to_chat(user, "You don't see any use for \the [S].")
-
-		return
+		return TRUE
 
 	// If we've gotten this far, all we have left to do before we pass off to root procs
 	// is check if any of the loaded modules want to use the item we've been given.
 	for(var/obj/item/rig_module/module in installed_modules)
 		if(module.accepts_item(W,user)) //Item is handled in this proc
-			return
-	..()
+			return TRUE
+	return ..()
 
 
 /obj/item/rig/attack_hand(var/mob/user)

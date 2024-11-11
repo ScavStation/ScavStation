@@ -112,23 +112,23 @@
 	return TRUE
 
 /obj/item/gun/launcher/money/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/cash/))
+	if(istype(W, /obj/item/cash))
 		var/obj/item/cash/bling = W
 		if(bling.absolute_worth < 1)
 			to_chat(user, "<span class='warning'>You can't seem to get \the [bling] to slide into the receptacle.</span>")
-			return
+			return TRUE
 
 		var/decl/currency/cur = GET_DECL(bling.currency)
 		if(bling.currency != global.using_map.default_currency)
 			to_chat(user, SPAN_WARNING("Due to local legislation and budget cuts, \the [src] will only accept [cur.name]."))
-			return
+			return TRUE
 
 		receptacle_value += bling.absolute_worth
 		to_chat(user, "<span class='notice'>You slide [bling.get_worth()] [cur.name_singular] into [src]'s receptacle.</span>")
 		qdel(bling)
-
+		return TRUE
 	else
-		to_chat(user, "<span class='warning'>That's not going to fit in there.</span>")
+		return ..()
 
 /obj/item/gun/launcher/money/examine(mob/user)
 	. = ..(user)

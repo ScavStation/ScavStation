@@ -235,19 +235,19 @@ WOOD_RAILING_SUBTYPE(yew)
 	visible_message(SPAN_DANGER("\The [user] throws \the [victim] over \the [src]!"))
 	return TRUE
 
+// TODO: rewrite to use handle_default_wrench_attackby, bash, etc
 /obj/structure/railing/attackby(var/obj/item/W, var/mob/user)
-
 	// Dismantle
 	if(IS_WRENCH(W))
 		if(!anchored)
 			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
-			if(do_after(user, 20, src))
+			if(do_after(user, 2 SECONDS, src))
 				if(anchored)
-					return
+					return TRUE
 				user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
 				material.create_object(loc, 2)
 				qdel(src)
-			return
+			return TRUE
 	// Wrench Open
 		else
 			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -258,7 +258,7 @@ WOOD_RAILING_SUBTYPE(yew)
 				user.visible_message("<span class='notice'>\The [user] wrenches \the [src] closed.</span>", "<span class='notice'>You wrench \the [src] closed.</span>")
 				density = TRUE
 			update_icon()
-			return
+			return TRUE
 	// Repair
 	if(IS_WELDER(W))
 		var/obj/item/weldingtool/F = W
@@ -266,34 +266,34 @@ WOOD_RAILING_SUBTYPE(yew)
 			var/current_max_health = get_max_health()
 			if(current_health >= current_max_health)
 				to_chat(user, "<span class='warning'>\The [src] does not need repairs.</span>")
-				return
+				return TRUE
 			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 			if(do_after(user, 20, src))
 				if(current_health >= current_max_health)
-					return
+					return TRUE
 				user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>", "<span class='notice'>You repair some damage to \the [src].</span>")
 				current_health = min(current_health+(current_max_health/5), current_max_health)
-			return
+			return TRUE
 
 	// Install
 	if(IS_SCREWDRIVER(W))
 		if(!density)
 			to_chat(user, "<span class='notice'>You need to wrench \the [src] from back into place first.</span>")
-			return
+			return TRUE
 		user.visible_message(anchored ? "<span class='notice'>\The [user] begins unscrew \the [src].</span>" : "<span class='notice'>\The [user] begins fasten \the [src].</span>" )
 		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
 		if(do_after(user, 10, src) && density)
 			to_chat(user, (anchored ? "<span class='notice'>You have unfastened \the [src] from the floor.</span>" : "<span class='notice'>You have fastened \the [src] to the floor.</span>"))
 			anchored = !anchored
 			update_icon()
-		return
+		return TRUE
 
 	var/force = W.get_attack_force(user)
 	if(force && (W.atom_damage_type == BURN || W.atom_damage_type == BRUTE))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		visible_message("<span class='danger'>\The [src] has been [LAZYLEN(W.attack_verb) ? pick(W.attack_verb) : "attacked"] with \the [W] by \the [user]!</span>")
 		take_damage(force, W.atom_damage_type)
-		return
+		return TRUE
 	. = ..()
 
 /obj/structure/railing/explosion_act(severity)

@@ -97,12 +97,12 @@
 	if(istype(W, /obj/item/chems/pill/detergent))
 		if(!(atom_flags & ATOM_FLAG_OPEN_CONTAINER))
 			to_chat(user, SPAN_WARNING("Open the detergent port first!"))
-			return
+			return TRUE
 		if(reagents.total_volume >= reagents.maximum_volume)
 			to_chat(user, SPAN_WARNING("The detergent port is full!"))
-			return
+			return TRUE
 		if(!user.try_unequip(W))
-			return
+			return TRUE
 		// Directly transfer to the holder to avoid touch reactions.
 		W.reagents?.trans_to_holder(reagents, W.reagents.total_volume)
 		to_chat(user, SPAN_NOTICE("You dissolve \the [W] in the detergent port."))
@@ -131,14 +131,14 @@
 			else if((!length(wash_whitelist) || is_type_in_list(W, wash_whitelist)) && !is_type_in_list(W, wash_blacklist))
 				if(W.w_class > max_item_size)
 					to_chat(user, SPAN_WARNING("\The [W] is too large for \the [src]!"))
-					return
+					return TRUE
 				if(!user.try_unequip(W, src))
-					return
+					return TRUE
 				state |= WASHER_STATE_LOADED
 				update_icon()
 			else
 				to_chat(user, SPAN_WARNING("You can't put \the [W] in \the [src]."))
-				return
+				return TRUE
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] is full."))
 			return TRUE

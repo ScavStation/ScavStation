@@ -176,7 +176,7 @@
 /obj/machinery/door/window/attackby(obj/item/I, mob/user)
 	//If it's in the process of opening/closing, ignore the click
 	if(operating)
-		return
+		return TRUE
 
 	if(bash(I, user))
 		return TRUE
@@ -191,11 +191,13 @@
 		else
 			if (emagged)
 				to_chat(user, SPAN_WARNING("\The [src] seems to be stuck and refuses to close!"))
-				return
+				return TRUE
 			close()
+		return TRUE
 
 	else if (density)
 		flick("[base_state]deny", src)
+		return TRUE
 
 /obj/machinery/door/window/bash(obj/item/weapon, mob/user)
 	//Emags and energy swords? You may pass.

@@ -251,6 +251,7 @@
 	if(seconds_electrified != 0)
 		if(shock(user, 100))
 			return TRUE
+	return FALSE
 
 /obj/machinery/vending/interface_interact(mob/user)
 	ui_interact(user)

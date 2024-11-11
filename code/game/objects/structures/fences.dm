@@ -91,11 +91,11 @@
 	if(IS_WIRECUTTER(tool))
 		if(!cuttable)
 			to_chat(user, SPAN_WARNING("This section of the fence can't be cut."))
-			return
+			return TRUE
 		var/current_stage = hole_size
 		if(current_stage >= MAX_HOLE_SIZE)
 			to_chat(user, SPAN_NOTICE("This fence has too much cut out of it already."))
-			return
+			return TRUE
 
 		if(tool.do_tool_interaction(TOOL_WIRECUTTERS, user, src, CUT_TIME, "cutting through", "cutting through", check_skill = FALSE) && current_stage == hole_size) // do_tool_interaction sleeps, so make sure it hasn't been cut more while we waited
 			switch(++hole_size)

@@ -73,5 +73,5 @@
 	if(thing.sharp || thing.edge)
 		user.visible_message(SPAN_NOTICE("\The [user] cracks open \the [src] with \the [thing]."))
 		crack_shell(user)
-		return
+		return TRUE
 	. = ..()

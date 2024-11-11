@@ -61,18 +61,21 @@
 		var/nuname = sanitize(input(user,"What do you want to name this skeleton as?","Skeleton Christening",name) as text|null)
 		if(nuname && CanPhysicallyInteract(user))
 			SetName(nuname)
-			return 1
+			return TRUE
 	if(istype(W,/obj/item/clothing))
 		var/obj/item/clothing/clothes = W
-		if(clothes.fallback_slot)
-			if(swag[clothes.fallback_slot])
-				to_chat(user,SPAN_NOTICE("There is already that kind of clothing on \the [src]."))
-			else if(user.try_unequip(W, src))
-				swag[clothes.fallback_slot] = W
-				update_icon()
-				return 1
-	else
+		if(!clothes.fallback_slot)
+			return FALSE
+		if(swag[clothes.fallback_slot])
+			to_chat(user,SPAN_NOTICE("There is already that kind of clothing on \the [src]."))
+		else if(user.try_unequip(W, src))
+			swag[clothes.fallback_slot] = W
+			update_icon()
+		return TRUE
+	. = ..()
+	if(!.)
 		rattle_bones(user, W)
+		return TRUE
 
 /obj/structure/skele_stand/Destroy()
 	for(var/slot in swag)

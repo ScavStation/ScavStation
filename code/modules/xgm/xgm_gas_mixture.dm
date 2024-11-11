@@ -505,6 +505,7 @@
 	return 1
 
 /datum/gas_mixture/proc/get_mass()
+	. = 0
 	for(var/g in gas)
 		var/decl/material/mat = GET_DECL(g)
 		. += gas[g] * mat.molar_mass * group_multiplier
@@ -513,6 +514,7 @@
 	var/M = get_total_moles()
 	if(M)
 		return get_mass()/M
+	return 0
 
 ///Returns a color blended from all materials the gas mixture contains
 /datum/gas_mixture/proc/get_overall_color()

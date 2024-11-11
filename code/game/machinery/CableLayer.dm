@@ -34,7 +34,7 @@
 			to_chat(user, "<span class='warning'>\The [src]'s cable reel is full.</span>")
 		else
 			to_chat(user, "You load [result] lengths of cable into [src].")
-		return
+		return TRUE
 
 	if(IS_WIRECUTTER(O))
 		if(cable && cable.amount)
@@ -48,6 +48,8 @@
 				CC.amount = m
 		else
 			to_chat(usr, "<span class='warning'>There's no more cable on the reel.</span>")
+		return TRUE
+	return ..()
 
 /obj/machinery/cablelayer/examine(mob/user)
 	. = ..()

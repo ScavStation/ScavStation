@@ -24,11 +24,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/datum/extension/tool/tool = get_extension(src, /datum/extension/tool)
 	return (tool?.handle_physical_manipulation(user)) || FALSE
 
+// If TRUE, prevent afterattack from running.
 /obj/item/proc/resolve_attackby(atom/A, mob/user, var/click_params)
 	if(!(item_flags & ITEM_FLAG_NO_PRINT))
 		add_fingerprint(user)
 	return A.attackby(src, user, click_params)
 
+// If TRUE, prevent afterattack from running.
 /atom/proc/attackby(obj/item/used_item, mob/user, var/click_params)
 	if(storage)
 		if(isrobot(user) && (used_item == user.get_active_held_item()))
@@ -44,6 +46,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(!.)
 		return bash(W,user)
 
+// Return TRUE if further actions (afterattack, etc) should be prevented, FALSE if they can proceed.
 /atom/movable/proc/bash(obj/item/weapon, mob/user)
 	if(isliving(user) && user.a_intent == I_HELP)
 		return FALSE
@@ -105,6 +108,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/mob/living/attackee = null
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
+// If this returns TRUE, the interaction has been handled and other interactions like afterattack should be skipped.
 /obj/item/proc/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
 	// TODO: revisit if this should be a silent failure/parent call instead, for mob-level storage interactions?

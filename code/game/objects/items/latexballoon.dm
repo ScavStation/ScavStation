@@ -1,3 +1,4 @@
+// TODO: This is literally only available from abandoned mining crates. Remove?
 /obj/item/latexballon
 	name = "latex glove"
 	desc = "A latex glove, usually used as a balloon."
@@ -45,3 +46,5 @@
 /obj/item/latexballon/attackby(obj/item/W, mob/user)
 	if (W.can_puncture())
 		burst()
+		return TRUE
+	return FALSE

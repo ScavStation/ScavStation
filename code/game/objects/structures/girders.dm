@@ -101,7 +101,7 @@
 		if(istype(W, /obj/item/gun/energy/plasmacutter))
 			var/obj/item/gun/energy/plasmacutter/cutter = W
 			if(!cutter.slice(user))
-				return
+				return TRUE
 		playsound(src.loc, 'sound/items/Welder.ogg', 100, 1)
 		visible_message(SPAN_NOTICE("\The [user] begins slicing apart \the [src] with \the [W]."))
 		if(do_after(user,reinf_material ? 40: 20,src))

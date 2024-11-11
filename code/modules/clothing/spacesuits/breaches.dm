@@ -190,23 +190,23 @@
 				repair_power = 1
 
 		if(!repair_power)
-			return
+			return FALSE
 
 		if(ishuman(loc))
 			var/mob/living/human/H = loc
 			if(H.get_equipped_item(slot_wear_suit_str) == src)
 				to_chat(user, SPAN_WARNING("You cannot repair \the [src] while it is being worn."))
-				return
+				return TRUE
 
 		if(burn_damage <= 0)
 			to_chat(user, "There is no surface damage on \the [src] to repair.") //maybe change the descriptor to more obvious? idk what
-			return
+			return TRUE
 
 		var/obj/item/stack/P = W
 		var/use_amt = min(P.get_amount(), 3)
 		if(use_amt && P.use(use_amt))
 			repair_breaches(BURN, use_amt * repair_power, user)
-		return
+		return TRUE
 
 	else if(IS_WELDER(W))
 
@@ -214,19 +214,19 @@
 			var/mob/living/human/H = loc
 			if(H.get_equipped_item(slot_wear_suit_str) == src)
 				to_chat(user, SPAN_WARNING("You cannot repair \the [src] while it is being worn."))
-				return
+				return TRUE
 
 		if (brute_damage <= 0)
 			to_chat(user, "There is no structural damage on \the [src] to repair.")
-			return
+			return TRUE
 
 		var/obj/item/weldingtool/WT = W
 		if(!WT.weld(5))
 			to_chat(user, SPAN_WARNING("You need more welding fuel to repair this suit."))
-			return
+			return TRUE
 
 		repair_breaches(BRUTE, 3, user)
-		return
+		return TRUE
 
 	else if(istype(W, /obj/item/stack/tape_roll/duct_tape))
 		var/datum/breach/target_breach		//Target the largest unpatched breach.
@@ -239,17 +239,13 @@
 		if(!target_breach)
 			to_chat(user, "There are no open breaches to seal with \the [W].")
 		else
-			var/mob/living/human/H = user
-			if(!istype(H))
-				return
-
 			var/obj/item/stack/tape_roll/duct_tape/D = W
 			var/amount_needed = ceil(target_breach.class * 2)
 			if(!D.can_use(amount_needed))
 				to_chat(user, SPAN_WARNING("There's not enough [D.plural_name] in your [src] to seal \the [target_breach.descriptor] on \the [src]! You need at least [amount_needed] [D.plural_name]."))
-				return
+				return TRUE
 
-			if(do_after(user, H.get_equipped_item(slot_wear_suit_str) == src? 60 : 30, isliving(loc)? loc : null)) //Sealing a breach on your own suit is awkward and time consuming
+			if(do_after(user, user.get_equipped_item(slot_wear_suit_str) == src? 6 SECONDS : 3 SECONDS, isliving(loc)? loc : null)) //Sealing a breach on your own suit is awkward and time consuming
 				D.use(amount_needed)
 				playsound(src, 'sound/effects/tape.ogg',25)
 				user.visible_message(
@@ -259,9 +255,8 @@
 				target_breach.patched = TRUE
 				target_breach.update_descriptor()
 				calc_breach_damage()
-		return
-
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/clothing/suit/space/examine(mob/user)
 	. = ..()

@@ -34,7 +34,7 @@
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
 		var/obj/item/paper/paper = W
 		if(istype(paper) && !paper.can_bundle())
-			return //non-paper or bundlable paper only
+			return TRUE //non-paper or bundlable paper only
 		merge(W, user, cur_page)
 		return TRUE
 
@@ -54,7 +54,8 @@
 			. = P.attackby(W, user)
 			update_icon()
 			updateUsrDialog()
-		return
+			return
+		// How did we not have a page? Dunno, fall through to parent call anyway, I guess
 
 	else if(IS_PEN(W) || istype(W, /obj/item/stamp))
 		close_browser(user, "window=[name]")
@@ -63,7 +64,8 @@
 			. = P.attackby(W, user)
 			update_icon()
 			updateUsrDialog()
-		return
+			return
+		// How did we not have a page? Dunno, fall through to parent call anyway, I guess
 
 	return ..()
 

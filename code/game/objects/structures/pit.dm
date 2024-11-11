@@ -180,7 +180,7 @@
 		var/msg = sanitize(input(user, "What should it say?", "Grave marker", html_decode(message)) as text|null)
 		if(!CanPhysicallyInteract(user))
 			to_chat(user, SPAN_WARNING("You must stay close to \the [src]!"))
-			return
+			return TRUE
 		if(msg && used_item.do_tool_interaction(TOOL_PEN, user, src, 1 SECOND, fuel_expenditure = 1))
 			message = msg
 		return TRUE
@@ -314,7 +314,7 @@
 		var/msg = sanitize(input(user, "What should it say?", "Grave marker", html_decode(message)) as text|null)
 		if(!CanPhysicallyInteract(user))
 			to_chat(user, SPAN_WARNING("You must stay close to \the [src]!"))
-			return
+			return TRUE
 		if(msg && used_item.do_tool_interaction(TOOL_PEN, user, src, 1 SECOND, fuel_expenditure = 1))
 			message = msg
 		return TRUE

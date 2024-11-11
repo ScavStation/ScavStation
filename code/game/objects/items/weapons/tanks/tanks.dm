@@ -117,17 +117,17 @@ var/global/list/global/tank_gauge_cache = list()
 
 
 /obj/item/tank/attackby(var/obj/item/W, var/mob/user)
-	..()
 	if (istype(loc, /obj/item/assembly))
 		icon = loc
 
 	if (istype(W, /obj/item/scanner/gas))
-		return
+		return TRUE
 
 	if (istype(W,/obj/item/latexballon))
 		var/obj/item/latexballon/LB = W
 		LB.blow(src)
 		add_fingerprint(user)
+		return TRUE
 
 	if(IS_COIL(W))
 		var/obj/item/stack/cable_coil/C = W
@@ -135,6 +135,7 @@ var/global/list/global/tank_gauge_cache = list()
 			wired = 1
 			to_chat(user, "<span class='notice'>You attach the wires to the tank.</span>")
 			update_icon(TRUE)
+		return TRUE
 
 	if(IS_WIRECUTTER(W))
 		if(wired && proxyassembly.assembly)
@@ -162,6 +163,7 @@ var/global/list/global/tank_gauge_cache = list()
 				to_chat(user, "<span class='danger'>You slip and bump the igniter!</span>")
 				if(prob(85))
 					proxyassembly.receive_signal()
+			return TRUE
 
 		else if(wired)
 			if(do_after(user, 10, src))
@@ -171,6 +173,7 @@ var/global/list/global/tank_gauge_cache = list()
 
 		else
 			to_chat(user, "<span class='notice'>There are no wires to cut!</span>")
+		return TRUE
 
 	if(istype(W, /obj/item/assembly_holder))
 		if(wired)
@@ -184,6 +187,7 @@ var/global/list/global/tank_gauge_cache = list()
 				to_chat(user, "<span class='notice'>You stop attaching the assembly.</span>")
 		else
 			to_chat(user, "<span class='notice'>You need to wire the device up first.</span>")
+		return TRUE
 
 	if(IS_WELDER(W))
 		var/obj/item/weldingtool/WT = W
@@ -205,14 +209,17 @@ var/global/list/global/tank_gauge_cache = list()
 			else
 				to_chat(user, "<span class='notice'>The emergency pressure relief valve has already been welded.</span>")
 		add_fingerprint(user)
+		return TRUE
 
 	if(istype(W, /obj/item/flamethrower))
 		var/obj/item/flamethrower/F = W
 		if(!F.secured || F.tank || !user.try_unequip(src, F))
-			return
+			return TRUE
 
 		master = F
 		F.tank = src
+		return TRUE
+	return ..()
 
 /obj/item/tank/attack_self(mob/user)
 	add_fingerprint(user)

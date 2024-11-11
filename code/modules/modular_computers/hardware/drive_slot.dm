@@ -96,7 +96,7 @@
 
 /obj/item/stock_parts/computer/drive_slot/attackby(obj/item/stock_parts/computer/hard_drive/portable/I, mob/user)
 	if(!istype(I))
-		return
+		return ..()
 	insert_drive(I, user)
 	return TRUE
 

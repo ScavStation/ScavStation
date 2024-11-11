@@ -45,12 +45,12 @@
 		P_type_t = input("Choose pipe type", "Pipe type") as null|anything in Pipes
 		P_type = Pipes[P_type_t]
 		user.visible_message("<span class='notice'>[user] has set \the [src] to manufacture [P_type_t].</span>", "<span class='notice'>You set \the [src] to manufacture [P_type_t].</span>")
-		return
+		return TRUE
 
 	if(IS_CROWBAR(W))
 		a_dis=!a_dis
 		user.visible_message("<span class='notice'>[user] has [!a_dis?"de":""]activated auto-dismantling.</span>", "<span class='notice'>You [!a_dis?"de":""]activate auto-dismantling.</span>")
-		return
+		return TRUE
 
 	if(istype(W, /obj/item/stack/material) && W.get_material_type() == /decl/material/solid/metal/steel)
 
@@ -62,7 +62,7 @@
 		else
 			user.visible_message("<span class='notice'>[user] has loaded metal into \the [src].</span>", "<span class='notice'>You load metal into \the [src]</span>")
 
-		return
+		return TRUE
 
 	if(IS_SCREWDRIVER(W))
 		if(metal)
@@ -76,8 +76,8 @@
 				user.visible_message("<span class='notice'>[user] removes [m] sheet\s of metal from the \the [src].</span>", "<span class='notice'>You remove [m] sheet\s of metal from \the [src]</span>")
 		else
 			to_chat(user, "\The [src] is empty.")
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/pipelayer/examine(mob/user)
 	. = ..()

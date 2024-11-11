@@ -44,8 +44,8 @@
 			if(signature && !signed_by && !user.incapacitated() && Adjacent(user))
 				signed_by = signature
 				user.visible_message(SPAN_NOTICE("\The [user] signs \the [src] with a flourish."))
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/card/data
 	name = "data card"

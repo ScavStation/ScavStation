@@ -157,16 +157,16 @@
 					to_chat(user, "<span class='warning'>You must remain still while working on \the [src].</span>")
 			else
 				to_chat(user, "<span class='notice'>[src]'s motors resist your effort.</span>")
-			return
+			return TRUE
 	if(istype(C, /obj/item/stack/material) && C.get_material_type() == /decl/material/solid/metal/plasteel)
 		var/amt = ceil((get_max_health() - current_health)/150)
 		if(!amt)
 			to_chat(user, "<span class='notice'>\The [src] is already fully functional.</span>")
-			return
+			return TRUE
 		var/obj/item/stack/P = C
 		if(!P.can_use(amt))
 			to_chat(user, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
-			return
+			return TRUE
 		to_chat(user, "<span class='notice'>You begin repairing \the [src]...</span>")
 		if(do_after(user, 5 SECONDS, src))
 			if(P.use(amt))
@@ -176,6 +176,7 @@
 				to_chat(user, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
 		else
 			to_chat(user, "<span class='warning'>You must remain still while working on \the [src].</span>")
+		return TRUE
 	return ..()
 
 // Proc: open()

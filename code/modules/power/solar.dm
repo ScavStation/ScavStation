@@ -74,7 +74,6 @@ var/global/list/solars_list = list()
 
 
 /obj/machinery/power/solar/attackby(obj/item/W, mob/user)
-
 	if(IS_CROWBAR(W))
 		playsound(loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar panel.</span>")
@@ -86,12 +85,12 @@ var/global/list/solars_list = list()
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message("<span class='notice'>[user] takes the glass off the solar panel.</span>")
 			qdel(src)
-		return
+		return TRUE
 	else if (W)
 		add_fingerprint(user)
 		current_health -= W.get_attack_force(user)
 		healthcheck()
-	..()
+	return ..()
 
 /obj/machinery/power/solar/proc/healthcheck()
 	if (current_health <= 0)
@@ -242,9 +241,8 @@ var/global/list/solars_list = list()
 		glass_reinforced = null
 
 /obj/item/solar_assembly/attackby(var/obj/item/W, var/mob/user)
-
-	if(!anchored && isturf(loc))
-		if(IS_WRENCH(W))
+	if(IS_WRENCH(W))
+		if(!anchored && isturf(loc))
 			anchored = TRUE
 			default_pixel_x = 0
 			default_pixel_y = 0
@@ -252,43 +250,37 @@ var/global/list/solars_list = list()
 			reset_offsets(0)
 			user.visible_message("<span class='notice'>[user] wrenches the solar assembly into place.</span>")
 			playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
-			return 1
-	else
-		if(IS_WRENCH(W))
+			return TRUE
+		else
 			anchored = FALSE
-			user.visible_message("<span class='notice'>[user] unwrenches the solar assembly from it's place.</span>")
+			user.visible_message("<span class='notice'>[user] unwrenches the solar assembly from its place.</span>")
 			playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
-			return 1
-
-		if(istype(W, /obj/item/stack/material) && W.get_material_type() == /decl/material/solid/glass)
-			var/obj/item/stack/material/S = W
-			if(S.use(2))
-				glass_type =       S.material.type
-				glass_reinforced = S.reinf_material?.type
-				playsound(loc, 'sound/machines/click.ogg', 50, 1)
-				user.visible_message("<span class='notice'>[user] places the glass on the solar assembly.</span>")
-				if(tracker)
-					new /obj/machinery/power/tracker(get_turf(src), src)
-				else
-					new /obj/machinery/power/solar(get_turf(src), src)
-			else
-				to_chat(user, "<span class='warning'>You need two sheets of glass to put them into a solar panel.</span>")
-				return
-			return 1
-
-	if(!tracker)
-		if(istype(W, /obj/item/tracker_electronics))
-			tracker = 1
-			qdel(W)
-			user.visible_message("<span class='notice'>[user] inserts the electronics into the solar assembly.</span>")
-			return 1
-	else
-		if(IS_CROWBAR(W))
-			new /obj/item/tracker_electronics(loc)
-			tracker = 0
-			user.visible_message("<span class='notice'>[user] takes out the electronics from the solar assembly.</span>")
-			return 1
-	..()
+			return TRUE
+	else if(istype(W, /obj/item/stack/material) && W.get_material_type() == /decl/material/solid/glass)
+		var/obj/item/stack/material/S = W
+		if(!S.use(2))
+			to_chat(user, "<span class='warning'>You need two sheets of glass to put them into a solar panel.</span>")
+			return TRUE
+		glass_type =       S.material.type
+		glass_reinforced = S.reinf_material?.type
+		playsound(loc, 'sound/machines/click.ogg', 50, 1)
+		user.visible_message("<span class='notice'>[user] places the glass on the solar assembly.</span>")
+		if(tracker)
+			new /obj/machinery/power/tracker(get_turf(src), src)
+		else
+			new /obj/machinery/power/solar(get_turf(src), src)
+		return TRUE
+	if(!tracker && istype(W, /obj/item/tracker_electronics))
+		tracker = TRUE
+		qdel(W)
+		user.visible_message("<span class='notice'>[user] inserts the electronics into the solar assembly.</span>")
+		return TRUE
+	else if(IS_CROWBAR(W))
+		new /obj/item/tracker_electronics(loc)
+		tracker = 0
+		user.visible_message("<span class='notice'>[user] takes out the electronics from the solar assembly.</span>")
+		return TRUE
+	return ..()
 
 //
 // Solar Control Computer

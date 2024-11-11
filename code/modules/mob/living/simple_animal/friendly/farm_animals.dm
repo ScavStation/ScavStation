@@ -245,19 +245,19 @@ var/global/chicken_count = 0
 		global.chicken_count -= 1
 
 /mob/living/simple_animal/fowl/chicken/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/food)) //feedin' dem chickens
-		var/obj/item/food/G = O
-		if(findtext(G.get_grown_tag(), "wheat")) // includes chopped, crushed, dried etc.
-			if(!stat && eggsleft < 4)
-				user.visible_message(SPAN_NOTICE("[user] feeds \the [O] to \the [src]! It clucks happily."), SPAN_NOTICE("You feed \the [O] to \the [src]! It clucks happily."), SPAN_NOTICE("You hear clucking."))
-				qdel(O)
-				eggsleft += rand(1, 2)
-			else
-				to_chat(user, SPAN_NOTICE("\The [src] doesn't seem hungry!"))
+	if(istype(O, /obj/item/food))
+		return ..()
+	var/obj/item/food/G = O //feedin' dem chickens
+	if(findtext(G.get_grown_tag(), "wheat")) // includes chopped, crushed, dried etc.
+		if(!stat && eggsleft < 4)
+			user.visible_message(SPAN_NOTICE("[user] feeds \the [O] to \the [src]! It clucks happily."), SPAN_NOTICE("You feed \the [O] to \the [src]! It clucks happily."), SPAN_NOTICE("You hear clucking."))
+			qdel(O)
+			eggsleft += rand(1, 2)
 		else
-			to_chat(user, "\The [src] doesn't seem interested in that.")
+			to_chat(user, SPAN_NOTICE("\The [src] doesn't seem hungry!"))
 	else
-		..()
+		to_chat(user, "\The [src] doesn't seem interested in that.")
+	return TRUE
 
 /mob/living/simple_animal/fowl/chicken/handle_living_non_stasis_processes()
 	if((. = ..()) && prob(1) && eggsleft > 0)

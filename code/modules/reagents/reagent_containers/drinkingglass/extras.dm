@@ -3,25 +3,27 @@
 
 	if(istype(I, /obj/item/glass_extra))
 		var/obj/item/glass_extra/GE = I
-		if(can_add_extra(GE))
-			extras += GE
-			if(!user.try_unequip(GE, src))
-				return
-			to_chat(user, "<span class=notice>You add \the [GE] to \the [src].</span>")
-			update_icon()
-		else
+		if(!can_add_extra(GE))
 			to_chat(user, "<span class=warning>There's no space to put \the [GE] on \the [src]!</span>")
+			return TRUE
+		extras += GE
+		if(!user.try_unequip(GE, src))
+			return TRUE
+		to_chat(user, "<span class=notice>You add \the [GE] to \the [src].</span>")
+		update_icon()
+		return TRUE
 	else if(istype(I, /obj/item/food/processed_grown/slice))
 		if(!rim_pos)
 			to_chat(user, "<span class=warning>There's no space to put \the [I] on \the [src]!</span>")
-			return
+			return TRUE
 		var/obj/item/food/processed_grown/slice/FS = I
 		extras += FS
 		if(!user.try_unequip(FS, src))
-			return
+			return TRUE
 		reset_offsets(0) // Reset its pixel offsets so the icons work!
 		to_chat(user, "<span class=notice>You add \the [FS] to \the [src].</span>")
 		update_icon()
+		return TRUE
 	else
 		return ..()
 

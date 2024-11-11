@@ -36,7 +36,7 @@
 /obj/item/folder/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo) || istype(W, /obj/item/paper_bundle))
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You put the [W] into \the [src]."))
 		updateUsrDialog()
 		update_icon()
@@ -47,10 +47,10 @@
 		var/n_name = sanitize_safe(input(usr, "What would you like to label the folder?", "Folder Labelling", null)  as text, MAX_NAME_LEN)
 		if(!CanPhysicallyInteractWith(user, src))
 			to_chat(user, SPAN_WARNING("You must stay close to \the [src]."))
-			return
+			return TRUE
 		SetName("folder[(n_name ? text("- '[n_name]'") : null)]")
 		return TRUE
-	return
+	return ..()
 
 /obj/item/folder/attack_self(mob/user)
 	return interact(user)
@@ -119,6 +119,6 @@
 /obj/item/folder/envelope/attackby(obj/item/W, mob/user)
 	if(sealed)
 		sealcheck(user)
-		return
+		return TRUE
 	else
-		..()
+		return ..()

@@ -23,7 +23,6 @@
 	return TRUE
 
 /obj/item/implantpad/attackby(obj/item/I, mob/user)
-	..()
 	if(istype(I, /obj/item/implantcase))
 		var/obj/item/implantcase/C = I
 		if(!imp && C.imp)
@@ -35,6 +34,7 @@
 			C.imp = imp
 			imp = null
 		C.update_icon()
+		. = TRUE
 	else if(istype(I, /obj/item/implanter))
 		var/obj/item/implanter/C = I
 		if(!imp && C.imp)
@@ -46,9 +46,14 @@
 			C.imp = imp
 			imp = null
 		C.update_icon()
+		. = TRUE
 	else if(istype(I, /obj/item/implant) && user.try_unequip(I, src))
 		imp = I
-	update_icon()
+		. = TRUE
+	if(.)
+		update_icon()
+		return TRUE
+	return ..()
 
 /obj/item/implantpad/attack_self(mob/user)
 	if (imp)

@@ -103,3 +103,4 @@
 
 	if(istype(W, /obj/item/stock_parts))
 		return try_install_component(user, W)
+	return FALSE

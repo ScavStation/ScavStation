@@ -130,7 +130,8 @@
 /obj/machinery/gateway/centerstation/attackby(obj/item/W, mob/user)
 	if(IS_MULTITOOL(W))
 		to_chat(user, "The gate is already calibrated, there is no work for you to do here.")
-		return
+		return TRUE
+	return FALSE
 
 /////////////////////////////////////Away////////////////////////
 
@@ -226,8 +227,9 @@
 	if(IS_MULTITOOL(W))
 		if(calibrated)
 			to_chat(user, "The gate is already calibrated, there is no work for you to do here.")
-			return
+			return TRUE
 		else
 			to_chat(user, "<span class='notice'><b>Recalibration successful!</b></span>: This gate's systems have been fine tuned.  Travel to this gate will now be on target.")
 			calibrated = 1
-			return
+			return TRUE
+	return FALSE

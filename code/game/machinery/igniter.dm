@@ -128,8 +128,9 @@
 		else if(!disable)
 			user.visible_message("<span class='warning'>[user] has reconnected \the [src]!</span>", "<span class='warning'>You fix the connection to \the [src].</span>")
 		update_icon()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/sparker/attack_ai()
 	if (anchored)

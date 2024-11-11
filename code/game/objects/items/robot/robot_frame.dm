@@ -38,7 +38,7 @@
 	if(IS_CROWBAR(W))
 		if(!parts.len)
 			to_chat(user, SPAN_WARNING("\The [src] has no parts to remove."))
-			return
+			return TRUE
 		var/removing = pick(parts)
 		var/obj/item/robot_parts/part = parts[removing]
 		part.forceMove(get_turf(src))
@@ -46,44 +46,44 @@
 		parts -= removing
 		to_chat(user, SPAN_WARNING("You lever \the [part] off \the [src]."))
 		update_icon()
+		return TRUE
 
 	// Install a robotic part.
 	else if (istype(W, /obj/item/robot_parts))
 		var/obj/item/robot_parts/part = W
 		if(!required_parts[part.bp_tag] || !istype(W, required_parts[part.bp_tag]))
 			to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
-			return
-		if(parts[part.bp_tag])
+		else if(parts[part.bp_tag])
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [W] installed."))
-			return
-		if(part.can_install(user) && user.try_unequip(W, src))
+		else if(part.can_install(user) && user.try_unequip(W, src))
 			parts[part.bp_tag] = part
 			update_icon()
+		return TRUE
 
 	// Install a brain.
 	else if(istype(W, /obj/item/organ/internal/brain_interface))
 
 		if(!isturf(loc))
 			to_chat(user, SPAN_WARNING("You can't put \the [W] in without the frame being on the ground."))
-			return
+			return TRUE
 
 		if(!check_completion())
 			to_chat(user, SPAN_WARNING("The frame is not ready for the central processor to be installed."))
-			return
+			return TRUE
 
 		var/obj/item/organ/internal/brain_interface/M = W
 		var/mob/living/brainmob = M?.get_brainmob()
 		if(!brainmob)
 			to_chat(user, SPAN_WARNING("Sticking an empty [W.name] into the frame would sort of defeat the purpose."))
-			return
+			return TRUE
 
 		if(jobban_isbanned(brainmob, ASSIGNMENT_ROBOT))
 			to_chat(user, SPAN_WARNING("\The [W] does not seem to fit."))
-			return
+			return TRUE
 
 		if(brainmob.stat == DEAD)
 			to_chat(user, SPAN_WARNING("Sticking a dead [W.name] into the frame would sort of defeat the purpose."))
-			return
+			return TRUE
 
 		var/ghost_can_reenter = 0
 		if(brainmob.mind)
@@ -96,15 +96,15 @@
 				ghost_can_reenter = 1
 		if(!ghost_can_reenter)
 			to_chat(user, SPAN_WARNING("\The [W] is completely unresponsive; there's no point."))
-			return
+			return TRUE
 
 		if(!user.try_unequip(W))
-			return
+			return TRUE
 
 		SSstatistics.add_field("cyborg_frames_built",1)
 		var/mob/living/silicon/robot/O = new product(get_turf(loc))
 		if(!O)
-			return
+			return TRUE
 
 		O.central_processor = W
 		O.set_invisibility(INVISIBILITY_NONE)
@@ -131,13 +131,15 @@
 		RAISE_EVENT(/decl/observ/cyborg_created, O)
 		O.Namepick()
 		qdel(src)
+		return TRUE
 
 	else if(IS_PEN(W))
 		var/t = sanitize_safe(input(user, "Enter new robot name", src.name, src.created_name), MAX_NAME_LEN)
 		if(t && (in_range(src, user) || loc == user))
 			created_name = t
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/robot_parts/robot_suit/Destroy()
 	parts.Cut()

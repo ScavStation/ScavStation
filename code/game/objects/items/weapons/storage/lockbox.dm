@@ -22,30 +22,30 @@
 	if (istype(W, /obj/item/card/id))
 		if(src.broken)
 			to_chat(user, "<span class='warning'>It appears to be broken.</span>")
-			return
+			return TRUE
 		if(src.allowed(user))
 			src.locked = !( src.locked )
 			if(src.locked)
 				src.icon_state = src.icon_locked
 				to_chat(user, "<span class='notice'>You lock \the [src]!</span>")
 				storage?.close_all()
-				return
 			else
 				src.icon_state = src.icon_closed
 				to_chat(user, "<span class='notice'>You unlock \the [src]!</span>")
-				return
 		else
 			to_chat(user, "<span class='warning'>Access Denied</span>")
+		return TRUE
 	else if(istype(W, /obj/item/energy_blade))
 		var/obj/item/energy_blade/blade = W
 		if(blade.is_special_cutting_tool() && emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
 			spark_at(src.loc, amount=5)
 			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		return TRUE
 	if(!locked)
-		..()
+		return ..()
 	else
 		to_chat(user, "<span class='warning'>It's locked!</span>")
-	return
+		return TRUE
 
 /obj/item/lockbox/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
 	if(!broken)

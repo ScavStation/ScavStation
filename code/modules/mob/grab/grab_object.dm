@@ -279,7 +279,8 @@
 
 /obj/item/grab/attackby(obj/W, mob/user)
 	if(user == assailant)
-		current_grab.item_attack(src, W)
+		return current_grab.item_attack(src, W)
+	return FALSE
 
 /obj/item/grab/proc/assailant_reverse_facing()
 	return current_grab.reverse_facing

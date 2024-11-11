@@ -379,21 +379,21 @@
 			owner.update_health()
 
 /obj/item/organ/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
-
 	if(BP_IS_PROSTHETIC(src) || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"Ew, no.","Bon appetit!") == "Ew, no.")
 		to_chat(user, SPAN_NOTICE("You successfully repress your cannibalistic tendencies."))
-		return
+		return TRUE
 
 	if(QDELETED(src))
-		return
+		return TRUE
 
 	if(!user.try_unequip(src))
-		return
+		return TRUE
 
 	target.attackby(convert_to_food(user), user)
+	return TRUE
 
 /obj/item/organ/proc/convert_to_food(mob/user)
 	var/obj/item/food/organ/yum = new(get_turf(src))

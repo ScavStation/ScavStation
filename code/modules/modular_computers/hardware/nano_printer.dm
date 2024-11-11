@@ -37,11 +37,12 @@
 		return 0
 	return 1
 
+// TODO: unify with /obj/item/stock_parts/printer somehow?
 /obj/item/stock_parts/computer/nano_printer/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/paper))
 		if(stored_paper >= max_paper)
 			to_chat(user, "You try to add \the [W] into \the [src], but its paper bin is full.")
-			return
+			return TRUE
 
 		to_chat(user, "You insert \the [W] into [src].")
 		qdel(W)
@@ -51,13 +52,16 @@
 		var/num_of_pages_added = 0
 		if(stored_paper >= max_paper)
 			to_chat(user, "You try to add \the [W] into \the [src], but its paper bin is full.")
-			return
-		for(var/obj/item/bundleitem in B) //loop through items in bundle
-			if(istype(bundleitem, /obj/item/paper)) //if item is paper (and not photo), add into the bin
-				B.pages.Remove(bundleitem)
-				qdel(bundleitem)
-				num_of_pages_added++
-				stored_paper++
+			return TRUE
+		if(!B.is_blank())
+			if(user)
+				to_chat(user, SPAN_WARNING("\The [B] contains some non-blank pages, or something else than paper sheets!"))
+			return TRUE
+		for(var/obj/item/paper/bundleitem in B) //loop through papers in bundle
+			B.pages.Remove(bundleitem)
+			qdel(bundleitem)
+			num_of_pages_added++
+			stored_paper++
 			if(stored_paper >= max_paper) //check if the printer is full yet
 				to_chat(user, "The printer has been filled to full capacity.")
 				break
@@ -71,4 +75,5 @@
 			else //if at least two items remain, just update the bundle icon
 				B.update_icon()
 		to_chat(user, "You add [num_of_pages_added] papers from \the [W] into \the [src].")
-	return
+		return TRUE
+	return ..()

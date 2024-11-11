@@ -91,16 +91,16 @@
 		var/obj/item/food/sashimi/other_sashimi = I
 		if(slices + other_sashimi.slices > 5)
 			to_chat(user, "<span class='warning'>Show some restraint, would you?</span>")
-			return
+			return TRUE
 		if(!user.try_unequip(I))
-			return
+			return TRUE
 		slices += other_sashimi.slices
 		bitesize = slices
 		update_icon()
 		if(I.reagents)
 			I.reagents.trans_to(src, I.reagents.total_volume)
 		qdel(I)
-		return
+		return TRUE
 
 	// Make sushi.
 	if(istype(I, /obj/item/food/boiledrice))
@@ -108,9 +108,9 @@
 			to_chat(user, "<span class='warning'>Putting more than one slice of fish on your sushi is just greedy.</span>")
 		else
 			if(!user.try_unequip(I))
-				return
+				return TRUE
 			new /obj/item/food/sushi(get_turf(src), null, TRUE, I, src)
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/food/sashimi/handle_utensil_cutting(obj/item/tool, mob/user)
@@ -133,7 +133,7 @@
 				to_chat(user, "<span class='warning'>Putting more than one slice of fish on your sushi is just greedy.</span>")
 			else
 				new /obj/item/food/sushi(get_turf(src), null, TRUE, src, I)
-			return
+			return TRUE
 		var/static/list/sushi_types = list(
 			/obj/item/food/friedegg,
 			/obj/item/food/tofu,
@@ -144,27 +144,28 @@
 		)
 		if(is_type_in_list(I, sushi_types))
 			new /obj/item/food/sushi(get_turf(src), null, TRUE, src, I)
-			return
+			return TRUE
 	. = ..()
 // Used for turning other food into sushi.
+// TODO: maybe make these resolve_attackby overrides on boiledrice instead?
 /obj/item/food/friedegg/attackby(var/obj/item/I, var/mob/user)
 	if((locate(/obj/structure/table) in loc) && istype(I, /obj/item/food/boiledrice))
 		new /obj/item/food/sushi(get_turf(src), null, TRUE, I, src)
-		return
+		return TRUE
 	. = ..()
 /obj/item/food/tofu/attackby(var/obj/item/I, var/mob/user)
 	if((locate(/obj/structure/table) in loc) && istype(I, /obj/item/food/boiledrice))
 		new /obj/item/food/sushi(get_turf(src), null, TRUE, I, src)
-		return
+		return TRUE
 	. = ..()
 /obj/item/food/butchery/cutlet/raw/attackby(var/obj/item/I, var/mob/user)
 	if((locate(/obj/structure/table) in loc) && istype(I, /obj/item/food/boiledrice))
 		new /obj/item/food/sushi(get_turf(src), null, TRUE, I, src)
-		return
+		return TRUE
 	. = ..()
 /obj/item/food/butchery/cutlet/attackby(var/obj/item/I, var/mob/user)
 	if((locate(/obj/structure/table) in loc) && istype(I, /obj/item/food/boiledrice))
 		new /obj/item/food/sushi(get_turf(src), null, TRUE, I, src)
-		return
+		return TRUE
 	. = ..()
 // End non-fish sushi.

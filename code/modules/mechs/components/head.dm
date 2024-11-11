@@ -59,18 +59,27 @@
 	if(istype(thing, /obj/item/mech_component/control_module))
 		if(software)
 			to_chat(user, SPAN_WARNING("\The [src] already has a control modules installed."))
-			return
-		if(install_component(thing, user)) software = thing
+			return TRUE
+		if(install_component(thing, user))
+			software = thing
+			return TRUE
+		return FALSE
 	else if(istype(thing,/obj/item/robot_parts/robot_component/radio))
 		if(radio)
 			to_chat(user, SPAN_WARNING("\The [src] already has a radio installed."))
-			return
-		if(install_component(thing, user)) radio = thing
+			return TRUE
+		if(install_component(thing, user))
+			radio = thing
+			return TRUE
+		return FALSE
 	else if(istype(thing,/obj/item/robot_parts/robot_component/camera))
 		if(camera)
 			to_chat(user, SPAN_WARNING("\The [src] already has a camera installed."))
-			return
-		if(install_component(thing, user)) camera = thing
+			return TRUE
+		if(install_component(thing, user))
+			camera = thing
+			return TRUE
+		return FALSE
 	else
 		return ..()
 
@@ -107,15 +116,14 @@
 	to_chat(user, SPAN_NOTICE("It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software]."))
 
 /obj/item/mech_component/control_module/attackby(var/obj/item/thing, var/mob/user)
-
 	if(istype(thing, /obj/item/stock_parts/circuitboard/exosystem))
 		install_software(thing, user)
-		return
+		return TRUE
 
 	if(IS_SCREWDRIVER(thing))
-		var/result = ..()
+		. = ..()
 		update_software()
-		return result
+		return
 	else
 		return ..()
 

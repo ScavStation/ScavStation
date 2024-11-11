@@ -89,6 +89,7 @@
 				"[user] detaches \the [src] from the cable.", \
 				"<span class='notice'>You detach \the [src] from the cable.</span>",
 				"<span class='italics'>You hear some wires being disconnected from something.</span>")
+		return TRUE
 	else
 		return ..()
 

@@ -219,23 +219,22 @@
 /obj/machinery/door/firedoor/attackby(obj/item/C, mob/user)
 	add_fingerprint(user, 0, C)
 	if(operating)
-		return//Already doing something.
+		return TRUE //Already doing something.
 	if(IS_WELDER(C) && !repairing)
 		var/obj/item/weldingtool/W = C
 		if(W.weld(0, user))
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			if(do_after(user, 2 SECONDS, src))
-				if(!W.isOn()) return
+				if(!W.isOn()) return TRUE
 				blocked = !blocked
 				user.visible_message("<span class='danger'>\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W].</span>",\
 				"You [blocked ? "weld" : "unweld"] \the [src] with \the [W].",\
 				"You hear something being welded.")
 				playsound(src, 'sound/items/Welder.ogg', 100, 1)
 				update_icon()
-				return TRUE
 			else
 				to_chat(user, SPAN_WARNING("You must remain still to complete this task."))
-				return TRUE
+		return TRUE
 
 	if(blocked && IS_CROWBAR(C))
 		user.visible_message("<span class='danger'>\The [user] pries at \the [src] with \a [C], but \the [src] is welded in place!</span>",\
@@ -255,7 +254,7 @@
 		user.visible_message("<span class='danger'>\The [user] starts to force \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
 				"You hear metal strain.")
-		if(do_after(user,30,src))
+		if(do_after(user, 3 SECONDS, src))
 			if(IS_CROWBAR(C))
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message("<span class='danger'>\The [user] forces \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\

@@ -9,6 +9,7 @@
 		/datum/movement_handler/delay = list(5),
 		/datum/movement_handler/move_relay_self
 	)
+	tool_interaction_flags = 0
 
 	var/item_form_type = /obj/item/wheelchair_kit
 	var/bloodiness
@@ -22,10 +23,8 @@
 /obj/structure/bed/chair/wheelchair/on_update_icon()
 	set_overlays(image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = ABOVE_HUMAN_LAYER))
 
-/obj/structure/bed/chair/wheelchair/attackby(obj/item/W, mob/user)
-	if(IS_WRENCH(W) || istype(W,/obj/item/stack) || IS_WIRECUTTER(W))
-		return
-	..()
+/obj/structure/bed/chair/wheelchair/can_apply_padding()
+	return FALSE
 
 /obj/structure/bed/chair/wheelchair/attack_hand(mob/user)
 	if(!user.check_dexterity(DEXTERITY_SIMPLE_MACHINES, TRUE))

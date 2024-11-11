@@ -49,11 +49,12 @@
 /obj/item/secure_storage/attackby(obj/item/W, mob/user)
 	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)
 	if(lock.attackby(W, user))
-		return
+		return TRUE
 
 	// -> storage/attackby() what with handle insertion, etc
 	if(!lock.locked)
 		. = ..()
+	return FALSE
 
 /obj/item/secure_storage/handle_mouse_drop(atom/over, mob/user, params)
 	var/datum/extension/lockable/lock = get_extension(src, /datum/extension/lockable)

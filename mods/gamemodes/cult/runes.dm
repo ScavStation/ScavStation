@@ -48,11 +48,12 @@
 	if(istype(I, /obj/item/book/tome) && iscultist(user))
 		user.visible_message(SPAN_NOTICE("[user] rubs \the [src] with \the [I], and \the [src] is absorbed by it."), "You retrace your steps, carefully undoing the lines of \the [src].")
 		qdel(src)
-		return
+		return TRUE
 	else if(istype(I, /obj/item/nullrod))
 		user.visible_message(SPAN_NOTICE("[user] hits \the [src] with \the [I], and it disappears, fizzling."), SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [I]."), "You hear a fizzle.")
 		qdel(src)
-		return
+		return TRUE
+	return ..()
 
 /obj/effect/rune/attack_hand(var/mob/user)
 	SHOULD_CALL_PARENT(FALSE)
@@ -320,13 +321,14 @@
 	if(istype(I, /obj/item/nullrod))
 		user.visible_message(SPAN_NOTICE("\The [user] touches \the [src] with \the [I], and it disappears."), SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [I]."))
 		qdel(src)
-	else
-		var/force = I.get_attack_force(user)
-		if(force)
-			user.visible_message(SPAN_NOTICE("\The [user] hits \the [src] with \the [I]."), SPAN_NOTICE("You hit \the [src] with \the [I]."))
-			take_damage(force, I.atom_damage_type)
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			user.do_attack_animation(src)
+		return TRUE
+	var/force = I.get_attack_force(user)
+	if(force)
+		user.visible_message(SPAN_NOTICE("\The [user] hits \the [src] with \the [I]."), SPAN_NOTICE("You hit \the [src] with \the [I]."))
+		take_damage(force, I.atom_damage_type)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.do_attack_animation(src)
+	return TRUE
 
 /obj/effect/cultwall/bullet_act(var/obj/item/projectile/Proj)
 	if(!(Proj.atom_damage_type == BRUTE || Proj.atom_damage_type == BURN))
@@ -811,11 +813,11 @@
 	speak_incantation(user, "Uhrast ka'hfa heldsagen ver[pick("'","`")]lot!")
 	to_chat(user, SPAN_WARNING("In the last moment of your humble life, you feel an immense pain as fabric of reality mends... with your blood."))
 	for(var/mob/M in global.living_mob_list_)
+		var/decl/pronouns/pronouns = user.get_pronouns()
 		if(iscultist(M))
-			var/decl/pronouns/pronouns = user.get_pronouns()
-			to_chat(M, "You see a vision of \the [user] keeling over dead, his blood glowing blue as it escapes [pronouns.his] body and dissipates into thin air; you hear an otherwordly scream and feel that a great disaster has just been averted.")
+			to_chat(M, "You see a vision of \the [user] keeling over dead, [pronouns.his] blood glowing blue as it escapes [pronouns.his] body and dissipates into thin air; you hear an otherwordly scream and feel that a great disaster has just been averted.")
 		else
-			to_chat(M, "You see a vision of [name] keeling over dead, his blood glowing blue as it escapes his body and dissipates into thin air; you hear an otherwordly scream and feel very weak for a moment.")
+			to_chat(M, "You see a vision of [name] keeling over dead, [pronouns.his] blood glowing blue as it escapes [pronouns.his] body and dissipates into thin air; you hear an otherwordly scream and feel very weak for a moment.")
 	log_and_message_admins("mended reality with the greatest sacrifice", user)
 	user.dust()
 	var/decl/special_role/cultist/cult = GET_DECL(/decl/special_role/cultist)
@@ -826,8 +828,8 @@
 
 /obj/effect/rune/tearreality/attackby()
 	if(the_end_comes)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /* Imbue runes */
 

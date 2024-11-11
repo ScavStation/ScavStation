@@ -62,12 +62,14 @@
 	if(istype(W, /obj/item/chems/toner_cartridge))
 		if(toner)
 			to_chat(user, SPAN_WARNING("There is already \a [W] in \the [src]!"))
+			return TRUE
 		else
 			return insert_toner(W, user)
 
-	else if((istype(W, /obj/item/paper) || istype(W, /obj/item/paper_bundle)))
+	else if(istype(W, /obj/item/paper) || istype(W, /obj/item/paper_bundle))
 		if(paper_left >= paper_max)
 			to_chat(user, SPAN_WARNING("There is no more room for paper in \the [src]!"))
+			return TRUE
 		else
 			return insert_paper(W, user)
 	. = ..()
@@ -144,10 +146,10 @@
 	if(toner)
 		if(user)
 			to_chat(user, SPAN_WARNING("There's already a cartridge in \the [src]."))
-		return
+		return TRUE
 
 	if(!user.try_unequip(T, src))
-		return
+		return TRUE
 	toner = T
 	if(user)
 		to_chat(user, SPAN_NOTICE("You install \a [T] in \the [src]."))
@@ -160,7 +162,7 @@
 	if(!toner)
 		if(user)
 			to_chat(user, SPAN_WARNING("There is no toner cartridge in \the [src]."))
-		return
+		return TRUE
 
 	if(user)
 		user.put_in_hands(toner)
@@ -177,16 +179,16 @@
 	if(paper_left >= paper_max)
 		if(user)
 			to_chat(user, SPAN_WARNING("There is no room for more paper in \the [src]."))
-		return
+		return TRUE
 
 	if(istype(paper_refill, /obj/item/paper))
 		var/obj/item/paper/P = paper_refill
 		if(!P.is_blank())
 			if(user)
 				to_chat(user, SPAN_WARNING("\The [P] isn't blank!"))
-			return
+			return TRUE
 		if(!user?.try_unequip(paper_refill))
-			return
+			return TRUE
 		if(user)
 			to_chat(user, SPAN_NOTICE("You insert \a [paper_refill] in \the [src]."))
 		qdel(paper_refill)
@@ -197,17 +199,16 @@
 		if(!B.is_blank())
 			if(user)
 				to_chat(user, SPAN_WARNING("\The [B] contains some non-blank pages, or something else than paper sheets!"))
-			return
+			return TRUE
 
 		var/amt_papers = B.get_amount_papers()
 		var/to_insert = min((paper_max - paper_left), amt_papers)
-		if(user)
-			to_chat(user, SPAN_NOTICE("You insert \a [paper_refill] in \the [src]."))
 		if(to_insert >= amt_papers)
-			if(user.try_unequip(B))
-				qdel(B)
-			else
-				return
+			if(!user.try_unequip(B))
+				return TRUE
+			if(user)
+				to_chat(user, SPAN_NOTICE("You insert \a [paper_refill] in \the [src]."))
+			qdel(B)
 		else
 			B.remove_sheets(to_insert, user)
 		paper_left += to_insert

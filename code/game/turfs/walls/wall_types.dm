@@ -82,7 +82,7 @@
 	material = /decl/material/solid/metal/alienalloy
 
 /turf/wall/raidershuttle/attackby()
-	return
+	return TRUE
 
 //Alien metal walls
 /turf/wall/alium

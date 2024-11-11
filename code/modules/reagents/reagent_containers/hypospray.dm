@@ -152,12 +152,12 @@
 	return TRUE
 
 /obj/item/chems/hypospray/vial/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/chems/glass/beaker/vial))
-		if(!do_after(user,10) || !(W in user))
-			return
-		insert_vial(W, user)
+	if(!istype(W, /obj/item/chems/glass/beaker/vial))
+		return ..()
+	if(!do_after(user, 1 SECOND, src))
 		return TRUE
-	. = ..()
+	insert_vial(W, user)
+	return TRUE
 
 /obj/item/chems/hypospray/vial/afterattack(obj/target, mob/user, proximity) // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks.
 	if(!proximity)

@@ -91,6 +91,8 @@
 
 	if(destroy_self)
 		qdel(src)
+		return TRUE
+	return FALSE
 
 /obj/effect/razorweb/on_update_icon()
 	overlays.Cut()

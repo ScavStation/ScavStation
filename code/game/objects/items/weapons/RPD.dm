@@ -165,10 +165,10 @@ var/global/list/rpd_pipe_selection_skilled = list()
 /obj/item/rpd/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/pipe))
 		if(!user.try_unequip(W))
-			return
+			return TRUE
 		recycle(W,user)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/rpd/proc/recycle(var/obj/item/W,var/mob/user)
 	if(!user.skill_check(SKILL_ATMOS,SKILL_BASIC))

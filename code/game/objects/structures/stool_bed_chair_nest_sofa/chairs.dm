@@ -304,10 +304,8 @@
 	color = WOOD_COLOR_GENERIC
 	material = /decl/material/solid/organic/wood
 
-/obj/structure/bed/chair/wood/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/stack) || IS_WIRECUTTER(W))
-		return
-	..()
+/obj/structure/bed/chair/wood/can_apply_padding()
+	return FALSE
 
 /obj/structure/bed/chair/wood/mahogany
 	color = WOOD_COLOR_RICH

@@ -144,19 +144,27 @@
 	if(istype(thing,/obj/item/robot_parts/robot_component/diagnosis_unit))
 		if(diagnostics)
 			to_chat(user, SPAN_WARNING("\The [src] already has a diagnostic system installed."))
-			return
-		if(install_component(thing, user)) diagnostics = thing
+			return TRUE
+		if(install_component(thing, user))
+			diagnostics = thing
+			return TRUE
+		return FALSE
 	else if(istype(thing, /obj/item/cell))
 		if(cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cell installed."))
-			return
-		if(install_component(thing,user)) cell = thing
+			return TRUE
+		if(install_component(thing,user))
+			cell = thing
+			return TRUE
+		return FALSE
 	else if(istype(thing, /obj/item/robot_parts/robot_component/armour/exosuit))
 		if(m_armour)
 			to_chat(user, SPAN_WARNING("\The [src] already has armour installed."))
-			return
+			return TRUE
 		if(install_component(thing, user))
 			m_armour = thing
+			return TRUE
+		return FALSE
 	else
 		return ..()
 

@@ -10,7 +10,7 @@
 	return 0.8
 
 /turf/floor/holofloor/attackby(obj/item/W, mob/user)
-	return
+	return TRUE
 	// HOLOFLOOR DOES NOT GIVE A FUCK
 
 /turf/floor/holofloor/carpet
@@ -151,27 +151,27 @@
 /obj/machinery/door/window/holowindoor/attackby(obj/item/I, mob/user)
 
 	if (src.operating == 1)
-		return
+		return TRUE
 
 	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		visible_message("<span class='danger'>\The [src] was hit by \the [I].</span>")
 		if(I.atom_damage_type == BRUTE || I.atom_damage_type == BURN)
 			take_damage(I.get_attack_force(user))
-		return
+		return TRUE
 
 	src.add_fingerprint(user)
-	if (!src.requiresID())
-		user = null
-
 	if (src.allowed(user))
 		if (src.density)
 			open()
 		else
 			close()
+		return TRUE
 
 	else if (src.density)
 		flick("[base_state]deny", src)
+		return TRUE
+	return FALSE
 
 /obj/machinery/door/window/holowindoor/shatter(var/display_message = TRUE)
 	set_density(FALSE)
@@ -322,6 +322,7 @@
 
 /obj/machinery/readybutton/attackby(obj/item/W, mob/user)
 	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
+	return TRUE
 
 /obj/machinery/readybutton/physical_attack_hand(mob/user)
 	currentarea = get_area(src)

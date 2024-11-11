@@ -154,7 +154,7 @@
 		var/obj/item/paper/P = W
 		if(!P.is_blank())
 			to_chat(user, SPAN_WARNING("\The [P] is not blank. You can't use that for refilling \the [src]."))
-			return
+			return TRUE
 
 		var/incoming_amt = LAZYACCESS(P.matter, /decl/material/solid/organic/paper)
 		var/current_amt = LAZYACCESS(matter, /decl/material/solid/organic/paper)
@@ -162,12 +162,12 @@
 
 		if(incoming_amt < LABEL_MATERIAL_COST)
 			to_chat(user, SPAN_WARNING("\The [P] does not contains enough paper."))
-			return
+			return TRUE
 		if(((incoming_amt + current_amt) / LABEL_MATERIAL_COST) > max_labels)
 			to_chat(user, SPAN_WARNING("There's not enough room in \the [src] for the [label_added] label(s) \the [P] is worth."))
-			return
+			return TRUE
 		if(!user.do_skilled(2 SECONDS, SKILL_LITERACY, src) || (QDELETED(W) || QDELETED(src)))
-			return
+			return TRUE
 
 		to_chat(user, SPAN_NOTICE("You slice \the [P] into [label_added] small strips and insert them into \the [src]'s paper feed."))
 		add_paper_labels(label_added)
@@ -206,7 +206,6 @@
 		else
 			//Abort because not enough materials for even a single label
 			to_chat(user, SPAN_WARNING("There's not enough [ST.plural_name] in \the [ST] to refil \the [src]!"))
-			return
 
 		update_icon()
 		return TRUE

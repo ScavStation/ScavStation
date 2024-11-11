@@ -91,15 +91,17 @@
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message("<span class='danger'>The shotgun goes off!</span>", "<span class='danger'>The shotgun goes off in your face!</span>")
-			return
-		if(do_after(user, 30, src))	//SHIT IS STEALTHY EYYYYY
-			user.try_unequip(src)
-			var/obj/item/gun/projectile/shotgun/doublebarrel/sawn/empty/buddy = new(loc)
-			transfer_fingerprints_to(buddy)
-			qdel(src)
-			to_chat(user, "<span class='warning'>You shorten the barrel of \the [src]!</span>")
+			return TRUE
+		if(!do_after(user, 3 SECONDS, src))	//SHIT IS STEALTHY EYYYYY
+			return TRUE
+		user.try_unequip(src)
+		var/obj/item/gun/projectile/shotgun/doublebarrel/sawn/empty/buddy = new(loc)
+		transfer_fingerprints_to(buddy)
+		qdel(src)
+		to_chat(user, "<span class='warning'>You shorten the barrel of \the [src]!</span>")
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 	name = "sawn-off shotgun"

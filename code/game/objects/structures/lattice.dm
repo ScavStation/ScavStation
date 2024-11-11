@@ -65,22 +65,21 @@
 	physically_destroyed()
 
 /obj/structure/lattice/attackby(obj/item/C, mob/user)
-
 	if (istype(C, /obj/item/stack/tile))
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
-		return
+		return TRUE
 	if(IS_WELDER(C))
 		var/obj/item/weldingtool/WT = C
 		if(WT.weld(0, user))
 			deconstruct(user)
-		return
+		return TRUE
 	if(istype(C, /obj/item/gun/energy/plasmacutter))
 		var/obj/item/gun/energy/plasmacutter/cutter = C
 		if(!cutter.slice(user))
-			return
+			return TRUE
 		deconstruct(user)
-		return
+		return TRUE
 	if (istype(C, /obj/item/stack/material/rods))
 
 		var/ladder = (locate(/obj/structure/ladder) in loc)
@@ -91,13 +90,15 @@
 		var/obj/item/stack/material/rods/R = C
 		if(locate(/obj/structure/catwalk) in get_turf(src))
 			to_chat(user, SPAN_WARNING("There is already a catwalk here."))
-			return
+			return TRUE
 		else if(R.use(2))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/catwalk(src.loc, R.material.type)
-			return
+			return TRUE
 		else
 			to_chat(user, SPAN_WARNING("You require at least two rods to complete the catwalk."))
+			return TRUE
+	return ..()
 
 /obj/structure/lattice/on_update_icon()
 	..()

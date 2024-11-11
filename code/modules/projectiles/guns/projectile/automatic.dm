@@ -97,10 +97,10 @@
 	launcher = new(src)
 
 /obj/item/gun/projectile/automatic/assault_rifle/grenade/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
-	else
-		..()
+	if(!istype(I, /obj/item/grenade))
+		return ..()
+	launcher.load(I, user)
+	return TRUE
 
 /obj/item/gun/projectile/automatic/assault_rifle/grenade/attack_hand(mob/user)
 	if(!user.is_holding_offhand(src) || !use_launcher || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))

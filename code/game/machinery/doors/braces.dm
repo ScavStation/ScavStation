@@ -69,11 +69,9 @@
 	electronics.attack_self(user)
 
 /obj/item/airlock_brace/attackby(obj/item/W, mob/user)
-	..()
 	if (istype(W.GetIdCard(), /obj/item/card/id))
 		if(!airlock)
-			attack_self(user)
-			return
+			return attack_self(user)
 		else
 			var/obj/item/card/id/C = W.GetIdCard()
 			if(check_access(C))
@@ -83,23 +81,23 @@
 					unlock_brace(usr)
 			else
 				to_chat(user, "You swipe \the [C] through \the [src], but it does not react.")
-		return
+		return TRUE
 
 	if (istype(W, /obj/item/crowbar/brace_jack))
 		if(!airlock)
-			return
+			return FALSE
 		var/obj/item/crowbar/brace_jack/C = W
 		to_chat(user, "You begin forcibly removing \the [src] with \the [C].")
 		if(do_after(user, rand(150,300), airlock))
 			to_chat(user, "You finish removing \the [src].")
 			unlock_brace(user)
-		return
+		return TRUE
 
 	if(IS_WELDER(W))
 		var/obj/item/weldingtool/C = W
 		if(!is_damaged())
 			to_chat(user, "\The [src] does not require repairs.")
-			return
+			return TRUE
 		if(C.weld(0,user))
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			current_health = min(current_health + rand(20,30), get_max_health())
@@ -107,6 +105,8 @@
 				to_chat(user, "You repair some dents on \the [src]. It is in perfect condition now.")
 			else
 				to_chat(user, "You repair some dents on \the [src].")
+		return TRUE
+	return ..()
 
 
 /obj/item/airlock_brace/physically_destroyed(skip_qdel)

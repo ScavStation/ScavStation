@@ -43,8 +43,9 @@
 			user.visible_message("<span class='warning'>[user] has disconnected \the [src]'s flashbulb!</span>", "<span class='warning'>You disconnect \the [src]'s flashbulb!</span>")
 		if (!src.disable)
 			user.visible_message("<span class='warning'>[user] has connected \the [src]'s flashbulb!</span>", "<span class='warning'>You connect \the [src]'s flashbulb!</span>")
+		return TRUE
 	else
-		..()
+		return ..()
 
 //Let the AI trigger them directly.
 /obj/machinery/flasher/attack_ai()
@@ -134,6 +135,8 @@
 		else if (src.anchored)
 			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
 			src.overlays += "[base_state]-s"
+		return TRUE
+	return ..()
 
 /obj/machinery/button/flasher
 	name = "flasher button"

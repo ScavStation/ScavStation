@@ -26,12 +26,15 @@
 	if(istype(I, /obj/item/ammo_casing/rocket))
 		if(rockets.len < max_rockets)
 			if(!user.try_unequip(I, src))
-				return
+				return TRUE
 			rockets += I
 			to_chat(user, "<span class='notice'>You put the rocket in [src].</span>")
 			to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
+			return TRUE
 		else
 			to_chat(usr, "<span class='warning'>\The [src] cannot hold more rockets.</span>")
+			return TRUE
+	return ..()
 
 /obj/item/gun/launcher/rocket/consume_next_projectile()
 	if(rockets.len)

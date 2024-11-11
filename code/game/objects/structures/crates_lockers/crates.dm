@@ -36,28 +36,29 @@
 	if(opened)
 		return ..()
 	else if(istype(W, /obj/item/stack/package_wrap))
-		return
+		return FALSE // let afterattack run
 	else if(istype(W, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/C = W
 		if(rigged)
 			to_chat(user, "<span class='notice'>[src] is already rigged!</span>")
-			return
+			return TRUE
 		if (C.use(1))
 			to_chat(user, "<span class='notice'>You rig [src].</span>")
 			rigged = 1
-			return
-	else if(istype(W, /obj/item/assembly_holder) || istype(W, /obj/item/assembly))
-		if(rigged)
-			if(!user.try_unequip(W, src))
-				return
-			to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
-			return
+			return TRUE
+		return FALSE
+	else if((istype(W, /obj/item/assembly_holder) || istype(W, /obj/item/assembly)) && rigged)
+		if(!user.try_unequip(W, src))
+			return TRUE
+		to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
+		return TRUE
 	else if(IS_WIRECUTTER(W))
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			rigged = 0
-			return
+			return TRUE
+		return FALSE
 	else
 		return ..()
 

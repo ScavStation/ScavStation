@@ -319,7 +319,7 @@ var/global/list/closets = list()
 		if(!WT.weld(0,user))
 			if(WT.isOn())
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
-			return
+			return TRUE
 		welded = !welded
 		update_icon()
 		user.visible_message(SPAN_WARNING("\The [src] has been [welded?"welded shut":"unwelded"] by \the [user]."), blind_message = "You hear welding.", range = 3)

@@ -36,6 +36,7 @@
 /obj/effect/dead_plant/attackby()
 	..()
 	qdel(src)
+	return TRUE // if we're deleted we can't do any further interactions
 
 /obj/effect/vine
 	name = "vine"
@@ -202,18 +203,19 @@
 	if(W.edge && W.w_class < ITEM_SIZE_NORMAL && user.a_intent != I_HURT)
 		if(!is_mature())
 			to_chat(user, SPAN_WARNING("\The [src] is not mature enough to yield a sample yet."))
-			return
+			return TRUE
 		if(!seed)
 			to_chat(user, SPAN_WARNING("There is nothing to take a sample from."))
-			return
+			return TRUE
 		var/needed_skill = seed.mysterious ? SKILL_ADEPT : SKILL_BASIC
 		if(prob(user.skill_fail_chance(SKILL_BOTANY, 90, needed_skill)))
 			to_chat(user, SPAN_WARNING("You failed to get a usable sample."))
 		else
 			seed.harvest(user,0,1)
 		current_health -= (rand(3,5)*5)
+		return TRUE
 	else
-		..()
+		. = ..()
 		var/damage = W.get_attack_force(user)
 		if(W.edge)
 			damage *= 2

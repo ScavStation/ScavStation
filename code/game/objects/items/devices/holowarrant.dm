@@ -82,20 +82,20 @@
 		return TOPIC_HANDLED
 
 /obj/item/holowarrant/attackby(obj/item/W, mob/user)
-	if(active)
-		var/obj/item/card/id/I = W.GetIdCard()
-		if(I && check_access_list(I.GetAccess()))
-			var/choice = alert(user, "Would you like to authorize this warrant?","Warrant authorization","Yes","No")
-			var/datum/report_field/signature/auth = active.field_from_name("Authorized by")
-			if(choice == "Yes")
-				auth.ask_value(user)
-			user.visible_message(SPAN_NOTICE("You swipe \the [I] through \the [src]."),
-								 SPAN_NOTICE("[user] swipes \the [I] through \the [src]."))
-			broadcast_security_hud_message("[active.get_broadcast_summary()] has been authorized by [auth.get_value()].", src)
-		else
-			to_chat(user, "<span class='notice'>A red \"Access Denied\" light blinks on \the [src]</span>")
-		return 1
-	..()
+	if(!active)
+		return ..()
+	var/obj/item/card/id/I = W.GetIdCard()
+	if(I && check_access_list(I.GetAccess()))
+		var/choice = alert(user, "Would you like to authorize this warrant?","Warrant authorization","Yes","No")
+		var/datum/report_field/signature/auth = active.field_from_name("Authorized by")
+		if(choice == "Yes")
+			auth.ask_value(user)
+		user.visible_message(SPAN_NOTICE("You swipe \the [I] through \the [src]."),
+								SPAN_NOTICE("[user] swipes \the [I] through \the [src]."))
+		broadcast_security_hud_message("[active.get_broadcast_summary()] has been authorized by [auth.get_value()].", src)
+	else
+		to_chat(user, "<span class='notice'>A red \"Access Denied\" light blinks on \the [src]</span>")
+	return TRUE
 
 //hit other people with it
 /obj/item/holowarrant/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)

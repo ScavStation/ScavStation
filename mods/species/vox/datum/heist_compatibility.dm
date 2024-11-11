@@ -21,7 +21,7 @@
 
 	var/choice = input("Do you wish to become a vox of the Shoal? This is not reversible.") as null|anything in list("No","Yes")
 	if(choice != "Yes")
-		return ..()
+		return TRUE
 
 	var/decl/outfit/outfit = GET_DECL(/decl/outfit/vox_raider)
 	var/mob/living/human/vox/vox = new(get_turf(src), SPECIES_VOX)
@@ -30,6 +30,7 @@
 		user.mind.transfer_to(vox)
 	qdel(user)
 	addtimer(CALLBACK(src, PROC_REF(do_post_voxifying), vox), 1)
+	return TRUE
 
 /obj/structure/mirror/raider/proc/do_post_voxifying(var/mob/living/human/vox)
 	var/newname = sanitize_safe(input(vox,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)

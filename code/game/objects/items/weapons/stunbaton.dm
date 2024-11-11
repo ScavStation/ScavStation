@@ -172,7 +172,7 @@
 	return 0
 
 /obj/item/baton/robot/attackby(obj/item/W, mob/user)
-	return
+	return FALSE
 
 /obj/item/baton/robot/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
 	SHOULD_CALL_PARENT(FALSE)

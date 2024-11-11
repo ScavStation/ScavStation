@@ -11,7 +11,7 @@
 
 /turf/floor/fixed/attackby(var/obj/item/C, var/mob/user)
 	if(istype(C, /obj/item/stack) && !IS_COIL(C))
-		return
+		return TRUE
 	return ..()
 
 /turf/floor/fixed/on_update_icon()

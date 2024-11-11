@@ -49,11 +49,11 @@
 	if(IS_WRENCH(I))
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("The bolts on \the [src] are locked!"))
-			return
+			return TRUE
 		playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "unanchor" : "anchor"] \the [src]."))
 		anchored = !anchored
-		return
+		return TRUE
 
 	. = ..()
 

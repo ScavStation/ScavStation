@@ -115,7 +115,7 @@
 			cover_open = 1
 			to_chat(user, "You unscrew the panel.")
 		update_icon()
-		return
+		return TRUE
 
 	if (istype(W, /obj/item/cell))
 		if(cover_open)
@@ -123,11 +123,11 @@
 				to_chat(user, "There is a [cell] already installed here.")
 			else
 				if(!user.try_unequip(W, src))
-					return
+					return TRUE
 				cell = W
 				to_chat(user, "You insert \the [cell].")
 		update_icon()
-		return
+		return TRUE
 
 	return ..()
 

@@ -94,7 +94,7 @@
 			to_chat(user, "<span class='warning'>Please close the access panel before locking it.</span>")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-		return
+		return TRUE
 	else if(IS_SCREWDRIVER(O))
 		if(!locked)
 			open = !open
@@ -102,7 +102,7 @@
 			Interact(usr)
 		else
 			to_chat(user, "<span class='notice'>You need to unlock the controls first.</span>")
-		return
+		return TRUE
 	else if(IS_WELDER(O))
 		if(current_health < get_max_health())
 			if(open)
@@ -112,9 +112,9 @@
 				to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
 		else
 			to_chat(user, "<span class='notice'>\The [src] does not need a repair.</span>")
-		return
+		return TRUE
 	else
-		..()
+		return ..()
 
 /mob/living/bot/attack_ai(var/mob/living/user)
 	Interact(user)

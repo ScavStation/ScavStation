@@ -60,29 +60,32 @@
 	if(cell)
 		cell.emp_act(severity)
 
+// TODO: Make this use the cell extension instead?
+// Or have it grant a subtype of cell extension to the mob, maybe?
 /obj/item/organ/internal/cell/attackby(obj/item/W, mob/user)
 	if(IS_SCREWDRIVER(W))
 		if(open)
-			open = 0
+			open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the battery panel in place."))
 		else
-			open = 1
+			open = TRUE
 			to_chat(user, SPAN_NOTICE("You unscrew the battery panel."))
-
-	if(IS_CROWBAR(W))
-		if(open)
+		return TRUE
+	else if(open)
+		if(IS_CROWBAR(W))
 			if(cell)
 				user.put_in_hands(cell)
 				to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 				cell = null
-
-	if (istype(W, /obj/item/cell))
-		if(open)
+			return TRUE
+		else if (istype(W, /obj/item/cell))
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 			else if(user.try_unequip(W, src))
 				cell = W
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
+			return TRUE
+	return ..()
 
 /obj/item/organ/internal/cell/on_add_effects()
 	. = ..()

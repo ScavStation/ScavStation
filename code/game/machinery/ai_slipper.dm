@@ -25,7 +25,7 @@
 
 /obj/machinery/ai_slipper/attackby(obj/item/W, mob/user)
 	if(stat & (NOPOWER|BROKEN))
-		return
+		return FALSE
 	if (issilicon(user))
 		return attack_ai(user)
 	else // trying to unlock the interface
@@ -41,6 +41,7 @@
 					interact(user)
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
+		return TRUE
 
 /obj/machinery/ai_slipper/interface_interact(mob/user)
 	interact(user)

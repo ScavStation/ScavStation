@@ -159,18 +159,18 @@
 	if(istype(O, /obj/item/chems/glass))
 		if(locked)
 			to_chat(user, "<span class='notice'>You cannot insert a beaker because the panel is locked.</span>")
-			return
+			return TRUE
 		if(!isnull(reagent_glass))
 			to_chat(user, "<span class='notice'>There is already a beaker loaded.</span>")
-			return
+			return TRUE
 
 		if(!user.try_unequip(O, src))
-			return
+			return TRUE
 		reagent_glass = O
 		to_chat(user, "<span class='notice'>You insert [O].</span>")
-		return
+		return TRUE
 	else
-		..()
+		return ..()
 
 /mob/living/bot/medbot/default_disarm_interaction(mob/user)
 	if(!is_tipped)

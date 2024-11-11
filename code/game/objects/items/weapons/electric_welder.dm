@@ -44,7 +44,7 @@
 
 /obj/item/weldingtool/electric/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W,/obj/item/stack/material/rods) || istype(W, /obj/item/chems/welder_tank))
-		return
+		return FALSE // NO ELECTRIC FLAMETHROWER
 	return ..()
 
 /obj/item/weldingtool/electric/use_fuel(var/amount)

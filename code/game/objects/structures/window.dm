@@ -150,8 +150,7 @@
 		if (ishuman(user))
 			var/mob/living/human/H = user
 			if(H.species.can_shred(H))
-				attack_generic(H,25)
-				return
+				return attack_generic(H,25)
 
 		playsound(src.loc, 'sound/effects/glassknock.ogg', 80, 1)
 		user.do_attack_animation(src)
@@ -596,7 +595,7 @@
 	return TRUE
 
 /obj/structure/window/reinforced/crescent/attackby()
-	return
+	return TRUE
 
 /obj/structure/window/reinforced/crescent/explosion_act()
 	SHOULD_CALL_PARENT(FALSE)

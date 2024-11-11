@@ -585,16 +585,15 @@
 	QDEL_NULL(fuel)
 
 /obj/machinery/ftl_shunt/fuel_port/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/fuel_assembly))
-		if(!fuel)
-			if(!do_after(user, 2 SECONDS, src) || fuel)
-				return
-			if(!user || !user.try_unequip(O, src))
-				return
-			fuel = O
-			max_fuel = get_fuel_joules(TRUE)
-			update_icon()
+	if(istype(O, /obj/item/fuel_assembly) && !fuel)
+		if(!do_after(user, 2 SECONDS, src) || fuel)
 			return TRUE
+		if(!user || !user.try_unequip(O, src))
+			return TRUE
+		fuel = O
+		max_fuel = get_fuel_joules(TRUE)
+		update_icon()
+		return TRUE
 
 	. = ..()
 

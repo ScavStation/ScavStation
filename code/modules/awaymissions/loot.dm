@@ -12,7 +12,7 @@
 	if(things && things.len)
 		for(var/i = lootcount, i > 0, i--)
 			if(!things.len)
-				return
+				break
 
 			var/loot_spawn = pick(things)
 			var/loot_path = text2path(loot_spawn)

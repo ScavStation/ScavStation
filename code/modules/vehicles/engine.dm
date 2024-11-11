@@ -41,14 +41,17 @@
 			cell = I
 			user.drop_from_inventory(I)
 			I.forceMove(src)
-		return 1
+		return TRUE
 	else if(IS_CROWBAR(I))
 		if(cell)
-			to_chat(user, "You pry out \the [cell].")
+			to_chat(user, "You pry out \the [cell] with \the [I].")
 			cell.dropInto(loc)
 			cell = null
-			return 1
-	..()
+			return TRUE
+		if(user.a_intent != I_HURT)
+			to_chat(user, SPAN_WARNING("There is no cell in \the [src] to remove with \the [I]!"))
+			return TRUE
+	return ..()
 
 /obj/item/engine/electric/prefill()
 	cell = new /obj/item/cell/high(src.loc)

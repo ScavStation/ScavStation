@@ -28,15 +28,14 @@
 				src.icon_state = "barrier[src.locked]"
 				if ((src.locked == 1.0) && (src.emagged < 2.0))
 					to_chat(user, "Barrier lock toggled on.")
-					return
+					return TRUE
 				else if ((src.locked == 0.0) && (src.emagged < 2.0))
 					to_chat(user, "Barrier lock toggled off.")
-					return
+					return TRUE
 			else
 				spark_at(src, amount=2, cardinal_only = TRUE)
 				visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
-				return
-		return
+				return TRUE
 	else if(IS_WRENCH(W))
 		var/current_max_health = get_max_health()
 		if (current_health < current_max_health)
@@ -44,13 +43,12 @@
 			emagged = 0
 			req_access = list(access_security)
 			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
-			return
+			return TRUE
 		else if (src.emagged > 0)
 			src.emagged = 0
 			src.req_access = list(access_security)
 			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
-			return
-		return
+			return TRUE
 	else
 		switch(W.atom_damage_type)
 			if(BURN)
@@ -59,7 +57,8 @@
 				current_health -= W.get_attack_force(user) * 0.5
 		if (current_health <= 0)
 			explode()
-		..()
+		return TRUE
+	return ..()
 
 /obj/machinery/deployable/barrier/explosion_act(severity)
 	. = ..()

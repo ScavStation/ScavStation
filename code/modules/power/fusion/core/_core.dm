@@ -102,12 +102,12 @@
 
 	if(owned_field)
 		to_chat(user,"<span class='warning'>Shut \the [src] off first!</span>")
-		return
+		return TRUE
 
 	if(IS_MULTITOOL(W))
 		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
 		fusion.get_new_tag(user)
-		return
+		return TRUE
 
 	else if(IS_WRENCH(W))
 		anchored = !anchored
@@ -120,7 +120,7 @@
 			user.visible_message("[user.name] unsecures [src.name] from the floor.", \
 				"You unsecure \the [src] from the floor.", \
 				"You hear a ratchet.")
-		return
+		return TRUE
 
 	return ..()
 

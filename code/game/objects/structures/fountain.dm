@@ -33,7 +33,7 @@
 	var/datum/appearance_descriptor/age/age = my_bodytype && LAZYACCESS(my_bodytype.appearance_descriptors, "age")
 	if(H.isSynthetic() || !my_bodytype || !age)
 		to_chat(H, SPAN_WARNING("A feeling of foreboding stills your hand. The fountain is not for your kind."))
-		return
+		return TRUE
 
 	if(alert("As you reach out to touch the fountain, a feeling of doubt overcomes you. Steel yourself and proceed?",,"Yes", "No") == "Yes")
 		visible_message("\The [H] touches \the [src].")

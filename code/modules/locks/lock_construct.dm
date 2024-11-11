@@ -27,13 +27,13 @@
 			K.key_data = lock_data
 		else
 			to_chat(user, SPAN_WARNING("\The [I] already unlocks something..."))
-		return
+		return TRUE
 	if(istype(I,/obj/item/lock_construct))
 		var/obj/item/lock_construct/L = I
 		src.lock_data = L.lock_data
 		to_chat(user, SPAN_NOTICE("You copy the lock from \the [L] to \the [src], making them identical."))
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/lock_construct/proc/create_lock(var/atom/target, var/mob/user)
 	. = new /datum/lock(target, lock_data, material?.type)

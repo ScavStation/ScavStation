@@ -299,8 +299,8 @@ var/global/list/meteors_major = list(
 /obj/effect/meteor/attackby(obj/item/W, mob/user, params)
 	if(IS_PICK(W))
 		qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/effect/meteor/proc/make_debris()
 	if(meteordrop && dropamt)

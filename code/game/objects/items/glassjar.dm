@@ -76,12 +76,14 @@
 		if(contains == 0)
 			contains = 1
 		if(contains != 1)
-			return
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		var/obj/item/cash/S = W
 		user.visible_message("<span class='notice'>[user] puts \the [S] into \the [src].</span>")
 		update_icon()
+		return TRUE
+	return ..()
 
 /obj/item/glass_jar/on_update_icon() // Also updates name and desc
 	. = ..()
