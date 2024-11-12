@@ -40,6 +40,9 @@
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "wood0"
 
+/turf/unsimulated/floor/wood/broken
+	icon_state = "wood_broken0"
+
 /turf/unsimulated/floor/wood/broken1
 	icon_state = "wood_broken1"
 

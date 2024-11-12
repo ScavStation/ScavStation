@@ -11,6 +11,17 @@
 	footstep_type      = /decl/footsteps/carpet
 	force_material     = /decl/material/solid/organic/cloth
 	constructed        = TRUE
+	burned_states      = list(
+		"burned0",
+		"burned1"
+	)
+	broken_states      = list(
+		"broken0",
+		"broken1",
+		"broken2",
+		"broken3",
+		"broken4"
+	)
 
 /decl/flooring/carpet/blue
 	name               = "blue carpet"
@@ -53,10 +64,12 @@
 	build_type         = /obj/item/stack/tile/carpet/red
 
 /decl/flooring/carpet/rustic
-	name       = "rustic carpet"
-	desc       = "A stretch of simple woven carpet. Cozy, but a little itchy."
-	icon       = 'icons/turf/flooring/simple_carpet.dmi'
-	icon_base  = "carpet"
-	build_type = /obj/item/stack/tile/carpet/rustic
-	can_paint  = TRUE
-	color      = null
+	name          = "rustic carpet"
+	desc          = "A stretch of simple woven carpet. Cozy, but a little itchy."
+	icon          = 'icons/turf/flooring/simple_carpet.dmi'
+	icon_base     = "carpet"
+	build_type    = /obj/item/stack/tile/carpet/rustic
+	can_paint     = TRUE
+	color         = null
+	broken_states = null
+	burned_states = null

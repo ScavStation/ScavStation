@@ -186,3 +186,30 @@
 		. += "null or invalid _base_flooring ([_base_flooring || "NULL"])"
 	if(_flooring && !istype(_flooring))
 		. += "invalid post-init type for _flooring ([_flooring || "NULL"])"
+
+	var/decl/flooring/check_flooring = get_topmost_flooring()
+
+	var/initial_floor_broken = initial(_floor_broken)
+	if(initial_floor_broken)
+		if(!istype(check_flooring))
+			. += "non-null initial _floor_broken, but no valid flooring found"
+		else if(!length(check_flooring.broken_states))
+			. += "non-null initial _floor_broken, but no flooring broken states found in [check_flooring]"
+		else if(istext(initial_floor_broken))
+			if(!(initial_floor_broken in check_flooring.broken_states))
+				. += "non-null initial _floor_broken not found in [check_flooring] broken states"
+		else if(initial_floor_broken != TRUE)
+			. += "non-TRUE, non-null, non-text initial _floor_broken value."
+
+	var/initial_floor_burned = initial(_floor_burned)
+	if(initial_floor_burned)
+		if(!istype(check_flooring))
+			. += "non-null initial _floor_burned, but no valid flooring found"
+		else if(!length(check_flooring.burned_states))
+			. += "non-null initial _floor_burned, but no flooring burned states found in [check_flooring]"
+		else if(istext(initial_floor_burned))
+			if(!(initial_floor_burned in check_flooring.burned_states))
+				. += "non-null initial _floor_burned not found in [check_flooring] burned states"
+		else if(initial_floor_burned != TRUE)
+			. += "non-TRUE, non-null, non-text initial _floor_burned value."
+

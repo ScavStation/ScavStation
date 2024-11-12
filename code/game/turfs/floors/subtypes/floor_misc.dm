@@ -9,6 +9,15 @@
 	initial_gas = null
 	temperature = TCMB
 
+/turf/floor/airless/broken
+	_floor_broken = TRUE
+
+/turf/floor/airless/broken/Initialize(ml, floortype)
+	. = ..()
+	var/setting_broken = _floor_broken
+	_floor_broken = null
+	set_floor_broken(setting_broken)
+
 /turf/floor/crystal
 	name = "crystal floor"
 	icon = 'icons/turf/flooring/crystal.dmi'
@@ -55,6 +64,9 @@
 	_flooring = /decl/flooring/straw
 
 // Defining this here as a dummy mapping shorthand so mappers can search for 'plating'.
+/turf/floor/plating
+	_base_flooring = /decl/flooring/plating // Setting here so overrides on /turf/floor do not impact explicitly typed plating turfs.
+
 /turf/floor/plating/broken
 	_floor_broken = TRUE
 
