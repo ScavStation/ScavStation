@@ -809,10 +809,7 @@
 /obj/machinery/network/acl{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "cQ" = (
 /obj/machinery/door/firedoor,
@@ -1719,10 +1716,7 @@
 /area/ministation/shuttle/outgoing)
 "hm" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/science)
 "hn" = (
 /obj/machinery/light/small{
@@ -1831,19 +1825,13 @@
 /area/ministation/science)
 "hM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/science)
 "hN" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/science)
 "hO" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1942,10 +1930,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/science)
 "iq" = (
 /obj/effect/decal/cleanable/filth,
@@ -3055,10 +3040,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "nG" = (
 /turf/wall/titanium,
@@ -3154,10 +3136,7 @@
 /area/ministation/science)
 "of" = (
 /obj/machinery/commsrelay,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "og" = (
 /obj/machinery/door/airlock/glass/command{
@@ -3559,10 +3538,7 @@
 /turf/floor/reinforced,
 /area/ministation/science)
 "sr" = (
-/turf/floor/tiled/dark/monotile{
-	name = "telecomms dark floor";
-	temperature = 263
-	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/telecomms)
 "ss" = (
 /obj/machinery/door/airlock/glass/command{
@@ -3676,19 +3652,13 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/floor/tiled/dark/monotile{
-	name = "telecomms dark floor";
-	temperature = 263
-	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/telecomms)
 "td" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/tiled/dark/monotile{
-	name = "telecomms dark floor";
-	temperature = 263
-	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/telecomms)
 "te" = (
 /obj/effect/floor_decal/corner/purple{
@@ -3795,19 +3765,13 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/tiled/dark/monotile{
-	name = "telecomms dark floor";
-	temperature = 263
-	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/telecomms)
 "tV" = (
 /obj/machinery/network/router{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "tY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3848,10 +3812,7 @@
 /obj/machinery/network/mainframe{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "uB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4310,10 +4271,7 @@
 	initial_access = null;
 	req_access = list("ACCESS_CAMERAS")
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "yz" = (
 /obj/structure/cable{
@@ -4496,19 +4454,13 @@
 	dir = 4;
 	initial_access = null
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "Ab" = (
 /obj/machinery/network/message_server{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "Af" = (
 /obj/structure/cable{
@@ -4576,10 +4528,7 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "Ax" = (
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "AE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4602,10 +4551,7 @@
 /obj/machinery/network/telecomms_hub{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "AQ" = (
 /obj/effect/floor_decal/carpet/green{
@@ -4639,20 +4585,14 @@
 	name = "_West APC";
 	pixel_x = -25
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "AW" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/smes/buildable/max_cap_in_out,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "AX" = (
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -4743,17 +4683,11 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "Br" = (
 /obj/machinery/light/small,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "Bs" = (
 /obj/effect/wallframe_spawn/reinforced,

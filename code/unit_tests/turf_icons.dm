@@ -9,7 +9,7 @@
 		fail("Unable to locate an appropriate turf at [world.maxx],[world.maxy],1.")
 		return 1
 
-	var/validate_types = typesof(/turf/floor) | typesof(/turf/unsimulated/floor)
+	var/validate_types = typesof(/turf/floor) | typesof(/turf/unsimulated)
 	var/list/failures = list()
 	for(var/floor_type in validate_types)
 		var/turf/floor/check_floor = floor_type

@@ -37,8 +37,10 @@
 /turf/wall/log/##material_name/shutter { \
 	shutter_state = FALSE; \
 	icon_state = "log_shutter"; \
+}; \
+/turf/wall/log/##material_name/shutter/open { \
+	shutter_state = TRUE; \
 }
-
 LOG_WALL_SUBTYPE(fungal)
 LOG_WALL_SUBTYPE(ebony)
 LOG_WALL_SUBTYPE(walnut)

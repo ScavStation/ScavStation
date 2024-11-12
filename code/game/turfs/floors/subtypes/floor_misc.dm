@@ -55,4 +55,21 @@
 	_flooring = /decl/flooring/straw
 
 // Defining this here as a dummy mapping shorthand so mappers can search for 'plating'.
-/turf/floor/plating
+/turf/floor/plating/Initialize(ml, floortype)
+	. = ..()
+	if(_floor_broken)
+		var/setting_broken = _floor_broken
+		_floor_broken = null
+		set_floor_broken(setting_broken)
+
+/turf/floor/plating/damaged_one
+	_floor_broken = "broken1"
+
+/turf/floor/plating/damaged_two
+	_floor_broken = "broken2"
+
+/turf/floor/plating/damaged_three
+	_floor_broken = "broken3"
+
+/turf/floor/plating/damaged_four
+	_floor_broken = "broken4"

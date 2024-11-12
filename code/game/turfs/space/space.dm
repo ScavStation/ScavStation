@@ -138,3 +138,6 @@
 /turf/space/infinity
 	name = "\proper infinity"
 	icon_state = "bluespace"
+
+/turf/space/black
+	icon_state = "black"

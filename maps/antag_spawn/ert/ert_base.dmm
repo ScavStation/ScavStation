@@ -18,12 +18,7 @@
 /turf/unsimulated/floor/vault,
 /area/map_template/rescue_base/base)
 "ah" = (
-/turf/unsimulated/wall{
-	desc = "A secure airlock. Doesn't look like you can get through easily.";
-	icon = 'icons/obj/doors/centcomm/door.dmi';
-	icon_state = "closed";
-	name = "Facility Access"
-	},
+/turf/unsimulated/wall/airlock,
 /area/map_template/rescue_base/base)
 "ai" = (
 /obj/structure/table/steel_reinforced,
@@ -1171,10 +1166,7 @@
 /turf/unsimulated/floor/vault,
 /area/map_template/rescue_base/base)
 "dc" = (
-/turf/unsimulated/wall{
-	desc = "A secure airlock. Doesn't look like you can get through easily.";
-	icon = 'icons/obj/doors/centcomm/door.dmi';
-	icon_state = "closed";
+/turf/unsimulated/wall/airlock{
 	name = "Foxtrot Barracks"
 	},
 /area/map_template/rescue_base/base)
@@ -1240,11 +1232,7 @@
 /turf/unsimulated/floor/vault,
 /area/map_template/rescue_base/base)
 "do" = (
-/turf/unsimulated/wall{
-	desc = "A secure airlock. Doesn't look like you can get through easily.";
-	dir = 4;
-	icon = 'icons/obj/doors/centcomm/door.dmi';
-	icon_state = "closed";
+/turf/unsimulated/wall/airlock{
 	name = "Delta Barracks"
 	},
 /area/map_template/rescue_base/base)

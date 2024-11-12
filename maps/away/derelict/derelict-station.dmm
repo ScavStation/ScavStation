@@ -513,9 +513,7 @@
 /turf/floor/airless,
 /area/constructionsite/maintenance)
 "bH" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/maintenance)
 "bI" = (
 /obj/structure/grille,
@@ -571,9 +569,7 @@
 /turf/floor/airless,
 /area/constructionsite/bridge)
 "bR" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/bridge)
 "bS" = (
 /obj/random/hostile{
@@ -756,14 +752,10 @@
 /area/constructionsite/hallway/fore)
 "cx" = (
 /obj/structure/bookcase,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "cy" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "cz" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
@@ -829,9 +821,7 @@
 /area/constructionsite/hallway/fore)
 "cO" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "cP" = (
 /obj/random/trash,
@@ -937,15 +927,11 @@
 "dg" = (
 /obj/structure/bookcase/manuals/medical,
 /obj/item/book/manual/nuclear,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "dh" = (
 /obj/random/trash,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "di" = (
 /obj/structure/rack,
@@ -1001,9 +987,7 @@
 "dt" = (
 /obj/structure/table,
 /obj/random/toy,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "du" = (
 /obj/structure/table,
@@ -1040,21 +1024,15 @@
 /area/constructionsite/hallway/fore)
 "dC" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "dD" = (
 /obj/structure/grille/broken,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "dE" = (
 /obj/structure/grille,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "dF" = (
 /obj/structure/sign/warning/secure_area,
@@ -1081,9 +1059,7 @@
 "dJ" = (
 /obj/structure/table/marble,
 /obj/machinery/door/blast/shutters,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "dK" = (
 /obj/structure/table/marble,
@@ -1092,9 +1068,7 @@
 /area/constructionsite/hallway/fore)
 "dL" = (
 /obj/structure/table,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/fore)
 "dM" = (
 /obj/structure/table,
@@ -1187,9 +1161,7 @@
 "eg" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/storage)
 "ei" = (
 /obj/structure/table,
@@ -1269,9 +1241,7 @@
 /turf/floor/airless,
 /area/constructionsite/storage)
 "es" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/storage)
 "et" = (
 /obj/structure/bed/chair/office/light{
@@ -1354,9 +1324,7 @@
 /obj/machinery/door/airlock/glass/science{
 	name = "Robotics"
 	},
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/storage)
 "eF" = (
 /obj/structure/grille/broken,
@@ -1580,17 +1548,13 @@
 "fk" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/storage)
 "fl" = (
 /obj/machinery/door/airlock/glass/science{
 	name = "Research"
 	},
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/storage)
 "fm" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -1789,9 +1753,7 @@
 /turf/space,
 /area/constructionsite/solar)
 "fV" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/solar)
 "fW" = (
 /obj/random/trash,
@@ -1854,9 +1816,7 @@
 /turf/floor/airless,
 /area/space)
 "gk" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/space)
 "gl" = (
 /obj/random/trash,
@@ -2005,9 +1965,7 @@
 /turf/wall,
 /area/constructionsite/hallway/aft)
 "gP" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/aft)
 "gQ" = (
 /turf/floor/airless,
@@ -2077,9 +2035,7 @@
 /area/constructionsite/maintenance)
 "he" = (
 /obj/random/trash,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/aft)
 "hf" = (
 /obj/machinery/door/airlock/double/glass{
@@ -2089,16 +2045,12 @@
 /area/constructionsite/hallway/aft)
 "hg" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/aft)
 "hh" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/hallway/aft)
 "hi" = (
 /obj/effect/shuttle_landmark/derelict/nav4,
@@ -2146,9 +2098,7 @@
 /turf/floor/tiled/dark/airless,
 /area/constructionsite/atmospherics)
 "ht" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/atmospherics)
 "hu" = (
 /obj/item/frame/light,
@@ -2740,9 +2690,7 @@
 "jt" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite)
 "ju" = (
 /turf/floor/airless,
@@ -2778,9 +2726,7 @@
 /turf/floor/tiled/dark/airless,
 /area/constructionsite)
 "jD" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite)
 "jE" = (
 /obj/structure/closet/cabinet,
@@ -2825,9 +2771,7 @@
 /area/constructionsite)
 "jN" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite)
 "jO" = (
 /obj/item/bedsheet,
@@ -2865,9 +2809,7 @@
 "jV" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite)
 "jW" = (
 /obj/random/clothing,
@@ -2930,9 +2872,7 @@
 /area/constructionsite)
 "kk" = (
 /obj/structure/table,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite)
 "kl" = (
 /obj/structure/table,
@@ -3065,9 +3005,7 @@
 /area/constructionsite/engineering)
 "kQ" = (
 /obj/random/maintenance,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/engineering)
 "kR" = (
 /obj/structure/grille/broken,
@@ -3091,9 +3029,7 @@
 /turf/floor/airless,
 /area/constructionsite/engineering)
 "kV" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/airless/damaged,
 /area/constructionsite/engineering)
 "kW" = (
 /obj/structure/table,

@@ -1,8 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aM" = (
-/turf/wall/log/walnut/shutter{
-	shutter_state = 1
-	},
+/turf/wall/log/walnut/shutter/open,
 /area/shaded_hills/witch_hut)
 "bg" = (
 /turf/floor/wood/walnut,

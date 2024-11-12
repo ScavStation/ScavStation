@@ -303,9 +303,7 @@
 /turf/floor/wood/walnut,
 /area/shaded_hills/general_store)
 "iq" = (
-/turf/wall/log/walnut/shutter{
-	shutter_state = 1
-	},
+/turf/wall/log/walnut/shutter/open,
 /area/shaded_hills/inn/kitchen)
 "iC" = (
 /obj/structure/door/walnut{
@@ -325,9 +323,7 @@
 	},
 /area/shaded_hills/outside/shrine)
 "iX" = (
-/turf/wall/log/walnut/shutter{
-	shutter_state = 1
-	},
+/turf/wall/log/walnut/shutter/open,
 /area/shaded_hills/inn)
 "iZ" = (
 /obj/structure/fire_source/fireplace/basalt,
@@ -524,9 +520,7 @@
 /turf/floor/path/herringbone/basalt,
 /area/shaded_hills/inn)
 "px" = (
-/turf/wall/log/walnut/shutter{
-	shutter_state = 1
-	},
+/turf/wall/log/walnut/shutter/open,
 /area/shaded_hills/shrine/kitchen)
 "qe" = (
 /obj/structure/bed/simple/ebony,
@@ -1220,9 +1214,7 @@
 /turf/floor/wood/walnut,
 /area/shaded_hills/storehouse)
 "IQ" = (
-/turf/wall/log/walnut/shutter{
-	shutter_state = 1
-	},
+/turf/wall/log/walnut/shutter/open,
 /area/shaded_hills/farmhouse)
 "IS" = (
 /turf/floor/mud/water/deep,
@@ -1293,9 +1285,7 @@
 /turf/floor/path/herringbone/basalt,
 /area/shaded_hills/shrine)
 "Kh" = (
-/turf/wall/log/walnut/shutter{
-	shutter_state = 1
-	},
+/turf/wall/log/walnut/shutter/open,
 /area/shaded_hills/shrine)
 "KD" = (
 /obj/structure/bed/chair/rustic{
@@ -1520,9 +1510,7 @@
 /turf/floor/grass,
 /area/shaded_hills/outside/downlands)
 "RG" = (
-/turf/wall/brick/basalt/shutter{
-	shutter_state = 1
-	},
+/turf/wall/brick/basalt/shutter/open,
 /area/shaded_hills/shrine/kitchen)
 "RO" = (
 /obj/structure/wall_sconce/lantern{

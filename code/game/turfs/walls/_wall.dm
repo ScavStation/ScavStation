@@ -324,3 +324,7 @@ var/global/list/wall_fullblend_objects = list(
 
 /turf/wall/proc/get_hit_sound()
 	return 'sound/effects/metalhit.ogg'
+
+// Mapped premade for false walls
+/turf/wall/false
+	can_open = TRUE

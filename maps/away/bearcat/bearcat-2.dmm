@@ -3385,9 +3385,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/wall/r_wall{
-	can_open = 1
-	},
+/turf/wall/false,
 /area/ship/scrap/hidden)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{

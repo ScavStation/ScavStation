@@ -63,9 +63,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space{
-	icon_state = "black"
-	},
+/turf/space/black,
 /area/space)
 "ah" = (
 /obj/effect/step_trigger/thrower{
