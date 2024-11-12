@@ -9,8 +9,9 @@
 		fail("Unable to locate an appropriate turf at [world.maxx],[world.maxy],1.")
 		return 1
 
+	var/validate_types = typesof(/turf/floor) | typesof(/turf/unsimulated/floor)
 	var/list/failures = list()
-	for(var/floor_type in typesof(/turf/floor))
+	for(var/floor_type in validate_types)
 		var/turf/floor/check_floor = floor_type
 		if(TYPE_IS_ABSTRACT(check_floor))
 			continue
@@ -72,8 +73,8 @@
 	SSoverlays.wake()
 	SSmaterials.wake()
 
-// Procs used for validation below.
-/turf/floor/proc/validate_turf()
+/turf/proc/validate_turf()
+	SHOULD_CALL_PARENT(TRUE)
 	. = list()
 	if(isnull(icon))
 		. += "null icon"
@@ -81,6 +82,10 @@
 		. += "null or invalid icon_state '[icon_state]'"
 	if(icon && icon_state && !check_state_in_icon(icon_state, icon))
 		. += "missing initial icon_state '[icon_state]' from '[icon]'"
+
+// Procs used for validation below.
+/turf/floor/validate_turf()
+	. = ..()
 	if(!istype(_base_flooring))
 		. += "null or invalid _base_flooring ([_base_flooring || "NULL"])"
 	if(_flooring && !istype(_flooring))

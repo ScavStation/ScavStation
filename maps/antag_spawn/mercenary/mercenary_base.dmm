@@ -2239,10 +2239,7 @@
 /obj/item/grenade/anti_photon,
 /obj/item/grenade/anti_photon,
 /obj/item/box/frags,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/map_template/merc_spawn)
 "zC" = (
 /obj/machinery/vending/cigarette{

@@ -16,65 +16,44 @@
 /area/map_template/syndicate_mothership/raider_base)
 "af" = (
 /obj/random/junk,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "ag" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "ah" = (
 /obj/structure/table/reinforced,
 /obj/item/plate/tray{
 	pixel_y = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "ai" = (
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "aj" = (
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "ak" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "al" = (
 /obj/random/trash,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "am" = (
 /obj/structure/table,
 /obj/machinery/chemical_dispenser/bar_soft/full,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "an" = (
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "ao" = (
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "ap" = (
 /obj/structure/table/reinforced,
@@ -82,147 +61,102 @@
 	pixel_x = -1;
 	pixel_y = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "aq" = (
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "ar" = (
 /obj/machinery/door/airlock/hatch{
 	name = "\improper NO DUST BREATHER ALLOWED"
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "as" = (
 /obj/machinery/vending/snack{
 	markup = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "at" = (
 /obj/structure/meat_hook,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "au" = (
 /obj/vehicle/bike/thermal,
 /obj/random/trash,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "av" = (
 /obj/vehicle/bike/thermal,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "aw" = (
 /obj/random/trash,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "ax" = (
 /obj/item/radio/intercom{
 	dir = 4;
 	pixel_x = -22
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "ay" = (
 /obj/random/junk,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "az" = (
 /obj/random/trash,
 /obj/item/chems/glass/bucket,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "aA" = (
 /obj/structure/aliumizer,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "aB" = (
 /obj/random/coin,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "aC" = (
 /turf/wall/natural,
 /area/map_template/syndicate_mothership/raider_base)
 "aD" = (
 /obj/machinery/door/airlock/hatch,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "aE" = (
 /obj/effect/decal/cleanable/blood,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "aF" = (
 /obj/machinery/gibber,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/map_template/syndicate_mothership/raider_base)
 "aG" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "aH" = (
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /obj/item/soap,
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor"
-	},
+/turf/unsimulated/floor/freezer,
 /area/map_template/syndicate_mothership/raider_base)
 "aI" = (
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor"
-	},
+/turf/unsimulated/floor/freezer,
 /area/map_template/syndicate_mothership/raider_base)
 "aJ" = (
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /obj/random/trash,
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor"
-	},
+/turf/unsimulated/floor/freezer,
 /area/map_template/syndicate_mothership/raider_base)
 "aK" = (
 /obj/structure/bed,
@@ -242,10 +176,7 @@
 	},
 /obj/item/bedsheet/green,
 /obj/structure/curtain/open/bed,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "aL" = (
 /obj/abstract/landmark{
@@ -254,29 +185,20 @@
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "aM" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "aN" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
 /obj/random/trash,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "aO" = (
 /obj/structure/bed,
@@ -291,57 +213,39 @@
 	},
 /obj/item/bedsheet/rd,
 /obj/structure/curtain/open/bed,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "aP" = (
 /obj/machinery/door/airlock/hatch,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "aQ" = (
 /obj/random/junk,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "aR" = (
 /obj/random/loot,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "aS" = (
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor"
-	},
+/turf/unsimulated/floor/freezer,
 /area/map_template/syndicate_mothership/raider_base)
 "aT" = (
 /obj/effect/decal/cleanable/blood,
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor"
-	},
+/turf/unsimulated/floor/freezer,
 /area/map_template/syndicate_mothership/raider_base)
 "aU" = (
 /obj/machinery/door/airlock/hatch{
 	name = "\improper LITTLE VOX ROOM"
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "aV" = (
 /obj/item/radio/intercom{
 	dir = 8;
 	pixel_x = 22
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "aW" = (
 /obj/structure/bed,
@@ -350,25 +254,16 @@
 	},
 /obj/item/bedsheet/hos,
 /obj/structure/curtain/open/bed,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "aX" = (
 /obj/abstract/landmark{
 	name = "raiderstart"
 	},
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "aY" = (
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "aZ" = (
 /obj/structure/bed,
@@ -377,10 +272,7 @@
 	},
 /obj/item/bedsheet/rainbow,
 /obj/structure/curtain/open/bed,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "ba" = (
 /obj/structure/hygiene/sink{
@@ -388,9 +280,7 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor"
-	},
+/turf/unsimulated/floor/freezer,
 /area/map_template/syndicate_mothership/raider_base)
 "bb" = (
 /obj/structure/bed,
@@ -399,10 +289,7 @@
 	},
 /obj/item/bedsheet/clown,
 /obj/structure/curtain/open/bed,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bc" = (
 /obj/structure/bed,
@@ -411,18 +298,12 @@
 	},
 /obj/item/bedsheet/orange,
 /obj/structure/curtain/open/bed,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bd" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/fabricator/hacked,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "be" = (
 /obj/structure/closet/crate,
@@ -433,56 +314,37 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bf" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bg" = (
 /obj/structure/sign/warning/nosmoking_1/heist{
 	pixel_y = 32
 	},
 /obj/item/box/fancy/cigarettes/dromedaryco,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bh" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bi" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
 	name = "dead spider"
 	},
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bj" = (
 /obj/item/clothing/head/xenos,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "bk" = (
 /obj/random/trash,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "bl" = (
 /obj/structure/hygiene/sink{
@@ -494,26 +356,19 @@
 	dir = 4;
 	pixel_x = -28
 	},
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor"
-	},
+/turf/unsimulated/floor/freezer,
 /area/map_template/syndicate_mothership/raider_base)
 "bm" = (
 /obj/structure/hygiene/shower{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bn" = (
 /obj/structure/hygiene/shower{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "freezerfloor"
-	},
+/turf/unsimulated/floor/freezer,
 /area/map_template/syndicate_mothership/raider_base)
 "bo" = (
 /obj/structure/table/woodentable,
@@ -522,10 +377,7 @@
 	},
 /obj/random/junk,
 /obj/random/maintenance,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bp" = (
 /obj/structure/table/woodentable,
@@ -535,42 +387,28 @@
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bq" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "br" = (
 /obj/item/radio/intercom{
 	dir = 4;
 	pixel_x = -22
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "bs" = (
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bt" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bu" = (
 /obj/structure/window/reinforced{
@@ -580,10 +418,7 @@
 	dir = 8
 	},
 /obj/random/toolbox,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -592,45 +427,32 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bw" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "by" = (
 /obj/item/clothing/mask/gas/swat{
 	desc = "A close-fitting mask clearly not made for a human face.";
 	name = "\improper alien mask"
 	},
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "bC" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
 	name = "dead spider"
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "bD" = (
 /obj/item/radio/intercom{
@@ -644,17 +466,11 @@
 /obj/effect/floor_decal/carpet{
 	dir = 10
 	},
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bE" = (
 /obj/effect/floor_decal/carpet,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bF" = (
 /obj/structure/closet{
@@ -666,26 +482,17 @@
 /obj/item/clothing/jumpsuit/mailman,
 /obj/item/clothing/webbing,
 /obj/item/clothing/costume/dispatch,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bG" = (
 /obj/structure/undies_wardrobe,
 /obj/effect/floor_decal/carpet,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bH" = (
 /obj/random/junk,
 /obj/effect/floor_decal/carpet,
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bI" = (
 /obj/effect/floor_decal/carpet{
@@ -695,21 +502,13 @@
 /obj/effect/floor_decal/carpet{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "carpet";
-	name = "carpet"
-	},
+/turf/unsimulated/floor/carpet,
 /area/map_template/syndicate_mothership/raider_base)
 "bJ" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "bK" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/flooring/wood.dmi';
-	icon_state = "wood_broken2"
-	},
+/turf/unsimulated/floor/wood/broken,
 /area/map_template/syndicate_mothership/raider_base)
 "bL" = (
 /obj/structure/table/woodentable,
@@ -717,42 +516,29 @@
 	pixel_y = 5
 	},
 /obj/item/backpack,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "bM" = (
 /obj/structure/table/woodentable,
 /obj/item/box/glasses/rocks,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "bN" = (
 /obj/structure/table/woodentable,
 /obj/machinery/chemical_dispenser/bar_soft/full,
-/turf/unsimulated/floor{
-	icon = 'icons/turf/flooring/wood.dmi';
-	icon_state = "wood_broken6"
-	},
+/turf/unsimulated/floor/wood/broken6,
 /area/map_template/syndicate_mothership/raider_base)
 "bO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/washing_machine,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bQ" = (
 /obj/machinery/atmospherics/omni/mixer{
@@ -766,10 +552,7 @@
 	tag_west_con = 0.5;
 	use_power = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bR" = (
 /obj/structure/window/reinforced{
@@ -779,73 +562,51 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bT" = (
 /obj/item/pizzabox/meat,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "bU" = (
 /obj/structure/rack,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "bV" = (
 /obj/item/stool/padded,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "bW" = (
 /obj/effect/decal/cleanable/generic,
 /obj/item/stool/padded,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "bZ" = (
 /obj/machinery/acting/changer,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "ca" = (
 /obj/structure/table/woodentable,
 /obj/item/pizzabox/meat,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "cb" = (
 /obj/structure/table/woodentable,
 /obj/item/ashtray,
 /obj/item/trash/cigbutt/cigarbutt,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "cc" = (
 /obj/structure/table/woodentable,
 /obj/item/chems/glass/rag,
 /obj/random/loot,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "cd" = (
 /obj/machinery/vending/cigarette{
@@ -853,48 +614,32 @@
 	markup = 0;
 	products = list(/obj/item/box/fancy/cigarettes = 10, /obj/item/box/matches = 10, /obj/item/flame/fuelled/lighter/zippo/random = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "ce" = (
 /obj/item/tank/nitrogen,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "cf" = (
 /obj/item/backpack,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "cg" = (
 /obj/structure/sign/poster{
 	pixel_y = -32
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "ch" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/flooring/wood.dmi';
-	icon_state = "wood_broken1"
-	},
+/turf/unsimulated/floor/wood/broken1,
 /area/map_template/syndicate_mothership/raider_base)
 "ci" = (
 /obj/item/stool/padded,
-/turf/unsimulated/floor{
-	icon = 'icons/turf/flooring/wood.dmi';
-	icon_state = "wood_broken1"
-	},
+/turf/unsimulated/floor/wood/broken1,
 /area/map_template/syndicate_mothership/raider_base)
 "cj" = (
 /mob/living/simple_animal/hostile/parrot/pirate,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "ck" = (
 /obj/structure/grille,
@@ -907,9 +652,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "cm" = (
 /obj/item/radio/intercom{
@@ -921,16 +664,11 @@
 	icon_state = "plant-25";
 	name = "Jamie"
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/map_template/syndicate_mothership/raider_base)
 "cn" = (
 /obj/structure/reagent_dispensers/beerkeg,
-/turf/unsimulated/floor{
-	icon = 'icons/turf/flooring/wood.dmi';
-	icon_state = "wood_broken1"
-	},
+/turf/unsimulated/floor/wood/broken1,
 /area/map_template/syndicate_mothership/raider_base)
 "co" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -938,9 +676,7 @@
 	pixel_x = -25;
 	pixel_y = -5
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "cp" = (
 /obj/structure/closet/crate,
@@ -950,21 +686,15 @@
 /obj/item/tank/nitrogen,
 /obj/item/tank/nitrogen,
 /obj/item/tank/nitrogen,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "cq" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "cr" = (
 /obj/item/clothing/head/philosopher_wig,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
+/turf/unsimulated/floor/asteroid,
 /area/map_template/syndicate_mothership/raider_base)
 "cs" = (
 /obj/structure/lattice,
@@ -972,17 +702,13 @@
 /area/space)
 "ct" = (
 /obj/machinery/door/airlock/external,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "cu" = (
 /obj/machinery/door/airlock/external{
 	id_tag = "skipjack_base_hatch"
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "cv" = (
 /obj/item/trash/cheesie,
@@ -1496,10 +1222,7 @@
 	},
 /obj/item/food/junk/tastybread,
 /obj/item/food/junk/tastybread,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/map_template/skipjack_station/start)
 "dL" = (
 /obj/machinery/door/airlock/hatch,
@@ -1810,18 +1533,14 @@
 	initial_network_id = "piratenet";
 	req_access = list("ACCESS_RAIDER")
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "pE" = (
 /obj/machinery/network/mainframe{
 	initial_network_id = "piratenet";
 	req_access = list("ACCESS_RAIDER")
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "FL" = (
 /obj/machinery/network/relay/long_range{
@@ -1832,24 +1551,18 @@
 /area/map_template/skipjack_station/start)
 "PS" = (
 /obj/machinery/network/telecomms_hub/raider,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "SM" = (
 /obj/machinery/network/router{
 	initial_network_id = "piratenet";
 	req_access = list("ACCESS_RAIDER")
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 "VB" = (
 /obj/machinery/computer/message_monitor,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/map_template/syndicate_mothership/raider_base)
 
 (1,1,1) = {"

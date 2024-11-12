@@ -13,6 +13,15 @@
 	force_material     = /decl/material/solid/organic/wood
 	constructed        = TRUE
 	gender             = NEUTER
+	broken_states      = list(
+		"broken0",
+		"broken1",
+		"broken2",
+		"broken3",
+		"broken4",
+		"broken5",
+		"broken6"
+	)
 
 /decl/flooring/wood/mahogany
 	color              = /decl/material/solid/organic/wood/mahogany::color
