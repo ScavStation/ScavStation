@@ -5,7 +5,10 @@
 	icon_state = "brown"
 	_flooring = /decl/flooring/carpet
 
-/turf/floor/carpet/damaged/Initialize()
+/turf/floor/carpet/broken
+	_floor_broken = TRUE
+
+/turf/floor/carpet/broken/Initialize()
 	. = ..()
 	var/setting_broken = _floor_broken
 	_floor_broken = null

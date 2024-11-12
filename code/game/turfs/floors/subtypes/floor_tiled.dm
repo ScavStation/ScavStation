@@ -113,7 +113,10 @@
 	initial_gas = null
 	temperature = TCMB
 
-/turf/floor/tiled/airless/damaged/Initialize()
+/turf/floor/tiled/airless/broken
+	_floor_broken = TRUE
+
+/turf/floor/tiled/airless/broken/Initialize()
 	. = ..()
 	var/setting_broken = _floor_broken
 	_floor_broken = null

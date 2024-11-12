@@ -12,7 +12,7 @@
 /area/yacht/bridge)
 "ad" = (
 /obj/machinery/shipsensors,
-/turf/floor/tiled/airless/damaged,
+/turf/floor/tiled/airless/broken,
 /area/yacht/bridge)
 "ae" = (
 /obj/effect/decal/cleanable/dirt,
@@ -789,7 +789,7 @@
 /obj/effect/decal/cleanable/blood/oil/streak,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/molten_item,
-/turf/floor/tiled/airless/damaged,
+/turf/floor/tiled/airless/broken,
 /area/yacht/engine)
 "cq" = (
 /obj/structure/cable{
@@ -802,7 +802,7 @@
 	icon_state = "1-8"
 	},
 /obj/item/stock_parts/circuitboard/broken,
-/turf/floor/tiled/airless/damaged,
+/turf/floor/tiled/airless/broken,
 /area/yacht/engine)
 "cr" = (
 /obj/structure/cable{
@@ -815,7 +815,7 @@
 	icon_state = "1-8"
 	},
 /obj/item/toolbox/syndicate,
-/turf/floor/tiled/airless/damaged,
+/turf/floor/tiled/airless/broken,
 /area/yacht/engine)
 "cs" = (
 /obj/structure/cable{

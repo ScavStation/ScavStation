@@ -7,7 +7,13 @@
 
 /turf/floor/wood/broken
 	icon_state = "wood_broken0"
-	_floor_broken = "broken0"
+	_floor_broken = TRUE
+
+/turf/floor/wood/broken/Initialize()
+	. = ..()
+	var/setting_broken = _floor_broken
+	_floor_broken = null
+	set_floor_broken(setting_broken)
 
 /turf/floor/wood/broken/one
 	icon_state = "wood_broken1"
@@ -21,14 +27,6 @@
 	icon_state = "wood_broken3"
 	_floor_broken = "broken3"
 
-/turf/floor/wood/broken/Initialize()
-	. = ..()
-	var/setting_broken = _floor_broken
-	_floor_broken = null
-	set_floor_broken(_floor_broken)
-
-/turf/floor/wood/broken
-	three
 /turf/floor/wood/mahogany
 	color = /decl/material/solid/organic/wood/mahogany::color
 	_flooring = /decl/flooring/wood/mahogany

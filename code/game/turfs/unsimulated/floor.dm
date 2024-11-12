@@ -105,8 +105,9 @@
 	icon_state = "bcarpet"
 
 /turf/unsimulated/floor/sand
-	name = "sand"
-	icon_state = "sand"
+	name       = "sand"
+	icon       = 'icons/turf/flooring/sand.dmi'
+	icon_state = "sand0"
 
 /turf/unsimulated/floor/lino
 	icon_state = "lino"

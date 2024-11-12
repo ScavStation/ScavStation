@@ -903,12 +903,12 @@
 /turf/floor/carpet,
 /area/outpost/abandoned)
 "dh" = (
-/turf/floor/carpet/damaged,
+/turf/floor/carpet/broken,
 /area/outpost/abandoned)
 "di" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/carpet/damaged,
+/turf/floor/carpet/broken,
 /area/outpost/abandoned)
 "dj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -917,7 +917,7 @@
 /area/outpost/abandoned)
 "dk" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/carpet/damaged,
+/turf/floor/carpet/broken,
 /area/outpost/abandoned)
 "dl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -990,13 +990,13 @@
 	icon_state = "plant-25"
 	},
 /obj/machinery/light/small,
-/turf/floor/carpet/damaged,
+/turf/floor/carpet/broken,
 /area/outpost/abandoned)
 "dz" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/woodentable,
 /obj/random/loot,
-/turf/floor/carpet/damaged,
+/turf/floor/carpet/broken,
 /area/outpost/abandoned)
 "dA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1162,7 +1162,7 @@
 "eb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/mop,
-/turf/floor/plating/damaged_two,
+/turf/floor/plating/broken/two,
 /area/outpost/abandoned)
 "ec" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1290,7 +1290,7 @@
 /area/outpost/abandoned)
 "ez" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/plating/damaged_one,
+/turf/floor/plating/broken/one,
 /area/outpost/abandoned)
 "eA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1302,7 +1302,7 @@
 "eB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/item/ammo_magazine/pistol/small,
-/turf/floor/plating/damaged_one,
+/turf/floor/plating/broken/one,
 /area/outpost/abandoned)
 "eC" = (
 /obj/item/ammo_magazine/pistol/small,
@@ -1382,7 +1382,7 @@
 /area/outpost/abandoned)
 "eP" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/plating/damaged_four,
+/turf/floor/plating/broken/four,
 /area/outpost/abandoned)
 "eQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
@@ -1427,7 +1427,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
-/turf/floor/plating/damaged_one,
+/turf/floor/plating/broken/one,
 /area/outpost/abandoned)
 "eW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1478,7 +1478,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/plating/damaged_one,
+/turf/floor/plating/broken/one,
 /area/outpost/abandoned)
 "fc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1535,7 +1535,7 @@
 /turf/floor/tiled/white/airless,
 /area/outpost/abandoned)
 "fm" = (
-/turf/floor/plating/damaged_three,
+/turf/floor/plating/broken/three,
 /area/outpost/abandoned)
 "fo" = (
 /obj/random/medical,
@@ -1567,7 +1567,7 @@
 "ft" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/medical,
-/turf/floor/plating/damaged_four,
+/turf/floor/plating/broken/four,
 /area/outpost/abandoned)
 "fu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1582,7 +1582,7 @@
 "fw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
-/turf/floor/plating/damaged_one,
+/turf/floor/plating/broken/one,
 /area/outpost/abandoned)
 "fx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1596,7 +1596,7 @@
 /area/mine/explored)
 "fz" = (
 /obj/effect/floor_decal/asteroid,
-/turf/floor/plating/damaged_two,
+/turf/floor/plating/broken/two,
 /area/mine/explored)
 "fA" = (
 /obj/structure/table,
@@ -1824,7 +1824,7 @@
 "gi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/abstract/landmark/proc_caller/floor_breaker,
-/turf/floor/tiled/airless/damaged,
+/turf/floor/tiled/airless/broken,
 /area/mine/explored)
 "gj" = (
 /obj/machinery/door/airlock/hatch,
@@ -1846,7 +1846,7 @@
 /turf/floor/plating,
 /area/outpost/abandoned)
 "gm" = (
-/turf/floor/plating/damaged_two,
+/turf/floor/plating/broken/two,
 /area/outpost/abandoned)
 "gn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1954,7 +1954,7 @@
 /area/outpost/abandoned)
 "gC" = (
 /obj/abstract/landmark/proc_caller/floor_breaker,
-/turf/floor/tiled/airless/damaged,
+/turf/floor/tiled/airless/broken,
 /area/mine/explored)
 "gD" = (
 /obj/effect/floor_decal/industrial/hatch,
@@ -2025,7 +2025,7 @@
 /obj/structure/firedoor_assembly{
 	anchored = 1
 	},
-/turf/floor/plating/damaged_two,
+/turf/floor/plating/broken/two,
 /area/outpost/abandoned)
 "gP" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,

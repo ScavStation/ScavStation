@@ -2,6 +2,14 @@
 	name = "TURF ICONS: Floors Shall Have All Required Icon States"
 	var/turf/floor/floor
 	var/original_type
+	var/list/tested_types = list(
+		/turf/floor,
+		/turf/unsimulated
+	)
+	var/list/excepted_types = list(
+		/turf/unsimulated/map,
+		/turf/unsimulated/wall/cascade
+	)
 
 /datum/unit_test/turf_floor_icons_shall_be_valid/start_test()
 
@@ -9,14 +17,19 @@
 		fail("Unable to locate an appropriate turf at [world.maxx],[world.maxy],1.")
 		return 1
 
-	var/validate_types = typesof(/turf/floor) | typesof(/turf/unsimulated)
+	var/list/validate_types = list()
+	for(var/test_type in tested_types)
+		validate_types |= typesof(test_type)
+	for(var/test_type in excepted_types)
+		validate_types -= typesof(test_type)
+
 	var/list/failures = list()
 	for(var/floor_type in validate_types)
-		var/turf/floor/check_floor = floor_type
+		var/turf/check_floor = floor_type
 		if(TYPE_IS_ABSTRACT(check_floor))
 			continue
 		floor = floor.ChangeTurf(floor_type, FALSE, FALSE, FALSE, FALSE, FALSE)
-		if(istype(floor))
+		if(istype(floor, floor_type))
 			var/list/turf_failures = floor.validate_turf()
 			if(length(turf_failures))
 				failures[floor_type] = turf_failures
