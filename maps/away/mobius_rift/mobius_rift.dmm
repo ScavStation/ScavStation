@@ -9,7 +9,7 @@
 /turf/unsimulated/floor/infinity,
 /area/mobius_rift)
 "d" = (
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/floor/sand,
 /area/mobius_rift)
 "e" = (
 /turf/floor/fake_grass,
@@ -26,7 +26,7 @@
 /area/mobius_rift)
 "i" = (
 /obj/structure/flora/bush/fullgrass,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/floor/sand,
 /area/mobius_rift)
 "j" = (
 /obj/structure/flora/bush/genericbush,
@@ -58,13 +58,13 @@
 /area/mobius_rift)
 "q" = (
 /mob/living/simple_animal/hostile/vagrant,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/floor/sand,
 /area/mobius_rift)
 "r" = (
 /obj/effect/mobius_rift/portals_setup,
 /obj/effect/overmap/visitable/sector/mobius_rift,
 /obj/effect/shuttle_landmark/automatic,
-/turf/unsimulated/beach/sand,
+/turf/unsimulated/floor/sand,
 /area/mobius_rift)
 
 (1,1,1) = {"

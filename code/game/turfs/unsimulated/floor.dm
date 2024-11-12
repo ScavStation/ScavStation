@@ -13,21 +13,6 @@
 	icon_state = "bluespace"
 	desc = "Looks like eternity."
 
-/turf/unsimulated/mask
-	name = "mask"
-	icon = 'icons/turf/walls.dmi'
-	icon_state = "rockvault"
-
-/turf/unsimulated/mask_alt // just a second mask type for maps needing two random map runs
-	name = "mask"
-	icon = 'icons/turf/walls.dmi'
-	icon_state = "rockvault"
-	color = COLOR_SILVER
-
-/turf/unsimulated/mask/flooded
-	flooded = /decl/material/liquid/water
-	color = COLOR_LIQUID_WATER
-
 /turf/unsimulated/floor/rescue_base
 	icon_state = "asteroidfloor"
 
@@ -83,9 +68,6 @@
 /turf/unsimulated/floor/asteroidplating
 	icon_state = "asteroidplating"
 
-/turf/unsimulated/floor/asteroidfloor
-	icon_state = "asteroidfloor"
-
 /turf/unsimulated/floor/cult
 	name = "plating"
 	icon_state = "cult"
@@ -106,9 +88,6 @@
 /turf/unsimulated/floor/steel
 	icon_state = "steel"
 
-/turf/unsimulated/floor/dark
-	icon_state = "dark"
-
 /turf/unsimulated/floor/bcircuit
 	icon_state = "bcircuit"
 
@@ -122,9 +101,12 @@
 	name = "carpet"
 	icon_state = "carpet"
 
-/turf/unsimulated/floor/snow
-	name = "snow"
-	icon_state = "snow"
-
 /turf/unsimulated/floor/bcarpet
 	icon_state = "bcarpet"
+
+/turf/unsimulated/floor/sand
+	name = "sand"
+	icon_state = "sand"
+
+/turf/unsimulated/floor/lino
+	icon_state = "lino"
