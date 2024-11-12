@@ -99,22 +99,25 @@
 		post_equip(H)
 
 	if(outfit_flags & OUTFIT_HAS_VITALS_SENSOR)
-		var/obj/item/clothing/sensor/vitals/sensor
-		for(var/check_slot in global.vitals_sensor_equip_slots)
-			if(!H.get_inventory_slot_datum(check_slot))
-				continue
-			if(!sensor) // only create the sensor if we have at least one eligible slot
-				sensor = new(get_turf(H))
-			var/obj/item/clothing/equipped = H.get_equipped_item(check_slot)
-			if(istype(equipped) && !(locate(/obj/item/clothing/sensor/vitals) in equipped.accessories) && equipped.can_attach_accessory(sensor))
-				equipped.attach_accessory(null, sensor)
-				break
-		if(isturf(sensor?.loc))
-			H.put_in_hands(sensor)
-		else
-			qdel(sensor)
+		try_equip_vitals_sensor(H)
 
 	return 1
+
+/decl/outfit/proc/try_equip_vitals_sensor(mob/living/human/H)
+	var/obj/item/clothing/sensor/vitals/sensor
+	for(var/check_slot in global.vitals_sensor_equip_slots)
+		if(!H.get_inventory_slot_datum(check_slot))
+			continue
+		if(!sensor) // only create the sensor if we have at least one eligible slot
+			sensor = new(get_turf(H))
+		var/obj/item/clothing/equipped = H.get_equipped_item(check_slot)
+		if(istype(equipped) && !(locate(/obj/item/clothing/sensor/vitals) in equipped.accessories) && equipped.can_attach_accessory(sensor))
+			equipped.attach_accessory(null, sensor)
+			break
+	if(isturf(sensor?.loc))
+		H.put_in_hands(sensor)
+	else
+		qdel(sensor)
 
 /decl/outfit/proc/equip_base(mob/living/human/H, var/equip_adjustments)
 	set waitfor = FALSE
