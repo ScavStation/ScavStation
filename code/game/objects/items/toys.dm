@@ -496,7 +496,7 @@
 	name = "foam sword"
 	desc = "An arcane weapon (made of foam) wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
 	icon = 'icons/obj/items/weapon/swords/cult.dmi'
-	material = /decl/material/solid/organic/plastic
+	material = /decl/material/solid/organic/plastic/foam
 	edge = 0
 	sharp = 0
 

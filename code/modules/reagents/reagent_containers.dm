@@ -27,9 +27,15 @@
 
 /obj/item/chems/on_update_icon()
 	. = ..()
-	var/image/contents_overlay = get_reagents_overlay()
+	var/image/contents_overlay = get_reagents_overlay(use_single_icon ? icon_state : null)
 	if(contents_overlay)
 		add_overlay(contents_overlay)
+
+/obj/item/chems/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing)
+	var/image/reagents_overlay = get_reagents_overlay(overlay.icon_state)
+	if(reagents_overlay)
+		overlay.add_overlay(reagents_overlay)
+	return ..()
 
 /obj/item/chems/set_custom_desc(var/new_desc)
 	base_desc = new_desc

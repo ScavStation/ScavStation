@@ -10,3 +10,9 @@ foley/sweeping4.ogg - Remixed from Sweeping noises.wav by BruceFenn_190335 -- ht
 foley/sweeping5.ogg - Remixed from Sweeping noises.wav by BruceFenn_190335 -- https://freesound.org/s/541329/ -- License: Attribution 3.0
 foley/sweeping6.ogg - Remixed from Sweeping noises.wav by BruceFenn_190335 -- https://freesound.org/s/541329/ -- License: Attribution 3.0
 foley/sweeping7.ogg - Remixed from Sweeping noises.wav by BruceFenn_190335 -- https://freesound.org/s/541329/ -- License: Attribution 3.0
+// CC BY 4.0
+foley/drawer-close.ogg - Obtained from Drawer-Wooden-Empty-Open-04.wav by DWOBoyle -- https://freesound.org/s/152307/ -- License: Attribution 4.0
+foley/drawer-open.ogg - Obtained from Drawer-Wooden-Empty-Open-03.wav by DWOBoyle -- https://freesound.org/s/152308/ -- License: Attribution 4.0
+foley/drawer-oneshot.ogg - Remixed from Drawer-Wooden-Empty-Open-03.wav and Drawer-Wooden-Empty-Open-04.wav by DWOBoyle, see above for further attribution.
+// CC 0
+effects/weather/rain_indoors.ogg - Remixed from Heavy Rain inside a Shed by mageh533 -- https://freesound.org/s/752031/ -- License: Creative Commons 0

@@ -1,7 +1,7 @@
 /turf/floor/wood
 	name = "wooden floor"
 	icon = 'icons/turf/flooring/wood.dmi'
-	icon_state = "wood"
+	icon_state = "wood0"
 	color = /decl/material/solid/organic/wood::color
 	_flooring = /decl/flooring/wood
 

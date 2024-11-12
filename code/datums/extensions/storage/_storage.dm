@@ -124,7 +124,7 @@ var/global/list/_test_storage_items = list()
 
 //This proc return 1 if the item can be picked up and 0 if it can't.
 //Set the stop_messages to stop it from printing messages
-/datum/storage/proc/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+/datum/storage/proc/can_be_inserted(obj/item/W, mob/user, stop_messages = 0, click_params = null)
 	if(!istype(W)) return //Not an item
 
 	if(user && !user.canUnEquip(W))

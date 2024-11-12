@@ -51,3 +51,12 @@
 	name               = "red carpet"
 	icon_base          = "red"
 	build_type         = /obj/item/stack/tile/carpet/red
+
+/decl/flooring/carpet/rustic
+	name       = "rustic carpet"
+	desc       = "A stretch of simple woven carpet. Cozy, but a little itchy."
+	icon       = 'icons/turf/flooring/simple_carpet.dmi'
+	icon_base  = "carpet"
+	build_type = /obj/item/stack/tile/carpet/rustic
+	can_paint  = TRUE
+	color      = null

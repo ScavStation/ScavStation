@@ -737,7 +737,10 @@
 		LAZYREMOVE(climbers,user)
 		return FALSE
 
-	var/target_turf = get_turf(src)
+	// handle multitile objects
+	// this should also be fine for non-multitile objects
+	// and ensures we don't ever move more than 1 tile
+	var/target_turf = get_step(user, get_dir(user, src))
 
 	//climbing over border objects like railings
 	if((atom_flags & ATOM_FLAG_CHECKS_BORDER) && get_turf(user) == target_turf)

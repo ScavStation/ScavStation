@@ -179,7 +179,7 @@ var/global/list/flooring_cache = list()
 
 	if(color)
 		target.color = color
-	else
+	else if(!can_paint || isnull(target.paint_color))
 		var/decl/material/use_material = target.get_material()
 		target.color = use_material?.color
 

@@ -16,6 +16,21 @@
 	},
 /turf/floor/wood/walnut,
 /area/shaded_hills/witch_hut)
+"fG" = (
+/obj/item/seeds/extracted/aloe,
+/obj/item/seeds/extracted/aloe,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/turf/floor/wood/walnut,
+/area/shaded_hills/witch_hut)
 "hT" = (
 /turf/floor/mud/water/deep,
 /area/shaded_hills/outside/river/swamp)
@@ -51,7 +66,7 @@
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/caves/swamp)
 "pl" = (
-/obj/structure/drying_rack,
+/obj/structure/drying_rack/ebony,
 /turf/floor/wood/walnut,
 /area/shaded_hills/witch_hut)
 "rP" = (
@@ -68,11 +83,11 @@
 /turf/floor/barren,
 /area/shaded_hills/outside/swamp)
 "vz" = (
-/obj/structure/table/woodentable/ebony,
 /obj/structure/wall_sconce/lantern{
 	dir = 8;
 	start_lit = 1
 	},
+/obj/structure/table/end/alt/ebony,
 /turf/floor/wood/walnut,
 /area/shaded_hills/witch_hut)
 "vZ" = (
@@ -94,13 +109,19 @@
 /turf/floor/mud,
 /area/shaded_hills/outside/river/swamp)
 "BF" = (
-/obj/structure/door/walnut,
+/obj/structure/door/walnut{
+	dir = 4
+	},
 /turf/floor/path/basalt,
 /area/shaded_hills/witch_hut)
 "BY" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/floor/mud,
 /area/shaded_hills/outside/swamp)
+"Dh" = (
+/obj/item/stool/rustic,
+/turf/floor/wood/walnut,
+/area/shaded_hills/witch_hut)
 "Do" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/caves/unexplored/swamp)
@@ -121,22 +142,6 @@
 "Ic" = (
 /turf/floor/clay,
 /area/shaded_hills/outside/river/swamp)
-"Jx" = (
-/obj/structure/table/woodentable/ebony,
-/obj/item/seeds/extracted/aloe,
-/obj/item/seeds/extracted/aloe,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/turf/floor/wood/walnut,
-/area/shaded_hills/witch_hut)
 "KA" = (
 /obj/abstract/landmark/start/shaded_hills/herbalist,
 /turf/floor/wood/walnut,
@@ -166,17 +171,17 @@
 /turf/floor/grass,
 /area/shaded_hills/outside/swamp)
 "TR" = (
-/obj/structure/closet/crate/chest/ebony,
+/obj/structure/table/desk/ebony,
+/obj/item/chems/glass/mortar,
+/obj/item/rock/basalt,
 /turf/floor/wood/walnut,
 /area/shaded_hills/witch_hut)
 "Vl" = (
-/obj/structure/table/woodentable/ebony,
 /obj/structure/wall_sconce/lantern{
 	dir = 4;
 	start_lit = 1
 	},
-/obj/item/chems/glass/mortar,
-/obj/item/rock/basalt,
+/obj/structure/closet/crate/chest/ebony,
 /turf/floor/wood/walnut,
 /area/shaded_hills/witch_hut)
 "VA" = (
@@ -9537,11 +9542,11 @@ Xt
 Xt
 Xt
 Ev
-nK
-bg
+fG
+Dh
 pl
 Vl
-Jx
+nK
 Ev
 Xt
 BY

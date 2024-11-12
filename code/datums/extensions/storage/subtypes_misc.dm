@@ -106,7 +106,7 @@
 	can_hold = list(/obj/item)
 	expected_type = /obj/structure/reagent_dispensers/compost_bin
 
-/datum/storage/hopper/industrial/compost/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+/datum/storage/hopper/industrial/compost/can_be_inserted(obj/item/W, mob/user, stop_messages = 0, click_params = null)
 	. = ..()
 	if(!.)
 		return
@@ -120,7 +120,7 @@
 /datum/storage/hopper/mortar
 	max_w_class = ITEM_SIZE_NORMAL * 2
 
-/datum/storage/hopper/mortar/can_be_inserted(obj/item/inserting_item, mob/user, stop_messages)
+/datum/storage/hopper/mortar/can_be_inserted(obj/item/inserting_item, mob/user, stop_messages, click_params = null)
 	. = ..()
 	if(!.)
 		return

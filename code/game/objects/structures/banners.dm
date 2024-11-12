@@ -88,7 +88,6 @@
 	icon_state = "banner"
 	material = /decl/material/solid/organic/cloth
 	color = /decl/material/solid/organic/cloth::color
-	paint_verb = "dyed"
 	max_health = 20
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	w_class = ITEM_SIZE_NORMAL

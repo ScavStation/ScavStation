@@ -8,7 +8,6 @@
 /area/shaded_hills/outside/point_of_interest/chemistry_shack)
 "h" = (
 /obj/abstract/exterior_marker/inside,
-/obj/structure/table/woodentable/ebony,
 /obj/item/rock/hematite{
 	pixel_x = -8;
 	pixel_y = 16
@@ -32,6 +31,7 @@
 	pixel_y = 4;
 	pixel_x = -8
 	},
+/obj/structure/table/desk/ebony,
 /turf/floor/path/herringbone/basalt,
 /area/shaded_hills/outside/point_of_interest/chemistry_shack)
 "k" = (
@@ -133,7 +133,6 @@
 /area/shaded_hills/outside/point_of_interest/chemistry_shack)
 "U" = (
 /obj/abstract/exterior_marker/inside,
-/obj/structure/table/woodentable/ebony,
 /obj/structure/wall_sconce/lantern{
 	dir = 1;
 	pixel_y = 10
@@ -142,7 +141,9 @@
 	pixel_x = -10;
 	pixel_y = 18
 	},
-/obj/structure/fire_source/heater/mapped,
+/obj/structure/fire_source/heater/mapped{
+	pixel_y = 2
+	},
 /obj/item/chems/glass/handmade/bottle/tall/wine{
 	pixel_x = -10;
 	pixel_y = 9

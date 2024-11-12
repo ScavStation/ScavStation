@@ -9,7 +9,7 @@
 	var/rigged = 0
 
 /obj/structure/closet/crate/open(mob/user)
-	if((atom_flags & ATOM_FLAG_OPEN_CONTAINER) && !opened && can_open(user))
+	if((atom_flags & ATOM_FLAG_CLIMBABLE) && !opened && can_open(user))
 		object_shaken()
 	. = ..()
 	if(.)

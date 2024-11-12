@@ -56,7 +56,7 @@
 /turf/floor/holofloor/wood
 	name = "wooden floor"
 	icon = 'icons/turf/flooring/wood.dmi'
-	icon_state = "wood"
+	icon_state = "wood0"
 	color = WOOD_COLOR_CHOCOLATE
 	_flooring = /decl/flooring/wood
 

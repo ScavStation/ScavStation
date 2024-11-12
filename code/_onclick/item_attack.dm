@@ -35,7 +35,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(storage)
 		if(isrobot(user) && (used_item == user.get_active_held_item()))
 			return FALSE //Robots can't store their modules.
-		if(!storage.can_be_inserted(used_item, user))
+		if(!storage.can_be_inserted(used_item, user, click_params = click_params))
 			return FALSE
 		used_item.add_fingerprint(user)
 		return storage.handle_item_insertion(user, used_item, click_params = click_params)

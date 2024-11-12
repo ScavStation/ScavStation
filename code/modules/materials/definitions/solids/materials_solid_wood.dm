@@ -47,6 +47,7 @@
 	sound_dropped = 'sound/foley/wooddrop1.ogg'
 	compost_value = 0.2
 	temperature_burn_milestone_material = /decl/material/solid/organic/wood
+	paint_verb = "stained"
 
 // Wood is hard but can't really give it an edge.
 /decl/material/solid/organic/wood/can_hold_edge()

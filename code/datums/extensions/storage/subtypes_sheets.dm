@@ -9,7 +9,7 @@
 /datum/storage/sheets/robot
 	capacity = 500 //Borgs get more because >specialization
 
-/datum/storage/sheets/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+/datum/storage/sheets/can_be_inserted(obj/item/W, mob/user, stop_messages = 0, click_params = null)
 	if(!istype(W,/obj/item/stack/material))
 		if(!stop_messages)
 			to_chat(user, "\The [holder] does not accept [W].")

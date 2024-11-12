@@ -496,10 +496,10 @@ SUBSYSTEM_DEF(zcopy)
 	ASSERT(!QDELETED(object))
 
 	var/turf/Tloc = object.loc
-	if (!isturf(Tloc) || !Tloc.above)
+	if (!isturf(Tloc) || !MOVABLE_SHALL_MIMIC(object))
 		return TRUE
 
-	var/turf/T = Tloc.above
+	var/turf/T = GetAbove(Tloc)
 
 	ZM_RECORD_START
 

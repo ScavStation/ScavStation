@@ -120,6 +120,7 @@
 	sound_manipulate = 'sound/foley/paperpickup2.ogg'
 	sound_dropped = 'sound/foley/paperpickup1.ogg'
 	fishing_bait_value = 0
+	paint_verb = "dyed"
 
 /decl/material/solid/organic/skin/fur/gray
 	uid = "solid_fur_gray"

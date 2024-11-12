@@ -18,7 +18,7 @@
 	var/mob_offset
 
 	var/paint_color
-	var/paint_verb = "painted"
+	var/paint_verb
 
 /obj/structure/get_color()
 	if(paint_color)
@@ -80,7 +80,8 @@
 			to_chat(user, damage_desc)
 
 		if(paint_color)
-			to_chat(user, "\The [src] has been <font color='[paint_color]'>[paint_verb]</font>.")
+			var/decl/pronouns/structure_pronouns = get_pronouns() // so we can do 'have' for plural objects like sheets
+			to_chat(user, "\The [src] [structure_pronouns.has] been <font color='[paint_color]'>[paint_verb]</font>.")
 
 		if(tool_interaction_flags & TOOL_INTERACTION_ANCHOR)
 			if(anchored)
@@ -305,8 +306,15 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 	// Calculation to apply new pixelshift.
 	var/mouse_x = text2num(click_data["icon-x"])-1 // Ranging from 0 to 31
 	var/mouse_y = text2num(click_data["icon-y"])-1
-	var/cell_x = clamp(round(mouse_x/CELLSIZE), 0, CELLS-1) // Ranging from 0 to CELLS-1
-	var/cell_y = clamp(round(mouse_y/CELLSIZE), 0, CELLS-1)
+	var/span_x = CELLS
+	var/span_y = CELLS
+	// In case we're a multitile object.
+	if(bound_width > world.icon_size)
+		span_x = bound_width / CELLSIZE
+	if(bound_height > world.icon_size)
+		span_y = bound_height / CELLSIZE
+	var/cell_x = clamp(round(mouse_x/CELLSIZE), 0, span_x-1) // Ranging from 0 to span_x-1
+	var/cell_y = clamp(round(mouse_y/CELLSIZE), 0, span_y-1)
 	var/list/center = cached_json_decode(W.center_of_mass)
 	W.pixel_x = (CELLSIZE * (cell_x + 0.5)) - center["x"]
 	W.pixel_y = (CELLSIZE * (cell_y + 0.5)) - center["y"]

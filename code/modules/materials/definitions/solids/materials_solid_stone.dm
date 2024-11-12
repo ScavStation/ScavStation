@@ -9,6 +9,7 @@
 	brute_armor = 3
 	conductive = 0
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
+	wall_flags = WALL_HAS_EDGES
 	wall_blend_icons = list(
 		'icons/turf/walls/solid.dmi' = TRUE,
 		'icons/turf/walls/wood.dmi' = TRUE,

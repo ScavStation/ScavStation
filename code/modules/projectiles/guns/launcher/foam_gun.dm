@@ -90,7 +90,7 @@
 	randpixel = 10
 	throw_range = 3
 	does_spin = FALSE
-	material = /decl/material/solid/organic/plastic
+	material = /decl/material/solid/organic/plastic/foam
 	_base_attack_force = 0
 	_thrown_force_multiplier = 5
 
