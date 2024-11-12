@@ -1589,7 +1589,7 @@
 	initial_network_id = "mercnet";
 	req_access = list("ACCESS_MERCENARY")
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/merc_spawn)
 "cX" = (
 /obj/structure/handrail{
@@ -1630,7 +1630,7 @@
 /turf/floor/tiled,
 /area/map_template/merc_spawn)
 "dP" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/merc_spawn)
 "eb" = (
 /obj/abstract/landmark{
@@ -1657,7 +1657,7 @@
 /area/map_template/merc_shuttle/rear)
 "eA" = (
 /obj/structure/railing,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eP" = (
 /obj/structure/closet/crate/uranium,
@@ -1795,7 +1795,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hX" = (
 /obj/structure/rack,
@@ -1950,7 +1950,7 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ls" = (
 /obj/machinery/mining_drill,
@@ -2189,7 +2189,7 @@
 	initial_network_id = "mercnet";
 	req_access = list("ACCESS_MERCENARY")
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/merc_spawn)
 "wG" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2198,7 +2198,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "xb" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -2217,11 +2217,11 @@
 	initial_network_id = "mercnet";
 	req_access = list("ACCESS_MERCENARY")
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/merc_spawn)
 "yr" = (
 /obj/machinery/computer/message_monitor,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/merc_spawn)
 "yz" = (
 /obj/effect/shuttle_landmark/merc/nav3,
@@ -2268,7 +2268,7 @@
 /area/map_template/merc_spawn)
 "DM" = (
 /obj/vehicle/bike/electric,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/merc_spawn)
 "Fm" = (
 /obj/structure/rack,
@@ -2306,7 +2306,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "FO" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2523,7 +2523,7 @@
 /area/space)
 "NZ" = (
 /obj/machinery/network/telecomms_hub/mercenary,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/merc_spawn)
 "Ok" = (
 /obj/structure/drill_brace,
@@ -2546,7 +2546,7 @@
 /turf/floor/tiled,
 /area/map_template/merc_spawn)
 "Pb" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "PE" = (
 /obj/structure/rack,

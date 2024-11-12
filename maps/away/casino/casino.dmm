@@ -1158,7 +1158,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "dt" = (
 /obj/structure/hygiene/toilet{
@@ -1270,7 +1270,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "dM" = (
 /obj/structure/bed/chair/comfy/red{
@@ -1383,10 +1383,10 @@
 	name = "Starboard Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ed" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ee" = (
 /obj/structure/hygiene/shower{
@@ -1469,7 +1469,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "er" = (
 /obj/structure/cable/yellow{
@@ -1481,13 +1481,13 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "es" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "et" = (
 /obj/structure/cable/yellow{
@@ -1499,7 +1499,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eu" = (
 /obj/structure/cable/yellow{
@@ -1511,7 +1511,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ev" = (
 /obj/structure/cable/yellow{
@@ -1520,7 +1520,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ew" = (
 /obj/structure/reagent_dispensers/beerkeg,
@@ -1599,7 +1599,7 @@
 	name = "Starboard Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eJ" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -2010,7 +2010,7 @@
 	},
 /obj/structure/cable/yellow,
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "fN" = (
 /obj/structure/mopbucket,
@@ -2267,7 +2267,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gx" = (
 /obj/structure/cable/yellow{
@@ -2280,7 +2280,7 @@
 	pixel_y = 24;
 	req_access = newlist()
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gy" = (
 /obj/machinery/door/airlock/external{
@@ -2374,7 +2374,7 @@
 	name = "Port Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gL" = (
 /obj/machinery/door/airlock/external{
@@ -2414,7 +2414,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hb" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2486,7 +2486,7 @@
 	name = "Port Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hl" = (
 /obj/structure/cable/yellow,
@@ -2765,7 +2765,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ih" = (
 /obj/machinery/door/firedoor,
@@ -3276,7 +3276,7 @@
 	icon_state = "map_injector";
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "jv" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -4589,18 +4589,18 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "nh" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/machinery/meter,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "ni" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "nj" = (
 /obj/structure/bed/chair,
@@ -5151,7 +5151,7 @@
 /area/casino/casino_mainfloor)
 "Mb" = (
 /obj/machinery/shipsensors,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bridge)
 "Mc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -5306,7 +5306,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "Tb" = (
 /obj/machinery/light{
@@ -5322,7 +5322,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "TO" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red,

@@ -3049,7 +3049,7 @@
 /turf/floor/bluegrid,
 /area/ministation/security)
 "pr" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ps" = (
 /obj/effect/decal/cleanable/dirt,

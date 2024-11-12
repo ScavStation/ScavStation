@@ -68,15 +68,15 @@
 /area/outpost/abandoned)
 "ar" = (
 /obj/machinery/constructable_frame/computerframe,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/outpost/abandoned)
 "as" = (
 /obj/machinery/teleport/station,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/outpost/abandoned)
 "at" = (
 /obj/machinery/teleport/hub,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/outpost/abandoned)
 "au" = (
 /obj/structure/table,

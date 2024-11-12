@@ -106,7 +106,7 @@
 	name = "External Blast Doors"
 	},
 /obj/machinery/door/firedoor,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/crew/dorms1)
 "an" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -2760,7 +2760,7 @@
 /turf/wall/r_wall,
 /area/ship/trade/drunk_tank)
 "Ei" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "En" = (
 /obj/item/stool/padded,
@@ -3209,7 +3209,7 @@
 /obj/item/mollusc/barnacle{
 	pixel_x = 18
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "TC" = (
 /obj/machinery/recharge_station,
@@ -3337,7 +3337,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "YH" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/eva)
 "Za" = (
 /turf/floor/plating,

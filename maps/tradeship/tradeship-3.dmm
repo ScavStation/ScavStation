@@ -20,7 +20,7 @@
 /turf/floor/reinforced/airless,
 /area/ship/trade/comms)
 "ae" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "af" = (
 /obj/machinery/door/airlock/external/bolted{
@@ -109,7 +109,7 @@
 /area/ship/trade/maintenance/solars)
 "aq" = (
 /obj/item/stack/cable_coil/single/yellow,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ar" = (
 /obj/structure/handrail{
@@ -181,7 +181,7 @@
 /area/space)
 "ay" = (
 /obj/item/solar_assembly,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "az" = (
 /obj/structure/cable/yellow{
@@ -264,7 +264,7 @@
 	icon_state = "0-4"
 	},
 /obj/item/solar_assembly,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -352,7 +352,7 @@
 	icon_state = "0-8"
 	},
 /obj/item/solar_assembly,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aU" = (
 /obj/structure/railing/mapped{
@@ -378,7 +378,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aX" = (
 /obj/structure/railing/mapped{
@@ -442,7 +442,7 @@
 /area/ship/trade/maintenance/solars)
 "bd" = (
 /obj/item/stack/material/pane/mapped/glass/ten,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "be" = (
 /obj/machinery/light_switch{
@@ -536,7 +536,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "bE" = (
 /obj/effect/floor_decal/steeldecal/steel_decals6,
@@ -611,7 +611,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "6-9"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hJ" = (
 /obj/structure/cable{
@@ -632,7 +632,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "5-10"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "jv" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -890,7 +890,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "zY" = (
 /obj/effect/paint/brown,
@@ -918,7 +918,7 @@
 	id_tag = "scraplock";
 	name = "External Blast Doors"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/bridge_unused)
 "Dg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1107,11 +1107,11 @@
 	id_tag = "scraplock";
 	name = "External Blast Doors"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/comms)
 "Rg" = (
 /obj/structure/cable/yellow,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "RZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1137,7 +1137,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "Su" = (
 /turf/floor/bluegrid,
@@ -1171,7 +1171,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "Uq" = (
 /obj/machinery/alarm{

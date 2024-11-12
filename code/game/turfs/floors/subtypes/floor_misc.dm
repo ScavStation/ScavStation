@@ -4,19 +4,6 @@
 	icon_state = "lino"
 	_flooring = /decl/flooring/linoleum
 
-/turf/floor/airless
-	name = "airless plating"
-	initial_gas = null
-	temperature = TCMB
-
-/turf/floor/airless/broken
-	_floor_broken = TRUE
-
-/turf/floor/airless/broken/Initialize(ml, floortype)
-	. = ..()
-	var/setting_broken = _floor_broken
-	_floor_broken = null
-	set_floor_broken(setting_broken)
 
 /turf/floor/crystal
 	name = "crystal floor"
@@ -71,6 +58,20 @@
 	_floor_broken = TRUE
 
 /turf/floor/plating/broken/Initialize(ml, floortype)
+	. = ..()
+	var/setting_broken = _floor_broken
+	_floor_broken = null
+	set_floor_broken(setting_broken)
+
+/turf/floor/plating/airless
+	name = "airless plating"
+	initial_gas = null
+	temperature = TCMB
+
+/turf/floor/plating/airless/broken
+	_floor_broken = TRUE
+
+/turf/floor/plating/airless/broken/Initialize(ml, floortype)
 	. = ..()
 	var/setting_broken = _floor_broken
 	_floor_broken = null

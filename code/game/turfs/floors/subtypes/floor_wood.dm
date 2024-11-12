@@ -27,6 +27,10 @@
 	icon_state = "wood_broken3"
 	_floor_broken = "broken3"
 
+/turf/floor/wood/broken/four
+	icon_state = "wood_broken4"
+	_floor_broken = "broken4"
+
 /turf/floor/wood/mahogany
 	color = /decl/material/solid/organic/wood/mahogany::color
 	_flooring = /decl/flooring/wood/mahogany

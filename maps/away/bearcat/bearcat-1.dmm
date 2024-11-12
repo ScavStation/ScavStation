@@ -57,7 +57,7 @@
 /obj/machinery/door/blast/regular/open{
 	id_tag = "engwindow"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/escape_port)
 "aj" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
@@ -103,7 +103,7 @@
 /obj/machinery/door/blast/regular/open{
 	id_tag = "engwindow"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/escape_star)
 "aq" = (
 /obj/effect/paint/brown,
@@ -114,7 +114,7 @@
 	dir = 4
 	},
 /obj/machinery/door/window/southright,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/escape_port)
 "at" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -167,7 +167,7 @@
 	dir = 4
 	},
 /obj/machinery/door/window/southright,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/escape_star)
 "ay" = (
 /turf/wall/r_wall,

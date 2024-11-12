@@ -1274,7 +1274,7 @@
 "eq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/airless/broken,
+/turf/floor/plating/airless/broken,
 /area/icarus/open)
 "er" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1317,10 +1317,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/airless/broken,
+/turf/floor/plating/airless/broken,
 /area/icarus/open)
 "eA" = (
-/turf/floor/airless/broken,
+/turf/floor/plating/airless/broken,
 /area/icarus/open)
 "eB" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1702,7 +1702,7 @@
 /area/icarus/open)
 "fw" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/airless/broken,
+/turf/floor/plating/airless/broken,
 /area/icarus/open)
 "fx" = (
 /obj/structure/table/steel,
@@ -1724,7 +1724,7 @@
 /turf/unsimulated/floor/sand,
 /area/icarus/vessel)
 "fB" = (
-/turf/floor/airless/broken,
+/turf/floor/plating/airless/broken,
 /area/icarus/vessel)
 "fC" = (
 /obj/structure/table/steel,

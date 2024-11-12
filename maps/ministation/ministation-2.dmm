@@ -372,7 +372,7 @@
 /obj/machinery/power/terminal{
 	icon_state = "term-omni"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/l3sw)
 "bv" = (
 /obj/machinery/light{
@@ -675,7 +675,7 @@
 /turf/floor/tiled,
 /area/ministation/bridge)
 "cn" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "co" = (
 /turf/wall/r_wall,
@@ -1159,7 +1159,7 @@
 	dir = 4;
 	id_tag = "toxinsdriver"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "eA" = (
 /obj/machinery/computer/shuttle_control/explore/ministation{
@@ -1211,7 +1211,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "eM" = (
 /obj/structure/cable{
@@ -1416,7 +1416,7 @@
 /area/ministation/hall/n3)
 "fF" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1712,7 +1712,7 @@
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "hm" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on,
@@ -2099,7 +2099,7 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "sensor"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/l3sw)
 "jn" = (
 /obj/structure/disposalpipe/segment{
@@ -4198,7 +4198,7 @@
 	id_tag = "toxinsdriver";
 	name = "Toxins Launcher Bay Door"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "ya" = (
 /obj/structure/cable{
@@ -4323,7 +4323,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "yS" = (
 /obj/abstract/landmark{
@@ -5980,7 +5980,7 @@
 /area/ministation/maint/l3central)
 "JN" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "JX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6253,7 +6253,7 @@
 	name = "bridge blast door";
 	id_tag = "bridgeblast"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/bridge)
 "Mq" = (
 /obj/item/cash/scavbucks,
@@ -7397,7 +7397,7 @@
 /obj/machinery/power/terminal{
 	icon_state = "term-omni"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "Tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8388,7 +8388,7 @@
 /obj/structure/handrail{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "YZ" = (
 /obj/structure/cable{
