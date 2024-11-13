@@ -1,9 +1,0 @@
-author: Penelope Haze
-changes:
-  - {imageadd: Added a new wooden bucket sprite.}
-  - {tweak: 'Quills now have a limited amount of ink, which can be refilled in an
-      inkwell.'}
-  - {tweak: 'Crayons are now slowly used up while writing on paper, at a rate of one
-      charge per 25 characters. (Crayons have a default of 30 charges.)'}
-  - {tweak: Added new furniture to the Shaded Hills inn.}
-delete-after: true
