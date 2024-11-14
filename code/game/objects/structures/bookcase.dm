@@ -72,6 +72,7 @@ var/global/list/station_bookcases = list()
 	for(var/obj/item/thing in holder.get_stored_inventory())
 
 		var/positioned = FALSE
+		// Avoid moving us if we're already positioned
 		for(var/bX = 0 to (book_slots_x-1))
 			for(var/bY = 0 to (book_slots_y-1))
 				if(book_positions[GET_BOOK_POS(src, bX, bY)] == thing)
@@ -83,6 +84,7 @@ var/global/list/station_bookcases = list()
 		if(positioned)
 			continue
 
+		// Otherwise, find a new position
 		for(var/bX = 0 to (book_slots_x-1))
 			for(var/bY = 0 to (book_slots_y-1))
 				var/bK = GET_BOOK_POS(src, bX, bY)
@@ -92,11 +94,14 @@ var/global/list/station_bookcases = list()
 					break
 			if(positioned)
 				break
+		// No position, fall on the ground!
+		if(!positioned)
+			thing.dropInto(holder.loc)
 
 /obj/structure/bookcase
 	name = "bookcase"
 	icon = 'icons/obj/structures/bookcase.dmi'
-	icon_state = ICON_STATE_WORLD
+	icon_state = "bookcase"
 	anchored = TRUE
 	density = TRUE
 	opacity = TRUE
@@ -132,6 +137,12 @@ var/global/list/station_bookcases = list()
 /obj/structure/bookcase/on_update_icon()
 
 	. = ..()
+
+	// TODO: Handle repair, drop book contents when too damaged?
+	// At the very least, should probably add an update_icon() call on take_damage()...
+	if(get_health_ratio() < 0.5)
+		icon_state = "[initial(icon_state)]-damaged"
+		return // No storage contents while damaged.
 
 	var/datum/storage/bookcase/book_storage = storage
 	if(!istype(book_storage) || !length(contents))
@@ -213,5 +224,12 @@ var/global/list/station_bookcases = list()
 /obj/structure/bookcase/ebony
 	material = /decl/material/solid/organic/wood/ebony
 	color =    /decl/material/solid/organic/wood/ebony::color
+
+/obj/structure/bookcase/fancy
+	icon_state = "fancy"
+
+/obj/structure/bookcase/fancy/ebony
+	material = /decl/material/solid/organic/wood/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
 
 #undef GET_BOOK_POS
