@@ -11,7 +11,6 @@
 	icon = 'icons/obj/fishing_rod.dmi'
 	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_LARGE
-	force = 5 // bonk
 
 	// Fishing minigame tracking vars.
 	var/turf/fishing_target
@@ -153,7 +152,7 @@
 		if(bait)
 			to_chat(user, "\The [src] has been baited with \a [bait].")
 
-/obj/item/fishing_rod/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/fishing_rod/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay)
 		if(line)
 			overlay.overlays += overlay_image(overlay.icon, "[overlay.icon_state]-line", line.color, RESET_COLOR | RESET_ALPHA)
@@ -237,7 +236,7 @@
 	if(load_line(user, W))
 		return TRUE
 
-	if(istype(W, /obj/item/chems/food))
+	if(istype(W, /obj/item/food))
 
 		if(bait)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [bait] on the hook."))

@@ -16,12 +16,11 @@
 	max_amount = 100
 	icon = 'icons/obj/tiles.dmi'
 	matter_multiplier = 0.2
-	force = 1
-	throwforce = 1
 	throw_speed = 5
 	throw_range = 20
 	item_flags = 0
 	obj_flags = 0
+	_base_attack_force = 1
 	var/replacement_turf_type = /turf/floor
 
 /obj/item/stack/tile/proc/try_build_turf(var/mob/user, var/turf/target)
@@ -139,12 +138,12 @@
 /obj/item/stack/tile/floor
 	name = "steel floor tile"
 	singular_name = "steel floor tile"
-	desc = "Those could work as a pretty decent throwing weapon." //why?
+	desc = "Some square sections of flooring. They have a satisfying heft in the hand."
 	icon_state = "tile"
-	force = 6
 	material = /decl/material/solid/metal/steel
-	throwforce = 15
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	_thrown_force_multiplier = 1 // floor tiles were always good throwing weapons for no apparent reason
+	_base_attack_force = 6
 
 /obj/item/stack/tile/mono
 	name = "steel mono tile"
@@ -287,7 +286,8 @@
 /obj/item/stack/tile/carpet/on_update_icon()
 	. = ..()
 	color = get_color()
-	set_overlays(overlay_image(icon, "[icon_state]-detail", detail_color, RESET_COLOR))
+	if(detail_color)
+		set_overlays(overlay_image(icon, "[icon_state]-detail", detail_color, RESET_COLOR))
 
 /obj/item/stack/tile/carpet/fifty
 	amount = 50
@@ -370,6 +370,13 @@
 
 /obj/item/stack/tile/carpet/red/fifty
 	amount = 50
+
+/obj/item/stack/tile/carpet/rustic
+	name = "rustic carpet"
+	desc = "A piece of simple, rustic carpeting."
+	singular_name = "rustic carpet"
+	paint_color = COLOR_CHESTNUT
+	detail_color = null
 
 /obj/item/stack/tile/pool
 	name = "pool tiling"

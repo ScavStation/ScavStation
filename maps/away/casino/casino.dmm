@@ -63,9 +63,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space{
-	icon_state = "black"
-	},
+/turf/space/black,
 /area/space)
 "ah" = (
 /obj/effect/step_trigger/thrower{
@@ -111,8 +109,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	id_tag = "casino_bridge";
-	name = "Casino Bridge Blast Doors";
-	
+	name = "Casino Bridge Blast Doors"
 	},
 /turf/floor/plating,
 /area/casino/casino_bridge)
@@ -137,8 +134,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id_tag = "casino_bridge";
-	name = "Casino Bridge Blast Doors";
-	
+	name = "Casino Bridge Blast Doors"
 	},
 /turf/floor/plating,
 /area/casino/casino_bridge)
@@ -1162,7 +1158,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "dt" = (
 /obj/structure/hygiene/toilet{
@@ -1274,7 +1270,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "dM" = (
 /obj/structure/bed/chair/comfy/red{
@@ -1387,10 +1383,10 @@
 	name = "Starboard Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ed" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ee" = (
 /obj/structure/hygiene/shower{
@@ -1473,7 +1469,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "er" = (
 /obj/structure/cable/yellow{
@@ -1485,13 +1481,13 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "es" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "et" = (
 /obj/structure/cable/yellow{
@@ -1503,7 +1499,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eu" = (
 /obj/structure/cable/yellow{
@@ -1515,7 +1511,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ev" = (
 /obj/structure/cable/yellow{
@@ -1524,7 +1520,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ew" = (
 /obj/structure/reagent_dispensers/beerkeg,
@@ -1603,7 +1599,7 @@
 	name = "Starboard Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eJ" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -1800,8 +1796,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id_tag = "casino_checkpoint";
-	name = "Casino Checkpoint Blast Doors";
-	
+	name = "Casino Checkpoint Blast Doors"
 	},
 /turf/floor/tiled,
 /area/casino/casino_security)
@@ -1891,8 +1886,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id_tag = "casino_checkpoint";
-	name = "Casino Checkpoint Blast Doors";
-	
+	name = "Casino Checkpoint Blast Doors"
 	},
 /turf/floor/tiled,
 /area/casino/casino_security)
@@ -2016,7 +2010,7 @@
 	},
 /obj/structure/cable/yellow,
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "fN" = (
 /obj/structure/mopbucket,
@@ -2134,8 +2128,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id_tag = "casino_checkpoint";
-	name = "Casino Checkpoint Blast Doors";
-	
+	name = "Casino Checkpoint Blast Doors"
 	},
 /turf/floor/plating,
 /area/casino/casino_security)
@@ -2274,7 +2267,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gx" = (
 /obj/structure/cable/yellow{
@@ -2287,7 +2280,7 @@
 	pixel_y = 24;
 	req_access = newlist()
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gy" = (
 /obj/machinery/door/airlock/external{
@@ -2381,7 +2374,7 @@
 	name = "Port Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gL" = (
 /obj/machinery/door/airlock/external{
@@ -2421,7 +2414,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hb" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2493,7 +2486,7 @@
 	name = "Port Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hl" = (
 /obj/structure/cable/yellow,
@@ -2772,7 +2765,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ih" = (
 /obj/machinery/door/firedoor,
@@ -2826,6 +2819,7 @@
 /obj/item/box/fancy/egg_box,
 /obj/item/box/fancy/egg_box,
 /obj/item/chems/condiment/flour,
+/obj/item/chems/condiment/yeast,
 /obj/item/chems/condiment/sugar,
 /turf/floor/tiled,
 /area/casino/casino_kitchen)
@@ -2835,12 +2829,13 @@
 	dir = 8
 	},
 /obj/item/chems/condiment/sugar,
-/obj/item/chems/food/sliceable/bread,
+/obj/item/food/sliceable/bread,
 /turf/floor/tiled,
 /area/casino/casino_kitchen)
 "in" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/chems/condiment/flour,
+/obj/item/chems/condiment/yeast,
 /turf/floor/tiled,
 /area/casino/casino_kitchen)
 "io" = (
@@ -2862,13 +2857,13 @@
 "iq" = (
 /obj/structure/table/woodentable,
 /obj/item/plate,
-/obj/item/chems/food/applepie,
+/obj/item/food/applepie,
 /turf/floor/carpet,
 /area/casino/casino_mainfloor)
 "ir" = (
 /obj/structure/table/woodentable,
 /obj/item/plate,
-/obj/item/chems/food/bigbiteburger,
+/obj/item/food/bigbiteburger,
 /turf/floor/carpet,
 /area/casino/casino_mainfloor)
 "is" = (
@@ -2951,10 +2946,10 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/chems/food/butchery/meat,
-/obj/item/chems/food/butchery/meat,
-/obj/item/chems/food/butchery/meat,
-/obj/item/chems/food/butchery/meat,
+/obj/item/food/butchery/meat,
+/obj/item/food/butchery/meat,
+/obj/item/food/butchery/meat,
+/obj/item/food/butchery/meat,
 /turf/floor/tiled/freezer,
 /area/casino/casino_kitchen)
 "iD" = (
@@ -3049,7 +3044,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/marble,
 /obj/item/plate/tray,
-/obj/item/chems/food/stew,
+/obj/item/chems/glass/bowl/mapped/stew,
 /turf/floor/tiled,
 /area/casino/casino_kitchen)
 "iR" = (
@@ -3281,7 +3276,7 @@
 	icon_state = "map_injector";
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "jv" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -3392,7 +3387,7 @@
 "jJ" = (
 /obj/structure/table/woodentable,
 /obj/item/ashtray,
-/obj/item/chems/food/cubancarp,
+/obj/item/food/cubancarp,
 /turf/floor/carpet,
 /area/casino/casino_mainfloor)
 "jK" = (
@@ -3470,7 +3465,7 @@
 "jU" = (
 /obj/structure/table/woodentable,
 /obj/item/plate,
-/obj/item/chems/food/waffles,
+/obj/item/food/waffles,
 /obj/item/chems/drinks/cans/iced_tea,
 /turf/floor/carpet,
 /area/casino/casino_mainfloor)
@@ -4594,18 +4589,18 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "nh" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/machinery/meter,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "ni" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "nj" = (
 /obj/structure/bed/chair,
@@ -5156,7 +5151,7 @@
 /area/casino/casino_mainfloor)
 "Mb" = (
 /obj/machinery/shipsensors,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bridge)
 "Mc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -5257,6 +5252,10 @@
 	},
 /turf/floor/plating,
 /area/casino/casino_bow)
+"QL" = (
+/obj/effect/shuttle_landmark/nav_casino/dock,
+/turf/space,
+/area/space)
 "Rb" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -5307,7 +5306,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "Tb" = (
 /obj/machinery/light{
@@ -5323,7 +5322,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/casino/casino_bow)
 "TO" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
@@ -10588,7 +10587,7 @@ aa
 aa
 aa
 aa
-aa
+QL
 aD
 aI
 aO

@@ -1,8 +1,8 @@
 /obj/item/mech_storage
-	w_class = ITEM_SIZE_NO_CONTAINER
-	storage = /datum/storage/mech
-	anchored = TRUE
+	storage    = /datum/storage/mech
+	anchored   = TRUE
 	max_health = ITEM_HEALTH_NO_DAMAGE
+	obj_flags  = OBJ_FLAG_NO_STORAGE
 
 /obj/item/mech_component/chassis/Adjacent(var/atom/neighbor, var/recurse = 1) //For interaction purposes we consider body to be adjacent to whatever holder mob is adjacent
 	var/mob/living/exosuit/E = loc
@@ -144,19 +144,27 @@
 	if(istype(thing,/obj/item/robot_parts/robot_component/diagnosis_unit))
 		if(diagnostics)
 			to_chat(user, SPAN_WARNING("\The [src] already has a diagnostic system installed."))
-			return
-		if(install_component(thing, user)) diagnostics = thing
+			return TRUE
+		if(install_component(thing, user))
+			diagnostics = thing
+			return TRUE
+		return FALSE
 	else if(istype(thing, /obj/item/cell))
 		if(cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cell installed."))
-			return
-		if(install_component(thing,user)) cell = thing
+			return TRUE
+		if(install_component(thing,user))
+			cell = thing
+			return TRUE
+		return FALSE
 	else if(istype(thing, /obj/item/robot_parts/robot_component/armour/exosuit))
 		if(m_armour)
 			to_chat(user, SPAN_WARNING("\The [src] already has armour installed."))
-			return
+			return TRUE
 		if(install_component(thing, user))
 			m_armour = thing
+			return TRUE
+		return FALSE
 	else
 		return ..()
 
@@ -170,7 +178,7 @@
 		if(!C.anchored && do_after(user, 5, src))
 			if(C.anchored)
 				return
-			to_chat(user, SPAN_NOTICE("You install the canister in the [src]."))
+			to_chat(user, SPAN_NOTICE("You install the canister in \the [src]."))
 			if(air_supply)
 				air_supply.dropInto(get_turf(src))
 				air_supply = null

@@ -14,7 +14,7 @@
 		"th" = list("d")
 	)
 
-	preview_outfit = /decl/hierarchy/outfit/job/yinglet/assistant
+	preview_outfit = /decl/outfit/job/yinglet/assistant
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
 
@@ -47,26 +47,26 @@
 	inherent_verbs = list(/mob/living/proc/hide)
 	toxins_mod = 0.65
 
-	available_cultural_info = list(
+	available_background_info = list(
 		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/yinglet,
-			/decl/cultural_info/culture/yinglet/tribal,
-			/decl/cultural_info/culture/yinglet/void,
-			/decl/cultural_info/culture/other
+			/decl/background_detail/heritage/yinglet,
+			/decl/background_detail/heritage/yinglet/tribal,
+			/decl/background_detail/heritage/yinglet/void,
+			/decl/background_detail/heritage/other
 		),
 		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/yingletacrology,
-			/decl/cultural_info/location/tradehousespace,
-			/decl/cultural_info/location/stateless
+			/decl/background_detail/location/yingletacrology,
+			/decl/background_detail/location/tradehousespace,
+			/decl/background_detail/location/stateless
 		),
 		TAG_FACTION =   list(
-			/decl/cultural_info/faction/enclave_ying,
-			/decl/cultural_info/faction/tradehouse_ying,
-			/decl/cultural_info/faction/other
+			/decl/background_detail/faction/enclave_ying,
+			/decl/background_detail/faction/tradehouse_ying,
+			/decl/background_detail/faction/other
 		),
 		TAG_RELIGION =  list(
-			/decl/cultural_info/religion/enclave,
-			/decl/cultural_info/religion/other
+			/decl/background_detail/religion/enclave,
+			/decl/background_detail/religion/other
 		)
 	)
 

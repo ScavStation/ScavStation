@@ -6,5 +6,5 @@
 	max_health = 100
 	natural_weapon = /obj/item/natural_weapon/bite/strong
 	faction = "creature"
-	speed = 4
 	supernatural = 1
+	ability_handlers = list(/datum/ability_handler/predator)

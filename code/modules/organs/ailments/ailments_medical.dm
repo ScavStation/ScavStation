@@ -36,7 +36,10 @@
 
 /datum/ailment/head/sneezing
 	name = "sneezing"
-	treated_by_reagent_type = /decl/material/liquid/antiseptic
+	treated_by_reagent_type = list(
+		/decl/material/liquid/antiseptic,
+		/decl/material/liquid/drink/juice/nettle
+	)
 	treated_by_reagent_dosage = 1
 	medication_treatment_message = "The itching in your sinuses fades away."
 	manual_diagnosis_string = "$USER_THEIR$ sinuses are inflamed and running."
@@ -54,7 +57,7 @@
 /datum/ailment/sprain
 	name = "sprained limb"
 	applies_to_organ = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
-	treated_by_item_type = /obj/item/stack/medical/bruise_pack
+	treated_by_item_type = /obj/item/stack/medical/bandage
 	third_person_treatment_message = "$USER$ wraps $TARGET$'s sprained $ORGAN$ in $ITEM$."
 	self_treatment_message = "$USER$ wraps $USER_THEIR$ sprained $ORGAN$ in $ITEM$."
 	manual_diagnosis_string = "$USER_THEIR$ $ORGAN$ is visibly swollen."
@@ -81,7 +84,10 @@
 	name = "coughing"
 	specific_organ_subtype = /obj/item/organ/internal/lungs
 	applies_to_organ = list(BP_LUNGS)
-	treated_by_reagent_type = /decl/material/liquid/antiseptic
+	treated_by_reagent_type = list(
+		/decl/material/liquid/antiseptic,
+		/decl/material/liquid/drink/juice/nettle
+	)
 	medication_treatment_message = "The tickling in your throat fades away."
 	manual_diagnosis_string = "$USER_THEIR$ throat is red and inflamed."
 

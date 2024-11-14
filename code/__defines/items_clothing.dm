@@ -2,23 +2,26 @@
 
 #define CANDLE_LUM 3 // For how bright candles are.
 
-#define ACCESSORY_SLOT_UTILITY  "Utility"
-#define ACCESSORY_SLOT_HOLSTER	"Holster"
-#define ACCESSORY_SLOT_ARMBAND  "Armband"
-#define ACCESSORY_SLOT_RANK     "Rank"
-#define ACCESSORY_SLOT_DEPT		"Department"
-#define ACCESSORY_SLOT_DECOR    "Decor"
-#define ACCESSORY_SLOT_NECK     "Neck"
-#define ACCESSORY_SLOT_MEDAL    "Medal"
-#define ACCESSORY_SLOT_INSIGNIA "Insignia"
-#define ACCESSORY_SLOT_ARMOR_C  "Chest armor"
-#define ACCESSORY_SLOT_ARMOR_A  "Arm armor"
-#define ACCESSORY_SLOT_ARMOR_L  "Leg armor"
-#define ACCESSORY_SLOT_ARMOR_S  "Armor storage"
-#define ACCESSORY_SLOT_ARMOR_M  "Misc armor"
-#define ACCESSORY_SLOT_HELM_C	"Helmet cover"
-#define ACCESSORY_SLOT_OVER     "Over"
-#define ACCESSORY_SLOT_SENSORS  "Suit Sensors"
+#define ACCESSORY_SLOT_UTILITY     "Utility"
+#define ACCESSORY_SLOT_HOLSTER	   "Holster"
+#define ACCESSORY_SLOT_ARMBAND     "Armband"
+#define ACCESSORY_SLOT_RANK        "Rank"
+#define ACCESSORY_SLOT_DEPT		   "Department"
+#define ACCESSORY_SLOT_DECOR       "Decor"
+#define ACCESSORY_SLOT_NECK        "Neck"
+#define ACCESSORY_SLOT_MEDAL       "Medal"
+#define ACCESSORY_SLOT_INSIGNIA    "Insignia"
+#define ACCESSORY_SLOT_ARMOR_C     "Chest armor"
+#define ACCESSORY_SLOT_ARMOR_A     "Arm armor"
+#define ACCESSORY_SLOT_ARMOR_L     "Leg armor"
+#define ACCESSORY_SLOT_ARMOR_S     "Armor storage"
+#define ACCESSORY_SLOT_ARMOR_M     "Misc armor"
+#define ACCESSORY_SLOT_HELM_C	   "Helmet cover"
+#define ACCESSORY_SLOT_OVER_HELMET "Hat"
+#define ACCESSORY_SLOT_OVER        "Over"
+#define ACCESSORY_SLOT_SENSORS     "Suit Sensors"
+#define ACCESSORY_SLOT_GREAVES     "Greaves"
+#define ACCESSORY_SLOT_GAUNTLETS   "Gauntlets"
 
 // Accessory will be shown as part of the name of the item when examined.
 #define ACCESSORY_VISIBILITY_ENSEMBLE   0
@@ -173,7 +176,7 @@
 #define FIRE_MAX_FIRESUIT_STACKS  20 // If the number of stacks goes above this firesuits won't protect you anymore. If not, you can walk around while on fire like a badass.
 
 #define THROWFORCE_GIBS 3              // Throw speed for gibbed or dismembered organs.
-#define THROWFORCE_SPEED_DIVISOR    12 // The throwing speed value at which the throwforce multiplier is exactly 1.
+#define THROWFORCE_SPEED_DIVISOR    12 // The throwing speed value at which the thrown force multiplier is exactly 1.
 #define THROWNOBJ_KNOCKBACK_SPEED   15 // The minumum speed of a w_class 2 thrown object that will cause living mobs it hits to be knocked back. Heavier objects can cause knockback at lower speeds.
 #define THROWNOBJ_KNOCKBACK_DIVISOR 2  // Affects how much speed the mob is knocked back with.
 
@@ -184,7 +187,7 @@
 #define VITALS_SENSOR_TRACKING 3
 
 // Hair Flags
-#define VERY_SHORT           BITFLAG(0)
+#define HAIR_VERY_SHORT      BITFLAG(0)
 #define HAIR_TIEABLE         BITFLAG(1)
 #define HAIR_BALD            BITFLAG(2)
 #define HAIR_LOSS_VULNERABLE BITFLAG(3)

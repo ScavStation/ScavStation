@@ -152,8 +152,8 @@
 /// * If centered is TRUE, the template's center will be aligned to the world's center. Otherwise, the template will load at pos 1,1.
 /datum/map_template/proc/load_new_z(no_changeturf = TRUE, centered = TRUE)
 	//When we're set to centered we're aligning the center of the template to the center of the map
-	var/x = max(CEILING((WORLD_CENTER_X - width/2)), 1)
-	var/y = max(CEILING((WORLD_CENTER_Y - height/2)), 1)
+	var/x = max(ceil((WORLD_CENTER_X - width/2)), 1)
+	var/y = max(ceil((WORLD_CENTER_Y - height/2)), 1)
 	if(!centered)
 		x = 1
 		y = 1
@@ -178,6 +178,7 @@
 	global._preloader.current_map_hash = null
 
 	//initialize things that are normally initialized after map load
+	Master.StartLoadingMap()
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state, map_hash, initialized_areas_by_type)
 	after_load()
@@ -186,6 +187,7 @@
 		level.after_template_load(src)
 		if(SSlighting.initialized)
 			SSlighting.InitializeZlev(z_index)
+	Master.StopLoadingMap()
 	log_game("Z-level [name] loaded at [x],[y],[world.maxz]")
 	loaded++
 
@@ -193,7 +195,7 @@
 
 /datum/map_template/proc/load(turf/T, centered=FALSE)
 	if(centered)
-		T = locate(CEILING(T.x - width/2), CEILING(T.y - height/2), T.z)
+		T = locate(ceil(T.x - width/2), ceil(T.y - height/2), T.z)
 	if(!T)
 		CRASH("Can't load '[src]' (size: [width]x[height]) onto a null turf! Current world size ([WORLD_SIZE_TO_STRING]).")
 	if(!IS_WITHIN_WORLD((T.x + width - 1), (T.y + height - 1))) // the first row/column begins with T, so subtract 1
@@ -219,11 +221,13 @@
 	global._preloader.current_map_hash = null
 
 	//initialize things that are normally initialized after map load
+	Master.StartLoadingMap()
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state, map_hash, initialized_areas_by_type)
 	after_load()
 	if (SSlighting.initialized)
 		SSlighting.InitializeTurfs(atoms_to_initialise)	// Hopefully no turfs get placed on new coords by SSatoms.
+	Master.StopLoadingMap()
 
 	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
 	loaded++

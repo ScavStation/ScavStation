@@ -76,57 +76,65 @@
 	if(. && !QDELETED(src) && (severity == 1 || (severity == 2 && prob(50)) || (severity == 3 && prob(5))))
 		physically_destroyed()
 
-/obj/structure/bed/attackby(obj/item/W, mob/user)
-	. = ..()
-	if(!.)
-		if(istype(W,/obj/item/stack))
-			if(reinf_material)
-				to_chat(user, "\The [src] is already padded.")
-				return
-			var/obj/item/stack/C = W
-			if(C.get_amount() < 1) // How??
-				qdel(C)
-				return
+/obj/structure/bed/proc/can_apply_padding()
+	return TRUE
 
-			var/padding_type
-			var/new_padding_color
-			if(istype(W, /obj/item/stack/tile) || istype(W, /obj/item/stack/material/bolt))
-				padding_type = W.material?.type
-				new_padding_color = W.paint_color
+/obj/structure/bed/attackby(obj/item/used_item, mob/user)
 
-			if(padding_type)
-				var/decl/material/padding_mat = GET_DECL(padding_type)
-				if(!istype(padding_mat) || !(padding_mat.flags & MAT_FLAG_PADDING))
-					padding_type = null
+	if((. = ..()))
+		return
 
-			if(!padding_type)
-				to_chat(user, "You cannot pad \the [src] with that.")
-				return
+	if(istype(used_item, /obj/item/stack) && can_apply_padding())
 
-			C.use(1)
-			if(!isturf(src.loc))
-				src.forceMove(get_turf(src))
-			playsound(src.loc, 'sound/effects/rustle5.ogg', 50, 1)
-			to_chat(user, "You add padding to \the [src].")
-			add_padding(padding_type, new_padding_color)
-			return
+		if(reinf_material)
+			to_chat(user, SPAN_WARNING("\The [src] is already padded."))
+			return TRUE
 
-		else if(IS_WIRECUTTER(W))
-			if(!reinf_material)
-				to_chat(user, "\The [src] has no padding to remove.")
-				return
-			to_chat(user, "You remove the padding from \the [src].")
+		var/obj/item/stack/cloth = used_item
+		if(cloth.get_amount() < 1)
+			to_chat(user, SPAN_WARNING("You need at least one unit of material to pad \the [src]."))
+			return TRUE
+
+		var/padding_type
+		var/new_padding_color
+		if(istype(used_item, /obj/item/stack/tile) || istype(used_item, /obj/item/stack/material/bolt))
+			padding_type = used_item.material?.type
+			new_padding_color = used_item.paint_color
+
+		if(padding_type)
+			var/decl/material/padding_mat = GET_DECL(padding_type)
+			if(!istype(padding_mat) || !(padding_mat.flags & MAT_FLAG_PADDING))
+				padding_type = null
+
+		if(!padding_type)
+			to_chat(user, SPAN_WARNING("You cannot pad \the [src] with that."))
+			return TRUE
+
+		cloth.use(1)
+		if(!isturf(src.loc))
+			src.forceMove(get_turf(src))
+		playsound(src.loc, 'sound/effects/rustle5.ogg', 50, 1)
+		to_chat(user, SPAN_NOTICE("You add padding to \the [src]."))
+		add_padding(padding_type, new_padding_color)
+		return TRUE
+
+	if(IS_WIRECUTTER(used_item))
+		if(!reinf_material)
+			to_chat(user, SPAN_WARNING("\The [src] has no padding to remove."))
+		else
+			to_chat(user, SPAN_NOTICE("You remove the padding from \the [src]."))
 			playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 			remove_padding()
+		return TRUE
 
-		else if(istype(W, /obj/item/grab))
-			var/obj/item/grab/G = W
-			var/mob/living/affecting = G.get_affecting_mob()
-			if(affecting)
-				user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
-				if(do_after(user, 20, src))
-					if(user_buckle_mob(affecting, user))
-						qdel(W)
+/obj/structure/bed/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim) && istype(user))
+		user.visible_message(SPAN_NOTICE("\The [user] attempts to put \the [victim] onto \the [src]!"))
+		if(do_after(user, 2 SECONDS, src) && !QDELETED(victim) && !QDELETED(user) && !QDELETED(grab) && user_buckle_mob(victim, user))
+			qdel(grab)
+		return TRUE
+	return ..()
 
 /obj/structure/bed/proc/add_padding(var/padding_type, var/new_padding_color)
 	reinf_material = GET_DECL(padding_type)
@@ -157,6 +165,23 @@
 	reinf_material = /decl/material/solid/organic/cloth
 
 /*
+ * Travois used to drag mobs in low-tech settings.
+ */
+/obj/structure/bed/travois
+	name = "travois"
+	anchored = FALSE
+	icon_state = ICON_STATE_WORLD
+	base_icon = ICON_STATE_WORLD
+	icon = 'icons/obj/structures/travois.dmi'
+	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 6)
+	movable_flags = MOVABLE_FLAG_WHEELED
+	user_comfort = 0
+	material = /decl/material/solid/organic/wood
+
+/obj/structure/bed/travois/can_apply_padding()
+	return FALSE
+
+/*
  * Roller beds
  */
 /obj/structure/bed/roller
@@ -166,6 +191,7 @@
 	anchored = FALSE
 	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 6)
 	movable_flags = MOVABLE_FLAG_WHEELED
+	tool_interaction_flags = 0
 	var/item_form_type = /obj/item/roller	//The folded-up object path.
 	var/obj/item/chems/beaker
 	var/iv_attached = 0
@@ -189,17 +215,18 @@
 			iv.pixel_y = 6
 		add_overlay(iv)
 
+/obj/structure/bed/roller/can_apply_padding()
+	return FALSE
+
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
-	if(IS_WRENCH(I) || istype(I, /obj/item/stack) || IS_WIRECUTTER(I))
-		return 1
 	if(iv_stand && !beaker && istype(I, /obj/item/chems))
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		to_chat(user, "You attach \the [I] to \the [src].")
 		beaker = I
 		queue_icon_update()
-		return 1
-	..()
+		return TRUE
+	return ..()
 
 /obj/structure/bed/roller/attack_hand(mob/user)
 	if(!beaker || buckled_mob || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))

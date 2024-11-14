@@ -2,7 +2,7 @@
 	title = "Enclave Worker"
 	spawn_positions = 2
 	total_positions = 4
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/worker
+	outfit_type = /decl/outfit/job/yinglet/worker
 
 /datum/job/yinglet/scout
 	title = "Enclave Scout"
@@ -14,9 +14,9 @@
 	)
 	hud_icon = "hudyingscout"
 	supervisors = "the Matriarch and the Patriarches"
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/scout
+	outfit_type = /decl/outfit/job/yinglet/scout
 	access = list(
-		access_eva, 
+		access_eva,
 		access_research
 	)
 	min_skill = list(
@@ -40,10 +40,10 @@
 	total_positions = 3
 	supervisors = "the Matriarch"
 	required_gender = MALE
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/patriarch
+	outfit_type = /decl/outfit/job/yinglet/patriarch
 	alt_titles = list(
-		"Patriarch of Cooking" = /decl/hierarchy/outfit/job/yinglet/patriarch/cook,
-		"Patriarch of Scouting" = /decl/hierarchy/outfit/job/yinglet/patriarch/scout,
+		"Patriarch of Cooking" = /decl/outfit/job/yinglet/patriarch/cook,
+		"Patriarch of Scouting" = /decl/outfit/job/yinglet/patriarch/scout,
 		"Patriarch of Security",
 		"Patriarch of Botany" )
 	min_skill = list(
@@ -65,7 +65,7 @@
 	)
 	skill_points = 26
 	head_position = 1
-	guestbanned = 1	
+	guestbanned = 1
 	department_types = list(/decl/department/enclave)
 	access = list(
 		access_security,
@@ -73,7 +73,7 @@
 		access_brig,
 		access_forensics_lockers,
 		access_heads,
-		access_medical, 
+		access_medical,
 		access_engine,
 		access_change_ids,
 		access_eva,
@@ -119,7 +119,7 @@
 	total_positions = 1
 	required_gender = FEMALE
 	supervisors = "your own wishes, and maybe the Captain"
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/matriarch
+	outfit_type = /decl/outfit/job/yinglet/matriarch
 	min_skill = list(
 		SKILL_WEAPONS  = SKILL_BASIC,
 		SKILL_FINANCE  = SKILL_EXPERT,
@@ -141,7 +141,7 @@
 	)
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	access = list(

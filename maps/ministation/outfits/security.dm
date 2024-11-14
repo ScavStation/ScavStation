@@ -2,7 +2,7 @@
 	color = COLOR_DARK_RED
 	decals = list("stripe" = COLOR_RED_LIGHT)
 
-/decl/hierarchy/outfit/job/ministation/security
+/decl/outfit/job/ministation/security
 	l_ear = /obj/item/radio/headset/headset_sec
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	gloves = /obj/item/clothing/gloves/thick
@@ -17,7 +17,7 @@
 	suit = /obj/item/clothing/suit/jacket/redcoat/officiated
 	yinglet_suit_officiated = TRUE
 
-/decl/hierarchy/outfit/job/ministation/security/head
+/decl/outfit/job/ministation/security/head
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	l_ear = /obj/item/radio/headset/heads/hos
 	gloves = /obj/item/clothing/gloves/thick
@@ -31,11 +31,11 @@
 	pda_type = /obj/item/modular_computer/pda/security
 	suit = /obj/item/clothing/suit/jacket/redcoat/officer
 
-/decl/hierarchy/outfit/job/ministation/security/Initialize()
+/decl/outfit/job/ministation/security/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_SECURITY
 
-/decl/hierarchy/outfit/job/ministation/security/head/Initialize()
+/decl/outfit/job/ministation/security/head/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_SECURITY
 
@@ -47,7 +47,7 @@
 	default_hardware |= /obj/item/stock_parts/computer/scanner/reagent
 	. = ..()
 
-/decl/hierarchy/outfit/job/ministation/detective
+/decl/outfit/job/ministation/detective
 	name = "Ministation - Job - Detective"
 	head = /obj/item/clothing/head/det
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
@@ -63,7 +63,7 @@
 	gloves = /obj/item/clothing/gloves/thick
 	yinglet_suit_officiated = TRUE
 
-/decl/hierarchy/outfit/job/ministation/detective/Initialize()
+/decl/outfit/job/ministation/detective/Initialize()
 	. = ..()
 	backpack_overrides.Cut()
 

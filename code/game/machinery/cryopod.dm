@@ -1,10 +1,17 @@
+/proc/despawn_character(mob/living/character)
+	if(character.client)
+		character.ghostize()
+	character.prepare_for_despawn()
+	character.key = null
+	character.ckey = null
+	qdel(character)
+
 /*
  * Cryogenic refrigeration unit. Basically a despawner.
  * Stealing a lot of concepts/code from sleepers due to massive laziness.
  * The despawn tick will only fire if it's been more than time_till_despawned ticks
  * since time_entered, which is world.time when the occupant moves in.
  */
-
 
 //Main cryopod console.
 
@@ -312,21 +319,6 @@
 
 // This function can not be undone; do not call this unless you are sure
 // Also make sure there is a valid control computer
-/obj/machinery/cryopod/robot/despawn_occupant()
-	var/mob/living/silicon/robot/R = occupant
-	if(istype(R))
-		R.clear_brain()
-		if(R.module)
-			for(var/obj/item/I in R.module) // the tools the borg has; metal, glass, guns etc
-				for(var/obj/item/O in I.get_contained_external_atoms()) // the things inside the tools, if anything; mainly for janiborg trash bags
-					O.forceMove(R)
-				qdel(I)
-			qdel(R.module)
-
-	. = ..()
-
-// This function can not be undone; do not call this unless you are sure
-// Also make sure there is a valid control computer
 /obj/machinery/cryopod/proc/despawn_occupant()
 	//Drop all items into the pod.
 	for(var/obj/item/equipped_item in occupant.get_equipped_items(include_carried = TRUE))
@@ -352,38 +344,9 @@
 		else
 			frozen_item.forceMove(get_turf(src))
 
-	//Update any existing objectives involving this mob.
-	for(var/datum/objective/objective in global.all_objectives)
-		// We don't want revs to get objectives that aren't for heads of staff. Letting
-		// them win or lose based on cryo is silly so we remove the objective.
-		if(objective.target == occupant.mind)
-			if(objective.owner?.current)
-				to_chat(objective.owner.current, SPAN_DANGER("You get the feeling your target, [occupant.real_name], is no longer within your reach..."))
-			qdel(objective)
-
-	//Handle job slot/tater cleanup.
-	if(occupant.mind)
-		if(occupant.mind.assigned_job)
-			occupant.mind.assigned_job.clear_slot()
-
-		if(occupant.mind.objectives.len)
-			occupant.mind.objectives = null
-			occupant.mind.assigned_special_role = null
-
-	// Delete them from datacore.
-	var/sanitized_name = occupant.real_name
-	sanitized_name = sanitize(sanitized_name)
-	var/datum/computer_file/report/crew_record/record = get_crewmember_record(sanitized_name)
-	if(record)
-		qdel(record)
-
 	icon_state = base_icon_state
 
-	//TODO: Check objectives/mode, update new targets if this mob is the target, spawn new antags?
-
-
 	//Make an announcement and log the person entering storage.
-
 	// Titles should really be fetched from data records
 	//  and records should not be fetched by name as there is no guarantee names are unique
 	var/role_alt_title = occupant.mind ? occupant.mind.role_alt_title : "Unknown"
@@ -394,12 +357,7 @@
 	log_and_message_admins("[key_name(occupant)] ([role_alt_title]) entered cryostorage.")
 
 	do_telecomms_announcement(src, "[occupant.real_name], [role_alt_title], [on_store_message]", "[on_store_name]")
-
-	//This should guarantee that ghosts don't spawn.
-	occupant.ckey = null
-
-	// Delete the mob.
-	qdel(occupant)
+	despawn_character(occupant)
 	set_occupant(null)
 
 /obj/machinery/cryopod/proc/attempt_enter(var/mob/target, var/mob/user)
@@ -434,21 +392,16 @@
 		attempt_enter(dropping, user)
 		return TRUE
 
-/obj/machinery/cryopod/attackby(var/obj/item/G, var/mob/user)
-
-	if(istype(G, /obj/item/grab))
-		var/obj/item/grab/grab = G
+/obj/machinery/cryopod/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim) && istype(user))
 		if(occupant)
 			to_chat(user, SPAN_NOTICE("\The [src] is in use."))
-			return
-
-		if(!ismob(grab.affecting))
-			return
-
-		if(!check_occupant_allowed(grab.affecting))
-			return
-
-		attempt_enter(grab.affecting, user)
+			return TRUE
+		if(!check_occupant_allowed(victim))
+			return TRUE
+		attempt_enter(victim, user)
+		return TRUE
 	return ..()
 
 /obj/machinery/cryopod/verb/eject()
@@ -570,22 +523,23 @@
 /obj/structure/broken_cryo/attackby(obj/item/W, mob/user)
 	if (busy)
 		to_chat(user, SPAN_NOTICE("Someone else is attempting to open this."))
-		return
-	if (closed)
-		if (IS_CROWBAR(W))
-			busy = 1
-			visible_message("[user] starts to pry the glass cover off of \the [src].")
-			if (!do_after(user, 50, src))
-				visible_message("[user] stops trying to pry the glass off of \the [src].")
-				busy = 0
-				return
-			closed = 0
-			busy = 0
-			icon_state = "broken_cryo_open"
-			var/obj/dead = new remains_type(loc)
-			dead.set_dir(dir) //skeleton is oriented as cryo
-	else
+		return TRUE
+	if (!closed)
 		to_chat(user, SPAN_NOTICE("The glass cover is already open."))
+		return TRUE
+	if (IS_CROWBAR(W))
+		busy = 1
+		visible_message("[user] starts to pry the glass cover off of \the [src].")
+		if (!do_after(user, 50, src))
+			visible_message("[user] stops trying to pry the glass off of \the [src].")
+			busy = 0
+			return TRUE
+		closed = 0
+		busy = 0
+		icon_state = "broken_cryo_open"
+		var/obj/dead = new remains_type(loc)
+		dead.set_dir(dir) //skeleton is oriented as cryo
+	return TRUE
 
 /obj/machinery/cryopod/proc/on_mob_spawn()
 	playsound(src, 'sound/machines/ding.ogg', 30, 1)

@@ -8,12 +8,17 @@
 	fire_delay = 25
 	slot_flags = SLOT_BACK
 	has_safety = FALSE
+	w_class = ITEM_SIZE_LARGE
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
 	material = /decl/material/solid/organic/wood/yew
+	color = /decl/material/solid/organic/wood/yew::color
 	fire_verb = "loose"
+	autofire_enabled = TRUE
 
 	/// What are we strung with?
 	var/obj/item/bowstring/string = /obj/item/bowstring
+	/// Does this weapon require a string to fire?
+	var/requires_string = TRUE
 	/// Currently loaded ammo.
 	var/obj/item/_loaded
 	/// Current draw on the bow.
@@ -21,7 +26,7 @@
 	/// Highest possible tension.
 	var/max_tension = 3
 	/// Speed per unit of tension.
-	var/release_speed = 10
+	var/release_speed = 14
 	/// Time needed to draw the bow back by one "tension"
 	var/draw_time = 1 SECOND
 	/// Does this bow need an arrow nocked to draw?
@@ -34,10 +39,61 @@
 	var/bow_ammo_type = /obj/item/stack/material/bow_ammo/arrow
 	/// Flag for tracking if a bow is currently being drawn, to avoid double draw.
 	var/drawing_bow = FALSE
+	/// Timer for tracking next increase in tension from click and hold.
+	var/next_tension_step
+	/// How big is this bow when strung? Uses initial w_class if unset.
+	var/strung_w_class = ITEM_SIZE_HUGE
+	/// How big is this bow when unstrung? Uses initial w_class if unset.
+	var/unstrung_w_class
+
+/obj/item/gun/launcher/bow/set_autofire(var/atom/fire_at, var/mob/fire_by, var/autoturn = TRUE)
+	if(!autofire_enabled || autofiring_at)
+		return ..()
+	. = ..()
+	if(ismob(fire_by))
+		if(!get_loaded_arrow(fire_by) && fire_by.skill_check(SKILL_WEAPONS, SKILL_ADEPT))
+			load_available_ammo(fire_by)
+		if(check_can_draw(fire_by))
+			tension = 0
+			next_tension_step = world.time + get_draw_time(fire_by)
+			fire_by.set_dir(get_dir(fire_by, fire_at))
+			show_draw_message(fire_by)
+			update_icon()
+
+/obj/item/gun/launcher/bow/try_autofire(autoturn)
+	if(!autofire_enabled)
+		return ..()
+	var/mob/wielder = loc
+	if(!ismob(wielder) || !check_can_draw(wielder))
+		clear_autofire()
+	else
+		wielder.set_dir(get_dir(wielder, autofiring_at))
+		if(world.time >= next_tension_step && tension < max_tension)
+			next_tension_step = world.time + get_draw_time(wielder)
+			tension++
+			if(tension == max_tension)
+				show_max_draw_message(wielder)
+			else
+				show_working_draw_message(wielder)
+			update_icon()
+
+/obj/item/gun/launcher/bow/clear_autofire()
+	if(!autofire_enabled)
+		return ..()
+	var/mob/living/wielder = loc
+	if(tension && istype(wielder) && !wielder.incapacitated() && wielder.get_active_held_item() == src && get_loaded_arrow())
+		wielder.set_dir(get_dir(wielder, autofiring_at))
+		Fire(autofiring_at, autofiring_by, null, (get_dist(autofiring_at, autofiring_by) <= 1), FALSE, FALSE)
+	. = ..()
+	if(tension)
+		if(istype(wielder))
+			show_cancel_draw_message(wielder)
+		tension = 0
+		update_icon()
 
 /obj/item/gun/launcher/bow/handle_click_empty(atom/movable/firer)
 	if(check_fire_message_spam("click"))
-		to_chat(firer, SPAN_WARNING("\The [src] has nothing nocked."))
+		to_chat(firer, SPAN_WARNING("\The [src] has nothing loaded."))
 
 /obj/item/gun/launcher/bow/fancy
 	desc = "A projectile weapon of ancient design that turns elastic tension into long-range death. This one has decorative engraving and flourishes."
@@ -49,11 +105,19 @@
 /obj/item/gun/launcher/bow/fancy/crafted
 	string = null
 
-
 /obj/item/gun/launcher/bow/Initialize()
 	if(ispath(string))
-		string = new string(src)
+		set_string(new string(src))
 	return ..()
+
+/obj/item/gun/launcher/bow/proc/set_string(new_string)
+	if(string == new_string)
+		return FALSE
+	string = new_string
+	if(istype(string))
+		w_class = strung_w_class || initial(w_class)
+	else
+		w_class = unstrung_w_class || initial(w_class)
 
 /obj/item/gun/launcher/bow/Destroy()
 	QDEL_NULL(_loaded)
@@ -66,7 +130,7 @@
 		_loaded = null
 	if(string)
 		string.dropInto(loc)
-		string = null
+		set_string(null)
 	return ..()
 
 /obj/item/gun/launcher/bow/dropped()
@@ -108,7 +172,7 @@
 		if(check_state_in_icon(string_state, icon))
 			add_overlay(overlay_image(icon, string_state, string.color, RESET_COLOR))
 
-/obj/item/gun/launcher/bow/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/gun/launcher/bow/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay)
 		if(string)
 			var/string_state = "[overlay.icon_state]-string"
@@ -128,7 +192,7 @@
 	if(string)
 		strings += "is strung with \a [string]"
 	if(_loaded)
-		strings += "has \a [_loaded] nocked"
+		strings += "has \a [_loaded] ready"
 	if(!length(strings))
 		return
 	to_chat(user, "It [english_list(strings)].")

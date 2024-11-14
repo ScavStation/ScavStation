@@ -28,7 +28,7 @@
 	var/key = ""                        // Character used to speak in language
 	var/flags = 0                       // Various language flags.
 	var/list/syllables                  // Used when scrambling text for a non-speaker.
-	var/list/space_chance = 55          // Likelihood of getting a space in the random scramble string
+	var/space_chance = 55               // Likelihood of getting a space in the random scramble string
 	var/machine_understands = 1         // Whether machines can parse and understand this language
 	var/shorthand = "???"               // Shorthand that shows up in chat for this language.
 	var/list/partial_understanding      // List of languages that can /somehwat/ understand it, format is: name = chance of understanding a word
@@ -68,7 +68,7 @@
 	var/possible_syllables = allow_repeated_syllables ? syllables : syllables.Copy()
 	for(var/i = 0;i<name_count;i++)
 		var/new_name = ""
-		for(var/x = rand(FLOOR(syllable_count/syllable_divisor),syllable_count);x>0;x--)
+		for(var/x = rand(floor(syllable_count/syllable_divisor),syllable_count);x>0;x--)
 			if(!length(possible_syllables))
 				break
 			new_name += allow_repeated_syllables ? pick(possible_syllables) : pick_n_take(possible_syllables)
@@ -287,10 +287,15 @@
 		return TOPIC_HANDLED
 	return ..()
 
-/proc/transfer_languages(var/mob/source, var/mob/target, var/except_flags)
-	for(var/decl/language/L in source.languages)
-		if(L.flags & except_flags)
+/mob/proc/copy_languages_to(mob/target, except_flags)
+	for(var/decl/language/new_lang in languages)
+		if(new_lang.flags & except_flags)
 			continue
-		target.add_language(L.name)
+		target.add_language(new_lang.type)
+
+/mob/living/copy_languages_to(mob/living/target, except_flags)
+	..()
+	if(isliving(target))
+		target.default_language = default_language
 
 #undef SCRAMBLE_CACHE_LEN

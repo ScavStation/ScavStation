@@ -30,7 +30,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/fore)
 "ah" = (
 /turf/space,
@@ -105,7 +105,7 @@
 	pixel_y = 25;
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/fore)
 "ap" = (
 /turf/wall/prepainted,
@@ -293,7 +293,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/exodus/maintenance/sub/fore)
 "aQ" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aR" = (
 /obj/machinery/alarm{
@@ -303,7 +303,7 @@
 /area/exodus/maintenance/sub/fore)
 "aS" = (
 /obj/random/toolbox,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aT" = (
 /obj/machinery/light/small{
@@ -978,12 +978,12 @@
 /turf/floor/plating,
 /area/exodus/maintenance/sub/port)
 "di" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "dj" = (
 /obj/machinery/porta_turret,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "dk" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -1008,7 +1008,7 @@
 	c_tag = "Bridge - Sublevel - Fore";
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "do" = (
 /obj/structure/cable{
@@ -1094,7 +1094,7 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/port)
 "dC" = (
 /obj/structure/firedoor_assembly,
@@ -1116,7 +1116,7 @@
 	pixel_y = 25;
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/port)
 "dG" = (
 /obj/machinery/door/airlock/external/bolted{
@@ -1304,14 +1304,14 @@
 	c_tag = "Bridge - Sublevel - Port";
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "ed" = (
 /obj/machinery/camera/motion/command{
 	c_tag = "Bridge - Sublevel - Starboard";
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "ee" = (
 /obj/structure/cable/green{
@@ -1347,7 +1347,7 @@
 	c_tag = "Bridge - Sublevel - Center";
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "ek" = (
 /obj/machinery/light{
@@ -1637,7 +1637,7 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/starboard)
 "eW" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1722,8 +1722,8 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/plastic,
-/obj/item/chems/food/liquidfood,
-/obj/item/chems/food/liquidfood,
+/obj/item/food/junk/liquidfood,
+/obj/item/food/junk/liquidfood,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -1767,7 +1767,7 @@
 	pixel_y = 24;
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/starboard)
 "fj" = (
 /obj/machinery/door/airlock/external/bolted{
@@ -1897,7 +1897,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "fz" = (
 /obj/machinery/camera/motion/command{
@@ -1912,7 +1912,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "fA" = (
 /obj/structure/grille,
@@ -1980,7 +1980,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/command)
 "fJ" = (
 /obj/structure/cable/green{
@@ -2084,7 +2084,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "fW" = (
 /obj/machinery/atmospherics/unary/tank/air{
@@ -3497,6 +3497,7 @@
 	name = "Atmos RC";
 	pixel_y = 32;
 	dir = 1;
+
 	},
 /obj/structure/table/steel,
 /turf/floor/tiled/steel_grid,
@@ -4242,7 +4243,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/exodus/maintenance/sub/aft)
 "lf" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/aft)
 "lg" = (
 /obj/structure/grille/broken,
@@ -4378,7 +4379,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/maintenance/sub/aft)
 "ly" = (
 /turf/wall/prepainted,
@@ -4988,7 +4989,7 @@
 	use_power = 1
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/exodus/engineering/atmos)
 "ng" = (
 /obj/machinery/door/firedoor,
@@ -5097,7 +5098,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "nq" = (
 /obj/structure/lattice,
@@ -5483,7 +5484,7 @@
 	dir = 1;
 	pixel_y = -32
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "rL" = (
 /obj/item/stock_parts/subspace/analyzer,

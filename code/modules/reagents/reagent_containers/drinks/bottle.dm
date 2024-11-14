@@ -7,7 +7,6 @@
 	amount_per_transfer_from_this = 10
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
-	force = 5
 	material = /decl/material/solid/glass
 	drop_sound = 'sound/foley/bottledrop1.ogg'
 	pickup_sound = 'sound/foley/bottlepickup1.ogg'
@@ -28,9 +27,6 @@
 		rag.dropInto(loc)
 	rag = null
 	return ..()
-
-/obj/item/chems/drinks/bottle/update_container_name()
-	return
 
 /obj/item/chems/drinks/bottle/update_container_desc()
 	return
@@ -114,7 +110,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] isn't made of glass, you can't make a good Molotov with it."))
 		return TRUE
 
-	if(rag) 
+	if(rag)
 		to_chat(user, SPAN_WARNING("\The [src] already has \a [rag] stuffed into it."))
 		return TRUE
 
@@ -172,7 +168,7 @@
 		user.visible_message(SPAN_DANGER("\The [user] smashes \the [src] into [H]'s [affecting.name]!"))
 		// You are going to knock someone out for longer if they are not wearing a helmet.
 		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE, damage = 10) * 100
-		var/weaken_duration = smash_duration + min(0, force - blocked + 10)
+		var/weaken_duration = smash_duration + min(0, get_attack_force(user) - blocked + 10)
 		if(weaken_duration)
 			target.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
@@ -228,8 +224,6 @@
 	desc = "A bottle with a sharp broken bottom."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "broken_bottle"
-	force = 9
-	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
 	item_state = "beer"
@@ -238,6 +232,7 @@
 	edge = 0
 	obj_flags = OBJ_FLAG_HOLLOW
 	material = /decl/material/solid/glass
+	_base_attack_force = 9
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
 
 /obj/item/broken_bottle/Initialize(ml, material_key)
@@ -458,14 +453,43 @@
 /obj/item/chems/drinks/bottle/sake/populate_reagents()
 	add_to_reagents(/decl/material/liquid/ethanol/sake, reagents.maximum_volume)
 
+
 /obj/item/chems/drinks/bottle/champagne
-	name = "Murcelano Vinyard's Premium Champagne"
-	desc = "The regal drink of celebrities and royalty."
+	name = "champagne bottle"
+	desc = "Sparkling wine made from exquisite grape varieties by the method of secondary fermentation in a bottle. Bubbling."
 	icon_state = "champagne"
-	center_of_mass = @'{"x":16,"y":4}'
+	center_of_mass = @'{"x":12,"y":5}'
+	atom_flags = 0 //starts closed
+	var/opening
 
 /obj/item/chems/drinks/bottle/champagne/populate_reagents()
 	add_to_reagents(/decl/material/liquid/ethanol/champagne, reagents.maximum_volume)
+
+/obj/item/chems/drinks/bottle/champagne/open(mob/user)
+	if(ATOM_IS_OPEN_CONTAINER(src))
+		to_chat(user, SPAN_NOTICE("\The [src] is already open."))
+		return
+	if(!opening)
+		user.visible_message(SPAN_NOTICE("\The [user] tries to open \the [src]!"))
+		opening = TRUE
+	else
+		to_chat(user, SPAN_WARNING("You are already trying to open \the [src]."))
+		return
+	if(!do_after(user, 3 SECONDS, src))
+		if(QDELETED(user) || QDELETED(src))
+			return
+		user.visible_message(SPAN_NOTICE("\The [user] fails to open \the [src]."))
+		opening = FALSE
+		return
+	playsound(src,'sound/effects/champagne_open.ogg', 100, 1)
+	if(!user.skill_check(SKILL_COOKING, SKILL_BASIC))
+		sleep(4)
+		playsound(src,'sound/effects/champagne_psh.ogg', 100)
+		user.visible_message(SPAN_WARNING("\The [user] clumsily pops the cork out of \the [src], wasting fizz and getting foam everywhere."))
+		new /obj/effect/decal/cleanable/champagne(get_turf(user))
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] pops the cork out of \the [src] with a professional flourish."))
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/chems/drinks/bottle/jagermeister
 	name = "Kaisermeister Deluxe"
@@ -534,7 +558,7 @@
 	pickup_sound = 'sound/foley/paperpickup2.ogg'
 
 /obj/item/chems/drinks/bottle/cream/populate_reagents()
-	add_to_reagents(/decl/material/liquid/drink/milk/cream, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/drink/milk/cream, reagents.maximum_volume, data = list(DATA_MILK_DONOR = "cow"))
 
 /obj/item/chems/drinks/bottle/tomatojuice
 	name = "Tomato Juice"
@@ -574,6 +598,7 @@
 	smash_duration = 1
 	atom_flags = 0 //starts closed
 	rag_underlay = "rag_small"
+	abstract_type = /obj/item/chems/drinks/bottle/small
 
 /obj/item/chems/drinks/bottle/small/beer
 	name = "space beer"

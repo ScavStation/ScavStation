@@ -4,25 +4,21 @@
 	icon = 'mods/mobs/borers/icons/borer.dmi'
 	desc = "A small, quivering sluglike creature."
 	speak_emote = list("chirrups")
-	emote_hear = list("chirrups")
 	response_help_3p = "$USER$ pokes $TARGET$."
 	response_help_1p = "You poke $TARGET$."
 	response_disarm =  "prods"
 	response_harm =    "stamps on"
+	base_movement_delay = 2
 
-	speed = 5
 	a_intent = I_HURT
-	stop_automated_movement = 1
 	status_flags = CANPUSH
 	natural_weapon = /obj/item/natural_weapon/bite/weak
-	wander = 0
 	pass_flags = PASS_FLAG_TABLE
 	universal_understand = TRUE
 	holder_type = /obj/item/holder/borer
 	mob_size = MOB_SIZE_SMALL
-	can_escape = TRUE
-
 	bleed_colour = "#816e12"
+	ai = /datum/mob_controller/borer
 
 	var/static/list/chemical_types = list(
 		"anti-trauma" =  /decl/material/liquid/brute_meds,
@@ -45,6 +41,11 @@
 	var/neutered                            // 'borer lite' mode - fewer powers, less hostile to the host.
 	var/mob/living/human/host        // Human host for the brain worm.
 	var/mob/living/captive_brain/host_brain // Used for swapping control of the body back and forth.
+
+/datum/mob_controller/borer
+	emote_hear = list("chirrups")
+	do_wander = FALSE
+	can_escape_buckles = TRUE
 
 /obj/item/holder/borer
 	origin_tech = @'{"biotech":6}'
@@ -235,9 +236,7 @@
 
 	host.reset_view(null)
 	host.machine = null
-
-	var/mob/living/H = host
-	H.status_flags &= ~PASSEMOTES
+	host.status_flags &= ~PASSEMOTES
 	host = null
 	return
 

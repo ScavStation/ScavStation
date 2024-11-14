@@ -71,23 +71,21 @@
 		return SPAN_NOTICE("You must wait for \the [src] to finish operating first!")
 	return ..()
 
-/obj/machinery/gibber/attackby(var/obj/item/W, var/mob/user)
-	if(!operating)
-		return
-	if(istype(W, /obj/item/grab))
-		var/obj/item/grab/G = W
-		if(!G.force_danger())
-			to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
-			return
-		qdel(G)
-		move_into_gibber(user,G.affecting)
-	else if(istype(W, /obj/item/organ))
-		if(!user.try_unequip(W))
-			return
-		qdel(W)
-		user.visible_message("<span class='danger'>\The [user] feeds \the [W] into \the [src], obliterating it.</span>")
+/obj/machinery/gibber/grab_attack(obj/item/grab/grab, mob/user)
+	if(grab.force_danger())
+		move_into_gibber(user, grab.affecting)
+		qdel(grab)
 	else
-		return ..()
+		to_chat(user, SPAN_DANGER("You need a better grip to do that!"))
+	return TRUE
+
+/obj/machinery/gibber/attackby(var/obj/item/W, var/mob/user)
+	if(!operating && istype(W, /obj/item/organ))
+		if(user.try_unequip(W))
+			qdel(W)
+			user.visible_message(SPAN_DANGER("\The [user] feeds \the [W] into \the [src], obliterating it."))
+		return TRUE
+	return ..()
 
 /obj/machinery/gibber/receive_mouse_drop(atom/dropping, mob/user, params)
 	. = ..()
@@ -187,15 +185,15 @@
 
 	slab_nutrition /= gib_products.len
 
-	var/drop_products = FLOOR(gib_products.len * 0.35)
+	var/drop_products = floor(gib_products.len * 0.35)
 	for(var/atom/movable/thing in gib_products)
 		if(drop_products)
 			drop_products--
 			qdel(thing)
 		else
 			thing.forceMove(src)
-			if(istype(thing, /obj/item/chems/food/butchery/meat))
-				var/obj/item/chems/food/butchery/meat/slab = thing
+			if(istype(thing, /obj/item/food/butchery/meat))
+				var/obj/item/food/butchery/meat/slab = thing
 				slab.SetName("[slab_name] [slab.name]")
 				slab.add_to_reagents(/decl/material/liquid/nutriment,slab_nutrition)
 

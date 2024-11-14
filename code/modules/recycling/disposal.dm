@@ -74,6 +74,21 @@ var/global/list/diversion_junctions = list()
 		return SPAN_NOTICE("Eject the items first!")
 	return ..()
 
+/obj/machinery/disposal/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim))
+		user.visible_message(SPAN_DANGER("\The [user] starts putting \the [victim] into the disposal."))
+		if(do_after(user, 2 SECONDS, src))
+			if (victim.client)
+				victim.client.perspective = EYE_PERSPECTIVE
+				victim.client.eye = src
+			victim.forceMove(src)
+			user.visible_message(SPAN_DANGER("\The [victim] has been placed in \the [src] by \the [user]."))
+			qdel(grab)
+			admin_attack_log(user, victim, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
+		return TRUE
+	return ..()
+
 // attack by item places it in to disposal
 /obj/machinery/disposal/attackby(var/obj/item/I, var/mob/user)
 	if((. = ..()))
@@ -89,21 +104,6 @@ var/global/list/diversion_junctions = list()
 			I.storage.finish_bulk_removal()
 			update_icon()
 			return
-
-	var/obj/item/grab/G = I
-	if(istype(G))	// handle grabbed mob
-		var/mob/GM = G.get_affecting_mob()
-		if(GM)
-			usr.visible_message(SPAN_DANGER("\The [usr] starts putting [GM.name] into the disposal."))
-			if(do_after(usr, 20, src))
-				if (GM.client)
-					GM.client.perspective = EYE_PERSPECTIVE
-					GM.client.eye = src
-				GM.forceMove(src)
-				usr.visible_message(SPAN_DANGER("\The [GM] has been placed in the [src] by \the [user]."))
-				qdel(G)
-				admin_attack_log(usr, GM, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
-		return
 
 	if(!user.try_unequip(I, src) || QDELETED(I))
 		return
@@ -213,6 +213,7 @@ var/global/list/diversion_junctions = list()
 		flush = !flush
 		update_icon()
 		return TRUE
+	return FALSE
 
 /obj/machinery/disposal/interface_interact(mob/user)
 	interact(user)
@@ -571,38 +572,44 @@ var/global/list/diversion_junctions = list()
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
 /obj/structure/disposaloutlet/attackby(var/obj/item/I, var/mob/user)
-	if(!I || !user)
-		return
 	src.add_fingerprint(user, 0, I)
 	if(IS_SCREWDRIVER(I))
-		if(mode==0)
-			mode=1
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_chat(user, "You remove the screws around the power connection.")
-			return
-		else if(mode==1)
-			mode=0
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_chat(user, "You attach the screws around the power connection.")
-			return
+		switch(mode)
+			if(0)
+				mode=1
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				to_chat(user, "You remove the screws around the power connection.")
+				return TRUE
+			if(1)
+				mode=0
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				to_chat(user, "You attach the screws around the power connection.")
+				return TRUE
+			else // This should be invalid?
+				return FALSE
 	else if(istype(I,/obj/item/weldingtool) && mode==1)
 		var/obj/item/weldingtool/W = I
 		if(W.weld(0,user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")
-			if(do_after(user,20, src))
-				if(!src || !W.isOn()) return
-				to_chat(user, "You sliced the floorweld off the disposal outlet.")
-				var/obj/structure/disposalconstruct/machine/outlet/C = new (loc, src)
-				src.transfer_fingerprints_to(C)
-				C.anchored = TRUE
-				C.set_density(1)
-				C.update()
-				qdel(src)
-				return
+			if(!do_after(user, 2 SECONDS, src))
+				to_chat(user, "You must remain still to deconstruct \the [src].")
+				return TRUE
+			if(QDELETED(src) || !W.isOn())
+				return TRUE
+			to_chat(user, "You sliced the floorweld off the disposal outlet.")
+			var/obj/structure/disposalconstruct/machine/outlet/C = new (loc, src)
+			src.transfer_fingerprints_to(C)
+			C.anchored = TRUE
+			C.set_density(1)
+			C.update()
+			qdel(src)
+			return TRUE
 		else
 			to_chat(user, "You need more welding fuel to complete this task.")
-			return
+			return TRUE
+	else
+		return ..()
 
 /obj/structure/disposaloutlet/forceMove()//updates this when shuttle moves. So you can YEET things out the airlock
 	. = ..()

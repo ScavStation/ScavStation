@@ -3,36 +3,22 @@
 /turf/space/infinity,
 /area/map_template/deity_spawn)
 "b" = (
-/turf/unsimulated/floor{
-	icon_state = "lava";
-	name = "plating"
-	},
+/turf/unsimulated/floor/lava,
 /area/map_template/deity_spawn)
 "c" = (
-/turf/unsimulated/floor{
-	icon = 'icons/misc/beach.dmi';
-	icon_state = "seashallow";
-	name = "water"
-	},
+/turf/unsimulated/floor/water,
 /area/map_template/deity_spawn)
 "d" = (
 /obj/abstract/landmark{
 	name = "DeitySpawn"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lava";
-	name = "plating"
-	},
+/turf/unsimulated/floor/lava,
 /area/map_template/deity_spawn)
 "e" = (
 /obj/abstract/landmark{
 	name = "DeitySpawn"
 	},
-/turf/unsimulated/floor{
-	icon = 'icons/misc/beach.dmi';
-	icon_state = "seashallow";
-	name = "water"
-	},
+/turf/unsimulated/floor/water,
 /area/map_template/deity_spawn)
 
 (1,1,1) = {"

@@ -59,9 +59,10 @@
 			return TRUE
 		set_active(!active)
 		user.visible_message(
-			SPAN_NOTICE("[user] switches [active ? "on" : "off"] the [src]."),
-			SPAN_NOTICE("You switch [active ? "on" : "off"] the [src]."))
+			SPAN_NOTICE("[user] switches [active ? "on" : "off"] \the [src]."),
+			SPAN_NOTICE("You switch [active ? "on" : "off"] \the [src]."))
 		return TRUE
+	return FALSE
 
 /obj/machinery/dehumidifier/Process()
 	if(!active)
@@ -76,7 +77,7 @@
 			use_power_oneoff(drainage * 1000)
 			return
 
-		T.remove_fluid(CEILING(fluid_here * drainage))
+		T.remove_fluid(ceil(fluid_here * drainage))
 		T.show_bubbles()
 		use_power_oneoff(drainage * 5000)
 

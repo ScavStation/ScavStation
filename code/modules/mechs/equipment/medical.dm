@@ -31,8 +31,9 @@
 
 /obj/item/mech_equipment/sleeper/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/chems/glass))
-		sleeper.attackby(I, user)
-	else return ..()
+		return sleeper.attackby(I, user)
+	else
+		return ..()
 
 /obj/item/mech_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
@@ -77,11 +78,11 @@
 /obj/machinery/sleeper/mounted/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/chems/glass))
 		if(!user.try_unequip(I, src))
-			return
-
+			return TRUE
 		if(beaker)
-			beaker.forceMove(get_turf(src))
+			user.put_in_hands(beaker)
 			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
 		beaker = I
 		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
-
+		return TRUE
+	return FALSE

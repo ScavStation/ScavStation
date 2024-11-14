@@ -52,7 +52,7 @@
 					/obj/item/clothing/jumpsuit/lightpurple = slot_w_uniform_str,
 					/obj/item/clothing/shoes/sandal = slot_shoes_str,
 					/obj/item/staff = BP_R_HAND,
-					/obj/item/spellbook/apprentice = BP_L_HAND,
+					/obj/item/book/spell/apprentice = BP_L_HAND,
 					/obj/item/clothing/suit/wizrobe = slot_wear_suit_str)
 	spells = list(/spell/noclothes)
 
@@ -115,7 +115,7 @@
 			familiar_type = /mob/living/simple_animal/passive/mouse
 		if("Cat")
 			H.add_genetic_condition(GENE_COND_RUNNING)
-			familiar_type = /mob/living/simple_animal/cat
+			familiar_type = /mob/living/simple_animal/passive/cat
 		if("Bear")
 			familiar_type = /mob/living/simple_animal/hostile/bear
 	var/spell/targeted/shapeshift/familiar/F = new()
@@ -235,7 +235,7 @@
 	icon_state = "stone"
 	throw_speed = 5
 	throw_range = 10
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/stone/basalt
 
 /obj/item/summoning_stone/attack_self(var/mob/user)

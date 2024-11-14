@@ -559,7 +559,6 @@ var/global/list/custom_ai_icons_by_ckey_and_name = list()
 
 /mob/living/silicon/ai/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/aicard))
-
 		var/obj/item/aicard/card = W
 		card.grab_ai(src, user)
 
@@ -568,24 +567,23 @@ var/global/list/custom_ai_icons_by_ckey_and_name = list()
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40, src))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
-				return
+				return TRUE
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
 			anchored = FALSE
-			return
+			return TRUE
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating...</span>")
 			if(!do_after(user,40,src))
 				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
-				return
+				return TRUE
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
 			anchored = TRUE
-			return
+			return TRUE
 	if(try_stock_parts_install(W, user))
-		return
+		return TRUE
 	if(try_stock_parts_removal(W, user))
-		return
-	else
-		return ..()
+		return TRUE
+	return ..()
 
 /mob/living/silicon/ai/proc/control_integrated_radio()
 	set name = "Radio Settings"

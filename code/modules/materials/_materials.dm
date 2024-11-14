@@ -1,3 +1,32 @@
+var/global/list/_descriptive_temperature_strings
+/proc/get_descriptive_temperature_strings(temperature)
+	if(!_descriptive_temperature_strings)
+		_descriptive_temperature_strings = list()
+
+		for(var/decl/material/material as anything in decls_repository.get_decls_of_subtype_unassociated(/decl/material))
+
+			if(material.type != material.temperature_burn_milestone_material)
+				continue
+
+			if(!isnull(material.bakes_into_at_temperature) && material.bakes_into_material)
+				var/decl/material/cook = GET_DECL(material.bakes_into_material)
+				global._descriptive_temperature_strings["bake [material.name] into [cook.name]"] = material.bakes_into_at_temperature
+				continue
+
+			switch(material.phase_at_temperature())
+				if(MAT_PHASE_SOLID)
+					if(!isnull(material.ignition_point))
+						global._descriptive_temperature_strings["ignite [material.name]"] = material.ignition_point
+					else if(!isnull(material.melting_point))
+						global._descriptive_temperature_strings["melt [material.name]"] = material.melting_point
+				if(MAT_PHASE_LIQUID)
+					if(!isnull(material.boiling_point))
+						global._descriptive_temperature_strings["boil [material.name]"] = material.boiling_point
+
+	for(var/burn_string in global._descriptive_temperature_strings)
+		if(temperature >= global._descriptive_temperature_strings[burn_string])
+			LAZYADD(., burn_string)
+
 var/global/list/materials_by_gas_symbol = list()
 
 /obj/effect/gas_overlay
@@ -64,6 +93,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/solid_name
 	var/gas_name
 	var/liquid_name
+	var/solution_name      // Name for the material in solution.
 	var/use_name
 	var/wall_name = "wall" // Name given to walls of this material
 	var/flags = 0          // Various status modifiers.
@@ -73,8 +103,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/antag_text
 	var/default_solid_form = /obj/item/stack/material/sheet
 
-	var/affect_blood_on_ingest = TRUE
-	var/affect_blood_on_inhale = TRUE
+	var/soup_hot_desc = "simmering"
+
+	var/affect_blood_on_ingest = 0.5
+	var/affect_blood_on_inhale = 0.75
 
 	var/narcosis = 0 // Not a great word for it. Constant for causing mild confusion when ingested.
 	var/toxicity = 0 // Organ damage from ingestion.
@@ -88,6 +120,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/shard_can_repair = 1              // Can shards be turned into sheets with a welder?
 	var/list/recipes                      // Holder for all recipes usable with a sheet of this material.
 	var/destruction_desc = "breaks apart" // Fancy string for barricades/tables/objects exploding.
+	var/destruction_sound = "fracture"     // As above, but the sound that plays.
 
 	// Icons
 	var/icon_base = 'icons/turf/walls/solid.dmi'
@@ -100,6 +133,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
 	var/table_icon_base = "metal"
 	var/table_icon_reinforced = "reinf_metal"
+
+	var/bench_icon = 'icons/obj/structures/benches.dmi'
+	var/pew_icon = 'icons/obj/structures/pews.dmi'
 
 	var/list/stack_origin_tech = @'{"materials":1}' // Research level for stacks.
 
@@ -156,10 +192,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/turf_touch_threshold = FLUID_QDEL_POINT
 
 	// Damage values.
-	var/hardness = MAT_VALUE_HARD            // Used for edge damage in weapons.
-	var/reflectiveness = MAT_VALUE_DULL
-	var/ferrous = FALSE                       // Can be used as a striker for firemaking.
-	var/weight = MAT_VALUE_NORMAL             // Determines blunt damage/throwforce for weapons.
+	var/hardness = MAT_VALUE_HARD       // Used for edge damage in weapons.
+	var/weight = MAT_VALUE_NORMAL       // Determines blunt damage/throw force for weapons.
+	var/reflectiveness = MAT_VALUE_DULL // How effective is this at reflecting light?
+	var/ferrous = FALSE                 // Can be used as a striker for firemaking.
 
 	// Noise when someone is faceplanted onto a table made of this material.
 	var/tableslam_noise = 'sound/weapons/tablehit1.ogg'
@@ -205,6 +241,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	// Armor values generated from properties
 	var/list/basic_armor
 	var/armor_degradation_speed
+
+	// Allergen values, used by /mob/living and /datum/reagents
+	/// What allergens are present on this material?
+	var/allergen_flags  = ALLERGEN_NONE
+	var/allergen_factor = 2
 
 	// Copied reagent values. Todo: integrate.
 	var/taste_description
@@ -307,8 +348,20 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/nutriment_factor     = 0 // Per removed amount each tick
 	var/hydration_factor     = 0 // Per removed amount each tick
 	var/injectable_nutrition = FALSE
-	var/soup_overlay
-	var/soup_base = "soup_base"
+	var/reagent_overlay
+	var/reagent_overlay_base = "reagent_base"
+
+	/// Set to a type to indicate that a type with a matching milestone type should be used as a reference point for burn temperatures.
+	var/temperature_burn_milestone_material
+
+	/// Semi-temporary fix to issues with soup/tea boil-off - only set to TRUE on water and ethanol at time of commit.
+	var/can_boil_to_gas = FALSE
+	/// How much of this boils away per evaporation run?
+	var/boil_evaporation_per_run = 1
+
+	/// What verb is used when describing a colored piece of this material? e.g. 'dyed' or 'painted'
+	/// If an item has a null paint_verb, it automatically sets it based on material.
+	var/paint_verb = "painted"
 
 // Placeholders for light tiles and rglass.
 /decl/material/proc/reinforce(var/mob/user, var/obj/item/stack/material/used_stack, var/obj/item/stack/material/target_stack, var/use_sheets = 1)
@@ -318,7 +371,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	var/decl/material/reinf_mat = used_stack.get_material()
 	if(reinf_mat.integrity <= integrity || reinf_mat.is_brittle())
-		to_chat(user, SPAN_WARNING("The [reinf_mat.solid_name] is too structurally weak to reinforce the [name]."))
+		to_chat(user, SPAN_WARNING("The [reinf_mat.solid_name] is too structurally weak to reinforce \the [src]."))
 		return
 
 	if(!target_stack.can_use(use_sheets))
@@ -346,14 +399,18 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		CRASH("Unnamed material /decl tried to initialize.")
 	// Default use_name to name if unset.
 	use_name       ||= name
-	// Default everything else to use_name, so that if it's overridden, we use that instead of base name.
+	// Default the other state names to use_name, so that if it's overridden, we use that instead of base name.
 	liquid_name    ||= use_name
 	solid_name     ||= use_name
 	gas_name       ||= use_name
+	// Use solid_name for adjective_name so that we get "ice bracelet" instead of "water bracelet" for things made of water below 0C.
+	adjective_name ||= solid_name
 	adjective_name ||= use_name
 
 	// Null/clear a bunch of physical vars as this material is fake.
 	if(holographic)
+		temperature_burn_milestone_material = null
+		can_boil_to_gas              = FALSE
 		shard_type                   = SHARD_NONE
 		conductive                   = 0
 		hidden_from_codex            = TRUE
@@ -380,9 +437,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		vapor_products               = null
 		compost_value                = 0
 	else if(isnull(temperature_damage_threshold))
-		for(var/value in list(ignition_point, melting_point, boiling_point, heating_point, bakes_into_at_temperature))
-			if(!isnull(value) && (isnull(temperature_damage_threshold) || temperature_damage_threshold > value))
-				temperature_damage_threshold = value
+		var/new_temperature_damage_threshold = max(melting_point, boiling_point, heating_point)
+		// Don't let the threshold be lower than the ignition point.
+		if(!isnull(new_temperature_damage_threshold) && (isnull(ignition_point) || (new_temperature_damage_threshold > ignition_point)))
+			temperature_damage_threshold = new_temperature_damage_threshold
 
 	if(!shard_icon)
 		shard_icon = shard_type
@@ -403,14 +461,13 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 				cocktail_ingredient = TRUE
 				break
 
-#define FALSEWALL_STATE "fwall_open"
 /decl/material/validate()
 	. = ..()
 
 	if(!crafting_skill)
 		. += "no construction skill set"
 	else if(!isnull(construction_difficulty))
-		var/decl/hierarchy/skill/used_skill = GET_DECL(crafting_skill)
+		var/decl/skill/used_skill = GET_DECL(crafting_skill)
 		if(!istype(used_skill))
 			. += "invalid skill decl [used_skill]"
 		else if(length(used_skill.levels) < construction_difficulty)
@@ -420,10 +477,29 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		. += "no construction difficulty set"
 
 	if(!isnull(bakes_into_at_temperature))
-		if(!isnull(melting_point) && melting_point <= bakes_into_at_temperature)
-			. += "baking point is set but melting point is lower or equal to it"
-		if(!isnull(boiling_point) && boiling_point <= bakes_into_at_temperature)
-			. += "baking point is set but boiling point is lower or equal to it"
+		// all of these variables should be above our baking temperature, because we assume only solids not currently on fire can bake
+		// modify this if a material ever needs to bake while liquid or gaseous
+		var/list/temperatures = list("melting point" = melting_point, "boiling point" = boiling_point, "heating point" = heating_point, "ignition point" = ignition_point)
+		for(var/temperature in temperatures)
+			if(isnull(temperatures[temperature]))
+				continue
+			if(temperatures[temperature] <= bakes_into_at_temperature)
+				. += "baking point is set but [temperature] is lower or equal to it"
+
+	// this is a little overengineered for only two values...
+	// but requiring heating_point > boiling_point caused a bunch of issues
+	// at least it's easy to add more if we want to enforce order more
+	var/list/transition_temperatures_ascending = list("melting point" = melting_point, "boiling point" = boiling_point)
+	var/max_key // if not null, this is a key from the above list
+	for(var/temperature_key in transition_temperatures_ascending)
+		var/temperature = transition_temperatures_ascending[temperature_key]
+		if(isnull(temperature))
+			continue
+		if(!isnull(max_key) && temperature <= transition_temperatures_ascending[max_key])
+			var/expected_temp = transition_temperatures_ascending[max_key]
+			. += "transition temperature [temperature_key] ([temperature]K, [temperature - T0C]C) is colder than [max_key], expected >[expected_temp]K ([expected_temp - T0C]C)!"
+		else
+			max_key = temperature_key
 
 	if(accelerant_value > FUEL_VALUE_NONE && isnull(ignition_point))
 		. += "accelerant value larger than zero but null ignition point"
@@ -449,11 +525,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 				total += checking_list[chem]
 			if(total != 1)
 				. += "[field] adds up to [total] (should be 1)"
-	if(icon_base && !check_state_in_icon(FALSEWALL_STATE, icon_base))
-		. += "[type] - '[icon_base]' - missing false wall opening animation '[FALSEWALL_STATE]'"
 
 	if(dissolves_in == MAT_SOLVENT_IMMUNE && LAZYLEN(dissolves_into))
 		. += "material is immune to solvents, but has dissolves_into products."
+
+	if(!paint_verb)
+		. += "material does not have a paint_verb set"
+	else if(!istext(paint_verb))
+		. += "material has a non-text paint_verb value"
 
 	for(var/i = 0 to 7)
 		if(icon_base)
@@ -489,21 +568,12 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	if(length(color) != 7)
 		. += "invalid color (not #RRGGBB)"
-#undef FALSEWALL_STATE
 
 // Return the matter comprising this material.
 /decl/material/proc/get_matter()
 	var/list/temp_matter = list()
 	temp_matter[type] = SHEET_MATERIAL_AMOUNT
 	return temp_matter
-
-// Weapons handle applying a divisor for this value locally.
-/decl/material/proc/get_blunt_damage()
-	return weight //todo
-
-// As above.
-/decl/material/proc/get_edge_damage()
-	return hardness //todo
 
 /decl/material/proc/get_attack_cooldown()
 	if(weight <= MAT_VALUE_LIGHT)
@@ -515,7 +585,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 // Currently used for weapons and objects made of uranium to irradiate things.
 /decl/material/proc/products_need_process()
 	return (radioactivity>0) //todo
-
 
 //Clausius–Clapeyron relation
 /decl/material/proc/get_boiling_temp(var/pressure = ONE_ATMOSPHERE)
@@ -591,7 +660,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 // General wall debris product placement.
 // Not particularly necessary aside from snowflakey cult girders.
 /decl/material/proc/place_dismantled_product(var/turf/target, var/is_devastated, var/amount = 2, var/drop_type)
-	amount = is_devastated ? FLOOR(amount * 0.5) : amount
+	amount = is_devastated ? floor(amount * 0.5) : amount
 	if(amount > 0)
 		return create_object(target, amount, object_type = drop_type)
 
@@ -672,7 +741,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /decl/material/proc/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
 	if(accelerant_value != FUEL_VALUE_NONE && amount && istype(M))
-		M.fire_stacks += FLOOR((amount * accelerant_value)/FLAMMABLE_LIQUID_DIVISOR)
+		M.fire_stacks += floor((amount * accelerant_value)/FLAMMABLE_LIQUID_DIVISOR)
 #undef FLAMMABLE_LIQUID_DIVISOR
 
 /decl/material/proc/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
@@ -751,14 +820,19 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 /decl/material/proc/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 
+	SHOULD_CALL_PARENT(TRUE)
+
 	if(M.status_flags & GODMODE)
 		return
 
 	if(nutriment_factor || hydration_factor)
 		if(injectable_nutrition)
-			adjust_nutrition(M, removed)
+			adjust_mob_nutrition(M, removed, holder, CHEM_INJECT)
 		else
+			apply_intolerances(M, removed, holder, CHEM_INJECT)
 			M.take_damage(0.2 * removed, TOX)
+	else if(!injectable_nutrition)
+		apply_intolerances(M, removed, holder, CHEM_INJECT)
 
 	if(radioactivity)
 		M.apply_damage(radioactivity * removed, IRRADIATE, armor_pen = 100)
@@ -795,31 +869,81 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	if(euphoriant)
 		SET_STATUS_MAX(M, STAT_DRUGGY, euphoriant)
 
-// Defined as a proc so it can be overridden.
-/decl/material/proc/adjust_nutrition(var/mob/living/M, var/removed)
-	if(nutriment_factor)
-		var/nutriment_power = nutriment_factor * removed
-		if(nutriment_animal)
-			var/malus_level = M.GetTraitLevel(/decl/trait/malus/animal_protein)
-			var/malus_factor = malus_level ? malus_level * 0.25 : 0
-			if(malus_level)
-				nutriment_power *= (1 - malus_factor)
-				M.take_damage(removed * malus_factor, TOX)
-		M.adjust_nutrition(nutriment_power)
-	if(hydration_factor)
-		M.adjust_hydration(hydration_factor * removed)
-
 /decl/material/proc/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	adjust_nutrition(M, removed)
+
+	SHOULD_CALL_PARENT(TRUE)
+
+	adjust_mob_nutrition(M, removed, holder, CHEM_INGEST)
 	if(affect_blood_on_ingest)
-		affect_blood(M, removed * 0.5, holder)
+		affect_blood(M, removed * affect_blood_on_ingest, holder)
 
 /decl/material/proc/affect_inhale(var/mob/living/M, var/removed, var/datum/reagents/holder)
+
+	SHOULD_CALL_PARENT(TRUE)
+
+	apply_intolerances(M, removed, holder, CHEM_INHALE)
 	if(affect_blood_on_inhale)
-		affect_blood(M, removed * 0.75, holder)
+		affect_blood(M, removed * affect_blood_on_inhale, holder)
+
+// Major allergy - handled by handle_allergens() on /mob/living by default.
+/decl/material/proc/apply_allergy_effects(mob/living/subject, removed, severity, ingestion_method)
+	if(allergen_factor > 0)
+		subject.add_chemical_effect(CE_ALLERGEN, removed * severity * allergen_factor)
+	else if(allergen_factor < 0)
+		subject.remove_chemical_effect(CE_ALLERGEN, removed * severity * allergen_factor)
+
+// Intolerance - TODO: more messages
+/decl/material/proc/apply_intolerance_effects(mob/living/subject, removed, severity, ingestion_method)
+	if(ingestion_method != CHEM_INGEST)
+		return
+	if(ishuman(subject) && prob(removed))
+		var/mob/living/human/puker = subject
+		puker.vomit()
+	else if(prob(1))
+		var/static/list/intolerance_messages = list(
+			"Your innards churn and cramp unhappily."
+		)
+		subject.custom_pain(pick(intolerance_messages), 1)
+
+/decl/material/proc/apply_intolerances(mob/living/subject, removed, datum/reagents/holder, ingestion_method)
+
+	var/list/data = REAGENT_DATA(holder, type)
+	var/check_flags = LAZYACCESS(data, DATA_INGREDIENT_FLAGS) | allergen_flags
+	if(!check_flags)
+		return 1
+
+	var/list/intolerances = get_intolerances_by_flag(check_flags, ingestion_method)
+	if(!length(intolerances))
+		return 1
+
+	var/malus_level = 0
+	for(var/decl/trait/intolerance as anything in intolerances)
+		malus_level = max(malus_level, subject.GetTraitLevel(intolerance.type))
+	if(!malus_level)
+		return 1
+
+	if(malus_level >= TRAIT_LEVEL_MAJOR)
+		apply_allergy_effects(subject, removed, malus_level, ingestion_method)
+	else if(malus_level >= TRAIT_LEVEL_MINOR)
+		apply_intolerance_effects(subject, removed, malus_level, ingestion_method)
+	return max(0, (1 - (malus_level * 0.25)))
+
+// Defined as a proc so it can be overridden.
+/decl/material/proc/adjust_mob_nutrition(mob/living/subject, removed, datum/reagents/holder, ingestion_method)
+	var/metabolic_penalty = apply_intolerances(subject, removed, holder, ingestion_method)
+	if(nutriment_factor)
+		var/effective_power = nutriment_factor * metabolic_penalty * removed
+		if(effective_power)
+			subject.adjust_nutrition(effective_power)
+	if(hydration_factor)
+		var/effective_power = hydration_factor * metabolic_penalty * removed
+		if(effective_power)
+			subject.adjust_hydration(effective_power)
 
 // Slightly different to other reagent processing - return TRUE to consume the removed amount, FALSE not to consume.
 /decl/material/proc/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
+
+	SHOULD_CALL_PARENT(TRUE)
 
 	if(!istype(M))
 		return FALSE
@@ -872,21 +996,31 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	M.add_chemical_effect(CE_TOXIN, 1)
 	M.take_damage(REM, TOX)
 
-/decl/material/proc/initialize_data(var/newdata) // Called when the reagent is created.
-	return newdata
+/decl/material/proc/initialize_data(list/newdata) // Called when the reagent is first added to a reagents datum.
+	. = newdata
+	if(allergen_flags)
+		LAZYINITLIST(.)
+		.[DATA_INGREDIENT_FLAGS] |= allergen_flags
 
 /decl/material/proc/mix_data(var/datum/reagents/reagents, var/list/newdata, var/amount)
 	reagents.cached_color = null // colour masking may change
 	. = REAGENT_DATA(reagents, type)
-	if(!length(newdata))
+	if(!length(newdata) || !islist(newdata))
 		return
+
+	// Blend in any allergen flags.
+	var/new_allergens = newdata[DATA_INGREDIENT_FLAGS]
+	if(new_allergens)
+		LAZYINITLIST(.)
+		.[DATA_INGREDIENT_FLAGS] |= new_allergens
 
 	// Sum our existing taste data with the incoming taste data.
 	var/total_taste = 0
+	var/new_fraction = amount / REAGENT_VOLUME(reagents, type) // the fraction of the total reagent volume that the new data is associated with
 	var/list/tastes = list()
-	var/list/newtastes = LAZYACCESS(newdata, "taste")
+	var/list/newtastes = LAZYACCESS(newdata, DATA_TASTE)
 	for(var/taste in newtastes)
-		var/newtaste   = newtastes[taste]
+		var/newtaste   = newtastes[taste] * new_fraction
 		tastes[taste] += newtaste
 		total_taste   += newtaste
 
@@ -894,15 +1028,16 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	// one to hold our base taste information. This is so pouring nutriment
 	// with a taste list into honey for example won't completely mask the
 	// taste of honey.
-	var/list/oldtastes = LAZYACCESS(., "taste")
+	var/list/oldtastes = LAZYACCESS(., DATA_TASTE)
+	var/old_fraction = 1 - new_fraction
 	if(length(oldtastes))
 		for(var/taste in oldtastes)
-			var/oldtaste   = oldtastes[taste]
+			var/oldtaste   = oldtastes[taste] * old_fraction
 			tastes[taste] += oldtaste
 			total_taste   += oldtaste
-	else if(taste_description)
-		tastes[taste_description] += taste_mult
-		total_taste               += taste_mult
+	else if(length(tastes) && taste_description) // only add it to the list if we already have other tastes
+		tastes[taste_description] += taste_mult * old_fraction
+		total_taste               += taste_mult * old_fraction
 
 	// Cull all tastes below 10% of total
 	if(length(tastes))
@@ -911,7 +1046,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 				if((tastes[taste] / total_taste) < 0.1)
 					tastes -= taste
 		if(length(tastes))
-			LAZYSET(., "taste", tastes)
+			LAZYSET(., DATA_TASTE, tastes)
 
 /decl/material/proc/explosion_act(obj/item/chems/holder, severity)
 	SHOULD_CALL_PARENT(TRUE)
@@ -921,18 +1056,18 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	. = value
 
 /decl/material/proc/get_presentation_name(var/obj/item/prop)
-	. = glass_name || liquid_name
+	if(islist(prop?.reagents?.reagent_data))
+		. = LAZYACCESS(prop.reagents.reagent_data[type], DATA_MASK_NAME)
+	. ||= glass_name || liquid_name
 	if(prop?.reagents?.total_volume)
 		. = build_presentation_name_from_reagents(prop, .)
 
 /decl/material/proc/build_presentation_name_from_reagents(var/obj/item/prop, var/supplied)
 	. = supplied
-
 	if(cocktail_ingredient)
 		for(var/decl/cocktail/cocktail in SSmaterials.get_cocktails_by_primary_ingredient(type))
 			if(cocktail.matches(prop))
 				return cocktail.get_presentation_name(prop)
-
 	if(prop.reagents.has_reagent(/decl/material/solid/ice))
 		. = "iced [.]"
 
@@ -964,8 +1099,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		if(total_interacted_units <= 0)
 			return
 
-/decl/material/proc/add_burn_product(var/atom/location, var/amount)
-	var/datum/gas_mixture/environment = istype(location, /datum/gas_mixture) ? location : location?.return_air()
+/decl/material/proc/add_burn_product(var/datum/gas_mixture/environment, var/amount)
 	if(!environment || amount <= 0 || !burn_product)
 		return
 	environment.adjust_gas(burn_product, amount)
@@ -997,20 +1131,43 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	if(!isnull(boiling_point) && burn_temperature >= boiling_point)
 		LAZYSET(., type, amount)
 
-/decl/material/proc/get_reagent_name(datum/reagents/holder)
+/decl/material/proc/get_reagent_name(datum/reagents/holder, phase = MAT_PHASE_LIQUID)
+
 	if(istype(holder) && holder.reagent_data)
 		var/list/rdata = holder.reagent_data[type]
 		if(rdata)
-			var/data_name = rdata["mask_name"]
+			var/data_name = rdata[DATA_MASK_NAME]
 			if(data_name)
 				return data_name
-	return liquid_name
+
+	if(phase == MAT_PHASE_SOLID)
+		return solid_name
+
+	// Check if the material is in solution. This is a much simpler check than normal solubility.
+	if(phase == MAT_PHASE_LIQUID)
+		if(!istype(holder))
+			return liquid_name
+		var/atom/location = holder.get_reaction_loc()
+		var/temperature = location?.temperature || T20C
+
+		if(melting_point > temperature)
+			return solution_name
+		else
+			return liquid_name
+
+	return "something"
 
 /decl/material/proc/get_reagent_color(datum/reagents/holder)
 	if(istype(holder) && holder.reagent_data)
 		var/list/rdata = holder.reagent_data[type]
 		if(rdata)
-			var/data_color = rdata["mask_color"]
+			var/data_color = rdata[DATA_MASK_COLOR]
 			if(data_color)
 				return data_color
 	return color
+
+/decl/material/proc/can_hold_sharpness()
+	return hardness > MAT_VALUE_FLEXIBLE
+
+/decl/material/proc/can_hold_edge()
+	return hardness > MAT_VALUE_FLEXIBLE

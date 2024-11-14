@@ -100,8 +100,7 @@ var/global/list/map_count = list()
 		else
 			return " "
 
-/datum/random_map/proc/display_map(atom/user)
-
+/datum/random_map/proc/display_map(user)
 	if(!user)
 		user = world
 

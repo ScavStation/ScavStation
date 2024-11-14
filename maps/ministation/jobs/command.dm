@@ -2,7 +2,7 @@
 	title = "Captain"
 	alt_titles = list("El Capitán de Decisiones Extremadamente Apresuradas y Grandiosas", "Supreme Patriarch", "Supreme Matriarch")
 	supervisors = "your profit margin, your conscience, and the watchful eye of the Tradehouse Rep"
-	outfit_type = /decl/hierarchy/outfit/job/ministation/captain
+	outfit_type = /decl/outfit/job/ministation/captain
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_WEAPONS  = SKILL_ADEPT,
@@ -59,7 +59,7 @@
 	title = "Head of Personnel"
 	alt_titles = list("Patriarch of Personnel","Lieutenant","Judge")
 	supervisors = "the Captain"
-	outfit_type = /decl/hierarchy/outfit/job/ministation/hop
+	outfit_type = /decl/outfit/job/ministation/hop
 	head_position = 1
 	department_types = list(
 		/decl/department/command,

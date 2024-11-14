@@ -9,7 +9,7 @@
 	minimal_player_age = 14
 	account_allowed = 0
 	economic_power = 0
-	outfit_type = /decl/hierarchy/outfit/job/silicon/ai
+	outfit_type = /decl/outfit/job/silicon/ai
 	loadout_allowed = FALSE
 	hud_icon = "hudblank"
 	skill_points = 0
@@ -29,7 +29,7 @@
 	return H
 
 /datum/job/computer/do_spawn_special(var/mob/living/character, var/mob/new_player/new_player_mob, var/latejoin)
-	character = character.AIize(move=0) // AIize the character, but don't move them yet
+	character = character.AIize(move = FALSE)
 
 	// is_available for AI checks that there is an empty core available in this list
 	var/obj/structure/aicore/deactivated/C = empty_playable_ai_cores[1]
@@ -57,7 +57,7 @@
 	account_allowed = 0
 	economic_power = 0
 	loadout_allowed = FALSE
-	outfit_type = /decl/hierarchy/outfit/job/silicon/cyborg
+	outfit_type = /decl/outfit/job/silicon/cyborg
 	hud_icon = "hudblank"
 	skill_points = 0
 	no_skill_buffs = TRUE

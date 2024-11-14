@@ -146,7 +146,7 @@
 		remove_noun = "reinforcements"
 		check_reinf = FALSE
 
-	user.visible_message(SPAN_NOTICE("\The [user] begins removing the [src]'s [remove_mat.solid_name] [remove_noun]."))
+	user.visible_message(SPAN_NOTICE("\The [user] begins removing \the [src]'s [remove_mat.solid_name] [remove_noun]."))
 	playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
 	if(do_after(user, 4 SECONDS, src))
 		if(check_reinf)
@@ -270,11 +270,11 @@
 
 /obj/structure/table/update_material_name(override_name)
 	if(reinf_material)
-		name = "[reinf_material.solid_name] table"
+		SetName("[reinf_material.adjective_name] table")
 	else if(material)
-		name = "[material.solid_name] table frame"
+		SetName("[material.adjective_name] table frame")
 	else
-		name = "table frame"
+		SetName("table frame")
 
 /obj/structure/table/update_material_desc(override_desc)
 	desc = initial(desc)
@@ -295,6 +295,9 @@
 	color = "#ffffff"
 	alpha = 255
 	..()
+
+	if(!handle_generic_blending)
+		return
 
 	icon_state = "blank"
 	if(!is_flipped)
@@ -547,6 +550,8 @@
 		L.Add(turn(src.dir,90))
 	for(var/new_dir in L)
 		var/obj/structure/table/T = locate() in get_step(src.loc,new_dir)
+		if(L == src) // multitile objeeeects!
+			continue
 		if(blend_with(T) && T.is_flipped && T.dir == dir && !T.unflipping_check(new_dir))
 			return FALSE
 	return TRUE
@@ -772,3 +777,139 @@
 
 /obj/structure/table/woodentable_reinforced/ebony/walnut
 	additional_reinf_material = /decl/material/solid/organic/wood/walnut
+
+// A table that doesn't smooth, intended for bedside tables or otherwise standalone tables.
+// TODO: make table legs use material and tabletop use reinf_material
+// theoretically, this could also be made to use the normal table icon system, unlike desks?
+/obj/structure/table/end
+	name = "end table"
+	icon = 'icons/obj/structures/endtable.dmi'
+	icon_state = "end_table_1"
+	handle_generic_blending = FALSE
+	color = /decl/material/solid/organic/wood/walnut::color
+	material = /decl/material/solid/organic/wood/walnut
+	reinf_material = /decl/material/solid/organic/wood/walnut
+	material_alteration = MAT_FLAG_ALTERATION_ALL
+	can_flip = FALSE
+
+/obj/structure/table/end/alt
+	icon_state = "end_table_2"
+
+/obj/structure/table/end/alt/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+	material = /decl/material/solid/organic/wood/ebony
+	reinf_material = /decl/material/solid/organic/wood/ebony
+
+/obj/structure/table/end/Initialize()
+	. = ..()
+	// we don't do frames or anything, just skip right to decon
+	tool_interaction_flags |= TOOL_INTERACTION_DECONSTRUCT
+
+/obj/structure/table/end/reinforce_table(obj/item/stack/material/S, mob/user)
+	return FALSE
+
+/obj/structure/table/end/finish_table(obj/item/stack/material/S, mob/user)
+	return FALSE
+
+/obj/structure/table/end/handle_default_screwdriver_attackby(mob/user, obj/item/screwdriver)
+	return FALSE
+
+/obj/structure/table/end/update_material_name(override_name)
+	SetName("[reinf_material.adjective_name] end table")
+
+/obj/structure/table/desk
+	name = "desk"
+	icon_state = "desk_left"
+	icon = 'icons/obj/structures/desk_large.dmi'
+	handle_generic_blending = FALSE
+	color = /decl/material/solid/organic/wood/walnut::color
+	material = /decl/material/solid/organic/wood/walnut
+	reinf_material = /decl/material/solid/organic/wood/walnut
+	storage = /datum/storage/structure/desk
+	bound_width = 64
+	material_alteration = MAT_FLAG_ALTERATION_ALL
+	can_flip = FALSE
+	top_surface_noun = "desktop"
+	/// The pixel height at which point clicks start registering for the tabletop and not the drawers.
+	var/tabletop_height = 9
+
+/obj/structure/table/desk/Initialize()
+	. = ..()
+	// we don't do frames or anything, just skip right to decon
+	tool_interaction_flags |= TOOL_INTERACTION_DECONSTRUCT
+
+/obj/structure/table/desk/right
+	icon_state = "desk_right"
+
+/obj/structure/table/desk/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+	material = /decl/material/solid/organic/wood/ebony
+	reinf_material = /decl/material/solid/organic/wood/ebony
+
+/obj/structure/table/desk/ebony/right
+	icon_state = "desk_right"
+
+/obj/structure/table/desk/update_material_name(override_name)
+	SetName("[reinf_material.adjective_name] desk")
+
+/obj/structure/table/desk/reinforce_table(obj/item/stack/material/S, mob/user)
+	return FALSE
+
+/obj/structure/table/desk/finish_table(obj/item/stack/material/S, mob/user)
+	return FALSE
+
+/obj/structure/table/desk/handle_default_screwdriver_attackby(mob/user, obj/item/screwdriver)
+	return FALSE
+
+/obj/structure/table/desk/on_update_icon()
+	. = ..()
+	if(storage)
+		if(storage.opened)
+			icon_state = "[initial(icon_state)]_open"
+		else
+			icon_state = initial(icon_state)
+
+/datum/storage/structure/desk
+	use_sound = null
+	open_sound = 'sound/foley/drawer-open.ogg'
+	close_sound = 'sound/foley/drawer-close.ogg'
+	max_storage_space = DEFAULT_BOX_STORAGE * 2 // two drawers!
+
+/datum/storage/structure/desk/can_be_inserted(obj/item/prop, mob/user, stop_messages = 0, click_params = null)
+	var/list/params = params2list(click_params)
+	var/obj/structure/table/desk/desk = holder
+	if(LAZYLEN(params) && text2num(params["icon-y"]) > desk.tabletop_height)
+		return FALSE // don't insert when clicking the tabletop
+	return ..()
+
+/datum/storage/structure/desk/play_open_sound()
+	. = ..()
+	flick("[initial(holder.icon_state)]_opening", holder)
+
+/datum/storage/structure/desk/play_close_sound()
+	. = ..()
+	flick("[initial(holder.icon_state)]_closing", holder)
+
+/obj/structure/table/desk/storage_inserted()
+	if(storage && !storage.opened)
+		playsound(src, 'sound/foley/drawer-oneshot.ogg', 50, FALSE, -5)
+		flick("[initial(icon_state)]_oneoff", src)
+
+/obj/structure/table/desk/dresser
+	icon = 'icons/obj/structures/dresser.dmi'
+	icon_state = "dresser"
+	bound_width = 32
+	top_surface_noun = "surface"
+	tabletop_height = 15
+	mob_offset = 18
+
+/obj/structure/table/desk/dresser/update_material_name(override_name)
+	SetName("[reinf_material.adjective_name] dresser")
+
+/obj/structure/table/desk/dresser/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+	material = /decl/material/solid/organic/wood/ebony
+	reinf_material = /decl/material/solid/organic/wood/ebony
+
+/datum/storage/structure/desk/dresser
+	max_storage_space = DEFAULT_BOX_STORAGE * 3 // THREE drawers!

@@ -25,11 +25,10 @@
 
 /obj/item/toy
 	icon = 'icons/obj/toy/toy.dmi'
-	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
-	force = 0
 	material = /decl/material/solid/organic/plastic
+	_base_attack_force = 1
 
 /*
  * Balloons
@@ -46,12 +45,11 @@
 	hitsound                      = 'sound/weapons/throwtap.ogg'
 	throw_speed                   = 4
 	throw_range                   = 20
-	throwforce                    = 0
-	force                         = 0
 	possible_transfer_amounts     = null
 	amount_per_transfer_from_this = 10
 	volume                        = 10
 	material                      = /decl/material/solid/organic/plastic
+	_base_attack_force            = 0
 
 /obj/item/chems/water_balloon/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && reagents?.total_volume <= 0)
@@ -109,14 +107,13 @@
 /obj/item/toy/balloon
 	name = "\improper 'criminal' balloon"
 	desc = "FUK CAPITALISM!11!"
-	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
-	force = 0
 	icon = 'icons/obj/items/balloon.dmi'
 	icon_state = "syndballoon"
 	item_state = "syndballoon"
 	w_class = ITEM_SIZE_HUGE
+	_base_attack_force = 0
 
 /obj/item/toy/balloon/Initialize()
 	. = ..()
@@ -149,18 +146,15 @@
 	desc = "A cheap, plastic replica of an energy sword. Realistic sounds! Ages 8 and up."
 	sharp = FALSE
 	edge =  FALSE
-	force = 1
-	throwforce = 1
 	attack_verb = list("hit")
 	material = /decl/material/solid/organic/plastic
-
 	active_hitsound = 'sound/weapons/genhit.ogg'
 	active_descriptor = "extended"
-	active_force = 1
-	active_throwforce = 1
 	active_attack_verb = list("hit")
 	active_edge = FALSE
 	active_sharp = FALSE
+	_active_base_attack_force = 1
+	_base_attack_force = 1
 
 /obj/item/sword/katana/toy
 	name = "toy katana"
@@ -181,7 +175,7 @@
 	..()
 	spark_at(src, cardinal_only = TRUE)
 	new /obj/effect/decal/cleanable/ash(src.loc)
-	visible_message(SPAN_WARNING("The [src.name] explodes!"),SPAN_WARNING("You hear a snap!"))
+	visible_message(SPAN_WARNING("\The [src] explodes!"),SPAN_WARNING("You hear a snap!"))
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
 	qdel(src)
 
@@ -194,7 +188,7 @@
 	spark_at(src, amount=2)
 	new /obj/effect/decal/cleanable/ash(src.loc)
 	visible_message(
-		SPAN_WARNING("The [src] explodes!"),
+		SPAN_WARNING("\The [src] explodes!"),
 		SPAN_WARNING("You hear a snap!"))
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
 	qdel(src)
@@ -225,7 +219,7 @@
 	icon = 'icons/obj/toy/toy.dmi'
 	icon_state = "ripleytoy"
 	var/cooldown = 0
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 
 //all credit to skasi for toy mech fun ideas
 /obj/item/toy/prize/attack_self(mob/user)
@@ -305,7 +299,7 @@
 	desc = "A \"Space Life\" brand... wait, what the hell is this thing? It seems to be requesting the sweet release of death."
 	icon_state = "assistant"
 	icon = 'icons/obj/toy/toy.dmi'
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 
 /obj/item/toy/figure/cmo
 	name = "Chief Medical Officer action figure"
@@ -502,7 +496,7 @@
 	name = "foam sword"
 	desc = "An arcane weapon (made of foam) wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
 	icon = 'icons/obj/items/weapon/swords/cult.dmi'
-	material = /decl/material/solid/organic/plastic
+	material = /decl/material/solid/organic/plastic/foam
 	edge = 0
 	sharp = 0
 
@@ -522,7 +516,7 @@
 	icon = 'icons/obj/toy/toy.dmi'
 	slot_flags = SLOT_LOWER_BODY
 	w_class = ITEM_SIZE_SMALL
-	force = 1
+	_base_attack_force = 1
 	attack_verb = list("attacked", "whacked", "jabbed", "poked", "marshalled")
 	material = /decl/material/solid/organic/plastic
 
@@ -628,7 +622,7 @@
 	name = "magic eightball"
 	desc = "A black ball with a stencilled number eight in white on the side. It seems full of dark liquid.\nThe instructions state that you should ask your question aloud, and then shake."
 	icon_state = "eightball"
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 
 	var/static/list/possible_answers = list(
 		"It is certain",
@@ -670,8 +664,6 @@
 	desc = "This should never display."
 	icon = 'icons/obj/items/chess.dmi'
 	w_class = ITEM_SIZE_LARGE
-	force = 1
-	throwforce = 1
 	drop_sound = 'sound/foley/glass.ogg'
 	color = COLOR_OFF_WHITE
 	abstract_type = /obj/item/toy/chess
@@ -679,6 +671,7 @@
 	randpixel = 0
 	pixel_y = 6
 	pixel_x = 0
+	_base_attack_force = 1
 	var/rule_info
 
 /obj/item/toy/chess/examine(mob/user, distance, infix, suffix)

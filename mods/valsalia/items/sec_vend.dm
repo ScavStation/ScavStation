@@ -5,7 +5,7 @@
 /obj/machinery/vending/security/Initialize()
 	products = products || list()
 	products[/obj/item/mollusc] = products[/obj/item/mollusc] || 8
-	products -= /obj/item/chems/food/donut
+	products -= /obj/item/food/donut
 	. = ..()
 /obj/machinery/vending/security/Initialize()
 	products = products || list()

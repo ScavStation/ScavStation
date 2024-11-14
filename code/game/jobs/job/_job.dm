@@ -43,7 +43,7 @@
 	var/list/minimal_access = list()          // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
 	var/list/access = list()                  // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
 
-	//Minimum skills allowed for the job. List should contain skill (as in /decl/hierarchy/skill path), with values which are numbers.
+	//Minimum skills allowed for the job. List should contain skill (as in /decl/skill path), with values which are numbers.
 	var/min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT
 	)
@@ -51,6 +51,8 @@
 	var/skill_points = 16                     //The number of unassigned skill points the job comes with (on top of the minimum skills).
 	var/no_skill_buffs = FALSE                //Whether skills can be buffed by age/species modifiers.
 	var/available_by_default = TRUE
+	/// If TRUE, 'Not available at roundstart.' won't be shown for this job if available_by_default is FALSE.
+	var/suppress_no_roundstart_warning = FALSE
 
 	var/list/possible_goals
 	var/min_goals = 1
@@ -68,7 +70,7 @@
 	if(type == /datum/job && global.using_map.default_job_type == type)
 		title = "Debug Job"
 		hud_icon = "hudblank"
-		outfit_type = /decl/hierarchy/outfit/job/generic/scientist
+		outfit_type = /decl/outfit/job/generic/scientist
 		autoset_department = TRUE
 
 	if(!length(department_types) && autoset_department)
@@ -96,7 +98,7 @@
 	else
 		H.set_default_language(/decl/language/human/common)
 
-	var/decl/hierarchy/outfit/outfit = get_outfit(H, alt_title, branch, grade)
+	var/decl/outfit/outfit = get_outfit(H, alt_title, branch, grade)
 	if(outfit)
 		. = outfit.equip_outfit(H, alt_title || title, job = src, rank = grade)
 
@@ -120,68 +122,69 @@
 		. = allowed_branches[branch.type] || .
 	if(allowed_ranks && grade)
 		. = allowed_ranks[grade.type] || .
-	. = . || outfit_type
-	. = outfit_by_type(.)
+	. ||= outfit_type
+	return GET_DECL(.)
 
-/datum/job/proc/create_cash_on_hand(var/mob/living/human/H, var/datum/money_account/M)
-	if(!istype(M) || !H.client?.prefs?.starting_cash_choice)
+/datum/job/proc/create_cash_on_hand(var/mob/living/human/worker, var/datum/money_account/account)
+	if(!istype(account) || !worker.client?.prefs?.starting_cash_choice)
 		return 0
-	for(var/obj/item/thing in H.client.prefs.starting_cash_choice.get_cash_objects(H, M))
+	for(var/obj/item/thing in worker.client.prefs.starting_cash_choice.get_cash_objects(worker, account))
 		. += thing.get_base_value()
-		H.equip_to_storage_or_put_in_hands(thing)
+		worker.equip_to_storage_or_put_in_hands(thing)
 
-/datum/job/proc/get_total_starting_money(var/mob/living/human/H)
+/datum/job/proc/get_total_starting_money(var/mob/living/human/worker)
 	. = 4 * rand(75, 100) * economic_power
-	// Get an average economic power for our cultures.
-	var/culture_mod =   0
-	var/culture_count = 0
-	for(var/token in H.cultural_info)
-		var/decl/cultural_info/culture = H.get_cultural_value(token)
-		if(culture && !isnull(culture.economic_power))
-			culture_count++
-			culture_mod += culture.economic_power
-	if(culture_count)
-		culture_mod /= culture_count
-	. *= culture_mod
+	// Get an average economic power for our background.
+	var/background_mod =   0
+	var/background_count = 0
+	for(var/token in worker.background_info)
+		var/decl/background_detail/background = worker.get_background_datum(token)
+		if(!isnull(background?.economic_power))
+			background_count++
+			background_mod += background.economic_power
+	if(background_count)
+		background_mod /= background_count
+	. *= background_mod
 	// Apply other mods.
 	. *= global.using_map.salary_modifier
-	. *= 1 + 2 * H.get_skill_value(SKILL_FINANCE)/(SKILL_MAX - SKILL_MIN)
+	// Apply a 50% bonus per skill level above minimum.
+	. *= 1 + 2 * (worker.get_skill_value(SKILL_FINANCE) - SKILL_MIN)/(SKILL_MAX - SKILL_MIN)
 	. = round(.)
 
-/datum/job/proc/setup_account(var/mob/living/human/H)
-	if(!account_allowed || (H.mind && H.mind.initial_account))
+/datum/job/proc/setup_account(var/mob/living/human/worker)
+	if(!account_allowed || worker.mind?.initial_account)
 		return
 
 	// Calculate our pay and apply all relevant modifiers.
-	var/money_amount = get_total_starting_money(H)
+	var/money_amount = get_total_starting_money(worker)
 	if(money_amount <= 0)
 		return // You are too poor for an account.
 
 	//give them an account in the station database
-	var/datum/money_account/M = create_account("[H.real_name]'s account", H.real_name, money_amount)
-	var/cash_on_hand = create_cash_on_hand(H, M)
+	var/datum/money_account/account = create_account("[worker.real_name]'s account", worker.real_name, money_amount)
+	var/cash_on_hand = create_cash_on_hand(worker, account)
 	// Store their financial info.
-	if(H.mind)
+	if(worker.mind)
 		var/remembered_info = ""
-		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
-		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
-		remembered_info += "<b>Your account funds are:</b> [M.format_value_by_currency(M.money)]<br>"
-		if(M.transaction_log.len)
-			var/datum/transaction/T = M.transaction_log[1]
+		remembered_info += "<b>Your account number is:</b> #[account.account_number]<br>"
+		remembered_info += "<b>Your account pin is:</b> [account.remote_access_pin]<br>"
+		remembered_info += "<b>Your account funds are:</b> [account.format_value_by_currency(account.money)]<br>"
+		if(account.transaction_log.len)
+			var/datum/transaction/T = account.transaction_log[1]
 			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.get_source_name()]<br>"
 		if(cash_on_hand > 0)
 			var/decl/currency/cur = GET_DECL(global.using_map.default_currency)
 			remembered_info += "<b>Your cash on hand is:</b> [cur.format_value(cash_on_hand)]<br>"
-		H.StoreMemory(remembered_info, /decl/memory_options/system)
-		H.mind.initial_account = M
-		for(var/obj/item/card/id/I in H.GetIdCards())
+		worker.StoreMemory(remembered_info, /decl/memory_options/system)
+		worker.mind.initial_account = account
+		for(var/obj/item/card/id/I in worker.GetIdCards())
 			if(!I.associated_account_number)
-				I.associated_account_number = M.account_number
+				I.associated_account_number = account.account_number
 				break
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/qdel()
 /datum/job/proc/equip_preview(mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade, var/additional_skips)
-	var/decl/hierarchy/outfit/outfit = get_outfit(H, alt_title, branch, grade)
+	var/decl/outfit/outfit = get_outfit(H, alt_title, branch, grade)
 	if(!outfit)
 		return FALSE
 	. = outfit.equip_outfit(H, alt_title || title, equip_adjustments = (OUTFIT_ADJUSTMENT_SKIP_POST_EQUIP|OUTFIT_ADJUSTMENT_SKIP_ID_PDA|additional_skips), job = src, rank = grade)

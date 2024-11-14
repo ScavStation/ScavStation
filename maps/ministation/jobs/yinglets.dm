@@ -5,7 +5,7 @@
 	spawn_positions = 1
 	total_positions = 1
 	supervisors = "the needs and wants of your Enclave"
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/yinglet_rep
+	outfit_type = /decl/outfit/job/yinglet/yinglet_rep
 	min_skill = list(
 		SKILL_WEAPONS  = SKILL_BASIC,
 		SKILL_FINANCE  = SKILL_EXPERT,
@@ -29,7 +29,7 @@
 	title = "Matriarch"
 	alt_titles = list("Her Muchliest Bestest", "Patriarch of Matriarching", "Matriarch of Patriarching")
 	supervisors = "The yinglets of the enclave, the Captain, and the whims of your own ideals"
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/yinglet_rep/matriarch
+	outfit_type = /decl/outfit/job/yinglet/yinglet_rep/matriarch
 	head_position = 1
 	department_types = list(
 		/decl/department/command,

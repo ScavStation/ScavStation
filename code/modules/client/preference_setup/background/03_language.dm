@@ -1,5 +1,3 @@
-#define MAX_LANGUAGES 3
-
 /datum/preferences
 	var/list/alternate_languages
 
@@ -49,7 +47,7 @@
 
 	if(href_list["add_language"])
 
-		if(length(pref.alternate_languages) >= MAX_LANGUAGES)
+		if(length(pref.alternate_languages) >= get_config_value(/decl/config/num/max_alternate_languages))
 			return TOPIC_REFRESH
 
 		var/decl/language/lang = locate(href_list["add_language"])
@@ -73,16 +71,16 @@
 	if(!user)
 		return
 
-	for(var/thing in pref.cultural_info)
-		var/decl/cultural_info/culture = GET_DECL(pref.cultural_info[thing])
-		if(istype(culture))
-			var/list/langs = culture.get_spoken_languages()
+	for(var/thing in pref.background_info)
+		var/decl/background_detail/background = GET_DECL(pref.background_info[thing])
+		if(istype(background))
+			var/list/langs = background.get_spoken_languages()
 			if(LAZYLEN(langs))
 				for(var/checklang in langs)
 					free_languages[checklang] =    TRUE
 					allowed_languages[checklang] = TRUE
-			if(LAZYLEN(culture.secondary_langs))
-				for(var/checklang in culture.secondary_langs)
+			if(LAZYLEN(background.secondary_langs))
+				for(var/checklang in background.secondary_langs)
 					allowed_languages[checklang] = TRUE
 
 	var/list/language_types = decls_repository.get_decls_of_subtype(/decl/language)
@@ -91,8 +89,8 @@
 		// Abstract, forbidden and restricted languages aren't supposed to be available to anyone in chargen.
 		if(lang.flags & (LANG_FLAG_FORBIDDEN|LANG_FLAG_RESTRICTED))
 			continue
-		// Admin don't need to worry about whitelisted checks or culture datums, give them everything.
-		// Non-whitelisted languages should be handled by culture datums.
+		// Admin don't need to worry about whitelisted checks or background datums, give them everything.
+		// Non-whitelisted languages should be handled by background datums.
 		if(user.has_admin_rights() || ((lang.flags & LANG_FLAG_WHITELISTED) && is_alien_whitelisted(user, lang)))
 			allowed_languages[thing] = TRUE
 
@@ -122,8 +120,9 @@
 			pref.alternate_languages.Insert(1, lang)
 
 	pref.alternate_languages = uniquelist(pref.alternate_languages)
-	if(length(pref.alternate_languages) > MAX_LANGUAGES)
-		pref.alternate_languages.Cut(MAX_LANGUAGES + 1)
+	var/max_languages = get_config_value(/decl/config/num/max_alternate_languages)
+	if(length(pref.alternate_languages) > max_languages)
+		pref.alternate_languages.Cut(max_languages + 1)
 
 /datum/category_item/player_setup_item/background/languages/proc/get_language_text()
 
@@ -143,9 +142,10 @@
 			LAZYADD(., "<td>[lang_instance.desc || "No information avaliable."]</td>")
 			LAZYADD(., "</tr>")
 
-	if(pref.alternate_languages.len < MAX_LANGUAGES)
+	var/max_languages = get_config_value(/decl/config/num/max_alternate_languages)
+	if(pref.alternate_languages.len < max_languages)
 
-		var/remaining_langs = MAX_LANGUAGES - pref.alternate_languages.len
+		var/remaining_langs = max_languages - pref.alternate_languages.len
 		var/list/available_languages = list()
 		for(var/lang in (allowed_languages - free_languages))
 			if(!(lang in pref.alternate_languages))
@@ -172,4 +172,3 @@
 	if(!LAZYLEN(.))
 		LAZYADD(., "<tr><td[colspan]>Your current species or background does not allow you to choose additional languages.</td></tr>")
 
-#undef MAX_LANGUAGES

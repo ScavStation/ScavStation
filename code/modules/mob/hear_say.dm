@@ -1,6 +1,6 @@
 // At minimum every mob has a hear_say proc.
 
-/mob/proc/hear_say(var/message, var/verb = "says", var/decl/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+/mob/proc/hear_say(var/message, var/verb = "says", var/decl/language/language = null, var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(!client)
 		return
 
@@ -59,8 +59,8 @@
 			if(speaker == src)
 				to_chat(src, SPAN_WARNING("You cannot hear yourself speak!"))
 			else if(!is_blind())
-				var/decl/pronouns/G = speaker.get_pronouns()
-				to_chat(src, "<span class='name'>\The [speaker_name]</span>[alt_name] talks but you cannot hear [G.him].")
+				var/decl/pronouns/pronouns = speaker.get_pronouns()
+				to_chat(src, "<span class='name'>\The [speaker_name]</span> talks but you cannot hear [pronouns.him].")
 	else
 		if (language)
 			var/nverb = verb
@@ -77,9 +77,9 @@
 							nverb = "[verb] ([language.shorthand])"
 						if(PREF_OFF)//Regular output
 							nverb = verb
-			on_hear_say("<span class='game say'>[track]<span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, nverb)]</span>")
+			on_hear_say("<span class='game say'>[track]<span class='name'>\The [speaker_name]</span> [language.format_message(message, nverb)]</span>")
 		else
-			on_hear_say("<span class='game say'>[track]<span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			on_hear_say("<span class='game say'>[track]<span class='name'>\The [speaker_name]</span> [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			src.playsound_local(source, speech_sound, sound_vol, 1)
@@ -110,9 +110,8 @@
 	if(!(language && (language.flags & LANG_FLAG_INNATE))) // skip understanding checks for LANG_FLAG_INNATE languages
 		if(!say_understands(speaker,language))
 			if(isanimal(speaker))
-				var/mob/living/simple_animal/S = speaker
-				if(LAZYLEN(S.emote_speech))
-					message = pick(S.emote_speech)
+				if(LAZYLEN(speaker.ai?.emote_speech))
+					message = pick(speaker.ai.emote_speech)
 				else
 					return
 			else

@@ -87,20 +87,21 @@
 
 /obj/item/modular_computer/attackby(var/obj/item/W, var/mob/user)
 	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)
-	if(assembly.attackby(W, user))
+	. = assembly.attackby(W, user)
+	if(.)
 		update_verbs()
-		return
+		return TRUE
 
 	if(IS_PEN(W) && (W.w_class <= ITEM_SIZE_TINY) && stores_pen)
 		if(istype(stored_pen))
 			to_chat(user, "<span class='notice'>There is already a pen in [src].</span>")
-			return
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		stored_pen = W
 		update_verbs()
 		to_chat(user, "<span class='notice'>You insert [W] into [src].</span>")
-		return
+		return TRUE
 	return ..()
 
 /obj/item/modular_computer/examine(mob/user)
@@ -168,8 +169,9 @@
 /decl/interaction_handler/remove_pen/modular_computer/is_possible(obj/item/modular_computer/target, mob/user, obj/item/prop)
 	return ..() && target.stores_pen && target.stored_pen
 
-/decl/interaction_handler/remove_pen/modular_computer/invoked(obj/item/modular_computer/target, mob/user, obj/item/prop)
-	target.remove_pen()
+/decl/interaction_handler/remove_pen/modular_computer/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/modular_computer/computer = target
+	computer.remove_pen()
 
 //
 // Emergency Shutdown
@@ -187,8 +189,9 @@
 	var/datum/extension/assembly/modular_computer/assembly = get_extension(target, /datum/extension/assembly)
 	return !isnull(assembly) && assembly.enabled
 
-/decl/interaction_handler/emergency_shutdown/invoked(obj/item/modular_computer/target, mob/user, obj/item/prop)
-	target.emergency_shutdown()
+/decl/interaction_handler/emergency_shutdown/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/modular_computer/computer = target
+	computer.emergency_shutdown()
 
 //
 // Remove Charge-stick

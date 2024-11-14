@@ -21,6 +21,10 @@
 		lighting_color = blade_color
 	. = ..()
 
+/obj/item/energy_blade/sword/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/demolisher/energy)
+
 /obj/item/energy_blade/sword/is_special_cutting_tool(var/high_power)
 	return active && !high_power
 
@@ -43,7 +47,7 @@
 		I.color = blade_color
 		add_overlay(I)
 
-/obj/item/energy_blade/sword/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/energy_blade/sword/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && active && check_state_in_icon("[overlay.icon_state]-extended-glow", overlay.icon))
 		overlay.overlays += emissive_overlay(overlay.icon, "[overlay.icon_state]-extended-glow", color = blade_color)
 	return ..()

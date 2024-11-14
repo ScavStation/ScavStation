@@ -198,7 +198,8 @@ SUBSYSTEM_DEF(zcopy)
 	calculate_zstack_limits()
 
 	for (var/zlev in 1 to world.maxz)
-		for (var/turf/T in block(locate(1, 1, zlev), locate(world.maxx, world.maxy, zlev)))
+		var/datum/level_data/level = SSmapping.levels_by_z[zlev]
+		for (var/turf/T as anything in block(level.level_inner_min_x, level.level_inner_min_y, zlev, level.level_inner_max_x, level.level_inner_max_y))
 			if (T.z_flags & ZM_MIMIC_BELOW)
 				flush_z_state(T)
 				T.below = GetAbove(T)
@@ -495,10 +496,10 @@ SUBSYSTEM_DEF(zcopy)
 	ASSERT(!QDELETED(object))
 
 	var/turf/Tloc = object.loc
-	if (!isturf(Tloc) || !Tloc.above)
+	if (!isturf(Tloc) || !MOVABLE_SHALL_MIMIC(object))
 		return TRUE
 
-	var/turf/T = Tloc.above
+	var/turf/T = GetAbove(Tloc)
 
 	ZM_RECORD_START
 

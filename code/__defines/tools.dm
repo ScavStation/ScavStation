@@ -15,6 +15,8 @@
 
 // Misc tools.
 #define TOOL_PEN            /decl/tool_archetype/pen
+#define TOOL_STAMP          /decl/tool_archetype/stamp
+#define TOOL_SHEARS         /decl/tool_archetype/shears
 
 // Surgical tools.
 #define TOOL_SCALPEL        /decl/tool_archetype/scalpel
@@ -85,6 +87,7 @@
 #define TOOL_PROP_COLOR_NAME       "color_name"     //Property containing a color name for some tools. Namely the pen tool.
 #define TOOL_PROP_COLOR            "color"          //Property for specifying a color, for something like a pen.
 #define TOOL_PROP_USES             "uses_left"      //Property for things that have a fixed amount of uses. -1 is unlimited.
+#define TOOL_PROP_EMPTY_MESSAGE    "empty_msg"      //The message given on depletion when a tool runs out of charges.
 
 //Pen specific stuff
 #define TOOL_PROP_PEN_FLAG         "pen_flag"     //Property for pens to specify additional properties about themselves

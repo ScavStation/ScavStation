@@ -81,7 +81,7 @@
 /obj/effect/razorweb/attackby(var/obj/item/thing, var/mob/user)
 
 	var/destroy_self
-	if(thing.force)
+	if(thing.get_attack_force(user))
 		visible_message(SPAN_DANGER("\The [user] breaks \the [src] with \the [thing]!"))
 		destroy_self = TRUE
 
@@ -91,6 +91,8 @@
 
 	if(destroy_self)
 		qdel(src)
+		return TRUE
+	return FALSE
 
 /obj/effect/razorweb/on_update_icon()
 	overlays.Cut()

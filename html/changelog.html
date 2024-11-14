@@ -298,12 +298,62 @@
 			<h2 class="date">08 May 2024</h2>
 			<h3 class="author">MistakeNot4892 updated:</h3>
 			<h2 class="date">19 June 2024</h2>
+			<h2 class="date">13 November 2024</h2>
 			<h3 class="author">Penelope Haze updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="experiment">Ammo magazines will not initialize their contents until first interacted with, which makes startup faster but could cause bugs. Report any issues on the issue tracker!</li>
+				<li class="imageadd">Added a new wooden bucket sprite.</li>
+				<li class="tweak">Quills now have a limited amount of ink, which can be refilled in an inkwell.</li>
+				<li class="tweak">Crayons are now slowly used up while writing on paper, at a rate of one charge per 25 characters. (Crayons have a default of 30 charges.)</li>
+				<li class="tweak">Added new furniture to the Shaded Hills inn.</li>
 			</ul>
 
-			<h2 class="date">16 June 2024</h2>
+			<h2 class="date">05 November 2024</h2>
+			<h3 class="author">Neerti updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Mining drill braces are now crafted from steel sheets directly.</li>
+				<li class="balance">Microlasers added to mining drills no longer multiply ore out of the ground, but make the drill mine faster, proportionally increasing the energy usage.</li>
+				<li class="balance">Capacitors added to mining drills are less powerful.</li>
+			</ul>
+
+			<h2 class="date">01 November 2024</h2>
+			<h3 class="author">MistakeNot4892 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Curries, soups and stews have been rewritten, please refer to the codex for recipes.</li>
+			</ul>
+
+			<h2 class="date">23 October 2024</h2>
+			<h3 class="author">MistakeNot4892 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Dough now requires a 60C temperature and does not use egg.</li>
+				<li class="tweak">Flatbread now uses unleavened dough, made without yeast, while pies use pie crust. Check the codex for updated recipes.</li>
+			</ul>
+
+			<h2 class="date">08 October 2024</h2>
+			<h3 class="author">Sutures updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Generic premapped 'meat' on Shaded Hills has been replaced with beef or chicken subtypes where applicable.</li>
+				<li class="tweak">Renamed generic 'wood' to 'oak' if the fantasy modpack is included.</li>
+				<li class="tweak">Remapped the Shaded Hills inn substantially.</li>
+				<li class="tweak">Removed warnings when moving against a lit dense fire source, because you can't step into it anyway.</li>
+				<li class="soundadd">Added sounds for brooms and brushes.</li>
+				<li class="imageadd">Added a wood plank texture to wood pews.</li>
+				<li class="imageadd">Added a wood plank texture to wood tables, used if the fantasy modpack is included.</li>
+				<li class="bugfix">Fixed wall banners not starting with banners.</li>
+			</ul>
+
+			<h2 class="date">05 October 2024</h2>
+			<h3 class="author">MistakeNot4892 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Sledgehammers can demolish non-reinforced walls.</li>
+			</ul>
+
+			<h2 class="date">30 September 2024</h2>
+			<h3 class="author">Atermonera updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some grammatical issues in location event strings.</li>
+			</ul>
+
+			<h2 class="date">27 September 2024</h2>
 			<h3 class="author">Penelope Haze updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">Greeting message now check if your starting loadout actually gives you a headset before advising you on how to talk through your headset..</li>
@@ -442,93 +492,31 @@
 				<li class="tweak">Falling a longer distance will now cause more damage.</li>
 				<li class="tweak">Snow and grass can be removed with a shovel.</li>
 				<li class="tweak">Meteor is now a votable mode on Exodus. Oh no!!</li>
+				<li class="imageadd">added overlays to show when a crafted or dried waterskin is closed</li>
+				<li class="imageadd">added a new sprite for waterskins made from dried ruminant stomachs</li>
 			</ul>
 
-			<h2 class="date">13 June 2024</h2>
-			<h3 class="author">NataKilar updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixed space tiles not creating vacuums in certain conditions</li>
-			</ul>
-
-			<h2 class="date">10 June 2024</h2>
+			<h2 class="date">23 September 2024</h2>
 			<h3 class="author">MistakeNot4892 updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="tweak">Bows/crossbows have been adjusted. Please report issues to the tracker.</li>
+				<li class="tweak">You can now resist out of straightjackets.</li>
 			</ul>
 
-			<h2 class="date">09 June 2024</h2>
-			<h3 class="author">PsyCommando updated:</h3>
+			<h2 class="date">14 September 2024</h2>
+			<h3 class="author">Atermonera updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="soundadd">Added phone key tones sounds.</li>
-				<li class="soundadd">Added extra briefcases sounds for locking and unlocking.</li>
-				<li class="imageadd">Modified the secure briefcase, briefcase, secure safe icons with some new overlays, and made them use the new item icon layout format.</li>
-				<li class="balance">Made it a lot less likely to unlock a secure briefcase/charge stick/safe with a multitool if you don't have a high device skill. So, now anyone with a multitool and a screwdriver won't be able to unlock those in a single try as quickly and easily.</li>
-				<li class="bugfix">Secure briefcases cannot quick gather items on the turf while they're locked anymore.</li>
-				<li class="bugfix">Storage objects no longer cause the UI to behave weirdly when trying to access it several times in a row. (open alt interaction bug)</li>
-				<li class="bugfix">The lockable UI is now properly scaled to it's window.</li>
-				<li class="tweak">The lockable UI is a bit more polished overall.</li>
+				<li class="tweak">Corrected a number of bad placement/offsets for wall-mounted items on the exodus map</li>
 			</ul>
-
-			<h2 class="date">03 June 2024</h2>
-			<h3 class="author">LizLavenza updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">enabled edge sprites for path turfs</li>
-				<li class="bugfix">fixed grass turfs missing corners</li>
-				<li class="bugfix">fixed crafted tall boots missing icons</li>
-				<li class="bugfix">fixed sandals in Shaded Hills loadout being normal shoes</li>
-			</ul>
-
-			<h2 class="date">22 May 2024</h2>
-			<h3 class="author">Penelope Haze updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="soundadd">added lobby music for Shaded Hills, by Kevin Macleod.</li>
-			</ul>
-
-			<h2 class="date">14 May 2024</h2>
-			<h3 class="author">Penelope Haze updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Area on-enter flavortext blurbs will be able to be shown to a player again after a 15 minute cooldown, rather than only once ever.</li>
-			</ul>
-
-			<h2 class="date">13 May 2024</h2>
 			<h3 class="author">MistakeNot4892 updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="tweak">Mice will now flee from harm.</li>
+				<li class="tweak">Bookcases are a bit fancier.</li>
+				<li class="tweak">Many more intolerances have been added to character traits.</li>
 			</ul>
 
-			<h2 class="date">08 May 2024</h2>
+			<h2 class="date">12 September 2024</h2>
 			<h3 class="author">MistakeNot4892 updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="admin">Build mode ladders have been removed, and build mode relocate and move have been merged.</li>
-			</ul>
-
-			<h2 class="date">06 May 2024</h2>
-			<h3 class="author">MistakeNot4892 updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Using a half-finished slapcrafting recipe in hand will dismantle it.</li>
-				<li class="tweak">Crafting tools requires a binding material.</li>
-				<li class="tweak">Serpentid can now leave pheremone traces with a set of emotes.</li>
-			</ul>
-
-			<h2 class="date">04 May 2024</h2>
-			<h3 class="author">MistakeNot4892 updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Gibbing mobs or bodyparts will now drop usable meat and bone.</li>
-				<li class="tweak">You can now craft hand axes.</li>
-			</ul>
-
-			<h2 class="date">30 April 2024</h2>
-			<h3 class="author">MistakeNot4892 updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Growns can be processed into different forms based on the grown. Apples will be sliced, potatoes will be turned into sticks, and carrots will be chopped. You can also turn sticks into chopped veggies by using a knife again.</li>
-				<li class="tweak">You can now extract seeds from growns using Botany skill and a sharp knife.</li>
-				<li class="tweak">Potatoes can be planted directly without extracting seeds.</li>
-			</ul>
-
-			<h2 class="date">26 April 2024</h2>
-			<h3 class="author">MistakeNot4892 updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="tweak">Non-high vis accessories on clothes will show as part of the examine string.</li>
+				<li class="tweak">Salt and fools' gold can be mined on Shaded Hills.</li>
 			</ul>
 </div>
 </td></tr></table>

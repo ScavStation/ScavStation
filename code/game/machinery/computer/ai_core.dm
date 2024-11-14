@@ -225,9 +225,7 @@ var/global/list/deactivated_ai_cores = list()
 	qdel(src)
 
 /obj/structure/aicore/deactivated/attackby(var/obj/item/W, var/mob/user)
-	if(IS_WRENCH(W) || IS_WELDER(W))
-		. = ..()
-	else if(istype(W, /obj/item/aicard))
+	if(istype(W, /obj/item/aicard))
 		var/obj/item/aicard/card = W
 		var/mob/living/silicon/ai/transfer = locate() in card
 		if(transfer)
@@ -235,6 +233,7 @@ var/global/list/deactivated_ai_cores = list()
 		else
 			to_chat(user, SPAN_DANGER("ERROR: Unable to locate artificial intelligence."))
 		return TRUE
+	return ..()
 
 /client/proc/empty_ai_core_toggle_latejoin()
 	set name = "Toggle AI Core Latejoin"

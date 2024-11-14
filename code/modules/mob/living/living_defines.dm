@@ -88,3 +88,15 @@
 
 	/// Organ instances that should report info to Stat().
 	var/list/stat_organs
+
+	/// Should this mob subscribe to the weather system for periodic weather effects?
+	var/weather_sensitive = FALSE
+
+	/// Var used to track current step for footsteps sounds.
+	var/tmp/step_count
+
+	/// Has this mob -ever- had a gripper? Used to skip hand checks in some cases.
+	var/has_had_gripper = FALSE
+
+	/// Timer for chewing off your hand when cuffed.
+	var/next_restraint_chew = 0

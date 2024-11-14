@@ -2,7 +2,7 @@
 	icon_state = "brick"
 	material = /decl/material/solid/stone/sandstone
 	girder_material = null
-	floor_type = null
+	floor_type = /turf/floor/dirt
 	min_dismantle_amount = 3
 	max_dismantle_amount = 5
 
@@ -36,6 +36,9 @@
 /turf/wall/brick/##material_name/shutter { \
 	shutter_state = FALSE; \
 	icon_state = "brick_shutter"; \
+}; \
+/turf/wall/brick/##material_name/shutter/open { \
+	shutter_state = TRUE; \
 }
 
 MATERIAL_BRICK_WALL(sandstone)

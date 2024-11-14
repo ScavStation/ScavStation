@@ -5,7 +5,7 @@
 	icon_state          = ICON_STATE_WORLD
 	sharp               = TRUE
 	edge                = TRUE
-	force               = 3
+	_base_attack_force  = 3
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	w_class             = ITEM_SIZE_SMALL
 
@@ -35,12 +35,15 @@
 
 /obj/item/rock/basalt
 	material = /decl/material/solid/stone/basalt
+	color = /decl/material/solid/stone/basalt::color
 
 /obj/item/rock/hematite
 	material = /decl/material/solid/hematite
+	color = /decl/material/solid/hematite::color
 
 /obj/item/rock/flint
 	material = /decl/material/solid/stone/flint
+	color = /decl/material/solid/stone/flint::color
 
 /obj/item/rock/flint/striker
 	name    = "striker"

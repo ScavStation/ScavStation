@@ -7,7 +7,7 @@
 		removed_something = FALSE
 		for(var/trait_type in traits)
 			var/decl/trait/trait = GET_DECL(trait_type)
-			if(!istype(trait) || !trait.is_available_to(src) || (trait.parent && !(trait.parent.type in traits)))
+			if(!istype(trait) || !trait.is_available_to_select(src) || (trait.parent && !(trait.parent.type in traits)))
 				traits -= trait_type
 				removed_something = TRUE
 			else if(length(trait.incompatible_with))
@@ -21,8 +21,11 @@
 	sort_order = 1
 	var/selected_category
 
-/datum/category_item/player_setup_item/traits/load_character(datum/pref_record_reader/R)
+// We have to preload traits early, as they are used to sanitize several other areas of character generation.
+/datum/category_item/player_setup_item/traits/preload_character(datum/pref_record_reader/R)
+
 	pref.traits = R.read("aspects") | R.read("traits") // Grandfather in old aspect settings.
+
 	for(var/trait_id in pref.traits)
 		if(ispath(trait_id, /decl/trait))
 			continue
@@ -30,6 +33,11 @@
 		var/decl/trait/trait = decls_repository.get_decl_by_id_or_var(trait_id, /decl/trait)
 		if(istype(trait))
 			pref.traits |= trait.type
+
+	if(!pref.traits)
+		pref.traits = list()
+	else
+		pref.prune_invalid_traits()
 
 /datum/category_item/player_setup_item/traits/save_character(datum/pref_record_writer/W)
 	var/list/trait_ids = list()
@@ -95,7 +103,7 @@
 		if(trait_category.hide_from_chargen)
 			continue
 		for(var/decl/trait/trait as anything in trait_category.items)
-			if(trait.is_available_to(pref))
+			if(trait.is_available_to_select(pref))
 				available_categories[trait_category.name] = trait_category
 				break
 	if(!length(available_categories))
@@ -127,7 +135,7 @@
 			if(trait.type in pref.traits)
 				trait_spent += trait.trait_cost
 
-			if(trait_category_id == selected_category && !trait.parent && trait.available_at_chargen)
+			if(trait_category_id == selected_category && !trait.parent && trait.is_available_to_select(pref))
 				body += trait.get_trait_selection_data(src, pref.traits)
 
 		var/category_label = trait_category.name

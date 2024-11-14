@@ -178,8 +178,9 @@
 
 /obj/machinery/port_gen/pacman/proc/process_exhaust()
 	var/decl/material/mat = GET_DECL(sheet_material)
-	if(mat)
-		mat.add_burn_product(loc, 0.05*power_output)
+	var/datum/gas_mixture/environment = loc?.return_air()
+	if(mat && environment)
+		mat.add_burn_product(environment, 0.05*power_output)
 
 /obj/machinery/port_gen/pacman/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
@@ -304,13 +305,13 @@
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
-			to_chat(user, "<span class='notice'>The [src.name] is full!</span>")
-			return
-		to_chat(user, "<span class='notice'>You add [amount] sheet\s to the [src.name].</span>")
+			to_chat(user, "<span class='notice'>\The [src] is full!</span>")
+			return TRUE
+		to_chat(user, "<span class='notice'>You add [amount] sheet\s to \the [src].</span>")
 		sheets += amount
 		addstack.use(amount)
 		updateUsrDialog()
-		return
+		return TRUE
 	if(IS_WRENCH(O) && !active)
 		if(!anchored)
 			to_chat(user, "<span class='notice'>You secure \the [src] to the floor.</span>")
@@ -319,6 +320,7 @@
 
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		anchored = !anchored
+		return TRUE
 	return component_attackby(O, user)
 
 /obj/machinery/port_gen/pacman/dismantle()

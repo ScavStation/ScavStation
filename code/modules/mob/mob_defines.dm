@@ -106,7 +106,7 @@
 	var/decl/move_intent/default_run_intent
 
 	var/datum/storage/active_storage
-	var/obj/buckled = null//Living
+	var/atom/movable/buckled = null
 	var/in_throw_mode = 0
 
 	var/can_pull_size = ITEM_SIZE_STRUCTURE // Maximum w_class the mob can pull.
@@ -148,7 +148,7 @@
 
 	var/list/progressbars = null //for stacking do_after bars
 
-	var/datum/ai/ai						// Type abused. Define with path and will automagically create. Determines behaviour for clientless mobs.
+	var/datum/mob_controller/ai						// Type abused. Define with path and will automagically create. Determines behaviour for clientless mobs.
 
 	var/holder_type
 	/// If this mob is or was piloted by a player with typing indicators enabled, an instance of one.

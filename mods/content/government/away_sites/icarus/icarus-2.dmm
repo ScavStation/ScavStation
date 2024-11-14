@@ -932,7 +932,7 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/box/monkeycubes,
+/obj/item/box/animal_cubes/monkeys,
 /turf/floor/tiled,
 /area/icarus/vessel)
 "db" = (
@@ -1217,9 +1217,7 @@
 /turf/floor/plating,
 /area/icarus/open)
 "dR" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/icarus/open)
 "dS" = (
 /obj/structure/bed,
@@ -1272,9 +1270,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/icarus/open)
 "eb" = (
 /obj/item/clothing/gloves/ring/mariner,
@@ -1321,9 +1317,7 @@
 /turf/floor/tiled,
 /area/icarus/vessel)
 "ei" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/icarus/vessel)
 "ej" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{

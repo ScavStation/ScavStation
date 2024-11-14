@@ -10,7 +10,7 @@
 /obj/item/clothing/setup_equip_flags()
 	..()
 	if(guarantee_body_flag_compatible)
-		if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
+		if(bodytype_equip_flags & BODY_EQUIP_FLAG_EXCLUDE)
 			bodytype_equip_flags &= ~guarantee_body_flag_compatible
 		else if(!isnull(bodytype_equip_flags))
 			bodytype_equip_flags |= guarantee_body_flag_compatible
@@ -28,13 +28,13 @@
 	desc = "Some very boring clothes."
 	icon = 'mods/valsalia/icons/clothing/under/plainclothes.dmi'
 	icon_state = ICON_STATE_WORLD
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
+	bodytype_equip_flags = BODY_EQUIP_FLAG_HUMANOID
 
 /obj/item/clothing/suit/jacket/redcoat
 	name = "\improper Tradehouse redcoat"
 	desc = "The signature uniform of Tradeshouse guardsmen."
 	icon = 'mods/valsalia/icons/clothing/suit/redcoat.dmi'
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
+	bodytype_equip_flags = BODY_EQUIP_FLAG_HUMANOID
 	yinglet_icon = null
 	var/has_badge
 	var/has_buttons

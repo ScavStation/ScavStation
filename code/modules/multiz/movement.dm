@@ -25,7 +25,7 @@
 	var/turf/open/O = GetAbove(src)
 	var/atom/climb_target
 	if(istype(O))
-		for(var/turf/T in RANGE_TURFS(O, 1))
+		for(var/turf/T as anything in RANGE_TURFS(O, 1))
 			if(!T.is_open() && T.is_floor())
 				climb_target = T
 			else
@@ -234,9 +234,9 @@
 	return 0
 
 /obj/fall_damage()
-	if(w_class == ITEM_SIZE_TINY)
+	if(w_class <= ITEM_SIZE_TINY)
 		return 0
-	if(w_class >= ITEM_SIZE_NO_CONTAINER)
+	if(w_class >= ITEM_SIZE_GARGANTUAN)
 		return 100
 	return BASE_STORAGE_COST(w_class)
 

@@ -24,7 +24,7 @@
 			to_chat(user, SPAN_WARNING("\The [target] is full."))
 			return
 
-		if(!ATOM_IS_OPEN_CONTAINER(target) && !ismob(target) && !istype(target, /obj/item/chems/food) && !istype(target, /obj/item/clothing/mask/smokable/cigarette)) //You can inject humans and food but you cant remove the shit.
+		if(!ATOM_IS_OPEN_CONTAINER(target) && !ismob(target) && !istype(target, /obj/item/food) && !istype(target, /obj/item/clothing/mask/smokable/cigarette)) //You can inject humans and food but you cant remove the shit.
 			to_chat(user, SPAN_WARNING("You cannot directly fill this object."))
 			return
 
@@ -78,7 +78,7 @@
 
 		to_chat(user, SPAN_NOTICE("You fill the dropper with [trans] unit\s of the solution."))
 
-/obj/item/chems/dropper/update_container_name()
+/obj/item/chems/dropper/update_name()
 	return
 
 /obj/item/chems/dropper/update_container_desc()

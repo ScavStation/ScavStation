@@ -32,7 +32,7 @@
 	blood_overlays       = 'mods/species/neoavians/icons/blood_avian.dmi'
 	skeletal_icon        = 'mods/species/neoavians/icons/skeleton.dmi'
 	limb_blend           = ICON_MULTIPLY
-	bodytype_flag        = BODY_FLAG_AVIAN
+	bodytype_flag        = BODY_EQUIP_FLAG_AVIAN
 	eye_icon             = 'mods/species/neoavians/icons/eyes.dmi'
 	appearance_flags     = HAS_SKIN_COLOR | HAS_EYE_COLOR
 	base_color           = "#252525"
@@ -50,8 +50,8 @@
 	)
 	override_limb_types        = list(BP_TAIL = /obj/item/organ/external/tail/avian)
 	default_sprite_accessories = list(
-		SAC_HAIR     = list(/decl/sprite_accessory/hair/avian    = "#252525"),
-		SAC_MARKINGS = list(/decl/sprite_accessory/marking/avian = "#454545")
+		SAC_HAIR     = list(/decl/sprite_accessory/hair/avian    = list(SAM_COLOR = "#252525")),
+		SAC_MARKINGS = list(/decl/sprite_accessory/marking/avian = list(SAM_COLOR = "#454545"))
 	)
 	age_descriptor          = /datum/appearance_descriptor/age/neoavian
 	heat_discomfort_strings = list(
@@ -65,7 +65,7 @@
 	var/tail_blend = ICON_MULTIPLY
 	var/tail_hair
 	var/tail_hair_blend
-	var/tail_states
+	var/tail_animation_states
 
 /decl/bodytype/avian/raptor
 	name                 = "raptor"
@@ -127,10 +127,10 @@
 		var/decl/bodytype/prosthetic/avian/bird_bod = bodytype
 		return bird_bod.tail_icon
 
-/obj/item/organ/external/tail/avian/get_tail_states()
+/obj/item/organ/external/tail/avian/get_tail_animation_states()
 	if(istype(bodytype, /decl/bodytype/avian))
 		var/decl/bodytype/avian/bird_bod = bodytype
-		return bird_bod.tail_states
+		return bird_bod.tail_animation_states
 	if(istype(bodytype, /decl/bodytype/prosthetic/avian))
 		var/decl/bodytype/prosthetic/avian/bird_bod = bodytype
 		return bird_bod.tail_states

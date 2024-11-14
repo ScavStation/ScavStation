@@ -246,7 +246,7 @@
 	var/list/places
 	var/attempts       = 10 * amount_shuttle_landing_points
 	var/points_left    = amount_shuttle_landing_points
-	var/landing_radius = CEILING(max_shuttle_radius / 2)
+	var/landing_radius = ceil(max_shuttle_radius / 2)
 	var/border_padding = landing_radius + 3
 
 	while(points_left)
@@ -261,7 +261,7 @@
 
 		if(attempts >= 0) // While we have the patience, try to find better spawn points. If out of patience, put them down wherever, so long as there are no repeats.
 			var/valid = 1
-			var/list/block_to_check = block(locate(T.x - landing_radius, T.y - landing_radius, T.z), locate(T.x + landing_radius, T.y + landing_radius, T.z))
+			var/list/block_to_check = block(T.x - landing_radius, T.y - landing_radius, T.z, T.x + landing_radius, T.y + landing_radius, T.z)
 			for(var/turf/check in block_to_check)
 				if(!istype(get_area(check), gen_data.surface_area) || check.turf_flags & TURF_FLAG_NO_POINTS_OF_INTEREST)
 					valid = 0

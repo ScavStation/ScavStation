@@ -2448,7 +2448,7 @@
 	},
 /obj/item/firstaid/adv,
 /obj/random/medical,
-/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/bandage/advanced,
 /obj/item/chems/syringe/antibiotic,
 /obj/item/scanner/health,
 /obj/machinery/light/small{
@@ -2848,7 +2848,7 @@
 	id_tag = "scraplock";
 	name = "External Blast Doors"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/port)
 "fG" = (
 /obj/structure/lattice,
@@ -3352,9 +3352,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/wall/r_wall{
-	can_open = 1
-	},
+/turf/wall/false,
 /area/ship/scrap/hidden)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3823,7 +3821,7 @@
 /turf/space,
 /area/ship/scrap/maintenance/atmos)
 "hx" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/atmos)
 "hy" = (
 /obj/structure/window/reinforced{
@@ -4033,7 +4031,7 @@
 /area/ship/scrap/maintenance/atmos)
 "hN" = (
 /obj/item/shard,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/atmos)
 "hO" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -4220,7 +4218,7 @@
 /area/ship/scrap/maintenance/atmos)
 "ie" = (
 /obj/item/stack/material/sheet/mapped/steel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/atmos)
 "if" = (
 /obj/structure/window/reinforced{
@@ -4357,14 +4355,14 @@
 	},
 /obj/machinery/atmospherics/portables_connector,
 /obj/item/stack/material/pane/mapped/rborosilicate/five,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iv" = (
 /obj/machinery/light_switch{
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/unary/tank/carbon_dioxide,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iw" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -4374,7 +4372,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "ix" = (
 /obj/machinery/light/small{
@@ -4387,11 +4385,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iy" = (
 /obj/machinery/atmospherics/portables_connector,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iA" = (
 /obj/structure/closet/radiation,
@@ -4451,32 +4449,32 @@
 	pixel_x = -22;
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iG" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iH" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /mob/living/simple_animal/hostile/carp,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iL" = (
 /obj/machinery/atmospherics/omni/mixer{
@@ -4486,7 +4484,7 @@
 	tag_west = 1;
 	tag_west_con = 0.64
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iM" = (
 /obj/structure/cable{
@@ -4522,7 +4520,7 @@
 /area/ship/scrap/maintenance/atmos)
 "iQ" = (
 /obj/item/stack/material/sheet/reinforced/mapped/plasteel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/atmos)
 "iR" = (
 /obj/structure/window/reinforced{
@@ -4582,7 +4580,7 @@
 	pixel_x = -24;
 	req_access = newlist()
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iV" = (
 /obj/structure/window/borosilicate_reinforced{
@@ -4627,13 +4625,13 @@
 	dir = 8
 	},
 /obj/item/stack/material/pane/mapped/rborosilicate/twenty,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "iZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "ja" = (
 /obj/machinery/meter,
@@ -4641,7 +4639,7 @@
 	dir = 9
 	},
 /obj/structure/closet/crate/solar,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jb" = (
 /obj/structure/cable{
@@ -4688,7 +4686,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/meter,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jg" = (
 /obj/structure/window/borosilicate_reinforced{
@@ -4712,14 +4710,14 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "scram"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jl" = (
 /obj/item/radio/intercom{
@@ -4731,7 +4729,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/machinery/atmospherics/portables_connector,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jm" = (
 /obj/structure/cable,
@@ -4759,7 +4757,7 @@
 /obj/machinery/atmospherics/valve/open,
 /obj/item/shard/borosilicate,
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jt" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -4798,14 +4796,14 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /obj/machinery/meter,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jy" = (
 /obj/machinery/atmospherics/omni/filter{
@@ -4816,7 +4814,7 @@
 	use_power = 0
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -4863,22 +4861,22 @@
 /turf/floor/tiled/airless,
 /area/ship/scrap/maintenance/atmos)
 "jF" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jG" = (
 /obj/item/shard/borosilicate,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jI" = (
 /obj/machinery/atmospherics/valve/open{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jK" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -4889,7 +4887,7 @@
 	dir = 4;
 	icon_state = "warning"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jL" = (
 /obj/machinery/door/blast/regular{
@@ -4924,7 +4922,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /mob/living/simple_animal/hostile/carp,
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jQ" = (
 /obj/structure/window/reinforced,
@@ -4932,7 +4930,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jR" = (
 /obj/structure/window/reinforced,
@@ -4940,7 +4938,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jS" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -4950,7 +4948,7 @@
 	icon_state = "warning"
 	},
 /obj/structure/closet/crate/solar_assembly,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jT" = (
 /obj/structure/lattice,
@@ -4970,7 +4968,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jX" = (
 /obj/item/stack/material/rods,
@@ -4984,14 +4982,14 @@
 /obj/structure/sign/warning/hot_exhaust{
 	pixel_y = 32
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jZ" = (
 /obj/machinery/door/blast/regular/open{
 	id_tag = "scraplock";
 	name = "External Blast Doors"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "kb" = (
 /obj/machinery/light/small{
@@ -5046,7 +5044,7 @@
 	id_tag = "scraplock";
 	name = "External Blast Doors"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/starboard)
 "rH" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -5060,7 +5058,7 @@
 /area/ship/scrap/crew/medbay)
 "sy" = (
 /obj/structure/lattice,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/atmos)
 "ts" = (
 /obj/structure/lattice,
@@ -5071,7 +5069,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/ash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "uM" = (
 /obj/item/stack/material/sheet/mapped/steel,
@@ -5150,7 +5148,7 @@
 /area/ship/scrap/maintenance/atmos)
 "FI" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "GG" = (
 /obj/effect/paint/brown,
@@ -5161,7 +5159,7 @@
 /obj/machinery/atmospherics/unary/tank/nitrogen{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/atmos)
 "HQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -5181,7 +5179,7 @@
 	id_tag = "n2_in";
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/atmos)
 "Jy" = (
 /obj/machinery/light/small{
@@ -5289,7 +5287,7 @@
 	},
 /obj/machinery/meter,
 /obj/effect/decal/cleanable/ash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "Sm" = (
 /obj/structure/emergency_dispenser/west,
@@ -5298,7 +5296,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/molten_item,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "Ul" = (
 /obj/effect/paint/brown,
@@ -5318,7 +5316,7 @@
 /area/ship/scrap/hidden)
 "Wu" = (
 /obj/effect/decal/cleanable/molten_item,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "Yl" = (
 /obj/structure/lattice,

@@ -25,11 +25,11 @@
 	base_eye_color = "#f5c842"
 	default_sprite_accessories = list(
 		SAC_HAIR = list(
-			/decl/sprite_accessory/hair/yinglet = "#6e5331"
+			/decl/sprite_accessory/hair/yinglet               = list(SAM_COLOR = "#6e5331")
 		),
 		SAC_MARKINGS = list(
-			/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
-			/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"
+			/decl/sprite_accessory/marking/yinglet/long_ears  = list(SAM_COLOR = "#ab8c65"),
+			/decl/sprite_accessory/marking/yinglet/shelltooth = list(SAM_COLOR = "#cccccc")
 		)
 	)
 	has_limbs = list(
@@ -139,7 +139,7 @@
 	. = ..()
 
 /obj/item/organ/external/tail/yinglet
-	tail = "tail_yinglet"
+	tail_state = "tail_yinglet"
 	tail_blend = ICON_MULTIPLY
 	tail_hair = "female"
 	tail_hair_blend = ICON_MULTIPLY

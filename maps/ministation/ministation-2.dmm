@@ -410,7 +410,7 @@
 /obj/machinery/power/terminal{
 	icon_state = "term-omni"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/l3sw)
 "bv" = (
 /obj/machinery/light{
@@ -737,7 +737,7 @@
 /turf/floor/tiled,
 /area/ministation/bridge)
 "cn" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "co" = (
 /turf/wall/r_wall,
@@ -876,7 +876,7 @@
 /obj/item/gps/explorer,
 /obj/item/belt/holster/machete,
 /obj/item/tool/machete/deluxe,
-/obj/item/twohanded/spear/steel,
+/obj/item/bladed/polearm/spear/improvised/steel,
 /obj/item/clothing/suit/space/void/expedition/scav,
 /obj/item/clothing/head/helmet/space/void/expedition/scav,
 /obj/item/clothing/shoes/sandal/yinglet,
@@ -1346,7 +1346,7 @@
 	dir = 4;
 	id_tag = "toxinsdriver"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "eA" = (
 /obj/machinery/computer/shuttle_control/explore/ministation{
@@ -1404,7 +1404,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "eI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1712,7 +1712,7 @@
 /area/space)
 "fF" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/bombrange)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1854,7 +1854,7 @@
 /turf/floor/reinforced,
 /area/ministation/science)
 "go" = (
-/mob/living/simple_animal/hostile/retaliate/goose{
+/mob/living/simple_animal/hostile/goose{
 	move_speed = 20
 	},
 /turf/floor/plating,
@@ -2118,7 +2118,7 @@
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "hm" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on,
@@ -2180,7 +2180,7 @@
 /turf/wall/titanium,
 /area/ministation/shuttle/outgoing)
 "hB" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/biodome)
 "hC" = (
 /turf/floor/wood/yew,
@@ -2629,7 +2629,7 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "sensor"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/l3sw)
 "jn" = (
 /obj/structure/disposalpipe/segment{
@@ -2841,7 +2841,7 @@
 /obj/item/shield/buckler,
 /obj/item/gps/explorer,
 /obj/item/flashlight/lantern,
-/obj/item/twohanded/spear/steel,
+/obj/item/bladed/polearm/spear/improvised/steel,
 /obj/item/clothing/suit/space/void/expedition/scav,
 /obj/item/clothing/head/helmet/space/void/expedition/scav,
 /obj/item/clothing/shoes/sandal/yinglet,
@@ -3066,7 +3066,7 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "kz" = (
-/mob/living/simple_animal/cat/fluff/ran,
+/mob/living/simple_animal/passive/cat/fluff/ran,
 /turf/floor/tiled/white,
 /area/ministation/science)
 "kD" = (
@@ -3478,7 +3478,7 @@
 /turf/floor/wood/mahogany,
 /area/ministation/library)
 "lI" = (
-/turf/floor/natural/rock,
+/turf/floor/rock,
 /area/space)
 "lM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3511,7 +3511,7 @@
 /area/ministation/enclave/matriarch)
 "lW" = (
 /obj/item/trash/mollusc_shell/clam,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/biodome)
 "lY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3756,7 +3756,7 @@
 /area/ministation/science)
 "mK" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/science)
 "mN" = (
 /obj/machinery/door/airlock/glass/science{
@@ -4425,7 +4425,7 @@
 /area/ministation/science)
 "pv" = (
 /obj/structure/flora/bush/lavendergrass,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/bridge)
 "pz" = (
 /obj/machinery/power/apc{
@@ -4488,7 +4488,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/biodome)
 "pV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5082,7 +5082,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/fullgrass,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/n3)
 "sZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6307,11 +6307,11 @@
 	id_tag = "toxinsdriver";
 	name = "Toxins Launcher Bay Door"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "xW" = (
 /obj/structure/boulder,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/science)
 "xX" = (
 /obj/machinery/atmospherics/unary/freezer{
@@ -6332,11 +6332,11 @@
 /obj/item/chems/drinks/bottle/cola,
 /obj/item/chems/drinks/bottle/cola,
 /obj/item/chems/drinks/bottle/cola,
-/obj/item/chems/food/sliceable/chocolatecake,
-/obj/item/chems/food/sliceable/pizza/vegetablepizza,
-/obj/item/chems/food/sliceable/pizza/meatpizza,
-/obj/item/chems/food/sliceable/pizza/margherita,
-/obj/item/chems/food/sliceable/pizza/mushroompizza,
+/obj/item/food/sliceable/chocolatecake,
+/obj/item/food/sliceable/pizza/vegetablepizza,
+/obj/item/food/sliceable/pizza/meatpizza,
+/obj/item/food/sliceable/pizza/margherita,
+/obj/item/food/sliceable/pizza/mushroompizza,
 /obj/item/chems/drinks/cans/waterbottle,
 /obj/item/chems/drinks/cans/waterbottle,
 /obj/item/chems/drinks/cans/waterbottle,
@@ -6573,7 +6573,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "yS" = (
 /obj/abstract/landmark{
@@ -6613,7 +6613,7 @@
 /obj/machinery/camera/network/hallway{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/biodome)
 "zc" = (
 /obj/structure/table/gamblingtable,
@@ -6791,7 +6791,7 @@
 /obj/item/shield/buckler,
 /obj/item/gps/explorer,
 /obj/item/flashlight/lantern,
-/obj/item/twohanded/spear/steel,
+/obj/item/bladed/polearm/spear/improvised/steel,
 /obj/item/clothing/suit/space/void/expedition/scav,
 /obj/item/clothing/head/helmet/space/void/expedition/scav,
 /obj/item/clothing/shoes/sandal/yinglet,
@@ -7506,7 +7506,7 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/box/monkeycubes,
+/obj/item/box/animal_cubes/monkeys,
 /obj/item/stack/material/puck/mapped/uranium/ten,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -7714,7 +7714,7 @@
 	dir = 4
 	},
 /obj/structure/flora/grass/both,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/n3)
 "Db" = (
 /obj/structure/curtain/open/shower,
@@ -8124,7 +8124,7 @@
 /area/ministation/science)
 "Es" = (
 /obj/structure/flora/tree/hardwood/maple,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/bridge)
 "Et" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -8157,7 +8157,7 @@
 /area/ministation/library)
 "Ey" = (
 /obj/structure/hygiene/sink/puddle,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/biodome)
 "EB" = (
 /obj/machinery/door/firedoor{
@@ -8804,7 +8804,7 @@
 /area/ministation/biodome)
 "Hc" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/biodome)
 "Hg" = (
 /obj/structure/sign/warning/hot_exhaust{
@@ -9438,7 +9438,7 @@
 /area/ministation/maint/l3central)
 "JN" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "JR" = (
 /mob/living/simple_animal/fowl/chicken{
@@ -10435,7 +10435,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/biodome)
 "NT" = (
 /obj/machinery/door/window/eastleft{
@@ -10767,7 +10767,7 @@
 /area/ministation/court)
 "Pm" = (
 /obj/structure/flora/tree/hardwood/yew,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/science)
 "Pn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -10933,7 +10933,7 @@
 	id_tag = "bridgeblast"
 	},
 /obj/machinery/door/firedoor,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/bridge)
 "PL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
@@ -11302,7 +11302,7 @@
 "Rj" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/flora/bush/brflowers,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/science)
 "Rk" = (
 /obj/structure/lattice,
@@ -11835,7 +11835,7 @@
 /obj/machinery/power/terminal{
 	icon_state = "term-omni"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "To" = (
 /obj/machinery/light_switch{
@@ -13089,7 +13089,7 @@
 /area/ministation/science)
 "XT" = (
 /obj/structure/lattice,
-/obj/item/chems/food/meatball{
+/obj/item/food/meatball{
 	filling_color = "#000099";
 	color = "#000099";
 	desc = "...You feel like you've met this one before.";
@@ -13184,7 +13184,7 @@
 "Ym" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/bush/grassybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/n3)
 "Yr" = (
 /obj/structure/lattice,
@@ -13402,7 +13402,7 @@
 /obj/structure/handrail{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "YY" = (
 /obj/effect/wallframe_spawn/reinforced,

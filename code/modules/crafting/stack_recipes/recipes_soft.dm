@@ -4,35 +4,35 @@
 	craft_stack_types           = null
 	forbidden_craft_stack_types = null
 	required_min_hardness       = 0
-	required_max_hardness       = MAT_VALUE_MALLEABLE
+	required_max_hardness       = MAT_VALUE_SOFT
 	crafting_extra_cost_factor  = 1 // No wastage for just resculpting materials.
 
 /decl/stack_recipe/soft/teapot
-	result_type                 = /obj/item/chems/glass/pottery/teapot
+	result_type                 = /obj/item/chems/glass/handmade/teapot
 
 /decl/stack_recipe/soft/cup
-	result_type                 = /obj/item/chems/glass/pottery/cup
+	result_type                 = /obj/item/chems/glass/handmade/cup
 
 /decl/stack_recipe/soft/mug
-	result_type                 = /obj/item/chems/glass/pottery/mug
+	result_type                 = /obj/item/chems/glass/handmade/mug
 
 /decl/stack_recipe/soft/vase
-	result_type                 = /obj/item/chems/glass/pottery/vase
+	result_type                 = /obj/item/chems/glass/handmade/vase
 
 /decl/stack_recipe/soft/bowl
-	result_type                 = /obj/item/chems/glass/pottery/bowl
+	result_type                 = /obj/item/chems/glass/handmade/bowl
 
 /decl/stack_recipe/soft/jar
-	result_type                 = /obj/item/chems/glass/pottery/jar
+	result_type                 = /obj/item/chems/glass/handmade/jar
 
 /decl/stack_recipe/soft/bottle
-	result_type                 = /obj/item/chems/glass/pottery/bottle
+	result_type                 = /obj/item/chems/glass/handmade/bottle
 
 /decl/stack_recipe/soft/bottle_wide
-	result_type                 = /obj/item/chems/glass/pottery/bottle/wide
+	result_type                 = /obj/item/chems/glass/handmade/bottle/wide
 
 /decl/stack_recipe/soft/bottle_tall
-	result_type                 = /obj/item/chems/glass/pottery/bottle/tall
+	result_type                 = /obj/item/chems/glass/handmade/bottle/tall
 
 /decl/stack_recipe/soft/stack
 	name                        = "brick"
@@ -47,6 +47,12 @@
 		if(user)
 			S.add_to_stacks(user, 1)
 	return S
+
+/decl/stack_recipe/soft/stack/bar
+	name                        = "bar"
+	name_plural                 = "bars"
+	result_type                 = /obj/item/stack/material/bar
+	result_type                 = /obj/item/stack/material/bar/wax
 
 /decl/stack_recipe/soft/stack/large_lump
 	name                        = "large lump"

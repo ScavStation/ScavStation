@@ -1,7 +1,10 @@
 /obj/effect/decal/cleanable
 	density = FALSE
 	anchored = TRUE
+	abstract_type = /obj/effect/decal/cleanable
 
+	var/sweepable = FALSE
+	var/weather_sensitive = TRUE
 	var/persistent = FALSE
 	var/generic_filth = FALSE
 	var/age = 0
@@ -33,10 +36,23 @@
 		animate(src, alpha = 0, time = 5 SECONDS)
 		QDEL_IN(src, 5 SECONDS)
 
+	if(weather_sensitive)
+		SSweather_atoms.weather_atoms += src
+
 /obj/effect/decal/cleanable/Destroy()
+	if(weather_sensitive)
+		SSweather_atoms.weather_atoms -= src
 	if(persistent)
 		SSpersistence.forget_value(src, /decl/persistence_handler/filth)
 	. = ..()
+
+/obj/effect/decal/cleanable/process_weather(obj/abstract/weather_system/weather, decl/state/weather/weather_state)
+	if(!weather_sensitive)
+		return PROCESS_KILL
+	if(weather_state.is_liquid)
+		alpha -= 15
+		if(alpha <= 0)
+			clean(TRUE)
 
 /obj/effect/decal/cleanable/clean(clean_forensics = TRUE)
 	if(clean_forensics)
@@ -50,7 +66,7 @@
 
 /obj/effect/decal/cleanable/fluid_act(var/datum/reagents/fluid)
 	SHOULD_CALL_PARENT(FALSE)
-	if(fluid?.total_volume && !QDELETED(src))
+	if(fluid?.total_liquid_volume && !QDELETED(src))
 		if(reagents?.total_volume)
 			reagents.trans_to(fluid, reagents.total_volume)
 		qdel(src)

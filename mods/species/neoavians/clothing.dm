@@ -18,8 +18,8 @@
 //Gloves
 /obj/item/clothing/gloves/setup_equip_flags()
 	. = ..()
-	if(!isnull(bodytype_equip_flags) && !(bodytype_equip_flags & BODY_FLAG_EXCLUDE))
-		bodytype_equip_flags |= BODY_FLAG_AVIAN
+	if(!isnull(bodytype_equip_flags) && !(bodytype_equip_flags & BODY_EQUIP_FLAG_EXCLUDE))
+		bodytype_equip_flags |= BODY_EQUIP_FLAG_AVIAN
 
 /obj/item/clothing/gloves/setup_sprite_sheets()
 	. = ..()
@@ -57,7 +57,7 @@
 	name = "smock"
 	desc = "A loose-fitting smock favoured by neo-avians."
 	icon = 'mods/species/neoavians/icons/clothing/under/smock.dmi'
-	bodytype_equip_flags = BODY_FLAG_AVIAN
+	bodytype_equip_flags = BODY_EQUIP_FLAG_AVIAN
 	avian_icon = null
 
 /obj/item/clothing/dress/avian_smock/worker
@@ -97,7 +97,7 @@
 /obj/item/clothing/shoes/avian
 	name = "small shoes"
 	color = COLOR_GRAY
-	bodytype_equip_flags = BODY_FLAG_AVIAN
+	bodytype_equip_flags = BODY_EQUIP_FLAG_AVIAN
 	avian_icon = null
 	icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
 
@@ -105,6 +105,6 @@
 	name = "cloth footwraps"
 	desc = "A roll of treated canvas used for wrapping feet."
 	icon = 'mods/species/neoavians/icons/clothing/feet/footwraps.dmi'
-	force = 0
+	_base_attack_force = 1
 	item_flags = ITEM_FLAG_SILENT
 	w_class = ITEM_SIZE_SMALL

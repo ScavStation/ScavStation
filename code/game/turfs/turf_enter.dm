@@ -16,13 +16,9 @@
 #undef ENTER_PROXIMITY_LOOP_SANITY
 /turf/Entered(var/atom/movable/A, var/atom/old_loc)
 	..()
-	if(!istype(A) || !A.simulated)
-		return
-	if(isliving(A))
-		var/mob/living/walker = A
-		walker.handle_footsteps()
-	queue_temperature_atoms(A)
-	A.update_turf_alpha_mask()
+	if(istype(A) && !QDELETED(A) && A.simulated)
+		queue_temperature_atoms(A)
+		A.update_turf_alpha_mask()
 
 // If an opaque movable atom moves around we need to potentially update visibility.
 	if(A?.opacity && !has_opaque_atom)
@@ -77,7 +73,7 @@
 				M.reset_layer()
 			else
 				// arbitrary timing value that feels good in practice. it sucks and is inconsistent:(
-				addtimer(CALLBACK(M, TYPE_PROC_REF(/atom, reset_layer)), max(0, CEILING(M.next_move - world.time)) + 1 SECOND)
+				addtimer(CALLBACK(M, TYPE_PROC_REF(/atom, reset_layer)), max(0, ceil(M.next_move - world.time)) + 1 SECOND)
 
 	if(simulated)
 		A.OnSimulatedTurfEntered(src, old_loc)

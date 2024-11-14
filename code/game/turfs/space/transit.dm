@@ -3,7 +3,7 @@
 
 //Overwrite because we dont want people building rods in space.
 /turf/space/transit/attackby(obj/O, mob/user)
-	return
+	return TRUE
 
 /turf/space/transit/Initialize()
 	. = ..()

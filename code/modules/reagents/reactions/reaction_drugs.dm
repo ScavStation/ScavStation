@@ -48,12 +48,6 @@
 	minimum_temperature = 50 CELSIUS
 	maximum_temperature = (50 CELSIUS) + 100
 
-/decl/chemical_reaction/drug/pacid
-	name = "Polytrinic acid"
-	result = /decl/material/liquid/acid/polyacid
-	required_reagents = list(/decl/material/liquid/acid = 1, /decl/material/liquid/acid/hydrochloric = 1, /decl/material/solid/potassium = 1)
-	result_amount = 3
-
 /decl/chemical_reaction/drug/antirads
 	name = "Anti-Radiation Medication"
 	result = /decl/material/liquid/antirads

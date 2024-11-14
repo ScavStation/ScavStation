@@ -151,6 +151,7 @@
 					"You add cables to the \the [machine].")
 				make_terminal(machine)
 		return TRUE
+	return FALSE
 
 /obj/item/stock_parts/power/terminal/get_source_info()
 	. =  "The machine can receive power by direct connection to the powernet. "

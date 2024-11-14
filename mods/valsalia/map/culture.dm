@@ -1,16 +1,17 @@
 var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z")
 
-/decl/cultural_info/faction/enclave_ying
+/decl/background_detail/faction/enclave_ying
 	name = "Scav"
 	description = "Your people are scavengers and survivors, many of them living by riding the coattails of humanity. Any day where you aren't stepped on or beaten down by those much bigger and stronger than you is a good day."
 	subversive_potential = 25
+	uid = "scav_background_faction_enclave"
 
-/decl/cultural_info/faction/tradehouse_ying
+/decl/background_detail/faction/tradehouse_ying
 	name = "Tradehouse Ivenmoth"
 	description = "You are a member of Tradehouse Ivenmoth, one of the most successful tradehouses in the universe and you know it which is why you wear your tradehouse reds with pride."
+	uid = "scav_background_faction_tradehouse"
 
-
-/decl/cultural_info/culture/yinglet
+/decl/background_detail/heritage/yinglet
 
 	name = "Enclave Yinglet"
 	description = "You are a contributing member of a yinglet enclave, or at least someone who isn't too much of \
@@ -19,6 +20,7 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		/decl/language/human/common,
 		/decl/language/sign
 	)
+	uid = "scav_background_heritage_enclave"
 	var/list/middle_syllables = list(
 		"z",
 		"e",
@@ -50,7 +52,7 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		"t"
 	)
 
-/decl/cultural_info/culture/yinglet/get_random_name(var/gender)
+/decl/background_detail/heritage/yinglet/get_random_name(var/gender)
 	// First syllable.
 	. = pick(global.alphabet_no_vowels)
 	if(. == "h")
@@ -72,11 +74,13 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 	if(hyphenated)
 		. = "[.]-[.]"
 
-/decl/cultural_info/culture/yinglet/tribal
+/decl/background_detail/heritage/yinglet/tribal
 	name = "Tribal Yinglet"
 	description = "You are a member of one of the southern yinglet tribes. Although similar to the other \
 	clam-loving rat-birds of the yinglet species, the southern yinglets are more parochial, tribal and \
 	generally less developed. Nobody is quite clear on which south they are from."
+	uid = "scav_background_heritage_tribal"
+
 	// Names provided by esteemed wordsmith Val Salia.
 	// Jesus Christ, Val.
 	var/list/all_scav_names = list(
@@ -126,10 +130,10 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		"Zeez",         "Zerb",         "Zerk",          "Zibzab",     "Zink"
 	)
 
-/decl/cultural_info/culture/yinglet/tribal/get_random_name(var/gender)
+/decl/background_detail/heritage/yinglet/tribal/get_random_name(var/gender)
 	. = pick(all_scav_names)
 
-/decl/cultural_info/culture/yinglet/void
+/decl/background_detail/heritage/yinglet/void
 	name = "Void Scav"
 	description = "You are a crew member of a space station or ship that is usually not completely controlled by \
 	Yinglets and as such you are accustomed to living amogst the stars."
@@ -137,8 +141,9 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		/decl/language/human/common,
 		/decl/language/sign
 	)
+	uid = "scav_background_heritage_void"
 
-/decl/cultural_info/location/yingletacrology
+/decl/background_detail/location/yingletacrology
 	name = "Enclave Arcology"
 	description = "Out of the many known planets, it is without a doubt that there are some that have been completely overrun by Yinglets to the point that \
 	the planet is essentially one giant enclave."
@@ -146,16 +151,19 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 	capital = "Various"
 	economic_power = 1
 	ruling_body = "The Great Enclaves"
+	uid = "scav_background_location_arcology"
 
-/decl/cultural_info/location/tradehousespace
+/decl/background_detail/location/tradehousespace
 	name = "Tradehouse Controlled"
 	description = "Tradehouse Ivenmoth grew from humble beginnings within the city of Val Salia to spanning multiple planets and stations."
 	distance = "Various"
 	capital = "Val Salia"
 	economic_power = 1
 	ruling_body = "Tradehouse Ivenmoth"
+	uid = "scav_background_location_tradehouse"
 
-/decl/cultural_info/religion/enclave
+/decl/background_detail/religion/enclave
 	name = "Enclave Pantheon"
 	description = " You are one of the many yinglets who believe in the spiritual guidance of the The Great Leader and the many Matriarchs and Patriarchs he spanwed \
 	from his bloodline."
+	uid = "scav_background_religion_enclave"

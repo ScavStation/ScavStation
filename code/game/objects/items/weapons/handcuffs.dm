@@ -6,7 +6,6 @@
 	icon_state = ICON_STATE_WORLD
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY
-	throwforce = 5
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 2
 	throw_range = 5
@@ -18,6 +17,10 @@
 	var/breakouttime = 2 MINUTES //Deciseconds = 120s = 2 minutes
 	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
+
+/obj/item/handcuffs/Initialize(ml, material_key)
+	. = ..()
+	set_extension(src, /datum/extension/resistable/handcuffs)
 
 /obj/item/handcuffs/Destroy()
 	var/obj/item/clothing/shoes/attached_shoes = loc
@@ -108,31 +111,6 @@
 	// Apply cuffs.
 	target.equip_to_slot(cuffs, slot_handcuffed_str)
 	return 1
-
-var/global/last_chew = 0 //#FIXME: Its funny how only one person in the world can chew their restraints every 2.6 seconds
-/mob/living/human/RestrainedClickOn(var/atom/A)
-	if (A != src) return ..()
-	if (last_chew + 26 > world.time) return
-
-	var/mob/living/human/H = A
-	if (!H.get_equipped_item(slot_handcuffed_str)) return
-	if (H.a_intent != I_HURT) return
-	if (H.get_target_zone() != BP_MOUTH) return
-	if (H.get_equipped_item(slot_wear_mask_str)) return
-	if (istype(H.get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/straight_jacket)) return
-
-	var/obj/item/organ/external/O = GET_EXTERNAL_ORGAN(H, H.get_active_held_item_slot())
-	if (!O) return
-
-	var/decl/pronouns/G = H.get_pronouns()
-	H.visible_message( \
-		SPAN_DANGER("\The [H] chews on [G.his] [O.name]"), \
-		SPAN_DANGER("You chew on your [O.name]!"))
-	admin_attacker_log(H, "chewed on their [O.name]!")
-
-	O.take_external_damage(3,0, DAM_SHARP|DAM_EDGE ,"teeth marks")
-
-	last_chew = world.time
 
 /obj/item/handcuffs/cable
 	name = "cable restraints"

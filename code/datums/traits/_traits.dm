@@ -38,13 +38,11 @@
 	var/decl/trait/trait = GET_DECL(trait_type)
 	if(!trait.validate_level(trait_level))
 		return FALSE
-
 	if(our_species && !traits) // If species traits haven't been setup before, check if we need to do so now
 		var/species_level = our_species.traits[trait_type]
 		if(species_level == trait_level) // Matched the default species trait level, ignore
 			return TRUE
 		traits = our_species.traits.Copy() // The setup is to simply copy the species list of traits
-
 	if(!(trait_type in traits))
 		LAZYSET(traits, trait_type, trait_level)
 		trait.apply_trait(src)
@@ -108,6 +106,8 @@
 	var/list/incompatible_with
 	/// Whether or not trait is shown in chargen prefs
 	var/available_at_chargen = FALSE
+	/// Whether this trait should be available on a map with a given tech leve.
+	var/available_at_map_tech = MAP_TECH_LEVEL_ANY
 	/// Whether or not a rejuvenation should apply this aspect.
 	var/reapply_on_rejuvenation = FALSE
 	/// What species can select this trait in chargen?
@@ -142,6 +142,17 @@
 		else if(trait.parent != src)
 			. += "child [trait || "NULL"] does not have correct parent - expected [src], got [trait.parent || "NULL"]"
 
+/// A getter for the name shown in the preferences menu. Can be overridden for custom behavior based on prefs.
+/decl/trait/proc/get_chargen_name(datum/preferences/pref)
+	return name
+
+/// A getter for the desc shown in the preferences menu. Can be overridden for custom behavior based on prefs.
+/decl/trait/proc/get_chargen_desc(datum/preferences/pref)
+	return description
+
+/decl/trait/proc/is_available_at_chargen()
+	return available_at_chargen && global.using_map.map_tech_level >= available_at_map_tech
+
 /decl/trait/proc/validate_level(level)
 	SHOULD_NOT_OVERRIDE(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -165,7 +176,7 @@
 			trait_category = new(category)
 			global.trait_categories[category] = trait_category
 		trait_category.items += src
-		if(trait_category.hide_from_chargen && available_at_chargen)
+		if(trait_category.hide_from_chargen && is_available_at_chargen())
 			trait_category.hide_from_chargen = FALSE
 		if(istype(parent))
 			LAZYDISTINCTADD(parent.children, src)
@@ -173,7 +184,9 @@
 /decl/trait/proc/applies_to_organ(var/organ)
 	return FALSE
 
-/decl/trait/proc/is_available_to(var/datum/preferences/pref)
+/decl/trait/proc/is_available_to_select(var/datum/preferences/pref)
+	if(!is_available_at_chargen())
+		return FALSE
 	for(var/blacklisted_type in incompatible_with)
 		if(blacklisted_type in pref.traits)
 			return FALSE
@@ -190,7 +203,7 @@
 /decl/trait/proc/get_trait_selection_data(var/datum/category_item/player_setup_item/traits/caller, var/list/ticked_traits = list(), var/recurse_level = 0, var/ignore_children_if_unticked = 1, var/ignore_unticked)
 
 	var/ticked = (type in ticked_traits)
-	if((ignore_unticked && !ticked) || (caller && !is_available_to(caller.pref)))
+	if((ignore_unticked && !ticked) || (caller && !is_available_to_select(caller.pref)))
 		return ""
 
 	var/result = "<tr><td style='max-width:50%;'>"
@@ -204,16 +217,18 @@
 			incompatible_trait_taken = TRUE
 			break
 
+	var/chargen_name = get_chargen_name(caller.pref)
+	var/chargen_desc = get_chargen_desc(caller.pref)
 	if(istype(caller) && (ticked || caller.get_trait_total() + trait_cost <= get_config_value(/decl/config/num/max_character_traits)) && !incompatible_trait_taken)
-		result += "<a href='byond://?src=\ref[caller];toggle_trait=\ref[src]'>[ticked ? "<font color='#E67300'>[name]</font>" : "[name]"] ([trait_cost])</a>"
+		result += "<a href='byond://?src=\ref[caller];toggle_trait=\ref[src]'>[ticked ? "<font color='#E67300'>[chargen_name]</font>" : "[chargen_name]"] ([trait_cost])</a>"
 	else
-		result += ticked ? "<font color='#E67300'>[name]</font>" : "[name]"
+		result += ticked ? "<font color='#E67300'>[chargen_name]</font>" : "[chargen_name]"
 
 	result += "</td><td>"
 	if(ticked)
-		result += "<font size=1><b>[description]</b></font>"
+		result += "<font size=1><b>[chargen_desc]</b></font>"
 	else
-		result += "<font size=1><i>[description]</i></font>"
+		result += "<font size=1><i>[chargen_desc]</i></font>"
 
 	result += "</td></tr>"
 	if(LAZYLEN(children) && !(ignore_children_if_unticked && !ticked))

@@ -1,19 +1,23 @@
 /obj/item/gun/launcher/bow/proc/get_loaded_arrow(mob/user)
 	return _loaded
 
-/obj/item/gun/launcher/bow/proc/get_draw_time()
-	return draw_time
+/obj/item/gun/launcher/bow/proc/get_draw_time(mob/firer)
+	. = draw_time
+	if(firer)
+		. = max(1, round(draw_time * firer.skill_delay_mult(work_skill)))
 
 /obj/item/gun/launcher/bow/proc/check_can_draw(mob/user)
-	return istype(user) && !QDELETED(user) && !QDELETED(src) && istype(string) && !QDELETED(string) && (!require_loaded_to_draw || get_loaded_arrow(user))
+	. = istype(user) && !QDELETED(user) && !QDELETED(src) && (!require_loaded_to_draw || get_loaded_arrow(user))
+	if(. && requires_string)
+		. = istype(string) && !QDELETED(string)
 
 /obj/item/gun/launcher/bow/proc/start_drawing(var/mob/user)
 
-	if(tension != 0)
+	if(tension != 0 || autofire_enabled)
 		return
 
 	if(!get_loaded_arrow(user) && require_loaded_to_draw)
-		to_chat(user, SPAN_WARNING("You don't have anything nocked to \the [src]."))
+		to_chat(user, SPAN_WARNING("You don't have anything loaded in \the [src]."))
 		return
 
 	if(user.restrained() || tension > 0 || drawing_bow)

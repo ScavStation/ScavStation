@@ -629,11 +629,12 @@ var/global/list/supermatter_delam_accent_sounds = list(
 		var/obj/item/stack/tape_roll/duct_tape/T = W
 		if(!T.can_use(20))
 			to_chat(user, SPAN_WARNING("You need at least 20 [T.plural_name] to repair \the [src]."))
-			return
+			return TRUE
 		T.use(20)
 		playsound(src, 'sound/effects/tape.ogg', 100, TRUE)
 		to_chat(user, SPAN_NOTICE("You begin to repair some of the damage to \the [src] with \the [W]."))
 		damage = max(damage -10, 0)
+		return TRUE // be nice, the extra duct tape if you have 21 or more doesn't turn to ash and irradiate you.
 
 	if(!QDELETED(W))
 		user.visible_message(SPAN_WARNING("\The [user] touches \the [src] with \a [W] as silence fills the room..."),\
@@ -644,6 +645,7 @@ var/global/list/supermatter_delam_accent_sounds = list(
 		user.drop_from_inventory(W)
 		Consume(user, W, TRUE)
 	user.apply_damage(150, IRRADIATE, damage_flags = DAM_DISPERSED)
+	return TRUE
 
 /obj/machinery/power/supermatter/Bumped(atom/AM)
 	if(!Consume(null, AM))

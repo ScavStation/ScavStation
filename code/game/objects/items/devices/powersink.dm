@@ -7,7 +7,6 @@
 	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_LARGE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
 
@@ -90,6 +89,7 @@
 				"[user] detaches \the [src] from the cable.", \
 				"<span class='notice'>You detach \the [src] from the cable.</span>",
 				"<span class='italics'>You hear some wires being disconnected from something.</span>")
+		return TRUE
 	else
 		return ..()
 

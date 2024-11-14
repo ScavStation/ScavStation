@@ -11,6 +11,7 @@ var/global/list/wrapped_species_by_ref = list()
 		/mob/living/human/proc/shapeshifter_select_gender,
 		/mob/living/human/proc/shapeshifter_select_colour
 	)
+	hidden_from_codex = TRUE
 	var/list/valid_transform_species = list()
 	var/monochromatic
 	var/default_form
@@ -35,8 +36,8 @@ var/global/list/wrapped_species_by_ref = list()
 /decl/species/shapeshifter/handle_post_spawn(var/mob/living/human/H)
 	if(monochromatic)
 		var/skin_colour = H.get_skin_colour()
-		SET_HAIR_COLOUR(H, skin_colour, TRUE)
-		SET_FACIAL_HAIR_COLOUR(H, skin_colour, TRUE)
+		SET_HAIR_COLOR(H, skin_colour, TRUE)
+		SET_FACIAL_HAIR_COLOR(H, skin_colour, TRUE)
 	..()
 
 /decl/species/shapeshifter/get_pain_emote(var/mob/living/human/H, var/pain_power)
@@ -121,8 +122,8 @@ var/global/list/wrapped_species_by_ref = list()
 	var/decl/species/shapeshifter/S = species
 	if(S.monochromatic)
 		var/skin_colour = get_skin_colour()
-		SET_HAIR_COLOUR(src, skin_colour, TRUE)
-		SET_FACIAL_HAIR_COLOUR(src, skin_colour, TRUE)
+		SET_HAIR_COLOR(src, skin_colour, TRUE)
+		SET_FACIAL_HAIR_COLOR(src, skin_colour, TRUE)
 	for(var/obj/item/organ/external/E in get_external_organs())
 		E.sync_colour_to_human(src)
 	try_refresh_visible_overlays()

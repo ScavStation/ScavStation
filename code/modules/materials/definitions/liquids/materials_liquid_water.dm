@@ -29,6 +29,8 @@
 	chilling_products = list(
 		/decl/material/solid/ice = 1
 	)
+	temperature_burn_milestone_material = /decl/material/liquid/water
+	can_boil_to_gas = TRUE
 
 /decl/material/liquid/water/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
@@ -72,15 +74,15 @@
 			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
 
 	var/list/data = REAGENT_DATA(holder, type)
-	if(data && data["holy"])
+	if(LAZYACCESS(data, "holy"))
 		T.turf_flags |= TURF_FLAG_HOLY
 
 /decl/material/liquid/water/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	..()
-	if(istype(O, /obj/item/chems/food/monkeycube))
-		var/obj/item/chems/food/monkeycube/cube = O
+	if(istype(O, /obj/item/food/animal_cube))
+		var/obj/item/food/animal_cube/cube = O
 		if(!cube.wrapper_type)
-			cube.Expand()
+			cube.spawn_creature()
 
 /decl/material/liquid/water/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
 	..()

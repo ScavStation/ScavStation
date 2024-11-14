@@ -569,7 +569,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 2
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "bS" = (
 /obj/machinery/firealarm{
@@ -727,7 +727,7 @@
 /turf/floor/tiled,
 /area/ministation/enclave/entrance)
 "cn" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "cp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -850,7 +850,7 @@
 /area/ministation/engine)
 "cD" = (
 /obj/structure/flora/bush/ppflowers,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/s1)
 "cG" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1089,7 +1089,7 @@
 	icon_state = "map_vent_out";
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/atmospherics)
 "dq" = (
 /obj/effect/floor_decal/corner/beige{
@@ -1440,7 +1440,7 @@
 	command = "cycle_exterior";
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/enclave/evacloset)
 "es" = (
 /obj/machinery/door/airlock/glass,
@@ -2064,7 +2064,7 @@
 	dir = 4;
 	icon_state = "warning"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "fZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2135,7 +2135,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /turf/floor/tiled,
 /area/ministation/cargo)
 "gk" = (
@@ -2344,7 +2344,7 @@
 /area/ministation/engine)
 "gL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /turf/floor/tiled,
 /area/ministation/cargo)
 "gM" = (
@@ -3358,7 +3358,7 @@
 	id_tag = "mining_transfer"
 	},
 /obj/structure/flaps/airtight,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "jS" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
@@ -3730,7 +3730,7 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "mine_process"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "kY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3992,7 +3992,7 @@
 	command = "cycle_exterior";
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/westatmos)
 "lN" = (
 /obj/effect/floor_decal/corner/blue,
@@ -4980,7 +4980,7 @@
 /area/ministation/atmospherics)
 "oZ" = (
 /obj/machinery/material_processing/stacker,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "pa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5877,7 +5877,7 @@
 /area/ministation/cargo)
 "rE" = (
 /obj/structure/flora/bush/grassybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/s1)
 "rF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -6012,7 +6012,7 @@
 /turf/floor/wood/yew,
 /area/ministation/engine)
 "sc" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/s1)
 "sd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
@@ -6468,7 +6468,7 @@
 /area/ministation/cargo)
 "tv" = (
 /obj/structure/flora/bush/sunnybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/s1)
 "tw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6550,7 +6550,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "tO" = (
 /obj/effect/floor_decal/carpet/blue2{
@@ -6583,7 +6583,7 @@
 /area/ministation/engine)
 "tS" = (
 /obj/random_multi/single_item/captains_spare_id,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "tT" = (
 /obj/machinery/light{
@@ -7077,7 +7077,7 @@
 /area/space)
 "vu" = (
 /obj/structure/flora/tree/hardwood/mahogany,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/engine)
 "vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7800,7 +7800,7 @@
 	dir = 4;
 	icon_state = "warning"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "xT" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/red,
@@ -8186,12 +8186,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor/tiled,
 /area/ministation/cargo)
 "yP" = (
-/obj/item/twohanded/spear/diamond,
+/obj/item/bladed/polearm/spear/improvised/diamond,
 /turf/space,
 /area/space)
 "yR" = (
@@ -8557,7 +8557,7 @@
 "Aw" = (
 /obj/machinery/light,
 /obj/machinery/mech_recharger,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "Ax" = (
 /obj/structure/cable{
@@ -8830,7 +8830,7 @@
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "Bd" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "Bg" = (
 /obj/machinery/light{
@@ -9069,7 +9069,7 @@
 /obj/machinery/conveyor{
 	id_tag = "mining_transfer"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "BS" = (
 /obj/structure/closet,
@@ -9159,7 +9159,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "upload"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/ai_upload)
 "Ci" = (
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -9816,7 +9816,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "DV" = (
 /obj/structure/table,
@@ -10194,7 +10194,7 @@
 /turf/floor/wood,
 /area/ministation/engine)
 "EO" = (
-/obj/item/chems/food/old/pizza,
+/obj/item/food/old/pizza,
 /obj/item/stack/material/puck/mapped/uranium/ten,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10309,7 +10309,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/sunnybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/engine)
 "Fb" = (
 /obj/item/stool/padded,
@@ -10440,7 +10440,7 @@
 /area/space)
 "Fq" = (
 /obj/structure/ore_box,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "Fr" = (
 /obj/machinery/door/airlock/external/glass{
@@ -10461,7 +10461,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/l1ne)
 "Fs" = (
 /obj/structure/closet/emcloset,
@@ -10555,7 +10555,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/solar,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "FF" = (
 /obj/structure/cable{
@@ -10571,7 +10571,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/solar,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "FH" = (
 /obj/machinery/light,
@@ -11625,7 +11625,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "Iu" = (
 /obj/machinery/light/small{
@@ -13685,7 +13685,7 @@
 	id_tag = "mining_transfer";
 	name = "mining conveyor"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "Oe" = (
 /turf/wall/r_wall,
@@ -13958,7 +13958,7 @@
 	command = "cycle_exterior";
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/cargo)
 "OT" = (
 /obj/structure/cable{
@@ -14295,7 +14295,7 @@
 /turf/floor/reinforced/carbon_dioxide,
 /area/ministation/atmospherics)
 "PU" = (
-/obj/item/chems/food/meatball{
+/obj/item/food/meatball{
 	filling_color = "#000099";
 	color = "#000099";
 	desc = "...You feel like you've met this one before.";
@@ -14740,7 +14740,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 2
 	},
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor/tiled,
 /area/ministation/cargo)
@@ -14776,7 +14776,7 @@
 	max_health = 500;
 	color = "#ff9494"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "Rr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -14990,7 +14990,7 @@
 /turf/floor/tiled,
 /area/ministation/engine)
 "RY" = (
-/mob/living/simple_animal/hostile/retaliate/parrot/Poly,
+/mob/living/simple_animal/hostile/parrot/Poly,
 /obj/structure/table/reinforced,
 /obj/item/chems/drinks/glass2/coffeecup/one,
 /turf/floor/wood/yew,
@@ -15188,7 +15188,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "SM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -15463,7 +15463,7 @@
 	pixel_x = 24;
 	pixel_y = 9
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "TF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -15558,7 +15558,7 @@
 "TU" = (
 /obj/item/rpd,
 /obj/structure/closet/crate,
-/obj/item/twohanded/pipewrench,
+/obj/item/wrench/pipe,
 /turf/floor/plating,
 /area/ministation/engine)
 "TW" = (
@@ -16096,7 +16096,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "VQ" = (
 /obj/structure/lattice,
@@ -16250,7 +16250,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/network/mining,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "Ww" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -16303,7 +16303,7 @@
 	},
 /obj/structure/table,
 /obj/item/wrench,
-/obj/item/twohanded/pipewrench,
+/obj/item/wrench/pipe,
 /turf/floor/plating,
 /area/ministation/atmospump)
 "WM" = (
@@ -16319,7 +16319,7 @@
 /obj/effect/floor_decal/industrial/loading{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "WR" = (
 /obj/machinery/conveyor{
@@ -16672,7 +16672,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "Yc" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -17147,7 +17147,7 @@
 /area/ministation/engine)
 "Zz" = (
 /obj/machinery/light/small,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/mining)
 "ZA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,

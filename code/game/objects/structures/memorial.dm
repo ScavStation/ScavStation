@@ -18,6 +18,8 @@
 		to_chat(user, "<span class='warning'>You add \the [T.owner_name]'s \the [T] to \the [src].</span>")
 		fallen += "[T.owner_rank] [T.owner_name] | [T.owner_branch]"
 		qdel(T)
+		return TRUE
+	return ..()
 
 /obj/structure/memorial/examine(mob/user, distance)
 	. = ..()

@@ -97,7 +97,7 @@
 
 /obj/item/flashlight/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
-	if(on && user.get_target_zone() == BP_EYES && target.should_have_organ(BP_HEAD))
+	if(on && user.get_target_zone() == BP_EYES && target.should_have_limb(BP_HEAD))
 
 		add_fingerprint(user)
 		if(user.has_genetic_condition(GENE_COND_CLUMSY) && prob(50))	//too dumb to use flashlight properly
@@ -119,8 +119,8 @@
 		vision = GET_INTERNAL_ORGAN(target, vision_organ_tag)
 		if(!vision)
 			vision = root_bodytype.has_organ[vision_organ_tag]
-			var/decl/pronouns/G = target.get_pronouns()
-			to_chat(user, SPAN_WARNING("\The [target] is missing [G.his] [initial(vision.name)]!"))
+			var/decl/pronouns/pronouns = target.get_pronouns()
+			to_chat(user, SPAN_WARNING("\The [target] is missing [pronouns.his] [initial(vision.name)]!"))
 			return TRUE
 
 		user.visible_message(
@@ -175,7 +175,7 @@
 
 	//if someone wants to implement inspecting robot eyes here would be the place to do it.
 
-/obj/item/flashlight/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/flashlight/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && on)
 		var/icon_state_on = "[overlay.icon_state]-on"
 		if(check_state_in_icon(icon_state_on, overlay.icon))

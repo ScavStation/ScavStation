@@ -9,6 +9,7 @@
 		if(!istype(storage))
 			storage = null
 
+	// This preloader code is also duplicated in /turf/unsimulated/New(). If you change this, be sure to change it there, too.
 	//atom creation method that preloads variables at creation
 	if(global.use_preloader && (src.type == global._preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		global._preloader.load(src)
@@ -65,7 +66,7 @@
 	if(light_power && light_range)
 		update_light()
 
-	if(opacity)
+	if(simulated && opacity)
 		updateVisibility(src)
 		var/turf/T = loc
 		if(istype(T))
@@ -87,7 +88,7 @@
 	LAZYCLEARLIST(priority_overlays)
 	LAZYCLEARLIST(climbers)
 	QDEL_NULL(light)
-	if(opacity)
+	if(simulated && opacity)
 		updateVisibility(src)
 	if(atom_codex_ref && atom_codex_ref != TRUE) // may be null, TRUE or a datum instance
 		QDEL_NULL(atom_codex_ref)
@@ -117,6 +118,8 @@
 	// Changing this behavior will almost certainly break power; update accordingly.
 	if (!ml && loc)
 		loc.Entered(src, null)
+	if(loc && (z_flags & ZMM_WIDE_LOAD))
+		SSzcopy.discover_movable(src)
 
 /atom/movable/EarlyDestroy(force = FALSE)
 	loc = null // should NOT use forceMove, in order to avoid events
@@ -127,16 +130,13 @@
 	if(isatom(virtual_mob))
 		QDEL_NULL(virtual_mob)
 
-	// If you want to keep any of these atoms, handle them before ..()
-	for(var/thing in contents) // proooobably safe to assume they're never going to have non-movables in contents?
-		qdel(thing)
-
 	unregister_all_movement(loc, src) // unregister events before destroy to avoid expensive checking
 
-	. = ..()
+	// If you want to keep any of these atoms, handle them before ..()
+	for(var/atom/movable/thing as anything in src) // safe to assume they're never going to have non-movables in contents
+		qdel(thing)
 
-	for(var/A in src)
-		qdel(A)
+	. = ..()
 
 	forceMove(null)
 

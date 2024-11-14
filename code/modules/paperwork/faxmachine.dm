@@ -81,6 +81,7 @@ var/global/list/adminfaxes     = list()	//cache for faxes that have been sent to
 	var/obj/item/scanner_item                         //Item to fax
 	var/list/quick_dial                              //List of name tag to network ids for other fax machines that the user added as quick dial options
 	var/list/fax_history                             //List of the last 10 devices that sent us faxes, and when
+	var/tmp/init_network_tag                         //The network tag of this fax machine, set by mappers.
 
 	var/tmp/time_cooldown_end = 0
 	var/tmp/current_page      = "main"
@@ -90,7 +91,9 @@ var/global/list/adminfaxes     = list()	//cache for faxes that have been sent to
 	. = ..()
 	if(. != INITIALIZE_HINT_QDEL)
 		global.allfaxes += src
-		set_extension(src, /datum/extension/network_device/fax)
+		var/datum/extension/network_device/fax/netdevice = set_extension(src, /datum/extension/network_device/fax)
+		if(init_network_tag)
+			netdevice.set_network_tag(init_network_tag)
 		if(populate_parts && printer)
 			printer.make_full()
 
@@ -135,7 +138,8 @@ var/global/list/adminfaxes     = list()	//cache for faxes that have been sent to
 /obj/machinery/faxmachine/attackby(obj/item/I, mob/user)
 	if(istype(construct_state, /decl/machine_construction/default/panel_closed))
 		if(istype(I, /obj/item/paper) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
-			return insert_scanner_item(I, user)
+			insert_scanner_item(I, user)
+			return TRUE
 	. = ..()
 
 /obj/machinery/faxmachine/ui_data(mob/user, ui_key)

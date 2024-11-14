@@ -99,7 +99,7 @@
 
 /obj/item/stock_parts/computer/data_disk_drive/attackby(obj/item/disk/new_disk, mob/user)
 	if(!istype(new_disk))
-		return
+		return ..()
 	insert_disk(new_disk, user)
 	return TRUE
 

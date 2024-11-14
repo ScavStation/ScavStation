@@ -2,7 +2,7 @@
 	name = "Zat Zhing"
 	icon = 'mods/valsalia/icons/zat_zhing.dmi'
 	icon_state = "zatzhing"
-	force = 1
+	_base_attack_force = 1
 	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'

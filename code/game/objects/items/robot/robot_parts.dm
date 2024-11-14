@@ -107,38 +107,39 @@
 	return success && ..()
 
 /obj/item/robot_parts/chest/attackby(obj/item/W, mob/user)
-	..()
 	if(istype(W, /obj/item/cell))
 		if(src.cell)
 			to_chat(user, "<span class='warning'>You have already inserted a cell!</span>")
-			return
 		else
 			if(!user.try_unequip(W, src))
-				return
+				return TRUE
 			src.cell = W
 			to_chat(user, "<span class='notice'>You insert the cell!</span>")
+		return TRUE
 	if(IS_COIL(W))
 		if(src.wires)
 			to_chat(user, "<span class='warning'>You have already inserted wire!</span>")
-			return
 		else
 			var/obj/item/stack/cable_coil/coil = W
 			if(coil.use(1))
 				src.wires = 1.0
 				to_chat(user, "<span class='notice'>You insert the wire!</span>")
+		return TRUE
+	return ..()
 
 /obj/item/robot_parts/head/attackby(obj/item/W, mob/user)
-	..()
 	if(istype(W, /obj/item/flash))
 		if(isrobot(user))
 			var/current_module = user.get_active_held_item()
 			if(current_module == W)
 				to_chat(user, "<span class='warning'>How do you propose to do that?</span>")
-				return
+				return TRUE
 			else
 				add_flashes(W,user)
 		else
 			add_flashes(W,user)
+		return TRUE
+	return ..()
 
 /obj/item/robot_parts/head/proc/add_flashes(obj/item/W, mob/user) //Made into a seperate proc to avoid copypasta
 	if(src.flash1 && src.flash2)

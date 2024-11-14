@@ -5,6 +5,7 @@
 	is_spawnable_type = TRUE
 	layer = TURF_LAYER
 	temperature_sensitive = TRUE
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	/// Will participate in ZAS, join zones, etc.
 	var/zone_membership_candidate = FALSE
@@ -13,7 +14,7 @@
 
 	var/turf_flags
 
-	// Initial air contents (in moles)
+	/// Either a mapping of material decls to mol amounts, or a reserved initial gas define like GAS_STANDARD_AIRMIX.
 	var/list/initial_gas
 
 	//Properties for airtight tiles (/wall)
@@ -35,7 +36,7 @@
 	var/fluid_blocked_dirs = 0
 	var/flooded // Whether or not this turf is absolutely flooded ie. a water source.
 	var/footstep_type
-	var/open_turf_type // Which open turf type to use by default above this turf in a multiz context. Overridden by area.
+	var/open_turf_type = /turf/open // Which open turf type to use by default above this turf in a multiz context. Overridden by area.
 
 	var/tmp/changing_turf
 	var/tmp/prev_type // Previous type of the turf, prior to turf translation.
@@ -83,8 +84,12 @@
 	// Temporary list of weakrefs of atoms who should be excepted from falling into us
 	var/list/skip_height_fall_for
 
+	var/paint_color
+
 /turf/Initialize(mapload, ...)
 	. = null && ..()	// This weird construct is to shut up the 'parent proc not called' warning without disabling the lint for child types. We explicitly return an init hint so this won't change behavior.
+
+	color = null
 
 	// atom/Initialize has been copied here for performance (or at least the bits of it that turfs use has been)
 	if(atom_flags & ATOM_FLAG_INITIALIZED)
@@ -99,7 +104,7 @@
 	else
 		luminosity = 1
 
-	SSambience.queued += src
+	AMBIENCE_QUEUE_TURF(src)
 
 	if (opacity)
 		has_opaque_atom = TRUE
@@ -110,7 +115,8 @@
 	else if (permit_ao)
 		queue_ao()
 
-	updateVisibility(src, FALSE)
+	if(simulated)
+		updateVisibility(src, FALSE)
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
@@ -150,7 +156,7 @@
 	if (!changing_turf)
 		PRINT_STACK_TRACE("Improper turf qdel. Do not qdel turfs directly.")
 
-	SSambience.queued -= src
+	AMBIENCE_DEQUEUE_TURF(src)
 
 	changing_turf = FALSE
 
@@ -217,6 +223,11 @@
 /turf/attack_robot(var/mob/user)
 	return attack_hand_with_interaction_checks(user)
 
+/turf/grab_attack(obj/item/grab/grab, mob/user)
+	if (grab.affecting != user)
+		grab.affecting.DoMove(get_dir(grab.affecting.loc, src), user, TRUE)
+	return TRUE
+
 /turf/attackby(obj/item/W, mob/user)
 
 	if(is_floor())
@@ -270,19 +281,11 @@
 		storage.gather_all(src, user)
 		return TRUE
 
-	if(istype(W, /obj/item/grab))
-		var/obj/item/grab/G = W
-		if (G.affecting != G.assailant)
-			G.affecting.DoMove(get_dir(G.affecting.loc, src), user, TRUE)
-		return TRUE
-
 	if(IS_COIL(W) && try_build_cable(W, user))
 		return TRUE
 
 	if(reagents?.total_volume >= FLUID_PUDDLE)
-		// Must be open, but food items should not be filled from sources like this. They're open in order to add condiments, not to be poured into/out of.
-		// TODO: Rewrite open-container-ness or food to make this unnecessary!
-		if(ATOM_IS_OPEN_CONTAINER(W) && !istype(W, /obj/item/chems/food) && W.reagents)
+		if(ATOM_IS_OPEN_CONTAINER(W) && W.reagents)
 			var/taking = min(reagents.total_volume, REAGENTS_FREE_SPACE(W.reagents))
 			if(taking > 0)
 				to_chat(user, SPAN_NOTICE("You fill \the [W] with [reagents.get_primary_reagent_name()] from \the [src]."))
@@ -429,20 +432,20 @@
 		if(isliving(AM))
 			var/mob/living/M = AM
 			M.turf_collision(src, TT.speed)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/turf, bounce_off), AM, TT.init_dir), 2)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/turf, bounce_off), AM, TT), 2)
 	else if(isobj(AM))
 		var/obj/structure/ladder/L = locate() in contents
 		if(L)
 			L.hitby(AM)
 
-/turf/proc/bounce_off(var/atom/movable/AM, var/direction)
+/turf/proc/bounce_off(var/atom/movable/AM, var/datum/thrownthing/thrown)
 	if(AM.anchored)
 		return
 	if(ismob(AM))
 		var/mob/living/M = AM
 		if(LAZYLEN(M.pinned))
 			return
-	step(AM, turn(direction, 180))
+	AM.throw_at(get_step(src, turn(thrown.init_dir, 180)), 1, thrown.speed / 2)
 
 /turf/proc/can_engrave()
 	return FALSE
@@ -537,7 +540,7 @@
 
 	SSair.mark_for_update(src)
 
-/turf/proc/is_outside()
+/turf/is_outside()
 
 	// Can't rain inside or through solid walls.
 	// TODO: dense structures like full windows should probably also block weather.
@@ -570,13 +573,37 @@
 		. = top_of_stack.is_outside()
 	last_outside_check = . // Cache this for later calls.
 
+/turf/shuttle_rotate(angle)
+	. = ..()
+	if(. && LAZYLEN(decals))
+		var/list/old_decals = decals.Copy()
+		decals.Cut()
+		// Duplicated cache logic from flooring_decals.dm
+		// Remove if the cache is removed
+		for(var/image/decal in old_decals)
+			var/image/detail_overlay = LAZYACCESS(decal.overlays, 1)
+			var/cache_key = "[decal.alpha]-[decal.color]-[SAFE_TURN(decal.dir, angle)]-[decal.icon_state]-[decal.plane]-[decal.layer]-[detail_overlay?.icon_state]-[detail_overlay?.color]-[decal.pixel_x]-[decal.pixel_y]"
+			if(!global.floor_decals[cache_key])
+				var/image/I = image(icon = decal.icon, icon_state = decal.icon_state, dir = SAFE_TURN(decal.dir, angle))
+				I.layer = decal.layer
+				I.appearance_flags = decal.appearance_flags
+				I.color = decal.color
+				I.alpha = decal.alpha
+				I.pixel_x = decal.pixel_x
+				I.pixel_y = decal.pixel_y
+				if(detail_overlay)
+					I.overlays |= overlay_image(decal.icon, detail_overlay.icon_state, color = detail_overlay.color, flags=RESET_COLOR)
+				global.floor_decals[cache_key] = I
+			decals |= global.floor_decals[cache_key]
+		update_icon()
+
 /turf/proc/set_outside(var/new_outside, var/skip_weather_update = FALSE)
 	if(is_outside == new_outside)
 		return FALSE
 
 	is_outside = new_outside
 	update_external_atmos_participation()
-	SSambience.queued |= src
+	AMBIENCE_QUEUE_TURF(src)
 
 	if(!skip_weather_update)
 		update_weather()
@@ -662,8 +689,8 @@
 		AM.forceMove(above_wall)
 		if(isliving(AM))
 			var/mob/living/L = AM
-			for(var/obj/item/grab/G in L.get_active_grabs())
-				G.affecting.forceMove(above_wall)
+			for(var/obj/item/grab/grab as anything in L.get_active_grabs())
+				grab.affecting.forceMove(above_wall)
 	else
 		to_chat(AM, SPAN_WARNING("Something blocks the path."))
 	return TRUE
@@ -759,9 +786,20 @@
 /turf/proc/get_soil_color()
 	return null
 
-/turf/proc/get_fishing_result(obj/item/chems/food/bait)
+/turf/get_color()
+	if(paint_color)
+		return paint_color
+	var/decl/material/material = get_material()
+	if(material)
+		return material.color
+	return color
+
+/turf/proc/get_fishing_result(obj/item/food/bait)
 	var/area/A = get_area(src)
 	return A.get_fishing_result(src, bait)
+
+/turf/get_affecting_weather()
+	return weather
 
 /turf/get_alt_interactions(mob/user)
 	. = ..()
@@ -821,3 +859,6 @@
 	var/turf/T = get_turf(target)
 	if(T.can_dig_farm(prop?.material?.hardness))
 		T.try_dig_farm(user, prop)
+
+/turf/take_vaporized_reagent(reagent, amount)
+	return assume_gas(reagent, round(amount / REAGENT_UNITS_PER_GAS_MOLE))

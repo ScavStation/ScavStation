@@ -27,11 +27,12 @@
 /obj/structure/janitorialcart/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/bag/trash) && !mybag)
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		mybag = I
 		update_icon()
 		updateUsrDialog()
 		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		return TRUE
 
 	else if(istype(I, /obj/item/mop))
 		if(I.reagents.total_volume < I.reagents.maximum_volume)	//if it's not completely soaked we assume they want to wet it, otherwise store it
@@ -41,47 +42,52 @@
 				reagents.trans_to_obj(I, I.reagents.maximum_volume)
 				to_chat(user, "<span class='notice'>You wet [I] in [src].</span>")
 				playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-				return
+			return TRUE
 		if(!mymop)
 			if(!user.try_unequip(I, src))
-				return
+				return TRUE
 			mymop = I
 			update_icon()
 			updateUsrDialog()
 			to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+			return TRUE
 
 	else if(istype(I, /obj/item/chems/spray) && !myspray)
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		myspray = I
 		update_icon()
 		updateUsrDialog()
 		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		return TRUE
 
 	else if(istype(I, /obj/item/lightreplacer) && !myreplacer)
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		myreplacer = I
 		update_icon()
 		updateUsrDialog()
 		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		return TRUE
 
 	else if(istype(I, /obj/item/caution))
 		if(signs < 4)
 			if(!user.try_unequip(I, src))
-				return
+				return TRUE
 			signs++
 			update_icon()
 			updateUsrDialog()
 			to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		else
 			to_chat(user, "<span class='notice'>[src] can't hold any more signs.</span>")
+		return TRUE
 
 	else if(istype(I, /obj/item/chems/glass))
-		return // So we do not put them in the trash bag as we mean to fill the mop bucket
+		return FALSE // So we do not put them in the trash bag as we mean to fill the mop bucket; FALSE means run afterattack
 
 	else if(mybag)
-		mybag.attackby(I, user)
+		return mybag.attackby(I, user)
+	return ..()
 
 
 /obj/structure/janitorialcart/attack_hand(mob/user)
@@ -225,7 +231,7 @@
 
 	if(istype(I, /obj/item/bag/trash))
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You hook \the [I] onto the [callme]."))
 		mybag = I
 		return TRUE

@@ -193,7 +193,7 @@
 		RAISE_EVENT(/decl/observ/moved, src, origin, null)
 
 	// freelook
-	if(opacity)
+	if(simulated && opacity)
 		updateVisibility(src)
 
 	// lighting
@@ -245,7 +245,7 @@
 			RAISE_EVENT(/decl/observ/moved, src, old_loc, null)
 
 		// freelook
-		if(opacity)
+		if(simulated && opacity)
 			updateVisibility(src)
 
 		// lighting
@@ -432,9 +432,9 @@
 
 /atom/movable/proc/show_buckle_message(var/mob/buckled, var/mob/buckling)
 	if(buckled == buckling)
-		var/decl/pronouns/G = buckled.get_pronouns()
+		var/decl/pronouns/pronouns = buckled.get_pronouns()
 		visible_message(
-			SPAN_NOTICE("\The [buckled] buckles [G.self] to \the [src]."),
+			SPAN_NOTICE("\The [buckled] buckles [pronouns.self] to \the [src]."),
 			SPAN_NOTICE("You buckle yourself to \the [src]."),
 			SPAN_NOTICE("You hear metal clanking.")
 		)
@@ -449,16 +449,16 @@
 	var/mob/living/M = unbuckle_mob()
 	if(M)
 		show_unbuckle_message(M, user)
-		for(var/obj/item/grab/G as anything in (M.grabbed_by|grabbed_by))
-			qdel(G)
+		for(var/obj/item/grab/grab as anything in (M.grabbed_by|grabbed_by))
+			qdel(grab)
 		add_fingerprint(user)
 	return M
 
 /atom/movable/proc/show_unbuckle_message(var/mob/buckled, var/mob/buckling)
 	if(buckled == buckling)
-		var/decl/pronouns/G = buckled.get_pronouns()
+		var/decl/pronouns/pronouns = buckled.get_pronouns()
 		visible_message(
-			SPAN_NOTICE("\The [buckled] unbuckled [G.self] from \the [src]!"),
+			SPAN_NOTICE("\The [buckled] unbuckled [pronouns.self] from \the [src]!"),
 			SPAN_NOTICE("You unbuckle yourself from \the [src]."),
 			SPAN_NOTICE("You hear metal clanking.")
 		)
@@ -489,6 +489,9 @@
 
 /atom/movable/proc/get_object_size()
 	return ITEM_SIZE_NORMAL
+
+/atom/movable/get_manual_heat_source_coefficient()
+	return ..() * (get_object_size() / ITEM_SIZE_NORMAL)
 
 // TODO: account for reagents and matter.
 /atom/movable/get_thermal_mass()
@@ -562,3 +565,23 @@
 
 /atom/movable/proc/end_throw()
 	throwing = null
+
+/atom/movable/proc/reset_movement_delay()
+	var/datum/movement_handler/delay/delay = locate() in movement_handlers
+	if(istype(delay))
+		delay.next_move = world.time
+
+/atom/movable/get_affecting_weather()
+	var/turf/my_turf = get_turf(src)
+	if(!istype(my_turf))
+		return
+	var/turf/actual_loc = loc
+	// If we're standing in the rain, use the turf weather.
+	. = istype(actual_loc) && actual_loc.weather
+	if(!.) // If we're under or inside shelter, use the z-level rain (for ambience)
+		. = SSweather.weather_by_z[my_turf.z]
+
+/atom/movable/take_vaporized_reagent(reagent, amount)
+	if(ATOM_IS_OPEN_CONTAINER(src))
+		return loc?.take_vaporized_reagent(reagent, amount)
+	return null

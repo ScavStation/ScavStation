@@ -5,6 +5,7 @@
 	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_LARGE
 	material = /decl/material/solid/organic/leather
+	color = /decl/material/solid/organic/leather::color
 	material_alteration = MAT_FLAG_ALTERATION_ALL
 	var/padding_material
 	var/belt_color = COLOR_BEASTY_BROWN
@@ -49,12 +50,14 @@
 	anchored = FALSE
 	material = /decl/material/solid/organic/leather
 	reinf_material = null
+	color = /decl/material/solid/organic/leather::color
 	tool_interaction_flags = TOOL_INTERACTION_NONE // just use your hand on it nerd
 	buckle_sound = "rustle"
 	var/item_path = /obj/item/bedroll
 
 /obj/structure/bed/bedroll/fur
 	reinf_material = /decl/material/solid/organic/skin/fur
+	color = /decl/material/solid/organic/skin/fur::color
 
 /obj/structure/bed/bedroll/show_buckle_message(var/mob/buckled, var/mob/buckling)
 	if(buckled == buckling)
@@ -64,9 +67,9 @@
 			SPAN_NOTICE("You hear a rustling sound.")
 		)
 	else
-		var/decl/pronouns/G = buckled.get_pronouns()
+		var/decl/pronouns/pronouns = buckled.get_pronouns()
 		visible_message(
-			SPAN_NOTICE("\The [buckled] [G.is] bundled into \the [src] by \the [buckling]."),
+			SPAN_NOTICE("\The [buckled] [pronouns.is] bundled into \the [src] by \the [buckling]."),
 			SPAN_NOTICE("You are bundled into \the [src] by \the [buckling]."),
 			SPAN_NOTICE("You hear a rustling sound.")
 		)

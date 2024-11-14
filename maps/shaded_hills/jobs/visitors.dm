@@ -13,7 +13,7 @@
 	description             = "You have travelled to this area from elsewhere. You may be a vagabond, a wastrel, a nomad, or just passing through on your way to somewhere else. How long you're staying and where you're headed is up to you entirely."
 	spawn_positions         = -1
 	total_positions         = -1
-	outfit_type             = /decl/hierarchy/outfit/job/shaded_hills/traveller
+	outfit_type             = /decl/outfit/job/shaded_hills/traveller
 	skill_points            = 20
 
 /obj/abstract/landmark/start/shaded_hills/traveller
@@ -27,8 +27,8 @@
 	description             = "You are a skilled professional who has travelled to this area from elsewhere. You may be a doctor, a scholar, a monk, or some other highly-educated individual with rare skills. Whatever your reason for coming here, you are likely one of the only individuals in the area to possess your unique skillset."
 	spawn_positions         = 2
 	total_positions         = 2
-	outfit_type             = /decl/hierarchy/outfit/job/shaded_hills/traveller/scholar
-	skill_points            = 24
+	outfit_type             = /decl/outfit/job/shaded_hills/traveller/scholar
+	skill_points            = 26
 	min_skill               = list(
 		SKILL_LITERACY      = SKILL_ADEPT
 	)
@@ -47,19 +47,22 @@
 	description             = "You are a wandering swordmaster sworn to a vow of poverty, with nothing to your name but the armour on your back and the blade at your hip. Beggar knights are tolerated due to their martial prowess, and are usually paid with food or new equipment as they are avowed against carrying coin."
 	spawn_positions         = 2
 	total_positions         = 2
-	outfit_type             = /decl/hierarchy/outfit/job/shaded_hills/beggar_knight
+	outfit_type             = /decl/outfit/job/shaded_hills/beggar_knight
 	min_skill               = list(
+		SKILL_COMBAT        = SKILL_ADEPT,
 		SKILL_WEAPONS       = SKILL_ADEPT,
-		SKILL_ATHLETICS     = SKILL_ADEPT,
+		SKILL_ATHLETICS     = SKILL_ADEPT
 	)
 	max_skill               = list(
-		SKILL_FINANCE       = SKILL_NONE,
+		SKILL_COMBAT        = SKILL_MAX,
+		SKILL_WEAPONS       = SKILL_MAX,
 		SKILL_CARPENTRY     = SKILL_BASIC,
 		SKILL_METALWORK     = SKILL_BASIC,
 		SKILL_TEXTILES      = SKILL_BASIC,
 		SKILL_STONEMASONRY  = SKILL_BASIC,
 		SKILL_SCULPTING     = SKILL_BASIC,
 		SKILL_ARTIFICE      = SKILL_BASIC,
+		SKILL_FINANCE       = SKILL_NONE
 	)
 
 /obj/abstract/landmark/start/shaded_hills/beggar_knight
@@ -72,17 +75,19 @@
 	description             = "You are an ordained person of faith, travelling the lands on the business of your order, to preach, or simply to experience new people and cultures. You are battle-trained, but are also a healer."
 	spawn_positions         = 2
 	total_positions         = 2
-	outfit_type             = /decl/hierarchy/outfit/job/shaded_hills/traveller/cleric
+	outfit_type             = /decl/outfit/job/shaded_hills/traveller/cleric
 	min_skill               = list(
+		SKILL_COMBAT        = SKILL_ADEPT,
 		SKILL_WEAPONS       = SKILL_ADEPT,
 		SKILL_ATHLETICS     = SKILL_ADEPT,
 		SKILL_MEDICAL       = SKILL_ADEPT,
-		SKILL_ANATOMY       = SKILL_ADEPT,
+		SKILL_ANATOMY       = SKILL_ADEPT
 	)
 	max_skill               = list(
+		SKILL_COMBAT        = SKILL_MAX,
 		SKILL_WEAPONS       = SKILL_MAX,
 		SKILL_MEDICAL       = SKILL_MAX,
-		SKILL_ANATOMY       = SKILL_MAX,
+		SKILL_ANATOMY       = SKILL_MAX
 	)
 	skill_points            = 22
 

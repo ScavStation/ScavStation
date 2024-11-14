@@ -58,7 +58,7 @@
 
 /obj/structure/closet/body_bag/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/hand_labeler))
-		return //Prevent the labeler from opening the bag when trying to apply a label
+		return FALSE //Prevent the labeler from opening the bag when trying to apply a label
 	. = ..()
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)
@@ -76,7 +76,7 @@
 	if(!(ishuman(user) || isrobot(user)))	return 0
 	if(opened)	return 0
 	if(contents.len)	return 0
-	visible_message("[user] folds up the [name]")
+	visible_message("[user] folds up \the [src]")
 	. = new item_path(get_turf(src))
 	qdel(src)
 

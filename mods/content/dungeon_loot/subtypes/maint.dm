@@ -31,7 +31,7 @@
 		/obj/item/clothing/mask/gas/half,
 		/obj/item/clothing/mask/breath,
 		/obj/item/chems/glass/rag,
-		/obj/item/chems/food/liquidfood,
+		/obj/item/food/junk/liquidfood,
 		/obj/item/secure_storage/briefcase,
 		/obj/item/briefcase,
 		/obj/item/backpack,
@@ -141,18 +141,17 @@
 		/obj/item/trash/beans,
 		/obj/item/trash/tomato,
 		/obj/item/trash/spinach,
-		/obj/item/chems/food/spider,
-		/obj/item/chems/food/mysterysoup,
-		/obj/item/chems/food/old/hotdog,
-		/obj/item/chems/food/old/pizza,
+		/obj/item/food/spider,
+		/obj/item/chems/glass/bowl/mystery,
+		/obj/item/food/old/hotdog,
+		/obj/item/food/old/pizza,
 		/obj/item/ammo_casing,
 		/obj/item/stack/material/rods/ten,
 		/obj/item/stack/material/sheet/mapped/steel/five,
 		/obj/item/stack/material/cardstock/mapped/cardboard/five,
 		/obj/item/poster,
 		/obj/item/newspaper,
-		/obj/item/paper/crumpled,
-		/obj/item/paper/crumpled/bloody,
+		/obj/item/paper/crumpled
 	)
 	return common_loot
 

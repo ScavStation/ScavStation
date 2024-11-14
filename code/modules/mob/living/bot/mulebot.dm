@@ -116,7 +116,7 @@
 				safety = !safety
 
 /mob/living/bot/mulebot/attackby(var/obj/item/O, var/mob/user)
-	..()
+	. = ..()
 	update_icon()
 
 /mob/living/bot/mulebot/proc/obeyCommand(var/command)

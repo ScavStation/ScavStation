@@ -41,14 +41,17 @@
 			cell = I
 			user.drop_from_inventory(I)
 			I.forceMove(src)
-		return 1
+		return TRUE
 	else if(IS_CROWBAR(I))
 		if(cell)
-			to_chat(user, "You pry out \the [cell].")
+			to_chat(user, "You pry out \the [cell] with \the [I].")
 			cell.dropInto(loc)
 			cell = null
-			return 1
-	..()
+			return TRUE
+		if(user.a_intent != I_HURT)
+			to_chat(user, SPAN_WARNING("There is no cell in \the [src] to remove with \the [I]!"))
+			return TRUE
+	return ..()
 
 /obj/item/engine/electric/prefill()
 	cell = new /obj/item/cell/high(src.loc)
@@ -90,13 +93,9 @@
 	temp_reagents_holder.atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/engine/thermal/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I,/obj/item/chems) && ATOM_IS_OPEN_CONTAINER(I))
-		if(istype(I,/obj/item/chems/food) || istype(I,/obj/item/chems/pill))
-			return 0
-		var/obj/item/chems/C = I
-		C.standard_pour_into(user,src)
-		return 1
-	..()
+	if(I.standard_pour_into(user, src))
+		return TRUE
+	return ..()
 
 /obj/item/engine/thermal/use_power()
 	if(fuel_points >= cost_per_move)

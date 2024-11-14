@@ -20,6 +20,9 @@
 /mob/living/human/get_external_organs()
 	return external_organs
 
+/mob/living/human/get_injured_organs()
+	return bad_external_organs
+
 /mob/living/human/get_internal_organs()
 	return internal_organs
 
@@ -203,7 +206,7 @@
 						W.germ_level += 1
 
 /mob/living/human/proc/Check_Proppable_Object()
-	for(var/turf/T in RANGE_TURFS(src, 1)) //we only care for non-space turfs
+	for(var/turf/T as anything in RANGE_TURFS(src, 1)) //we only care for non-space turfs
 		if(T.density && T.simulated)	//walls work
 			return 1
 
@@ -219,3 +222,15 @@
 	//Move some blood over to the organ
 	if(!BP_IS_PROSTHETIC(O) && O.species && O.reagents?.total_volume < 5)
 		vessel.trans_to(O, 5 - O.reagents.total_volume, 1, 1)
+
+
+/mob/living/human/is_asystole()
+	if(isSynthetic())
+		var/obj/item/organ/internal/cell/C = get_organ(BP_CELL, /obj/item/organ/internal/cell)
+		if(!C || !C.is_usable() || !C.percent())
+			return TRUE
+	else if(should_have_organ(BP_HEART))
+		var/obj/item/organ/internal/heart/heart = get_organ(BP_HEART, /obj/item/organ/internal/heart)
+		if(!istype(heart) || !heart.is_working())
+			return TRUE
+	return FALSE

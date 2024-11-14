@@ -11,17 +11,17 @@
 
 /decl/butchery_data/animal/fox
 	meat_name         = "fox"
-	meat_type         = /obj/item/chems/food/butchery/meat
+	meat_type         = /obj/item/food/butchery/meat
 	meat_amount       = 3
 	skin_material     = /decl/material/solid/organic/skin/fur/orange
-	gut_type          = /obj/item/chems/food/butchery/offal/small
+	gut_type          = /obj/item/food/butchery/offal/small
 
 /decl/butchery_data/animal/corgi
 	meat_name         = "dog"
-	meat_type         = /obj/item/chems/food/butchery/meat/corgi
+	meat_type         = /obj/item/food/butchery/meat/corgi
 	meat_amount       = 3
 	skin_material     = /decl/material/solid/organic/skin/fur/orange
-	gut_type          = /obj/item/chems/food/butchery/offal/small
+	gut_type          = /obj/item/food/butchery/offal/small
 
 /decl/butchery_data/animal/corgi/puppy
 	meat_amount       = 1
@@ -31,17 +31,17 @@
 
 /decl/butchery_data/animal/space_bear
 	meat_name         = "bear"
-	meat_type         = /obj/item/chems/food/bearmeat
+	meat_type         = /obj/item/food/butchery/meat/bear
 	meat_amount       = 10
 	bone_amount       = 20
 	skin_amount       = 20
 	skin_material     = /decl/material/solid/organic/skin/fur/heavy
-	stomach_type      = /obj/item/chems/food/butchery/stomach
+	stomach_type      = /obj/item/food/butchery/stomach
 
 /decl/butchery_data/animal/cat
 	meat_name         = "cat"
 	skin_material     = /decl/material/solid/organic/skin/fur/orange
-	gut_type          = /obj/item/chems/food/butchery/offal/small
+	gut_type          = /obj/item/food/butchery/offal/small
 
 /decl/butchery_data/animal/cat/black
 	skin_material     = /decl/material/solid/organic/skin/fur/black
@@ -58,7 +58,7 @@
 	bone_amount       = 1
 	skin_amount       = 1
 	must_use_hook     = FALSE
-	gut_type          = /obj/item/chems/food/butchery/offal/small
+	gut_type          = /obj/item/food/butchery/offal/small
 
 /decl/butchery_data/animal/small/furred
 	skin_material     = /decl/material/solid/organic/skin/fur
@@ -75,11 +75,15 @@
 	skin_type     = null
 	skin_amount   = null
 
+/decl/butchery_data/animal/wolf
+	skin_material     = /decl/material/solid/organic/skin/fur/gray
+
 /decl/butchery_data/animal/rabbit
 	meat_name         = "rabbit"
 	skin_material     = /decl/material/solid/organic/skin/fur/white
-	gut_type          = /obj/item/chems/food/butchery/offal/small
+	gut_type          = /obj/item/food/butchery/offal/small
 	must_use_hook     = FALSE
+	butchery_offset   = list(-6, 0)
 
 /decl/butchery_data/animal/rabbit/brown
 	skin_material     = /decl/material/solid/organic/skin/fur/brown
@@ -87,9 +91,15 @@
 /decl/butchery_data/animal/rabbit/black
 	skin_material     = /decl/material/solid/organic/skin/fur/black
 
+/decl/butchery_data/animal/opossum
+	meat_name         = "opossum"
+	skin_material     = /decl/material/solid/organic/skin/fur/gray
+	butchery_offset   = list(-1, 15)
+	butchery_rotation = 0
+
 /decl/butchery_data/animal/antlion
 	meat_name         = "insect"
-	meat_type         = /obj/item/chems/food/xenomeat
+	meat_type         = /obj/item/food/butchery/meat/xeno
 	meat_amount       = 5
 	skin_material     = /decl/material/solid/organic/skin/insect
 	skin_amount       = 15

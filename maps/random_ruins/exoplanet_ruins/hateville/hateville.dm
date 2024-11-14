@@ -20,7 +20,7 @@
 	title = "Colony Survivor"
 	info = "After the siege and capture of the colony you call home, you have no choice but to make do with what you can, and survive until help arrives."
 	total_positions = 10
-	outfit_type = /decl/hierarchy/outfit/job/colonist
+	outfit_type = /decl/outfit/job/colonist
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_MEDICAL = SKILL_BASIC,
@@ -64,7 +64,7 @@
 		"Former Blood-Cultist",
 	)
 
-/decl/hierarchy/outfit/job/colonist
+/decl/outfit/job/colonist
 	name = "Job - Colonist"
 	id_type = null
 	pda_type = null

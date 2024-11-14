@@ -26,6 +26,8 @@
 	dynamic_lighting = FALSE
 	opacity = TRUE
 	density = TRUE
+	plane = ABOVE_LIGHTING_PLANE
+	layer = OBFUSCATION_LAYER // Cover all non-hud material.
 
 ///Turf with its map coordinate written on. Handy for debugging.
 /turf/unsimulated/debug_grid
@@ -35,15 +37,15 @@
 	permit_ao        = FALSE
 	dynamic_lighting = FALSE
 
-/turf/unsimulated/debug_grid/Initialize(var/ml)
-	. = ..(ml)
+/turf/unsimulated/debug_grid/New()
+	. = ..()
 	name           = "[initial(name)]-[x],[y]"
 	maptext        = STYLE_SMALLFONTS("[x],[y]", 6, "green")
 	maptext_width  = 32
 	maptext_height = 16
 
-/turf/unsimulated/map/Initialize(var/ml)
-	. = ..(ml)
+/turf/unsimulated/map/New()
+	..()
 	name = "[x]-[y]"
 	var/list/numbers = list()
 
@@ -83,7 +85,8 @@ var/global/list/moving_levels = list()
 	if (moving_levels["[zlevel]"] != direction)
 		moving_levels["[zlevel]"] = direction
 
-		var/list/space_turfs = block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel))
+		var/datum/level_data/level = SSmapping.levels_by_z[zlevel]
+		var/list/space_turfs = block(level.level_inner_min_x, level.level_inner_min_y, zlevel, level.level_inner_max_x, level.level_inner_max_y, zlevel)
 		for(var/turf/space/T in space_turfs)
 			T.toggle_transit(direction)
 			CHECK_TICK

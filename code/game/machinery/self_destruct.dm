@@ -11,33 +11,35 @@
 
 /obj/machinery/self_destruct/attackby(obj/item/W, mob/user)
 	if(IS_WELDER(W))
-		if(damaged)
-			user.visible_message("[user] begins to repair [src].", "You begin repairing [src].")
-			if(do_after(usr, 100, src))
-				var/obj/item/weldingtool/w = W
-				if(w.weld(10))
-					damaged = 0
-					user.visible_message("[user] repairs [src].", "You repair [src].")
-				else
-					to_chat(user, "<span class='warning'>There is not enough fuel to repair [src].</span>")
-				return
+		if(!damaged)
+			return FALSE
+		user.visible_message("[user] begins to repair [src].", "You begin repairing [src].")
+		if(do_after(usr, 100, src))
+			var/obj/item/weldingtool/w = W
+			if(w.weld(10))
+				damaged = 0
+				user.visible_message("[user] repairs [src].", "You repair [src].")
+			else
+				to_chat(user, "<span class='warning'>There is not enough fuel to repair [src].</span>")
+		return TRUE
 	if(istype(W, /obj/item/nuclear_cylinder))
 		if(damaged)
 			to_chat(user, "<span class='warning'>[src] is damaged, you cannot place the cylinder.</span>")
-			return
+			return TRUE
 		if(cylinder)
 			to_chat(user, "There is already a cylinder here.")
-			return
-		user.visible_message("[user] begins to carefully place [W] onto the Inserter.", "You begin to carefully place [W] onto the Inserter.")
+			return TRUE
+		user.visible_message("[user] begins to carefully place [W] onto [src].", "You begin to carefully place [W] onto [src].")
 		if(do_after(user, 80, src) && user.try_unequip(W, src))
 			cylinder = W
 			density = TRUE
-			user.visible_message("[user] places [W] onto the Inserter.", "You place [W] onto the Inserter.")
+			user.visible_message("[user] places [W] onto [src].", "You place [W] onto [src].")
 			update_icon()
-			return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/self_destruct/physical_attack_hand(mob/user)
+	. = FALSE
 	if(cylinder)
 		. = TRUE
 		if(armed)

@@ -85,8 +85,8 @@
 	color = "#ccc9a3"
 	reflectiveness = MAT_VALUE_SHINY
 	value = 0.8
-	sparse_material_weight = 3
-	rich_material_weight = 1
+	sparse_material_weight = 9
+	rich_material_weight = 3
 	dissolves_into = list(
 		/decl/material/solid/sulfur = 0.75,
 		/decl/material/solid/metal/iron = 0.25
@@ -102,8 +102,8 @@
 	ore_icon_overlay = "lump"
 	color = "#e5becb"
 	value = 0.8
-	sparse_material_weight = 3
-	rich_material_weight = 1
+	sparse_material_weight = 9
+	rich_material_weight = 3
 	dissolves_into = list(
 		/decl/material/solid/lithium = 1
 	)
@@ -118,8 +118,8 @@
 	ore_icon_overlay = "lump"
 	color = "#e54e4e"
 	value = 0.8
-	sparse_material_weight = 3
-	rich_material_weight = 1
+	sparse_material_weight = 9
+	rich_material_weight = 3
 	dissolves_into = list(
 		/decl/material/liquid/mercury = 1
 	)
@@ -137,8 +137,8 @@
 	)
 	color = "#832828"
 	value = 0.8
-	sparse_material_weight = 3
-	rich_material_weight = 1
+	sparse_material_weight = 9
+	rich_material_weight = 3
 	lore_text = "A chemical element, the backbone of biological energy carriers."
 	taste_description = "vinegar"
 
@@ -153,13 +153,15 @@
 	ore_icon_overlay = "lump"
 	color = "#d1c0bc"
 	value = 0.8
-	sparse_material_weight = 3
-	rich_material_weight = 1
+	sparse_material_weight = 12
+	rich_material_weight = 4
 	taste_description = "salt"
 	overdose = REAGENTS_OVERDOSE
 	dissolves_into = list(
 		/decl/material/solid/sodium = 1
 	)
+	solid_name = "salt"
+	soup_hot_desc = null
 
 /decl/material/solid/potash
 	name = "potash"
@@ -180,6 +182,7 @@
 	)
 
 /decl/material/solid/potassium/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	var/volume = REAGENT_VOLUME(holder, type)
 	if(volume > 3)
 		M.add_chemical_effect(CE_PULSE, 1)
@@ -231,7 +234,7 @@
 	)
 	dug_drop_type = /obj/item/stack/material/ore/handful
 	default_solid_form = /obj/item/stack/material/ore/handful
-	can_backfill_turf_type = /turf/floor/natural/sand
+	can_backfill_turf_type = /turf/floor/rock/sand
 
 /decl/material/solid/clay
 	name = "clay"
@@ -250,10 +253,11 @@
 	dug_drop_type = /obj/item/stack/material/lump/large
 	default_solid_form = /obj/item/stack/material/lump/large
 	bakes_into_material = /decl/material/solid/stone/pottery
+	temperature_burn_milestone_material = /decl/material/solid/clay
 	melting_point = null // Clay is already almost a liquid...
 	// lower than the temperature expected from a kiln so that clay can be used to make bricks to make a high-temperature kiln.
 	bakes_into_at_temperature = 950 CELSIUS
-	can_backfill_turf_type = /turf/floor/natural/clay
+	can_backfill_turf_type = /turf/floor/clay
 
 /decl/material/solid/soil
 	name = "soil"
@@ -269,8 +273,8 @@
 	dug_drop_type = /obj/item/stack/material/lump/large
 	tillable = TRUE
 	can_backfill_turf_type = list(
-		/turf/floor/natural/mud,
-		/turf/floor/natural/dirt
+		/turf/floor/mud,
+		/turf/floor/dirt
 	)
 
 /decl/material/solid/hematite

@@ -155,13 +155,13 @@ var/global/list/default_initial_tech_levels
 	if(istype(I, /obj/item/disk/tech_disk))
 		if(disk)
 			to_chat(user, SPAN_WARNING("\The [src] already has a disk inserted."))
-			return
+			return TRUE
 		if(user.try_unequip(I, src))
 			visible_message("\The [user] slots \the [I] into \the [src].")
 			visible_message(SPAN_NOTICE("\The [src]'s I/O light begins to blink."))
 			disk = I
 			need_disk_operation = TRUE
-			return
+			return TRUE
 
 	. = ..()
 

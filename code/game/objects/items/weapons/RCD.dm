@@ -10,23 +10,19 @@
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY|SLOT_HOLSTER
-	force = 10.0
-	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = @'{"engineering":4,"materials":2}'
 	material = /decl/material/solid/metal/steel
+	_base_attack_force = 10
 	var/stored_matter = 0
 	var/max_stored_matter = 120
-
 	var/work_id = 0
 	var/decl/hierarchy/rcd_mode/work_mode
 	var/static/list/work_modes
-
 	var/canRwall = 0
 	var/disabled = 0
-
 	var/crafting = FALSE //Rapid Crossbow Device memes
 
 /obj/item/rcd/Initialize()
@@ -54,19 +50,17 @@
 	update_icon()	//Initializes the ammo counter
 
 /obj/item/rcd/attackby(obj/item/W, mob/user)
-
 	if(istype(W, /obj/item/rcd_ammo))
 		var/obj/item/rcd_ammo/cartridge = W
 		if((stored_matter + cartridge.remaining) > max_stored_matter)
 			to_chat(user, "<span class='notice'>The RCD can't hold that many additional matter-units.</span>")
-			return
+			return TRUE
 		stored_matter += cartridge.remaining
 		qdel(W)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>The RCD now holds [stored_matter]/[max_stored_matter] matter-units.</span>")
 		update_icon()
-		return
-
+		return TRUE
 	if(IS_SCREWDRIVER(W))
 		crafting = !crafting
 		if(!crafting)
@@ -74,9 +68,8 @@
 		else
 			to_chat(user, "<span class='notice'>The RCD can now be modified.</span>")
 		src.add_fingerprint(user)
-		return
-
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/rcd/attack_self(mob/user)
 	//Change the mode
@@ -169,7 +162,7 @@
 	return 0
 
 /obj/item/rcd/borg/attackby()
-	return
+	return FALSE
 
 /obj/item/rcd/borg/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.incapacitated())
@@ -189,7 +182,7 @@
 	return 0
 
 /obj/item/rcd/mounted/attackby()
-	return
+	return FALSE
 
 /obj/item/rcd/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.incapacitated())
@@ -275,7 +268,7 @@
 /decl/hierarchy/rcd_mode/floor_and_walls/base_turf
 	cost = 1
 	delay = 2 SECONDS
-	work_type = /turf/floor/airless
+	work_type = /turf/floor/plating/airless
 
 /decl/hierarchy/rcd_mode/floor_and_walls/base_turf/can_handle_work(var/rcd, var/turf/target)
 	return istype(target) && (isspaceturf(target) || istype(target, get_base_turf_by_area(target)))
