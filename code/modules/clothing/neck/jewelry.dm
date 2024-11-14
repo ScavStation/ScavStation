@@ -9,6 +9,7 @@
 	name = "prayer beads"
 	desc = "A string of smooth, polished beads."
 	icon = 'icons/clothing/accessories/jewelry/prayer_beads.dmi'
+	gender = PLURAL
 	material = /decl/material/solid/organic/wood/ebony
 
 /obj/item/clothing/neck/necklace/prayer_beads/gold
