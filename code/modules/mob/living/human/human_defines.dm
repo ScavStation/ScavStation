@@ -1,9 +1,10 @@
 /mob/living/human
 
-	ai = /datum/ai/human
+	ai = /datum/mob_controller/human
 	mob_bump_flag = HUMAN
 	mob_push_flags = ~HEAVY
 	mob_swap_flags = ~HEAVY
+	weather_sensitive = TRUE
 
 	/// If true, the next icon update will also regenerate the body.
 	var/regenerate_body_icon = FALSE
@@ -13,7 +14,7 @@
 	var/damage_multiplier = 1
 	var/list/worn_underwear = list()
 	var/datum/backpack_setup/backpack_setup
-	var/list/cultural_info = list()
+	var/list/background_info = list()
 	var/obj/screen/default_attack_selector/attack_selector
 	var/icon/stand_icon = null
 	/// Instead of new say code calling GetVoice() over and over and over, we're just going to ask this variable, which gets updated in Life()

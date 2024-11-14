@@ -39,13 +39,14 @@
 	else
 		icon_state = "implantcase-0"
 
+// TODO: the name stuff here probably doesn't work, this needs an update_name override
 /obj/item/implantcase/attackby(obj/item/I, mob/user)
 	if (IS_PEN(I))
 		var/t = input(user, "What would you like the label to be?", src.name, null)
 		if (user.get_active_held_item() != I)
-			return
+			return TRUE
 		if((!in_range(src, usr) && loc != user))
-			return
+			return TRUE
 		t = sanitize_safe(t, MAX_NAME_LEN)
 		if(t)
 			SetName("glass case - '[t]'")
@@ -53,9 +54,9 @@
 		else
 			SetName(initial(name))
 			desc = "A case containing an implant."
-	else if(istype(I, /obj/item/chems/syringe))
-		if(istype(imp,/obj/item/implant/chem))
-			imp.attackby(I,user)
+		return TRUE
+	else if(istype(I, /obj/item/chems/syringe) && istype(imp,/obj/item/implant/chem))
+		return imp.attackby(I,user)
 	else if (istype(I, /obj/item/implanter))
 		var/obj/item/implanter/M = I
 		if (M.imp && !imp && !M.imp.implanted)
@@ -69,10 +70,11 @@
 		update_description()
 		update_icon()
 		M.update_icon()
+		return TRUE
 	else if (istype(I, /obj/item/implant) && user.try_unequip(I, src))
 		to_chat(usr, "<span class='notice'>You slide \the [I] into \the [src].</span>")
 		imp = I
 		update_description()
 		update_icon()
-	else
-		return ..()
+		return TRUE
+	return ..()

@@ -48,7 +48,7 @@
 			to_chat(user, "<span class='notice'>You swipe your card and [locked ? "lock":"unlock"] the disk.</span>")
 		else
 			to_chat(user, "<span class='warning'>The disk's screen flashes 'Access Denied'.</span>")
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/disk/secret_project/verb/change_codename()

@@ -71,11 +71,22 @@
 	var/draw_accessory = TRUE
 	/// Bitflags indicating what grooming tools work on this accessory.
 	var/grooming_flags = GROOMABLE_NONE
+	/// A list of metadata types for customisation of this accessory.
+	var/list/accessory_metadata_types
+	/// A value to check whitelists for.
+	var/is_whitelisted
+	/// A set of trait levels to check for.
+	var/list/required_traits
+
+/decl/sprite_accessory/Initialize()
+	. = ..()
+	if(!isnull(color_blend))
+		LAZYDISTINCTADD(accessory_metadata_types, /decl/sprite_accessory_metadata/color)
 
 /decl/sprite_accessory/proc/refresh_mob(var/mob/living/subject)
 	return
 
-/decl/sprite_accessory/proc/accessory_is_available(var/mob/owner, var/decl/species/species, var/decl/bodytype/bodytype)
+/decl/sprite_accessory/proc/accessory_is_available(mob/owner, decl/species/species, decl/bodytype/bodytype, list/traits)
 	if(species)
 		var/species_is_permitted = TRUE
 		if(species_allowed)
@@ -99,6 +110,14 @@
 			return FALSE
 	if(requires_appearance_flags && !(bodytype.appearance_flags & requires_appearance_flags))
 		return FALSE
+	if(is_whitelisted && usr?.ckey && !is_admin(usr) && !is_alien_whitelisted(usr, is_whitelisted))
+		return FALSE
+	if(length(required_traits) && traits != FALSE)
+		if(!islist(traits) || !length(traits))
+			return FALSE
+		for(var/trait in required_traits)
+			if(!(trait in traits))
+				return FALSE
 	return TRUE
 
 /decl/sprite_accessory/validate()
@@ -120,10 +139,14 @@
 	if(!organ?.owner)
 		return FALSE
 	if(hidden_by_gear_slot)
-		var/obj/item/hiding = organ.owner.get_equipped_item(hidden_by_gear_slot)
-		if(!hiding)
-			return FALSE
-		return (hiding.flags_inv & hidden_by_gear_flag)
+		if(islist(hidden_by_gear_slot))
+			for(var/hiding_slot in hidden_by_gear_slot)
+				var/obj/item/hiding = organ.owner.get_equipped_item(hiding_slot)
+				if(hiding && (hiding.flags_inv & hidden_by_gear_flag))
+					return TRUE
+		else
+			var/obj/item/hiding = organ.owner.get_equipped_item(hidden_by_gear_slot)
+			return hiding && (hiding.flags_inv & hidden_by_gear_flag)
 	return FALSE
 
 /decl/sprite_accessory/proc/get_accessory_icon(var/obj/item/organ/external/organ)
@@ -137,26 +160,110 @@
 /decl/sprite_accessory/proc/get_grooming_descriptor(grooming_result, obj/item/organ/external/organ, obj/item/grooming/tool)
 	return "mystery grooming target"
 
-/decl/sprite_accessory/proc/get_cached_accessory_icon(var/obj/item/organ/external/organ, var/color = COLOR_WHITE)
-	ASSERT(istext(color) && (length(color) == 7 || length(color) == 9))
-	if(!icon_state)
+/decl/sprite_accessory/proc/get_default_accessory_metadata()
+	. = list()
+	for(var/metadata_type in accessory_metadata_types)
+		var/decl/sprite_accessory_metadata/metadata_decl = GET_DECL(metadata_type)
+		.[metadata_type] = metadata_decl.default_value
+
+/decl/sprite_accessory/proc/validate_cached_icon_metadata(list/metadata)
+	LAZYINITLIST(metadata)
+	for(var/metadata_type in accessory_metadata_types)
+		var/decl/sprite_accessory_metadata/metadata_decl = GET_DECL(metadata_type)
+		if(!(metadata_type in metadata) || !metadata_decl.validate_data(metadata[metadata_type]))
+			metadata[metadata_type] = metadata_decl.default_value
+	return metadata
+
+/decl/sprite_accessory/proc/get_cached_accessory_icon_key(var/obj/item/organ/external/organ, var/list/metadata)
+	. = list(organ.bodytype, organ.icon_state)
+	for(var/metadata_type in accessory_metadata_types)
+		. += LAZYACCESS(metadata, metadata_type) || "null"
+	return JOINTEXT(.)
+
+/decl/sprite_accessory/proc/get_cached_accessory_icon(var/obj/item/organ/external/organ, var/list/metadata)
+
+	if(!icon_state || !istype(organ))
 		return null
-	LAZYINITLIST(cached_icons[organ.bodytype])
-	LAZYINITLIST(cached_icons[organ.bodytype][organ.icon_state])
-	var/icon/accessory_icon = cached_icons[organ.bodytype][organ.icon_state][color]
+
+	metadata = validate_cached_icon_metadata(metadata)
+	if(!islist(metadata))
+		return null
+
+	var/cache_key = get_cached_accessory_icon_key(organ, metadata)
+	var/icon/accessory_icon = cached_icons[cache_key]
 	if(!accessory_icon)
+
 		// make a new one to avoid mutating the base
+		var/use_icon = get_accessory_icon(organ)
+		if(!use_icon)
+			return
+
+		var/use_state = icon_state
 		var/marking_modifier = organ.owner?.get_overlay_state_modifier()
 		if(marking_modifier)
-			accessory_icon = icon(get_accessory_icon(organ), "[icon_state][marking_modifier]")
-		else
-			accessory_icon = icon(get_accessory_icon(organ), icon_state)
-		if(!accessory_icon)
-			cached_icons[organ.bodytype][organ.icon_state][color] = null
-			return null
+			use_state = "[use_state][marking_modifier]"
+
+		if(!check_state_in_icon(use_state, use_icon))
+			return
+
+		accessory_icon = icon(use_icon, use_state)
+
+		// Inner overlay and color.
+		var/inner_color = LAZYACCESS(metadata, SAM_COLOR_INNER)
+
+		// Base icon and color.
+		if(!isnull(color_blend))
+			var/decl/sprite_accessory_metadata/gradient/gradient_metadata = GET_DECL(SAM_GRADIENT)
+			var/icon/gradient_icon = LAZYACCESS(metadata, SAM_GRADIENT)
+			if(istext(gradient_icon) && (gradient_metadata.validate_data(gradient_icon)))
+				gradient_icon = icon(gradient_metadata.icon, gradient_icon)
+			else
+				gradient_icon = null
+			if(gradient_icon)
+				gradient_icon.Blend(accessory_icon, ICON_AND)
+				if(!isnull(inner_color))
+					gradient_icon.Blend(inner_color, color_blend)
+			var/color = LAZYACCESS(metadata, SAM_COLOR)
+			if(!isnull(color))
+				accessory_icon.Blend(color, color_blend)
+			if(gradient_icon)
+				accessory_icon.Blend(gradient_icon, ICON_OVERLAY)
+
+		if(!isnull(inner_color))
+			var/inner_state = "[use_state]_inner"
+			if(check_state_in_icon(inner_state, use_icon))
+				var/icon/inner_icon = icon(use_icon, inner_state)
+				if(!isnull(color_blend))
+					inner_icon.Blend(inner_color, color_blend)
+				accessory_icon.Blend(inner_icon, ICON_OVERLAY)
+
+		// Clip the icon if needed.
 		if(mask_to_bodypart)
 			accessory_icon.Blend(get_limb_mask_for(organ), ICON_MULTIPLY)
-		if(!isnull(color) && !isnull(color_blend))
-			accessory_icon.Blend(color, color_blend)
-		cached_icons[organ.bodytype][organ.icon_state][color] = accessory_icon
+
+		// Cache it for next time!
+		cached_icons[cache_key] = accessory_icon
+
 	return accessory_icon
+
+/decl/sprite_accessory/proc/update_metadata(list/new_metadata, list/old_metadata)
+	if(!islist(new_metadata) && !islist(old_metadata))
+		return get_default_accessory_metadata()
+	if(!islist(new_metadata))
+		new_metadata = get_default_accessory_metadata()
+	if(!islist(old_metadata))
+		old_metadata = get_default_accessory_metadata()
+	for(var/metadata_type in old_metadata)
+		if(!(metadata_type in new_metadata))
+			new_metadata[metadata_type] = old_metadata[metadata_type]
+	for(var/metadata_type in new_metadata)
+		if(!(metadata_type in old_metadata))
+			new_metadata -= metadata_type
+	return new_metadata
+
+/decl/sprite_accessory/proc/get_random_metadata()
+	return list(SAM_COLOR = get_random_colour())
+
+/decl/sprite_accessory_category/proc/prepare_character(mob/living/character, list/accessories)
+	return
+

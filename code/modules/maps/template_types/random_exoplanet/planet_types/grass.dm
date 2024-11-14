@@ -19,7 +19,7 @@
 ///Surface of a grass exoplanet
 /datum/level_data/planetoid/exoplanet/grass
 	base_area           = /area/exoplanet/grass
-	base_turf           = /turf/floor/natural/grass/wild
+	base_turf           = /turf/floor/grass/wild
 	exterior_atmosphere = null
 	exterior_atmos_temp = null
 	level_generators    = list(
@@ -73,11 +73,11 @@
 	fauna_types = list(
 		/mob/living/simple_animal/yithian,
 		/mob/living/simple_animal/tindalos,
-		/mob/living/simple_animal/hostile/retaliate/jelly
+		/mob/living/simple_animal/hostile/jelly
 	)
 	megafauna_types = list(
-		/mob/living/simple_animal/hostile/retaliate/parrot/space/megafauna,
-		/mob/living/simple_animal/hostile/retaliate/goose/dire
+		/mob/living/simple_animal/hostile/parrot/space/megafauna,
+		/mob/living/simple_animal/hostile/goose/dire
 	)
 
 ////////////////////////////////////////////////////////////////////////////
@@ -133,9 +133,9 @@
 ///Map generator for the grass exoplanet surface
 /datum/random_map/noise/exoplanet/grass
 	descriptor       = "grass exoplanet"
-	land_type        = /turf/floor/natural/grass/wild
-	water_type       = /turf/floor/natural/mud/water
-	coast_type       = /turf/floor/natural/mud
+	land_type        = /turf/floor/grass/wild
+	water_type       = /turf/floor/mud/water
+	coast_type       = /turf/floor/mud
 	water_level_min  = 3
 	flora_prob       = 10
 	grass_prob       = 50
@@ -147,7 +147,7 @@
 
 ///Area for the grass exoplanet surface
 /area/exoplanet/grass
-	base_turf = /turf/floor/natural/grass/wild
+	base_turf = /turf/floor/grass/wild
 	ambience  = list(
 		'sound/effects/wind/wind_2_1.ogg',
 		'sound/effects/wind/wind_2_2.ogg',

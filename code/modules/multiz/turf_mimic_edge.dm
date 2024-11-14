@@ -52,7 +52,7 @@
 /turf/mimic_edge/Initialize(ml)
 	. = ..()
 	//Clear ourselves from the ambient queue
-	SSambience.queued -= src
+	AMBIENCE_DEQUEUE_TURF(src)
 	//Need to put a mouse-opaque overlay there to prevent people turning/shooting towards ACTUAL location of vis_content things
 	click_eater = new(src) //#TODO: get rid of that once we got proper proxy atom handling
 	setup_mimic()
@@ -186,8 +186,8 @@
 	//Move grabbed things
 	if(isliving(AM))
 		var/mob/living/L = AM
-		for(var/obj/item/grab/G in L.get_active_grabs())
-			G.affecting.forceMove(dest)
+		for(var/obj/item/grab/grab as anything in L.get_active_grabs())
+			grab.affecting.forceMove(dest)
 
 ////////////////////////////////
 // Transition Edges

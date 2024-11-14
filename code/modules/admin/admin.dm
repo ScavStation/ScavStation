@@ -789,7 +789,10 @@ var/global/BSACooldown = 0
 	if (new_vis && !world.reachable)
 		message_admins("WARNING: The server will not show up on the hub because byond is detecting that a firewall is blocking incoming connections.")
 
-	send2adminirc("[key_name(src)]" + long_message)
+	var/full_message = "[key_name(src)]" + long_message
+	send2adminirc(full_message)
+	SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Hub Visibility Toggled (Game ID: [game_id])", "body" = full_message))
+
 	log_and_message_admins(long_message)
 	SSstatistics.add_field_details("admin_verb","THUB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
 
@@ -961,24 +964,24 @@ var/global/BSACooldown = 0
 /proc/is_special_character(var/character) // returns 1 for special characters and 2 for heroes of gamemode
 	if(!SSticker.mode)
 		return 0
-	var/datum/mind/M
+	var/datum/mind/mind
 	if (ismob(character))
-		var/mob/C = character
-		M = C.mind
+		var/mob/character_mob = character
+		mind = character_mob.mind
 	else if(istype(character, /datum/mind))
-		M = character
+		mind = character
 
-	if(M)
+	if(mind)
 		if(SSticker.mode.antag_templates && SSticker.mode.antag_templates.len)
 			for(var/decl/special_role/antag in SSticker.mode.antag_templates)
-				if(antag.is_antagonist(M))
+				if(antag.is_antagonist(mind))
 					return 2
-		if(M.assigned_special_role)
+		if(mind.assigned_special_role)
 			return 1
 
 	if(isrobot(character))
-		var/mob/living/silicon/robot/R = character
-		if(R.emagged)
+		var/mob/living/silicon/robot/robot = character
+		if(robot.emagged)
 			return 1
 
 	return 0
@@ -1477,9 +1480,7 @@ var/global/BSACooldown = 0
 	P.desc = "This is a paper titled '" + P.name + "'."
 
 	if(P.sender || alert("Would you like the fax stamped?",, "Yes", "No") == "Yes")
-		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi', icon_state = "paper_stamp-boss", pixel_x = rand(-2, 0), pixel_y = rand(-2, 0))
-		stampoverlay.appearance_flags |= RESET_COLOR
-		P.apply_custom_stamp(stampoverlay, "by the [P.origin] Quantum Relay")
+		P.apply_custom_stamp('icons/obj/items/stamps/stamp_boss.dmi', "by the [P.origin] Quantum Relay")
 
 	if(P.sender || alert("Would you like the fax signed?",, "Yes", "No") == "Yes")
 		var/sig = input(src.owner, "Enter the name you wish to sign the paper with.", "Signature") as text|null
@@ -1496,3 +1497,34 @@ var/global/BSACooldown = 0
 
 	LAZYADD(global.adminfaxes, P)
 	faxreply = null
+
+/datum/admins/proc/addserverwhitelist(ckey as text)
+	set category = "Admin"
+	set name = "Add Ckey To Server Whitelist"
+	set desc = "Permanently adds the specified ckey to the server whitelist."
+
+	ckey = ckey(ckey)
+
+	if(!ckey)
+		to_chat(usr, SPAN_WARNING("Please specify a ckey to insert."))
+	else if(check_server_whitelist(ckey)) // This will also preload the server whitelist.
+		to_chat(usr, SPAN_WARNING("That ckey is already server whitelisted."))
+	else
+		global.server_whitelist |= ckey
+		save_server_whitelist()
+		log_and_message_admins("has added [ckey] to the server whitelist.", usr)
+
+/datum/admins/proc/removeserverwhitelist(ckey as text)
+	set category = "Admin"
+	set name = "Remove Ckey From Server Whitelist"
+	set desc = "Permanently removes the specified ckey from the server whitelist."
+
+	ckey = ckey(ckey)
+	if(!ckey)
+		to_chat(usr, SPAN_WARNING("Please specify a ckey to remove."))
+	else if(!check_server_whitelist(ckey)) // This will also preload the server whitelist.
+		to_chat(usr, SPAN_WARNING("That ckey is not server whitelisted."))
+	else
+		global.server_whitelist -= ckey
+		save_server_whitelist()
+		log_and_message_admins("has removed [ckey] from the server whitelist.", usr)

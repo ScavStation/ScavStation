@@ -1,5 +1,5 @@
 //Grown foods.
-/obj/item/chems/food/grown
+/obj/item/food/grown
 	name = "produce"
 	icon = 'icons/obj/hydroponics/hydroponics_products.dmi'
 	icon_state = "blank"
@@ -9,13 +9,13 @@
 	material = /decl/material/solid/organic/plantmatter
 	is_spawnable_type = FALSE // Use the Spawn-Fruit verb instead.
 	drying_wetness = 45
-	dried_type = /obj/item/chems/food/grown/dry
-	ingredient_flags = INGREDIENT_FLAG_VEGETABLE
+	dried_type = /obj/item/food/grown/dry
+	allergen_flags = ALLERGEN_VEGETABLE
 	var/work_skill = SKILL_BOTANY
 	var/seeds_extracted = FALSE
 	var/datum/seed/seed
 
-/obj/item/chems/food/grown/examine(mob/user, distance)
+/obj/item/food/grown/examine(mob/user, distance)
 	. = ..()
 	if(user && distance <= 1 && seed && user.skill_check(work_skill, SKILL_BASIC))
 		if(seed.grown_is_seed)
@@ -23,7 +23,20 @@
 		else if(!seeds_extracted && seed.min_seed_extracted)
 			to_chat(user, SPAN_NOTICE("With a knife, you could extract at least [seed.min_seed_extracted] seed\s."))
 
-/obj/item/chems/food/grown/Initialize(mapload, material_key, _seed)
+/obj/item/food/grown/update_name()
+	if(!seed)
+		return ..()
+	var/descriptor = list()
+	if(dry)
+		descriptor += "dried"
+	if(backyard_grilling_count > 0)
+		descriptor += "roasted"
+	if(length(descriptor))
+		SetName("[english_list(descriptor)] [seed.product_name]")
+	else
+		SetName("[seed.product_name]")
+
+/obj/item/food/grown/Initialize(mapload, material_key, skip_plate = FALSE, _seed)
 
 	if(isnull(seed) && _seed)
 		seed = _seed
@@ -38,6 +51,7 @@
 	filling_color = seed.get_trait(TRAIT_PRODUCT_COLOUR) || seed.get_trait(TRAIT_FLESH_COLOUR)
 	slice_path    = seed.slice_product
 	slice_num     = seed.slice_amount
+	w_class       = seed.product_w_class
 
 	if(!seed.chems && !(dry && seed.dried_chems) && !(backyard_grilling_count > 0 && seed.roasted_chems))
 		return INITIALIZE_HINT_QDEL // No reagent contents, no froot
@@ -45,15 +59,7 @@
 	if(seed.scannable_result)
 		set_extension(src, /datum/extension/scannable, seed.scannable_result)
 
-	var/descriptor = list()
-	if(dry)
-		descriptor += "dried"
-	if(backyard_grilling_count > 0)
-		descriptor += "roasted"
-	if(length(descriptor))
-		SetName("[english_list(descriptor)] [seed.product_name]")
-	else
-		SetName("[seed.product_name]")
+	update_name()
 	if(seed.product_material)
 		material = seed.product_material
 
@@ -65,9 +71,9 @@
 	if(!dried_type)
 		dried_type = type
 
-	. = ..(mapload) //Init reagents
+	. = ..(mapload, material_key, skip_plate) //Init reagents
 
-/obj/item/chems/food/grown/initialize_reagents(populate)
+/obj/item/food/grown/initialize_reagents(populate)
 	if(reagents)
 		reagents.clear_reagents()
 	if(!seed?.chems)
@@ -81,7 +87,7 @@
 
 	update_icon()
 
-/obj/item/chems/food/grown/populate_reagents()
+/obj/item/food/grown/populate_reagents()
 	. = ..()
 	// Fill the object up with the appropriate reagents.
 	var/list/chems_to_fill
@@ -98,11 +104,12 @@
 			var/potency = seed.get_trait(TRAIT_POTENCY)
 			if(LAZYACCESS(reagent_amounts,2) && potency > 0)
 				rtotal += round(potency/reagent_amounts[2])
-			if(rid == /decl/material/liquid/nutriment)
-				LAZYSET(data, seed.product_name, max(1,rtotal))
+			var/decl/material/reagent = GET_DECL(rid)
+			if(!reagent.taste_description)
+				LAZYSET(data, DATA_TASTE, list(seed.product_name = max(1,rtotal) * reagent.taste_mult))
 			add_to_reagents(rid,max(1,rtotal),data)
 
-/obj/item/chems/food/grown/proc/update_desc()
+/obj/item/food/grown/proc/update_desc()
 	set waitfor = FALSE
 	if(!seed)
 		return
@@ -158,7 +165,7 @@
 		SSplants.product_descs["[seed.uid]"] = desc
 	desc += ". Delicious! Probably."
 
-/obj/item/chems/food/grown/on_update_icon()
+/obj/item/food/grown/on_update_icon()
 	. = ..()
 	if(!seed)
 		return
@@ -171,7 +178,7 @@
 			fruit_leaves.color = seed.get_trait(TRAIT_PLANT_COLOUR)
 		add_overlay(fruit_leaves)
 
-/obj/item/chems/food/grown/Crossed(atom/movable/AM)
+/obj/item/food/grown/Crossed(atom/movable/AM)
 	if(!isliving(AM) || !seed || seed.get_trait(TRAIT_JUICY) != 2)
 		return
 
@@ -190,7 +197,7 @@
 	seed.thrown_at(src,M)
 	QDEL_IN(src, 0)
 
-/obj/item/chems/food/grown/throw_impact(atom/hit_atom)
+/obj/item/food/grown/throw_impact(atom/hit_atom)
 	..()
 	if(seed)
 		seed.thrown_at(src,hit_atom)
@@ -205,15 +212,15 @@ var/global/list/_wood_materials = list(
 	/decl/material/solid/organic/wood/yew
 )
 
-/obj/item/chems/food/grown/show_slice_message(mob/user, obj/item/tool)
+/obj/item/food/grown/show_slice_message(mob/user, obj/item/tool)
 	if(!seed?.show_slice_message(user, tool, src))
 		..()
 
-/obj/item/chems/food/grown/show_slice_message_poor(mob/user, obj/item/tool)
+/obj/item/food/grown/show_slice_message_poor(mob/user, obj/item/tool)
 	if(!seed?.show_slice_message_poor(user, tool, src))
 		..()
 
-/obj/item/chems/food/grown/attackby(var/obj/item/W, var/mob/user)
+/obj/item/food/grown/attackby(var/obj/item/W, var/mob/user)
 
 	if(!seed || user.a_intent == I_HURT)
 		return ..()
@@ -247,13 +254,7 @@ var/global/list/_wood_materials = list(
 				qdel(src)
 				return TRUE
 
-	var/static/list/rollable_types = list(
-		/obj/item/paper/cig,
-		/obj/item/paper,
-		/obj/item/teleportation_scroll
-	)
-
-	if(is_type_in_list(W, rollable_types))
+	if(istype(W, /obj/item/paper))
 
 		if(!dry)
 			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
@@ -280,15 +281,15 @@ var/global/list/_wood_materials = list(
 
 	. = ..()
 
-/obj/item/chems/food/grown/get_grown_tag()
+/obj/item/food/grown/get_grown_tag()
 	if(!seed?.grown_tag)
 		return
 	. = dry ? "dried [seed.grown_tag]" : seed.grown_tag
 
-/obj/item/chems/food/grown/create_slice()
-	return new slice_path(loc, material?.type, seed)
+/obj/item/food/grown/create_slice()
+	return new slice_path(loc, material?.type, TRUE, seed)
 
-/obj/item/chems/food/grown/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/food/grown/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	. = ..()
 
 	if(seed && seed.get_trait(TRAIT_STINGS))
@@ -304,7 +305,7 @@ var/global/list/_wood_materials = list(
 				to_chat(user, "<span class='danger'>\The [src] has fallen to bits.</span>")
 			qdel(src)
 
-/obj/item/chems/food/grown/attack_self(mob/user)
+/obj/item/food/grown/attack_self(mob/user)
 
 	if(seed)
 		if(user.a_intent == I_HURT)
@@ -323,7 +324,7 @@ var/global/list/_wood_materials = list(
 
 	return ..()
 
-/obj/item/chems/food/grown/on_picked_up(mob/user)
+/obj/item/food/grown/on_picked_up(mob/user)
 	..()
 	if(!seed)
 		return
@@ -338,44 +339,44 @@ var/global/list/_wood_materials = list(
 		seed.do_thorns(H,src,affected)
 		seed.do_sting(H,src,affected)
 
-/obj/item/chems/food/grown/dry
+/obj/item/food/grown/dry
 	dry = TRUE
 	drying_wetness = null
 	dried_type = null
 	color = COLOR_BEIGE
 
-/obj/item/chems/food/grown/get_dried_product()
-	if(ispath(dried_type, /obj/item/chems/food/grown))
-		return new dried_type(loc, null, seed.name)
+/obj/item/food/grown/get_dried_product()
+	if(ispath(dried_type, /obj/item/food/grown))
+		return new dried_type(loc, null, TRUE, seed.name)
 	return ..()
 
-/obj/item/chems/food/grown/get_drying_state(var/obj/rack)
+/obj/item/food/grown/get_drying_state(var/obj/rack)
 	return seed?.drying_state || ..()
 
-/obj/item/chems/food/grown/grilled
+/obj/item/food/grown/grilled
 	backyard_grilling_count = 1 // will get overwritten when actually made
 	color = COLOR_BROWN_ORANGE
 
-/obj/item/chems/food/grown/get_grilled_product()
-	if(ispath(backyard_grilling_product, /obj/item/chems/food/grown))
-		return new backyard_grilling_product(loc, null, seed.name)
+/obj/item/food/grown/get_grilled_product()
+	if(ispath(backyard_grilling_product, /obj/item/food/grown))
+		return new backyard_grilling_product(loc, null, TRUE, seed.name)
 	return ..()
 
-/obj/item/chems/food/grown/afterattack(atom/target, mob/user, flag)
+/obj/item/food/grown/afterattack(atom/target, mob/user, flag)
 	if(!flag && isliving(user))
 		var/mob/living/M = user
 		M.aim_at(target, src)
 		return
 	. = ..()
 
-/obj/item/chems/food/grown/handle_reflexive_fire(var/mob/user, var/atom/aiming_at)
+/obj/item/food/grown/handle_reflexive_fire(var/mob/user, var/atom/aiming_at)
 	. = ..()
 	if(.)
 		user.visible_message(SPAN_DANGER("\The [user] reflexively hurls \the [src] at \the [aiming_at]!"))
 		user.mob_throw_item(get_turf(aiming_at), src)
 		user.trigger_aiming(TARGET_CAN_CLICK)
 
-/obj/item/chems/food/grown/has_textile_fibers()
+/obj/item/food/grown/has_textile_fibers()
 	for(var/mat in get_contained_matter())
 		var/decl/material/check_mat = GET_DECL(mat)
 		if(check_mat.has_textile_fibers)
@@ -383,8 +384,8 @@ var/global/list/_wood_materials = list(
 	return FALSE
 
 // Predefined types for placing on the map.
-/obj/item/chems/food/grown/libertycap
+/obj/item/food/grown/libertycap
 	seed = "libertycap"
 
-/obj/item/chems/food/grown/ambrosiavulgaris
+/obj/item/food/grown/ambrosiavulgaris
 	seed = "ambrosiavulgaris"

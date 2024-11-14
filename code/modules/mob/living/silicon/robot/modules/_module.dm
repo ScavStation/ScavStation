@@ -2,15 +2,14 @@
 	name = "robot module"
 	icon = 'icons/obj/modules/module_standard.dmi'
 	icon_state = ICON_STATE_WORLD
-	w_class = ITEM_SIZE_NO_CONTAINER
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	obj_flags = OBJ_FLAG_CONDUCTIBLE | OBJ_FLAG_NO_STORAGE
 	is_spawnable_type = FALSE
 
 	var/associated_department
 	var/hide_on_manifest = 0
-	var/channels = list()
-	var/camera_channels = list()
-	var/languages = list(
+	var/list/channels = list()
+	var/list/camera_channels = list()
+	var/list/languages = list(
 		/decl/language/human/common = TRUE,
 		/decl/language/legal = TRUE,
 		/decl/language/sign = FALSE
@@ -180,7 +179,7 @@
 	// Then add back all the original languages, and the relevant synthezising ability
 	for(var/original_language in original_languages)
 		var/decl/language/language_datum = original_language
-		R.add_language(language_datum.name, original_languages[original_language])
+		R.add_language(language_datum.type, original_languages[original_language])
 	original_languages.Cut()
 
 /obj/item/robot_module/proc/add_camera_channels(var/mob/living/silicon/robot/R)

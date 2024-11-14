@@ -28,16 +28,16 @@
 	. = ..()
 
 /obj/structure/filing_cabinet/attackby(obj/item/P, mob/user)
-	if(is_type_in_list(P, can_hold))
-		if(!user.try_unequip(P, src))
-			return
-		add_fingerprint(user)
-		to_chat(user, SPAN_NOTICE("You put [P] in [src]."))
-		flick("[initial(icon_state)]-open",src)
-		updateUsrDialog()
+	if(!is_type_in_list(P, can_hold))
+		return ..()
+	if(!user.try_unequip(P, src))
 		return TRUE
+	add_fingerprint(user)
+	to_chat(user, SPAN_NOTICE("You put [P] in [src]."))
+	flick("[initial(icon_state)]-open",src)
+	updateUsrDialog()
+	return TRUE
 
-	return ..()
 /obj/structure/filing_cabinet/interact(mob/user)
 	user.set_machine(src)
 	var/dat = "<HR><TABLE>"

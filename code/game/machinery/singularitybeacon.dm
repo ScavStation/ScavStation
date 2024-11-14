@@ -58,18 +58,15 @@ var/global/list/singularity_beacons = list()
 	if(IS_SCREWDRIVER(W))
 		if(use_power)
 			to_chat(user, SPAN_DANGER("You need to deactivate the beacon first!"))
-			return
+			return TRUE
 
+		anchored = !anchored
 		if(anchored)
-			anchored = FALSE
-			to_chat(user, SPAN_NOTICE("You unscrew the beacon from the floor."))
-			return
-		else
-			anchored = TRUE
 			to_chat(user, SPAN_NOTICE("You screw the beacon to the floor."))
-			return
-	..()
-	return
+		else
+			to_chat(user, SPAN_NOTICE("You unscrew the beacon from the floor."))
+		return TRUE
+	return ..()
 
 // Ensure the terminal is always accessible to be plugged in.
 /obj/machinery/singularity_beacon/components_are_accessible(var/path)

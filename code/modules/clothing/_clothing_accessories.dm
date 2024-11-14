@@ -65,7 +65,7 @@
 	if(length(accessories))
 		for(var/obj/item/clothing/accessory in accessories)
 			accessory.attackby(I, user)
-		return
+		return TRUE
 
 	. = ..()
 

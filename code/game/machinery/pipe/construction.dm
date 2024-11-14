@@ -6,8 +6,7 @@ Buildable meters
 /obj/item/pipe
 	name = "pipe"
 	desc = "A pipe."
-	var/connect_types = CONNECT_TYPE_REGULAR
-	force = 7
+	_base_attack_force = 7
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "simple"
 	randpixel = 5
@@ -17,6 +16,7 @@ Buildable meters
 	obj_flags = OBJ_FLAG_ROTATABLE
 	dir = SOUTH
 	material = /decl/material/solid/metal/steel
+	var/connect_types = CONNECT_TYPE_REGULAR
 	var/constructed_path = /obj/machinery/atmospherics/pipe/simple/hidden
 	var/pipe_class = PIPE_CLASS_BINARY
 	var/rotate_class = PIPE_ROTATE_STANDARD
@@ -104,8 +104,8 @@ Buildable meters
 	playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 	if(user)
 		user.visible_message( \
-			"[user] fastens the [src].", \
-			"<span class='notice'>You have fastened the [src].</span>", \
+			"[user] fastens \the [src].", \
+			"<span class='notice'>You have fastened \the [src].</span>", \
 			"You hear ratchet.")
 	qdel(src)	// remove the pipe item
 
@@ -132,8 +132,9 @@ Buildable meters
 	if(machine.construct_state)
 		machine.construct_state.post_construct(machine)
 	playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
-	to_chat(user, "<span class='notice'>You have fastened the [src].</span>")
+	to_chat(user, "<span class='notice'>You have fastened \the [src].</span>")
 	qdel(src)
+	return TRUE
 
 /obj/item/machine_chassis/air_sensor
 	name = "gas sensor"

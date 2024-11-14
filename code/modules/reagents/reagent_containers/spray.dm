@@ -10,7 +10,6 @@
 	w_class                           = ITEM_SIZE_SMALL
 	throw_speed                       = 2
 	throw_range                       = 10
-	throwforce                        = 3
 	attack_cooldown                   = DEFAULT_QUICK_COOLDOWN
 	material                          = /decl/material/solid/organic/plastic
 	volume                            = 250
@@ -92,7 +91,7 @@
 		//If no safety, we just toggle the nozzle
 		var/decl/interaction_handler/IH = GET_DECL(/decl/interaction_handler/next_spray_amount)
 		if(IH.is_possible(src, user))
-			IH.invoked(src, user, src)
+			IH.invoked(src, user, user.get_active_held_item())
 			return TRUE
 
 ///Whether the spray has a safety toggle
@@ -126,12 +125,13 @@
 	if(.)
 		return !isnull(target.possible_transfer_amounts)
 
-/decl/interaction_handler/next_spray_amount/invoked(obj/item/chems/spray/target, mob/user)
-	if(!target.possible_transfer_amounts)
+/decl/interaction_handler/next_spray_amount/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/chems/spray/spray = target
+	if(!spray.possible_transfer_amounts)
 		return
-	target.amount_per_transfer_from_this = next_in_list(target.amount_per_transfer_from_this, cached_json_decode(target.possible_transfer_amounts))
-	target.spray_particles = next_in_list(target.spray_particles, cached_json_decode(target.possible_particle_amounts))
-	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [target.amount_per_transfer_from_this] units per spray."))
+	spray.amount_per_transfer_from_this = next_in_list(spray.amount_per_transfer_from_this, cached_json_decode(spray.possible_transfer_amounts))
+	spray.spray_particles = next_in_list(spray.spray_particles, cached_json_decode(spray.possible_particle_amounts))
+	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [spray.amount_per_transfer_from_this] units per spray."))
 
 //space cleaner
 /obj/item/chems/spray/cleaner
@@ -191,7 +191,6 @@
 	icon = 'icons/obj/items/device/chemsprayer.dmi'
 	icon_state = "chemsprayer"
 	item_state = "chemsprayer"
-	throwforce = 3
 	w_class = ITEM_SIZE_LARGE
 	possible_transfer_amounts = null
 	volume = 600

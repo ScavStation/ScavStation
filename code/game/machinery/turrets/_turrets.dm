@@ -38,7 +38,7 @@
 
 	// Angles
 	// Remember that in BYOND, NORTH equals 0 absolute degrees, and not 90.
-	var/traverse = 180 // Determines how wide the turret can turn to shoot things, in degrees. The 'front' of the turret is determined by it's dir variable.
+	var/traverse = 180 // Determines how wide the turret can turn to shoot things, in degrees. The 'front' of the turret is determined by its dir variable.
 	var/leftmost_traverse = null // How far left or right the turret can turn. Set automatically using the above variable and the inital dir value.
 	var/rightmost_traverse = null
 	var/current_bearing = 0 // Current absolute angle the turret has, used to calculate if it needs to turn to try to shoot the target.
@@ -133,20 +133,18 @@
 	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/turret/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/gun))
-		if(!installed_gun)
-			if(!user.try_unequip(I, src))
-				return
-			to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]!"))
-			installed_gun = I
-			setup_gun()
-			return
+	if(istype(I, /obj/item/gun) && !installed_gun)
+		if(!user.try_unequip(I, src))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]!"))
+		installed_gun = I
+		setup_gun()
+		return TRUE
 
 	if(istype(I, /obj/item/ammo_magazine) || istype(I, /obj/item/ammo_casing))
 		var/obj/item/stock_parts/ammo_box/ammo_box = get_component_of_type(/obj/item/stock_parts/ammo_box)
 		if(istype(ammo_box))
-			ammo_box.attackby(I, user)
-			return
+			return ammo_box.attackby(I, user)
 	. = ..()
 
 // This is called after the gun gets instantiated or slotted in.

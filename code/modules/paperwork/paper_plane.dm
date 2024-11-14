@@ -4,12 +4,10 @@
 /obj/item/paper_plane
 	name            = "paper plane"
 	desc            = "A sheet of paper folded into a plane."
-	icon            = 'icons/obj/bureaucracy.dmi'
-	icon_state      = "paper_plane"
-	item_state      = "paper"
+	icon            = 'icons/obj/items/paperwork/paper_plane.dmi'
+	icon_state      = ICON_STATE_WORLD
 	layer           = ABOVE_OBJ_LAYER
 	does_spin       = FALSE
-	throwforce      = 0
 	throw_range     = 20
 	throw_speed     = 1
 	w_class         = ITEM_SIZE_TINY
@@ -55,8 +53,7 @@
 /obj/item/paper_plane/attack_self(mob/user)
 	if(user.a_intent == I_HURT)
 		return crumple(user)
-	else
-		return unfold(user)
+	return unfold(user)
 
 /obj/item/paper_plane/proc/crumple(var/mob/user)
 	if(user)
@@ -84,7 +81,7 @@
 /decl/interaction_handler/make_paper_plane/is_possible(obj/item/paper/target, mob/user, obj/item/prop)
 	return ..() && !target.is_crumpled
 
-/decl/interaction_handler/make_paper_plane/invoked(obj/item/paper/target, mob/user)
+/decl/interaction_handler/make_paper_plane/invoked(atom/target, mob/user, obj/item/prop)
 	user.visible_message(SPAN_NOTICE("\The [user] folds \the [target] into a plane."), SPAN_NOTICE("You fold \the [target] into a plane."))
 	var/obj/item/paper_plane/PP = new
 	user.try_unequip(target, PP)

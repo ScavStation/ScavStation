@@ -5,10 +5,8 @@
 	icon = 'icons/obj/items/weapon/stunbaton.dmi'
 	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_LOWER_BODY
-	force = 15
 	sharp = 0
 	edge = 0
-	throwforce = 7
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = @'{"combat":2}'
 	attack_verb = list("beaten")
@@ -20,6 +18,7 @@
 		/decl/material/solid/silicon      = MATTER_AMOUNT_REINFORCEMENT,
 	)
 	item_flags = ITEM_FLAG_IS_WEAPON
+	_base_attack_force = 15
 	var/stunforce = 0
 	var/agonyforce = 30
 	var/status = 0		//whether the thing is on or not
@@ -96,7 +95,7 @@
 
 /obj/item/baton/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	if(status && user.has_genetic_condition(GENE_COND_CLUMSY) && prob(50))
-		to_chat(user, SPAN_DANGER("You accidentally hit yourself with the [src]!"))
+		to_chat(user, SPAN_DANGER("You accidentally hit yourself with \the [src]!"))
 		SET_STATUS_MAX(user, STAT_WEAK, 30)
 		deductcharge(hitcost)
 		return TRUE
@@ -140,7 +139,7 @@
 	//stun effects
 	if(status)
 		target.stun_effect_act(stun, agony, hit_zone, src)
-		msg_admin_attack("[key_name(user)] stunned [key_name(target)] with the [src].")
+		msg_admin_attack("[key_name(user)] stunned [key_name(target)] with \the [src].")
 		deductcharge(hitcost)
 
 		if(ishuman(target))
@@ -173,7 +172,7 @@
 	return 0
 
 /obj/item/baton/robot/attackby(obj/item/W, mob/user)
-	return
+	return FALSE
 
 /obj/item/baton/robot/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
 	SHOULD_CALL_PARENT(FALSE)
@@ -207,11 +206,13 @@
 	icon = 'icons/obj/items/weapon/stunprod.dmi'
 	icon_state = "stunprod_nocell"
 	item_state = "prod"
-	force = 3
-	throwforce = 5
 	stunforce = 0
 	agonyforce = 60	//same force as a stunbaton, but uses way more charge.
 	hitcost = 25
 	attack_verb = list("poked")
 	slot_flags = null
-	matter = list(/decl/material/solid/organic/plastic = MATTER_AMOUNT_TRACE, /decl/material/solid/metal/copper = MATTER_AMOUNT_TRACE)
+	matter = list(
+		/decl/material/solid/organic/plastic = MATTER_AMOUNT_TRACE,
+		/decl/material/solid/metal/copper = MATTER_AMOUNT_TRACE
+	)
+	_base_attack_force = 3

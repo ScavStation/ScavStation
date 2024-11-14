@@ -20,14 +20,13 @@
 		. += natural_armor
 
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone)
-
+	var/oldhealth = current_health
 	//Being hit while using a deadman switch
 	var/obj/item/assembly/signaler/signaler = get_active_held_item()
 	if(istype(signaler) && signaler.deadman)
 		log_and_message_admins("has triggered a signaler deadman's switch")
 		src.visible_message("<span class='warning'>[src] triggers their deadman's switch!</span>")
 		signaler.signal()
-
 	//Armor
 	var/damage = P.damage
 	var/flags = P.damage_flags()
@@ -38,6 +37,8 @@
 	if(damaged || P.nodamage) // Run the block computation if we did damage or if we only use armor for effects (nodamage)
 		. = get_blocked_ratio(def_zone, P.atom_damage_type, flags, P.armor_penetration, P.damage)
 	P.on_hit(src, ., def_zone)
+	if(istype(ai) && isliving(P.firer) && !ai.get_target() && current_health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT))
+		ai.retaliate(P.firer)
 
 // For visuals and blood splatters etc
 /mob/living/proc/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
@@ -113,23 +114,28 @@
 	if(I.attack_message_name())
 		weapon_mention = " with [I.attack_message_name()]"
 	if(effective_force)
-		visible_message(SPAN_DANGER("\The [src] has been [DEFAULTPICK(I.attack_verb, "attacked")][weapon_mention] by [user]!"))
+		visible_message(SPAN_DANGER("\The [src] has been [DEFAULTPICK(I.attack_verb, "attacked")][weapon_mention] by \the [user]!"))
 	else
 		visible_message(SPAN_WARNING("\The [src] has been [DEFAULTPICK(I.attack_verb, "attacked")][weapon_mention] by \the [user]!"))
 	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 	if(I.atom_damage_type == BRUTE && prob(33))
 		blood_splatter(get_turf(loc), src)
+	if(istype(ai))
+		ai.retaliate(user)
 
 //returns 0 if the effects failed to apply for some reason, 1 otherwise.
 /mob/living/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	if(effective_force)
-		try_embed_in_mob(I, hit_zone, effective_force, direction = get_dir(user, src))
+		try_embed_in_mob(user, I, hit_zone, effective_force, direction = get_dir(user, src))
 		return TRUE
 	return FALSE
 
 /mob/living/hitby(var/atom/movable/AM, var/datum/thrownthing/TT)
 
 	. = ..()
+	if(istype(ai))
+		ai.retaliate(TT.thrower)
+
 	if(.)
 
 		if(isliving(AM))
@@ -153,7 +159,7 @@
 /mob/living/proc/handle_thrown_obj_damage(obj/O, datum/thrownthing/TT)
 
 	var/dtype = O.atom_damage_type
-	var/throw_damage = O.throwforce*(TT?.speed/THROWFORCE_SPEED_DIVISOR)
+	var/throw_damage = O.get_thrown_attack_force()*(TT?.speed/THROWFORCE_SPEED_DIVISOR)
 	var/zone = BP_CHEST
 
 	//check if we hit
@@ -169,7 +175,7 @@
 	zone = get_zone_with_miss_chance(zone, src, miss_chance, ranged_attack=1)
 
 	if(zone && TT?.thrower && TT.thrower != src)
-		var/shield_check = check_shields(throw_damage, O, TT.thrower, zone, "[O]")
+		var/shield_check = check_shields(throw_damage, O, TT.thrower, zone, O)
 		if(shield_check == PROJECTILE_FORCE_MISS)
 			zone = null
 		else if(shield_check)
@@ -186,7 +192,7 @@
 	visible_message(SPAN_DANGER("\The [src] is hit [affecting ? "in \the [affecting.name] " : ""]by \the [O]!"))
 	if(TT?.thrower?.client)
 		admin_attack_log(TT.thrower, src, "Threw \an [O] at the victim.", "Had \an [O] thrown at them.", "threw \an [O] at")
-	try_embed_in_mob(O, zone, throw_damage, dtype, null, affecting, direction = TT.init_dir)
+	try_embed_in_mob(TT.thrower, O, zone, throw_damage, dtype, null, affecting, direction = TT.init_dir)
 	return TRUE
 
 /mob/living/momentum_power(var/atom/movable/AM, var/datum/thrownthing/TT)
@@ -196,24 +202,24 @@
 	if(has_gravity() || check_space_footing())
 		. *= 0.5
 
-/mob/living/proc/try_embed_in_mob(obj/O, def_zone, embed_damage = 0, dtype = BRUTE, datum/wound/supplied_wound, obj/item/organ/external/affecting, direction)
+/mob/living/proc/try_embed_in_mob(mob/living/user, obj/O, def_zone, embed_damage = 0, dtype = BRUTE, datum/wound/supplied_wound, obj/item/organ/external/affecting, direction)
 
 	if(!istype(O))
-		return FALSE
-
-	if(!supplied_wound)
-		supplied_wound = apply_damage(embed_damage, dtype, def_zone, O.damage_flags(), O, O.armor_penetration)
-
-	if(!O.can_embed())
 		return FALSE
 
 	if(!affecting)
 		affecting = get_organ(def_zone)
 
+	if(!supplied_wound)
+		supplied_wound = apply_damage(embed_damage, dtype, damage_flags = O.damage_flags(), used_weapon = O, armor_pen = O.armor_penetration, given_organ = (affecting || def_zone))
+
+	if(!O.can_embed())
+		return FALSE
+
 	if(affecting && istype(supplied_wound) && supplied_wound.is_open() && dtype == BRUTE) // Can't embed in a small bruise.
 		var/obj/item/I = O
 		var/sharp = is_sharp(I)
-		embed_damage *= (1 - get_blocked_ratio(def_zone, BRUTE, O.damage_flags(), O.armor_penetration, I.force))
+		embed_damage *= (1 - get_blocked_ratio(def_zone, BRUTE, O.damage_flags(), O.armor_penetration, I.get_attack_force(user)))
 
 		//blunt objects should really not be embedding in things unless a huge amount of force is involved
 		var/embed_chance = embed_damage / (sharp ? I.w_class : (I.w_class*3))
@@ -246,7 +252,7 @@
 	if(!istype(wall) || !wall.density)
 		return FALSE
 	LAZYDISTINCTADD(pinned, O)
-	walk_to(src, 0) // cancel any automated movement
+	stop_automove()
 	visible_message("\The [src] is pinned to \the [wall] by \the [O]!")
 	// TODO: cancel all throwing and momentum after this point
 	return TRUE
@@ -430,6 +436,8 @@
 	var/obj/item/suit = get_equipped_item(slot_wear_suit_str)
 	if(suit)
 		LAZYDISTINCTADD(checking_slots, suit)
+	if(isatom(attack_text))
+		attack_text = "\the [attack_text]"
 	for(var/obj/item/shield in checking_slots)
 		if(shield.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text))
 			return TRUE

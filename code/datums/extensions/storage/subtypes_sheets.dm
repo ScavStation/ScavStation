@@ -9,7 +9,7 @@
 /datum/storage/sheets/robot
 	capacity = 500 //Borgs get more because >specialization
 
-/datum/storage/sheets/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+/datum/storage/sheets/can_be_inserted(obj/item/W, mob/user, stop_messages = 0, click_params = null)
 	if(!istype(W,/obj/item/stack/material))
 		if(!stop_messages)
 			to_chat(user, "\The [holder] does not accept [W].")
@@ -24,7 +24,7 @@
 	return TRUE
 
 // Modified handle_item_insertion.  Would prefer not to, but...
-/datum/storage/sheets/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update)
+/datum/storage/sheets/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update, click_params)
 	var/obj/item/stack/material/S = W
 	if(!istype(S))
 		return FALSE

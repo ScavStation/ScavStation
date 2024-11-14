@@ -47,11 +47,14 @@
 		if(user.do_skilled(3 SECONDS, SKILL_CONSTRUCTION, src))
 			user.visible_message("<span class='warning'>\The [user] deconstructs \the [src].</span>", "<span class='warning'>You deconstruct \the [src].</span>")
 			qdel(src)
+		return TRUE
 	if(IS_SCREWDRIVER(W) && anchored)
 		airtight = !airtight
 		airtight ? become_airtight() : clear_airtight()
 		user.visible_message("<span class='warning'>\The [user] adjusts \the [src], [airtight ? "preventing" : "allowing"] air flow.</span>")
-	else ..()
+		return TRUE
+	else
+		return ..()
 
 /obj/structure/flaps/explosion_act(severity)
 	..()

@@ -6,15 +6,15 @@ Skill books that increase your skills while you activate and hold them
 	name = "textbook" // requires default names for tradershop, cant rely on Initialize for names
 	desc = "A blank textbook. (Notify admin)"
 	author = "The Oracle of Bakersroof"
-	icon_state = "book2"
-	force = 4
+	icon_state = ICON_STATE_WORLD
+	_base_attack_force = 4
 	w_class = ITEM_SIZE_LARGE            // Skill books are THICC with knowledge. Up one level from regular books to prevent library-in-a-bag silliness.
 	unique = TRUE
 	material = /decl/material/solid/organic/plastic
 	matter = list(/decl/material/solid/organic/wood = MATTER_AMOUNT_REINFORCEMENT)
 	abstract_type = /obj/item/book/skill
 
-	var/decl/hierarchy/skill/skill       // e.g. SKILL_LITERACY
+	var/decl/skill/skill       // e.g. SKILL_LITERACY
 	var/skill_req = SKILL_NONE           // The level the user needs in the skill to benefit from the book, e.g. SKILL_PROF
 	var/weakref/reading                  // To check if the book is actively being used
 	var/custom = FALSE                   // To bypass init stuff, for player made textbooks and weird books. If true must have details manually set
@@ -268,16 +268,16 @@ Skill books that increase your skills while you activate and hold them
 	)
 
 //give me ALL the textbooks
-/obj/structure/bookcase/skill_books/all/Initialize()
-	. = ..()
+/obj/structure/bookcase/skill_books/all/WillContain()
+	. = list()
 	for(var/category in catalogue)
 		for(var/real_book in subtypesof(category))
-			new real_book(src)
+			. |= real_book
 
 //Bookshelf with some random textbooks
-/obj/structure/bookcase/skill_books/random/Initialize()
-	. = ..()
+/obj/structure/bookcase/skill_books/random/WillContain()
+	. = list()
 	for(var/category in catalogue)
 		for(var/real_book in subtypesof(category))
 			if(prob(20))
-				new real_book(src)
+				. |= real_book

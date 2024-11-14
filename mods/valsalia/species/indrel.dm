@@ -112,21 +112,21 @@
 	)
 	hazard_low_pressure = -1
 
-	available_cultural_info = list(
+	available_background_info = list(
 		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/indrel,
-			/decl/cultural_info/culture/other
+			/decl/background_detail/heritage/indrel,
+			/decl/background_detail/heritage/other
 		),
 		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/tradehousespace,
-			/decl/cultural_info/location/stateless
+			/decl/background_detail/location/tradehousespace,
+			/decl/background_detail/location/stateless
 		),
 		TAG_FACTION =   list(
-			/decl/cultural_info/faction/indrel,
-			/decl/cultural_info/faction/other
+			/decl/background_detail/faction/indrel,
+			/decl/background_detail/faction/other
 		),
 		TAG_RELIGION =  list(
-			/decl/cultural_info/religion/other
+			/decl/background_detail/religion/other
 		)
 	)
 
@@ -135,7 +135,7 @@
 	slot_name = "Upper Right Hand"
 	slot_id = BP_R_HAND_UPPER
 	requires_organ_tag = BP_R_HAND_UPPER
-	can_use_held_item = FALSE
+	dexterity = (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 	overlay_slot = BP_R_HAND_UPPER
 	ui_label = "UR"
 	hand_sort_priority = 2
@@ -144,7 +144,7 @@
 	slot_name = "Upper Left Hand"
 	slot_id = BP_L_HAND_UPPER
 	requires_organ_tag = BP_L_HAND_UPPER
-	can_use_held_item = FALSE
+	dexterity = (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 	overlay_slot = BP_L_HAND_UPPER
 	ui_label = "UL"
 	hand_sort_priority = 2

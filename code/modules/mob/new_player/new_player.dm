@@ -183,11 +183,15 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 		return 0
 
 	if(GAME_STATE != RUNLEVEL_GAME)
-		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished."))
+		return 0
+
+	if(get_config_value(/decl/config/enum/server_whitelist) == CONFIG_SERVER_JOIN_WHITELIST && !check_server_whitelist(usr))
+		alert("Non-whitelisted players are not permitted to join rounds except as observers.")
 		return 0
 
 	if(!get_config_value(/decl/config/toggle/on/enter_allowed))
-		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+		to_chat(usr, SPAN_WARNING("There is an administrative lock on entering the game!"))
 		return 0
 
 	if(!job || !job.is_available(client))
@@ -241,7 +245,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 		else if(spawnpoint.spawn_announcement)
 			AnnounceCyborg(character, job, spawnpoint.spawn_announcement)
 
-	callHook("player_latejoin", list(job, character))
+	RAISE_EVENT(/decl/observ/player_latejoin, character, job)
 	log_and_message_admins("has joined the round as [character.mind.assigned_role].", character)
 
 	qdel(src)
@@ -440,7 +444,7 @@ INITIALIZE_IMMEDIATE(/mob/new_player)
 		return global.using_map.default_species
 	return chosen_species.name
 
-/mob/new_player/hear_say(var/message, var/verb = "says", var/decl/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
+/mob/new_player/hear_say(var/message, var/verb = "says", var/decl/language/language = null, var/italics = 0, var/mob/speaker = null)
 	return
 
 /mob/new_player/hear_radio(var/message, var/verb="says", var/decl/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="", var/vsource)

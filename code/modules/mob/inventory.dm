@@ -227,7 +227,7 @@
 	var/obj/item/I = get_active_held_item()
 	if(!istype(I))
 		if(length(get_active_grabs()))
-			for(var/obj/item/grab/grab in get_active_grabs())
+			for(var/obj/item/grab/grab as anything in get_active_grabs())
 				qdel(grab)
 				. = TRUE
 			return
@@ -310,16 +310,18 @@
 	unequip(object)
 	if(client)
 		client.screen -= object
-	object.reset_plane_and_layer()
 	object.screen_loc = null
 	if(!QDELETED(object))
 		if(target)
 			object.forceMove(target)
 		else
 			object.dropInto(loc)
+		object.reset_plane_and_layer() // this should be done post-move to avoid wasting an icon update
 		if(isitem(object))
 			var/obj/item/item = object
 			item.dropped(src, play_dropsound)
+		if(!QDELETED(object)) // dropped might qdelete us
+			object.compile_overlays() // avoid world overlays on inventory state and vice versa
 	return TRUE
 
 /mob/proc/drop_held_items()

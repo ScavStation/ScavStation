@@ -89,7 +89,8 @@ var/global/list/image/hazard_overlays //Cached hazard floor overlays for the bar
 	return ..()
 
 /obj/item/stack/tape_roll/barricade_tape/attack_hand()
-	if((. = ..()) && !QDELETED(src))
+	. = ..()
+	if(. && !QDELETED(src))
 		update_icon()
 
 /**Callback used when whoever holds us moved to a new turf. */

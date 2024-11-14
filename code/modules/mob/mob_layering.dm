@@ -7,22 +7,24 @@
 	var/last_layer = layer
 	var/new_layer = get_base_layer()
 	if(isturf(loc))
-
 		var/turf/T = loc
 		if(T.pixel_z < 0)
 			new_layer = T.layer + 0.25
 		else if(buckled && buckled.buckle_layer_above)
-			new_layer = buckled.layer + ((buckled.dir == SOUTH) ? -0.1 : 0.1)
+			new_layer = buckled.layer + ((buckled.dir == SOUTH) ? -0.01 : 0.01)
 		else if(length(grabbed_by))
 			var/draw_under = TRUE
 			var/adjust_layer = FALSE
-			for(var/obj/item/grab/G as anything in grabbed_by)
-				if(get_dir(G.assailant, src) & SOUTH)
+			for(var/obj/item/grab/grab as anything in grabbed_by)
+				if(!grab.current_grab.adjust_layer)
+					continue
+				if(get_dir(grab.assailant, src) & SOUTH)
 					draw_under = FALSE
-				if(G.current_grab.adjust_plane)
+				if(grab.current_grab.adjust_plane)
 					adjust_layer = TRUE
 			if(adjust_layer)
 				new_layer += (draw_under ? -0.01 : 0.01)
+
 	if(new_layer != last_layer)
 		layer = new_layer
 		UPDATE_OO_IF_PRESENT
@@ -35,9 +37,9 @@
 		if(buckled && buckled.buckle_layer_above)
 			new_plane = buckled.plane
 		else if(length(grabbed_by))
-			for(var/obj/item/grab/G as anything in grabbed_by)
-				if(G.current_grab.adjust_plane)
-					new_plane = max(new_plane, G.assailant.plane)
+			for(var/obj/item/grab/grab as anything in grabbed_by)
+				if(grab.current_grab.adjust_plane)
+					new_plane = max(new_plane, grab.assailant.plane)
 	if(last_plane != new_plane)
 		plane = new_plane
 		UPDATE_OO_IF_PRESENT
@@ -53,6 +55,11 @@
 	if(current_posture.prone)
 		return LYING_HUMAN_LAYER
 	. = ..()
+
+/mob/living/simple_animal/get_base_layer()
+	if(buckled_mob)
+		return UNDER_MOB_LAYER
+	return ..()
 
 // If you ever want to change how a mob offsets by default, you MUST add the offset
 // changes to this proc and call it from your new feature code. This prevents conflicting
@@ -70,17 +77,17 @@
 	if(isturf(loc))
 		// Update offsets from grabs.
 		if(length(grabbed_by))
-			for(var/obj/item/grab/G as anything in grabbed_by)
-				var/grab_dir = get_dir(G.assailant, src)
-				if(grab_dir && G.current_grab.shift > 0)
+			for(var/obj/item/grab/grab as anything in grabbed_by)
+				var/grab_dir = get_dir(grab.assailant, src)
+				if(grab_dir && grab.current_grab.shift > 0)
 					if(grab_dir & WEST)
-						new_pixel_x = min(new_pixel_x+G.current_grab.shift, default_pixel_x+G.current_grab.shift)
+						new_pixel_x = min(new_pixel_x+grab.current_grab.shift, default_pixel_x+grab.current_grab.shift)
 					else if(grab_dir & EAST)
-						new_pixel_x = max(new_pixel_x-G.current_grab.shift, default_pixel_x-G.current_grab.shift)
+						new_pixel_x = max(new_pixel_x-grab.current_grab.shift, default_pixel_x-grab.current_grab.shift)
 					if(grab_dir & NORTH)
-						new_pixel_y = max(new_pixel_y-G.current_grab.shift, default_pixel_y-G.current_grab.shift)
+						new_pixel_y = max(new_pixel_y-grab.current_grab.shift, default_pixel_y-grab.current_grab.shift)
 					else if(grab_dir & SOUTH)
-						new_pixel_y = min(new_pixel_y+G.current_grab.shift, default_pixel_y+G.current_grab.shift)
+						new_pixel_y = min(new_pixel_y+grab.current_grab.shift, default_pixel_y+grab.current_grab.shift)
 
 		// Update offsets from structures in loc.
 		var/structure_offset = 0
@@ -89,7 +96,7 @@
 		new_pixel_z += structure_offset
 
 		// Update offsets from loc.
-		var/turf/floor/natural/ext = loc
+		var/turf/floor/ext = loc
 		if(istype(ext) && ext.height < 0)
 			new_pixel_z += ext.pixel_z
 

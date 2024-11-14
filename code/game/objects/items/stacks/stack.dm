@@ -353,6 +353,7 @@
 	var/orig_amount = src.amount
 	if (transfer && src.use(transfer))
 		var/obj/item/stack/newstack = new src.type(loc, transfer, material?.type)
+		newstack.dropInto(loc) // avoid being placed inside mobs
 		newstack.copy_from(src)
 		if (prob(transfer/orig_amount * 100))
 			transfer_fingerprints_to(newstack)
@@ -412,7 +413,7 @@
 /obj/item/stack/get_storage_cost()	//Scales storage cost to stack size
 	. = ..()
 	if (amount < max_amount)
-		. = CEILING(. * amount / max_amount)
+		. = ceil(. * amount / max_amount)
 
 /obj/item/stack/get_mass() // Scales mass to stack size
 	. = ..()
@@ -453,11 +454,11 @@
 
 /**Whether a stack has the capability to be split. */
 /obj/item/stack/proc/can_split()
-	return !(uses_charge && !force) //#TODO: The !force was a hacky way to tell if its a borg or rigsuit module. Probably would be good to find a better way...
+	return !(uses_charge && !is_robot_module(src))
 
 /**Whether a stack type has the capability to be merged. */
 /obj/item/stack/proc/can_merge_stacks(var/obj/item/stack/other)
-	return !(uses_charge && !force) && (!istype(other) || other.paint_color == paint_color)
+	return !(uses_charge && !is_robot_module(src)) && (!istype(other) || other.paint_color == paint_color)
 
 /// Returns the string describing an amount of the stack, i.e. "an ingot" vs "a flag"
 /obj/item/stack/proc/get_string_for_amount(amount)

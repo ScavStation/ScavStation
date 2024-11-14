@@ -163,7 +163,7 @@
 			return TRUE
 
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		add_cell(machine, I)
 		user.visible_message(\
 			SPAN_WARNING("\The [user] has inserted the power cell to \the [src]!"),\
@@ -173,6 +173,7 @@
 	// Interactions without machine
 	if(!istype(machine))
 		return ..()
+	return FALSE
 
 /obj/item/stock_parts/power/battery/attack_self(mob/user)
 	if(cell)

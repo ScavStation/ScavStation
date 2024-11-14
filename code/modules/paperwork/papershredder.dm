@@ -112,15 +112,16 @@
 		return
 	return TRUE
 
-/obj/machinery/papershredder/attackby(var/obj/item/W, var/mob/user)
-	if(!has_extension(W, /datum/extension/tool)) //Silently skip tools
-		var/trying_to_smack = !(W.item_flags & ITEM_FLAG_NO_BLUDGEON) && user && user.a_intent == I_HURT
-		if(W.storage)
-			empty_bin(user, W)
+/obj/machinery/papershredder/attackby(var/obj/item/used_item, var/mob/user)
+	//Silently skip tools, and things we don't have the dexterity to use
+	if(!has_extension(used_item, /datum/extension/tool) && used_item.user_can_attack_with(user, silent = TRUE))
+		var/trying_to_smack = !(used_item.item_flags & ITEM_FLAG_NO_BLUDGEON) && user && user.a_intent == I_HURT
+		if(used_item.storage)
+			empty_bin(user, used_item)
 			return TRUE
 
-		else if(!trying_to_smack && can_shred(W))
-			shred(W, user)
+		else if(!trying_to_smack && can_shred(used_item))
+			shred(used_item, user)
 			return TRUE
 	return ..()
 
@@ -176,7 +177,7 @@
 /obj/machinery/papershredder/on_update_icon()
 	cut_overlays()
 	var/ratio = ((cached_total_matter * 5) / max_total_matter)
-	icon_state = "papershredder[clamp(CEILING(ratio), 0, 5)]"
+	icon_state = "papershredder[clamp(ceil(ratio), 0, 5)]"
 	if(!is_unpowered())
 		add_overlay("papershredder_power")
 		if(is_broken() || is_bin_full())
@@ -196,8 +197,9 @@
 /decl/interaction_handler/empty/paper_shredder/is_possible(obj/machinery/papershredder/target, mob/user, obj/item/prop)
 	return ..() && !target.is_bin_empty()
 
-/decl/interaction_handler/empty/paper_shredder/invoked(obj/machinery/papershredder/target, mob/user)
-	target.empty_bin(user)
+/decl/interaction_handler/empty/paper_shredder/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/machinery/papershredder/shredder = target
+	shredder.empty_bin(user)
 
 //////////////////////////////////////////////////////////////////
 // Shredded Paper
@@ -209,7 +211,6 @@
 	randpixel    = 5
 	throw_range  = 3
 	throw_speed  = 2
-	throwforce   = 0
 	w_class      = ITEM_SIZE_TINY
 	material     = /decl/material/solid/organic/paper
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
@@ -234,9 +235,9 @@
 	if(!P.isflamesource())
 		to_chat(user, SPAN_WARNING("\The [P] is not lit."))
 		return
-	var/decl/pronouns/G = user.get_pronouns()
+	var/decl/pronouns/pronouns = user.get_pronouns()
 	user.visible_message(\
-		SPAN_WARNING("\The [user] holds \the [P] up to \the [src]. It looks like [G.he] [G.is] trying to burn it!"), \
+		SPAN_WARNING("\The [user] holds \the [P] up to \the [src]. It looks like [pronouns.he] [pronouns.is] trying to burn it!"), \
 		SPAN_WARNING("You hold \the [P] up to \the [src], burning it slowly."))
 	if(!do_after(user,20, src))
 		to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))

@@ -5,7 +5,8 @@
 	var/dismantled
 
 /obj/structure/get_material()
-	. = material
+	RETURN_TYPE(/decl/material)
+	return material
 
 /obj/structure/proc/get_material_health_modifier()
 	. = 1
@@ -21,6 +22,8 @@
 		set_opacity(FALSE)
 	else
 		set_opacity(initial(opacity))
+	if(isnull(initial(paint_verb)) && !isnull(material))
+		paint_verb = material.paint_verb
 	hitsound = material?.hitsound || initial(hitsound)
 	if(max_health != -1)
 		max_health = initial(max_health) + material?.integrity * get_material_health_modifier()
@@ -35,7 +38,7 @@
 /obj/structure/proc/update_material_name(var/override_name)
 	var/base_name = override_name || initial(name)
 	if(istype(material))
-		SetName("[material.solid_name] [base_name]")
+		SetName("[material.adjective_name] [base_name]")
 	else
 		SetName(base_name)
 
@@ -70,7 +73,7 @@
 				placing = (matter[mat] / SHEET_MATERIAL_AMOUNT) * 0.75
 				if(parts_type)
 					placing *= atom_info_repository.get_matter_multiplier_for(parts_type, mat, placing)
-				placing = FLOOR(placing)
+				placing = floor(placing)
 			else
 				placing = parts_amount
 			if(placing > 0)

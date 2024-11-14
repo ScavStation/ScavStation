@@ -94,6 +94,8 @@
 	else
 		heal_overall_damage(-amount, 0)
 	BITSET(hud_updateflag, HEALTH_HUD)
+	if(amount > 0 && istype(ai))
+		ai.retaliate()
 
 /mob/living/human/adjustFireLoss(var/amount, var/do_update_health = TRUE)
 	if(amount > 0)
@@ -101,6 +103,8 @@
 	else
 		heal_overall_damage(0, -amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
+	if(amount > 0 && istype(ai))
+		ai.retaliate()
 
 /mob/living/human/getCloneLoss()
 	var/amount = 0
@@ -330,7 +334,7 @@ This function restores all organs.
 	verbs -= /mob/living/human/proc/undislocate
 
 
-/mob/living/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/damage_flags = 0, var/obj/used_weapon = null, var/armor_pen, var/silent = FALSE, var/obj/item/organ/external/given_organ = null)
+/mob/living/human/apply_damage(damage = 0, damagetype = BRUTE, def_zone, damage_flags = 0, obj/used_weapon, armor_pen, silent = FALSE, obj/item/organ/external/given_organ)
 	if(status_flags & GODMODE)
 		return	//godmode
 

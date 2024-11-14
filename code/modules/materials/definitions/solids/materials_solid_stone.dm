@@ -9,9 +9,12 @@
 	brute_armor = 3
 	conductive = 0
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
+	wall_flags = WALL_HAS_EDGES
 	wall_blend_icons = list(
 		'icons/turf/walls/solid.dmi' = TRUE,
 		'icons/turf/walls/wood.dmi' = TRUE,
+		'icons/turf/walls/brick.dmi' = TRUE,
+		'icons/turf/walls/log.dmi' = TRUE,
 		'icons/turf/walls/metal.dmi' = TRUE
 	)
 	dissolves_into = list(
@@ -59,6 +62,7 @@
 	uid = "solid_pottery"
 	lore_text = "A hard but brittle substance produced by firing clay in a kiln."
 	color = "#cd8f75"
+	adjective_name = "earthenware"
 	melting_point = 2000 // Arbitrary, hotter than the kiln currently reaches.
 
 /decl/material/solid/stone/ceramic

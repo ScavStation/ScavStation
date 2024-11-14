@@ -21,10 +21,11 @@ FLOOR SAFES
 	var/space = 0		//the combined w_class of everything in the safe
 	var/maxspace = 24	//the maximum combined w_class of stuff in the safe
 
+// TODO: make this use a storage datum?
 /obj/structure/safe/Initialize()
 	for(var/obj/item/I in loc)
 		if(space >= maxspace)
-			return
+			break
 		if(I.w_class + space <= maxspace) //todo replace with internal storage or something
 			space += I.w_class
 			I.forceMove(src)
@@ -142,18 +143,19 @@ FLOOR SAFES
 	if(open)
 		if(I.w_class + space <= maxspace)
 			if(!user.try_unequip(I, src))
-				return
+				return TRUE
 			space += I.w_class
 			to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
 			updateUsrDialog()
-			return
+			return TRUE
 		else
 			to_chat(user, "<span class='notice'>[I] won't fit in [src].</span>")
-			return
+			return TRUE
 	else
 		if(istype(I, /obj/item/clothing/neck/stethoscope))
 			to_chat(user, "Hold [I] in one of your hands while you manipulate the dial.")
-			return
+			return TRUE
+		return FALSE
 
 
 /obj/structure/safe/explosion_act(severity)

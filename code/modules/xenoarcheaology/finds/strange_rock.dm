@@ -55,3 +55,5 @@
 	if(prob(33))
 		visible_message(SPAN_WARNING("[src] crumbles away, leaving some dust and gravel behind."))
 		physically_destroyed()
+		return TRUE
+	return FALSE

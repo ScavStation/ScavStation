@@ -1,10 +1,11 @@
 #define STACK_SUBTYPES(MAT_ID, MAT_NAME, MAT_TYPE, STACK_TYPE, REINF_TYPE) \
 /obj/item/stack/material/##STACK_TYPE/mapped/##MAT_ID {                    \
-	name = "1 " + MAT_NAME;                                               \
+	name = "1 " + MAT_NAME;                                                \
 	material = /decl/material/MAT_TYPE;                                    \
 	reinf_material = REINF_TYPE;                                           \
 	amount = 1;                                                            \
 	is_spawnable_type = TRUE;                                              \
+	color = parent_type::paint_color || /decl/material/MAT_TYPE::color;    \
 }                                                                          \
 /obj/item/stack/material/##STACK_TYPE/mapped/##MAT_ID/five {               \
 	name = "5 " + MAT_NAME;                                                \
@@ -95,6 +96,7 @@ STACK_SUBTYPES(blackbronze,    "black bronze",                  solid/metal/blac
 STACK_SUBTYPES(redgold,        "red gold",                      solid/metal/redgold,         ingot,            null)
 STACK_SUBTYPES(stainlesssteel, "stainless steel",               solid/metal/stainlesssteel,  ingot,            null)
 STACK_SUBTYPES(ice,            "ice",                           liquid/water,                cubes,            null)
+STACK_SUBTYPES(nutriment,      "nutriment",                     liquid/nutriment,            segment,          null)
 
 STACK_SUBTYPES(cloth,          "cloth",                         solid/organic/cloth,         bolt,             null)
 STACK_SUBTYPES(yellow,         "yellow cloth",                  solid/organic/cloth,         bolt/yellow,      null)
@@ -111,5 +113,8 @@ STACK_SUBTYPES(steel,          "steel",                         solid/metal/stee
 STACK_SUBTYPES(plastic,        "plastic",                       solid/organic/plastic,       strut,            null)
 STACK_SUBTYPES(aluminium,      "aluminium",                     solid/metal/aluminium,       strut,            null)
 STACK_SUBTYPES(titanium,       "titanium",                      solid/metal/titanium,        strut,            null)
+
+STACK_SUBTYPES(cotton,         "cotton",                        solid/organic/cloth,         thread,           null)
+STACK_SUBTYPES(dried_gut,      "dried gut",                     solid/organic/leather/gut,   thread,           null)
 
 #undef STACK_SUBTYPES

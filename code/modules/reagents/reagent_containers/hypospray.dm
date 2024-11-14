@@ -136,7 +136,7 @@
 	loaded_vial = null
 	if(user)
 		if (swap_mode != "swap") // if swapping vials, we will print a different message in another proc
-			to_chat(user, "You remove the vial from the [src].")
+			to_chat(user, "You remove the vial from \the [src].")
 	playsound(loc, 'sound/weapons/flipblade.ogg', 50, TRUE)
 	if(should_update_icon)
 		update_icon()
@@ -152,12 +152,12 @@
 	return TRUE
 
 /obj/item/chems/hypospray/vial/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/chems/glass/beaker/vial))
-		if(!do_after(user,10) || !(W in user))
-			return
-		insert_vial(W, user)
+	if(!istype(W, /obj/item/chems/glass/beaker/vial))
+		return ..()
+	if(!do_after(user, 1 SECOND, src))
 		return TRUE
-	. = ..()
+	insert_vial(W, user)
+	return TRUE
 
 /obj/item/chems/hypospray/vial/afterattack(obj/target, mob/user, proximity) // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks.
 	if(!proximity)
@@ -175,7 +175,7 @@
 	volume = 5
 	origin_tech = @'{"materials":2,"biotech":2}'
 	slot_flags = SLOT_LOWER_BODY | SLOT_EARS
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	detail_state = "_band"
 	detail_color = COLOR_CYAN
 	abstract_type = /obj/item/chems/hypospray/autoinjector
@@ -184,7 +184,7 @@
 /obj/item/chems/hypospray/autoinjector/Initialize()
 	. = ..()
 	if(label_text)
-		update_container_name()
+		update_name()
 
 /obj/item/chems/hypospray/autoinjector/populate_reagents()
 	SHOULD_CALL_PARENT(TRUE)

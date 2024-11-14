@@ -74,8 +74,8 @@
 			updateUsrDialog()
 		else if(giver)
 			to_chat(user, SPAN_WARNING("There is already ID card inside."))
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/computer/guestpass/interface_interact(var/mob/user)
 	ui_interact(user)

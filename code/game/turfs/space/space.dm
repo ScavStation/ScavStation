@@ -24,7 +24,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 	atom_flags |= ATOM_FLAG_INITIALIZED
 
-	SSambience.queued += src
+	AMBIENCE_QUEUE_TURF(src)
 
 	//We might be an edge
 	if(y == world.maxy || forced_dirs & NORTH)
@@ -110,13 +110,14 @@
 		if(L)
 			var/obj/item/stack/tile/floor/S = C
 			if (!S.use(1))
-				return
+				return TRUE
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			ChangeTurf(/turf/floor/airless)
+			ChangeTurf(/turf/floor/plating/airless)
 			qdel(L)
 		else
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 		return TRUE
+	return FALSE
 
 
 // Ported from unstable r355
@@ -137,3 +138,6 @@
 /turf/space/infinity
 	name = "\proper infinity"
 	icon_state = "bluespace"
+
+/turf/space/black
+	icon_state = "black"

@@ -13,7 +13,7 @@
 
 /datum/level_data/planetoid/exoplanet/snow
 	base_area = /area/exoplanet/snow
-	base_turf = /turf/floor/natural/snow
+	base_turf = /turf/floor/snow
 	exterior_atmosphere = null
 	exterior_atmos_temp = null
 	level_generators = list(
@@ -41,12 +41,12 @@
 
 /datum/fauna_generator/snow
 	fauna_types = list(
-		/mob/living/simple_animal/hostile/retaliate/beast/samak,
-		/mob/living/simple_animal/hostile/retaliate/beast/diyaab,
-		/mob/living/simple_animal/hostile/retaliate/beast/shantak
+		/mob/living/simple_animal/hostile/beast/samak,
+		/mob/living/simple_animal/hostile/beast/diyaab,
+		/mob/living/simple_animal/hostile/beast/shantak
 	)
 	megafauna_types = list(
-		/mob/living/simple_animal/hostile/retaliate/giant_crab
+		/mob/living/simple_animal/hostile/giant_crab
 	)
 
 ////////////////////////////////////////////////////////////////////////////
@@ -95,8 +95,8 @@
 	flora_prob           = 5
 	large_flora_prob     = 10
 	water_level_max      = 3
-	land_type            = /turf/floor/natural/snow
-	water_type           = /turf/floor/natural/ice
+	land_type            = /turf/floor/snow
+	water_type           = /turf/floor/ice
 	smoothing_iterations = 1
 
 ////////////////////////////////////////////////////////////////////////////
@@ -104,7 +104,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 /area/exoplanet/snow
-	base_turf = /turf/floor/natural/snow
+	base_turf = /turf/floor/snow
 	ambience  = list(
 		'sound/effects/wind/tundra0.ogg',
 		'sound/effects/wind/tundra1.ogg',

@@ -27,8 +27,9 @@
 	if(IS_SCREWDRIVER(W))
 		in_hack_mode = !in_hack_mode
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/multitool/hacktool/resolve_attackby(atom/A, mob/user)
 	sanity_check()

@@ -13,7 +13,7 @@
 /area/space)
 "ap" = (
 /obj/structure/lattice,
-/obj/item/chems/food/hydration,
+/obj/item/food/hydration,
 /turf/space,
 /area/space)
 "aq" = (
@@ -81,7 +81,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l4central)
 "aK" = (
-/turf/floor/natural/rock,
+/turf/floor/rock,
 /area/space)
 "aS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1082,7 +1082,7 @@
 /area/ministation/observation_deck)
 "tB" = (
 /obj/structure/flora/bush/grassybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/observation_deck)
 "tG" = (
 /obj/structure/hygiene/sink{
@@ -1161,7 +1161,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/l4central)
 "uh" = (
 /obj/structure/lattice,
@@ -1484,7 +1484,7 @@
 	dir = 1
 	},
 /obj/structure/yinglet_nest/empty,
-/obj/item/chems/food/cheesewedge{
+/obj/item/food/dairy/cheese/wedge{
 	name = "yinglet egg?";
 	desc = "A soft-shelled... uh... wait a minute..."
 	},
@@ -1509,7 +1509,7 @@
 /area/ministation/enclave/eggclave)
 "Ai" = (
 /obj/structure/lattice,
-/obj/item/chems/food/meatball{
+/obj/item/food/meatball{
 	filling_color = "#000099";
 	color = "#000099";
 	desc = "...You feel like you've met this one before.";
@@ -1660,7 +1660,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/solar,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "CM" = (
 /obj/structure/table/reinforced,
@@ -1763,7 +1763,7 @@
 	dir = 4;
 	icon_state = "warningcorner"
 	},
-/obj/item/box/monkeycubes,
+/obj/item/box/animal_cubes/monkeys,
 /turf/floor/tiled,
 /area/ministation/sciencetesting)
 "DX" = (
@@ -1803,7 +1803,7 @@
 /area/ministation/enclave/eggclave)
 "EA" = (
 /obj/structure/flora/bush/ppflowers,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/observation_deck)
 "EL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2079,10 +2079,10 @@
 /area/ministation/maint/l4central)
 "HR" = (
 /obj/structure/reagent_dispensers/water_cooler/ascent,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "Id" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/observation_deck)
 "In" = (
 /obj/structure/lattice,
@@ -2195,7 +2195,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/solar,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "Lx" = (
 /obj/structure/cable{
@@ -2577,7 +2577,7 @@
 /area/ministation/sciencetesting)
 "TO" = (
 /obj/structure/table/reinforced,
-/obj/item/box/monkeycubes,
+/obj/item/box/animal_cubes/monkeys,
 /turf/floor/tiled,
 /area/ministation/sciencetesting)
 "TT" = (

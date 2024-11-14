@@ -23,7 +23,7 @@
 
 	default_sprite_accessories = list(
 		SAC_FRILLS = list(
-			/decl/sprite_accessory/frills/lizard/frills_long = "#192e19"
+			/decl/sprite_accessory/frills/lizard/frills_long = list(SAM_COLOR = "#192e19")
 		)
 	)
 
@@ -78,5 +78,5 @@
 	uid                   = "bodytype_unathi_masc"
 
 /obj/item/organ/external/tail/lizard
-	tail_icon = 'mods/species/bayliens/unathi/icons/tail.dmi'
-	tail      = "sogtail"
+	tail_icon             = 'mods/species/bayliens/unathi/icons/tail.dmi'
+	tail_animation_states = 9

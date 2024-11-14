@@ -92,16 +92,18 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/food/New()
 	..()
 	contents = list(
+		/obj/item/chems/condiment/yeast,
 		/obj/item/chems/condiment/flour,
 		/obj/item/chems/condiment/flour,
 		/obj/item/chems/condiment/flour,
 		/obj/item/chems/drinks/milk,
 		/obj/item/chems/drinks/milk,
+		/obj/item/food/dairy/butter/stick,
 		/obj/item/box/fancy/egg_box,
-		/obj/item/chems/food/tofu,
-		/obj/item/chems/food/tofu,
-		/obj/item/chems/food/butchery/meat,
-		/obj/item/chems/food/butchery/meat)
+		/obj/item/food/tofu,
+		/obj/item/food/tofu,
+		/obj/item/food/butchery/meat,
+		/obj/item/food/butchery/meat)
 
 /datum/supply_drop_loot/armour
 	name = "Armour"

@@ -73,9 +73,12 @@
 
 		to_chat(user, SPAN_NOTICE("It contains:"))
 		if(LAZYLEN(reagents?.reagent_volumes))
-			for(var/rtype in reagents.reagent_volumes)
+			for(var/rtype in reagents.liquid_volumes)
 				var/decl/material/R = GET_DECL(rtype)
-				to_chat(user, SPAN_NOTICE("[REAGENT_VOLUME(reagents, rtype)] unit\s of [R.liquid_name]."))
+				to_chat(user, SPAN_NOTICE("[LIQUID_VOLUME(reagents, rtype)] unit\s of [R.get_reagent_name(reagents, MAT_PHASE_LIQUID)]."))
+			for(var/rtype in reagents.solid_volumes)
+				var/decl/material/R = GET_DECL(rtype)
+				to_chat(user, SPAN_NOTICE("[SOLID_VOLUME(reagents, rtype)] unit\s of [R.get_reagent_name(reagents, MAT_PHASE_SOLID)]."))
 		else
 			to_chat(user, SPAN_NOTICE("Nothing."))
 
@@ -86,10 +89,7 @@
 
 	// We do this here to avoid putting the vessel straight into storage.
 	// This is usually handled by afterattack on /chems.
-	// The item must be an open container, but food items should not be filled from sources like this.
-	// They're open in order to add condiments, not to be poured into/out of.
-	// TODO: Rewrite open-container-ness or food to make this unnecessary!
-	if(storage && ATOM_IS_OPEN_CONTAINER(W) && !istype(W, /obj/item/chems/food) && user.a_intent == I_HELP)
+	if(storage && ATOM_IS_OPEN_CONTAINER(W) && user.a_intent == I_HELP)
 		if(W.standard_dispenser_refill(user, src))
 			return TRUE
 		if(W.standard_pour_into(user, src))
@@ -141,6 +141,12 @@
 
 /obj/structure/reagent_dispensers/watertank/populate_reagents()
 	add_to_reagents(/decl/material/liquid/water, reagents.maximum_volume)
+
+/obj/structure/reagent_dispensers/watertank/high
+	name = "high-capacity water tank"
+	desc = "A highly-pressurized water tank made to hold vast amounts of water."
+	icon = 'icons/obj/structures/water_tank_high.dmi'
+	icon_state = ICON_STATE_WORLD
 
 /obj/structure/reagent_dispensers/watertank/firefighter
 	name   = "firefighting water reserve"
@@ -279,7 +285,8 @@
 		return TRUE
 
 	if(!skip_text)
-		to_chat(user, "The [src]'s cup dispenser is empty.")
+		to_chat(user, "\The [src]'s cup dispenser is empty.")
+	return TRUE
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W, mob/user)
 	//Allow refilling with a box
@@ -336,7 +343,7 @@
 		var/obj/structure/reagent_dispensers/R = target
 		return !!R.possible_transfer_amounts
 
-/decl/interaction_handler/set_transfer/reagent_dispenser/invoked(var/atom/target, var/mob/user)
+/decl/interaction_handler/set_transfer/reagent_dispenser/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/structure/reagent_dispensers/R = target
 	R.set_amount_dispensed()
 
@@ -345,9 +352,10 @@
 	name                 = "Toggle refilling cap"
 	expected_target_type = /obj/structure/reagent_dispensers
 
-/decl/interaction_handler/toggle_open/reagent_dispenser/invoked(var/obj/structure/reagent_dispensers/target, var/mob/user)
+/decl/interaction_handler/toggle_open/reagent_dispenser/invoked(atom/target, mob/user, obj/item/prop)
 	if(target.atom_flags & ATOM_FLAG_OPEN_CONTAINER)
 		target.atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 	else
 		target.atom_flags |= ATOM_FLAG_OPEN_CONTAINER
+	target.update_icon()
 	return TRUE

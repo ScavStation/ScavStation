@@ -62,6 +62,7 @@
 	if(breather)
 		detach_mask(user)
 		return TRUE
+	return FALSE
 
 /obj/machinery/oxygen_pump/interface_interact(mob/user)
 	ui_interact(user)
@@ -143,18 +144,21 @@
 			icon_state = icon_state_open
 		if(!stat)
 			icon_state = icon_state_closed
-		//TO-DO: Open icon
+		return TRUE
 	if(istype(W, /obj/item/tank) && (stat & MAINT))
 		if(tank)
 			to_chat(user, SPAN_WARNING("\The [src] already has a tank installed!"))
-		else
-			if(!user.try_unequip(W, src))
-				return
-			tank = W
-			user.visible_message(SPAN_NOTICE("\The [user] installs \the [tank] into \the [src]."), SPAN_NOTICE("You install \the [tank] into \the [src]."))
-			src.add_fingerprint(user)
+			return TRUE
+		if(!user.try_unequip(W, src))
+			return TRUE
+		tank = W
+		user.visible_message(SPAN_NOTICE("\The [user] installs \the [tank] into \the [src]."), SPAN_NOTICE("You install \the [tank] into \the [src]."))
+		src.add_fingerprint(user)
+		return TRUE
 	if(istype(W, /obj/item/tank) && !stat)
 		to_chat(user, SPAN_WARNING("Please open the maintenance hatch first."))
+		return TRUE
+	return FALSE // TODO: should this be a parent call? do we want this to be (de)constructable?
 
 /obj/machinery/oxygen_pump/examine(mob/user)
 	. = ..()

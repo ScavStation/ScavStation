@@ -1,17 +1,15 @@
 //Todo: add leather and cloth for arbitrary coloured stools.
 /obj/item/stool
-	name          = "stool"
-	desc          = "Apply butt."
-	icon          = 'icons/obj/furniture.dmi'
-	icon_state    = "stool_preview" //set for the map
-	item_state    = "stool"
-	randpixel     = 0
-	force         = 10
-	throwforce    = 10
-	w_class       = ITEM_SIZE_HUGE
-	material      = DEFAULT_FURNITURE_MATERIAL
-	obj_flags     = OBJ_FLAG_SUPPORT_MOB | OBJ_FLAG_ROTATABLE
-	var/base_icon = "stool"
+	name                = "stool"
+	desc                = "Apply butt."
+	icon                = 'icons/obj/stool.dmi'
+	icon_state          = ICON_STATE_WORLD
+	randpixel           = 0
+	w_class             = ITEM_SIZE_HUGE
+	material            = DEFAULT_FURNITURE_MATERIAL
+	material_alteration = MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_COLOR
+	obj_flags           = OBJ_FLAG_SUPPORT_MOB | OBJ_FLAG_ROTATABLE
+	_base_attack_force  = 10
 	var/padding_color
 	var/decl/material/padding_material
 
@@ -26,37 +24,42 @@
 		return INITIALIZE_HINT_QDEL
 	if(ispath(padding_material, /decl/material))
 		padding_material = GET_DECL(padding_material)
-	force = round(material.get_blunt_damage()*0.4)
 	update_icon()
 
 /obj/item/stool/bar
 	name = "bar stool"
-	icon_state = "bar_stool_preview" //set for the map
-	item_state = "bar_stool"
-	base_icon = "bar_stool"
+	icon = 'icons/obj/bar_stool.dmi'
 
 /obj/item/stool/bar/padded
 	icon_state = "bar_stool_padded_preview"
 	padding_material = /decl/material/solid/organic/cloth
 	padding_color = "#9d2300"
 
-/obj/item/stool/on_update_icon()
-	. = ..()
-	// Prep icon.
-	icon_state = ""
-	// Base icon.
-	var/list/noverlays = list(overlay_image(icon, "[base_icon]_base", get_color(), RESET_COLOR|RESET_ALPHA))
-	// Padding overlay.
+/obj/item/stool/update_name()
+	..()
+	if(material_alteration & MAT_FLAG_ALTERATION_NAME)
+		SetName("[padding_material?.adjective_name || material.adjective_name] [base_name || initial(name)]")
+	update_desc()
+
+/obj/item/stool/proc/update_desc()
 	if(padding_material)
-		noverlays += overlay_image(icon, "[base_icon]_padding", padding_color || padding_material.color)
-	set_overlays(noverlays)
-	// Strings.
-	if(padding_material)
-		SetName("[padding_material.solid_name] [initial(name)]") //this is not perfect but it will do for now.
 		desc = "A padded stool. Apply butt. It's made of [material.use_name] and covered with [padding_material.use_name]."
 	else
-		SetName("[material.solid_name] [initial(name)]")
 		desc = "A stool. Apply butt with care. It's made of [material.use_name]."
+
+/obj/item/stool/on_update_icon()
+	. = ..()
+	icon_state = get_world_inventory_state()
+	if(padding_material)
+		add_overlay(overlay_image(icon, "[icon_state]-padding", padding_color || padding_material.color, RESET_COLOR|RESET_ALPHA))
+	// Strings.
+	update_name()
+	update_desc()
+
+/obj/item/stool/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing)
+	. = ..()
+	if(padding_material)
+		overlay.add_overlay(overlay_image(icon, "[overlay.icon_state]-padding", padding_color || padding_material.color, RESET_COLOR|RESET_ALPHA))
 
 /obj/item/stool/proc/add_padding(var/padding_type, var/new_padding_color)
 	padding_material = GET_DECL(padding_type)
@@ -99,52 +102,75 @@
 		padding_material.create_object(get_turf(src))
 	qdel(src)
 
+/// Return TRUE if the stool is capable of supporting padding.
+/// This should not check existing padding state, just whether
+/// the behavior is supported at all.
+/obj/item/stool/proc/can_be_padded()
+	return TRUE
+
 /obj/item/stool/attackby(obj/item/W, mob/user)
 	if(IS_WRENCH(W))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		dismantle()
-		qdel(src)
-	else if(istype(W,/obj/item/stack))
-		if(padding_material)
-			to_chat(user, "\The [src] is already padded.")
-			return
-		var/obj/item/stack/C = W
-		if(C.get_amount() < 1) // How??
-			qdel(C)
-			return
+		return TRUE
+	else if(can_be_padded())
+		if(istype(W,/obj/item/stack))
+			if(padding_material)
+				to_chat(user, "\The [src] is already padded.")
+				return TRUE
+			var/obj/item/stack/C = W
+			if(C.get_amount() < 1) // How??
+				qdel(C)
+				return TRUE
 
-		var/padding_type
-		var/new_padding_color
-		if(istype(W, /obj/item/stack/tile) || istype(W, /obj/item/stack/material/bolt))
-			padding_type = W.material?.type
-			new_padding_color = W.paint_color
+			var/padding_type
+			var/new_padding_color
+			if(istype(W, /obj/item/stack/tile) || istype(W, /obj/item/stack/material/bolt))
+				padding_type = W.material?.type
+				new_padding_color = W.paint_color
 
-		if(padding_type)
-			var/decl/material/padding_mat = GET_DECL(padding_type)
-			if(!istype(padding_mat) || !(padding_mat.flags & MAT_FLAG_PADDING))
-				padding_type = null
+			if(padding_type)
+				var/decl/material/padding_mat = GET_DECL(padding_type)
+				if(!istype(padding_mat) || !(padding_mat.flags & MAT_FLAG_PADDING))
+					padding_type = null
 
-		if(!padding_type)
-			to_chat(user, "You cannot pad \the [src] with that.")
-			return
+			if(!padding_type)
+				to_chat(user, "You cannot pad \the [src] with that.")
+				return TRUE
 
-		C.use(1)
-		if(!isturf(src.loc))
-			user.drop_from_inventory(src)
-			src.dropInto(loc)
-		to_chat(user, "You add padding to \the [src].")
-		add_padding(padding_type, new_padding_color)
-		return
+			C.use(1)
+			if(!isturf(src.loc))
+				user.drop_from_inventory(src)
+				src.dropInto(loc)
+			to_chat(user, "You add padding to \the [src].")
+			add_padding(padding_type, new_padding_color)
+			return TRUE
 
-	else if(IS_WIRECUTTER(W))
-		if(!padding_material)
-			to_chat(user, "\The [src] has no padding to remove.")
-			return
-		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
-		remove_padding()
-	else
-		..()
+		else if(IS_WIRECUTTER(W))
+			if(!padding_material)
+				to_chat(user, "\The [src] has no padding to remove.")
+				return TRUE
+			to_chat(user, "You remove the padding from \the [src].")
+			playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
+			remove_padding()
+			return TRUE
+	return ..()
+
+/obj/item/stool/rustic
+	name = "stool"
+	icon = 'icons/obj/stool_rustic.dmi'
+	material = /decl/material/solid/organic/wood/walnut
+	color = /decl/material/solid/organic/wood/walnut::color
+
+/obj/item/stool/rustic/update_name()
+	..()
+	SetName("rustic [name]") // rustic oaken stool, not oaken rustic stool
+
+/obj/item/stool/rustic/can_be_padded()
+	return FALSE
+
+/obj/item/stool/rustic/update_desc()
+	desc = "A rustic stool carved from wood. It's a little rickety and wobbles under any weight, but it'll do."
 
 //Generated subtypes for mapping porpoises
 /obj/item/stool/wood

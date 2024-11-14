@@ -38,3 +38,8 @@
 
 /atom/movable
 	var/atmos_canpass = CANPASS_ALWAYS
+
+// Make sure you know what you're doing if you call this
+// You probably want CanPass()
+/atom/movable/Cross(atom/movable/crossed_atom)
+	return CanPass(crossed_atom, crossed_atom.loc)

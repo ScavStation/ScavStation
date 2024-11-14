@@ -1,4 +1,4 @@
-/decl/hierarchy/outfit/job/ministation/cargo
+/decl/outfit/job/ministation/cargo
 	l_ear = /obj/item/radio/headset/headset_cargo
 	name = "Ministation - Job - Cargo technician"
 	uniform = /obj/item/clothing/jumpsuit/cargotech
@@ -9,11 +9,11 @@
 	suit = /obj/item/clothing/suit/jacket/redcoat/service/officiated
 	yinglet_suit_service = TRUE
 
-/decl/hierarchy/outfit/job/ministation/cargo/Initialize()
+/decl/outfit/job/ministation/cargo/Initialize()
 	. = ..()
 	BACKPACK_OVERRIDE_ENGINEERING
 
-/decl/hierarchy/outfit/job/ministation/bartender
+/decl/outfit/job/ministation/bartender
 	l_ear = /obj/item/radio/headset/headset_service
 	name = "Ministation - Job - Bartender"
 	uniform = /obj/item/clothing/pants/formal/black/outfit
@@ -23,7 +23,7 @@
 	head = /obj/item/clothing/head/chefhat
 	yinglet_suit_service = TRUE
 
-/decl/hierarchy/outfit/job/ministation/janitor
+/decl/outfit/job/ministation/janitor
 	l_ear = /obj/item/radio/headset/headset_service
 	name = "Ministation - Job - Janitor"
 	uniform = /obj/item/clothing/jumpsuit/janitor
@@ -32,7 +32,7 @@
 	suit = /obj/item/clothing/suit/jacket/redcoat/service/officiated
 	yinglet_suit_service = TRUE
 
-/decl/hierarchy/outfit/job/ministation/librarian
+/decl/outfit/job/ministation/librarian
 	l_ear = /obj/item/radio/headset/headset_service
 	name = "Ministation - Job - Librarian"
 	uniform = /obj/item/clothing/suit/robe/yinglet/librarian

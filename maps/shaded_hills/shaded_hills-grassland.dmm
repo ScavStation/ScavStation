@@ -1,24 +1,21 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aX" = (
 /obj/abstract/exterior_marker/inside,
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside)
 "bJ" = (
 /obj/abstract/exterior_marker/inside,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside)
 "cy" = (
 /obj/structure/bed/chair/bench/ebony{
 	dir = 8
 	},
 /obj/abstract/landmark/start/shaded_hills/miner,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside)
-"dB" = (
-/turf/wall/log/ebony,
-/area/shaded_hills/caves/unexplored)
 "ee" = (
-/turf/floor/natural/path/running_bond/basalt,
+/turf/floor/path/running_bond/basalt,
 /area/shaded_hills/outside/poi)
 "el" = (
 /obj/abstract/exterior_marker/inside,
@@ -27,7 +24,7 @@
 "ex" = (
 /obj/abstract/exterior_marker/inside,
 /obj/item/chems/glass/bucket/wood,
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/end,
 /turf/floor/woven,
 /area/shaded_hills/outside)
 "eL" = (
@@ -37,42 +34,42 @@
 /turf/floor/woven,
 /area/shaded_hills/outside)
 "eR" = (
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/caves/unexplored/south)
 "fH" = (
 /obj/structure/reagent_dispensers/barrel/ebony/water,
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/caves/unexplored/south)
 "fO" = (
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside/river)
 "gQ" = (
-/turf/floor/natural/mud/water/deep,
+/turf/floor/mud/water/deep,
 /area/shaded_hills/caves/unexplored/south)
 "hT" = (
 /obj/abstract/landmark/start/shaded_hills/traveller,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside/river)
 "iP" = (
 /obj/structure/fire_source/firepit/basalt,
-/obj/item/stack/material/log/mapped/ebony/ten,
-/turf/floor/natural/barren,
+/obj/item/stack/material/log/mapped/walnut/ten,
+/turf/floor/barren,
 /area/shaded_hills/outside)
 "jj" = (
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/caves/unexplored/south)
 "js" = (
 /obj/structure/fire_source/kiln/high_temperature,
-/turf/floor/natural/rock/basalt,
+/turf/floor/rock/basalt,
 /area/shaded_hills/outside)
 "kq" = (
-/turf/floor/natural/path/running_bond/basalt,
+/turf/floor/path/running_bond/basalt,
 /area/shaded_hills/outside)
 "kr" = (
-/obj/structure/closet/crate/chest,
 /obj/item/tool/pickaxe/iron,
 /obj/item/tool/axe,
 /obj/abstract/exterior_marker/inside,
+/obj/structure/closet/crate/chest/ebony,
 /turf/floor/woven,
 /area/shaded_hills/outside)
 "kz" = (
@@ -86,38 +83,38 @@
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/outside/river)
 "lE" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside)
 "lU" = (
 /turf/wall/natural/basalt/shaded_hills,
 /area/shaded_hills/caves/unexplored/south)
 "ma" = (
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/caves)
 "mG" = (
 /obj/structure/bed/chair/bench/ebony,
 /obj/item/bladed/folding,
 /obj/abstract/landmark/start/shaded_hills/miner,
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/outside)
 "mX" = (
 /obj/abstract/landmark/latejoin/observer,
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/outside)
 "mZ" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/caves/river)
 "nd" = (
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/caves/entrance)
 "nl" = (
-/obj/structure/door/wood/ebony,
+/obj/structure/door/walnut,
 /obj/abstract/exterior_marker/inside,
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/outside)
 "oo" = (
 /obj/item/stack/material/ore/handful/sand,
-/turf/floor/natural/rock/basalt,
+/turf/floor/rock/basalt,
 /area/shaded_hills/outside)
 "pU" = (
 /obj/structure/table/woodentable/ebony,
@@ -137,7 +134,7 @@
 /turf/floor/woven,
 /area/shaded_hills/caves/unexplored/south)
 "sS" = (
-/turf/floor/natural/mud/water,
+/turf/floor/mud/water,
 /area/shaded_hills/caves/unexplored/south)
 "te" = (
 /turf/unsimulated/mask,
@@ -147,40 +144,39 @@
 /area/shaded_hills/caves/unexplored)
 "ul" = (
 /obj/abstract/exterior_marker/inside,
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/outside)
 "vX" = (
-/turf/floor/natural/path/running_bond/basalt,
+/turf/floor/path/running_bond/basalt,
 /area/shaded_hills/outside/river)
 "wW" = (
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/outside/poi)
 "xe" = (
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside/poi)
 "xr" = (
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside)
 "xC" = (
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/outside)
 "yA" = (
 /obj/abstract/landmark/latejoin/observer,
-/turf/floor/natural/path/running_bond/basalt,
+/turf/floor/path/running_bond/basalt,
 /area/shaded_hills/outside)
 "zp" = (
-/turf/floor/natural/clay,
+/turf/floor/clay,
 /area/shaded_hills/outside/river)
 "CO" = (
 /obj/abstract/landmark/start/shaded_hills/cave_dweller,
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/caves/unexplored/south)
 "DX" = (
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/caves/unexplored/south)
 "Ed" = (
 /obj/item/stack/material/brick/mapped/graphite/ten,
-/obj/structure/closet/crate/chest,
 /obj/item/stack/material/ore/coal,
 /obj/abstract/exterior_marker/inside,
 /obj/item/flame/torch,
@@ -188,10 +184,11 @@
 /obj/item/flame/torch,
 /obj/item/flame/torch,
 /obj/item/bag/sack,
+/obj/structure/closet/crate/chest/ebony,
 /turf/floor/woven,
 /area/shaded_hills/outside)
 "EE" = (
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/outside/river)
 "EL" = (
 /obj/abstract/exterior_marker/inside,
@@ -199,7 +196,7 @@
 /turf/floor/woven,
 /area/shaded_hills/outside)
 "EP" = (
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/caves/entrance)
 "EQ" = (
 /obj/structure/bed/bedroll/fur,
@@ -209,23 +206,23 @@
 /area/shaded_hills/outside)
 "ES" = (
 /obj/abstract/exterior_marker/inside,
-/turf/wall/log/ebony,
+/turf/wall/log/walnut,
 /area/shaded_hills/outside)
 "EV" = (
-/turf/floor/natural/mud/water/deep,
+/turf/floor/mud/water/deep,
 /area/shaded_hills/caves/river)
 "Fg" = (
-/obj/structure/door/wood/ebony,
+/obj/structure/door/walnut,
 /obj/abstract/exterior_marker/inside,
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside)
 "Ft" = (
 /obj/structure/fire_source,
 /obj/item/stack/material/log/mapped/wood/ten,
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/caves)
 "Fv" = (
-/turf/floor/natural/rock/basalt,
+/turf/floor/rock/basalt,
 /area/shaded_hills/outside)
 "FK" = (
 /obj/item/stack/material/ore/coal,
@@ -234,38 +231,38 @@
 /turf/floor/woven,
 /area/shaded_hills/outside)
 "Gh" = (
-/turf/floor/natural/mud/water,
+/turf/floor/mud/water,
 /area/shaded_hills/outside/river)
 "Gt" = (
 /turf/floor/woven,
 /area/shaded_hills/caves/unexplored/south)
 "Hn" = (
 /obj/abstract/landmark/start/shaded_hills/traveller,
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/outside/river)
 "HA" = (
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/caves)
 "HI" = (
 /obj/abstract/exterior_marker/inside,
 /turf/wall/brick/basalt,
 /area/shaded_hills/outside/river)
 "HV" = (
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/outside)
 "Ic" = (
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/outside/river)
 "Jv" = (
 /obj/item/chems/mould/ingot,
 /obj/item/chems/mould/ingot,
-/turf/floor/natural/rock/basalt,
+/turf/floor/rock/basalt,
 /area/shaded_hills/outside)
 "JN" = (
-/turf/wall/log/ebony,
+/turf/wall/log/walnut,
 /area/shaded_hills/outside/river)
 "Kd" = (
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/outside)
 "Ku" = (
 /obj/structure/bed/bedroll/fur,
@@ -273,93 +270,103 @@
 /turf/floor/woven,
 /area/shaded_hills/caves/unexplored/south)
 "KQ" = (
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/caves)
 "LF" = (
 /turf/wall/natural/basalt/shaded_hills,
 /area/shaded_hills/caves/unexplored)
 "LX" = (
 /obj/abstract/exterior_marker/inside,
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside)
 "My" = (
-/turf/floor/natural/mud/water/deep,
+/turf/floor/mud/water/deep,
 /area/shaded_hills/outside/river)
 "MH" = (
 /obj/abstract/exterior_marker/inside,
 /obj/abstract/exterior_marker/inside,
-/turf/floor/natural/grass/wild,
+/turf/floor/grass/wild,
 /area/shaded_hills/outside)
 "MK" = (
 /obj/abstract/exterior_marker/inside,
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/outside)
 "Ng" = (
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside/poi)
 "OL" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside/poi)
 "OP" = (
 /obj/item/chems/crucible,
-/turf/floor/natural/rock/basalt,
+/turf/floor/rock/basalt,
 /area/shaded_hills/outside)
 "PO" = (
 /obj/abstract/exterior_marker/inside,
 /turf/wall/brick/basalt,
 /area/shaded_hills/outside)
+"Qx" = (
+/turf/open,
+/area/shaded_hills/caves/unexplored/south)
 "Sm" = (
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside)
 "TD" = (
 /obj/abstract/exterior_marker/inside,
-/turf/floor/natural/grass/wild,
+/turf/floor/grass/wild,
 /area/shaded_hills/outside)
 "TH" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/caves/unexplored/south)
 "TR" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside/river)
 "UE" = (
-/turf/floor/natural/grass/wild,
+/turf/floor/grass/wild,
 /area/shaded_hills/outside/poi)
 "UI" = (
-/turf/floor/natural/rock/basalt,
+/turf/floor/rock/basalt,
 /area/shaded_hills/outside/poi)
 "UV" = (
-/turf/floor/natural/mud/water,
+/turf/floor/mud/water,
 /area/shaded_hills/caves/river)
 "VO" = (
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/caves/entrance)
 "WH" = (
 /obj/item/chems/glass/bucket/wood,
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/caves/unexplored/south)
 "WO" = (
 /obj/abstract/exterior_marker/inside,
 /obj/abstract/exterior_marker/inside,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside)
 "Xd" = (
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside/river)
 "Xt" = (
-/turf/floor/natural/grass/wild,
+/turf/floor/grass/wild,
 /area/shaded_hills/outside)
 "Yf" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/caves/unexplored)
+"Yv" = (
+/obj/abstract/map_data/shaded_hills,
+/turf/wall/natural/basalt/shaded_hills,
+/area/shaded_hills/caves/river)
 "YB" = (
 /obj/structure/bed/chair/bench/ebony{
 	dir = 8
 	},
 /obj/abstract/landmark/start/shaded_hills/miner,
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside)
+"Zf" = (
+/turf/floor/rock/basalt,
+/area/shaded_hills/caves/unexplored/south)
 "ZV" = (
-/turf/wall/log/ebony,
+/turf/wall/log/walnut,
 /area/shaded_hills/outside)
 
 (1,1,1) = {"
@@ -1871,7 +1878,7 @@ qy
 qy
 qy
 qy
-qy
+Yv
 qy
 qy
 mZ
@@ -4855,10 +4862,10 @@ te
 te
 te
 te
-te
-te
-te
-te
+Zf
+Zf
+Zf
+Zf
 te
 te
 te
@@ -5006,12 +5013,12 @@ te
 te
 te
 te
-te
-te
-te
-te
-te
-te
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
 te
 te
 te
@@ -5157,14 +5164,14 @@ te
 te
 te
 te
-te
-te
-te
-te
-te
-te
-te
-te
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
 te
 te
 te
@@ -5309,17 +5316,17 @@ te
 te
 te
 te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
+Zf
+Zf
+Qx
+Qx
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
 te
 te
 te
@@ -5461,19 +5468,19 @@ te
 te
 te
 te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
+Zf
+Zf
+Zf
+Qx
+Qx
+Qx
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
 te
 te
 te
@@ -5614,19 +5621,19 @@ te
 te
 te
 te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
+Zf
+Zf
+Qx
+Qx
+Qx
+Qx
+Qx
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
 lU
 lU
 lU
@@ -5766,20 +5773,20 @@ te
 te
 te
 te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
-te
+Zf
+Zf
+Zf
+Qx
+Qx
+Qx
+Qx
+Qx
+Zf
+Zf
+Zf
+Zf
+Zf
+Zf
 lU
 lU
 lU
@@ -5919,20 +5926,20 @@ te
 te
 te
 te
-te
-te
-te
-te
-te
+Zf
+Zf
+Zf
+Qx
+Qx
 lU
 lU
 lU
 lU
-te
-te
-te
-te
-te
+Zf
+Zf
+Zf
+Zf
+Zf
 lU
 lU
 lU
@@ -6072,18 +6079,18 @@ te
 te
 te
 te
-te
-te
-te
+Zf
+Zf
+Zf
 lU
 lU
 lU
 lU
 lU
 lU
-te
-te
-te
+Zf
+Zf
+Zf
 eR
 jj
 jj
@@ -6226,7 +6233,7 @@ te
 te
 te
 te
-te
+Zf
 lU
 lU
 lU
@@ -6234,9 +6241,9 @@ lU
 lU
 lU
 lU
-te
-te
-te
+Zf
+Zf
+Zf
 lU
 lU
 lU
@@ -12242,7 +12249,7 @@ tp
 tp
 tp
 tp
-dB
+tp
 tp
 tp
 tp

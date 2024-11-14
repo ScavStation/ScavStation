@@ -1,4 +1,7 @@
 /mob/Destroy() //This makes sure that mobs with clients/keys are not just deleted from the game.
+
+	stop_automove()
+
 	STOP_PROCESSING(SSmobs, src)
 	global.dead_mob_list_ -= src
 	global.living_mob_list_ -= src
@@ -60,9 +63,9 @@
 /mob/Initialize()
 	if(ispath(skillset))
 		skillset = new skillset(src)
-	if(!move_intent)
+	if(!ispath(move_intent) || !(move_intent in move_intents))
 		move_intent = move_intents[1]
-	if(ispath(move_intent))
+	if(!istype(move_intent))
 		move_intent = GET_DECL(move_intent)
 	. = ..()
 	ability_master = new(null, src)
@@ -115,7 +118,7 @@
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, range, mobs, objs, check_ghosts)
+	get_listeners_in_range(T, range, mobs, objs, check_ghosts)
 
 	for(var/o in objs)
 		var/obj/O = o
@@ -155,7 +158,7 @@
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, hearing_distance, mobs, objs, check_ghosts)
+	get_listeners_in_range(T, hearing_distance, mobs, objs, check_ghosts)
 
 	for(var/m in mobs)
 		var/mob/M = m
@@ -216,12 +219,18 @@
 		. += 6
 	if(current_posture.prone) //Crawling, it's slower
 		. += (8 + ((GET_STATUS(src, STAT_WEAK) * 3) + (GET_STATUS(src, STAT_CONFUSE) * 2)))
-	. += move_intent.move_delay + (ENCUMBERANCE_MOVEMENT_MOD * encumbrance())
+	var/_automove_delay = get_automove_delay()
+	if(isnull(_automove_delay))
+		. += move_intent.move_delay
+	else
+		. += _automove_delay
+	. = max(. + (ENCUMBERANCE_MOVEMENT_MOD * encumbrance()), 1)
+
 #undef ENCUMBERANCE_MOVEMENT_MOD
 
 /mob/proc/encumbrance()
-	for(var/obj/item/grab/G as anything in get_active_grabs())
-		. = max(., G.grab_slowdown())
+	for(var/obj/item/grab/grab as anything in get_active_grabs())
+		. = max(., grab.grab_slowdown())
 	. *= (0.8 ** size_strength_mod())
 	. *= (0.5 + 1.5 * (SKILL_MAX - get_skill_value(SKILL_HAULING))/(SKILL_MAX - SKILL_MIN))
 
@@ -292,8 +301,8 @@
 #undef FULLY_BUCKLED
 
 /mob/proc/grab_restrained()
-	for (var/obj/item/grab/G in grabbed_by)
-		if(G.restrains())
+	for (var/obj/item/grab/grab as anything in grabbed_by)
+		if(grab.restrains())
 			return TRUE
 
 /mob/proc/restrained()
@@ -415,8 +424,8 @@
 			if(isobj(A.loc))
 				look_target = "inside \the [A.loc]"
 			if(A == src)
-				var/decl/pronouns/G = get_pronouns()
-				look_target = "at [G.self]"
+				var/decl/pronouns/pronouns = get_pronouns()
+				look_target = "at [pronouns.self]"
 			for(var/mob/M in viewers(4, src))
 				if(M == src)
 					continue
@@ -468,10 +477,10 @@
 		return L
 	if(!L)
 		L = list(src)
-	for(var/obj/item/grab/G in grabs)
-		if(G.affecting && !(G.affecting in L))
-			L += G.affecting
-			var/mob/living/affecting_mob = G.get_affecting_mob()
+	for(var/obj/item/grab/grab as anything in grabs)
+		if(grab.affecting && !(grab.affecting in L))
+			L += grab.affecting
+			var/mob/living/affecting_mob = grab.get_affecting_mob()
 			if(istype(affecting_mob))
 				affecting_mob.ret_grab(L)
 	return L
@@ -865,7 +874,8 @@
 		if(!canface() || current_posture.prone || restrained())
 			facing_dir = null
 		else if(buckled)
-			if(buckled.obj_flags & OBJ_FLAG_ROTATABLE)
+			var/obj/buckled_obj = buckled
+			if(!isobj(buckled) || (buckled_obj.obj_flags & OBJ_FLAG_ROTATABLE))
 				buckled.set_dir(facing_dir)
 				return ..(facing_dir)
 			else
@@ -1018,7 +1028,7 @@
 	if(braindamage)
 		var/brainloss_threshold = get_config_value(/decl/config/num/dex_malus_brainloss_threshold)
 		if(braindamage > brainloss_threshold) ///brainloss shouldn't instantly cripple you, so the effects only start once past the threshold and escalate from there.
-			dex_malus = clamp(CEILING((braindamage-brainloss_threshold)/10), 0, length(global.dexterity_levels))
+			dex_malus = clamp(ceil((braindamage-brainloss_threshold)/10), 0, length(global.dexterity_levels))
 			if(dex_malus > 0)
 				dex_malus = global.dexterity_levels[dex_malus]
 
@@ -1183,7 +1193,7 @@
 
 	return FALSE
 
-/mob/proc/handle_flashed(var/obj/item/flash/flash, var/flash_strength)
+/mob/proc/handle_flashed(var/flash_strength)
 	return FALSE
 
 /mob/proc/do_flash_animation()
@@ -1253,6 +1263,11 @@
 
 /mob/proc/toggle_internals(var/mob/living/user)
 	return
+
+/mob/proc/set_target_zone(new_zone)
+	if(zone_sel)
+		return zone_sel?.set_selected_zone(new_zone)
+	return FALSE
 
 /mob/proc/get_target_zone()
 	return zone_sel?.selecting || BP_CHEST
@@ -1369,3 +1384,17 @@
 	var/decl/butchery_data/butchery_decl = GET_DECL(butchery_data)
 	. = butchery_decl?.meat_name || name
 
+/mob/reset_movement_delay()
+	var/datum/movement_handler/mob/delay/delay = locate() in movement_handlers
+	if(istype(delay))
+		delay.next_move = world.time
+
+/mob/proc/do_attack_windup_checking(atom/target)
+	return TRUE
+
+// Stub proc; implemented on /mob/living
+/mob/proc/handle_footsteps()
+	return
+
+/mob/proc/can_twohand_item(obj/item/item)
+	return FALSE

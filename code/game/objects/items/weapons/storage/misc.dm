@@ -34,7 +34,6 @@
 	item_state = "cigpacket"
 	w_class = ITEM_SIZE_SMALL
 	storage = /datum/storage/cigpapers
-	throwforce = 2
 	slot_flags = SLOT_LOWER_BODY
 	material = /decl/material/solid/organic/plastic
 
@@ -55,7 +54,7 @@
 	icon_state = "filterbin"
 
 /obj/item/cigpaper/filters/WillContain()
-	return list(/obj/item/paper/cig/filter = 10)
+	return list(/obj/item/cigarette_filter = 10)
 
 /obj/item/chewables
 	name = "box of chewing wads master"
@@ -65,7 +64,6 @@
 	item_state = "cigpacket"
 	w_class = ITEM_SIZE_SMALL
 	storage = /datum/storage/chewables
-	throwforce = 2
 	slot_flags = SLOT_LOWER_BODY
 	material = /decl/material/solid/metal/tin
 
@@ -83,7 +81,7 @@
 	icon_state = "rollcoarse"
 
 /obj/item/chewables/rollable/bad/WillContain()
-	return list(/obj/item/chems/food/grown/dried_tobacco/bad = 8)
+	return list(/obj/item/food/grown/dried_tobacco/bad = 8)
 
 /obj/item/chewables/rollable/generic
 	name = "bag of BluSpace tobacco"
@@ -91,7 +89,7 @@
 	icon_state = "rollgeneric"
 
 /obj/item/chewables/rollable/generic/WillContain()
-	return list(/obj/item/chems/food/grown/dried_tobacco = 8)
+	return list(/obj/item/food/grown/dried_tobacco = 8)
 
 /obj/item/chewables/rollable/fine
 	name = "bag of Golden Sol tobacco"
@@ -99,7 +97,7 @@
 	icon_state = "rollfine"
 
 /obj/item/chewables/rollable/fine/WillContain()
-	return list(/obj/item/chems/food/grown/dried_tobacco/fine = 8)
+	return list(/obj/item/food/grown/dried_tobacco/fine = 8)
 
 //chewing tobacco
 /obj/item/chewables/tobacco
@@ -139,7 +137,7 @@
 	storage = /datum/storage/chewables/cookies
 
 /obj/item/chewables/candy/cookies/WillContain()
-	return list(/obj/item/chems/food/cookie = 6)
+	return list(/obj/item/food/cookie = 6)
 
 /obj/item/chewables/candy/gum
 	name = "pack of Rainbo-Gums"

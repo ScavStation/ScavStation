@@ -46,7 +46,20 @@ var/global/list/areas = list()
 
 	var/obj/machinery/power/apc/apc
 	var/list/all_doors		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
-	var/list/ambience = list('sound/ambience/ambigen1.ogg','sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambigen12.ogg','sound/ambience/ambigen14.ogg')
+	var/list/ambience = list(
+		'sound/ambience/ambigen1.ogg',
+		'sound/ambience/ambigen3.ogg',
+		'sound/ambience/ambigen4.ogg',
+		'sound/ambience/ambigen5.ogg',
+		'sound/ambience/ambigen6.ogg',
+		'sound/ambience/ambigen7.ogg',
+		'sound/ambience/ambigen8.ogg',
+		'sound/ambience/ambigen9.ogg',
+		'sound/ambience/ambigen10.ogg',
+		'sound/ambience/ambigen11.ogg',
+		'sound/ambience/ambigen12.ogg',
+		'sound/ambience/ambigen14.ogg'
+	)
 	var/list/forced_ambience
 	var/sound_env = STANDARD_STATION
 	var/description //A text-based description of what this area is for.
@@ -125,10 +138,10 @@ var/global/list/areas = list()
 	A.contents.Add(T)
 	if(old_area)
 		old_area.Exited(T, A)
-		for(var/atom/movable/AM in T)
+		for(var/atom/movable/AM as anything in T)
 			old_area.Exited(AM, A)  // Note: this _will_ raise exited events.
 	A.Entered(T, old_area)
-	for(var/atom/movable/AM in T)
+	for(var/atom/movable/AM as anything in T)
 		A.Entered(AM, old_area) // Note: this will _not_ raise moved or entered events. If you change this, you must also change everything which uses them.
 
 	for(var/obj/machinery/M in T)
@@ -146,9 +159,9 @@ var/global/list/areas = list()
 
 	if(T.is_outside() != old_outside)
 		T.update_weather()
-		SSambience.queued |= T
+		AMBIENCE_QUEUE_TURF(T)
 	else if(A.interior_ambient_light_modifier != old_area_ambience)
-		SSambience.queued |= T
+		AMBIENCE_QUEUE_TURF(T)
 
 /turf/proc/update_registrations_on_adjacent_area_change()
 	for(var/obj/machinery/door/firedoor/door in src)
@@ -421,6 +434,8 @@ var/global/list/mob/living/forced_ambiance_list = new
 
 /area/proc/throw_unbuckled_occupant(var/mob/M, var/maxrange, var/speed, var/direction)
 	if(isliving(M))
+		if(M.anchored) // So mechs don't get tossed around.
+			return
 		if(M.buckled)
 			to_chat(M, SPAN_WARNING("Sudden acceleration presses you into your chair!"))
 			shake_camera(M, 3, 1)

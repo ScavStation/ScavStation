@@ -269,10 +269,10 @@
 		var/mob/M = A
 		if(isliving(A))
 			//if they have a neck grab on someone, that person gets hit instead
-			var/obj/item/grab/G = locate() in M
-			if(G && G.shield_assailant())
-				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
-				if(Bump(G.affecting, forced=1))
+			var/obj/item/grab/grab = locate() in M
+			if(grab && grab.shield_assailant())
+				visible_message("<span class='danger'>\The [M] uses [grab.affecting] as a shield!</span>")
+				if(Bump(grab.affecting, forced=1))
 					return //If Bump() returns 0 (keep going) then we continue on to attack M.
 
 			passthrough = !attack_mob(M, distance)
@@ -583,7 +583,7 @@
 	time_offset = 0
 	var/required_moves = 0
 	if(speed > 0)
-		required_moves = FLOOR(elapsed_time_deciseconds / speed)
+		required_moves = floor(elapsed_time_deciseconds / speed)
 		if(required_moves > SSprojectiles.global_max_tick_moves)
 			var/overrun = required_moves - SSprojectiles.global_max_tick_moves
 			required_moves = SSprojectiles.global_max_tick_moves

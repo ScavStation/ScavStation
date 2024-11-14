@@ -58,6 +58,11 @@
 	color = "#222222"
 	uid = "chem_pigment_black"
 
+/decl/material/liquid/pigment/black/ink
+	name = "ink"
+	lore_text = "Ink used for writing or dyeing materials, often made from soot or charcoal and some sort of binder."
+	uid = "chem_ink"
+
 /decl/material/liquid/pigment/white
 	name = "white pigment"
 	color = "#aaaaaa"

@@ -1,4 +1,4 @@
-/decl/hierarchy/outfit/job/tradeship/hand/researcher
+/decl/outfit/job/tradeship/hand/researcher
 	name = "Tradeship - Job - Head Researcher"
 	suit = /obj/item/clothing/suit/jacket/redcoat/service/officiated
 	shoes = /obj/item/clothing/shoes/dress
@@ -11,7 +11,7 @@
 	desc = "A card issued to science staff."
 	detail_color = COLOR_PALE_PURPLE_GRAY
 
-/decl/hierarchy/outfit/job/tradeship/hand/researcher/junior
+/decl/outfit/job/tradeship/hand/researcher/junior
 	name = "Tradeship - Job - Junior Researcher"
 	suit = /obj/item/clothing/suit/jacket/redcoat/service
 	id_type = /obj/item/card/id/tradeship/science

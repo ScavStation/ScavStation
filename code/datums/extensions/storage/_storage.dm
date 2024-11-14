@@ -42,8 +42,8 @@ var/global/list/_test_storage_items = list()
 	global._test_storage_items += src
 #endif
 
-	if(!istype(_holder))
-		PRINT_STACK_TRACE("Storage datum initialized with non-atom holder '[_holder || "NULL"].")
+	if(!istype(_holder, expected_type))
+		PRINT_STACK_TRACE("Storage datum initialized with non-[expected_type] holder '[_holder || "NULL"].")
 		qdel(src)
 		return
 
@@ -124,7 +124,7 @@ var/global/list/_test_storage_items = list()
 
 //This proc return 1 if the item can be picked up and 0 if it can't.
 //Set the stop_messages to stop it from printing messages
-/datum/storage/proc/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+/datum/storage/proc/can_be_inserted(obj/item/W, mob/user, stop_messages = 0, click_params = null)
 	if(!istype(W)) return //Not an item
 
 	if(user && !user.canUnEquip(W))
@@ -177,13 +177,12 @@ var/global/list/_test_storage_items = list()
 			to_chat(user, SPAN_WARNING("\The [W] is too big for \the [holder]."))
 		return 0
 
-	var/total_storage_space = W.get_storage_cost()
-	if(total_storage_space >= ITEM_SIZE_NO_CONTAINER)
+	if(W.obj_flags & OBJ_FLAG_NO_STORAGE)
 		if(!stop_messages)
 			to_chat(user, SPAN_WARNING("\The [W] cannot be placed in \the [holder]."))
 		return 0
 
-	total_storage_space += storage_space_used() //Adds up the combined w_classes which will be in the storage item if the item is added to it.
+	var/total_storage_space = W.get_storage_cost() + storage_space_used() //Adds up the combined w_classes which will be in the storage item if the item is added to it.
 	if(total_storage_space > max_storage_space)
 		if(!stop_messages)
 			to_chat(user, SPAN_WARNING("\The [holder] is too full, make some space."))
@@ -194,18 +193,18 @@ var/global/list/_test_storage_items = list()
 //This proc handles items being inserted. It does not perform any checks of whether an item can or can't be inserted. That's done by can_be_inserted()
 //The stop_warning parameter will stop the insertion message from being displayed. It is intended for cases where you are inserting multiple items at once,
 //such as when picking up all the items on a tile with one click.
-/datum/storage/proc/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update)
+/datum/storage/proc/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update, click_params)
 	if(!istype(W))
-		return 0
+		return FALSE
 	if(ismob(W.loc))
 		var/mob/M = W.loc
 		if(!M.try_unequip(W))
-			return
+			return FALSE
 
 	if(holder.reagents?.total_volume)
 		W.fluid_act(holder.reagents)
 		if(QDELETED(W))
-			return
+			return FALSE
 
 	W.forceMove(holder)
 	W.on_enter_storage(src)
@@ -222,10 +221,11 @@ var/global/list/_test_storage_items = list()
 		// Run this regardless of update flag, as it impacts our remaining storage space.
 		consolidate_stacks()
 		if(!skip_update)
-			update_ui_after_item_insertion()
+			update_ui_after_item_insertion(W, click_params)
 	holder.storage_inserted()
-	holder.update_icon()
-	return 1
+	if(!skip_update)
+		holder.update_icon()
+	return TRUE
 
 /datum/storage/proc/consolidate_stacks()
 
@@ -250,11 +250,11 @@ var/global/list/_test_storage_items = list()
 		if(!stack.amount || QDELETED(stack))
 			stacks -= stack
 
-/datum/storage/proc/update_ui_after_item_insertion()
+/datum/storage/proc/update_ui_after_item_insertion(obj/item/inserted, click_params)
 	prepare_ui()
 	storage_ui?.on_insertion()
 
-/datum/storage/proc/update_ui_after_item_removal()
+/datum/storage/proc/update_ui_after_item_removal(obj/item/removed)
 	prepare_ui()
 	storage_ui?.on_post_remove()
 
@@ -272,7 +272,7 @@ var/global/list/_test_storage_items = list()
 		W.reset_plane_and_layer()
 	W.forceMove(new_location)
 	if(!skip_update)
-		update_ui_after_item_removal()
+		update_ui_after_item_removal(W)
 	if(W.maptext)
 		W.maptext = ""
 	W.on_exit_storage(src)
@@ -286,12 +286,17 @@ var/global/list/_test_storage_items = list()
 
 // Only do ui functions for now; the obj is responsible for anything else.
 /datum/storage/proc/on_item_post_deletion(obj/item/W)
-	update_ui_after_item_removal()
+	update_ui_after_item_removal(W)
 	holder?.queue_icon_update()
 
 //Run once after using remove_from_storage with skip_update = 1
 /datum/storage/proc/finish_bulk_removal()
 	update_ui_after_item_removal()
+	holder?.queue_icon_update()
+
+//Run once after using handle_item_insertion with skip_update = 1
+/datum/storage/proc/finish_bulk_insertion()
+	update_ui_after_item_insertion()
 	holder?.queue_icon_update()
 
 /datum/storage/proc/gather_all(var/turf/T, var/mob/user)
@@ -303,12 +308,12 @@ var/global/list/_test_storage_items = list()
 			continue
 		success = 1
 		handle_item_insertion(user, I, TRUE, TRUE) // First 1 is no messages, second 1 is no ui updates
-	if(success && !failure)
-		to_chat(user, SPAN_NOTICE("You put everything into \the [holder]."))
-		update_ui_after_item_insertion()
-	else if(success)
-		to_chat(user, SPAN_NOTICE("You put some things into \the [holder]."))
-		update_ui_after_item_insertion()
+	if(success)
+		if(failure)
+			to_chat(user, SPAN_NOTICE("You put some things into \the [holder]."))
+		else
+			to_chat(user, SPAN_NOTICE("You put everything into \the [holder]."))
+		finish_bulk_insertion()
 	else
 		to_chat(user, SPAN_NOTICE("You fail to pick anything up with \the [holder]."))
 

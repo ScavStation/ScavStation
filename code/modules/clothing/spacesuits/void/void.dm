@@ -3,7 +3,7 @@
 	name = "void helmet"
 	desc = "A high-tech dark red space suit helmet. Used for AI satellite maintenance."
 	icon = 'icons/clothing/spacesuit/void/nasa/helmet.dmi'
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
+	bodytype_equip_flags = BODY_EQUIP_FLAG_HUMANOID
 	heat_protection = SLOT_HEAD
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_RESISTANT,
@@ -22,7 +22,7 @@
 /obj/item/clothing/suit/space/void
 	name = "voidsuit"
 	icon = 'icons/clothing/spacesuit/void/nasa/suit.dmi'
-	bodytype_equip_flags = BODY_FLAG_HUMANOID
+	bodytype_equip_flags = BODY_EQUIP_FLAG_HUMANOID
 	w_class = ITEM_SIZE_HUGE//bulky item
 	desc = "A high-tech dark red space suit. Used for AI satellite maintenance."
 	armor = list(
@@ -44,6 +44,8 @@
 	//With 0.2 resiliance, will reach 10 breach damage after 3 laser carbine blasts or 8 smg hits.
 	breach_threshold = 15
 	can_breach = 1
+
+	_base_attack_force = 5
 
 	//Inbuilt devices.
 	var/obj/item/clothing/shoes/magboots/boots = null // Deployable boots, if any.
@@ -279,6 +281,7 @@ else if(##equipment_var) {\
 	return TRUE
 
 /obj/item/clothing/suit/space/void/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+	overlay = ..() // Apply tank last so it doesn't get offset twice.
 	if(overlay && tank && slot == slot_back_str)
 		overlay.overlays += tank.get_mob_overlay(user_mob, slot_back_str)
-	. = ..()
+	return overlay

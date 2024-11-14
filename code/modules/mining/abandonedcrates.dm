@@ -24,7 +24,7 @@
 		if(1 to 5) // Common things go, 5%
 			new /obj/item/chems/drinks/bottle/rum(src)
 			new /obj/item/chems/drinks/bottle/whiskey(src)
-			new /obj/item/chems/food/grown/ambrosiadeus(src)
+			new /obj/item/food/grown/ambrosiadeus(src)
 			new /obj/item/flame/fuelled/lighter/zippo(src)
 		if(6 to 10)
 			new /obj/item/tool/drill(src)
@@ -173,24 +173,24 @@
 			. = 0
 
 /obj/structure/closet/crate/secure/loot/attackby(obj/item/W, mob/user)
-	if(locked)
-		if (IS_MULTITOOL(W)) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
-			to_chat(user, "<span class='notice'>DECA-CODE LOCK ANALYSIS:</span>")
-			if (attempts == 1)
-				to_chat(user, "<span class='warning'>* Anti-Tamper system will activate on the next failed access attempt.</span>")
-			else
-				to_chat(user, "<span class='notice'>* Anti-Tamper system will activate after [src.attempts] failed access attempts.</span>")
-			if(lastattempt.len)
-				var/bulls = 0
-				var/cows = 0
+	if(!locked || !IS_MULTITOOL(W))
+		return ..()
+	// Greetings Urist McProfessor, how about a nice game of cows and bulls?
+	to_chat(user, "<span class='notice'>DECA-CODE LOCK ANALYSIS:</span>")
+	if (attempts == 1)
+		to_chat(user, "<span class='warning'>* Anti-Tamper system will activate on the next failed access attempt.</span>")
+	else
+		to_chat(user, "<span class='notice'>* Anti-Tamper system will activate after [src.attempts] failed access attempts.</span>")
+	if(lastattempt.len)
+		var/bulls = 0
+		var/cows = 0
 
-				var/list/code_contents = code.Copy()
-				for(var/i in 1 to codelen)
-					if(lastattempt[i] == code[i])
-						++bulls
-					else if(lastattempt[i] in code_contents)
-						++cows
-					code_contents -= lastattempt[i]
-				to_chat(user, "<span class='notice'>Last code attempt had [bulls] correct digits at correct positions and [cows] correct digits at incorrect positions.</span>")
-			return
-	..()
+		var/list/code_contents = code.Copy()
+		for(var/i in 1 to codelen)
+			if(lastattempt[i] == code[i])
+				++bulls
+			else if(lastattempt[i] in code_contents)
+				++cows
+			code_contents -= lastattempt[i]
+		to_chat(user, "<span class='notice'>Last code attempt had [bulls] correct digits at correct positions and [cows] correct digits at incorrect positions.</span>")
+	return TRUE

@@ -2,12 +2,13 @@
 	abstract_type = /decl/trait/prosthetic_organ
 	trait_cost = 1
 	available_at_chargen = TRUE
+	available_at_map_tech = MAP_TECH_LEVEL_SPACE
 	category = "Prosthetic Organs"
 	reapply_on_rejuvenation = TRUE
 	var/synthetic_bodytype_restricted = FALSE
 	var/apply_to_organ
 
-/decl/trait/prosthetic_organ/is_available_to(datum/preferences/pref)
+/decl/trait/prosthetic_organ/is_available_to_select(datum/preferences/pref)
 	. = ..()
 	if(. && pref.species && pref.bodytype)
 

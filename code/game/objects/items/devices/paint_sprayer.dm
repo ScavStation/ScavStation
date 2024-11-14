@@ -86,7 +86,7 @@
 		var/mob/M = loc
 		M.update_inhand_overlays()
 
-/obj/item/paint_sprayer/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/paint_sprayer/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && check_state_in_icon("[overlay.icon_state]_color", overlay.icon))
 		overlay.overlays += overlay_image(overlay.icon, "[overlay.icon_state]_color", spray_color)
 	. = ..()
@@ -216,11 +216,13 @@
 
 
 /obj/item/paint_sprayer/proc/paint_floor(var/turf/floor/F, var/mob/user, var/params)
-	if(!F.flooring)
+
+	var/decl/flooring/flooring = F.get_topmost_flooring()
+	if(!istype(flooring))
 		to_chat(user, SPAN_WARNING("You need flooring to paint on."))
 		return FALSE
 
-	if(!F.flooring.can_paint || F.is_floor_damaged())
+	if(!flooring.can_paint || F.is_floor_damaged())
 		to_chat(user, SPAN_WARNING("\The [src] cannot paint \the [F.name]."))
 		return FALSE
 

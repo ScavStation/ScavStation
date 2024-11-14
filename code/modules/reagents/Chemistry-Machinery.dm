@@ -24,7 +24,7 @@
 	var/useramount = 30 // Last used amount
 	var/pillamount = 10
 	var/pillsprite = "1"
-	var/client/has_sprites = list()
+	var/list/client/has_sprites = list()
 	var/max_pill_count = 20
 	var/sloppy = 1 //Whether reagents will not be fully purified (sloppy = 1) or there will be reagent loss (sloppy = 0) on reagent add.
 	var/reagent_limit = 120
@@ -44,9 +44,9 @@
 
 		if(beaker)
 			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
-			return
+			return TRUE
 		if(!user.try_unequip(B, src))
-			return
+			return TRUE
 		beaker = B
 		to_chat(user, SPAN_NOTICE("You add the beaker to the machine!"))
 		updateUsrDialog()
@@ -61,9 +61,9 @@
 
 		if(loaded_pill_bottle)
 			to_chat(user, SPAN_WARNING("A pill bottle is already loaded into the machine."))
-			return
+			return TRUE
 		if(!user.try_unequip(B, src))
-			return
+			return TRUE
 		loaded_pill_bottle = B
 		to_chat(user, SPAN_NOTICE("You add the pill bottle into the dispenser slot!"))
 		updateUsrDialog()
@@ -223,7 +223,7 @@
 	. += "<BR><BR>Description:<BR>"
 	if(detailed_blood && istype(reagent, /decl/material/liquid/blood))
 		var/blood_data = REAGENT_DATA(beaker?.reagents, /decl/material/liquid/blood)
-		. += "Blood Type: [LAZYACCESS(blood_data, "blood_type")]<br>DNA: [LAZYACCESS(blood_data, "blood.DNA")]"
+		. += "Blood Type: [LAZYACCESS(blood_data, DATA_BLOOD_TYPE)]<br>DNA: [LAZYACCESS(blood_data, "blood.DNA")]"
 	else
 		. += "[reagent.lore_text]"
 	. += "<BR><BR><BR><A href='byond://?src=\ref[src];main=1'>(Back)</A>"
@@ -235,7 +235,7 @@
 	if(!name)
 		name = reagents.get_primary_reagent_name()
 	P.label_text = name
-	P.update_container_name()
+	P.update_name()
 	P.lid_color = bottle_lid_color
 	P.label_color = bottle_label_color
 	reagents.trans_to_obj(P,60)

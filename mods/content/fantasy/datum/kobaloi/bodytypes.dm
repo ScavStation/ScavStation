@@ -9,7 +9,7 @@
 	skeletal_icon        = 'mods/content/fantasy/icons/kobaloi/skeleton.dmi'
 	base_color           = "#8f974a"
 	base_eye_color       = "#d95763"
-	bodytype_flag        = BODY_FLAG_KOBALOI
+	bodytype_flag        = BODY_EQUIP_FLAG_KOBALOI
 	appearance_flags     = HAS_SKIN_COLOR | HAS_EYE_COLOR
 	health_hud_intensity = 1.75
 	movement_slowdown    = -0.5
@@ -23,8 +23,8 @@
 	)
 	default_sprite_accessories = list(
 		SAC_MARKINGS = list(
-			/decl/sprite_accessory/marking/kobaloi/left_ear = "#8f974a",
-			/decl/sprite_accessory/marking/kobaloi/right_ear = "#8f974a"
+			/decl/sprite_accessory/marking/kobaloi/left_ear  = list(SAM_COLOR = "#8f974a"),
+			/decl/sprite_accessory/marking/kobaloi/right_ear = list(SAM_COLOR = "#8f974a")
 		)
 	)
 	eye_low_light_vision_effectiveness    = 0.15

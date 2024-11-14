@@ -1,6 +1,6 @@
 /datum/storage/firstaid
 	max_w_class = ITEM_SIZE_SMALL
-	max_storage_space = DEFAULT_BOX_STORAGE
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	use_sound = 'sound/effects/storage/box.ogg'
 
 /datum/storage/firstaid/surgery
@@ -18,7 +18,7 @@
 		/obj/item/surgicaldrill,
 		/obj/item/bonegel,
 		/obj/item/sutures,
-		/obj/item/stack/medical/advanced/bruise_pack,
+		/obj/item/stack/medical/bandage/advanced,
 		/obj/item/stack/nanopaste
 	)
 

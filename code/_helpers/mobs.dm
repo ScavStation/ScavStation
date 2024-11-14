@@ -11,9 +11,9 @@
 	if(species)
 		var/decl/species/current_species = get_species_by_key(species)
 		if(current_species)
-			var/decl/cultural_info/current_culture = GET_DECL(current_species.default_cultural_info[TAG_CULTURE])
-			if(current_culture)
-				return current_culture.get_random_name(null, gender)
+			var/decl/background_detail/background = current_species.get_default_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
+			if(background)
+				return background.get_random_name(null, gender)
 	return capitalize(pick(gender == FEMALE ? global.using_map.first_names_female : global.using_map.first_names_male)) + " " + capitalize(pick(global.using_map.last_names))
 
 /proc/random_skin_tone(var/decl/bodytype/current_bodytype)
@@ -241,7 +241,7 @@
 		return val
 	if(istext(val))
 		var/list/vals = splittext(val, "x")
-		return FLOOR(max(text2num(vals[1]), text2num(vals[2]))/2)
+		return floor(max(text2num(vals[1]), text2num(vals[2]))/2)
 	return 0
 
 // If all of these flags are present, it should come out at exactly 1. Yes, this

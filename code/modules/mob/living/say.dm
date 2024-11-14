@@ -82,7 +82,7 @@
 // This proc takes in a string (message_mode) which maps to a radio key in global.department_radio_keys
 // It then processes the message_mode to implement an additional behavior needed for the message, such
 // as retrieving radios or looking for an intercom nearby.
-/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!message_mode)
 		return
@@ -104,7 +104,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 	return FALSE
 
-/mob/living/say(var/message, var/decl/language/speaking, var/verb = "says", var/alt_name = "", whispering)
+/mob/living/say(var/message, var/decl/language/speaking, var/verb = "says", whispering)
 	set waitfor = FALSE
 	if(client)
 		if(client.prefs.muted & MUTE_IC)
@@ -189,7 +189,7 @@
 		return 0
 
 	var/list/obj/item/used_radios = list()
-	if(handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name))
+	if(handle_message_mode(message_mode, message, verb, speaking, used_radios))
 		return 1
 
 	var/list/handle_v = (istype(speaking) && speaking.get_spoken_sound()) || handle_speech_sound()
@@ -243,7 +243,7 @@
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, /datum/client_preference/ghost_ears)
+		get_listeners_in_range(T, message_range, listening, listening_obj, /datum/client_preference/ghost_ears)
 
 	var/speech_bubble_state = check_speech_punctuation_state(message)
 	var/speech_state_modifier = get_speech_bubble_state_modifier()
@@ -259,7 +259,7 @@
 	var/list/speech_bubble_recipients = list()
 	for(var/mob/M in listening)
 		if(M)
-			M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+			M.hear_say(message, verb, speaking, italics, src, speech_sound, sound_vol)
 			if(M.client)
 				speech_bubble_recipients += M.client
 
@@ -273,12 +273,12 @@
 		var/eavesdroping_range = 5
 		var/list/eavesdroping = list()
 		var/list/eavesdroping_obj = list()
-		get_mobs_and_objs_in_view_fast(T, eavesdroping_range, eavesdroping, eavesdroping_obj)
+		get_listeners_in_range(T, eavesdroping_range, eavesdroping, eavesdroping_obj)
 		eavesdroping -= listening
 		eavesdroping_obj -= listening_obj
 		for(var/mob/M in eavesdroping)
 			if(M)
-				M.hear_say(stars(message), verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+				M.hear_say(stars(message), verb, speaking, italics, src, speech_sound, sound_vol)
 				if(M.client)
 					eavesdroppers |= M.client
 
@@ -327,4 +327,4 @@
 	if(voice_sub)
 		return voice_sub
 
-	return real_name
+	return real_name || name

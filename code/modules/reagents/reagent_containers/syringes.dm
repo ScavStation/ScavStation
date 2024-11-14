@@ -35,7 +35,7 @@
 	. = ..()
 	if(reagents.total_volume > 0 && autolabel && !label_text) // don't override preset labels
 		label_text = reagents.get_primary_reagent_name()
-		update_container_name()
+		update_name()
 
 
 /obj/item/chems/syringe/on_reagent_change()
@@ -65,7 +65,7 @@
 	update_icon()
 
 /obj/item/chems/syringe/attackby(obj/item/I, mob/user)
-	return
+	return FALSE // allow afterattack to proceed
 
 /obj/item/chems/syringe/afterattack(obj/target, mob/user, proximity)
 	if(!proximity)
@@ -280,7 +280,7 @@
 
 		var/hit_area = affecting.name
 
-		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
+		if((user != target) && H.check_shields(7, src, user, target_zone, src))
 			return
 
 		if (target != user && H.get_blocked_ratio(target_zone, BRUTE, damage_flags=DAM_SHARP) > 0.1 && prob(50))

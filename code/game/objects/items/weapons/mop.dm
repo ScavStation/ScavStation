@@ -3,8 +3,6 @@
 	name = "mop"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mop"
-	force = 5
-	throwforce = 10.0
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEM_SIZE_NORMAL
@@ -71,16 +69,14 @@
 
 /obj/effect/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
-		return
-	..()
+		return FALSE
+	return ..()
 
 /obj/item/mop/advanced
 	desc = "The most advanced tool in a custodian's arsenal, with a cleaner synthesizer to boot! Just think of all the viscera you will clean up with this!"
 	name = "advanced mop"
 	icon_state = "advmop"
 	item_state = "mop"
-	force = 6
-	throwforce = 11
 	mopspeed = 20
 	material = /decl/material/solid/metal/aluminium
 	matter = list(
@@ -88,6 +84,7 @@
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_TRACE
 	)
 	origin_tech = @'{"engineering":4,"materials":4,"powerstorage":3}'
+	_base_attack_force = 6
 
 	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
 	var/refill_rate = 1 //Rate per process() tick mop refills itself

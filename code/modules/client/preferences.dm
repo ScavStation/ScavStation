@@ -49,13 +49,6 @@ var/global/list/time_prefs_fixed = list()
 	//Mob preview
 	//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/list/char_render_holders
-	var/static/list/preview_screen_locs = list(
-		"1" = "character_preview_map:1,5:-12",
-		"2" = "character_preview_map:1,3:15",
-		"4"  = "character_preview_map:1,2:10",
-		"8"  = "character_preview_map:1,1:5",
-		"BG" = "character_preview_map:1,1 to 1,5"
-	)
 
 	var/client/client = null
 	var/client_ckey = null
@@ -94,6 +87,7 @@ var/global/list/time_prefs_fixed = list()
 			load_data()
 			is_byond_member = client.IsByondMember()
 
+	load_preferences()
 	sanitize_preferences()
 	update_preview_icon()
 
@@ -257,8 +251,16 @@ var/global/list/time_prefs_fixed = list()
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
-	BG.screen_loc = preview_screen_locs["BG"]
+	BG.color = global.using_map.char_preview_bgstate_options[bgstate]
 
+	var/static/list/default_preview_screen_locs = list(
+		"1" = "character_preview_map:1:16,4:36",
+		"2" = "character_preview_map:1:16,3:31",
+		"4" = "character_preview_map:1:16,2:26",
+		"8" = "character_preview_map:1:16,1:21"
+	)
+
+	var/list/preview_screen_locs = mannequin?.get_preview_screen_locs() || default_preview_screen_locs
 	for(var/D in global.cardinal)
 		var/obj/screen/setup_preview/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
@@ -270,7 +272,7 @@ var/global/list/time_prefs_fixed = list()
 		var/mutable_appearance/MA = new /mutable_appearance(mannequin)
 		O.appearance = MA
 		O.dir = D
-		O.screen_loc = preview_screen_locs["[D]"]
+		O.screen_loc = preview_screen_locs[num2text(D)]
 	update_setup_window(usr)
 
 /datum/preferences/proc/show_character_previews()
@@ -336,7 +338,7 @@ var/global/list/time_prefs_fixed = list()
 	else if(href_list["toggle_preview_value"])
 		equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
 	else if(href_list["cycle_bg"])
-		bgstate = next_in_list(bgstate, bgstate_options)
+		bgstate = next_in_list(bgstate, global.using_map.char_preview_bgstate_options)
 	else
 		return FALSE
 
@@ -362,9 +364,9 @@ var/global/list/time_prefs_fixed = list()
 		character.change_species(species, new_bodytype)
 
 	if(be_random_name)
-		var/decl/cultural_info/culture = GET_DECL(cultural_info[TAG_CULTURE])
-		if(culture)
-			real_name = culture.get_random_name(gender)
+		var/decl/background_detail/background = get_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
+		if(background)
+			real_name = background.get_random_name(gender)
 
 	if(get_config_value(/decl/config/toggle/humans_need_surnames))
 		var/firstspace = findtext(real_name, " ")
@@ -402,7 +404,7 @@ var/global/list/time_prefs_fixed = list()
 
 	if(length(traits))
 		for(var/trait_type in traits)
-			character.set_trait(trait_type, traits[trait_type] || TRAIT_LEVEL_EXISTS)
+			character.set_trait(trait_type, (traits[trait_type] || TRAIT_LEVEL_EXISTS))
 
 	character.set_eye_colour(eye_colour, skip_update = TRUE)
 
@@ -413,13 +415,16 @@ var/global/list/time_prefs_fixed = list()
 			O.clear_sprite_accessories_by_category(sprite_category.type, skip_update = TRUE)
 
 	for(var/accessory_category in sprite_accessories)
-		for(var/accessory in sprite_accessories[accessory_category])
+		var/decl/sprite_accessory_category/acc_cat = GET_DECL(accessory_category)
+		var/list/accessories = sprite_accessories[accessory_category]
+		acc_cat.prepare_character(character, accessories)
+		for(var/accessory in accessories)
 			var/decl/sprite_accessory/accessory_decl = GET_DECL(accessory)
-			var/accessory_colour = sprite_accessories[accessory_category][accessory]
+			var/accessory_metadata = accessories[accessory]
 			for(var/bodypart in accessory_decl.body_parts)
 				var/obj/item/organ/external/O = GET_EXTERNAL_ORGAN(character, bodypart)
 				if(O)
-					O.set_sprite_accessory(accessory, accessory_category, accessory_colour, skip_update = TRUE)
+					O.set_sprite_accessory(accessory, accessory_category, accessory_metadata, skip_update = TRUE)
 
 	if(LAZYLEN(appearance_descriptors))
 		character.appearance_descriptors = appearance_descriptors.Copy()
@@ -435,8 +440,8 @@ var/global/list/time_prefs_fixed = list()
 	if(is_preview_copy)
 		return
 
-	for(var/token in cultural_info)
-		character.set_cultural_value(token, cultural_info[token], defer_language_update = TRUE)
+	for(var/token in background_info)
+		character.set_background_value(token, background_info[token], defer_language_update = TRUE)
 	character.update_languages()
 	for(var/lang in alternate_languages)
 		character.add_language(lang)

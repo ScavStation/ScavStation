@@ -1,6 +1,6 @@
 //the spellbook we know and love. Well, the one we know, at least.
 
-/obj/item/spellbook/standard
+/obj/item/book/spell/standard
 	spellbook_type = /datum/spellbook/standard
 
 /datum/spellbook/standard
@@ -38,7 +38,7 @@
 
 	sacrifice_objects = list(
 		/obj/item/toolbox,
-		/obj/item/cane,
+		/obj/item/cane/fancy,
 		/obj/item/flamethrower,
 		/obj/item/plastique,
 		/obj/item/dice,

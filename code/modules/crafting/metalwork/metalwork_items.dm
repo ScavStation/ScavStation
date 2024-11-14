@@ -13,10 +13,10 @@
 	icon_state = ICON_STATE_WORLD
 	material = /decl/material/solid/stone/pottery
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	w_class = ITEM_SIZE_NO_CONTAINER
+	w_class = ITEM_SIZE_STRUCTURE
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	storage = /datum/storage/crucible
-
+	obj_flags = OBJ_FLAG_NO_STORAGE
 	var/max_held = 10
 
 /obj/item/chems/crucible/attackby(obj/item/W, mob/user)
@@ -30,7 +30,7 @@
 			return TRUE
 
 	// Skim off any slag.
-	if(istype(W, /obj/item/chems) && ATOM_IS_OPEN_CONTAINER(W) && W.reagents && !istype(W, /obj/item/chems/food)) // TODO: food not being a container
+	if(istype(W, /obj/item/chems) && ATOM_IS_OPEN_CONTAINER(W) && W.reagents)
 
 		// Pour contents into the crucible.
 		if(W.reagents.total_volume)

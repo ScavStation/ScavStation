@@ -127,9 +127,10 @@
 
 /obj/machinery/replicator/attackby(obj/item/W, mob/user)
 	if(!user.try_unequip(W, src))
-		return
+		return FALSE
 	stored_materials.Add(W)
-	src.visible_message("<span class='notice'>\The [user] inserts \the [W] into \the [src].</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] inserts \the [W] into \the [src]."), SPAN_NOTICE("You insert \the [W] into \the [src]."))
+	return TRUE
 
 /obj/machinery/replicator/OnTopic(user, href_list)
 	if(href_list["activate"])

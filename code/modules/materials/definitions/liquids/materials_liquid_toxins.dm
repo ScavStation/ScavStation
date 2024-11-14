@@ -40,6 +40,7 @@
 	metabolism = REM * 0.25
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	compost_value = 0.1 // a pittance, but it's so that compost bins don't end up filled with uncompostable amatoxin
 
 /decl/material/liquid/carpotoxin
 	name = "carpotoxin"
@@ -58,6 +59,7 @@
 	metabolism = REM * 0.25
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	compost_value = 0.3 // a bit more than amatoxin or wax, but still not much
 
 /decl/material/liquid/venom
 	name = "spider venom"
@@ -76,8 +78,16 @@
 	metabolism = REM * 0.25
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	compost_value = 0.3 // a bit more than amatoxin or wax, but still not much
+
+/decl/material/liquid/venom/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+	return ..()
 
 /decl/material/liquid/venom/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	if(prob(REAGENT_VOLUME(holder, type)*2))
 		SET_STATUS_MAX(M, STAT_CONFUSE, 3)
 	..()
@@ -213,7 +223,7 @@
 		/decl/material/liquid/ethanol = 0.2
 	)
 	heating_point = 145 CELSIUS
-	heating_message = "separates"
+	heating_message = "separates."
 	taste_mult = 1.2
 	metabolism = REM * 0.25
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
@@ -231,6 +241,7 @@
 	metabolism = REM * 0.25
 
 /decl/material/liquid/hair_remover/affect_touch(var/mob/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	M.lose_hair()
 	holder.remove_reagent(type, REAGENT_VOLUME(holder, type))
 	return TRUE
@@ -251,6 +262,7 @@
 	var/amount_to_zombify = 5
 
 /decl/material/liquid/zombie/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	affect_blood(M, removed * 0.5, holder)
 	return TRUE
 

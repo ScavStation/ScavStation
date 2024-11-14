@@ -11,6 +11,7 @@
 	uid = "chem_amphetamines"
 
 /decl/material/liquid/amphetamines/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	if(prob(5))
 		M.emote(pick(/decl/emote/visible/twitch, /decl/emote/visible/blink_r, /decl/emote/visible/shiver))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
@@ -27,6 +28,7 @@
 	uid = "chem_narcotics"
 
 /decl/material/liquid/narcotics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	ADJ_STATUS(M, STAT_JITTER, -5)
 	if(prob(80))
 		M.take_damage(5.25 * removed, BRAIN)
@@ -49,6 +51,7 @@
 
 /decl/material/liquid/nicotine/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	var/volume = REAGENT_VOLUME(holder, type)
+	. = ..()
 	if(prob(volume*20))
 		M.add_chemical_effect(CE_PULSE, 1)
 	if(volume <= 0.02 && LAZYACCESS(M.chem_doses, type) >= 0.05 && world.time > REAGENT_DATA(holder, type) + 3 MINUTES)
@@ -75,6 +78,12 @@
 	var/sedative_strength = 1 // A multiplier on dose.
 
 /decl/material/liquid/sedatives/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+
+	. = ..()
+
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+
 	ADJ_STATUS(M, STAT_JITTER, -50)
 	var/threshold = 1
 	var/dose = LAZYACCESS(M.chem_doses, type) * sedative_strength
@@ -111,6 +120,10 @@
 
 /decl/material/liquid/psychoactives/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
+
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+
 	SET_STATUS_MAX(M, STAT_DRUGGY, 15)
 	M.add_chemical_effect(CE_PULSE, -1)
 
@@ -126,8 +139,13 @@
 	uid = "chem_hallucinogenics"
 
 /decl/material/liquid/hallucinogenics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
+
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	M.add_chemical_effect(CE_MIND, -2)
 	M.set_hallucination(50, 50)
+
 
 /decl/material/liquid/psychotropics
 	name = "psychotropics"
@@ -140,9 +158,13 @@
 	euphoriant = 30
 	fruit_descriptor = "hallucinogenic"
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	compost_value = 0.1 // a pittance, but it's so that compost bins don't end up filled with uncompostable psychotropics
 	uid = "chem_psychotropics"
 
 /decl/material/liquid/psychotropics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	var/threshold = 1
 	var/dose = LAZYACCESS(M.chem_doses, type)
 	if(dose < 1 * threshold)
@@ -166,6 +188,7 @@
 		SET_STATUS_MAX(M, STAT_DRUGGY, 40)
 		if(prob(15))
 			M.emote(pick(/decl/emote/visible/twitch, /decl/emote/audible/giggle))
+
 
 // Welcome back, Three Eye
 /decl/material/liquid/glowsap/gleam

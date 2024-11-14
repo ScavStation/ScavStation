@@ -15,14 +15,14 @@
 ///Level data for generating surface levels on exoplanets
 /datum/level_data/planetoid/exoplanet
 	base_area = /area/exoplanet
-	base_turf = /turf/floor/natural/dirt
+	base_turf = /turf/floor/dirt
 	daycycle_id = null // will be generated
 	daycycle_type = /datum/daycycle/exoplanet
 
 ///Level data for generating underground levels on exoplanets
 /datum/level_data/planetoid/exoplanet/underground
 	base_area = /area/exoplanet/underground
-	base_turf = /turf/floor/natural/rock
+	base_turf = /turf/floor/rock
 	level_generators = list(
 		/datum/random_map/noise/exoplanet/mantle,
 		/datum/random_map/automata/cave_system/mantle,
@@ -82,11 +82,12 @@
 	//Rename the surface area if we have one yet
 	adapt_location_name(parent_planetoid.name)
 
-///If we're getting atmos from our parent planet, decide if we're going to apply it, or ignore it
+///If we're getting atmos from our parent planet, apply it.
 /datum/level_data/planetoid/proc/apply_planet_atmosphere(var/datum/planetoid_data/P)
-	if(istype(exterior_atmosphere))
-		return //level atmos takes priority over planet atmos
-	exterior_atmosphere = P.atmosphere.Clone() //Make sure we get one instance per level
+	if(istype(P) && istype(P.atmosphere))
+		exterior_atmosphere = P.atmosphere.Clone()
+		exterior_atmosphere.update_values()
+		exterior_atmosphere.check_tile_graphic()
 
 ///Apply our parent planet's ambient lighting settings if we want to.
 /datum/level_data/planetoid/proc/apply_planet_ambient_lighting(var/datum/planetoid_data/P)

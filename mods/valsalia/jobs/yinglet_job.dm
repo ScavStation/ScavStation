@@ -1,7 +1,7 @@
 /datum/job/yinglet
 	hud_icon = "hudying"
 	supervisors = "the Matriarch and the Patriarches"
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/assistant
+	outfit_type = /decl/outfit/job/yinglet/assistant
 	department_types = list(/decl/department/enclave)
 	max_skill = list(
 		SKILL_PILOT    = SKILL_ADEPT,
@@ -20,12 +20,12 @@
 	if(required_gender && prefs.gender != required_gender)
 		. = "[required_gender] only"
 
-/decl/hierarchy/outfit/job
+/decl/outfit/job
 	var/yinglet_suit_fallback
 	var/yinglet_suit_service
 	var/yinglet_suit_officiated
 
-/decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/human/H, var/title)
+/decl/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/human/H, var/title)
 
 	if(H?.species.name != SPECIES_YINGLET)
 		return
@@ -54,6 +54,6 @@
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/jacket/redcoat/yinglet, slot_wear_suit_str)
 
-/decl/hierarchy/outfit/job/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/outfit/job/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	. = ..()
 	try_give_yinglet_fallbacks(H, assignment)

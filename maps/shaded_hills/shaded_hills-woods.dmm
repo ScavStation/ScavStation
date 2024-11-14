@@ -1,26 +1,25 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "af" = (
 /obj/abstract/landmark/start/shaded_hills/traveller/learned,
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside/woods)
 "bL" = (
 /obj/abstract/landmark/latejoin,
-/turf/floor/natural/path/running_bond/basalt,
+/turf/floor/path/running_bond/basalt,
 /area/shaded_hills/outside/woods)
 "cN" = (
-/obj/structure/table/woodentable/ebony,
 /obj/item/bladed/knife,
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "dp" = (
-/turf/wall/log/ebony,
+/turf/wall/log/walnut,
 /area/shaded_hills/outside/river/woods)
 "eJ" = (
 /obj/abstract/landmark/start/shaded_hills/forester,
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside/river/woods)
 "eR" = (
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/outside/woods)
 "fw" = (
 /turf/unsimulated/dark_filler,
@@ -29,33 +28,33 @@
 /turf/wall/natural/basalt/shaded_hills,
 /area/shaded_hills/caves/unexplored/woods)
 "hT" = (
-/turf/floor/natural/mud/water/deep,
+/turf/floor/mud/water/deep,
 /area/shaded_hills/outside/river/lake)
 "ix" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/caves/woods)
 "kx" = (
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside/river/woods)
 "kZ" = (
 /obj/abstract/level_data_spawner/shaded_hills_woods,
 /turf/wall/natural/basalt/shaded_hills,
 /area/shaded_hills/caves/river/woods)
 "lb" = (
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "lC" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/outside/woods)
 "lU" = (
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside/woods)
 "ma" = (
-/turf/floor/natural/mud/water,
+/turf/floor/mud/water,
 /area/shaded_hills/outside/river/lake)
 "mo" = (
-/obj/structure/door/ebony,
-/turf/floor/natural/path/basalt,
+/obj/structure/door/walnut,
+/turf/floor/path/basalt,
 /area/shaded_hills/forester_hut)
 "nl" = (
 /turf/wall/natural/basalt/shaded_hills,
@@ -64,62 +63,57 @@
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/outside/river/lake)
 "qy" = (
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/caves/woods)
 "sS" = (
-/turf/floor/natural/mud/water,
+/turf/floor/mud/water,
 /area/shaded_hills/caves/river/woods)
 "te" = (
-/turf/floor/natural/rock/basalt,
+/turf/floor/rock/basalt,
 /area/shaded_hills/outside/woods)
 "ul" = (
-/turf/floor/natural/mud/water,
+/turf/floor/mud/water,
 /area/shaded_hills/outside/river/woods)
 "uA" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/outside/river/woods)
-"vw" = (
-/obj/structure/table/woodentable/ebony,
-/obj/item/stack/material/bundle/grass/dry,
-/turf/floor/wood/ebony,
-/area/shaded_hills/forester_hut)
 "wD" = (
-/obj/structure/table/woodentable/ebony,
 /obj/item/fishing_rod,
-/turf/floor/wood/ebony,
+/obj/structure/table/end/alt/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "xn" = (
 /turf/unsimulated/mask,
 /area/shaded_hills/outside/woods/poi)
 "xr" = (
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/outside/river/lake)
 "zp" = (
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/outside/river/woods)
 "zq" = (
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside/river/woods)
 "Al" = (
 /turf/unsimulated/dark_filler,
 /area/shaded_hills/caves/unexplored/woods)
 "AN" = (
-/obj/structure/railing/mapped/ebony,
-/turf/floor/wood/ebony,
+/obj/structure/railing/mapped/wooden/walnut,
+/turf/floor/wood/walnut,
 /area/shaded_hills/outside/river/woods)
 "Co" = (
 /obj/abstract/landmark/start/shaded_hills/traveller/learned,
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside/woods)
 "DB" = (
-/obj/structure/drying_rack,
-/turf/floor/natural/dirt,
+/obj/structure/drying_rack/ebony,
+/turf/floor/dirt,
 /area/shaded_hills/outside/river/woods)
 "DX" = (
-/turf/floor/natural/mud/water/deep,
+/turf/floor/mud/water/deep,
 /area/shaded_hills/caves/river/woods)
 "ES" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside/river/woods)
 "EV" = (
 /turf/unsimulated/mask,
@@ -129,72 +123,88 @@
 /area/shaded_hills/caves/woods)
 "Fz" = (
 /obj/structure/fire_source/stove,
-/obj/item/stack/material/log/mapped/ebony/ten,
-/turf/floor/wood/ebony,
+/obj/item/stack/material/log/mapped/walnut/ten,
+/turf/floor/wood/walnut,
+/area/shaded_hills/forester_hut)
+"GB" = (
+/turf/floor/carpet/rustic,
 /area/shaded_hills/forester_hut)
 "HA" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside/woods)
 "Jd" = (
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside/woods)
 "Jz" = (
 /obj/structure/bed/simple/ebony,
 /obj/item/bedsheet/furs,
 /obj/abstract/landmark/start/shaded_hills/forester,
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "JI" = (
-/obj/structure/railing/mapped/ebony{
+/obj/structure/railing/mapped/wooden/walnut{
 	dir = 1
 	},
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/outside/river/woods)
 "JJ" = (
 /obj/structure/meat_hook,
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "LJ" = (
-/turf/floor/natural/path/running_bond/basalt,
+/turf/floor/path/running_bond/basalt,
 /area/shaded_hills/outside/woods)
+"Md" = (
+/obj/structure/table/desk/ebony,
+/obj/item/stack/material/bundle/grass/dry{
+	amount = 5
+	},
+/turf/floor/wood/walnut,
+/area/shaded_hills/forester_hut)
 "My" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside/river/lake)
 "MR" = (
-/obj/structure/wall_sconce/lantern,
-/turf/floor/wood/ebony,
+/obj/structure/wall_sconce/lantern{
+	start_lit = 1
+	},
+/turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "MU" = (
-/turf/wall/log/ebony/shutter,
+/turf/wall/log/walnut/shutter/open,
 /area/shaded_hills/forester_hut)
 "Oi" = (
 /obj/structure/closet/crate/chest/ebony,
-/turf/floor/wood/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "PO" = (
-/turf/floor/natural/mud/water/deep,
+/turf/floor/mud/water/deep,
 /area/shaded_hills/outside/river/woods)
 "SI" = (
-/turf/wall/log/ebony,
+/turf/wall/log/walnut,
 /area/shaded_hills/forester_hut)
 "TP" = (
-/obj/structure/table/woodentable/ebony,
-/turf/floor/wood/ebony,
+/obj/structure/table/desk/dresser/ebony,
+/turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
+"Uz" = (
+/obj/effect/departure_signpost/north,
+/turf/floor/dirt,
+/area/shaded_hills/outside/woods)
 "VA" = (
 /obj/abstract/landmark/start/shaded_hills/traveller,
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside/woods)
 "Wb" = (
 /obj/abstract/landmark/start/shaded_hills/traveller,
-/turf/floor/natural/barren,
+/turf/floor/barren,
 /area/shaded_hills/caves/woods)
 "Xt" = (
-/turf/floor/natural/mud,
+/turf/floor/mud,
 /area/shaded_hills/caves/woods)
 "YB" = (
 /obj/abstract/landmark/latejoin,
-/turf/floor/natural/dirt,
+/turf/floor/dirt,
 /area/shaded_hills/outside/woods)
 "YO" = (
 /turf/unsimulated/mask,
@@ -204,11 +214,11 @@
 	dir = 1;
 	pixel_y = 10
 	},
-/turf/floor/natural/path/basalt,
+/turf/floor/path/basalt,
 /area/shaded_hills/outside/river/woods)
 "ZO" = (
 /obj/abstract/landmark/start/shaded_hills/traveller,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/shaded_hills/outside/woods)
 
 (1,1,1) = {"
@@ -1740,7 +1750,7 @@ lC
 lC
 lC
 YB
-lU
+Uz
 HA
 HA
 HA
@@ -19602,9 +19612,9 @@ YO
 ES
 MU
 TP
-lb
-lb
-lb
+GB
+GB
+GB
 lb
 mo
 zq
@@ -19754,9 +19764,9 @@ YO
 ES
 SI
 Jz
-lb
-lb
-lb
+GB
+GB
+GB
 MR
 SI
 DB
@@ -19905,10 +19915,10 @@ YO
 ES
 ES
 SI
-Oi
-lb
-lb
-lb
+Md
+GB
+GB
+GB
 JJ
 MU
 kx
@@ -20058,7 +20068,7 @@ ES
 ES
 SI
 cN
-vw
+lb
 wD
 lb
 JJ

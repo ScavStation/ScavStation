@@ -81,7 +81,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/evac_controller_type = /datum/evacuation_controller
 	var/list/overmap_ids // Assoc list of overmap ID to overmap type, leave empty to disable overmap.
 
-	var/pray_reward_type = /obj/item/chems/food/cookie // What reward should be given by admin when a prayer is received?
+	var/pray_reward_type = /obj/item/food/cookie // What reward should be given by admin when a prayer is received?
 
 	// The list of lobby screen images to pick() from.
 	var/list/lobby_screens = list('icons/default_lobby.png')
@@ -127,18 +127,18 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	var/default_species = SPECIES_HUMAN
 
-	var/list/available_cultural_info = list(
-		TAG_HOMEWORLD = list(/decl/cultural_info/location/other),
-		TAG_FACTION =   list(/decl/cultural_info/faction/other),
-		TAG_CULTURE =   list(/decl/cultural_info/culture/other),
-		TAG_RELIGION =  list(/decl/cultural_info/religion/other)
+	var/list/available_background_info = list(
+		/decl/background_category/homeworld = list(/decl/background_detail/location/other),
+		/decl/background_category/faction =   list(/decl/background_detail/faction/other),
+		/decl/background_category/heritage =   list(/decl/background_detail/heritage/other),
+		/decl/background_category/religion =  list(/decl/background_detail/religion/other)
 	)
 
-	var/list/default_cultural_info = list(
-		TAG_HOMEWORLD = /decl/cultural_info/location/other,
-		TAG_FACTION =   /decl/cultural_info/faction/other,
-		TAG_CULTURE =   /decl/cultural_info/culture/other,
-		TAG_RELIGION =  /decl/cultural_info/religion/other
+	var/list/default_background_info = list(
+		/decl/background_category/homeworld = /decl/background_detail/location/other,
+		/decl/background_category/faction =   /decl/background_detail/faction/other,
+		/decl/background_category/heritage =   /decl/background_detail/heritage/other,
+		/decl/background_category/religion =  /decl/background_detail/religion/other
 	)
 
 	var/access_modify_region = list(
@@ -167,6 +167,40 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	/// Decl list of backpacks available to outfits and in character generation.
 	var/list/_available_backpacks
 	var/backpacks_setup = FALSE
+
+	var/list/char_preview_bgstate_options = list(
+		"000",
+		"midgrey",
+		"FFF",
+		"white",
+		"steel",
+		"techmaint",
+		"dark",
+		"plating",
+		"reinforced"
+	)
+	var/background_categories_generated = FALSE
+	var/list/_background_categories
+
+/datum/map/proc/get_background_categories()
+	if(!background_categories_generated)
+		if(isnull(_background_categories))
+			_background_categories = decls_repository.get_decls_of_type(/decl/background_category)
+		else
+			for(var/cat_type in _background_categories)
+				_background_categories[cat_type] = GET_DECL(cat_type)
+		background_categories_generated = TRUE
+	return _background_categories
+
+/datum/map/proc/get_random_location()
+	var/list/options = list()
+	for(var/cat_type in available_background_info)
+		var/decl/background_category/background_cat = GET_DECL(cat_type)
+		if(istype(background_cat) && (background_cat.background_flags & BACKGROUND_FLAG_LOCATION))
+			options |= available_background_info[cat_type]
+	if(length(options))
+		return GET_DECL(pick(options))
+	return GET_DECL(/decl/background_detail/location/other)
 
 /datum/map/proc/get_lobby_track(var/exclude)
 	var/lobby_track_type
@@ -366,7 +400,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		log_unit_test("Loaded template '[PT]' ([PT.type]) at Z-level [world.maxz] with a tallness of [PT.tallness]")
 #endif
 
-// By default transition randomly to another zlevel
+// By default return a random accessible z-level, or the current level if one is unavailable
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
 	var/list/candidates = SSmapping.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
@@ -490,3 +524,6 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 /datum/map/proc/populate_overmap_events()
 	for(var/overmap_id in global.overmaps_by_name)
 		SSmapping.overmap_event_handler.create_events(global.overmaps_by_name[overmap_id])
+
+/datum/map/proc/finalize_map_generation()
+	return

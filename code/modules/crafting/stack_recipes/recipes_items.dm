@@ -7,9 +7,14 @@
 	category          = "weapons"
 
 /decl/stack_recipe/candle
-	result_type       = /obj/item/flame/candle
+	result_type       = /obj/item/flame/candle/handmade
 	difficulty        = MAT_VALUE_EASY_DIY
 	required_material = /decl/material/solid/organic/wax
+
+/decl/stack_recipe/scroll
+	name              = "scroll"
+	result_type       = /obj/item/paper/scroll
+	required_material = /decl/material/solid/organic/paper
 
 /decl/stack_recipe/paper_sheets
 	name              = "sheet of paper"

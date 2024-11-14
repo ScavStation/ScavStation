@@ -29,11 +29,19 @@
 	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
 
 /decl/stack_recipe/planks/fishing_rod
-	result_type = /obj/item/fishing_rod
+	result_type            = /obj/item/fishing_rod
 
 /decl/stack_recipe/planks/stick
 	result_type            = /obj/item/stick
 	difficulty             = MAT_VALUE_EASY_DIY
+
+/decl/stack_recipe/planks/staff
+	result_type            = /obj/item/staff
+	difficulty             = MAT_VALUE_NORMAL_DIY
+
+/decl/stack_recipe/planks/cane
+	result_type            = /obj/item/cane
+	difficulty             = MAT_VALUE_NORMAL_DIY
 
 /decl/stack_recipe/planks/bucket
 	result_type            = /obj/item/chems/glass/bucket/wood
@@ -60,6 +68,15 @@
 	on_floor               = TRUE
 	difficulty             = MAT_VALUE_HARD_DIY
 	set_dir_on_spawn       = FALSE
+
+/decl/stack_recipe/planks/cup
+	result_type            = /obj/item/chems/glass/handmade/cup
+
+/decl/stack_recipe/planks/mug
+	result_type            = /obj/item/chems/glass/handmade/mug
+
+/decl/stack_recipe/planks/bowl
+	result_type            = /obj/item/chems/glass/handmade/bowl
 
 /decl/stack_recipe/planks/noticeboard/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color, spent_type, spent_amount = 1)
 	. = ..()
@@ -118,6 +135,12 @@
 /decl/stack_recipe/planks/furniture/compost_bin
 	result_type            = /obj/structure/reagent_dispensers/compost_bin
 
+/decl/stack_recipe/planks/furniture/filter_stand
+	result_type            = /obj/structure/filter_stand
+
+/decl/stack_recipe/planks/furniture/produce_bin
+	result_type            = /obj/structure/produce_bin
+
 /decl/stack_recipe/planks/furniture/coffin
 	result_type            = /obj/structure/closet/coffin/wooden
 
@@ -158,16 +181,20 @@
 	difficulty             = MAT_VALUE_EASY_DIY
 
 /decl/stack_recipe/planks/furniture/spinning_wheel
-	result_type            = /obj/structure/textiles/spinning_wheel
+	result_type            = /obj/structure/working/spinning_wheel
 	difficulty             = MAT_VALUE_VERY_HARD_DIY
 
 /decl/stack_recipe/planks/furniture/loom
-	result_type            = /obj/structure/textiles/loom
+	result_type            = /obj/structure/working/loom
 	difficulty             = MAT_VALUE_VERY_HARD_DIY
 
 /decl/stack_recipe/planks/furniture/twisting_bench
-	result_type            = /obj/structure/textiles/spinning_wheel/twisting_bench
+	result_type            = /obj/structure/working/spinning_wheel/twisting_bench
 	difficulty             = MAT_VALUE_VERY_HARD_DIY
+
+/decl/stack_recipe/planks/furniture/butter_churn
+	result_type            = /obj/structure/working/butter_churn
+	difficulty             = MAT_VALUE_HARD_DIY
 
 /decl/stack_recipe/planks/furniture/cabinet
 	result_type            = /obj/structure/closet/cabinet/wooden
@@ -181,3 +208,7 @@
 	result_type            = /obj/structure/table/frame
 	category               = "furniture"
 	difficulty             = MAT_VALUE_HARD_DIY
+
+/decl/stack_recipe/planks/furniture/gravemarker
+	result_type            = /obj/item/gravemarker
+	difficulty             = MAT_VALUE_NORMAL_DIY

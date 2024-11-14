@@ -6,7 +6,6 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/metal/steel
-	throwforce = 2
 	throw_speed = 3
 	throw_range = 10
 	origin_tech = @'{"magnets":1}'
@@ -114,20 +113,21 @@
 	return 0
 
 
-/obj/item/assembly/attackby(obj/item/W, mob/user)
-	if(isassembly(W))
-		var/obj/item/assembly/A = W
-		if((!A.secured) && (!secured))
-			attach_assembly(A,user)
-			return
-	if(IS_SCREWDRIVER(W))
+/obj/item/assembly/attackby(obj/item/component, mob/user)
+	if(!user_can_attack_with(user) || !component.user_can_attack_with(user))
+		return TRUE
+	if(isassembly(component))
+		var/obj/item/assembly/assembly = component
+		if(!assembly.secured && !secured)
+			attach_assembly(assembly, user)
+			return TRUE
+	if(IS_SCREWDRIVER(component))
 		if(toggle_secure())
-			to_chat(user, "<span class='notice'>\The [src] is ready!</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
 		else
-			to_chat(user, "<span class='notice'>\The [src] can now be attached!</span>")
-		return
-	..()
-	return
+			to_chat(user, SPAN_NOTICE("\The [src] can now be attached!"))
+		return TRUE
+	return ..()
 
 
 /obj/item/assembly/Process()
@@ -144,10 +144,13 @@
 
 
 /obj/item/assembly/attack_self(mob/user)
-	if(!user)	return 0
+	if(!user) // is this check even necessary outside of admin proccalls?
+		return FALSE
+	if(!user_can_attack_with(user))
+		return TRUE
 	user.set_machine(src)
 	interact(user)
-	return 1
+	return TRUE
 
 /obj/item/assembly/interact(mob/user)
 	return //HTML MENU FOR WIRES GOES HERE

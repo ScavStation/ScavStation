@@ -42,14 +42,14 @@
 		mode[m] = !mode[m]
 		var/O = mode[m]
 		user.visible_message("<span class='notice'>[usr] has set \the [src] [m] mode [!O?"off":"on"].</span>", "<span class='notice'>You set \the [src] [m] mode [!O?"off":"on"].</span>")
-		return
+		return TRUE
 
 	if(istype(W, /obj/item/stack/tile))
 		if(!user.try_unequip(W, T))
-			return
+			return TRUE
 		to_chat(user, "<span class='notice'>\The [W] successfully loaded.</span>")
 		TakeTile(T)
-		return
+		return TRUE
 
 	if(IS_CROWBAR(W))
 		if(!length(contents))
@@ -57,15 +57,15 @@
 		else
 			var/obj/item/stack/tile/E = input("Choose remove tile type.", "Tiles") as null|anything in contents
 			if(E)
-				to_chat(user, "<span class='notice'>You remove the [E] from /the [src].</span>")
+				to_chat(user, "<span class='notice'>You remove \the [E] from \the [src].</span>")
 				E.dropInto(loc)
 				T = null
-		return
+		return TRUE
 
 	if(IS_SCREWDRIVER(W))
 		T = input("Choose tile type.", "Tiles") as null|anything in contents
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/floorlayer/examine(mob/user)
 	. = ..()
@@ -82,7 +82,7 @@
 	if(istype(new_turf, /turf/floor))
 		var/turf/floor/T = new_turf
 		if(!T.is_plating())
-			T.make_plating(!T.is_floor_damaged())
+			T.set_flooring(null, place_product = !T.is_floor_damaged())
 	return new_turf.is_plating()
 
 /obj/machinery/floorlayer/proc/TakeNewStack()

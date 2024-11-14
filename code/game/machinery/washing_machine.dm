@@ -69,7 +69,7 @@
 /obj/machinery/washing_machine/proc/wash()
 	if(operable())
 		var/list/washing_atoms = get_contained_external_atoms()
-		var/amount_per_atom = FLOOR(reagents.total_volume / length(washing_atoms))
+		var/amount_per_atom = floor(reagents.total_volume / length(washing_atoms))
 
 		if(amount_per_atom > 0)
 			var/decl/material/smelliest = get_smelliest_reagent(reagents)
@@ -97,12 +97,12 @@
 	if(istype(W, /obj/item/chems/pill/detergent))
 		if(!(atom_flags & ATOM_FLAG_OPEN_CONTAINER))
 			to_chat(user, SPAN_WARNING("Open the detergent port first!"))
-			return
+			return TRUE
 		if(reagents.total_volume >= reagents.maximum_volume)
 			to_chat(user, SPAN_WARNING("The detergent port is full!"))
-			return
+			return TRUE
 		if(!user.try_unequip(W))
-			return
+			return TRUE
 		// Directly transfer to the holder to avoid touch reactions.
 		W.reagents?.trans_to_holder(reagents, W.reagents.total_volume)
 		to_chat(user, SPAN_NOTICE("You dissolve \the [W] in the detergent port."))
@@ -131,14 +131,14 @@
 			else if((!length(wash_whitelist) || is_type_in_list(W, wash_whitelist)) && !is_type_in_list(W, wash_blacklist))
 				if(W.w_class > max_item_size)
 					to_chat(user, SPAN_WARNING("\The [W] is too large for \the [src]!"))
-					return
+					return TRUE
 				if(!user.try_unequip(W, src))
-					return
+					return TRUE
 				state |= WASHER_STATE_LOADED
 				update_icon()
 			else
 				to_chat(user, SPAN_WARNING("You can't put \the [W] in \the [src]."))
-				return
+				return TRUE
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] is full."))
 			return TRUE
@@ -256,14 +256,16 @@
 	if(.)
 		return washer.operable() && !(washer.state & WASHER_STATE_RUNNING)
 
-/decl/interaction_handler/start_washer/invoked(obj/machinery/washing_machine/washer, mob/user)
+/decl/interaction_handler/start_washer/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/machinery/washing_machine/washer = target
 	return washer.start_washing(user)
 
 /decl/interaction_handler/toggle_open/washing_machine
 	name = "Toggle detergent port"
 	expected_target_type = /obj/machinery/washing_machine
 
-/decl/interaction_handler/toggle_open/washing_machine/invoked(obj/machinery/washing_machine/washer, mob/user)
+/decl/interaction_handler/toggle_open/washing_machine/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/machinery/washing_machine/washer = target
 	return washer.toggle_detergent_port(user)
 
 /obj/machinery/washing_machine/on_update_icon()

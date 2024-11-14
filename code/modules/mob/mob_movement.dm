@@ -1,9 +1,9 @@
 /mob
 	var/moving           = FALSE
 
-/mob/proc/SelfMove(var/direction)
+/atom/movable/proc/SelfMove(var/direction)
 	if(DoMove(direction, src) & MOVEMENT_HANDLED)
-		return TRUE // Doesn't necessarily mean the mob physically moved
+		return TRUE // Doesn't necessarily mean the atom physically moved
 
 /mob/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	. = current_posture.prone || ..() || !mover.density
@@ -84,35 +84,29 @@
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
 /atom/movable/Move(newloc, direct)
 	if (direct & (direct - 1))
-		if (direct & 1)
-			if (direct & 4)
+		if (direct & NORTH)
+			if (direct & EAST)
 				if (step(src, NORTH))
 					step(src, EAST)
-				else
-					if (step(src, EAST))
-						step(src, NORTH)
-			else
-				if (direct & 8)
-					if (step(src, NORTH))
-						step(src, WEST)
-					else
-						if (step(src, WEST))
-							step(src, NORTH)
+				else if (step(src, EAST))
+					step(src, NORTH)
+			else if (direct & WEST)
+				if (step(src, NORTH))
+					step(src, WEST)
+				else if (step(src, WEST))
+					step(src, NORTH)
 		else
-			if (direct & 2)
-				if (direct & 4)
+			if (direct & SOUTH)
+				if (direct & EAST)
 					if (step(src, SOUTH))
 						step(src, EAST)
-					else
-						if (step(src, EAST))
-							step(src, SOUTH)
-				else
-					if (direct & 8)
-						if (step(src, SOUTH))
-							step(src, WEST)
-						else
-							if (step(src, WEST))
-								step(src, SOUTH)
+					else if (step(src, EAST))
+						step(src, SOUTH)
+				else if (direct & WEST)
+					if (step(src, SOUTH))
+						step(src, WEST)
+					else if (step(src, WEST))
+						step(src, SOUTH)
 	else
 		var/atom/A = src.loc
 
@@ -190,7 +184,7 @@
 		if(T.density || T.is_wall() || (T.is_floor() && (shoegrip || T.has_gravity())))
 			return T
 
-	var/obj/item/grab/G = locate() in src
+	var/obj/item/grab/grab = locate() in src
 	for(var/A in range(1, get_turf(src)))
 		if(istype(A,/atom/movable))
 			var/atom/movable/AM = A
@@ -203,7 +197,7 @@
 			if(AM.density || !AM.CanPass(src))
 				if(AM.anchored)
 					return AM
-				if(G && AM == G.affecting)
+				if(grab && AM == grab.affecting)
 					continue
 				. = AM
 
@@ -313,7 +307,7 @@
 	var/choice = input(usr, "Select a default walk.", "Set Default Walk") as null|anything in get_movement_datums_by_missing_flag(MOVE_INTENT_QUICK)
 	if(choice && (choice in get_movement_datums_by_missing_flag(MOVE_INTENT_QUICK)))
 		default_walk_intent = choice
-		to_chat(src, "You will now default to [default_walk_intent] when moving deliberately.")
+		to_chat(src, SPAN_NOTICE("You will now default to [default_walk_intent] when moving deliberately."))
 
 /mob/verb/SetDefaultRun()
 	set name = "Set Default Run"
@@ -322,7 +316,7 @@
 	var/choice = input(usr, "Select a default run.", "Set Default Run") as null|anything in get_movement_datums_by_flag(MOVE_INTENT_QUICK)
 	if(choice && (choice in get_movement_datums_by_flag(MOVE_INTENT_QUICK)))
 		default_run_intent = choice
-		to_chat(src, "You will now default to [default_run_intent] when moving quickly.")
+		to_chat(src, SPAN_NOTICE("You will now default to [default_run_intent] when moving quickly."))
 
 /client/verb/setmovingslowly()
 	set hidden = 1
@@ -347,7 +341,7 @@
 		set_move_intent(default_run_intent)
 
 /mob/proc/can_sprint()
-	return FALSE
+	return TRUE
 
 /mob/proc/adjust_stamina(var/amt)
 	return

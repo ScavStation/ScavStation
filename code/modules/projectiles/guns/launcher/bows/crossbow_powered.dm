@@ -63,7 +63,7 @@
 		return
 	if(cell.charge < 500)
 		return
-	if(_loaded.throwforce >= 15)
+	if(_loaded.get_thrown_attack_force() >= 15)
 		return
 	if(!istype(_loaded, /obj/item/stack/material/bow_ammo))
 		return
@@ -87,7 +87,6 @@
 /obj/item/stack/material/bow_ammo/bolt/rcd
 	name = "flashforged bolt"
 	desc = "The ultimate ghetto deconstruction implement."
-	throwforce = 4
 	material = /decl/material/solid/slag
 
 /obj/item/gun/launcher/bow/crossbow/powered/rapidcrossbowdevice
@@ -122,23 +121,25 @@
 		var/obj/item/rcd_ammo/cartridge = W
 		if((stored_matter + cartridge.remaining) > max_stored_matter)
 			to_chat(user, SPAN_NOTICE("The RCD can't hold that many additional matter-units."))
-			return
+			return TRUE
 		stored_matter += cartridge.remaining
 		qdel(W)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("The RCD now holds [stored_matter]/[max_stored_matter] matter-units."))
 		update_icon()
-
+		return TRUE
 	if(istype(W, /obj/item/stack/material/bow_ammo/bolt/rcd))
 		var/obj/item/stack/material/bow_ammo/bolt/rcd/A = W
 		if((stored_matter + 10) > max_stored_matter)
 			to_chat(user, SPAN_NOTICE("Unable to reclaim flashforged bolt. The RCD can't hold that many additional matter-units."))
-			return
+			return TRUE
 		stored_matter += 10
 		qdel(A)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("Flashforged bolt reclaimed. The RCD now holds [stored_matter]/[max_stored_matter] matter-units."))
 		update_icon()
+		return TRUE
+	return ..()
 
 /obj/item/gun/launcher/bow/crossbow/powered/rapidcrossbowdevice/on_update_icon()
 	. = ..()

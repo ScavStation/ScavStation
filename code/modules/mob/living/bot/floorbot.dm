@@ -81,7 +81,7 @@
 	if(!emagged)
 		emagged = 1
 		if(user)
-			to_chat(user, "<span class='notice'>The [src] buzzes and beeps.</span>")
+			to_chat(user, "<span class='notice'>\The [src] buzzes and beeps.</span>")
 		return 1
 
 /mob/living/bot/floorbot/handleRegular()
@@ -130,7 +130,7 @@
 		if(emagged)
 			return 1
 		else
-			return (amount && (T.is_floor_damaged() || (improvefloors && !T.flooring)))
+			return (amount && (T.is_floor_damaged() || (improvefloors && !T.has_flooring())))
 
 /mob/living/bot/floorbot/UnarmedAttack(var/atom/A, var/proximity)
 
@@ -148,8 +148,8 @@
 		var/turf/floor/F = A
 		busy = 1
 		update_icon()
-		if(F.flooring)
-			visible_message("<span class='warning'>[src] begins to tear the floor tile from the floor.</span>")
+		if(F.has_flooring())
+			visible_message("<span class='warning'>[src] begins to tear up \the [F].</span>")
 			if(do_after(src, 50, F))
 				F.break_tile_to_plating()
 				addTiles(1)
@@ -169,18 +169,18 @@
 			anchored = TRUE
 			if(do_after(src, 50, F))
 				if(F.is_floor_damaged())
-					F.make_plating()
+					F.set_flooring(null)
 			anchored = FALSE
 			target = null
 			busy = 0
 			update_icon()
-		else if(!F.flooring && amount)
+		else if(!F.has_flooring() && amount)
 			busy = 1
 			update_icon()
 			visible_message("<span class='notice'>[src] begins to improve the floor.</span>")
 			anchored = TRUE
 			if(do_after(src, 50, F))
-				if(!F.flooring)
+				if(!F.has_flooring())
 					F.set_flooring(GET_DECL(floor_build_type))
 					addTiles(-1)
 			anchored = FALSE

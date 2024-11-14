@@ -49,7 +49,7 @@
 				qdel(food)
 			total_nutriment += digested/100
 	// Apply to reagents.
-	total_nutriment = FLOOR(total_nutriment)
+	total_nutriment = floor(total_nutriment)
 	if(total_nutriment > 0 && owner)
 		owner.adjust_nutrition(total_nutriment)
 

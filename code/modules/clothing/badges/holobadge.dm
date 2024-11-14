@@ -46,7 +46,7 @@
 		var/obj/item/card/id/id_card = O.GetIdCard()
 
 		if(!id_card)
-			return
+			return TRUE
 
 		if((badge_access in id_card.access) || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
@@ -54,8 +54,8 @@
 			set_desc(user)
 		else
 			to_chat(user, "[src] rejects your ID, and flashes 'Insufficient access!'")
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/box/holobadge
 	name = "holobadge box"

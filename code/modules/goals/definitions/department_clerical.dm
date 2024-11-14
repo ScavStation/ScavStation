@@ -132,10 +132,10 @@
 	if(IS_PEN(W))
 		if(user.real_name in has_signed)
 			to_chat(user, SPAN_WARNING("You have already signed \the [src]."))
-			return
+			return TRUE
 		if(!(user.real_name in needs_signed))
 			to_chat(user, SPAN_WARNING("You can't see anywhere on \the [src] for you to sign; it doesn't need your signature."))
-			return
+			return TRUE
 		LAZYADD(has_signed, user.real_name)
 		LAZYREMOVE(needs_signed, user.real_name)
 		user.visible_message(SPAN_NOTICE("\The [user] signs \the [src] with \the [W]."))

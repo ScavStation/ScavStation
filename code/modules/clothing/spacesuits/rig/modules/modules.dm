@@ -75,43 +75,43 @@
 
 		if(damage == 0)
 			to_chat(user, "There is no damage to mend.")
-			return
+			return TRUE
 
 		to_chat(user, "You start mending the damaged portions of \the [src]...")
 
 		if(!do_after(user,30,src) || !W || !src)
-			return
+			return TRUE
 
 		var/obj/item/stack/nanopaste/paste = W
 		damage = 0
 		to_chat(user, "You mend the damage to [src] with [W].")
 		paste.use(1)
-		return
+		return TRUE
 
 	else if(IS_COIL(W))
 
 		switch(damage)
 			if(0)
 				to_chat(user, "There is no damage to mend.")
-				return
+				return TRUE
 			if(2)
 				to_chat(user, "There is no damage that you are capable of mending with such crude tools.")
-				return
+				return TRUE
 
 		var/obj/item/stack/cable_coil/cable = W
 		if(!cable.can_use(5))
 			to_chat(user, "You need five units of cable to repair \the [src].")
-			return
+			return TRUE
 
 		to_chat(user, "You start mending the damaged portions of \the [src]...")
 		if(!do_after(user,30,src) || !W || !src)
-			return
+			return TRUE
 
 		damage = 1
-		to_chat(user, "You mend some of damage to [src] with [W], but you will need more advanced tools to fix it completely.")
+		to_chat(user, "You mend some of the damage to [src] with [W], but you will need more advanced tools to fix it completely.")
 		cable.use(5)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/rig_module/Initialize()
 	. =..()

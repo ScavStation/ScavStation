@@ -63,22 +63,22 @@
 	if(!density)
 		if(istype(I,/obj/item/clothing) || istype(I,/obj/item/ironingiron))
 			to_chat(user, "<span class='notice'>[src] isn't deployed!</span>")
-			return
+			return TRUE
 		return ..()
 
 	if(istype(I,/obj/item/clothing))
 		if(cloth)
 			to_chat(user, "<span class='notice'>[cloth] is already on the ironing table!</span>")
-			return
+			return TRUE
 		if(buckled_mob)
 			to_chat(user, "<span class='notice'>[buckled_mob] is already on the ironing table!</span>")
-			return
+			return TRUE
 
 		if(user.try_unequip(I, src))
 			cloth = I
 			events_repository.register(/decl/observ/destroyed, I, src, TYPE_PROC_REF(/obj/structure/bed/roller/ironingboard, remove_item))
 			update_icon()
-		return
+		return TRUE
 	else if(istype(I,/obj/item/ironingiron))
 		var/obj/item/ironingiron/R = I
 
@@ -90,32 +90,32 @@
 
 			visible_message("<span class='danger'>[user] begins ironing [src.buckled_mob]'s [parsed]!</span>", "<span class='danger'>You begin ironing [buckled_mob]'s [parsed]!</span>")
 			if(!do_after(user, 40, src))
-				return
+				return TRUE
 			visible_message("<span class='danger'>[user] irons [src.buckled_mob]'s [parsed]!</span>", "<span class='danger'>You iron [buckled_mob]'s [parsed]!</span>")
 
 			var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(H, zone)
 			affecting.take_external_damage(0, 15, used_weapon = "Hot metal")
 
-			return
+			return TRUE
 
 		if(!cloth)
 			if(!holding && !R.enabled && user.try_unequip(I, src))
 				holding = R
 				events_repository.register(/decl/observ/destroyed, I, src, TYPE_PROC_REF(/obj/structure/bed/roller/ironingboard, remove_item))
 				update_icon()
-				return
+				return TRUE
 			to_chat(user, "<span class='notice'>There isn't anything on the ironing board.</span>")
-			return
+			return TRUE
 
 		visible_message("[user] begins ironing [cloth].")
-		if(!do_after(user, 40, src))
-			return
+		if(!do_after(user, 4 SECONDS, src))
+			return TRUE
 
 		visible_message("[user] finishes ironing [cloth].")
 		cloth.ironed_state = WRINKLES_NONE
-		return
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/structure/bed/roller/ironingboard/attack_hand(var/mob/user)
 	if(!user.check_dexterity(DEXTERITY_SIMPLE_MACHINES, TRUE) || buckled_mob)

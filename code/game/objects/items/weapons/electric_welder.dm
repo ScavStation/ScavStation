@@ -5,9 +5,8 @@
 	welding_resource = "stored charge"
 	tank = null
 	waterproof = TRUE
-	force = 7
-	throwforce = 7
 	lit_colour = COLOR_CYAN_BLUE
+	_base_attack_force = 7
 	var/fuel_cost_multiplier = 10
 
 /obj/item/weldingtool/electric/Initialize()
@@ -45,7 +44,7 @@
 
 /obj/item/weldingtool/electric/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W,/obj/item/stack/material/rods) || istype(W, /obj/item/chems/welder_tank))
-		return
+		return FALSE // NO ELECTRIC FLAMETHROWER
 	return ..()
 
 /obj/item/weldingtool/electric/use_fuel(var/amount)

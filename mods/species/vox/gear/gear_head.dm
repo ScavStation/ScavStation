@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/space/void/setup_equip_flags()
 	. = ..()
-	if(bodytype_equip_flags & BODY_FLAG_EXCLUDE)
-		bodytype_equip_flags |= BODY_FLAG_VOX
+	if(bodytype_equip_flags & BODY_EQUIP_FLAG_EXCLUDE)
+		bodytype_equip_flags |= BODY_EQUIP_FLAG_VOX
 
 /obj/item/clothing/head/helmet/space/vox
 	name = "alien helmet"
@@ -19,7 +19,7 @@
 	siemens_coefficient = 0.6
 	item_flags = 0
 	flags_inv = 0
-	bodytype_equip_flags = BODY_FLAG_VOX
+	bodytype_equip_flags = BODY_EQUIP_FLAG_VOX
 
 /obj/item/clothing/head/helmet/space/vox/carapace
 	name = "alien visor"
@@ -28,7 +28,7 @@
 	color = "#486e6e"
 	var/lights_color = "#00ffff"
 
-/obj/item/clothing/head/helmet/space/vox/carapace/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/clothing/head/helmet/space/vox/carapace/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && lights_color && check_state_in_icon("[overlay.icon_state]-lights", overlay.icon))
 		var/image/I = emissive_overlay(overlay.icon, "[overlay.icon_state]-lights")
 		I.color = lights_color

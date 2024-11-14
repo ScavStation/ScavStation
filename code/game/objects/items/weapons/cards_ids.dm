@@ -44,8 +44,8 @@
 			if(signature && !signed_by && !user.incapacitated() && Adjacent(user))
 				signed_by = signature
 				user.visible_message(SPAN_NOTICE("\The [user] signs \the [src] with a flourish."))
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/card/data
 	name = "data card"
@@ -186,7 +186,7 @@ var/global/const/NO_EMAG_ACT = -50
 	. = ..()
 	update_icon()
 
-/obj/item/card/id/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/card/id/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && detail_color)
 		overlay.overlays += overlay_image(overlay.icon, "[overlay.icon_state]-colors", detail_color, RESET_COLOR)
 	. = ..()
@@ -244,17 +244,17 @@ var/global/const/NO_EMAG_ACT = -50
 	id_card.formal_name_prefix = initial(id_card.formal_name_prefix)
 	id_card.formal_name_suffix = initial(id_card.formal_name_suffix)
 	if(client && client.prefs)
-		for(var/culturetag in client.prefs.cultural_info)
-			var/decl/cultural_info/culture = GET_DECL(client.prefs.cultural_info[culturetag])
-			if(culture)
-				id_card.formal_name_prefix = "[culture.get_formal_name_prefix()][id_card.formal_name_prefix]"
-				id_card.formal_name_suffix = "[id_card.formal_name_suffix][culture.get_formal_name_suffix()]"
+		for(var/token in client.prefs.background_info)
+			var/decl/background_detail/background = GET_DECL(client.prefs.background_info[token])
+			if(background)
+				id_card.formal_name_prefix = "[background.get_formal_name_prefix()][id_card.formal_name_prefix]"
+				id_card.formal_name_suffix = "[id_card.formal_name_suffix][background.get_formal_name_suffix()]"
 
 	id_card.registered_name = real_name
 
-	var/decl/pronouns/G = get_pronouns()
-	if(G)
-		id_card.card_gender = capitalize(G.bureaucratic_term )
+	var/decl/pronouns/pronouns = get_pronouns()
+	if(pronouns)
+		id_card.card_gender = capitalize(pronouns.bureaucratic_term )
 	else
 		id_card.card_gender = "Unset"
 	id_card.set_id_photo(src)

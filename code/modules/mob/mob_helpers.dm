@@ -8,11 +8,6 @@
 /proc/mob_size_difference(var/mob_size_A, var/mob_size_B)
 	return round(log(2, mob_size_A/mob_size_B), 1)
 
-/mob/proc/can_wield_item(obj/item/W)
-	if(W.w_class >= ITEM_SIZE_LARGE && issmall(src))
-		return FALSE //M is too small to wield this
-	return TRUE
-
 /mob/proc/isSynthetic()
 	return 0
 
@@ -42,11 +37,9 @@
 /mob/proc/has_danger_grab(mob/user)
 	if (user == src || isrobot(user) || isbot(user))
 		return TRUE
-
-	for (var/obj/item/grab/G in grabbed_by)
-		if (G.force_danger())
+	for (var/obj/item/grab/grab as anything in grabbed_by)
+		if (grab.force_danger())
 			return TRUE
-
 
 /proc/isdeaf(A)
 	if(isliving(A))
@@ -124,23 +117,9 @@ var/global/list/global/organ_rel_size = list(
 		zone = check_zone(zone, target)
 		if(prob(probability))
 			return zone
-
 	var/ran_zone = zone
 	while (ran_zone == zone)
-		ran_zone = pick (
-			organ_rel_size[BP_HEAD];   BP_HEAD,
-			organ_rel_size[BP_CHEST];  BP_CHEST,
-			organ_rel_size[BP_GROIN];  BP_GROIN,
-			organ_rel_size[BP_L_ARM];  BP_L_ARM,
-			organ_rel_size[BP_R_ARM];  BP_R_ARM,
-			organ_rel_size[BP_L_LEG];  BP_L_LEG,
-			organ_rel_size[BP_R_LEG];  BP_R_LEG,
-			organ_rel_size[BP_L_HAND]; BP_L_HAND,
-			organ_rel_size[BP_R_HAND]; BP_R_HAND,
-			organ_rel_size[BP_L_FOOT]; BP_L_FOOT,
-			organ_rel_size[BP_R_FOOT]; BP_R_FOOT
-		)
-
+		ran_zone = pickweight(organ_rel_size)
 	return ran_zone
 
 // Emulates targetting a specific body part, and miss chances
@@ -157,8 +136,8 @@ var/global/list/global/organ_rel_size = list(
 		if(target.buckled || target.current_posture.prone)
 			return zone
 		// if your target is being grabbed aggressively by someone you cannot miss either
-		for(var/obj/item/grab/G in target.grabbed_by)
-			if(G.stop_move())
+		for(var/obj/item/grab/grab as anything in target.grabbed_by)
+			if(grab.stop_move())
 				return zone
 
 	var/miss_chance = 10
@@ -261,7 +240,7 @@ var/global/list/global/organ_rel_size = list(
 		return
 	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
-	var/steps = min(1, FLOOR(duration/TICKS_PER_RECOIL_ANIM))-1
+	var/steps = min(1, floor(duration/TICKS_PER_RECOIL_ANIM))-1
 	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
 	if(steps)
 		for(var/i = 1 to steps)
@@ -469,7 +448,7 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if(. == SAFE_PERP)
 		return SAFE_PERP
 
-	if(!istype(src, /mob/living/simple_animal/hostile/retaliate/goat))
+	if(!istype(src, /mob/living/simple_animal/hostile/goat))
 		threatcount += 4
 	return threatcount
 
@@ -527,9 +506,9 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	return !client && !teleop && (last_ckey || !ai)
 
 /mob/proc/try_teleport(var/area/thearea)
-	if(!istype(thearea))
-		if(istype(thearea, /list))
-			thearea = thearea[1]
+	if(istype(thearea, /list))
+		var/list/area_list = thearea
+		thearea = area_list[1]
 	var/list/L = list()
 	for(var/turf/T in get_area_turfs(thearea))
 		if(!T.density)

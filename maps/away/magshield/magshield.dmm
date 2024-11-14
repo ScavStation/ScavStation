@@ -19,7 +19,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "af" = (
 /obj/structure/cable/yellow{
@@ -29,13 +29,13 @@
 	name = "Starboard Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ag" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ah" = (
 /obj/structure/cable/yellow{
@@ -44,7 +44,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ai" = (
 /obj/structure/cable/yellow{
@@ -56,13 +56,13 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aj" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ak" = (
 /obj/structure/cable/yellow{
@@ -74,7 +74,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "al" = (
 /obj/structure/cable/yellow{
@@ -86,7 +86,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "am" = (
 /obj/structure/cable/yellow{
@@ -95,7 +95,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "an" = (
 /obj/structure/cable/yellow,
@@ -103,14 +103,14 @@
 	name = "Starboard Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ao" = (
 /obj/item/stack/material/rods,
 /turf/space,
 /area/space)
 "ap" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aq" = (
 /obj/machinery/power/solar{
@@ -118,7 +118,7 @@
 	},
 /obj/structure/cable/yellow,
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ar" = (
 /turf/wall/r_wall,
@@ -131,7 +131,7 @@
 	pixel_x = -25;
 	pixel_y = -25
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "at" = (
 /obj/machinery/light/small,
@@ -145,7 +145,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aw" = (
 /turf/wall/r_wall,
@@ -164,30 +164,30 @@
 	pixel_x = -25;
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "ay" = (
 /obj/structure/table/steel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "az" = (
 /obj/structure/table/steel,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aA" = (
 /obj/structure/table/steel,
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aB" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aC" = (
 /obj/structure/rack,
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aD" = (
 /obj/machinery/door/airlock/external/bolted_open,
@@ -195,10 +195,10 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aE" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "aF" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -206,11 +206,11 @@
 	dir = 4;
 	icon_state = "warning"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "aG" = (
 /obj/machinery/atmospherics/unary/tank/carbon_dioxide,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "aH" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
@@ -218,7 +218,7 @@
 	dir = 4;
 	id_tag = "prototype_chamber_blast"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "aI" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -248,7 +248,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aN" = (
 /obj/structure/cable/yellow{
@@ -268,13 +268,13 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aO" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aP" = (
 /obj/structure/cable/yellow{
@@ -284,7 +284,7 @@
 	icon_state = "2-4"
 	},
 /obj/item/stack/material/ore,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aQ" = (
 /obj/structure/cable/yellow{
@@ -293,50 +293,50 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aR" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aS" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aT" = (
 /obj/structure/sign/warning/airlock{
 	pixel_y = 30
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "aV" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "aW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "aX" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "aY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "aZ" = (
 /obj/machinery/door/airlock/hatch,
@@ -344,20 +344,20 @@
 	dir = 4;
 	id_tag = "prototype_chamber_blast"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "ba" = (
 /obj/machinery/mass_driver{
 	dir = 4;
 	id_tag = "enginecore"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bb" = (
 /obj/machinery/door/blast/regular/open{
 	id_tag = "prototype_chamber_blast"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bc" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -367,18 +367,18 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "be" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable/yellow,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bf" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bg" = (
 /turf/space,
@@ -389,7 +389,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -400,39 +400,39 @@
 	icon_state = "2-8"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bj" = (
 /obj/machinery/light/small{
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bk" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bl" = (
 /obj/machinery/atmospherics/unary/vent_pump,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bm" = (
 /obj/machinery/atmospherics/unary/outlet_injector,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bn" = (
 /obj/machinery/power/smes/buildable/outpost_substation,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bo" = (
 /obj/item/stack/material/ore,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bp" = (
 /obj/structure/lattice,
@@ -441,26 +441,26 @@
 "bq" = (
 /obj/structure/closet,
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "br" = (
 /obj/machinery/portable_atmospherics/canister,
 /obj/effect/floor_decal/industrial/warning,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bs" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6;
 	icon_state = "warning"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bt" = (
 /obj/machinery/light/small{
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bu" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
@@ -468,14 +468,14 @@
 	id_tag = "prototype_chamber_blast"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bv" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate/full,
 /obj/machinery/door/blast/regular/open{
 	id_tag = "prototype_chamber_blast"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bw" = (
 /obj/effect/shuttle_landmark/nav_magshield/nav2,
@@ -485,7 +485,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "by" = (
 /obj/structure/cable{
@@ -494,35 +494,35 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bz" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bA" = (
 /obj/structure/closet,
 /obj/random/plush/therapy,
 /obj/random/hat,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bE" = (
 /obj/item/stack/material/ore,
@@ -535,31 +535,31 @@
 "bG" = (
 /obj/structure/closet,
 /obj/item/flashlight/flare/glowstick/random,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bH" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bI" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 6
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -586,36 +586,36 @@
 /area/space)
 "bP" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bQ" = (
 /obj/structure/table/steel,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bR" = (
 /obj/structure/table/steel,
 /obj/random/drinkbottle,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bS" = (
 /obj/structure/closet/crate/trashcart,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bT" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
@@ -623,7 +623,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "bW" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -638,7 +638,7 @@
 /obj/machinery/computer/modular{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bY" = (
 /obj/structure/bed/chair{
@@ -648,7 +648,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "bZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -656,26 +656,25 @@
 	icon_state = "1-2"
 	},
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "ca" = (
 /obj/structure/table/steel,
 /obj/item/geiger,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cb" = (
 /obj/machinery/computer/modular{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cc" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id_tag = "EngineBlast";
-	name = "Engine Monitoring Room Blast Doors";
-	
+	name = "Engine Monitoring Room Blast Doors"
 	},
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/plating,
@@ -692,13 +691,13 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cf" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 9
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cg" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -719,7 +718,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cj" = (
 /obj/structure/cable/yellow{
@@ -728,14 +727,13 @@
 /obj/machinery/computer/modular{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "ck" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id_tag = "EngineBlast";
-	name = "Engine Monitoring Room Blast Doors";
-	
+	name = "Engine Monitoring Room Blast Doors"
 	},
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable/yellow{
@@ -747,21 +745,21 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cn" = (
 /obj/machinery/atmospherics/binary/pump,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "co" = (
 /obj/structure/cable/yellow{
@@ -776,7 +774,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cq" = (
 /obj/structure/cable/yellow{
@@ -788,7 +786,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cr" = (
 /obj/structure/cable/yellow{
@@ -800,7 +798,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cs" = (
 /obj/machinery/door/airlock,
@@ -810,7 +808,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "ct" = (
 /obj/structure/cable/yellow{
@@ -822,7 +820,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -832,20 +830,20 @@
 /obj/machinery/computer/modular{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cv" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cx" = (
 /obj/machinery/atmospherics/binary/circulator{
@@ -861,30 +859,30 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cz" = (
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cA" = (
 /obj/item/flashlight/flare/glowstick/yellow,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cD" = (
 /obj/machinery/atmospherics/portables_connector,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cE" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -904,7 +902,7 @@
 	icon_state = "1-2"
 	},
 /obj/item/stack/material/ore,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cG" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -914,7 +912,7 @@
 	pixel_y = 1;
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cH" = (
 /obj/machinery/power/apc{
@@ -925,12 +923,12 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cI" = (
 /obj/structure/closet,
 /obj/random/gloves,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cJ" = (
 /obj/machinery/light/small{
@@ -938,7 +936,7 @@
 	icon_state = "bulb1"
 	},
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cK" = (
 /obj/structure/table/steel,
@@ -947,21 +945,21 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cL" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/radiation,
 /obj/item/flashlight,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cN" = (
 /obj/machinery/atmospherics/binary/pump,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cO" = (
 /obj/structure/girder/displaced,
@@ -975,7 +973,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cQ" = (
 /obj/structure/table/steel,
@@ -989,7 +987,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cR" = (
 /obj/structure/cable{
@@ -1004,7 +1002,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cS" = (
 /obj/machinery/door/airlock,
@@ -1017,7 +1015,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cT" = (
 /obj/structure/cable{
@@ -1029,7 +1027,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cU" = (
 /obj/structure/cable{
@@ -1041,7 +1039,7 @@
 	icon_state = "4-8"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1053,7 +1051,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "cW" = (
 /obj/machinery/door/airlock/hatch,
@@ -1066,7 +1064,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1078,7 +1076,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1091,7 +1089,7 @@
 	icon_state = "4-8"
 	},
 /mob/living/simple_animal/hostile/carp,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "cZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1103,7 +1101,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "da" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1117,23 +1115,23 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "db" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "dc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "dd" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/engine)
 "de" = (
 /turf/wall/r_wall,
@@ -1144,7 +1142,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dg" = (
 /turf/space,
@@ -1155,55 +1153,55 @@
 	icon_state = "1-2"
 	},
 /obj/random/obstruction,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "di" = (
 /obj/item/stack/material/ore,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dj" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dl" = (
 /obj/machinery/portable_atmospherics/canister,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dm" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dn" = (
 /obj/item/wallet/random,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "do" = (
 /obj/structure/largecrate,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dp" = (
 /obj/random/shoes,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dq" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dr" = (
 /obj/structure/iv_drip,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ds" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dt" = (
 /turf/wall,
@@ -1213,40 +1211,40 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dv" = (
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dw" = (
 /obj/random/tank,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dx" = (
 /obj/structure/table/steel,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dy" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dz" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dA" = (
 /obj/structure/closet,
 /obj/random/toolbox,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dB" = (
 /obj/structure/closet,
 /obj/random/suit,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dC" = (
 /obj/structure/closet,
@@ -1254,25 +1252,25 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dD" = (
 /obj/structure/closet,
 /obj/structure/plushie/ian,
 /obj/random/drinkbottle,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dE" = (
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dF" = (
 /obj/item/stack/material/rods,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dG" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dH" = (
 /obj/structure/lattice,
@@ -1280,26 +1278,26 @@
 /area/magshield/north)
 "dI" = (
 /obj/item/clothing/jumpsuit/lightpurple,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dJ" = (
 /obj/random/firstaid,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dK" = (
 /obj/random/toolbox,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/largecrate,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dM" = (
 /obj/random/obstruction,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dN" = (
 /obj/machinery/power/apc{
@@ -1311,52 +1309,52 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dO" = (
 /obj/machinery/computer/modular{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dP" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dQ" = (
 /obj/machinery/field_generator,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dR" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dS" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dT" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/largecrate,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dU" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dV" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/flame/fuelled/lighter/random,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/tank,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dX" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1364,41 +1362,41 @@
 	icon_state = "warning"
 	},
 /obj/random/toolbox,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "dZ" = (
 /obj/structure/table/steel,
 /obj/random/powercell,
 /obj/machinery/cell_charger,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ea" = (
 /obj/machinery/port_gen/pacman/mrs,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eb" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ec" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ed" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ee" = (
 /obj/structure/rack,
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ef" = (
 /obj/structure/grille,
@@ -1408,13 +1406,13 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eh" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ei" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1424,7 +1422,7 @@
 	icon_state = "4-8"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ej" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1433,7 +1431,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ek" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1445,7 +1443,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "el" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1455,7 +1453,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "em" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1468,7 +1466,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "en" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -1480,7 +1478,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1492,7 +1490,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ep" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1502,7 +1500,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1517,7 +1515,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "er" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1529,13 +1527,13 @@
 /obj/structure/cable{
 	icon_state = "6-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "es" = (
 /obj/structure/sign/warning/airlock{
 	pixel_x = 30
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "et" = (
 /obj/machinery/light/small{
@@ -1545,7 +1543,7 @@
 /area/space)
 "eu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ev" = (
 /obj/structure/sign/warning/airlock{
@@ -1555,9 +1553,10 @@
 /area/magshield/north)
 "ew" = (
 /obj/structure/sign/warning/docking_area{
-	pixel_y = -30
+	pixel_y = -32;
+	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ex" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1569,7 +1568,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ey" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1581,7 +1580,7 @@
 /obj/structure/cable{
 	icon_state = "4-9"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "ez" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1592,7 +1591,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1603,7 +1602,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1616,7 +1615,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light/small,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1632,7 +1631,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eD" = (
 /obj/machinery/door/airlock/external/bolted,
@@ -1642,7 +1641,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1658,14 +1657,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eF" = (
 /obj/machinery/door/airlock/external/bolted,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eG" = (
 /obj/machinery/button/access{
@@ -1675,14 +1674,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eI" = (
 /obj/structure/magshield/maggen,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
@@ -1692,7 +1691,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1704,89 +1703,91 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/item/newspaper,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eO" = (
 /obj/item/frame/light/small,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eP" = (
 /obj/structure/table,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eQ" = (
 /obj/structure/table/steel,
 /obj/item/toolbox/mechanical,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eR" = (
 /obj/structure/table/steel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eS" = (
 /obj/structure/table/steel,
 /obj/item/box/lights,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eT" = (
 /obj/machinery/door/airlock/external/bolted_open,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/button/access{
-	pixel_x = -25;
-	pixel_y = 25
+	pixel_x = -20;
+	pixel_y = 32;
+	id_tag = "magshield_dock";
+	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eU" = (
 /obj/machinery/light/small,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eV" = (
 /obj/structure/closet,
 /obj/random/material,
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eW" = (
 /obj/structure/closet,
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eX" = (
 /obj/structure/closet,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eY" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "eZ" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "fa" = (
 /obj/structure/janitorialcart,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "fb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1795,7 +1796,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "fc" = (
 /obj/machinery/light/small{
@@ -1806,18 +1807,20 @@
 "fd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 1;
-	id_tag = "centcom_shuttle_dock_pump"
+	id_tag = "magshield_dock_pump"
 	},
 /obj/effect/floor_decal/industrial/hatch/blue,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_x = 25;
-	dir = 8
+	dir = 8;
+	id_tag = "magshield_dock"
 	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -25;
-	dir = 4
+	dir = 4;
+	id_tag = "magshield_dock_sensor"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "fe" = (
 /turf/wall,
@@ -1827,22 +1830,22 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fh" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fi" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1850,7 +1853,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fk" = (
 /turf/wall/r_wall,
@@ -1861,27 +1864,32 @@
 /area/magshield/north)
 "fm" = (
 /obj/item/mop,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "fn" = (
 /obj/machinery/door/airlock/external/bolted_open,
-/turf/floor/airless,
+/obj/machinery/button/access{
+	pixel_x = -25;
+	pixel_y = -16;
+	id_tag = "magshield_dock"
+	},
+/turf/floor/plating/airless,
 /area/magshield/north)
 "fo" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fp" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fr" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -1889,14 +1897,14 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fs" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "ft" = (
 /obj/effect/shuttle_landmark/nav_magshield/nav5,
@@ -1914,25 +1922,24 @@
 /turf/floor/tiled,
 /area/magshield/west)
 "fw" = (
-/obj/machinery/button/access{
-	pixel_x = -25;
-	pixel_y = 25
+/obj/effect/shuttle_landmark/nav_magshield/dock1{
+	dir = 1
 	},
-/turf/floor/airless,
-/area/magshield/north)
+/turf/space,
+/area/space)
 "fx" = (
 /obj/machinery/atmospherics/unary/tank,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/item/frame/light,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fy" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fA" = (
 /turf/floor/tiled,
@@ -1961,15 +1968,11 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/floor/tiled,
 /area/magshield/west)
-"fH" = (
-/obj/effect/overmap/visitable/sector/magshield,
-/turf/floor/airless,
-/area/magshield/north)
 "fI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fJ" = (
 /obj/structure/grille,
@@ -2017,7 +2020,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fR" = (
 /obj/machinery/atmospherics/omni/mixer{
@@ -2027,7 +2030,7 @@
 	tag_south = 1;
 	tag_south_con = 0.79
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2038,7 +2041,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fT" = (
 /obj/machinery/atmospherics/omni/filter{
@@ -2046,13 +2049,13 @@
 	tag_south = 1;
 	tag_west = 3
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -2067,7 +2070,7 @@
 	id_tag = "d_n2_in";
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "fY" = (
 /obj/structure/cable{
@@ -2102,11 +2105,11 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "ge" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gf" = (
 /obj/structure/cable{
@@ -2124,24 +2127,24 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5;
 	icon_state = "warning"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gj" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gm" = (
 /obj/structure/cable{
@@ -2163,19 +2166,19 @@
 /obj/structure/magshield/nav_light/red{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gq" = (
 /obj/structure/magshield/nav_light{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gr" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gs" = (
 /obj/structure/closet,
@@ -2207,18 +2210,18 @@
 /area/magshield/west)
 "gx" = (
 /obj/item/frame/light,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2227,7 +2230,7 @@
 "gB" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/portable_atmospherics/canister,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2235,7 +2238,7 @@
 	icon_state = "warning"
 	},
 /obj/machinery/portable_atmospherics/canister,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2245,17 +2248,17 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gE" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2301,7 +2304,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2313,7 +2316,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2325,7 +2328,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gO" = (
 /obj/machinery/door/firedoor,
@@ -2362,7 +2365,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "gU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2425,7 +2428,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hg" = (
 /obj/machinery/door/airlock/external/bolted_open,
@@ -2433,7 +2436,7 @@
 	dir = 4
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hh" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -2443,7 +2446,7 @@
 	pixel_y = -25;
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hi" = (
 /obj/structure/lattice,
@@ -2461,14 +2464,14 @@
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hl" = (
 /obj/structure/magshield/rad_sensor,
 /obj/structure/cable/cyan{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2510,14 +2513,14 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hu" = (
 /turf/space,
 /area/magshield/east)
 "hv" = (
 /obj/item/stack/material/ore/slag,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hw" = (
 /obj/structure/table/woodentable,
@@ -2540,13 +2543,13 @@
 /obj/structure/cable{
 	icon_state = "1-10"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hA" = (
 /obj/structure/rack,
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hB" = (
 /obj/structure/safe,
@@ -2588,7 +2591,7 @@
 	dir = 4;
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hH" = (
 /obj/structure/cable{
@@ -2597,12 +2600,12 @@
 /obj/structure/cable{
 	icon_state = "2-5"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hJ" = (
 /obj/structure/filing_cabinet/chestdrawer,
@@ -2628,18 +2631,18 @@
 /area/magshield/east)
 "hO" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hP" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/item/frame/light,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "hR" = (
 /obj/structure/filing_cabinet/chestdrawer,
@@ -2762,13 +2765,13 @@
 "if" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/chems/glass/bucket,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "ig" = (
 /obj/structure/cable{
 	icon_state = "1-10"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "ih" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -2801,7 +2804,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "il" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -2813,7 +2816,7 @@
 /obj/structure/cable{
 	icon_state = "2-5"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "im" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2822,7 +2825,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "in" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2831,7 +2834,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "ip" = (
 /turf/wall/r_wall,
@@ -2903,7 +2906,7 @@
 /turf/space,
 /area/space)
 "iC" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/west)
 "iD" = (
 /obj/structure/table/steel,
@@ -3170,7 +3173,7 @@
 	name = "plastic table frame"
 	},
 /obj/item/plate,
-/obj/item/chems/food/flatbread,
+/obj/item/food/flatbread,
 /turf/floor/tiled,
 /area/magshield/south)
 "jw" = (
@@ -3217,11 +3220,11 @@
 /area/magshield/south)
 "jE" = (
 /obj/structure/magshield/maggen,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "jF" = (
 /obj/machinery/door/airlock/external/bolted,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/south)
 "jG" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
@@ -3235,14 +3238,14 @@
 	pixel_y = -25;
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/south)
 "jH" = (
 /obj/machinery/door/airlock/external/bolted,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/south)
 "jI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3388,26 +3391,26 @@
 	icon_state = "4-8"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/south)
 "kb" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/south)
 "kc" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/south)
 "kd" = (
 /obj/structure/bed/roller,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ke" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "kf" = (
 /obj/structure/sign/warning/airlock{
@@ -3456,7 +3459,7 @@
 /area/magshield/south)
 "kp" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/chems/food/hotdog,
+/obj/item/food/hotdog,
 /turf/floor/tiled/freezer,
 /area/magshield/south)
 "kq" = (
@@ -3612,7 +3615,7 @@
 /area/magshield/south)
 "kI" = (
 /obj/structure/table/marble,
-/obj/item/chems/food/chips,
+/obj/item/food/junk/chips,
 /turf/floor/tiled/white,
 /area/magshield/south)
 "kJ" = (
@@ -3626,11 +3629,11 @@
 /area/magshield/south)
 "kL" = (
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/chems/food/butchery/meat,
-/obj/item/chems/food/butchery/meat,
-/obj/item/chems/food/butchery/meat,
-/obj/item/chems/food/butchery/meat,
-/obj/item/chems/food/butchery/meat,
+/obj/item/food/butchery/meat,
+/obj/item/food/butchery/meat,
+/obj/item/food/butchery/meat,
+/obj/item/food/butchery/meat,
+/obj/item/food/butchery/meat,
 /turf/floor/tiled/freezer,
 /area/magshield/south)
 "kM" = (
@@ -3754,7 +3757,7 @@
 	icon_state = "1-2"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/smes_storage)
 "lf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3837,13 +3840,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "lv" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "lw" = (
 /obj/structure/cable/yellow{
@@ -3853,7 +3856,7 @@
 	name = "Port Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "lx" = (
 /obj/structure/cable/yellow{
@@ -3865,7 +3868,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ly" = (
 /obj/structure/cable/yellow,
@@ -3873,7 +3876,7 @@
 	name = "Port Auxiliary Solar Array"
 	},
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "lz" = (
 /obj/structure/cable/yellow{
@@ -3885,10 +3888,14 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "lA" = (
 /obj/effect/shuttle_landmark/nav_magshield/nav3,
+/turf/space,
+/area/space)
+"nQ" = (
+/obj/effect/overmap/visitable/sector/magshield,
 /turf/space,
 /area/space)
 "qp" = (
@@ -3906,7 +3913,7 @@
 	tag_south = 1;
 	tag_west = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/east)
 "JW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3942,7 +3949,7 @@
 	icon_state = "4-8"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/magshield/north)
 "Uw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -21013,7 +21020,7 @@ dg
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -21215,7 +21222,7 @@ dj
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -21417,7 +21424,7 @@ dj
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -21619,7 +21626,7 @@ eP
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -21821,7 +21828,7 @@ eP
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -22023,7 +22030,7 @@ eQ
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -22225,7 +22232,7 @@ eR
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -22427,7 +22434,7 @@ eS
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -22629,7 +22636,7 @@ eO
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -22831,7 +22838,7 @@ eP
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -23033,7 +23040,7 @@ dj
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -23235,7 +23242,7 @@ dj
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -23436,8 +23443,8 @@ ev
 de
 de
 de
-dg
-dj
+aa
+aa
 aa
 aa
 aa
@@ -23639,7 +23646,6 @@ eT
 fd
 fn
 fw
-fH
 aa
 aa
 aa
@@ -23649,6 +23655,7 @@ aa
 aa
 aa
 aa
+nQ
 aa
 aa
 aa
@@ -23840,8 +23847,8 @@ ew
 de
 de
 de
-dg
-dj
+aa
+aa
 aa
 aa
 aa
@@ -24043,7 +24050,7 @@ eU
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -24245,7 +24252,7 @@ ee
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -24447,7 +24454,7 @@ ee
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -24649,7 +24656,7 @@ ee
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -24851,7 +24858,7 @@ ee
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -25053,7 +25060,7 @@ ee
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -25255,7 +25262,7 @@ eU
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -25457,7 +25464,7 @@ eV
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -25659,7 +25666,7 @@ eW
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -25861,7 +25868,7 @@ eX
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -26063,7 +26070,7 @@ dA
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa
@@ -26265,7 +26272,7 @@ dt
 de
 de
 aa
-ac
+aa
 aa
 aa
 aa

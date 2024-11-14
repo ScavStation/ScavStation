@@ -27,11 +27,28 @@
 /obj/structure/railing/mapped/no_density
 	density = FALSE
 
-/obj/structure/railing/mapped/ebony
-	material = /decl/material/solid/organic/wood/ebony
+/obj/structure/railing/mapped/wooden
+	material = /decl/material/solid/organic/wood
 	parts_type = /obj/item/stack/material/plank
-	color = WOOD_COLOR_BLACK
+	color = WOOD_COLOR_GENERIC
 	paint_color = null
+
+// Subtypes.
+#define WOOD_RAILING_SUBTYPE(material_name) \
+/obj/structure/railing/mapped/wooden/##material_name { \
+	material = /decl/material/solid/organic/wood/##material_name; \
+	color = /decl/material/solid/organic/wood/##material_name::color; \
+}
+
+WOOD_RAILING_SUBTYPE(fungal)
+WOOD_RAILING_SUBTYPE(ebony)
+WOOD_RAILING_SUBTYPE(walnut)
+WOOD_RAILING_SUBTYPE(maple)
+WOOD_RAILING_SUBTYPE(mahogany)
+WOOD_RAILING_SUBTYPE(bamboo)
+WOOD_RAILING_SUBTYPE(yew)
+
+#undef WOOD_RAILING_SUBTYPE
 
 /obj/structure/railing/Process()
 	if(!material || !material.radioactivity)
@@ -179,47 +196,58 @@
 		return 0
 	return 1
 
+/obj/structure/railing/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(!istype(victim) || !istype(user))
+		return ..()
+
+	// We want to throw the mob over the railing if we or they are already on the railing turf.
+	var/turf/target_turf = get_turf(src)
+	if(victim.loc == target_turf || user.loc == target_turf)
+		target_turf = get_step_resolving_mimic(target_turf, dir)
+
+	if(!istype(target_turf) || target_turf.density)
+		return ..()
+
+	var/obj/occupied = target_turf.turf_is_crowded()
+	if(occupied)
+		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
+		return TRUE
+
+	if(!grab.force_danger())
+		to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
+		return TRUE
+
+	if(user.a_intent == I_HURT && ishuman(victim))
+		visible_message(SPAN_DANGER("\The [user] slams \the [victim]'s face against \the [src]!"))
+		playsound(loc, 'sound/effects/grillehit.ogg', 50, 1)
+		var/blocked = victim.get_blocked_ratio(BP_HEAD, BRUTE, damage = 8)
+		if (prob(30 * (1 - blocked)))
+			SET_STATUS_MAX(victim, STAT_WEAK, 5)
+		victim.apply_damage(8, BRUTE, BP_HEAD)
+		return TRUE
+
+	if (get_turf(victim) == get_turf(src))
+		victim.forceMove(get_step(src, dir))
+	else
+		victim.dropInto(loc)
+	SET_STATUS_MAX(victim, STAT_WEAK, 5)
+	visible_message(SPAN_DANGER("\The [user] throws \the [victim] over \the [src]!"))
+	return TRUE
+
+// TODO: rewrite to use handle_default_wrench_attackby, bash, etc
 /obj/structure/railing/attackby(var/obj/item/W, var/mob/user)
-	// Handle harm intent grabbing/tabling.
-	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
-		if(ishuman(G.affecting))
-			var/mob/living/human/H = G.get_affecting_mob()
-			var/obj/occupied = turf_is_crowded()
-			if(occupied)
-				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
-				return
-
-			if(G.force_danger())
-				if(user.a_intent == I_HURT)
-					visible_message("<span class='danger'>[G.assailant] slams [H]'s face against \the [src]!</span>")
-					playsound(loc, 'sound/effects/grillehit.ogg', 50, 1)
-					var/blocked = H.get_blocked_ratio(BP_HEAD, BRUTE, damage = 8)
-					if (prob(30 * (1 - blocked)))
-						SET_STATUS_MAX(H, STAT_WEAK, 5)
-					H.apply_damage(8, BRUTE, BP_HEAD)
-				else
-					if (get_turf(H) == get_turf(src))
-						H.forceMove(get_step(src, dir))
-					else
-						H.dropInto(loc)
-					SET_STATUS_MAX(H, STAT_WEAK, 5)
-					visible_message("<span class='danger'>[G.assailant] throws \the [H] over \the [src].</span>")
-			else
-				to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
-			return
-
 	// Dismantle
 	if(IS_WRENCH(W))
 		if(!anchored)
 			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
-			if(do_after(user, 20, src))
+			if(do_after(user, 2 SECONDS, src))
 				if(anchored)
-					return
+					return TRUE
 				user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>", "<span class='notice'>You dismantle \the [src].</span>")
 				material.create_object(loc, 2)
 				qdel(src)
-			return
+			return TRUE
 	// Wrench Open
 		else
 			playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -230,7 +258,7 @@
 				user.visible_message("<span class='notice'>\The [user] wrenches \the [src] closed.</span>", "<span class='notice'>You wrench \the [src] closed.</span>")
 				density = TRUE
 			update_icon()
-			return
+			return TRUE
 	// Repair
 	if(IS_WELDER(W))
 		var/obj/item/weldingtool/F = W
@@ -238,33 +266,34 @@
 			var/current_max_health = get_max_health()
 			if(current_health >= current_max_health)
 				to_chat(user, "<span class='warning'>\The [src] does not need repairs.</span>")
-				return
+				return TRUE
 			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 			if(do_after(user, 20, src))
 				if(current_health >= current_max_health)
-					return
+					return TRUE
 				user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>", "<span class='notice'>You repair some damage to \the [src].</span>")
 				current_health = min(current_health+(current_max_health/5), current_max_health)
-			return
+			return TRUE
 
 	// Install
 	if(IS_SCREWDRIVER(W))
 		if(!density)
 			to_chat(user, "<span class='notice'>You need to wrench \the [src] from back into place first.</span>")
-			return
+			return TRUE
 		user.visible_message(anchored ? "<span class='notice'>\The [user] begins unscrew \the [src].</span>" : "<span class='notice'>\The [user] begins fasten \the [src].</span>" )
 		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
 		if(do_after(user, 10, src) && density)
 			to_chat(user, (anchored ? "<span class='notice'>You have unfastened \the [src] from the floor.</span>" : "<span class='notice'>You have fastened \the [src] to the floor.</span>"))
 			anchored = !anchored
 			update_icon()
-		return
+		return TRUE
 
-	if(W.force && (W.atom_damage_type == BURN || W.atom_damage_type == BRUTE))
+	var/force = W.get_attack_force(user)
+	if(force && (W.atom_damage_type == BURN || W.atom_damage_type == BRUTE))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		visible_message("<span class='danger'>\The [src] has been [LAZYLEN(W.attack_verb) ? pick(W.attack_verb) : "attacked"] with \the [W] by \the [user]!</span>")
-		take_damage(W.force, W.atom_damage_type)
-		return
+		take_damage(force, W.atom_damage_type)
+		return TRUE
 	. = ..()
 
 /obj/structure/railing/explosion_act(severity)

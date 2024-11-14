@@ -6,6 +6,7 @@
 	w_class             = ITEM_SIZE_SMALL
 	slot_flags          = SLOT_HEAD
 	body_parts_covered  = SLOT_HEAD
+	accessory_slot      = ACCESSORY_SLOT_OVER_HELMET
 	fallback_slot       = slot_head_str
 
 	var/protects_against_weather = FALSE
@@ -47,7 +48,7 @@
 			light_overlay.appearance_flags |= RESET_COLOR
 			add_overlay(light_overlay)
 
-/obj/item/clothing/head/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/clothing/head/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && on && check_state_in_icon("[overlay.icon_state]_light", overlay.icon))
 		var/light_overlay
 		if(user_mob?.get_bodytype_category() != bodytype)

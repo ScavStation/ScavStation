@@ -11,9 +11,9 @@
 	base_eye_color = "#003366"
 	default_sprite_accessories = list(
 		SAC_MARKINGS = list(
-			/decl/sprite_accessory/marking/baxxid        = "#d1cab7",
-			/decl/sprite_accessory/marking/baxxid/bones  = "#d1cab7",
-			/decl/sprite_accessory/marking/baxxid/plates = "#d1a170"
+			/decl/sprite_accessory/marking/baxxid        = list(SAM_COLOR = "#d1cab7"),
+			/decl/sprite_accessory/marking/baxxid/bones  = list(SAM_COLOR = "#d1cab7"),
+			/decl/sprite_accessory/marking/baxxid/plates = list(SAM_COLOR = "#d1a170")
 		)
 	)
 	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
@@ -68,7 +68,7 @@
 		)
 	)
 
-/decl/hierarchy/outfit/baxxid
+/decl/outfit/baxxid
 	name = "Baxxid Hood"
 	head = /obj/item/clothing/head/baxxid/hood/long
 
@@ -85,28 +85,28 @@
 	)
 
 	base_external_prosthetics_model = null
-	preview_outfit = /decl/hierarchy/outfit/baxxid
+	preview_outfit = /decl/outfit/baxxid
 
 	species_hud = /datum/hud_data/baxxid
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
 	spawn_flags = SPECIES_CAN_JOIN
 
-	available_cultural_info = list(
+	available_background_info = list(
 		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/baxxid,
-			/decl/cultural_info/culture/other
+			/decl/background_detail/heritage/baxxid,
+			/decl/background_detail/heritage/other
 		),
 		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/tradehousespace,
-			/decl/cultural_info/location/stateless
+			/decl/background_detail/location/tradehousespace,
+			/decl/background_detail/location/stateless
 		),
 		TAG_FACTION =   list(
-			/decl/cultural_info/faction/baxxid,
-			/decl/cultural_info/faction/tradehouse_baxxid,
-			/decl/cultural_info/faction/other
+			/decl/background_detail/faction/baxxid,
+			/decl/background_detail/faction/tradehouse_baxxid,
+			/decl/background_detail/faction/other
 		),
 		TAG_RELIGION =  list(
-			/decl/cultural_info/religion/other
+			/decl/background_detail/religion/other
 		)
 	)
 
@@ -260,10 +260,10 @@
 	return (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /datum/inventory_slot/gripper/left_hand/baxxid
-	can_use_held_item = FALSE
+	dexterity = (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /datum/inventory_slot/gripper/right_hand/baxxid
-	can_use_held_item = FALSE
+	dexterity = (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /obj/item/organ/external/head/baxxid/do_install(mob/living/human/target, affected, in_place, update_icon, detached)
 	. = ..()

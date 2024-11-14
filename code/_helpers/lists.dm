@@ -205,6 +205,8 @@
 /*
 Two lists may be different (A!=B) even if they have the same elements.
 This actually tests if they have the same entries and values.
+This will handle list values in associative lists, but cannot handle
+non-associative list equivalence across different refs.
 */
 /proc/same_entries(var/list/first, var/list/second)
 	if(!islist(first) || !islist(second))
@@ -212,7 +214,16 @@ This actually tests if they have the same entries and values.
 	if(length(first) != length(second))
 		return 0
 	for(var/entry in first)
-		if(!(entry in second) || (first[entry] != second[entry]))
+		if(!(entry in second))
+			return 0
+		var/first_entry = first[entry]
+		if(islist(first_entry))
+			var/second_entry = second[entry]
+			if(!islist(second_entry))
+				return 0
+			if(!same_entries(first_entry, second_entry))
+				return 0
+		else if(first_entry != second[entry])
 			return 0
 	return 1
 /*

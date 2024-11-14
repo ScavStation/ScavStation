@@ -47,13 +47,6 @@
 			to_chat(src, "<span class='danger'>Your camera isn't functional.</span>")
 		return
 
-	/*
-	cyborg restrained() currently does nothing
-	if(restrained())
-		RestrainedClickOn(A)
-		return
-	*/
-
 	var/obj/item/holding = get_active_held_item()
 
 	// Cyborgs have no range-checking unless there is item use
@@ -71,17 +64,12 @@
 		holding.attack_self(src)
 		return
 
-	var/check_dexterity_val = A.storage ? DEXTERITY_NONE : (istype(holding) ? holding.needs_attack_dexterity : DEXTERITY_WIELD_ITEM)
-	var/can_wield_item = (!check_dexterity_val || check_dexterity(check_dexterity_val))
-	if(!can_wield_item)
-		return
-
 	if(A == loc || (A in loc) || (A in contents))
 		// No adjacency checks
 		var/resolved = holding.resolve_attackby(A, src, params)
 		if(!resolved && A && holding)
 			holding.afterattack(A, src, 1, params) // 1 indicates adjacency
-		setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+		setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return
 
 	if(!isturf(loc))
@@ -93,7 +81,7 @@
 			var/resolved = holding.resolve_attackby(A, src, params)
 			if(!resolved && A && holding)
 				holding.afterattack(A, src, 1, params) // 1 indicates adjacency
-			setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+			setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		else
 			holding.afterattack(A, src, 0, params)
 		return

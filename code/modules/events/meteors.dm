@@ -242,9 +242,6 @@ var/global/list/meteors_major = list(
 /obj/effect/meteor/Initialize()
 	. = ..()
 	z_original = z
-
-/obj/effect/meteor/Initialize()
-	. = ..()
 	global.meteor_list += src
 
 /obj/effect/meteor/Move()
@@ -258,7 +255,7 @@ var/global/list/meteors_major = list(
 		qdel(src)
 
 /obj/effect/meteor/Destroy()
-	walk(src,0) //this cancels the walk_towards() proc
+	walk(src, 0)
 	global.meteor_list -= src
 	. = ..()
 
@@ -302,8 +299,8 @@ var/global/list/meteors_major = list(
 /obj/effect/meteor/attackby(obj/item/W, mob/user, params)
 	if(IS_PICK(W))
 		qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/effect/meteor/proc/make_debris()
 	if(meteordrop && dropamt)

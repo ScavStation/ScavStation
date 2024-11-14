@@ -17,7 +17,6 @@ var/global/const/COMPOST_WORM_HUNGER_FACTOR = MINIMUM_CHEMICAL_VOLUME
 	wrenchable                = FALSE
 	possible_transfer_amounts = @"[10,25,50,100]"
 	volume                    = 2000
-	can_toggle_open           = FALSE
 	storage                   = /datum/storage/hopper/industrial/compost
 
 /obj/structure/reagent_dispensers/compost_bin/Initialize()
@@ -28,7 +27,7 @@ var/global/const/COMPOST_WORM_HUNGER_FACTOR = MINIMUM_CHEMICAL_VOLUME
 		var/worms = round(5 * turf.get_plant_growth_rate())
 		if(worms)
 			for(var/i = 1 to worms)
-				var/obj/item/chems/food/worm/worm = new(src)
+				var/obj/item/food/worm/worm = new(src)
 				if(!storage.handle_item_insertion(null, worm))
 					qdel(worm)
 					break
@@ -39,12 +38,21 @@ var/global/const/COMPOST_WORM_HUNGER_FACTOR = MINIMUM_CHEMICAL_VOLUME
 		STOP_PROCESSING(SSobj, src)
 	return ..()
 
+/obj/structure/reagent_dispensers/compost_bin/on_update_icon()
+	. = ..()
+	icon_state = ICON_STATE_WORLD
+	if(ATOM_IS_OPEN_CONTAINER(src))
+		add_overlay(overlay_image(icon, "[icon_state]-hinges-open", null, RESET_COLOR))
+		add_overlay(overlay_image(icon, "[icon_state]-open", get_color(), RESET_COLOR)) // leaving the door open for separate lid materials in the future
+	else
+		add_overlay(overlay_image(icon, "[icon_state]-hinges", null, RESET_COLOR))
+
 /obj/structure/reagent_dispensers/compost_bin/examine(mob/user, distance)
 	. = ..()
 	if(distance <= 1)
 
 		var/worms = 0
-		for(var/obj/item/chems/food/worm/worm in get_stored_inventory())
+		for(var/obj/item/food/worm/worm in get_stored_inventory())
 			worms++
 
 		switch(worms)
@@ -61,7 +69,7 @@ var/global/const/COMPOST_WORM_HUNGER_FACTOR = MINIMUM_CHEMICAL_VOLUME
 
 		var/list/composting = list()
 		for(var/thing in get_stored_inventory())
-			if(!istype(thing, /obj/item/chems/food/worm))
+			if(!istype(thing, /obj/item/food/worm))
 				composting += thing
 
 		if(length(composting))
@@ -96,7 +104,7 @@ var/global/const/COMPOST_WORM_HUNGER_FACTOR = MINIMUM_CHEMICAL_VOLUME
 
 		if(emptied)
 			W.storage.finish_bulk_removal()
-			storage.update_ui_after_item_insertion(user)
+			storage.update_ui_after_item_insertion()
 			if(length(W.get_stored_inventory()))
 				to_chat(user, SPAN_NOTICE("You partially empty \the [W] into \the [src]'s hopper."))
 			else
@@ -113,7 +121,7 @@ var/global/const/COMPOST_WORM_HUNGER_FACTOR = MINIMUM_CHEMICAL_VOLUME
 	if(islist(current_contents))
 		current_contents = current_contents.Copy()
 
-	for(var/obj/item/chems/food/worm/worm in current_contents)
+	for(var/obj/item/food/worm/worm in current_contents)
 		current_contents -= worm
 		worms++
 
@@ -179,10 +187,14 @@ var/global/const/COMPOST_WORM_HUNGER_FACTOR = MINIMUM_CHEMICAL_VOLUME
 
 	// Grow more worms.
 	if(REAGENT_VOLUME(reagents, /decl/material/liquid/fertilizer/compost) > 0 && prob(0.1) && worms < COMPOST_MAX_WORMS)
-		var/obj/item/chems/food/worm/worm = new(src)
+		var/obj/item/food/worm/worm = new(src)
 		if(!storage.handle_item_insertion(null, worm))
 			qdel(worm)
 
-/obj/structure/reagent_dispensers/compost_bin/get_alt_interactions(var/mob/user)
-	. = ..()
-	LAZYREMOVE(., /decl/interaction_handler/toggle_open/reagent_dispenser)
+/obj/structure/reagent_dispensers/compost_bin/ebony
+	material = /decl/material/solid/organic/wood/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+
+/obj/structure/reagent_dispensers/compost_bin/walnut
+	material = /decl/material/solid/organic/wood/walnut
+	color = /decl/material/solid/organic/wood/walnut::color

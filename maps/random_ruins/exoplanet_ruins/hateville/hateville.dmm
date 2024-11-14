@@ -124,7 +124,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "al" = (
@@ -243,7 +243,7 @@
 "ay" = (
 /obj/structure/bed/chair/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "az" = (
 /obj/machinery/power/apc{
@@ -317,7 +317,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /obj/random/trash,
 /turf/floor/concrete/reinforced/road,
 /area/map_template/hateville/security)
@@ -2241,7 +2241,7 @@
 /area/map_template/hateville)
 "du" = (
 /obj/structure/flora/bush/grassybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "dv" = (
 /obj/machinery/door/airlock/external{
@@ -2563,7 +2563,7 @@
 /area/map_template/hateville/medical)
 "dO" = (
 /mob/living/simple_animal/cow,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "dP" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
@@ -2807,7 +2807,7 @@
 /area/map_template/hateville/medical)
 "ek" = (
 /mob/living/simple_animal/fowl/chicken,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "el" = (
 /obj/effect/floor_decal/industrial/warning/dust,
@@ -3282,7 +3282,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/wood/mahogany,
 /area/map_template/hateville/command)
 "eQ" = (
@@ -4008,7 +4008,7 @@
 /obj/structure/flora/bush/fullgrass,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/bot/farmbot,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "fH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4279,7 +4279,7 @@
 	dir = 1
 	},
 /obj/abstract/landmark/corpse/bridgeofficer,
-/obj/item/paper/crumpled/bloody{
+/obj/item/paper/crumpled{
 	pixel_y = -12;
 	pixel_x = 8;
 	text = "I fucked up I fucked up Oh GOD I fucked up I fucking fucked up I couldn't protect anyone, fuck, FUCK FUCK I can't do this I'm a fucking FU- *the rest is smeared in blood*"
@@ -4337,7 +4337,7 @@
 /area/map_template/hateville/foodcourt)
 "gd" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -4514,7 +4514,7 @@
 /obj/structure/flora/bush/grassybush,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "gs" = (
 /obj/structure/table,
@@ -4656,7 +4656,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/techfloor/grid,
 /area/map_template/hateville/command)
 "gE" = (
@@ -5434,7 +5434,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/carpet/blue,
 /area/map_template/hateville/command)
 "hI" = (
@@ -6339,7 +6339,7 @@
 "iV" = (
 /obj/structure/flora/bush/ywflowers,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "iW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7107,7 +7107,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/mob/living/simple_animal/cat/kitten,
+/mob/living/simple_animal/passive/cat/kitten,
 /turf/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -7126,7 +7126,7 @@
 	color = "#a10808"
 	},
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /obj/random/trash,
 /turf/floor/tiled/white{
 	color = "#dadada"
@@ -7640,7 +7640,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -7735,7 +7735,7 @@
 /area/map_template/hateville/agriculture)
 "la" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "lb" = (
 /obj/machinery/reagentgrinder,
@@ -7988,7 +7988,7 @@
 "lu" = (
 /obj/structure/flora/bush/brflowers,
 /obj/structure/bed/chair/bench/pew/mahogany,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "lv" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -8014,7 +8014,7 @@
 /area/template_noop)
 "lx" = (
 /obj/structure/flora/bush/genericbush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "ly" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8084,7 +8084,7 @@
 /obj/structure/bed/chair/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "lD" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -8215,7 +8215,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
 "lN" = (
@@ -8859,7 +8859,7 @@
 "mI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/template_noop,
 /area/template_noop)
 "mJ" = (
@@ -8953,8 +8953,8 @@
 "mQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/faithless/cult,
-/turf/floor/natural/grass,
+/mob/living/simple_animal/hostile/revenant/cult,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "mR" = (
 /obj/item/flashlight/upgraded,
@@ -9337,7 +9337,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -10000,7 +10000,7 @@
 /area/map_template/hateville/medical)
 "oy" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "oz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10193,7 +10193,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/item/twohanded/pipewrench,
+/obj/item/wrench/pipe,
 /obj/effect/decal/cleanable/blood,
 /turf/floor/concrete,
 /area/template_noop)
@@ -10684,7 +10684,7 @@
 "pI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete,
 /area/map_template/hateville/mining)
 "pK" = (
@@ -10788,7 +10788,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "qd" = (
@@ -10897,7 +10897,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /obj/structure/cable{
 	icon_state = "1-8";
 	dir = 4
@@ -10911,7 +10911,7 @@
 	},
 /obj/structure/flora/bush/genericbush,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "qp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -11713,13 +11713,13 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/template_noop,
 /area/template_noop)
 "rS" = (
 /obj/structure/flora/bush/ppflowers,
 /mob/living/bot/farmbot,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "rT" = (
 /obj/effect/decal/cleanable/dirt,
@@ -11753,7 +11753,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/wood/mahogany,
 /area/map_template/hateville/command)
 "rX" = (
@@ -12496,7 +12496,7 @@
 /area/map_template/hateville)
 "tA" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/template_noop,
 /area/template_noop)
 "tB" = (
@@ -12732,7 +12732,7 @@
 /obj/structure/flora/bush/grassybush,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "ud" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
@@ -12761,7 +12761,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete,
 /area/map_template/hateville/materials)
 "uf" = (
@@ -12984,7 +12984,7 @@
 /obj/item/radio/intercom{
 	pixel_y = 20
 	},
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "ux" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
@@ -13358,11 +13358,11 @@
 	pixel_y = 14;
 	pixel_x = -8
 	},
-/obj/item/chems/food/chocolatebar,
-/obj/item/chems/food/chocolatebar{
+/obj/item/food/chocolatebar,
+/obj/item/food/chocolatebar{
 	pixel_x = 7
 	},
-/obj/item/chems/food/chocolatebar{
+/obj/item/food/chocolatebar{
 	pixel_y = 9
 	},
 /obj/effect/decal/cleanable/blood/splatter,
@@ -13510,7 +13510,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "vv" = (
 /obj/structure/closet/crate/plastic/rations,
@@ -13577,7 +13577,7 @@
 "vH" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "vI" = (
 /obj/structure/catwalk,
@@ -13598,7 +13598,7 @@
 /area/template_noop)
 "vJ" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "vK" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
@@ -13812,7 +13812,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -13823,7 +13823,7 @@
 /area/map_template/hateville/agricultureIN)
 "wm" = (
 /obj/structure/flora/bush/ppflowers,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "wo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -14356,7 +14356,7 @@
 	icon_state = "1-8";
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /obj/random/trash,
 /turf/floor/wood/mahogany,
 /area/map_template/hateville/command)
@@ -14597,7 +14597,7 @@
 	dir = 9
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "ya" = (
@@ -14740,7 +14740,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "yl" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -14821,7 +14821,7 @@
 	dir = 4
 	},
 /mob/living/simple_animal/fowl/chicken,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "yD" = (
 /obj/machinery/atmospherics/unary/tank/air{
@@ -14965,7 +14965,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/template_noop)
 "yV" = (
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "yY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -15204,7 +15204,7 @@
 /area/map_template/hateville)
 "zC" = (
 /obj/structure/bed/chair/bench/pew/mahogany,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "zD" = (
 /obj/structure/catwalk,
@@ -15687,7 +15687,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete,
 /area/template_noop)
 "AA" = (
@@ -15735,7 +15735,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "AE" = (
@@ -15852,7 +15852,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "AT" = (
@@ -16339,7 +16339,7 @@
 "Ca" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/mining/brace{
+/obj/structure/drill_brace{
 	dir = 8
 	},
 /turf/floor/concrete,
@@ -16347,7 +16347,7 @@
 "Cb" = (
 /mob/living/simple_animal/cow,
 /obj/machinery/light/small,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Cc" = (
 /obj/structure/railing/mapped,
@@ -16393,7 +16393,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/mob/living/simple_animal/hostile/malf_drone,
 /turf/template_noop,
 /area/template_noop)
 "Ck" = (
@@ -16434,7 +16434,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /obj/random/trash,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
@@ -16462,7 +16462,7 @@
 /obj/effect/decal/cleanable/vomit,
 /obj/item/ammo_magazine/smg/empty,
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/template_noop,
 /area/template_noop)
 "Cs" = (
@@ -16837,7 +16837,7 @@
 	dir = 5
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "CY" = (
@@ -17041,7 +17041,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/ppflowers,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Dx" = (
 /obj/structure/table/steel_reinforced,
@@ -17444,7 +17444,7 @@
 /area/map_template/hateville/mining)
 "Ep" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/mob/living/simple_animal/hostile/malf_drone,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
@@ -18482,7 +18482,7 @@
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/techfloor/corner,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete,
 /area/template_noop)
 "GI" = (
@@ -18694,7 +18694,7 @@
 "Hg" = (
 /obj/structure/flora/bush/ppflowers,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Hh" = (
 /obj/machinery/alarm{
@@ -18809,7 +18809,7 @@
 	dir = 4
 	},
 /obj/structure/flora/bush/grassybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Ht" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
@@ -18994,7 +18994,7 @@
 "HN" = (
 /mob/living/simple_animal/fowl/chicken,
 /obj/structure/flora/bush/fullgrass,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "HO" = (
 /obj/effect/floor_decal/techfloor{
@@ -19191,7 +19191,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Ii" = (
@@ -19437,7 +19437,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "IN" = (
@@ -19471,7 +19471,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "IR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -19528,8 +19528,8 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/faithless/cult,
-/turf/floor/natural/grass,
+/mob/living/simple_animal/hostile/revenant/cult,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Jb" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -20023,7 +20023,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /turf/floor/concrete,
 /area/map_template/hateville/mining)
 "Kf" = (
@@ -20183,12 +20183,12 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Kw" = (
 /obj/structure/flora/bush/sunnybush,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "Kx" = (
 /obj/structure/cable{
@@ -20216,7 +20216,7 @@
 /area/map_template/hateville/dormitories)
 "Kz" = (
 /obj/structure/flora/bush/fullgrass,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "KA" = (
 /obj/machinery/atmospherics/pipe/cap/hidden{
@@ -20245,7 +20245,7 @@
 "KC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "KG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
@@ -20287,7 +20287,7 @@
 /obj/structure/flora/bush/ywflowers,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "KO" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -20458,7 +20458,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete/reinforced/road,
 /area/map_template/hateville/mining)
 "Lj" = (
@@ -20558,7 +20558,7 @@
 	color = "#a10808"
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /obj/structure/cable{
 	icon_state = "1-8";
 	dir = 4
@@ -20608,7 +20608,7 @@
 /area/map_template/hateville/materials)
 "LA" = (
 /obj/structure/flora/bush/ywflowers,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "LB" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -20722,7 +20722,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "LS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -20880,7 +20880,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "Mm" = (
@@ -21377,7 +21377,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "Nu" = (
@@ -21590,7 +21590,7 @@
 /area/map_template/hateville/prison)
 "NS" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/mob/living/simple_animal/hostile/malf_drone,
 /turf/template_noop,
 /area/template_noop)
 "NT" = (
@@ -21625,7 +21625,7 @@
 "NZ" = (
 /obj/structure/flora/bush/ywflowers,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Oa" = (
 /obj/effect/decal/cleanable/dirt,
@@ -21905,7 +21905,7 @@
 "OG" = (
 /obj/structure/flora/bush/fullgrass,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "OI" = (
 /obj/effect/floor_decal/techfloor{
@@ -22597,7 +22597,7 @@
 "Qd" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Qe" = (
 /obj/effect/decal/cleanable/dirt,
@@ -23026,7 +23026,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/mining/brace{
+/obj/structure/drill_brace{
 	dir = 4
 	},
 /obj/machinery/light/spot,
@@ -23516,7 +23516,7 @@
 	},
 /obj/item/ammo_magazine/smg/empty,
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/template_noop,
 /area/map_template/hateville/armory)
 "RX" = (
@@ -24124,8 +24124,8 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
-/turf/floor/natural/grass,
+/mob/living/simple_animal/hostile/revenant/cult,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "Tv" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
@@ -24404,7 +24404,7 @@
 /area/map_template/hateville/agriculture)
 "TR" = (
 /obj/structure/flora/bush/sunnybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "TS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -24529,7 +24529,7 @@
 	color = "#a10808"
 	},
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white{
 	color = "#d9d9be"
 	},
@@ -25187,7 +25187,7 @@
 /area/template_noop)
 "VC" = (
 /obj/structure/fountain/mundane,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/command)
 "VD" = (
 /obj/structure/grille,
@@ -25248,7 +25248,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -25333,7 +25333,7 @@
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/faithless/cult,
+/mob/living/simple_animal/hostile/revenant/cult,
 /turf/floor/tiled/stone,
 /area/map_template/hateville/command)
 "VW" = (
@@ -26195,24 +26195,6 @@
 /obj/item/pack/cardemon,
 /obj/item/pack/cardemon,
 /obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/item/pack/cardemon,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
 /turf/floor/tiled/techfloor/grid,
@@ -26317,7 +26299,7 @@
 /area/map_template/hateville/agricultureOU)
 "XU" = (
 /obj/structure/hygiene/sink/puddle,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "XV" = (
 /obj/structure/cable{

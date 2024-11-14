@@ -1,9 +1,10 @@
 /obj/item/paper/talisman
 	info = "<center><img src='talisman.png'></center><br/><br/>"
-	var/imbue = null
 
 /obj/item/paper/talisman/update_contents_overlays()
-	add_overlay(overlay_image('icons/obj/bureaucracy.dmi', icon_state = "paper_talisman", flags = RESET_COLOR))
+	var/talisman_state = "[icon_state]-talisman"
+	if(check_state_in_icon(talisman_state, icon))
+		add_overlay(overlay_image(icon, talisman_state, flags = RESET_COLOR))
 
 /obj/item/paper/talisman/attack_self(var/mob/user)
 	if(iscultist(user))
@@ -28,7 +29,7 @@
 	var/obj/item/nullrod/nrod = locate() in target
 	if(nrod)
 		user.visible_message(
-			SPAN_DANGER("\The [user] invokes \the [src] at [target], but they are unaffected."), 
+			SPAN_DANGER("\The [user] invokes \the [src] at [target], but they are unaffected."),
 			SPAN_DANGER("You invoke \the [src] at [target], but they are unaffected.")
 		)
 		return TRUE
@@ -46,7 +47,6 @@
 	user.try_unequip(src)
 	qdel(src)
 	return TRUE
-
 
 /obj/item/paper/talisman/emp/attack_self(var/mob/user)
 	if(iscultist(user))

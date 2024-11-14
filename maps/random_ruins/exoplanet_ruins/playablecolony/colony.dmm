@@ -249,7 +249,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/colony/command)
 "aI" = (
 /turf/wall,
@@ -6783,7 +6783,7 @@
 /turf/floor/tiled/techfloor,
 /area/map_template/colony/jail)
 "mZ" = (
-/obj/machinery/mining/brace{
+/obj/structure/drill_brace{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6929,7 +6929,7 @@
 /turf/floor/fake_grass,
 /area/map_template/colony/hydroponics)
 "nm" = (
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/floor/concrete,
 /area/template_noop)
@@ -6957,7 +6957,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/map_template/colony/jail)
 "nq" = (
-/obj/machinery/mining/brace{
+/obj/structure/drill_brace{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,

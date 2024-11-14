@@ -165,7 +165,7 @@
 			if(user_protected && prob(80))
 				to_chat(h_user, SPAN_WARNING("Small electrical arc almost burns your hand. Luckily you had your gloves on!"))
 			else
-				to_chat(h_user, SPAN_DANGER("Small electrical arc sparks and burns your hand as you touch the [src]!"))
+				to_chat(h_user, SPAN_DANGER("Small electrical arc sparks and burns your hand as you touch \the [src]!"))
 				h_user.electrocute_act(rand(5,20), src, def_zone = h_user.get_active_held_item_slot())//corrected to counter act armor and stuff
 			charge = 0
 
@@ -176,7 +176,7 @@
 			if (user_protected && prob(25))
 				to_chat(h_user, SPAN_WARNING("Medium electrical arc sparks and almost burns your hand. Luckily you had your gloves on!"))
 			else
-				to_chat(h_user, SPAN_DANGER("Medium electrical sparks as you touch the [src], severely burning your hand!"))
+				to_chat(h_user, SPAN_DANGER("Medium electrical sparks as you touch \the [src], severely burning your hand!"))
 				h_user.electrocute_act(rand(15,35), src, def_zone = h_user.get_active_held_item_slot())
 			spawn(0)
 				empulse(src.loc, 2, 4)
@@ -334,16 +334,18 @@
 	// No more disassembling of overloaded SMESs. You broke it, now enjoy the consequences.
 	if (failing)
 		to_chat(user, "<span class='warning'>\The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea.</span>")
+		return TRUE
+	. = ..()
+	if(.)
 		return
-
-	if (!..())
-
-		// Multitool - change RCON tag
-		if(IS_MULTITOOL(W))
-			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
-			if(newtag)
-				RCon_tag = newtag
-				to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+	// Multitool - change RCON tag
+	if(IS_MULTITOOL(W))
+		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
+		if(newtag)
+			RCon_tag = newtag
+			to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+		return TRUE
+	return FALSE
 
 // Proc: toggle_input()
 // Parameters: None

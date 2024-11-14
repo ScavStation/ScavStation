@@ -14,11 +14,10 @@
 	if(!length(possibilities))
 		return FALSE
 
-	var/decl/interaction_handler/choice
-	if(length(possibilities) == 1)
-		choice = possibilities[1]
-	else
-		choice = show_radial_menu(user, src, possibilities, use_labels = TRUE)
+	var/decl/interaction_handler/choice = possibilities[1]
+	if(length(possibilities) > 1 || (choice.interaction_flags & INTERACTION_NEVER_AUTOMATIC))
+		choice = null
+		choice = show_radial_menu(user, src, possibilities, use_labels = RADIAL_LABELS_CENTERED)
 		if(!istype(choice) || QDELETED(user) || !(choice.type in get_alt_interactions(user)) || !choice.is_possible(src, user, prop))
 			return TRUE
 

@@ -9,8 +9,6 @@
 	sharp = 1
 	edge = 1
 	w_class = ITEM_SIZE_SMALL
-	material_force_multiplier = 0.12 // 6 with hardness 30 (glass)
-	thrown_material_force_multiplier = 0.1 // 3 with weight 30 (glass)
 	item_state = "shard-glass"
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	material = /decl/material/solid/glass
@@ -66,24 +64,24 @@
 		if(WT.weld(0, user))
 			material.create_object(get_turf(src))
 			qdel(src)
-			return
+			return TRUE
 	if(istype(W, /obj/item/stack/cable_coil))
 
 		if(!material || (material.shard_type in list(SHARD_SPLINTER, SHARD_SHRAPNEL)))
 			to_chat(user, SPAN_WARNING("\The [src] is not suitable for using as a shank."))
-			return
+			return TRUE
 		if(has_handle)
 			to_chat(user, SPAN_WARNING("\The [src] already has a handle."))
-			return
+			return TRUE
 		var/obj/item/stack/cable_coil/cable = W
 		if(cable.use(3))
 			to_chat(user, SPAN_NOTICE("You wind some cable around the thick end of \the [src]."))
 			has_handle = cable.color
 			SetName("[material.solid_name] shank")
 			update_icon()
-			return
+			return TRUE
 		to_chat(user, SPAN_WARNING("You need 3 or more units of cable to give \the [src] a handle."))
-		return
+		return TRUE
 	return ..()
 
 /obj/item/shard/on_update_icon()

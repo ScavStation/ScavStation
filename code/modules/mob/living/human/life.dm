@@ -526,7 +526,7 @@
 		if(isSynthetic())
 			var/obj/item/organ/internal/cell/C = get_organ(BP_CELL, /obj/item/organ/internal/cell)
 			if(C)
-				var/chargeNum = clamp(CEILING(C.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+				var/chargeNum = clamp(ceil(C.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 				cells.icon_state = "charge[chargeNum]"
 			else
 				cells.icon_state = "charge-empty"
@@ -666,8 +666,8 @@
 
 	if(rounded_shock_stage >= 30)
 		if(rounded_shock_stage == 30)
-			var/decl/pronouns/G = get_pronouns()
-			visible_message("<b>\The [src]</b> is having trouble keeping [G.his] eyes open.")
+			var/decl/pronouns/pronouns = get_pronouns()
+			visible_message("<b>\The [src]</b> is having trouble keeping [pronouns.his] eyes open.")
 		if(prob(30))
 			SET_STATUS_MAX(src, STAT_BLURRY, 2)
 			SET_STATUS_MAX(src, STAT_STUTTER, 5)

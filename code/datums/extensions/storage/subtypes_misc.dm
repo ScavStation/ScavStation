@@ -1,3 +1,7 @@
+/datum/storage/book
+	max_w_class = ITEM_SIZE_SMALL
+	storage_slots = 1
+
 /datum/storage/bible
 	max_w_class = ITEM_SIZE_SMALL
 	max_storage_space = 4
@@ -102,16 +106,25 @@
 	can_hold = list(/obj/item)
 	expected_type = /obj/structure/reagent_dispensers/compost_bin
 
-/datum/storage/hopper/industrial/compost/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+/datum/storage/hopper/industrial/compost/can_be_inserted(obj/item/W, mob/user, stop_messages = 0, click_params = null)
 	. = ..()
 	if(!.)
 		return
-	if(istype(W, /obj/item/chems/food/worm) && istype(holder, /obj/structure/reagent_dispensers/compost_bin))
+	if(istype(W, /obj/item/food/worm) && istype(holder, /obj/structure/reagent_dispensers/compost_bin))
 		var/worms = 0
-		for(var/obj/item/chems/food/worm/worm in get_contents())
+		for(var/obj/item/food/worm/worm in get_contents())
 			worms++
 		return worms < COMPOST_MAX_WORMS
 	return W.is_compostable()
+
+/datum/storage/hopper/mortar
+	max_w_class = ITEM_SIZE_NORMAL * 2
+
+/datum/storage/hopper/mortar/can_be_inserted(obj/item/inserting_item, mob/user, stop_messages, click_params = null)
+	. = ..()
+	if(!.)
+		return
+	return inserting_item.reagents?.total_volume > 0
 
 /datum/storage/photo_album
 	storage_slots = DEFAULT_BOX_STORAGE //yes, that's storage_slots. Photos are w_class 1 so this has as many slots equal to the number of photos you could put in a box
@@ -130,3 +143,8 @@
 	max_w_class = ITEM_SIZE_LARGE
 	storage_slots = 4
 	use_sound = 'sound/effects/storage/toolbox.ogg'
+
+/datum/storage/produce_bin
+	can_hold = list(/obj/item/food/grown)
+	max_storage_space = BASE_STORAGE_CAPACITY(ITEM_SIZE_STRUCTURE)
+	storage_ui = /datum/storage_ui/default/produce_bin

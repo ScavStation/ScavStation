@@ -15,8 +15,7 @@
 	desc             = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state       = "film"
 	item_state       = "electropack"
-	w_class          = ITEM_SIZE_TINY
-	throwforce       = 0
+	w_class          = ITEM_SIZE_SMALL
 	throw_range      = 10
 	material         = /decl/material/solid/organic/plastic
 	var/tmp/max_uses = 10
@@ -113,7 +112,7 @@
 	if(IS_PEN(P))
 		if(!CanPhysicallyInteractWith(user, src))
 			to_chat(user, SPAN_WARNING("You can't interact with this!"))
-			return
+			return TRUE
 		scribble = sanitize(input(user, "What would you like to write on the back? (Leave empty to erase)", "Photo Writing", scribble), MAX_DESC_LEN)
 		return TRUE
 	return ..()
@@ -274,10 +273,10 @@
 					user.put_in_active_hand(film)
 					film = I
 					return TRUE
-				return
+				return TRUE
 			//Unskilled losers have to remove it first
 			to_chat(user, SPAN_NOTICE("[src] already has some film in it! Remove it first!"))
-			return
+			return TRUE
 		else
 			if(user.do_skilled(1 SECONDS, SKILL_DEVICES, src))
 				if(user.get_skill_value(SKILL_DEVICES) >= SKILL_EXPERT)
@@ -291,7 +290,7 @@
 				user.try_unequip(I, src)
 				film = I
 				return TRUE
-			return
+			return TRUE
 	return ..()
 
 /obj/item/camera/proc/get_mobs(turf/the_turf)
@@ -404,5 +403,6 @@
 	icon_state           = "radial_eject"
 	expected_target_type = /obj/item/camera
 
-/decl/interaction_handler/camera_eject_film/invoked(var/obj/item/camera/target, mob/user)
-	return target.eject_film(user)
+/decl/interaction_handler/camera_eject_film/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/camera/camera = target
+	camera.eject_film(user)
