@@ -7,6 +7,9 @@
 	color =    /decl/material/solid/organic/wood/walnut::color
 
 // FRANCE ISN'T REAL
+/obj/item/chems/drinks/bottle/champagne
+	name = "sparkling wine bottle"
+
 /decl/material/liquid/ethanol/champagne
 	name       = "sparkling wine"
 	glass_name = "sparkling wine"
