@@ -40,7 +40,9 @@
 		/obj/item/paper/scroll,
 		/obj/item/paper/scroll,
 		/obj/item/pen/fancy/quill,
+		/obj/item/pen/fancy/quill,
 		/obj/item/clothing/neck/necklace/prayer_beads/random,
+		/obj/item/hourglass,
 	)
 	return common_loot
 
