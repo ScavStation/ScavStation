@@ -191,11 +191,24 @@ var/global/list/station_bookcases = list()
 	name = "book cart"
 	anchored = FALSE
 	opacity = FALSE
+	icon_state = "book-0"
 	desc = "A mobile cart for carrying books around."
 	movable_flags = MOVABLE_FLAG_WHEELED
 	icon = 'icons/obj/structures/book_cart.dmi'
 	tool_interaction_flags = TOOL_INTERACTION_DECONSTRUCT
 	obj_flags = 0
+	material_alteration = MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
+
+/obj/structure/bookcase/cart/on_update_icon()
+	// We don't (can't) call parent, so we have to do this here
+	if(material_alteration & MAT_FLAG_ALTERATION_COLOR)
+		update_material_colour()
+	cut_overlays()
+	if(istype(lock))
+		update_lock_overlay()
+	// End boilerplate
+	var/used_space_ratio = storage.storage_space_used() / storage.max_storage_space
+	icon_state = "book-[round(used_space_ratio * 5)]"
 
 /obj/structure/bookcase/ebony
 	material = /decl/material/solid/organic/wood/ebony
