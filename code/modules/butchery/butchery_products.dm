@@ -25,6 +25,10 @@
 			slice_path = butchery_decl.meat_type
 		if(isnull(slice_num))
 			slice_num = butchery_decl.meat_amount
+		if(butchery_decl.meat_name)
+			nutriment_desc = list((butchery_decl.meat_name) = 10)
+	else if(meat_name) // premapped
+		nutriment_desc = list((meat_name) = 10)
 	. = ..()
 	if(butchery_decl)
 		add_allergen_flags(butchery_decl.meat_flags)
