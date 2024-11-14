@@ -111,13 +111,11 @@
 // This is the place to actually do work in the AI.
 /datum/mob_controller/proc/do_process()
 	SHOULD_CALL_PARENT(TRUE)
-	if(!body || QDELETED(body))
-		return FALSE
-	if(!body.stat)
+	if(!QDELETED(body) && !body.stat)
 		try_unbuckle()
 		try_wander()
 		try_bark()
-	return TRUE
+	return !QDELETED(body) && !QDELETED(src) // In case we have been deleted by the calls above.
 
 // The mob will try to unbuckle itself from nets, beds, chairs, etc.
 /datum/mob_controller/proc/try_unbuckle()
