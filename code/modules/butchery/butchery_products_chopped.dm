@@ -5,6 +5,7 @@
 	bitesize      = 2
 	nutriment_amt = 1
 	w_class       = ITEM_SIZE_TINY
+	filling_color = "#ff1c1c"
 
 /obj/item/food/butchery/chopped/Initialize(mapload, material_key, skip_plate = FALSE)
 	. = ..()
