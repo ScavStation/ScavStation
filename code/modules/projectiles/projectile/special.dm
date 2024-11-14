@@ -27,10 +27,21 @@
 	icon_state= "bolter"
 	damage = 50
 	damage_flags = DAM_BULLET | DAM_SHARP | DAM_EDGE
+	var/gyro_devastation = -1
+	var/gyro_heavy_impact = 0
+	var/gyro_light_impact = 2
 
 /obj/item/projectile/bullet/gyro/on_hit(var/atom/target, var/blocked = 0)
-	explosion(target, -1, 0, 2)
+	target = get_turf(target)
+	if(istype(target))
+		explosion(target, gyro_devastation, gyro_heavy_impact, gyro_light_impact)
 	return 1
+
+/obj/item/projectile/bullet/gyro/microrocket
+	name = "microrocket"
+	distance_falloff = 1.3
+	fire_sound = 'sound/effects/Explosion1.ogg'
+	gyro_light_impact = 1
 
 /obj/item/projectile/temp
 	name = "freeze beam"
@@ -88,9 +99,9 @@
 			if(prob(15))
 				M.apply_damage((rand(30,80)),IRRADIATE, damage_flags = DAM_DISPERSED)
 				SET_STATUS_MAX(M, STAT_WEAK, 5)
-				var/decl/pronouns/G = M.get_pronouns()
+				var/decl/pronouns/pronouns = M.get_pronouns()
 				visible_message(
-					SPAN_DANGER("\The [M] writhes in pain as [G.his] vacuoles boil."),
+					SPAN_DANGER("\The [M] writhes in pain as [pronouns.his] vacuoles boil."),
 					blind_message = SPAN_WARNING("You hear a crunching sound.")
 				)
 			if(prob(35))
@@ -166,8 +177,6 @@
 /obj/item/missile
 	icon = 'icons/obj/items/grenades/missile.dmi'
 	icon_state = ICON_STATE_WORLD
-	var/primed = null
-	throwforce = 15
 	material = /decl/material/solid/fiberglass
 	matter = list(
 		/decl/material/solid/metal/aluminium = MATTER_AMOUNT_REINFORCEMENT,
@@ -176,6 +185,7 @@
 		/decl/material/liquid/anfo           = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/liquid/fuel           = MATTER_AMOUNT_REINFORCEMENT,
 	)
+	var/primed = null
 
 /obj/item/missile/throw_impact(atom/hit_atom)
 	..()

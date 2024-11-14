@@ -106,7 +106,7 @@
 	name = "External Blast Doors"
 	},
 /obj/machinery/door/firedoor,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/crew/dorms1)
 "an" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -189,7 +189,7 @@
 /area/ship/trade/maintenance/eva)
 "ax" = (
 /obj/effect/floor_decal/corner/beige,
-/obj/machinery/mining/drill,
+/obj/machinery/mining_drill,
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
 "ay" = (
@@ -411,7 +411,7 @@
 /obj/structure/handrail{
 	dir = 4
 	},
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
@@ -2760,7 +2760,7 @@
 /turf/wall/r_wall,
 /area/ship/trade/drunk_tank)
 "Ei" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "En" = (
 /obj/item/stool/padded,
@@ -2901,7 +2901,7 @@
 /area/ship/trade/science/fabricaton)
 "Js" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace,
+/obj/structure/drill_brace,
 /turf/floor/tiled/monotile,
 /area/ship/trade/cargo/lower)
 "JM" = (
@@ -3094,7 +3094,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/mob/living/simple_animal/cat/fluff/ran,
+/mob/living/simple_animal/passive/cat/fluff/ran,
 /turf/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "Qg" = (
@@ -3209,7 +3209,7 @@
 /obj/item/mollusc/barnacle{
 	pixel_x = 18
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "TC" = (
 /obj/machinery/recharge_station,
@@ -3337,7 +3337,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "YH" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/eva)
 "Za" = (
 /turf/floor/plating,

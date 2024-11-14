@@ -2,12 +2,16 @@
 #define MODPACK_FANTASY_SPECIES
 // BEGIN_INCLUDE
 #include "_fantasy.dm"
+#include "turfs.dm"
 #include "datum\cultures.dm"
 #include "datum\currencies.dm"
 #include "datum\factions.dm"
 #include "datum\locations.dm"
+#include "datum\materials.dm"
+#include "datum\names.dm"
 #include "datum\outfits.dm"
 #include "datum\overrides.dm"
+#include "datum\skills.dm"
 #include "datum\species.dm"
 #include "datum\hnoll\bodytypes.dm"
 #include "datum\hnoll\culture.dm"
@@ -22,12 +26,15 @@
 #include "datum\kobaloi\markings.dm"
 #include "datum\kobaloi\organs.dm"
 #include "datum\kobaloi\species.dm"
+#include "items\material_overrides.dm"
 #include "items\clothing\_loadout.dm"
 #include "items\clothing\_recipes.dm"
 #include "items\clothing\armor.dm"
+#include "items\clothing\glasses.dm"
 #include "items\clothing\jerkin.dm"
 #include "items\clothing\loincloth.dm"
 #include "items\clothing\overrides.dm"
 #include "items\clothing\trousers.dm"
+#include "props\signpost.dm"
 // END_INCLUDE
 #endif

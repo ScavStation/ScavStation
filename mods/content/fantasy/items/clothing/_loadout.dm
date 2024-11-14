@@ -12,7 +12,10 @@
 		/decl/material/solid/organic/leather,
 		/decl/material/solid/organic/skin/feathers,
 		/decl/material/solid/organic/skin/fur,
-		/decl/material/solid/organic/cloth
+		/decl/material/solid/organic/cloth,
+		/decl/material/solid/organic/cloth/wool,
+		/decl/material/solid/organic/cloth/hemp,
+		/decl/material/solid/organic/cloth/linen
 	)
 
 /decl/loadout_option/fantasy/get_gear_tweak_options()
@@ -67,6 +70,17 @@
 	path = /obj/item/clothing/shirt/toga
 	uid = "gear_fantasy_toga"
 
+/decl/loadout_option/fantasy/uniform/pleated
+	name = "pleated skirt selection"
+	path = /obj/item/clothing/skirt/pleated
+	loadout_flags = (GEAR_HAS_COLOR_SELECTION | GEAR_HAS_TYPE_SELECTION)
+	uid = "gear_fantasy_skirt_pleated"
+
+/decl/loadout_option/fantasy/uniform/gambeson
+	name = "gambeson"
+	path = /obj/item/clothing/shirt/gambeson
+	uid = "gear_fantasy_gambeson"
+
 /decl/loadout_option/fantasy/suit
 	name = "robes"
 	path = /obj/item/clothing/suit/robe
@@ -80,8 +94,13 @@
 
 /decl/loadout_option/fantasy/suit/cloak
 	name = "cloak"
-	path = /obj/item/clothing/suit/cloak
+	path = /obj/item/clothing/suit/cloak/crafted // Takes material colour.
 	uid = "gear_fantasy_cloak"
+
+/decl/loadout_option/fantasy/suit/hooded_cloak
+	name = "cloak, hooded"
+	path = /obj/item/clothing/suit/hooded_cloak
+	uid = "gear_fantasy_cloak_hooded"
 
 /decl/loadout_option/fantasy/suit/poncho
 	name = "poncho"
@@ -121,7 +140,10 @@
 	path = /obj/item/clothing/gloves/thick
 	available_materials = list(
 		/decl/material/solid/organic/leather,
-		/decl/material/solid/organic/cloth
+		/decl/material/solid/organic/cloth,
+		/decl/material/solid/organic/cloth/wool,
+		/decl/material/solid/organic/cloth/hemp
+
 	)
 	uid = "gear_fantasy_work_gloves"
 
@@ -181,6 +203,19 @@
 		/decl/material/solid/metal/copper,
 		/decl/material/solid/metal/bronze
 	)
+	loadout_flags = null
+
+/decl/loadout_option/fantasy/utility/scroll
+	name = "paper scroll"
+	path = /obj/item/paper/scroll
+	available_materials = null
+	uid = "gear_fantasy_scroll"
+
+/decl/loadout_option/fantasy/utility/quill
+	name = "quill pen"
+	path = /obj/item/pen/fancy/quill
+	available_materials = null
+	uid = "gear_fantasy_quill"
 
 /decl/loadout_option/fantasy/utility/striker
 	name = "flint striker"
@@ -222,6 +257,71 @@
 	slot = slot_w_uniform_str
 	available_materials = list(
 		/decl/material/solid/organic/leather,
-		/decl/material/solid/organic/cloth
+		/decl/material/solid/organic/cloth,
+		/decl/material/solid/organic/cloth/wool,
+		/decl/material/solid/organic/cloth/hemp
 	)
 	uid = "gear_fantasy_bandoler"
+
+/decl/loadout_option/fantasy/utility/waterskin
+	name = "waterskin selection"
+	path = /obj/item/chems/waterskin
+	available_materials = null
+	apply_to_existing_if_possible = TRUE // overwrite beggar knight's wineskin
+	uid = "gear_fantasy_waterskin"
+
+/decl/loadout_option/fantasy/utility/waterskin/get_gear_tweak_options()
+	. = ..()
+	LAZYDISTINCTADD(.[/datum/gear_tweak/path], list(
+		"crafted leather waterskin" = /obj/item/chems/waterskin/crafted,
+		"dried stomach waterskin" =   /obj/item/chems/waterskin,
+	))
+	LAZYDISTINCTADD(.[/datum/gear_tweak/reagents], list(
+		"ale" =         /decl/material/liquid/ethanol/ale,
+		"apple cider" = /decl/material/liquid/ethanol/cider_apple,
+		"beer" =        /decl/material/liquid/ethanol/beer,
+		"kvass" =       /decl/material/liquid/ethanol/kvass,
+		"pear cider" =  /decl/material/liquid/ethanol/cider_pear,
+		"red wine" =    /decl/material/liquid/ethanol/wine,
+		"sake" =        /decl/material/liquid/ethanol/sake,
+		"water" =       /decl/material/liquid/water,
+		"white wine" =  /decl/material/liquid/ethanol/wine/premium,
+	))
+
+/decl/loadout_option/fantasy/eyes
+	abstract_type = /decl/loadout_option/fantasy/eyes
+	slot = slot_glasses_str
+	available_materials = list(
+		/decl/material/solid/organic/leather,
+		/decl/material/solid/organic/cloth,
+		/decl/material/solid/organic/cloth/wool,
+		/decl/material/solid/organic/skin/fur,
+		/decl/material/solid/organic/skin/feathers,
+		/decl/material/solid/organic/cloth/linen
+	)
+
+/decl/loadout_option/fantasy/eyes/eyepatch
+	name = "eyepatch"
+	path = /obj/item/clothing/glasses/eyepatch
+	loadout_flags = null
+	uid = "gear_fantasy_eyes_eyepatch"
+
+/decl/loadout_option/fantasy/eyes/eyepatch_colourable
+	name = "eyepatch, colourable"
+	path = /obj/item/clothing/glasses/eyepatch/colourable
+	uid = "gear_fantasy_eyes_eyepatch_colourable"
+
+/decl/loadout_option/fantasy/eyes/glasses
+	name = "glasses selection"
+	path = /obj/item/clothing/glasses/prescription/pincenez
+	uid = "gear_fantasy_eyes_glasses"
+	available_materials = null
+	loadout_flags = null
+
+/decl/loadout_option/fantasy/eyes/glasses/get_gear_tweak_options()
+	. = ..()
+	LAZYINITLIST(.[/datum/gear_tweak/path])
+	.[/datum/gear_tweak/path] |= list(
+		"pince-nez glasses" =    /obj/item/clothing/glasses/prescription/pincenez,
+		"monocle" =              /obj/item/clothing/glasses/eyepatch/monocle
+	)

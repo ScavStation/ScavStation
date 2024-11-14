@@ -11,7 +11,6 @@
 	item_state        = "paper"
 	layer             = ABOVE_OBJ_LAYER
 	randpixel         = 8
-	throwforce        = 0
 	throw_range       = 2
 	throw_speed       = 1
 	w_class           = ITEM_SIZE_SMALL
@@ -35,7 +34,7 @@
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
 		var/obj/item/paper/paper = W
 		if(istype(paper) && !paper.can_bundle())
-			return //non-paper or bundlable paper only
+			return TRUE //non-paper or bundlable paper only
 		merge(W, user, cur_page)
 		return TRUE
 
@@ -55,7 +54,8 @@
 			. = P.attackby(W, user)
 			update_icon()
 			updateUsrDialog()
-		return
+			return
+		// How did we not have a page? Dunno, fall through to parent call anyway, I guess
 
 	else if(IS_PEN(W) || istype(W, /obj/item/stamp))
 		close_browser(user, "window=[name]")
@@ -64,7 +64,8 @@
 			. = P.attackby(W, user)
 			update_icon()
 			updateUsrDialog()
-		return
+			return
+		// How did we not have a page? Dunno, fall through to parent call anyway, I guess
 
 	return ..()
 
@@ -180,9 +181,9 @@
 	if(!P.isflamesource() || user.incapacitated())
 		return
 	var/span_class = istype(P, /obj/item/flame/fuelled/lighter/zippo) ? "rose" : "warning"
-	var/decl/pronouns/G = user.get_pronouns()
+	var/decl/pronouns/pronouns = user.get_pronouns()
 	user.visible_message( \
-		"<span class='[span_class]'>\The [user] holds \the [P] up to \the [src]. It looks like [G.he] [G.is] trying to burn it!</span>", \
+		"<span class='[span_class]'>\The [user] holds \the [P] up to \the [src]. It looks like [pronouns.he] [pronouns.is] trying to burn it!</span>", \
 		"<span class='[span_class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 	addtimer(CALLBACK(src, PROC_REF(burn_callback), P, user, span_class), 2 SECONDS)
 
@@ -517,8 +518,9 @@
 	name = "Rename Bundle"
 	expected_target_type = /obj/item/paper_bundle
 
-/decl/interaction_handler/rename/paper_bundle/invoked(obj/item/paper_bundle/target, mob/user)
-	target.rename()
+/decl/interaction_handler/rename/paper_bundle/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/paper_bundle/bundle = target
+	bundle.rename()
 
 ///////////////////////////////////////////////////////////////////////////
 // Interaction Break
@@ -527,9 +529,10 @@
 	name = "Unbundle"
 	expected_target_type = /obj/item/paper_bundle
 
-/decl/interaction_handler/unbundle/paper_bundle/invoked(obj/item/paper_bundle/target, mob/user)
+/decl/interaction_handler/unbundle/paper_bundle/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/paper_bundle/bundle = target
 	to_chat(user, SPAN_NOTICE("You loosen \the [target]."))
-	target.break_bundle(user)
+	bundle.break_bundle(user)
 
 #undef MAX_PHOTO_OVERLAYS
 #undef MAX_PAPER_UNDERLAYS

@@ -52,6 +52,7 @@
 		add_overlay("[icon_state]_closed")
 
 /obj/structure/fuel_port/attackby(obj/item/W, mob/user)
+	. = FALSE
 	if(W.do_tool_interaction(TOOL_CROWBAR, user, src, 1 SECOND))
 		if(open)
 			playsound(src, sound_open, 25, 0, -3)
@@ -59,19 +60,22 @@
 		else
 			playsound(src, sound_close, 15, 1, -3)
 			open = TRUE
+		. = TRUE
 
 	else if(istype(W, /obj/item/tank))
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src] door is still closed!"))
-			return
+			return TRUE
 
 		if(locate_tank())
 			to_chat(user, SPAN_WARNING("\The [src] already has a tank inside!"))
-			return
+			return TRUE
 		else
 			user.try_unequip(W, src)
+			. = TRUE
 
-	update_icon()
+	if(.)
+		update_icon()
 
 // Walls hide stuff inside them, but we want to be visible.
 /obj/structure/fuel_port/hide()

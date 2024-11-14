@@ -76,7 +76,7 @@
 	icon_state = "plasticbag"
 	item_state = "plasticbag"
 	storage = /datum/storage/bag/plastic
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 
 	material = /decl/material/solid/organic/plastic
 	material_alteration = MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
@@ -122,6 +122,7 @@
 	slot_flags = SLOT_LOWER_BODY | SLOT_BACK
 	storage = /datum/storage/bag/sack
 	material = /decl/material/solid/organic/leather
+	color = /decl/material/solid/organic/leather::color
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
 
 /obj/item/bag/sack/update_w_class()

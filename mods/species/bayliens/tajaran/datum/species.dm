@@ -20,7 +20,9 @@
 	hidden_from_codex = FALSE
 	available_bodytypes = list(/decl/bodytype/feline)
 
-	preview_outfit = /decl/hierarchy/outfit/job/generic/engineer
+	traits = list(/decl/trait/malus/intolerance/caffeine = TRAIT_LEVEL_MAJOR)
+
+	preview_outfit = /decl/outfit/job/generic/engineer
 
 	spawn_flags = SPECIES_CAN_JOIN
 
@@ -52,10 +54,10 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
-	available_cultural_info = list(
-		TAG_CULTURE = list(
-			/decl/cultural_info/culture/tajaran,
-			/decl/cultural_info/culture/other
+	available_background_info = list(
+		/decl/background_category/heritage = list(
+			/decl/background_detail/heritage/tajaran,
+			/decl/background_detail/heritage/other
 		)
 	)
 

@@ -3,7 +3,7 @@
 	material = /decl/material/solid/organic/wood
 	color = /decl/material/solid/organic/wood::color
 	girder_material = null
-	floor_type = null
+	floor_type = /turf/floor/dirt
 	min_dismantle_amount = 3
 	max_dismantle_amount = 5
 
@@ -37,8 +37,10 @@
 /turf/wall/log/##material_name/shutter { \
 	shutter_state = FALSE; \
 	icon_state = "log_shutter"; \
+}; \
+/turf/wall/log/##material_name/shutter/open { \
+	shutter_state = TRUE; \
 }
-
 LOG_WALL_SUBTYPE(fungal)
 LOG_WALL_SUBTYPE(ebony)
 LOG_WALL_SUBTYPE(walnut)

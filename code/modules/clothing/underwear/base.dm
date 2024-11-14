@@ -1,6 +1,6 @@
 /obj/item/underwear
 	icon = 'icons/mob/human.dmi'
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/organic/cloth
 	var/required_free_body_parts
 	var/slot_offset_str
@@ -43,9 +43,9 @@
 	var/list/covering_items = H.get_covering_equipped_items(required_free_body_parts)
 	if(length(covering_items))
 		var/obj/item/I = covering_items[1]
-		var/decl/pronouns/G = I.get_pronouns()
+		var/decl/pronouns/pronouns = I.get_pronouns()
 		if(adjustment_verb)
-			to_chat(user, "<span class='warning'>Cannot [adjustment_verb] \the [src]. [english_list(covering_items)] [covering_items.len == 1 ? G.is : "are"] in the way.</span>")
+			to_chat(user, "<span class='warning'>Cannot [adjustment_verb] \the [src]. [english_list(covering_items)] [covering_items.len == 1 ? pronouns.is : "are"] in the way.</span>")
 		return FALSE
 
 	return TRUE

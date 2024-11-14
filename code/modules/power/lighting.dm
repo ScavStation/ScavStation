@@ -100,7 +100,7 @@
 			broken(1)
 
 	on = expected_to_be_on()
-	update_icon(0)
+	queue_icon_update(0)
 
 /obj/machinery/light/Destroy()
 	QDEL_NULL(lightbulb)
@@ -264,7 +264,7 @@
 
 	else if(lightbulb && (lightbulb.status != LIGHT_BROKEN) && user.a_intent != I_HELP)
 
-		if(prob(1 + W.force * 5))
+		if(prob(1 + W.get_attack_force(user) * 5))
 
 			user.visible_message("<span class='warning'>[user.name] smashed the light!</span>", "<span class='warning'>You smash the light!</span>", "You hear a tinkle of breaking glass.")
 			if(on && (W.obj_flags & OBJ_FLAG_CONDUCTIBLE))
@@ -329,8 +329,8 @@
 		var/prot = FALSE
 		var/mob/living/human/H = user
 		if(istype(H))
-			var/obj/item/clothing/gloves/G = H.get_equipped_item(slot_gloves_str)
-			if(istype(G) && G.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
+			var/obj/item/clothing/gloves/pronouns = H.get_equipped_item(slot_gloves_str)
+			if(istype(pronouns) && pronouns.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
 				prot = TRUE
 
 		if(prot > 0 || user.has_genetic_condition(GENE_COND_COLD_RESISTANCE))
@@ -341,9 +341,9 @@
 			var/obj/item/organ/external/hand = GET_EXTERNAL_ORGAN(H, user.get_active_held_item_slot())
 			if(hand && hand.is_usable() && !hand.can_feel_pain())
 				user.apply_damage(3, BURN, hand.organ_tag, used_weapon = src)
-				var/decl/pronouns/G = user.get_pronouns()
+				var/decl/pronouns/pronouns = user.get_pronouns()
 				user.visible_message( \
-					SPAN_DANGER("\The [user]'s [hand.name] burns and sizzles as [G.he] touch[G.es] the hot [get_fitting_name()]."), \
+					SPAN_DANGER("\The [user]'s [hand.name] burns and sizzles as [pronouns.he] touch[pronouns.es] the hot [get_fitting_name()]."), \
 					SPAN_DANGER("Your [hand.name] burns and sizzles as you remove the hot [get_fitting_name()]."))
 		else
 			to_chat(user, SPAN_WARNING("You try to remove the [get_fitting_name()], but it's too hot and you don't want to burn your hand."))
@@ -461,13 +461,10 @@
 
 /obj/item/light
 	icon = 'icons/obj/lighting.dmi'
-	force = 2
-	throwforce = 5
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/metal/steel
 	atom_flags = ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_HOLLOW
-
 	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
 	var/base_state
 	var/switchcount = 0	// number of times switched
@@ -610,8 +607,8 @@
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
 		src.visible_message("<span class='warning'>[name] shatters.</span>","<span class='warning'>You hear a small glass object shatter.</span>")
 		status = LIGHT_BROKEN
-		force = 5
 		sharp = 1
+		set_base_attack_force(5)
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		update_icon()
 

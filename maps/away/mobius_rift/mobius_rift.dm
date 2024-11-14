@@ -32,7 +32,7 @@
 	if (towards == WEST)
 		x_shift = -1
 
-/obj/effect/step_trigger/mobius_rift/seamless_portal/proc/set_destination(var/D)
+/obj/effect/step_trigger/mobius_rift/seamless_portal/proc/set_destination(var/obj/effect/step_trigger/mobius_rift/seamless_portal/D)
 	dest = D
 
 /obj/effect/step_trigger/mobius_rift/seamless_portal/Trigger(var/atom/movable/AM)

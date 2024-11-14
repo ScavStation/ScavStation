@@ -71,18 +71,16 @@
 	if(open && IS_WIRECUTTER(W))
 		passenger_allowed = !passenger_allowed
 		user.visible_message("<span class='notice'>[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src].</span>","<span class='notice'>You [passenger_allowed ? "cut" : "mend"] the load limiter cable.</span>")
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/vehicle/train/cargo/engine/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/key/cargo_train))
-		if(!key)
-			if(!user.try_unequip(W, src))
-				return
+		if(!key && user.try_unequip(W, src))
 			key = W
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
-		return
-	..()
+		return TRUE
+	return ..()
 
 //cargo trains are open topped, so there is a chance the projectile will hit the mob ridding the train instead
 /obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)

@@ -308,7 +308,7 @@
 		add_fingerprint(user)
 		if(!beaker)
 			if(!user.try_unequip(I, src))
-				return
+				return TRUE
 			beaker = I
 			user.visible_message(SPAN_NOTICE("\The [user] adds \a [I] to \the [src]."), SPAN_NOTICE("You add \a [I] to \the [src]."))
 		else

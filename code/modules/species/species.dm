@@ -14,7 +14,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/roleplay_summary
 	var/ooc_codex_information
 	var/cyborg_noun = "Cyborg"
-	var/hidden_from_codex = TRUE
+	var/hidden_from_codex = FALSE
 	var/secret_codex_info
 
 	var/holder_icon
@@ -30,6 +30,8 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/list/available_accessory_categories = list(
 		SAC_HAIR,
 		SAC_FACIAL_HAIR,
+		SAC_EARS,
+		SAC_TAIL,
 		SAC_COSMETICS,
 		SAC_MARKINGS
 	)
@@ -55,6 +57,8 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/flesh_color = "#ffc896"             // Pink.
 	var/blood_oxy = 1
 
+	// Preview in prefs positioning. If null, uses defaults set on a static list in preferences.dm.
+	var/list/character_preview_screen_locs
 
 	var/organs_icon		//species specific internal organs icons
 
@@ -119,7 +123,9 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	// Environment tolerance/life processes vars.
 	var/breath_pressure = 16                                    // Minimum partial pressure safe for breathing, kPa
 	var/breath_type = /decl/material/gas/oxygen                 // Non-oxygen gas breathed, if any.
-	var/poison_types = list(/decl/material/gas/chlorine = TRUE) // Noticeably poisonous air - ie. updates the toxins indicator on the HUD.
+	/// Material types considered noticeably poisonous when inhaled (ie. updates the toxins indicator on the HUD).
+	/// This is an associative list for speed.
+	var/poison_types = list(/decl/material/gas/chlorine = TRUE)
 	var/exhale_type = /decl/material/gas/carbon_dioxide         // Exhaled gas type.
 	var/blood_reagent = /decl/material/liquid/blood
 
@@ -183,10 +189,10 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/standing_jump_range = 2
 	var/list/maneuvers = list(/decl/maneuver/leap)
 
-	var/list/available_cultural_info =            list()
-	var/list/force_cultural_info =                list()
-	var/list/default_cultural_info =              list()
-	var/list/additional_available_cultural_info = list()
+	var/list/available_background_info =            list()
+	var/list/force_background_info =                list()
+	var/list/default_background_info =              list()
+	var/list/additional_available_background_info = list()
 	var/max_players
 
 	// Order matters, higher pain level should be higher up
@@ -198,7 +204,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 	var/manual_dexterity = DEXTERITY_FULL
 
-	var/datum/ai/ai						// Type abused. Define with path and will automagically create. Determines behaviour for clientless mobs. This will override mob AIs.
+	var/datum/mob_controller/ai						// Type abused. Define with path and will automagically create. Determines behaviour for clientless mobs. This will override mob AIs.
 
 	var/exertion_emote_chance =    5
 	var/exertion_effect_chance =   0
@@ -218,7 +224,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/preview_icon_width = 64
 	var/preview_icon_height = 64
 	var/preview_icon_path
-	var/preview_outfit = /decl/hierarchy/outfit/job/generic/assistant
+	var/preview_outfit = /decl/outfit/job/generic/assistant
 
 	/// List of emote types that this species can use by default.
 	var/list/default_emotes
@@ -351,28 +357,28 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	else if(length(available_pronouns) && !default_pronouns)
 		default_pronouns = available_pronouns[1]
 
-	for(var/token in ALL_CULTURAL_TAGS)
+	for(var/cat_type in global.using_map.get_background_categories())
 
-		var/force_val = force_cultural_info[token]
+		var/force_val = force_background_info[cat_type]
 		if(force_val)
-			default_cultural_info[token] = force_val
-			available_cultural_info[token] = list(force_val)
+			default_background_info[cat_type] = force_val
+			available_background_info[cat_type] = list(force_val)
 
-		else if(additional_available_cultural_info[token])
-			if(!available_cultural_info[token])
-				available_cultural_info[token] = list()
-			available_cultural_info[token] |= additional_available_cultural_info[token]
+		else if(additional_available_background_info[cat_type])
+			if(!available_background_info[cat_type])
+				available_background_info[cat_type] = list()
+			available_background_info[cat_type] |= additional_available_background_info[cat_type]
 
-		else if(!LAZYLEN(available_cultural_info[token]))
-			var/list/map_systems = global.using_map.available_cultural_info[token]
-			available_cultural_info[token] = map_systems.Copy()
+		else if(!LAZYLEN(available_background_info[cat_type]))
+			var/list/map_systems = global.using_map.available_background_info[cat_type]
+			available_background_info[cat_type] = map_systems.Copy()
 
-		if(LAZYLEN(available_cultural_info[token]) && !default_cultural_info[token])
-			var/list/avail_systems = available_cultural_info[token]
-			default_cultural_info[token] = avail_systems[1]
+		if(LAZYLEN(available_background_info[cat_type]) && !default_background_info[cat_type])
+			var/list/avail_systems = available_background_info[cat_type]
+			default_background_info[cat_type] = avail_systems[1]
 
-		if(!default_cultural_info[token])
-			default_cultural_info[token] = global.using_map.default_cultural_info[token]
+		if(!default_background_info[cat_type])
+			default_background_info[cat_type] = global.using_map.default_background_info[cat_type]
 
 	if(species_hud)
 		species_hud = new species_hud
@@ -654,8 +660,8 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	target.visible_message("<span class='danger'>[attacker] attempted to disarm \the [target]!</span>")
 
 /decl/species/proc/disfigure_msg(var/mob/living/human/H) //Used for determining the message a disfigured face has on examine. To add a unique message, just add this onto a specific species and change the "return" message.
-	var/decl/pronouns/G = H.get_pronouns()
-	return SPAN_DANGER("[G.His] face is horribly mangled!\n")
+	var/decl/pronouns/pronouns = H.get_pronouns()
+	return SPAN_DANGER("[pronouns.His] face is horribly mangled!\n")
 
 /decl/species/proc/get_available_accessories(var/decl/bodytype/bodytype, accessory_category)
 	. = list()
@@ -674,7 +680,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		var/list/all_accessories = decls_repository.get_decls_of_subtype(accessory_category_decl.base_accessory_type)
 		for(var/accessory_style in all_accessories)
 			var/decl/sprite_accessory/check_accessory = all_accessories[accessory_style]
-			if(!check_accessory || !check_accessory.accessory_is_available(null, src, bodytype))
+			if(!check_accessory || !check_accessory.accessory_is_available(null, src, bodytype, FALSE))
 				continue
 			ADD_SORTED(available_accessories, accessory_style, /proc/cmp_text_asc)
 			available_accessories[accessory_style] = check_accessory
@@ -769,3 +775,12 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
+
+/decl/species/proc/modify_preview_appearance(mob/living/human/dummy/mannequin)
+	return mannequin
+
+/decl/species/proc/get_default_background_datum_by_flag(background_flag)
+	for(var/cat_type in default_background_info)
+		var/decl/background_category/background_cat = GET_DECL(cat_type)
+		if(background_cat.background_flags & background_flag)
+			return GET_DECL(default_background_info[cat_type])

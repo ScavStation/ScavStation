@@ -225,7 +225,8 @@
 						no_link = "<font color='#55cc55'>[no_link]</font>"
 					. += "<a href='byond://?src=\ref[src];set_job=[title];set_level=[JOB_LEVEL_LOW]'>[yes_link]</a><a href='byond://?src=\ref[src];set_job=[title];set_level=[JOB_LEVEL_NEVER]'>[no_link]</a>"
 				else if(!job.available_by_default)
-					. += "<font color = '#cccccc'>Not available at roundstart.</font>"
+					if(!job.suppress_no_roundstart_warning)
+						. += "<font color = '#cccccc'>Not available at roundstart.</font>"
 				else
 					var/level_link
 					switch(current_level)
@@ -372,7 +373,7 @@
 	//From the skills popup
 
 	else if(href_list["hit_skill_button"])
-		var/decl/hierarchy/skill/S = locate(href_list["hit_skill_button"])
+		var/decl/skill/S = locate(href_list["hit_skill_button"])
 		var/datum/job/J = locate(href_list["at_job"])
 		if(!istype(S) || !istype(J))
 			return
@@ -383,7 +384,7 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["skillinfo"])
-		var/decl/hierarchy/skill/S = locate(href_list["skillinfo"])
+		var/decl/skill/S = locate(href_list["skillinfo"])
 		if(!istype(S))
 			return
 		var/HTML = list()

@@ -29,13 +29,18 @@
 	max_health          = 100
 	w_class             = ITEM_SIZE_LARGE
 	directional_offset  = @'{"NORTH":{"y":24}, "SOUTH":{"y":-1}, "EAST":{"x":10,"y":10}, "WEST":{"x":-10,"y":10}}'
+	layer               = ABOVE_HUMAN_LAYER
+	anchored            = TRUE
 	/// Reference to the currently attached item.
 	var/obj/item/flame/light_source
+	/// Whether or not the light source, if present, is automatically lit on Initialize.
+	var/start_lit = FALSE
 
 /obj/structure/wall_sconce/Initialize(var/ml, var/_mat, var/_reinf_mat, var/supplied_dir)
 
 	if(ispath(light_source))
 		light_source = new light_source(src)
+	if(start_lit && istype(light_source))
 		light_source.light(null, no_message = TRUE)
 
 	. = ..()

@@ -1,6 +1,9 @@
 /turf/wall/natural/random/ministation
 	initial_gas = null
-	floor_type = /turf/floor/natural/barren/airless
+	floor_type = /turf/floor/barren/airless
+
+/turf/floor/barren/airless
+	initial_gas = null
 
 /turf/wall/natural/random/ministation/get_weighted_mineral_list()
 	if(prob(80))
@@ -72,3 +75,7 @@
 
 /obj/machinery/camera/network/hallway
 	preset_channels = list("Hallway")
+
+/mob/living/simple_animal/crow/doctor
+	desc = "She's not a real doctor, but she is a real bird."
+	name = "Dr. Bird"

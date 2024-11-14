@@ -4,6 +4,7 @@
 	_fuel_spend_amt       = 0.05
 	can_manually_light    = TRUE
 	extinguish_on_dropped = FALSE
+	watertight            = TRUE
 
 	var/tmp/max_fuel      = 5
 	var/tmp/start_fuelled = FALSE
@@ -17,6 +18,36 @@
 	if(isnull(fuel_type))
 		fuel_type = global.using_map.default_liquid_fuel_type
 	initialize_reagents()
+
+// Boilerplate from /obj/item/chems/glass. TODO generalize to a lower level.
+/obj/item/flame/fuelled/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	if(get_attack_force() && !(item_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
+		. = ..()
+		if(reagents?.total_volume && !QDELETED(target))
+			target.visible_message(SPAN_DANGER("Some of the contents of \the [src] splash onto \the [target]."))
+			reagents.splash(target, reagents.total_volume)
+		return TRUE
+	return FALSE
+
+/obj/item/flame/fuelled/afterattack(obj/target, mob/user, proximity)
+	if(!ATOM_IS_OPEN_CONTAINER(src) || !proximity) //Is the container open & are they next to whatever they're clicking?
+		return FALSE //If not, do nothing.
+	if(target?.storage)
+		return TRUE
+	if(!lit && standard_dispenser_refill(user, target)) //Are they clicking a water tank/some dispenser?
+		playsound(src.loc, 'sound/effects/refill.ogg', 50, TRUE, -6)
+		return TRUE
+	if(standard_pour_into(user, target)) //Pouring into another beaker?
+		return TRUE
+	if(handle_eaten_by_mob(user, target) != EATEN_INVALID)
+		return TRUE
+	if(reagents?.total_volume)
+		to_chat(user, SPAN_NOTICE("You splash a small amount of the contents of \the [src] onto \the [target]."))
+		reagents.splash(target, min(reagents.total_volume, 5))
+		return TRUE
+	. = ..()
+
+// End boilerplate.
 
 /obj/item/flame/fuelled/examine(mob/user, distance)
 	. = ..()
@@ -68,9 +99,3 @@
 		visible_message(SPAN_WARNING("\The [src]'s flame flickers."))
 		set_light(0)
 		addtimer(CALLBACK(src, TYPE_PROC_REF(.atom, set_light), 2), 4)
-
-/obj/item/flame/fuelled/afterattack(obj/target, mob/user, proximity)
-	if(proximity && !lit && standard_dispenser_refill(user, target)) // To be able to refill lanterns and lighters from reagent dispensers.
-		playsound(src.loc, 'sound/effects/refill.ogg', 50, TRUE, -6)
-		return TRUE
-	return ..()

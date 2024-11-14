@@ -14,7 +14,7 @@ meteor_act
 		return PROJECTILE_FORCE_MISS //if they don't have the organ in question then the projectile just passes by.
 
 	//Shields
-	var/shield_check = check_shields(P.damage, P, null, def_zone, "the [P.name]")
+	var/shield_check = check_shields(P.damage, P, null, def_zone, P)
 	if(shield_check)
 		if(shield_check < 0)
 			return shield_check
@@ -101,8 +101,8 @@ meteor_act
 
 /mob/living/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 
-	for (var/obj/item/grab/G in grabbed_by)
-		if(G.resolve_item_attack(user, I, target_zone))
+	for (var/obj/item/grab/grab as anything in grabbed_by)
+		if(grab.resolve_item_attack(user, I, target_zone))
 			return null
 
 	if(user == src) // Attacking yourself can't miss
@@ -119,7 +119,7 @@ meteor_act
 		visible_message("<span class='danger'>\The [user] misses [src] with \the [I]!</span>")
 		return null
 
-	if(check_shields(I.force, I, user, target_zone, "the [I.name]"))
+	if(check_shields(I.get_attack_force(user), I, user, target_zone, I))
 		return null
 
 	var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(src, hit_zone)
@@ -143,14 +143,16 @@ meteor_act
 		visible_message("<span class='warning'>[src] has been [I.attack_verb.len? pick(I.attack_verb) : "attacked"] in the [affecting.name][weapon_mention] by [user]!</span>")
 		return // If it has no force then no need to do anything else.
 
-	return standard_weapon_hit_effects(I, user, effective_force, hit_zone)
+	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
+	if(istype(ai))
+		ai.retaliate(user)
 
 /mob/living/human/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
 	var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(src, hit_zone)
 	if(!affecting)
 		return 0
 
-	var/blocked = get_blocked_ratio(hit_zone, I.atom_damage_type, I.damage_flags(), I.armor_penetration, I.force)
+	var/blocked = get_blocked_ratio(hit_zone, I.atom_damage_type, I.damage_flags(), I.armor_penetration, I.get_attack_force(user))
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
 		effective_force *= 0.66 //reduced effective force...
@@ -167,7 +169,7 @@ meteor_act
 		forcesay(global.hit_appends)	//forcesay checks stat already
 		radio_interrupt_cooldown = world.time + (RADIO_INTERRUPT_DEFAULT * 0.8) //getting beat on can briefly prevent radio use
 
-	if((I.atom_damage_type == BRUTE || I.atom_damage_type == PAIN) && prob(25 + (effective_force * 2)))
+	if(!stat && I.weapon_can_knock_prone && (I.atom_damage_type == BRUTE || I.atom_damage_type == PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
@@ -182,11 +184,9 @@ meteor_act
 					if(current_posture.prone)
 						visible_message("<span class='danger'>[src] has been knocked down!</span>")
 
-		//Apply blood
-		attack_bloody(I, user, effective_force, hit_zone)
-
-		animate_receive_damage(src)
-
+	//Apply blood
+	attack_bloody(I, user, effective_force, hit_zone)
+	animate_receive_damage(src)
 	return 1
 
 /mob/living/human/proc/attack_bloody(obj/item/W, mob/attacker, var/effective_force, var/hit_zone)

@@ -1,7 +1,7 @@
 // This folder contains code that was originally ported from Apollo Station and then refactored/optimized/changed.
 
 // Tracks precooked food to stop deep fried baked grilled grilled grilled monkey cereal.
-/obj/item/chems/food/var/list/cooked
+/obj/item/food/var/list/cooked
 
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/cooker
@@ -52,49 +52,47 @@
 		return SPAN_NOTICE("Wait for \the [src] to finish first!")
 	return ..()
 
+/obj/machinery/cooker/grab_attack(obj/item/grab/grab, mob/user)
+	// We are trying to cook a grabbed mob.
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(!istype(victim))
+		to_chat(user, SPAN_WARNING("You can't cook that."))
+		return TRUE
+	if(!can_cook_mobs)
+		to_chat(user, SPAN_WARNING("That's not going to fit."))
+		return TRUE
+	cook_mob(victim, user)
+	return	TRUE
+
+
 /obj/machinery/cooker/attackby(var/obj/item/I, var/mob/user)
 	set waitfor = 0  //So that any remaining parts of calling proc don't have to wait for the long cooking time ahead.
 
 	if(cooking)
 		to_chat(user, "<span class='warning'>\The [src] is running!</span>")
-		return
+		return TRUE
 
 	if((. = component_attackby(I, user)))
 		return
 
 	if(!cook_type || (stat & (NOPOWER|BROKEN)))
 		to_chat(user, "<span class='warning'>\The [src] is not working.</span>")
-		return
-
-	// We are trying to cook a grabbed mob.
-	var/obj/item/grab/G = I
-	if(istype(G))
-
-		if(!can_cook_mobs)
-			to_chat(user, "<span class='warning'>That's not going to fit.</span>")
-			return
-
-		if(!isliving(G.affecting))
-			to_chat(user, "<span class='warning'>You can't cook that.</span>")
-			return
-
-		cook_mob(G.affecting, user)
-		return
+		return TRUE
 
 	// We're trying to cook something else. Check if it's valid.
-	var/obj/item/chems/food/check = I
+	var/obj/item/food/check = I
 	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
 		to_chat(user, "<span class='warning'>\The [check] has already been [cook_type].</span>")
-		return 0
+		return TRUE
 	else if(istype(check, /obj/item/chems/glass))
 		to_chat(user, "<span class='warning'>That would probably break [src].</span>")
-		return 0
+		return TRUE
 	else if(istype(check, /obj/item/disk/nuclear))
 		to_chat(user, "Central Command would kill you if you [cook_type] that.")
-		return 0
+		return TRUE
 	else if(!istype(check) && !istype(check, /obj/item/holder))
 		to_chat(user, "<span class='warning'>That's not edible.</span>")
-		return 0
+		return TRUE
 
 	// Gotta hurt.
 	if(istype(cooking_obj, /obj/item/holder))
@@ -103,7 +101,7 @@
 
 	// Not sure why a food item that passed the previous checks would fail to drop, but safety first.
 	if(!user.try_unequip(I))
-		return
+		return TRUE
 
 	// We can actually start cooking now.
 	user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
@@ -117,7 +115,7 @@
 
 	// Sanity checks.
 	if(check_cooking_obj())
-		return // Cooking failed/was terminated.
+		return TRUE // Cooking failed/was terminated.
 
 	// RIP slow-moving held mobs.
 	if(istype(cooking_obj, /obj/item/holder))
@@ -130,8 +128,8 @@
 	if(selected_option && output_options.len)
 		cook_path = output_options[selected_option]
 	if(!cook_path)
-		cook_path = /obj/item/chems/food/variable
-	var/obj/item/chems/food/result = new cook_path(src) //Holy typepaths, Batman.
+		cook_path = /obj/item/food/variable
+	var/obj/item/food/result = new cook_path(src) //Holy typepaths, Batman.
 
 	if(cooking_obj.reagents && cooking_obj.reagents.total_volume)
 		cooking_obj.reagents.trans_to(result, cooking_obj.reagents.total_volume)
@@ -143,7 +141,7 @@
 	change_product_strings(result)
 
 	// Set cooked data.
-	var/obj/item/chems/food/food_item = cooking_obj
+	var/obj/item/food/food_item = cooking_obj
 	if(istype(food_item) && islist(food_item.cooked))
 		result.cooked = food_item.cooked.Copy()
 	else
@@ -163,7 +161,7 @@
 		cooking_obj = null
 	else
 		var/failed
-		var/overcook_period = max(FLOOR(cook_time/5),1)
+		var/overcook_period = max(floor(cook_time/5),1)
 		cooking_obj = result
 		while(1)
 			sleep(overcook_period)
@@ -172,7 +170,7 @@
 			else if(prob(burn_chance))
 				// You dun goofed.
 				qdel(cooking_obj)
-				cooking_obj = new /obj/item/chems/food/badrecipe(src)
+				cooking_obj = new /obj/item/food/badrecipe(src)
 				// Produce nasty smoke.
 				visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
 				var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad()
@@ -185,6 +183,7 @@
 				cooking = 0
 				icon_state = off_icon
 				break
+	return TRUE
 
 /obj/machinery/cooker/proc/check_cooking_obj()
 	if(!cooking_obj || cooking_obj.loc != src)
@@ -221,16 +220,16 @@
 /obj/machinery/cooker/proc/cook_mob(var/mob/living/victim, var/mob/user)
 	return
 
-/obj/machinery/cooker/proc/change_product_strings(var/obj/item/chems/food/product)
-	if(product.type == /obj/item/chems/food/variable) // Base type, generic.
+/obj/machinery/cooker/proc/change_product_strings(var/obj/item/food/product)
+	if(product.type == /obj/item/food/variable) // Base type, generic.
 		product.SetName("[cook_type] [cooking_obj.name]")
 		product.desc = "[cooking_obj.desc] It has been [cook_type]."
 	else
 		product.SetName("[cooking_obj.name] [product.name]")
 
-/obj/machinery/cooker/proc/change_product_appearance(var/obj/item/chems/food/product)
+/obj/machinery/cooker/proc/change_product_appearance(var/obj/item/food/product)
 	if(istype(product))
-		if(istype(cooking_obj, /obj/item/chems/food))
-			var/obj/item/chems/food/S = cooking_obj
+		if(istype(cooking_obj, /obj/item/food))
+			var/obj/item/food/S = cooking_obj
 			food_color = S.filling_color
 		product.update_food_appearance_from(cooking_obj, food_color)

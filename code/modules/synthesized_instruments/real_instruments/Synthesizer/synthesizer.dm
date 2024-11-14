@@ -16,26 +16,27 @@
 	if (IS_WRENCH(O))
 		if (!anchored && !isspaceturf(get_turf(src)))
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			to_chat(usr, "<span class='notice'> You begin to tighten \the [src] to the floor...</span>")
-			if (do_after(user, 20))
+			to_chat(user, "<span class='notice'>You begin to tighten \the [src] to the floor...</span>")
+			if (do_after(user, 2 SECONDS))
 				if(!anchored && !isspaceturf(get_turf(src)))
 					user.visible_message( \
 						"[user] tightens \the [src]'s casters.", \
-						"<span class='notice'> You tighten \the [src]'s casters. Now it can be played again.</span>", \
-						"<span class='italics'>You hear ratchet.</span>")
+						"<span class='notice'>You tighten \the [src]'s casters. Now it can be played again.</span>", \
+						"<span class='italics'>You hear a ratchet.</span>")
 					src.anchored = TRUE
 		else if(anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			to_chat(usr, "<span class='notice'> You begin to loosen \the [src]'s casters...</span>")
-			if (do_after(user, 40))
+			to_chat(user, "<span class='notice'>You begin to loosen \the [src]'s casters...</span>")
+			if (do_after(user, 4 SECONDS))
 				if(anchored)
 					user.visible_message( \
 						"[user] loosens \the [src]'s casters.", \
-						"<span class='notice'> You loosen \the [src]. Now it can be pulled somewhere else.</span>", \
-						"<span class='italics'>You hear ratchet.</span>")
+						"<span class='notice'>You loosen \the [src]. Now it can be pulled somewhere else.</span>", \
+						"<span class='italics'>You hear a ratchet.</span>")
 					src.anchored = FALSE
-	else
-		..()
+			return TRUE
+		// we failed to do anything because we were unanchored in space, fall through to parent and smack it?
+	return ..()
 
 /obj/structure/synthesized_instrument/synthesizer/shouldStopPlaying(mob/user)
 	return !((src && in_range(src, user) && src.anchored) || src.real_instrument.player.song.autorepeat)

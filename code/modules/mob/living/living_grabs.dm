@@ -17,14 +17,14 @@
 	if(LAZYLEN(grabbed_by))
 		to_chat(src, SPAN_WARNING("You cannot start grappling while already being grappled!"))
 		return FALSE
-	for(var/obj/item/grab/G in target.grabbed_by)
-		if(G.assailant != src)
+	for(var/obj/item/grab/grab as anything in target.grabbed_by)
+		if(grab.assailant != src)
 			continue
 		if(!target_zone || !ismob(target))
 			to_chat(src, SPAN_WARNING("You already have a grip on \the [target]!"))
 			return FALSE
-		if(G.target_zone == target_zone)
-			var/obj/O = G.get_targeted_organ()
+		if(grab.target_zone == target_zone)
+			var/obj/O = grab.get_targeted_organ()
 			if(O)
 				to_chat(src, SPAN_WARNING("You already have a grip on \the [target]'s [O.name]."))
 				return FALSE
@@ -61,6 +61,14 @@
 	return grab
 
 /mob/living/add_grab(var/obj/item/grab/grab, var/defer_hand = FALSE)
+
+	if(has_had_gripper)
+		if(defer_hand)
+			. = put_in_hands(grab)
+		else
+			. = put_in_active_hand(grab)
+		return
+
 	for(var/obj/item/grab/other_grab in contents)
 		if(other_grab != grab)
 			return FALSE

@@ -32,7 +32,7 @@
 		/obj/structure/iv_drip,
 		/obj/machinery/disposal,
 		/mob/living/simple_animal/cow,
-		/mob/living/simple_animal/hostile/retaliate/goat,
+		/mob/living/simple_animal/hostile/goat,
 		/obj/machinery/sleeper,
 		/obj/machinery/smartfridge/,
 		/obj/machinery/biogenerator,
@@ -47,15 +47,18 @@
 		return
 
 	if(reagents?.total_volume)
-		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume] units of liquid."))
+		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume] units of reagents."))
 	else
 		to_chat(user, SPAN_NOTICE("It is empty."))
 	if(!ATOM_IS_OPEN_CONTAINER(src))
 		to_chat(user,SPAN_NOTICE("The airtight lid seals it completely."))
 
+/obj/item/chems/glass/proc/can_lid()
+	return TRUE
+
 /obj/item/chems/glass/attack_self()
 	. = ..()
-	if(!.)
+	if(!. && can_lid())
 		if(ATOM_IS_OPEN_CONTAINER(src))
 			to_chat(usr, SPAN_NOTICE("You put the lid on \the [src]."))
 			atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
@@ -65,7 +68,7 @@
 		update_icon()
 
 /obj/item/chems/glass/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
-	if(force && !(item_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
+	if(get_attack_force(user) && !(item_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
 		return ..()
 	return FALSE
 
@@ -95,48 +98,3 @@
 		reagents.splash(target, min(reagents.total_volume, 5))
 		return TRUE
 	. = ..()
-
-/obj/item/chems/glass/bucket
-	name = "bucket"
-	desc = "It's a bucket."
-	icon = 'icons/obj/items/bucket.dmi'
-	icon_state = ICON_STATE_WORLD
-	center_of_mass = @'{"x":16,"y":9}'
-	w_class = ITEM_SIZE_NORMAL
-	amount_per_transfer_from_this = 20
-	possible_transfer_amounts = @"[10,20,30,60,120,150,180]"
-	volume = 180
-	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	presentation_flags = PRESENTATION_FLAG_NAME
-	material = /decl/material/solid/organic/plastic
-	material_force_multiplier = 0.2
-	slot_flags = SLOT_HEAD
-	drop_sound = 'sound/foley/donk1.ogg'
-	pickup_sound = 'sound/foley/pickup2.ogg'
-
-/obj/item/chems/glass/bucket/wood
-	desc = "It's a wooden bucket. How rustic."
-	icon = 'icons/obj/items/wooden_bucket.dmi'
-	volume = 200
-	material = /decl/material/solid/organic/wood
-
-/obj/item/chems/glass/bucket/attackby(var/obj/D, mob/user)
-	if(istype(D, /obj/item/mop))
-		if(reagents.total_volume < 1)
-			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
-		else if(REAGENTS_FREE_SPACE(D.reagents) >= 5)
-			reagents.trans_to_obj(D, 5)
-			to_chat(user, SPAN_NOTICE("You wet \the [D] in \the [src]."))
-			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-		else
-			to_chat(user, SPAN_WARNING("\The [D] is saturated."))
-		return
-	else
-		return ..()
-
-/obj/item/chems/glass/bucket/on_update_icon()
-	. = ..()
-	if (!ATOM_IS_OPEN_CONTAINER(src))
-		add_overlay("lid_[initial(icon_state)]")
-	else if(reagents && reagents.total_volume && round((reagents.total_volume / volume) * 100) > 80)
-		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "bucket", reagents.get_color()))

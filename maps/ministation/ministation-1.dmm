@@ -396,10 +396,7 @@
 	},
 /obj/machinery/camera/autoname,
 /obj/structure/closet/secure_closet/freezer/meat,
-/turf/floor/tiled/freezer{
-	name = "kitchen freezer floor";
-	temperature = 263
-	},
+/turf/floor/tiled/freezer/kitchen,
 /area/ministation/cafe)
 "bW" = (
 /obj/structure/table,
@@ -881,10 +878,7 @@
 /area/ministation/maint/l2centraln)
 "et" = (
 /obj/effect/floor_decal/snow,
-/turf/floor/tiled/freezer{
-	name = "kitchen freezer floor";
-	temperature = 263
-	},
+/turf/floor/tiled/freezer/kitchen,
 /area/ministation/cafe)
 "ew" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1125,10 +1119,7 @@
 "fD" = (
 /obj/structure/meat_hook,
 /obj/effect/floor_decal/snow,
-/turf/floor/tiled/freezer{
-	name = "kitchen freezer floor";
-	temperature = 263
-	},
+/turf/floor/tiled/freezer/kitchen,
 /area/ministation/cafe)
 "fF" = (
 /obj/structure/ladder,
@@ -1843,8 +1834,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/bandage/advanced,
+/obj/item/stack/medical/bandage/advanced,
 /turf/floor/tiled/white,
 /area/ministation/medical)
 "iK" = (
@@ -2594,10 +2585,7 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/snow,
 /obj/structure/meat_hook,
-/turf/floor/tiled/freezer{
-	name = "kitchen freezer floor";
-	temperature = 263
-	},
+/turf/floor/tiled/freezer/kitchen,
 /area/ministation/cafe)
 "mz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3061,7 +3049,7 @@
 /turf/floor/bluegrid,
 /area/ministation/security)
 "pr" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ps" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3218,7 +3206,7 @@
 /obj/structure/table,
 /obj/item/hemostat,
 /obj/item/retractor,
-/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/bandage/advanced,
 /obj/machinery/body_scan_display{
 	pixel_y = 20;
 	id_tag = "mediscanner1"
@@ -3782,7 +3770,7 @@
 /obj/structure/table,
 /obj/item/retractor,
 /obj/item/hemostat,
-/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/bandage/advanced,
 /obj/machinery/body_scan_display{
 	pixel_y = 20;
 	id_tag = "mediscanner1"
@@ -4972,11 +4960,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/mob/living/simple_animal/crow{
-	desc = "She's not a real doctor but she is a real bird.";
-	name = "Dr. Bird";
-	stop_automated_movement = 0
-	},
+/mob/living/simple_animal/crow/doctor,
 /turf/floor/tiled/white,
 /area/ministation/medical)
 "vK" = (
@@ -5180,10 +5164,7 @@
 "wt" = (
 /obj/effect/floor_decal/snow,
 /obj/machinery/gibber,
-/turf/floor/tiled/freezer{
-	name = "kitchen freezer floor";
-	temperature = 263
-	},
+/turf/floor/tiled/freezer/kitchen,
 /area/ministation/cafe)
 "wu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6747,10 +6728,7 @@
 /turf/floor/tiled/white,
 /area/ministation/medical)
 "Cw" = (
-/turf/floor/tiled/freezer{
-	name = "kitchen freezer floor";
-	temperature = 263
-	},
+/turf/floor/tiled/freezer/kitchen,
 /area/ministation/cafe)
 "Cx" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -6920,10 +6898,7 @@
 /obj/item/chems/drinks/juicebox/grape,
 /obj/item/chems/drinks/juicebox/orange,
 /obj/item/chems/drinks/juicebox/orange,
-/turf/floor/tiled/freezer{
-	name = "kitchen freezer floor";
-	temperature = 263
-	},
+/turf/floor/tiled/freezer/kitchen,
 /area/ministation/cafe)
 "Dl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7784,7 +7759,7 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
-/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/bandage/advanced,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/item/flashlight/lamp/green,
 /turf/floor/tiled/white,
@@ -9486,10 +9461,7 @@
 /area/ministation/medical)
 "Sw" = (
 /obj/structure/meat_hook,
-/turf/floor/tiled/freezer{
-	name = "kitchen freezer floor";
-	temperature = 263
-	},
+/turf/floor/tiled/freezer/kitchen,
 /area/ministation/cafe)
 "Sx" = (
 /obj/machinery/door/airlock/external/glass{
@@ -9786,13 +9758,13 @@
 /obj/structure/table/woodentable,
 /obj/item/eftpos,
 /obj/item/chems/spray/cleaner,
-/obj/item/chems/condiment/small/packet/honey,
-/obj/item/chems/condiment/small/packet/honey,
-/obj/item/chems/condiment/small/packet/honey,
-/obj/item/chems/condiment/small/packet/honey,
-/obj/item/chems/condiment/small/packet/honey,
-/obj/item/chems/condiment/small/packet/honey,
-/obj/item/chems/condiment/small/packet/honey,
+/obj/item/chems/packet/honey,
+/obj/item/chems/packet/honey,
+/obj/item/chems/packet/honey,
+/obj/item/chems/packet/honey,
+/obj/item/chems/packet/honey,
+/obj/item/chems/packet/honey,
+/obj/item/chems/packet/honey,
 /turf/floor/lino,
 /area/ministation/cafe)
 "Ue" = (

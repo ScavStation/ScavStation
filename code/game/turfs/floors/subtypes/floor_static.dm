@@ -5,13 +5,13 @@
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
-	initial_flooring = null
+	_flooring = null
 	footstep_type = /decl/footsteps/plating
 	is_outside = OUTSIDE_AREA
 
 /turf/floor/fixed/attackby(var/obj/item/C, var/mob/user)
 	if(istype(C, /obj/item/stack) && !IS_COIL(C))
-		return
+		return TRUE
 	return ..()
 
 /turf/floor/fixed/on_update_icon()
@@ -20,7 +20,7 @@
 /turf/floor/fixed/is_plating()
 	return 0
 
-/turf/floor/fixed/set_flooring(var/decl/flooring/newflooring, skip_update)
+/turf/floor/fixed/set_flooring(var/decl/flooring/newflooring, skip_update, place_product)
 	return
 
 /turf/floor/fixed/alium

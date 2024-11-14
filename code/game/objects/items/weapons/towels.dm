@@ -4,7 +4,7 @@
 	icon_state = ICON_STATE_WORLD
 	item_flags = ITEM_FLAG_IS_BELT
 	slot_flags = SLOT_HEAD | SLOT_LOWER_BODY | SLOT_OVER_BODY
-	force = 0.5
+	_base_attack_force = 1
 	w_class = ITEM_SIZE_NORMAL
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
@@ -51,12 +51,12 @@
 	if(reagent_space <= 0)
 		to_chat(user, SPAN_WARNING("\The [src] is too saturated to dry [user == target ? "yourself" : "\the [target]"] off effectively."))
 	else
-		var/decl/pronouns/G = target.get_pronouns()
+		var/decl/pronouns/pronouns = target.get_pronouns()
 		var/datum/reagents/touching_reagents = target.get_contact_reagents()
 		if(!touching_reagents?.total_volume)
-			to_chat(user, SPAN_WARNING("[user == target ? "You are" : "\The [target] [G.is]"] already dry."))
+			to_chat(user, SPAN_WARNING("[user == target ? "You are" : "\The [target] [pronouns.is]"] already dry."))
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] uses \the [src] to towel [user == target ? G.self : "\the [target]"] dry."))
+			user.visible_message(SPAN_NOTICE("\The [user] uses \the [src] to towel [user == target ? pronouns.self : "\the [target]"] dry."))
 			touching_reagents.trans_to(src, min(touching_reagents.total_volume, reagent_space))
 			playsound(user, 'sound/weapons/towelwipe.ogg', 25, 1)
 	return TRUE
@@ -112,7 +112,7 @@
 /obj/item/towel/fleece // loot from the king of goats. it's a golden towel
 	name = "golden fleece"
 	desc = "The legendary Golden Fleece of Jason made real."
-	force = 1
+	_base_attack_force = 1
 	attack_verb = list("smote")
 	material = /decl/material/solid/metal/gold
 

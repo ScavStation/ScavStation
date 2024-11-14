@@ -132,7 +132,7 @@
 /datum/codex_entry/vending
 	associated_paths = list(/obj/machinery/vending)
 	associated_strings = list("vending machine", "vendor")
-	mechanics_text = "A machine that dispenses items from a category of items at the user's selection.<BR>Vending machines sometimes require payment via an ID card, cash or charge card. Some dispense items for free, and such vending machines are usually access restricted. Items that have been dispensed can sometimes be returned simply by inserting it back into the vending machine by hand. Vending machines can also be restocked with an appropriate Vendor Restock, usually ordered via supply management, and then click+dragged onto the vending machine.<BR><BR>Vending machines can be <span codexlink='hacking'>hacked</span>.<BR><b>Vending machine hacking</b><BR>* The orange light shows if the vending machine is electrified.<BR>* The red light indicates whether or not the vending machine is firing out its contents randomly. Sometimes this can happen as a random event.<BR>* The green light indicates whether or not the vending machine is dispensing it's hidden inventory. Nearly every vending machine has a list of secret goods that are usually considered to be contraband.<BR>* The purple or yellow light shows whether or not the ID scanner for the vending machine is working. When this function is disabled, anyone can access the vending machine, even if it normally has restricted access."
+	mechanics_text = "A machine that dispenses items from a category of items at the user's selection.<BR>Vending machines sometimes require payment via an ID card, cash or charge card. Some dispense items for free, and such vending machines are usually access restricted. Items that have been dispensed can sometimes be returned simply by inserting it back into the vending machine by hand. Vending machines can also be restocked with an appropriate Vendor Restock, usually ordered via supply management, and then click+dragged onto the vending machine.<BR><BR>Vending machines can be <span codexlink='hacking'>hacked</span>.<BR><b>Vending machine hacking</b><BR>* The orange light shows if the vending machine is electrified.<BR>* The red light indicates whether or not the vending machine is firing out its contents randomly. Sometimes this can happen as a random event.<BR>* The green light indicates whether or not the vending machine is dispensing its hidden inventory. Nearly every vending machine has a list of secret goods that are usually considered to be contraband.<BR>* The purple or yellow light shows whether or not the ID scanner for the vending machine is working. When this function is disabled, anyone can access the vending machine, even if it normally has restricted access."
 	antag_text = "Accessing the secret inventory of a vending machine can sometimes be very useful, especially for department-focused machines."
 	disambiguator = "machine"
 	include_subtypes = TRUE
@@ -149,5 +149,17 @@
 	associated_paths = list(/obj/machinery/internet_repeater)
 	lore_text = "A signal repeater, capable of transmitting and decoding hyperintense radio waves to and from PLEXUS uplinks."
 	mechanics_text = "Allows for network devices in its sector to connect to and communicate with distant networks over PLEXUS.<BR>Networks requires a modem to utilize PLEXUS connections."
+	disambiguator = "machine"
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
+
+/datum/codex_entry/mining_drill
+	associated_paths = list(/obj/machinery/mining_drill)
+	mechanics_text = "When properly supported by two adjacent braces, the mining drill can automatically mine underground mineral deposits.<br>\
+	You can empty the ore storage by click-dragging the drill onto an ore box, or using the <b>Unload Drill</b> verb.<br>\
+	The drill head can be upgraded using a number of different components:<br>\
+	- Micro lasers control the drill's mining speed. The drill's energy usage proportionally increases with faster speed.<br>\
+	- Matter bins expand the drill's internal ore storage, allowing it to mine for longer before it gets fill.<br>\
+	- Scanning modules expand the drill's ore scanner radius, allowing it to mine from farther away.<br>\
+	- Capacitors improve the drill's energy efficiency, reducing how much energy is required to extract a piece of ore from the ground."
 	disambiguator = "machine"
 	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE

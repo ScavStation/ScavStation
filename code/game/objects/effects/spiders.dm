@@ -41,7 +41,7 @@
 	else
 		visible_message("<span class='warning'>\The [src] has been attacked with \the [W][(user ? " by [user]." : ".")]</span>")
 
-	var/damage = W.force / 4.0
+	var/damage = W.get_attack_force(user) / 4
 
 	if(W.edge)
 		damage += 5
@@ -55,6 +55,7 @@
 
 	current_health -= damage
 	healthcheck()
+	return TRUE
 
 /obj/effect/spider/bullet_act(var/obj/item/projectile/Proj)
 	..()
@@ -190,11 +191,11 @@
 	if(dormant)
 		events_repository.unregister(/decl/observ/moved, src, src, TYPE_PROC_REF(/obj/effect/spider, disturbed))
 	STOP_PROCESSING(SSobj, src)
-	walk(src, 0) // Because we might have called walk_to, we must stop the walk loop or BYOND keeps an internal reference to us forever.
+	stop_automove()
 	. = ..()
 
 /obj/effect/spider/spiderling/attackby(var/obj/item/W, var/mob/user)
-	..()
+	. = ..()
 	if(current_health > 0)
 		disturbed()
 

@@ -40,6 +40,42 @@
 		else
 			source.thermal_conductivity = initial(source.thermal_conductivity)
 
+/turf/wall/proc/toggle_shutters(mob/user)
+	if(!isnull(shutter_state))
+		shutter_state = !shutter_state
+		refresh_opacity()
+		blocks_air = shutter_state ? ZONE_BLOCKED : AIR_BLOCKED
+		if(simulated)
+			SSair.mark_for_update(src)
+		visible_message(SPAN_NOTICE("\The [user] [shutter_state ? "opens" : "closes"] the shutter."))
+		update_icon()
+		if(shutter_sound)
+			playsound(src, shutter_sound, 25, 1)
+		return TRUE
+	return FALSE
+
+// You can open shutters from two tiles away, as long as nothing is in the way.
+/turf/wall/attack_hand_ranged(mob/user)
+	if((. = ..()))
+		return
+	// have to be 2.5 or fewer tiles away
+	if(get_dist_euclidian(user, src) > 2.5)
+		return FALSE
+	// We need to find the closest dir with a shutter. That means a cardinal dir without a connection.
+	var/list/connected = corner_states_to_dirs(wall_connections) | corner_states_to_dirs(other_connections) // merge the lists
+	for(var/stepdir in global.cardinal)
+		if(stepdir in connected)
+			continue
+		var/turf/between = get_step(src, stepdir)
+		// we have a shutter, but can we interact with it?
+		if(between.density) // the intermediate tile is solid
+			continue
+		// Something is blocking either the user or us.
+		if(!user.Adjacent(between) || !between.Adjacent(src))
+			continue
+		return toggle_shutters(user)
+	return FALSE
+
 /turf/wall/proc/try_touch(var/mob/user, var/rotting)
 	. = TRUE
 	if(rotting)
@@ -54,16 +90,7 @@
 		toggle_open(user)
 		return TRUE
 
-	if(!isnull(shutter_state))
-		shutter_state = !shutter_state
-		refresh_opacity()
-		blocks_air = shutter_state ? ZONE_BLOCKED : AIR_BLOCKED
-		if(simulated)
-			SSair.mark_for_update(src)
-		visible_message(SPAN_NOTICE("\The [user] [shutter_state ? "opens" : "closes"] the shutter."))
-		update_icon()
-		if(shutter_sound)
-			playsound(src, shutter_sound, 25, 1)
+	if(toggle_shutters(user))
 		return TRUE
 
 	if (isnull(construction_stage) || !reinf_material)
@@ -104,10 +131,12 @@
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					qdel(WR)
 				return TRUE
-		else if(!is_sharp(W) && W.force >= 10 || W.force >= 20)
-			to_chat(user, "<span class='notice'>\The [src] crumbles away under the force of your [W.name].</span>")
-			physically_destroyed()
-			return TRUE
+		else
+			var/force = W.get_attack_force(user)
+			if((!is_sharp(W) && force >= 10) || force >= 20)
+				to_chat(user, "<span class='notice'>\The [src] crumbles away under the force of your [W.name].</span>")
+				physically_destroyed()
+				return TRUE
 	var/turf/T = user.loc	//get user's location for delay checks
 	if(damage && istype(W, /obj/item/weldingtool))
 
@@ -123,66 +152,8 @@
 
 	// Basic dismantling.
 	if(isnull(construction_stage) || !reinf_material)
-
-		var/cut_delay = (6 SECONDS) - material.cut_delay
-		var/dismantle_verb
-		var/dismantle_sound
-
-		if(IS_WELDER(W))
-
-			if(material && !material.removed_by_welder)
-				to_chat(user, SPAN_WARNING("\The [src] is too delicate to be dismantled with \the [W]; try a crowbar."))
-				return TRUE
-
-			var/obj/item/weldingtool/WT = W
-			if(!WT.weld(0,user))
-				return
-			dismantle_verb = "cutting through"
-			dismantle_sound = 'sound/items/Welder.ogg'
-			cut_delay *= 0.7
-
-		else if(IS_CROWBAR(W))
-
-			if(material && material.removed_by_welder)
-				to_chat(user, SPAN_WARNING("\The [src] is too robust to be dismantled with \the [W]; try a welding tool."))
-				return TRUE
-
-			dismantle_verb = "dismantling"
-			dismantle_sound = 'sound/items/Crowbar.ogg'
-			cut_delay *= 1.2
-
-		else if(W.is_special_cutting_tool())
-			if(istype(W, /obj/item/gun/energy/plasmacutter))
-				var/obj/item/gun/energy/plasmacutter/cutter = W
-				if(!cutter.slice(user))
-					return TRUE
-			dismantle_sound = "sparks"
-			dismantle_verb = "slicing through"
-			cut_delay *= 0.5
-
-		else if(IS_PICK(W))
-
-			if(W.material?.hardness < material.hardness)
-				to_chat(user, SPAN_WARNING("\The [W] is not hard enough to cut through [material.solid_name]."))
-				return TRUE
-
-			dismantle_verb  = W.get_tool_message(TOOL_PICK)
-			dismantle_sound = W.get_tool_sound(TOOL_PICK)
-			cut_delay       = W.get_expected_tool_use_delay(TOOL_PICK, cut_delay)
-
-		if(dismantle_verb)
-
-			to_chat(user, "<span class='notice'>You begin [dismantle_verb] \the [src].</span>")
-			if(dismantle_sound)
-				playsound(src, dismantle_sound, 100, 1)
-
-			if(cut_delay<0)
-				cut_delay = 0
-
-			if(do_after(user,cut_delay,src))
-				to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
-				user.visible_message("<span class='warning'>\The [user] finishes [dismantle_verb] \the [src]!</span>")
-				dismantle_turf()
+		var/datum/extension/demolisher/demolition = get_extension(W, /datum/extension/demolisher)
+		if(istype(demolition) && demolition.try_demolish(user, src))
 			return TRUE
 
 	//Reinforced dismantling.
@@ -313,7 +284,7 @@
 
 /turf/wall/attackby(var/obj/item/W, var/mob/user, click_params)
 
-	if(istype(W, /obj/item/stack/tile/roof) || !user.check_dexterity(DEXTERITY_SIMPLE_MACHINES))
+	if(istype(W, /obj/item/stack/tile/roof) || !user.check_dexterity(DEXTERITY_SIMPLE_MACHINES) || !W.user_can_attack_with(user))
 		return ..()
 
 	if(handle_wall_tool_interactions(W, user))
@@ -326,7 +297,8 @@
 		return TRUE
 
 	// Attack the wall with items
-	if(istype(W,/obj/item/rcd) || istype(W, /obj/item/chems) || !W.force || user.a_intent == I_HELP)
+	var/force = W.get_attack_force(user)
+	if(istype(W,/obj/item/rcd) || istype(W, /obj/item/chems) || !force || user.a_intent == I_HELP)
 		return ..()
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -334,7 +306,7 @@
 	var/material_divisor = max(material.brute_armor, reinf_material?.brute_armor)
 	if(W.atom_damage_type == BURN)
 		material_divisor = max(material.burn_armor, reinf_material?.burn_armor)
-	var/effective_force = round(W.force / material_divisor)
+	var/effective_force = round(force / material_divisor)
 	if(effective_force < 2)
 		visible_message(SPAN_DANGER("\The [user] [pick(W.attack_verb)] \the [src] with \the [W], but it had no effect!"))
 		playsound(src, hitsound, 25, 1)

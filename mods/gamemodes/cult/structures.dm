@@ -25,9 +25,11 @@
 
 /obj/structure/cult/pylon/attack_generic(var/mob/user, var/damage)
 	attackpylon(user, damage)
+	return TRUE
 
 /obj/structure/cult/pylon/attackby(obj/item/W, mob/user)
-	attackpylon(user, W.force)
+	attackpylon(user, W.get_attack_force(user))
+	return TRUE
 
 /obj/structure/cult/pylon/proc/attackpylon(mob/user, var/damage)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -88,7 +90,7 @@
 	spawnable=list(
 		/mob/living/simple_animal/hostile/scarybat/cult,
 		/mob/living/simple_animal/hostile/creature/cult,
-		/mob/living/simple_animal/hostile/faithless/cult
+		/mob/living/simple_animal/hostile/revenant/cult
 	)
 
 /obj/structure/door/cult

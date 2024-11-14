@@ -6,8 +6,6 @@
 	opacity = FALSE
 	density = FALSE
 	anchored = FALSE
-	force = 1
-	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
 	w_class = ITEM_SIZE_TINY
@@ -55,14 +53,14 @@
 
 /obj/item/cash/proc/get_worth()
 	var/decl/currency/cur = GET_DECL(currency)
-	. = FLOOR(absolute_worth / cur.absolute_value)
+	. = floor(absolute_worth / cur.absolute_value)
 
 /obj/item/cash/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/cash))
 		var/obj/item/cash/cash = W
 		if(cash.currency != currency)
 			to_chat(user, SPAN_WARNING("You can't mix two different currencies, it would be uncivilized."))
-			return
+			return TRUE
 		if(user.try_unequip(W))
 			adjust_worth(cash.absolute_worth)
 			var/decl/currency/cur = GET_DECL(currency)
@@ -73,6 +71,8 @@
 	else if(istype(W, /obj/item/gun/launcher/money))
 		var/obj/item/gun/launcher/money/L = W
 		L.absorb_cash(src, user)
+		return TRUE
+	return ..()
 
 /obj/item/cash/on_update_icon()
 	. = ..()
@@ -138,12 +138,12 @@
 		return TRUE
 
 	var/amount = input(usr, "How many [cur.name] do you want to take? (0 to [get_worth() - 1])", "Take Money", 20) as num
-	amount = round(clamp(amount, 0, FLOOR(get_worth() - 1)))
+	amount = round(clamp(amount, 0, floor(get_worth() - 1)))
 
 	if(!amount || QDELETED(src) || get_worth() <= 1 || user.incapacitated() || loc != user)
 		return TRUE
 
-	amount = FLOOR(amount * cur.absolute_value)
+	amount = floor(amount * cur.absolute_value)
 	adjust_worth(-(amount))
 	var/obj/item/cash/cash = new(get_turf(src))
 	cash.set_currency(currency)
@@ -238,7 +238,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("<b>Id:</b> [id]."))
 			var/decl/currency/cur = GET_DECL(currency)
-			to_chat(user, SPAN_NOTICE("<b>[capitalize(cur.name)]</b> remaining: [FLOOR(loaded_worth / cur.absolute_value)]."))
+			to_chat(user, SPAN_NOTICE("<b>[capitalize(cur.name)]</b> remaining: [floor(loaded_worth / cur.absolute_value)]."))
 
 /obj/item/charge_stick/get_base_value()
 	. = holographic ? 0 : loaded_worth

@@ -72,7 +72,7 @@
 		if(is_seeds)
 			underlays += overlay_image(seed_mask_icon, "seed-mask", seed.get_trait(TRAIT_PLANT_COLOUR), RESET_COLOR)
 		else
-			add_overlay(overlay_image(seed_mask_icon, "spore-mask"), null, RESET_COLOR)
+			add_overlay(overlay_image(seed_mask_icon, "spore-mask", null, RESET_COLOR))
 	update_strings(is_seeds)
 
 /obj/item/seeds/proc/update_strings(is_seeds)
@@ -92,6 +92,7 @@
 	name = "handful of seeds"
 	desc = "A handful of nondescript seeds."
 	icon = 'icons/obj/seeds/seed_raw.dmi'
+	icon_state = "seeds"
 	seed_base_name = "handful"
 	seed_mask_icon = null
 	is_spawnable_type = FALSE
@@ -337,6 +338,12 @@
 
 /obj/item/seeds/cotton
 	seed = "cotton"
+
+/obj/item/seeds/flax
+	seed = "flax"
+
+/obj/item/seeds/hemp
+	seed = "hemp"
 
 /obj/item/seeds/yarrow
 	seed = "yarrow"

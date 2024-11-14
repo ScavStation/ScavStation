@@ -18,7 +18,7 @@
 	var/mob_offset
 
 	var/paint_color
-	var/paint_verb = "painted"
+	var/paint_verb
 
 /obj/structure/get_color()
 	if(paint_color)
@@ -80,7 +80,8 @@
 			to_chat(user, damage_desc)
 
 		if(paint_color)
-			to_chat(user, "\The [src] has been <font color='[paint_color]'>[paint_verb]</font>.")
+			var/decl/pronouns/structure_pronouns = get_pronouns() // so we can do 'have' for plural objects like sheets
+			to_chat(user, "\The [src] [structure_pronouns.has] been <font color='[paint_color]'>[paint_verb]</font>.")
 
 		if(tool_interaction_flags & TOOL_INTERACTION_ANCHOR)
 			if(anchored)
@@ -215,24 +216,26 @@
 				AM.reset_offsets()
 				AM.reset_plane_and_layer()
 
-/obj/structure/grab_attack(var/obj/item/grab/G)
-	if (!G.force_danger())
-		to_chat(G.assailant, SPAN_WARNING("You need a better grip to do that!"))
-		return TRUE
-	var/mob/living/affecting_mob = G.get_affecting_mob()
-	if(G.assailant.a_intent == I_HURT)
+/obj/structure/grab_attack(obj/item/grab/grab, mob/user)
 
-		if(!istype(affecting_mob))
-			to_chat(G.assailant, SPAN_WARNING("You need to be grabbing a living creature to do that!"))
+	if (!grab.force_danger())
+		to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
+		return TRUE
+
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(user.a_intent == I_HURT)
+
+		if(!istype(victim))
+			to_chat(user, SPAN_WARNING("You need to be grabbing a living creature to do that!"))
 			return TRUE
 
 		// Slam their face against the table.
-		var/blocked = affecting_mob.get_blocked_ratio(BP_HEAD, BRUTE, damage = 8)
+		var/blocked = victim.get_blocked_ratio(BP_HEAD, BRUTE, damage = 8)
 		if (prob(30 * (1 - blocked)))
-			SET_STATUS_MAX(affecting_mob, STAT_WEAK, 5)
+			SET_STATUS_MAX(victim, STAT_WEAK, 5)
 
-		affecting_mob.apply_damage(8, BRUTE, BP_HEAD)
-		visible_message(SPAN_DANGER("[G.assailant] slams [affecting_mob]'s face against \the [src]!"))
+		victim.apply_damage(8, BRUTE, BP_HEAD)
+		visible_message(SPAN_DANGER("[user] slams [victim]'s face against \the [src]!"))
 		if (material)
 			playsound(loc, material.tableslam_noise, 50, 1)
 		else
@@ -240,19 +243,22 @@
 		var/list/L = take_damage(rand(1,5))
 		for(var/obj/item/shard/S in L)
 			if(S.sharp && prob(50))
-				affecting_mob.visible_message(SPAN_DANGER("\The [S] slices into [affecting_mob]'s face!"), SPAN_DANGER("\The [S] slices into your face!"))
-				affecting_mob.standard_weapon_hit_effects(S, G.assailant, S.force*2, BP_HEAD)
-		qdel(G)
+				victim.visible_message(
+					SPAN_DANGER("\The [S] slices into [victim]'s face!"),
+					SPAN_DANGER("\The [S] slices into your face!")
+				)
+				victim.standard_weapon_hit_effects(S, user, S.get_attack_force()*2, BP_HEAD)
+		qdel(grab)
 	else if(atom_flags & ATOM_FLAG_CLIMBABLE)
 		var/obj/occupied = turf_is_crowded()
 		if (occupied)
-			to_chat(G.assailant, SPAN_WARNING("There's \a [occupied] in the way."))
+			to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
 			return TRUE
-		G.affecting.forceMove(src.loc)
-		if(affecting_mob)
-			SET_STATUS_MAX(affecting_mob, STAT_WEAK, rand(2,5))
-		visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."))
-		qdel(G)
+		grab.affecting.forceMove(src.loc)
+		if(victim)
+			SET_STATUS_MAX(victim, STAT_WEAK, rand(2,5))
+		visible_message(SPAN_DANGER("\The [user] puts \the [grab.affecting] on \the [src]."))
+		qdel(grab)
 		return TRUE
 
 /obj/structure/explosion_act(severity)
@@ -300,8 +306,15 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 	// Calculation to apply new pixelshift.
 	var/mouse_x = text2num(click_data["icon-x"])-1 // Ranging from 0 to 31
 	var/mouse_y = text2num(click_data["icon-y"])-1
-	var/cell_x = clamp(round(mouse_x/CELLSIZE), 0, CELLS-1) // Ranging from 0 to CELLS-1
-	var/cell_y = clamp(round(mouse_y/CELLSIZE), 0, CELLS-1)
+	var/span_x = CELLS
+	var/span_y = CELLS
+	// In case we're a multitile object.
+	if(bound_width > world.icon_size)
+		span_x = bound_width / CELLSIZE
+	if(bound_height > world.icon_size)
+		span_y = bound_height / CELLSIZE
+	var/cell_x = clamp(round(mouse_x/CELLSIZE), 0, span_x-1) // Ranging from 0 to span_x-1
+	var/cell_y = clamp(round(mouse_y/CELLSIZE), 0, span_y-1)
 	var/list/center = cached_json_decode(W.center_of_mass)
 	W.pixel_x = (CELLSIZE * (cell_x + 0.5)) - center["x"]
 	W.pixel_y = (CELLSIZE * (cell_y + 0.5)) - center["y"]

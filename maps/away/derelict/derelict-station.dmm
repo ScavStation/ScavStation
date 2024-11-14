@@ -111,7 +111,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/derelict/ship)
 "ar" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -396,11 +396,11 @@
 "bh" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bi" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bj" = (
 /obj/structure/table,
@@ -425,18 +425,18 @@
 /area/derelict/ship)
 "bn" = (
 /obj/random/hostile,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bo" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bp" = (
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bq" = (
 /obj/random/cash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "br" = (
 /obj/structure/table,
@@ -457,7 +457,7 @@
 /area/derelict/ship)
 "bu" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bv" = (
 /turf/wall,
@@ -466,11 +466,11 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/regular/open,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bx" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "by" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -480,11 +480,11 @@
 "bz" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bA" = (
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bB" = (
 /obj/structure/table,
@@ -494,28 +494,26 @@
 "bC" = (
 /obj/structure/table,
 /obj/random/drinkbottle,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bD" = (
 /obj/structure/table,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bE" = (
 /obj/structure/table,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bF" = (
 /turf/space,
 /area/constructionsite/maintenance)
 "bG" = (
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bH" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/maintenance)
 "bI" = (
 /obj/structure/grille,
@@ -542,7 +540,7 @@
 /turf/floor/tiled/dark/airless,
 /area/constructionsite/bridge)
 "bL" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bM" = (
 /obj/random/trash,
@@ -551,11 +549,11 @@
 /area/constructionsite/bridge)
 "bN" = (
 /obj/random/closet,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "bO" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bP" = (
 /obj/structure/table,
@@ -563,17 +561,15 @@
 	info = "\\\[center]\\\[b]ATTN: Regarding Meteor Storms\\\[/b]\[/center]\\\[br]\\\[br]We've recently heard mutterings from the Atmospheric Technicians that the meteor showers in this sector are becoming too much. However, this should be disregarded.\\\[br]\\\[br] High Command has assured us that our shields can easily keep pace with any meteor storm and then some. Any uneasiness the crew may feel should be disspelled swiftly. Thank you.";
 	name = "ATTN: Regarding Meteor Storms"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bQ" = (
 /obj/structure/table,
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "bR" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/bridge)
 "bS" = (
 /obj/random/hostile{
@@ -658,15 +654,15 @@
 /area/derelict/ship)
 "cd" = (
 /obj/structure/girder,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "ce" = (
 /obj/machinery/door/airlock/hatch,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "cf" = (
 /obj/random/handgun,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "cg" = (
 /obj/item/stack/cable_coil,
@@ -680,13 +676,13 @@
 "ci" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/door/blast/regular/open,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "cj" = (
 /obj/random/hostile{
 	spawn_nothing_percentage = 60
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "ck" = (
 /obj/random/junk,
@@ -695,14 +691,14 @@
 "cl" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/door/blast/regular,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "cm" = (
 /obj/random/closet,
 /obj/random/maintenance,
 /obj/random/maintenance,
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "cn" = (
 /turf/wall/raidershuttle,
@@ -744,57 +740,53 @@
 /obj/random/closet,
 /obj/random/energy,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "cv" = (
 /obj/structure/bookcase/manuals/engineering,
 /obj/effect/decal/cleanable/cobweb,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cw" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cx" = (
 /obj/structure/bookcase,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "cy" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "cz" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cA" = (
 /obj/structure/bookcase,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cB" = (
 /obj/structure/girder,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "cC" = (
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "cD" = (
 /obj/structure/table/marble,
 /obj/random/coin,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cE" = (
 /obj/structure/table/marble,
 /obj/machinery/microwave,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cF" = (
 /obj/structure/table/marble,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cG" = (
 /turf/floor/tiled/white/airless,
@@ -822,35 +814,33 @@
 "cM" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/excavation,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cN" = (
 /turf/floor/tiled/dark/airless,
 /area/constructionsite/hallway/fore)
 "cO" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "cP" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cQ" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/ripley_build_and_repair,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cR" = (
 /obj/structure/noticeboard{
 	default_pixel_x = 32
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/bridge)
 "cS" = (
 /obj/effect/decal/cleanable/cobweb,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cT" = (
 /obj/structure/window/reinforced,
@@ -897,7 +887,7 @@
 /area/constructionsite/hallway/fore)
 "cY" = (
 /obj/structure/filing_cabinet/tall,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "cZ" = (
 /obj/machinery/door/airlock/glass/command{
@@ -912,83 +902,79 @@
 	locked = 0
 	},
 /obj/random/contraband,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "db" = (
 /obj/structure/table/marble,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dc" = (
 /obj/structure/table/marble,
 /obj/item/kitchen/rollingpin,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "de" = (
 /obj/random/closet,
 /obj/random/voidhelmet,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "df" = (
 /obj/structure/rack,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dg" = (
 /obj/structure/bookcase/manuals/medical,
 /obj/item/book/manual/nuclear,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "dh" = (
 /obj/random/trash,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "di" = (
 /obj/structure/rack,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dj" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dk" = (
 /obj/structure/table/marble,
 /obj/random/drinkbottle,
 /obj/random/drinkbottle,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dl" = (
 /obj/structure/table/marble,
 /obj/random/gloves,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dm" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dn" = (
 /obj/structure/table/marble,
 /obj/random/drinkbottle,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "do" = (
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dp" = (
 /obj/structure/rack,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dq" = (
 /obj/structure/rack,
 /obj/random/hat,
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dr" = (
 /obj/random/junk,
@@ -1001,17 +987,15 @@
 "dt" = (
 /obj/structure/table,
 /obj/random/toy,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "du" = (
 /obj/structure/table,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dv" = (
 /obj/structure/grille,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dw" = (
 /turf/floor/holofloor/tiled/dark,
@@ -1019,42 +1003,36 @@
 "dx" = (
 /obj/random/junk,
 /obj/structure/table,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dy" = (
 /obj/random/snack,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dz" = (
 /turf/wall,
 /area/constructionsite/hallway/fore)
 "dA" = (
 /obj/machinery/door/airlock/hatch,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dB" = (
 /obj/machinery/door/airlock/glass{
 	name = "Library"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dC" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "dD" = (
 /obj/structure/grille/broken,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "dE" = (
 /obj/structure/grille,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "dF" = (
 /obj/structure/sign/warning/secure_area,
@@ -1076,41 +1054,37 @@
 /obj/machinery/door/airlock/glass{
 	name = "Kitchen"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dJ" = (
 /obj/structure/table/marble,
 /obj/machinery/door/blast/shutters,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "dK" = (
 /obj/structure/table/marble,
 /obj/machinery/door/blast/shutters/open,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dL" = (
 /obj/structure/table,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/fore)
 "dM" = (
 /obj/structure/table,
 /obj/machinery/door/blast/shutters/open,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dN" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dO" = (
 /turf/wall,
 /area/space)
 "dP" = (
 /obj/structure/grille/broken,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dQ" = (
 /obj/random/smokes,
@@ -1141,7 +1115,7 @@
 "dW" = (
 /obj/structure/rack,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "dX" = (
 /obj/effect/shuttle_landmark/derelict/nav2,
@@ -1152,7 +1126,7 @@
 /area/constructionsite/storage)
 "dZ" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "ea" = (
 /obj/structure/extinguisher_cabinet{
@@ -1160,41 +1134,39 @@
 	pixel_x = 29;
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "eb" = (
 /turf/wall,
 /area/constructionsite/teleporter)
 "ec" = (
 /obj/machinery/mech_recharger,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "ed" = (
 /obj/machinery/fabricator/industrial,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "ee" = (
 /obj/structure/table,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "ef" = (
 /obj/structure/table,
 /obj/random/material,
 /obj/random/material,
 /obj/random/coin,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eg" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/storage)
 "ei" = (
 /obj/structure/table,
 /obj/random/medical,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "ej" = (
 /obj/machinery/shieldgen,
@@ -1266,12 +1238,10 @@
 /obj/structure/rack,
 /obj/random/maintenance,
 /obj/random/toolbox,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "es" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/storage)
 "et" = (
 /obj/structure/bed/chair/office/light{
@@ -1283,12 +1253,12 @@
 /obj/machinery/optable{
 	name = "Robotics Operating Table"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "ev" = (
 /obj/random/closet,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "ew" = (
 /obj/machinery/shieldgen,
@@ -1348,20 +1318,18 @@
 /area/constructionsite/teleporter)
 "eD" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eE" = (
 /obj/machinery/door/airlock/glass/science{
 	name = "Robotics"
 	},
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/storage)
 "eF" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eG" = (
 /obj/structure/sign/department/science_1,
@@ -1405,15 +1373,15 @@
 /area/constructionsite/teleporter)
 "eL" = (
 /obj/structure/skele_stand,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eM" = (
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eN" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eO" = (
 /turf/floor/tiled/dark/airless,
@@ -1423,14 +1391,14 @@
 	name = "Research"
 	},
 /obj/machinery/door/blast/shutters,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eQ" = (
 /obj/machinery/door/airlock/glass/science{
 	name = "Research"
 	},
 /obj/machinery/door/blast/shutters,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "eR" = (
 /obj/machinery/door/airlock/external{
@@ -1474,18 +1442,18 @@
 /area/constructionsite/teleporter)
 "eX" = (
 /obj/machinery/door/airlock/hatch,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eY" = (
 /obj/random/hostile,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "eZ" = (
 /obj/machinery/door/airlock/glass/science{
 	name = "Research"
 	},
 /obj/machinery/door/blast/shutters/open,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "fa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
@@ -1575,22 +1543,18 @@
 "fj" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "fk" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/storage)
 "fl" = (
 /obj/machinery/door/airlock/glass/science{
 	name = "Research"
 	},
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/storage)
 "fm" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -1647,7 +1611,7 @@
 /area/constructionsite/teleporter)
 "ft" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "fu" = (
 /obj/structure/window/basic,
@@ -1677,7 +1641,7 @@
 /area/constructionsite/teleporter)
 "fx" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "fy" = (
 /obj/machinery/fabricator/imprinter,
@@ -1685,16 +1649,16 @@
 /area/constructionsite/storage)
 "fz" = (
 /obj/machinery/destructive_analyzer,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "fA" = (
 /obj/machinery/fabricator/protolathe{
 	stat = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "fB" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/storage)
 "fC" = (
 /obj/machinery/fabricator/pipe,
@@ -1747,7 +1711,7 @@
 /area/constructionsite/teleporter)
 "fK" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "fL" = (
 /turf/wall,
@@ -1756,10 +1720,10 @@
 /obj/random/closet,
 /obj/random/material,
 /obj/random/contraband,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "fN" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/solar)
 "fO" = (
 /obj/structure/lattice,
@@ -1775,7 +1739,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 29
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "fS" = (
 /obj/random/junk,
@@ -1783,19 +1747,17 @@
 /area/constructionsite/hallway/fore)
 "fT" = (
 /obj/effect/overmap/visitable/sector/derelict,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/solar)
 "fU" = (
 /turf/space,
 /area/constructionsite/solar)
 "fV" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/solar)
 "fW" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/solar)
 "fX" = (
 /obj/structure/grille,
@@ -1805,16 +1767,16 @@
 "fY" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/solar)
 "fZ" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/solar)
 "ga" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "gb" = (
 /obj/effect/shuttle_landmark/derelict/nav3,
@@ -1822,7 +1784,7 @@
 /area/space)
 "gc" = (
 /obj/random/firstaid,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "gd" = (
 /obj/structure/lattice,
@@ -1833,7 +1795,7 @@
 /obj/structure/rack,
 /obj/random/plushie,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "gf" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -1851,16 +1813,14 @@
 /turf/floor/bluegrid/airless,
 /area/constructionsite/ai)
 "gj" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gk" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/space)
 "gl" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gm" = (
 /obj/structure/sign/warning/lethal_turrets,
@@ -1874,7 +1834,7 @@
 /area/constructionsite/ai)
 "go" = (
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "gq" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -1887,12 +1847,12 @@
 /obj/structure/rack,
 /obj/random/maintenance,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "gt" = (
 /obj/structure/rack,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "gu" = (
 /obj/random/loot,
@@ -1923,7 +1883,7 @@
 /area/constructionsite/ai)
 "gz" = (
 /obj/random/hostile,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gA" = (
 /obj/structure/lattice,
@@ -1933,13 +1893,13 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Messaging Server"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "gC" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Messaging Server"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/ai)
 "gD" = (
 /obj/structure/showcase{
@@ -1974,11 +1934,11 @@
 /area/constructionsite/hallway/fore)
 "gI" = (
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gJ" = (
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gK" = (
 /obj/machinery/recharge_station,
@@ -2005,19 +1965,17 @@
 /turf/wall,
 /area/constructionsite/hallway/aft)
 "gP" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/aft)
 "gQ" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "gR" = (
 /turf/floor/tiled/dark/airless,
 /area/constructionsite/hallway/aft)
 "gS" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "gT" = (
 /obj/structure/lattice,
@@ -2025,24 +1983,24 @@
 /area/constructionsite/hallway/aft)
 "gU" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "gV" = (
 /obj/structure/grille,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "gW" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "gX" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "gY" = (
 /obj/machinery/door/airlock/hatch,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "gZ" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -2053,14 +2011,14 @@
 "ha" = (
 /obj/structure/rack,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "hb" = (
 /obj/effect/floor_decal/plaque{
 	desc = "To commemorate the beginning of the Eternity Project, a station that will ferry us through the stars forever without fail.";
 	name = "Eternity Project Dedication Plaque"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "hc" = (
 /obj/structure/lattice,
@@ -2073,32 +2031,26 @@
 	opened = 1
 	},
 /obj/random/plushie/large,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/maintenance)
 "he" = (
 /obj/random/trash,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/aft)
 "hf" = (
 /obj/machinery/door/airlock/double/glass{
 	name = "Emergency Entrance"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "hg" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/aft)
 "hh" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/hallway/aft)
 "hi" = (
 /obj/effect/shuttle_landmark/derelict/nav4,
@@ -2106,7 +2058,7 @@
 /area/space)
 "hj" = (
 /obj/structure/door_assembly,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "hk" = (
 /obj/machinery/mech_recharger,
@@ -2140,22 +2092,20 @@
 /turf/floor/tiled/white/airless,
 /area/constructionsite/medical)
 "hr" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "hs" = (
 /turf/floor/tiled/dark/airless,
 /area/constructionsite/atmospherics)
 "ht" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/atmospherics)
 "hu" = (
 /obj/item/frame/light,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hv" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hx" = (
 /obj/random/junk,
@@ -2179,40 +2129,40 @@
 /area/constructionsite/hallway/aft)
 "hA" = (
 /obj/structure/girder,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "hC" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hD" = (
 /obj/machinery/door/airlock/glass/medical{
 	name = "Medbay"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hE" = (
 /obj/structure/door_assembly{
 	name = "Medbay"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hF" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "hG" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "hH" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hI" = (
 /obj/structure/table,
 /obj/random/firstaid,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hJ" = (
 /obj/structure/sign/department/examroom,
@@ -2226,7 +2176,7 @@
 /area/constructionsite/medical)
 "hL" = (
 /obj/machinery/disposal,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hM" = (
 /obj/structure/table,
@@ -2241,7 +2191,7 @@
 /obj/structure/fireaxecabinet{
 	pixel_x = 32
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "hP" = (
 /turf/wall,
@@ -2253,22 +2203,22 @@
 "hR" = (
 /obj/item/roller,
 /obj/item/roller,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hS" = (
 /obj/structure/closet/medical_wall/filled{
 	pixel_x = 32;
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hT" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "hU" = (
 /obj/structure/closet/firecloset,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "hV" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -2280,26 +2230,26 @@
 /area/constructionsite/medical)
 "hX" = (
 /obj/random/medical/lite,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hY" = (
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "hZ" = (
 /obj/item/roller,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "ia" = (
 /obj/random/closet,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "ib" = (
 /turf/space,
 /area/constructionsite/medical)
 "ic" = (
 /obj/structure/mech_wreckage/powerloader,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "id" = (
 /obj/structure/closet/secure_closet/atmos_personal{
@@ -2308,19 +2258,19 @@
 	},
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "ie" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "if" = (
 /obj/structure/iv_drip,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "ig" = (
 /obj/random/snack,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "ih" = (
 /obj/structure/lattice,
@@ -2337,21 +2287,21 @@
 /obj/machinery/door/airlock/glass/atmos{
 	name = "Atmospherics"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "ik" = (
 /obj/random/firstaid,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "il" = (
 /obj/item/box/freezer,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "im" = (
 /obj/random/closet,
 /obj/random/masks,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "in" = (
 /obj/random/tool,
@@ -2359,18 +2309,18 @@
 /area/constructionsite/atmospherics)
 "io" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "ip" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "iq" = (
 /obj/random/ammo,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "ir" = (
 /obj/structure/lattice,
@@ -2386,7 +2336,7 @@
 	dir = 4
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "iv" = (
 /turf/space,
@@ -2404,7 +2354,7 @@
 /obj/random/junk,
 /obj/random/masks,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "iy" = (
 /obj/machinery/computer/air_control{
@@ -2418,7 +2368,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "iz" = (
 /obj/structure/grille,
@@ -2503,7 +2453,7 @@
 /obj/machinery/door/airlock/glass/medical{
 	name = "Medbay"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "iK" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -2513,7 +2463,7 @@
 /area/constructionsite/atmospherics)
 "iL" = (
 /obj/structure/girder,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "iM" = (
 /obj/effect/floor_decal/plaque{
@@ -2526,7 +2476,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "iO" = (
 /obj/machinery/computer/air_control{
@@ -2539,7 +2489,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "iP" = (
 /obj/machinery/atmospherics/unary/vent_pump/tank{
@@ -2572,7 +2522,7 @@
 /area/constructionsite/medical)
 "iS" = (
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "iT" = (
 /obj/effect/floor_decal/corner/green{
@@ -2610,18 +2560,18 @@
 "iZ" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "ja" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jb" = (
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "jc" = (
 /obj/machinery/computer/air_control{
@@ -2634,7 +2584,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "jd" = (
 /obj/machinery/atmospherics/unary/vent_pump/tank{
@@ -2673,17 +2623,17 @@
 "jh" = (
 /obj/structure/table,
 /obj/structure/bedsheetbin/mapped,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "ji" = (
 /obj/structure/table,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jj" = (
 /obj/structure/table,
 /obj/random/hat,
 /obj/random/gloves,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jk" = (
 /obj/structure/table,
@@ -2697,17 +2647,17 @@
 /area/constructionsite)
 "jm" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jn" = (
 /obj/structure/table,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "jo" = (
 /obj/structure/table,
 /obj/structure/closet/body_bag/cryobag,
 /obj/structure/closet/body_bag/cryobag,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/medical)
 "jp" = (
 /obj/structure/cable/blue,
@@ -2715,14 +2665,14 @@
 	name = "south bump";
 	pixel_y = -24
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "jq" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 "jr" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -2740,16 +2690,14 @@
 "jt" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite)
 "ju" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jv" = (
 /obj/structure/door_assembly,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jw" = (
 /turf/space,
@@ -2763,7 +2711,7 @@
 /area/constructionsite)
 "jz" = (
 /obj/structure/girder,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jA" = (
 /obj/structure/lattice,
@@ -2778,13 +2726,11 @@
 /turf/floor/tiled/dark/airless,
 /area/constructionsite)
 "jD" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite)
 "jE" = (
 /obj/structure/closet/cabinet,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jF" = (
 /obj/structure/bed,
@@ -2792,7 +2738,7 @@
 /area/constructionsite)
 "jG" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jH" = (
 /obj/structure/lattice,
@@ -2803,31 +2749,29 @@
 /obj/machinery/door/airlock{
 	name = "Cabin"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jJ" = (
 /obj/random/hat,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jK" = (
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jL" = (
 /obj/random/snack,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jM" = (
 /obj/machinery/door/airlock{
 	name = "Bunk Room"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jN" = (
 /obj/structure/girder/displaced,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite)
 "jO" = (
 /obj/item/bedsheet,
@@ -2835,7 +2779,7 @@
 /area/constructionsite)
 "jP" = (
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jQ" = (
 /obj/structure/extinguisher_cabinet{
@@ -2851,27 +2795,25 @@
 /area/constructionsite)
 "jS" = (
 /obj/random/maintenance/clean,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jT" = (
 /obj/machinery/washing_machine,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jU" = (
 /obj/structure/table,
 /obj/random/clothing,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jV" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite)
 "jW" = (
 /obj/random/clothing,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jX" = (
 /obj/structure/grille,
@@ -2880,40 +2822,40 @@
 /area/constructionsite)
 "jY" = (
 /obj/item/clothing/head/radiation,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "jZ" = (
 /obj/machinery/constructable_frame,
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "ka" = (
 /obj/machinery/door/airlock/glass/engineering,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kb" = (
 /obj/random/obstruction,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kc" = (
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kd" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "ke" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kf" = (
 /obj/random/action_figure,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kg" = (
 /obj/random/voidhelmet,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kh" = (
 /obj/structure/table,
@@ -2926,50 +2868,48 @@
 /area/constructionsite)
 "kj" = (
 /obj/random/hostile,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kk" = (
 /obj/structure/table,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite)
 "kl" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
 /obj/random/powercell,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "km" = (
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kn" = (
 /obj/machinery/power/smes/buildable,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "ko" = (
 /obj/structure/rack,
 /obj/random/tool,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kp" = (
 /obj/structure/rack,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kq" = (
 /obj/random/glasses,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kr" = (
 /obj/machinery/shield_generator/mapped{
 	desc = "A heavy-duty shield generator and capacitor, capable of generating energy shields at large distances. This one seems to be in a state of disrepair.";
 	name = "disused shield generator"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "ks" = (
 /obj/random/junk,
@@ -2977,7 +2917,7 @@
 /area/constructionsite)
 "kt" = (
 /obj/machinery/power/breakerbox,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "ku" = (
 /obj/structure/rack,
@@ -2994,11 +2934,11 @@
 /obj/random/loot,
 /obj/random/junk,
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "kx" = (
 /obj/machinery/door/airlock/hatch,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite)
 "ky" = (
 /obj/structure/closet/radiation,
@@ -3011,7 +2951,7 @@
 /obj/machinery/door/airlock/glass/engineering{
 	name = "Engine Access"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kC" = (
 /obj/effect/shuttle_landmark/derelict/nav6,
@@ -3019,7 +2959,7 @@
 /area/space)
 "kD" = (
 /obj/machinery/door/airlock/hatch,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kE" = (
 /obj/structure/lattice,
@@ -3027,11 +2967,11 @@
 /area/constructionsite/engineering)
 "kF" = (
 /obj/random/junk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kG" = (
 /obj/machinery/door/airlock/glass/engineering,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kH" = (
 /obj/structure/sign/warning/compressed_gas,
@@ -3056,31 +2996,29 @@
 /obj/random/tool,
 /obj/random/maintenance,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kP" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kQ" = (
 /obj/random/maintenance,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/engineering)
 "kR" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kS" = (
 /obj/structure/table,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kT" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kU" = (
 /obj/structure/table,
@@ -3088,23 +3026,21 @@
 /obj/random/material,
 /obj/random/material,
 /obj/random/material,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kV" = (
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/plating/airless/broken,
 /area/constructionsite/engineering)
 "kW" = (
 /obj/structure/table,
 /obj/random/toolbox,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kX" = (
 /obj/structure/table,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "kY" = (
 /obj/structure/grille/broken,
@@ -3114,7 +3050,7 @@
 "kZ" = (
 /obj/structure/rack,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "la" = (
 /obj/structure/grille,
@@ -3123,28 +3059,28 @@
 /area/constructionsite/engineering)
 "lb" = (
 /obj/random/hostile,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lc" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "ld" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "le" = (
 /obj/machinery/rad_collector,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lf" = (
 /obj/structure/table,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lg" = (
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lh" = (
 /obj/random/maintenance,
@@ -3155,23 +3091,23 @@
 /obj/random/tool,
 /obj/random/voidsuit,
 /obj/random/coin,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lj" = (
 /obj/structure/table,
 /obj/random/toolbox,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lk" = (
 /obj/random/trash,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "ll" = (
 /obj/structure/closet/radiation,
 /turf/floor/tiled/dark/airless,
 /area/constructionsite/engineering)
 "lm" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "ln" = (
 /obj/random/maintenance,
@@ -3181,22 +3117,22 @@
 /obj/machinery/door/airlock/glass/engineering{
 	name = "SMES"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lp" = (
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lq" = (
 /obj/structure/girder,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lr" = (
 /obj/structure/rack,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "ls" = (
 /obj/structure/cable/blue{
@@ -3207,7 +3143,7 @@
 "lt" = (
 /obj/structure/rack,
 /obj/random/toolbox,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lu" = (
 /turf/wall/r_wall,
@@ -3215,7 +3151,7 @@
 "lv" = (
 /obj/machinery/power/smes/buildable,
 /obj/structure/cable/blue,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lw" = (
 /obj/machinery/power/terminal{
@@ -3230,7 +3166,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "ly" = (
 /obj/structure/cable/blue{
@@ -3242,7 +3178,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lz" = (
 /obj/structure/cable/blue{
@@ -3257,37 +3193,37 @@
 /obj/structure/cable/blue{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lB" = (
 /obj/structure/rack,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lC" = (
 /obj/machinery/constructable_frame/computerframe,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lD" = (
 /obj/machinery/teleport/station,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lE" = (
 /obj/machinery/teleport/hub,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lF" = (
 /obj/machinery/power/smes/buildable,
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lG" = (
 /obj/machinery/power/terminal{
@@ -3296,7 +3232,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lH" = (
 /obj/structure/cable/blue{
@@ -3305,25 +3241,25 @@
 /obj/structure/cable/blue{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lI" = (
 /obj/item/shard{
 	icon_state = "medium"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lJ" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lK" = (
 /obj/structure/cable,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lL" = (
 /obj/structure/rack,
 /obj/item/clothing/gloves/insulated,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lM" = (
 /obj/structure/rack,
@@ -3332,19 +3268,19 @@
 /area/constructionsite/engineering)
 "lN" = (
 /obj/structure/cable/blue,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "lO" = (
 /obj/structure/girder,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lP" = (
 /obj/item/cell,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lQ" = (
 /obj/structure/grille/broken,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lR" = (
 /turf/space,
@@ -3352,7 +3288,7 @@
 "lS" = (
 /obj/structure/table,
 /obj/random/loot,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lT" = (
 /obj/random/hostile,
@@ -3365,13 +3301,13 @@
 "lV" = (
 /obj/structure/closet,
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lW" = (
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lX" = (
 /obj/structure/grille/broken,
@@ -3382,7 +3318,7 @@
 	pixel_x = 1;
 	pixel_y = -1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/AIsattele)
 "lZ" = (
 /obj/machinery/emitter{
@@ -3390,11 +3326,11 @@
 	dir = 4;
 	state = 2
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "ma" = (
 /obj/machinery/field_generator,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "mb" = (
 /obj/machinery/emitter{
@@ -3402,11 +3338,11 @@
 	dir = 8;
 	state = 2
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "mc" = (
 /obj/machinery/singularity_generator,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/engineering)
 "md" = (
 /obj/effect/shuttle_landmark/derelict/nav7,
@@ -3448,27 +3384,27 @@
 /obj/structure/grille,
 /obj/structure/wall_frame,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "BO" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "DP" = (
 /obj/structure/grille,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/aft)
 "Lk" = (
 /obj/structure/grille/broken,
 /obj/structure/wall_frame,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/hallway/fore)
 "Yw" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/constructionsite/atmospherics)
 
 (1,1,1) = {"

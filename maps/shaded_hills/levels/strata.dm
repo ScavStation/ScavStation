@@ -7,7 +7,9 @@
 		/decl/material/solid/quartz,
 		/decl/material/solid/graphite,
 		/decl/material/solid/tetrahedrite,
-		/decl/material/solid/hematite
+		/decl/material/solid/hematite,
+		/decl/material/solid/pyrite,
+		/decl/material/solid/sodiumchloride
 	)
 	ores_rich = list(
 		/decl/material/solid/gemstone/diamond,
@@ -16,13 +18,3 @@
 		/decl/material/solid/densegraphite,
 		/decl/material/solid/galena
 	)
-
-/decl/material/solid/graphite
-	name = "coal"
-	codex_name = "loose coal"
-	ore_name = "coal"
-
-/decl/material/solid/densegraphite
-	name = "dense coal"
-	codex_name = "dense coal"
-	ore_name = "dense coal"

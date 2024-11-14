@@ -13,7 +13,7 @@ var/global/list/bodytypes_by_category = list()
 	var/icon_deformed
 	var/cosmetics_icon
 	var/bandages_icon
-	var/bodytype_flag = BODY_FLAG_HUMANOID
+	var/bodytype_flag = BODY_EQUIP_FLAG_HUMANOID
 	var/bodytype_category = BODYTYPE_OTHER
 	var/limb_icon_intensity = 1.5
 	var/blood_overlays
@@ -163,8 +163,10 @@ var/global/list/bodytypes_by_category = list()
 		BP_EYES =     /obj/item/organ/internal/eyes
 	)
 
-	var/vision_organ              // If set, this organ is required for vision.
-	var/breathing_organ           // If set, this organ is required for breathing.
+	/// If set, an organ with this tag is required for vision.
+	var/vision_organ
+	/// If set, an organ with this tag is required for breathing
+	var/breathing_organ
 
 	var/list/override_organ_types // Used for species that only need to change one or two entries in has_organ.
 
@@ -230,6 +232,7 @@ var/global/list/bodytypes_by_category = list()
 	var/list/removed_emotes
 	/// Add emotes to this list to add them to the defaults (ie. a humanoid species that also has a purr)
 	var/list/additional_emotes
+
 	/// Generalized emote list available to mobs with this bodytype.
 	var/list/default_emotes = list(
 		/decl/emote/visible/blink,
@@ -260,6 +263,7 @@ var/global/list/bodytypes_by_category = list()
 		/decl/emote/audible/moan,
 		/decl/emote/audible/grunt,
 		/decl/emote/audible/slap,
+		/decl/emote/audible/snap,
 		/decl/emote/audible/deathgasp,
 		/decl/emote/audible/giggle,
 		/decl/emote/audible/scream,
@@ -478,7 +482,8 @@ var/global/list/bodytypes_by_category = list()
 		if(!istype(acc_cat))
 			. += "invalid sprite accessory category entry: [accessory_category || "null"]"
 			continue
-		for(var/accessory in default_sprite_accessories[accessory_category])
+		var/accessories = default_sprite_accessories[accessory_category]
+		for(var/accessory in accessories)
 			var/decl/sprite_accessory/acc_decl = GET_DECL(accessory)
 			if(!istype(acc_decl))
 				. += "invalid sprite accessory in category [accessory_category]: [accessory || "null"]"
@@ -487,6 +492,8 @@ var/global/list/bodytypes_by_category = list()
 				. += "accessory category [acc_decl.accessory_category || "null"] does not match [acc_cat.type]"
 			if(!istype(acc_decl, acc_cat.base_accessory_type))
 				. += "accessory type [acc_decl.type] does not align with category base accessory: [acc_cat.base_accessory_type || "null"]"
+			if(!islist(accessories[accessory]))
+				. += "non-list default metadata for [acc_decl.type]: [accessories[accessory] || "NULL"]"
 
 	var/list/tail_data = has_limbs[BP_TAIL]
 	if(tail_data)
@@ -502,7 +509,20 @@ var/global/list/bodytypes_by_category = list()
 				var/tail_state = tail_organ.get_tail()
 				if(tail_icon && tail_state)
 					if(!check_state_in_icon(tail_state, tail_icon))
-						. += "tail state [tail_state] not present in icon [tail_icon], available states are: [json_encode(icon_states(tail_icon))]"
+						. += "base tail state '[tail_state]' not present in icon '[tail_icon]'"
+					var/tail_states = tail_organ.get_tail_animation_states()
+					if(tail_states)
+						var/static/list/animation_modifiers = list(
+							"_idle",
+							"_slow",
+							"_loop",
+							"_once"
+						)
+						for(var/modifier in animation_modifiers)
+							var/modified_state = "[tail_state][modifier]"
+							for(var/i = 1 to tail_states)
+								if(!check_state_in_icon("[modified_state][i]", tail_icon))
+									. += "animated tail state '[modified_state][i]' not present in icon '[tail_icon]'"
 				else
 					if(!tail_icon)
 						. += "missing tail icon"
@@ -577,7 +597,7 @@ var/global/list/bodytypes_by_category = list()
 				qdel(O)
 
 	//Create missing limbs
-	var/datum/mob_snapshot/supplied_data = H.get_mob_snapshot(force = TRUE)
+	var/datum/mob_snapshot/supplied_data = H.get_mob_snapshot()
 	supplied_data.root_bodytype = src // This may not have been set on the target mob torso yet.
 
 	for(var/limb_type in has_limbs)
@@ -617,11 +637,11 @@ var/global/list/bodytypes_by_category = list()
 /decl/bodytype/proc/get_limb_from_zone(limb)
 	. = length(LAZYACCESS(limb_mapping, limb)) ? pick(limb_mapping[limb]) : limb
 
-/decl/bodytype/proc/check_vital_organ_missing(mob/living/H)
+/decl/bodytype/proc/check_vital_organ_missing(mob/living/patient)
 	if(length(vital_organs))
 		for(var/organ_tag in vital_organs)
-			var/obj/item/organ/O = H.get_organ(organ_tag, /obj/item/organ)
-			if(!O || (O.status & ORGAN_DEAD))
+			var/obj/item/organ/vital_organ = patient.get_organ(organ_tag, /obj/item/organ)
+			if(!vital_organ || (vital_organ.status & ORGAN_DEAD))
 				return TRUE
 	return FALSE
 
@@ -651,11 +671,11 @@ var/global/list/bodytypes_by_category = list()
 	for(var/accessory_category in default_sprite_accessories)
 		for(var/accessory in default_sprite_accessories[accessory_category])
 			var/decl/sprite_accessory/accessory_decl = GET_DECL(accessory)
-			var/accessory_colour = default_sprite_accessories[accessory_category][accessory]
+			var/accessory_metadata = default_sprite_accessories[accessory_category][accessory]
 			for(var/bodypart in accessory_decl.body_parts)
 				var/obj/item/organ/external/O = GET_EXTERNAL_ORGAN(setting, bodypart)
 				if(O)
-					O.set_sprite_accessory(accessory, null, accessory_colour, skip_update = TRUE)
+					O.set_sprite_accessory(accessory, null, accessory_metadata, skip_update = TRUE)
 
 /decl/bodytype/proc/customize_preview_mannequin(mob/living/human/dummy/mannequin/mannequin)
 	set_default_sprite_accessories(mannequin)
@@ -669,7 +689,7 @@ var/global/list/bodytypes_by_category = list()
 
 /decl/species/proc/customize_preview_mannequin(mob/living/human/dummy/mannequin/mannequin)
 	if(preview_outfit)
-		var/decl/hierarchy/outfit/outfit = outfit_by_type(preview_outfit)
+		var/decl/outfit/outfit = GET_DECL(preview_outfit)
 		outfit.equip_outfit(mannequin, equip_adjustments = (OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR|OUTFIT_ADJUSTMENT_SKIP_BACKPACK))
 		mannequin.update_icon()
 	mannequin.update_transform()
@@ -704,7 +724,7 @@ var/global/list/bodytypes_by_category = list()
 			qdel(innard)
 
 	// Install any necessary new organs.
-	var/datum/mob_snapshot/supplied_data = limb.owner.get_mob_snapshot(force = TRUE)
+	var/datum/mob_snapshot/supplied_data = limb.owner.get_mob_snapshot()
 	supplied_data.root_bodytype = src
 	for(var/organ_tag in replacing_organs)
 		var/organ_type = replacing_organs[organ_tag]

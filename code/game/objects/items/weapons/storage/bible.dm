@@ -73,11 +73,11 @@
 	if(user.mind?.assigned_job?.is_holy)
 		user.visible_message(SPAN_NOTICE("\The [user] places \the [src] on \the [target]'s forehead, reciting a prayer..."))
 		if(do_after(user, 5 SECONDS) && user.Adjacent(target))
-			var/decl/pronouns/G = user.get_pronouns()
+			var/decl/pronouns/pronouns = user.get_pronouns()
 			user.visible_message(
-				SPAN_NOTICE("\The [user] finishes reciting [G.his] prayer, removing \the [src] from \the [target]'s forehead."),
+				SPAN_NOTICE("\The [user] finishes reciting [pronouns.his] prayer, removing \the [src] from \the [target]'s forehead."),
 				SPAN_NOTICE("You finish reciting your prayer, removing \the [src] from \the [target]'s forehead."))
-			if(user.get_cultural_value(TAG_RELIGION) == target.get_cultural_value(TAG_RELIGION))
+			if(user.get_background_datum_by_flag(BACKGROUND_FLAG_RELIGION) == target.get_background_datum_by_flag(BACKGROUND_FLAG_RELIGION))
 				to_chat(target, SPAN_NOTICE("You feel calm and relaxed, at one with the universe."))
 			else
 				to_chat(target, "Nothing happened.")
@@ -105,7 +105,7 @@
 		if(do_after(preacher, 5 SECONDS))
 			preacher.visible_message("\The [preacher] reads a passage from \the [src].", "You read a passage from \the [src].")
 			for(var/mob/living/human/H in view(preacher))
-				if(preacher.get_cultural_value(TAG_RELIGION) == H.get_cultural_value(TAG_RELIGION))
+				if(preacher.get_background_datum_by_flag(BACKGROUND_FLAG_RELIGION) == H.get_background_datum_by_flag(BACKGROUND_FLAG_RELIGION))
 					to_chat(H, SPAN_NOTICE("You feel calm and relaxed, at one with the universe."))
 
 /obj/item/bible/verb/rename_bible()
@@ -123,7 +123,7 @@
 			renamed = 1
 			return 1
 
-/obj/item/bible/verb/set_icon()
+/obj/item/bible/verb/set_icon_verb()
 	set name = "Change Icon"
 	set category = "Object"
 	set desc = "Click to change your book's icon."

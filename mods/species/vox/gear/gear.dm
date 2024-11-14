@@ -12,9 +12,9 @@
 			/obj/item/clothing/mask/breath = 1,
 			/obj/item/tank/emergency/nitrogen = 1,
 			/obj/item/chems/hypospray/autoinjector/pouch_auto/stabilizer = 1,
-			/obj/item/stack/medical/bruise_pack = 1,
+			/obj/item/stack/medical/bandage = 1,
 			/obj/item/flashlight/flare/glowstick = 1,
-			/obj/item/chems/food/candy/proteinbar = 1
+			/obj/item/food/junk/candy/proteinbar = 1
 		)
 
 /obj/item/tank/emergency/nitrogen

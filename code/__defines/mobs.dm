@@ -19,13 +19,6 @@
 #define BORGXRAY     BITFLAG(2)
 #define BORGMATERIAL BITFLAG(3)
 
-#define HOSTILE_STANCE_IDLE      1
-#define HOSTILE_STANCE_ALERT     2
-#define HOSTILE_STANCE_ATTACK    3
-#define HOSTILE_STANCE_ATTACKING 4
-#define HOSTILE_STANCE_TIRED     5
-#define HOSTILE_STANCE_INSIDE    6
-
 #define LEFT  BITFLAG(0)
 #define RIGHT BITFLAG(1)
 #define UNDER BITFLAG(2)
@@ -97,11 +90,11 @@
 #define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
 
 // Defines mob sizes, used by lockers and to determine what is considered a small sized mob, etc.
-#define MOB_SIZE_LARGE     40
-#define MOB_SIZE_MEDIUM    20
-#define MOB_SIZE_SMALL     10
-#define MOB_SIZE_TINY      5
-#define MOB_SIZE_MINISCULE 1
+#define MOB_SIZE_LARGE     ITEM_SIZE_STRUCTURE * 2
+#define MOB_SIZE_MEDIUM    ITEM_SIZE_STRUCTURE
+#define MOB_SIZE_SMALL     ITEM_SIZE_NORMAL
+#define MOB_SIZE_TINY      ITEM_SIZE_SMALL
+#define MOB_SIZE_MINISCULE ITEM_SIZE_TINY
 
 #define MOB_SIZE_MIN       MOB_SIZE_MINISCULE
 #define MOB_SIZE_MAX       MOB_SIZE_LARGE
@@ -234,6 +227,30 @@
 // One 'unit' of taste sensitivity probability, used in mob/living/proc/ingest
 #define TASTE_DEGREE_PROB 15
 
+// General food data flags
+#define DATA_TASTE            /decl/reagent_data_field/taste
+#define DATA_INGREDIENT_LIST  /decl/reagent_data_field/ingredient_list
+#define DATA_INGREDIENT_FLAGS /decl/reagent_data_field/ingredient_flags
+#define DATA_MASK_COLOR       /decl/reagent_data_field/mask_color
+#define DATA_MASK_NAME        /decl/reagent_data_field/mask_name
+
+// Milk and chees data flags
+#define DATA_MILK_DONOR       /decl/reagent_data_field/milk_donor
+#define DATA_MILK_NAME        /decl/reagent_data_field/milk_name
+#define DATA_MILK_COLOR       /decl/reagent_data_field/milk_color
+#define DATA_CHEESE_NAME      /decl/reagent_data_field/cheese_name
+#define DATA_CHEESE_COLOR     /decl/reagent_data_field/cheese_color
+
+// Blood data flags
+#define DATA_BLOOD_DNA        /decl/reagent_data_field/blood_dna
+#define DATA_BLOOD_DONOR      /decl/reagent_data_field/blood_donor
+#define DATA_BLOOD_SPECIES    /decl/reagent_data_field/blood_species
+#define DATA_BLOOD_COLOR      /decl/reagent_data_field/blood_color
+#define DATA_BLOOD_TYPE       /decl/reagent_data_field/blood_type
+#define DATA_BLOOD_TRACE_CHEM /decl/reagent_data_field/blood_trace_chem
+#define DATA_BLOOD_DOSE_CHEM  /decl/reagent_data_field/blood_dose_chem
+#define DATA_BLOOD_HAS_OXY    /decl/reagent_data_field/blood_has_oxy
+
 //Used by show_message() and emotes
 #define VISIBLE_MESSAGE 1
 #define AUDIBLE_MESSAGE 2
@@ -342,10 +359,11 @@ var/global/list/dexterity_levels = list(
 #define MOB_ICON_HAS_LIVING_STATE    BITFLAG(0)
 #define MOB_ICON_HAS_DEAD_STATE      BITFLAG(1)
 #define MOB_ICON_HAS_REST_STATE      BITFLAG(2)
-#define MOB_ICON_HAS_SLEEP_STATE     BITFLAG(3)
-#define MOB_ICON_HAS_GIB_STATE       BITFLAG(4)
-#define MOB_ICON_HAS_DUST_STATE      BITFLAG(5)
-#define MOB_ICON_HAS_PARALYZED_STATE BITFLAG(6)
+#define MOB_ICON_HAS_SITTING_STATE   BITFLAG(3)
+#define MOB_ICON_HAS_SLEEP_STATE     BITFLAG(4)
+#define MOB_ICON_HAS_GIB_STATE       BITFLAG(5)
+#define MOB_ICON_HAS_DUST_STATE      BITFLAG(6)
+#define MOB_ICON_HAS_PARALYZED_STATE BITFLAG(7)
 #define NEUTER_ANIMATE "animate singular neutral"
 
 // Equipment Overlays Indices //
@@ -353,29 +371,30 @@ var/global/list/dexterity_levels = list(
 #define HO_SKIN_LAYER       2
 #define HO_DAMAGE_LAYER     3
 #define HO_SURGERY_LAYER    4 //bs12 specific.
-#define HO_UNDERWEAR_LAYER  5
-#define HO_UNIFORM_LAYER    6
-#define HO_ID_LAYER         7
-#define HO_SHOES_LAYER      8
-#define HO_GLOVES_LAYER     9
-#define HO_BELT_LAYER       10
-#define HO_SUIT_LAYER       11
-#define HO_GLASSES_LAYER    12
-#define HO_BELT_LAYER_ALT   13
-#define HO_SUIT_STORE_LAYER 14
-#define HO_BACK_LAYER       15
-#define HO_TAIL_LAYER       16 //bs12 specific. this hack is probably gonna come back to haunt me
-#define HO_HAIR_LAYER       17 //TODO: make part of head layer?
-#define HO_GOGGLES_LAYER    18
-#define HO_L_EAR_LAYER      19
-#define HO_R_EAR_LAYER      20
-#define HO_FACEMASK_LAYER   21
-#define HO_HEAD_LAYER       22
-#define HO_COLLAR_LAYER     23
-#define HO_HANDCUFF_LAYER   24
-#define HO_INHAND_LAYER     25
-#define HO_FIRE_LAYER       26 //If you're on fire
-#define TOTAL_OVER_LAYERS   26
+#define HO_BANDAGE_LAYER    5
+#define HO_UNDERWEAR_LAYER  6
+#define HO_UNIFORM_LAYER    7
+#define HO_ID_LAYER         8
+#define HO_SHOES_LAYER      9
+#define HO_GLOVES_LAYER     10
+#define HO_BELT_LAYER       11
+#define HO_SUIT_LAYER       12
+#define HO_GLASSES_LAYER    13
+#define HO_BELT_LAYER_ALT   14
+#define HO_SUIT_STORE_LAYER 15
+#define HO_BACK_LAYER       16
+#define HO_TAIL_LAYER       17 //bs12 specific. this hack is probably gonna come back to haunt me
+#define HO_HAIR_LAYER       18 //TODO: make part of head layer?
+#define HO_GOGGLES_LAYER    19
+#define HO_L_EAR_LAYER      20
+#define HO_R_EAR_LAYER      21
+#define HO_FACEMASK_LAYER   22
+#define HO_HEAD_LAYER       23
+#define HO_COLLAR_LAYER     24
+#define HO_HANDCUFF_LAYER   25
+#define HO_INHAND_LAYER     26
+#define HO_FIRE_LAYER       27 //If you're on fire
+#define TOTAL_OVER_LAYERS   27
 //////////////////////////////////
 
 // Underlay defines; vestigal implementation currently.
@@ -391,24 +410,49 @@ var/global/list/dexterity_levels = list(
 #define EATING_METHOD_EAT   0
 #define EATING_METHOD_DRINK 1
 
+// Sprite accessory categories for shorter reference.
 #define SAC_HAIR        /decl/sprite_accessory_category/hair
 #define SAC_FACIAL_HAIR /decl/sprite_accessory_category/facial_hair
 #define SAC_COSMETICS   /decl/sprite_accessory_category/cosmetics
 #define SAC_MARKINGS    /decl/sprite_accessory_category/markings
+#define SAC_EARS        /decl/sprite_accessory_category/ears
 #define SAC_HORNS       /decl/sprite_accessory_category/horns
 #define SAC_FRILLS      /decl/sprite_accessory_category/frills
+#define SAC_TAIL        /decl/sprite_accessory_category/tail
+
+// Sprite accessory metadata types for shorter reference.
+#define SAM_COLOR       /decl/sprite_accessory_metadata/color
+#define SAM_COLOR_INNER /decl/sprite_accessory_metadata/color/alt
+#define SAM_GRADIENT    /decl/sprite_accessory_metadata/gradient
 
 // Helpers for setting mob appearance. They are extremely ugly, hence the helpers.
-#define SET_HAIR_STYLE(TARGET, STYLE, SKIP_UPDATE)          (TARGET.set_organ_sprite_accessory_by_category((STYLE), SAC_HAIR, null, TRUE, FALSE, BP_HEAD, SKIP_UPDATE))
-#define GET_HAIR_STYLE(TARGET)                              (TARGET.get_organ_sprite_accessory_by_category(SAC_HAIR, BP_HEAD))
-#define SET_HAIR_COLOUR(TARGET, COLOUR, SKIP_UPDATE)        (TARGET.set_organ_sprite_accessory_by_category(null, SAC_HAIR, (COLOUR), FALSE, TRUE, BP_HEAD, SKIP_UPDATE))
-#define GET_HAIR_COLOUR(TARGET)                             (TARGET.get_organ_sprite_accessory(GET_HAIR_STYLE(TARGET), BP_HEAD))
+#define SET_HAIR_STYLE(TARGET, STYLE, SKIP_UPDATE)        (TARGET.set_organ_sprite_accessory_by_category((STYLE), SAC_HAIR, null, TRUE, FALSE, BP_HEAD, SKIP_UPDATE))
+#define GET_HAIR_STYLE(TARGET)                            (TARGET.get_organ_sprite_accessory_by_category(SAC_HAIR, BP_HEAD))
+#define SET_HAIR_COLOR(TARGET, COLOR, SKIP_UPDATE)        (TARGET.set_organ_sprite_accessory_by_category(null, SAC_HAIR, list(SAM_COLOR = (COLOR)), FALSE, TRUE, BP_HEAD, SKIP_UPDATE))
+#define GET_HAIR_COLOR(TARGET)                            (TARGET.get_organ_sprite_accessory_metadata(GET_HAIR_STYLE(TARGET), BP_HEAD, SAM_COLOR))
 
-#define SET_FACIAL_HAIR_STYLE(TARGET, STYLE, SKIP_UPDATE)   (TARGET.set_organ_sprite_accessory_by_category((STYLE), SAC_FACIAL_HAIR, null, TRUE, FALSE, BP_HEAD, SKIP_UPDATE))
-#define GET_FACIAL_HAIR_STYLE(TARGET)                       (TARGET.get_organ_sprite_accessory_by_category(SAC_FACIAL_HAIR, BP_HEAD))
-#define SET_FACIAL_HAIR_COLOUR(TARGET, COLOUR, SKIP_UPDATE) (TARGET.set_organ_sprite_accessory_by_category(null, SAC_FACIAL_HAIR, (COLOUR), FALSE, TRUE, BP_HEAD, SKIP_UPDATE))
-#define GET_FACIAL_HAIR_COLOUR(TARGET)                      (TARGET.get_organ_sprite_accessory(GET_FACIAL_HAIR_STYLE(TARGET), BP_HEAD))
+#define SET_FACIAL_HAIR_STYLE(TARGET, STYLE, SKIP_UPDATE) (TARGET.set_organ_sprite_accessory_by_category((STYLE), SAC_FACIAL_HAIR, null, TRUE, FALSE, BP_HEAD, SKIP_UPDATE))
+#define GET_FACIAL_HAIR_STYLE(TARGET)                     (TARGET.get_organ_sprite_accessory_by_category(SAC_FACIAL_HAIR, BP_HEAD))
+#define SET_FACIAL_HAIR_COLOR(TARGET, COLOR, SKIP_UPDATE) (TARGET.set_organ_sprite_accessory_by_category(null, SAC_FACIAL_HAIR, list(SAM_COLOR = (COLOR)), FALSE, TRUE, BP_HEAD, SKIP_UPDATE))
+#define GET_FACIAL_HAIR_COLOR(TARGET)                     (TARGET.get_organ_sprite_accessory_metadata(GET_FACIAL_HAIR_STYLE(TARGET), BP_HEAD, SAM_COLOR))
 
 // Used in death() to skip message broadcast.
 #define SKIP_DEATH_MESSAGE "no message"
 
+// Used in organ stance calc.
+#define LIMB_UNUSABLE 2
+#define LIMB_DAMAGED  1
+#define LIMB_IMPAIRED 0.5
+
+// Used by allergy effects.
+#define ALLERGEN_REACTION_NONE     0
+#define ALLERGEN_REACTION_PHYS_DMG BITFLAG(0)
+#define ALLERGEN_REACTION_BURN_DMG BITFLAG(1)
+#define ALLERGEN_REACTION_TOX_DMG  BITFLAG(2)
+#define ALLERGEN_REACTION_OXY_DMG  BITFLAG(3)
+#define ALLERGEN_REACTION_EMOTE    BITFLAG(4)
+#define ALLERGEN_REACTION_PAIN     BITFLAG(5)
+#define ALLERGEN_REACTION_WEAKEN   BITFLAG(6)
+#define ALLERGEN_REACTION_BLURRY   BITFLAG(7)
+#define ALLERGEN_REACTION_SLEEPY   BITFLAG(8)
+#define ALLERGEN_REACTION_CONFUSE  BITFLAG(9)

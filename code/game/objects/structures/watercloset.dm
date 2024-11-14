@@ -48,7 +48,7 @@ var/global/list/hygiene_props = list()
 			clogged--
 			if(clogged <= 0)
 				unclog()
-		return
+		return TRUE
 	. = ..()
 
 /obj/structure/hygiene/examine(mob/user)
@@ -87,7 +87,7 @@ var/global/list/hygiene_props = list()
 	if(fluid_here <= 0)
 		return
 
-	T.remove_fluid(CEILING(fluid_here*drainage))
+	T.remove_fluid(ceil(fluid_here*drainage))
 	T.show_bubbles()
 	if(world.time > last_gurgle + 80)
 		last_gurgle = world.time
@@ -148,6 +148,29 @@ var/global/list/hygiene_props = list()
 	..()
 	icon_state = "toilet[open][cistern]"
 
+/obj/structure/hygiene/toilet/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		if(!victim.loc == get_turf(src))
+			to_chat(user, SPAN_WARNING("\The [victim] needs to be on the toilet."))
+			return TRUE
+		if(open && !swirlie)
+			user.visible_message(SPAN_DANGER("\The [user] starts jamming \the [victim]'s face into \the [src]!"))
+			swirlie = victim
+			if(do_after(user, 30, src))
+				user.visible_message(SPAN_DANGER("\The [user] gives [victim.name] a swirlie!"))
+				victim.take_damage(5, OXY)
+			swirlie = null
+		else
+			user.visible_message(
+			SPAN_DANGER("\The [user] slams \the [victim] into \the [src]!"),
+			SPAN_NOTICE("You slam \the [victim] into \the [src]!"))
+			victim.take_damage(8)
+			playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
+		return TRUE
+	return ..()
+
 /obj/structure/hygiene/toilet/attackby(obj/item/I, var/mob/user)
 	if(IS_CROWBAR(I))
 		to_chat(user, SPAN_NOTICE("You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
@@ -159,43 +182,20 @@ var/global/list/hygiene_props = list()
 				"You hear grinding porcelain.")
 			cistern = !cistern
 			update_icon()
-		return
-
-	if(istype(I, /obj/item/grab))
-		var/obj/item/grab/G = I
-		var/mob/living/GM = G.get_affecting_mob()
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(GM)
-			if(!GM.loc == get_turf(src))
-				to_chat(user, SPAN_WARNING("\The [GM] needs to be on the toilet."))
-				return
-			if(open && !swirlie)
-				user.visible_message(SPAN_DANGER("\The [user] starts jamming \the [GM]'s face into \the [src]!"))
-				swirlie = GM
-				if(do_after(user, 30, src))
-					user.visible_message(SPAN_DANGER("\The [user] gives [GM.name] a swirlie!"))
-					GM.take_damage(5, OXY)
-				swirlie = null
-			else
-				user.visible_message(
-				SPAN_DANGER("\The [user] slams \the [GM] into the [src]!"),
-				SPAN_NOTICE("You slam \the [GM] into the [src]!"))
-				GM.take_damage(8)
-				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
-		return
+		return TRUE
 
 	if(cistern && !isrobot(user)) //STOP PUTTING YOUR MODULES IN THE TOILET.
 		if(I.w_class > ITEM_SIZE_NORMAL)
 			to_chat(user, SPAN_WARNING("\The [I] does not fit."))
-			return
+			return TRUE
 		if(w_items + I.w_class > ITEM_SIZE_HUGE)
 			to_chat(user, SPAN_WARNING("The cistern is full."))
-			return
+			return TRUE
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		w_items += I.w_class
 		to_chat(user, SPAN_NOTICE("You carefully place \the [I] into the cistern."))
-		return
+		return TRUE
 
 	. = ..()
 
@@ -209,17 +209,16 @@ var/global/list/hygiene_props = list()
 	directional_offset = @'{"NORTH":{"y":-32}, "SOUTH":{"y":32}, "EAST":{"x":-32}, "WEST":{"x":32}}'
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
-/obj/structure/hygiene/urinal/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/grab))
-		var/obj/item/grab/G = I
-		var/mob/living/GM = G.get_affecting_mob()
-		if(GM)
-			if(!GM.loc == get_turf(src))
-				to_chat(user, SPAN_WARNING("\The [GM] needs to be on \the [src]."))
-				return
-			user.visible_message(SPAN_DANGER("\The [user] slams \the [GM] into the [src]!"))
-			GM.take_damage(8)
-	. = ..()
+/obj/structure/hygiene/urinal/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim))
+		if(!victim.loc == get_turf(src))
+			to_chat(user, SPAN_WARNING("\The [victim] needs to be on \the [src]."))
+		else
+			user.visible_message(SPAN_DANGER("\The [user] slams \the [victim] into \the [src]!"))
+			victim.take_damage(8)
+		return TRUE
+	return ..()
 
 /obj/structure/hygiene/shower
 	name = "shower"
@@ -287,7 +286,7 @@ var/global/list/hygiene_props = list()
 /obj/structure/hygiene/shower/attackby(obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/scanner/gas))
 		to_chat(user, SPAN_NOTICE("The water temperature seems to be [watertemp]."))
-		return
+		return TRUE
 
 	if(IS_WRENCH(I))
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
@@ -350,6 +349,7 @@ var/global/list/hygiene_props = list()
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face."
 	anchored = TRUE
+	directional_offset = @'{"NORTH":{"y":22},"SOUTH":{"y":28},"EAST":{"x":16},"WEST":{"x":-16}}'
 	var/busy = 0 	//Something's being washed at the moment
 
 /obj/structure/hygiene/sink/receive_mouse_drop(atom/dropping, mob/user, params)
@@ -394,7 +394,7 @@ var/global/list/hygiene_props = list()
 
 	if(busy)
 		to_chat(user, SPAN_WARNING("Someone's already washing here."))
-		return
+		return TRUE
 
 	var/obj/item/chems/chem_container = hit_with
 	if (istype(chem_container) && ATOM_IS_OPEN_CONTAINER(chem_container) && chem_container.reagents)
@@ -426,14 +426,14 @@ var/global/list/hygiene_props = list()
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		else
 			to_chat(user, SPAN_WARNING("\The [hit_with] is saturated."))
-		return
+		return TRUE
 
 	var/turf/location = user.loc
 	if(!isturf(location))
-		return
+		return FALSE
 
 	if(!istype(hit_with))
-		return
+		return FALSE
 
 	to_chat(usr, SPAN_NOTICE("You start washing \the [hit_with]."))
 	playsound(loc, 'sound/effects/sink_long.ogg', 75, 1)
@@ -451,16 +451,19 @@ var/global/list/hygiene_props = list()
 	user.visible_message( \
 		SPAN_NOTICE("\The [user] washes \a [hit_with] using \the [src]."),
 		SPAN_NOTICE("You wash \a [hit_with] using \the [src]."))
+	return TRUE
 
 
 /obj/structure/hygiene/sink/kitchen
 	name = "kitchen sink"
 	icon_state = "sink_alt"
+	directional_offset = @'{"NORTH":{"y":22},"SOUTH":{"y":28},"EAST":{"x":-22},"WEST":{"x":22}}'
 
 /obj/structure/hygiene/sink/puddle	//splishy splashy ^_^
 	name = "puddle"
 	icon_state = "puddle"
 	clogged = -1 // how do you clog a puddle
+	directional_offset = null
 
 /obj/structure/hygiene/sink/puddle/attack_hand(var/mob/M)
 	flick("puddle-splash", src)
@@ -468,7 +471,7 @@ var/global/list/hygiene_props = list()
 
 /obj/structure/hygiene/sink/puddle/attackby(obj/item/O, var/mob/user)
 	icon_state = "puddle-splash"
-	..()
+	. = ..()
 	icon_state = "puddle"
 
 //toilet paper interaction for clogging toilets and other facilities
@@ -478,18 +481,19 @@ var/global/list/hygiene_props = list()
 		return ..()
 	if (clogged == -1)
 		to_chat(user, SPAN_WARNING("Try as you might, you can not clog \the [src] with \the [I]."))
-		return
+		return TRUE
 	if (clogged)
 		to_chat(user, SPAN_WARNING("\The [src] is already clogged."))
-		return
+		return TRUE
 	if (!do_after(user, 3 SECONDS, src))
 		to_chat(user, SPAN_WARNING("You must stay still to clog \the [src]."))
-		return
+		return TRUE
 	if (clogged || QDELETED(I) || !user.try_unequip(I))
-		return
+		return TRUE
 	to_chat(user, SPAN_NOTICE("You unceremoniously jam \the [src] with \the [I]. What a rebel."))
 	clog(1)
 	qdel(I)
+	return TRUE
 
 ////////////////////////////////////////////////////
 // Toilet Paper Roll
@@ -531,8 +535,7 @@ var/global/list/hygiene_props = list()
 /obj/item/paper/crumpled/bog
 	name       = "sheet of toilet paper"
 	desc       = "A single sheet of toilet paper. Two ply."
-	icon       = 'icons/obj/toiletpaper.dmi'
-	icon_state = "bogroll_sheet"
+	icon       = 'icons/obj/items/paperwork/toilet_paper.dmi'
 
 /obj/structure/hygiene/faucet
 	name = "faucet"

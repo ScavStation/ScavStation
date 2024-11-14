@@ -35,20 +35,20 @@
 
 	return src
 
-/mob/new_player/AIize()
+/mob/new_player/AIize(move = TRUE)
 	spawning = 1
 	return ..()
 
-/mob/living/human/AIize(move=1) // 'move' argument needs defining here too because BYOND is dumb
+/mob/living/human/AIize(move = TRUE)
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
 		return
 	QDEL_NULL_LIST(worn_underwear)
-	return ..(move)
+	return ..()
 
-/mob/living/silicon/ai/AIize()
+/mob/living/silicon/ai/AIize(move = TRUE)
 	return src
 
-/mob/living/AIize()
+/mob/living/AIize(move = TRUE)
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
 		return
 	for(var/t in get_external_organs())
@@ -60,7 +60,7 @@
 	set_invisibility(INVISIBILITY_ABSTRACT)
 	return ..()
 
-/mob/proc/AIize(move=1)
+/mob/proc/AIize(move = TRUE)
 	if(client)
 		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = sound_channels.lobby_channel))// stop the jams for AIs
 
@@ -135,7 +135,7 @@
 
 	O.dropInto(loc)
 	O.job = ASSIGNMENT_ROBOT
-	callHook("borgify", list(O))
+	RAISE_EVENT(/decl/observ/cyborg_created, O)
 	O.Namepick()
 
 	qdel(src) // Queues us for a hard delete
@@ -223,7 +223,7 @@
 		return 0	//Sanity, this should never happen.
 
 //Good mobs!
-	if(ispath(MP, /mob/living/simple_animal/cat))
+	if(ispath(MP, /mob/living/simple_animal/passive/cat))
 		return 1
 	if(ispath(MP, /mob/living/simple_animal/corgi))
 		return 1
@@ -239,7 +239,7 @@
 		return 1
 	if(ispath(MP, /mob/living/simple_animal/hostile/bear))
 		return 1
-	if(ispath(MP, /mob/living/simple_animal/hostile/retaliate/parrot))
+	if(ispath(MP, /mob/living/simple_animal/hostile/parrot))
 		return 1
 
 	//Not in here? Must be untested!
@@ -263,7 +263,7 @@
 		if (!BP_IS_PROSTHETIC(organ))
 			organ.rejuvenate(1)
 			organ.max_damage *= 3
-			organ.min_broken_damage = FLOOR(organ.max_damage * 0.75)
+			organ.min_broken_damage = floor(organ.max_damage * 0.75)
 	verbs += /mob/living/proc/breath_death
 	verbs += /mob/living/proc/consume
 	playsound(get_turf(src), 'sound/hallucinations/wail.ogg', 20, 1)

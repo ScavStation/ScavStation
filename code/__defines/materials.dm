@@ -29,10 +29,12 @@
 #define MAT_VALUE_VERY_HEAVY         80		// uranium tier
 
 //Construction difficulty
-#define MAT_VALUE_EASY_DIY          0
-#define MAT_VALUE_NORMAL_DIY        1
-#define MAT_VALUE_HARD_DIY          2
-#define MAT_VALUE_VERY_HARD_DIY     3
+#define MAT_VALUE_TRIVIAL_DIY       0 // Does not have any difficulty component at all
+#define MAT_VALUE_EASY_DIY          1 // SKILL_NONE (Unskilled)
+#define MAT_VALUE_NORMAL_DIY        2 // SKILL_BASIC (Basic)
+#define MAT_VALUE_HARD_DIY          3 // SKILL_ADEPT (Trained)
+#define MAT_VALUE_VERY_HARD_DIY     4 // SKILL_EXPERT (Experienced)
+#define MAT_VALUE_EXTREME_DIY       5 // SKILL_PROF (Master)
 
 //Arbitrary hardness thresholds
 #define MAT_VALUE_MALLEABLE          0
@@ -64,10 +66,10 @@
 #define ORE_EXOTIC   "exotic matter"
 
 //Phase of matter placeholders
-#define MAT_PHASE_SOLID     "solid"
-#define MAT_PHASE_LIQUID    "liquid"
-#define MAT_PHASE_GAS       "gas"
-#define MAT_PHASE_PLASMA    "plasma"
+#define MAT_PHASE_SOLID     BITFLAG(0)
+#define MAT_PHASE_LIQUID    BITFLAG(1)
+#define MAT_PHASE_GAS       BITFLAG(2)
+#define MAT_PHASE_PLASMA    BITFLAG(3)
 
 // Fission interactions.
 // For these, associated value is ideal neutron energy for reaction.

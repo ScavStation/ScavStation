@@ -17,11 +17,11 @@
 /turf/floor,
 /area/unishi/bridge)
 "ae" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/bridge)
 "af" = (
 /obj/effect/wingrille_spawn/reinforced/full,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/bridge)
 "ag" = (
 /obj/machinery/computer/ship/engines,
@@ -143,7 +143,7 @@
 /area/unishi/bridge)
 "aC" = (
 /obj/machinery/shipsensors,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/bridge)
 "aD" = (
 /turf/wall/titanium,
@@ -202,7 +202,7 @@
 /turf/floor,
 /area/unishi/bridge)
 "aO" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aP" = (
 /turf/wall/titanium,
@@ -606,10 +606,10 @@
 "bX" = (
 /obj/random/tool,
 /obj/random/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/living)
 "bY" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/living)
 "bZ" = (
 /obj/machinery/door/window,
@@ -643,14 +643,14 @@
 /area/unishi/lounge)
 "ce" = (
 /obj/machinery/vending/tool,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/living)
 "cf" = (
 /obj/structure/janitorialcart,
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/living)
 "cg" = (
 /obj/machinery/power/apc{
@@ -735,7 +735,7 @@
 "co" = (
 /obj/random/tool,
 /obj/structure/closet/toolcloset,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/living)
 "cp" = (
 /obj/structure/bed/padded,
@@ -1269,7 +1269,7 @@
 /area/unishi/living)
 "dD" = (
 /obj/structure/table/woodentable,
-/obj/item/cane/concealed,
+/obj/item/cane/fancy/sword,
 /obj/item/clothing/suit/radiation,
 /turf/floor/tiled,
 /area/unishi/living)
@@ -1617,7 +1617,7 @@
 /area/unishi/living)
 "ew" = (
 /obj/random/maintenance,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ex" = (
 /obj/structure/closet/secure_closet/personal/cabinet,

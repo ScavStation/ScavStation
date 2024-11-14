@@ -95,3 +95,4 @@
 				to_chat(user, SPAN_NOTICE("You cut the cables and dismantle the network terminal."))
 				qdel(terminal)
 		return TRUE
+	return FALSE

@@ -9,7 +9,7 @@
 	for(var/R in thing.reagents.reagent_volumes)
 		if(!base_storage_capacity[R])
 			continue
-		var/taking_reagent = min(REAGENT_VOLUME(thing.reagents, R), FLOOR((storage_capacity[R] - stored_material[R]) * REAGENT_UNITS_PER_MATERIAL_UNIT))
+		var/taking_reagent = min(REAGENT_VOLUME(thing.reagents, R), floor((storage_capacity[R] - stored_material[R]) * REAGENT_UNITS_PER_MATERIAL_UNIT))
 		if(taking_reagent <= 0)
 			continue
 		var/reagent_matter = round(taking_reagent / REAGENT_UNITS_PER_MATERIAL_UNIT)
@@ -34,7 +34,7 @@
 	. = SUBSTANCE_TAKEN_NONE
 
 	var/obj/item/stack/stack_ref = istype(thing, /obj/item/stack) && thing
-	var/stack_matter_div = stack_ref ? max(1, CEILING(SHEET_MATERIAL_AMOUNT * stack_ref.matter_multiplier)) : 1
+	var/stack_matter_div = stack_ref ? max(1, ceil(SHEET_MATERIAL_AMOUNT * stack_ref.matter_multiplier)) : 1
 	var/stacks_used = 0
 
 	var/mat_colour = thing.color
@@ -53,7 +53,7 @@
 
 		stored_material[material_def.type] += taking_material
 		if(stack_ref)
-			stacks_used = max(stacks_used, CEILING(taking_material/stack_matter_div))
+			stacks_used = max(stacks_used, ceil(taking_material/stack_matter_div))
 
 		if(storage_capacity[material_def.type] == stored_material[material_def.type])
 			. = SUBSTANCE_TAKEN_FULL
@@ -100,7 +100,7 @@
 	if((obj_flags & OBJ_FLAG_ANCHORABLE) && (IS_WRENCH(O) || IS_HAMMER(O)))
 		return ..()
 	if(stat & (NOPOWER | BROKEN))
-		return
+		return TRUE
 
 	// Gate some simple interactions beind intent so people can still feed lathes disks.
 	if(user.a_intent != I_HURT)
@@ -109,27 +109,27 @@
 		if(IS_MULTITOOL(O))
 			var/datum/extension/local_network_member/fabnet = get_extension(src, /datum/extension/local_network_member)
 			fabnet.get_new_tag(user)
-			return
+			return TRUE
 
 		// Install new designs.
 		if(istype(O, /obj/item/disk/design_disk))
 			var/obj/item/disk/design_disk/disk = O
 			if(!disk.blueprint)
 				to_chat(usr, SPAN_WARNING("\The [O] is blank."))
-				return
+				return TRUE
 			if(disk.blueprint in installed_designs)
 				to_chat(usr, SPAN_WARNING("\The [src] is already loaded with the blueprint stored on \the [O]."))
-				return
+				return TRUE
 			installed_designs += disk.blueprint
 			design_cache |= disk.blueprint
 			visible_message(SPAN_NOTICE("\The [user] inserts \the [O] into \the [src], and after a second or so of loud clicking, the fabricator beeps and spits it out again."))
-			return
+			return TRUE
 
 	// TEMP HACK FIX:
 	// Autolathes currently do not process atom contents. As a workaround, refuse all atoms with contents.
 	if(length(O.contents) && !ignore_input_contents_length)
 		to_chat(user, SPAN_WARNING("\The [src] cannot process an object containing other objects. Empty it out first."))
-		return
+		return TRUE
 	// REMOVE FIX WHEN LATHES TAKE CONTENTS PLS.
 
 	// Take reagents, if any are applicable.
@@ -165,6 +165,7 @@
 	if(fab_status_flags & FAB_SHOCKED)
 		shock(user, 50)
 		return TRUE
+	return FALSE
 
 /obj/machinery/fabricator/interface_interact(mob/user)
 	if((fab_status_flags & FAB_DISABLED) && !panel_open)

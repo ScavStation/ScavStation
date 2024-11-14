@@ -7,7 +7,6 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 /obj/item/chems/drinks/glass2
 
 	name = "glass" // Name when empty
-	base_name = "glass"
 	desc = "A generic drinking glass." // Description when empty
 	icon = 'icons/obj/drink_glasses/square.dmi'
 	icon_state = null
@@ -46,7 +45,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	for(var/I in extras)
 		if(istype(I, /obj/item/glass_extra))
 			to_chat(M, "There is \a [I] in \the [src].")
-		else if(istype(I, /obj/item/chems/food/processed_grown/slice))
+		else if(istype(I, /obj/item/food/processed_grown/slice))
 			to_chat(M, "There is \a [I] on the rim.")
 		else
 			to_chat(M, "There is \a [I] somewhere on the glass. Somehow.")
@@ -102,9 +101,6 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	if(!overlay_base_icon)
 		overlay_base_icon = base_icon
 
-/obj/item/chems/drinks/glass2/get_base_name()
-	. = base_name
-
 /obj/item/chems/drinks/glass2/get_base_desc()
 	. = custom_desc || ..()
 
@@ -124,7 +120,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 		if(istype(extra, /obj/item/glass_extra))
 			var/obj/item/glass_extra/GE = extra
 			LAZYADD(extra_text, GE.glass_desc)
-		else if(istype(extra, /obj/item/chems/food/processed_grown/slice))
+		else if(istype(extra, /obj/item/food/processed_grown/slice))
 			LAZYADD(extra_text, "There is \a [extra] on the rim.")
 	if(length(extra_text))
 		to_chat(user, SPAN_NOTICE(jointext(extra_text," ")))
@@ -193,7 +189,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 			var/image/I = image(icon, src, "[overlay_base_icon]_[GE.glass_addition][side]")
 			I.color = GE.color
 			underlays += I
-		else if(rim_pos && istype(item, /obj/item/chems/food/processed_grown/slice))
+		else if(rim_pos && istype(item, /obj/item/food/processed_grown/slice))
 			var/obj/FS = item
 			var/image/I = image(FS)
 
@@ -218,10 +214,12 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 				user.visible_message("<span class='notice'>The contents of \the [src] splash all over [user]!</span>")
 				reagents.splash(user, reagents.total_volume)
 			qdel(src)
-			return
+			return TRUE
 		user.visible_message("<span class='notice'>[user] gently strikes \the [src] with a spoon, calling the room to attention.</span>")
 		playsound(src, "sound/items/wineglass.ogg", 65, 1)
-	else return ..()
+		return TRUE
+	else
+		return ..()
 
 /obj/item/chems/drinks/glass2/ProcessAtomTemperature()
 	var/old_temp = temperature

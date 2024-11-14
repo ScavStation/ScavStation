@@ -57,7 +57,7 @@
 		if(get_percent_health() <= 50)
 			to_chat(user,"<span class='warning'>It looks pretty beat up.</span>")
 		else
-			to_chat(user, "<span class='warning'>Its got a few dents in it.</span>")
+			to_chat(user, "<span class='warning'>It's got a few dents in it.</span>")
 
 	if((isobserver(user) && ckeys_allowed_to_scan[user.ckey]) || check_rights(R_ADMIN, 0, user))
 		to_chat(user, "You can <a href='byond://?src=\ref[src];ghostscan=1'>scan</a> this circuit.");
@@ -72,7 +72,7 @@
 		visible_message(SPAN_DANGER("\The [src] starts to break apart!"))
 
 /obj/item/electronic_assembly/proc/check_interactivity(mob/user)
-	return (!user.incapacitated() && CanUseTopic(user))
+	return (!user.incapacitated() && CanUseTopic(user) && user_can_attack_with(user))
 
 /obj/item/electronic_assembly/GetAccess()
 	. = list()
@@ -196,7 +196,7 @@
 
 		if(length(assembly_components) > components_per_page)
 			HTML += "<br>\["
-			for(var/i = 1 to CEILING(length(assembly_components)/components_per_page))
+			for(var/i = 1 to ceil(length(assembly_components)/components_per_page))
 				if((i-1) == interact_page)
 					HTML += " [i]"
 				else
@@ -384,7 +384,7 @@
 	add_allowed_scanner(user.ckey)
 
 	// Make sure we're not on an invalid page
-	interact_page = clamp(interact_page, 0, CEILING(length(assembly_components)/components_per_page)-1)
+	interact_page = clamp(interact_page, 0, ceil(length(assembly_components)/components_per_page)-1)
 
 	return TRUE
 

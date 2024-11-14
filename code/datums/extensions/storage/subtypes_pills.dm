@@ -17,7 +17,7 @@
 		if(pop.pop_sound)
 			playsound(get_turf(pop), pop.pop_sound, 50)
 
-/datum/storage/pillbottle/foil/can_be_inserted(obj/item/W, mob/user, stop_messages = 0)
+/datum/storage/pillbottle/foil/can_be_inserted(obj/item/W, mob/user, stop_messages = 0, click_params = null)
 	return FALSE
 
 /datum/storage/pillbottle/foil/remove_from_storage(mob/user, obj/item/W, atom/new_location, skip_update)

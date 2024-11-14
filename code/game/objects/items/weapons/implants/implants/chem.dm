@@ -48,8 +48,9 @@ var/global/list/chem_implants = list()
 			if(do_after(user,5,src))
 				I.reagents.trans_to_obj(src, 5)
 				to_chat(user, "<span class='notice'>You inject 5 units of the solution. The syringe now contains [I.reagents.total_volume] units.</span>")
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/implantcase/chem
 	name = "glass case - 'chem'"

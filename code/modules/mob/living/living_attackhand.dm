@@ -20,6 +20,16 @@
 
 /mob/living/proc/default_hurt_interaction(var/mob/user)
 	SHOULD_CALL_PARENT(TRUE)
+	// TODO: integrate/generalize this ugly code instead of using boilerplate from
+	// simple_animal/UnarmedAttack() due to complexities with existing proc flow.
+	if(isanimal(user))
+		var/mob/living/simple_animal/predator = user
+		var/obj/item/attacking_with = predator.get_natural_weapon()
+		if(attacking_with)
+			attackby(attacking_with, predator)
+		else
+			attack_animal(predator)
+		return TRUE
 	return FALSE
 
 /mob/living/proc/default_help_interaction(var/mob/user)
@@ -36,7 +46,7 @@
 
 /mob/living/proc/default_grab_interaction(var/mob/user)
 	SHOULD_CALL_PARENT(TRUE)
-	return (scoop_check(user) && get_scooped(user, user)) || try_make_grab(user)
+	return scoop_check(user) ? get_scooped(user, user) : try_make_grab(user)
 
 // This proc is where movable atoms handle being grabbed, but we handle it additionally in
 // default_grab_interaction, so we override it here to return FALSE and avoid double-grabbing.

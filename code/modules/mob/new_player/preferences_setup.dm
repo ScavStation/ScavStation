@@ -9,15 +9,18 @@
 	gender = pronouns.name
 
 	for(var/acc_cat in sprite_accessories)
+
 		var/decl/sprite_accessory_category/accessory_category_decl = GET_DECL(acc_cat)
 		if(accessory_category_decl.single_selection)
 			var/list/available_styles = get_usable_sprite_accessories(H, current_species, current_bodytype, acc_cat, null)
 			if(length(available_styles))
-				sprite_accessories[acc_cat][1] = pick(available_styles)
-			sprite_accessories[acc_cat][sprite_accessories[acc_cat][1]] = get_random_colour()
+				var/decl/sprite_accessory/accessory = pick(available_styles)
+				sprite_accessories[acc_cat] = list(accessory.type = accessory.get_random_metadata())
 			continue
-		for(var/accessory in sprite_accessories[acc_cat])
-			sprite_accessories[acc_cat][accessory] = get_random_colour()
+
+		for(var/accessory_type in sprite_accessories[acc_cat])
+			var/decl/sprite_accessory/accessory = GET_DECL(accessory_type)
+			sprite_accessories[acc_cat][accessory_type] = accessory.get_random_metadata()
 
 	if(bodytype)
 		if(current_bodytype.appearance_flags & HAS_A_SKIN_TONE)
@@ -55,6 +58,9 @@
 
 	var/update_icon = FALSE
 	copy_to(mannequin, TRUE)
+
+	// Apply any species-specific preview modification.
+	mannequin = mannequin.species?.modify_preview_appearance(mannequin)
 
 	var/datum/job/previewJob
 	if(equip_preview_mob)
@@ -111,9 +117,13 @@
 		update_character_previews(mannequin)
 
 /datum/preferences/proc/get_random_name()
-	var/decl/cultural_info/culture/check_culture = cultural_info[TAG_CULTURE]
-	if(ispath(check_culture, /decl/cultural_info))
-		check_culture = GET_DECL(check_culture)
-		return check_culture.get_random_name(client?.mob, gender)
-	else
-		return random_name(gender, species)
+	var/decl/background_detail/background = get_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
+	if(istype(background))
+		return background.get_random_name(client?.mob, gender)
+	return random_name(gender, species)
+
+/datum/preferences/proc/get_background_datum_by_flag(background_flag)
+	for(var/cat_type in background_info)
+		var/decl/background_category/background_cat = GET_DECL(cat_type)
+		if(istype(background_cat) && (background_cat.background_flags & background_flag))
+			return GET_DECL(background_info[cat_type])

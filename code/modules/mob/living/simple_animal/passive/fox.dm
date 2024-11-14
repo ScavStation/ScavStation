@@ -1,79 +1,81 @@
-/datum/ai/passive/fox
-	var/weakref/hunt_target
-	var/next_hunt = 0
-
-/datum/ai/passive/fox/update_targets()
-	// Fleeing takes precedence.
-	. = ..()
-	if(!.  && !hunt_target && world.time >= next_hunt) // TODO: generalized nutrition process. && body.get_nutrition() < body.get_max_nutrition() * 0.5)
-		for(var/mob/living/snack in view(body)) //search for a new target
-			if(can_hunt(snack))
-				hunt_target = weakref(snack)
-				break
-
-	return . || !!hunt_target
-
-/datum/ai/passive/fox/proc/can_hunt(mob/living/victim)
-	return !victim.isSynthetic() && (victim.stat == DEAD || victim.get_object_size() < body.get_object_size())
-
-/datum/ai/passive/fox/do_process(time_elapsed)
-
-	..()
-
-	var/mob/living/simple_animal/critter = body
-	if(!istype(critter) || body.incapacitated() || body.current_posture?.prone || body.buckled || flee_target || !hunt_target)
-		return
-
-	var/atom/hunt_target_atom = hunt_target?.resolve()
-	if(!isliving(hunt_target_atom) || QDELETED(hunt_target_atom) || !(hunt_target_atom in view(body)))
-		hunt_target = null
-		critter.stop_automated_movement = FALSE
-		return
-
-	// Find or pursue the target.
-	if(!body.Adjacent(hunt_target_atom))
-		critter.stop_automated_movement = 1
-		walk_to(body, hunt_target_atom, 0, 3)
-		return
-
-	// Hunt/consume the target.
-	var/mob/living/hunt_mob = hunt_target_atom
-	if(hunt_mob.stat != DEAD)
-		critter.attack_target(hunt_target_atom)
-
-	if(QDELETED(hunt_mob))
-		hunt_target = null
-		critter.stop_automated_movement = FALSE
-		return
-
-	if(hunt_mob.stat != DEAD)
-		return
-
-	// Eat the mob.
-	hunt_target = null
-	critter.stop_automated_movement = FALSE
-	body.visible_message(SPAN_DANGER("\The [body] consumes the body of \the [hunt_mob]!"))
-	var/remains_type = hunt_mob.get_remains_type()
-	if(remains_type)
-		var/obj/item/remains/remains = new remains_type(get_turf(hunt_mob))
-		remains.desc += "These look like they belonged to \a [hunt_mob.name]."
-	body.adjust_nutrition(5 * hunt_mob.get_max_health())
-	next_hunt = world.time + rand(15 MINUTES, 30 MINUTES)
-	if(prob(5))
-		hunt_mob.gib()
-	else
-		qdel(hunt_mob)
-
 /mob/living/simple_animal/passive/fox
-	name           = "fox"
-	desc           = "A cunning and graceful predatory mammal, known for its red fur and eerie screams."
-	icon           = 'icons/mob/simple_animal/fox.dmi'
-	natural_weapon = /obj/item/natural_weapon/bite/weak
-	ai             = /datum/ai/passive/fox
-	mob_size       = MOB_SIZE_SMALL
+	name               = "fox"
+	desc               = "A cunning and graceful predatory mammal, known for its red fur and eerie screams."
+	icon               = 'icons/mob/simple_animal/fox.dmi'
+	natural_weapon     = /obj/item/natural_weapon/bite/weak
+	ai                 = /datum/mob_controller/passive/hunter/fox
+	mob_size           = MOB_SIZE_SMALL
+	speak_emote        = list("yelps", "yips", "hisses", "screams")
+	pass_flags         = PASS_FLAG_TABLE
+	butchery_data      = /decl/butchery_data/animal/fox
+	eye_color          = "#1d628a"
+	draw_visible_overlays = list(
+		"base"     = "#ed5a20",
+		"markings" = "#efe9e6",
+		"socks"    = "#36221b"
+	)
+	ability_handlers = list(/datum/ability_handler/predator)
+
+/mob/living/simple_animal/passive/fox/get_available_postures()
+	var/static/list/available_postures = list(
+		/decl/posture/standing,
+		/decl/posture/lying,
+		/decl/posture/lying/deliberate,
+		/decl/posture/sitting
+	)
+	return available_postures
+
+/mob/living/simple_animal/passive/fox/get_bodytype()
+	return GET_DECL(/decl/bodytype/quadruped/animal/fox)
+
+/decl/bodytype/quadruped/animal/fox
+	uid = "bodytype_animal_fox"
+
+/decl/bodytype/quadruped/animal/fox/Initialize()
+	equip_adjust = list(
+		slot_head_str = list(
+			"[NORTH]" = list( 1,  -9),
+			"[SOUTH]" = list( 1,  -8),
+			"[EAST]" =  list( 11,  -9),
+			"[WEST]" =  list(-11,  -9)
+		)
+	)
+	return ..()
+
+/datum/mob_controller/passive/hunter/fox
 	emote_speech   = list("Yip!","AIEE!","YIPE!")
-	speak_emote    = list("yelps", "yips", "hisses", "screams")
 	emote_hear     = list("screams","yips")
 	emote_see      = list("paces back and forth", "flicks its tail")
-	pass_flags     = PASS_FLAG_TABLE
-	butchery_data  = /decl/butchery_data/animal/fox
+
+/mob/living/simple_animal/passive/fox/arctic
+	name           = "arctic fox"
+	desc           = "A cunning and graceful predatory mammal, known for leaping headfirst into snowbanks while hunting burrowing rodents."
+	eye_color      = "#7a6f3b"
+	draw_visible_overlays = list(
+		"base"     = "#ccc496",
+		"markings" = "#efe9e6",
+		"socks"    = "#cab9b1"
+	)
+
+/mob/living/simple_animal/passive/fox/silver
+	name           = "silver fox"
+	desc           = "A cunning and graceful predatory mammal, known for the rarity and high value of their pelts."
+	eye_color      = "#2db1c9"
+	draw_visible_overlays = list(
+		"base"     = "#2c2c2a",
+		"markings" = "#3d3b39",
+		"socks"    = "#746d66"
+	)
+
+/mob/living/simple_animal/passive/fox/sparkle
+	name = "sparklefox"
+	desc = "A cunning and graceful predatory mammal, known for being really into hardstyle."
+
+/mob/living/simple_animal/passive/fox/sparkle/Initialize()
+	eye_color      = get_random_colour(TRUE)
+	draw_visible_overlays = list(
+		"base"     = get_random_colour(),
+		"markings" = get_random_colour(TRUE),
+		"socks"    = get_random_colour()
+	)
+	. = ..()

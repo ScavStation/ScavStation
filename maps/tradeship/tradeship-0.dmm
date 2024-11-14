@@ -62,7 +62,7 @@
 /turf/floor/plating,
 /area/ship/trade/undercomms)
 "ai" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aj" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -135,7 +135,7 @@
 /area/ship/trade/disused)
 "ar" = (
 /obj/structure/lattice,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "as" = (
 /obj/structure/lattice,
@@ -548,13 +548,13 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "be" = (
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "bg" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1129,10 +1129,10 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/livestock)
 "jT" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/livestock)
 "kH" = (
 /obj/structure/window/reinforced,
@@ -1239,7 +1239,7 @@
 	pixel_x = 9;
 	pixel_y = 7
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "oG" = (
 /obj/effect/floor_decal/corner/beige{
@@ -1353,7 +1353,7 @@
 /obj/item/box/beakers,
 /obj/item/box/syringes,
 /obj/item/scalpel,
-/obj/item/box/monkeycubes,
+/obj/item/box/animal_cubes/monkeys,
 /obj/item/circular_saw,
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 29
@@ -1678,7 +1678,7 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "Gb" = (
 /obj/effect/paint/brown,
@@ -1733,7 +1733,7 @@
 /obj/structure/disposaloutlet{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/livestock)
 "If" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{

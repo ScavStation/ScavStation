@@ -24,21 +24,21 @@
 	matter = list(
 		/decl/material/solid/organic/bone/fish = MATTER_AMOUNT_SECONDARY,
 	)
-	var/meat_type = /obj/item/chems/food/butchery/meat/fish/mollusc
+	var/meat_type = /obj/item/food/butchery/meat/fish/mollusc
 	var/shell_type = /obj/item/trash/mollusc_shell
 
 /obj/item/mollusc/barnacle
 	name = "barnacle"
 	desc = "A hull barnacle, probably freshly scraped off a spaceship."
 	icon_state = "barnacle"
-	meat_type = /obj/item/chems/food/butchery/meat/fish/mollusc/barnacle
+	meat_type = /obj/item/food/butchery/meat/fish/mollusc/barnacle
 	shell_type = /obj/item/trash/mollusc_shell/barnacle
 
 /obj/item/mollusc/clam
 	name = "clam"
 	desc = "A free-ranging space clam."
 	icon_state = "clam"
-	meat_type = /obj/item/chems/food/butchery/meat/fish/mollusc/clam
+	meat_type = /obj/item/food/butchery/meat/fish/mollusc/clam
 	shell_type = /obj/item/trash/mollusc_shell/clam
 
 // This is not a space clam...
@@ -73,5 +73,5 @@
 	if(thing.sharp || thing.edge)
 		user.visible_message(SPAN_NOTICE("\The [user] cracks open \the [src] with \the [thing]."))
 		crack_shell(user)
-		return
+		return TRUE
 	. = ..()

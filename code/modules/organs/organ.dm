@@ -2,10 +2,9 @@
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
 	germ_level = 0
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	default_action_type = /datum/action/item_action/organ
 	origin_tech = @'{"materials":1,"biotech":1}'
-	throwforce = 2
 	abstract_type = /obj/item/organ
 
 	// Strings.
@@ -94,11 +93,10 @@
 		// this can be fine if appearance data with species is passed
 		log_debug("obj/item/organ/setup(): [src] had null bodytype, with an owner with null bodytype!")
 	bodytype = new_bodytype // used in later setup procs
-	if((bodytype?.body_flags & BODY_FLAG_NO_DNA) || !supplied_appearance)
-		// set_bodytype will unset invalid appearance data anyway, so set_dna(null) is unnecessary
-		set_species(owner?.get_species() || global.using_map.default_species)
-	else
+	if(supplied_appearance)
 		copy_from_mob_snapshot(supplied_appearance)
+	else
+		set_species(owner?.get_species() || global.using_map.default_species)
 
 //Called on initialization to add the neccessary reagents
 
@@ -117,9 +115,6 @@
 		add_to_reagents(reagent_to_add, reagents.maximum_volume)
 
 /obj/item/organ/proc/copy_from_mob_snapshot(var/datum/mob_snapshot/supplied_appearance)
-	if(istype(bodytype) && (bodytype.body_flags & BODY_FLAG_NO_DNA))
-		QDEL_NULL(organ_appearance)
-		return
 	if(supplied_appearance != organ_appearance) // Hacky. Is this ever used? Do any organs ever have DNA set before setup_as_organic?
 		QDEL_NULL(organ_appearance)
 		organ_appearance = supplied_appearance.Clone()
@@ -153,14 +148,12 @@
 	if(reagents)
 		reagents.clear_reagents()
 		populate_reagents()
-	if(bodytype.body_flags & BODY_FLAG_NO_DNA)
-		QDEL_NULL(organ_appearance)
 	reset_status()
 	return TRUE
 
 // resets scarring, but ah well
 /obj/item/organ/proc/set_max_damage(var/ndamage)
-	absolute_max_damage = FLOOR(ndamage)
+	absolute_max_damage = floor(ndamage)
 	max_damage = absolute_max_damage
 
 /obj/item/organ/proc/set_species(specie_name)
@@ -183,11 +176,11 @@
 	min_broken_damage = initial(min_broken_damage)
 
 	if(absolute_max_damage)
-		set_max_damage(max(1, FLOOR(absolute_max_damage * total_health_coefficient)))
-		min_broken_damage = max(1, FLOOR(absolute_max_damage * 0.5))
+		set_max_damage(max(1, floor(absolute_max_damage * total_health_coefficient)))
+		min_broken_damage = max(1, floor(absolute_max_damage * 0.5))
 	else
-		min_broken_damage = max(1, FLOOR(min_broken_damage * total_health_coefficient))
-		set_max_damage(max(1, FLOOR(min_broken_damage * 2)))
+		min_broken_damage = max(1, floor(min_broken_damage * total_health_coefficient))
+		set_max_damage(max(1, floor(min_broken_damage * 2)))
 
 	reset_status()
 
@@ -386,24 +379,24 @@
 			owner.update_health()
 
 /obj/item/organ/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
-
 	if(BP_IS_PROSTHETIC(src) || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"Ew, no.","Bon appetit!") == "Ew, no.")
 		to_chat(user, SPAN_NOTICE("You successfully repress your cannibalistic tendencies."))
-		return
+		return TRUE
 
 	if(QDELETED(src))
-		return
+		return TRUE
 
 	if(!user.try_unequip(src))
-		return
+		return TRUE
 
 	target.attackby(convert_to_food(user), user)
+	return TRUE
 
 /obj/item/organ/proc/convert_to_food(mob/user)
-	var/obj/item/chems/food/organ/yum = new(get_turf(src))
+	var/obj/item/food/organ/yum = new(get_turf(src))
 	yum.SetName(name)
 	yum.appearance = src
 	if(reagents && reagents.total_volume)
@@ -558,6 +551,11 @@ var/global/list/ailment_reference_cache = list()
 // The organ may be inside an external organ that's not inside a mob, or inside a mob
 //detached : If true, the organ will be installed in a detached state, otherwise it will be added in an attached state
 /obj/item/organ/proc/do_install(var/mob/living/human/target, var/obj/item/organ/external/affected, var/in_place = FALSE, var/update_icon = TRUE, var/detached = FALSE)
+
+	// While on an owner, do not take damage.
+	max_health = ITEM_HEALTH_NO_DAMAGE
+	current_health = ITEM_HEALTH_NO_DAMAGE
+
 	//Make sure to force the flag accordingly
 	set_detached(detached)
 	if(QDELETED(src))
@@ -583,8 +581,15 @@ var/global/list/ailment_reference_cache = list()
 // 2. Called through removal on surgery or dismemberement
 // 3. Called when we're changing a mob's species.
 //detach: If detach is true, we're going to set the organ to detached, and add it to the detached organs list, and remove it from processing lists.
-//        If its false, we just remove the organ from all lists
+//        If it's false, we just remove the organ from all lists
 /obj/item/organ/proc/do_uninstall(var/in_place = FALSE, var/detach = FALSE, var/ignore_children = FALSE, var/update_icon = TRUE)
+
+	max_health = max_damage
+	if(current_health == ITEM_HEALTH_NO_DAMAGE)
+		current_health = max_health
+	else
+		current_health = min(current_health, max_health)
+
 	action_button_name = null
 	screen_loc = null
 	rejecting = null
@@ -640,7 +645,7 @@ var/global/list/ailment_reference_cache = list()
 	if(butchery_decl.meat_type)
 		var/list/products = butchery_decl.place_products(owner, material?.type, clamp(w_class, 1, 3), butchery_decl.meat_type)
 		if(meat_name)
-			for(var/obj/item/chems/food/butchery/product in products)
+			for(var/obj/item/food/butchery/product in products)
 				product.set_meat_name(meat_name)
 
 /obj/item/organ/physically_destroyed(skip_qdel)
@@ -651,3 +656,11 @@ var/global/list/ailment_reference_cache = list()
 /// Returns a list with two entries, first being the stat panel title, the second being the value. See has_stat_value bool above.
 /obj/item/organ/proc/get_stat_info()
 	return null
+
+/obj/item/organ/handle_destroyed_by_heat()
+	if(owner)
+		return
+	if(isturf(loc))
+		new /obj/effect/decal/cleanable/ash(loc)
+	if(!QDELETED(src))
+		qdel(src)

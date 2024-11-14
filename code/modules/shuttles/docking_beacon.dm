@@ -49,11 +49,11 @@
 	if(IS_WRENCH(I))
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("The bolts on \the [src] are locked!"))
-			return
+			return TRUE
 		playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "unanchor" : "anchor"] \the [src]."))
 		anchored = !anchored
-		return
+		return TRUE
 
 	. = ..()
 
@@ -223,13 +223,13 @@
 /obj/machinery/docking_beacon/proc/get_turfs()
 	switch(dir)
 		if(NORTH)
-			return block(locate(x-((docking_width-1)/2), y+docking_height+1, z), locate(x+((docking_width-1)/2), y+1, z))
+			return block(x-((docking_width-1)/2), y+docking_height+1, z, x+((docking_width-1)/2), y+1, z)
 		if(SOUTH)
-			return block(locate(x-((docking_width-1)/2), y-docking_height-1, z), locate(x+((docking_width-1)/2), y-1, z))
+			return block(x-((docking_width-1)/2), y-docking_height-1, z, x+((docking_width-1)/2), y-1, z)
 		if(EAST)
-			return block(locate(x+docking_height+1, y-((docking_width-1)/2), z), locate(x+1, y+((docking_width-1)/2), z))
+			return block(x+docking_height+1, y-((docking_width-1)/2), z, x+1, y+((docking_width-1)/2), z)
 		if(WEST)
-			return block(locate(x-docking_height-1, y-((docking_width-1)/2), z), locate(x-1, y+((docking_width-1)/2), z))
+			return block(x-docking_height-1, y-((docking_width-1)/2), z, x-1, y+((docking_width-1)/2), z)
 
 /obj/machinery/docking_beacon/proc/get_areas()
 	. = list()

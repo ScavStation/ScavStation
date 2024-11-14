@@ -66,7 +66,7 @@
 	speech_sounds = list('sound/voice/shriek1.ogg')
 	speech_chance = 20
 
-	preview_outfit = /decl/hierarchy/outfit/vox_raider
+	preview_outfit = /decl/outfit/vox_raider
 
 	gluttonous = GLUT_TINY|GLUT_ITEM_NORMAL
 	stomach_capacity = 12
@@ -97,24 +97,24 @@
 		/decl/bodytype/vox/servitor/alchemist,
 	)
 
-	available_cultural_info = list(
-		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/vox,
-			/decl/cultural_info/culture/vox/salvager,
-			/decl/cultural_info/culture/vox/raider
+	available_background_info = list(
+		/decl/background_category/heritage =   list(
+			/decl/background_detail/heritage/vox,
+			/decl/background_detail/heritage/vox/salvager,
+			/decl/background_detail/heritage/vox/raider
 		),
-		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/vox,
-			/decl/cultural_info/location/vox/shroud,
-			/decl/cultural_info/location/vox/ship
+		/decl/background_category/homeworld = list(
+			/decl/background_detail/location/vox,
+			/decl/background_detail/location/vox/shroud,
+			/decl/background_detail/location/vox/ship
 		),
-		TAG_FACTION = list(
-			/decl/cultural_info/faction/vox,
-			/decl/cultural_info/faction/vox/raider,
-			/decl/cultural_info/faction/vox/apex
+		/decl/background_category/faction = list(
+			/decl/background_detail/faction/vox,
+			/decl/background_detail/faction/vox/raider,
+			/decl/background_detail/faction/vox/apex
 		),
-		TAG_RELIGION =  list(
-			/decl/cultural_info/religion/vox
+		/decl/background_category/religion =  list(
+			/decl/background_detail/religion/vox
 		)
 	)
 
@@ -151,8 +151,8 @@
 var/global/list/vox_current_pressure_toggle = list()
 
 /decl/species/vox/disfigure_msg(var/mob/living/human/H)
-	var/decl/pronouns/G = H.get_pronouns()
-	return SPAN_DANGER("[G.His] beak-segments are cracked and chipped beyond recognition!\n")
+	var/decl/pronouns/pronouns = H.get_pronouns()
+	return SPAN_DANGER("[pronouns.His] beak-segments are cracked and chipped beyond recognition!\n")
 
 /decl/species/vox/skills_from_age(age)
 	. = 8
@@ -191,11 +191,11 @@ var/global/list/vox_current_pressure_toggle = list()
 		to_chat(src, SPAN_WARNING("You are in no state to do that."))
 		return
 
-	var/decl/pronouns/G = get_pronouns()
-	visible_message(SPAN_NOTICE("\The [src] begins flexing and realigning [G.his] scaling..."))
+	var/decl/pronouns/pronouns = get_pronouns()
+	visible_message(SPAN_NOTICE("\The [src] begins flexing and realigning [pronouns.his] scaling..."))
 	if(!do_after(src, 2 SECONDS, src, FALSE))
 		visible_message(
-			SPAN_NOTICE("\The [src] ceases adjusting [G.his] scaling."),
+			SPAN_NOTICE("\The [src] ceases adjusting [pronouns.his] scaling."),
 			self_message = SPAN_WARNING("You must remain still to seal or unseal your scaling."))
 		return
 

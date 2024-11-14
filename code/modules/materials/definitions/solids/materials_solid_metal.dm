@@ -164,6 +164,7 @@
 	weight = MAT_VALUE_NORMAL
 	hardness = MAT_VALUE_FLEXIBLE + 10
 	stack_origin_tech = @'{"materials":2}'
+	temperature_burn_milestone_material = /decl/material/solid/metal/copper
 
 /decl/material/solid/metal/silver
 	name = "silver"
@@ -384,11 +385,12 @@
 	reflectiveness = MAT_VALUE_MATTE
 	taste_description = "metal"
 	ferrous = TRUE
+	temperature_burn_milestone_material = /decl/material/solid/metal/iron
 
 /decl/material/solid/metal/iron/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
-
 	M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /decl/material/solid/metal/tin
@@ -398,7 +400,7 @@
 	melting_point = 505
 	boiling_point = 2875
 	color = "#c5c5a8"
-	hardness = MAT_VALUE_SOFT + 10
+	hardness = MAT_VALUE_FLEXIBLE
 	construction_difficulty = MAT_VALUE_EASY_DIY
 	reflectiveness = MAT_VALUE_MATTE
 
@@ -409,11 +411,12 @@
 	melting_point = 600
 	boiling_point = 2022
 	color = "#3f3f4d"
-	hardness = MAT_VALUE_SOFT
+	hardness = MAT_VALUE_FLEXIBLE
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
 	reflectiveness = MAT_VALUE_MATTE
 	taste_description = "metallic sugar"
 	toxicity = 1
+	temperature_burn_milestone_material = /decl/material/solid/metal/lead
 
 /decl/material/solid/metal/zinc
 	name = "zinc"

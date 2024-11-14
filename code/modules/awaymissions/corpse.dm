@@ -23,7 +23,7 @@
 	name = "Unknown"
 	abstract_type = /obj/abstract/landmark/corpse
 	var/species                                       // List of species to pick from.
-	var/corpse_outfits = list(/decl/hierarchy/outfit) // List of outfits to pick from. Uses pickweight()
+	var/corpse_outfits = list(/decl/outfit) // List of outfits to pick from. Uses pickweight()
 	var/spawn_flags = (~0)
 	var/weakref/my_corpse
 
@@ -68,10 +68,10 @@
 	var/update_hair = FALSE
 	if((spawn_flags & CORPSE_SPAWNER_RANDOM_HAIR_COLOR))
 		if(species_choice in hair_colors_per_species)
-			SET_HAIR_COLOUR(M, pick(hair_colors_per_species[species_choice]), TRUE)
+			SET_HAIR_COLOR(M, pick(hair_colors_per_species[species_choice]), TRUE)
 		else
-			SET_HAIR_COLOUR(M, get_random_colour(), TRUE)
-		SET_FACIAL_HAIR_COLOUR(M, GET_HAIR_COLOUR(M), TRUE)
+			SET_HAIR_COLOR(M, get_random_colour(), TRUE)
+		SET_FACIAL_HAIR_COLOR(M, GET_HAIR_COLOR(M), TRUE)
 		update_hair = TRUE
 	if((spawn_flags & CORPSE_SPAWNER_RANDOM_HAIR_STYLE))
 		if(species_choice in hair_styles_per_species)
@@ -94,9 +94,9 @@
 		else
 			M.randomize_eye_color()
 
-	var/decl/cultural_info/culture = M.get_cultural_value(TAG_CULTURE)
-	if(culture && CORPSE_SPAWNER_RANDOM_NAME & spawn_flags)
-		M.SetName(culture.get_random_name(M.gender))
+	var/decl/background_detail/background = M.get_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
+	if(background && CORPSE_SPAWNER_RANDOM_NAME & spawn_flags)
+		M.SetName(background.get_random_name(M.gender))
 	else
 		M.SetName(name)
 	M.real_name = M.name
@@ -107,47 +107,47 @@
 	adjustments = (spawn_flags & CORPSE_SPAWNER_CUT_ID_PDA)    ? (adjustments|OUTFIT_ADJUSTMENT_SKIP_ID_PDA)        : adjustments
 	adjustments = (spawn_flags & CORPSE_SPAWNER_PLAIN_HEADSET) ? (adjustments|OUTFIT_ADJUSTMENT_PLAIN_HEADSET)      : adjustments
 
-	var/decl/hierarchy/outfit/corpse_outfit = outfit_by_type(pickweight(corpse_outfits))
+	var/decl/outfit/corpse_outfit = GET_DECL(pickweight(corpse_outfits))
 	corpse_outfit.equip_outfit(M, equip_adjustments = adjustments)
 
 /obj/abstract/landmark/corpse/pirate
 	name = "Pirate"
-	corpse_outfits = list(/decl/hierarchy/outfit/pirate/norm)
+	corpse_outfits = list(/decl/outfit/pirate/norm)
 	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
 
 /obj/abstract/landmark/corpse/pirate/ranged
 	name = "Pirate Gunner"
-	corpse_outfits = list(/decl/hierarchy/outfit/pirate/space)
+	corpse_outfits = list(/decl/outfit/pirate/space)
 
 /obj/abstract/landmark/corpse/russian
 	name = "Russian"
-	corpse_outfits = list(/decl/hierarchy/outfit/soviet_soldier)
+	corpse_outfits = list(/decl/outfit/soviet_soldier)
 	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
 
 /obj/abstract/landmark/corpse/russian/ranged
-	corpse_outfits = list(/decl/hierarchy/outfit/soviet_soldier)
+	corpse_outfits = list(/decl/outfit/soviet_soldier)
 
 /obj/abstract/landmark/corpse/syndicate
 	name = "Syndicate Operative"
-	corpse_outfits = list(/decl/hierarchy/outfit/mercenary/syndicate)
+	corpse_outfits = list(/decl/outfit/mercenary/syndicate)
 	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
 
 /obj/abstract/landmark/corpse/syndicate/commando
 	name = "Syndicate Commando"
-	corpse_outfits = list(/decl/hierarchy/outfit/mercenary/syndicate/commando)
+	corpse_outfits = list(/decl/outfit/mercenary/syndicate/commando)
 
 /obj/abstract/landmark/corpse/chef
 	name = "Chef"
-	corpse_outfits = list(/decl/hierarchy/outfit/job/generic/chef)
+	corpse_outfits = list(/decl/outfit/job/generic/chef)
 
 /obj/abstract/landmark/corpse/doctor
 	name = "Doctor"
-	corpse_outfits = list(/decl/hierarchy/outfit/job/generic/doctor)
+	corpse_outfits = list(/decl/outfit/job/generic/doctor)
 
 /obj/abstract/landmark/corpse/engineer
 	name = "Engineer"
-	corpse_outfits = list(/decl/hierarchy/outfit/job/generic/engineer)
+	corpse_outfits = list(/decl/outfit/job/generic/engineer)
 
 /obj/abstract/landmark/corpse/scientist
 	name = "Scientist"
-	corpse_outfits = list(/decl/hierarchy/outfit/job/generic/scientist)
+	corpse_outfits = list(/decl/outfit/job/generic/scientist)

@@ -32,10 +32,11 @@
 	if(IS_SCREWDRIVER(I))
 		open_panel = !open_panel
 		to_chat(user, "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>")
+		return TRUE
 	else if(IS_WIRECUTTER(I) || IS_MULTITOOL(I) || istype(I, /obj/item/assembly/signaler ))
-		wires.Interact(user)
+		return wires.Interact(user)
 	else
-		..()
+		return ..()
 
 /obj/item/plastique/attack_self(mob/user)
 	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num

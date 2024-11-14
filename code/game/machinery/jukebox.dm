@@ -143,7 +143,6 @@
 	return TRUE
 
 /obj/machinery/media/jukebox/proc/explode()
-	walk_to(src,0)
 	src.visible_message("<span class='danger'>\the [src] blows apart!</span>", 1)
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
@@ -158,7 +157,7 @@
 		add_fingerprint(user)
 		wrench_floor_bolts(user, 0, W)
 		power_change()
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/media/jukebox/emag_act(var/remaining_charges, var/mob/user)

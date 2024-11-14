@@ -229,13 +229,15 @@
 	return ..()
 
 /obj/machinery/power/smes/batteryrack/attackby(var/obj/item/W, var/mob/user)
-	if(..())
-		return TRUE
+	. = ..()
+	if(.)
+		return
 	if(istype(W, /obj/item/cell)) // ID Card, try to insert it.
 		if(insert_cell(W, user))
 			to_chat(user, "You insert \the [W] into \the [src].")
 		else
 			to_chat(user, "\The [src] has no empty slot for \the [W].")
+		return TRUE
 
 /obj/machinery/power/smes/batteryrack/interface_interact(var/mob/user)
 	ui_interact(user)

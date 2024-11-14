@@ -38,8 +38,8 @@
 			max_y = y_aft_transit
 
 	return block(
-		locate(min_x, min_y, LD.level_z),
-		locate(max_x, max_y, LD.level_z)
+		min_x, min_y, LD.level_z,
+		max_x, max_y, LD.level_z
 	)
 
 ///Returns all the turfs from all 4 corners of the transition border of a level.
@@ -47,20 +47,20 @@
 	var/datum/level_data/LD = SSmapping.levels_by_z[z]
 	//South-West
 	.  = block(
-			locate(LD.level_inner_min_x - TRANSITIONEDGE, LD.level_inner_min_y - TRANSITIONEDGE, LD.level_z),
-			locate(LD.level_inner_min_x - 1,              LD.level_inner_min_y - 1,              LD.level_z))
+			LD.level_inner_min_x - TRANSITIONEDGE, LD.level_inner_min_y - TRANSITIONEDGE, LD.level_z,
+			LD.level_inner_min_x - 1,              LD.level_inner_min_y - 1,              LD.level_z)
 	//South-East
 	. |= block(
-			locate(LD.level_inner_max_x + 1,              LD.level_inner_min_y - TRANSITIONEDGE, LD.level_z),
-			locate(LD.level_inner_max_x + TRANSITIONEDGE, LD.level_inner_min_y - 1,              LD.level_z))
+			LD.level_inner_max_x + 1,              LD.level_inner_min_y - TRANSITIONEDGE, LD.level_z,
+			LD.level_inner_max_x + TRANSITIONEDGE, LD.level_inner_min_y - 1,              LD.level_z)
 	//North-West
 	. |= block(
-			locate(LD.level_inner_min_x - TRANSITIONEDGE, LD.level_inner_max_y + 1,              LD.level_z),
-			locate(LD.level_inner_min_x - 1,              LD.level_inner_max_y + TRANSITIONEDGE, LD.level_z))
+			LD.level_inner_min_x - TRANSITIONEDGE, LD.level_inner_max_y + 1,              LD.level_z,
+			LD.level_inner_min_x - 1,              LD.level_inner_max_y + TRANSITIONEDGE, LD.level_z)
 	//North-East
 	. |= block(
-			locate(LD.level_inner_max_x + 1,              LD.level_inner_max_y + 1,              LD.level_z),
-			locate(LD.level_inner_max_x + TRANSITIONEDGE, LD.level_inner_max_y + TRANSITIONEDGE, LD.level_z))
+			LD.level_inner_max_x + 1,              LD.level_inner_max_y + 1,              LD.level_z,
+			LD.level_inner_max_x + TRANSITIONEDGE, LD.level_inner_max_y + TRANSITIONEDGE, LD.level_z)
 
 ///Keeps details on how to generate, maintain and access a zlevel.
 /datum/level_data
@@ -81,6 +81,15 @@
 	///If world.maxy is bigger, the exceeding area will be filled with turfs of "border_filler" type if defined, or base_turf otherwise.
 	var/level_max_height
 
+	// Do not serialize these! They are used for relative distance checking and nothing else!
+	// They are potentially not going to be static, reliable or consistent within a round!
+	/// Used to apply x offsets to distance checking in this volume.
+	var/tmp/z_volume_level_x
+	/// Used to apply y offsets to distance checking in this volume.
+	var/tmp/z_volume_level_y
+	/// Used to apply z offsets to distance checking in this volume.
+	var/tmp/z_volume_level_z
+
 	/// Filled by map gen on init. Indicates where the accessible level area starts past the transition edge.
 	var/level_inner_min_x
 	/// Filled by map gen on init. Indicates where the accessible level area starts past the transition edge.
@@ -92,7 +101,7 @@
 
 	/// Filled by map gen on init. Indicates the width of the accessible area within the transition edges.
 	var/level_inner_width
-	/// Filled by map gen on init.Indicates the height of the accessible area within the transition edges.
+	/// Filled by map gen on init. Indicates the height of the accessible area within the transition edges.
 	var/level_inner_height
 
 	// *** Lighting ***
@@ -161,6 +170,9 @@
 	/// Note that this is more or less unnecessary if you are using a mapped area that doesn't stretch to the edge of the level.
 	var/template_edge_padding = 15
 
+	// Whether or not this level permits things like graffiti and filth to persist across rounds.
+	var/permit_persistence = FALSE
+
 /datum/level_data/New(var/_z_level, var/defer_level_setup = FALSE)
 	. = ..()
 	level_z = _z_level
@@ -169,6 +181,8 @@
 
 	initialize_level_id()
 	SSmapping.register_level_data(src)
+	setup_ambient()
+	setup_exterior_atmosphere()
 	if(SSmapping.initialized && !defer_level_setup)
 		setup_level_data()
 
@@ -201,10 +215,8 @@
 	var/change_area = (base_area && base_area != world.area)
 	if(!change_turf && !change_area)
 		return
-	var/corner_start = locate(1, 1, level_z)
-	var/corner_end =   locate(world.maxx, world.maxy, level_z)
 	var/area/A = change_area ? get_base_area_instance() : null
-	for(var/turf/T as anything in block(corner_start, corner_end))
+	for(var/turf/T as anything in Z_ALL_TURFS(level_z))
 		if(change_turf)
 			T = T.ChangeTurf(picked_turf)
 		if(change_area)
@@ -217,12 +229,115 @@
 		return //Since we can defer setup, make sure we only setup once
 
 	setup_level_bounds()
-	setup_ambient()
-	setup_exterior_atmosphere()
 	setup_strata()
 	if(!skip_gen)
 		generate_level()
 	after_generate_level()
+
+	// Determine our relative positioning.
+	// First find an appropriate origin point.
+	var/datum/level_data/origin
+	for(var/check_z in SSmapping.get_connected_levels(level_z, include_lateral = TRUE))
+		var/datum/level_data/checking = SSmapping.levels_by_z[check_z]
+		if(!isnull(checking.z_volume_level_x) && !isnull(checking.z_volume_level_y) && !isnull(checking.z_volume_level_z))
+			origin = checking
+			break
+
+	// If nobody else has set up lateral level coords, we must be the origin.
+	if(!origin)
+		origin = src
+		z_volume_level_x = 0
+		z_volume_level_y = 0
+		z_volume_level_z = 0
+
+	var/list/checked  = list()
+	var/list/to_check = list(origin)
+	while(length(to_check))
+
+		// Update our tracking lists.
+		var/datum/level_data/checking = to_check[1]
+		var/datum/level_data/previous = to_check[checking]
+		to_check -= checking
+		checked |= checking
+
+		// Obtain all our neighbors for flood fill.
+		for(var/level_id in checking.connected_levels)
+			var/datum/level_data/neighbor = SSmapping.levels_by_id[level_id]
+			if(istype(neighbor) && !(neighbor in checked))
+				to_check[neighbor] = checking
+		if(HasBelow(checking.level_z))
+			var/datum/level_data/neighbor = SSmapping.levels_by_z[checking.level_z-1]
+			if(istype(neighbor) && !(neighbor in checked))
+				to_check[neighbor] = checking
+		if(HasAbove(checking.level_z))
+			var/datum/level_data/neighbor = SSmapping.levels_by_z[checking.level_z+1]
+			if(istype(neighbor) && !(neighbor in checked))
+				to_check[neighbor] = checking
+
+		// Update our lateral coords based on the direction of our connection.
+		// This does NOT appropriately handle looping or non-horizontal/vertical
+		// connections, which violate our assumptions.
+		if(previous)
+
+			checking.z_volume_level_x = previous.z_volume_level_x
+			checking.z_volume_level_y = previous.z_volume_level_y
+			checking.z_volume_level_z = previous.z_volume_level_z
+
+			var/connect_dir = previous.level_id ? LAZYACCESS(checking.connected_levels, previous.level_id) : 0
+			if(connect_dir & SOUTH)
+				checking.z_volume_level_y += previous.level_inner_height
+			else if(connect_dir & NORTH)
+				checking.z_volume_level_y -= checking.level_inner_height
+			if(connect_dir & WEST)
+				checking.z_volume_level_x += previous.level_inner_width
+			else if(connect_dir & EAST)
+				checking.z_volume_level_x -= checking.level_inner_width
+
+			if(HasBelow(previous.level_z) && checking.level_z == previous.level_z-1)
+				checking.z_volume_level_z -= 1
+			else if(HasAbove(previous.level_z) && checking.level_z == previous.level_z+1)
+				checking.z_volume_level_z += 1
+
+	// Normalize our coords.
+	var/lowest_x
+	var/highest_x
+	var/lowest_y
+	var/highest_y
+	var/lowest_z
+	var/highest_z
+	for(var/check_z in SSmapping.get_connected_levels(level_z, include_lateral = TRUE))
+		var/datum/level_data/checking = SSmapping.levels_by_z[check_z]
+		lowest_x  = min(lowest_x,  checking.z_volume_level_x)
+		highest_x = max(highest_x, checking.z_volume_level_x)
+		lowest_y  = min(lowest_y,  checking.z_volume_level_y)
+		highest_y = max(highest_y, checking.z_volume_level_y)
+		lowest_z  = min(lowest_z,  checking.z_volume_level_z)
+		highest_z = max(highest_z, checking.z_volume_level_z)
+
+	var/modify_x = 0
+	if(lowest_x < 0)
+		modify_x = abs(lowest_x)
+	else if(lowest_x > 0)
+		modify_x = -(lowest_x)
+
+	var/modify_y = 0
+	if(lowest_y < 0)
+		modify_y = abs(lowest_y)
+	else if(lowest_y > 0)
+		modify_y = -(lowest_y)
+
+	var/modify_z = 0
+	if(lowest_z < 0)
+		modify_z = abs(lowest_z)
+	else if(lowest_z > 0)
+		modify_z = -(lowest_z)
+
+	for(var/check_z in SSmapping.get_connected_levels(level_z, include_lateral = TRUE))
+		var/datum/level_data/checking = SSmapping.levels_by_z[check_z]
+		checking.z_volume_level_x += modify_x
+		checking.z_volume_level_y += modify_y
+		checking.z_volume_level_z += modify_z
+
 	_level_setup_completed = TRUE
 
 ///Calculate the bounds of the level, the border area, and the inner accessible area.
@@ -240,8 +355,8 @@
 
 	//Get the origin of the lower left corner where the level's edge begins at on the world.
 	//#FIXME: This is problematic when dealing with an even width/height
-	var/x_origin = origin_is_world_center? max(FLOOR((world.maxx - level_max_width)  / 2), 1) : 1
-	var/y_origin = origin_is_world_center? max(FLOOR((world.maxy - level_max_height) / 2), 1) : 1
+	var/x_origin = origin_is_world_center? max(floor((world.maxx - level_max_width)  / 2), 1) : 1
+	var/y_origin = origin_is_world_center? max(floor((world.maxy - level_max_height) / 2), 1) : 1
 
 	//The first x/y that's past the edge and within the accessible level
 	level_inner_min_x = x_origin + TRANSITIONEDGE
@@ -441,7 +556,8 @@
 // Accessors
 //
 /datum/level_data/proc/get_exterior_atmosphere()
-	if(!exterior_atmosphere)
+	if(exterior_atmosphere && !istype(exterior_atmosphere))
+		PRINT_STACK_TRACE("Attempting to retrieve exterior atmosphere before it is set up!")
 		return
 	var/datum/gas_mixture/gas = new
 	gas.copy_from(exterior_atmosphere)
@@ -593,12 +709,14 @@ INITIALIZE_IMMEDIATE(/obj/abstract/level_data_spawner)
 
 /datum/level_data/main_level
 	level_flags = (ZLEVEL_STATION|ZLEVEL_CONTACT|ZLEVEL_PLAYER)
+	permit_persistence = TRUE
 
 /datum/level_data/admin_level
 	level_flags = (ZLEVEL_ADMIN|ZLEVEL_SEALED)
 
 /datum/level_data/player_level
 	level_flags = (ZLEVEL_CONTACT|ZLEVEL_PLAYER)
+	permit_persistence = TRUE
 
 /datum/level_data/unit_test
 	level_flags = (ZLEVEL_CONTACT|ZLEVEL_PLAYER|ZLEVEL_SEALED)
@@ -620,7 +738,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/level_data_spawner)
 	return ..()
 
 /datum/level_data/mining_level/asteroid
-	base_turf = /turf/floor/natural/barren
+	base_turf = /turf/floor
 	level_generators = list(
 		/datum/random_map/automata/cave_system,
 		/datum/random_map/noise/ore
@@ -724,6 +842,6 @@ INITIALIZE_IMMEDIATE(/obj/abstract/level_data_spawner)
 
 /datum/level_data/proc/update_turf_ambience()
 	if(SSatoms.atom_init_stage >= INITIALIZATION_INNEW_REGULAR)
-		for(var/turf/level_turf as anything in block(locate(level_inner_min_x, level_inner_min_y, level_z), locate(level_inner_max_x, level_inner_max_y, level_z)))
-			level_turf.update_ambient_light_from_z_or_area() // SSambience.queued |= level_turf - seems to be less consistent
+		for(var/turf/level_turf as anything in block(level_inner_min_x, level_inner_min_y, level_z, level_inner_max_x, level_inner_max_y, level_z))
+			level_turf.update_ambient_light_from_z_or_area() // AMBIENCE_QUEUE_TURF(level_turf) - seems to be less consistent
 			CHECK_TICK

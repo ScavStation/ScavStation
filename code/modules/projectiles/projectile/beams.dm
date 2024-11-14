@@ -19,6 +19,10 @@
 	tracer_type = /obj/effect/projectile/tracer/laser
 	impact_type = /obj/effect/projectile/impact/laser
 
+/obj/item/projectile/beam/megabot
+	damage = 45
+	distance_falloff = 0.5
+
 /obj/item/projectile/beam/variable
 	muzzle_type = /obj/effect/projectile/muzzle/variable
 	tracer_type = /obj/effect/projectile/tracer/variable
@@ -57,8 +61,8 @@
 				P.light_color = color
 				P.firer = firer
 				P.shot_from = shot_from
-				P.damage = FLOOR(damage/split_count)
-				P.armor_penetration = FLOOR(armor_penetration/split_count)
+				P.damage = floor(damage/split_count)
+				P.armor_penetration = floor(armor_penetration/split_count)
 				P.launch(pick_n_take(targets), def_zone)
 	. = ..()
 

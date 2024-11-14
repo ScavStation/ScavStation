@@ -110,7 +110,7 @@
 
 	if(ismob(loc))
 		var/mob/living/M = loc
-		M.update_equipment_overlay(slot_wear_mask_str, FALSE)
+		update_clothing_icon(do_update_icon = FALSE)
 		M.update_inhand_overlays()
 
 /obj/item/clothing/mask/smokable/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
@@ -128,7 +128,7 @@
 			location.hotspot_expose(700, 5)
 		extinguish(no_message = TRUE)
 
-/obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
+/obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights \the [src].")
 	if(QDELETED(src))
 		return
 	if(!lit)
@@ -160,7 +160,6 @@
 	update_icon()
 
 /obj/item/clothing/mask/smokable/attackby(var/obj/item/W, var/mob/user)
-	..()
 	if(W.isflamesource() || W.get_heat() >= T100C)
 		var/text = matchmes
 		if(istype(W, /obj/item/flame/match))
@@ -179,6 +178,8 @@
 		text = replacetext(text, "NAME", "[name]")
 		text = replacetext(text, "FLAME", "[W.name]")
 		light(text)
+		return TRUE
+	return ..()
 
 /obj/item/clothing/mask/smokable/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	if(target.on_fire)
@@ -215,7 +216,7 @@
 /obj/item/clothing/mask/smokable/cigarette/populate_reagents()
 	add_to_reagents(/decl/material/solid/tobacco, 1)
 
-/obj/item/clothing/mask/smokable/cigarette/light(var/flavor_text = "[usr] lights the [name].")
+/obj/item/clothing/mask/smokable/cigarette/light(var/flavor_text = "[usr] lights \the [src].")
 	..()
 	if(is_processing)
 		set_scent_by_reagents(src)
@@ -373,10 +374,10 @@
 		if(blocked)
 			to_chat(target, SPAN_WARNING("\The [blocked] is in the way!"))
 			return TRUE
-		var/decl/pronouns/G = user.get_pronouns()
+		var/decl/pronouns/pronouns = user.get_pronouns()
 		var/puff_str = pick("drag","puff","pull")
 		user.visible_message(\
-			SPAN_NOTICE("\The [user] takes a [puff_str] on [G.his] [name]."), \
+			SPAN_NOTICE("\The [user] takes a [puff_str] on [pronouns.his] [name]."), \
 			SPAN_NOTICE("You take a [puff_str] on your [name]."))
 		smoke(12, TRUE)
 		add_trace_DNA(target)
@@ -460,7 +461,6 @@
 	randpixel = 10
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
-	throwforce = 1
 	var/use_color = TRUE
 
 /obj/item/trash/cigbutt/Initialize()
@@ -471,11 +471,6 @@
 	name = "cigar butt"
 	desc = "A manky old cigar butt."
 	icon = 'icons/clothing/mask/smokables/cigar_butt.dmi'
-
-/obj/item/clothing/mask/smokable/cigarette/cigar/attackby(var/obj/item/W, var/mob/user)
-	..()
-	user.update_equipment_overlay(slot_wear_mask_str, FALSE)
-	user.update_inhand_overlays()
 
 //Bizarre
 /obj/item/clothing/mask/smokable/cigarette/rolled/sausage
@@ -518,7 +513,7 @@
 /obj/item/clothing/mask/smokable/pipe/isflamesource(atom/A)
 	. = FALSE
 
-/obj/item/clothing/mask/smokable/pipe/light(var/flavor_text = "[usr] lights the [name].")
+/obj/item/clothing/mask/smokable/pipe/light(var/flavor_text = "[usr] lights \the [src].")
 	if(!lit && smoketime)
 		if(submerged())
 			to_chat(usr, SPAN_WARNING("You cannot light \the [src] underwater."))
@@ -560,40 +555,27 @@
 		SetName("empty [initial(name)]")
 
 /obj/item/clothing/mask/smokable/pipe/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/energy_blade/sword))
-		return
-
-	..()
-
-	if (istype(W, /obj/item/chems/food))
-		var/obj/item/chems/food/grown/grown = W
+	if(istype(W, /obj/item/energy_blade/sword)) // Can't light a pipe with an esword
+		return TRUE
+	if (istype(W, /obj/item/food/grown))
+		var/obj/item/food/grown/grown = W
 		if (!grown.dry)
 			to_chat(user, SPAN_NOTICE("\The [grown] must be dried before you stuff it into \the [src]."))
-			return
+			return TRUE
 		if (smoketime)
 			to_chat(user, SPAN_NOTICE("\The [src] is already packed."))
-			return
+			return TRUE
 		smoketime = 1000
 		if(grown.reagents)
 			grown.reagents.trans_to_obj(src, grown.reagents.total_volume)
 		SetName("[grown.name]-packed [initial(name)]")
 		qdel(grown)
-
-	else if(istype(W, /obj/item/flame/fuelled/lighter))
-		var/obj/item/flame/fuelled/lighter/L = W
-		if(L.lit)
-			light(SPAN_NOTICE("[user] manages to light their [name] with [W]."))
-
-	else if(istype(W, /obj/item/flame/match))
-		var/obj/item/flame/match/M = W
-		if(M.lit)
-			light(SPAN_NOTICE("[user] lights their [name] with their [W]."))
-
-	else if(istype(W, /obj/item/assembly/igniter))
-		light(SPAN_NOTICE("[user] fiddles with [W], and manages to light their [name] with the power of science."))
-
-	user.update_equipment_overlay(slot_wear_mask_str, FALSE)
-	user.update_inhand_overlays()
+		update_icon()
+		return TRUE
+	. = ..()
+	if(.)
+		return
+	return TRUE
 
 /obj/item/clothing/mask/smokable/pipe/cobpipe
 	name = "corn cob pipe"

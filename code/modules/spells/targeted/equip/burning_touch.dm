@@ -17,10 +17,11 @@
 	name = "Burning Hand"
 	icon = 'icons/mob/screen/grabs.dmi'
 	icon_state = "grabbed+1"
-	force = 10
+	_base_attack_force = 10
 	atom_damage_type =  BURN
 	simulated = 0
 	max_health = ITEM_HEALTH_NO_DAMAGE
+	obj_flags = OBJ_FLAG_NO_STORAGE
 	var/burn_power = 0
 	var/burn_timer
 
@@ -40,16 +41,16 @@
 		return
 	burn_timer = world.time + 5 SECONDS
 	burn_power++
-	force += 2
+	set_base_attack_force(get_base_attack_force()+2)
 	if(!ishuman(src.loc))
 		qdel(src)
 		return
 	var/mob/living/human/user = src.loc
 	var/obj/item/organ/external/hand
 	if(src == user.get_equipped_item(BP_L_HAND))
-		hand = GET_INTERNAL_ORGAN(user, BP_L_HAND)
+		hand = GET_EXTERNAL_ORGAN(user, BP_L_HAND)
 	else if(src == user.get_equipped_item(BP_R_HAND))
-		hand = GET_INTERNAL_ORGAN(user, BP_R_HAND)
+		hand = GET_EXTERNAL_ORGAN(user, BP_R_HAND)
 	if(hand)
 		hand.take_external_damage(burn = 2 * burn_power)
 	if(burn_power > 5)
@@ -62,9 +63,6 @@
 			to_chat(user, "<span class='danger'>You begin to lose control of \the [src]'s flames as they rapidly move up your arm...</span>")
 		else
 			to_chat(user, "<span class='warning'>You feel \the [src] grow hotter and hotter!</span>")
-
-/obj/item/burning_hands/get_storage_cost()
-	return ITEM_SIZE_NO_CONTAINER
 
 /obj/item/burning_hands/dropped()
 	..()

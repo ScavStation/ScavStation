@@ -36,7 +36,8 @@
 		SAC_HORNS,
 		SAC_FRILLS,
 		SAC_COSMETICS,
-		SAC_MARKINGS
+		SAC_MARKINGS,
+		SAC_TAIL
 	)
 
 	primitive_form = "Stok"
@@ -59,7 +60,7 @@
 	flesh_color = "#34af10"
 	organs_icon = 'mods/species/bayliens/unathi/icons/organs.dmi'
 
-	preview_outfit = /decl/hierarchy/outfit/job/generic/doctor
+	preview_outfit = /decl/outfit/job/generic/doctor
 
 	blood_types = list(
 		/decl/blood_type/reptile/splus,
@@ -103,9 +104,9 @@
 
 /decl/species/unathi/Initialize()
 	. = ..()
-	LAZYINITLIST(available_cultural_info)
-	LAZYDISTINCTADD(available_cultural_info[TAG_CULTURE], /decl/cultural_info/culture/lizard)
-	LAZYSET(default_cultural_info, TAG_CULTURE, /decl/cultural_info/culture/lizard)
+	LAZYINITLIST(available_background_info)
+	LAZYDISTINCTADD(available_background_info[/decl/background_category/heritage], /decl/background_detail/heritage/lizard)
+	LAZYSET(default_background_info, /decl/background_category/heritage, /decl/background_detail/heritage/lizard)
 
 /decl/species/unathi/equip_survival_gear(var/mob/living/human/H)
 	..()

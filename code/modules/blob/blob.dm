@@ -168,28 +168,28 @@
 	if(IS_WIRECUTTER(W))
 		if(prob(user.skill_fail_chance(SKILL_SCIENCE, 90, SKILL_EXPERT)))
 			to_chat(user, SPAN_WARNING("You fail to collect a sample from \the [src]."))
-			return
+			return TRUE
 		else
 			if(!pruned)
 				to_chat(user, SPAN_NOTICE("You collect a sample from \the [src]."))
 				new product(user.loc)
 				pruned = TRUE
-				return
+				return TRUE
 			else
 				to_chat(user, SPAN_WARNING("\The [src] has already been pruned."))
-				return
+				return TRUE
 
 	var/damage = 0
 	switch(W.atom_damage_type)
 		if(BURN)
-			damage = (W.force / fire_resist)
+			damage = (W.get_attack_force(user) / fire_resist)
 			if(IS_WELDER(W))
 				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		if(BRUTE)
-			damage = (W.force / brute_resist)
+			damage = (W.get_attack_force(user) / brute_resist)
 
 	take_damage(damage, W.atom_damage_type)
-	return
+	return TRUE
 
 /obj/effect/blob/core
 	name = "master nucleus"
@@ -245,10 +245,10 @@ regen() will cover update_icon() for this proc
 
 /obj/effect/blob/core/proc/report_shield_status(var/status)
 	if(status == "low")
-		visible_message(SPAN_DANGER("The [src]'s tendril shield fails, leaving the nucleus vulnerable!"), 3)
+		visible_message(SPAN_DANGER("\The [src]'s tendril shield fails, leaving the nucleus vulnerable!"), 3)
 		reported_low_damage = TRUE
 	if(status == "high")
-		visible_message(SPAN_NOTICE("The [src]'s tendril shield seems to have fully reformed."), 3)
+		visible_message(SPAN_NOTICE("\The [src]'s tendril shield seems to have fully reformed."), 3)
 		reported_low_damage = FALSE
 
 // Rough icon state changes that reflect the core's current_health
@@ -359,13 +359,13 @@ regen() will cover update_icon() for this proc
 		switch(tendril_type)
 			if("solid")
 				desc = "An incredibly dense, yet flexible, tendril, removed from an asteroclast."
-				force = 10
+				set_base_attack_force(10)
 				color = COLOR_BRONZE
 				origin_tech = @'{"materials":2}'
 			if("fire")
 				desc = "A tendril removed from an asteroclast. It's hot to the touch."
 				atom_damage_type = BURN
-				force = 15
+				set_base_attack_force(15)
 				color = COLOR_AMBER
 				origin_tech = @'{"powerstorage":2}'
 
@@ -373,8 +373,8 @@ regen() will cover update_icon() for this proc
 	if(!proximity)
 		return
 	if(is_tendril && prob(50))
-		force--
-		if(force <= 0)
+		set_base_attack_force(get_base_attack_force()-1)
+		if(get_base_attack_force() <= 0)
 			visible_message(SPAN_NOTICE("\The [src] crumbles apart!"))
 			user.drop_from_inventory(src)
 			new /obj/effect/decal/cleanable/ash(src.loc)

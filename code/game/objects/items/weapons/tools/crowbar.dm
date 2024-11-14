@@ -4,7 +4,6 @@
 	icon = 'icons/obj/items/tool/crowbar.dmi'
 	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_LOWER_BODY
-	material_force_multiplier = 0.25
 	attack_cooldown = 2*DEFAULT_WEAPON_COOLDOWN
 	melee_accuracy_bonus = -10
 	w_class = ITEM_SIZE_SMALL
@@ -30,6 +29,7 @@
 /obj/item/crowbar/Initialize()
 	. = ..()
 	set_extension(src, /datum/extension/tool, list(TOOL_CROWBAR = TOOL_QUALITY_DEFAULT))
+	set_extension(src, /datum/extension/demolisher/delicate)
 
 /obj/item/crowbar/get_autopsy_descriptors()
 	. = ..()
@@ -73,5 +73,5 @@
 	name = "discount pry bar"
 	desc = "A plastic bar with a wedge. It looks so poorly manufactured that you're sure it will break if you try to use it."
 	material = /decl/material/solid/organic/plastic
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	shape_variations = 6

@@ -55,7 +55,7 @@
 	. = ..()
 	if(. || length(contents) || !ispath(foldable) || !istype(material))
 		return TRUE
-	var/sheet_amount = FLOOR(LAZYACCESS(matter, material.type) / SHEET_MATERIAL_AMOUNT)
+	var/sheet_amount = floor(LAZYACCESS(matter, material.type) / SHEET_MATERIAL_AMOUNT)
 	if(sheet_amount <= 0 || !user.try_unequip(src))
 		return TRUE
 	to_chat(user, SPAN_NOTICE("You fold \the [src] flat."))
@@ -70,15 +70,16 @@
 	name = "crew survival kit"
 	desc = "A box decorated in warning colors that contains a limited supply of survival tools. The panel and white stripe indicate this one contains oxygen."
 	icon_state = "survival"
+	storage = /datum/storage/box/large
 
 /obj/item/box/survival/WillContain()
 	return list(
 				/obj/item/clothing/mask/breath,
 				/obj/item/tank/emergency/oxygen,
 				/obj/item/chems/hypospray/autoinjector/stabilizer,
-				/obj/item/stack/medical/bruise_pack,
+				/obj/item/stack/medical/bandage,
 				/obj/item/flashlight/flare/glowstick,
-				/obj/item/chems/food/candy/proteinbar,
+				/obj/item/food/junk/candy/proteinbar,
 				/obj/item/oxycandle,
 				/obj/item/crowbar/cheap
 			)
@@ -87,6 +88,7 @@
 	name = "engineer survival kit"
 	desc = "A box decorated in warning colors that contains a limited supply of survival tools. The panel and orange stripe indicate this one as the engineering variant."
 	icon_state = "survivaleng"
+	storage = /datum/storage/box/large
 
 /obj/item/box/engineer/WillContain()
 	return list(
@@ -94,9 +96,9 @@
 				/obj/item/tank/emergency/oxygen/engi,
 				/obj/item/chems/hypospray/autoinjector/stabilizer,
 				/obj/item/chems/hypospray/autoinjector/antirad,
-				/obj/item/stack/medical/bruise_pack,
+				/obj/item/stack/medical/bandage,
 				/obj/item/flashlight/flare/glowstick,
-				/obj/item/chems/food/candy/proteinbar,
+				/obj/item/food/junk/candy/proteinbar,
 				/obj/item/oxycandle
 			)
 
@@ -339,32 +341,35 @@
 	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
 	icon_state = "donk_kit"
 /obj/item/box/donkpockets/WillContain()
-	return list(/obj/item/chems/food/donkpocket = 6)
+	return list(/obj/item/food/donkpocket = 6)
 
 /obj/item/box/sinpockets
 	name = "box of sin-pockets"
 	desc = "<B>Instructions:</B> <I>Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes.</I>"
 	icon_state = "donk_kit"
 /obj/item/box/sinpockets/WillContain()
-	return list(/obj/item/chems/food/donkpocket/sinpocket = 6)
+	return list(/obj/item/food/donkpocket/sinpocket = 6)
 
 //cubed animals
+/obj/item/box/animal_cubes
+	abstract_type = /obj/item/box/animal_cubes
+	icon = 'icons/obj/items/storage/animal_cube_box.dmi'
+	icon_state = ICON_STATE_WORLD
+	storage = /datum/storage/box/animal_cube
 
-/obj/item/box/monkeycubes
+/obj/item/box/animal_cubes/monkeys
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
-	icon = 'icons/obj/food.dmi'
-	icon_state = "monkeycubebox"
-	storage = /datum/storage/box/monkey
 
-/obj/item/box/monkeycubes/WillContain()
-	return list(/obj/item/chems/food/monkeycube/wrapped = 5)
+/obj/item/box/animal_cubes/monkeys/WillContain()
+	return list(/obj/item/food/animal_cube/wrapped/monkey = 5)
 
-/obj/item/box/monkeycubes/spidercubes
+/obj/item/box/animal_cubes/spiders
 	name = "spiderling cube box"
 	desc = "Drymate brand Instant spiders. WHY WOULD YOU ORDER THIS!?"
-/obj/item/box/monkeycubes/spidercubes/WillContain()
-	return list(/obj/item/chems/food/monkeycube/wrapped/spidercube = 5)
+
+/obj/item/box/animal_cubes/spiders/WillContain()
+	return list(/obj/item/food/animal_cube/wrapped/spider = 5)
 
 /obj/item/box/ids
 	name = "box of spare IDs"
@@ -602,6 +607,8 @@
 /obj/item/box/tapes
 	name = "box of spare tapes"
 	desc = "A box full of blank tapes."
+	storage = /datum/storage/box/tapes
+
 /obj/item/box/tapes/WillContain()
 	return list(/obj/item/magnetic_tape/random = 14)
 
@@ -665,41 +672,41 @@
 	desc = "A box full of snack foods."
 
 /obj/item/box/snack/WillContain()
-	return list(/obj/item/chems/food/sosjerky = 7)
+	return list(/obj/item/food/junk/sosjerky = 7)
 
 /obj/item/box/snack/noraisin/WillContain()
-	return list(/obj/item/chems/food/no_raisin = 7)
+	return list(/obj/item/food/junk/no_raisin = 7)
 
 /obj/item/box/snack/cheesehonks/WillContain()
-	return list(/obj/item/chems/food/cheesiehonkers = 7)
+	return list(/obj/item/food/junk/cheesiehonkers = 7)
 
 /obj/item/box/snack/tastybread/WillContain()
-	return list(/obj/item/chems/food/tastybread = 7)
+	return list(/obj/item/food/junk/tastybread = 7)
 
 /obj/item/box/snack/candy/WillContain()
-	return list(/obj/item/chems/food/candy = 7)
+	return list(/obj/item/food/junk/candy = 7)
 
 /obj/item/box/snack/chips/WillContain()
-	return list(/obj/item/chems/food/chips = 7)
+	return list(/obj/item/food/junk/chips = 7)
 
 /obj/item/box/snack/buns/WillContain()
-	return list(/obj/item/chems/food/bun = 7)
+	return list(/obj/item/food/bun = 7)
 
 //canned goods in cardboard
 /obj/item/box/canned
 	name = "box of canned food"
 	desc = "A box full of canned foods."
 /obj/item/box/canned/WillContain()
-	return list(/obj/item/chems/food/can/spinach = 1)
+	return list(/obj/item/food/can/spinach = 1)
 
 /obj/item/box/canned/beef/WillContain()
-	return list(/obj/item/chems/food/can/beef = 6)
+	return list(/obj/item/food/can/beef = 6)
 
 /obj/item/box/canned/beans/WillContain()
-	return list(/obj/item/chems/food/can/beans = 6)
+	return list(/obj/item/food/can/beans = 6)
 
 /obj/item/box/canned/tomato/WillContain()
-	return list(/obj/item/chems/food/can/tomato = 6)
+	return list(/obj/item/food/can/tomato = 6)
 
 // machinery stock parts
 /obj/item/box/parts

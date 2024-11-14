@@ -16,7 +16,7 @@
 	. = ..()
 
 //Must be overriden to prevent gathering from tile and using on items when locked!
-/datum/storage/secure/can_be_inserted(obj/item/W, mob/user, stop_messages)
+/datum/storage/secure/can_be_inserted(obj/item/W, mob/user, stop_messages, click_params = null)
 	if(is_locked())
 		if(!stop_messages)
 			to_chat(user, SPAN_WARNING("\The [holder] is locked, you cannot put anything inside."))

@@ -41,12 +41,24 @@
 	dirtiness = 30
 
 /decl/material/solid/carbon/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	var/datum/reagents/ingested = M.get_ingested_reagents()
 	if(ingested && LAZYLEN(ingested.reagent_volumes) > 1)
 		var/effect = 1 / (LAZYLEN(ingested.reagent_volumes) - 1)
 		for(var/R in ingested.reagent_volumes)
 			if(R != type)
 				ingested.remove_reagent(R, removed * effect)
+
+/decl/material/solid/carbon/ashes
+	name = "ashes"
+	uid = "solid_ashes"
+	lore_text = "The powdery remains of burned organic material."
+	color = "#5c5c5c"
+	dissolves_in = MAT_SOLVENT_MODERATE
+	// Todo: calcium
+	dissolves_into = list(
+		/decl/material/solid/carbon = 1
+	)
 
 /decl/material/solid/phosphorus
 	name = "phosphorus"
@@ -96,6 +108,7 @@
 	value = 0.5
 
 /decl/material/solid/potassium/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	var/volume = REAGENT_VOLUME(holder, type)
 	if(volume > 3)
 		M.add_chemical_effect(CE_PULSE, 1)

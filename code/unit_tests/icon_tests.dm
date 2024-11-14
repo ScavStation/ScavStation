@@ -2,6 +2,51 @@
 	name = "ICON STATE template"
 	template = /datum/unit_test/icon_test
 
+/datum/unit_test/icon_test/food_shall_have_icon_states
+	name = "ICON STATE - Food And Drink Subtypes Shall Have Icon States"
+	var/list/check_types = list(
+		/obj/item/chems/condiment,
+		/obj/item/chems/drinks,
+		/obj/item/food
+	)
+	// We skip lumps because they are invisible, they are only ever inside utensils.
+	var/list/skip_types = list(/obj/item/food/lump)
+
+/datum/unit_test/icon_test/food_shall_have_icon_states/start_test()
+
+	skip_types |= typesof(/obj/item/food/grown)
+	skip_types |= typesof(/obj/item/food/processed_grown)
+
+	var/list/failures = list()
+	for(var/check_type in check_types)
+		for(var/check_subtype in typesof(check_type))
+			var/obj/item/thing = check_subtype
+			if(TYPE_IS_ABSTRACT(thing))
+				continue
+			var/skip = FALSE
+			for(var/skip_type in skip_types)
+				if(ispath(check_subtype, skip_type))
+					skip = TRUE
+					break
+			if(skip)
+				continue
+			thing = atom_info_repository.get_instance_of(thing)
+			if(!istype(thing) || QDELETED(thing))
+				failures += "invalid instance ([check_subtype])"
+			else
+				if(!thing.icon)
+					failures += "null icon ([check_subtype])"
+				if(!istext(thing.icon_state))
+					failures += "null or invalid icon_state ([check_subtype])"
+				else if(!check_state_in_icon(thing.icon_state, thing.icon))
+					failures += "missing icon state '[thing.icon_state]' in icon '[thing.icon]' ([check_subtype])"
+
+	if(length(failures))
+		fail("Food subtypes had missing icons or icon states:\n[jointext(failures, "\n")].")
+	else
+		pass("All food subtypes had valid icon states.")
+	return 1
+
 /datum/unit_test/icon_test/turfs_shall_have_icon_states
 	name = "ICON STATE - Turf Subtypes Shall Have Icon States"
 	var/list/except_types = list(
@@ -34,34 +79,6 @@
 		fail("Turf subtypes had missing icons or icon states:\n[jointext(failures, "\n")].")
 	else
 		pass("All turf subtypes had valid icon states.")
-	return 1
-
-/datum/unit_test/icon_test/item_modifiers_shall_have_icon_states
-	name = "ICON STATE - Item Modifiers Shall Have Icon Sates"
-	var/list/icon_states_by_type
-
-/datum/unit_test/icon_test/item_modifiers_shall_have_icon_states/start_test()
-	var/list/bad_modifiers = list()
-	var/item_modifiers = list_values(decls_repository.get_decls(/decl/item_modifier))
-
-	for(var/im in item_modifiers)
-		var/decl/item_modifier/item_modifier = im
-		for(var/type_setup_type in item_modifier.type_setups)
-			var/list/type_setup = item_modifier.type_setups[type_setup_type]
-			var/list/icon_states = icon_states_by_type[type_setup_type]
-
-			if(!icon_states)
-				var/obj/item/I = type_setup_type
-				icon_states = icon_states(initial(I.icon))
-				LAZYSET(icon_states_by_type, type_setup_type, icon_states)
-
-			if(!(type_setup["icon_state"] in icon_states))
-				bad_modifiers += type_setup_type
-
-	if(bad_modifiers.len)
-		fail("Item modifiers with missing icon states: [english_list(bad_modifiers)]")
-	else
-		pass("All item modifiers have valid icon states.")
 	return 1
 
 /datum/unit_test/icon_test/signs_shall_have_existing_icon_states
@@ -152,4 +169,29 @@
 		fail("Decals with missing icon states:\n\t-[jointext(failures, "\n\t-")]")
 	else
 		pass("All decals have valid icon states.")
+	return 1
+
+/datum/unit_test/icon_test/bgstate
+	name = "ICON_STATE - Character Previews Will Have Background States"
+
+/datum/unit_test/icon_test/bgstate/start_test()
+	var/obj/screen/setup_preview/preview = /obj/screen/setup_preview
+	var/test_icon = initial(preview.icon)
+	if(!test_icon)
+		fail("Missing test icon.")
+		return 1
+
+	var/list/check_icons = list('icons/effects/128x48.dmi') // pAI preview
+	check_icons |= test_icon
+
+	var/list/failures = list()
+	for(var/bgicon in check_icons)
+		for(var/bgstate in global.using_map.char_preview_bgstate_options)
+			if(!check_state_in_icon(bgstate, bgicon))
+				failures += "[bgicon] - [bgstate]"
+
+	if(failures.len)
+		fail("Missing preview background icon states:\n\t-[jointext(failures, "\n\t-")]")
+	else
+		pass("All preview icons have all background icon states.")
 	return 1

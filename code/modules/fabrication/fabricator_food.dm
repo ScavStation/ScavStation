@@ -8,6 +8,14 @@
 	base_storage_capacity_mult = 5
 	base_type = /obj/machinery/fabricator/replicator
 
+/obj/machinery/fabricator/replicator/Initialize()
+	. = ..()
+	global.listening_objects += src
+
+/obj/machinery/fabricator/replicator/Destroy()
+	global.listening_objects -= src
+	return ..()
+
 /obj/machinery/fabricator/replicator/hear_talk(var/mob/M, var/text, var/verb, var/decl/language/speaking)
 	if(speaking && !speaking.machine_understands)
 		return ..()
@@ -26,7 +34,7 @@
 	..()
 
 /obj/machinery/fabricator/bioprinter/can_ingest(var/obj/item/thing)
-	return istype(thing, /obj/item/chems/food) || ..()
+	return istype(thing, /obj/item/food) || ..()
 
 /obj/machinery/fabricator/replicator/proc/state_status()
 	for(var/thing in storage_capacity)

@@ -131,10 +131,19 @@
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
 
-//objectives
+// Objective config enum values.
 #define CONFIG_OBJECTIVE_NONE 2
 #define CONFIG_OBJECTIVE_VERB 1
 #define CONFIG_OBJECTIVE_ALL  0
+
+// Server whitelist config enums.
+#define CONFIG_SERVER_NO_WHITELIST      1
+#define CONFIG_SERVER_JOBS_WHITELIST    2
+#define CONFIG_SERVER_JOIN_WHITELIST    3
+#define CONFIG_SERVER_CONNECT_WHITELIST 4
+
+// Location for server whitelist file to load from.
+#define CONFIG_SERVER_WHITELIST_FILE "config/server_whitelist.txt"
 
 // How many times an AI tries to connect to APC before switching to low power mode.
 #define AI_POWER_RESTORE_MAX_ATTEMPTS 3
@@ -261,8 +270,6 @@
 /// Returns the hex value of a number given a value assumed to be a base-ten value, padded to a supplied minimum length.
 #define num2hex_padded(num, len) num2text(num, len, 16)
 
-#define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
-
 //NOTE: INTENT_HOTKEY_* defines are not actual intents!
 //they are here to support hotkeys
 #define INTENT_HOTKEY_LEFT  "left"
@@ -344,9 +351,10 @@
 #define GROOMING_RESULT_SUCCESS 2
 
 // Used by recipe selection.
-#define RECIPE_CATEGORY_MICROWAVE "microwave"
-#define RECIPE_CATEGORY_POT       "pot"
-#define RECIPE_CATEGORY_SKILLET   "skillet"
+#define RECIPE_CATEGORY_MICROWAVE   "microwave"
+#define RECIPE_CATEGORY_POT         "pot"
+#define RECIPE_CATEGORY_SKILLET     "skillet"
+#define RECIPE_CATEGORY_BAKING_DISH "baking dish"
 
 // So we want to have compile time guarantees these methods exist on local type, unfortunately 515 killed the .proc/procname and .verb/verbname syntax so we have to use nameof()
 // For the record: GLOBAL_VERB_REF would be useless as verbs can't be global.
@@ -363,3 +371,7 @@
 
 /// Call by name proc reference, checks if the proc is an existing global proc
 #define GLOBAL_PROC_REF(X) (/proc/##X)
+
+#define RADIAL_LABELS_NONE     0
+#define RADIAL_LABELS_OFFSET   1
+#define RADIAL_LABELS_CENTERED 2

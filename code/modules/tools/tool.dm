@@ -3,14 +3,13 @@
 	icon_state          = ICON_STATE_WORLD
 	obj_flags           = OBJ_FLAG_CONDUCTIBLE
 	slot_flags          = SLOT_LOWER_BODY
-	force               = 10
-	throwforce          = 4
-	w_class             = ITEM_SIZE_HUGE
+	w_class             = ITEM_SIZE_NORMAL
 	origin_tech         = @'{"materials":1,"engineering":1}'
 	attack_verb         = list("hit", "pierced", "sliced", "attacked")
 	sharp               = 0
 	abstract_type       = /obj/item/tool
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
+	_base_attack_force  = 10
 
 	/// Material is used for the head, handle is handle(d) below.
 	material = /decl/material/solid/metal/steel
@@ -114,7 +113,7 @@
 			if(check_state_in_icon(binding_state, icon))
 				add_overlay(overlay_image(icon, binding_state, binding_material.color, (RESET_COLOR|RESET_ALPHA)))
 
-/obj/item/tool/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/tool/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay)
 		var/handle_color = get_handle_color()
 		if(!isnull(handle_color))

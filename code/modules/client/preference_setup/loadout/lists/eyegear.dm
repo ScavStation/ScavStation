@@ -11,6 +11,11 @@
 	path = /obj/item/clothing/glasses/eyepatch
 	uid = "gear_eyes_eyepatch"
 
+/decl/loadout_option/eyes/eyepatch_colourable
+	name = "eyepatch, colourable"
+	path = /obj/item/clothing/glasses/eyepatch/colourable
+	uid = "gear_eyes_eyepatch_colourable"
+
 /decl/loadout_option/eyes/glasses
 	name = "glasses selection"
 	path = /obj/item/clothing/glasses
@@ -23,6 +28,7 @@
 		"prescription glasses" = /obj/item/clothing/glasses/prescription,
 		"green glasses" =        /obj/item/clothing/glasses/prescription/gglasses,
 		"hipster glasses" =      /obj/item/clothing/glasses/prescription/hipster,
+		"pince-nez glasses" =    /obj/item/clothing/glasses/prescription/pincenez,
 		"monocle" =              /obj/item/clothing/glasses/eyepatch/monocle
 	)
 

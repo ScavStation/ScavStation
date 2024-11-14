@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(mapping)
 	/// Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
 	var/list/map_levels
 	/// The turf type used when generating floors between Z-levels at startup.
-	var/base_floor_type = /turf/floor/airless
+	var/base_floor_type = /turf/floor/plating/airless
 	/// Replacement area, if a base_floor_type is generated. Leave blank to skip.
 	var/base_floor_area
 	/// A list of connected z-levels to avoid repeatedly rebuilding connections
@@ -161,6 +161,8 @@ SUBSYSTEM_DEF(mapping)
 	// Generate turbolifts last, since away sites may have elevators to generate too.
 	for(var/obj/abstract/turbolift_spawner/turbolift as anything in turbolifts_to_initialize)
 		turbolift.build_turbolift()
+
+	global.using_map.finalize_map_generation()
 
 	. = ..()
 

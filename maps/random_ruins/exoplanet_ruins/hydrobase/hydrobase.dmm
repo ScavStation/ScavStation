@@ -171,7 +171,7 @@
 /area/map_template/hydrobase/station/growD)
 "aD" = (
 /obj/machinery/mech_recharger,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growD)
 "aE" = (
@@ -281,7 +281,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/mob/living/simple_animal/hostile/retaliate/goat/hydro,
+/mob/living/simple_animal/hostile/goat/hydro,
 /turf/floor/tiled/dark,
 /area/map_template/hydrobase/station/goatzone)
 "aV" = (
@@ -361,7 +361,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/mob/living/simple_animal/hostile/retaliate/goat/hydro,
+/mob/living/simple_animal/hostile/goat/hydro,
 /turf/floor/tiled/dark,
 /area/map_template/hydrobase/station/goatzone)
 "be" = (
@@ -408,7 +408,7 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growA)
 "bl" = (
@@ -582,7 +582,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growA)
 "bG" = (
@@ -732,7 +732,7 @@
 	pixel_x = 25
 	},
 /obj/machinery/mech_recharger,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/tiled/white,
 /area/map_template/hydrobase/station/growD)
 "cd" = (
@@ -901,7 +901,7 @@
 	pixel_y = 4
 	},
 /obj/machinery/mech_recharger,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growC)
 "cD" = (
@@ -1500,7 +1500,7 @@
 /area/map_template/hydrobase/station/growC)
 "ee" = (
 /obj/machinery/mech_recharger,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growC)
 "ef" = (
@@ -1813,7 +1813,7 @@
 /area/map_template/hydrobase/station/growB)
 "eO" = (
 /obj/machinery/mech_recharger,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growB)
 "eP" = (
@@ -1841,7 +1841,7 @@
 	pixel_x = 25
 	},
 /obj/machinery/mech_recharger,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growB)
 "eS" = (
@@ -2135,7 +2135,7 @@
 "fA" = (
 /obj/machinery/light,
 /obj/machinery/mech_recharger,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growA)
 "fB" = (
@@ -2299,7 +2299,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/bluegrid,
 /area/map_template/hydrobase/station/growA)
 "fW" = (
@@ -2500,7 +2500,7 @@
 /area/map_template/hydrobase/station/growB)
 "gt" = (
 /obj/machinery/mech_recharger,
-/mob/living/simple_animal/hostile/retaliate/malf_drone/hydro,
+/mob/living/simple_animal/hostile/malf_drone/hydro,
 /turf/floor/tiled/white,
 /area/map_template/hydrobase/station/growB)
 "gu" = (
@@ -2679,7 +2679,7 @@
 /turf/template_noop,
 /area/template_noop)
 "NL" = (
-/mob/living/simple_animal/hostile/retaliate/goat/hydro,
+/mob/living/simple_animal/hostile/goat/hydro,
 /turf/floor/tiled/dark,
 /area/map_template/hydrobase/station/goatzone)
 "RI" = (

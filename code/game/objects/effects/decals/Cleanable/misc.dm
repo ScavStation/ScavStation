@@ -4,6 +4,7 @@
 	gender = PLURAL
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "shards"
+	sweepable = TRUE
 
 /obj/effect/decal/cleanable/ash
 	name = "ashes"
@@ -11,10 +12,23 @@
 	gender = PLURAL
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "ash"
+	weather_sensitive = FALSE
+	sweepable = TRUE
+
+/obj/effect/decal/cleanable/ash/attackby(obj/item/I, mob/user)
+	if(ATOM_IS_OPEN_CONTAINER(I))
+		if(REAGENTS_FREE_SPACE(I.reagents) <= 0)
+			to_chat(user, SPAN_WARNING("\The [I] is full."))
+		else
+			I.add_to_reagents(/decl/material/solid/carbon/ashes, 20)
+			user.visible_message(SPAN_NOTICE("\The [user] carefully scoops \the [src] into \the [I]."))
+			qdel(src)
+		return TRUE
+	return ..()
 
 /obj/effect/decal/cleanable/ash/attack_hand(var/mob/user)
 	SHOULD_CALL_PARENT(FALSE)
-	to_chat(user, "<span class='notice'>[src] sifts through your fingers.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] sifts through your fingers."))
 	var/turf/F = get_turf(src)
 	if (istype(F))
 		F.add_dirt(4)
@@ -28,6 +42,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "flour"
 	persistent = TRUE
+	sweepable = TRUE
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"
@@ -35,6 +50,8 @@
 	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb1"
+	weather_sensitive = FALSE
+	sweepable = TRUE
 
 /obj/effect/decal/cleanable/molten_item
 	name = "gooey grey mass"
@@ -43,6 +60,7 @@
 	icon_state = "molten"
 	persistent = TRUE
 	generic_filth = TRUE
+	weather_sensitive = FALSE
 
 /obj/effect/decal/cleanable/cobweb2
 	name = "cobweb"
@@ -50,6 +68,8 @@
 	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb2"
+	weather_sensitive = FALSE
+	sweepable = TRUE
 
 //Vomit (sorry)
 /obj/effect/decal/cleanable/vomit
@@ -108,3 +128,12 @@
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
 	persistent = TRUE
 	generic_filth = TRUE
+
+/obj/effect/decal/cleanable/champagne
+	name = "champagne"
+	desc = "Someone got a bit too excited."
+	gender = PLURAL
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "fchampagne1"
+	color = COLOR_BRASS
+	random_icon_states = list("fchampagne1", "fchampagne2", "fchampagne3", "fchampagne4")

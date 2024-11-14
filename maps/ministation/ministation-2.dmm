@@ -372,7 +372,7 @@
 /obj/machinery/power/terminal{
 	icon_state = "term-omni"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/l3sw)
 "bv" = (
 /obj/machinery/light{
@@ -675,7 +675,7 @@
 /turf/floor/tiled,
 /area/ministation/bridge)
 "cn" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "co" = (
 /turf/wall/r_wall,
@@ -786,7 +786,7 @@
 /obj/item/gps/explorer,
 /obj/item/belt/holster/machete,
 /obj/item/tool/machete/deluxe,
-/obj/item/twohanded/spear/steel,
+/obj/item/bladed/polearm/spear/improvised/steel,
 /turf/floor/tiled/white,
 /area/ministation/science)
 "cJ" = (
@@ -809,10 +809,7 @@
 /obj/machinery/network/acl{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "cQ" = (
 /obj/machinery/door/firedoor,
@@ -1162,7 +1159,7 @@
 	dir = 4;
 	id_tag = "toxinsdriver"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "eA" = (
 /obj/machinery/computer/shuttle_control/explore/ministation{
@@ -1214,7 +1211,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "eM" = (
 /obj/structure/cable{
@@ -1419,7 +1416,7 @@
 /area/ministation/hall/n3)
 "fF" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1715,14 +1712,11 @@
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "hm" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/science)
 "hn" = (
 /obj/machinery/light/small{
@@ -1831,19 +1825,13 @@
 /area/ministation/science)
 "hM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/science)
 "hN" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/science)
 "hO" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1942,10 +1930,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/science)
 "iq" = (
 /obj/effect/decal/cleanable/filth,
@@ -2114,7 +2099,7 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "sensor"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/maint/l3sw)
 "jn" = (
 /obj/structure/disposalpipe/segment{
@@ -2293,7 +2278,7 @@
 /obj/item/shield/buckler,
 /obj/item/gps/explorer,
 /obj/item/flashlight/lantern,
-/obj/item/twohanded/spear/steel,
+/obj/item/bladed/polearm/spear/improvised/steel,
 /turf/floor/tiled/white,
 /area/ministation/science)
 "jP" = (
@@ -2474,7 +2459,7 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "kz" = (
-/mob/living/simple_animal/cat/fluff/ran,
+/mob/living/simple_animal/passive/cat/fluff/ran,
 /turf/floor/tiled/white,
 /area/ministation/science)
 "kG" = (
@@ -3055,10 +3040,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "nG" = (
 /turf/wall/titanium,
@@ -3154,10 +3136,7 @@
 /area/ministation/science)
 "of" = (
 /obj/machinery/commsrelay,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "og" = (
 /obj/machinery/door/airlock/glass/command{
@@ -3559,10 +3538,7 @@
 /turf/floor/reinforced,
 /area/ministation/science)
 "sr" = (
-/turf/floor/tiled/dark/monotile{
-	name = "telecomms dark floor";
-	temperature = 263
-	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/telecomms)
 "ss" = (
 /obj/machinery/door/airlock/glass/command{
@@ -3670,25 +3646,19 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/fullgrass,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/n3)
 "tc" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/floor/tiled/dark/monotile{
-	name = "telecomms dark floor";
-	temperature = 263
-	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/telecomms)
 "td" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/tiled/dark/monotile{
-	name = "telecomms dark floor";
-	temperature = 263
-	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/telecomms)
 "te" = (
 /obj/effect/floor_decal/corner/purple{
@@ -3795,19 +3765,13 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/tiled/dark/monotile{
-	name = "telecomms dark floor";
-	temperature = 263
-	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/telecomms)
 "tV" = (
 /obj/machinery/network/router{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "tY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3848,10 +3812,7 @@
 /obj/machinery/network/mainframe{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "uB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4237,7 +4198,7 @@
 	id_tag = "toxinsdriver";
 	name = "Toxins Launcher Bay Door"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "ya" = (
 /obj/structure/cable{
@@ -4248,11 +4209,11 @@
 /obj/item/chems/drinks/bottle/cola,
 /obj/item/chems/drinks/bottle/cola,
 /obj/item/chems/drinks/bottle/cola,
-/obj/item/chems/food/sliceable/chocolatecake,
-/obj/item/chems/food/sliceable/pizza/vegetablepizza,
-/obj/item/chems/food/sliceable/pizza/meatpizza,
-/obj/item/chems/food/sliceable/pizza/margherita,
-/obj/item/chems/food/sliceable/pizza/mushroompizza,
+/obj/item/food/sliceable/chocolatecake,
+/obj/item/food/sliceable/pizza/vegetablepizza,
+/obj/item/food/sliceable/pizza/meatpizza,
+/obj/item/food/sliceable/pizza/margherita,
+/obj/item/food/sliceable/pizza/mushroompizza,
 /obj/item/chems/drinks/cans/waterbottle,
 /obj/item/chems/drinks/cans/waterbottle,
 /obj/item/chems/drinks/cans/waterbottle,
@@ -4310,10 +4271,7 @@
 	initial_access = null;
 	req_access = list("ACCESS_CAMERAS")
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "yz" = (
 /obj/structure/cable{
@@ -4365,7 +4323,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "yS" = (
 /obj/abstract/landmark{
@@ -4476,7 +4434,7 @@
 /obj/item/shield/buckler,
 /obj/item/gps/explorer,
 /obj/item/flashlight/lantern,
-/obj/item/twohanded/spear/steel,
+/obj/item/bladed/polearm/spear/improvised/steel,
 /turf/floor/tiled/white,
 /area/ministation/science)
 "zS" = (
@@ -4496,19 +4454,13 @@
 	dir = 4;
 	initial_access = null
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "Ab" = (
 /obj/machinery/network/message_server{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "Af" = (
 /obj/structure/cable{
@@ -4576,10 +4528,7 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "Ax" = (
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "AE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4602,10 +4551,7 @@
 /obj/machinery/network/telecomms_hub{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "AQ" = (
 /obj/effect/floor_decal/carpet/green{
@@ -4639,20 +4585,14 @@
 	name = "_West APC";
 	pixel_x = -25
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "AW" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/smes/buildable/max_cap_in_out,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "AX" = (
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -4743,17 +4683,11 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "Br" = (
 /obj/machinery/light/small,
-/turf/floor/bluegrid{
-	name = "Mainframe Base";
-	temperature = 263
-	},
+/turf/floor/bluegrid/mainframe,
 /area/ministation/telecomms)
 "Bs" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -4950,7 +4884,7 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/box/monkeycubes,
+/obj/item/box/animal_cubes/monkeys,
 /obj/item/stack/material/puck/mapped/uranium/ten,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5130,7 +5064,7 @@
 	dir = 4
 	},
 /obj/structure/flora/grass/both,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/n3)
 "Dc" = (
 /obj/item/radio/intercom{
@@ -6046,7 +5980,7 @@
 /area/ministation/maint/l3central)
 "JN" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/science)
 "JX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6319,7 +6253,7 @@
 	name = "bridge blast door";
 	id_tag = "bridgeblast"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/bridge)
 "Mq" = (
 /obj/item/cash/scavbucks,
@@ -7463,7 +7397,7 @@
 /obj/machinery/power/terminal{
 	icon_state = "term-omni"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "Tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8308,7 +8242,7 @@
 "Ym" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/bush/grassybush,
-/turf/floor/natural/grass,
+/turf/floor/grass,
 /area/ministation/hall/n3)
 "Yv" = (
 /obj/structure/cable{
@@ -8454,7 +8388,7 @@
 /obj/structure/handrail{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ministation/shuttle/outgoing)
 "YZ" = (
 /obj/structure/cable{

@@ -231,7 +231,7 @@
 	id_tag = "scraplock";
 	name = "scraplock"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/crew/toilets)
 "aw" = (
 /turf/wall/r_wall,
@@ -252,7 +252,7 @@
 	id_tag = "scraplock";
 	name = "scraplock"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/crew/medbay/chemistry)
 "az" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -272,9 +272,7 @@
 	name = "scraplock"
 	},
 /obj/machinery/door/firedoor,
-/turf/floor/tiled{
-	icon_state = "white"
-	},
+/turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
 "aB" = (
 /obj/effect/decal/cleanable/dirt,
@@ -640,6 +638,7 @@
 /obj/item/chems/condiment/flour,
 /obj/item/chems/condiment/flour,
 /obj/item/chems/condiment/flour,
+/obj/item/chems/condiment/yeast,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "bm" = (
@@ -905,6 +904,16 @@
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
+/obj/effect/shuttle_landmark/docking_arm_port/shuttle{
+	dir = 4
+	},
+/obj/abstract/local_dock/automatic{
+	dir = 4;
+	shuttle_tag = "Bee Shuttle";
+	port_tag = "starboard";
+	name = "starboard docking port";
+	dock_target = "bee_star"
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/shuttle/outgoing/general)
 "bI" = (
@@ -1034,17 +1043,25 @@
 	pixel_y = 32;
 	tag_airpump = "tradeship_rescue_shuttle_pump";
 	tag_chamber_sensor = "tradeship_rescue_shuttle_sensor";
-	tag_exterior_door = "tradeship_rescue_shuttle_out"
+	tag_exterior_door = "tradeship_rescue_shuttle_out";
+	directional_offset = null
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 9
 	},
-/obj/effect/shuttle_landmark/docking_arm_starboard/rescue,
 /obj/machinery/airlock_sensor{
 	id_tag = "tradeship_rescue_shuttle_sensor";
 	pixel_x = -22;
 	pixel_y = 20;
-	dir = 4
+	dir = 4;
+	directional_offset = null
+	},
+/obj/abstract/local_dock/automatic{
+	dir = 1;
+	shuttle_tag = "Rescue Shuttle";
+	port_tag = "center";
+	name = "center";
+	reorient = 0
 	},
 /turf/floor/tiled,
 /area/ship/trade/shuttle/rescue)
@@ -2158,7 +2175,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "fh" = (
 /obj/machinery/light{
@@ -2172,7 +2189,7 @@
 	dir = 6
 	},
 /obj/machinery/meter,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "fk" = (
 /obj/structure/table,
@@ -2263,7 +2280,7 @@
 	},
 /obj/item/firstaid/adv,
 /obj/random/medical,
-/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/bandage/advanced,
 /obj/item/chems/syringe/antibiotic,
 /obj/item/scanner/health,
 /obj/item/defibrillator/compact/loaded,
@@ -2293,7 +2310,7 @@
 	dir = 10
 	},
 /obj/machinery/meter,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "fA" = (
 /obj/machinery/power/apc{
@@ -2303,7 +2320,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "fB" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2313,14 +2330,14 @@
 /obj/structure/handrail{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "fC" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "fE" = (
 /turf/wall,
@@ -2352,7 +2369,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "fP" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2362,7 +2379,7 @@
 /obj/structure/handrail{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "fQ" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2524,7 +2541,7 @@
 /obj/structure/sign/warning/hot_exhaust{
 	pixel_y = 32
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "gm" = (
 /obj/structure/lattice,
@@ -2658,7 +2675,7 @@
 /area/space)
 "gA" = (
 /obj/machinery/washing_machine,
-/obj/item/box/monkeycubes{
+/obj/item/box/animal_cubes/monkeys{
 	pixel_y = 13
 	},
 /turf/floor/tiled/freezer,
@@ -2839,9 +2856,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/wall/r_wall{
-	can_open = 1
-	},
+/turf/wall/false,
 /area/ship/trade/hidden)
 "hl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3705,7 +3720,7 @@
 	id_tag = "scraplock";
 	name = "scraplock"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/atmos)
 "iW" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -4360,7 +4375,7 @@
 /area/ship/trade/maintenance/engine/aft)
 "kC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "kD" = (
 /obj/structure/window/reinforced,
@@ -4474,7 +4489,7 @@
 	id_tag = "bee_shutters";
 	directional_offset = null
 	},
-/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bandage,
 /turf/floor/tiled,
 /area/ship/trade/shuttle/outgoing/general)
 "lU" = (
@@ -4758,7 +4773,7 @@
 /area/ship/trade/shieldbay)
 "or" = (
 /obj/structure/lattice,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/aft)
 "oK" = (
 /obj/effect/paint/brown,
@@ -4980,7 +4995,7 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "sensor"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/command/fmate)
 "qZ" = (
 /obj/structure/closet/radiation,
@@ -5129,7 +5144,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "sm" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
@@ -5159,7 +5174,7 @@
 /obj/structure/sign/warning/hot_exhaust{
 	pixel_y = 32
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "sA" = (
 /obj/machinery/door/airlock/hatch,
@@ -5271,7 +5286,7 @@
 	id_tag = "scraplock";
 	name = "scraplock"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/command/fmate)
 "uc" = (
 /obj/machinery/alarm{
@@ -5311,7 +5326,7 @@
 	id_tag = "scraplock";
 	name = "scraplock"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/crew/medbay/chemistry)
 "uD" = (
 /obj/machinery/port_gen/pacman/super,
@@ -5384,7 +5399,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "vL" = (
 /obj/machinery/door/blast/regular/open{
@@ -5395,7 +5410,7 @@
 /obj/structure/sign/warning/hot_exhaust{
 	pixel_y = 32
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/aft)
 "vP" = (
 /obj/machinery/light{
@@ -5467,7 +5482,7 @@
 /turf/wall/r_wall/hull,
 /area/ship/trade/maintenance/engine/starboard)
 "wB" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/aft)
 "wG" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
@@ -5678,7 +5693,7 @@
 /area/ship/trade/crew/toilets)
 "zs" = (
 /obj/machinery/shipsensors,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/command/fmate)
 "zO" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -5917,7 +5932,6 @@
 /turf/wall/r_wall/hull,
 /area/ship/trade/crew/kitchen)
 "Ce" = (
-/obj/structure/lattice,
 /obj/effect/paint/brown,
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
@@ -5947,7 +5961,7 @@
 /area/ship/trade/shuttle/outgoing/general)
 "Cz" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/shuttle/rescue)
 "CD" = (
 /obj/effect/paint/red,
@@ -5968,7 +5982,7 @@
 /area/ship/trade/command/bridge)
 "CI" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/shuttle/outgoing/engineering)
 "CP" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
@@ -5989,6 +6003,17 @@
 	dir = 4
 	},
 /turf/floor/plating,
+/area/ship/trade/shuttle/outgoing/general)
+"CW" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/abstract/local_dock/automatic{
+	dir = 1;
+	shuttle_tag = "Bee Shuttle";
+	name = "center";
+	reorient = 0
+	},
+/turf/floor/tiled,
 /area/ship/trade/shuttle/outgoing/general)
 "Db" = (
 /obj/effect/floor_decal/corner/white{
@@ -6071,6 +6096,12 @@
 	pixel_y = -26;
 	directional_offset = null
 	},
+/obj/abstract/local_dock/automatic{
+	dir = 8;
+	shuttle_tag = "Bee Shuttle";
+	port_tag = "port";
+	name = "port docking port"
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/shuttle/outgoing/general)
 "DE" = (
@@ -6109,6 +6140,15 @@
 	dir = 8
 	},
 /obj/effect/decal/warning_stripes,
+/obj/effect/shuttle_landmark/docking_arm_starboard/rescue{
+	dir = 8
+	},
+/obj/abstract/local_dock/automatic{
+	dir = 8;
+	shuttle_tag = "Rescue Shuttle";
+	port_tag = "port";
+	dock_target = "tradeship_rescue_shuttle"
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/shuttle/rescue)
 "Eb" = (
@@ -6259,9 +6299,7 @@
 /obj/machinery/door/window/southright,
 /obj/structure/table/marble,
 /obj/machinery/door/firedoor,
-/turf/floor/tiled{
-	icon_state = "white"
-	},
+/turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
 "FD" = (
 /obj/machinery/door/firedoor,
@@ -6492,7 +6530,7 @@
 /area/ship/trade/command/bridge)
 "Im" = (
 /obj/structure/table,
-/obj/item/chems/food/monkeycube/wrapped,
+/obj/item/food/animal_cube/wrapped/monkey,
 /obj/structure/closet/secure_closet/medical_wall/pills{
 	pixel_y = -32;
 	req_access = null;
@@ -6552,7 +6590,7 @@
 /turf/floor/plating,
 /area/ship/trade/shieldbay)
 "IM" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/command/captain)
 "IW" = (
 /obj/effect/paint/red,
@@ -6662,7 +6700,7 @@
 /area/ship/trade/maintenance/power)
 "JN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "JR" = (
 /obj/effect/floor_decal/corner/beige{
@@ -6803,7 +6841,7 @@
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/shuttle/outgoing/general)
 "Lc" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -6882,11 +6920,6 @@
 	},
 /turf/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
-"Mo" = (
-/obj/structure/lattice,
-/obj/effect/paint/brown,
-/turf/wall/r_wall/hull,
-/area/ship/trade/crew/medbay/chemistry)
 "Mp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch/autoname/engineering,
@@ -7004,8 +7037,7 @@
 /obj/machinery/network/requests_console{
 	announcementConsole = 1;
 	department = "Captain";
-	pixel_y = -32;
-	dir = 2;
+	pixel_y = -32
 	},
 /obj/item/radio/intercom{
 	dir = 4;
@@ -7032,13 +7064,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "NG" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/shuttle/outgoing/general)
 "NI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -7227,7 +7259,7 @@
 	id_tag = "scraplock";
 	name = "scraplock"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/power)
 "PU" = (
 /obj/machinery/door/blast/regular/open{
@@ -7238,7 +7270,7 @@
 /obj/item/mollusc/barnacle{
 	pixel_y = -11
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/command/captain)
 "Qb" = (
 /obj/machinery/computer/modular/preset/cardslot/command,
@@ -7265,7 +7297,7 @@
 /obj/structure/sign/warning/hot_exhaust{
 	pixel_y = 32
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "Qu" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
@@ -7375,7 +7407,7 @@
 	id_tag = "scraplock";
 	name = "scraplock"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/atmos)
 "Rq" = (
 /obj/structure/cable{
@@ -7414,7 +7446,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "Sb" = (
 /obj/structure/handrail{
@@ -7458,7 +7490,7 @@
 	id_tag = "scraplock";
 	name = "scraplock"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/crew/toilets)
 "Sj" = (
 /obj/effect/floor_decal/techfloor/orange{
@@ -7560,7 +7592,7 @@
 /area/space)
 "Tx" = (
 /obj/structure/shuttle/engine/propulsion/burst/right,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/shuttle/outgoing/engineering)
 "TB" = (
 /obj/machinery/atmospherics/valve/open{
@@ -7946,7 +7978,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 1
 	},
-/obj/effect/shuttle_landmark/docking_arm_port/shuttle,
 /turf/floor/tiled,
 /area/ship/trade/shuttle/outgoing/general)
 "Yl" = (
@@ -8021,11 +8052,6 @@
 	},
 /turf/wall/titanium,
 /area/ship/trade/shuttle/rescue)
-"YS" = (
-/obj/structure/lattice,
-/obj/effect/paint/brown,
-/turf/wall/r_wall/hull,
-/area/ship/trade/crew/toilets)
 "Za" = (
 /obj/machinery/power/breakerbox/activated,
 /obj/structure/cable{
@@ -8101,7 +8127,7 @@
 	dir = 1;
 	id_tag = "tradeship_rescue_shuttle_pump_out_external"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/ship/trade/shuttle/rescue)
 
 (1,1,1) = {"
@@ -10098,7 +10124,7 @@ sA
 Vq
 QF
 Ld
-QF
+CW
 yy
 LU
 GS
@@ -10435,7 +10461,7 @@ cI
 Zf
 aa
 aa
-YS
+vj
 vj
 Si
 vj
@@ -10762,7 +10788,7 @@ cy
 cy
 cy
 cy
-YS
+vj
 cU
 nd
 dw
@@ -10844,7 +10870,7 @@ aq
 aq
 aq
 aq
-YS
+vj
 cU
 cT
 dx
@@ -11828,7 +11854,7 @@ VW
 VW
 VW
 VW
-Mo
+om
 dd
 de
 dG

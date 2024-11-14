@@ -104,7 +104,7 @@
 	global.listening_objects += src
 	set_frequency(sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ))
 	if(radio_device_type)
-		set_extension(src, /datum/extension/network_device/radio, initial_network_id, initial_network_key, RECEIVER_STRONG_WIRELESS)
+		set_extension(src, radio_device_type, initial_network_id, initial_network_key, RECEIVER_STRONG_WIRELESS)
 
 	var/list/created_encryption_keys
 	for(var/keytype in encryption_keys)

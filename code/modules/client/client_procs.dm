@@ -378,10 +378,14 @@ var/global/list/localhost_addresses = list(
 	if(admin_datums[ckey] && GAME_STATE == RUNLEVEL_GAME) //Only report this stuff if we are currently playing.
 		message_staff("\[[holder.rank]\] [key_name(src)] logged out.")
 		if(!global.admins.len) //Apparently the admin logging out is no longer an admin at this point, so we have to check this towards 0 and not towards 1. Awell.
-			send2adminirc("[key_name(src)] logged out - no more staff online.")
+			var/full_message = "[key_name(src)] logged out - no more staff online."
+			send2adminirc(full_message)
+			SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Admin Logout (Game ID: [game_id])", "body" = full_message))
 			if(get_config_value(/decl/config/toggle/delist_when_no_admins) && get_config_value(/decl/config/toggle/hub_visibility))
 				toggle_config_value(/decl/config/toggle/hub_visibility)
-				send2adminirc("Toggled hub visibility. The server is now invisible.")
+				full_message = "Toggled hub visibility. The server is now invisible."
+				send2adminirc(full_message)
+				SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Automatic Hub Visibility Toggle (Game ID: [game_id])", "body" = full_message))
 
 //checks if a client is afk
 //3000 frames = 5 minutes
@@ -501,8 +505,8 @@ var/global/const/MAX_VIEW = 41
 		return // Some kind of malformed winget(), do not proceed.
 
 	// Rescale as needed.
-	var/res_x =    get_config_value(/decl/config/num/clients/lock_client_view_x) || CEILING(text2num(view_components[1]) / divisor)
-	var/res_y =    get_config_value(/decl/config/num/clients/lock_client_view_y) || CEILING(text2num(view_components[2]) / divisor)
+	var/res_x =    get_config_value(/decl/config/num/clients/lock_client_view_x) || ceil(text2num(view_components[1]) / divisor)
+	var/res_y =    get_config_value(/decl/config/num/clients/lock_client_view_y) || ceil(text2num(view_components[2]) / divisor)
 	var/max_view = get_config_value(/decl/config/num/clients/max_client_view_x)  || MAX_VIEW
 
 	last_view_x_dim = clamp(res_x, MIN_VIEW, max_view)

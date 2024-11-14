@@ -50,7 +50,7 @@
 		if(W == wallet.front_stick)
 			wallet.front_stick = null
 
-/datum/storage/wallet/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update)
+/datum/storage/wallet/handle_item_insertion(mob/user, obj/item/W, prevent_warning, skip_update, click_params)
 	. = ..()
 	if(. && istype(holder, /obj/item/wallet))
 		var/obj/item/wallet/wallet = holder

@@ -24,19 +24,21 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/datum/extension/tool/tool = get_extension(src, /datum/extension/tool)
 	return (tool?.handle_physical_manipulation(user)) || FALSE
 
+// If TRUE, prevent afterattack from running.
 /obj/item/proc/resolve_attackby(atom/A, mob/user, var/click_params)
 	if(!(item_flags & ITEM_FLAG_NO_PRINT))
 		add_fingerprint(user)
 	return A.attackby(src, user, click_params)
 
-/atom/proc/attackby(obj/item/W, mob/user, var/click_params)
+// If TRUE, prevent afterattack from running.
+/atom/proc/attackby(obj/item/used_item, mob/user, var/click_params)
 	if(storage)
-		if(isrobot(user) && (W == user.get_active_held_item()))
-			return //Robots can't store their modules.
-		if(!storage.can_be_inserted(W, user))
-			return
-		W.add_fingerprint(user)
-		return storage.handle_item_insertion(user, W)
+		if(isrobot(user) && (used_item == user.get_active_held_item()))
+			return FALSE //Robots can't store their modules.
+		if(!storage.can_be_inserted(used_item, user, click_params = click_params))
+			return FALSE
+		used_item.add_fingerprint(user)
+		return storage.handle_item_insertion(user, used_item, click_params = click_params)
 	return FALSE
 
 /atom/movable/attackby(obj/item/W, mob/user)
@@ -44,12 +46,15 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(!.)
 		return bash(W,user)
 
-/atom/movable/proc/bash(obj/item/W, mob/user)
+// Return TRUE if further actions (afterattack, etc) should be prevented, FALSE if they can proceed.
+/atom/movable/proc/bash(obj/item/weapon, mob/user)
 	if(isliving(user) && user.a_intent == I_HELP)
 		return FALSE
-	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
+	if(!weapon.user_can_attack_with(user))
 		return FALSE
-	visible_message("<span class='danger'>[src] has been hit by [user] with [W].</span>")
+	if(weapon.item_flags & ITEM_FLAG_NO_BLUDGEON)
+		return FALSE
+	visible_message(SPAN_DANGER("[src] has been hit by [user] with [weapon]."))
 	return TRUE
 
 /mob/living/attackby(obj/item/used_item, mob/user)
@@ -64,17 +69,29 @@ avoid code duplication. This includes items that may sometimes act as a standard
 					ailment.was_treated_by_item(used_item, user, src)
 					return TRUE
 
-	if(can_operate(src,user) != OPERATE_DENY && used_item.do_surgery(src,user)) //Surgery
-		return TRUE
-	if(try_butcher_in_place(user, used_item))
-		return TRUE
-	return used_item.use_on_mob(src, user)
+	if(user.a_intent != I_HURT)
+		if(can_operate(src, user) != OPERATE_DENY && used_item.do_surgery(src,user)) //Surgery
+			return TRUE
+		if(try_butcher_in_place(user, used_item))
+			return TRUE
 
-/mob/living/human/attackby(obj/item/used_item, mob/user)
+	if(istype(used_item, /obj/item/chems) && ATOM_IS_OPEN_CONTAINER(used_item) && has_extension(src, /datum/extension/milkable))
+		var/datum/extension/milkable/milkable = get_extension(src, /datum/extension/milkable)
+		if(milkable.handle_milked(used_item, user))
+			return TRUE
 
-	. = ..()
+	if(used_item.edge && has_extension(src, /datum/extension/shearable))
+		var/datum/extension/shearable/shearable = get_extension(src, /datum/extension/shearable)
+		if(shearable.handle_sheared(used_item, user))
+			return TRUE
+
+	var/oldhealth = current_health
+	. = used_item.use_on_mob(src, user)
+	if(used_item.get_attack_force(user) && istype(ai) && current_health < oldhealth)
+		ai.retaliate(user)
+
 	if(!. && user == src && user.get_target_zone() == BP_MOUTH && can_devour(used_item, silent = TRUE))
-		var/obj/item/blocked = check_mouth_coverage()
+		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
 			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
 		else
@@ -91,7 +108,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/mob/living/attackee = null
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
+// If this returns TRUE, the interaction has been handled and other interactions like afterattack should be skipped.
 /obj/item/proc/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+
+	// TODO: revisit if this should be a silent failure/parent call instead, for mob-level storage interactions?
+	// like a horse with a saddlebag or something
+	if(!user_can_attack_with(user))
+		return TRUE // skip other interactions
 
 	if(squash_item())
 		return TRUE
@@ -147,7 +170,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		else
 			use_hitsound = "swing_hit"
 	playsound(loc, use_hitsound, 50, 1, -1)
-	return target.hit_with_weapon(src, user, force, hit_zone)
+	return target.hit_with_weapon(src, user, get_attack_force(user), hit_zone)
 
 /obj/item/proc/handle_reflexive_fire(var/mob/user, var/atom/aiming_at)
 	return istype(user) && istype(aiming_at)

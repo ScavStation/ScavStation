@@ -8,7 +8,7 @@
 	movable_flags = MOVABLE_FLAG_WHEELED
 	material_alteration = MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_COLOR
 	material = /decl/material/solid/metal/steel
-	w_class = ITEM_SIZE_NO_CONTAINER
+	w_class = ITEM_SIZE_STRUCTURE
 	color = COLOR_ORANGE
 	var/pixel_y_offset = 4
 	var/atom/movable/carrying
@@ -35,11 +35,11 @@
 		carrying.forceMove(get_turf(src))
 		carrying = null
 
-/obj/structure/hand_cart/grab_attack(var/obj/item/grab/G)
-	if(G.affecting && istype(G.affecting, /obj/))
-		to_chat(G.assailant, SPAN_NOTICE("You start loading \the [G.affecting] onto \the [src]."))
-		if(load_item(G.affecting, G.assailant))
-			qdel(G)
+/obj/structure/hand_cart/grab_attack(obj/item/grab/grab, mob/user)
+	if(isobj(grab.affecting))
+		to_chat(user, SPAN_NOTICE("You start loading \the [grab.affecting] onto \the [src]."))
+		if(load_item(grab.affecting, user))
+			qdel(grab)
 		return TRUE
 	. = ..()
 

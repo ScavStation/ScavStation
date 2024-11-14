@@ -13,7 +13,7 @@
 	supervisors             = "the consequences of your actions"
 	spawn_positions         = 1
 	total_positions         = 1
-	outfit_type             = /decl/hierarchy/outfit/job/shaded_hills/miner
+	outfit_type             = /decl/outfit/job/shaded_hills/miner
 	min_skill               = list(
 		SKILL_HAULING       = SKILL_ADEPT, // general physical activity
 		SKILL_METALWORK     = SKILL_BASIC, // ore smelting, metallurgy
@@ -31,7 +31,7 @@
 	supervisors             = "nature"
 	spawn_positions         = 1
 	total_positions         = 1
-	outfit_type             = /decl/hierarchy/outfit/job/shaded_hills/herbalist
+	outfit_type             = /decl/outfit/job/shaded_hills/herbalist
 	min_skill               = list(
 		SKILL_BOTANY        = SKILL_ADEPT, // growing, processing, and identifying plants
 		SKILL_MEDICAL       = SKILL_BASIC, // identifying illnesses and applying medicines
@@ -53,9 +53,10 @@
 	supervisors             = "nature"
 	spawn_positions         = 1
 	total_positions         = 1
-	outfit_type             = /decl/hierarchy/outfit/job/shaded_hills/forester
+	outfit_type             = /decl/outfit/job/shaded_hills/forester
 	min_skill               = list(
 		SKILL_HAULING       = SKILL_ADEPT, // overall physical activity
+		SKILL_HUSBANDRY     = SKILL_BASIC, // handling and caring for animals
 		SKILL_BOTANY        = SKILL_BASIC, // growing and harvesting plants, trees, etc
 		SKILL_COOKING       = SKILL_BASIC, // butchery
 		SKILL_CARPENTRY     = SKILL_ADEPT, // tree felling

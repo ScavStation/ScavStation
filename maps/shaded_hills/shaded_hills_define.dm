@@ -25,6 +25,21 @@
 		/decl/music_track/teller,
 		/decl/music_track/suonatore
 	)
+	credit_sound = list(
+		'sound/music/Miris-Magic-Dance.ogg'
+	)
+	game_year = -914 // in 2024, the year should be 1110, roughly a century after the fall of the Imperial Aegis
+
+	char_preview_bgstate_options = list(
+		"000",
+		"midgrey",
+		"FFF",
+		"wood"  = /turf/floor/wood::color,
+		"mud",
+		"grass" = /turf/floor/grass::color,
+		"rock"  = /turf/floor/rock/basalt::color,
+		"brick" = /turf/wall/brick/sandstone::color
+	)
 
 /decl/backpack_outfit/sack
 	is_default = TRUE

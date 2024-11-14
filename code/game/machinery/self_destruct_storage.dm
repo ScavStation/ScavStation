@@ -65,15 +65,6 @@
 
 /obj/machinery/nuclear_cylinder_storage/physical_attack_hand(mob/user)
 	if(!panel_open)
-		if(operable() && locked && check_access(user))
-			locked = FALSE
-			user.visible_message(
-				"\The [user] unlocks \the [src].",
-				"You unlock \the [src]."
-			)
-			update_icon()
-			return TRUE
-
 		if(!locked)
 			open = !open
 			user.visible_message(
@@ -82,14 +73,24 @@
 			)
 			update_icon()
 			return TRUE
+		if(operable() && check_access(user))
+			locked = FALSE
+			user.visible_message(
+				"\The [user] unlocks \the [src].",
+				"You unlock \the [src]."
+			)
+			update_icon()
+			return TRUE
 	else
 		to_chat(user, SPAN_WARNING("\The [src] is currently in maintenance mode!"))
+		return TRUE
+	return FALSE
 
 /obj/machinery/nuclear_cylinder_storage/attackby(obj/item/O, mob/user)
 	if(!open && operable() && istype(O, /obj/item/card/id))
 		if(panel_open)
 			to_chat(user, SPAN_WARNING("\The [src] is currently in maintenance mode!"))
-			return
+			return TRUE
 
 		var/obj/item/card/id/id = O
 		if(check_access(id))
@@ -99,12 +100,12 @@
 				"You [locked ? "lock" : "unlock"] \the [src]."
 			)
 			update_icon()
-		return
+		return TRUE
 
 	if(open && istype(O, /obj/item/nuclear_cylinder) && (length(cylinders) < max_cylinders))
 		if(panel_open)
 			to_chat(user, SPAN_WARNING("\The [src] is currently in maintenance mode!"))
-			return
+			return TRUE
 
 		user.visible_message(
 			"\The [user] begins inserting \the [O] into storage.",
@@ -117,8 +118,9 @@
 			)
 			cylinders.Add(O)
 			update_icon()
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/machinery/nuclear_cylinder_storage/handle_mouse_drop(atom/over, mob/user, params)
 	if(over == user && open && !panel_open && length(cylinders))

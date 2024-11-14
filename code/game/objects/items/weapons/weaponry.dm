@@ -5,14 +5,13 @@
 	icon_state = "nullrod"
 	item_state = "nullrod"
 	slot_flags = SLOT_LOWER_BODY
-	force = 10
 	item_flags = ITEM_FLAG_IS_WEAPON
 	throw_speed = 1
 	throw_range = 4
-	throwforce = 7
 	w_class = ITEM_SIZE_NORMAL
 	material = /decl/material/solid/glass
 	max_health = ITEM_HEALTH_NO_DAMAGE
+	_base_attack_force = 10
 
 /obj/item/nullrod/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
@@ -28,7 +27,7 @@
 		user.take_organ_damage(10)
 		SET_STATUS_MAX(user, STAT_PARA, 20)
 		return TRUE
-	
+
 	if (holy_act(target, user))
 		return TRUE
 
@@ -55,9 +54,8 @@
 	desc = "It's a net made of green energy."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "energynet"
-	throwforce = 0
-	force = 0
 	max_health = 100
+	_base_attack_force = 0
 	var/net_type = /obj/effect/energy_net
 
 /obj/item/energy_net/safari
@@ -210,15 +208,16 @@
 	return TRUE
 
 /obj/effect/energy_net/attackby(obj/item/W, mob/user)
-	current_health -= W.force
+	current_health -= W.get_attack_force(user)
 	healthcheck()
-	..()
+	return TRUE
 
 /obj/effect/energy_net/user_unbuckle_mob(mob/user)
 	return escape_net(user)
 
 
 /obj/effect/energy_net/proc/escape_net(mob/user)
+	set waitfor = FALSE
 	visible_message(
 		"<span class='warning'>\The [user] attempts to free themselves from \the [src]!</span>",
 		"<span class='warning'>You attempt to free yourself from \the [src]!</span>"
@@ -227,5 +226,4 @@
 		current_health = 0
 		healthcheck()
 		return 1
-	else
-		return 0
+	return 0

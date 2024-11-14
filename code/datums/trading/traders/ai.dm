@@ -90,7 +90,8 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/stack/material/ingot/mapped/osmium              = TRADER_THIS_TYPE,
 		/obj/item/stack/material/sheet/mapped/steel               = TRADER_THIS_TYPE,
 		/obj/item/stack/material/sheet/reinforced/mapped/plasteel = TRADER_THIS_TYPE,
-		/obj/machinery/mining                                     = TRADER_SUBTYPES_ONLY
+		/obj/machinery/mining_drill                               = TRADER_THIS_TYPE,
+		/obj/structure/drill_brace                                = TRADER_THIS_TYPE
 	)
 
 /datum/trader/trading_beacon/manufacturing

@@ -1,7 +1,7 @@
 /datum/seed/cotton
 	name = "cotton"
 	product_name = "cotton"
-	display_name = "cotton"
+	display_name = "cotton patch"
 	product_material = /decl/material/solid/organic/plantmatter/pith/husk
 	chems = list(
 		/decl/material/liquid/nutriment/plant_oil = list(3,10),
@@ -22,6 +22,20 @@
 	set_trait(TRAIT_PLANT_ICON,"bush2")
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
 
+/datum/seed/cotton/flax
+	name = "flax"
+	product_name = "flax"
+	display_name = "flax patch"
+	// Do we want linseed oil at some point?
+	chems = list(
+		/decl/material/liquid/nutriment/plant_oil = list(5,12),
+		/decl/material/solid/organic/cloth/linen = list(8,1)
+	)
+
+/datum/seed/cotton/flax/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR, "#eee4c7")
+
 // Chili plants/variants.
 /datum/seed/chili
 	name = "chili"
@@ -30,6 +44,7 @@
 	chems = list(/decl/material/liquid/capsaicin = list(3,5), /decl/material/liquid/nutriment = list(1,25))
 	mutants = list("icechili")
 	grown_tag = "chili"
+	allergen_flags = ALLERGEN_FRUIT
 
 /datum/seed/chili/New()
 	..()
@@ -66,8 +81,9 @@
 	mutants = list("glowberries","poisonberries","blueberries")
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/drink/juice/berry = list(10,10))
 	grown_tag = "berries"
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
+	allergen_flags = ALLERGEN_FRUIT
 
 /datum/seed/berry/New()
 	..()
@@ -162,9 +178,13 @@
 	product_name = "nettle"
 	display_name = "nettle patch"
 	mutants = list("deathnettle")
-	chems = list(/decl/material/liquid/nutriment = list(1,50), /decl/material/liquid/acid = list(0,1))
+	chems = list(
+		/decl/material/liquid/nutriment          = list(1,50),
+		/decl/material/liquid/drink/juice/nettle = list(1,10),
+		/decl/material/liquid/nettle_histamine   = list(1, 5)
+	)
 	grown_tag = "nettle"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/nettle/New()
@@ -184,7 +204,10 @@
 	product_name = "death nettle"
 	display_name = "death nettle patch"
 	mutants = null
-	chems = list(/decl/material/liquid/nutriment = list(1,50), /decl/material/liquid/acid/polyacid = list(0,1))
+	chems = list(
+		/decl/material/liquid/nutriment = list(1,50),
+		/decl/material/liquid/acid/polyacid = list(0,1)
+	)
 	grown_tag = "deathnettle"
 
 /datum/seed/nettle/death/New()
@@ -202,6 +225,7 @@
 	mutants = list("bluetomato","bloodtomato")
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/drink/juice/tomato = list(10,10))
 	grown_tag = "tomato"
+	allergen_flags = ALLERGEN_FRUIT | ALLERGEN_VEGETABLE // Which is it??
 
 /datum/seed/tomato/New()
 	..()
@@ -225,6 +249,7 @@
 	mutants = list("killer")
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/blood = list(1,5))
 	splat_type = /obj/effect/decal/cleanable/blood/splatter
+	allergen_flags = ALLERGEN_MEAT
 
 /datum/seed/tomato/blood/New()
 	..()
@@ -303,6 +328,7 @@
 	mutants = list("poisonapple","goldapple")
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/drink/juice/apple = list(10,10))
 	grown_tag = "apple"
+	allergen_flags = ALLERGEN_FRUIT
 
 /datum/seed/apple/New()
 	..()
@@ -344,7 +370,7 @@
 	name = "ambrosiavulgaris"
 	product_name = "ambrosia vulgaris"
 	display_name = "ambrosia vulgaris patch"
-	mutants = list("ambrosiadeus")
+	mutants = list("ambrosiadeus", "hemp")
 	chems = list(
 		/decl/material/liquid/nutriment = list(1),
 		/decl/material/liquid/psychoactives = list(1,8),
@@ -353,7 +379,7 @@
 		/decl/material/liquid/bromide = list(1,10)
 	)
 	grown_tag = "ambrosiavulgaris"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/ambrosia/New()
@@ -367,6 +393,18 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#9fad55")
 	set_trait(TRAIT_PLANT_ICON,"ambrosia")
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
+
+/datum/seed/ambrosia/hemp
+	name = "hemp"
+	product_name = "hemp"
+	display_name = "hemp patch"
+	mutants = null
+	chems = list(
+		/decl/material/liquid/nutriment/plant_oil = list(3,10),
+		/decl/material/solid/organic/cloth/hemp = list(8,1),
+		/decl/material/liquid/nutriment = list(1)
+	)
+	grown_tag = null
 
 /datum/seed/ambrosia/deus
 	name = "ambrosiadeus"
@@ -398,8 +436,9 @@
 	chems = list(/decl/material/liquid/nutriment = list(1,25))
 	splat_type = /obj/effect/vine
 	grown_tag = "mushroom"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
+	allergen_flags = ALLERGEN_FUNGI
 
 /datum/seed/mushroom/make_splat(var/turf/T, var/obj/item/thrown)
 	if(!splat_type || (locate(splat_type) in T))
@@ -644,7 +683,7 @@
 	product_name = "harebell"
 	display_name = "harebell patch"
 	chems = list(/decl/material/liquid/nutriment = list(1,20))
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
 
 /datum/seed/flower/New()
@@ -725,8 +764,9 @@
 	display_name = "grapevine"
 	mutants = list("greengrapes")
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/nutriment/sugar = list(1,5), /decl/material/liquid/drink/juice/grape = list(10,10))
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
+	allergen_flags = ALLERGEN_FRUIT
 
 /datum/seed/grapes/New()
 	..()
@@ -762,8 +802,9 @@
 		/decl/material/liquid/nutriment = list(1,10),
 		/decl/material/liquid/nutriment/plant_oil = list(1,10)
 	)
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
+	allergen_flags = ALLERGEN_NUTS
 
 /datum/seed/peanuts/New()
 	..()
@@ -782,7 +823,7 @@
 	product_name = "peppercorn"
 	display_name = "black pepper plant"
 	chems = list(/decl/material/solid/blackpepper = list(10,10))
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
 
 /datum/seed/peppercorn/New()
@@ -803,7 +844,7 @@
 	display_name = "cabbage patch"
 	chems = list(/decl/material/liquid/nutriment = list(1,10))
 	grown_tag = "cabbage"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/cabbage/New()
@@ -828,6 +869,7 @@
 	chems = list(/decl/material/liquid/drink/juice/banana = list(10,10), /decl/material/solid/potassium = list(2,3))
 	trash_type = /obj/item/bananapeel
 	grown_tag = "banana"
+	allergen_flags = ALLERGEN_FRUIT
 
 /datum/seed/banana/New()
 	..()
@@ -851,9 +893,9 @@
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/nutriment/cornoil = list(1,10))
 	grown_tag = "corn"
 	trash_type = /obj/item/corncob
-	backyard_grilling_product = /obj/item/chems/food/popcorn
+	backyard_grilling_product = /obj/item/food/popcorn
 	backyard_grilling_announcement = "pops enthusiastically!"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/corn/New()
@@ -879,7 +921,7 @@
 	grown_is_seed = TRUE
 	min_seed_extracted = 0
 	max_seed_extracted = 0
-	slice_product = /obj/item/chems/food/processed_grown/sticks
+	slice_product = /obj/item/food/processed_grown/sticks
 	slice_amount = 3
 
 /datum/seed/potato/New()
@@ -900,11 +942,12 @@
 	display_name = "garlic plant"
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/drink/juice/garlic = list(10,10))
 	grown_tag = "garlic"
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
 	grown_is_seed = TRUE
 	min_seed_extracted = 0
 	max_seed_extracted = 0
+	allergen_flags = ALLERGEN_ALLIUM
 
 /datum/seed/garlic/New()
 	..()
@@ -923,8 +966,9 @@
 	display_name = "onion patch"
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/drink/juice/onion = list(10,10))
 	grown_tag = "onion"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
+	allergen_flags = ALLERGEN_ALLIUM
 
 /datum/seed/onion/New()
 	..()
@@ -947,8 +991,9 @@
 		/decl/material/liquid/drink/milk/soymilk = list(7,20)
 	)
 	grown_tag = "soybeans"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
+	allergen_flags = ALLERGEN_SOY
 
 /datum/seed/soybean/New()
 	..()
@@ -967,8 +1012,9 @@
 	display_name = "wheat patch"
 	chems = list(/decl/material/liquid/nutriment = list(1,25), /decl/material/liquid/nutriment/flour = list(15,15))
 	grown_tag = "wheat"
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
+	allergen_flags = ALLERGEN_VEGETABLE | ALLERGEN_GLUTEN
 
 /datum/seed/wheat/New()
 	..()
@@ -989,8 +1035,9 @@
 	display_name = "rice paddy"
 	chems = list(/decl/material/liquid/nutriment = list(1,25), /decl/material/liquid/nutriment/rice = list(10,15))
 	grown_tag = "rice"
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
+	allergen_flags = ALLERGEN_VEGETABLE | ALLERGEN_GLUTEN
 
 /datum/seed/rice/New()
 	..()
@@ -1011,7 +1058,7 @@
 	display_name = "carrot patch"
 	chems = list(/decl/material/liquid/nutriment = list(1,20), /decl/material/liquid/eyedrops = list(3,5), /decl/material/liquid/drink/juice/carrot = list(10,20))
 	grown_tag = "carrot"
-	slice_product = /obj/item/chems/food/processed_grown/sticks
+	slice_product = /obj/item/food/processed_grown/sticks
 	slice_amount = 3
 
 /datum/seed/carrots/New()
@@ -1048,7 +1095,7 @@
 	display_name = "white-beet patch"
 	chems = list(/decl/material/liquid/nutriment = list(0,20), /decl/material/liquid/nutriment/sugar = list(1,5))
 	grown_tag = "whitebeet"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/whitebeets/New()
@@ -1086,8 +1133,10 @@
 	name = "watermelon"
 	product_name = "watermelon"
 	display_name = "watermelon vine"
+	product_w_class = ITEM_SIZE_LARGE
 	chems = list(/decl/material/liquid/nutriment = list(1,6), /decl/material/liquid/drink/juice/watermelon = list(10,6))
-	slice_product = /obj/item/chems/food/processed_grown/slice/large
+	slice_product = /obj/item/food/processed_grown/slice/large
+	allergen_flags = ALLERGEN_FRUIT
 
 /datum/seed/watermelon/New()
 	..()
@@ -1110,16 +1159,17 @@
 	name = "pumpkin"
 	product_name = "pumpkin"
 	display_name = "pumpkin vine"
+	product_w_class = ITEM_SIZE_LARGE
 	chems = list(/decl/material/liquid/nutriment = list(1,6))
 	grown_tag = "pumpkin"
 	slice_product = /obj/item/clothing/head/pumpkinhead
 	slice_amount = 1
 
-/datum/seed/pumpkin/show_slice_message(mob/user, obj/item/tool, obj/item/chems/food/grown/sliced)
+/datum/seed/pumpkin/show_slice_message(mob/user, obj/item/tool, obj/item/food/grown/sliced)
 	sliced.visible_message(SPAN_NOTICE("\The [user] carves a face into \the [sliced] with \the [tool]."))
 	return TRUE
 
-/datum/seed/pumpkin/show_slice_message_poor(mob/user, obj/item/tool, obj/item/chems/food/grown/sliced)
+/datum/seed/pumpkin/show_slice_message_poor(mob/user, obj/item/tool, obj/item/food/grown/sliced)
 	sliced.visible_message(SPAN_NOTICE("\The [user] crudely carves a face into \the [sliced] with \the [tool]."))
 	return TRUE
 
@@ -1142,6 +1192,7 @@
 	display_name = "lime tree"
 	chems = list(/decl/material/liquid/nutriment = list(1,20), /decl/material/liquid/drink/juice/lime = list(10,20))
 	grown_tag = "lime"
+	allergen_flags = ALLERGEN_FRUIT
 
 /datum/seed/citrus/New()
 	..()
@@ -1192,7 +1243,7 @@
 	chems = list(/decl/material/liquid/nutriment = list(1,20))
 	grown_tag = "grass"
 	product_type = /obj/item/stack/material/bundle/grass
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/grass/New()
@@ -1214,7 +1265,7 @@
 	product_name = "cacao"
 	display_name = "cacao tree"
 	chems = list(/decl/material/liquid/nutriment = list(1,10), /decl/material/liquid/nutriment/coco = list(4,5))
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
 
 /datum/seed/cocoa/New()
@@ -1238,8 +1289,9 @@
 	display_name = "cherry tree"
 	chems = list(/decl/material/liquid/nutriment = list(1,15), /decl/material/liquid/nutriment/sugar = list(1,15), /decl/material/liquid/nutriment/cherryjelly = list(10,15))
 	grown_tag = "cherries"
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
+	allergen_flags = ALLERGEN_FRUIT
 
 /datum/seed/cherries/New()
 	..()
@@ -1260,7 +1312,7 @@
 	product_name = "kudzu"
 	display_name = "kudzu vine"
 	chems = list(/decl/material/liquid/nutriment = list(1,50), /decl/material/liquid/antitoxins = list(1,25))
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/kudzu/New()
@@ -1282,7 +1334,7 @@
 	display_name = "S'randar's hand patch"
 	chems = list(/decl/material/liquid/brute_meds = list(0,10))
 	grown_tag = "shand"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/shand/New()
@@ -1304,7 +1356,7 @@
 	display_name = "Messa's tear patch"
 	chems = list(/decl/material/liquid/nutriment/honey = list(1,10), /decl/material/liquid/burn_meds = list(3,5))
 	grown_tag = "mtear"
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/mtear/New()
@@ -1326,8 +1378,9 @@
 	display_name = "tobacco plant"
 	mutants = list("finetobacco", "puretobacco", "badtobacco")
 	chems = list(/decl/material/solid/tobacco = list(1,10))
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
+	product_w_class = ITEM_SIZE_TINY // so that it can fit in bags of tobacco
 
 /datum/seed/tobacco/New()
 	..()
@@ -1387,7 +1440,7 @@
 	)
 	grown_tag = "algae"
 	exude_gasses = list(/decl/material/gas/methyl_bromide = 3)
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
 
 /datum/seed/algae/New()
@@ -1411,7 +1464,7 @@
 	display_name = "bamboo thicket"
 	chems = list(/decl/material/solid/organic/wood/bamboo = list(6,1))
 	mutants = null
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
 
 /datum/seed/bamboo/New()
@@ -1434,8 +1487,9 @@
 	display_name = "tea plant"
 	chems = list(/decl/material/liquid/nutriment = list(1))
 	dried_chems = list(/decl/material/liquid/nutriment/tea = list(10,10))
-	slice_product = /obj/item/chems/food/processed_grown/chopped
+	slice_product = /obj/item/food/processed_grown/chopped
 	slice_amount = 3
+	allergen_flags = ALLERGEN_CAFFEINE | ALLERGEN_STIMULANT
 
 /datum/seed/tea/New()
 	..()
@@ -1458,11 +1512,12 @@
 	display_name = "coffee plant"
 	chems = list(/decl/material/liquid/nutriment = list(1))
 	roasted_chems = list(/decl/material/liquid/nutriment/coffee = list(10,10))
-	backyard_grilling_product = /obj/item/chems/food/grown/grilled
+	backyard_grilling_product = /obj/item/food/grown/grilled
 	backyard_grilling_announcement = "roasts and darkens."
 	product_material = /decl/material/solid/organic/plantmatter/pith
-	slice_product = /obj/item/chems/food/processed_grown/crushed
+	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
+	allergen_flags = ALLERGEN_CAFFEINE | ALLERGEN_STIMULANT
 
 /datum/seed/coffee/New()
 	..()

@@ -21,13 +21,15 @@
 	name = "cosmoshark"
 	desc = "Enormous creature that resembles a shark with magenta glowing lines along its body and set of long deep-purple teeth."
 	icon = 'maps/away/errant_pisces/icons/cosmoshark.dmi'
-	turns_per_move = 5
 	butchery_data = /decl/butchery_data/animal/fish/space_carp/shark
-	speed = 2
 	max_health = 100
 	natural_weapon = /obj/item/natural_weapon/bite/strong
-	break_stuff_probability = 35
 	faction = "shark"
+	ai = /datum/mob_controller/aggressive/carp/shark
+
+/datum/mob_controller/aggressive/carp/shark
+	break_stuff_probability = 35
+	turns_per_wander = 10
 
 /mob/living/simple_animal/hostile/carp/shark/carp_randomify()
 	return
@@ -42,10 +44,9 @@
 			environment.merge(sharkmaw_chlorine)
 			visible_message(SPAN_WARNING("\The [src]'s body releases some gas from the gills with a quiet fizz!"))
 
-/mob/living/simple_animal/hostile/carp/shark/attack_target(mob/target)
-	set waitfor = 0//to deal with sleep() possibly stalling other procs
+/mob/living/simple_animal/hostile/carp/shark/apply_attack_effects(mob/living/target)
 	. =..()
-	var/mob/living/L = .
+	var/mob/living/L = target
 	if(istype(L))
 		if(prob(25))//if one is unlucky enough, they get tackled few tiles away
 			L.visible_message("<span class='danger'>\The [src] tackles [L]!</span>")
@@ -60,20 +61,18 @@
 			visible_message("<span class='danger'>\The [src] releases [L].</span>")
 
 /decl/butchery_data/animal/fish/space_carp/shark
-	meat_type = /obj/item/chems/food/sharkmeat
+	meat_type = /obj/item/food/butchery/meat/fish/shark
 	must_use_hook = TRUE
 
-/obj/item/chems/food/sharkmeat
-	name = "cosmoshark fillet"
+/obj/item/food/butchery/meat/fish/shark
 	desc = "A fillet of cosmoshark meat."
-	icon_state = "fishfillet"
-	filling_color = "#cecece"
+	meat_name = "cosmoshark"
+	color = "#cecece"
 	center_of_mass = @'{"x":17,"y":13}'
 	bitesize = 8
 
-/obj/item/chems/food/sharkmeat/populate_reagents()
+/obj/item/food/butchery/meat/fish/shark/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/solid/organic/meat,   5)
 	add_to_reagents(/decl/material/liquid/psychoactives, 1)
 	add_to_reagents(/decl/material/gas/chlorine,         1)
 
@@ -114,16 +113,16 @@
 
 /obj/structure/net/attackby(obj/item/W, mob/user)
 	if(W.sharp || W.edge)
-		var/obj/item/SH = W
-		if (!(SH.sharp) || (SH.sharp && SH.force < 10))//is not sharp enough or at all
-			to_chat(user,"<span class='warning'>You can't cut throught \the [src] with \the [W], it's too dull.</span>")
-			return
+		var/force = W.get_attack_force(user)
+		if (!(W.sharp) || (W.sharp && force < 10))//is not sharp enough or at all
+			to_chat(user,"<span class='warning'>You can't cut through \the [src] with \the [W], it's too dull.</span>")
+			return TRUE
 		visible_message("<span class='warning'>[user] starts to cut through \the [src] with \the [W]!</span>")
 		while(current_health > 0 && !QDELETED(src) && !QDELETED(user))
 			if (!do_after(user, 20, src))
 				visible_message("<span class='warning'>[user] stops cutting through \the [src] with \the [W]!</span>")
-				return
-			take_damage(20 * (1 + (SH.force-10)/10), W.atom_damage_type) //the sharper the faster, every point of force above 10 adds 10 % to damage
+				return TRUE
+			take_damage(20 * (1 + (force-10)/10), W.atom_damage_type) //the sharper the faster, every point of force above 10 adds 10 % to damage
 		new /obj/item/stack/net(src.loc)
 		qdel(src)
 		return TRUE
@@ -181,8 +180,6 @@
 	icon = 'maps/away/errant_pisces/icons/net_roll.dmi'
 	icon_state = "net_roll"
 	w_class = ITEM_SIZE_LARGE
-	force = 3.0
-	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
 	material = /decl/material/solid/organic/cloth
@@ -190,6 +187,7 @@
 	max_amount = 30
 	center_of_mass = null
 	attack_verb = list("hit", "bludgeoned", "whacked")
+	_base_attack_force = 3
 
 /obj/item/stack/net/Initialize()
 	. = ..()
@@ -241,9 +239,9 @@
 
 /obj/abstract/landmark/corpse/carp_fisher
 	name = "carp fisher"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/carp_fisher)
+	corpse_outfits = list(/decl/outfit/corpse/carp_fisher)
 
-/decl/hierarchy/outfit/corpse/carp_fisher
+/decl/outfit/corpse/carp_fisher
 	name = "Dead carp fisher"
 	uniform = /obj/item/clothing/jumpsuit/green
 	suit = /obj/item/clothing/suit/apron/overalls

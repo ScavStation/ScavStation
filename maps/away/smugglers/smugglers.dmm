@@ -3,7 +3,7 @@
 /turf/space,
 /area/space)
 "ab" = (
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "ac" = (
 /turf/unsimulated/mask,
@@ -24,7 +24,7 @@
 /turf/floor,
 /area/smugglers/base)
 "ah" = (
-/turf/floor/natural/barren,
+/turf/floor,
 /area/space)
 "aj" = (
 /obj/item/ammo_casing/pistol/magnum{
@@ -37,11 +37,11 @@
 	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/blood,
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "ak" = (
 /obj/effect/decal/cleanable/blood,
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "al" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -75,7 +75,7 @@
 	injecting = 1;
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aq" = (
 /obj/machinery/door/airlock/external{
@@ -90,7 +90,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/base)
 "au" = (
 /obj/item/flashlight/flare/glowstick/yellow{
@@ -98,13 +98,12 @@
 	pixel_y = 7
 	},
 /obj/item/flashlight/flare/glowstick/yellow,
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "av" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
 	id_tag = "asteroid_base_dock_airlock";
-	name = "Dock Airlock Controller";
 	pixel_x = -25;
 	tag_airpump = "asteroid_base_dock_pump";
 	tag_exterior_door = "asteroid_base_dock_outer";
@@ -282,11 +281,11 @@
 	pixel_x = -25;
 	pixel_y = 25
 	},
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "aM" = (
 /obj/random/trash,
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "aN" = (
 /obj/machinery/light/small{
@@ -433,7 +432,7 @@
 /obj/item/tool/xeno/hand{
 	pixel_x = -15
 	},
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "bh" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -477,7 +476,7 @@
 /area/smugglers/base)
 "bn" = (
 /obj/structure/boulder,
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "bo" = (
 /obj/item/stack/material/ore/silver,
@@ -485,7 +484,7 @@
 	pixel_x = 10;
 	pixel_y = -5
 	},
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "bp" = (
 /obj/structure/cable{
@@ -711,7 +710,7 @@
 /turf/floor,
 /area/smugglers/base)
 "bP" = (
-/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/mob/living/simple_animal/hostile/malf_drone,
 /turf/floor/tiled,
 /area/smugglers/office)
 "bQ" = (
@@ -826,7 +825,7 @@
 /area/smugglers/dorms)
 "cj" = (
 /obj/effect/decal/cleanable/cobweb,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/dorms)
 "cl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -857,13 +856,13 @@
 "cp" = (
 /obj/effect/decal/cleanable/vomit,
 /obj/random/medical/lite,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/dorms)
 "cq" = (
 /obj/structure/hygiene/toilet{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/dorms)
 "cr" = (
 /obj/structure/bed/chair{
@@ -923,7 +922,7 @@
 "cz" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/mob/living/simple_animal/hostile/malf_drone,
 /turf/floor/tiled,
 /area/smugglers/dorms)
 "cA" = (
@@ -947,7 +946,7 @@
 "db" = (
 /obj/effect/decal/cleanable/blood,
 /obj/abstract/landmark/corpse/doctor,
-/turf/floor/natural/barren,
+/turf/floor,
 /area/mine/explored)
 "eb" = (
 /obj/machinery/light/small{
@@ -960,7 +959,7 @@
 	pixel_y = 30
 	},
 /obj/random/soap,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/dorms)
 
 (1,1,1) = {"

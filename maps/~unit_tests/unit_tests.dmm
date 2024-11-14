@@ -9,14 +9,10 @@
 /turf/unsimulated/wall,
 /area/test_area/requires_power_dynamic_lighting)
 "d" = (
-/turf/unsimulated/floor{
-	icon_state = "hydrofloor"
-	},
+/turf/unsimulated/floor/hydro,
 /area/test_area/powered_dynamic_lighting)
 "e" = (
-/turf/unsimulated/floor{
-	icon_state = "hydrofloor"
-	},
+/turf/unsimulated/floor/hydro,
 /area/test_area/requires_power_dynamic_lighting)
 "f" = (
 /turf/unsimulated/wall,
@@ -26,31 +22,21 @@
 /area/test_area/requires_power_non_dynamic_lighting)
 "h" = (
 /obj/abstract/landmark/test/virtual_spawn/two,
-/turf/unsimulated/floor{
-	icon_state = "hydrofloor"
-	},
+/turf/unsimulated/floor/hydro,
 /area/test_area/powered_non_dynamic_lighting)
 "i" = (
-/turf/unsimulated/floor{
-	icon_state = "hydrofloor"
-	},
+/turf/unsimulated/floor/hydro,
 /area/test_area/powered_non_dynamic_lighting)
 "j" = (
 /obj/abstract/landmark/test/virtual_spawn/one,
-/turf/unsimulated/floor{
-	icon_state = "hydrofloor"
-	},
+/turf/unsimulated/floor/hydro,
 /area/test_area/powered_non_dynamic_lighting)
 "k" = (
 /obj/abstract/landmark/test/virtual_spawn/three,
-/turf/unsimulated/floor{
-	icon_state = "hydrofloor"
-	},
+/turf/unsimulated/floor/hydro,
 /area/test_area/powered_non_dynamic_lighting)
 "l" = (
-/turf/unsimulated/floor{
-	icon_state = "hydrofloor"
-	},
+/turf/unsimulated/floor/hydro,
 /area/test_area/requires_power_non_dynamic_lighting)
 "m" = (
 /turf/unsimulated/wall,
@@ -71,9 +57,7 @@
 /area/test_area/general)
 "X" = (
 /obj/abstract/level_data_spawner/debug,
-/turf/unsimulated/floor{
-	icon_state = "hydrofloor"
-	},
+/turf/unsimulated/floor/hydro,
 /area/test_area/powered_dynamic_lighting)
 
 (1,1,1) = {"

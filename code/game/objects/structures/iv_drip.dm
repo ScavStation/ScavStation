@@ -88,12 +88,13 @@
 	if (istype(W, /obj/item/chems))
 		if(!isnull(src.beaker))
 			to_chat(user, "There is already a reagent container loaded!")
-			return
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		beaker = W
 		to_chat(user, "You attach \the [W] to \the [src].")
 		queue_icon_update()
+		return TRUE
 	else
 		return ..()
 
