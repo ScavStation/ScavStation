@@ -518,11 +518,16 @@
 	desc = "You feel pretentious just looking at it."
 	icon_state = "premiumwine"
 	center_of_mass = @'{"x":16,"y":4}'
+	var/aged_min = 0
+	var/aged_max = 150
+
+/obj/item/chems/drinks/bottle/premiumwine/proc/make_random_name()
+	var/namepick = pick("Calumont","Sciacchemont","Recioto","Torcalota")
+	return "bottle of Chateau [namepick] De Blanc"
 
 /obj/item/chems/drinks/bottle/premiumwine/populate_reagents()
-	var/namepick = pick("Calumont","Sciacchemont","Recioto","Torcalota")
-	var/agedyear = rand(global.using_map.game_year - 150, global.using_map.game_year)
-	name = "Chateau [namepick] De Blanc"
+	var/agedyear = rand(global.using_map.game_year - aged_max, global.using_map.game_year - aged_min)
+	set_custom_name(make_random_name())
 	desc += " This bottle is marked as [agedyear] Vintage."
 	add_to_reagents(/decl/material/liquid/ethanol/wine/premium, reagents.maximum_volume)
 
