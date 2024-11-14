@@ -8,7 +8,7 @@
 	if(issmall(src))
 		. = ceil(.*0.5)
 
-/mob/proc/can_eat_food_currently(obj/eating, mob/user)
+/mob/proc/can_eat_food_currently(obj/eating, mob/user, consumption_method)
 	return TRUE
 
 #define EATING_NO_ISSUE      0
