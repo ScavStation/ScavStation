@@ -17,6 +17,10 @@
 /decl/reagent_data_field/mask_color
 	uid = "rdf_mask_color"
 
+/// An extra colour used for things like additional reagent overlays on soups, so that you can have noodle soup with veggie bits a different colour than the main soup.
+/decl/reagent_data_field/extra_color
+	uid = "rdf_extra_color"
+
 /decl/reagent_data_field/mask_name
 	uid = "rdf_mask_name"
 

@@ -1220,5 +1220,5 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		var/decl/material/reagent = GET_DECL(reagent_type)
 		var/modified_reagent_overlay = state_prefix ? "[state_prefix]_[reagent.reagent_overlay]" : reagent.reagent_overlay
 		if(reagent.reagent_overlay && check_state_in_icon(modified_reagent_overlay, icon))
-			reagent_overlay.overlays += overlay_image(icon, modified_reagent_overlay, reagent.get_reagent_color(reagents), RESET_COLOR | RESET_ALPHA)
+			reagent_overlay.overlays += overlay_image(icon, modified_reagent_overlay, reagent.get_reagent_overlay_color(reagents), RESET_COLOR | RESET_ALPHA)
 	return reagent_overlay

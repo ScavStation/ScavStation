@@ -202,10 +202,7 @@ var/global/list/_cooking_recipe_cache = list()
 	if(ispath(result, /decl/material))
 		var/created_volume = result_quantity
 		for(var/obj/item/ingredient in (used_ingredients[RECIPE_COMPONENT_ITEMS]|used_ingredients[RECIPE_COMPONENT_FRUIT]))
-			if(!ingredient.reagents?.total_volume)
-				continue
-			for(var/reagent_type in ingredient.reagents.reagent_volumes)
-				created_volume += ingredient.reagents.reagent_volumes[reagent_type]
+			created_volume += ingredient.reagents?.total_volume
 
 		container.reagents?.add_reagent(result, created_volume, get_result_data(container, used_ingredients))
 		return null

@@ -2413,6 +2413,7 @@
 #include "code\modules\food\cooking\recipes\recipe_soup.dm"
 #include "code\modules\food\cooking\recipes\recipe_soup_chili.dm"
 #include "code\modules\food\cooking\recipes\recipe_soup_curry.dm"
+#include "code\modules\food\cooking\recipes\recipe_soup_noodle.dm"
 #include "code\modules\food\cooking\recipes\recipe_soup_simple.dm"
 #include "code\modules\food\cooking\recipes\recipe_soup_stew.dm"
 #include "code\modules\food\cooking\recipes\recipe_soup_stock.dm"
