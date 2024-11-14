@@ -26,7 +26,7 @@
 /area/map_template/ecship/cockpit)
 "af" = (
 /obj/machinery/computer/modular/preset/cardslot/command,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/cockpit)
 "ag" = (
 /obj/structure/grille,
@@ -39,7 +39,7 @@
 "ak" = (
 /obj/structure/table,
 /obj/item/radio,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/cockpit)
 "al" = (
 /obj/structure/table,
@@ -55,7 +55,7 @@
 	dir = 1;
 	icon_state = "0-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/cockpit)
 "am" = (
 /obj/machinery/atmospherics/unary/vent_pump/low{
@@ -66,7 +66,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/cockpit)
 "an" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -77,7 +77,7 @@
 	icon_state = "1-2"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/cockpit)
 "ao" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -86,7 +86,7 @@
 /turf/floor,
 /area/map_template/ecship/science)
 "ap" = (
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/cockpit)
 "aq" = (
 /turf/wall/r_wall/hull,
@@ -306,7 +306,7 @@
 	icon_state = "4-8"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/cryo)
 "aT" = (
 /obj/structure/closet/wardrobe/mixed,
@@ -508,7 +508,7 @@
 	icon_state = "4-8"
 	},
 /obj/abstract/landmark/allowed_leak,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/crew)
 "bp" = (
 /obj/effect/floor_decal/corner/purple{
@@ -1621,7 +1621,7 @@
 	dir = 4;
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "dz" = (
 /obj/structure/catwalk,
@@ -1643,7 +1643,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "dB" = (
 /obj/machinery/power/solar,
@@ -1651,7 +1651,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "dD" = (
 /obj/effect/floor_decal/corner/yellow/full,
@@ -1693,7 +1693,7 @@
 	dir = 4;
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "dI" = (
 /obj/structure/catwalk,
@@ -1731,7 +1731,7 @@
 	icon_state = "1-4"
 	},
 /obj/abstract/landmark/scorcher,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "dR" = (
 /turf/wall/r_wall/hull,
@@ -1740,7 +1740,7 @@
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/abstract/landmark/scorcher,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "dT" = (
 /obj/machinery/air_sensor{
@@ -1769,7 +1769,7 @@
 	dir = 5
 	},
 /obj/abstract/landmark/scorcher,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "dY" = (
 /obj/structure/lattice,
@@ -1859,7 +1859,7 @@
 /area/map_template/ecship/engine)
 "ei" = (
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "ej" = (
 /obj/structure/lattice,
@@ -1971,7 +1971,7 @@
 "YW" = (
 /obj/structure/catwalk,
 /obj/abstract/landmark/scorcher,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/ecship/engine)
 "ZF" = (
 /obj/abstract/landmark/scorcher,

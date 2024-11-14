@@ -75,7 +75,7 @@
 	injecting = 1;
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aq" = (
 /obj/machinery/door/airlock/external{
@@ -90,7 +90,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/base)
 "au" = (
 /obj/item/flashlight/flare/glowstick/yellow{
@@ -825,7 +825,7 @@
 /area/smugglers/dorms)
 "cj" = (
 /obj/effect/decal/cleanable/cobweb,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/dorms)
 "cl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -856,13 +856,13 @@
 "cp" = (
 /obj/effect/decal/cleanable/vomit,
 /obj/random/medical/lite,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/dorms)
 "cq" = (
 /obj/structure/hygiene/toilet{
 	dir = 8
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/dorms)
 "cr" = (
 /obj/structure/bed/chair{
@@ -959,7 +959,7 @@
 	pixel_y = 30
 	},
 /obj/random/soap,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/smugglers/dorms)
 
 (1,1,1) = {"

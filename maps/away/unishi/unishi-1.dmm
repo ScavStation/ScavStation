@@ -753,7 +753,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/unishi/engineroom)
 "ch" = (
 /obj/structure/sign/warning/vent_port,

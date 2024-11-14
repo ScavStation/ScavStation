@@ -12,9 +12,7 @@
 /area/yacht/bridge)
 "ad" = (
 /obj/machinery/shipsensors,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/tiled/airless/broken,
 /area/yacht/bridge)
 "ae" = (
 /obj/effect/decal/cleanable/dirt,
@@ -689,7 +687,7 @@
 	},
 /obj/machinery/power/solar,
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/yacht/engine)
 "cd" = (
 /obj/structure/closet/crate/hydroponics,
@@ -791,9 +789,7 @@
 /obj/effect/decal/cleanable/blood/oil/streak,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/molten_item,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/tiled/airless/broken,
 /area/yacht/engine)
 "cq" = (
 /obj/structure/cable{
@@ -806,9 +802,7 @@
 	icon_state = "1-8"
 	},
 /obj/item/stock_parts/circuitboard/broken,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/tiled/airless/broken,
 /area/yacht/engine)
 "cr" = (
 /obj/structure/cable{
@@ -821,9 +815,7 @@
 	icon_state = "1-8"
 	},
 /obj/item/toolbox/syndicate,
-/turf/floor/airless{
-	icon_state = "dmg2"
-	},
+/turf/floor/tiled/airless/broken,
 /area/yacht/engine)
 "cs" = (
 /obj/structure/cable{
@@ -836,7 +828,7 @@
 	icon_state = "1-8"
 	},
 /obj/item/plastique,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/yacht/engine)
 "ct" = (
 /obj/structure/cable{
@@ -848,14 +840,14 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/yacht/engine)
 "cu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/yacht/engine)
 "cC" = (
 /obj/structure/cable,
@@ -908,7 +900,7 @@
 /obj/structure/cable,
 /obj/machinery/power/solar,
 /obj/effect/floor_decal/solarpanel,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/yacht/engine)
 "cN" = (
 /obj/structure/closet/toolcloset,
@@ -1157,7 +1149,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/yacht/engine)
 "dF" = (
 /obj/effect/shuttle_landmark/nav_yacht/nav3,
@@ -1240,7 +1232,7 @@
 /obj/machinery/door/airlock/external/bolted{
 	id_tag = "yacht_outer"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/yacht/engine)
 "kb" = (
 /obj/structure/cable{
@@ -1264,7 +1256,7 @@
 	pixel_y = -24;
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/yacht/engine)
 "lb" = (
 /obj/structure/cable{

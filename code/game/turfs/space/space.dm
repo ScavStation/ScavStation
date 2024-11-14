@@ -112,7 +112,7 @@
 			if (!S.use(1))
 				return TRUE
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			ChangeTurf(/turf/floor/airless)
+			ChangeTurf(/turf/floor/plating/airless)
 			qdel(L)
 		else
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
@@ -138,3 +138,6 @@
 /turf/space/infinity
 	name = "\proper infinity"
 	icon_state = "bluespace"
+
+/turf/space/black
+	icon_state = "black"

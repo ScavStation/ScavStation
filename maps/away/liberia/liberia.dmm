@@ -313,7 +313,7 @@
 /obj/machinery/ion_thruster{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/engineeringengines)
 "aM" = (
 /obj/effect/floor_decal/techfloor{
@@ -668,7 +668,7 @@
 	},
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/mule)
 "br" = (
 /obj/structure/closet/secure_closet{
@@ -4608,7 +4608,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "iB" = (
 /obj/item/stack/nanopaste,
@@ -4730,7 +4730,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "iT" = (
 /obj/machinery/door/airlock/external{
@@ -4851,7 +4851,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "jg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4879,7 +4879,7 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "jo" = (
 /obj/structure/cable/blue{
@@ -5024,7 +5024,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "jG" = (
 /obj/structure/closet/cabinet,
@@ -6356,7 +6356,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/captain)
 "pJ" = (
 /obj/structure/fireaxecabinet{
@@ -6390,7 +6390,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "pV" = (
 /obj/effect/floor_decal/techfloor,
@@ -6789,7 +6789,7 @@
 /obj/machinery/ion_thruster{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/engineeringengines)
 "tI" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -6863,7 +6863,7 @@
 /obj/machinery/ion_thruster{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/engineeringengines)
 "vd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6977,7 +6977,7 @@
 /obj/machinery/ion_thruster{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/captain)
 "xG" = (
 /obj/structure/lattice,
@@ -7201,7 +7201,7 @@
 /obj/machinery/ion_thruster{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/engineeringengines)
 "BC" = (
 /turf/wall/r_wall/prepainted,
@@ -7789,7 +7789,7 @@
 /obj/machinery/ion_thruster{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/captain)
 "KH" = (
 /obj/structure/cable/blue{
@@ -7805,7 +7805,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "Lj" = (
 /obj/effect/floor_decal/techfloor{
@@ -7916,7 +7916,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "Nv" = (
 /turf/wall/prepainted,
@@ -7961,7 +7961,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "OT" = (
 /obj/machinery/alarm/liberia{
@@ -8030,7 +8030,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/mule)
 "Qi" = (
 /obj/effect/floor_decal/corner/blue{
@@ -8468,7 +8468,7 @@
 /obj/machinery/ion_thruster{
 	dir = 4
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/liberia/captain)
 "WW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -8602,7 +8602,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ZO" = (
 /obj/structure/cable/yellow{
@@ -8612,7 +8612,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/catwalk,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ZP" = (
 /obj/effect/floor_decal/techfloor{

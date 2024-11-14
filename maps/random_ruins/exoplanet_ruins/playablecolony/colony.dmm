@@ -249,7 +249,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/map_template/colony/command)
 "aI" = (
 /turf/wall,

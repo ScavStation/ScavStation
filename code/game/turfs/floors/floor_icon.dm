@@ -112,11 +112,6 @@
 			continue
 		add_overlay(I)
 
-	if(is_floor_broken())
-		add_overlay(get_turf_damage_overlay(_floor_broken))
-	if(is_floor_burned())
-		add_overlay(get_turf_damage_overlay(_floor_burned))
-
 	if(update_neighbors)
 		for(var/turf/floor/F in orange(src, 1))
 			F.queue_ao()
@@ -140,11 +135,11 @@
 
 /turf/floor/proc/is_floor_broken()
 	var/decl/flooring/flooring = get_topmost_flooring()
-	return !isnull(_floor_broken) && (!istype(flooring) || (flooring.flooring_flags & TURF_CAN_BREAK))
+	return !isnull(_floor_broken) && (!istype(flooring) || length(flooring.broken_states))
 
 /turf/floor/proc/is_floor_burned()
 	var/decl/flooring/flooring = get_topmost_flooring()
-	return !isnull(_floor_burned) && (!istype(flooring) || (flooring.flooring_flags & TURF_CAN_BURN))
+	return !isnull(_floor_burned) && (!istype(flooring) || length(flooring.burned_states))
 
 /turf/floor/proc/is_floor_damaged()
 	return is_floor_broken() || is_floor_burned()
@@ -152,19 +147,10 @@
 /turf/floor/proc/set_floor_broken(new_broken, skip_update)
 
 	var/decl/flooring/flooring = get_topmost_flooring()
-	if(istype(flooring) && !(flooring.flooring_flags & TURF_CAN_BREAK))
+	if(!istype(flooring) || !length(flooring.broken_states))
 		return FALSE
-
-	// Hardcoded because they're bundled into the same icon file at the moment.
-	var/static/list/broken_states = list(
-		"broken0",
-		"broken1",
-		"broken2",
-		"broken3",
-		"broken4"
-	)
-	if(new_broken && (!istext(new_broken) || !(new_broken in broken_states)))
-		new_broken = "broken[rand(0,4)]"
+	if(new_broken && (!istext(new_broken) || !(new_broken in flooring.broken_states)))
+		new_broken = pick(flooring.broken_states)
 	if(_floor_broken != new_broken)
 		_floor_broken = new_broken
 		if(!skip_update)
@@ -175,35 +161,16 @@
 /turf/floor/proc/set_floor_burned(new_burned, skip_update)
 
 	var/decl/flooring/flooring = get_topmost_flooring()
-	if(istype(flooring) && !(flooring.flooring_flags & TURF_CAN_BURN))
+	if(!istype(flooring) || !length(flooring.burned_states))
 		return FALSE
-
-	// Hardcoded because they're bundled into the same icon file at the moment.
-	var/static/list/burned_states = list(
-		"burned0",
-		"burned1"
-	)
-	if(new_burned && (!istext(new_burned) || !(new_burned in burned_states)))
-		new_burned = "burned[rand(0,1)]"
+	if(new_burned && (!istext(new_burned) || !(new_burned in flooring.burned_states)))
+		new_burned = pick(flooring.burned_states)
 	if(_floor_burned != new_burned)
 		_floor_burned = new_burned
 		if(!skip_update)
 			queue_icon_update()
 		return TRUE
 	return FALSE
-
-/turf/proc/get_turf_damage_overlay_icon()
-	return 'icons/turf/flooring/damage.dmi'
-
-/turf/proc/get_turf_damage_overlay(var/overlay_state)
-	var/damage_overlay_icon = get_turf_damage_overlay_icon()
-	var/cache_key = "[icon]-[overlay_state]"
-	if(!global.flooring_cache[cache_key])
-		var/image/I = image(icon = damage_overlay_icon, icon_state = overlay_state)
-		I.blend_mode = BLEND_MULTIPLY
-		I.layer = DECAL_LAYER
-		global.flooring_cache[cache_key] = I
-	return global.flooring_cache[cache_key]
 
 /decl/flooring/proc/test_link(var/turf/origin, var/turf/opponent)
 	if(!istype(origin) || !istype(opponent))

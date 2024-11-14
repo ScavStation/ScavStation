@@ -461,7 +461,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 				cocktail_ingredient = TRUE
 				break
 
-#define FALSEWALL_STATE "fwall_open"
 /decl/material/validate()
 	. = ..()
 
@@ -526,8 +525,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 				total += checking_list[chem]
 			if(total != 1)
 				. += "[field] adds up to [total] (should be 1)"
-	if(icon_base && !check_state_in_icon(FALSEWALL_STATE, icon_base))
-		. += "[type] - '[icon_base]' - missing false wall opening animation '[FALSEWALL_STATE]'"
 
 	if(dissolves_in == MAT_SOLVENT_IMMUNE && LAZYLEN(dissolves_into))
 		. += "material is immune to solvents, but has dissolves_into products."
@@ -571,7 +568,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	if(length(color) != 7)
 		. += "invalid color (not #RRGGBB)"
-#undef FALSEWALL_STATE
 
 // Return the matter comprising this material.
 /decl/material/proc/get_matter()

@@ -7,12 +7,21 @@
 	damage_temperature = T0C+200
 	descriptor         = "planks"
 	build_type         = /obj/item/stack/tile/wood
-	flooring_flags     = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER
+	flooring_flags     = TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER
 	footstep_type      = /decl/footsteps/wood
 	color              = /decl/material/solid/organic/wood::color
 	force_material     = /decl/material/solid/organic/wood
 	constructed        = TRUE
 	gender             = NEUTER
+	broken_states      = list(
+		"broken0",
+		"broken1",
+		"broken2",
+		"broken3",
+		"broken4",
+		"broken5",
+		"broken6"
+	)
 
 /decl/flooring/wood/mahogany
 	color              = /decl/material/solid/organic/wood/mahogany::color

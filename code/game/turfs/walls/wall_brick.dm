@@ -36,6 +36,9 @@
 /turf/wall/brick/##material_name/shutter { \
 	shutter_state = FALSE; \
 	icon_state = "brick_shutter"; \
+}; \
+/turf/wall/brick/##material_name/shutter/open { \
+	shutter_state = TRUE; \
 }
 
 MATERIAL_BRICK_WALL(sandstone)

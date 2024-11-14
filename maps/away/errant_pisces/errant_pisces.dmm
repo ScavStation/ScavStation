@@ -483,7 +483,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "bx" = (
 /obj/machinery/light/small{
@@ -616,7 +616,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/solar,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "bS" = (
 /obj/structure/cable/yellow{
@@ -628,7 +628,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "bT" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -1280,7 +1280,7 @@
 	id_tag = "n2_in";
 	use_power = 1
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "dB" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -1475,13 +1475,13 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/tracker,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ed" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ee" = (
 /obj/structure/cable/yellow{
@@ -1493,7 +1493,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ef" = (
 /obj/structure/cable/yellow{
@@ -1507,7 +1507,7 @@
 	id_tag = "Harpoon_solar_starboard_airlock";
 	pixel_y = 20
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/errant_pisces/solar_starboard)
 "eg" = (
 /obj/machinery/door/airlock/external{
@@ -1722,7 +1722,7 @@
 	id_tag = "Harpoon_solar_port_airlock";
 	pixel_y = 20
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/errant_pisces/solar_port)
 "eE" = (
 /obj/structure/cable/yellow{
@@ -1734,14 +1734,14 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eF" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eG" = (
 /obj/structure/cable/yellow{
@@ -1753,7 +1753,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "eH" = (
 /obj/machinery/door/airlock/external{
@@ -2656,7 +2656,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "gL" = (
 /obj/structure/bed/chair/comfy/green,
@@ -2877,7 +2877,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/solar,
-/turf/floor/airless,
+/turf/floor/plating/airless,
 /area/space)
 "hq" = (
 /turf/wall/r_wall,

@@ -171,9 +171,7 @@
 /turf/floor/wood/walnut,
 /area/shaded_hills/forester_hut)
 "MU" = (
-/turf/wall/log/walnut/shutter{
-	shutter_state = 1
-	},
+/turf/wall/log/walnut/shutter/open,
 /area/shaded_hills/forester_hut)
 "Oi" = (
 /obj/structure/closet/crate/chest/ebony,
