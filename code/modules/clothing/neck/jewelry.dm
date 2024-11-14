@@ -18,6 +18,19 @@
 /obj/item/clothing/neck/necklace/prayer_beads/basalt
 	material = /decl/material/solid/stone/basalt
 
+/obj/item/clothing/neck/necklace/prayer_beads/random
+	var/list/random_materials = list(
+		/decl/material/solid/organic/bone,
+		/decl/material/solid/stone/marble,
+		/decl/material/solid/stone/basalt,
+		/decl/material/solid/organic/wood/mahogany,
+		/decl/material/solid/organic/wood/ebony
+	)
+
+/obj/item/clothing/neck/necklace/prayer_beads/random/Initialize()
+	material = pick(random_materials)
+	return ..()
+
 /obj/item/clothing/neck/necklace/locket
 	name = "locket"
 	desc = "A locket that seems to have space for a photo within."

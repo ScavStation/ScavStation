@@ -1,6 +1,7 @@
 #if !defined(USING_MAP_DATUM)
 
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
+	#include "../../mods/content/dungeon_loot/_dungeon_loot.dme"
 	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
 	#include "../../mods/species/drakes/_drakes.dme" // include before _fantasy.dme so overrides work
