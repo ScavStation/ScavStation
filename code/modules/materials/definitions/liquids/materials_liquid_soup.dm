@@ -105,7 +105,7 @@
 	nutriment_factor     = 10
 	glass_name           = "stew"
 	reagent_overlay_base = "reagent_base_chunky"
-	opacity              = 1
+	opacity              = 1.0
 
 /decl/material/liquid/nutriment/soup/chili
 	name                 = "chili"
@@ -117,7 +117,7 @@
 	glass_name           = "chili"
 	nutriment_factor     = 10
 	reagent_overlay_base = "reagent_base_chunky"
-	opacity              = 1
+	opacity              = 1.0
 
 /decl/material/liquid/nutriment/soup/curry
 	name                 = "curry"
@@ -128,7 +128,7 @@
 	reagent_overlay      = "soup_dumplings"
 	glass_name           = "curry"
 	nutriment_factor     = 10
-	opacity              = 1
+	opacity              = 1.0
 
 /decl/material/liquid/nutriment/soup/noodle
 	name                 = "noodle soup"
