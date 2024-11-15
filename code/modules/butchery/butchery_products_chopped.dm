@@ -6,14 +6,11 @@
 	nutriment_amt = 1
 	w_class       = ITEM_SIZE_TINY
 	filling_color = "#ff1c1c"
-
-/obj/item/food/butchery/chopped/Initialize(mapload, material_key, skip_plate = FALSE)
-	. = ..()
-	slice_path = null
-	slice_num = null
+	slice_path    = null
+	slice_num     = 0 // null means autoset, 0 means none
 
 /obj/item/food/butchery/chopped/set_meat_name(new_meat_name)
-	. = ..()
+	meat_name = new_meat_name
 	if(cooked_food == FOOD_RAW)
 		SetName("chopped raw [new_meat_name]")
 	else

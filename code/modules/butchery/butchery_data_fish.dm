@@ -56,3 +56,27 @@
 	bone_amount     = 30
 	skin_amount     = 30
 	butchery_offset = list(-16, 0)
+
+/decl/butchery_data/animal/fish/mollusc
+	meat_name     = "mollusc"
+	meat_type     = /obj/item/food/butchery/meat/fish/mollusc
+	bone_material = /decl/material/solid/organic/bone/cartilage
+	skin_material = /decl/material/solid/organic/skin // i have no clue what mollusc skin is like aside from 'slimy'
+
+/decl/butchery_data/animal/fish/mollusc/clam
+	meat_type     = /obj/item/food/butchery/meat/fish/mollusc/clam
+	bone_material = /decl/material/solid/organic/bone // no 'shell' material :(
+
+/decl/butchery_data/animal/fish/mollusc/barnacle
+	meat_type     = /obj/item/food/butchery/meat/fish/mollusc/barnacle
+	bone_material = /decl/material/solid/organic/bone // maybe we just need calcium carbonate or something... limestone?
+
+/decl/butchery_data/animal/fish/mollusc/octopus
+	meat_name     = "tako"
+	meat_type     = /obj/item/food/butchery/meat/fish/octopus
+	stomach_type  = /obj/item/food/butchery/stomach
+	gut_type      = /obj/item/food/butchery/offal
+	meat_amount   = 5
+	bone_amount   = 15
+	skin_amount   = 15
+	must_use_hook = TRUE

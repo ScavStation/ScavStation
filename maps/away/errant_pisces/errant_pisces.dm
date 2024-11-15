@@ -66,7 +66,7 @@
 
 /obj/item/food/butchery/meat/fish/shark
 	desc = "A fillet of cosmoshark meat."
-	meat_name = "cosmoshark"
+	butchery_data = /decl/butchery_data/animal/fish/space_carp/shark
 	color = "#cecece"
 	center_of_mass = @'{"x":17,"y":13}'
 	bitesize = 8

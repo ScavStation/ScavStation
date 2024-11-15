@@ -28,3 +28,12 @@
 	gut_amount    = null
 	gut_material  = null
 	gut_type      = null
+
+/decl/butchery_data/xeno
+	meat_name         = "xeno"
+	meat_type         = /obj/item/food/butchery/meat/xeno
+	meat_amount       = 10
+	skin_material     = /decl/material/solid/organic/skin/insect
+	skin_amount       = 25
+	bone_material     = /decl/material/solid/organic/bone/cartilage
+	bone_amount       = 15

@@ -24,5 +24,5 @@
 	material_alteration            = MAT_FLAG_ALTERATION_COLOR
 
 /obj/item/food/butchery/cutlet/raw/beef
-	meat_name                      = "beef"
+	butchery_data                  = /decl/butchery_data/animal/ruminant/cow
 	desc                           = "A thin piece of raw beef."
