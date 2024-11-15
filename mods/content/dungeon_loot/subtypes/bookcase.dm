@@ -48,7 +48,6 @@
 
 /obj/structure/loot_pile/bookcase/get_uncommon_loot()
 	var/static/list/uncommon_loot = list(
-		/obj/item/bone/skull,
 		/obj/item/chems/glass/inkwell,
 		/obj/item/clothing/glasses/prescription/pincenez,
 		/obj/item/chems/drinks/bottle/wine,
@@ -59,6 +58,7 @@
 
 /obj/structure/loot_pile/bookcase/get_rare_loot()
 	var/static/list/rare_loot = list(
+		/obj/item/bone/skull, // unlucky!
 		/obj/item/pen/fancy/quill/goose,
 		/obj/item/clothing/gloves/ring/seal/signet,
 		/obj/item/chems/drinks/bottle/champagne,
