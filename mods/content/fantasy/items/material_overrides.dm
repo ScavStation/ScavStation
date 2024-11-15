@@ -25,3 +25,14 @@
 /obj/item/chems/drinks/bottle/premiumwine/make_random_name()
 	var/decl/language/hnoll/hnoll_language = GET_DECL(/decl/language/hnoll)
 	return "bottle of vintage [hnoll_language.get_random_name(FEMALE, name_count = prob(20) ? 2 : 1)]"
+
+/obj/item/chems/drinks/bottle/wine
+	name = "bottle of red wine"
+	desc = "A bottle of locally-produced red wine."
+	var/place_of_origin
+
+/obj/item/chems/drinks/bottle/wine/Initialize()
+	. = ..()
+	var/decl/language/hnoll/hnoll_language = GET_DECL(/decl/language/hnoll)
+	place_of_origin = hnoll_language.get_random_name(FEMALE, name_count = prob(20) ? 2 : 1)
+	desc += " It has a label that reads '[place_of_origin]'."
