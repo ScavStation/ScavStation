@@ -65,3 +65,28 @@
 		/obj/item/chems/drinks/bottle/premiumwine,
 	)
 	return rare_loot
+
+/// This spawns either a normal bookcase (20%), a damaged normal bookcase (60%), or a lootable decaying bookcase (20%).
+/// There's also 20% chance to just spawn nothing.
+/obj/random/dungeon_bookcase
+	name = "random dungeon bookcase"
+	icon = 'icons/obj/structures/bookcase.dmi'
+	icon_state = "bookcase-random"
+	spawn_nothing_percentage = 20
+
+/obj/random/dungeon_bookcase/spawn_choices()
+	var/static/list/spawnable_choices = list(
+		/obj/structure/bookcase/ebony = 40,
+		/obj/structure/bookcase/fancy/ebony = 40,
+		/obj/structure/loot_pile/bookcase/ebony = 20
+	)
+	return spawnable_choices
+
+/obj/random/dungeon_bookcase/spawn_item()
+	. = ..()
+	for(var/obj/structure/bookcase/bookcase in .)
+		if(prob(25))
+			continue
+		var/bookcase_max_health = bookcase.get_max_health()
+		bookcase.take_damage(bookcase_max_health * rand(51, 70)/100)
+		bookcase.update_icon()
