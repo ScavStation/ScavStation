@@ -162,9 +162,9 @@
 	///Determines if edge turfs should be centered on the map dimensions.
 	var/origin_is_world_center = TRUE
 	/// If not null, this level will register with a daycycle id/type on New().
-	var/daycycle_id
+	var/daycycle_id = "general_solars"
 	/// Type provided to the above.
-	var/daycycle_type = /datum/daycycle/exoplanet
+	var/daycycle_type = /datum/daycycle/solars
 
 	/// Extra spacing needed between any random level templates and the transition edge of a level.
 	/// Note that this is more or less unnecessary if you are using a mapped area that doesn't stretch to the edge of the level.
@@ -701,8 +701,6 @@ INITIALIZE_IMMEDIATE(/obj/abstract/level_data_spawner)
 // Level Data Implementations
 ////////////////////////////////////////////
 /datum/level_data/space
-	daycycle_id = "space_solars"
-	daycycle_type = /datum/daycycle/solars
 
 /datum/level_data/debug
 	name = "Debug Level"
