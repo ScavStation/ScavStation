@@ -1049,6 +1049,12 @@
 "EV" = (
 /turf/floor/path/basalt,
 /area/shaded_hills/outside/downlands)
+"Ff" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 8
+	},
+/turf/floor/wood/walnut,
+/area/shaded_hills/shrine/kitchen)
 "FD" = (
 /obj/structure/reagent_dispensers/barrel/ebony,
 /obj/item/seeds/extracted/rice,
@@ -19625,7 +19631,7 @@ RG
 dx
 QW
 ge
-ge
+Ff
 ge
 QB
 CR
