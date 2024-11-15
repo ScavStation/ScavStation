@@ -1357,6 +1357,9 @@
 	pixel_x = 12;
 	pixel_y = 8
 	},
+/obj/item/hourglass{
+	pixel_y = 12
+	},
 /turf/floor/carpet,
 /area/shaded_hills/inn)
 "MT" = (
