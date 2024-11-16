@@ -2559,6 +2559,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/mob/living/exosuit/premade/light/exploration,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
 "dO" = (
@@ -12334,9 +12335,7 @@
 "tg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/creature/cult,
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/template_noop,
 /area/template_noop)
 "th" = (
@@ -25762,7 +25761,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/exosuit/premade/light/exploration,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
 "WG" = (
@@ -27786,7 +27784,7 @@ jT
 jm
 as
 jS
-cv
+Ai
 aa
 aa
 cv
@@ -28077,11 +28075,11 @@ WN
 lJ
 cv
 cv
-tg
+jS
 as
-Ai
+cv
 kN
-kN
+tg
 Mc
 cv
 cv
@@ -28294,7 +28292,7 @@ nO
 cv
 as
 cv
-mI
+aa
 cv
 XI
 yI
