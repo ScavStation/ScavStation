@@ -5,7 +5,7 @@
 	description = "A colony overrun by shards know who or what"
 	suffixes = list("hateville/hateville.dmm")
 	cost = 1
-	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_NO_RADS
+	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS
 	template_tags = TEMPLATE_TAG_HUMAN|TEMPLATE_TAG_HABITAT
 	apc_test_exempt_areas = list(
 		/area/map_template/hateville/mining = NO_SCRUBBER|NO_VENT,

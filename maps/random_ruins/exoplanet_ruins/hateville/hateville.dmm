@@ -16009,12 +16009,6 @@
 /obj/item/tank/emergency/oxygen/double,
 /turf/simulated/floor/tiled/steel_grid,
 /area/map_template/hateville/medical)
-"Ba" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/creature/cult,
-/turf/template_noop,
-/area/template_noop)
 "Bc" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/firealarm{
@@ -22300,13 +22294,6 @@
 	color = "#b9b99e"
 	},
 /area/map_template/hateville/foodcourt)
-"Pr" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/random/trash,
-/mob/living/simple_animal/hostile/creature/cult,
-/turf/template_noop,
-/area/template_noop)
 "Pu" = (
 /obj/effect/floor_decal/techfloor{
 	dir = 9
@@ -27663,7 +27650,7 @@ aa
 MK
 aa
 od
-Ba
+kN
 kN
 aa
 aa
@@ -27801,7 +27788,7 @@ as
 jS
 cv
 aa
-mI
+aa
 cv
 aa
 mI
@@ -27942,10 +27929,10 @@ TB
 qr
 jm
 od
-tg
+jS
 iX
 RL
-Gh
+cv
 yI
 kN
 Xl
@@ -28094,7 +28081,7 @@ tg
 as
 Ai
 kN
-Ba
+kN
 Mc
 cv
 cv
@@ -28104,10 +28091,10 @@ kN
 cv
 aa
 ET
-Ba
+kN
 od
 cv
-Pr
+as
 cv
 aa
 cv
@@ -28165,7 +28152,7 @@ Op
 Mc
 kN
 om
-Ba
+kN
 kN
 as
 kN
@@ -28232,7 +28219,7 @@ Xz
 HL
 ah
 BQ
-Gh
+cv
 kN
 od
 cv
@@ -28253,7 +28240,7 @@ cv
 cv
 iX
 Nz
-Ba
+kN
 kN
 cv
 kN
