@@ -2559,7 +2559,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/exosuit/premade/light/exploration,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
 "dO" = (
@@ -15126,6 +15125,12 @@
 	color = "#503177"
 	},
 /area/map_template/hateville/environment)
+"zq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/creature/cult,
+/turf/template_noop,
+/area/template_noop)
 "zs" = (
 /obj/machinery/atmospherics/omni/filter,
 /obj/structure/cable{
@@ -27722,7 +27727,7 @@ cv
 Fn
 as
 cv
-aa
+mI
 aa
 aa
 aa
@@ -27865,7 +27870,7 @@ kN
 od
 kN
 cv
-aa
+mI
 aa
 aa
 aa
@@ -28077,7 +28082,7 @@ cv
 cv
 jS
 as
-cv
+Gh
 kN
 tg
 Mc
@@ -28223,7 +28228,7 @@ od
 cv
 od
 kN
-kN
+zq
 kN
 om
 cv
