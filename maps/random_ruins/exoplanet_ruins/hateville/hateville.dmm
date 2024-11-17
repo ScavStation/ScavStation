@@ -12334,9 +12334,7 @@
 "tg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/creature/cult,
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/template_noop,
 /area/template_noop)
 "th" = (
@@ -15127,6 +15125,12 @@
 	color = "#503177"
 	},
 /area/map_template/hateville/environment)
+"zq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/creature/cult,
+/turf/template_noop,
+/area/template_noop)
 "zs" = (
 /obj/machinery/atmospherics/omni/filter,
 /obj/structure/cable{
@@ -16009,12 +16013,6 @@
 /obj/item/tank/emergency/oxygen/double,
 /turf/simulated/floor/tiled/steel_grid,
 /area/map_template/hateville/medical)
-"Ba" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/creature/cult,
-/turf/template_noop,
-/area/template_noop)
 "Bc" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/firealarm{
@@ -22300,13 +22298,6 @@
 	color = "#b9b99e"
 	},
 /area/map_template/hateville/foodcourt)
-"Pr" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/random/trash,
-/mob/living/simple_animal/hostile/creature/cult,
-/turf/template_noop,
-/area/template_noop)
 "Pu" = (
 /obj/effect/floor_decal/techfloor{
 	dir = 9
@@ -25775,7 +25766,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/exosuit/premade/light/exploration,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
 "WG" = (
@@ -27663,7 +27653,7 @@ aa
 MK
 aa
 od
-Ba
+kN
 kN
 aa
 aa
@@ -27737,7 +27727,7 @@ cv
 Fn
 as
 cv
-aa
+mI
 aa
 aa
 aa
@@ -27799,9 +27789,9 @@ jT
 jm
 as
 jS
-cv
+Ai
 aa
-mI
+aa
 cv
 aa
 mI
@@ -27880,7 +27870,7 @@ kN
 od
 kN
 cv
-aa
+mI
 aa
 aa
 aa
@@ -27942,10 +27932,10 @@ TB
 qr
 jm
 od
-tg
+jS
 iX
 RL
-Gh
+cv
 yI
 kN
 Xl
@@ -28090,11 +28080,11 @@ WN
 lJ
 cv
 cv
-tg
+jS
 as
-Ai
+Gh
 kN
-Ba
+tg
 Mc
 cv
 cv
@@ -28104,10 +28094,10 @@ kN
 cv
 aa
 ET
-Ba
+kN
 od
 cv
-Pr
+as
 cv
 aa
 cv
@@ -28165,7 +28155,7 @@ Op
 Mc
 kN
 om
-Ba
+kN
 kN
 as
 kN
@@ -28232,13 +28222,13 @@ Xz
 HL
 ah
 BQ
-Gh
+cv
 kN
 od
 cv
 od
 kN
-kN
+zq
 kN
 om
 cv
@@ -28253,7 +28243,7 @@ cv
 cv
 iX
 Nz
-Ba
+kN
 kN
 cv
 kN
@@ -28307,7 +28297,7 @@ nO
 cv
 as
 cv
-mI
+aa
 cv
 XI
 yI
