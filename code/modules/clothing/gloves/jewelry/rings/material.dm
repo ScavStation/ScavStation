@@ -1,38 +1,10 @@
 /////////////////////////////////////////
 //Material Rings
-// TODO: Merge this into /obj/item/clothing/gloves/ring?
+//TODO: Repath to /obj/item/clothing/gloves/ring/crafted?
+//Also, maybe move can_inscribe = TRUE down to the base ring?
 /obj/item/clothing/gloves/ring/material
 	material_alteration = MAT_FLAG_ALTERATION_ALL
-
-/obj/item/clothing/gloves/ring/material/set_material(var/new_material)
-	. = ..()
-	if(istype(material) && (material_alteration & MAT_FLAG_ALTERATION_DESC))
-		desc = "A ring made from [material.solid_name]."
-
-/obj/item/clothing/gloves/ring/material/attackby(var/obj/item/S, var/mob/user)
-	if(S.sharp)
-		var/inscription = sanitize(input("Enter an inscription to engrave.", "Inscription") as null|text)
-		if(user.stat || !user.incapacitated() || !user.Adjacent(src) || S.loc != user)
-			return TRUE
-		if(!inscription)
-			return TRUE
-		desc = "A ring made from [material.solid_name]."
-		to_chat(user, "<span class='warning'>You carve \"[inscription]\" into \the [src].</span>")
-		desc += "<br>Written on \the [src] is the inscription \"[inscription]\""
-		return TRUE
-	return ..()
-
-/obj/item/clothing/gloves/ring/material/OnTopic(var/mob/user, var/list/href_list)
-	if(href_list["examine"])
-		if(istype(user))
-			var/mob/living/human/H = get_recursive_loc_of_type(/mob/living/human)
-			if(H.Adjacent(user))
-				user.examinate(src)
-				return TOPIC_HANDLED
-
-/obj/item/clothing/gloves/ring/material/get_examine_line()
-	. = ..()
-	. += " <a href='byond://?src=\ref[src];examine=1'>\[View\]</a>"
+	can_inscribe = TRUE
 
 /obj/item/clothing/gloves/ring/material/wood
 	material = /decl/material/solid/organic/wood/walnut

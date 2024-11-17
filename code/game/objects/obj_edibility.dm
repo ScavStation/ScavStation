@@ -133,7 +133,7 @@
 		show_food_no_mouth_message(user, target)
 		return EATEN_UNABLE
 
-	if(!target.can_eat_food_currently(src, user))
+	if(!target.can_eat_food_currently(src, user, consumption_method))
 		return EATEN_UNABLE
 
 	var/blocked = target.check_mouth_coverage()

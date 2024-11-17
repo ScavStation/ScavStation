@@ -1048,6 +1048,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		if(length(tastes))
 			LAZYSET(., DATA_TASTE, tastes)
 
+	// Blend our extra_colour...
+	var/new_extra_color = newdata?[DATA_EXTRA_COLOR]
+	if(new_extra_color)
+		.[DATA_EXTRA_COLOR] = BlendRGBasHSV(new_extra_color, .[DATA_EXTRA_COLOR], new_fraction)
+
 /decl/material/proc/explosion_act(obj/item/chems/holder, severity)
 	SHOULD_CALL_PARENT(TRUE)
 	. = TRUE
@@ -1165,6 +1170,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 			if(data_color)
 				return data_color
 	return color
+
+/decl/material/proc/get_reagent_overlay_color(datum/reagents/holder)
+	var/list/rdata = REAGENT_DATA(holder, type)
+	return LAZYACCESS(rdata, DATA_EXTRA_COLOR) || get_reagent_color(holder) + num2hex(opacity * 255)
 
 /decl/material/proc/can_hold_sharpness()
 	return hardness > MAT_VALUE_FLEXIBLE

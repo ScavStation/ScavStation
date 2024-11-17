@@ -61,6 +61,10 @@
 /obj/item/ancient_surgery/bonesaw,
 /turf/floor/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
+"fF" = (
+/obj/random/dungeon_bookcase,
+/turf/floor/rock/basalt,
+/area/shaded_hills/caves/dungeon/poi)
 "fW" = (
 /obj/structure/bed/chair/bench/ebony{
 	dir = 8
@@ -532,7 +536,7 @@
 /turf/floor/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Ky" = (
-/obj/structure/bookcase/ebony,
+/obj/random/dungeon_bookcase,
 /turf/floor/path/running_bond/basalt,
 /area/shaded_hills/caves/dungeon/poi)
 "Kz" = (
@@ -18051,7 +18055,7 @@ Ky
 Ky
 bD
 bD
-Ua
+fF
 Ky
 bD
 bD
@@ -18200,11 +18204,11 @@ Ky
 bD
 Ua
 Ky
+Ky
 bD
 bD
-bD
-Ua
-Ua
+fF
+fF
 bD
 ok
 bD
@@ -18351,12 +18355,12 @@ Ky
 Ky
 bD
 Ua
-Ua
-bD
+fF
+Ky
 bD
 Ua
 hU
-Ua
+fF
 bD
 bD
 bD
@@ -18503,12 +18507,12 @@ Ky
 Ky
 Ua
 bD
-bD
+Ky
 hU
 Ua
 bD
 hU
-Ua
+fF
 Ua
 bD
 bD
