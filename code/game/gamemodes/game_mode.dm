@@ -543,7 +543,7 @@ var/global/list/additional_antag_types = list()
 				continue //Admin paralyzed
 			if(L.stat)
 				if(L.stat == UNCONSCIOUS)
-					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dying)\n"
+					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Unconscious)\n"
 					continue //Unconscious
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([L.ckey]), the [L.job] (Dead)\n"
