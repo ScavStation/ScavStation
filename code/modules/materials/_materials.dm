@@ -941,54 +941,54 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 			subject.adjust_hydration(effective_power)
 
 // Slightly different to other reagent processing - return TRUE to consume the removed amount, FALSE not to consume.
-/decl/material/proc/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
+/decl/material/proc/affect_touch(var/mob/living/victim, var/removed, var/datum/reagents/holder)
 
 	SHOULD_CALL_PARENT(TRUE)
 
-	if(!istype(M))
+	if(!istype(victim))
 		return FALSE
 
 	if(radioactivity)
-		M.apply_damage((radioactivity / 2) * removed, IRRADIATE)
+		victim.apply_damage((radioactivity / 2) * removed, IRRADIATE)
 		. = TRUE
 
 	if(dirtiness <= DIRTINESS_STERILE)
-		if(M.germ_level < INFECTION_LEVEL_TWO) // rest and antibiotics is required to cure serious infections
-			M.germ_level -= min(removed*20, M.germ_level)
-		for(var/obj/item/I in M.contents)
+		if(victim.germ_level < INFECTION_LEVEL_TWO) // rest and antibiotics is required to cure serious infections
+			victim.germ_level -= min(removed*20, victim.germ_level)
+		for(var/obj/item/I in victim.contents)
 			I.was_bloodied = null
-		M.was_bloodied = null
+		victim.was_bloodied = null
 		. = TRUE
 
 	// TODO: clean should add the gross reagents washed off to a holder to dump on the loc.
 	if(dirtiness <= DIRTINESS_CLEAN)
-		for(var/obj/item/thing in M.get_held_items())
+		for(var/obj/item/thing in victim.get_held_items())
 			thing.clean()
-		var/obj/item/mask = M.get_equipped_item(slot_wear_mask_str)
+		var/obj/item/mask = victim.get_equipped_item(slot_wear_mask_str)
 		if(mask)
 			mask.clean()
-		if(ishuman(M))
-			var/mob/living/human/H = M
-			var/obj/item/head = H.get_equipped_item(slot_head_str)
+		if(ishuman(victim))
+			var/mob/living/human/human_victim = victim
+			var/obj/item/head = human_victim.get_equipped_item(slot_head_str)
 			if(head)
 				head.clean()
-			var/obj/item/suit = H.get_equipped_item(slot_wear_suit_str)
+			var/obj/item/suit = human_victim.get_equipped_item(slot_wear_suit_str)
 			if(suit)
 				suit.clean()
 			else
-				var/obj/item/uniform = H.get_equipped_item(slot_w_uniform_str)
+				var/obj/item/uniform = human_victim.get_equipped_item(slot_w_uniform_str)
 				if(uniform)
 					uniform.clean()
 
-			var/obj/item/shoes = H.get_equipped_item(slot_shoes_str)
+			var/obj/item/shoes = human_victim.get_equipped_item(slot_shoes_str)
 			if(shoes)
 				shoes.clean()
 			else
-				H.clean()
-				return
-		M.clean()
+				human_victim.clean()
+		else
+			victim.clean()
 
-	if(solvent_power > MAT_SOLVENT_NONE && removed >= solvent_melt_dose && M.solvent_act(min(removed * solvent_power * ((removed < solvent_melt_dose) ? 0.1 : 0.2), solvent_max_damage), solvent_melt_dose, solvent_power))
+	if(solvent_power > MAT_SOLVENT_NONE && removed >= solvent_melt_dose && victim.solvent_act(min(removed * solvent_power * ((removed < solvent_melt_dose) ? 0.1 : 0.2), solvent_max_damage), solvent_melt_dose, solvent_power))
 		holder.remove_reagent(type, REAGENT_VOLUME(holder, type))
 		. = TRUE
 
