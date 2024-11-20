@@ -113,19 +113,19 @@
 	hazard_low_pressure = -1
 
 	available_background_info = list(
-		TAG_CULTURE =   list(
+		/decl/background_category/heritage =  list(
 			/decl/background_detail/heritage/indrel,
 			/decl/background_detail/heritage/other
 		),
-		TAG_HOMEWORLD = list(
+		/decl/background_category/homeworld = list(
 			/decl/background_detail/location/tradehousespace,
 			/decl/background_detail/location/stateless
 		),
-		TAG_FACTION =   list(
+		/decl/background_category/faction =   list(
 			/decl/background_detail/faction/indrel,
 			/decl/background_detail/faction/other
 		),
-		TAG_RELIGION =  list(
+		/decl/background_category/religion =  list(
 			/decl/background_detail/religion/other
 		)
 	)

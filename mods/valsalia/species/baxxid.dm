@@ -92,20 +92,20 @@
 	spawn_flags = SPECIES_CAN_JOIN
 
 	available_background_info = list(
-		TAG_CULTURE =   list(
+		/decl/background_category/heritage =  list(
 			/decl/background_detail/heritage/baxxid,
 			/decl/background_detail/heritage/other
 		),
-		TAG_HOMEWORLD = list(
+		/decl/background_category/homeworld = list(
 			/decl/background_detail/location/tradehousespace,
 			/decl/background_detail/location/stateless
 		),
-		TAG_FACTION =   list(
+		/decl/background_category/faction =   list(
 			/decl/background_detail/faction/baxxid,
 			/decl/background_detail/faction/tradehouse_baxxid,
 			/decl/background_detail/faction/other
 		),
-		TAG_RELIGION =  list(
+		/decl/background_category/religion =  list(
 			/decl/background_detail/religion/other
 		)
 	)
