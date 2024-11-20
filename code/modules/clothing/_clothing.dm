@@ -39,6 +39,9 @@
 	var/markings_color	// for things like colored parts of labcoats or shoes
 	var/should_display_id = TRUE
 	var/fallback_slot
+	// Used to track our icon, or custom icon, for resetting when accessories are added/removed
+	var/base_clothing_icon
+	var/base_clothing_state
 
 /obj/item/clothing/get_equipment_tint()
 	return tint
@@ -213,16 +216,23 @@
 	var/set_appearance = FALSE
 	if(length(accessories))
 		var/image/I = get_mob_overlay(ismob(loc) ? loc : null, get_fallback_slot())
-		if(I)
+		if(I?.icon) // Null or invisible overlay, we don't want to make our clothing invisible just because it has an accessory.
 			I.plane = plane
 			I.layer = layer
-			I.alpha = alpha
 			I.color = color
-			I.name = name
+			I.alpha = alpha
+			I.name  = name
 			appearance = I
 			set_dir(SOUTH)
 			set_appearance = TRUE
+
 	if(!set_appearance)
+		if(!base_clothing_icon)
+			base_clothing_icon = initial(icon)
+		set_icon(base_clothing_icon)
+		if(!base_clothing_state)
+			base_clothing_state = initial(icon_state)
+		set_icon_state(base_clothing_state)
 		icon_state = JOINTEXT(list(get_world_inventory_state(), get_clothing_state_modifier()))
 		if(markings_state_modifier && markings_color)
 			add_overlay(mutable_appearance(icon, "[icon_state][markings_state_modifier]", markings_color))
