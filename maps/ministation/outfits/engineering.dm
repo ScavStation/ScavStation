@@ -24,6 +24,7 @@
 
 /decl/outfit/job/ministation/chief_engineer
 	name = "Job - Head Engineer"
+	head = /obj/item/clothing/head/hardhat/white
 	uniform = /obj/item/clothing/jumpsuit/yinglet/hazard
 	glasses = /obj/item/clothing/glasses/welding/superior
 	suit = /obj/item/clothing/suit/hazardvest
@@ -31,6 +32,7 @@
 	shoes = /obj/item/clothing/shoes/workboots
 	pda_type = /obj/item/modular_computer/pda/heads/ce
 	hands = list(/obj/item/wrench)
+	r_pocket = /obj/item/t_scanner
 	belt = /obj/item/belt/utility/full
 	id_type = /obj/item/card/id/ministation/engineering
 	l_ear = /obj/item/radio/headset/heads/ce
