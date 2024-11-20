@@ -381,7 +381,6 @@ var/global/list/time_prefs_fixed = list()
 	character.set_gender(gender)
 	character.blood_type = blood_type
 
-
 	character.set_skin_colour(skin_colour, skip_update = TRUE)
 	character.skin_tone = skin_tone
 

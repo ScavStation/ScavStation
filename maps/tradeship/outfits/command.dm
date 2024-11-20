@@ -7,9 +7,9 @@
 	id_type = /obj/item/card/id/gold
 	l_ear = /obj/item/radio/headset/heads/captain
 
-/decl/outfit/job/tradeship/captain/post_equip(var/mob/living/human/H)
+/decl/outfit/job/tradeship/captain/post_equip(var/mob/living/wearer)
 	..()
-	var/obj/item/clothing/uniform = H.get_equipped_item(slot_w_uniform_str)
+	var/obj/item/clothing/uniform = wearer.get_equipped_item(slot_w_uniform_str)
 	if(uniform)
 		var/obj/item/clothing/shirt/hawaii/random/eyegore = new()
 		if(uniform.can_attach_accessory(eyegore))

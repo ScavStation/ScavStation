@@ -13,7 +13,6 @@
 	/// multiplies melee combat damage
 	var/damage_multiplier = 1
 	var/list/worn_underwear = list()
-	var/datum/backpack_setup/backpack_setup
 	var/list/background_info = list()
 	var/obj/screen/default_attack_selector/attack_selector
 	var/icon/stand_icon = null

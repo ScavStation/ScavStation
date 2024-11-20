@@ -98,3 +98,6 @@
 
 	/// Timer for chewing off your hand when cuffed.
 	var/next_restraint_chew = 0
+
+	/// Used by equip code to determine backpack overrides.
+	var/datum/backpack_setup/backpack_setup
