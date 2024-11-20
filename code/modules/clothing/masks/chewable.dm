@@ -137,10 +137,11 @@
 /obj/item/clothing/mask/chewable/candy/proc/get_possible_initial_reagents()
 	return
 
-/obj/item/clothing/mask/chewable/candy/initialize_reagents(populate)
+/obj/item/clothing/mask/chewable/candy/initialize_reagents()
 	. = ..()
-	color = reagents.get_color()
-	desc += " This one is labeled '[reagents.get_primary_reagent_name()]'."
+	if(reagents?.total_volume)
+		set_color(reagents.get_color())
+		desc += " This one is labeled '[reagents.get_primary_reagent_name()]'."
 
 /obj/item/trash/cigbutt/spitgum
 	name = "old gum"
