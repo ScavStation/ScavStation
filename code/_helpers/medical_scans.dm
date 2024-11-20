@@ -1,72 +1,66 @@
-/mob/living/human/proc/get_raw_medical_data(var/tag = FALSE)
-	var/mob/living/human/H = src
-	var/list/scan = list()
-
-	scan["name"] = H.name
-	scan["time"] = stationtime2text()
+/mob/living/proc/get_raw_medical_data(var/tag = FALSE)
+	. = list()
+	.["name"] = name
+	.["time"] = stationtime2text()
 	var/brain_result
-	if(H.should_have_organ(BP_BRAIN))
-		var/obj/item/organ/internal/brain = GET_INTERNAL_ORGAN(H, BP_BRAIN)
-		if(!brain || H.stat == DEAD || (H.status_flags & FAKEDEATH))
+	if(should_have_organ(BP_BRAIN))
+		var/obj/item/organ/internal/brain = GET_INTERNAL_ORGAN(src, BP_BRAIN)
+		if(!brain || stat == DEAD || (status_flags & FAKEDEATH))
 			brain_result = 0
-		else if(H.stat != DEAD)
+		else if(stat != DEAD)
 			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
 	else
 		brain_result = -1
-	scan["brain_activity"] = brain_result
+	.["brain_activity"] = brain_result
 
 	var/pulse_result
-	if(H.should_have_organ(BP_HEART))
-		var/obj/item/organ/internal/heart/heart = H.get_organ(BP_HEART, /obj/item/organ/internal/heart)
+	if(should_have_organ(BP_HEART))
+		var/obj/item/organ/internal/heart/heart = get_organ(BP_HEART, /obj/item/organ/internal/heart)
 		if(!heart)
 			pulse_result = 0
 		else if(BP_IS_PROSTHETIC(heart))
 			pulse_result = -2
-		else if(H.status_flags & FAKEDEATH)
+		else if(status_flags & FAKEDEATH)
 			pulse_result = 0
 		else
-			pulse_result = H.get_pulse_as_string(GETPULSE_TOOL)
+			pulse_result = get_pulse_as_string(GETPULSE_TOOL)
 	else
 		pulse_result = -1
 
 	if(pulse_result == ">250")
 		pulse_result = -3
-	scan["pulse"] = text2num(pulse_result)
+	.["pulse"] = text2num(pulse_result)
 
-	scan["blood_pressure"] =   H.get_blood_pressure()
-	scan["blood_o2"] =         H.get_blood_oxygenation()
-	scan["blood_volume"] =     H.vessel.total_volume
-	scan["blood_volume_max"] = H.vessel.maximum_volume
-	scan["temperature"] =      H.bodytemperature
-	scan["trauma"] =           H.get_damage(BRUTE)
-	scan["burn"] =             H.get_damage(BURN)
-	scan["toxin"] =            H.get_damage(TOX)
-	scan["oxygen"] =           H.get_damage(OXY)
-	scan["radiation"] =        H.radiation
-	scan["genetic"] =          H.get_damage(CLONE)
-	scan["paralysis"] =        GET_STATUS(H, STAT_PARA)
-	scan["immune_system"] =    H.get_immunity()
-	scan["reagents"] = list()
+	.["temperature"] =      bodytemperature
+	.["trauma"] =           get_damage(BRUTE)
+	.["burn"] =             get_damage(BURN)
+	.["toxin"] =            get_damage(TOX)
+	.["oxygen"] =           get_damage(OXY)
+	.["radiation"] =        radiation
+	.["genetic"] =          get_damage(CLONE)
+	.["paralysis"] =        GET_STATUS(src, STAT_PARA)
+	.["immune_system"] =    get_immunity()
+	.["reagents"] = list()
 
-	if(H.reagents?.total_volume)
-		for(var/liquid_type in H.reagents.liquid_volumes)
+	if(reagents?.total_volume)
+		for(var/liquid_type in reagents.liquid_volumes)
 			var/decl/material/R = GET_DECL(liquid_type)
 			var/list/reagent  = list()
-			reagent["name"]= R.get_reagent_name(H.reagents, MAT_PHASE_LIQUID)
-			reagent["quantity"] = round(REAGENT_VOLUME(H.reagents, R.type),1)
+			reagent["name"]= R.get_reagent_name(reagents, MAT_PHASE_LIQUID)
+			reagent["quantity"] = round(REAGENT_VOLUME(reagents, R.type),1)
 			reagent["scannable"] = R.scannable
-			scan["reagents"] += list(reagent)
+			.["reagents"] += list(reagent)
 
-		for(var/solid_type in H.reagents.solid_volumes)
+		for(var/solid_type in reagents.solid_volumes)
 			var/decl/material/R = GET_DECL(solid_type)
 			var/list/reagent  = list()
-			reagent["name"]= R.get_reagent_name(H.reagents, MAT_PHASE_SOLID)
-			reagent["quantity"] = round(REAGENT_VOLUME(H.reagents, R.type),1)
+			reagent["name"]= R.get_reagent_name(reagents, MAT_PHASE_SOLID)
+			reagent["quantity"] = round(REAGENT_VOLUME(reagents, R.type),1)
 			reagent["scannable"] = R.scannable
-			scan["reagents"] += list(reagent)
+			.["reagents"] += list(reagent)
 
-	scan["external_organs"] = list()
-	for(var/obj/item/organ/external/E in H.get_external_organs())
+	.["external_organs"] = list()
+	for(var/obj/item/organ/external/E in get_external_organs())
 		var/list/O =               list()
 		O["name"] =                E.name
 		O["brute_ratio"] =         E.brute_ratio
@@ -77,10 +71,10 @@
 		O["scan_results"] =        E.get_scan_results(tag)
 		O["tumors"] =              E.has_growths()
 		O["ailments"] =            E.has_diagnosable_ailments(scanner = TRUE)
-		scan["external_organs"] += list(O)
+		.["external_organs"] += list(O)
 
-	scan["internal_organs"] = list()
-	var/list/internal_organs = H.get_internal_organs()
+	.["internal_organs"] = list()
+	var/list/internal_organs = get_internal_organs()
 	for(var/obj/item/organ/internal/I in internal_organs)
 		var/list/O =               list()
 		O["name"] =                I.name
@@ -89,18 +83,25 @@
 		O["is_damaged"] =          I.damage > 0
 		O["scan_results"] =        I.get_scan_results(tag)
 		O["ailments"] =            I.has_diagnosable_ailments(scanner = TRUE)
-		scan["internal_organs"] += list(O)
+		.["internal_organs"] += list(O)
 
-	scan["missing_organs"] = list()
+	.["missing_organs"] = list()
 	var/decl/bodytype/root_bodytype = get_bodytype()
 	for(var/organ_name in root_bodytype.has_organ)
-		if(!GET_INTERNAL_ORGAN(H, organ_name))
-			scan["missing_organs"] += organ_name
-	if(H.has_genetic_condition(GENE_COND_BLINDED))
-		scan["blind"] = TRUE
-	if(H.has_genetic_condition(GENE_COND_NEARSIGHTED))
-		scan["nearsight"] = TRUE
-	return scan
+		if(!GET_INTERNAL_ORGAN(src, organ_name))
+			.["missing_organs"] += organ_name
+	if(has_genetic_condition(GENE_COND_BLINDED))
+		.["blind"] = TRUE
+	if(has_genetic_condition(GENE_COND_NEARSIGHTED))
+		.["nearsight"] = TRUE
+
+/mob/living/human/get_raw_medical_data(var/tag = FALSE)
+	. = ..()
+	.["blood_pressure"] =   get_blood_pressure()
+	.["blood_o2"] =         get_blood_oxygenation()
+	if(vessel)
+		.["blood_volume"] =     vessel.total_volume
+		.["blood_volume_max"] = vessel.maximum_volume
 
 /proc/display_medical_data_header(var/list/scan, skill_level = SKILL_DEFAULT)
 	//In case of problems, abort.
