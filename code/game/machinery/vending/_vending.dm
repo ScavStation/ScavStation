@@ -143,6 +143,10 @@
 		to_chat(user, "You short out the product lock on \the [src].")
 		return 1
 
+/obj/machinery/vending/receive_mouse_drop(atom/dropping, mob/user, params)
+	if(!(. = ..()) && isitem(dropping) && istype(user) && user.a_intent == I_HELP && CanPhysicallyInteract(user))
+		return attempt_to_stock(dropping, user)
+
 /obj/machinery/vending/attackby(obj/item/W, mob/user)
 
 	var/obj/item/charge_stick/CS = W.GetChargeStick()
@@ -173,14 +177,18 @@
 	if (istype(W, /obj/item/cash))
 		attack_hand_with_interaction_checks(user)
 		return TRUE
+
 	if(IS_MULTITOOL(W) || IS_WIRECUTTER(W))
 		if(panel_open)
 			attack_hand_with_interaction_checks(user)
 			return TRUE
-	if((user.a_intent == I_HELP) && attempt_to_stock(W, user))
-		return TRUE
+
 	if((. = component_attackby(W, user)))
 		return
+
+	if((user.a_intent == I_HELP) && attempt_to_stock(W, user))
+		return TRUE
+
 	if((obj_flags & OBJ_FLAG_ANCHORABLE) && (IS_WRENCH(W) || IS_HAMMER(W)))
 		wrench_floor_bolts(user, null, W)
 		power_change()
