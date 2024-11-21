@@ -66,16 +66,16 @@
 	randomize_clothing()
 	. = ..()
 
-/decl/outfit/raider/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/outfit/raider/equip_outfit(mob/living/wearer, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	randomize_clothing()
 	. = ..()
-	if(. && H)
-		if(!H.get_equipped_item(slot_shoes_str))
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H), slot_shoes_str)
+	if(. && wearer)
+		if(!wearer.get_equipped_item(slot_shoes_str))
+			wearer.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(wearer), slot_shoes_str)
 
 		var/new_gun = pick(raider_guns)
 		var/new_holster = pick(raider_holster) //raiders don't start with any backpacks, so let's be nice and give them a holster if they can use it.
-		var/turf/T = get_turf(H)
+		var/turf/T = get_turf(wearer)
 
 		var/obj/item/primary = new new_gun(T)
 		var/obj/item/clothing/webbing/holster/holster = null
@@ -89,38 +89,38 @@
 				holster_extension.holstered = secondary
 				secondary.forceMove(holster)
 			else
-				H.equip_to_slot_or_del(secondary, slot_belt_str)
+				wearer.equip_to_slot_or_del(secondary, slot_belt_str)
 
 		if(primary.slot_flags & SLOT_HOLSTER)
 			holster = new new_holster(T)
 			var/datum/extension/holster/holster_extension = get_extension(holster, /datum/extension/holster)
 			holster_extension.holstered = primary
 			primary.forceMove(holster)
-		else if(!H.get_equipped_item(slot_belt_str) && (primary.slot_flags & SLOT_LOWER_BODY))
-			H.equip_to_slot_or_del(primary, slot_belt_str)
-		else if(!H.get_equipped_item(slot_back_str) && (primary.slot_flags & SLOT_BACK))
-			H.equip_to_slot_or_del(primary, slot_back_str)
+		else if(!wearer.get_equipped_item(slot_belt_str) && (primary.slot_flags & SLOT_LOWER_BODY))
+			wearer.equip_to_slot_or_del(primary, slot_belt_str)
+		else if(!wearer.get_equipped_item(slot_back_str) && (primary.slot_flags & SLOT_BACK))
+			wearer.equip_to_slot_or_del(primary, slot_back_str)
 		else
-			H.put_in_hands(primary)
+			wearer.put_in_hands(primary)
 
 		if(istype(primary, /obj/item/gun/projectile))
 			var/obj/item/gun/projectile/bullet_thrower = primary
 			if(bullet_thrower.magazine_type)
-				H.equip_to_slot_or_del(new bullet_thrower.magazine_type(H), slot_l_store_str)
+				wearer.equip_to_slot_or_del(new bullet_thrower.magazine_type(wearer), slot_l_store_str)
 				if(prob(20)) //don't want to give them too much
-					H.equip_to_slot_or_del(new bullet_thrower.magazine_type(H), slot_r_store_str)
+					wearer.equip_to_slot_or_del(new bullet_thrower.magazine_type(wearer), slot_r_store_str)
 			else if(bullet_thrower.ammo_type)
-				var/obj/item/box/ammobox = new(get_turf(H.loc))
+				var/obj/item/box/ammobox = new(get_turf(wearer.loc))
 				for(var/i in 1 to rand(3,5) + rand(0,2))
 					new bullet_thrower.ammo_type(ammobox)
-				H.put_in_hands(ammobox)
+				wearer.put_in_hands(ammobox)
 
 		if(holster)
-			var/obj/item/clothing/uniform = H.get_equipped_item(slot_w_uniform_str)
+			var/obj/item/clothing/uniform = wearer.get_equipped_item(slot_w_uniform_str)
 			if(istype(uniform) && uniform.can_attach_accessory(holster))
-				uniform.attackby(holster, H)
+				uniform.attackby(holster, wearer)
 			else
-				H.put_in_hands(holster)
+				wearer.put_in_hands(holster)
 
 /decl/outfit/raider/proc/randomize_clothing()
 	shoes =   pick(raider_shoes)

@@ -123,20 +123,21 @@
 	return initial(color)
 
 /obj/item/set_color(new_color)
-
 	if(new_color == COLOR_WHITE)
 		new_color = null
-
 	if(paint_color != new_color)
 		paint_color = new_color
 		. = TRUE
+		refresh_color()
 
+/obj/item/refresh_color()
 	if(paint_color)
 		color = paint_color
 	else if(material && (material_alteration & MAT_FLAG_ALTERATION_COLOR))
 		color = material.color
 	else
-		color = new_color
+		color = null
+
 
 /obj/item/proc/can_contaminate()
 	return !(obj_flags & ITEM_FLAG_NO_CONTAMINATION)
@@ -964,6 +965,11 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 		icon = citem.item_icon
 	if(citem.item_state)
 		set_icon_state(citem.item_state)
+
+/obj/item/clothing/inherit_custom_item_data(var/datum/custom_item/citem)
+	. = ..()
+	base_clothing_icon  = icon
+	base_clothing_state = icon_state
 
 /obj/item/proc/is_special_cutting_tool(var/high_power)
 	return FALSE
