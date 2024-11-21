@@ -99,25 +99,24 @@
 		post_equip(wearer)
 
 	if(outfit_flags & OUTFIT_HAS_VITALS_SENSOR)
+		world << "trying to equip sensor on [wearer]"
 		try_equip_vitals_sensor(wearer)
 
 	return 1
 
 /decl/outfit/proc/try_equip_vitals_sensor(mob/living/wearer)
-	var/obj/item/clothing/sensor/vitals/sensor
+	// Find an appropriate slot for the sensor.
+	var/obj/item/clothing/sensor/vitals/sensor = new
 	for(var/check_slot in global.vitals_sensor_equip_slots)
 		if(!wearer.get_inventory_slot_datum(check_slot))
 			continue
-		if(!sensor) // only create the sensor if we have at least one eligible slot
-			sensor = new(get_turf(wearer))
 		var/obj/item/clothing/equipped = wearer.get_equipped_item(check_slot)
 		if(istype(equipped) && !(locate(/obj/item/clothing/sensor/vitals) in equipped.accessories) && equipped.can_attach_accessory(sensor))
 			equipped.attach_accessory(null, sensor)
 			break
-	if(isturf(sensor?.loc))
-		wearer.put_in_hands(sensor)
-	else
-		qdel(sensor)
+	// As a fallback dump the sensor into hands or storage.
+	if(!istype(sensor.loc, /obj/item/clothing))
+		wearer.put_in_hands_or_store_or_drop(sensor)
 
 /decl/outfit/proc/equip_base(mob/living/wearer, var/equip_adjustments)
 	set waitfor = FALSE
