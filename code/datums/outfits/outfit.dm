@@ -99,7 +99,6 @@
 		post_equip(wearer)
 
 	if(outfit_flags & OUTFIT_HAS_VITALS_SENSOR)
-		world << "trying to equip sensor on [wearer]"
 		try_equip_vitals_sensor(wearer)
 
 	return 1
