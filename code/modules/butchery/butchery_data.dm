@@ -35,13 +35,13 @@
 	if(donor && product_loc)
 		blood_splatter(product_loc, donor, large = TRUE)
 	if(ispath(product_type, /obj/item/stack))
-		LAZYADD(., new product_type(product_loc, product_amount, product_material, donor))
+		LAZYADD(., new product_type(product_loc, product_amount, product_material, donor?.butchery_data, donor?.get_butchery_product_name()))
 	else if(ispath(product_type, /obj/item/food))
 		for(var/i = 1 to product_amount)
-			LAZYADD(., new product_type(product_loc, product_material, TRUE, donor))
+			LAZYADD(., new product_type(product_loc, product_material, TRUE, donor?.butchery_data, donor?.get_butchery_product_name()))
 	else
 		for(var/i = 1 to product_amount)
-			LAZYADD(., new product_type(product_loc, product_material, donor))
+			LAZYADD(., new product_type(product_loc, product_material, donor?.butchery_data, donor?.get_butchery_product_name()))
 
 /decl/butchery_data/proc/harvest_skin(mob/living/donor)
 	. = place_products(donor, skin_material, skin_amount, skin_type)

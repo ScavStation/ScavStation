@@ -43,44 +43,42 @@
 
 /obj/item/food/butchery/meat/beef
 	desc = "The classic red meat."
-	meat_name = "beef"
+	butchery_data = /decl/butchery_data/animal/ruminant/cow
 
 /obj/item/food/butchery/meat/goat
 	desc = "Goat meat, to the uncultured."
-	meat_name = "chevon"
+	butchery_data = /decl/butchery_data/animal/ruminant/goat
 
 /obj/item/food/butchery/meat/chicken
 	name = "piece"
 	desc = "It tastes like you'd expect."
 	material = /decl/material/solid/organic/meat/chicken
-	meat_name = "chicken"
+	butchery_data = /decl/butchery_data/animal/small/fowl/chicken
 
 /obj/item/food/butchery/meat/chicken/game
 	desc = "Fresh game meat, harvested from some wild bird."
-	meat_name = "fowl"
+	butchery_data = /decl/butchery_data/animal/small/fowl
 
 /obj/item/food/butchery/meat/corgi
 	desc = "Tastes like... well you know..."
-	meat_name = "dog"
-
+	butchery_data = /decl/butchery_data/animal/corgi
 
 /obj/item/food/butchery/meat/xeno
 	desc = "A slab of green meat. Smells like acid."
 	icon_state = "xenomeat"
-	meat_name = "xeno"
 	color = "#43de18"
 	center_of_mass = @'{"x":16,"y":10}'
 	bitesize = 6
+	butchery_data = /decl/butchery_data/xeno
 
 /obj/item/food/butchery/meat/xeno/populate_reagents()
 	. = ..()
 	add_to_reagents(/decl/material/liquid/acid/polyacid, 6)
 
-
 /obj/item/food/butchery/meat/bear
-	meat_name = "bear"
 	desc = "A very manly slab of meat."
 	icon_state = "bearmeat"
+	butchery_data = /decl/butchery_data/animal/space_bear
 
 /obj/item/food/butchery/meat/bear/populate_reagents()
 	. = ..()

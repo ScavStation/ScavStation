@@ -29,11 +29,11 @@
 	r_pocket = /obj/item/scalpel
 	hands = list(/obj/item/bladed/axe/fire)
 
-/decl/outfit/masked_killer/post_equip(var/mob/living/human/H)
+/decl/outfit/masked_killer/post_equip(var/mob/living/wearer)
 	..()
-	var/victim = get_mannequin(H.ckey)
+	var/victim = get_mannequin(wearer.ckey)
 	if(victim)
-		for(var/obj/item/carried_item in H.get_equipped_items(TRUE))
+		for(var/obj/item/carried_item in wearer.get_equipped_items(TRUE))
 			carried_item.add_blood(victim) //Oh yes, there will be blood... just not blood from the killer because that's odd
 
 /decl/outfit/reaper
@@ -50,9 +50,9 @@
 	pda_slot = slot_belt_str
 	pda_type = /obj/item/modular_computer/pda/heads
 
-/decl/outfit/reaper/post_equip(var/mob/living/human/H)
+/decl/outfit/reaper/post_equip(var/mob/living/wearer)
 	..()
-	var/obj/item/secure_storage/briefcase/sec_briefcase = new(H)
+	var/obj/item/secure_storage/briefcase/sec_briefcase = new(wearer)
 	for(var/obj/item/briefcase_item in sec_briefcase)
 		qdel(briefcase_item)
 	for(var/i=3, i>0, i--)
@@ -61,4 +61,4 @@
 	new /obj/item/gun/projectile/revolver(sec_briefcase)
 	new /obj/item/ammo_magazine/speedloader(sec_briefcase)
 	new /obj/item/plastique(sec_briefcase)
-	H.put_in_hands_or_del(sec_briefcase)
+	wearer.put_in_hands_or_del(sec_briefcase)

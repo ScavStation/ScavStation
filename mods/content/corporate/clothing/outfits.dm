@@ -46,15 +46,15 @@
 /decl/outfit/death_command
 	name = "Spec Ops - Death commando"
 
-/decl/outfit/death_command/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/outfit/death_command/equip_outfit(mob/living/wearer, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	var/decl/special_role/deathsquad = GET_DECL(/decl/special_role/deathsquad)
-	deathsquad.equip_role(H)
+	deathsquad.equip_role(wearer)
 	return 1
 
 /decl/outfit/syndicate_command
 	name = "Spec Ops - Syndicate commando"
 
-/decl/outfit/syndicate_command/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/outfit/syndicate_command/equip_outfit(mob/living/wearer, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	var/decl/special_role/commandos = GET_DECL(/decl/special_role/deathsquad/mercenary)
-	commandos.equip_role(H)
+	commandos.equip_role(wearer)
 	return 1

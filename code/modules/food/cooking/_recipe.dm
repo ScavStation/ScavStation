@@ -189,23 +189,12 @@ var/global/list/_cooking_recipe_cache = list()
 		CRASH("Recipe trying to create a result in a container with null or zero capacity reagent holder: [container.reagents?.maximum_volume || "NULL"]")
 
 	if(ispath(result, /atom/movable))
-		var/produced = create_result_atom(container, used_ingredients)
-		var/list/contained_atoms = container.get_contained_external_atoms()
-		if(contained_atoms)
-			contained_atoms -= produced
-			for(var/obj/O in contained_atoms)
-				if(O.reagents)
-					O.reagents.trans_to_obj(produced, O.reagents.total_volume)
-				qdel(O)
-		return produced
+		return create_result_atom(container, used_ingredients)
 
 	if(ispath(result, /decl/material))
 		var/created_volume = result_quantity
 		for(var/obj/item/ingredient in (used_ingredients[RECIPE_COMPONENT_ITEMS]|used_ingredients[RECIPE_COMPONENT_FRUIT]))
-			if(!ingredient.reagents?.total_volume)
-				continue
-			for(var/reagent_type in ingredient.reagents.reagent_volumes)
-				created_volume += ingredient.reagents.reagent_volumes[reagent_type]
+			created_volume += ingredient.reagents?.total_volume
 
 		container.reagents?.add_reagent(result, created_volume, get_result_data(container, used_ingredients))
 		return null

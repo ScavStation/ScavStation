@@ -128,10 +128,10 @@
 
 /obj/item/photo/interact(mob/user)
 	send_rsc(user, img, "tmp_photo_[id].png")
+	// todo: remove -ms-interpolation-mode once 516 is required
 	var/photo_html = {"
 		<html><head><title>[name]</title></head>
 		<body style='overflow:hidden;margin:0;text-align:center'>
-		// todo: remove -ms-interpolation-mode once 516 is required
 		<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor;image-rendering:pixelated;' />
 		[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]
 		</body></html>

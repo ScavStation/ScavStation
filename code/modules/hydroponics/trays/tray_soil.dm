@@ -10,6 +10,13 @@
 	matter = null
 	pixel_z = 8
 	color = "#7c5e42"
+
+	// Not actually a machine, per se.
+	frame_type                = null
+	uncreated_component_parts = list()
+	maximum_component_parts   = list()
+	construct_state           = /decl/machine_construction/noninteractive
+
 	var/obj/item/stack/material/brick/reinforced_with
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/get_alt_interactions(var/mob/user)
@@ -32,11 +39,10 @@
 	pixel_y = rand(-1,1)
 	update_icon()
 
-/obj/machinery/portable_atmospherics/hydroponics/soil/physically_destroyed()
-	if(reinforced_with)
-		reinforced_with.dropInto(loc)
-		reinforced_with = null
-	return ..()
+/obj/machinery/portable_atmospherics/hydroponics/soil/dismantle()
+	dump_contents()
+	qdel(src)
+	return null
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/Destroy()
 	var/oldloc = loc

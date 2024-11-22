@@ -288,6 +288,11 @@
 	src.dest_y = dest_y
 
 /proc/MixColors(const/list/colors)
+	switch(length(colors))
+		if(1)
+			return colors[1]
+		if(2)
+			return BlendRGBasHSV(colors[1], colors[2], 0.5)
 	var/list/reds = list()
 	var/list/blues = list()
 	var/list/greens = list()

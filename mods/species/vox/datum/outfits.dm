@@ -12,9 +12,9 @@
 	hands =      list(/obj/item/gun/launcher/alien/spikethrower)
 	id_type =    /obj/item/card/id/syndicate
 
-/decl/outfit/vox_raider/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/outfit/vox_raider/equip_outfit(mob/living/wearer, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	uniform = pick(/obj/item/clothing/suit/robe/vox, /obj/item/clothing/pants/vox)
 	glasses = pick(/obj/item/clothing/glasses/thermal, /obj/item/clothing/glasses/thermal/plain/eyepatch, /obj/item/clothing/glasses/thermal/plain/monocle)
 	holster = pick(/obj/item/clothing/webbing/holster/armpit, /obj/item/clothing/webbing/holster/waist, /obj/item/clothing/webbing/holster/hip)
 	. = ..()
-	H.set_internals(locate(/obj/item/tank) in H.contents)
+	wearer.set_internals(locate(/obj/item/tank) in wearer.contents)

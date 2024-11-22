@@ -7,6 +7,8 @@
 		/decl/material/solid/sodiumchloride = 1,
 		/decl/material/liquid/water = 10
 	)
+	// Broth shouldn't have bits
+	has_extra_color    = FALSE
 
 /decl/recipe/soup/stock/meat
 	display_name = "meat stock"

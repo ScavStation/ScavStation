@@ -1072,9 +1072,6 @@
 		return SScharacter_info.get_record(comments_record_id, TRUE)
 	return ..()
 
-/mob/living/human/proc/get_age()
-	. = LAZYACCESS(appearance_descriptors, "age") || 30
-
 /mob/living/human/proc/set_age(var/val)
 	var/decl/bodytype/bodytype = get_bodytype()
 	var/datum/appearance_descriptor/age = LAZYACCESS(bodytype.appearance_descriptors, "age")

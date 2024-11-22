@@ -195,6 +195,7 @@
 	max_health = ITEM_HEALTH_NO_DAMAGE
 	_base_attack_force = 2
 	can_be_twohanded = TRUE
+	minimum_size_to_twohand = MOB_SIZE_SMALL
 
 	var/safety = 1 //if you can zap people with the paddles on harm mode
 	var/combat = 0 //If it can be used to revive people wearing thick clothing (e.g. spacesuits)

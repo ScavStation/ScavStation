@@ -1934,3 +1934,5 @@ default behaviour is:
 		else
 			to_chat(user, SPAN_WARNING("\The [src] cannot currently be milked."))
 
+/mob/living/proc/get_age()
+	. = LAZYACCESS(appearance_descriptors, "age") || 30

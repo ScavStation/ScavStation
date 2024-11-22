@@ -4,17 +4,13 @@
 
 /decl/butchery_data/animal/ruminant/harvest_meat(mob/donor)
 	var/static/list/extra_product = list(
-		/obj/item/food/butchery/haunch/shoulder,
-		/obj/item/food/butchery/haunch/shoulder,
-		/obj/item/food/butchery/haunch/side,
-		/obj/item/food/butchery/haunch/side,
-		/obj/item/food/butchery/haunch,
-		/obj/item/food/butchery/haunch
+		/obj/item/food/butchery/haunch/shoulder = 2,
+		/obj/item/food/butchery/haunch/side = 2,
+		/obj/item/food/butchery/haunch = 2
 	)
-	var/create_turf = get_turf(donor)
+	. = list()
 	for(var/product in extra_product)
-		var/food = new product(create_turf, meat_material, donor, bone_material)
-		LAZYADD(., food)
+		. += place_products(donor, meat_material, extra_product[product], product)
 
 /decl/butchery_data/animal/ruminant/goat
 	meat_name       = "chevon"
