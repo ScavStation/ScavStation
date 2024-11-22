@@ -1,5 +1,5 @@
 /datum/unit_test/codex_string_uniqueness
-	name = "CODEX - All Codex Associated Strings Shall Be Unique"
+	name = "CODEX:  All Codex Associated Strings Shall Be Unique"
 
 /datum/unit_test/codex_string_uniqueness/start_test()
 	var/list/failures = list()
@@ -18,7 +18,7 @@
 	return TRUE
 
 /datum/unit_test/codex_overlap
-	name = "CODEX - No Codex String IDs Shall Overlap"
+	name = "CODEX: No Codex String IDs Shall Overlap"
 
 /datum/unit_test/codex_overlap/start_test()
 	var/list/failures = list()
@@ -42,7 +42,7 @@
 	return TRUE
 
 /datum/unit_test/codex_links
-	name = "CODEX - All Codex Links Will Function"
+	name = "CODEX: All Codex Links Will Function"
 
 /datum/unit_test/codex_links/start_test()
 	var/list/failures = list()
@@ -64,7 +64,7 @@
 	return 1
 
 /datum/unit_test/codex_dump_test
-	name = "CODEX - Codex Will Successfully Dump To Filesystem"
+	name = "CODEX: Codex Will Successfully Dump To Filesystem"
 
 /datum/unit_test/codex_dump_test/start_test()
 	var/dump_result

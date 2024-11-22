@@ -3,7 +3,7 @@
 	template = /datum/unit_test/icon_test
 
 /datum/unit_test/icon_test/food_shall_have_icon_states
-	name = "ICON STATE - Food And Drink Subtypes Shall Have Icon States"
+	name = "ICON STATE: Food And Drink Subtypes Shall Have Icon States"
 	var/list/check_types = list(
 		/obj/item/chems/condiment,
 		/obj/item/chems/drinks,
@@ -48,7 +48,7 @@
 	return 1
 
 /datum/unit_test/icon_test/turfs_shall_have_icon_states
-	name = "ICON STATE - Turf Subtypes Shall Have Icon States"
+	name = "ICON STATE: Turf Subtypes Shall Have Icon States"
 	var/list/except_types = list(
 		/turf/mimic_edge,
 		/turf/open
@@ -82,7 +82,7 @@
 	return 1
 
 /datum/unit_test/icon_test/signs_shall_have_existing_icon_states
-	name = "ICON STATE - Signs shall have existing icon states"
+	name = "ICON STATE: Signs shall have existing icon states"
 	var/list/skip_types = list(
 		// Posters use a decl to set their icon and handle their own validation.
 		/obj/structure/sign/poster
@@ -121,7 +121,7 @@
 	return 1
 
 /datum/unit_test/icon_test/random_spawners_shall_have_existing_icon_states
-	name = "ICON STATE - Random spawners shall have existing icon states"
+	name = "ICON STATE: Random spawners shall have existing icon states"
 
 /datum/unit_test/icon_test/random_spawners_shall_have_existing_icon_states/start_test()
 	var/list/failures = list()
@@ -144,7 +144,7 @@
 	return 1
 
 /datum/unit_test/icon_test/floor_decals_shall_have_existing_icon_states
-	name = "ICON STATE - Floor decals shall have existing icon states"
+	name = "ICON STATE: Floor decals shall have existing icon states"
 	var/static/list/excepted_types = list(
 		/obj/effect/floor_decal/reset,
 		/obj/effect/floor_decal/undo
@@ -172,7 +172,7 @@
 	return 1
 
 /datum/unit_test/icon_test/bgstate
-	name = "ICON_STATE - Character Previews Will Have Background States"
+	name = "ICON STATE: Character Previews Will Have Background States"
 
 /datum/unit_test/icon_test/bgstate/start_test()
 	var/obj/screen/setup_preview/preview = /obj/screen/setup_preview
@@ -197,7 +197,7 @@
 	return 1
 
 /datum/unit_test/icon_test/smartfridges
-	name = "ICON_STATE - Smartfridges Will Have All Needed Icon States"
+	name = "ICON STATE: Smartfridges Will Have All Needed Icon States"
 
 /datum/unit_test/icon_test/smartfridges/start_test()
 	var/list/failures = list()
@@ -260,7 +260,7 @@
 	return 1
 
 /datum/unit_test/icon_test/vendors
-	name = "ICON_STATE - Vending Machines Will Have All Needed Icon States"
+	name = "ICON STATE: Vending Machines Will Have All Needed Icon States"
 
 /datum/unit_test/icon_test/vendors/start_test()
 	var/list/failures = list()
@@ -295,3 +295,4 @@
 		fail("Missing vendor icons or icon states:\n\t-[jointext(failures, "\n\t-")]")
 	else
 		pass("All vendors have all icons and icon states.")
+	return 1
