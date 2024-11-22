@@ -360,23 +360,37 @@
 // Returns all currently covered body parts
 /mob/proc/get_covered_body_parts()
 	. = 0
-	for(var/entry in get_equipped_items())
-		var/obj/item/I = entry
+	for(var/obj/item/I as anything in get_equipped_items())
 		. |= I.body_parts_covered
 
 // Returns the first item which covers any given body part
 /mob/proc/get_covering_equipped_item(var/body_parts)
-	if(isnum(body_parts))
-		for(var/entry in get_equipped_items())
-			var/obj/item/I = entry
-			if(I.body_parts_covered & body_parts)
-				return I
+	if(!isnum(body_parts))
+		return null
+	for(var/obj/item/I as anything in get_equipped_items())
+		if(I.body_parts_covered & body_parts)
+			return I
 
 // Returns all items which covers any given body part
 /mob/proc/get_covering_equipped_items(var/body_parts)
 	. = list()
 	for(var/obj/item/I as anything in get_equipped_items())
 		if(I.body_parts_covered & body_parts)
+			. += I
+
+// Returns the first item which covers all specified body parts.
+/mob/proc/get_covering_equipped_item_exact(var/body_parts)
+	if(!isnum(body_parts))
+		return null
+	for(var/obj/item/I as anything in get_equipped_items())
+		if((I.body_parts_covered & body_parts) == body_parts)
+			return I
+
+// Returns all items which cover all specified body parts.
+/mob/proc/get_covering_equipped_items_exact(var/body_parts)
+	. = list()
+	for(var/obj/item/I as anything in get_equipped_items())
+		if((I.body_parts_covered & body_parts) == body_parts)
 			. += I
 
 /mob/proc/has_held_item_slot()

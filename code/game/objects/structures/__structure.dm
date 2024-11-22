@@ -32,13 +32,16 @@
 		new_color = null
 	if(paint_color != new_color)
 		paint_color = new_color
+		. = TRUE
+		refresh_color()
+
+/obj/structure/refresh_color()
 	if(paint_color)
 		color = paint_color
 	else if(material && (material_alteration & MAT_FLAG_ALTERATION_COLOR))
 		color = material.color
 	else
-		color = new_color
-	return FALSE
+		color = null
 
 /obj/structure/create_matter()
 	..()

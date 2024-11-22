@@ -64,6 +64,9 @@
 /obj/item/stack/material/proc/special_crafting_check()
 	return TRUE
 
+/obj/item/stack/material/update_name()
+	update_strings()
+
 /obj/item/stack/material/proc/update_strings()
 	var/prefix_name = name_modifier ? "[name_modifier] " : ""
 	if(amount>1)
@@ -85,10 +88,6 @@
 	else
 		origin_tech = initial(origin_tech)
 
-/obj/item/stack/material/use(var/used)
-	. = ..()
-	update_strings()
-
 /obj/item/stack/material/clear_matter()
 	..()
 	reinf_material = null
@@ -109,10 +108,6 @@
 	if(!is_same(M))
 		return 0
 	. = ..(M,tamount,1)
-	if(!QDELETED(src))
-		update_strings()
-	if(!QDELETED(M))
-		M.update_strings()
 
 /obj/item/stack/material/copy_from(var/obj/item/stack/material/other)
 	..()

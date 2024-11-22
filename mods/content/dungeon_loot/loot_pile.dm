@@ -62,7 +62,7 @@
 		return TRUE
 
 	//You already searched this one
-	if(!allow_multiple_looting && LAZYISIN(user.ckey, searched_by))
+	if(!allow_multiple_looting && LAZYISIN(searched_by, user.ckey))
 		to_chat(L, SPAN_WARNING("You can't find anything else vaguely useful in \the [src]. Another set of eyes might, however."))
 		return TRUE
 

@@ -402,8 +402,7 @@
 				to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 				return TRUE
 			visible_message(SPAN_WARNING("\The [user] begins unwrenching the securing bolts holding \the [src] together."))
-			var/delay = 60 * user.skill_delay_mult(SKILL_DEVICES)
-			if(do_after(user, delay) && maintenance_protocols)
+			if(user.do_skilled(6 SECONDS, SKILL_DEVICES, src) && maintenance_protocols)
 				visible_message(SPAN_NOTICE("\The [user] loosens and removes the securing bolts, dismantling \the [src]."))
 				dismantle()
 			return TRUE
@@ -460,7 +459,7 @@
 				return TRUE
 			if(!body) //Error
 				return TRUE
-			var/delay = min(50 * user.skill_delay_mult(SKILL_DEVICES), 50 * user.skill_delay_mult(SKILL_EVA))
+			var/delay = min(5 SECONDS * user.skill_delay_mult(SKILL_DEVICES), 5 SECONDS * user.skill_delay_mult(SKILL_EVA))
 			visible_message(SPAN_NOTICE("\The [user] starts forcing the \the [src]'s emergency [body.hatch_descriptor] release using \the [thing]."))
 			if(do_after(user, delay, src))
 				visible_message(SPAN_NOTICE("\The [user] forces \the [src]'s [body.hatch_descriptor] open using the \the [thing]."))

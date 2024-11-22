@@ -181,6 +181,17 @@
 		DATA_MASK_COLOR       = "#faa005"
 	)
 
+/obj/item/chems/glass/bowl/mapped/noodlesoup
+	abstract_type = /obj/item/chems/glass/bowl/mapped/noodlesoup
+	initial_reagent_type = /decl/material/liquid/nutriment/soup/noodle
+
+/obj/item/chems/glass/bowl/mapped/noodlesoup/chicken/get_initial_reagent_data()
+	return list(
+		DATA_TASTE            = list("chicken" = 1, "carrot" = 1),
+		DATA_INGREDIENT_LIST  = list("chicken" = 1, "carrot" = 1),
+		DATA_INGREDIENT_FLAGS = (ALLERGEN_VEGETABLE | ALLERGEN_MEAT),
+	)
+
 // Mystery soup is special/stupid.
 /obj/item/chems/glass/bowl/mystery
 	var/drained = FALSE

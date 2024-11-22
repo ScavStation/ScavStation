@@ -165,23 +165,6 @@
 		return TRUE
 	return ..()
 
-/obj/item/scrap_material/attackby(obj/item/W, mob/user)
-
-	if(W.type == type && user.try_unequip(W))
-
-		LAZYINITLIST(matter)
-		for(var/mat in W.matter)
-			matter[mat] += W.matter[mat]
-		UNSETEMPTY(matter)
-		W.matter = null
-
-		to_chat(user, SPAN_NOTICE("You combine \the [src] and \the [W]."))
-		qdel(W)
-
-		return TRUE
-
-	return ..()
-
 /obj/machinery/recycler/proc/dump_trace_material(atom/forced_loc = loc)
 
 	if(!length(trace_matter))

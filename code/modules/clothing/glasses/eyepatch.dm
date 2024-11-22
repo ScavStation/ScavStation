@@ -3,6 +3,7 @@
 	desc = "Yarr."
 	body_parts_covered = 0
 	icon = 'icons/clothing/eyes/eyepatch.dmi'
+	gender = NEUTER
 	var/flipped_icon = 'icons/clothing/eyes/eyepatch_right.dmi'
 
 /obj/item/clothing/glasses/eyepatch/verb/flip_patch()

@@ -3,6 +3,7 @@
 // BEGIN_INCLUDE
 #include "_dungeon_loot.dm"
 #include "loot_pile.dm"
+#include "subtypes\bookcase.dm"
 #include "subtypes\exosuit.dm"
 #include "subtypes\maint.dm"
 #include "subtypes\surface.dm"

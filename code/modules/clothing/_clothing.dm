@@ -39,6 +39,9 @@
 	var/markings_color	// for things like colored parts of labcoats or shoes
 	var/should_display_id = TRUE
 	var/fallback_slot
+	// Used to track our icon, or custom icon, for resetting when accessories are added/removed
+	var/base_clothing_icon
+	var/base_clothing_state
 
 /obj/item/clothing/get_equipment_tint()
 	return tint
@@ -206,27 +209,38 @@
 		ndir = SOUTH
 	return ..()
 
+/obj/item/clothing/proc/should_use_combined_accessory_appearance()
+	for(var/obj/item/clothing/accessory as anything in accessories)
+		if(accessory.draw_on_mob_when_equipped)
+			return TRUE
+	return FALSE
+
 /obj/item/clothing/on_update_icon()
 	. = ..()
 
 	// Clothing does not generally align with each other's world icons, so we just use the mob overlay in this case.
-	var/set_appearance = FALSE
-	if(length(accessories))
+	if(should_use_combined_accessory_appearance())
 		var/image/I = get_mob_overlay(ismob(loc) ? loc : null, get_fallback_slot())
-		if(I)
+		if(I?.icon) // Null or invisible overlay, we don't want to make our clothing invisible just because it has an accessory.
 			I.plane = plane
 			I.layer = layer
-			I.alpha = alpha
 			I.color = color
-			I.name = name
+			I.alpha = alpha
+			I.name  = name
 			appearance = I
 			set_dir(SOUTH)
-			set_appearance = TRUE
+			update_clothing_icon()
+			return
 
-	if(!set_appearance && markings_color && markings_state_modifier)
-		icon_state = JOINTEXT(list(get_world_inventory_state(), get_clothing_state_modifier()))
+	if(!base_clothing_icon)
+		base_clothing_icon = initial(icon)
+	set_icon(base_clothing_icon)
+	if(!base_clothing_state)
+		base_clothing_state = initial(icon_state)
+	set_icon_state(base_clothing_state)
+	icon_state = JOINTEXT(list(get_world_inventory_state(), get_clothing_state_modifier()))
+	if(markings_state_modifier && markings_color)
 		add_overlay(mutable_appearance(icon, "[icon_state][markings_state_modifier]", markings_color))
-
 	update_clothing_icon()
 
 // Used by washing machines to temporarily make clothes smell
@@ -361,7 +375,7 @@
 				var/list/ties = list()
 				for(var/accessory in accessories)
 					ties += "[html_icon(accessory)] \a [accessory]"
-				to_chat(user, "Attached to \the [src] are [english_list(ties)].")
+				to_chat(user, "Attached to \the [src] [length(ties) == 1 ? "is" : "are"] [english_list(ties)].")
 			return TOPIC_HANDLED
 		if(href_list["list_armor_damage"] && can_see)
 			var/datum/extension/armor/ablative/armor_datum = get_extension(src, /datum/extension/armor)

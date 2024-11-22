@@ -28,6 +28,9 @@
 	abstract_type = /obj/structure/fire_source
 	throwpass = TRUE
 
+	// Counter for world.time, used to reduce lighting spam.
+	var/next_light_spam_guard = 0
+
 	var/has_draught = TRUE
 	var/static/list/draught_values = list(
 		"all the way open"      = 1,
@@ -158,6 +161,9 @@
 	if(lit == FIRE_LIT && !force)
 		return FALSE
 	if(!process_fuel(ignition_temperature))
+		if(world.time >= next_light_spam_guard)
+			visible_message(SPAN_WARNING("\The [src] smoulders, but fails to catch alight. Perhaps it needs better airflow or more fuel?"))
+			next_light_spam_guard = world.time + 3 SECONDS
 		return FALSE
 	last_fuel_burn_temperature = max(last_fuel_burn_temperature, ignition_temperature) // needed for initial burn procs to function
 	lit = FIRE_LIT

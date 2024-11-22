@@ -137,6 +137,7 @@
 	age = 0
 	sampled = 0
 	harvest = 0
+	plant_health = seed ? seed.get_trait(TRAIT_ENDURANCE) : 0
 
 	if(reset_values)
 		yield_mod = 0
@@ -327,7 +328,6 @@
 		return //Weed does not exist, someone fucked up.
 
 	age = 0
-	plant_health = seed.get_trait(TRAIT_ENDURANCE)
 	lastcycle = world.time
 	harvest = 0
 	weedlevel = 0
@@ -396,7 +396,7 @@
 	var/previous_plant = seed.display_name
 	set_seed(SSplants.seeds[newseed])
 	mutate(1)
-	plant_health = seed.get_trait(TRAIT_ENDURANCE)
+	plant_health = seed.get_trait(TRAIT_ENDURANCE) // re-run in case mutation changed our endurance
 	lastcycle = world.time
 
 	update_icon()
@@ -547,6 +547,7 @@
 	age = 1
 
 	//Snowflakey, maybe move this to the seed datum
+	// re-running to adjust based on planting method
 	plant_health = (istype(S, /obj/item/seeds/extracted/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
 	lastcycle = world.time
 
@@ -644,6 +645,7 @@
 	if(S.seed)
 		set_seed(S.seed)
 		age = 1
+		// re-running to adjust for planting method
 		plant_health = (istype(S, /obj/item/seeds/extracted/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
 		lastcycle = world.time
 		check_plant_health()

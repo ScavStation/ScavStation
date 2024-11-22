@@ -123,20 +123,21 @@
 	return initial(color)
 
 /obj/item/set_color(new_color)
-
 	if(new_color == COLOR_WHITE)
 		new_color = null
-
 	if(paint_color != new_color)
 		paint_color = new_color
 		. = TRUE
+		refresh_color()
 
+/obj/item/refresh_color()
 	if(paint_color)
 		color = paint_color
 	else if(material && (material_alteration & MAT_FLAG_ALTERATION_COLOR))
 		color = material.color
 	else
-		color = new_color
+		color = null
+
 
 /obj/item/proc/can_contaminate()
 	return !(obj_flags & ITEM_FLAG_NO_CONTAMINATION)
@@ -965,6 +966,11 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	if(citem.item_state)
 		set_icon_state(citem.item_state)
 
+/obj/item/clothing/inherit_custom_item_data(var/datum/custom_item/citem)
+	. = ..()
+	base_clothing_icon  = icon
+	base_clothing_state = icon_state
+
 /obj/item/proc/is_special_cutting_tool(var/high_power)
 	return FALSE
 
@@ -1218,7 +1224,10 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	var/image/reagent_overlay = overlay_image(icon, reagents_state, reagents.get_color(), RESET_COLOR | RESET_ALPHA)
 	for(var/reagent_type in reagents.reagent_volumes)
 		var/decl/material/reagent = GET_DECL(reagent_type)
+		if(!reagent.reagent_overlay)
+			continue
 		var/modified_reagent_overlay = state_prefix ? "[state_prefix]_[reagent.reagent_overlay]" : reagent.reagent_overlay
-		if(modified_reagent_overlay && check_state_in_icon(modified_reagent_overlay, icon))
-			reagent_overlay.overlays += overlay_image(icon, modified_reagent_overlay, reagent.get_reagent_color(), RESET_COLOR | RESET_ALPHA)
+		if(!check_state_in_icon(modified_reagent_overlay, icon))
+			continue
+		reagent_overlay.overlays += overlay_image(icon, modified_reagent_overlay, reagent.get_reagent_overlay_color(reagents), RESET_COLOR | RESET_ALPHA)
 	return reagent_overlay

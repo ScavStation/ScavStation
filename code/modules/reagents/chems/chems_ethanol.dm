@@ -29,6 +29,7 @@
 	affect_blood_on_ingest = FALSE // prevents automatic toxins/inebriation as though injected
 	affect_blood_on_inhale = FALSE
 	can_boil_to_gas = TRUE
+	temperature_burn_milestone_material = /decl/material/liquid/ethanol
 
 	var/strength = 10 // This is, essentially, units between stages - the lower, the stronger. Less fine tuning, more clarity.
 	var/alcohol_toxicity = 1

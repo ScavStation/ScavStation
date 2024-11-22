@@ -233,6 +233,7 @@
 #define DATA_INGREDIENT_FLAGS /decl/reagent_data_field/ingredient_flags
 #define DATA_MASK_COLOR       /decl/reagent_data_field/mask_color
 #define DATA_MASK_NAME        /decl/reagent_data_field/mask_name
+#define DATA_EXTRA_COLOR      /decl/reagent_data_field/extra_color
 
 // Milk and chees data flags
 #define DATA_MILK_DONOR       /decl/reagent_data_field/milk_donor

@@ -400,3 +400,7 @@
 	if(obj_flags & OBJ_FLAG_INSULATED_HANDLE)
 		return
 	return ..()
+
+// Stub, used by /item and /structure
+/obj/proc/refresh_color()
+	return

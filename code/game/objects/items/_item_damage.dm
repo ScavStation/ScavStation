@@ -48,6 +48,13 @@
 	. = ..()
 	take_damage(explosion_severity_damage(severity), BURN, DAM_EXPLODE | DAM_DISPERSED, "explosion")
 
+/obj/item/bash(obj/item/weapon, mob/user)
+	. = ..()
+	var/force = weapon.get_attack_force(user)
+	if(force >= 3 && .)
+		user.setClickCooldown(weapon.attack_cooldown + weapon.w_class)
+		take_damage(force, weapon.atom_damage_type)
+
 /obj/item/proc/explosion_severity_damage(var/severity)
 	var/mult = explosion_severity_damage_multiplier()
 	return (mult * (4 - severity)) + (severity != 1? rand(-(mult / severity), (mult / severity)) : 0 )

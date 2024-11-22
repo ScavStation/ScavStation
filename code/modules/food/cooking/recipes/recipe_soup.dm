@@ -18,6 +18,8 @@
 	result_quantity = 10
 	can_bulk_cook = TRUE
 	var/precursor_type
+	/// Whether the ingredients' colours are mixed into our DATA_EXTRA_COLOR, useful for veggie soup adding vegetable bits.
+	var/has_extra_color = TRUE
 
 /decl/recipe/soup/get_result_data(atom/container, list/used_ingredients)
 
@@ -26,6 +28,7 @@
 	var/list/taste_strings = list()
 	var/list/ingredients = list()
 	var/list/used_items = used_ingredients[RECIPE_COMPONENT_ITEMS]
+	var/list/filling_colors = list()
 
 	if(length(used_items))
 
@@ -36,6 +39,8 @@
 				for(var/taste in food_tastes)
 					taste_strings[taste] = max(taste_strings[taste], food_tastes[taste])
 				allergen_flags |= food.allergen_flags
+			if(has_extra_color)
+				filling_colors += food.get_food_filling_color() // may want more specific behaviour at some point
 
 		if(locate(/obj/item/food/grown) in used_items)
 			for(var/obj/item/food/grown/veg in used_items)
@@ -65,6 +70,10 @@
 		var/precursor_allergen_flags = LAZYACCESS(precursor_data, DATA_INGREDIENT_FLAGS)
 		if(precursor_allergen_flags)
 			allergen_flags |= precursor_allergen_flags
+		// extra_color is blended in mix_data, we just add it here
+		var/precursor_extra_color = LAZYACCESS(precursor_data, DATA_EXTRA_COLOR)
+		if(precursor_extra_color)
+			filling_colors += precursor_extra_color
 
 	if(length(taste_strings))
 		.[DATA_TASTE] = taste_strings
@@ -72,3 +81,5 @@
 		.[DATA_INGREDIENT_LIST] = ingredients
 	if(allergen_flags)
 		.[DATA_INGREDIENT_FLAGS] = allergen_flags
+	if(length(filling_colors))
+		.[DATA_EXTRA_COLOR] = MixColors(filling_colors)
