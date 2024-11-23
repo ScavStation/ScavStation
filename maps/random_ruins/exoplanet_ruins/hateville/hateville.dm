@@ -4,7 +4,7 @@
 	name = "Overrun Colony"
 	description = "A colony overrun by shards know who or what"
 	suffixes = list("hateville/hateville.dmm")
-	cost = 2
+	cost = 1
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_NO_RADS
 	template_tags = TEMPLATE_TAG_HUMAN|TEMPLATE_TAG_HABITAT
 	apc_test_exempt_areas = list(
@@ -20,7 +20,7 @@
 	title = "Colony Survivor"
 	info = "After the siege and capture of the colony you call home, you have no choice but to make do with what you can, and survive until help arrives."
 	total_positions = 10
-	outfit_type = /decl/outfit/job/colonist
+	outfit_type = /decl/hierarchy/outfit/job/colonist
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_MEDICAL = SKILL_BASIC,
@@ -64,7 +64,7 @@
 		"Former Blood-Cultist",
 	)
 
-/decl/outfit/job/colonist
+/decl/hierarchy/outfit/job/colonist
 	name = "Job - Colonist"
 	id_type = null
 	pda_type = null
@@ -213,3 +213,34 @@
 /area/map_template/hateville/bathroom3
 	name = "\improper Restroom"
 	icon_state = "bathrooms"
+
+/mob/living/simple_animal/hostile/prosyletizing_employist
+	name = "Prosyletizing Employist"
+	desc = "Some kind of maniac yelling about corporate nothings."
+	icon = 'maps/random_ruins/exoplanet_ruins/hateville/employist.dmi'
+	speak_chance = 0
+	turns_per_move = 5
+	speed = 4
+	stop_automated_movement_when_pulled = 0
+	max_health = 100
+	natural_weapon = /obj/item/natural_weapon/punch
+	can_escape = TRUE
+	unsuitable_atmos_damage = 1
+	projectilesound = 'sound/weapons/laser.ogg'
+	ranged = 1
+	projectiletype = /obj/item/projectile/beam
+	faction = "employists"
+	var/corpse = /obj/abstract/landmark/corpse/employist
+	var/weapon = /obj/item/gun/energy/laser
+
+/mob/living/simple_animal/hostile/prosyletizing_employist/death(gibbed)
+	. = ..()
+	if(. && !gibbed)
+		if(corpse)
+			new corpse(loc)
+		if(weapon)
+			new weapon(loc)
+		qdel(src)
+
+/obj/abstract/landmark/corpse/employist
+	name = "employist"
