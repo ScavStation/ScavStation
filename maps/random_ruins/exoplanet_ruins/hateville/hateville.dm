@@ -213,3 +213,34 @@
 /area/map_template/hateville/bathroom3
 	name = "\improper Restroom"
 	icon_state = "bathrooms"
+
+/mob/living/simple_animal/hostile/prosyletizing_employist
+	name = "Prosyletizing Employist"
+	desc = "Some kind of maniac yelling about corporate nothings."
+	icon = 'maps/random_ruins/exoplanet_ruins/hateville/employist.dmi'
+	speak_chance = 0
+	turns_per_move = 5
+	speed = 4
+	stop_automated_movement_when_pulled = 0
+	max_health = 100
+	natural_weapon = /obj/item/natural_weapon/punch
+	can_escape = TRUE
+	unsuitable_atmos_damage = 1
+	projectilesound = 'sound/weapons/laser.ogg'
+	ranged = 1
+	projectiletype = /obj/item/projectile/beam
+	faction = "employists"
+	var/corpse = /obj/abstract/landmark/corpse/employist
+	var/weapon = /obj/item/gun/energy/laser
+
+/mob/living/simple_animal/hostile/prosyletizing_employist/death(gibbed)
+	. = ..()
+	if(. && !gibbed)
+		if(corpse)
+			new corpse(loc)
+		if(weapon)
+			new weapon(loc)
+		qdel(src)
+
+/obj/abstract/landmark/corpse/employist
+	name = "employist"

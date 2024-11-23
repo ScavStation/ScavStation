@@ -124,17 +124,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "al" = (
@@ -327,17 +317,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/exterior/concrete/reinforced/road,
 /area/map_template/hateville/security)
@@ -537,17 +517,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "aU" = (
@@ -1099,17 +1069,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/environment)
 "bM" = (
@@ -1139,17 +1099,7 @@
 	icon_state = "1-8";
 	dir = 1
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/hateville/environment)
 "bO" = (
@@ -1344,17 +1294,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/common)
@@ -1404,17 +1344,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -3107,6 +3037,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
 "eA" = (
@@ -3352,17 +3283,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/wood/mahogany,
 /area/map_template/hateville/command)
 "eQ" = (
@@ -3443,17 +3364,7 @@
 	pixel_y = 17;
 	pixel_x = 12
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "eV" = (
@@ -3895,17 +3806,7 @@
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -4083,17 +3984,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/template_noop)
 "fE" = (
@@ -4281,17 +4172,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureOU)
 "fS" = (
@@ -4408,17 +4289,7 @@
 	color = "#a10808"
 	},
 /obj/item/gun/projectile/shotgun/pump,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/hateville/dormitories6)
 "ga" = (
@@ -4466,17 +4337,7 @@
 /area/map_template/hateville/foodcourt)
 "gd" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -4709,17 +4570,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -4807,17 +4658,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/hateville/command)
 "gE" = (
@@ -4825,17 +4666,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureIN)
 "gF" = (
@@ -4916,17 +4747,7 @@
 	color = "#a10808"
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -5617,17 +5438,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/carpet/blue,
 /area/map_template/hateville/command)
 "hI" = (
@@ -6316,17 +6127,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/stone,
 /area/template_noop)
 "iE" = (
@@ -6607,17 +6408,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/techfloor,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/stone,
 /area/template_noop)
 "ja" = (
@@ -6891,17 +6682,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -7351,17 +7132,7 @@
 	color = "#a10808"
 	},
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/white{
 	color = "#dadada"
@@ -7374,17 +7145,7 @@
 	color = "#a10808"
 	},
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureOU)
 "ke" = (
@@ -7556,17 +7317,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -7677,17 +7428,7 @@
 	dir = 1
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "kA" = (
@@ -7876,17 +7617,7 @@
 	name = "south bump";
 	pixel_y = -28
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "kQ" = (
@@ -7917,17 +7648,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -7976,17 +7697,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "kX" = (
@@ -8335,6 +8046,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/trash,
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "lB" = (
@@ -8444,17 +8156,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "lJ" = (
@@ -8485,17 +8187,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "lL" = (
@@ -8532,17 +8224,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
 "lN" = (
@@ -8884,17 +8566,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
 /obj/item/wrench,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
@@ -9194,17 +8866,7 @@
 /turf/simulated/floor/tiled/old_cargo,
 /area/map_template/hateville)
 "mI" = (
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "mJ" = (
@@ -9273,17 +8935,7 @@
 	pixel_y = -7;
 	pixel_x = 5
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "mO" = (
@@ -9309,17 +8961,7 @@
 "mQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/grass,
 /area/map_template/hateville/command)
 "mR" = (
@@ -9701,17 +9343,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -10568,17 +10200,7 @@
 	},
 /obj/item/twohanded/pipewrench,
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/template_noop)
 "oM" = (
@@ -10741,17 +10363,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureIN)
 "pd" = (
@@ -10910,17 +10522,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "pr" = (
@@ -11088,17 +10690,7 @@
 "pI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/map_template/hateville/mining)
 "pK" = (
@@ -11159,17 +10751,7 @@
 /obj/abstract/landmark/corpse/bridgeofficer,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/carpet/green,
 /area/map_template/hateville/medical)
 "pU" = (
@@ -11212,17 +10794,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "qd" = (
@@ -11331,17 +10903,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/structure/cable{
 	icon_state = "1-8";
 	dir = 4
@@ -11548,17 +11110,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/white{
 	color = "#a9c7cd"
@@ -11819,6 +11371,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville)
 "rl" = (
@@ -11862,17 +11415,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/techfloor,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/stone,
 /area/template_noop)
 "rr" = (
@@ -12135,17 +11678,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/stone,
 /area/template_noop)
 "rN" = (
@@ -12186,6 +11719,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/splatter,
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "rP" = (
@@ -12205,17 +11739,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "rS" = (
@@ -12255,17 +11779,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/wood/mahogany,
 /area/map_template/hateville/command)
 "rX" = (
@@ -12360,17 +11874,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -12855,17 +12359,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "tj" = (
@@ -13284,17 +12778,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/map_template/hateville/materials)
 "uf" = (
@@ -13640,17 +13124,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -14108,17 +13582,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
@@ -14366,17 +13830,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -14742,17 +14196,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
 /mob/living/simple_animal/hostile/mimic/sleeping,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/hateville/maintenance)
 "wZ" = (
@@ -14826,17 +14270,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "xi" = (
@@ -14945,17 +14379,7 @@
 	icon_state = "1-8";
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/wood/mahogany,
 /area/map_template/hateville/command)
@@ -15196,17 +14620,7 @@
 	dir = 9
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "ya" = (
@@ -15292,17 +14706,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
 "yi" = (
@@ -15551,17 +14955,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -15658,17 +15052,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/ammo_magazine/shotholder/empty,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/hateville/foodcourt)
 "zh" = (
@@ -15752,17 +15136,7 @@
 "zq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "zs" = (
@@ -16359,17 +15733,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/template_noop)
 "AA" = (
@@ -16417,17 +15781,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "AE" = (
@@ -16544,17 +15898,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "AT" = (
@@ -16635,17 +15979,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "AZ" = (
@@ -16780,17 +16114,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Bp" = (
@@ -16815,6 +16139,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/simulated/floor/tiled/stone,
 /area/map_template/hateville/command)
 "Bu" = (
@@ -17150,23 +16475,31 @@
 /obj/abstract/landmark/corpse/russian,
 /turf/template_noop,
 /area/template_noop)
+"Co" = (
+/obj/effect/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	color = "#a10808"
+	},
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/turf/simulated/floor/tiled/white{
+	color = "#6b2b2b"
+	},
+/area/map_template/hateville/security)
 "Cp" = (
 /obj/abstract/landmark/corpse/doctor,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
@@ -17194,17 +16527,7 @@
 /obj/effect/decal/cleanable/vomit,
 /obj/item/ammo_magazine/smg/empty,
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "Cs" = (
@@ -17579,17 +16902,7 @@
 	dir = 5
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "CY" = (
@@ -18017,17 +17330,7 @@
 /obj/item/gun/projectile/pistol/holdout,
 /obj/item/ammo_magazine/pistol/small,
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/map_template/hateville/armory)
 "DV" = (
@@ -18211,17 +17514,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/template_noop,
 /area/map_template/hateville/power)
 "Eq" = (
@@ -19037,17 +18330,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 5
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/stone,
 /area/template_noop)
 "Gf" = (
@@ -19275,17 +18558,7 @@
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/techfloor/corner,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/template_noop)
 "GI" = (
@@ -19791,17 +19064,7 @@
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/template_noop)
 "HN" = (
@@ -20004,17 +19267,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Ii" = (
@@ -20260,17 +19513,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "IN" = (
@@ -20297,17 +19540,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/template_noop)
 "IP" = (
@@ -20371,17 +19604,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Jb" = (
@@ -20681,17 +19904,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/prison)
@@ -20782,17 +19995,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/white{
 	color = "#d9d9be"
@@ -21028,6 +20231,13 @@
 /obj/effect/floor_decal/techfloor,
 /turf/exterior/concrete,
 /area/map_template/hateville/power)
+"Ks" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/prosyletizing_employist,
+/turf/exterior/concrete,
+/area/map_template/hateville/materials)
 "Kt" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
@@ -21204,17 +20414,7 @@
 	pixel_y = 16;
 	pixel_x = -7
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/abstract/landmark/allowed_leak,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/hateville/environment)
@@ -21331,17 +20531,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/stone,
 /area/map_template/hateville/power)
@@ -21358,17 +20548,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/map_template/hateville/mining)
 "Lj" = (
@@ -21442,6 +20622,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Lq" = (
@@ -21468,17 +20649,7 @@
 	color = "#a10808"
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/structure/cable{
 	icon_state = "1-8";
 	dir = 4
@@ -21526,6 +20697,18 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/exterior/concrete,
 /area/map_template/hateville/materials)
+"Lz" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
+/turf/exterior/concrete/reinforced/road,
+/area/template_noop)
 "LA" = (
 /obj/structure/flora/bush/ywflowers,
 /turf/simulated/floor/grass,
@@ -21779,17 +20962,7 @@
 /area/map_template/hateville/agriculture)
 "Mi" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "Mj" = (
@@ -21810,17 +20983,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "Mm" = (
@@ -21855,17 +21018,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/exterior/concrete,
 /area/map_template/hateville/materials)
@@ -22018,17 +21171,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/stone,
 /area/template_noop)
 "MG" = (
@@ -22270,17 +21413,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/medical)
 "Nl" = (
@@ -22354,17 +21487,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "Nu" = (
@@ -22702,17 +21825,7 @@
 "Oo" = (
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete,
 /area/template_noop)
 "Op" = (
@@ -22917,17 +22030,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -23323,17 +22426,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /obj/random/trash,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
@@ -23854,17 +22947,7 @@
 /obj/effect/decal/cleanable/blood/tracks/body{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/steel_grid,
 /area/map_template/hateville/medical)
 "Qy" = (
@@ -23994,17 +23077,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
 "QQ" = (
@@ -24249,17 +23322,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Rq" = (
@@ -24348,17 +23411,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/gun/projectile/pistol/holdout,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "Rw" = (
@@ -24569,17 +23622,7 @@
 	},
 /obj/item/ammo_magazine/smg/empty,
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/template_noop,
 /area/map_template/hateville/armory)
 "RX" = (
@@ -24842,17 +23885,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/materials)
 "SE" = (
@@ -25135,17 +24168,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureIN)
 "Ti" = (
@@ -25208,17 +24231,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/grass,
 /area/map_template/hateville/command)
 "Tv" = (
@@ -25623,17 +24636,7 @@
 	color = "#a10808"
 	},
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#d9d9be"
 	},
@@ -26060,17 +25063,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Va" = (
@@ -26297,6 +25290,7 @@
 /obj/effect/floor_decal/techfloor/corner{
 	dir = 1
 	},
+/mob/living/simple_animal/hostile/retaliate/malf_drone,
 /turf/exterior/concrete,
 /area/template_noop)
 "VC" = (
@@ -26362,17 +25356,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -26457,17 +25441,7 @@
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/stone,
 /area/map_template/hateville/command)
 "VW" = (
@@ -26577,17 +25551,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -26837,17 +25801,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/item/gun/projectile/pistol/holdout,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "WF" = (
@@ -26946,17 +25900,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/carpet/blue,
 /area/map_template/hateville/command)
 "WR" = (
@@ -26975,17 +25919,7 @@
 "WT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/template_noop,
 /area/map_template/hateville/agricultureIN)
 "WU" = (
@@ -27468,17 +26402,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -27943,17 +26867,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
 "YF" = (
@@ -28021,17 +26935,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/exterior/concrete/reinforced/road,
 /area/template_noop)
 "YL" = (
@@ -28125,17 +27029,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "YX" = (
@@ -28517,17 +27411,7 @@
 	color = "#a10808"
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/abolition_extremist{
-	desc = "Some kind of maniac yelling corporate nothings.";
-	name = "Proselytizing Employist";
-	color = "#ffffff";
-	faction = "Employists";
-	pry_desc = "diligently forcing";
-	pry_time = 25;
-	emote_hear = list("pants raggedly","chants","mumbles");
-	emote_see = list("polishes the corporate logo on their gun","t-poses to assert corporate unity");
-	emote_speech = list("A good employee never misses their target.", "Work smarter, not harder!", "It's important to always thank your boss for the opportunity they have graciously given you.", "Submit to an efficiency review!!", "WHERE'S MY STAPLER!?")
-	},
+/mob/living/simple_animal/hostile/prosyletizing_employist,
 /turf/simulated/floor/tiled/white{
 	color = "#d9d9be"
 	},
@@ -28755,7 +27639,7 @@ od
 od
 iX
 aa
-aa
+wN
 aa
 aa
 aa
@@ -29925,7 +28809,7 @@ af
 (20,1,1) = {"
 Zi
 kC
-IE
+Co
 kt
 cv
 kN
@@ -30329,7 +29213,7 @@ Ar
 Fl
 Er
 Lo
-Bl
+Lz
 Bl
 oW
 oW
@@ -30885,7 +29769,7 @@ Mp
 TX
 vk
 jW
-ZO
+Ks
 zw
 OJ
 ui
