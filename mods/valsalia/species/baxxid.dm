@@ -167,7 +167,7 @@
 						word += ch + ch // capitalized
 			else
 				word += c+c
-			k *= 0.8	
+			k *= 0.8
 		message = copytext_char(message, 2)
 	switch(text2ascii(uppertext(ch)))
 		if (65 to 90)
@@ -257,6 +257,9 @@
 
 /obj/item/organ/external/hand/right/baxxid/get_manual_dexterity()
 	return (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
+
+/obj/item/organ/external/head/get_manual_dexterity()
+	return (DEXTERITY_FULL)
 
 /datum/inventory_slot/gripper/left_hand/baxxid
 	can_use_held_item = FALSE
