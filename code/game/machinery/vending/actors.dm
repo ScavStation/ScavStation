@@ -3,9 +3,7 @@
 /obj/machinery/vending/props
 	name = "prop dispenser"
 	desc = "All the props an actor could need. Probably."
-	icon_state = "theater"
-	icon_vend = "theater-vend"
-	icon_deny = "theater-deny"
+	icon = 'icons/obj/machines/vending/theater.dmi'
 	products = list(
 		/obj/structure/flora/pottedplant = 2,
 		/obj/item/flashlight/lamp = 2,
@@ -24,7 +22,7 @@
 /obj/machinery/vending/containers
 	name = "container dispenser"
 	desc = "A container that dispenses containers."
-	icon_state = "robotics"
+	icon = 'icons/obj/machines/vending/robotics.dmi'
 	base_type = /obj/machinery/vending/containers
 	products = list(
 		/obj/structure/closet/crate/freezer = 2,

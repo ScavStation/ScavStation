@@ -4,9 +4,7 @@
 	desc = "A plant nutrients vendor."
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
 	product_ads = "We like plants!;Don't you want some?;The greenest thumbs ever.;We like big plants.;Soft soil..."
-	icon_state = "nutri"
-	icon_deny = "nutri-deny"
-	icon_vend = "nutri-vend"
+	icon = 'icons/obj/machines/vending/nutrimat.dmi'
 	vend_delay = 26
 	base_type = /obj/machinery/vending/hydronutrients
 	products = list(
@@ -22,18 +20,14 @@
 	markup = 0
 
 /obj/machinery/vending/hydronutrients/generic
-	icon_state = "nutri_generic"
-	icon_vend = "nutri_generic-vend"
-	icon_deny = "nutri_generic-deny"
+	icon = 'icons/obj/machines/vending/nutri_green.dmi'
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
 	desc = "When you need seeds fast!"
 	product_slogans = "THIS'S WHERE TH' SEEDS LIVE! GIT YOU SOME!;Hands down the best seed selection this half of the galaxy!;Also certain mushroom varieties available, more for experts! Get certified today!"
 	product_ads = "We like plants!;Grow some crops!;Grow, baby, growww!;Aw h'yeah son!"
-	icon_state = "seeds"
-	icon_vend = "seeds-vend"
-	icon_deny = "seeds-deny"
+	icon = 'icons/obj/machines/vending/seeds_green.dmi'
 	vend_delay = 13
 	base_type = /obj/machinery/vending/hydroseeds
 	markup = 0
@@ -85,6 +79,4 @@
 	)
 
 /obj/machinery/vending/hydroseeds/generic
-	icon_state = "seeds_generic"
-	icon_vend = "seeds_generic-vend"
-	icon_deny = "seeds_generic-deny"
+	icon = 'icons/obj/machines/vending/seeds_grey.dmi'

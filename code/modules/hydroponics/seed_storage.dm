@@ -24,8 +24,8 @@
 /obj/machinery/seed_storage
 	name = "Seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "seeds"
+	icon = 'icons/obj/machines/vending/seeds_grey.dmi'
+	icon_state = ICON_STATE_WORLD
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 100

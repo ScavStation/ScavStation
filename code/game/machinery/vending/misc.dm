@@ -1,9 +1,7 @@
 /obj/machinery/vending/magivend
 	name = "MagiVend"
 	desc = "A magic vending machine."
-	icon_state = "MagiVend"
-	icon_deny = "MagiVend-deny"
-	icon_vend = "MagiVend-vend"
+	icon = 'icons/obj/machines/vending/magic.dmi'
 	product_slogans = "Sling spells the proper way with MagiVend!;Be your own Houdini! Use MagiVend!"
 	vend_delay = 15
 	vend_reply = "Have an enchanted evening!"
@@ -20,9 +18,7 @@
 	name = "Dinnerware"
 	desc = "A kitchen and restaurant equipment vendor."
 	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
-	icon_state = "dinnerware"
-	icon_vend = "dinnerware-vend"
-	icon_deny = "dinnerware-deny"
+	icon = 'icons/obj/machines/vending/dinnerware.dmi'
 	markup = 0
 	base_type = /obj/machinery/vending/dinnerware
 	products = list(
@@ -52,7 +48,7 @@
 	name = "Smashing Fashions"
 	desc = "For all your cheap knockoff needs."
 	product_slogans = "Look smashing for your darling!;Be rich! Dress rich!"
-	icon_state = "theater"
+	icon = 'icons/obj/machines/vending/theater.dmi'
 	vend_delay = 15
 	base_type = /obj/machinery/vending/fashionvend
 	vend_reply = "Absolutely smashing!"
@@ -78,9 +74,7 @@
 	vend_delay = 15
 	product_slogans = "Escape to a fantasy world!;Fuel your gambling addiction!;Ruin your friendships!"
 	product_ads = "Elves and dwarves!;Totally not satanic!;Fun times forever!"
-	icon_state = "games"
-	icon_deny = "games-deny"
-	icon_vend = "games-vend"
+	icon = 'icons/obj/machines/vending/games.dmi'
 	base_type = /obj/machinery/vending/games
 	products = list(
 		/obj/item/toy/blink = 5,
@@ -113,10 +107,7 @@
 	desc = "Vends things that make you less reviled in the work-place!"
 	vend_delay = 15
 	product_slogans = "Take a shower you hippie.;Get a haircut, hippie!;Reeking of scale taint? Take a shower!"
-
-	icon_state = "lavatory"
-	icon_deny = "lavatory-deny"
-	icon_vend = "lavatory-vend"
+	icon = 'icons/obj/machines/vending/lavatory.dmi'
 	base_type = /obj/machinery/vending/lavatory
 	products = list(
 		/obj/item/soap = 12,
