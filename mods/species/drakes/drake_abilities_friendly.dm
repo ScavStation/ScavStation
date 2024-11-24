@@ -86,7 +86,7 @@ var/global/list/_wounds_being_tended_by_drakes = list()
 	// Sivian animals get a heal buff from the modifier, others just
 	// get it to stop friendly drakes constantly licking their wounds.
 	// Organ wounds are closed, but the owners get sifsap injected via open wounds.
-	friend.add_aura(new /obj/aura/sifsap_salve(null, 60 SECONDS))
+	friend.add_aura(new /obj/aura/sifsap_salve(friend, 60 SECONDS))
 	var/list/friend_organs = friend.get_external_organs()
 	if(length(friend_organs))
 		for (var/obj/item/organ/external/E in friend_organs)
