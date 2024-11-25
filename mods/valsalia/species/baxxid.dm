@@ -259,6 +259,9 @@
 /obj/item/organ/external/hand/right/baxxid/get_manual_dexterity()
 	return (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
+/obj/item/organ/external/head/baxxid/get_manual_dexterity()
+	return (DEXTERITY_FULL)
+
 /datum/inventory_slot/gripper/left_hand/baxxid
 	dexterity = (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
