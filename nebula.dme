@@ -1045,7 +1045,7 @@
 #include "code\game\objects\effects\portals.dm"
 #include "code\game\objects\effects\spiders.dm"
 #include "code\game\objects\effects\step_triggers.dm"
-#include "code\game\objects\effects\temporaray.dm"
+#include "code\game\objects\effects\temporary.dm"
 #include "code\game\objects\effects\temporary_effect.dm"
 #include "code\game\objects\effects\wet_floor.dm"
 #include "code\game\objects\effects\wormhole.dm"
