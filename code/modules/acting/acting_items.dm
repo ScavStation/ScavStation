@@ -1,8 +1,8 @@
 /obj/machinery/acting/wardrobe
 	name = "wardrobe dispenser"
 	desc = "A machine that dispenses holo-clothing for those in need."
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "cart"
+	icon = 'icons/obj/machines/vending/cartridges.dmi'
+	icon_state = ICON_STATE_WORLD
 	anchored = TRUE
 	density = TRUE
 	var/active = 1

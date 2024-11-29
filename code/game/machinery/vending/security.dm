@@ -3,9 +3,7 @@
 	name = "SecTech"
 	desc = "A security equipment vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
-	icon_state = "sec"
-	icon_deny = "sec-deny"
-	icon_vend = "sec-vend"
+	icon = 'icons/obj/machines/vending/security.dmi'
 	vend_delay = 14
 	markup = 0
 	base_type = /obj/machinery/vending/security

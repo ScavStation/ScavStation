@@ -2,9 +2,7 @@
 /obj/machinery/vending/medical
 	name = "NanoMed Plus"
 	desc = "Medical drug dispenser."
-	icon_state = "med"
-	icon_deny = "med-deny"
-	icon_vend = "med-vend"
+	icon = 'icons/obj/machines/vending/medical.dmi'
 	vend_delay = 18
 	markup = 0
 	base_type = /obj/machinery/vending/medical
@@ -38,9 +36,7 @@
 	name = "NanoMed"
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
-	icon_state = "wallmed"
-	icon_deny = "wallmed-deny"
-	icon_vend = "wallmed-vend"
+	icon = 'icons/obj/machines/vending/wallmed.dmi'
 	base_type = /obj/machinery/vending/wallmed1
 	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	products = list(
@@ -61,9 +57,7 @@
 	name = "NanoMed Mini"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
-	icon_state = "wallmed"
-	icon_deny = "wallmed-deny"
-	icon_vend = "wallmed-vend"
+	icon = 'icons/obj/machines/vending/wallmed.dmi'
 	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	base_type = /obj/machinery/vending/wallmed2
 	products = list(

@@ -2,9 +2,7 @@
 	name = "YouTool"
 	desc = "Tools for tools."
 	markup = 0
-	icon_state = "tool"
-	icon_deny = "tool-deny"
-	icon_vend = "tool-vend"
+	icon = 'icons/obj/machines/vending/tool.dmi'
 	vend_delay = 11
 	base_type = /obj/machinery/vending/tool
 	products = list(
@@ -29,9 +27,7 @@
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
-	icon_state = "engivend"
-	icon_deny = "engivend-deny"
-	icon_vend = "engivend-vend"
+	icon = 'icons/obj/machines/vending/engivend.dmi'
 	markup = 0
 	vend_delay = 21
 	base_type = /obj/machinery/vending/engivend
@@ -52,9 +48,7 @@
 /obj/machinery/vending/engineering
 	name = "Robco Tool Maker"
 	desc = "Everything you need for do-it-yourself repair."
-	icon_state = "engi"
-	icon_deny = "engi-deny"
-	icon_vend = "engi-vend"
+	icon = 'icons/obj/machines/vending/engivend.dmi'
 	base_type = /obj/machinery/vending/engineering
 	markup = 0
 	initial_access = list(access_atmospherics, access_engine_equip)
@@ -87,9 +81,7 @@
 /obj/machinery/vending/robotics
 	name = "Robotech Deluxe"
 	desc = "All the tools you need to create your own robot army."
-	icon_state = "robotics"
-	icon_deny = "robotics-deny"
-	icon_vend = "robotics-vend"
+	icon = 'icons/obj/machines/vending/robotics.dmi'
 	initial_access = list(access_robotics)
 	base_type = /obj/machinery/vending/robotics
 	products = list(
@@ -108,9 +100,7 @@
 /obj/machinery/vending/materials
 	name = "MatterVend"
 	desc = "Provides access to baryonic matter in easy to handle sheet form."
-	icon_state = "engivend"
-	icon_deny = "engivend-deny"
-	icon_vend = "engivend-vend"
+	icon = 'icons/obj/machines/vending/engivend.dmi'
 	markup = 0
 	vend_delay = 21
 	base_type = /obj/machinery/vending/materials

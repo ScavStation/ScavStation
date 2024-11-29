@@ -2,7 +2,7 @@
 	template = /datum/unit_test/integrated_circuits
 
 /datum/unit_test/integrated_circuits/unique_names
-	name = "INTEGRATED CIRCUITS - Circuits must have unique names"
+	name = "INTEGRATED CIRCUITS: Circuits must have unique names"
 
 /datum/unit_test/integrated_circuits/unique_names/start_test()
 	var/list/circuits_by_name = list()
@@ -20,7 +20,7 @@
 
 
 /datum/unit_test/integrated_circuits/prefabs_are_valid
-	name = "INTEGRATED CIRCUITS - Prefabs Are Valid"
+	name = "INTEGRATED CIRCUITS: Prefabs Are Valid"
 
 /datum/unit_test/integrated_circuits/prefabs_are_valid/start_test()
 	var/list/failed_prefabs = list()
@@ -37,7 +37,7 @@
 	return 1
 
 /datum/unit_test/integrated_circuits/prefabs_shall_not_fail_to_create
-	name = "INTEGRATED CIRCUITS - Prefabs Shall Not Fail To Create"
+	name = "INTEGRATED CIRCUITS: Prefabs Shall Not Fail To Create"
 
 /datum/unit_test/integrated_circuits/prefabs_shall_not_fail_to_create/start_test()
 	var/list/failed_prefabs = list()
@@ -63,7 +63,7 @@
 	return 1
 
 /datum/unit_test/integrated_circuits/input_output
-	name = "INTEGRATED CIRCUITS - INPUT/OUTPUT - TEMPLATE"
+	name = "INTEGRATED CIRCUITS: INPUT/OUTPUT - TEMPLATE"
 	template = /datum/unit_test/integrated_circuits/input_output
 	var/list/all_inputs = list()
 	var/list/all_expected_outputs = list()
@@ -110,13 +110,13 @@
 	return 1
 
 /datum/unit_test/integrated_circuits/input_output/multiplexer
-	name = "INTEGRATED CIRCUITS - INPUT/OUTPUT - Multiplexer - Medium"
+	name = "INTEGRATED CIRCUITS: INPUT/OUTPUT - Multiplexer - Medium"
 	all_inputs = list(list(1,1,2,3,4),list(2,1,2,3,4),list(3,1,2,3,4),list(4,1,2,3,4))
 	all_expected_outputs = list(list(1),list(2),list(3),list(4))
 	circuit_type = /obj/item/integrated_circuit/transfer/multiplexer/medium
 
 /datum/unit_test/integrated_circuits/input_output/demultiplexer
-	name = "INTEGRATED CIRCUITS - INPUT/OUTPUT - Demultiplexer - Medium"
+	name = "INTEGRATED CIRCUITS: INPUT/OUTPUT - Demultiplexer - Medium"
 	all_inputs = list(list(1,5),list(2,6),list(3,7),list(4,8))
 	all_expected_outputs = list(list(5,null,null,null),list(null,6,null,null),list(null,null,7,null),list(null,null,null,8))
 	circuit_type = /obj/item/integrated_circuit/transfer/demultiplexer/medium
