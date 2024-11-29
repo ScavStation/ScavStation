@@ -127,7 +127,7 @@
 			if(istype(AM, /obj/structure/window) || istype(AM, /obj/structure/grille))
 				if(nutrition <= get_hunger_nutrition())
 					if (is_adult || prob(5))
-						UnarmedAttack(AM)
+						UnarmedAttack(AM, Adjacent(AM))
 
 	if(ismob(AM))
 		var/mob/tmob = AM
