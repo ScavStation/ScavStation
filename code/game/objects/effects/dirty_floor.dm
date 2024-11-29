@@ -11,7 +11,6 @@
 
 /obj/effect/decal/cleanable/dirt/Initialize()
 	. = ..()
-	name = ""
 	verbs.Cut()
 
 /obj/effect/decal/cleanable/dirt/on_update_icon()
