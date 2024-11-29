@@ -87,6 +87,9 @@
 /mob/living/bot/ssd_check()
 	return FALSE
 
+/mob/living/bot/try_awaken(mob/user)
+	return FALSE
+
 /mob/living/bot/attackby(var/obj/item/O, var/mob/user)
 	if(O.GetIdCard())
 		if(access_scanner.allowed(user) && !open)
