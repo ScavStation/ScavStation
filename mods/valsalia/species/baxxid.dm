@@ -260,7 +260,7 @@
 	return (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /obj/item/organ/external/head/baxxid/get_manual_dexterity()
-	return (DEXTERITY_FULL)
+	return (DEXTERITY_FULL & ~(DEXTERITY_WEAPONS))
 
 /datum/inventory_slot/gripper/left_hand/baxxid
 	dexterity = (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
