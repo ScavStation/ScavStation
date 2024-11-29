@@ -21,9 +21,7 @@
 		We understand the depressed, alcoholic cowboy in you. That's why we also smoke Jericho.;\
 		Professionals. Better cigarettes for better people. Yes, better people."
 	vend_delay = 21
-	icon_state = "cigs"
-	icon_vend = "cigs-vend"
-	icon_deny = "cigs-deny"
+	icon = 'icons/obj/machines/vending/cigarettes.dmi'
 	base_type = /obj/machinery/vending/cigarette
 	products = list(
 		/obj/item/cigpaper/filters = 5,

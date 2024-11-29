@@ -3,8 +3,8 @@
 */
 /obj/machinery/smartfridge
 	name = "\improper SmartFridge"
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "fridge_sci"
+	icon = 'icons/obj/machines/smartfridges/science.dmi'
+	icon_state = ICON_STATE_WORLD
 	layer = BELOW_OBJ_LAYER
 	density = TRUE
 	anchored = TRUE
@@ -14,22 +14,17 @@
 	obj_flags = OBJ_FLAG_ANCHORABLE | OBJ_FLAG_ROTATABLE
 	atmos_canpass = CANPASS_NEVER
 	required_interaction_dexterity = DEXTERITY_SIMPLE_MACHINES
+	construct_state = /decl/machine_construction/default/panel_closed
+	uncreated_component_parts = null
+	stat_immune = 0
 
-	var/icon_base = "fridge_sci"
-	var/icon_contents = "chem"
+	var/overlay_contents_icon = 'icons/obj/machines/smartfridges/contents_chem.dmi'
 	var/list/item_records = list()
 	var/seconds_electrified = 0;
 	var/shoot_inventory = 0
 	var/locked = 0
 	var/scan_id = 1
 	var/is_secure = 0
-
-	construct_state = /decl/machine_construction/default/panel_closed
-	uncreated_component_parts = null
-	stat_immune = 0
-
-/obj/machinery/smartfridge/secure
-	is_secure = 1
 
 /obj/machinery/smartfridge/Initialize()
 	if(is_secure)
@@ -55,75 +50,6 @@
 		return 1
 	return 0
 
-/obj/machinery/smartfridge/seeds
-	name = "\improper MegaSeed Servitor"
-	desc = "When you need seeds fast!"
-
-/obj/machinery/smartfridge/seeds/accept_check(var/obj/item/O)
-	if(istype(O,/obj/item/seeds/))
-		return 1
-	return 0
-
-/obj/machinery/smartfridge/secure/medbay
-	name = "\improper Refrigerated Medicine Storage"
-	desc = "A refrigerated storage unit for storing medicine and chemicals."
-	icon_contents = "chem"
-	initial_access = list(list(access_medical, access_chemistry))
-
-/obj/machinery/smartfridge/secure/medbay/accept_check(var/obj/item/O)
-	if(istype(O,/obj/item/chems/glass))
-		return 1
-	if(istype(O,/obj/item/pill_bottle))
-		return 1
-	if(istype(O,/obj/item/chems/pill))
-		return 1
-	return 0
-
-/obj/machinery/smartfridge/produce
-	name = "produce smartfridge"
-	desc = "A refrigerated storage unit for fruits and vegetables."
-
-/obj/machinery/smartfridge/produce/accept_check(var/obj/item/O)
-	return istype(O, /obj/item/food/grown)
-
-/obj/machinery/smartfridge/sheets
-	name = "raw material storage"
-	desc = "A storage unit for bundles of material sheets, ingots and other shapes."
-
-/obj/machinery/smartfridge/sheets/accept_check(var/obj/item/O)
-	return istype(O, /obj/item/stack/material)
-
-/obj/machinery/smartfridge/chemistry
-	name = "\improper Smart Chemical Storage"
-	desc = "A refrigerated storage unit for medicine and chemical storage."
-	icon_contents = "chem"
-
-/obj/machinery/smartfridge/chemistry/accept_check(var/obj/item/O)
-	if(istype(O,/obj/item/pill_bottle) || istype(O,/obj/item/chems))
-		return 1
-	return 0
-
-/obj/machinery/smartfridge/drinks
-	name = "\improper Drink Showcase"
-	desc = "A refrigerated storage unit for tasty tasty alcohol."
-	icon_state = "fridge_dark"
-	icon_base = "fridge_dark"
-	icon_contents = "drink"
-
-/obj/machinery/smartfridge/drinks/accept_check(var/obj/item/O)
-	if(istype(O,/obj/item/chems/glass) || istype(O,/obj/item/chems/drinks) || istype(O,/obj/item/chems/condiment))
-		return 1
-
-/obj/machinery/smartfridge/foods
-	name = "\improper Hot Foods Display"
-	desc = "A heated storage unit for piping hot meals."
-	icon_state = "fridge_food"
-	icon_contents = "food"
-
-/obj/machinery/smartfridge/foods/accept_check(var/obj/item/O)
-	if(istype(O,/obj/item/food) || istype(O,/obj/item/utensil))
-		return 1
-
 /obj/machinery/smartfridge/Process()
 	if(stat & (BROKEN|NOPOWER))
 		return
@@ -133,42 +59,61 @@
 		src.throw_item()
 
 /obj/machinery/smartfridge/on_update_icon()
-	overlays.Cut()
-	if(stat & (BROKEN|NOPOWER))
-		icon_state = "[icon_base]-off"
-	else
-		icon_state = icon_base
 
+	// Reset our icon_state and overlays.
+	icon_state = initial(icon_state)
+	cut_overlays() // Does not appear to be called lower down the chain, sadly.
+
+	// Draw our side panel overlay (for access checking)
+	var/draw_state
 	if(is_secure)
-		overlays += image(icon, "[icon_base]-sidepanel")
+		if(stat & BROKEN)
+			draw_state = "[icon_state]-sidepanel-broken"
+		else
+			draw_state = "[icon_state]-sidepanel"
+		if(check_state_in_icon(draw_state, icon))
+			add_overlay(draw_state)
 
+	// Draw our panel overlay.
 	if(panel_open)
-		overlays += image(icon, "[icon_base]-panel")
-
-	var/image/I
-	var/is_off = ""
-	if(inoperable())
-		is_off = "-off"
+		draw_state = "[icon_state]-panel"
+		if(check_state_in_icon(draw_state, icon))
+			add_overlay(draw_state)
 
 	// Fridge contents
-	switch(contents.len - LAZYLEN(component_parts))
-		if(0)
-			I = image(icon, "empty[is_off]")
-		if(1 to 2)
-			I = image(icon, "[icon_contents]-1[is_off]")
-		if(3 to 5)
-			I = image(icon, "[icon_contents]-2[is_off]")
-		if(6 to 8)
-			I = image(icon, "[icon_contents]-3[is_off]")
-		else
-			I = image(icon, "[icon_contents]-4[is_off]")
-	overlays += I
+	if(overlay_contents_icon)
+		var/is_off = inoperable() ? "-off" : ""
+		switch(contents.len - LAZYLEN(component_parts))
+			if(0)
+				draw_state = "empty[is_off]"
+			if(1 to 2)
+				draw_state = "1[is_off]"
+			if(3 to 5)
+				draw_state = "2[is_off]"
+			if(6 to 8)
+				draw_state = "3[is_off]"
+			else
+				draw_state = "4[is_off]"
+		if(draw_state && check_state_in_icon(draw_state, icon))
+			add_overlay(image(overlay_contents_icon, draw_state))
 
 	// Fridge top
-	I = image(icon, "[icon_base]-top")
-	I.pixel_z = 32
-	I.layer = ABOVE_WINDOW_LAYER
-	overlays += I
+	if(stat & BROKEN)
+		draw_state = "[draw_state]-top-broken"
+	else
+		draw_state = "[icon_state]-top"
+
+	if(check_state_in_icon(draw_state, icon))
+		var/image/I = image(icon, draw_state)
+		I.pixel_z = 32
+		I.layer = ABOVE_WINDOW_LAYER
+		add_overlay(I)
+
+	// Append our off state if needed.
+	if(stat & BROKEN)
+		icon_state = "[icon_state]-broken"
+	else if(stat & NOPOWER)
+		icon_state = "[icon_state]-off"
 
 /obj/machinery/smartfridge/dismantle()
 	for(var/datum/stored_items/I in item_records)
@@ -207,14 +152,6 @@
 				to_chat(user, "<span class='notice'>Some items were refused.</span>")
 		return TRUE
 	return ..()
-
-/obj/machinery/smartfridge/secure/emag_act(var/remaining_charges, var/mob/user)
-	if(!emagged)
-		emagged = 1
-		locked = -1
-		req_access.Cut()
-		to_chat(user, "You short out the product lock on [src].")
-		return 1
 
 /obj/machinery/smartfridge/proc/stock_item(var/obj/item/O)
 	for(var/datum/stored_items/I in item_records)
@@ -288,7 +225,9 @@
 			for(var/i = 1 to amount)
 				I.get_product(get_turf(src))
 				update_icon()
-
+				var/vend_state = "[icon_state]-vend"
+				if (check_state_in_icon(vend_state, icon)) //Show the vending animation if needed
+					flick(vend_state, src)
 		return 1
 	return 0
 
@@ -311,12 +250,3 @@
 	update_icon()
 	return 1
 
-/************************
-*   Secure SmartFridges
-*************************/
-
-/obj/machinery/smartfridge/secure/CanUseTopic(mob/user, datum/topic_state/state, href_list)
-	if(!allowed(user) && !emagged && locked != -1 && href_list && href_list["vend"] && scan_id)
-		to_chat(user, "<span class='warning'>Access denied.</span>")
-		return STATUS_CLOSE
-	return ..()

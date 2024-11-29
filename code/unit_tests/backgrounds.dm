@@ -1,5 +1,5 @@
 /datum/unit_test/background
-	name = "BACKGROUND - All Species Background Values Shall Be Of Valid Types And Length"
+	name = "BACKGROUND: All Species Background Values Shall Be Of Valid Types And Length"
 
 /datum/unit_test/background/start_test()
 

@@ -245,7 +245,7 @@
 	user.visible_message( \
 		SPAN_DANGER("\The [user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."), \
 		SPAN_DANGER("You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."))
-	fire_act()
+	fire_act(return_air(), P.get_heat(), 500)
 
 /obj/item/shreddedp/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	SHOULD_CALL_PARENT(FALSE)

@@ -25,7 +25,7 @@
 /obj/machinery/smartfridge/secure/extract
 	name = "\improper Slime Extract Storage"
 	desc = "A refrigerated storage unit for slime extracts."
-	icon_contents = "slime"
+	overlay_contents_icon = 'mods/content/xenobiology/icons/smartfridge_contents_slime.dmi'
 	initial_access = list(access_research)
 
 /obj/machinery/smartfridge/secure/extract/accept_check(var/obj/item/O)

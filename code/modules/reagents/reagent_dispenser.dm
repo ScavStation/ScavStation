@@ -256,7 +256,7 @@
 /obj/structure/reagent_dispensers/water_cooler
 	name                      = "water cooler"
 	desc                      = "A machine that dispenses cool water to drink."
-	icon                      = 'icons/obj/vending.dmi'
+	icon                      = 'icons/obj/structures/water_cooler.dmi'
 	icon_state                = "water_cooler"
 	possible_transfer_amounts = null
 	amount_dispensed          = 5
@@ -299,10 +299,15 @@
 				qdel(C)
 				cups++
 		return TRUE
+	return ..()
 
+/obj/structure/reagent_dispensers/water_cooler/on_reagent_change()
 	. = ..()
-	if(!. && ATOM_IS_OPEN_CONTAINER(W))
-		flick("[icon_state]-vend", src)
+	// Bubbles in top of cooler.
+	if(reagents?.total_volume)
+		var/vend_state = "[icon_state]-vend"
+		if(check_state_in_icon(vend_state, icon))
+			flick(vend_state, src)
 
 /obj/structure/reagent_dispensers/beerkeg
 	name             = "beer keg"

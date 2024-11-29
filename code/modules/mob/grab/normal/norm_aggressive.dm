@@ -14,6 +14,13 @@
 	breakability       = 3
 	grab_icon_state    = "reinforce1"
 	break_chance_table = list(5, 20, 40, 80, 100)
+	help_action        = "wound pressure" // A bit clunky, but this is only used for admin logs presently!
+
+/decl/grab/normal/aggressive/on_hit_help(obj/item/grab/grab, atom/target, proximity)
+	var/mob/living/human/grab_victim = grab.get_affecting_mob()
+	if(!istype(grab_victim) || !proximity || (target && target != grab_victim))
+		return FALSE
+	return grab_victim.apply_pressure(grab.assailant, grab.target_zone)
 
 /decl/grab/normal/aggressive/process_effect(var/obj/item/grab/grab)
 	var/mob/living/affecting_mob = grab.get_affecting_mob()

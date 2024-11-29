@@ -385,8 +385,8 @@
 /obj/random/vendor
 	name = "random vending machine"
 	desc = "This is a randomly selected vending machine."
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "coffee-hellfire"
+	icon = 'icons/obj/machines/vending/coffee.dmi'
+	icon_state = "world-hellfire"
 
 /obj/random/vendor/spawn_choices()
 	var/static/list/spawnable_choices = list(
