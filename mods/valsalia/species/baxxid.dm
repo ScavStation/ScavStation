@@ -84,6 +84,13 @@
 		/decl/natural_attack/bite/strong
 	)
 
+	warning_low_pressure = 50
+	hazard_low_pressure = -1
+
+	natural_armour_values = list(
+		ARMOR_BIO = ARMOR_BIO_SHIELDED
+	)
+
 	base_external_prosthetics_model = null
 	preview_outfit = /decl/outfit/baxxid
 
