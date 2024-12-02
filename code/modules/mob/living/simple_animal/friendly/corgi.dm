@@ -96,7 +96,7 @@
 	else
 		body.set_dir(SOUTH)
 	if(isturf(movement_target.loc) && body.Adjacent(movement_target))
-		body.UnarmedAttack(movement_target)
+		body.UnarmedAttack(movement_target, TRUE)
 	else if(ishuman(movement_target.loc) && prob(20))
 		body.custom_emote(VISIBLE_MESSAGE, "stares at the [movement_target] that [movement_target.loc] has with sad puppy eyes.")
 

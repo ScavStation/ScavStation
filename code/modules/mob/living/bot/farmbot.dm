@@ -106,7 +106,7 @@
 		flick("farmbot_broke", src)
 
 /mob/living/bot/farmbot/handleAdjacentTarget()
-	UnarmedAttack(target)
+	UnarmedAttack(target, TRUE)
 
 /mob/living/bot/farmbot/lookForTargets()
 	if(emagged)

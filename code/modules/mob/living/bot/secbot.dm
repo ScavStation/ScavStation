@@ -182,7 +182,7 @@
 			begin_arrest(target, threat)
 		++awaiting_surrender
 	else
-		UnarmedAttack(target)
+		UnarmedAttack(target, TRUE)
 
 /mob/living/bot/secbot/proc/cuff_target(var/mob/living/target)
 	if(istype(target) && !target.get_equipped_item(slot_handcuffed_str))
