@@ -5,6 +5,7 @@
 	progress_message = "You add the signaler to the helmet."
 	item_icon_state = "secbot_1"
 	next_stages = list(/decl/crafting_stage/welding/secbot)
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
 
 /decl/crafting_stage/secbot_signaller/can_begin_with(var/obj/item/thing)
 	. = istype(thing, begins_with_object_type)

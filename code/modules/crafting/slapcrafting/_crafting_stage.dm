@@ -10,6 +10,8 @@
 	var/begins_with_object_type
 	var/list/next_stages
 	var/product
+	/// What is the minimum map tech level to have access to this recipe?
+	var/available_to_map_tech_level = MAP_TECH_LEVEL_ANY
 
 /decl/crafting_stage/Initialize()
 	. = ..()
@@ -18,12 +20,15 @@
 		stages += GET_DECL(nid)
 	next_stages = stages
 
+/decl/crafting_stage/proc/is_available()
+	return global.using_map.map_tech_level >= available_to_map_tech_level
+
 /decl/crafting_stage/proc/can_begin_with(var/obj/item/thing)
 	. = istype(thing, begins_with_object_type)
 
 /decl/crafting_stage/proc/get_next_stage(var/obj/item/trigger)
 	for(var/decl/crafting_stage/next_stage in next_stages)
-		if(next_stage.is_appropriate_tool(trigger) && next_stage.is_sufficient_amount(null, trigger))
+		if(next_stage.is_available() && next_stage.is_appropriate_tool(trigger) && next_stage.is_sufficient_amount(null, trigger))
 			return next_stage
 
 /decl/crafting_stage/proc/progress_to(var/obj/item/thing, var/mob/user, var/obj/item/target)
