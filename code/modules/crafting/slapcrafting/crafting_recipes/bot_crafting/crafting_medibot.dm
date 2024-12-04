@@ -5,6 +5,7 @@
 	completion_trigger_type = /obj/item/robot_parts
 	item_icon_state = "medibot_1"
 	next_stages = list(/decl/crafting_stage/scanner)
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
 
 /decl/crafting_stage/scanner
 	progress_message = "You add the health sensor to the assembly"

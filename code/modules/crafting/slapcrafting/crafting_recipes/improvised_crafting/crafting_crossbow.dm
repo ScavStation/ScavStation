@@ -14,6 +14,7 @@
 	item_icon_state = "crossbowframe1"
 	progress_message = "You assemble a backbone of rods around the wooden stock."
 	next_stages = list(/decl/crafting_stage/welding/crossbow_rods)
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
 
 /decl/crafting_stage/welding/crossbow_rods
 	completion_trigger_type = /obj/item/weldingtool
