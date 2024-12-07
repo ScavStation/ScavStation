@@ -257,10 +257,14 @@
 		qdel(src)
 
 /obj/abstract/landmark/corpse/employist
-	name = "employist"
+	name = "dead employist"
+	corpse_outfits = list(/decl/outfit/corpse/employist)
+
+/decl/outfit/corpse/employist
+	name = "Dead Prosyletizing Employist"
 	uniform = /obj/item/clothing/jumpsuit/employist
 	shoes = /obj/item/clothing/shoes/athletic
-	eyes = /obj/item/clothing/head/helmet/ert/medical
+	head = /obj/item/clothing/head/helmet/ert/medical
 
 /obj/item/clothing/jumpsuit/employist
 	name = "Prosyletizing Employist Jumpsuit"
