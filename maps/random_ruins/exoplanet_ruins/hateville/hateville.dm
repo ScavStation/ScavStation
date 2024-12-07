@@ -228,22 +228,22 @@
 	ai = /datum/mob_controller/prosyletizing_employist
 	var/corpse = /obj/abstract/landmark/corpse/employist
 	var/weapon = /obj/item/gun/energy/laser
-	death_message = list ("Shrieks horribly, yelling about the generosity of middle management, and crumples to the floor!", "Sputters something about employee benefits before falling onto their side.", "Begins to chant a team-rallying slogan before exploding like a blood sausage!");
-	speak_emote = list("recites", "babbles", "chants")
+	death_message = list("Shrieks horribly, yelling about the generosity of middle management, and crumples to the floor!", "Sputters something about employee benefits before falling onto their side.", "Begins to chant a team-rallying slogan before exploding like a blood sausage!");
+	speak_emote = list("recites", "proclaims", "chants")
 	blood_type = "O-"
-	fire_desc = "smiles warmly, calmly raises their gun, and starts blasting"
+	fire_desc = "smiles warmly, raises their gun, and starts blasting"
 
 
 /mob/living/simple_animal/hostile/prosyletizing_employist/has_ranged_attack()
 	return TRUE
 
 /datum/mob_controller/prosyletizing_employist
-	speak_chance = 25
+	speak_chance = 10
 	turns_per_wander = 5
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
 	emote_see = list("smiles maniacally and waves!")
-	emote_speech = list("A happy employee is a resourceful employee!", "A good employee is a working employee!", "Our purpose is to benefit our benefactors, so they might benefit us!", "Why do you resist the loving embrace of your office family?", "You misfiled those cargo receipts, do you even realise how much is at stake?", "Diligence is the only path to happiness!", "Give praise to the corporation, for it alone is your salvation!", "There is no better place than the office!", "The employee's handbook states that you must wear the appropriate uniform at all times!", "Have you talked to Becky in HR?", "Feel the warmth of the company's love for us all!")
+	emote_speech = list("A happy employee is a resourceful employee!", "A good employee is a working employee!", "Our purpose is to benefit our benefactors, so they might benefit us!", "Why do you resist the loving embrace of your office family?", "You misfiled those cargo receipts, do you even realise how much is at stake?", "Diligence is the only path to happiness!", "Give praise to the corporation, for it alone is your salvation!", "There is no better place than the office!", "The employee handbook states that you must wear the appropriate uniform at all times!", "Have you talked to Becky in HR?", "Feel the warmth of the company's love for us all!", "Let's do some team-building manual labour!", "I'm doing my part!", "Work smarter, AND harder!", "The best self-care is a hard day's work!", "I will have to report this workplace violation.", "Are you certain you're doing things by the book?")
 	emote_hear = list("recites a brand slogan")
 
 
