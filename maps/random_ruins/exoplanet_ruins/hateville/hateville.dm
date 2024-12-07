@@ -219,16 +219,16 @@
 	desc = "Some kind of maniac yelling about corporate nothings."
 	icon = 'maps/random_ruins/exoplanet_ruins/hateville/employist.dmi'
 
-	max_health = 100
+	max_health = 300
 	natural_weapon = /obj/item/natural_weapon/punch
-	unsuitable_atmos_damage = 1
+	unsuitable_atmos_damage = 0
 	projectilesound = 'sound/weapons/laser.ogg'
 	projectiletype = /obj/item/projectile/beam
 	faction = "employists"
 	ai = /datum/mob_controller/prosyletizing_employist
 	var/corpse = /obj/abstract/landmark/corpse/employist
 	var/weapon = /obj/item/gun/energy/laser
-	death_message = list("Shrieks horribly, yelling about the generosity of middle management, and crumples to the floor!", "Sputters something about employee benefits before falling onto their side.", "Begins to chant a team-rallying slogan before exploding like a blood sausage!");
+	death_message = "Shrieks horribly and begins to chant a team-rallying slogan before exploding like a blood sausage!"
 	speak_emote = list("recites", "proclaims", "chants")
 	blood_type = "O-"
 	fire_desc = "smiles warmly, raises their gun, and starts blasting"
