@@ -219,13 +219,14 @@
 	desc = "Some kind of maniac yelling about corporate nothings."
 	icon = 'maps/random_ruins/exoplanet_ruins/hateville/employist.dmi'
 
-	max_health = 300
+	base_animal_type = /mob/living/simple_animal/hostile/prosyletizing_employist
+	max_health = 150
 	natural_weapon = /obj/item/natural_weapon/punch
 	unsuitable_atmos_damage = 0
 	projectilesound = 'sound/weapons/laser.ogg'
 	projectiletype = /obj/item/projectile/beam
 	faction = "employists"
-	ai = /datum/mob_controller/prosyletizing_employist
+	ai = /datum/mob_controller/hostile/prosyletizing_employist
 	var/corpse = /obj/abstract/landmark/corpse/employist
 	var/weapon = /obj/item/gun/energy/laser
 	death_message = "Shrieks horribly and begins to chant a team-rallying slogan before exploding like a blood sausage!"
@@ -237,7 +238,7 @@
 /mob/living/simple_animal/hostile/prosyletizing_employist/has_ranged_attack()
 	return TRUE
 
-/datum/mob_controller/prosyletizing_employist
+/datum/mob_controller/hostile/prosyletizing_employist
 	speak_chance = 10
 	turns_per_wander = 5
 	stop_wander_when_pulled = 0
@@ -245,6 +246,7 @@
 	emote_see = list("smiles maniacally and waves!")
 	emote_speech = list("A happy employee is a resourceful employee!", "A good employee is a working employee!", "Our purpose is to benefit our benefactors, so they might benefit us!", "Why do you resist the loving embrace of your office family?", "You misfiled those cargo receipts, do you even realise how much is at stake?", "Diligence is the only path to happiness!", "Give praise to the corporation, for it alone is your salvation!", "There is no better place than the office!", "The employee handbook states that you must wear the appropriate uniform at all times!", "Have you talked to Becky in HR?", "Feel the warmth of the company's love for us all!", "Let's do some team-building manual labour!", "I'm doing my part!", "Work smarter, AND harder!", "The best self-care is a hard day's work!", "I will have to report this workplace violation.", "Are you certain you're doing things by the book?")
 	emote_hear = list("recites a brand slogan")
+
 
 
 /mob/living/simple_animal/hostile/prosyletizing_employist/death(gibbed)
