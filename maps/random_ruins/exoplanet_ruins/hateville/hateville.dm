@@ -258,3 +258,12 @@
 
 /obj/abstract/landmark/corpse/employist
 	name = "employist"
+	uniform = /obj/item/clothing/jumpsuit/employist
+	shoes = /obj/item/clothing/shoes/athletic
+	eyes = /obj/item/clothing/head/helmet/ert/medical
+
+/obj/item/clothing/jumpsuit/employist
+	name = "Prosyletizing Employist Jumpsuit"
+	desc = "A cheap jumpsuit made for patients of a corporate 'occupational clinic'."
+	icon = 'maps/random_ruins/exoplanet_ruins/hateville/uniform.dmi'
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
