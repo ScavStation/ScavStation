@@ -431,7 +431,7 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -1532,7 +1532,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
 /obj/machinery/power/solar,
 /turf/floor/tiled/techfloor/grid,
@@ -2137,8 +2137,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	icon_state = "0-4";
-	dir = 1
+	icon_state = "4-8"
 	},
 /obj/machinery/power/solar,
 /turf/floor/tiled/techfloor/grid,
@@ -2245,7 +2244,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -2332,13 +2331,12 @@
 /area/template_noop)
 "dz" = (
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner_techfloor_grid{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "dA" = (
@@ -2380,7 +2378,7 @@
 	icon_state = "1-8";
 	dir = 8
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2505,7 +2503,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -4144,9 +4142,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
-/obj/structure/cable,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "fQ" = (
@@ -4648,8 +4645,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	dir = 1
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -6965,7 +6961,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /obj/effect/decal/cleanable/blood/tracks/footprints/reversed{
 	color = "#a10808"
 	},
@@ -9658,7 +9654,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /turf/template_noop,
 /area/template_noop)
 "nP" = (
@@ -10038,7 +10034,7 @@
 /turf/floor/concrete,
 /area/template_noop)
 "oC" = (
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -10273,7 +10269,7 @@
 /obj/machinery/air_sensor{
 	id_tag = "c4"
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -10646,7 +10642,7 @@
 /area/template_noop)
 "pC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -11173,7 +11169,7 @@
 /area/template_noop)
 "qN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -11519,7 +11515,9 @@
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -11575,7 +11573,7 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -11723,7 +11721,7 @@
 /turf/floor/reinforced/oxygen,
 /area/map_template/hateville/environment)
 "rR" = (
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -12347,7 +12345,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /turf/template_noop,
 /area/template_noop)
 "th" = (
@@ -12655,7 +12653,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning/dust/corner{
@@ -13374,7 +13374,9 @@
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/power/solar,
 /turf/floor/tiled/techfloor/grid,
 /area/template_noop)
@@ -13793,7 +13795,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -14856,7 +14858,7 @@
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
 /obj/machinery/power/solar,
 /turf/floor/tiled/techfloor/grid,
@@ -14961,7 +14963,7 @@
 /area/map_template/hateville/materials)
 "yL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
@@ -15010,8 +15012,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	dir = 1
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -15465,7 +15466,7 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -15731,7 +15732,7 @@
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -15836,7 +15837,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /turf/template_noop,
 /area/template_noop)
 "AL" = (
@@ -15880,7 +15881,7 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -16500,7 +16501,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/structure/cable{
 	icon_state = "1-8";
 	dir = 1
@@ -16509,7 +16512,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/template_noop)
 "Cr" = (
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -18178,7 +18181,7 @@
 "FS" = (
 /obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18536,7 +18539,7 @@
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -19980,7 +19983,7 @@
 "JV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -20429,8 +20432,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	dir = 1
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -21380,7 +21382,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -21812,7 +21814,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /turf/template_noop,
 /area/template_noop)
 "Oq" = (
@@ -23433,7 +23435,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate/commando,
 /turf/template_noop,
 /area/template_noop)
 "RD" = (
@@ -23532,7 +23534,7 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -23591,7 +23593,7 @@
 /area/map_template/hateville/security)
 "RU" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -24609,7 +24611,7 @@
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "Ub" = (
-/obj/abstract/landmark/corpse/employist,
+/obj/abstract/landmark/corpse/syndicate,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -25123,7 +25125,7 @@
 "Vi" = (
 /obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -26254,8 +26256,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	dir = 1
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -26403,7 +26404,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/structure/catwalk,
 /obj/machinery/power/solar_control,
 /obj/effect/floor_decal/industrial/outline/yellow,
