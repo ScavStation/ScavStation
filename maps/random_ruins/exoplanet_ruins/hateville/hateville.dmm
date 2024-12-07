@@ -25309,7 +25309,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/techfloor/corner,
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-2"
 	},
 /turf/floor/holofloor/tiled/stone,
 /area/template_noop)
