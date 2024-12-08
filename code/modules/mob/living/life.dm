@@ -121,7 +121,7 @@
 	return TRUE
 
 /mob/living/proc/experiences_hunger_and_thirst()
-	return TRUE
+	return !isSynthetic() // Doesn't really apply to robots. Maybe unify this with cells in the future.
 
 /mob/living/proc/get_hunger_factor()
 	var/decl/species/my_species = get_species()
