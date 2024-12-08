@@ -84,9 +84,9 @@
 	. = ..()
 	if(statpanel("Status"))
 
-		var/obj/item/gps/pronouns = get_active_held_item()
-		if(istype(pronouns))
-			stat("Coordinates:", "[pronouns.get_coordinates()]")
+		var/obj/item/gps/gps = get_active_held_item()
+		if(istype(gps))
+			stat("Coordinates:", "[gps.get_coordinates()]")
 
 		stat("Intent:", "[a_intent]")
 		stat("Move Mode:", "[move_intent.name]")

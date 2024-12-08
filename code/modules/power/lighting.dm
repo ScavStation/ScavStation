@@ -329,8 +329,8 @@
 		var/prot = FALSE
 		var/mob/living/human/H = user
 		if(istype(H))
-			var/obj/item/clothing/gloves/pronouns = H.get_equipped_item(slot_gloves_str)
-			if(istype(pronouns) && pronouns.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
+			var/obj/item/clothing/gloves/gloves = H.get_equipped_item(slot_gloves_str)
+			if(istype(gloves) && gloves.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
 				prot = TRUE
 
 		if(prot > 0 || user.has_genetic_condition(GENE_COND_COLD_RESISTANCE))

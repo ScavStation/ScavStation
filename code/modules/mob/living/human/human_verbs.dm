@@ -97,8 +97,8 @@
 		target.show_message("<span class='notice'>You hear a voice that seems to echo around the room: [say]</span>")
 	usr.show_message("<span class='notice'>You project your mind into [target.real_name]: [say]</span>")
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]")
-	for(var/mob/observer/ghost/pronouns in global.player_list)
-		pronouns.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
+	for(var/mob/observer/ghost/ghost in global.player_list)
+		ghost.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
 /mob/living/human/proc/remoteobserve()
 	set name = "Remote View"
