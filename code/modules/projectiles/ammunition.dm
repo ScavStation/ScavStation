@@ -167,6 +167,7 @@
 		return
 	for(var/i in 1 to initial_ammo)
 		stored_ammo += new ammo_type(src)
+	contents_initialized = TRUE
 
 /obj/item/ammo_magazine/proc/get_stored_ammo_count()
 	. = length(stored_ammo)
