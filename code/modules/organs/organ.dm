@@ -37,6 +37,9 @@
 	/// Set to true if this organ should return info to Stat(). See get_stat_info().
 	var/has_stat_info
 
+/obj/item/organ/proc/reset_matter()
+	matter = null
+
 /obj/item/organ/Destroy()
 	if(owner)
 		owner.remove_organ(src, FALSE, FALSE, TRUE, TRUE, FALSE) //Tell our parent we're unisntalling in place
@@ -141,9 +144,16 @@
 	max_damage *= bodytype.hardiness
 	min_broken_damage *= bodytype.hardiness
 	bodytype.resize_organ(src)
-	set_material(override_material || bodytype.material)
-	matter = bodytype.matter?.Copy()
+
+	reset_matter()
+	set_material(override_material || bodytype.organ_material)
+	for(var/mat in bodytype.matter)
+		if(mat in matter)
+			matter[mat] += bodytype.matter[mat]
+		else
+			LAZYSET(matter, mat, bodytype.matter[mat])
 	create_matter()
+
 	// maybe this should be a generalized repopulate_reagents helper??
 	if(reagents)
 		reagents.clear_reagents()

@@ -3,7 +3,7 @@
 	desc = "This limb has a white polymer casing with blue holo-displays."
 	icon_base = 'mods/content/corporate/icons/cyberlimbs/bishop/bishop_main.dmi'
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/metal/aluminium
+	organ_material = /decl/material/solid/metal/aluminium
 	matter = list(
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
 	)
@@ -15,7 +15,7 @@
 	icon_base = 'mods/content/corporate/icons/cyberlimbs/bishop/bishop_rook.dmi'
 	has_eyes = FALSE
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/metal/steel
+	organ_material = /decl/material/solid/metal/steel
 	matter = list(
 		/decl/material/solid/metal/stainlesssteel = MATTER_AMOUNT_SECONDARY
 	)
@@ -41,7 +41,7 @@
 	desc = "This limb has a sleek black and white polymer finish."
 	icon_base = 'mods/content/corporate/icons/cyberlimbs/zenghu/zenghu_spirit.dmi'
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/metal/aluminium
+	organ_material = /decl/material/solid/metal/aluminium
 	matter = list(
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
 	)
@@ -52,7 +52,7 @@
 	desc = "This skeletal mechanical limb has a minimalist black and red casing."
 	icon_base = 'mods/content/corporate/icons/cyberlimbs/xion/xion_econo.dmi'
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/metal/aluminium
+	organ_material = /decl/material/solid/metal/aluminium
 	matter = list(
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
 	)
@@ -64,7 +64,7 @@
 	icon_base = 'mods/content/corporate/icons/cyberlimbs/wardtakahashi/wardtakahashi_main.dmi'
 	body_flags = BODY_FLAG_NO_DNA | BODY_FLAG_NO_PAIN | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/metal/aluminium
+	organ_material = /decl/material/solid/metal/aluminium
 	matter = list(
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
 	)
@@ -81,7 +81,7 @@
 	desc = "This limb is simple and functional; no effort has been made to make it look human."
 	icon_base = 'mods/content/corporate/icons/cyberlimbs/morpheus/morpheus_main.dmi'
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/metal/steel
+	organ_material = /decl/material/solid/metal/steel
 	uid = "bodytype_prosthetic_morpheus"
 
 /decl/bodytype/prosthetic/morpheus/mantis
@@ -99,7 +99,7 @@
 	body_flags = BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
 	bodytype_category = BODYTYPE_HUMANOID
 	// todo: add synthflesh material?
-	material = /decl/material/solid/metal/aluminium
+	organ_material = /decl/material/solid/metal/aluminium
 	matter = list(
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
 	)
@@ -123,7 +123,7 @@
 	desc = "This limb has a minimalist black and red casing."
 	icon_base = 'mods/content/corporate/icons/cyberlimbs/xion/xion_main.dmi'
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/metal/aluminium
+	organ_material = /decl/material/solid/metal/aluminium
 	matter = list(
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY
 	)
@@ -134,7 +134,7 @@
 	desc = "This limb is made from a cheap polymer."
 	icon_base = 'mods/content/corporate/icons/cyberlimbs/nanotrasen/nanotrasen_main.dmi'
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/organic/plastic
+	organ_material = /decl/material/solid/organic/plastic
 	uid = "bodytype_prosthetic_nanotrasen"
 
 DEFINE_ROBOLIMB_DESIGNS(/decl/bodytype/prosthetic/shellguard,                 shellguard)
