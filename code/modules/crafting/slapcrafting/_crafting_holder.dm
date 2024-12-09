@@ -13,17 +13,13 @@
 		var/list/next_products = list()
 		for(var/decl/crafting_stage/next_stage in current_crafting_stage.next_stages)
 			if(ispath(next_stage.completion_trigger_type))
-				var/atom/next_tool = next_stage.completion_trigger_type
-				var/tool_string = initial(next_tool.name)
-				if(next_stage.stack_consume_amount > 1)
-					tool_string = "[next_stage.stack_consume_amount] [tool_string]\s"
-				else
-					tool_string = "\a [tool_string]"
+				var/tool_string = next_stage.generate_completion_string()
 				if(ispath(next_stage.product))
 					var/atom/next_product = next_stage.product
 					next_products[tool_string] = "\a [initial(next_product.name)]"
 				else
 					next_steps += tool_string
+
 		if(length(next_products))
 			for(var/thing in next_products)
 				to_chat(user, SPAN_NOTICE("With <b>[thing]</b>, you could finish building <b>[next_products[thing]]</b>."))
@@ -31,14 +27,27 @@
 			to_chat(user, SPAN_NOTICE("You could continue to work on this with <b>[english_list(next_steps, and_text = " or ")]</b>."))
 
 /obj/item/crafting_holder/Initialize(var/ml, var/decl/crafting_stage/initial_stage, var/obj/item/target, var/obj/item/tool, var/mob/user)
+
 	. = ..(ml)
 	if(!initial_stage)
 		return INITIALIZE_HINT_QDEL
+
 	name = "[target.name] assembly"
-	var/mob/M = target.loc
-	if(istype(M))
+
+	// Move our component into the new holder.
+	if(ismob(target.loc))
+		var/mob/M = target.loc
 		M.drop_from_inventory(target)
-	target.forceMove(src)
+		target.forceMove(src)
+	else if(ismovable(target.loc))
+		var/atom/movable/holder = target.loc
+		if(holder.storage)
+			holder.storage.remove_from_storage(user, target, src)
+		else
+			target.forceMove(src)
+	else
+		target.forceMove(src)
+
 	current_crafting_stage = initial_stage
 	update_icon()
 	update_strings()
@@ -78,9 +87,18 @@
 		if(ismob(product) && label_name)
 			var/mob/M = product
 			M.SetName(label_name)
-		if(ismob(src.loc))
-			var/mob/M = src.loc
+
+		if(ismob(loc))
+			var/mob/M = loc
 			M.drop_from_inventory(src)
+		else if(ismovable(loc))
+			var/atom/movable/holder = loc
+			if(holder.storage)
+				holder.storage.remove_from_storage(user, src, get_turf(src))
+			else
+				forceMove(get_turf(src))
+		else
+			forceMove(get_turf(src))
 		qdel_self()
 	else
 		current_crafting_stage = next_stage
