@@ -21600,11 +21600,6 @@
 	color = "#6b2b2b"
 	},
 /area/map_template/hateville/prison)
-"NS" = (
-/obj/random/trash,
-/mob/living/simple_animal/aggressive/prosyletizing_employist,
-/turf/template_noop,
-/area/template_noop)
 "NT" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/structure/cable{
@@ -22853,7 +22848,6 @@
 /obj/effect/decal/cleanable/blood/tracks/body{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/steel_grid,
 /area/map_template/hateville/medical)
 "Qy" = (
@@ -26161,6 +26155,7 @@
 	dir = 1
 	},
 /obj/random/trash,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "XK" = (
@@ -26751,13 +26746,6 @@
 /mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
-"YD" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/random/trash,
-/mob/living/simple_animal/aggressive/prosyletizing_employist,
-/turf/template_noop,
-/area/template_noop)
 "YF" = (
 /obj/machinery/door/airlock/external{
 	id_tag = "hate_medi_ext";
@@ -27613,7 +27601,7 @@ as
 cv
 aa
 aa
-Ep
+aa
 MK
 aa
 od
@@ -27766,7 +27754,7 @@ aa
 aa
 aa
 aa
-aa
+Ep
 aa
 aa
 aa
@@ -27978,7 +27966,7 @@ kN
 Uv
 cv
 aa
-NS
+XI
 XI
 aa
 aa
@@ -28121,7 +28109,7 @@ kN
 om
 kN
 kN
-YD
+as
 kN
 cv
 kN
