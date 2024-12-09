@@ -222,7 +222,7 @@
 	base_animal_type = /mob/living/simple_animal/aggressive/prosyletizing_employist
 	max_health = 150
 	natural_weapon = /obj/item/natural_weapon/punch
-	unsuitable_atmos_damage = 0
+	unsuitable_atmos_damage = 1
 	projectilesound = 'sound/weapons/laser.ogg'
 	projectiletype = /obj/item/projectile/beam
 	faction = "employists"
@@ -239,7 +239,7 @@
 	return TRUE
 
 /datum/mob_controller/aggressive/prosyletizing_employist
-	speak_chance = 10
+	speak_chance = 15
 	turns_per_wander = 5
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
