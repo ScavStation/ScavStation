@@ -124,7 +124,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "al" = (
@@ -317,7 +317,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/concrete/reinforced/road,
 /area/map_template/hateville/security)
@@ -1072,7 +1072,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/environment)
 "bM" = (
@@ -1296,7 +1296,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/common)
@@ -3291,7 +3291,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/wood/mahogany,
 /area/map_template/hateville/command)
 "eQ" = (
@@ -3372,7 +3372,7 @@
 	pixel_y = 17;
 	pixel_x = 12
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "eV" = (
@@ -3995,7 +3995,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete,
 /area/template_noop)
 "fE" = (
@@ -4343,7 +4343,7 @@
 /area/map_template/hateville/foodcourt)
 "gd" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -4662,7 +4662,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor/grid,
 /area/map_template/hateville/command)
 "gE" = (
@@ -5440,7 +5440,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/carpet/blue,
 /area/map_template/hateville/command)
 "hI" = (
@@ -6127,7 +6127,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/holofloor/tiled/stone,
 /area/template_noop)
 "iE" = (
@@ -6408,7 +6408,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/techfloor,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/holofloor/tiled/stone,
 /area/template_noop)
 "ja" = (
@@ -7132,7 +7132,7 @@
 	color = "#a10808"
 	},
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/tiled/white{
 	color = "#dadada"
@@ -7145,7 +7145,7 @@
 	color = "#a10808"
 	},
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureOU)
 "ke" = (
@@ -7615,7 +7615,7 @@
 	name = "south bump";
 	pixel_y = -28
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "kQ" = (
@@ -7646,7 +7646,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -7695,7 +7695,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "kX" = (
@@ -8163,7 +8163,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "lK" = (
@@ -8221,7 +8221,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
 "lN" = (
@@ -8567,7 +8567,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
 /obj/item/wrench,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/tiled/white{
 	color = "#bbc9e5"
@@ -8869,7 +8869,7 @@
 "mI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "mJ" = (
@@ -8963,7 +8963,7 @@
 "mQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/grass,
 /area/map_template/hateville/command)
 "mR" = (
@@ -9347,7 +9347,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -10367,7 +10367,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureIN)
 "pd" = (
@@ -10697,7 +10697,7 @@
 "pI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete,
 /area/map_template/hateville/mining)
 "pK" = (
@@ -10758,7 +10758,7 @@
 /obj/abstract/landmark/corpse/bridgeofficer,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/carpet/green,
 /area/map_template/hateville/medical)
 "pU" = (
@@ -10801,7 +10801,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "qd" = (
@@ -11116,7 +11116,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/tiled/white{
 	color = "#a9c7cd"
@@ -11764,7 +11764,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/wood/mahogany,
 /area/map_template/hateville/command)
 "rX" = (
@@ -11872,7 +11872,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -12361,7 +12361,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "tj" = (
@@ -12787,7 +12787,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete,
 /area/map_template/hateville/materials)
 "uf" = (
@@ -13590,7 +13590,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
@@ -13838,7 +13838,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -14402,7 +14402,7 @@
 	icon_state = "1-8";
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/wood/mahogany,
 /area/map_template/hateville/command)
@@ -14643,7 +14643,7 @@
 	dir = 9
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "ya" = (
@@ -14729,7 +14729,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
 "yi" = (
@@ -14968,7 +14968,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/vomit,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#bbc9e5"
 	},
@@ -15789,7 +15789,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "AE" = (
@@ -15906,7 +15906,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "AT" = (
@@ -16488,7 +16488,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
@@ -16516,7 +16516,7 @@
 /obj/effect/decal/cleanable/vomit,
 /obj/item/ammo_magazine/smg/empty,
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "Cs" = (
@@ -16891,7 +16891,7 @@
 	dir = 5
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "CY" = (
@@ -19050,7 +19050,7 @@
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -19256,7 +19256,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Ii" = (
@@ -19502,7 +19502,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "IN" = (
@@ -19529,7 +19529,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete,
 /area/template_noop)
 "IP" = (
@@ -19593,7 +19593,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/grass,
 /area/map_template/hateville/agricultureOU)
 "Jb" = (
@@ -19893,7 +19893,7 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/prison)
@@ -19984,7 +19984,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/tiled/white{
 	color = "#d9d9be"
@@ -20515,7 +20515,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/holofloor/tiled/stone,
 /area/map_template/hateville/power)
@@ -20532,7 +20532,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete/reinforced/road,
 /area/map_template/hateville/mining)
 "Lj" = (
@@ -20632,7 +20632,7 @@
 	color = "#a10808"
 	},
 /obj/random/trash,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/structure/cable{
 	icon_state = "1-8";
 	dir = 4
@@ -20933,7 +20933,7 @@
 /area/map_template/hateville/agriculture)
 "Mi" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "Mj" = (
@@ -20954,7 +20954,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "Mm" = (
@@ -20989,7 +20989,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/concrete,
 /area/map_template/hateville/materials)
@@ -21136,7 +21136,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/holofloor/tiled/stone,
 /area/template_noop)
 "MG" = (
@@ -21455,7 +21455,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "Nu" = (
@@ -21798,7 +21798,7 @@
 "Oo" = (
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/concrete,
 /area/template_noop)
 "Op" = (
@@ -22003,7 +22003,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -22399,7 +22399,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/random/trash,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
@@ -22920,7 +22920,7 @@
 /obj/effect/decal/cleanable/blood/tracks/body{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/steel_grid,
 /area/map_template/hateville/medical)
 "Qy" = (
@@ -23294,7 +23294,7 @@
 	color = "#a10808"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Rq" = (
@@ -23383,7 +23383,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/gun/projectile/pistol/holdout,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "Rw" = (
@@ -23594,7 +23594,7 @@
 	},
 /obj/item/ammo_magazine/smg/empty,
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/template_noop,
 /area/map_template/hateville/armory)
 "RX" = (
@@ -24140,7 +24140,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -24206,7 +24206,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/grass,
 /area/map_template/hateville/command)
 "Tv" = (
@@ -24611,7 +24611,7 @@
 	color = "#a10808"
 	},
 /obj/item/ammo_magazine/pistol/small,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#d9d9be"
 	},
@@ -25047,7 +25047,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "Va" = (
@@ -25342,7 +25342,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -25427,7 +25427,7 @@
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/stone,
 /area/map_template/hateville/command)
 "VW" = (
@@ -25885,7 +25885,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/carpet/blue,
 /area/map_template/hateville/command)
 "WR" = (
@@ -26368,7 +26368,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/white{
 	color = "#6b2b2b"
 	},
@@ -26825,7 +26825,7 @@
 /obj/effect/decal/cleanable/blood/tracks/footprints{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
 "YF" = (
@@ -26986,7 +26986,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/mob/living/simple_animal/hostile/prosyletizing_employist,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "YX" = (

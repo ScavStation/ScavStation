@@ -214,19 +214,19 @@
 	name = "\improper Restroom"
 	icon_state = "bathrooms"
 
-/mob/living/simple_animal/hostile/prosyletizing_employist
+/mob/living/simple_animal/aggressive/prosyletizing_employist
 	name = "Prosyletizing Employist"
 	desc = "Some kind of maniac yelling about corporate nothings."
 	icon = 'maps/random_ruins/exoplanet_ruins/hateville/employist.dmi'
 
-	base_animal_type = /mob/living/simple_animal/hostile/prosyletizing_employist
+	base_animal_type = /mob/living/simple_animal/aggressive/prosyletizing_employist
 	max_health = 150
 	natural_weapon = /obj/item/natural_weapon/punch
 	unsuitable_atmos_damage = 0
 	projectilesound = 'sound/weapons/laser.ogg'
 	projectiletype = /obj/item/projectile/beam
 	faction = "employists"
-	ai = /datum/mob_controller/hostile/prosyletizing_employist
+	ai = /datum/mob_controller/aggressive/prosyletizing_employist
 	var/corpse = /obj/abstract/landmark/corpse/employist
 	var/weapon = /obj/item/gun/energy/laser
 	death_message = "Shrieks horribly and begins to chant a team-rallying slogan before exploding like a blood sausage!"
@@ -235,10 +235,10 @@
 	fire_desc = "smiles warmly, raises their gun, and starts blasting"
 
 
-/mob/living/simple_animal/hostile/prosyletizing_employist/has_ranged_attack()
+/mob/living/simple_animal/aggressive/prosyletizing_employist/has_ranged_attack()
 	return TRUE
 
-/datum/mob_controller/hostile/prosyletizing_employist
+/datum/mob_controller/aggressive/prosyletizing_employist
 	speak_chance = 10
 	turns_per_wander = 5
 	stop_wander_when_pulled = 0
@@ -249,7 +249,7 @@
 
 
 
-/mob/living/simple_animal/hostile/prosyletizing_employist/death(gibbed)
+/mob/living/simple_animal/aggressive/prosyletizing_employist/death(gibbed)
 	. = ..()
 	if(. && !gibbed)
 		if(corpse)
