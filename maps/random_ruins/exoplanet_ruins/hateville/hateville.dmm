@@ -8141,7 +8141,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "lK" = (
@@ -17451,10 +17450,7 @@
 /turf/floor/concrete,
 /area/map_template/hateville/mining)
 "Ep" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/malf_drone,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "Eq" = (
@@ -20871,7 +20867,8 @@
 /area/map_template/hateville/agriculture)
 "Mi" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/aggressive/prosyletizing_employist,
+/obj/random/trash,
+/mob/living/simple_animal/hostile/malf_drone,
 /turf/template_noop,
 /area/template_noop)
 "Mj" = (
@@ -21604,8 +21601,8 @@
 	},
 /area/map_template/hateville/prison)
 "NS" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/malf_drone,
+/obj/random/trash,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/template_noop,
 /area/template_noop)
 "NT" = (
@@ -24202,6 +24199,10 @@
 /obj/item/stack/material/sheet/reinforced/mapped/plasteel/ten,
 /turf/floor/concrete,
 /area/map_template/hateville/materials)
+"Tz" = (
+/mob/living/simple_animal/hostile/malf_drone,
+/turf/template_noop,
+/area/template_noop)
 "TB" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	id_tag = "hate_medi_extvent";
@@ -26750,6 +26751,13 @@
 /mob/living/simple_animal/aggressive/prosyletizing_employist,
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/maintenance)
+"YD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/trash,
+/mob/living/simple_animal/aggressive/prosyletizing_employist,
+/turf/template_noop,
+/area/template_noop)
 "YF" = (
 /obj/machinery/door/airlock/external{
 	id_tag = "hate_medi_ext";
@@ -27534,12 +27542,12 @@ od
 aa
 aa
 aa
-aa
+Ep
 aa
 cv
 od
 od
-iX
+Mi
 aa
 aa
 aa
@@ -27605,10 +27613,10 @@ as
 cv
 aa
 aa
-aa
+Ep
 MK
 aa
-Ep
+od
 kN
 kN
 aa
@@ -27677,7 +27685,7 @@ cv
 cv
 aa
 Cm
-NS
+cv
 aa
 cv
 Fn
@@ -27826,13 +27834,13 @@ kN
 od
 kN
 cv
+Ep
+aa
+Tz
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+Tz
 aa
 cv
 ET
@@ -27893,7 +27901,7 @@ iX
 RL
 cv
 aa
-mI
+kN
 Xl
 kN
 cv
@@ -27963,14 +27971,14 @@ kN
 Op
 iX
 RC
-Mi
+cv
 cv
 kN
 kN
 Uv
 cv
 aa
-XI
+NS
 XI
 aa
 aa
@@ -28046,7 +28054,7 @@ cv
 cv
 cv
 cv
-kN
+mI
 cv
 aa
 ET
@@ -28111,9 +28119,9 @@ Op
 Mc
 kN
 om
-mI
 kN
-as
+kN
+YD
 kN
 cv
 kN
@@ -28187,7 +28195,7 @@ kN
 kN
 kN
 om
-Mi
+cv
 cv
 kN
 Mc
@@ -28252,7 +28260,7 @@ qp
 nO
 cv
 as
-Mi
+cv
 aa
 cv
 XI
@@ -28471,7 +28479,7 @@ cv
 RL
 kN
 cv
-Mi
+cv
 aa
 cv
 aa
