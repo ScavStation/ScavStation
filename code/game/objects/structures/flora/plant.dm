@@ -70,7 +70,7 @@
 /obj/structure/flora/plant/on_update_icon()
 	. = ..()
 	icon_state = "blank"
-	color = null
+	reset_color()
 	set_overlays(plant.get_appearance(dead = dead, growth_stage = growth_stage, can_harvest = !!harvestable))
 
 /obj/structure/flora/plant/attackby(obj/item/O, mob/user)
