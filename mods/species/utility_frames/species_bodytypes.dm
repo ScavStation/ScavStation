@@ -10,7 +10,7 @@
 	body_flags =        BODY_FLAG_NO_PAIN | BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
 	base_color = "#333355"
 	base_eye_color = "#00ccff"
-	material = /decl/material/solid/metal/steel
+	organ_material = /decl/material/solid/metal/steel
 	vital_organs = list(
 		BP_BRAIN,
 		BP_CELL

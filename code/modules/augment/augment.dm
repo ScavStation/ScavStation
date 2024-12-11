@@ -16,7 +16,9 @@
 /obj/item/organ/internal/augment/Initialize()
 	. = ..()
 	organ_tag = pick(allowed_organs)
+	set_bodytype(/decl/bodytype/prosthetic/augment)
 	update_parent_organ()
+	reagents?.clear_reagents() // Removing meat from the reagents list.
 
 /obj/item/organ/internal/augment/attackby(obj/item/W, mob/user)
 	if(IS_SCREWDRIVER(W) && allowed_organs.len > 1)
