@@ -920,7 +920,7 @@ default behaviour is:
 	nutrition = clamp(amt, 0, get_max_nutrition())
 
 /mob/living/proc/get_nutrition()
-	return nutrition
+	return isSynthetic() ? get_max_nutrition() : nutrition
 
 /mob/living/proc/adjust_nutrition(var/amt)
 	set_nutrition(get_nutrition() + amt)
@@ -929,7 +929,7 @@ default behaviour is:
 	return 500
 
 /mob/living/proc/get_hydration(var/amt)
-	return hydration
+	return isSynthetic() ? get_max_hydration() : hydration
 
 /mob/living/proc/set_hydration(var/amt)
 	hydration = clamp(amt, 0, get_max_hydration())
