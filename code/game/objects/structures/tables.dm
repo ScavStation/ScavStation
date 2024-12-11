@@ -300,6 +300,7 @@
 	reset_color()
 
 /obj/structure/table/proc/handle_normal_icon()
+	color = null // Don't double-apply our color, clear the map preview.
 	icon_state = "blank"
 	var/image/I
 	// Base frame shape.
