@@ -24,6 +24,8 @@
 	reagent_overlay = "soup_chunks"
 	nutriment_factor = 10
 	allergen_flags = ALLERGEN_MEAT
+	affect_blood_on_ingest = 0
+	affect_blood_on_inhale = 0
 
 /decl/material/solid/organic/meat/egg
 	name = "egg yolk"
