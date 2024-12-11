@@ -107,7 +107,7 @@
 		var/category = current_list[2]
 		for(var/entry in current_list[1])
 			var/datum/stored_items/vending_products/product = new(src, entry)
-			product.price = atom_info_repository.get_combined_worth_for(entry) * markup
+			product.price = ceil(atom_info_repository.get_combined_worth_for(entry) * markup)
 			product.category = category
 			if(product && populate_parts)
 				product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
@@ -213,9 +213,9 @@
 	if(currently_vending.price > cashmoney.absolute_worth)
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
-		to_chat(usr, "[html_icon(cashmoney)] <span class='warning'>That is not enough money.</span>")
+		to_chat(usr, SPAN_WARNING("[html_icon(cashmoney)] That is not enough money."))
 		return 0
-	visible_message("<span class='info'>\The [usr] inserts some cash into \the [src].</span>")
+	visible_message(SPAN_INFO("\The [usr] inserts some cash into \the [src]."))
 	cashmoney.adjust_worth(-(currently_vending.price))
 	// Vending machines have no idea who paid with cash
 	credit_purchase("(cash)")
@@ -228,7 +228,7 @@
  * successful, 0 if failed.
  */
 /obj/machinery/vending/proc/pay_with_charge_card(var/obj/item/charge_stick/wallet)
-	visible_message("<span class='info'>\The [usr] plugs \the [wallet] into \the [src].</span>")
+	visible_message(SPAN_INFO("\The [usr] plugs \the [wallet] into \the [src]."))
 	if(wallet.is_locked())
 		status_message = "Unlock \the [wallet] before using it."
 		status_error = TRUE
@@ -327,7 +327,7 @@
 		if(R.price <= 0)
 			vend(R, user)
 		else if(issilicon(user)) //If the item is not free, provide feedback if a synth is trying to buy something.
-			to_chat(user, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
+			to_chat(user, SPAN_DANGER("Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled."))
 		else
 			currently_vending = R
 			if(!vendor_account || vendor_account.suspended)
@@ -355,7 +355,7 @@
 	if(!vend_ready)
 		return
 	if((!allowed(user)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-		to_chat(user, "<span class='warning'>Access denied.</span>")//Unless emagged of course
+		to_chat(user, SPAN_WARNING("Access denied."))//Unless emagged of course
 		var/deny_state = "[icon_state]-deny"
 		if(check_state_in_icon(deny_state, icon))
 			flick(deny_state, src)
@@ -390,7 +390,7 @@
 	if(prob(1)) //The vending gods look favorably upon you
 		sleep(3)
 		if(product.get_product(get_turf(src)))
-			visible_message("<span class='notice'>\The [src] clunks as it vends an additional [product.item_name].</span>")
+			visible_message(SPAN_NOTICE("\The [src] clunks as it vends an additional [product.item_name]."))
 	status_message = ""
 	status_error = 0
 	vend_ready = 1
@@ -408,7 +408,7 @@
 		return
 
 	if(R.add_product(W))
-		to_chat(user, "<span class='notice'>You insert \the [W] in the product receptor.</span>")
+		to_chat(user, SPAN_NOTICE("You insert \the [W] in the product receptor."))
 		SSnano.update_uis(src)
 		return 1
 
@@ -484,5 +484,5 @@
 		return 0
 	spawn(0)
 		throw_item.throw_at(target, rand(1,2), 3)
-	visible_message("<span class='warning'>\The [src] launches \a [throw_item] at \the [target]!</span>")
+	visible_message(SPAN_WARNING("\The [src] launches \a [throw_item] at \the [target]!"))
 	return 1
