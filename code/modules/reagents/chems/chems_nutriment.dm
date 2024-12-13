@@ -12,6 +12,8 @@
 	fishing_bait_value = 0.65
 	compost_value = 1
 	nutriment_factor = 10
+	affect_blood_on_ingest = 0
+	affect_blood_on_inhale = 0
 
 	// Technically a room-temperature solid, but saves
 	// repathing it to /solid all over the codebase.

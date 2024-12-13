@@ -9,6 +9,7 @@
 	nutriment_factor = 0
 	hydration_factor = 6
 	affect_blood_on_ingest = FALSE
+	affect_blood_on_inhale = FALSE
 
 	var/adj_dizzy = 0 // Per tick
 	var/adj_drowsy = 0
