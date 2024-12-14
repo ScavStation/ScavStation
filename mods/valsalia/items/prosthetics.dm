@@ -29,14 +29,14 @@
 	manual_dexterity = DEXTERITY_SIMPLE_MACHINES
 	movement_slowdown = 2
 	is_robotic = FALSE
-	material = /decl/material/solid/organic/wood
+	organ_material = /decl/material/solid/organic/wood
 	uid = "bodytype_prosthetic_yinglet_wooden"
 
 /decl/bodytype/prosthetic/ying/metal
 	name = "Lunar Transit"
 	desc = "A cheap robotic prosthetic designed for yinglet owners."
 	icon_base = 'mods/valsalia/icons/metal_male.dmi'
-	material = /decl/material/solid/metal/steel
+	organ_material = /decl/material/solid/metal/steel
 	uid = "bodytype_prosthetic_yinglet_metal"
 
 /decl/bodytype/prosthetic/ying/metal/fbp
