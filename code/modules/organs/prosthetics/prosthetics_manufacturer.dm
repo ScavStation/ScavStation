@@ -6,11 +6,12 @@
 	modifier_string = "robotic"
 	is_robotic = TRUE
 	body_flags = BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS | BODY_FLAG_NO_PAIN | BODY_FLAG_NO_EAT
-	material = /decl/material/solid/metal/steel
+	organ_material = /decl/material/solid/metal/steel
 	appearance_flags = HAS_EYE_COLOR
 	eye_flash_mod = 1
 	eye_darksight_range = 2
 	associated_gender = null
+	edible_reagent = null
 	emote_sounds = list(
 		"whistle" = list('sound/voice/emotes/longwhistle_robot.ogg'),
 		"qwhistle" = list('sound/voice/emotes/shortwhistle_robot.ogg'),

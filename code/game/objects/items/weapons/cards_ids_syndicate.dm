@@ -131,7 +131,7 @@
 				if(choice && CanUseTopic(user, state))
 					src.icon_state = choice.icon_state
 					src.item_state = choice.item_state
-					src.color = choice.color
+					set_color(choice.color)
 					src.detail_color = choice.detail_color
 					src.extra_details = choice.extra_details
 					update_icon()

@@ -172,7 +172,7 @@
 	if(target == src.loc)
 		custom_emote(2, "makes a chiming sound.")
 		playsound(loc, 'sound/machines/chime.ogg', 50, 0)
-		UnarmedAttack(target)
+		UnarmedAttack(target, TRUE)
 		resetTarget()
 		if(auto_return && home && (loc != home))
 			target = home

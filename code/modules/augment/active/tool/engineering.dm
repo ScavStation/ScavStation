@@ -3,7 +3,6 @@
 	action_button_name = "Deploy Engineering Tool"
 	desc = "A lightweight augmentation for the engineer on-the-go. This one comes with a series of common tools."
 	material = /decl/material/solid/metal/steel
-	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 	paths = list(
 		/obj/item/screwdriver/finger,
 		/obj/item/wrench/finger,
@@ -13,6 +12,9 @@
 		/obj/item/multitool/finger
 	)
 	origin_tech = @'{"materials":4,"magnets":3,"engineering":3}'
+
+/obj/item/organ/internal/augment/active/polytool/engineer/reset_matter()
+	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 
 /obj/item/weldingtool/finger
 	name = "digital welder"

@@ -42,7 +42,7 @@ var/global/list/closets = list()
 		var/decl/closet_appearance/app = GET_DECL(closet_appearance)
 		if(app)
 			icon = app.icon
-			color = null
+			reset_color()
 			queue_icon_update()
 
 	return INITIALIZE_HINT_LATELOAD

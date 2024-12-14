@@ -84,7 +84,7 @@
 
 /obj/item/sticky_pad/random/Initialize()
 	. = ..()
-	color = pick(COLOR_YELLOW, COLOR_LIME, COLOR_CYAN, COLOR_ORANGE, COLOR_PINK)
+	set_color(pick(COLOR_YELLOW, COLOR_LIME, COLOR_CYAN, COLOR_ORANGE, COLOR_PINK))
 
 ////////////////////////////////////////////////
 // Sticky Note Sheet

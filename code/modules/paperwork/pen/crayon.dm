@@ -18,7 +18,7 @@
 /obj/item/pen/crayon/Initialize()
 	. = ..()
 	if(use_stroke_color)
-		color = stroke_color
+		set_color(stroke_color)
 
 /obj/item/pen/crayon/make_pen_description()
 	desc = "A colourful [stroke_color_name] [istype(material)?"[material.name] ":null][medium_name]. Please refrain from eating it or putting it in your nose."

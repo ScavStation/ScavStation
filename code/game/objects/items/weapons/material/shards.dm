@@ -51,12 +51,8 @@
 
 /obj/item/shard/on_update_icon()
 	. = ..()
-	if(material)
-		// 1-(1-x)^2, so that glass shards with 0.3 opacity end up somewhat visible at 0.51 opacity
-		alpha = 255 * (1 - (1 - material.opacity)*(1 - material.opacity))
-	else
-		color = "#ffffff"
-		alpha = 255
+	// 1-(1-x)^2, so that glass shards with 0.3 opacity end up somewhat visible at 0.51 opacity
+	alpha = 255 * (material ? (1 - (1 - material.opacity)**2) : 1)
 
 /obj/item/shard/attackby(obj/item/W, mob/user)
 	if(IS_WELDER(W) && material.shard_can_repair)

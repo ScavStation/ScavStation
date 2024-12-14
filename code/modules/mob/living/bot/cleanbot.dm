@@ -51,7 +51,7 @@
 
 /mob/living/bot/cleanbot/handleAdjacentTarget()
 	if(get_turf(target) == src.loc)
-		UnarmedAttack(target)
+		UnarmedAttack(target, TRUE)
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
 

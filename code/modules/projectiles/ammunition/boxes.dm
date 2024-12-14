@@ -18,14 +18,16 @@
 
 /obj/item/ammo_magazine/speedloader/on_update_icon()
 	. = ..()
-	if(!length(stored_ammo))
+	var/ammo_count = get_stored_ammo_count()
+	if(!ammo_count)
 		return
+	create_initial_contents() // Not ideal, but we need instances for the icon gen.
 	switch(icon_state)
 		if("world")
 			var/ammo_state = "world-some"
-			if(length(stored_ammo) == 1)
+			if(ammo_count == 1)
 				ammo_state = "world-one"
-			else if(length(stored_ammo) == max_ammo)
+			else if(ammo_count == max_ammo)
 				ammo_state = "world-full"
 			var/obj/item/ammo_casing/A = stored_ammo[1]
 			add_overlay(overlay_image(icon, ammo_state, A.color, RESET_COLOR))

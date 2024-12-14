@@ -95,7 +95,7 @@
 
 /mob/living/bot/floorbot/handleAdjacentTarget()
 	if(get_turf(target) == src.loc)
-		UnarmedAttack(target)
+		UnarmedAttack(target, TRUE)
 
 /mob/living/bot/floorbot/lookForTargets()
 	for(var/turf/floor/T in view(src))
