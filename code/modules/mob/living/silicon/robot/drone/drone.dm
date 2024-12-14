@@ -286,8 +286,8 @@
 /mob/living/silicon/robot/drone/proc/request_player()
 	if(too_many_active_drones())
 		return
-	var/decl/ghosttrap/pronouns = GET_DECL(/decl/ghosttrap/maintenance_drone)
-	pronouns.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
+	var/decl/ghosttrap/ghosttrap = GET_DECL(/decl/ghosttrap/maintenance_drone)
+	ghosttrap.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player) return

@@ -73,7 +73,7 @@
 /mob/living/bot/medbot/handleAdjacentTarget()
 	if(is_tipped) // Don't handle targets if we're incapacitated!
 		return
-	UnarmedAttack(target)
+	UnarmedAttack(target, TRUE)
 
 /mob/living/bot/medbot/lookForTargets()
 	if(is_tipped) // Don't look for targets if we're incapacitated!

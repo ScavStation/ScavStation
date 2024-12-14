@@ -7,6 +7,7 @@
 	progress_message = "You crudely sever the legs off the stool and remove the seat."
 	consume_completion_trigger = FALSE
 	next_stages = list(/decl/crafting_stage/buckler_panels)
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE // todo: modern tech level
 
 /decl/crafting_stage/buckler_panels
 	item_desc = "It's the seat of a stool with the legs sawn off and wooden planks layered over the top, ready to secure in place."

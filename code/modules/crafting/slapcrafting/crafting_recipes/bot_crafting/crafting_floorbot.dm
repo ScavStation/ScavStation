@@ -6,6 +6,7 @@
 	progress_message = "You dump a bunch of floor tiles into the empty toolbox."
 	item_icon_state = "floorbot_1"
 	next_stages = list(/decl/crafting_stage/proximity/floorbot)
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
 
 /decl/crafting_stage/proximity/floorbot
 	progress_message = "You wedge the proximity sensor in amongst the floor tiles."
@@ -22,4 +23,4 @@
 		var/mob/living/bot/floorbot/bot = .
 		var/obj/item/toolbox/box = locate() in work
 		bot.boxtype = box.icon_state
-		bot.update_icon()		
+		bot.update_icon()

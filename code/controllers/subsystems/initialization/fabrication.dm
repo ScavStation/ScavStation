@@ -33,6 +33,9 @@ SUBSYSTEM_DEF(fabrication)
 	var/list/all_crafting_handlers = decls_repository.get_decls_of_subtype(/decl/crafting_stage)
 	for(var/hid in all_crafting_handlers)
 		var/decl/crafting_stage/handler = all_crafting_handlers[hid]
+		// TODO: revisit this if map tech level can be mutated at runtime
+		if(global.using_map.map_tech_level < handler.available_to_map_tech_level)
+			continue
 		if(ispath(handler.begins_with_object_type))
 			LAZYDISTINCTADD(crafting_procedures_by_type[handler.begins_with_object_type], handler)
 

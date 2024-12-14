@@ -24,6 +24,8 @@
 	//Limited to robolimbs
 	augment_flags = AUGMENTATION_MECHANIC
 	material = /decl/material/solid/metal/steel
+
+/obj/item/organ/internal/augment/active/simple/armblade/reset_matter()
 	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 
 /obj/item/armblade/claws
@@ -44,4 +46,6 @@
 	//Limited to robolimbs
 	augment_flags = AUGMENTATION_MECHANIC
 	material = /decl/material/solid/metal/steel
+
+/obj/item/organ/internal/augment/active/simple/wolverine/reset_matter()
 	matter = list(/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_REINFORCEMENT)

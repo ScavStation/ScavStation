@@ -43,5 +43,5 @@
 	color = "#ff00ff"
 
 /obj/item/flashlight/flare/glowstick/random/Initialize()
-	color = rgb(rand(50,255),rand(50,255),rand(50,255))
+	set_color(rgb(rand(50,255),rand(50,255),rand(50,255)))
 	. = ..()

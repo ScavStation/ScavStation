@@ -250,7 +250,7 @@ var/global/list/laser_wavelengths
 
 	if(charged)
 		var/obj/item/projectile/P = new projectile_type(src)
-		P.color = selected_wavelength.color
+		P.set_color(selected_wavelength.color)
 		P.set_light(l_color = selected_wavelength.light_color)
 		P.damage = floor(sqrt(total_charge) * selected_wavelength.damage_multiplier)
 		P.armor_penetration = floor(sqrt(total_charge) * selected_wavelength.armour_multiplier)

@@ -11,6 +11,7 @@
 		/decl/crafting_stage/spear_blade_blade,
 		/decl/crafting_stage/stunprod_wirecutters
 	)
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
 
 /decl/crafting_stage/material/stunprod_rod/consume_crafting_resource(var/mob/user, var/obj/item/thing, var/obj/item/target)
 	. = ..()

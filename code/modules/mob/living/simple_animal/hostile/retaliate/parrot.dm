@@ -258,7 +258,7 @@
 				return
 
 			//Time for the hurt to begin!
-			parrot.UnarmedAttack(L)
+			parrot.UnarmedAttack(L, parrot.Adjacent(L))
 			return
 
 		//Otherwise, fly towards the mob!

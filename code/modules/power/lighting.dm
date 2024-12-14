@@ -329,8 +329,8 @@
 		var/prot = FALSE
 		var/mob/living/human/H = user
 		if(istype(H))
-			var/obj/item/clothing/gloves/pronouns = H.get_equipped_item(slot_gloves_str)
-			if(istype(pronouns) && pronouns.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
+			var/obj/item/clothing/gloves/gloves = H.get_equipped_item(slot_gloves_str)
+			if(istype(gloves) && gloves.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
 				prot = TRUE
 
 		if(prot > 0 || user.has_genetic_condition(GENE_COND_COLD_RESISTANCE))
@@ -482,7 +482,7 @@
 
 /obj/item/light/set_color(color)
 	b_color = isnull(color) ? COLOR_WHITE : color
-	update_icon()
+	queue_icon_update() // avoid running update_icon before Initialize
 
 /obj/item/light/tube
 	name = "light tube"
@@ -552,7 +552,6 @@
 // update the icon state and description of the light
 /obj/item/light/on_update_icon()
 	. = ..()
-	color = b_color
 	var/broken
 	switch(status)
 		if(LIGHT_OK)
@@ -565,9 +564,7 @@
 			icon_state = "[base_state]_broken"
 			desc = "A broken [name]."
 			broken = TRUE
-	var/image/I = image(icon, src, "[base_state]_attachment[broken ? "_broken" : ""]")
-	I.color = null
-	add_overlay(I)
+	add_overlay(overlay_image(icon, "[base_state]_attachment[broken ? "_broken" : ""]", flags = RESET_COLOR|RESET_ALPHA))
 
 /obj/item/light/Initialize(mapload)
 	. = ..()

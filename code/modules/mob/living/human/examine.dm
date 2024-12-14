@@ -268,13 +268,13 @@
 	return
 
 /mob/living/human/getHUDsource(hudtype)
-	var/obj/item/clothing/glasses/pronouns = get_equipped_item(slot_glasses_str)
-	if(!istype(pronouns))
+	var/obj/item/clothing/glasses/glasses = get_equipped_item(slot_glasses_str)
+	if(!istype(glasses))
 		return ..()
-	if(pronouns.glasses_hud_type & hudtype)
-		return pronouns
-	if(pronouns.hud && (pronouns.hud.glasses_hud_type & hudtype))
-		return pronouns.hud
+	if(glasses.glasses_hud_type & hudtype)
+		return glasses
+	if(glasses.hud && (glasses.hud.glasses_hud_type & hudtype))
+		return glasses.hud
 
 /mob/living/silicon/robot/getHUDsource(hudtype)
 	for(var/obj/item/borg/sight/sight in list(module_state_1, module_state_2, module_state_3))

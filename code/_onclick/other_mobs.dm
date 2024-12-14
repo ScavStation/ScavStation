@@ -66,9 +66,9 @@
 	var/obj/item/organ/external/hand/O = GET_EXTERNAL_ORGAN(src, get_active_held_item_slot())
 	if(!istype(O))
 		return FALSE
-	var/decl/pronouns/G = get_pronouns()
+	var/decl/pronouns/pronouns = get_pronouns()
 	visible_message(
-		SPAN_DANGER("\The [src] chews on [G.his] [O.name]"),
+		SPAN_DANGER("\The [src] chews on [pronouns.his] [O.name]"),
 		SPAN_DANGER("You chew on your [O.name]!")
 	)
 	admin_attacker_log(src, "chewed on their [O.name]!")

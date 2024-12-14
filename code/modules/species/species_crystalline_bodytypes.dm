@@ -7,7 +7,7 @@
 	abstract_type = /decl/bodytype/crystalline
 	limb_tech = @'{"materials":4}'
 	is_robotic = FALSE
-	material = /decl/material/solid/gemstone/crystal
+	organ_material = /decl/material/solid/gemstone/crystal
 	body_flags = BODY_FLAG_CRYSTAL_REFORM | BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
 	cold_level_1 = SYNTH_COLD_LEVEL_1
 	cold_level_2 = SYNTH_COLD_LEVEL_2

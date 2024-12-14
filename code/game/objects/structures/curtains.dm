@@ -60,7 +60,7 @@
 	if(curtain_kind_path)
 		var/decl/curtain_kind/kind = GET_DECL(curtain_kind_path)
 		alpha = kind.alpha
-		color = kind.color
+		set_color(kind.color)
 
 //
 // Curtain Structure
