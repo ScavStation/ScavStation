@@ -63,15 +63,13 @@
 		if(toner)
 			to_chat(user, SPAN_WARNING("There is already \a [W] in \the [src]!"))
 			return TRUE
-		else
-			return insert_toner(W, user)
+		return insert_toner(W, user)
 
 	else if(istype(W, /obj/item/paper) || istype(W, /obj/item/paper_bundle))
 		if(paper_left >= paper_max)
 			to_chat(user, SPAN_WARNING("There is no more room for paper in \the [src]!"))
 			return TRUE
-		else
-			return insert_paper(W, user)
+		return insert_paper(W, user)
 	. = ..()
 
 /obj/item/stock_parts/printer/attack_hand(mob/user)

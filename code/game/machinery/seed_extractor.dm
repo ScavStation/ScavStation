@@ -14,9 +14,6 @@
 
 /obj/machinery/seed_extractor/attackby(var/obj/item/O, var/mob/user)
 
-	if((. = component_attackby(O, user)))
-		return
-
 	// Fruits and vegetables.
 	if(istype(O, /obj/item/food/grown))
 		if(!user.try_unequip(O))

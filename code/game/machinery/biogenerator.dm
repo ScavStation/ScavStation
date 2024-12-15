@@ -79,45 +79,53 @@
 		return SPAN_NOTICE("You must turn \the [src] off first.")
 	return ..()
 
-/obj/machinery/biogenerator/attackby(var/obj/item/O, var/mob/user)
-	if((. = component_attackby(O, user)))
-		return
+/obj/machinery/biogenerator/attackby(var/obj/item/used_item, var/mob/user)
+
 	if(processing)
-		to_chat(user, "<span class='notice'>\The [src] is currently processing.</span>")
-	if(istype(O, /obj/item/chems/glass))
+		if((. = component_attackby(used_item, user)))
+			return
+		to_chat(user, SPAN_WARNING("\The [src] is currently processing."))
+		return TRUE
+
+	if(istype(used_item, /obj/item/chems/glass))
 		if(beaker)
-			to_chat(user, "<span class='notice'>]\The [src] is already loaded.</span>")
-			return TRUE
-		else if(user.try_unequip(O, src))
-			beaker = O
+			to_chat(user, SPAN_NOTICE("\The [src] is already loaded."))
+		else if(user.try_unequip(used_item, src))
+			beaker = used_item
 			state = BG_READY
 			updateUsrDialog()
-			return TRUE
+		return TRUE
 
 	if(ingredients >= capacity)
-		to_chat(user, "<span class='notice'>\The [src] is already full! Activate it.</span>")
-	else if(isobj(O))
-		if(O.storage)
-			var/hadPlants = 0
-			for(var/obj/item/food/grown/G in O.storage.get_contents())
-				hadPlants = 1
-				O.storage.remove_from_storage(user, G, src, TRUE)
-				ingredients++
-				if(ingredients >= capacity)
-					to_chat(user, "<span class='notice'>You fill \the [src] to its capacity.</span>")
-					break
-			O.storage.finish_bulk_removal() //Now do the UI stuff once.
-			if(!hadPlants)
-				to_chat(user, "<span class='notice'>\The [O] has no produce inside.</span>")
-			else if(ingredients < capacity)
-				to_chat(user, "<span class='notice'>You empty \the [O] into \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is already full! Activate it."))
+		return TRUE
 
-	else if(!istype(O, /obj/item/food/grown))
-		to_chat(user, "<span class='notice'>You cannot put this in \the [src].</span>")
-	else if(user.try_unequip(O, src))
+	if(used_item.storage)
+		var/added_plants = FALSE
+		for(var/obj/item/food/grown/G in used_item.storage.get_contents())
+			added_plants = TRUE
+			used_item.storage.remove_from_storage(user, G, src, TRUE)
+			ingredients++
+			if(ingredients >= capacity)
+				to_chat(user, SPAN_NOTICE("You fill \the [src] to its capacity."))
+				break
+		used_item.storage.finish_bulk_removal() //Now do the UI stuff once.
+		if(!added_plants)
+			to_chat(user, SPAN_WARNING("\The [used_item] has no produce inside."))
+		else if(ingredients < capacity)
+			to_chat(user, SPAN_NOTICE("You empty \the [used_item] into \the [src]."))
+		return TRUE
+
+	if(!istype(used_item, /obj/item/food/grown))
+		to_chat(user, SPAN_WARNING("You cannot put this in \the [src]."))
+		return TRUE
+
+	if(user.try_unequip(used_item, src))
 		ingredients++
-		to_chat(user, "<span class='notice'>You put \the [O] in \the [src]</span>")
-	update_icon()
+		to_chat(user, SPAN_NOTICE("You put \the [used_item] in \the [src]"))
+		return TRUE
+
+	return ..()
 
 /**
  *  Display the NanoUI window for the vending machine.

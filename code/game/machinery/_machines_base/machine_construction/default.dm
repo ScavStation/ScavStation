@@ -30,13 +30,14 @@
 		machine.panel_open = TRUE
 		to_chat(user, SPAN_NOTICE("You open the maintenance hatch of \the [machine]."))
 		machine.update_icon()
-		return
+		return TRUE
 	if(istype(I, /obj/item/part_replacer))
 		var/obj/item/part_replacer/replacer = I
 		if(replacer.remote_interaction)
 			machine.part_replacement(user, replacer)
 		machine.display_parts(user)
 		return TRUE
+	return FALSE
 
 /decl/machine_construction/default/panel_closed/post_construct(obj/machinery/machine)
 	try_change_state(machine, down_state)
@@ -75,16 +76,14 @@
 		machine.panel_open = FALSE
 		to_chat(user, SPAN_NOTICE("You close the maintenance hatch of \the [machine]."))
 		machine.update_icon()
-		return
-
+		return TRUE
 	if(istype(I, /obj/item/part_replacer))
 		return machine.part_replacement(user, I)
-
 	if(IS_WRENCH(I))
 		return machine.part_removal(user)
-
 	if(istype(I))
 		return machine.part_insertion(user, I)
+	return FALSE
 
 /decl/machine_construction/default/panel_open/mechanics_info()
 	. = list()
