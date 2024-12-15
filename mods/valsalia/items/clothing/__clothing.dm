@@ -23,6 +23,15 @@
 	yinglet_icon = 'mods/valsalia/icons/clothing/gloves/gloves_yinglet.dmi'
 	guarantee_body_flag_compatible = BODY_FLAG_YINGLET | BODY_FLAG_INDREL | BODY_FLAG_BAXXID
 
+/obj/item/clothing/gloves/ring
+	yinglet_icon = null
+
+/obj/item/clothing/gloves/armguards
+	yinglet_icon = null
+
+/obj/item/clothing/shoes/legguards
+	yinglet_icon = null
+
 /obj/item/clothing/costume/tradeship_plain
 	name = "plain clothes"
 	desc = "Some very boring clothes."
