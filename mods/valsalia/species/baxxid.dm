@@ -87,9 +87,19 @@
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
 
+	shock_vulnerability = 0.05262
+	strength = STR_HIGH
+
 	natural_armour_values = list(
-		ARMOR_BIO = ARMOR_BIO_SHIELDED
+		ARMOR_BIO = ARMOR_BIO_SHIELDED,
+		ARMOR_RAD = 0.5*ARMOR_RAD_MINOR
 	)
+
+	gluttonous = 4
+	stomach_capacity = 15
+	hunger_factor = 0.06
+	thirst_factor = 0.06
+	blood_volume = 655
 
 	base_external_prosthetics_model = null
 	preview_outfit = /decl/outfit/baxxid
