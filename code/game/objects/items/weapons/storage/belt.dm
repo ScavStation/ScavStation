@@ -13,10 +13,6 @@
 	material = /decl/material/solid/organic/leather/synth
 	var/overlay_flags
 
-/obj/item/belt/get_associated_equipment_slots()
-	. = ..()
-	LAZYDISTINCTADD(., slot_belt_str)
-
 /obj/item/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"

@@ -162,10 +162,6 @@
 			attached_cuffs = null
 	return
 
-/obj/item/clothing/shoes/get_associated_equipment_slots()
-	. = ..()
-	LAZYDISTINCTADD(., slot_shoes_str)
-
 /obj/item/clothing/shoes/set_material(var/new_material)
 	..()
 	if(shine != -1 && material.reflectiveness >= MAT_VALUE_DULL)

@@ -57,7 +57,3 @@
 			light_overlay = image(overlay.icon, "[overlay.icon_state]_light")
 		overlay.overlays += light_overlay
 	. = ..()
-
-/obj/item/clothing/head/get_associated_equipment_slots()
-	. = ..()
-	LAZYDISTINCTADD(., slot_head_str)
