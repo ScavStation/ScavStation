@@ -164,7 +164,7 @@
 		/obj/effect/decal/cleanable/ash,
 		/obj/effect/decal/cleanable/generic,
 		/obj/effect/decal/cleanable/flour,
-		/obj/effect/decal/cleanable/dirt,
+		/obj/effect/decal/cleanable/dirt/visible,
 		/obj/item/remains/robot
 	)
 	return spawnable_choices

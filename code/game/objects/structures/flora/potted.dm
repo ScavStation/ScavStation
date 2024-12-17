@@ -9,7 +9,7 @@
 	anchored     = FALSE
 	layer        = ABOVE_HUMAN_LAYER
 	w_class      = ITEM_SIZE_LARGE
-	remains_type = /obj/effect/decal/cleanable/dirt
+	remains_type = /obj/effect/decal/cleanable/dirt/visible
 	hitsound     = 'sound/effects/glass_crack2.ogg'
 	snd_cut      = 'sound/effects/break_ceramic.ogg'
 	material     = /decl/material/solid/stone/pottery
