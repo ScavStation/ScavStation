@@ -7,7 +7,7 @@ var/global/list/default_noblend_objects = list(/obj/machinery/door/window, /obj/
 /obj/structure/on_update_icon()
 	..()
 	if(material_alteration & MAT_FLAG_ALTERATION_COLOR)
-		update_material_colour()
+		update_material_color()
 	cut_overlays()
 	if(istype(lock))
 		update_lock_overlay()
