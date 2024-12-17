@@ -16,10 +16,6 @@
 /obj/item/clothing/suit/gives_weather_protection()
 	return protects_against_weather
 
-/obj/item/clothing/suit/get_associated_equipment_slots()
-	. = ..()
-	LAZYDISTINCTADD(., slot_wear_suit_str)
-
 /obj/item/clothing/suit/preserve_in_cryopod(var/obj/machinery/cryopod/pod)
 	return TRUE
 
