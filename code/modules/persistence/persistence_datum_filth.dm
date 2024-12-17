@@ -15,11 +15,16 @@
 	. = ..()
 	if(.["path"] && !ispath(.["path"]))
 		.["path"] = text2path(.["path"])
-	. = tokens
+	if(isnull(.["filthiness"]))
+		.["filthiness"] = 0
 
 /decl/persistence_handler/filth/CreateEntryInstance(var/turf/creating, var/list/tokens)
 	var/_path = tokens["path"]
-	new _path(creating, tokens["age"]+1)
+	var/obj/effect/decal/cleanable/dirt/dirt = new _path(creating, tokens["age"]+1)
+	if(istype(dirt))
+		dirt.dirt_amount = tokens["filthiness"]
+		dirt.update_icon()
+	return dirt
 
 /decl/persistence_handler/filth/GetEntryAge(var/atom/entry)
 	var/obj/effect/decal/cleanable/filth = entry
@@ -32,3 +37,8 @@
 /decl/persistence_handler/filth/CompileEntry(var/atom/entry)
 	. = ..()
 	.["path"] = "[GetEntryPath(entry)]"
+	if(istype(entry, /obj/effect/decal/cleanable/dirt))
+		var/obj/effect/decal/cleanable/dirt/dirt = entry
+		.["filthiness"] = dirt.dirt_amount
+	else
+		.["filthiness"] = 0

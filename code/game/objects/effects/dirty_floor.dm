@@ -11,6 +11,7 @@
 
 /obj/effect/decal/cleanable/dirt/visible
 	dirt_amount = 60
+	persistent = FALSE // This is a subtype for mapping.
 
 /obj/effect/decal/cleanable/dirt/Initialize()
 	. = ..()

@@ -17,7 +17,7 @@
 	return TRUE
 
 /decl/persistence_handler/graffiti/CreateEntryInstance(var/turf/creating, var/list/tokens)
-	new /obj/effect/decal/writing(creating, tokens["age"]+1, tokens["message"], tokens["author"])
+	return new /obj/effect/decal/writing(creating, tokens["age"]+1, tokens["message"], tokens["author"])
 
 /decl/persistence_handler/graffiti/IsValidEntry(var/atom/entry)
 	. = ..()
