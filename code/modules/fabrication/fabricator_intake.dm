@@ -92,8 +92,8 @@
 		to_chat(user, SPAN_WARNING("\The [src] cannot process \the [thing]."))
 
 /obj/machinery/fabricator/attackby(var/obj/item/O, var/mob/user)
-	if(component_attackby(O, user))
-		return TRUE
+	if((. = component_attackby(O, user)))
+		return
 	if(panel_open && (IS_MULTITOOL(O) || IS_WIRECUTTER(O)))
 		attack_hand_with_interaction_checks(user)
 		return TRUE

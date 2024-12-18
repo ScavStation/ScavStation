@@ -221,8 +221,8 @@
 	return TRUE
 
 /obj/machinery/power/smes/attackby(var/obj/item/W, var/mob/user)
-	if(component_attackby(W, user))
-		return TRUE
+	if((. = component_attackby(W, user)))
+		return
 	return bash(W, user)
 
 /obj/machinery/power/smes/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
