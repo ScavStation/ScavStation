@@ -20,6 +20,7 @@
 	var/lock_data = "" //basically a randomized string. The longer the string the more complex the lock.
 	var/atom/holder
 	var/material
+	var/lockpicking_skill = SKILL_DEVICES
 
 /datum/lock/New(var/atom/h, var/complexity = 1, var/mat)
 	holder = h
@@ -77,9 +78,9 @@
 	if(!unlock_power)
 		return FALSE
 	user.visible_message("<b>\The [user]</b> begins to pick \the [holder]'s lock with \the [I].", SPAN_NOTICE("You begin picking \the [holder]'s lock."))
-	if(!do_after(user, 2 SECONDS, holder))
+	if(!user.do_skilled(2 SECONDS, lockpicking_skill, holder, check_holding = TRUE, set_cooldown = TRUE))
 		return FALSE
-	if(prob(20*(unlock_power/getComplexity())))
+	if(!user.skill_fail_prob(lockpicking_skill, 100 - (20*(unlock_power/getComplexity())), SKILL_EXPERT))
 		to_chat(user, SPAN_NOTICE("You pick open \the [holder]'s lock!"))
 		unlock(lock_data)
 		return TRUE

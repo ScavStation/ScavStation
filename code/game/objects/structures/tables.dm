@@ -293,14 +293,9 @@
 	if(additional_reinf_material)
 		desc = "[desc] It has been reinforced with [additional_reinf_material.solid_name]."
 
-/obj/structure/table/update_material_colour()
-	if(is_flipped)
-		return ..()
-	alpha = 255
-	reset_color()
-
 /obj/structure/table/proc/handle_normal_icon()
 	color = null // Don't double-apply our color, clear the map preview.
+	alpha = 255
 	icon_state = "blank"
 	var/image/I
 	// Base frame shape.

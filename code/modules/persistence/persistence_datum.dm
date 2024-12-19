@@ -63,9 +63,8 @@
 		else
 			return
 
-	. = GetValidTurf(locate(tokens["x"], tokens["y"], tokens["z"]), tokens)
-	if(.)
-		CreateEntryInstance(., tokens)
+	if(GetValidTurf(locate(tokens["x"], tokens["y"], tokens["z"]), tokens))
+		return CreateEntryInstance(., tokens)
 
 /decl/persistence_handler/proc/IsValidEntry(var/atom/entry)
 	if(!istype(entry))
@@ -92,7 +91,7 @@
 	.["age"] = GetEntryAge(entry)
 
 /decl/persistence_handler/proc/FinalizeTokens(var/list/tokens)
-	. = tokens
+	. = tokens || list()
 
 /decl/persistence_handler/Initialize()
 

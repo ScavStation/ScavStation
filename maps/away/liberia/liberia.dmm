@@ -1095,7 +1095,7 @@
 	pixel_x = -6;
 	pixel_y = 28
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	id_tag = "merchant_ship_vent"
 	},
@@ -5774,7 +5774,7 @@
 	pixel_x = -28;
 	pixel_y = -10
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/catwalk,
 /obj/structure/cable/blue{
 	icon_state = "1-4"
