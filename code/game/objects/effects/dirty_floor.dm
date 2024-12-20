@@ -9,9 +9,14 @@
 	alpha = 0
 	var/dirt_amount = 0
 
+/obj/effect/decal/cleanable/dirt/visible
+	dirt_amount = 60
+	persistent = FALSE // This is a subtype for mapping.
+
 /obj/effect/decal/cleanable/dirt/Initialize()
 	. = ..()
 	verbs.Cut()
+	update_icon()
 
 /obj/effect/decal/cleanable/dirt/on_update_icon()
 	. = ..()

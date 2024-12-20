@@ -292,7 +292,7 @@
 /turf/floor/plating,
 /area/ship/trade/cargo/lower)
 "aH" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
@@ -486,7 +486,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/plating,
 /area/ship/trade/maintenance/lower)
 "bd" = (
@@ -655,7 +655,7 @@
 /obj/structure/cable{
 	icon_state = "6-8"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
 "bw" = (
@@ -739,7 +739,7 @@
 /turf/floor/tiled,
 /area/ship/trade/maintenance/lower)
 "bJ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -24
@@ -828,7 +828,7 @@
 /area/ship/trade/cargo/lower)
 "bV" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/floor/tiled/steel_grid,
 /area/ship/trade/cargo/lower)
@@ -1024,7 +1024,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/steel_grid,
 /area/ship/trade/cargo/lower)
 "cC" = (
@@ -1144,7 +1144,7 @@
 	dir = 8;
 	icon_state = "bulb1"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -1337,11 +1337,11 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/steel_grid,
 /area/ship/trade/cargo/lower)
 "du" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
 "dv" = (
@@ -1357,7 +1357,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1;
 	icon_state = "warningcorner"
@@ -1400,14 +1400,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
 "dB" = (
 /obj/structure/table,
 /obj/random/plushie,
 /obj/item/synthesized_instrument/violin,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
 "dD" = (
@@ -1608,7 +1608,7 @@
 	icon_state = "bulb1"
 	},
 /obj/structure/ladder,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/sign/deck/second{
 	pixel_y = 32
 	},
@@ -1619,7 +1619,7 @@
 	dir = 8;
 	pixel_x = 22
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -1647,7 +1647,7 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/eva)
 "ep" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "bulb1"
@@ -1696,7 +1696,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "ew" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1723,7 +1723,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "ez" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1760,7 +1760,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/eva)
 "eD" = (
@@ -1785,7 +1785,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "eQ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light_switch{
 	pixel_x = 24;
@@ -1804,14 +1804,14 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/plating,
 /area/ship/trade/maintenance/eva)
 "eS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/eva)
 "eV" = (
@@ -1858,7 +1858,7 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/storage)
 "fa" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
 "fb" = (
@@ -1990,7 +1990,7 @@
 /turf/floor,
 /area/ship/trade/science/fabricaton)
 "hI" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
@@ -2160,7 +2160,7 @@
 /obj/machinery/conveyor_switch{
 	id_tag = "con"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
@@ -2349,7 +2349,7 @@
 /turf/wall/r_wall/hull,
 /area/ship/trade/maintenance/techstorage)
 "rB" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/ore/iron,
 /obj/item/stack/material/ore/coal{
 	pixel_x = 3;
@@ -2452,7 +2452,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "un" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/fabricator/industrial,
 /obj/item/stack/material/ingot/mapped/osmium/ten,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2571,7 +2571,7 @@
 	},
 /obj/item/bedsheet/mime,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
 "xa" = (
@@ -2681,7 +2681,7 @@
 /turf/floor/tiled/dark,
 /area/ship/trade/crew/dorms1)
 "Bq" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
@@ -2746,7 +2746,7 @@
 	dir = 4;
 	level = 2
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
 "DQ" = (
@@ -2873,7 +2873,7 @@
 /area/ship/trade/science/fabricaton)
 "IU" = (
 /obj/structure/window/reinforced,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
@@ -2957,7 +2957,7 @@
 /turf/floor/lino,
 /area/ship/trade/crew/dorms2)
 "Lx" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stool/padded,
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
@@ -2977,7 +2977,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "LN" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
@@ -3000,7 +3000,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled,
 /area/ship/trade/maintenance/lower)
 "Mx" = (
@@ -3008,7 +3008,7 @@
 /turf/wall,
 /area/ship/trade/escape_port)
 "Nb" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/item/radio/intercom{
 	pixel_y = 20
 	},
@@ -3385,7 +3385,7 @@
 /turf/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "Zv" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm{
 	dir = 4;

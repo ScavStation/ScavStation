@@ -89,8 +89,8 @@
 	if(busy)
 		to_chat(user, SPAN_WARNING("\The [src] is busy right now."))
 		return TRUE
-	if(component_attackby(O, user))
-		return TRUE
+	if((. = component_attackby(O, user)))
+		return
 	if(isrobot(user))
 		return TRUE
 	if(loaded_item)

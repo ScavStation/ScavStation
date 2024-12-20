@@ -277,7 +277,7 @@
 	},
 /area/ship/trade/crew/medbay/chemistry)
 "aB" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/closet/emcloset,
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
@@ -530,7 +530,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -646,7 +646,7 @@
 /turf/wall/r_wall,
 /area/ship/trade/dock)
 "bn" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -21
@@ -677,7 +677,7 @@
 /turf/floor/plating,
 /area/ship/trade/shuttle/outgoing/general)
 "br" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/emergency_dispenser/north,
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
@@ -734,7 +734,7 @@
 "bv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -821,7 +821,7 @@
 /turf/floor/plating,
 /area/ship/trade/dock)
 "bB" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/sign/warning/vacuum{
 	dir = 4;
 	pixel_x = -34
@@ -829,7 +829,7 @@
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "bC" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -981,7 +981,7 @@
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "bO" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/steeldecal/steel_decals6,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -1323,7 +1323,7 @@
 	dir = 8;
 	icon_state = "twindow"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/abstract/landmark/start{
 	name = "Deck Hand"
 	},
@@ -1630,7 +1630,7 @@
 	dir = 8;
 	icon_state = "twindow"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/random_multi/single_item/captains_spare_id,
 /turf/floor/tiled/freezer,
 /area/ship/trade/crew/toilets)
@@ -1647,7 +1647,7 @@
 	icon_state = "twindow"
 	},
 /obj/structure/window/reinforced/tinted,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable,
 /obj/machinery/power/apc{
 	dir = 4;
@@ -1664,7 +1664,7 @@
 /turf/floor/tiled/freezer,
 /area/ship/trade/crew/toilets)
 "dO" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "conpipe-c"
@@ -1683,7 +1683,7 @@
 /turf/wall,
 /area/ship/trade/crew/saloon)
 "dQ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
@@ -1713,7 +1713,7 @@
 /turf/floor/tiled,
 /area/ship/trade/crew/saloon)
 "dV" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -1852,7 +1852,7 @@
 /area/ship/trade/crew/kitchen)
 "ez" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "eA" = (
@@ -1903,7 +1903,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/cargo)
 "eF" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -1916,7 +1916,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/cargo)
 "eH" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "bulb1"
@@ -1988,7 +1988,7 @@
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "eQ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -2206,7 +2206,7 @@
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fp" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/catwalk,
 /turf/open,
 /area/ship/trade/cargo)
@@ -2607,7 +2607,7 @@
 /area/ship/trade/cargo)
 "gt" = (
 /obj/structure/emergency_dispenser/west,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -2800,7 +2800,7 @@
 /turf/floor/tiled,
 /area/ship/trade/garden)
 "hi" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -2889,7 +2889,7 @@
 /turf/floor/plating,
 /area/ship/trade/crew/hallway/starboard)
 "ht" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3172,7 +3172,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/engineering)
 "hV" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/light_switch{
 	pixel_y = 25
 	},
@@ -3330,7 +3330,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/engineering)
 "ij" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -3350,7 +3350,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stool/padded,
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -3372,7 +3372,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3517,7 +3517,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/engineering)
 "iz" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -3639,7 +3639,7 @@
 /area/ship/trade/maintenance/atmos)
 "iN" = (
 /obj/machinery/light,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/maintenance/hallway)
 "iQ" = (
@@ -4848,8 +4848,8 @@
 /turf/floor/plating,
 /area/ship/trade/shieldbay)
 "pT" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/item/radio/intercom{
 	pixel_y = 20
 	},
@@ -4958,7 +4958,7 @@
 /turf/floor/plating,
 /area/ship/trade/shuttle/rescue)
 "qO" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/modular/preset/merchant/tradeship,
 /obj/machinery/light_switch{
@@ -6376,7 +6376,7 @@
 	pixel_x = 30;
 	pixel_y = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/maintenance/hallway)
 "GO" = (
@@ -6621,7 +6621,7 @@
 /area/ship/trade/crew/saloon)
 "Jp" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/meat_hook,
 /obj/machinery/newscaster{
 	pixel_y = -32;
@@ -7245,7 +7245,7 @@
 /turf/floor/bluegrid,
 /area/ship/trade/command/bridge)
 "Qc" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -7327,7 +7327,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/maintenance/hallway)
 "Rb" = (
@@ -7388,7 +7388,7 @@
 /turf/floor/carpet/blue,
 /area/ship/trade/command/captain)
 "Rv" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/abstract/landmark/start{
 	name = "Cargo Technician"
 	},
@@ -7667,7 +7667,7 @@
 /turf/wall/titanium,
 /area/ship/trade/shuttle/outgoing/general)
 "UV" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "UY" = (
@@ -7886,7 +7886,7 @@
 /turf/floor/tiled,
 /area/ship/trade/shuttle/outgoing/general)
 "Xz" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/maintenance/hallway)
 "XG" = (
@@ -7919,7 +7919,7 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/engine/aft)
 "Ya" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/catwalk,
 /obj/structure/railing/mapped,

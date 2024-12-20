@@ -17,7 +17,7 @@
 	if(case)
 		book.forceMove(case)
 		case.update_icon()
-	. = book
+	return book
 
 /decl/persistence_handler/book/IsValidEntry(var/atom/entry)
 	. = ..()

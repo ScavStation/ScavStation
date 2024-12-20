@@ -30,10 +30,6 @@
 		action_button_name = "Adjust Mask"
 		verbs += .verb/adjust_mask
 
-/obj/item/clothing/mask/get_associated_equipment_slots()
-	. = ..()
-	LAZYDISTINCTADD(., slot_wear_mask_str)
-
 /obj/item/clothing/mask/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && hanging && slot == slot_wear_mask_str && check_state_in_icon("[overlay.icon_state]-down", overlay.icon))
 		overlay.icon_state = "[overlay.icon_state]-down"
