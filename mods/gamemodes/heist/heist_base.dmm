@@ -160,7 +160,7 @@
 /area/map_template/syndicate_mothership/raider_base)
 "aK" = (
 /obj/structure/bed,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/sign/painting/monkey_painting{
 	pixel_x = -28;
 	pixel_y = 4
@@ -317,7 +317,7 @@
 /turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bf" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bg" = (
@@ -421,7 +421,7 @@
 /turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bv" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
@@ -435,7 +435,7 @@
 /turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bx" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/unsimulated/floor/plating,
@@ -529,12 +529,12 @@
 /turf/unsimulated/floor/wood/broken6,
 /area/map_template/syndicate_mothership/raider_base)
 "bO" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/washing_machine,
 /turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bP" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
@@ -558,14 +558,14 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /turf/unsimulated/floor/plating,
 /area/map_template/syndicate_mothership/raider_base)
 "bS" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor/plating,

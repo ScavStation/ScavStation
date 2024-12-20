@@ -815,12 +815,7 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 		target.remove_cleanables()
 	if(dirtiness != DIRTINESS_NEUTRAL)
 		if(dirtiness > DIRTINESS_NEUTRAL)
-			var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate() in target
-			if (!dirtoverlay)
-				dirtoverlay = new /obj/effect/decal/cleanable/dirt(target)
-				dirtoverlay.alpha = total_volume * dirtiness
-			else
-				dirtoverlay.alpha = min(dirtoverlay.alpha + total_volume * dirtiness, 255)
+			target.add_dirt(ceil(total_volume * dirtiness))
 		else
 			if(dirtiness <= DIRTINESS_STERILE)
 				target.germ_level -= min(total_volume*20, target.germ_level)

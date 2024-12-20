@@ -37,6 +37,7 @@
 	if(!dirt)
 		dirt = new(src)
 	dirt.dirt_amount = min(dirt.dirt_amount + amount, MAX_DIRT)
+	dirt.update_icon()
 	return TRUE
 #undef MAX_DIRT
 

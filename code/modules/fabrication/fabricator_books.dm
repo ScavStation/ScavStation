@@ -10,6 +10,13 @@
 	fabricator_class = FABRICATOR_CLASS_BOOKS
 	color_selectable = TRUE
 
+/obj/machinery/fabricator/book/can_ingest(obj/item/thing)
+	var/static/list/paper_types = list(
+		/obj/item/paper,
+		/obj/item/shreddedp
+	)
+	. = is_type_in_list(thing, paper_types) || ..()
+
 /obj/machinery/fabricator/book/make_order(datum/fabricator_recipe/recipe, multiplier)
 	var/datum/fabricator_build_order/order = ..()
 	LAZYSET(order.data, "selected_color", selected_color)

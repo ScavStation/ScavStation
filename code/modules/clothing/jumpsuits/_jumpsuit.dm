@@ -15,8 +15,3 @@
 		GET_DECL(/decl/clothing_state_modifier/rolled_sleeves)
 	)
 	return expected_state_modifiers
-
-/obj/item/clothing/costume/get_associated_equipment_slots()
-	. = ..()
-	var/static/list/under_slots = list(slot_w_uniform_str, slot_wear_id_str)
-	LAZYDISTINCTADD(., under_slots)

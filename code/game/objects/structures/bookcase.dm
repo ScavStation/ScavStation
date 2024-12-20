@@ -213,7 +213,7 @@ var/global/list/station_bookcases = list()
 /obj/structure/bookcase/cart/on_update_icon()
 	// We don't (can't) call parent, so we have to do this here
 	if(material_alteration & MAT_FLAG_ALTERATION_COLOR)
-		update_material_colour()
+		update_material_color()
 	cut_overlays()
 	if(istype(lock))
 		update_lock_overlay()

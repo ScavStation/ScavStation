@@ -33,7 +33,7 @@
 				break
 	..()
 
-/obj/machinery/fabricator/bioprinter/can_ingest(var/obj/item/thing)
+/obj/machinery/fabricator/replicator/can_ingest(var/obj/item/thing)
 	return istype(thing, /obj/item/food) || ..()
 
 /obj/machinery/fabricator/replicator/proc/state_status()

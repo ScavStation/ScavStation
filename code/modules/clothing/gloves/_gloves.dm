@@ -17,10 +17,6 @@
 	fallback_slot = slot_gloves_str
 	var/obj/item/clothing/gloves/ring/covering_ring
 
-/obj/item/clothing/gloves/get_associated_equipment_slots()
-	. = ..()
-	LAZYDISTINCTADD(., slot_gloves_str)
-
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, var/proximity)
 	return
 

@@ -306,3 +306,6 @@
 		"Experienced" = "You work as an pharmacist, or else you are a doctor with training in chemistry. If you are a pharmacist, you can make most medications. At this stage, you're working mostly by-the-book. <br>- You can examine held containers for some reagents.",
 		"Master"      = "You specialized in chemistry or pharmaceuticals; you are either a medical researcher or professional chemist. You can create custom mixes and make even the trickiest of medications easily. You understand how your pharmaceuticals interact with the bodies of your patients. You are probably the originator of at least one new chemical innovation.<br>- You can examine held containers for all reagents."
 	)
+
+/datum/lock
+	lockpicking_skill = SKILL_ARTIFICE

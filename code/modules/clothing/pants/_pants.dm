@@ -9,8 +9,3 @@
 	w_class = ITEM_SIZE_NORMAL
 	fallback_slot = slot_w_uniform_str
 	valid_accessory_slots = UNIFORM_DEFAULT_ACCESSORIES
-
-/obj/item/clothing/pants/get_associated_equipment_slots()
-	. = ..()
-	var/static/list/pants_slots = list(slot_w_uniform_str, slot_wear_id_str)
-	LAZYDISTINCTADD(., pants_slots)

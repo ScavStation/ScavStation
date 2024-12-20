@@ -104,9 +104,9 @@
 
 /obj/item/clothing/glasses/update_clothing_icon()
 	. = ..()
-	if(.)
-		var/mob/M = loc
-		M.update_action_buttons()
+	if(. && ismob(loc))
+		var/mob/wearer = loc
+		wearer.update_action_buttons()
 
 /obj/item/clothing/glasses/proc/toggle()
 	set category = "Object"

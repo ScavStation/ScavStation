@@ -69,7 +69,7 @@
 		var/resolved = holding.resolve_attackby(A, src, params)
 		if(!resolved && A && holding)
 			holding.afterattack(A, src, 1, params) // 1 indicates adjacency
-		setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		return
 
 	if(!isturf(loc))
@@ -81,7 +81,7 @@
 			var/resolved = holding.resolve_attackby(A, src, params)
 			if(!resolved && A && holding)
 				holding.afterattack(A, src, 1, params) // 1 indicates adjacency
-			setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		else
 			holding.afterattack(A, src, 0, params)
 		return

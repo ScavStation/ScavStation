@@ -17,7 +17,7 @@
 	if(material_alteration & MAT_FLAG_ALTERATION_DESC)
 		update_material_desc()
 	if(material_alteration & MAT_FLAG_ALTERATION_COLOR)
-		update_material_colour()
+		update_material_color()
 	if((alpha / 255) < 0.5)
 		set_opacity(FALSE)
 	else
@@ -49,7 +49,7 @@
 	else
 		desc = base_desc
 
-/obj/structure/proc/update_material_colour()
+/obj/structure/proc/update_material_color()
 	color = get_color()
 	if(istype(material))
 		alpha = clamp((50 + material.opacity * 255), 0, 255)

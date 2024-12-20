@@ -11,7 +11,7 @@
 		playsound(get_turf(machine), 'sound/items/Ratchet.ogg', 50, 1)
 		machine.visible_message(SPAN_NOTICE("\The [user] deconstructs \the [machine]."))
 		machine.dismantle()
-		return
+		return TRUE
 	return ..()
 
 /decl/machine_construction/default/panel_closed/item_chassis/mechanics_info()

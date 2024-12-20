@@ -76,6 +76,9 @@
 /decl/stack_recipe/hardness/integrity/lock
 	result_type        = /obj/item/lock_construct
 
+/decl/stack_recipe/hardness/integrity/lockpick
+	result_type        = /obj/item/lockpick
+
 /decl/stack_recipe/hardness/integrity/key
 	result_type        = /obj/item/key
 

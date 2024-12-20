@@ -589,7 +589,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/dock)
 "bo" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -656,7 +656,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/dock)
 "bt" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -775,7 +775,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -914,7 +914,7 @@
 /turf/floor/usedup,
 /area/ship/scrap/dock)
 "bM" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
@@ -1219,7 +1219,7 @@
 	icon_state = "bulb1"
 	},
 /obj/structure/hygiene/toilet,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/floor/tiled/usedup,
 /area/ship/scrap/crew/toilets)
@@ -1529,7 +1529,7 @@
 /obj/structure/hygiene/toilet{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/floor/tiled/usedup,
 /area/ship/scrap/crew/toilets)
@@ -1537,7 +1537,7 @@
 /obj/structure/hygiene/toilet{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable,
 /obj/machinery/power/apc/derelict{
 	dir = 4;
@@ -1558,7 +1558,7 @@
 	dir = 8;
 	icon_state = "bulb1"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "conpipe-c"
@@ -1574,7 +1574,7 @@
 /turf/wall,
 /area/ship/scrap/crew/saloon)
 "dn" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -1634,7 +1634,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/usedup,
@@ -1790,13 +1790,13 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "dL" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "dM" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -1906,7 +1906,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/crew/hallway/port)
 "dX" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -24;
@@ -1920,7 +1920,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "dZ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1939,7 +1939,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "eb" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/light/small{
 	dir = 4;
 	icon_state = "bulb1"
@@ -2021,7 +2021,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/crew/kitchen)
 "ek" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -2139,7 +2139,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "es" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2352,7 +2352,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "eJ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -2384,7 +2384,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "eM" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable,
 /obj/machinery/power/apc/derelict{
 	dir = 4;
@@ -2535,7 +2535,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "fb" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/computer/shuttle_control/lift,
@@ -2552,7 +2552,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/cargo)
 "fd" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2939,7 +2939,7 @@
 /area/ship/scrap/cargo)
 "fO" = (
 /obj/structure/emergency_dispenser/west,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -3057,7 +3057,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -3315,7 +3315,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/fire)
 "gD" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -3453,7 +3453,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/maintenance/hallway)
 "gO" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3723,8 +3723,8 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/maintenance/engineering)
 "ho" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/item/radio/intercom{
 	pixel_y = 20
 	},
@@ -3759,7 +3759,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/maintenance/engineering)
 "hq" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/light_switch{
 	pixel_y = 25
 	},
@@ -3929,7 +3929,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stool/padded,
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -3948,7 +3948,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4107,7 +4107,7 @@
 /turf/floor/tiled/usedup,
 /area/ship/scrap/maintenance/engineering)
 "hU" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},

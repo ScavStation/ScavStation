@@ -12,7 +12,7 @@
 	var/datum/mob_snapshot/loaded_dna //DNA for biological organs
 
 /obj/machinery/fabricator/bioprinter/can_ingest(var/obj/item/thing)
-	. = istype(thing, /obj/item/organ) || istype(thing, /obj/item/food/butchery) || ..()
+	. = istype(thing, /obj/item/organ) || istype(thing, /obj/item/food/butchery) || istype(thing?.material, /decl/material/solid/organic/meat) || ..()
 
 /obj/machinery/fabricator/bioprinter/get_nano_template()
 	return "fabricator_bioprinter.tmpl"
@@ -22,9 +22,6 @@
 	//Keep these in the order so changing settings while queueing things up won't screw up older orders in the queue
 	order.set_data("dna", loaded_dna)
 	return order
-
-/obj/machinery/fabricator/bioprinter/can_ingest(var/obj/item/thing)
-	return istype(thing?.material, /decl/material/solid/organic/meat) || ..()
 
 /obj/machinery/fabricator/bioprinter/do_build(datum/fabricator_build_order/order)
 	. = ..()

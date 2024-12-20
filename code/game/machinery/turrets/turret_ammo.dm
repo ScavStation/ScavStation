@@ -32,10 +32,10 @@
 		var/obj/item/ammo_casing/casing = W
 		if(stored_caliber && casing.caliber != stored_caliber)
 			to_chat(user, SPAN_WARNING("The caliber of \the [casing] does not match the caliber stored in \the [src]!"))
-			return FALSE
+			return TRUE
 		if(length(stored_ammo) >= max_ammo)
 			to_chat(user, SPAN_WARNING("\The [src] is full!"))
-			return FALSE
+			return TRUE
 
 		casing.forceMove(src)
 		stored_ammo += casing
@@ -49,13 +49,13 @@
 		var/obj/item/ammo_magazine/magazine = W
 		if(stored_caliber && magazine.caliber != stored_caliber)
 			to_chat(user, SPAN_WARNING("The caliber of \the [magazine] does not match the caliber stored in \the [src]!"))
-			return FALSE
+			return TRUE
 		if(!length(magazine.stored_ammo))
 			to_chat(user, SPAN_WARNING("\The [magazine] is empty!"))
-			return FALSE
+			return TRUE
 		if(length(stored_ammo) >= max_ammo)
 			to_chat(user, SPAN_WARNING("\The [src] is full!"))
-			return FALSE
+			return TRUE
 
 		stored_caliber = magazine.caliber
 		for(var/obj/item/ammo_casing/casing in magazine.stored_ammo)
