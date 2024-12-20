@@ -111,7 +111,7 @@ var/global/ascii_reset = "[ascii_esc]\[0m"
 	if(!async && check_cleanup) // Async tests run at the same time, so cleaning up after any one completes risks breaking other tests
 		var/static/list/ignored_types = list(
 			/atom/movable/lighting_overlay,
-			/obj/effect/decal/cleanable/dirt,
+			/obj/effect/decal/cleanable/dirt/visible,
 			/obj/abstract/landmark/test
 		)
 		var/z_levels = list()
