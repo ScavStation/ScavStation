@@ -23,6 +23,12 @@
 
 	var/static/list/radial_options = list("up" = radial_ladder_up, "down" = radial_ladder_down)
 
+/obj/structure/ladder/handle_default_hammer_attackby()
+	var/last_anchored = anchored
+	. = ..()
+	if(anchored != last_anchored)
+		find_connections()
+
 /obj/structure/ladder/handle_default_wrench_attackby()
 	var/last_anchored = anchored
 	. = ..()

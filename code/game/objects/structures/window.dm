@@ -207,6 +207,9 @@
 	playsound(loc, crowbar.get_tool_sound(TOOL_CROWBAR) || 'sound/items/Crowbar.ogg', 75, 1)
 	return TRUE
 
+/obj/structure/window/handle_default_hammer_attackby(mob/user, obj/item/hammer)
+	return FALSE
+
 /obj/structure/window/handle_default_wrench_attackby(mob/user, obj/item/wrench)
 	if(anchored || (reinf_material && construction_state > CONSTRUCTION_STATE_NO_FRAME))
 		return FALSE // ineligible, allow other interactions to proceed

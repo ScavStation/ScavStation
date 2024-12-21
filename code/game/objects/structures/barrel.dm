@@ -16,6 +16,7 @@
 	volume                    = 7500
 	movable_flags             = MOVABLE_FLAG_WHEELED
 	throwpass                 = TRUE
+	tool_interaction_flags    = TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT
 
 /obj/structure/reagent_dispensers/barrel/Initialize()
 	..()

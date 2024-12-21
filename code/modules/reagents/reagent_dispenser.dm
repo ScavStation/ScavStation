@@ -37,9 +37,9 @@
 	if(!(. = ..()))
 		return
 	if(reagents?.total_volume > 0)
-		tool_interaction_flags = 0
+		tool_interaction_flags &= ~TOOL_INTERACTION_DECONSTRUCT
 	else
-		tool_interaction_flags = TOOL_INTERACTION_DECONSTRUCT
+		tool_interaction_flags |= TOOL_INTERACTION_DECONSTRUCT
 
 /obj/structure/reagent_dispensers/initialize_reagents(populate = TRUE)
 	if(!reagents)
