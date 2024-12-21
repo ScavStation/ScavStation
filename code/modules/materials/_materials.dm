@@ -261,6 +261,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/cocktail_ingredient
 	var/defoliant
 	var/fruit_descriptor // String added to fruit desc if this chemical is present.
+	/// Does this reagent have an antibiotic effect (helping with infections)?
+	var/antibiotic_strength = 0
 
 	var/dirtiness = DIRTINESS_NEUTRAL // How dirty turfs are after being exposed to this material. Negative values cause a cleaning/sterilizing effect.
 	var/decontamination_dose = 0      // Amount required for a decontamination effect, if any.
@@ -824,6 +826,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	if(M.status_flags & GODMODE)
 		return
+
+	if(antibiotic_strength)
+		M.adjust_immunity(-0.1 * antibiotic_strength)
+		M.add_chemical_effect(CE_ANTIBIOTIC, antibiotic_strength)
+		if(REAGENT_VOLUME(holder, type) > 10)
+			M.adjust_immunity(-0.3 * antibiotic_strength)
+		if(LAZYACCESS(M.chem_doses, type) > 15)
+			M.adjust_immunity(-0.25 * antibiotic_strength)
 
 	if(nutriment_factor || hydration_factor)
 		if(injectable_nutrition)
