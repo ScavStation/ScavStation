@@ -15,6 +15,12 @@
 	drop_sound = 'sound/foley/donk1.ogg'
 	pickup_sound = 'sound/foley/pickup2.ogg'
 
+/obj/item/chems/glass/bucket/get_edible_material_amount(mob/eater)
+	return 0
+
+/obj/item/chems/glass/bucket/get_utensil_food_type()
+	return null
+
 /obj/item/chems/glass/bucket/attackby(var/obj/D, mob/user)
 	if(istype(D, /obj/item/mop))
 		if(reagents.total_volume < 1)

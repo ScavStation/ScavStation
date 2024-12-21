@@ -9,57 +9,6 @@
 	volume                        = 30
 	amount_per_transfer_from_this = 5
 
-// Drinking out of bowls.
-/obj/item/chems/glass/bowl/attack_self(mob/user)
-	if(is_edible(user) && handle_eaten_by_mob(user, user) != EATEN_INVALID)
-		return TRUE
-	return ..()
-
-/obj/item/chems/glass/bowl/can_lid()
-	return FALSE
-
-/obj/item/chems/glass/bowl/get_food_default_transfer_amount(mob/eater)
-	return eater?.get_eaten_transfer_amount(amount_per_transfer_from_this)
-
-/obj/item/chems/glass/bowl/get_edible_material_amount(mob/eater)
-	return reagents?.total_volume
-
-/obj/item/chems/glass/bowl/get_food_consumption_method(mob/eater)
-	return EATING_METHOD_DRINK
-
-/obj/item/chems/glass/bowl/get_utensil_food_type()
-	return /obj/item/food/lump
-
-// Interaction code borrowed from /food.
-/obj/item/chems/glass/bowl/attackby(obj/item/W, mob/living/user)
-
-	if(istype(W, /obj/item/food))
-		if(!reagents?.total_volume)
-			to_chat(user, SPAN_WARNING("\The [src] is empty."))
-			return TRUE
-		var/transferring = min(get_food_default_transfer_amount(user), REAGENTS_FREE_SPACE(W.reagents))
-		if(!transferring)
-			to_chat(user, SPAN_WARNING("You cannot dip \the [W] in \the [src]."))
-			return TRUE
-		reagents.trans_to_holder(W.reagents, transferring)
-		user.visible_message(SPAN_NOTICE("\The [user] dunks \the [W] in \the [src]."))
-		return TRUE
-
-	var/obj/item/utensil/utensil = W
-	if(istype(utensil) && (utensil.utensil_flags & UTENSIL_FLAG_SCOOP))
-		if(utensil.loaded_food)
-			to_chat(user, SPAN_WARNING("You already have something on \the [utensil]."))
-			return TRUE
-		if(!reagents?.total_volume)
-			to_chat(user, SPAN_WARNING("\The [src] is empty."))
-			return TRUE
-		seperate_food_chunk(utensil, user)
-		if(utensil.loaded_food?.reagents?.total_volume)
-			to_chat(user, SPAN_NOTICE("You scoop up some of \the [utensil.loaded_food.reagents.get_primary_reagent_name()] with \the [utensil]."))
-		return TRUE
-
-	return ..()
-
 // Predefined soup types for mapping.
 /obj/item/chems/glass/bowl/mapped
 	abstract_type = /obj/item/chems/glass/bowl/mapped

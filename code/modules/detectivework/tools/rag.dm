@@ -7,7 +7,6 @@
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = @"[5]"
 	volume = 10
-	can_be_placed_into = null
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	material = /decl/material/solid/organic/cloth
@@ -15,6 +14,15 @@
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
+
+/obj/item/chems/glass/rag/get_edible_material_amount(mob/eater)
+	return 0
+
+/obj/item/chems/glass/rag/get_utensil_food_type()
+	return null
+
+/obj/item/chems/glass/rag/get_atoms_can_be_placed_into()
+	return null
 
 /obj/item/chems/glass/rag/Initialize()
 	. = ..()
