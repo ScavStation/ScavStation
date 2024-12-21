@@ -151,3 +151,11 @@
 				to_chat(user, SPAN_NOTICE("You scoop up some of \the [utensil.loaded_food.reagents.get_primary_reagent_name()] with \the [utensil]."))
 			return TRUE
 	return ..()
+
+/obj/structure/glass/get_alt_interactions(mob/user)
+	. = ..()
+	if(reagents?.total_volume >= FLUID_PUDDLE)
+		LAZYADD(., /decl/interaction_handler/dip_item)
+		LAZYADD(., /decl/interaction_handler/fill_from)
+	if(user?.get_active_held_item())
+		LAZYADD(., /decl/interaction_handler/empty_into)

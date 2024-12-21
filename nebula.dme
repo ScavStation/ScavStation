@@ -2611,6 +2611,7 @@
 #include "code\modules\integrated_electronics\subtypes\trig.dm"
 #include "code\modules\interactions\_interactions.dm"
 #include "code\modules\interactions\interactions_atom.dm"
+#include "code\modules\interactions\interactions_reagents.dm"
 #include "code\modules\interactions\interactions_shared.dm"
 #include "code\modules\item_effects\_item_effect.dm"
 #include "code\modules\item_effects\item_effect_aura.dm"
