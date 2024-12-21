@@ -8,7 +8,7 @@
 	backpack_contents = list(
 		/obj/item/stack/medical/bandage/crafted/five = 1,
 		/obj/item/stack/medical/ointment/crafted/five   = 1,
-		/obj/item/chems/waterskin/crafted/wine           = 1
+		/obj/item/chems/glass/waterskin/crafted/wine           = 1
 	)
 
 /decl/outfit/job/shaded_hills/traveller/scholar

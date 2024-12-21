@@ -265,7 +265,7 @@
 
 /decl/loadout_option/fantasy/utility/waterskin
 	name = "waterskin selection"
-	path = /obj/item/chems/waterskin
+	path = /obj/item/chems/glass/waterskin
 	available_materials = null
 	apply_to_existing_if_possible = TRUE // overwrite beggar knight's wineskin
 	uid = "gear_fantasy_waterskin"
@@ -273,8 +273,8 @@
 /decl/loadout_option/fantasy/utility/waterskin/get_gear_tweak_options()
 	. = ..()
 	LAZYDISTINCTADD(.[/datum/gear_tweak/path], list(
-		"crafted leather waterskin" = /obj/item/chems/waterskin/crafted,
-		"dried stomach waterskin" =   /obj/item/chems/waterskin,
+		"crafted leather waterskin" = /obj/item/chems/glass/waterskin/crafted,
+		"dried stomach waterskin" =   /obj/item/chems/glass/waterskin,
 	))
 	LAZYDISTINCTADD(.[/datum/gear_tweak/reagents], list(
 		"ale" =         /decl/material/liquid/ethanol/ale,
