@@ -5,6 +5,9 @@
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	presentation_flags = PRESENTATION_FLAG_NAME
 
+/obj/item/chems/glass/handmade/can_lid()
+	return FALSE
+
 /obj/item/chems/glass/handmade/on_reagent_change()
 	if((. = ..()))
 		update_icon()
