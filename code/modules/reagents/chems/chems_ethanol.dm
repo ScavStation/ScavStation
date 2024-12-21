@@ -1,4 +1,5 @@
 /decl/material/liquid/ethanol
+	abstract_type = /decl/material/liquid/ethanol
 	name = "ethanol" //Parent class for all alcoholic reagents.
 	lore_text = "A well-known alcohol with a variety of applications."
 	taste_description = "pure alcohol"
@@ -7,45 +8,34 @@
 	ignition_point = T0C+150
 	accelerant_value = FUEL_VALUE_ACCELERANT
 	solvent_power = MAT_SOLVENT_MODERATE
-	uid = "chem_ethanol"
 
-	boiling_point = T0C + 78.37
+	boiling_point = null // Pure ethanol boils, the rest has to separate first.
 
 	heating_message = "boils away its ethanol content, leaving pure water."
 	heating_point = T0C + 78.37
 	heating_products = list(
-		/decl/material/liquid/ethanol = 0.75,
-		/decl/material/liquid/water =   0.25
+		/decl/material/liquid/ethanol/spirits = 0.75,
+		/decl/material/liquid/water           = 0.25
 	)
-	bypass_heating_products_for_root_type = /decl/material/liquid/ethanol
 
 	chilling_message = "separates as its water content freezes, leaving pure ethanol."
 	chilling_point = T0C
 	chilling_products = list(
-		/decl/material/liquid/ethanol = 0.75,
-		/decl/material/solid/ice =      0.25
+		/decl/material/liquid/ethanol/spirits = 0.75,
+		/decl/material/solid/ice              = 0.25
 	)
-	bypass_chilling_products_for_root_type = /decl/material/liquid/ethanol
 	affect_blood_on_ingest = FALSE // prevents automatic toxins/inebriation as though injected
 	affect_blood_on_inhale = FALSE
-	can_boil_to_gas = TRUE
-	temperature_burn_milestone_material = /decl/material/liquid/ethanol
+
+	glass_name = "ethanol"
+	glass_desc = "A well-known alcohol with a variety of applications."
+	value = 1.2
 
 	var/strength = 10 // This is, essentially, units between stages - the lower, the stronger. Less fine tuning, more clarity.
 	var/alcohol_toxicity = 1
 	var/adj_temp = 0
 	var/targ_temp = 310
 	var/halluci = 0
-
-	glass_name = "ethanol"
-	glass_desc = "A well-known alcohol with a variety of applications."
-	value = 1.2
-
-/decl/material/liquid/ethanol/Initialize()
-	. = ..()
-	// Impure ethanol doesn't boil, it has to separate first.
-	if(type != bypass_heating_products_for_root_type)
-		boiling_point = null
 
 /decl/material/liquid/ethanol/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
@@ -98,6 +88,20 @@
 
 	if(halluci)
 		M.adjust_hallucination(halluci, halluci)
+
+// Somewhat a dummy type for 'pure ethanol' to avoid having to set dirtiness/heating products/etc on literally everything else.
+/decl/material/liquid/ethanol/spirits
+	dirtiness         = DIRTINESS_STERILE
+	boiling_point     = T0C + 78.37
+	uid               = "chem_ethanol"
+	can_boil_to_gas   = TRUE
+	temperature_burn_milestone_material = /decl/material/liquid/ethanol/spirits
+
+	// Pure ethanol does not separate.
+	heating_point     = null
+	heating_products  = null
+	chilling_point    = null
+	chilling_products = null
 
 /decl/material/liquid/ethanol/absinthe
 	name = "absinthe"

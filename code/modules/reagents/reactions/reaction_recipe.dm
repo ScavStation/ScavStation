@@ -79,7 +79,7 @@
 /decl/chemical_reaction/recipe/vinegar2
 	name = "Clear Vinegar"
 	result = /decl/material/liquid/nutriment/vinegar
-	required_reagents = list(/decl/material/liquid/ethanol = 10)
+	required_reagents = list(/decl/material/liquid/ethanol/spirits = 10)
 	catalysts = list(/decl/material/liquid/enzyme = 5)
 	result_amount = 10
 	mix_message = "The solution roils as it rapidly ferments into a sharp-smelling liquid."

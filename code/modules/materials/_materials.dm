@@ -288,13 +288,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/chilling_message = "crackles and freezes!"
 	var/chilling_sound = 'sound/effects/bubbles.ogg'
 	var/list/chilling_products
-	var/bypass_chilling_products_for_root_type
 
 	var/heating_point
 	var/heating_message = "begins to boil!"
 	var/heating_sound = 'sound/effects/bubbles.ogg'
 	var/list/heating_products
-	var/bypass_heating_products_for_root_type
 	var/accelerant_value = FUEL_VALUE_NONE
 	var/burn_temperature = 100 CELSIUS
 	var/burn_product

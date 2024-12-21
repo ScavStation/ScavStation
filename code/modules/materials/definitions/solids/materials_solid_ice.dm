@@ -117,9 +117,9 @@
 	liquid_name = null
 	gas_name = null
 	heating_products = list(
-		/decl/material/gas/ammonia  = 0.05,
-		/decl/material/liquid/water = 0.55,
-		/decl/material/liquid/ethanol = 0.4
+		/decl/material/gas/ammonia            = 0.05,
+		/decl/material/liquid/water           = 0.55,
+		/decl/material/liquid/ethanol/spirits = 0.4
 	)
 	uid = "solid_ice_ediroite"
 	value = 0.2

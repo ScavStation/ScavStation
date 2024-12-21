@@ -110,7 +110,7 @@
 	for(var/rtype in temp_reagents_holder.reagents.reagent_volumes)
 		var/new_multiplier = 1
 		var/decl/material/R = GET_DECL(rtype)
-		if(istype(R,/decl/material/liquid/ethanol))
+		if(istype(R, /decl/material/liquid/ethanol))
 			var/decl/material/liquid/ethanol/E = R
 			new_multiplier = (10/E.strength)
 			actually_flameable = 1

@@ -44,7 +44,7 @@
 /decl/chemical_reaction/drug/herbal/yarrow_tincture
 	name = "tincture of yarrow"
 	required_reagents = list(
-		/decl/material/liquid/ethanol           = 1,
+		/decl/material/liquid/ethanol/spirits   = 1,
 		/decl/material/liquid/brute_meds/yarrow = 3
 	)
 	result = /decl/material/liquid/brute_meds/yarrow/tincture
@@ -52,15 +52,15 @@
 /decl/chemical_reaction/drug/herbal/aloe_tincture
 	name = "tincture of aloe"
 	required_reagents = list(
-		/decl/material/liquid/ethanol        = 1,
-		/decl/material/liquid/burn_meds/aloe = 3
+		/decl/material/liquid/ethanol/spirits = 1,
+		/decl/material/liquid/burn_meds/aloe  = 3
 	)
 	result = /decl/material/liquid/burn_meds/aloe/tincture
 
 /decl/chemical_reaction/drug/herbal/ginseng_tincture
 	name = "tincture of ginseng"
 	required_reagents = list(
-		/decl/material/liquid/ethanol            = 1,
+		/decl/material/liquid/ethanol/spirits    = 1,
 		/decl/material/liquid/antitoxins/ginseng = 3
 	)
 	result = /decl/material/liquid/antitoxins/ginseng/tincture
@@ -68,7 +68,7 @@
 /decl/chemical_reaction/drug/herbal/valerian_tincture
 	name = "tincture of valerian"
 	required_reagents = list(
-		/decl/material/liquid/ethanol            = 1,
+		/decl/material/liquid/ethanol/spirits    = 1,
 		/decl/material/liquid/sedatives/valerian = 3
 	)
 	result = /decl/material/liquid/sedatives/valerian/tincture

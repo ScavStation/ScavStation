@@ -181,7 +181,7 @@
 
 /decl/surgery_step/sterilize/Initialize()
 	. = ..()
-	for(var/decl/material/liquid/ethanol/booze in decls_repository.get_decls_of_type_unassociated(/decl/material/liquid/ethanol))
+	for(var/decl/material/liquid/ethanol/booze in decls_repository.get_decls_of_subtype_unassociated(/decl/material/liquid/ethanol))
 		if(booze.strength <= 40)
 			sterilizing_reagents |= booze.type
 

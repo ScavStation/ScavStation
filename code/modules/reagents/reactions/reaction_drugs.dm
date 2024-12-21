@@ -22,16 +22,16 @@
 	name = "Strong Painkillers"
 	result = /decl/material/liquid/painkillers/strong
 	required_reagents = list(
-		/decl/material/liquid/stabilizer = 1,
-		/decl/material/liquid/ethanol = 1,
-		/decl/material/liquid/acetone = 1
+		/decl/material/liquid/stabilizer      = 1,
+		/decl/material/liquid/ethanol/spirits = 1,
+		/decl/material/liquid/acetone         = 1
 	)
 	result_amount = 3
 
 /decl/chemical_reaction/drug/antiseptic
 	name = "Antiseptic"
 	result = /decl/material/liquid/antiseptic
-	required_reagents = list(/decl/material/liquid/ethanol = 1, /decl/material/liquid/antitoxins = 1, /decl/material/liquid/acid/hydrochloric = 1)
+	required_reagents = list(/decl/material/liquid/ethanol/spirits = 1, /decl/material/liquid/antitoxins = 1, /decl/material/liquid/acid/hydrochloric = 1)
 	result_amount = 3
 
 /decl/chemical_reaction/drug/mutagenics
@@ -136,7 +136,7 @@
 /decl/chemical_reaction/drug/sedatives
 	name = "Sedatives"
 	result = /decl/material/liquid/sedatives
-	required_reagents = list(/decl/material/liquid/ethanol = 1, /decl/material/liquid/nutriment/sugar = 4
+	required_reagents = list(/decl/material/liquid/ethanol/spirits = 1, /decl/material/liquid/nutriment/sugar = 4
 	)
 	inhibitors = list(
 		/decl/material/solid/phosphorus
@@ -146,7 +146,7 @@
 /decl/chemical_reaction/drug/paralytics
 	name = "Paralytics"
 	result = /decl/material/liquid/paralytics
-	required_reagents = list(/decl/material/liquid/ethanol = 1, /decl/material/liquid/mercury = 2, /decl/material/liquid/fuel/hydrazine = 2)
+	required_reagents = list(/decl/material/liquid/ethanol/spirits = 1, /decl/material/liquid/mercury = 2, /decl/material/liquid/fuel/hydrazine = 2)
 	result_amount = 1
 
 /decl/chemical_reaction/drug/zombiepowder

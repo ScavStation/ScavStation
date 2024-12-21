@@ -115,7 +115,8 @@
 			next_cramp = world.time + rand(200,800)
 			owner.custom_pain("Your stomach cramps agonizingly!",1)
 
-		var/alcohol_volume = REAGENT_VOLUME(ingested, /decl/material/liquid/ethanol)
+		// TODO: check if this even works - it won't be picking up alcohol subtypes.
+		var/alcohol_volume = REAGENT_VOLUME(ingested, /decl/material/liquid/ethanol/spirits)
 
 		var/alcohol_threshold_met = alcohol_volume > STOMACH_VOLUME / 2
 		if(alcohol_threshold_met && owner.has_genetic_condition(GENE_COND_EPILEPSY) && prob(20))

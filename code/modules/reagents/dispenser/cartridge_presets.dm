@@ -32,7 +32,7 @@ DEFINE_CARTRIDGE_FOR_CHEM(iron,       /decl/material/solid/metal/iron)
 DEFINE_CARTRIDGE_FOR_CHEM(copper,     /decl/material/solid/metal/copper)
 DEFINE_CARTRIDGE_FOR_CHEM(mercury,    /decl/material/liquid/mercury)
 DEFINE_CARTRIDGE_FOR_CHEM(radium,     /decl/material/solid/metal/radium)
-DEFINE_CARTRIDGE_FOR_CHEM(ethanol,    /decl/material/liquid/ethanol)
+DEFINE_CARTRIDGE_FOR_CHEM(ethanol,    /decl/material/liquid/ethanol/spirits)
 DEFINE_CARTRIDGE_FOR_CHEM(sacid,      /decl/material/liquid/acid)
 DEFINE_CARTRIDGE_FOR_CHEM(tungsten,   /decl/material/solid/metal/tungsten)
 

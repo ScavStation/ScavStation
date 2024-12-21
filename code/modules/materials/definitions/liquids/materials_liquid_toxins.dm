@@ -218,9 +218,9 @@
 	color = "#140b30"
 	toxicity = 4
 	heating_products = list(
-		/decl/material/liquid/acetone = 0.4,
-		/decl/material/solid/carbon = 0.4,
-		/decl/material/liquid/ethanol = 0.2
+		/decl/material/liquid/acetone         = 0.4,
+		/decl/material/solid/carbon           = 0.4,
+		/decl/material/liquid/ethanol/spirits = 0.2
 	)
 	heating_point = 145 CELSIUS
 	heating_message = "separates."

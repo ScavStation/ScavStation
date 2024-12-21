@@ -48,7 +48,7 @@
 	name = "Methyl Bromide"
 	required_reagents = list(
 		/decl/material/liquid/bromide = 1,
-		/decl/material/liquid/ethanol = 1,
+		/decl/material/liquid/ethanol/spirits = 1,
 		/decl/material/liquid/fuel/hydrazine = 1
 	)
 	result_amount = 3

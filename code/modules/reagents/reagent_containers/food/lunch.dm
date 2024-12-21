@@ -107,11 +107,11 @@ var/global/list/lunchables_ethanol_reagents_ = list(
 		.[initial(O.name)] = lunch
 	return sortTim(., /proc/cmp_text_asc)
 
-/proc/init_lunchable_reagent_list(var/list/banned_reagents, var/reagent_types)
+/proc/init_lunchable_reagent_list(var/list/banned_reagents, var/reagent_type)
 	. = list()
-	for(var/reagent_type in subtypesof(reagent_types))
-		if(reagent_type in banned_reagents)
+	for(var/reagent_subtype in decls_repository.get_decls_of_subtype(reagent_type))
+		if(reagent_subtype in banned_reagents)
 			continue
-		var/decl/material/reagent = reagent_type
-		.[initial(reagent.name)] = reagent_type
+		var/decl/material/reagent = reagent_subtype
+		.[initial(reagent.name)] = reagent_subtype
 	return sortTim(., /proc/cmp_text_asc)

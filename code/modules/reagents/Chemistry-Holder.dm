@@ -199,12 +199,12 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 		var/replace_sound
 
 		if(!(check_flags & ATOM_FLAG_NO_PHASE_CHANGE))
-			if(!isnull(R.chilling_point) && R.type != R.bypass_chilling_products_for_root_type && LAZYLEN(R.chilling_products) && temperature <= R.chilling_point)
+			if(!isnull(R.chilling_point) && LAZYLEN(R.chilling_products) && temperature <= R.chilling_point)
 				replace_self_with = R.chilling_products
 				if(R.chilling_message)
 					replace_message = "\The [R.get_reagent_name(src)] [R.chilling_message]"
 				replace_sound = R.chilling_sound
-			else if(!isnull(R.heating_point) && R.type != R.bypass_heating_products_for_root_type && LAZYLEN(R.heating_products) && temperature >= R.heating_point)
+			else if(!isnull(R.heating_point) && LAZYLEN(R.heating_products) && temperature >= R.heating_point)
 				replace_self_with = R.heating_products
 				if(R.heating_message)
 					replace_message = "\The [R.get_reagent_name(src)] [R.heating_message]"
