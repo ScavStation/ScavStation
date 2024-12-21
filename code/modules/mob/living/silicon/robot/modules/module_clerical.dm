@@ -65,7 +65,7 @@
 		var/datum/reagents/R = emag.create_reagents(50)
 		R.add_reagent(/decl/material/liquid/paralytics, 10)
 		R.add_reagent(/decl/material/liquid/sedatives, 15)
-		R.add_reagent(/decl/material/liquid/ethanol/beer, 20)
+		R.add_reagent(/decl/material/liquid/alcohol/beer, 20)
 		R.add_reagent(/decl/material/solid/ice, 5)
 		emag.SetName("Mickey Finn's Special Brew")
 
@@ -75,7 +75,7 @@
 	E.add_to_reagents(/decl/material/liquid/enzyme, 2 * amount)
 	if(emag)
 		var/obj/item/chems/drinks/bottle/small/beer/B = emag
-		B.add_to_reagents(/decl/material/liquid/ethanol/beer, amount * 0.4)
+		B.add_to_reagents(/decl/material/liquid/alcohol/beer, amount * 0.4)
 		B.add_to_reagents(/decl/material/solid/ice,         amount * 0.1)
 		B.add_to_reagents(/decl/material/liquid/paralytics,   amount * 0.2)
 		B.add_to_reagents(/decl/material/liquid/sedatives,    amount * 0.3)

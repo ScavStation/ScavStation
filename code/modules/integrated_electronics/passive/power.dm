@@ -103,7 +103,7 @@
 		/decl/material/gas/hydrogen/tritium   = 50000,
 		/decl/material/liquid/fuel            = 15000,
 		/decl/material/solid/carbon           = 10000,
-		/decl/material/liquid/ethanol/spirits = 10000,
+		/decl/material/liquid/alcohol/ethanol = 10000,
 		/decl/material/liquid/nutriment       = 8000
 	)
 	var/multi = 1

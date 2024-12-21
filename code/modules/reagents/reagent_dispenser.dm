@@ -314,7 +314,7 @@
 	matter           = list(/decl/material/solid/metal/stainlesssteel = MATTER_AMOUNT_TRACE)
 
 /obj/structure/reagent_dispensers/beerkeg/populate_reagents()
-	add_to_reagents(/decl/material/liquid/ethanol/beer, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/beer, reagents.maximum_volume)
 
 /obj/structure/reagent_dispensers/acid
 	name             = "sulphuric acid dispenser"

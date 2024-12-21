@@ -69,10 +69,10 @@ var/global/list/lunchables_drink_reagents_ = list(
 
 // This default list is a bit different, it contains items we don't want
 var/global/list/lunchables_ethanol_reagents_ = list(
-												/decl/material/liquid/ethanol/coffee,
-												/decl/material/liquid/ethanol/hooch,
-												/decl/material/liquid/ethanol/thirteenloko,
-												/decl/material/liquid/ethanol/pwine
+												/decl/material/liquid/alcohol/coffee,
+												/decl/material/liquid/alcohol/hooch,
+												/decl/material/liquid/alcohol/thirteenloko,
+												/decl/material/liquid/alcohol/pwine
 											)
 
 /proc/lunchables_lunches()
@@ -97,7 +97,7 @@ var/global/list/lunchables_ethanol_reagents_ = list(
 
 /proc/lunchables_ethanol_reagents()
 	if(!(lunchables_ethanol_reagents_[lunchables_ethanol_reagents_[1]]))
-		lunchables_ethanol_reagents_ = init_lunchable_reagent_list(lunchables_ethanol_reagents_, /decl/material/liquid/ethanol)
+		lunchables_ethanol_reagents_ = init_lunchable_reagent_list(lunchables_ethanol_reagents_, /decl/material/liquid/alcohol)
 	return lunchables_ethanol_reagents_
 
 /proc/init_lunchable_list(var/list/lunches)
@@ -109,7 +109,7 @@ var/global/list/lunchables_ethanol_reagents_ = list(
 
 /proc/init_lunchable_reagent_list(var/list/banned_reagents, var/reagent_type)
 	. = list()
-	for(var/reagent_subtype in decls_repository.get_decls_of_subtype(reagent_type))
+	for(var/reagent_subtype in decls_repository.get_decls_of_type(reagent_type))
 		if(reagent_subtype in banned_reagents)
 			continue
 		var/decl/material/reagent = reagent_subtype

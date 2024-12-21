@@ -40,7 +40,7 @@
 			if(!product)
 				continue
 			lore_text = initial(product.lore_text)
-			if(ispath(food.result, /decl/material/liquid/drink) || ispath(food.result, /decl/material/liquid/ethanol))
+			if(ispath(food.result, /decl/material/liquid/drink) || ispath(food.result, /decl/material/liquid/alcohol))
 				category_name = "drink recipe"
 				mechanics_text = "This recipe produces [food.result_amount]u <span codexlink='[product.codex_name || product.name] (substance)'>[product.name]</span>.<br>It should be performed in a glass or shaker, and requires the following ingredients:"
 			else

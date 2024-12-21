@@ -33,7 +33,7 @@
 		/decl/material/liquid/blood,
 		/decl/material/liquid/lube,
 		/decl/material/liquid/sedatives,
-		/decl/material/liquid/ethanol/spirits,
+		/decl/material/liquid/alcohol/ethanol,
 		/decl/material/liquid/water,
 		/decl/material/solid/ice,
 		/decl/material/liquid/fuel,

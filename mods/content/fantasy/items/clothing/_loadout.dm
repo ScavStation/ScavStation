@@ -277,15 +277,15 @@
 		"dried stomach waterskin" =   /obj/item/chems/glass/waterskin,
 	))
 	LAZYDISTINCTADD(.[/datum/gear_tweak/reagents], list(
-		"ale" =         /decl/material/liquid/ethanol/ale,
-		"apple cider" = /decl/material/liquid/ethanol/cider_apple,
-		"beer" =        /decl/material/liquid/ethanol/beer,
-		"kvass" =       /decl/material/liquid/ethanol/kvass,
-		"pear cider" =  /decl/material/liquid/ethanol/cider_pear,
-		"red wine" =    /decl/material/liquid/ethanol/wine,
-		"sake" =        /decl/material/liquid/ethanol/sake,
+		"ale" =         /decl/material/liquid/alcohol/ale,
+		"apple cider" = /decl/material/liquid/alcohol/cider_apple,
+		"beer" =        /decl/material/liquid/alcohol/beer,
+		"kvass" =       /decl/material/liquid/alcohol/kvass,
+		"pear cider" =  /decl/material/liquid/alcohol/cider_pear,
+		"red wine" =    /decl/material/liquid/alcohol/wine,
+		"sake" =        /decl/material/liquid/alcohol/sake,
 		"water" =       /decl/material/liquid/water,
-		"white wine" =  /decl/material/liquid/ethanol/wine/premium,
+		"white wine" =  /decl/material/liquid/alcohol/wine/premium,
 	))
 
 /decl/loadout_option/fantasy/eyes
