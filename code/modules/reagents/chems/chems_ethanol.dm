@@ -92,10 +92,12 @@
 // Somewhat a dummy type for 'pure ethanol' to avoid having to set dirtiness/heating products/etc on literally everything else.
 /decl/material/liquid/ethanol/spirits
 	dirtiness         = DIRTINESS_STERILE
-	boiling_point     = T0C + 78.37
 	uid               = "chem_ethanol"
-	can_boil_to_gas   = TRUE
-	temperature_burn_milestone_material = /decl/material/liquid/ethanol/spirits
+
+	// Uncomment when refining spirits is less annoying
+	// boiling_point     = T0C + 78.37
+	// can_boil_to_gas   = TRUE
+	// temperature_burn_milestone_material = /decl/material/liquid/ethanol/spirits
 
 	// Pure ethanol does not separate.
 	heating_point     = null
