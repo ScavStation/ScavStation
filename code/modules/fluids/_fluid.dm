@@ -22,8 +22,7 @@
 	// Update layer.
 	var/new_layer
 	var/turf/T = get_turf(src)
-	var/effective_depth = T?.get_physical_height() + reagent_volume
-	if(effective_depth < 0)
+	if(T.pixel_z < 0)
 		new_layer = T.layer + 0.2
 	else if(reagent_volume > FLUID_DEEP)
 		new_layer = DEEP_FLUID_LAYER
