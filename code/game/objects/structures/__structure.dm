@@ -159,7 +159,7 @@
 		last_damage_message = 0.75
 
 /obj/structure/physically_destroyed(var/skip_qdel)
-	if(..(TRUE))
+	if((. = ..(TRUE)))
 		return dismantle_structure()
 
 /obj/structure/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)

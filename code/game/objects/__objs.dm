@@ -404,3 +404,16 @@
 // Stub, used by /item and /structure
 /obj/proc/refresh_color()
 	return
+
+// Slightly convoluted reagent logic to avoid fluid_act() putting reagents straight back into the destroyed /obj.
+/obj/physically_destroyed(skip_qdel)
+	var/dumped_reagents = FALSE
+	var/atom/last_loc = loc
+	if(last_loc && reagents?.total_volume)
+		reagents.trans_to(loc, reagents.total_volume, defer_update = TRUE)
+		dumped_reagents = TRUE
+		reagents.clear_reagents() // We are qdeling, don't bother with a more nuanced update.
+	. = ..()
+	if(dumped_reagents && last_loc && !QDELETED(last_loc) && last_loc.reagents?.total_volume)
+		last_loc.reagents.handle_update()
+		HANDLE_REACTIONS(last_loc.reagents)
