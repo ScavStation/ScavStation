@@ -230,9 +230,12 @@
 	rand_damage *= damage_multiplier
 	real_damage = max(1, real_damage)
 	// Apply additional unarmed effects.
-	attack.apply_effects(H, src, rand_damage, hit_zone)
+	attack.apply_attack_effects(H, src, rand_damage, hit_zone)
 	// Finally, apply damage to target
 	apply_damage(real_damage, attack.get_damage_type(), hit_zone, damage_flags=attack.damage_flags())
+	if(attack.apply_cooldown)
+		H.setClickCooldown(attack.apply_cooldown)
+
 	if(istype(ai))
 		ai.retaliate(user)
 	return TRUE
