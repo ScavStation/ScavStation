@@ -119,6 +119,16 @@
 	eye_low_light_vision_adjustment_speed = 0.3
 	eye_darksight_range                   = 7
 
+	// Copied from riot armor, as drakes cannot wear equipment
+	// or hold shields. May need to be toned down at some point.
+	natural_armour_values = list(
+		ARMOR_MELEE  = ARMOR_MELEE_VERY_HIGH,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER  = ARMOR_LASER_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB   = ARMOR_BOMB_PADDED
+	)
+
 	var/list/sitting_equip_adjust
 	var/list/lying_equip_adjust
 
