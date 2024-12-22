@@ -439,7 +439,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	else if(isnull(temperature_damage_threshold))
 		var/new_temperature_damage_threshold = max(melting_point, boiling_point, heating_point)
 		// Don't let the threshold be lower than the ignition point.
-		if(!isnull(new_temperature_damage_threshold) && (isnull(ignition_point) || (new_temperature_damage_threshold > ignition_point)))
+		if(isnull(new_temperature_damage_threshold) && !isnull(ignition_point))
+			temperature_damage_threshold = ignition_point
+		else if(isnull(ignition_point) || (new_temperature_damage_threshold > ignition_point))
 			temperature_damage_threshold = new_temperature_damage_threshold
 
 	if(!shard_icon)

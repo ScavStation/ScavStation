@@ -3,6 +3,7 @@
 	ignition_point = T0C+500 // Based on loose ignition temperature of plastic
 	accelerant_value = 0.1
 	burn_product = /decl/material/gas/carbon_monoxide
+	boiling_point = null
 	melting_point = null
 	compost_value = 1
 

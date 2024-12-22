@@ -441,7 +441,6 @@
 				removed.add_thermal_energy(heat_transfer)
 		environment.merge(removed)
 
-
 	queue_icon_update()
 
 /obj/structure/fire_source/proc/has_fuel()
