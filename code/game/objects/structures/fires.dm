@@ -494,7 +494,7 @@
 	. = ..()
 	if(. && lit && ismob(mover))
 		var/mob/M = mover
-		if(!MOVING_QUICKLY(M))
+		if(M.client && !M.current_posture?.prone && !MOVING_QUICKLY(M))
 			to_chat(M, SPAN_WARNING("You refrain from stepping into \the [src]."))
 			return FALSE
 	return ..()
