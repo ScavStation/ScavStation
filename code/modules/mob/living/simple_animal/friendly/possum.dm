@@ -72,7 +72,7 @@
 	if(damage >= 3)
 		respond_to_damage()
 
-/mob/living/simple_animal/opossum/lay_down()
+/mob/living/simple_animal/opossum/lay_down(block_posture as null)
 	. = ..()
 	update_icon()
 

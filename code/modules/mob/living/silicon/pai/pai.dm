@@ -251,7 +251,7 @@ var/global/list/possible_say_verbs = list(
 	if(istype(T))
 		T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
 
-/mob/living/silicon/pai/lay_down()
+/mob/living/silicon/pai/lay_down(block_posture as null)
 	// Pass lying down or getting up to our pet human, if we're in a rig.
 	if(istype(loc, /obj/item/paicard))
 		set_posture(/decl/posture/standing)

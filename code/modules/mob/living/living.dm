@@ -639,9 +639,9 @@ default behaviour is:
 /mob/living/verb/rest_verb()
 	set name = "Rest"
 	set category = "IC"
-	lay_down()
+	lay_down(block_posture = /decl/posture/sitting)
 
-/mob/living/verb/lay_down()
+/mob/living/verb/lay_down(block_posture as null)
 	set name = "Change Posture"
 	set category = "IC"
 
@@ -650,6 +650,15 @@ default behaviour is:
 		return
 
 	var/list/selectable_postures = get_selectable_postures()
+
+	if(block_posture)
+		for(var/decl/posture/selectable_posture in selectable_postures)
+			if(islist(block_posture))
+				if(is_type_in_list(selectable_posture, block_posture))
+					selectable_postures -= selectable_posture
+			else if(istype(selectable_posture, block_posture))
+				selectable_postures -= selectable_posture
+
 	if(!length(selectable_postures))
 		return
 
