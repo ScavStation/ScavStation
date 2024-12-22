@@ -15,9 +15,15 @@
 /decl/material/liquid/antitoxins/ginseng
 	name               = "powdered ginseng"
 	uid                = "chem_antitoxins_herbal"
-	lore_text          = "Ginseng root has curative properties and encourages organ recovery after poisoning."
+	lore_text          = "Ginseng root has curative properties and encourages organ recovery and restoration of blood volume after poisoning or blood loss."
 	taste_description  = "bitter herbs"
 	antitoxin_strength = 0.35
+
+/decl/material/liquid/antitoxins/ginseng/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+	M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /decl/material/liquid/sedatives/valerian
 	name               = "powdered valerian flower"
