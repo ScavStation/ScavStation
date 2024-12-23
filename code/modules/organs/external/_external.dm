@@ -1593,6 +1593,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return ..()
 	if(limb_flags & ORGAN_FLAG_CAN_AMPUTATE)
 		dismember(FALSE, DISMEMBER_METHOD_BLUNT) // This will also destroy the mob if it removes the last non-core limb.
+	else
+		owner.physically_destroyed() // Previously gib(), but that caused blood and guts to fly everywhere.
 
 /obj/item/organ/external/is_vital_to_owner()
 	if(isnull(vital_to_owner))
