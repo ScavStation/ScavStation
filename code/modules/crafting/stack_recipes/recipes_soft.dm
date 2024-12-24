@@ -2,7 +2,11 @@
 	time                        = 1 SECOND
 	abstract_type               = /decl/stack_recipe/soft
 	craft_stack_types           = null
-	forbidden_craft_stack_types = null
+	forbidden_craft_stack_types = list(
+		/obj/item/stack/material/bundle,
+		/obj/item/stack/material/thread,
+		/obj/item/stack/material/bolt
+	)
 	required_min_hardness       = 0
 	required_max_hardness       = MAT_VALUE_SOFT
 	crafting_extra_cost_factor  = 1 // No wastage for just resculpting materials.
