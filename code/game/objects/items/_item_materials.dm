@@ -104,7 +104,7 @@
 	queue_icon_update()
 
 /obj/item/proc/update_name()
-	if(material_alteration & MAT_FLAG_ALTERATION_NAME)
+	if(istype(material) && (material_alteration & MAT_FLAG_ALTERATION_NAME))
 		SetName("[material.adjective_name] [base_name || initial(name)]")
 	else
 		SetName(base_name || initial(name))

@@ -30,7 +30,7 @@
 	result = /obj/item/food/superbiteburger
 
 /decl/recipe/twobread
-	reagents = list(/decl/material/liquid/ethanol/wine = 5)
+	reagents = list(/decl/material/liquid/alcohol/wine = 5)
 	items = list(
 		/obj/item/food/slice/bread = 2,
 	)

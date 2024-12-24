@@ -1,14 +1,15 @@
 /obj/item/gun/launcher/bow/sling
-	name = "sling"
-	desc = "A simple strip of leather with a cup in the center, used to hurl stones with great speed."
-	slot_flags = 0
-	draw_time = 0.5 SECONDS
-	icon = 'icons/obj/guns/launcher/sling.dmi'
-	material = /decl/material/solid/organic/leather
-	color = /decl/material/solid/organic/leather::color
-	string = null
-	max_tension = 1
-	bow_ammo_type = null
+	name            = "sling"
+	desc            = "A simple strip of leather with a cup in the center, used to hurl stones with great speed."
+	slot_flags      = 0
+	draw_time       = 0.5 SECONDS
+	icon            = 'icons/obj/guns/launcher/sling.dmi'
+	material        = /decl/material/solid/organic/leather
+	color           = /decl/material/solid/organic/leather::color
+	string          = null
+	requires_string = FALSE
+	max_tension     = 1
+	bow_ammo_type   = null
 
 /obj/item/gun/launcher/bow/sling/try_string(mob/user, obj/item/bowstring/new_string)
 	return FALSE

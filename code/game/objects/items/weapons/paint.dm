@@ -22,6 +22,12 @@
 		add_to_reagents(pigment, amt)
 	add_to_reagents(/decl/material/liquid/paint, amt)
 
+/obj/item/chems/glass/paint/get_edible_material_amount(mob/eater)
+	return 0
+
+/obj/item/chems/glass/paint/get_utensil_food_type()
+	return null
+
 /obj/item/chems/glass/paint/on_update_icon()
 	. = ..()
 	if(reagents?.total_volume)

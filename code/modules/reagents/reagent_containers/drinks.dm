@@ -57,7 +57,7 @@
 		return
 	return ..()
 
-/obj/item/chems/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
+/obj/item/chems/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target, skip_container_check = FALSE)
 	return do_open_check(user) && ..()
 
 /obj/item/chems/drinks/standard_pour_into(var/mob/user, var/atom/target)

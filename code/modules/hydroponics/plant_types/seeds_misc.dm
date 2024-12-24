@@ -288,7 +288,7 @@
 	mutants = null
 	chems = list(
 		/decl/material/liquid/nutriment = list(1,20),
-		/decl/material/liquid/ethanol/bluecuracao = list(10,5)
+		/decl/material/liquid/alcohol/bluecuracao = list(10,5)
 	)
 
 /datum/seed/tomato/blue/teleport/New()

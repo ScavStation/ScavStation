@@ -210,7 +210,7 @@
 	name = "Space Liberty Duff"
 	required_reagents = list(
 		/decl/material/liquid/water = 10,
-		/decl/material/liquid/ethanol/vodka = 5,
+		/decl/material/liquid/alcohol/vodka = 5,
 		/decl/material/liquid/psychotropics = 5
 	)
 	obj_result = /obj/item/food/spacylibertyduff
@@ -219,7 +219,7 @@
 	name = "Amanita Jelly"
 	required_reagents = list(
 		/decl/material/liquid/water = 10,
-		/decl/material/liquid/ethanol/vodka = 5,
+		/decl/material/liquid/alcohol/vodka = 5,
 		/decl/material/liquid/amatoxin = 5
 	)
 	obj_result = /obj/item/food/amanitajelly

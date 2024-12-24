@@ -62,6 +62,12 @@
 	/// The maximum amount of ink in the inkwell when populating reagents.
 	var/starting_volume_high = 30
 
+/obj/item/chems/glass/inkwell/get_edible_material_amount(mob/eater)
+	return 0
+
+/obj/item/chems/glass/inkwell/get_utensil_food_type()
+	return null
+
 /obj/item/chems/glass/inkwell/can_lid()
 	return FALSE
 
