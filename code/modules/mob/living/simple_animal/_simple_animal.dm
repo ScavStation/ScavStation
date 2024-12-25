@@ -333,6 +333,7 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 		take_damage(dealt_damage, damage_type, damage_flags = damage_flags, inflicter = user)
 		user.visible_message(SPAN_DANGER("\The [user] [harm_verb] \the [src]!"))
 		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)

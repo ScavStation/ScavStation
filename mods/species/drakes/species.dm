@@ -77,7 +77,7 @@
 	set name = "Sit"
 	set category = "IC"
 	set src = usr
-	lay_down()
+	lay_down(block_posture = /decl/posture/lying)
 
 /datum/hud_data/grafadreka
 	inventory_slots = list(
