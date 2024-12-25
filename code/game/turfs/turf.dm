@@ -805,7 +805,7 @@
 	. = ..()
 	LAZYADD(., /decl/interaction_handler/show_turf_contents)
 	if(user)
-		var/obj/item/held = user.get_active_held_item()
+		var/obj/item/held = user.get_active_held_item() || user.get_usable_hand_slot_organ()
 		if(istype(held))
 			if(reagents?.total_volume >= FLUID_PUDDLE)
 				LAZYADD(., /decl/interaction_handler/dip_item)
@@ -839,6 +839,7 @@
 	name = "Dig Trench"
 
 /decl/interaction_handler/dig/trench/invoked(atom/target, mob/user, obj/item/prop)
+	prop ||= user.get_usable_hand_slot_organ() // Allows drakes to dig.
 	var/turf/T = get_turf(target)
 	if(IS_SHOVEL(prop))
 		if(T.can_dig_trench(prop?.material?.hardness))
@@ -852,6 +853,7 @@
 	name = "Dig Pit"
 
 /decl/interaction_handler/dig/pit/invoked(atom/target, mob/user, obj/item/prop)
+	prop ||= user.get_usable_hand_slot_organ() // Allows drakes to dig.
 	var/turf/T = get_turf(target)
 	if(T.can_dig_pit(prop?.material?.hardness))
 		T.try_dig_pit(user, prop)
@@ -860,6 +862,7 @@
 	name = "Dig Farm Plot"
 
 /decl/interaction_handler/dig/farm/invoked(atom/target, mob/user, obj/item/prop)
+	prop ||= user.get_usable_hand_slot_organ() // Allows drakes to dig.
 	var/turf/T = get_turf(target)
 	if(T.can_dig_farm(prop?.material?.hardness))
 		T.try_dig_farm(user, prop)
