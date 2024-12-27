@@ -73,7 +73,7 @@
 	hidden_from_codex = TRUE
 	var/static/list/can_make_soggy = list(
 		/decl/material/liquid/drink,
-		/decl/material/liquid/ethanol,
+		/decl/material/liquid/alcohol,
 		/decl/material/liquid/water
 	)
 
