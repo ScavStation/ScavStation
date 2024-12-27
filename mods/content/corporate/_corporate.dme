@@ -40,6 +40,7 @@
 #include "items\cups.dm"
 #include "items\documents.dm"
 #include "items\medals.dm"
+#include "items\random.dm"
 #include "items\stamps.dm"
 #include "items\wristcomp.dm"
 #include "machines\machines.dm"
