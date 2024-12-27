@@ -33,7 +33,7 @@
 		if(ICECREAM_STRAWBERRY)
 			return list(/decl/material/liquid/drink/milk, /decl/material/solid/ice, /decl/material/liquid/drink/juice/berry)
 		if(ICECREAM_BLUE)
-			return list(/decl/material/liquid/drink/milk, /decl/material/solid/ice, /decl/material/liquid/ethanol/bluecuracao)
+			return list(/decl/material/liquid/drink/milk, /decl/material/solid/ice, /decl/material/liquid/alcohol/bluecuracao)
 		if(ICECREAM_CHERRY)
 			return list(/decl/material/liquid/drink/milk, /decl/material/solid/ice, /decl/material/liquid/nutriment/cherryjelly)
 		if(ICECREAM_BANANA)

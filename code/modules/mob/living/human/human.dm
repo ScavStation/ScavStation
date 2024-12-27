@@ -511,9 +511,6 @@
 	if(species.holder_type)
 		holder_type = species.holder_type
 	set_max_health(species.total_health, skip_health_update = TRUE) // Health update is handled later.
-	remove_extension(src, /datum/extension/armor)
-	if(species.natural_armour_values)
-		set_extension(src, /datum/extension/armor, species.natural_armour_values)
 	apply_species_appearance()
 
 	var/decl/pronouns/new_pronouns = get_pronouns_by_gender(get_gender())

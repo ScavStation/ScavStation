@@ -10,7 +10,7 @@
 /obj/item/chems/drinks/bottle/champagne
 	name = "sparkling wine bottle"
 
-/decl/material/liquid/ethanol/champagne
+/decl/material/liquid/alcohol/champagne
 	name       = "sparkling wine"
 	glass_name = "sparkling wine"
 	glass_desc = "Sparkling white wine, a favourite at noble and merchant parties."

@@ -128,18 +128,18 @@
 	volume = 60
 	possible_transfer_amounts = @"[5,10,20,30]"
 	reagent_ids = list(
-		/decl/material/liquid/ethanol/beer,
-		/decl/material/liquid/ethanol/coffee,
-		/decl/material/liquid/ethanol/whiskey,
-		/decl/material/liquid/ethanol/wine,
-		/decl/material/liquid/ethanol/vodka,
-		/decl/material/liquid/ethanol/gin,
-		/decl/material/liquid/ethanol/rum,
-		/decl/material/liquid/ethanol/tequila,
-		/decl/material/liquid/ethanol/vermouth,
-		/decl/material/liquid/ethanol/cognac,
-		/decl/material/liquid/ethanol/ale,
-		/decl/material/liquid/ethanol/mead,
+		/decl/material/liquid/alcohol/beer,
+		/decl/material/liquid/alcohol/coffee,
+		/decl/material/liquid/alcohol/whiskey,
+		/decl/material/liquid/alcohol/wine,
+		/decl/material/liquid/alcohol/vodka,
+		/decl/material/liquid/alcohol/gin,
+		/decl/material/liquid/alcohol/rum,
+		/decl/material/liquid/alcohol/tequila,
+		/decl/material/liquid/alcohol/vermouth,
+		/decl/material/liquid/alcohol/cognac,
+		/decl/material/liquid/alcohol/ale,
+		/decl/material/liquid/alcohol/mead,
 		/decl/material/liquid/water,
 		/decl/material/liquid/nutriment/sugar,
 		/decl/material/solid/ice,
@@ -158,8 +158,8 @@
 		/decl/material/liquid/drink/hot_coco,
 		/decl/material/liquid/drink/tea/green,
 		/decl/material/liquid/drink/citrussoda,
-		/decl/material/liquid/ethanol/beer,
-		/decl/material/liquid/ethanol/coffee
+		/decl/material/liquid/alcohol/beer,
+		/decl/material/liquid/alcohol/coffee
 		)
 
 /obj/item/chems/borghypo/service/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)

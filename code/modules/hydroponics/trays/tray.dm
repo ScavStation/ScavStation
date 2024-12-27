@@ -59,7 +59,7 @@
 	)
 	var/static/list/nutrient_reagents = list(
 		/decl/material/liquid/drink/milk =          0.1,
-		/decl/material/liquid/ethanol/beer =        0.25,
+		/decl/material/liquid/alcohol/beer =        0.25,
 		/decl/material/solid/phosphorus =           0.1,
 		/decl/material/liquid/nutriment/sugar =     0.1,
 		/decl/material/liquid/drink/sodawater =     0.1,
@@ -89,7 +89,7 @@
 		/decl/material/liquid/water =               1,
 		/decl/material/liquid/adminordrazine =      1,
 		/decl/material/liquid/drink/milk =          0.9,
-		/decl/material/liquid/ethanol/beer =        0.7,
+		/decl/material/liquid/alcohol/beer =        0.7,
 		/decl/material/liquid/fuel/hydrazine =     -2,
 		/decl/material/solid/phosphorus =          -0.5,
 		/decl/material/liquid/water =               1,
@@ -98,7 +98,7 @@
 
 	// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
 	var/static/list/beneficial_reagents = list(
-		/decl/material/liquid/ethanol/beer =       list( -0.05, 0,   0  ),
+		/decl/material/liquid/alcohol/beer =       list( -0.05, 0,   0  ),
 		/decl/material/liquid/fuel/hydrazine =     list( -2,    0,   0  ),
 		/decl/material/solid/phosphorus =          list( -0.75, 0,   0  ),
 		/decl/material/liquid/drink/sodawater =    list(  0.1,  0,   0  ),

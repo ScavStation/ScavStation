@@ -994,3 +994,6 @@
 
 /atom/proc/is_watertight()
 	return ATOM_IS_OPEN_CONTAINER(src)
+
+/atom/proc/can_drink_from(mob/user)
+	return ATOM_IS_OPEN_CONTAINER(src) && reagents?.total_volume && user.check_has_mouth()

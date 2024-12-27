@@ -61,7 +61,8 @@
 		/obj/item/stack/material/ore,
 		/obj/item/stack/material/log,
 		/obj/item/stack/material/lump,
-		/obj/item/stack/material/slab
+		/obj/item/stack/material/slab,
+		/obj/item/stack/material/bundle
 	)
 	/// If set, will group recipes under a stack recipe list.
 	var/category

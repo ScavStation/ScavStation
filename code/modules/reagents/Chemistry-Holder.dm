@@ -199,12 +199,12 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 		var/replace_sound
 
 		if(!(check_flags & ATOM_FLAG_NO_PHASE_CHANGE))
-			if(!isnull(R.chilling_point) && R.type != R.bypass_chilling_products_for_root_type && LAZYLEN(R.chilling_products) && temperature <= R.chilling_point)
+			if(!isnull(R.chilling_point) && LAZYLEN(R.chilling_products) && temperature <= R.chilling_point)
 				replace_self_with = R.chilling_products
 				if(R.chilling_message)
 					replace_message = "\The [R.get_reagent_name(src)] [R.chilling_message]"
 				replace_sound = R.chilling_sound
-			else if(!isnull(R.heating_point) && R.type != R.bypass_heating_products_for_root_type && LAZYLEN(R.heating_products) && temperature >= R.heating_point)
+			else if(!isnull(R.heating_point) && LAZYLEN(R.heating_products) && temperature >= R.heating_point)
 				replace_self_with = R.heating_products
 				if(R.heating_message)
 					replace_message = "\The [R.get_reagent_name(src)] [R.heating_message]"
@@ -579,6 +579,7 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 		if(transferred_phases & MAT_PHASE_LIQUID)
 			var/liquid_transferred = min(amount_to_transfer, CHEMS_QUANTIZE(LIQUID_VOLUME(src, rtype)))
 			target.add_reagent(rtype, liquid_transferred * multiplier, REAGENT_DATA(src, rtype), TRUE, TRUE, MAT_PHASE_LIQUID)  // We don't react until everything is in place
+
 			. += liquid_transferred
 			amount_to_transfer -= liquid_transferred
 
@@ -885,6 +886,7 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 
 	if(!target.reagents)
 		target.create_reagents(FLUID_MAX_DEPTH)
+
 	trans_to_holder(target.reagents, amount, multiplier, copy, defer_update = defer_update, transferred_phases = transferred_phases)
 	// Deferred updates are presumably being done by SSfluids.
 	// Do an immediate fluid_act call rather than waiting for SSfluids to proc.

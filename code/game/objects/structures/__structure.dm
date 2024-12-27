@@ -88,19 +88,19 @@
 
 		if(tool_interaction_flags & TOOL_INTERACTION_ANCHOR)
 			if(anchored)
-				to_chat(user, SPAN_SUBTLE("Can be unanchored with a wrench, and moved around."))
+				to_chat(user, SPAN_SUBTLE("Can be unanchored with a wrench or hammer, and moved around."))
 			else
-				to_chat(user, SPAN_SUBTLE("Can be anchored in place with a wrench."))
+				to_chat(user, SPAN_SUBTLE("Can be anchored in place with a wrench or hammer."))
 
 		if(tool_interaction_flags & TOOL_INTERACTION_DECONSTRUCT)
-			var/removed_with = "a crowbar"
+			var/removed_with = "a crowbar or hammer"
 			if(material && material.removed_by_welder)
 				removed_with = "a welding torch"
 			if(tool_interaction_flags & TOOL_INTERACTION_ANCHOR)
 				if(anchored)
 					to_chat(user, SPAN_SUBTLE("Can be deconstructed with [removed_with]."))
 				else
-					to_chat(user, SPAN_SUBTLE("Can be deconstructed with [removed_with], if anchored down with a wrench first."))
+					to_chat(user, SPAN_SUBTLE("Can be deconstructed with [removed_with], if anchored down with a wrench or hammer first."))
 			else
 				to_chat(user, SPAN_SUBTLE("Can be deconstructed with [removed_with]."))
 
@@ -159,7 +159,7 @@
 		last_damage_message = 0.75
 
 /obj/structure/physically_destroyed(var/skip_qdel)
-	if(..(TRUE))
+	if((. = ..(TRUE)))
 		return dismantle_structure()
 
 /obj/structure/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)

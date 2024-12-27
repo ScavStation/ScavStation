@@ -9,7 +9,7 @@
 	material_alteration = MAT_FLAG_ALTERATION_ALL
 
 /obj/item/saddle/mob_can_equip(mob/user, slot, disable_warning, force, ignore_equipped)
-	if(!istype(user, /mob/living/simple_animal/passive/horse))
+	if(!istype(user) || !istype(user.get_bodytype(), /decl/bodytype/quadruped))
 		return FALSE
 	return ..()
 

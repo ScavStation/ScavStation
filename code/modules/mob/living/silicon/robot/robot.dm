@@ -653,6 +653,7 @@
 	var/decl/species/user_species = user.get_species()
 	if(user_species?.can_shred(user))
 		attack_generic(user, rand(30,50), "slashed")
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE
 	. = ..()
 

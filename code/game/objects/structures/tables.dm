@@ -636,6 +636,9 @@
 		return TRUE
 	return FALSE
 
+/obj/structure/table/handle_default_hammer_attackby(var/mob/user, var/obj/item/hammer)
+	return !reinf_material && ..()
+
 /obj/structure/table/handle_default_wrench_attackby(var/mob/user, var/obj/item/wrench)
 	return !reinf_material && ..()
 

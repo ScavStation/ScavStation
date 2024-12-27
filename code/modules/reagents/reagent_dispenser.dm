@@ -37,9 +37,9 @@
 	if(!(. = ..()))
 		return
 	if(reagents?.total_volume > 0)
-		tool_interaction_flags = 0
+		tool_interaction_flags &= ~TOOL_INTERACTION_DECONSTRUCT
 	else
-		tool_interaction_flags = TOOL_INTERACTION_DECONSTRUCT
+		tool_interaction_flags |= TOOL_INTERACTION_DECONSTRUCT
 
 /obj/structure/reagent_dispensers/initialize_reagents(populate = TRUE)
 	if(!reagents)
@@ -117,11 +117,6 @@
 		return
 	if (N)
 		amount_dispensed = N
-
-/obj/structure/reagent_dispensers/physically_destroyed(var/skip_qdel)
-	if(reagents?.total_volume)
-		reagents.trans_to_turf(get_turf(src), reagents.total_volume)
-	. = ..()
 
 /obj/structure/reagent_dispensers/explosion_act(severity)
 	. = ..()
@@ -319,7 +314,7 @@
 	matter           = list(/decl/material/solid/metal/stainlesssteel = MATTER_AMOUNT_TRACE)
 
 /obj/structure/reagent_dispensers/beerkeg/populate_reagents()
-	add_to_reagents(/decl/material/liquid/ethanol/beer, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/beer, reagents.maximum_volume)
 
 /obj/structure/reagent_dispensers/acid
 	name             = "sulphuric acid dispenser"

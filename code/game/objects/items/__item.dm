@@ -1244,3 +1244,12 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 			continue
 		reagent_overlay.overlays += overlay_image(icon, modified_reagent_overlay, reagent.get_reagent_overlay_color(reagents), RESET_COLOR | RESET_ALPHA)
 	return reagent_overlay
+
+/obj/item/on_reagent_change()
+	. = ..()
+	// You can't put liquids in clay/sand/dirt vessels, sorry.
+	if(reagents?.total_liquid_volume > 0 && material && material.hardness <= MAT_VALUE_MALLEABLE && !QDELETED(src))
+		visible_message(SPAN_DANGER("\The [src] falls apart!"))
+		squash_item()
+		if(!QDELETED(src))
+			physically_destroyed()

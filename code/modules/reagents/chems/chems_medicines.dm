@@ -236,18 +236,9 @@
 	overdose = REAGENTS_OVERDOSE/2
 	scannable = 1
 	value = 1.5
+	antibiotic_strength = 1
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 	uid = "chem_antibiotics"
-
-/decl/material/liquid/antibiotics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	var/volume = REAGENT_VOLUME(holder, type)
-	. = ..()
-	M.adjust_immunity(-0.1)
-	M.add_chemical_effect(CE_ANTIBIOTIC, 1)
-	if(volume > 10)
-		M.adjust_immunity(-0.3)
-	if(LAZYACCESS(M.chem_doses, type) > 15)
-		M.adjust_immunity(-0.25)
 
 /decl/material/liquid/antibiotics/affect_overdose(mob/living/M, total_dose)
 	..()

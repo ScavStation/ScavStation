@@ -466,7 +466,7 @@
 	to_chat(user, "Auxilary tank shows [reagents.total_volume]u of liquid in it.")
 
 /obj/machinery/port_gen/pacman/super/potato/UseFuel()
-	if(reagents.has_reagent(/decl/material/liquid/ethanol/vodka))
+	if(reagents.has_reagent(/decl/material/liquid/alcohol/vodka))
 		rad_power = 4
 		temperature_gain = 60
 		remove_any_reagents(1)
@@ -486,9 +486,9 @@
 /obj/machinery/port_gen/pacman/super/potato/attackby(var/obj/item/hit_with, var/mob/user)
 	if(istype(hit_with, /obj/item/chems))
 		var/obj/item/chems/chem_container = hit_with
-		var/old_vodka_amount = REAGENT_VOLUME(reagents, /decl/material/liquid/ethanol/vodka)
+		var/old_vodka_amount = REAGENT_VOLUME(reagents, /decl/material/liquid/alcohol/vodka)
 		if(chem_container.standard_pour_into(src,user))
-			if(REAGENT_VOLUME(reagents, /decl/material/liquid/ethanol/vodka) > old_vodka_amount) // yay, booze!
+			if(REAGENT_VOLUME(reagents, /decl/material/liquid/alcohol/vodka) > old_vodka_amount) // yay, booze!
 				audible_message(SPAN_NOTICE("[src] blips happily!"))
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, FALSE)
 			else // you didn't add any more than we already had

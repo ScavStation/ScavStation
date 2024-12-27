@@ -1,7 +1,8 @@
 /decl/stack_recipe/woven
-	abstract_type     = /decl/stack_recipe/woven
-	craft_stack_types = /obj/item/stack/material/bundle
-	category          = "woven items"
+	abstract_type               = /decl/stack_recipe/woven
+	craft_stack_types           = /obj/item/stack/material/bundle
+	category                    = "woven items"
+	forbidden_craft_stack_types = null
 
 /decl/stack_recipe/woven/can_be_made_from(stack_type, tool_type, decl/material/mat, decl/material/reinf_mat)
 	if((istype(mat) ? mat.type : mat) == /decl/material/solid/organic/plantmatter/grass)

@@ -263,12 +263,12 @@
 	icon                = 'icons/obj/food/butchery/ruminant_stomach.dmi'
 	material            = /decl/material/solid/organic/meat/gut
 	nutriment_amt       = 8
-	dried_type          = /obj/item/chems/waterskin
+	dried_type          = /obj/item/chems/glass/waterskin
 	w_class             = ITEM_SIZE_SMALL
 	var/stomach_reagent = /decl/material/liquid/acid/stomach
 
 /obj/item/food/butchery/stomach/get_dried_product()
-	var/obj/item/chems/waterskin/result = ..()
+	var/obj/item/chems/glass/waterskin/result = ..()
 	if(istype(result) && reagents?.total_volume)
 		reagents.trans_to_holder(result.reagents, reagents.total_volume)
 	return result

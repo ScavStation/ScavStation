@@ -326,6 +326,8 @@ var/global/list/bodytypes_by_category = list()
 	)
 	/// Set to FALSE if the mob will update prone icon based on state rather than transform.
 	var/rotate_on_prone = TRUE
+	/// Armour values used if naked.
+	var/list/natural_armour_values
 
 /decl/bodytype/Initialize()
 	. = ..()
@@ -570,11 +572,15 @@ var/global/list/bodytypes_by_category = list()
 	return 220
 
 /decl/bodytype/proc/apply_bodytype_organ_modifications(obj/item/organ/org)
-	if(istype(org, /obj/item/organ/external))
-		var/obj/item/organ/external/E = org
-		E.arterial_bleed_severity *= arterial_bleed_multiplier
-		if(islist(apply_encased))
-			E.encased = apply_encased[E.organ_tag]
+	if(!istype(org, /obj/item/organ/external))
+		return
+	var/obj/item/organ/external/limb = org
+	limb.arterial_bleed_severity *= arterial_bleed_multiplier
+	if(islist(apply_encased))
+		limb.encased = apply_encased[limb.organ_tag]
+	if(LAZYLEN(natural_armour_values))
+		remove_extension(limb, /datum/extension/armor)
+		set_extension(limb, /datum/extension/armor, natural_armour_values)
 
 //fully_replace: If true, all existing organs will be discarded. Useful when doing mob transformations, and not caring about the existing organs
 /decl/bodytype/proc/create_missing_organs(mob/living/human/H, fully_replace = FALSE)

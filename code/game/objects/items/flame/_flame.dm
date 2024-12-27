@@ -125,6 +125,9 @@
 	update_attack_force()
 
 	update_icon()
+	if(ismob(loc)) // not very robust for things like accessories...
+		update_held_icon()
+		update_clothing_icon()
 	if(istype(loc, /obj/structure/wall_sconce))
 		loc.update_icon()
 
