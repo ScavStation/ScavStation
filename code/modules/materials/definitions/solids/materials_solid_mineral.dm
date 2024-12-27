@@ -181,7 +181,7 @@
 		/decl/material/solid/potassium = 1
 	)
 
-/decl/material/solid/potassium/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+/decl/material/solid/potash/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	. = ..()
 	var/volume = REAGENT_VOLUME(holder, type)
 	if(volume > 3)

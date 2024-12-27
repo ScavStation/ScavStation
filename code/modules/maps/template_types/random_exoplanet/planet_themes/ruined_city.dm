@@ -15,7 +15,7 @@
 		'sound/ambience/ominous3.ogg'
 		)
 
-/datum/exoplanet_theme/robotic_guardians/modify_template_whitelist(whitelist_flags)
+/datum/exoplanet_theme/ruined_city/modify_template_whitelist(whitelist_flags)
 	return whitelist_flags | TEMPLATE_TAG_ALIEN
 
 /datum/exoplanet_theme/ruined_city/get_map_generators(/datum/planetoid_data/E)

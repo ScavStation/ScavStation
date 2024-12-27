@@ -17,7 +17,7 @@
 /datum/mob_controller/aggressive/leech
 	break_stuff_probability = 5
 
-/mob/living/simple_animal/hostile/can_pry_door()
+/mob/living/simple_animal/hostile/leech/can_pry_door()
 	return FALSE
 
 /mob/living/simple_animal/hostile/leech/exoplanet/Initialize()

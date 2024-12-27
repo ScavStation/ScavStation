@@ -52,7 +52,7 @@
 	. = ..()
 	SetName("grilled [name]")
 
-/obj/item/food/butchery/meat/fish/get_meat_icons()
+/obj/item/food/butchery/meat/fish/grilled/get_meat_icons()
 	var/static/list/meat_icons = list(
 		'icons/obj/food/butchery/fish_grilled.dmi'
 	)
