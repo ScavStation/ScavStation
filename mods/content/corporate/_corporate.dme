@@ -43,6 +43,7 @@
 #include "items\stamps.dm"
 #include "items\wristcomp.dm"
 #include "machines\machines.dm"
+#include "random_ruins\exoplanet_ruins\oldpod\oldpod.dm"
 #include "structures\lockers.dm"
 // END_INCLUDE
 #endif
