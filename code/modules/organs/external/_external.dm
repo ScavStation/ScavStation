@@ -1588,14 +1588,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 		butchery_decl.place_products(owner, butchery_decl.bone_material, 1, butchery_decl.bone_type)
 	return ..()
 
-// This likely seems excessive, but refer to organ explosion_act() to see how it should be handled before reaching this point.
 /obj/item/organ/external/physically_destroyed(skip_qdel)
 	if(!owner)
 		return ..()
 	if(limb_flags & ORGAN_FLAG_CAN_AMPUTATE)
-		dismember(FALSE, DISMEMBER_METHOD_BLUNT)
+		dismember(FALSE, DISMEMBER_METHOD_BLUNT) // This will also destroy the mob if it removes the last non-core limb.
 	else
-		owner.gib()
+		owner.physically_destroyed() // Previously gib(), but that caused blood and guts to fly everywhere.
 
 /obj/item/organ/external/is_vital_to_owner()
 	if(isnull(vital_to_owner))

@@ -372,11 +372,11 @@
 	if (germ_level < INFECTION_LEVEL_ONE)
 		germ_level = 0	//cure instantly
 	else if (germ_level < INFECTION_LEVEL_TWO)
-		germ_level -= 5	//at germ_level == 500, this should cure the infection in 5 minutes
+		germ_level -= round(5 * antibiotics)	//at germ_level == 500, this should cure the infection in 5 minutes
 	else
-		germ_level -= 3 //at germ_level == 1000, this will cure the infection in 10 minutes
+		germ_level -= round(3 * antibiotics) //at germ_level == 1000, this will cure the infection in 10 minutes
 	if(owner && owner.current_posture.prone)
-		germ_level -= 2
+		germ_level -= round(2 * antibiotics)
 	germ_level = max(0, germ_level)
 
 /obj/item/organ/proc/take_general_damage(var/amount, var/silent = FALSE)

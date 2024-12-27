@@ -24,8 +24,8 @@
 	return TRUE
 
 /datum/ability_handler/predator/grafadreka/do_melee_invocation(mob/user, atom/target)
-	if(user.a_intent == I_HURT)
-		return ..() // Handled by predator ability handler.
+	if((. = ..()))
+		return
 	// Healing
 	if(user.a_intent == I_HELP && isliving(target))
 		return handle_wound_cleaning(user, target)

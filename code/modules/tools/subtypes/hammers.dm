@@ -29,7 +29,10 @@
 	return tool_properties
 
 /obj/item/tool/hammer/get_initial_tool_qualities()
-	var/static/list/tool_qualities = list(TOOL_HAMMER = TOOL_QUALITY_DEFAULT)
+	var/static/list/tool_qualities = list(
+		TOOL_HAMMER  = TOOL_QUALITY_DEFAULT,
+		TOOL_CROWBAR = TOOL_QUALITY_WORST
+	)
 	return tool_qualities
 
 /obj/item/tool/hammer/sledge

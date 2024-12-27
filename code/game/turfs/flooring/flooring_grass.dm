@@ -34,9 +34,10 @@
 	. = ..() || "mask_grass"
 
 /decl/flooring/grass/wild/handle_item_interaction(turf/floor/floor, mob/user, obj/item/item)
-	if(IS_KNIFE(item) && harvestable)
+	var/decl/material/floor_material = floor.get_material()
+	if(IS_KNIFE(item) && harvestable && istype(floor_material) && floor_material.dug_drop_type)
 		if(item.do_tool_interaction(TOOL_KNIFE, user, floor, 3 SECONDS, start_message = "harvesting", success_message = "harvesting") && !QDELETED(floor) && floor.get_topmost_flooring() == src)
-			new /obj/item/stack/material/bundle/grass(floor, rand(2,5))
+			new floor_material.dug_drop_type(floor, rand(2,5))
 			floor.set_flooring(/decl/flooring/grass)
 		return TRUE
 	return ..()

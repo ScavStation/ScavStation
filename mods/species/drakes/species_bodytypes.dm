@@ -28,12 +28,17 @@
 	eye_icon             = 'mods/species/drakes/icons/eyes.dmi'
 	icon_template        = 'mods/species/drakes/icons/template.dmi'
 	skeletal_icon        = 'mods/species/drakes/icons/skeleton.dmi'
+	damage_overlays      = 'mods/species/drakes/icons/damage.dmi'
 	bodytype_category    = BODYTYPE_GRAFADREKA
 	eye_blend            = ICON_MULTIPLY
 	limb_blend           = ICON_MULTIPLY
 	appearance_flags     = HAS_SKIN_COLOR | HAS_EYE_COLOR
 	mob_size             = MOB_SIZE_LARGE
-	override_limb_types  = list(BP_TAIL = /obj/item/organ/external/tail/grafadreka)
+	override_limb_types  = list(
+		BP_TAIL   = /obj/item/organ/external/tail/grafadreka,
+		BP_L_HAND = /obj/item/organ/external/hand/quadruped/grafadreka,
+		BP_R_HAND = /obj/item/organ/external/hand/right/quadruped/grafadreka
+	)
 	base_color           = "#608894"
 	base_eye_color       = COLOR_SILVER
 	pixel_offset_x       = -16
@@ -117,6 +122,16 @@
 	eye_low_light_vision_effectiveness    = 0.15
 	eye_low_light_vision_adjustment_speed = 0.3
 	eye_darksight_range                   = 7
+
+	// Copied from riot armor, as drakes cannot wear equipment
+	// or hold shields. May need to be toned down at some point.
+	natural_armour_values = list(
+		ARMOR_MELEE  = ARMOR_MELEE_VERY_HIGH,
+		ARMOR_BULLET = ARMOR_BALLISTIC_SMALL,
+		ARMOR_LASER  = ARMOR_LASER_SMALL,
+		ARMOR_ENERGY = ARMOR_ENERGY_MINOR,
+		ARMOR_BOMB   = ARMOR_BOMB_PADDED
+	)
 
 	var/list/sitting_equip_adjust
 	var/list/lying_equip_adjust
@@ -274,3 +289,36 @@
 
 /obj/item/organ/external/tail/grafadreka/hatchling
 	tail_icon  = 'mods/species/drakes/icons/hatchling_body.dmi'
+
+// Technically means that severed drake paws can be used as shovels, but whatever.
+/obj/item/organ/external/hand/quadruped/grafadreka
+	_base_attack_force = 8
+	needs_attack_dexterity = DEXTERITY_NONE
+
+/obj/item/organ/external/hand/quadruped/grafadreka/Initialize(mapload, material_key, datum/mob_snapshot/supplied_appearance, decl/bodytype/new_bodytype)
+	. = ..()
+	item_flags |= ITEM_FLAG_NO_BLUDGEON
+	set_extension(src, /datum/extension/tool, list(
+		TOOL_SHOVEL = TOOL_QUALITY_GOOD,
+		TOOL_HOE    = TOOL_QUALITY_GOOD
+	))
+
+/obj/item/organ/external/hand/quadruped/grafadreka/set_bodytype(decl/bodytype/new_bodytype, override_material, apply_to_internal_organs)
+	override_material = /decl/material/solid/organic/bone
+	. = ..()
+
+/obj/item/organ/external/hand/right/quadruped/grafadreka
+	_base_attack_force = 8
+	needs_attack_dexterity = DEXTERITY_NONE
+
+/obj/item/organ/external/hand/right/quadruped/grafadreka/Initialize(mapload, material_key, datum/mob_snapshot/supplied_appearance, decl/bodytype/new_bodytype)
+	. = ..()
+	item_flags |= ITEM_FLAG_NO_BLUDGEON
+	set_extension(src, /datum/extension/tool, list(
+		TOOL_SHOVEL = TOOL_QUALITY_GOOD,
+		TOOL_HOE    = TOOL_QUALITY_GOOD
+	))
+
+/obj/item/organ/external/hand/right/quadruped/grafadreka/set_bodytype(decl/bodytype/new_bodytype, override_material, apply_to_internal_organs)
+	override_material = /decl/material/solid/organic/bone
+	. = ..()

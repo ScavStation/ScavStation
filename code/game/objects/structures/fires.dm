@@ -441,7 +441,6 @@
 				removed.add_thermal_energy(heat_transfer)
 		environment.merge(removed)
 
-
 	queue_icon_update()
 
 /obj/structure/fire_source/proc/has_fuel()
@@ -495,7 +494,7 @@
 	. = ..()
 	if(. && lit && ismob(mover))
 		var/mob/M = mover
-		if(!MOVING_QUICKLY(M))
+		if(M.client && !M.current_posture?.prone && !MOVING_QUICKLY(M))
 			to_chat(M, SPAN_WARNING("You refrain from stepping into \the [src]."))
 			return FALSE
 	return ..()

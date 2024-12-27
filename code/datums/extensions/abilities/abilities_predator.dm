@@ -5,12 +5,26 @@
 	return istype(user) && !user.incapacitated() && isatom(target) && target.Adjacent(user)
 
 /datum/ability_handler/predator/do_melee_invocation(mob/user, atom/target)
-	// Nibbles
+
+	// Nibbles!
 	if(user.a_intent == I_HURT)
 		if(isliving(target))
 			return handle_dismemberment(user, target)
 		if(istype(target, /obj/item/organ))
 			return handle_organ_destruction(user, target)
+
+	// Digging!
+	var/static/list/diggable_types = list(
+		/turf/floor,
+		/turf/wall,
+		/obj/structure/pit,
+		/obj/machinery/portable_atmospherics/hydroponics/soil
+	)
+	if(is_type_in_list(target, diggable_types))
+		var/obj/item/organ/external/paw = user.get_usable_hand_slot_organ()
+		if(paw)
+			return target.attackby(paw, user)
+
 	return FALSE
 
 /datum/ability_handler/predator/proc/handle_organ_destruction(mob/user, obj/item/organ/chewtoy)

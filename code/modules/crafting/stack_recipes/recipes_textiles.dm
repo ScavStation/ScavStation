@@ -61,7 +61,7 @@
 	difficulty                 = MAT_VALUE_NORMAL_DIY // Slightly easier than making clothing.
 
 /decl/stack_recipe/textiles/leather/waterskin
-	result_type           = /obj/item/chems/waterskin/crafted
+	result_type           = /obj/item/chems/glass/waterskin/crafted
 	required_material     = /decl/material/solid/organic/leather
 	category              = null
 

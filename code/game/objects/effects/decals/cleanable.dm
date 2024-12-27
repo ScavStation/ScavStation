@@ -3,6 +3,7 @@
 	anchored = TRUE
 	abstract_type = /obj/effect/decal/cleanable
 
+	var/burnable = TRUE
 	var/sweepable = FALSE
 	var/weather_sensitive = TRUE
 	var/persistent = FALSE
@@ -45,6 +46,11 @@
 	if(persistent)
 		SSpersistence.forget_value(src, /decl/persistence_handler/filth)
 	. = ..()
+
+/obj/effect/decal/cleanable/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+	. = ..()
+	if(burnable && !QDELETED(src))
+		qdel(src)
 
 /obj/effect/decal/cleanable/process_weather(obj/abstract/weather_system/weather, decl/state/weather/weather_state)
 	if(!weather_sensitive)

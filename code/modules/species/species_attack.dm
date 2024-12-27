@@ -90,7 +90,7 @@
 	damage = 2
 	usable_with_limbs = list(BP_CHEST, BP_GROIN)
 
-/decl/natural_attack/slime_glomp/apply_effects(mob/living/user, mob/living/target, attack_damage, zone)
+/decl/natural_attack/slime_glomp/apply_attack_effects(mob/living/user, mob/living/target, attack_damage, zone)
 	. = ..()
 	if(.)
 		user.apply_stored_shock_to(target)

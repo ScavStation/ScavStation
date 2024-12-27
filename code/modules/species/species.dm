@@ -87,7 +87,6 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		/decl/natural_attack/bite
 		)
 
-	var/list/natural_armour_values            // Armour values used if naked.
 	var/brute_mod =      1                    // Physical damage multiplier.
 	var/burn_mod =       1                    // Burn damage multiplier.
 	var/toxins_mod =     1                    // Toxloss modifier

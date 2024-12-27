@@ -56,6 +56,14 @@
 	heat_level_2 = 440 //Default 400
 	heat_level_3 = 800 //Default 1000
 
+	natural_armour_values = list(
+		ARMOR_MELEE  = ARMOR_MELEE_KNIVES,
+		ARMOR_BULLET = ARMOR_BALLISTIC_MINOR,
+		ARMOR_BOMB   = ARMOR_BOMB_PADDED,
+		ARMOR_BIO    = ARMOR_BIO_SHIELDED,
+		ARMOR_RAD    = 0.5*ARMOR_RAD_MINOR
+	)
+
 /decl/bodytype/serpentid/Initialize()
 	equip_adjust = list(
 		BP_L_HAND_UPPER =  list("[NORTH]" = list( 0, 8),  "[EAST]" = list(0, 8),  "[SOUTH]" = list(-0, 8),  "[WEST]" = list( 0, 8)),

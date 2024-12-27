@@ -32,6 +32,10 @@
 		BP_R_HAND = /obj/item/organ/external/hand/right/baxxid,
 		BP_HEAD =   /obj/item/organ/external/head/baxxid
 	)
+	natural_armour_values = list(
+		ARMOR_BIO = ARMOR_BIO_SHIELDED,
+		ARMOR_RAD = 0.5*ARMOR_RAD_MINOR
+	)
 
 /decl/bodytype/baxxid/Initialize()
 	. = ..()
@@ -89,11 +93,6 @@
 
 	shock_vulnerability = 0.05262
 	strength = STR_HIGH
-
-	natural_armour_values = list(
-		ARMOR_BIO = ARMOR_BIO_SHIELDED,
-		ARMOR_RAD = 0.5*ARMOR_RAD_MINOR
-	)
 
 	gluttonous = 4
 	stomach_capacity = 15

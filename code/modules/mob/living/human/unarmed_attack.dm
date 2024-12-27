@@ -18,6 +18,7 @@
 	var/eye_attack_text_victim
 	var/list/usable_with_limbs = list(BP_L_HAND, BP_R_HAND)
 	var/is_starting_default = FALSE
+	var/apply_cooldown = DEFAULT_ATTACK_COOLDOWN
 
 /decl/natural_attack/proc/summarize()
 	var/list/usable_limbs = list()
@@ -74,7 +75,7 @@
 	return damage
 
 // Returns TRUE if further affects should be applied.
-/decl/natural_attack/proc/apply_effects(mob/living/user, mob/living/target, attack_damage, zone)
+/decl/natural_attack/proc/apply_attack_effects(mob/living/user, mob/living/target, attack_damage, zone)
 
 	if(target.stat == DEAD)
 		return FALSE
@@ -161,16 +162,16 @@
 	return (src.sharp? DAM_SHARP : 0)|(src.edge? DAM_EDGE : 0)
 
 /decl/natural_attack/bite
-	name = "bite"
+	name                = "bite"
 	selector_icon_state = "attack_bite"
-	attack_verb = list("bit")
-	attack_noun = list("mouth")
-	attack_sound = 'sound/weapons/bite.ogg'
-	shredding = 0
-	damage = 0
-	sharp = 0
-	edge = 0
-	usable_with_limbs = list(BP_HEAD)
+	attack_verb         = list("bit")
+	attack_noun         = list("mouth")
+	attack_sound        = 'sound/weapons/bite.ogg'
+	shredding           = 0
+	damage              = 5
+	sharp               = 0
+	edge                = 0
+	usable_with_limbs   = list(BP_HEAD)
 
 /decl/natural_attack/bite/sharp
 	attack_verb = list("bit", "chomped")

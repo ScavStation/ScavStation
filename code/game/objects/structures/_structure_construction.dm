@@ -2,6 +2,43 @@
 	var/wired
 	var/tool_interaction_flags
 
+/obj/structure/proc/handle_default_hammer_attackby(var/mob/user, var/obj/item/hammer)
+
+	// Resolve ambiguous interactions.
+	var/can_deconstruct = (tool_interaction_flags & TOOL_INTERACTION_DECONSTRUCT) && can_dismantle(user)
+	var/can_unanchor    = (tool_interaction_flags & TOOL_INTERACTION_ANCHOR) && can_unanchor(user)
+	if(can_deconstruct && can_unanchor)
+		var/choice = alert(user, "Do you wish to [anchored ? "unanchor" : "anchor"] or dismantle this structure?", "Tool Choice", (anchored ? "Unanchor" : "Anchor"), "Deconstruct", "Cancel")
+		if(!choice || choice == "Cancel" || QDELETED(src) || QDELETED(user) || QDELETED(hammer) || !CanPhysicallyInteract(user) || user.get_active_held_item() != hammer)
+			return TRUE
+		if(choice == "Deconstruct")
+			can_unanchor = FALSE
+		else
+			can_deconstruct = FALSE
+
+	if(can_unanchor)
+		playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+		visible_message(SPAN_NOTICE("\The [user] begins [anchored ? "unanchoring [src]" : "anchoring [src] in place"] with \the [hammer]."))
+		if(!do_after(user, 4 SECONDS, src) || QDELETED(src))
+			return TRUE
+		playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+		anchored = !anchored
+		visible_message(SPAN_NOTICE("\The [user] has [anchored ? "anchored" : "unanchored"] \the [src] with \the [hammer]."))
+		update_icon()
+		return TRUE
+
+	if(can_deconstruct)
+		playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+		visible_message(SPAN_NOTICE("\The [user] starts knocking apart \the [src] with \the [hammer]."))
+		if(!do_after(user, 5 SECONDS, src) || QDELETED(src))
+			return TRUE
+		playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+		visible_message(SPAN_NOTICE("\The [user] completely dismantles \the [src] with \the [hammer]."))
+		dismantle_structure(user)
+		return TRUE
+
+	return FALSE
+
 /obj/structure/proc/handle_default_wrench_attackby(var/mob/user, var/obj/item/wrench)
 	if((tool_interaction_flags & TOOL_INTERACTION_ANCHOR) && can_unanchor(user))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
@@ -122,6 +159,8 @@
 			take_damage(force, used_item.atom_damage_type)
 			. = TRUE
 
+		else if(IS_HAMMER(used_item))
+			. = handle_default_hammer_attackby(user, used_item)
 		else if(IS_WRENCH(used_item))
 			. = handle_default_wrench_attackby(user, used_item)
 		else if(IS_SCREWDRIVER(used_item))

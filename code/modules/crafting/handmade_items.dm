@@ -5,6 +5,9 @@
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	presentation_flags = PRESENTATION_FLAG_NAME
 
+/obj/item/chems/glass/handmade/can_lid()
+	return FALSE
+
 /obj/item/chems/glass/handmade/on_reagent_change()
 	if((. = ..()))
 		update_icon()
@@ -80,12 +83,12 @@
 
 /obj/item/chems/glass/handmade/bottle/beer/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/ethanol/beer, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/beer, reagents.maximum_volume)
 
 /obj/item/chems/glass/handmade/bottle/tall/wine/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/ethanol/wine, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/wine, reagents.maximum_volume)
 
 /obj/item/chems/glass/handmade/bottle/wide/whiskey/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/ethanol/whiskey, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/whiskey, reagents.maximum_volume)
