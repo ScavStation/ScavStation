@@ -89,7 +89,7 @@ var/global/round_start_time = 0
 		out += "[seconds] second\s"
 	if(length(out))
 		return english_list(out)
-	return null
+	return "less than a second"
 
 /proc/roundduration2text()
 	if(!round_start_time)

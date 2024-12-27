@@ -76,11 +76,11 @@
 	if(head_material)
 		var/decl/material/head_mat = GET_DECL(head_material)
 		if(burnt)
-			add_overlay(overlay_image(icon, "[icon_state]-burnt", head_mat.color, flags = RESET_COLOR))
+			add_overlay(overlay_image(icon, "[icon_state]-burnt", head_mat.color, flags = RESET_COLOR|KEEP_APART))
 		else
-			add_overlay(overlay_image(icon, "[icon_state]-head", head_mat.color, flags = RESET_COLOR))
+			add_overlay(overlay_image(icon, "[icon_state]-head", head_mat.color, flags = RESET_COLOR|KEEP_APART))
 	if(lit)
-		add_overlay(overlay_image(icon, "[icon_state]-lit", flags = RESET_COLOR))
+		add_overlay(overlay_image(icon, "[icon_state]-lit", flags = RESET_COLOR|KEEP_APART))
 
 /obj/item/flame/torch/get_sconce_overlay()
 	. = list(overlay_image(icon, "[icon_state]-sconce", color = color, flags = RESET_COLOR))
