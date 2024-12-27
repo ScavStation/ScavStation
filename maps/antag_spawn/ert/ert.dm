@@ -60,3 +60,6 @@
 	name = "\improper Response Team Base"
 	icon_state = "shuttlered"
 	base_turf = /turf/unsimulated/floor/rescue_base
+
+// Separated in preparation for making ERTs into a modpack.
+#include "rig.dm"

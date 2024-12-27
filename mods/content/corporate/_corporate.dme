@@ -15,7 +15,6 @@
 #include "clothing\head\ert.dm"
 #include "clothing\head\helmets.dm"
 #include "clothing\masks\rubber.dm"
-#include "clothing\rigs\ert.dm"
 #include "clothing\suit\armour.dm"
 #include "clothing\suit\captain.dm"
 #include "clothing\suit\hoodies.dm"
