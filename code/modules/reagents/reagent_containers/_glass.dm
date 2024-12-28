@@ -107,9 +107,6 @@
 		return TRUE
 	return ..()
 
-/obj/item/chems/glass/can_lid()
-	return FALSE
-
 /obj/item/chems/glass/get_food_default_transfer_amount(mob/eater)
 	return eater?.get_eaten_transfer_amount(amount_per_transfer_from_this)
 
