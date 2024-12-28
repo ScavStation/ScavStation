@@ -89,6 +89,9 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	material = /decl/material/solid/metal/steel
 
+/obj/item/chems/glass/beaker/bowl/can_lid()
+	return FALSE
+
 /obj/item/chems/glass/beaker/bowl/pottery
 	material = /decl/material/solid/stone/pottery
 

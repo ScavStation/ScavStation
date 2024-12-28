@@ -9,6 +9,9 @@
 	volume                        = 30
 	amount_per_transfer_from_this = 5
 
+/obj/item/chems/glass/bowl/can_lid()
+	return FALSE
+
 // Predefined soup types for mapping.
 /obj/item/chems/glass/bowl/mapped
 	abstract_type = /obj/item/chems/glass/bowl/mapped
