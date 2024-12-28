@@ -64,12 +64,14 @@
 /obj/structure/closet/secure_closet/pilot
 	name = "pilot locker"
 	req_access = list(access_xenobiology)
+	/// The jumpsuit type spawned for this locker. Exists to be overridden by the corporate modpack, which adds pilot jumpsuits.
+	var/jumpsuit_type = /obj/item/clothing/jumpsuit/white
 
 /obj/structure/closet/secure_closet/pilot/WillContain()
 	return list(
 		/obj/item/backpack/parachute,
 		/obj/item/knife/utility,
-		/obj/item/clothing/jumpsuit/pilot,
+		jumpsuit_type,
 		/obj/item/clothing/suit/jacket/bomber,
 		/obj/item/clothing/mask/gas/half,
 		/obj/item/clothing/shoes/color/black,

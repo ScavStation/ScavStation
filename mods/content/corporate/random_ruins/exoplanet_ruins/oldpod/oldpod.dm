@@ -1,8 +1,7 @@
-#include "../../../../mods/content/corporate/_corporate.dme"
-
 /datum/map_template/ruin/exoplanet/oldpod
 	name = "old pod"
 	description = "A now unused, crashed escape pod."
+	prefix = "mods/content/corporate/random_ruins/exoplanet_ruins/"
 	suffixes = list("oldpod/oldpod.dmm")
 	cost = 0.5
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS

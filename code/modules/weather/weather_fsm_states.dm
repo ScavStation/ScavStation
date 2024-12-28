@@ -129,7 +129,7 @@
 		/decl/state_transition/weather/snow_heavy
 	)
 
-/decl/state/weather/snow/heavy/adjust_temperature(initial_temperature)
+/decl/state/weather/snow/medium/adjust_temperature(initial_temperature)
 	return min(initial_temperature - 25, T0C)
 
 /decl/state/weather/snow/heavy

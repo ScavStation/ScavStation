@@ -18,13 +18,6 @@
 	desc = "A warm, black sweatshirt."
 	color = COLOR_DARK_GRAY
 
-/obj/item/clothing/suit/jacket/hoodie/get_assumed_clothing_state_modifiers()
-	var/static/list/expected_state_modifiers = list(
-		GET_DECL(/decl/clothing_state_modifier/buttons),
-		GET_DECL(/decl/clothing_state_modifier/hood)
-	)
-	return expected_state_modifiers
-
 /obj/item/clothing/head/hoodiehood
 	name = "hoodie hood"
 	desc = "A hood attached to a warm sweatshirt."
