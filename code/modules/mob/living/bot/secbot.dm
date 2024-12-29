@@ -157,10 +157,10 @@
 		return
 	..()
 
-/mob/living/bot/secbot/confirmTarget(var/atom/A)
+/mob/living/bot/secbot/confirmTarget(atom/target)
 	if(!..())
 		return 0
-	return (check_threat(A) >= SECBOT_THREAT_ARREST)
+	return (check_threat(target) >= SECBOT_THREAT_ARREST)
 
 /mob/living/bot/secbot/lookForTargets()
 	for(var/mob/living/M in view(src))
