@@ -8,8 +8,14 @@
 /atom/proc/can_interact_with_storage(user, strict = FALSE)
 	return isliving(user)
 
+/atom/proc/get_required_interaction_dexterity()
+	return DEXTERITY_NONE
+
 /atom/proc/attack_hand(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
+
+	if(!user.check_dexterity(get_required_interaction_dexterity(), silent = TRUE))
+		return FALSE
 
 	if(can_interact_with_storage(user, strict = TRUE) && storage && user.check_dexterity((DEXTERITY_HOLD_ITEM|DEXTERITY_EQUIP_ITEM), TRUE))
 		add_fingerprint(user)

@@ -92,10 +92,14 @@
 	return TRUE
 
 /datum/mob_controller/aggressive/proc/attack_target()
+
+	set waitfor = FALSE
+
 	var/atom/target = get_target()
 	if(!istype(target))
 		lose_target()
 		return
+
 	if(isliving(target) && body.buckled_mob == target && (!body.faction || body.buckled_mob.faction != body.faction))
 		body.visible_message(SPAN_DANGER("\The [body] attempts to unseat \the [body.buckled_mob]!"))
 		body.set_dir(pick(global.cardinal))
@@ -107,10 +111,20 @@
 				var/mob/living/victim = target
 				SET_STATUS_MAX(victim, STAT_WEAK, 3)
 		return target
-	if(body.Adjacent(target))
-		body.a_intent = I_HURT
-		body.ClickOn(target)
+
+	if(!body.Adjacent(target))
 		return target
+
+	// AI-driven mobs have a melee telegraph that needs to be handled here.
+	if(!body.do_attack_windup_checking(target))
+		return target
+
+	if(QDELETED(body) || body.incapacitated() || QDELETED(target))
+		return target
+
+	body.a_intent = I_HURT
+	body.ClickOn(target)
+	return target
 
 /datum/mob_controller/aggressive/destroy_surroundings()
 
@@ -174,27 +188,25 @@
 	if(!(. = ..()))
 		return
 
-	if(!only_attack_enemies)
-		if(source)
-			set_target(source)
-			move_to_target(move_only = TRUE)
-		return
+	if(only_attack_enemies)
+		var/list/allies
+		var/list/around = view(body, 7)
+		for(var/atom/movable/A in around)
+			if(A == body || !isliving(A))
+				continue
+			var/mob/living/M = A
+			if(attack_same_faction || M.faction != body.faction)
+				add_enemy(M)
+			else if(istype(M.ai))
+				LAZYADD(allies, M.ai)
+		var/list/enemies = get_enemies()
+		if(LAZYLEN(enemies) && LAZYLEN(allies))
+			for(var/datum/mob_controller/ally as anything in allies)
+				ally.add_enemies(enemies)
 
-	var/list/allies
-	var/list/around = view(body, 7)
-	for(var/atom/movable/A in around)
-		if(A == body || !isliving(A))
-			continue
-		var/mob/living/M = A
-		if(attack_same_faction || M.faction != body.faction)
-			add_enemy(M)
-		else if(istype(M.ai))
-			LAZYADD(allies, M.ai)
-
-	var/list/enemies = get_enemies()
-	if(LAZYLEN(enemies) && LAZYLEN(allies))
-		for(var/datum/mob_controller/ally as anything in allies)
-			ally.add_enemies(enemies)
+	if(source)
+		set_target(source)
+		move_to_target(move_only = TRUE)
 
 /datum/mob_controller/aggressive/move_to_target(var/move_only = FALSE)
 	if(!body.can_act())
