@@ -122,15 +122,11 @@
 		if(S.material?.type == /decl/material/solid/metal/steel)
 			return (amount < maxAmount && maketiles)
 
-	if(target.loc.name == "Space")
-		return 0
+	var/turf/floor/my_turf = target
+	if(!istype(my_turf) || (isturf(my_turf) && my_turf.is_open()))
+		return FALSE
 
-	var/turf/floor/T = target
-	if(istype(T))
-		if(emagged)
-			return 1
-		else
-			return (amount && (T.is_floor_damaged() || (improvefloors && !T.has_flooring())))
+	return emagged || (amount && (my_turf.is_floor_damaged() || (improvefloors && !my_turf.has_flooring())))
 
 /mob/living/bot/floorbot/UnarmedAttack(var/atom/A, var/proximity)
 
