@@ -10,7 +10,7 @@
 	icon_base = 'icons/mob/human_races/cyberlimbs/morgan/morgan_main.dmi'
 	modifier_string = "wooden"
 	hardiness = 0.75
-	manual_dexterity = DEXTERITY_SIMPLE_MACHINES
+	manual_dexterity = DEXTERITY_SIMPLE_MACHINES | DEXTERITY_HOLD_ITEM | DEXTERITY_EQUIP_ITEM | DEXTERITY_KEYBOARDS | DEXTERITY_GRAPPLE
 	movement_slowdown = 1
 	is_robotic = FALSE
 	modular_limb_tier = MODULAR_BODYPART_ANYWHERE
