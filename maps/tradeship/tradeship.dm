@@ -13,6 +13,7 @@
 	#include "../../mods/gamemodes/mixed/_mixed.dme"
 
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
+	#include "../random_ruins/exoplanet_ruins/crashed_pod/crashed_pod.dm"
 
 	#include "../../mods/content/government/away_sites/icarus/icarus.dm"
 	#include "../../mods/content/corporate/away_sites/lar_maria/lar_maria.dm"
