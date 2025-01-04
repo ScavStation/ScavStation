@@ -28,9 +28,6 @@
 			var/decl/material/mat = GET_DECL(/decl/material/solid/fiberglass)
 			mat.create_object(location, created_volume)
 
-/decl/chemical_reaction/synthesis/crystalization/can_happen(datum/reagents/holder)
-	. = ..() && length(holder.reagent_volumes) > 1
-
 /decl/chemical_reaction/synthesis/crystalization
 	name = "Crystalization"
 	required_reagents = list(/decl/material/liquid/crystal_agent = 1)

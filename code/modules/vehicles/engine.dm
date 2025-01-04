@@ -137,5 +137,5 @@
 /obj/item/engine/thermal/rev_engine(var/atom/movable/M)
 	M.audible_message("\The [M] rumbles to life.")
 
-/obj/item/engine/electric/putter(var/atom/movable/M)
+/obj/item/engine/thermal/putter(var/atom/movable/M)
 	M.audible_message("\The [M] putters before turning off.")

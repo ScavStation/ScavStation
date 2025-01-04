@@ -96,7 +96,8 @@
 	var/paint_verb
 
 	/// What dexterity is required to attack with this item?
-	var/needs_attack_dexterity = DEXTERITY_WIELD_ITEM
+	var/needs_attack_dexterity      = DEXTERITY_WIELD_ITEM
+	var/needs_interaction_dexterity = DEXTERITY_HOLD_ITEM
 
 	/// Vars relating to wielding the item with two or more hands.
 	var/can_be_twohanded        = FALSE

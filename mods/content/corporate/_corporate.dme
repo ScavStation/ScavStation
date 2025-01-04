@@ -15,7 +15,6 @@
 #include "clothing\head\ert.dm"
 #include "clothing\head\helmets.dm"
 #include "clothing\masks\rubber.dm"
-#include "clothing\rigs\ert.dm"
 #include "clothing\suit\armour.dm"
 #include "clothing\suit\captain.dm"
 #include "clothing\suit\hoodies.dm"
@@ -40,9 +39,11 @@
 #include "items\cups.dm"
 #include "items\documents.dm"
 #include "items\medals.dm"
+#include "items\random.dm"
 #include "items\stamps.dm"
 #include "items\wristcomp.dm"
 #include "machines\machines.dm"
+#include "random_ruins\exoplanet_ruins\oldpod\oldpod.dm"
 #include "structures\lockers.dm"
 // END_INCLUDE
 #endif

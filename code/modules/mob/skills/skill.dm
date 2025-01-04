@@ -1,14 +1,24 @@
 /decl/skill
-
-	abstract_type = /decl/skill // Don't mess with this without changing how Initialize works.
-	var/name = "None"                     // Name of the skill. This is what the player sees.
-	var/decl/skill_category/category      // Category this skill belongs to.
-	var/desc = "Placeholder skill"        // Generic description of this skill.
-	var/difficulty = SKILL_AVERAGE        //Used to compute how expensive the skill is
-	var/default_max = SKILL_ADEPT         //Makes the skill capped at this value in selection unless overriden at job level.
-	var/default_value                     // The specific default value used for this skill. If null, uses the skillset's default.
-	var/prerequisites                     // A list of skill prerequisites, if needed.
-	var/fallback_key                      // If the skill UID is not found in the savefile, this is the fallback key to use for migrating old savefiles.
+	// UID is required for saving in prefs.
+	decl_flags      = DECL_FLAG_MANDATORY_UID
+	/// Don't mess with this without changing how Initialize works.
+	abstract_type   = /decl/skill
+	/// Name of the skill. This is what the player sees.
+	var/name        = "None"
+	/// Generic description of this skill.
+	var/desc        = "Placeholder skill"
+	/// Used to compute how expensive the skill is
+	var/difficulty  = SKILL_AVERAGE
+	/// Makes the skill capped at this value in selection unless overriden at job level.
+	var/default_max = SKILL_ADEPT
+	/// The specific default value used for this skill. If null, uses the skillset's default.
+	var/default_value
+	/// A list of skill prerequisites, if needed.
+	var/prerequisites
+	/// If the skill UID is not found in the savefile, this is the fallback key to use for migrating old savefiles.
+	var/fallback_key
+	/// Category this skill belongs to.
+	var/decl/skill_category/category
 
    	// Names for different skill values, in order from 1 up.
 	var/list/levels = list(

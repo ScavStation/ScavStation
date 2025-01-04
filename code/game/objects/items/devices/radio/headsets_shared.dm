@@ -221,6 +221,18 @@
 	encryption_keys = list(/obj/item/encryptionkey/raider)
 	analog_secured = list((access_raider) = TRUE)
 
+/obj/item/encryptionkey/hacked
+	can_decrypt = list(access_hacked)
+	origin_tech = @'{"esoteric":3}'
+
+/obj/item/encryptionkey/hacked/Initialize(ml, material_key)
+	. = ..()
+	can_decrypt |= get_all_station_access()
+
+/obj/item/radio/headset/hacked
+	origin_tech = @'{"esoteric":3}'
+	encryption_keys = list(/obj/item/encryptionkey/hacked)
+
 // Bowman alts
 /obj/item/radio/headset/headset_mining/bowman
 	name = "mining bowman radio headset"

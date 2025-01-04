@@ -10,6 +10,3 @@
 	path = /datum/instrument/obsolete/violin
 	material = /decl/material/solid/organic/wood
 	matter = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_TRACE)
-
-/obj/structure/synthesized_instrument/synthesizer/shouldStopPlaying(mob/user)
-	return !(src && in_range(src, user))

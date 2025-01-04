@@ -324,7 +324,7 @@
 		port_tag = new_port_tag
 	. = ..()
 
-/obj/abstract/local_dock/automatic/modify_mapped_vars(map_hash)
+/obj/abstract/local_dock/modify_mapped_vars(map_hash)
 	. = ..()
 	ADJUST_TAG_VAR(port_tag, map_hash)
 	ADJUST_TAG_VAR(dock_target, map_hash)
