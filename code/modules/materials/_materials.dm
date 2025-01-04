@@ -708,12 +708,12 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 /decl/material/proc/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder) // Acid melting, cleaner cleaning, etc
 
-	if(solvent_power >= MAT_SOLVENT_MILD)
-		if(istype(O, /obj/item/paper))
+	if(solvent_power >= MAT_SOLVENT_MODERATE)
+		if(istype(O, /obj/item/paper) && amount >= FLUID_MINIMUM_TRANSFER)
 			var/obj/item/paper/paperaffected = O
 			paperaffected.clearpaper()
 			O.visible_message(SPAN_NOTICE("The solution dissolves the ink on the paper."), range = 1)
-		else if(istype(O, /obj/item/book) && amount >= 5)
+		else if(istype(O, /obj/item/book) && amount >= FLUID_PUDDLE)
 			var/obj/item/book/affectedbook = O
 			if(affectedbook.can_dissolve_text)
 				affectedbook.dat = null
