@@ -13,8 +13,6 @@
 	company_name  = "Tradehouse Ivenmoth"
 	company_short = "Ivenmoth"
 
-	default_law_type = /datum/ai_laws/nanotrasen
-
 	lobby_screens = list('maps/ministation/ministation_lobby.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
@@ -23,8 +21,7 @@
 	lobby_tracks = list(
 		/decl/music_track/absconditus,
 		/decl/music_track/level3_mod,
-		/decl/music_track/tintin,
-		/decl/music_track/zazie
+		/decl/music_track/tintin
 	)
 
 	shuttle_docked_message = "The public ferry to %dock_name% has docked with the station. It will depart in approximately %ETD%"

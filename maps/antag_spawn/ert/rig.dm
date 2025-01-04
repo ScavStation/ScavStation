@@ -2,7 +2,7 @@
 	name = "emergency response command hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has blue highlights. Armoured and space ready."
 	suit_type = "emergency response command"
-	icon = 'mods/content/corporate/icons/rigs/commander/rig.dmi'
+	icon = 'icons/clothing/rigs/ert/commander/rig.dmi'
 
 	chest =  /obj/item/clothing/suit/space/rig/ert
 	helmet = /obj/item/clothing/head/helmet/space/rig/ert
@@ -53,20 +53,20 @@
 
 /obj/item/clothing/head/helmet/space/rig/ert
 	camera = /obj/machinery/camera/network/ert
-	icon = 'mods/content/corporate/icons/rigs/commander/helmet.dmi'
+	icon = 'icons/clothing/rigs/ert/commander/helmet.dmi'
 /obj/item/clothing/suit/space/rig/ert
-	icon = 'mods/content/corporate/icons/rigs/commander/chest.dmi'
+	icon = 'icons/clothing/rigs/ert/commander/chest.dmi'
 /obj/item/clothing/shoes/magboots/rig/ert
-	icon = 'mods/content/corporate/icons/rigs/commander/boots.dmi'
+	icon = 'icons/clothing/rigs/ert/commander/boots.dmi'
 /obj/item/clothing/gloves/rig/ert
 	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_NOCUFFS
-	icon = 'mods/content/corporate/icons/rigs/commander/gloves.dmi'
+	icon = 'icons/clothing/rigs/ert/commander/gloves.dmi'
 
 /obj/item/rig/ert/engineer
 	name = "emergency response engineering hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has orange highlights. Armoured and space ready."
 	suit_type = "emergency response engineer"
-	icon = 'mods/content/corporate/icons/rigs/engineer/rig.dmi'
+	icon = 'icons/clothing/rigs/ert/engineer/rig.dmi'
 
 	chest =  /obj/item/clothing/suit/space/rig/ert/engineer
 	helmet = /obj/item/clothing/head/helmet/space/rig/ert/engineer
@@ -82,20 +82,20 @@
 		)
 
 /obj/item/clothing/head/helmet/space/rig/ert/engineer
-	icon = 'mods/content/corporate/icons/rigs/engineer/helmet.dmi'
+	icon = 'icons/clothing/rigs/ert/engineer/helmet.dmi'
 /obj/item/clothing/suit/space/rig/ert/engineer
-	icon = 'mods/content/corporate/icons/rigs/engineer/chest.dmi'
+	icon = 'icons/clothing/rigs/ert/engineer/chest.dmi'
 /obj/item/clothing/shoes/magboots/rig/ert/engineer
-	icon = 'mods/content/corporate/icons/rigs/engineer/boots.dmi'
+	icon = 'icons/clothing/rigs/ert/engineer/boots.dmi'
 /obj/item/clothing/gloves/rig/ert/engineer
-	icon = 'mods/content/corporate/icons/rigs/engineer/gloves.dmi'
+	icon = 'icons/clothing/rigs/ert/engineer/gloves.dmi'
 	siemens_coefficient = 0
 
 /obj/item/rig/ert/janitor
 	name = "emergency response sanitation hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has purple highlights. Armoured and space ready."
 	suit_type = "emergency response sanitation"
-	icon = 'mods/content/corporate/icons/rigs/janitor/rig.dmi'
+	icon = 'icons/clothing/rigs/ert/janitor/rig.dmi'
 
 	chest =  /obj/item/clothing/suit/space/rig/ert/janitor
 	helmet = /obj/item/clothing/head/helmet/space/rig/ert/janitor
@@ -112,19 +112,19 @@
 		)
 
 /obj/item/clothing/head/helmet/space/rig/ert/janitor
-	icon = 'mods/content/corporate/icons/rigs/janitor/helmet.dmi'
+	icon = 'icons/clothing/rigs/ert/janitor/helmet.dmi'
 /obj/item/clothing/suit/space/rig/ert/janitor
-	icon = 'mods/content/corporate/icons/rigs/janitor/chest.dmi'
+	icon = 'icons/clothing/rigs/ert/janitor/chest.dmi'
 /obj/item/clothing/shoes/magboots/rig/ert/janitor
-	icon = 'mods/content/corporate/icons/rigs/janitor/boots.dmi'
+	icon = 'icons/clothing/rigs/ert/janitor/boots.dmi'
 /obj/item/clothing/gloves/rig/ert/janitor
-	icon = 'mods/content/corporate/icons/rigs/janitor/gloves.dmi'
+	icon = 'icons/clothing/rigs/ert/janitor/gloves.dmi'
 
 /obj/item/rig/ert/medical
 	name = "emergency response medical hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has white highlights. Armoured and space ready."
 	suit_type = "emergency response medic"
-	icon = 'mods/content/corporate/icons/rigs/medic/rig.dmi'
+	icon = 'icons/clothing/rigs/ert/medic/rig.dmi'
 
 	chest =  /obj/item/clothing/suit/space/rig/ert/medical
 	helmet = /obj/item/clothing/head/helmet/space/rig/ert/medical
@@ -140,19 +140,19 @@
 		)
 
 /obj/item/clothing/head/helmet/space/rig/ert/medical
-	icon = 'mods/content/corporate/icons/rigs/medic/helmet.dmi'
+	icon = 'icons/clothing/rigs/ert/medic/helmet.dmi'
 /obj/item/clothing/suit/space/rig/ert/medical
-	icon = 'mods/content/corporate/icons/rigs/medic/chest.dmi'
+	icon = 'icons/clothing/rigs/ert/medic/chest.dmi'
 /obj/item/clothing/shoes/magboots/rig/ert/medical
-	icon = 'mods/content/corporate/icons/rigs/medic/boots.dmi'
+	icon = 'icons/clothing/rigs/ert/medic/boots.dmi'
 /obj/item/clothing/gloves/rig/ert/medical
-	icon = 'mods/content/corporate/icons/rigs/medic/gloves.dmi'
+	icon = 'icons/clothing/rigs/ert/medic/gloves.dmi'
 
 /obj/item/rig/ert/security
 	name = "emergency response security hardsuit control module"
 	desc = "A hardsuit used by many corporate and governmental emergency response forces. Has red highlights. Armoured and space ready."
 	suit_type = "emergency response security"
-	icon = 'mods/content/corporate/icons/rigs/security/rig.dmi'
+	icon = 'icons/clothing/rigs/ert/security/rig.dmi'
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
@@ -167,19 +167,19 @@
 	gloves = /obj/item/clothing/gloves/rig/ert/security
 
 /obj/item/clothing/head/helmet/space/rig/ert/security
-	icon = 'mods/content/corporate/icons/rigs/security/helmet.dmi'
+	icon = 'icons/clothing/rigs/ert/security/helmet.dmi'
 /obj/item/clothing/suit/space/rig/ert/security
-	icon = 'mods/content/corporate/icons/rigs/security/chest.dmi'
+	icon = 'icons/clothing/rigs/ert/security/chest.dmi'
 /obj/item/clothing/shoes/magboots/rig/ert/security
-	icon = 'mods/content/corporate/icons/rigs/security/boots.dmi'
+	icon = 'icons/clothing/rigs/ert/security/boots.dmi'
 /obj/item/clothing/gloves/rig/ert/security
-	icon = 'mods/content/corporate/icons/rigs/security/gloves.dmi'
+	icon = 'icons/clothing/rigs/ert/security/gloves.dmi'
 
 /obj/item/rig/ert/assetprotection
 	name = "heavy emergency response suit control module"
 	desc = "A heavy, modified version of a common emergency response hardsuit. Has blood red highlights.  Armoured and space ready."
 	suit_type = "heavy emergency response"
-	icon = 'mods/content/corporate/icons/rigs/asset_protection/rig.dmi'
+	icon = 'icons/clothing/rigs/ert/asset_protection/rig.dmi'
 	armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_VERY_HIGH,
 		ARMOR_BULLET = ARMOR_BALLISTIC_RESISTANT,
@@ -209,11 +209,11 @@
 		)
 
 /obj/item/clothing/head/helmet/space/rig/ert/assetprotection
-	icon = 'mods/content/corporate/icons/rigs/asset_protection/helmet.dmi'
+	icon = 'icons/clothing/rigs/ert/asset_protection/helmet.dmi'
 /obj/item/clothing/suit/space/rig/ert/assetprotection
-	icon = 'mods/content/corporate/icons/rigs/asset_protection/chest.dmi'
+	icon = 'icons/clothing/rigs/ert/asset_protection/chest.dmi'
 /obj/item/clothing/shoes/magboots/rig/ert/assetprotection
-	icon = 'mods/content/corporate/icons/rigs/asset_protection/boots.dmi'
+	icon = 'icons/clothing/rigs/ert/asset_protection/boots.dmi'
 /obj/item/clothing/gloves/rig/ert/assetprotection
-	icon = 'mods/content/corporate/icons/rigs/asset_protection/gloves.dmi'
+	icon = 'icons/clothing/rigs/ert/asset_protection/gloves.dmi'
 	siemens_coefficient = 0

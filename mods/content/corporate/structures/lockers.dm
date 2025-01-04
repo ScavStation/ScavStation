@@ -51,3 +51,6 @@
 
 /obj/structure/closet/secure_closet/hop/WillContain()
 	. = ..() + /obj/item/clothing/suit/armor/vest/nt
+
+/obj/structure/closet/secure_closet/pilot
+	jumpsuit_type = /obj/item/clothing/jumpsuit/pilot

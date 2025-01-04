@@ -16,16 +16,22 @@
 		try_burn_wearer(holder, holder.get_equipped_slot_for_item(src))
 
 	// Temp gate until generalized temperature-based melting works properly.
-	if(istype(loc, /obj/item/chems/crucible))
-		// Check if this is meltable at all.
-		var/list/meltable_materials
-		for(var/mat in matter)
-			var/decl/material/melt_material = GET_DECL(mat)
-			if(!isnull(melt_material.melting_point) && temperature >= melt_material.melting_point)
-				LAZYDISTINCTADD(meltable_materials, melt_material)
-		if(length(meltable_materials))
-			. = null // Don't return PROCESS_KILL here.
-			handle_melting(meltable_materials)
+	var/static/list/_melting_containers = list(
+		/obj/item/chems/crucible,
+		/obj/item/organ/internal/stomach
+	)
+	if(!is_type_in_list(loc, _melting_containers))
+		return
+
+	// Check if this is meltable at all.
+	var/list/meltable_materials
+	for(var/mat in matter)
+		var/decl/material/melt_material = GET_DECL(mat)
+		if(!isnull(melt_material.melting_point) && temperature >= melt_material.melting_point)
+			LAZYDISTINCTADD(meltable_materials, melt_material)
+	if(length(meltable_materials))
+		. = null // Don't return PROCESS_KILL here.
+		handle_melting(meltable_materials)
 
 /obj/item/place_melted_product(list/meltable_materials)
 

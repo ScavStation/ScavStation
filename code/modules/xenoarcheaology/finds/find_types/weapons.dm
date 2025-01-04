@@ -18,7 +18,7 @@
 		"It doesn't look safe.",
 		"It looks wickedly jagged.",
 		"There appear to be [pick("dark red","dark purple","dark green","dark blue")] stains along the edges.")
-		
+
 /decl/archaeological_find/knife/new_icon()
 	return pick(knife_icons)
 
@@ -46,7 +46,7 @@
 	modification_flags = XENOFIND_APPLY_DECOR
 	possible_types = list(/obj/item/beartrap)
 
-/decl/archaeological_find/knife/generate_name()
+/decl/archaeological_find/trap/generate_name()
 	return "[pick("wicked","evil","byzantine","dangerous")] looking [pick("device","contraption","thing","trap")]"
 
 /decl/archaeological_find/trap/get_additional_description()

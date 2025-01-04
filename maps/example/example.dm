@@ -10,9 +10,6 @@
 	#include "example_jobs.dm"
 	#include "example_unit_testing.dm"
 
-	#include "../../mods/content/pheromones/_pheromones.dme"
-	#include "../../mods/valsalia/_valsalia.dme"
-
 	#include "example-1.dmm"
 	#include "example-2.dmm"
 	#include "example-3.dmm"

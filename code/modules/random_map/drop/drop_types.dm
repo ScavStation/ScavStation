@@ -51,18 +51,6 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/gun/projectile/automatic/smg,
 		/obj/item/gun/projectile/automatic/assault_rifle)
 
-/datum/supply_drop_loot/ballistics
-	name = "Ballistics"
-	container = /obj/structure/largecrate
-/datum/supply_drop_loot/ballistics/New()
-	..()
-	contents = list(
-		/obj/item/gun/projectile/pistol,
-		/obj/item/gun/projectile/shotgun/doublebarrel,
-		/obj/item/gun/projectile/shotgun/pump,
-		/obj/item/gun/projectile/automatic/smg,
-		/obj/item/gun/projectile/automatic/assault_rifle)
-
 /datum/supply_drop_loot/seeds
 	name = "Seeds"
 	container = /obj/structure/closet/crate
@@ -158,10 +146,10 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/box/syringes,
 		/obj/item/box/autoinjectors)
 
-/datum/supply_drop_loot/power
-	name = "Power"
+/datum/supply_drop_loot/materials
+	name = "Materials"
 	container = /obj/structure/largecrate
-/datum/supply_drop_loot/power/New()
+/datum/supply_drop_loot/materials/New()
 	..()
 	contents = list(
 		/obj/item/stack/material/sheet/mapped/steel,

@@ -109,7 +109,7 @@
 	if(has_safety() && distance <= 1)
 		to_chat(user, "The safety is [safety ? "on" : "off"].")
 
-/obj/item/chems/get_alt_interactions(mob/user)
+/obj/item/chems/spray/get_alt_interactions(mob/user)
 	. = ..()
 	LAZYADD(., /decl/interaction_handler/empty/chems)
 	LAZYADD(., /decl/interaction_handler/next_spray_amount)

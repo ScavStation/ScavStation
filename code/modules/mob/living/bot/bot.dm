@@ -283,12 +283,12 @@
 /mob/living/bot/proc/lookForTargets()
 	return
 
-/mob/living/bot/proc/confirmTarget(var/atom/A)
-	if(A.invisibility >= INVISIBILITY_LEVEL_ONE)
+/mob/living/bot/proc/confirmTarget(atom/target)
+	if(target.invisibility >= INVISIBILITY_LEVEL_ONE)
 		return 0
-	if(A in ignore_list)
+	if(target in ignore_list)
 		return 0
-	if(!A.loc)
+	if(!target.loc)
 		return 0
 	return 1
 

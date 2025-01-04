@@ -120,11 +120,11 @@
 	. += "<b>Details:</b> [record.get_medical_record()]"
 	return jointext(., "<br>")
 
-/obj/structure/filing_cabinet/records/medical
+/obj/structure/filing_cabinet/records/employment
 	name = "employment record archive"
 	archive_name = "employment record"
 
-/obj/structure/filing_cabinet/records/medical/collate_data(var/datum/computer_file/report/crew_record/record)
+/obj/structure/filing_cabinet/records/employment/collate_data(var/datum/computer_file/report/crew_record/record)
 	. = list()
 	. += "<b>Name:</b> [record.get_name()]"
 	. += "<b>Gender:</b> [record.get_gender()]"
