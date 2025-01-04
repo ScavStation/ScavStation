@@ -890,7 +890,7 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 	trans_to_holder(target.reagents, amount, multiplier, copy, defer_update = defer_update, transferred_phases = transferred_phases)
 	// Deferred updates are presumably being done by SSfluids.
 	// Do an immediate fluid_act call rather than waiting for SSfluids to proc.
-	if(!defer_update)
+	if(!defer_update && target.reagents.total_volume >= FLUID_PUDDLE)
 		target.fluid_act(target.reagents)
 
  // Objects may or may not have reagents; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
