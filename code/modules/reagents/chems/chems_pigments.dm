@@ -107,20 +107,20 @@
 	uid = "chem_pigment_paint"
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 
-/decl/material/liquid/paint/proc/apply_paint(var/atom/painting, var/datum/reagents/holder)
-	if(istype(painting) && istype(holder))
+/decl/material/liquid/paint/proc/apply_paint(var/atom/painting, var/datum/reagents/holder, var/threshold = 1)
+	if(istype(painting) && istype(holder) && REAGENT_VOLUME(holder, type) >= threshold)
 		var/keep_alpha = painting.alpha
 		painting.set_color(holder.get_color())
 		painting.set_alpha(keep_alpha)
 
 /decl/material/liquid/paint/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(istype(T) && !isspaceturf(T))
-		apply_paint(T, holder)
+		apply_paint(T, holder, FLUID_MINIMUM_TRANSFER)
 
 /decl/material/liquid/paint/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O))
-		apply_paint(O, holder)
+		apply_paint(O, holder, O.get_object_size())
 
 /decl/material/liquid/paint/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
 	if(istype(M))
-		apply_paint(M, holder)
+		apply_paint(M, holder, M.get_object_size())

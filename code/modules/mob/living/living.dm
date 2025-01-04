@@ -857,10 +857,10 @@ default behaviour is:
 
 /mob/living/fluid_act(var/datum/reagents/fluids)
 	..()
-	if(QDELETED(src) || !fluids?.total_volume)
+	if(QDELETED(src) || fluids?.total_volume < FLUID_PUDDLE)
 		return
 	fluids.touch_mob(src)
-	if(QDELETED(src) || !fluids.total_volume)
+	if(QDELETED(src) || fluids?.total_volume < FLUID_PUDDLE)
 		return
 	for(var/atom/movable/A as anything in get_equipped_items(TRUE))
 		if(!A.simulated)
