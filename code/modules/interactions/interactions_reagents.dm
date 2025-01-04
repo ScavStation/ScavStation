@@ -3,11 +3,17 @@
 	interaction_flags = INTERACTION_NEEDS_PHYSICAL_INTERACTION | INTERACTION_NEVER_AUTOMATIC
 
 /decl/interaction_handler/dip_item/is_possible(atom/target, mob/user, obj/item/prop)
-	return ..() && target.reagents?.total_volume >= FLUID_PUDDLE && istype(prop) && target.can_be_poured_from(user, prop)
+	return ..() && target.reagents?.total_volume >= FLUID_MINIMUM_TRANSFER && istype(prop) && target.can_be_poured_from(user, prop)
 
 /decl/interaction_handler/dip_item/invoked(atom/target, mob/user, obj/item/prop)
 	user.visible_message(SPAN_NOTICE("\The [user] dips \the [prop] into \the [target.reagents.get_primary_reagent_name()]."))
-	prop.fluid_act(target.reagents)
+	if(istype(prop, /obj/item/food) && isobj(target))
+		var/obj/target_obj = target
+		var/transferring = min(target_obj.get_food_default_transfer_amount(user), REAGENTS_FREE_SPACE(prop.reagents))
+		if(transferring)
+			target.reagents.trans_to_holder(prop.reagents, transferring)
+	if(target.reagents?.total_volume >= FLUID_MINIMUM_TRANSFER)
+		prop.fluid_act(target.reagents)
 	return TRUE
 
 /decl/interaction_handler/fill_from

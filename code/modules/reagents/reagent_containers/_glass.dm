@@ -123,30 +123,22 @@
 // Should we consider moving this down to /chems for any open container? Medicine from a bottle using a spoon, etc.
 /obj/item/chems/glass/attackby(obj/item/used_item, mob/living/user)
 
-	if(ATOM_IS_OPEN_CONTAINER(src))
-		if(istype(used_item, /obj/item/food))
-			if(!reagents?.total_volume)
-				to_chat(user, SPAN_WARNING("\The [src] is empty."))
-				return TRUE
-			var/transferring = min(get_food_default_transfer_amount(user), REAGENTS_FREE_SPACE(used_item.reagents))
-			if(!transferring)
-				to_chat(user, SPAN_WARNING("You cannot dip \the [used_item] in \the [src]."))
-				return TRUE
-			reagents.trans_to_holder(used_item.reagents, transferring)
-			user.visible_message(SPAN_NOTICE("\The [user] dunks \the [used_item] in \the [src]."))
+	if(!ATOM_IS_OPEN_CONTAINER(src))
+		return ..()
+
+	var/obj/item/utensil/utensil = used_item
+	if(istype(utensil) && (utensil.utensil_flags & UTENSIL_FLAG_SCOOP))
+		if(utensil.loaded_food)
+			to_chat(user, SPAN_WARNING("You already have something on \the [utensil]."))
 			return TRUE
-		var/obj/item/utensil/utensil = used_item
-		if(istype(utensil) && (utensil.utensil_flags & UTENSIL_FLAG_SCOOP))
-			if(utensil.loaded_food)
-				to_chat(user, SPAN_WARNING("You already have something on \the [utensil]."))
-				return TRUE
-			if(!reagents?.total_volume)
-				to_chat(user, SPAN_WARNING("\The [src] is empty."))
-				return TRUE
-			seperate_food_chunk(utensil, user)
-			if(utensil.loaded_food?.reagents?.total_volume)
-				to_chat(user, SPAN_NOTICE("You scoop up some of \the [utensil.loaded_food.reagents.get_primary_reagent_name()] with \the [utensil]."))
+		if(!reagents?.total_volume)
+			to_chat(user, SPAN_WARNING("\The [src] is empty."))
 			return TRUE
+		seperate_food_chunk(utensil, user)
+		if(utensil.loaded_food?.reagents?.total_volume)
+			to_chat(user, SPAN_NOTICE("You scoop up some of \the [utensil.loaded_food.reagents.get_primary_reagent_name()] with \the [utensil]."))
+		return TRUE
+
 	return ..()
 
 /obj/structure/glass/get_alt_interactions(mob/user)
