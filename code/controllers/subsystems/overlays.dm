@@ -209,7 +209,7 @@ SUBSYSTEM_DEF(overlays)
 		if(cut_old)
 			our_overlays = cached_other.Copy()
 		else
-			our_overlays |= cached_other
+			LAZYDISTINCTADD(our_overlays, cached_other)
 		if(NOT_QUEUED_ALREADY)
 			QUEUE_FOR_COMPILE
 	else if(cut_old)
