@@ -141,7 +141,7 @@
 
 	return ..()
 
-/obj/structure/glass/get_alt_interactions(mob/user)
+/obj/item/chems/glass/get_alt_interactions(mob/user)
 	. = ..()
 	if(reagents?.total_volume >= FLUID_PUDDLE)
 		LAZYADD(., /decl/interaction_handler/dip_item)
