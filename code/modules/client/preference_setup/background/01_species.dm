@@ -49,6 +49,8 @@
 	. += "<tr><td colspan=3><center>"
 	for(var/s in get_playable_species())
 		var/decl/species/list_species = get_species_by_key(s)
+		if(!istype(list_species))
+			continue // Runtime observed in a round where the playable species list was edited.
 		if(pref.species == list_species.name)
 			. += "<span class='linkOn'>[list_species.name]</span> "
 		else
