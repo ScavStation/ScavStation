@@ -1798,7 +1798,7 @@ default behaviour is:
 /mob/living/proc/get_door_pry_time()
 	return 7 SECONDS
 
-/mob/living/proc/pry_door(atom/target, pry_time)
+/mob/living/proc/pry_door(delay, obj/machinery/door/target)
 	return
 
 /mob/living/proc/turf_is_safe(turf/target)
