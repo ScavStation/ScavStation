@@ -548,9 +548,12 @@ var/global/const/MAP_HAS_RANK   = 2		//Rank system, also togglable
 	if(!length(SSmapping.station_levels))
 		log_error("[name] has no station levels!")
 		. = FALSE
+	// TODO: add an admin level loaded from template for maps like tradeship (generic admin level modpack?)
+	/*
 	if(!length(SSmapping.admin_levels))
 		log_error("[name] has no admin levels!")
 		. = FALSE
+	*/
 	if(!length(SSmapping.contact_levels))
 		log_error("[name] has no contact levels!")
 		. = FALSE

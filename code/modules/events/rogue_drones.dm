@@ -38,9 +38,7 @@
 	var/num_recovered = 0
 	for(var/mob/living/simple_animal/hostile/malf_drone/D in drones_list)
 		spark_at(D.loc)
-		D.z = SSmapping.admin_levels[1]
 		D.has_loot = 0
-
 		qdel(D)
 		num_recovered++
 
