@@ -64,13 +64,12 @@
 		return TRUE
 
 	var/had_liquids = length(reagents.liquid_volumes)
-	var/had_units   = target.reagents?.total_volume
-	reagents.trans_to(target, amount)
+	var/transferred_amount = reagents.trans_to(target, amount)
 
 	if(had_liquids)
 		playsound(src, 'sound/effects/pour.ogg', 25, 1)
 	else
 		// Sounds more like pouring small pellets or dust.
 		playsound(src, 'sound/effects/refill.ogg', 25, 1)
-	to_chat(user, SPAN_NOTICE("You transfer [target.reagents?.total_volume - had_units] unit\s of the solution to \the [target]. \The [src] now contains [reagents.total_volume] unit\s."))
+	to_chat(user, SPAN_NOTICE("You transfer [transferred_amount] unit\s of the solution to \the [target]. \The [src] now contains [reagents.total_volume] unit\s."))
 	return TRUE
