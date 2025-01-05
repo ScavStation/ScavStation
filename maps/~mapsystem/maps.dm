@@ -15,8 +15,8 @@ var/global/const/MAP_HAS_RANK   = 2		//Rank system, also togglable
 		if(map_type == global.using_map.type)
 			map_instance = global.using_map
 			map_instance.setup_map()
-		else if(map_type::map_path)
-			map_instance = new map_type
+		else if(map_instance::path)
+			map_instance = new map_instance
 		else
 			log_error("Map '[map_type]' does not have a defined path, not adding to map list!")
 			continue

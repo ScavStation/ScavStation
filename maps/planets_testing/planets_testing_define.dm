@@ -3,8 +3,12 @@
 	full_name      = "Planets Testing"
 	path           = "planets_testing"
 	overmap_ids    = list(OVERMAP_ID_SPACE)
-	allowed_latejoin_spawns = list()
 	default_spawn  = null
+	votable        = FALSE
+	allowed_latejoin_spawns = list()
+
+/datum/map/planet_testing/validate()
+	return FALSE // Testing map, do not validate levels.
 
 // Set the observer spawn to include every flag so that CI flag checks pass.
 /decl/spawnpoint/observer
