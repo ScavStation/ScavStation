@@ -237,6 +237,7 @@ var/global/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 
 		update_overlays(TRUE)
 
 /datum/lighting_corner/proc/update_ambient_lumcount(delta_r, delta_g, delta_b, skip_update = FALSE)
+
 	ambient_r += delta_r
 	ambient_g += delta_g
 	ambient_b += delta_b
