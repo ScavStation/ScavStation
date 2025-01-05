@@ -1190,3 +1190,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 /decl/material/proc/can_hold_edge()
 	return hardness > MAT_VALUE_FLEXIBLE
+
+// TODO: expand this to more than just Actual Poison.
+/decl/material/proc/is_unsafe_to_drink(mob/user)
+	return toxicity > 0

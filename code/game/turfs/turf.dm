@@ -788,6 +788,9 @@
 /turf/get_affecting_weather()
 	return weather
 
+/turf/can_be_poured_into(atom/source)
+	return !density
+
 /turf/get_alt_interactions(mob/user)
 	. = ..()
 	LAZYADD(., /decl/interaction_handler/show_turf_contents)

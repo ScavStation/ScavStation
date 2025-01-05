@@ -58,16 +58,28 @@
 /obj/item/chems/glass/proc/can_lid()
 	return TRUE
 
-/obj/item/chems/glass/attack_self()
-	. = ..()
-	if(!. && can_lid())
+/obj/item/chems/glass/proc/should_drink_from(mob/drinker)
+	. = reagents?.total_volume > 0
+	if(.)
+		var/decl/material/drinking = reagents.get_primary_reagent_decl()
+		return drinking ? !drinking.is_unsafe_to_drink(drinker) : FALSE
+
+/obj/item/chems/glass/attack_self(mob/user)
+
+	if(can_lid() && user.a_intent == I_HELP)
 		if(ATOM_IS_OPEN_CONTAINER(src))
-			to_chat(usr, SPAN_NOTICE("You put the lid on \the [src]."))
+			to_chat(user, SPAN_NOTICE("You put the lid on \the [src]."))
 			atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 		else
-			to_chat(usr, SPAN_NOTICE("You take the lid off \the [src]."))
+			to_chat(user, SPAN_NOTICE("You take the lid off \the [src]."))
 			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
+		return TRUE
+
+	if(should_drink_from(user) && is_edible(user) && handle_eaten_by_mob(user, user) != EATEN_INVALID)
+		return TRUE
+
+	return ..()
 
 /obj/item/chems/glass/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	if(get_attack_force(user) && !(item_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
@@ -102,11 +114,6 @@
 	. = ..()
 
 // Drinking out of bowls.
-/obj/item/chems/glass/attack_self(mob/user)
-	if(is_edible(user) && handle_eaten_by_mob(user, user) != EATEN_INVALID)
-		return TRUE
-	return ..()
-
 /obj/item/chems/glass/get_food_default_transfer_amount(mob/eater)
 	return eater?.get_eaten_transfer_amount(amount_per_transfer_from_this)
 
