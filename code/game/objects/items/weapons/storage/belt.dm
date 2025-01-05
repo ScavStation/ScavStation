@@ -57,12 +57,18 @@
 	. = ..()
 	set_extension(src, /datum/extension/holster, storage, sound_in, sound_out, can_holster)
 
-/obj/item/belt/holster/attackby(obj/item/W, mob/user)
-	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
-	if(H.holster(W, user))
+/obj/item/belt/holster/get_stored_inventory()
+	. = ..()
+	if(length(.))
+		var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
+		if(holster.holstered)
+			. -= holster.holstered
+
+/obj/item/belt/holster/attackby(obj/item/used_item, mob/user)
+	var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
+	if(holster?.holster(used_item, user))
 		return TRUE
-	else
-		. = ..(W, user)
+	return ..(used_item, user)
 
 /obj/item/belt/holster/attack_hand(mob/user)
 	if(!user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
