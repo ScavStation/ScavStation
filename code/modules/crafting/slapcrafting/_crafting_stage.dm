@@ -86,7 +86,7 @@
 			if(!user.try_unequip(thing, target))
 				return FALSE
 			used_stack = stack
-		if(used_stack)
+		if(!QDELETED(used_stack))
 			used_stack.forceMove(target)
 	target?.update_icon()
 
