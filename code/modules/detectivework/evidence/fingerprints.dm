@@ -17,6 +17,7 @@
 			continue
 		for(var/datum/fingerprint/F in data)
 			if(F.merge(newprint))
+				newdata -= newprint
 				continue
 	..()
 

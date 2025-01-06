@@ -12,6 +12,9 @@
 	if((. = ..()))
 		update_icon()
 
+/obj/item/chems/glass/handmade/get_mould_difficulty()
+	return SKILL_NONE
+
 /obj/item/chems/glass/handmade/teapot
 	name = "teapot"
 	desc = "A handmade, slightly lumpy teapot."
