@@ -76,7 +76,7 @@
 			var/trench_icon = (istype(neighbor) && neighbor.get_trench_icon()) || get_trench_icon()
 			if(trench_icon)
 				// cache the trench image, keyed by icon and color
-				var/trench_color = isatom(neighbor) ? neighbor.color : color
+				var/trench_color = isatom(neighbor) ? neighbor.get_color() : get_color()
 				var/trench_icon_key = "[ref(trench_icon)][trench_color]"
 				I = _trench_image_cache[trench_icon_key]
 				if(!I)
