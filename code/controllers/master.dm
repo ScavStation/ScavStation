@@ -220,12 +220,17 @@ var/global/datum/controller/master/Master = new
 		CRASH("Attempted to set invalid runlevel: [new_runlevel]")
 
 // Starts the mc, and sticks around to restart it if the loop ever ends.
+var/global/_announced_start = FALSE
 /datum/controller/master/proc/StartProcessing(delay)
 	set waitfor = 0
 	if(delay)
 		sleep(delay)
 	report_progress("Master starting processing")
-	SSwebhooks.send(WEBHOOK_ROUNDPREP, list("map" = station_name(), "url" = get_world_url()))
+
+	if(!global._announced_start) // Only announce roundstart once.
+		SSwebhooks.send(WEBHOOK_ROUNDPREP, list("map" = station_name(), "url" = get_world_url()))
+		global._announced_start = TRUE
+
 	var/rtn = Loop()
 	if (rtn > 0 || processing < 0)
 		return //this was suppose to happen.
