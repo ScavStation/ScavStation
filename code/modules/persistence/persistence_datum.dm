@@ -30,14 +30,16 @@
 	return TRUE
 
 /decl/persistence_handler/proc/CheckTokenSanity(var/list/tokens)
-	return ( \
-		islist(tokens) && \
-		!isnull(tokens["x"]) && \
-		!isnull(tokens["y"]) && \
-		!isnull(tokens["z"]) && \
-		!isnull(tokens["age"]) && \
-		tokens["age"] <= entries_expire_at \
-	)
+	if(!islist(tokens))
+		return FALSE
+	if(isnull(tokens["x"]) || isnull(tokens["y"]) || isnull(tokens["z"]))
+		return FALSE
+	if(!isnull(entries_expire_at))
+		if(isnull(tokens["age"]))
+			return FALSE
+		if(tokens["age"] > entries_expire_at)
+			return FALSE
+	return TRUE
 
 /decl/persistence_handler/proc/CreateEntryInstance(var/turf/creating, var/list/tokens)
 	return
@@ -63,8 +65,9 @@
 		else
 			return
 
-	if(GetValidTurf(locate(tokens["x"], tokens["y"], tokens["z"]), tokens))
-		return CreateEntryInstance(., tokens)
+	. = GetValidTurf(locate(tokens["x"], tokens["y"], tokens["z"]), tokens)
+	if(.)
+		. = CreateEntryInstance(., tokens)
 
 /decl/persistence_handler/proc/IsValidEntry(var/atom/entry)
 	if(!istype(entry))
