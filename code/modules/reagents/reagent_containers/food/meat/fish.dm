@@ -29,7 +29,7 @@
 /obj/item/food/fishandchips
 	name = "fish and chips"
 	desc = "Best enjoyed wrapped in a newspaper on a cold wet day."
-	icon = 'icons/obj/food/fried/fishfingers.dmi'
+	icon = 'icons/obj/food/fried/fishandchips.dmi'
 	filling_color = "#e3d796"
 	center_of_mass = @'{"x":16,"y":16}'
 	nutriment_desc = list("salt" = 1, "chips" = 2, "fish" = 2)

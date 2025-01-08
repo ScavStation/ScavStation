@@ -109,28 +109,24 @@
 				target = S
 				return
 
-/mob/living/bot/floorbot/confirmTarget(var/atom/A) // The fact that we do some checks twice may seem confusing but remember that the bot's settings may be toggled while it's moving and we want them to stop in that case
+/mob/living/bot/floorbot/confirmTarget(atom/target) // The fact that we do some checks twice may seem confusing but remember that the bot's settings may be toggled while it's moving and we want them to stop in that case
 	anchored = FALSE
 	if(!..())
 		return 0
 
-	if(istype(A, /obj/item/stack/tile/floor))
+	if(istype(target, /obj/item/stack/tile/floor))
 		return (amount < maxAmount && eattiles)
 
-	if(istype(A, /obj/item/stack/material))
-		var/obj/item/stack/material/S = A
+	if(istype(target, /obj/item/stack/material))
+		var/obj/item/stack/material/S = target
 		if(S.material?.type == /decl/material/solid/metal/steel)
 			return (amount < maxAmount && maketiles)
 
-	if(A.loc.name == "Space")
-		return 0
+	var/turf/floor/my_turf = target
+	if(!istype(my_turf) || (isturf(my_turf) && my_turf.is_open()))
+		return FALSE
 
-	var/turf/floor/T = A
-	if(istype(T))
-		if(emagged)
-			return 1
-		else
-			return (amount && (T.is_floor_damaged() || (improvefloors && !T.has_flooring())))
+	return emagged || (amount && (my_turf.is_floor_damaged() || (improvefloors && !my_turf.has_flooring())))
 
 /mob/living/bot/floorbot/UnarmedAttack(var/atom/A, var/proximity)
 

@@ -181,7 +181,7 @@
 		/decl/material/solid/potassium = 1
 	)
 
-/decl/material/solid/potassium/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+/decl/material/solid/potash/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	. = ..()
 	var/volume = REAGENT_VOLUME(holder, type)
 	if(volume > 3)
@@ -234,7 +234,7 @@
 	)
 	dug_drop_type = /obj/item/stack/material/ore/handful
 	default_solid_form = /obj/item/stack/material/ore/handful
-	can_backfill_turf_type = /turf/floor/rock/sand
+	can_backfill_floor_type = /decl/flooring/sand
 
 /decl/material/solid/clay
 	name = "clay"
@@ -257,7 +257,7 @@
 	melting_point = null // Clay is already almost a liquid...
 	// lower than the temperature expected from a kiln so that clay can be used to make bricks to make a high-temperature kiln.
 	bakes_into_at_temperature = 950 CELSIUS
-	can_backfill_turf_type = /turf/floor/clay
+	can_backfill_floor_type = /decl/flooring/clay
 
 /decl/material/solid/soil
 	name = "soil"
@@ -272,9 +272,9 @@
 	dirtiness = 30
 	dug_drop_type = /obj/item/stack/material/lump/large
 	tillable = TRUE
-	can_backfill_turf_type = list(
-		/turf/floor/mud,
-		/turf/floor/dirt
+	can_backfill_floor_type = list(
+		/decl/flooring/mud,
+		/decl/flooring/dirt
 	)
 
 /decl/material/solid/hematite

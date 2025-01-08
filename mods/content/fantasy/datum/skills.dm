@@ -220,6 +220,7 @@
 
 /decl/skill/service/husbandry
 	name = "Animal Husbandry"
+	uid = "skill_husbandry"
 	desc = "Your ability to raise and care for animals."
 	levels = list(
 		"Unskilled"   = "You know next to nothing about animals. You can feed and clean up after them, but you know nothing about their biology, their behavior, or raising their young.",

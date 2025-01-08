@@ -35,7 +35,7 @@
 	events_repository.register(/decl/observ/moved, holder, src, PROC_REF(waddle))
 	events_repository.register(/decl/observ/destroyed, holder, src, PROC_REF(qdel_self))
 
-/datum/extension/event_registration/Destroy()
+/datum/extension/waddle/Destroy()
 	events_repository.unregister(/decl/observ/destroyed, holder, src)
 	events_repository.unregister(/decl/observ/moved, holder, src)
 	return ..()

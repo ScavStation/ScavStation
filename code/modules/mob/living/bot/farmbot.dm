@@ -240,21 +240,21 @@
 		if(prob(50))
 			new /obj/item/robot_parts/l_arm(my_turf)
 
-/mob/living/bot/farmbot/confirmTarget(var/atom/targ)
+/mob/living/bot/farmbot/confirmTarget(atom/target)
 	if(!..())
 		return 0
 
-	if(emagged && ishuman(targ))
-		if(targ in view(world.view, src))
+	if(emagged && ishuman(target))
+		if(target in view(world.view, src))
 			return 1
 		return 0
 
-	if(istype(targ, /obj/structure/hygiene/sink))
+	if(istype(target, /obj/structure/hygiene/sink))
 		if(!tank || tank.reagents.total_volume >= tank.reagents.maximum_volume)
 			return 0
 		return 1
 
-	var/obj/machinery/portable_atmospherics/hydroponics/tray = targ
+	var/obj/machinery/portable_atmospherics/hydroponics/tray = target
 	if(!istype(tray))
 		return 0
 

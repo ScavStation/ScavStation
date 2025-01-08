@@ -129,7 +129,7 @@
 		/decl/state_transition/weather/snow_heavy
 	)
 
-/decl/state/weather/snow/heavy/adjust_temperature(initial_temperature)
+/decl/state/weather/snow/medium/adjust_temperature(initial_temperature)
 	return min(initial_temperature - 25, T0C)
 
 /decl/state/weather/snow/heavy
@@ -201,7 +201,8 @@
 
 /decl/state/weather/rain/hail/handle_exposure_effects(var/mob/living/M, var/obj/abstract/weather_system/weather)
 	to_chat(M, SPAN_DANGER("You are pelted by a shower of hail!"))
-	M.take_damage(rand(1, 3))
+	if(M.getBruteLoss() < 20) // Put a cap on it to make it annoying but not lethal.
+		M.take_damage(rand(1, 3))
 
 /decl/state/weather/ash
 	name =  "Ash"

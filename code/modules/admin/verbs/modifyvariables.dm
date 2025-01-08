@@ -318,6 +318,7 @@
 
 		variable = param_var_name
 
+		// TODO: check for list-typed O? Proc does not exist on non-datum types.
 		var_value = O.get_variable_value(variable)
 
 		if(autodetect_class)

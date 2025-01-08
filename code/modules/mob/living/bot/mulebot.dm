@@ -178,7 +178,7 @@
 			target = home
 			targetName = "Home"
 
-/mob/living/bot/mulebot/confirmTarget()
+/mob/living/bot/mulebot/confirmTarget(atom/target)
 	return 1
 
 /mob/living/bot/mulebot/calcTargetPath()
