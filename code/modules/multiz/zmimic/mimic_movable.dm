@@ -166,7 +166,7 @@
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null
-		if (old_loc.z != loc.z)
+		if (old_loc?.z != loc?.z) // Null checking in case of qdel(), observed with dirt effect falling through multiz.
 			reset_internal_layering()
 	else if (!destruction_timer)
 		destruction_timer = ZM_DESTRUCTION_TIMER(src)

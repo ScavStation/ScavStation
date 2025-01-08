@@ -45,11 +45,14 @@
 		layer = initial(layer)
 
 	if(istype(flooring) && !flooring.render_trenches) // TODO: Update pool tiles/edges to behave properly with this new system.
+		default_pixel_z = initial(default_pixel_z)
+		pixel_z = default_pixel_z
 		return FALSE
 
 	var/my_height = get_physical_height()
-	if(my_height < 0)
-
+	if(my_height >= 0)
+		default_pixel_z = initial(default_pixel_z)
+	else
 		var/height_ratio = clamp(abs(my_height) / FLUID_DEEP, 0, 1)
 		default_pixel_z = -(min(HEIGHT_OFFSET_RANGE, round(HEIGHT_OFFSET_RANGE * height_ratio)))
 		pixel_z = default_pixel_z
@@ -76,7 +79,7 @@
 			var/trench_icon = (istype(neighbor) && neighbor.get_trench_icon()) || get_trench_icon()
 			if(trench_icon)
 				// cache the trench image, keyed by icon and color
-				var/trench_color = isatom(neighbor) ? neighbor.color : color
+				var/trench_color = isatom(neighbor) ? neighbor.get_color() : get_color()
 				var/trench_icon_key = "[ref(trench_icon)][trench_color]"
 				I = _trench_image_cache[trench_icon_key]
 				if(!I)
@@ -97,6 +100,7 @@
 				I.appearance_flags |= RESET_COLOR | RESET_ALPHA
 				_height_north_shadow_cache[shadow_alpha_key] = I
 			add_overlay(I)
+	pixel_z = default_pixel_z
 
 /turf/floor/on_update_icon(var/update_neighbors)
 	. = ..()

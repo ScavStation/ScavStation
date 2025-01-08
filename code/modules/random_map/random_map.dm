@@ -167,7 +167,7 @@ var/global/list/map_count = list()
 
 /datum/random_map/proc/apply_to_turf(var/x,var/y)
 	var/current_cell = TRANSLATE_COORD(x,y)
-	if(!current_cell)
+	if(!current_cell || current_cell > length(map))
 		return 0
 	var/turf/T = locate((origin_x-1)+x,(origin_y-1)+y,origin_z)
 	if(!T || (target_turf_type && !istype(T,target_turf_type)))

@@ -1,11 +1,11 @@
 /obj/abstract/map_data/shaded_hills
 	height = 2
 
-/datum/level_data/player_level/shaded_hills
+/datum/level_data/main_level/shaded_hills
 	use_global_exterior_ambience = FALSE
 	base_area = null
 	base_turf = /turf/floor/dirt
-	abstract_type = /datum/level_data/player_level/shaded_hills
+	abstract_type = /datum/level_data/main_level/shaded_hills
 	ambient_light_level = 1
 	ambient_light_color = "#f3e6ca"
 	strata = /decl/strata/shaded_hills
@@ -29,16 +29,16 @@
 	time_in_cycle = rand(cycle_duration)
 	..()
 
-/datum/level_data/player_level/shaded_hills/get_subtemplate_areas(template_category, blacklist, whitelist)
+/datum/level_data/main_level/shaded_hills/get_subtemplate_areas(template_category, blacklist, whitelist)
 	return submap_area ? (islist(submap_area) ? submap_area : list(submap_area)) : null
 
-/datum/level_data/player_level/shaded_hills/get_subtemplate_budget()
+/datum/level_data/main_level/shaded_hills/get_subtemplate_budget()
 	return submap_budget
 
-/datum/level_data/player_level/shaded_hills/get_subtemplate_category()
+/datum/level_data/main_level/shaded_hills/get_subtemplate_category()
 	return submap_category
 
-/datum/level_data/player_level/shaded_hills/after_generate_level()
+/datum/level_data/main_level/shaded_hills/after_generate_level()
 	. = ..()
 	if(length(mobs_to_spawn))
 		for(var/list/mob_category in mobs_to_spawn)
@@ -55,7 +55,7 @@
 					mob_count--
 					CHECK_TICK
 
-/datum/level_data/player_level/shaded_hills/grassland
+/datum/level_data/main_level/shaded_hills/grassland
 	name = "Shaded Hills - Grassland"
 	level_id = "shaded_hills_grassland"
 	level_generators = list(
@@ -87,7 +87,7 @@
 	)
 
 
-/datum/level_data/player_level/shaded_hills/swamp
+/datum/level_data/main_level/shaded_hills/swamp
 	name = "Shaded Hills - Swamp"
 	level_id = "shaded_hills_swamp"
 	connected_levels = list(
@@ -128,7 +128,7 @@
 		)
 	)
 
-/datum/level_data/player_level/shaded_hills/woods
+/datum/level_data/main_level/shaded_hills/woods
 	name = "Shaded Hills - Woods"
 	level_id = "shaded_hills_woods"
 	connected_levels = list(
@@ -163,7 +163,7 @@
 		)
 	)
 
-/datum/level_data/player_level/shaded_hills/downlands
+/datum/level_data/main_level/shaded_hills/downlands
 	name = "Shaded Hills - Downlands"
 	level_id = "shaded_hills_downlands"
 	level_generators = list(
@@ -177,7 +177,7 @@
 	submap_category = MAP_TEMPLATE_CATEGORY_SH_DOWNLANDS
 	submap_area = /area/shaded_hills/outside/downlands/poi
 
-/datum/level_data/player_level/shaded_hills/caverns
+/datum/level_data/main_level/shaded_hills/caverns
 	name = "Shaded Hills - Caverns"
 	level_id = "shaded_hills_caverns"
 	connected_levels = list(
@@ -192,7 +192,7 @@
 	)
 	base_turf = /turf/floor/rock/basalt
 
-/datum/level_data/player_level/shaded_hills/dungeon
+/datum/level_data/main_level/shaded_hills/dungeon
 	name = "Shaded Hills - Dungeon"
 	level_id = "shaded_hills_dungeon"
 	connected_levels = list(
@@ -204,19 +204,19 @@
 	base_turf = /turf/floor/rock/basalt
 
 /obj/abstract/level_data_spawner/shaded_hills_grassland
-	level_data_type = /datum/level_data/player_level/shaded_hills/grassland
+	level_data_type = /datum/level_data/main_level/shaded_hills/grassland
 
 /obj/abstract/level_data_spawner/shaded_hills_swamp
-	level_data_type = /datum/level_data/player_level/shaded_hills/swamp
+	level_data_type = /datum/level_data/main_level/shaded_hills/swamp
 
 /obj/abstract/level_data_spawner/shaded_hills_woods
-	level_data_type = /datum/level_data/player_level/shaded_hills/woods
+	level_data_type = /datum/level_data/main_level/shaded_hills/woods
 
 /obj/abstract/level_data_spawner/shaded_hills_downlands
-	level_data_type = /datum/level_data/player_level/shaded_hills/downlands
+	level_data_type = /datum/level_data/main_level/shaded_hills/downlands
 
 /obj/abstract/level_data_spawner/shaded_hills_caverns
-	level_data_type = /datum/level_data/player_level/shaded_hills/caverns
+	level_data_type = /datum/level_data/main_level/shaded_hills/caverns
 
 /obj/abstract/level_data_spawner/shaded_hills_dungeon
-	level_data_type = /datum/level_data/player_level/shaded_hills/dungeon
+	level_data_type = /datum/level_data/main_level/shaded_hills/dungeon

@@ -112,7 +112,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/toxicity = 0 // Organ damage from ingestion.
 	var/toxicity_targets_organ // Bypass liver/kidneys when ingested, harm this organ directly (using BP_FOO defines).
 
-	var/can_backfill_turf_type
+	var/can_backfill_floor_type
 
 	// Shards/tables/structures
 	var/shard_type = SHARD_SHRAPNEL       // Path of debris object.
@@ -708,12 +708,12 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 /decl/material/proc/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder) // Acid melting, cleaner cleaning, etc
 
-	if(solvent_power >= MAT_SOLVENT_MILD)
-		if(istype(O, /obj/item/paper))
+	if(solvent_power >= MAT_SOLVENT_MODERATE)
+		if(istype(O, /obj/item/paper) && amount >= FLUID_MINIMUM_TRANSFER)
 			var/obj/item/paper/paperaffected = O
 			paperaffected.clearpaper()
 			O.visible_message(SPAN_NOTICE("The solution dissolves the ink on the paper."), range = 1)
-		else if(istype(O, /obj/item/book) && amount >= 5)
+		else if(istype(O, /obj/item/book) && amount >= FLUID_PUDDLE)
 			var/obj/item/book/affectedbook = O
 			if(affectedbook.can_dissolve_text)
 				affectedbook.dat = null
@@ -1190,3 +1190,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 /decl/material/proc/can_hold_edge()
 	return hardness > MAT_VALUE_FLEXIBLE
+
+// TODO: expand this to more than just Actual Poison.
+/decl/material/proc/is_unsafe_to_drink(mob/user)
+	return toxicity > 0

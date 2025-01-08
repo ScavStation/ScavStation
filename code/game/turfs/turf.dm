@@ -284,19 +284,6 @@
 	if(IS_COIL(W) && try_build_cable(W, user))
 		return TRUE
 
-	if(reagents?.total_volume >= FLUID_PUDDLE)
-		if(ATOM_IS_OPEN_CONTAINER(W) && W.reagents)
-			var/taking = min(reagents.total_volume, REAGENTS_FREE_SPACE(W.reagents))
-			if(taking > 0)
-				to_chat(user, SPAN_NOTICE("You fill \the [W] with [reagents.get_primary_reagent_name()] from \the [src]."))
-				reagents.trans_to(W, taking)
-				return TRUE
-
-		if(user.a_intent == I_HELP)
-			user.visible_message(SPAN_NOTICE("\The [user] dips \the [W] into \the [reagents.get_primary_reagent_name()]."))
-			W.fluid_act(reagents)
-			return TRUE
-
 	return ..()
 
 /turf/Enter(atom/movable/mover, atom/forget)
@@ -800,6 +787,9 @@
 
 /turf/get_affecting_weather()
 	return weather
+
+/turf/can_be_poured_into(atom/source)
+	return !density
 
 /turf/get_alt_interactions(mob/user)
 	. = ..()

@@ -857,10 +857,10 @@ default behaviour is:
 
 /mob/living/fluid_act(var/datum/reagents/fluids)
 	..()
-	if(QDELETED(src) || !fluids?.total_volume)
+	if(QDELETED(src) || fluids?.total_volume < FLUID_PUDDLE)
 		return
 	fluids.touch_mob(src)
-	if(QDELETED(src) || !fluids.total_volume)
+	if(QDELETED(src) || fluids?.total_volume < FLUID_PUDDLE)
 		return
 	for(var/atom/movable/A as anything in get_equipped_items(TRUE))
 		if(!A.simulated)
@@ -1798,7 +1798,7 @@ default behaviour is:
 /mob/living/proc/get_door_pry_time()
 	return 7 SECONDS
 
-/mob/living/proc/pry_door(atom/target, pry_time)
+/mob/living/proc/pry_door(delay, obj/machinery/door/target)
 	return
 
 /mob/living/proc/turf_is_safe(turf/target)

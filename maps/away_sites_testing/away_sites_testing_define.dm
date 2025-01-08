@@ -4,9 +4,13 @@
 	full_name = "Away Sites Testing Land"
 	path = "away_sites_testing"
 	overmap_ids = list(OVERMAP_ID_SPACE)
+	votable = FALSE
 
 	allowed_latejoin_spawns = list()
 	default_spawn = null
+
+/datum/map/away_sites_testing/validate()
+	return TRUE // Do not check for level lists, this is not a playable map.
 
 // Set the observer spawn to include every flag so that CI flag checks pass.
 /decl/spawnpoint/observer

@@ -527,16 +527,16 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 /mob/living/simple_animal/proc/get_pry_desc()
 	return "prying"
 
-/mob/living/simple_animal/pry_door(var/mob/user, var/delay, var/obj/machinery/door/pesky_door)
+/mob/living/simple_animal/pry_door(delay, obj/machinery/door/target)
 	if(!can_pry_door())
 		return
-	visible_message(SPAN_DANGER("\The [user] begins [get_pry_desc()] at \the [pesky_door]!"))
+	visible_message(SPAN_DANGER("\The [src] begins [get_pry_desc()] at \the [target]!"))
 	if(istype(ai))
 		ai.pause()
-	if(do_after(user, delay, pesky_door))
-		pesky_door.open(1)
+	if(do_after(src, delay, target))
+		target.open(1)
 	else
-		visible_message(SPAN_NOTICE("\The [user] is interrupted."))
+		visible_message(SPAN_NOTICE("\The [src] is interrupted."))
 	if(istype(ai))
 		ai.resume()
 

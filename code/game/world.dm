@@ -129,11 +129,14 @@ var/global/world_topic_last = world.timeofday
 
 	return command.try_use(T, addr, master, key)
 
+var/global/_reboot_announced = FALSE
 /world/Reboot(var/reason)
 
 	if(get_config_value(/decl/config/toggle/wait_for_sigusr1_reboot) && reason != 3)
 		text2file("foo", "reboot_called")
-		to_world("<span class=danger>World reboot waiting for external scripts. Please be patient.</span>")
+		if(!global._reboot_announced)
+			to_world("<span class=danger>World reboot waiting for external scripts. Please be patient.</span>")
+			global._reboot_announced = TRUE
 		global.Master.restart_timeout = 5 MINUTES
 		return
 
