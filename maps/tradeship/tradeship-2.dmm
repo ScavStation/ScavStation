@@ -5412,6 +5412,10 @@
 	},
 /turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/aft)
+"vN" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "vP" = (
 /obj/machinery/light{
 	dir = 8;
@@ -9045,7 +9049,7 @@ aa
 aa
 aa
 aa
-aa
+vN
 aa
 aa
 aa
@@ -9259,7 +9263,7 @@ aa
 aa
 aa
 aa
-aa
+vN
 aa
 aa
 aa
@@ -13196,7 +13200,7 @@ aa
 aa
 aa
 aa
-aa
+vN
 aa
 aa
 aa
@@ -13639,7 +13643,7 @@ aa
 aa
 aa
 aa
-aa
+vN
 aa
 aa
 aa

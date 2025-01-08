@@ -135,7 +135,7 @@ var/global/list/shuttle_landmarks = list()
 
 /obj/effect/shuttle_landmark/automatic/sector_set(var/obj/effect/overmap/visitable/O)
 	..()
-	SetName("[initial(name)] ([x],[y])")
+	SetName("[initial(name)] ([x],[y],[z])")
 
 //Subtype that calls explosion on init to clear space for shuttles
 /obj/effect/shuttle_landmark/automatic/clearing

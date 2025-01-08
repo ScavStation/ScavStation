@@ -2713,6 +2713,10 @@
 	},
 /turf/floor/tiled,
 /area/ministation/hall/w2)
+"nt" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "nu" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -54008,7 +54012,7 @@ aa
 aa
 aa
 aa
-aa
+nt
 aa
 aa
 aa
@@ -54341,7 +54345,7 @@ aa
 aa
 aa
 aa
-aa
+nt
 aa
 aa
 aa
