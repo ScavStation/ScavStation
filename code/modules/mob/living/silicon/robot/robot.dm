@@ -824,12 +824,13 @@
 /mob/living/silicon/robot/Move(a, b, flag)
 	. = ..()
 	if(.)
+
 		if(module && isturf(loc))
 			var/obj/item/ore/orebag = locate() in list(module_state_1, module_state_2, module_state_3)
 			if(orebag)
 				loc.attackby(orebag, src)
-			if(istype(module, /obj/item/robot_module/janitor))
-				loc.clean()
+			module.handle_turf(loc, src)
+
 		if(client)
 			var/turf/above = GetAbove(src)
 			up_hint.icon_state = "uphint[!!(above && TURF_IS_MIMICKING(above))]"
