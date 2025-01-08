@@ -9,7 +9,6 @@
 	build_cost     = 1
 	build_time     = 30
 	can_paint      = 1
-	footstep_type  = /decl/footsteps/plating
 	force_material = /decl/material/solid/metal/steel
 	constructed    = TRUE
 	gender         = NEUTER

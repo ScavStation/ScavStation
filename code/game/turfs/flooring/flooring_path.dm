@@ -7,6 +7,7 @@
 	neighbour_type = /decl/flooring/path
 	color          = null
 	constructed    = TRUE
+
 	// If null, this is just skipped.
 	var/paving_adjective = "cobbled"
 	var/paver_adjective = "loose"

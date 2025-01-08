@@ -35,7 +35,6 @@
 	can_engrave        = FALSE
 	color              = GLASS_COLOR
 	z_flags            = ZM_MIMIC_DEFAULTS
-	footstep_type      = /decl/footsteps/plating
 	force_material     = /decl/material/solid/glass
 	constructed        = TRUE
 
