@@ -180,7 +180,7 @@
 				if(!obstacle.can_open(1))
 					return
 				body.face_atom(obstacle)
-				body.pry_door(obstacle, (obstacle.pry_mod * body.get_door_pry_time()))
+				body.pry_door((obstacle.pry_mod * body.get_door_pry_time()), obstacle)
 				return
 
 /datum/mob_controller/aggressive/retaliate(atom/source)

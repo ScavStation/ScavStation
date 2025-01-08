@@ -549,11 +549,11 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 /datum/reagents/proc/trans_to_holder(var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/safety = 0, var/defer_update = FALSE, var/list/skip_reagents, var/transferred_phases = (MAT_PHASE_LIQUID | MAT_PHASE_SOLID))
 
 	if(!target || !istype(target))
-		return
+		return 0
 
 	amount = max(0, min(amount, total_volume, REAGENTS_FREE_SPACE(target) / multiplier))
 	if(!amount)
-		return
+		return 0
 
 	var/part = amount
 	if(skip_reagents)
@@ -561,7 +561,7 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 		for(var/rtype in skip_reagents)
 			using_volume -= LAZYACCESS(reagent_volumes, rtype)
 		if(using_volume <= 0)
-			return
+			return 0
 		part /= using_volume
 	else
 		var/using_volume = total_volume
@@ -872,13 +872,13 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 
 /datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/defer_update = FALSE, var/transferred_phases = (MAT_PHASE_LIQUID | MAT_PHASE_SOLID))
 	if(!target?.simulated)
-		return
+		return 0
 
 	// If we're only dumping solids, and there's not enough liquid present on the turf to make a slurry, we dump the solids directly.
 	// This avoids creating an unnecessary reagent holder that won't be immediately deleted.
 	if((!(transferred_phases & MAT_PHASE_LIQUID) || !total_liquid_volume) && (target.reagents?.total_liquid_volume < FLUID_SLURRY))
 		var/datum/reagents/R = new /datum/reagents(amount, global.temp_reagents_holder)
-		trans_to_holder(R, amount, multiplier, copy, TRUE, defer_update = defer_update, transferred_phases = MAT_PHASE_SOLID)
+		. = trans_to_holder(R, amount, multiplier, copy, TRUE, defer_update = defer_update, transferred_phases = MAT_PHASE_SOLID)
 		R.touch_turf(target)
 		target.dump_solid_reagents(R)
 		qdel(R)
@@ -887,16 +887,16 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 	if(!target.reagents)
 		target.create_reagents(FLUID_MAX_DEPTH)
 
-	trans_to_holder(target.reagents, amount, multiplier, copy, defer_update = defer_update, transferred_phases = transferred_phases)
+	. = trans_to_holder(target.reagents, amount, multiplier, copy, defer_update = defer_update, transferred_phases = transferred_phases)
 	// Deferred updates are presumably being done by SSfluids.
 	// Do an immediate fluid_act call rather than waiting for SSfluids to proc.
-	if(!defer_update)
+	if(!defer_update && target.reagents.total_volume >= FLUID_PUDDLE)
 		target.fluid_act(target.reagents)
 
  // Objects may or may not have reagents; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
 /datum/reagents/proc/trans_to_obj(var/obj/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/defer_update = FALSE, var/transferred_phases = (MAT_PHASE_LIQUID | MAT_PHASE_SOLID))
 	if(!target || !target.simulated)
-		return
+		return 0
 
 	if(!target.reagents)
 		var/datum/reagents/R = new /datum/reagents(amount * multiplier, global.temp_reagents_holder)

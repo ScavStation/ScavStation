@@ -6,7 +6,7 @@
 	density = TRUE
 	cap_last_fuel_burn = null
 
-	var/list/pottery = list()
+	var/list/pottery
 	var/maximum_items = 3
 	var/firebox_open = TRUE
 
@@ -17,12 +17,12 @@
 /obj/structure/fire_source/kiln/high_temperature
 	material = /decl/material/solid/stone/pottery
 
-/obj/structure/fire_source/kiln/remove_atom(atom/movable/thing)
+/obj/structure/fire_source/kiln/Exited(atom/movable/thing)
 	. = ..()
-	pottery -= thing
+	LAZYREMOVE(pottery, thing)
 
 /obj/structure/fire_source/kiln/get_removable_atoms()
-	. = pottery?.Copy()
+	. = pottery?.Copy() || list()
 	if(firebox_open)
 		. |= ..()
 
@@ -38,14 +38,14 @@
 		if(length(other))
 			LAZYDISTINCTADD(., other)
 
-/obj/structure/fire_source/kiln/attackby(obj/item/W, mob/user)
+/obj/structure/fire_source/kiln/attackby(obj/item/used_item, mob/user)
 	if(firebox_open)
 		return ..()
 	if(length(pottery) >= maximum_items)
 		to_chat(user, SPAN_WARNING("\The [src] is full, take something out first."))
-	else if(user.try_unequip(W, src))
-		user.visible_message("\The [user] slides \the [W] into \the [src].")
-		pottery += W
+	else if(user.try_unequip(used_item, src))
+		user.visible_message("\The [user] slides \the [used_item] into \the [src].")
+		LAZYADD(pottery, used_item)
 	return TRUE
 
 /obj/structure/fire_source/kiln/get_alt_interactions(var/mob/user)

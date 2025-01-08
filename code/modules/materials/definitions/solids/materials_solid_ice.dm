@@ -40,7 +40,7 @@
 	hardness = MAT_VALUE_MALLEABLE
 	dug_drop_type = /obj/item/stack/material/ore/handful
 	default_solid_form = /obj/item/stack/material/ore/handful
-	can_backfill_turf_type = /turf/floor/snow
+	can_backfill_floor_type = /decl/flooring/snow
 
 /decl/material/solid/ice/aspium
 	name = "aspium"

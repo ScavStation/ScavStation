@@ -31,6 +31,12 @@ SUBSYSTEM_DEF(unit_tests)
 	#endif
 	log_unit_test("Initializing Unit Testing")
 
+	// Misc validation.
+	if(istype(global.using_map))
+		global.using_map.validate()
+	else
+		log_error("global.using_map is null or invalid!")
+
 	//
 	//Start the Round.
 	//
