@@ -68,19 +68,19 @@
 /datum/hud/proc/hide_inventory()
 	inventory_shown = FALSE
 	hidden_inventory_update()
-	persistant_inventory_update()
+	persistent_inventory_update()
 
 /datum/hud/proc/show_inventory()
 	inventory_shown = TRUE
 	hidden_inventory_update()
-	persistant_inventory_update()
+	persistent_inventory_update()
 
 /datum/hud/proc/hidden_inventory_update()
 	var/decl/species/species = mymob?.get_species()
 	if(istype(species?.species_hud))
 		refresh_inventory_slots(species.species_hud.hidden_slots, (inventory_shown && hud_shown))
 
-/datum/hud/proc/persistant_inventory_update()
+/datum/hud/proc/persistent_inventory_update()
 	var/decl/species/species = mymob?.get_species()
 	if(istype(species?.species_hud))
 		refresh_inventory_slots(species.species_hud.persistent_slots, hud_shown)
@@ -363,7 +363,7 @@
 		client.screen += zone_sel				//This one is a special snowflake
 
 	hud_used.hidden_inventory_update()
-	hud_used.persistant_inventory_update()
+	hud_used.persistent_inventory_update()
 	update_action_buttons()
 
 //Similar to minimize_hud() but keeps zone_sel, gun_setting_icon, and healths.
@@ -400,7 +400,7 @@
 		hud_used.action_intent.screen_loc = ui_acti //Restore intent selection to the original position
 
 	hud_used.hidden_inventory_update()
-	hud_used.persistant_inventory_update()
+	hud_used.persistent_inventory_update()
 	update_action_buttons()
 
 /client/proc/reset_click_catchers()
