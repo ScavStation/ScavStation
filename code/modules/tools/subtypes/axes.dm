@@ -19,7 +19,11 @@
 	return tool_qualities
 
 /obj/item/tool/axe/ebony
+	material = /decl/material/solid/metal/iron
 	handle_material = /decl/material/solid/organic/wood/ebony
+
+/obj/item/tool/axe/iron
+	material = /decl/material/solid/metal/iron
 
 // Legacy SS13 hatchet.
 /obj/item/tool/axe/hatchet

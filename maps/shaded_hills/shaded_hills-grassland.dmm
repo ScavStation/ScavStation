@@ -67,7 +67,7 @@
 /area/shaded_hills/outside)
 "kr" = (
 /obj/item/tool/pickaxe/iron,
-/obj/item/tool/axe,
+/obj/item/tool/axe/iron,
 /obj/abstract/exterior_marker/inside,
 /obj/structure/closet/crate/chest/ebony,
 /turf/floor/woven,
