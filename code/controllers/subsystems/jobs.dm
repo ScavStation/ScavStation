@@ -413,7 +413,7 @@ SUBSYSTEM_DEF(jobs)
 /decl/loadout_option/proc/is_permitted(mob/living/wearer, datum/job/job)
 	if(!istype(wearer))
 		return FALSE
-	if(allowed_roles && !(job.type in allowed_roles))
+	if(allowed_roles && (!job || !(job.type in allowed_roles)))
 		return FALSE
 	if(allowed_branches)
 		if(!ishuman(wearer))
@@ -441,7 +441,7 @@ SUBSYSTEM_DEF(jobs)
 			var/decl/loadout_option/G = decls_repository.get_decl_by_id_or_var(thing, /decl/loadout_option)
 			if(!istype(G))
 				continue
-			if(!G.is_permitted(H))
+			if(!G.is_permitted(H, job))
 				to_chat(H, SPAN_WARNING("Your current species, job, branch, skills or whitelist status does not permit you to spawn with [thing]!"))
 				continue
 			if(!G.slot || !G.spawn_on_mob(H, H.client.prefs.Gear()[G.uid]))
