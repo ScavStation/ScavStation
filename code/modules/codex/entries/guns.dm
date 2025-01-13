@@ -35,7 +35,7 @@
 		traits += "It's best fired with a two-handed grip."
 
 	if(has_safety)
-		traits += "It has a safety switch. Control-Click it to toggle safety."
+		traits += "It has a safety switch, which can be toggled via <b>ctrl-click</b> or selecting Toggle Safety from the <b>alt-click</b> radial."
 
 	if(is_secure_gun())
 		traits += "It's fitted with a secure registration chip. Swipe ID on it to register."
