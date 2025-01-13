@@ -378,9 +378,9 @@
 	..()
 	M.add_chemical_effect(CE_PULSE, 2)
 
-/decl/material/liquid/drink/coffee/affect_overdose(mob/living/M, total_dose)
-	ADJ_STATUS(M, STAT_JITTER, 5)
-	M.add_chemical_effect(CE_PULSE, 1)
+/decl/material/liquid/drink/coffee/affect_overdose(mob/living/victim, total_dose)
+	ADJ_STATUS(victim, STAT_JITTER, 5)
+	victim.add_chemical_effect(CE_PULSE, 1)
 
 /decl/material/liquid/drink/coffee/build_presentation_name_from_reagents(var/obj/item/prop, var/supplied)
 
