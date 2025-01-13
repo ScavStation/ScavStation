@@ -97,6 +97,7 @@
 			return TRUE
 		thing.reset_offsets(anim_time = 0)
 		user.visible_message(SPAN_NOTICE("\The [user] places \the [thing] onto \the [src]."))
+		return TRUE
 
 	if(IS_WRENCH(thing))
 		if(use_power == POWER_USE_ACTIVE)
