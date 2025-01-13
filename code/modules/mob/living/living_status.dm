@@ -37,6 +37,7 @@
 	status_markers.refresh_markers(src)
 
 /mob/living/proc/apply_pending_status_changes()
+	status_timer_id = null // We are firing, so clear this to avoid double deletes in Destroy().
 	var/rebuild_markers = FALSE
 	if(!isnull(pending_status_counters))
 		for(var/condition in pending_status_counters)
