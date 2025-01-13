@@ -2,7 +2,6 @@
 	var/list/status_counters
 	var/list/pending_status_counters
 	var/datum/status_marker_holder/status_markers
-	var/status_timer_id
 
 /mob/living/set_status(var/condition, var/amount)
 	if(QDELETED(src))
@@ -24,7 +23,7 @@
 	if(amount == PENDING_STATUS(src, condition))
 		return FALSE
 	LAZYSET(pending_status_counters, condition, amount)
-	status_timer_id = addtimer(CALLBACK(src, PROC_REF(apply_pending_status_changes)), 0, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(apply_pending_status_changes)), 0, TIMER_UNIQUE)
 	return TRUE
 
 /mob/living/proc/rebuild_status_markers()
@@ -37,7 +36,6 @@
 	status_markers.refresh_markers(src)
 
 /mob/living/proc/apply_pending_status_changes()
-	status_timer_id = null // We are firing, so clear this to avoid double deletes in Destroy().
 	var/rebuild_markers = FALSE
 	if(!isnull(pending_status_counters))
 		for(var/condition in pending_status_counters)
