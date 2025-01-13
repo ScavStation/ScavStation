@@ -15,7 +15,11 @@
 	var/can_flip = TRUE // Cooldown tracker for single-coin flips.
 	var/static/overlay_cap = 50 // Max overlays to show in this pile.
 
-/obj/item/cash/Initialize(ml, material_key)
+/obj/item/cash/Initialize(ml, material_key, starting_amount)
+
+	if(!isnull(starting_amount))
+		absolute_worth = starting_amount
+
 	. = ..()
 
 	if(!ispath(currency, /decl/currency))
