@@ -54,7 +54,7 @@
 	if(!is_type_in_list(A, moppable_types))
 		return ..()
 
-	if(reagents.total_volume < FLUID_PUDDLE)
+	if(reagents?.total_volume < 1)
 		to_chat(user, SPAN_WARNING("\The [src] is dry!"))
 		return TRUE
 
