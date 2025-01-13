@@ -85,9 +85,9 @@
 		painting.reset_color()
 		painting.set_alpha(keep_alpha)
 
-/decl/material/liquid/paint_stripper/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
-	if(istype(T) && !isspaceturf(T))
-		remove_paint(T, holder)
+/decl/material/liquid/paint_stripper/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
+	if(istype(touching_turf) && !isspaceturf(touching_turf))
+		remove_paint(touching_turf, holder)
 
 /decl/material/liquid/paint_stripper/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O))
@@ -113,9 +113,9 @@
 		painting.set_color(holder.get_color())
 		painting.set_alpha(keep_alpha)
 
-/decl/material/liquid/paint/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
-	if(istype(T) && !isspaceturf(T))
-		apply_paint(T, holder, FLUID_MINIMUM_TRANSFER)
+/decl/material/liquid/paint/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
+	if(istype(touching_turf) && !isspaceturf(touching_turf))
+		apply_paint(touching_turf, holder, FLUID_MINIMUM_TRANSFER)
 
 /decl/material/liquid/paint/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O))

@@ -746,28 +746,27 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 		M.fire_stacks += floor((amount * accelerant_value)/FLAMMABLE_LIQUID_DIVISOR)
 #undef FLAMMABLE_LIQUID_DIVISOR
 
-/decl/material/proc/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
+/decl/material/proc/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder) // Cleaner cleaning, lube lubbing, etc, all go here
 
 	if(REAGENT_VOLUME(holder, type) < turf_touch_threshold)
 		return
 
-	if(istype(T) && T.simulated)
-		var/turf/wall/W = T
+	if(istype(touching_turf) && touching_turf.simulated)
 		if(defoliant)
-			for(var/obj/effect/overlay/wallrot/E in W)
-				W.visible_message(SPAN_NOTICE("\The [E] is completely dissolved by the solution!"))
-				qdel(E)
-		if(slipperiness != 0 && !T.check_fluid_depth()) // Don't make floors slippery if they have an active fluid on top of them please.
+			for(var/obj/effect/overlay/wallrot/rot in touching_turf)
+				touching_turf.visible_message(SPAN_NOTICE("\The [rot] is completely dissolved by the solution!"))
+				qdel(rot)
+		if(slipperiness != 0 && !touching_turf.check_fluid_depth()) // Don't make floors slippery if they have an active fluid on top of them please.
 			if(slipperiness < 0)
-				W.unwet_floor(TRUE)
+				touching_turf.unwet_floor(TRUE)
 			else if (REAGENT_VOLUME(holder, type) >= slippery_amount)
-				W.wet_floor(slipperiness)
+				touching_turf.wet_floor(slipperiness)
 
 	if(length(vapor_products))
 		var/volume = REAGENT_VOLUME(holder, type)
 		var/temperature = holder?.my_atom?.temperature || T20C
 		for(var/vapor in vapor_products)
-			T.assume_gas(vapor, (volume * vapor_products[vapor]), temperature)
+			touching_turf.assume_gas(vapor, (volume * vapor_products[vapor]), temperature)
 		holder.remove_reagent(type, volume)
 
 /decl/material/proc/on_mob_life(var/mob/living/M, var/metabolism_class, var/datum/reagents/holder, var/list/life_dose_tracker)

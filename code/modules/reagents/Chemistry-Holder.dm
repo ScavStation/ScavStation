@@ -804,28 +804,31 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 		var/decl/material/current = GET_DECL(rtype)
 		current.touch_mob(target, REAGENT_VOLUME(src, rtype), src)
 
-/datum/reagents/proc/touch_turf(var/turf/target)
-	if(!istype(target) || !target.simulated)
+/datum/reagents/proc/touch_turf(var/turf/touching_turf)
+	if(!istype(touching_turf) || !touching_turf.simulated)
 		return
 	for(var/rtype in reagent_volumes)
 		var/decl/material/current = GET_DECL(rtype)
-		current.touch_turf(target, REAGENT_VOLUME(src, rtype), src)
+		current.touch_turf(touching_turf, REAGENT_VOLUME(src, rtype), src)
 	var/dirtiness = get_dirtiness()
 	if(dirtiness <= DIRTINESS_CLEAN)
-		target.clean()
-		target.remove_cleanables()
-	if(dirtiness != DIRTINESS_NEUTRAL)
-		if(dirtiness > DIRTINESS_NEUTRAL)
-			target.add_dirt(ceil(total_volume * dirtiness))
-		else
-			if(dirtiness <= DIRTINESS_STERILE)
-				target.germ_level -= min(total_volume*20, target.germ_level)
-				for(var/obj/item/I in target.contents)
-					I.was_bloodied = null
-				for(var/obj/effect/decal/cleanable/blood/B in target)
-					qdel(B)
-			if(dirtiness <= DIRTINESS_CLEAN)
-				target.clean()
+		touching_turf.clean()
+		touching_turf.remove_cleanables()
+	if(dirtiness == DIRTINESS_NEUTRAL)
+		return
+	if(dirtiness > DIRTINESS_NEUTRAL)
+		touching_turf.add_dirt(ceil(total_volume * dirtiness))
+		return
+
+	if(dirtiness <= DIRTINESS_STERILE)
+		touching_turf.germ_level -= min(total_volume*20, touching_turf.germ_level)
+		for(var/obj/item/I in touching_turf.contents)
+			I.was_bloodied = null
+		for(var/obj/effect/decal/cleanable/blood/B in touching_turf)
+			qdel(B)
+
+	if(dirtiness <= DIRTINESS_CLEAN)
+		touching_turf.clean()
 
 /datum/reagents/proc/touch_obj(var/obj/target)
 	if(!target || !istype(target) || !target.simulated)

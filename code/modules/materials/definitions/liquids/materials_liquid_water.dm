@@ -48,22 +48,23 @@
 	affect_blood(M, removed, holder)
 
 #define WATER_LATENT_HEAT 9500 // How much heat is removed when applied to a hot turf, in J/unit (9500 makes 120 u of water roughly equivalent to 2L
-/decl/material/liquid/water/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/decl/material/liquid/water/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
 
 	..()
 
-	if(!istype(T))
+	if(!istype(touching_turf))
 		return
 
-	var/datum/gas_mixture/environment = T.return_air()
+	var/datum/gas_mixture/environment = touching_turf.return_air()
 	var/min_temperature = T20C + rand(0, 20) // Room temperature + some variance. An actual diminishing return would be better, but this is *like* that. In a way. . This has the potential for weird behavior, but I says fuck it. Water grenades for everyone.
 
-	var/hotspot = (locate(/obj/fire) in T)
-	if(hotspot && !isspaceturf(T))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
+	// TODO: Cannot for the life of me work out what this is doing or why it's reducing the air temp by 2000; shouldn't it just be using environment?
+	var/hotspot = (locate(/obj/fire) in touching_turf)
+	if(hotspot && !isspaceturf(touching_turf))
+		var/datum/gas_mixture/lowertemp = touching_turf.remove_air(touching_turf:air:total_moles)
 		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
 		lowertemp.react()
-		T.assume_air(lowertemp)
+		touching_turf.assume_air(lowertemp)
 		qdel(hotspot)
 
 	var/volume = REAGENT_VOLUME(holder, type)
@@ -71,11 +72,11 @@
 		var/removed_heat = clamp(volume * WATER_LATENT_HEAT, 0, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5) && environment && environment.temperature > T100C)
-			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
+			touching_turf.visible_message(SPAN_NOTICE("The water sizzles as it lands on \the [touching_turf]!"))
 
 	var/list/data = REAGENT_DATA(holder, type)
 	if(LAZYACCESS(data, "holy"))
-		T.turf_flags |= TURF_FLAG_HOLY
+		touching_turf.turf_flags |= TURF_FLAG_HOLY
 
 /decl/material/liquid/water/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	..()
