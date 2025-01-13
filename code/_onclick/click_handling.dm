@@ -13,6 +13,9 @@ if(!click_handlers) { \
 /mob/Destroy()
 	QDEL_NULL(status_markers)
 	QDEL_NULL_LIST(click_handlers)
+	if(status_timer_id)
+		deltimer(status_timer_id)
+		status_timer_id = null
 	. = ..()
 
 var/global/const/CLICK_HANDLER_NONE                 = BITFLAG(0)
