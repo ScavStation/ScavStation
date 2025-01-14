@@ -93,6 +93,13 @@
 		/decl/emote/visible/tfist
 	)
 
+	character_preview_screen_locs = list(
+		"1" = "character_preview_map:1,4:36",
+		"2" = "character_preview_map:1,3:31",
+		"4" = "character_preview_map:1,2:26",
+		"8" = "character_preview_map:1,1:21"
+	)
+
 	available_mob_postures = list(
 		/decl/posture/standing,
 		/decl/posture/lying/drake,
@@ -183,6 +190,7 @@
 	blood_overlays      = 'mods/species/drakes/icons/hatchling_blood.dmi'
 	eye_icon            = 'mods/species/drakes/icons/hatchling_eyes.dmi'
 	icon_template       = 'icons/mob/human_races/species/template.dmi'
+	damage_overlays     = 'icons/mob/human_races/species/default_damage_overlays.dmi'
 	bodytype_category   = BODYTYPE_GRAFADREKA_HATCHLING
 	mob_size            = MOB_SIZE_SMALL
 	pixel_offset_x      = 0
@@ -202,6 +210,7 @@
 		/decl/emote/audible/drake_sneeze
 	)
 	age_descriptor = /datum/appearance_descriptor/age/grafadreka/hatchling
+	character_preview_screen_locs = null
 	uid = "bodytype_drake_hatchling"
 
 /decl/bodytype/quadruped/grafadreka/hatchling/Initialize()

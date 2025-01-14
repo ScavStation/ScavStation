@@ -1876,8 +1876,8 @@ default behaviour is:
 		var/screen_locs = gear.get_preview_screen_locs()
 		if(screen_locs)
 			return screen_locs
-	var/decl/species/my_species = get_species()
-	return my_species?.character_preview_screen_locs
+	var/decl/bodytype/my_bodytype = get_bodytype()
+	return my_bodytype?.character_preview_screen_locs
 
 /mob/living/can_twohand_item(obj/item/item)
 	if(!istype(item) || !item.can_be_twohanded)
