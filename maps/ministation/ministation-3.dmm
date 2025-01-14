@@ -88,6 +88,10 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
+"kH" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "kV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -40459,7 +40463,7 @@ aa
 aa
 aa
 aa
-aa
+kH
 aa
 aa
 aa

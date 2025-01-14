@@ -23,10 +23,13 @@
 	)
 	emag = /obj/item/chems/spray
 
+/obj/item/robot_module/janitor/handle_turf(turf/target, mob/user)
+	target.clean()
+
 /obj/item/robot_module/janitor/finalize_emag()
 	. = ..()
 	emag.add_to_reagents(/decl/material/liquid/lube, 250)
-	emag.SetName("Lube spray")
+	emag.SetName("lubricant spray")
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()
