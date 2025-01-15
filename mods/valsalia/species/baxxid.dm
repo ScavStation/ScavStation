@@ -100,7 +100,7 @@
 	thirst_factor = 0.06
 	blood_volume = 655
 
-	obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
 
 	base_external_prosthetics_model = null
 	preview_outfit = /decl/outfit/baxxid

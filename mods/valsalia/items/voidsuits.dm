@@ -204,23 +204,23 @@
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
 	accessory_slot = ACCESSORY_SLOT_OVER
 
-/obj/item/clothing/head/helmet/space/rig/baxxid/eng
+/obj/item/clothing/head/helmet/space/rig/baxxid_eng
 	icon = 'mods/valsalia/icons/clothing/head/baxxid_hardsuit_helmet.dmi'
 	bodytype_equip_flags = BODY_FLAG_BAXXID
 	accessory_slot = ACCESSORY_SLOT_OVER
 
-/obj/item/clothing/suit/space/rig/baxxid/eng
+/obj/item/clothing/suit/space/rig/baxxid_eng
 	icon = 'mods/valsalia/icons/clothing/suit/baxxid_hardsuit.dmi'
 	bodytype_equip_flags = BODY_FLAG_BAXXID
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
 	accessory_slot = ACCESSORY_SLOT_OVER
 
-/obj/item/rig/baxxid/eng
+/obj/item/rig/baxxid_eng
 	name = "tubular engineering hardsuit"
 	desc = "A hardsuit for usage by a sufficiently tubual lifeform."
 	suit_type = "engineering hardsuit"
-	chest = /obj/item/clothing/suit/space/rig/baxxid/eng
-	helmet = /obj/item/clothing/head/helmet/space/rig/baxxid/eng
+	chest = /obj/item/clothing/suit/space/rig/baxxid_eng
+	helmet = /obj/item/clothing/head/helmet/space/rig/baxxid_eng
 	boots = null
 	gloves = null
 	initial_modules = list(
@@ -238,11 +238,11 @@
 
 /obj/structure/closet/secure_closet/engineering_chief/WillContain()
 	. = ..()
-	. += new/datum/atom_creator/weighted(list(/obj/item/rig/baxxid/eng))
+	. += new/datum/atom_creator/weighted(list(/obj/item/rig/baxxid_eng))
 
 /obj/item/gun/special_check(var/mob/user) /* Allows for the mounted hardsuit guns to be used in spite of dexterity. */
-	if (user.get_species_name() == "Baxxid" && istype(user.get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/space/rig/baxxid/eng))
-		if (istype(user.get_equipped_item(slot_back_str), /obj/item/rig/baxxid/eng))
+	if (user.get_species_name() == "Baxxid" && istype(user.get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/space/rig/baxxid_eng))
+		if (istype(user.get_equipped_item(slot_back_str), /obj/item/rig/baxxid_eng))
 			var/list/my_held_item_slots = user.get_held_item_slots()
 			for(var/current_slot in my_held_item_slots)
 			{
