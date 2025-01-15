@@ -4401,10 +4401,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/hall/w2)
-"nt" = (
-/obj/effect/shuttle_landmark/automatic,
-/turf/space,
-/area/space)
 "nu" = (
 /turf/wall/r_wall,
 /area/space)
@@ -60990,7 +60986,7 @@ aa
 aa
 aa
 aa
-nt
+aa
 aa
 aa
 aa
