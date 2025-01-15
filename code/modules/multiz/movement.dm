@@ -91,9 +91,6 @@
 	if(!has_gravity())
 		return
 
-	if(throwing)
-		return
-
 	if(can_fall())
 		begin_falling(lastloc, below)
 
@@ -115,7 +112,7 @@
 
 //For children to override
 /atom/movable/proc/can_fall(var/anchor_bypass = FALSE, var/turf/location_override = loc)
-	if(!simulated)
+	if(immune_to_floor_hazards())
 		return FALSE
 
 	if(anchored && !anchor_bypass)
