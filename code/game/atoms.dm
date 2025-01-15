@@ -895,6 +895,15 @@
 		check_loc = check_loc.loc
 
 /**
+	Get a default interaction for a user from this atom.
+
+	- `user`: The mob that this interaction is for
+	- Return: A default interaction decl, or null.
+*/
+/atom/proc/get_quick_interaction_handler(mob/user)
+	return
+
+/**
 	Get a list of alt interactions for a user from this atom.
 
 	- `user`: The mob that these alt interactions are for
