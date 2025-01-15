@@ -5,8 +5,8 @@
 #define HEATER_MODE_COOL         "cool"
 
 /obj/machinery/reagent_temperature
-	name = "chemical heater"
-	desc = "A small electric Bunsen, used to heat beakers and vials of chemicals."
+	name = "hotplate"
+	desc = "A small electric hotplate, used to heat cookware, beakers, or vials of chemicals."
 	icon = 'icons/obj/machines/heat_sources.dmi'
 	icon_state = "hotplate"
 	atom_flags = ATOM_FLAG_CLIMBABLE
@@ -70,6 +70,7 @@
 
 /obj/machinery/reagent_temperature/ProcessAtomTemperature()
 	if(use_power >= POWER_USE_ACTIVE)
+
 		var/last_temperature = temperature
 		if(heater_mode == HEATER_MODE_HEAT && temperature < target_temperature)
 			temperature = min(target_temperature, temperature + heating_power)
@@ -79,10 +80,25 @@
 			if(container)
 				queue_temperature_atoms(container)
 			queue_icon_update()
+
+		// Hackery to heat pots placed onto a hotplate without also grilling/baking stuff.
+		if(isturf(loc))
+			var/datum/gas_mixture/environment = loc.return_air()
+			for(var/obj/item/chems/cooking_vessel/pot in loc.get_contained_external_atoms())
+				pot.fire_act(environment, temperature, 500)
+
 		return TRUE // Don't kill this processing loop unless we're not powered.
 	. = ..()
 
 /obj/machinery/reagent_temperature/attackby(var/obj/item/thing, var/mob/user)
+
+	if(istype(thing, /obj/item/chems/cooking_vessel))
+		if(!user.try_unequip(thing, get_turf(src)))
+			return TRUE
+		thing.reset_offsets(anim_time = 0)
+		user.visible_message(SPAN_NOTICE("\The [user] places \the [thing] onto \the [src]."))
+		return TRUE
+
 	if(IS_WRENCH(thing))
 		if(use_power == POWER_USE_ACTIVE)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))

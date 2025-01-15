@@ -2002,6 +2002,15 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/item/chems/glass/beaker{
+	pixel_x = 5
+	},
+/obj/item/chems/condiment/small/peppermill{
+	pixel_x = 3
+	},
+/obj/item/chems/condiment/enzyme,
+/obj/item/chems/glass/rag,
+/obj/item/chems/cooking_vessel/pot,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "eQ" = (
@@ -4684,14 +4693,8 @@
 "nH" = (
 /obj/structure/table,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/chems/glass/beaker{
-	pixel_x = 5
-	},
-/obj/item/chems/condiment/small/peppermill{
-	pixel_x = 3
-	},
-/obj/item/chems/condiment/enzyme,
-/obj/item/chems/glass/rag,
+/obj/machinery/reagent_temperature,
+/obj/item/chems/cooking_vessel/skillet,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "nR" = (
