@@ -20,6 +20,7 @@
 	craft_stack_types = /obj/item/stack/material/bundle
 	required_material = /decl/material/solid/organic/plantmatter/grass/dry
 	result_type       = /obj/item/stack/tile/roof/woven
+	forbidden_craft_stack_types = null
 
 /decl/stack_recipe/tile/woven/floor
 	name              = "woven floor tile"

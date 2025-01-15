@@ -30,3 +30,14 @@ This is a quick and dirty set of agreed-upon standards for contributions to the 
 - If there's a personal dislike of the PR, post about it for discussion. Maybe have an 'on hold for discussion' label. Try to reach a consensus/compromise. Failing a compromise, a majority maintainer vote will decide.
 - First person to review approves the PR, second person to review can merge it. If 24 hours pass with no objections, first person can merge the PR themselves.
 - PRs can have a 24 hour grace period applied by maintainers if it seems important for discussion and responses to be involved. Don't merge for the grace period if applied (reviews are fine).
+
+### Footguns
+A footgun is a pattern, function, assumption etc. that stands a strong chance to shoot you in the foot. They are documented here for ease of reference by new contributors.
+
+#### List footguns
+- Adding lists to lists will actually perform a merge, rather than inserting the list as a new record. If you want to insert a list into a list, you need to either:
+    - double-wrap it, ex. `my_list += list(list("some_new_data" = 25))`
+    - set the index directly, ex. `my_list[my_list.len] = list("some_new_data" = 25)`
+- Using variables and macros as associative list keys have some notable behavior.
+    - If declaring an associative list using a macro as a key, in a case where the macro does not exist (due to misspelling, etc.), that macro name will be treated as a string value for the associative list. You can guard against this by wrapping the macro in parens, ex. `list( (MY_MACRO_NAME) = "some_value" )`, which will fail to compile instead in cases where the macro doesn't exist.
+    - If a variable is used as the associative key, it *must* be wrapped in parens, or it will be used as a string key.

@@ -1772,6 +1772,10 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/eva)
+"eH" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "eJ" = (
 /obj/machinery/vending/materials{
 	dir = 4
@@ -4598,7 +4602,7 @@ aa
 aa
 aa
 aa
-aa
+eH
 aa
 aa
 aa
@@ -8698,7 +8702,7 @@ aa
 aa
 aa
 aa
-aa
+eH
 aa
 aa
 aa

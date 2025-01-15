@@ -1246,6 +1246,10 @@
 /obj/item/stack/cable_coil/random/three,
 /turf/floor,
 /area/ship/trade/loading_bay)
+"lG" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "ne" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3546,7 +3550,7 @@ aa
 aa
 aa
 aa
-aa
+lG
 aa
 aa
 aa
@@ -7399,7 +7403,7 @@ aa
 aa
 aa
 aa
-aa
+lG
 aa
 aa
 aa
