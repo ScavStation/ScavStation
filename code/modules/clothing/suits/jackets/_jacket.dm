@@ -8,6 +8,7 @@
 	slot_flags          = SLOT_OVER_BODY
 	w_class             = ITEM_SIZE_NORMAL
 	accessory_slot      = ACCESSORY_SLOT_DECOR
+	storage             = /datum/storage/pockets/suit
 	valid_accessory_slots = list(
 		ACCESSORY_SLOT_INSIGNIA,
 		ACCESSORY_SLOT_ARMBAND,
