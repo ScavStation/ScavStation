@@ -39,6 +39,8 @@
 			/datum/job/tradeship_first_mate,
 			/datum/job/tradeship_researcher,
 			/datum/job/tradeship_researcher/head,
+			/datum/job/tradeship_engineer,
+			/datum/job/tradeship_engineer/head,
 			/datum/job/tradeship_captain
 		),
 		/decl/species/yinglet = list(

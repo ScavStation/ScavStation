@@ -1,10 +1,13 @@
 // Add some storage capacity so it can fit the extra suit.
 /obj/structure/closet/emcloset/Initialize()
-	var/static/list/scav_suit = list(
+	var/static/list/additional_suits = list(
 		/obj/item/clothing/head/helmet/space/void/yinglet,
-		/obj/item/clothing/suit/space/void/yinglet
+		/obj/item/clothing/suit/space/void/yinglet,
+
+		/obj/item/clothing/head/helmet/space/void/baxxid,
+		/obj/item/clothing/suit/space/void/baxxid
 	)
-	for(var/suit_part_type in scav_suit)
+	for(var/suit_part_type in additional_suits)
 		var/obj/item/suit_part = suit_part_type
 		storage_capacity += initial(suit_part.w_class)
 	. = ..()
@@ -15,6 +18,13 @@
 		list(
 			/obj/item/clothing/head/helmet/space/void/yinglet,
 			/obj/item/clothing/suit/space/void/yinglet),
+		25
+	)
+
+	. += new /datum/atom_creator/simple(
+		list(
+			/obj/item/clothing/head/helmet/space/void/baxxid,
+			/obj/item/clothing/suit/space/void/baxxid),
 		25
 	)
 
@@ -176,3 +186,73 @@
 	name = "Multi Point - matrisuit helmet"
 	id = "small matriarch voidsuit helmet"
 	item_path = /obj/item/clothing/head/helmet/space/void/yinglet/matriarch
+
+/* baxxid! */
+/obj/item/clothing/suit/space/void/baxxid
+	name = "tubular voidsuit"
+	desc = "A larger, armored voidsuit for usage by a sufficiently tubual lifeform."
+	bodytype_equip_flags = BODY_FLAG_BAXXID
+	icon = 'mods/valsalia/icons/clothing/suit/baxxid_voidsuit.dmi'
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
+	accessory_slot = ACCESSORY_SLOT_OVER
+
+/obj/item/clothing/head/helmet/space/void/baxxid
+	name = "tubular voidsuit helmet"
+	desc = "A larger, armored voidsuit helmet, with a maneuverable rubber mouthpiece; a small breathing tube prods through the side."
+	bodytype_equip_flags = BODY_FLAG_BAXXID
+	icon = 'mods/valsalia/icons/clothing/head/baxxid_voidsuit_helmet.dmi'
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
+	accessory_slot = ACCESSORY_SLOT_OVER
+
+/obj/item/clothing/head/helmet/space/rig/baxxid/eng
+	icon = 'mods/valsalia/icons/clothing/head/baxxid_hardsuit_helmet.dmi'
+	bodytype_equip_flags = BODY_FLAG_BAXXID
+	accessory_slot = ACCESSORY_SLOT_OVER
+
+/obj/item/clothing/suit/space/rig/baxxid/eng
+	icon = 'mods/valsalia/icons/clothing/suit/baxxid_hardsuit.dmi'
+	bodytype_equip_flags = BODY_FLAG_BAXXID
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
+	accessory_slot = ACCESSORY_SLOT_OVER
+
+/obj/item/rig/baxxid/eng
+	name = "tubular engineering hardsuit"
+	desc = "A hardsuit for usage by a sufficiently tubual lifeform."
+	suit_type = "engineering hardsuit"
+	chest = /obj/item/clothing/suit/space/rig/baxxid/eng
+	helmet = /obj/item/clothing/head/helmet/space/rig/baxxid/eng
+	boots = null
+	gloves = null
+	initial_modules = list(
+		/obj/item/rig_module/vision,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/clustertool,
+		/obj/item/rig_module/device/cable_coil,
+		/obj/item/rig_module/device/multitool,
+		/obj/item/rig_module/device/welder,
+		/obj/item/rig_module/grenade_launcher/,
+		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/cooling_unit
+	)
+
+/obj/structure/closet/secure_closet/engineering_chief/WillContain()
+	. = ..()
+	. += new/datum/atom_creator/weighted(list(/obj/item/rig/baxxid/eng))
+
+/obj/item/gun/special_check(var/mob/user) /* Allows for the mounted hardsuit guns to be used in spite of dexterity. */
+	if (user.get_species_name() == "Baxxid" && istype(user.get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/space/rig/baxxid/eng))
+		if (istype(user.get_equipped_item(slot_back_str), /obj/item/rig/baxxid/eng))
+			var/list/my_held_item_slots = user.get_held_item_slots()
+			for(var/current_slot in my_held_item_slots)
+			{
+				var/datum/inventory_slot/inv_slot = user.get_inventory_slot_datum(current_slot)
+				var/obj/item/held = inv_slot.get_equipped_item()
+				if (istype(held, /obj/item/gun))
+					return 0
+			}
+			return 1
+	. = ..()
+
+
+

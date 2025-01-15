@@ -1,5 +1,6 @@
 /obj/machinery/suit_cycler/Initialize()
 	LAZYDISTINCTADD(available_bodytypes, BODYTYPE_YINGLET)
+	LAZYDISTINCTADD(available_bodytypes, BODYTYPE_BAXXID)
 	. = ..()
 
 /obj/machinery/suit_cycler/tradeship
@@ -222,3 +223,12 @@
 
 /obj/item/clothing/head/helmet/space/void/excavation/scav
 	guarantee_body_flag_compatible = BODY_FLAG_YINGLET
+
+/* baxxid! */
+/obj/item/clothing/head/helmet/space/void/engineering/setup_sprite_sheets()
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_BAXXID, 'mods/valsalia/icons/clothing/head/baxxid_voidsuit_helmet.dmi')
+
+/obj/item/clothing/suit/space/void/engineering/setup_sprite_sheets()
+	. = ..()
+	LAZYSET(sprite_sheets, BODYTYPE_BAXXID, 'mods/valsalia/icons/clothing/suit/baxxid_voidsuit.dmi')
