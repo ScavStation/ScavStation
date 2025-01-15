@@ -90,31 +90,33 @@
 	if(!isliving(AM))
 		return
 
-	var/mob/living/M = AM
-	if(M.buckled) //wheelchairs, office chairs, rollerbeds
+	var/mob/living/victim = AM
+	if(victim.buckled) //wheelchairs, office chairs, rollerbeds
+		return
+	if(victim.immune_to_floor_hazards())
 		return
 
 	playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
 
-	var/decl/species/walker_species = M.get_species()
-	if(walker_species && (walker_species.get_shock_vulnerability(M) < 0.5 || (walker_species.species_flags & (SPECIES_FLAG_NO_EMBED|SPECIES_FLAG_NO_MINOR_CUT)))) //Thick skin.
+	var/decl/species/walker_species = victim.get_species()
+	if(walker_species && (walker_species.get_shock_vulnerability(victim) < 0.5 || (walker_species.species_flags & (SPECIES_FLAG_NO_EMBED|SPECIES_FLAG_NO_MINOR_CUT)))) //Thick skin.
 		return
 
-	var/obj/item/shoes = M.get_equipped_item(slot_shoes_str)
-	var/obj/item/suit = M.get_equipped_item(slot_wear_suit_str)
+	var/obj/item/shoes = victim.get_equipped_item(slot_shoes_str)
+	var/obj/item/suit = victim.get_equipped_item(slot_wear_suit_str)
 	if(shoes || (suit && (suit.body_parts_covered & SLOT_FEET)))
 		return
 
 	var/list/check = list(BP_L_FOOT, BP_R_FOOT)
 	while(check.len)
 		var/picked = pick_n_take(check)
-		var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(M, picked)
+		var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(victim, picked)
 		if(!affecting || BP_IS_PROSTHETIC(affecting))
 			continue
-		to_chat(M, SPAN_DANGER("You step on \the [src]!"))
+		to_chat(victim, SPAN_DANGER("You step on \the [src]!"))
 		affecting.take_external_damage(5, 0)
 		if(affecting.can_feel_pain())
-			SET_STATUS_MAX(M, STAT_WEAK, 3)
+			SET_STATUS_MAX(victim, STAT_WEAK, 3)
 		return
 
 //Prevent the shard from being allowed to shatter
