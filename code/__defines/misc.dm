@@ -375,3 +375,8 @@
 #define RADIAL_LABELS_NONE     0
 #define RADIAL_LABELS_OFFSET   1
 #define RADIAL_LABELS_CENTERED 2
+
+#define CRAYON_DRAW_RUNE     "rune"
+#define CRAYON_DRAW_GRAFFITI "graffiti"
+#define CRAYON_DRAW_LETTER   "letter"
+#define CRAYON_DRAW_ARROW    "arrow"

@@ -33,24 +33,31 @@
 		return
 
 	if(istype(target) && target.is_floor())
-		var/drawtype = input("Choose what you'd like to draw.", "Crayon scribbles") in list("graffiti","rune","letter","arrow")
+		var/static/list/drawtypes = list(CRAYON_DRAW_GRAFFITI, CRAYON_DRAW_RUNE, CRAYON_DRAW_LETTER, CRAYON_DRAW_ARROW)
+		var/drawtype = input(user, "Choose what you'd like to draw.", "Crayon scribbles") as null|anything in drawtypes
 		var/draw_message = "drawing"
 		switch(drawtype)
-			if("letter")
-				drawtype = input("Choose the letter.", "Crayon scribbles") in list(global.alphabet)
+			if(CRAYON_DRAW_LETTER)
+				drawtype = input(user, "Choose a letter.", "Crayon scribbles") as null|anything in global.alphabet
 				draw_message = "drawing a letter"
-			if("graffiti")
+			if(CRAYON_DRAW_GRAFFITI)
 				draw_message = "drawing graffiti"
-			if("rune")
+			if(CRAYON_DRAW_RUNE)
 				draw_message = "drawing a rune"
-			if("arrow")
-				drawtype = input("Choose the arrow.", "Crayon scribbles") in list("left", "right", "up", "down")
+			if(CRAYON_DRAW_ARROW)
+				var/static/list/arrow_dirs = list("left", "right", "up", "down")
+				drawtype = input(user, "Choose an arrow.", "Crayon scribbles") as null|anything in arrow_dirs
 				draw_message = "drawing an arrow"
 
+		if(!drawtype || QDELETED(src) || QDELETED(target) || QDELETED(user) || user.get_active_held_item() != src || !CanPhysicallyInteractWith(user, target))
+			return TRUE
+
 		if(do_tool_interaction(TOOL_PEN, user, target, 5 SECONDS, draw_message, "drawing on", fuel_expenditure = 1))
-			new /obj/effect/decal/cleanable/crayon(target, stroke_color, shade_color, drawtype)
+			var/obj/effect/decal/cleanable/crayon/graffiti = new(target, stroke_color, shade_color, drawtype)
 			target.add_fingerprint(user) // Adds their fingerprints to the floor the crayon is drawn on.
-	return
+			graffiti.add_fingerprint(user)
+
+	return TRUE
 
 /obj/item/pen/crayon/red
 	stroke_color      = "#da0000"
