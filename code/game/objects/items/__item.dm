@@ -115,6 +115,14 @@
 	/// Can this item knock someone out if used as a weapon? Overridden for natural weapons as a nerf to simplemobs.
 	var/weapon_can_knock_prone = TRUE
 
+/// Returns a dexterity value required to use this item as a weapon.
+/obj/item/proc/get_required_attack_dexterity()
+	// We can likely assume that if we're located inside a rig, then the wearer
+	// has the appropriate dexterity to wear and use the rig, even if they aren't
+	// manually dexterous; specifically useful for things like baxxid and drakes.
+	var/obj/item/rig/rig = get_recursive_loc_of_type(/obj/item/rig)
+	return istype(rig) ? DEXTERITY_NONE : needs_attack_dexterity
+
 /obj/item/get_color()
 	if(paint_color)
 		return paint_color
@@ -554,11 +562,11 @@
 	return FALSE
 
 /obj/item/proc/user_can_attack_with(mob/user, silent = FALSE)
-	return !needs_attack_dexterity || user.check_dexterity(needs_attack_dexterity, silent = silent)
+	return user.check_dexterity(get_required_attack_dexterity(), silent = silent)
 
 /obj/item/attackby(obj/item/used_item, mob/user)
 	// if can_wield is false we still need to call parent for storage objects to work properly
-	var/can_wield = user_can_attack_with(user, silent = TRUE)
+	var/can_wield = used_item.user_can_attack_with(user, silent = TRUE)
 
 	if(can_wield && try_slapcrafting(used_item, user))
 		return TRUE

@@ -3,7 +3,6 @@
 	var/static/list/additional_suits = list(
 		/obj/item/clothing/head/helmet/space/void/yinglet,
 		/obj/item/clothing/suit/space/void/yinglet,
-
 		/obj/item/clothing/head/helmet/space/void/baxxid,
 		/obj/item/clothing/suit/space/void/baxxid
 	)
@@ -190,7 +189,7 @@
 /* baxxid! */
 /obj/item/clothing/suit/space/void/baxxid
 	name = "tubular voidsuit"
-	desc = "A larger, armored voidsuit for usage by a sufficiently tubual lifeform."
+	desc = "A larger, armored voidsuit for usage by a sufficiently tubal lifeform."
 	bodytype_equip_flags = BODY_FLAG_BAXXID
 	icon = 'mods/valsalia/icons/clothing/suit/baxxid_voidsuit.dmi'
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
@@ -214,26 +213,28 @@
 	bodytype_equip_flags = BODY_FLAG_BAXXID
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
 	accessory_slot = ACCESSORY_SLOT_OVER
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL|SLOT_HANDS|SLOT_FEET
+	heat_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL|SLOT_HANDS|SLOT_FEET
+	cold_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL|SLOT_HANDS|SLOT_FEET
 
 /obj/item/rig/baxxid_eng
 	name = "tubular engineering hardsuit"
-	desc = "A hardsuit for usage by a sufficiently tubual lifeform."
+	desc = "A hardsuit for usage by a sufficiently tubal lifeform."
 	suit_type = "engineering hardsuit"
 	chest = /obj/item/clothing/suit/space/rig/baxxid_eng
 	helmet = /obj/item/clothing/head/helmet/space/rig/baxxid_eng
 	boots = null
 	gloves = null
 	initial_modules = list(
-		/obj/item/rig_module/vision,
-		/obj/item/rig_module/chem_dispenser/combat,
-		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/device/clustertool,
-		/obj/item/rig_module/device/cable_coil,
-		/obj/item/rig_module/device/multitool,
-		/obj/item/rig_module/device/welder,
-		/obj/item/rig_module/grenade_launcher/,
-		/obj/item/rig_module/device/rcd,
-		/obj/item/rig_module/cooling_unit
+		/obj/item/rig_module/mounted/plasmacutter,
+        /obj/item/rig_module/device/drill,
+        /obj/item/rig_module/device/orescanner,
+        /obj/item/rig_module/device/rcd,
+        /obj/item/rig_module/mounted/lcannon,
+        /obj/item/rig_module/teleporter,
+        /obj/item/rig_module/vision/meson,
+        /obj/item/rig_module/device/paperdispenser,
+        /obj/item/rig_module/cooling_unit
 	)
 
 /obj/structure/closet/secure_closet/engineering_chief/WillContain()
@@ -253,6 +254,5 @@
 			}
 			return 1
 	. = ..()
-
 
 
