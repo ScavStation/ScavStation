@@ -219,7 +219,7 @@
 
 /obj/item/rig/baxxid_eng
 	name = "tubular engineering hardsuit"
-	desc = "A hardsuit for usage by a sufficiently tubal lifeform."
+	desc = "A hardsuit for usage by a sufficiently tubal lifeform!"
 	suit_type = "engineering hardsuit"
 	chest = /obj/item/clothing/suit/space/rig/baxxid_eng
 	helmet = /obj/item/clothing/head/helmet/space/rig/baxxid_eng
