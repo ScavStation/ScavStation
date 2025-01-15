@@ -322,6 +322,7 @@
 	icon_state       = "acidtank"
 	amount_dispensed = 10
 	anchored         = TRUE
+	density          = FALSE
 
 /obj/structure/reagent_dispensers/acid/populate_reagents()
 	add_to_reagents(/decl/material/liquid/acid, reagents.maximum_volume)
