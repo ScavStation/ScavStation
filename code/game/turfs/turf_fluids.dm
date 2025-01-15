@@ -116,7 +116,7 @@
 /turf/fluid_act(var/datum/reagents/fluids)
 	..()
 	if(!QDELETED(src) && fluids?.total_volume)
-		fluids.touch_turf(src)
+		fluids.touch_turf(src, touch_atoms = FALSE) // Handled in fluid_act() below.
 		for(var/atom/movable/AM as anything in get_contained_external_atoms())
 			AM.fluid_act(fluids)
 

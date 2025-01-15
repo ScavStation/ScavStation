@@ -1,9 +1,11 @@
 /mob // Defined on /mob to avoid having to pass args to every single attack_foo() proc.
-	var/datum/status_marker_holder/status_markers
 	var/list/status_counters
 	var/list/pending_status_counters
+	var/datum/status_marker_holder/status_markers
 
 /mob/living/set_status(var/condition, var/amount)
+	if(QDELETED(src))
+		return FALSE
 	if(!ispath(condition, /decl/status_condition))
 		return FALSE
 	var/decl/status_condition/cond = GET_DECL(condition)

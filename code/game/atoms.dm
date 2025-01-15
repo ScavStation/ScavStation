@@ -500,10 +500,12 @@
 	- Returns: `TRUE` if qdel() was called, otherwise `FALSE`
 */
 /atom/proc/lava_act()
-	visible_message(SPAN_DANGER("\The [src] sizzles and melts away, consumed by the lava!"))
-	playsound(src, 'sound/effects/flare.ogg', 100, 3)
-	qdel(src)
-	. = TRUE
+	if(simulated)
+		visible_message(SPAN_DANGER("\The [src] sizzles and melts away, consumed by the lava!"))
+		playsound(src, 'sound/effects/flare.ogg', 100, 3)
+		qdel(src)
+		return TRUE
+	return FALSE
 
 /**
 	Handle this atom being hit by a thrown atom
