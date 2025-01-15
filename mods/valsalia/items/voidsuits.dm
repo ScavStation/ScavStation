@@ -227,14 +227,12 @@
 	gloves = null
 	initial_modules = list(
 		/obj/item/rig_module/mounted/plasmacutter,
-        /obj/item/rig_module/device/drill,
-        /obj/item/rig_module/device/orescanner,
-        /obj/item/rig_module/device/rcd,
-        /obj/item/rig_module/mounted/lcannon,
-        /obj/item/rig_module/teleporter,
-        /obj/item/rig_module/vision/meson,
-        /obj/item/rig_module/device/paperdispenser,
-        /obj/item/rig_module/cooling_unit
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/device/orescanner,
+		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/vision/meson,
+		/obj/item/rig_module/device/paperdispenser,
+		/obj/item/rig_module/cooling_unit
 	)
 
 /obj/structure/closet/secure_closet/engineering_chief/WillContain()
