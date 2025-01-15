@@ -77,7 +77,7 @@
 			else if(mat.dissolves_in <= MAT_SOLVENT_MODERATE)
 				solvent_needed = "a moderately strong solvent, like acetone"
 			else if(mat.dissolves_in <= MAT_SOLVENT_STRONG)
-				solvent_needed = "a strong solvent, like sulphuric acid"
+				solvent_needed = "a strong solvent, like sulfuric acid"
 			material_info += "<li>It can be dissolved with [solvent_needed] solvent, producing [english_list(chems)].</li>"
 		if(mat.radioactivity)
 			material_info += "<li>It is radioactive.</li>"

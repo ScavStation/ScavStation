@@ -50,7 +50,7 @@
 	Spray_at(A, user, proximity)
 
 	if(reagents.has_reagent(/decl/material/liquid/acid))
-		log_and_message_admins("fired sulphuric acid from \a [src].", user)
+		log_and_message_admins("fired sulfuric acid from \a [src].", user)
 	if(reagents.has_reagent(/decl/material/liquid/acid/polyacid))
 		log_and_message_admins("fired polyacid from \a [src].", user)
 	if(reagents.has_reagent(/decl/material/liquid/lube))
