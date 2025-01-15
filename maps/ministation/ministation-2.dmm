@@ -4930,6 +4930,10 @@
 	},
 /turf/floor/reinforced,
 /area/ministation/science)
+"sq" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "sr" = (
 /turf/floor/tiled/dark/monotile{
 	name = "telecomms dark floor";

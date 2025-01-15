@@ -116,7 +116,7 @@
 			hair_styles[++hair_styles.len] = list("hairstyle" = hair_decl.name, "ref" = "\ref[hair_decl]")
 		data["hair_styles"] = hair_styles
 		var/hairstyle = GET_HAIR_STYLE(owner)
-		var/decl/sprite_accessory/hair = GET_DECL(hairstyle)
+		var/decl/sprite_accessory/hair = GET_DECL(hairstyle) || GET_DECL(/decl/sprite_accessory/hair/bald)
 		data["hair_style"] = hair.name
 
 	data["change_facial_hair"] = can_change(APPEARANCE_FACIAL_HAIR)
@@ -127,7 +127,7 @@
 			facial_hair_styles[++facial_hair_styles.len] = list("facialhairstyle" = facial_hair_decl.name, "ref" = "\ref[facial_hair_decl]")
 		data["facial_hair_styles"] = facial_hair_styles
 		var/facial_hairstyle = GET_FACIAL_HAIR_STYLE(owner)
-		var/decl/sprite_accessory/facial_hair = GET_DECL(facial_hairstyle)
+		var/decl/sprite_accessory/facial_hair = GET_DECL(facial_hairstyle) || GET_DECL(/decl/sprite_accessory/facial_hair/shaved)
 		data["facial_hair_style"] = facial_hair.name
 
 	data["change_hair_color"] = can_change(APPEARANCE_HAIR_COLOR)

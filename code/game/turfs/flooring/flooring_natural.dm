@@ -58,7 +58,6 @@
 	desc            = "A hard, slippery layer of frozen water."
 	icon            = 'icons/turf/flooring/ice.dmi'
 	icon_base       = "ice"
-	footstep_type   = /decl/footsteps/plating
 	color           = COLOR_LIQUID_WATER
 	force_material  = /decl/material/solid/ice
 

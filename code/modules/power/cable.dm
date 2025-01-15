@@ -166,50 +166,47 @@ By design, d1 is the smallest direction and d2 is the highest
 //
 
 // TODO: take a closer look at cable attackby, make it call parent?
-/obj/structure/cable/attackby(obj/item/W, mob/user)
-	if(IS_WIRECUTTER(W))
-		cut_wire(W, user)
+/obj/structure/cable/attackby(obj/item/used_item, mob/user)
 
-	else if(IS_COIL(W))
-		var/obj/item/stack/cable_coil/coil = W
+	if(IS_WIRECUTTER(used_item))
+		cut_wire(used_item, user)
+		return TRUE
+
+	if(IS_COIL(used_item))
+		var/obj/item/stack/cable_coil/coil = used_item
 		if (coil.get_amount() < 1)
 			to_chat(user, "You don't have enough cable to lay down.")
 			return TRUE
 		coil.cable_join(src, user)
+		return TRUE
 
-	else if(IS_MULTITOOL(W))
-
+	if(IS_MULTITOOL(used_item))
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			to_chat(user, SPAN_WARNING("[get_wattage()] in power network."))
-
+			shock(user, 5, 0.2)
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is not powered."))
+		return TRUE
 
-		shock(user, 5, 0.2)
-
-
-	else if(W.edge)
-
+	if(used_item.edge)
 		var/delay_holder
-
-		if(W.get_attack_force(user) < 5)
-			visible_message(SPAN_WARNING("[user] starts sawing away roughly at \the [src] with \the [W]."))
+		if(used_item.get_attack_force(user) < 5)
+			visible_message(SPAN_WARNING("[user] starts sawing away roughly at \the [src] with \the [used_item]."))
 			delay_holder = 8 SECONDS
 		else
-			visible_message(SPAN_WARNING("[user] begins to cut through \the [src] with \the [W]."))
+			visible_message(SPAN_WARNING("[user] begins to cut through \the [src] with \the [used_item]."))
 			delay_holder = 3 SECONDS
-
 		if(user.do_skilled(delay_holder, SKILL_ELECTRICAL, src))
-			cut_wire(W, user)
-			if(W.obj_flags & OBJ_FLAG_CONDUCTIBLE)
+			cut_wire(used_item, user)
+			if(used_item.obj_flags & OBJ_FLAG_CONDUCTIBLE)
 				shock(user, 66, 0.7)
 		else
 			visible_message(SPAN_WARNING("[user] stops cutting before any damage is done."))
+		return TRUE
 
-	src.add_fingerprint(user)
-	return TRUE
+	return ..()
 
-/obj/structure/cable/proc/cut_wire(obj/item/W, mob/user)
+/obj/structure/cable/proc/cut_wire(obj/item/used_item, mob/user)
 	var/turf/T = get_turf(src)
 	if(!T || !T.is_plating())
 		return
@@ -241,13 +238,13 @@ By design, d1 is the smallest direction and d2 is the highest
 
 // shock the user with probability prb
 /obj/structure/cable/proc/shock(mob/user, prb, var/siemens_coeff = 1.0)
-	if(!prob(prb))
-		return 0
+	if(!prob(prb) || !powernet || !powernet.avail <= 0)
+		return FALSE
 	if (electrocute_mob(user, powernet, src, siemens_coeff))
 		spark_at(src, amount=5, cardinal_only = TRUE)
 		if(HAS_STATUS(usr, STAT_STUN))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 // TODO: generalize to matter list and parts_type.
 /obj/structure/cable/create_dismantled_products(turf/T)

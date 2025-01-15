@@ -3496,8 +3496,7 @@
 	department = "Atmospherics";
 	name = "Atmos RC";
 	pixel_y = 32;
-	dir = 1;
-
+	dir = 1
 	},
 /obj/structure/table/steel,
 /turf/floor/tiled/steel_grid,
@@ -5467,6 +5466,10 @@
 	},
 /turf/floor/lino,
 /area/exodus/maintenance/telecomms)
+"rd" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "rj" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/camera/network/command{
@@ -16599,7 +16602,7 @@ aa
 aa
 aa
 aa
-aa
+rd
 aa
 aa
 aa
@@ -44175,7 +44178,7 @@ aa
 aa
 aa
 aa
-aa
+rd
 aa
 aa
 aa
@@ -49205,7 +49208,7 @@ aa
 aa
 aa
 aa
-aa
+rd
 aa
 aa
 aa

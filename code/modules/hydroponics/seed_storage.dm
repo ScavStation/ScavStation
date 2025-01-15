@@ -62,7 +62,6 @@
 /obj/machinery/seed_storage/garden
 	name = "Garden seed storage"
 	scanner = list("stats")
-	icon_state = "seeds_generic"
 	starting_seeds = list(
 		/obj/item/seeds/ambrosiavulgarisseed = 15,
 		/obj/item/seeds/appleseed = 15,

@@ -38,7 +38,7 @@
 				return
 			show_browser(src, F, "window=investigate[subject];size=800x300")
 
-		if("hrefs")				//persistant logs and stuff
+		if("hrefs")				//persistent logs and stuff
 			if(get_config_value(/decl/config/toggle/log_hrefs))
 				if(global.world_href_log)
 					show_browser(src, global.world_href_log, "window=investigate[subject];size=800x300")

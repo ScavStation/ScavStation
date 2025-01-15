@@ -150,9 +150,16 @@
 		else if(length(used_skill.levels) < difficulty)
 			. += "required skill [recipe_skill] is missing skill level [json_encode(difficulty)]"
 
-	if(length(forbidden_craft_stack_types) && length(craft_stack_types))
-		for(var/stack_type in (forbidden_craft_stack_types|craft_stack_types))
-			if((stack_type in craft_stack_types) && (stack_type in forbidden_craft_stack_types))
+	var/list/check_forbidden_craft_stack_types = forbidden_craft_stack_types
+	if(check_forbidden_craft_stack_types && !islist(check_forbidden_craft_stack_types))
+		check_forbidden_craft_stack_types = list(check_forbidden_craft_stack_types)
+	var/list/check_craft_stack_types = craft_stack_types
+	if(check_craft_stack_types && !islist(check_craft_stack_types))
+		check_craft_stack_types = list(check_craft_stack_types)
+
+	if(length(check_forbidden_craft_stack_types) && length(check_craft_stack_types))
+		for(var/stack_type in (check_forbidden_craft_stack_types|check_craft_stack_types))
+			if((stack_type in check_craft_stack_types) && (stack_type in check_forbidden_craft_stack_types))
 				. += "[stack_type] is in both forbidden and craftable stack types"
 
 /decl/stack_recipe/proc/get_required_stack_amount(obj/item/stack/stack)

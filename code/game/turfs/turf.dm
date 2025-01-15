@@ -683,8 +683,8 @@
 	return TRUE
 
 /turf/clean(clean_forensics = TRUE)
-	for(var/obj/effect/decal/cleanable/blood/B in contents)
-		B.clean(clean_forensics)
+	for(var/obj/effect/decal/cleanable/filth in contents)
+		filth.clean(clean_forensics)
 	. = ..()
 
 //returns 1 if made bloody, returns 0 otherwise

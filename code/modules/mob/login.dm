@@ -129,7 +129,7 @@
 
 	if(istype(hud_used))
 		hud_used.hidden_inventory_update()
-		hud_used.persistant_inventory_update()
+		hud_used.persistent_inventory_update()
 		update_action_buttons()
 
 	return TRUE

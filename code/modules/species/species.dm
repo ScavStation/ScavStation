@@ -57,9 +57,6 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/flesh_color = "#ffc896"             // Pink.
 	var/blood_oxy = 1
 
-	// Preview in prefs positioning. If null, uses defaults set on a static list in preferences.dm.
-	var/list/character_preview_screen_locs
-
 	var/organs_icon		//species specific internal organs icons
 
 	var/strength = STR_MEDIUM

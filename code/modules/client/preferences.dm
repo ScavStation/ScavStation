@@ -500,7 +500,7 @@ var/global/list/time_prefs_fixed = list()
 	key_bindings = deepCopyList(global.hotkey_keybinding_list_by_key)
 
 	if(istype(client))
-		// Preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum).
+		// Preferences datum - also holds some persistent data for the client (because we may as well keep these datums to a minimum).
 		SScharacter_setup.preferences_datums[client.ckey] = src
 		setup()
 

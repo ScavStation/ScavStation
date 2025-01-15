@@ -8223,6 +8223,10 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ministation/atmospherics)
+"yY" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "yZ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -36227,7 +36231,7 @@ aa
 aa
 aa
 aa
-aa
+yY
 aa
 aa
 aa
@@ -52301,7 +52305,7 @@ aa
 aa
 aa
 aa
-aa
+yY
 aa
 aa
 aa
@@ -60343,7 +60347,7 @@ aa
 aa
 aa
 aa
-aa
+yY
 aa
 aa
 aa

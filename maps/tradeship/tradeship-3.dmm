@@ -1181,6 +1181,10 @@
 /obj/machinery/commsrelay,
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
+"UX" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "UY" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -2382,7 +2386,7 @@ aa
 aa
 aa
 aa
-aa
+UX
 aa
 aa
 aa
@@ -6665,7 +6669,7 @@ aa
 aa
 aa
 aa
-aa
+UX
 aa
 aa
 aa

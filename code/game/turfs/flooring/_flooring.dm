@@ -16,7 +16,7 @@ var/global/list/flooring_cache = list()
 	var/gender = PLURAL /// "that's some grass"
 	var/icon_base
 	var/color = COLOR_WHITE
-	var/footstep_type = /decl/footsteps/blank
+	var/footstep_type = /decl/footsteps/plating
 	var/growth_value = 0
 
 	var/neighbour_type
