@@ -271,7 +271,7 @@
 	icon_state = "aftcrest_pointed_end"
 	color_blend = ICON_MULTIPLY
 	mask_to_bodypart = FALSE
-	uid = "marking_baxxid_tall_forecrest_horns"
+	uid = "marking_baxxid_aftcrest_pointed_end"
 
 /decl/sprite_accessory/marking/baxxid/aftcrest_hook
 	name = "Aftcrest Hook"
