@@ -1,8 +1,8 @@
 /obj/item/clothing/pants
-	yinglet_icon = 'mods/valsalia/icons/clothing/under/pants.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/under/pants.dmi'
 
 /obj/item/clothing/pants/loincloth
-	yinglet_icon = 'mods/valsalia/icons/clothing/under/loincloth.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/under/loincloth.dmi'
 	markings_state_modifier = "-detail"
 
 /obj/item/clothing/pants/loincloth/yinglet
@@ -10,7 +10,7 @@
 	desc = "A few rags that wrap around the legs and crotch for a semblance of modesty."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	paint_color = COLOR_BEIGE
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/pants/loincloth/yinglet/scout
 	name = "scout loincloth"

@@ -1,16 +1,16 @@
 /obj/item/clothing/suit/toggle/labcoat
-	yinglet_icon = 'mods/valsalia/icons/clothing/suit/labcoat_yinglet.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/labcoat_yinglet.dmi'
 
 /obj/item/clothing/suit/toggle/labcoat/yinglet
 	name = "small labcoat"
 	desc = "A labcoat tailored to be yinglet-sized."
 	icon = 'mods/valsalia/icons/clothing/suit/labcoat_yinglet_red.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/suit/yinglet
 	abstract_type = /obj/item/clothing/suit/yinglet
-	yinglet_icon = null
+	_yinglet_icon = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/suit/yinglet/cape

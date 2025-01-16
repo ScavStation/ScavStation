@@ -1,5 +1,5 @@
 /obj/item/clothing/jumpsuit
-	yinglet_icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
 
 /obj/item/clothing/jumpsuit/yinglet
 	name = "yinglet jumpsuit"
@@ -10,5 +10,5 @@
 /obj/item/clothing/jumpsuit/yinglet/hazard
 	name = "small hazard jumpsuit"
 	icon = 'mods/valsalia/icons/clothing/under/hazardjumpsuit_yinglet.dmi'
-	yinglet_icon = null
+	_yinglet_icon = null
 	paint_color = null

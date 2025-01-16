@@ -1,11 +1,11 @@
 /obj/item/clothing
-	var/yinglet_icon
+	var/_yinglet_icon
 	var/guarantee_body_flag_compatible
 
 /obj/item/clothing/setup_sprite_sheets()
 	..()
-	if(yinglet_icon && !(BODYTYPE_YINGLET in sprite_sheets))
-		LAZYSET(sprite_sheets, BODYTYPE_YINGLET, yinglet_icon)
+	if(_yinglet_icon && !(BODYTYPE_YINGLET in sprite_sheets))
+		LAZYSET(sprite_sheets, BODYTYPE_YINGLET, _yinglet_icon)
 
 /obj/item/clothing/setup_equip_flags()
 	..()
@@ -16,20 +16,20 @@
 			bodytype_equip_flags |= guarantee_body_flag_compatible
 
 /obj/item/clothing/shoes
-	yinglet_icon = 'mods/valsalia/icons/clothing/shoes/shoes.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/shoes/shoes.dmi'
 
 /obj/item/clothing/gloves
-	yinglet_icon = 'mods/valsalia/icons/clothing/gloves/gloves_yinglet.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/gloves/gloves_yinglet.dmi'
 	guarantee_body_flag_compatible = BODY_FLAG_YINGLET | BODY_FLAG_INDREL | BODY_FLAG_BAXXID
 
 /obj/item/clothing/gloves/ring
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/gloves/armguards
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/shoes/legguards
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/costume/tradeship_plain
 	name = "plain clothes"
@@ -43,7 +43,7 @@
 	desc = "The signature uniform of Tradeshouse guardsmen."
 	icon = 'mods/valsalia/icons/clothing/suit/redcoat.dmi'
 	bodytype_equip_flags = BODY_EQUIP_FLAG_HUMANOID
-	yinglet_icon = null
+	_yinglet_icon = null
 	var/has_badge
 	var/has_buttons
 	var/has_collar
@@ -97,23 +97,23 @@
 	has_buckle =  "buckle_gold"
 
 /obj/item/clothing/suit/jacket/winter
-	yinglet_icon = 'mods/valsalia/icons/clothing/suit/wintercoat.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/wintercoat.dmi'
 
 /obj/item/clothing/suit/jacket/winter/yinglet
 	name = "small winter coat"
 	hood = /obj/item/clothing/head/winterhood/yinglet
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/suit/wintercoat.dmi'
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/head/winterhood
-	yinglet_icon = 'mods/valsalia/icons/clothing/head/winterhood.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/head/winterhood.dmi'
 
 /obj/item/clothing/head/winterhood/yinglet
 	name = "small winter hood"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/head/winterhood.dmi'
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/suit/jacket/winter/yinglet/atmos
 	name = "small atmospherics winter coat"

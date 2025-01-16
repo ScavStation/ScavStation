@@ -5,38 +5,38 @@
 
 /obj/item/clothing/costume/yinglet
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	yinglet_icon = null
+	_yinglet_icon = null
 	abstract_type = /obj/item/clothing/costume/yinglet
 
 /obj/item/clothing/jumpsuit
-	yinglet_icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
 
 /obj/item/clothing/suit/radiation
-	yinglet_icon = 'mods/valsalia/icons/clothing/suit/radsuit_yinglet.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/radsuit_yinglet.dmi'
 
 /obj/item/clothing/head/radiation
-	yinglet_icon = 'mods/valsalia/icons/clothing/head/radsuit_hood_yinglet.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/head/radsuit_hood_yinglet.dmi'
 
 /obj/item/clothing/shoes/magboots
-	yinglet_icon = 'mods/valsalia/icons/clothing/shoes/magboots.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/shoes/magboots.dmi'
 
 /obj/item/clothing/suit/armor/bulletproof
-	yinglet_icon = 'mods/valsalia/icons/clothing/suit/ballistic_vest.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/ballistic_vest.dmi'
 
 /obj/item/clothing/suit/armor/hos/jensen
-	yinglet_icon = 'mods/valsalia/icons/clothing/suit/jensen_yinglet.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/jensen_yinglet.dmi'
 
 /obj/item/clothing/suit/armor/warden
-	yinglet_icon = 'mods/valsalia/icons/clothing/suit/wardenlet.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/wardenlet.dmi'
 
 /obj/item/clothing/suit/armor/hos
-	yinglet_icon = 'mods/valsalia/icons/clothing/suit/hoslet.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/hoslet.dmi'
 
 /obj/item/clothing/head/helmet/ablative
-	yinglet_icon = 'mods/valsalia/icons/clothing/head/helmet_ablative.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/head/helmet_ablative.dmi'
 
 /obj/item/clothing/head/helmet/riot
-	yinglet_icon = 'mods/valsalia/icons/clothing/head/helmet_riot.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/head/helmet_riot.dmi'
 
 /obj/item/clothing/head/cakehat/get_mob_flame_overlay(var/image/overlay, var/bodytype)
 	var/image/I = ..()
@@ -48,7 +48,7 @@
 	name = "small hazard jumpsuit"
 	icon = 'mods/valsalia/icons/clothing/under/hazardjumpsuit_yinglet.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/costume/yinglet/flexsuit
 	name = "flex suit"
@@ -191,7 +191,7 @@
 	name = "yinglet jumpsuit"
 	desc = "a jumpsuit in yinglet size, of yinglet quality craftsmenship"
 	bodytype_equip_flags = BODY_FLAG_YINGLET
-	yinglet_icon = null
+	_yinglet_icon = null
 	icon = 'mods/valsalia/icons/clothing/under/jumpsuit.dmi'
 	color = COLOR_BEIGE
 
