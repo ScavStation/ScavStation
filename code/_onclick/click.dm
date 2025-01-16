@@ -282,10 +282,17 @@
 	return A.CtrlClick(src)
 
 /atom/proc/CtrlClick(var/mob/user)
+	if(loc == user)
+		var/decl/interaction_handler/handler = get_quick_interaction_handler(user)
+		if(handler)
+			var/using_item = user.get_active_held_item() || user.get_usable_hand_slot_organ()
+			if(handler.is_possible(src, user, using_item))
+				return handler.invoked(src, user, using_item)
 	return FALSE
 
 /atom/movable/CtrlClick(var/mob/living/user)
-	return try_make_grab(user, defer_hand = TRUE) || ..()
+	if(!(. = ..()) && loc != user)
+		return try_make_grab(user, defer_hand = TRUE) || ..()
 
 /*
 	Alt click

@@ -46,12 +46,12 @@
 			for(var/chem in other_chems)
 				my_chems[chem] = my_chems[chem] + other_chems[chem]
 
-/decl/material/liquid/blood/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/decl/material/liquid/blood/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
 	var/data = REAGENT_DATA(holder, type)
-	if(!istype(T) || REAGENT_VOLUME(holder, type) < 3)
+	if(!istype(touching_turf) || REAGENT_VOLUME(holder, type) < 3)
 		return
-	var/weakref/W = LAZYACCESS(data, DATA_BLOOD_DONOR)
-	blood_splatter(T, W?.resolve() || holder.my_atom, 1)
+	var/weakref/donor = LAZYACCESS(data, DATA_BLOOD_DONOR)
+	blood_splatter(touching_turf, donor?.resolve() || holder.my_atom, 1)
 
 /decl/material/liquid/blood/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	. = ..()

@@ -40,6 +40,8 @@
 	return FALSE
 
 /obj/item/chems/cooking_vessel/afterattack(var/obj/target, var/mob/user, var/proximity)
+	if(!proximity || istype(target, /obj/machinery/reagent_temperature))
+		return FALSE
 	if(!ATOM_IS_OPEN_CONTAINER(src) || !proximity) //Is the container open & are they next to whatever they're clicking?
 		return FALSE //If not, do nothing.
 	if(target?.storage)

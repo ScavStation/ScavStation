@@ -35,11 +35,11 @@
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/human, update_eyes)), 5 SECONDS)
 	. = ..()
 
-/decl/material/liquid/glowsap/affect_overdose(mob/living/M, total_dose)
+/decl/material/liquid/glowsap/affect_overdose(mob/living/victim, total_dose)
 	. = ..()
-	M.add_chemical_effect(CE_TOXIN, 1)
-	M.set_hallucination(60, 20)
-	SET_STATUS_MAX(M, STAT_DRUGGY, 10)
+	victim.add_chemical_effect(CE_TOXIN, 1)
+	victim.set_hallucination(60, 20)
+	SET_STATUS_MAX(victim, STAT_DRUGGY, 10)
 
 /decl/material/solid/blackpepper
 	name = "black pepper"

@@ -44,9 +44,9 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 	return ..()
 
-/decl/material/liquid/sifsap/affect_overdose(mob/living/M, total_dose)
-	if(M.has_trait(/decl/trait/sivian_biochemistry))
+/decl/material/liquid/sifsap/affect_overdose(mob/living/victim, total_dose)
+	if(victim.has_trait(/decl/trait/sivian_biochemistry))
 		return
-	M.apply_damage(1, IRRADIATE)
-	SET_STATUS_MAX(M, 5, STAT_DROWSY)
+	victim.apply_damage(1, IRRADIATE)
+	SET_STATUS_MAX(victim, 5, STAT_DROWSY)
 	return ..()

@@ -9914,6 +9914,8 @@
 	},
 /obj/structure/table/woodentable,
 /obj/machinery/reagent_temperature,
+/obj/item/chems/cooking_vessel/pot,
+/obj/item/chems/cooking_vessel/skillet,
 /turf/floor/lino,
 /area/ministation/kitchen)
 "Ct" = (

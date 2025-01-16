@@ -797,37 +797,55 @@ var/global/datum/reagents/sink/infinite_reagent_sink = new
 // Options are touch_turf(), touch_mob() and touch_obj(). This does not handle transferring reagents to things.
 // For example, splashing someone with water will get them wet and extinguish them if they are on fire,
 // even if they are wearing an impermeable suit that prevents the reagents from contacting the skin.
-/datum/reagents/proc/touch_mob(var/mob/target)
+
+/datum/reagents/proc/touch_atom(atom/target, touch_atoms = TRUE)
+	if(ismob(target))
+		return touch_mob(target)
+	if(isobj(target))
+		return touch_obj(target)
+	if(isturf(target))
+		return touch_turf(target, touch_atoms)
+	return FALSE
+
+/datum/reagents/proc/touch_mob(mob/target)
 	if(!target || !istype(target) || !target.simulated)
 		return
 	for(var/rtype in reagent_volumes)
 		var/decl/material/current = GET_DECL(rtype)
 		current.touch_mob(target, REAGENT_VOLUME(src, rtype), src)
 
-/datum/reagents/proc/touch_turf(var/turf/target)
-	if(!istype(target) || !target.simulated)
+/datum/reagents/proc/touch_turf(turf/touching_turf, touch_atoms = TRUE)
+
+	if(!istype(touching_turf) || !touching_turf.simulated)
 		return
+
 	for(var/rtype in reagent_volumes)
 		var/decl/material/current = GET_DECL(rtype)
-		current.touch_turf(target, REAGENT_VOLUME(src, rtype), src)
+		current.touch_turf(touching_turf, REAGENT_VOLUME(src, rtype), src)
+
 	var/dirtiness = get_dirtiness()
 	if(dirtiness <= DIRTINESS_CLEAN)
-		target.clean()
-		target.remove_cleanables()
-	if(dirtiness != DIRTINESS_NEUTRAL)
-		if(dirtiness > DIRTINESS_NEUTRAL)
-			target.add_dirt(ceil(total_volume * dirtiness))
-		else
-			if(dirtiness <= DIRTINESS_STERILE)
-				target.germ_level -= min(total_volume*20, target.germ_level)
-				for(var/obj/item/I in target.contents)
-					I.was_bloodied = null
-				for(var/obj/effect/decal/cleanable/blood/B in target)
-					qdel(B)
-			if(dirtiness <= DIRTINESS_CLEAN)
-				target.clean()
+		touching_turf.clean()
+		touching_turf.remove_cleanables()
 
-/datum/reagents/proc/touch_obj(var/obj/target)
+	if(dirtiness > DIRTINESS_NEUTRAL)
+		touching_turf.add_dirt(ceil(total_volume * dirtiness))
+	else if(dirtiness < DIRTINESS_NEUTRAL)
+		if(dirtiness <= DIRTINESS_STERILE)
+			touching_turf.germ_level -= min(total_volume*20, touching_turf.germ_level)
+			for(var/obj/item/I in touching_turf.contents)
+				I.was_bloodied = null
+			for(var/obj/effect/decal/cleanable/blood/B in touching_turf)
+				qdel(B)
+		if(dirtiness <= DIRTINESS_CLEAN)
+			touching_turf.clean()
+
+	if(touch_atoms)
+		for(var/atom/movable/thing in touching_turf.get_contained_external_atoms())
+			if(thing.simulated && !istype(thing, /obj/effect/effect/smoke/chem))
+				touch_atom(thing)
+
+/datum/reagents/proc/touch_obj(obj/target)
 	if(!target || !istype(target) || !target.simulated)
 		return
 	for(var/rtype in reagent_volumes)

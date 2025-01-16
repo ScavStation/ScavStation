@@ -128,16 +128,14 @@
 	..()
 	ADJ_STATUS(M, STAT_CONFUSE, 1.5)
 
-/decl/material/liquid/heartstopper/affect_overdose(mob/living/M, total_dose)
+/decl/material/liquid/heartstopper/affect_overdose(mob/living/victim, total_dose)
 	..()
-	if(ishuman(M))
-		var/mob/living/human/H = M
-		if(H.stat != UNCONSCIOUS)
-			if(H.ticks_since_last_successful_breath >= 10)
-				H.ticks_since_last_successful_breath = max(10, H.ticks_since_last_successful_breath-10)
-			H.take_damage(2, OXY)
-			SET_STATUS_MAX(H, STAT_WEAK, 10)
-		M.add_chemical_effect(CE_NOPULSE, 1)
+	if(victim.stat != UNCONSCIOUS)
+		if(victim.ticks_since_last_successful_breath >= 10)
+			victim.ticks_since_last_successful_breath = max(10, victim.ticks_since_last_successful_breath-10)
+		victim.take_damage(2, OXY)
+		SET_STATUS_MAX(victim, STAT_WEAK, 10)
+	victim.add_chemical_effect(CE_NOPULSE, 1)
 
 /decl/material/liquid/zombiepowder
 	name = "zombie powder"
