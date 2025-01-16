@@ -1,12 +1,12 @@
 /obj/item/clothing/suit/robe
-	yinglet_icon = 'mods/valsalia/icons/clothing/under/robe.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/under/robe.dmi'
 
 /obj/item/clothing/suit/robe/yinglet
 	abstract_type = /obj/item/clothing/suit/robe/yinglet
 	material_alteration = MAT_FLAG_ALTERATION_NONE
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	paint_color = null
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/suit/robe/yinglet/fancy
 	name = "yinglet robe"

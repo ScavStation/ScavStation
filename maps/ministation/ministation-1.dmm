@@ -9914,6 +9914,8 @@
 	},
 /obj/structure/table/woodentable,
 /obj/machinery/reagent_temperature,
+/obj/item/chems/cooking_vessel/pot,
+/obj/item/chems/cooking_vessel/skillet,
 /turf/floor/lino,
 /area/ministation/kitchen)
 "Ct" = (
@@ -12287,7 +12289,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
+/obj/item/gun/projectile/automatic/assault_rifle/grenade/yinglet,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -16699,7 +16701,7 @@
 /obj/item/ammo_magazine/rifle,
 /obj/item/gun/projectile/automatic/assault_rifle/yinglet,
 /obj/item/gun/projectile/automatic/assault_rifle/yinglet,
-/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
+/obj/item/gun/projectile/automatic/assault_rifle/grenade/yinglet,
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "XN" = (

@@ -27,6 +27,8 @@
 
 /obj/item/chems/on_update_icon()
 	. = ..()
+	if(detail_state)
+		add_overlay(overlay_image(icon, "[initial(icon_state)][detail_state]", detail_color || COLOR_WHITE, RESET_COLOR))
 	var/image/contents_overlay = get_reagents_overlay(use_single_icon ? icon_state : null)
 	if(contents_overlay)
 		add_overlay(contents_overlay)
@@ -49,11 +51,6 @@
 		to_chat(usr, SPAN_WARNING("You can't set transfer amounts while \the [src] is being held by someone else."))
 		return TRUE
 	return FALSE
-
-/obj/item/chems/on_update_icon()
-	. = ..()
-	if(detail_state)
-		add_overlay(overlay_image(icon, "[initial(icon_state)][detail_state]", detail_color || COLOR_WHITE, RESET_COLOR))
 
 /obj/item/chems/update_name()
 	. = ..() // handles material, etc

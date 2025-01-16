@@ -360,11 +360,15 @@
 					alert("That is not a valid amount.")
 				else if(authenticated_account && amount > 0)
 					//remove the money
+					// TODO: Jesus Christ why does this entire proc use usr
 					if(authenticated_account.withdraw(amount, "Credit withdrawal", machine_id))
 						playsound(src, 'sound/machines/chime.ogg', 50, 1)
-						var/obj/item/cash/cash = new(get_turf(usr))
-						cash.adjust_worth(amount)
-						usr.put_in_hands(src)
+						var/cash_turf = get_turf(usr)
+						var/obj/item/cash/cash = new(cash_turf, null, amount)
+						if(QDELETED(cash))
+							cash = locate() in cash_turf
+						if(cash)
+							usr.put_in_hands(cash)
 					else
 						to_chat(usr, "[html_icon(src)]<span class='warning'>You don't have enough funds to do that!</span>")
 			if("balance_statement")

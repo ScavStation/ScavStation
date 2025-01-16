@@ -60,9 +60,9 @@
 /mob/living/simple_animal/hostile/revenant/cult/on_defilement()
 	return
 
-/obj/item/mop/Initialize()
+/obj/item/mop/populate_moppable_types()
 	. = ..()
-	moppable_types += /obj/effect/rune
+	moppable_types |= /obj/effect/rune
 
 /obj/effect/gateway/active/can_transform(mob/victim)
 	if(iscultist(victim))

@@ -63,39 +63,36 @@
 	M.slip("\the [src]", 3)
 
 /obj/item/soap/afterattack(atom/target, mob/user, proximity)
-	if(!proximity) return
-	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
-	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
-	var/cleaned = FALSE
-	if(user.client && (target in user.client.screen))
-		to_chat(user, SPAN_NOTICE("You need to take that [target.name] off before cleaning it."))
-	else if(istype(target,/obj/effect/decal/cleanable/blood))
-		to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
-		target.clean() //Blood is a cleanable decal, therefore needs to be accounted for before all cleanable decals.
-		cleaned = TRUE
-	else if(istype(target,/obj/effect/decal/cleanable))
-		to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
-		qdel(target)
-		cleaned = TRUE
-	else if(isturf(target) || istype(target, /obj/structure/catwalk))
-		var/turf/T = get_turf(target)
-		if(!T)
-			return
-		user.visible_message(SPAN_NOTICE("\The [user] starts scrubbing \the [T]."))
-		if(do_after(user, 8 SECONDS, T) && reagents?.total_volume)
-			reagents.splash(T, FLUID_QDEL_POINT)
-			to_chat(user, SPAN_NOTICE("You scrub \the [target] clean."))
-			cleaned = TRUE
-	else if(istype(target,/obj/structure/hygiene/sink))
+
+	if(!proximity)
+		return ..()
+
+	if(istype(target,/obj/structure/hygiene/sink))
 		to_chat(user, SPAN_NOTICE("You wet \the [src] in the sink."))
 		wet()
+		return TRUE
+
+	if(reagents?.total_volume < 1)
+		to_chat(user, SPAN_WARNING("\The [src] is too dry to clean \the [target]."))
+		return TRUE
+
+	if(isturf(target) || istype(target, /obj/structure/catwalk))
+		target = get_turf(target)
+		if(!isturf(target))
+			return ..()
+		user.visible_message(SPAN_NOTICE("\The [user] starts scrubbing \the [target]."))
+		if(!do_after(user, 8 SECONDS, target) && reagents?.total_volume)
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You scrub \the [target] clean."))
+	else if(istype(target,/obj/effect/decal/cleanable))
+		to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
 	else
 		to_chat(user, SPAN_NOTICE("You clean \the [target.name]."))
-		target.clean() //Clean bloodied atoms. Blood decals themselves need to be handled above.
-		cleaned = TRUE
 
-	if(cleaned)
-		user.update_personal_goal(/datum/goal/clean, 1)
+	reagents.touch_atom(target)
+	reagents.remove_any(1)
+	user.update_personal_goal(/datum/goal/clean, 1)
+	return TRUE
 
 //attack_as_weapon
 /obj/item/soap/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)

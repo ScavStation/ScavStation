@@ -20,7 +20,7 @@
 	parent = null
 	return ..()
 
-/datum/reagents/metabolism/proc/metabolize(var/list/dosage_tracker)
+/datum/reagents/metabolism/proc/metabolize(list/dosage_tracker)
 	if(!parent || total_volume < MINIMUM_CHEMICAL_VOLUME || !length(reagent_volumes))
 		return
 	for(var/rtype in reagent_volumes)

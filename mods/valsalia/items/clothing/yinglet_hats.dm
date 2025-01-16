@@ -6,7 +6,7 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	paint_color = COLOR_BEIGE
 	markings_state_modifier = "-detail"
-	yinglet_icon = null
+	_yinglet_icon = null
 
 /obj/item/clothing/head/yinglet/matriarch
 	name = "matriarch hood"
@@ -37,7 +37,7 @@
 	icon = 'mods/valsalia/icons/clothing/head/fancy_hat_yinglet.dmi'
 
 /obj/item/clothing/head/cakehat
-	yinglet_icon = 'mods/valsalia/icons/clothing/head/cakehat.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/head/cakehat.dmi'
 
 /obj/item/clothing/head/cakehat/get_mob_flame_overlay(var/image/overlay, var/bodytype)
 	var/image/I = ..()

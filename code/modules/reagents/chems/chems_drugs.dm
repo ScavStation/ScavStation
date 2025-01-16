@@ -61,9 +61,9 @@
 		LAZYSET(holder.reagent_data, type, world.time)
 		to_chat(M, "<span class='notice'>You feel invigorated and calm.</span>")
 
-/decl/material/liquid/nicotine/affect_overdose(mob/living/M, total_dose)
+/decl/material/liquid/nicotine/affect_overdose(mob/living/victim, total_dose)
 	..()
-	M.add_chemical_effect(CE_PULSE, 2)
+	victim.add_chemical_effect(CE_PULSE, 2)
 
 /decl/material/liquid/sedatives
 	name = "sedatives"
@@ -253,10 +253,9 @@
 	if(istype(M))
 		M.remove_client_color(/datum/client_color/noir/thirdeye)
 
-/decl/material/liquid/glowsap/gleam/affect_overdose(mob/living/M, total_dose)
-	M.take_damage(rand(1, 5), BRAIN)
-	if(ishuman(M) && prob(10))
-		var/mob/living/human/H = M
-		H.seizure()
+/decl/material/liquid/glowsap/gleam/affect_overdose(mob/living/victim, total_dose)
+	victim.take_damage(rand(1, 5), BRAIN)
 	if(prob(10))
-		to_chat(M, SPAN_DANGER("<font size = [rand(2,4)]>[pick(overdose_messages)]</font>"))
+		victim.seizure()
+	if(prob(10))
+		to_chat(victim, SPAN_DANGER("<font size = [rand(2,4)]>[pick(overdose_messages)]</font>"))

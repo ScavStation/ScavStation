@@ -1,5 +1,5 @@
 /obj/item/clothing/shoes/sandal
-	yinglet_icon = 'mods/valsalia/icons/clothing/shoes/sandals.dmi'
+	_yinglet_icon = 'mods/valsalia/icons/clothing/shoes/sandals.dmi'
 
 /obj/item/clothing/shoes/sandal/yinglet
 	name = "small sandals"

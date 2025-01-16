@@ -95,9 +95,9 @@
 	uid = "chem_nutriment_flour"
 	allergen_flags = ALLERGEN_GLUTEN
 
-/decl/material/liquid/nutriment/flour/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/decl/material/liquid/nutriment/flour/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
 	..()
-	new /obj/effect/decal/cleanable/flour(T)
+	new /obj/effect/decal/cleanable/flour(touching_turf)
 
 /decl/material/liquid/nutriment/batter
 	name = "batter"
@@ -114,9 +114,9 @@
 	boiling_point = 373
 	allergen_flags = ALLERGEN_EGG | ALLERGEN_GLUTEN
 
-/decl/material/liquid/nutriment/batter/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/decl/material/liquid/nutriment/batter/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
 	..()
-	new /obj/effect/decal/cleanable/pie_smudge(T)
+	new /obj/effect/decal/cleanable/pie_smudge(touching_turf)
 
 /decl/material/liquid/nutriment/batter/cakebatter
 	name = "cake batter"
