@@ -42,6 +42,7 @@ Twice...
 	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
 	#include "../../mods/valsalia/_valsalia.dme"
+	#include "../../mods/species/drakes/_drakes.dme"
 
 	#include "ministation_antagonists.dm"
 	#include "ministation_areas.dm"

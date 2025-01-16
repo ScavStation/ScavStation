@@ -42,3 +42,22 @@
 	name = "big wig"
 	desc = "A large blonde wig, which is unfortunately too large for a regular human."
 	icon = 'mods/valsalia/icons/clothing/head/wig_big_blonde.dmi'
+
+/* Overrides that I don't know where else to place :-( */
+/decl/loadout_option/clothing/mantle
+	name = "mantle, color select"
+	path = /obj/item/clothing/suit/mantle
+	loadout_flags = GEAR_HAS_COLOR_SELECTION
+	slot = slot_wear_suit_str
+	uid = "gear_clothing_suit_mantle"
+
+/decl/loadout_option/clothing/mantle/fated
+	name = "fated mantle, color select"
+	path = /obj/item/clothing/suit/mantle/fated
+	slot = slot_wear_suit_str
+	uid = "gear_clothing_suit_mantle_fated"
+
+
+
+
+

@@ -53,3 +53,12 @@
 			/datum/job/yinglet/matriarch,
 		)
 	)
+
+	species_to_job_whitelist = list(
+		/decl/species/grafadreka = list(
+			/datum/job/ministation/assistant,
+			/datum/job/ministation/lawyer,
+			/datum/job/ministation/librarian,
+			/datum/job/ministation/tradehouse/rep,
+		)
+	)

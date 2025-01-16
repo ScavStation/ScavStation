@@ -9,12 +9,19 @@
 	mob_size = MOB_SIZE_LARGE
 	base_color = "#c7b8aa"
 	base_eye_color = "#003366"
+
+	eye_darksight_range = 8
+	eye_low_light_vision_effectiveness = 0.3262
+	eye_low_light_vision_threshold = 0.262
+
 	default_sprite_accessories = list(
 		SAC_MARKINGS = list(
-			/decl/sprite_accessory/marking/baxxid        = list(SAM_COLOR = "#d1cab7"),
-			/decl/sprite_accessory/marking/baxxid/bones  = list(SAM_COLOR = "#d1cab7"),
-			/decl/sprite_accessory/marking/baxxid/plates = list(SAM_COLOR = "#d1a170")
-		)
+			/decl/sprite_accessory/marking/baxxid               = list(SAM_COLOR = "#d1cab7"),
+			/decl/sprite_accessory/marking/baxxid/bones         = list(SAM_COLOR = "#d1cab7"),
+			/decl/sprite_accessory/marking/baxxid/blunted_claws = list(SAM_COLOR = "#d1cab7"),
+			/decl/sprite_accessory/marking/baxxid/feet          = list(SAM_COLOR = "#d1cab7"),
+			/decl/sprite_accessory/marking/baxxid/plates        = list(SAM_COLOR = "#d1a170")
+		),
 	)
 	eye_icon = 'mods/valsalia/icons/species/baxxid/eyes.dmi'
 	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR
@@ -88,9 +95,6 @@
 		/decl/natural_attack/bite/strong
 	)
 
-	warning_low_pressure = 50
-	hazard_low_pressure = -1
-
 	shock_vulnerability = 0.05262
 	strength = STR_HIGH
 
@@ -100,12 +104,18 @@
 	thirst_factor = 0.06
 	blood_volume = 655
 
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
+
 	base_external_prosthetics_model = null
 	preview_outfit = /decl/outfit/baxxid
 
 	species_hud = /datum/hud_data/baxxid
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP
 	spawn_flags = SPECIES_CAN_JOIN
+
+	available_accessory_categories = list(
+		SAC_MARKINGS
+	)
 
 	available_background_info = list(
 		/decl/background_category/heritage =  list(
@@ -212,8 +222,10 @@
 				hnnn = uppertext(hnnn) // capitalize if all caps
 			. = "[hnnn][autodrawl(message)]"
 
+#define ALL_ACCESSORY_METADATA list(SAM_COLOR, SAM_COLOR_INNER, SAM_GRADIENT)
+
 /decl/sprite_accessory/marking/baxxid
-	name = "Crest"
+	name = "Spiked Crest"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(SPECIES_BAXXID)
 	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
@@ -221,6 +233,55 @@
 	color_blend = ICON_MULTIPLY
 	mask_to_bodypart = FALSE
 	uid = "marking_baxxid_crest"
+	accessory_metadata_types = ALL_ACCESSORY_METADATA
+
+/decl/sprite_accessory/marking/baxxid/smooth_crest
+	name = "Smooth Crest"
+	body_parts = list(BP_HEAD)
+	species_allowed = list(SPECIES_BAXXID)
+	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
+	icon_state = "smooth_crest"
+	color_blend = ICON_MULTIPLY
+	mask_to_bodypart = FALSE
+	uid = "marking_baxxid_smooth_crest"
+
+/decl/sprite_accessory/marking/baxxid/aftcrest_horns
+	name = "Additional Aftcrest Horns"
+	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
+	icon_state = "aftcrest_horns"
+	color_blend = ICON_MULTIPLY
+	mask_to_bodypart = FALSE
+	uid = "marking_baxxid_aftcrest_horns"
+
+/decl/sprite_accessory/marking/baxxid/forecrest_horns
+	name = "Forecrest Horns"
+	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
+	icon_state = "forecrest_horns"
+	color_blend = ICON_MULTIPLY
+	mask_to_bodypart = FALSE
+	uid = "marking_baxxid_forecrest_horns"
+
+/decl/sprite_accessory/marking/baxxid/tall_forecrest_horns
+	name = "Tall Forecrest Horns"
+	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
+	icon_state = "tall_forecrest_horns"
+	color_blend = ICON_MULTIPLY
+	mask_to_bodypart = FALSE
+	uid = "marking_baxxid_tall_forecrest_horns"
+
+/decl/sprite_accessory/marking/baxxid/aftcrest_pointed_end
+	name = "Aftcraft Pointed End"
+	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
+	icon_state = "aftcrest_pointed_end"
+	color_blend = ICON_MULTIPLY
+	mask_to_bodypart = FALSE
+	uid = "marking_baxxid_aftcrest_pointed_end"
+
+/decl/sprite_accessory/marking/baxxid/aftcrest_hook
+	name = "Aftcrest Hook"
+	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
+	icon_state = "aftcrest_hook"
+	uid = "marking_baxxid_aftcrest_hook"
 
 /decl/sprite_accessory/marking/baxxid/plates
 	name = "Armour Plates"
@@ -232,9 +293,35 @@
 /decl/sprite_accessory/marking/baxxid/bones
 	name = "Bony Segments"
 	body_parts = list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_R_FOOT, BP_L_FOOT)
-	icon_state = "bones"
+	icon_state = "bones_with_arms"
 	mask_to_bodypart = TRUE
 	uid = "marking_baxxid_bones"
+
+/* Extremities */
+
+/decl/sprite_accessory/marking/baxxid/feet
+	name = "Bony Feet"
+	body_parts = list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_R_FOOT, BP_L_FOOT)
+	icon_state = "feet"
+	mask_to_bodypart = FALSE
+	sprite_overlay_layer = 4.075
+	uid = "marking_baxxid_feet"
+
+/decl/sprite_accessory/marking/baxxid/blunted_claws
+	name = "Blunted Claws"
+	body_parts = list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_R_FOOT, BP_L_FOOT)
+	icon_state = "blunted_claws"
+	mask_to_bodypart = FALSE
+	sprite_overlay_layer = 4.075
+	uid = "marking_baxxid_blunted_claws"
+
+/decl/sprite_accessory/marking/baxxid/unblunted_claws
+	name = "Unblunted Claws"
+	body_parts = list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_R_FOOT, BP_L_FOOT)
+	icon_state = "unblunted_claws"
+	mask_to_bodypart = FALSE
+	sprite_overlay_layer = 4.075
+	uid = "marking_baxxid_unblunted_claws"
 
 /datum/hud_data/baxxid
 	inventory_slots = list(
@@ -292,3 +379,21 @@
 /obj/item/organ/external/head/baxxid/do_uninstall(in_place, detach, ignore_children, update_icon)
 	owner?.remove_held_item_slot(BP_MOUTH)
 	. = ..()
+
+/obj/effect/decal/cleanable/blood/tracks/baxxid
+	name = "wet tracks"
+	dryname = "dried tracks"
+	icon = 'mods/valsalia/icons/species/baxxid/tracks.dmi'
+	desc = "They look like streaking, still wet tracks."
+	drydesc = "They look like streaking, dried tracks."
+	coming_state = "coming"
+	going_state  = "going"
+
+
+
+
+
+
+
+
+
