@@ -167,7 +167,7 @@
 		if(!prob(reinf_material.ore_spread_chance))
 			continue
 		var/turf/wall/natural/target_turf = get_step_resolving_mimic(src, trydir)
-		if(!istype(target_turf) || !isnull(target_turf.reinf_material))
+		if(!istype(target_turf) || !isnull(target_turf.reinf_material) || target_turf.ramp_slope_direction)
 			continue
 		target_turf.set_turf_materials(target_turf.material, reinf_material)
 		target_turf.spread_deposit()
