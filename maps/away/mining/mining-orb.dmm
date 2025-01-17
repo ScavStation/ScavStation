@@ -14,10 +14,10 @@
 /turf/unsimulated/mask,
 /area/mine/unexplored)
 "ae" = (
-/turf/floor,
+/turf/floor/barren,
 /area/mine/explored)
 "af" = (
-/turf/floor,
+/turf/floor/barren,
 /area/mine/unexplored)
 "ag" = (
 /turf/wall/natural/random/high_chance,
@@ -250,7 +250,7 @@
 /area/mine/explored)
 "st" = (
 /obj/effect/shuttle_landmark/orb/nav7,
-/turf/floor,
+/turf/floor/barren,
 /area/mine/explored)
 "vc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -277,7 +277,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/turf/floor,
+/turf/floor/barren,
 /area/mine/explored)
 "Aj" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
