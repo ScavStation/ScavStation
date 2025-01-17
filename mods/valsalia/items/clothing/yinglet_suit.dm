@@ -40,5 +40,5 @@
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS|SLOT_TAIL
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
-	yinglet_icon = null
+//	yinglet_icon = null
 	icon = 'mods/valsalia/icons/clothing/suit/quingsuit.dmi'
