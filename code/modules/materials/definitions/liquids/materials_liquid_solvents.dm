@@ -1,6 +1,6 @@
 /decl/material/liquid/acid
-	name = "sulphuric acid"
-	uid = "liquid_sulphuric_acid"
+	name = "sulfuric acid"
+	uid = "liquid_sulfuric_acid"
 	lore_text = "A very corrosive mineral acid with the molecular formula H2SO4."
 	taste_description = "acid"
 	color = "#db5008"
