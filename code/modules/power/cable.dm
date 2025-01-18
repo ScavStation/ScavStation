@@ -238,7 +238,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 // shock the user with probability prb
 /obj/structure/cable/proc/shock(mob/user, prb, var/siemens_coeff = 1.0)
-	if(!prob(prb) || !powernet || !powernet.avail <= 0)
+	if(!prob(prb) || powernet?.avail <= 0)
 		return FALSE
 	if (electrocute_mob(user, powernet, src, siemens_coeff))
 		spark_at(src, amount=5, cardinal_only = TRUE)
