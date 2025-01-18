@@ -32,3 +32,13 @@
 	name = "yinglet fancy clothes"
 	desc = "White shorts and a shirt with a blue scarf made for a yinglet. A fancy outfit for a fancy lad."
 	icon = 'mods/valsalia/icons/clothing/suit/fancy_clothes_yinglet.dmi'
+
+/obj/item/clothing/suit/quingsuit
+	name = "quinglet enviromental suit"
+	desc = "A fully enclosed suit designed to provide a sterile enviroment for the user within"
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_FEET|SLOT_ARMS|SLOT_HANDS|SLOT_TAIL
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+//	yinglet_icon = null
+	icon = 'mods/valsalia/icons/clothing/suit/quingsuit.dmi'

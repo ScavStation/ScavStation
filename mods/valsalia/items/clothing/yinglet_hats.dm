@@ -44,3 +44,12 @@
 	if(I && bodytype == BODYTYPE_YINGLET)
 		I.pixel_y = 3
 	return I
+
+/obj/item/clothing/head/quingsuithood
+	name = "quinglet enviromental hood"
+	desc = "A non-pressurized helmet designed to go along with an accompaning suit."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCK_ALL_HAIR
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
+	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
+	icon = 'mods/valsalia/icons/clothing/head/quingsuit_hood.dmi'

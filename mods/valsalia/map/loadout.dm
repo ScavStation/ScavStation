@@ -121,3 +121,17 @@
 	name = "baxxid headflag, officer"
 	path = /obj/item/clothing/head/baxxid/headflag/officer
 	uid = "gear_clothing_head_baxxid_flag_officer"
+
+/decl/loadout_option/suit/quingsuit
+	name = "Quingsuit"
+	cost = 2
+	path = /obj/item/clothing/suit/quingsuit
+//	loadout_flags = GEAR_HAS_SUBTYPE_SELECTION
+	uid = "gear_clothing_suit_yinglet_quinglet"
+
+/decl/loadout_option/head/quinghood
+	name = "Quinghood"
+	path = /obj/item/clothing/head/quingsuithood
+	cost = 2
+//	loadout_flags = GEAR_HAS_SUBTYPE_SELECTION
+	uid = "gear_clothing_suit_yinglet_quinghood"
