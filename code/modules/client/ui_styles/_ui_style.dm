@@ -27,6 +27,10 @@
 	)
 	/// A subset of UI keys to icon files used to override the above.
 	var/list/override_icons
+	/// A color to reset this UI to on pref selection.
+	var/default_color
+	/// An alpha to reset this UI to on pref selection.
+	var/default_alpha
 
 /decl/ui_style/Initialize()
 	for(var/ui_key in override_icons)

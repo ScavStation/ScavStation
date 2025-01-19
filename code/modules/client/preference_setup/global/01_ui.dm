@@ -102,19 +102,26 @@ var/global/list/valid_icon_sizes = list(32, 48, 64, 96, 128)
 	if(href_list["select_style"])
 		var/decl/ui_style/current_style = GET_DECL(pref.UI_style)
 		var/decl/ui_style/UI_style_new = input(user, "Choose UI style.", CHARACTER_PREFERENCE_INPUT_TITLE, current_style) as null|anything in get_ui_styles()
-		if(!istype(UI_style_new) || !CanUseTopic(user)) return TOPIC_NOACTION
+		if(!istype(UI_style_new) || !CanUseTopic(user))
+			return TOPIC_NOACTION
 		pref.UI_style = UI_style_new.type
+		if(!isnull(UI_style_new.default_color))
+			pref.UI_style_color = UI_style_new.default_color
+		if(!isnull(UI_style_new.default_alpha))
+			pref.UI_style_alpha = UI_style_new.default_alpha
 		. = TOPIC_REFRESH
 
 	else if(href_list["select_color"])
 		var/UI_style_color_new = input(user, "Choose UI color, dark colors are not recommended!", "Global Preference", pref.UI_style_color) as color|null
-		if(isnull(UI_style_color_new) || !CanUseTopic(user)) return TOPIC_NOACTION
+		if(isnull(UI_style_color_new) || !CanUseTopic(user))
+			return TOPIC_NOACTION
 		pref.UI_style_color = UI_style_color_new
 		. = TOPIC_REFRESH
 
 	else if(href_list["select_alpha"])
 		var/UI_style_alpha_new = input(user, "Select UI alpha (transparency) level, between 50 and 255.", "Global Preference", pref.UI_style_alpha) as num|null
-		if(isnull(UI_style_alpha_new) || (UI_style_alpha_new < 50 || UI_style_alpha_new > 255) || !CanUseTopic(user)) return TOPIC_NOACTION
+		if(isnull(UI_style_alpha_new) || (UI_style_alpha_new < 50 || UI_style_alpha_new > 255) || !CanUseTopic(user))
+			return TOPIC_NOACTION
 		pref.UI_style_alpha = UI_style_alpha_new
 		. = TOPIC_REFRESH
 
