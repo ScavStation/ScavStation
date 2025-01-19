@@ -56,3 +56,8 @@
 // Rename wooden prostheses
 /decl/bodytype/prosthetic/wooden
 	name = "carved wooden" // weird to call it 'crude' when it's cutting-edge for the setting
+
+// Just a fun override for when robot debris shows up in maint.
+/obj/effect/decal/cleanable/blood/gibs/robot
+	name = "mysterious debris"
+	desc = "Some kind of complex, oily detritus. What could it be?"
