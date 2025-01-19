@@ -45,9 +45,8 @@
 	cleanable_scent = "industrial lubricant"
 
 /obj/effect/decal/cleanable/blood/oil/Initialize(mapload)
-	if(basecolor)
-		set_color(basecolor)
 	. = ..()
+	update_icon()
 
 /obj/effect/decal/cleanable/blood/oil/dry()
 	return
