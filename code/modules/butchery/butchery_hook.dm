@@ -195,11 +195,13 @@
 	update_icon()
 	if(!tool?.do_tool_interaction(TOOL_KNIFE, user, src, 3 SECONDS, start_message = butchery_string, success_message = butchery_string, check_skill = SKILL_COOKING))
 		return FALSE
-	if(!QDELETED(user) && !QDELETED(last_occupant) && occupant == last_occupant && occupant_state == last_state)
+	if(!QDELETED(user) && !QDELETED(last_occupant) && occupant == last_occupant && occupant_state == last_state && user.get_active_held_item() == tool)
 
 		var/decl/butchery_data/butchery_data = GET_DECL(occupant.butchery_data)
 		if(!butchery_data)
 			return FALSE
+
+		tool.add_blood(occupant)
 
 		switch(next_state)
 			if(CARCASS_SKINNED)
