@@ -67,19 +67,19 @@
 	new_age = max(new_age, min_age) // This will clamp to the max defined age already so only need to min()
 
 	if(new_age == old_age)
-		to_chat(user, SPAN_CULT("You touch the fountain, and feel your memories sifted through by a great presence. Then, it withdraws, leaving you unchanged."))
+		to_chat(user, SPAN_CULT_ANNOUNCE("You touch the fountain, and feel your memories sifted through by a great presence. Then, it withdraws, leaving you unchanged."))
 	else
 		user.set_age(new_age)
 		if(new_age < old_age)
-			to_chat(user, SPAN_CULT("You touch the fountain. Everything stops - then reverses. You relive in an instant the events of your life. The fountain, yesterday's lunch, your first love, your first kiss. It all feels as though it just happened moments ago. Then it feels like it never happened at all. Time reverses back into normality and continues its advance. You feel great, but why are you here?"))
+			to_chat(user, SPAN_CULT_ANNOUNCE("You touch the fountain. Everything stops - then reverses. You relive in an instant the events of your life. The fountain, yesterday's lunch, your first love, your first kiss. It all feels as though it just happened moments ago. Then it feels like it never happened at all. Time reverses back into normality and continues its advance. You feel great, but why are you here?"))
 			user.became_younger = TRUE
 		else
-			to_chat(user, SPAN_CULT("You touch the fountain. All the memories of your life seem to fade into the distant past as seconds drag like years. You feel the inexplicable sensation of your skin tightening and thinning across your entire body as your muscles degrade and your joints weaken. Time returns to its 'normal' pace. You can only just barely remember touching the fountain."))
+			to_chat(user, SPAN_CULT_ANNOUNCE("You touch the fountain. All the memories of your life seem to fade into the distant past as seconds drag like years. You feel the inexplicable sensation of your skin tightening and thinning across your entire body as your muscles degrade and your joints weaken. Time returns to its 'normal' pace. You can only just barely remember touching the fountain."))
 			user.became_older = TRUE
 			SET_HAIR_COLOR(user, COLOR_GRAY80, FALSE)
 			var/max_age = age.standalone_value_descriptors[age.standalone_value_descriptors[length(age.standalone_value_descriptors)]]
 			if(new_age >= max_age)
-				to_chat(user, SPAN_CULT("<b>The burden of the years is too much, and you are reduced to dust.</b>"))
+				to_chat(user, SPAN_CULT_ANNOUNCE("<b>The burden of the years is too much, and you are reduced to dust.</b>"))
 				user.dust()
 
 	used = TRUE

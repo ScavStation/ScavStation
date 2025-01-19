@@ -53,7 +53,7 @@
 	var/stun_chance = 5 //chance per attack to Weaken target
 
 /mob/living/simple_animal/hostile/goat/king/proc/OnDeath()
-	visible_message("<span class='cultannounce'>\The [src] lets loose a terrific wail as its wounds close shut with a flash of light, and its eyes glow even brighter than before!</span>")
+	visible_message(SPAN_CULT_ANNOUNCE("\The [src] lets loose a terrific wail as its wounds close shut with a flash of light, and its eyes glow even brighter than before!"))
 	new /mob/living/simple_animal/hostile/goat/king/phase2(src.loc)
 	qdel(src)
 
@@ -202,7 +202,7 @@
 				current_damtype = ELECTROCUTE
 
 		else if(prob(5)) //earthquake spell
-			visible_message("<span class='cultannounce'>\The [src]' eyes begin to glow ominously as dust and debris in the area is kicked up in a light breeze.</span>")
+			visible_message(SPAN_CULT_ANNOUNCE("\The [src]' eyes begin to glow ominously as dust and debris in the area is kicked up in a light breeze."))
 			ai?.pause()
 			if(do_after(src, 6 SECONDS, src))
 				var/initial_brute = get_damage(BRUTE)
@@ -230,7 +230,7 @@
 	boss_theme = play_looping_sound(src, sound_id, 'sound/music/Visager-Miniboss_Fight.ogg', volume = 10, range = 8, falloff = 4, prefer_mute = TRUE)
 	stun_chance = 10
 	update_icon()
-	visible_message("<span class='cultannounce'>\The [src]' wounds close with a flash, and when he emerges, he's even larger than before!</span>")
+	visible_message(SPAN_CULT_ANNOUNCE("\The [src]' wounds close with a flash, and when he emerges, he's even larger than before!"))
 
 /mob/living/simple_animal/hostile/goat/king/phase2/on_update_icon()
 	..()
