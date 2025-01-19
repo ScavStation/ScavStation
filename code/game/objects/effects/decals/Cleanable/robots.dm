@@ -44,6 +44,11 @@
 	chemical = /decl/material/liquid/lube
 	cleanable_scent = "industrial lubricant"
 
+/obj/effect/decal/cleanable/blood/oil/Initialize(mapload)
+	if(basecolor)
+		set_color(basecolor)
+	. = ..()
+
 /obj/effect/decal/cleanable/blood/oil/dry()
 	return
 
