@@ -116,6 +116,7 @@
 /datum/random_map/noise/forage/get_appropriate_path(value)
 	return
 
+// TODO: /decl system to handle different forage categories.
 /datum/random_map/noise/forage/get_additional_spawns(value, turf/T)
 	if(!istype(T, /turf/floor))
 		return
@@ -126,11 +127,13 @@
 	var/place_type
 
 	if(floor.is_outside())
+
 		if(istype(flooring, /decl/flooring/rock))
 			if(prob(15)) // Static as current map has limited amount of rock turfs
 				var/rock_type = SAFEPICK(forage["rocks"])
 				new rock_type(floor)
 				return
+
 		if(istype(flooring, /decl/flooring/grass))
 			if(prob(parse_value * tree_weight))
 				if(length(trees))
@@ -139,6 +142,7 @@
 				return
 			place_prob = parse_value * forage_weight
 			place_type = SAFEPICK(forage["grass"])
+
 		if(istype(flooring, /decl/flooring/mud))
 			switch(floor.get_fluid_depth())
 				if(FLUID_OVER_MOB_HEAD to FLUID_MAX_DEPTH)
@@ -150,6 +154,15 @@
 				else
 					place_prob = parse_value * forage_weight
 					place_type = SAFEPICK(forage["riverbank"]) // no entries by default, expanded on subtypes
+
+		if(istype(flooring, /decl/flooring/snow))
+			place_prob = parse_value * forage_weight
+			place_type = SAFEPICK(forage["snow"])
+
+		if(istype(flooring, /decl/flooring/dirt))
+			place_prob = parse_value * forage_weight
+			place_type = SAFEPICK(forage["dirt"])
+
 	else
 		if(istype(flooring, /decl/flooring/mud))
 			switch(floor.get_fluid_depth())
