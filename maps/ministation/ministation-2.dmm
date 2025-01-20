@@ -2694,7 +2694,7 @@
 "js" = (
 /obj/structure/table,
 /obj/item/chems/glass/beaker/large,
-/obj/item/chems/glass/beaker/sulphuric,
+/obj/item/chems/glass/beaker/sulfuric,
 /obj/item/chems/dropper,
 /obj/effect/floor_decal/corner/purple{
 	dir = 8

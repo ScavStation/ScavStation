@@ -181,7 +181,6 @@
 
 	initialize_level_id()
 	SSmapping.register_level_data(src)
-	setup_ambient()
 	setup_exterior_atmosphere()
 	if(SSmapping.initialized && !defer_level_setup)
 		setup_level_data()
@@ -233,6 +232,7 @@
 	if(!skip_gen)
 		generate_level()
 	after_generate_level()
+	setup_ambient()
 
 	// Determine our relative positioning.
 	// First find an appropriate origin point.
@@ -720,6 +720,12 @@ INITIALIZE_IMMEDIATE(/obj/abstract/level_data_spawner)
 	level_flags = (ZLEVEL_CONTACT|ZLEVEL_PLAYER|ZLEVEL_SEALED)
 	filler_turf = /turf/unsimulated/dark_filler
 
+// Used in order to avoid making the level too large. Only works if loaded prior to SSmapping init... it's unclear if this really does much.
+/datum/level_data/unit_test/after_template_load(var/datum/map_template/template)
+	. = ..()
+	level_max_width ||= template.width
+	level_max_height ||= template.height
+
 /datum/level_data/overmap
 	name = "Sensor Display"
 	level_flags = ZLEVEL_SEALED
@@ -736,7 +742,8 @@ INITIALIZE_IMMEDIATE(/obj/abstract/level_data_spawner)
 	return ..()
 
 /datum/level_data/mining_level/asteroid
-	base_turf = /turf/floor
+	base_turf = /turf/floor/barren
+	filler_turf = /turf/space
 	level_generators = list(
 		/datum/random_map/automata/cave_system,
 		/datum/random_map/noise/ore
@@ -832,9 +839,6 @@ INITIALIZE_IMMEDIATE(/obj/abstract/level_data_spawner)
 /datum/level_data/proc/load_subtemplate(turf/central_turf, datum/map_template/template)
 	if(!template)
 		return FALSE
-	for(var/turf/T in template.get_affected_turfs(central_turf, TRUE))
-		for(var/mob/living/simple_animal/monster in T)
-			qdel(monster)
 	template.load(central_turf, centered = TRUE)
 	return TRUE
 

@@ -57,10 +57,10 @@
 	add_to_reagents(/decl/material/liquid/cleaner/soap, SOAP_CLEANER_ON_WET)
 
 /obj/item/soap/Crossed(atom/movable/AM)
-	if(!isliving(AM))
-		return
-	var/mob/living/M = AM
-	M.slip("\the [src]", 3)
+	var/mob/living/victim = AM
+	if(istype(victim))
+		victim.slip("\the [src]", 3)
+	return ..()
 
 /obj/item/soap/afterattack(atom/target, mob/user, proximity)
 

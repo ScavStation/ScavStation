@@ -2028,6 +2028,9 @@
 /area/ship/trade/fore_port_underside_maint)
 "OY" = (
 /obj/structure/junkpile/mapped,
+/obj/item/clothing/head/helmet/space/void/yinglet/matriarch,
+/obj/item/clothing/suit/space/void/yinglet/matriarch,
+/obj/structure/closet,
 /turf/floor/carpet/red,
 /area/ship/trade/enclave)
 "Pa" = (

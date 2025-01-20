@@ -317,11 +317,12 @@
 	add_to_reagents(/decl/material/liquid/alcohol/beer, reagents.maximum_volume)
 
 /obj/structure/reagent_dispensers/acid
-	name             = "sulphuric acid dispenser"
+	name             = "sulfuric acid dispenser"
 	desc             = "A dispenser of acid for industrial processes."
 	icon_state       = "acidtank"
 	amount_dispensed = 10
 	anchored         = TRUE
+	density          = FALSE
 
 /obj/structure/reagent_dispensers/acid/populate_reagents()
 	add_to_reagents(/decl/material/liquid/acid, reagents.maximum_volume)

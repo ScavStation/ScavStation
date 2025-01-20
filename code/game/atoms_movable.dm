@@ -585,3 +585,13 @@
 	if(ATOM_IS_OPEN_CONTAINER(src))
 		return loc?.take_vaporized_reagent(reagent, amount)
 	return null
+
+/atom/movable/immune_to_floor_hazards()
+	return ..() || throwing
+
+// updates pixel offsets, triggers fluids, etc.
+/atom/movable/proc/on_turf_height_change(new_height)
+	if(simulated)
+		reset_offsets()
+		return TRUE
+	return FALSE

@@ -14,12 +14,6 @@
 	traits = list(/decl/trait/malus/intolerance/protein = TRAIT_LEVEL_MINOR)
 
 	primitive_form = "Neaera"
-	unarmed_attacks = list(
-		/decl/natural_attack/stomp,
-		/decl/natural_attack/kick,
-		/decl/natural_attack/punch,
-		/decl/natural_attack/bite
-	)
 
 	description = "The Skrell are a highly advanced race of amphibians hailing from the system known as Qerr'Vallis. Their society is regimented into \
 	five different castes which the Qerr'Katish, or Royal Caste, rules over. Skrell are strict herbivores who are unable to eat large quantities of \
