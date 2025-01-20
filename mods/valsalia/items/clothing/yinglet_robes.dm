@@ -13,6 +13,11 @@
 	desc = "A well made robe tailored for a yinglet."
 	icon = 'mods/valsalia/icons/clothing/suit/fancy_robe_yinglet.dmi'
 
+/obj/item/clothing/suit/robe/yinglet/scholarly
+	name = "scholarly robe"
+	desc = "A white and green robe tailored for a yinglet, often worn by avid book readers."
+	icon = 'mods/valsalia/icons/clothing/under/pekrobe.dmi'
+
 /obj/item/clothing/suit/robe/yinglet/matriarch
 	name = "matriarch robe"
 	desc = "An expensive and well-made garment for the enclave matriarch."
