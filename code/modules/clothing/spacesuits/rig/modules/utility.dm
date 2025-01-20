@@ -456,14 +456,7 @@
 	use_power_cost = 200
 	usable = 1
 	selectable = 0
-	device = /obj/item/paper_bin
-
-/obj/item/rig_module/device/paperdispenser/engage(atom/target)
-	if(!..() || !device)
-		return FALSE
-	if(!target)
-		device.attack_hand_with_interaction_checks(holder.wearer)
-		return TRUE
+	device = /obj/item/form_printer
 
 /obj/item/rig_module/device/pen
 	name = "mounted pen"

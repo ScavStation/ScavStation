@@ -36,8 +36,6 @@
 	// Mechanical concerns.
 	var/plant_health = 0       // Plant health.
 	var/lastproduce = 0        // Last time tray was harvested
-	var/lastcycle = 0          // Cycle timing/tracking var.
-	var/cycledelay = 150       // Delay per cycle.
 	var/closed_system          // If set, the tray will attempt to take atmos from a pipe.
 	var/force_update           // Set this to bypass the cycle time check.
 	var/obj/temp_chem_holder   // Something to hold reagents during process_reagents()
@@ -328,7 +326,6 @@
 		return //Weed does not exist, someone fucked up.
 
 	age = 0
-	lastcycle = world.time
 	harvest = 0
 	weedlevel = 0
 	pestlevel = 0
@@ -397,7 +394,6 @@
 	set_seed(SSplants.seeds[newseed])
 	mutate(1)
 	plant_health = seed.get_trait(TRAIT_ENDURANCE) // re-run in case mutation changed our endurance
-	lastcycle = world.time
 
 	update_icon()
 	visible_message("<span class='danger'>The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!</span>")
@@ -556,7 +552,6 @@
 	//Snowflakey, maybe move this to the seed datum
 	// re-running to adjust based on planting method
 	plant_health = (istype(S, /obj/item/seeds/extracted/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
-	lastcycle = world.time
 
 	var/needed_skill = seed.mysterious ? SKILL_ADEPT : SKILL_BASIC
 	if(prob(user.skill_fail_chance(SKILL_BOTANY, 40, needed_skill)))
@@ -654,7 +649,6 @@
 		age = 1
 		// re-running to adjust for planting method
 		plant_health = (istype(S, /obj/item/seeds/extracted/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
-		lastcycle = world.time
 		check_plant_health()
 	qdel(S)
 

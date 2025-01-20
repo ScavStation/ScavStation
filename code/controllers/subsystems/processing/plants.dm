@@ -1,11 +1,15 @@
-PROCESSING_SUBSYSTEM_DEF(plants)
-	name       = "Plants"
-	priority   = SS_PRIORITY_PLANTS
-	runlevels  = RUNLEVEL_GAME|RUNLEVEL_POSTGAME
-	flags      = SS_BACKGROUND|SS_POST_FIRE_TIMING
-	init_order = SS_INIT_PLANTS
-	wait       = 60
+/datum/proc/process_plants()
+	SHOULD_NOT_SLEEP(TRUE)
+	return PROCESS_KILL
 
+PROCESSING_SUBSYSTEM_DEF(plants)
+	name         = "Plants"
+	priority     = SS_PRIORITY_PLANTS
+	runlevels    = RUNLEVEL_GAME|RUNLEVEL_POSTGAME
+	flags        = SS_BACKGROUND|SS_POST_FIRE_TIMING
+	init_order   = SS_INIT_PLANTS
+	wait         = 1 MINUTE
+	process_proc = TYPE_PROC_REF(/datum, process_plants)
 	/// Stores generated fruit descs.
 	var/list/product_descs         = list()
 	/// All seed data stored here.
