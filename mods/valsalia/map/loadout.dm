@@ -63,7 +63,7 @@
 
 /decl/loadout_option/suit/suitcoat
 	name = "small dress coat"
-	path = /obj/item/clothing/suit/suitcoat/yinglet
+	path = /obj/item/clothing/suit/yinglet/suitcoat
 	cost = 1
 	uid = "gear_clothing_suit_small_dress_coat"
 
