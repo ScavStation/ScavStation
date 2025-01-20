@@ -8,6 +8,12 @@
 	icon = 'mods/valsalia/icons/clothing/suit/green_jacket_yinglet.dmi'
 	_yinglet_icon = null
 
+/obj/item/clothing/suit/suitcoat/yinglet
+	name = "small dress coat"
+	desc = "A small, dark suit jacket for formal occasions. It looks to be fitted for a yinglet."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/suitcoat.dmi'
+
 /obj/item/clothing/suit/jacket/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
