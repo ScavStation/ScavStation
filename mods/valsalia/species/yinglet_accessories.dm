@@ -140,6 +140,12 @@
 	accessory_flags = HAIR_TIEABLE
 	uid = "hair_ying_akoll"
 
+/decl/sprite_accessory/hair/yinglet/flowing
+	name = "Ying Flowing"
+	icon_state = "hair_flowing"
+	accessory_flags = HAIR_TIEABLE
+	uid = "hair_ying_flowing"
+
 /decl/sprite_accessory/hair/yinglet/fonzie
 	name = "Ying Fonzie"
 	icon_state = "hair_fonzie"
