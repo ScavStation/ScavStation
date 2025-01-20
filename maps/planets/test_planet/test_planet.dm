@@ -131,14 +131,14 @@
 	name             = "neutralia surface"
 	level_id         = NEUTRALIA_SURFACE_LEVEL_ID
 	base_area        = /area/exoplanet/neutralia
-	base_turf        = /turf/floor
+	base_turf        = /turf/floor/barren
 	border_filler    = /turf/unsimulated/dark_filler
 
 /datum/level_data/planetoid/neutralia/underground
 	name             = "neutralia underground"
 	level_id         = "neutralia_underground"
 	base_area        = /area/exoplanet/underground/neutralia
-	base_turf        = /turf/floor
+	base_turf        = /turf/floor/barren
 	border_filler    = /turf/unsimulated/mineral
 
 /datum/level_data/planetoid/neutralia/underground/bottom

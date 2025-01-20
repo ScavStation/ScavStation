@@ -7,9 +7,9 @@
 	var/last_layer = layer
 	var/new_layer = get_base_layer()
 	if(isturf(loc))
-		var/turf/T = loc
-		if(T.pixel_z < 0)
-			new_layer = T.layer + 0.25
+		var/turf/my_turf = loc
+		if(my_turf.pixel_z < 0 && !my_turf.get_supporting_platform())
+			new_layer = my_turf.layer + 0.25
 		else if(buckled && buckled.buckle_layer_above)
 			new_layer = buckled.layer + ((buckled.dir == SOUTH) ? -0.01 : 0.01)
 		else if(length(grabbed_by))
@@ -97,8 +97,14 @@
 
 		// Update offsets from loc.
 		var/turf/floor/ext = loc
-		if(istype(ext) && ext.height < 0)
-			new_pixel_z += ext.pixel_z
+		if(istype(ext))
+			var/obj/structure/platform = ext.get_supporting_platform()
+			if(platform)
+				new_pixel_z += platform.pixel_z
+			else if(ext.height < 0)
+				new_pixel_z += ext.pixel_z
+
+		// Check for catwalks/supporting platforms.
 
 		// Update offsets from our buckled atom.
 		if(buckled && buckled.buckle_pixel_shift)

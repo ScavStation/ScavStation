@@ -14,6 +14,10 @@
 	var/last_update_depth
 	var/updating_edge_mask
 
+/atom/movable/fluid_overlay/on_turf_height_change(new_height)
+	update_icon()
+	return TRUE
+
 /atom/movable/fluid_overlay/on_update_icon()
 
 	var/datum/reagents/loc_reagents = loc?.reagents

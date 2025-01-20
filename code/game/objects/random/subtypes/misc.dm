@@ -14,7 +14,7 @@
 		/obj/item/pill_bottle/happy                    = 2,
 		/obj/item/pill_bottle/zoom                     = 2,
 		/obj/item/chems/glass/beaker/vial/random/toxin = 1,
-		/obj/item/chems/glass/beaker/sulphuric         = 1,
+		/obj/item/chems/glass/beaker/sulfuric         = 1,
 		/obj/item/poster                               = 5,
 		/obj/item/butterflyblade                       = 3,
 		/obj/item/butterflyhandle                      = 3,

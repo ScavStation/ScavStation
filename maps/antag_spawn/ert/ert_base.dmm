@@ -1195,10 +1195,6 @@
 /obj/machinery/vending/medical,
 /turf/unsimulated/wall,
 /area/map_template/rescue_base/base)
-"dj" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/space,
-/area/map_template/rescue_base/base)
 "dk" = (
 /obj/machinery/door/airlock/centcom{
 	name = "EVA"
@@ -4269,7 +4265,7 @@ ar
 cH
 ar
 cS
-dj
+bg
 ao
 ao
 bg
@@ -4334,7 +4330,7 @@ ar
 cI
 ar
 cT
-dj
+bg
 ao
 ao
 bg
@@ -4399,7 +4395,7 @@ ar
 ar
 ar
 cU
-dj
+bg
 ao
 ao
 bg
@@ -4464,7 +4460,7 @@ cy
 cJ
 cO
 cV
-dj
+bg
 ao
 ao
 ad

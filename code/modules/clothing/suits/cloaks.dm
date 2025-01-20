@@ -1,15 +1,17 @@
-/obj/item/clothing/suit/cloak // A colorable cloak
-	name = "plain cloak"
-	desc = "A simple, bland cloak."
-	icon = 'icons/clothing/suits/cloaks/_cloak.dmi'
-	w_class = ITEM_SIZE_NORMAL
-	slot_flags = SLOT_OVER_BODY
-	allowed = list(/obj/item/tank/emergency/oxygen)
-	armor = list(ARMOR_MELEE = 0, ARMOR_BULLET = 0, ARMOR_LASER = 0,ARMOR_ENERGY = 0, ARMOR_BOMB = 0, ARMOR_BIO = 0, ARMOR_RAD = 0)
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS|SLOT_LEGS
-	siemens_coefficient = 0.9
-	accessory_slot = ACCESSORY_SLOT_OVER
+// A colorable cloak
+/obj/item/clothing/suit/cloak
+	name                 = "plain cloak"
+	desc                 = "A simple, bland cloak."
+	icon                 = 'icons/clothing/suits/cloaks/_cloak.dmi'
+	w_class              = ITEM_SIZE_NORMAL
+	slot_flags           = SLOT_OVER_BODY
+	allowed              = list(/obj/item/tank/emergency/oxygen)
+	armor                = null
+	body_parts_covered   = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_ARMS|SLOT_LEGS
+	siemens_coefficient  = 0.9
+	accessory_slot       = ACCESSORY_SLOT_OVER
 	accessory_visibility = ACCESSORY_VISIBILITY_ATTACHMENT
+	storage              = /datum/storage/pockets/suit
 
 /obj/item/clothing/suit/cloak/on_update_icon()
 	. = ..()

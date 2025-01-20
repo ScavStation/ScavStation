@@ -694,7 +694,14 @@ default behaviour is:
 /mob/living/proc/has_brain()
 	return TRUE
 
-/mob/living/proc/slip(var/slipped_on, stun_duration = 8)
+// We are jumping, levitating or being thrown.
+/mob/living/immune_to_floor_hazards()
+	. = ..() || is_floating
+
+/mob/living/proc/slip(slipped_on, stun_duration = 8)
+
+	if(immune_to_floor_hazards())
+		return FALSE
 
 	var/decl/species/my_species = get_species()
 	if(my_species?.check_no_slip(src))
