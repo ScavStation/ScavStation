@@ -24,6 +24,10 @@
 	. -= /decl/interaction_handler/drink
 	. -= /decl/interaction_handler/wash_hands
 
+/obj/machinery/portable_atmospherics/hydroponics/soil/get_growth_rate()
+	var/turf/my_turf = get_turf(src)
+	return max(0, my_turf?.get_plant_growth_rate())
+
 /obj/machinery/portable_atmospherics/hydroponics/soil/Initialize()
 
 	. = ..()
@@ -162,7 +166,6 @@
 	dead = 0
 	age = start_mature ? seed.get_trait(TRAIT_MATURATION) : 1
 	plant_health = seed.get_trait(TRAIT_ENDURANCE)
-	lastcycle = world.time
 	if(isnull(default_pixel_y))
 		default_pixel_y = rand(-12,12)
 	if(isnull(default_pixel_y))
@@ -200,3 +203,6 @@
 		if(plant.invisibility == INVISIBILITY_MAXIMUM)
 			plant.set_invisibility(initial(plant.invisibility))
 	. = ..()
+
+/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/get_growth_rate()
+	return max(..(), 1)

@@ -256,16 +256,15 @@
 
 	var/growth_rate = 1
 	var/turf/current_turf = isturf(holder) ? holder : get_turf(holder)
-	if(istype(holder) && !holder.mechanical && current_turf)
-		growth_rate = current_turf.get_plant_growth_rate()
+	if(istype(holder))
+		growth_rate = holder.get_growth_rate()
 
 	var/health_change = 0
 	// Handle gas consumption.
 	if(consume_gasses && consume_gasses.len)
 		var/missing_gas = 0
 		for(var/gas in consume_gasses)
-			if(environment && environment.gas && environment.gas[gas] && \
-			 environment.gas[gas] >= consume_gasses[gas])
+			if(LAZYACCESS(environment?.gas, gas) >= consume_gasses[gas])
 				if(!check_only)
 					environment.adjust_gas(gas,-consume_gasses[gas],1)
 			else
