@@ -36,6 +36,13 @@
 	description = "A voluminous ball gown made for those prone to have intense intrusive day dreams that parts of the daydream become real. So-so pretty but it looks difficult to run in."
 	uid = "gear_clothing_under_yinglet_ballgown"
 
+/decl/loadout_option/uniform/scholarly
+	name = "scholarly robe"
+	path = /obj/item/clothing/suit/robe/yinglet/scholarly
+	cost = 1
+	description = "An exquistely crafted white and green robe with small bits of yellow. Usually worn by avid book readers."
+	uid = "gear_clothing_under_scholarly_robe"
+
 /decl/loadout_option/scav_medical_belt
 	name = "medical belt"
 	path = /obj/item/belt/medical
@@ -53,6 +60,12 @@
 	path = /obj/item/clothing/suit/toggle/labcoat/yinglet
 	cost = 2
 	uid = "gear_clothing_suit_yinglet_labcoat"
+
+/decl/loadout_option/suit/suitcoat
+	name = "small dress coat"
+	path = /obj/item/clothing/suit/suitcoat/yinglet
+	cost = 1
+	uid = "gear_clothing_suit_small_dress_coat"
 
 /decl/loadout_option/eyes/yinggoggles
 	name = "yinglet goggles"
