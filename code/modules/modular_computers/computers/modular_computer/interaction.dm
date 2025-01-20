@@ -85,23 +85,22 @@
 		return TRUE
 	. = ..()
 
-/obj/item/modular_computer/attackby(var/obj/item/W, var/mob/user)
+/obj/item/modular_computer/attackby(var/obj/item/used_item, var/mob/user)
+
 	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)
-	. = assembly.attackby(W, user)
-	if(.)
+	if(assembly?.attackby(used_item, user))
 		update_verbs()
 		return TRUE
 
-	if(IS_PEN(W) && (W.w_class <= ITEM_SIZE_TINY) && stores_pen)
+	if(IS_PEN(used_item) && (used_item.w_class <= ITEM_SIZE_TINY) && stores_pen)
 		if(istype(stored_pen))
-			to_chat(user, "<span class='notice'>There is already a pen in [src].</span>")
-			return TRUE
-		if(!user.try_unequip(W, src))
-			return TRUE
-		stored_pen = W
-		update_verbs()
-		to_chat(user, "<span class='notice'>You insert [W] into [src].</span>")
+			to_chat(user, SPAN_NOTICE("There is already \a [stored_pen] in \the [src]."))
+		else if(user.try_unequip(used_item, src))
+			stored_pen = used_item
+			update_verbs()
+			to_chat(user, SPAN_NOTICE("You insert \the [used_item] into [src].</span>"))
 		return TRUE
+
 	return ..()
 
 /obj/item/modular_computer/examine(mob/user)
