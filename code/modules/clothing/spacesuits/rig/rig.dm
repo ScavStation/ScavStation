@@ -264,7 +264,7 @@
 			wearer.visible_message(
 				SPAN_HARDSUIT("[wearer]'s suit emits a quiet hum as it begins to adjust its seals."),
 				SPAN_HARDSUIT("With a quiet hum, the suit begins running checks and adjusting components."))
-			if(seal_delay && !do_after(wearer,seal_delay, src))
+			if(seal_delay && !do_after(wearer, seal_delay, src))
 				if(wearer) to_chat(wearer, "<span class='warning'>You must remain still while the suit is adjusting the components.</span>")
 				failed_to_seal = 1
 
@@ -299,7 +299,7 @@
 				var/obj/item/compare_piece = piece_data[2]
 				var/msg_type = piece_data[3]
 
-				if(!piece)
+				if(!piece || !compare_piece)
 					continue
 
 				if(!istype(wearer) || !istype(piece) || !istype(compare_piece) || !msg_type)
