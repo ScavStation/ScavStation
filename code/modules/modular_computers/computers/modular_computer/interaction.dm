@@ -98,7 +98,7 @@
 		else if(user.try_unequip(used_item, src))
 			stored_pen = used_item
 			update_verbs()
-			to_chat(user, SPAN_NOTICE("You insert \the [used_item] into [src].</span>"))
+			to_chat(user, SPAN_NOTICE("You insert \the [used_item] into [src]."))
 		return TRUE
 
 	return ..()

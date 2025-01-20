@@ -2,6 +2,7 @@
 	name = "embedded augment"
 	desc = "An embedded augment."
 	icon = 'icons/obj/augment.dmi'
+	w_class = ITEM_SIZE_TINY // Need to be tiny to fit inside limbs.
 	//By default these fit on both flesh and robotic organs and are robotic
 	organ_properties = ORGAN_PROP_PROSTHETIC
 	default_action_type = /datum/action/item_action/organ/augment
