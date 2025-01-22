@@ -60,7 +60,7 @@
 				additional_value += (25 * total_coverage)
 
 	if(item_flags)
-		for(var/flag in list(ITEM_FLAG_PADDED, ITEM_FLAG_NOSLIP, ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT, ITEM_FLAG_SILENT, ITEM_FLAG_NOCUFFS))
+		for(var/flag in list(ITEM_FLAG_PADDED, ITEM_FLAG_NOSLIP, ITEM_FLAG_MAGNETISED, ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT, ITEM_FLAG_SILENT, ITEM_FLAG_NOCUFFS))
 			if(item_flags & flag)
 				additional_value += 15
 

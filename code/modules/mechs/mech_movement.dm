@@ -135,13 +135,13 @@
 			return MOVEMENT_STOP
 	return MOVEMENT_PROCEED
 
-/mob/living/exosuit/Check_Shoegrip()//mechs are always magbooting
-	return TRUE
+/mob/living/exosuit/can_slip(magboots_only = FALSE) //mechs are always magbooting
+	return FALSE
 
 /mob/living/exosuit/Process_Spacemove(allow_movement)
 	//Regardless of modules, emp prevents control
 
-	if(has_gravity() || throwing || !isturf(loc) || length(grabbed_by) || check_space_footing() || locate(/obj/structure/lattice) in range(1, get_turf(src)))
+	if(has_gravity() || throwing || !isturf(loc) || length(grabbed_by) || !can_slip(magboots_only = TRUE) || locate(/obj/structure/lattice) in range(1, get_turf(src)))
 		anchored = TRUE
 		return TRUE
 
@@ -151,14 +151,6 @@
 
 	anchored = FALSE
 	return FALSE
-
-/mob/living/exosuit/check_space_footing() //mechs can't push off things to move around in space, they stick to hull or float away
-	if(has_gravity())
-		return TRUE
-	for(var/thing in RANGE_TURFS(src, 1))
-		var/turf/T = thing
-		if(T.density || T.is_wall() || T.is_floor())
-			return T
 
 /mob/living/exosuit/space_do_move(allow_move)
 	if(allow_move == 1)

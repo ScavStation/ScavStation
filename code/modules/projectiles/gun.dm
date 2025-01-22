@@ -410,12 +410,11 @@
 				for(var/obj/item/rig_module/stealth_field/S in rig.installed_modules)
 					S.deactivate()
 
-		if(space_recoil)
-			if(!user.check_space_footing())
-				var/old_dir = user.dir
-				user.inertia_ignore = projectile
-				step(user,get_dir(target,user))
-				user.set_dir(old_dir)
+		if(space_recoil && user.can_slip(magboots_only = TRUE))
+			var/old_dir = user.dir
+			user.inertia_ignore = projectile
+			step(user,get_dir(target,user))
+			user.set_dir(old_dir)
 
 	update_icon()
 

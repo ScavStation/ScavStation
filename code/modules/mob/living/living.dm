@@ -699,26 +699,12 @@ default behaviour is:
 	. = ..() || is_floating
 
 /mob/living/proc/slip(slipped_on, stun_duration = 8)
-
-	if(immune_to_floor_hazards())
-		return FALSE
-
-	var/decl/species/my_species = get_species()
-	if(my_species?.check_no_slip(src))
-		return FALSE
-
-	var/obj/item/shoes = get_equipped_item(slot_shoes_str)
-	if(shoes && (shoes.item_flags & ITEM_FLAG_NOSLIP))
-		return FALSE
-
-	if(has_gravity() && !buckled && !current_posture?.prone)
+	if(can_slip())
 		to_chat(src, SPAN_DANGER("You slipped on [slipped_on]!"))
 		playsound(loc, 'sound/misc/slip.ogg', 50, 1, -3)
 		SET_STATUS_MAX(src, STAT_WEAK, stun_duration)
 		return TRUE
-
 	return FALSE
-
 
 /mob/living/human/canUnEquip(obj/item/I)
 	. = ..() && !(I in get_organs())

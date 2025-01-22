@@ -129,7 +129,7 @@
 		if(!AM.anchored && !AM.has_gravity())
 			if(ismob(AM))
 				var/mob/M = AM
-				if(M.check_space_footing())
+				if(!M.can_slip(magboots_only = TRUE))
 					return
 			var/old_dir = AM.dir
 			step(AM,get_dir(firer,AM))

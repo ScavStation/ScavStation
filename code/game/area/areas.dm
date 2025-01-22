@@ -414,7 +414,7 @@ var/global/list/mob/living/forced_ambiance_list = new
 	if(isspaceturf(get_turf(mob))) // Can't fall onto nothing.
 		return
 
-	if(mob.Check_Shoegrip())
+	if(!mob.can_slip(magboots_only = TRUE))
 		return
 
 	if(ishuman(mob))

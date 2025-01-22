@@ -135,12 +135,10 @@
 
 	return mob.SelfMove(direction)
 
-/mob/Process_Spacemove(var/allow_movement)
-	. = ..()
-	if(.)
+/mob/Process_Spacemove(allow_movement)
+	if((. = ..()))
 		return
-
-	var/atom/movable/backup = get_spacemove_backup()
+	var/atom/backup = get_solid_footing()
 	if(backup)
 		if(istype(backup) && allow_movement)
 			return backup
@@ -156,80 +154,32 @@
 	if(ismovable(allow_move))//push off things in space
 		handle_space_pushoff(allow_move, direction)
 		allow_move = -1
-
-	if(allow_move == -1 && handle_spaceslipping())
-		return 0
-
-	return 1
+	return allow_move != -1 || !handle_spaceslipping()
 
 /mob/proc/handle_space_pushoff(var/atom/movable/AM, var/direction)
 	if(AM.anchored)
 		return
-
 	if(ismob(AM))
 		var/mob/M = AM
-		if(M.check_space_footing())
+		if(!M.can_slip(magboots_only = TRUE))
 			return
-
 	AM.inertia_ignore = src
 	if(step(AM, turn(direction, 180)))
-		to_chat(src, "<span class='info'>You push off of [AM] to propel yourself.</span>")
+		to_chat(src, SPAN_INFO("You push off of \the [AM] to propel yourself."))
 		inertia_ignore = AM
-
-/mob/proc/get_spacemove_backup()//rename this
-	var/shoegrip = Check_Shoegrip()
-
-	for(var/thing in RANGE_TURFS(src, 1))//checks for walls or grav turf first
-		var/turf/T = thing
-		if(T.density || T.is_wall() || (T.is_floor() && (shoegrip || T.has_gravity())))
-			return T
-
-	var/obj/item/grab/grab = locate() in src
-	for(var/A in range(1, get_turf(src)))
-		if(istype(A,/atom/movable))
-			var/atom/movable/AM = A
-			if(AM == src || AM == inertia_ignore || !AM.simulated || !AM.mouse_opacity || AM == buckled)	//mouse_opacity is hacky as hell, need better solution
-				continue
-			if(ismob(AM))
-				var/mob/M = AM
-				if(M.buckled)
-					continue
-			if(AM.density || !AM.CanPass(src))
-				if(AM.anchored)
-					return AM
-				if(grab && AM == grab.affecting)
-					continue
-				. = AM
-
-/mob/proc/check_space_footing()	//checks for gravity or maglockable turfs to prevent space related movement
-	if(has_gravity() || anchored || buckled)
-		return 1
-
-	if(Check_Shoegrip())
-		for(var/thing in RANGE_TURFS(src, 1))	//checks for turfs that one can maglock to
-			var/turf/T = thing
-			if(T.density || T.is_wall() || T.is_floor())
-				return 1
-
-	return 0
-
-/mob/proc/Check_Shoegrip()
-	return 0
 
 //return 1 if slipped, 0 otherwise
 /mob/proc/handle_spaceslipping()
 	if(prob(skill_fail_chance(SKILL_EVA, slip_chance(10), SKILL_EXPERT)))
-		to_chat(src, "<span class='warning'>You slipped!</span>")
+		to_chat(src, SPAN_DANGER("You slipped!"))
 		step(src,turn(last_move, pick(45,-45)))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /mob/proc/slip_chance(var/prob_slip = 10)
 	if(stat)
 		return 0
-	if(buckled)
-		return 0
-	if(Check_Shoegrip())
+	if(!can_slip(magboots_only = TRUE))
 		return 0
 	if(MOVING_DELIBERATELY(src))
 		prob_slip *= 0.5

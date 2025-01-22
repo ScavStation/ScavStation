@@ -86,6 +86,7 @@ The latter will result in a linter warning and will not work correctly.
 #define ITEM_FLAG_PADDED                    BITFLAG(13) // When set on gloves, will act like pulling punches in unarmed combat.
 #define ITEM_FLAG_CAN_TAPE                  BITFLAG(14) // Whether the item can be taped onto something using tape
 #define ITEM_FLAG_IS_WEAPON                 BITFLAG(15) // Item is considered a weapon. Currently only used for force-based worth calculation.
+#define ITEM_FLAG_MAGNETISED                BITFLAG(16) // When worn on feet and standing on an appropriate spot, will prevent slipping.
 
 // Flags for pass_flags (/atom/var/pass_flags)
 #define PASS_FLAG_TABLE                     BITFLAG(0)

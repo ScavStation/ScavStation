@@ -638,7 +638,6 @@
 		else if (H.wrapped == W)
 			H.wrapped = null
 
-
 /mob/living/silicon/robot/try_awaken(mob/user)
 	return user?.attempt_hug(src)
 

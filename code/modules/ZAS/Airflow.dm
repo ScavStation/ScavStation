@@ -91,14 +91,7 @@ Contains helper procs for airflow, called by /connection_group.
 	return 1
 
 /mob/AirflowCanMove(n)
-	if(status_flags & GODMODE)
-		return 0
-	if(buckled)
-		return 0
-	var/obj/item/shoes = get_equipped_item(slot_shoes_str)
-	if(istype(shoes) && (shoes.item_flags & ITEM_FLAG_NOSLIP))
-		return 0
-	return 1
+	return can_slip(magboots_only = TRUE)
 
 /atom/movable/Bump(atom/A)
 	if(airflow_speed > 0 && airflow_dest)

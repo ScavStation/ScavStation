@@ -78,8 +78,7 @@
 		if(H.species.species_flags & SPECIES_FLAG_NO_TANGLE)
 			return
 
-		var/obj/item/clothing/shoes/magboots/magboots = H.get_equipped_item(slot_shoes_str)
-		if(victim.loc != loc && istype(magboots) && (magboots.item_flags & ITEM_FLAG_NOSLIP) || H.species.check_no_slip(H))
+		if(victim.loc != loc && victim.can_slip())
 			visible_message("<span class='danger'>Tendrils lash to drag \the [victim] but \the [src] can't pull them across the ground!</span>")
 			return
 

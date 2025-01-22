@@ -460,3 +460,9 @@
 /mob/living/silicon/handle_stance()
 	stance_damage = 0
 	return
+
+/mob/living/silicon/MayMove(mob/mover, is_external)
+	// Disable crawling for robots, as they don't implement prone states/slowdown.
+	if(!is_external && incapacitated())
+		return FALSE
+	return ..()
