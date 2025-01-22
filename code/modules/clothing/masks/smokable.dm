@@ -184,7 +184,7 @@
 /obj/item/clothing/mask/smokable/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	if(target.on_fire)
 		user.do_attack_animation(target)
-		light(SPAN_NOTICE("\The [user] coldly lights the \the [src] with the burning body of \the [target]."))
+		light(SPAN_NOTICE("\The [user] coldly lights \the [src] with the burning body of \the [target]."))
 		return TRUE
 	return ..()
 

@@ -62,7 +62,7 @@
 	if(user == target)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] inhales from \the [src]."),
-			SPAN_NOTICE("You stick the \the [src] in your mouth and press the injection button.")
+			SPAN_NOTICE("You stick \the [src] in your mouth and press the injection button.")
 		)
 	else
 		user.visible_message(
