@@ -164,6 +164,7 @@
 		/obj/effect/decal/cleanable/ash,
 		/obj/effect/decal/cleanable/generic,
 		/obj/effect/decal/cleanable/flour,
+		/obj/effect/decal/cleanable/filth,
 		/obj/effect/decal/cleanable/dirt/visible,
 		/obj/item/remains/robot
 	)
