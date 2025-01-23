@@ -85,20 +85,6 @@ meteor_act
 	// Add inherent armor to the end of list so that protective equipment is checked first
 	. += ..()
 
-/mob/living/human/proc/check_head_coverage()
-	for(var/slot in global.standard_headgear_slots)
-		var/obj/item/clothing/clothes = get_equipped_item(slot)
-		if(istype(clothes) && (clothes.body_parts_covered & SLOT_HEAD))
-			return TRUE
-	return FALSE
-
-//Used to check if they can be fed food/drinks/pills
-/mob/living/human/check_mouth_coverage()
-	for(var/slot in global.standard_headgear_slots)
-		var/obj/item/gear = get_equipped_item(slot)
-		if(istype(gear) && (gear.body_parts_covered & SLOT_FACE) && !(gear.item_flags & ITEM_FLAG_FLEXIBLEMATERIAL))
-			return gear
-
 /mob/living/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 
 	for (var/obj/item/grab/grab as anything in grabbed_by)

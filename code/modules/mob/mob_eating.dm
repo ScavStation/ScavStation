@@ -1,6 +1,15 @@
-// mobs do not have blocked mouths by default
-// overridden in human_defense.dm
+//Used to check if they can be fed food/drinks/pills
 /mob/proc/check_mouth_coverage()
+	return get_covering_head_item(SLOT_FACE)
+
+/mob/proc/check_head_coverage()
+	return !!get_covering_head_item(SLOT_HEAD)
+
+/mob/proc/get_covering_head_item(slot_flags)
+	for(var/slot in global.standard_headgear_slots)
+		var/obj/item/clothes = get_equipped_item(slot)
+		if(istype(clothes) && (clothes.body_parts_covered & slot_flags) && !(clothes.item_flags & ITEM_FLAG_FLEXIBLEMATERIAL))
+			return clothes
 	return null
 
 /mob/proc/get_eaten_transfer_amount(var/default)
