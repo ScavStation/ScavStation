@@ -587,5 +587,5 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 	if((. = ..()))
 		queue_icon_update()
 
-/mob/living/simple_animal/Process_Spacemove(allow_movement)
-	return skip_spacemove ? 1 : ..()
+/mob/living/simple_animal/is_space_movement_permitted(allow_movement = FALSE)
+	return skip_spacemove ? SPACE_MOVE_PERMITTED : ..()

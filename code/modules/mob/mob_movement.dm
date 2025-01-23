@@ -135,34 +135,31 @@
 
 	return mob.SelfMove(direction)
 
-/mob/Process_Spacemove(allow_movement)
+/mob/is_space_movement_permitted(allow_movement = FALSE)
 	if((. = ..()))
 		return
-	var/atom/backup = get_solid_footing()
-	if(backup)
-		if(istype(backup) && allow_movement)
-			return backup
-		return -1
+	var/atom/movable/footing = get_solid_footing()
+	if(footing)
+		if(istype(footing) && allow_movement)
+			return footing
+		return SPACE_MOVE_SUPPORTED
 
-/mob/living/Process_Spacemove(allow_movement)
+/mob/living/is_space_movement_permitted(allow_movement = FALSE)
 	var/obj/item/tank/jetpack/thrust = get_jetpack()
 	if(thrust?.on && (allow_movement || thrust.stabilization_on) && thrust.allow_thrust(0.01, src))
-		return TRUE
-	// This is horrible but short of spawning a jetpack inside the organ than locating
-	// it, I don't really see another viable approach short of a total jetpack refactor.
-	for(var/obj/item/organ/internal/powered/jets/jet in get_internal_organs())
-		if(!jet.is_broken() && jet.active)
-			// Unlike Bay, we don't check or unset inertia_dir here
-			// because the spacedrift subsystem checks the return value of this proc
-			// and unsets inertia_dir if it returns nonzero.
-			return TRUE
+		return SPACE_MOVE_PERMITTED
 	return ..()
 
-/mob/proc/space_do_move(var/allow_move, var/direction)
-	if(ismovable(allow_move))//push off things in space
-		handle_space_pushoff(allow_move, direction)
-		allow_move = -1
-	return allow_move != -1 || !handle_spaceslipping()
+// space_move_result can be:
+// - SPACE_MOVE_FORBIDDEN,
+// - SPACE_MOVE_PERMITTED,
+// - SPACE_MOVE_SUPPORTED (for non-movable atoms),
+// - or an /atom/movable that provides footing.
+/mob/proc/try_space_move(space_move_result, direction)
+	if(ismovable(space_move_result))//push off things in space
+		handle_space_pushoff(space_move_result, direction)
+		space_move_result = SPACE_MOVE_SUPPORTED
+	return space_move_result != SPACE_MOVE_SUPPORTED || !handle_spaceslipping()
 
 /mob/proc/handle_space_pushoff(var/atom/movable/AM, var/direction)
 	if(AM.anchored)
@@ -178,22 +175,31 @@
 
 //return 1 if slipped, 0 otherwise
 /mob/proc/handle_spaceslipping()
-	var/slip_prob = slip_chance(10)
-	world << "handling spaceslipping with prob [slip_prob]!"
-	if(prob(skill_fail_chance(SKILL_EVA, slip_prob, SKILL_EXPERT)))
+	if(prob(skill_fail_chance(SKILL_EVA, get_eva_slip_prob(), SKILL_EXPERT)))
 		to_chat(src, SPAN_DANGER("You slipped!"))
 		step(src,turn(last_move, pick(45,-45)))
 		return TRUE
 	return FALSE
 
-/mob/proc/slip_chance(var/prob_slip = 10)
-	if(current_posture?.prone)
-		return 0
-	if(!can_slip(magboots_only = TRUE))
-		return 0
-	if(MOVING_DELIBERATELY(src))
-		prob_slip *= 0.5
-	return prob_slip
+/mob/proc/get_eva_slip_prob(var/prob_slip = 10)
+	// General slip check.
+	if((has_gravity() || has_magnetised_footing()) && get_solid_footing())
+		. = 0
+	else
+		//Check hands and mod slip
+		for(var/hand_slot in get_held_item_slots())
+			var/datum/inventory_slot/inv_slot = get_inventory_slot_datum(hand_slot)
+			var/obj/item/held = inv_slot?.get_equipped_item()
+			if(!held)
+				prob_slip -= 2
+			else if(held.w_class <= ITEM_SIZE_SMALL)
+				prob_slip -= 1
+		// If we're walking carefully, lower the chance.
+		if(MOVING_DELIBERATELY(src))
+			prob_slip *= 0.5
+		. = prob_slip
+	// Avoid negative probs.
+	. = max(0, .)
 
 #define DO_MOVE(this_dir) var/final_dir = turn(this_dir, -dir2angle(dir)); Move(get_step(mob, final_dir), final_dir);
 

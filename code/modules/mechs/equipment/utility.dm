@@ -603,17 +603,14 @@
 	QDEL_NULL(ion_trail)
 	return ..()
 
-/obj/item/mech_equipment/ionjets/proc/allowSpaceMove()
-	if (!active)
+/obj/item/mech_equipment/ionjets/proc/provides_thrust()
+	if(!active)
 		return FALSE
-
-	var/obj/item/cell/C = owner.get_cell()
-	if (istype(C))
-		if (C.checked_use(movement_power * CELLRATE))
+	var/obj/item/cell/cell = owner?.get_cell()
+	if(istype(cell))
+		if(cell.checked_use(movement_power * CELLRATE))
 			return TRUE
-		else
-			deactivate()
-
+		deactivate()
 	return FALSE
 
 /obj/item/mech_equipment/ionjets/attack_self(mob/user)

@@ -40,7 +40,7 @@
 	var/user_loc = user.loc
 
 	var/drifting = 0
-	if(!user.Process_Spacemove(0) && user.inertia_dir)
+	if(user.is_space_movement_permitted() == SPACE_MOVE_FORBIDDEN && user.inertia_dir)
 		drifting = 1
 
 	var/target_loc = target.loc
@@ -101,7 +101,7 @@
 	var/atom/original_loc = user.loc
 
 	var/drifting = 0
-	if(!user.Process_Spacemove(0) && user.inertia_dir)
+	if(user.is_space_movement_permitted() == SPACE_MOVE_FORBIDDEN && user.inertia_dir)
 		drifting = 1
 
 	var/holding = user.get_active_held_item()

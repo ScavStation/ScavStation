@@ -49,8 +49,8 @@ var/global/list/narsie_list = list()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/effect/narsie/Process_Spacemove(allow_movement)
-	return TRUE
+/obj/effect/narsie/is_space_movement_permitted(allow_movement)
+	return SPACE_MOVE_PERMITTED
 
 // See comment at the top of the file for why this sections of this are commented out.
 /obj/effect/narsie/on_update_icon()

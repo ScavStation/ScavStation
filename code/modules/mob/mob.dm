@@ -1406,7 +1406,8 @@
 		var/obj/item/organ/external/hand = GET_EXTERNAL_ORGAN(src, slot)
 		if(istype(hand) && hand.is_usable())
 			return hand
-/mob/proc/get_solid_footing(turf_only = FALSE)
+
+/mob/proc/get_solid_footing()
 
 	if(!loc)
 		return src // this is a bit weird but we shouldn't slip in nullspace probably
@@ -1416,7 +1417,7 @@
 	if(!istype(my_turf))
 		return my_turf
 
-	if(!my_turf.is_open() && (my_turf.is_wall() || my_turf.is_floor()))
+	if(my_turf.is_wall() || my_turf.is_floor())
 		return my_turf
 
 	// Check for catwalks and lattices.
@@ -1424,7 +1425,7 @@
 	if(platform)
 		return platform
 
-	// Check for magbootable nearby atoms.
+	// Check for supportable nearby atoms.
 	for(var/turf/neighbor in RANGE_TURFS(my_turf, 1))
 		if(neighbor == my_turf)
 			continue
@@ -1435,24 +1436,26 @@
 			return platform
 
 	// Find something we are grabbing onto for support.
-	if(!turf_only)
-		for(var/atom/movable/thing in range(1, my_turf))
-			if(thing == src || thing == inertia_ignore || !thing.simulated || thing == buckled)
+	for(var/atom/movable/thing in range(1, my_turf))
+		if(thing == src || thing == inertia_ignore || !thing.simulated || thing == buckled)
+			continue
+		if(isturf(thing))
+			continue // We checked turfs when using magboots above.
+		else if(ismob(thing))
+			var/mob/victim = thing
+			if(victim.buckled)
 				continue
-			if(ismob(thing))
-				var/mob/victim = thing
-				if(victim.buckled)
-					continue
-			if(!thing.CanPass(src))
-				if(thing.anchored)
-					return thing
-				var/is_being_grabbed = FALSE
-				for(var/obj/item/grab/grab in get_active_grabs())
-					if(thing == grab.affecting)
-						is_being_grabbed = TRUE
-						break
-				if(!is_being_grabbed)
-					. = thing
+		else if(thing.CanPass(src))
+			continue
+		if(thing.anchored)
+			return thing
+		var/is_being_grabbed = FALSE
+		for(var/obj/item/grab/grab in get_active_grabs())
+			if(thing == grab.affecting)
+				is_being_grabbed = TRUE
+				break
+		if(!is_being_grabbed)
+			. = thing
 
 /mob/proc/can_slip(magboots_only = FALSE)
 
@@ -1461,7 +1464,7 @@
 		return FALSE
 
 	// Quick basic checks.
-	if(!simulated || !isturf(loc) || buckled || current_posture?.prone || immune_to_floor_hazards())
+	if(!simulated || !isturf(loc) || buckled || current_posture?.prone || throwing)
 		return FALSE
 
 	// Species flag/proc check.
@@ -1471,8 +1474,8 @@
 	// Check footwear.
 	if(!magboots_only && has_non_slip_footing())
 		return FALSE
-	// We can't magnetise onto a friendly handholding from our buddy.
-	if(has_magnetised_footing() && get_solid_footing(turf_only = TRUE))
+
+	if((has_gravity() || has_magnetised_footing()) && get_solid_footing())
 		return FALSE
 
 	// Slip!

@@ -51,7 +51,7 @@ Contains helper procs for airflow, called by /connection_group.
 	return FALSE
 
 /mob/living/human/handle_airflow_stun()
-	if(!slip_chance())
+	if(!get_eva_slip_prob())
 		to_chat(src, SPAN_NOTICE("Air suddenly rushes past you!"))
 		return FALSE
 	. = ..()
