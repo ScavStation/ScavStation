@@ -17,6 +17,9 @@
 		/decl/move_intent/run/animal
 	)
 
+	// Set to TRUE to ignore slipping while EVA
+	var/skip_spacemove = FALSE
+
 	/// Added to the delay expected from movement decls.
 	var/base_movement_delay = 0
 
@@ -583,3 +586,6 @@ var/global/list/simplemob_icon_bitflag_cache = list()
 /mob/living/simple_animal/set_stat(var/new_stat)
 	if((. = ..()))
 		queue_icon_update()
+
+/mob/living/simple_animal/Process_Spacemove(allow_movement)
+	return skip_spacemove ? 1 : ..()

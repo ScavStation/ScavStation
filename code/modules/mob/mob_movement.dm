@@ -148,6 +148,14 @@
 	var/obj/item/tank/jetpack/thrust = get_jetpack()
 	if(thrust?.on && (allow_movement || thrust.stabilization_on) && thrust.allow_thrust(0.01, src))
 		return TRUE
+	// This is horrible but short of spawning a jetpack inside the organ than locating
+	// it, I don't really see another viable approach short of a total jetpack refactor.
+	for(var/obj/item/organ/internal/powered/jets/jet in get_internal_organs())
+		if(!jet.is_broken() && jet.active)
+			// Unlike Bay, we don't check or unset inertia_dir here
+			// because the spacedrift subsystem checks the return value of this proc
+			// and unsets inertia_dir if it returns nonzero.
+			return TRUE
 	return ..()
 
 /mob/proc/space_do_move(var/allow_move, var/direction)
@@ -170,14 +178,16 @@
 
 //return 1 if slipped, 0 otherwise
 /mob/proc/handle_spaceslipping()
-	if(prob(skill_fail_chance(SKILL_EVA, slip_chance(10), SKILL_EXPERT)))
+	var/slip_prob = slip_chance(10)
+	world << "handling spaceslipping with prob [slip_prob]!"
+	if(prob(skill_fail_chance(SKILL_EVA, slip_prob, SKILL_EXPERT)))
 		to_chat(src, SPAN_DANGER("You slipped!"))
 		step(src,turn(last_move, pick(45,-45)))
 		return TRUE
 	return FALSE
 
 /mob/proc/slip_chance(var/prob_slip = 10)
-	if(stat)
+	if(current_posture?.prone)
 		return 0
 	if(!can_slip(magboots_only = TRUE))
 		return 0
