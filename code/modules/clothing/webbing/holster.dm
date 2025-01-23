@@ -12,25 +12,24 @@
 	. = ..()
 	set_extension(src, /datum/extension/holster, storage, sound_in, sound_out, can_holster)
 
-/obj/item/clothing/webbing/holster/attackby(obj/item/W, mob/user)
-	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
-	if(H.holster(W, user))
+/obj/item/clothing/webbing/holster/attackby(obj/item/used_item, mob/user)
+	var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
+	if(holster.holster(used_item, user))
 		return TRUE
-	else
-		. = ..(W, user)
+	return ..(used_item, user)
 
 /obj/item/clothing/webbing/holster/attack_hand(mob/user)
 	if(!user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
-	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
-	if(H.unholster(user))
+	var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
+	if(holster.unholster(user))
 		return TRUE
 	return ..()
 
 /obj/item/clothing/webbing/holster/examine(mob/user)
 	. = ..(user)
-	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
-	H.examine_holster(user)
+	var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
+	holster.examine_holster(user)
 
 /obj/item/clothing/webbing/holster/on_attached(var/obj/item/clothing/holder, var/mob/user)
 	. = ..()
