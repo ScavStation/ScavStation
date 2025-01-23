@@ -15,7 +15,7 @@
 	var/category = /datum/shuttle
 	var/multiz = 0	//how many multiz levels, starts at 0
 
-	var/ceiling_type = /turf/unsimulated/floor/shuttle_ceiling
+	var/ceiling_type = /turf/floor/shuttle_ceiling
 	var/force_ceiling_on_init = TRUE // Whether or not to force ceilings turfs to be created above on initialization.
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'

@@ -13,7 +13,7 @@
 /turf/unsimulated/floor/rescue_base,
 /area/exoplanet/neutralia)
 "e" = (
-/turf/unsimulated/floor/shuttle_ceiling,
+/turf/floor/shuttle_ceiling,
 /area/exoplanet/neutralia)
 "j" = (
 /obj/abstract/landmark/exoplanet_spawn/large_plant,

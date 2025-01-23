@@ -169,7 +169,7 @@
 	for(var/atom/movable/AM in contents)
 		if(!AM.overmap_can_discard())
 			return FALSE
-	return !pilots.len
+	return LAZYLEN(pilots) <= 0
 
 /mob/living/exosuit/fall_damage()
 	return 175 //Exosuits are big and heavy
