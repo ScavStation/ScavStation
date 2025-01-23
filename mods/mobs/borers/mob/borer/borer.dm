@@ -20,6 +20,22 @@
 	bleed_colour = "#816e12"
 	ai = /datum/mob_controller/borer
 
+	// Defined here to remove relaymove handlers as being
+	// directly in mob contents breaks relaymove spectacularly.
+	movement_handlers = list(
+		/datum/movement_handler/mob/death,
+		/datum/movement_handler/mob/borer_in_host,
+		/datum/movement_handler/mob/conscious,
+		/datum/movement_handler/mob/eye,
+		/datum/movement_handler/mob/delay,
+		/datum/movement_handler/mob/stop_effect,
+		/datum/movement_handler/mob/physically_capable,
+		/datum/movement_handler/mob/physically_restrained,
+		/datum/movement_handler/mob/space,
+		/datum/movement_handler/mob/multiz,
+		/datum/movement_handler/mob/movement
+	)
+
 	var/static/list/chemical_types = list(
 		"anti-trauma" =  /decl/material/liquid/brute_meds,
 		"amphetamines" = /decl/material/liquid/amphetamines,
@@ -41,6 +57,9 @@
 	var/neutered                            // 'borer lite' mode - fewer powers, less hostile to the host.
 	var/mob/living/human/host        // Human host for the brain worm.
 	var/mob/living/captive_brain/host_brain // Used for swapping control of the body back and forth.
+
+/datum/movement_handler/mob/borer_in_host/MayMove(mob/mover, is_external)
+	return ismob(mob.loc) ? MOVEMENT_STOP : MOVEMENT_PROCEED
 
 /datum/mob_controller/borer
 	emote_hear = list("chirrups")
