@@ -1,16 +1,3 @@
-//this proc returns the Siemens coefficient of electrical resistivity for a particular external organ.
-/mob/living/proc/get_siemens_coefficient_organ(var/obj/item/organ/external/def_zone)
-	if (!def_zone)
-		return 1.0
-
-	var/siemens_coefficient = max(get_species()?.get_shock_vulnerability(src), 0)
-	for(var/slot in global.standard_clothing_slots)
-		var/obj/item/clothing/C = get_equipped_item(slot)
-		if(istype(C) && (C.body_parts_covered & def_zone.body_part)) // Is that body part being targeted covered?
-			siemens_coefficient *= C.siemens_coefficient
-
-	return siemens_coefficient
-
 //Electrical shock
 /mob/living/proc/apply_shock(var/shock_damage, var/def_zone, var/base_siemens_coeff = 1.0)
 

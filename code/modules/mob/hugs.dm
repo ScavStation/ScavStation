@@ -46,7 +46,7 @@ var/global/list/_default_hug_messages = list(
 
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
-	if(src != target)
+	if(src != target && client && key && target.client && target.key && !target.incapacitated())
 		update_personal_goal(/datum/goal/achievement/givehug, TRUE)
 		target.update_personal_goal(/datum/goal/achievement/gethug, TRUE)
 

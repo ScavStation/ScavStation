@@ -50,6 +50,7 @@
 	icon = 'mods/mobs/borers/icons/borer_ui.dmi'
 	alpha = 0
 	invisibility = INVISIBILITY_MAXIMUM
+	requires_ui_style = FALSE
 
 /obj/screen/borer/handle_click(mob/user, params)
 	if(!isborer(user))

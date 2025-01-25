@@ -22,6 +22,9 @@
 		UI_ICON_INVENTORY   = 'mods/mobs/dionaea/icons/ui_inventory.dmi'
 	)
 
+/datum/hud/diona_nymph
+	action_intent_type = /obj/screen/intent/diona_nymph
+
 /datum/hud/diona_nymph/get_ui_style_data()
 	return GET_DECL(/decl/ui_style/diona)
 
@@ -36,10 +39,9 @@
 	var/ui_color = get_ui_color()
 	var/ui_alpha = get_ui_alpha()
 
-	action_intent = new /obj/screen/intent/diona_nymph(null, mymob, ui_style, ui_color, ui_alpha, UI_ICON_INTENT)
-	mymob.healths = new /obj/screen/diona_health(      null, mymob, ui_style, ui_color, ui_alpha, UI_ICON_HEALTH)
-	src.other = list()
-	src.adding = list(mymob.healths, action_intent)
+	mymob.healths = new /obj/screen/diona_health(null, mymob, ui_style, ui_color, ui_alpha, UI_ICON_HEALTH)
+	other = list()
+	adding = list(mymob.healths)
 	..()
 
 /obj/screen/diona_health

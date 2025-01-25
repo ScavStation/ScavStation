@@ -44,12 +44,11 @@
 	. = BB
 	BB = null
 	set_dir(pick(global.alldirs)) //spin spent casings
-
 	// Aurora forensics port, gunpowder residue.
 	if(leaves_residue)
 		leave_residue()
-
 	update_icon()
+	update_name()
 
 /obj/item/ammo_casing/Crossed(atom/movable/AM)
 	..()
@@ -118,6 +117,11 @@
 			add_overlay(I)
 	else if(spent_icon && !BB)
 		icon_state = spent_icon
+
+/obj/item/ammo_casing/update_name()
+	. = ..()
+	if(!BB)
+		SetName("spent [name]")
 
 /obj/item/ammo_casing/examine(mob/user)
 	. = ..()
