@@ -53,7 +53,7 @@
 			"[NORTH]" = list(-1, 2),
 			"[EAST]"  = list( 4, 4),
 			"[WEST]"  = list(-4, 4),
-			"[SOUTH]" = list(-1, 2)
+			"[SOUTH]" = list(0, 2)
 		),
 		slot_head_str = list (
 			"[NORTH]" = list( 0, 10),

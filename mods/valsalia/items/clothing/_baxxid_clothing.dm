@@ -56,8 +56,3 @@
 	path = /obj/item/clothing/suit/mantle/fated
 	slot = slot_wear_suit_str
 	uid = "gear_clothing_suit_mantle_fated"
-
-
-
-
-

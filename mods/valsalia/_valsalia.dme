@@ -2,6 +2,7 @@
 #define CONTENT_PACKAGE_VALSALIA
 // BEGIN_INCLUDE
 #include "valsalia.dm"
+#include "overwrites.dm"
 #include "ai\ai_holo.dm"
 #include "items\booze_vend.dm"
 #include "items\chemistry.dm"
