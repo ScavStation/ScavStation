@@ -374,7 +374,7 @@
 					A.overload_lighting(50)
 
 /obj/machinery/ftl_shunt/core/proc/handle_spacefloat(var/mob/living/human/H)
-	if(!H.check_space_footing())
+	if(H.can_slip(magboots_only = TRUE))
 		 //Flip a coin ...
 		to_chat(H, SPAN_WARNING("Being untethered from a ship entering FTL is a bad idea, but you roll the dice..."))
 		if(prob(50))

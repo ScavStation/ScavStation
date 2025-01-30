@@ -1,38 +1,36 @@
 /mob/living/simple_animal/hostile/vagrant
-	name = "creature"
-	desc = "You get the feeling you should run."
-	icon = 'icons/mob/simple_animal/vagrant.dmi'
-	max_health = 60
-	move_intents = list(
+	name                = "creature"
+	desc                = "You get the feeling you should run."
+	icon                = 'icons/mob/simple_animal/vagrant.dmi'
+	max_health          = 60
+	move_intents        = list(
 		/decl/move_intent/walk/animal_fast,
 		/decl/move_intent/run/animal_fast
 	)
-	faction = "vagrant"
-	harm_intent_damage = 3
-	natural_weapon = /obj/item/natural_weapon/bite/weak
-	light_color = "#8a0707"
-	min_gas = null
-	max_gas = null
-	minbodytemp = 0
-	gene_damage = -1
-	pass_flags = PASS_FLAG_TABLE
-	bleed_colour = "#aad9de"
-	nutrition = 100
-	ai = /datum/mob_controller/aggressive/vagrant
+	faction             = "vagrant"
+	harm_intent_damage  = 3
+	natural_weapon      = /obj/item/natural_weapon/bite/weak
+	light_color         = "#8a0707"
+	min_gas             = null
+	max_gas             = null
+	minbodytemp         = 0
+	gene_damage         = -1
+	pass_flags          = PASS_FLAG_TABLE
+	bleed_colour        = "#aad9de"
+	nutrition           = 100
+	ai                  = /datum/mob_controller/aggressive/vagrant
 	base_movement_delay = 2
+	skip_spacemove      = TRUE
 
-	var/cloaked = 0
-	var/mob/living/human/gripping = null
-	var/blood_per_tick = 3
+	var/cloaked         = 0
+	var/blood_per_tick  = 3
 	var/health_per_tick = 0.8
+	var/mob/living/human/gripping
 
 /datum/mob_controller/aggressive/vagrant
 	speak_chance = 0
 	turns_per_wander = 8
 	break_stuff_probability = 0
-
-/mob/living/simple_animal/hostile/vagrant/Process_Spacemove()
-	return 1
 
 /mob/living/simple_animal/hostile/vagrant/bullet_act(var/obj/item/projectile/Proj)
 	var/oldhealth = current_health

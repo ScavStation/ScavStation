@@ -129,7 +129,7 @@
 		if(!AM.anchored && !AM.has_gravity())
 			if(ismob(AM))
 				var/mob/M = AM
-				if(M.check_space_footing())
+				if(!M.can_slip(magboots_only = TRUE))
 					return
 			var/old_dir = AM.dir
 			step(AM,get_dir(firer,AM))
@@ -359,12 +359,12 @@
 /obj/item/projectile/get_autopsy_descriptors()
 	return list(name)
 
-/obj/item/projectile/Process_Spacemove()
+/obj/item/projectile/is_space_movement_permitted(allow_movement = FALSE)
 	//Deletes projectiles that aren't supposed to be in vacuum if they leave pressurised areas
 	if (is_below_sound_pressure(get_turf(src)) && !vacuum_traversal)
 		qdel(src)
 		return
-	return TRUE	//Bullets don't drift in space
+	return SPACE_MOVE_PERMITTED	//Bullets don't drift in space
 
 /obj/item/projectile/proc/fire(angle, atom/direct_target)
 	//If no Angle needs to resolve it from xo/yo!

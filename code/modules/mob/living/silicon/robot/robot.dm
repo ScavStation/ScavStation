@@ -321,7 +321,7 @@
 	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
 	for (var/V in components)
 		var/datum/robot_component/C = components[V]
-		dat += "<b>[C.name]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table><br>"
+		dat += "<b>[C.name]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.burn_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table><br>"
 
 	return dat
 
@@ -453,7 +453,7 @@
 				var/obj/item/robot_parts/robot_component/WC = W
 				if(istype(WC))
 					C.brute_damage = WC.brute_damage
-					C.electronics_damage = WC.burn_damage
+					C.burn_damage = WC.burn_damage
 
 				to_chat(user, "<span class='notice'>You install the [W.name].</span>")
 				return TRUE
@@ -531,7 +531,7 @@
 					var/obj/item/robot_parts/robot_component/I = C.wrapped
 					if(istype(I))
 						I.set_bruteloss(C.brute_damage)
-						I.set_burnloss(C.electronics_damage)
+						I.set_burnloss(C.burn_damage)
 
 					removed_item = I
 					if(C.installed == 1)
@@ -570,7 +570,7 @@
 			C.install()
 			// This means that removing and replacing a power cell will repair the mount.
 			C.brute_damage = 0
-			C.electronics_damage = 0
+			C.burn_damage = 0
 		return TRUE
 	else if(IS_WIRECUTTER(W) || IS_MULTITOOL(W))
 		if (wiresexposed)
@@ -637,7 +637,6 @@
 			return
 		else if (H.wrapped == W)
 			H.wrapped = null
-
 
 /mob/living/silicon/robot/try_awaken(mob/user)
 	return user?.attempt_hug(src)

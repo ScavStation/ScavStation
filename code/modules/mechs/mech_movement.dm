@@ -121,7 +121,7 @@
 
 // Space movement
 /datum/movement_handler/mob/space/exosuit/DoMove(direction, mob/mover, is_external)
-	if(!mob.has_gravity() && (!allow_move || (allow_move == -1 && mob.handle_spaceslipping())))
+	if(!mob.has_gravity() && (last_space_move_result == SPACE_MOVE_FORBIDDEN || (last_space_move_result == SPACE_MOVE_SUPPORTED && mob.handle_spaceslipping())))
 		return MOVEMENT_HANDLED
 	mob.inertia_dir = 0
 
@@ -130,53 +130,46 @@
 		return MOVEMENT_PROCEED
 
 	if(!mob.has_gravity())
-		allow_move = mob.Process_Spacemove(1)
-		if(!allow_move)
+		last_space_move_result = mob.is_space_movement_permitted(allow_movement = TRUE)
+		if(last_space_move_result == SPACE_MOVE_FORBIDDEN)
 			return MOVEMENT_STOP
 	return MOVEMENT_PROCEED
 
-/mob/living/exosuit/Check_Shoegrip()//mechs are always magbooting
+/mob/living/exosuit/has_non_slip_footing()
 	return TRUE
 
-/mob/living/exosuit/Process_Spacemove(allow_movement)
-	//Regardless of modules, emp prevents control
+/mob/living/exosuit/has_magnetised_footing()
+	return TRUE
 
-	if(has_gravity() || throwing || !isturf(loc) || length(grabbed_by) || check_space_footing() || locate(/obj/structure/lattice) in range(1, get_turf(src)))
-		anchored = TRUE
-		return TRUE
-
-	var/obj/item/mech_equipment/ionjets/J = hardpoints[HARDPOINT_BACK]
-	if(istype(J) && ((allow_movement || J.stabilizers) && J.allowSpaceMove()))
-		return TRUE
-
+/mob/living/exosuit/is_space_movement_permitted(allow_movement = FALSE)
+	. = SPACE_MOVE_FORBIDDEN
 	anchored = FALSE
-	return FALSE
+	//Regardless of modules, emp prevents control
+	if(has_gravity() || throwing || !isturf(loc) || length(grabbed_by) || !can_slip(magboots_only = TRUE) || locate(/obj/structure/lattice) in range(1, get_turf(src)))
+		. =  SPACE_MOVE_PERMITTED
+	else
+		var/obj/item/mech_equipment/ionjets/J = hardpoints[HARDPOINT_BACK]
+		if(istype(J) && ((allow_movement || J.stabilizers) && J.provides_thrust()))
+			. = SPACE_MOVE_PERMITTED
+	if(. == SPACE_MOVE_PERMITTED)
+		anchored = TRUE
 
-/mob/living/exosuit/check_space_footing() //mechs can't push off things to move around in space, they stick to hull or float away
-	if(has_gravity())
-		return TRUE
-	for(var/thing in RANGE_TURFS(src, 1))
-		var/turf/T = thing
-		if(T.density || T.is_wall() || T.is_floor())
-			return T
-
-/mob/living/exosuit/space_do_move(allow_move)
-	if(allow_move == 1)
+/mob/living/exosuit/try_space_move(space_move_result, direction)
+	if(space_move_result == SPACE_MOVE_PERMITTED)
 		if(emp_damage >= EMP_MOVE_DISRUPT && prob(25))
 			var/obj/item/mech_equipment/ionjets/J = hardpoints[HARDPOINT_BACK]
-			if(istype(J) && J.allowSpaceMove())
+			if(istype(J) && J.provides_thrust())
 				to_chat(src, SPAN_WARNING("\The [J] misfire, drifting \the [src] off course!"))
 				SetMoveCooldown(15)	//2 seconds of random rando panic drifting
 				step(src, pick(global.alldirs))
-			return 0
-
-	. = ..()
+			return FALSE
+	return ..()
 
 /mob/living/exosuit/overmap_can_discard()
 	for(var/atom/movable/AM in contents)
 		if(!AM.overmap_can_discard())
 			return FALSE
-	return !pilots.len
+	return LAZYLEN(pilots) <= 0
 
 /mob/living/exosuit/fall_damage()
 	return 175 //Exosuits are big and heavy

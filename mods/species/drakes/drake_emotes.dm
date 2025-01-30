@@ -99,12 +99,7 @@
 		return
 
 	var/mob/living/victim = target
-	var/decl/species/species = victim.get_species()
-	if(species?.check_no_slip(victim))
-		return
-
-	var/obj/item/clothing/shoes = victim.get_equipped_item(slot_shoes_str)
-	if(istype(shoes) && (shoes.item_flags & ITEM_FLAG_NOSLIP))
+	if(!victim.can_slip())
 		return
 
 	var/mob/user_mob = user

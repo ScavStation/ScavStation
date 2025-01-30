@@ -1010,4 +1010,4 @@
 	return ATOM_IS_OPEN_CONTAINER(src) && reagents?.total_volume && user.check_has_mouth()
 
 /atom/proc/immune_to_floor_hazards()
-	return !simulated
+	return !simulated || !has_gravity()

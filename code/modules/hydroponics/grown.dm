@@ -183,11 +183,10 @@
 		return
 
 	var/mob/living/M = AM
-	if(M.buckled || MOVING_DELIBERATELY(M))
+	if(MOVING_DELIBERATELY(M))
 		return
 
-	var/obj/item/shoes = M.get_equipped_item(slot_shoes_str)
-	if(shoes && shoes.item_flags & ITEM_FLAG_NOSLIP)
+	if(!M.can_slip() || M.immune_to_floor_hazards())
 		return
 
 	to_chat(M, SPAN_DANGER("You slipped on \the [src]!"))

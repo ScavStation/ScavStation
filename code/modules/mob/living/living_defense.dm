@@ -244,7 +244,7 @@
 	if(anchored || buckled)
 		return 0
 	. = (AM.get_mass()*TT.speed)/(get_mass()*min(AM.throw_speed,2))
-	if(has_gravity() || check_space_footing())
+	if(!can_slip(magboots_only = TRUE))
 		. *= 0.5
 
 /mob/living/proc/try_embed_in_mob(mob/living/user, obj/O, def_zone, embed_damage = 0, dtype = BRUTE, datum/wound/supplied_wound, obj/item/organ/external/affecting, direction)

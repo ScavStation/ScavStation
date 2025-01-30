@@ -241,10 +241,6 @@
 	if(amount && should_be_dead() && stat == DEAD && !QDELETED(src))
 		gib()
 
-//DRONE MOVEMENT.
-/mob/living/silicon/robot/drone/slip_chance(var/prob_slip)
-	return 0
-
 //CONSOLE PROCS
 /mob/living/silicon/robot/drone/proc/law_resync()
 

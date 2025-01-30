@@ -27,30 +27,31 @@
 
 //the king and his court
 /mob/living/simple_animal/hostile/goat/king
-	name = "king of goats"
-	desc = "The oldest and wisest of goats; king of his race, peerless in dignity and power. His golden fleece radiates nobility."
-	icon = 'icons/mob/simple_animal/goat_king.dmi'
-	speak_emote = list("brays in a booming voice")
-	ai = /datum/mob_controller/aggressive/goat/king
-	response_harm = "assaults"
-	max_health = 500
-	mob_size = MOB_SIZE_LARGE
-	mob_bump_flag = HEAVY
-	move_intents = list(
+	name                       = "king of goats"
+	desc                       = "The oldest and wisest of goats; king of his race, peerless in dignity and power. His golden fleece radiates nobility."
+	icon                       = 'icons/mob/simple_animal/goat_king.dmi'
+	speak_emote                = list("brays in a booming voice")
+	ai                         = /datum/mob_controller/aggressive/goat/king
+	response_harm              = "assaults"
+	max_health                 = 500
+	mob_size                   = MOB_SIZE_LARGE
+	mob_bump_flag              = HEAVY
+	move_intents               = list(
 		/decl/move_intent/walk/animal,
 		/decl/move_intent/run/animal
 	)
-	min_gas = null
-	max_gas = null
-	minbodytemp = 0
-	flash_protection = FLASH_PROTECTION_MAJOR
-	natural_weapon = /obj/item/natural_weapon/goatking
-	var/current_damtype = BRUTE
+	min_gas                    = null
+	max_gas                    = null
+	minbodytemp                = 0
+	flash_protection           = FLASH_PROTECTION_MAJOR
+	natural_weapon             = /obj/item/natural_weapon/goatking
+	skip_spacemove             = TRUE
+	var/current_damtype        = BRUTE
+	var/stun_chance            = 5 //chance per attack to Weaken target
 	var/list/elemental_weapons = list(
 		BURN = /obj/item/natural_weapon/goatking/fire,
 		ELECTROCUTE = /obj/item/natural_weapon/goatking/lightning
 	)
-	var/stun_chance = 5 //chance per attack to Weaken target
 
 /mob/living/simple_animal/hostile/goat/king/proc/OnDeath()
 	visible_message(SPAN_CULT_ANNOUNCE("\The [src] lets loose a terrific wail as its wounds close shut with a flash of light, and its eyes glow even brighter than before!"))
@@ -68,9 +69,6 @@
 		SET_STATUS_MAX(target, STAT_WEAK, 0.5)
 		ADJ_STATUS(target, STAT_CONFUSE, 1)
 		visible_message(SPAN_WARNING("\The [target] is bowled over by the impact of [src]'s attack!"))
-
-/mob/living/simple_animal/hostile/goat/king/Process_Spacemove()
-	return 1
 
 /mob/living/simple_animal/hostile/goat/king/get_natural_weapon()
 	if(!(current_damtype in elemental_weapons))

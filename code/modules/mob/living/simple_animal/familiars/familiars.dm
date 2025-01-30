@@ -39,24 +39,22 @@
 */
 
 /mob/living/simple_animal/familiar/pike
-	name = "space pike"
-	desc = "A bigger, more magical cousin of the space carp."
-	icon = 'icons/mob/simple_animal/spaceshark.dmi'
+	name    = "space pike"
+	desc    = "A bigger, more magical cousin of the space carp."
+	icon    = 'icons/mob/simple_animal/spaceshark.dmi'
 	pixel_x = -16
 	offset_overhead_text_x = 16
 
-	speak_emote = list("gnashes")
-	max_health = 100
+	speak_emote    = list("gnashes")
+	max_health     = 100
 	natural_weapon = /obj/item/natural_weapon/bite
-	min_gas = null
+	min_gas        = null
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
-	ai = /datum/mob_controller/familiar_pike
+	ai             = /datum/mob_controller/familiar_pike
+	skip_spacemove = TRUE
 
 /datum/mob_controller/familiar_pike
 	can_escape_buckles = TRUE
-
-/mob/living/simple_animal/familiar/pike/Process_Spacemove()
-	return 1	//No drifting in space for space carp!	//original comments do not steal
 
 /mob/living/simple_animal/familiar/horror
 	name = "horror"
