@@ -187,6 +187,7 @@
 	item_path = /obj/item/clothing/head/helmet/space/void/yinglet/matriarch
 
 /* baxxid! */
+#define BAXIXID_COVERED SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL|SLOT_HANDS|SLOT_FEET
 /obj/item/clothing/suit/space/void/baxxid
 	name = "tubular voidsuit"
 	desc = "A larger, armored voidsuit for usage by a sufficiently tubal lifeform."
@@ -194,6 +195,11 @@
 	icon = 'mods/valsalia/icons/clothing/suit/baxxid_voidsuit.dmi'
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
 	accessory_slot = ACCESSORY_SLOT_OVER
+	body_parts_covered = BAXIXID_COVERED
+	heat_protection = BAXIXID_COVERED
+	cold_protection = BAXIXID_COVERED
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
 
 /obj/item/clothing/head/helmet/space/void/baxxid
 	name = "tubular voidsuit helmet"
@@ -202,6 +208,10 @@
 	icon = 'mods/valsalia/icons/clothing/head/baxxid_voidsuit_helmet.dmi'
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
 	accessory_slot = ACCESSORY_SLOT_OVER
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	body_parts_covered = SLOT_HEAD|SLOT_HANDS
+	slot_flags = SLOT_HEAD|SLOT_HANDS
 
 /obj/item/clothing/head/helmet/space/rig/baxxid_eng
 	icon = 'mods/valsalia/icons/clothing/head/baxxid_hardsuit_helmet.dmi'
@@ -213,9 +223,11 @@
 	bodytype_equip_flags = BODY_FLAG_BAXXID
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/baxxid
 	accessory_slot = ACCESSORY_SLOT_OVER
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL|SLOT_HANDS|SLOT_FEET
-	heat_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL|SLOT_HANDS|SLOT_FEET
-	cold_protection = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS|SLOT_TAIL|SLOT_HANDS|SLOT_FEET
+	body_parts_covered = BAXIXID_COVERED
+	heat_protection = BAXIXID_COVERED
+	cold_protection = BAXIXID_COVERED
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
 
 /obj/item/rig/baxxid_eng
 	name = "tubular engineering hardsuit"
@@ -252,5 +264,4 @@
 			}
 			return 1
 	. = ..()
-
 
