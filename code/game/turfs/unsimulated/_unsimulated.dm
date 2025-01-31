@@ -25,3 +25,9 @@
 
 /turf/unsimulated/get_lumcount(var/minlum = 0, var/maxlum = 1)
 	return 0.8
+
+// For the purposes of spacemove/spacedrift.
+/turf/unsimulated/is_floor()
+	return !density
+/turf/unsimulated/is_wall()
+	return !is_floor()

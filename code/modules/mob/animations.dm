@@ -11,7 +11,7 @@
 		stop_floating()
 		return
 
-	if(check_space_footing())
+	if(!can_slip(magboots_only = TRUE))
 		stop_floating()
 		return
 

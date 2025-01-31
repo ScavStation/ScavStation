@@ -1,4 +1,3 @@
-//Note that despite the use of the NOSLIP flag, magboots are still hardcoded to prevent spaceslipping in Check_Shoegrip().
 /obj/item/clothing/shoes/magboots
 	name = "magboots"
 	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. They're large enough to be worn over other footwear."
@@ -31,12 +30,14 @@
 /obj/item/clothing/shoes/magboots/attack_self(mob/user)
 	if(magpulse)
 		item_flags &= ~ITEM_FLAG_NOSLIP
+		item_flags &= ~ITEM_FLAG_MAGNETISED
 		magpulse = 0
 		set_slowdown()
 		set_base_attack_force(3)
 		to_chat(user, "You disable the mag-pulse traction system.")
 	else
 		item_flags |= ITEM_FLAG_NOSLIP
+		item_flags |= ITEM_FLAG_MAGNETISED
 		magpulse = 1
 		set_slowdown()
 		set_base_attack_force(5)
@@ -115,6 +116,6 @@
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	. = ..()
 	var/state = "disabled"
-	if(item_flags & ITEM_FLAG_NOSLIP)
+	if(item_flags & ITEM_FLAG_MAGNETISED)
 		state = "enabled"
 	to_chat(user, "Its mag-pulse traction system appears to be [state].")

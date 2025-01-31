@@ -62,21 +62,28 @@
 	return (MOVEMENT_PROCEED|MOVEMENT_HANDLED)
 
 /datum/movement_handler/mob/space
-	var/allow_move
+	var/last_space_move_result
+
+// Notes on space movement chain:
+// - owning mob calls MayMove() via normal movement handler chain
+// - MayMove() sets last_space_move_result based on is_space_movement_permitted() (checks for footing, magboots, etc)
+// - last_space_move_result is checked in DoMove() and passed to try_space_move() as a param, which returns TRUE/FALSE
+// - if the original move result was forbidden, or try_space_move() fails, the handler prevents movement.
+// - Otherwise it goes ahead and lets the mob move.
 
 // Space movement
 /datum/movement_handler/mob/space/DoMove(direction, mob/mover, is_external)
 	if(mob.has_gravity() || (IS_NOT_SELF(mover) && is_external))
 		return
-	if(!allow_move || !mob.space_do_move(allow_move, direction))
+	if(last_space_move_result == SPACE_MOVE_FORBIDDEN || !mob.try_space_move(last_space_move_result, direction))
 		return MOVEMENT_HANDLED
 
 /datum/movement_handler/mob/space/MayMove(mob/mover, is_external)
 	if(IS_NOT_SELF(mover) && is_external)
 		return MOVEMENT_PROCEED
 	if(!mob.has_gravity())
-		allow_move = mob.Process_Spacemove(1)
-		if(!allow_move)
+		last_space_move_result = mob.is_space_movement_permitted(allow_movement = TRUE)
+		if(last_space_move_result == SPACE_MOVE_FORBIDDEN)
 			return MOVEMENT_STOP
 	return MOVEMENT_PROCEED
 

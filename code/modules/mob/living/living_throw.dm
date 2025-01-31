@@ -90,7 +90,7 @@
 	//actually throw it!
 	visible_message(SPAN_WARNING(message), range = min(itemsize*2,world.view))
 	lastarea = lastarea || get_area(loc)
-	if(!check_space_footing() && prob((itemsize * itemsize * 10) * MOB_SIZE_MEDIUM/mob_size))
+	if(can_slip(magboots_only = TRUE) && prob((itemsize * itemsize * 10) * MOB_SIZE_MEDIUM/mob_size))
 		var/direction = get_dir(target, src)
 		step(src, direction)
 		space_drift(direction)

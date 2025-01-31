@@ -16,7 +16,10 @@
 		)
 	var/list/module_sprites = list()
 	var/can_be_pushed = 1
-	var/no_slip = 0
+	// Equivalent to shoes with ITEM_FLAG_NOSLIP
+	var/has_nonslip_feet  = FALSE
+	// Equivalent to shoes with ITEM_FLAG_MAGNETIZED
+	var/has_magnetic_feet = FALSE
 	var/obj/item/borg/upgrade/jetpack = null
 	var/list/subsystems = list()
 	var/list/obj/item/borg/upgrade/supported_upgrades = list()
