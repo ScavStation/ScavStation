@@ -412,13 +412,15 @@
 				L.Add(t)
 	return L
 
-/turf/proc/contains_dense_objects()
+/turf/proc/contains_dense_objects(list/exceptions)
 	if(density)
-		return 1
+		return TRUE
 	for(var/atom/A in src)
+		if(exceptions && (exceptions == A || (islist(exceptions) && (A in exceptions))))
+			continue
 		if(A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /turf/proc/remove_cleanables()
 	for(var/obj/effect/decal/cleanable/cleanable in src)

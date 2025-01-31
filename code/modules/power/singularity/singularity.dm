@@ -55,8 +55,8 @@ var/global/list/singularities = list()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/effect/singularity/Process_Spacemove(allow_movement)
-	return TRUE
+/obj/effect/singularity/is_space_movement_permitted(allow_movement = FALSE)
+	return SPACE_MOVE_PERMITTED
 
 /obj/effect/singularity/proc/consume(atom/A)
 	energy += A.singularity_act(src, current_stage.stage_size)

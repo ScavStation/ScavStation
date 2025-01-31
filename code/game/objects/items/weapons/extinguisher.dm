@@ -60,7 +60,7 @@
 		return
 	if(user.buckled && isobj(user.buckled))
 		addtimer(CALLBACK(src, PROC_REF(propel_object), user.buckled, user, get_dir(A, user)), 0)
-	else if(!user.check_space_footing())
+	else if(user.can_slip(magboots_only = TRUE))
 		var/old_dir = user.dir
 		step(user, get_dir(A, user))
 		user.set_dir(old_dir)

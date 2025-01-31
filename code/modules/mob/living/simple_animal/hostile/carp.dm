@@ -3,21 +3,22 @@
 	desc = "A ferocious, fang-bearing creature that resembles a fish."
 	icon = 'icons/mob/simple_animal/space_carp.dmi'
 
-	max_health = 50
-	harm_intent_damage = 8
-	natural_weapon = /obj/item/natural_weapon/bite
+	max_health          = 50
+	harm_intent_damage  = 8
+	natural_weapon      = /obj/item/natural_weapon/bite
 	base_movement_delay = 2
 
 	//Space carp aren't affected by atmos.
-	min_gas = null
-	max_gas = null
-	minbodytemp = 0
-	faction = "carp"
-	bleed_colour = "#5d0d71"
-	pass_flags = PASS_FLAG_TABLE
-	butchery_data = /decl/butchery_data/animal/fish/space_carp
-	ai = /datum/mob_controller/aggressive/carp
+	min_gas          = null
+	max_gas          = null
+	minbodytemp      = 0
+	faction          = "carp"
+	bleed_colour     = "#5d0d71"
+	pass_flags       = PASS_FLAG_TABLE
+	butchery_data    = /decl/butchery_data/animal/fish/space_carp
+	ai               = /datum/mob_controller/aggressive/carp
 	ability_handlers = list(/datum/ability_handler/predator)
+	skip_spacemove   = TRUE
 
 	var/carp_color = COLOR_PURPLE
 
@@ -57,6 +58,3 @@
 		var/image/I = image(icon, "[icon_state]-eyes")
 		I.appearance_flags |= RESET_COLOR
 		add_overlay(I)
-
-/mob/living/simple_animal/hostile/carp/Process_Spacemove()
-	return 1	//No drifting in space for space carp!	//original comments do not steal

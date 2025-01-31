@@ -135,105 +135,71 @@
 
 	return mob.SelfMove(direction)
 
-/mob/Process_Spacemove(var/allow_movement)
-	. = ..()
-	if(.)
+/mob/is_space_movement_permitted(allow_movement = FALSE)
+	if((. = ..()))
 		return
+	var/atom/movable/footing = get_solid_footing()
+	if(footing)
+		if(istype(footing) && allow_movement)
+			return footing
+		return SPACE_MOVE_SUPPORTED
 
-	var/atom/movable/backup = get_spacemove_backup()
-	if(backup)
-		if(istype(backup) && allow_movement)
-			return backup
-		return -1
-
-/mob/living/Process_Spacemove(allow_movement)
+/mob/living/is_space_movement_permitted(allow_movement = FALSE)
 	var/obj/item/tank/jetpack/thrust = get_jetpack()
 	if(thrust?.on && (allow_movement || thrust.stabilization_on) && thrust.allow_thrust(0.01, src))
-		return TRUE
+		return SPACE_MOVE_PERMITTED
 	return ..()
 
-/mob/proc/space_do_move(var/allow_move, var/direction)
-	if(ismovable(allow_move))//push off things in space
-		handle_space_pushoff(allow_move, direction)
-		allow_move = -1
-
-	if(allow_move == -1 && handle_spaceslipping())
-		return 0
-
-	return 1
+// space_move_result can be:
+// - SPACE_MOVE_FORBIDDEN,
+// - SPACE_MOVE_PERMITTED,
+// - SPACE_MOVE_SUPPORTED (for non-movable atoms),
+// - or an /atom/movable that provides footing.
+/mob/proc/try_space_move(space_move_result, direction)
+	if(ismovable(space_move_result))//push off things in space
+		handle_space_pushoff(space_move_result, direction)
+		space_move_result = SPACE_MOVE_SUPPORTED
+	return space_move_result != SPACE_MOVE_SUPPORTED || !handle_spaceslipping()
 
 /mob/proc/handle_space_pushoff(var/atom/movable/AM, var/direction)
 	if(AM.anchored)
 		return
-
 	if(ismob(AM))
 		var/mob/M = AM
-		if(M.check_space_footing())
+		if(!M.can_slip(magboots_only = TRUE))
 			return
-
 	AM.inertia_ignore = src
 	if(step(AM, turn(direction, 180)))
-		to_chat(src, "<span class='info'>You push off of [AM] to propel yourself.</span>")
+		to_chat(src, SPAN_INFO("You push off of \the [AM] to propel yourself."))
 		inertia_ignore = AM
-
-/mob/proc/get_spacemove_backup()//rename this
-	var/shoegrip = Check_Shoegrip()
-
-	for(var/thing in RANGE_TURFS(src, 1))//checks for walls or grav turf first
-		var/turf/T = thing
-		if(T.density || T.is_wall() || (T.is_floor() && (shoegrip || T.has_gravity())))
-			return T
-
-	var/obj/item/grab/grab = locate() in src
-	for(var/A in range(1, get_turf(src)))
-		if(istype(A,/atom/movable))
-			var/atom/movable/AM = A
-			if(AM == src || AM == inertia_ignore || !AM.simulated || !AM.mouse_opacity || AM == buckled)	//mouse_opacity is hacky as hell, need better solution
-				continue
-			if(ismob(AM))
-				var/mob/M = AM
-				if(M.buckled)
-					continue
-			if(AM.density || !AM.CanPass(src))
-				if(AM.anchored)
-					return AM
-				if(grab && AM == grab.affecting)
-					continue
-				. = AM
-
-/mob/proc/check_space_footing()	//checks for gravity or maglockable turfs to prevent space related movement
-	if(has_gravity() || anchored || buckled)
-		return 1
-
-	if(Check_Shoegrip())
-		for(var/thing in RANGE_TURFS(src, 1))	//checks for turfs that one can maglock to
-			var/turf/T = thing
-			if(T.density || T.is_wall() || T.is_floor())
-				return 1
-
-	return 0
-
-/mob/proc/Check_Shoegrip()
-	return 0
 
 //return 1 if slipped, 0 otherwise
 /mob/proc/handle_spaceslipping()
-	if(prob(skill_fail_chance(SKILL_EVA, slip_chance(10), SKILL_EXPERT)))
-		to_chat(src, "<span class='warning'>You slipped!</span>")
+	if(prob(skill_fail_chance(SKILL_EVA, get_eva_slip_prob(), SKILL_EXPERT)))
+		to_chat(src, SPAN_DANGER("You slipped!"))
 		step(src,turn(last_move, pick(45,-45)))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
-/mob/proc/slip_chance(var/prob_slip = 10)
-	if(stat)
-		return 0
-	if(buckled)
-		return 0
-	if(Check_Shoegrip())
-		return 0
-	if(MOVING_DELIBERATELY(src))
-		prob_slip *= 0.5
-	return prob_slip
+/mob/proc/get_eva_slip_prob(var/prob_slip = 10)
+	// General slip check.
+	if((has_gravity() || has_magnetised_footing()) && get_solid_footing())
+		. = 0
+	else
+		//Check hands and mod slip
+		for(var/hand_slot in get_held_item_slots())
+			var/datum/inventory_slot/inv_slot = get_inventory_slot_datum(hand_slot)
+			var/obj/item/held = inv_slot?.get_equipped_item()
+			if(!held)
+				prob_slip -= 2
+			else if(held.w_class <= ITEM_SIZE_SMALL)
+				prob_slip -= 1
+		// If we're walking carefully, lower the chance.
+		if(MOVING_DELIBERATELY(src))
+			prob_slip *= 0.5
+		. = prob_slip
+	// Avoid negative probs.
+	. = max(0, .)
 
 #define DO_MOVE(this_dir) var/final_dir = turn(this_dir, -dir2angle(dir)); Move(get_step(mob, final_dir), final_dir);
 

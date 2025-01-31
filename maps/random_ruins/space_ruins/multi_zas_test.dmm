@@ -13,13 +13,13 @@
 /turf/open,
 /area/template_noop)
 "e" = (
-/turf/unsimulated/floor/shuttle_ceiling,
+/turf/floor/shuttle_ceiling,
 /area/template_noop)
 "f" = (
 /obj/abstract/map_data{
 	height = 3
 	},
-/turf/unsimulated/floor/shuttle_ceiling,
+/turf/floor/shuttle_ceiling,
 /area/template_noop)
 
 (1,1,1) = {"
