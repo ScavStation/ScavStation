@@ -54,6 +54,14 @@
 /turf/floor/plating
 	_base_flooring = /decl/flooring/plating // Setting here so overrides on /turf/floor do not impact explicitly typed plating turfs.
 
+// Dirt plating for Tradeship farms.
+/turf/floor/plating/dirt
+	name = "dirt"
+	icon = 'icons/turf/flooring/dirt.dmi'
+	icon_state = "dirt"
+	color = "#41311b"
+	_flooring = /decl/flooring/dirt
+
 /turf/floor/plating/broken
 	_floor_broken = TRUE
 

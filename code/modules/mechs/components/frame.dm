@@ -197,7 +197,7 @@
 				to_chat(user, SPAN_WARNING("You need at least ten sheets to reinforce \the [src]."))
 				return TRUE
 
-			visible_message("\The [user] begins layering the interior of the \the [src] with \the [M].")
+			visible_message("\The [user] begins layering the interior of \the [src] with \the [M].")
 
 			if(!user.do_skilled(3 SECONDS, SKILL_DEVICES, src) || is_reinforced)
 				return TRUE

@@ -486,3 +486,4 @@
 	taste_mult = 0 //no taste
 	color = "#dcdcdc"
 	value = 0.5
+	melting_point = 3422 CELSIUS

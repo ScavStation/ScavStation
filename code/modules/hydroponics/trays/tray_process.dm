@@ -1,36 +1,28 @@
-/obj/machinery/portable_atmospherics/hydroponics/Process()
+/obj/machinery/portable_atmospherics/hydroponics/proc/get_growth_rate()
+	return 1
 
-	var/growth_rate = 1
-	var/turf/T = get_turf(src)
-	if(istype(T))
-		if(!mechanical)
-			growth_rate = T.get_plant_growth_rate()
+/obj/machinery/portable_atmospherics/hydroponics/process_plants()
 
-		if(!closed_system)
-			var/space_left = reagents ? (reagents.maximum_volume - reagents.total_volume) : 0
-			if(space_left > 0 && reagents.total_volume < 10)
-				// Handle nearby smoke if any.
-				for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
-					if(smoke.reagents.total_volume)
-						smoke.reagents.trans_to_obj(src, 5, copy = 1)
-				// Handle environmental effects like weather and flooding.
-				if(T.reagents?.total_volume)
-					T.reagents.trans_to_obj(src, min(space_left, min(T.reagents.total_volume, rand(5,10))))
-				if(istype(T.weather?.weather_system?.current_state, /decl/state/weather/rain))
-					var/decl/state/weather/rain/rain = T.weather.weather_system.current_state
-					if(rain.is_liquid)
-						reagents.add_reagent(T.weather.water_material, min(space_left, rand(3,5)))
+	var/growth_rate = get_growth_rate()
+	var/turf/my_turf = get_turf(src)
+	if(istype(my_turf) && !closed_system)
+		var/space_left = reagents ? (reagents.maximum_volume - reagents.total_volume) : 0
+		if(space_left > 0 && reagents.total_volume < 10)
+			// Handle nearby smoke if any.
+			for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
+				if(smoke.reagents.total_volume)
+					smoke.reagents.trans_to_obj(src, 5, copy = 1)
+			// Handle environmental effects like weather and flooding.
+			if(my_turf.reagents?.total_volume)
+				my_turf.reagents.trans_to_obj(src, min(space_left, min(my_turf.reagents.total_volume, rand(5,10))))
+			if(istype(my_turf.weather?.weather_system?.current_state, /decl/state/weather/rain))
+				var/decl/state/weather/rain/rain = my_turf.weather.weather_system.current_state
+				if(rain.is_liquid)
+					reagents.add_reagent(my_turf.weather.water_material, min(space_left, rand(3,5)))
 
 	//Do this even if we're not ready for a plant cycle.
 	process_reagents()
 	var/needs_icon_update = 0
-
-	// Update values every cycle rather than every process() tick.
-	if(force_update)
-		force_update = 0
-	else if(world.time < (lastcycle + cycledelay))
-		return
-	lastcycle = world.time
 
 	// Mutation level drops each main tick.
 	mutation_level -= rand(2,4)
@@ -94,7 +86,7 @@
 	if(closed_system && (get_port() || holding))
 		environment = air_contents
 	// If atmos input is not there, grab from turf.
-	if(!environment && istype(T)) environment = T.return_air()
+	if(!environment && istype(my_turf)) environment = my_turf.return_air()
 	if(!environment) return
 
 	// Seed datum handles gasses, light and pressure.
@@ -148,9 +140,9 @@
 	if(!closed_system && \
 	 seed.get_trait(TRAIT_SPREAD) == 2 && \
 	 2 * age >= seed.get_trait(TRAIT_MATURATION) && \
-	 !(locate(/obj/effect/vine) in T) && \
+	 !(locate(/obj/effect/vine) in my_turf) && \
 	 prob(2 * seed.get_trait(TRAIT_POTENCY)))
-		new /obj/effect/vine(T, seed)
+		new /obj/effect/vine(my_turf, seed)
 
 	if(prob(3))  // On each tick, there's a chance the pest population will increase
 		pestlevel += 0.1 * growth_rate

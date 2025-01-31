@@ -50,7 +50,6 @@
 #include "slime\slime_commands.dm"
 #include "slime\slime_comments.dm"
 #include "slime\slime_follow.dm"
-#include "slime\slime_hud.dm"
 #include "slime\slime_reagents.dm"
 #include "slime\slime_surgery.dm"
 #include "slime\slime_update_icon.dm"

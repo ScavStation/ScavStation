@@ -177,12 +177,8 @@
 /obj/item/form_printer/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	return FALSE
 
-/obj/item/form_printer/afterattack(atom/target, mob/living/user, flag, params)
-
-	if(!target || !flag)
-		return
-
-	if(istype(target,/obj/structure/table))
+/obj/item/form_printer/afterattack(atom/target, mob/living/user, proximity, params)
+	if(istype(target) && !istype(target, /obj/screen) && proximity)
 		deploy_paper(get_turf(target))
 
 /obj/item/form_printer/attack_self(mob/user)
@@ -191,7 +187,6 @@
 /obj/item/form_printer/proc/deploy_paper(var/turf/T)
 	T.visible_message(SPAN_NOTICE("\The [src.loc] dispenses a sheet of crisp white paper."))
 	new /obj/item/paper(T)
-
 
 //Personal shielding for the combat module.
 /obj/item/borg/combat/shield

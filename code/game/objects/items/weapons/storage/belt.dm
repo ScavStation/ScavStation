@@ -24,11 +24,11 @@
 	. = ..()
 	if(overlay_flags & BELT_OVERLAY_ITEMS)
 		var/list/cur_overlays
-		for(var/obj/item/I in contents)
-			if(I.use_single_icon)
-				LAZYADD(cur_overlays, I.get_on_belt_overlay())
+		for(var/obj/item/thing in contents)
+			if(thing.use_single_icon)
+				LAZYADD(cur_overlays, thing.get_on_belt_overlay())
 			else
-				LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', I.icon_state))
+				LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', thing.icon_state))
 
 		if(LAZYLEN(cur_overlays))
 			add_overlay(cur_overlays)
@@ -37,8 +37,8 @@
 /obj/item/belt/get_mob_overlay(mob/user_mob, slot, bodypart, use_fallback_if_icon_missing = TRUE, skip_adjustment = FALSE)
 	var/image/ret = ..()
 	if(ret && slot == slot_belt_str && length(contents))
-		for(var/obj/item/I in contents)
-			var/image/new_overlay = I.get_mob_overlay(user_mob, slot, bodypart, use_fallback_if_icon_missing, TRUE)
+		for(var/obj/item/thing in contents)
+			var/image/new_overlay = thing.get_mob_overlay(user_mob, slot, bodypart, use_fallback_if_icon_missing, TRUE)
 			if(new_overlay)
 				ret.overlays += new_overlay
 	return ret
@@ -57,13 +57,6 @@
 	. = ..()
 	set_extension(src, /datum/extension/holster, storage, sound_in, sound_out, can_holster)
 
-/obj/item/belt/holster/get_stored_inventory()
-	. = ..()
-	if(length(.))
-		var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
-		if(holster.holstered)
-			. -= holster.holstered
-
 /obj/item/belt/holster/attackby(obj/item/used_item, mob/user)
 	var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
 	if(holster?.holster(used_item, user))
@@ -73,27 +66,27 @@
 /obj/item/belt/holster/attack_hand(mob/user)
 	if(!user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
-	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
-	if(H.unholster(user))
+	var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
+	if(holster?.unholster(user))
 		return TRUE
 	return ..()
 
 /obj/item/belt/holster/examine(mob/user)
 	. = ..()
-	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
-	H.examine_holster(user)
+	var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
+	holster.examine_holster(user)
 
 /obj/item/belt/holster/on_update_icon()
 	. = ..()
-	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
+	var/datum/extension/holster/holster = get_extension(src, /datum/extension/holster)
 	if(overlay_flags)
 		var/list/cur_overlays
-		for(var/obj/item/I in contents)
-			if(I == H.holstered)
+		for(var/obj/item/thing in contents)
+			if(thing == holster.holstered)
 				if(overlay_flags & BELT_OVERLAY_HOLSTER)
-					LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', I.icon_state))
+					LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', thing.icon_state))
 			else if(overlay_flags & BELT_OVERLAY_ITEMS)
-				LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', I.icon_state))
+				LAZYADD(cur_overlays, overlay_image('icons/obj/clothing/obj_belt_overlays.dmi', thing.icon_state))
 
 		if(LAZYLEN(cur_overlays))
 			add_overlay(cur_overlays)
