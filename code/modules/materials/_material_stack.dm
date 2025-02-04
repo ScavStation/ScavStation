@@ -217,6 +217,8 @@
 	. = "[reinf_material ? "reinforced " : null][material.use_name]"
 	if(amount == 1)
 		. += " [singular_name]"
+		if(gender == PLURAL)
+			return "some [.]"
 		return indefinite_article ? "[indefinite_article] [.]" : ADD_ARTICLE(.)
 	return "[amount] [.] [plural_name]"
 

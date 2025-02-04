@@ -65,6 +65,7 @@
 		reinf_material = GET_DECL(reinf_material)
 	. = ..()
 	update_materials()
+	paint_verb ||= "painted" // fallback for the case of no material
 	if(lock && !istype(loc))
 		lock = new /datum/lock(src, lock)
 	if(!CanFluidPass())
