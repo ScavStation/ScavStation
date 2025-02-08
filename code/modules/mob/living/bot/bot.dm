@@ -38,6 +38,9 @@
 
 	layer = HIDING_MOB_LAYER
 
+/mob/living/bot/isSynthetic()
+	return TRUE
+
 /mob/living/bot/Initialize()
 	. = ..()
 	update_icon()

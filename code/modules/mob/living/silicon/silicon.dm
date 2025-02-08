@@ -461,3 +461,5 @@
 	stance_damage = 0
 	return
 
+/mob/living/silicon/isSynthetic()
+	return TRUE
