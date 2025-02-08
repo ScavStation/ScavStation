@@ -15,6 +15,7 @@
 	var/light_strength = 3
 	var/busy = 0
 
+	// Dummy object used to hold bot access strings. TODO: just put it on the mob.
 	var/obj/access_scanner = null
 	var/list/req_access = list()
 
@@ -37,9 +38,6 @@
 	var/max_frustration = 0
 
 	layer = HIDING_MOB_LAYER
-
-/mob/living/bot/isSynthetic()
-	return TRUE
 
 /mob/living/bot/Initialize()
 	. = ..()
@@ -442,3 +440,17 @@
 	. = ..()
 	if(istype(botcard) && !is_type_in_list(botcard, exceptions))
 		LAZYDISTINCTADD(., botcard)
+
+// We don't want to drop these on gib().
+/mob/living/bot/physically_destroyed(skip_qdel)
+	QDEL_NULL(botcard)
+	QDEL_NULL(access_scanner)
+	return ..()
+
+/mob/living/bot/Destroy()
+	QDEL_NULL(botcard)
+	QDEL_NULL(access_scanner)
+	return ..()
+
+/mob/living/bot/isSynthetic()
+	return TRUE
