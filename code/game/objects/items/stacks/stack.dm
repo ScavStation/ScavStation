@@ -474,6 +474,8 @@
 /// Returns the string describing an amount of the stack, i.e. "an ingot" vs "a flag"
 /obj/item/stack/proc/get_string_for_amount(amount)
 	if(amount == 1)
+		if(gender == PLURAL)
+			return "some [singular_name]"
 		return indefinite_article ? "[indefinite_article] [singular_name]" : ADD_ARTICLE(singular_name)
 	return "[amount] [plural_name]"
 

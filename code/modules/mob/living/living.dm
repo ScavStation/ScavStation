@@ -646,7 +646,7 @@ default behaviour is:
 	set category = "IC"
 
 	// No posture, no adjustment.
-	if(length(get_available_postures()) <= 1 || incapacitated(INCAPACITATION_KNOCKOUT) || !canClick())
+	if(length(get_available_postures()) <= 1 || incapacitated(INCAPACITATION_KNOCKDOWN) || !canClick())
 		return
 
 	var/list/selectable_postures = get_selectable_postures()
@@ -667,18 +667,18 @@ default behaviour is:
 		selected_posture = selectable_postures[1]
 	else
 		selected_posture = input(usr, "Which posture do you wish to adopt?", "Change Posture", current_posture) as null|anything in selectable_postures
-		if(!selected_posture || length(get_available_postures()) <= 1 || incapacitated(INCAPACITATION_KNOCKOUT) || !canClick())
+		if(!selected_posture || length(get_available_postures()) <= 1 || incapacitated(INCAPACITATION_KNOCKDOWN) || !canClick())
 			return
 		if(current_posture == selected_posture || !(selected_posture in get_selectable_postures()))
 			return
 
 	setClickCooldown(3)
-	to_chat(src, SPAN_NOTICE("You are now [selected_posture.posture_change_message]."))
 	if(current_posture.prone && !selected_posture.prone)
-		if(!do_after(src, 2 SECONDS, src, incapacitation_flags = ~INCAPACITATION_FORCELYING))
+		if(!do_after(src, 2 SECONDS, src, incapacitation_flags = INCAPACITATION_KNOCKDOWN))
 			return
 		if(current_posture == selected_posture || !(selected_posture in get_selectable_postures()))
 			return
+	to_chat(src, SPAN_NOTICE("You are now [selected_posture.posture_change_message]."))
 	set_posture(selected_posture)
 
 //called when the mob receives a bright flash
