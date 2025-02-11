@@ -75,7 +75,7 @@
 	. = ..()
 	add_to_reagents(/decl/material/liquid/pigment/black/ink, rand(starting_volume_low, starting_volume_high))
 
-/obj/item/chems/glass/inkwell/on_update_icon()
+/obj/item/chems/glass/inkwell/update_overlays()
 	. = ..()
 	icon_state = get_world_inventory_state()
 	if(locate(/obj/item/pen/fancy/quill) in src)

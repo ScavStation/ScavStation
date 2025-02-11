@@ -28,7 +28,7 @@
 /obj/item/chems/glass/paint/get_utensil_food_type()
 	return null
 
-/obj/item/chems/glass/paint/on_update_icon()
+/obj/item/chems/glass/paint/update_overlays()
 	. = ..()
 	if(reagents?.total_volume)
 		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "paintbucket", reagents.get_color()))

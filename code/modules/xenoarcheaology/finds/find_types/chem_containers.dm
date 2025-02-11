@@ -27,6 +27,9 @@
 	material = /decl/material/solid/stone/ceramic
 	var/spawning_id
 
+/obj/item/chems/glass/replenshing/can_lid()
+	return FALSE
+
 /obj/item/chems/glass/replenishing/Initialize()
 	. = ..()
 	spawning_id = pick(list(
