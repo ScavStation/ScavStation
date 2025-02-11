@@ -1076,7 +1076,7 @@
 /turf/wall/r_wall/hull,
 /area/ship/trade/comms)
 "Pg" = (
-/obj/item/chems/glass/paint/yellow,
+/obj/item/chems/glass/bucket/paint/yellow,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
 	icon_state = "warningcorner"
