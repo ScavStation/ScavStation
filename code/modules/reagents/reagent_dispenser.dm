@@ -185,26 +185,28 @@
 	update_icon()
 	return TRUE
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W, mob/user)
-	add_fingerprint(user)
-	if(istype(W,/obj/item/assembly_holder))
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/used_item, mob/user)
+
+	if(istype(used_item, /obj/item/assembly_holder))
 		if (rig)
 			to_chat(user, SPAN_WARNING("There is another device already in the way."))
 			return ..()
-		visible_message(SPAN_NOTICE("\The [user] begins rigging \the [W] to \the [src]."))
-		if(do_after(user, 20, src) && user.try_unequip(W, src))
-			visible_message(SPAN_NOTICE("\The [user] rigs \the [W] to \the [src]."))
-			var/obj/item/assembly_holder/H = W
+		visible_message(SPAN_NOTICE("\The [user] begins rigging \the [used_item] to \the [src]."))
+		if(do_after(user, 20, src) && user.try_unequip(used_item, src))
+			visible_message(SPAN_NOTICE("\The [user] rigs \the [used_item] to \the [src]."))
+			var/obj/item/assembly_holder/H = used_item
 			if (istype(H.a_left,/obj/item/assembly/igniter) || istype(H.a_right,/obj/item/assembly/igniter))
 				log_and_message_admins("rigged a fuel tank for explosion at [loc.loc.name].")
-			rig = W
+			rig = used_item
 			update_icon()
 		return TRUE
-	if(W.isflamesource())
-		log_and_message_admins("triggered a fuel tank explosion with \the [W].")
-		visible_message(SPAN_DANGER("\The [user] puts \the [W] to \the [src]!"))
+
+	if(used_item.isflamesource())
+		log_and_message_admins("triggered a fuel tank explosion with \the [used_item].")
+		visible_message(SPAN_DANGER("\The [user] puts \the [used_item] to \the [src]!"))
 		try_detonate_reagents()
 		return TRUE
+
 	. = ..()
 
 /obj/structure/reagent_dispensers/fueltank/on_update_icon()
