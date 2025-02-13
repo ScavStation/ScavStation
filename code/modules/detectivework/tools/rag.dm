@@ -15,6 +15,9 @@
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 
+/obj/item/chems/glass/rag/can_lid()
+	return FALSE
+
 /obj/item/chems/glass/rag/get_edible_material_amount(mob/eater)
 	return 0
 

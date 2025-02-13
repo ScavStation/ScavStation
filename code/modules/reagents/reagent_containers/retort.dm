@@ -8,14 +8,16 @@
 	material   = /decl/material/solid/glass
 	material_alteration = MAT_FLAG_ALTERATION_ALL
 
+/obj/item/chems/glass/retort/can_lid()
+	return FALSE
+
 /obj/item/chems/glass/retort/copper
 	material   = /decl/material/solid/metal/copper
 
 /obj/item/chems/glass/retort/earthenware
 	material   = /decl/material/solid/stone/pottery
 
-/obj/item/chems/glass/retort/on_update_icon()
-	. = ..()
+/obj/item/chems/glass/retort/update_overlays()
 	if(reagents?.total_volume && (!material || material.opacity < 1))
 		for(var/reagent in reagents.reagent_volumes)
 			var/decl/material/mat = GET_DECL(reagent)
@@ -23,6 +25,7 @@
 				add_overlay(overlay_image(icon, "[icon_state]-fill-boil", reagents.get_color(), (RESET_ALPHA|RESET_COLOR)))
 				return
 		add_overlay(overlay_image(icon, "[icon_state]-fill", reagents.get_color(), (RESET_ALPHA|RESET_COLOR)))
+	. = ..()
 
 /obj/item/chems/glass/retort/on_reagent_change()
 	. = ..()

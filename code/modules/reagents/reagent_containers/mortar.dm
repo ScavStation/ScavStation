@@ -15,6 +15,9 @@
 		return
 	return try_grind(using_item, user)
 
+/obj/item/chems/glass/mortar/can_lid()
+	return FALSE
+
 /obj/item/chems/glass/mortar/proc/try_grind(obj/item/using_item, mob/living/user)
 	if(!istype(using_item))
 		return FALSE

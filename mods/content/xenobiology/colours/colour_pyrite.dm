@@ -8,5 +8,5 @@
 /decl/slime_colour/pyrite/handle_uranium_reaction(var/datum/reagents/holder)
 	var/turf/location = get_turf(holder.get_reaction_loc())
 	if(location)
-		new /obj/item/chems/glass/paint/random(location)
+		new /obj/item/chems/glass/bucket/paint/random(location)
 	return TRUE
