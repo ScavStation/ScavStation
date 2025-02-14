@@ -1488,3 +1488,6 @@
 /mob/proc/has_magnetised_footing()
 	var/obj/item/shoes = get_equipped_item(slot_shoes_str)
 	return istype(shoes) && (shoes.item_flags & ITEM_FLAG_MAGNETISED)
+
+/mob/proc/isSynthetic()
+	return FALSE

@@ -512,7 +512,7 @@
 /obj/structure/closet/crate/plastic,
 /obj/random/accessory,
 /obj/random/accessory,
-/obj/item/chems/glass/paint/random,
+/obj/item/chems/glass/bucket/paint/random,
 /turf/floor/tiled/monotile,
 /area/ship/trade/cargo/lower)
 "bf" = (

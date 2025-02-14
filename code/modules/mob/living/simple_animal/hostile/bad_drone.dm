@@ -12,6 +12,7 @@
 	mob_size = MOB_SIZE_TINY
 	gene_damage = -1
 	attack_delay = DEFAULT_QUICK_COOLDOWN
+	butchery_data = /decl/butchery_data/synthetic
 	ai = /datum/mob_controller/aggressive/rogue_drone
 	var/corpse = /obj/effect/decal/cleanable/blood/gibs/robot
 
@@ -44,3 +45,6 @@
 		if(corpse)
 			new corpse (loc)
 		qdel(src)
+
+/mob/living/simple_animal/hostile/rogue_drone/isSynthetic()
+	return TRUE
