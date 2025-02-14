@@ -22,6 +22,9 @@
 	var/lid_color = COLOR_GRAY80
 	var/autolabel = TRUE  		// if set, will add label with the name of the first initial reagent
 
+/obj/item/chems/glass/bottle/get_lid_color()
+	return lid_color
+
 /obj/item/chems/glass/bottle/on_picked_up(mob/user)
 	. = ..()
 	update_icon()
@@ -34,30 +37,20 @@
 	. = ..()
 	update_icon()
 
-/obj/item/chems/glass/bottle/on_update_icon()
-	. = ..()
-	cut_overlays()
-
+/obj/item/chems/glass/bottle/update_overlays()
 	if(reagents?.total_volume)
 		var/percent = round(reagents.total_volume / volume * 100, 25)
 		add_overlay(mutable_appearance(icon, "[icon_state]_filling_[percent]", reagents.get_color()))
-
 	var/image/overglass = mutable_appearance(icon, "[icon_state]_over", color)
 	overglass.alpha = alpha * ((alpha/255) ** 3)
 	add_overlay(overglass)
-
 	if(material.reflectiveness >= MAT_VALUE_SHINY)
 		var/mutable_appearance/shine = mutable_appearance(icon, "[icon_state]_shine", adjust_brightness(color, 20 + material.reflectiveness))
 		shine.alpha = material.reflectiveness * 3
 		add_overlay(shine)
-
 	if(label_text)
 		add_overlay(mutable_appearance(icon, "[icon_state]_label", label_color))
-
-	if (!ATOM_IS_OPEN_CONTAINER(src))
-		add_overlay(mutable_appearance(icon, "[icon_state]_lid", lid_color))
-
-	compile_overlays()
+	. = ..()
 
 /obj/item/chems/glass/bottle/Initialize()
 	. = ..()

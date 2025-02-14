@@ -64,6 +64,32 @@
 		var/decl/material/drinking = reagents.get_primary_reagent_decl()
 		return drinking ? !drinking.is_unsafe_to_drink(drinker) : FALSE
 
+#ifdef UNIT_TEST
+// Will get generated during atom creation/deletion tests so no need for a distinct unit test.
+var/global/list/lid_check_glass_types = list()
+/obj/item/chems/glass/Initialize()
+	. = ..()
+	if(can_lid() && !global.lid_check_glass_types[type])
+		if(!check_state_in_icon("[icon_state]_lid", icon))
+			log_error("Liddable vessel [type] missing lid state from [icon]!")
+		global.lid_check_glass_types[type] = TRUE
+#endif
+
+/obj/item/chems/glass/on_update_icon()
+	. = ..()
+	update_overlays()
+	compile_overlays()
+
+/obj/item/chems/glass/proc/get_lid_color()
+	return COLOR_WHITE
+
+/obj/item/chems/glass/proc/get_lid_flags()
+	return RESET_COLOR | RESET_ALPHA
+
+/obj/item/chems/glass/proc/update_overlays()
+	if (can_lid() && !ATOM_IS_OPEN_CONTAINER(src))
+		add_overlay(overlay_image(icon, "[icon_state]_lid", get_lid_color(), get_lid_flags()))
+
 /obj/item/chems/glass/attack_self(mob/user)
 
 	if(can_lid() && user.a_intent == I_HELP)

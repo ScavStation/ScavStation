@@ -37,7 +37,8 @@
 	update_icon()
 	return TRUE
 
-/obj/item/chems/glass/waterskin/on_update_icon() // TODO: filled/empty sprites
+// TODO: filled/empty sprites
+/obj/item/chems/glass/waterskin/update_overlays()
 	. = ..() // cuts overlays
 	var/image/stopper_overlay = get_stopper_overlay()
 	if(stopper_overlay)

@@ -28,7 +28,7 @@ MANTIDIFY(/obj/item/tank/jetpack/carbondioxide, "maneuvering pack",          "pr
 /obj/item/chems/glass/bucket/ascent
 	name = "portable liquid cleaning agent carrier"
 	desc = "An alien container of some sort."
-	icon = 'mods/species/ascent/icons/ascent_doodads.dmi'
+	icon = 'mods/species/ascent/icons/ascent_bucket.dmi'
 
 /obj/item/knife/kitchen/cleaver/ascent
 	name = "xenobiological flenser"
