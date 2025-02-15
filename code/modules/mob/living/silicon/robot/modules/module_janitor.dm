@@ -22,6 +22,7 @@
 		/obj/item/weldingtool
 	)
 	emag = /obj/item/chems/spray
+	has_nonslip_feet  = TRUE
 
 /obj/item/robot_module/janitor/handle_turf(turf/target, mob/user)
 	target.clean()
