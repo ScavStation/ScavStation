@@ -4,7 +4,7 @@
 [[ -z $PORT ]] && PORT=9001 # Port to run Dream Daemon on
 [[ -z $GIT ]] && GIT=true # true, false, or any valid command; return value decides whether git is called to update the code
 [[ -z $REPO ]] && REPO=origin # Repo to fetch and pull from when updating
-[[ -z $BRANCH ]] && BRANCH=main # Branch to pull when updating
+[[ -z $BRANCH ]] && BRANCH=dev # Branch to pull when updating
 [[ -z $GITDIR ]] && GITDIR=. # Directory of code or git repo, relative to $SERVERDIR
 [[ -z $EXTRA_DM_SH_ARGS ]] && EXTRA_DM_SH_ARGS="" # Extra args to pass to dm.sh
 [[ -z $SERVERDIR ]] && SERVERDIR=../ # Location of the server, relative to the directory this script is called with a pwd of
