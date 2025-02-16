@@ -2264,7 +2264,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "gT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2439,7 +2439,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "ht" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5772,7 +5772,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "qP" = (
 /obj/effect/floor_decal/corner/red{
@@ -9722,7 +9722,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "AG" = (
 /obj/effect/decal/cleanable/dirt/visible,
@@ -10381,7 +10381,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "CR" = (
 /turf/open,
@@ -10914,7 +10914,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "EH" = (
 /obj/structure/ladder,
@@ -11578,7 +11578,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "GU" = (
 /obj/structure/lattice,
@@ -11744,7 +11744,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "HB" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -13438,7 +13438,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "My" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -14676,7 +14676,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "Qy" = (
 /obj/machinery/vending/snix,
@@ -16348,7 +16348,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled/white,
+/turf/floor/tiled/white/monotile,
 /area/ministation/cryo)
 "Vl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -17777,7 +17777,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/unsimulated/floor/freezer,
+/turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "ZR" = (
 /obj/machinery/vending/coffee{
