@@ -2261,7 +2261,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "gT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2433,7 +2433,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "ht" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5763,7 +5763,7 @@
 	dir = 1
 	},
 /obj/abstract/landmark/latejoin/cryo,
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "qP" = (
 /obj/effect/floor_decal/corner/red{
@@ -9710,7 +9710,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "AG" = (
 /obj/effect/decal/cleanable/dirt/visible,
@@ -10366,7 +10366,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "CR" = (
 /turf/open,
@@ -10896,7 +10896,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "EH" = (
 /obj/structure/ladder,
@@ -11557,7 +11557,7 @@
 /obj/structure/cryofeed{
 	dir = 1
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "GU" = (
 /obj/structure/lattice,
@@ -11720,7 +11720,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "HB" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -13411,7 +13411,7 @@
 	pixel_y = -1;
 	pixel_x = 32
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "My" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -14646,7 +14646,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small/emergency,
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "Qy" = (
 /obj/machinery/vending/snix,
@@ -16318,7 +16318,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled/white/monotile,
+/turf/floor/tiled/white,
 /area/ministation/cryo)
 "Vl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -17744,7 +17744,7 @@
 	dir = 8;
 	pixel_x = 22
 	},
-/turf/floor/tiled/freezer,
+/turf/floor/tiled/dark,
 /area/ministation/cryo)
 "ZR" = (
 /obj/machinery/vending/coffee{
