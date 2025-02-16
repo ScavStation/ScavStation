@@ -8285,9 +8285,6 @@
 /turf/floor/carpet,
 /area/ministation/hall/w2)
 "xg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/lime/half,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
