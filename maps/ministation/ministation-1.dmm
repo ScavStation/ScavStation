@@ -2427,6 +2427,9 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/floor/tiled/white,
 /area/ministation/medical)
 "hs" = (
@@ -8286,11 +8289,11 @@
 /area/ministation/hall/w2)
 "xg" = (
 /obj/effect/floor_decal/corner/lime/half,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/white/half{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
