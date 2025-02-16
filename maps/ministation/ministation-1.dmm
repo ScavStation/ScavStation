@@ -2261,9 +2261,6 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
 /turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "gT" = (
@@ -5766,9 +5763,6 @@
 	dir = 1
 	},
 /obj/abstract/landmark/latejoin/cryo,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
 /turf/floor/tiled/freezer,
 /area/ministation/cryo)
 "qP" = (
@@ -13416,9 +13410,6 @@
 /obj/machinery/status_display{
 	pixel_y = -1;
 	pixel_x = 32
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
 	},
 /turf/floor/tiled/freezer,
 /area/ministation/cryo)
