@@ -145,4 +145,7 @@ You still need to set the controller's "id_tag" to something unique.
 /obj/abstract/airlock_helper/button
 	my_device = /obj/machinery/button/access
 	icon_state = "button"
-	tag_addon = "_airlock"
+
+/obj/abstract/airlock_helper/button/configure_associated_device()
+	var/obj/machinery/button/access/my_button = my_device
+	my_button.set_id_tag(my_controller.id_tag)
