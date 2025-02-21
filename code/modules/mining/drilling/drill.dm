@@ -6,7 +6,6 @@
 	layer = ABOVE_HUMAN_LAYER //So it draws over mobs in the tile north of it.
 	construct_state = /decl/machine_construction/default/panel_closed
 	uncreated_component_parts = null
-	stat_immune = 0
 
 /obj/machinery/mining/drill
 	name = "mining drill head"
@@ -183,7 +182,7 @@
 	. = (length(supports) <= 0)
 
 /obj/machinery/mining/drill/proc/system_error(var/error)
-
+	// TODO: suppress the message if no screen is installed?
 	if(error)
 		src.visible_message("<span class='notice'>\The [src] flashes a '[error]' warning.</span>")
 	need_player_check = 1
@@ -232,6 +231,7 @@
 	icon_state = "mining_brace"
 	obj_flags = OBJ_FLAG_ROTATABLE
 	interact_offline = 1
+	stat_immune = NOSCREEN | NOINPUT
 
 	var/obj/machinery/mining/drill/connected
 

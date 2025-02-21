@@ -8,7 +8,6 @@
 	idle_power_usage = 50
 	base_type = /obj/machinery/recharge_station
 	uncreated_component_parts = null
-	stat_immune = 0
 	construct_state = /decl/machine_construction/default/panel_closed
 
 	var/overlay_icon = 'icons/obj/objects.dmi'
