@@ -47,7 +47,7 @@
 	. += "<table width = '100%'>"
 	. += "<tr><td colspan=3><center><h3>Species</h3></center></td></tr>"
 	. += "<tr><td colspan=3><center>"
-	for(var/s in get_playable_species())
+	for(var/s in playables)
 		var/decl/species/list_species = get_species_by_key(s)
 		if(pref.species == list_species.name)
 			. += "<span class='linkOn'>[list_species.name]</span> "
