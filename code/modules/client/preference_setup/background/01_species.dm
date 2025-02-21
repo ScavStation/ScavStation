@@ -89,6 +89,14 @@
 
 		var/choice = href_list["set_species"]
 		if(choice != pref.species)
+			if(!check_rights(R_ADMIN, 0) && get_config_value(/decl/config/toggle/use_alien_whitelist))
+				var/decl/species/new_species = get_species_by_key(choice)
+				if(!new_species)
+					return TOPIC_REFRESH
+				if(!(new_species.spawn_flags & SPECIES_CAN_JOIN))
+					return TOPIC_REFRESH
+				else if((new_species.spawn_flags & SPECIES_IS_WHITELISTED) && !is_alien_whitelisted(preference_mob(), new_species))
+					return TOPIC_REFRESH
 
 			pref.species = choice
 			pref.sanitize_preferences()
