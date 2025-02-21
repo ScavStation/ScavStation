@@ -8,7 +8,8 @@
 	)
 
 /decl/recipe/fried/waffles
-	reagents = list(/decl/material/liquid/nutriment/batter/cakebatter = 20)
+	// salt is to disambiguate from vanilla cake
+	reagents = list(/decl/material/liquid/nutriment/batter/cakebatter = 20, /decl/material/solid/sodiumchloride = 1)
 	result = /obj/item/food/waffles
 	completion_message = "The waffles firm up and brown as the batter is cooked through."
 
