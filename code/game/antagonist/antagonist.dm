@@ -50,6 +50,7 @@
 	var/decl/language/required_language
 
 	// Used for setting appearance.
+	/// Species that are valid when changing appearance while spawning as this role. Null allows all species.
 	var/list/valid_species
 	var/min_player_age = 14
 
