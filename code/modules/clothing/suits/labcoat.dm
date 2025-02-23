@@ -24,7 +24,7 @@
 		)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMBAND)
-	markings_state_modifier = "_marking"
+	markings_state_modifier = "-marking"
 	matter = list(/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE)
 	origin_tech = @'{"materials":1,"engineering":1,"biotech":1}'
 
@@ -73,4 +73,3 @@
 	icon = 'icons/clothing/suits/labcoat/rd.dmi'
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
 	markings_color = COLOR_BOTTLE_GREEN
-	markings_state_modifier = "_marking"
