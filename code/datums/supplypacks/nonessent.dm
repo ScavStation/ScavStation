@@ -103,7 +103,7 @@
 					/obj/item/clothing/costume/owl,
 					/obj/item/clothing/pants/slacks/black,
 					/obj/item/clothing/shirt/button,
-					/obj/item/clothing/neck/tie/bow/color/red,
+					/obj/item/clothing/neck/tie/bow/red,
 					/obj/item/clothing/suit/jacket/vest/blue,
 					/obj/item/clothing/costume/gladiator,
 					/obj/item/clothing/costume/soviet,

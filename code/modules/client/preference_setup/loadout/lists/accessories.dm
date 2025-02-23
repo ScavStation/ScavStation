@@ -59,7 +59,7 @@
 
 /decl/loadout_option/accessory/bow/color
 	name = "bowtie, color select"
-	path = /obj/item/clothing/neck/tie/bow/color
+	path = /obj/item/clothing/neck/tie/bow
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
 	uid = "gear_accessory_bowtie_color"
 
