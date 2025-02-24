@@ -97,14 +97,6 @@
 		ARMOR_BIO = ARMOR_BIO_MINOR
 	)
 
-/obj/item/clothing/jumpsuit/research_director/rdalt
-	desc = "A dress suit and slacks stained with hard work and dedication to science. Perhaps other things as well, but mostly hard work and dedication."
-	name = "head researcher uniform"
-	icon = 'icons/clothing/uniform_rd_alt.dmi'
-	armor = list(
-		ARMOR_BIO = ARMOR_BIO_MINOR
-	)
-
 /obj/item/clothing/jumpsuit/chemist
 	desc = "It's made of a special fiber that gives special protection against biohazards. It has a chemist rank stripe on it."
 	name = "pharmacist's jumpsuit"

@@ -1,0 +1,4 @@
+# Converts a number of jumpsuits to costumes
+# because they shouldn't have the full suite of jumpsuit modifiers
+# (e.g. can't be rolled down, no sleeves to roll up, etc)
+/obj/item/clothing/jumpsuit/research_director/rdalt : /obj/item/clothing/costume/research_director_suit{@OLD}
