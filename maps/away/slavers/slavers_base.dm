@@ -183,3 +183,7 @@
 		ARMOR_LASER  = ARMOR_LASER_MINOR,
 		ARMOR_ENERGY = ARMOR_ENERGY_MINOR
 		)
+
+// Disable the modifiers we don't have rather than adding new sprites, this item and away site is removed on dev anyway.
+/obj/item/clothing/jumpsuit/abolitionist/get_assumed_clothing_state_modifiers()
+	return null

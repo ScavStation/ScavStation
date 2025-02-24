@@ -94,9 +94,11 @@
 					generated_tokens += "[gen_token][token]"
 
 			// God help unit test time if people start putting markings on flannel shirts.
-			if(clothes.markings_state_modifier && clothes.markings_color)
+			if(clothes.markings_state_modifier)
+				// Check even if markings_color is null, because subtypes may use the icon and we don't want to mark it as extraneous.
 				for(var/token in generated_tokens)
 					generated_tokens += "[token][clothes.markings_state_modifier]"
+				generated_tokens += clothes.markings_state_modifier
 
 			// Keep track of which states we've looked for or otherwise evaluated for later state checking.
 			var/list/check_states = icon_states(clothes.icon)
@@ -138,11 +140,11 @@
 				if(modifier.applies_icon_state_modifier)
 					// This is working on the assumption that bodytypes all end in " body".
 					// If that changes this will need a better method.
-					var/regex/is_alt_bodytype_state = regex("^\[A-Za-z \]+ body-[modifier.icon_state_modifier]$")
+					var/regex/is_alt_bodytype_state = regex("^\[A-Za-z \]+ body-")
 					for(var/check_state in check_states)
-						if(is_alt_bodytype_state.Find(check_state))
-							continue
 						if(findtext(check_state, modifier.icon_state_modifier))
+							if(is_alt_bodytype_state.Find(check_state))
+								continue
 							extraneous_states |= check_state
 
 			for(var/extraneous_state in extraneous_states)

@@ -36,6 +36,7 @@
 	name = "chief medical officer labcoat"
 	desc = "A labcoat with command blue highlights."
 	icon = 'icons/clothing/suits/labcoat/cmo.dmi'
+	markings_state_modifier = null
 
 /obj/item/clothing/suit/toggle/labcoat/mad
 	name = "The Mad's labcoat"
@@ -57,6 +58,7 @@
 /obj/item/clothing/suit/toggle/labcoat/blue
 	name = "blue-edged labcoat"
 	icon = 'icons/clothing/suits/labcoat/blue_edge.dmi'
+	markings_state_modifier = null
 
 /obj/item/clothing/suit/toggle/labcoat/coat
 	name = "coat"
