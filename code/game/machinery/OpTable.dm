@@ -10,7 +10,6 @@
 	active_power_usage = 5
 	construct_state = /decl/machine_construction/default/panel_closed
 	uncreated_component_parts = null
-	stat_immune = 0
 
 	var/suppressing = FALSE
 	var/mob/living/victim
