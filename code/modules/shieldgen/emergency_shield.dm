@@ -7,8 +7,28 @@
 	opacity = FALSE
 	anchored = TRUE
 	max_health = 200
+	frame_type = null
+	construct_state = /decl/machine_construction/noninteractive
 	var/shield_generate_power = 7500	//how much power we use when regenerating
 	var/shield_idle_power = 1500		//how much power we use when just being sustained.
+
+/obj/machinery/shield/take_damage(amount, damtype, silent)
+	if(amount <= 0)
+		return
+	if(damtype != BRUTE && damtype != BURN && damtype != ELECTROCUTE)
+		return
+	if(!silent)
+		playsound(src.loc, 'sound/effects/EMPulse.ogg', 75, TRUE)
+	current_health -= amount
+	set_opacity(TRUE)
+	check_failure()
+	if(!QDELETED(src))
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_opacity), FALSE), 2 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE)
+
+// This should never be damaged via anything but the shield's health dropping.
+/obj/machinery/shield/dismantle()
+	check_failure()
+	return QDELING(src) // return true if deleted, false otherwise
 
 /obj/machinery/shield/malfai
 	name = "emergency forcefield"
@@ -21,7 +41,7 @@
 
 /obj/machinery/shield/proc/check_failure()
 	if (current_health <= 0)
-		visible_message("<span class='notice'>\The [src] dissipates!</span>")
+		visible_message(SPAN_NOTICE("\The [src] dissipates!"))
 		qdel(src)
 		return
 
@@ -31,49 +51,15 @@
 	update_nearby_tiles(need_rebuild=1)
 
 /obj/machinery/shield/Destroy()
-	set_opacity(0)
-	set_density(0)
+	set_opacity(FALSE)
+	set_density(FALSE)
 	update_nearby_tiles()
 	. = ..()
 
 /obj/machinery/shield/CanPass(atom/movable/mover, turf/target, height, air_group)
+	// blocks air, normal behavior for everything else
 	if(!height || air_group) return 0
 	else return ..()
-
-// Circumvent base machinery attackby
-// TODO: MAKE SHIELDS NOT MACHINERY???
-/obj/machinery/shield/attackby(obj/item/I, mob/user)
-	return bash(I, user)
-
-/obj/machinery/shield/bash(obj/item/W, mob/user)
-	if(isliving(user) && user.a_intent == I_HELP)
-		return FALSE
-	if(!W.user_can_attack_with(user))
-		return FALSE
-	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
-		return FALSE
-	//Calculate damage
-	switch(W.atom_damage_type)
-		if(BRUTE, BURN)
-			current_health -= W.get_attack_force(user)
-		else
-			return FALSE
-
-	//Play a fitting sound
-	playsound(src.loc, 'sound/effects/EMPulse.ogg', 75, 1)
-
-	check_failure()
-	set_opacity(TRUE)
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_opacity), FALSE), 2 SECONDS)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	return TRUE
-
-/obj/machinery/shield/bullet_act(var/obj/item/projectile/Proj)
-	current_health -= Proj.get_structure_damage()
-	..()
-	check_failure()
-	set_opacity(1)
-	spawn(20) if(!QDELETED(src)) set_opacity(0)
 
 /obj/machinery/shield/explosion_act(severity)
 	. = ..()
@@ -88,22 +74,21 @@
 			if(prob(50))
 				qdel(src)
 
-/obj/machinery/shield/hitby(atom/movable/AM, var/datum/thrownthing/TT)
+/obj/machinery/shield/hitby(atom/movable/hitter, var/datum/thrownthing/thrownthing)
 	. = ..()
 	if(.)
 		//Let everyone know we've been hit!
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitter]."))
 		//Super realistic, resource-intensive, real-time damage calculations.
-		var/tforce = AM.get_thrown_attack_force() * (TT.speed/THROWFORCE_SPEED_DIVISOR)
-		current_health -= tforce
-		//This seemed to be the best sound for hitting a force field.
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
-		check_failure()
-		//The shield becomes dense to absorb the blow. Purely asthetic.
-		set_opacity(1)
-		spawn(20)
-			if(!QDELETED(src))
-				set_opacity(0)
+		var/tforce = 0
+		if(ismob(hitter)) // All mobs have a multiplier and a size according to mob_defines.dm
+			var/mob/mob_hitter = hitter
+			tforce = mob_hitter.mob_size * (thrownthing.speed/THROWFORCE_SPEED_DIVISOR)
+		else
+			var/obj/obj_hitter = hitter
+			tforce = obj_hitter.get_thrown_attack_force() * (thrownthing.speed/THROWFORCE_SPEED_DIVISOR)
+		if(tforce > 0)
+			take_damage(tforce, BRUTE)
 
 /obj/machinery/shieldgen
 	name = "Emergency shield projector"
@@ -200,12 +185,12 @@
 		else
 			check_delay--
 
+// todo: roll this into normal machinery damage stuff? maybe it only blows up if active when it's destroyed?
 /obj/machinery/shieldgen/proc/checkhp()
 	if(current_health <= 30)
 		src.malfunction = 1
 	if(current_health <= 0)
-		spawn(0)
-			explosion(get_turf(src.loc), 0, 0, 1, 0, 0, 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(explosion), get_turf(src), 0, 0, 1, 0, 0, 0), 0)
 		qdel(src)
 	update_icon()
 	return
