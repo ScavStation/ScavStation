@@ -12,7 +12,6 @@
 	idle_power_usage = 500
 	construct_state = /decl/machine_construction/default/panel_closed
 	uncreated_component_parts = null
-	stat_immune = 0
 	base_type = /obj/machinery/mining_drill
 	z_flags = ZMM_WIDE_LOAD
 
@@ -170,7 +169,7 @@
 			turfs_to_mine -= T
 			if(has_extension(T, /datum/extension/buried_resources))
 				remove_extension(T, /datum/extension/buried_resources)
-
+	// TODO: suppress the message if no screen is installed?
 /obj/machinery/mining_drill/proc/choose_turf_to_mine()
 	current_turf = turfs_to_mine[1]
 

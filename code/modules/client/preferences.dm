@@ -512,6 +512,7 @@ var/global/list/time_prefs_fixed = list()
 	var/decl/bodytype/mob_bodytype = get_bodytype_decl()
 	set_bodytype(mob_bodytype)
 
+
 /datum/preferences/proc/set_bodytype(new_bodytype)
 	bodytype = new_bodytype
 	sanitize_preferences()
