@@ -90,8 +90,6 @@
 
 	hud_reset(TRUE)
 
-	client.update_skybox(1)
-
 	if(istype(machine))
 		machine.on_user_login(src)
 
@@ -103,9 +101,9 @@
 		client.screen = list()	//remove hud items just in case
 		client.set_right_click_menu_mode(shift_to_open_context_menu)
 		InitializeHud()
-	else
-		refresh_lighting_master()
 
+	refresh_lighting_master()
+	client.update_skybox(full_reset) // readd to client.screen if we cleared it
 	refresh_client_images()
 	reload_fullscreen() // Reload any fullscreen overlays this mob has.
 	add_click_catcher()
