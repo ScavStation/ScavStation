@@ -83,9 +83,8 @@
 
 		// Hackery to heat pots placed onto a hotplate without also grilling/baking stuff.
 		if(isturf(loc))
-			var/datum/gas_mixture/environment = loc.return_air()
 			for(var/obj/item/chems/cooking_vessel/pot in loc.get_contained_external_atoms())
-				pot.fire_act(environment, temperature, 500)
+				pot.handle_external_heating(temperature, src)
 
 		return TRUE // Don't kill this processing loop unless we're not powered.
 	. = ..()
