@@ -479,7 +479,7 @@
 /obj/effect/floor_decal/carpet,
 /obj/item/clothing/costume/lawyer,
 /obj/item/clothing/costume/lawyer_bluesuit,
-/obj/item/clothing/jumpsuit/mailman,
+/obj/item/clothing/costume/mailman,
 /obj/item/clothing/webbing,
 /obj/item/clothing/costume/dispatch,
 /turf/unsimulated/floor/carpet,
@@ -737,7 +737,7 @@
 /obj/machinery/door/blast/regular/open{
 	id_tag = "SkipjackShuttersNorth";
 	name = "Blast Doors";
-
+	
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
@@ -1104,7 +1104,7 @@
 	dir = 4;
 	id_tag = "SkipjackShuttersWest";
 	name = "Skipjack Shutters";
-
+	
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
@@ -1131,7 +1131,7 @@
 	dir = 8;
 	id_tag = "SkipjackShuttersEast";
 	name = "Skipjack Shutters";
-
+	
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/brown,
@@ -1203,7 +1203,7 @@
 	dir = 4;
 	id_tag = "SkipjackShuttersWest";
 	name = "Skipjack Shutters";
-
+	
 	},
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/floor/plating,

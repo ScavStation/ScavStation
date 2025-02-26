@@ -1550,8 +1550,8 @@
 	pixel_y = 20
 	},
 /obj/structure/closet,
-/obj/item/clothing/jumpsuit/wetsuit,
-/obj/item/clothing/jumpsuit/wetsuit,
+/obj/item/clothing/costume/wetsuit,
+/obj/item/clothing/costume/wetsuit,
 /obj/item/clothing/costume/savage_hunter,
 /obj/item/clothing/costume/savage_hunter/female,
 /obj/item/clothing/shirt/harness,

@@ -208,8 +208,3 @@
 	matter = list(
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_TRACE
 	)
-
-/obj/item/clothing/jumpsuit/captainformal
-	name = "captain's formal uniform"
-	desc = "A captain's formal-wear, for special occasions."
-	icon = 'icons/clothing/uniform_captain_formal.dmi'
