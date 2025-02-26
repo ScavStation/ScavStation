@@ -15,7 +15,6 @@
 		hud_used = new hud_type(src)
 	else
 		hud_used = new /datum/hud(src)
-	refresh_lighting_master()
 
 /datum/hud
 	var/mob/mymob
