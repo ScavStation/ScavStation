@@ -56,8 +56,8 @@
 	// Some passive equilibrium between the lines.
 	var/passive_heat_transfer = min(HEAT_TRANSFER*abs(delta_t), line_equilibrium_heat)
 
-	air1.add_thermal_energy(-sign(delta_t)*passive_heat_transfer)
-	air2.add_thermal_energy(sign(delta_t)*passive_heat_transfer)
+	air1.add_thermal_energy(-(SIGN(delta_t))*passive_heat_transfer)
+	air2.add_thermal_energy( (SIGN(delta_t))*passive_heat_transfer)
 
 	if(!istype(inserted_cylinder))
 		return
@@ -102,7 +102,7 @@
 	var/work_coefficient = working_volume.get_total_moles()*R_IDEAL_GAS_EQUATION*log(1.5)
 
 	// Direction of heat flow, 1 for air1 -> air 2, -1 for air2 -> air 1
-	var/heat_dir = sign(delta_t)
+	var/heat_dir = SIGN(delta_t)
 
 	// We multiply by the cycle frequency to get reasonable values for power generation.
 	// Energy is still conserved, but the efficiency of the engine is slightly overestimated.
