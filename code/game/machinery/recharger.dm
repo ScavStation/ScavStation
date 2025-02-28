@@ -15,7 +15,6 @@
 	var/icon_state_idle = "recharger0" //also when unpowered
 	var/portable = 1
 
-	stat_immune = 0
 	uncreated_component_parts = null
 	construct_state = /decl/machine_construction/default/panel_closed
 
