@@ -322,7 +322,7 @@
 /area/map_template/wizard_station)
 "bh" = (
 /obj/structure/closet,
-/obj/item/clothing/jumpsuit/psysuit,
+/obj/item/clothing/costume/psysuit,
 /obj/item/clothing/suit/wizrobe/psypurple,
 /turf/unsimulated/floor/lino,
 /area/map_template/wizard_station)
