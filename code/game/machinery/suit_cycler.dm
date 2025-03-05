@@ -49,7 +49,7 @@
 	var/target_bodytype
 
 	var/mob/living/human/occupant
-	var/obj/item/clothing/suit/space/void/suit
+	var/obj/item/clothing/suit/space/suit
 	var/obj/item/clothing/head/helmet/space/helmet
 	var/obj/item/clothing/shoes/magboots/boots
 
@@ -148,6 +148,21 @@
 	target_bodytype = available_bodytypes[1]
 	update_icon()
 
+#ifdef UNIT_TEST
+	// Pass this off to lateload to make sure any Initialize() overrides on subtypes or modpacks also run.
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/suit_cycler/LateInitialize()
+	. = ..()
+	if(suit && !istype(suit))
+		log_error("[type] has invalid suit instance: [suit]")
+	if(helmet && !istype(helmet))
+		log_error("[type] has invalid helmet instance: [helmet]")
+	if(boots && !istype(boots))
+		log_error("[type] has invalid suit instance: [boots]")
+#endif
+
+
 /obj/machinery/suit_cycler/Destroy()
 	if(occupant)
 		occupant.dropInto(loc)
@@ -238,14 +253,14 @@
 			updateUsrDialog()
 		return TRUE
 
-	if(istype(I,/obj/item/clothing/suit/space/void))
+	if(istype(I,/obj/item/clothing/suit/space))
 
 		if(locked)
 			to_chat(user, SPAN_WARNING("The suit cycler is locked."))
 			return TRUE
 
 		if(suit)
-			to_chat(user, SPAN_WARNING("The cycler already contains a voidsuit."))
+			to_chat(user, SPAN_WARNING("The cycler already contains a spacesuit."))
 			return TRUE
 
 		if(user.try_unequip(I, src))
