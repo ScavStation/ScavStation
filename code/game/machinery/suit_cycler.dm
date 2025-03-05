@@ -481,6 +481,11 @@
 		return
 	eject_occupant(usr)
 
+/obj/machinery/suit_cycler/relaymove(var/mob/user)
+	..()
+	if(occupant == user)
+		eject_occupant(user)
+
 /obj/machinery/suit_cycler/proc/eject_occupant(mob/user)
 
 	if(locked || active)
