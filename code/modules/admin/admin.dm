@@ -216,9 +216,9 @@ var/global/BSACooldown = 0
 			else
 				f = 0
 			if(L in M.languages)
-				body += "<a href='byond://?src=\ref[src];toglang=\ref[M];lang=[L.name]' style='color:#006600'>[L.name]</a>"
+				body += "<a href='byond://?src=\ref[src];toglang=\ref[M];lang=\ref[L]' style='color:#006600'>[L.name]</a>"
 			else
-				body += "<a href='byond://?src=\ref[src];toglang=\ref[M];lang=[L.name]' style='color:#ff0000'>[L.name]</a>"
+				body += "<a href='byond://?src=\ref[src];toglang=\ref[M];lang=\ref[L]' style='color:#ff0000'>[L.name]</a>"
 
 	body += {"<br>
 		</body></html>
