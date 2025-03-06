@@ -75,6 +75,17 @@
 	. = ..()
 	add_to_reagents(/decl/material/liquid/acid/polyacid, 6)
 
+/obj/item/food/butchery/meat/insect
+	desc = "A piece of insect meat"
+	color = "#d4d366"
+	butchery_data = /decl/butchery_data/animal/small/insect
+
+/obj/item/food/butchery/meat/insect/ivenmoth
+
+/obj/item/food/butchery/meat/insect/ivenmoth/populate_reagents()
+	. = ..()
+	add_to_reagents(/decl/material/liquid/hallucinogenics, 2)
+
 /obj/item/food/butchery/meat/bear
 	desc = "A very manly slab of meat."
 	icon_state = "bearmeat"

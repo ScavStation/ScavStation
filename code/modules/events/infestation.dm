@@ -13,6 +13,7 @@
 #define VERM_LIZARDS 1
 #define VERM_SPIDERS 2
 #define VERM_SNAPRATS 3
+#define VERM_IVENMOTHS 4
 
 /datum/event/infestation
 	announceWhen = 10
@@ -36,7 +37,7 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(1,3)
+	vermin = rand(1,4)
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(
@@ -59,6 +60,10 @@
 			spawn_types = list(/mob/living/simple_animal/passive/mouse/snaprat)
 			max_number = 12
 			vermstring = "snaprats"
+		if(VERM_IVENMOTHS)
+			spawn_types = list(/mob/living/simple_animal/passive/ivenmoth)
+			max_number = 10
+			vermstring = "ivenmoths"
 
 	spawn(0)
 		var/num = 0

@@ -78,6 +78,16 @@
 	skin_type     = null
 	skin_amount   = null
 
+/decl/butchery_data/animal/small/insect
+	meat_name         = "insect"
+	meat_type         = /obj/item/food/butchery/meat/insect
+	skin_material     = /decl/material/solid/organic/skin/insect
+	bone_material     = /decl/material/solid/organic/bone/cartilage
+
+/decl/butchery_data/animal/small/insect/ivenmoth
+	meat_name         = "ivenmoth"
+	meat_type         = /obj/item/food/butchery/meat/insect/ivenmoth
+
 /decl/butchery_data/animal/wolf
 	skin_material     = /decl/material/solid/organic/skin/fur/gray
 
