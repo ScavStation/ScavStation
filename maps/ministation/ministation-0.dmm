@@ -16751,6 +16751,10 @@
 "Ym" = (
 /turf/floor/tiled,
 /area/ministation/eva)
+"Yn" = (
+/mob/living/simple_animal/passive/ivenmoth/yellow/Binny,
+/turf/floor/plating,
+/area/ministation/engineroom)
 "Yo" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 1
@@ -50879,7 +50883,7 @@ Nl
 Ri
 Ri
 Nv
-Ri
+Yn
 Ri
 Ri
 Ta
