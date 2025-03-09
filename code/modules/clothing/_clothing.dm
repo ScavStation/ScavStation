@@ -401,7 +401,7 @@
 /obj/item/clothing/proc/set_sensors(mob/user)
 	if (isobserver(user) || user.incapacitated())
 		return
-	var/obj/item/clothing/sensor/vitals/sensor = locate() in accessories
+	var/obj/item/clothing/sensor/vitals/sensor = get_vitals_sensor()
 	if(sensor)
 		sensor.user_set_sensors(user)
 
@@ -436,6 +436,12 @@
 	remove_hood(skip_update = TRUE)
 	update_icon()
 
+/obj/item/clothing/proc/get_vitals_sensor()
+	for(var/obj/item/clothing/accessory in accessories)
+		var/obj/item/sensor = accessory.get_vitals_sensor()
+		if(sensor)
+			return sensor
+
 /obj/item/clothing/get_alt_interactions(var/mob/user)
 	. = ..()
 	var/list/all_clothing_state_modifiers = list()
@@ -446,13 +452,18 @@
 		var/decl/clothing_state_modifier/modifier = GET_DECL(modifier_type)
 		if(modifier.alt_interaction_type)
 			LAZYADD(., modifier.alt_interaction_type)
-	LAZYADD(., /decl/interaction_handler/clothing_set_sensors)
+	if(get_vitals_sensor())
+		LAZYADD(., /decl/interaction_handler/clothing_set_sensors)
 
 /decl/interaction_handler/clothing_set_sensors
 	name = "Set Sensors Level"
 	expected_target_type = /obj/item/clothing
 
+/decl/interaction_handler/clothing_set_sensors/is_possible(atom/target, mob/user, obj/item/prop)
+	var/obj/item/clothing/clothing = target
+	return ..() && istype(clothing) && clothing.get_vitals_sensor()
+
 /decl/interaction_handler/clothing_set_sensors/invoked(atom/target, mob/user, obj/item/prop)
-	var/obj/item/clothing/U = target
-	U.set_sensors(user)
+	var/obj/item/clothing/clothing = target
+	clothing.set_sensors(user)
 

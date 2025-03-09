@@ -20,20 +20,26 @@
 	global.listening_objects += src
 
 /obj/item/assembly_holder/Destroy()
-	if(!QDELETED(a_left))
-		a_left.holder = null
-		QDEL_NULL(a_left)
-	else
+
+	if(a_left)
+		if(a_left.holder == src)
+			a_left.holder = null
+		if(!QDELETED(a_left))
+			qdel(a_left)
 		a_left = null
-	if(!QDELETED(a_right))
-		a_right.holder = null
-		QDEL_NULL(a_right)
-	else
+
+	if(a_right)
+		if(a_right.holder == src)
+			a_right.holder = null
+		if(!QDELETED(a_right))
+			qdel(a_right)
 		a_right = null
-	if(!QDELETED(special_assembly))
-		QDEL_NULL(special_assembly)
-	else
+
+	if(special_assembly)
+		if(!QDELETED(special_assembly))
+			qdel(special_assembly)
 		special_assembly = null
+
 	return ..()
 
 /obj/item/assembly_holder/proc/attach(var/obj/item/left, var/obj/item/right, var/mob/user)

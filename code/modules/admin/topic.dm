@@ -1469,13 +1469,16 @@
 			if(!istype(M))
 				to_chat(usr, "[M] is illegal type, must be /mob!")
 				return
-			var/decl/language/L = SSlore.get_language_by_name(href_list["lang"])
-			if(L in M.languages)
-				if(!M.remove_language(L.type))
-					to_chat(usr, "Failed to remove language '[L.name]' from \the [M]!")
+			var/decl/language/L = locate(href_list["lang"])
+			if(istype(L))
+				if(L in M.languages)
+					if(!M.remove_language(L.type))
+						to_chat(usr, "Failed to remove language '[L.name]' from \the [M]!")
+				else
+					if(!M.add_language(L.type))
+						to_chat(usr, "Failed to add language '[L.name]' to \the [M]!")
 			else
-				if(!M.add_language(L.type))
-					to_chat(usr, "Failed to add language '[L.name]' from \the [M]!")
+				to_chat(usr, "Failed to toggle unknown language on \the [M]!")
 
 			show_player_panel(M)
 
