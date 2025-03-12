@@ -78,7 +78,7 @@
 		if(H.species.species_flags & SPECIES_FLAG_NO_TANGLE)
 			return
 
-		if(victim.loc != loc && victim.can_slip())
+		if(victim.loc != loc && !victim.can_slip())
 			visible_message("<span class='danger'>Tendrils lash to drag \the [victim] but \the [src] can't pull them across the ground!</span>")
 			return
 
