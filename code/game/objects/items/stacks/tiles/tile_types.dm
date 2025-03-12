@@ -286,7 +286,7 @@
 /obj/item/stack/tile/carpet/on_update_icon()
 	. = ..()
 	if(detail_color)
-		set_overlays(overlay_image(icon, "[icon_state]-detail", detail_color, RESET_COLOR))
+		add_overlay(overlay_image(icon, "[icon_state]_detail", detail_color, RESET_COLOR))
 
 /obj/item/stack/tile/carpet/fifty
 	amount = 50
