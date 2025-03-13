@@ -982,7 +982,8 @@ About the new airlock wires panel:
 
 	if (lock_cut_state == BOLTS_CUT) return FALSE //what bolts?
 
-	src.locked = TRUE
+	locked = TRUE
+	locking = FALSE
 	playsound(src, bolts_dropping, 30, 0, -6)
 	audible_message("You hear a click from the bottom of the door.", hearing_distance = 1)
 	update_icon()
@@ -990,20 +991,21 @@ About the new airlock wires panel:
 	return TRUE
 
 /obj/machinery/door/airlock/proc/unlock(var/forced=0)
-	if(!src.locked)
+	if(!locked)
 		return FALSE
 
 	if (!forced)
-		if(!src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
+		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
 			return FALSE
 		if(operating)
 			locking = FALSE
 			unlocking = TRUE
 			return FALSE
-		if(operating || !src.arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
+		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
 			return FALSE
 
-	src.locked = FALSE
+	locked = FALSE
+	unlocking = FALSE
 	playsound(src, bolts_rising, 30, 0, -6)
 	audible_message("You hear a click from the bottom of the door.", hearing_distance = 1)
 	update_icon()
