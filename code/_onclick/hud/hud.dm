@@ -13,7 +13,6 @@
 		hud_used = initial(hud_used)
 	if(ispath(hud_used))
 		hud_used = new hud_used(src)
-	refresh_lighting_master()
 
 /datum/hud
 	var/mob/mymob

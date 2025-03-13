@@ -96,10 +96,6 @@
 			break
 
 /mob/living/bot/medbot/UnarmedAttack(var/mob/living/human/target, var/proximity)
-	. = ..()
-	if(.)
-		return
-
 	if(!on || !istype(target))
 		return FALSE
 
