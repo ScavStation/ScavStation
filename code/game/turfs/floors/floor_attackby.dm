@@ -47,7 +47,12 @@
 	for(var/decl/flooring/F as anything in decls_repository.get_decls_of_subtype_unassociated(/decl/flooring))
 		if(!F.build_type)
 			continue
-		if((ispath(S.type, F.build_type) || ispath(S.build_type, F.build_type)) && (isnull(F.build_material) || S.material?.type == F.build_material))
+		// If S.build_type is set, we expect an exact match. Otherwise, we do
+		// an ispath on S.type. This is a shitty way to disambiguate carpet
+		// types because they're in the ugly position of "same material, built
+		// with a subtype" whereas with everything else, material + type
+		// disambiguates well enough.
+		if((S.build_type ? S.build_type == F.build_type : ispath(S.type, F.build_type)) && (isnull(F.build_material) || S.material?.type == F.build_material))
 			use_flooring = F
 			break
 	if(!use_flooring)
