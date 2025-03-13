@@ -271,6 +271,7 @@
  * Carpets
  */
 /obj/item/stack/tile/carpet
+	build_type = /obj/item/stack/tile/carpet
 	name = "brown carpet"
 	singular_name = "brown carpet"
 	desc = "A piece of brown carpet."
@@ -292,6 +293,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/blue
+	build_type = /obj/item/stack/tile/carpet/blue
 	name = "blue carpet"
 	desc = "A piece of blue and gold carpet."
 	singular_name = "blue carpet"
@@ -301,6 +303,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/blue2
+	build_type = /obj/item/stack/tile/carpet/blue2
 	name = "pale blue carpet"
 	desc = "A piece of blue and pale blue carpet."
 	singular_name = "pale blue carpet"
@@ -311,6 +314,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/blue3
+	build_type = /obj/item/stack/tile/carpet/blue3
 	name = "sea blue carpet"
 	desc = "A piece of blue and green carpet."
 	singular_name = "sea blue carpet"
@@ -321,6 +325,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/magenta
+	build_type = /obj/item/stack/tile/carpet/magenta
 	name = "magenta carpet"
 	desc = "A piece of magenta carpet."
 	singular_name = "magenta carpet"
@@ -331,6 +336,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/purple
+	build_type = /obj/item/stack/tile/carpet/purple
 	name = "purple carpet"
 	desc = "A piece of purple carpet."
 	singular_name = "purple carpet"
@@ -341,6 +347,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/orange
+	build_type = /obj/item/stack/tile/carpet/orange
 	name = "orange carpet"
 	desc = "A piece of orange carpet."
 	singular_name = "orange carpet"
@@ -351,6 +358,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/green
+	build_type = /obj/item/stack/tile/carpet/green
 	name = "green carpet"
 	desc = "A piece of green carpet."
 	singular_name = "green carpet"
@@ -371,6 +379,7 @@
 	amount = 50
 
 /obj/item/stack/tile/carpet/rustic
+	build_type = /obj/item/stack/tile/carpet/rustic
 	name = "rustic carpet"
 	desc = "A piece of simple, rustic carpeting."
 	singular_name = "rustic carpet"
