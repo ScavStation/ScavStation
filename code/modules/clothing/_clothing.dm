@@ -458,6 +458,9 @@
 	if(get_vitals_sensor())
 		LAZYADD(., /decl/interaction_handler/clothing_set_sensors)
 
+/obj/item/clothing/proc/get_nonstandard_icon_states()
+	return null
+
 /decl/interaction_handler/clothing_set_sensors
 	name = "Set Sensors Level"
 	expected_target_type = /obj/item/clothing

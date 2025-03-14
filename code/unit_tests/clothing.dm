@@ -147,6 +147,8 @@
 								continue
 							extraneous_states |= check_state
 
+			extraneous_states -= clothes.get_nonstandard_icon_states()
+
 			for(var/extraneous_state in extraneous_states)
 				if(!(extraneous_state in reported_failures[clothes.icon]))
 					LAZYADD(reported_failures[clothes.icon], extraneous_state)
