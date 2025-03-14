@@ -94,40 +94,43 @@
 					generated_tokens += "[gen_token][token]"
 
 			// God help unit test time if people start putting markings on flannel shirts.
-			if(clothes.markings_state_modifier && clothes.markings_color)
+			if(clothes.markings_state_modifier)
+				// Check even if markings_color is null, because subtypes may use the icon and we don't want to mark it as extraneous.
 				for(var/token in generated_tokens)
 					generated_tokens += "[token][clothes.markings_state_modifier]"
+				generated_tokens += clothes.markings_state_modifier
 
 			// Keep track of which states we've looked for or otherwise evaluated for later state checking.
 			var/list/check_states = icon_states(clothes.icon)
 
 			// Validate against the list of generated tokens.
 			for(var/gen_token in generated_tokens)
-
-			// This logic is currently not working (false negatives). Uncomment when fixed.
-			/*
 				if(ICON_STATE_WORLD in check_states)
 					var/check_state = "[ICON_STATE_WORLD][gen_token]"
 					if(!(check_state in reported_failures[clothes.icon]) && !(check_state in check_states))
 						LAZYADD(reported_failures[clothes.icon], check_state)
 						clothing_fails += "missing token world state '[check_state]' in '[clothes.icon]'"
+					else
+						// Prune expected states from the file.
+						check_states -= check_state
 
 				if(ICON_STATE_INV in check_states)
 					var/check_state = "[ICON_STATE_INV][gen_token]"
 					if(!(check_state in reported_failures[clothes.icon]) && !(check_state in check_states))
 						LAZYADD(reported_failures[clothes.icon], check_state)
 						clothing_fails += "missing token inventory state '[check_state]' in '[clothes.icon]'"
+					else
+						// Prune expected states from the file.
+						check_states -= check_state
 
 				if(fallback_slot)
 					var/check_state = "[state_base]-[fallback_slot][gen_token]"
 					if(!(check_state in reported_failures[clothes.icon]) && !(check_state in check_states))
 						LAZYADD(reported_failures[clothes.icon], check_state)
 						clothing_fails += "missing token onmob state '[check_state]' in '[clothes.icon]'"
-			*/
-				// Prune expected states from the file.
-				for(var/related_state in check_states)
-					if(findtext(related_state, gen_token))
-						check_states -= related_state
+					else
+						// Prune expected states from the file.
+						check_states -= check_state
 
 			// Now we check for unrelated or invalid modifier states remaining.
 			var/list/extraneous_states = list()
@@ -135,8 +138,13 @@
 			for(var/modifier_type in all_modifiers)
 				var/decl/clothing_state_modifier/modifier = all_modifiers[modifier_type]
 				if(modifier.applies_icon_state_modifier)
+					// This is working on the assumption that bodytypes all end in " body".
+					// If that changes this will need a better method.
+					var/regex/is_alt_bodytype_state = regex("^\[A-Za-z \]+ body-")
 					for(var/check_state in check_states)
 						if(findtext(check_state, modifier.icon_state_modifier))
+							if(is_alt_bodytype_state.Find(check_state))
+								continue
 							extraneous_states |= check_state
 
 			for(var/extraneous_state in extraneous_states)

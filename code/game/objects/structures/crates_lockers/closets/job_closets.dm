@@ -43,7 +43,7 @@
 		/obj/item/clothing/dress/sun,
 		/obj/item/clothing/pants/slacks/black = 2,
 		/obj/item/clothing/shirt/button = 2,
-		/obj/item/clothing/neck/tie/bow/color/red = 2,
+		/obj/item/clothing/neck/tie/bow/red = 2,
 		/obj/item/clothing/suit/jacket/vest/blue = 2,
 		/obj/item/radio/headset/headset_service = 2,
 		/obj/item/box/mousetraps = 2,

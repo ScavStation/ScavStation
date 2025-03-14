@@ -25,7 +25,7 @@
 /obj/item/chems/glass/bottle/get_lid_color()
 	return lid_color
 
-/obj/item/chems/glass/bottle/on_picked_up(mob/user)
+/obj/item/chems/glass/bottle/on_picked_up(mob/user, atom/old_loc)
 	. = ..()
 	update_icon()
 
@@ -44,7 +44,7 @@
 	var/image/overglass = mutable_appearance(icon, "[icon_state]_over", color)
 	overglass.alpha = alpha * ((alpha/255) ** 3)
 	add_overlay(overglass)
-	if(material.reflectiveness >= MAT_VALUE_SHINY)
+	if(istype(material) && material.reflectiveness >= MAT_VALUE_SHINY)
 		var/mutable_appearance/shine = mutable_appearance(icon, "[icon_state]_shine", adjust_brightness(color, 20 + material.reflectiveness))
 		shine.alpha = material.reflectiveness * 3
 		add_overlay(shine)

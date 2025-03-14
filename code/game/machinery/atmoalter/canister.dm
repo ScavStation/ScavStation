@@ -1,20 +1,20 @@
 /obj/machinery/portable_atmospherics/canister
-	name = "canister"
-	icon = 'icons/obj/atmos.dmi'
-	icon_state = "yellow"
-	density = TRUE
-	max_health = 100
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	w_class = ITEM_SIZE_GARGANTUAN
-	construct_state = /decl/machine_construction/pipe/welder
-	uncreated_component_parts = null
-	start_pressure             = 45 ATM
-	volume                     = 1000
-	interact_offline           = TRUE
-	matter = list(
+	name             = "canister"
+	icon             = 'icons/obj/atmos.dmi'
+	icon_state       = "yellow"
+	density          = TRUE
+	max_health       = 100
+	obj_flags        = OBJ_FLAG_CONDUCTIBLE
+	w_class          = ITEM_SIZE_GARGANTUAN
+	construct_state  = /decl/machine_construction/pipe/welder
+	stat_immune      = NOSCREEN | NOINPUT | NOPOWER
+	start_pressure   = 45 ATM
+	volume           = 1000
+	interact_offline = TRUE
+	matter           = list(
 		/decl/material/solid/metal/steel = 10 * SHEET_MATERIAL_AMOUNT
 	)
-
+	uncreated_component_parts  = null
 	var/valve_open             = FALSE
 	var/release_pressure       = ONE_ATMOSPHERE
 	var/release_flow_rate      = ATMOS_DEFAULT_VOLUME_PUMP //in L/s
