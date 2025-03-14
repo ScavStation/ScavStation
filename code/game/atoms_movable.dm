@@ -58,13 +58,11 @@
 	SSspacedrift.processing[src] = src
 	return 1
 
-//return 0 to space drift, 1 to stop, -1 for mobs to handle space slips
+//return SPACE_MOVE_FORBIDDEN to space drift, SPACE_MOVE_PERMITTED to stop, SPACE_MOVE_SUPPORTED for mobs to handle space slips
 /atom/movable/proc/is_space_movement_permitted(allow_movement = FALSE)
 	if(!simulated)
 		return SPACE_MOVE_PERMITTED
 	if(has_gravity())
-		return SPACE_MOVE_PERMITTED
-	if(length(grabbed_by))
 		return SPACE_MOVE_PERMITTED
 	if(throwing)
 		return SPACE_MOVE_PERMITTED
@@ -72,6 +70,11 @@
 		return SPACE_MOVE_PERMITTED
 	if(!isturf(loc))
 		return SPACE_MOVE_PERMITTED
+	if(length(grabbed_by))
+		for(var/obj/item/grab/grab as anything in grabbed_by)
+			if(grab.assailant == src)
+				continue
+			return SPACE_MOVE_PERMITTED
 	if(locate(/obj/structure/lattice) in range(1, get_turf(src))) //Not realistic but makes pushing things in space easier
 		return SPACE_MOVE_SUPPORTED
 	return SPACE_MOVE_FORBIDDEN

@@ -23,13 +23,14 @@
 	var/const/WIRE_RADIO_PULSE = 16		//Allows Pulse(1) to send a radio message
 
 /obj/item/assembly/Destroy()
-	if(!QDELETED(holder))
-		if(holder.a_left == src)
-			holder.a_left = null
-		if(holder.a_right == src)
-			holder.a_right = null
-		QDEL_NULL(holder)
-	else
+	if(holder)
+		if(istype(holder))
+			if(holder.a_left == src)
+				holder.a_left = null
+			if(holder.a_right == src)
+				holder.a_right = null
+		if(istype(holder, /datum) && !QDELETED(holder))
+			qdel(holder)
 		holder = null
 	return ..()
 

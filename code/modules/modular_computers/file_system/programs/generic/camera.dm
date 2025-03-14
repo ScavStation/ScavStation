@@ -19,6 +19,30 @@
 	var/list/viewers = list()
 	var/bypass_access = FALSE
 
+/datum/nano_module/program/camera_monitor/proc/get_forbidden_channels()
+	var/static/list/forbidden_channels = list(
+		(CAMERA_CHANNEL_ERT),
+		(CAMERA_CHANNEL_MERCENARY)
+	)
+	return forbidden_channels
+
+/datum/nano_module/program/camera_monitor/ert
+	name = "ERT Camera Monitoring program"
+
+/datum/nano_module/program/camera_monitor/ert/get_forbidden_channels()
+	var/static/list/forbidden_channels = list(
+		(CAMERA_CHANNEL_MERCENARY)
+	)
+
+/datum/nano_module/program/camera_monitor/mercenary
+	name = "Mercenary Camera Monitoring program"
+
+/datum/nano_module/program/camera_monitor/mercenary/get_forbidden_channels()
+	var/static/list/forbidden_channels = list(
+		(CAMERA_CHANNEL_ERT)
+	)
+	return forbidden_channels
+
 /datum/nano_module/program/camera_monitor/Destroy()
 	unlook_all()
 	. = ..()
@@ -34,6 +58,7 @@
 	var/list/cameras_by_channel = get_cameras_by_channel()
 	for(var/channel in cameras_by_channel)
 		all_channels += channel
+	all_channels -= get_forbidden_channels()
 
 	data["channels"] = all_channels
 

@@ -84,7 +84,6 @@
 	sound_manipulate = 'sound/foley/meat1.ogg'
 	sound_dropped = 'sound/foley/meat2.ogg'
 	hitsound = "punch"
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 	fishing_bait_value = 0.75
 	tans_to = /decl/material/solid/organic/leather
 	compost_value = 0.8
@@ -98,8 +97,6 @@
 	tans_to = /decl/material/solid/organic/leather/lizard
 	hardness = MAT_VALUE_FLEXIBLE
 	weight = MAT_VALUE_VERY_LIGHT
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 
 /decl/material/solid/organic/skin/insect
 	name = "chitin"
@@ -228,6 +225,7 @@
 	sound_dropped = 'sound/foley/sticksdrop1.ogg'
 	compost_value = 0.5
 	nutriment_animal = TRUE
+	exoplanet_rarity_plant = MAT_RARITY_EXOTIC
 
 // Stub to stop eggs melting while being boiled.
 /decl/material/solid/organic/bone/eggshell
@@ -237,8 +235,6 @@
 	default_solid_form     = /obj/item/stack/material/lump
 	hardness               = MAT_VALUE_FLEXIBLE
 	weight                 = MAT_VALUE_VERY_LIGHT
-	exoplanet_rarity_gas   = MAT_RARITY_NOWHERE
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
 
 // Stub for earrings. TODO: put it in clams
 /decl/material/solid/organic/bone/pearl
@@ -248,21 +244,15 @@
 	default_solid_form     = /obj/item/stack/material/lump
 	hardness               = MAT_VALUE_FLEXIBLE
 	weight                 = MAT_VALUE_VERY_LIGHT
-	exoplanet_rarity_gas   = MAT_RARITY_NOWHERE
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
 
 /decl/material/solid/organic/bone/fish
 	name = "fishbone"
 	uid = "solid_fishbone"
 	hardness = MAT_VALUE_FLEXIBLE
 	weight = MAT_VALUE_VERY_LIGHT
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 
 /decl/material/solid/organic/bone/cartilage
 	name = "cartilage"
 	uid = "solid_cartilage"
 	hardness = 0
 	weight = MAT_VALUE_EXTREMELY_LIGHT
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE

@@ -71,7 +71,7 @@
 	name = "Caretaker"
 	desc = "A healer, a medic, a shoulder to cry on. This servant will heal you, even from near death."
 	spiel = "<i>'The last enemy that will be destroyed is death.'</i> You can perceive any injuries with simple sight, and heal them with the Trance spell; potentially even reversing death itself! However, this comes at a price; Trance will become increasingly harder to use as you use it, until you can use it no longer. Be cautious, and aid your Master in any way possible!"
-	equipment = list(/obj/item/clothing/jumpsuit/caretaker = slot_w_uniform_str,
+	equipment = list(/obj/item/clothing/costume/caretaker = slot_w_uniform_str,
 					/obj/item/clothing/shoes/dress/caretakershoes = slot_shoes_str)
 	spells = list(/spell/toggle_armor/caretaker,
 				/spell/targeted/heal_target/touch,

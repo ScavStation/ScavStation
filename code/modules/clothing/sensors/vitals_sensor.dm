@@ -11,6 +11,9 @@
 		"Tracking beacon"
 	)
 
+/obj/item/clothing/sensor/vitals/get_vitals_sensor()
+	return src
+
 /obj/item/clothing/sensor/vitals/Initialize()
 	. = ..()
 	if(isnull(sensor_mode) || sensor_mode < VITALS_SENSOR_OFF || sensor_mode > VITALS_SENSOR_TRACKING)

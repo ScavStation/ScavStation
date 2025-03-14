@@ -274,3 +274,6 @@
 	desc = "A cheap jumpsuit made for patients of a corporate 'occupational clinic'."
 	icon = 'maps/random_ruins/exoplanet_ruins/hateville/uniform.dmi'
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+
+/obj/item/clothing/jumpsuit/employist/get_assumed_clothing_state_modifiers()
+	return null

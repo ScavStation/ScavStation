@@ -3,7 +3,7 @@
 	desc = "A letter jacket often given to members of a varsity team."
 	color = "#ee1511"
 	icon = 'icons/clothing/suits/letterman.dmi'
-	markings_state_modifier = "_sleeves"
+	markings_state_modifier = "-sleeves"
 	markings_color = "#ffffff"
 
 /obj/item/clothing/suit/jacket/letterman/red
