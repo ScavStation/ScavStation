@@ -38,3 +38,22 @@
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_TRACE
 	)
 
+/obj/item/clothing/costume/research_director_suit
+	desc = "A dress suit and slacks stained with hard work and dedication to science. Perhaps other things as well, but mostly hard work and dedication."
+	name = "head researcher uniform"
+	icon = 'icons/clothing/uniform_rd_alt.dmi'
+	armor = list(
+		ARMOR_BIO = ARMOR_BIO_MINOR
+	)
+
+// Copied from jumpsuits, with the rolled-down modifier removed.
+/obj/item/clothing/costume/research_director_suit/get_assumed_clothing_state_modifiers()
+	var/static/list/expected_state_modifiers = list(
+		GET_DECL(/decl/clothing_state_modifier/rolled_sleeves)
+	)
+	return expected_state_modifiers
+
+/obj/item/clothing/costume/captainformal
+	name = "captain's formal uniform"
+	desc = "A captain's formal-wear, for special occasions."
+	icon = 'icons/clothing/uniform_captain_formal.dmi'

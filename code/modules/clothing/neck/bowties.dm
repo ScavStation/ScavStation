@@ -1,16 +1,16 @@
 //Bowties
+/obj/item/clothing/neck/tie/bow
+	name = "bowtie"
+	desc = "A neosilk hand-tied bowtie."
+	icon = 'icons/clothing/accessories/ties/bowtie.dmi'
+
 /obj/item/clothing/neck/tie/bow/get_assumed_clothing_state_modifiers()
 	var/static/list/expected_state_modifiers = list(
 		GET_DECL(/decl/clothing_state_modifier/untied)
 	)
 	return expected_state_modifiers
 
-/obj/item/clothing/neck/tie/bow/color
-	name = "bowtie"
-	desc = "A neosilk hand-tied bowtie."
-	icon = 'icons/clothing/accessories/ties/bowtie.dmi'
-
-/obj/item/clothing/neck/tie/bow/color/red
+/obj/item/clothing/neck/tie/bow/red
 	paint_color = COLOR_RED
 
 /obj/item/clothing/neck/tie/bow/ugly
