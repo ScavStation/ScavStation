@@ -18,8 +18,8 @@
 
 /decl/emote/audible/slap/do_extra(atom/user, atom/target)
 	. = ..()
-	if(ismob(user))
-		var/mob/user_mob = user
-		var/obj/item/clothing/mask/smokable/cig = user_mob.get_equipped_item(slot_wear_mask_str)
+	var/mob/victim_mob = target || user
+	if(ismob(victim_mob))
+		var/obj/item/clothing/mask/smokable/cig = victim_mob.get_equipped_item(slot_wear_mask_str)
 		if(istype(cig))
-			user_mob.try_unequip(cig, user.loc)
+			victim_mob.try_unequip(cig)
