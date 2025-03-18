@@ -93,6 +93,15 @@
 	if(string)
 		to_chat(user, SPAN_WARNING("\The [src] is already strung."))
 		return TRUE
+	// check to make sure it fits
+	var/datum/storage/loc_storage = loc.storage
+	if(loc_storage)
+		if(strung_w_class > loc_storage.max_w_class)
+			to_chat(user, SPAN_WARNING("\The [src] can't fit in \the [loc] when strung, take it out first!"))
+			return TRUE
+		if((loc_storage.storage_space_used() - w_class + strung_w_class) > loc_storage.max_storage_space)
+			to_chat(user, SPAN_WARNING("\The [loc] is too full to fit \the [src] when strung, make some room!"))
+			return TRUE
 	if(user.try_unequip(new_string, src))
 		set_string(new_string)
 		if(user)
