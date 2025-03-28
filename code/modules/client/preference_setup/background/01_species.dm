@@ -68,10 +68,12 @@
 	if(current_species.roleplay_summary)
 		desc = "[desc]<h3>Roleplaying Summary</h3><p>[current_species.roleplay_summary]</p>"
 
-	if(hide_species && length(desc) > 200)
+	var/was_hidden = hide_species && length(desc) > 200
+	if(was_hidden)
 		desc = "[copytext(desc, 1, 194)] <small>\[...\]</small>"
 	. += "<td width>[desc]</td>"
-	. += "<td width = '50px'><a href='?src=\ref[src];toggle_species_verbose=1'>[hide_species ? "Expand" : "Collapse"]</a></td>"
+	if(was_hidden)
+		. += "<td width = '50px'><a href='byond://?src=\ref[src];toggle_species_verbose=1'>[hide_species ? "Expand" : "Collapse"]</a></td>"
 
 	. += "</tr>"
 
