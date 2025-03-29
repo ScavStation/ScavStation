@@ -104,9 +104,11 @@
 		. += "<small>[culture_info["details"] || "No additional details."]</small>"
 		. += "</td><td>"
 		. += "[culture_info["body"] || "No description."]"
-		. += "</td><td width = '50px'>"
-		. += "<a href='?src=\ref[src];toggle_verbose_[token]=1'>[hidden[token] ? "Expand" : "Collapse"]</a>"
-		. += "</td></tr>"
+		. += "</td>"
+		// Only show the button to expand/hide if the text overflows the limit.
+		if(culture.is_long())
+			. += "<td width = '50px'><a href='?src=\ref[src];toggle_verbose_[token]=1'>[hidden[token] ? "Expand" : "Collapse"]</a></td>"
+		. += "</tr>"
 		. += "</table><hr>"
 
 	. = jointext(.,null)
