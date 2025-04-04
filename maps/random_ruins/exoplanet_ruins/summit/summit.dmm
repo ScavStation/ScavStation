@@ -1,0 +1,7047 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/template_noop,
+/area/template_noop)
+"ae" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"av" = (
+/obj/structure/cable,
+/obj/machinery/light/small,
+/obj/machinery/network{
+	initial_network_id = "Summit";
+	initial_network_key = "Peak"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"aw" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/clothing/dress/avian_smock/worker,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_psycopath"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/radio/shortwave{
+	pixel_y = -6;
+	pixel_x = 7
+	},
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"aD" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/turf/floor/cult,
+/area/template_noop)
+"aH" = (
+/obj/structure/pit/closed{
+	desc = "...Sure. Go ahead. This DEFINITELY won't come back to haunt you."
+	},
+/obj/item/clothing/gloves/ring/seal/signet{
+	pixel_y = -4
+	},
+/obj/item/remains/xeno/charred{
+	pixel_y = 1;
+	desc = "The charred remains of an unfortunate bird-like creature.";
+	name = "charred remains"
+	},
+/obj/item/clothing/head/hairflower/yellow{
+	pixel_y = -1;
+	pixel_x = 9
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/turf/template_noop,
+/area/template_noop)
+"aL" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib5";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"aT" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"aW" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"aX" = (
+/obj/machinery/singularity_generator{
+	id_tag = "summitsing";
+	energy = 1;
+	emagged = 1;
+	is_activated = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/blackgrid{
+	initial_gas = list(/decl/material/gas/hydrogen = 25000)
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"be" = (
+/obj/structure/table/reinforced,
+/obj/item/ancient_surgery/forceps,
+/obj/item/ancient_surgery/retractor{
+	pixel_y = 16
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/surgicaldrill,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"bg" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"bl" = (
+/obj/structure/table/reinforced,
+/obj/item/organ/internal/brain,
+/obj/item/clothing/dress/avian_smock,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"br" = (
+/obj/machinery/recharge_station,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"bs" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"bw" = (
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/structure/defensive_barrier,
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"bx" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"bF" = (
+/obj/machinery/door/blast/regular{
+	name = "Temporal Recursion Vault Door B";
+	id_tag = "TRDB";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"bN" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibmid1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"bO" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/structure/barricade/spike{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"bW" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"cc" = (
+/obj/item/organ/internal/eyes/robot,
+/obj/machinery/button/toggle{
+	pixel_y = 2;
+	pixel_x = 23;
+	name = "Unlabeled Button";
+	dir = 8;
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/toggle{
+	pixel_x = 31;
+	name = "Unlabeled Button";
+	dir = 8;
+	id_tag = "summitsing";
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibbearcore"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"cd" = (
+/obj/structure/table/reinforced,
+/obj/item/book/skill/research/science/prof{
+	pixel_y = 9;
+	pixel_x = -17
+	},
+/obj/item/book/skill/research/devices/prof{
+	pixel_y = -1;
+	pixel_x = -10
+	},
+/obj/item/book/skill/service/cooking/prof{
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/obj/item/book/skill/general/computer/prof{
+	pixel_y = -6;
+	pixel_x = -22
+	},
+/obj/item/organ/internal/augment/armor,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"cu" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"cv" = (
+/obj/machinery/button/toggle{
+	pixel_y = 37;
+	pixel_x = 8;
+	name = "Unlabeled Button"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 37;
+	pixel_x = -8;
+	name = "Unlabeled Button";
+	id_tag = "summitsing"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 27;
+	pixel_x = 8;
+	name = "Unlabeled Button";
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 27;
+	pixel_x = -8;
+	name = "Unlabeled Button"
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/clothing/head/hairflower/yellow{
+	pixel_y = 4;
+	pixel_x = -8
+	},
+/obj/item/remains/xeno{
+	desc = "The crumbling remains of a small rat-like creature."
+	},
+/obj/item/flame/fuelled/lighter/zippo/brass{
+	pixel_y = 6;
+	pixel_x = 10
+	},
+/obj/item/chems/drinks/bottle/vodka{
+	pixel_y = -2;
+	pixel_x = -9
+	},
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"cz" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor3"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"cK" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"cM" = (
+/obj/machinery/recharge_station,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"cR" = (
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"cY" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor4"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dc" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib3";
+	dir = 4
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"de" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/clothing/shoes/avian/footwraps,
+/obj/item/organ/external/tail/avian,
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dk" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dn" = (
+/obj/structure/table/reinforced,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"du" = (
+/obj/machinery/porta_turret{
+	lethal = 1;
+	check_weapons = 1;
+	auto_repair = 1;
+	emagged = 1;
+	check_synth = 1;
+	locked = 0
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dy" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dG" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dL" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/machinery/status_display{
+	pixel_y = 34
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dU" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/status_display{
+	pixel_y = 34
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dV" = (
+/obj/machinery/power/supermatter,
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"dX" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"dY" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"eb" = (
+/obj/machinery/singularity_generator{
+	id_tag = "summitsing";
+	energy = 1;
+	emagged = 1;
+	is_activated = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"eq" = (
+/obj/item/flashlight/flare,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"eA" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"eB" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor4"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"eJ" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "TRD3";
+	name = "Unlabeled Switch";
+	pixel_x = -24;
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"eO" = (
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"eR" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"eV" = (
+/obj/structure/inflatable/door,
+/turf/template_noop,
+/area/template_noop)
+"fd" = (
+/obj/machinery/porta_turret{
+	lethal = 1;
+	check_weapons = 1;
+	auto_repair = 1;
+	emagged = 1;
+	check_synth = 1;
+	locked = 0
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ff" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl5"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"fk" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/structure/barricade/spike{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"fp" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_1"
+	},
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/cult,
+/area/template_noop)
+"fr" = (
+/obj/item/inflatable/torn,
+/obj/item/taperecorder{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/obj/item/mre/random{
+	pixel_y = 15;
+	pixel_x = 6
+	},
+/obj/item/gravemarker{
+	pixel_y = 18;
+	pixel_x = -18;
+	message = "....rla..a S..e...";
+	desc = "This grave marker looks like it's been here for at least a few decades..."
+	},
+/obj/item/gravemarker{
+	pixel_y = 52;
+	pixel_x = -24;
+	message = "V....ry...";
+	desc = "This grave marker looks like it's been here for at least a few decades..."
+	},
+/obj/item/gravemarker{
+	pixel_y = -13;
+	pixel_x = -23;
+	message = "Ly..s M....ro...";
+	desc = "This grave marker looks like it's been here for at least a few decades..."
+	},
+/turf/template_noop,
+/area/template_noop)
+"fz" = (
+/obj/item/organ/external/tail/avian,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"fG" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"fH" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"fP" = (
+/obj/structure/table/reinforced,
+/obj/item/book/manual/engineering_singularity_safety,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"fT" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/machinery/floodlight{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"fW" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor3"
+	},
+/obj/structure/defensive_barrier,
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"fX" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl5"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"gb" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/blood/gibs/up,
+/obj/item/circular_saw{
+	pixel_y = 19
+	},
+/obj/item/ancient_surgery/cautery,
+/obj/item/ancient_surgery/sutures{
+	pixel_y = 12;
+	pixel_x = 11
+	},
+/obj/item/organ/internal/augment/active/cyberbrain,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"gl" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"gy" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"gA" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib5";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/item/flashlight/flare,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"gH" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibbearcore"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/gun/projectile/automatic/assault_rifle/grenade/yinglet{
+	magazine_type = /obj/item/ammo_magazine/rifle/drum
+	},
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"gP" = (
+/obj/machinery/recharge_station,
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"gR" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/structure/barricade/spike{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"gW" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/toolbox/mechanical{
+	pixel_y = 16;
+	pixel_x = -8
+	},
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ha" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"hu" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"hv" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"hE" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"hH" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor7"
+	},
+/obj/structure/barricade/spike{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"hI" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 5
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"hU" = (
+/obj/machinery/recharge_station,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ia" = (
+/obj/structure/largecrate,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"if" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"ik" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"im" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"io" = (
+/obj/machinery/door/airlock/hatch,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iz" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iA" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iD" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iH" = (
+/obj/machinery/door/blast/regular{
+	id_tag = "vault1blast";
+	name = "Incursion Vault Blast Door"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iK" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibmid2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor3"
+	},
+/obj/structure/defensive_barrier,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iP" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iS" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/item/modular_computer/laptop/preset/custom_loadout/cheap{
+	pixel_x = 4;
+	desc = "A portable clamshell - get it?? - computer. This one looks particularly junky.";
+	name = "Ol' Useless";
+	pixel_y = -1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iX" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibdown1"
+	},
+/obj/structure/defensive_barrier,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"iZ" = (
+/obj/machinery/door/blast/regular{
+	name = "Temporal Recursion Vault Door 4";
+	id_tag = "TRD4"
+	},
+/turf/floor/blackgrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"je" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"jf" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"jg" = (
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"jm" = (
+/obj/structure/closet/crate/secure/biohazard,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib5"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "tracks"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"jw" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"jy" = (
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/structure/defensive_barrier{
+	dir = 8
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"jG" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 5
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"jT" = (
+/obj/structure/defensive_barrier{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"jV" = (
+/obj/machinery/door/blast/regular{
+	id_tag = "vault2blast";
+	name = "Excursion Vault Blast Door"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"kb" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/structure/cable,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"kn" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/blackgrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ko" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibdown1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "remainsxeno"
+	},
+/obj/item/stack/medical/ointment/advanced{
+	pixel_y = 13;
+	pixel_x = -8
+	},
+/obj/item/stack/medical/bandage/advanced{
+	pixel_y = 1;
+	pixel_x = 14
+	},
+/obj/item/clothing/suit/space/void/medical{
+	pixel_y = -6;
+	pixel_x = 7
+	},
+/obj/item/clothing/head/helmet/space/void/medical{
+	pixel_y = 9;
+	pixel_x = 5
+	},
+/obj/item/clothing/shoes/magboots{
+	pixel_y = -15
+	},
+/obj/item/remains/xeno/charred{
+	desc = "The charred remains of an odd bird-like creature.";
+	name = "charred remains"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/clothing/glasses,
+/obj/item/radio/shortwave{
+	pixel_y = -8;
+	pixel_x = -12
+	},
+/turf/floor/cult,
+/area/template_noop)
+"kG" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"kH" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup"
+	},
+/obj/item/flashlight/flare,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"kM" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"kN" = (
+/obj/machinery/button/blast_door{
+	id_tag = "TRD4";
+	name = "Unlabeled Switch";
+	pixel_y = 27;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"kR" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lg" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lt" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/wall/cult/reinf,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lD" = (
+/obj/machinery/button/toggle{
+	pixel_y = 37;
+	pixel_x = 8;
+	name = "Unlabeled Button";
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 37;
+	pixel_x = -8;
+	name = "Unlabeled Button"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 27;
+	pixel_x = -8;
+	name = "Unlabeled Button"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 27;
+	pixel_x = 8;
+	name = "Unlabeled Button"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/item/modular_computer/laptop/preset/custom_loadout/cheap{
+	pixel_x = 2;
+	desc = "A portable clamshell - get it?? - computer. This one looks particularly junky.";
+	name = "Ol' Useless";
+	pixel_y = 9
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lF" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lG" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"lN" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lS" = (
+/obj/machinery/recharge_station,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lW" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibbearcore"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/radio/shortwave{
+	pixel_y = -6;
+	pixel_x = 7
+	},
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lY" = (
+/obj/item/flashlight,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"lZ" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"mk" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"mq" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/defensive_barrier{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ms" = (
+/obj/structure/barricade/spike{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"mv" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/reagent_dispensers/fueltank{
+	unwrenched = 1
+	},
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"mA" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/floodlight{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"mE" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "vault2blast";
+	name = "Unlabeled Switch";
+	pixel_y = 27;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"mF" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 6
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"mM" = (
+/obj/machinery/door/blast/regular{
+	name = "Temporal Recursion Vault Door 1";
+	id_tag = "TRD1"
+	},
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"mO" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 5
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"mR" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"mZ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"no" = (
+/obj/structure/largecrate,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"nq" = (
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"nD" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/machinery/floodlight,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"nG" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"nT" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 6
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"nW" = (
+/obj/structure/defensive_barrier{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"od" = (
+/obj/effect/decal/cleanable/blood/gibs/up,
+/obj/item/organ/external/tail/avian,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ol" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"om" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/clothing/dress/avian_smock/utility,
+/obj/item/clothing/shoes/avian/footwraps,
+/obj/item/clothing/dress/avian_smock,
+/obj/item/organ/internal/brain,
+/obj/item/organ/internal/eyes,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/grenade/empgrenade,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"op" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/flashlight/upgraded{
+	pixel_y = 8;
+	pixel_x = 10
+	},
+/obj/item/flashlight/flare/glowstick/random,
+/obj/item/box/flares{
+	pixel_y = -7;
+	pixel_x = -9
+	},
+/obj/item/box/glowsticks{
+	pixel_y = -5;
+	pixel_x = 11
+	},
+/obj/item/flashlight/flare{
+	pixel_y = -8;
+	pixel_x = 5
+	},
+/turf/floor/cult,
+/area/template_noop)
+"ox" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"oF" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/clothing/head/helmet/space/void/medical{
+	pixel_y = 12;
+	pixel_x = 13
+	},
+/obj/item/clothing/suit/space/void/medical{
+	pixel_x = 9
+	},
+/obj/item/clothing/shoes/magboots{
+	pixel_y = -12;
+	pixel_x = 10
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_y = -8;
+	pixel_x = 15
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_y = 2;
+	pixel_x = 15
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_x = 15;
+	pixel_y = 10
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_y = 11;
+	pixel_x = -8
+	},
+/obj/item/tool/spade{
+	pixel_y = -9;
+	pixel_x = -5
+	},
+/obj/item/tool/axe{
+	pixel_y = -6;
+	pixel_x = -7
+	},
+/turf/floor/cult,
+/area/template_noop)
+"oG" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"oL" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"oP" = (
+/obj/machinery/computer/modular/preset/engineering/power{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"oW" = (
+/obj/item/organ/internal/eyes,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"pg" = (
+/turf/wall/brick/granite,
+/area/template_noop)
+"ph" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"pn" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor3"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/remains/human{
+	pixel_y = 3;
+	pixel_x = 1;
+	desc = "The brittle bones of a frail humanoid creature."
+	},
+/obj/item/clothing/suit/jacket/hoodie{
+	color = "#287C37";
+	pixel_y = -9;
+	pixel_x = 6;
+	markings_color = "#287C37";
+	paint_color = "#287C37"
+	},
+/obj/item/grenade/empgrenade{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/radio/shortwave{
+	pixel_y = 3;
+	pixel_x = 14
+	},
+/obj/item/chems/drinks/bottle/vodka{
+	pixel_y = -3;
+	pixel_x = -12;
+	rag = 1
+	},
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"po" = (
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"pv" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/structure/cable,
+/obj/structure/reagent_dispensers/fueltank{
+	unwrenched = 1
+	},
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"pJ" = (
+/mob/living/simple_animal/aggressive/humborg{
+	glowing_eyes = 1;
+	attack_delay = 30;
+	base_movement_delay = 5
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"pK" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"pL" = (
+/obj/machinery/power/supermatter,
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"pX" = (
+/obj/item/flashlight/flare/glowstick/random,
+/turf/template_noop,
+/area/template_noop)
+"pY" = (
+/obj/machinery/button/toggle{
+	pixel_y = 11;
+	pixel_x = 37;
+	name = "Unlabeled Button";
+	dir = 8
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 11;
+	pixel_x = 25;
+	name = "Unlabeled Button";
+	dir = 8
+	},
+/obj/machinery/button/toggle{
+	pixel_y = -4;
+	pixel_x = 37;
+	name = "Unlabeled Button";
+	dir = 8
+	},
+/obj/machinery/button/toggle{
+	pixel_y = -4;
+	pixel_x = 25;
+	name = "Unlabeled Button";
+	dir = 8;
+	id_tag = "summitsing"
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"qb" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"qk" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/structure/defensive_barrier{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"qw" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor3"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"qx" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/structure/defensive_barrier,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"qF" = (
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"qM" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"rc" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl5"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"re" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib5"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"rg" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"rh" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"rq" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "squirt";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "squirt";
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "tracks"
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"rH" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"rI" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibbearcore"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/grenade/empgrenade,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"rV" = (
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"sf" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"si" = (
+/turf/wall/brick/basalt,
+/area/template_noop)
+"sk" = (
+/mob/living/simple_animal/aggressive/humborg{
+	glowing_eyes = 1;
+	attack_delay = 30;
+	base_movement_delay = 5
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"sy" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib3"
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"sF" = (
+/obj/structure/closet/crate/secure/biohazard,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "tracks"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"sJ" = (
+/obj/machinery/button/toggle{
+	pixel_y = 11;
+	pixel_x = -37;
+	id_tag = "selfd";
+	name = "Hazard-Striped Red Button";
+	dir = 4
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 11;
+	pixel_x = -25;
+	name = "Unlabeled Button";
+	dir = 4
+	},
+/obj/machinery/button/toggle{
+	pixel_y = -4;
+	pixel_x = -37;
+	name = "Unlabeled Button";
+	dir = 4;
+	id_tag = "summitsing"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = -4;
+	pixel_x = -25;
+	name = "Unlabeled Button";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"th" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"tr" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"tG" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 5
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"tI" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"tK" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"tR" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "squirt";
+	dir = 5
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/grenade/frag/high_yield,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"uc" = (
+/obj/structure/inflatable/wall,
+/obj/structure/inflatable/door,
+/turf/floor/cult,
+/area/template_noop)
+"uj" = (
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"um" = (
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"up" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"uu" = (
+/obj/effect/wallframe_spawn/reinforced_borosilicate,
+/obj/machinery/door/blast/regular{
+	id_tag = "summitsingblast";
+	name = "Singularity Chamber Blast Door"
+	},
+/turf/floor,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"uy" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"uz" = (
+/obj/machinery/recharge_station,
+/obj/machinery/power/apc/hyper{
+	dir = 1;
+	pixel_y = 21
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"uC" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"uD" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"uE" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/food/junk/liquidfood{
+	pixel_y = 15;
+	pixel_x = -30
+	},
+/obj/structure/closet/crate/secure/large/supermatter/experimentalsm{
+	pixel_y = -6;
+	pixel_x = 10
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_y = 4;
+	pixel_x = -5;
+	starting_pressure = list(/decl/material/gas/oxygen = 1.25)
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_y = -6;
+	pixel_x = -2;
+	starting_pressure = list(/decl/material/gas/oxygen = 1.25)
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_y = 11;
+	pixel_x = 11;
+	starting_pressure = list(/decl/material/gas/oxygen = 1.25)
+	},
+/obj/item/stack/material/plank/mapped/wood/ten{
+	pixel_y = 8;
+	pixel_x = -3
+	},
+/turf/floor/cult,
+/area/template_noop)
+"vw" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib5";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"vG" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"vQ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"vW" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"vX" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"wd" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/turf/floor/cult,
+/area/template_noop)
+"wo" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor7"
+	},
+/obj/structure/barricade/spike{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ws" = (
+/obj/machinery/button/blast_door{
+	id_tag = "TRD2";
+	name = "Unlabeled Switch";
+	pixel_x = 24;
+	dir = 8
+	},
+/obj/item/modular_computer/laptop/preset/custom_loadout/cheap{
+	pixel_x = 3;
+	desc = "A portable clamshell - get it?? - computer. This one looks particularly junky.";
+	name = "Ol' Useless";
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ww" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/reagent_dispensers/fueltank{
+	unwrenched = 1
+	},
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"wy" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"wL" = (
+/obj/structure/largecrate,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"wM" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"wV" = (
+/obj/machinery/button/toggle{
+	pixel_y = 11;
+	pixel_x = 37;
+	name = "Unlabeled Button";
+	dir = 8;
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = -4;
+	pixel_x = 25;
+	name = "Unlabeled Button";
+	dir = 8
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 11;
+	pixel_x = 25;
+	name = "Unlabeled Button";
+	dir = 8
+	},
+/obj/machinery/button/toggle{
+	pixel_y = -4;
+	pixel_x = 37;
+	name = "Unlabeled Button";
+	dir = 8;
+	id_tag = "summitsing"
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"wY" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"wZ" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibmid1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"xo" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"xq" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/toolbox/electrical{
+	pixel_y = 15
+	},
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"xu" = (
+/obj/machinery/singularity_generator{
+	id_tag = "summitsing";
+	energy = 1;
+	emagged = 1;
+	is_activated = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/blackgrid{
+	initial_gas = list(/decl/material/gas/hydrogen = 25000)
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"xA" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"xP" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ya" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"yp" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"yw" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"yy" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibdown1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"yH" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"yT" = (
+/mob/living/simple_animal/aggressive/humborg{
+	glowing_eyes = 1;
+	attack_delay = 30;
+	base_movement_delay = 10
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"yW" = (
+/obj/item/flashlight/lamp/floodlamp{
+	pixel_y = 15;
+	pixel_x = 3
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"zh" = (
+/obj/machinery/door/blast/regular{
+	name = "Temporal Recursion Vault Door 4";
+	id_tag = "TRD4"
+	},
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"zm" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"zF" = (
+/obj/structure/largecrate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor4"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"zY" = (
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Af" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "squirt";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"An" = (
+/obj/item/flashlight/lamp/floodlamp{
+	pixel_y = -5;
+	pixel_x = 3;
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ar" = (
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"AH" = (
+/obj/machinery/button/blast_door{
+	id_tag = "TRDB";
+	name = "Unlabeled Switch";
+	pixel_y = 27;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/structure/barricade/spike{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"AI" = (
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"AL" = (
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"By" = (
+/obj/machinery/singularity_beacon{
+	id_tag = "summitsing"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/blackgrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"BD" = (
+/obj/item/organ/internal/lungs,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_psycopath_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Cx" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/food/junk/liquidfood{
+	pixel_y = 21;
+	pixel_x = 12
+	},
+/obj/item/mre/random{
+	pixel_y = 10;
+	pixel_x = -16
+	},
+/obj/item/food/junk/liquidfood{
+	pixel_y = 5;
+	pixel_x = -7
+	},
+/obj/item/food/junk/liquidfood{
+	pixel_y = 18;
+	pixel_x = -10
+	},
+/obj/item/clothing/mask{
+	pixel_y = -4;
+	pixel_x = 3
+	},
+/turf/floor/cult,
+/area/template_noop)
+"CN" = (
+/obj/structure/largecrate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"CS" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Dr" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"Dt" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/item/flashlight/maglight,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"DA" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_madman_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"DI" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"DK" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"DN" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"DY" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ej" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib3";
+	dir = 8
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Es" = (
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ey" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"Ez" = (
+/obj/structure/largecrate,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"EH" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibmid2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/clothing/glasses/blindfold{
+	pixel_y = 3;
+	pixel_x = 7;
+	paint_color = "#000000";
+	markings_color = "#000000";
+	color = "#000000"
+	},
+/obj/item/remains/xeno{
+	desc = "The dessicated remains of a mysterious bird-like creature."
+	},
+/obj/item/gun/launcher/bow/crossbow/powered/rapidcrossbowdevice{
+	pixel_y = -8;
+	pixel_x = -6
+	},
+/obj/item/stack/material/rods/ten{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/sword/katana/vibro{
+	pixel_y = -13;
+	pixel_x = 9;
+	color = "#6e0000";
+	name = "Razorwing";
+	desc = "A legendary blade which belonged to Kaawmer the Wronged, Adjudicator of the Corvid Consortium.";
+	can_be_twohanded = 1;
+	base_parry_chance = 40;
+	armor_penetration = 40;
+	minimum_size_to_twohand = 5;
+	maximum_size_to_twohand = 15;
+	melee_accuracy_bonus = 20;
+	attack_cooldown = 0;
+	_thrown_force_multiplier = 2;
+	_wielded_force_multiplier = 4;
+	_base_attack_force = 50;
+	wielded_parry_bonus = 30;
+	paint_color = "#6e0000";
+	blood_color = "#6e0000";
+	light_color = "#6e0000"
+	},
+/obj/item/clothing/gloves/ring/seal/signet{
+	pixel_y = -9;
+	pixel_x = 10
+	},
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"EJ" = (
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/turf/template_noop,
+/area/template_noop)
+"ET" = (
+/obj/structure/closet/crate/secure/biohazard,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "tracks";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"FL" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"FT" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"FU" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"FW" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Go" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"Gx" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Gz" = (
+/obj/machinery/button/blast_door{
+	id_tag = "TRDA";
+	name = "Unlabeled Switch";
+	pixel_y = 27;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"GR" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"GV" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"GW" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"He" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/cult,
+/area/template_noop)
+"Hg" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Hr" = (
+/obj/machinery/door/blast/regular{
+	name = "Temporal Recursion Vault Door 2";
+	id_tag = "TRD2"
+	},
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Hw" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib5"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Hx" = (
+/obj/structure/table/reinforced,
+/obj/item/organ/internal/lungs,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"HA" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"HL" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"HO" = (
+/mob/living/simple_animal/aggressive/humborg{
+	glowing_eyes = 1;
+	attack_delay = 30;
+	base_movement_delay = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"HS" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"HW" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ig" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "vault1blast";
+	name = "Unlabeled Switch";
+	pixel_y = 27;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ih" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/closet/crate/freezer,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"In" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Iv" = (
+/obj/machinery/door/blast/regular{
+	name = "Temporal Recursion Vault Door A";
+	id_tag = "TRDA";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Iw" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ID" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"IG" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"IK" = (
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"IM" = (
+/obj/structure/fire_source/firepit,
+/turf/template_noop,
+/area/template_noop)
+"IS" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl5"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"IV" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"IY" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"IZ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"Jo" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"JE" = (
+/obj/structure/defensive_barrier{
+	dir = 4
+	},
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"JG" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "squirt";
+	dir = 9
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"JY" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Kk" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ko" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/item/remains/robot,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"KB" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"KF" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/structure/barricade/spike{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"KH" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"KP" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"KS" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"La" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Lq" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib3"
+	},
+/turf/wall/brick/granite,
+/area/template_noop)
+"LC" = (
+/obj/machinery/button/toggle{
+	pixel_y = 11;
+	pixel_x = -37;
+	name = "Unlabeled Button";
+	dir = 4
+	},
+/obj/machinery/button/toggle{
+	pixel_y = -4;
+	pixel_x = -25;
+	name = "Unlabeled Button";
+	dir = 4
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 11;
+	pixel_x = -25;
+	name = "Unlabeled Button";
+	dir = 4;
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = -4;
+	pixel_x = -37;
+	name = "Unlabeled Button";
+	dir = 4;
+	id_tag = "summitsing"
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/machinery/floodlight{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"LI" = (
+/obj/machinery/button/toggle{
+	pixel_y = 37;
+	pixel_x = -8;
+	name = "Unlabeled Button"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 37;
+	pixel_x = 8;
+	name = "Unlabeled Button"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 27;
+	pixel_x = -8;
+	name = "Unlabeled Button"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 27;
+	pixel_x = 8;
+	name = "Unlabeled Button";
+	id_tag = "summitsing"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"LN" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"LY" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Mb" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Mg" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Mt" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Mu" = (
+/obj/machinery/recharge_station,
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"MD" = (
+/obj/effect/wallframe_spawn/reinforced_borosilicate,
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/turf/floor/blackgrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"MI" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Nm" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Nq" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/cult,
+/area/template_noop)
+"Nz" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"NA" = (
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/clothing/neck/necklace/locket,
+/obj/item/remains/xeno/charred{
+	desc = "The scorched remains of a spirited rat-like creature.";
+	name = "scorched remains"
+	},
+/obj/item/clothing/neck/necklace/locket,
+/obj/item/grenade/chem_grenade/incendiary{
+	pixel_y = -8;
+	pixel_x = 12
+	},
+/obj/item/gun/projectile/flare/loaded{
+	pixel_y = 10;
+	pixel_x = -6
+	},
+/turf/floor/blackgrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"NC" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"NN" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"NV" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/inflatable/wall,
+/turf/floor/cult,
+/area/template_noop)
+"NX" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"Oc" = (
+/obj/structure/defensive_barrier{
+	dir = 4
+	},
+/obj/item/flashlight/flare,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Of" = (
+/obj/item/modular_computer/laptop/preset/custom_loadout/cheap{
+	pixel_x = -3;
+	desc = "A portable clamshell - get it?? - computer. This one looks particularly junky.";
+	name = "Ol' Useless";
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ON" = (
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/cult,
+/area/template_noop)
+"OS" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"OX" = (
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Pc" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/remains/xeno{
+	desc = "The crumbling remains of a strange rat-like creature."
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/item/ammo_magazine/rifle/drum{
+	pixel_y = -9;
+	pixel_x = -9
+	},
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"PB" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"PC" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"PQ" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibmid2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "squirt";
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/structure/barricade/spike{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"PR" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"PY" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibdown1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Qi" = (
+/obj/effect/wallframe_spawn/reinforced_borosilicate,
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/floor/blackgrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Qj" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Qv" = (
+/obj/machinery/power/smes/buildable/preset{
+	_fully_charged = 1;
+	_input_maxed = 1;
+	_input_on = 1;
+	_output_maxed = 1;
+	_output_on = 1;
+	output_attempt = 1;
+	outputting = 1
+	},
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Qz" = (
+/obj/machinery/power/supermatter,
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"QC" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"QD" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"QM" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib3";
+	dir = 8
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"QT" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"QU" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/plank/mapped/wood/thirty{
+	pixel_y = 10;
+	pixel_x = 11
+	},
+/turf/floor/cult,
+/area/template_noop)
+"QY" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Re" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 9
+	},
+/turf/wall/brick/basalt,
+/area/template_noop)
+"Rf" = (
+/obj/machinery/button/toggle{
+	pixel_y = 37;
+	pixel_x = 8;
+	name = "Unlabeled Button";
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 37;
+	pixel_x = -8;
+	name = "Unlabeled Button"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 27;
+	pixel_x = -8;
+	name = "Unlabeled Button"
+	},
+/obj/machinery/button/toggle{
+	pixel_y = 27;
+	pixel_x = 8;
+	name = "Unlabeled Button"
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/flashlight/maglight,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/clothing/head/caphat/hop{
+	pixel_y = 8;
+	pixel_x = 3
+	},
+/obj/item/remains/xeno{
+	desc = "The broken remains of a weird rat-like creature."
+	},
+/obj/item/grenade/frag/high_yield,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Rg" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"Rk" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Rn" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl5"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Rr" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 6
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"RL" = (
+/obj/effect/wallframe_spawn/reinforced_borosilicate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular{
+	id_tag = "summitsingblast";
+	name = "Singularity Chamber Blast Door"
+	},
+/turf/floor/blackgrid{
+	temperature = 0
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"RR" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gibmid1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/structure/barricade/spike{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"RT" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor3"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Sg" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 5
+	},
+/turf/wall/brick/basalt,
+/area/template_noop)
+"SI" = (
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"SL" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor3"
+	},
+/turf/template_noop,
+/area/template_noop)
+"SM" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor6"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"SO" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"SR" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor4"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"SZ" = (
+/obj/structure/pit/closed{
+	desc = "...Sure. Go ahead. This DEFINITELY won't come back to haunt you."
+	},
+/obj/item/remains/mouse{
+	pixel_x = -6;
+	pixel_y = -2;
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/item/remains/xeno{
+	pixel_x = 6;
+	pixel_y = -1;
+	desc = "The crumbling remains of a strange rat-like creature."
+	},
+/obj/item/gun/energy/gun/nuclear{
+	desc = "An energy gun with an experimental miniaturized reactosr.";
+	pixel_y = -8;
+	pixel_x = 9
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_x = 8;
+	pixel_y = -6
+	},
+/turf/template_noop,
+/area/template_noop)
+"Tg" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ts" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/item/flashlight/lamp/floodlamp{
+	pixel_y = -5;
+	pixel_x = 3;
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Tz" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/item/grenade/frag/high_yield,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/effect/mine,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"TA" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"TG" = (
+/obj/structure/inflatable/wall,
+/turf/template_noop,
+/area/template_noop)
+"TH" = (
+/obj/machinery/button/toggle{
+	pixel_x = -23;
+	name = "Unlabeled Button";
+	dir = 4;
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/toggle{
+	pixel_x = -31;
+	name = "Unlabeled Button";
+	dir = 4;
+	id_tag = "summitsing"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"TJ" = (
+/obj/effect/decal/cleanable/blood/gibs/robot/down,
+/obj/item/clothing/shoes/avian/footwraps,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_madman_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"TP" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"TW" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/item/clothing/shoes/avian/footwraps,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_madman"
+	},
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/ammo_magazine/rifle/drum,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Uf" = (
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Us" = (
+/obj/machinery/door/blast/regular{
+	name = "Temporal Recursion Vault Door 3";
+	id_tag = "TRD3"
+	},
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Uv" = (
+/obj/structure/table/reinforced,
+/obj/item/book/skill/medical/anatomy/prof{
+	pixel_y = 1;
+	pixel_x = 6
+	},
+/obj/item/book/skill/medical/medicine/prof{
+	pixel_y = 7;
+	pixel_x = -8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Uz" = (
+/mob/living/simple_animal/aggressive/yingborg{
+	glowing_eyes = 1;
+	attack_delay = 20;
+	mob_size = 10
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mouse"
+	},
+/obj/item/remains/mouse{
+	desc = "The tiny remains of a helpless mouse."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"UF" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 5
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"UJ" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"UK" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"UQ" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"UV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Vh" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Vl" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/cult,
+/area/template_noop)
+"VM" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/defensive_barrier,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"VT" = (
+/obj/machinery/recharge_station,
+/obj/machinery/power/apc/hyper{
+	dir = 1;
+	pixel_y = 21
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"VU" = (
+/mob/living/simple_animal/aggressive/robosharah{
+	glowing_eyes = 1;
+	attack_delay = 5;
+	base_movement_delay = 5;
+	ranged_range = 12;
+	germ_level = 90000;
+	mob_size = 30
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/blackgrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"VV" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl3"
+	},
+/obj/item/modular_computer/laptop/preset/custom_loadout/cheap{
+	pixel_x = 4;
+	desc = "A portable clamshell - get it?? - computer. This one looks particularly junky.";
+	name = "Ol' Useless";
+	pixel_y = 17
+	},
+/obj/item/flashlight/lamp/floodlamp{
+	pixel_y = -9;
+	pixel_x = 11;
+	dir = 1
+	},
+/obj/item/clothing/shoes/magboots{
+	pixel_y = -15
+	},
+/obj/item/clothing/suit/space/void/engineering/alt/scav{
+	pixel_y = -5;
+	pixel_x = -9
+	},
+/obj/item/clothing/head/helmet/space/void/engineering/alt/scav{
+	pixel_y = 11;
+	pixel_x = -12
+	},
+/obj/item/remains/xeno{
+	desc = "The crumbling remains of a strange rat-like creature."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/radio/shortwave{
+	pixel_y = 3;
+	pixel_x = 14
+	},
+/turf/floor/cult,
+/area/template_noop)
+"VZ" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Wq" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"Wr" = (
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Wt" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor4"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Wx" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"WV" = (
+/obj/item/flashlight/lamp/floodlamp{
+	pixel_y = 6;
+	pixel_x = 3
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"WW" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Xe" = (
+/obj/machinery/recharge_station,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Xl" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/structure/barricade/spike{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Xs" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/gun/energy/gun/reloadable{
+	pixel_y = 3;
+	pixel_x = 2;
+	self_recharge = 1;
+	name = "anomalous energy gun";
+	desc = "Another bestseller of Lawson Arms and the FTU, the LAEP90 Perun is a versatile energy based sidearm, capable of switching between low, medium and high power projectile settings. In other words: stun, shock or kill. This one gives you a weird vibe."
+	},
+/obj/item/bedroll{
+	pixel_y = 8;
+	pixel_x = 12
+	},
+/obj/item/remains/xeno{
+	pixel_y = 2;
+	pixel_x = 11;
+	desc = "The dessicated remains of an odd bird-like creature."
+	},
+/obj/item/clothing/glasses{
+	pixel_y = 11;
+	pixel_x = 8
+	},
+/obj/item/stack/medical/ointment/advanced{
+	pixel_y = 12;
+	pixel_x = -14
+	},
+/obj/item/stack/medical/ointment/advanced{
+	pixel_y = 6;
+	pixel_x = -13
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/obj/item/flashlight/pen{
+	pixel_y = 7;
+	pixel_x = -10
+	},
+/obj/item/stack/medical/bandage/advanced{
+	pixel_y = 1;
+	pixel_x = -14
+	},
+/obj/item/stack/medical/bandage/advanced{
+	pixel_y = -10;
+	pixel_x = -14
+	},
+/obj/item/radio/shortwave{
+	pixel_y = 18;
+	pixel_x = -2
+	},
+/obj/item/baton{
+	pixel_y = -8;
+	pixel_x = 8
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_y = -10;
+	pixel_x = 15;
+	starting_pressure = list(/decl/material/gas/oxygen = 1.25)
+	},
+/obj/item/chems/drinks/bottle/vodka{
+	pixel_y = -2;
+	pixel_x = -9
+	},
+/turf/floor/cult,
+/area/template_noop)
+"XI" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/clothing/shoes/avian,
+/obj/item/clothing/dress/avian_smock,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"XP" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/toolbox/repairs{
+	pixel_x = 12;
+	pixel_y = 15
+	},
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"XS" = (
+/obj/structure/pit/closed{
+	desc = "...Sure. Go ahead. This DEFINITELY won't come back to haunt you."
+	},
+/obj/item/zat_zhing{
+	pixel_y = 10;
+	pixel_x = 1
+	},
+/obj/item/remains/human{
+	pixel_y = 8;
+	pixel_x = 6;
+	desc = "The brittle bones of a frail humanoid creature."
+	},
+/obj/item/clothing/suit/jacket/hoodie{
+	color = "#287C37";
+	pixel_y = 2;
+	pixel_x = -4;
+	paint_color = "#287C37";
+	markings_color = "#287C37"
+	},
+/obj/item/tank/emergency/oxygen/engi{
+	pixel_x = 8
+	},
+/obj/item/chems/drinks/bottle/vodka{
+	pixel_y = 1;
+	pixel_x = 2
+	},
+/turf/template_noop,
+/area/template_noop)
+"XY" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"Yc" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mfloor5"
+	},
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ye" = (
+/obj/effect/wallframe_spawn/reinforced_borosilicate,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Yi" = (
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/concrete/reinforced,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Yy" = (
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/mattress/dirty,
+/turf/floor/blackgrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"YE" = (
+/obj/item/remains/robot{
+	desc = "The shattered remains of a strange rat-like robot."
+	},
+/turf/template_noop,
+/area/template_noop)
+"YG" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"YN" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"YR" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "mgibbl1"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ze" = (
+/obj/machinery/button/blast_door{
+	id_tag = "TRD1";
+	name = "Unlabeled Switch";
+	pixel_y = 27;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Zj" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/item/stack/material/rods,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Zp" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_ketchup"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Zq" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/mob/living/simple_animal/aggressive/humborg{
+	glowing_eyes = 1;
+	attack_delay = 30;
+	base_movement_delay = 10
+	},
+/turf/floor/cult,
+/area/template_noop)
+"Zt" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 5
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Zv" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ZC" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ZI" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_guilty_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"ZP" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/item/flashlight/maglight,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/bluegrid,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+
+(1,1,1) = {"
+SZ
+aH
+XS
+TG
+eV
+TG
+aa
+IM
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+TG
+fr
+si
+uc
+oF
+si
+QU
+si
+Nq
+si
+Nq
+si
+Nq
+si
+aD
+si
+Nq
+si
+Nq
+si
+Nq
+si
+Nq
+Nq
+si
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+si
+Cx
+Xs
+op
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+Nq
+Nq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+NV
+uE
+si
+si
+si
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+si
+si
+Nq
+si
+Nq
+si
+Nq
+si
+ON
+aa
+si
+aa
+aa
+"}
+(5,1,1) = {"
+NV
+si
+si
+rV
+rV
+rV
+nD
+KB
+KB
+KB
+KB
+YG
+KB
+Hg
+KB
+KB
+KB
+Es
+sF
+ae
+CS
+rV
+rV
+si
+si
+si
+si
+si
+si
+si
+si
+Nq
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+si
+si
+rV
+rV
+iD
+aW
+Mb
+gl
+mR
+IG
+IG
+GV
+jm
+KF
+mR
+jg
+IG
+IG
+tK
+PR
+qk
+cK
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+si
+si
+Nq
+aa
+aa
+"}
+(7,1,1) = {"
+Nq
+si
+rV
+oG
+Iw
+rV
+ET
+Oc
+nq
+nq
+nq
+nq
+nq
+nq
+nq
+nq
+nT
+nq
+nq
+nq
+dX
+Xl
+TP
+lt
+rV
+lS
+zm
+lS
+ID
+rV
+rV
+si
+si
+aa
+aa
+"}
+(8,1,1) = {"
+si
+si
+rV
+JE
+wZ
+In
+Vh
+IG
+nq
+if
+YN
+KS
+Ar
+fd
+lF
+gy
+eO
+um
+um
+nq
+nq
+UK
+HA
+je
+rV
+lS
+RT
+br
+uy
+Qv
+lN
+si
+Nq
+aa
+aa
+"}
+(9,1,1) = {"
+Nq
+si
+Ej
+Iw
+tr
+rV
+eR
+Uz
+nq
+QD
+pL
+xu
+XY
+dU
+BD
+Uv
+Kk
+Ih
+kM
+um
+nq
+nq
+FW
+Uf
+mF
+br
+Wx
+lS
+eA
+Qv
+xo
+si
+si
+aa
+aa
+"}
+(10,1,1) = {"
+si
+si
+hI
+An
+vw
+rV
+eR
+IG
+nq
+fH
+Go
+KS
+Ar
+xq
+gH
+cd
+gW
+mv
+ha
+um
+um
+sy
+HL
+La
+PR
+ID
+ID
+HS
+eA
+Qv
+xo
+si
+Nq
+aa
+aa
+"}
+(11,1,1) = {"
+Nq
+si
+rV
+JY
+OS
+mF
+eR
+IG
+nq
+Ar
+TA
+Ey
+Ar
+kN
+om
+be
+de
+IV
+nG
+du
+um
+nq
+DY
+je
+rV
+lS
+br
+Mu
+PC
+Qv
+xo
+si
+si
+si
+aa
+"}
+(12,1,1) = {"
+si
+si
+rV
+up
+oG
+rV
+eR
+IG
+rV
+um
+mZ
+VM
+lF
+rc
+od
+gb
+aw
+lF
+yw
+oP
+um
+nq
+Nz
+je
+rV
+rV
+rV
+Gx
+rV
+rV
+QC
+Qj
+si
+Nq
+aa
+"}
+(13,1,1) = {"
+Nq
+si
+rV
+yT
+vG
+rV
+eR
+wo
+rV
+tG
+DK
+lF
+pJ
+lF
+TJ
+XI
+cc
+lF
+iS
+lY
+um
+nq
+HA
+je
+ik
+rV
+lS
+Xe
+lS
+eJ
+Qv
+xo
+si
+si
+aa
+"}
+(14,1,1) = {"
+si
+si
+rV
+LN
+FT
+rV
+YR
+Wr
+oG
+jV
+Zp
+Ar
+Ar
+Ar
+Ar
+uu
+um
+uu
+ha
+um
+um
+nq
+gR
+TP
+je
+PR
+cY
+qb
+qF
+eA
+Qv
+xo
+si
+Nq
+aa
+"}
+(15,1,1) = {"
+Nq
+si
+rV
+oG
+oG
+rV
+Ig
+rg
+oG
+Ar
+TA
+Ar
+xu
+kb
+uC
+RL
+KH
+RL
+UJ
+XY
+Dr
+nq
+nq
+HA
+je
+rV
+lS
+vW
+lS
+eA
+Qv
+xo
+si
+si
+aa
+"}
+(16,1,1) = {"
+si
+si
+rV
+Gz
+oG
+rV
+Ye
+rV
+rV
+Ar
+IK
+Qz
+bx
+GR
+IZ
+cv
+sJ
+EH
+LC
+eb
+FU
+AI
+nq
+HA
+je
+rV
+uz
+NN
+hU
+xA
+Qv
+xo
+si
+Nq
+aa
+"}
+(17,1,1) = {"
+Nq
+si
+rV
+bF
+bF
+um
+Qi
+Tg
+Tg
+DI
+wM
+XY
+XY
+XY
+SO
+LI
+KP
+tR
+uD
+Yy
+Wq
+pL
+nq
+eB
+Ez
+nq
+nq
+vQ
+nq
+oL
+lG
+Mt
+Re
+si
+aa
+"}
+(18,1,1) = {"
+si
+si
+rV
+AL
+OX
+mM
+iA
+qx
+Hr
+sk
+KP
+zh
+PB
+bw
+iZ
+fk
+uD
+Pc
+kn
+By
+DN
+Tz
+sy
+th
+aT
+io
+mq
+fX
+re
+FW
+PR
+pg
+Lq
+ko
+pX
+"}
+(19,1,1) = {"
+si
+si
+rV
+Yi
+iK
+mM
+kH
+Rn
+Hr
+ox
+fW
+Us
+WV
+VZ
+iZ
+PQ
+qw
+uD
+VU
+By
+QT
+Tz
+jG
+Dt
+ff
+io
+Ko
+Ts
+je
+HA
+PR
+pg
+pg
+fp
+SL
+"}
+(20,1,1) = {"
+Zq
+si
+rV
+Iv
+Iv
+um
+MD
+Zt
+Tg
+Rr
+hv
+XY
+mO
+XY
+rH
+Rf
+Af
+Nm
+uD
+NA
+mk
+pL
+nq
+no
+eq
+nT
+nq
+vQ
+nq
+Jo
+lG
+Qj
+si
+Sg
+YE
+"}
+(21,1,1) = {"
+si
+si
+rV
+AH
+Iw
+rV
+Ye
+rV
+rV
+Ar
+bs
+dV
+YN
+im
+Rg
+lD
+wV
+rq
+pY
+eb
+FL
+AI
+nq
+mA
+je
+rV
+VT
+dk
+cM
+rh
+Qv
+xo
+si
+He
+aa
+"}
+(22,1,1) = {"
+Nq
+si
+rV
+hE
+yW
+rV
+mE
+dG
+oG
+Ar
+TA
+Ar
+xu
+pv
+NX
+RL
+hu
+RL
+qM
+XY
+IY
+nq
+nq
+wY
+je
+rV
+lS
+MI
+br
+wy
+Qv
+xo
+si
+si
+aa
+"}
+(23,1,1) = {"
+si
+si
+rV
+oG
+FT
+rV
+eR
+oG
+HO
+iH
+ZI
+Ar
+Ar
+Ar
+Ar
+uu
+um
+uu
+ha
+um
+um
+nq
+dy
+Hw
+je
+PR
+ID
+MI
+RT
+iP
+Qv
+xo
+si
+Vl
+aa
+"}
+(24,1,1) = {"
+Nq
+si
+rV
+oG
+oG
+rV
+eR
+Iw
+rV
+um
+DK
+lF
+lF
+lF
+bW
+lF
+TH
+lF
+nG
+Of
+um
+nq
+SR
+ZC
+ia
+rV
+br
+Xe
+lS
+jw
+Qv
+xo
+si
+si
+aa
+"}
+(25,1,1) = {"
+si
+si
+rV
+up
+bg
+rV
+SM
+wL
+rV
+um
+ww
+ol
+lF
+iX
+oW
+Hx
+DA
+eO
+iz
+av
+um
+nq
+Zj
+Uf
+rV
+rV
+rV
+Gx
+In
+rV
+WW
+Mt
+si
+VV
+EJ
+"}
+(26,1,1) = {"
+Nq
+si
+hI
+Wr
+oG
+rV
+UV
+RR
+dc
+Ar
+TA
+Ar
+UF
+lF
+lW
+bl
+XP
+lF
+ZP
+du
+um
+nq
+HL
+UQ
+rV
+lS
+lS
+gP
+rh
+Qv
+xo
+si
+si
+si
+aa
+"}
+(27,1,1) = {"
+si
+si
+rV
+oG
+nW
+mF
+ph
+IG
+nT
+vX
+pK
+KS
+Ar
+Ze
+TW
+fP
+fz
+lF
+ha
+um
+um
+nq
+bN
+xP
+PR
+ID
+qF
+ID
+wy
+Qv
+xo
+si
+Nq
+aa
+aa
+"}
+(28,1,1) = {"
+Nq
+si
+rV
+lZ
+LN
+rV
+jf
+ya
+nq
+cu
+pL
+aX
+XY
+dL
+Kk
+dn
+Kk
+Kk
+QY
+um
+nq
+QM
+bO
+SI
+rV
+lS
+Wx
+lS
+dY
+Qv
+xo
+si
+si
+aa
+aa
+"}
+(29,1,1) = {"
+si
+si
+rV
+zY
+oG
+rV
+kR
+IG
+nq
+po
+YN
+KS
+Ar
+fd
+Mg
+rI
+lF
+um
+um
+nq
+nq
+ia
+yy
+La
+rV
+br
+cz
+lS
+PY
+Qv
+Zv
+si
+Nq
+aa
+aa
+"}
+(30,1,1) = {"
+Nq
+si
+rV
+oG
+cR
+rV
+Vh
+jy
+nq
+nq
+nq
+nq
+nq
+nq
+nq
+nq
+nq
+nq
+nq
+JG
+HW
+yH
+fG
+lt
+rV
+br
+GW
+lS
+ws
+mF
+rV
+si
+si
+aa
+aa
+"}
+(31,1,1) = {"
+si
+si
+rV
+rV
+up
+aW
+tI
+gA
+pn
+IG
+lg
+Yc
+tK
+IG
+kG
+wL
+ms
+uj
+jT
+PR
+Wt
+fG
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+si
+si
+Nq
+aa
+aa
+"}
+(32,1,1) = {"
+Nq
+si
+si
+rV
+rV
+rV
+fT
+yp
+zF
+hH
+IS
+Rk
+KB
+sf
+NC
+LY
+KB
+KB
+CN
+ae
+aL
+rV
+rV
+si
+si
+si
+si
+si
+si
+si
+si
+Nq
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aD
+Nq
+si
+si
+si
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+rV
+hI
+rV
+rV
+si
+si
+Nq
+si
+Nq
+si
+Nq
+si
+Nq
+pX
+si
+aa
+aa
+"}
+(34,1,1) = {"
+si
+Nq
+Nq
+Nq
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+si
+Nq
+Nq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+si
+Nq
+Nq
+si
+ON
+si
+Nq
+si
+Nq
+si
+Nq
+si
+wd
+si
+Nq
+si
+Nq
+si
+Nq
+si
+Nq
+Nq
+si
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
