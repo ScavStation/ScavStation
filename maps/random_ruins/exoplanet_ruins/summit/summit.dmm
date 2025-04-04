@@ -116,28 +116,6 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
-"aX" = (
-/obj/machinery/singularity_generator{
-	id_tag = "summitsing";
-	energy = 1;
-	emagged = 1;
-	is_activated = 1
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/turf/floor/blackgrid{
-	initial_gas = list(/decl/material/gas/hydrogen = 25000)
-	},
-/area/map_template/summit/cold{
-	temperature = 280;
-	germ_level = 800000000
-	})
 "be" = (
 /obj/structure/table/reinforced,
 /obj/item/ancient_surgery/forceps,
@@ -314,20 +292,6 @@
 	})
 "cc" = (
 /obj/item/organ/internal/eyes/robot,
-/obj/machinery/button/toggle{
-	pixel_y = 2;
-	pixel_x = 23;
-	name = "Unlabeled Button";
-	dir = 8;
-	id_tag = "summitsingblast"
-	},
-/obj/machinery/button/toggle{
-	pixel_x = 31;
-	name = "Unlabeled Button";
-	dir = 8;
-	id_tag = "summitsing";
-	pixel_y = 2
-	},
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib1"
 	},
@@ -335,6 +299,18 @@
 	icon_state = "gibbearcore"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 26;
+	dir = 8;
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "summitsing";
+	name = "Unlabeled Switch";
+	pixel_x = 36;
+	dir = 8
+	},
 /turf/unsimulated/floor/freezer,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -390,28 +366,6 @@
 	germ_level = 800000000
 	})
 "cv" = (
-/obj/machinery/button/toggle{
-	pixel_y = 37;
-	pixel_x = 8;
-	name = "Unlabeled Button"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 37;
-	pixel_x = -8;
-	name = "Unlabeled Button";
-	id_tag = "summitsing"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 27;
-	pixel_x = 8;
-	name = "Unlabeled Button";
-	id_tag = "summitsingblast"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 27;
-	pixel_x = -8;
-	name = "Unlabeled Button"
-	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib1"
@@ -431,6 +385,28 @@
 /obj/item/chems/drinks/bottle/vodka{
 	pixel_y = -2;
 	pixel_x = -9
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -8;
+	pixel_y = 26
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 8;
+	pixel_y = 26;
+	id_tag = "summitsingblast"
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -8;
+	pixel_y = 36;
+	id_tag = "summitsing"
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 8;
+	pixel_y = 36
 	},
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
@@ -572,7 +548,8 @@
 	auto_repair = 1;
 	emagged = 1;
 	check_synth = 1;
-	locked = 0
+	locked = 0;
+	check_access = 0
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/bluegrid,
@@ -818,7 +795,8 @@
 	auto_repair = 1;
 	emagged = 1;
 	check_synth = 1;
-	locked = 0
+	locked = 0;
+	check_access = 0
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/freezer,
@@ -1640,27 +1618,6 @@
 	germ_level = 800000000
 	})
 "lD" = (
-/obj/machinery/button/toggle{
-	pixel_y = 37;
-	pixel_x = 8;
-	name = "Unlabeled Button";
-	id_tag = "summitsingblast"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 37;
-	pixel_x = -8;
-	name = "Unlabeled Button"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 27;
-	pixel_x = -8;
-	name = "Unlabeled Button"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 27;
-	pixel_x = 8;
-	name = "Unlabeled Button"
-	},
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_dangerous_l"
 	},
@@ -1671,6 +1628,27 @@
 	pixel_y = 9
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -8;
+	pixel_y = 26
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 8;
+	pixel_y = 26
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -8;
+	pixel_y = 36
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 8;
+	pixel_y = 36;
+	id_tag = "summitsingblast"
+	},
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -2234,34 +2212,34 @@
 /turf/template_noop,
 /area/template_noop)
 "pY" = (
-/obj/machinery/button/toggle{
-	pixel_y = 11;
-	pixel_x = 37;
-	name = "Unlabeled Button";
-	dir = 8
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 11;
-	pixel_x = 25;
-	name = "Unlabeled Button";
-	dir = 8
-	},
-/obj/machinery/button/toggle{
-	pixel_y = -4;
-	pixel_x = 37;
-	name = "Unlabeled Button";
-	dir = 8
-	},
-/obj/machinery/button/toggle{
-	pixel_y = -4;
-	pixel_x = 25;
-	name = "Unlabeled Button";
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 26;
 	dir = 8;
-	id_tag = "summitsing"
+	pixel_y = 8
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 36;
+	dir = 8;
+	pixel_y = -5
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "summitsing";
+	name = "Unlabeled Switch";
+	pixel_x = 26;
+	dir = 8;
+	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 36;
+	dir = 8;
+	pixel_y = 8
+	},
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -2506,37 +2484,37 @@
 	germ_level = 800000000
 	})
 "sJ" = (
-/obj/machinery/button/toggle{
-	pixel_y = 11;
-	pixel_x = -37;
-	id_tag = "selfd";
-	name = "Hazard-Striped Red Button";
-	dir = 4
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 11;
-	pixel_x = -25;
-	name = "Unlabeled Button";
-	dir = 4
-	},
-/obj/machinery/button/toggle{
-	pixel_y = -4;
-	pixel_x = -37;
-	name = "Unlabeled Button";
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -26;
 	dir = 4;
-	id_tag = "summitsing"
+	pixel_y = -5
 	},
-/obj/machinery/button/toggle{
-	pixel_y = -4;
-	pixel_x = -25;
-	name = "Unlabeled Button";
-	dir = 4
+/obj/machinery/button/blast_door{
+	id_tag = "summitsing";
+	name = "Unlabeled Switch";
+	pixel_x = -36;
+	dir = 4;
+	pixel_y = -5
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -26;
+	dir = 4;
+	pixel_y = 8
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_ketchup_l"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/button/blast_door{
+	id_tag = "selfd";
+	name = "Hazard-Striped Red Button";
+	pixel_x = -36;
+	dir = 4;
+	pixel_y = 8
+	},
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -2929,37 +2907,52 @@
 	germ_level = 800000000
 	})
 "wV" = (
-/obj/machinery/button/toggle{
-	pixel_y = 11;
-	pixel_x = 37;
-	name = "Unlabeled Button";
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 26;
 	dir = 8;
-	id_tag = "summitsingblast"
+	pixel_y = -5
 	},
-/obj/machinery/button/toggle{
-	pixel_y = -4;
-	pixel_x = 25;
-	name = "Unlabeled Button";
-	dir = 8
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 11;
-	pixel_x = 25;
-	name = "Unlabeled Button";
-	dir = 8
-	},
-/obj/machinery/button/toggle{
-	pixel_y = -4;
-	pixel_x = 37;
-	name = "Unlabeled Button";
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 26;
 	dir = 8;
-	id_tag = "summitsing"
+	pixel_y = 8
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "summitsing";
+	name = "Unlabeled Switch";
+	pixel_x = 36;
+	dir = 8;
+	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood/gibs/robot,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 36;
+	dir = 8;
+	pixel_y = 8;
+	id_tag = "summitsingblast"
+	},
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
+	germ_level = 800000000
+	})
+"wW" = (
+/obj/machinery/igniter{
+	id_tag = "selfd"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/reinforced/oxygen,
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "wY" = (
@@ -3026,6 +3019,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/item/shard/shrapnel,
 /obj/item/shard/shrapnel,
 /obj/item/shard/shrapnel,
 /obj/item/shard/shrapnel,
@@ -4138,21 +4132,6 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
-"KS" = (
-/obj/machinery/igniter{
-	id_tag = "selfd"
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/unary/tank/oxygen,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/turf/floor/reinforced/oxygen,
-/area/map_template/summit/cold{
-	temperature = 280;
-	germ_level = 800000000
-	})
 "La" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mgibbl2"
@@ -4171,31 +4150,31 @@
 /turf/wall/brick/granite,
 /area/template_noop)
 "LC" = (
-/obj/machinery/button/toggle{
-	pixel_y = 11;
-	pixel_x = -37;
-	name = "Unlabeled Button";
-	dir = 4
-	},
-/obj/machinery/button/toggle{
-	pixel_y = -4;
-	pixel_x = -25;
-	name = "Unlabeled Button";
-	dir = 4
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 11;
-	pixel_x = -25;
-	name = "Unlabeled Button";
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -36;
 	dir = 4;
+	pixel_y = 8
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -26;
+	dir = 4;
+	pixel_y = -5
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -26;
+	dir = 4;
+	pixel_y = 8;
 	id_tag = "summitsingblast"
 	},
-/obj/machinery/button/toggle{
-	pixel_y = -4;
-	pixel_x = -37;
-	name = "Unlabeled Button";
+/obj/machinery/button/blast_door{
+	id_tag = "summitsing";
+	name = "Unlabeled Switch";
+	pixel_x = -36;
 	dir = 4;
-	id_tag = "summitsing"
+	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood{
@@ -4213,31 +4192,31 @@
 	germ_level = 800000000
 	})
 "LI" = (
-/obj/machinery/button/toggle{
-	pixel_y = 37;
-	pixel_x = -8;
-	name = "Unlabeled Button"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 37;
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
 	pixel_x = 8;
-	name = "Unlabeled Button"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 27;
-	pixel_x = -8;
-	name = "Unlabeled Button"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 27;
-	pixel_x = 8;
-	name = "Unlabeled Button";
-	id_tag = "summitsing"
+	pixel_y = 36
 	},
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_ketchup"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -8;
+	pixel_y = 26
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 8;
+	pixel_y = 26;
+	id_tag = "summitsing"
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -8;
+	pixel_y = 36
+	},
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -4727,26 +4706,11 @@
 /turf/wall/brick/basalt,
 /area/template_noop)
 "Rf" = (
-/obj/machinery/button/toggle{
-	pixel_y = 37;
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
 	pixel_x = 8;
-	name = "Unlabeled Button";
+	pixel_y = 36;
 	id_tag = "summitsingblast"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 37;
-	pixel_x = -8;
-	name = "Unlabeled Button"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 27;
-	pixel_x = -8;
-	name = "Unlabeled Button"
-	},
-/obj/machinery/button/toggle{
-	pixel_y = 27;
-	pixel_x = 8;
-	name = "Unlabeled Button"
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood{
@@ -4765,6 +4729,21 @@
 	desc = "The broken remains of a weird rat-like creature."
 	},
 /obj/item/grenade/frag/high_yield,
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -8;
+	pixel_y = 26
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = 8;
+	pixel_y = 26
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -8;
+	pixel_y = 36
+	},
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -4864,6 +4843,27 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/greengrid,
 /area/map_template/summit{
+	germ_level = 800000000
+	})
+"Sd" = (
+/obj/machinery/singularity_generator{
+	id_tag = "summitsing";
+	energy = 1;
+	emagged = 1;
+	is_activated = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/turf/floor/blackgrid{
+	initial_gas = list(/decl/material/gas/hydrogen = 25000)
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "Sg" = (
@@ -5020,19 +5020,19 @@
 /turf/template_noop,
 /area/template_noop)
 "TH" = (
-/obj/machinery/button/toggle{
-	pixel_x = -23;
-	name = "Unlabeled Button";
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/button/blast_door{
+	id_tag = "summitsing";
+	name = "Unlabeled Switch";
+	pixel_x = -36;
+	dir = 4
+	},
+/obj/machinery/button/blast_door{
+	name = "Unlabeled Switch";
+	pixel_x = -26;
 	dir = 4;
 	id_tag = "summitsingblast"
 	},
-/obj/machinery/button/toggle{
-	pixel_x = -31;
-	name = "Unlabeled Button";
-	dir = 4;
-	id_tag = "summitsing"
-	},
-/obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/freezer,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -6021,7 +6021,7 @@ IG
 nq
 if
 YN
-KS
+wW
 Ar
 fd
 lF
@@ -6058,7 +6058,7 @@ Uz
 nq
 QD
 pL
-xu
+Sd
 XY
 dU
 BD
@@ -6095,7 +6095,7 @@ IG
 nq
 fH
 Go
-KS
+wW
 Ar
 xq
 gH
@@ -6281,7 +6281,7 @@ oG
 Ar
 TA
 Ar
-xu
+Sd
 kb
 uC
 RL
@@ -6540,7 +6540,7 @@ oG
 Ar
 TA
 Ar
-xu
+Sd
 pv
 NX
 RL
@@ -6724,7 +6724,7 @@ IG
 nT
 vX
 pK
-KS
+wW
 Ar
 Ze
 TW
@@ -6761,7 +6761,7 @@ ya
 nq
 cu
 pL
-aX
+xu
 XY
 dL
 Kk
@@ -6798,7 +6798,7 @@ IG
 nq
 po
 YN
-KS
+wW
 Ar
 fd
 Mg
