@@ -1,4 +1,3 @@
-#include "../../../../mods/mobs/dionaea/_dionaea.dme"
 
 /datum/map_template/ruin/exoplanet/hateville
 	name = "Overrun Colony"
@@ -216,7 +215,7 @@
 
 /mob/living/simple_animal/aggressive/prosyletizing_employist
 	name = "Prosyletizing Employist"
-	desc = "Some kind of maniac yelling about corporate nothings."
+	desc = "Some kind of maniac screaming corporate nothings."
 	icon = 'maps/random_ruins/exoplanet_ruins/hateville/employist.dmi'
 
 	base_animal_type = /mob/living/simple_animal/aggressive/prosyletizing_employist
@@ -227,7 +226,7 @@
 	projectiletype = /obj/item/projectile/beam
 	faction = "employists"
 	ai = /datum/mob_controller/aggressive/prosyletizing_employist
-	var/corpse = /obj/abstract/landmark/corpse/employist
+	//var/corpse = /obj/abstract/landmark/corpse/employist
 	var/weapon = /obj/item/gun/energy/laser
 	death_message = "Shrieks horribly and begins to chant a team-rallying slogan before exploding like a blood sausage!"
 	speak_emote = list("recites", "proclaims", "chants")
@@ -244,7 +243,7 @@
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
 	emote_see = list("smiles maniacally and waves!")
-	emote_speech = list("A happy employee is a resourceful employee!", "A good employee is a working employee!", "Our purpose is to benefit our benefactors, so they might benefit us!", "Why do you resist the loving embrace of your office family?", "You misfiled those cargo receipts, do you even realise how much is at stake?", "Diligence is the only path to happiness!", "Give praise to the corporation, for it alone is your salvation!", "There is no better place than the office!", "The employee handbook states that you must wear the appropriate uniform at all times!", "Have you talked to Becky in HR?", "Feel the warmth of the company's love for us all!", "Let's do some team-building manual labour!", "I'm doing my part!", "Work smarter, AND harder!", "The best self-care is a hard day's work!", "I will have to report this workplace violation.", "Are you certain you're doing things by the book?")
+	emote_speech = list("A happy employee is a resourceful employee!", "A good employee is a working employee!", "Our purpose is to benefit our benefactors, so they might benefit us!", "Why do you resist the loving embrace of your office family?", "You misfiled those cargo receipts, do you even realise how much is at stake?", "Diligence is the only path to happiness!", "Give praise to the corporation, for it alone is your salvation!", "There is no better place than the office!", "The employee handbook states that you must wear the appropriate uniform at all times!", "Have you talked to Becky in HR?", "Feel the warmth of the love the company has for us all!", "Let us do some team-building manual labour!", "Doing my part!", "Work smarter, AND harder!", "The best self-care is a hard day of work!", "I will have to report this workplace violation.", "Are you certain you are doing things by the book?")
 	emote_hear = list("recites a brand slogan")
 	break_stuff_probability = 0
 
@@ -253,25 +252,25 @@
 /mob/living/simple_animal/aggressive/prosyletizing_employist/death(gibbed)
 	. = ..()
 	if(. && !gibbed)
-		if(corpse)
-			new corpse(loc)
+		//if(corpse)
+			//new corpse(loc)
 		if(weapon)
 			new weapon(loc)
-		qdel(src)
+		//qdel(src)
 
-/obj/abstract/landmark/corpse/employist
-	name = "dead employist"
-	corpse_outfits = list(/decl/outfit/corpse/employist)
+//obj/abstract/landmark/corpse/employist
+	//name = "dead employist"
+	//corpse_outfits = list(/decl/outfit/corpse/employist)
 
-/decl/outfit/corpse/employist
-	name = "Dead Prosyletizing Employist"
-	uniform = /obj/item/clothing/jumpsuit/employist
-	shoes = /obj/item/clothing/shoes/athletic
-	head = /obj/item/clothing/head/helmet/ert/medical
+//decl/outfit/corpse/employist
+	//name = "Dead Prosyletizing Employist"
+	//uniform = /obj/item/clothing/jumpsuit/employist
+	//shoes = /obj/item/clothing/shoes/athletic
+	//head = /obj/item/clothing/head/helmet/ert/medical
 
 /obj/item/clothing/jumpsuit/employist
 	name = "Prosyletizing Employist Jumpsuit"
-	desc = "A cheap jumpsuit made for patients of a corporate 'occupational clinic'."
+	desc = "A cheap jumpsuit made for patients of a so-called corporate occupational clinic."
 	icon = 'maps/random_ruins/exoplanet_ruins/hateville/uniform.dmi'
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
 
