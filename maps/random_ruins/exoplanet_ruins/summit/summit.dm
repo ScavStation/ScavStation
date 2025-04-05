@@ -1,5 +1,5 @@
 #include "../../../../mods/mobs/dionaea/_dionaea.dme"
-#include "../../../../mods/_valsalia.dme"
+#include "../../../../mods/valsalia/_valsalia.dme"
 
 /datum/map_template/ruin/exoplanet/summit
 	name = "The Summit"
