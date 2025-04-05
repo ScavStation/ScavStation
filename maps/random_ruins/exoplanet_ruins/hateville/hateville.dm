@@ -253,21 +253,21 @@
 /mob/living/simple_animal/aggressive/prosyletizing_employist/death(gibbed)
 	. = ..()
 	if(. && !gibbed)
-		if(corpse)
-			new corpse(loc)
+		//if(corpse)
+			//new corpse(loc)
 		if(weapon)
 			new weapon(loc)
-		qdel(src)
+		//qdel(src)
 
-/obj/abstract/landmark/corpse/employist
-	name = "dead employist"
-	corpse_outfits = list(/decl/outfit/corpse/employist)
+//obj/abstract/landmark/corpse/employist
+	//name = "dead employist"
+	//corpse_outfits = list(/decl/outfit/corpse/employist)
 
-/decl/outfit/corpse/employist
-	name = "Dead Prosyletizing Employist"
-	uniform = /obj/item/clothing/jumpsuit/employist
-	shoes = /obj/item/clothing/shoes/athletic
-	head = /obj/item/clothing/head/helmet/ert/medical
+//decl/outfit/corpse/employist
+	//name = "Dead Prosyletizing Employist"
+	//uniform = /obj/item/clothing/jumpsuit/employist
+	//shoes = /obj/item/clothing/shoes/athletic
+	//head = /obj/item/clothing/head/helmet/ert/medical
 
 /obj/item/clothing/jumpsuit/employist
 	name = "Prosyletizing Employist Jumpsuit"
