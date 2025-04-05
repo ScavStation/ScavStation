@@ -2243,7 +2243,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -2377,7 +2376,6 @@
 	icon_state = "1-8";
 	dir = 8
 	},
-/obj/abstract/landmark/corpse/employist,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2502,7 +2500,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -6944,7 +6941,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/tracks/footprints/reversed{
 	color = "#a10808"
 	},
@@ -9631,7 +9627,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "nP" = (
@@ -10619,7 +10614,6 @@
 /area/template_noop)
 "pC" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -12307,7 +12301,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "th" = (
@@ -14916,7 +14909,6 @@
 /area/map_template/hateville/materials)
 "yL" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/employist,
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
@@ -15789,7 +15781,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "AL" = (
@@ -15833,7 +15824,6 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -19898,7 +19888,6 @@
 "JV" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -21296,7 +21285,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -21722,7 +21710,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "Oq" = (
@@ -23340,7 +23327,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "RD" = (
@@ -24517,7 +24503,6 @@
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "Ub" = (
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
