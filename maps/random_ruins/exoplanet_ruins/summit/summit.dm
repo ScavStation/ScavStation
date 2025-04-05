@@ -1,6 +1,9 @@
 #include "../../../../mods/mobs/dionaea/_dionaea.dme"
 #include "../../../../mods/valsalia/_valsalia.dme"
 #include "../../../../mods/content/pheromones/_pheromones.dme"
+#include "../../../../mods/content/species/_neoavians.dme"
+#include "../../../../mods/content/gamemodes/cult/_cult.dme"
+
 
 /datum/map_template/ruin/exoplanet/summit
 	name = "The Summit"
