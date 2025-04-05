@@ -245,3 +245,12 @@
 
 /obj/abstract/landmark/corpse/robosharah
 	name = "Scrap Metal"
+
+//Things //
+
+/obj/structure/closet/crate/secure/large/supermatter/experimentalsm
+	name = "experimental SM crate"
+	desc = "It feels faintly warm to the touch."
+
+/obj/structure/closet/crate/secure/large/supermatter/experimentalsm/WillContain()
+	return list(/obj/machinery/power/supermatter/randomsample)

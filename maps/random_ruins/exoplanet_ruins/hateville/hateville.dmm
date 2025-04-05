@@ -12063,7 +12063,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/abstract/landmark/corpse/slavers_base/slaver4,
+/obj/item/remains/human,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
