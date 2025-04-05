@@ -5,7 +5,7 @@
 	description = "Temporal Anomaly"
 	suffixes = list("summit/summit.dmm")
 	cost = 0.5
-	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS
+	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS
 	template_tags = TEMPLATE_TAG_ALIEN
 
 // Areas //
@@ -52,7 +52,7 @@
 	turns_per_wander = 5
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
-	emote_see = list("reaches a claw out pleadingly, shudders violently, and charges their weapon!")
+	emote_see = list("reaches a claw out pleadingly, shudders violently, and charges their weapon")
 	emote_speech = list("H...el..p...", "T.he...cr..y.st...a..l...!", "Make... it... st...op...", "I... Cannot... s..stop...", "HhHhHEEeeLLP...!!!!", "uuhHHHHaahh...", "I... ne..ed... med..ic..al...", "I... thou..ght... you... d-died...", "Get... it out...!!!", "O-oh n-no.... N-no...", "Kar...la...w.a....", "Wh...ere... am... I...??", "Huuhnnhn...!!!", "Sh...ar...d...s...", "St...f... a-ah...!!!", "Chrr..p...!!!", "Scrreerrk...!!", "Uunnh...")
 	emote_hear = list("squawks and wheezes")
 	break_stuff_probability = 0
@@ -103,7 +103,7 @@
 	turns_per_wander = 3
 	stop_wander_when_pulled = 0
 	can_escape_buckles = FALSE
-	emote_see = list("unsteadily raises their weapon!")
+	emote_see = list("unsteadily raises their weapon")
 	emote_speech = list("Zhis... is not...", "wh...y... w..hy...?", "I... cannot... sto...p... i...t...", "Zh...e... wrong... time...", "uuhHHnnnhHHaahh...", "S...te...f..f..a...", "I... c...ca.n.no.t... g...give... in...", "R...run...!!!", "Oh... no... no... n...o... no....!!!", "A...a...be....l.... ...", "B.....zh..re.e...", "W..hy... am... I... stil.l...a.l.i..v..e...?", "M...aw...re...e...k... n..no....", "h..hi..t... z...zhe... but..ton...", "NNghh...", "W...w.eh...", "Ple..as..e...")
 	emote_hear = list("gasps audibly")
 	break_stuff_probability = 0
@@ -152,7 +152,7 @@
 	turns_per_wander = 8
 	stop_wander_when_pulled = 0
 	can_escape_buckles = FALSE
-	emote_see = list("awkwardly aims their gun!")
+	emote_see = list("awkwardly aims their gun")
 	emote_speech = list("Hhnnngnn...", "Mmaww...r..e..e..k..", "I... F..a...il..ed...", "S..so... t...thi..s... is... what... I..", "V...ay....rnnhhghh....", "Wh...ho... am... I...", "S..s..or..r.y...", "...dese..rve... t.h..is...", "I... kn...ew... I... w.a.s... a... mm..mon...st...err..", "mm..my... b...bon..es.... th...ey.... hu..rt...", "...I... do...not... dese..erv...e... d..e..a...th...", "...It...hurts... it...hurts......", "Mm...om... d...dad...", "S.or..ry... lit.tl.e...b.ro.t..h.er...Nghh!", "Uaghh...!!!", "..aAAuhh..hu... au...!")
 	emote_hear = list("sobs intensely")
 	break_stuff_probability = 0
@@ -212,7 +212,7 @@
 /mob/living/simple_animal/aggressive/robosharah/shoot_at(var/atom/target, var/atom/start)
 	log_debug("Robosharah Shooting")
 	if(!sound_token)
-		sound_token = play_looping_sound(src, sound_id, song_to_play.GetTrack(), volume = music_volume, range = 7, falloff = 3, prefer_mute = TRUE, preference = /datum/client_preference/play_game_music, streaming = TRUE)
+		sound_token = play_looping_sound(src, sound_id, song_to_play.GetTrack(), volume = music_volume, range = 30, falloff = 5, prefer_mute = FALSE, preference = /datum/client_preference/play_game_music, streaming = TRUE)
 
 	. = ..()
 
@@ -221,10 +221,10 @@
 	turns_per_wander = 3
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
-	emote_see = list("turns abruptly and aims their cannon!")
-	emote_speech = list("I. SEE. YOU!!!", "I WILL STOP DA FUTURE!!! DA BIRD GAVE ME DA POWER!!!", "YOU DO NOT FOOL ME!!!", "I KNOW DA TROOF!!!", "DIE, TIMESTEALERS!!!", "I WILL USE YOUR BLOOD TO LUBE DA FLOORS!!!", "EAT DIS!!!", "I AM POWERFUL. I AM BIG. I WILL STOP DA BAD FUTURE!!!", "DA FUTUUUUURE!!!!", "YOU WILL ALL SEE, ALL WILL SEE, I WILL STOP DIS MADNESS!!!", "YOU WILL HELP ME DEAD OR ALIVE!!! YOU WILL SAVE DA FUTURE, JUST LIKE DA REST!!!", "BOW TO YOUR MATRIARCH!!!", "HOLOGRAMS! LIES!! DA QUANTA OF REALITY IS FULL OF HOLES!!! I WILL PLUG DOZE HOLES - WIDH BULLETS!!!", "HOW ARE YOU SO INTACT? I DHOT- NO, YOU ARE PHANTOMS! DIE!!!", "I NEED TO OPEN DA GATE. I NEED TO STOP DA FUTURE!! I WILL NOT LET YOU STOP ME!!!","GggrrraaaaaaaaAAAA!!!!","EEEEEEEEEEEEE!!!!","YOU CANNOT RUN FROM DA FUTURE, COWARDS!!!","YOU ARE NUFFIN' BEFORE MY MIGHT!!!","STOP RESISTING ME AND START RESISTING DA FUTURE!!!","WHY DO YOU WANT DIS!? NNRRRAAAAAUUGHH!!!","I REFUSE TO LET YOU KILL DA FUTURE!!!","STOP. STRUGGLING!!!","I WILL TAKE GOOD CARE OF YOU, IF YOU WOULD ONLY JUST. LET. MY. BULLETS. EXPLODE. YOU!!!","STOP MOVING SO I CAN HIT YOU!!!","I KNEW I SHOULDA LUBED DA FLOOR IN HERE!!!","FECK!!!","YOU GONNA REGRET WHATEVER YOU JUST DID JUST NOW!!!","HHRRAAAUGHHH!!!!","YOU DO NOT KNOW DA DEPPS OF MY RAGE RIGHT NOW!!!","I HAVE ENOUGH SPARE PARTS TO REBUILD YOU, STOP RESISTING!!!","WHY ARE YOU NOT HELPING ME!? WE WERE SUPPOSED TO- WHY HAVE YOU BETRAYED ME!? DIE TRAITOR!! DIE FOR YOUR MATRIARCH!!!", "WWRRRRYYYYYYYYYYYYY!!!!!!")
+	emote_see = list("turns abruptly and aims their cannon")
+	emote_speech = list("I. SEE. YOU!!!", "I WILL STOP DA FUTURE!!! DA BIRD GAVE ME DA POWER!!!", "YOU DO NOT FOOL ME!!!", "I KNOW DA TROOF!!!", "DIE, TIMESTEALERS!!!", "I WILL USE YOUR BLOOD TO LUBE DA FLOORS!!!", "EAT DIS!!!", "I AM POWERFUL. I AM BIG. I WILL STOP DA BAD FUTURE!!!", "DA FUTUUUUURE!!!!", "YOU WILL ALL SEE, ALL WILL SEE, I WILL STOP DIS MADNESS!!!", "YOU WILL HELP ME DEAD OR ALIVE!!! YOU WILL SAVE DA FUTURE, JUST LIKE DA REST!!!", "BOW TO YOUR MATRIARCH!!!", "HOLOGRAMS! LIES!! DA QUANTA OF REALITY IS FULL OF HOLES!!! I WILL PLUG DOZE HOLES - WIDH BULLETS!!!", "HOW ARE YOU SO INTACT? I DHOT- NO, YOU ARE PHANTOMS! DIE!!!", "I NEED TO OPEN DA GATE. I NEED TO STOP DA FUTURE!! I WILL NOT LET YOU STOP ME!!!","GggrrraaaaaaaaAAAA!!!!","EEEEEEEEEEEEE!!!!","YOU CANNOT RUN FROM DA FUTURE, COWARDS!!!","YOU ARE NUFFIN BEFORE MY MIGHT!!!","STOP RESISTING ME AND START RESISTING DA FUTURE!!!","WHY DO YOU WANT DIS!? NNRRRAAAAAUUGHH!!!","I REFUSE TO LET YOU KILL DA FUTURE!!!","STOP. STRUGGLING!!!","I WILL TAKE GOOD CARE OF YOU, IF YOU WOULD ONLY JUST. LET. MY. BULLETS. EXPLODE. YOU!!!","STOP MOVING SO I CAN HIT YOU!!!","I KNEW I SHOULDA LUBED DA FLOOR IN HERE!!!","FECK!!!","YOU GONNA REGRET WHATEVER YOU JUST DID JUST NOW!!!","HHRRAAAUGHHH!!!!","YOU DO NOT KNOW DA DEPPS OF MY RAGE RIGHT NOW!!!","I HAVE ENOUGH SPARE PARTS TO REBUILD YOU, STOP RESISTING!!!","WHY ARE YOU NOT HELPING ME!? WE WERE SUPPOSED TO- WHY HAVE YOU BETRAYED ME!? DIE TRAITOR!! DIE FOR YOUR MATRIARCH!!!", "WWRRRRYYYYYYYYYYYYY!!!!!!")
 	emote_hear = list("scans the room.")
-	break_stuff_probability = 1
+	break_stuff_probability = 5
 
 
 
