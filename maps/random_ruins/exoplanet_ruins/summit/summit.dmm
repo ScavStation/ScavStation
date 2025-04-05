@@ -600,7 +600,8 @@
 	icon_state = "mfloor2"
 	},
 /turf/wall/r_wall/hull,
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "dG" = (
@@ -1156,7 +1157,8 @@
 	icon_state = "mgibbl3"
 	},
 /turf/wall/r_wall/hull,
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "gW" = (
@@ -1348,17 +1350,14 @@
 	})
 "iz" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/cable{
-	dir = 4
-	},
-/obj/structure/cable{
-	dir = 8
-	},
 /obj/machinery/network{
 	initial_network_id = "Summit";
 	initial_network_key = "Peak"
 	},
 /obj/machinery/light/small,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/floor/bluegrid,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -1426,9 +1425,6 @@
 	germ_level = 800000000
 	})
 "iS" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/item/modular_computer/laptop/preset/custom_loadout/cheap{
 	pixel_x = 4;
 	desc = "A portable clamshell - get it?? - computer. This one looks particularly junky.";
@@ -1437,6 +1433,10 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/flashlight,
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
 /turf/floor/bluegrid,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -1680,14 +1680,11 @@
 	})
 "kM" = (
 /obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
+	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/wall/r_wall/ascent,
-/area/map_template/summit{
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "kN" = (
@@ -1813,10 +1810,14 @@
 /obj/structure/cable{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "lS" = (
@@ -2152,9 +2153,6 @@
 	germ_level = 800000000
 	})
 "nG" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/flashlight/maglight,
 /obj/item/modular_computer/laptop/preset/custom_loadout/cheap{
@@ -2162,6 +2160,10 @@
 	desc = "A portable clamshell - get it?? - computer. This one looks particularly junky.";
 	name = "Ol' Useless";
 	pixel_y = 14
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
 	},
 /turf/floor/bluegrid,
 /area/map_template/summit{
@@ -3312,7 +3314,8 @@
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "vW" = (
@@ -3603,6 +3606,30 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/machinery/power/supermatter{
+	explosion_point = 250;
+	emergency_point = 125;
+	critical_temperature = 1250;
+	decay_factor = 250;
+	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
+	safe_alert = null;
+	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
+	id_tag = "selfd";
+	base_color = "#000000";
+	color = "#000000";
+	light_color = "#000000";
+	blood_color = "#000000";
+	emagged = 1;
+	sharp = 1;
+	edge = 1;
+	explosion_resistance = 80;
+	explosion_power = 30;
+	name = "nullmatter condensate";
+	animate_movement = 0;
+	desc = "A terrifying display of space-time paradox abuse.";
+	light_range = null;
+	light_power = null
+	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
@@ -3677,7 +3704,8 @@
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "xA" = (
@@ -3748,16 +3776,13 @@
 	})
 "yw" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/cable{
-	dir = 4
-	},
-/obj/structure/cable{
-	dir = 8
-	},
 /obj/machinery/computer/modular/preset/engineering/power{
 	dir = 1
 	},
 /obj/machinery/light/small,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/floor/bluegrid,
 /area/map_template/summit{
 	germ_level = 800000000
@@ -3957,6 +3982,30 @@
 	icon_state = "1-8";
 	dir = 8
 	},
+/obj/machinery/power/supermatter{
+	explosion_point = 250;
+	emergency_point = 125;
+	critical_temperature = 1250;
+	decay_factor = 250;
+	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
+	safe_alert = null;
+	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
+	id_tag = "selfd";
+	base_color = "#000000";
+	color = "#000000";
+	light_color = "#000000";
+	blood_color = "#000000";
+	emagged = 1;
+	sharp = 1;
+	edge = 1;
+	explosion_resistance = 80;
+	explosion_power = 30;
+	name = "nullmatter condensate";
+	animate_movement = 0;
+	desc = "A terrifying display of space-time paradox abuse.";
+	light_range = null;
+	light_power = null
+	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
@@ -4010,7 +4059,8 @@
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "By" = (
@@ -4761,6 +4811,12 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"IL" = (
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
 "IM" = (
 /obj/structure/fire_source/firepit,
 /turf/template_noop,
@@ -4871,10 +4927,15 @@
 /obj/structure/cable{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "Jo" = (
@@ -4888,6 +4949,18 @@
 	},
 /turf/wall/r_wall/hull,
 /area/map_template/summit{
+	germ_level = 800000000
+	})
+"Jy" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "JE" = (
@@ -5405,42 +5478,13 @@
 	germ_level = 800000000
 	})
 "PO" = (
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
 	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit{
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "PQ" = (
@@ -5644,7 +5688,8 @@
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "QT" = (
@@ -5686,13 +5731,12 @@
 	})
 "QY" = (
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-8";
+	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/wall/r_wall/ascent,
-/area/map_template/summit{
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "Rd" = (
@@ -5919,7 +5963,8 @@
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "SI" = (
@@ -6071,7 +6116,8 @@
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "TA" = (
@@ -6112,7 +6158,8 @@
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "TG" = (
@@ -6228,34 +6275,11 @@
 	valve_open = 1;
 	release_pressure = 1000
 	},
-/obj/machinery/power/supermatter{
-	explosion_point = 250;
-	emergency_point = 125;
-	critical_temperature = 1250;
-	decay_factor = 250;
-	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
-	safe_alert = null;
-	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
-	id_tag = "selfd";
-	base_color = "#000000";
-	color = "#000000";
-	light_color = "#000000";
-	blood_color = "#000000";
-	emagged = 1;
-	sharp = 1;
-	edge = 1;
-	explosion_resistance = 80;
-	explosion_power = 30;
-	name = "nullmatter condensate";
-	animate_movement = 0;
-	desc = "A terrifying display of space-time paradox abuse.";
-	light_range = null;
-	light_power = null
-	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "Us" = (
@@ -6672,6 +6696,16 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"Xf" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
 "Xl" = (
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -6847,6 +6881,19 @@
 /obj/item/stack/material/rods,
 /turf/unsimulated/floor/cult,
 /area/map_template/summit{
+	germ_level = 800000000
+	})
+"Yd" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/ascent,
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "Ye" = (
@@ -7351,9 +7398,9 @@ fd
 lF
 gy
 du
-Ar
-Ar
-Ar
+IL
+IL
+IL
 rV
 UK
 HA
@@ -7390,7 +7437,7 @@ BD
 Uv
 Kk
 Ih
-kM
+Tg
 QM
 um
 rV
@@ -7428,7 +7475,7 @@ gH
 cd
 gW
 mv
-ha
+um
 Tz
 QM
 te
@@ -7466,8 +7513,8 @@ om
 be
 de
 IV
-ha
-Ar
+um
+Xf
 lN
 rV
 DY
@@ -7505,7 +7552,7 @@ gb
 aw
 lF
 yw
-Ar
+Yd
 SD
 rV
 Nz
@@ -7543,9 +7590,9 @@ XI
 cc
 lF
 iS
-Ar
+kM
 Ui
-rV
+nq
 vt
 je
 ik
@@ -7581,9 +7628,9 @@ uu
 Ar
 uu
 ha
-Ar
-PO
-rV
+IL
+Ui
+nq
 gR
 TP
 je
@@ -7923,9 +7970,9 @@ uu
 Ar
 uu
 ha
-Ar
-PO
-rV
+IL
+Ui
+nq
 dy
 Hw
 je
@@ -7961,9 +8008,9 @@ lF
 TH
 lF
 nG
-Ar
+PO
 Ui
-rV
+nq
 SR
 ZC
 ia
@@ -7999,7 +8046,7 @@ Hx
 DA
 eO
 iz
-Ar
+Jy
 xy
 rV
 Zj
@@ -8036,8 +8083,8 @@ lW
 bl
 XP
 lF
-ha
-Ar
+um
+QY
 Jb
 rV
 rS
@@ -8074,7 +8121,7 @@ TW
 fP
 fz
 lF
-ha
+um
 TA
 vQ
 rV
@@ -8112,7 +8159,7 @@ Kk
 dn
 Kk
 Ih
-QY
+Tg
 Bq
 um
 Ej
@@ -8149,9 +8196,9 @@ fd
 Mg
 rI
 Vg
-Ar
-Ar
-Ar
+IL
+IL
+IL
 rV
 ia
 yy
