@@ -1,8 +1,8 @@
-#include "../../../../mods/mobs/dionaea/_dionaea.dme"
-#include "../../../../mods/valsalia/_valsalia.dme"
-#include "../../../../mods/content/pheromones/_pheromones.dme"
-#include "../../../../mods/species/neoavians/_neoavians.dme"
-#include "../../../../mods/gamemodes/cult/_cult.dme"
+//#include "../../../../mods/mobs/dionaea/_dionaea.dme"
+//#include "../../../../mods/valsalia/_valsalia.dme"
+//#include "../../../../mods/content/pheromones/_pheromones.dme"
+//#include "../../../../mods/species/neoavians/_neoavians.dme"
+//#include "../../../../mods/gamemodes/cult/_cult.dme"
 
 
 /datum/map_template/ruin/exoplanet/summit
