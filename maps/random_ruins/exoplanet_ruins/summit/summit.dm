@@ -7,7 +7,10 @@
 	cost = 0.5
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS
 	template_tags = TEMPLATE_TAG_ALIEN
-
+	apc_test_exempt_areas = list(
+		/area/map_template/summit = NO_SCRUBBER|NO_VENT,
+		/area/map_template/summit/cold = NO_SCRUBBER|NO_VENT
+		)
 // Areas //
 /area/map_template/summit
 	name = "\improper Summit Stone"
