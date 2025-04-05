@@ -14,10 +14,28 @@
 	germ_level = 800000000
 	})
 "av" = (
-/obj/structure/cable{
-	icon_state = "1-8"
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
 	},
-/turf/wall/brick/basalt,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -602,6 +620,17 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"dI" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
 "dL" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -919,6 +948,36 @@
 /obj/item/organ/external/tail/avian,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"fF" = (
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
+	},
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1724,11 +1783,39 @@
 	germ_level = 800000000
 	})
 "lN" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
 	},
-/turf/wall/brick/basalt,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/reagent_dispensers/fueltank{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/cable{
+	dir = 4
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1738,17 +1825,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/greengrid,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"lV" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 8
-	},
-/turf/wall/r_wall/ascent,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1817,10 +1893,10 @@
 	},
 /obj/effect/wallframe_spawn/reinforced_borosilicate,
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
 /turf/floor/blackgrid{
 	temperature = 0
@@ -2003,6 +2079,54 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/cult,
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
+"np" = (
+/obj/machinery/power/supermatter{
+	explosion_point = 250;
+	emergency_point = 125;
+	critical_temperature = 1250;
+	decay_factor = 250;
+	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
+	safe_alert = null;
+	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
+	id_tag = "selfd";
+	base_color = "#000000";
+	color = "#000000";
+	light_color = "#000000";
+	blood_color = "#000000";
+	emagged = 1;
+	sharp = 1;
+	edge = 1;
+	explosion_resistance = 80;
+	explosion_power = 30;
+	name = "nullmatter condensate";
+	animate_movement = 0;
+	desc = "A terrifying display of space-time paradox abuse.";
+	light_range = null;
+	light_power = null
+	},
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1;
+	opacity = 1;
+	color = "#000000"
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -2194,44 +2318,12 @@
 	id_tag = "selfd";
 	emagged = 1
 	},
-/obj/structure/cable,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/structure/reagent_dispensers/fueltank{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
 /obj/structure/cable{
 	icon_state = "1-8";
-	dir = 8
+	dir = 4
 	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"oP" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
+/obj/structure/cable{
+	dir = 4
 	},
 /obj/item/shard/shrapnel,
 /obj/item/shard/shrapnel,
@@ -2245,12 +2337,21 @@
 	unwrenched = 1;
 	amount_dispensed = 500
 	},
-/obj/structure/cable{
-	dir = 4
-	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"oP" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/brick/basalt,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2262,9 +2363,6 @@
 	germ_level = 800000000
 	})
 "pg" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -2330,10 +2428,6 @@
 /obj/machinery/igniter{
 	id_tag = "selfd";
 	emagged = 1
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 4
 	},
 /obj/structure/cable{
 	dir = 4
@@ -2450,8 +2544,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
+	icon_state = "1-8"
 	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
@@ -2510,29 +2603,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
 /turf/floor/greengrid,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"qf" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "u_dangerous_l"
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/mob/living/simple_animal/aggressive/avianborg{
-	glowing_eyes = 1;
-	attack_delay = 15;
-	base_movement_delay = 5;
-	mob_size = 15
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "gib2"
-	},
-/turf/unsimulated/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2725,6 +2795,29 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"rS" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "u_dangerous_l"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/mob/living/simple_animal/aggressive/avianborg{
+	glowing_eyes = 1;
+	attack_delay = 15;
+	base_movement_delay = 5;
+	mob_size = 15
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib2"
+	},
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
 "rV" = (
 /turf/wall/r_wall/hull,
 /area/map_template/summit{
@@ -2785,6 +2878,36 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"sG" = (
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
+	},
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2862,21 +2985,6 @@
 	icon_state = "gibmid2"
 	},
 /turf/floor/concrete/reinforced,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"sZ" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/barricade/spike{
-	dir = 1;
-	material = /decl/material/solid/metal/steel
-	},
-/turf/unsimulated/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3105,11 +3213,6 @@
 	release_pressure = 1000
 	},
 /obj/structure/window/borosilicate_reinforced{
-	dir = 4;
-	opacity = 1;
-	color = "#000000"
-	},
-/obj/structure/window/borosilicate_reinforced{
 	dir = 1;
 	opacity = 1;
 	color = "#000000"
@@ -3125,6 +3228,21 @@
 	temperature = 280;
 	germ_level = 800000000
 	})
+"vt" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/barricade/spike{
+	dir = 1;
+	material = /decl/material/solid/metal/steel
+	},
+/turf/unsimulated/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
 "vw" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib5";
@@ -3137,6 +3255,17 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"vE" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
 "vG" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_guilty"
@@ -3145,55 +3274,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
 /turf/unsimulated/floor/dark,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"vJ" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 1
-	},
-/turf/wall/r_wall/ascent,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"vO" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/structure/reagent_dispensers/fueltank{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/cable{
-	dir = 4
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3227,7 +3307,7 @@
 	amount_dispensed = 500
 	},
 /obj/structure/cable{
-	dir = 4
+	icon_state = "1-8"
 	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
@@ -3238,10 +3318,6 @@
 "vW" = (
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
 	},
 /mob/living/simple_animal/aggressive/yingborg{
 	glowing_eyes = 1;
@@ -3400,6 +3476,18 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"wN" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
 "wV" = (
 /obj/machinery/button/blast_door{
 	name = "Unlabeled Switch";
@@ -3462,15 +3550,64 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"xg" = (
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
+	},
+/obj/structure/window/borosilicate_reinforced,
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
 "xo" = (
-/obj/machinery/power/terminal{
-	dir = 1
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
+	},
+/obj/structure/cable,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
 	},
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "1-8"
 	},
-/turf/wall/r_wall/hull,
-/area/map_template/summit{
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "xq" = (
@@ -3509,6 +3646,36 @@
 /obj/item/shard/shrapnel,
 /turf/floor/blackgrid{
 	initial_gas = list(/decl/material/gas/hydrogen = 25000)
+	},
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"xy" = (
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 8
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
 	},
 /area/map_template/summit{
 	germ_level = 800000000
@@ -3563,17 +3730,6 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
-"yn" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/turf/wall/r_wall/ascent,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
 "yp" = (
 /mob/living/simple_animal/aggressive/avianborg{
 	glowing_eyes = 1;
@@ -3618,36 +3774,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
 /turf/unsimulated/floor/cult,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"yB" = (
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/structure/window/borosilicate_reinforced{
-	dir = 8
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3922,38 +4048,14 @@
 	germ_level = 800000000
 	})
 "Cg" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/structure/cable,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 8;
-	opacity = 1;
-	color = "#000000"
-	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 1;
-	opacity = 1;
-	color = "#000000"
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit/cold{
-	temperature = 280;
+/turf/wall/brick/basalt,
+/area/map_template/summit{
 	germ_level = 800000000
 	})
 "Cx" = (
@@ -4006,34 +4108,6 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
-"CG" = (
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/window/borosilicate_reinforced,
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit/cold{
-	temperature = 280;
-	germ_level = 800000000
-	})
 "CN" = (
 /obj/structure/largecrate,
 /obj/structure/cable{
@@ -4072,36 +4146,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/meat_hook,
 /turf/floor/cult,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"Dm" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4275,55 +4319,6 @@
 	temperature = 280;
 	germ_level = 800000000
 	})
-"EC" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 4
-	},
-/turf/wall/r_wall/ascent,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"EF" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/structure/reagent_dispensers/fueltank{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/cable{
-	dir = 8
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit{
-	germ_level = 800000000
-	})
 "EH" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods/ten{
@@ -4332,15 +4327,6 @@
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /turf/floor/concrete/reinforced,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"EI" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
-	},
-/turf/wall/r_wall/ascent,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4414,54 +4400,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/cult,
 /area/map_template/summit{
-	germ_level = 800000000
-	})
-"FY" = (
-/obj/machinery/power/supermatter{
-	explosion_point = 250;
-	emergency_point = 125;
-	critical_temperature = 1250;
-	decay_factor = 250;
-	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
-	safe_alert = null;
-	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
-	id_tag = "selfd";
-	base_color = "#000000";
-	color = "#000000";
-	light_color = "#000000";
-	blood_color = "#000000";
-	emagged = 1;
-	sharp = 1;
-	edge = 1;
-	explosion_resistance = 80;
-	explosion_power = 30;
-	name = "nullmatter condensate";
-	animate_movement = 0;
-	desc = "A terrifying display of space-time paradox abuse.";
-	light_range = null;
-	light_power = null
-	},
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 1;
-	opacity = 1;
-	color = "#000000"
-	},
-/obj/structure/cable{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit/cold{
-	temperature = 280;
 	germ_level = 800000000
 	})
 "Go" = (
@@ -4902,6 +4840,43 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"Jb" = (
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
+	},
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/reagent_dispensers/fueltank{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
+/area/map_template/summit{
+	germ_level = 800000000
+	})
 "Jo" = (
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -4934,32 +4909,6 @@
 	dir = 9
 	},
 /turf/wall/r_wall/hull,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"JW" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/structure/cable{
-	dir = 4
-	},
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5030,18 +4979,6 @@
 	icon_state = "u_guilty"
 	},
 /turf/wall/r_wall/ascent,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"KN" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall/brick/basalt,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5377,45 +5314,6 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
-"OE" = (
-/obj/machinery/power/supermatter{
-	explosion_point = 250;
-	emergency_point = 125;
-	critical_temperature = 1250;
-	decay_factor = 250;
-	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
-	safe_alert = null;
-	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
-	id_tag = "selfd";
-	base_color = "#000000";
-	color = "#000000";
-	light_color = "#000000";
-	blood_color = "#000000";
-	emagged = 1;
-	sharp = 1;
-	edge = 1;
-	explosion_resistance = 80;
-	name = "nullmatter condensate";
-	animate_movement = 0;
-	desc = "A terrifying display of space-time paradox abuse.";
-	explosion_power = 6;
-	light_range = null;
-	light_power = null
-	},
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/structure/cable,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit{
-	germ_level = 800000000
-	})
 "ON" = (
 /obj/item/flashlight/flare/glowstick/random,
 /obj/effect/decal/cleanable/dirt/visible,
@@ -5434,38 +5332,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/dark,
 /area/map_template/summit{
-	germ_level = 800000000
-	})
-"OU" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/structure/cable,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit/cold{
-	temperature = 280;
 	germ_level = 800000000
 	})
 "OX" = (
@@ -5772,6 +5638,7 @@
 	amount_dispensed = 500
 	},
 /obj/structure/cable{
+	icon_state = "1-8";
 	dir = 8
 	},
 /turf/floor/reinforced/oxygen{
@@ -5825,6 +5692,33 @@
 	icon_state = "1-2"
 	},
 /turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Rd" = (
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
+	},
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/item/shard/shrapnel,
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/chlorine,
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5932,6 +5826,18 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"Rz" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/wall/r_wall/ascent,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
 "RL" = (
 /obj/effect/wallframe_spawn/reinforced_borosilicate,
 /obj/structure/cable{
@@ -5986,26 +5892,29 @@
 	},
 /turf/wall/brick/basalt,
 /area/template_noop)
-"Si" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/chlorine,
+"SD" = (
 /obj/structure/reagent_dispensers/barrel/ebony/oil{
 	unwrenched = 1;
 	amount_dispensed = 500
 	},
-/obj/structure/cable{
-	dir = 8
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
 	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
@@ -6286,6 +6195,69 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"Ui" = (
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/power/supermatter{
+	explosion_point = 250;
+	emergency_point = 125;
+	critical_temperature = 1250;
+	decay_factor = 250;
+	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
+	safe_alert = null;
+	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
+	id_tag = "selfd";
+	base_color = "#000000";
+	color = "#000000";
+	light_color = "#000000";
+	blood_color = "#000000";
+	emagged = 1;
+	sharp = 1;
+	edge = 1;
+	explosion_resistance = 80;
+	explosion_power = 30;
+	name = "nullmatter condensate";
+	animate_movement = 0;
+	desc = "A terrifying display of space-time paradox abuse.";
+	light_range = null;
+	light_power = null
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
+/area/map_template/summit{
+	germ_level = 800000000
+	})
 "Us" = (
 /obj/machinery/door/blast/regular{
 	name = "Temporal Recursion Vault Door 3";
@@ -6385,6 +6357,34 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"US" = (
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
 "UV" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6426,6 +6426,46 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Vm" = (
+/obj/machinery/power/supermatter{
+	explosion_point = 250;
+	emergency_point = 125;
+	critical_temperature = 1250;
+	decay_factor = 250;
+	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
+	safe_alert = null;
+	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
+	id_tag = "selfd";
+	base_color = "#000000";
+	color = "#000000";
+	light_color = "#000000";
+	blood_color = "#000000";
+	emagged = 1;
+	sharp = 1;
+	edge = 1;
+	explosion_resistance = 80;
+	name = "nullmatter condensate";
+	animate_movement = 0;
+	desc = "A terrifying display of space-time paradox abuse.";
+	explosion_power = 6;
+	light_range = null;
+	light_power = null
+	},
+/obj/machinery/igniter{
+	id_tag = "selfd";
+	emagged = 1
+	},
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6538,10 +6578,6 @@
 	germ_level = 800000000
 	})
 "Wq" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	id_tag = "summitsingblast";
 	name = "Singularity Chamber Blast Door"
@@ -6549,6 +6585,10 @@
 /obj/effect/wallframe_spawn/reinforced_borosilicate,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
 	},
 /turf/floor/blackgrid{
 	temperature = 0
@@ -6562,6 +6602,15 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/dark,
+/area/map_template/summit{
+	germ_level = 800000000
+	})
+"Ws" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/wall/brick/basalt,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6970,31 +7019,14 @@
 	germ_level = 800000000
 	})
 "Zv" = (
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
+/obj/machinery/power/terminal{
+	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 8
-	},
-/obj/structure/window/borosilicate_reinforced,
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit/cold{
-	temperature = 280;
+/turf/wall/r_wall/hull,
+/area/map_template/summit{
 	germ_level = 800000000
 	})
 "ZC" = (
@@ -7025,62 +7057,11 @@
 	germ_level = 800000000
 	})
 "ZP" = (
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"ZS" = (
-/obj/machinery/igniter{
-	id_tag = "selfd";
-	emagged = 1
-	},
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/item/shard/shrapnel,
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
 /obj/structure/cable{
 	icon_state = "1-8";
-	dir = 1
+	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
+/turf/wall/r_wall/ascent,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -7363,7 +7344,7 @@ Vh
 IG
 rV
 if
-ZS
+sG
 Of
 um
 fd
@@ -7383,8 +7364,8 @@ RT
 br
 uy
 Qv
-xo
-lN
+Zv
+Ws
 Nq
 aa
 aa
@@ -7401,7 +7382,7 @@ eR
 Uz
 rV
 QD
-OE
+pL
 tv
 XY
 dU
@@ -7410,7 +7391,7 @@ Uv
 Kk
 Ih
 kM
-oL
+QM
 um
 rV
 FW
@@ -7421,8 +7402,8 @@ Wx
 lS
 eA
 Qv
-xo
-KN
+Zv
+oP
 si
 aa
 aa
@@ -7438,9 +7419,9 @@ rV
 eR
 IG
 rV
-po
+oL
 Go
-Si
+Rd
 um
 xq
 gH
@@ -7459,8 +7440,8 @@ ID
 HS
 eA
 Qv
-xo
-KN
+Zv
+oP
 Nq
 aa
 aa
@@ -7477,7 +7458,7 @@ eR
 IG
 rV
 Ar
-vJ
+wN
 Ey
 Ar
 lF
@@ -7486,8 +7467,8 @@ be
 de
 IV
 ha
-um
-vO
+Ar
+lN
 rV
 DY
 je
@@ -7497,8 +7478,8 @@ br
 Mu
 PC
 Qv
-xo
-KN
+Zv
+oP
 XR
 si
 aa
@@ -7524,8 +7505,8 @@ gb
 aw
 lF
 yw
-um
-ZP
+Ar
+SD
 rV
 Nz
 je
@@ -7537,7 +7518,7 @@ rV
 rV
 rV
 QC
-lN
+Ws
 Nq
 aa
 "}
@@ -7562,10 +7543,10 @@ XI
 cc
 lF
 iS
-um
-PO
+Ar
+Ui
 rV
-sZ
+vt
 je
 ik
 rV
@@ -7574,8 +7555,8 @@ Xe
 lS
 eJ
 Qv
-xo
-KN
+Zv
+oP
 si
 aa
 "}
@@ -7600,7 +7581,7 @@ uu
 Ar
 uu
 ha
-um
+Ar
 PO
 rV
 gR
@@ -7612,8 +7593,8 @@ qb
 qF
 eA
 Qv
-xo
-KN
+Zv
+oP
 Nq
 aa
 "}
@@ -7638,9 +7619,9 @@ RL
 KH
 RL
 UJ
-yn
+dI
 Dr
-Zv
+xg
 nq
 HA
 je
@@ -7650,8 +7631,8 @@ vW
 lS
 eA
 Qv
-xo
-KN
+Zv
+oP
 si
 aa
 "}
@@ -7688,8 +7669,8 @@ NN
 hU
 xA
 Qv
-xo
-KN
+Zv
+oP
 Nq
 aa
 "}
@@ -7792,7 +7773,7 @@ uD
 VU
 lY
 QT
-Cg
+uJ
 jG
 Dt
 ff
@@ -7830,7 +7811,7 @@ Nm
 mi
 NA
 mk
-FY
+np
 nq
 no
 eq
@@ -7841,7 +7822,7 @@ Qj
 Jo
 lG
 lG
-lN
+Ws
 Sg
 YE
 "}
@@ -7868,7 +7849,7 @@ rq
 pY
 eb
 FL
-OU
+xo
 nq
 mA
 je
@@ -7878,8 +7859,8 @@ dk
 cM
 rh
 Qv
-xo
-pg
+Zv
+Cg
 He
 aa
 "}
@@ -7904,9 +7885,9 @@ RL
 hu
 RL
 qM
-lV
+vE
 IY
-CG
+US
 nq
 wY
 je
@@ -7916,8 +7897,8 @@ MI
 br
 wy
 Qv
-xo
-pg
+Zv
+Cg
 si
 aa
 "}
@@ -7942,7 +7923,7 @@ uu
 Ar
 uu
 ha
-um
+Ar
 PO
 rV
 dy
@@ -7954,8 +7935,8 @@ MI
 RT
 iP
 Qv
-xo
-pg
+Zv
+Cg
 Vl
 aa
 "}
@@ -7980,8 +7961,8 @@ lF
 TH
 lF
 nG
-um
-PO
+Ar
+Ui
 rV
 SR
 ZC
@@ -7992,8 +7973,8 @@ Xe
 lS
 jw
 Qv
-xo
-pg
+Zv
+Cg
 si
 aa
 "}
@@ -8018,8 +7999,8 @@ Hx
 DA
 eO
 iz
-um
-yB
+Ar
+xy
 rV
 Zj
 Uf
@@ -8031,7 +8012,7 @@ In
 rV
 rV
 WW
-av
+pg
 VV
 EJ
 "}
@@ -8047,8 +8028,8 @@ UV
 RR
 dc
 Ar
-EC
-EI
+Rz
+ZP
 UF
 lF
 lW
@@ -8056,10 +8037,10 @@ bl
 XP
 lF
 ha
-um
-EF
+Ar
+Jb
 rV
-qf
+rS
 UQ
 rV
 lS
@@ -8067,8 +8048,8 @@ lS
 gP
 rh
 Qv
-xo
-pg
+Zv
+Cg
 XR
 si
 aa
@@ -8086,7 +8067,7 @@ IG
 VG
 vX
 pK
-oP
+av
 um
 Ze
 TW
@@ -8105,8 +8086,8 @@ qF
 ID
 wy
 Qv
-xo
-pg
+Zv
+Cg
 Nq
 aa
 aa
@@ -8123,7 +8104,7 @@ jf
 ya
 rV
 cu
-pL
+Vm
 tv
 XY
 dL
@@ -8143,8 +8124,8 @@ Wx
 lS
 dY
 Qv
-xo
-pg
+Zv
+Cg
 si
 aa
 aa
@@ -8160,8 +8141,8 @@ rV
 kR
 IG
 rV
-JW
-Dm
+po
+fF
 rx
 um
 fd
@@ -8181,8 +8162,8 @@ cz
 lS
 PY
 Qv
-xo
-av
+Zv
+pg
 Nq
 aa
 aa
