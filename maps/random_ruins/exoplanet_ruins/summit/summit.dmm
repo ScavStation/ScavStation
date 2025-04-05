@@ -421,7 +421,8 @@
 	},
 /obj/item/chems/drinks/bottle/vodka{
 	pixel_y = -2;
-	pixel_x = -9
+	pixel_x = -9;
+	rag = rag_small
 	},
 /obj/machinery/button/blast_door{
 	name = "Unlabeled Switch";
@@ -1176,9 +1177,6 @@
 	germ_level = 800000000
 	})
 "ha" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/wall/r_wall{
 	color = #800080;
 	paint_color = #800080;
@@ -1482,7 +1480,8 @@
 	paint_color = #800080;
 	stripe_color = #800080
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "jf" = (
@@ -1666,6 +1665,19 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
+"kD" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
+	germ_level = 800000000
+	})
 "kG" = (
 /mob/living/simple_animal/aggressive/avianborg{
 	glowing_eyes = 1;
@@ -1697,19 +1709,14 @@
 	})
 "kM" = (
 /obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "1-2"
 	},
 /turf/wall/r_wall{
 	color = #800080;
 	paint_color = #800080;
 	stripe_color = #800080
 	},
-/area/map_template/summit/cold{
-	temperature = 280;
+/area/map_template/summit{
 	germ_level = 800000000
 	})
 "kN" = (
@@ -1744,6 +1751,23 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/cult,
 /area/map_template/summit{
+	germ_level = 800000000
+	})
+"ln" = (
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "lt" = (
@@ -2443,9 +2467,8 @@
 	pixel_x = 14
 	},
 /obj/item/chems/drinks/bottle/vodka{
-	pixel_y = -3;
-	pixel_x = -12;
-	rag = 1
+	pixel_y = -2;
+	pixel_x = -9
 	},
 /turf/floor/cult,
 /area/map_template/summit{
@@ -3154,12 +3177,19 @@
 	germ_level = 800000000
 	})
 "um" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/wall/r_wall{
 	color = #800080;
 	paint_color = #800080;
 	stripe_color = #800080
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "up" = (
@@ -3611,24 +3641,14 @@
 	germ_level = 800000000
 	})
 "xg" = (
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit/cold{
 	temperature = 280;
@@ -3711,13 +3731,15 @@
 	germ_level = 800000000
 	})
 "xy" = (
-/turf/wall/r_wall{
-	color = #800080;
-	paint_color = #800080;
-	stripe_color = #800080
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/area/map_template/summit/cold{
-	temperature = 280;
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/plating,
+/area/map_template/summit{
 	germ_level = 800000000
 	})
 "xA" = (
@@ -3742,18 +3764,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/greengrid,
-/area/map_template/summit{
-	germ_level = 800000000
-	})
-"xO" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/item/flashlight/flare/glowstick/random,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/plating,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3956,19 +3966,12 @@
 	germ_level = 800000000
 	})
 "Ar" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall/r_wall{
+/turf/wall{
 	color = #800080;
 	paint_color = #800080;
 	stripe_color = #800080
 	},
-/area/map_template/summit/cold{
-	temperature = 280;
+/area/map_template/summit{
 	germ_level = 800000000
 	})
 "AH" = (
@@ -5755,7 +5758,11 @@
 	germ_level = 800000000
 	})
 "QY" = (
-/turf/wall{
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/wall/r_wall{
 	color = #800080;
 	paint_color = #800080;
 	stripe_color = #800080
@@ -5974,10 +5981,6 @@
 /turf/wall/brick/basalt,
 /area/template_noop)
 "SD" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
-	},
 /turf/wall/r_wall{
 	color = #800080;
 	paint_color = #800080;
@@ -6076,14 +6079,16 @@
 /area/template_noop)
 "Tg" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-8";
+	dir = 4
 	},
 /turf/wall/r_wall{
 	color = #800080;
 	paint_color = #800080;
 	stripe_color = #800080
 	},
-/area/map_template/summit{
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "Ts" = (
@@ -6272,16 +6277,14 @@
 	})
 "Ui" = (
 /obj/structure/cable{
-	icon_state = "1-8";
-	dir = 1
+	icon_state = "4-8"
 	},
 /turf/wall/r_wall{
 	color = #800080;
 	paint_color = #800080;
 	stripe_color = #800080
 	},
-/area/map_template/summit/cold{
-	temperature = 280;
+/area/map_template/summit{
 	germ_level = 800000000
 	})
 "Us" = (
@@ -6392,14 +6395,24 @@
 	germ_level = 800000000
 	})
 "US" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 4
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
 	},
-/turf/wall/r_wall{
-	color = #800080;
-	paint_color = #800080;
-	stripe_color = #800080
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
 	},
 /area/map_template/summit/cold{
 	temperature = 280;
@@ -6787,19 +6800,6 @@
 	},
 /turf/floor/cult,
 /area/map_template/summit{
-	germ_level = 800000000
-	})
-"XG" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/wall/r_wall{
-	color = #800080;
-	paint_color = #800080;
-	stripe_color = #800080
-	},
-/area/map_template/summit/cold{
-	temperature = 280;
 	germ_level = 800000000
 	})
 "XI" = (
@@ -7391,14 +7391,14 @@ rV
 if
 sG
 Of
-um
+ha
 fd
 lF
 gy
 du
-QY
-QY
-QY
+je
+je
+je
 rV
 UK
 HA
@@ -7435,9 +7435,9 @@ BD
 Uv
 Kk
 Ih
-Tg
+kM
 QM
-je
+Ar
 VG
 FW
 Uf
@@ -7467,13 +7467,13 @@ rV
 oL
 Go
 Rd
-um
+ha
 xq
 gH
 cd
 gW
 mv
-um
+ha
 Tz
 QM
 te
@@ -7502,17 +7502,17 @@ mF
 eR
 IG
 rV
-je
+Ar
 wN
 Ey
-je
+Ar
 lF
 om
 be
 de
 IV
-um
-Ui
+ha
+xg
 lN
 rV
 DY
@@ -7540,7 +7540,7 @@ rV
 eR
 IG
 rV
-um
+ha
 mZ
 VM
 Vg
@@ -7550,8 +7550,8 @@ gb
 aw
 lF
 yw
-kM
-xy
+ln
+SD
 rV
 Nz
 Nq
@@ -7588,7 +7588,7 @@ XI
 cc
 lF
 iS
-XG
+kD
 nq
 nq
 vt
@@ -7618,15 +7618,15 @@ Wr
 oG
 jV
 Zp
-um
-um
-um
-um
-uu
-je
-uu
 ha
-xy
+ha
+ha
+ha
+uu
+Ar
+uu
+Ui
+SD
 PO
 nq
 gR
@@ -7654,9 +7654,9 @@ rV
 Ig
 rg
 oG
-um
 ha
-je
+Ui
+Ar
 xu
 kb
 uC
@@ -7666,7 +7666,7 @@ RL
 UJ
 dI
 Dr
-xg
+US
 nq
 HA
 Nq
@@ -7692,7 +7692,7 @@ rV
 Ye
 rV
 rV
-je
+Ar
 IK
 Qz
 bx
@@ -7726,15 +7726,15 @@ XR
 rV
 bF
 bF
-um
+ha
 Qi
-Tg
-Tg
+kM
+kM
 DI
-Tg
+kM
 wM
-Tg
-Tg
+kM
+kM
 SO
 LI
 dH
@@ -7788,7 +7788,7 @@ io
 mq
 fX
 re
-xO
+xy
 PR
 fH
 Lq
@@ -7840,15 +7840,15 @@ XR
 rV
 Iv
 Iv
-um
+ha
 MD
 Zt
-Tg
+kM
 Rr
-Tg
+kM
 hv
 Zt
-Tg
+kM
 rH
 Rf
 Af
@@ -7882,7 +7882,7 @@ rV
 Ye
 rV
 rV
-je
+Ar
 bs
 dV
 YN
@@ -7920,9 +7920,9 @@ rV
 mE
 dG
 oG
-um
 ha
-je
+Ui
+Ar
 xu
 pv
 NX
@@ -7932,7 +7932,7 @@ RL
 qM
 vE
 IY
-xg
+US
 nq
 wY
 Nq
@@ -7960,15 +7960,15 @@ oG
 HO
 iH
 ZI
-um
-um
-um
-um
-uu
-je
-uu
 ha
-xy
+ha
+ha
+ha
+uu
+Ar
+uu
+Ui
+SD
 PO
 nq
 dy
@@ -7996,7 +7996,7 @@ rV
 eR
 Iw
 rV
-um
+ha
 DK
 lF
 lF
@@ -8006,7 +8006,7 @@ lF
 TH
 lF
 nG
-SD
+QY
 nq
 nq
 SR
@@ -8034,7 +8034,7 @@ rV
 SM
 wL
 rV
-um
+ha
 ww
 ol
 lF
@@ -8044,8 +8044,8 @@ Hx
 DA
 eO
 iz
-Ar
-xy
+um
+SD
 rV
 Zj
 Uf
@@ -8072,7 +8072,7 @@ rV
 UV
 RR
 dc
-je
+Ar
 Rz
 ZP
 UF
@@ -8081,8 +8081,8 @@ lW
 bl
 XP
 lF
-um
-US
+ha
+Tg
 Jb
 rV
 rS
@@ -8113,13 +8113,13 @@ VG
 vX
 pK
 av
-um
+ha
 Ze
 TW
 fP
 fz
 lF
-um
+ha
 TA
 vQ
 rV
@@ -8157,9 +8157,9 @@ Kk
 dn
 Kk
 Ih
-Tg
+kM
 Bq
-je
+Ar
 Ht
 bO
 SI
@@ -8189,14 +8189,14 @@ rV
 po
 fF
 rx
-um
+ha
 fd
 Mg
 rI
 Vg
-QY
-QY
-QY
+je
+je
+je
 rV
 ia
 yy
