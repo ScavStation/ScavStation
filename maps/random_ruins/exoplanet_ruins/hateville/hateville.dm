@@ -1,4 +1,3 @@
-#include "../../../../mods/mobs/dionaea/_dionaea.dme"
 
 /datum/map_template/ruin/exoplanet/hateville
 	name = "Overrun Colony"
