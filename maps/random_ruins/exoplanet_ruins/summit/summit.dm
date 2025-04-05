@@ -248,9 +248,29 @@
 
 //Things //
 
-/obj/structure/closet/crate/secure/large/supermatter/experimentalsm
+/obj/structure/closet/crate/secure/large/supermatter/experimentalsm // Borrowed from Unishi
 	name = "experimental SM crate"
 	desc = "It feels faintly warm to the touch."
 
-/obj/structure/closet/crate/secure/large/supermatter/experimentalsm/WillContain()
+/obj/structure/closet/crate/secure/large/supermatter/experimentalsm/WillContain() // Borrowed from Unishi
 	return list(/obj/machinery/power/supermatter/randomsample)
+
+/obj/machinery/power/supermatter/randomsample // Borrowed from Unishi
+	name = "experimental supermatter sample"
+	icon = 'icons/obj/supermatter_32.dmi'
+	icon_state = "supermatter_shard"
+
+/obj/machinery/power/supermatter/randomsample/Initialize() // Borrowed from Unishi
+	. = ..()
+	nitrogen_retardation_factor = rand(0.01, 1)	  //Higher == N2 slows reaction more
+	thermal_release_modifier = rand(100, 1000000) //Higher == more heat released during reaction
+	product_release_modifier = rand(0, 100000)    //Higher == less product gas released by reaction
+	oxygen_release_modifier = rand(0, 100000)     //Higher == less oxygen released at high temperature/power
+	radiation_release_modifier = rand(0, 100)     //Higher == more radiation released with more power.
+	reaction_power_modifier =  rand(0, 100)       //Higher == more overall power
+
+	power_factor = rand(0, 20)
+	decay_factor = rand(50, 70000)			//Affects how fast the supermatter power decays
+	critical_temperature = rand(3000, 5000)	//K
+	charging_factor = rand(0, 1)
+	damage_rate_limit = rand( 1, 10)		//damage rate cap at power = 300, scales linearly with power
