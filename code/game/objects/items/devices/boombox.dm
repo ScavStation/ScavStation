@@ -2,8 +2,7 @@
 	name = "boombox"
 	desc = "A device used to emit rhythmic sounds, colloquialy refered to as a 'boombox'. It's in a retro style (massive), and absolutely unwieldy."
 	icon = 'icons/obj/items/device/boombox.dmi'
-	icon_state = "off"
-	item_state = "boombox"
+	icon_state = ICON_STATE_WORLD
 	_base_attack_force = 7
 	w_class = ITEM_SIZE_HUGE //forbid putting something that emits loud sounds forever into a backpack
 	origin_tech = @'{"magnets":2,"combat":1}'

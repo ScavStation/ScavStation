@@ -2,6 +2,7 @@
 	name                       = "bat"
 	desc                       = "HOME RUN!"
 	icon                       = 'icons/obj/items/weapon/bat.dmi'
+	icon_state                 = ICON_STATE_WORLD
 	w_class                    = ITEM_SIZE_LARGE
 	can_be_twohanded             = TRUE
 	pickup_sound               = 'sound/foley/scrape1.ogg'
