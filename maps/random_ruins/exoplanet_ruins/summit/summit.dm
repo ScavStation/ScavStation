@@ -1,4 +1,5 @@
 #include "../../../../mods/mobs/dionaea/_dionaea.dme"
+#include "../../../../mods/valsalia/items/zat_zhing.dm"
 
 /datum/map_template/ruin/exoplanet/summit
 	name = "The Summit"

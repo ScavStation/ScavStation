@@ -107,7 +107,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -121,7 +121,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -286,7 +286,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -304,7 +304,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -470,7 +470,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -628,7 +628,11 @@
 /obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -718,7 +722,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -751,7 +755,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -787,7 +791,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -878,7 +882,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -989,7 +993,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1055,7 +1059,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1086,7 +1090,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1110,7 +1114,7 @@
 /obj/item/flashlight/flare,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1175,7 +1179,11 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1189,7 +1197,11 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_guilty_l"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1201,7 +1213,11 @@
 	icon_state = "1-8";
 	dir = 8
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1229,7 +1245,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1263,7 +1279,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1303,7 +1319,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1346,6 +1362,22 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor,
 /area/map_template/summit{
+	germ_level = 800000000
+	})
+"iw" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "iz" = (
@@ -1461,11 +1493,17 @@
 	germ_level = 800000000
 	})
 "je" = (
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
-/area/map_template/summit{
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "jf" = (
@@ -1483,7 +1521,7 @@
 /obj/item/flashlight/flare/glowstick/random,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1497,7 +1535,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1530,7 +1568,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1550,7 +1588,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1661,7 +1699,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1680,11 +1718,14 @@
 	})
 "kM" = (
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-2"
 	},
-/turf/wall/ascent,
-/area/map_template/summit/cold{
-	temperature = 280;
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
+/area/map_template/summit{
 	germ_level = 800000000
 	})
 "kN" = (
@@ -1707,7 +1748,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1717,7 +1758,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1919,7 +1960,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1930,7 +1971,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -1961,7 +2002,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2017,7 +2058,7 @@
 	sharp = 1;
 	edge = 1;
 	explosion_resistance = 80;
-	explosion_power = 30;
+	explosion_power = 15;
 	name = "nullmatter condensate";
 	animate_movement = 0;
 	desc = "A terrifying display of space-time paradox abuse.";
@@ -2052,7 +2093,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2079,7 +2120,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -2102,7 +2143,7 @@
 	sharp = 1;
 	edge = 1;
 	explosion_resistance = 80;
-	explosion_power = 30;
+	explosion_power = 15;
 	name = "nullmatter condensate";
 	animate_movement = 0;
 	desc = "A terrifying display of space-time paradox abuse.";
@@ -2422,7 +2463,7 @@
 	pixel_x = -12;
 	rag = 1
 	},
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2619,7 +2660,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2668,7 +2709,11 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_guilty"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2690,7 +2735,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2774,7 +2819,11 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_guilty_l"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2816,7 +2865,7 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib2"
 	},
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2834,7 +2883,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -2879,7 +2928,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3013,7 +3062,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3060,7 +3109,11 @@
 	icon_state = "dir_splatter_2";
 	dir = 5
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3076,7 +3129,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3084,7 +3137,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3112,12 +3165,16 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
 "um" = (
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3180,7 +3237,11 @@
 	icon_state = "1-8";
 	dir = 1
 	},
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3241,7 +3302,7 @@
 	dir = 1;
 	material = /decl/material/solid/metal/steel
 	},
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3264,7 +3325,11 @@
 /obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3464,7 +3529,7 @@
 /obj/structure/largecrate,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3475,7 +3540,11 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3487,7 +3556,11 @@
 	icon_state = "1-8";
 	dir = 1
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3539,7 +3612,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3570,10 +3643,6 @@
 	valve_open = 1;
 	release_pressure = 1000
 	},
-/obj/structure/window/borosilicate_reinforced{
-	dir = 8
-	},
-/obj/structure/window/borosilicate_reinforced,
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
 	},
@@ -3591,44 +3660,24 @@
 /obj/item/shard/shrapnel,
 /obj/item/shard/shrapnel,
 /obj/item/shard/shrapnel,
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen{
 	valve_open = 1;
 	release_pressure = 1000
 	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
 	},
-/obj/machinery/power/supermatter{
-	explosion_point = 250;
-	emergency_point = 125;
-	critical_temperature = 1250;
-	decay_factor = 250;
-	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
-	safe_alert = null;
-	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
-	id_tag = "selfd";
-	base_color = "#000000";
-	color = "#000000";
-	light_color = "#000000";
-	blood_color = "#000000";
-	emagged = 1;
-	sharp = 1;
-	edge = 1;
-	explosion_resistance = 80;
-	explosion_power = 30;
-	name = "nullmatter condensate";
-	animate_movement = 0;
-	desc = "A terrifying display of space-time paradox abuse.";
-	light_range = null;
-	light_power = null
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
 	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
@@ -3678,31 +3727,10 @@
 	germ_level = 800000000
 	})
 "xy" = (
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/structure/window/borosilicate_reinforced{
-	dir = 8
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit/cold{
 	temperature = 280;
@@ -3744,7 +3772,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3754,7 +3782,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3770,7 +3798,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3798,7 +3826,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3810,7 +3838,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3867,7 +3895,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3932,7 +3960,11 @@
 	germ_level = 800000000
 	})
 "Ar" = (
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -3966,45 +3998,25 @@
 /obj/item/shard/shrapnel,
 /obj/item/shard/shrapnel,
 /obj/item/shard/shrapnel,
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
+/obj/structure/cable{
+	icon_state = "1-8";
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen{
 	valve_open = 1;
 	release_pressure = 1000
 	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
 	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
 	},
-/obj/machinery/power/supermatter{
-	explosion_point = 250;
-	emergency_point = 125;
-	critical_temperature = 1250;
-	decay_factor = 250;
-	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
-	safe_alert = null;
-	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
-	id_tag = "selfd";
-	base_color = "#000000";
-	color = "#000000";
-	light_color = "#000000";
-	blood_color = "#000000";
-	emagged = 1;
-	sharp = 1;
-	edge = 1;
-	explosion_resistance = 80;
-	explosion_power = 30;
-	name = "nullmatter condensate";
-	animate_movement = 0;
-	desc = "A terrifying display of space-time paradox abuse.";
-	light_range = null;
-	light_power = null
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
 	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open
@@ -4168,7 +4180,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4186,7 +4198,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4204,35 +4216,20 @@
 	icon_state = "1-8";
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
 /obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
+/obj/machinery/singularity_generator{
+	id_tag = "summitsing";
+	energy = 1;
+	emagged = 1;
+	is_activated = 1
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/turf/floor/blackgrid{
+	initial_gas = list(/decl/material/gas/hydrogen = 25000)
 	},
 /area/map_template/summit/cold{
 	temperature = 280;
@@ -4248,7 +4245,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4272,7 +4269,11 @@
 	icon_state = "dir_splatter_2";
 	dir = 10
 	},
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4313,7 +4314,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4343,7 +4344,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4355,7 +4356,11 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4364,7 +4369,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -4400,7 +4405,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4412,7 +4417,11 @@
 /obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -4435,7 +4444,11 @@
 /obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -4448,7 +4461,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4546,7 +4559,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4591,7 +4604,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4624,7 +4637,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4646,7 +4659,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4660,7 +4673,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4700,7 +4713,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4777,7 +4790,7 @@
 "IG" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4811,12 +4824,6 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
-"IL" = (
-/turf/wall/ascent,
-/area/map_template/summit/cold{
-	temperature = 280;
-	germ_level = 800000000
-	})
 "IM" = (
 /obj/structure/fire_source/firepit,
 /turf/template_noop,
@@ -4830,7 +4837,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4848,35 +4855,20 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
 /obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
+/obj/structure/cable{
+	dir = 4
+	},
+/obj/machinery/singularity_generator{
+	id_tag = "summitsing";
+	energy = 1;
+	emagged = 1;
+	is_activated = 1
+	},
+/turf/floor/blackgrid{
+	initial_gas = list(/decl/material/gas/hydrogen = 25000)
 	},
 /area/map_template/summit/cold{
 	temperature = 280;
@@ -4892,7 +4884,11 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_dangerous_l"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -4951,14 +4947,16 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
-"Jy" = (
+"JA" = (
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-8";
+	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
-/turf/wall/ascent,
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -5016,7 +5014,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5026,7 +5024,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5040,7 +5038,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5051,7 +5049,11 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_guilty"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5070,7 +5072,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5179,7 +5181,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5192,7 +5194,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5283,7 +5285,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5312,7 +5314,7 @@
 /obj/item/flashlight/flare/glowstick/random,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5347,7 +5349,11 @@
 	icon_state = "1-8";
 	dir = 4
 	},
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5359,7 +5365,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5478,11 +5484,41 @@
 	germ_level = 800000000
 	})
 "PO" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
 	},
-/turf/wall/ascent,
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -5732,9 +5768,16 @@
 "QY" = (
 /obj/structure/cable{
 	icon_state = "1-8";
-	dir = 4
+	dir = 8
 	},
-/turf/wall/ascent,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit/cold{
 	temperature = 280;
 	germ_level = 800000000
@@ -5828,7 +5871,11 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_dangerous_l"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5841,7 +5888,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5866,7 +5913,11 @@
 	icon_state = "dir_splatter_2";
 	dir = 6
 	},
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5878,7 +5929,11 @@
 	icon_state = "1-8";
 	dir = 4
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5914,7 +5969,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -5937,31 +5992,10 @@
 /turf/wall/brick/basalt,
 /area/template_noop)
 "SD" = (
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit/cold{
 	temperature = 280;
@@ -5973,7 +6007,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6006,7 +6040,11 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_dangerous_l"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6021,7 +6059,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6052,10 +6090,16 @@
 /area/template_noop)
 "Tg" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-8";
+	dir = 1
 	},
-/turf/wall/r_wall/ascent,
-/area/map_template/summit{
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
+/area/map_template/summit/cold{
+	temperature = 280;
 	germ_level = 800000000
 	})
 "Ts" = (
@@ -6074,7 +6118,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6204,7 +6248,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6238,45 +6282,18 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
 "Ui" = (
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit/cold{
 	temperature = 280;
@@ -6326,7 +6343,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6335,7 +6352,11 @@
 	icon_state = "dir_splatter_2";
 	dir = 5
 	},
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6350,7 +6371,11 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_dangerous_l"
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6366,7 +6391,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6377,36 +6402,20 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
 "US" = (
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/structure/window/borosilicate_reinforced,
-/obj/structure/window/borosilicate_reinforced{
-	dir = 4
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
-/area/map_template/summit/cold{
-	temperature = 280;
+/obj/item/flashlight/flare/glowstick/random,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/unsimulated/floor/plating,
+/area/map_template/summit{
 	germ_level = 800000000
 	})
 "UV" = (
@@ -6438,7 +6447,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6652,7 +6661,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6696,16 +6705,6 @@
 /area/map_template/summit{
 	germ_level = 800000000
 	})
-"Xf" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 1
-	},
-/turf/wall/ascent,
-/area/map_template/summit/cold{
-	temperature = 280;
-	germ_level = 800000000
-	})
 "Xl" = (
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -6721,7 +6720,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6865,7 +6864,11 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/wall/ascent,
+/turf/wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -6879,21 +6882,8 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
-	germ_level = 800000000
-	})
-"Yd" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall/ascent,
-/area/map_template/summit/cold{
-	temperature = 280;
 	germ_level = 800000000
 	})
 "Ye" = (
@@ -6952,7 +6942,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -7024,7 +7014,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stack/material/rods,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -7061,7 +7051,11 @@
 	icon_state = "dir_splatter_2";
 	dir = 5
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -7087,7 +7081,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/cult,
+/turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -7108,7 +7102,11 @@
 	icon_state = "1-8";
 	dir = 8
 	},
-/turf/wall/r_wall/ascent,
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000
 	})
@@ -7398,13 +7396,13 @@ fd
 lF
 gy
 du
-IL
-IL
-IL
+SD
+SD
+SD
 rV
 UK
 HA
-je
+Nq
 rV
 lS
 RT
@@ -7437,10 +7435,10 @@ BD
 Uv
 Kk
 Ih
-Tg
+kM
 QM
-um
-rV
+Ar
+VG
 FW
 Uf
 mF
@@ -7514,11 +7512,11 @@ be
 de
 IV
 um
-Xf
+Tg
 lN
 rV
 DY
-je
+Nq
 rV
 lS
 br
@@ -7552,11 +7550,11 @@ gb
 aw
 lF
 yw
-Yd
-SD
+QY
+xy
 rV
 Nz
-je
+Nq
 rV
 rV
 rV
@@ -7590,11 +7588,11 @@ XI
 cc
 lF
 iS
-kM
 Ui
 nq
+nq
 vt
-je
+Nq
 ik
 rV
 lS
@@ -7628,12 +7626,12 @@ uu
 Ar
 uu
 ha
-IL
-Ui
+xy
+PO
 nq
 gR
 TP
-je
+Nq
 PR
 cY
 qb
@@ -7671,7 +7669,7 @@ Dr
 xg
 nq
 HA
-je
+Nq
 rV
 lS
 vW
@@ -7709,7 +7707,7 @@ FU
 AI
 nq
 HA
-je
+Nq
 rV
 uz
 NN
@@ -7730,13 +7728,13 @@ bF
 bF
 um
 Qi
-Tg
-Tg
+kM
+kM
 DI
-Tg
+kM
 wM
-Tg
-Tg
+kM
+kM
 SO
 LI
 dH
@@ -7790,7 +7788,7 @@ io
 mq
 fX
 re
-FW
+US
 PR
 fH
 Lq
@@ -7827,7 +7825,7 @@ ff
 io
 Ko
 Ts
-je
+Nq
 HA
 PR
 fH
@@ -7845,12 +7843,12 @@ Iv
 um
 MD
 Zt
-Tg
+kM
 Rr
-Tg
+kM
 hv
 Zt
-Tg
+kM
 rH
 Rf
 Af
@@ -7899,7 +7897,7 @@ FL
 xo
 nq
 mA
-je
+Nq
 rV
 VT
 dk
@@ -7934,10 +7932,10 @@ RL
 qM
 vE
 IY
-US
+xg
 nq
 wY
-je
+Nq
 rV
 lS
 MI
@@ -7970,12 +7968,12 @@ uu
 Ar
 uu
 ha
-IL
-Ui
+xy
+PO
 nq
 dy
 Hw
-je
+Nq
 PR
 ID
 MI
@@ -8008,8 +8006,8 @@ lF
 TH
 lF
 nG
-PO
-Ui
+je
+nq
 nq
 SR
 ZC
@@ -8046,7 +8044,7 @@ Hx
 DA
 eO
 iz
-Jy
+iw
 xy
 rV
 Zj
@@ -8084,7 +8082,7 @@ bl
 XP
 lF
 um
-QY
+JA
 Jb
 rV
 rS
@@ -8159,10 +8157,10 @@ Kk
 dn
 Kk
 Ih
-Tg
+kM
 Bq
-um
-Ej
+Ar
+Ht
 bO
 SI
 rV
@@ -8196,9 +8194,9 @@ fd
 Mg
 rI
 Vg
-IL
-IL
-IL
+SD
+SD
+SD
 rV
 ia
 yy
