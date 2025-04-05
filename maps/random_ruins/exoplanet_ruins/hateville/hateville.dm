@@ -227,7 +227,7 @@
 	projectiletype = /obj/item/projectile/beam
 	faction = "employists"
 	ai = /datum/mob_controller/aggressive/prosyletizing_employist
-	var/corpse = /obj/abstract/landmark/corpse/employist
+	//var/corpse = /obj/abstract/landmark/corpse/employist
 	var/weapon = /obj/item/gun/energy/laser
 	death_message = "Shrieks horribly and begins to chant a team-rallying slogan before exploding like a blood sausage!"
 	speak_emote = list("recites", "proclaims", "chants")
