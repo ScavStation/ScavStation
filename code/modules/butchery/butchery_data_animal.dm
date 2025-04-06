@@ -60,6 +60,9 @@
 	must_use_hook     = FALSE
 	gut_type          = /obj/item/food/butchery/offal/small
 
+/decl/butchery_data/animal/small/skin
+	skin_material     = /decl/material/solid/organic/skin
+
 /decl/butchery_data/animal/small/furred
 	skin_material     = /decl/material/solid/organic/skin/fur
 

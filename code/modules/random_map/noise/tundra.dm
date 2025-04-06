@@ -52,7 +52,7 @@
 				var/grass_path = pick(subtypesof(/obj/structure/flora/grass))
 				new grass_path(T)
 			if(prob(5))
-				var/mob_type = pick(list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/passive/mouse, /mob/living/simple_animal/passive/mouse/rat))
+				var/mob_type = pick(list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/passive/mouse, /mob/living/simple_animal/passive/mouse/rat, /mob/living/simple_animal/passive/mouse/snaprat))
 				new mob_type(T)
 		if(7)
 			if(prob(60))
