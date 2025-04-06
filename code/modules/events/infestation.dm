@@ -12,7 +12,6 @@
 #define VERM_MICE 0
 #define VERM_LIZARDS 1
 #define VERM_SPIDERS 2
-#define VERM_SNAPRATS 3
 
 /datum/event/infestation
 	announceWhen = 10
@@ -36,7 +35,7 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(1,3)
+	vermin = rand(0,2)
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(
@@ -55,10 +54,6 @@
 			spawn_types = list(/obj/effect/spider/spiderling)
 			max_number = 3
 			vermstring = "spiders"
-		if(VERM_SNAPRATS)
-			spawn_types = list(/mob/living/simple_animal/passive/mouse/snaprat)
-			max_number = 12
-			vermstring = "snaprats"
 
 	spawn(0)
 		var/num = 0
