@@ -57,6 +57,9 @@
 #include "species\yinglet_organs.dm"
 #include "structures\hoard.dm"
 #include "mobs\ivenmoth.dm"
+#include "mobs\snaprat.dm"
+#include "events\infestation.dm"
+
 // END_INCLUDE
 #endif
 // BEGIN_INTERNALS

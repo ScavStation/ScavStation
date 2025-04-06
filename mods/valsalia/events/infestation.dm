@@ -1,24 +1,9 @@
-#define LOC_KITCHEN 0
-#define LOC_ATMOS 1
-#define LOC_INCIN 2
-#define LOC_CHAPEL 3
-#define LOC_LIBRARY 4
-#define LOC_HYDRO 5
-#define LOC_VAULT 6
-#define LOC_CONSTR 7
-#define LOC_TECH 8
-#define LOC_TACTICAL 9
-
 #define VERM_MICE 0
 #define VERM_LIZARDS 1
 #define VERM_SPIDERS 2
+#define VERM_SNAPRATS 3
+#define VERM_IVENMOTHS 4
 
-/datum/event/infestation
-	announceWhen = 10
-	endWhen = 11
-	var/area/location
-	var/vermin
-	var/vermstring
 
 /datum/event/infestation/start()
 	var/list/vermin_turfs
@@ -35,7 +20,7 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(0,2)
+	vermin = rand(1,4)
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(
@@ -54,6 +39,14 @@
 			spawn_types = list(/obj/effect/spider/spiderling)
 			max_number = 3
 			vermstring = "spiders"
+		if(VERM_SNAPRATS)
+			spawn_types = list(/mob/living/simple_animal/passive/mouse/snaprat)
+			max_number = 12
+			vermstring = "snaprats"
+		if(VERM_IVENMOTHS)
+			spawn_types = list(/mob/living/simple_animal/passive/ivenmoth)
+			max_number = 10
+			vermstring = "ivenmoths"
 
 	spawn(0)
 		var/num = 0
@@ -68,33 +61,3 @@
 			var/obj/effect/spider/spiderling/S = new spawn_type(T)
 			if(istype(S))
 				S.amount_grown = -1
-
-/datum/event/infestation/announce()
-	command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in \the [location.proper_name]. Further infestation is likely if left unchecked.", "[location_name()] Biologic Sensor Network", zlevels = affecting_z)
-
-/datum/event/infestation/proc/set_location_get_infestation_turfs()
-	location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area))
-	if(!location)
-		log_debug("Vermin infestation failed to find a viable area. Aborting.")
-		kill()
-		return
-
-	var/list/vermin_turfs = get_area_turfs(location, list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe))
-	if(!vermin_turfs.len)
-		log_debug("Vermin infestation failed to find viable turfs in \the [location.proper_name].")
-		return
-	return vermin_turfs
-
-#undef LOC_KITCHEN
-#undef LOC_ATMOS
-#undef LOC_INCIN
-#undef LOC_CHAPEL
-#undef LOC_LIBRARY
-#undef LOC_HYDRO
-#undef LOC_VAULT
-#undef LOC_TECH
-#undef LOC_TACTICAL
-
-#undef VERM_MICE
-#undef VERM_LIZARDS
-#undef VERM_SPIDERS
