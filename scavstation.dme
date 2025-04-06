@@ -539,6 +539,7 @@
 #include "code\datums\music_tracks\chasing_time.dm"
 #include "code\datums\music_tracks\clouds_of_fire.dm"
 #include "code\datums\music_tracks\comet_haley.dm"
+#include "code\datums\music_tracks\DEMON_PUNCHER.dm"
 #include "code\datums\music_tracks\deus.dm"
 #include "code\datums\music_tracks\df_theme.dm"
 #include "code\datums\music_tracks\dilbert.dm"

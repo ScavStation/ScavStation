@@ -6,7 +6,8 @@
 	boiling_point = null
 	melting_point = null
 	compost_value = 1
-
+	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
+	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 /* TODO: burn products for solids
 	bakes_into_at_temperature = T0C+500
 	bakes_into_material = /decl/material/solid/carbon
@@ -69,6 +70,7 @@
 	boiling_point = 643
 	compost_value = 0.2
 	paint_verb = "colored"
+	exoplanet_rarity_plant = MAT_RARITY_MUNDANE
 
 /decl/material/solid/organic/plastic/holographic
 	name = "holographic plastic"
@@ -99,8 +101,7 @@
 	reflectiveness = MAT_VALUE_DULL
 	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	default_solid_form = /obj/item/stack/material/cardstock
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
+	exoplanet_rarity_plant = MAT_RARITY_EXOTIC
 	sound_manipulate = 'sound/foley/paperpickup2.ogg'
 	sound_dropped = 'sound/foley/paperpickup1.ogg'
 	compost_value = 0.8
@@ -131,8 +132,7 @@
 	value                   = 0.25
 	default_solid_form      = /obj/item/stack/material/bolt
 	shard_type              = /obj/item/shreddedp
-	exoplanet_rarity_plant  = MAT_RARITY_NOWHERE
-	exoplanet_rarity_gas    = MAT_RARITY_NOWHERE
+	exoplanet_rarity_plant  = MAT_RARITY_EXOTIC
 	sound_manipulate        = 'sound/foley/paperpickup2.ogg'
 	sound_dropped           = 'sound/foley/paperpickup1.ogg'
 	compost_value = 0.8
@@ -156,8 +156,6 @@
 	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	default_solid_form = /obj/item/stack/material/bolt
 	dug_drop_type = /obj/item/stack/material/bolt
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 	sound_manipulate = 'sound/foley/paperpickup2.ogg'
 	sound_dropped = 'sound/foley/paperpickup1.ogg'
 	compost_value = 0.8
@@ -219,6 +217,7 @@
 	sound_dropped = 'sound/foley/paperpickup1.ogg'
 	fishing_bait_value = 0.75
 	allergen_flags = ALLERGEN_VEGETABLE
+	exoplanet_rarity_plant = MAT_RARITY_MUNDANE
 
 /// Used for plant products that aren't quite wood, but are still tougher than normal plant matter.
 /decl/material/solid/organic/plantmatter/pith
@@ -267,8 +266,6 @@
 	reflectiveness = MAT_VALUE_MATTE
 	wall_support_value = MAT_VALUE_EXTREMELY_LIGHT
 	default_solid_form = /obj/item/stack/material/skin
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 	sound_manipulate = 'sound/foley/paperpickup2.ogg'
 	sound_dropped = 'sound/foley/paperpickup1.ogg'
 	tensile_strength = 0.8 // TODO: dried sinew? Should this be crappier than plastic/metal?
@@ -286,6 +283,7 @@
 	ignition_point = T0C+150
 	melting_point = T0C+100 // Assuming synthetic leather.
 	compost_value = 0
+	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
 
 /decl/material/solid/organic/leather/lizard
 	name = "scaled hide"

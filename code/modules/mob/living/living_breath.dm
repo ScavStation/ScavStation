@@ -144,7 +144,7 @@
 
 /mob/living/proc/handle_post_breath(datum/gas_mixture/breath)
 
-	if(!breath || !holding_breath)
+	if(!breath || holding_breath)
 		return
 
 	var/datum/gas_mixture/loc_air = loc?.return_air()

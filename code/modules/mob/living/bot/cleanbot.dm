@@ -57,11 +57,6 @@
 		UnarmedAttack(target, TRUE)
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/decal, var/proximity)
-
-	. = ..()
-	if(.)
-		return
-
 	if(!istype(decal))
 		return TRUE
 

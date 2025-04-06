@@ -73,7 +73,9 @@
 	qdel(munching)
 
 	for(var/obj/item/thing in fell_out)
-		if(storage?.can_be_inserted(thing))
+		if(QDELETED(thing))
+			fell_out -= thing
+		else if(storage?.can_be_inserted(thing))
 			fell_out -= thing
 			storage.handle_item_insertion(null, thing)
 

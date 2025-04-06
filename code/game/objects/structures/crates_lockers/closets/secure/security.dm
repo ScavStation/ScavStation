@@ -19,7 +19,7 @@
 		/obj/item/telebaton,
 		/obj/item/clothing/dress/cap,
 		/obj/item/clothing/head/caphat/formal,
-		/obj/item/clothing/jumpsuit/captainformal,
+		/obj/item/clothing/costume/captainformal,
 	)
 
 /obj/structure/closet/secure_closet/hop

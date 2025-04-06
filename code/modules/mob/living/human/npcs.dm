@@ -11,7 +11,7 @@
 	if(prob(50))
 		equip_to_appropriate_slot(new /obj/item/clothing/pants/slacks/black(src))
 		equip_to_appropriate_slot(new /obj/item/clothing/shirt/button(src))
-		equip_to_appropriate_slot(new /obj/item/clothing/neck/tie/bow/color/red(src))
+		equip_to_appropriate_slot(new /obj/item/clothing/neck/tie/bow/red(src))
 		equip_to_appropriate_slot(new /obj/item/clothing/suit/jacket/vest/blue(src))
 	else
 		var/obj/item/clothing/C = new /obj/item/clothing/pants/casual/mustangjeans(src)
