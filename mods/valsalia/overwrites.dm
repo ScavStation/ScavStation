@@ -14,7 +14,7 @@
 			new /obj/item/seeds(get_turf(host), null, name)
 
 
-/* Adds snaprats to infestation event, removes normal mice */.
+/* Adds snaprats to infestation event, removes normal mice */
 #define VERM_MICE 0
 #define VERM_LIZARDS 1
 #define VERM_SPIDERS 2
