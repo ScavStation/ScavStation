@@ -11832,11 +11832,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/perma)
 "HR" = (
-<<<<<<< HEAD
 /mob/living/simple_animal/passive/mouse/snaprat,
-=======
-/mob/living/simple_animal/passive/mouse,
->>>>>>> d787f2e1f250b6f1d66eef236369b16950b20f25
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
 "HW" = (
