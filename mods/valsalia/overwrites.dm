@@ -19,6 +19,7 @@
 #define VERM_LIZARDS 1
 #define VERM_SPIDERS 2
 #define VERM_SNAPRATS 3
+#define VERM_IVENMOTHS 4
 
 /datum/event/infestation/start()
 	var/list/vermin_turfs
@@ -35,7 +36,7 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(1,3)
+	vermin = rand(1,4)
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(
@@ -58,6 +59,10 @@
 			spawn_types = list(/mob/living/simple_animal/passive/mouse/snaprat)
 			max_number = 12
 			vermstring = "snaprats"
+		if(VERM_IVENMOTHS)
+			spawn_types = list(/mob/living/simple_animal/passive/ivenmoth)
+			max_number = 10
+			vermstring = "ivenmoths"
 
 	spawn(0)
 		var/num = 0
@@ -129,7 +134,7 @@
 				var/grass_path = pick(subtypesof(/obj/structure/flora/grass))
 				new grass_path(T)
 			if(prob(5))
-				var/mob_type = pick(list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/passive/mouse, /mob/living/simple_animal/passive/mouse/rat, /mob/living/simple_animal/passive/mouse/snaprat))
+				var/mob_type = pick(list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/passive/mouse, /mob/living/simple_animal/passive/mouse/rat, /mob/living/simple_animal/passive/mouse/snaprat, /mob/living/simple_animal/passive/ivenmoth))
 				new mob_type(T)
 		if(5 to 6)
 			if(prob(20))
