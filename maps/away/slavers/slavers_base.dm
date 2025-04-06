@@ -70,7 +70,7 @@
 
 /decl/outfit/corpse/slavers_base/slaver1
 	name = "Dead Slaver 1"
-	uniform = /obj/item/clothing/jumpsuit/johnny
+	uniform = /obj/item/clothing/costume/johnny
 	shoes = /obj/item/clothing/shoes/color/black
 	glasses = /obj/item/clothing/glasses/sunglasses
 
@@ -80,7 +80,7 @@
 
 /decl/outfit/corpse/slavers_base/slaver2
 	name = "Dead Slaver 2"
-	uniform = /obj/item/clothing/jumpsuit/johnny
+	uniform = /obj/item/clothing/costume/johnny
 	shoes = /obj/item/clothing/shoes/color/blue
 
 /obj/abstract/landmark/corpse/slavers_base/slaver3
@@ -183,3 +183,7 @@
 		ARMOR_LASER  = ARMOR_LASER_MINOR,
 		ARMOR_ENERGY = ARMOR_ENERGY_MINOR
 		)
+
+// Disable the modifiers we don't have rather than adding new sprites, this item and away site is removed on dev anyway.
+/obj/item/clothing/jumpsuit/abolitionist/get_assumed_clothing_state_modifiers()
+	return null

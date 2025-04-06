@@ -49,6 +49,21 @@
 	var/has_collar
 	var/has_buckle
 
+/obj/item/clothing/suit/jacket/redcoat/get_nonstandard_icon_states()
+	var/static/list/_clothing_states = list(
+		"inventory-open-badge",
+		"inventory-open-buttons_gold",
+		"inventory-open-collar_gold",
+		"inventory-open-collar_brown",
+		"inventory-open-buckle_gold",
+		"world-open-badge",
+		"world-open-buttons_gold",
+		"world-open-collar_gold",
+		"world-open-collar_brown",
+		"world-open-buckle_gold",
+	)
+	return _clothing_states
+
 /obj/item/clothing/suit/jacket/redcoat/Initialize()
 	update_icon()
 	. = ..()

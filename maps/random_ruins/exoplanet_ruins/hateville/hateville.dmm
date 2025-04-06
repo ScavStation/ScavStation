@@ -118,7 +118,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/commander,
+/obj/item/remains/xeno/charred,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -595,7 +595,7 @@
 	pixel_y = -12;
 	pixel_x = 7
 	},
-/obj/abstract/landmark/corpse/commander,
+/obj/item/remains/xeno/charred,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -1066,7 +1066,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -1091,7 +1091,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -1289,7 +1289,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -1339,7 +1339,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -1613,7 +1613,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -1972,7 +1972,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -2243,7 +2243,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -2294,7 +2293,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -2377,7 +2376,6 @@
 	icon_state = "1-8";
 	dir = 8
 	},
-/obj/abstract/landmark/corpse/employist,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2502,7 +2500,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -3304,7 +3301,7 @@
 	pixel_y = 24
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/doctor,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/tracks/body{
 	color = "#a10808"
 	},
@@ -3361,7 +3358,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -3557,7 +3554,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -4174,7 +4171,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -4282,7 +4279,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/item/paper/crumpled{
 	pixel_y = -12;
 	pixel_x = 8;
@@ -4742,7 +4739,7 @@
 /area/template_noop)
 "gK" = (
 /obj/machinery/light/small,
-/obj/abstract/landmark/corpse/commander,
+/obj/item/remains/xeno/charred,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
@@ -5529,7 +5526,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -6015,7 +6012,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/mech_wreckage/military,
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -6761,7 +6758,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -6944,7 +6941,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/tracks/footprints/reversed{
 	color = "#a10808"
 	},
@@ -7393,7 +7389,7 @@
 /turf/floor/concrete,
 /area/template_noop)
 "kz" = (
-/obj/abstract/landmark/corpse/doctor,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -7823,7 +7819,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -8192,7 +8188,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -8765,7 +8761,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -8906,7 +8902,7 @@
 	pixel_y = -9;
 	pixel_x = 7
 	},
-/obj/abstract/landmark/corpse/doctor,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -8966,7 +8962,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -9037,7 +9033,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -9155,7 +9151,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -9320,7 +9316,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -9631,7 +9627,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "nP" = (
@@ -9892,7 +9887,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /turf/template_noop,
 /area/template_noop)
 "on" = (
@@ -10056,7 +10051,7 @@
 /obj/item/clothing/suit/jacket/winter,
 /obj/item/clothing/suit/jacket/bomber,
 /obj/item/clothing/suit/jacket/brown,
-/obj/item/clothing/suit/toggle/nt_hoodie,
+/obj/item/clothing/suit/jacket/blue,
 /obj/item/clothing/suit/jacket/hoodie,
 /obj/item/clothing/suit/toggle/track,
 /obj/item/radio,
@@ -10177,7 +10172,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/table/bench/steel,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -10619,7 +10614,6 @@
 /area/template_noop)
 "pC" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -10726,7 +10720,7 @@
 /area/template_noop)
 "pT" = (
 /obj/structure/bed/sofa/middle/teal,
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /mob/living/simple_animal/aggressive/prosyletizing_employist,
@@ -10872,7 +10866,7 @@
 	pixel_y = 13;
 	pixel_x = 9
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -11828,7 +11822,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -12069,7 +12063,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/abstract/landmark/corpse/slavers_base/slaver4,
+/obj/item/remains/human,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -12307,7 +12301,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "th" = (
@@ -12747,7 +12740,7 @@
 	},
 /obj/item/ammo_magazine/pistol/small,
 /obj/item/ammo_magazine/pistol/small,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -14589,7 +14582,7 @@
 /area/map_template/hateville/materials)
 "xZ" = (
 /obj/item/scalpel,
-/obj/abstract/landmark/corpse/doctor,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -14916,7 +14909,6 @@
 /area/map_template/hateville/materials)
 "yL" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/employist,
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
@@ -15268,7 +15260,6 @@
 /obj/random/drinkbottle,
 /obj/item/lunchbox/syndicate/filled,
 /obj/item/lunchbox/cat/filled,
-/obj/item/lunchbox/nt/filled,
 /obj/item/lunchbox/nymph/filled,
 /obj/item/pizzabox/meat,
 /obj/item/pizzabox/margherita,
@@ -15740,7 +15731,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -15789,7 +15780,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "AL" = (
@@ -15833,7 +15823,6 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -15849,7 +15838,7 @@
 	locked = 0;
 	pixel_y = 20
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -15936,7 +15925,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -15960,18 +15949,10 @@
 	dir = 4;
 	color = "#e19f00"
 	},
-/obj/item/gun/projectile/revolver/foundation,
-/obj/item/ammo_magazine/speedloader/nullglass{
-	pixel_y = 5
-	},
-/obj/item/ammo_magazine/speedloader/nullglass{
-	pixel_y = -11;
-	pixel_x = 5
-	},
-/obj/item/ammo_magazine/speedloader/nullglass{
-	pixel_y = 10;
-	pixel_x = 12
-	},
+/obj/item/gun/projectile/revolver,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/suit/armor/pcarrier/merc,
 /obj/item/clothing/armor_attachment/plate/merc,
@@ -16070,7 +16051,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -16427,11 +16408,11 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/russian,
+/obj/item/remains/xeno,
 /turf/template_noop,
 /area/template_noop)
 "Cp" = (
-/obj/abstract/landmark/corpse/doctor,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -16826,7 +16807,7 @@
 /turf/template_noop,
 /area/map_template/hateville/environment)
 "CX" = (
-/obj/abstract/landmark/corpse/doctor,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -17688,7 +17669,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /turf/template_noop,
 /area/template_noop)
 "EU" = (
@@ -17847,7 +17828,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/russian,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/template_noop,
@@ -19175,7 +19156,7 @@
 /obj/item/ammo_magazine/speedloader{
 	pixel_y = 10
 	},
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -19415,7 +19396,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -19510,7 +19491,7 @@
 /area/template_noop)
 "IZ" = (
 /obj/structure/flora/bush/ywflowers,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -19804,7 +19785,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/abolitionist,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -19898,7 +19879,6 @@
 "JV" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -20588,7 +20568,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/russian,
+/obj/item/remains/xeno,
 /turf/template_noop,
 /area/template_noop)
 "Ly" = (
@@ -20726,7 +20706,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/russian,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/tracks/body{
 	color = "#a10808"
 	},
@@ -20903,7 +20883,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -20951,7 +20931,7 @@
 	pixel_x = -6
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/doctor,
+/obj/item/remains/xeno,
 /obj/effect/decal/cleanable/blood/tracks/body{
 	color = "#a10808"
 	},
@@ -21296,7 +21276,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -21426,7 +21405,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /turf/template_noop,
 /area/template_noop)
 "NA" = (
@@ -21722,7 +21701,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "Oq" = (
@@ -21907,7 +21885,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -22816,7 +22794,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/doctor,
+/obj/item/remains/xeno,
 /obj/item/ammo_magazine/rifle/drum{
 	pixel_y = 10;
 	pixel_x = 8
@@ -22955,7 +22933,7 @@
 "QP" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -23200,7 +23178,7 @@
 /obj/structure/bed/sofa/left/teal{
 	dir = 1
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -23287,7 +23265,7 @@
 	dir = 4
 	},
 /obj/item/drain,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -23340,7 +23318,6 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/employist,
 /turf/template_noop,
 /area/template_noop)
 "RD" = (
@@ -23952,7 +23929,7 @@
 /obj/structure/mech_wreckage/powerloader{
 	name = "powerloader wreckage"
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -24517,7 +24494,6 @@
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agriculture)
 "Ub" = (
-/obj/abstract/landmark/corpse/employist,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -24667,7 +24643,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/abstract/landmark/corpse/commander,
+/obj/item/remains/xeno/charred,
 /turf/template_noop,
 /area/template_noop)
 "Uw" = (
@@ -25682,7 +25658,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/abstract/landmark/corpse/commander,
+/obj/item/remains/xeno/charred,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -26262,7 +26238,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -26719,7 +26695,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -26789,7 +26765,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/defensive_barrier,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
@@ -26884,7 +26860,7 @@
 	icon_state = "1-8";
 	dir = 8
 	},
-/obj/abstract/landmark/corpse/bridgeofficer,
+/obj/item/remains/human,
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
@@ -27285,7 +27261,7 @@
 /obj/item/trash/cigbutt{
 	pixel_x = -16
 	},
-/obj/abstract/landmark/corpse/engineer,
+/obj/item/remains/human,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},

@@ -195,11 +195,6 @@
 	return ..()
 
 /mob/living/bot/secbot/UnarmedAttack(var/mob/M, var/proximity)
-
-	. = ..()
-	if(.)
-		return
-
 	if(!istype(M))
 		return FALSE
 

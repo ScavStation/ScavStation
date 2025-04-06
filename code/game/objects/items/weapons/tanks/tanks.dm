@@ -121,7 +121,7 @@ var/global/list/global/tank_gauge_cache = list()
 		icon = loc
 
 	if (istype(W, /obj/item/scanner/gas))
-		return TRUE
+		return FALSE // allow afterattack to proceed
 
 	if (istype(W,/obj/item/latexballon))
 		var/obj/item/latexballon/LB = W
@@ -574,20 +574,23 @@ var/global/list/global/tank_gauge_cache = list()
 	update_icon(TRUE)
 
 /obj/item/tank/proc/ignite()	//This happens when a bomb is told to explode
+
 	var/obj/item/assembly_holder/assy = proxyassembly.assembly
-	var/ign = assy.a_right
-	var/obj/item/other = assy.a_left
+	var/obj/item/igniter = assy.a_right
+	var/obj/item/other   = assy.a_left
 
 	if (isigniter(assy.a_left))
-		ign = assy.a_left
-		other = assy.a_right
+		igniter = assy.a_left
+		other   = assy.a_right
 
 	if(other)
 		other.dropInto(get_turf(src))
-	qdel(ign)
+	if(!QDELETED(igniter))
+		qdel(igniter)
 	assy.master = null
 	proxyassembly.assembly = null
-	qdel(assy)
+	if(!QDELETED(assy))
+		qdel(assy)
 	update_icon(TRUE)
 
 	air_contents.add_thermal_energy(15000)

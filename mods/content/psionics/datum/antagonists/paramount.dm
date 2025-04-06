@@ -16,7 +16,7 @@
 /decl/outfit/paramount
 	name =    "Special Role - Paramount Grandmaster"
 	head =    /obj/item/clothing/head/helmet/space/psi_amp
-	uniform = /obj/item/clothing/jumpsuit/psysuit
+	uniform = /obj/item/clothing/costume/psysuit
 	suit =    /obj/item/clothing/suit/wizrobe/psypurple
 	shoes =   /obj/item/clothing/shoes/jackboots
 	back =    /obj/item/backpack/satchel
