@@ -78,7 +78,7 @@
 			if(istype(S))
 				S.amount_grown = -1
 
-/* Become Mouse ghost verb makes you become a snaprat */
+/* Become Mouse ghost verb allows you to choose creature type, including valsalia creature types */
 /mob/observer/ghost/become_mouse()
 	set name = "Become mouse"
 	set category = "Ghost"
@@ -99,9 +99,13 @@
 		to_chat(src, SPAN_WARNING("You may not spawn as a mouse on this Z-level."))
 		return
 
-	var/response = alert(src, "Are you -sure- you want to become a mouse?","Are you sure you want to squeek?","Squeek!","Nope!")
-	if(response != "Squeek!")
+	var/vermintype = input(src, "What type of vermin would you like to become?", "Select Vermin Type") in list("mouse", "lizard", "rat", "snaprat", "ivenmoth")
+	if(vermintype == null)
 		return
+
+	/*var/response = alert(src, "Are you -sure- you want to become a mouse?","Are you sure you want to squeek?","Squeek!","Nope!")
+	if(response != "Squeek!")
+		return*/
 
 	//find a viable mouse candidate
 	var/mob/living/simple_animal/passive/mouse/host
@@ -112,7 +116,18 @@
 			found_vents.Add(v)
 	if(found_vents.len)
 		vent_found = pick(found_vents)
-		host = new /mob/living/simple_animal/passive/mouse/snaprat(vent_found.loc) //scavstation specific
+		switch(vermintype)
+			if("mouse")
+				host = new /mob/living/simple_animal/passive/mouse(vent_found.loc)
+			if("lizard")
+				host = new /mob/living/simple_animal/lizard(vent_found.loc)
+			if("rat")
+				host = new /mob/living/simple_animal/passive/mouse/rat(vent_found.loc)
+			if("snaprat")
+				host = new /mob/living/simple_animal/passive/mouse/snaprat(vent_found.loc)
+			if("ivenmoth")
+				host = new /mob/living/simple_animal/passive/ivenmoth(vent_found.loc)
+
 	else
 		to_chat(src, SPAN_WARNING("Unable to find any unwelded vents to spawn mice at."))
 
@@ -122,7 +137,7 @@
 		announce_ghost_joinleave(src, 0, "They are now a mouse.")
 		host.ckey = src.ckey
 		host.status_flags |= NO_ANTAG
-		to_chat(host, SPAN_INFO("You are now a mouse. Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent."))
+		to_chat(host, SPAN_INFO("You are now a " + vermintype + ". Try to avoid interaction with players, and do not give hints away that you are more than a simple creature."))
 
 /* Desert and Tundra planets can spawn snaprats */
 /datum/random_map/noise/desert/get_additional_spawns(var/value, var/turf/T)
