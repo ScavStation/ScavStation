@@ -1,6 +1,6 @@
 /mob/living/simple_animal/passive/mouse
-	name = "snaprat"
-	real_name = "snaprat"
+	name = "mouse"
+	real_name = "mouse"
 	desc = "It's a small rodent."
 	icon = 'icons/mob/simple_animal/mouse_gray.dmi'
 	speak_emote  = list("squeeks","squeeks","squiks")
