@@ -2812,6 +2812,16 @@
 	},
 /turf/floor/plating,
 /area/ministation/Arrival)
+"hk" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/light/small/emergency,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "hl" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3915,7 +3925,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "jR" = (
@@ -8227,6 +8239,15 @@
 	},
 /turf/floor/path/running_bond,
 /area/ministation/hall/e2)
+"ur" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "us" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -12678,13 +12699,15 @@
 /turf/floor,
 /area/ministation/Murphy/hydro)
 "Fm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
@@ -13966,6 +13989,9 @@
 /obj/machinery/light/small/emergency,
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
@@ -16934,6 +16960,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "Qf" = (
@@ -17036,6 +17065,9 @@
 /area/ministation/Murphy/smresearch)
 "Qr" = (
 /obj/effect/floor_decal/corner/paleblue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/floor/tiled/dark,
@@ -17292,6 +17324,18 @@
 /obj/structure/flora/bush/sparsegrass,
 /turf/floor/grass,
 /area/ministation/securityoffice)
+"Rh" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "Ri" = (
 /obj/item/chems/drinks/bottle/vodka{
 	pixel_x = -12;
@@ -18324,6 +18368,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "TO" = (
@@ -18905,6 +18952,15 @@
 	},
 /turf/floor/tiled/dark,
 /area/ministation/armory)
+"Vj" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "Vk" = (
 /obj/machinery/door/airlock/glass/medical{
 	autoset_access = 0;
@@ -19945,12 +20001,30 @@
 	},
 /turf/space,
 /area/space)
+"XS" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "XT" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/meeting)
+"XU" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "XV" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -19961,6 +20035,9 @@
 /obj/machinery/power/apc{
 	name = "_North APC";
 	pixel_y = -24
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
@@ -64825,7 +64902,7 @@ Up
 Up
 Up
 jr
-jC
+Rh
 IJ
 jr
 HB
@@ -65082,7 +65159,7 @@ Up
 Up
 Xz
 XP
-Yq
+Vj
 Qe
 jr
 sn
@@ -65339,7 +65416,7 @@ Up
 Xz
 aa
 XP
-Yq
+XS
 XV
 jr
 pP
@@ -65597,7 +65674,7 @@ ad
 aa
 XP
 Yq
-dz
+XU
 jr
 kg
 dw
@@ -65854,7 +65931,7 @@ ad
 aa
 jr
 jC
-Jk
+hk
 jr
 pS
 ZZ
@@ -66111,7 +66188,7 @@ ad
 aa
 XP
 Yq
-dz
+XU
 jr
 pT
 kR
@@ -66368,7 +66445,7 @@ Pn
 Pn
 XP
 Yq
-dz
+ur
 jr
 WX
 WX

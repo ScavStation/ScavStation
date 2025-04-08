@@ -303,7 +303,6 @@
 /area/ministation/meddocking
 	name = "\improper Medical Docking Bay"
 	req_access = list()
-	area_flags = AREA_FLAG_RAD_SHIELDED
 	icon_state = "green"
 	secure = FALSE
 
@@ -548,11 +547,12 @@
 	name = "\improper Murphy Engine Room"
 	icon_state = "dark_blue"
 
+/*
 /area/ministation/Murphy/atmos
 	name = "\improper Murphy Atmospherics"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/atmos
+/area/ministation/Murphy/library
 	name = "\improper Murphy Library"
 	icon_state = "dark_blue"
 
@@ -568,9 +568,11 @@
 	name = "\improper Murphy Maintenance Corridor 3"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/maint2
+/area/ministation/Murphy/maint4
 	name = "\improper Murphy Maintenance Corridor 4"
 	icon_state = "dark_blue"
+*/______qdel_list_wrapper(list/L)
+	. = ..()
 
 /area/ministation/Murphy/meeting
 	name = "\improper Murphy Meeting Room"

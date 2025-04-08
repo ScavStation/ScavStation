@@ -557,7 +557,7 @@
 	dir = 9
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "bK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -748,7 +748,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "cd" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/basic/full,
@@ -763,7 +763,7 @@
 /obj/item/ammo_casing/pistol/used,
 /obj/item/ammo_casing/pistol/used,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "cg" = (
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -808,7 +808,7 @@
 	icon_state = "0-4"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "cn" = (
 /turf/floor/plating/airless,
 /area/space)
@@ -1234,7 +1234,7 @@
 	},
 /obj/structure/bed/chair/padded/black,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "dM" = (
 /obj/machinery/atmospherics/omni/mixer{
 	tag_north = 1;
@@ -1559,7 +1559,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/bedsheet/purple,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "eO" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -1825,14 +1825,14 @@
 	icon_state = "closed"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "fu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "fw" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -1867,7 +1867,7 @@
 	dir = 10
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "fC" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -1941,7 +1941,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "fR" = (
 /obj/item/trash/driedfish,
 /turf/floor/tiled,
@@ -1975,7 +1975,7 @@
 /obj/item/ammo_casing/pistol/used,
 /obj/item/ammo_casing/pistol/used,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "fZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2044,7 +2044,7 @@
 	dir = 8
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "gn" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -2367,7 +2367,7 @@
 /obj/random/tool,
 /obj/random/tool,
 /turf/floor/plating/airless,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "hu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
@@ -2415,7 +2415,7 @@
 	dir = 4
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "hB" = (
 /turf/floor/grass,
 /area/ministation/biodome)
@@ -2769,7 +2769,7 @@
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "iG" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2871,7 +2871,7 @@
 "iY" = (
 /obj/structure/bed/chair/padded/black,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "iZ" = (
 /obj/machinery/vending/coffee{
 	dir = 1
@@ -2889,7 +2889,7 @@
 	dir = 10
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "jd" = (
 /obj/structure/flora/pottedplant/aquatic,
 /turf/floor/tiled/white,
@@ -3093,7 +3093,7 @@
 	decals = list("heart")
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "jJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -3107,7 +3107,7 @@
 	dir = 1
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "jL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3448,7 +3448,7 @@
 	dir = 8
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "kJ" = (
 /obj/machinery/camera/network/research{
 	dir = 1;
@@ -3459,7 +3459,7 @@
 "kK" = (
 /obj/structure/railing/mapped,
 /turf/open,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "kO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3635,7 +3635,7 @@
 /obj/structure/table,
 /obj/item/towel,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "lh" = (
 /obj/structure/closet,
 /obj/item/clothing/costume/yinglet/librarian,
@@ -3655,7 +3655,7 @@
 /obj/item/clothing/head/helmet/space/void/yinglet/indie,
 /obj/item/tank/oxygen,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "lk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3868,7 +3868,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "lO" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
@@ -4068,7 +4068,7 @@
 	dir = 1
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "mA" = (
 /obj/machinery/seed_extractor,
 /turf/floor/tiled/white,
@@ -4155,7 +4155,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "mM" = (
 /turf/wall,
 /area/ministation/Murphy/bridge)
@@ -4309,7 +4309,7 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "np" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
@@ -4465,7 +4465,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "nP" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -4492,7 +4492,7 @@
 	icon_state = "bulb1"
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "nV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -4632,7 +4632,7 @@
 "oy" = (
 /obj/structure/closet/radiation,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "oz" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
@@ -4798,7 +4798,7 @@
 /area/ministation/maint/l3se)
 "oY" = (
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "oZ" = (
 /obj/structure/transit_tube{
 	icon_state = "W-SE"
@@ -4837,7 +4837,7 @@
 /obj/structure/table/woodentable,
 /obj/item/paper_bin,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "pk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable{
@@ -4870,7 +4870,7 @@
 /obj/item/bedsheet/orange,
 /obj/machinery/light/small,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "pp" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -4884,7 +4884,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "pr" = (
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet{
@@ -4940,7 +4940,7 @@
 	dir = 10
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "pD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4962,7 +4962,7 @@
 /obj/random/tool,
 /obj/structure/closet/toolcloset,
 /turf/floor/plating/airless,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "pL" = (
 /turf/open,
 /area/ministation/enclave/matriarch)
@@ -5016,7 +5016,7 @@
 /obj/random/clothing,
 /obj/random/hat,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "qc" = (
 /turf/wall/titanium,
 /area/ministation/Murphy/med)
@@ -5029,7 +5029,7 @@
 	icon_state = "tube1"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "qi" = (
 /obj/structure/ladder,
 /turf/floor/plating,
@@ -5050,7 +5050,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "qn" = (
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -5074,7 +5074,7 @@
 "qs" = (
 /obj/structure/fitness/weightlifter,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "qt" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -5114,7 +5114,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "qD" = (
 /turf/wall/r_wall/hull,
 /area/ministation/enclave/foyer)
@@ -5143,7 +5143,7 @@
 	icon_state = "1-8"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "qJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -5175,7 +5175,7 @@
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/random/clothing,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "qR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5186,7 +5186,7 @@
 	icon_state = "1-4"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "qU" = (
 /obj/structure/lattice,
 /obj/machinery/light{
@@ -5247,7 +5247,7 @@
 	},
 /obj/effect/floor_decal/sign/a,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "rf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5305,7 +5305,7 @@
 /area/ministation/shuttle/outgoing)
 "rn" = (
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "rp" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
@@ -5343,7 +5343,7 @@
 	dir = 9
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "rz" = (
 /obj/structure/table,
 /obj/item/stack/material/ingot/mapped/osmium/twentyfive,
@@ -5411,7 +5411,7 @@
 /obj/random/clothing,
 /obj/random/hat,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "rK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -5433,7 +5433,7 @@
 "rP" = (
 /obj/machinery/vending/tool,
 /turf/floor/plating/airless,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "rQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -5546,7 +5546,7 @@
 /obj/random/clothing,
 /obj/random/hat,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "sl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5615,7 +5615,7 @@
 	},
 /obj/machinery/light,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "sx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/floor/tiled/white,
@@ -5719,7 +5719,7 @@
 	icon_state = "1-8"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5794,13 +5794,13 @@
 "tg" = (
 /obj/structure/closet/emcloset,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "th" = (
 /obj/structure/table/woodentable,
 /obj/item/cane/fancy/sword,
 /obj/item/clothing/suit/radiation,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "tk" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube/station{
@@ -5953,7 +5953,7 @@
 	dir = 9
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "tF" = (
 /obj/item/mollusc/barnacle{
 	pixel_x = -13;
@@ -5992,7 +5992,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "tQ" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -6014,7 +6014,7 @@
 	dir = 9
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "tT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6210,7 +6210,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "uD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6236,7 +6236,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "uG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -6299,7 +6299,7 @@
 	dir = 1
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "uP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/table/bench/wooden,
@@ -6348,7 +6348,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "uV" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -6439,7 +6439,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "vj" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -6482,7 +6482,7 @@
 	dir = 1
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "vq" = (
 /obj/machinery/vending/cola{
 	dir = 1
@@ -6515,7 +6515,7 @@
 /obj/item/cosmetics/lipstick/violet,
 /obj/random/drinkbottle,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "vu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6586,11 +6586,11 @@
 /area/ministation/bridge)
 "vB" = (
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "vD" = (
 /obj/structure/bed/padded,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "vE" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -6619,7 +6619,7 @@
 /obj/item/toy/plushie/kitten,
 /obj/machinery/light/small,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "vI" = (
 /obj/machinery/light_switch{
 	dir = 4;
@@ -6714,7 +6714,7 @@
 "vR" = (
 /obj/machinery/washing_machine,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "vS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -6786,7 +6786,7 @@
 /obj/structure/table/steel,
 /obj/item/modular_computer/tablet,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "wk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6824,7 +6824,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "wo" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -6893,7 +6893,7 @@
 	icon_state = "bulb1"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "wD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6987,7 +6987,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "wO" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6999,7 +6999,7 @@
 /obj/item/book/manual/mass_spectrometry,
 /obj/item/book/fluff/stasis,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "wQ" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -7026,11 +7026,11 @@
 	dir = 1
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "wT" = (
 /obj/structure/bed/padded,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "wU" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
@@ -7092,7 +7092,7 @@
 	icon_state = "bulb1"
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "xk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7170,7 +7170,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled/white/monotile,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "xz" = (
 /obj/structure/table/woodentable/mahogany,
 /obj/item/mollusc/clam{
@@ -7203,7 +7203,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/rd,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "xE" = (
 /obj/random/maintenance,
 /turf/floor/plating/airless,
@@ -7320,7 +7320,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "yc" = (
 /obj/machinery/camera/autoname{
 	dir = 8;
@@ -7404,7 +7404,7 @@
 	},
 /obj/random/hardsuit,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "yr" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor3"
@@ -7624,7 +7624,7 @@
 	},
 /obj/effect/floor_decal/sign/b,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "zi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -7788,11 +7788,11 @@
 	dir = 8
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "zL" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "zO" = (
 /obj/structure/closet/crate/internals,
 /turf/floor,
@@ -7846,7 +7846,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Aa" = (
 /obj/machinery/camera/network/command{
 	dir = 4;
@@ -7948,7 +7948,7 @@
 	icon_state = "bulb1"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Aq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7988,7 +7988,7 @@
 	dir = 8
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Ax" = (
 /turf/floor/bluegrid{
 	name = "Mainframe Base";
@@ -8488,7 +8488,7 @@
 	dir = 8
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "BZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass/command{
@@ -8536,7 +8536,7 @@
 	level = 2
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Cj" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -8627,7 +8627,7 @@
 	icon_state = "2-4"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Cw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8710,7 +8710,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "CJ" = (
 /obj/structure/transit_tube{
 	icon_state = "E-W-Pass"
@@ -9255,7 +9255,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "En" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9399,7 +9399,7 @@
 	icon_state = "32-1"
 	},
 /turf/open,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "EM" = (
 /obj/structure/yinglet_nest/empty{
 	name = "Bed of the Transient Egg";
@@ -9575,7 +9575,7 @@
 /obj/structure/bed/chair/padded/black,
 /obj/machinery/computer/modular/telescreen/preset/generic,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Fl" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/door/firedoor,
@@ -9610,7 +9610,7 @@
 /obj/random/clothing,
 /obj/random/hat,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Fr" = (
 /obj/machinery/light{
 	dir = 8
@@ -9760,7 +9760,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "FQ" = (
 /obj/machinery/vending/hydroseeds{
 	dir = 4
@@ -9891,7 +9891,7 @@
 	},
 /obj/structure/closet/crate/bin,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Go" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -9936,7 +9936,7 @@
 	icon_state = "bulb1"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Gx" = (
 /obj/machinery/light,
 /turf/floor/tiled,
@@ -9966,7 +9966,7 @@
 	},
 /obj/structure/closet/crate/bin,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "GD" = (
 /turf/open,
 /area/ministation/hall/n3)
@@ -9993,7 +9993,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "GJ" = (
 /obj/machinery/light,
 /obj/structure/closet/l3closet/scientist,
@@ -10050,7 +10050,7 @@
 /obj/item/clothing/head/helmet/space/void/yinglet/indie,
 /obj/item/tank/oxygen,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "GV" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -10106,7 +10106,7 @@
 /obj/item/grooming/comb/colorable/random,
 /obj/random/advdevice,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "He" = (
 /obj/structure/closet/crate/med_crate/toxin,
 /turf/floor,
@@ -10187,7 +10187,7 @@
 /area/ministation/maint/l3ne)
 "HA" = (
 /turf/floor/plating/airless,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "HB" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/plating,
@@ -10244,7 +10244,7 @@
 	icon_state = "1-4"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "HQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10275,7 +10275,7 @@
 	dir = 4
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "HW" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -10529,7 +10529,7 @@
 	icon_state = "2-4"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "IE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -10628,7 +10628,7 @@
 /obj/item/trash/raisins,
 /obj/item/book/manual/nuclear,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Ji" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 4
@@ -10685,7 +10685,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Jq" = (
 /obj/random_multi/single_item/matriarch_helmet,
 /obj/random_multi/single_item/matriarch_voidsuit,
@@ -10735,7 +10735,7 @@
 	dir = 8
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Jw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -10774,7 +10774,7 @@
 	dir = 8
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "JB" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10864,7 +10864,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "JR" = (
 /mob/living/simple_animal/fowl/chicken{
 	name = "Floofbirb";
@@ -10960,7 +10960,7 @@
 /obj/random/advdevice,
 /obj/random/drinkbottle,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Kf" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/floor/reinforced,
@@ -11105,7 +11105,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "KE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -11171,7 +11171,7 @@
 "KW" = (
 /obj/structure/largecrate,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "KZ" = (
 /obj/machinery/vending/coffee{
 	dir = 1
@@ -11191,7 +11191,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Ld" = (
 /obj/machinery/network/telecomms_hub{
 	initial_network_id = "eduroam"
@@ -11313,7 +11313,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "LA" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11355,7 +11355,7 @@
 /obj/item/trash/candy,
 /obj/machinery/recharger,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "LI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/status_display{
@@ -11408,7 +11408,7 @@
 	},
 /obj/effect/floor_decal/sign/d,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "LP" = (
 /obj/machinery/keycard_auth{
 	pixel_y = -24
@@ -11453,7 +11453,7 @@
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/green,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "LV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -11818,7 +11818,7 @@
 "Nf" = (
 /obj/structure/bed/chair/armchair/black,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Ng" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
@@ -11899,7 +11899,7 @@
 	dir = 4
 	},
 /turf/floor/plating/airless,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Nv" = (
 /obj/effect/decal/cleanable/blood,
 /turf/floor/reinforced/airless,
@@ -11915,7 +11915,7 @@
 /obj/item/chems/pill/detergent,
 /obj/item/chewables/candy/gum,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Ny" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 5;
@@ -11961,7 +11961,7 @@
 "NG" = (
 /obj/structure/closet/crate/bin,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "NH" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -12069,14 +12069,14 @@
 /area/ministation/maint/l3sw)
 "NX" = (
 /turf/wall/titanium,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "NY" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "NZ" = (
 /obj/effect/wallframe_spawn/no_grille,
 /obj/machinery/door/firedoor{
@@ -12113,7 +12113,7 @@
 	dir = 9
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Oh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -12182,13 +12182,13 @@
 /obj/item/ammo_casing/pistol/used,
 /obj/item/ammo_casing/pistol/used,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Ot" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/orange,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Ou" = (
 /obj/effect/floor_decal/corner/b_green/three_quarters{
 	dir = 8
@@ -12365,7 +12365,7 @@
 	},
 /obj/effect/floor_decal/sign/c,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Pe" = (
 /obj/structure/catwalk,
 /obj/machinery/light{
@@ -12584,7 +12584,7 @@
 /obj/item/bedsheet/orange,
 /obj/random/clothing,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "PJ" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -12819,7 +12819,7 @@
 	dir = 1
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "QD" = (
 /obj/structure/table/woodentable,
 /obj/item/book/printable_red,
@@ -12855,7 +12855,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "QK" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -12939,7 +12939,7 @@
 /obj/item/newspaper,
 /obj/random/tech_supply,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "QZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
@@ -13001,7 +13001,7 @@
 	dir = 8
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Ri" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -13268,7 +13268,7 @@
 	dir = 8
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "RY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/warning{
@@ -13393,7 +13393,7 @@
 /obj/item/clothing/suit/space/void/yinglet/indie,
 /obj/item/tank/oxygen,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "SA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -13456,7 +13456,7 @@
 	icon_state = "railing0"
 	},
 /turf/open,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "SI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -13467,7 +13467,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "SK" = (
 /obj/structure/table/woodentable/mahogany,
 /obj/item/flashlight/lamp/green{
@@ -13502,7 +13502,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "SP" = (
 /obj/item/stool/padded,
 /turf/floor/wood/mahogany,
@@ -13557,7 +13557,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Tb" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
@@ -13594,7 +13594,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/bedsheet/yellow,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Tk" = (
 /obj/structure/table/woodentable,
 /turf/floor/wood/mahogany,
@@ -13666,7 +13666,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Tt" = (
 /obj/machinery/portable_atmospherics/canister/helium,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -13675,7 +13675,7 @@
 "Tu" = (
 /obj/structure/hygiene/toilet,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Tv" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -13795,7 +13795,7 @@
 /obj/item/pen/fancy,
 /obj/random/drinkbottle,
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "TO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -13902,7 +13902,7 @@
 	dir = 4
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Uf" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -14138,7 +14138,7 @@
 "UO" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "UP" = (
 /obj/machinery/light{
 	dir = 4;
@@ -14192,7 +14192,7 @@
 "UY" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "UZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -14225,7 +14225,7 @@
 	dir = 8
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Vi" = (
 /obj/machinery/light_switch{
 	pixel_y = 25
@@ -14367,7 +14367,7 @@
 	dir = 4
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "VA" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -14604,7 +14604,7 @@
 	dir = 8
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Wr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
@@ -14634,7 +14634,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Wx" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/floor/plating,
@@ -14651,7 +14651,7 @@
 	dir = 9
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "WE" = (
 /obj/structure/table/marble,
 /obj/item/book/manual/chef_recipes,
@@ -14666,7 +14666,7 @@
 	},
 /obj/machinery/light/small,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "WI" = (
 /obj/item/radio/intercom{
 	dir = 1;
@@ -14727,7 +14727,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/civilian,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "WO" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -14750,7 +14750,7 @@
 	pixel_y = 32
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "WQ" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -14914,13 +14914,13 @@
 "Xn" = (
 /obj/machinery/light/small,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Xp" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Xq" = (
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
@@ -14949,7 +14949,7 @@
 /area/ministation/science)
 "Xu" = (
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Xw" = (
 /turf/wall/r_wall,
 /area/ministation/enclave/conference)
@@ -14960,11 +14960,11 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Xz" = (
 /obj/structure/closet/toolcloset,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "XA" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/catwalk,
@@ -14981,7 +14981,7 @@
 /obj/item/bedsheet/purple,
 /obj/machinery/light/small,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "XC" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube{
@@ -15196,7 +15196,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Yl" = (
 /obj/machinery/light{
 	dir = 8
@@ -15217,7 +15217,7 @@
 	},
 /obj/item/bedsheet/orange,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "Yr" = (
 /obj/structure/lattice,
 /obj/machinery/power/apc{
@@ -15432,7 +15432,7 @@
 "YV" = (
 /obj/effect/wallframe_spawn/reinforced/hull,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "YX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
@@ -15653,7 +15653,7 @@
 	dir = 1
 	},
 /turf/floor/wood,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "ZD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -15723,7 +15723,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/sign/m,
 /turf/floor/tiled,
-/area/ministation/Murphy)
+/area/ministation/Murphy/living)
 "ZR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt/visible,
