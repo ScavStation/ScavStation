@@ -477,6 +477,10 @@
 	name = "\improper Science Shuttle"
 	icon_state = "shuttle"
 
+/area/ministation/Murphy
+	name = "\improper Murphy"
+	icon_state = "dark_blue"
+
 //satellite
 /area/ministation/ai_sat
 	name = "\improper Satellite"
