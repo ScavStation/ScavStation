@@ -163,7 +163,7 @@
 	icon_state = "0-8"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "aF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -237,7 +237,7 @@
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "aS" = (
 /turf/wall,
 /area/ministation/ai_sat)
@@ -286,7 +286,7 @@
 	dir = 4
 	},
 /turf/wall/titanium,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "bb" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -980,7 +980,7 @@
 "cU" = (
 /obj/machinery/suit_cycler,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "cV" = (
 /obj/machinery/light{
 	dir = 4
@@ -1135,7 +1135,7 @@
 /area/ministation/enclave/scikitchen)
 "dt" = (
 /turf/wall/r_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1317,7 +1317,7 @@
 "dO" = (
 /obj/structure/ladder,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "dP" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
@@ -1422,7 +1422,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "ej" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/stool/padded,
@@ -1753,7 +1753,7 @@
 	icon_state = "0-4"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "fe" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -1988,7 +1988,7 @@
 	dir = 4
 	},
 /turf/wall/ocp_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "fL" = (
 /obj/structure/rack,
 /obj/item/tool/pickaxe,
@@ -2367,7 +2367,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/vending/tool,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "gI" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -2414,7 +2414,7 @@
 "gN" = (
 /obj/structure/sign/warning/airlock,
 /turf/wall/titanium,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "gO" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -2489,7 +2489,7 @@
 	dir = 4
 	},
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "hb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -2563,6 +2563,9 @@
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/engine)
+"hk" = (
+/turf/wall/r_wall,
+/area/ministation/Murphy/engineroom)
 "hm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2864,6 +2867,9 @@
 	},
 /turf/floor/tiled,
 /area/ministation/hall/n)
+"hW" = (
+/turf/wall/ocp_wall,
+/area/ministation/Murphy/engineering)
 "hX" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -2941,7 +2947,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "ij" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2975,7 +2981,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "iq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2991,7 +2997,7 @@
 	},
 /obj/effect/wallframe_spawn/reinforced_borosilicate,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "is" = (
 /turf/wall,
 /area/ministation/engineroom)
@@ -3030,7 +3036,7 @@
 	icon_state = "0-8"
 	},
 /turf/wall/r_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "iz" = (
 /obj/machinery/network/relay{
 	initial_network_id = "molluscnet"
@@ -3126,7 +3132,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "iP" = (
 /obj/machinery/light{
 	dir = 4
@@ -3206,7 +3212,7 @@
 "ja" = (
 /obj/structure/barricade,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "jd" = (
 /obj/machinery/door/airlock/hatch/maintenance{
 	autoset_access = 0
@@ -3312,7 +3318,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "ju" = (
 /obj/machinery/atmospherics/omni/mixer{
 	active_power_usage = 7500;
@@ -3569,7 +3575,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "ka" = (
 /obj/machinery/vending/hotfood{
 	dir = 4
@@ -3719,6 +3725,12 @@
 	},
 /turf/floor/tiled,
 /area/ministation/janitor)
+"kB" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor,
+/area/ministation/Murphy/engineering)
 "kC" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/space,
@@ -4072,7 +4084,7 @@
 /obj/structure/closet/toolcloset,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "lI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -4366,7 +4378,7 @@
 	},
 /obj/structure/closet/crate/uranium,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "mv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4715,7 +4727,7 @@
 	dir = 4
 	},
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "nt" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/space,
@@ -4743,7 +4755,7 @@
 	sensor_tag = "n2_sensor"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "nw" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
@@ -4921,7 +4933,7 @@
 	target_pressure = 200
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "nX" = (
 /obj/machinery/alarm{
 	pixel_y = -24;
@@ -4952,7 +4964,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/wall/r_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "ob" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood/walnut,
@@ -4980,12 +4992,12 @@
 	icon_state = "1-2"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "oh" = (
 /obj/structure/closet/radiation,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "oi" = (
 /turf/floor,
 /area/ministation/maint/westatmos)
@@ -4995,13 +5007,13 @@
 	pixel_x = -20
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "ol" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 1
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "on" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -5011,7 +5023,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "oo" = (
 /obj/structure/lattice,
 /turf/wall/natural/random/ministation,
@@ -5152,7 +5164,7 @@
 	dir = 4
 	},
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "oS" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 1
@@ -5229,7 +5241,7 @@
 	id_tag = "unishi_outer"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "pe" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/floor/tiled,
@@ -5523,7 +5535,7 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "pP" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	id_tag = "unishi";
@@ -5534,7 +5546,7 @@
 	tag_interior_door = "unishi_inner"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "pQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -5614,7 +5626,7 @@
 "qc" = (
 /obj/structure/closet/hydrant,
 /turf/wall/ocp_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "qd" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -5633,6 +5645,9 @@
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/floor/tiled/steel_grid,
 /area/ministation/engine)
+"qi" = (
+/turf/wall,
+/area/ministation/Murphy/engineroom)
 "qj" = (
 /obj/machinery/power/supermatter,
 /obj/machinery/mass_driver{
@@ -5962,7 +5977,7 @@
 "qY" = (
 /obj/effect/wingrille_spawn/reinforced_borosilicate,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "rb" = (
 /obj/machinery/light{
 	dir = 8
@@ -6028,7 +6043,7 @@
 	dir = 6
 	},
 /turf/wall/ocp_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "rj" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -6501,7 +6516,7 @@
 /area/ministation/engine)
 "sL" = (
 /turf/wall/titanium,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "sN" = (
 /obj/machinery/suit_cycler/ministation,
 /obj/effect/floor_decal/industrial/warning{
@@ -6563,6 +6578,9 @@
 	},
 /turf/floor,
 /area/ministation/enclave/gatehouse)
+"sU" = (
+/turf/floor,
+/area/ministation/Murphy/engineering)
 "sV" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -6832,7 +6850,7 @@
 	dir = 8
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "tO" = (
 /obj/effect/floor_decal/carpet/blue2{
 	dir = 8
@@ -7008,7 +7026,7 @@
 "uo" = (
 /obj/structure/closet/hydrant,
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "up" = (
 /turf/wall,
 /area/ministation/atmospump)
@@ -7082,7 +7100,7 @@
 	req_access = newlist()
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "ux" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -7114,7 +7132,7 @@
 	icon_state = "warning"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "uA" = (
 /obj/random/hardsuit,
 /obj/item/organ/external/chest/yinglet,
@@ -7276,7 +7294,7 @@
 /area/ministation/engine)
 "vb" = (
 /turf/wall/ocp_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "vc" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -8170,7 +8188,7 @@
 	id_tag = "unishi_vent"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "yc" = (
 /obj/machinery/camera/network/engineering{
 	dir = 8;
@@ -8241,7 +8259,7 @@
 	},
 /obj/structure/reagent_dispensers/watertank,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "ym" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8633,7 +8651,7 @@
 	use_power = 1
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "zr" = (
 /turf/floor/plating,
 /area/ministation/maint/westatmos)
@@ -8671,7 +8689,7 @@
 	icon_state = "1-4"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "zE" = (
 /obj/item/stack/material/rods,
 /obj/structure/lattice,
@@ -8815,7 +8833,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Ah" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "EngineVent"
@@ -8869,7 +8887,7 @@
 	dir = 8
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Ao" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
@@ -8883,7 +8901,7 @@
 	},
 /obj/structure/sign/warning/airlock,
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Aq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9564,7 +9582,7 @@
 "Co" = (
 /obj/machinery/atmospherics/binary/pump,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Cp" = (
 /obj/machinery/ai_status_display,
 /turf/wall/r_wall,
@@ -9776,7 +9794,7 @@
 	icon_state = "2-8"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "CV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -9868,7 +9886,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Dk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -10296,7 +10314,7 @@
 	pixel_y = 23
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Eb" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -10512,7 +10530,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Ez" = (
 /obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -10929,7 +10947,7 @@
 	},
 /obj/machinery/light/small,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Fz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/newscaster{
@@ -11010,7 +11028,7 @@
 	},
 /obj/machinery/door/airlock/engineering,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "FK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -12061,7 +12079,7 @@
 	},
 /obj/machinery/suit_cycler,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "It" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8
@@ -12246,7 +12264,7 @@
 /obj/item/suit_cooling_unit,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "IW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -13366,7 +13384,7 @@
 	},
 /obj/machinery/floorlayer,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "LN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 8
@@ -13412,7 +13430,7 @@
 "LV" = (
 /obj/structure/sign/warning/vent_port,
 /turf/wall/titanium,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "LX" = (
 /mob/living/simple_animal/hostile/giant_spider/guard{
 	name = "Jimmy"
@@ -13454,7 +13472,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Mc" = (
 /turf/floor/plating,
 /area/ministation/hall/n)
@@ -13592,10 +13610,10 @@
 "Mu" = (
 /obj/effect/wallframe_spawn/reinforced_borosilicate,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Mv" = (
 /turf/floor/reinforced/airmix,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Mw" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
@@ -13614,7 +13632,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Mz" = (
 /obj/abstract/landmark/start{
 	name = "Recruit"
@@ -13626,6 +13644,9 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
+"MA" = (
+/turf/wall/titanium,
+/area/ministation/Murphy/engineroom)
 "MB" = (
 /obj/abstract/landmark/start{
 	name = "Recruit"
@@ -13680,13 +13701,13 @@
 "MG" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on,
 /turf/floor/reinforced/airmix,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "MH" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "MI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -14108,7 +14129,7 @@
 "NS" = (
 /obj/machinery/recharge_station,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "NU" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
@@ -14342,7 +14363,7 @@
 	dir = 10
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "OA" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -14468,7 +14489,7 @@
 	dir = 9
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "OT" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -14525,7 +14546,7 @@
 "Pb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Pc" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -14623,7 +14644,7 @@
 "Ps" = (
 /obj/structure/fireaxecabinet,
 /turf/wall/r_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Pt" = (
 /obj/machinery/door/blast/regular/open{
 	id_tag = "smsafetydoor"
@@ -14808,7 +14829,7 @@
 	pixel_x = -32
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "PT" = (
 /obj/effect/floor_decal/corner/black/full,
 /obj/structure/window/borosilicate_reinforced{
@@ -14914,7 +14935,7 @@
 /obj/item/rcd_ammo/large,
 /obj/item/rcd_ammo/large,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Qk" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -14954,7 +14975,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Qt" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -15466,7 +15487,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "RM" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -15522,7 +15543,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "RV" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -15559,7 +15580,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Sa" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
@@ -15625,7 +15646,7 @@
 	icon_state = "warning"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Si" = (
 /obj/structure/tank_rack/oxygen,
 /turf/floor/tiled,
@@ -15778,7 +15799,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "SM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15788,7 +15809,7 @@
 "SN" = (
 /obj/structure/tank_rack,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "SO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -15826,7 +15847,7 @@
 "ST" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/wall/ocp_wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "SU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -15941,7 +15962,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/closet/crate/uranium,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Tp" = (
 /obj/structure/table,
 /obj/item/stack/material/cardstock/mapped/cardboard/fifty,
@@ -16125,7 +16146,7 @@
 	use_power = 1
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "TO" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/binary/pump/on{
@@ -16264,7 +16285,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Uj" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
@@ -16358,7 +16379,7 @@
 	req_access = newlist()
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "UC" = (
 /obj/structure/table,
 /turf/floor/tiled,
@@ -16419,13 +16440,13 @@
 	icon_state = "warning"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "UM" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/floor/plating/airless,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "UN" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/floor/reinforced,
@@ -16669,7 +16690,7 @@
 /obj/machinery/atmospherics/unary/tank/hydrogen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "VA" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -16702,7 +16723,7 @@
 	icon_state = "1-8"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "VE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -16732,7 +16753,7 @@
 	dir = 8
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "VJ" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -16836,7 +16857,7 @@
 	dir = 8
 	},
 /turf/space,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Wb" = (
 /obj/abstract/landmark{
 	name = "lightsout"
@@ -16868,7 +16889,7 @@
 	dir = 4
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Wi" = (
 /obj/structure/disposaloutlet,
 /obj/structure/disposalpipe/trunk{
@@ -16904,7 +16925,7 @@
 	icon_state = "2-8"
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Wr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 6
@@ -16967,7 +16988,7 @@
 	dir = 4
 	},
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "WB" = (
 /turf/floor,
 /area/ministation/maint/eastatmos)
@@ -16986,7 +17007,7 @@
 /area/ministation/engineroom)
 "WH" = (
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "WI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16994,7 +17015,7 @@
 	req_access = newlist()
 	},
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "WJ" = (
 /obj/machinery/recharge_station,
 /turf/floor/plating,
@@ -17105,7 +17126,7 @@
 	dir = 5
 	},
 /turf/wall,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Xf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -17113,7 +17134,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/wingrille_spawn/reinforced_borosilicate,
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineering)
 "Xg" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -17279,7 +17300,7 @@
 "XH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /turf/wall/titanium,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "XI" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
@@ -17513,7 +17534,7 @@
 /area/space)
 "Ys" = (
 /turf/floor,
-/area/ministation/Murphy)
+/area/ministation/Murphy/engineroom)
 "Yt" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -64892,19 +64913,19 @@ aa
 aa
 aa
 aa
-sL
-sL
-sL
-sL
-sL
-sL
-sL
-sL
-sL
-sL
-sL
-sL
-sL
+MA
+MA
+MA
+MA
+MA
+MA
+MA
+MA
+MA
+MA
+MA
+MA
+MA
 ad
 ad
 ad
@@ -65159,8 +65180,8 @@ vb
 vb
 vb
 vb
-sL
-sL
+MA
+MA
 LV
 aa
 aa
@@ -65405,7 +65426,7 @@ sL
 sL
 sL
 sL
-vb
+hW
 vb
 RU
 iO
@@ -65662,7 +65683,7 @@ WH
 WH
 WH
 WH
-vb
+hW
 vb
 Vz
 Co
@@ -65918,8 +65939,8 @@ sL
 VI
 fc
 fc
-vb
-vb
+hW
+hW
 vb
 Vz
 Co
@@ -66175,8 +66196,8 @@ sL
 mt
 ih
 ih
-vb
-vb
+hW
+hW
 vb
 Sh
 MH
@@ -66433,7 +66454,7 @@ CU
 RZ
 og
 FJ
-MH
+kB
 FJ
 UL
 zA
@@ -66689,9 +66710,9 @@ sL
 dt
 dt
 dt
-vb
-vb
-vb
+hW
+hW
+hW
 uz
 aC
 aQ
@@ -67203,9 +67224,9 @@ sL
 Mv
 Mv
 qY
-Ys
+sU
 RK
-Ys
+sU
 Ys
 Ys
 Ys
@@ -67470,7 +67491,7 @@ UA
 Af
 on
 Xb
-WH
+qi
 uo
 ol
 XH
@@ -67721,10 +67742,10 @@ WH
 WH
 Wh
 Ps
-dt
-dt
-dt
-dt
+hk
+hk
+hk
+hk
 pN
 LL
 Ys
@@ -67979,8 +68000,8 @@ SL
 nW
 An
 uw
-Ys
-Ys
+sU
+sU
 dO
 ix
 yk
@@ -68239,12 +68260,12 @@ sL
 sL
 sL
 sL
-sL
-sL
-sL
-sL
-sL
-sL
+MA
+MA
+MA
+MA
+MA
+MA
 LV
 aa
 aa
@@ -68496,13 +68517,13 @@ sL
 sL
 sL
 sL
-sL
-sL
-sL
-sL
-sL
-sL
-sL
+MA
+MA
+MA
+MA
+MA
+MA
+MA
 ad
 ad
 ad
@@ -68747,7 +68768,7 @@ aa
 aa
 sL
 pP
-Ys
+sU
 sL
 aa
 aa

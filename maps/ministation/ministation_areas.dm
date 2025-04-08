@@ -300,6 +300,13 @@
 	icon_state = "purple"
 	secure = TRUE
 
+/area/ministation/meddocking
+	name = "\improper Medical Docking Bay"
+	req_access = list()
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	icon_state = "green"
+	secure = FALSE
+
 /area/ministation/medical/nursery
 	name = "\improper Nursery"
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -479,6 +486,98 @@
 
 /area/ministation/Murphy
 	name = "\improper Murphy"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bridge
+	name = "\improper Murphy Bridge"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/living
+	name = "\improper Murphy Living Quarters"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/med
+	name = "\improper Murphy Medbay"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/lounge
+	name = "\improper Murphy Lounge"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/kitchen
+	name = "\improper Murphy Kitchen"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/ai
+	name = "\improper Murphy AI Core"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/chem
+	name = "\improper Murphy Chemistry Lab"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/common
+	name = "\improper Murphy Common Area"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/rnd
+	name = "\improper Murphy Research Lab"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/hydro
+	name = "\improper Murphy Hydroponics"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/xenobio
+	name = "\improper Murphy Xenobio"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/toxins
+	name = "\improper Murphy Toxins Lab"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/smresearch
+	name = "\improper Murphy Supermatter Research Area"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/engineering
+	name = "\improper Murphy Engineering"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/engineroom
+	name = "\improper Murphy Engine Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/atmos
+	name = "\improper Murphy Atmospherics"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/atmos
+	name = "\improper Murphy Library"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint1
+	name = "\improper Murphy Maintenance Corridor 1"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint2
+	name = "\improper Murphy Maintenance Corridor 2"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint3
+	name = "\improper Murphy Maintenance Corridor 3"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint2
+	name = "\improper Murphy Maintenance Corridor 4"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/meeting
+	name = "\improper Murphy Meeting Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/classroom
+	name = "\improper Murphy Classroom"
 	icon_state = "dark_blue"
 
 //satellite
