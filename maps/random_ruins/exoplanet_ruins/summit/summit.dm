@@ -2,7 +2,7 @@
 	name = "The Summit"
 	description = "Temporal Anomaly"
 	suffixes = list("summit/summit.dmm")
-	cost = 0.5
+	cost = 1
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS
 	template_tags = TEMPLATE_TAG_ALIEN
 	apc_test_exempt_areas = list(
@@ -105,7 +105,7 @@
 	stop_wander_when_pulled = 0
 	can_escape_buckles = FALSE
 	emote_see = list("unsteadily raises their weapon")
-	emote_speech = list("Zhis... is not...", "wh...y... w..hy...?", "I... cannot... sto...p... i...t...", "Zh...e... wrong... time...", "uuhHHnnnhHHaahh...", "S...te...f..f..a...", "I... c...ca.n.no.t... g...give... in...", "R...run...!!!", "Oh... no... no... n...o... no....!!!", "A...a...be....l.... ...", "B.....zh..re.e...", "W..hy... am... I... stil.l...a.l.i..v..e...?", "M...aw...re...e...k... n..no....", "h..hi..t... z...zhe... but..ton...", "NNghh...", "W...w.eh...", "Ple..as..e...")
+	emote_speech = list("Zhis... is not...", "wh...y... w..hy...?", "I... cannot... sto...p... i...t...", "Zh...e... wrong... time...", "uuhHHnnnhHHaahh...", "S...te...f..f..a...", "I... c...ca.n.no.t... g...give... in...", "R...run...!!!", "Oh... no... no... n...o... no....!!!", "B.....zh..re.e...", "W..hy... am... I... stil.l...a.l.i..v..e...?", "M...aw...re...e...k... n..no....", "h..hi..t... z...zhe... but..ton...", "NNghh...", "W...w.eh...", "Ple..as..e...")
 	emote_hear = list("gasps audibly")
 	break_stuff_probability = 0
 
