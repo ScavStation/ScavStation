@@ -1319,7 +1319,8 @@
 /turf/wall/r_wall{
 	color = #800080;
 	paint_color = #800080;
-	stripe_color = #800080
+	stripe_color = #800080;
+	temperature = 75
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -1558,23 +1559,6 @@
 	germ_level = 800000000;
 	temperature = 0
 	})
-"iC" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 5
-	},
-/turf/wall/r_wall{
-	color = #800080;
-	paint_color = #800080;
-	stripe_color = #800080
-	},
-/area/map_template/summit{
-	germ_level = 800000000;
-	temperature = 0
-	})
 "iD" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1673,17 +1657,6 @@
 	germ_level = 800000000;
 	temperature = 0
 	})
-"ja" = (
-/turf/wall/r_wall{
-	color = #800080;
-	paint_color = #800080;
-	stripe_color = #800080;
-	temperature = 75
-	},
-/area/map_template/summit{
-	germ_level = 800000000;
-	temperature = 0
-	})
 "je" = (
 /turf/wall{
 	color = #800080;
@@ -1726,6 +1699,23 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000;
+	temperature = 0
+	})
+"js" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 5
+	},
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
@@ -1884,6 +1874,20 @@
 	pixel_x = -12
 	},
 /turf/floor/cult,
+/area/map_template/summit{
+	germ_level = 800000000;
+	temperature = 0
+	})
+"kt" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
+	temperature = 75
+	},
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
@@ -2316,9 +2320,9 @@
 	})
 "mO" = (
 /obj/machinery/power/supermatter{
-	explosion_point = 600;
+	explosion_point = 150;
 	emergency_point = 125;
-	critical_temperature = 2000;
+	critical_temperature = 1000;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -2407,9 +2411,9 @@
 	})
 "np" = (
 /obj/machinery/power/supermatter{
-	explosion_point = 600;
+	explosion_point = 150;
 	emergency_point = 125;
-	critical_temperature = 2000;
+	critical_temperature = 1000;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -2465,19 +2469,6 @@
 	temperature = 0;
 	germ_level = 800000000
 	})
-"nw" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall/r_wall{
-	color = #800080;
-	paint_color = #800080;
-	stripe_color = #800080
-	},
-/area/map_template/summit{
-	germ_level = 800000000;
-	temperature = 0
-	})
 "nD" = (
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -2507,16 +2498,6 @@
 	dir = 4
 	},
 /turf/floor/bluegrid,
-/area/map_template/summit{
-	germ_level = 800000000;
-	temperature = 0
-	})
-"nQ" = (
-/turf/wall{
-	color = #800080;
-	paint_color = #800080;
-	stripe_color = #800080
-	},
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
@@ -5490,20 +5471,6 @@
 	temperature = 0;
 	germ_level = 800000000
 	})
-"Jk" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/wall/r_wall{
-	color = #800080;
-	paint_color = #800080;
-	stripe_color = #800080;
-	temperature = 75
-	},
-/area/map_template/summit{
-	germ_level = 800000000;
-	temperature = 0
-	})
 "Jo" = (
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -5786,6 +5753,47 @@
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
+	})
+"Mh" = (
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/structure/reagent_dispensers/barrel/ebony/oil{
+	unwrenched = 1;
+	amount_dispensed = 500
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	valve_open = 1;
+	release_pressure = 1000
+	},
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open;
+	temperature = 0
+	},
+/area/map_template/summit/cold{
+	temperature = 0;
+	germ_level = 800000000
 	})
 "Mt" = (
 /obj/structure/cable{
@@ -6100,40 +6108,10 @@
 	temperature = 0
 	})
 "PO" = (
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/structure/reagent_dispensers/barrel/ebony/oil{
-	unwrenched = 1;
-	amount_dispensed = 500
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	valve_open = 1;
-	release_pressure = 1000
-	},
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open;
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit/cold{
@@ -6579,6 +6557,19 @@
 	germ_level = 800000000;
 	temperature = 0
 	})
+"Ry" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
+/area/map_template/summit{
+	germ_level = 800000000;
+	temperature = 0
+	})
 "Rz" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6655,15 +6646,14 @@
 /turf/wall/brick/basalt,
 /area/template_noop)
 "SD" = (
-/turf/wall/r_wall{
+/turf/wall{
 	color = #800080;
 	paint_color = #800080;
-	stripe_color = #800080;
-	temperature = 0
+	stripe_color = #800080
 	},
-/area/map_template/summit/cold{
-	temperature = 0;
-	germ_level = 800000000
+/area/map_template/summit{
+	germ_level = 800000000;
+	temperature = 0
 	})
 "SI" = (
 /obj/item/flashlight/flare/glowstick/random,
@@ -6908,6 +6898,16 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/freezer,
+/area/map_template/summit{
+	germ_level = 800000000;
+	temperature = 0
+	})
+"TN" = (
+/turf/wall/r_wall{
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
+	},
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
@@ -8186,7 +8186,7 @@ Kk
 Ih
 kM
 QM
-nQ
+SD
 VG
 FW
 Uf
@@ -8222,7 +8222,7 @@ gH
 cd
 gW
 mv
-ha
+TN
 Tz
 QM
 te
@@ -8260,7 +8260,7 @@ om
 be
 de
 IV
-ha
+TN
 xg
 lN
 rV
@@ -8289,7 +8289,7 @@ rV
 eR
 IG
 rV
-ha
+TN
 mZ
 VM
 Vg
@@ -8300,7 +8300,7 @@ aw
 lF
 yw
 ln
-SD
+PO
 rV
 Nz
 Nq
@@ -8367,16 +8367,16 @@ Wr
 oG
 jV
 Zp
-ja
-ja
-ja
-ja
+ha
+ha
+ha
+ha
 uu
-nQ
-uu
-nw
 SD
+uu
+Ry
 PO
+Mh
 nq
 gR
 TP
@@ -8403,7 +8403,7 @@ rV
 Ig
 rg
 oG
-ja
+ha
 Ui
 Ar
 xu
@@ -8475,15 +8475,15 @@ XR
 rV
 bF
 bF
-ha
+TN
 Qi
 kM
 kM
 DI
-Jk
+kt
 wM
-Jk
-Jk
+kt
+kt
 SO
 LI
 dH
@@ -8589,15 +8589,15 @@ XR
 rV
 Iv
 Iv
-ha
+TN
 MD
-iC
+js
 kM
 Rr
-Jk
+kt
 hv
 Zt
-Jk
+kt
 rH
 Rf
 Af
@@ -8669,7 +8669,7 @@ rV
 mE
 dG
 oG
-ja
+ha
 Ui
 Ar
 xu
@@ -8709,16 +8709,16 @@ oG
 HO
 iH
 ZI
-ja
-ja
-ja
-ja
+ha
+ha
+ha
+ha
 uu
-nQ
-uu
-nw
 SD
+uu
+Ry
 PO
+Mh
 nq
 dy
 Hw
@@ -8745,7 +8745,7 @@ rV
 eR
 Iw
 rV
-ha
+TN
 DK
 lF
 lF
@@ -8783,7 +8783,7 @@ rV
 SM
 wL
 rV
-ha
+TN
 ww
 ol
 lF
@@ -8794,7 +8794,7 @@ DA
 eO
 iz
 um
-SD
+PO
 rV
 Zj
 Uf
@@ -8830,7 +8830,7 @@ lW
 bl
 XP
 lF
-ha
+TN
 Tg
 Jb
 rV
@@ -8868,7 +8868,7 @@ TW
 fP
 fz
 lF
-ha
+TN
 TA
 vQ
 rV
@@ -8908,7 +8908,7 @@ Kk
 Ih
 kM
 Bq
-nQ
+SD
 Ht
 bO
 SI
