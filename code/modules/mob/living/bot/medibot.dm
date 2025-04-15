@@ -95,7 +95,7 @@
 				last_newpatient_speak = world.time
 			break
 
-/mob/living/bot/medbot/UnarmedAttack(var/mob/living/human/target, var/proximity)
+/mob/living/bot/medbot/ResolveUnarmedAttack(var/mob/living/human/target)
 	if(!on || !istype(target))
 		return FALSE
 
