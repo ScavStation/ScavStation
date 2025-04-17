@@ -571,8 +571,7 @@
 /area/ministation/Murphy/maint4
 	name = "\improper Murphy Maintenance Corridor 4"
 	icon_state = "dark_blue"
-*/______qdel_list_wrapper(list/L)
-	. = ..()
+*/
 
 /area/ministation/Murphy/meeting
 	name = "\improper Murphy Meeting Room"
