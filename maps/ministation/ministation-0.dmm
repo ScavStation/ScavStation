@@ -17222,6 +17222,10 @@
 	},
 /turf/floor/tiled,
 /area/ministation/cargo)
+"ZM" = (
+/mob/living/simple_animal/passive/ivenmoth/yellow/Binny,
+/turf/floor/plating,
+/area/ministation/engineroom)
 "ZN" = (
 /obj/structure/lattice,
 /obj/item/organ/external/foot/right/yinglet,
@@ -50880,7 +50884,7 @@ Ri
 Ri
 Nv
 Ri
-Ri
+ZM
 Ri
 Ta
 qC

@@ -407,7 +407,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			found_vents.Add(v)
 	if(found_vents.len)
 		vent_found = pick(found_vents)
-		host = new /mob/living/simple_animal/passive/mouse/snaprat(vent_found.loc) //scavstation specific
+		host = new /mob/living/simple_animal/passive/mouse(vent_found.loc)
 	else
 		to_chat(src, SPAN_WARNING("Unable to find any unwelded vents to spawn mice at."))
 

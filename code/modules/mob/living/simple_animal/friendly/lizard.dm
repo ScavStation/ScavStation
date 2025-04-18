@@ -5,6 +5,7 @@
 	speak_emote = list("hisses")
 	max_health = 5
 	natural_weapon = /obj/item/natural_weapon/bite/weak
+	density = FALSE
 	response_harm = "stamps on"
 	mob_size = MOB_SIZE_MINISCULE
 	possession_candidate = 1
