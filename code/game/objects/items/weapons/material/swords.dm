@@ -20,7 +20,7 @@
 	_base_attack_force = 15
 	var/draw_handle = TRUE
 
-/obj/item/edge/set_edge(new_edge)
+/obj/item/sword/set_edge(new_edge)
 	. = ..()
 	if(. && !edge)
 		attack_verb = list("attacked", "stabbed", "jabbed", "smacked", "prodded")
