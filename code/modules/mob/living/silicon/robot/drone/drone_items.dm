@@ -1,7 +1,7 @@
 //Simple borg hand.
 //Limited use.
 /obj/item/gripper
-	name = "magnetic gripper"
+	name = "robotic gripper"
 	desc = "A simple grasping tool specialized in construction and engineering work."
 	icon = 'icons/obj/items/borg_module/borg_gripper.dmi'
 	icon_state = "gripper"
@@ -17,16 +17,32 @@
 		/obj/item/frame,
 		/obj/item/frame/camera/kit,
 		/obj/item/tank,
-		/obj/item/stock_parts/circuitboard,
-		/obj/item/stock_parts/smes_coil,
-		/obj/item/stock_parts/computer,
 		/obj/item/fuel_assembly,
-		/obj/item/stack/material/aerogel/mapped/deuterium,
-		/obj/item/stack/material/aerogel/mapped/tritium,
-		/obj/item/stack/tile
+		/obj/item/stack/material,
+		/obj/item/stack/tile,
+		/obj/item/light,
+		/obj/item/chems,
+		/obj/item/cash,
+		/obj/item/pill_bottle,
+		/obj/item/parcel,
+		/obj/item/stack/cable_coil,
+		/obj/item/drain,
+		/obj/item/pipe,
+		/obj/item/remains,
+		/obj/item/radio,
+		/obj/item/card,
+		/obj/item/disk
 		)
 
 	var/obj/item/wrapped = null // Item currently being held.
+/obj/item/gripper/loader //This is used to ALLOW building with metal. EDIT 
+	name = "sheet loader crafter"
+	desc = "A specialized loading device, designed to pick up and insert sheets of materials inside machines."
+	icon_state = "gripper-sheet"
+
+	can_hold = list(
+		/obj/item/stack/material
+	)
 
 // VEEEEERY limited version for mining borgs. Basically only for swapping cells and upgrading the drills.
 /obj/item/gripper/miner
@@ -38,7 +54,19 @@
 	can_hold = list(
 		/obj/item/cell,
 		/obj/item/stock_parts,
-		/obj/item/stock_parts/circuitboard/miningdrill
+		/obj/item/stock_parts/circuitboard/miningdrill,
+		/obj/item/light,
+		/obj/item/chems,
+		/obj/item/cash,
+		/obj/item/pill_bottle,
+		/obj/item/parcel,
+		/obj/item/stack/cable_coil,
+		/obj/item/drain,
+		/obj/item/pipe,
+		/obj/item/remains,
+		/obj/item/radio,
+		/obj/item/card,
+		/obj/item/disk
 	)
 
 /obj/item/gripper/clerical
@@ -54,7 +82,19 @@
 		/obj/item/book,
 		/obj/item/newspaper,
 		/obj/item/parcel,
-		/obj/item/forensics/sample
+		/obj/item/forensics/sample,
+		/obj/item/light,
+		/obj/item/chems,
+		/obj/item/cash,
+		/obj/item/pill_bottle,
+		/obj/item/parcel,
+		/obj/item/stack/cable_coil,
+		/obj/item/drain,
+		/obj/item/pipe,
+		/obj/item/remains,
+		/obj/item/radio,
+		/obj/item/card,
+		/obj/item/disk
 		)
 
 /obj/item/gripper/chemistry
@@ -65,7 +105,18 @@
 		/obj/item/chems/glass,
 		/obj/item/chems/pill,
 		/obj/item/chems/ivbag,
-		/obj/item/pill_bottle
+		/obj/item/light,
+		/obj/item/chems,
+		/obj/item/cash,
+		/obj/item/pill_bottle,
+		/obj/item/parcel,
+		/obj/item/stack/cable_coil,
+		/obj/item/drain,
+		/obj/item/pipe,
+		/obj/item/remains,
+		/obj/item/radio,
+		/obj/item/card,
+		/obj/item/disk
 	)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -91,7 +142,19 @@
 		/obj/item/assembly/timer,
 		/obj/item/assembly/igniter,
 		/obj/item/assembly/infra,
-		/obj/item/tank
+		/obj/item/tank,
+		/obj/item/light,
+		/obj/item/chems,
+		/obj/item/cash,
+		/obj/item/pill_bottle,
+		/obj/item/parcel,
+		/obj/item/stack/cable_coil,
+		/obj/item/drain,
+		/obj/item/pipe,
+		/obj/item/remains,
+		/obj/item/radio,
+		/obj/item/card,
+		/obj/item/disk
 		)
 
 /obj/item/gripper/cultivator
@@ -114,7 +177,19 @@
 		/obj/item/chems/drinks,
 		/obj/item/chems/condiment,
 		/obj/item/seeds,
-		/obj/item/glass_extra
+		/obj/item/glass_extra,
+		/obj/item/light,
+		/obj/item/chems,
+		/obj/item/cash,
+		/obj/item/pill_bottle,
+		/obj/item/parcel,
+		/obj/item/stack/cable_coil,
+		/obj/item/drain,
+		/obj/item/pipe,
+		/obj/item/remains,
+		/obj/item/radio,
+		/obj/item/card,
+		/obj/item/disk
 	)
 
 /obj/item/gripper/organ //Used to handle organs.
@@ -125,7 +200,19 @@
 	can_hold = list(
 		/obj/item/organ,
 		/obj/item/robot_parts,
-		/obj/item/chems/ivbag
+		/obj/item/chems/ivbag,
+		/obj/item/light,
+		/obj/item/chems,
+		/obj/item/cash,
+		/obj/item/pill_bottle,
+		/obj/item/parcel,
+		/obj/item/stack/cable_coil,
+		/obj/item/drain,
+		/obj/item/pipe,
+		/obj/item/remains,
+		/obj/item/radio,
+		/obj/item/card,
+		/obj/item/disk
 	)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item
@@ -155,7 +242,7 @@
 /obj/item/gripper/verb/drop_gripped_item()
 
 	set name = "Drop Gripped Item"
-	set desc = "Release an item from your magnetic gripper."
+	set desc = "Release an item from your gripper."
 	set category = "Silicon Commands"
 	if(!wrapped)
 		// Ensure fumbled items are accessible.
