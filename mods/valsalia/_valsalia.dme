@@ -58,6 +58,7 @@
 #include "structures\hoard.dm"
 #include "mobs\snaprat.dm"
 #include "mobs\ivenmoth.dm"
+#include "mobs\buffdrones.dm"
 
 // END_INCLUDE
 #endif
