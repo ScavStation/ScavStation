@@ -1,4 +1,4 @@
-/mob/living/simple_animal/alien/kharmaan/UnarmedAttack(var/atom/A)
+/mob/living/simple_animal/alien/kharmaan/ResolveUnarmedAttack(var/atom/A)
 
 	. = ..()
 	if(.)

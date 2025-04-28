@@ -193,7 +193,7 @@
 		return
 	..()
 
-/mob/living/bot/mulebot/UnarmedAttack(var/turf/T)
+/mob/living/bot/mulebot/ResolveUnarmedAttack(var/turf/T)
 	if(T == src.loc)
 		unload(dir)
 
