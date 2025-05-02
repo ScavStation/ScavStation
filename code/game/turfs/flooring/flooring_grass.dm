@@ -21,6 +21,26 @@
 		return TRUE
 	return ..()
 
+/decl/flooring/grass/arid
+	name               = "arid grass"
+	icon               = 'icons/turf/flooring/grass.dmi'
+	icon_base          = "grass"
+	desc               = "A dry grass, used to not seeing much water and being coarse to touch."
+	color              = "#B7AF54"
+	icon_edge_layer    = FLOOR_EDGE_GRASS_ARID
+	harvestable        = TRUE
+
+/decl/flooring/grass/arid/get_movable_alpha_mask_state(atom/movable/mover)
+	. = ..() || "mask_grass"
+
+/decl/flooring/grass/arid/handle_item_interaction(turf/floor/floor, mob/user, obj/item/item)
+	if(IS_KNIFE(item) && harvestable)
+		if(item.do_tool_interaction(TOOL_KNIFE, user, floor, 3 SECONDS, start_message = "harvesting", success_message = "harvesting") && !QDELETED(floor) && floor.get_topmost_flooring() == src)
+			new /obj/item/stack/material/bundle/grass(floor, rand(2,5))
+			floor.set_flooring(/decl/flooring/grass)
+		return TRUE
+	return ..()
+
 /decl/flooring/grass/wild
 	name               = "wild grass"
 	icon               = 'icons/turf/flooring/wildgrass.dmi'
@@ -34,10 +54,9 @@
 	. = ..() || "mask_grass"
 
 /decl/flooring/grass/wild/handle_item_interaction(turf/floor/floor, mob/user, obj/item/item)
-	var/decl/material/floor_material = floor.get_material()
-	if(IS_KNIFE(item) && harvestable && istype(floor_material) && floor_material.dug_drop_type)
+	if(IS_KNIFE(item) && harvestable)
 		if(item.do_tool_interaction(TOOL_KNIFE, user, floor, 3 SECONDS, start_message = "harvesting", success_message = "harvesting") && !QDELETED(floor) && floor.get_topmost_flooring() == src)
-			new floor_material.dug_drop_type(floor, rand(2,5))
+			new /obj/item/stack/material/bundle/grass(floor, rand(2,5))
 			floor.set_flooring(/decl/flooring/grass)
 		return TRUE
 	return ..()
