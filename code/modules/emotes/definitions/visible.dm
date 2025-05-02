@@ -310,6 +310,15 @@
 	check_restraints = TRUE
 	emote_message_3p = "$USER$ shoves $USER_THEIR$ hands in $USER_THEIR$ pockets."
 
+/decl/emote/visible/pocket/mob_can_use(mob/living/user, assume_available)
+	. = ..()
+	if(!.)
+		return
+	// You need a uniform to have pockets.
+	var/datum/inventory_slot/check_slot = user.get_inventory_slot_datum(slot_w_uniform_str)
+	if(!check_slot?.get_equipped_item())
+		return FALSE
+
 /decl/emote/visible/rsalute
 	key = "rsalute"
 	check_restraints = TRUE
