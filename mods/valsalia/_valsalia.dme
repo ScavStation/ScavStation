@@ -59,6 +59,11 @@
 #include "mobs\snaprat.dm"
 #include "mobs\ivenmoth.dm"
 #include "mobs\buffdrones.dm"
+#include "mobs\bristleback.dm"
+#include "mobs\chorp.dm"
+#include "mobs\grub_bear.dm"
+#include "mobs\skittercrab.dm"
+
 
 // END_INCLUDE
 #endif
