@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/wall/natural/basalt/valSal_port,
+/turf/unsimulated/mask,
 /area/valSal_port/caves/deep)
 "d" = (
 /obj/abstract/level_data_spawner/valSal_port_underground{
@@ -2873,7 +2873,7 @@ a
 a
 N
 N
-a
+N
 a
 a
 a
@@ -5224,7 +5224,7 @@ a
 a
 a
 a
-a
+N
 N
 a
 a
@@ -11406,7 +11406,7 @@ a
 a
 a
 a
-a
+N
 a
 a
 a
@@ -13737,7 +13737,7 @@ a
 a
 a
 a
-a
+N
 N
 N
 a
