@@ -22,6 +22,21 @@
 	description = "You are unaffiliated with anyone."
 	uid = "scav_background_faction_indrel"
 
+/decl/background_detail/faction/indrel
+	name = "Indrel Workers"
+	description = "The hives sometimes send workers to assist human endeavours; you are one of those workers."
+	uid = "scav_background_faction_indrel"
+
+/decl/background_detail/heritage/indrel
+	name = "Hiveborn Indrel"
+	description = "You were born in a mountain hive, one of thousands of larva."
+	secondary_langs = list(
+		/decl/language/human/common,
+		/decl/language/sign,
+		/decl/language/indrel
+	)
+	uid = "scav_background_heritage_indrel"
+
 /decl/background_detail/heritage/indrel/mountains
 	name = "Indrel Mountains"
 	description = "You come from the Indrel Mountains, like almost all of your people. You were part of a hive, as a single piece to ensure your society ran \
