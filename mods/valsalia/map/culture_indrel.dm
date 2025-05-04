@@ -1,15 +1,15 @@
 // Indrel Cultures & Heritages - Additions thanks to Val's input; CEG's description making 2/28/2025 --SAR
+/decl/background_detail/faction/indrel
+	name = "Indrel Workers"
+	description = "The hives sometimes send workers to assist human endeavours; you are one of those workers."
+	uid = "scav_background_faction_indrel"
+
 /decl/background_detail/faction/tradehouse_indrel
 	name = "Tradehouse Indrel"
 	description = "You “work” for Tradehouse Ivenmoth, the Tradehouse currently in charge of the city of Val Salia, and headed by Viracroix Salia, \
 	the scholarly Trademaster. Ivenmoth provides many services in trade, manufacturing, and guard work, with a focus on cooperation between peoples \
 	and a greater understanding of the world. You probably mostly do odd jobs for them, and don’t command much respect."
 	uid = "scav_background_faction_indrel_tradehouse"
-
-/decl/background_detail/faction/indrel_hive
-	name = "Hive Indrel"
-	description = "The hives sometimes send workers to assist human endeavours; you are one of those workers."
-	uid = "scav_background_faction_indrel_hive"
 
 /decl/background_detail/faction/hiveless
 	name = "Hiveless Indrel"
@@ -20,11 +20,6 @@
 /decl/background_detail/faction/wanderer
 	name = "Indrel Wanderer"
 	description = "You are unaffiliated with anyone."
-	uid = "scav_background_faction_indrel"
-
-/decl/background_detail/faction/indrel
-	name = "Indrel Workers"
-	description = "The hives sometimes send workers to assist human endeavours; you are one of those workers."
 	uid = "scav_background_faction_indrel"
 
 /decl/background_detail/heritage/indrel
