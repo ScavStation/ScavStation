@@ -6,7 +6,7 @@
 	greater understanding of the world."
 	uid = "scav_background_faction_baxxid_tradehouse"
 
-/decl/background_detail/faction/wanderer
+/decl/background_detail/faction/wanderer_baxxid
 	name = "Wanderer"
 	description = "You are unaffiliated with anyone."
 	subversive_potential = 25
