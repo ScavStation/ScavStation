@@ -8,7 +8,7 @@
 
 /decl/background_detail/faction/wanderer
 	name = "Wanderer"
-	description = "You are unaffiliated with anyone at all."
+	description = "You are unaffiliated with anyone."
 	subversive_potential = 25
 	uid = "scav_background_faction_baxxid"
 
