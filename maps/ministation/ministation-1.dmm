@@ -2419,6 +2419,7 @@
 "ga" = (
 /obj/structure/hygiene/shower,
 /obj/structure/curtain/open/shower,
+/obj/item/soap,
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "gb" = (
@@ -7492,6 +7493,10 @@
 /obj/machinery/door/firedoor,
 /turf/floor,
 /area/ministation/Murphy/common)
+"sy" = (
+/obj/machinery/space_heater,
+/turf/floor/tiled/dark/monotile/telecomms,
+/area/ministation/illegal_hideaway)
 "sz" = (
 /turf/floor/tiled,
 /area/ministation/Murphy/meeting)
@@ -13442,7 +13447,7 @@
 /area/ministation/surgicaln)
 "GG" = (
 /obj/effect/wallframe_spawn/reinforced,
-/turf/wall,
+/turf/floor/plating,
 /area/ministation/illegal_hideaway)
 "GH" = (
 /obj/machinery/alarm{
@@ -16976,6 +16981,9 @@
 /obj/effect/floor_decal/corner/white/mono,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
+"Py" = (
+/turf/floor/plating,
+/area/space)
 "Pz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -19126,8 +19134,7 @@
 /turf/wall/r_wall,
 /area/ministation/Murphy/toxins)
 "UT" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/turf/wall,
+/turf/floor/plating,
 /area/ministation/illegal_hideaway)
 "UU" = (
 /obj/structure/lattice,
@@ -52972,7 +52979,7 @@ CE
 Zq
 Zq
 Zq
-Zq
+sy
 Uu
 Kh
 HO
@@ -53230,7 +53237,7 @@ Uo
 Zq
 Hh
 Kh
-Kh
+UT
 Kh
 HO
 HO
@@ -53487,7 +53494,7 @@ Zq
 QV
 hE
 Kh
-HO
+Py
 HO
 HO
 HO
@@ -53743,7 +53750,7 @@ dO
 Fb
 Jt
 Kh
-Kh
+UT
 Kh
 Kh
 HO
@@ -53999,7 +54006,7 @@ Kh
 IS
 SU
 Zq
-UT
+HH
 Zq
 vx
 Kh

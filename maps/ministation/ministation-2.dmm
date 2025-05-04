@@ -2978,6 +2978,12 @@
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/living)
+"jc" = (
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/turf/floor/lino,
+/area/ministation/contracter_bunk)
 "jd" = (
 /obj/structure/flora/pottedplant/aquatic,
 /turf/floor/tiled/white,
@@ -5053,6 +5059,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/firealarm{
+	pixel_y = 24
+	},
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
 "pB" = (
@@ -5159,9 +5168,13 @@
 /turf/wall/titanium,
 /area/ministation/Murphy/med)
 "qd" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/turf/wall,
+/obj/item/stool/padded,
+/obj/item/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = -30;
+	dir = 1
+	},
+/turf/floor/lino,
 /area/ministation/contracter_bunk)
 "qg" = (
 /obj/structure/bed/padded{
@@ -5316,6 +5329,13 @@
 	},
 /turf/floor/wood/yew,
 /area/ministation/court)
+"qP" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "qQ" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/random/clothing,
@@ -5360,9 +5380,6 @@
 /turf/floor/tiled/freezer,
 /area/ministation/Murphy/kitchen)
 "qX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7672,6 +7689,13 @@
 /obj/random/hardsuit,
 /turf/floor/wood,
 /area/ministation/Murphy/living)
+"yp" = (
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "yr" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor3"
@@ -8136,6 +8160,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
 /area/ministation/Murphy/living)
+"zZ" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/turf/floor/plating,
+/area/ministation/contracter_bunk)
 "Aa" = (
 /obj/machinery/camera/network/command{
 	dir = 4;
@@ -8522,6 +8553,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/hall/s3)
 "Bd" = (
@@ -8775,9 +8809,6 @@
 	level = 2
 	},
 /turf/floor/lino,
-/area/ministation/contracter_bunk)
-"BO" = (
-/turf/wall,
 /area/ministation/contracter_bunk)
 "BP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -9742,6 +9773,12 @@
 /obj/structure/hygiene/sink/puddle,
 /turf/floor/grass,
 /area/ministation/biodome)
+"Ez" = (
+/obj/item/radio/intercom{
+	pixel_y = 20
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "EB" = (
 /obj/machinery/door/firedoor{
 	dir = 8
@@ -10439,10 +10476,6 @@
 /turf/floor/plating,
 /area/ministation/maint/l3sw)
 "GO" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
 /turf/wall,
 /area/ministation/contracter_bunk)
 "GQ" = (
@@ -10536,6 +10569,10 @@
 "Hf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
 	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
@@ -11727,6 +11764,13 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/biodome)
+"Ln" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -22
+	},
+/turf/floor/lino,
+/area/ministation/contracter_bunk)
 "Lp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -12680,7 +12724,6 @@
 /turf/floor/carpet/green,
 /area/ministation/library)
 "On" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -15688,9 +15731,6 @@
 /turf/floor/wood,
 /area/ministation/psion)
 "XO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -41024,16 +41064,16 @@ cw
 cw
 cw
 cw
-BO
-BO
 GO
 GO
-BO
-BO
-BO
-BO
-BO
-BO
+GO
+GO
+GO
+GO
+GO
+GO
+GO
+GO
 aa
 aa
 aa
@@ -41281,16 +41321,16 @@ cw
 cw
 aa
 cw
-BO
+GO
 uy
 gL
 gL
 uy
-BO
+GO
 KK
 fv
 bC
-BO
+GO
 aa
 aa
 aa
@@ -41538,16 +41578,16 @@ cw
 cw
 aa
 cw
-qd
+GO
 gL
 BL
 FZ
 dH
-dH
+Ln
 dH
 FZ
 VE
-BO
+GO
 aa
 aa
 aa
@@ -41795,16 +41835,16 @@ cw
 cw
 aa
 cw
-qd
+GO
 xY
 OY
 Ff
-gL
-BO
+qd
+GO
 MM
 dH
 yJ
-BO
+GO
 aa
 aa
 aa
@@ -42052,16 +42092,16 @@ cw
 cw
 aa
 cw
-BO
+GO
 pA
 ck
 sF
 uy
-BO
+GO
 HR
 KV
 yX
-BO
+GO
 aa
 aa
 aa
@@ -42309,16 +42349,16 @@ cw
 cw
 cw
 cw
-BO
+GO
 Oe
-BO
-BO
-BO
-BO
-BO
-BO
-BO
-BO
+GO
+GO
+GO
+GO
+GO
+GO
+GO
+GO
 aa
 aa
 aa
@@ -42560,22 +42600,22 @@ cw
 cw
 cw
 cw
-BO
-BO
 GO
 GO
+zZ
+zZ
+zZ
 GO
-BO
-BO
+GO
 uQ
-BO
-BO
+GO
+GO
 Ys
-ZY
+yp
 pH
 Is
 DP
-BO
+GO
 aa
 aa
 aa
@@ -42817,7 +42857,7 @@ cw
 cw
 cw
 cw
-BO
+GO
 ZY
 mR
 mR
@@ -42826,13 +42866,13 @@ KM
 ZY
 Vd
 rb
-BO
+GO
 yB
 sP
 hU
 At
 xM
-BO
+GO
 aa
 aa
 aa
@@ -43074,7 +43114,7 @@ cw
 cw
 cw
 cw
-qd
+GO
 mR
 jh
 jh
@@ -43088,8 +43128,8 @@ AB
 mI
 On
 us
-ZY
-BO
+qP
+GO
 cw
 aa
 aa
@@ -43331,7 +43371,7 @@ cw
 cw
 cw
 cw
-qd
+GO
 mR
 jh
 jh
@@ -43339,14 +43379,14 @@ mR
 vW
 OV
 PQ
-ZY
-BO
+qP
+GO
 DP
 YW
 pH
 Vd
 cB
-BO
+GO
 aa
 aa
 aa
@@ -43588,7 +43628,7 @@ cw
 cw
 cw
 cw
-qd
+GO
 ZY
 mR
 mR
@@ -43597,13 +43637,13 @@ Hy
 Eo
 ZY
 nK
-BO
-BO
-BO
-BO
+GO
+GO
+GO
+GO
 uQ
-BO
-BO
+GO
+GO
 aa
 aa
 aa
@@ -43845,8 +43885,8 @@ XH
 cw
 cw
 cw
-BO
-ZY
+GO
+Ez
 ZY
 DW
 NC
@@ -43854,13 +43894,13 @@ qX
 OS
 ZY
 tn
-BO
-dH
+GO
+jc
 HM
 zN
 DM
 Ff
-BO
+GO
 aa
 aa
 aa
@@ -44102,7 +44142,7 @@ cw
 cw
 cw
 cw
-BO
+GO
 vh
 YW
 Hf
@@ -44111,13 +44151,13 @@ AD
 HY
 LY
 pG
-BO
+GO
 Ek
 Ek
 Ly
 Ly
 VE
-BO
+GO
 aa
 aa
 aa
@@ -44359,22 +44399,22 @@ cw
 cw
 cw
 cw
-BO
-BO
-BO
-BO
+GO
+GO
+GO
+GO
 ZG
 AI
 ni
-BO
-BO
-BO
-BO
-BO
-BO
-BO
-BO
-BO
+GO
+GO
+GO
+GO
+GO
+GO
+GO
+GO
+GO
 aa
 Dt
 jm
@@ -44619,7 +44659,7 @@ cw
 cw
 cw
 cw
-BO
+GO
 ZY
 Vd
 ni
@@ -44876,7 +44916,7 @@ cw
 cw
 cw
 cw
-BO
+GO
 ZY
 Vd
 ni
@@ -46418,7 +46458,7 @@ cw
 cw
 cw
 cw
-BO
+GO
 ZY
 Vd
 ni
@@ -46675,7 +46715,7 @@ cw
 cw
 cw
 cw
-BO
+GO
 ZY
 Vd
 ni
@@ -46932,7 +46972,7 @@ cw
 cw
 cw
 cw
-BO
+GO
 xJ
 Vd
 ni
@@ -47189,7 +47229,7 @@ Cd
 Cd
 Cd
 Cd
-BO
+GO
 ZY
 Vd
 ni
@@ -47446,7 +47486,7 @@ Yv
 Bh
 wL
 Cd
-BO
+GO
 ZY
 Vd
 ni
@@ -47703,7 +47743,7 @@ nI
 Zv
 nP
 Zv
-BO
+GO
 ZY
 Vd
 ni
