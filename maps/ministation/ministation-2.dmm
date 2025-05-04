@@ -10773,6 +10773,7 @@
 	pixel_y = 23
 	},
 /obj/structure/closet/firecloset,
+/obj/item/clothing/head/welding/demon,
 /turf/floor/reinforced,
 /area/ministation/science)
 "Jv" = (

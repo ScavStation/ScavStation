@@ -10641,6 +10641,7 @@
 /turf/floor/tiled,
 /area/ministation/hall/w2)
 "zB" = (
+/obj/item/clothing/head/welding/knight,
 /turf/floor/plating,
 /area/ministation/security)
 "zC" = (
@@ -10968,11 +10969,11 @@
 /obj/item/clothing/suit/jacket/winter/yinglet/cmo,
 /obj/item/toolbox/mechanical,
 /obj/item/toolbox/electrical,
-/obj/item/clothing/glasses/welding/superior,
 /obj/item/rcd,
 /obj/item/rcd_ammo,
 /obj/item/rcd_ammo,
 /obj/item/rcd_ammo,
+/obj/item/clothing/glasses/welding,
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "Am" = (
@@ -11391,6 +11392,9 @@
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/rnd)
+"Bq" = (
+/turf/wall,
+/area/ministation/illegal_hideaway)
 "Br" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11986,6 +11990,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
+/obj/item/clothing/head/welding/fancy,
 /turf/floor/tiled/dark,
 /area/ministation/cryo)
 "CQ" = (
@@ -12924,6 +12929,7 @@
 	},
 /obj/item/poster,
 /obj/item/cash/scavbucks,
+/obj/item/clothing/head/welding/carp,
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
 "Fo" = (
@@ -12953,8 +12959,6 @@
 /obj/item/ammo_magazine/pistol/small,
 /obj/item/ammo_magazine/pistol/small,
 /obj/item/gun/projectile/pistol/holdout,
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn/empty,
-/obj/item/box/ammo/shotgunammo,
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "Fr" = (
@@ -19303,9 +19307,6 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/Murphy/smresearch)
-"Vp" = (
-/turf/wall,
-/area/ministation/illegal_hideaway)
 "Vq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -52168,14 +52169,14 @@ EC
 Ng
 HO
 HO
-Vp
-Vp
-Vp
-Vp
-Vp
-Vp
-Vp
-Vp
+Bq
+Bq
+Bq
+Bq
+Bq
+Bq
+Bq
+Bq
 HO
 HO
 HO
@@ -52425,14 +52426,14 @@ LH
 Lb
 HO
 HO
-Vp
+Bq
 Fq
 AE
 QX
 VW
 Al
 Lf
-Vp
+Bq
 HO
 HO
 HO
@@ -52682,7 +52683,7 @@ Ck
 Lb
 HO
 HO
-Vp
+Bq
 SR
 uq
 Zq
@@ -52939,14 +52940,14 @@ Ck
 Lb
 HO
 HO
-Vp
+Bq
 CE
 Zq
 Zq
 Zq
 Zq
 Uu
-Vp
+Bq
 HO
 HO
 HO
@@ -53201,9 +53202,9 @@ dM
 Uo
 Zq
 Hh
-Vp
-Vp
-Vp
+Bq
+Bq
+Bq
 HO
 HO
 HO
@@ -53458,7 +53459,7 @@ YX
 Zq
 QV
 hE
-Vp
+Bq
 HO
 HO
 HO
@@ -53714,10 +53715,10 @@ nG
 dO
 Fb
 Jt
-Vp
-Vp
-Vp
-Vp
+Bq
+Bq
+Bq
+Bq
 HO
 HO
 HO
@@ -53967,14 +53968,14 @@ Ck
 aI
 HO
 HO
-Vp
+Bq
 IS
 RV
 Zq
 UT
 Zq
 vx
-Vp
+Bq
 HO
 HO
 HO
@@ -54224,14 +54225,14 @@ Ck
 aI
 HO
 HO
-Vp
+Bq
 lt
 Zq
 Zq
-Vp
+Bq
 PK
 RV
-Vp
+Bq
 HO
 HO
 HO
@@ -54481,14 +54482,14 @@ LH
 aI
 HO
 HO
-Vp
+Bq
 Oj
 cS
 EX
-Vp
+Bq
 ga
 Zq
-Vp
+Bq
 HO
 HO
 HO
@@ -54738,14 +54739,14 @@ Cv
 ej
 HO
 HO
-Vp
-Vp
+Bq
+Bq
 GG
-Vp
-Vp
-Vp
-Vp
-Vp
+Bq
+Bq
+Bq
+Bq
+Bq
 HO
 HO
 HO

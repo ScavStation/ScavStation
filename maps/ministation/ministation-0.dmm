@@ -13854,6 +13854,7 @@
 /area/ministation/engine)
 "Ne" = (
 /obj/structure/closet/lasertag/red,
+/obj/item/clothing/head/welding/engie,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "Nf" = (
