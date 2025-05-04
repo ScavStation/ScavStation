@@ -17,7 +17,7 @@
 	communication between you and your other workers, and you are likely very loyal to the Queen of your hive."
 	uid = "scav_background_faction_indrel_hiveless"
 
-/decl/background_detail/faction/wanderer
+/decl/background_detail/faction/indrel_wanderer
 	name = "Indrel Wanderer"
 	description = "You are unaffiliated with anybody."
 	uid = "scav_background_faction_indrel_wanderer"
