@@ -6677,7 +6677,10 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/floor/plating,
 /area/ministation/maint/l3sw)
