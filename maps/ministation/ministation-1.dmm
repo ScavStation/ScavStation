@@ -11392,9 +11392,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/rnd)
-"Bq" = (
-/turf/wall,
-/area/ministation/illegal_hideaway)
 "Br" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11791,10 +11788,10 @@
 /area/ministation/medical)
 "Cv" = (
 /obj/structure/cable/yellow{
-	icon_state = "32-1"
+	icon_state = "16-0"
 	},
 /obj/structure/cable/yellow{
-	icon_state = "1-2"
+	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
@@ -12656,10 +12653,10 @@
 /area/ministation/enclave/matriarch)
 "EC" = (
 /obj/structure/cable/yellow{
-	icon_state = "32-1"
+	icon_state = "16-0"
 	},
 /obj/structure/cable/yellow{
-	icon_state = "1-2"
+	icon_state = "0-2"
 	},
 /turf/wall,
 /area/ministation/maint/l2underpass)
@@ -16969,6 +16966,9 @@
 	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/medical)
+"PC" = (
+/turf/wall,
+/area/ministation/illegal_hideaway)
 "PE" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
@@ -52169,14 +52169,14 @@ EC
 Ng
 HO
 HO
-Bq
-Bq
-Bq
-Bq
-Bq
-Bq
-Bq
-Bq
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
 HO
 HO
 HO
@@ -52426,14 +52426,14 @@ LH
 Lb
 HO
 HO
-Bq
+PC
 Fq
 AE
 QX
 VW
 Al
 Lf
-Bq
+PC
 HO
 HO
 HO
@@ -52683,7 +52683,7 @@ Ck
 Lb
 HO
 HO
-Bq
+PC
 SR
 uq
 Zq
@@ -52940,14 +52940,14 @@ Ck
 Lb
 HO
 HO
-Bq
+PC
 CE
 Zq
 Zq
 Zq
 Zq
 Uu
-Bq
+PC
 HO
 HO
 HO
@@ -53202,9 +53202,9 @@ dM
 Uo
 Zq
 Hh
-Bq
-Bq
-Bq
+PC
+PC
+PC
 HO
 HO
 HO
@@ -53459,7 +53459,7 @@ YX
 Zq
 QV
 hE
-Bq
+PC
 HO
 HO
 HO
@@ -53715,10 +53715,10 @@ nG
 dO
 Fb
 Jt
-Bq
-Bq
-Bq
-Bq
+PC
+PC
+PC
+PC
 HO
 HO
 HO
@@ -53968,14 +53968,14 @@ Ck
 aI
 HO
 HO
-Bq
+PC
 IS
 RV
 Zq
 UT
 Zq
 vx
-Bq
+PC
 HO
 HO
 HO
@@ -54225,14 +54225,14 @@ Ck
 aI
 HO
 HO
-Bq
+PC
 lt
 Zq
 Zq
-Bq
+PC
 PK
 RV
-Bq
+PC
 HO
 HO
 HO
@@ -54482,14 +54482,14 @@ LH
 aI
 HO
 HO
-Bq
+PC
 Oj
 cS
 EX
-Bq
+PC
 ga
 Zq
-Bq
+PC
 HO
 HO
 HO
@@ -54739,14 +54739,14 @@ Cv
 ej
 HO
 HO
-Bq
-Bq
+PC
+PC
 GG
-Bq
-Bq
-Bq
-Bq
-Bq
+PC
+PC
+PC
+PC
+PC
 HO
 HO
 HO
