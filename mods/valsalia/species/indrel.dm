@@ -123,7 +123,7 @@
 		),
 		/decl/background_category/faction =   list(
 			/decl/background_detail/faction/tradehouse_indrel,
-			/decl/background_detail/faction/indrel_hive,
+			/decl/background_detail/faction/indrel,
 			/decl/background_detail/faction/hiveless,
 			/decl/background_detail/faction/wanderer
 		),
