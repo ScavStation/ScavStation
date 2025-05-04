@@ -3057,6 +3057,9 @@
 /obj/structure/bed/sofa/left/black{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "hF" = (
@@ -5229,6 +5232,13 @@
 /obj/structure/hygiene/drain,
 /turf/floor/tiled/white,
 /area/ministation/surgicals)
+"nh" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/hygiene/drain,
+/turf/floor/lino,
+/area/ministation/kitchen)
 "ni" = (
 /obj/machinery/atmospherics/unary/tank/oxygen,
 /turf/floor,
@@ -14915,6 +14925,9 @@
 	},
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/security)
+"Kh" = (
+/turf/wall,
+/area/ministation/illegal_hideaway)
 "Ki" = (
 /obj/structure/window/basic/full,
 /turf/floor/plating,
@@ -16481,6 +16494,9 @@
 /area/ministation/Murphy/common)
 "Oj" = (
 /obj/structure/table/gamblingtable,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "Ok" = (
@@ -17221,6 +17237,10 @@
 	},
 /turf/floor,
 /area/ministation/Murphy/smresearch)
+"Qd" = (
+/obj/structure/hygiene/drain,
+/turf/floor/lino,
+/area/ministation/kitchen)
 "Qe" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -17915,6 +17935,9 @@
 /area/ministation/medical)
 "RV" = (
 /obj/structure/hygiene/drain,
+/obj/machinery/light{
+	dir = 2
+	},
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "RW" = (
@@ -18322,6 +18345,10 @@
 	},
 /turf/floor/path/running_bond,
 /area/ministation/hall/e2)
+"SU" = (
+/obj/structure/hygiene/drain,
+/turf/floor/tiled/dark/monotile/telecomms,
+/area/ministation/illegal_hideaway)
 "SV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -19567,6 +19594,9 @@
 /obj/machinery/suit_cycler/engineering/ministation{
 	suit = /obj/item/clothing/suit/space/void/engineering/scav;
 	helmet = /obj/item/clothing/head/helmet/space/void/engineering/scav
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
@@ -21053,9 +21083,6 @@
 /obj/machinery/door/window/westleft,
 /turf/floor/reinforced,
 /area/ministation/Murphy/xenobio)
-"ZO" = (
-/turf/wall,
-/area/ministation/illegal_hideaway)
 "ZR" = (
 /obj/machinery/vending/coffee{
 	dir = 1
@@ -52169,14 +52196,14 @@ EC
 Ng
 HO
 HO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
 HO
 HO
 HO
@@ -52426,14 +52453,14 @@ LH
 Lb
 HO
 HO
-ZO
+Kh
 Fq
 AE
 QX
 VW
 Al
 Lf
-ZO
+Kh
 HO
 HO
 HO
@@ -52683,7 +52710,7 @@ Ck
 Lb
 HO
 HO
-ZO
+Kh
 SR
 uq
 Zq
@@ -52940,14 +52967,14 @@ Ck
 Lb
 HO
 HO
-ZO
+Kh
 CE
 Zq
 Zq
 Zq
 Zq
 Uu
-ZO
+Kh
 HO
 HO
 HO
@@ -53202,9 +53229,9 @@ dM
 Uo
 Zq
 Hh
-ZO
-ZO
-ZO
+Kh
+Kh
+Kh
 HO
 HO
 HO
@@ -53459,7 +53486,7 @@ YX
 Zq
 QV
 hE
-ZO
+Kh
 HO
 HO
 HO
@@ -53715,10 +53742,10 @@ nG
 dO
 Fb
 Jt
-ZO
-ZO
-ZO
-ZO
+Kh
+Kh
+Kh
+Kh
 HO
 HO
 HO
@@ -53968,14 +53995,14 @@ Ck
 aI
 HO
 HO
-ZO
+Kh
 IS
-RV
+SU
 Zq
 UT
 Zq
 vx
-ZO
+Kh
 HO
 HO
 HO
@@ -54225,14 +54252,14 @@ Ck
 aI
 HO
 HO
-ZO
+Kh
 lt
 Zq
 Zq
-ZO
+Kh
 PK
 RV
-ZO
+Kh
 HO
 HO
 HO
@@ -54482,14 +54509,14 @@ LH
 aI
 HO
 HO
-ZO
+Kh
 Oj
 cS
 EX
-ZO
+Kh
 ga
 Zq
-ZO
+Kh
 HO
 HO
 HO
@@ -54739,14 +54766,14 @@ Cv
 ej
 HO
 HO
-ZO
-ZO
+Kh
+Kh
 GG
-ZO
-ZO
-ZO
-ZO
-ZO
+Kh
+Kh
+Kh
+Kh
+Kh
 HO
 HO
 HO
@@ -58572,13 +58599,13 @@ wl
 xR
 yx
 qB
-zF
+Qd
 Ag
 zF
 zF
 zF
 zF
-eB
+nh
 zF
 px
 ED

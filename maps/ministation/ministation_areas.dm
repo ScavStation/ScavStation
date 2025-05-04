@@ -245,6 +245,11 @@
 	secure = TRUE
 	icon_state = "pink"
 
+/area/ministation/contracter_bunk
+	name = "\improper Contracter's Bunk"
+	turf_initializer = /decl/turf_initializer/maintenance
+	icon_state = "green"
+
 /area/ministation/illegal_hideaway
 	name = "\improper Illegal Hideout"
 	turf_initializer = /decl/turf_initializer/maintenance
