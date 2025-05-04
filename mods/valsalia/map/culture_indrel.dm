@@ -19,8 +19,8 @@
 
 /decl/background_detail/faction/wanderer
 	name = "Indrel Wanderer"
-	description = "You are unaffiliated with anyone."
-	uid = "scav_background_faction_indrel"
+	description = "You are unaffiliated with anyone at all."
+	uid = "scav_background_faction_indrel_wanderer"
 
 /decl/background_detail/heritage/indrel
 	name = "Hiveborn Indrel"
@@ -51,4 +51,4 @@
 		/decl/language/sign,
 		/decl/language/indrel
 	)
-	uid = "scav_background_heritage_indrel"
+	uid = "scav_background_heritage_indrel_other"

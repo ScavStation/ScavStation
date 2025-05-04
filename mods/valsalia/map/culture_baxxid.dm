@@ -45,7 +45,7 @@
 /decl/background_detail/heritage/baxxid/other
 	name =  "Other Cultures"
 	description = "You come from somewhere else."
-	uid = "scav_background_heritage_baxxid"
+	uid = "scav_background_heritage_baxxid_other"
 	secondary_langs = list(
 		/decl/language/human/common,
 		/decl/language/baxxid
