@@ -125,7 +125,7 @@
 			/decl/background_detail/faction/tradehouse_indrel,
 			/decl/background_detail/faction/indrel,
 			/decl/background_detail/faction/hiveless,
-			/decl/background_detail/faction/indrel_wanderer
+			/decl/background_detail/faction/wanderer
 		),
 		/decl/background_category/religion =  list(
 			/decl/background_detail/religion/dinnaism,

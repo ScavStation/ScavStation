@@ -6,12 +6,6 @@
 	greater understanding of the world."
 	uid = "scav_background_faction_baxxid_tradehouse"
 
-/decl/background_detail/faction/wanderer_baxxid
-	name = "Wanderer"
-	description = "You are unaffiliated with anyone."
-	subversive_potential = 25
-	uid = "scav_background_faction_baxxid"
-
 /decl/background_detail/heritage/baxxid
 	name =  "Baxxid Clans"
 	description = "You represent one of the many Baxxid clans in society."

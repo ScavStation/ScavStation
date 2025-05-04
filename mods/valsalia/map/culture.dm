@@ -24,7 +24,7 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 
 /decl/background_detail/faction/wanderer
 	name = "Wanderer"
-	description = "You are unaffiliated with anyone. Enclaves or humans"
+	description = "You are unaffiliated with anyone."
 	subversive_potential = 25
 	uid = "scav_background_faction_other"
 
