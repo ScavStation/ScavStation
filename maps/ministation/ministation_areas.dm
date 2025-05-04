@@ -245,6 +245,11 @@
 	secure = TRUE
 	icon_state = "pink"
 
+/area/ministation/illegal_hideaway
+	name = "\improper Illegal Hideout"
+	turf_initializer = /decl/turf_initializer/maintenance
+	icon_state = "green"
+
 /area/ministation/library
 	name = "\improper Library"
 	icon_state = "LIB"
