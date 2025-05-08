@@ -211,11 +211,11 @@
 	return TRUE
 
 /obj/item/ammo_magazine/attack_self(mob/user)
-	create_initial_contents()
-	if(!stored_ammo.len)
-		to_chat(user, "<span class='notice'>[src] is already empty!</span>")
+	if(!get_stored_ammo_count())
+		to_chat(user, SPAN_NOTICE("[src] is already empty!"))
 		return
-	to_chat(user, "<span class='notice'>You empty [src].</span>")
+	to_chat(user, SPAN_NOTICE("You empty [src]."))
+	create_initial_contents()
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
 		C.set_dir(pick(global.alldirs))
@@ -226,12 +226,12 @@
 /obj/item/ammo_magazine/attack_hand(mob/user)
 	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
-	create_initial_contents()
-	if(!stored_ammo.len)
+	if(!get_stored_ammo_count())
 		to_chat(user, SPAN_NOTICE("\The [src] is already empty!"))
 		return TRUE
+	create_initial_contents()
 	var/obj/item/ammo_casing/C = stored_ammo[stored_ammo.len]
-	stored_ammo-=C
+	stored_ammo -= C
 	user.put_in_hands(C)
 	user.visible_message(
 		"\The [user] removes \a [C] from [src].",
