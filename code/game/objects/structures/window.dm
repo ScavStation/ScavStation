@@ -7,7 +7,7 @@
 
 	color = GLASS_COLOR
 	layer = SIDE_WINDOW_LAYER
-	anchored = TRUE
+	anchored = FALSE // Base, non-premapped type should start unanchored.
 	atom_flags = ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	alpha = 180
@@ -23,7 +23,7 @@
 	var/const/CONSTRUCTION_STATE_NO_FRAME = 0
 	var/const/CONSTRUCTION_STATE_IN_FRAME = 1
 	var/const/CONSTRUCTION_STATE_FASTENED = 2
-	var/construction_state = CONSTRUCTION_STATE_FASTENED
+	var/construction_state = CONSTRUCTION_STATE_NO_FRAME
 	var/id
 	var/polarized = 0
 	var/basestate = "window"
@@ -60,6 +60,8 @@
 	if(. != INITIALIZE_HINT_QDEL)
 		if(!isnull(anchored))
 			set_anchored(anchored)
+			if(!anchored)
+				construction_state = CONSTRUCTION_STATE_NO_FRAME
 		if(!isnull(dir_to_set))
 			set_dir(dir_to_set)
 		if(is_fulltile())
@@ -482,6 +484,7 @@
 	..()
 
 /obj/structure/window/basic
+	anchored = TRUE // Premapped type, start anchored.
 	icon_state = "window"
 	color = GLASS_COLOR
 
@@ -496,6 +499,7 @@
 	name = "borosilicate window"
 	color = GLASS_COLOR_SILICATE
 	material = /decl/material/solid/glass/borosilicate
+	anchored = TRUE // Premapped type, start anchored.
 
 /obj/structure/window/borosilicate/full
 	dir = NORTHEAST
@@ -507,6 +511,8 @@
 	color = GLASS_COLOR_SILICATE
 	material = /decl/material/solid/glass/borosilicate
 	reinf_material = /decl/material/solid/metal/steel
+	anchored = TRUE // Premapped type, start anchored and fastened.
+	construction_state = CONSTRUCTION_STATE_FASTENED
 
 /obj/structure/window/borosilicate_reinforced/full
 	dir = NORTHEAST
@@ -517,6 +523,8 @@
 	icon_state = "rwindow"
 	material = /decl/material/solid/glass
 	reinf_material = /decl/material/solid/metal/steel
+	anchored = TRUE // Premapped type, start anchored and fastened.
+	construction_state = CONSTRUCTION_STATE_FASTENED
 
 /obj/structure/window/reinforced/full
 	dir = NORTHEAST
@@ -538,6 +546,7 @@
 	basestate = "w"
 	reinf_basestate = "w"
 	dir = NORTHEAST
+	anchored = TRUE // Premapped type, start anchored.
 
 /obj/structure/window/reinforced/polarized
 	name = "electrochromic window"
@@ -629,27 +638,26 @@
 	if (!ST.can_use(required_amount))
 		to_chat(user, SPAN_NOTICE("You do not have enough sheets."))
 		return
-	for(var/obj/structure/window/WINDOW in loc)
-		if(WINDOW.dir == dir_to_set)
+	for(var/obj/structure/window/existing_window in loc)
+		if(existing_window.dir == dir_to_set)
 			to_chat(user, SPAN_NOTICE("There is already a window facing this way there."))
 			return
-		if(WINDOW.is_fulltile() && (dir_to_set & (dir_to_set - 1))) //two fulltile windows
+		if(existing_window.is_fulltile() && (dir_to_set & (dir_to_set - 1))) //two fulltile windows
 			to_chat(user, SPAN_NOTICE("There is already a window there."))
 			return
 	to_chat(user, SPAN_NOTICE("You start placing the window."))
-	if(do_after(user,20))
-		for(var/obj/structure/window/WINDOW in loc)
-			if(WINDOW.dir == dir_to_set)//checking this for a 2nd time to check if a window was made while we were waiting.
+	if(do_after(user, 2 SECONDS))
+		for(var/obj/structure/window/existing_window in loc)
+			if(existing_window.dir == dir_to_set)//checking this for a 2nd time to check if a window was made while we were waiting.
 				to_chat(user, SPAN_NOTICE("There is already a window facing this way there."))
 				return
-			if(WINDOW.is_fulltile() && (dir_to_set & (dir_to_set - 1)))
+			if(existing_window.is_fulltile() && (dir_to_set & (dir_to_set - 1)))
 				to_chat(user, SPAN_NOTICE("There is already a window there."))
 				return
 
 		if (ST.use(required_amount))
 			var/obj/structure/window/WD = new(loc, ST.material.type, ST.reinf_material?.type, dir_to_set, FALSE)
 			to_chat(user, SPAN_NOTICE("You place [WD]."))
-			WD.set_anchored(FALSE) // handles setting construction state for us
 		else
 			to_chat(user, SPAN_NOTICE("You do not have enough sheets."))
 			return

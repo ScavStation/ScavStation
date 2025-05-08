@@ -25,7 +25,7 @@
 				return FALSE
 
 /decl/stack_recipe/opacity/fullwindow/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color, spent_type, spent_amount = 1)
-	. = list(new result_type(user?.loc, MATERIAL_RECIPE_PARAMS, SOUTHWEST, TRUE))
+	. = list(new result_type(user?.loc, MATERIAL_RECIPE_PARAMS, SOUTHWEST, FALSE))
 	if(paint_color)
 		for(var/obj/structure/window/window in .)
 			window.set_color(paint_color)
@@ -45,9 +45,9 @@
 				return FALSE
 
 /decl/stack_recipe/opacity/borderwindow/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color, spent_type, spent_amount = 1)
-	. = list(new result_type(user?.loc, MATERIAL_RECIPE_PARAMS, user?.dir, TRUE))
-	if(paint_color)
-		for(var/obj/structure/window/window in .)
+	. = list(new result_type(user?.loc, MATERIAL_RECIPE_PARAMS, user?.dir, FALSE))
+	for(var/obj/structure/window/window in .)
+		if(paint_color)
 			window.set_color(paint_color)
 
 /decl/stack_recipe/opacity/windoor
