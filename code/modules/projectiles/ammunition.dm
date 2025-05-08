@@ -1,12 +1,13 @@
 /obj/item/ammo_casing
 	name = "bullet casing"
 	desc = "A bullet casing."
-	icon = 'icons/obj/ammo.dmi'
-	icon_state = "pistolcasing"
+	icon = 'icons/obj/ammo/casings/pistol.dmi'
+	icon_state = ICON_STATE_WORLD + "-preview"
 	randpixel = 10
 	obj_flags = OBJ_FLAG_CONDUCTIBLE | OBJ_FLAG_HOLLOW
 	slot_flags = SLOT_LOWER_BODY | SLOT_EARS
 	w_class = ITEM_SIZE_TINY
+	color = /decl/material/solid/metal/brass::color // mapping preview color
 	material = /decl/material/solid/metal/brass
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	drop_sound = list(
@@ -15,11 +16,10 @@
 		'sound/weapons/guns/casingfall3.ogg'
 	)
 
-	var/leaves_residue = 1
+	var/leaves_residue = TRUE
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
-	var/spent_icon = "pistolcasing-spent"
 	var/bullet_color = COLOR_COPPER
 	var/marking_color
 
@@ -101,19 +101,21 @@
 		BB.SetName("[initial(BB.name)] (\"[label_text]\")")
 	return TRUE
 
+// This is separate because on_update_icon() needs to call parent,
+// and shells need to override this.
+/obj/item/ammo_casing/proc/update_casing_icon()
+	if(BB)
+		var/image/I = overlay_image(icon, "[icon_state]-bullet", bullet_color, flags=RESET_COLOR)
+		I.dir = dir // don't overlays inherit dir already? is this needed?
+		add_overlay(I)
+	if(marking_color)
+		var/image/I = overlay_image(icon, "[icon_state]-marking", marking_color, flags=RESET_COLOR)
+		I.dir = dir
+		add_overlay(I)
+
 /obj/item/ammo_casing/on_update_icon()
 	. = ..()
-	if(use_single_icon)
-		if(BB)
-			var/image/I = overlay_image(icon, "[icon_state]-bullet", bullet_color, flags=RESET_COLOR)
-			I.dir = dir
-			add_overlay(I)
-		if(marking_color)
-			var/image/I = overlay_image(icon, "[icon_state]-marking", marking_color, flags=RESET_COLOR)
-			I.dir = dir
-			add_overlay(I)
-	else if(spent_icon && !BB)
-		icon_state = spent_icon
+	update_casing_icon()
 
 /obj/item/ammo_casing/update_name()
 	. = ..()

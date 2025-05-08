@@ -23,7 +23,7 @@
 		return
 	create_initial_contents() // Not ideal, but we need instances for the icon gen.
 	switch(icon_state)
-		if("world")
+		if(ICON_STATE_WORLD)
 			var/ammo_state = "world-some"
 			if(ammo_count == 1)
 				ammo_state = "world-one"
@@ -34,7 +34,7 @@
 			add_overlay(overlay_image(icon, "[ammo_state]-bullets", A.bullet_color, flags = RESET_COLOR))
 			if(A.marking_color)
 				add_overlay(overlay_image(icon, "[ammo_state]-markings", A.marking_color, RESET_COLOR))
-		if("inventory")
+		if(ICON_STATE_INV)
 			for(var/i = 1 to length(stored_ammo))
 				var/obj/item/ammo_casing/A = stored_ammo[i]
 				var/image/I = overlay_image(icon, "casing", A.color, RESET_COLOR)
@@ -59,11 +59,8 @@
 
 /obj/item/ammo_magazine/shotholder/on_update_icon()
 	..()
-	overlays.Cut()
 	if(marking_color)
-		var/image/I = image(icon, "shotholder-marking")
-		I.color = marking_color
-		overlays += I
+		add_overlay(overlay_image(icon, "shotholder-marking", marking_color, RESET_COLOR))
 
 /obj/item/ammo_magazine/shotholder/attack_hand(mob/user)
 	if(loc != user || user.a_intent != I_HURT || !length(stored_ammo) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))

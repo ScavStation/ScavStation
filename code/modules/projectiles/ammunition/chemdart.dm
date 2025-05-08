@@ -29,7 +29,7 @@
 	icon_state = "dart"
 	caliber = CALIBER_DART
 	projectile_type = /obj/item/projectile/bullet/chemdart
-	leaves_residue = 0
+	leaves_residue = FALSE
 
 /obj/item/ammo_casing/chemdart/expend()
 	qdel(src)
