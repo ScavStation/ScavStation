@@ -11,6 +11,7 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	alpha = 180
+	material_alteration = MAT_FLAG_ALTERATION_COLOR
 	material = /decl/material/solid/glass
 	rad_resistance_modifier = 0.5
 	atmos_canpass = CANPASS_PROC
@@ -38,10 +39,19 @@
 	connections = dirs_to_corner_states(dirs)
 	other_connections = dirs_to_corner_states(other_dirs)
 
-/obj/structure/window/update_materials(var/keep_health)
-	. = ..()
-	name = "[reinf_material ? "reinforced " : ""][material.solid_name] window"
-	desc = "A window pane made from [material.solid_name]."
+/obj/structure/window/update_material_name(override_name)
+	var/base_name = override_name || initial(name)
+	if(istype(material))
+		SetName("[reinf_material ? "reinforced " : ""][material.adjective_name] [base_name]")
+	else
+		SetName(base_name)
+
+/obj/structure/window/update_material_desc(var/override_desc)
+	if(istype(material))
+		var/reinf_string = istype(reinf_material) ? " reinforced with [reinf_material.use_name]" : null
+		desc = "A window pane made from [material.solid_name][reinf_string]."
+	else
+		..()
 
 /obj/structure/window/Initialize(var/ml, var/_mat, var/_reinf_mat, var/dir_to_set, var/anchored)
 	. = ..(ml, _mat, _reinf_mat)
