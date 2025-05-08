@@ -26,6 +26,7 @@
 	desc = "A pistol bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/item/projectile/ion/small
 	material = /decl/material/solid/metal/steel
+	color = /decl/material/solid/metal/steel::color
 	matter = list(/decl/material/solid/metal/uranium = MATTER_AMOUNT_REINFORCEMENT)
 	bullet_color = COLOR_ACID_CYAN
 	marking_color = COLOR_LUMINOL
@@ -86,6 +87,7 @@
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
 	leaves_residue = FALSE
 	material = /decl/material/solid/metal/steel
+	material_alteration = MAT_FLAG_ALTERATION_NONE
 	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 	origin_tech = @'{"combat":3,"materials":3}'
 
@@ -93,6 +95,7 @@
 	icon_state = get_world_inventory_state()
 	if(!BB) // use spent icon
 		icon_state = "[icon_state]-spent"
+
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A shotgun slug."
@@ -100,7 +103,9 @@
 	icon_state = ICON_STATE_WORLD
 	caliber = CALIBER_SHOTGUN
 	projectile_type = /obj/item/projectile/bullet/shotgun
-	material = /decl/material/solid/metal/steel
+	material = /decl/material/solid/metal/steel // at some point this should use matter, brass + plastic
+	color = null
+	material_alteration = MAT_FLAG_ALTERATION_NONE
 	drop_sound = 'sound/weapons/guns/shotgun_fall.ogg'
 
 /obj/item/ammo_casing/shotgun/update_casing_icon()
