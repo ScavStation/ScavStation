@@ -162,8 +162,13 @@
 			if((stack_type in check_craft_stack_types) && (stack_type in check_forbidden_craft_stack_types))
 				. += "[stack_type] is in both forbidden and craftable stack types"
 
-/decl/stack_recipe/proc/get_required_stack_amount(obj/item/stack/stack)
-	return max(1, ceil(req_amount / max(1, (SHEET_MATERIAL_AMOUNT * stack?.matter_multiplier))))
+/// Returns the required stack units to create product_amount products (default 1).
+/decl/stack_recipe/proc/get_required_stack_amount(obj/item/stack/stack, product_amount = 1)
+	/// The number of sheets, unrounded, to produce a single unit of product. May be less than 1.
+	var/sheets_per_product = req_amount / ceil(SHEET_MATERIAL_AMOUNT * stack.matter_multiplier)
+	var/total_needed = sheets_per_product * product_amount
+	// We can't use less than 1 sheet, or only part of a sheet, so we have to round up.
+	return max(1, ceil(total_needed))
 
 /decl/stack_recipe/proc/get_list_display(mob/user, obj/item/stack/stack, datum/stack_recipe_list/sublist)
 
