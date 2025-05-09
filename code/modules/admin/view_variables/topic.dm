@@ -599,9 +599,9 @@
 			href_list["datumrefresh"] = href_list["mobToDamage"]
 
 	else if(href_list["call_proc"])
-		var/datum/callee = locate(href_list["call_proc"])
-		if(istype(callee) || istype(callee, /client)) // can call on clients too, not just datums
-			callproc_targetpicked(1, callee)
+		var/datum/proc_callee = locate(href_list["call_proc"])
+		if(istype(proc_callee) || istype(proc_callee, /client)) // can call on clients too, not just datums
+			callproc_targetpicked(1, proc_callee)
 	else if(href_list["addaura"])
 		if(!check_rights(R_DEBUG|R_ADMIN|R_FUN))	return
 		var/mob/living/victim = locate(href_list["addaura"])
