@@ -1,9 +1,9 @@
-/mob/living/simple_animal/borer/UnarmedAttack(atom/A, proximity)
+/mob/living/simple_animal/borer/ResolveUnarmedAttack(atom/A)
 
 	if(host)
 		return TRUE // We cannot click things outside of our host.
 
-	if(!isliving(A) || a_intent != I_GRAB || stat || !proximity)
+	if(!isliving(A) || a_intent != I_GRAB || stat)
 		return ..()
 
 	if(!can_use_borer_ability(requires_host_value = FALSE, check_last_special = FALSE))

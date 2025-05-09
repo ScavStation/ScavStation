@@ -428,7 +428,7 @@
 			to_chat(src, SPAN_NOTICE(summary))
 	attack_selector?.update_icon()
 
-/mob/living/human/UnarmedAttack(atom/A, proximity_flag)
+/mob/living/human/ResolveUnarmedAttack(atom/A)
 	// Hackfix for humans trying to attack someone without hands.
 	// Dexterity ect. should be checked in these procs regardless,
 	// but unarmed attacks that don't require hands should still
