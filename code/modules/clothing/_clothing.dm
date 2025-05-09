@@ -234,10 +234,10 @@
 
 	if(!base_clothing_icon)
 		base_clothing_icon = initial(icon)
-	set_icon(base_clothing_icon)
-	if(!base_clothing_state)
+	set_icon(base_clothing_icon) // todo: update use_single_icon and has_inventory_icon when we do this
+	if(!base_clothing_state) // todo: remove this var if unnecessary? we enforce that clothes use world/inventory states
 		base_clothing_state = initial(icon_state)
-	set_icon_state(base_clothing_state)
+	set_icon_state(base_clothing_state) // should this just do icon_state = get_world_inventory_state?
 	icon_state = JOINTEXT(list(get_world_inventory_state(), get_clothing_state_modifier()))
 	if(markings_state_modifier && markings_color)
 		add_overlay(mutable_appearance(icon, "[icon_state][markings_state_modifier]", markings_color))
@@ -295,7 +295,8 @@
 
 	var/last_icon = icon
 	var/species_icon = LAZYACCESS(sprite_sheets, target_bodytype)
-	if(species_icon && (check_state_in_icon(ICON_STATE_INV, species_icon) || check_state_in_icon(ICON_STATE_WORLD, species_icon)))
+	// If we use the single icon system we need a world or icon state, otherwise we don't.
+	if(species_icon && (!use_single_icon || (check_state_in_icon(ICON_STATE_INV, species_icon) || check_state_in_icon(ICON_STATE_WORLD, species_icon))))
 		base_clothing_icon = species_icon
 
 	if(last_icon != base_clothing_icon)
