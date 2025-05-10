@@ -1,4 +1,4 @@
-/mob/living/simple_animal/alien/diona/UnarmedAttack(var/atom/A)
+/mob/living/simple_animal/alien/diona/ResolveUnarmedAttack(var/atom/A)
 
 	if(incapacitated())
 		return ..()
