@@ -3192,16 +3192,6 @@
 /obj/effect/floor_decal/corner/white/half,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
-"hW" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "IllegalHideout1"
-	},
-/turf/floor/plating,
-/area/ministation/illegal_hideaway)
 "hX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/dark/monotile/telecomms,
@@ -16520,9 +16510,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/button/blast_door/buildable{
+/obj/machinery/button/blast_door{
 	pixel_y = 28;
-	id_tag = "IllegalHideout1"
+	id_tag = "IllegalHideout1";
+	name = "Hidout Shutters"
 	},
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
@@ -17004,8 +16995,15 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "Py" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "IllegalHideout1"
+	},
 /turf/floor/plating,
-/area/space)
+/area/ministation/illegal_hideaway)
 "Pz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -53521,7 +53519,7 @@ Zq
 QV
 hE
 Kh
-Py
+HO
 HO
 HO
 HO
@@ -54802,7 +54800,7 @@ HO
 HO
 Kh
 Kh
-hW
+Py
 Kh
 Kh
 Kh
