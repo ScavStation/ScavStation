@@ -3986,10 +3986,6 @@
 	},
 /turf/floor/wood/walnut,
 /area/ministation/enclave/conference)
-"lS" = (
-/obj/machinery/computer/cryopod,
-/turf/wall,
-/area/ministation/contracter_bunk)
 "lT" = (
 /obj/structure/undies_wardrobe,
 /turf/floor/wood/yew,
@@ -8012,6 +8008,18 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
+"zr" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled,
+/area/ministation/hall/s3)
 "zs" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner"
@@ -11173,6 +11181,10 @@
 	},
 /turf/floor/wood/mahogany,
 /area/ministation/library)
+"Jm" = (
+/obj/machinery/computer/cryopod,
+/turf/wall,
+/area/ministation/contracter_bunk)
 "Jo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -14186,18 +14198,6 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/floor/tiled/white,
 /area/ministation/biodome)
-"SY" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/floor/tiled,
-/area/ministation/hall/s3)
 "SZ" = (
 /obj/item/chems/pill/detergent,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -43397,7 +43397,7 @@ vW
 OV
 PQ
 qP
-lS
+Jm
 DP
 YW
 pH
@@ -47528,14 +47528,14 @@ fI
 Dt
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 ad
@@ -47785,14 +47785,14 @@ pb
 Dt
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 aa
 aa
 ad
@@ -48042,14 +48042,14 @@ Dt
 Dt
 ad
 ad
-ad
-ad
-ad
+hE
+hE
+hE
 VF
 Zw
 VF
-aa
-aa
+cw
+cw
 aa
 aa
 ad
@@ -48299,14 +48299,14 @@ cw
 cw
 aa
 ad
-aa
-aa
+cw
+cw
 VF
 Fh
 Fh
 Fh
 VF
-ad
+hE
 ad
 ad
 ad
@@ -48554,9 +48554,9 @@ Qc
 kg
 cw
 cw
-aa
-ad
-aa
+cw
+hE
+cw
 VF
 Hc
 DK
@@ -48791,7 +48791,7 @@ RH
 Pg
 Pg
 ew
-SY
+zr
 Bk
 Pg
 Pg
@@ -48811,9 +48811,9 @@ Dy
 kg
 cw
 cw
-aa
-ad
-aa
+cw
+hE
+cw
 Hb
 rS
 Yx
@@ -49068,9 +49068,9 @@ Qc
 kg
 cw
 cw
-aa
-ad
-aa
+cw
+hE
+cw
 VF
 Hc
 Vo
@@ -49327,14 +49327,14 @@ cw
 cw
 aa
 ad
-aa
-aa
+cw
+cw
 VF
 Hb
 yD
 Hb
 VF
-ad
+hE
 ad
 ad
 ad
@@ -49584,14 +49584,14 @@ oc
 oc
 aa
 ad
-aa
-aa
-aa
+cw
+cw
+cw
 VF
 AC
 VF
-aa
-aa
+cw
+cw
 aa
 aa
 aa
@@ -49841,7 +49841,7 @@ ty
 oc
 aa
 ad
-aa
+cw
 VF
 Hb
 Hb
