@@ -120,19 +120,24 @@
 	available_background_info = list(
 		/decl/background_category/heritage =  list(
 			/decl/background_detail/heritage/baxxid,
-			/decl/background_detail/heritage/other
+			/decl/background_detail/heritage/baxxid/teeth,
+			/decl/background_detail/heritage/baxxid/traditionalist,
+			/decl/background_detail/heritage/baxxid/other
 		),
 		/decl/background_category/homeworld = list(
 			/decl/background_detail/location/tradehousespace,
 			/decl/background_detail/location/stateless
 		),
 		/decl/background_category/faction =   list(
-			/decl/background_detail/faction/baxxid,
 			/decl/background_detail/faction/tradehouse_baxxid,
-			/decl/background_detail/faction/other
+			/decl/background_detail/faction/wanderer
 		),
 		/decl/background_category/religion =  list(
-			/decl/background_detail/religion/other
+			/decl/background_detail/religion/dinnaism,
+			/decl/background_detail/religion/veil_worship,
+			/decl/background_detail/religion/angel_worship,
+			/decl/background_detail/religion/ancestor_worship,
+			/decl/background_detail/religion/faithless,
 		)
 	)
 
