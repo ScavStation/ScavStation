@@ -903,6 +903,7 @@
 /area/ministation/science)
 "cB" = (
 /obj/machinery/cryopod,
+/obj/abstract/landmark/latejoin/cryo,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "cC" = (
@@ -3985,6 +3986,10 @@
 	},
 /turf/floor/wood/walnut,
 /area/ministation/enclave/conference)
+"lS" = (
+/obj/machinery/computer/cryopod,
+/turf/wall,
+/area/ministation/contracter_bunk)
 "lT" = (
 /obj/structure/undies_wardrobe,
 /turf/floor/wood/yew,
@@ -14181,6 +14186,18 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/floor/tiled/white,
 /area/ministation/biodome)
+"SY" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled,
+/area/ministation/hall/s3)
 "SZ" = (
 /obj/item/chems/pill/detergent,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -43380,7 +43397,7 @@ vW
 OV
 PQ
 qP
-GO
+lS
 DP
 YW
 pH
@@ -48774,7 +48791,7 @@ RH
 Pg
 Pg
 ew
-Pg
+SY
 Bk
 Pg
 Pg
