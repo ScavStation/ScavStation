@@ -1,7 +1,7 @@
 /mob/living/slime/RestrainedClickOn(var/atom/A)
 	return FALSE
 
-/mob/living/slime/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/slime/ResolveUnarmedAttack(var/atom/A)
 
 	. = ..()
 	if(.)
