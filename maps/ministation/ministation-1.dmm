@@ -1405,7 +1405,10 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/obj/structure/curtain/canteen,
+/obj/machinery/light_switch{
+	pixel_y = 29;
+	pixel_x = 7
+	},
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "dN" = (
@@ -1424,7 +1427,6 @@
 /turf/floor/path/running_bond,
 /area/ministation/hall/e2)
 "dO" = (
-/obj/structure/curtain/canteen,
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
@@ -1432,6 +1434,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/closet/crate/bin/ministation,
+/obj/item/bag/trash,
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "dP" = (
@@ -3188,6 +3192,16 @@
 /obj/effect/floor_decal/corner/white/half,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
+"hW" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "IllegalHideout1"
+	},
+/turf/floor/plating,
+/area/ministation/illegal_hideaway)
 "hX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/dark/monotile/telecomms,
@@ -13447,6 +13461,10 @@
 /area/ministation/surgicaln)
 "GG" = (
 /obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "IllegalHideout1"
+	},
 /turf/floor/plating,
 /area/ministation/illegal_hideaway)
 "GH" = (
@@ -16502,6 +16520,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/button/blast_door/buildable{
+	pixel_y = 28;
+	id_tag = "IllegalHideout1"
+	},
 /turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "Ok" = (
@@ -19134,7 +19156,12 @@
 /turf/wall/r_wall,
 /area/ministation/Murphy/toxins)
 "UT" = (
-/turf/floor/plating,
+/obj/machinery/light_switch{
+	pixel_y = 10;
+	dir = 4;
+	pixel_x = -21
+	},
+/turf/floor/tiled/dark/monotile/telecomms,
 /area/ministation/illegal_hideaway)
 "UU" = (
 /obj/structure/lattice,
@@ -53237,7 +53264,7 @@ Uo
 Zq
 Hh
 Kh
-UT
+Kh
 Kh
 HO
 HO
@@ -53750,7 +53777,7 @@ dO
 Fb
 Jt
 Kh
-UT
+Kh
 Kh
 Kh
 HO
@@ -54007,7 +54034,7 @@ IS
 SU
 Zq
 HH
-Zq
+UT
 vx
 Kh
 HO
@@ -54775,7 +54802,7 @@ HO
 HO
 Kh
 Kh
-GG
+hW
 Kh
 Kh
 Kh

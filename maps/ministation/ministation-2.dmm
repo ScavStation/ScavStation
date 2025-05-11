@@ -829,6 +829,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
 "cn" = (
@@ -1483,6 +1487,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/floor/tiled,
@@ -4012,6 +4019,15 @@
 	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/bridge)
+"ma" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/ministation/hall/s3)
 "md" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4421,6 +4437,13 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
+"nn" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment,
+/turf/floor/lino,
+/area/ministation/contracter_bunk)
 "no" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -5040,6 +5063,14 @@
 /obj/structure/flora/bush/lavendergrass,
 /turf/floor/grass,
 /area/ministation/bridge)
+"px" = (
+/obj/machinery/button/blast_door{
+	pixel_y = 28;
+	name = "Contractor Bunkhouse Shutters";
+	id_tag = "ContractorBunk1"
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "pz" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -5062,6 +5093,10 @@
 	},
 /obj/machinery/firealarm{
 	pixel_y = 24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "conpipe-c"
 	},
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
@@ -5165,16 +5200,25 @@
 /obj/random/hat,
 /turf/floor/wood,
 /area/ministation/Murphy/living)
+"qa" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "qc" = (
 /turf/wall/titanium,
 /area/ministation/Murphy/med)
 "qd" = (
-/obj/item/stool/padded,
 /obj/item/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = -30;
 	dir = 1
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal,
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
 "qg" = (
@@ -5385,6 +5429,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "qY" = (
@@ -5510,6 +5557,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/floor/tiled,
@@ -6051,6 +6101,19 @@
 /obj/machinery/light{
 	dir = 2
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal,
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
+"tp" = (
+/obj/structure/closet,
+/obj/item/soap,
+/obj/item/box/lights/tubes,
+/obj/item/mop,
+/obj/structure/mopbucket,
+/obj/item/bag/trash,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "tq" = (
@@ -6191,6 +6254,15 @@
 	},
 /turf/floor,
 /area/ministation/Murphy/bridge)
+"tL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 8
+	},
+/turf/floor/tiled,
+/area/ministation/hall/s3)
 "tP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6969,12 +7041,28 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/biodome)
+"vT" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled,
+/area/ministation/hall/s3)
 "vW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "conpipe-c"
 	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
@@ -7352,6 +7440,22 @@
 	},
 /turf/floor/wood,
 /area/ministation/Murphy/living)
+"xj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = -23
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "xk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7772,6 +7876,9 @@
 /obj/item/clothing/suit/jacket/winter/yinglet,
 /obj/item/clothing/suit/jacket/winter/yinglet,
 /obj/item/clothing/suit/jacket/winter/yinglet,
+/obj/machinery/light_switch{
+	pixel_y = 25
+	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "yD" = (
@@ -8008,18 +8115,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
-"zr" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/floor/tiled,
-/area/ministation/hall/s3)
 "zs" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner"
@@ -8102,6 +8197,13 @@
 "zG" = (
 /turf/floor/tiled/white,
 /area/ministation/biodome)
+"zI" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "zJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8177,6 +8279,9 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	id_tag = "ContractorBunk1"
 	},
 /turf/floor/plating,
 /area/ministation/contracter_bunk)
@@ -8366,6 +8471,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "AE" = (
@@ -8419,6 +8527,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/floor/tiled/dark/monotile,
@@ -8567,6 +8678,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/floor/tiled/dark/monotile,
@@ -10598,6 +10712,18 @@
 	},
 /turf/wall/r_wall,
 /area/ministation/science)
+"Hh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "Hi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -10665,6 +10791,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "Hz" = (
@@ -10762,6 +10891,19 @@
 /obj/item/plants,
 /turf/floor/tiled/white,
 /area/ministation/biodome)
+"HT" = (
+/obj/machinery/door/airlock/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/lino,
+/area/ministation/contracter_bunk)
 "HU" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -11181,10 +11323,6 @@
 	},
 /turf/floor/wood/mahogany,
 /area/ministation/library)
-"Jm" = (
-/obj/machinery/computer/cryopod,
-/turf/wall,
-/area/ministation/contracter_bunk)
 "Jo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -12255,6 +12393,9 @@
 "MM" = (
 /obj/structure/table/woodentable,
 /obj/machinery/reagent_temperature,
+/obj/machinery/light_switch{
+	pixel_y = 25
+	},
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
 "MO" = (
@@ -12559,6 +12700,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/floor/lino,
 /area/ministation/hall/s3)
 "NK" = (
@@ -12688,6 +12832,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/floor/lino,
@@ -12926,6 +13073,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "OW" = (
@@ -12944,6 +13092,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "conpipe-c"
 	},
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
@@ -13264,6 +13416,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 1
+	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "PR" = (
@@ -13432,6 +13587,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled,
 /area/ministation/hall/n3)
+"Qw" = (
+/obj/machinery/computer/cryopod,
+/turf/wall,
+/area/ministation/contracter_bunk)
 "Qx" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -14289,6 +14448,13 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/bridge/vault)
+"Tp" = (
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "Tq" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera/network/hallway{
@@ -14851,6 +15017,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/floor/tiled/dark/monotile,
@@ -15753,6 +15922,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
@@ -41855,7 +42027,7 @@ cw
 GO
 xY
 OY
-Ff
+nn
 qd
 GO
 MM
@@ -42624,7 +42796,7 @@ zZ
 zZ
 GO
 GO
-uQ
+HT
 GO
 GO
 Ys
@@ -42875,13 +43047,13 @@ cw
 cw
 cw
 GO
-ZY
+px
 mR
 mR
 ZY
 KM
-ZY
-Vd
+Tp
+Hh
 rb
 GO
 yB
@@ -43397,7 +43569,7 @@ vW
 OV
 PQ
 qP
-Jm
+Qw
 DP
 YW
 pH
@@ -43652,7 +43824,7 @@ mR
 Zb
 Hy
 Eo
-ZY
+qa
 nK
 GO
 GO
@@ -43909,7 +44081,7 @@ DW
 NC
 qX
 OS
-ZY
+zI
 tn
 GO
 jc
@@ -44678,7 +44850,7 @@ cw
 cw
 GO
 ZY
-Vd
+Hh
 ni
 cw
 cw
@@ -44935,7 +45107,7 @@ cw
 cw
 GO
 ZY
-Vd
+Hh
 ni
 cw
 cw
@@ -45192,7 +45364,7 @@ cw
 cw
 QO
 ZY
-Vd
+Hh
 ni
 cw
 cw
@@ -45706,7 +45878,7 @@ cw
 cw
 QO
 ZY
-Vd
+Hh
 ni
 Dt
 pb
@@ -45963,7 +46135,7 @@ cw
 cw
 QO
 ZY
-Vd
+Hh
 ni
 Dt
 Dt
@@ -46220,7 +46392,7 @@ cw
 cw
 QO
 ZY
-Vd
+Hh
 ni
 cw
 cw
@@ -46477,7 +46649,7 @@ cw
 cw
 GO
 ZY
-Vd
+Hh
 ni
 cw
 cw
@@ -46734,7 +46906,7 @@ cw
 cw
 GO
 ZY
-Vd
+Hh
 ni
 cw
 aa
@@ -46991,7 +47163,7 @@ cw
 cw
 GO
 xJ
-Vd
+Hh
 ni
 aa
 aa
@@ -47248,7 +47420,7 @@ Cd
 Cd
 GO
 ZY
-Vd
+Hh
 ni
 aa
 aa
@@ -47505,7 +47677,7 @@ wL
 Cd
 GO
 ZY
-Vd
+xj
 ni
 aa
 aa
@@ -47761,8 +47933,8 @@ Zv
 nP
 Zv
 GO
-ZY
-Vd
+tp
+Hh
 ni
 aa
 aa
@@ -48791,7 +48963,7 @@ RH
 Pg
 Pg
 ew
-zr
+vT
 Bk
 Pg
 Pg
@@ -49047,7 +49219,7 @@ Mn
 Mn
 tt
 tt
-fZ
+ma
 tt
 aV
 tt
@@ -49304,7 +49476,7 @@ lY
 iN
 gq
 QG
-Co
+tL
 zy
 Co
 fJ
