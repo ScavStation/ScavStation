@@ -335,7 +335,7 @@
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/shoes/legguards/yinglet/ballistic,
 /obj/item/clothing/gloves/armguards/yinglet/ballistic,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "aQ" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -399,7 +399,7 @@
 /obj/abstract/landmark/start{
 	name = "Security Officer"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "bc" = (
 /obj/structure/curtain/open/shower/security,
@@ -426,7 +426,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "bg" = (
 /obj/machinery/atmospherics/omni/filter{
@@ -984,7 +984,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "cC" = (
 /obj/machinery/computer/modular/telescreen/preset/generic{
@@ -1136,7 +1136,7 @@
 /obj/structure/sign/warning/armory{
 	pixel_y = 32
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "dc" = (
 /obj/structure/disposalpipe/trunk{
@@ -1507,7 +1507,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "dV" = (
 /obj/item/mollusc/barnacle{
@@ -2146,7 +2146,7 @@
 	req_access = list("ACCESS_SECURITY");
 	autoset_access = 0
 	},
-/turf/floor/plating,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "fu" = (
 /obj/structure/table/reinforced,
@@ -2228,7 +2228,7 @@
 /obj/machinery/computer/prisoner{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "fB" = (
 /obj/machinery/firealarm{
@@ -2299,7 +2299,7 @@
 /area/ministation/Murphy/smresearch)
 "fH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "fJ" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -2514,7 +2514,7 @@
 /area/ministation/Murphy/smresearch)
 "gm" = (
 /obj/machinery/vending/sovietsoda,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "gn" = (
 /obj/structure/lattice,
@@ -2604,7 +2604,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "gz" = (
 /turf/open,
@@ -2628,7 +2628,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "gD" = (
 /obj/machinery/door/firedoor{
@@ -2787,7 +2787,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "gY" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2813,7 +2813,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "hb" = (
 /obj/effect/floor_decal/corner/red{
@@ -2827,7 +2827,7 @@
 	pixel_x = 29;
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "hc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2984,11 +2984,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "hx" = (
 /obj/structure/table,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "hy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3012,7 +3012,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "hA" = (
 /obj/abstract/landmark/start{
@@ -3194,7 +3194,7 @@
 /area/ministation/medical)
 "hX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "hY" = (
 /obj/structure/table,
@@ -3204,7 +3204,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "hZ" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -3217,7 +3217,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "ib" = (
 /obj/structure/cable{
@@ -3231,7 +3231,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "id" = (
 /obj/structure/table/woodentable,
@@ -3410,13 +3410,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "iz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "iA" = (
 /obj/effect/floor_decal/corner/red{
@@ -3431,7 +3431,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "iB" = (
 /obj/machinery/door/firedoor{
@@ -3502,7 +3502,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "iJ" = (
 /obj/machinery/door/airlock/glass/science{
@@ -3667,7 +3667,7 @@
 	dir = 4;
 	icon_state = "conpipe-c"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "je" = (
 /obj/machinery/light{
@@ -3680,7 +3680,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "jf" = (
 /obj/machinery/door/airlock/hatch/autoname/command{
@@ -3710,7 +3710,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 1
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "jh" = (
 /obj/effect/floor_decal/corner/red{
@@ -3722,7 +3722,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "jk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3970,7 +3970,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "jO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4304,7 +4304,7 @@
 	dir = 9;
 	icon_state = "warning"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "kF" = (
 /obj/effect/floor_decal/spline/plain/orange{
@@ -4320,7 +4320,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
-/turf/floor/tiled,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "kI" = (
 /obj/structure/cable{
@@ -4362,7 +4362,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "kO" = (
 /obj/structure/lattice,
@@ -4511,7 +4511,7 @@
 /area/ministation/surgicaln)
 "li" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "lj" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4663,7 +4663,7 @@
 	name = "Visitation Access";
 	pixel_y = 28
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "lB" = (
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -4690,7 +4690,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "lE" = (
 /obj/structure/lattice,
@@ -4952,7 +4952,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "ml" = (
 /obj/structure/closet/secure_closet/scientist{
@@ -5082,7 +5082,7 @@
 /area/ministation/Murphy/common)
 "mL" = (
 /obj/structure/flora/pottedplant/largebush,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "mM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -5138,7 +5138,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "mT" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -5212,7 +5212,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "nc" = (
 /obj/effect/floor_decal/corner/white/mono,
@@ -5377,7 +5377,7 @@
 /obj/machinery/camera/network/security{
 	dir = 1
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "nx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5680,7 +5680,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "ok" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -5983,7 +5983,7 @@
 	door_color = "#333333";
 	stripe_color = "#ffcc00"
 	},
-/turf/floor/tiled,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "oX" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -6009,7 +6009,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "pa" = (
 /obj/effect/wingrille_spawn/reinforced,
@@ -6075,7 +6075,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 25
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "pj" = (
 /obj/structure/lattice,
@@ -6111,7 +6111,7 @@
 	pixel_y = 27;
 	pixel_x = -6
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "pq" = (
 /obj/structure/emergency_dispenser/west,
@@ -6204,7 +6204,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "pB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6797,7 +6797,7 @@
 /obj/machinery/computer/modular/preset/security{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "qY" = (
 /turf/floor/carpet/blue2,
@@ -7302,7 +7302,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "rZ" = (
 /obj/machinery/door/airlock/hatch{
@@ -8175,7 +8175,7 @@
 /obj/structure/bed/chair/armchair/red{
 	dir = 1
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "tW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8646,7 +8646,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "vb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8696,7 +8696,7 @@
 /obj/machinery/door/window/brigdoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "vk" = (
 /obj/structure/flora/bush/brflowers,
@@ -10114,7 +10114,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "ys" = (
 /obj/structure/cable/yellow{
@@ -10589,7 +10589,7 @@
 	dir = 8
 	},
 /obj/item/pen/retractable,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "zt" = (
 /obj/machinery/light{
@@ -11649,7 +11649,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Ca" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -12105,7 +12105,7 @@
 	dir = 4
 	},
 /obj/item/suit_cooling_unit,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Dd" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
@@ -12471,7 +12471,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "DZ" = (
 /obj/item/mollusc/barnacle{
@@ -12691,7 +12691,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "EG" = (
 /obj/machinery/light/small/emergency{
@@ -12843,7 +12843,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Fa" = (
 /obj/structure/closet,
@@ -13098,7 +13098,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/junction/mirrored,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "FM" = (
 /obj/structure/lattice,
@@ -13176,7 +13176,7 @@
 /turf/floor/tiled/techfloor,
 /area/ministation/Murphy/smresearch)
 "FU" = (
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "FV" = (
 /obj/structure/lattice,
@@ -13297,7 +13297,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Gl" = (
 /obj/machinery/power/apc{
@@ -13339,7 +13339,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Gp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13354,6 +13354,9 @@
 	},
 /turf/floor/grass,
 /area/ministation/hydro)
+"Gs" = (
+/turf/floor/tiled/dark/monotile,
+/area/space)
 "Gt" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /obj/structure/window/borosilicate_reinforced,
@@ -13936,7 +13939,7 @@
 	req_access = list("ACCESS_SECURITY");
 	initial_access = null
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "HX" = (
 /obj/structure/table,
@@ -14007,7 +14010,7 @@
 /obj/structure/sign/plaque/golden/security{
 	pixel_y = 32
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Ie" = (
 /obj/machinery/status_display{
@@ -14102,9 +14105,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/hop)
-"Is" = (
-/turf/floor/tiled/dark/monotile,
-/area/space)
 "It" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -14203,7 +14203,7 @@
 	pixel_x = 27;
 	pixel_y = 2
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "IE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -14939,7 +14939,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Kh" = (
 /turf/wall,
@@ -14956,7 +14956,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Kk" = (
 /obj/structure/bed,
@@ -15175,7 +15175,7 @@
 /obj/machinery/camera/network/security{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "KI" = (
 /obj/structure/cable{
@@ -15187,7 +15187,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "KJ" = (
 /turf/floor/tiled/dark,
@@ -15287,7 +15287,7 @@
 /area/ministation/medical/psychology)
 "KV" = (
 /obj/machinery/door/firedoor,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "KW" = (
 /obj/structure/bed/chair/office/comfy/brown{
@@ -15335,7 +15335,7 @@
 	dir = 4
 	},
 /obj/item/gun/energy/laser/practice,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "La" = (
 /obj/structure/table/reinforced,
@@ -15415,7 +15415,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Lq" = (
 /obj/structure/lattice,
@@ -15577,7 +15577,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "LR" = (
 /obj/machinery/recharger/wallcharger{
@@ -15589,7 +15589,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "LS" = (
 /obj/structure/lattice,
@@ -15691,7 +15691,7 @@
 /obj/item/target/alien,
 /obj/item/target/alien,
 /obj/item/target/alien,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Mf" = (
 /turf/wall/ocp_wall,
@@ -15761,7 +15761,7 @@
 	dir = 4;
 	req_access = list("ACCESS_CAMERAS")
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Mn" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
@@ -15968,7 +15968,7 @@
 	name = "security airlock access button";
 	pixel_x = 24
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "MJ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -16026,7 +16026,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "MQ" = (
 /obj/structure/catwalk,
@@ -16088,7 +16088,7 @@
 	dir = 4;
 	level = 2
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "MZ" = (
 /obj/effect/floor_decal/spline/plain/orange,
@@ -16217,7 +16217,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Np" = (
 /obj/machinery/door/airlock/command,
@@ -16238,7 +16238,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Nu" = (
 /obj/machinery/airlock_sensor{
@@ -16320,7 +16320,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "NF" = (
 /obj/structure/table/steel,
@@ -16349,7 +16349,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "NL" = (
 /obj/structure/rack,
@@ -16567,7 +16567,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Oq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16582,7 +16582,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
-/turf/floor/tiled,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Or" = (
 /obj/structure/railing/mapped,
@@ -16626,7 +16626,7 @@
 "Ou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Ov" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16775,7 +16775,7 @@
 	pixel_y = 30
 	},
 /obj/item/clothing/glasses/welding,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "OT" = (
 /obj/machinery/door/airlock/external/glass{
@@ -17071,7 +17071,7 @@
 /obj/machinery/network/relay{
 	initial_network_id = "molluscnet"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "PK" = (
 /obj/structure/hygiene/toilet,
@@ -17188,7 +17188,7 @@
 	dir = 5;
 	icon_state = "warning"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "PV" = (
 /obj/machinery/light_switch{
@@ -17306,7 +17306,7 @@
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/shoes/legguards/yinglet/ballistic,
 /obj/item/clothing/gloves/armguards/yinglet/ballistic,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Qh" = (
 /obj/machinery/door/firedoor{
@@ -17562,7 +17562,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "QT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -17928,7 +17928,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "RS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -18670,7 +18670,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "TI" = (
 /obj/structure/sign/poster/scav/s3,
@@ -18741,7 +18741,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled/dark,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "TR" = (
 /obj/structure/lattice,
@@ -18784,7 +18784,7 @@
 	dir = 1;
 	icon_state = "warning"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "TU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18810,7 +18810,7 @@
 	door_color = "#333333";
 	stripe_color = "#ffcc00"
 	},
-/turf/floor/tiled,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "TX" = (
 /obj/structure/table/woodentable,
@@ -18938,7 +18938,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Ut" = (
 /obj/machinery/camera/network/security{
@@ -18955,7 +18955,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 1
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Uu" = (
 /obj/structure/bed/padded,
@@ -19208,7 +19208,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "UZ" = (
 /turf/wall/r_wall/hull,
@@ -19234,7 +19234,7 @@
 /obj/machinery/light{
 	dir = 2
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Vc" = (
 /obj/structure/disposalpipe/segment{
@@ -19403,7 +19403,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Vu" = (
 /obj/machinery/status_display{
@@ -19498,7 +19498,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "VE" = (
 /obj/effect/floor_decal/floordetail/edgedrain{
@@ -19622,7 +19622,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "VW" = (
 /obj/machinery/suit_cycler/engineering/ministation{
@@ -19739,7 +19739,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Wn" = (
 /obj/machinery/atmospherics/valve,
@@ -19822,7 +19822,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Wy" = (
 /obj/machinery/alarm{
@@ -20155,13 +20155,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Xs" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Xu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -20495,7 +20495,7 @@
 /obj/abstract/landmark/start{
 	name = "Security Officer"
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Yk" = (
 /obj/machinery/light{
@@ -20793,7 +20793,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "YT" = (
 /obj/machinery/alarm{
@@ -20881,7 +20881,7 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Zh" = (
 /obj/machinery/vending/cigarette,
@@ -21080,7 +21080,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark/monotile/telecomms,
+/turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "ZJ" = (
 /obj/structure/bed/chair/office/comfy/black{
@@ -54542,7 +54542,7 @@ HO
 bu
 LH
 aI
-Is
+Gs
 HO
 Kh
 Oj
