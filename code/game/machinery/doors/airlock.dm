@@ -435,18 +435,18 @@ About the new airlock wires panel:
 		if("opening")
 			set_airlock_overlays(AIRLOCK_OPENING)
 			flick("opening", src)//[stat ? "_stat":]
-			update_icon(AIRLOCK_OPEN)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_OPEN), 1 SECOND) // wait to update icon so the light doesn't go out too soon
 		if("closing")
 			set_airlock_overlays(AIRLOCK_CLOSING)
 			flick("closing", src)
-			update_icon(AIRLOCK_CLOSED)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_CLOSED), 1 SECOND) // wait to update icon so the light doesn't go out too soon
 		if("deny")
 			set_airlock_overlays(AIRLOCK_DENY)
 			if(density && arePowerSystemsOn())
 				flick("deny", src)
 				if(speaker)
 					playsound(loc, open_failure_access_denied, 50, 0)
-			update_icon(AIRLOCK_CLOSED)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon), AIRLOCK_CLOSED), 1 SECOND) // wait to update icon so the light doesn't go out too soon
 		if("emag")
 			set_airlock_overlays(AIRLOCK_EMAG)
 			if(density && arePowerSystemsOn())

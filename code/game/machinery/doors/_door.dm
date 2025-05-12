@@ -248,7 +248,6 @@
 	else if(density)
 		do_animate("deny")
 
-	update_icon()
 	return TRUE
 
 /obj/machinery/door/proc/handle_repair(obj/item/I, mob/user)
