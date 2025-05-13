@@ -532,3 +532,5 @@
 		appearance_flags &= ~remove_flags
 	return old_appearance != appearance_flags
 
+/atom/movable/proc/is_valid_merchant_pad_target()
+	return simulated

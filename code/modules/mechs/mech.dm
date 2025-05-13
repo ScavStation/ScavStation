@@ -249,3 +249,8 @@
 // Override this to avoid triggering the ancient vore code.
 /mob/living/exosuit/relaymove(mob/living/user, direction)
 	return
+
+/mob/living/exosuit/is_valid_merchant_pad_target()
+	if(current_user)
+		return FALSE
+	return ..()
