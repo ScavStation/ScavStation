@@ -364,3 +364,8 @@
 
 /obj/proc/get_blend_objects()
 	return
+
+/obj/is_valid_merchant_pad_target()
+	if(anchored)
+		return FALSE
+	return ..()

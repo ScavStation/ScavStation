@@ -25,10 +25,8 @@
 		. += a
 
 /obj/machinery/merchant_pad/proc/is_valid_target(atom/movable/thing)
+	if(!istype(thing))
+		return FALSE
 	if(thing == src)
 		return FALSE
-	if(!isobj(thing) && !isliving(thing))
-		return FALSE
-	if(thing.anchored || !thing.simulated)
-		return FALSE
-	return TRUE
+	return thing.is_valid_merchant_pad_target()
