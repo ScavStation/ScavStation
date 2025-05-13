@@ -206,7 +206,7 @@
 		C.update_icon()
 	activated = 1
 	for(var/turf/T in orange(src, 1))
-		for(var/obj/effect/wallframe_spawn/other in T)
+		for(var/obj/effect/catwalk_plated/other in T)
 			if(!other.activated) other.activate()
 
 /obj/effect/catwalk_plated/dark
