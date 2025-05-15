@@ -30,7 +30,7 @@
 		LAZYDISTINCTADD(_genetic_conditions, condition)
 		if(temporary_time)
 			// TODO: some kind of world.time key or parameter so overlapping calls don't remove each other.
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living, remove_genetic_condition)), temporary_time)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living, remove_genetic_condition), condition_type), temporary_time)
 		queue_genetic_condition_update()
 		return TRUE
 	return FALSE
