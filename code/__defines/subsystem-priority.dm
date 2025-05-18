@@ -46,7 +46,6 @@
 #define SS_PRIORITY_PROCESSING    95  // Generic datum processor. Replaces objects processor.
 #define SS_PRIORITY_PLANTS        90  // Plant processing, slow ticks.
 #define SS_PRIORITY_VINES         50  // Spreading vine effects.
-#define SS_PRIORITY_PSYCHICS      45  // Psychic complexus processing.
 #define SS_PRIORITY_MOB_AI        45  // Mob AI logic; finding targets, attacking, etc.
 #define SS_PRIORITY_AUTO_MOVE     42  // Automated atom movement, fires much more frequently than MOB_AI.
 #define SS_PRIORITY_NANO          40  // Updates to nanoui uis.
