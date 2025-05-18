@@ -48,9 +48,8 @@
 			var/turf/check = locate(T.x + i, T.y + j, T.z)
 			if(!check)
 				continue
-			for(var/atom/movable/M in check.contents)
-				if(!istype(M, /atom/movable/lighting_overlay) && M.density)
-					return 0
+			if(check.contains_dense_objects())
+				return FALSE
 	if(!T)
 		return 0
 	if(ispath(door_type,/obj/structure/door))
