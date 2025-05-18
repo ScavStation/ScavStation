@@ -85,11 +85,11 @@
 
 /decl/species/yinglet/skills_from_age(age)
 	switch(age)
-		if(0 to 5)
-			. = -4
-		if(5 to 10)
+		if(0 to 2)
+			. = -2
+		if(3 to 7)
 			. = 0
-		if(10 to 15)
+		if(8 to 14)
 			. = 4
 		else
 			. = 8
