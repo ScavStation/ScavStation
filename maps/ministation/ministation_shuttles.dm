@@ -62,7 +62,7 @@
 
 /datum/shuttle/autodock/overmap/visitor_dock_space1
 	name = "Visiting Docking Bay 1"
-	shuttle_area = /area/ministation/shuttle/outgoing_visitors1
+	//shuttle_area = /area/ministation/shuttle/outgoing_visitors1
 	dock_target = "visitor_dock_space1"
 	current_location = "nav_ministation_visitor_dock_space1_shuttle"
 
@@ -73,7 +73,7 @@
 
 /datum/shuttle/autodock/overmap/visitor_dock_space2
 	name = "Visiting Docking Bay 2"
-	shuttle_area = /area/ministation/shuttle/outgoing_visitors2
+	//shuttle_area = /area/ministation/shuttle/outgoing_visitors2
 	dock_target = "visitor_dock_space2"
 	current_location = "nav_ministation_visitor_dock_space2_shuttle"
 
