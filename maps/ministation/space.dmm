@@ -910,6 +910,10 @@
 	},
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
+"jX" = (
+/obj/machinery/door/airlock/civilian,
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "ka" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/effect/floor_decal/techfloor/orange,
@@ -954,7 +958,7 @@
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "kS" = (
 /obj/effect/paint/silver,
 /turf/wall/r_titanium,
@@ -1791,10 +1795,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"yu" = (
-/obj/machinery/door/airlock/civilian,
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls_2)
 "yw" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1881,9 +1881,6 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
-"Az" = (
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls_2)
 "AD" = (
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/bluegrid,
@@ -2186,7 +2183,7 @@
 	dir = 6
 	},
 /turf/wall/r_titanium,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "FT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2461,6 +2458,10 @@
 /obj/structure/bed/sofa/right/red,
 /turf/floor/carpet/green,
 /area/ministation/centcomm/lounge)
+"JW" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/ministation/centcomm/ghost_halls_2)
 "Ks" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2681,6 +2682,9 @@
 	},
 /turf/wall/r_titanium,
 /area/ministation/centcomm/command)
+"Np" = (
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "Nq" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
@@ -2808,7 +2812,7 @@
 /obj/effect/paint/brown,
 /obj/effect/paint/brown,
 /turf/wall/r_titanium,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "Pe" = (
 /obj/abstract/level_data_spawner/admin_level,
 /turf/space,
@@ -2960,7 +2964,7 @@
 "Rn" = (
 /obj/effect/paint/brown,
 /turf/wall/r_titanium,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "Rw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3122,10 +3126,6 @@
 "TU" = (
 /turf/floor/carpet/green,
 /area/ministation/centcomm/lounge)
-"TZ" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls_2)
 "Ub" = (
 /obj/effect/shuttle_landmark/escape_shuttle/transit,
 /turf/space/transit/north,
@@ -18390,7 +18390,7 @@ gN
 kF
 FA
 aa
-Az
+Np
 LO
 zD
 Qm
@@ -18520,9 +18520,9 @@ FA
 FA
 FA
 aa
-Az
+Np
 LO
-TZ
+JW
 Qm
 vY
 YL
@@ -18650,9 +18650,9 @@ aa
 aa
 aa
 aa
-Az
+Np
 LO
-TZ
+JW
 Qm
 ZT
 Vt
@@ -18780,9 +18780,9 @@ aa
 aa
 aa
 aa
-yu
+jX
 LO
-TZ
+JW
 Qm
 Qm
 Qm
@@ -18910,10 +18910,10 @@ aa
 aa
 aa
 aa
-Az
+Np
 LO
-TZ
-Az
+JW
+Np
 aa
 aa
 aa
@@ -19040,10 +19040,10 @@ aa
 aa
 aa
 aa
-Az
+Np
 bY
-TZ
-Az
+JW
+Np
 aa
 aa
 aa
@@ -19170,10 +19170,10 @@ aa
 aa
 aa
 aa
-Az
+Np
 KR
-TZ
-Az
+JW
+Np
 aa
 aa
 aa
@@ -19300,10 +19300,10 @@ aa
 aa
 aa
 aa
-Az
-TZ
-TZ
-Az
+Np
+JW
+JW
+Np
 aa
 aa
 aa
@@ -19430,14 +19430,14 @@ aa
 aa
 aa
 aa
-Az
-TZ
+Np
+JW
 CD
-Az
-Az
-Az
-Az
-Az
+Np
+Np
+Np
+Np
+Np
 aa
 aa
 aa
@@ -19560,14 +19560,14 @@ aa
 aa
 aa
 aa
-yu
-TZ
-TZ
-TZ
-TZ
-TZ
-TZ
-Az
+jX
+JW
+JW
+JW
+JW
+JW
+JW
+Np
 aa
 aa
 aa
@@ -19690,14 +19690,14 @@ aa
 aa
 aa
 aa
-Az
-TZ
+Np
+JW
 bB
-TZ
-TZ
+JW
+JW
 fh
-TZ
-Az
+JW
+Np
 aa
 aa
 aa
@@ -19820,14 +19820,14 @@ QI
 QI
 QI
 QI
-Az
-Az
-Az
-Az
-Az
-Az
-Az
-Az
+Np
+Np
+Np
+Np
+Np
+Np
+Np
+Np
 QI
 QI
 QI
