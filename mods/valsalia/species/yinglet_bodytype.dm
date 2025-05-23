@@ -79,7 +79,7 @@
 	standalone_value_descriptors = list(
 		"a hatchling" =     1,
 		"a juvenile" =     2,
-		"an adult" =        3,
+		"an adult" =        5,
 		"middle-aged" =    13,
 		"aging" =          25,
 		"elderly" =        30
