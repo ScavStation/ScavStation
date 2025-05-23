@@ -365,7 +365,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/ghost_halls_2)
 "bN" = (
 /obj/structure/disposalpipe/segment,
 /turf/floor/wood/walnut,
@@ -382,7 +382,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/ghost_halls_2)
 "cn" = (
 /obj/structure/bed/sofa/middle/black{
 	dir = 4
@@ -526,7 +526,7 @@
 /area/ministation/centcomm/private_room_1)
 "eJ" = (
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "eN" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 6
@@ -543,7 +543,7 @@
 	pixel_x = 24
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "eP" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -571,7 +571,7 @@
 	pixel_y = 2
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "ff" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
@@ -585,7 +585,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/ghost_halls_2)
 "fl" = (
 /obj/structure/bed/chair/comfy{
 	dir = 8
@@ -1560,7 +1560,7 @@
 	dir = 9
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "uY" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -1648,14 +1648,14 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "wI" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	pixel_x = -3
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "wK" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/power/apc{
@@ -1791,6 +1791,10 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"yu" = (
+/obj/machinery/door/airlock/civilian,
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "yw" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1850,7 +1854,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/ghost_halls_2)
 "zG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1877,6 +1881,9 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
+"Az" = (
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "AD" = (
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/bluegrid,
@@ -1935,7 +1942,7 @@
 	dir = 1
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "BK" = (
 /obj/structure/casino/bj_table,
 /obj/item/deck/cards,
@@ -1987,7 +1994,7 @@
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/light,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/ghost_halls_2)
 "CE" = (
 /obj/structure/mirror{
 	pixel_x = -22
@@ -2509,7 +2516,7 @@
 	icon_state = "0-8"
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/ghost_halls_2)
 "La" = (
 /obj/effect/floor_decal/carpet/green{
 	pixel_y = 25
@@ -2566,7 +2573,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/ghost_halls_2)
 "LV" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/media/jukebox{
@@ -2740,7 +2747,7 @@
 "NP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "NZ" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/media/jukebox{
@@ -2815,7 +2822,7 @@
 "Pq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "Ps" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/pen/fancy,
@@ -2870,7 +2877,7 @@
 	dir = 9
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "Qa" = (
 /obj/machinery/hologram/holopad/longrange,
 /turf/floor/holofloor/tiled/dark,
@@ -2959,11 +2966,11 @@
 	dir = 6
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "RD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "RO" = (
 /obj/structure/casino/bj_table/bj_right,
 /obj/random/coin,
@@ -3115,6 +3122,10 @@
 "TU" = (
 /turf/floor/carpet/green,
 /area/ministation/centcomm/lounge)
+"TZ" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/ministation/centcomm/ghost_halls_2)
 "Ub" = (
 /obj/effect/shuttle_landmark/escape_shuttle/transit,
 /turf/space/transit/north,
@@ -3206,7 +3217,7 @@
 	dir = 4
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "WD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3304,7 +3315,7 @@
 	dir = 10
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "Yp" = (
 /obj/structure/filing_cabinet/chestdrawer,
 /turf/floor/tiled,
@@ -3374,7 +3385,7 @@
 	dir = 4
 	},
 /turf/floor/plating,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/backrooms_2)
 "ZR" = (
 /turf/wall/r_titanium,
 /area/ministation/centcomm/private_room_2)
@@ -18379,7 +18390,7 @@ gN
 kF
 FA
 aa
-ht
+Az
 LO
 zD
 Qm
@@ -18509,9 +18520,9 @@ FA
 FA
 FA
 aa
-ht
+Az
 LO
-ks
+TZ
 Qm
 vY
 YL
@@ -18639,9 +18650,9 @@ aa
 aa
 aa
 aa
-ht
+Az
 LO
-ks
+TZ
 Qm
 ZT
 Vt
@@ -18769,9 +18780,9 @@ aa
 aa
 aa
 aa
-wE
+yu
 LO
-ks
+TZ
 Qm
 Qm
 Qm
@@ -18899,10 +18910,10 @@ aa
 aa
 aa
 aa
-ht
+Az
 LO
-ks
-ht
+TZ
+Az
 aa
 aa
 aa
@@ -19029,10 +19040,10 @@ aa
 aa
 aa
 aa
-ht
+Az
 bY
-ks
-ht
+TZ
+Az
 aa
 aa
 aa
@@ -19159,10 +19170,10 @@ aa
 aa
 aa
 aa
-ht
+Az
 KR
-ks
-ht
+TZ
+Az
 aa
 aa
 aa
@@ -19289,10 +19300,10 @@ aa
 aa
 aa
 aa
-ht
-ks
-ks
-ht
+Az
+TZ
+TZ
+Az
 aa
 aa
 aa
@@ -19419,14 +19430,14 @@ aa
 aa
 aa
 aa
-ht
-ks
+Az
+TZ
 CD
-ht
-ht
-ht
-ht
-ht
+Az
+Az
+Az
+Az
+Az
 aa
 aa
 aa
@@ -19549,14 +19560,14 @@ aa
 aa
 aa
 aa
-wE
-ks
-ks
-ks
-ks
-ks
-ks
-ht
+yu
+TZ
+TZ
+TZ
+TZ
+TZ
+TZ
+Az
 aa
 aa
 aa
@@ -19679,14 +19690,14 @@ aa
 aa
 aa
 aa
-ht
-ks
+Az
+TZ
 bB
-ks
-ks
+TZ
+TZ
 fh
-ks
-ht
+TZ
+Az
 aa
 aa
 aa
@@ -19809,14 +19820,14 @@ QI
 QI
 QI
 QI
-ht
-ht
-ht
-ht
-ht
-ht
-ht
-ht
+Az
+Az
+Az
+Az
+Az
+Az
+Az
+Az
 QI
 QI
 QI
