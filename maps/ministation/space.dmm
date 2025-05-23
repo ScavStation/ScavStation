@@ -667,6 +667,9 @@
 /obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"fO" = (
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "gC" = (
 /obj/machinery/vending/sol{
 	dir = 1
@@ -894,6 +897,10 @@
 /obj/effect/floor_decal/techfloor/orange/corner,
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"jE" = (
+/obj/machinery/door/airlock/civilian,
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "jL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -910,10 +917,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
-"jX" = (
-/obj/machinery/door/airlock/civilian,
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls_2)
 "ka" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/effect/floor_decal/techfloor/orange,
@@ -1881,6 +1884,9 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
+"Ak" = (
+/turf/wall/r_titanium,
+/area/ministation/centcomm/backrooms_2)
 "AD" = (
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/bluegrid,
@@ -2144,6 +2150,10 @@
 /obj/structure/disposalpipe/segment/bent,
 /turf/floor/holofloor/tiled/dark,
 /area/ministation/centcomm/command)
+"Fr" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/ministation/centcomm/ghost_halls_2)
 "Fs" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2458,10 +2468,6 @@
 /obj/structure/bed/sofa/right/red,
 /turf/floor/carpet/green,
 /area/ministation/centcomm/lounge)
-"JW" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls_2)
 "Ks" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2682,9 +2688,6 @@
 	},
 /turf/wall/r_titanium,
 /area/ministation/centcomm/command)
-"Np" = (
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls_2)
 "Nq" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
@@ -15138,7 +15141,7 @@ aa
 aa
 aa
 aa
-bS
+Ak
 eJ
 Rw
 NP
@@ -15268,7 +15271,7 @@ aa
 aa
 aa
 aa
-bS
+Ak
 wH
 ZB
 BC
@@ -18390,7 +18393,7 @@ gN
 kF
 FA
 aa
-Np
+fO
 LO
 zD
 Qm
@@ -18520,9 +18523,9 @@ FA
 FA
 FA
 aa
-Np
+fO
 LO
-JW
+Fr
 Qm
 vY
 YL
@@ -18650,9 +18653,9 @@ aa
 aa
 aa
 aa
-Np
+fO
 LO
-JW
+Fr
 Qm
 ZT
 Vt
@@ -18780,9 +18783,9 @@ aa
 aa
 aa
 aa
-jX
+jE
 LO
-JW
+Fr
 Qm
 Qm
 Qm
@@ -18910,10 +18913,10 @@ aa
 aa
 aa
 aa
-Np
+fO
 LO
-JW
-Np
+Fr
+fO
 aa
 aa
 aa
@@ -19040,10 +19043,10 @@ aa
 aa
 aa
 aa
-Np
+fO
 bY
-JW
-Np
+Fr
+fO
 aa
 aa
 aa
@@ -19170,10 +19173,10 @@ aa
 aa
 aa
 aa
-Np
+fO
 KR
-JW
-Np
+Fr
+fO
 aa
 aa
 aa
@@ -19300,10 +19303,10 @@ aa
 aa
 aa
 aa
-Np
-JW
-JW
-Np
+fO
+Fr
+Fr
+fO
 aa
 aa
 aa
@@ -19430,14 +19433,14 @@ aa
 aa
 aa
 aa
-Np
-JW
+fO
+Fr
 CD
-Np
-Np
-Np
-Np
-Np
+fO
+fO
+fO
+fO
+fO
 aa
 aa
 aa
@@ -19560,14 +19563,14 @@ aa
 aa
 aa
 aa
-jX
-JW
-JW
-JW
-JW
-JW
-JW
-Np
+jE
+Fr
+Fr
+Fr
+Fr
+Fr
+Fr
+fO
 aa
 aa
 aa
@@ -19690,14 +19693,14 @@ aa
 aa
 aa
 aa
-Np
-JW
+fO
+Fr
 bB
-JW
-JW
+Fr
+Fr
 fh
-JW
-Np
+Fr
+fO
 aa
 aa
 aa
@@ -19820,14 +19823,14 @@ QI
 QI
 QI
 QI
-Np
-Np
-Np
-Np
-Np
-Np
-Np
-Np
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
 QI
 QI
 QI
