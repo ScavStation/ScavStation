@@ -496,13 +496,13 @@
 	name = "\improper Science Shuttle"
 	icon_state = "shuttle"
 
-/area/ministation/shuttle/outgoing_visitors1
+/*/area/ministation/shuttle/outgoing_visitors1
 	name = "\improper Visitors Bay 1"
 	icon_state = "shuttle"
 
 /area/ministation/shuttle/outgoing_visitors2
 	name = "\improper Visitors Bay 2"
-	icon_state = "shuttle"
+	icon_state = "shuttle"*/
 
 
 // CENTCOMMS AREAS
