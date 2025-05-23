@@ -524,9 +524,19 @@
 	name = "\improper CentComm BackRooms"
 	icon_state = "pink"
 
+/area/ministation/centcomm/backrooms_2
+	name = "\improper CentComm BackRooms"
+	icon_state = "pink"
+
 /area/ministation/centcomm/ghost_halls
 	name = "\improper CentComm Ghost Halls"
 	icon_state = "pink"
+
+// for coherency, apparently an area can't exist in more than one place....
+/area/ministation/centcomm/ghost_halls_2
+	name = "\improper CentComm Ghost Halls"
+	icon_state = "pink"
+
 
 /area/ministation/centcomm/halls
 	name = "\improper CentComm Hallways"
