@@ -344,9 +344,7 @@
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
 /turf/floor/shuttle/black,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "bm" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -360,29 +358,21 @@
 	icon_state = "pipe-c"
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "bB" = (
 /obj/machinery/door/airlock/double/civilian{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "bN" = (
 /obj/structure/disposalpipe/segment,
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "bS" = (
 /turf/wall/r_titanium,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "bY" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/light{
@@ -392,17 +382,13 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "cn" = (
 /obj/structure/bed/sofa/middle/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "cs" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -410,65 +396,49 @@
 	},
 /obj/structure/sign/poster/bay_9,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "cx" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/curtain/shower,
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "cz" = (
 /obj/structure/table/bench/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "cE" = (
 /obj/structure/hygiene/toilet{
 	dir = 1
 	},
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "cP" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "cU" = (
 /obj/structure/bed/sofa/left/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "cZ" = (
 /obj/structure/table/woodentable/walnut,
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "dh" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/wall/r_titanium,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/private_room_1)
 "dj" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -477,9 +447,7 @@
 	dir = 8
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "dn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/double/civilian,
@@ -487,9 +455,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "ds" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -499,31 +465,23 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "dv" = (
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "dz" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/Arrival)
 "dA" = (
 /obj/structure/bed/chair/wood{
 	dir = 8
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "dD" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -536,9 +494,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "dK" = (
 /obj/structure/table/gamblingtable,
 /obj/item/chems/drinks/shaker,
@@ -550,9 +506,7 @@
 	dir = 4
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "dR" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
@@ -560,9 +514,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/shuttle/black,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "eI" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 8
@@ -571,14 +523,10 @@
 	pixel_y = 23
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "eJ" = (
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "eN" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 6
@@ -587,9 +535,7 @@
 	dir = 6
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "eO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/alarm{
@@ -597,9 +543,7 @@
 	pixel_x = 24
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "eX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -608,9 +552,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "fa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -622,27 +564,21 @@
 	pixel_y = 2
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "ff" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "fh" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "fl" = (
 /obj/structure/bed/chair/comfy{
 	dir = 8
@@ -660,9 +596,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "fs" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -673,23 +607,17 @@
 	icon_state = "0-1"
 	},
 /turf/floor/holofloor/lino,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "fw" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "fx" = (
 /obj/effect/paint/brown,
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "fy" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -704,27 +632,21 @@
 /area/shuttle/escape_shuttle)
 "fC" = (
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "fF" = (
 /obj/structure/table/bench/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "fJ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "gC" = (
 /obj/machinery/vending/sol{
 	dir = 1
@@ -733,45 +655,35 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "gN" = (
 /obj/structure/table/end/alt,
 /obj/structure/flora/pottedplant/flower{
 	pixel_y = 12
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "gP" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
 	},
 /turf/floor/holofloor/lino,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "gW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/machinery/camera/network/security,
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "hb" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "he" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 4;
@@ -781,9 +693,7 @@
 	dir = 4
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "hr" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -792,14 +702,10 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "ht" = (
 /turf/wall/r_titanium,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "hu" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -811,17 +717,13 @@
 	pixel_y = 2
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "hE" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "hI" = (
 /obj/structure/table/marble,
 /obj/item/towel/random,
@@ -832,18 +734,14 @@
 /obj/item/towel/random,
 /obj/item/towel/random,
 /turf/floor/holofloor/lino,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "hK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "hM" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "shuttle2_sensor";
@@ -865,20 +763,17 @@
 	},
 /obj/machinery/light,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "hS" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/ghost_halls)
 "hZ" = (
 /obj/structure/table/woodentable/walnut,
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "id" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
@@ -887,17 +782,13 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ie" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "if" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -911,35 +802,27 @@
 	icon_state = "0-8"
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "ii" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ix" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "iB" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "iS" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
@@ -949,18 +832,14 @@
 	icon_state = "2-8"
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "jg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "jl" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -968,18 +847,14 @@
 	dir = 8
 	},
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/Arrival)
 "jt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "jw" = (
 /obj/machinery/vending/hotfood,
 /obj/effect/floor_decal/industrial/danger{
@@ -987,9 +862,7 @@
 	},
 /obj/effect/floor_decal/techfloor/orange/corner,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "jL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -998,18 +871,14 @@
 	pixel_x = 32
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "jW" = (
 /obj/structure/cable/orange{
 	dir = 8;
 	icon_state = "1-2"
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "ka" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/effect/floor_decal/techfloor/orange,
@@ -1025,29 +894,21 @@
 	icon_state = "0-4"
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ke" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "ks" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "kF" = (
 /obj/machinery/light/flamp,
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "kH" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/structure/cable{
@@ -1057,30 +918,22 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "kQ" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "kS" = (
 /obj/effect/paint/silver,
 /turf/wall/r_titanium,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "le" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/floor/fake_grass,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "lo" = (
 /turf/space/transit/north,
 /area/space)
@@ -1093,18 +946,14 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "lE" = (
 /obj/structure/table/bench/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "lG" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1112,26 +961,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "lR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "lV" = (
 /obj/effect/paint/red{
 	color = "#6e1d1d"
 	},
 /obj/structure/sign/poster/bay_18,
 /turf/wall/r_titanium,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "lY" = (
 /obj/structure/table/gamblingtable,
 /obj/machinery/chemical_dispenser/bar_coffee/full{
@@ -1147,9 +990,7 @@
 	dir = 8
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "mj" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
@@ -1161,22 +1002,16 @@
 	pixel_y = -32
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "mp" = (
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "mq" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/wall/r_titanium,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/halls)
 "mF" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -1194,33 +1029,25 @@
 	icon_state = "0-4"
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "mG" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "mO" = (
 /obj/effect/paint/brown,
 /turf/wall/r_titanium,
-/area/map_template/marooned)
+/area/ministation/centcomm/ghost_halls)
 "mW" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "mZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "ne" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "start3_sensor";
@@ -1231,29 +1058,21 @@
 	id_tag = "start1_vent"
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "nf" = (
 /obj/item/drain/bath,
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "nl" = (
 /obj/structure/railing/mapped,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "no" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "nr" = (
 /obj/structure/table/gamblingtable,
 /obj/machinery/chemical_dispenser/bar_alc/full{
@@ -1264,9 +1083,7 @@
 	dir = 8
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "nv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1279,24 +1096,18 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "nG" = (
 /obj/structure/flora/bush/ppflowers,
 /turf/floor/fake_grass,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "nT" = (
 /obj/structure/table/end/alt,
 /obj/structure/flora/pottedplant/flower{
 	pixel_y = 12
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "oa" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "start1_sensor";
@@ -1308,24 +1119,18 @@
 	id_tag = "start1_vent"
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "oe" = (
 /obj/machinery/light/flamp,
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "oA" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/civilian,
 /turf/wall/r_titanium,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "oO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1334,22 +1139,16 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "oP" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "oQ" = (
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "pg" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1362,9 +1161,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ph" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1373,15 +1170,11 @@
 	dir = 10
 	},
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "pC" = (
 /obj/effect/floor_decal/techfloor/orange,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "pD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1393,31 +1186,23 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "pW" = (
 /obj/effect/paint/silver,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "pY" = (
 /obj/structure/table/bench/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "qa" = (
 /obj/structure/bed/sofa/left/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "qj" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 8
@@ -1429,9 +1214,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ql" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "start2_sensor";
@@ -1443,9 +1226,7 @@
 	id_tag = "start1_vent"
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "qu" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "shuttle1_sensor";
@@ -1463,9 +1244,7 @@
 	dir = 6
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "qz" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/carpet/green{
@@ -1473,9 +1252,7 @@
 	pixel_x = -25
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "qK" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -1484,23 +1261,17 @@
 	dir = 1
 	},
 /turf/floor/holofloor/lino,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "qM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "qY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "re" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/techfloor/orange/corner{
@@ -1510,9 +1281,7 @@
 	dir = 9
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "rg" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
@@ -1521,26 +1290,20 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "rj" = (
 /obj/structure/table/bench/padded,
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "rk" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "rl" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1548,9 +1311,7 @@
 	dir = 9
 	},
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/Arrival)
 "rq" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/carpet/green{
@@ -1558,35 +1319,27 @@
 	pixel_x = 25
 	},
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "rv" = (
 /obj/structure/cable/orange{
 	dir = 8;
 	icon_state = "2-8"
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "rB" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 4;
 	pixel_x = -25
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "rK" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 10
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "rZ" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/techfloor/orange/corner{
@@ -1596,24 +1349,18 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "sg" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "sh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "sj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1626,9 +1373,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "su" = (
 /obj/structure/table/gamblingtable,
 /obj/item/ashtray/glass,
@@ -1642,9 +1387,7 @@
 	},
 /obj/item/box/fancy/cigar,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "sL" = (
 /obj/structure/table/steel_reinforced,
 /obj/effect/floor_decal/techfloor/orange{
@@ -1658,18 +1401,14 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "sM" = (
 /obj/structure/table/end/alt,
 /obj/structure/flora/pottedplant/flower{
 	pixel_y = 12
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "tn" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -1682,15 +1421,11 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "tv" = (
 /obj/structure/disposalpipe/segment,
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "tB" = (
 /obj/structure/filing_cabinet/chestdrawer,
 /obj/structure/cable{
@@ -1700,9 +1435,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "tC" = (
 /turf/wall/shuttle{
 	unique_merge_identifier = "ministation_escape"
@@ -1713,9 +1446,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "tU" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -1724,18 +1455,14 @@
 	dir = 9
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ud" = (
 /obj/machinery/vending/boozeomat,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "uj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1748,9 +1475,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "uK" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/techfloor/orange/corner,
@@ -1758,17 +1483,13 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "uN" = (
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
 /turf/wall/r_titanium,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "uP" = (
 /obj/machinery/computer/station_alert/all{
 	dir = 1
@@ -1780,38 +1501,25 @@
 	icon_state = "0-8"
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "uQ" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "uT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "uY" = (
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/wall/r_titanium,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
-"uZ" = (
-/turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/private_room_1)
 "vb" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 10
@@ -1820,9 +1528,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "vu" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 8
@@ -1835,9 +1541,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "vx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1846,27 +1550,19 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "vT" = (
 /obj/effect/paint/blue,
 /turf/wall/r_titanium,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "vX" = (
 /obj/structure/curtain/black,
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "vY" = (
 /obj/structure/curtain/shower,
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "wv" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1874,15 +1570,11 @@
 	dir = 6
 	},
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/Arrival)
 "ww" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "wA" = (
 /turf/space,
 /area/map_template/marooned{
@@ -1891,25 +1583,19 @@
 "wE" = (
 /obj/machinery/door/airlock/civilian,
 /turf/wall/r_titanium,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "wH" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "wI" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	pixel_x = -3
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "wK" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/power/apc{
@@ -1922,17 +1608,13 @@
 	icon_state = "0-4"
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "wM" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 8
 	},
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "wP" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -1943,9 +1625,7 @@
 	icon_state = "0-1"
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "wS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -1957,9 +1637,7 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "wU" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 8
@@ -1968,9 +1646,7 @@
 	pixel_y = 23
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "wW" = (
 /obj/structure/table/gamblingtable,
 /obj/machinery/fabricator/micro/bartender{
@@ -1982,9 +1658,7 @@
 	dir = 8
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "xq" = (
 /obj/structure/filing_cabinet/records,
 /obj/structure/cable{
@@ -1997,31 +1671,23 @@
 	dir = 1
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "xt" = (
 /obj/structure/bed/sofa/middle/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "xx" = (
 /obj/machinery/door/airlock/civilian,
 /turf/unsimulated/floor/steel,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "xA" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 8
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "xB" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -2033,9 +1699,7 @@
 	dir = 4
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "xU" = (
 /obj/machinery/computer/shuttle_control,
 /obj/effect/floor_decal/techfloor{
@@ -2045,9 +1709,7 @@
 	icon_state = "0-8"
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "xZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2056,9 +1718,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "yn" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
@@ -2070,16 +1730,12 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "yw" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/Arrival)
 "yx" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/paper_bin{
@@ -2092,34 +1748,26 @@
 	dir = 9
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "yG" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 5
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "yO" = (
 /obj/structure/bed/sofa/right/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "zl" = (
 /obj/effect/paint/red{
 	color = "#6e1d1d"
 	},
 /obj/structure/sign/poster/bay_7,
 /turf/wall/r_titanium,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "zn" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
@@ -2129,16 +1777,12 @@
 	icon_state = "1-4"
 	},
 /turf/wall/r_titanium,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "zr" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "zD" = (
 /obj/machinery/door/airlock/double/glass{
 	dir = 8;
@@ -2146,9 +1790,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "zG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2160,9 +1802,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Ah" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2171,9 +1811,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "AD" = (
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/bluegrid,
@@ -2186,9 +1824,7 @@
 "AI" = (
 /obj/structure/curtain/black,
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "AO" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2197,25 +1833,19 @@
 	dir = 6
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Bi" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "Bt" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "Bz" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 8
@@ -2233,25 +1863,19 @@
 	pixel_x = -20
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "BC" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
 	dir = 1
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "BK" = (
 /obj/structure/casino/bj_table,
 /obj/item/deck/cards,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "BO" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -2260,9 +1884,7 @@
 	id_tag = "start1_airlock_exterior"
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "BU" = (
 /obj/structure/bed/chair/comfy{
 	dir = 8
@@ -2274,9 +1896,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "BV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -2286,31 +1906,23 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Cf" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "Ck" = (
 /obj/structure/railing/mapped,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "CD" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/light,
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "CE" = (
 /obj/structure/mirror{
 	pixel_x = -22
@@ -2321,9 +1933,7 @@
 	pixel_x = -11
 	},
 /turf/floor/holofloor/lino,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "Dn" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 4
@@ -2335,18 +1945,14 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Dt" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/Arrival)
 "DF" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -2355,23 +1961,17 @@
 	charge = 2000000000
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "DH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "DN" = (
 /obj/machinery/light,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "DR" = (
 /obj/effect/floor_decal/techfloor/corner{
 	dir = 8
@@ -2381,18 +1981,14 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "DY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Ed" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -2410,39 +2006,29 @@
 	icon_state = "1-4"
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Eh" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "Eo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/sign/double/barsign,
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Ep" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 9
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Es" = (
 /obj/structure/table/bench/padded,
 /obj/effect/floor_decal/techfloor/orange,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ED" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -2454,9 +2040,7 @@
 	dir = 4
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "EG" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/disposal,
@@ -2465,9 +2049,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "EN" = (
 /obj/structure/table/steel_reinforced,
 /obj/machinery/recharger{
@@ -2477,9 +2059,7 @@
 	dir = 9
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "EW" = (
 /obj/effect/step_trigger/teleporter/random,
 /turf/space,
@@ -2493,40 +2073,30 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Fd" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment/bent,
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Fs" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "FA" = (
 /turf/wall/r_titanium,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "FB" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "FK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	level = 2
@@ -2539,9 +2109,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "FN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/shuttle/blue,
@@ -2552,9 +2120,7 @@
 	dir = 6
 	},
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "FT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2563,14 +2129,10 @@
 	dir = 1
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "FY" = (
 /turf/wall/r_titanium,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Gb" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -2582,9 +2144,7 @@
 	pixel_y = 2
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "Gd" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
@@ -2593,37 +2153,27 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Gl" = (
 /obj/structure/bed/sofa/right/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "Gp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "GA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "GB" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "GH" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
@@ -2636,9 +2186,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "GQ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -2656,18 +2204,14 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "GU" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "GX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2677,9 +2221,7 @@
 	icon_state = "1-8"
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Hb" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
@@ -2689,9 +2231,7 @@
 	level = 2
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Hl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2701,9 +2241,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Ht" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -2712,18 +2250,14 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "HA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "HJ" = (
 /obj/structure/disposaloutlet{
 	dir = 4
@@ -2732,9 +2266,7 @@
 	dir = 8
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "HL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -2743,17 +2275,13 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "HO" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/wall/r_titanium,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "Ia" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -2767,15 +2295,11 @@
 	icon_state = "1-2"
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Ie" = (
 /obj/effect/paint/silver,
 /turf/wall/r_titanium,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Ih" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/structure/cable{
@@ -2786,14 +2310,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Iu" = (
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "Ix" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2802,33 +2322,25 @@
 	dir = 1
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "IE" = (
 /obj/effect/floor_decal/techfloor{
 	dir = 10
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "IH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "IQ" = (
 /obj/structure/table/marble,
 /obj/item/chems/spray/cleaner/deodorant,
 /turf/floor/holofloor/lino,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "IR" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 8
@@ -2837,33 +2349,25 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "IT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "IY" = (
 /obj/structure/flora/tree/hardwood/ebony,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/fake_grass,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Ju" = (
 /obj/effect/paint/red{
 	color = "#6e1d1d"
 	},
 /obj/structure/sign/poster/bay_8,
 /turf/wall/r_titanium,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "JI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2874,21 +2378,15 @@
 	},
 /obj/machinery/media/jukebox/old,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "JK" = (
 /obj/item/stool/padded,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "JP" = (
 /obj/structure/bed/sofa/right/red,
 /turf/floor/carpet/green,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Ks" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2902,9 +2400,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Kt" = (
 /obj/structure/window/borosilicate_reinforced,
 /obj/structure/showcase{
@@ -2920,9 +2416,7 @@
 	pixel_y = 13
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "KH" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb_map";
@@ -2936,9 +2430,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "KR" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/power/apc{
@@ -2950,32 +2442,24 @@
 	icon_state = "0-8"
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "La" = (
 /obj/effect/floor_decal/carpet/green{
 	pixel_y = 25
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Le" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Lp" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "Lr" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2985,9 +2469,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "LF" = (
 /obj/machinery/newscaster{
 	pixel_y = -32;
@@ -2995,45 +2477,35 @@
 	},
 /obj/machinery/light,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "LK" = (
 /obj/machinery/vending/cigarette,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "LL" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "LO" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "LV" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/media/jukebox{
 	pixel_y = 13
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "LZ" = (
 /obj/machinery/vending/sovietsoda{
 	dir = 1
@@ -3043,9 +2515,7 @@
 	},
 /obj/machinery/light,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Mn" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
@@ -3055,15 +2525,11 @@
 	icon_state = "2-8"
 	},
 /turf/wall/r_titanium,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Ms" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Mt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3073,9 +2539,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Mu" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	dir = 8;
@@ -3091,9 +2555,7 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_titanium,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "MV" = (
 /obj/structure/table/steel_reinforced,
 /obj/effect/floor_decal/techfloor/orange{
@@ -3116,9 +2578,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "MW" = (
 /obj/machinery/atmospherics/pipe/manifold{
 	dir = 8
@@ -3133,25 +2593,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/Arrival)
 "Na" = (
 /obj/machinery/computer/arcade/battle,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Nn" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/wall/r_titanium,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Nq" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
@@ -3161,14 +2615,10 @@
 	icon_state = "1-4"
 	},
 /turf/wall/r_titanium,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Nw" = (
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Ny" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -3181,23 +2631,17 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Nz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	level = 2
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "NB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "NG" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 4
@@ -3206,9 +2650,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "NK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm{
@@ -3219,83 +2661,60 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "NM" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "NP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "NZ" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/media/jukebox{
 	pixel_y = 13
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "Ok" = (
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/light,
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "On" = (
 /obj/structure/curtain/black,
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "Ou" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/Arrival)
 "OD" = (
 /obj/structure/table/woodentable/maple,
 /obj/item/flame/candle/scented{
 	pixel_y = 4
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "OE" = (
 /obj/machinery/light,
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "OF" = (
 /obj/structure/bed/chair/wood{
 	dir = 4
 	},
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "OQ" = (
 /obj/machinery/light/flamp,
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "OW" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -3307,22 +2726,16 @@
 	pixel_y = 2
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "Pb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/fake_grass,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Pc" = (
 /obj/effect/paint/brown,
 /obj/effect/paint/brown,
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "Pe" = (
 /obj/abstract/level_data_spawner/admin_level,
 /turf/space,
@@ -3332,15 +2745,11 @@
 	icon_state = "_mcorneroverlay1"
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "Ps" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/pen/fancy,
@@ -3350,17 +2759,13 @@
 	dir = 1
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Pt" = (
 /obj/structure/bed/sofa/middle/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "Pz" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
@@ -3368,32 +2773,24 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "PA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "PB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "PJ" = (
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "PL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -3401,23 +2798,17 @@
 /obj/effect/floor_decal/corner/blue,
 /obj/structure/disposalpipe/segment,
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "PX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "Qa" = (
 /obj/machinery/hologram/holopad/longrange,
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Qd" = (
 /obj/machinery/atmospherics/pipe/manifold{
 	dir = 8
@@ -3430,14 +2821,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Qm" = (
 /turf/wall/r_titanium,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "Qz" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3447,23 +2834,17 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "QA" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/Arrival)
 "QE" = (
 /obj/structure/table/woodentable/walnut,
 /turf/floor/wood,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "QI" = (
 /turf/unsimulated/dark_filler,
 /area/space)
@@ -3472,9 +2853,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "QS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3484,9 +2863,7 @@
 "Re" = (
 /obj/structure/flora/bush/genericbush,
 /turf/floor/fake_grass,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Ri" = (
 /obj/item/frame/light{
 	pixel_y = 38;
@@ -3497,9 +2874,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Rl" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 6;
@@ -3508,23 +2883,17 @@
 	},
 /obj/structure/flora/pottedplant/smalltree,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Rw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "RD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "RO" = (
 /obj/structure/casino/bj_table/bj_right,
 /obj/random/coin,
@@ -3535,31 +2904,23 @@
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "RS" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "RT" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
 /turf/floor/shuttle/black,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Sb" = (
 /turf/wall/r_titanium,
-/area/liberia/guestroom1{
-	name = "\improper Centcomm Room 1"
-	})
+/area/ministation/centcomm/private_room_1)
 "Sd" = (
-/turf/space/transit/south,
-/area/space)
+/turf/unsimulated/dark_filler,
+/area/ministation/centcomm/private_room_2)
 "Sf" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -3568,55 +2929,41 @@
 	dir = 1
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Sn" = (
 /obj/structure/bed/sofa/right/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "Sr" = (
 /obj/structure/bed/sofa/left/black{
 	dir = 4
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "Sw" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/sign/warning/airlock{
 	pixel_y = -1
 	},
 /turf/floor/plating,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "SE" = (
 /turf/floor/holofloor/lino,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "SI" = (
 /obj/effect/paint/red{
 	color = "#6e1d1d"
 	},
 /turf/wall/r_titanium,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "SZ" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 10;
@@ -3625,63 +2972,45 @@
 	},
 /obj/structure/flora/pottedplant/tropical,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Tc" = (
 /obj/structure/bed/sofa/left/red,
 /turf/floor/carpet/green,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Tl" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/wall/r_titanium,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Tq" = (
 /obj/machinery/door/airlock/double/glass/civilian{
 	locked = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/traidingroom{
-	name = "\improper CentComm Ghost Halls"
-	})
+/area/ministation/centcomm/ghost_halls)
 "Tv" = (
 /obj/machinery/power/debug_items/infinite_generator,
 /obj/structure/cable/orange{
 	dir = 8
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "Ty" = (
-/obj/effect/floor_decal/techfloor/orange{
-	dir = 1
-	},
-/turf/floor/tiled/techfloor/grid,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/obj/effect/paint/brown,
+/turf/wall/r_titanium,
+/area/ministation/centcomm/Arrival)
 "TE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "TH" = (
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "TK" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
@@ -3694,9 +3023,7 @@
 	icon_state = "1-4"
 	},
 /turf/wall/r_titanium,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "TN" = (
 /obj/machinery/light{
 	dir = 1
@@ -3705,22 +3032,16 @@
 	icon_state = "4-8"
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "TP" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "TU" = (
 /turf/floor/carpet/green,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Ub" = (
 /obj/effect/shuttle_landmark/escape_shuttle/transit,
 /turf/space/transit/north,
@@ -3731,9 +3052,7 @@
 	pixel_x = 25
 	},
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "UO" = (
 /obj/effect/step_trigger/teleporter/random,
 /turf/space/transit/north,
@@ -3749,16 +3068,12 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Vf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/disposalpipe/segment/bent,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Vm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -3770,16 +3085,12 @@
 	dir = 9
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Vt" = (
 /obj/structure/window/reinforced,
 /obj/item/drain/bath,
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "VB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -3787,9 +3098,7 @@
 	},
 /obj/structure/flora/pottedplant/largebush,
 /turf/floor/wood/mahogany,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "VJ" = (
 /obj/machinery/disposal,
 /obj/effect/floor_decal/techfloor{
@@ -3799,9 +3108,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "VQ" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/structure/disposalpipe/segment,
@@ -3810,17 +3117,13 @@
 	icon_state = "4-8"
 	},
 /turf/floor/shuttle/black,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "VX" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/wall/r_titanium,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "Wp" = (
 /obj/structure/lattice,
 /turf/space,
@@ -3830,9 +3133,7 @@
 	dir = 4
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "WD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3843,18 +3144,14 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "WE" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "WF" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -3863,24 +3160,18 @@
 	dir = 1
 	},
 /turf/floor/plating,
-/area/liberia/engineeringreactor{
-	name = "\improper CentComm Reactor"
-	})
+/area/ministation/centcomm/backrooms)
 "WL" = (
 /obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood/walnut,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "WX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Xa" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/floor_decal/techfloor/orange,
@@ -3889,17 +3180,13 @@
 	icon_state = "2-4"
 	},
 /turf/floor/shuttle/black,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Xc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Xx" = (
 /obj/structure/filing_cabinet/wall,
 /obj/effect/paint/blue,
@@ -3907,9 +3194,7 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_titanium,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "Xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3922,16 +3207,12 @@
 	icon_state = "1-8"
 	},
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "XD" = (
 /obj/machinery/papershredder,
 /obj/effect/floor_decal/techfloor,
 /turf/floor/tiled/steel_grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 "XH" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3940,9 +3221,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/shuttle/black,
-/area/liberia/library{
-	name = "\improper CentComm Lounge"
-	})
+/area/ministation/centcomm/lounge)
 "Yl" = (
 /obj/machinery/meter{
 	name = "Distribution Loop"
@@ -3951,17 +3230,13 @@
 	dir = 10
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "Yp" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Yr" = (
 /turf/wall/r_titanium,
 /area/shuttle/escape_shuttle)
@@ -3977,18 +3252,14 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/liberia/hallway{
-	name = "\improper CentComm Hallway"
-	})
+/area/ministation/centcomm/halls)
 "Yv" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "YJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3997,16 +3268,12 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "YL" = (
 /obj/structure/window/reinforced,
 /obj/structure/curtain/shower,
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "Zb" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
@@ -4016,16 +3283,12 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "Zn" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /turf/floor/wood,
-/area/liberia/personellroom1{
-	name = "\improper CentComm Room 3"
-	})
+/area/ministation/centcomm/private_room_3)
 "Zx" = (
 /obj/structure/flora/bush/brflowers,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4033,36 +3296,26 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/fake_grass,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ZB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
 /turf/floor/plating,
-/area/map_template/marooned{
-	name = "\improper Airlock Air"
-	})
+/area/ministation/centcomm/backrooms)
 "ZR" = (
 /turf/wall/r_titanium,
-/area/liberia/guestroom2{
-	name = "\improper CentComm Room 2"
-	})
+/area/ministation/centcomm/private_room_2)
 "ZS" = (
 /obj/structure/table/bench/padded,
 /turf/floor/tiled/techfloor,
-/area/liberia/dockinghall{
-	name = "\improper CentComm Arrivals"
-	})
+/area/ministation/centcomm/Arrival)
 "ZT" = (
 /obj/structure/hygiene/shower{
 	dir = 8
 	},
 /turf/unsimulated/floor/freezer,
-/area/liberia/toiletroom1{
-	name = "\improper CentComm Bathroom"
-	})
+/area/ministation/centcomm/bathroom)
 "ZX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4072,9 +3325,7 @@
 	locked = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/liberia/officeroom{
-	name = "\improper CentComm Clerk Desk"
-	})
+/area/ministation/centcomm/command)
 
 (1,1,1) = {"
 UO
@@ -15684,7 +14935,7 @@ jl
 QA
 rl
 yw
-fx
+Ty
 EG
 jt
 sj
@@ -15804,7 +15055,7 @@ aa
 aa
 aa
 aa
-hS
+bS
 eJ
 Rw
 NP
@@ -15934,7 +15185,7 @@ aa
 aa
 aa
 aa
-hS
+bS
 wH
 ZB
 BC
@@ -16074,7 +15325,7 @@ wI
 fa
 eO
 NP
-kQ
+Ou
 Ks
 sh
 Vm
@@ -16204,7 +15455,7 @@ FY
 FY
 FY
 FY
-fx
+Ty
 pg
 SK
 eX
@@ -16448,14 +15699,14 @@ ht
 ht
 ht
 uN
-dh
+hS
 oA
 dh
 dh
 dh
 dh
 dh
-Ou
+dh
 uY
 Ri
 HA
@@ -16464,7 +15715,7 @@ Ms
 hb
 Ms
 Ms
-Ty
+Yp
 kH
 Vf
 nv
@@ -16719,9 +15970,9 @@ Cf
 iS
 Xy
 HA
-bS
-uZ
-uZ
+FY
+eJ
+eJ
 vT
 Xx
 EN
@@ -16732,7 +15983,7 @@ uP
 IE
 vT
 vT
-uZ
+eJ
 SI
 su
 UD
@@ -16849,9 +16100,9 @@ hu
 Sb
 Hl
 HA
-bS
-uZ
-uZ
+FY
+eJ
+eJ
 vT
 yx
 Ps
@@ -16862,7 +16113,7 @@ PL
 DR
 VJ
 vT
-uZ
+eJ
 SI
 Tc
 TU
@@ -16979,9 +16230,9 @@ Sb
 Sb
 FK
 PB
-bS
-uZ
-uZ
+FY
+eJ
+eJ
 vT
 xq
 dj
@@ -16992,7 +16243,7 @@ Nw
 Sf
 Ok
 vT
-uZ
+eJ
 SI
 JP
 TU
@@ -17109,9 +16360,9 @@ wA
 FY
 Yt
 Ms
-bS
+FY
 uQ
-uZ
+eJ
 vT
 tB
 Ed
@@ -17122,7 +16373,7 @@ HL
 jL
 XD
 vT
-uZ
+eJ
 SI
 qz
 he
@@ -17239,9 +16490,9 @@ wA
 FY
 mF
 Ms
-bS
-uZ
-uZ
+FY
+eJ
+eJ
 vT
 vT
 Nn
@@ -17369,14 +16620,14 @@ ZR
 ZR
 tn
 Ms
-bS
-uZ
-uZ
-uZ
-uZ
+FY
+eJ
+eJ
+eJ
+eJ
 TP
-uZ
-uZ
+eJ
+eJ
 bz
 tv
 tv
@@ -17499,19 +16750,19 @@ qa
 ZR
 Hl
 Ms
-bS
-uZ
-uZ
-uZ
-uZ
+FY
+eJ
+eJ
+eJ
+eJ
 TP
-uZ
-uZ
-uZ
-uZ
-uZ
-uZ
-uZ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
+eJ
 TE
 bS
 aa
@@ -17606,12 +16857,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -17629,16 +16880,16 @@ oP
 Bi
 Xy
 RS
-bS
+FY
 bS
 bS
 bS
 bS
 TP
-uZ
-uZ
-uZ
-uZ
+eJ
+eJ
+eJ
+eJ
 bS
 bS
 bS
@@ -17736,9 +16987,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+QI
+QI
+QI
 Sd
 Sd
 Sd
@@ -17765,9 +17016,9 @@ aa
 wA
 bS
 Ix
-uZ
-uZ
-uZ
+eJ
+eJ
+eJ
 OE
 bS
 aa
@@ -17895,10 +17146,10 @@ aa
 wA
 bS
 TP
-uZ
-uZ
-uZ
-uZ
+eJ
+eJ
+eJ
+eJ
 bS
 aa
 aa
@@ -18025,10 +17276,10 @@ aa
 wA
 bS
 if
-uZ
+eJ
 Tv
-uZ
-uZ
+eJ
+eJ
 bS
 aa
 aa
@@ -18155,9 +17406,9 @@ aa
 wA
 bS
 TN
-uZ
+eJ
 jW
-uZ
+eJ
 OE
 bS
 aa
@@ -18287,8 +17538,8 @@ bS
 DF
 WF
 rv
-uZ
-uZ
+eJ
+eJ
 bS
 aa
 aa
