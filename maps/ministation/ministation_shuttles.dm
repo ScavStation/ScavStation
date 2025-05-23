@@ -29,7 +29,7 @@
 
 /obj/effect/shuttle_landmark/escape_shuttle/start
 	landmark_tag = "nav_escape_shuttle_start"
-	//docking_controller = "centcom_escape_dock"
+	docking_controller = "centcom_escape_dock"
 
 /obj/effect/shuttle_landmark/escape_shuttle/transit
 	landmark_tag = "nav_escape_shuttle_transit"
@@ -58,6 +58,30 @@
 	name = "Tradepost Science Department Docking Arm"
 	docking_controller = "ministation_science_dock"
 	landmark_tag = "nav_ministation_science_dock_shuttle"
+
+
+/datum/shuttle/autodock/overmap/visitor_dock_space1
+	name = "Visiting Docking Bay 1"
+	shuttle_area = /area/ministation/shuttle/outgoing_visitors1
+	dock_target = "visitor_dock_space1"
+	current_location = "nav_ministation_visitor_dock_space1_shuttle"
+
+/obj/effect/shuttle_landmark/visitor_dock_space1
+	name = "Tradepost Visiting Docking Bays"
+	docking_controller = "visitor_dock_space1"
+	landmark_tag = "nav_ministation_visitor_dock_space1_shuttle"
+
+/datum/shuttle/autodock/overmap/visitor_dock_space2
+	name = "Visiting Docking Bay 2"
+	shuttle_area = /area/ministation/shuttle/outgoing_visitors2
+	dock_target = "visitor_dock_space2"
+	current_location = "nav_ministation_visitor_dock_space2_shuttle"
+
+/obj/effect/shuttle_landmark/visitor_dock_space2
+	name = "Tradepost Visiting Docking Bays"
+	docking_controller = "visitor_dock_space2"
+	landmark_tag = "nav_ministation_visitor_dock_space2_shuttle"
+
 
 /obj/effect/overmap/visitable/ship/landable/science_shuttle
 	name = "Science Shuttle"

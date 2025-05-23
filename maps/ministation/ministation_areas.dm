@@ -488,8 +488,21 @@
 	icon_state = "white"
 	requires_power = 0
 
+/area/ministation/visitors
+	name = "\improper Visiting Shuttles"
+	icon_state = "white"
+	requires_power = 0
+
 /area/ministation/shuttle/outgoing
 	name = "\improper Science Shuttle"
+	icon_state = "shuttle"
+
+/area/ministation/shuttle/outgoing_visitors1
+	name = "\improper Visitors Bay 1"
+	icon_state = "shuttle"
+
+/area/ministation/shuttle/outgoing_visitors2
+	name = "\improper Visitors Bay 2"
 	icon_state = "shuttle"
 
 /area/ministation/Murphy

@@ -340,6 +340,13 @@
 /obj/structure/shuttle/engine/propulsion,
 /turf/space,
 /area/shuttle/escape_shuttle)
+"be" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
+/turf/floor/shuttle/black,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
 "bm" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -347,6 +354,342 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/floor/shuttle/yellow,
 /area/shuttle/escape_shuttle)
+"bz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"bB" = (
+/obj/machinery/door/airlock/double/civilian{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"bN" = (
+/obj/structure/disposalpipe/segment,
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"bS" = (
+/turf/wall/r_titanium,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"bY" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"cn" = (
+/obj/structure/bed/sofa/middle/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"cs" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/structure/sign/poster/bay_9,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"cx" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/curtain/shower,
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"cz" = (
+/obj/structure/table/bench/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"cE" = (
+/obj/structure/hygiene/toilet{
+	dir = 1
+	},
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"cP" = (
+/obj/structure/bed/chair/wood/walnut{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"cU" = (
+/obj/structure/bed/sofa/left/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"cZ" = (
+/obj/structure/table/woodentable/walnut,
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"dh" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_titanium,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"dj" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"dn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/double/civilian,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"ds" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"dv" = (
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"dz" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"dA" = (
+/obj/structure/bed/chair/wood{
+	dir = 8
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"dD" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"dK" = (
+/obj/structure/table/gamblingtable,
+/obj/item/chems/drinks/shaker,
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"dR" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/shuttle/black,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"eI" = (
+/obj/structure/bed/chair/wood/walnut{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"eJ" = (
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"eN" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"eO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"eX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"fa" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 27;
+	pixel_y = 2
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"ff" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"fh" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"fl" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment/bent{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor{
+	dir = 8
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"fs" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-1"
+	},
+/turf/floor/holofloor/lino,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"fw" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"fx" = (
+/obj/effect/paint/brown,
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
 "fy" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -359,6 +702,148 @@
 	},
 /turf/floor/shuttle/black,
 /area/shuttle/escape_shuttle)
+"fC" = (
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"fF" = (
+/obj/structure/table/bench/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"fJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"gC" = (
+/obj/machinery/vending/sol{
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor/orange/corner{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"gN" = (
+/obj/structure/table/end/alt,
+/obj/structure/flora/pottedplant/flower{
+	pixel_y = 12
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"gP" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/turf/floor/holofloor/lino,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"gW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/camera/network/security,
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"hb" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"he" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 4;
+	pixel_x = -25
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"hr" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"ht" = (
+/turf/wall/r_titanium,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"hu" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 24;
+	pixel_y = 2
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"hE" = (
+/obj/structure/bed/chair/wood/walnut{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"hI" = (
+/obj/structure/table/marble,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/turf/floor/holofloor/lino,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"hK" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
 "hM" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "shuttle2_sensor";
@@ -371,9 +856,596 @@
 	},
 /turf/floor/shuttle/black,
 /area/shuttle/escape_shuttle)
+"hN" = (
+/obj/machinery/vending/snix{
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor/orange/corner{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"hS" = (
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"hZ" = (
+/obj/structure/table/woodentable/walnut,
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"id" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ie" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"if" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"ii" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ix" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"iB" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"iS" = (
+/obj/machinery/door/airlock/civilian,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"jg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"jl" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"jt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"jw" = (
+/obj/machinery/vending/hotfood,
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor/orange/corner,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"jL" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/newscaster{
+	pixel_x = 32
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"jW" = (
+/obj/structure/cable/orange{
+	dir = 8;
+	icon_state = "1-2"
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"ka" = (
+/obj/effect/floor_decal/techfloor/orange,
+/obj/effect/floor_decal/techfloor/orange,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ke" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"ks" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"kF" = (
+/obj/machinery/light/flamp,
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"kH" = (
+/obj/effect/floor_decal/techfloor/orange,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"kQ" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"kS" = (
+/obj/effect/paint/silver,
+/turf/wall/r_titanium,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"le" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/fake_grass,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
 "lo" = (
 /turf/space/transit/north,
 /area/space)
+"lz" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment/bent{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"lE" = (
+/obj/structure/table/bench/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"lG" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"lR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"lV" = (
+/obj/effect/paint/red{
+	color = "#6e1d1d"
+	},
+/obj/structure/sign/poster/bay_18,
+/turf/wall/r_titanium,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"lY" = (
+/obj/structure/table/gamblingtable,
+/obj/machinery/chemical_dispenser/bar_coffee/full{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "conpipe-c"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"mj" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 5;
+	pixel_y = -32
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"mp" = (
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"mq" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_titanium,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"mF" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"mG" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"mO" = (
+/obj/effect/paint/brown,
+/turf/wall/r_titanium,
+/area/map_template/marooned)
+"mW" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"mZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"ne" = (
+/obj/machinery/airlock_sensor{
+	id_tag = "start3_sensor";
+	pixel_y = 20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "start1_vent"
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"nf" = (
+/obj/item/drain/bath,
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"nl" = (
+/obj/structure/railing/mapped,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"no" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"nr" = (
+/obj/structure/table/gamblingtable,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"nv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"nG" = (
+/obj/structure/flora/bush/ppflowers,
+/turf/floor/fake_grass,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"nT" = (
+/obj/structure/table/end/alt,
+/obj/structure/flora/pottedplant/flower{
+	pixel_y = 12
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"oa" = (
+/obj/machinery/airlock_sensor{
+	id_tag = "start1_sensor";
+	pixel_y = -20;
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "start1_vent"
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"oe" = (
+/obj/machinery/light/flamp,
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"oA" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/civilian,
+/turf/wall/r_titanium,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"oO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/railing/mapped{
+	icon_state = "mcorneroverlay1";
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"oP" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"oQ" = (
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"pg" = (
+/obj/effect/floor_decal/techfloor/orange,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ph" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"pC" = (
+/obj/effect/floor_decal/techfloor/orange,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"pD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"pW" = (
+/obj/effect/paint/silver,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/wall/r_titanium,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"pY" = (
+/obj/structure/table/bench/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"qa" = (
+/obj/structure/bed/sofa/left/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"qj" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ql" = (
+/obj/machinery/airlock_sensor{
+	id_tag = "start2_sensor";
+	pixel_y = -20;
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "start1_vent"
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
 "qu" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "shuttle1_sensor";
@@ -386,11 +1458,722 @@
 	},
 /turf/floor/shuttle/black,
 /area/shuttle/escape_shuttle)
+"qv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"qz" = (
+/obj/machinery/vending/coffee,
+/obj/effect/floor_decal/carpet/green{
+	dir = 4;
+	pixel_x = -25
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"qK" = (
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/holofloor/lino,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"qM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"qY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"re" = (
+/obj/machinery/vending/cigarette,
+/obj/effect/floor_decal/techfloor/orange/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"rg" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"rj" = (
+/obj/structure/table/bench/padded,
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"rk" = (
+/obj/structure/bed/chair/wood/walnut{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"rl" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"rq" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/carpet/green{
+	dir = 8;
+	pixel_x = 25
+	},
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"rv" = (
+/obj/structure/cable/orange{
+	dir = 8;
+	icon_state = "2-8"
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"rB" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 4;
+	pixel_x = -25
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"rK" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 10
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"rZ" = (
+/obj/machinery/vending/coffee,
+/obj/effect/floor_decal/techfloor/orange/corner{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"sg" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"sh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"sj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"su" = (
+/obj/structure/table/gamblingtable,
+/obj/item/ashtray/glass,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/carpet/green{
+	dir = 8;
+	pixel_x = 25
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/box/fancy/cigar,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"sL" = (
+/obj/structure/table/steel_reinforced,
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/westleft{
+	can_open_manually = 0
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"sM" = (
+/obj/structure/table/end/alt,
+/obj/structure/flora/pottedplant/flower{
+	pixel_y = 12
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"tn" = (
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"tv" = (
+/obj/structure/disposalpipe/segment,
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"tB" = (
+/obj/structure/filing_cabinet/chestdrawer,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/techfloor{
+	dir = 1
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
 "tC" = (
 /turf/wall/shuttle{
 	unique_merge_identifier = "ministation_escape"
 	},
 /area/space)
+"tM" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 4
+	},
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"tU" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ud" = (
+/obj/machinery/vending/boozeomat,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"uj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"uK" = (
+/obj/machinery/vending/cola,
+/obj/effect/floor_decal/techfloor/orange/corner,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"uN" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/wall/r_titanium,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"uP" = (
+/obj/machinery/computer/station_alert/all{
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"uQ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"uT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"uY" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/wall/r_titanium,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"uZ" = (
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"vb" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"vu" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"vx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"vT" = (
+/obj/effect/paint/blue,
+/turf/wall/r_titanium,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"vX" = (
+/obj/structure/curtain/black,
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"vY" = (
+/obj/structure/curtain/shower,
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"wv" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"ww" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"wA" = (
+/turf/space,
+/area/map_template/marooned{
+	name = "\improper CentComm"
+	})
+"wE" = (
+/obj/machinery/door/airlock/civilian,
+/turf/wall/r_titanium,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"wH" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"wI" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	pixel_x = -3
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"wK" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 27;
+	pixel_y = 2
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"wM" = (
+/obj/structure/window/reinforced/tinted{
+	dir = 8
+	},
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"wP" = (
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "_West APC";
+	pixel_x = -25
+	},
+/obj/structure/cable{
+	icon_state = "0-1"
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"wS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"wU" = (
+/obj/structure/bed/chair/wood/walnut{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"wW" = (
+/obj/structure/table/gamblingtable,
+/obj/machinery/fabricator/micro/bartender{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"xq" = (
+/obj/structure/filing_cabinet/records,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"xt" = (
+/obj/structure/bed/sofa/middle/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"xx" = (
+/obj/machinery/door/airlock/civilian,
+/turf/unsimulated/floor/steel,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"xA" = (
+/obj/structure/bed/chair/wood/walnut{
+	dir = 8
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"xB" = (
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "External Airlock Hatch";
+	locked = 1;
+	id_tag = "escape1_airlock_interior"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"xU" = (
+/obj/machinery/computer/shuttle_control,
+/obj/effect/floor_decal/techfloor{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"xZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"yn" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"yw" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"yx" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/paper_bin{
+	pixel_y = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/techfloor{
+	dir = 9
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"yG" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 5
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"yO" = (
+/obj/structure/bed/sofa/right/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"zl" = (
+/obj/effect/paint/red{
+	color = "#6e1d1d"
+	},
+/obj/structure/sign/poster/bay_7,
+/turf/wall/r_titanium,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"zn" = (
+/obj/effect/paint/blue,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/wall/r_titanium,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"zr" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"zD" = (
+/obj/machinery/door/airlock/double/glass{
+	dir = 8;
+	locked = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"zG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Ah" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
 "AD" = (
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/bluegrid,
@@ -400,14 +2183,728 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
 /area/shuttle/escape_shuttle)
+"AI" = (
+/obj/structure/curtain/black,
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"AO" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Bi" = (
+/obj/machinery/door/airlock/civilian,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"Bt" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"Bz" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	id_tag = "station1";
+	tag_airpump = "start1_vent";
+	tag_chamber_sensor = "start1_sensor";
+	tag_exterior_door = "start1_airlock_exterior";
+	tag_interior_door = "start1_airlock_interior";
+	pixel_x = -20
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"BC" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	target_pressure = 200;
+	dir = 1
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"BK" = (
+/obj/structure/casino/bj_table,
+/obj/item/deck/cards,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"BO" = (
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "External Airlock Hatch";
+	locked = 1;
+	id_tag = "start1_airlock_exterior"
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"BU" = (
+/obj/structure/bed/chair/comfy{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment/bent{
+	dir = 4
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"BV" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment/bent{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Cf" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"Ck" = (
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"CD" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/light,
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"CE" = (
+/obj/structure/mirror{
+	pixel_x = -22
+	},
+/obj/structure/table/marble,
+/obj/structure/hygiene/sink{
+	dir = 8;
+	pixel_x = -11
+	},
+/turf/floor/holofloor/lino,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"Dn" = (
+/obj/effect/floor_decal/industrial/loading{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Dt" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"DF" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/smes/buildable/max_cap_in_out{
+	charge = 2000000000
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"DH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"DN" = (
+/obj/machinery/light,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"DR" = (
+/obj/effect/floor_decal/techfloor/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"DY" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Ed" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 24;
+	pixel_y = 2
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Eh" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"Eo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/sign/double/barsign,
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Ep" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 9
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Es" = (
+/obj/structure/table/bench/padded,
+/obj/effect/floor_decal/techfloor/orange,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ED" = (
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	name = "External Airlock Hatch";
+	locked = 1;
+	id_tag = "start1_airlock_interior"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"EG" = (
+/obj/effect/floor_decal/techfloor/orange,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"EN" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/techfloor{
+	dir = 9
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
 "EW" = (
 /obj/effect/step_trigger/teleporter/random,
 /turf/space,
 /area/space)
+"Fa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Fd" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment/bent,
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Fs" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"FA" = (
+/turf/wall/r_titanium,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"FB" = (
+/obj/item/stool/padded,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"FK" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	level = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
 "FN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
+"FS" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"FT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/camera/network/security{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"FY" = (
+/turf/wall/r_titanium,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Gb" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 24;
+	pixel_y = 2
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"Gd" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Gl" = (
+/obj/structure/bed/sofa/right/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"Gp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"GA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"GB" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"GH" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/newscaster{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"GQ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"GU" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"GX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Hb" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Hl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Ht" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"HA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"HJ" = (
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"HL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"HO" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/wall/r_titanium,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"Ia" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Ie" = (
+/obj/effect/paint/silver,
+/turf/wall/r_titanium,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Ih" = (
+/obj/effect/floor_decal/techfloor/orange,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Iu" = (
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"Ix" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"IE" = (
+/obj/effect/floor_decal/techfloor{
+	dir = 10
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"IH" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"IQ" = (
+/obj/structure/table/marble,
+/obj/item/chems/spray/cleaner/deodorant,
+/turf/floor/holofloor/lino,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"IR" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"IT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"IY" = (
+/obj/structure/flora/tree/hardwood/ebony,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/fake_grass,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Ju" = (
+/obj/effect/paint/red{
+	color = "#6e1d1d"
+	},
+/obj/structure/sign/poster/bay_8,
+/turf/wall/r_titanium,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"JI" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/machinery/media/jukebox/old,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"JK" = (
+/obj/item/stool/padded,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"JP" = (
+/obj/structure/bed/sofa/right/red,
+/turf/floor/carpet/green,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Ks" = (
+/obj/effect/floor_decal/techfloor/orange,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
 "Kt" = (
 /obj/structure/window/borosilicate_reinforced,
 /obj/structure/showcase{
@@ -417,6 +2914,15 @@
 	},
 /turf/floor/bluegrid,
 /area/ministation/supply)
+"KC" = (
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/media/jukebox{
+	pixel_y = 13
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
 "KH" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb_map";
@@ -424,6 +2930,152 @@
 	},
 /turf/floor/shuttle/yellow,
 /area/ministation/supply)
+"KN" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"KR" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"La" = (
+/obj/effect/floor_decal/carpet/green{
+	pixel_y = 25
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Le" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Lp" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"Lr" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"LF" = (
+/obj/machinery/newscaster{
+	pixel_y = -32;
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"LK" = (
+/obj/machinery/vending/cigarette,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"LL" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"LO" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"LV" = (
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/media/jukebox{
+	pixel_y = 13
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"LZ" = (
+/obj/machinery/vending/sovietsoda{
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor/orange/corner{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Mn" = (
+/obj/effect/paint/blue,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/wall/r_titanium,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Ms" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Mt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
 "Mu" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	dir = 8;
@@ -434,36 +3086,995 @@
 	},
 /turf/floor/shuttle/yellow,
 /area/ministation/supply)
+"MN" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_titanium,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"MV" = (
+/obj/structure/table/steel_reinforced,
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/westright{
+	can_open_manually = 0
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
 "MW" = (
 /obj/machinery/atmospherics/pipe/manifold{
 	dir = 8
 	},
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
+"MZ" = (
+/obj/machinery/door/airlock/double/sol,
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Na" = (
+/obj/machinery/computer/arcade/battle,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Nn" = (
+/obj/effect/paint/blue,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_titanium,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Nq" = (
+/obj/effect/paint/blue,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/wall/r_titanium,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Nw" = (
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Ny" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Nz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	level = 2
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"NB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"NG" = (
+/obj/effect/floor_decal/industrial/loading{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"NK" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"NM" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"NP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"NZ" = (
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/media/jukebox{
+	pixel_y = 13
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"Ok" = (
+/obj/effect/floor_decal/techfloor,
+/obj/machinery/light,
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"On" = (
+/obj/structure/curtain/black,
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"Ou" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_titanium,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"OD" = (
+/obj/structure/table/woodentable/maple,
+/obj/item/flame/candle/scented{
+	pixel_y = 4
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"OE" = (
+/obj/machinery/light,
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"OF" = (
+/obj/structure/bed/chair/wood{
+	dir = 4
+	},
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"OQ" = (
+/obj/machinery/light/flamp,
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"OW" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 24;
+	pixel_y = 2
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"Pb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/fake_grass,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Pc" = (
+/obj/effect/paint/brown,
+/obj/effect/paint/brown,
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
 "Pe" = (
 /obj/abstract/level_data_spawner/admin_level,
 /turf/space,
 /area/space)
+"Ph" = (
+/obj/structure/railing/mapped{
+	icon_state = "_mcorneroverlay1"
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Pq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"Ps" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/pen/fancy,
+/obj/item/folder/blue,
+/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/techfloor/corner{
+	dir = 1
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Pt" = (
+/obj/structure/bed/sofa/middle/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"Pz" = (
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"PA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"PB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"PJ" = (
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"PL" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue,
+/obj/structure/disposalpipe/segment,
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"PX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"Qa" = (
+/obj/machinery/hologram/holopad/longrange,
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
 "Qd" = (
 /obj/machinery/atmospherics/pipe/manifold{
 	dir = 8
 	},
 /turf/floor/shuttle/yellow,
 /area/shuttle/escape_shuttle)
+"Qf" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Qm" = (
+/turf/wall/r_titanium,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"Qz" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"QA" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/wall/r_titanium,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"QE" = (
+/obj/structure/table/woodentable/walnut,
+/turf/floor/wood,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"QI" = (
+/turf/unsimulated/dark_filler,
+/area/space)
+"QN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
 "QS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
+"Re" = (
+/obj/structure/flora/bush/genericbush,
+/turf/floor/fake_grass,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Ri" = (
+/obj/item/frame/light{
+	pixel_y = 38;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Rl" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 6;
+	pixel_y = 25;
+	pixel_x = -25
+	},
+/obj/structure/flora/pottedplant/smalltree,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Rw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"RD" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"RO" = (
+/obj/structure/casino/bj_table/bj_right,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/coin,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"RS" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"RT" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
+/turf/floor/shuttle/black,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Sb" = (
+/turf/wall/r_titanium,
+/area/liberia/guestroom1{
+	name = "\improper Centcomm Room 1"
+	})
+"Sd" = (
+/turf/space/transit/south,
+/area/space)
+"Sf" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/turf/floor/holofloor/tiled/dark,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Sn" = (
+/obj/structure/bed/sofa/right/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"Sr" = (
+/obj/structure/bed/sofa/left/black{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"Sw" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/sign/warning/airlock{
+	pixel_y = -1
+	},
+/turf/floor/plating,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"SE" = (
+/turf/floor/holofloor/lino,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"SI" = (
+/obj/effect/paint/red{
+	color = "#6e1d1d"
+	},
+/turf/wall/r_titanium,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"SK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"SZ" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 10;
+	pixel_y = 25;
+	pixel_x = 25
+	},
+/obj/structure/flora/pottedplant/tropical,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Tc" = (
+/obj/structure/bed/sofa/left/red,
+/turf/floor/carpet/green,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Tl" = (
+/obj/effect/paint/blue,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_titanium,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Tq" = (
+/obj/machinery/door/airlock/double/glass/civilian{
+	locked = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/traidingroom{
+	name = "\improper CentComm Ghost Halls"
+	})
+"Tv" = (
+/obj/machinery/power/debug_items/infinite_generator,
+/obj/structure/cable/orange{
+	dir = 8
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"Ty" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"TE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"TH" = (
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"TK" = (
+/obj/effect/paint/blue,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/wall/r_titanium,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"TN" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"TP" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"TU" = (
+/turf/floor/carpet/green,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
 "Ub" = (
 /obj/effect/shuttle_landmark/escape_shuttle/transit,
 /turf/space/transit/north,
 /area/space)
+"UD" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 8;
+	pixel_x = 25
+	},
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
 "UO" = (
 /obj/effect/step_trigger/teleporter/random,
 /turf/space/transit/north,
 /area/space)
+"Vc" = (
+/obj/machinery/vending/snack{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor/orange/corner{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Vf" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/disposalpipe/segment/bent,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Vm" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Vt" = (
+/obj/structure/window/reinforced,
+/obj/item/drain/bath,
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"VB" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/obj/structure/flora/pottedplant/largebush,
+/turf/floor/wood/mahogany,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"VJ" = (
+/obj/machinery/disposal,
+/obj/effect/floor_decal/techfloor{
+	dir = 10
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"VQ" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/shuttle/black,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"VX" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_titanium,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"Wp" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"Wu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"WD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	icon_state = "mcorneroverlay1";
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"WE" = (
+/obj/effect/floor_decal/techfloor/orange,
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"WF" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/orange{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/liberia/engineeringreactor{
+	name = "\improper CentComm Reactor"
+	})
+"WL" = (
+/obj/item/stool/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/wood/walnut,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"WX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Xa" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/floor_decal/techfloor/orange,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/shuttle/black,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Xc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Xx" = (
+/obj/structure/filing_cabinet/wall,
+/obj/effect/paint/blue,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_titanium,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"Xy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"XD" = (
+/obj/machinery/papershredder,
+/obj/effect/floor_decal/techfloor,
+/turf/floor/tiled/steel_grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
+"XH" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/shuttle/black,
+/area/liberia/library{
+	name = "\improper CentComm Lounge"
+	})
+"Yl" = (
+/obj/machinery/meter{
+	name = "Distribution Loop"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"Yp" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Yr" = (
+/turf/wall/r_titanium,
+/area/shuttle/escape_shuttle)
+"Yt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/liberia/hallway{
+	name = "\improper CentComm Hallway"
+	})
+"Yv" = (
+/obj/machinery/door/airlock/civilian,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"YJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/railing/mapped{
+	icon_state = "_mcorneroverlay1";
+	dir = 8
+	},
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"YL" = (
+/obj/structure/window/reinforced,
+/obj/structure/curtain/shower,
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"Zb" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/machinery/newscaster{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"Zn" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/turf/floor/wood,
+/area/liberia/personellroom1{
+	name = "\improper CentComm Room 3"
+	})
+"Zx" = (
+/obj/structure/flora/bush/brflowers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor/fake_grass,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ZB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/map_template/marooned{
+	name = "\improper Airlock Air"
+	})
+"ZR" = (
+/turf/wall/r_titanium,
+/area/liberia/guestroom2{
+	name = "\improper CentComm Room 2"
+	})
+"ZS" = (
+/obj/structure/table/bench/padded,
+/turf/floor/tiled/techfloor,
+/area/liberia/dockinghall{
+	name = "\improper CentComm Arrivals"
+	})
+"ZT" = (
+/obj/structure/hygiene/shower{
+	dir = 8
+	},
+/turf/unsimulated/floor/freezer,
+/area/liberia/toiletroom1{
+	name = "\improper CentComm Bathroom"
+	})
+"ZX" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/double/sol{
+	dir = 8;
+	locked = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/liberia/officeroom{
+	name = "\improper CentComm Clerk Desk"
+	})
 
 (1,1,1) = {"
 UO
@@ -9092,9 +12703,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+aj
+aj
+aj
 aa
 aa
 aa
@@ -9111,57 +12722,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -9210,21 +12821,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aj
+aj
+aj
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+aj
+ak
+aj
+aj
+aj
 aa
 aa
 aa
@@ -9241,57 +12852,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -9317,2466 +12928,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(70,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(71,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(72,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(73,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(74,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(75,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(76,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(77,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(78,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(79,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(80,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(81,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(82,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(83,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(84,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(85,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(86,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aj
-aj
-aj
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(87,1,1) = {"
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aj
-aj
-aj
-ak
-ak
-ak
-aj
-aj
-aj
-aj
-aj
-ak
-aj
-aj
-aj
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(88,1,1) = {"
-EW
 aa
 aa
 aa
@@ -11825,73 +12976,63 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 EW
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -11905,8 +13046,18 @@ aa
 aa
 aa
 "}
-(89,1,1) = {"
+(70,1,1) = {"
 EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -11955,73 +13106,63 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 EW
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12035,8 +13176,18 @@ aa
 aa
 aa
 "}
-(90,1,1) = {"
+(71,1,1) = {"
 EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -12085,73 +13236,63 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 EW
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12165,8 +13306,18 @@ aa
 aa
 aa
 "}
-(91,1,1) = {"
+(72,1,1) = {"
 EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -12215,73 +13366,63 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 EW
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12295,8 +13436,18 @@ aa
 aa
 aa
 "}
-(92,1,1) = {"
+(73,1,1) = {"
 EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -12345,73 +13496,63 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 EW
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12425,8 +13566,18 @@ aa
 aa
 aa
 "}
-(93,1,1) = {"
+(74,1,1) = {"
 EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -12475,73 +13626,63 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 EW
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12555,8 +13696,18 @@ aa
 aa
 aa
 "}
-(94,1,1) = {"
+(75,1,1) = {"
 EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -12605,6 +13756,63 @@ aa
 aa
 aa
 aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12615,6 +13823,10 @@ aa
 aa
 aa
 aa
+aa
+aa
+"}
+(76,1,1) = {"
 EW
 aa
 aa
@@ -12649,6 +13861,103 @@ aa
 aa
 aa
 aa
+aj
+at
+aj
+ak
+ak
+ak
+aj
+at
+aj
+at
+aj
+ak
+aj
+aj
+aj
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(77,1,1) = {"
+EW
 aa
 aa
 aa
@@ -12672,6 +13981,2308 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+GB
+BO
+Ie
+Wp
+Wp
+Wp
+GB
+BO
+Ie
+BO
+GB
+aa
+Yr
+Yr
+Yr
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(78,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+GB
+oa
+Ie
+Wp
+Wp
+Wp
+GB
+ql
+Ie
+ne
+GB
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(79,1,1) = {"
+EW
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+GB
+FT
+Ie
+Wp
+Wp
+Wp
+GB
+FT
+Ie
+gW
+GB
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(80,1,1) = {"
+EW
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+GB
+DH
+Ie
+Wp
+Wp
+Wp
+GB
+DH
+Ie
+DH
+GB
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(81,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Ie
+Ie
+GB
+xB
+Sw
+Ie
+mG
+Ie
+GB
+ED
+Sw
+ED
+GB
+Ie
+Ie
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(82,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Ie
+Ie
+jw
+IR
+qj
+vu
+IR
+IR
+Bz
+IR
+qj
+vu
+qj
+IR
+Vc
+Ie
+Ie
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(83,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Ie
+uK
+eN
+pY
+cz
+ZS
+mp
+mp
+mp
+mp
+QN
+ZS
+fF
+ZS
+yG
+hN
+Ie
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(84,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+be
+pC
+QN
+mp
+mp
+mp
+Ph
+Fs
+Fs
+AO
+WD
+Le
+IT
+mp
+mp
+Yp
+be
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(85,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+be
+Es
+QN
+Nz
+Gp
+ie
+nl
+nG
+Re
+le
+Ah
+qv
+Gp
+DY
+mp
+rj
+be
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(86,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+be
+Es
+QN
+ww
+ix
+ds
+Ck
+IY
+Pb
+Zx
+tU
+qM
+lR
+no
+mp
+rj
+be
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(87,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+be
+pC
+QN
+mp
+QN
+Ht
+YJ
+lG
+Qz
+dD
+oO
+ii
+Xc
+mp
+mp
+Yp
+be
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(88,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Ie
+rZ
+vb
+ZS
+fF
+lE
+mp
+mp
+SK
+vx
+mp
+ZS
+ZS
+ZS
+Ep
+LZ
+Ie
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(89,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+fx
+fx
+FS
+kQ
+pW
+pW
+re
+iB
+yn
+GH
+iB
+rK
+NG
+Dn
+Ep
+iB
+Zb
+Gd
+gC
+Ie
+Ie
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(90,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+Pc
+wH
+ZB
+BC
+RD
+wv
+jl
+QA
+rl
+yw
+fx
+EG
+jt
+sj
+mj
+SI
+SI
+SI
+SI
+lV
+SI
+SI
+RT
+RT
+RT
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(91,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+mO
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+hS
+eJ
+Rw
+NP
+NP
+PX
+Wu
+eJ
+eJ
+Yl
+dz
+WE
+SK
+zG
+rg
+Xa
+LK
+Ia
+wP
+BK
+JK
+NM
+VB
+OF
+RT
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(92,1,1) = {"
+EW
+aa
+aa
+aa
+aa
+aa
+mO
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+hS
+wH
+ZB
+BC
+RD
+Pq
+uT
+Rw
+BC
+RD
+Dt
+ka
+SK
+zG
+Hb
+dR
+ud
+ke
+ke
+RO
+FB
+ke
+ph
+OD
+RT
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(93,1,1) = {"
+EW
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+FY
+FY
+kS
+wI
+fa
+eO
+NP
+kQ
+Ks
+sh
+Vm
+id
+dn
+mZ
+mZ
+mZ
+WL
+mZ
+mZ
+jg
+dA
+RT
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(94,1,1) = {"
+EW
+ht
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+Pz
+ks
+ks
+ks
+ks
+ks
+Pz
+ks
+ks
+ks
+ks
+ks
+Pz
+ks
+ks
+Tq
+Ms
+Ms
+FY
+FY
+FY
+FY
+FY
+fx
+pg
+SK
+eX
+Yp
+fw
+oQ
+oQ
+oQ
+oQ
+oQ
+oQ
+sg
+dv
+RT
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+EW
+aa
+aa
+aa
+aa
+aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12687,57 +16298,57 @@ aa
 "}
 (95,1,1) = {"
 EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aj
-at
-aj
-ak
-ak
-ak
-aj
-at
-aj
-at
-aj
-ak
-aj
-aj
-aj
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ht
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+wK
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+ks
+PA
+xZ
+WX
+WX
+WX
+WX
+WX
+MZ
+Ih
+BV
+lz
+Qf
+XH
+Eo
+qY
+qY
+qY
+GA
+oQ
+sg
+LF
+SI
 aa
 aa
 aa
@@ -12751,57 +16362,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12817,57 +16428,57 @@ aa
 "}
 (96,1,1) = {"
 EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aj
-aj
-aj
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ht
+ht
+ht
+wE
+ht
+ht
+ht
+ht
+ht
+wE
+ht
+ht
+ht
+ht
+ht
+wE
+ht
+ht
+ht
+uN
+dh
+oA
+dh
+dh
+dh
+dh
+dh
+Ou
+uY
+Ri
+HA
+Ms
+Ms
+hb
+Ms
+Ms
+Ty
+kH
+Vf
+nv
+KN
+VQ
+nr
+dK
+wW
+lY
+JI
+bN
+zr
+cs
+SI
 aa
 aa
 aa
@@ -12881,57 +16492,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -12969,35 +16580,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Sb
+rk
+LL
+Gl
+Pt
+cU
+MN
+Mt
+Fa
+mq
+mq
+mq
+Tl
+zn
+Tl
+TK
+sL
+MV
+Nq
+Mn
+SI
+Ju
+SI
+SI
+Na
+oQ
+sg
+DN
+SI
 aa
 aa
 aa
@@ -13011,57 +16622,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -13099,35 +16710,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Sb
+QE
+fC
+fC
+fC
+Cf
+iS
+Xy
+HA
+bS
+uZ
+uZ
+vT
+Xx
+EN
+xU
+BU
+fl
+uP
+IE
+vT
+vT
+uZ
+SI
+su
+UD
+rq
+SZ
+RT
 aa
 aa
 aa
@@ -13141,57 +16752,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -13229,35 +16840,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Sb
+eI
+fC
+fC
+KC
+hu
+Sb
+Hl
+HA
+bS
+uZ
+uZ
+vT
+yx
+Ps
+hr
+Fd
+GQ
+PL
+DR
+VJ
+vT
+uZ
+SI
+Tc
+TU
+TU
+La
+RT
 aa
 aa
 aa
@@ -13271,57 +16882,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -13359,35 +16970,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Sb
+On
+On
+On
+Sb
+Sb
+Sb
+FK
+PB
+bS
+uZ
+uZ
+vT
+xq
+dj
+Qa
+Nw
+pD
+Nw
+Sf
+Ok
+vT
+uZ
+SI
+JP
+TU
+TU
+La
+RT
 aa
 aa
 aa
@@ -13401,57 +17012,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -13489,35 +17100,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Sb
+fC
+fC
+fC
+Sb
+wA
+FY
+Yt
+Ms
+bS
+uQ
+uZ
+vT
+tB
+Ed
+NK
+NB
+wS
+HL
+jL
+XD
+vT
+uZ
+SI
+qz
+he
+rB
+Rl
+RT
 aa
 aa
 aa
@@ -13531,57 +17142,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -13619,35 +17230,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Sb
+Bt
+nT
+oe
+Sb
+wA
+FY
+mF
+Ms
+bS
+uZ
+uZ
+vT
+vT
+Nn
+vT
+PJ
+ZX
+vT
+vT
+vT
+vT
+OE
+SI
+zl
+SI
+RT
+RT
+RT
 aa
 aa
 aa
@@ -13661,57 +17272,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -13749,30 +17360,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Sb
+Sb
+Sb
+Sb
+Sb
+ZR
+ZR
+tn
+Ms
+bS
+uZ
+uZ
+uZ
+uZ
+TP
+uZ
+uZ
+bz
+tv
+tv
+tv
+tv
+fJ
+bS
 aa
 aa
 aa
@@ -13791,57 +17402,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -13879,30 +17490,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ZR
+cP
+ff
+Sn
+xt
+qa
+ZR
+Hl
+Ms
+bS
+uZ
+uZ
+uZ
+uZ
+TP
+uZ
+uZ
+uZ
+uZ
+uZ
+uZ
+uZ
+TE
+bS
 aa
 aa
 aa
@@ -13921,57 +17532,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -14009,30 +17620,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ZR
+cZ
+Iu
+Iu
+Iu
+oP
+Bi
+Xy
+RS
+bS
+bS
+bS
+bS
+bS
+TP
+uZ
+uZ
+uZ
+uZ
+bS
+bS
+bS
+HO
+bS
 aa
 aa
 aa
@@ -14051,57 +17662,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -14128,6 +17739,9 @@ aa
 aa
 aa
 aa
+Sd
+Sd
+Sd
 aa
 aa
 aa
@@ -14136,32 +17750,29 @@ aa
 aa
 aa
 aa
+ZR
+xA
+Iu
+Iu
+LV
+Gb
+ZR
+Hl
+Ms
+FY
 aa
 aa
+wA
+bS
+Ix
+uZ
+uZ
+uZ
+OE
+bS
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+HJ
 aa
 aa
 aa
@@ -14181,57 +17792,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -14261,6 +17872,7 @@ aa
 aa
 aa
 aa
+Sd
 aa
 aa
 aa
@@ -14268,27 +17880,26 @@ aa
 aa
 aa
 aa
+ZR
+vX
+vX
+vX
+ZR
+ZR
+ZR
+Hl
+Ms
+FY
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wA
+bS
+TP
+uZ
+uZ
+uZ
+uZ
+bS
 aa
 aa
 aa
@@ -14311,57 +17922,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -14386,39 +17997,39 @@ aa
 aa
 aa
 aa
+Sd
+Sd
+Sd
+Sd
+aa
+aa
+Sd
 aa
 aa
 aa
 aa
 aa
 aa
+ZR
+Iu
+Iu
+Iu
+ZR
+wA
+FY
+uj
+hK
+FY
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wA
+bS
+if
+uZ
+Tv
+uZ
+uZ
+bS
 aa
 aa
 aa
@@ -14441,57 +18052,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -14523,32 +18134,32 @@ aa
 aa
 aa
 aa
+Sd
 aa
 aa
 aa
 aa
 aa
+ZR
+mW
+sM
+OQ
+ZR
+wA
+FY
+GU
+Ms
+FY
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wA
+bS
+TN
+uZ
+jW
+uZ
+OE
+bS
 aa
 aa
 aa
@@ -14571,57 +18182,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -14653,32 +18264,32 @@ aa
 aa
 aa
 aa
+Sd
 aa
 aa
 aa
 aa
 aa
+ZR
+ZR
+ZR
+ZR
+ZR
+FA
+FA
+GU
+Ms
+FY
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wA
+bS
+DF
+WF
+rv
+uZ
+uZ
+bS
 aa
 aa
 aa
@@ -14701,57 +18312,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -14776,39 +18387,39 @@ aa
 aa
 aa
 aa
+Sd
+Sd
+Sd
+Sd
+aa
+aa
+Sd
 aa
 aa
 aa
 aa
 aa
 aa
+FA
+hE
+Lp
+yO
+cn
+Sr
+FA
+Lr
+Ms
+FY
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wA
+bS
+bS
+bS
+bS
+bS
+bS
+bS
 aa
 aa
 aa
@@ -14831,57 +18442,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -14911,6 +18522,7 @@ aa
 aa
 aa
 aa
+Sd
 aa
 aa
 aa
@@ -14918,26 +18530,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+FA
+hZ
+TH
+TH
+TH
+Eh
+Yv
+GX
+RS
+Qm
+Qm
+Qm
+Qm
+Qm
+Qm
+Qm
+Qm
+Qm
+Qm
 aa
 aa
 aa
@@ -14961,57 +18572,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -15038,6 +18649,9 @@ aa
 aa
 aa
 aa
+Sd
+Sd
+Sd
 aa
 aa
 aa
@@ -15046,28 +18660,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+FA
+wU
+TH
+TH
+NZ
+OW
+FA
+GU
+Ms
+Qm
+hI
+CE
+IQ
+CE
+SE
+gP
+vY
+cE
+Qm
 aa
 aa
 aa
@@ -15091,57 +18702,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -15179,25 +18790,25 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+FA
+AI
+AI
+AI
+FA
+FA
+FA
+GU
+Ms
+xx
+SE
+SE
+SE
+SE
+SE
+SE
+vY
+tM
+Qm
 aa
 aa
 aa
@@ -15221,57 +18832,57 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -15309,25 +18920,25 @@ aa
 aa
 aa
 aa
+FA
+TH
+TH
+TH
+FA
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+FY
+Ny
+IH
+VX
+fs
+SE
+SE
+SE
+SE
+SE
+cx
+wM
+Qm
 aa
 aa
 aa
@@ -15439,25 +19050,25 @@ aa
 aa
 aa
 aa
+FA
+Zn
+gN
+kF
+FA
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ht
+LO
+zD
+Qm
+qK
+SE
+SE
+SE
+SE
+SE
+vY
+cE
+Qm
 aa
 aa
 aa
@@ -15569,25 +19180,25 @@ aa
 aa
 aa
 aa
+FA
+FA
+FA
+FA
+FA
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ht
+LO
+ks
+Qm
+vY
+YL
+vY
+YL
+vY
+vY
+Qm
+Qm
+Qm
 aa
 aa
 aa
@@ -15705,17 +19316,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ht
+LO
+ks
+Qm
+ZT
+Vt
+ZT
+Vt
+ZT
+nf
+Qm
 aa
 aa
 aa
@@ -15835,17 +19446,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wE
+LO
+ks
+Qm
+Qm
+Qm
+Qm
+Qm
+Qm
+Qm
+Qm
 aa
 aa
 aa
@@ -15965,10 +19576,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ht
+LO
+ks
+ht
 aa
 aa
 aa
@@ -16095,10 +19706,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ht
+bY
+ks
+ht
 aa
 aa
 aa
@@ -16225,10 +19836,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ht
+KR
+ks
+ht
 aa
 aa
 aa
@@ -16355,10 +19966,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ht
+ks
+ks
+ht
 aa
 aa
 aa
@@ -16485,14 +20096,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ht
+ks
+CD
+ht
+ht
+ht
+ht
+ht
 aa
 aa
 aa
@@ -16615,14 +20226,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wE
+ks
+ks
+ks
+ks
+ks
+ks
+ht
 aa
 aa
 aa
@@ -16745,14 +20356,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ht
+ks
+bB
+ks
+ks
+fh
+ks
+ht
 aa
 aa
 aa
@@ -16847,57 +20458,57 @@ aa
 "}
 (127,1,1) = {"
 EW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
