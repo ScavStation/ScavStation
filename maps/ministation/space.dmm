@@ -438,7 +438,7 @@
 	icon_state = "1-2"
 	},
 /turf/wall/r_titanium,
-/area/ministation/centcomm/private_room_1)
+/area/ministation/centcomm/ghost_halls)
 "dj" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -525,7 +525,8 @@
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_1)
 "eJ" = (
-/turf/floor/plating,
+/obj/effect/paint/brown,
+/turf/wall/r_titanium,
 /area/ministation/centcomm/backrooms)
 "eN" = (
 /obj/effect/floor_decal/techfloor/orange{
@@ -617,7 +618,7 @@
 "fx" = (
 /obj/effect/paint/brown,
 /turf/wall/r_titanium,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/Arrival)
 "fy" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -634,7 +635,6 @@
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_1)
 "fF" = (
-/obj/structure/table/bench/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -765,11 +765,18 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
 "hS" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
 	},
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls)
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/item/food/processed_grown/slice/apple,
+/turf/floor/tiled/techfloor/grid,
+/area/ministation/centcomm/Arrival)
 "hZ" = (
 /obj/structure/table/woodentable/walnut,
 /turf/floor/wood,
@@ -923,7 +930,7 @@
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
-/area/ministation/centcomm/backrooms)
+/area/ministation/centcomm/Arrival)
 "kS" = (
 /obj/effect/paint/silver,
 /turf/wall/r_titanium,
@@ -966,6 +973,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "lV" = (
@@ -1266,6 +1274,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "qY" = (
@@ -1454,6 +1463,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "ud" = (
@@ -1520,6 +1530,9 @@
 	},
 /turf/wall/r_titanium,
 /area/ministation/centcomm/private_room_1)
+"uZ" = (
+/turf/floor/plating,
+/area/ministation/centcomm/backrooms)
 "vb" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 10
@@ -1855,7 +1868,7 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
-	id_tag = "station1";
+	id_tag = "centcom_escape_dock";
 	tag_airpump = "start1_vent";
 	tag_chamber_sensor = "start1_sensor";
 	tag_exterior_door = "start1_airlock_exterior";
@@ -2029,6 +2042,11 @@
 /obj/effect/floor_decal/techfloor/orange,
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"Et" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/wall/r_titanium,
+/area/ministation/centcomm/backrooms)
 "ED" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -2354,6 +2372,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
+/obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "IY" = (
@@ -2451,6 +2470,7 @@
 /area/ministation/centcomm/lounge)
 "Le" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "Lp" = (
@@ -2690,10 +2710,11 @@
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_1)
 "Ou" = (
-/obj/effect/paint/brown,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/wall/r_titanium,
-/area/ministation/centcomm/Arrival)
+/area/ministation/centcomm/private_room_1)
 "OD" = (
 /obj/structure/table/woodentable/maple,
 /obj/item/flame/candle/scented{
@@ -2849,6 +2870,7 @@
 /turf/unsimulated/dark_filler,
 /area/space)
 "QN" = (
+/obj/structure/table/bench/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -2919,8 +2941,19 @@
 /turf/wall/r_titanium,
 /area/ministation/centcomm/private_room_1)
 "Sd" = (
-/turf/unsimulated/dark_filler,
-/area/ministation/centcomm/private_room_2)
+/obj/effect/floor_decal/industrial/danger{
+	dir = 8
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/light{
+	icon_state = "tube_map";
+	dir = 8
+	},
+/obj/item/food/processed_grown/slice/apple,
+/turf/floor/tiled/techfloor/grid,
+/area/ministation/centcomm/Arrival)
 "Sf" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -2999,8 +3032,8 @@
 /turf/floor/plating,
 /area/ministation/centcomm/backrooms)
 "Ty" = (
-/obj/effect/paint/brown,
-/turf/wall/r_titanium,
+/obj/item/food/processed_grown/slice/apple,
+/turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "TE" = (
 /obj/structure/disposalpipe/segment{
@@ -3143,6 +3176,7 @@
 	icon_state = "mcorneroverlay1";
 	dir = 4
 	},
+/obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "WE" = (
@@ -13900,8 +13934,8 @@ IR
 Bz
 IR
 qj
-vu
-qj
+Sd
+hS
 IR
 Vc
 Ie
@@ -14029,10 +14063,10 @@ mp
 mp
 mp
 mp
-QN
-ZS
 fF
-ZS
+mp
+fF
+Ty
 yG
 hN
 Ie
@@ -14151,7 +14185,7 @@ aa
 aa
 be
 pC
-QN
+fF
 mp
 mp
 mp
@@ -14163,7 +14197,7 @@ WD
 Le
 IT
 mp
-mp
+Ty
 Yp
 be
 aa
@@ -14281,7 +14315,7 @@ aa
 aa
 be
 Es
-QN
+fF
 Nz
 Gp
 ie
@@ -14293,7 +14327,7 @@ Ah
 qv
 Gp
 DY
-mp
+Ty
 rj
 be
 aa
@@ -14411,7 +14445,7 @@ aa
 aa
 be
 Es
-QN
+fF
 ww
 ix
 ds
@@ -14423,7 +14457,7 @@ tU
 qM
 lR
 no
-mp
+Ty
 rj
 be
 aa
@@ -14541,9 +14575,9 @@ aa
 aa
 be
 pC
-QN
+fF
 mp
-QN
+fF
 Ht
 YJ
 lG
@@ -14552,7 +14586,7 @@ dD
 oO
 ii
 Xc
-mp
+Ty
 mp
 Yp
 be
@@ -14673,16 +14707,16 @@ Ie
 rZ
 vb
 ZS
-fF
+QN
 lE
 mp
 mp
 SK
 vx
 mp
-ZS
-ZS
-ZS
+Ty
+Ty
+mp
 Ep
 LZ
 Ie
@@ -14795,10 +14829,10 @@ aa
 aa
 aa
 aa
-fx
-fx
+eJ
+eJ
 FS
-kQ
+Et
 pW
 pW
 re
@@ -14935,7 +14969,7 @@ jl
 QA
 rl
 yw
-Ty
+fx
 EG
 jt
 sj
@@ -15056,14 +15090,14 @@ aa
 aa
 aa
 bS
-eJ
+uZ
 Rw
 NP
 NP
 PX
 Wu
-eJ
-eJ
+uZ
+uZ
 Yl
 dz
 WE
@@ -15325,7 +15359,7 @@ wI
 fa
 eO
 NP
-Ou
+kQ
 Ks
 sh
 Vm
@@ -15455,7 +15489,7 @@ FY
 FY
 FY
 FY
-Ty
+fx
 pg
 SK
 eX
@@ -15699,14 +15733,14 @@ ht
 ht
 ht
 uN
-hS
+dh
 oA
-dh
-dh
-dh
-dh
-dh
-dh
+Ou
+Ou
+Ou
+Ou
+Ou
+Ou
 uY
 Ri
 HA
@@ -15971,8 +16005,8 @@ iS
 Xy
 HA
 FY
-eJ
-eJ
+uZ
+uZ
 vT
 Xx
 EN
@@ -15983,7 +16017,7 @@ uP
 IE
 vT
 vT
-eJ
+uZ
 SI
 su
 UD
@@ -16101,8 +16135,8 @@ Sb
 Hl
 HA
 FY
-eJ
-eJ
+uZ
+uZ
 vT
 yx
 Ps
@@ -16113,7 +16147,7 @@ PL
 DR
 VJ
 vT
-eJ
+uZ
 SI
 Tc
 TU
@@ -16231,8 +16265,8 @@ Sb
 FK
 PB
 FY
-eJ
-eJ
+uZ
+uZ
 vT
 xq
 dj
@@ -16243,7 +16277,7 @@ Nw
 Sf
 Ok
 vT
-eJ
+uZ
 SI
 JP
 TU
@@ -16362,7 +16396,7 @@ Yt
 Ms
 FY
 uQ
-eJ
+uZ
 vT
 tB
 Ed
@@ -16373,7 +16407,7 @@ HL
 jL
 XD
 vT
-eJ
+uZ
 SI
 qz
 he
@@ -16491,8 +16525,8 @@ FY
 mF
 Ms
 FY
-eJ
-eJ
+uZ
+uZ
 vT
 vT
 Nn
@@ -16621,13 +16655,13 @@ ZR
 tn
 Ms
 FY
-eJ
-eJ
-eJ
-eJ
+uZ
+uZ
+uZ
+uZ
 TP
-eJ
-eJ
+uZ
+uZ
 bz
 tv
 tv
@@ -16726,17 +16760,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -16751,18 +16785,18 @@ ZR
 Hl
 Ms
 FY
-eJ
-eJ
-eJ
-eJ
+uZ
+uZ
+uZ
+uZ
 TP
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
-eJ
+uZ
+uZ
+uZ
+uZ
+uZ
+uZ
+uZ
 TE
 bS
 aa
@@ -16856,17 +16890,17 @@ aa
 aa
 aa
 aa
-aa
 QI
 QI
 QI
 QI
 QI
 QI
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -16886,10 +16920,10 @@ bS
 bS
 bS
 TP
-eJ
-eJ
-eJ
-eJ
+uZ
+uZ
+uZ
+uZ
 bS
 bS
 bS
@@ -16986,17 +17020,17 @@ aa
 aa
 aa
 aa
-aa
 QI
 QI
 QI
-Sd
-Sd
-Sd
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -17013,12 +17047,12 @@ Ms
 FY
 aa
 aa
-wA
+QI
 bS
 Ix
-eJ
-eJ
-eJ
+uZ
+uZ
+uZ
 OE
 bS
 aa
@@ -17116,17 +17150,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Sd
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -17143,13 +17177,13 @@ Ms
 FY
 aa
 aa
-wA
+QI
 bS
 TP
-eJ
-eJ
-eJ
-eJ
+uZ
+uZ
+uZ
+uZ
 bS
 aa
 aa
@@ -17246,17 +17280,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-Sd
-Sd
-Sd
-Sd
-aa
-aa
-Sd
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -17273,13 +17307,13 @@ hK
 FY
 aa
 aa
-wA
+QI
 bS
 if
-eJ
+uZ
 Tv
-eJ
-eJ
+uZ
+uZ
 bS
 aa
 aa
@@ -17376,17 +17410,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Sd
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -17403,12 +17437,12 @@ Ms
 FY
 aa
 aa
-wA
+QI
 bS
 TN
-eJ
+uZ
 jW
-eJ
+uZ
 OE
 bS
 aa
@@ -17506,17 +17540,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Sd
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -17533,13 +17567,13 @@ Ms
 FY
 aa
 aa
-wA
+QI
 bS
 DF
 WF
 rv
-eJ
-eJ
+uZ
+uZ
 bS
 aa
 aa
@@ -17636,17 +17670,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-Sd
-Sd
-Sd
-Sd
-aa
-aa
-Sd
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -17663,7 +17697,7 @@ Ms
 FY
 aa
 aa
-wA
+QI
 bS
 bS
 bS
@@ -17766,17 +17800,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Sd
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -17896,17 +17930,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-Sd
-Sd
-Sd
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -18026,17 +18060,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -18156,17 +18190,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -18286,17 +18320,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -18416,17 +18450,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -18546,17 +18580,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -18676,17 +18710,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -18806,17 +18840,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
@@ -18936,17 +18970,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
+QI
 aa
 aa
 aa
