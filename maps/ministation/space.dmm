@@ -667,9 +667,6 @@
 /obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"fO" = (
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls_2)
 "gC" = (
 /obj/machinery/vending/sol{
 	dir = 1
@@ -897,10 +894,6 @@
 /obj/effect/floor_decal/techfloor/orange/corner,
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"jE" = (
-/obj/machinery/door/airlock/civilian,
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls_2)
 "jL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -975,6 +968,9 @@
 "lo" = (
 /turf/space/transit/north,
 /area/space)
+"lp" = (
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "lz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1183,6 +1179,9 @@
 /obj/machinery/door/airlock/civilian,
 /turf/wall/r_titanium,
 /area/ministation/centcomm/ghost_halls)
+"oH" = (
+/turf/wall/r_titanium,
+/area/ministation/centcomm/backrooms_2)
 "oO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1779,7 +1778,6 @@
 /area/ministation/centcomm/command)
 "xZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -1845,6 +1843,10 @@
 	},
 /turf/wall/r_titanium,
 /area/ministation/centcomm/command)
+"zp" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/turf/floor/tiled/monotile,
+/area/ministation/centcomm/ghost_halls_2)
 "zr" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -1884,9 +1886,6 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
-"Ak" = (
-/turf/wall/r_titanium,
-/area/ministation/centcomm/backrooms_2)
 "AD" = (
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/bluegrid,
@@ -2150,10 +2149,6 @@
 /obj/structure/disposalpipe/segment/bent,
 /turf/floor/holofloor/tiled/dark,
 /area/ministation/centcomm/command)
-"Fr" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls_2)
 "Fs" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2305,6 +2300,10 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"Hj" = (
+/obj/machinery/door/airlock/civilian,
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "Hl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15141,7 +15140,7 @@ aa
 aa
 aa
 aa
-Ak
+oH
 eJ
 Rw
 NP
@@ -15271,7 +15270,7 @@ aa
 aa
 aa
 aa
-Ak
+oH
 wH
 ZB
 BC
@@ -18393,7 +18392,7 @@ gN
 kF
 FA
 aa
-fO
+lp
 LO
 zD
 Qm
@@ -18523,9 +18522,9 @@ FA
 FA
 FA
 aa
-fO
+lp
 LO
-Fr
+zp
 Qm
 vY
 YL
@@ -18653,9 +18652,9 @@ aa
 aa
 aa
 aa
-fO
+lp
 LO
-Fr
+zp
 Qm
 ZT
 Vt
@@ -18783,9 +18782,9 @@ aa
 aa
 aa
 aa
-jE
+Hj
 LO
-Fr
+zp
 Qm
 Qm
 Qm
@@ -18913,10 +18912,10 @@ aa
 aa
 aa
 aa
-fO
+lp
 LO
-Fr
-fO
+zp
+lp
 aa
 aa
 aa
@@ -19043,10 +19042,10 @@ aa
 aa
 aa
 aa
-fO
+lp
 bY
-Fr
-fO
+zp
+lp
 aa
 aa
 aa
@@ -19173,10 +19172,10 @@ aa
 aa
 aa
 aa
-fO
+lp
 KR
-Fr
-fO
+zp
+lp
 aa
 aa
 aa
@@ -19303,10 +19302,10 @@ aa
 aa
 aa
 aa
-fO
-Fr
-Fr
-fO
+lp
+zp
+zp
+lp
 aa
 aa
 aa
@@ -19433,14 +19432,14 @@ aa
 aa
 aa
 aa
-fO
-Fr
+lp
+zp
 CD
-fO
-fO
-fO
-fO
-fO
+lp
+lp
+lp
+lp
+lp
 aa
 aa
 aa
@@ -19563,14 +19562,14 @@ aa
 aa
 aa
 aa
-jE
-Fr
-Fr
-Fr
-Fr
-Fr
-Fr
-fO
+Hj
+zp
+zp
+zp
+zp
+zp
+zp
+lp
 aa
 aa
 aa
@@ -19693,14 +19692,14 @@ aa
 aa
 aa
 aa
-fO
-Fr
+lp
+zp
 bB
-Fr
-Fr
+zp
+zp
 fh
-Fr
-fO
+zp
+lp
 aa
 aa
 aa
@@ -19823,14 +19822,14 @@ QI
 QI
 QI
 QI
-fO
-fO
-fO
-fO
-fO
-fO
-fO
-fO
+lp
+lp
+lp
+lp
+lp
+lp
+lp
+lp
 QI
 QI
 QI
