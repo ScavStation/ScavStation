@@ -515,16 +515,6 @@
 	},
 /turf/wall,
 /area/ministation/enclave/gatehouse)
-"bI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/floor/tiled,
-/area/ministation/hall/s1)
 "bL" = (
 /obj/item/organ/external/leg/yinglet,
 /turf/space,
@@ -1609,9 +1599,6 @@
 /obj/machinery/light,
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/techfloor,
 /turf/floor/tiled,
@@ -3926,21 +3913,6 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/space,
 /area/space)
-"kE" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/effect/floor_decal/techfloor{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/floor/tiled,
-/area/ministation/hall/s1)
 "kF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -5783,9 +5755,6 @@
 "pC" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
 	},
 /obj/effect/floor_decal/techfloor{
 	dir = 1
@@ -14921,16 +14890,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/ai_sat)
-"NV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/floor/tiled,
-/area/ministation/hall/s1)
 "NW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -15107,14 +15066,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l1central)
-"Ov" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/floor/plating,
-/area/ministation/hall/n)
 "Ow" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -52139,7 +52090,7 @@ zW
 zW
 zW
 gJ
-Ov
+gJ
 gJ
 di
 di
@@ -52921,9 +52872,9 @@ aa
 aa
 ms
 pC
-Pg
-bI
-NV
+aV
+Cc
+QE
 eA
 ms
 aa
@@ -53177,7 +53128,7 @@ aa
 aa
 aa
 ms
-kE
+xG
 aV
 WR
 qX

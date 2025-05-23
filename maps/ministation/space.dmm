@@ -404,6 +404,10 @@
 /obj/structure/curtain/shower,
 /turf/unsimulated/floor/freezer,
 /area/ministation/centcomm/bathroom)
+"cy" = (
+/obj/machinery/door/airlock/civilian,
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "cz" = (
 /obj/structure/table/bench/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -945,11 +949,11 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"kN" = (
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls_2)
 "kQ" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -968,9 +972,6 @@
 "lo" = (
 /turf/space/transit/north,
 /area/space)
-"lp" = (
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls_2)
 "lz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1014,11 +1015,6 @@
 /obj/structure/table/gamblingtable,
 /obj/machinery/chemical_dispenser/bar_coffee/full{
 	dir = 8
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "conpipe-c"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1179,9 +1175,6 @@
 /obj/machinery/door/airlock/civilian,
 /turf/wall/r_titanium,
 /area/ministation/centcomm/ghost_halls)
-"oH" = (
-/turf/wall/r_titanium,
-/area/ministation/centcomm/backrooms_2)
 "oO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1392,6 +1385,9 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"rW" = (
+/turf/wall/r_titanium,
+/area/ministation/centcomm/backrooms_2)
 "rZ" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/techfloor/orange/corner{
@@ -1843,10 +1839,6 @@
 	},
 /turf/wall/r_titanium,
 /area/ministation/centcomm/command)
-"zp" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls_2)
 "zr" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -2300,10 +2292,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"Hj" = (
-/obj/machinery/door/airlock/civilian,
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls_2)
 "Hl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2542,15 +2530,9 @@
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_3)
 "Lr" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/halls)
+/area/ministation/centcomm/ghost_halls_2)
 "LF" = (
 /obj/machinery/newscaster{
 	pixel_y = -32;
@@ -15140,7 +15122,7 @@ aa
 aa
 aa
 aa
-oH
+rW
 eJ
 Rw
 NP
@@ -15270,7 +15252,7 @@ aa
 aa
 aa
 aa
-oH
+rW
 wH
 ZB
 BC
@@ -17743,7 +17725,7 @@ yO
 cn
 Sr
 FA
-Lr
+GU
 Ms
 FY
 aa
@@ -18392,7 +18374,7 @@ gN
 kF
 FA
 aa
-lp
+kN
 LO
 zD
 Qm
@@ -18522,9 +18504,9 @@ FA
 FA
 FA
 aa
-lp
+kN
 LO
-zp
+Lr
 Qm
 vY
 YL
@@ -18652,9 +18634,9 @@ aa
 aa
 aa
 aa
-lp
+kN
 LO
-zp
+Lr
 Qm
 ZT
 Vt
@@ -18782,9 +18764,9 @@ aa
 aa
 aa
 aa
-Hj
+cy
 LO
-zp
+Lr
 Qm
 Qm
 Qm
@@ -18912,10 +18894,10 @@ aa
 aa
 aa
 aa
-lp
+kN
 LO
-zp
-lp
+Lr
+kN
 aa
 aa
 aa
@@ -19042,10 +19024,10 @@ aa
 aa
 aa
 aa
-lp
+kN
 bY
-zp
-lp
+Lr
+kN
 aa
 aa
 aa
@@ -19172,10 +19154,10 @@ aa
 aa
 aa
 aa
-lp
+kN
 KR
-zp
-lp
+Lr
+kN
 aa
 aa
 aa
@@ -19302,10 +19284,10 @@ aa
 aa
 aa
 aa
-lp
-zp
-zp
-lp
+kN
+Lr
+Lr
+kN
 aa
 aa
 aa
@@ -19432,14 +19414,14 @@ aa
 aa
 aa
 aa
-lp
-zp
+kN
+Lr
 CD
-lp
-lp
-lp
-lp
-lp
+kN
+kN
+kN
+kN
+kN
 aa
 aa
 aa
@@ -19562,14 +19544,14 @@ aa
 aa
 aa
 aa
-Hj
-zp
-zp
-zp
-zp
-zp
-zp
-lp
+cy
+Lr
+Lr
+Lr
+Lr
+Lr
+Lr
+kN
 aa
 aa
 aa
@@ -19692,14 +19674,14 @@ aa
 aa
 aa
 aa
-lp
-zp
+kN
+Lr
 bB
-zp
-zp
+Lr
+Lr
 fh
-zp
-lp
+Lr
+kN
 aa
 aa
 aa
@@ -19822,14 +19804,14 @@ QI
 QI
 QI
 QI
-lp
-lp
-lp
-lp
-lp
-lp
-lp
-lp
+kN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
 QI
 QI
 QI
