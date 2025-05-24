@@ -2461,7 +2461,7 @@
 "hs" = (
 /obj/random/tool,
 /obj/random/tool,
-/turf/floor/plating/airless,
+/turf/floor,
 /area/ministation/Murphy/living)
 "hu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5150,7 +5150,7 @@
 "pJ" = (
 /obj/random/tool,
 /obj/structure/closet/toolcloset,
-/turf/floor/plating/airless,
+/turf/floor,
 /area/ministation/Murphy/living)
 "pL" = (
 /turf/open,
@@ -5679,7 +5679,7 @@
 /area/ministation/maint/l3ne)
 "rP" = (
 /obj/machinery/vending/tool,
-/turf/floor/plating/airless,
+/turf/floor,
 /area/ministation/Murphy/living)
 "rQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -10767,9 +10767,6 @@
 "Hz" = (
 /turf/floor/wood/broken/two,
 /area/ministation/maint/l3ne)
-"HA" = (
-/turf/floor/plating/airless,
-/area/ministation/Murphy/living)
 "HB" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/plating,
@@ -12594,7 +12591,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/floor/plating/airless,
+/turf/floor,
 /area/ministation/Murphy/living)
 "Nv" = (
 /obj/effect/decal/cleanable/blood,
@@ -66918,7 +66915,7 @@ NX
 NX
 WP
 jI
-HA
+Xu
 Nu
 pJ
 Qm
