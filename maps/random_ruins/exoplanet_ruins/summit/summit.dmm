@@ -2772,11 +2772,11 @@
 	desc = "The brittle bones of a frail humanoid creature."
 	},
 /obj/item/clothing/suit/jacket/hoodie{
-	color = "#287C37";
+	color = "#287c37";
 	pixel_y = -9;
 	pixel_x = 6;
-	markings_color = "#287C37";
-	paint_color = "#287C37"
+	markings_color = "#287c37";
+	paint_color = "#287c37"
 	},
 /obj/item/grenade/empgrenade{
 	pixel_y = 3;
@@ -7579,11 +7579,11 @@
 	desc = "The brittle bones of a frail humanoid creature."
 	},
 /obj/item/clothing/suit/jacket/hoodie{
-	color = "#287C37";
+	color = "#287c37";
 	pixel_y = 2;
 	pixel_x = -4;
-	paint_color = "#287C37";
-	markings_color = "#287C37"
+	paint_color = "#287c37";
+	markings_color = "#287c37"
 	},
 /obj/item/tank/emergency/oxygen/engi{
 	pixel_x = 8
