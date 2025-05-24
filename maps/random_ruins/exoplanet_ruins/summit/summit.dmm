@@ -794,7 +794,8 @@
 	light_power = null;
 	temperature = 75;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1"
+	icon_state = "singularity_s1";
+	timer = 45
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -2322,7 +2323,7 @@
 /obj/machinery/power/supermatter/nullmatter{
 	explosion_point = 150;
 	emergency_point = 125;
-	critical_temperature = 1000;
+	critical_temperature = 1200;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -2344,7 +2345,8 @@
 	light_power = null;
 	temperature = 0;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1"
+	icon_state = "singularity_s1";
+	timer = 45
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -2413,7 +2415,7 @@
 /obj/machinery/power/supermatter/nullmatter{
 	explosion_point = 150;
 	emergency_point = 125;
-	critical_temperature = 1000;
+	critical_temperature = 1200;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -2435,7 +2437,8 @@
 	light_power = null;
 	temperature = 0;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1"
+	icon_state = "singularity_s1";
+	timer = 45
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -2908,7 +2911,7 @@
 /obj/machinery/power/supermatter/nullmatter{
 	explosion_point = 300;
 	emergency_point = 125;
-	critical_temperature = 625;
+	critical_temperature = 600;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -2930,7 +2933,8 @@
 	light_power = null;
 	temperature = 75;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1"
+	icon_state = "singularity_s1";
+	timer = 45
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -6233,7 +6237,8 @@
 	light_power = null;
 	temperature = 75;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1"
+	icon_state = "singularity_s1";
+	timer = 45
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -7167,7 +7172,7 @@
 /obj/machinery/power/supermatter/nullmatter{
 	explosion_point = 300;
 	emergency_point = 125;
-	critical_temperature = 625;
+	critical_temperature = 600;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -7189,7 +7194,8 @@
 	light_power = null;
 	temperature = 100;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1"
+	icon_state = "singularity_s1";
+	timer = 45
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
