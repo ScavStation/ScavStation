@@ -1491,7 +1491,7 @@
 /area/ministation/centcomm/Arrival)
 "oc" = (
 /obj/machinery/cryopod{
-	dir = 1
+	dir = 2
 	},
 /obj/effect/floor_decal/borderfloor/full,
 /obj/machinery/door/window{
@@ -2346,6 +2346,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/floor/tiled/dark,
@@ -3239,7 +3242,7 @@
 /area/ministation/centcomm/lounge)
 "JQ" = (
 /obj/machinery/cryopod{
-	dir = 1
+	dir = 2
 	},
 /obj/effect/floor_decal/borderfloor/full,
 /obj/machinery/door/window{
