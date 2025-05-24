@@ -449,6 +449,10 @@
 	},
 /turf/wall/r_wall,
 /area/ministation/enclave/evacloset)
+"bz" = (
+/obj/structure/sign/hangar/one,
+/turf/wall,
+/area/ministation/visitors)
 "bA" = (
 /obj/structure/lattice,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -4294,6 +4298,9 @@
 	pixel_y = -3;
 	pixel_x = -21
 	},
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
 /turf/floor/tiled,
 /area/ministation/visitors)
 "lI" = (
@@ -5253,11 +5260,9 @@
 /turf/floor,
 /area/ministation/Murphy/engineroom)
 "om" = (
-/obj/structure/sign/poster/bay_19{
-	pixel_y = 35
-	},
-/turf/wall,
-/area/ministation/hall/s1)
+/obj/structure/sign/hangar/one,
+/turf/space,
+/area/space)
 "on" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -5816,6 +5821,15 @@
 	},
 /turf/floor/plating,
 /area/ministation/engineroom)
+"pM" = (
+/obj/effect/floor_decal/techfloor{
+	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/ministation/visitors)
 "pN" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -6256,6 +6270,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/camera/autoname,
 /turf/floor/tiled,
 /area/ministation/visitors)
 "qU" = (
@@ -7226,6 +7241,13 @@
 	},
 /turf/floor/plating/airless,
 /area/ministation/mining)
+"tL" = (
+/obj/effect/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/structure/sign/hangar/one,
+/turf/floor/tiled,
+/area/ministation/hall/s1)
 "tN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light/small,
@@ -7967,6 +7989,13 @@
 	},
 /turf/wall,
 /area/ministation/trash)
+"vU" = (
+/obj/effect/floor_decal/techfloor{
+	dir = 1
+	},
+/obj/structure/sign/warning/moving_parts,
+/turf/floor/tiled,
+/area/ministation/hall/s1)
 "vV" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -9173,6 +9202,12 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ministation/atmospherics)
+"zv" = (
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/floor/concrete/smooth,
+/area/ministation/visitors)
 "zw" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced,
@@ -9479,6 +9514,10 @@
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/engine)
+"Au" = (
+/obj/structure/sign/hangar/one,
+/turf/floor/concrete/smooth,
+/area/ministation/visitors)
 "Av" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -9822,6 +9861,9 @@
 	},
 /obj/effect/floor_decal/techfloor,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
 /turf/floor/tiled,
 /area/ministation/visitors)
 "Bn" = (
@@ -11964,6 +12006,10 @@
 /obj/machinery/door/firedoor,
 /turf/floor/tiled,
 /area/ministation/engine)
+"Gk" = (
+/obj/machinery/camera/autoname,
+/turf/floor/concrete/smooth,
+/area/ministation/visitors)
 "Gl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14867,6 +14913,12 @@
 /obj/machinery/recharge_station,
 /turf/floor,
 /area/ministation/Murphy/engineroom)
+"NT" = (
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/floor/concrete/smooth,
+/area/ministation/visitors)
 "NU" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
@@ -15785,7 +15837,7 @@
 /obj/machinery/button/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id_tag = "EngineBlastexterior";
-	name = "Engine Bay Blast Doors";
+	name = "Landing Pad Blast Doors";
 	pixel_y = -3;
 	pixel_x = 5
 	},
@@ -16966,6 +17018,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 1
 	},
+/obj/structure/sign/hangar/one,
 /turf/floor/tiled,
 /area/ministation/visitors)
 "TJ" = (
@@ -56468,8 +56521,8 @@ aa
 aa
 aa
 aa
-om
-pI
+ms
+vU
 iX
 WR
 aV
@@ -56726,7 +56779,7 @@ aa
 aa
 aa
 ms
-pI
+tL
 aV
 WR
 aV
@@ -56978,7 +57031,7 @@ fD
 fD
 fD
 fD
-fD
+bz
 fD
 fD
 fD
@@ -56996,7 +57049,7 @@ fD
 fD
 fD
 fD
-fD
+bz
 fD
 fD
 aa
@@ -57249,7 +57302,7 @@ pt
 AI
 pt
 wd
-pt
+pM
 Rd
 WZ
 pt
@@ -58028,7 +58081,7 @@ kf
 EA
 Bm
 fD
-aa
+om
 aa
 aa
 aa
@@ -61110,7 +61163,7 @@ kf
 kf
 kf
 na
-kf
+NT
 fD
 aa
 aa
@@ -61343,7 +61396,7 @@ aa
 aa
 aa
 fD
-kf
+Gk
 te
 kf
 kf
@@ -63913,7 +63966,7 @@ aa
 aa
 aa
 fD
-kf
+Gk
 te
 kf
 kf
@@ -63937,7 +63990,7 @@ kf
 kf
 kf
 na
-kf
+NT
 fD
 aa
 aa
@@ -64170,7 +64223,7 @@ aa
 aa
 aa
 fD
-kf
+Au
 xF
 Ql
 Ql
@@ -64196,7 +64249,7 @@ Ql
 jm
 kf
 fD
-aa
+om
 aa
 aa
 aa
@@ -64954,7 +65007,7 @@ Pk
 BJ
 kf
 RL
-kf
+zv
 kf
 Pk
 kf
