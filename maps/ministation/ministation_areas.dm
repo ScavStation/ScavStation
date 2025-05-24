@@ -558,6 +558,14 @@
 	name = "\improper CentComm Bathrooms"
 	icon_state = "blue"
 
+/area/ministation/centcomm/medbay
+	name = "\improper CentComm Medbay"
+	icon_state = "blue"
+
+/area/ministation/centcomm/cryo
+	name = "\improper CentComm Cryo"
+	icon_state = "orange"
+
 // MURPHY's AREAS
 
 /area/ministation/Murphy

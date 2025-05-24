@@ -348,9 +348,7 @@
 "bj" = (
 /obj/effect/floor_decal/corner/green/half,
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "bm" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -375,7 +373,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "bB" = (
 /obj/machinery/door/airlock/double/civilian{
 	dir = 4
@@ -407,9 +405,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "cn" = (
 /obj/structure/bed/sofa/middle/black{
 	dir = 4
@@ -453,9 +449,7 @@
 	icon_state = "0-8"
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "cE" = (
 /obj/structure/hygiene/toilet{
 	dir = 1
@@ -478,12 +472,6 @@
 /obj/structure/table/woodentable/walnut,
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_2)
-"dh" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/wall/r_titanium,
-/area/ministation/centcomm/private_room_1)
 "dj" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -498,9 +486,7 @@
 "dk" = (
 /obj/machinery/body_scanconsole,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "dn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/double/civilian,
@@ -509,14 +495,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/lounge)
-"dp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
 "ds" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -583,14 +561,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "eH" = (
 /obj/structure/table/reinforced,
 /obj/item/book/skill/medical/medicine/basic,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "eI" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 8
@@ -635,9 +611,7 @@
 	dir = 10
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "eX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -703,9 +677,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "fr" = (
 /obj/effect/floor_decal/carpet/blue2{
 	dir = 4;
@@ -714,9 +686,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/carpet/blue2,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "fs" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -785,9 +755,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "gb" = (
 /obj/structure/table/marble,
 /obj/item/stack/medical/bandage/advanced,
@@ -795,9 +763,7 @@
 	level = 2
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "gd" = (
 /obj/machinery/door/airlock/medical,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -805,15 +771,11 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "gh" = (
 /obj/item/stool/rustic,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "gB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -970,9 +932,7 @@
 	dir = 1
 	},
 /turf/floor/carpet/blue2,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "hZ" = (
 /obj/structure/table/woodentable/walnut,
 /turf/floor/wood,
@@ -1028,9 +988,7 @@
 /area/ministation/centcomm/Arrival)
 "iC" = (
 /turf/wall/r_titanium,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "iS" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
@@ -1040,7 +998,7 @@
 	icon_state = "2-8"
 	},
 /turf/floor/wood,
-/area/ministation/centcomm/private_room_1)
+/area/ministation/centcomm/halls)
 "jg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -1077,7 +1035,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "jA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1086,9 +1044,7 @@
 	dir = 6
 	},
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "jL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1106,9 +1062,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/halls)
 "jW" = (
 /obj/structure/cable/orange{
 	dir = 8;
@@ -1140,9 +1094,7 @@
 	icon_state = "1-4"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "ke" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -1153,9 +1105,7 @@
 /obj/structure/bookcase/manuals/medical,
 /obj/machinery/light,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "ks" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
@@ -1284,9 +1234,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "mF" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -1318,14 +1266,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
-"mU" = (
-/turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "mW" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -1348,9 +1289,7 @@
 	icon_state = "0-4"
 	},
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "mY" = (
 /obj/machinery/bodyscanner{
 	dir = 1
@@ -1359,9 +1298,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "mZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood/walnut,
@@ -1421,9 +1358,7 @@
 	pixel_x = -7
 	},
 /turf/floor/carpet/blue2,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "nB" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 8
@@ -1437,13 +1372,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"nF" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/machinery/door/firedoor,
-/turf/floor/shuttle/black,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
 "nG" = (
 /obj/structure/flora/bush/ppflowers,
 /turf/floor/fake_grass,
@@ -1453,9 +1381,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/halls)
 "nN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1467,9 +1393,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "nT" = (
 /obj/structure/table/end/alt,
 /obj/structure/flora/pottedplant/flower{
@@ -1505,9 +1429,7 @@
 	pixel_y = 28
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "oe" = (
 /obj/machinery/light/flamp,
 /turf/floor/wood,
@@ -1523,9 +1445,7 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_titanium,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "oG" = (
 /obj/machinery/vitals_monitor,
 /obj/machinery/light,
@@ -1537,9 +1457,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "oO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1559,9 +1477,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "pg" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1620,9 +1536,7 @@
 /area/ministation/centcomm/private_room_2)
 "qd" = (
 /turf/wall/r_titanium,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "qj" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 8
@@ -1652,9 +1566,7 @@
 	level = 2
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "qt" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -1667,9 +1579,7 @@
 	icon_state = "2-4"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "qu" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "shuttle1_sensor";
@@ -1699,9 +1609,7 @@
 "qC" = (
 /obj/structure/closet/secure_closet/medical3,
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "qK" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -1733,9 +1641,7 @@
 /obj/item/roller,
 /obj/item/roller,
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "re" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/techfloor/orange/corner{
@@ -1806,9 +1712,7 @@
 	dir = 6
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "rK" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 10
@@ -1899,9 +1803,7 @@
 	level = 2
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "tn" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -1920,9 +1822,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "tv" = (
 /obj/structure/disposalpipe/segment,
 /turf/floor/tiled,
@@ -1955,9 +1855,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "tU" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -1991,17 +1889,13 @@
 "uv" = (
 /obj/structure/iv_drip,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "uw" = (
 /obj/structure/table/marble,
 /obj/item/box/masks,
 /obj/item/box/gloves,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "uK" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/techfloor/orange/corner,
@@ -2018,7 +1912,7 @@
 	icon_state = "1-2"
 	},
 /turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "uP" = (
 /obj/machinery/computer/station_alert/all{
 	dir = 1
@@ -2045,17 +1939,12 @@
 	},
 /turf/floor/plating,
 /area/ministation/centcomm/backrooms_2)
-"uU" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
 "uY" = (
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/wall/r_titanium,
-/area/ministation/centcomm/private_room_1)
+/area/ministation/centcomm/halls)
 "uZ" = (
 /obj/structure/filing_cabinet,
 /turf/floor/tiled,
@@ -2085,9 +1974,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/carpet/blue2,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "vu" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 8
@@ -2120,9 +2007,7 @@
 /area/ministation/centcomm/backrooms)
 "vF" = (
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "vT" = (
 /obj/effect/paint/blue,
 /turf/wall/r_titanium,
@@ -2143,9 +2028,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "wv" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2193,7 +2076,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "wM" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 8
@@ -2251,9 +2134,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "xq" = (
 /obj/structure/filing_cabinet/records,
 /obj/structure/cable{
@@ -2305,7 +2186,7 @@
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "xU" = (
 /obj/machinery/computer/shuttle_control,
 /obj/effect/floor_decal/techfloor{
@@ -2352,9 +2233,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/halls)
 "yw" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2390,9 +2269,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "yG" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 5
@@ -2408,9 +2285,7 @@
 	pixel_y = -24
 	},
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "yO" = (
 /obj/structure/bed/sofa/right/black{
 	dir = 4
@@ -2463,27 +2338,11 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
-"zL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
 "zM" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
 /area/ministation/centcomm/Arrival)
-"Ae" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
 "Ah" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2504,9 +2363,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "AD" = (
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/bluegrid,
@@ -2535,17 +2392,17 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/ghost_halls)
 "Bd" = (
-/turf/wall/r_titanium,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
+/turf/floor/shuttle/black,
+/area/ministation/centcomm/halls)
 "Bi" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/floor/wood,
-/area/ministation/centcomm/private_room_2)
+/area/ministation/centcomm/halls)
 "Bj" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/door/airlock/double/glass/civilian{
@@ -2587,9 +2444,7 @@
 	dir = 5
 	},
 /turf/floor/carpet/blue2,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "BC" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	target_pressure = 200;
@@ -2655,7 +2510,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "CD" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/light,
@@ -2680,9 +2535,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Dn" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 4
@@ -2831,9 +2684,7 @@
 	pixel_x = 24
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "EW" = (
 /obj/effect/step_trigger/teleporter/random,
 /turf/space,
@@ -2852,9 +2703,7 @@
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
 /turf/floor/shuttle/black,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Fd" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -2913,11 +2762,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/centcomm/Arrival)
-"FU" = (
-/turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
 "FY" = (
 /turf/wall/r_titanium,
 /area/ministation/centcomm/halls)
@@ -3016,7 +2860,7 @@
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "Hb" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
@@ -3036,15 +2880,11 @@
 	pixel_y = 24
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Hi" = (
 /obj/structure/sign/department/star_of_life,
 /turf/wall/r_titanium,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/halls)
 "Hl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3077,12 +2917,6 @@
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/halls)
-"HF" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls)
 "HJ" = (
 /obj/structure/disposaloutlet{
 	dir = 4
@@ -3160,9 +2994,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "IE" = (
 /obj/effect/floor_decal/techfloor{
 	dir = 10
@@ -3220,7 +3052,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "JI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3252,9 +3084,7 @@
 	pixel_y = 28
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "Kj" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -3263,9 +3093,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "Ks" = (
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3326,9 +3154,7 @@
 /obj/structure/table/marble,
 /obj/item/firstaid/surgery,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "La" = (
 /obj/effect/floor_decal/carpet/green{
 	pixel_y = 25
@@ -3403,9 +3229,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Mi" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3453,15 +3277,13 @@
 	icon_state = "2-8"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "MN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/wall/r_titanium,
-/area/ministation/centcomm/private_room_1)
+/area/ministation/centcomm/halls)
 "MV" = (
 /obj/structure/table/steel_reinforced,
 /obj/effect/floor_decal/techfloor/orange{
@@ -3515,9 +3337,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/floor/shuttle/black,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "Nn" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
@@ -3614,9 +3434,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Ok" = (
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/light,
@@ -3636,9 +3454,7 @@
 	dir = 9
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Ou" = (
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
@@ -3652,15 +3468,11 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "OB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "OD" = (
 /obj/structure/table/woodentable/maple,
 /obj/item/flame/candle/scented{
@@ -3715,9 +3527,7 @@
 /obj/structure/sign/department/redcross,
 /obj/machinery/door/firedoor,
 /turf/floor/shuttle/black,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "Ph" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3752,9 +3562,7 @@
 "Py" = (
 /obj/structure/closet/secure_closet/medical1,
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "Pz" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
@@ -3762,7 +3570,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "PA" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3868,9 +3676,7 @@
 	icon_state = "0-4"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
+/area/ministation/centcomm/medbay)
 "Rh" = (
 /obj/effect/floor_decal/carpet/blue2{
 	dir = 6;
@@ -3892,9 +3698,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/carpet/blue2,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Ri" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3932,9 +3736,7 @@
 	icon_state = "0-1"
 	},
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Rw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3983,11 +3785,6 @@
 /area/ministation/bridge{
 	name = "\improper CentComm Command"
 	})
-"Si" = (
-/turf/wall/r_titanium,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
 "Sn" = (
 /obj/structure/bed/sofa/right/black{
 	dir = 4
@@ -4016,12 +3813,6 @@
 	},
 /turf/wall/r_titanium,
 /area/ministation/centcomm/lounge)
-"SJ" = (
-/obj/structure/sign/directions/medical{
-	dir = 1
-	},
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4055,7 +3846,7 @@
 /obj/machinery/door/airlock/double/glass/civilian,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "Tv" = (
 /obj/machinery/power/debug_items/infinite_generator,
 /obj/structure/cable/orange{
@@ -4087,9 +3878,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/floor/tiled/white,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/halls)
 "TH" = (
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_3)
@@ -4124,14 +3913,6 @@
 /obj/machinery/computer/modular/preset/civilian,
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
-"TQ" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall/r_titanium,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
 "TU" = (
 /turf/floor/carpet/green,
 /area/ministation/centcomm/lounge)
@@ -4148,17 +3929,7 @@
 	pixel_y = 23
 	},
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
-"Uz" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/wall/r_titanium,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/medbay)
 "UD" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 8;
@@ -4181,9 +3952,7 @@
 	dir = 10
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "Vc" = (
 /obj/machinery/vending/snack{
 	dir = 1
@@ -4275,7 +4044,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
+/area/ministation/centcomm/halls)
 "Wp" = (
 /obj/structure/lattice,
 /turf/space,
@@ -4315,13 +4084,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood/walnut,
 /area/ministation/centcomm/lounge)
-"WM" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/machinery/door/firedoor,
-/turf/floor/shuttle/black,
-/area/ministation/Murphy/kitchen{
-	name = "\improper CentComm Surgery Room"
-	})
 "WX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4348,16 +4110,12 @@
 	dir = 5
 	},
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "Xn" = (
 /obj/effect/floor_decal/corner/green/half,
 /obj/machinery/light,
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "Xx" = (
 /obj/structure/filing_cabinet/wall,
 /obj/effect/paint/blue,
@@ -4390,9 +4148,7 @@
 	pixel_x = 24
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "XD" = (
 /obj/machinery/papershredder,
 /obj/effect/floor_decal/techfloor,
@@ -4427,9 +4183,7 @@
 	dir = 10
 	},
 /turf/floor/carpet/blue2,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 "Yi" = (
 /obj/machinery/light{
 	dir = 4
@@ -4448,9 +4202,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/white,
-/area/ministation/medical{
-	name = "\improper CentComm Medical Storage"
-	})
+/area/ministation/centcomm/medbay)
 "Yl" = (
 /obj/machinery/meter{
 	name = "Distribution Loop"
@@ -4493,9 +4245,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/dark,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/cryo)
 "YL" = (
 /obj/structure/window/reinforced,
 /obj/structure/curtain/shower,
@@ -4541,9 +4291,7 @@
 	icon_state = "2-8"
 	},
 /turf/wall/r_titanium,
-/area/ministation/cafe{
-	name = "\improper CentComm Cryo"
-	})
+/area/ministation/centcomm/halls)
 "ZR" = (
 /turf/wall/r_titanium,
 /area/ministation/centcomm/private_room_2)
@@ -4591,9 +4339,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/carpet/blue2,
-/area/ministation/Murphy/med{
-	name = "\improper CentComm Medbay"
-	})
+/area/ministation/centcomm/medbay)
 
 (1,1,1) = {"
 UO
@@ -15140,15 +14886,15 @@ aa
 aa
 iC
 iC
-WM
-WM
-WM
+Fb
+Fb
+Fb
 iC
-Si
-Si
-nF
-Si
-Si
+iC
+iC
+Fb
+iC
+iC
 aa
 aa
 aa
@@ -15274,11 +15020,11 @@ vF
 vF
 dk
 mY
-Si
+iC
 rb
-FU
+vF
 Py
-Si
+iC
 aa
 aa
 aa
@@ -15398,17 +15144,17 @@ aa
 aa
 aa
 aa
-WM
+Fb
 gb
 OB
-Ae
+Xi
 uv
 Rg
-Si
+iC
 Uf
-FU
+vF
 qC
-nF
+Fb
 aa
 aa
 aa
@@ -15528,17 +15274,17 @@ aa
 aa
 aa
 aa
-WM
+Fb
 KW
 vF
 mx
 vF
 oG
-Si
+iC
 mX
 Xi
-FU
-nF
+vF
+Fb
 aa
 aa
 aa
@@ -15658,17 +15404,17 @@ aa
 aa
 aa
 aa
-WM
+Fb
 uw
 vF
-zL
+fY
 vF
 Ax
-Si
+iC
 fm
 fY
-FU
-nF
+vF
+Fb
 aa
 aa
 aa
@@ -15791,14 +15537,14 @@ aa
 iC
 EQ
 vF
-zL
+fY
 rJ
 Kj
-Si
+iC
 Yi
 jA
 yN
-Si
+iC
 aa
 aa
 aa
@@ -15920,15 +15666,15 @@ aa
 aa
 iC
 iC
-WM
+Fb
 Pg
 gd
 Ne
-Si
+iC
 oA
 OA
-Si
-Si
+iC
+iC
 aa
 aa
 aa
@@ -16049,16 +15795,16 @@ aa
 aa
 aa
 aa
-Bd
+iC
 ws
-dp
+fY
 oS
 MJ
 tN
 kd
 CX
 ko
-Bd
+iC
 aa
 aa
 aa
@@ -16181,7 +15927,7 @@ aa
 aa
 Fb
 eH
-dp
+fY
 Yh
 BA
 nw
@@ -16439,16 +16185,16 @@ aa
 aa
 aa
 aa
-Bd
+iC
 He
 gh
 gh
 CX
-mU
+vF
 qt
 Rr
 ko
-Bd
+iC
 aa
 aa
 aa
@@ -16569,23 +16315,23 @@ ht
 ht
 ht
 ht
+ht
+FY
 Bd
 Bd
-Fb
-Fb
 TF
 jM
-TQ
+MN
 Hi
-Bd
-Bd
-ht
-ht
-ht
-SJ
-ht
-ht
-ht
+FY
+FY
+FY
+FY
+FY
+Hy
+FY
+FY
+FY
 FY
 Hy
 kS
@@ -16701,20 +16447,20 @@ ks
 ks
 Bj
 Pz
-ks
-ks
+Ms
+Ms
 CB
-uU
+Mi
 Wn
 xC
-uU
-uU
-uU
+Mi
+Mi
+Mi
 dY
-uU
+Mi
 xC
-uU
-uU
+Mi
+Mi
 Tq
 Mi
 Ph
@@ -16830,9 +16576,9 @@ ks
 ks
 ks
 ks
-ks
-ks
-ks
+Ms
+Ms
+Ms
 JF
 Ha
 bA
@@ -16960,21 +16706,21 @@ wE
 ht
 ht
 ht
-qd
-qd
+FY
+FY
 nM
 yq
-Uz
+mq
 ZG
 uN
-HF
-HF
-dh
-dh
-dh
-dh
-dh
-dh
+mq
+mq
+mq
+mq
+mq
+mq
+mq
+mq
 uY
 Ri
 HA
@@ -17365,7 +17111,7 @@ fC
 fC
 KC
 hu
-Sb
+FY
 Hl
 HA
 FY
@@ -17495,7 +17241,7 @@ On
 On
 Sb
 Sb
-Sb
+FY
 FK
 PB
 FY
@@ -17885,7 +17631,7 @@ Sb
 Sb
 Sb
 ZR
-ZR
+FY
 tn
 Ms
 FY
@@ -18015,7 +17761,7 @@ ff
 Sn
 xt
 qa
-ZR
+FY
 Hl
 Ms
 FY
@@ -18275,7 +18021,7 @@ Iu
 Iu
 LV
 Gb
-ZR
+FY
 Hl
 Ms
 FY
@@ -18405,7 +18151,7 @@ vX
 vX
 ZR
 ZR
-ZR
+FY
 Hl
 Ms
 FY
