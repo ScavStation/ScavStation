@@ -472,6 +472,12 @@
 /obj/structure/table/woodentable/walnut,
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_2)
+"dh" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls)
 "dj" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -480,9 +486,7 @@
 	dir = 8
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "dk" = (
 /obj/machinery/body_scanconsole,
 /turf/floor/tiled/white,
@@ -495,12 +499,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/lounge)
-"dp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/floor/tiled/white,
-/area/ministation/centcomm/medbay)
 "ds" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -670,9 +668,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "fm" = (
 /obj/structure/table/reinforced,
 /obj/item/firstaid/toxin,
@@ -756,12 +752,6 @@
 /obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"fY" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/wall/r_titanium,
-/area/ministation/centcomm/ghost_halls)
 "gb" = (
 /obj/structure/table/marble,
 /obj/item/stack/medical/bandage/advanced,
@@ -844,9 +834,7 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "ht" = (
 /turf/wall/r_titanium,
 /area/ministation/centcomm/ghost_halls)
@@ -992,6 +980,19 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"iC" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 27;
+	pixel_y = 2
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/monotile,
+/area/ministation/centcomm/ghost_halls)
 "iS" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
@@ -1056,9 +1057,7 @@
 	pixel_x = 32
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "jM" = (
 /obj/machinery/door/airlock/double/medical{
 	dir = 8
@@ -1270,19 +1269,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
-"mU" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "_East APC";
-	pixel_x = 27;
-	pixel_y = 2
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
 "mW" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -1388,6 +1374,11 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"nF" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
+/turf/floor/shuttle/black,
+/area/ministation/centcomm/medbay)
 "nG" = (
 /obj/structure/flora/bush/ppflowers,
 /turf/floor/fake_grass,
@@ -1534,9 +1525,7 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "pW" = (
 /obj/effect/paint/silver,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -1805,9 +1794,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "sM" = (
 /obj/structure/table/end/alt,
 /obj/structure/flora/pottedplant/flower{
@@ -1855,9 +1842,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "tC" = (
 /turf/wall/shuttle{
 	unique_merge_identifier = "ministation_escape"
@@ -1934,9 +1919,7 @@
 	icon_state = "0-8"
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "uQ" = (
 /obj/machinery/light{
 	dir = 1
@@ -2018,9 +2001,7 @@
 "vT" = (
 /obj/effect/paint/blue,
 /turf/wall/r_titanium,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "vX" = (
 /obj/structure/curtain/black,
 /turf/floor/wood,
@@ -2073,11 +2054,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/centcomm/backrooms_2)
-"wK" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/halls)
 "wM" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 8
@@ -2106,9 +2082,7 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "wU" = (
 /obj/structure/bed/chair/wood/walnut{
 	dir = 8
@@ -2148,9 +2122,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "xt" = (
 /obj/structure/bed/sofa/middle/black{
 	dir = 4
@@ -2197,9 +2169,7 @@
 	icon_state = "0-8"
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "xZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/paleblue/mono,
@@ -2255,9 +2225,7 @@
 	dir = 9
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "yA" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2312,9 +2280,7 @@
 	icon_state = "1-4"
 	},
 /turf/wall/r_titanium,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "zr" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -2342,11 +2308,23 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
+"zL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/ministation/centcomm/medbay)
 "zM" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
 /area/ministation/centcomm/Arrival)
+"Ae" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/floor/tiled/white,
+/area/ministation/centcomm/medbay)
 "Ah" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2479,9 +2457,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "BV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -2589,9 +2565,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "DY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -2616,9 +2590,7 @@
 	icon_state = "1-4"
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Eh" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -2671,9 +2643,7 @@
 	dir = 9
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "EQ" = (
 /obj/structure/hygiene/sink{
 	pixel_y = 20
@@ -2712,9 +2682,7 @@
 	},
 /obj/structure/disposalpipe/segment/bent,
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Fs" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2841,9 +2809,7 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "GU" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2859,6 +2825,11 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/turf/floor/tiled/monotile,
+/area/ministation/centcomm/halls)
+"Ha" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/halls)
 "Hb" = (
@@ -2944,9 +2915,7 @@
 	pixel_x = 32
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "HO" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3006,9 +2975,7 @@
 	dir = 10
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "IH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3251,9 +3218,7 @@
 	},
 /obj/structure/sign/department/hop,
 /turf/wall/r_titanium,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Ms" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
@@ -3284,12 +3249,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
-"MN" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall/r_titanium,
-/area/ministation/centcomm/halls)
 "MV" = (
 /obj/structure/table/steel_reinforced,
 /obj/effect/floor_decal/techfloor/orange{
@@ -3313,9 +3272,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "MW" = (
 /obj/machinery/atmospherics/pipe/manifold{
 	dir = 8
@@ -3350,9 +3307,7 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_titanium,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Nq" = (
 /obj/effect/paint/blue,
 /obj/structure/cable{
@@ -3362,14 +3317,10 @@
 	icon_state = "1-4"
 	},
 /turf/wall/r_titanium,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Nw" = (
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Ny" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -3392,9 +3343,7 @@
 "NB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "NG" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 4
@@ -3414,9 +3363,7 @@
 	dir = 4
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "NM" = (
 /obj/machinery/light{
 	icon_state = "tube_map";
@@ -3445,9 +3392,7 @@
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/light,
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "On" = (
 /obj/structure/curtain/black,
 /turf/floor/wood,
@@ -3556,9 +3501,7 @@
 /obj/item/stamp/boss,
 /obj/item/card/id/centcom,
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Pt" = (
 /obj/structure/bed/sofa/middle/black{
 	dir = 4
@@ -3593,9 +3536,7 @@
 /area/ministation/centcomm/halls)
 "PJ" = (
 /turf/floor/tiled/techfloor/grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "PL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -3603,9 +3544,7 @@
 /obj/effect/floor_decal/corner/blue,
 /obj/structure/disposalpipe/segment,
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "PX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -3615,9 +3554,7 @@
 "Qa" = (
 /obj/machinery/hologram/holopad/longrange,
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Qd" = (
 /obj/machinery/atmospherics/pipe/manifold{
 	dir = 8
@@ -3788,9 +3725,7 @@
 	dir = 1
 	},
 /turf/floor/holofloor/tiled/dark,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Sn" = (
 /obj/structure/bed/sofa/right/black{
 	dir = 4
@@ -3844,9 +3779,7 @@
 	icon_state = "1-2"
 	},
 /turf/wall/r_titanium,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Tq" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/door/airlock/double/glass/civilian,
@@ -3900,9 +3833,7 @@
 	icon_state = "1-4"
 	},
 /turf/wall/r_titanium,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "TN" = (
 /obj/machinery/light{
 	dir = 1
@@ -3919,6 +3850,12 @@
 /obj/machinery/computer/modular/preset/civilian,
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
+"TQ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_titanium,
+/area/ministation/centcomm/halls)
 "TU" = (
 /turf/floor/carpet/green,
 /area/ministation/centcomm/lounge)
@@ -4018,9 +3955,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "VQ" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/structure/disposalpipe/segment,
@@ -4090,11 +4025,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood/walnut,
 /area/ministation/centcomm/lounge)
-"WM" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/machinery/door/firedoor,
-/turf/floor/shuttle/black,
-/area/ministation/centcomm/medbay)
 "WX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4116,12 +4046,6 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
-"Xi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/floor/tiled/white,
-/area/ministation/centcomm/medbay)
 "Xn" = (
 /obj/effect/floor_decal/corner/green/half,
 /obj/machinery/light,
@@ -4134,9 +4058,7 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_titanium,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "Xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4164,9 +4086,7 @@
 /obj/machinery/papershredder,
 /obj/effect/floor_decal/techfloor,
 /turf/floor/tiled/steel_grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "XH" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4327,9 +4247,7 @@
 	current_health = 400000000000000
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ministation/bridge{
-	name = "\improper CentComm Command"
-	})
+/area/ministation/centcomm/command)
 "ZZ" = (
 /obj/effect/floor_decal/carpet/blue2{
 	dir = 10;
@@ -14897,13 +14815,13 @@ aa
 aa
 Bd
 Bd
-WM
-WM
-WM
+nF
+nF
+nF
 Bd
 Bd
 Bd
-WM
+nF
 Bd
 Bd
 aa
@@ -15155,17 +15073,17 @@ aa
 aa
 aa
 aa
-WM
+nF
 gb
 OB
-Xi
+Ae
 uv
 Rg
 Bd
 Uf
 FU
 qC
-WM
+nF
 aa
 aa
 aa
@@ -15285,7 +15203,7 @@ aa
 aa
 aa
 aa
-WM
+nF
 KW
 FU
 mx
@@ -15293,9 +15211,9 @@ FU
 oG
 Bd
 mX
-Xi
+Ae
 FU
-WM
+nF
 aa
 aa
 aa
@@ -15415,17 +15333,17 @@ aa
 aa
 aa
 aa
-WM
+nF
 uw
 FU
-dp
+zL
 FU
 Ax
 Bd
 fm
-dp
+zL
 FU
-WM
+nF
 aa
 aa
 aa
@@ -15548,7 +15466,7 @@ aa
 Bd
 EQ
 FU
-dp
+zL
 rJ
 Kj
 Bd
@@ -15677,7 +15595,7 @@ aa
 aa
 Bd
 Bd
-WM
+nF
 Pg
 gd
 Ne
@@ -15808,7 +15726,7 @@ aa
 aa
 Bd
 ws
-dp
+zL
 oS
 MJ
 tN
@@ -15936,16 +15854,16 @@ aa
 aa
 aa
 aa
-WM
+nF
 eH
-dp
+zL
 Yh
 BA
 nw
 ZZ
 Os
 mO
-WM
+nF
 aa
 aa
 aa
@@ -16066,7 +15984,7 @@ aa
 aa
 aa
 aa
-WM
+nF
 qr
 Oc
 vg
@@ -16075,7 +15993,7 @@ fr
 Rh
 Mh
 Iz
-WM
+nF
 aa
 aa
 aa
@@ -16332,7 +16250,7 @@ Fb
 Fb
 TF
 jM
-MN
+TQ
 Hi
 FY
 FY
@@ -16581,7 +16499,7 @@ ks
 ks
 ks
 ks
-mU
+iC
 ks
 ks
 ks
@@ -16591,18 +16509,18 @@ Ms
 Ms
 Ms
 JF
-wK
+Ha
 bA
-wK
-wK
-wK
-wK
+Ha
+Ha
+Ha
+Ha
 jy
-wK
-wK
-wK
-wK
-wK
+Ha
+Ha
+Ha
+Ha
+Ha
 PA
 xZ
 WX
@@ -16711,7 +16629,7 @@ ht
 ht
 ht
 ht
-fY
+dh
 HF
 wE
 HF
@@ -16862,7 +16780,7 @@ LL
 Gl
 Pt
 cU
-MN
+TQ
 Mt
 Fa
 mq
