@@ -87,7 +87,7 @@
 	switch(age)
 		if(0 to 2)
 			. = -2
-		if(5 to 10)
+		if(3 to 10)
 			. = 0
 		if(11 to 16)
 			. = 4
