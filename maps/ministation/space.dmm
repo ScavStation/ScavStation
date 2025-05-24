@@ -675,9 +675,6 @@
 /obj/item/firstaid/toxin,
 /obj/item/firstaid/toxin,
 /obj/item/defibrillator/loaded,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
 "fr" = (
@@ -752,6 +749,12 @@
 /obj/item/food/processed_grown/slice/apple,
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
+"fY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/ministation/centcomm/medbay)
 "gb" = (
 /obj/structure/table/marble,
 /obj/item/stack/medical/bandage/advanced,
@@ -980,19 +983,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"iC" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "_East APC";
-	pixel_x = 27;
-	pixel_y = 2
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/ghost_halls)
 "iS" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
@@ -1089,9 +1079,6 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
 "kd" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
@@ -1269,6 +1256,9 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
+"mU" = (
+/turf/floor/tiled/white,
+/area/ministation/centcomm/medbay)
 "mW" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -1279,16 +1269,8 @@
 /obj/item/firstaid/fire,
 /obj/item/firstaid/fire,
 /obj/item/firstaid/fire,
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 20
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	level = 2
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
 	},
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
@@ -1374,11 +1356,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"nF" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/machinery/door/firedoor,
-/turf/floor/shuttle/black,
-/area/ministation/centcomm/medbay)
 "nG" = (
 /obj/structure/flora/bush/ppflowers,
 /turf/floor/fake_grass,
@@ -1451,9 +1428,6 @@
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
 "oA" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/wall/r_titanium,
 /area/ministation/centcomm/medbay)
 "oG" = (
@@ -2308,23 +2282,16 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
-"zL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/floor/tiled/white,
-/area/ministation/centcomm/medbay)
 "zM" = (
 /obj/effect/paint/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/wall/r_titanium,
 /area/ministation/centcomm/Arrival)
 "Ae" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/floor/tiled/white,
-/area/ministation/centcomm/medbay)
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
+/turf/floor/shuttle/black,
+/area/ministation/centcomm/halls)
 "Ah" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2374,8 +2341,18 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/ghost_halls)
 "Bd" = (
-/turf/wall/r_titanium,
-/area/ministation/centcomm/medbay)
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 27;
+	pixel_y = 2
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/monotile,
+/area/ministation/centcomm/ghost_halls)
 "Bi" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
@@ -2675,7 +2652,7 @@
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
 /turf/floor/shuttle/black,
-/area/ministation/centcomm/halls)
+/area/ministation/centcomm/medbay)
 "Fd" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -2732,9 +2709,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/centcomm/Arrival)
-"FU" = (
-/turf/floor/tiled/white,
-/area/ministation/centcomm/medbay)
 "FY" = (
 /turf/wall/r_titanium,
 /area/ministation/centcomm/halls)
@@ -3249,6 +3223,12 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
+"MN" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall/r_titanium,
+/area/ministation/centcomm/halls)
 "MV" = (
 /obj/structure/table/steel_reinforced,
 /obj/effect/floor_decal/techfloor/orange{
@@ -3611,10 +3591,6 @@
 /turf/floor/fake_grass,
 /area/ministation/centcomm/Arrival)
 "Rg" = (
-/obj/machinery/power/apc{
-	name = "_North APC";
-	pixel_y = -24
-	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -3850,12 +3826,6 @@
 /obj/machinery/computer/modular/preset/civilian,
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
-"TQ" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall/r_titanium,
-/area/ministation/centcomm/halls)
 "TU" = (
 /turf/floor/carpet/green,
 /area/ministation/centcomm/lounge)
@@ -4046,6 +4016,12 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
+"Xi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/floor/tiled/white,
+/area/ministation/centcomm/medbay)
 "Xn" = (
 /obj/effect/floor_decal/corner/green/half,
 /obj/machinery/light,
@@ -4128,9 +4104,6 @@
 /obj/item/auto_cpr{
 	pixel_y = 6;
 	pixel_x = 3
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
@@ -14813,17 +14786,17 @@ aa
 aa
 aa
 aa
-Bd
-Bd
-nF
-nF
-nF
-Bd
-Bd
-Bd
-nF
-Bd
-Bd
+oA
+oA
+Fb
+Fb
+Fb
+oA
+oA
+oA
+Fb
+oA
+oA
 aa
 aa
 aa
@@ -14943,17 +14916,17 @@ aa
 aa
 aa
 aa
-Bd
+oA
 cb
-FU
-FU
+mU
+mU
 dk
 mY
-Bd
+oA
 rb
-FU
+mU
 Py
-Bd
+oA
 aa
 aa
 aa
@@ -15073,17 +15046,17 @@ aa
 aa
 aa
 aa
-nF
+Fb
 gb
 OB
-Ae
+Xi
 uv
 Rg
-Bd
+oA
 Uf
-FU
+mU
 qC
-nF
+Fb
 aa
 aa
 aa
@@ -15203,17 +15176,17 @@ aa
 aa
 aa
 aa
-nF
+Fb
 KW
-FU
+mU
 mx
-FU
+mU
 oG
-Bd
+oA
 mX
-Ae
-FU
-nF
+Xi
+mU
+Fb
 aa
 aa
 aa
@@ -15333,17 +15306,17 @@ aa
 aa
 aa
 aa
-nF
+Fb
 uw
-FU
-zL
-FU
+mU
+fY
+mU
 Ax
-Bd
+oA
 fm
-zL
-FU
-nF
+fY
+mU
+Fb
 aa
 aa
 aa
@@ -15463,17 +15436,17 @@ aa
 aa
 aa
 aa
-Bd
+oA
 EQ
-FU
-zL
+mU
+fY
 rJ
 Kj
-Bd
+oA
 Yi
 jA
 yN
-Bd
+oA
 aa
 aa
 aa
@@ -15593,17 +15566,17 @@ aa
 aa
 aa
 aa
-Bd
-Bd
-nF
+oA
+oA
+Fb
 Pg
 gd
 Ne
-Bd
+oA
 oA
 OA
-Bd
-Bd
+oA
+oA
 aa
 aa
 aa
@@ -15724,16 +15697,16 @@ aa
 aa
 aa
 aa
-Bd
+oA
 ws
-zL
+fY
 oS
 MJ
 tN
 kd
 CX
 ko
-Bd
+oA
 aa
 aa
 aa
@@ -15854,16 +15827,16 @@ aa
 aa
 aa
 aa
-nF
+Fb
 eH
-zL
+fY
 Yh
 BA
 nw
 ZZ
 Os
 mO
-nF
+Fb
 aa
 aa
 aa
@@ -15984,7 +15957,7 @@ aa
 aa
 aa
 aa
-nF
+Fb
 qr
 Oc
 vg
@@ -15993,7 +15966,7 @@ fr
 Rh
 Mh
 Iz
-nF
+Fb
 aa
 aa
 aa
@@ -16114,16 +16087,16 @@ aa
 aa
 aa
 aa
-Bd
+oA
 He
 gh
 gh
 CX
-FU
+mU
 qt
 Rr
 ko
-Bd
+oA
 aa
 aa
 aa
@@ -16246,11 +16219,11 @@ ht
 ht
 ht
 FY
-Fb
-Fb
+Ae
+Ae
 TF
 jM
-TQ
+MN
 Hi
 FY
 FY
@@ -16499,7 +16472,7 @@ ks
 ks
 ks
 ks
-iC
+Bd
 ks
 ks
 ks
@@ -16780,7 +16753,7 @@ LL
 Gl
 Pt
 cU
-TQ
+MN
 Mt
 Fa
 mq
