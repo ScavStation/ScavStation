@@ -495,6 +495,12 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/lounge)
+"dp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/ministation/centcomm/medbay)
 "ds" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -751,11 +757,11 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
 "fY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
-/turf/floor/tiled/white,
-/area/ministation/centcomm/medbay)
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls)
 "gb" = (
 /obj/structure/table/marble,
 /obj/item/stack/medical/bandage/advanced,
@@ -986,9 +992,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"iC" = (
-/turf/wall/r_titanium,
-/area/ministation/centcomm/medbay)
 "iS" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
@@ -1267,6 +1270,19 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
+"mU" = (
+/obj/effect/floor_decal/corner/paleblue/mono,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "_East APC";
+	pixel_x = 27;
+	pixel_y = 2
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/monotile,
+/area/ministation/centcomm/ghost_halls)
 "mW" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -1379,6 +1395,9 @@
 "nM" = (
 /obj/structure/sign/directions/pods{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/floor/tiled/dark,
 /area/ministation/centcomm/halls)
@@ -1904,15 +1923,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
-"uN" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/wall/r_titanium,
-/area/ministation/centcomm/halls)
 "uP" = (
 /obj/machinery/computer/station_alert/all{
 	dir = 1
@@ -2005,9 +2015,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
-"vF" = (
-/turf/floor/tiled/white,
-/area/ministation/centcomm/medbay)
 "vT" = (
 /obj/effect/paint/blue,
 /turf/wall/r_titanium,
@@ -2049,6 +2056,9 @@
 /area/ministation/centcomm/backrooms)
 "wE" = (
 /obj/machinery/door/airlock/civilian,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/wall/r_titanium,
 /area/ministation/centcomm/ghost_halls)
 "wH" = (
@@ -2065,15 +2075,6 @@
 /area/ministation/centcomm/backrooms_2)
 "wK" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "_East APC";
-	pixel_x = 27;
-	pixel_y = 2
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/halls)
@@ -2231,6 +2232,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/floor/tiled/dark,
 /area/ministation/centcomm/halls)
@@ -2392,10 +2396,8 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/ghost_halls)
 "Bd" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/machinery/door/firedoor,
-/turf/floor/shuttle/black,
-/area/ministation/centcomm/halls)
+/turf/wall/r_titanium,
+/area/ministation/centcomm/medbay)
 "Bi" = (
 /obj/machinery/door/airlock/civilian,
 /obj/structure/cable{
@@ -2703,7 +2705,7 @@
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
 /turf/floor/shuttle/black,
-/area/ministation/centcomm/medbay)
+/area/ministation/centcomm/halls)
 "Fd" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -2762,6 +2764,9 @@
 	},
 /turf/floor/plating,
 /area/ministation/centcomm/Arrival)
+"FU" = (
+/turf/floor/tiled/white,
+/area/ministation/centcomm/medbay)
 "FY" = (
 /turf/wall/r_titanium,
 /area/ministation/centcomm/halls)
@@ -2856,11 +2861,6 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/halls)
-"Ha" = (
-/obj/effect/floor_decal/corner/paleblue/mono,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/monotile,
-/area/ministation/centcomm/halls)
 "Hb" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
@@ -2917,6 +2917,12 @@
 /obj/effect/floor_decal/corner/paleblue/mono,
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/halls)
+"HF" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_titanium,
+/area/ministation/centcomm/ghost_halls)
 "HJ" = (
 /obj/structure/disposaloutlet{
 	dir = 4
@@ -4084,6 +4090,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood/walnut,
 /area/ministation/centcomm/lounge)
+"WM" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/firedoor,
+/turf/floor/shuttle/black,
+/area/ministation/centcomm/medbay)
 "WX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14884,17 +14895,17 @@ aa
 aa
 aa
 aa
-iC
-iC
-Fb
-Fb
-Fb
-iC
-iC
-iC
-Fb
-iC
-iC
+Bd
+Bd
+WM
+WM
+WM
+Bd
+Bd
+Bd
+WM
+Bd
+Bd
 aa
 aa
 aa
@@ -15014,17 +15025,17 @@ aa
 aa
 aa
 aa
-iC
+Bd
 cb
-vF
-vF
+FU
+FU
 dk
 mY
-iC
+Bd
 rb
-vF
+FU
 Py
-iC
+Bd
 aa
 aa
 aa
@@ -15144,17 +15155,17 @@ aa
 aa
 aa
 aa
-Fb
+WM
 gb
 OB
 Xi
 uv
 Rg
-iC
+Bd
 Uf
-vF
+FU
 qC
-Fb
+WM
 aa
 aa
 aa
@@ -15274,17 +15285,17 @@ aa
 aa
 aa
 aa
-Fb
+WM
 KW
-vF
+FU
 mx
-vF
+FU
 oG
-iC
+Bd
 mX
 Xi
-vF
-Fb
+FU
+WM
 aa
 aa
 aa
@@ -15404,17 +15415,17 @@ aa
 aa
 aa
 aa
-Fb
+WM
 uw
-vF
-fY
-vF
+FU
+dp
+FU
 Ax
-iC
+Bd
 fm
-fY
-vF
-Fb
+dp
+FU
+WM
 aa
 aa
 aa
@@ -15534,17 +15545,17 @@ aa
 aa
 aa
 aa
-iC
+Bd
 EQ
-vF
-fY
+FU
+dp
 rJ
 Kj
-iC
+Bd
 Yi
 jA
 yN
-iC
+Bd
 aa
 aa
 aa
@@ -15664,17 +15675,17 @@ aa
 aa
 aa
 aa
-iC
-iC
-Fb
+Bd
+Bd
+WM
 Pg
 gd
 Ne
-iC
+Bd
 oA
 OA
-iC
-iC
+Bd
+Bd
 aa
 aa
 aa
@@ -15795,16 +15806,16 @@ aa
 aa
 aa
 aa
-iC
+Bd
 ws
-fY
+dp
 oS
 MJ
 tN
 kd
 CX
 ko
-iC
+Bd
 aa
 aa
 aa
@@ -15925,16 +15936,16 @@ aa
 aa
 aa
 aa
-Fb
+WM
 eH
-fY
+dp
 Yh
 BA
 nw
 ZZ
 Os
 mO
-Fb
+WM
 aa
 aa
 aa
@@ -16055,7 +16066,7 @@ aa
 aa
 aa
 aa
-Fb
+WM
 qr
 Oc
 vg
@@ -16064,7 +16075,7 @@ fr
 Rh
 Mh
 Iz
-Fb
+WM
 aa
 aa
 aa
@@ -16185,16 +16196,16 @@ aa
 aa
 aa
 aa
-iC
+Bd
 He
 gh
 gh
 CX
-vF
+FU
 qt
 Rr
 ko
-iC
+Bd
 aa
 aa
 aa
@@ -16317,8 +16328,8 @@ ht
 ht
 ht
 FY
-Bd
-Bd
+Fb
+Fb
 TF
 jM
 MN
@@ -16570,7 +16581,7 @@ ks
 ks
 ks
 ks
-ks
+mU
 ks
 ks
 ks
@@ -16580,18 +16591,18 @@ Ms
 Ms
 Ms
 JF
-Ha
+wK
 bA
 wK
-Ha
-Ha
-Ha
+wK
+wK
+wK
 jy
-Ha
-Ha
-Ha
-Ha
-Ha
+wK
+wK
+wK
+wK
+wK
 PA
 xZ
 WX
@@ -16700,19 +16711,19 @@ ht
 ht
 ht
 ht
-ht
-ht
+fY
+HF
 wE
-ht
-ht
-ht
-FY
-FY
+HF
+HF
+HF
+mq
+mq
 nM
 yq
 mq
 ZG
-uN
+mq
 mq
 mq
 mq
