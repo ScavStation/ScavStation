@@ -502,12 +502,13 @@ SUBSYSTEM_DEF(zcopy)
 
 	ZM_RECORD_START
 
+	var/above_needs_discovery = FALSE
 	if (!object.bound_overlay)
 		var/atom/movable/openspace/mimic/M = new(T)
 		object.bound_overlay = M
+		M.z_flags = object.z_flags // Necessary to ensure MOVABLE_IS_ON_ZTURF works
 		M.associated_atom = object
-		if (TURF_IS_MIMICKING(M.loc))
-			.(M)
+		above_needs_discovery = TRUE
 
 	var/override_depth
 	var/original_type = object.type
@@ -557,6 +558,9 @@ SUBSYSTEM_DEF(zcopy)
 
 	ZM_RECORD_STOP
 	ZM_RECORD_WRITE(discovery_stats, "Depth [OO.depth] on [OO.z]")
+
+	if (above_needs_discovery && MOVABLE_IS_ON_ZTURF(OO))
+		discover_movable(OO) // recursion!
 
 	return FALSE
 
