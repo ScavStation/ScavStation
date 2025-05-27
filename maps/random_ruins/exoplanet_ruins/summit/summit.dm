@@ -220,7 +220,7 @@ var/global/notifiedend = 0
 
 
 /mob/living/simple_animal/aggressive/robosharah/isSynthetic()
-    return TRUE
+	return TRUE
 
 
 
