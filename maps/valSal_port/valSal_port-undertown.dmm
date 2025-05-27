@@ -138,11 +138,6 @@
 	},
 /turf/floor/carpet/rustic,
 /area/valSal_port/caves)
-"uw" = (
-/turf/wall/log/maple{
-	color = "#A0A0A0"
-	},
-/area/valSal_port/caves)
 "uS" = (
 /turf/floor/path/running_bond/granite,
 /area/valSal_port/caves)
