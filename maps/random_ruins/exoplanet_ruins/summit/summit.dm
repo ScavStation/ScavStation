@@ -214,7 +214,7 @@ var/global/notifiedend = 0
 	. = ..() // Does all the normal init stuff
 	sound_id = "[/mob/living/simple_animal/aggressive/robosharah]_[sequential_id(/mob/living/simple_animal/aggressive/robosharah)]"
 
-
+// causing an issue, have Emm look into it
 ///mob/living/simple_animal/aggressive/robosharah/isSynthetic()
 //	return TRUE
 
