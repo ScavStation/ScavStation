@@ -215,8 +215,8 @@ var/global/notifiedend = 0
 	sound_id = "[/mob/living/simple_animal/aggressive/robosharah]_[sequential_id(/mob/living/simple_animal/aggressive/robosharah)]"
 
 
-/mob/living/simple_animal/aggressive/robosharah/isSynthetic()
-	return TRUE
+///mob/living/simple_animal/aggressive/robosharah/isSynthetic()
+//	return TRUE
 
 /mob/living/simple_animal/aggressive/robosharah/has_ranged_attack()
 	return TRUE
