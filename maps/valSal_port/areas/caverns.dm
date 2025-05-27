@@ -1,4 +1,4 @@
-/area/valSal_port/outside/river
+/*/area/valSal_port/outside/river
 	name = "River"
 	color = COLOR_BLUE
 	description = "The soft susurration of running water mingles with the hum of insects and croak of frogs."
@@ -86,4 +86,4 @@
 /area/valSal_port/caves/miners_camp/miners_forge
 	name = "\improper Miners' Forge"
 	fishing_failure_prob = 100
-	fishing_results = list()
+	fishing_results = list()*/

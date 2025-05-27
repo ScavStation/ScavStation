@@ -1,4 +1,4 @@
-/area/valSal_port
+/*/area/valSal_port
 	abstract_type = /area/valSal_port
 	allow_xenoarchaeology_finds = FALSE
 	icon = 'maps/valSal_port/areas/icons.dmi'

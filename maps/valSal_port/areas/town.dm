@@ -1,4 +1,4 @@
-/area/valSal_port/town/sea
+/*/area/valSal_port/town/sea
 	name = "Val Salian Port Bay"
 
 	additional_fishing_results = list(
