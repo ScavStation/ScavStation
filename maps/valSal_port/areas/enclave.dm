@@ -71,3 +71,4 @@
 
 /area/valSal_port/enclave/bonfire
 	name = "Enclave Bonfire Area"
+*/

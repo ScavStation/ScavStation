@@ -45,3 +45,4 @@
 	area_blurb_category = /area/valSal_port/outside
 	interior_ambient_light_modifier = -0.3
 	area_flags = AREA_FLAG_EXTERNAL | AREA_FLAG_IS_BACKGROUND
+*/

@@ -129,3 +129,5 @@
 
 /area/valSal_port/town/outside/shrine
 	name = "\improper Shrine Grounds"
+
+*/
