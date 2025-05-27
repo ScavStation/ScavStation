@@ -223,7 +223,6 @@ var/global/notifiedend = 0
 	return TRUE
 
 
-
 /mob/living/simple_animal/aggressive/robosharah/has_ranged_attack()
 	return TRUE
 
