@@ -26,7 +26,7 @@
 	icon               = 'icons/turf/flooring/grass.dmi'
 	icon_base          = "grass"
 	desc               = "A dry grass, used to not seeing much water and being coarse to touch."
-	color              = "#B7AF54"
+	color              = "#b7af54"
 	icon_edge_layer    = FLOOR_EDGE_GRASS_ARID
 	harvestable        = TRUE
 

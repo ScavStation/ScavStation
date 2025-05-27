@@ -41,7 +41,7 @@
 	name = "arid grass"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
-	color = "#B7AF54"
+	color = "#b7af54"
 	_flooring = /decl/flooring/grass/arid
 	_base_flooring = /decl/flooring/dirt
 
