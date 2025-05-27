@@ -328,7 +328,7 @@
 			break
 
 	// Check if spawn points have any turfs at all associated.
-	for(var/decl/spawnpoint/spawnpoint as anything in global.using_map.allowed_latejoin_spawns && !global.using_map.NO_LATEJOIN_SPAWNS)
+	for(var/decl/spawnpoint/spawnpoint as anything in global.using_map.allowed_latejoin_spawns)
 		if(!length(spawnpoint.get_spawn_turfs()))
 			log_unit_test("Map allows spawning in [spawnpoint.name], but [spawnpoint.name] has no associated spawn turfs.")
 			failed += spawnpoint.type
