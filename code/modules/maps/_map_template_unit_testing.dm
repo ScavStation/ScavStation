@@ -2,6 +2,7 @@
 	var/const/NO_APC = 1
 	var/const/NO_VENT = 2
 	var/const/NO_SCRUBBER = 4
+	var/const/NO_LATEJOIN_SPAWNS = 6 // for testing maps when still in alpha phases
 
 	var/list/area_usage_test_exempted_areas = list()
 	var/list/area_usage_test_exempted_root_areas = list()
