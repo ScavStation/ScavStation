@@ -7,7 +7,7 @@
 	belt = /obj/item/bladed/shortsword
 	backpack_contents = list(
 		/obj/item/stack/medical/bandage/crafted/five = 1,
-		/obj/item/stack/medical/ointment/crafted/five   = 1,
+		/obj/item/stack/medical/ointment/crafted/five   = 1
 	)
 
 /decl/outfit/job/valSal_port/traveller/scholar
