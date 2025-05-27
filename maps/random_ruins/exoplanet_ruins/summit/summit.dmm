@@ -237,21 +237,10 @@
 	temperature = 0
 	})
 "bw" = (
-/mob/living/simple_animal/aggressive/yingborg{
-	glowing_eyes = 1;
-	attack_delay = 20;
-	mob_size = 10
-	},
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mouse"
-	},
 /obj/structure/defensive_barrier,
-/obj/item/remains/mouse{
-	desc = "The tiny remains of a helpless mouse."
-	},
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
@@ -612,19 +601,8 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/clothing/shoes/avian/footwraps,
 /obj/item/organ/external/tail/avian,
-/mob/living/simple_animal/aggressive/yingborg{
-	glowing_eyes = 1;
-	attack_delay = 20;
-	mob_size = 10
-	},
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib1"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mouse"
-	},
-/obj/item/remains/mouse{
-	desc = "The tiny remains of a helpless mouse."
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/freezer,
@@ -722,35 +700,11 @@
 	dir = 4
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
-/area/map_template/summit{
-	germ_level = 800000000;
-	temperature = 0
-	})
-"dL" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/mob/living/simple_animal/aggressive/yingborg{
-	glowing_eyes = 1;
-	attack_delay = 20;
-	mob_size = 10
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mouse"
-	},
-/obj/machinery/status_display{
-	pixel_y = 34
-	},
-/obj/item/remains/mouse{
-	desc = "The tiny remains of a helpless mouse."
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/freezer,
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
@@ -769,7 +723,7 @@
 	temperature = 0
 	})
 "dV" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/machinery/power/supermatter{
 	explosion_point = 150;
 	emergency_point = 125;
 	critical_temperature = 1250;
@@ -794,8 +748,7 @@
 	light_power = null;
 	temperature = 75;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1";
-	timer = 45
+	icon_state = "singularity_s1"
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -825,6 +778,10 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/barricade/spike{
+	dir = 1;
+	material = /decl/material/solid/metal/steel
+	},
 /turf/floor/cult,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -929,6 +886,10 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/sign/warning/secure_area{
+	dir = 4;
+	pixel_x = -45
+	},
 /turf/floor/greengrid,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -978,6 +939,9 @@
 	enabled = 0
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/sign/warning/radioactive/alt{
+	pixel_y = 38
+	},
 /turf/unsimulated/floor/freezer,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -1007,10 +971,6 @@
 	icon_state = "u_dangerous_l"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/barricade/spike{
-	dir = 1;
-	material = /decl/material/solid/metal/steel
-	},
 /turf/floor/concrete/reinforced,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -1274,7 +1234,7 @@
 	temperature = 0
 	})
 "gP" = (
-/obj/machinery/recharge_station,
+/obj/machinery/constructable_frame,
 /obj/structure/cable{
 	icon_state = "1-8";
 	dir = 4
@@ -1318,9 +1278,9 @@
 	})
 "ha" = (
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -1338,9 +1298,9 @@
 	icon_state = "u_guilty_l"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -1355,9 +1315,9 @@
 	dir = 8
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -1383,10 +1343,6 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor7"
 	},
-/obj/structure/barricade/spike{
-	dir = 1;
-	material = /decl/material/solid/metal/steel
-	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/cult,
@@ -1406,9 +1362,9 @@
 	})
 "hR" = (
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 100
 	},
 /area/map_template/summit{
@@ -1660,9 +1616,9 @@
 	})
 "je" = (
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit/cold{
 	temperature = 0;
@@ -1713,9 +1669,9 @@
 	dir = 5
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -1735,19 +1691,8 @@
 	temperature = 0
 	})
 "jy" = (
-/mob/living/simple_animal/aggressive/yingborg{
-	glowing_eyes = 1;
-	attack_delay = 20;
-	mob_size = 10
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mouse"
-	},
 /obj/structure/defensive_barrier{
 	dir = 8
-	},
-/obj/item/remains/mouse{
-	desc = "The tiny remains of a helpless mouse."
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
@@ -1884,9 +1829,9 @@
 	icon_state = "1-2"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -1898,9 +1843,9 @@
 	icon_state = "1-8"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit/cold{
@@ -1943,9 +1888,9 @@
 	icon_state = "1-2"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -2009,9 +1954,9 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit/cold{
@@ -2294,6 +2239,9 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/sign/warning/secure_area{
+	pixel_y = 38
+	},
 /turf/unsimulated/floor/dark,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -2320,10 +2268,10 @@
 	temperature = 0
 	})
 "mO" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/machinery/power/supermatter{
 	explosion_point = 150;
 	emergency_point = 125;
-	critical_temperature = 1200;
+	critical_temperature = 1000;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -2345,8 +2293,7 @@
 	light_power = null;
 	temperature = 0;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1";
-	timer = 45
+	icon_state = "singularity_s1"
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -2412,10 +2359,10 @@
 	germ_level = 800000000
 	})
 "np" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/machinery/power/supermatter{
 	explosion_point = 150;
 	emergency_point = 125;
-	critical_temperature = 1200;
+	critical_temperature = 1000;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -2437,8 +2384,7 @@
 	light_power = null;
 	temperature = 0;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1";
-	timer = 45
+	icon_state = "singularity_s1"
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -2528,9 +2474,9 @@
 	})
 "nX" = (
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 100
 	},
 /area/map_template/summit{
@@ -2772,11 +2718,11 @@
 	desc = "The brittle bones of a frail humanoid creature."
 	},
 /obj/item/clothing/suit/jacket/hoodie{
-	color = "#287c37";
+	color = #287C37;
 	pixel_y = -9;
 	pixel_x = 6;
-	markings_color = "#287c37";
-	paint_color = "#287c37"
+	markings_color = #287C37;
+	paint_color = #287C37
 	},
 /obj/item/grenade/empgrenade{
 	pixel_y = 3;
@@ -2858,18 +2804,6 @@
 	germ_level = 800000000;
 	temperature = 0
 	})
-"pJ" = (
-/mob/living/simple_animal/aggressive/humborg{
-	glowing_eyes = 1;
-	attack_delay = 30;
-	base_movement_delay = 5
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/unsimulated/floor/freezer,
-/area/map_template/summit{
-	germ_level = 800000000;
-	temperature = 0
-	})
 "pK" = (
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -2908,10 +2842,10 @@
 	temperature = 0
 	})
 "pL" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/machinery/power/supermatter{
 	explosion_point = 300;
 	emergency_point = 125;
-	critical_temperature = 600;
+	critical_temperature = 625;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -2933,8 +2867,7 @@
 	light_power = null;
 	temperature = 75;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1";
-	timer = 45
+	icon_state = "singularity_s1"
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -3073,9 +3006,9 @@
 	icon_state = "u_guilty"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -3172,9 +3105,9 @@
 	icon_state = "u_guilty_l"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -3211,12 +3144,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/mob/living/simple_animal/aggressive/avianborg{
-	glowing_eyes = 1;
-	attack_delay = 15;
-	base_movement_delay = 5;
-	mob_size = 15
-	},
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib2"
 	},
@@ -3252,7 +3179,7 @@
 /mob/living/simple_animal/aggressive/humborg{
 	glowing_eyes = 1;
 	attack_delay = 30;
-	base_movement_delay = 5
+	base_movement_delay = 10
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/reinforced/oxygen{
@@ -3442,12 +3369,6 @@
 	temperature = 0
 	})
 "tr" = (
-/mob/living/simple_animal/aggressive/avianborg{
-	glowing_eyes = 1;
-	attack_delay = 15;
-	base_movement_delay = 5;
-	mob_size = 15
-	},
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib1"
 	},
@@ -3496,9 +3417,9 @@
 	dir = 5
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -3569,9 +3490,9 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit/cold{
@@ -3642,9 +3563,9 @@
 	dir = 1
 	},
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -3737,9 +3658,9 @@
 	dir = 8
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit{
@@ -3906,6 +3827,10 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/sign/warning/secure_area{
+	dir = 8;
+	pixel_x = 45
+	},
 /turf/floor/greengrid,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -3972,9 +3897,9 @@
 	icon_state = "1-8"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -3990,9 +3915,9 @@
 	dir = 1
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 100
 	},
 /area/map_template/summit{
@@ -4070,9 +3995,9 @@
 	dir = 1
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit/cold{
 	temperature = 0;
@@ -4107,6 +4032,9 @@
 	valve_open = 1;
 	release_pressure = 1000
 	},
+/obj/structure/sign/warning/radioactive/alt{
+	pixel_y = 38
+	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open;
 	temperature = 0
@@ -4130,6 +4058,9 @@
 	id_tag = "TRD4";
 	name = "Unlabeled Switch";
 	pixel_y = 26
+	},
+/obj/structure/sign/warning/secure_area{
+	pixel_y = 38
 	},
 /turf/unsimulated/floor/freezer,
 /area/map_template/summit{
@@ -4179,32 +4110,6 @@
 	germ_level = 800000000;
 	temperature = 0
 	})
-"xA" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/mob/living/simple_animal/aggressive/yingborg{
-	glowing_eyes = 1;
-	attack_delay = 20;
-	mob_size = 10
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mouse"
-	},
-/obj/item/remains/mouse{
-	desc = "The tiny remains of a helpless mouse."
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/floor/greengrid,
-/area/map_template/summit{
-	germ_level = 800000000;
-	temperature = 0
-	})
 "xP" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "dir_splatter_2";
@@ -4233,18 +4138,14 @@
 	temperature = 0
 	})
 "yp" = (
-/mob/living/simple_animal/aggressive/avianborg{
-	glowing_eyes = 1;
-	attack_delay = 15;
-	base_movement_delay = 5;
-	mob_size = 15
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/constructable_frame,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/floor/cult,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
@@ -4419,9 +4320,9 @@
 	})
 "Ar" = (
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -4444,6 +4345,9 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/sign/warning/secure_area{
+	pixel_y = 38
+	},
 /turf/unsimulated/floor/dark,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -4478,6 +4382,9 @@
 /obj/machinery/portable_atmospherics/canister/oxygen{
 	valve_open = 1;
 	release_pressure = 1000
+	},
+/obj/structure/sign/warning/radioactive/alt{
+	pixel_y = 38
 	},
 /turf/floor/reinforced/oxygen{
 	open_turf_type = /turf/open;
@@ -4746,9 +4653,9 @@
 	dir = 10
 	},
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -4819,23 +4726,21 @@
 	germ_level = 800000000
 	})
 "Es" = (
-/mob/living/simple_animal/aggressive/yingborg{
-	glowing_eyes = 1;
-	attack_delay = 20;
-	mob_size = 10
-	},
+/obj/effect/wallframe_spawn/reinforced_borosilicate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mouse"
+/obj/machinery/door/blast/regular{
+	id_tag = "summitsingblast";
+	name = "Singularity Chamber Blast Door";
+	dir = 8
 	},
-/obj/item/remains/mouse{
-	desc = "The tiny remains of a helpless mouse."
+/obj/structure/sign/warning/radioactive/alt{
+	pixel_y = 38
 	},
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/turf/floor/cult,
+/turf/floor/reinforced/oxygen{
+	open_turf_type = /turf/open
+	},
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
@@ -4849,9 +4754,9 @@
 	icon_state = "1-8"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 100
 	},
 /area/map_template/summit{
@@ -4914,9 +4819,9 @@
 	dir = 1
 	},
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit/cold{
@@ -4943,9 +4848,9 @@
 	dir = 1
 	},
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit/cold{
@@ -5026,6 +4931,9 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/sign/warning/secure_area{
+	pixel_y = 38
+	},
 /turf/unsimulated/floor/dark,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -5256,6 +5164,9 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/sign/warning/secure_area{
+	pixel_y = 38
+	},
 /turf/unsimulated/floor/dark,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -5424,9 +5335,9 @@
 	icon_state = "u_dangerous_l"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -5585,9 +5496,9 @@
 	icon_state = "u_guilty"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -5947,9 +5858,9 @@
 	dir = 4
 	},
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -6113,9 +6024,9 @@
 	})
 "PO" = (
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit/cold{
@@ -6212,7 +6123,7 @@
 	temperature = 0
 	})
 "Qz" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/machinery/power/supermatter{
 	explosion_point = 150;
 	emergency_point = 125;
 	critical_temperature = 1250;
@@ -6237,8 +6148,7 @@
 	light_power = null;
 	temperature = 75;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1";
-	timer = 45
+	icon_state = "singularity_s1"
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -6397,9 +6307,9 @@
 	dir = 8
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 0
 	},
 /area/map_template/summit/cold{
@@ -6507,9 +6417,9 @@
 	icon_state = "u_dangerous_l"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -6553,9 +6463,9 @@
 	dir = 6
 	},
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -6567,9 +6477,9 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -6584,9 +6494,9 @@
 	dir = 4
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 100
 	},
 /area/map_template/summit{
@@ -6620,10 +6530,6 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "u_guilty_l"
 	},
-/obj/structure/barricade/spike{
-	dir = 4;
-	material = /decl/material/solid/metal/steel
-	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/cult,
@@ -6652,9 +6558,9 @@
 /area/template_noop)
 "SD" = (
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -6702,9 +6608,9 @@
 	icon_state = "u_dangerous_l"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -6758,9 +6664,9 @@
 	dir = 4
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit/cold{
 	temperature = 0;
@@ -6909,9 +6815,9 @@
 	})
 "TN" = (
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -6971,9 +6877,9 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -7037,9 +6943,9 @@
 	dir = 5
 	},
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 100
 	},
 /area/map_template/summit{
@@ -7058,9 +6964,9 @@
 	icon_state = "u_dangerous_l"
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080"
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080
 	},
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -7169,10 +7075,10 @@
 	temperature = 0
 	})
 "Vm" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/machinery/power/supermatter{
 	explosion_point = 300;
 	emergency_point = 125;
-	critical_temperature = 600;
+	critical_temperature = 625;
 	decay_factor = 250;
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
@@ -7194,8 +7100,7 @@
 	light_power = null;
 	temperature = 100;
 	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1";
-	timer = 45
+	icon_state = "singularity_s1"
 	},
 /obj/machinery/igniter{
 	id_tag = "selfd";
@@ -7441,10 +7346,6 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib2"
 	},
-/obj/structure/barricade/spike{
-	dir = 1;
-	material = /decl/material/solid/metal/steel
-	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
@@ -7579,11 +7480,11 @@
 	desc = "The brittle bones of a frail humanoid creature."
 	},
 /obj/item/clothing/suit/jacket/hoodie{
-	color = "#287c37";
+	color = #287C37;
 	pixel_y = 2;
 	pixel_x = -4;
-	paint_color = "#287c37";
-	markings_color = "#287c37"
+	paint_color = #287C37;
+	markings_color = #287C37
 	},
 /obj/item/tank/emergency/oxygen/engi{
 	pixel_x = 8
@@ -7599,9 +7500,9 @@
 	icon_state = "1-2"
 	},
 /turf/wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 100
 	},
 /area/map_template/summit{
@@ -7636,16 +7537,11 @@
 	temperature = 0
 	})
 "Yi" = (
-/mob/living/simple_animal/aggressive/avianborg{
-	glowing_eyes = 1;
-	attack_delay = 15;
-	base_movement_delay = 5;
-	mob_size = 15
-	},
+/obj/machinery/constructable_frame,
 /obj/effect/decal/cleanable/dirt/visible,
-/turf/floor/reinforced/oxygen{
-	open_turf_type = /turf/open
-	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/greengrid,
 /area/map_template/summit{
 	germ_level = 800000000;
 	temperature = 0
@@ -7743,6 +7639,9 @@
 	pixel_y = 26
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/sign/warning/secure_area{
+	pixel_y = 38
+	},
 /turf/unsimulated/floor/freezer,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -7800,9 +7699,9 @@
 	dir = 5
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 75
 	},
 /area/map_template/summit{
@@ -7856,9 +7755,9 @@
 	dir = 8
 	},
 /turf/wall/r_wall{
-	color = "#800080";
-	paint_color = "#800080";
-	stripe_color = "#800080";
+	color = #800080;
+	paint_color = #800080;
+	stripe_color = #800080;
 	temperature = 100
 	},
 /area/map_template/summit{
@@ -8037,7 +7936,7 @@ Hg
 KB
 KB
 KB
-Es
+KB
 sF
 ae
 CS
@@ -8121,7 +8020,7 @@ Xl
 TP
 lt
 rV
-lS
+Yi
 zm
 lS
 ID
@@ -8199,7 +8098,7 @@ Uf
 mF
 br
 Wx
-lS
+Yi
 eA
 Qv
 Zv
@@ -8274,7 +8173,7 @@ DY
 Nq
 rV
 lS
-br
+yp
 Mu
 PC
 Qv
@@ -8336,7 +8235,7 @@ rV
 tG
 DK
 lF
-pJ
+lF
 lF
 TJ
 XI
@@ -8350,7 +8249,7 @@ vt
 Nq
 ik
 rV
-lS
+Yi
 Xe
 lS
 eJ
@@ -8415,7 +8314,7 @@ Ar
 xu
 kb
 uC
-RL
+Es
 KH
 RL
 UJ
@@ -8428,7 +8327,7 @@ Nq
 rV
 lS
 vW
-lS
+Yi
 eA
 Qv
 Zv
@@ -8467,7 +8366,7 @@ rV
 uz
 NN
 hU
-xA
+PC
 Qv
 Zv
 oP
@@ -8555,7 +8454,7 @@ aa
 XR
 XR
 rV
-Yi
+KP
 iK
 mM
 kH
@@ -8681,7 +8580,7 @@ Ar
 xu
 pv
 NX
-RL
+Es
 hu
 RL
 qM
@@ -8768,7 +8667,7 @@ SR
 ZC
 ia
 rV
-br
+yp
 Xe
 lS
 jw
@@ -8884,7 +8783,7 @@ PR
 ID
 qF
 ID
-wy
+dY
 Qv
 Zv
 Cg
@@ -8907,7 +8806,7 @@ cu
 Vm
 co
 XY
-dL
+dU
 Kk
 dn
 Kk
@@ -8957,7 +8856,7 @@ ia
 yy
 La
 rV
-br
+yp
 cz
 lS
 PY
@@ -8997,7 +8896,7 @@ lt
 rV
 br
 GW
-lS
+Yi
 ws
 mF
 rV
@@ -9053,7 +8952,7 @@ XR
 rV
 rV
 fT
-yp
+KB
 zF
 hH
 IS
