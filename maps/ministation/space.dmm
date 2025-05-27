@@ -1057,8 +1057,7 @@
 /area/ministation/centcomm/halls)
 "jW" = (
 /obj/structure/cable/orange{
-	dir = 8;
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
@@ -1677,8 +1676,7 @@
 /area/ministation/centcomm/lounge)
 "rv" = (
 /obj/structure/cable/orange{
-	dir = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
@@ -3765,7 +3763,7 @@
 "Tv" = (
 /obj/machinery/power/debug_items/infinite_generator,
 /obj/structure/cable/orange{
-	dir = 8
+	icon_state = "0-4"
 	},
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
@@ -3986,7 +3984,7 @@
 	dir = 1
 	},
 /obj/structure/cable/orange{
-	dir = 1
+	icon_state = "0-2"
 	},
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
