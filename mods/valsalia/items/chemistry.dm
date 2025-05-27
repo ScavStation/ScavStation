@@ -8,13 +8,22 @@
 
 /decl/material/liquid/nutriment/slime_meat
 	overdose = 5
+	melting_point = 223
+	boiling_point = 473
+	color = "#517a54"
+
+/decl/material/solid/organic/meat/Initialize()
+	liquid_name = name  // avoid 'molten meat'
+	return ..()
 
 /decl/material/liquid/nutriment/slime_meat/affect_overdose(var/mob/living/M, var/datum/reagents/holder)
-	if(M.has_trait(/decl/trait/mollusc_lover))
+	var/decl/species/our_species = M.get_species()
+	if((/decl/trait/mollusc_lover in our_species.traits) || M.has_trait(/decl/trait/mollusc_lover))
 		M.reagents.add_reagent(/decl/material/liquid/psychoactives, 0.1)
 
 /decl/material/liquid/nutriment/slime_meat/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	if(M.has_trait(/decl/trait/mollusc_lover))
+	var/decl/species/our_species = M.get_species()
+	if((/decl/trait/mollusc_lover in our_species.traits) || M.has_trait(/decl/trait/mollusc_lover))
 		nutriment_factor = 12
 		M.add_chemical_effect(CE_PAINKILLER, 15)
 	else
@@ -25,7 +34,8 @@
 // a pre-decl reagent system - will need to rewrite nutriment to pass these values into data
 // to do it properly, long-term TODO.
 /decl/material/liquid/nutriment/bread/on_mob_life(var/mob/living/M, var/location, var/datum/reagents/holder)
-	if(ishuman(M) && M.has_trait(/decl/trait/gluten_allergy))
+	var/decl/species/our_species = M.get_species()
+	if(ishuman(M) && ((/decl/trait/gluten_allergy in our_species.traits) || M.has_trait(/decl/trait/gluten_allergy)))
 		// Yings do not process bread or breadlike substances well.
 		ingest_met =       0.1 // Make sure there's something to
 		touch_met =        0.1 // throw up when we inevitably puke.
@@ -40,7 +50,8 @@
 		. = ..()
 
 /decl/material/liquid/nutriment/bread/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	if(ishuman(M) && M.has_trait(/decl/trait/gluten_allergy) && prob(ying_puke_prob))
+	var/decl/species/our_species = M.get_species()
+	if(ishuman(M) && ((/decl/trait/gluten_allergy in our_species.traits) || M.has_trait(/decl/trait/gluten_allergy)) && prob(ying_puke_prob))
 		var/mob/living/human/H = M
 		if(!H.lastpuke)
 			to_chat(M, SPAN_WARNING("Your gut churns as it struggles to digest \the [lowertext(name)]..."))
