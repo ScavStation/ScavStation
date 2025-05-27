@@ -1,3 +1,19 @@
+var/global/notifiednullmatter = 0
+var/global/notifiedend = 0
+
+/decl/public_access/public_method/triggerNM
+	name = "activate NM"
+	desc = "activate NM if possible."
+	call_proc = TYPE_PROC_REF(/obj/machinery/power/supermatter/nullmatter, activate)
+
+
+/decl/stock_part_preset/radio/receiver/nullmatter
+	frequency = BUTTON_FREQ
+	receive_and_call = list("button_active" = /decl/public_access/public_method/triggerNM)
+
+
+
+
 /datum/map_template/ruin/exoplanet/summit
 	name = "The Summit"
 	description = "Temporal Anomaly"
@@ -192,8 +208,7 @@
 	speak_emote = list("screams", "shrieks", "rants")
 	blood_type = "O-"
 	fire_desc = "starts blasting!!!"
-
-
+	butchery_data = /decl/butchery_data/synthetic
 	var/sound_id
 	var/datum/sound_token/sound_token
 	var/datum/track/song_to_play = new/datum/track("DEMON PUNCHER", /decl/music_track/DEMON_PUNCHER)
@@ -204,6 +219,8 @@
 	sound_id = "[/mob/living/simple_animal/aggressive/robosharah]_[sequential_id(/mob/living/simple_animal/aggressive/robosharah)]"
 
 
+/mob/living/simple_animal/aggressive/robosharah/isSynthetic()
+    return TRUE
 
 
 
@@ -238,6 +255,13 @@
 
 /obj/abstract/landmark/corpse/robosharah
 	name = "Scrap Metal"
+	icon = 'maps/random_ruins/exoplanet_ruins/summit/summitD.dmi'
+	icon_state = "world-dead"
+	var/butchery_data = /decl/butchery_data/synthetic  //not sure if correct, check to make sure
+
+/obj/abstract/landmark/corpse/robosharah/randomize_appearance()
+	return
+
 
 //Things //
 
@@ -267,3 +291,75 @@
 	critical_temperature = rand(3000, 5000)	//K
 	charging_factor = rand(0, 1)
 	damage_rate_limit = rand( 1, 10)		//damage rate cap at power = 300, scales linearly with power
+//nullmatter
+
+/obj/machinery/power/supermatter/nullmatter
+	name = "nullmatter condensate"
+	desc = "Nothing. Absolute physical nothing that seems impossible to exist. Your head hurts."
+	icon = 'icons/obj/singularity.dmi'
+	icon_state = "singularity_s1"
+	explosion_point = 150;
+	emergency_point = 125;
+	critical_temperature = 1250;
+	decay_factor = 250;
+	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
+	safe_alert = null;
+	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
+	id_tag = "selfd";
+	base_color = "#000000";
+	color = "#000000";
+	light_color = "#000000";
+	blood_color = "#000000";
+	emagged = 1;
+	sharp = 1;
+	edge = 1;
+	explosion_resistance = 80;
+	explosion_power = 2;
+	animate_movement = 0;
+	light_range = null;
+	light_power = null;
+	temperature = 75;
+	debug = 0
+	disable_adminwarn = TRUE
+	var/timer = 30 //minutes
+	var/started = 0
+	stock_part_presets = list(/decl/stock_part_preset/radio/receiver/nullmatter = 1)
+	uncreated_component_parts = list(
+		/obj/item/stock_parts/radio/receiver/buildable,
+		/obj/item/stock_parts/power/apc/buildable
+		)
+	public_methods = list(
+		/decl/public_access/public_method/triggerNM
+		)
+
+/obj/machinery/power/supermatter/nullmatter/proc/activate()
+	damage = 0
+	started = 1
+
+	var/obj/effect/overmap/visitable/location = global.overmap_sectors[num2text(z)]
+	if(!global.notifiednullmatter)
+		priority_announcement.Announce("WARNING! Spatial anomaly detected at [location]!", new_sound = sound('sound/effects/cascade.ogg', volume = 35))
+		global.notifiednullmatter = 1
+
+
+/obj/machinery/power/supermatter/nullmatter/Initialize(mapload)
+	. = ..()
+
+	started = 0
+	addtimer(CALLBACK(src, PROC_REF(activate)), timer MINUTE)
+
+/obj/machinery/power/supermatter/nullmatter/Process()
+	if(!started)
+		return
+	else
+		. = ..()
+
+/obj/machinery/power/supermatter/nullmatter/explode()
+	. = ..()
+	if(!global.notifiedend)
+		global.notifiedend = 1
+		to_world("You feel a wave of wrongness wash over you, which lasts for less than a second. Something horrible has been averted.")
+
+/obj/machinery/power/supermatter/nullmatter/explosion_act()
+	SHOULD_CALL_PARENT(FALSE)
+	currently_exploding = FALSE

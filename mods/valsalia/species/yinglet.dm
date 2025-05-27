@@ -50,6 +50,7 @@
 	available_background_info = list(
 		/decl/background_category/heritage =  list(
 			/decl/background_detail/heritage/yinglet,
+			/decl/background_detail/heritage/yinglet/valsalian,
 			/decl/background_detail/heritage/yinglet/tribal,
 			/decl/background_detail/heritage/yinglet/void,
 			/decl/background_detail/heritage/other
@@ -60,13 +61,17 @@
 			/decl/background_detail/location/stateless
 		),
 		/decl/background_category/faction =   list(
-			/decl/background_detail/faction/enclave_ying,
-			/decl/background_detail/faction/tradehouse_ying,
-			/decl/background_detail/faction/other
+			/decl/background_detail/faction/enclave_scav,
+			/decl/background_detail/faction/tradehouse_scav,
+			/decl/background_detail/faction/exiled_scav,
+			/decl/background_detail/faction/wanderer
 		),
 		/decl/background_category/religion =  list(
-			/decl/background_detail/religion/enclave,
-			/decl/background_detail/religion/other
+			/decl/background_detail/religion/dinnaism,
+			/decl/background_detail/religion/veil_worship,
+			/decl/background_detail/religion/angel_worship,
+			/decl/background_detail/religion/ancestor_worship,
+			/decl/background_detail/religion/faithless,
 		)
 	)
 
@@ -80,11 +85,11 @@
 
 /decl/species/yinglet/skills_from_age(age)
 	switch(age)
-		if(0 to 5)
-			. = -4
-		if(5 to 10)
+		if(0 to 2)
+			. = -2
+		if(3 to 10)
 			. = 0
-		if(10 to 15)
+		if(11 to 16)
 			. = 4
 		else
 			. = 8

@@ -61,9 +61,12 @@
 /decl/background_detail/proc/sanitize_background_name(new_name)
 	return sanitize_name(new_name)
 
+/decl/background_detail/proc/is_long()
+	return length(get_text_body()) > 200
+
 /decl/background_detail/proc/get_description(var/verbose = TRUE)
 	LAZYSET(., "details", jointext(get_text_details(), "<br>"))
-	if(verbose || length(get_text_body()) <= 200)
+	if(verbose || !is_long())
 		LAZYSET(., "body", get_text_body())
 	else
 		LAZYSET(., "body", "[copytext(get_text_body(), 1, 194)] <small>\[...\]</small>")

@@ -245,6 +245,15 @@
 	secure = TRUE
 	icon_state = "pink"
 
+/area/ministation/contracter_bunk
+	name = "\improper Contracter's Bunk"
+	turf_initializer = /decl/turf_initializer/maintenance
+	icon_state = "green"
+
+/area/ministation/illegal_hideaway
+	name = "\improper Illegal Hideout"
+	icon_state = "green"
+
 /area/ministation/library
 	name = "\improper Library"
 	icon_state = "LIB"
@@ -473,15 +482,91 @@
 	icon_state = "green"
 	secure = TRUE
 
-
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
+	icon_state = "white"
+	requires_power = 0
+
+/area/ministation/visitors
+	name = "\improper Visiting Shuttles"
 	icon_state = "white"
 	requires_power = 0
 
 /area/ministation/shuttle/outgoing
 	name = "\improper Science Shuttle"
 	icon_state = "shuttle"
+
+/*/area/ministation/shuttle/outgoing_visitors1
+	name = "\improper Visitors Bay 1"
+	icon_state = "shuttle"
+
+/area/ministation/shuttle/outgoing_visitors2
+	name = "\improper Visitors Bay 2"
+	icon_state = "shuttle"*/
+
+
+// CENTCOMMS AREAS
+
+/area/ministation/centcomm/Arrival
+	name = "\improper CentComm Arrivals" // I hate this ugly thing
+	icon_state = "white"
+	requires_power = 0
+
+/area/ministation/centcomm/lounge
+	name = "\improper CentComm Lounge"
+	icon_state = "orange"
+
+/area/ministation/centcomm/command
+	name = "\improper CentComm Command"
+	icon_state = "dark_blue"
+
+/area/ministation/centcomm/backrooms
+	name = "\improper CentComm BackRooms"
+	icon_state = "pink"
+
+/area/ministation/centcomm/backrooms_2
+	name = "\improper CentComm BackRooms"
+	icon_state = "pink"
+
+/area/ministation/centcomm/ghost_halls
+	name = "\improper CentComm Ghost Halls"
+	icon_state = "pink"
+
+// for coherency, apparently an area can't exist in more than one place....
+/area/ministation/centcomm/ghost_halls_2
+	name = "\improper CentComm Ghost Halls"
+	icon_state = "pink"
+
+
+/area/ministation/centcomm/halls
+	name = "\improper CentComm Hallways"
+	icon_state = "yellow"
+
+/area/ministation/centcomm/private_room_1
+	name = "\improper CentComm Private Room"
+	icon_state = "green"
+
+/area/ministation/centcomm/private_room_2
+	name = "\improper CentComm Private Room"
+	icon_state = "red"
+
+/area/ministation/centcomm/private_room_3
+	name = "\improper CentComm Private Room"
+	icon_state = "yellow"
+
+/area/ministation/centcomm/bathroom
+	name = "\improper CentComm Bathrooms"
+	icon_state = "blue"
+
+/area/ministation/centcomm/medbay
+	name = "\improper CentComm Medbay"
+	icon_state = "blue"
+
+/area/ministation/centcomm/cryo
+	name = "\improper CentComm Cryo"
+	icon_state = "orange"
+
+// MURPHY's AREAS
 
 /area/ministation/Murphy
 	name = "\improper Murphy"

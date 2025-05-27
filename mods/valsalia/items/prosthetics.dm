@@ -44,6 +44,12 @@
 	icon_base = 'mods/valsalia/icons/metal_female.dmi'
 	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
 	uid = "bodytype_prosthetic_yinglet_fbp_fem"
+	age_descriptor = /datum/appearance_descriptor/age/yinglet
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height = 0.5,
+		/datum/appearance_descriptor/build =  0.5
+	)
+
 
 /decl/bodytype/prosthetic/ying/metal/fbp/masculine
 	name = "yinglet, android"

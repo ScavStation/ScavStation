@@ -51,7 +51,7 @@
 		return climb_up(A)
 
 	var/obj/item/clothing/gloves/G = get_equipped_item(slot_gloves_str)
-	if(istype(G) && G.Touch(A,0)) // for magic gloves
+	if(istype(G) && G.Touch(A, FALSE)) // for magic gloves
 		return TRUE
 
 	. = ..()
@@ -92,13 +92,8 @@
 /*
 	Animals
 */
-
-/mob/living/simple_animal/UnarmedAttack(var/atom/A, var/proximity)
-
-	. = ..()
-	if(.)
-		return
-
+/// Make unarmed attacks use natural weapons on harm intent.
+/mob/living/simple_animal/ResolveUnarmedAttack(atom/A)
 	var/attacking_with = get_natural_weapon()
 	if(a_intent == I_HELP || !attacking_with)
 		return A.attack_animal(src)
