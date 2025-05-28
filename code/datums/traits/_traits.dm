@@ -20,7 +20,7 @@
 	var/list/actual_traits = get_traits()
 	return (trait_type in actual_traits) && (!trait_level || actual_traits[trait_type] >= trait_level)
 
-/mob/living/proc/GetTraitLevel(trait_type)
+/mob/living/proc/get_trait_level(trait_type)
 	SHOULD_NOT_SLEEP(TRUE)
 	var/traits = get_traits()
 	if(!traits)
@@ -52,7 +52,7 @@
 		trait.apply_trait(src)
 	return TRUE
 
-/mob/living/proc/RemoveTrait(trait_type, canonize = TRUE)
+/mob/living/proc/remove_trait(trait_type, canonize = TRUE)
 	var/decl/species/our_species = get_species()
 	// If traits haven't been set up, but we're trying to remove a trait that exists on the species then set up traits
 	if(!_mob_traits && LAZYISIN(our_species?.traits, trait_type))
@@ -61,23 +61,23 @@
 		LAZYREMOVE(_mob_traits, trait_type)
 	// Check if we can just default back to species traits.
 	if(canonize)
-		CanonizeTraits()
+		canonize_traits()
 
 /// Removes a trait unless it exists on the species.
 /// If it does exist on the species, we reset it to the species' trait level.
-/mob/living/proc/RemoveExtrinsicTrait(trait_type)
+/mob/living/proc/remove_extrinsic_trait(trait_type)
 	var/decl/species/our_species = get_species()
 	if(!LAZYACCESS(our_species?.traits, trait_type))
-		RemoveTrait(trait_type)
-	else if(our_species?.traits[trait_type] != GetTraitLevel(trait_type))
+		remove_trait(trait_type)
+	else if(our_species?.traits[trait_type] != get_trait_level(trait_type))
 		set_trait(trait_type, our_species?.traits[trait_type])
 
-/mob/living/proc/ClearExtrinsicTraits()
+/mob/living/proc/clear_extrinsic_traits()
 	_mob_traits = null
 
 /// Sets the traits list to null if it's identical to the species list.
 /// Returns TRUE if the list was reset and FALSE otherwise.
-/mob/living/proc/CanonizeTraits()
+/mob/living/proc/canonize_traits()
 	if(!_mob_traits) // Already in canonical form.
 		return FALSE
 	var/decl/species/our_species = get_species()

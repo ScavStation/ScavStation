@@ -927,7 +927,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 
 	var/malus_level = 0
 	for(var/decl/trait/intolerance as anything in intolerances)
-		malus_level = max(malus_level, subject.GetTraitLevel(intolerance.type))
+		malus_level = max(malus_level, subject.get_trait_level(intolerance.type))
 	if(!malus_level)
 		return 1
 
