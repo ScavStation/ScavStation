@@ -404,6 +404,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	if(suit && (suit.flags_inv & HIDETAIL))
 		set_current_mob_overlay(HO_TAIL_LAYER, null, FALSE)
 		set_current_mob_underlay(HU_TAIL_LAYER, null, update_icons)
+		return
 
 	var/icon/tail_s = get_tail_icon_for_organ(tail_organ)
 	var/tail_image = image(tail_s, icon_state = tail_state)
