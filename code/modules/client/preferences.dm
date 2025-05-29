@@ -492,7 +492,7 @@ var/global/list/time_prefs_fixed = list()
 	if(!client)
 		return
 
-	if(client.get_preference_value(/datum/client_preference/fullscreen_mode) != PREF_OFF)
+	if(client.get_preference_value(/datum/client_preference/fullscreen_mode) != PREF_NO)
 		client.toggle_fullscreen(client.get_preference_value(/datum/client_preference/fullscreen_mode))
 
 /datum/preferences/proc/setup_preferences()

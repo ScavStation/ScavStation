@@ -4,6 +4,7 @@
 	icon_state = "wingrille"
 	density = TRUE
 	anchored = TRUE
+	atmos_canpass = CANPASS_NEVER
 	var/win_path = /obj/structure/window/basic/full
 	var/frame_path = /obj/structure/wall_frame/standard
 	var/grille_path = /obj/structure/grille

@@ -19,3 +19,5 @@
 #define PSIONIC "psi"
 
 #define COLOR_NULLGLASS        "#ff6088"
+
+#define SS_PRIORITY_PSYCHICS      45 // Psychic complexus processing priority

@@ -166,9 +166,13 @@
 	popup.open()
 
 
-/obj/item/stack/proc/produce_recipe(decl/stack_recipe/recipe, var/producing, var/expending, mob/user, paint_color, sublist = null)
+/obj/item/stack/proc/produce_recipe(decl/stack_recipe/recipe, var/producing, var/expending, mob/user, paint_color)
 
 	if(producing <= 0 || expending <= 0 || expending > get_amount())
+		return
+
+	if(expending > recipe.get_required_stack_amount(src, product_amount = producing))
+		PRINT_STACK_TRACE("Possible HREF hacking attempt, recipe amount consumed and produced doesn't match!")
 		return
 
 	var/decl/material/mat       = get_material()
@@ -195,11 +199,14 @@
 
 	to_chat(user, SPAN_NOTICE("You [recipe.get_craft_verb(src)] [recipe.get_display_name(producing, mat, reinf_mat)]!"))
 	var/list/atom/results = recipe.spawn_result(user, user.loc, producing, mat, reinf_mat, paint_color, crafting_stack_type, expending)
-	var/atom/movable/O = LAZYACCESS(results, 1)
-	if(istype(O) && !QDELETED(O)) // In case of stack merger.
-		O.add_fingerprint(user)
-		user.put_in_hands(O)
-	list_recipes(user, sublist)
+	var/was_put_in_hand = FALSE
+	for(var/atom/result in results)
+		if(QDELETED(result))
+			continue
+		result.add_fingerprint(user)
+		if(isitem(result) && !was_put_in_hand)
+			if(user.put_in_hands(result))
+				was_put_in_hand = TRUE
 
 /obj/item/stack/OnTopic(mob/user, list/href_list)
 	. = ..()
@@ -247,9 +254,10 @@
 		var/producing = text2num(href_list["producing"])
 		var/expending = text2num(href_list["expending"])
 		var/datum/stack_recipe_list/returning = locate(href_list["returning"])
-		if(producing > 0 && expending > 0)
-			produce_recipe(recipe, producing, expending, user, paint_color, sublist = returning)
-			return TOPIC_REFRESH
+		if(producing > 0 && expending > 0 && expending <= recipe.get_required_stack_amount(src, product_amount = producing))
+			produce_recipe(recipe, producing, expending, user, paint_color)
+			list_recipes(user, returning)
+			return TOPIC_HANDLED // Don't attempt to refresh, list_recipes should handle that already...
 
 	return TOPIC_NOACTION
 

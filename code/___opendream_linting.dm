@@ -1,6 +1,7 @@
 #ifdef OPENDREAM
 //1000-1999
-#pragma FileAlreadyIncluded error
+// FileAlreadyIncluded trips up on modpack DMEs
+#pragma FileAlreadyIncluded disabled
 #pragma MissingIncludedFile error
 #pragma MisplacedDirective error
 #pragma UndefineMissingDirective error

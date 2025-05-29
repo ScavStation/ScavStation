@@ -58,7 +58,8 @@
 			return TRUE
 
 		stored_caliber = magazine.caliber
-		for(var/obj/item/ammo_casing/casing in magazine.get_stored_ammo_count())
+		magazine.create_initial_contents()
+		for(var/obj/item/ammo_casing/casing in magazine.stored_ammo)
 			// Just in case.
 			if(casing.caliber != stored_caliber)
 				continue

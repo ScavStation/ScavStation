@@ -35,9 +35,9 @@
 			new_item.rotate_class = rotate_class
 			new_item.constructed_path = constructed_path
 		if(colorable)
-			new_item.color = order.get_data("selected_color", PIPE_COLOR_WHITE)
+			new_item.set_color(order.get_data("selected_color", PIPE_COLOR_WHITE))
 		else if (pipe_color != null)
-			new_item.color = pipe_color
+			new_item.set_color(pipe_color)
 		new_item.SetName(name)
 		if(desc)
 			new_item.desc = desc
