@@ -256,3 +256,9 @@
 /mob/living/exosuit/handle_stance()
 	stance_damage = 0
 	return
+
+/mob/living/exosuit/is_valid_merchant_pad_target()
+	if(current_user)
+		return FALSE
+	return ..()
+

@@ -417,3 +417,9 @@
 	if(dumped_reagents && last_loc && !QDELETED(last_loc) && last_loc.reagents?.total_volume)
 		last_loc.reagents.handle_update()
 		HANDLE_REACTIONS(last_loc.reagents)
+
+/obj/is_valid_merchant_pad_target()
+	if(anchored)
+		return FALSE
+	return ..()
+

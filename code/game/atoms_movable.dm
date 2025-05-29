@@ -591,3 +591,7 @@
 		reset_offsets()
 		return TRUE
 	return FALSE
+
+/atom/movable/proc/is_valid_merchant_pad_target()
+	return simulated
+

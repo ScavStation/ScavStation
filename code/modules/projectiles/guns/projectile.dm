@@ -138,6 +138,7 @@
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber)
 			return //incompatible
+		AM.create_initial_contents()
 
 		switch(AM.mag_type)
 			if(MAGAZINE)
