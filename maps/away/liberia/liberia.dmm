@@ -20,6 +20,12 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/machinery/button/access/exterior{
+	id_tag = "mule_port_dock";
+	pixel_x = 21;
+	pixel_y = 11;
+	dir = 1
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/dockinghall)
 "ad" = (
@@ -567,52 +573,13 @@
 /area/liberia/traidingroom)
 "bl" = (
 /obj/structure/rack,
-/obj/item/bag/cash,
 /obj/effect/floor_decal/borderfloor{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 8
 	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
-/obj/item/cash/c1000{
-	desc = "It's worth 13000 Thalers. Who the fuck made it?"
-	},
+/obj/item/bag/cash/filled,
 /turf/floor/tiled/monotile,
 /area/liberia/traidingroom)
 "bm" = (
@@ -1013,6 +980,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
+/obj/machinery/atm{
+	pixel_y = 30
+	},
 /turf/floor/tiled,
 /area/liberia/mule)
 "bV" = (
@@ -1050,42 +1020,39 @@
 /turf/floor/plating,
 /area/liberia/mule)
 "bZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	id_tag = "merchant_ship_vent"
-	},
-/obj/structure/catwalk,
 /obj/structure/closet/emcloset,
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 1;
+	id_tag = "mule_port_shuttle_dock_pump_out_internal"
+	},
+/obj/structure/catwalk,
 /turf/floor/plating,
 /area/liberia/mule)
 "ca" = (
-/obj/machinery/button/access/exterior{
-	id_tag = "mule_port_shuttle_dock";
-	pixel_x = 6;
-	pixel_y = 28
-	},
-/obj/machinery/button/access/interior{
-	id_tag = "mule_port_shuttle_dock";
-	name = "interior access button";
-	pixel_x = -6;
-	pixel_y = 28
-	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	id_tag = "merchant_ship_vent"
-	},
-/obj/structure/catwalk,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	id_tag = "mule_port_shuttle_dock";
 	pixel_x = 20;
-	tag_airpump = "merchant_ship_vent";
+	tag_airpump = "merchant_ship_pump";
 	tag_chamber_sensor = "merchant_ship_sensor";
 	tag_exterior_door = "merchant_ship_exterior";
-	tag_interior_door = "merchant_ship_interior"
+	tag_interior_door = "merchant_ship_interior";
+	cycle_to_external_air = 1;
+	tag_pump_out_internal = "mule_port_shuttle_dock_pump_out_internal";
+	tag_pump_out_external = "mule_port_shuttle_dock_pump_out_external"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 1;
+	id_tag = "mule_port_shuttle_dock_pump_out_internal"
+	},
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28
+	},
+/obj/structure/catwalk,
 /turf/floor/plating,
 /area/liberia/mule)
 "cb" = (
@@ -1386,21 +1353,30 @@
 	name = "Ship Exterior"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/machinery/button/access/interior{
+	id_tag = "mule_port_shuttle_dock";
+	name = "interior access button";
+	dir = 8;
+	pixel_x = -9;
+	pixel_y = 26
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/mule)
 "cz" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
 /obj/structure/catwalk,
 /turf/floor/plating,
 /area/liberia/mule)
 "cA" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
 /obj/machinery/airlock_sensor{
 	id_tag = "merchant_ship_sensor";
 	pixel_x = 28;
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
 /obj/structure/catwalk,
 /turf/floor/plating,
@@ -1734,14 +1710,14 @@
 /turf/floor/tiled/dark/monotile,
 /area/liberia/bridge)
 "di" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	dir = 1;
-	id_tag = "merchant_ship_vent"
-	},
-/obj/structure/catwalk,
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 1;
+	id_tag = "merchant_ship_pump"
+	},
+/obj/structure/catwalk,
 /turf/floor/plating,
 /area/liberia/mule)
 "dk" = (
@@ -1763,22 +1739,18 @@
 /turf/floor/tiled/steel_grid,
 /area/liberia/atmos)
 "dl" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "merchant_ship_vent"
-	},
 /obj/structure/sign/warning/airlock{
 	dir = 8;
 	pixel_x = 32
 	},
-/obj/structure/catwalk,
 /obj/structure/cable/blue{
 	icon_state = "2-8"
 	},
-/obj/structure/fuel_port/hydrogen{
-	pixel_x = 32;
-	pixel_y = -32
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 1;
+	id_tag = "merchant_ship_pump"
 	},
+/obj/structure/catwalk,
 /turf/floor/plating,
 /area/liberia/mule)
 "dm" = (
@@ -2484,9 +2456,6 @@
 /turf/floor/tiled/dark,
 /area/liberia/bridge)
 "ep" = (
-/obj/machinery/atm{
-	pixel_y = -30
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -2494,6 +2463,8 @@
 	req_access = newlist()
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/toy,
+/obj/item/box/fancy/cigar,
 /turf/floor/tiled/steel_grid,
 /area/liberia/mule)
 "eq" = (
@@ -2593,11 +2564,6 @@
 	locked = 1;
 	name = "Ship Exterior"
 	},
-/obj/machinery/button/access/exterior{
-	id_tag = "mule_port_shuttle_dock";
-	pixel_x = -28;
-	dir = 4
-	},
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
@@ -2607,6 +2573,11 @@
 	shuttle_tag = "Mule";
 	port_tag = "docking port";
 	dock_target = "mule_port_shuttle_dock"
+	},
+/obj/machinery/button/access/exterior{
+	id_tag = "mule_port_shuttle_dock";
+	pixel_x = -21;
+	pixel_y = -13
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/mule)
@@ -4693,13 +4664,13 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor{
-	dir = 4
-	},
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/techfloor{
+	dir = 4
+	},
 /turf/floor/tiled/techfloor,
 /area/liberia/dockinghall)
 "iG" = (
@@ -5841,8 +5812,8 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "merchant_station_sensor";
-	pixel_x = -28;
-	pixel_y = -10
+	pixel_y = -19;
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/catwalk,
@@ -5875,14 +5846,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
 /obj/machinery/button/access/interior{
 	id_tag = "mule_port_dock";
 	name = "interior access button";
-	pixel_x = -1;
-	pixel_y = 22
-	},
-/obj/structure/cable/blue{
-	icon_state = "4-8"
+	pixel_x = 8;
+	pixel_y = 30;
+	dir = 4
 	},
 /turf/floor/tiled/techfloor,
 /area/liberia/dockinghall)
@@ -6270,6 +6242,14 @@
 	},
 /turf/floor/tiled,
 /area/liberia/traidingroom)
+"nB" = (
+/obj/effect/paint/silver,
+/obj/effect/paint_stripe/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/wall/r_titanium,
+/area/liberia/mule)
 "nD" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 5
@@ -6500,9 +6480,8 @@
 	req_access = newlist()
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atm{
-	pixel_y = -30
-	},
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/random/accessory,
 /turf/floor/tiled/steel_grid,
 /area/liberia/mule)
 "qg" = (
@@ -7075,6 +7054,14 @@
 	},
 /turf/floor/tiled,
 /area/liberia/hallway)
+"yo" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	id_tag = "mule_port_shuttle_dock_pump_out_external"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/catwalk,
+/turf/floor/plating/airless,
+/area/liberia/mule)
 "yp" = (
 /obj/structure/cable/blue{
 	icon_state = "4-8"
@@ -8200,6 +8187,14 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/floor/wood/walnut,
 /area/liberia/library)
+"RP" = (
+/obj/effect/paint/silver,
+/obj/effect/paint_stripe/yellow,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/wall/r_titanium,
+/area/liberia/mule)
 "Sa" = (
 /turf/wall/prepainted,
 /area/liberia/cryo)
@@ -25948,7 +25943,7 @@ aa
 aa
 aa
 bq
-ex
+nB
 bZ
 cz
 di
@@ -26149,8 +26144,8 @@ aa
 aa
 aa
 aa
-aa
-ex
+yo
+RP
 ca
 cA
 dl
