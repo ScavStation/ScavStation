@@ -11524,6 +11524,12 @@
 	},
 /turf/floor/wood/mahogany,
 /area/ministation/library)
+"Jm" = (
+/obj/structure/lattice,
+/obj/machinery/cryopod/lifepod,
+/obj/abstract/landmark/latejoin/cryo,
+/turf/floor/tiled/usedup,
+/area/ministation/enclave/foyer)
 "Jo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -34960,7 +34966,7 @@ aa
 SM
 Si
 dN
-dN
+Jm
 qS
 aa
 aa

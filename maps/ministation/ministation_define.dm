@@ -48,7 +48,9 @@
 
 	allowed_latejoin_spawns = list(
 		/decl/spawnpoint/arrivals,
-		/decl/spawnpoint/cryo
+		/decl/spawnpoint/cryo,
+		/decl/spawnpoint/contracter_bunk,
+		/decl/spawnpoint/enclave/foyer,
 	)
 	default_spawn = /decl/spawnpoint/arrivals
 
