@@ -913,7 +913,10 @@
 /area/ministation/science)
 "cB" = (
 /obj/machinery/cryopod,
-/obj/abstract/landmark/latejoin/cryo,
+/obj/abstract/landmark/latejoin/cryo{
+	spawn_decl = /decl/spawnpoint/contracter_bunk;
+	name = "contracter cryo"
+	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "cC" = (
@@ -11527,7 +11530,10 @@
 "Jm" = (
 /obj/structure/lattice,
 /obj/machinery/cryopod/lifepod,
-/obj/abstract/landmark/latejoin/cryo,
+/obj/abstract/landmark/latejoin/cryo{
+	name = "enclave cryo";
+	spawn_decl = /decl/spawnpoint/enclave/foyer
+	},
 /turf/floor/tiled/usedup,
 /area/ministation/enclave/foyer)
 "Jo" = (

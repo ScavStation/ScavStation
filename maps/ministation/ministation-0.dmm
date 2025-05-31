@@ -592,11 +592,8 @@
 /turf/wall/natural/random/ministation,
 /area/space)
 "bH" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 6
-	},
-/turf/wall,
+/obj/machinery/vending/cigarette,
+/turf/floor/tiled,
 /area/ministation/enclave/gatehouse)
 "bK" = (
 /obj/structure/flora/bush/ppflowers,
@@ -3088,6 +3085,15 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 20
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
 "hY" = (
@@ -4316,6 +4322,10 @@
 	},
 /turf/floor/tiled,
 /area/ministation/enclave/gatehouse)
+"lz" = (
+/obj/machinery/vending/sovietsoda,
+/turf/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "lA" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -4664,6 +4674,9 @@
 /obj/item/clothing/head/helmet/space/void/engineering/salvage/scav,
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
@@ -5421,7 +5434,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /obj/item/trash/mollusc_shell/clam,
 /obj/item/clothing/suit/space/void/engineering/salvage/scav,
 /obj/item/clothing/shoes/magboots,
@@ -5561,6 +5576,10 @@
 	},
 /turf/floor/reinforced/airmix,
 /area/ministation/atmospherics)
+"pk" = (
+/obj/machinery/vending/fitness,
+/turf/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "pm" = (
 /obj/effect/wallframe_spawn/no_grille,
 /obj/machinery/door/firedoor{
@@ -6128,6 +6147,10 @@
 	},
 /turf/floor/plating,
 /area/ministation/enginecontrol)
+"qz" = (
+/obj/machinery/vending/weeb,
+/turf/floor/tiled,
+/area/ministation/enclave/gatehouse)
 "qA" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -9297,6 +9320,13 @@
 	},
 /turf/space,
 /area/space)
+"zS" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 10
+	},
+/turf/wall,
+/area/ministation/enclave/gatehouse)
 "zT" = (
 /obj/abstract/landmark{
 	name = "carpspawn"
@@ -9656,8 +9686,8 @@
 /turf/space,
 /area/space)
 "AP" = (
-/obj/effect/floor_decal/techfloor{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/floor/tiled,
 /area/ministation/enclave/gatehouse)
@@ -15553,7 +15583,6 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
 "PS" = (
@@ -17250,6 +17279,14 @@
 	},
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
+"Uz" = (
+/obj/structure/lattice,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "dir_splatter_2";
+	dir = 6
+	},
+/turf/wall,
+/area/ministation/enclave/gatehouse)
 "UA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -37141,7 +37178,7 @@ aa
 tQ
 MU
 OV
-iH
+zS
 VC
 pE
 WX
@@ -37398,8 +37435,8 @@ aa
 Bv
 PU
 yJ
-iH
-Sd
+SQ
+pk
 Sd
 Sd
 iH
@@ -37656,9 +37693,9 @@ HU
 SP
 gm
 aH
+lz
 Sd
-Sd
-Sd
+tb
 iH
 aa
 sl
@@ -37912,10 +37949,10 @@ DB
 zE
 ib
 qV
-aH
+Uz
+bH
+Sd
 tb
-Sd
-Sd
 iH
 yP
 aa
@@ -38169,11 +38206,11 @@ ad
 ad
 BX
 Dc
-SQ
+iH
+qz
+Sd
 tb
-Sd
-Sd
-bH
+iH
 ad
 aa
 aa
