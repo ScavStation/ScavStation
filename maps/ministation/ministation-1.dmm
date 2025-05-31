@@ -376,6 +376,13 @@
 	},
 /turf/floor/carpet/red,
 /area/ministation/detective)
+"aX" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/solar,
+/turf/floor/reinforced/airless,
+/area/space)
 "aY" = (
 /turf/floor/tiled,
 /area/ministation/enclave/tower)
@@ -597,7 +604,13 @@
 /obj/structure/transit_tube{
 	icon_state = "D-SW"
 	},
-/turf/space,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/floor/reinforced/airless,
 /area/space)
 "bF" = (
 /turf/wall,
@@ -1166,6 +1179,15 @@
 	},
 /turf/floor/lino,
 /area/ministation/kitchen)
+"df" = (
+/obj/structure/transit_tube{
+	icon_state = "N-S-Pass"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "dg" = (
 /obj/structure/yinglet_nest{
 	pixel_y = 8;
@@ -1257,6 +1279,13 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/surgicaln)
+"dx" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/solar,
+/turf/floor/reinforced/airless,
+/area/space)
 "dy" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -1404,6 +1433,14 @@
 	},
 /turf/open,
 /area/ministation/hall/w2)
+"dL" = (
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/machinery/power/solar,
+/turf/floor/reinforced/airless,
+/area/space)
 "dM" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -1994,6 +2031,17 @@
 /obj/item/plantspray/weedkiller,
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
+"fb" = (
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/power/solar,
+/turf/floor/reinforced/airless,
+/area/space)
 "fc" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/item/plantspray/weeds,
@@ -3934,7 +3982,7 @@
 /area/ministation/enclave/tower)
 "jJ" = (
 /obj/structure/lattice,
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/longrange,
 /turf/floor/wood/walnut,
 /area/ministation/enclave/matriarch)
 "jK" = (
@@ -6670,6 +6718,15 @@
 /obj/structure/table/bench/padded,
 /turf/floor/wood/walnut,
 /area/ministation/enclave/matriarch)
+"qE" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "qF" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 8
@@ -7908,6 +7965,13 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
+"tn" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/tracker,
+/turf/floor/reinforced/airless,
+/area/space)
 "to" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
@@ -11168,6 +11232,15 @@
 /obj/item/stack/material/gemstone/mapped/diamond,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/illegal_hideaway)
+"AF" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "AG" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/stone,
@@ -11414,6 +11487,12 @@
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/rnd)
+"Bq" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "Br" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11426,6 +11505,15 @@
 	},
 /turf/floor/carpet/red,
 /area/ministation/securityoffice)
+"Bt" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "Bu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -11777,10 +11865,9 @@
 /area/ministation/Murphy/hydro)
 "Cr" = (
 /obj/structure/transit_tube{
-	icon_state = "D-NE"
+	icon_state = "D-SW"
 	},
-/obj/structure/lattice,
-/turf/space,
+/turf/floor/reinforced/airless,
 /area/space)
 "Cs" = (
 /obj/structure/curtain/canteen,
@@ -12786,6 +12873,12 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/surgicaln)
+"EP" = (
+/obj/structure/transit_tube{
+	icon_state = "S-NW"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "EQ" = (
 /obj/structure/rack/dark,
 /obj/item/roller,
@@ -13936,6 +14029,15 @@
 /mob/living/simple_animal/passive/mouse/snaprat,
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
+"HS" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "HT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -14095,6 +14197,12 @@
 "Ik" = (
 /turf/floor/bluegrid,
 /area/ministation/armory)
+"Il" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "Im" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/southleft,
@@ -14856,6 +14964,12 @@
 	},
 /turf/floor/wood/walnut,
 /area/ministation/enclave/matriarch)
+"JS" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "JU" = (
 /obj/machinery/light{
 	dir = 1
@@ -15522,6 +15636,12 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/floor/wood/yew,
 /area/ministation/perma)
+"LB" = (
+/obj/structure/transit_tube{
+	icon_state = "W-SE"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "LD" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -17672,6 +17792,18 @@
 	},
 /turf/floor/wood/yew,
 /area/ministation/perma)
+"Rc" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "Rd" = (
 /obj/item/stool/padded,
 /turf/floor/tiled/dark/monotile,
@@ -18213,8 +18345,10 @@
 /obj/structure/transit_tube{
 	icon_state = "W-SE"
 	},
-/obj/structure/lattice,
-/turf/space,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/floor/reinforced/airless,
 /area/space)
 "Ss" = (
 /obj/vehicle/bike/gyroscooter{
@@ -18732,6 +18866,12 @@
 	},
 /turf/floor/tiled/dark,
 /area/ministation/armory)
+"TG" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "TH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19119,8 +19259,7 @@
 /obj/structure/transit_tube{
 	icon_state = "E-NW"
 	},
-/obj/structure/lattice,
-/turf/space,
+/turf/floor/reinforced/airless,
 /area/space)
 "UJ" = (
 /obj/machinery/light{
@@ -19574,6 +19713,12 @@
 	},
 /turf/floor/tiled/stone,
 /area/ministation/enclave/matriarch)
+"VH" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "VI" = (
 /obj/machinery/light{
 	dir = 2
@@ -20061,6 +20206,18 @@
 	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/hall/e2)
+"Xb" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "Xc" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 8
@@ -38846,10 +39003,10 @@ ad
 ad
 Jf
 Rz
-HO
-HO
-HO
-HO
+dx
+dx
+dx
+JS
 mD
 GH
 yt
@@ -39103,10 +39260,10 @@ aa
 ad
 aa
 Rz
-HO
-HO
-HO
-HO
+TG
+Bt
+Xb
+qE
 NI
 jm
 So
@@ -39358,12 +39515,12 @@ aa
 aa
 aa
 ad
-aa
+dL
 Sr
 WA
-HO
-HO
-HO
+dL
+qE
+aX
 NI
 NI
 eI
@@ -39615,11 +39772,11 @@ aa
 aa
 aa
 ad
-aa
+dL
 bE
 UH
-aa
-aa
+dL
+qE
 aa
 aa
 aa
@@ -39872,11 +40029,11 @@ aa
 aa
 aa
 ad
-ad
-aa
-Sr
-Cr
-aa
+dL
+AF
+LB
+WA
+JS
 aa
 aa
 aa
@@ -40129,11 +40286,11 @@ aa
 aa
 aa
 SI
-ad
-ad
-Cy
-uS
-zz
+dL
+AF
+Cr
+EP
+df
 zz
 aa
 aa
@@ -40386,11 +40543,11 @@ ad
 ad
 SI
 ad
-HO
-HO
-HO
-HO
-HO
+fb
+Rc
+HS
+Bq
+qE
 ad
 aa
 aa
@@ -40643,11 +40800,11 @@ aa
 aa
 aa
 ad
-HO
-HO
-HO
-HO
-HO
+aX
+aX
+aX
+dL
+qE
 SI
 aa
 zz
@@ -40903,8 +41060,8 @@ aa
 Uk
 jI
 ma
-HO
-HO
+dL
+qE
 aa
 aa
 aa
@@ -41160,8 +41317,8 @@ tF
 Jv
 kx
 Ek
-HO
-HO
+dL
+qE
 aa
 aa
 aa
@@ -41417,8 +41574,8 @@ Rt
 RS
 wg
 KO
-HO
-HO
+dL
+qE
 aa
 aa
 aa
@@ -41674,8 +41831,8 @@ Cl
 Uk
 Uk
 Uk
-HO
-HO
+dL
+qE
 aa
 aa
 aa
@@ -41929,10 +42086,10 @@ aY
 CR
 cb
 Uk
-HO
-HO
-HO
-HO
+Il
+Bq
+Bq
+VH
 aa
 aa
 aa
@@ -42186,7 +42343,7 @@ tF
 tF
 tF
 Uk
-HO
+tn
 aa
 aa
 aa

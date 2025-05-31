@@ -9644,9 +9644,13 @@
 /turf/floor/tiled,
 /area/ministation/hall/n3)
 "Dq" = (
-/obj/machinery/hologram/holopad,
-/turf/floor/wood/walnut,
-/area/ministation/enclave/conference)
+/obj/machinery/computer/cryopod{
+	name = "yinglet sleeptime console";
+	desc = "An interface between the enclave and the Patriarch of Sleep's systems.";
+	storage_name = "Patriarch of Sleep"
+	},
+/turf/wall,
+/area/ministation/enclave/foyer)
 "Ds" = (
 /obj/machinery/door/firedoor,
 /turf/wall,
@@ -10929,7 +10933,11 @@
 /turf/floor/plating,
 /area/ministation/maint/l3ne)
 "Hp" = (
-/obj/machinery/computer/cryopod,
+/obj/machinery/computer/cryopod{
+	storage_name = "Contract Liaison Services";
+	name = "contract engagement console";
+	desc = "An interface between crew and the contract engagement systems."
+	},
 /turf/wall,
 /area/ministation/contracter_bunk)
 "Hr" = (
@@ -33173,7 +33181,7 @@ nb
 sz
 yW
 KH
-Dq
+yW
 lR
 Xw
 hE
@@ -34714,7 +34722,7 @@ qo
 SM
 ad
 ad
-SM
+Dq
 dN
 dN
 dN

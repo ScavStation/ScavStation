@@ -526,6 +526,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/wall/r_wall,
 /area/ministation/enclave/evacloset)
 "bz" = (
@@ -4172,6 +4175,9 @@
 /obj/item/mollusc/barnacle{
 	pixel_x = 15
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/space,
 /area/space)
 "lb" = (
@@ -5066,6 +5072,9 @@
 /obj/structure/transit_tube_pod{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/floor,
 /area/ministation/enclave/evacloset)
 "nD" = (
@@ -5150,24 +5159,12 @@
 /area/ministation/dorms)
 "nP" = (
 /obj/structure/lattice,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
 /obj/machinery/portable_atmospherics/canister/air/airlock{
 	pixel_x = 1;
 	start_pressure = 0
 	},
-/obj/structure/cable{
-	icon_state = "16-0"
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
 	},
 /turf/floor/shuttle_ceiling/air,
 /area/ministation/enclave/evacloset)
@@ -7744,6 +7741,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/wall,
 /area/ministation/enclave/scikitchen)
 "uX" = (
@@ -7982,6 +7982,9 @@
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/engine)
+"vE" = (
+/turf/wall/r_wall,
+/area/ministation/enclave/evacloset)
 "vF" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 8
@@ -9140,6 +9143,9 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor5"
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/floor/plating,
 /area/ministation/enclave/scikitchen)
 "zj" = (
@@ -9220,6 +9226,13 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/plating,
 /area/ministation/dorms)
+"zx" = (
+/obj/structure/lattice,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/shuttle_ceiling/air,
+/area/ministation/enclave/evacloset)
 "zy" = (
 /obj/machinery/light{
 	dir = 4;
@@ -9352,6 +9365,9 @@
 "zW" = (
 /turf/wall,
 /area/ministation/dorms)
+"zX" = (
+/turf/unsimulated/dark_filler,
+/area/space)
 "zY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9661,6 +9677,9 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/wall,
 /area/ministation/enclave/scikitchen)
 "AM" = (
@@ -12035,6 +12054,9 @@
 /obj/item/mollusc/barnacle{
 	pixel_x = 15;
 	pixel_y = -13
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/space,
 /area/space)
@@ -17252,6 +17274,9 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "mfloor4"
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/wall,
 /area/ministation/enclave/scikitchen)
 "Uv" = (
@@ -17773,6 +17798,12 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/hall/s1)
+"VY" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/shuttle_ceiling/air,
+/area/ministation/enclave/evacloset)
 "VZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -17929,6 +17960,23 @@
 "WB" = (
 /turf/floor,
 /area/ministation/maint/eastatmos)
+"WC" = (
+/obj/structure/lattice,
+/obj/structure/cable{
+	icon_state = "16-0"
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	dir = 4
+	},
+/obj/structure/ladder,
+/turf/floor/shuttle_ceiling/air,
+/area/ministation/enclave/evacloset)
 "WF" = (
 /obj/structure/disposalpipe/segment,
 /turf/floor/plating,
@@ -18165,6 +18213,14 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ministation/atmospherics)
+"Xs" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/plating,
+/area/ministation/enclave/scikitchen)
 "Xt" = (
 /obj/machinery/turretid{
 	control_area = "\improper AI Upload Chamber";
@@ -35901,9 +35957,9 @@ aa
 aa
 nr
 vr
+zX
 Oj
 bo
-ad
 aa
 aa
 aa
@@ -36158,9 +36214,9 @@ aa
 aa
 XN
 qk
+vE
 XN
 XN
-ad
 ad
 ad
 ad
@@ -36408,16 +36464,16 @@ st
 XS
 Us
 zi
-vW
+Xs
 uW
 AL
 la
 Gt
 bv
 nC
+VY
 oP
 XN
-ad
 aa
 aa
 aa
@@ -36672,9 +36728,9 @@ pE
 pE
 sI
 hX
+zx
 mx
 to
-aa
 aa
 aa
 aa
@@ -36930,8 +36986,8 @@ QB
 Tl
 PR
 nP
+WC
 XN
-aa
 aa
 aa
 aa
@@ -37186,9 +37242,9 @@ pE
 pE
 zn
 mG
+mG
 DA
 XN
-aa
 aa
 aa
 aa
