@@ -912,11 +912,12 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "cB" = (
-/obj/machinery/cryopod,
-/obj/abstract/landmark/latejoin/cryo{
-	spawn_decl = /decl/spawnpoint/contracter_bunk;
-	name = "contracter cryo"
+/obj/machinery/cryopod{
+	on_store_message = "has been returned to HQ.";
+	on_store_name = "Contract Liaison Services";
+	name = "Contractor Acquisition Pod"
 	},
+/obj/abstract/landmark/latejoin/cryo/contractor,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "cC" = (
@@ -11529,11 +11530,12 @@
 /area/ministation/library)
 "Jm" = (
 /obj/structure/lattice,
-/obj/machinery/cryopod/lifepod,
-/obj/abstract/landmark/latejoin/cryo{
-	name = "enclave cryo";
-	spawn_decl = /decl/spawnpoint/enclave/foyer
+/obj/machinery/cryopod/lifepod{
+	name = "Yinglet Sleeptime Capsule";
+	on_store_name = "Patriarch of Sleep";
+	on_store_message = "is now in zhe sleeptime storage!"
 	},
+/obj/abstract/landmark/latejoin/cryo/enclave,
 /turf/floor/tiled/usedup,
 /area/ministation/enclave/foyer)
 "Jo" = (
