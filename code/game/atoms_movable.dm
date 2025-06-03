@@ -153,7 +153,7 @@
 
 /atom/movable/proc/forceMove(atom/destination)
 
-	if(QDELETED(src) && !QDESTROYING(src) && !isnull(destination))
+	if(QDELETED(src) && !isnull(destination))
 		CRASH("Attempted to forceMove a QDELETED [src] out of nullspace!!!")
 
 	if(loc == destination)

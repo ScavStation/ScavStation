@@ -32,7 +32,7 @@
 	var/obj/item/clothing/suit = loc
 	if(istype(suit))
 		if(user)
-			usr.put_in_hands(src)
+			user.put_in_hands(src)
 			src.add_fingerprint(user)
 		else
 			dropInto(loc)
