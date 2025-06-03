@@ -58,7 +58,7 @@
 	. = ..()
 
 /obj/machinery/ion_thruster/proc/get_thrust()
-	if(use_power && (stat & NOPOWER))
+	if(use_power && !(stat & NOPOWER))
 		use_power_oneoff(thrust_cost)
 		return thrust_limit
 	return 0
