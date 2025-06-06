@@ -493,6 +493,8 @@ SUBSYSTEM_DEF(zcopy)
 // return: is-invalid
 /datum/controller/subsystem/zcopy/proc/discover_movable(atom/movable/object)
 	ASSERT(!QDELETED(object))
+	if(init_state < SS_INITSTATE_STARTED)
+		return FALSE // no-op, discover_movable is only valid during or after zcopy init
 
 	var/turf/Tloc = object.loc
 	if (!isturf(Tloc) || !Tloc.above)
