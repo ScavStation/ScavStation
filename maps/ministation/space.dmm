@@ -1547,6 +1547,7 @@
 /turf/floor/plating,
 /area/ministation/centcomm/Arrival)
 "nf" = (
+/obj/item/food/processed_grown/slice/apple,
 /turf/floor/meat,
 /area/ministation/centcomm/hell)
 "ng" = (
@@ -1606,8 +1607,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/disposalpipe/junction/yjunction{
-	dir = 4
+/obj/structure/disposalpipe/segment/bent{
+	dir = 1
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
@@ -1865,9 +1866,6 @@
 	},
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
 	},
@@ -4017,12 +4015,12 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/ghost_halls_2)
 "KN" = (
-/obj/effect/floor_decal/techfloor/orange{
-	dir = 1
+/obj/effect/paint/red{
+	color = "#6e1d1d"
 	},
 /obj/structure/disposalpipe/segment,
-/turf/floor/tiled/techfloor/grid,
-/area/ministation/centcomm/Arrival)
+/turf/wall/r_titanium,
+/area/ministation/centcomm/lounge)
 "KR" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17983,7 +17981,7 @@ Ty
 kH
 Vf
 nv
-KN
+Ty
 VQ
 JI
 VH
@@ -18248,7 +18246,7 @@ IE
 vT
 tF
 tv
-fL
+KN
 su
 qz
 qz
