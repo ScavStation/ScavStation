@@ -528,6 +528,10 @@
 	name = "\improper Hell"
 	icon_state = "green"
 
+/area/ministation/centcomm/atmospherics
+	name = "\improper CentComm Atmospherics"
+	icon_state = "green"
+
 /area/ministation/centcomm/command
 	name = "\improper CentComm Command"
 	icon_state = "dark_blue"

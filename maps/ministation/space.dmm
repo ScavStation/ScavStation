@@ -826,9 +826,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "gB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1141,9 +1139,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "jh" = (
 /obj/structure/casino/roulette,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1323,9 +1319,7 @@
 	level = 2
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "le" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1572,9 +1566,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "nl" = (
 /obj/structure/railing/mapped,
 /turf/floor/tiled/techfloor,
@@ -1672,9 +1664,7 @@
 	dir = 5
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "nZ" = (
 /obj/effect/floor_decal/industrial/traffic{
 	icon_state = "stripe";
@@ -1725,9 +1715,7 @@
 	},
 /obj/machinery/atmospherics/binary/pump/on,
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "on" = (
 /obj/machinery/computer/modular/preset/civilian{
 	dir = 8
@@ -1823,9 +1811,7 @@
 	},
 /obj/structure/window/borosilicate_reinforced,
 /turf/floor/reinforced/airmix,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "py" = (
 /obj/structure/table/steel_reinforced,
 /obj/machinery/button/blast_door{
@@ -1870,9 +1856,7 @@
 	dir = 4
 	},
 /turf/floor/plating,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "pW" = (
 /obj/effect/paint/silver,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -2253,9 +2237,7 @@
 /area/ministation/centcomm/lounge)
 "tg" = (
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "tn" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -2581,9 +2563,7 @@
 	icon_state = "4-8"
 	},
 /turf/wall/r_titanium,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "wH" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -3167,9 +3147,7 @@
 	icon_state = "1-8"
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "Cf" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -3234,9 +3212,7 @@
 	dir = 9
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "CR" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/light{
@@ -3371,9 +3347,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "Ep" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 9
@@ -3451,9 +3425,7 @@
 	use_power = 1
 	},
 /turf/floor,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "Fa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3861,9 +3833,7 @@
 "IK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "IQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -4462,9 +4432,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "Pb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/fake_grass,
@@ -4476,9 +4444,7 @@
 /area/ministation/centcomm/backrooms_2)
 "Pd" = (
 /turf/wall/r_titanium,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "Pe" = (
 /obj/abstract/level_data_spawner/admin_level,
 /turf/space,
@@ -4510,9 +4476,7 @@
 "Pm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
@@ -4840,9 +4804,7 @@
 	dir = 5
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "Sr" = (
 /obj/structure/bed/sofa/left/black{
 	dir = 4
@@ -5113,9 +5075,7 @@
 	dir = 8
 	},
 /turf/floor/reinforced/airmix,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "Vm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -5183,9 +5143,7 @@
 	dir = 6
 	},
 /turf/floor/tiled/monotile,
-/area/constructionsite/atmospherics{
-	name = "\improper Centcomm Atmospherics"
-	})
+/area/ministation/centcomm/atmospherics)
 "VQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
