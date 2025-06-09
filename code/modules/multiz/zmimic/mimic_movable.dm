@@ -4,17 +4,6 @@
 	/// Movable-level Z-Mimic flags. This uses ZMM_* flags, not ZM_* flags.
 	var/z_flags = 0
 
-/atom/movable/forceMove(atom/dest)
-	. = ..(dest)
-	if (. && bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		if (isturf(dest))
-			bound_overlay.forceMove(get_step(src, UP))
-			if (dir != bound_overlay.dir)
-				bound_overlay.set_dir(dir)
-		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
-			qdel(bound_overlay)
-
 /atom/movable/set_dir(ndir)
 	. = ..()
 	if (. && bound_overlay)
@@ -24,9 +13,7 @@
 	if (!bound_overlay || !isturf(loc))
 		return
 
-	var/turf/T = loc
-
-	if (TURF_IS_MIMICKING(T.above))
+	if (MOVABLE_IS_BELOW_ZTURF(src))
 		SSzcopy.queued_overlays += bound_overlay
 		bound_overlay.queued += 1
 	else
@@ -162,7 +149,7 @@
 /atom/movable/openspace/mimic/forceMove(turf/dest)
 	var/atom/old_loc = loc
 	. = ..()
-	if (TURF_IS_MIMICKING(dest))
+	if (MOVABLE_IS_ON_ZTURF(src))
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null

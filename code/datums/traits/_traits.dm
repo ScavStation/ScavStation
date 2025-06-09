@@ -9,14 +9,18 @@
 	return 1
 
 /mob/living
-	var/list/traits
+	/// A list of mob-specific traits, for when the list differs from the species list.
+	/// Overrides the species list; if it's identical to it, it will be unset.
+	/// Code using the traits system should use get_traits() instead.
+	VAR_PRIVATE/list/_mob_traits
 
 /mob/living/proc/has_trait(trait_type, trait_level = TRAIT_LEVEL_EXISTS)
 	SHOULD_NOT_OVERRIDE(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
-	return (trait_type in traits) && (!trait_level || traits[trait_type] >= trait_level)
+	var/list/actual_traits = get_traits()
+	return (trait_type in actual_traits) && (!trait_level || actual_traits[trait_type] >= trait_level)
 
-/mob/living/proc/GetTraitLevel(trait_type)
+/mob/living/proc/get_trait_level(trait_type)
 	SHOULD_NOT_SLEEP(TRUE)
 	var/traits = get_traits()
 	if(!traits)
@@ -30,7 +34,7 @@
 /mob/living/get_traits()
 	RETURN_TYPE(/list)
 	var/decl/species/our_species = get_species()
-	return traits || our_species?.traits
+	return _mob_traits || our_species?.traits
 
 /mob/living/proc/set_trait(trait_type, trait_level)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -38,53 +42,51 @@
 	var/decl/trait/trait = GET_DECL(trait_type)
 	if(!trait.validate_level(trait_level))
 		return FALSE
-	if(our_species && !traits) // If species traits haven't been setup before, check if we need to do so now
+	if(our_species && !_mob_traits) // If species traits haven't been setup before, check if we need to do so now
 		var/species_level = our_species.traits[trait_type]
 		if(species_level == trait_level) // Matched the default species trait level, ignore
 			return TRUE
-		traits = our_species.traits.Copy() // The setup is to simply copy the species list of traits
-	if(!(trait_type in traits))
-		LAZYSET(traits, trait_type, trait_level)
+		_mob_traits = our_species.traits.Copy() // The setup is to simply copy the species list of traits
+	if(!(trait_type in _mob_traits))
+		LAZYSET(_mob_traits, trait_type, trait_level)
 		trait.apply_trait(src)
 	return TRUE
 
-/mob/living/proc/RemoveTrait(trait_type, canonize = TRUE)
+/mob/living/proc/remove_trait(trait_type, canonize = TRUE)
 	var/decl/species/our_species = get_species()
 	// If traits haven't been set up, but we're trying to remove a trait that exists on the species then set up traits
-	if(!traits && LAZYISIN(our_species?.traits, trait_type))
-		traits = our_species.traits.Copy()
-	if(LAZYLEN(traits))
-		LAZYREMOVE(traits, trait_type)
+	if(!_mob_traits && LAZYISIN(our_species?.traits, trait_type))
+		_mob_traits = our_species.traits.Copy()
+	if(LAZYLEN(_mob_traits))
+		LAZYREMOVE(_mob_traits, trait_type)
 	// Check if we can just default back to species traits.
 	if(canonize)
-		CanonizeTraits()
+		canonize_traits()
 
 /// Removes a trait unless it exists on the species.
 /// If it does exist on the species, we reset it to the species' trait level.
-/mob/living/proc/RemoveExtrinsicTrait(trait_type)
+/mob/living/proc/remove_extrinsic_trait(trait_type)
 	var/decl/species/our_species = get_species()
 	if(!LAZYACCESS(our_species?.traits, trait_type))
-		RemoveTrait(trait_type)
-	else if(our_species?.traits[trait_type] != GetTraitLevel(trait_type))
+		remove_trait(trait_type)
+	else if(our_species?.traits[trait_type] != get_trait_level(trait_type))
 		set_trait(trait_type, our_species?.traits[trait_type])
+
+/mob/living/proc/clear_extrinsic_traits()
+	_mob_traits = null
 
 /// Sets the traits list to null if it's identical to the species list.
 /// Returns TRUE if the list was reset and FALSE otherwise.
-/mob/living/proc/CanonizeTraits()
-	if(!traits) // Already in canonical form.
+/mob/living/proc/canonize_traits()
+	if(!_mob_traits) // Already in canonical form.
 		return FALSE
 	var/decl/species/our_species = get_species()
 	if(!our_species) // Doesn't apply without a species.
 		return FALSE
-	var/list/missing_traits = traits ^ our_species?.traits
-	var/list/matched_traits = traits & our_species?.traits
-	if(LAZYLEN(missing_traits))
-		return FALSE
-	for(var/trait in matched_traits) // inside this loop we know our_species exists and has traits
-		if(traits[trait] != our_species.traits[trait])
-			return FALSE
-	traits = null
-	return TRUE
+	if(_mob_traits ~= our_species.traits)
+		_mob_traits = null
+		return TRUE
+	return FALSE
 
 /decl/trait
 	abstract_type = /decl/trait
