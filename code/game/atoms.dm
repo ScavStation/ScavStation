@@ -632,7 +632,7 @@
 	- Return: The result of the forceMove() at the end.
 */
 /atom/movable/proc/dropInto(var/atom/destination)
-	while(istype(destination))
+	while(!QDELETED(src) && istype(destination))
 		var/atom/drop_destination = destination.onDropInto(src)
 		if(!istype(drop_destination) || drop_destination == destination)
 			return forceMove(destination)
