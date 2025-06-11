@@ -18,8 +18,8 @@ var/global/notifiedend = 0
 	name = "The Summit"
 	description = "Temporal Anomaly"
 	suffixes = list("summit/summit.dmm")
-	cost = 1
-	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS
+	cost = 2
+	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_NO_RADS
 	template_tags = TEMPLATE_TAG_ALIEN
 	apc_test_exempt_areas = list(
 		/area/map_template/summit = NO_SCRUBBER|NO_VENT,
@@ -358,7 +358,7 @@ var/global/notifiedend = 0
 	. = ..()
 	if(!global.notifiedend)
 		global.notifiedend = 1
-		to_world("You feel a wave of wrongness wash over you, which lasts for less than a second. Something horrible has been averted.")
+		to_world("Suddenly, you feel a wave of wrongness wash over you, then fade just as quickly. Something horrific has been silenced.")
 
 /obj/machinery/power/supermatter/nullmatter/explosion_act()
 	SHOULD_CALL_PARENT(FALSE)
