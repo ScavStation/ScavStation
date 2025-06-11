@@ -21,6 +21,7 @@
 	if(suit && (suit.flags_inv & HIDETAIL))
 		set_current_mob_overlay(HO_TAIL_LAYER, null, FALSE)
 		set_current_mob_underlay(HU_TAIL_LAYER, null, update_icons)
+		return
 
 	var/icon/tail_s = get_tail_icon_for_organ(tail_organ, tail_state)
 	if(!tail_s)
@@ -30,10 +31,10 @@
 	var/tail_image = image(tail_s, tail_state)
 	if(dir == NORTH)
 		set_current_mob_underlay(HU_TAIL_LAYER, null, FALSE)
-		set_current_mob_overlay(HO_TAIL_LAYER, tail_image, update_icons)
+		set_current_mob_overlay(HO_TAIL_LAYER, tail_image, FALSE)
 	else
 		set_current_mob_overlay(HO_TAIL_LAYER, null, FALSE)
-		set_current_mob_underlay(HU_TAIL_LAYER, tail_image, update_icons)
+		set_current_mob_underlay(HU_TAIL_LAYER, tail_image, FALSE)
 
 	if(update_icons)
 		update_icon()

@@ -58,7 +58,8 @@
 	SSspacedrift.processing[src] = src
 	return 1
 
-//return SPACE_MOVE_FORBIDDEN to space drift, SPACE_MOVE_PERMITTED to stop, SPACE_MOVE_SUPPORTED for mobs to handle space slips
+// return SPACE_MOVE_FORBIDDEN to space drift, SPACE_MOVE_PERMITTED to stop, SPACE_MOVE_SUPPORTED for mobs to handle space slips
+// Note that it may also return an instance of /atom/movable, which acts as SPACE_MOVE_SUPPORTED and results in pushing the movable backwards.
 /atom/movable/proc/is_space_movement_permitted(allow_movement = FALSE)
 	if(!simulated)
 		return SPACE_MOVE_PERMITTED
@@ -149,7 +150,7 @@
 
 /atom/movable/proc/forceMove(atom/destination)
 
-	if(QDELETED(src) && !QDESTROYING(src) && !isnull(destination))
+	if(QDELETED(src) && !isnull(destination))
 		CRASH("Attempted to forceMove a QDELETED [src] out of nullspace!!!")
 
 	if(loc == destination)
@@ -161,6 +162,7 @@
 	//  Both the origin and destination are turfs with different areas.
 	//  When either origin or destination is a turf and the other is not.
 	var/is_new_area = (is_origin_turf ^ is_destination_turf) || (is_origin_turf && is_destination_turf && loc.loc != destination.loc)
+	var/was_below_z_turf = MOVABLE_IS_BELOW_ZTURF(src)
 
 	var/atom/origin = loc
 	loc = destination
@@ -202,6 +204,18 @@
 			L = thing
 			L.source_atom.update_light()
 
+	// Z-Mimic.
+	if (bound_overlay)
+		// The overlay will handle cleaning itself up on non-openspace turfs.
+		if (isturf(destination))
+			bound_overlay.forceMove(get_step(src, UP))
+			if (dir != bound_overlay.dir)
+				bound_overlay.set_dir(dir)
+		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
+			qdel(bound_overlay)
+	else if (isturf(loc) && (!origin || !was_below_z_turf) && MOVABLE_SHALL_MIMIC(src))
+		SSzcopy.discover_movable(src)
+
 	if(buckled_mob)
 		if(isturf(loc))
 			buckled_mob.glide_size = glide_size // Setting loc apparently does animate with glide size.
@@ -224,7 +238,7 @@
 /atom/movable/Move(...)
 
 	var/old_loc = loc
-
+	var/was_below_z_turf = MOVABLE_IS_BELOW_ZTURF(src)
 	. = ..()
 
 	if(.)
@@ -260,7 +274,7 @@
 			bound_overlay.forceMove(get_step(src, UP))
 			if (bound_overlay.dir != dir)
 				bound_overlay.set_dir(dir)
-		else if (isturf(loc) && (!old_loc || !TURF_IS_MIMICKING(old_loc)) && MOVABLE_SHALL_MIMIC(src))
+		else if (isturf(loc) && (!old_loc || !was_below_z_turf) && MOVABLE_SHALL_MIMIC(src))
 			SSzcopy.discover_movable(src)
 
 		if(isturf(loc))
