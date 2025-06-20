@@ -355,7 +355,7 @@ var/global/list/time_prefs_fixed = list()
 	player_setup.sanitize_setup()
 	validate_comments_record() // Make sure a record has been generated for this character.
 	character.comments_record_id = comments_record_id
-	character.traits = null
+	character.clear_extrinsic_traits()
 
 	var/decl/bodytype/new_bodytype = get_bodytype_decl()
 	if(species == character.get_species_name())

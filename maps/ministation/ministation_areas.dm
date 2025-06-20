@@ -516,6 +516,22 @@
 	name = "\improper CentComm Lounge"
 	icon_state = "orange"
 
+/area/ministation/centcomm/custodials
+	name = "\improper CentComm Custodials"
+	icon_state = "red"
+
+/area/ministation/centcomm/bbcourt
+	name = "\improper CentComm Basketball Court"
+	icon_state = "blue"
+
+/area/ministation/centcomm/hell
+	name = "\improper Hell"
+	icon_state = "green"
+
+/area/ministation/centcomm/atmospherics
+	name = "\improper CentComm Atmospherics"
+	icon_state = "green"
+
 /area/ministation/centcomm/command
 	name = "\improper CentComm Command"
 	icon_state = "dark_blue"
