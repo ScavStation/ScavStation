@@ -361,7 +361,7 @@ var/global/ruinstate = 0
 		explosion(src, 3, 4, 5, 6, 1)
 		qdel(src)
 
-obj/machinery/power/supermatter/nullmatter/proc/stateroll()
+/obj/machinery/power/supermatter/nullmatter/proc/stateroll()
 	if(!global.ruinstate)
 		var/i = rand(1, 10)
 		if(i >= 5)
