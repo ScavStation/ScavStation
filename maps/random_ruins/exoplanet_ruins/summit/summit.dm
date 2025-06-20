@@ -1,6 +1,6 @@
 var/global/notifiednullmatter = 0
 var/global/notifiedend = 0
-
+var/global/ruinstate = 0
 /decl/public_access/public_method/triggerNM
 	name = "activate NM"
 	desc = "activate NM if possible."
@@ -18,14 +18,26 @@ var/global/notifiedend = 0
 	name = "The Summit"
 	description = "Temporal Anomaly"
 	suffixes = list("summit/summit.dmm")
-	cost = 1
-	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS
+	cost = 2
+	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_NO_RADS
 	template_tags = TEMPLATE_TAG_ALIEN
 	apc_test_exempt_areas = list(
 		/area/map_template/summit = NO_SCRUBBER|NO_VENT,
 		/area/map_template/summit/cold = NO_SCRUBBER|NO_VENT
 		)
 // Areas //
+/area/map_template/summit/proc/stateroll()
+	if(!global.ruinstate)
+		var/i = rand(1, 10)
+		if(i >= 5)
+			log_error("if roll success value: [i]")
+			global.ruinstate = 1
+
+
+/area/map_template/summit/Initialize(mapload)
+	stateroll()
+	. = ..()
+
 /area/map_template/summit
 	name = "\improper Summit Stone"
 	icon_state = "main"
@@ -214,9 +226,19 @@ var/global/notifiedend = 0
 	var/datum/track/song_to_play = new/datum/track("DEMON PUNCHER", /decl/music_track/DEMON_PUNCHER)
 	var/music_volume = 100
 
+/mob/living/simple_animal/aggressive/robosharah/proc/timerfun()
+	if(global.ruinstate)
+		max_health = 10
+		explosion(src, 2, 2, 2, 2, 1)
+
+
 /mob/living/simple_animal/aggressive/robosharah/Initialize()
+if(global.ruinstate)
+		max_health = 10
 	. = ..() // Does all the normal init stuff
 	sound_id = "[/mob/living/simple_animal/aggressive/robosharah]_[sequential_id(/mob/living/simple_animal/aggressive/robosharah)]"
+	addtimer(CALLBACK(src, PROC_REF(timerfun)), 10 MINUTE)
+
 
 
 /mob/living/simple_animal/aggressive/robosharah/isSynthetic()
@@ -333,13 +355,22 @@ var/global/notifiedend = 0
 		)
 
 /obj/machinery/power/supermatter/nullmatter/proc/activate()
-	damage = 0
-	started = 1
 
-	var/obj/effect/overmap/visitable/location = global.overmap_sectors[num2text(z)]
-	if(!global.notifiednullmatter)
-		priority_announcement.Announce("WARNING! Spatial anomaly detected at [location]!", new_sound = sound('sound/effects/cascade.ogg', volume = 35))
-		global.notifiednullmatter = 1
+	if(!global.ruinstate)
+		damage = 0
+		started = 1
+		var/obj/effect/overmap/visitable/location = global.overmap_sectors[num2text(z)]
+		if(!global.notifiednullmatter)
+			priority_announcement.Announce("WARNING! Spatial anomaly detected at [location]!", new_sound = sound('sound/effects/cascade.ogg', volume = 35))
+			global.notifiednullmatter = 1
+	else
+		if(!global.notifiednullmatter)
+			to_world("You feel like something has been made RIGHT. Reeality is healing")
+			global.notifiednullmatter = 1
+		global.notifiedend = 1
+		explosion(src, 3, 4, 5, 6, 1)
+		qdel(src)
+
 
 
 /obj/machinery/power/supermatter/nullmatter/Initialize(mapload)
@@ -358,7 +389,7 @@ var/global/notifiedend = 0
 	. = ..()
 	if(!global.notifiedend)
 		global.notifiedend = 1
-		to_world("You feel a wave of wrongness wash over you, which lasts for less than a second. Something horrible has been averted.")
+		to_world("Suddenly, you feel a wave of wrongness wash over you, then fade just as quickly. Something horrific has been silenced.")
 
 /obj/machinery/power/supermatter/nullmatter/explosion_act()
 	SHOULD_CALL_PARENT(FALSE)
