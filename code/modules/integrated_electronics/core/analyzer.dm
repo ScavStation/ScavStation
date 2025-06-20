@@ -9,6 +9,13 @@
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_TRACE
 	)
 
+////resolve_attackby
+
+
+/obj/item/integrated_electronics/analyzer/resolve_attackby(atom/A, mob/user, click_params)
+
+	return FALSE
+
 /obj/item/integrated_electronics/analyzer/afterattack(var/atom/A, var/mob/living/user)
 	. = ..()
 	if(istype(A, /obj/item/electronic_assembly))
