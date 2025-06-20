@@ -191,3 +191,9 @@
 				new /obj/structure/flora/bush(T)
 		if(9)
 			new /obj/structure/flora/tree/pine(T)
+////resolve_attackby for analyzer to let it copy integrated circuits
+
+
+/obj/item/integrated_electronics/analyzer/resolve_attackby(atom/A, mob/user, click_params)
+
+	return FALSE

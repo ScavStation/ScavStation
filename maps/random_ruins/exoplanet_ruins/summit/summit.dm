@@ -1,6 +1,6 @@
 var/global/notifiednullmatter = 0
 var/global/notifiedend = 0
-
+var/global/ruinstate = 0
 /decl/public_access/public_method/triggerNM
 	name = "activate NM"
 	desc = "activate NM if possible."
@@ -26,6 +26,8 @@ var/global/notifiedend = 0
 		/area/map_template/summit/cold = NO_SCRUBBER|NO_VENT
 		)
 // Areas //
+
+
 /area/map_template/summit
 	name = "\improper Summit Stone"
 	icon_state = "main"
@@ -214,9 +216,19 @@ var/global/notifiedend = 0
 	var/datum/track/song_to_play = new/datum/track("DEMON PUNCHER", /decl/music_track/DEMON_PUNCHER)
 	var/music_volume = 100
 
+/mob/living/simple_animal/aggressive/robosharah/proc/timerfun()
+	if(global.ruinstate)
+		max_health = 10
+		explosion(src, 2, 2, 2, 2, 1)
+
+
 /mob/living/simple_animal/aggressive/robosharah/Initialize()
+	if(global.ruinstate)
+		max_health = 10
 	. = ..() // Does all the normal init stuff
 	sound_id = "[/mob/living/simple_animal/aggressive/robosharah]_[sequential_id(/mob/living/simple_animal/aggressive/robosharah)]"
+	addtimer(CALLBACK(src, PROC_REF(timerfun)), 10 MINUTE)
+
 
 
 /mob/living/simple_animal/aggressive/robosharah/isSynthetic()
@@ -329,22 +341,35 @@ var/global/notifiedend = 0
 		/obj/item/stock_parts/power/apc/buildable
 		)
 	public_methods = list(
-		/decl/public_access/public_method/triggerNM
-		)
+		/decl/public_access/public_method/triggerNM)
+
 
 /obj/machinery/power/supermatter/nullmatter/proc/activate()
-	damage = 0
-	started = 1
 
-	var/obj/effect/overmap/visitable/location = global.overmap_sectors[num2text(z)]
-	if(!global.notifiednullmatter)
-		priority_announcement.Announce("WARNING! Spatial anomaly detected at [location]!", new_sound = sound('sound/effects/cascade.ogg', volume = 35))
-		global.notifiednullmatter = 1
+	if(!global.ruinstate)
+		damage = 0
+		started = 1
+		var/obj/effect/overmap/visitable/location = global.overmap_sectors[num2text(z)]
+		if(!global.notifiednullmatter)
+			priority_announcement.Announce("WARNING! Spatial anomaly detected at [location]!", new_sound = sound('sound/effects/cascade.ogg', volume = 35))
+			global.notifiednullmatter = 1
+	else
+		if(!global.notifiednullmatter)
+			to_world("You feel like something has been made RIGHT. Reeality is healing")
+			global.notifiednullmatter = 1
+		global.notifiedend = 1
+		explosion(src, 3, 4, 5, 6, 1)
+		qdel(src)
 
+/obj/machinery/power/supermatter/nullmatter/proc/stateroll()
+	if(!global.ruinstate)
+		var/i = rand(1, 10)
+		if(i >= 5)
+			global.ruinstate = 1
 
 /obj/machinery/power/supermatter/nullmatter/Initialize(mapload)
 	. = ..()
-
+	stateroll()
 	started = 0
 	addtimer(CALLBACK(src, PROC_REF(activate)), timer MINUTE)
 
