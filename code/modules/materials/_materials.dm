@@ -344,7 +344,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	var/compost_value = 0
 
 	/// Nutrition values!
-	var/nutriment_animal     = FALSE
 	var/nutriment_factor     = 0 // Per removed amount each tick
 	var/hydration_factor     = 0 // Per removed amount each tick
 	var/injectable_nutrition = FALSE
