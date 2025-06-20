@@ -26,17 +26,7 @@ var/global/ruinstate = 0
 		/area/map_template/summit/cold = NO_SCRUBBER|NO_VENT
 		)
 // Areas //
-/area/map_template/summit/proc/stateroll()
-	if(!global.ruinstate)
-		var/i = rand(1, 10)
-		if(i >= 5)
-			log_error("if roll success value: [i]")
-			global.ruinstate = 1
 
-
-/area/map_template/summit/Initialize(mapload)
-	stateroll()
-	. = ..()
 
 /area/map_template/summit
 	name = "\improper Summit Stone"
@@ -371,11 +361,15 @@ var/global/ruinstate = 0
 		explosion(src, 3, 4, 5, 6, 1)
 		qdel(src)
 
-
+obj/machinery/power/supermatter/nullmatter/proc/stateroll()
+	if(!global.ruinstate)
+		var/i = rand(1, 10)
+		if(i >= 5)
+			global.ruinstate = 1
 
 /obj/machinery/power/supermatter/nullmatter/Initialize(mapload)
 	. = ..()
-
+	stateroll()
 	started = 0
 	addtimer(CALLBACK(src, PROC_REF(activate)), timer MINUTE)
 
