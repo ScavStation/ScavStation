@@ -233,7 +233,7 @@ var/global/ruinstate = 0
 
 
 /mob/living/simple_animal/aggressive/robosharah/Initialize()
-if(global.ruinstate)
+	if(global.ruinstate)
 		max_health = 10
 	. = ..() // Does all the normal init stuff
 	sound_id = "[/mob/living/simple_animal/aggressive/robosharah]_[sequential_id(/mob/living/simple_animal/aggressive/robosharah)]"
@@ -351,8 +351,8 @@ if(global.ruinstate)
 		/obj/item/stock_parts/power/apc/buildable
 		)
 	public_methods = list(
-		/decl/public_access/public_method/triggerNM
-		)
+		/decl/public_access/public_method/triggerNM)
+
 
 /obj/machinery/power/supermatter/nullmatter/proc/activate()
 
