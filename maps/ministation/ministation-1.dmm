@@ -764,6 +764,9 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/Murphy/toxins)
 "bW" = (
@@ -1768,13 +1771,12 @@
 	},
 /area/ministation/kitchen)
 "eu" = (
-/obj/effect/wingrille_spawn/reinforced,
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
+/obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
-/turf/floor,
-/area/ministation/Murphy/hydro)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/plating,
+/area/ministation/Murphy/common)
 "ev" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
@@ -2766,6 +2768,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/floor,
 /area/ministation/Murphy/toxins)
 "gL" = (
@@ -3727,16 +3732,6 @@
 /area/ministation/hall/e2)
 "iZ" = (
 /obj/structure/table/woodentable_reinforced,
-/obj/structure/cable/yellow{
-	icon_state = "0-4";
-	dir = 8
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
-	req_access = newlist()
-	},
 /obj/random/snack,
 /obj/machinery/light/small{
 	dir = 1
@@ -5292,12 +5287,12 @@
 	pixel_y = 24;
 	req_access = newlist()
 	},
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/Murphy/toxins)
@@ -6148,6 +6143,9 @@
 "pc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/floor/carpet/red,
 /area/ministation/Murphy/living)
@@ -9023,6 +9021,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
 "vE" = (
@@ -9278,6 +9279,9 @@
 	dir = 4;
 	icon_state = "closed"
 	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/floor,
 /area/ministation/Murphy/meeting)
 "wg" = (
@@ -9300,10 +9304,10 @@
 /area/ministation/perma)
 "wi" = (
 /obj/structure/cable/yellow{
-	icon_state = "4-8"
+	icon_state = "1-2"
 	},
-/turf/floor/tiled/dark,
-/area/ministation/Murphy/common)
+/turf/floor/tiled,
+/area/ministation/Murphy/hydro)
 "wj" = (
 /obj/effect/shuttle_landmark/arrivas_south{
 	landmark_tag = "nav_ministation_arrivals_west"
@@ -10474,6 +10478,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/floor,
 /area/ministation/Murphy/rnd)
 "yI" = (
@@ -10621,6 +10628,9 @@
 "zb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
 	},
 /turf/floor/carpet/red,
 /area/ministation/Murphy/living)
@@ -11801,7 +11811,7 @@
 	dir = 6
 	},
 /obj/structure/cable/yellow{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
 /turf/floor/carpet/red,
 /area/ministation/Murphy/living)
@@ -11907,9 +11917,6 @@
 "Cf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
 	},
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
@@ -12320,6 +12327,9 @@
 /area/ministation/security)
 "Dd" = (
 /obj/machinery/cryopod/robot,
+/obj/machinery/computer/cryopod/robot{
+	pixel_x = 30
+	},
 /turf/floor,
 /area/ministation/Murphy/ai)
 "De" = (
@@ -12344,6 +12354,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/Murphy/toxins)
@@ -13221,6 +13234,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
 	},
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
@@ -14113,6 +14129,15 @@
 "HI" = (
 /obj/structure/table/woodentable_reinforced,
 /obj/item/book/fluff,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = newlist()
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
 /turf/floor/wood/walnut,
 /area/ministation/Murphy/living)
 "HJ" = (
@@ -14297,6 +14322,9 @@
 /area/ministation/Arrival)
 "If" = (
 /obj/machinery/recharge_station,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/floor,
 /area/ministation/Murphy/ai)
 "Ig" = (
@@ -15557,8 +15585,10 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "KT" = (
-/obj/effect/floor_decal/cti,
-/turf/floor/tiled/white/monotile,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/floor/tiled,
 /area/ministation/Murphy/meeting)
 "KU" = (
 /obj/structure/table/woodentable,
@@ -16021,20 +16051,11 @@
 /turf/floor/tiled/steel_grid,
 /area/ministation/Murphy/toxins)
 "Mh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
-/turf/floor/tiled/dark,
-/area/ministation/Murphy/common)
+/turf/floor/tiled/steel_grid,
+/area/ministation/Murphy/toxins)
 "Mi" = (
 /obj/structure/lattice,
 /obj/machinery/power/apc{
@@ -16157,6 +16178,9 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/floor,
 /area/ministation/Murphy/hydro)
@@ -16365,6 +16389,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/rnd)
@@ -17198,8 +17225,8 @@
 /area/ministation/Murphy/toxins)
 "Ph" = (
 /obj/machinery/cryopod,
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/computer/cryopod{
+	pixel_x = 30
 	},
 /turf/floor,
 /area/ministation/Murphy/ai)
@@ -17812,10 +17839,10 @@
 	pixel_y = 24;
 	req_access = newlist()
 	},
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
 /obj/structure/closet/crate/bin,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
 /turf/floor/tiled,
 /area/ministation/Murphy/meeting)
 "QJ" = (
@@ -18964,14 +18991,13 @@
 	dir = 1
 	},
 /obj/item/belt/medical/emt,
-/obj/structure/cable/yellow{
-	icon_state = "0-4";
-	dir = 8
-	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
 /turf/floor/tiled/white,
 /area/ministation/Murphy/medical)
@@ -19827,11 +19853,11 @@
 	pixel_y = 24;
 	req_access = newlist()
 	},
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
 /obj/machinery/fabricator/robotics{
 	initial_network_id = "molluscnet"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/rnd)
@@ -20150,7 +20176,7 @@
 	req_access = newlist()
 	},
 /obj/structure/cable/yellow{
-	icon_state = "0-8"
+	icon_state = "0-2"
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/hydro)
@@ -20434,6 +20460,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
 	},
 /turf/floor/tiled,
 /area/ministation/Murphy/hydro)
@@ -20979,12 +21008,6 @@
 	},
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/dark,
@@ -69066,7 +69089,7 @@ Lu
 Zi
 OX
 HI
-Cg
+eS
 zb
 kc
 Ld
@@ -69580,7 +69603,7 @@ AP
 Ox
 OX
 iZ
-eS
+Cg
 BR
 YZ
 Ld
@@ -70361,10 +70384,10 @@ Hk
 Yr
 Fs
 aK
-yL
+QT
 fq
-kt
-Mh
+aF
+GY
 Li
 Mj
 kt
@@ -70618,14 +70641,14 @@ vl
 Cf
 Gj
 KJ
-HT
+NN
 KJ
 KJ
-wi
+KJ
 KJ
 vl
 KJ
-HT
+NN
 KJ
 GJ
 Mx
@@ -70878,7 +70901,7 @@ ep
 gK
 ep
 bt
-eu
+Fl
 Zt
 Fl
 Bg
@@ -71131,14 +71154,14 @@ kT
 OC
 mT
 bV
-lb
+Mh
 Dg
 lb
 bt
 Wn
-QW
-QW
-QW
+wi
+wi
+wi
 Xc
 QW
 Ho
@@ -71658,7 +71681,7 @@ QW
 Cq
 Mx
 FN
-Bb
+eu
 eX
 dk
 eG

@@ -5283,6 +5283,12 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /turf/floor,
 /area/ministation/Murphy/janitors)
 "oZ" = (
@@ -6013,15 +6019,11 @@
 /turf/floor/tiled,
 /area/ministation/hall/n3)
 "ry" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/floor,
 /area/ministation/Murphy/janitors)
 "rz" = (
@@ -7250,7 +7252,7 @@
 	pixel_x = -25
 	},
 /obj/structure/cable{
-	dir = 8
+	icon_state = "0-4"
 	},
 /turf/floor/wood,
 /area/ministation/Murphy/bedroom/guest)
@@ -8873,6 +8875,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor,
 /area/ministation/Murphy/janitors)
 "zN" = (
@@ -11690,7 +11693,7 @@
 	pixel_y = -24
 	},
 /obj/structure/cable{
-	dir = 8
+	icon_state = "0-4"
 	},
 /turf/floor/wood,
 /area/ministation/Murphy/bedroom/Karlawa_Haven)
@@ -15930,6 +15933,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
 /area/ministation/Murphy/common/upper)
+"TN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/floor,
+/area/ministation/Murphy/janitors)
 "TO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -16890,6 +16900,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/floor,
 /area/ministation/Murphy/janitors)
 "Wx" = (
@@ -68184,7 +68195,7 @@ NU
 Ww
 zL
 oY
-Xu
+TN
 hs
 rP
 KF
