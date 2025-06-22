@@ -615,7 +615,7 @@
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "bG" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -1022,7 +1022,7 @@
 	dir = 1
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "cD" = (
 /obj/structure/lattice,
 /obj/structure/cable{
@@ -1044,7 +1044,7 @@
 /area/ministation/maint/l2central)
 "cG" = (
 /turf/wall/r_wall,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "cH" = (
 /obj/structure/catwalk,
 /obj/machinery/camera/autoname{
@@ -1980,7 +1980,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "eT" = (
 /obj/machinery/seed_extractor{
 	pixel_y = 2
@@ -2190,7 +2190,7 @@
 	dir = 4
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "fq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3376,7 +3376,7 @@
 /obj/structure/table/woodentable_reinforced,
 /obj/item/slide_projector,
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "in" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3607,7 +3607,7 @@
 	dir = 1
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "iN" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -3742,7 +3742,7 @@
 	dir = 1
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "ja" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube{
@@ -4191,7 +4191,7 @@
 	},
 /obj/item/food/popcorn,
 /turf/floor/carpet/red,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "kd" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -4920,7 +4920,7 @@
 "lP" = (
 /obj/structure/bed/sofa/middle/black,
 /turf/floor/carpet/red,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "lQ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6150,7 +6150,7 @@
 	dir = 4
 	},
 /turf/floor/carpet/red,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "pd" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -8781,7 +8781,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/dark,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "uX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -9223,7 +9223,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "vZ" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9242,7 +9242,7 @@
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "wb" = (
 /obj/machinery/fabricator/protolathe,
 /turf/floor/tiled,
@@ -10623,7 +10623,7 @@
 	dir = 6
 	},
 /turf/floor/carpet/red,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "zc" = (
 /obj/structure/lattice,
 /turf/floor/grass,
@@ -11322,7 +11322,7 @@
 	dir = 1
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "AD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -11804,7 +11804,7 @@
 	icon_state = "1-4"
 	},
 /turf/floor/carpet/red,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "BS" = (
 /obj/machinery/vending/snack,
 /turf/floor/carpet,
@@ -11916,7 +11916,7 @@
 "Cg" = (
 /obj/effect/floor_decal/carpet/red,
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "Ch" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -12651,7 +12651,7 @@
 "DT" = (
 /obj/machinery/vending/coffee,
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "DW" = (
 /obj/machinery/light{
 	dir = 1
@@ -12804,7 +12804,7 @@
 	dir = 4
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "Es" = (
 /obj/machinery/light{
 	dir = 4
@@ -13569,7 +13569,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "Gn" = (
 /obj/structure/table/reinforced,
 /obj/item/chems/spray/cleaner,
@@ -14114,7 +14114,7 @@
 /obj/structure/table/woodentable_reinforced,
 /obj/item/book/fluff,
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "HJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 2
@@ -14681,7 +14681,7 @@
 	},
 /obj/structure/bed/chair/armchair/black,
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "Jc" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/effect/floor_decal/corner/paleblue{
@@ -15626,7 +15626,7 @@
 	dir = 8
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "Lb" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -15656,7 +15656,7 @@
 /area/ministation/enclave/badclamrock)
 "Ld" = (
 /turf/floor/carpet/red,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "Lf" = (
 /obj/structure/undies_wardrobe,
 /turf/floor/tiled/dark/monotile,
@@ -20093,7 +20093,7 @@
 	dir = 4
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "Wh" = (
 /obj/machinery/design_database,
 /turf/floor/tiled,
@@ -20356,7 +20356,7 @@
 	req_access = newlist()
 	},
 /turf/floor/wood/walnut,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "WS" = (
 /obj/structure/lattice,
 /turf/floor/reinforced/airless,
@@ -21308,7 +21308,7 @@
 	dir = 1
 	},
 /turf/floor/carpet/red,
-/area/ministation/Murphy/classroom)
+/area/ministation/Murphy/living)
 "Za" = (
 /obj/item/toy/balloon/nanotrasen,
 /obj/structure/cable{

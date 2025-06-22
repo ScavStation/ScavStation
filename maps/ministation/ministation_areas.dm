@@ -644,10 +644,6 @@
 	name = "\improper Murphy Engineering"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/engineroom
-	name = "\improper Murphy Engine Room"
-	icon_state = "dark_blue"
-
 /area/ministation/Murphy/atmos
 	name = "\improper Murphy Atmospherics"
 	icon_state = "dark_blue"
@@ -731,15 +727,21 @@
 /area/ministation/Murphy/maint4
 	name = "\improper Murphy Maintenance Corridor 4"
 	icon_state = "dark_blue"
+
+/area/ministation/Murphy/classroom
+	name = "\improper Murphy Classroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/engineroom
+	name = "\improper Murphy Engine Room"
+	icon_state = "dark_blue"
 */
 
 /area/ministation/Murphy/meeting
 	name = "\improper Murphy Meeting Room"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/classroom
-	name = "\improper Murphy Classroom"
-	icon_state = "dark_blue"
+
 
 //satellite
 /area/ministation/ai_sat

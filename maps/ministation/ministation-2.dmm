@@ -5072,7 +5072,7 @@
 	},
 /obj/machinery/light/small,
 /turf/floor,
-/area/ministation/Murphy/maint/Vayryn)
+/area/ministation/Murphy/maint/Mawreek)
 "ot" = (
 /obj/structure/tank_rack/oxygen,
 /turf/floor/tiled/white,
@@ -8490,7 +8490,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor,
-/area/ministation/Murphy/maint/Vayryn)
+/area/ministation/Murphy/maint/Mawreek)
 "yD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -8912,7 +8912,7 @@
 "zR" = (
 /obj/item/bedsheet/blue,
 /turf/floor,
-/area/ministation/Murphy/maint/Vayryn)
+/area/ministation/Murphy/maint/Mawreek)
 "zS" = (
 /obj/structure/lattice,
 /obj/machinery/camera/network/research{
@@ -8981,7 +8981,7 @@
 	icon_state = "0-4"
 	},
 /turf/floor,
-/area/ministation/Murphy/maint/Vayryn)
+/area/ministation/Murphy/maint/Mawreek)
 "Af" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10776,6 +10776,9 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
+"EQ" = (
+/turf/wall/titanium,
+/area/ministation/Murphy/maint/Mawreek)
 "ER" = (
 /obj/machinery/camera/network/research{
 	req_access = list("ACCESS_CAMERAS")
@@ -11171,7 +11174,7 @@
 	pixel_y = -2
 	},
 /turf/floor,
-/area/ministation/Murphy/maint/Vayryn)
+/area/ministation/Murphy/maint/Mawreek)
 "FQ" = (
 /obj/machinery/vending/hydroseeds{
 	dir = 4
@@ -64875,7 +64878,7 @@ aa
 aa
 aa
 aa
-Fi
+EQ
 aa
 aa
 aa
@@ -65131,10 +65134,10 @@ cn
 cn
 cn
 cn
-Fi
-Fi
-Fi
-Fi
+EQ
+EQ
+EQ
+EQ
 aa
 aa
 aa
@@ -65388,11 +65391,11 @@ KJ
 ou
 ou
 ou
-Fi
+EQ
 Ae
 or
-Fi
-Fi
+EQ
+EQ
 aa
 aa
 aa
@@ -65648,8 +65651,8 @@ ze
 yC
 FP
 zR
-Fi
-Fi
+EQ
+EQ
 aa
 aa
 aa
@@ -65903,9 +65906,9 @@ BO
 qQ
 Wn
 SO
-Fi
-Fi
-Fi
+EQ
+EQ
+EQ
 cn
 aa
 aa
