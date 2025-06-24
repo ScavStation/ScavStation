@@ -585,15 +585,11 @@
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
 "bj" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 21
-	},
-/turf/floor/tiled,
-/area/ship/trade/crew/saloon)
+/turf/floor/plating,
+/area/ship/trade/hidden)
 "bk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
@@ -2166,12 +2162,6 @@
 /obj/structure/closet/emcloset,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
-"fx" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/tiled,
-/area/ship/trade/garden)
 "fz" = (
 /obj/machinery/light{
 	dir = 1;
@@ -4591,6 +4581,12 @@
 "nH" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
+"nR" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled,
+/area/ship/trade/garden)
 "nU" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
@@ -5479,6 +5475,13 @@
 	},
 /turf/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
+"xc" = (
+/obj/effect/paint/brown,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall,
+/area/ship/trade/hangout)
 "xh" = (
 /obj/abstract/level_data_spawner/main_level{
 	name = "Tradeship Habitation Deck"
@@ -5592,6 +5595,13 @@
 	},
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
+"yh" = (
+/obj/structure/sign/warning/vacuum{
+	dir = 8;
+	pixel_x = 34
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/dock)
 "yq" = (
 /obj/structure/handrail{
 	dir = 4
@@ -5917,12 +5927,15 @@
 /turf/wall/natural,
 /area/space)
 "Co" = (
-/obj/effect/paint/brown,
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
 	},
-/turf/wall,
-/area/ship/trade/hangout)
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 21
+	},
+/turf/floor/tiled,
+/area/ship/trade/crew/saloon)
 "Cq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -6475,12 +6488,6 @@
 /obj/machinery/light,
 /turf/floor/wood/yew,
 /area/ship/trade/unused)
-"HA" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/plating,
-/area/ship/trade/hidden)
 "HR" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall,
@@ -7766,13 +7773,6 @@
 	},
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
-"Vc" = (
-/obj/structure/sign/warning/vacuum{
-	dir = 8;
-	pixel_x = 34
-	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/dock)
 "Vd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood,
@@ -10437,7 +10437,7 @@ Cd
 dY
 ey
 ey
-Co
+xc
 AH
 fT
 gn
@@ -10691,8 +10691,8 @@ gB
 nb
 pb
 Ue
-fx
-fx
+nR
+nR
 GY
 hD
 Ab
@@ -11577,7 +11577,7 @@ LH
 IJ
 dI
 cS
-bj
+Co
 Jn
 dE
 dU
@@ -11813,7 +11813,7 @@ aW
 Rb
 SC
 SC
-Vc
+yh
 lj
 EM
 tg
@@ -12086,7 +12086,7 @@ Rc
 gQ
 hl
 Gj
-HA
+bj
 hA
 hL
 hL
