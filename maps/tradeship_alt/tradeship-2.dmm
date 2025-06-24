@@ -584,6 +584,15 @@
 	},
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
+"bj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/tiled,
+/area/ship/trade/garden)
 "bk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
@@ -830,9 +839,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /obj/random/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2158,16 +2164,6 @@
 /obj/structure/closet/emcloset,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
-"fx" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 21
-	},
-/turf/floor/tiled,
-/area/ship/trade/crew/saloon)
 "fz" = (
 /obj/machinery/light{
 	dir = 1;
@@ -2734,6 +2730,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/hallway)
 "hk" = (
@@ -2742,6 +2741,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/wall{
 	can_open = 1
@@ -2756,6 +2758,9 @@
 /obj/structure/closet/crate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/floor/plating,
 /area/ship/trade/hidden)
@@ -2936,18 +2941,14 @@
 /area/ship/trade/maintenance/hallway)
 "hA" = (
 /obj/machinery/power/apc{
-	name = "Medical Bay APC";
-	pixel_y = -22
+	pixel_y = -26
 	},
 /obj/item/backpack/dufflebag/syndie,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -21
 	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
+/obj/structure/cable,
 /turf/floor/plating,
 /area/ship/trade/hidden)
 "hB" = (
@@ -3311,6 +3312,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
 "ip" = (
@@ -3323,6 +3327,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/power)
 "iq" = (
@@ -3330,6 +3337,9 @@
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 21
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/power)
@@ -3497,6 +3507,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/power)
 "iI" = (
@@ -3591,9 +3604,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
@@ -4577,15 +4587,6 @@
 "nH" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
-"nR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/floor/tiled/techmaint,
-/area/ship/trade/maintenance/hallway)
 "nU" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
@@ -5447,8 +5448,7 @@
 	icon_state = "16-0"
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
+	icon_state = "0-2"
 	},
 /turf/wall,
 /area/ship/trade/maintenance/atmos)
@@ -5521,6 +5521,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/hallway)
 "xI" = (
@@ -5591,6 +5594,12 @@
 	},
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
+"yh" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/plating,
+/area/ship/trade/hidden)
 "yq" = (
 /obj/structure/handrail{
 	dir = 4
@@ -5916,12 +5925,15 @@
 /turf/wall/natural,
 /area/space)
 "Co" = (
-/obj/effect/paint/brown,
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
 	},
-/turf/wall,
-/area/ship/trade/hangout)
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 21
+	},
+/turf/floor/tiled,
+/area/ship/trade/crew/saloon)
 "Cq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -6324,6 +6336,9 @@
 	dir = 1;
 	level = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/floor/plating,
 /area/ship/trade/hidden)
 "Gw" = (
@@ -6471,6 +6486,13 @@
 /obj/machinery/light,
 /turf/floor/wood/yew,
 /area/ship/trade/unused)
+"HA" = (
+/obj/effect/paint/brown,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall,
+/area/ship/trade/hangout)
 "HR" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall,
@@ -7664,11 +7686,8 @@
 /turf/floor/tiled,
 /area/ship/trade/garden)
 "Ue" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "1-2"
 	},
 /turf/floor/tiled,
 /area/ship/trade/garden)
@@ -7756,12 +7775,6 @@
 	},
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
-"Vc" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/tiled,
-/area/ship/trade/garden)
 "Vd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood,
@@ -8092,9 +8105,9 @@
 /area/ship/trade/crew/toilets)
 "Za" = (
 /obj/machinery/power/breakerbox/activated,
+/obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
+	icon_state = "2-8"
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/power)
@@ -8124,6 +8137,10 @@
 	},
 /obj/item/radio/intercom{
 	pixel_y = 20
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
@@ -10423,7 +10440,7 @@ Cd
 dY
 ey
 ey
-Co
+HA
 AH
 fT
 gn
@@ -10676,9 +10693,9 @@ gp
 gB
 nb
 pb
+bj
 Ue
-Vc
-Vc
+Ue
 GY
 hD
 Ab
@@ -11563,7 +11580,7 @@ LH
 IJ
 dI
 cS
-fx
+Co
 Jn
 dE
 dU
@@ -11906,7 +11923,7 @@ xO
 IC
 YN
 aN
-nR
+Fl
 HY
 HT
 aB
@@ -12072,7 +12089,7 @@ Rc
 gQ
 hl
 Gj
-sS
+yh
 hA
 hL
 hL
