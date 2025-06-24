@@ -585,14 +585,11 @@
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
 "bj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "1-2"
 	},
-/turf/floor/tiled,
-/area/ship/trade/garden)
+/turf/floor/plating,
+/area/ship/trade/hidden)
 "bk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
@@ -2164,6 +2161,12 @@
 /obj/structure/closet/emcloset,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
+"fx" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled,
+/area/ship/trade/garden)
 "fz" = (
 /obj/machinery/light{
 	dir = 1;
@@ -2941,7 +2944,8 @@
 /area/ship/trade/maintenance/hallway)
 "hA" = (
 /obj/machinery/power/apc{
-	pixel_y = -26
+	name = "Medical Bay APC";
+	pixel_y = -22
 	},
 /obj/item/backpack/dufflebag/syndie,
 /obj/machinery/alarm{
@@ -3322,13 +3326,10 @@
 	id_tag = "Main Grid"
 	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/power)
@@ -3504,12 +3505,6 @@
 /area/ship/trade/maintenance/power)
 "iF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/power)
 "iI" = (
@@ -3602,9 +3597,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
 "iU" = (
@@ -3614,6 +3606,9 @@
 	icon_state = "bulb1"
 	},
 /obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/power)
 "iV" = (
@@ -3762,7 +3757,10 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
 "jm" = (
@@ -3772,6 +3770,7 @@
 	pixel_y = -32;
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
 "jp" = (
@@ -4587,6 +4586,15 @@
 "nH" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
+"nR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/tiled,
+/area/ship/trade/garden)
 "nU" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
@@ -5448,7 +5456,8 @@
 	icon_state = "16-0"
 	},
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "0-2";
+	pixel_y = 1
 	},
 /turf/wall,
 /area/ship/trade/maintenance/atmos)
@@ -5595,11 +5604,12 @@
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
 "yh" = (
+/obj/effect/paint/brown,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
-/turf/floor/plating,
-/area/ship/trade/hidden)
+/turf/wall,
+/area/ship/trade/hangout)
 "yq" = (
 /obj/structure/handrail{
 	dir = 4
@@ -5924,16 +5934,6 @@
 /obj/abstract/ramp_sculptor/east,
 /turf/wall/natural,
 /area/space)
-"Co" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 21
-	},
-/turf/floor/tiled,
-/area/ship/trade/crew/saloon)
 "Cq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -6486,13 +6486,6 @@
 /obj/machinery/light,
 /turf/floor/wood/yew,
 /area/ship/trade/unused)
-"HA" = (
-/obj/effect/paint/brown,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall,
-/area/ship/trade/hangout)
 "HR" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall,
@@ -7685,12 +7678,6 @@
 	},
 /turf/floor/tiled,
 /area/ship/trade/garden)
-"Ue" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/tiled,
-/area/ship/trade/garden)
 "Ui" = (
 /obj/effect/paint/brown,
 /turf/wall,
@@ -7775,6 +7762,16 @@
 	},
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
+"Vc" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 21
+	},
+/turf/floor/tiled,
+/area/ship/trade/crew/saloon)
 "Vd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood,
@@ -8105,9 +8102,8 @@
 /area/ship/trade/crew/toilets)
 "Za" = (
 /obj/machinery/power/breakerbox/activated,
-/obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "1-2"
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/power)
@@ -10440,7 +10436,7 @@ Cd
 dY
 ey
 ey
-HA
+yh
 AH
 fT
 gn
@@ -10693,9 +10689,9 @@ gp
 gB
 nb
 pb
-bj
-Ue
-Ue
+nR
+fx
+fx
 GY
 hD
 Ab
@@ -11580,7 +11576,7 @@ LH
 IJ
 dI
 cS
-Co
+Vc
 Jn
 dE
 dU
@@ -12089,7 +12085,7 @@ Rc
 gQ
 hl
 Gj
-yh
+bj
 hA
 hL
 hL
