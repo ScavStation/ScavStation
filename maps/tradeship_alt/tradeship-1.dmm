@@ -1500,7 +1500,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch/autoname/command,
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/shieldbay)
 "dP" = (
