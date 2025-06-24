@@ -592,11 +592,15 @@
 	name = "\improper Murphy Bridge"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/living
-	name = "\improper Murphy Living Quarters"
+/area/ministation/Murphy/common
+	name = "\improper Murphy Common Area"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/med
+/area/ministation/Murphy/common/upper
+	name = "\improper Murphy Upstairs Common Area"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/medical
 	name = "\improper Murphy Medbay"
 	icon_state = "dark_blue"
 
@@ -608,16 +612,16 @@
 	name = "\improper Murphy Kitchen"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/ai
-	name = "\improper Murphy AI Core"
-	icon_state = "dark_blue"
-
 /area/ministation/Murphy/chem
 	name = "\improper Murphy Chemistry Lab"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/common
-	name = "\improper Murphy Common Area"
+/area/ministation/Murphy/ai
+	name = "\improper Murphy AI Core"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/living
+	name = "\improper Murphy Living Room"
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/rnd
@@ -626,10 +630,6 @@
 
 /area/ministation/Murphy/hydro
 	name = "\improper Murphy Hydroponics"
-	icon_state = "dark_blue"
-
-/area/ministation/Murphy/xenobio
-	name = "\improper Murphy Xenobio"
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/toxins
@@ -644,22 +644,77 @@
 	name = "\improper Murphy Engineering"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/engineroom
-	name = "\improper Murphy Engine Room"
-	icon_state = "dark_blue"
-
-/*
 /area/ministation/Murphy/atmos
 	name = "\improper Murphy Atmospherics"
 	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint
+	name = "\improper Murphy Maintenance Corridor"
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_MAINTENANCE
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/Eighteen
+	name = "\improper Murphy - Eighteen's Nest"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/Mawreek
+	name = "\improper Murphy - Mawreek's Bedroom Maint"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/Vayryn
+	name = "\improper Murphy - Vayryn's Bedroom Maint"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/guest
+	name = "\improper Murphy - Guest Bedroom Maint"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/janitors
+	name = "\improper Murphy Janitor Closet"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bathroom
+	name = "\improper Murphy Bathroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom
+	name = "\improper Murphy Bedroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/guest
+	name = "\improper Murphy Guest Bedroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Steph
+	name = "\improper Murphy - Steph's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Karlawa_Haven
+	name = "\improper Murphy - Karlawa and Haven's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Elicot
+	name = "\improper Murphy - Elicot's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Mawreek
+	name = "\improper Murphy - Mawreek's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Kaawmer
+	name = "\improper Murphy - Kaawmer's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Vayryn
+	name = "\improper Murphy - Vayryn's Room"
+	icon_state = "dark_blue"
+/*
 
 /area/ministation/Murphy/library
 	name = "\improper Murphy Library"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/maint1
-	name = "\improper Murphy Maintenance Corridor 1"
-	icon_state = "dark_blue"
+
 
 /area/ministation/Murphy/maint2
 	name = "\improper Murphy Maintenance Corridor 2"
@@ -672,15 +727,21 @@
 /area/ministation/Murphy/maint4
 	name = "\improper Murphy Maintenance Corridor 4"
 	icon_state = "dark_blue"
+
+/area/ministation/Murphy/classroom
+	name = "\improper Murphy Classroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/engineroom
+	name = "\improper Murphy Engine Room"
+	icon_state = "dark_blue"
 */
 
 /area/ministation/Murphy/meeting
 	name = "\improper Murphy Meeting Room"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/classroom
-	name = "\improper Murphy Classroom"
-	icon_state = "dark_blue"
+
 
 //satellite
 /area/ministation/ai_sat
