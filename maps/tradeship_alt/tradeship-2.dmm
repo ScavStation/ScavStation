@@ -585,11 +585,15 @@
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
 "bj" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
 	},
-/turf/floor/plating,
-/area/ship/trade/hidden)
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 21
+	},
+/turf/floor/tiled,
+/area/ship/trade/crew/saloon)
 "bk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
@@ -1172,6 +1176,7 @@
 	dir = 8
 	},
 /obj/structure/bed/chair/wood,
+/obj/abstract/landmark/latejoin/observer,
 /turf/floor/tiled,
 /area/ship/trade/crew/saloon)
 "da" = (
@@ -4586,15 +4591,6 @@
 "nH" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
-"nR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/floor/tiled,
-/area/ship/trade/garden)
 "nU" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
@@ -5483,13 +5479,6 @@
 	},
 /turf/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
-"xc" = (
-/obj/structure/sign/warning/vacuum{
-	dir = 8;
-	pixel_x = 34
-	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/dock)
 "xh" = (
 /obj/abstract/level_data_spawner/main_level{
 	name = "Tradeship Habitation Deck"
@@ -5603,13 +5592,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
-"yh" = (
-/obj/effect/paint/brown,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall,
-/area/ship/trade/hangout)
 "yq" = (
 /obj/structure/handrail{
 	dir = 4
@@ -5934,6 +5916,13 @@
 /obj/abstract/ramp_sculptor/east,
 /turf/wall/natural,
 /area/space)
+"Co" = (
+/obj/effect/paint/brown,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall,
+/area/ship/trade/hangout)
 "Cq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -6486,6 +6475,12 @@
 /obj/machinery/light,
 /turf/floor/wood/yew,
 /area/ship/trade/unused)
+"HA" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/plating,
+/area/ship/trade/hidden)
 "HR" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall,
@@ -7678,6 +7673,15 @@
 	},
 /turf/floor/tiled,
 /area/ship/trade/garden)
+"Ue" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/tiled,
+/area/ship/trade/garden)
 "Ui" = (
 /obj/effect/paint/brown,
 /turf/wall,
@@ -7763,15 +7767,12 @@
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
 "Vc" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
+/obj/structure/sign/warning/vacuum{
+	dir = 8;
+	pixel_x = 34
 	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 21
-	},
-/turf/floor/tiled,
-/area/ship/trade/crew/saloon)
+/turf/floor/tiled/monotile,
+/area/ship/trade/dock)
 "Vd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/wood,
@@ -10436,7 +10437,7 @@ Cd
 dY
 ey
 ey
-yh
+Co
 AH
 fT
 gn
@@ -10689,7 +10690,7 @@ gp
 gB
 nb
 pb
-nR
+Ue
 fx
 fx
 GY
@@ -11576,7 +11577,7 @@ LH
 IJ
 dI
 cS
-Vc
+bj
 Jn
 dE
 dU
@@ -11812,7 +11813,7 @@ aW
 Rb
 SC
 SC
-xc
+Vc
 lj
 EM
 tg
@@ -12085,7 +12086,7 @@ Rc
 gQ
 hl
 Gj
-bj
+HA
 hA
 hL
 hL
