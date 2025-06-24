@@ -585,11 +585,14 @@
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
 "bj" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/floor/plating,
-/area/ship/trade/hidden)
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/tiled,
+/area/ship/trade/garden)
 "bk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable{
@@ -4581,12 +4584,6 @@
 "nH" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
-"nR" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/tiled,
-/area/ship/trade/garden)
 "nU" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
@@ -5596,12 +5593,15 @@
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
 "yh" = (
-/obj/structure/sign/warning/vacuum{
-	dir = 8;
-	pixel_x = 34
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
 	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/dock)
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 21
+	},
+/turf/floor/tiled,
+/area/ship/trade/crew/saloon)
 "yq" = (
 /obj/structure/handrail{
 	dir = 4
@@ -5927,15 +5927,12 @@
 /turf/wall/natural,
 /area/space)
 "Co" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
+/obj/structure/sign/warning/vacuum{
+	dir = 8;
+	pixel_x = 34
 	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 21
-	},
-/turf/floor/tiled,
-/area/ship/trade/crew/saloon)
+/turf/floor/tiled/monotile,
+/area/ship/trade/dock)
 "Cq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -6488,6 +6485,12 @@
 /obj/machinery/light,
 /turf/floor/wood/yew,
 /area/ship/trade/unused)
+"HA" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled,
+/area/ship/trade/garden)
 "HR" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall,
@@ -7681,14 +7684,11 @@
 /turf/floor/tiled,
 /area/ship/trade/garden)
 "Ue" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "1-2"
 	},
-/turf/floor/tiled,
-/area/ship/trade/garden)
+/turf/floor/plating,
+/area/ship/trade/hidden)
 "Ui" = (
 /obj/effect/paint/brown,
 /turf/wall,
@@ -10690,9 +10690,9 @@ gp
 gB
 nb
 pb
-Ue
-nR
-nR
+bj
+HA
+HA
 GY
 hD
 Ab
@@ -11577,7 +11577,7 @@ LH
 IJ
 dI
 cS
-Co
+yh
 Jn
 dE
 dU
@@ -11813,7 +11813,7 @@ aW
 Rb
 SC
 SC
-yh
+Co
 lj
 EM
 tg
@@ -12086,7 +12086,7 @@ Rc
 gQ
 hl
 Gj
-bj
+Ue
 hA
 hL
 hL
