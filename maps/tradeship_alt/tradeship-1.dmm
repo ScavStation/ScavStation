@@ -350,6 +350,7 @@
 /obj/effect/floor_decal/industrial/loading{
 	dir = 1
 	},
+/obj/abstract/landmark/latejoin/cryo_two,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/escape_star)
 "aL" = (
@@ -2072,10 +2073,10 @@
 /turf/floor/tiled,
 /area/ship/trade/maintenance/lower)
 "ix" = (
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /obj/machinery/port_gen/pacman/super,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/floor/plating,
 /area/ship/trade/shieldbay)
 "iH" = (
@@ -2151,14 +2152,11 @@
 /area/ship/trade/escape_port)
 "jj" = (
 /obj/machinery/power/smes/buildable/max_cap_in_out,
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "0-2"
 	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/shieldbay)
@@ -2687,9 +2685,6 @@
 /area/ship/trade/maintenance/storage)
 "wb" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -3058,6 +3053,9 @@
 /area/ship/trade/cargo/lower)
 "HG" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/shieldbay)
 "HH" = (
@@ -3280,7 +3278,7 @@
 	icon_state = "1-8"
 	},
 /turf/wall,
-/area/space)
+/area/ship/trade/escape_star)
 "NL" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/floor/tiled/white,
@@ -3545,6 +3543,9 @@
 "UB" = (
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/shieldbay)
