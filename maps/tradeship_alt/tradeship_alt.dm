@@ -96,6 +96,6 @@
 
 #elif !defined(MAP_OVERRIDE)
 
-	#warn A map has already been included, ignoring Tradeship
+	#warn A map has already been included, ignoring Tradeship_Alt
 
 #endif
