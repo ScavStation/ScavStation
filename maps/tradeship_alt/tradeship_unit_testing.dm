@@ -1,4 +1,4 @@
-/datum/map/tradeship
+/datum/map/tradeship_alt
 	disconnected_wires_test_exempt_turfs = list(list(48, 54, 3, EAST))
 	// Unit test exemptions
 	apc_test_exempt_areas = list(

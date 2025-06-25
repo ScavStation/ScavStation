@@ -1,4 +1,4 @@
-/datum/map/tradeship
+/datum/map/tradeship_alt
 	allowed_latejoin_spawns = list(
 		/decl/spawnpoint/cryo,
 		/decl/spawnpoint/cryo/two,
