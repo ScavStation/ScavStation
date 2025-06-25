@@ -1944,6 +1944,13 @@
 /obj/structure/catwalk,
 /turf/open,
 /area/ship/trade/cargo)
+"eZ" = (
+/obj/structure/sign/warning/docking_area{
+	dir = 8;
+	pixel_x = 34
+	},
+/turf/space,
+/area/space)
 "fa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -4589,10 +4596,6 @@
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/dock)
-"oa" = (
-/obj/effect/paint/black,
-/turf/wall/titanium,
-/area/ship/trade/shuttle/outgoing/engineering)
 "og" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6266,10 +6269,6 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/hidden)
-"Go" = (
-/obj/effect/paint/sun,
-/turf/wall/titanium,
-/area/ship/trade/shuttle/outgoing/engineering)
 "Gw" = (
 /obj/machinery/computer/ship/sensors,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -6463,14 +6462,17 @@
 /obj/structure/table,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
+"Ie" = (
+/obj/effect/paint/black,
+/turf/wall/titanium,
+/area/ship/trade/shuttle/outgoing/engineering)
 "If" = (
-/obj/effect/paint/brown,
 /obj/structure/sign/warning/docking_area{
-	dir = 8;
-	pixel_x = 34
+	dir = 4;
+	pixel_x = -34
 	},
-/turf/wall/r_wall/hull,
-/area/ship/trade/dock)
+/turf/space,
+/area/space)
 "Ig" = (
 /obj/machinery/computer/account_database,
 /turf/floor/bluegrid,
@@ -8071,13 +8073,9 @@
 /turf/space,
 /area/space)
 "Zx" = (
-/obj/effect/paint/brown,
-/obj/structure/sign/warning/docking_area{
-	dir = 4;
-	pixel_x = -34
-	},
-/turf/wall/r_wall/hull,
-/area/ship/trade/dock)
+/obj/effect/paint/sun,
+/turf/wall/titanium,
+/area/ship/trade/shuttle/outgoing/engineering)
 "ZK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 1;
@@ -9836,11 +9834,11 @@ GD
 Eq
 Eq
 NT
-Go
-oa
-Go
+Zx
+Ie
+Zx
 uk
-Go
+Zx
 CI
 aa
 aa
@@ -9923,7 +9921,7 @@ yq
 Zb
 YI
 tv
-Go
+Zx
 aa
 aa
 aa
@@ -10000,12 +9998,12 @@ QF
 Ld
 QF
 yy
-Go
+Zx
 GS
 xM
 Nd
 MW
-oa
+Ie
 aa
 aa
 aa
@@ -10087,7 +10085,7 @@ sj
 mr
 mW
 hb
-Go
+Zx
 aa
 aa
 aa
@@ -10164,12 +10162,12 @@ bi
 Vb
 bK
 bx
-Go
+Zx
 cp
 cz
 qt
 uD
-oa
+Ie
 aa
 aa
 aa
@@ -10246,11 +10244,11 @@ GD
 Eq
 Eq
 bL
-Go
-oa
-Go
+Zx
+Ie
+Zx
 uk
-Go
+Zx
 Tx
 aa
 aa
@@ -10653,7 +10651,7 @@ aa
 aa
 aa
 aa
-aa
+eZ
 Mw
 by
 bA
@@ -10735,7 +10733,7 @@ Ls
 Ls
 aa
 aa
-If
+nZ
 bm
 bz
 cf
@@ -11883,7 +11881,7 @@ wP
 wP
 aa
 aa
-Zx
+nZ
 bm
 bt
 cf
@@ -11965,7 +11963,7 @@ aa
 aa
 aa
 aa
-aa
+If
 Mw
 bu
 bA
