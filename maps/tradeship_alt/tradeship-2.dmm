@@ -1708,6 +1708,13 @@
 	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/port)
+"en" = (
+/obj/structure/sign/warning/docking_area{
+	dir = 8;
+	pixel_x = 34
+	},
+/turf/space,
+/area/space)
 "eo" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1944,13 +1951,6 @@
 /obj/structure/catwalk,
 /turf/open,
 /area/ship/trade/cargo)
-"eZ" = (
-/obj/structure/sign/warning/docking_area{
-	dir = 8;
-	pixel_x = 34
-	},
-/turf/space,
-/area/space)
 "fa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -5132,6 +5132,7 @@
 	dir = 8;
 	pixel_x = -21
 	},
+/obj/item/food/baguette,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "sM" = (
@@ -5836,6 +5837,13 @@
 	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/port)
+"BW" = (
+/obj/structure/sign/warning/docking_area{
+	dir = 4;
+	pixel_x = -34
+	},
+/turf/space,
+/area/space)
 "BZ" = (
 /obj/structure/table/marble,
 /obj/machinery/door/window/brigdoor/southright,
@@ -6462,17 +6470,10 @@
 /obj/structure/table,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
-"Ie" = (
+"If" = (
 /obj/effect/paint/black,
 /turf/wall/titanium,
 /area/ship/trade/shuttle/outgoing/engineering)
-"If" = (
-/obj/structure/sign/warning/docking_area{
-	dir = 4;
-	pixel_x = -34
-	},
-/turf/space,
-/area/space)
 "Ig" = (
 /obj/machinery/computer/account_database,
 /turf/floor/bluegrid,
@@ -9835,7 +9836,7 @@ Eq
 Eq
 NT
 Zx
-Ie
+If
 Zx
 uk
 Zx
@@ -10003,7 +10004,7 @@ GS
 xM
 Nd
 MW
-Ie
+If
 aa
 aa
 aa
@@ -10167,7 +10168,7 @@ cp
 cz
 qt
 uD
-Ie
+If
 aa
 aa
 aa
@@ -10245,7 +10246,7 @@ Eq
 Eq
 bL
 Zx
-Ie
+If
 Zx
 uk
 Zx
@@ -10651,7 +10652,7 @@ aa
 aa
 aa
 aa
-eZ
+en
 Mw
 by
 bA
@@ -11963,7 +11964,7 @@ aa
 aa
 aa
 aa
-If
+BW
 Mw
 bu
 bA
