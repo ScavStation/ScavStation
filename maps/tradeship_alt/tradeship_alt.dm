@@ -92,7 +92,7 @@
 	#include "outfits/science.dm"
 	#include "outfits/yinglets.dm"
 
-	#define USING_MAP_DATUM /datum/map/tradeship
+	#define USING_MAP_DATUM /datum/map/tradeship_alt
 
 #elif !defined(MAP_OVERRIDE)
 

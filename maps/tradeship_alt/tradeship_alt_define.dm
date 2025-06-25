@@ -1,4 +1,4 @@
-/datum/map/tradeship
+/datum/map/tradeship_alt
 	name = "Tradeship"
 	full_name = "Tradeship Ivenmoth"
 	path = "tradeship"
