@@ -47,9 +47,11 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "ai" = (
-/obj/structure/bed/chair/wood,
-/turf/floor/reinforced/airless,
-/area/space)
+/obj/machinery/alarm{
+	pixel_y = 17
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "aj" = (
 /obj/item/newspaper,
 /turf/floor/reinforced/airless,
@@ -174,7 +176,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/turf/floor/reinforced/airless,
+/turf/floor/plating/airless,
 /area/space)
 "ax" = (
 /turf/floor/reinforced/airless,
@@ -187,7 +189,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-10"
 	},
-/turf/floor/reinforced/airless,
+/turf/floor/plating/airless,
 /area/space)
 "aA" = (
 /obj/machinery/airlock_sensor{
@@ -546,13 +548,22 @@
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "cB" = (
-/obj/structure/girder,
-/turf/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "cO" = (
-/obj/structure/grille/broken,
-/turf/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 22
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "dm" = (
 /obj/abstract/level_data_spawner/main_level{
 	name = "Tradeship Upper Deck"
@@ -560,24 +571,30 @@
 /turf/space,
 /area/space)
 "dq" = (
-/obj/structure/cable/yellow{
-	icon_state = "6-9"
-	},
-/turf/floor/reinforced/airless,
-/area/space)
+/obj/item/clothing/head/bearpelt,
+/turf/floor/plating,
+/area/ship/trade/bridge_unused)
 "ds" = (
 /obj/machinery/network/router{
 	initial_network_id = "tradenet"
 	},
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
+"ex" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "fi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
@@ -677,7 +694,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-9"
 	},
-/turf/floor/reinforced/airless,
+/turf/floor/plating/airless,
 /area/space)
 "mW" = (
 /obj/item/mollusc/barnacle{
@@ -723,6 +740,10 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
+"oU" = (
+/obj/item/stack/material/ore/iron,
+/turf/floor/plating/airless,
+/area/space)
 "oY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -731,12 +752,18 @@
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
 "pt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/ladder,
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 1
 	},
-/turf/floor/tiled/monotile,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "32-1"
+	},
+/obj/structure/lattice,
+/turf/open,
 /area/ship/trade/command/bridge_upper)
 "pC" = (
 /obj/item/wrench,
@@ -747,11 +774,14 @@
 /area/space)
 "rl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
@@ -822,17 +852,16 @@
 /area/space)
 "wc" = (
 /obj/effect/floor_decal/steeldecal/steel_decals6,
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 22
-	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
@@ -840,7 +869,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "6-8"
 	},
-/turf/floor/reinforced/airless,
+/turf/floor/plating/airless,
 /area/space)
 "wq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -854,6 +883,9 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
+"xu" = (
+/turf/open,
+/area/ship/trade/command/bridge_upper)
 "yp" = (
 /obj/item/stack/material/ore/iron,
 /turf/floor/reinforced/airless,
@@ -875,14 +907,13 @@
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
 "zn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/floor/plating,
-/area/ship/trade/bridge_unused)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "zH" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -942,7 +973,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-5"
 	},
-/turf/floor/reinforced/airless,
+/turf/floor/plating/airless,
 /area/space)
 "DY" = (
 /obj/machinery/door/airlock/hatch/autoname/command,
@@ -999,7 +1030,18 @@
 /area/ship/trade/maintenance/solars)
 "HN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+	dir = 1
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
+"HR" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
@@ -1014,11 +1056,10 @@
 /turf/floor/reinforced/airless,
 /area/space)
 "KG" = (
-/obj/structure/cable/yellow{
-	icon_state = "5-10"
-	},
-/turf/floor/reinforced/airless,
-/area/space)
+/obj/random/trash,
+/obj/item/bone/skull/deer,
+/turf/floor/plating,
+/area/ship/trade/bridge_unused)
 "KK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1114,18 +1155,11 @@
 /turf/floor/plating/airless,
 /area/space)
 "RZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
-	},
 /obj/item/radio/intercom{
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/machinery/alarm{
-	pixel_y = 17
-	},
-/turf/floor/tiled/monotile,
+/turf/open,
 /area/ship/trade/command/bridge_upper)
 "Sc" = (
 /obj/structure/cable/yellow{
@@ -1152,11 +1186,18 @@
 /turf/floor/plating,
 /area/ship/trade/command/bridge_upper)
 "Tt" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/turf/floor/reinforced/airless,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/mob/living/simple_animal/passive/fox{
+	name = "Frankie";
+	desc = "He's here to sniff out some scabs."
+	},
+/turf/floor/plating,
+/area/ship/trade/bridge_unused)
 "Tx" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -1214,7 +1255,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/turf/floor/reinforced/airless,
+/turf/floor/plating/airless,
 /area/space)
 "XF" = (
 /obj/random/trash,
@@ -1259,16 +1300,6 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/comms)
 "ZT" = (
-/obj/structure/ladder,
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "32-1"
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -1276,8 +1307,7 @@
 	pixel_x = 24;
 	dir = 8
 	},
-/obj/structure/lattice,
-/turf/open,
+/turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "ZU" = (
 /obj/machinery/network/telecomms_hub{
@@ -3797,12 +3827,12 @@ ae
 ae
 ae
 ae
-ax
-ax
-ax
-ax
-ax
-ax
+ae
+ae
+ae
+ae
+ae
+ae
 ax
 ax
 ax
@@ -3868,7 +3898,7 @@ ax
 ax
 ax
 ax
-yp
+oU
 DP
 aw
 zH
@@ -3878,13 +3908,13 @@ ae
 aq
 ae
 ae
-ax
-ax
-ax
-ax
-ax
-ax
-ax
+ae
+ae
+ae
+ae
+ae
+ae
+ae
 ax
 ax
 ax
@@ -3949,7 +3979,7 @@ ax
 Ks
 ax
 ax
-ax
+ae
 iz
 ae
 ax
@@ -3961,12 +3991,12 @@ ae
 ae
 ae
 ae
-ax
-ax
-ax
-ax
-ax
-ax
+ae
+ae
+ae
+ae
+ae
+ae
 ax
 ax
 ax
@@ -4004,8 +4034,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ob
 Ob
 QK
@@ -4022,6 +4050,8 @@ ax
 ax
 ax
 ax
+ax
+ax
 ac
 ac
 ac
@@ -4030,8 +4060,8 @@ ax
 ax
 ax
 ax
-ax
-KG
+ae
+iz
 ae
 ax
 ax
@@ -4084,8 +4114,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ob
 Ob
 jz
@@ -4094,6 +4122,8 @@ aN
 aN
 jz
 Ob
+ax
+ax
 ax
 ax
 ax
@@ -4111,9 +4141,9 @@ ax
 ax
 ae
 ax
-ax
-KG
-ax
+ae
+iz
+ae
 ax
 ax
 ax
@@ -4165,8 +4195,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ob
 Ob
 Ob
@@ -4176,6 +4204,8 @@ Jo
 ZU
 Uq
 Ob
+ax
+ax
 ax
 ax
 ax
@@ -4248,8 +4278,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 ad
 Tx
 Su
@@ -4275,7 +4303,9 @@ ax
 ax
 ax
 ax
-Tt
+ax
+ax
+br
 ax
 ax
 ax
@@ -4329,8 +4359,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ob
 Ob
 Ob
@@ -4341,6 +4369,8 @@ yA
 Ll
 tJ
 tJ
+tJ
+tJ
 SQ
 SQ
 tJ
@@ -4357,7 +4387,7 @@ ax
 ax
 ax
 ax
-Tt
+br
 ar
 aV
 au
@@ -4411,8 +4441,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 ac
 Ob
 Ob
@@ -4422,8 +4450,10 @@ jJ
 jz
 jz
 Xb
+ai
+xu
 RZ
-HN
+ex
 PZ
 bE
 SQ
@@ -4467,7 +4497,7 @@ ax
 ax
 ax
 ax
-ai
+ax
 ax
 aa
 aa
@@ -4495,8 +4525,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 ab
 mn
 mn
@@ -4504,9 +4532,11 @@ hJ
 Dg
 KK
 YA
+zn
+HR
 rl
 fi
-PZ
+HN
 PZ
 PJ
 ax
@@ -4521,7 +4551,7 @@ ax
 ax
 ax
 ax
-Tt
+br
 ag
 an
 ap
@@ -4575,8 +4605,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 ac
 zY
 zY
@@ -4586,6 +4614,8 @@ DY
 ne
 ne
 Xb
+cO
+cB
 wc
 nZ
 pt
@@ -4603,7 +4633,7 @@ ax
 ax
 ax
 ax
-Tt
+br
 am
 aV
 au
@@ -4657,8 +4687,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 zY
 zY
 zY
@@ -4667,6 +4695,8 @@ oq
 gw
 uT
 xr
+tJ
+tJ
 tJ
 tJ
 SQ
@@ -4740,13 +4770,11 @@ aa
 aa
 aa
 aa
-aa
-aa
 Dr
 ab
 yM
 wq
-zn
+Tt
 KS
 oY
 Vp
@@ -4767,8 +4795,10 @@ ax
 ax
 ax
 ax
-wf
 ax
+ax
+wf
+ae
 ax
 ax
 ax
@@ -4821,16 +4851,14 @@ aa
 aa
 aa
 aa
-aa
-aa
 zY
 zY
 zY
-cB
-cO
-XF
+dq
 uT
 XF
+uT
+KG
 zY
 ax
 ax
@@ -4850,8 +4878,10 @@ ax
 ax
 ax
 ax
-dq
 ax
+ae
+gY
+ae
 ax
 ax
 ax
@@ -4904,15 +4934,13 @@ aa
 aa
 aa
 aa
-aa
-aa
 zY
 zY
 ne
 ne
 jv
 jv
-cB
+zY
 zY
 ax
 ax
@@ -4933,6 +4961,8 @@ ax
 ax
 ax
 ax
+ax
+ae
 gY
 ae
 ax
@@ -4988,8 +5018,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 zY
 zY
 Db
@@ -5006,6 +5034,8 @@ ax
 ax
 ax
 ax
+ax
+ax
 ac
 ac
 ac
@@ -5015,9 +5045,9 @@ ax
 ax
 ax
 ax
-ax
-dq
-ax
+ae
+gY
+ae
 ax
 aI
 aI
@@ -5027,12 +5057,12 @@ ae
 ae
 ae
 ae
-ax
-ax
-ax
-ax
-ax
-ax
+ae
+ae
+ae
+ae
+ae
+ae
 ax
 ax
 ax
@@ -5098,7 +5128,7 @@ ax
 ax
 ax
 ax
-ax
+ae
 mV
 aw
 Sc
@@ -5109,12 +5139,12 @@ ae
 ae
 ae
 ae
-ax
-ax
-ax
-ax
-ax
-ax
+ae
+ae
+ae
+ae
+ae
+ae
 ax
 ax
 ax
@@ -5190,13 +5220,13 @@ ae
 ae
 ae
 ae
-ax
-ax
-ax
-ax
-ax
-ax
-ax
+ae
+ae
+ae
+ae
+ae
+ae
+ae
 ax
 ax
 ax
