@@ -1,7 +1,7 @@
 /datum/map/tradeship_alt
 	name = "Tradeship"
 	full_name = "Tradeship Ivenmoth"
-	path = "tradeship"
+	path = "tradeship_alt"
 	ground_noun = "deck"
 
 	station_name  = "Tradeship Ivenmoth"
