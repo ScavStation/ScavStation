@@ -1041,7 +1041,7 @@
 "cp" = (
 /obj/machinery/atmospherics/unary/tank/air,
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "cu" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
@@ -1070,7 +1070,7 @@
 	},
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "cB" = (
 /obj/structure/handrail{
 	dir = 4
@@ -2670,7 +2670,7 @@
 /obj/item/wrench,
 /obj/structure/cable/orange,
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "hd" = (
 /obj/structure/closet/crate/uranium,
 /obj/machinery/button/blast_door{
@@ -4460,7 +4460,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "mt" = (
 /obj/item/roller,
 /obj/structure/hygiene/sink{
@@ -4480,7 +4480,7 @@
 	dir = 4
 	},
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "mX" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall,
@@ -4589,6 +4589,10 @@
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/dock)
+"oa" = (
+/obj/effect/paint/black,
+/turf/wall/titanium,
+/area/ship/trade/shuttle/outgoing/engineering)
 "og" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4794,7 +4798,7 @@
 	},
 /obj/structure/closet/crate/plastic/rations,
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "qv" = (
 /turf/space,
 /area/ship/trade/shuttle/outgoing/general)
@@ -5024,7 +5028,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "sl" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -5183,7 +5187,7 @@
 	icon_state = "bulb1"
 	},
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "tG" = (
 /obj/abstract/ramp_sculptor/north,
 /turf/wall/natural,
@@ -5227,7 +5231,7 @@
 	},
 /obj/effect/paint/black,
 /turf/wall/titanium,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "ul" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/abstract/landmark/start{
@@ -5260,7 +5264,7 @@
 	pixel_x = 32
 	},
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "uL" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/techfloor/orange{
@@ -5514,7 +5518,7 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/floodlight,
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "xO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5543,7 +5547,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "xX" = (
 /obj/item/mollusc/barnacle{
 	pixel_x = 17
@@ -5576,7 +5580,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "yt" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/cable{
@@ -5926,7 +5930,7 @@
 "CI" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
 /turf/floor/plating/airless,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "CP" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
@@ -6262,6 +6266,10 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/hidden)
+"Go" = (
+/obj/effect/paint/sun,
+/turf/wall/titanium,
+/area/ship/trade/shuttle/outgoing/engineering)
 "Gw" = (
 /obj/machinery/computer/ship/sensors,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -6330,7 +6338,7 @@
 /obj/machinery/cell_charger,
 /obj/structure/table/steel,
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "GT" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
@@ -6936,7 +6944,7 @@
 	},
 /obj/machinery/power/smes/buildable/max_cap_in_out,
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "MX" = (
 /obj/machinery/light{
 	dir = 8;
@@ -6980,7 +6988,7 @@
 "Nd" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "Nm" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -7549,7 +7557,7 @@
 	},
 /obj/effect/paint/sun,
 /turf/wall/titanium,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "Tv" = (
 /obj/structure/lattice,
 /turf/wall/natural,
@@ -7557,7 +7565,7 @@
 "Tx" = (
 /obj/structure/shuttle/engine/propulsion/burst/right,
 /turf/floor/plating/airless,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "TB" = (
 /obj/machinery/atmospherics/valve/open{
 	dir = 4
@@ -7979,7 +7987,7 @@
 	dir = 4
 	},
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "YN" = (
 /turf/floor/plating,
 /area/ship/trade/crew/hallway/starboard)
@@ -8017,7 +8025,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/plating,
-/area/ship/trade/shuttle/outgoing/general)
+/area/ship/trade/shuttle/outgoing/engineering)
 "Zc" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/item/cell/device/standard,
@@ -9828,11 +9836,11 @@ GD
 Eq
 Eq
 NT
-Eq
-UT
-Eq
+Go
+oa
+Go
 uk
-Eq
+Go
 CI
 aa
 aa
@@ -9915,7 +9923,7 @@ yq
 Zb
 YI
 tv
-Eq
+Go
 aa
 aa
 aa
@@ -9992,12 +10000,12 @@ QF
 Ld
 QF
 yy
-Eq
+Go
 GS
 xM
 Nd
 MW
-UT
+oa
 aa
 aa
 aa
@@ -10079,7 +10087,7 @@ sj
 mr
 mW
 hb
-Eq
+Go
 aa
 aa
 aa
@@ -10156,12 +10164,12 @@ bi
 Vb
 bK
 bx
-Eq
+Go
 cp
 cz
 qt
 uD
-UT
+oa
 aa
 aa
 aa
@@ -10238,11 +10246,11 @@ GD
 Eq
 Eq
 bL
-Eq
-UT
-Eq
+Go
+oa
+Go
 uk
-Eq
+Go
 Tx
 aa
 aa
