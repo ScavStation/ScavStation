@@ -884,7 +884,6 @@
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
 "xu" = (
-/obj/structure/stairs/long/catwalk/north,
 /turf/open,
 /area/ship/trade/command/bridge_upper)
 "yp" = (
