@@ -580,12 +580,6 @@
 	},
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
-"dJ" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
-/turf/floor/plating/airless,
-/area/space)
 "ex" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -651,6 +645,12 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/bridge_unused)
+"ip" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/floor/plating/airless,
+/area/space)
 "iz" = (
 /obj/structure/cable/yellow{
 	icon_state = "5-10"
@@ -693,19 +693,6 @@
 /obj/machinery/door/firedoor,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/comms)
-"kc" = (
-/obj/structure/cable/yellow{
-	dir = 1
-	},
-/turf/floor/plating/airless,
-/area/space)
-"kT" = (
-/obj/structure/cable/yellow{
-	icon_state = "2-5";
-	dir = 8
-	},
-/turf/floor/plating/airless,
-/area/space)
 "mn" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/bridge_unused)
@@ -856,26 +843,10 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/comms)
-"tB" = (
-/obj/structure/cable/yellow{
-	icon_state = "2-5"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/turf/floor/plating/airless,
-/area/space)
 "tJ" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/command/bridge_upper)
-"ua" = (
-/obj/structure/cable/yellow{
-	icon_state = "2-9";
-	dir = 1
-	},
-/turf/floor/plating/airless,
-/area/space)
 "uT" = (
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
@@ -978,13 +949,6 @@
 	},
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
-"BH" = (
-/obj/structure/cable/yellow{
-	icon_state = "2-5";
-	dir = 4
-	},
-/turf/floor/plating/airless,
-/area/space)
 "Db" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -1250,12 +1214,6 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/comms)
-"TF" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-8"
-	},
-/turf/floor/plating/airless,
-/area/space)
 "Ua" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
@@ -4181,10 +4139,10 @@ ae
 ae
 ae
 ae
-kc
-aw
-aw
-dJ
+ae
+ae
+ae
+ae
 ax
 ax
 ax
@@ -4266,7 +4224,7 @@ ae
 ae
 ae
 ay
-kT
+ae
 ae
 ax
 ax
@@ -4349,8 +4307,8 @@ ax
 ax
 ax
 ax
-mV
-ua
+ae
+ae
 ax
 ax
 ax
@@ -4433,7 +4391,7 @@ ax
 ax
 ax
 ae
-BH
+Ua
 ax
 ax
 ax
@@ -4515,7 +4473,7 @@ ax
 ax
 ax
 ax
-tB
+ip
 aw
 aw
 aw
@@ -4596,7 +4554,7 @@ ax
 ax
 ax
 ax
-az
+ae
 ae
 ax
 ax
@@ -4678,7 +4636,7 @@ ax
 ax
 ax
 ax
-br
+aq
 ax
 ax
 ax
@@ -4760,7 +4718,7 @@ ax
 ax
 ax
 ax
-br
+ae
 ax
 ax
 ax
@@ -4841,8 +4799,8 @@ ax
 ax
 ax
 ax
-DP
-TF
+ae
+ae
 ax
 ax
 ax
@@ -4922,7 +4880,7 @@ ae
 ay
 ae
 ae
-az
+aq
 ae
 ax
 ax
@@ -4998,13 +4956,13 @@ ax
 ax
 ae
 ae
-kc
-aw
-aw
-aw
-aw
-aw
-TF
+ae
+ae
+ae
+ae
+ae
+ae
+ae
 ax
 ax
 ax
@@ -5082,7 +5040,7 @@ ae
 ay
 ae
 ae
-ae
+aq
 ae
 ay
 ae
