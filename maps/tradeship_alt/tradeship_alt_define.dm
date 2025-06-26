@@ -1,11 +1,11 @@
 /datum/map/tradeship_alt
-	name = "Tradeship"
-	full_name = "Tradeship Ivenmoth"
+	name = "Fishfinder"
+	full_name = "Ivenmoth Fishfinder"
 	path = "tradeship_alt"
 	ground_noun = "deck"
 
-	station_name  = "Tradeship Ivenmoth"
-	station_short = "Ivenmoth"
+	station_name  = "Ivenmoth Fishfinder"
+	station_short = "Fishfinder"
 
 	dock_name     = "Val Salia Station"
 	boss_name     = "Trademaster of Ivenmoth"
@@ -13,8 +13,10 @@
 	company_name  = "Tradehouse Ivenmoth"
 	company_short = "Ivenmoth"
 
+	game_year = 294
+
 	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
-	lobby_screens = list('mods/valsalia/lobby/yingspace.png')
+	lobby_screens = list('mods/valsalia/lobby/fishfinder.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 4
@@ -35,7 +37,7 @@
 
 /datum/map/tradeship_alt/get_map_info()
 	return "You're aboard the <b>[station_name],</b> a survey and mercantile vessel affiliated with <b>Tradehouse Ivenmoth</b>, a large merchant guild operating out of Val Salia Station. \
-	No meaningful authorities can claim the planets and resources in this uncharted sector, so their exploitation is entirely up to you - mine, poach and deforest all you want."
+	This repurposed Tradeship vessel as been expanded to accomodate a larger crew, and is a trial run of how well yinglets can commandeer a vessel... under a close eye, anyway."
 
 /datum/map/tradeship_alt/create_trade_hubs()
 	new /datum/trade_hub/singleton/tradeship

@@ -1446,18 +1446,18 @@
 /turf/floor/plating,
 /area/ship/trade/drunk_tank)
 "dK" = (
-/obj/structure/window/reinforced,
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 9
 	},
 /obj/structure/cable{
-	icon_state = "4-10"
+	icon_state = "1-8"
 	},
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
@@ -1807,6 +1807,14 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
+"eM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "2-5"
+	},
+/turf/floor/tiled,
+/area/ship/trade/cargo/lower)
 "eN" = (
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
@@ -2262,13 +2270,7 @@
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
 "mh" = (
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "2-5"
-	},
-/turf/floor/tiled,
+/turf/wall/r_wall/hull,
 /area/ship/trade/cargo/lower)
 "my" = (
 /obj/machinery/cryopod/robot,
@@ -3085,19 +3087,8 @@
 /turf/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "IU" = (
-/obj/structure/window/reinforced,
-/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
 	},
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
@@ -3457,9 +3448,6 @@
 /area/ship/trade/drunk_tank)
 "Sc" = (
 /obj/structure/window/reinforced,
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
-	},
 /turf/floor/tiled,
 /area/ship/trade/cargo/lower)
 "Sm" = (
@@ -3569,6 +3557,21 @@
 	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/shieldbay)
+"UJ" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-10"
+	},
+/turf/floor/tiled,
+/area/ship/trade/cargo/lower)
 "UO" = (
 /obj/item/radio/intercom{
 	dir = 4;
@@ -6867,7 +6870,6 @@ aa
 aa
 aa
 aa
-aa
 Dr
 Dr
 IZ
@@ -6876,6 +6878,7 @@ YB
 YB
 IZ
 lE
+mh
 al
 al
 aH
@@ -6949,7 +6952,6 @@ aa
 aa
 aa
 aa
-aa
 Dr
 IZ
 IZ
@@ -6958,7 +6960,8 @@ pd
 mD
 IZ
 LN
-mh
+eM
+uX
 uX
 MX
 LA
@@ -7030,7 +7033,6 @@ aa
 aa
 aa
 aa
-aa
 Dr
 IZ
 IZ
@@ -7039,7 +7041,8 @@ HG
 fX
 YX
 IZ
-dK
+UJ
+Sc
 Sx
 Sx
 CN
@@ -7112,7 +7115,6 @@ aa
 aa
 aa
 aa
-aa
 Dr
 IZ
 IZ
@@ -7121,7 +7123,8 @@ UB
 UZ
 XP
 dO
-IU
+dK
+Sc
 he
 he
 lw
@@ -7194,7 +7197,6 @@ aa
 aa
 aa
 aa
-aa
 Dr
 IZ
 IZ
@@ -7204,6 +7206,7 @@ Vz
 dc
 IZ
 Bq
+aU
 tz
 Rl
 zP
@@ -7277,7 +7280,6 @@ aa
 aa
 aa
 aa
-aa
 Dr
 IZ
 IZ
@@ -7285,6 +7287,7 @@ BR
 PD
 iO
 IZ
+IU
 Sc
 zC
 oC
@@ -7359,7 +7362,6 @@ aa
 aa
 aa
 aa
-aa
 Dr
 Dr
 IZ
@@ -7367,6 +7369,7 @@ IZ
 YB
 YB
 IZ
+pr
 pr
 pr
 pr
