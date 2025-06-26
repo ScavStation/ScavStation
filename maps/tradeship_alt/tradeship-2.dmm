@@ -635,6 +635,10 @@
 /area/ship/trade/cargo)
 "bo" = (
 /obj/random/maintenance,
+/obj/structure/sign/warning/vacuum{
+	dir = 8;
+	pixel_x = 34
+	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "bq" = (
@@ -2010,7 +2014,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/item/stool/padded,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fe" = (
@@ -2209,6 +2212,13 @@
 "fE" = (
 /turf/wall,
 /area/ship/trade/crew/wash)
+"fH" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/space,
+/area/space)
 "fI" = (
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning,
@@ -4373,6 +4383,15 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
+"lt" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/ship/trade/crew/medbay)
 "lu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
@@ -4572,12 +4591,9 @@
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
 "nR" = (
-/obj/structure/sign/warning/vacuum{
-	dir = 8;
-	pixel_x = 34
-	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/dock)
+/obj/machinery/light,
+/turf/floor/tiled/white,
+/area/ship/trade/crew/medbay)
 "nU" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
@@ -4639,6 +4655,9 @@
 /obj/machinery/optable,
 /obj/item/chems/drinks/glass2/coffeecup/britcup,
 /obj/item/chems/glass/rag,
+/obj/machinery/body_scan_display{
+	pixel_y = -30
+	},
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "op" = (
@@ -5806,6 +5825,10 @@
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/maintenance/power)
+"Bz" = (
+/obj/machinery/vitals_monitor,
+/turf/floor/tiled/white,
+/area/ship/trade/crew/medbay)
 "BD" = (
 /obj/structure/table,
 /obj/item/multitool{
@@ -6751,6 +6774,10 @@
 	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/port)
+"Kp" = (
+/obj/machinery/smartfridge/chemistry,
+/turf/floor/tiled/white,
+/area/ship/trade/crew/medbay/chemistry)
 "Kw" = (
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
@@ -7738,6 +7765,12 @@
 	},
 /turf/open,
 /area/ship/trade/cargo)
+"VR" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/white,
+/area/ship/trade/crew/medbay)
 "VW" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular/open{
@@ -10814,7 +10847,7 @@ aw
 rp
 aw
 oK
-cy
+Mw
 Mw
 nZ
 bm
@@ -11717,7 +11750,7 @@ aW
 Rb
 SC
 SC
-nR
+Mw
 tg
 lj
 at
@@ -12142,12 +12175,12 @@ dd
 dd
 GA
 dd
-ee
-mt
+Kp
+Kw
 Kw
 Et
-fV
-Im
+Kw
+Bz
 ee
 NI
 rR
@@ -12224,12 +12257,12 @@ ds
 Tp
 dJ
 OP
-KR
-Hc
-eM
-fe
-fo
-fw
+ee
+mt
+Kw
+lt
+fV
+Im
 ee
 Oc
 gx
@@ -12306,13 +12339,13 @@ om
 nj
 dK
 nj
-on
-KR
-KR
-ff
-KR
-KR
-KR
+ee
+VR
+Kw
+lt
+Kw
+nR
+ee
 aM
 gg
 MD
@@ -12388,14 +12421,14 @@ aa
 Is
 aa
 aa
-aa
-Is
-cy
-cy
-vt
-pe
-kC
-gz
+KR
+Hc
+eM
+fe
+fo
+fw
+ee
+fH
 cy
 Zv
 cy
@@ -12432,6 +12465,170 @@ aa
 aa
 "}
 (54,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+on
+KR
+KR
+ff
+KR
+KR
+KR
+fH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(55,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Is
+cy
+cy
+vt
+pe
+kC
+gz
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(56,1,1) = {"
 aa
 aa
 aa
@@ -12513,7 +12710,7 @@ aa
 aa
 aa
 "}
-(55,1,1) = {"
+(57,1,1) = {"
 aa
 aa
 aa
@@ -12595,7 +12792,7 @@ aa
 aa
 aa
 "}
-(56,1,1) = {"
+(58,1,1) = {"
 aa
 aa
 aa
@@ -12677,7 +12874,7 @@ aa
 aa
 aa
 "}
-(57,1,1) = {"
+(59,1,1) = {"
 aa
 aa
 aa
@@ -12759,7 +12956,7 @@ aa
 aa
 aa
 "}
-(58,1,1) = {"
+(60,1,1) = {"
 aa
 aa
 aa
@@ -12805,170 +13002,6 @@ aa
 we
 we
 gS
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(59,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
-(60,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
