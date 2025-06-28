@@ -255,12 +255,17 @@
 /area/ship/trade/maintenance/solars)
 "aG" = (
 /obj/structure/closet/crate/solar,
+/obj/item/stack/cable_coil/yellow,
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "aH" = (
-/obj/structure/handrail,
-/turf/floor/reinforced/airless,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/plating,
+/area/ship/trade/maintenance/solars)
 "aI" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
@@ -509,16 +514,7 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "bk" = (
-/obj/structure/ladder,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "bl" = (
@@ -564,6 +560,11 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
+"dj" = (
+/obj/item/solar_assembly,
+/obj/item/solar_assembly,
+/turf/floor/plating/airless,
+/area/space)
 "dm" = (
 /obj/abstract/level_data_spawner/main_level{
 	name = "Tradeship Upper Deck"
@@ -630,6 +631,20 @@
 	},
 /turf/floor/plating/airless,
 /area/space)
+"hn" = (
+/obj/structure/ladder,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice,
+/turf/open,
+/area/ship/trade/maintenance/solars)
 "hJ" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -668,11 +683,11 @@
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
 "jy" = (
-/obj/machinery/constructable_frame/computerframe{
-	dir = 4
-	},
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
+	},
+/obj/machinery/power/solar_control{
+	dir = 4
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
@@ -856,6 +871,10 @@
 	},
 /turf/floor/reinforced/airless,
 /area/space)
+"vy" = (
+/obj/item/stack/cable_coil/yellow,
+/turf/floor/plating/airless,
+/area/space)
 "wc" = (
 /obj/effect/floor_decal/steeldecal/steel_decals6,
 /obj/machinery/firealarm{
@@ -949,6 +968,10 @@
 	},
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
+"Bi" = (
+/obj/item/stack/cable_coil/yellow,
+/turf/floor/reinforced/airless,
+/area/space)
 "Db" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -3833,14 +3856,14 @@ ae
 ay
 ae
 ae
+ay
+ay
+ay
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
+ay
+ay
 ae
 ax
 ax
@@ -3999,10 +4022,10 @@ ay
 ae
 ae
 ae
+ay
 ae
 ae
-ae
-ae
+ay
 ae
 ae
 ae
@@ -4055,8 +4078,8 @@ ax
 ae
 ae
 ay
-ae
-ae
+ay
+ay
 ae
 ay
 ae
@@ -4169,8 +4192,8 @@ ax
 aV
 au
 au
+au
 aV
-ax
 ax
 ax
 ax
@@ -4217,12 +4240,12 @@ ax
 ax
 ax
 ae
-ae
-ae
 ay
 ae
-ae
-ae
+ay
+ay
+ay
+ay
 ay
 ae
 ae
@@ -4250,9 +4273,9 @@ ax
 ax
 aV
 bf
+aH
 ak
 aV
-aH
 ax
 ax
 ax
@@ -4309,7 +4332,7 @@ ax
 ax
 ae
 ae
-ax
+Bi
 ax
 ax
 ax
@@ -4332,9 +4355,9 @@ ax
 ax
 aV
 aB
+bg
 as
 aV
-ax
 ax
 ax
 ax
@@ -4414,9 +4437,9 @@ aV
 aV
 aV
 aL
+ao
 bj
 aV
-ax
 ax
 ax
 ax
@@ -4497,8 +4520,8 @@ UY
 aR
 ah
 bk
+hn
 aV
-ax
 ax
 ax
 ax
@@ -4578,9 +4601,9 @@ be
 bg
 bh
 bi
+bg
 bl
 aV
-aH
 ax
 ax
 ax
@@ -4661,8 +4684,8 @@ aV
 aV
 au
 au
+au
 aV
-ax
 ax
 ax
 ax
@@ -4873,10 +4896,10 @@ ax
 ax
 ax
 ae
-ae
 ay
-ae
-ae
+ay
+ay
+ay
 ay
 ae
 ae
@@ -4890,7 +4913,7 @@ ax
 ax
 ae
 gY
-ae
+vy
 ax
 ax
 ax
@@ -5038,12 +5061,12 @@ ax
 ax
 ae
 ay
-ae
-ae
+ay
+ay
 aq
 ae
+dj
 ay
-ae
 ax
 ac
 ac
@@ -5062,11 +5085,11 @@ aI
 aI
 ae
 ae
+ay
 ae
 ae
-ae
-ae
-ae
+ay
+ay
 ae
 ae
 ae
@@ -5227,14 +5250,14 @@ aW
 ay
 ae
 ae
+ay
+ay
+ay
+ay
 ae
 ae
 ae
-ae
-ae
-ae
-ae
-ae
+ay
 ae
 ax
 ax
