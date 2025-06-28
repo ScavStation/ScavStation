@@ -17,8 +17,9 @@
 /turf/space,
 /area/space)
 "ad" = (
-/turf/floor/reinforced/airless,
-/area/ship/trade/comms)
+/obj/effect/paint/brown,
+/turf/wall/r_wall,
+/area/ship/trade/command/bridge)
 "ae" = (
 /turf/floor/plating/airless,
 /area/space)
@@ -47,11 +48,14 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "ai" = (
-/obj/machinery/alarm{
-	pixel_y = 17
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/command/bridge_upper)
+/turf/wall/r_wall/hull,
+/area/ship/trade/bridge_unused)
 "aj" = (
 /obj/item/newspaper,
 /turf/floor/reinforced/airless,
@@ -259,13 +263,11 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "aH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
-/turf/floor/plating,
-/area/ship/trade/maintenance/solars)
+/turf/wall/r_wall,
+/area/ship/trade/bridge_unused)
 "aI" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
@@ -536,6 +538,14 @@
 	},
 /turf/floor/plating/airless,
 /area/space)
+"bB" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "scraplock";
+	name = "External Blast Doors"
+	},
+/turf/floor/reinforced/airless,
+/area/ship/trade/command/bridge)
 "bE" = (
 /obj/effect/floor_decal/steeldecal/steel_decals6,
 /obj/machinery/light{
@@ -544,27 +554,24 @@
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "cB" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/bed/chair{
+	dir = 1
 	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/command/bridge_upper)
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "cO" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 22
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/floor/tiled/monotile,
+/turf/wall/r_wall,
 /area/ship/trade/command/bridge_upper)
-"dj" = (
-/obj/item/solar_assembly,
-/obj/item/solar_assembly,
-/turf/floor/plating/airless,
-/area/space)
 "dm" = (
 /obj/abstract/level_data_spawner/main_level{
 	name = "Tradeship Upper Deck"
@@ -582,21 +589,23 @@
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
 "ex" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "fi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "gb" = (
@@ -631,35 +640,23 @@
 	},
 /turf/floor/plating/airless,
 /area/space)
-"hn" = (
-/obj/structure/ladder,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+"hH" = (
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice,
-/turf/open,
-/area/ship/trade/maintenance/solars)
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "hJ" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/floor/tiled/dark,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/command/bridge)
 "ip" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
@@ -672,6 +669,20 @@
 	},
 /turf/floor/plating/airless,
 /area/space)
+"ja" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 22
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "jv" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -694,23 +705,47 @@
 "jz" = (
 /turf/wall/r_wall,
 /area/ship/trade/comms)
-"jJ" = (
-/obj/machinery/door/airlock/hatch/autoname/command,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+"jG" = (
+/obj/machinery/computer/ship/sensors,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"jJ" = (
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"ml" = (
+/obj/machinery/computer/modular/preset/cardslot/command,
+/turf/floor/bluegrid,
+/area/ship/trade/command/bridge)
+"mn" = (
+/obj/machinery/hologram/holopad/longrange,
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/obj/machinery/door/firedoor,
-/turf/floor/tiled/techfloor/grid,
-/area/ship/trade/comms)
-"mn" = (
 /turf/floor/tiled/dark,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/command/bridge)
+"mG" = (
+/obj/structure/table,
+/obj/item/toy/figure/captain,
+/obj/machinery/button/blast_door{
+	id_tag = "sensor";
+	name = "Sensor Shroud";
+	directional_offset = null
+	},
+/obj/item/radio,
+/obj/random/drinkbottle,
+/obj/abstract/landmark/paperwork_spawn_tradeship,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "mV" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-9"
@@ -736,17 +771,20 @@
 /turf/floor/plating,
 /area/ship/trade/comms)
 "nZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
@@ -761,6 +799,12 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
+"ow" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "oU" = (
 /obj/item/stack/material/ore/iron,
 /turf/floor/plating/airless,
@@ -794,18 +838,32 @@
 /turf/floor/reinforced/airless,
 /area/space)
 "rl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
+"rw" = (
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"rR" = (
+/obj/machinery/shipsensors,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/floor/reinforced/airless,
+/area/ship/trade/command/bridge)
 "sx" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -819,6 +877,14 @@
 	},
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
+	},
+/turf/floor/plating,
+/area/ship/trade/maintenance/solars)
+"sW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
@@ -836,32 +902,32 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/comms)
 "tu" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/structure/table,
+/obj/machinery/button/blast_door{
+	id_tag = "scraplock";
+	name = "External Lockdown";
+	directional_offset = null
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "Communications APC";
-	pixel_y = 22
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/machinery/light_switch{
-	pixel_x = 24;
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/floor/tiled/techfloor/grid,
-/area/ship/trade/comms)
+/obj/random_multi/single_item/captains_spare_id,
+/obj/item/documents/tradehouse/account,
+/obj/item/documents/tradehouse/personnel,
+/obj/abstract/landmark/paperwork_spawn_tradeship,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"tG" = (
+/obj/structure/railing/mapped,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "tJ" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/command/bridge_upper)
+"uM" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "uT" = (
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
@@ -871,25 +937,34 @@
 	},
 /turf/floor/reinforced/airless,
 /area/space)
-"vy" = (
-/obj/item/stack/cable_coil/yellow,
-/turf/floor/plating/airless,
-/area/space)
-"wc" = (
+"vR" = (
 /obj/effect/floor_decal/steeldecal/steel_decals6,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
+"wc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
+"wd" = (
+/obj/item/stack/cable_coil/yellow,
+/turf/floor/plating/airless,
+/area/space)
 "wf" = (
 /obj/structure/cable/yellow{
 	icon_state = "6-8"
@@ -900,6 +975,34 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
+"wN" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "scraplock";
+	name = "External Blast Doors"
+	},
+/obj/machinery/door/firedoor,
+/turf/floor/plating,
+/area/ship/trade/command/bridge)
+"xj" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	pixel_x = 22
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/newscaster{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "xr" = (
 /obj/random/shoes,
 /obj/machinery/alarm{
@@ -909,8 +1012,11 @@
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
 "xu" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/open,
-/area/ship/trade/command/bridge_upper)
+/area/ship/trade/command/bridge)
 "yp" = (
 /obj/item/stack/material/ore/iron,
 /turf/floor/reinforced/airless,
@@ -931,14 +1037,32 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
-"zn" = (
+"ze" = (
+/obj/structure/bed/chair/comfy/teal{
+	dir = 1
+	},
+/obj/abstract/landmark/start{
+	name = "Captain"
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/monotile,
+/obj/effect/overmap/visitable/ship/tradeship,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"zn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/wall/r_wall,
 /area/ship/trade/command/bridge_upper)
+"zr" = (
+/obj/machinery/computer/account_database,
+/turf/floor/bluegrid,
+/area/ship/trade/command/bridge)
 "zH" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -962,16 +1086,69 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
+"Ap" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "Communications APC";
+	pixel_y = 22
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/comms)
 "AK" = (
 /obj/machinery/network/mainframe{
 	initial_network_id = "tradenet"
 	},
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
-"Bi" = (
-/obj/item/stack/cable_coil/yellow,
-/turf/floor/reinforced/airless,
-/area/space)
+"AX" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/wall/r_wall/hull,
+/area/ship/trade/bridge_unused)
+"Bu" = (
+/obj/machinery/network/requests_console{
+	announcementConsole = 1;
+	department = "Captain";
+	pixel_y = -32;
+	dir = 2
+	},
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/structure/closet/emcloset,
+/obj/random/voidsuit,
+/obj/random/voidhelmet,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "Db" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -981,16 +1158,18 @@
 /turf/floor/plating/airless,
 /area/ship/trade/bridge_unused)
 "Dg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/floor/tiled/dark,
-/area/ship/trade/bridge_unused)
+/area/ship/trade/command/bridge)
 "Dl" = (
 /obj/item/mollusc/barnacle,
 /turf/floor/reinforced/airless,
@@ -1019,6 +1198,22 @@
 /obj/structure/tape_barricade/engineering,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/bridge_unused)
+"Ev" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/reinforced/airless,
+/area/ship/trade/comms)
+"EA" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/computer/ship/engines,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "EO" = (
 /obj/machinery/computer/message_monitor{
 	dir = 1
@@ -1054,6 +1249,21 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
+"Gn" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "GP" = (
 /turf/open,
 /area/ship/trade/maintenance/solars)
@@ -1064,20 +1274,48 @@
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "HR" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
+"Io" = (
+/obj/machinery/computer/ship/helm,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/floor/bluegrid,
+/area/ship/trade/command/bridge)
+"IK" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/command/bridge_upper)
+/turf/open,
+/area/ship/trade/command/bridge)
 "Jo" = (
 /obj/machinery/network/message_server,
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
+"Jt" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/floor/bluegrid,
+/area/ship/trade/comms)
+"JH" = (
+/turf/wall/r_wall,
+/area/ship/trade/command/bridge)
+"JQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "Ks" = (
 /obj/item/mollusc/barnacle{
 	pixel_x = -14
@@ -1090,17 +1328,8 @@
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
 "KK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/light_switch{
-	pixel_x = 24;
-	dir = 8
-	},
-/turf/floor/tiled/dark,
-/area/ship/trade/command/bridge_upper)
+/turf/open,
+/area/ship/trade/command/bridge)
 "KS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
@@ -1135,6 +1364,46 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/comms)
+"Lu" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -21
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"Lx" = (
+/obj/item/solar_assembly,
+/obj/item/solar_assembly,
+/turf/floor/plating/airless,
+/area/space)
+"MA" = (
+/obj/item/stack/cable_coil/yellow,
+/turf/floor/reinforced/airless,
+/area/space)
+"Nk" = (
+/obj/machinery/door/airlock/hatch/autoname/command,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/comms)
+"NQ" = (
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = -22
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "NY" = (
 /obj/item/mollusc/barnacle{
 	pixel_x = 16
@@ -1145,6 +1414,14 @@
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/comms)
+"On" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "Pg" = (
 /obj/item/chems/glass/bucket/paint/yellow,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -1171,6 +1448,27 @@
 "PZ" = (
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
+"Ql" = (
+/obj/machinery/computer/modular/preset/cardslot/command,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/machinery/keycard_auth{
+	pixel_y = 28
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"QB" = (
+/obj/abstract/landmark/paperwork_finish_tradeship,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "QK" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -1184,12 +1482,18 @@
 /turf/floor/plating/airless,
 /area/space)
 "RZ" = (
-/obj/item/radio/intercom{
-	dir = 4;
-	pixel_x = -22
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id_tag = "scraplock";
+	name = "External Blast Doors"
 	},
-/turf/open,
-/area/ship/trade/command/bridge_upper)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/plating,
+/area/ship/trade/comms)
 "Sc" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -1202,6 +1506,13 @@
 	},
 /turf/floor/plating/airless,
 /area/space)
+"Sm" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "Su" = (
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
@@ -1228,15 +1539,21 @@
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
 "Tx" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id_tag = "scraplock";
-	name = "External Blast Doors"
+/obj/machinery/computer/modular/preset/engineering,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
 	},
-/turf/floor/plating,
-/area/ship/trade/comms)
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/keycard_auth{
+	pixel_y = 28
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "Ua" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
@@ -1274,6 +1591,30 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
+"Wp" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"WY" = (
+/obj/structure/ladder,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice,
+/turf/open,
+/area/ship/trade/maintenance/solars)
 "Xb" = (
 /turf/wall/r_wall,
 /area/ship/trade/command/bridge_upper)
@@ -1301,16 +1642,39 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
+"Yr" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "YA" = (
-/obj/machinery/door/airlock/hatch/autoname/command,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id_tag = "scraplock";
+	name = "scraplock"
 	},
 /obj/machinery/door/firedoor,
-/turf/floor/tiled/techfloor/grid,
-/area/ship/trade/command/bridge_upper)
+/turf/floor/plating,
+/area/ship/trade/command/bridge)
+"YX" = (
+/obj/effect/paint/brown,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/wall/r_wall,
+/area/ship/trade/command/bridge)
 "Zx" = (
 /obj/structure/handrail{
 	dir = 4
@@ -3828,7 +4192,7 @@ aa
 aa
 aa
 aa
-aa
+aK
 aa
 aa
 aa
@@ -3909,12 +4273,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ob
+Ob
+QK
+QK
+Ob
+ax
 aa
 ax
 ax
@@ -3985,18 +4349,18 @@ aa
 aa
 aa
 aa
-aK
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ob
+Ob
+jz
+jz
+aN
+aN
+jz
+Ob
 ax
 ax
 ax
@@ -4066,19 +4430,19 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+JH
 Ob
 Ob
-QK
-QK
 Ob
-ax
-ax
-ax
-ax
-ae
-ae
-ay
-ay
+AK
+ds
+Jo
+ZU
+Uq
+Ob
 ay
 ae
 ay
@@ -4146,21 +4510,21 @@ aa
 aa
 aa
 aa
-Ob
-Ob
-jz
-jz
-aN
-aN
-jz
-Ob
-ax
-ax
-ax
-ae
-ae
-ae
-ae
+aa
+aa
+aa
+aa
+aa
+bB
+rR
+Ev
+RZ
+Jt
+Su
+Su
+Su
+EO
+ng
 ae
 ae
 ae
@@ -4227,22 +4591,22 @@ aa
 aa
 aa
 aa
+aa
+ad
+wN
+JH
+JH
+ad
+ad
 Ob
 Ob
 Ob
-AK
-ds
-Jo
-ZU
-Uq
-Ob
-ax
-ax
-ax
-ae
-ay
-ae
-ay
+Ap
+ZD
+sX
+yA
+Ll
+tJ
 ay
 ay
 ay
@@ -4273,7 +4637,7 @@ ax
 ax
 aV
 bf
-aH
+sW
 ak
 aV
 ax
@@ -4309,22 +4673,22 @@ aa
 aa
 aa
 aa
-aa
+YA
 ad
 Tx
-Su
-Su
-Su
-Su
-EO
-ng
-ax
-ax
-ax
-ax
-ax
-ax
-ax
+Lu
+hH
+Bu
+ad
+Ob
+Ob
+Ob
+jz
+jz
+Nk
+jz
+jz
+Xb
 ax
 ax
 ax
@@ -4332,7 +4696,7 @@ ax
 ax
 ae
 ae
-Bi
+MA
 ax
 ax
 ax
@@ -4390,23 +4754,23 @@ aa
 aa
 aa
 aa
-aa
-Ob
-Ob
-Ob
-tu
-ZD
-sX
-yA
-Ll
-tJ
-tJ
-tJ
-tJ
+YA
+YA
+EA
+Gn
+jJ
+jJ
+jJ
+jJ
+xu
+xu
+Xb
+PZ
+NQ
+ex
+PZ
+bE
 SQ
-SQ
-tJ
-tJ
 ax
 ax
 ax
@@ -4472,23 +4836,23 @@ aa
 aa
 aa
 aa
-aa
-ac
-Ob
-Ob
-jz
-jz
+YA
+zr
+mG
 jJ
-jz
-jz
+Sm
+jJ
+jJ
+tG
+KK
+KK
 Xb
-ai
-xu
-RZ
+PZ
+PZ
 ex
 PZ
-bE
-SQ
+PZ
+Xb
 ax
 ax
 ax
@@ -4520,7 +4884,7 @@ UY
 aR
 ah
 bk
-hn
+WY
 aV
 ax
 ax
@@ -4554,16 +4918,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ab
+YA
+Io
+ze
+QB
 mn
-mn
+On
 hJ
 Dg
 KK
-YA
+KK
 zn
 HR
 rl
@@ -4636,23 +5000,23 @@ aa
 aa
 aa
 aa
-aa
-ac
-zY
-zY
-ne
-ne
-DY
-ne
-ne
-Xb
+YA
+ml
+tu
+jJ
+ow
+jJ
+uM
+rw
+KK
+KK
 cO
-cB
+PZ
 wc
 nZ
 pt
-ZT
-SQ
+PZ
+Xb
 ax
 ax
 ax
@@ -4718,23 +5082,23 @@ aa
 aa
 aa
 aa
-aa
-zY
-zY
-zY
-uT
-oq
-gw
-uT
-xr
-tJ
-tJ
-tJ
-tJ
+YA
+YA
+jG
+Wp
+jJ
+jJ
+uM
+JQ
+IK
+IK
+cO
+ja
+vR
+ex
+PZ
+ZT
 SQ
-SQ
-tJ
-tJ
 ax
 ax
 ax
@@ -4801,22 +5165,22 @@ aa
 aa
 aa
 aa
-aa
-Dr
-ab
-yM
-wq
-Tt
-KS
-oY
-Vp
-ax
-ax
-ax
-ax
-ax
-ax
-ax
+YA
+ad
+Ql
+cB
+Yr
+xj
+YX
+ai
+ai
+AX
+aH
+ne
+DY
+ne
+ne
+Xb
 ax
 ax
 ax
@@ -4883,22 +5247,22 @@ aa
 aa
 aa
 aa
+aa
+ad
+wN
+JH
+JH
+ad
+ad
 zY
 zY
 zY
-dq
 uT
-XF
+oq
+gw
 uT
-KG
-zY
-ax
-ax
-ax
-ae
-ay
-ay
-ay
+xr
+tJ
 ay
 ay
 ae
@@ -4913,7 +5277,7 @@ ax
 ax
 ae
 gY
-vy
+wd
 ax
 ax
 ax
@@ -4966,21 +5330,21 @@ aa
 aa
 aa
 aa
-zY
-zY
-ne
-ne
-jv
-jv
-zY
-zY
-ax
-ax
-ax
-ae
-ae
-ae
-ae
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+Dr
+ab
+yM
+wq
+Tt
+KS
+oY
+Vp
 ae
 ae
 ae
@@ -5050,22 +5414,22 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
 zY
 zY
-Db
-Db
 zY
-ax
-ax
-ax
-ax
-ae
-ay
-ay
-ay
+dq
+uT
+XF
+uT
+KG
+zY
 aq
 ae
-dj
+Lx
 ay
 ax
 ac
@@ -5137,14 +5501,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+zY
+zY
+ne
+ne
+jv
+jv
+zY
+zY
 ax
 ax
 ax
@@ -5221,12 +5585,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+zY
+zY
+Db
+Db
+zY
+ax
 aa
 ax
 ax
