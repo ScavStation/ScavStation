@@ -5247,9 +5247,6 @@
 /obj/machinery/door/firedoor,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/dock)
-"uA" = (
-/turf/floor/tiled/techmaint,
-/area/ship/trade/command/hallway)
 "uD" = (
 /obj/machinery/port_gen/pacman/super,
 /obj/structure/cable{
@@ -11138,7 +11135,7 @@ Vk
 ZX
 lw
 lH
-uA
+Np
 Np
 aw
 oK
