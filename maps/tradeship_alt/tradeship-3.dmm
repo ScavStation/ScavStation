@@ -11,9 +11,7 @@
 	name = "External Blast Doors"
 	},
 /turf/floor/plating,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "ac" = (
 /obj/structure/lattice,
 /turf/space,
@@ -580,9 +578,7 @@
 /area/ship/trade/command/bridge_upper)
 "cV" = (
 /turf/space,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "dm" = (
 /obj/abstract/level_data_spawner/main_level{
 	name = "Tradeship Upper Deck"
@@ -595,9 +591,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "ds" = (
 /obj/machinery/network/router{
 	initial_network_id = "tradenet"
@@ -671,9 +665,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "gY" = (
 /obj/structure/cable/yellow{
 	icon_state = "6-9"
@@ -853,9 +845,7 @@
 /area/space)
 "ne" = (
 /turf/wall/r_wall,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "ng" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -894,9 +884,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "ow" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -914,9 +902,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "pt" = (
 /obj/structure/ladder,
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
@@ -981,9 +967,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "rw" = (
 /turf/unsimulated/dark_filler,
 /area/space)
@@ -1060,9 +1044,7 @@
 /obj/machinery/vending/security,
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "uM" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1072,9 +1054,7 @@
 "uT" = (
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "vi" = (
 /obj/structure/handrail{
 	dir = 8
@@ -1128,9 +1108,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "wN" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular/open{
@@ -1167,9 +1145,7 @@
 /obj/machinery/suit_cycler/security/prepared,
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "xu" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1182,9 +1158,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "yn" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/dark,
@@ -1208,9 +1182,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "ze" = (
 /obj/structure/bed/chair/comfy/teal{
 	dir = 1
@@ -1315,9 +1287,7 @@
 "AX" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "Bu" = (
 /obj/machinery/network/requests_console{
 	announcementConsole = 1;
@@ -1355,9 +1325,7 @@
 /area/space)
 "Dr" = (
 /turf/floor/reinforced/airless,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "DB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -1387,9 +1355,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/floor/tiled/steel_ridged,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "Ev" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1517,9 +1483,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "KK" = (
 /turf/open,
 /area/ship/trade/command/bridge)
@@ -1527,9 +1491,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "Lf" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner"
@@ -1754,9 +1716,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "Tx" = (
 /obj/machinery/computer/modular/preset/engineering,
 /obj/effect/floor_decal/corner/yellow{
@@ -1834,9 +1794,7 @@
 	},
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/plating,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "Wp" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/blue/diagonal{
@@ -1886,9 +1844,7 @@
 	},
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
-/area/ship/trade/bridge_unused{
-	name = "\improper Security"
-	})
+/area/ship/trade/bridge_security)
 "XQ" = (
 /obj/machinery/door/airlock/double/engineering,
 /obj/machinery/door/firedoor,

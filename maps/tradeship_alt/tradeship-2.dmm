@@ -269,6 +269,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch/autoname/general,
+/obj/structure/disposalpipe/segment,
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/crew/hallway/port)
 "aG" = (
@@ -588,9 +589,6 @@
 	},
 /obj/machinery/vending/games{
 	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
@@ -1892,6 +1890,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/port)
 "eU" = (
@@ -2024,9 +2023,6 @@
 	},
 /obj/structure/bed/sofa/right/black{
 	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
@@ -4618,6 +4614,12 @@
 /obj/structure/lattice,
 /turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/aft)
+"ot" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/wall,
+/area/ship/trade/hangout)
 "oK" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall,
@@ -5968,10 +5970,16 @@
 	},
 /obj/structure/table/woodentable_reinforced,
 /obj/item/board,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
 "Cd" = (
 /obj/effect/paint/brown,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/wall/r_wall/hull,
 /area/ship/trade/hangout)
 "Ce" = (
@@ -6067,6 +6075,9 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 22
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
@@ -6502,9 +6513,6 @@
 /area/ship/trade/command/hallway)
 "GV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
 "GY" = (
@@ -6822,9 +6830,6 @@
 /obj/structure/bed/sofa/left/black{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
 "Jr" = (
@@ -7099,9 +7104,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -7766,6 +7768,12 @@
 /obj/random/voidhelmet,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/shieldbay)
+"Tn" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall,
+/area/ship/trade/hangout)
 "Tp" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10611,7 +10619,7 @@ Cd
 dY
 ey
 gn
-Vc
+Dq
 mX
 mX
 rb
@@ -10689,7 +10697,7 @@ fE
 Ch
 hE
 yA
-Dq
+Vc
 Bc
 fU
 go
@@ -10771,7 +10779,7 @@ fE
 Kh
 vS
 gA
-lZ
+Tn
 nW
 wU
 nH
@@ -10853,7 +10861,7 @@ fE
 tf
 gp
 gB
-lZ
+ot
 Cc
 Mc
 GV
