@@ -61,6 +61,18 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
+/area/ship/trade/crew/surgery
+	name = "\improper Operating Room"
+	icon_state = "medbay"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
+
+/area/ship/trade/crew/morgue
+	name = "\improper Morgue"
+	icon_state = "purple"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
+
 /area/ship/trade/cargo
 	name = "\improper Cargo Hold"
 	icon_state = "quartstorage"
@@ -262,8 +274,8 @@
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/signal.ogg','sound/ambience/sonar.ogg')
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
-/area/ship/trade/bridge_unused
-	name = "\improper Bridge Starboard Storage"
+/area/ship/trade/bridge_security
+	name = "\improper Bridge Security"
 	icon_state = "armory"
 
 /area/ship/trade/shuttle
