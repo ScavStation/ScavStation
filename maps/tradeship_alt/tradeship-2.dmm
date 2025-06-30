@@ -4614,12 +4614,6 @@
 /obj/structure/lattice,
 /turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/aft)
-"ot" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/wall,
-/area/ship/trade/hangout)
 "oK" = (
 /obj/effect/paint/brown,
 /turf/wall/r_wall,
@@ -6079,6 +6073,10 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
 "Dd" = (
@@ -7184,9 +7182,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
@@ -7768,12 +7763,6 @@
 /obj/random/voidhelmet,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/shieldbay)
-"Tn" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/wall,
-/area/ship/trade/hangout)
 "Tp" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7978,6 +7967,12 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/engine/aft)
+"VM" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/wall,
+/area/ship/trade/hangout)
 "VP" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -8130,6 +8125,12 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/atmos)
+"XQ" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/wall,
+/area/ship/trade/hangout)
 "XR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -10779,7 +10780,7 @@ fE
 Kh
 vS
 gA
-Tn
+VM
 nW
 wU
 nH
@@ -10861,7 +10862,7 @@ fE
 tf
 gp
 gB
-ot
+XQ
 Cc
 Mc
 GV
