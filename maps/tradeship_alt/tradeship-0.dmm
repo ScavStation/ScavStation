@@ -1045,6 +1045,10 @@
 /obj/item/toy/figure/janitor,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/aft_starboard_underside_maint)
+"cF" = (
+/obj/structure/lattice,
+/turf/wall/r_wall/hull,
+/area/ship/trade/enclave)
 "cX" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -1268,6 +1272,11 @@
 	},
 /turf/floor/plating/airless,
 /area/ship/trade/livestock)
+"js" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/reagent_dispensers/watertank/high,
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/aft_starboard_underside_maint)
 "jB" = (
 /obj/structure/loot_pile/bookcase/ebony,
 /turf/floor/wood/mahogany,
@@ -1290,6 +1299,11 @@
 /obj/random/trash,
 /turf/floor,
 /area/ship/trade/loading_bay)
+"kW" = (
+/obj/effect/decal/cleanable/filth,
+/obj/item/chems/glass/beaker/advanced,
+/turf/floor,
+/area/ship/trade/enclave)
 "lc" = (
 /obj/structure/loot_pile/maint/trash,
 /turf/floor/wood,
@@ -1448,12 +1462,9 @@
 /turf/wall,
 /area/ship/trade/livestock)
 "oX" = (
-/obj/structure/lattice,
-/obj/item/mollusc/barnacle{
-	pixel_x = 20
-	},
-/turf/space,
-/area/space)
+/obj/structure/sign/poster/scav/s2,
+/turf/floor,
+/area/ship/trade/enclave)
 "pg" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -1567,6 +1578,11 @@
 	},
 /turf/floor/tiled/white,
 /area/ship/trade/livestock)
+"rL" = (
+/obj/item/clothing/costume/yinglet/speardance,
+/obj/item/bladed/polearm/spear/improvised/diamond,
+/turf/floor,
+/area/ship/trade/enclave)
 "rP" = (
 /obj/effect/paint/brown,
 /obj/machinery/door/blast/regular{
@@ -1624,6 +1640,9 @@
 	},
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/livestock)
+"ti" = (
+/turf/wall/r_wall/hull,
+/area/ship/trade/enclave)
 "tt" = (
 /obj/abstract/landmark/start{
 	name = "Enclave Scout"
@@ -1699,6 +1718,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/item/chems/water_balloon,
 /turf/floor/wood,
 /area/ship/trade/fore_port_underside_maint)
 "ux" = (
@@ -1716,6 +1736,7 @@
 	pixel_x = 30;
 	dir = 4
 	},
+/obj/item/chems/water_balloon,
 /turf/floor/wood,
 /area/ship/trade/fore_port_underside_maint)
 "vK" = (
@@ -1732,6 +1753,12 @@
 /obj/item/chems/spray/cleaner,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/aft_starboard_underside_maint)
+"wA" = (
+/obj/effect/paint/brown,
+/turf/wall/r_wall/hull{
+	can_open = 1
+	},
+/area/ship/trade/enclave)
 "wG" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2045,6 +2072,11 @@
 	},
 /turf/floor/tiled/white,
 /area/ship/trade/livestock)
+"GL" = (
+/obj/item/box/candles/scented,
+/obj/effect/decal/cleanable/filth,
+/turf/floor,
+/area/ship/trade/enclave)
 "GQ" = (
 /mob/living/slime,
 /turf/floor/tiled/techfloor/grid,
@@ -2091,6 +2123,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/loot_pile/maint/trash,
+/obj/item/chems/water_balloon,
 /turf/floor/wood,
 /area/ship/trade/fore_port_underside_maint)
 "Ih" = (
@@ -4987,10 +5020,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-as
-as
+ti
+ti
+cF
+cF
 as
 aa
 aa
@@ -5069,9 +5102,9 @@ aa
 aa
 aa
 aa
-aa
-as
-as
+ti
+rL
+GL
 Gb
 Gb
 lr
@@ -5151,8 +5184,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ti
+kW
 oX
 Gb
 gQ
@@ -5234,7 +5267,7 @@ aa
 aa
 aa
 SC
-SC
+wA
 SC
 Xe
 fp
@@ -6317,7 +6350,7 @@ bp
 zb
 yO
 yO
-YH
+js
 AO
 YZ
 YH

@@ -949,6 +949,7 @@
 	pixel_x = 9;
 	pixel_y = 25
 	},
+/obj/item/chems/syringe/advanced,
 /turf/floor/lino,
 /area/ship/trade/crew/dorms2)
 "cp" = (
@@ -5854,7 +5855,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 sY
 Mx
 ah
@@ -5936,7 +5937,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 sY
 sY
 ah
@@ -6018,7 +6019,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 Ei
 ac
 ar
@@ -6100,7 +6101,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 Ei
 ac
 ar
@@ -6182,7 +6183,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 Ei
 ac
 ar
@@ -6264,7 +6265,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 Ei
 ac
 es
@@ -6346,7 +6347,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 Ei
 VL
 as
@@ -7248,7 +7249,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 eB
 ps
 ay
@@ -7330,7 +7331,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 Tp
 af
 ay
@@ -7412,7 +7413,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 Tp
 af
 ay
@@ -7494,7 +7495,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 Tp
 af
 ay
@@ -7576,7 +7577,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 EL
 af
 az
@@ -7658,7 +7659,7 @@ aa
 aa
 aa
 aa
-aa
+Ei
 gX
 gX
 ZJ
