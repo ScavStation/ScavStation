@@ -902,7 +902,7 @@
 "oU" = (
 /obj/item/stack/material/ore/iron,
 /obj/structure/cable/yellow{
-	icon_state = "6-8"
+	icon_state = "2-8"
 	},
 /turf/floor/plating/airless,
 /area/space)
@@ -1369,6 +1369,9 @@
 "DP" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-5"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/floor/plating/airless,
 /area/space)
