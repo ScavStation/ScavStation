@@ -988,9 +988,6 @@
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
 /area/ship/trade/bridge_security)
-"rw" = (
-/turf/unsimulated/dark_filler,
-/area/space)
 "rR" = (
 /obj/machinery/shipsensors,
 /obj/structure/cable{
@@ -1485,10 +1482,6 @@
 	},
 /turf/open,
 /area/ship/trade/command/bridge)
-"IN" = (
-/obj/item/solar_assembly,
-/turf/unsimulated/dark_filler,
-/area/space)
 "Jo" = (
 /obj/machinery/network/message_server,
 /turf/floor/bluegrid,
@@ -5683,7 +5676,7 @@ AX
 aq
 ax
 ax
-IN
+ax
 ax
 ac
 ac
@@ -5924,8 +5917,8 @@ qw
 eZ
 iw
 JQ
-rw
-rw
+aa
+aa
 aa
 aa
 aa
@@ -6006,8 +5999,8 @@ Qt
 Aw
 qY
 JQ
-rw
-rw
+aa
+aa
 aa
 aa
 aa
@@ -6088,8 +6081,8 @@ pv
 yn
 dw
 JQ
-rw
-rw
+aa
+aa
 aa
 aa
 aa

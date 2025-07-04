@@ -5222,10 +5222,6 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/shuttle/outgoing/engineering)
-"tG" = (
-/obj/abstract/ramp_sculptor/north,
-/turf/wall/natural,
-/area/space)
 "tV" = (
 /turf/space,
 /area/ship/trade/command/fmate)
@@ -5985,10 +5981,6 @@
 /obj/effect/decal/cleanable/filth,
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
-"Cg" = (
-/obj/abstract/ramp_sculptor/east,
-/turf/wall/natural,
-/area/space)
 "Ch" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -7346,10 +7338,6 @@
 /obj/machinery/reagent_temperature/cooler,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
-"OQ" = (
-/obj/abstract/ramp_sculptor/west,
-/turf/wall/natural,
-/area/space)
 "Pa" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/marble,
@@ -10051,9 +10039,9 @@ aa
 aa
 aa
 aa
-OQ
-OQ
-OQ
+eh
+eh
+eh
 xX
 aa
 aa
@@ -10132,7 +10120,7 @@ aa
 aa
 aa
 aa
-tG
+eh
 eh
 eh
 eh
@@ -10214,7 +10202,7 @@ aa
 aa
 aa
 aa
-tG
+eh
 eh
 ew
 ex
@@ -10296,7 +10284,7 @@ aa
 aa
 aa
 aa
-tG
+eh
 eh
 ex
 ex
@@ -13001,7 +12989,7 @@ aa
 aa
 aa
 aa
-tG
+eh
 eh
 eh
 eN
@@ -13083,7 +13071,7 @@ aa
 aa
 aa
 aa
-tG
+eh
 eh
 ew
 eN
@@ -13165,7 +13153,7 @@ aa
 aa
 aa
 aa
-tG
+eh
 eh
 eh
 eh
@@ -13248,9 +13236,9 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
+eh
+eh
+eh
 aa
 we
 we
