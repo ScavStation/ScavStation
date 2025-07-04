@@ -650,6 +650,10 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
+"gq" = (
+/obj/item/trash/candy/proteinbar,
+/turf/floor/plating,
+/area/ship/trade/maintenance/solars)
 "gw" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -690,11 +694,8 @@
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "ip" = (
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/turf/floor/plating/airless,
-/area/space)
+/turf/wall/r_wall/hull,
+/area/ship/trade/maintenance/solars)
 "iw" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -812,6 +813,10 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
+"mD" = (
+/obj/item/trash/pistachios,
+/turf/floor/plating,
+/area/ship/trade/maintenance/solars)
 "mG" = (
 /obj/structure/table,
 /obj/item/toy/figure/captain,
@@ -834,6 +839,9 @@
 "mV" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-9"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
 	},
 /turf/floor/plating/airless,
 /area/space)
@@ -893,6 +901,9 @@
 /area/ship/trade/command/bridge)
 "oU" = (
 /obj/item/stack/material/ore/iron,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
 /turf/floor/plating/airless,
 /area/space)
 "oY" = (
@@ -940,6 +951,15 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
+"qP" = (
+/obj/structure/bed/chair{
+	icon = 'icons/obj/watercloset.dmi';
+	icon_state = "toilet00";
+	desc = "Sometimes, you need a good view for your business.";
+	name = "Throne of Cosmic Appreciation"
+	},
+/turf/floor/reinforced/airless,
+/area/space)
 "qY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -1040,11 +1060,21 @@
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/command/bridge_upper)
+"uj" = (
+/obj/effect/paint/brown,
+/turf/wall/r_wall/hull{
+	can_open = 1
+	},
+/area/ship/trade/maintenance/solars)
 "um" = (
 /obj/machinery/vending/security,
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
 /area/ship/trade/bridge_security)
+"uH" = (
+/obj/item/stack/cable_coil/single/yellow,
+/turf/floor/reinforced/airless,
+/area/space)
 "uM" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1340,6 +1370,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-5"
 	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/floor/plating/airless,
 /area/space)
 "DY" = (
@@ -1452,6 +1485,10 @@
 	},
 /turf/open,
 /area/ship/trade/command/bridge)
+"IN" = (
+/obj/item/solar_assembly,
+/turf/unsimulated/dark_filler,
+/area/space)
 "Jo" = (
 /obj/machinery/network/message_server,
 /turf/floor/bluegrid,
@@ -1533,10 +1570,15 @@
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "Lx" = (
-/obj/item/solar_assembly,
-/obj/item/solar_assembly,
-/turf/floor/plating/airless,
-/area/space)
+/obj/item/remains{
+	name = "scavvy remains";
+	desc = "They look like yinglet remains. Seems like someone forgot how to open the door and ran out of air..."
+	},
+/obj/item/clothing/suit/yinglet/cape,
+/obj/item/clothing/head/yinglet/pekhat,
+/obj/item/zat_zhing,
+/turf/floor/plating,
+/area/ship/trade/maintenance/solars)
 "Mz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1829,9 +1871,6 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
 /turf/floor/plating/airless,
 /area/space)
 "XF" = (
@@ -1845,6 +1884,10 @@
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
 /area/ship/trade/bridge_security)
+"XM" = (
+/obj/item/trash/mollusc_shell,
+/turf/floor/plating,
+/area/ship/trade/maintenance/solars)
 "XQ" = (
 /obj/machinery/door/airlock/double/engineering,
 /obj/machinery/door/firedoor,
@@ -1863,6 +1906,10 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
+"Yx" = (
+/obj/machinery/power/tracker,
+/turf/floor/plating/airless,
+/area/space)
 "YA" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular/open{
@@ -2696,7 +2743,7 @@ aa
 aa
 aa
 aa
-aa
+Yx
 aa
 aa
 aa
@@ -2777,9 +2824,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ae
 aa
 aa
 aa
@@ -2859,9 +2906,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ay
 aa
 aa
 aa
@@ -2941,9 +2988,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ae
 aa
 aa
 aa
@@ -3023,9 +3070,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ae
 aa
 aa
 aa
@@ -3105,9 +3152,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ae
 aa
 aa
 aa
@@ -3187,9 +3234,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ae
 aa
 aa
 aa
@@ -3269,9 +3316,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ae
 aa
 aa
 aa
@@ -3351,9 +3398,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ay
 aa
 aa
 aa
@@ -3433,9 +3480,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+Ua
+ay
 aa
 aa
 aa
@@ -3515,9 +3562,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+br
+ay
 aa
 aa
 aa
@@ -3597,9 +3644,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+br
+ay
 aa
 aa
 aa
@@ -3679,9 +3726,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+br
+ay
 aa
 aa
 aa
@@ -3761,9 +3808,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+br
+ay
 aa
 aa
 aa
@@ -3843,9 +3890,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+br
+ay
 aa
 ax
 ax
@@ -3925,9 +3972,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+br
+ae
 ax
 ax
 ax
@@ -4007,9 +4054,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-ax
+ay
+br
+ae
 ax
 ax
 ax
@@ -4089,9 +4136,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-ax
+ay
+br
+ae
 ax
 ax
 ax
@@ -4171,9 +4218,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+br
+ae
 ax
 ax
 ax
@@ -4254,7 +4301,7 @@ ax
 ax
 ax
 ax
-ax
+br
 ax
 ax
 ax
@@ -4336,7 +4383,7 @@ ax
 ax
 ax
 ax
-ax
+br
 ax
 ax
 ae
@@ -4418,7 +4465,7 @@ ax
 ax
 ae
 ax
-ax
+br
 ax
 ae
 Ua
@@ -4649,9 +4696,9 @@ Jo
 ZU
 Uq
 Ob
-ay
-ae
-ay
+ax
+ax
+ax
 ae
 ax
 ac
@@ -4732,8 +4779,8 @@ Su
 EO
 ng
 ae
-ae
-ae
+ax
+ax
 ae
 ae
 ax
@@ -4813,12 +4860,12 @@ sX
 yA
 Ll
 tJ
-ay
-ay
-ay
-ay
 ae
 ae
+ax
+ax
+ax
+ax
 ax
 ax
 ax
@@ -4846,10 +4893,10 @@ bf
 sW
 ak
 aV
-ax
-ax
-ax
-ax
+ip
+ip
+ip
+ip
 Dl
 ax
 ax
@@ -4900,7 +4947,7 @@ ax
 ax
 ax
 ax
-ae
+ax
 ae
 MA
 ax
@@ -4928,10 +4975,10 @@ aB
 bg
 as
 aV
-ax
-ax
-ax
-ax
+mD
+ao
+gq
+ip
 ax
 ax
 ax
@@ -4983,8 +5030,8 @@ ax
 ax
 ax
 ax
+ax
 ae
-Ua
 ax
 ax
 ax
@@ -5010,10 +5057,10 @@ aL
 ao
 bj
 aV
-ax
-ax
-ax
-ax
+ao
+Lx
+ao
+ip
 ax
 ax
 ax
@@ -5066,11 +5113,11 @@ ax
 ax
 ax
 ax
-ip
-aw
-aw
-aw
-aw
+ax
+ax
+ax
+ax
+ae
 Xu
 aw
 af
@@ -5091,15 +5138,15 @@ aR
 ah
 bk
 WY
-aV
+uj
+XM
+XM
+ao
+ip
 ax
 ax
 ax
-ax
-ax
-ax
-ax
-ax
+qP
 ax
 aa
 aa
@@ -5174,10 +5221,10 @@ bi
 bg
 bl
 aV
-ax
-ax
-ax
-ax
+ip
+ip
+ip
+ip
 ax
 ax
 ax
@@ -5392,8 +5439,8 @@ ax
 ax
 ax
 ax
-ae
-ae
+ax
+ax
 ax
 ax
 ax
@@ -5469,12 +5516,12 @@ gw
 uT
 xr
 AX
-ay
-ay
 ae
-ae
-aq
-ae
+ax
+ax
+ax
+uH
+ax
 ax
 ax
 ax
@@ -5551,9 +5598,9 @@ Tt
 KS
 oY
 Vp
-ae
-ae
-ae
+ax
+ax
+ax
 ae
 ae
 ax
@@ -5634,9 +5681,9 @@ uT
 KG
 AX
 aq
-ae
-Lx
-ay
+ax
+ax
+IN
 ax
 ac
 ac
@@ -5813,7 +5860,7 @@ ax
 ax
 ae
 ax
-ax
+br
 ax
 aT
 aW
@@ -5895,7 +5942,7 @@ ax
 ax
 ax
 ax
-ax
+br
 ax
 ax
 ax
@@ -5977,7 +6024,7 @@ ax
 ax
 ax
 ax
-ax
+br
 ax
 ax
 ax
@@ -6059,7 +6106,7 @@ ax
 ax
 ax
 ax
-ax
+br
 ax
 ax
 ax
@@ -6140,9 +6187,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-ax
+ae
+br
+ae
 ax
 ax
 ax
@@ -6222,9 +6269,9 @@ aa
 aa
 aa
 aa
-aa
-ax
-ax
+ay
+br
+ae
 ax
 ax
 ax
@@ -6304,9 +6351,9 @@ aa
 aa
 aa
 aa
-aa
-ax
-ax
+ay
+aW
+ae
 ax
 ax
 ax
@@ -6386,9 +6433,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-ax
+ay
+ae
+ay
 ax
 ax
 ax
@@ -6468,9 +6515,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ay
 ax
 ax
 ax
@@ -6550,9 +6597,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ae
 aa
 aa
 aa
@@ -6632,9 +6679,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ae
 aa
 aa
 aa
@@ -6714,9 +6761,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ae
 aa
 aa
 aa
@@ -6796,9 +6843,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ay
 aa
 aa
 aa
@@ -6878,9 +6925,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ay
 aa
 aa
 aa
@@ -6960,9 +7007,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ay
 aa
 aa
 aa
@@ -7042,9 +7089,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ay
 aa
 aa
 aa
@@ -7124,9 +7171,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ae
 aa
 aa
 aa
@@ -7206,9 +7253,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ae
 aa
 aa
 aa
@@ -7288,9 +7335,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ay
+ae
+ay
 aa
 aa
 aa
@@ -7370,9 +7417,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ay
 aa
 aa
 aa
@@ -7452,9 +7499,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ae
+ae
+ae
 aa
 aa
 aa
@@ -7535,7 +7582,7 @@ aa
 aa
 aa
 aa
-aa
+Yx
 aa
 aa
 aa

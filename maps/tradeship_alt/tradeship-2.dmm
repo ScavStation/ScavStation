@@ -6482,7 +6482,7 @@
 "GN" = (
 /obj/structure/lattice,
 /obj/structure/bed/sofa/left/red{
-	name = "half-couch";
+	name = "evil and fucked up couch";
 	desc = "Some strange and horrible machination which haunts the outside of the ship..."
 	},
 /turf/space,
@@ -6939,6 +6939,12 @@
 	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/port)
+"Ks" = (
+/obj/effect/paint/brown,
+/turf/wall/r_wall{
+	can_open = 1
+	},
+/area/ship/trade/hidden)
 "Kw" = (
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
@@ -7599,8 +7605,14 @@
 /turf/space,
 /area/space)
 "RL" = (
-/turf/unsimulated/dark_filler,
-/area/space)
+/mob/living/simple_animal/crab{
+	name = "Cap'n Crusty";
+	desc = "Yar! He be getting back to his cap'n duties just after he lounges 'round in the sun!"
+	},
+/obj/random/handgun,
+/obj/machinery/hologram/projector,
+/turf/floor/plating,
+/area/ship/trade/hidden)
 "RM" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/firedoor,
@@ -10544,15 +10556,15 @@ aa
 aa
 aa
 aa
-RL
-Lx
-aa
-aa
-aa
-aa
 aa
 Lx
-RL
+aa
+aa
+aa
+aa
+aa
+Lx
+aa
 jB
 jB
 kq
@@ -12431,9 +12443,9 @@ gQ
 sS
 AY
 qg
+Ks
+RL
 sI
-oQ
-oQ
 oQ
 oQ
 Is
@@ -12514,8 +12526,8 @@ sS
 sS
 hC
 sI
-aa
-aa
+sI
+sI
 aa
 aa
 aa
