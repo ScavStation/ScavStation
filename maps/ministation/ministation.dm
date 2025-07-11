@@ -33,6 +33,7 @@ Twice...
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/species/ascent/_ascent.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
+	#include "../../mods/species/vox/_vox.dme"
 	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/species/serpentid/_serpentid.dme"
 	#include "../../mods/species/bayliens/_bayliens.dme"
