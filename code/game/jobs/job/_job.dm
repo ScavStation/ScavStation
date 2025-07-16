@@ -252,9 +252,9 @@
 
 	return FALSE
 
-/datum/job/proc/get_join_link(var/client/caller, var/href_string, var/show_invalid_jobs)
-	if(is_available(caller))
-		if(is_restricted(caller.prefs))
+/datum/job/proc/get_join_link(var/client/calling_client, var/href_string, var/show_invalid_jobs)
+	if(is_available(calling_client))
+		if(is_restricted(calling_client.prefs))
 			if(show_invalid_jobs)
 				return "<tr bgcolor='[selection_color]'><td style='padding-left:2px;padding-right:2px;'><a style='text-decoration: line-through' href='[href_string]'>[title]</a></td><td style='padding-left:2px;padding-right:2px;''><center>[current_positions]</center></td><td style='padding-left:2px;padding-right:2px;'><center>Active: [get_active_count()]</center></td></tr>"
 		else
@@ -395,27 +395,27 @@
 			SSjobs.job_icons[title] = preview_icon
 	return SSjobs.job_icons[title]
 
-/datum/job/proc/get_unavailable_reasons(var/client/caller)
+/datum/job/proc/get_unavailable_reasons(var/client/calling_client)
 	var/list/reasons = list()
-	if(jobban_isbanned(caller, title))
+	if(jobban_isbanned(calling_client, title))
 		reasons["You are jobbanned."] = TRUE
-	if(is_semi_antagonist && jobban_isbanned(caller, /decl/special_role/provocateur))
+	if(is_semi_antagonist && jobban_isbanned(calling_client, /decl/special_role/provocateur))
 		reasons["You are semi-antagonist banned."] = TRUE
-	if(!player_old_enough(caller))
+	if(!player_old_enough(calling_client))
 		reasons["Your player age is too low."] = TRUE
 	if(!is_position_available())
 		reasons["There are no positions left."] = TRUE
-	if(!isnull(allowed_branches) && (!caller.prefs.branches[title] || !is_branch_allowed(caller.prefs.branches[title])))
+	if(!isnull(allowed_branches) && (!calling_client.prefs.branches[title] || !is_branch_allowed(calling_client.prefs.branches[title])))
 		reasons["Your branch of service does not allow it."] = TRUE
-	else if(!isnull(allowed_ranks) && (!caller.prefs.ranks[title] || !is_rank_allowed(caller.prefs.branches[title], caller.prefs.ranks[title])))
+	else if(!isnull(allowed_ranks) && (!calling_client.prefs.ranks[title] || !is_rank_allowed(calling_client.prefs.branches[title], calling_client.prefs.ranks[title])))
 		reasons["Your rank choice does not allow it."] = TRUE
-	var/decl/species/S = get_species_by_key(caller.prefs.species)
+	var/decl/species/S = get_species_by_key(calling_client.prefs.species)
 	if(S)
 		if(!is_species_allowed(S))
 			reasons["Your species choice does not allow it."] = TRUE
-		if(!S.check_background(src, caller.prefs))
+		if(!S.check_background(src, calling_client.prefs))
 			reasons["Your background choices do not allow it."] = TRUE
-		var/special_blocker = check_special_blockers(caller.prefs)
+		var/special_blocker = check_special_blockers(calling_client.prefs)
 		if(special_blocker)
 			reasons["Your preferences do not allow it: '[special_blocker]'."] = TRUE
 		return TRUE
@@ -427,14 +427,14 @@
 		mannequin.delete_inventory(TRUE)
 		equip_preview(mannequin, additional_skips = OUTFIT_ADJUSTMENT_SKIP_BACKPACK)
 
-/datum/job/proc/is_available(var/client/caller)
+/datum/job/proc/is_available(var/client/calling_client)
 	if(!is_position_available())
 		return FALSE
-	if(jobban_isbanned(caller, title))
+	if(jobban_isbanned(calling_client, title))
 		return FALSE
-	if(is_semi_antagonist && jobban_isbanned(caller, /decl/special_role/provocateur))
+	if(is_semi_antagonist && jobban_isbanned(calling_client, /decl/special_role/provocateur))
 		return FALSE
-	if(!player_old_enough(caller))
+	if(!player_old_enough(calling_client))
 		return FALSE
 	return TRUE
 
