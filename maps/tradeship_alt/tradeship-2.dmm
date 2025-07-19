@@ -610,10 +610,6 @@
 /area/ship/trade/cargo)
 "bo" = (
 /obj/random/maintenance,
-/obj/structure/sign/warning/vacuum{
-	dir = 8;
-	pixel_x = 34
-	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "bq" = (
@@ -768,13 +764,8 @@
 /turf/floor/plating,
 /area/ship/trade/dock)
 "bB" = (
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/sign/warning/vacuum{
-	dir = 4;
-	pixel_x = -34
-	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/dock)
+/turf/floor/plating/airless,
+/area/space)
 "bC" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1088,6 +1079,11 @@
 /obj/structure/table/woodentable,
 /obj/item/box/glasses/rocks,
 /obj/item/synthesized_instrument/guitar,
+/obj/item/chems/drinks/shaker,
+/obj/machinery/chemical_dispenser/bar_coffee/full{
+	pixel_y = -10;
+	dir = 4
+	},
 /turf/floor/tiled,
 /area/ship/trade/crew/saloon)
 "cP" = (
@@ -2141,6 +2137,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/item/pill_bottle/gleam,
 /turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "fB" = (
@@ -2339,11 +2336,10 @@
 /turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
 "gm" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/turf/space,
+/turf/floor/plating/airless,
 /area/space)
 "gn" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -4585,6 +4581,22 @@
 	dir = 4;
 	pixel_x = -21
 	},
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/chems/drinks/milk,
+/obj/item/chems/drinks/milk,
+/obj/item/chems/drinks/milk,
+/obj/item/chems/drinks/milk,
+/obj/item/chems/drinks/soymilk,
+/obj/item/chems/drinks/soymilk,
+/obj/item/chems/drinks/soymilk,
+/obj/item/chems/drinks/soymilk,
+/obj/item/box/fancy/egg_box,
+/obj/item/box/fancy/egg_box,
+/obj/item/box/fancy/egg_box,
+/obj/item/box/fancy/egg_box,
+/obj/random/drinkbottle,
+/obj/random/drinkbottle,
+/obj/random/drinkbottle,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "om" = (
@@ -5276,6 +5288,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/item/chems/pill/gleam,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "uu" = (
@@ -5963,6 +5976,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/item/chems/pill/gleam,
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
 "Cd" = (
@@ -6862,7 +6876,10 @@
 	dir = 9
 	},
 /obj/structure/table/woodentable,
-/obj/item/chems/drinks/shaker,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 4;
+	pixel_y = -6
+	},
 /turf/floor/tiled,
 /area/ship/trade/crew/saloon)
 "JX" = (
@@ -6902,6 +6919,12 @@
 /obj/machinery/door/firedoor,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/port)
+"Ke" = (
+/obj/structure/handrail{
+	dir = 8
+	},
+/turf/floor/plating/airless,
+/area/space)
 "Kh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7410,14 +7433,15 @@
 "PF" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/box/fancy/egg_box,
-/obj/item/box/fancy/egg_box,
 /obj/item/chems/condiment/flour,
 /obj/item/chems/condiment/flour,
 /obj/item/chems/condiment/flour,
-/obj/random/drinkbottle,
-/obj/random/drinkbottle,
-/obj/random/drinkbottle,
+/obj/item/chems/condiment/yeast,
+/obj/item/chems/condiment/sugar,
+/obj/item/food/butchery/meat/fish,
+/obj/item/food/butchery/meat/fish,
+/obj/item/food/butchery/meat/fish,
+/obj/item/food/butchery/meat/fish,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "PH" = (
@@ -7746,6 +7770,13 @@
 /obj/effect/decal/cleanable/filth,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/starboard)
+"SP" = (
+/obj/structure/sign/warning/vacuum{
+	dir = 4;
+	pixel_x = -34
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/dock)
 "SQ" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -7856,12 +7887,18 @@
 /area/ship/trade/command/hallway)
 "UD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice,
 /obj/structure/handrail{
 	dir = 4
 	},
-/turf/space,
+/turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/port)
+"UE" = (
+/obj/structure/sign/warning/vacuum{
+	dir = 8;
+	pixel_x = 34
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/dock)
 "UP" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "scram"
@@ -10538,8 +10575,8 @@ NF
 UD
 JN
 gm
-cy
-Lx
+bB
+Ke
 aa
 aa
 aa
@@ -11171,7 +11208,7 @@ xS
 xS
 Jk
 BZ
-Mw
+SP
 tg
 Ce
 EM
@@ -11253,7 +11290,7 @@ aQ
 Vd
 Ob
 oK
-bB
+UV
 tg
 bN
 bQ
@@ -11991,7 +12028,7 @@ aV
 Rq
 ER
 Pp
-Mw
+UE
 UV
 lj
 at

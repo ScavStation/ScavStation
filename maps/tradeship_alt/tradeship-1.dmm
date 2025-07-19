@@ -97,6 +97,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/chems/pill/gleam,
 /turf/floor/plating,
 /area/ship/trade/cargo/lower)
 "al" = (
@@ -2354,6 +2355,9 @@
 	},
 /turf/floor/reinforced,
 /area/space)
+"qr" = (
+/turf/floor/tiled/white,
+/area/ship/trade/science/fabricaton)
 "qF" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2426,6 +2430,7 @@
 /area/ship/trade/science/fabricaton)
 "sM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/fabricator/industrial,
 /turf/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "sY" = (
@@ -3008,6 +3013,7 @@
 	dir = 1;
 	level = 2
 	},
+/obj/machinery/fabricator/filled,
 /turf/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "Js" = (
@@ -3059,6 +3065,12 @@
 	},
 /turf/floor/lino,
 /area/ship/trade/crew/dorms2)
+"Lw" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/mech_wreckage,
+/turf/floor/tiled,
+/area/ship/trade/cargo/lower)
 "Lx" = (
 /obj/structure/closet/crate,
 /obj/item/strangerock,
@@ -5700,12 +5712,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ca
+ca
+ca
+cr
+cr
+cP
 aa
 aa
 aa
@@ -5783,10 +5795,10 @@ Va
 ag
 Va
 ca
-ca
-ca
-cr
-cr
+HY
+Rs
+Nc
+Ic
 cP
 cZ
 cZ
@@ -5865,11 +5877,11 @@ iQ
 lD
 yT
 sB
-HY
-Rs
-Nc
-Ic
-cP
+qr
+qr
+qr
+qr
+sB
 da
 NL
 NL
@@ -6923,7 +6935,7 @@ he
 he
 lw
 du
-Sc
+Lw
 aU
 Lx
 Zd

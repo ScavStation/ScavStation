@@ -17,7 +17,11 @@
 	outfit_type = /decl/outfit/job/yinglet/scout
 	access = list(
 		access_eva,
-		access_research
+		access_research,
+		access_security,
+		access_sec_doors,
+		access_brig,
+		access_bridge
 	)
 	min_skill = list(
 		SKILL_EVA      = SKILL_ADEPT,
@@ -29,7 +33,7 @@
 		SKILL_SCIENCE  = SKILL_MAX,
 		SKILL_COMBAT   = SKILL_EXPERT,
 		SKILL_WEAPONS  = SKILL_EXPERT,
-		SKILL_LITERACY = SKILL_BASIC
+		SKILL_LITERACY = SKILL_ADEPT
 	)
 	skill_points = 28
 
@@ -44,10 +48,10 @@
 	alt_titles = list(
 		"Patriarch of Cooking" = /decl/outfit/job/yinglet/patriarch/cook,
 		"Patriarch of Scouting" = /decl/outfit/job/yinglet/patriarch/scout,
-		"Patriarch of Security",
+		"Patriarch of Security" = /decl/outfit/job/yinglet/patriarch/cop,
 		"Patriarch of Botany" )
 	min_skill = list(
-		SKILL_WEAPONS      = SKILL_BASIC,
+		SKILL_WEAPONS      = SKILL_EXPERT,
 		SKILL_FINANCE      = SKILL_EXPERT,
 		SKILL_PILOT        = SKILL_ADEPT,
 		SKILL_COMPUTER     = SKILL_BASIC,

@@ -623,6 +623,13 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
+"eJ" = (
+/obj/structure/sign/warning/armory{
+	dir = 8;
+	pixel_x = 34
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "eZ" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
@@ -1512,6 +1519,13 @@
 	icon_state = "bulb1"
 	},
 /obj/effect/floor_decal/corner/red/mono,
+/obj/item/clothing/costume/yinglet/speardance,
+/obj/item/clothing/gloves/armguards/yinglet/riot,
+/obj/item/clothing/shoes/legguards/yinglet/riot,
+/obj/item/clothing/suit/jacket/winter/yinglet/HoS,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/hos/jensen,
+/obj/item/clothing/head/cowboy_hat,
 /turf/floor/tiled/dark/monotile,
 /area/ship/trade/bridge_security)
 "KK" = (
@@ -5342,7 +5356,7 @@ Xb
 ja
 vR
 Ty
-PZ
+eJ
 ZT
 SQ
 ax
