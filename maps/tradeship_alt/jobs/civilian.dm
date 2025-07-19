@@ -28,7 +28,7 @@
 	outfit_type = /decl/outfit/job/tradeship/hand
 	min_skill = list( SKILL_PILOT    = SKILL_ADEPT )
 	max_skill = list( SKILL_PILOT    = SKILL_MAX )
-	skill_points = 18
+	skill_points = 22
 	alt_titles = list("Helmsying")
 	department_types = list(/decl/department/civilian)
 	economic_power = 1

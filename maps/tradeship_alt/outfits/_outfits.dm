@@ -4,7 +4,7 @@
 	pda_type = /obj/item/modular_computer/pda
 	pda_slot = slot_l_store_str
 	suit = /obj/item/clothing/suit/jacket/redcoat
-	l_ear = null
+	l_ear = /obj/item/radio/headset/headset_service
 	r_ear = null
 	yinglet_suit_fallback = TRUE
 
