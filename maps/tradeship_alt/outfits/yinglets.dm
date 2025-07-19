@@ -43,6 +43,5 @@
 	uniform = /obj/item/clothing/jumpsuit/security
 	l_pocket = /obj/item/flash
 	r_pocket = /obj/item/handcuffs
-	id_type = /obj/item/card/id/ministation/security
-	pda_type = /obj/item/modular_computer/pda/security
+	pda_type = /obj/item/modular_computer/pda/heads
 	suit = /obj/item/clothing/suit/jacket/redcoat/officer
