@@ -623,6 +623,13 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
+"eJ" = (
+/obj/structure/sign/warning/armory{
+	dir = 8;
+	pixel_x = 34
+	},
+/turf/floor/tiled/monotile,
+/area/ship/trade/command/bridge_upper)
 "eZ" = (
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
@@ -951,12 +958,6 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
-"qI" = (
-/obj/structure/sign/warning/armory{
-	pixel_x = 32
-	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/command/bridge_upper)
 "qP" = (
 /obj/structure/bed/chair{
 	icon = 'icons/obj/watercloset.dmi';
@@ -5355,7 +5356,7 @@ Xb
 ja
 vR
 Ty
-qI
+eJ
 ZT
 SQ
 ax
