@@ -91,6 +91,7 @@
 			obj_flags &= (~OBJ_FLAG_CONDUCTIBLE)
 		if(isnull(initial(paint_verb)))
 			paint_verb = material.paint_verb
+		refresh_color() // apply material color
 		update_attack_force()
 		update_name()
 		if(material_armor_multiplier)
