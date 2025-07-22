@@ -553,7 +553,7 @@
 				place_in_storage_or_drop(wearer, old_item)
 			else
 				qdel(old_item)
-		return item
+	return item
 
 /decl/loadout_option/proc/spawn_in_storage_or_drop(mob/living/human/wearer, metadata)
 	var/obj/item/item = spawn_and_validate_item(wearer, metadata)
