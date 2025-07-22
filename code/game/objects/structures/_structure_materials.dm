@@ -3,6 +3,8 @@
 	var/decl/material/reinf_material
 	var/material_alteration
 	var/dismantled
+	/// The base alpha used to calculate material-based alpha in update_material_color().
+	var/base_alpha = 50
 
 /obj/structure/get_material()
 	RETURN_TYPE(/decl/material)
@@ -52,7 +54,7 @@
 /obj/structure/proc/update_material_color()
 	color = get_color()
 	if(istype(material))
-		alpha = clamp((50 + material.opacity * 255), 0, 255)
+		alpha = clamp((base_alpha + material.opacity * 255), 0, 255)
 	else
 		alpha = initial(alpha)
 
