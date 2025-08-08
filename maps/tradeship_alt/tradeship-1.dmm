@@ -1920,6 +1920,7 @@
 	dir = 1;
 	pixel_y = -21
 	},
+/obj/item/suit_cooling_unit,
 /turf/floor/plating,
 /area/ship/trade/maintenance/eva)
 "he" = (

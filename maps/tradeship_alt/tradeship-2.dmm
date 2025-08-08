@@ -5232,6 +5232,7 @@
 /obj/machinery/light{
 	icon_state = "bulb1"
 	},
+/obj/machinery/recharge_station,
 /turf/floor/plating,
 /area/ship/trade/shuttle/outgoing/engineering)
 "tV" = (
