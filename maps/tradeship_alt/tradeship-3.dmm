@@ -1000,6 +1000,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/machinery/power/terminal{
+	icon_state = "term-omni"
+	},
 /turf/floor/reinforced/airless,
 /area/ship/trade/command/bridge)
 "sx" = (
