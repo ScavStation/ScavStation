@@ -92,7 +92,7 @@
 
 	if(T.is_outside())
 		if(istype(T, /turf/exterior/rock))
-			if(prob(15)) // Static as current map has limited amount of rock turfs
+			if(prob(15) && !T.contains_dense_objects()) // Static as current map has limited amount of rock turfs
 				var/rock_type = pick(forage["rocks"])
 				new rock_type(T)
 				return
