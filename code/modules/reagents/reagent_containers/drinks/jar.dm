@@ -25,6 +25,7 @@
 		desc = "A jar. You're not sure what it's supposed to hold."
 
 /obj/item/chems/drinks/jar/on_update_icon()
+	. = ..()
 	if(LAZYLEN(reagents?.reagent_volumes))
 		icon_state = "jar_what"
 	else

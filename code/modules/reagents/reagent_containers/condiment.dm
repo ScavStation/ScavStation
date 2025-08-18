@@ -30,6 +30,8 @@
 		/decl/material/liquid/nutriment/mayo     = /obj/item/chems/condiment/mayo,
 		/decl/material/liquid/nutriment/vinegar  = /obj/item/chems/condiment/vinegar
 	)
+	/// If TRUE, the icon automatically adjusts based on contents.
+	var/is_morphic = TRUE
 
 /obj/item/chems/condiment/attackby(var/obj/item/W, var/mob/user)
 	if(IS_PEN(W))
@@ -73,6 +75,8 @@
 		..()
 
 /obj/item/chems/condiment/proc/update_center_of_mass()
+	if(!is_morphic)
+		return
 	center_of_mass = is_special_bottle ? initial(is_special_bottle.center_of_mass) : initial(center_of_mass)
 
 /obj/item/chems/condiment/on_reagent_change()
@@ -81,15 +85,21 @@
 	update_center_of_mass()
 
 /obj/item/chems/condiment/update_container_name()
+	if(!is_morphic)
+		return
 	name = is_special_bottle ? initial(is_special_bottle.name) : initial(name)
 	if(label_text)
 		name = addtext(name," ([label_text])")
 
 /obj/item/chems/condiment/update_container_desc()
+	if(!is_morphic)
+		return
 	desc = is_special_bottle ? initial(is_special_bottle.desc) : initial(desc)
 
 /obj/item/chems/condiment/on_update_icon()
 	..()
+	if(!is_morphic) // skip updates for certain subtypes
+		return
 	if(is_special_bottle)
 		icon_state = initial(is_special_bottle.icon_state)
 	else if(LAZYLEN(reagents?.reagent_volumes))
@@ -173,18 +183,7 @@
 	possible_transfer_amounts = @"[1,2,5,8,10,20]"
 	amount_per_transfer_from_this = 1
 	volume = 20
-
-/obj/item/chems/condiment/small/update_center_of_mass()
-	return
-
-/obj/item/chems/condiment/small/update_container_name()
-	return
-
-/obj/item/chems/condiment/small/update_container_desc()
-	return
-
-/obj/item/chems/condiment/small/on_update_icon()
-	return
+	is_morphic = FALSE
 
 /obj/item/chems/condiment/small/saltshaker
 	name = "salt shaker"
@@ -408,18 +407,10 @@
 	icon_state = "flour"
 	item_state = "flour"
 	randpixel = 10
+	is_morphic = FALSE
 
 /obj/item/chems/condiment/flour/populate_reagents()
 	add_to_reagents(/decl/material/liquid/nutriment/flour, reagents.maximum_volume)
-
-/obj/item/chems/condiment/flour/update_container_name()
-	return
-
-/obj/item/chems/condiment/flour/update_container_desc()
-	return
-
-/obj/item/chems/condiment/flour/on_update_icon()
-	return
 
 /obj/item/chems/condiment/large
 	name = "large condiment container"
@@ -434,15 +425,7 @@
 	icon_state = "salt"
 	item_state = "flour"
 	randpixel = 10
+	is_morphic = FALSE
 
 /obj/item/chems/condiment/large/salt/populate_reagents()
 	add_to_reagents(/decl/material/solid/sodiumchloride, reagents.maximum_volume)
-
-/obj/item/chems/condiment/large/salt/update_container_name()
-	return
-
-/obj/item/chems/condiment/large/salt/update_container_desc()
-	return
-
-/obj/item/chems/condiment/large/salt/on_update_icon()
-	return
