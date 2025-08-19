@@ -183,8 +183,8 @@
 
 //Since we automatically create some reagents types for the nutriments, make sure we call this proc when overriding it
 /obj/item/food/populate_reagents()
-	. = ..()
 	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	if(!nutriment_amt || !nutriment_type)
 		return
 	// Ensure our taste data is in the expected format.
@@ -216,7 +216,6 @@
 
 /obj/item/food/handle_chunk_separated()
 	bitecount++
-
 
 /obj/item/food/proc/add_allergen_flags(new_flags)
 	for(var/reagent in reagents.reagent_volumes)
