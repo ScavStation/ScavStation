@@ -209,7 +209,7 @@
 
 //Since we automatically create some reagents types for the nutriments, make sure we call this proc when overriding it
 /obj/item/chems/food/populate_reagents()
-	. = ..()
 	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	if(nutriment_amt)
 		add_to_reagents(nutriment_type, nutriment_amt, nutriment_desc)
