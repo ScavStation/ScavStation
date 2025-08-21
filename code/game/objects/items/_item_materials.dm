@@ -1,6 +1,6 @@
 /obj/item/on_update_icon()
-	. = ..()
 	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	cut_overlays()
 	if((material_alteration & MAT_FLAG_ALTERATION_COLOR) && material)
 		alpha = 100 + material.opacity * 255
