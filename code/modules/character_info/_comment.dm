@@ -25,7 +25,7 @@
 /datum/character_comment/proc/is_stale()
 	return !get_config_value(/decl/config/num/hide_comments_older_than) || (REALTIMEOFDAY - last_updated) > (get_config_value(/decl/config/num/hide_comments_older_than))
 
-/datum/character_comment/proc/get_comment_html(var/datum/character_information/presenting, var/mob/usr, var/row_bkg_color)
+/datum/character_comment/proc/get_comment_html(var/datum/character_information/presenting, var/mob/user, var/row_bkg_color)
 
 	if(!istype(main_mood))
 		main_mood = GET_DECL(/decl/comment_mood/unknown)
@@ -39,14 +39,14 @@
 		"<td title = '[mood_title]' style=\"border: 1px solid [border_mood ? border_mood.bg_color : main_mood.fg_color];\" width = 360px bgcolor = '[main_mood.bg_color]'><center><font color = '[main_mood.fg_color]'>[body]</font></center></td>",
 		"<td width = 170px>"
 	)
-	if(usr)
+	if(user)
 		. += "<center>"
-		if(author_ckey == usr.ckey || check_rights(R_MOD))
+		if(author_ckey == user.ckey || check_rights(R_MOD))
 			. += "<a href='byond://?src=\ref[presenting];comment_ref=\ref[src];edit_comment=1'>Edit</a><br/>"
 			. += "<a href='byond://?src=\ref[presenting];comment_ref=\ref[src];delete_comment=1'>Delete</a><br/>"
 			. += "<a href='byond://?src=\ref[presenting];comment_ref=\ref[src];change_comment_mood=primary'>Change primary mood</a><br/>"
 			. += "<a href='byond://?src=\ref[presenting];comment_ref=\ref[src];change_comment_mood=border'>Change border mood</a>"
-		else if(usr.ckey == presenting.ckey)
+		else if(user.ckey == presenting.ckey)
 			. += "<a href='byond://?src=\ref[presenting];comment_ref=\ref[src];delete_comment=1'>Delete</a>"
 		else
 			. += "<small><i>Not editable.</i></small>"

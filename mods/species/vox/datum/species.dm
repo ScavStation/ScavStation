@@ -75,8 +75,6 @@
 	poison_types = list(/decl/material/gas/oxygen = TRUE)
 	shock_vulnerability = 0.2
 
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
-
 	blood_types = list(/decl/blood_type/vox)
 	flesh_color = "#808d11"
 

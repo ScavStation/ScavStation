@@ -20,7 +20,6 @@
 	sound_dropped = 'sound/foley/meat2.ogg'
 	hitsound = 'sound/effects/squelch1.ogg'
 	fishing_bait_value = 1
-	nutriment_animal = TRUE
 	reagent_overlay = "soup_chunks"
 	nutriment_factor = 10
 	allergen_flags = ALLERGEN_MEAT
@@ -87,7 +86,6 @@
 	fishing_bait_value = 0.75
 	tans_to = /decl/material/solid/organic/leather
 	compost_value = 0.8
-	nutriment_animal = TRUE
 	allergen_flags = ALLERGEN_MEAT
 
 /decl/material/solid/organic/skin/lizard
@@ -224,7 +222,7 @@
 	sound_manipulate = 'sound/foley/stickspickup1.ogg'
 	sound_dropped = 'sound/foley/sticksdrop1.ogg'
 	compost_value = 0.5
-	nutriment_animal = TRUE
+	allergen_flags = ALLERGEN_MEAT
 	exoplanet_rarity_plant = MAT_RARITY_EXOTIC
 
 // Stub to stop eggs melting while being boiled.

@@ -169,7 +169,15 @@
 	path = /obj/item/clothing/mask/balaclava
 	uid = "gear_head_balaclava"
 
+/decl/loadout_option/head/monitor_head
+	name = "monitor head (synthetics only)"
+	path = /obj/item/clothing/mask/monitor
+	loadout_flags = GEAR_HAS_TYPE_SELECTION
+	slot = slot_wear_mask_str
+	uid = "gear_utility_monitorhead"
+
 /decl/loadout_option/head/nurse
 	name = "nurse's hat"
 	path = /obj/item/clothing/head/nursehat
 	uid = "gear_head_nursehat"
+

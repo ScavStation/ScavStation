@@ -13,7 +13,7 @@ on:
 
 env:
   BYOND_MAJOR: "515"
-  BYOND_MINOR: "1643"
+  BYOND_MINOR: "1647"
   SPACEMAN_DMM_VERSION: suite-1.8
 
 jobs:
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        map_path: [example, tradeship, exodus, ministation, shaded_hills, away_sites_testing, modpack_testing, planets_testing]
+        map_path: [example, tradeship, tradeship_alt, exodus, ministation, shaded_hills, away_sites_testing, modpack_testing, planets_testing]
     steps:
       - uses: actions/checkout@v3
       - name: Setup Cache

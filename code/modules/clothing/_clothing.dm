@@ -4,7 +4,7 @@
 	origin_tech = @'{"materials":1,"engineering":1}'
 	material = /decl/material/solid/organic/cloth
 	paint_verb = "dyed"
-	replaced_in_loadout = TRUE
+	replaced_in_loadout = LOADOUT_CONFLICT_DELETE
 	w_class = ITEM_SIZE_SMALL
 	icon_state = ICON_STATE_WORLD
 	_base_attack_force = 3
@@ -39,9 +39,6 @@
 	var/markings_color	// for things like colored parts of labcoats or shoes
 	var/should_display_id = TRUE
 	var/fallback_slot
-	// Used to track our icon, or custom icon, for resetting when accessories are added/removed
-	var/base_clothing_icon
-	var/base_clothing_state
 
 /obj/item/clothing/get_equipment_tint()
 	return tint
@@ -232,12 +229,6 @@
 			update_clothing_icon()
 			return
 
-	if(!base_clothing_icon)
-		base_clothing_icon = initial(icon)
-	set_icon(base_clothing_icon)
-	if(!base_clothing_state)
-		base_clothing_state = initial(icon_state)
-	set_icon_state(base_clothing_state)
 	icon_state = JOINTEXT(list(get_world_inventory_state(), get_clothing_state_modifier()))
 	if(markings_state_modifier && markings_color)
 		add_overlay(mutable_appearance(icon, "[icon_state][markings_state_modifier]", markings_color))
@@ -295,7 +286,8 @@
 
 	var/last_icon = icon
 	var/species_icon = LAZYACCESS(sprite_sheets, target_bodytype)
-	if(species_icon && (check_state_in_icon(ICON_STATE_INV, species_icon) || check_state_in_icon(ICON_STATE_WORLD, species_icon)))
+	// If we use the single icon system we need a world or icon state, otherwise we don't.
+	if(species_icon && check_state_in_icon(ICON_STATE_WORLD, species_icon))
 		icon = species_icon
 
 	if(!skip_rename)

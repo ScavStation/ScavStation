@@ -202,10 +202,10 @@
 	return (istype(holder))
 
 // Called by preferences selection for HTML display.
-/decl/trait/proc/get_trait_selection_data(var/datum/category_item/player_setup_item/traits/caller, var/list/ticked_traits = list(), var/recurse_level = 0, var/ignore_children_if_unticked = 1, var/ignore_unticked)
+/decl/trait/proc/get_trait_selection_data(var/datum/category_item/player_setup_item/traits/calling_item, var/list/ticked_traits = list(), var/recurse_level = 0, var/ignore_children_if_unticked = 1, var/ignore_unticked)
 
 	var/ticked = (type in ticked_traits)
-	if((ignore_unticked && !ticked) || (caller && !is_available_to_select(caller.pref)))
+	if((ignore_unticked && !ticked) || (calling_item && !is_available_to_select(calling_item.pref)))
 		return ""
 
 	var/result = "<tr><td style='max-width:50%;'>"
@@ -219,10 +219,10 @@
 			incompatible_trait_taken = TRUE
 			break
 
-	var/chargen_name = get_chargen_name(caller.pref)
-	var/chargen_desc = get_chargen_desc(caller.pref)
-	if(istype(caller) && (ticked || caller.get_trait_total() + trait_cost <= get_config_value(/decl/config/num/max_character_traits)) && !incompatible_trait_taken)
-		result += "<a href='byond://?src=\ref[caller];toggle_trait=\ref[src]'>[ticked ? "<font color='#E67300'>[chargen_name]</font>" : "[chargen_name]"] ([trait_cost])</a>"
+	var/chargen_name = get_chargen_name(calling_item.pref)
+	var/chargen_desc = get_chargen_desc(calling_item.pref)
+	if(istype(calling_item) && (ticked || calling_item.get_trait_total() + trait_cost <= get_config_value(/decl/config/num/max_character_traits)) && !incompatible_trait_taken)
+		result += "<a href='byond://?src=\ref[calling_item];toggle_trait=\ref[src]'>[ticked ? "<font color='#E67300'>[chargen_name]</font>" : "[chargen_name]"] ([trait_cost])</a>"
 	else
 		result += ticked ? "<font color='#E67300'>[chargen_name]</font>" : "[chargen_name]"
 
@@ -235,7 +235,7 @@
 	result += "</td></tr>"
 	if(LAZYLEN(children) && !(ignore_children_if_unticked && !ticked))
 		for(var/decl/trait/trait in children)
-			result += trait.get_trait_selection_data(caller, ticked_traits, (recurse_level+1), ignore_children_if_unticked)
+			result += trait.get_trait_selection_data(calling_item, ticked_traits, (recurse_level+1), ignore_children_if_unticked)
 	return result
 
 /mob/proc/get_trait_data(var/mob/show_to)

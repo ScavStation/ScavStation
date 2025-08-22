@@ -16,7 +16,7 @@
 	flags_inv = 0
 
 /obj/item/clothing/head/hairflower/blue
-	icon = 'icons/clothing/head/hairflower/pink.dmi'
+	icon = 'icons/clothing/head/hairflower/blue.dmi'
 /obj/item/clothing/head/hairflower/pink
 	icon = 'icons/clothing/head/hairflower/pink.dmi'
 /obj/item/clothing/head/hairflower/yellow
