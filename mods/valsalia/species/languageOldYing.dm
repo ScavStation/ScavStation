@@ -170,9 +170,9 @@
 			word = copytext(word, 1, length(word))
 
 		var/found = FALSE
-		for(var/i = 1, i <= replacemap.len, i++)
-			var/list/picked = replacemap[i]
-			if(replacemap[picked].Find(trim(word)))
+		for(var/picked in replacemap)
+			var/list/synonyms = replacemap[picked]
+			if(synonyms.Find(trim(word)))
 				outext.Add(lowertext(picked))
 				found = TRUE
 				break
