@@ -6771,6 +6771,9 @@
 	},
 /turf/floor/wood/yew,
 /area/ministation/engine)
+"sc" = (
+/turf/floor/grass,
+/area/ministation/hall/s1)
 "sd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 9
@@ -8739,13 +8742,11 @@
 /area/ministation/hall/s1)
 "xE" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "xF" = (
@@ -9530,10 +9531,6 @@
 /obj/machinery/space_heater,
 /turf/floor,
 /area/ministation/Murphy/engineering)
-"Ag" = (
-/obj/structure/railing/mapped,
-/turf/floor/tiled,
-/area/ministation/hall/s1)
 "Ah" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "EngineVent"
@@ -12341,6 +12338,10 @@
 /obj/item/stack/material/rods/fifty,
 /turf/floor/tiled,
 /area/ministation/cargo)
+"GU" = (
+/obj/structure/railing/mapped,
+/turf/floor/tiled,
+/area/ministation/hall/s1)
 "GV" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -18938,9 +18939,6 @@
 /obj/item/janicart_key,
 /turf/floor/tiled,
 /area/ministation/janitor)
-"YL" = (
-/turf/floor/grass,
-/area/ministation/hall/s1)
 "YM" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -51373,8 +51371,8 @@ gQ
 iN
 gQ
 TH
-Ag
-YL
+GU
+sc
 bK
 pc
 iE
@@ -51630,7 +51628,7 @@ OY
 eo
 gQ
 TH
-Ag
+GU
 bK
 tv
 VH
@@ -51887,9 +51885,9 @@ gQ
 gQ
 gQ
 TH
-Ag
+GU
 rE
-YL
+sc
 pc
 rf
 TH
