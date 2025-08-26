@@ -615,10 +615,6 @@
 /area/ministation/enclave/gatehouse)
 "bK" = (
 /obj/structure/flora/bush/ppflowers,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 1
-	},
 /turf/floor/grass,
 /area/ministation/hall/s1)
 "bL" = (
@@ -981,14 +977,6 @@
 /obj/structure/table/woodentable_reinforced/walnut/maple,
 /turf/floor/wood,
 /area/ministation/engine)
-"cD" = (
-/obj/structure/flora/bush/ppflowers,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 8
-	},
-/turf/floor/grass,
-/area/ministation/hall/s1)
 "cF" = (
 /obj/effect/shuttle_landmark/visitor_dock_space2,
 /turf/floor/concrete/smooth,
@@ -2356,9 +2344,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
-	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "gg" = (
@@ -3334,9 +3319,6 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 1
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
 	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
@@ -4597,16 +4579,6 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/enclave/scikitchen)
-"lW" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
-	},
-/turf/floor/tiled,
-/area/ministation/hall/s1)
 "lX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4722,9 +4694,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor3"
 	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
@@ -5628,10 +5597,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 10
-	},
 /turf/floor/grass,
 /area/ministation/hall/s1)
 "pd" = (
@@ -6515,9 +6480,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor5"
-	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "rg" = (
@@ -6675,10 +6637,6 @@
 /area/ministation/cargo)
 "rE" = (
 /obj/structure/flora/bush/grassybush,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 5
-	},
 /turf/floor/grass,
 /area/ministation/hall/s1)
 "rF" = (
@@ -6814,13 +6772,6 @@
 /turf/floor/wood/yew,
 /area/ministation/engine)
 "sc" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
-	},
 /turf/floor/grass,
 /area/ministation/hall/s1)
 "sd" = (
@@ -7072,10 +7023,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 2
 	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
@@ -7333,10 +7280,6 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 8
-	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "tu" = (
@@ -7345,15 +7288,6 @@
 /area/ministation/cargo)
 "tv" = (
 /obj/structure/flora/bush/sunnybush,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor2"
-	},
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor5"
-	},
-/obj/item/bladed/polearm/spear/improvised/supermatter,
-/obj/item/clothing/costume/yinglet/speardance,
 /turf/floor/grass,
 /area/ministation/hall/s1)
 "tw" = (
@@ -8223,7 +8157,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood,
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "vS" = (
@@ -8809,17 +8742,11 @@
 /area/ministation/hall/s1)
 "xE" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "xF" = (
@@ -9604,14 +9531,6 @@
 /obj/machinery/space_heater,
 /turf/floor,
 /area/ministation/Murphy/engineering)
-"Ag" = (
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 1
-	},
-/turf/floor/tiled,
-/area/ministation/hall/s1)
 "Ah" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "EngineVent"
@@ -11379,9 +11298,6 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor2"
-	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "EF" = (
@@ -12424,7 +12340,6 @@
 /area/ministation/cargo)
 "GU" = (
 /obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/blood,
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "GV" = (
@@ -14334,10 +14249,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 6
-	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "LQ" = (
@@ -14888,10 +14799,6 @@
 	icon_state = "tube1"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 10
-	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "Ni" = (
@@ -15580,10 +15487,6 @@
 	icon_state = "tube1"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 9
-	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
 "OY" = (
@@ -16679,10 +16582,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 4
 	},
 /turf/floor/tiled,
 /area/ministation/hall/s1)
@@ -18043,10 +17942,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 2
-	},
 /turf/floor/grass,
 /area/ministation/hall/s1)
 "VI" = (
@@ -18898,16 +18793,6 @@
 	},
 /turf/floor,
 /area/ministation/enclave/entrance)
-"Yp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 6
-	},
-/turf/floor/grass,
-/area/ministation/hall/s1)
 "Yr" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -19054,16 +18939,6 @@
 /obj/item/janicart_key,
 /turf/floor/tiled,
 /area/ministation/janitor)
-"YL" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 9
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
-	},
-/turf/floor/grass,
-/area/ministation/hall/s1)
 "YM" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -51497,8 +51372,8 @@ iN
 gQ
 TH
 GU
-YL
-cD
+sc
+bK
 pc
 iE
 TH
@@ -51753,7 +51628,7 @@ OY
 eo
 gQ
 TH
-Ag
+GU
 bK
 tv
 VH
@@ -52010,10 +51885,10 @@ gQ
 gQ
 gQ
 TH
-lW
+GU
 rE
 sc
-Yp
+pc
 rf
 TH
 aV
