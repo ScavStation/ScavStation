@@ -920,10 +920,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/bridge)
-"cv" = (
-/obj/effect/floor_decal/rust,
-/turf/floor/cult,
-/area/ministation/maint/l3ne)
 "cw" = (
 /turf/floor/reinforced/airless,
 /area/space)
@@ -6116,9 +6112,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/biodome)
-"rT" = (
-/turf/wall/cult/reinf,
-/area/ministation/maint/l3ne)
 "rU" = (
 /obj/structure/lattice,
 /turf/wall/r_wall,
@@ -6728,6 +6721,14 @@
 	},
 /turf/floor,
 /area/ministation/Murphy/maint)
+"tN" = (
+/obj/item/knife/ritual,
+/obj/item/clothing/head/helmet/space/cult,
+/obj/item/clothing/suit/space/cult,
+/obj/item/backpack/cultpack,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
+/area/ministation/maint/l3ne)
 "tP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8135,15 +8136,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "xK" = (
-/obj/item/knife/ritual,
-/obj/item/clothing/head/helmet/space/cult,
-/obj/item/clothing/suit/space/cult,
-/obj/item/backpack/cultpack,
 /obj/effect/floor_decal/rust,
-/obj/effect/decal/cleanable/crayon{
-	shade_color = "#FF0000";
-	color = "#FF0000"
-	},
 /turf/floor/cult,
 /area/ministation/maint/l3ne)
 "xL" = (
@@ -10845,16 +10838,6 @@
 	},
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
-"Fg" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/floor/plating,
-/area/ministation/maint/l3central)
 "Fh" = (
 /obj/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1;
@@ -11330,6 +11313,16 @@
 /obj/effect/wallframe_spawn/no_grille,
 /turf/floor/tiled,
 /area/ministation/hall/s3)
+"Gz" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/ministation/maint/l3central)
 "GA" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -14974,6 +14967,9 @@
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/science)
+"Rq" = (
+/turf/wall/cult/reinf,
+/area/ministation/maint/l3ne)
 "Rr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -48510,7 +48506,7 @@ Pe
 cg
 Do
 sD
-Fg
+Gz
 Cd
 cw
 cw
@@ -55432,11 +55428,11 @@ nl
 Mk
 PS
 nl
-rT
+Rq
 Fr
 MD
 MD
-rT
+Rq
 nl
 CZ
 Di
@@ -55948,8 +55944,8 @@ Kk
 nl
 Gb
 YD
+tN
 xK
-cv
 Nn
 Ba
 xR
@@ -56460,11 +56456,11 @@ cw
 cw
 cw
 nl
-rT
+Rq
 Bd
 MD
 MD
-rT
+Rq
 nl
 nl
 oU
