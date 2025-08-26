@@ -920,6 +920,10 @@
 	},
 /turf/floor/plating,
 /area/ministation/bridge)
+"cv" = (
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
+/area/ministation/maint/l3ne)
 "cw" = (
 /turf/floor/reinforced/airless,
 /area/space)
@@ -1004,11 +1008,15 @@
 /turf/floor/carpet/blue2,
 /area/ministation/Murphy/bedroom/Vayryn)
 "cH" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+/obj/structure/cult/forge{
+	desc = "A forge with an archaic design, though constructed with a preciseness beyond what is capable by machines. Used to forge odd objects."
+	},
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
-/turf/floor/plating,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "cI" = (
 /obj/structure/closet/secure_closet{
@@ -1313,10 +1321,6 @@
 /area/ministation/Murphy/common/upper)
 "dJ" = (
 /obj/structure/sign/warning/hot_exhaust,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 9
-	},
 /turf/wall/r_wall,
 /area/ministation/science)
 "dL" = (
@@ -2280,14 +2284,15 @@
 /turf/floor/tiled,
 /area/ministation/hall/n3)
 "gz" = (
-/obj/machinery/computer/teleporter,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
+/obj/structure/cult/pylon,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
-/turf/floor/plating,
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "gA" = (
 /obj/effect/floor_decal/carpet,
@@ -2836,11 +2841,6 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/blood/gibs,
 /turf/floor/reinforced,
 /area/ministation/science)
 "ie" = (
@@ -3004,14 +3004,15 @@
 /turf/floor/plating,
 /area/ministation/maint/l3sw)
 "iB" = (
-/obj/machinery/teleport/hub,
-/obj/structure/window/reinforced{
+/obj/structure/cult/pylon,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/turf/floor/plating,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "iC" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -3024,13 +3025,14 @@
 /turf/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "iD" = (
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 8
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/turf/floor/tiled/techfloor,
-/area/ministation/science)
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/plating,
+/area/ministation/maint/l3nw)
 "iF" = (
 /obj/structure/hygiene/toilet,
 /turf/floor/tiled/freezer,
@@ -3117,13 +3119,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/floor/tiled/white,
 /area/ministation/science)
-"iV" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 6
-	},
-/turf/wall/r_wall,
-/area/ministation/science)
 "iW" = (
 /obj/structure/transit_tube{
 	icon_state = "D-NW"
@@ -3191,10 +3186,11 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "je" = (
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
-/turf/floor/plating,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "jh" = (
 /obj/structure/table/gamblingtable,
@@ -4070,10 +4066,6 @@
 	},
 /turf/floor/tiled/freezer,
 /area/ministation/Murphy/bathroom)
-"lu" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/floor/tiled/dark/monotile,
-/area/ministation/bridge)
 "lv" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/warning{
@@ -5202,12 +5194,6 @@
 	},
 /turf/floor/tiled/stone,
 /area/ministation/enclave/matriarch)
-"oM" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor5"
-	},
-/turf/wall/r_wall,
-/area/ministation/science)
 "oN" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled,
@@ -5424,13 +5410,11 @@
 /turf/floor/grass,
 /area/ministation/bridge)
 "py" = (
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 9
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/floor/plating,
+/area/ministation/maint/l3sw)
 "pz" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -5599,6 +5583,10 @@
 /area/ministation/Murphy/bathroom)
 "qi" = (
 /obj/structure/ladder,
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "16-0"
+	},
 /turf/floor/plating,
 /area/ministation/maint/l3nw)
 "qj" = (
@@ -5644,15 +5632,11 @@
 /turf/floor/tiled/white,
 /area/ministation/biodome)
 "qq" = (
-/obj/machinery/door/blast/regular{
-	id_tag = "toxinsburnvent";
-	name = "Toxins Blast Door Vent"
+/obj/machinery/light/small{
+	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor3"
-	},
-/turf/floor/reinforced,
-/area/ministation/science)
+/turf/floor/plating,
+/area/ministation/maint/l3central)
 "qs" = (
 /obj/structure/fitness/weightlifter,
 /turf/floor/tiled,
@@ -6132,6 +6116,9 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/biodome)
+"rT" = (
+/turf/wall/cult/reinf,
+/area/ministation/maint/l3ne)
 "rU" = (
 /obj/structure/lattice,
 /turf/wall/r_wall,
@@ -6385,11 +6372,6 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 5
-	},
-/obj/effect/decal/cleanable/blood/gibs,
 /turf/floor/reinforced,
 /area/ministation/science)
 "sJ" = (
@@ -6403,11 +6385,6 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood/gibs,
 /turf/floor/reinforced,
 /area/ministation/science)
 "sM" = (
@@ -6638,11 +6615,13 @@
 /turf/floor/tiled,
 /area/ministation/hall/s3)
 "tu" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
-/turf/floor/plating,
+/obj/item/urn,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "tv" = (
 /obj/abstract/landmark{
@@ -6881,21 +6860,8 @@
 /turf/floor/wood,
 /area/ministation/Murphy/bedroom/Karlawa_Haven)
 "um" = (
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 4
-	},
-/obj/machinery/light/small{
-	dir = 4;
-	color = "#600000";
-	flickering = 1;
-	name = "suspiciously blood-red light fixture";
-	desc = "Oh gosh.";
-	germ_level = 9001
-	},
-/turf/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/wall/false,
+/area/ministation/maint/l3central)
 "un" = (
 /obj/structure/table/woodentable/mahogany,
 /obj/item/mollusc/clam{
@@ -7273,9 +7239,6 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	id_tag = "slimeblast1"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor2"
 	},
 /turf/floor,
 /area/ministation/science)
@@ -8172,8 +8135,16 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "xK" = (
-/obj/item/radio/beacon,
-/turf/floor/plating,
+/obj/item/knife/ritual,
+/obj/item/clothing/head/helmet/space/cult,
+/obj/item/clothing/suit/space/cult,
+/obj/item/backpack/cultpack,
+/obj/effect/floor_decal/rust,
+/obj/effect/decal/cleanable/crayon{
+	shade_color = "#FF0000";
+	color = "#FF0000"
+	},
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "xL" = (
 /obj/structure/window/reinforced{
@@ -8224,6 +8195,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/filth,
+/obj/structure/closet/crate/trashcart,
 /turf/floor/plating,
 /area/ministation/maint/l3ne)
 "xT" = (
@@ -8394,20 +8366,12 @@
 /turf/floor,
 /area/ministation/enclave/foyer)
 "yr" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	color = "#600000";
-	germ_level = 9001;
-	name = "suspiciously blood-red disposal pipe";
-	desc = "Oh crap."
+/obj/machinery/light/small{
+	dir = 1
 	},
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 10
-	},
-/turf/floor/tiled/techfloor,
-/area/ministation/science)
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/plating,
+/area/ministation/maint/l3sw)
 "yt" = (
 /obj/machinery/vending/hydronutrients{
 	dir = 8
@@ -8804,9 +8768,6 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "slimeblast1"
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
-	},
 /turf/floor,
 /area/ministation/science)
 "zy" = (
@@ -8938,15 +8899,9 @@
 /turf/floor/carpet/blue2,
 /area/ministation/Murphy/bedroom/Steph)
 "zZ" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "ContractorBunk1"
-	},
+/obj/machinery/light/small,
 /turf/floor/plating,
-/area/ministation/contracter_bunk)
+/area/ministation/maint/l3central)
 "Aa" = (
 /obj/machinery/camera/network/command{
 	dir = 4;
@@ -9296,11 +9251,13 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "AP" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor2"
+/obj/machinery/door/airlock/hatch/maintenance,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/turf/wall/r_wall,
-/area/ministation/science)
+/turf/floor/plating,
+/area/ministation/maint/l3nw)
 "AQ" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 4
@@ -9377,10 +9334,7 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "Ba" = (
-/obj/structure/barricade,
-/obj/structure/tape_barricade/engineering,
-/obj/structure/door_assembly,
-/turf/floor/plating,
+/turf/wall/false,
 /area/ministation/maint/l3ne)
 "Bb" = (
 /obj/structure/table,
@@ -9414,7 +9368,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/floor/bluegrid/airless,
+/turf/floor/blackgrid,
 /area/ministation/maint/l3ne)
 "Be" = (
 /obj/machinery/light/small{
@@ -10247,19 +10201,9 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
+/obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 4;
-	color = "#600000";
-	flickering = 1;
-	name = "suspiciously blood-red light fixture";
-	desc = "Oh gosh.";
-	germ_level = 9001
-	},
-/obj/effect/decal/cleanable/blood/gibs,
 /turf/floor/reinforced,
 /area/ministation/science)
 "Dn" = (
@@ -10814,17 +10758,6 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/floor/tiled/white,
 /area/ministation/science)
-"EV" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 2
-	},
-/obj/effect/decal/cleanable/blood/gibs,
-/turf/floor/reinforced,
-/area/ministation/science)
 "EW" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10912,6 +10845,16 @@
 	},
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
+"Fg" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/ministation/maint/l3central)
 "Fh" = (
 /obj/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1;
@@ -10973,7 +10916,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/floor/bluegrid/airless,
+/turf/floor/blackgrid,
 /area/ministation/maint/l3ne)
 "Fs" = (
 /obj/machinery/light{
@@ -11090,11 +11033,6 @@
 	name = "Station Intercom (General)";
 	pixel_y = 25;
 	broadcasting = 1
-	},
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 1
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/science)
@@ -11241,7 +11179,7 @@
 /area/ministation/enclave/foyer)
 "Gb" = (
 /obj/effect/decal/cleanable/cobweb,
-/turf/floor/bluegrid/airless,
+/turf/floor/blackgrid,
 /area/ministation/maint/l3ne)
 "Gc" = (
 /obj/structure/window/reinforced{
@@ -11579,10 +11517,6 @@
 /obj/structure/sign/warning/vent_port{
 	pixel_x = 6
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 5
-	},
 /turf/wall/r_wall,
 /area/ministation/science)
 "Hi" = (
@@ -11867,13 +11801,10 @@
 /turf/floor/carpet/green,
 /area/ministation/yinglet_rep)
 "Ic" = (
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 5
-	},
-/turf/floor/tiled/techfloor,
-/area/ministation/science)
+/mob/living/simple_animal/crow/cyber,
+/obj/item/drain/bath,
+/turf/floor/concrete,
+/area/ministation/maint/l3nw)
 "Id" = (
 /obj/machinery/door/airlock,
 /obj/structure/disposalpipe/segment{
@@ -11932,17 +11863,6 @@
 /obj/item/stool/padded,
 /turf/floor/wood,
 /area/ministation/maint/l3ne)
-"Il" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/floor/plating,
-/area/ministation/yinglet_rep)
 "Im" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -12607,18 +12527,8 @@
 /turf/unsimulated/floor,
 /area/ministation/enclave/matriarch)
 "Ka" = (
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor2"
-	},
-/obj/item/toy/figure/clown{
-	name = "Suspiciously blood-red toy clown, by Yingksy";
-	germ_level = 9001;
-	color = "#600000";
-	desc = "Oh good."
-	},
-/turf/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/floor/plating,
+/area/ministation/maint/l3sw)
 "Kc" = (
 /turf/floor/wood/broken,
 /area/ministation/maint/l3ne)
@@ -12628,17 +12538,6 @@
 	},
 /turf/floor/wood,
 /area/ministation/Murphy/bedroom/Elicot)
-"Ke" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 9
-	},
-/obj/effect/decal/cleanable/blood/gibs,
-/turf/floor/reinforced,
-/area/ministation/science)
 "Kf" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/floor/reinforced,
@@ -12753,12 +12652,12 @@
 /turf/floor/plating,
 /area/ministation/maint/l3ne)
 "Kx" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 5
+/obj/machinery/light/small{
+	dir = 4
 	},
-/turf/wall/r_wall,
-/area/ministation/science)
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/plating,
+/area/ministation/maint/l3sw)
 "Ky" = (
 /obj/machinery/light{
 	dir = 1
@@ -12824,6 +12723,7 @@
 /obj/machinery/light/alien{
 	dir = 1
 	},
+/obj/item/stack/material/pane/mapped/glass/fifty,
 /turf/floor/wood/usedup,
 /area/ministation/maint/l3ne)
 "KH" = (
@@ -13049,12 +12949,6 @@
 	dir = 4
 	},
 /turf/floor/tiled/white,
-/area/ministation/science)
-"Lw" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor3"
-	},
-/turf/wall/r_wall,
 /area/ministation/science)
 "Lx" = (
 /obj/item/stack/cable_coil/cut,
@@ -13424,7 +13318,7 @@
 /turf/floor/tiled,
 /area/ministation/hall/s3)
 "MD" = (
-/turf/floor/bluegrid/airless,
+/turf/floor/blackgrid,
 /area/ministation/maint/l3ne)
 "MF" = (
 /obj/machinery/disposal,
@@ -13539,9 +13433,6 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "toxinsburnvent";
 	name = "Toxins Blast Door Vent"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor2"
 	},
 /turf/floor/reinforced,
 /area/ministation/science)
@@ -13667,13 +13558,15 @@
 /turf/wall/titanium,
 /area/ministation/shuttle/outgoing)
 "Nn" = (
-/obj/structure/window/reinforced{
+/obj/structure/tape_barricade/police,
+/obj/structure/window/borosilicate_reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
-/turf/floor/plating,
+/obj/structure/door/cult,
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "No" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
@@ -13708,12 +13601,6 @@
 	},
 /turf/floor,
 /area/ministation/Murphy/janitors)
-"Nv" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
-	},
-/turf/wall/r_wall,
-/area/ministation/science)
 "Nw" = (
 /obj/structure/table/woodentable_reinforced/mahogany,
 /turf/floor/wood/walnut,
@@ -14243,10 +14130,11 @@
 /turf/floor/tiled,
 /area/ministation/hall/n3)
 "OX" = (
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 4
 	},
-/turf/floor/plating,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "OY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -14740,15 +14628,8 @@
 /turf/wall/titanium,
 /area/ministation/Murphy/lounge)
 "Qn" = (
-/obj/machinery/door/blast/regular{
-	id_tag = "toxinsburnvent";
-	name = "Toxins Blast Door Vent"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor4"
-	},
-/turf/floor/reinforced,
-/area/ministation/science)
+/turf/floor/concrete,
+/area/ministation/maint/l3nw)
 "Qo" = (
 /obj/structure/lattice,
 /obj/structure/table/woodentable{
@@ -14795,13 +14676,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l3ne)
-"Qr" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 10
-	},
-/turf/wall/r_wall,
-/area/ministation/science)
 "Qs" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -15193,10 +15067,6 @@
 /obj/machinery/door/blast/regular{
 	id_tag = "slimeblast1"
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 8
-	},
 /turf/floor/tiled/techfloor,
 /area/ministation/science)
 "RE" = (
@@ -15503,20 +15373,11 @@
 /turf/floor/tiled,
 /area/ministation/Murphy/kitchen)
 "SC" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	color = "#600000";
-	germ_level = 9001;
-	name = "suspiciously blood-red disposal pipe";
-	desc = "Oh crap."
+/obj/structure/hygiene/shower{
+	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 2
-	},
-/turf/floor/tiled/techfloor,
-/area/ministation/science)
+/turf/floor/concrete,
+/area/ministation/maint/l3nw)
 "SD" = (
 /obj/structure/bed/chair/wood{
 	dir = 4
@@ -15704,24 +15565,11 @@
 /turf/floor/tiled,
 /area/ministation/Murphy/common/upper)
 "Tj" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8;
-	germ_level = 9001;
-	color = "#600000";
-	name = "suspiciously blood-red disposal pipe";
-	desc = "Oh crap."
-	},
 /obj/structure/disposaloutlet{
-	dir = 1;
-	color = "#600000";
-	germ_level = 9001;
-	desc = "Oh shit.";
-	name = "suspiciously blood-red disposal outlet"
+	dir = 1
 	},
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 6
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
 /turf/floor/tiled/techfloor,
 /area/ministation/science)
@@ -16417,15 +16265,6 @@
 	},
 /turf/open,
 /area/ministation/maint/l3se)
-"Vc" = (
-/mob/living/human/monkey{
-	real_name = "Fall of Kong, by Yingksy";
-	name = "Fall of Kong, by Yingksy";
-	a_intent = "harm";
-	color = "#6878ff"
-	},
-/turf/open,
-/area/ministation/hall/n3)
 "Vd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16920,12 +16759,10 @@
 /turf/floor/tiled,
 /area/ministation/hall/s3)
 "Wz" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 9
-	},
-/turf/wall/r_wall,
-/area/ministation/science)
+/obj/structure/table/woodentable_reinforced/walnut/maple,
+/obj/item/chems/drinks/shaker,
+/turf/floor/wood/usedup,
+/area/ministation/maint/l3ne)
 "WA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -17074,16 +16911,6 @@
 "WV" = (
 /obj/machinery/igniter{
 	id_tag = "toxinsigniter"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "mfloor2"
-	},
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/item/toy/figure/clown{
-	name = "Suspiciously blood-red toy clown, by Yingksy";
-	germ_level = 9001;
-	color = "#600000";
-	desc = "Oh good."
 	},
 /turf/floor/reinforced,
 /area/ministation/science)
@@ -17690,13 +17517,15 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "YD" = (
-/obj/machinery/teleport/station{
-	dir = 4
+/obj/structure/cult/tome{
+	desc = "A desk covered in odd manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl."
 	},
-/obj/structure/window/reinforced{
+/obj/structure/window/borosilicate_reinforced{
 	dir = 1
 	},
-/turf/floor/plating,
+/obj/item/gripper/cultivator,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
 /area/ministation/maint/l3ne)
 "YE" = (
 /obj/machinery/vending/wallmed1{
@@ -17877,11 +17706,6 @@
 	id_tag = "n2_in";
 	use_power = 1
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 10
-	},
-/obj/effect/decal/cleanable/blood/gibs,
 /turf/floor/reinforced,
 /area/ministation/science)
 "Zb" = (
@@ -17994,17 +17818,6 @@
 	},
 /turf/floor,
 /area/ministation/Murphy/maint/Vayryn)
-"Zq" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "dir_splatter_2";
-	dir = 8
-	},
-/obj/effect/decal/cleanable/blood/gibs,
-/turf/floor/reinforced,
-/area/ministation/science)
 "Zr" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -42283,20 +42096,20 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-aa
-aa
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
 aa
 aa
 aa
@@ -42540,20 +42353,20 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-aa
-aa
+Dt
+Ka
+Ka
+HB
+Kx
+Ka
+Ka
+HB
+HB
+Kx
+HB
+HB
+Ka
+Dt
 aa
 aa
 aa
@@ -42797,8 +42610,8 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+Ka
 GO
 GO
 GO
@@ -42809,8 +42622,8 @@ GO
 GO
 GO
 GO
-aa
-aa
+Ka
+Dt
 aa
 aa
 aa
@@ -43054,8 +42867,8 @@ cw
 cw
 cw
 cw
-aa
-cw
+Dt
+yr
 GO
 uy
 gL
@@ -43066,8 +42879,8 @@ KK
 fv
 bC
 GO
-aa
-aa
+Ka
+Dt
 aa
 aa
 aa
@@ -43311,8 +43124,8 @@ cw
 aA
 cw
 cw
-aa
-cw
+Dt
+HB
 GO
 gL
 BL
@@ -43323,8 +43136,8 @@ dH
 FZ
 VE
 GO
-aa
-aa
+Ka
+Dt
 aa
 aa
 aa
@@ -43568,8 +43381,8 @@ cw
 cw
 cw
 cw
-aa
-cw
+Dt
+HB
 GO
 xY
 OY
@@ -43580,8 +43393,8 @@ MM
 dH
 yJ
 GO
-aa
-aa
+py
+Dt
 aa
 aa
 aa
@@ -43819,14 +43632,14 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-aa
-cw
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Dt
+Ka
 GO
 pA
 ck
@@ -43837,8 +43650,8 @@ HR
 KV
 yX
 GO
-aa
-aa
+Ka
+Dt
 aa
 aa
 aa
@@ -44076,14 +43889,14 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+Dt
+Ka
+HB
+rk
+Ka
+Ka
+Ka
+Ka
 GO
 Oe
 GO
@@ -44094,8 +43907,8 @@ GO
 GO
 GO
 GO
-aa
-aa
+HB
+Dt
 aa
 aa
 aa
@@ -44333,13 +44146,13 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+HB
 GO
 GO
-zZ
-zZ
-zZ
+GO
+GO
+GO
 GO
 GO
 Ko
@@ -44351,8 +44164,8 @@ pH
 Is
 DP
 GO
-aa
-aa
+HB
+Dt
 aa
 aa
 aa
@@ -44590,8 +44403,8 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+yr
 GO
 zo
 mR
@@ -44608,8 +44421,8 @@ hU
 At
 xM
 GO
-aa
-aa
+HB
+Dt
 aa
 aa
 aa
@@ -44847,8 +44660,8 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+HB
 GO
 mR
 jh
@@ -44865,8 +44678,8 @@ On
 us
 qP
 GO
-cw
-aa
+HB
+Dt
 aa
 ab
 aa
@@ -45104,8 +44917,8 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+HB
 GO
 mR
 jh
@@ -45122,8 +44935,8 @@ pH
 Vd
 cB
 GO
-aa
-aa
+py
+Dt
 aa
 aa
 aa
@@ -45361,8 +45174,8 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+Ka
 GO
 ZY
 mR
@@ -45379,8 +45192,8 @@ GO
 uQ
 GO
 GO
-aa
-aa
+HB
+Dt
 aa
 aa
 aa
@@ -45618,8 +45431,8 @@ XH
 XH
 XH
 cw
-cw
-cw
+Dt
+Ka
 GO
 Ez
 ZY
@@ -45636,8 +45449,8 @@ zN
 DM
 Ff
 GO
-aa
-aa
+HB
+Dt
 aa
 aa
 aa
@@ -45849,6 +45662,21 @@ aa
 aa
 aa
 aa
+PO
+PO
+PO
+PO
+Cd
+Cd
+Cd
+Cd
+Cd
+Cd
+Cd
+Cd
+Cd
+Cd
+Cd
 cw
 cw
 cw
@@ -45860,23 +45688,8 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+Dt
+py
 GO
 vh
 YW
@@ -45893,8 +45706,8 @@ Ly
 Ly
 VE
 GO
-aa
-aa
+Ka
+Dt
 aa
 aa
 ad
@@ -46106,24 +45919,21 @@ aa
 aa
 aa
 aa
-cw
-cw
-cw
-aa
-aa
-aa
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+PO
+SC
+Qn
+Qn
+Cd
+LS
+LS
+qq
+LS
+LS
+LS
+qq
+LS
+zZ
+Cd
 cw
 cw
 cw
@@ -46134,6 +45944,9 @@ cw
 cw
 cw
 cw
+cw
+Dt
+HB
 GO
 GO
 GO
@@ -46150,7 +45963,7 @@ GO
 GO
 GO
 GO
-aa
+Ka
 Dt
 jm
 Dt
@@ -46363,12 +46176,12 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-aa
-aa
-aa
+PO
+Qn
+Ic
+Qn
+um
+LS
 tf
 tf
 tf
@@ -46376,38 +46189,38 @@ lr
 lr
 lr
 tf
+LS
+Cd
+Cd
+Cd
+Cd
+Cd
+Cd
 cw
 cw
 cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+Dt
+HB
+Ka
+Ka
+Ka
 GO
 ZY
 te
 ni
 cw
 cw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+cw
+cw
+cw
+cw
+cw
+cw
+Dt
+Ka
 Dt
 bu
 Dt
@@ -46620,12 +46433,12 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-aa
-aa
-aa
+PO
+Qn
+Qn
+Qn
+Cd
+LS
 tf
 Vs
 uZ
@@ -46633,38 +46446,38 @@ QS
 QS
 QS
 tf
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+LS
+LS
+qq
+LS
+LS
+LS
+Cd
 cw
 cw
 XH
 XH
 XH
 cw
-cw
-cw
-cw
-cw
-cw
+Dt
+Dt
+Dt
+Dt
+HB
 GO
 ZY
 te
 ni
 cw
 cw
-aa
+cw
 Dt
 Dt
 Dt
 Dt
 Dt
 Dt
-Dt
+Ka
 Dt
 Zg
 Dt
@@ -46876,13 +46689,13 @@ PO
 PO
 PO
 PO
-cw
-cw
-cw
-cw
-aa
-aa
-aa
+PO
+PO
+PO
+PO
+PO
+Cd
+zZ
 tf
 HU
 uZ
@@ -46890,11 +46703,13 @@ QS
 tv
 QS
 tf
-cw
-cw
 Cd
 Cd
 Cd
+Cd
+Cd
+LS
+Cd
 cw
 cw
 cw
@@ -46904,17 +46719,15 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
-cw
+Dt
+yr
 QO
 ZY
 te
 ni
 cw
 cw
-aa
+cw
 Dt
 Gh
 vm
@@ -47132,14 +46945,14 @@ Re
 mW
 mW
 dZ
-PO
-aa
-cw
-cw
-cw
-aa
-aa
-aa
+Ee
+fU
+Ee
+Ee
+Ee
+fU
+LS
+LS
 tf
 eE
 uZ
@@ -47152,7 +46965,7 @@ cw
 Cd
 JK
 Cd
-cw
+zZ
 Cd
 Cd
 Cd
@@ -47163,8 +46976,8 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+Ka
 QO
 ZY
 UV
@@ -47385,18 +47198,18 @@ ah
 aa
 aa
 PO
-Il
+Re
 Af
 mW
 qY
 PO
-aa
-cw
-cw
-cw
-aa
-aa
-aa
+PO
+PO
+PO
+PO
+PO
+Cd
+Cd
 tf
 jF
 Pj
@@ -47409,7 +47222,7 @@ cw
 Cd
 Ie
 Cd
-cw
+LS
 Cd
 sQ
 Cd
@@ -47420,8 +47233,8 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+Ka
 QO
 ZY
 te
@@ -47666,7 +47479,7 @@ cw
 Cd
 lp
 Cd
-cw
+LS
 Cd
 DC
 Cd
@@ -47677,8 +47490,8 @@ cw
 cw
 cw
 aA
-cw
-cw
+Dt
+Ka
 QO
 ZY
 te
@@ -47923,7 +47736,7 @@ Cd
 Cd
 Gu
 Cd
-Cd
+LS
 Cd
 RB
 Cd
@@ -47934,8 +47747,8 @@ cw
 cw
 cw
 cw
-cw
-cw
+Dt
+py
 QO
 ZY
 te
@@ -48190,9 +48003,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+Dt
+Dt
+Ka
 GO
 ZY
 te
@@ -48447,9 +48260,9 @@ cw
 cw
 cw
 cw
-cw
-cw
-cw
+Dt
+Ka
+Ka
 GO
 ZY
 te
@@ -48697,16 +48510,16 @@ Pe
 cg
 Do
 sD
-cY
+Fg
 Cd
 cw
 cw
 cw
 cw
 cw
-cw
-cw
-cw
+Dt
+py
+Dt
 GO
 xJ
 te
@@ -48962,7 +48775,7 @@ Cd
 Cd
 Cd
 Cd
-Cd
+LS
 Cd
 GO
 ZY
@@ -49433,7 +49246,7 @@ aa
 aa
 Dz
 ao
-lu
+di
 aY
 di
 MV
@@ -49444,8 +49257,8 @@ vl
 co
 co
 fU
-av
-ur
+iD
+AP
 qi
 PO
 cw
@@ -50498,7 +50311,7 @@ sC
 ZJ
 hx
 GD
-Vc
+GD
 GD
 BS
 Gy
@@ -53581,7 +53394,7 @@ Tm
 Sa
 dt
 gF
-rM
+Wz
 mk
 my
 nl
@@ -55619,11 +55432,11 @@ nl
 Mk
 PS
 nl
-MD
+rT
 Fr
 MD
 MD
-MD
+rT
 nl
 CZ
 Di
@@ -56136,7 +55949,7 @@ nl
 Gb
 YD
 xK
-VJ
+cv
 Nn
 Ba
 xR
@@ -56647,11 +56460,11 @@ cw
 cw
 cw
 nl
-MD
+rT
 Bd
 MD
 MD
-MD
+rT
 nl
 nl
 oU
@@ -58739,7 +58552,7 @@ dJ
 Kj
 No
 gk
-Qr
+dz
 TD
 eq
 TD
@@ -58992,11 +58805,11 @@ ns
 WK
 dz
 cw
-Qn
-Ke
-Zq
+MW
+ia
+sI
 Za
-AP
+dz
 oA
 rE
 wr
@@ -59252,8 +59065,8 @@ cw
 MW
 ia
 WV
-EV
-Nv
+ia
+dz
 TD
 eq
 TD
@@ -59506,11 +59319,11 @@ CR
 Sh
 dz
 cw
-qq
+MW
 sI
 Dm
 sL
-Lw
+dz
 vL
 Mu
 iL
@@ -59764,10 +59577,10 @@ mJ
 dz
 cw
 Hg
-Lw
-AP
-Nv
-iV
+dz
+dz
+dz
+dz
 PG
 QF
 ex
@@ -62058,11 +61871,11 @@ KE
 wD
 IE
 hP
-Wz
+dz
 ve
 RD
 zx
-Qr
+dz
 MY
 HN
 JF
@@ -62315,11 +62128,11 @@ FG
 JX
 IE
 Hv
-AP
-py
-iD
-yr
-Nv
+dz
+iL
+iL
+tl
+dz
 iL
 iL
 tl
@@ -62572,11 +62385,11 @@ gh
 qA
 hu
 jU
-oM
+dz
 FD
-Ka
-SC
-AP
+iL
+tl
+dz
 iL
 du
 aw
@@ -62829,11 +62642,11 @@ FT
 Pp
 EU
 XP
-Nv
-Ic
-um
+dz
+iL
+iL
 Tj
-Nv
+dz
 iL
 dA
 eh
@@ -63086,11 +62899,11 @@ ae
 ae
 ae
 ae
-Kx
-Nv
-AP
-oM
-iV
+dz
+dz
+dz
+dz
+dz
 dz
 dz
 dz
