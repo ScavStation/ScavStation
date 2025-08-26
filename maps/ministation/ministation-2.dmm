@@ -1038,6 +1038,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/floor/tiled,
 /area/ministation/hall/n3)
+"cK" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/ministation/maint/l3central)
 "cL" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/plating,
@@ -2778,14 +2788,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/cargo/f3)
-"hT" = (
-/obj/item/knife/ritual,
-/obj/item/clothing/head/helmet/space/cult,
-/obj/item/clothing/suit/space/cult,
-/obj/item/backpack/cultpack,
-/obj/effect/floor_decal/rust,
-/turf/floor/cult,
-/area/ministation/maint/l3ne)
 "hU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -8012,6 +8014,9 @@
 /obj/structure/bed/chair/comfy/captain,
 /turf/floor/carpet/green,
 /area/ministation/bridge)
+"xq" = (
+/turf/wall,
+/area/ministation/yinglet_rep)
 "xr" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9234,15 +9239,16 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "AP" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "_North APC";
+	pixel_y = 24
 	},
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/light/small{
-	dir = 1
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/floor/plating,
-/area/ministation/maint/l3central)
+/area/ministation/yinglet_rep)
 "AQ" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 4
@@ -10495,6 +10501,14 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/plating,
 /area/ministation/maint/l3central)
+"Eh" = (
+/obj/item/knife/ritual,
+/obj/item/clothing/head/helmet/space/cult,
+/obj/item/clothing/suit/space/cult,
+/obj/item/backpack/cultpack,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
+/area/ministation/maint/l3ne)
 "Ej" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -47172,8 +47186,8 @@ sZ
 ah
 aa
 aa
-PO
-Re
+xq
+AP
 Af
 mW
 qY
@@ -48485,7 +48499,7 @@ Pe
 cg
 Do
 sD
-AP
+cK
 Cd
 cw
 cw
@@ -55923,7 +55937,7 @@ Kk
 nl
 Gb
 YD
-hT
+Eh
 xK
 Nn
 Ba
