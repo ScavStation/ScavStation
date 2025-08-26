@@ -2778,6 +2778,14 @@
 	},
 /turf/floor/tiled,
 /area/ministation/cargo/f3)
+"hT" = (
+/obj/item/knife/ritual,
+/obj/item/clothing/head/helmet/space/cult,
+/obj/item/clothing/suit/space/cult,
+/obj/item/backpack/cultpack,
+/obj/effect/floor_decal/rust,
+/turf/floor/cult,
+/area/ministation/maint/l3ne)
 "hU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -3021,14 +3029,8 @@
 /turf/floor/tiled,
 /area/ministation/shuttle/outgoing)
 "iD" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/floor/plating,
-/area/ministation/maint/l3nw)
+/turf/wall/cult/reinf,
+/area/ministation/maint/l3ne)
 "iF" = (
 /obj/structure/hygiene/toilet,
 /turf/floor/tiled/freezer,
@@ -5579,10 +5581,6 @@
 /area/ministation/Murphy/bathroom)
 "qi" = (
 /obj/structure/ladder,
-/obj/structure/cable,
-/obj/structure/cable{
-	icon_state = "16-0"
-	},
 /turf/floor/plating,
 /area/ministation/maint/l3nw)
 "qj" = (
@@ -6721,14 +6719,6 @@
 	},
 /turf/floor,
 /area/ministation/Murphy/maint)
-"tN" = (
-/obj/item/knife/ritual,
-/obj/item/clothing/head/helmet/space/cult,
-/obj/item/clothing/suit/space/cult,
-/obj/item/backpack/cultpack,
-/obj/effect/floor_decal/rust,
-/turf/floor/cult,
-/area/ministation/maint/l3ne)
 "tP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9244,13 +9234,15 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "AP" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/floor/plating,
-/area/ministation/maint/l3nw)
+/area/ministation/maint/l3central)
 "AQ" = (
 /obj/effect/floor_decal/carpet/green{
 	dir = 4
@@ -11313,16 +11305,6 @@
 /obj/effect/wallframe_spawn/no_grille,
 /turf/floor/tiled,
 /area/ministation/hall/s3)
-"Gz" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/floor/plating,
-/area/ministation/maint/l3central)
 "GA" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -14967,9 +14949,6 @@
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/science)
-"Rq" = (
-/turf/wall/cult/reinf,
-/area/ministation/maint/l3ne)
 "Rr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -48506,7 +48485,7 @@ Pe
 cg
 Do
 sD
-Gz
+AP
 Cd
 cw
 cw
@@ -49253,8 +49232,8 @@ vl
 co
 co
 fU
-iD
-AP
+av
+ur
 qi
 PO
 cw
@@ -55428,11 +55407,11 @@ nl
 Mk
 PS
 nl
-Rq
+iD
 Fr
 MD
 MD
-Rq
+iD
 nl
 CZ
 Di
@@ -55944,7 +55923,7 @@ Kk
 nl
 Gb
 YD
-tN
+hT
 xK
 Nn
 Ba
@@ -56456,11 +56435,11 @@ cw
 cw
 cw
 nl
-Rq
+iD
 Bd
 MD
 MD
-Rq
+iD
 nl
 nl
 oU

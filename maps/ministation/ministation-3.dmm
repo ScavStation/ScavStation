@@ -1197,16 +1197,6 @@
 	},
 /turf/floor/reinforced/airless,
 /area/space)
-"tW" = (
-/obj/machinery/power/apc/high{
-	dir = 1;
-	pixel_y = 20
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/turf/floor/plating,
-/area/ministation/maint/l4overpass)
 "ue" = (
 /obj/structure/lattice,
 /obj/item/shreddedp{
@@ -1761,9 +1751,6 @@
 /obj/structure/lattice,
 /obj/machinery/light/small{
 	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "32-4"
 	},
 /turf/open,
 /area/ministation/maint/l4overpass)
@@ -2645,12 +2632,6 @@
 	},
 /turf/space,
 /area/space)
-"Rv" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/plating,
-/area/ministation/maint/l4overpass)
 "Rx" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
@@ -2780,15 +2761,6 @@
 	},
 /turf/open,
 /area/ministation/maint/l4central)
-"UE" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/plating,
-/area/ministation/maint/l4overpass)
 "US" = (
 /obj/structure/table/reinforced,
 /obj/structure/cable{
@@ -34576,7 +34548,7 @@ cw
 cw
 cw
 yX
-Rv
+uQ
 yX
 cw
 cw
@@ -34833,7 +34805,7 @@ cw
 cw
 cw
 yX
-Rv
+uQ
 yX
 cw
 cw
@@ -35090,7 +35062,7 @@ cw
 cw
 cw
 yX
-UE
+tN
 yX
 cw
 cw
@@ -35347,7 +35319,7 @@ cw
 cw
 cw
 yX
-Rv
+uQ
 yX
 cw
 cw
@@ -35604,7 +35576,7 @@ cw
 cw
 cw
 yX
-Rv
+uQ
 yX
 cw
 cw
@@ -35861,7 +35833,7 @@ cw
 cw
 cw
 yX
-Rv
+uQ
 yX
 cw
 cw
@@ -36118,7 +36090,7 @@ cw
 cw
 cw
 yX
-Rv
+uQ
 yX
 cw
 cw
@@ -36375,7 +36347,7 @@ cw
 cw
 cw
 yX
-tW
+uQ
 yX
 cw
 cw
