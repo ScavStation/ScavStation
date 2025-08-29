@@ -54,6 +54,7 @@
 	return ret
 
 /obj/item/clothing/suit/space/void/yinglet/on_update_icon(mob/user)
+	. = ..()
 	update_world_inventory_state()
 	cut_overlays()
 	var/image/I = image(icon, "[icon_state]-armour")
@@ -100,6 +101,7 @@
 	return ret
 
 /obj/item/clothing/head/helmet/space/void/yinglet/on_update_icon(mob/user)
+	. = ..()
 	update_world_inventory_state()
 	cut_overlays()
 	var/image/I = image(icon, "[icon_state]-faceplate")
