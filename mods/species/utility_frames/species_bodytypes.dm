@@ -10,7 +10,7 @@
 	body_flags =        BODY_FLAG_NO_PAIN | BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
 	base_color = "#333355"
 	base_eye_color = "#00ccff"
-	material = /decl/material/solid/metal/steel
+	organ_material = /decl/material/solid/metal/steel
 	vital_organs = list(
 		BP_BRAIN,
 		BP_CELL
@@ -23,11 +23,13 @@
 	)
 	default_sprite_accessories = list(
 		SAC_MARKINGS = list(
-			/decl/sprite_accessory/marking/frame/plating = "#8888cc",
-			/decl/sprite_accessory/marking/frame/plating/legs = "#8888cc",
-			/decl/sprite_accessory/marking/frame/plating/head = "#8888cc"
+			/decl/sprite_accessory/marking/frame/plating      = list(SAM_COLOR = "#8888cc"),
+			/decl/sprite_accessory/marking/frame/plating/legs = list(SAM_COLOR = "#8888cc"),
+			/decl/sprite_accessory/marking/frame/plating/head = list(SAM_COLOR = "#8888cc")
 		)
 	)
+	age_descriptor = /datum/appearance_descriptor/age/utility_frame
+	uid = "bodytype_prosthetic_utility_frame"
 	can_be_shackled = TRUE
 
 /decl/bodytype/prosthetic/utility_frame/Initialize()

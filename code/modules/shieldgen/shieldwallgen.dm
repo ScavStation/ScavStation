@@ -101,7 +101,11 @@
 	if(!anchored)
 		power = 0
 		return 0
+
 	var/turf/T = src.loc
+	if(!T)
+		power = 0
+		return 0
 
 	var/obj/structure/cable/C = T.get_cable_node()
 	var/datum/powernet/PN
@@ -148,7 +152,7 @@
 		src.active = 2
 	if(src.active >= 1)
 		if(src.power == 0)
-			src.visible_message("<span class='warning'>The [src.name] shuts down due to lack of power!</span>", \
+			src.visible_message("<span class='warning'>\The [src] shuts down due to lack of power!</span>", \
 				"You hear heavy droning fade away.")
 			src.active = 0
 			update_icon()
@@ -203,19 +207,16 @@
 	if(IS_WRENCH(W))
 		if(active)
 			to_chat(user, "Turn off the field generator first.")
-			return
-
-		else if(anchored == 0)
+			return TRUE
+		if(!anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			to_chat(user, "You secure the external reinforcing bolts to the floor.")
 			src.anchored = TRUE
-			return
-
-		else if(anchored == 1)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
-			to_chat(user, "You undo the external reinforcing bolts.")
-			src.anchored = FALSE
-			return
+			return TRUE
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+		to_chat(user, "You undo the external reinforcing bolts.")
+		src.anchored = FALSE
+		return TRUE
 
 	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
 		if (src.allowed(user))
@@ -223,11 +224,8 @@
 			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-		return
-
-	else
-		src.add_fingerprint(user)
-		..()
+		return TRUE
+	return ..()
 
 
 /obj/machinery/shieldwallgen/proc/cleanup(var/NSEW)

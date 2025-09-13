@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(ticker)
 	create_characters() //Create player characters and transfer them
 	collect_minds()
 	equip_characters()
-	for(var/mob/living/carbon/human/H in global.player_list)
+	for(var/mob/living/human/H in global.player_list)
 		if(H.mind && !player_is_antag(H.mind, only_offstation_roles = 1))
 			var/datum/job/job = SSjobs.get_by_title(H.mind.assigned_role)
 			if(job && job.create_record)
@@ -103,6 +103,7 @@ SUBSYSTEM_DEF(ticker)
 
 	if(!length(global.admins))
 		send2adminirc("Round has started with no admins online.")
+		SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Round Started (Game ID: [game_id])", "body" = "Round has started with no admins online."))
 
 /datum/controller/subsystem/ticker/proc/playing_tick()
 	mode.process()
@@ -112,7 +113,7 @@ SUBSYSTEM_DEF(ticker)
 		Master.SetRunLevel(RUNLEVEL_POSTGAME)
 		end_game_state = END_GAME_READY_TO_END
 		INVOKE_ASYNC(src, PROC_REF(declare_completion))
-		if(get_config_value(/decl/config/toggle/allow_map_switching) && get_config_value(/decl/config/toggle/auto_map_vote) && global.all_maps.len > 1)
+		if(get_config_value(/decl/config/toggle/allow_map_switching) && get_config_value(/decl/config/toggle/auto_map_vote) && length(global.votable_maps) > 1)
 			SSvote.initiate_vote(/datum/vote/map/end_game, automatic = 1)
 
 	else if(mode_finished && (end_game_state <= END_GAME_NOT_OVER))
@@ -281,8 +282,9 @@ Helpers
 		if(!player.ready || !player.mind || !player.mind.assigned_role || !player.mind.assigned_job)
 			continue
 		var/mob/living/newplayer = player.create_character()
-		newplayer.mind.assigned_job.do_spawn_special(newplayer, player, FALSE)
-		qdel(player)
+		if(newplayer?.mind?.assigned_job)
+			newplayer.mind.assigned_job.do_spawn_special(newplayer, player, FALSE)
+			qdel(player)
 
 /datum/controller/subsystem/ticker/proc/collect_minds()
 	for(var/mob/living/player in global.player_list)
@@ -291,7 +293,7 @@ Helpers
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
 	var/captainless=1
-	for(var/mob/living/carbon/human/player in global.player_list)
+	for(var/mob/living/human/player in global.player_list)
 		if(player && player.mind && player.mind.assigned_role)
 			if(player.mind.assigned_role == "Captain")
 				captainless=0

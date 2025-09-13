@@ -70,40 +70,59 @@
 
 /obj/vehicle/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/hand_labeler))
-		return
+		return FALSE // allow afterattack to run
 	if(IS_SCREWDRIVER(W))
 		if(!locked)
 			open = !open
 			update_icon()
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
+			return TRUE
+		to_chat(user, SPAN_WARNING("You can't [open ? "close" : "open"] the maintenance panel while \the [src] is locked!"))
+		return TRUE
 	else if(IS_CROWBAR(W) && cell && open)
 		remove_cell(user)
-
+		return TRUE
 	else if(istype(W, /obj/item/cell) && !cell && open)
 		insert_cell(W, user)
+		return TRUE
 	else if(IS_WELDER(W))
-		var/obj/item/weldingtool/T = W
-		if(T.welding)
-			var/current_max_health = get_max_health()
-			if(current_health < current_max_health)
-				if(open)
-					current_health = min(current_max_health, current_health+10)
-					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-					user.visible_message("<span class='warning'>\The [user] repairs \the [src]!</span>","<span class='notice'>You repair \the [src]!</span>")
-				else
-					to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
-			else
-				to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
+		var/current_max_health = get_max_health()
+		if(current_health >= current_max_health)
+			to_chat(user, "<span class='notice'>[src] does not need repairs.</span>")
+			return TRUE
+		if(!open)
+			to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
+			return TRUE
+		var/obj/item/weldingtool/welder = W
+		if(!welder.welding)
+			to_chat(user, "<span class='notice'>Unable to repair while [W] is off.</span>")
+			return TRUE
+		if(welder.weld(5, user))
+			current_health = min(current_max_health, current_health+10)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			user.visible_message("<span class='warning'>\The [user] repairs \the [src] with \the [welder]!</span>","<span class='notice'>You repair \the [src] with \the [welder]!</span>")
+			return TRUE
+		return TRUE // welder.weld already includes on-fail feedback
+	return ..() // handles bash()
+
+/obj/vehicle/bash(obj/item/weapon, mob/user)
+	if(isliving(user) && user.a_intent == I_HELP)
+		return FALSE
+	if(!weapon.user_can_attack_with(user))
+		return FALSE
+	if(weapon.item_flags & ITEM_FLAG_NO_BLUDGEON)
+		return FALSE
+	// physical damage types that can impart force; swinging a bat or energy sword
+	switch(weapon.atom_damage_type)
+		if(BURN)
+			current_health -= weapon.get_attack_force(user) * fire_dam_coeff
+			. = TRUE
+		if(BRUTE)
+			current_health -= weapon.get_attack_force(user) * brute_dam_coeff
+			. = TRUE
 		else
-			to_chat(user, "<span class='notice'>Unable to repair while [src] is off.</span>")
-	else
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
-			if(BURN)
-				current_health -= W.force * fire_dam_coeff
-			if(BRUTE)
-				current_health -= W.force * brute_dam_coeff
-		..()
+			. = FALSE
+	if(.)
 		healthcheck()
 
 /obj/vehicle/bullet_act(var/obj/item/projectile/Proj)
@@ -221,7 +240,7 @@
 		turn_on()
 		return
 
-/obj/vehicle/proc/insert_cell(var/obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/proc/insert_cell(var/obj/item/cell/C, var/mob/living/human/H)
 	if(cell)
 		return
 	if(!istype(C))
@@ -232,7 +251,7 @@
 	powercheck()
 	to_chat(usr, "<span class='notice'>You install [C] in [src].</span>")
 
-/obj/vehicle/proc/remove_cell(var/mob/living/carbon/human/H)
+/obj/vehicle/proc/remove_cell(var/mob/living/human/H)
 	if(!cell)
 		return
 

@@ -50,7 +50,7 @@ GLOBAL_PROTECTED_UNTYPED(game_id, null)
 			if(special_role_name)
 				strings += special_role_name
 		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/human/H = M
 			if(H.species)
 				strings += H.species.name
 		for(var/text in strings)
@@ -121,17 +121,22 @@ var/global/world_topic_last = world.timeofday
 	if(!length(params))
 		return
 	var/command_key = params[1]
-	if(!command_key || !global.topic_commands[command_key])
+	if(!command_key)
+		return "Unrecognised Command"
+	var/decl/topic_command/command = decls_repository.get_decl_by_id("topic_command_[command_key]")
+	if(!istype(command))
 		return "Unrecognised Command"
 
-	var/decl/topic_command/TC = global.topic_commands[command_key]
-	return TC.try_use(T, addr, master, key)
+	return command.try_use(T, addr, master, key)
 
+var/global/_reboot_announced = FALSE
 /world/Reboot(var/reason)
 
 	if(get_config_value(/decl/config/toggle/wait_for_sigusr1_reboot) && reason != 3)
 		text2file("foo", "reboot_called")
-		to_world("<span class=danger>World reboot waiting for external scripts. Please be patient.</span>")
+		if(!global._reboot_announced)
+			to_world("<span class=danger>World reboot waiting for external scripts. Please be patient.</span>")
+			global._reboot_announced = TRUE
 		global.Master.restart_timeout = 5 MINUTES
 		return
 

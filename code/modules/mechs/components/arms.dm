@@ -28,8 +28,11 @@
 	if(istype(thing,/obj/item/robot_parts/robot_component/actuator))
 		if(motivator)
 			to_chat(user, SPAN_WARNING("\The [src] already has an actuator installed."))
-			return
-		if(install_component(thing, user)) motivator = thing
+			return TRUE
+		if(install_component(thing, user))
+			motivator = thing
+			return TRUE
+		return FALSE
 	else
 		return ..()
 

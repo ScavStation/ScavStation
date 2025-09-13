@@ -34,7 +34,7 @@
 			to_chat(user, "<span class='warning'>\The [src]'s cable reel is full.</span>")
 		else
 			to_chat(user, "You load [result] lengths of cable into [src].")
-		return
+		return TRUE
 
 	if(IS_WIRECUTTER(O))
 		if(cable && cable.amount)
@@ -48,6 +48,8 @@
 				CC.amount = m
 		else
 			to_chat(usr, "<span class='warning'>There's no more cable on the reel.</span>")
+		return TRUE
+	return ..()
 
 /obj/machinery/cablelayer/examine(mob/user)
 	. = ..()
@@ -82,10 +84,10 @@
 	last_piece = null
 
 /obj/machinery/cablelayer/proc/dismantle_floor(var/turf/new_turf)
-	if(istype(new_turf, /turf/simulated/floor))
-		var/turf/simulated/floor/T = new_turf
+	if(istype(new_turf, /turf/floor))
+		var/turf/floor/T = new_turf
 		if(!T.is_plating())
-			T.make_plating(!(T.broken || T.burnt))
+			T.set_flooring(null, place_product = !T.is_floor_damaged())
 	return new_turf.is_plating()
 
 /obj/machinery/cablelayer/proc/layCable(var/turf/new_turf,var/M_Dir)

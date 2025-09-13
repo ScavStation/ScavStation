@@ -20,68 +20,66 @@
 		if(recipe.craft_stack_types)
 			stack_types |= recipe.craft_stack_types
 
-	var/list/all_materials = decls_repository.get_decls_of_type(/decl/material)
-	var/list/material_types = list(null)
-	for(var/material_type in all_materials)
-		var/decl/material/mat = all_materials[material_type]
-		if(!mat.holographic && mat.phase_at_temperature() == MAT_PHASE_SOLID)
-			material_types |= material_type
-
 	// Force config to be the most precise recipes possible.
 	var/decl/config/config = GET_DECL(/decl/config/toggle/on/stack_crafting_uses_types)
 	config.set_value(TRUE)
 	config = GET_DECL(/decl/config/toggle/stack_crafting_uses_tools)
 	config.set_value(TRUE)
 
+	var/list/test_materials = list(
+		GET_DECL(/decl/material/solid/organic/wood),
+		GET_DECL(/decl/material/solid/organic/plastic),
+		GET_DECL(/decl/material/solid/organic/meat),
+		GET_DECL(/decl/material/solid/metal/steel),
+		GET_DECL(/decl/material/solid/metal/plasteel),
+		GET_DECL(/decl/material/solid/metal/gold),
+		GET_DECL(/decl/material/solid/glass),
+		GET_DECL(/decl/material/solid/stone/sandstone),
+		GET_DECL(/decl/material/solid/clay)
+	)
+
 	// This is obscene, but completeness requires it.
 	for(var/stack_type in stack_types)
 		for(var/tool_type in tool_types)
-			for(var/material_type in material_types)
-				var/decl/material/material = GET_DECL(material_type)
-				for(var/reinforced_type in material_types)
-					var/decl/material/reinforced = GET_DECL(reinforced_type)
+			for(var/decl/material/material in test_materials)
+				for(var/decl/material/reinforced as anything in (test_materials + null))
 
 					// Get a linear list of all recipes available to this combination.
-					var/list/recipes = get_stack_recipes(material, reinforced, stack_type, tool_type)
-					while(locate(/datum/stack_recipe_list) in recipes)
-						for(var/datum/stack_recipe_list/recipe_stack in recipes)
-							recipes -= recipe_stack
-							if(length(recipe_stack.recipes))
-								recipes |= recipe_stack.recipes
-
+					var/list/recipes = get_stack_recipes(material, reinforced, stack_type, tool_type, flat = TRUE)
 					if(!length(recipes))
 						continue
 
 					// Handle the actual validation.
 					for(var/decl/stack_recipe/recipe as anything in recipes)
-						if(ispath(recipe.result_type, /turf)) // Cannot exist without a loc and doesn't have matter, cannot assess here.
+						var/test_type = recipe.test_result_type || recipe.result_type
+						if(!test_type || ispath(test_type, /turf)) // Cannot exist without a loc and doesn't have matter, cannot assess here.
 							continue
-						var/atom/product = recipe.spawn_result(null, null, 1, material, reinforced)
-						var/failed
+						var/atom/product = LAZYACCESS(recipe.spawn_result(null, null, 1, material, reinforced, null), 1)
+						var/list/failed = list()
 						if(!product)
-							failed = "no product returned"
+							failed += "no product returned"
 						else if(!istype(product, recipe.expected_product_type))
-							failed = "unexpected product type returned ([product.type])"
+							failed += "unexpected product type returned ([product.type])"
 						else if(isobj(product))
 							var/obj/product_obj = product
 							LAZYINITLIST(product_obj.matter) // For the purposes of the following tests not runtiming.
 							if(!material && !reinforced)
 								if(length(product_obj.matter))
-									failed = "unsupplied material types"
-							else if(material && (product_obj.matter[material.type]/SHEET_MATERIAL_AMOUNT) > recipe.req_amount)
-								failed = "excessive base material ([recipe.req_amount]/[CEILING(product_obj.matter[material.type]/SHEET_MATERIAL_AMOUNT)])"
-							else if(reinforced && (product_obj.matter[reinforced.type]/SHEET_MATERIAL_AMOUNT) > recipe.req_amount)
-								failed = "excessive reinf material ([recipe.req_amount]/[CEILING(product_obj.matter[reinforced.type]/SHEET_MATERIAL_AMOUNT)])"
+									failed += "unsupplied material types"
+							else if(material && (product_obj.matter[material.type]) > recipe.req_amount)
+								failed += "excessive base material ([recipe.req_amount]/[ceil(product_obj.matter[material.type])])"
+							else if(reinforced && (product_obj.matter[reinforced.type]) > recipe.req_amount)
+								failed += "excessive reinf material ([recipe.req_amount]/[ceil(product_obj.matter[reinforced.type])])"
 							else
 								for(var/mat in product_obj.matter)
 									if(mat != material?.type && mat != reinforced?.type)
-										failed = "extra material type ([mat])"
+										failed += "extra material type ([mat])"
 
-						if(failed) // Try to prune out some duplicate error spam, we have too many materials now
+						if(length(failed)) // Try to prune out some duplicate error spam, we have too many materials now
 							if(!(recipe.type in seen_design_types))
-								failed_designs += "[material?.type || "null mat"] - [reinforced?.type || "null reinf"] - [tool_type] - [stack_type] - [recipe.type] - [failed]"
+								failed_designs += "[material?.type || "null mat"] - [reinforced?.type || "null reinf"] - [tool_type] - [stack_type] - [recipe.type] - [english_list(failed)]"
 								seen_design_types += recipe.type
-							failed_count++
+								failed_count++
 						else
 							passed_designs += recipe
 						if(!QDELETED(product))

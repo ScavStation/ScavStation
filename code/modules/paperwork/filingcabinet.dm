@@ -28,21 +28,21 @@
 	. = ..()
 
 /obj/structure/filing_cabinet/attackby(obj/item/P, mob/user)
-	if(is_type_in_list(P, can_hold))
-		if(!user.try_unequip(P, src))
-			return
-		add_fingerprint(user)
-		to_chat(user, SPAN_NOTICE("You put [P] in [src]."))
-		flick("[initial(icon_state)]-open",src)
-		updateUsrDialog()
+	if(!is_type_in_list(P, can_hold))
+		return ..()
+	if(!user.try_unequip(P, src))
 		return TRUE
+	add_fingerprint(user)
+	to_chat(user, SPAN_NOTICE("You put [P] in [src]."))
+	flick("[initial(icon_state)]-open",src)
+	updateUsrDialog()
+	return TRUE
 
-	return ..()
 /obj/structure/filing_cabinet/interact(mob/user)
 	user.set_machine(src)
 	var/dat = "<HR><TABLE>"
 	for(var/obj/item/P in src)
-		dat += "<TR><TD><A href='?src=\ref[src];retrieve=\ref[P]'>[P.name]</A></TD></TR>"
+		dat += "<TR><TD><A href='byond://?src=\ref[src];retrieve=\ref[P]'>[P.name]</A></TD></TR>"
 	dat += "</TABLE>"
 	show_browser(user, "<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=filingcabinet;size=350x300")
 
@@ -120,11 +120,11 @@
 	. += "<b>Details:</b> [record.get_medical_record()]"
 	return jointext(., "<br>")
 
-/obj/structure/filing_cabinet/records/medical
+/obj/structure/filing_cabinet/records/employment
 	name = "employment record archive"
 	archive_name = "employment record"
 
-/obj/structure/filing_cabinet/records/medical/collate_data(var/datum/computer_file/report/crew_record/record)
+/obj/structure/filing_cabinet/records/employment/collate_data(var/datum/computer_file/report/crew_record/record)
 	. = list()
 	. += "<b>Name:</b> [record.get_name()]"
 	. += "<b>Gender:</b> [record.get_gender()]"

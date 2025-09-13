@@ -16,10 +16,10 @@
 #define ui_entire_screen "WEST,SOUTH to EAST,NORTH"
 #define ui_center_fullscreen "CENTER-7,CENTER-7"
 
-//Lower left, persistant menu
+//Lower left, persistent menu
 #define ui_inventory "LEFT:6,BOTTOM:5"
 
-//Lower center, persistant menu
+//Lower center, persistent menu
 #define ui_sstore1 "LEFT+2:10,BOTTOM:5"
 #define ui_id "LEFT+3:12,BOTTOM:5"
 #define ui_belt "LEFT+4:14,BOTTOM:5"
@@ -48,7 +48,7 @@
 #define ui_construct_fire "RIGHT-1:16,CENTER+1:13" //above health, slightly to the left
 #define ui_construct_pull "RIGHT-1:28,BOTTOM+1:10" //above the zone selector icon
 
-//Lower right, persistant menu
+//Lower right, persistent menu
 #define ui_dropbutton "RIGHT-4:22,BOTTOM:5"
 #define ui_drop_throw "RIGHT-1:28,BOTTOM+1:7"
 #define ui_pull_resist "RIGHT-2:26,BOTTOM+1:7"

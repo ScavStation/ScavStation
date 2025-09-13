@@ -11,19 +11,13 @@
 	minbodytemp = 0
 	attack_delay = DEFAULT_QUICK_COOLDOWN
 	bleed_colour = SYNTH_BLOOD_COLOR
-
-	meat_type =     null
-	meat_amount =   0
-	bone_material = null
-	bone_amount =   0
-	skin_material = null
-	skin_amount =   0
+	butchery_data = /decl/butchery_data/synthetic
 
 /obj/item/natural_weapon/rotating_blade
 	name = "rotating blades"
 	attack_verb = list("sliced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	force = 15
+	_base_attack_force = 15
 	edge = 1
 	sharp = 1
 

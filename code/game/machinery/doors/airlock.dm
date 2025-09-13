@@ -9,8 +9,6 @@
 #define AIRLOCK_DENY	5
 #define AIRLOCK_EMAG	6
 
-var/global/list/airlock_overlays = list()
-
 /obj/machinery/door/airlock
 	name = "airlock"
 	icon = 'icons/obj/doors/station/door.dmi'
@@ -93,6 +91,7 @@ var/global/list/airlock_overlays = list()
 	var/emag_file = 'icons/obj/doors/station/emag.dmi'
 
 /obj/machinery/door/airlock/get_material()
+	RETURN_TYPE(/decl/material)
 	return GET_DECL(mineral ? mineral : /decl/material/solid/metal/steel)
 
 /obj/machinery/door/airlock/proc/get_window_material()
@@ -135,13 +134,11 @@ About the new airlock wires panel:
 					return
 			else /*if(src.justzap)*/
 				return
-		else if(prob(10) && src.operating == 0)
-			var/mob/living/carbon/C = user
-			if(istype(C) && C.hallucination_power > 25)
-				to_chat(user, SPAN_DANGER("You feel a powerful shock course through your body!"))
-				user.adjustHalLoss(10)
-				SET_STATUS_MAX(user, STAT_STUN, 10)
-				return
+		else if(prob(10) && src.operating == 0 && user.hallucination_power > 25)
+			to_chat(user, SPAN_DANGER("You feel a powerful shock course through your body!"))
+			user.take_damage(10, PAIN)
+			SET_STATUS_MAX(user, STAT_STUN, 10)
+			return
 	..(user)
 
 /obj/machinery/door/airlock/bumpopen(mob/living/simple_animal/user)
@@ -661,12 +658,12 @@ About the new airlock wires panel:
 		cut_sound = 'sound/weapons/circsawhit.ogg'
 		cut_delay *= 1.5
 
-	else if(istype(item,/obj/item/twohanded/fireaxe))
+	else if(istype(item,/obj/item/bladed/axe/fire))
 		//special case - zero delay, different message
 		if (src.lock_cut_state == BOLTS_EXPOSED)
 			return FALSE //can't actually cut the bolts, go back to regular smashing
-		var/obj/item/twohanded/fireaxe/F = item
-		if (!F.wielded)
+		var/obj/item/bladed/axe/fire/F = item
+		if (!F.is_held_twohanded())
 			return FALSE
 		user.visible_message(
 			SPAN_DANGER("\The [user] smashes the bolt cover open!"),
@@ -786,8 +783,8 @@ About the new airlock wires panel:
 					close(1)
 			return TRUE
 
-	if(istype(C, /obj/item/twohanded/fireaxe) && !arePowerSystemsOn() && !(user.a_intent == I_HURT))
-		var/obj/item/twohanded/fireaxe/F = C
+	if(istype(C, /obj/item/bladed/axe/fire) && !arePowerSystemsOn() && !(user.a_intent == I_HURT))
+		var/obj/item/bladed/axe/fire/F = C
 		if(F.is_held_twohanded(user))
 			if(locked)
 				to_chat(user, SPAN_WARNING("The airlock's bolts prevent it from being forced."))
@@ -798,7 +795,7 @@ About the new airlock wires panel:
 					else
 						close(1)
 		else
-			if(user.can_wield_item(F))
+			if(user.can_twohand_item(F))
 				to_chat(user, SPAN_WARNING("You need to be holding \the [C] in both hands to do that!"))
 			else
 				to_chat(user, SPAN_WARNING("You are too small to lever \the [src] open with \the [C]!"))
@@ -808,7 +805,7 @@ About the new airlock wires panel:
 	else if((stat & (BROKEN|NOPOWER)) && isanimal(user))
 		var/mob/living/simple_animal/A = user
 		var/obj/item/I = A.get_natural_weapon()
-		if(I?.force >= 10)
+		if(I?.get_attack_force(user) >= 10)
 			if(density)
 				visible_message(SPAN_DANGER("\The [A] forces \the [src] open!"))
 				open(1)
@@ -821,20 +818,20 @@ About the new airlock wires panel:
 	else
 		return ..()
 
-/obj/machinery/door/airlock/bash(obj/item/I, mob/user)
-			//if door is unbroken, hit with fire axe using harm intent
-	if (istype(I, /obj/item/twohanded/fireaxe) && !(stat & BROKEN) && user.a_intent == I_HURT)
+/obj/machinery/door/airlock/bash(obj/item/weapon, mob/user)
+	//if door is unbroken, hit with fire axe using harm intent
+	if (istype(weapon, /obj/item/bladed/axe/fire) && !(stat & BROKEN) && user.a_intent == I_HURT && weapon.user_can_attack_with(user))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		var/obj/item/twohanded/fireaxe/F = I
-		if (F.wielded)
+		var/obj/item/bladed/axe/fire/F = weapon
+		if (F.is_held_twohanded())
 			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
-			current_health -= F.force_wielded * 2
+			current_health -= F.get_attack_force(user) * 2
 			if(current_health <= 0)
-				user.visible_message(SPAN_DANGER("[user] smashes \the [I] into the airlock's control panel! It explodes in a shower of sparks!"), SPAN_DANGER("You smash \the [I] into the airlock's control panel! It explodes in a shower of sparks!"))
+				user.visible_message(SPAN_DANGER("[user] smashes \the [weapon] into the airlock's control panel! It explodes in a shower of sparks!"), SPAN_DANGER("You smash \the [weapon] into the airlock's control panel! It explodes in a shower of sparks!"))
 				current_health = 0
 				set_broken(TRUE)
 			else
-				user.visible_message(SPAN_DANGER("[user] smashes \the [I] into the airlock's control panel!"))
+				user.visible_message(SPAN_DANGER("[user] smashes \the [weapon] into the airlock's control panel!"))
 			return TRUE
 	return ..()
 
@@ -1108,9 +1105,9 @@ About the new airlock wires panel:
 	return
 
 // Braces can act as an extra layer of armor - they will take damage first.
-/obj/machinery/door/airlock/take_damage(var/amount, damtype=BRUTE)
+/obj/machinery/door/airlock/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	if(brace)
-		brace.take_damage(amount)
+		brace.take_damage(damage)
 	else
 		..()
 	update_icon()
@@ -1125,24 +1122,25 @@ About the new airlock wires panel:
 		to_chat(user, "\The [brace] is installed on \the [src], preventing it from opening.")
 		to_chat(user, brace.examine_health())
 
-/obj/machinery/door/airlock/autoname
-
 /obj/machinery/door/airlock/autoname/Initialize()
 	var/area/A = get_area(src)
-	name = A.proper_name
+	if(A?.proper_name)
+		name = A.proper_name
 	. = ..()
 
-/obj/machinery/door/airlock/proc/paint_airlock(var/paint_color)
-	door_color = paint_color
-	update_icon()
+/obj/machinery/door/airlock/proc/paint_airlock(var/new_color)
+	if(door_color != new_color)
+		door_color = new_color
+		update_icon()
 
-/obj/machinery/door/airlock/proc/stripe_airlock(var/paint_color)
-	stripe_color = paint_color
-	update_icon()
+/obj/machinery/door/airlock/proc/stripe_airlock(var/new_color)
+	if(stripe_color != new_color)
+		stripe_color = new_color
+		update_icon()
 
-/obj/machinery/door/airlock/proc/paint_window(paint_color)
-	if (paint_color)
-		window_color = paint_color
+/obj/machinery/door/airlock/proc/paint_window(new_color)
+	if (new_color)
+		window_color = new_color
 	else if (window_material)
 		var/decl/material/window = get_window_material()
 		window_color = window.color

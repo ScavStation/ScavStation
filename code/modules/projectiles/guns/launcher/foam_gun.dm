@@ -3,7 +3,7 @@
 	desc = "The classic Jorf blaster!"
 	icon = 'icons/obj/guns/foam/blaster.dmi'
 	icon_state = ICON_STATE_WORLD
-	force = 1
+	_base_attack_force = 1
 	w_class = ITEM_SIZE_SMALL
 	obj_flags = null
 	slot_flags = SLOT_LOWER_BODY | SLOT_HOLSTER
@@ -19,14 +19,17 @@
 	var/list/darts = new/list()
 
 /obj/item/gun/launcher/foam/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/foam_dart))
-		if(darts.len < max_darts)
-			if(!user.try_unequip(I, src))
-				return
-			darts += I
-			to_chat(user, SPAN_NOTICE("You slot \the [I] into \the [src]."))
-		else
-			to_chat(user, SPAN_WARNING("\The [src] can hold no more darts."))
+	if(!istype(I, /obj/item/foam_dart))
+		return ..()
+	if(darts.len < max_darts)
+		if(!user.try_unequip(I, src))
+			return TRUE
+		darts += I
+		to_chat(user, SPAN_NOTICE("You slot \the [I] into \the [src]."))
+		return TRUE
+	else
+		to_chat(user, SPAN_WARNING("\The [src] can hold no more darts."))
+		return TRUE
 
 /obj/item/gun/launcher/foam/consume_next_projectile()
 	if(darts.len)
@@ -84,12 +87,12 @@
 	icon = 'icons/obj/guns/foam/dart.dmi'
 	icon_state = "dart"
 	w_class = ITEM_SIZE_TINY
-	force = 0
 	randpixel = 10
-	throwforce = 0
 	throw_range = 3
 	does_spin = FALSE
-	material = /decl/material/solid/organic/plastic
+	material = /decl/material/solid/organic/plastic/foam
+	_base_attack_force = 0
+	_thrown_force_multiplier = 5
 
 /obj/item/foam_dart/Initialize()
 	mix_up()
@@ -101,7 +104,7 @@
 	set_dir(pick(global.alldirs))
 
 /obj/item/foam_dart/tampered
-	throwforce = 4
+	_base_attack_force = 1
 
 /obj/item/foam_dart/tampered/examine(mob/user, distance)
 	. = ..()
@@ -109,52 +112,52 @@
 		to_chat(user, SPAN_WARNING("Closer inspection reveals some weights in the rubber dome."))
 
 //boxes of the projectile
-/obj/item/storage/box/foam_darts
+/obj/item/box/foam_darts
 	name = "box of foam darts"
 	desc = "It's a box of offical Jorf brand foam darts, for use only with offical Jorf brand products."
 	icon = 'icons/obj/guns/foam/boxes.dmi'
 	icon_state = "dart_box"
 
-/obj/item/storage/box/foam_darts/WillContain()
+/obj/item/box/foam_darts/WillContain()
 	return list(/obj/item/foam_dart = 14)
 
 //preset boxes
-/obj/item/storage/box/large/foam_gun
+/obj/item/box/large/foam_gun
 	name = "\improper Jorf blaster set"
 	desc = "It's an official Jorf brand blaster, with three official Jorf brand darts!"
 	icon = 'icons/obj/guns/foam/boxes.dmi'
 	icon_state = "blaster_box"
 
-/obj/item/storage/box/large/foam_gun/WillContain()
+/obj/item/box/large/foam_gun/WillContain()
 	return list(
 			/obj/item/gun/launcher/foam,
 			/obj/item/foam_dart = 3
 		)
 
-/obj/item/storage/box/large/foam_gun/burst
+/obj/item/box/large/foam_gun/burst
 	name = "\improper Jorf Outlander set"
 	desc = "It's an official Jorf brand Outlander, with six official Jorf brand darts!"
 
-/obj/item/storage/box/large/foam_gun/burst/WillContain()
+/obj/item/box/large/foam_gun/burst/WillContain()
 	return list(
 			/obj/item/gun/launcher/foam/burst,
 			/obj/item/foam_dart = 6
 		)
 
-/obj/item/storage/box/large/foam_gun/revolver
+/obj/item/box/large/foam_gun/revolver
 	name = "\improper Jorf Desperado set"
 	desc = "It's an official Jorf brand Desperado, with eight official Jorf brand darts!"
 
-/obj/item/storage/box/large/foam_gun/revolver/WillContain()
+/obj/item/box/large/foam_gun/revolver/WillContain()
 	return list(
 			/obj/item/gun/launcher/foam/revolver,
 			/obj/item/foam_dart = 8
 		)
 
-/obj/item/storage/box/large/foam_gun/revolver/tampered
+/obj/item/box/large/foam_gun/revolver/tampered
 	desc = "It's a Jorf brand Desperado, with fourteen Jorf brand darts!"
 
-/obj/item/storage/box/large/foam_gun/revolver/tampered/WillContain()
+/obj/item/box/large/foam_gun/revolver/tampered/WillContain()
 	return list(
 			/obj/item/gun/launcher/foam/revolver/tampered,
 			/obj/item/foam_dart/tampered = 14

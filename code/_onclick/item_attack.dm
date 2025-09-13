@@ -5,12 +5,12 @@ These are the default click code call sequences used when clicking on stuff with
 Atoms:
 
 mob/ClickOn() calls the item's resolve_attackby() proc.
-item/resolve_attackby() calls the target atom's attackby() proc.
+item/resolve_attackby() calls the target atom's attackby() proc. If it (or attackby) returns true, afterattack is skipped.
 
 Mobs:
 
-mob/living/attackby() after checking for surgery, calls the item's attack() proc.
-item/attack() generates attack logs, sets click cooldown and calls the mob's attacked_with_item() proc. If you override this, consider whether you need to set a click cooldown, play attack animations, and generate logs yourself.
+mob/living/attackby() after checking for surgery, calls the item's use_on_mob() proc.
+item/use_on_mob() generates attack logs, sets click cooldown and calls the mob's attacked_with_item() proc. If you override this, consider whether you need to set a click cooldown, play attack animations, and generate logs yourself.
 mob/attacked_with_item() should then do mob-type specific stuff (like determining hit/miss, handling shields, etc) and then possibly call the item's apply_hit_effect() proc to actually apply the effects of being hit.
 
 Item Hit Effects:
@@ -24,24 +24,37 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/datum/extension/tool/tool = get_extension(src, /datum/extension/tool)
 	return (tool?.handle_physical_manipulation(user)) || FALSE
 
-//I would prefer to rename this to attack(), but that would involve touching hundreds of files.
+// If TRUE, prevent afterattack from running.
 /obj/item/proc/resolve_attackby(atom/A, mob/user, var/click_params)
 	if(!(item_flags & ITEM_FLAG_NO_PRINT))
 		add_fingerprint(user)
 	return A.attackby(src, user, click_params)
 
-/atom/proc/attackby(obj/item/W, mob/user, var/click_params)
-	return
+// If TRUE, prevent afterattack from running.
+/atom/proc/attackby(obj/item/used_item, mob/user, var/click_params)
+	if(storage)
+		if(isrobot(user) && (used_item == user.get_active_held_item()))
+			return FALSE //Robots can't store their modules.
+		if(!storage.can_be_inserted(used_item, user, click_params = click_params))
+			return FALSE
+		used_item.add_fingerprint(user)
+		return storage.handle_item_insertion(user, used_item, click_params = click_params)
+	return FALSE
 
 /atom/movable/attackby(obj/item/W, mob/user)
-	return bash(W,user)
+	. = ..()
+	if(!.)
+		return bash(W,user)
 
-/atom/movable/proc/bash(obj/item/W, mob/user)
+// Return TRUE if further actions (afterattack, etc) should be prevented, FALSE if they can proceed.
+/atom/movable/proc/bash(obj/item/weapon, mob/user)
 	if(isliving(user) && user.a_intent == I_HELP)
 		return FALSE
-	if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
+	if(!weapon.user_can_attack_with(user))
 		return FALSE
-	visible_message("<span class='danger'>[src] has been hit by [user] with [W].</span>")
+	if(weapon.item_flags & ITEM_FLAG_NO_BLUDGEON)
+		return FALSE
+	visible_message(SPAN_DANGER("[src] has been hit by [user] with [weapon]."))
 	return TRUE
 
 /mob/living/attackby(obj/item/used_item, mob/user)
@@ -56,14 +69,29 @@ avoid code duplication. This includes items that may sometimes act as a standard
 					ailment.was_treated_by_item(used_item, user, src)
 					return TRUE
 
-	if(can_operate(src,user) != OPERATE_DENY && used_item.do_surgery(src,user)) //Surgery
-		return TRUE
-	return used_item.attack(src, user, user.get_target_zone() || ran_zone())
+	if(user.a_intent != I_HURT)
+		if(can_operate(src, user) != OPERATE_DENY && used_item.do_surgery(src,user)) //Surgery
+			return TRUE
+		if(try_butcher_in_place(user, used_item))
+			return TRUE
 
-/mob/living/carbon/human/attackby(obj/item/used_item, mob/user)
-	. = ..()
+	if(istype(used_item, /obj/item/chems) && ATOM_IS_OPEN_CONTAINER(used_item) && has_extension(src, /datum/extension/milkable))
+		var/datum/extension/milkable/milkable = get_extension(src, /datum/extension/milkable)
+		if(milkable.handle_milked(used_item, user))
+			return TRUE
+
+	if(used_item.edge && has_extension(src, /datum/extension/shearable))
+		var/datum/extension/shearable/shearable = get_extension(src, /datum/extension/shearable)
+		if(shearable.handle_sheared(used_item, user))
+			return TRUE
+
+	var/oldhealth = current_health
+	. = used_item.use_on_mob(src, user)
+	if(used_item.get_attack_force(user) && istype(ai) && current_health < oldhealth)
+		ai.retaliate(user)
+
 	if(!. && user == src && user.get_target_zone() == BP_MOUTH && can_devour(used_item, silent = TRUE))
-		var/obj/item/blocked = check_mouth_coverage()
+		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
 			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
 		else
@@ -80,9 +108,18 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/mob/living/attackee = null
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
-/obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone, animate = TRUE)
+// If this returns TRUE, the interaction has been handled and other interactions like afterattack should be skipped.
+/obj/item/proc/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
-	if(user?.a_intent != I_HURT && is_edible(M) && handle_eaten_by_mob(user, M) != EATEN_INVALID)
+	// TODO: revisit if this should be a silent failure/parent call instead, for mob-level storage interactions?
+	// like a horse with a saddlebag or something
+	if(!user_can_attack_with(user))
+		return TRUE // skip other interactions
+
+	if(squash_item())
+		return TRUE
+
+	if(user?.a_intent != I_HURT && is_edible(target) && handle_eaten_by_mob(user, target) != EATEN_INVALID)
 		return TRUE
 
 	if(item_flags & ITEM_FLAG_NO_BLUDGEON)
@@ -92,38 +129,37 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(user.a_intent == I_HELP)
 		switch(user.get_preference_value(/datum/client_preference/help_intent_attack_blocking))
 			if(PREF_ALWAYS)
-				if(user == M)
+				if(user == target)
 					to_chat(user, SPAN_WARNING("You refrain from hitting yourself with \the [src] as you are on help intent."))
 				else
-					to_chat(user, SPAN_WARNING("You refrain from hitting \the [M] with \the [src] as you are on help intent."))
+					to_chat(user, SPAN_WARNING("You refrain from hitting \the [target] with \the [src] as you are on help intent."))
 				return FALSE
 			if(PREF_MYSELF)
-				if(user == M)
+				if(user == target)
 					to_chat(user, SPAN_WARNING("You refrain from hitting yourself with \the [src] as you are on help intent."))
 					return FALSE
 
 	/////////////////////////
 
 	if(!no_attack_log)
-		admin_attack_log(user, M, "Attacked using \a [src] (DAMTYE: [uppertext(damtype)])", "Was attacked with \a [src] (DAMTYE: [uppertext(damtype)])", "used \a [src] (DAMTYE: [uppertext(damtype)]) to attack")
+		admin_attack_log(user, target, "Attacked using \a [src] (DAMTYE: [uppertext(atom_damage_type)])", "Was attacked with \a [src] (DAMTYE: [uppertext(atom_damage_type)])", "used \a [src] (DAMTYE: [uppertext(atom_damage_type)]) to attack")
 	/////////////////////////
 	user.setClickCooldown(attack_cooldown + w_class)
 	if(animate)
-		user.do_attack_animation(M)
+		user.do_attack_animation(target)
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
-		return 0
+		return FALSE
 
-	var/hit_zone = M.resolve_item_attack(src, user, target_zone)
+	var/hit_zone = target.resolve_item_attack(src, user, user.get_target_zone())
 
 	var/datum/attack_result/AR = hit_zone
 	if(istype(AR))
 		if(AR.hit_zone)
-			apply_hit_effect(AR.attackee || M, user, AR.hit_zone)
-		return 1
+			apply_hit_effect(AR.attackee || target, user, AR.hit_zone)
+		return TRUE
 	if(hit_zone)
-		apply_hit_effect(M, user, hit_zone)
-
-	return 1
+		apply_hit_effect(target, user, hit_zone)
+	return TRUE
 
 //Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
@@ -134,7 +170,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		else
 			use_hitsound = "swing_hit"
 	playsound(loc, use_hitsound, 50, 1, -1)
-	return target.hit_with_weapon(src, user, force, hit_zone)
+	return target.hit_with_weapon(src, user, get_attack_force(user), hit_zone)
 
 /obj/item/proc/handle_reflexive_fire(var/mob/user, var/atom/aiming_at)
 	return istype(user) && istype(aiming_at)

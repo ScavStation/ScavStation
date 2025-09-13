@@ -5,7 +5,7 @@
 	spawn_positions = 1
 	total_positions = 2
 	department_types = list(/decl/department/science)
-	outfit_type = /decl/hierarchy/outfit/job/ministation/scientist
+	outfit_type = /decl/outfit/job/ministation/scientist
 	hud_icon = "hudscientist"
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
@@ -45,7 +45,7 @@
 	spawn_positions = 1
 	total_positions = 1
 	alt_titles = list("Head Researcher", "Chief Researcher")
-	outfit_type = /decl/hierarchy/outfit/job/ministation/scientist/head
+	outfit_type = /decl/outfit/job/ministation/scientist/head
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_COMPUTER = SKILL_BASIC,
@@ -94,7 +94,8 @@
 		access_mining,
 		access_kitchen,
 		access_hydroponics,
-		access_network
+		access_network,
+		access_cameras
 	)
 	minimal_access = list(
 		access_rd,
@@ -120,7 +121,8 @@
 		access_mining,
 		access_kitchen,
 		access_hydroponics,
-		access_network
+		access_network,
+		access_cameras
 	)
 	minimal_player_age = 14
 	ideal_character_age = 50

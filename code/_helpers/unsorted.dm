@@ -113,7 +113,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			var/turf/center = locate((destination.x+xoffset),(destination.y+yoffset),location.z)//So now, find the new center.
 
 			//Now to find a box from center location and make that our destination.
-			for(var/turf/T in block(locate(center.x+b1xerror,center.y+b1yerror,location.z), locate(center.x+b2xerror,center.y+b2yerror,location.z) ))
+			for(var/turf/T as anything in block(center.x+b1xerror, center.y+b1yerror, location.z, center.x+b2xerror, center.y+b2yerror, location.z))
 				if(density && T.contains_dense_objects())	continue//If density was specified.
 				if(T.x>world.maxx || T.x<1)	continue//Don't want them to teleport off the map.
 				if(T.y>world.maxy || T.y<1)	continue
@@ -488,8 +488,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	else return get_step(ref, base_dir)
 
-/area/proc/move_contents_to(var/area/A)
+/area/proc/move_contents_to(var/area/A, var/move_air)
 	//Takes: Area.
+	//       move_air - Boolean, whether or not air should be translated with the turfs.
 	//Returns: Nothing.
 	//Notes: Attempts to move the contents of one area to another area.
 	//       Movement based on lower left corner.
@@ -507,7 +508,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	if(src_origin && trg_origin)
 		var/translation = get_turf_translation(src_origin, trg_origin, turfs_src)
-		translate_turfs(translation, null)
+		translate_turfs(translation, null, translate_air = move_air)
 
 /proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 	if(!original)
@@ -666,7 +667,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			mobs += M
 	return mobs
 
-
 /proc/parse_zone(zone)
 	var/static/list/zone_to_descriptor_mapping = list(
 		BP_R_HAND = "right hand",
@@ -717,9 +717,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /obj/item/screwdriver/can_puncture()
 	return 1
 
-/obj/item/flame/can_puncture()
-	return src.lit
-
 /obj/item/clothing/mask/smokable/cigarette/can_puncture()
 	return src.lit
 
@@ -731,7 +728,7 @@ var/global/list/WALLITEMS = list(
 	/obj/structure/extinguisher_cabinet, /obj/structure/reagent_dispensers/peppertank,
 	/obj/machinery/status_display, /obj/machinery/network/requests_console, /obj/machinery/light_switch, /obj/structure/sign,
 	/obj/machinery/newscaster, /obj/machinery/firealarm, /obj/structure/noticeboard,
-	/obj/item/storage/secure/safe, /obj/machinery/door_timer, /obj/machinery/flasher, /obj/machinery/keycard_auth,
+	/obj/item/secure_storage/safe, /obj/machinery/door_timer, /obj/machinery/flasher, /obj/machinery/keycard_auth,
 	/obj/structure/mirror, /obj/structure/fireaxecabinet, /obj/structure/filing_cabinet/wall
 	)
 /proc/gotwallitem(loc, dir)
@@ -769,8 +766,7 @@ var/global/list/WALLITEMS = list(
 /proc/get_random_colour(var/simple = FALSE, var/lower = 0, var/upper = 255)
 	if(simple)
 		return pick(list("#ff0000","#ff7f00","#ffff00","#00ff00","#0000ff","#4b0082","#8f00ff"))
-	else
-		return rgb(rand(lower, upper), rand(lower, upper), rand(lower, upper))
+	return rgb(rand(lower, upper), rand(lower, upper), rand(lower, upper))
 
 // call to generate a stack trace and print to runtime logs
 /proc/get_stack_trace(msg, file, line)
@@ -787,3 +783,8 @@ var/global/list/WALLITEMS = list(
 			if(3)
 				return "[num]rd"
 	return "[num]th"
+
+///A do nothing proc used to prevent empty block warnings
+///In hot code (like atmos checks), use EMPTY_BLOCK_GUARD instead.
+/proc/pass(...)
+	return

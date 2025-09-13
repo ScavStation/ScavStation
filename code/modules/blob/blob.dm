@@ -56,7 +56,7 @@
 		return
 	attempt_attack(global.alldirs)
 
-/obj/effect/blob/proc/take_damage(var/damage)
+/obj/effect/blob/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	current_health -= damage
 	if(current_health < 0)
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
@@ -71,14 +71,14 @@
 /obj/effect/blob/proc/expand(var/turf/T)
 	if(istype(T, /turf/unsimulated/) || isspaceturf(T))
 		return
-	if(istype(T, /turf/simulated/wall))
-		var/turf/simulated/wall/SW = T
+	if(istype(T, /turf/wall))
+		var/turf/wall/SW = T
 		SW.take_damage(80)
 		return
 	var/obj/structure/girder/G = locate() in T
 	if(G)
 		if(prob(40))
-			G.dismantle()
+			G.dismantle_structure()
 		return
 	var/obj/structure/window/W = locate() in T
 	if(W)
@@ -154,11 +154,11 @@
 	if(!Proj)
 		return
 
-	switch(Proj.damage_type)
+	switch(Proj.atom_damage_type)
 		if(BRUTE)
-			take_damage(Proj.damage / brute_resist)
+			take_damage(Proj.damage / brute_resist, Proj.atom_damage_type)
 		if(BURN)
-			take_damage((Proj.damage / laser_resist) / fire_resist)
+			take_damage((Proj.damage / laser_resist) / fire_resist, Proj.atom_damage_type)
 	return 0
 
 /obj/effect/blob/attackby(var/obj/item/W, var/mob/user)
@@ -168,28 +168,28 @@
 	if(IS_WIRECUTTER(W))
 		if(prob(user.skill_fail_chance(SKILL_SCIENCE, 90, SKILL_EXPERT)))
 			to_chat(user, SPAN_WARNING("You fail to collect a sample from \the [src]."))
-			return
+			return TRUE
 		else
 			if(!pruned)
 				to_chat(user, SPAN_NOTICE("You collect a sample from \the [src]."))
 				new product(user.loc)
 				pruned = TRUE
-				return
+				return TRUE
 			else
 				to_chat(user, SPAN_WARNING("\The [src] has already been pruned."))
-				return
+				return TRUE
 
 	var/damage = 0
-	switch(W.damtype)
+	switch(W.atom_damage_type)
 		if(BURN)
-			damage = (W.force / fire_resist)
+			damage = (W.get_attack_force(user) / fire_resist)
 			if(IS_WELDER(W))
 				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		if(BRUTE)
-			damage = (W.force / brute_resist)
+			damage = (W.get_attack_force(user) / brute_resist)
 
-	take_damage(damage)
-	return
+	take_damage(damage, W.atom_damage_type)
+	return TRUE
 
 /obj/effect/blob/core
 	name = "master nucleus"
@@ -207,9 +207,6 @@
 	var/blob_may_process = 1
 	var/reported_low_damage = FALSE
 	var/times_to_pulse = 0
-
-/obj/effect/blob/core/proc/get_health_percent()
-	return ((current_health / get_max_health()) * 100)
 
 /*
 the master core becomes more vulnereable to damage as it weakens,
@@ -248,10 +245,10 @@ regen() will cover update_icon() for this proc
 
 /obj/effect/blob/core/proc/report_shield_status(var/status)
 	if(status == "low")
-		visible_message(SPAN_DANGER("The [src]'s tendril shield fails, leaving the nucleus vulnerable!"), 3)
+		visible_message(SPAN_DANGER("\The [src]'s tendril shield fails, leaving the nucleus vulnerable!"), 3)
 		reported_low_damage = TRUE
 	if(status == "high")
-		visible_message(SPAN_NOTICE("The [src]'s tendril shield seems to have fully reformed."), 3)
+		visible_message(SPAN_NOTICE("\The [src]'s tendril shield seems to have fully reformed."), 3)
 		reported_low_damage = FALSE
 
 // Rough icon state changes that reflect the core's current_health
@@ -352,7 +349,7 @@ regen() will cover update_icon() for this proc
 	var/types_of_tendril = list("solid", "fire")
 
 /obj/item/blob_tendril/get_heat()
-	. = max(..(), damtype == BURN ? 1000 : 0)
+	. = max(..(), atom_damage_type == BURN ? 1000 : 0)
 
 /obj/item/blob_tendril/Initialize()
 	. = ..()
@@ -362,13 +359,13 @@ regen() will cover update_icon() for this proc
 		switch(tendril_type)
 			if("solid")
 				desc = "An incredibly dense, yet flexible, tendril, removed from an asteroclast."
-				force = 10
+				set_base_attack_force(10)
 				color = COLOR_BRONZE
 				origin_tech = @'{"materials":2}'
 			if("fire")
 				desc = "A tendril removed from an asteroclast. It's hot to the touch."
-				damtype = BURN
-				force = 15
+				atom_damage_type = BURN
+				set_base_attack_force(15)
 				color = COLOR_AMBER
 				origin_tech = @'{"powerstorage":2}'
 
@@ -376,8 +373,8 @@ regen() will cover update_icon() for this proc
 	if(!proximity)
 		return
 	if(is_tendril && prob(50))
-		force--
-		if(force <= 0)
+		set_base_attack_force(get_base_attack_force()-1)
+		if(get_base_attack_force() <= 0)
 			visible_message(SPAN_NOTICE("\The [src] crumbles apart!"))
 			user.drop_from_inventory(src)
 			new /obj/effect/decal/cleanable/ash(src.loc)

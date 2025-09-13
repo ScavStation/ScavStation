@@ -13,7 +13,7 @@
 	pickup_sound = 'sound/effects/holster/holsterout.ogg'
 	tank         = null
 	randpixel    = 0 //Prevent randpixel from screwing with backpack overlays
-
+	obj_flags    = OBJ_FLAG_NO_STORAGE
 	var/obj/item/chems/weldpack/linked_pack
 
 /obj/item/weldingtool/weldpack/Initialize(ml, material_key, var/obj/item/chems/weldpack/pack)
@@ -58,23 +58,38 @@
 	if(!linked_pack.is_welder_attached())
 		linked_pack.reattach_gun()
 
-/obj/item/weldingtool/weldpack/get_storage_cost()
-	if(loc != linked_pack)
-		return ITEM_SIZE_NO_CONTAINER
-	return ..()
-
 ////////////////////////////////////////////////////////////
 //Welder Pack
 ////////////////////////////////////////////////////////////
 /obj/item/chems/weldpack
-	name              = "welding kit"
-	desc              = "An unwieldy, heavy backpack with two massive fuel tanks. Comes with an attached welder gun."
-	icon              = 'icons/obj/items/welderpack.dmi'
-	icon_state        = ICON_STATE_WORLD
-	slot_flags        = SLOT_BACK
-	w_class           = ITEM_SIZE_HUGE
-	volume            = 350
+	name       = "welding kit"
+	desc       = "An unwieldy, heavy backpack with two massive fuel tanks. Comes with an attached welder gun."
+	icon       = 'icons/obj/items/welderpack.dmi'
+	icon_state = ICON_STATE_WORLD
+	slot_flags = SLOT_BACK
+	w_class    = ITEM_SIZE_HUGE
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	volume     = 350
 	var/obj/item/weldingtool/weldpack/welder = /obj/item/weldingtool/weldpack
+
+// Duplicated from welder tanks.
+/obj/item/chems/weldpack/afterattack(obj/O, mob/user, proximity, click_parameters)
+	if (!ATOM_IS_OPEN_CONTAINER(src) || !proximity)
+		return
+	if(standard_dispenser_refill(user, O))
+		return TRUE
+	if(standard_pour_into(user, O))
+		return TRUE
+	if(handle_eaten_by_mob(user, O) != EATEN_INVALID)
+		return TRUE
+	if(user.a_intent == I_HURT)
+		if(standard_splash_mob(user, O))
+			return TRUE
+		if(reagents && reagents.total_volume)
+			to_chat(user, SPAN_DANGER("You splash the contents of \the [src] onto \the [O]."))
+			reagents.splash(O, reagents.total_volume)
+			return TRUE
+	return ..()
 
 /obj/item/chems/weldpack/populate_reagents()
 	add_to_reagents(/decl/material/liquid/fuel, reagents.maximum_volume)
@@ -90,31 +105,41 @@
 	QDEL_NULL(welder)
 	. = ..()
 
-/obj/item/chems/weldpack/attackby(obj/item/W, mob/user)
-	if(W.isflamesource() && get_fuel() && W.get_heat() >= 700 && prob(50))
+/obj/item/chems/weldpack/attackby(obj/item/used_item, mob/user)
+
+	if(used_item.isflamesource() && get_fuel() && used_item.get_heat() >= 700 && prob(50))
 		playsound(src, 'sound/items/Welder2.ogg', 90, TRUE)
 		try_detonate_reagents()
 		log_and_message_admins("triggered a fueltank explosion.", user)
 		return TRUE
 
-	if(IS_WELDER(W))
-		var/obj/item/weldingtool/T = W
-		if(T.welding)
-			user.visible_message(SPAN_DANGER("\The [user] singes \his [src] with \his [W]!"), SPAN_DANGER("You singed your [src] with your [W]!"))
-
-		if(W == welder)
+	if(IS_WELDER(used_item))
+		var/obj/item/weldingtool/tool = used_item
+		if(tool.welding)
+			user.visible_message(
+				SPAN_DANGER("\The [user] singes \his [src] with \his [used_item]!"),
+				SPAN_DANGER("You singed your [src] with your [used_item]!")
+			)
+		if(used_item == welder)
 			return reattach_gun(user)
-		if(!T.tank)
-			to_chat(user, "\The [T] has no tank attached!")
-		reagents.trans_to_obj(T.tank, T.tank.reagents.maximum_volume)
-		to_chat(user, SPAN_NOTICE("You refuel \the [W]."))
+		if(!tool.tank)
+			to_chat(user, SPAN_WARNING("\The [tool] has no tank attached!"))
+			return TRUE
+		if(!reagents?.total_volume)
+			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
+			return TRUE
+		reagents.trans_to_obj(tool.tank, tool.tank.reagents.maximum_volume)
+		to_chat(user, SPAN_NOTICE("You refuel \the [used_item]."))
 		playsound(src, 'sound/effects/refill.ogg', 50, TRUE, -6)
 		return TRUE
 
-	else if(istype(W, /obj/item/chems/welder_tank))
-		var/obj/item/chems/welder_tank/tank = W
+	else if(istype(used_item, /obj/item/chems/welder_tank))
+		if(!reagents?.total_volume)
+			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
+			return TRUE
+		var/obj/item/chems/welder_tank/tank = used_item
 		reagents.trans_to_obj(tank, tank.reagents.maximum_volume)
-		to_chat(user, SPAN_NOTICE("You refuel \the [W]."))
+		to_chat(user, SPAN_NOTICE("You refuel \the [used_item]."))
 		playsound(src, 'sound/effects/refill.ogg', 50, TRUE, -6)
 		return TRUE
 

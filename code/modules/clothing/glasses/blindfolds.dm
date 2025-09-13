@@ -8,6 +8,7 @@
 	darkness_view = -1
 	toggleable = TRUE
 	activation_sound = null
+	gender = NEUTER
 	toggle_off_message = "You flip $ITEM$ up."
 	toggle_on_message = "You slide $ITEM$ down, blinding yourself."
 

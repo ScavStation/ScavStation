@@ -2,20 +2,20 @@
 // Pasta //
 ///////////
 
-/obj/item/chems/food/spagetti
+/obj/item/food/spagetti
 	name = "spaghetti"
 	desc = "A bundle of raw spaghetti."
-	icon_state = "spagetti"
+	icon = 'icons/obj/food/pasta/rawspaghetti.dmi'
 	filling_color = "#eddd00"
 	center_of_mass = @'{"x":16,"y":16}'
 	nutriment_desc = list("noodles" = 2)
 	nutriment_amt = 1
 	bitesize = 1
 
-/obj/item/chems/food/boiledspagetti
+/obj/item/food/boiledspagetti
 	name = "boiled spaghetti"
 	desc = "A plain dish of pasta, just screaming for sauce."
-	icon_state = "spagettiboiled"
+	icon = 'icons/obj/food/pasta/spaghetti.dmi'
 	plate = /obj/item/plate
 	filling_color = "#fcee81"
 	center_of_mass = @'{"x":16,"y":10}'
@@ -23,10 +23,10 @@
 	nutriment_amt = 2
 	bitesize = 2
 
-/obj/item/chems/food/pastatomato
+/obj/item/food/pastatomato
 	name = "spaghetti & tomato"
 	desc = "Spaghetti and crushed tomatoes."
-	icon_state = "pastatomato"
+	icon = 'icons/obj/food/pasta/tomato_spaghetti.dmi'
 	plate = /obj/item/plate
 	filling_color = "#de4545"
 	center_of_mass = @'{"x":16,"y":10}'
@@ -34,48 +34,49 @@
 	nutriment_amt = 6
 	bitesize = 4
 
-/obj/item/chems/food/pastatomato/populate_reagents()
+/obj/item/food/pastatomato/populate_reagents()
 	. = ..()
 	add_to_reagents(/decl/material/liquid/drink/juice/tomato, 10)
 
-/obj/item/chems/food/nanopasta
+/obj/item/food/nanopasta
 	name = "nanopasta"
 	desc = "Nanomachines, son!"
-	icon_state = "nanopasta"
+	icon = 'icons/obj/food/pasta/nanopasta.dmi'
 	plate = /obj/item/plate
 	filling_color = "#535e66"
 	center_of_mass = @'{"x":16,"y":10}'
 	nutriment_amt = 6
 	bitesize = 4
 
-/obj/item/chems/food/nanopasta/populate_reagents()
+/obj/item/food/nanopasta/populate_reagents()
 	. = ..()
 	add_to_reagents(/decl/material/liquid/nanitefluid, 10)
 
-/obj/item/chems/food/meatballspagetti
+/obj/item/food/meatballspagetti
 	name = "spaghetti & meatballs"
 	desc = "Now thats a nice meatball!"
-	icon_state = "meatballspagetti"
+	icon = 'icons/obj/food/pasta/meatball_spaghetti.dmi'
 	plate = /obj/item/plate
 	filling_color = "#de4545"
 	center_of_mass = @'{"x":16,"y":10}'
 	nutriment_desc = list("noodles" = 4)
 	nutriment_amt = 4
 	bitesize = 2
-/obj/item/chems/food/meatballspagetti/populate_reagents()
-	. = ..()
-	add_to_reagents(/decl/material/liquid/nutriment/protein, 4)
 
-/obj/item/chems/food/spesslaw
+/obj/item/food/meatballspagetti/populate_reagents()
+	. = ..()
+	add_to_reagents(/decl/material/solid/organic/meat, 4)
+
+/obj/item/food/spesslaw
 	name = "spaghetti & too many meatballs"
 	desc = "Do you want some pasta with those meatballs?"
-	icon_state = "spesslaw"
+	icon = 'icons/obj/food/pasta/extra_meatball_spaghetti.dmi'
 	filling_color = "#de4545"
 	center_of_mass = @'{"x":16,"y":10}'
 	nutriment_desc = list("noodles" = 4)
 	nutriment_amt = 4
 	bitesize = 2
 
-/obj/item/chems/food/spesslaw/populate_reagents()
+/obj/item/food/spesslaw/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/nutriment/protein, 4)
+	add_to_reagents(/decl/material/solid/organic/meat, 4)

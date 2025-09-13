@@ -43,7 +43,7 @@
 	return !isnull(get_devour_time(food))
 
 /obj/item/organ/internal/stomach/proc/is_full(var/atom/movable/food)
-	var/total = FLOOR(ingested.total_volume / 10)
+	var/total = floor(ingested.total_volume / 10)
 	for(var/a in contents + food)
 		if(ismob(a))
 			var/mob/M = a
@@ -58,7 +58,7 @@
 	return FALSE
 
 /obj/item/organ/internal/stomach/proc/get_devour_time(var/atom/movable/food)
-	if(iscarbon(food) || isanimal(food))
+	if(isliving(food))
 		var/mob/living/L = food
 		if((species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_SIZE_TINY) && !ishuman(food)) // Anything MOB_SIZE_TINY or smaller
 			return DEVOUR_SLOW
@@ -69,14 +69,13 @@
 	else if(istype(food, /obj/item) && !istype(food, /obj/item/holder)) //Don't eat holders. They are special.
 		var/obj/item/I = food
 		var/cost = I.get_storage_cost()
-		if(cost < ITEM_SIZE_NO_CONTAINER)
-			if((species.gluttonous & GLUT_ITEM_TINY) && cost < 4)
+		if(!(I.obj_flags & OBJ_FLAG_NO_STORAGE))
+			if((species.gluttonous & GLUT_ITEM_TINY) && cost < ITEM_SIZE_LARGE)
 				return DEVOUR_SLOW
-			else if((species.gluttonous & GLUT_ITEM_NORMAL) && cost <= 4)
+			else if((species.gluttonous & GLUT_ITEM_NORMAL) && cost <= ITEM_SIZE_LARGE)
 				return DEVOUR_SLOW
 			else if(species.gluttonous & GLUT_ITEM_ANYTHING)
 				return DEVOUR_FAST
-
 
 /obj/item/organ/internal/stomach/proc/throw_up()
 	set name = "Empty Stomach"
@@ -104,9 +103,9 @@
 					qdel(M)
 					continue
 
-				M.adjustBruteLoss(3, do_update_health = FALSE)
-				M.adjustFireLoss(3, do_update_health = FALSE)
-				M.adjustToxLoss(3)
+				M.take_damage(3,       do_update_health = FALSE)
+				M.take_damage(3, BURN, do_update_health = FALSE)
+				M.take_damage(3, TOX)
 
 				var/digestion_product = M.get_digestion_product()
 				if(digestion_product)
@@ -116,10 +115,11 @@
 			next_cramp = world.time + rand(200,800)
 			owner.custom_pain("Your stomach cramps agonizingly!",1)
 
-		var/alcohol_volume = REAGENT_VOLUME(ingested, /decl/material/liquid/ethanol)
+		// TODO: check if this even works - it won't be picking up alcohol subtypes.
+		var/alcohol_volume = REAGENT_VOLUME(ingested, /decl/material/liquid/alcohol/ethanol)
 
 		var/alcohol_threshold_met = alcohol_volume > STOMACH_VOLUME / 2
-		if(alcohol_threshold_met && (owner.disabilities & EPILEPSY) && prob(20))
+		if(alcohol_threshold_met && owner.has_genetic_condition(GENE_COND_EPILEPSY) && prob(20))
 			owner.seizure()
 
 		// Alcohol counts as double volume for the purposes of vomit probability

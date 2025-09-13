@@ -3,14 +3,13 @@
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
 	icon = 'mods/content/xenobiology/icons/slimes/slime_extract.dmi'
 	icon_state = ICON_STATE_WORLD
-	force = 1.0
-	w_class = ITEM_SIZE_TINY
-	throwforce = 0
+	w_class = ITEM_SIZE_SMALL
 	throw_speed = 3
 	throw_range = 6
 	origin_tech = @'{"biotech":4}'
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	material = /decl/material/liquid/slimejelly
+	_base_attack_force = 1
 	var/slime_type = /decl/slime_colour/grey
 	var/Uses = 1 // uses before it goes inert
 	var/enhanced = 0 //has it been enhanced before?
@@ -50,8 +49,7 @@
 	add_to_reagents(/decl/material/liquid/slimejelly, 30)
 
 /obj/item/slime_extract/on_reagent_change()
-	..()
-	if(reagents?.total_volume)
+	if((. = ..()) && reagents?.total_volume)
 		var/decl/slime_colour/slime_data = GET_DECL(slime_type)
 		slime_data.handle_reaction(reagents)
 
@@ -100,7 +98,7 @@
 		return TRUE
 	visible_message(SPAN_WARNING("A craggy humanoid figure coalesces into being!"))
 
-	var/mob/living/carbon/human/G = new(src.loc)
+	var/mob/living/human/G = new(src.loc)
 	G.set_species(SPECIES_GOLEM)
 	G.key = ghost.key
 
@@ -108,7 +106,7 @@
 	I.implant_in_mob(G, BP_HEAD)
 	if (user.languages.len)
 		var/decl/language/lang = user.languages[1]
-		G.add_language(lang.name)
+		G.add_language(lang.type)
 		G.set_default_language(lang)
 		I.languages[lang.name] = 1
 

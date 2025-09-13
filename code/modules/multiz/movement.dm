@@ -16,7 +16,7 @@
 /mob/proc/move_down()
 	SelfMove(DOWN)
 
-/mob/living/carbon/human/move_up()
+/mob/living/human/move_up()
 	var/turf/old_loc = loc
 	..()
 	if(loc != old_loc)
@@ -25,7 +25,7 @@
 	var/turf/open/O = GetAbove(src)
 	var/atom/climb_target
 	if(istype(O))
-		for(var/turf/T in RANGE_TURFS(O, 1))
+		for(var/turf/T as anything in RANGE_TURFS(O, 1))
 			if(!T.is_open() && T.is_floor())
 				climb_target = T
 			else
@@ -48,7 +48,7 @@
 /mob/proc/can_overcome_gravity()
 	return FALSE
 
-/mob/living/carbon/human/can_overcome_gravity()
+/mob/living/human/can_overcome_gravity()
 	//First do species check
 	if(species && species.can_overcome_gravity(src))
 		return 1
@@ -72,26 +72,6 @@
 				return 1
 	return 0
 
-/mob/proc/can_ztravel()
-	return 0
-
-/mob/living/carbon/human/can_ztravel()
-	if(Process_Spacemove())
-		return 1
-
-	if(Check_Shoegrip())	//scaling hull with magboots
-		for(var/turf/T in RANGE_TURFS(src, 1))
-			if(T.density && T.simulated)
-				return 1
-
-/mob/living/silicon/robot/can_ztravel()
-	if(Process_Spacemove()) //Checks for active jetpack
-		return 1
-
-	for(var/turf/T in RANGE_TURFS(src, 1)) //Robots get "magboots"
-		if(T.density && T.simulated)
-			return 1
-
 //FALLING STUFF
 
 //Holds fall checks that should not be overriden by children
@@ -109,9 +89,6 @@
 
 	// No gravity in space, apparently.
 	if(!has_gravity())
-		return
-
-	if(throwing)
 		return
 
 	if(can_fall())
@@ -135,8 +112,8 @@
 		moving = FALSE
 
 //For children to override
-/atom/movable/proc/can_fall(var/anchor_bypass = FALSE, var/turf/location_override = loc)
-	if(!simulated)
+/atom/movable/proc/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
+	if(immune_to_floor_hazards())
 		return FALSE
 
 	if(anchored && !anchor_bypass)
@@ -161,16 +138,16 @@
 
 	return TRUE
 
-/obj/can_fall(var/anchor_bypass = FALSE, var/turf/location_override = loc)
-	return ..(anchor_fall)
+/obj/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
+	return ..(anchor_fall, location_override)
 
-/obj/effect/can_fall(var/anchor_bypass = FALSE, var/turf/location_override = loc)
+/obj/effect/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
 	return FALSE
 
-/obj/effect/decal/cleanable/can_fall(var/anchor_bypass = FALSE, var/turf/location_override = loc)
+/obj/effect/decal/cleanable/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
 	return TRUE
 
-/obj/item/pipe/can_fall(var/anchor_bypass = FALSE, var/turf/location_override = loc)
+/obj/item/pipe/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
 	var/turf/open/below = loc
 	below = below.below
 
@@ -182,24 +159,27 @@
 	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below)
 		return FALSE
 
-/mob/living/can_fall(var/anchor_bypass = FALSE, var/turf/location_override = loc)
+/mob/living/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
 	if((. = ..()))
 		var/decl/species/my_species = get_species()
 		if(my_species)
 			return my_species.can_fall(src)
 
 /atom/movable/proc/protected_from_fall_damage(var/turf/landing)
-	if(!!(locate(/obj/structure/stairs) in landing))
-		return TRUE
-	var/turf/exterior/wall/ramp = landing
-	if(istype(ramp) && ramp.ramp_slope_direction) // walking down a ramp
-		return TRUE
+	// Stairs and ramps will not save you from a high drop.
+	if(get_fall_height() <= 1)
+		if(!!(locate(/obj/structure/stairs) in landing))
+			return TRUE
+		var/turf/wall/natural/ramp = landing
+		if(istype(ramp) && ramp.ramp_slope_direction) // walking down a ramp
+			return TRUE
+	return FALSE
 
 /mob/protected_from_fall_damage(var/turf/landing)
 	. = ..()
 	if(!.)
 		// This is very silly, but it can be refined and made more appropriate as our multiz turf system is expanded.
-		var/obj/item/storage/backpack/parachute/parachute = get_equipped_item(slot_back_str)
+		var/obj/item/backpack/parachute/parachute = get_equipped_item(slot_back_str)
 		if(istype(parachute) && parachute.packed)
 			parachute.packed = FALSE
 			return TRUE
@@ -237,10 +217,16 @@
 
 /atom/movable/proc/handle_fall_effect(var/turf/landing)
 	SHOULD_CALL_PARENT(TRUE)
-	if(istype(landing) && landing.is_open())
-		visible_message("\The [src] falls through \the [landing]!", "You hear a whoosh of displaced air.")
+	if(istype(landing) && can_fall() && landing.CanZPass(src, DOWN))
+		visible_message(
+			SPAN_NOTICE("\The [src] falls through \the [landing]!"),
+			"You hear a whoosh of displaced air."
+		)
 	else
-		visible_message("\The [src] slams into \the [landing]!", "You hear something slam into the [global.using_map.ground_noun].")
+		visible_message(
+			SPAN_DANGER("\The [src] slams into [landing.is_open() ? "\the [landing]" : "an obstacle"]!"),
+			"You hear something slam into the [global.using_map.ground_noun]."
+		)
 		var/fall_damage = fall_damage() * get_fall_height()
 		if(fall_damage > 0)
 			for(var/mob/living/M in landing.contents)
@@ -255,13 +241,13 @@
 	return 0
 
 /obj/fall_damage()
-	if(w_class == ITEM_SIZE_TINY)
+	if(w_class <= ITEM_SIZE_TINY)
 		return 0
-	if(w_class >= ITEM_SIZE_NO_CONTAINER)
+	if(w_class >= ITEM_SIZE_GARGANTUAN)
 		return 100
 	return BASE_STORAGE_COST(w_class)
 
-/mob/living/carbon/human/apply_fall_damage(var/turf/landing)
+/mob/living/human/apply_fall_damage(var/turf/landing)
 	if(status_flags & GODMODE)
 		return
 	if(species && species.handle_fall_special(src, landing))
@@ -290,7 +276,7 @@
 			victim.dislocate()
 			to_chat(src, "<span class='warning'>You feel a sickening pop as your [victim.joint] is wrenched out of the socket.</span>")
 
-/mob/living/carbon/human/proc/climb_up(atom/A)
+/mob/living/human/proc/climb_up(atom/A)
 	if(!isturf(loc) || !bound_overlay || bound_overlay.destruction_timer || is_physically_disabled())	// This destruction_timer check ideally wouldn't be required, but I'm not awake enough to refactor this to not need it.
 		return FALSE
 
@@ -312,21 +298,59 @@
 	set desc = "If you want to know what's above."
 	set category = "IC"
 
-	if(client && !is_physically_disabled())
-		if(z_eye)
-			reset_view(null)
-			qdel(z_eye)
-			z_eye = null
+	if(!client || is_physically_disabled())
+		to_chat(src, SPAN_WARNING("You can't look up right now."))
+		return
+
+	if(z_eye)
+		reset_view(null)
+		qdel(z_eye)
+		z_eye = null
+		return
+
+	var/turf/above = GetAbove(src)
+	if(istype(above) && TURF_IS_MIMICKING(above))
+		z_eye = new /atom/movable/z_observer/z_up(src, src)
+		to_chat(src, SPAN_NOTICE("You look up."))
+		reset_view(z_eye)
+		return
+
+	if(above)
+		to_chat(src, SPAN_NOTICE("You can see \the [above]."))
+		return
+
+	check_sky()
+
+/mob/living/verb/check_sky()
+	set name = "Check Sky"
+	if(!client || is_physically_disabled() || !isturf(loc))
+		to_chat(src, SPAN_WARNING("You can't check the sky right now."))
+		return
+
+	var/turf/my_turf = loc
+	if(!my_turf.is_outside())
+		var/cannot_see_outside = TRUE
+		for(var/turf/neighbor in view(3, src))
+			if(neighbor.is_outside())
+				cannot_see_outside = FALSE
+				break
+		if(cannot_see_outside)
+			to_chat(src, SPAN_WARNING("You are indoors, and cannot see the sky from here."))
 			return
-		var/turf/above = GetAbove(src)
-		if(istype(above) && TURF_IS_MIMICKING(above))
-			z_eye = new /atom/movable/z_observer/z_up(src, src)
-			to_chat(src, "<span class='notice'>You look up.</span>")
-			reset_view(z_eye)
-			return
-		to_chat(src, "<span class='notice'>You can see \the [above ? above : "ceiling"].</span>")
+
+	var/obj/abstract/weather_system/weather = SSweather.weather_by_z[my_turf.z]
+	var/decl/state/weather/current_weather = weather?.weather_system?.current_state
+	if(istype(current_weather) && current_weather.descriptor)
+		to_chat(src, SPAN_NOTICE(current_weather.descriptor))
 	else
-		to_chat(src, "<span class='notice'>You can't look up right now.</span>")
+		to_chat(src, SPAN_NOTICE("The weather is indeterminate."))
+
+	var/datum/level_data/level = SSmapping.levels_by_z[my_turf.z]
+	var/datum/daycycle/daycycle = level?.daycycle_id && SSdaycycle.get_daycycle(level.daycycle_id)
+	if(daycycle?.current_period?.name)
+		to_chat(src, SPAN_NOTICE("It is currently [daycycle.current_period.name]."))
+	else
+		to_chat(src, SPAN_NOTICE("The time of day is indeterminate."))
 
 /mob/living/verb/lookdown()
 	set name = "Look Down"
@@ -359,7 +383,7 @@
 /mob/living/simple_animal/can_float()
 	return is_aquatic
 
-/mob/living/carbon/human/can_float()
+/mob/living/human/can_float()
 	return species.can_float(src)
 
 /mob/living/silicon/can_float()
@@ -407,7 +431,7 @@
 	owner = null
 	. = ..()
 
-/atom/movable/z_observer/can_fall()
+/atom/movable/z_observer/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
 	return FALSE
 
 /atom/movable/z_observer/explosion_act()

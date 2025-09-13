@@ -1,21 +1,23 @@
 // TODO: remove the robot.central_processor and robot.cell variables and completely rely on the robot component system
-
-/datum/robot_component/var/name
-/datum/robot_component/var/installed = 0
-/datum/robot_component/var/powered = 0
-/datum/robot_component/var/toggled = 1
-/datum/robot_component/var/brute_damage = 0
-/datum/robot_component/var/electronics_damage = 0
-/datum/robot_component/var/idle_usage = 0   // Amount of power used every MC tick. In joules.
-/datum/robot_component/var/active_usage = 0 // Amount of power used for every action. Actions are module-specific. Actuator for each tile moved, etc.
-/datum/robot_component/var/max_damage = 30  // HP of this component.
-/datum/robot_component/var/mob/living/silicon/robot/owner
-
-// The actual device object that has to be installed for this.
-/datum/robot_component/var/external_type = null
-
-// The wrapped device(e.g. radio), only set if external_type isn't null
-/datum/robot_component/var/obj/item/wrapped = null
+/datum/robot_component
+	var/name
+	/// Installation status; not a bool, may be -1, 0 or 1.
+	var/installed    = 0
+	var/powered      = FALSE
+	var/toggled      = TRUE
+	var/brute_damage = 0
+	var/burn_damage  = 0
+	/// Amount of power used every MC tick. In joules.
+	var/idle_usage   = 0
+	/// Amount of power used for every action. Actions are module-specific. Actuator for each tile moved, etc.
+	var/active_usage = 0
+	/// HP of this component.
+	var/max_damage   = 30
+	var/mob/living/silicon/robot/owner
+	/// The actual device object that has to be installed for this.
+	var/external_type
+	/// The wrapped device(e.g. radio), only set if external_type isn't null
+	var/obj/item/wrapped
 
 /datum/robot_component/New(mob/living/silicon/robot/R)
 	src.owner = R
@@ -52,13 +54,13 @@
 	installed = 1
 	install()
 
-/datum/robot_component/proc/take_damage(brute, electronics, sharp, edge)
+/datum/robot_component/proc/take_component_damage(brute, electronics, sharp, edge)
 	if(installed != 1) return
 
 	brute_damage += brute
-	electronics_damage += electronics
+	burn_damage += electronics
 
-	if(brute_damage + electronics_damage >= max_damage) destroy()
+	if(brute_damage + burn_damage >= max_damage) destroy()
 
 /datum/robot_component/proc/heal_damage(brute, electronics)
 	if(installed != 1)
@@ -66,10 +68,10 @@
 		return 0
 
 	brute_damage = max(0, brute_damage - brute)
-	electronics_damage = max(0, electronics_damage - electronics)
+	burn_damage = max(0, burn_damage - electronics)
 
 /datum/robot_component/proc/is_powered()
-	return (installed == 1) && (brute_damage + electronics_damage < max_damage) && (!idle_usage || powered)
+	return (installed == 1) && (brute_damage + burn_damage < max_damage) && (!idle_usage || powered)
 
 /datum/robot_component/proc/update_power_state()
 	if(toggled == 0)
@@ -111,7 +113,7 @@
 
 //A fixed and much cleaner implementation of /tg/'s special snowflake code.
 /datum/robot_component/actuator/is_powered()
-	return (installed == 1) && (brute_damage + electronics_damage < max_damage)
+	return (installed == 1) && (brute_damage + burn_damage < max_damage)
 
 
 // POWER CELL

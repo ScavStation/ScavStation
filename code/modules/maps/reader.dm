@@ -373,6 +373,8 @@ var/global/dmm_suite/preloader/_preloader = new
 	if (clear_contents && is_not_noop)
 		for (var/type_to_delete in types_to_delete())
 			for (var/atom/pre_existing in crds)
+				if(crds != pre_existing.loc) // avoid deleting multitile objects unnecessarily, only check their 'real' loc
+					continue
 				if (istype(pre_existing, type_to_delete))
 					atoms_to_delete |= pre_existing
 

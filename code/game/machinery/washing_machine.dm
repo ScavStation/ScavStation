@@ -16,34 +16,46 @@
 	anchored = TRUE
 	construct_state = /decl/machine_construction/default/panel_closed
 	uncreated_component_parts = null
-	var/state = 0
-	var/gibs_ready = FALSE
 	obj_flags = OBJ_FLAG_ANCHORABLE
 	clicksound = "button"
 	clickvol = 40
 
-	var/list/wash_whitelist = list(/obj/item/clothing/under,
-								   /obj/item/clothing/mask,
-								   /obj/item/clothing/head,
-								   /obj/item/clothing/gloves,
-								   /obj/item/clothing/shoes,
-								   /obj/item/clothing/suit,
-								   /obj/item/bedsheet,
-								   /obj/item/underwear)
-
-	var/max_item_size = ITEM_SIZE_LARGE
-
-	var/list/wash_blacklist = list(/obj/item/clothing/suit/space,
-								   /obj/item/clothing/suit/syndicatefake,
-								   /obj/item/clothing/suit/bomb_suit,
-								   /obj/item/clothing/suit/armor,
-								   /obj/item/clothing/mask/gas,
-								   /obj/item/clothing/mask/smokable/cigarette,
-								   /obj/item/clothing/head/helmet)
-
 	// Power
 	idle_power_usage = 10
 	active_power_usage = 150
+
+	var/state = 0
+	var/gibs_ready = FALSE
+	var/max_item_size = ITEM_SIZE_LARGE
+
+/obj/machinery/washing_machine/proc/get_wash_whitelist()
+	var/static/list/wash_whitelist = list(
+		/obj/item/clothing/costume,
+		/obj/item/clothing/shirt,
+		/obj/item/clothing/pants,
+		/obj/item/clothing/skirt,
+		/obj/item/clothing/dress,
+		/obj/item/clothing/mask,
+		/obj/item/clothing/head,
+		/obj/item/clothing/gloves,
+		/obj/item/clothing/shoes,
+		/obj/item/clothing/suit,
+		/obj/item/bedsheet,
+		/obj/item/underwear
+	)
+	return wash_whitelist
+
+/obj/machinery/washing_machine/proc/get_wash_blacklist()
+	var/static/list/wash_blacklist = list(
+		/obj/item/clothing/suit/space,
+		/obj/item/clothing/suit/syndicatefake,
+		/obj/item/clothing/suit/bomb_suit,
+		/obj/item/clothing/suit/armor,
+		/obj/item/clothing/mask/gas,
+		/obj/item/clothing/mask/smokable/cigarette,
+		/obj/item/clothing/head/helmet
+	)
+	return wash_blacklist
 
 /obj/machinery/washing_machine/Initialize(mapload, d, populate_parts)
 	create_reagents(100)
@@ -56,7 +68,7 @@
 /obj/machinery/washing_machine/proc/wash()
 	if(operable())
 		var/list/washing_atoms = get_contained_external_atoms()
-		var/amount_per_atom = FLOOR(reagents.total_volume / length(washing_atoms))
+		var/amount_per_atom = floor(reagents.total_volume / length(washing_atoms))
 
 		if(amount_per_atom > 0)
 			var/decl/material/smelliest = get_smelliest_reagent(reagents)
@@ -84,12 +96,12 @@
 	if(istype(W, /obj/item/chems/pill/detergent))
 		if(!(atom_flags & ATOM_FLAG_OPEN_CONTAINER))
 			to_chat(user, SPAN_WARNING("Open the detergent port first!"))
-			return
+			return TRUE
 		if(reagents.total_volume >= reagents.maximum_volume)
 			to_chat(user, SPAN_WARNING("The detergent port is full!"))
-			return
+			return TRUE
 		if(!user.try_unequip(W))
-			return
+			return TRUE
 		// Directly transfer to the holder to avoid touch reactions.
 		W.reagents?.trans_to_holder(reagents, W.reagents.total_volume)
 		to_chat(user, SPAN_NOTICE("You dissolve \the [W] in the detergent port."))
@@ -102,6 +114,8 @@
 
 	// If the detergent port is open and the item is an open container, assume we're trying to fill the detergent port.
 	if(!(state & WASHER_STATE_CLOSED) && !((atom_flags & W.atom_flags) & ATOM_FLAG_OPEN_CONTAINER))
+		var/list/wash_whitelist = get_wash_whitelist()
+		var/list/wash_blacklist = get_wash_blacklist()
 		var/list/washing_atoms = get_contained_external_atoms()
 		if(length(washing_atoms) < 5)
 			if(istype(W, /obj/item/holder)) // Mob holder
@@ -116,14 +130,14 @@
 			else if((!length(wash_whitelist) || is_type_in_list(W, wash_whitelist)) && !is_type_in_list(W, wash_blacklist))
 				if(W.w_class > max_item_size)
 					to_chat(user, SPAN_WARNING("\The [W] is too large for \the [src]!"))
-					return
+					return TRUE
 				if(!user.try_unequip(W, src))
-					return
+					return TRUE
 				state |= WASHER_STATE_LOADED
 				update_icon()
 			else
 				to_chat(user, SPAN_WARNING("You can't put \the [W] in \the [src]."))
-				return
+				return TRUE
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] is full."))
 			return TRUE
@@ -241,14 +255,16 @@
 	if(.)
 		return washer.operable() && !(washer.state & WASHER_STATE_RUNNING)
 
-/decl/interaction_handler/start_washer/invoked(obj/machinery/washing_machine/washer, mob/user)
+/decl/interaction_handler/start_washer/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/machinery/washing_machine/washer = target
 	return washer.start_washing(user)
 
 /decl/interaction_handler/toggle_open/washing_machine
 	name = "Toggle detergent port"
 	expected_target_type = /obj/machinery/washing_machine
 
-/decl/interaction_handler/toggle_open/washing_machine/invoked(obj/machinery/washing_machine/washer, mob/user)
+/decl/interaction_handler/toggle_open/washing_machine/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/machinery/washing_machine/washer = target
 	return washer.toggle_detergent_port(user)
 
 /obj/machinery/washing_machine/on_update_icon()
@@ -265,14 +281,15 @@
 /obj/machinery/washing_machine/autoclave
 	name = "autoclave"
 	desc = "An industrial washing machine used to sterilize and decontaminate items. It requires detergent for efficient decontamination."
-
-	wash_whitelist = list()
-	wash_blacklist = list()
-
 	max_item_size = ITEM_SIZE_HUGE
-
 	idle_power_usage = 10
 	active_power_usage = 300
+
+/obj/machinery/washing_machine/autoclave/get_wash_whitelist()
+	return
+
+/obj/machinery/washing_machine/autoclave/get_wash_blacklist()
+	return
 
 #undef WASHER_STATE_CLOSED
 #undef WASHER_STATE_LOADED

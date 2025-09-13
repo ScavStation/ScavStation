@@ -15,7 +15,7 @@
 	if((world.time - cooldown) <= 1 SECOND)
 		return //reduces spam.
 
-	var/decl/pronouns/G = get_pronouns()
+	var/decl/pronouns/pronouns = get_pronouns()
 	if(user)
 		if(thingy)
 			visible_message(SPAN_NOTICE("\The [user] pushes \the [src] with \the [thingy], giving the bones a good rattle."))
@@ -23,9 +23,9 @@
 			visible_message(SPAN_NOTICE("\The [user] pushes \the [src], giving the bones a good rattle."))
 	else
 		if(thingy)
-			visible_message(SPAN_NOTICE("\The [src] rattles on [G.his] stand as [G.he] [G.is] hit by \the [thingy]."))
+			visible_message(SPAN_NOTICE("\The [src] rattles on [pronouns.his] stand as [pronouns.he] [pronouns.is] hit by \the [thingy]."))
 		else
-			visible_message(SPAN_NOTICE("\The [src] rattles on [G.his] stand."))
+			visible_message(SPAN_NOTICE("\The [src] rattles on [pronouns.his] stand."))
 
 	cooldown = world.time
 	playsound(loc, 'sound/effects/bonerattle.ogg', 40)
@@ -61,28 +61,21 @@
 		var/nuname = sanitize(input(user,"What do you want to name this skeleton as?","Skeleton Christening",name) as text|null)
 		if(nuname && CanPhysicallyInteract(user))
 			SetName(nuname)
-			return 1
+			return TRUE
 	if(istype(W,/obj/item/clothing))
-		var/slot
-		if(istype(W, /obj/item/clothing/under))
-			slot = slot_w_uniform_str
-		else if(istype(W, /obj/item/clothing/suit))
-			slot = slot_wear_suit_str
-		else if(istype(W, /obj/item/clothing/head))
-			slot = slot_head_str
-		else if(istype(W, /obj/item/clothing/shoes))
-			slot = slot_shoes_str
-		else if(istype(W, /obj/item/clothing/mask))
-			slot = slot_wear_mask_str
-		if(slot)
-			if(swag[slot])
-				to_chat(user,"<span class='notice'>There is already that kind of clothing on \the [src].</span>")
-			else if(user.try_unequip(W, src))
-				swag[slot] = W
-				update_icon()
-				return 1
-	else
+		var/obj/item/clothing/clothes = W
+		if(!clothes.fallback_slot)
+			return FALSE
+		if(swag[clothes.fallback_slot])
+			to_chat(user,SPAN_NOTICE("There is already that kind of clothing on \the [src]."))
+		else if(user.try_unequip(W, src))
+			swag[clothes.fallback_slot] = W
+			update_icon()
+		return TRUE
+	. = ..()
+	if(!.)
 		rattle_bones(user, W)
+		return TRUE
 
 /obj/structure/skele_stand/Destroy()
 	for(var/slot in swag)

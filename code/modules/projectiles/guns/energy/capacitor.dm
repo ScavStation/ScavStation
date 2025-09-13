@@ -64,10 +64,11 @@ var/global/list/laser_wavelengths
 
 	var/wiring_color = COLOR_CYAN_BLUE
 	var/max_capacitors = 2
-	var/list/capacitors = /obj/item/stock_parts/capacitor
+	var/list/capacitors
+	var/initial_capacitor_type = /obj/item/stock_parts/capacitor
 	var/const/charge_iteration_delay = 3
 	var/const/capacitor_charge_constant = 10
-	var/decl/laser_wavelength/charging
+	var/charging
 	var/decl/laser_wavelength/selected_wavelength
 
 /obj/item/gun/energy/capacitor/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
@@ -93,11 +94,10 @@ var/global/list/laser_wavelengths
 		for(var/laser in all_wavelengths)
 			laser_wavelengths += all_wavelengths[laser]
 	selected_wavelength = pick(laser_wavelengths)
-	if(ispath(capacitors))
-		var/capacitor_type = capacitors
+	if(!islist(capacitors) && ispath(initial_capacitor_type))
 		capacitors = list()
 		for(var/i = 1 to max_capacitors)
-			capacitors += new capacitor_type(src)
+			capacitors += new initial_capacitor_type(src)
 	. = ..()
 
 /obj/item/gun/energy/capacitor/afterattack(atom/A, mob/living/user, adjacent, params)
@@ -153,9 +153,9 @@ var/global/list/laser_wavelengths
 /obj/item/gun/energy/capacitor/proc/charge(var/mob/user)
 	. = FALSE
 	if(!charging && istype(user))
-		charging = selected_wavelength
+		charging = TRUE
 		playsound(loc, 'sound/effects/capacitor_whine.ogg', 100, 0)
-		while(!QDELETED(user) && length(capacitors) && charging && user.get_active_hand() == src)
+		while(!QDELETED(user) && length(capacitors) && charging && user.get_active_held_item() == src)
 			var/charged = TRUE
 			for(var/obj/item/stock_parts/capacitor/capacitor in capacitors)
 				if(capacitor.charge < capacitor.max_charge)
@@ -219,7 +219,7 @@ var/global/list/laser_wavelengths
 		var/mob/M = loc
 		M.update_inhand_overlays()
 
-/obj/item/gun/energy/capacitor/apply_gun_mob_overlays(var/mob/living/user_mob, var/bodytype,  var/image/overlay, var/slot, var/bodypart)
+/obj/item/gun/energy/capacitor/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	..()
 	if(overlay && (slot == BP_L_HAND || slot == BP_R_HAND || slot == slot_back_str))
 		var/image/I = image(overlay.icon, "[overlay.icon_state]-wiring")
@@ -237,6 +237,7 @@ var/global/list/laser_wavelengths
 				I.color = selected_wavelength.color
 				I.appearance_flags |= RESET_COLOR
 				overlay.overlays += I
+	return overlay
 
 /obj/item/gun/energy/capacitor/consume_next_projectile()
 
@@ -249,10 +250,10 @@ var/global/list/laser_wavelengths
 
 	if(charged)
 		var/obj/item/projectile/P = new projectile_type(src)
-		P.color = selected_wavelength.color
+		P.set_color(selected_wavelength.color)
 		P.set_light(l_color = selected_wavelength.light_color)
-		P.damage = FLOOR(sqrt(total_charge) * selected_wavelength.damage_multiplier)
-		P.armor_penetration = FLOOR(sqrt(total_charge) * selected_wavelength.armour_multiplier)
+		P.damage = floor(sqrt(total_charge) * selected_wavelength.damage_multiplier)
+		P.armor_penetration = floor(sqrt(total_charge) * selected_wavelength.armour_multiplier)
 		. = P
 
 // Subtypes.
@@ -268,13 +269,13 @@ var/global/list/laser_wavelengths
 
 /obj/item/gun/energy/capacitor/rifle/setup_power_supply(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
 	loaded_cell_type = loaded_cell_type || /obj/item/cell/super
-	return ..(loaded_cell_type, accepted_cell_type, power_supply_extension_type, charge_value)
+	return ..(loaded_cell_type, accepted_cell_type, /datum/extension/loaded_cell, charge_value)
 
 /obj/item/gun/energy/capacitor/rifle/linear_fusion
 	name = "linear fusion rifle"
 	desc = "A chunky, angular, carbon-fiber-finish capacitor rifle, shipped complete with a self-charging power cell. The operating instructions seem to be written in backwards Cyrillic."
 	color = COLOR_GRAY40
-	capacitors = /obj/item/stock_parts/capacitor/super
+	initial_capacitor_type = /obj/item/stock_parts/capacitor/super
 	projectile_type = /obj/item/projectile/beam/variable/split
 	wiring_color = COLOR_GOLD
 

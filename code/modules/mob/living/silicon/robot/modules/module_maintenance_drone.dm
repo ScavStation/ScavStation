@@ -1,8 +1,9 @@
 /obj/item/robot_module/drone
 	name = "drone module"
-	hide_on_manifest = 1
-	no_slip = 1
-	camera_channels = list(
+	hide_on_manifest  = 1
+	has_nonslip_feet  = TRUE
+	has_magnetic_feet = TRUE
+	camera_channels   = list(
 		CAMERA_CAMERA_CHANNEL_ENGINEERING
 	)
 	languages = list(

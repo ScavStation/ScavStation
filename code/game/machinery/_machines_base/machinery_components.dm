@@ -43,6 +43,10 @@ var/global/list/machine_path_to_circuit_type
 	for(var/component_path in uncreated_component_parts)
 		var/number = uncreated_component_parts[component_path] || 1
 		LAZYREMOVE(uncreated_component_parts, component_path)
+		// Stacks are created differently to avoid qdel churn.
+		if(ispath(component_path, /obj/item/stack))
+			install_component(new component_path(src, number), refresh_parts = FALSE)
+			continue
 		for(var/i in 1 to number)
 			install_component(component_path, refresh_parts = FALSE)
 
@@ -183,13 +187,14 @@ var/global/list/machine_path_to_circuit_type
 		events_repository.unregister(/decl/observ/destroyed, part, src)
 		return part
 
-/obj/machinery/proc/replace_part(mob/user, var/obj/item/storage/part_replacer/R, var/obj/item/stock_parts/old_part, var/obj/item/stock_parts/new_part)
+/obj/machinery/proc/replace_part(mob/user, var/obj/item/part_replacer/R, var/obj/item/stock_parts/old_part, var/obj/item/stock_parts/new_part)
 	if(ispath(old_part))
 		old_part = get_component_of_type(old_part, TRUE)
 	old_part = uninstall_component(old_part)
 	if(R)
-		R.remove_from_storage(new_part, src)
-		R.handle_item_insertion(old_part, 1)
+		if(R.storage)
+			R.storage.remove_from_storage(null, new_part, src)
+			R.storage.handle_item_insertion(null, old_part, TRUE)
 		R.part_replacement_sound()
 	install_component(new_part)
 	to_chat(user, "<span class='notice'>[old_part.name] replaced with [new_part.name].</span>")
@@ -250,8 +255,8 @@ var/global/list/machine_path_to_circuit_type
 /obj/machinery/proc/component_stat_change(var/obj/item/stock_parts/part, old_stat, flag)
 
 /obj/machinery/attackby(obj/item/I, mob/user)
-	if(component_attackby(I, user))
-		return TRUE
+	if((. = component_attackby(I, user)))
+		return
 	return ..()
 
 /obj/machinery/proc/component_attackby(obj/item/I, mob/user)
@@ -260,7 +265,7 @@ var/global/list/machine_path_to_circuit_type
 			continue
 		if((. = part.attackby(I, user)))
 			return
-	return construct_state && construct_state.attackby(I, user, src)
+	return construct_state?.attackby(I, user, src)
 
 /obj/machinery/proc/component_attack_hand(mob/user)
 	for(var/obj/item/stock_parts/part in component_parts)
@@ -274,7 +279,7 @@ var/global/list/machine_path_to_circuit_type
 Standard helpers for users interacting with machinery parts.
 */
 
-/obj/machinery/proc/part_replacement(mob/user, obj/item/storage/part_replacer/R)
+/obj/machinery/proc/part_replacement(mob/user, obj/item/part_replacer/R)
 	for(var/obj/item/stock_parts/A in component_parts)
 		if(!A.base_type)
 			continue

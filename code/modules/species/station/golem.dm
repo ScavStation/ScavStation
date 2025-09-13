@@ -7,21 +7,21 @@
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/brain/golem
 	)
+	uid = "bodytype_crystalline_golem"
 
 /decl/species/golem
 	name = SPECIES_GOLEM
 	name_plural = "Golems"
+	hidden_from_codex = TRUE
 
 	available_bodytypes = list(/decl/bodytype/crystalline/golem)
 
 	unarmed_attacks = list(/decl/natural_attack/stomp, /decl/natural_attack/kick, /decl/natural_attack/punch)
 	species_flags = SPECIES_FLAG_NO_POISON
 	spawn_flags = SPECIES_IS_RESTRICTED
-	siemens_coefficient = 0
+	shock_vulnerability = 0
 
-	meat_type = null
-	bone_material = null
-	skin_material = null
+	butchery_data = /decl/butchery_data/crystal
 
 	breath_type = null
 	poison_types = null
@@ -33,15 +33,15 @@
 	death_message = "becomes completely motionless..."
 	available_pronouns = list(/decl/pronouns/neuter)
 
-	force_cultural_info = list(
-		TAG_CULTURE =   /decl/cultural_info/culture/hidden/cultist,
-		TAG_HOMEWORLD = /decl/cultural_info/location/stateless,
-		TAG_FACTION =   /decl/cultural_info/faction/other
+	force_background_info = list(
+		/decl/background_category/heritage =   /decl/background_detail/heritage/hidden/cultist,
+		/decl/background_category/homeworld = /decl/background_detail/location/stateless,
+		/decl/background_category/faction =   /decl/background_detail/faction/other
 	)
 
 	traits = list(/decl/trait/metabolically_inert = TRAIT_LEVEL_EXISTS)
 
-/decl/species/golem/handle_post_spawn(var/mob/living/carbon/human/H)
+/decl/species/golem/handle_post_spawn(var/mob/living/human/H)
 	if(H.mind)
 		H.mind.reset()
 		H.mind.assigned_role = "Golem"

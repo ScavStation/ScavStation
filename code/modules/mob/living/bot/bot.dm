@@ -4,13 +4,7 @@
 	icon = 'icons/mob/bot/placeholder.dmi'
 	universal_speak = TRUE
 	density = FALSE
-
-	meat_type = null
-	meat_amount = 0
-	skin_material = null
-	skin_amount = 0
-	bone_material = null
-	bone_amount = 0
+	butchery_data = null
 
 	var/obj/item/card/id/botcard = null
 	var/list/botcard_access = list()
@@ -21,6 +15,7 @@
 	var/light_strength = 3
 	var/busy = 0
 
+	// Dummy object used to hold bot access strings. TODO: just put it on the mob.
 	var/obj/access_scanner = null
 	var/list/req_access = list()
 
@@ -66,8 +61,12 @@
 		set_status(STAT_STUN, 0)
 		set_status(STAT_PARA, 0)
 
-/mob/living/bot/get_total_life_damage()
-	return getFireLoss() + getBruteLoss()
+/mob/living/bot/get_life_damage_types()
+	var/static/list/life_damage_types = list(
+		BURN,
+		BRUTE
+	)
+	return life_damage_types
 
 /mob/living/bot/get_dusted_remains()
 	return /obj/effect/decal/cleanable/blood/oil
@@ -86,6 +85,12 @@
 	if(. && !gibbed)
 		gib()
 
+/mob/living/bot/ssd_check()
+	return FALSE
+
+/mob/living/bot/try_awaken(mob/user)
+	return FALSE
+
 /mob/living/bot/attackby(var/obj/item/O, var/mob/user)
 	if(O.GetIdCard())
 		if(access_scanner.allowed(user) && !open)
@@ -96,7 +101,7 @@
 			to_chat(user, "<span class='warning'>Please close the access panel before locking it.</span>")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-		return
+		return TRUE
 	else if(IS_SCREWDRIVER(O))
 		if(!locked)
 			open = !open
@@ -104,7 +109,7 @@
 			Interact(usr)
 		else
 			to_chat(user, "<span class='notice'>You need to unlock the controls first.</span>")
-		return
+		return TRUE
 	else if(IS_WELDER(O))
 		if(current_health < get_max_health())
 			if(open)
@@ -114,9 +119,9 @@
 				to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
 		else
 			to_chat(user, "<span class='notice'>\The [src] does not need a repair.</span>")
-		return
+		return TRUE
 	else
-		..()
+		return ..()
 
 /mob/living/bot/attack_ai(var/mob/living/user)
 	Interact(user)
@@ -166,7 +171,7 @@
 	return
 
 /mob/living/bot/proc/GetInteractStatus()
-	. = "Status: <A href='?src=\ref[src];command=toggle'>[on ? "On" : "Off"]</A>"
+	. = "Status: <A href='byond://?src=\ref[src];command=toggle'>[on ? "On" : "Off"]</A>"
 	. += "<BR>Behaviour controls are [locked ? "locked" : "unlocked"]"
 	. += "<BR>Maintenance panel is [open ? "opened" : "closed"]"
 
@@ -211,9 +216,9 @@
 /mob/living/bot/emag_act(var/remaining_charges, var/mob/user)
 	return 0
 
-/mob/living/bot/handle_legacy_ai()
+/mob/living/bot/handle_living_non_stasis_processes()
 	. = ..()
-	if(on && !busy)
+	if(!key && on && !busy)
 		handle_async_ai()
 
 /mob/living/bot/proc/handle_async_ai()
@@ -279,12 +284,12 @@
 /mob/living/bot/proc/lookForTargets()
 	return
 
-/mob/living/bot/proc/confirmTarget(var/atom/A)
-	if(A.invisibility >= INVISIBILITY_LEVEL_ONE)
+/mob/living/bot/proc/confirmTarget(atom/target)
+	if(target.invisibility >= INVISIBILITY_LEVEL_ONE)
 		return 0
-	if(A in ignore_list)
+	if(target in ignore_list)
 		return 0
-	if(!A.loc)
+	if(!target.loc)
 		return 0
 	return 1
 
@@ -435,3 +440,17 @@
 	. = ..()
 	if(istype(botcard) && !is_type_in_list(botcard, exceptions))
 		LAZYDISTINCTADD(., botcard)
+
+// We don't want to drop these on gib().
+/mob/living/bot/physically_destroyed(skip_qdel)
+	QDEL_NULL(botcard)
+	QDEL_NULL(access_scanner)
+	return ..()
+
+/mob/living/bot/Destroy()
+	QDEL_NULL(botcard)
+	QDEL_NULL(access_scanner)
+	return ..()
+
+/mob/living/bot/isSynthetic()
+	return TRUE

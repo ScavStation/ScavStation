@@ -1,4 +1,4 @@
-MANTIDIFY(/obj/item/storage/bag/trash/purple,   "sample collection carrier", "material storage")
+MANTIDIFY(/obj/item/bag/trash/purple,   "sample collection carrier", "material storage")
 MANTIDIFY(/obj/item/tool/drill/diamond,         "lithobliterator",           "drilling")
 MANTIDIFY(/obj/item/tank/jetpack/carbondioxide, "maneuvering pack",          "propulsion")
 
@@ -28,7 +28,7 @@ MANTIDIFY(/obj/item/tank/jetpack/carbondioxide, "maneuvering pack",          "pr
 /obj/item/chems/glass/bucket/ascent
 	name = "portable liquid cleaning agent carrier"
 	desc = "An alien container of some sort."
-	icon = 'mods/species/ascent/icons/ascent_doodads.dmi'
+	icon = 'mods/species/ascent/icons/ascent_bucket.dmi'
 
 /obj/item/knife/kitchen/cleaver/ascent
 	name = "xenobiological flenser"
@@ -42,22 +42,22 @@ MANTIDIFY(/obj/item/tank/jetpack/carbondioxide, "maneuvering pack",          "pr
 	desc = "An alien portable long term storage device for potable water."
 	icon = 'mods/species/ascent/icons/ascent_doodads.dmi'
 
-/obj/item/chems/food/hydration
+/obj/item/food/hydration
 	name = "hydration ration"
 	desc = "Approximately ten units of liquid hydration in a edible membrane. Unflavored."
 	icon = 'mods/species/ascent/icons/ascent_doodads.dmi'
 	icon_state = "h2o_ration"
 	bitesize = 10
 
-/obj/item/chems/food/hydration/populate_reagents()
+/obj/item/food/hydration/populate_reagents()
 	add_to_reagents(/decl/material/liquid/water, 10)
 	. = ..()
 
-/obj/item/storage/box/water/ascent
+/obj/item/box/water/ascent
 	name = "box of hydration cylinders"
 	desc = "A box full of bottled water."
 	icon = 'mods/species/ascent/icons/ascent_doodads.dmi'
 	icon_state = "box"
 
-/obj/item/storage/box/water/ascent/WillContain()
+/obj/item/box/water/ascent/WillContain()
 	return list(/obj/item/chems/drinks/cans/waterbottle/ascent = 7)

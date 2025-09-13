@@ -45,6 +45,9 @@
 		return
 	if(user.client && user.client.inquisitive_ghost)
 		user.examinate(src)
+		return
+	if(user.client?.holder || user.antagHUD)
+		storage?.show_to(user)
 	return
 
 // ---------------------------------------

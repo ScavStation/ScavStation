@@ -28,7 +28,6 @@
 	var/detectTime = 0
 	var/alarm_delay = 100 // Don't forget, there's another 10 seconds in queueAlarm()
 
-	var/number = 1
 	var/c_tag = null
 	var/status = 1
 	var/cut_power = FALSE
@@ -58,17 +57,7 @@
 	if(stat & BROKEN)
 		to_chat(user, SPAN_WARNING("It is completely demolished."))
 
-/obj/machinery/camera/malf_upgrade(var/mob/living/silicon/ai/user)
-	..()
-	malf_upgraded = 1
-
-	install_component(/obj/item/stock_parts/capacitor/adv, TRUE)
-	install_component(/obj/item/stock_parts/scanning_module/adv, TRUE)
-
-	to_chat(user, SPAN_NOTICE("\The [src] has been upgraded. It now has X-Ray capability and EMP resistance."))
-	return 1
-
-/obj/machinery/camera/apply_visual(mob/living/carbon/human/M)
+/obj/machinery/camera/apply_visual(mob/living/human/M)
 	if(!M.client || !istype(M))
 		return
 	M.overlay_fullscreen("fishbed",/obj/screen/fullscreen/fishbed)
@@ -77,7 +66,7 @@
 	M.machine_visual = src
 	return 1
 
-/obj/machinery/camera/remove_visual(mob/living/carbon/human/M)
+/obj/machinery/camera/remove_visual(mob/living/human/M)
 	if(!M.client || !istype(M))
 		return
 	M.clear_fullscreen("fishbed",0)
@@ -190,7 +179,7 @@
 
 
 /obj/machinery/camera/bullet_act(var/obj/item/projectile/P)
-	take_damage(P.get_structure_damage())
+	take_damage(P.get_structure_damage(), P.atom_damage_type)
 
 /obj/machinery/camera/explosion_act(severity)
 	..()
@@ -199,15 +188,16 @@
 
 /obj/machinery/camera/hitby(var/atom/movable/AM)
 	. = ..()
-	if(. && istype(AM, /obj))
-		var/obj/O = AM
-		if (O.throwforce >= src.toughness)
-			visible_message(SPAN_WARNING("[src] was hit by [O]!"))
-		take_damage(O.throwforce)
+	if(. && isobj(AM))
+		var/thrown_force = AM.get_thrown_attack_force()
+		if (thrown_force >= toughness)
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]!"))
+			var/obj/O = AM
+			take_damage(thrown_force, O.atom_damage_type)
 
-/obj/machinery/camera/physical_attack_hand(mob/living/carbon/human/user)
+/obj/machinery/camera/physical_attack_hand(mob/living/human/user)
 	if(!istype(user))
-		return
+		return TRUE
 	if(user.species.can_shred(user))
 		user.do_attack_animation(src)
 		visible_message(SPAN_WARNING("\The [user] slashes at [src]!"))
@@ -215,6 +205,7 @@
 		add_hiddenprint(user)
 		take_damage(25)
 		return TRUE
+	return FALSE
 
 /obj/machinery/camera/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/paper))
@@ -337,15 +328,6 @@
 	var/datum/extension/network_device/camera/D = get_extension(src, /datum/extension/network_device)
 	return D.channels
 
-// Resets the camera's wires to fully operational state. Used by one of Malfunction abilities.
-/obj/machinery/camera/proc/reset_wires()
-	if(!wires)
-		return
-	set_broken(FALSE) // Fixes the camera and updates the icon.
-	wires.CutAll()
-	wires.MendAll()
-	update_coverage()
-
 /obj/machinery/camera/proc/nano_structure()
 	var/datum/extension/network_device/camera/D = get_extension(src, /datum/extension/network_device/)
 	return D.nano_structure()
@@ -402,5 +384,4 @@
 	can_write = FALSE
 
 /decl/public_access/public_variable/camera_channels/access_var(obj/machinery/camera/C)
-	var/datum/extension/network_device/camera/camera_device = get_extension(C, /datum/extension/network_device/)
-	return english_list(camera_device?.channels)
+	return english_list(C.get_channels())

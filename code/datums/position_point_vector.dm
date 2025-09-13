@@ -112,11 +112,11 @@
 	AM.pixel_y = return_py()
 
 /datum/point/proc/return_turf()
-	var/turf/T = locate(CEILING(x / world.icon_size), CEILING(y / world.icon_size), z)
+	var/turf/T = locate(ceil(x / world.icon_size), ceil(y / world.icon_size), z)
 	return T?.resolve_to_actual_turf()
 
 /datum/point/proc/return_coordinates()		//[turf_x, turf_y, z]
-	return list(CEILING(x / world.icon_size), CEILING(y / world.icon_size), z)
+	return list(ceil(x / world.icon_size), ceil(y / world.icon_size), z)
 
 /datum/point/proc/return_position()
 	return new /datum/position(src)
@@ -187,15 +187,6 @@
 	iteration++
 	x += mpx * multiplier
 	y += mpy * multiplier
-
-/datum/point/vector/proc/return_vector_after_increments(amount = 7, multiplier = 1, force_simulate = FALSE)
-	var/datum/point/vector/v = copy_to()
-	if(force_simulate)
-		for(var/i in 1 to amount)
-			v.increment(multiplier)
-	else
-		v.increment(multiplier * amount)
-	return v
 
 /datum/point/vector/proc/on_z_change()
 	return

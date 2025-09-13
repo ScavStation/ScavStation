@@ -34,9 +34,9 @@ SUBSYSTEM_DEF(spacedrift)
 				return
 			continue
 
-		if (!AM.loc || AM.loc != AM.inertia_last_loc || AM.Process_Spacemove(0))
+		if (!AM.loc || AM.loc != AM.inertia_last_loc || AM.is_space_movement_permitted() != SPACE_MOVE_FORBIDDEN)
 			AM.inertia_dir = 0
-		
+
 		AM.inertia_ignore = null
 
 		if (!AM.inertia_dir)

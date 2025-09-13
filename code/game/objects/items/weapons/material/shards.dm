@@ -9,8 +9,6 @@
 	sharp = 1
 	edge = 1
 	w_class = ITEM_SIZE_SMALL
-	material_force_multiplier = 0.12 // 6 with hardness 30 (glass)
-	thrown_material_force_multiplier = 0.1 // 3 with weight 30 (glass)
 	item_state = "shard-glass"
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	material = /decl/material/solid/glass
@@ -22,11 +20,11 @@
 	. = ..()
 	set_extension(src, /datum/extension/tool, list(TOOL_SCALPEL = TOOL_QUALITY_BAD))
 
-/obj/item/shard/attack(mob/living/M, mob/living/user, var/target_zone)
+/obj/item/shard/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	. = ..()
-	if(. && !has_handle)
-		var/mob/living/carbon/human/H = user
-		if(istype(H) && !H.get_equipped_item(slot_gloves_str) && !(H.species.species_flags & SPECIES_FLAG_NO_MINOR_CUT))
+	if(. && !has_handle && ishuman(user))
+		var/mob/living/human/H = user
+		if(!H.get_equipped_item(slot_gloves_str) && !(H.species.species_flags & SPECIES_FLAG_NO_MINOR_CUT))
 			var/obj/item/organ/external/hand = GET_EXTERNAL_ORGAN(H, H.get_active_held_item_slot())
 			if(istype(hand) && !BP_IS_PROSTHETIC(hand))
 				to_chat(H, SPAN_DANGER("You slice your hand on \the [src]!"))
@@ -53,13 +51,8 @@
 
 /obj/item/shard/on_update_icon()
 	. = ..()
-	if(material)
-		color = material.color
-		// 1-(1-x)^2, so that glass shards with 0.3 opacity end up somewhat visible at 0.51 opacity
-		alpha = 255 * (1 - (1 - material.opacity)*(1 - material.opacity))
-	else
-		color = "#ffffff"
-		alpha = 255
+	// 1-(1-x)^2, so that glass shards with 0.3 opacity end up somewhat visible at 0.51 opacity
+	alpha = 255 * (material ? (1 - (1 - material.opacity)**2) : 1)
 
 /obj/item/shard/attackby(obj/item/W, mob/user)
 	if(IS_WELDER(W) && material.shard_can_repair)
@@ -67,24 +60,24 @@
 		if(WT.weld(0, user))
 			material.create_object(get_turf(src))
 			qdel(src)
-			return
+			return TRUE
 	if(istype(W, /obj/item/stack/cable_coil))
 
 		if(!material || (material.shard_type in list(SHARD_SPLINTER, SHARD_SHRAPNEL)))
 			to_chat(user, SPAN_WARNING("\The [src] is not suitable for using as a shank."))
-			return
+			return TRUE
 		if(has_handle)
 			to_chat(user, SPAN_WARNING("\The [src] already has a handle."))
-			return
+			return TRUE
 		var/obj/item/stack/cable_coil/cable = W
 		if(cable.use(3))
 			to_chat(user, SPAN_NOTICE("You wind some cable around the thick end of \the [src]."))
 			has_handle = cable.color
 			SetName("[material.solid_name] shank")
 			update_icon()
-			return
+			return TRUE
 		to_chat(user, SPAN_WARNING("You need 3 or more units of cable to give \the [src] a handle."))
-		return
+		return TRUE
 	return ..()
 
 /obj/item/shard/on_update_icon()
@@ -97,31 +90,33 @@
 	if(!isliving(AM))
 		return
 
-	var/mob/living/M = AM
-	if(M.buckled) //wheelchairs, office chairs, rollerbeds
+	var/mob/living/victim = AM
+	if(victim.buckled) //wheelchairs, office chairs, rollerbeds
+		return
+	if(victim.immune_to_floor_hazards())
 		return
 
 	playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
 
-	var/decl/species/walker_species = M.get_species()
+	var/decl/species/walker_species = victim.get_species()
 	if(walker_species?.species_flags & (SPECIES_FLAG_NO_EMBED|SPECIES_FLAG_NO_MINOR_CUT)) //Thick skin.
 		return
 
-	var/obj/item/shoes = M.get_equipped_item(slot_shoes_str)
-	var/obj/item/suit = M.get_equipped_item(slot_wear_suit_str)
+	var/obj/item/shoes = victim.get_equipped_item(slot_shoes_str)
+	var/obj/item/suit = victim.get_equipped_item(slot_wear_suit_str)
 	if(shoes || (suit && (suit.body_parts_covered & SLOT_FEET)))
 		return
 
 	var/list/check = list(BP_L_FOOT, BP_R_FOOT)
 	while(check.len)
 		var/picked = pick_n_take(check)
-		var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(M, picked)
+		var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(victim, picked)
 		if(!affecting || BP_IS_PROSTHETIC(affecting))
 			continue
-		to_chat(M, SPAN_DANGER("You step on \the [src]!"))
+		to_chat(victim, SPAN_DANGER("You step on \the [src]!"))
 		affecting.take_external_damage(5, 0)
 		if(affecting.can_feel_pain())
-			SET_STATUS_MAX(M, STAT_WEAK, 3)
+			SET_STATUS_MAX(victim, STAT_WEAK, 3)
 		return
 
 //Prevent the shard from being allowed to shatter

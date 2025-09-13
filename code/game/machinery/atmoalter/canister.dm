@@ -1,20 +1,20 @@
 /obj/machinery/portable_atmospherics/canister
-	name = "canister"
-	icon = 'icons/obj/atmos.dmi'
-	icon_state = "yellow"
-	density = TRUE
-	max_health = 100
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	w_class = ITEM_SIZE_GARGANTUAN
-	construct_state = /decl/machine_construction/pipe/welder
-	uncreated_component_parts = null
-	start_pressure             = 45 ATM
-	volume                     = 1000
-	interact_offline           = TRUE
-	matter = list(
+	name             = "canister"
+	icon             = 'icons/obj/atmos.dmi'
+	icon_state       = "yellow"
+	density          = TRUE
+	max_health       = 100
+	obj_flags        = OBJ_FLAG_CONDUCTIBLE
+	w_class          = ITEM_SIZE_GARGANTUAN
+	construct_state  = /decl/machine_construction/pipe/welder
+	stat_immune      = NOSCREEN | NOINPUT | NOPOWER
+	start_pressure   = 45 ATM
+	volume           = 1000
+	interact_offline = TRUE
+	matter           = list(
 		/decl/material/solid/metal/steel = 10 * SHEET_MATERIAL_AMOUNT
 	)
-
+	uncreated_component_parts  = null
 	var/valve_open             = FALSE
 	var/release_pressure       = ONE_ATMOSPHERE
 	var/release_flow_rate      = ATMOS_DEFAULT_VOLUME_PUMP //in L/s
@@ -81,32 +81,20 @@
 /obj/machinery/portable_atmospherics/canister/empty
 	start_pressure = 0
 	can_label      = TRUE
-	var/obj/machinery/portable_atmospherics/canister/canister_type = /obj/machinery/portable_atmospherics/canister
 
-/obj/machinery/portable_atmospherics/canister/empty/Initialize()
-	. = ..()
-	name           = initial(canister_type.name)
-	icon_state     = initial(canister_type.icon_state)
-	canister_color = initial(canister_type.canister_color)
+#define EMPTY_CANISTER(TYPE, CTYPE) \
+/obj/machinery/portable_atmospherics/canister/empty/##TYPE{\
+	name = CTYPE::name; \
+	icon_state = CTYPE::icon_state; \
+	canister_color = CTYPE::canister_color; \
+}
 
-/obj/machinery/portable_atmospherics/canister/empty/air
-	icon_state    = "grey"
-	canister_type = /obj/machinery/portable_atmospherics/canister/air
-/obj/machinery/portable_atmospherics/canister/empty/oxygen
-	icon_state    = "blue"
-	canister_type = /obj/machinery/portable_atmospherics/canister/oxygen
-/obj/machinery/portable_atmospherics/canister/empty/nitrogen
-	icon_state    = "red"
-	canister_type = /obj/machinery/portable_atmospherics/canister/nitrogen
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide
-	icon_state    = "black"
-	canister_type = /obj/machinery/portable_atmospherics/canister/carbon_dioxide
-/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent
-	icon_state    = "redws"
-	canister_type = /obj/machinery/portable_atmospherics/canister/sleeping_agent
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen
-	icon_state    = "purple"
-	canister_type = /obj/machinery/portable_atmospherics/canister/hydrogen
+EMPTY_CANISTER(air, /obj/machinery/portable_atmospherics/canister/air)
+EMPTY_CANISTER(oxygen, /obj/machinery/portable_atmospherics/canister/oxygen)
+EMPTY_CANISTER(nitrogen, /obj/machinery/portable_atmospherics/canister/nitrogen)
+EMPTY_CANISTER(carbon_dioxide, /obj/machinery/portable_atmospherics/canister/carbon_dioxide)
+EMPTY_CANISTER(sleeping_agent, /obj/machinery/portable_atmospherics/canister/sleeping_agent)
+EMPTY_CANISTER(hydrogen, /obj/machinery/portable_atmospherics/canister/hydrogen)
 
 /obj/machinery/portable_atmospherics/canister/on_update_icon()
 
@@ -202,7 +190,7 @@
 	return 0
 
 /obj/machinery/portable_atmospherics/canister/bullet_act(var/obj/item/projectile/Proj)
-	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
+	if(!(Proj.atom_damage_type == BRUTE || Proj.atom_damage_type == BURN))
 		return
 	if(Proj.damage)
 		current_health -= round(Proj.damage / 2)
@@ -212,7 +200,7 @@
 /obj/machinery/portable_atmospherics/canister/bash(var/obj/item/W, var/mob/user)
 	. = ..()
 	if(.)
-		current_health -= W.force
+		current_health -= W.get_attack_force(user)
 		healthcheck()
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W, var/mob/user)

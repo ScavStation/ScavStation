@@ -19,6 +19,7 @@
 	icon_base = 'icons/turf/walls/metal.dmi'
 	icon_reinf = 'icons/turf/walls/reinforced_metal.dmi'
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
+	tensile_strength = 0.8 // metal wire is probably better than plastic?
 
 /decl/material/solid/metal/uranium
 	name = "uranium"
@@ -86,7 +87,7 @@
 	hardness = MAT_VALUE_FLEXIBLE + 5
 	integrity = 100
 	stack_origin_tech = @'{"materials":4}'
-	ore_result_amount = 5
+	ore_result_amount = 1
 	ore_name = "native gold"
 	ore_spread_chance = 10
 	ore_scan_icon = "mineral_uncommon"
@@ -163,6 +164,7 @@
 	weight = MAT_VALUE_NORMAL
 	hardness = MAT_VALUE_FLEXIBLE + 10
 	stack_origin_tech = @'{"materials":2}'
+	temperature_burn_milestone_material = /decl/material/solid/metal/copper
 
 /decl/material/solid/metal/silver
 	name = "silver"
@@ -173,7 +175,7 @@
 	color = "#d1e6e3"
 	hardness = MAT_VALUE_FLEXIBLE + 10
 	stack_origin_tech = @'{"materials":3}'
-	ore_result_amount = 5
+	ore_result_amount = 1
 	ore_spread_chance = 10
 	ore_name = "native silver"
 	ore_scan_icon = "mineral_uncommon"
@@ -193,7 +195,7 @@
 	boiling_point = 2774
 	weight = MAT_VALUE_NORMAL
 	wall_support_value = MAT_VALUE_VERY_HEAVY // Ideal construction material.
-	hardness = MAT_VALUE_HARD
+	hardness = MAT_VALUE_HARD + 5
 	integrity = 150
 	brute_armor = 5
 	icon_base = 'icons/turf/walls/solid.dmi'
@@ -224,6 +226,7 @@
 	melting_point = 1784
 	boiling_point = null
 	wall_support_value = MAT_VALUE_HEAVY
+	hardness = MAT_VALUE_HARD + 5
 	integrity = 175
 	burn_armor = 10
 	color = "#a5a5a5"
@@ -355,9 +358,10 @@
 	color = "#deddff"
 	weight = MAT_VALUE_VERY_HEAVY
 	wall_support_value = MAT_VALUE_VERY_HEAVY
+	hardness = MAT_VALUE_VERY_HARD
 	stack_origin_tech = @'{"materials":2}'
 	ore_compresses_to = /decl/material/solid/metal/osmium
-	ore_result_amount = 5
+	ore_result_amount = 1
 	ore_spread_chance = 10
 	ore_name = "raw platinum"
 	ore_scan_icon = "mineral_rare"
@@ -376,15 +380,17 @@
 	boiling_point = 3134
 	color = "#5c5454"
 	hitsound = 'sound/weapons/smash.ogg'
+	hardness = MAT_VALUE_HARD
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
 	reflectiveness = MAT_VALUE_MATTE
 	taste_description = "metal"
 	ferrous = TRUE
+	temperature_burn_milestone_material = /decl/material/solid/metal/iron
 
 /decl/material/solid/metal/iron/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	. = ..()
+	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
-
 	M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /decl/material/solid/metal/tin
@@ -394,7 +400,7 @@
 	melting_point = 505
 	boiling_point = 2875
 	color = "#c5c5a8"
-	hardness = MAT_VALUE_SOFT + 10
+	hardness = MAT_VALUE_FLEXIBLE
 	construction_difficulty = MAT_VALUE_EASY_DIY
 	reflectiveness = MAT_VALUE_MATTE
 
@@ -405,11 +411,12 @@
 	melting_point = 600
 	boiling_point = 2022
 	color = "#3f3f4d"
-	hardness = MAT_VALUE_SOFT
+	hardness = MAT_VALUE_FLEXIBLE
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
 	reflectiveness = MAT_VALUE_MATTE
 	taste_description = "metallic sugar"
 	toxicity = 1
+	temperature_burn_milestone_material = /decl/material/solid/metal/lead
 
 /decl/material/solid/metal/zinc
 	name = "zinc"
@@ -479,3 +486,4 @@
 	taste_mult = 0 //no taste
 	color = "#dcdcdc"
 	value = 0.5
+	melting_point = 3422 CELSIUS

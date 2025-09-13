@@ -1,14 +1,7 @@
 /mob/living/silicon
 	gender = NEUTER
-	voice_name = "synthesized voice"
 	skillset = /datum/skillset/silicon
-
-	meat_type = null
-	meat_amount = 0
-	skin_material = null
-	skin_amount = 0
-	bone_material = null
-	bone_amount = 0
+	butchery_data = /decl/butchery_data/synthetic
 
 	var/dexterity = DEXTERITY_FULL
 	var/syndicate = 0
@@ -75,14 +68,8 @@
 	QDEL_NULL_LIST(stock_parts)
 	return ..()
 
-/mob/living/silicon/experiences_hunger_and_thirst()
-	return FALSE // Doesn't really apply to robots. Maybe unify this with cells in the future.
-
-/mob/living/silicon/get_nutrition()
-	return get_max_nutrition()
-
-/mob/living/silicon/get_hydration()
-	return get_max_hydration()
+/mob/living/silicon/get_dexterity(silent)
+	return dexterity
 
 /mob/living/silicon/fully_replace_character_name(new_name)
 	..()
@@ -99,7 +86,7 @@
 	return
 
 /mob/living/silicon/drop_item(var/Target)
-	for(var/obj/item/grab/grab in get_active_grabs())
+	for(var/obj/item/grab/grab as anything in get_active_grabs())
 		qdel(grab)
 		. = TRUE
 
@@ -119,15 +106,13 @@
 	to_chat(src, "<span class='danger'>Warning: Electromagnetic pulse detected.</span>")
 	..()
 
-/mob/living/silicon/stun_effect_act(var/stun_amount, var/agony_amount)
+/mob/living/silicon/stun_effect_act(stun_amount, agony_amount, def_zone, used_weapon)
 	return	//immune
 
-/mob/living/silicon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, def_zone = null)
-
+/mob/living/silicon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1, def_zone)
 	shock_damage = ..()
 	if(shock_damage <= 0 || !istype(source, /obj/effect/containment_field))
 		return 0
-
 	spark_at(loc, amount=5, cardinal_only = TRUE)
 	shock_damage *= 0.75	//take reduced damage
 	take_overall_damage(0, shock_damage)
@@ -140,29 +125,18 @@
 		SET_STATUS_MAX(src, STAT_STUN, 2)
 	return shock_damage
 
-/mob/living/silicon/proc/damage_mob(var/brute = 0, var/fire = 0, var/tox = 0)
-	return
-
 /mob/living/silicon/bullet_act(var/obj/item/projectile/Proj)
 	if(!Proj.nodamage)
-		switch(Proj.damage_type)
+		switch(Proj.atom_damage_type)
 			if(BRUTE)
-				adjustBruteLoss(Proj.damage)
+				take_damage(Proj.damage)
 			if(BURN)
-				adjustFireLoss(Proj.damage)
+				take_damage(Proj.damage, BURN)
 	Proj.on_hit(src,100) //wow this is a terrible hack
 	return 100
 
 /mob/living/silicon/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
 	return 0//The only effect that can hit them atm is flashes and they still directly edit so this works for now
-
-/proc/islinked(var/mob/living/silicon/robot/bot, var/mob/living/silicon/ai/ai)
-	if(!istype(bot) || !istype(ai))
-		return 0
-	if (bot.connected_ai == ai)
-		return 1
-	return 0
-
 
 // this function shows the health of the AI in the Status panel
 /mob/living/silicon/proc/show_system_integrity()
@@ -293,7 +267,10 @@
 	apply_damage(burn, BURN, damage_flags = DAM_EXPLODE)
 
 /mob/living/silicon/proc/receive_alarm(var/datum/alarm_handler/alarm_handler, var/datum/alarm/alarm, was_raised)
-	if(!(alarm.alarm_z() in SSmapping.get_connected_levels(get_z(src))))
+	var/my_z = get_z(src)
+	if(!my_z)
+		return
+	if(!(alarm.alarm_z() in SSmapping.get_connected_levels(my_z)))
 		return // Didn't actually hear it as far as we're concerned.
 	if(!next_alarm_notice)
 		next_alarm_notice = world.time + SecondsToTicks(10)
@@ -337,7 +314,7 @@
 					to_chat(src, "\The [A.alarm_name()].")
 
 		if(alarm_raised)
-			to_chat(src, "<A HREF=?src=\ref[src];showalerts=1>\[Show Alerts\]</A>")
+			to_chat(src, "<A HREF='byond://?src=\ref[src];showalerts=1'>\[Show Alerts\]</A>")
 
 		for(var/datum/alarm_handler/AH in queued_alarms)
 			var/list/alarms = queued_alarms[AH]
@@ -349,19 +326,12 @@
 /mob/living/silicon/ai/raised_alarm(var/datum/alarm/A)
 	var/cameratext = ""
 	for(var/obj/machinery/camera/C in A.cameras())
-		cameratext += "[(cameratext == "")? "" : "|"]<A HREF=?src=\ref[src];switchcamera=\ref[C]>[C.c_tag]</A>"
+		cameratext += "[(cameratext == "")? "" : "|"]<A HREF='byond://?src=\ref[src];switchcamera=\ref[C]'>[C.c_tag]</A>"
 	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
 
-/mob/living/silicon/proc/is_traitor()
-	var/decl/special_role/traitors = GET_DECL(/decl/special_role/traitor)
-	return mind && (mind in traitors.current_antagonists)
-
-/mob/living/silicon/adjustEarDamage()
-	return
-
-/mob/living/silicon/setEarDamage()
-	return
+/mob/living/silicon/proc/is_malfunctioning()
+	return FALSE
 
 /mob/living/silicon/reset_view()
 	..()
@@ -442,15 +412,12 @@
 /mob/living/silicon/get_admin_job_string()
 	return "Silicon-based"
 
-/mob/living/silicon/get_telecomms_race_info()
-	return list("Artificial Life", TRUE)
-
 /mob/living/silicon/proc/process_os()
 	var/datum/extension/interactive/os = get_extension(src, /datum/extension/interactive/os)
 	if(os)
 		os.Process()
 
-/mob/living/silicon/handle_flashed(var/obj/item/flash/flash, var/flash_strength)
+/mob/living/silicon/handle_flashed(var/flash_strength)
 	SET_STATUS_MAX(src, STAT_PARA, flash_strength)
 	SET_STATUS_MAX(src, STAT_WEAK, flash_strength)
 	return TRUE
@@ -465,8 +432,12 @@
 	if(istype(idcard) && !stat && !(ckey && !client) && !is_type_in_list(idcard, exceptions))
 		LAZYDISTINCTADD(., idcard)
 
-/mob/living/silicon/get_total_life_damage()
-	return (getBruteLoss() + getFireLoss())
+/mob/living/silicon/get_life_damage_types()
+	var/static/list/life_damage_types = list(
+		BURN,
+		BRUTE
+	)
+	return life_damage_types
 
 /mob/living/silicon/get_dexterity(var/silent)
 	return dexterity
@@ -476,3 +447,19 @@
 	if(.)
 		adjustBruteLoss(5, do_update_health = FALSE)
 		adjustFireLoss(10)
+
+/mob/living/silicon/get_available_postures()
+	var/static/list/available_postures = list(
+		/decl/posture/standing
+	)
+	return available_postures
+
+/mob/living/silicon/try_awaken(mob/user)
+	return FALSE
+
+/mob/living/silicon/handle_stance()
+	stance_damage = 0
+	return
+
+/mob/living/silicon/isSynthetic()
+	return TRUE

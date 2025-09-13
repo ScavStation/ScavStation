@@ -74,6 +74,21 @@ var/global/list/diversion_junctions = list()
 		return SPAN_NOTICE("Eject the items first!")
 	return ..()
 
+/obj/machinery/disposal/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim))
+		user.visible_message(SPAN_DANGER("\The [user] starts putting \the [victim] into the disposal."))
+		if(do_after(user, 2 SECONDS, src))
+			if (victim.client)
+				victim.client.perspective = EYE_PERSPECTIVE
+				victim.client.eye = src
+			victim.forceMove(src)
+			user.visible_message(SPAN_DANGER("\The [victim] has been placed in \the [src] by \the [user]."))
+			qdel(grab)
+			admin_attack_log(user, victim, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
+		return TRUE
+	return ..()
+
 // attack by item places it in to disposal
 /obj/machinery/disposal/attackby(var/obj/item/I, var/mob/user)
 	if((. = ..()))
@@ -81,29 +96,14 @@ var/global/list/diversion_junctions = list()
 	if(stat & BROKEN || !I || !user)
 		return
 
-	if(istype(I, /obj/item/storage/bag/trash))
-		var/obj/item/storage/bag/trash/T = I
-		to_chat(user, "<span class='notice'>You empty the bag.</span>")
-		for(var/obj/item/O in T.contents)
-			T.remove_from_storage(O,src, 1)
-		T.finish_bulk_removal()
-		update_icon()
-		return
-
-	var/obj/item/grab/G = I
-	if(istype(G))	// handle grabbed mob
-		var/mob/GM = G.get_affecting_mob()
-		if(GM)
-			usr.visible_message(SPAN_DANGER("\The [usr] starts putting [GM.name] into the disposal."))
-			if(do_after(usr, 20, src))
-				if (GM.client)
-					GM.client.perspective = EYE_PERSPECTIVE
-					GM.client.eye = src
-				GM.forceMove(src)
-				usr.visible_message(SPAN_DANGER("\The [GM] has been placed in the [src] by \the [user]."))
-				qdel(G)
-				admin_attack_log(usr, GM, "Placed the victim into \the [src].", "Was placed into \the [src] by the attacker.", "stuffed \the [src] with")
-		return
+	if(istype(I, /obj/item/bag/trash))
+		if(I.storage)
+			to_chat(user, "<span class='notice'>You empty the bag.</span>")
+			for(var/obj/item/O in I.storage.get_contents())
+				I.storage.remove_from_storage(user, O, src, TRUE)
+			I.storage.finish_bulk_removal()
+			update_icon()
+			return
 
 	if(!user.try_unequip(I, src) || QDELETED(I))
 		return
@@ -152,7 +152,7 @@ var/global/list/diversion_junctions = list()
 			user.visible_message("<span class='warning'>[user] starts climbing into [src].</span>", \
 								"<span class='notice'>You start climbing into [src].</span>")
 		else
-			if(istype(M) && iscarbon(user))
+			if(istype(M) && isliving(user))
 				M.last_handled_by_mob = weakref(user)
 			user.visible_message("<span class='[is_dangerous ? "warning" : "notice"]'>[user] starts stuffing [AM] into [src].</span>", \
 								"<span class='notice'>You start stuffing [AM] into [src].</span>")
@@ -213,6 +213,7 @@ var/global/list/diversion_junctions = list()
 		flush = !flush
 		update_icon()
 		return TRUE
+	return FALSE
 
 /obj/machinery/disposal/interface_interact(mob/user)
 	interact(user)
@@ -231,18 +232,18 @@ var/global/list/diversion_junctions = list()
 
 	if(!ai)  // AI can't pull flush handle
 		if(flush)
-			dat += "Disposal handle: <A href='?src=\ref[src];handle=0'>Disengage</A> <B>Engaged</B>"
+			dat += "Disposal handle: <A href='byond://?src=\ref[src];handle=0'>Disengage</A> <B>Engaged</B>"
 		else
-			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=\ref[src];handle=1'>Engage</A>"
+			dat += "Disposal handle: <B>Disengaged</B> <A href='byond://?src=\ref[src];handle=1'>Engage</A>"
 
-		dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
+		dat += "<BR><HR><A href='byond://?src=\ref[src];eject=1'>Eject contents</A><HR>"
 
 	if(mode <= 0)
-		dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
+		dat += "Pump: <B>Off</B> <A href='byond://?src=\ref[src];pump=1'>On</A><BR>"
 	else if(mode == 1)
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+		dat += "Pump: <A href='byond://?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
 	else
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+		dat += "Pump: <A href='byond://?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 
 	var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
 
@@ -510,7 +511,7 @@ var/global/list/diversion_junctions = list()
 		id_tag = "ds[sequential_id(/obj/item/disposal_switch_construct)]"
 
 /obj/item/disposal_switch_construct/afterattack(atom/A, mob/user, proximity)
-	if(!proximity || !istype(A, /turf/simulated/floor) || user.incapacitated() || !id_tag)
+	if(!proximity || !istype(A, /turf/floor) || user.incapacitated() || !id_tag)
 		return
 	var/area/area = get_area(A)
 	if(!istype(area) || (area.area_flags & AREA_FLAG_SHUTTLE))
@@ -571,38 +572,44 @@ var/global/list/diversion_junctions = list()
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
 /obj/structure/disposaloutlet/attackby(var/obj/item/I, var/mob/user)
-	if(!I || !user)
-		return
 	src.add_fingerprint(user, 0, I)
 	if(IS_SCREWDRIVER(I))
-		if(mode==0)
-			mode=1
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_chat(user, "You remove the screws around the power connection.")
-			return
-		else if(mode==1)
-			mode=0
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_chat(user, "You attach the screws around the power connection.")
-			return
+		switch(mode)
+			if(0)
+				mode=1
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				to_chat(user, "You remove the screws around the power connection.")
+				return TRUE
+			if(1)
+				mode=0
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				to_chat(user, "You attach the screws around the power connection.")
+				return TRUE
+			else // This should be invalid?
+				return FALSE
 	else if(istype(I,/obj/item/weldingtool) && mode==1)
 		var/obj/item/weldingtool/W = I
 		if(W.weld(0,user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")
-			if(do_after(user,20, src))
-				if(!src || !W.isOn()) return
-				to_chat(user, "You sliced the floorweld off the disposal outlet.")
-				var/obj/structure/disposalconstruct/machine/outlet/C = new (loc, src)
-				src.transfer_fingerprints_to(C)
-				C.anchored = TRUE
-				C.set_density(1)
-				C.update()
-				qdel(src)
-				return
+			if(!do_after(user, 2 SECONDS, src))
+				to_chat(user, "You must remain still to deconstruct \the [src].")
+				return TRUE
+			if(QDELETED(src) || !W.isOn())
+				return TRUE
+			to_chat(user, "You sliced the floorweld off the disposal outlet.")
+			var/obj/structure/disposalconstruct/machine/outlet/C = new (loc, src)
+			src.transfer_fingerprints_to(C)
+			C.anchored = TRUE
+			C.set_density(1)
+			C.update()
+			qdel(src)
+			return TRUE
 		else
 			to_chat(user, "You need more welding fuel to complete this task.")
-			return
+			return TRUE
+	else
+		return ..()
 
 /obj/structure/disposaloutlet/forceMove()//updates this when shuttle moves. So you can YEET things out the airlock
 	. = ..()

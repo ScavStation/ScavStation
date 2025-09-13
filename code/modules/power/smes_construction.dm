@@ -82,15 +82,6 @@
 	var/RCon_tag = "NO_TAG"		// RCON tag, change to show it on SMES Remote control console.
 	var/emp_proof = 0			// Whether the SMES is EMP proof
 
-/obj/machinery/power/smes/buildable/malf_upgrade(var/mob/living/silicon/ai/user)
-	..()
-	malf_upgraded = 1
-	emp_proof = 1
-	RefreshParts()
-	to_chat(user, "\The [src] has been upgraded. It's transfer rate and capacity has increased, and it is now resistant against EM pulses.")
-	return 1
-
-
 /obj/machinery/power/smes/buildable/max_cap_in_out/Initialize()
 	. = ..()
 	charge = capacity
@@ -133,10 +124,6 @@
 		capacity += C.ChargeCapacity
 		input_level_max += C.IOCapacity
 		output_level_max += C.IOCapacity
-	if(malf_upgraded)
-		capacity *= 1.2
-		input_level_max *= 2
-		output_level_max *= 2
 	charge = clamp(charge, 0, capacity)
 
 // Proc: total_system_failure()
@@ -156,7 +143,7 @@
 	if (!intensity)
 		return
 
-	var/mob/living/carbon/human/h_user = null
+	var/mob/living/human/h_user = null
 	if (!ishuman(user))
 		return
 	else
@@ -168,7 +155,7 @@
 	var/obj/item/clothing/gloves/G = h_user.get_equipped_item(slot_gloves_str)
 	if(istype(G) && G.siemens_coefficient == 0)
 		user_protected = 1
-	log_and_message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100 - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>")
+	log_and_message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100 - <A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>")
 
 	switch (intensity)
 		if (0 to 15)
@@ -178,7 +165,7 @@
 			if(user_protected && prob(80))
 				to_chat(h_user, SPAN_WARNING("Small electrical arc almost burns your hand. Luckily you had your gloves on!"))
 			else
-				to_chat(h_user, SPAN_DANGER("Small electrical arc sparks and burns your hand as you touch the [src]!"))
+				to_chat(h_user, SPAN_DANGER("Small electrical arc sparks and burns your hand as you touch \the [src]!"))
 				h_user.electrocute_act(rand(5,20), src, def_zone = h_user.get_active_held_item_slot())//corrected to counter act armor and stuff
 			charge = 0
 
@@ -189,7 +176,7 @@
 			if (user_protected && prob(25))
 				to_chat(h_user, SPAN_WARNING("Medium electrical arc sparks and almost burns your hand. Luckily you had your gloves on!"))
 			else
-				to_chat(h_user, SPAN_DANGER("Medium electrical sparks as you touch the [src], severely burning your hand!"))
+				to_chat(h_user, SPAN_DANGER("Medium electrical sparks as you touch \the [src], severely burning your hand!"))
 				h_user.electrocute_act(rand(15,35), src, def_zone = h_user.get_active_held_item_slot())
 			spawn(0)
 				empulse(src.loc, 2, 4)
@@ -308,7 +295,7 @@
 		if(!(stat & BROKEN))
 			return SPAN_WARNING("You have to disassemble the terminal[num_terminals > 1 ? "s" : ""] first!")
 		if(user)
-			if(!do_after(user, 5 SECONDS * number_of_components(/obj/item/stock_parts/smes_coil), src) && IS_CROWBAR(user.get_active_hand()))
+			if(!do_after(user, 5 SECONDS * number_of_components(/obj/item/stock_parts/smes_coil), src) && IS_CROWBAR(user.get_active_held_item()))
 				return MCS_BLOCK
 			if(check_total_system_failure(user))
 				return MCS_BLOCK
@@ -347,16 +334,18 @@
 	// No more disassembling of overloaded SMESs. You broke it, now enjoy the consequences.
 	if (failing)
 		to_chat(user, "<span class='warning'>\The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea.</span>")
+		return TRUE
+	. = ..()
+	if(.)
 		return
-
-	if (!..())
-
-		// Multitool - change RCON tag
-		if(IS_MULTITOOL(W))
-			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
-			if(newtag)
-				RCon_tag = newtag
-				to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+	// Multitool - change RCON tag
+	if(IS_MULTITOOL(W))
+		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
+		if(newtag)
+			RCon_tag = newtag
+			to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+		return TRUE
+	return FALSE
 
 // Proc: toggle_input()
 // Parameters: None

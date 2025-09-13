@@ -49,13 +49,6 @@ var/global/list/time_prefs_fixed = list()
 	//Mob preview
 	//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/list/char_render_holders
-	var/static/list/preview_screen_locs = list(
-		"1" = "character_preview_map:1,5:-12",
-		"2" = "character_preview_map:1,3:15",
-		"4"  = "character_preview_map:1,2:10",
-		"8"  = "character_preview_map:1,1:5",
-		"BG" = "character_preview_map:1,1 to 1,5"
-	)
 
 	var/client/client = null
 	var/client_ckey = null
@@ -80,8 +73,6 @@ var/global/list/time_prefs_fixed = list()
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
 
 /datum/preferences/proc/setup()
-	if(!length(global.skills))
-		GET_DECL(/decl/hierarchy/skill)
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = get_random_name()
@@ -96,6 +87,7 @@ var/global/list/time_prefs_fixed = list()
 			load_data()
 			is_byond_member = client.IsByondMember()
 
+	load_preferences()
 	sanitize_preferences()
 	update_preview_icon()
 
@@ -208,15 +200,15 @@ var/global/list/time_prefs_fixed = list()
 	else
 
 		dat += "<b>Slot</b> - "
-		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
-		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
-		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
-		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a><br>"
+		dat += "<a href='byond://?src=\ref[src];load=1'>Load slot</a> - "
+		dat += "<a href='byond://?src=\ref[src];save=1'>Save slot</a> - "
+		dat += "<a href='byond://?src=\ref[src];resetslot=1'>Reset slot</a> - "
+		dat += "<a href='byond://?src=\ref[src];reload=1'>Reload slot</a><br>"
 
 		dat += "<b>Preview</b> - "
-		dat += "<a href='?src=\ref[src];cycle_bg=1'>Cycle background</a> - "
-		dat += "<a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a> - "
-		dat += "<a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
+		dat += "<a href='byond://?src=\ref[src];cycle_bg=1'>Cycle background</a> - "
+		dat += "<a href='byond://?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a> - "
+		dat += "<a href='byond://?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 
 	dat += "<br>"
 	dat += player_setup.header()
@@ -259,8 +251,16 @@ var/global/list/time_prefs_fixed = list()
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
-	BG.screen_loc = preview_screen_locs["BG"]
+	BG.color = global.using_map.char_preview_bgstate_options[bgstate]
 
+	var/static/list/default_preview_screen_locs = list(
+		"1" = "character_preview_map:1:16,4:36",
+		"2" = "character_preview_map:1:16,3:31",
+		"4" = "character_preview_map:1:16,2:26",
+		"8" = "character_preview_map:1:16,1:21"
+	)
+
+	var/list/preview_screen_locs = mannequin?.get_preview_screen_locs() || default_preview_screen_locs
 	for(var/D in global.cardinal)
 		var/obj/screen/setup_preview/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
@@ -272,7 +272,7 @@ var/global/list/time_prefs_fixed = list()
 		var/mutable_appearance/MA = new /mutable_appearance(mannequin)
 		O.appearance = MA
 		O.dir = D
-		O.screen_loc = preview_screen_locs["[D]"]
+		O.screen_loc = preview_screen_locs[num2text(D)]
 	update_setup_window(usr)
 
 /datum/preferences/proc/show_character_previews()
@@ -338,7 +338,7 @@ var/global/list/time_prefs_fixed = list()
 	else if(href_list["toggle_preview_value"])
 		equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
 	else if(href_list["cycle_bg"])
-		bgstate = next_in_list(bgstate, bgstate_options)
+		bgstate = next_in_list(bgstate, global.using_map.char_preview_bgstate_options)
 	else
 		return FALSE
 
@@ -346,7 +346,7 @@ var/global/list/time_prefs_fixed = list()
 	update_setup_window(usr)
 	return 1
 
-/datum/preferences/proc/copy_to(mob/living/carbon/human/character, is_preview_copy = FALSE)
+/datum/preferences/proc/copy_to(mob/living/human/character, is_preview_copy = FALSE)
 
 	if(!player_setup)
 		return // WHY IS THIS EVEN HAPPENING.
@@ -355,7 +355,8 @@ var/global/list/time_prefs_fixed = list()
 	player_setup.sanitize_setup()
 	validate_comments_record() // Make sure a record has been generated for this character.
 	character.comments_record_id = comments_record_id
-	character.personal_aspects = list()
+	character.clear_extrinsic_traits()
+
 	var/decl/bodytype/new_bodytype = get_bodytype_decl()
 	if(species == character.get_species_name())
 		character.set_bodytype(new_bodytype)
@@ -363,24 +364,22 @@ var/global/list/time_prefs_fixed = list()
 		character.change_species(species, new_bodytype)
 
 	if(be_random_name)
-		var/decl/cultural_info/culture = GET_DECL(cultural_info[TAG_CULTURE])
-		if(culture)
-			real_name = culture.get_random_name(gender)
+		var/decl/background_detail/background = get_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
+		if(background)
+			real_name = background.get_random_name(gender)
 
 	if(get_config_value(/decl/config/toggle/humans_need_surnames))
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname
-			real_name += " [pick(global.last_names)]"
+			real_name += " [pick(global.using_map.last_names)]"
 		else if(firstspace == name_length)
-			real_name += "[pick(global.last_names)]"
+			real_name += "[pick(global.using_map.last_names)]"
 
 	character.fully_replace_character_name(real_name)
 
 	character.set_gender(gender)
 	character.blood_type = blood_type
-
-	character.set_eye_colour(eye_colour, skip_update = TRUE)
 
 	character.set_skin_colour(skin_colour, skip_update = TRUE)
 	character.skin_tone = skin_tone
@@ -402,6 +401,12 @@ var/global/list/time_prefs_fixed = list()
 
 	character.backpack_setup = new(backpack, backpack_metadata["[backpack]"])
 
+	if(length(traits))
+		for(var/trait_type in traits)
+			character.set_trait(trait_type, (traits[trait_type] || TRAIT_LEVEL_EXISTS))
+
+	character.set_eye_colour(eye_colour, skip_update = TRUE)
+
 	for(var/obj/item/organ/external/O in character.get_external_organs())
 		for(var/decl/sprite_accessory_category/sprite_category in O.get_sprite_accessory_categories())
 			if(!sprite_category.clear_in_pref_apply)
@@ -409,44 +414,33 @@ var/global/list/time_prefs_fixed = list()
 			O.clear_sprite_accessories_by_category(sprite_category.type, skip_update = TRUE)
 
 	for(var/accessory_category in sprite_accessories)
-		for(var/accessory in sprite_accessories[accessory_category])
+		var/decl/sprite_accessory_category/acc_cat = GET_DECL(accessory_category)
+		var/list/accessories = sprite_accessories[accessory_category]
+		acc_cat.prepare_character(character, accessories)
+		for(var/accessory in accessories)
 			var/decl/sprite_accessory/accessory_decl = GET_DECL(accessory)
-			var/accessory_colour = sprite_accessories[accessory_category][accessory]
+			var/accessory_metadata = accessories[accessory]
 			for(var/bodypart in accessory_decl.body_parts)
 				var/obj/item/organ/external/O = GET_EXTERNAL_ORGAN(character, bodypart)
 				if(O)
-					O.set_sprite_accessory(accessory, accessory_category, accessory_colour, skip_update = TRUE)
+					O.set_sprite_accessory(accessory, accessory_category, accessory_metadata, skip_update = TRUE)
 
 	if(LAZYLEN(appearance_descriptors))
 		character.appearance_descriptors = appearance_descriptors.Copy()
 
-	if(character.dna)
-		character.dna.ready_dna(character)
-		if(blood_type)
-			character.dna.b_type = blood_type
-
 	character.force_update_limbs()
-	character.update_mutations(0)
+	character.update_genetic_conditions(0)
 	character.update_body(0)
 	character.update_underwear(0)
 	character.update_hair(0)
 	character.update_icon()
 	character.update_transform()
 
-	if(length(aspects))
-		for(var/atype in aspects)
-			character.personal_aspects |= GET_DECL(atype)
-		character.need_aspect_sort = TRUE
-		character.apply_aspects(ASPECTS_PHYSICAL)
-
 	if(is_preview_copy)
 		return
 
-	if(length(aspects))
-		character.apply_aspects(ASPECTS_MENTAL)
-
-	for(var/token in cultural_info)
-		character.set_cultural_value(token, cultural_info[token], defer_language_update = TRUE)
+	for(var/token in background_info)
+		character.set_background_value(token, background_info[token], defer_language_update = TRUE)
 	character.update_languages()
 	for(var/lang in alternate_languages)
 		character.add_language(lang)
@@ -478,7 +472,7 @@ var/global/list/time_prefs_fixed = list()
 		var/name = (slot_names && slot_names[get_slot_key(i)]) || "Character[i]"
 		if(i==default_slot)
 			name = "<b>[name]</b>"
-		dat += "<a href='?src=\ref[src];changeslot=[i]'>[name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];changeslot=[i]'>[name]</a><br>"
 
 	dat += "<hr>"
 	dat += "</center></tt>"
@@ -506,6 +500,21 @@ var/global/list/time_prefs_fixed = list()
 	key_bindings = deepCopyList(global.hotkey_keybinding_list_by_key)
 
 	if(istype(client))
-		// Preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum).
+		// Preferences datum - also holds some persistent data for the client (because we may as well keep these datums to a minimum).
 		SScharacter_setup.preferences_datums[client.ckey] = src
 		setup()
+
+/datum/preferences/proc/set_species(new_species)
+	species = new_species
+	sanitize_preferences()
+	var/decl/species/mob_species = get_species_decl()
+	mob_species.handle_post_species_pref_set(src)
+	var/decl/bodytype/mob_bodytype = get_bodytype_decl()
+	set_bodytype(mob_bodytype)
+
+
+/datum/preferences/proc/set_bodytype(new_bodytype)
+	bodytype = new_bodytype
+	sanitize_preferences()
+	var/decl/bodytype/mob_bodytype = get_bodytype_decl()
+	mob_bodytype.handle_post_bodytype_pref_set(src)

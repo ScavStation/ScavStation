@@ -145,9 +145,9 @@
 /obj/machinery/atmospherics/binary/stirling/attackby(var/obj/item/W, var/mob/user)
 	if((istype(W, /obj/item/tank/stirling)))
 		if(inserted_cylinder)
-			return
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
 		inserted_cylinder = W
 		update_icon()
@@ -164,9 +164,9 @@
 		if(IS_WRENCH(W))
 			var/target_frequency = input(user, "Enter the cycle frequency you would like \the [src] to operate at ([MAX_FREQUENCY/4] - [MAX_FREQUENCY] Hz)", "Stirling Frequency", cycle_frequency) as num | null
 			if(!CanPhysicallyInteract(user) || !target_frequency)
-				return
+				return TRUE
 			cycle_frequency = round(clamp(target_frequency, MAX_FREQUENCY/4, MAX_FREQUENCY))
-			to_chat(usr, SPAN_NOTICE("You adjust \the [src] to operate at a frequency of [cycle_frequency] Hz."))
+			to_chat(user, SPAN_NOTICE("You adjust \the [src] to operate at a frequency of [cycle_frequency] Hz."))
 			return TRUE
 
 	. = ..()
@@ -178,12 +178,13 @@
 
 	if(!inserted_cylinder)
 		to_chat(user, SPAN_WARNING("You must insert a stirling piston cylinder into \the [src] before you can start it!"))
-		return
+		return TRUE
 	to_chat(user, "You start trying to manually rev up \the [src].")
 	if(do_after(user, 2 SECONDS, src) && !active && inserted_cylinder && !(stat & BROKEN))
 		visible_message("[user] pulls on the starting cord of \the [src], revving it up!", "You pull on the starting cord of \the [src], revving it up!")
 		playsound(src.loc, 'sound/machines/engine.ogg', 35, 1)
 		active = TRUE
+	return TRUE
 
 /obj/machinery/atmospherics/binary/stirling/on_update_icon()
 	cut_overlays()

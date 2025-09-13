@@ -5,9 +5,9 @@
 	var/use_He_is =  "You are"
 	var/use_He_has = "You have"
 	if(istype(machine) || viewer != src)
-		var/decl/pronouns/G = get_pronouns(ignore_coverings = TRUE)
-		use_He_is =  "[G.He] [G.is]"
-		use_He_has = "[G.He] [G.has]"
+		var/decl/pronouns/pronouns = get_pronouns(ignore_coverings = TRUE)
+		use_He_is =  "[pronouns.He] [pronouns.is]"
+		use_He_has = "[pronouns.He] [pronouns.has]"
 
 	var/list/dat = list()
 
@@ -87,7 +87,7 @@
 		dat += "[use_He_has] no notable psychic latency or operancy."
 
 	if(istype(machine))
-		dat += "<a href='?src=\ref[machine];print=1'>Print</a> <a href='?src=\ref[machine];clear=1'>Clear Buffer</a>"
+		dat += "<a href='byond://?src=\ref[machine];print=1'>Print</a> <a href='byond://?src=\ref[machine];clear=1'>Clear Buffer</a>"
 		machine.last_assay = dat
 		return
 

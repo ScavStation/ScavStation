@@ -27,30 +27,34 @@
 	max_health = 200
 	natural_weapon = /obj/item/natural_weapon/pincers/strong
 	resistance = 9
-	can_escape = TRUE //snip snip
+	ai = /datum/mob_controller/familiar_crab
+
+/datum/mob_controller/familiar_crab
+	can_escape_buckles = TRUE
 
 /obj/item/natural_weapon/pincers/strong
-	force = 15
+	_base_attack_force = 15
 
 /*familiar version of the Pike w/o all the other hostile/carp stuff getting in the way (namely life)
 */
 
 /mob/living/simple_animal/familiar/pike
-	name = "space pike"
-	desc = "A bigger, more magical cousin of the space carp."
-	icon = 'icons/mob/simple_animal/spaceshark.dmi'
+	name    = "space pike"
+	desc    = "A bigger, more magical cousin of the space carp."
+	icon    = 'icons/mob/simple_animal/spaceshark.dmi'
 	pixel_x = -16
 	offset_overhead_text_x = 16
 
-	speak_emote = list("gnashes")
-	max_health = 100
+	speak_emote    = list("gnashes")
+	max_health     = 100
 	natural_weapon = /obj/item/natural_weapon/bite
-	can_escape = TRUE
-	min_gas = null
+	min_gas        = null
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
+	ai             = /datum/mob_controller/familiar_pike
+	skip_spacemove = TRUE
 
-/mob/living/simple_animal/familiar/pike/Process_Spacemove()
-	return 1	//No drifting in space for space carp!	//original comments do not steal
+/datum/mob_controller/familiar_pike
+	can_escape_buckles = TRUE
 
 /mob/living/simple_animal/familiar/horror
 	name = "horror"
@@ -65,8 +69,8 @@
 
 /obj/item/natural_weapon/horror
 	name = "foul touch"
-	force = 10
-	damtype = BURN
+	_base_attack_force = 10
+	atom_damage_type =  BURN
 	attack_verb = list("touched")
 
 /mob/living/simple_animal/familiar/horror/get_death_message(gibbed)
@@ -97,15 +101,17 @@
 	desc = "A small rodent. It looks very old."
 	icon = 'icons/mob/simple_animal/mouse_gray.dmi'
 	speak_emote = list("squeeks")
-	holder_type = /obj/item/holder/mouse
+	holder_type = /obj/item/holder
 	pass_flags = PASS_FLAG_TABLE
 	mob_size = MOB_SIZE_MINISCULE
 	response_harm = "stamps on"
 	max_health = 15
 	natural_weapon = /obj/item/natural_weapon/bite/mouse
-	can_escape = TRUE
-
 	wizardy_spells = list(/spell/aoe_turf/smoke)
+	ai = /datum/mob_controller/familiar_mouse
+
+/datum/mob_controller/familiar_mouse
+	can_escape_buckles = TRUE
 
 /mob/living/simple_animal/familiar/pet/mouse/Initialize()
 	. = ..()

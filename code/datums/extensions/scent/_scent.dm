@@ -63,7 +63,7 @@ Scent intensity
 		return PROCESS_KILL
 	emit_scent()
 
-/datum/extension/scent/proc/check_smeller(var/mob/living/carbon/human/smeller)
+/datum/extension/scent/proc/check_smeller(var/mob/living/smeller)
 	if(!istype(smeller) || smeller.stat != CONSCIOUS || smeller.failed_last_breath)
 		return FALSE
 	if(smeller.get_equipped_item(slot_wear_mask_str))
@@ -82,7 +82,7 @@ Scent intensity
 			continue
 		show_smell(M)
 
-/datum/extension/scent/proc/show_smell(var/mob/living/carbon/human/smeller)
+/datum/extension/scent/proc/show_smell(var/mob/living/smeller)
 	if(LAZYACCESS(smeller.smell_cooldown, scent) < world.time)
 		intensity.PrintMessage(smeller, descriptor, scent)
 		LAZYSET(smeller.smell_cooldown, scent, world.time + intensity.cooldown)
@@ -128,7 +128,7 @@ To add a scent extension to an atom using a reagent's info, where R. is the reag
 // Returns the smelliest reagent of a reagent holder.
 /proc/get_smelliest_reagent(var/datum/reagents/holder)
 	var/decl/material/smelliest
-	var/decl/material/scent_intensity
+	var/scent_intensity
 	if(!holder || !holder.total_volume)
 		return
 	for(var/reagent_type in holder.reagent_volumes)

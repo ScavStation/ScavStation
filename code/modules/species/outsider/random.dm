@@ -1,11 +1,12 @@
 /decl/bodytype/alium
-	name =              "humanoid"
+	name              = "humanoid"
 	bodytype_category = BODYTYPE_HUMANOID
-	icon_base =         'icons/mob/human_races/species/humanoid/body.dmi'
-	bandages_icon =     'icons/mob/bandage.dmi'
-	limb_blend =        ICON_MULTIPLY
-	appearance_flags =  HAS_SKIN_COLOR
-	body_flags =        BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
+	icon_base         = 'icons/mob/human_races/species/humanoid/body.dmi'
+	bandages_icon     = 'icons/mob/bandage.dmi'
+	limb_blend        = ICON_MULTIPLY
+	appearance_flags  = HAS_SKIN_COLOR
+	body_flags        = BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
+	uid               = "bodytype_alium"
 
 /decl/bodytype/alium/Initialize()
 	if(prob(10))
@@ -31,13 +32,14 @@
 	name_plural = "Humanoids"
 	description = "Some alien humanoid species, unknown to humanity. How exciting."
 	rarity_value = 5
+	hidden_from_codex = TRUE
 
 	spawn_flags = SPECIES_IS_RESTRICTED
 
 	available_bodytypes = list(/decl/bodytype/alium)
 
-	force_cultural_info = list(
-		TAG_CULTURE = /decl/cultural_info/culture/hidden/alium
+	force_background_info = list(
+		/decl/background_category/heritage = /decl/background_detail/heritage/hidden/alium
 	)
 
 	exertion_effect_chance = 10
@@ -101,7 +103,7 @@
 
 	. = ..()
 
-/decl/species/alium/get_species_blood_color(mob/living/carbon/human/H)
+/decl/species/alium/get_species_blood_color(mob/living/human/H)
 	if(istype(H) && H.isSynthetic())
 		return ..()
 	return blood_color
@@ -131,10 +133,10 @@
 		return TRUE
 	to_chat(user, "You're now an alien humanoid of some undiscovered species. Make up what lore you want, no one knows a thing about your species! You can check info about your traits with Check Species Info verb in IC tab.")
 	to_chat(user, "You can't speak any other languages by default. You can use translator implant that spawns on top of this monolith - it will give you knowledge of any language if you hear it enough times.")
-	var/mob/living/carbon/human/H = user
+	var/mob/living/human/H = user
 	new /obj/item/implanter/translator(get_turf(src))
 	H.change_species(SPECIES_ALIEN)
-	var/decl/cultural_info/culture = H.get_cultural_value(TAG_CULTURE)
-	H.fully_replace_character_name(culture.get_random_name(H, H.gender))
+	var/decl/background_detail/background = H.get_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
+	H.fully_replace_character_name(background.get_random_name(H, H.gender))
 	H.rename_self("Humanoid Alien", 1)
 	return TRUE

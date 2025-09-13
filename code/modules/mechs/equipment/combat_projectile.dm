@@ -1,13 +1,14 @@
 /obj/item/mech_equipment/mounted_system/projectile/attackby(var/obj/item/O, var/mob/user)
 	var/obj/item/gun/projectile/automatic/A = holding
 	if(!istype(A))
-		return
+		return FALSE
 	if(istype(O, /obj/item/crowbar))
 		A.unload_ammo(user)
-		to_chat(user, SPAN_NOTICE("You remove the ammo magazine from the [src]."))
+		to_chat(user, SPAN_NOTICE("You remove the ammo magazine from \the [src]."))
 	else if(istype(O, A.magazine_type))
 		A.load_ammo(O, user)
-		to_chat(user, SPAN_NOTICE("You load the ammo magazine into the [src]."))
+		to_chat(user, SPAN_NOTICE("You load the ammo magazine into \the [src]."))
+	return TRUE
 
 /obj/item/mech_equipment/mounted_system/projectile/attack_self(var/mob/user)
 	. = ..()
@@ -17,11 +18,11 @@
 
 /obj/item/gun/projectile/automatic/get_hardpoint_status_value()
 	if(!isnull(ammo_magazine))
-		return ammo_magazine.stored_ammo.len
+		return ammo_magazine.get_stored_ammo_count()
 
 /obj/item/gun/projectile/automatic/get_hardpoint_maptext()
 	if(!isnull(ammo_magazine))
-		return "[ammo_magazine.stored_ammo.len]/[ammo_magazine.max_ammo]"
+		return "[ammo_magazine.get_stored_ammo_count()]/[ammo_magazine.max_ammo]"
 	return 0
 
 //Weapons below this.

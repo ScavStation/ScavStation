@@ -30,8 +30,9 @@
 	bodytype_category    = BODYTYPE_AVIAN
 	icon_base            = 'mods/species/neoavians/icons/body.dmi'
 	blood_overlays       = 'mods/species/neoavians/icons/blood_avian.dmi'
+	skeletal_icon        = 'mods/species/neoavians/icons/skeleton.dmi'
 	limb_blend           = ICON_MULTIPLY
-	bodytype_flag        = BODY_FLAG_AVIAN
+	bodytype_flag        = BODY_EQUIP_FLAG_AVIAN
 	eye_icon             = 'mods/species/neoavians/icons/eyes.dmi'
 	appearance_flags     = HAS_SKIN_COLOR | HAS_EYE_COLOR
 	base_color           = "#252525"
@@ -47,23 +48,24 @@
 		BP_BRAIN   = /obj/item/organ/internal/brain,
 		BP_EYES    = /obj/item/organ/internal/eyes
 	)
-	override_limb_types  = list(BP_TAIL = /obj/item/organ/external/tail/avian)
+	override_limb_types        = list(BP_TAIL = /obj/item/organ/external/tail/avian)
 	default_sprite_accessories = list(
-		SAC_HAIR     = list(/decl/sprite_accessory/hair/avian    = "#252525"),
-		SAC_MARKINGS = list(/decl/sprite_accessory/marking/avian = "#454545")
+		SAC_HAIR     = list(/decl/sprite_accessory/hair/avian    = list(SAM_COLOR = "#252525")),
+		SAC_MARKINGS = list(/decl/sprite_accessory/marking/avian = list(SAM_COLOR = "#454545"))
 	)
-
+	age_descriptor          = /datum/appearance_descriptor/age/neoavian
 	heat_discomfort_strings = list(
 		"Your feathers prickle in the heat.",
 		"You feel uncomfortably warm.",
 	)
+	uid            = "bodytype_avian"
 
-	var/tail =              "tail_avian"
-	var/tail_icon =         'mods/species/neoavians/icons/tail.dmi'
-	var/tail_blend =        ICON_MULTIPLY
+	var/tail       = "tail_avian"
+	var/tail_icon  = 'mods/species/neoavians/icons/tail.dmi'
+	var/tail_blend = ICON_MULTIPLY
 	var/tail_hair
 	var/tail_hair_blend
-	var/tail_states
+	var/tail_animation_states
 
 /decl/bodytype/avian/raptor
 	name                 = "raptor"
@@ -72,6 +74,7 @@
 	tail                 = "tail_raptor"
 	tail_hair            = "over"
 	tail_hair_blend      = ICON_MULTIPLY
+	uid                  = "bodytype_avian_raptor"
 
 /decl/bodytype/avian/additive
 	name                 = "avian, additive"
@@ -80,6 +83,7 @@
 	limb_blend           = ICON_ADD
 	tail_blend           = ICON_ADD
 	tail                 = "tail_avian_add"
+	uid                  = "bodytype_avian_additive"
 
 /decl/bodytype/avian/additive/raptor
 	name                 = "raptor, additive"
@@ -87,6 +91,7 @@
 	tail                 = "tail_raptor_add"
 	tail_hair            = "over"
 	tail_hair_blend      = ICON_ADD
+	uid                  = "bodytype_avian_additive_raptor"
 
 /decl/bodytype/avian/Initialize()
 	equip_adjust = list(
@@ -99,7 +104,6 @@
 		slot_glasses_str   = list("[NORTH]" = list( 0, -6), "[EAST]" = list( 1, -6), "[SOUTH]" = list( 0, -6),  "[WEST]" = list(-1, -6)),
 		slot_back_str      = list("[NORTH]" = list( 0, -6), "[EAST]" = list( 3, -6), "[SOUTH]" = list( 0, -6),  "[WEST]" = list(-3, -6)),
 		slot_w_uniform_str = list("[NORTH]" = list( 0, -6), "[EAST]" = list(-1, -6), "[SOUTH]" = list( 0, -6),  "[WEST]" = list( 1, -6)),
-		slot_tie_str       = list("[NORTH]" = list( 0, -5), "[EAST]" = list( 0, -5), "[SOUTH]" = list( 0, -5),  "[WEST]" = list( 0, -5)),
 		slot_wear_id_str   = list("[NORTH]" = list( 0, -6), "[EAST]" = list(-1, -6), "[SOUTH]" = list( 0, -6),  "[WEST]" = list( 1, -6)),
 		slot_wear_suit_str = list("[NORTH]" = list( 0, -6), "[EAST]" = list(-1, -6), "[SOUTH]" = list( 0, -6),  "[WEST]" = list( 1, -6)),
 		slot_belt_str      = list("[NORTH]" = list( 0, -6), "[EAST]" = list(-1, -6), "[SOUTH]" = list( 0, -6),  "[WEST]" = list( 1, -6))
@@ -123,10 +127,10 @@
 		var/decl/bodytype/prosthetic/avian/bird_bod = bodytype
 		return bird_bod.tail_icon
 
-/obj/item/organ/external/tail/avian/get_tail_states()
+/obj/item/organ/external/tail/avian/get_tail_animation_states()
 	if(istype(bodytype, /decl/bodytype/avian))
 		var/decl/bodytype/avian/bird_bod = bodytype
-		return bird_bod.tail_states
+		return bird_bod.tail_animation_states
 	if(istype(bodytype, /decl/bodytype/prosthetic/avian))
 		var/decl/bodytype/prosthetic/avian/bird_bod = bodytype
 		return bird_bod.tail_states

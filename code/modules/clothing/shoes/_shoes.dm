@@ -10,10 +10,12 @@
 	heat_protection = SLOT_FEET
 	slot_flags = SLOT_FEET
 	permeability_coefficient = 0.50
-	force = 2
+	_base_attack_force = 2
 	blood_overlay_type = "shoeblood"
 	material = /decl/material/solid/organic/leather
 	origin_tech = @'{"materials":1,"engineering":1}'
+	fallback_slot = slot_shoes_str
+	_base_attack_force = 5
 
 	var/can_fit_under_magboots = TRUE
 	var/can_add_cuffs = TRUE
@@ -53,7 +55,7 @@
 	return ..()
 
 /obj/item/clothing/shoes/attack_self(var/mob/user)
-	remove_cuffs(user)
+	try_remove_cuffs(user)
 	..()
 
 /obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
@@ -75,12 +77,12 @@
 		if(!user.try_unequip(cuffs, src))
 			return
 		user.visible_message(SPAN_ITALIC("\The [user] attaches \the [cuffs] to \the [src]."), range = 2)
-		verbs |= /obj/item/clothing/shoes/proc/remove_cuffs
+		verbs |= /obj/item/clothing/shoes/proc/try_remove_cuffs
 		LAZYINITLIST(slowdown_per_slot[slot_shoes_str])
 		slowdown_per_slot[slot_shoes_str] += cuffs.elastic ? 10 : 15
 		attached_cuffs = cuffs
 
-/obj/item/clothing/shoes/proc/remove_cuffs(var/mob/user)
+/obj/item/clothing/shoes/proc/try_remove_cuffs(var/mob/user)
 	set name = "Remove Shoe Cuffs"
 	set desc = "Get rid of those limiters and lengthen your stride."
 	set category = "Object"
@@ -94,15 +96,18 @@
 	if (user.incapacitated())
 		return
 	if (do_after(user, 5 SECONDS))
-		if (!user.put_in_hands(attached_cuffs))
-			to_chat(usr, SPAN_WARNING("You need an empty, unbroken hand to remove the [attached_cuffs] from the [src]."))
-			return
-		user.visible_message(SPAN_ITALIC("\The [user] removes \the [attached_cuffs] from \the [src]."), range = 2)
-		attached_cuffs.add_fingerprint(user)
-		LAZYINITLIST(slowdown_per_slot[slot_shoes_str])
-		slowdown_per_slot[slot_shoes_str] -= attached_cuffs.elastic ? 10 : 15
-		verbs -= /obj/item/clothing/shoes/proc/remove_cuffs
-		attached_cuffs = null
+		remove_cuffs(user)
+
+/obj/item/clothing/shoes/proc/remove_cuffs(var/mob/user)
+	if (!user.put_in_hands(attached_cuffs))
+		to_chat(usr, SPAN_WARNING("You need an empty, unbroken hand to remove \the [attached_cuffs] from \the [src]."))
+		return
+	user.visible_message(SPAN_ITALIC("\The [user] removes \the [attached_cuffs] from \the [src]."), range = 2)
+	attached_cuffs.add_fingerprint(user)
+	LAZYINITLIST(slowdown_per_slot[slot_shoes_str])
+	slowdown_per_slot[slot_shoes_str] -= attached_cuffs.elastic ? 10 : 15
+	verbs -= /obj/item/clothing/shoes/proc/try_remove_cuffs
+	attached_cuffs = null
 
 /obj/item/clothing/shoes/proc/add_hidden(var/obj/item/I, var/mob/user)
 	if (!(I.item_flags & ITEM_FLAG_CAN_HIDE_IN_SHOES)) // fail silently
@@ -114,7 +119,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] already holds \an [hidden_item]."))
 		return TRUE
 	if (I.w_class > hidden_item_max_w_class)
-		to_chat(user, SPAN_WARNING("\The [I] is too large to fit in the [src]."))
+		to_chat(user, SPAN_WARNING("\The [I] is too large to fit in \the [src]."))
 		return TRUE
 	if (do_after(user, 1 SECONDS))
 		if(!user.try_unequip(I, src))
@@ -141,7 +146,7 @@
 		return FALSE
 	if (do_after(user, 2 SECONDS))
 		if (!user.put_in_hands(hidden_item))
-			to_chat(usr, SPAN_WARNING("You need an empty, unbroken hand to pull the [hidden_item] from the [src]."))
+			to_chat(usr, SPAN_WARNING("You need an empty, unbroken hand to pull \the [hidden_item] from \the [src]."))
 			return TRUE
 		user.visible_message(SPAN_ITALIC("\The [user] pulls \the [hidden_item] from \the [src]."), range = 1)
 		playsound(get_turf(src), 'sound/effects/holster/tactiholsterout.ogg', 25)
@@ -153,13 +158,9 @@
 	if (attached_cuffs && running)
 		attached_cuffs.take_damage(1, armor_pen = 100)
 		if(QDELETED(attached_cuffs))
-			verbs -= /obj/item/clothing/shoes/proc/remove_cuffs
+			verbs -= /obj/item/clothing/shoes/proc/try_remove_cuffs
 			attached_cuffs = null
 	return
-
-/obj/item/clothing/shoes/get_associated_equipment_slots()
-	. = ..()
-	LAZYDISTINCTADD(., slot_shoes_str)
 
 /obj/item/clothing/shoes/set_material(var/new_material)
 	..()
@@ -174,7 +175,7 @@
 		S.blend_mode = BLEND_ADD
 		add_overlay(S)
 
-/obj/item/clothing/shoes/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/clothing/shoes/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && shine > 0 && slot == slot_shoes_str)
 		var/mutable_appearance/S = mutable_appearance(overlay.icon, "shine")
 		S.alpha = 127 * shine / 100

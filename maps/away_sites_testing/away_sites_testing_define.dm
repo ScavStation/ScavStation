@@ -4,9 +4,13 @@
 	full_name = "Away Sites Testing Land"
 	path = "away_sites_testing"
 	overmap_ids = list(OVERMAP_ID_SPACE)
+	votable = FALSE
 
 	allowed_latejoin_spawns = list()
 	default_spawn = null
+
+/datum/map/away_sites_testing/validate()
+	return TRUE // Do not check for level lists, this is not a playable map.
 
 // Set the observer spawn to include every flag so that CI flag checks pass.
 /decl/spawnpoint/observer
@@ -16,10 +20,10 @@
 	var/list/unsorted_sites = list_values(SSmapping.get_templates_by_category(MAP_TEMPLATE_CATEGORY_AWAYSITE))
 	var/list/sorted_sites = sortTim(unsorted_sites, /proc/cmp_sort_templates_tallest_to_shortest)
 	for (var/datum/map_template/A in sorted_sites)
-		A.load_new_z(centered = FALSE)
+		A.load_new_z()
 		testing("Spawning [A] in [english_list(SSmapping.get_connected_levels(world.maxz))]")
 		if(A.template_flags & TEMPLATE_FLAG_TEST_DUPLICATES)
-			A.load_new_z(centered = FALSE)
+			A.load_new_z()
 			testing("Spawning [A] in [english_list(SSmapping.get_connected_levels(world.maxz))]")
 
 /proc/cmp_sort_templates_tallest_to_shortest(var/datum/map_template/a, var/datum/map_template/b)

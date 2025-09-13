@@ -11,6 +11,10 @@
 		"elderly" =        50
 	)
 
+/decl/butchery_data/humanoid/avian
+	meat_name = "chicken"
+	meat_type = /obj/item/food/butchery/meat/chicken
+
 /decl/species/neoavian
 	name = SPECIES_AVIAN
 	name_plural = "Neo-Avians"
@@ -23,12 +27,11 @@
 
 	snow_slowdown_mod = -1
 
-	age_descriptor = /datum/appearance_descriptor/age/neoavian
 	holder_icon = 'mods/species/neoavians/icons/holder.dmi'
 
-	meat_type = /obj/item/chems/food/meat/chicken
+	butchery_data = /decl/butchery_data/humanoid/avian
 
-	preview_outfit = /decl/hierarchy/outfit/job/generic/assistant/avian
+	preview_outfit = /decl/outfit/job/generic/assistant/avian
 
 	available_bodytypes = list(
 		/decl/bodytype/avian,
@@ -42,6 +45,7 @@
 	gluttonous = GLUT_TINY
 	blood_volume = 320
 	hunger_factor = DEFAULT_HUNGER_FACTOR * 1.6
+	thirst_factor = DEFAULT_THIRST_FACTOR * 1.6
 
 	spawn_flags = SPECIES_CAN_JOIN
 	bump_flag = MONKEY
@@ -54,23 +58,23 @@
 		/decl/natural_attack/stomp/weak
 	)
 
-	available_cultural_info = list(
-		TAG_CULTURE = list(
-			/decl/cultural_info/culture/neoavian,
-			/decl/cultural_info/culture/neoavian/saurian,
-			/decl/cultural_info/culture/other
+	available_background_info = list(
+		/decl/background_category/heritage = list(
+			/decl/background_detail/heritage/neoavian,
+			/decl/background_detail/heritage/neoavian/saurian,
+			/decl/background_detail/heritage/other
 		)
 	)
 
-/decl/species/neoavian/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
+/decl/species/neoavian/equip_default_fallback_uniform(var/mob/living/human/H)
 	if(istype(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/avian_smock/worker, slot_w_uniform_str)
+		H.equip_to_slot_or_del(new /obj/item/clothing/dress/avian_smock/worker, slot_w_uniform_str)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/avian, slot_shoes_str)
 
-/decl/species/neoavian/get_holder_color(var/mob/living/carbon/human/H)
+/decl/species/neoavian/get_holder_color(var/mob/living/human/H)
 	return H.get_skin_colour()
 
-/decl/hierarchy/outfit/job/generic/assistant/avian
+/decl/outfit/job/generic/assistant/avian
 	name = "Job - Avian Assistant"
-	uniform = /obj/item/clothing/under/avian_smock/worker
+	uniform = /obj/item/clothing/dress/avian_smock/worker
 	shoes = /obj/item/clothing/shoes/avian/footwraps

@@ -4,16 +4,18 @@
 	buffs = list(SKILL_WEAPONS = 1)
 	injury_debuffs = list(SKILL_WEAPONS = -1)
 	material = /decl/material/solid/metal/steel
+	origin_tech = @'{"materials":4,"magnets":3,"biotech":3}'
+
+/obj/item/organ/internal/augment/boost/shooting/reset_matter()
 	matter = list(
 		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE
 	)
-	origin_tech = @'{"materials":4,"magnets":3,"biotech":3}'
 
-/obj/item/organ/internal/augment/boost/reflex/buff()
+/obj/item/organ/internal/augment/boost/shooting/buff()
 	if((. = ..()))
 		to_chat(owner, SPAN_NOTICE("Notice: AIM-4 finished reboot."))
 
-/obj/item/organ/internal/augment/boost/reflex/debuff()
+/obj/item/organ/internal/augment/boost/shooting/debuff()
 	if((. = ..()))
 		to_chat(owner, SPAN_WARNING("Catastrophic damage detected: AIM-4 shutting down."))

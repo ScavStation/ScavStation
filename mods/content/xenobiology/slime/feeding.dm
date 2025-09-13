@@ -21,17 +21,20 @@
 		if(!silent)
 			to_chat(src, SPAN_WARNING("\The [M] is protected from your feeding."))
 		return FEED_RESULT_INVALID
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if((H.species.species_flags & SPECIES_FLAG_NO_POISON) || (H.get_bodytype()?.body_flags & BODY_FLAG_NO_DNA))
-			if(!silent)
-				to_chat(src, SPAN_WARNING("You cannot feed on \the [M]."))
-			return FEED_RESULT_INVALID
+	if(!M.has_genetic_information())
+		if(!silent)
+			to_chat(src, SPAN_WARNING("You cannot feed on \the [M]."))
+		return FEED_RESULT_INVALID
+	var/decl/species/prey_species = M.get_species()
+	if(istype(prey_species) && (prey_species.species_flags & SPECIES_FLAG_NO_POISON))
+		if(!silent)
+			to_chat(src, SPAN_WARNING("You cannot feed on \the [M]."))
+		return FEED_RESULT_INVALID
 	if(M.stat == DEAD)
 		if(!silent)
 			to_chat(src, SPAN_WARNING("\The [src] is dead."))
 		return FEED_RESULT_DEAD
-	if(M.getCloneLoss() >= M.get_max_health() * 1.5)
+	if(M.get_damage(CLONE) >= M.get_max_health() * 1.5)
 		if(!silent)
 			to_chat(src, SPAN_WARNING("\The [M] is too degraded to feed upon."))
 		return FEED_RESULT_DEAD
@@ -55,7 +58,7 @@
 		events_repository.register(/decl/observ/moved, src, src, TYPE_PROC_REF(/mob/living/slime, check_feed_target_position))
 		events_repository.register(/decl/observ/moved, victim, src, TYPE_PROC_REF(/mob/living/slime, check_feed_target_position))
 		events_repository.register(/decl/observ/destroyed, victim, src, TYPE_PROC_REF(/mob/living/slime, check_feed_target_position))
-	var/datum/ai/slime/slime_ai = ai
+	var/datum/mob_controller/slime/slime_ai = ai
 	if(istype(slime_ai))
 		slime_ai.update_mood()
 	update_icon()
@@ -100,11 +103,11 @@
 			ate_victim = TRUE
 		if(drained)
 			gain_nutrition(drained)
-			var/heal_amt = FLOOR(drained*0.5)
+			var/heal_amt = floor(drained*0.5)
 			if(heal_amt > 0)
-				adjustOxyLoss(-heal_amt, do_update_health = FALSE)
-				adjustBruteLoss(-heal_amt, do_update_health = FALSE)
-				adjustCloneLoss(-heal_amt)
+				heal_damage(OXY, heal_amt, do_update_health = FALSE)
+				heal_damage(BRUTE, heal_amt, do_update_health = FALSE)
+				heal_damage(CLONE, heal_amt)
 
 	if(ate_victim && feed_mob)
 		if(feed_mob.last_handled_by_mob)

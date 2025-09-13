@@ -9,8 +9,6 @@
 	obj_flags                           = OBJ_FLAG_CONDUCTIBLE
 	slot_flags                          = SLOT_LOWER_BODY
 	center_of_mass                      = @'{"x":14,"y":15}'
-	force                               = 5
-	throwforce                          = 5
 	throw_speed                         = 1
 	throw_range                         = 5
 	w_class                             = ITEM_SIZE_SMALL
@@ -34,6 +32,7 @@
 		insert_tank(new tank, null, TRUE, TRUE)
 	set_extension(src, /datum/extension/tool, list(TOOL_WELDER = TOOL_QUALITY_DEFAULT))
 	set_extension(src, /datum/extension/base_icon_state, icon_state)
+	set_extension(src, /datum/extension/demolisher/welder)
 	. = ..()
 	update_icon()
 
@@ -84,7 +83,7 @@
 
 	tank    = T
 	w_class = tank.size_in_use
-	force   = tank.unlit_force
+	set_base_attack_force(tank.unlit_force)
 	if(user && !quiet)
 		user.visible_message("[user] slots \a [T] into \the [src].", "You slot \a [T] into \the [src].")
 
@@ -118,7 +117,7 @@
 
 	tank    = null
 	w_class = initial(w_class)
-	force   = initial(force)
+	set_base_attack_force(get_initial_base_attack_force())
 	update_icon()
 	return TRUE
 
@@ -148,7 +147,7 @@
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(welding)
 		to_chat(user, SPAN_WARNING("Stop welding first!"))
-		return
+		return TRUE
 
 	if (istype(W, /obj/item/chems/welder_tank))
 		return insert_tank(W, user)
@@ -214,11 +213,11 @@
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob.
 /obj/item/weldingtool/proc/weld(var/fuel_usage = 1, var/mob/user = null)
 	if(!welding)
-		return
+		return FALSE
 	if(get_fuel() < fuel_usage)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You need more [welding_resource] to complete this task."))
-		return
+		return FALSE
 
 	use_fuel(fuel_usage)
 	if(user)
@@ -268,11 +267,6 @@
 /obj/item/weldingtool/proc/isOn()
 	return src.welding
 
-/obj/item/weldingtool/get_storage_cost()
-	if(isOn())
-		return ITEM_SIZE_NO_CONTAINER
-	return ..()
-
 /obj/item/weldingtool/on_update_icon()
 	. = ..()
 	z_flags &= ~ZMM_MANGLE_PLANES
@@ -291,12 +285,17 @@
 
 /**Handles updating damage depening on whether the welder is on or off */
 /obj/item/weldingtool/proc/update_physical_damage()
+	var/new_force
 	if(isOn())
-		force   = tank ? tank.lit_force : initial(force)
-		damtype = BURN
+		new_force   = tank?.lit_force
+		atom_damage_type = BURN
 	else
-		damtype = BRUTE
-		force   = tank? tank.unlit_force : initial(force)
+		new_force   = tank?.unlit_force
+		atom_damage_type = BRUTE
+	if(isnull(new_force))
+		set_base_attack_force(get_initial_base_attack_force())
+	else
+		set_base_attack_force(new_force)
 
 /obj/item/weldingtool/proc/turn_on(var/mob/user)
 	if (!status)
@@ -318,6 +317,7 @@
 	update_physical_damage()
 	playsound(src, activate_sound, 50, TRUE)
 	welding = TRUE
+	obj_flags |= OBJ_FLAG_NO_STORAGE
 	update_icon()
 	START_PROCESSING(SSobj, src)
 	return TRUE
@@ -333,6 +333,7 @@
 	update_physical_damage()
 	playsound(src, deactivate_sound, 50, TRUE)
 	welding = FALSE
+	obj_flags &= ~OBJ_FLAG_NO_STORAGE
 	update_icon()
 	return TRUE
 
@@ -342,27 +343,19 @@
 	else
 		return turn_on(user)
 
-/obj/item/weldingtool/attack(mob/living/M, mob/living/user, target_zone)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/S = GET_EXTERNAL_ORGAN(H, target_zone)
-
-		if(!S || !S.is_robotic() || user.a_intent != I_HELP)
-			return ..()
-
-		if(BP_IS_BRITTLE(S))
-			to_chat(user, SPAN_WARNING("\The [M]'s [S.name] is hard and brittle - \the [src]  cannot repair it."))
-			return TRUE
-
-		if(!welding)
-			to_chat(user, SPAN_WARNING("You'll need to turn [src] on to patch the damage on [M]'s [S.name]!"))
-			return TRUE
-
-		if(S.robo_repair(15, BRUTE, "some dents", src, user))
+/obj/item/weldingtool/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	var/obj/item/organ/external/affecting = istype(target) && GET_EXTERNAL_ORGAN(target, user?.get_target_zone())
+	if(affecting && user.a_intent == I_HELP)
+		if(!affecting.is_robotic())
+			to_chat(user, SPAN_WARNING("\The [target]'s [affecting.name] is not robotic. \The [src] cannot repair it."))
+		else if(BP_IS_BRITTLE(affecting))
+			to_chat(user, SPAN_WARNING("\The [target]'s [affecting.name] is hard and brittle. \The [src] cannot repair it."))
+		else if(!welding)
+			to_chat(user, SPAN_WARNING("You'll need to turn \the [src] on to patch the damage on \the [target]'s [affecting.name]!"))
+		else if(affecting.robo_repair(15, BRUTE, "some dents", src, user))
 			weld(1, user)
-			return TRUE
-	else
-		return ..()
+		return TRUE
+	return ..()
 
 /obj/item/weldingtool/get_autopsy_descriptors()
 	if(isOn())
@@ -390,25 +383,23 @@
 // Welding tool tanks
 //////////////////////////////////////////////////////////////////
 /obj/item/chems/welder_tank
-	name              = "welding tank"
-	base_name         = "welding tank"
-	desc              = "An interchangeable fuel tank meant for a welding tool."
-	icon              = 'icons/obj/items/tool/welders/welder_tanks.dmi'
-	icon_state        = "tank_normal"
-	w_class           = ITEM_SIZE_SMALL
-	atom_flags        = ATOM_FLAG_OPEN_CONTAINER
-	obj_flags         = OBJ_FLAG_HOLLOW
-	force             = 5
-	throwforce        = 5
-	volume            = 20
-	show_reagent_name = TRUE
-	current_health    = 40
-	max_health        = 40
-	material          = /decl/material/solid/metal/steel
-	var/can_refuel    = TRUE
-	var/size_in_use   = ITEM_SIZE_NORMAL
-	var/unlit_force   = 7
-	var/lit_force     = 11
+	name               = "welding tank"
+	base_name          = "welding tank"
+	desc               = "An interchangeable fuel tank meant for a welding tool."
+	icon               = 'icons/obj/items/tool/welders/welder_tanks.dmi'
+	icon_state         = "tank_normal"
+	w_class            = ITEM_SIZE_SMALL
+	atom_flags         = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags          = OBJ_FLAG_HOLLOW
+	volume             = 20
+	show_reagent_name  = TRUE
+	current_health     = 40
+	max_health         = 40
+	material           = /decl/material/solid/metal/steel
+	var/can_refuel     = TRUE
+	var/size_in_use    = ITEM_SIZE_NORMAL
+	var/unlit_force    = 7
+	var/lit_force      = 11
 
 /obj/item/chems/welder_tank/populate_reagents()
 	add_to_reagents(/decl/material/liquid/fuel, reagents.maximum_volume)
@@ -441,7 +432,7 @@
 			return TRUE
 	return ..()
 
-/obj/item/chems/welder_tank/standard_dispenser_refill(mob/user, obj/structure/reagent_dispensers/target)
+/obj/item/chems/welder_tank/standard_dispenser_refill(mob/user, obj/structure/reagent_dispensers/target, skip_container_check = FALSE)
 	if(!can_refuel)
 		to_chat(user, SPAN_DANGER("\The [src] does not have a refuelling port."))
 		return FALSE
@@ -473,53 +464,49 @@
 		LAZYREMOVE(., /decl/interaction_handler/set_transfer/chems)
 
 /obj/item/chems/welder_tank/mini
-	name        = "small welding tank"
-	base_name   = "small welding tank"
-	icon_state  = "tank_small"
-	w_class     = ITEM_SIZE_TINY
-	volume      = 5
-	force       = 4
-	throwforce  = 4
-	size_in_use = ITEM_SIZE_SMALL
-	unlit_force = 5
-	lit_force   = 7
+	name               = "small welding tank"
+	base_name          = "small welding tank"
+	icon_state         = "tank_small"
+	w_class            = ITEM_SIZE_TINY
+	volume             = 5
+	size_in_use        = ITEM_SIZE_SMALL
+	unlit_force        = 5
+	lit_force          = 7
+	_base_attack_force = 4
 
 /obj/item/chems/welder_tank/large
-	name        = "large welding tank"
-	base_name   = "large welding tank"
-	icon_state  = "tank_large"
-	w_class     = ITEM_SIZE_SMALL
-	volume      = 40
-	force       = 6
-	throwforce  = 6
-	size_in_use = ITEM_SIZE_NORMAL
+	name               = "large welding tank"
+	base_name          = "large welding tank"
+	icon_state         = "tank_large"
+	w_class            = ITEM_SIZE_SMALL
+	volume             = 40
+	size_in_use        = ITEM_SIZE_NORMAL
+	_base_attack_force = 6
 
 /obj/item/chems/welder_tank/huge
-	name        = "huge welding tank"
-	base_name   = "huge welding tank"
-	icon_state  = "tank_huge"
-	w_class     = ITEM_SIZE_NORMAL
-	volume      = 80
-	force       = 8
-	throwforce  = 8
-	size_in_use = ITEM_SIZE_LARGE
-	unlit_force = 9
-	lit_force   = 15
+	name               = "huge welding tank"
+	base_name          = "huge welding tank"
+	icon_state         = "tank_huge"
+	w_class            = ITEM_SIZE_NORMAL
+	volume             = 80
+	size_in_use        = ITEM_SIZE_LARGE
+	unlit_force        = 9
+	lit_force          = 15
+	_base_attack_force = 8
 
 /obj/item/chems/welder_tank/experimental
-	name              = "experimental welding tank"
-	base_name         = "experimental welding tank"
-	icon_state        = "tank_experimental"
-	w_class           = ITEM_SIZE_NORMAL
-	volume            = 40
-	can_refuel        = FALSE
-	force             = 8
-	throwforce        = 8
-	size_in_use       = ITEM_SIZE_LARGE
-	unlit_force       = 9
-	lit_force         = 15
-	show_reagent_name = FALSE
-	var/tmp/last_gen  = 0
+	name               = "experimental welding tank"
+	base_name          = "experimental welding tank"
+	icon_state         = "tank_experimental"
+	w_class            = ITEM_SIZE_NORMAL
+	volume             = 40
+	can_refuel         = FALSE
+	size_in_use        = ITEM_SIZE_LARGE
+	unlit_force        = 9
+	lit_force          = 15
+	show_reagent_name  = FALSE
+	_base_attack_force = 8
+	var/tmp/last_gen   = 0
 
 /obj/item/chems/welder_tank/experimental/Initialize(ml, material_key)
 	. = ..()

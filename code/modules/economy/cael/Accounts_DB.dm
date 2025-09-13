@@ -9,14 +9,6 @@
 	var/creating_new_account = 0
 	var/const/fund_cap = 1000000
 
-/obj/machinery/computer/account_database/proc/get_access_level()
-	if (!held_card)
-		return 0
-	if(access_cent_captain in held_card.access)
-		return 2
-	else if(access_hop in held_card.access || (access_captain in held_card.access))
-		return 1
-
 /obj/machinery/computer/account_database/proc/accounting_letterhead(report_name)
 	return {"
 		<center><h1><b>[report_name]</b></h1></center>
@@ -107,7 +99,7 @@
 			if("toggle_suspension")
 				if(detailed_account_view)
 					detailed_account_view.suspended = !detailed_account_view.suspended
-					callHook("change_account_status", list(detailed_account_view))
+					RAISE_EVENT(/decl/observ/change_account_status, detailed_account_view)
 
 			if("finalise_create_account")
 				var/account_name = href_list["holder_name"]
@@ -132,12 +124,12 @@
 				if(held_card)
 					held_card.dropInto(loc)
 
-					if(ishuman(usr) && !usr.get_active_hand())
+					if(ishuman(usr) && !usr.get_active_held_item())
 						usr.put_in_hands(held_card)
 					held_card = null
 					SSnano.update_uis(src)
 				else
-					var/obj/item/I = usr.get_active_hand()
+					var/obj/item/I = usr.get_active_held_item()
 					if (istype(I, /obj/item/card/id))
 						if(!usr.try_unequip(I, src))
 							return
@@ -157,7 +149,7 @@
 				var/funds = detailed_account_view.money
 				detailed_account_view.transfer(station_account, funds, "Revocation of payroll")
 
-				callHook("revoke_payroll", list(detailed_account_view))
+				RAISE_EVENT(/decl/observ/revoke_payroll, detailed_account_view)
 
 			if("print")
 

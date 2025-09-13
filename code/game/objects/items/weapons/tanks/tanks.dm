@@ -24,22 +24,18 @@ var/global/list/global/tank_gauge_cache = list()
 	icon = 'icons/obj/items/tanks/tank_blue.dmi'
 	icon_state = ICON_STATE_WORLD
 	material = /decl/material/solid/metal/steel
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	slot_flags = SLOT_BACK
+	w_class = ITEM_SIZE_LARGE
+	attack_cooldown = 2*DEFAULT_WEAPON_COOLDOWN
+	melee_accuracy_bonus = -30
+	throw_speed = 1
+	throw_range = 4
+	_base_attack_force = 15
 
 	var/gauge_icon = "indicator_tank"
 	var/gauge_cap = 6
 	var/previous_gauge_pressure = null
-
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	slot_flags = SLOT_BACK
-	w_class = ITEM_SIZE_LARGE
-
-	force = 15
-	attack_cooldown = 2*DEFAULT_WEAPON_COOLDOWN
-	melee_accuracy_bonus = -30
-	throwforce = 10.0
-	throw_speed = 1
-	throw_range = 4
-	material = /decl/material/solid/metal/steel
 
 	var/datum/gas_mixture/air_contents = null
 	var/distribute_pressure = ONE_ATMOSPHERE
@@ -47,10 +43,10 @@ var/global/list/global/tank_gauge_cache = list()
 	var/maxintegrity = 20
 	var/valve_welded = 0
 	var/obj/item/tankassemblyproxy/proxyassembly
-
 	var/volume = 70
-	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
-						//If they have and we haven't scanned it with the PDA or gas analyzer then we might just breath whatever they put in it.
+	//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
+	//If they have and we haven't scanned it with the PDA or gas analyzer then we might just breath whatever they put in it.
+	var/manipulated_by = null
 	var/failure_temp = 173 //173 deg C Borate seal (yes it should be 153 F, but that's annoying)
 	var/leaking = 0
 	var/wired = 0
@@ -121,17 +117,17 @@ var/global/list/global/tank_gauge_cache = list()
 
 
 /obj/item/tank/attackby(var/obj/item/W, var/mob/user)
-	..()
 	if (istype(loc, /obj/item/assembly))
 		icon = loc
 
 	if (istype(W, /obj/item/scanner/gas))
-		return
+		return FALSE // allow afterattack to proceed
 
 	if (istype(W,/obj/item/latexballon))
 		var/obj/item/latexballon/LB = W
 		LB.blow(src)
 		add_fingerprint(user)
+		return TRUE
 
 	if(IS_COIL(W))
 		var/obj/item/stack/cable_coil/C = W
@@ -139,6 +135,7 @@ var/global/list/global/tank_gauge_cache = list()
 			wired = 1
 			to_chat(user, "<span class='notice'>You attach the wires to the tank.</span>")
 			update_icon(TRUE)
+		return TRUE
 
 	if(IS_WIRECUTTER(W))
 		if(wired && proxyassembly.assembly)
@@ -166,6 +163,7 @@ var/global/list/global/tank_gauge_cache = list()
 				to_chat(user, "<span class='danger'>You slip and bump the igniter!</span>")
 				if(prob(85))
 					proxyassembly.receive_signal()
+			return TRUE
 
 		else if(wired)
 			if(do_after(user, 10, src))
@@ -175,6 +173,7 @@ var/global/list/global/tank_gauge_cache = list()
 
 		else
 			to_chat(user, "<span class='notice'>There are no wires to cut!</span>")
+		return TRUE
 
 	if(istype(W, /obj/item/assembly_holder))
 		if(wired)
@@ -188,6 +187,7 @@ var/global/list/global/tank_gauge_cache = list()
 				to_chat(user, "<span class='notice'>You stop attaching the assembly.</span>")
 		else
 			to_chat(user, "<span class='notice'>You need to wire the device up first.</span>")
+		return TRUE
 
 	if(IS_WELDER(W))
 		var/obj/item/weldingtool/WT = W
@@ -199,8 +199,8 @@ var/global/list/global/tank_gauge_cache = list()
 					valve_welded = 1
 					leaking = 0
 				else
-					global.bombers += "[key_name(user)] attempted to weld a [src]. [air_contents.temperature-T0C]"
-					log_and_message_admins("attempted to weld a [src]. [air_contents.temperature-T0C]", user)
+					global.bombers += "[key_name(user)] attempted to weld \a [src]. [air_contents.temperature-T0C]"
+					log_and_message_admins("attempted to weld \a [src]. [air_contents.temperature-T0C]", user)
 					if(WT.welding)
 						to_chat(user, "<span class='danger'>You accidentally rake \the [W] across \the [src]!</span>")
 						maxintegrity -= rand(2,6)
@@ -209,14 +209,17 @@ var/global/list/global/tank_gauge_cache = list()
 			else
 				to_chat(user, "<span class='notice'>The emergency pressure relief valve has already been welded.</span>")
 		add_fingerprint(user)
+		return TRUE
 
 	if(istype(W, /obj/item/flamethrower))
 		var/obj/item/flamethrower/F = W
 		if(!F.secured || F.tank || !user.try_unequip(src, F))
-			return
+			return TRUE
 
 		master = F
 		F.tank = src
+		return TRUE
+	return ..()
 
 /obj/item/tank/attack_self(mob/user)
 	add_fingerprint(user)
@@ -229,11 +232,11 @@ var/global/list/global/tank_gauge_cache = list()
 		proxyassembly.assembly.attack_self(user)
 
 /obj/item/tank/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/mob/living/carbon/location = get_recursive_loc_of_type(/mob/living/carbon)
+	var/mob/living/location = get_recursive_loc_of_type(/mob/living)
 
 	var/using_internal
 	if(istype(location))
-		if(location.internal==src)
+		if(location.get_internals() == src)
 			using_internal = 1
 
 	// this is the data which will be sent to the ui
@@ -248,13 +251,13 @@ var/global/list/global/tank_gauge_cache = list()
 	if(istype(location))
 		var/mask_check = 0
 
-		if(location.internal == src)	// if tank is current internal
+		if(location.get_internals() == src)	// if tank is current internal
 			mask_check = 1
 		else if(src in location)		// or if tank is in the mobs possession
-			if(!location.internal)		// and they do not have any active internals
+			if(!location.get_internals())		// and they do not have any active internals
 				mask_check = 1
 		else if(istype(loc, /obj/item/rig) && (loc in location))	// or the rig is in the mobs possession
-			if(!location.internal)		// and they do not have any active internals
+			if(!location.get_internals())		// and they do not have any active internals
 				mask_check = 1
 
 		if(mask_check)
@@ -262,7 +265,7 @@ var/global/list/global/tank_gauge_cache = list()
 			if(mask && (mask.item_flags & ITEM_FLAG_AIRTIGHT))
 				data["maskConnected"] = 1
 			else if(ishuman(location))
-				var/mob/living/carbon/human/H = location
+				var/mob/living/human/H = location
 				var/obj/item/head = H.get_equipped_item(slot_head_str)
 				if(head && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
@@ -301,8 +304,8 @@ var/global/list/global/tank_gauge_cache = list()
 
 /obj/item/tank/proc/toggle_valve(var/mob/user)
 
-	var/mob/living/carbon/location
-	if(iscarbon(loc))
+	var/mob/living/location
+	if(isliving(loc))
 		location = loc
 	else if(istype(loc,/obj/item/rig))
 		var/obj/item/rig/rig = loc
@@ -311,7 +314,7 @@ var/global/list/global/tank_gauge_cache = list()
 	else
 		return
 
-	if(location.internal == src)
+	if(location.get_internals() == src)
 		to_chat(user, "<span class='notice'>You close the tank release valve.</span>")
 		location.set_internals(null)
 	else
@@ -320,7 +323,7 @@ var/global/list/global/tank_gauge_cache = list()
 		if(mask && (mask.item_flags & ITEM_FLAG_AIRTIGHT))
 			can_open_valve = 1
 		else if(ishuman(location))
-			var/mob/living/carbon/human/H = location
+			var/mob/living/human/H = location
 			var/obj/item/head = H.get_equipped_item(slot_head_str)
 			if(head && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 				can_open_valve = 1
@@ -571,20 +574,23 @@ var/global/list/global/tank_gauge_cache = list()
 	update_icon(TRUE)
 
 /obj/item/tank/proc/ignite()	//This happens when a bomb is told to explode
+
 	var/obj/item/assembly_holder/assy = proxyassembly.assembly
-	var/ign = assy.a_right
-	var/obj/item/other = assy.a_left
+	var/obj/item/igniter = assy.a_right
+	var/obj/item/other   = assy.a_left
 
 	if (isigniter(assy.a_left))
-		ign = assy.a_left
-		other = assy.a_right
+		igniter = assy.a_left
+		other   = assy.a_right
 
 	if(other)
 		other.dropInto(get_turf(src))
-	qdel(ign)
+	if(!QDELETED(igniter))
+		qdel(igniter)
 	assy.master = null
 	proxyassembly.assembly = null
-	qdel(assy)
+	if(!QDELETED(assy))
+		qdel(assy)
 	update_icon(TRUE)
 
 	air_contents.add_thermal_energy(15000)

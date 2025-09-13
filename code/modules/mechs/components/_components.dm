@@ -24,11 +24,6 @@
 	var/decal_blend = BLEND_MULTIPLY
 	var/power_use = 0
 
-/obj/item/mech_component/set_color(new_color)
-	var/last_colour = color
-	color = new_color
-	return color != last_colour
-
 /obj/item/mech_component/emp_act(var/severity)
 	take_burn_damage(rand((10 - (severity*3)),15-(severity*4)))
 	for(var/obj/item/thing in contents)
@@ -54,7 +49,8 @@
 /obj/item/mech_component/proc/install_component(var/obj/item/thing, var/mob/user)
 	if(user.try_unequip(thing, src))
 		user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] in \the [src]."))
-		return 1
+		return TRUE
+	return FALSE
 
 /obj/item/mech_component/proc/update_component_health()
 	total_damage = brute_damage + burn_damage

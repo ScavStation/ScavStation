@@ -1,6 +1,6 @@
 // Pretty much everything here is stolen from the dna scanner FYI
 /obj/machinery/bodyscanner
-	var/mob/living/carbon/human/occupant
+	var/mob/living/human/occupant
 	var/locked
 	name = "body scanner"
 	icon = 'icons/obj/Cryogenic2.dmi'
@@ -67,12 +67,10 @@
 	if(istype(new_state))
 		updateUsrDialog()
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/G, user)
-	if(istype(G))
-		var/mob/M = G.get_affecting_mob()
-		if(!M || !user_can_move_target_inside(M, user))
-			return
-		qdel(G)
+/obj/machinery/bodyscanner/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim) && user_can_move_target_inside(victim, user))
+		qdel(grab)
 		return TRUE
 	return ..()
 

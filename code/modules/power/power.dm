@@ -179,13 +179,13 @@
 	return net1
 
 //Determines how strong could be shock, deals damage to mob, uses power.
-//M is a mob who touched wire/whatever
+//victim is a mob who touched wire/whatever
 //power_source is a source of electricity, can be powercell, area, apc, cable, powernet or null
 //source is an object caused electrocuting (airlock, grille, etc)
 //No animations will be performed by this proc.
-/proc/electrocute_mob(mob/living/carbon/M, power_source, obj/source, siemens_coeff = 1.0, coverage_flags = SLOT_HANDS)
+/proc/electrocute_mob(mob/living/victim, power_source, obj/source, siemens_coeff = 1.0, coverage_flags = SLOT_HANDS)
 
-	coverage_flags = M?.get_active_hand_bodypart_flags() || coverage_flags
+	coverage_flags = victim?.get_active_hand_bodypart_flags() || coverage_flags
 
 	var/area/source_area
 	if(istype(power_source,/area))
@@ -211,14 +211,15 @@
 	else if (!power_source)
 		return 0
 	else
-		log_admin("ERROR: /proc/electrocute_mob([M], [power_source], [source]): wrong power_source")
+		log_admin("ERROR: /proc/electrocute_mob([victim], [power_source], [source]): wrong power_source")
 		return 0
+
 	//Triggers powernet warning, but only for 5 ticks (if applicable)
 	//If following checks determine user is protected we won't alarm for long.
 	if(PN)
 		PN.trigger_warning(5)
 
-	if(M.get_siemens_coefficient_for_coverage(coverage_flags) <= 0)
+	if(victim.get_siemens_coefficient_for_coverage(coverage_flags) <= 0)
 		return
 
 	//Checks again. If we are still here subject will be shocked, trigger standard 20 tick warning
@@ -241,7 +242,7 @@
 	else
 		power_source = cell
 		shock_damage = cell_damage
-	var/drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff) //zzzzzzap!
+	var/drained_hp = victim.electrocute_act(shock_damage, source, siemens_coeff) //zzzzzzap!
 	var/drained_energy = drained_hp*20
 
 	if (source_area)

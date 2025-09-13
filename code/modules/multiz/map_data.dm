@@ -7,11 +7,11 @@
 	var/turf/edge_type ///< What the map edge should be formed with. (null = world.turf)
 
 // If the height is more than 1, we mark all contained levels as connected.
-// This is in New because it is an auxiliary effect specifically needed pre-init.
+// This initializes immediately because it is an auxiliary effect specifically needed pre-SSatoms init.
 INITIALIZE_IMMEDIATE(/obj/abstract/map_data)
 /obj/abstract/map_data/Initialize(mapload, _height)
 	if(!istype(loc)) // Using loc.z is safer when using the maploader and New.
-		return
+		return INITIALIZE_HINT_QDEL
 	if(_height)
 		height = _height
 	for(var/i = (loc.z - height + 1) to (loc.z-1))

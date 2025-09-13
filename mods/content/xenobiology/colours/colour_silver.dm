@@ -10,13 +10,13 @@
 	adult_icon =   'mods/content/xenobiology/icons/slimes/slime_adult_silver.dmi'
 	extract_icon = 'mods/content/xenobiology/icons/slimes/slime_extract_silver.dmi'
 	reaction_strings = list(/decl/material/solid/metal/uranium = "Synthesises a large amount of food.")
-	var/static/list/borks = subtypesof(/obj/item/chems/food)
+	var/static/list/borks = subtypesof(/obj/item/food)
 
 /decl/slime_colour/silver/handle_uranium_reaction(var/datum/reagents/holder)
 	var/location = get_turf(holder.get_reaction_loc())
 	if(location)
 		playsound(location, 'sound/effects/phasein.ogg', 100, 1)
-		for(var/mob/living/carbon/human/M in viewers(location, null))
+		for(var/mob/living/human/M in viewers(location, null))
 			if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 				M.flash_eyes()
 		for(var/i in 1 to (4 + rand(1, 2)))

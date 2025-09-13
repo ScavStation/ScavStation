@@ -57,17 +57,17 @@
 	cur_artifact = new_artifact
 
 /obj/machinery/artifact_harvester/attackby(var/obj/I, var/mob/user)
-	if(istype(I,/obj/item/anobattery))
-		if(!inserted_battery)
-			if(!user.try_unequip(I, src))
-				return
-			to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
-			inserted_battery = I
-			updateDialog()
-		else
-			to_chat(user, "<span class='warning'>There is already a battery in [src].</span>")
-	else
-		return..()
+	if(!istype(I, /obj/item/anobattery))
+		return ..()
+	if(inserted_battery)
+		to_chat(user, SPAN_WARNING("There is already a battery in [src]."))
+		return TRUE
+	if(!user.try_unequip(I, src))
+		return TRUE
+	to_chat(user, SPAN_NOTICE("You insert [I] into [src]."))
+	inserted_battery = I
+	updateDialog()
+	return TRUE
 
 /obj/machinery/artifact_harvester/interface_interact(user)
 	ui_interact(user)

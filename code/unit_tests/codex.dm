@@ -1,5 +1,5 @@
 /datum/unit_test/codex_string_uniqueness
-	name = "CODEX - All Codex Associated Strings Shall Be Unique"
+	name = "CODEX:  All Codex Associated Strings Shall Be Unique"
 
 /datum/unit_test/codex_string_uniqueness/start_test()
 	var/list/failures = list()
@@ -18,7 +18,7 @@
 	return TRUE
 
 /datum/unit_test/codex_overlap
-	name = "CODEX - No Codex String IDs Shall Overlap"
+	name = "CODEX: No Codex String IDs Shall Overlap"
 
 /datum/unit_test/codex_overlap/start_test()
 	var/list/failures = list()
@@ -42,7 +42,7 @@
 	return TRUE
 
 /datum/unit_test/codex_links
-	name = "CODEX - All Codex Links Will Function"
+	name = "CODEX: All Codex Links Will Function"
 
 /datum/unit_test/codex_links/start_test()
 	var/list/failures = list()
@@ -61,4 +61,20 @@
 		fail("Codex had [length(failures)] broken link\s:\n[jointext(failures, "\n")]")
 	else
 		pass("All codex links were functional.")
+	return 1
+
+/datum/unit_test/codex_dump_test
+	name = "CODEX: Codex Will Successfully Dump To Filesystem"
+
+/datum/unit_test/codex_dump_test/start_test()
+	var/dump_result
+	try
+		dump_result = SScodex.dump_to_filesystem()
+	catch(var/exception/E)
+		fail("Codex dump threw an exception: [EXCEPTION_TEXT(E)]")
+		return 1
+	if(dump_result)
+		pass("Codex dumped successfully.")
+	else
+		fail("Codex dump did not return true.")
 	return 1

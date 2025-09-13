@@ -3,9 +3,7 @@
 	amount_per_transfer_from_this = 5
 	atom_flags = 0 //starts closed
 	material = /decl/material/solid/metal/aluminium
-
-/obj/item/chems/drinks/cans/update_container_name()
-	return
+	abstract_type = /obj/item/chems/drinks/cans
 
 /obj/item/chems/drinks/cans/update_container_desc()
 	return
@@ -52,7 +50,7 @@
 	center_of_mass = @'{"x":16,"y":8}'
 
 /obj/item/chems/drinks/cans/thirteenloko/populate_reagents()
-	add_to_reagents(/decl/material/liquid/ethanol/thirteenloko, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/thirteenloko, reagents.maximum_volume)
 
 /obj/item/chems/drinks/cans/dr_gibb
 	name = "\improper Dr. Gibb"
@@ -204,7 +202,7 @@
 	center_of_mass = @'{"x":16,"y":10}'
 
 /obj/item/chems/drinks/cans/speer/populate_reagents()
-	add_to_reagents(/decl/material/liquid/ethanol/beer/good, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/beer/good, reagents.maximum_volume)
 
 /obj/item/chems/drinks/cans/ale
 	name = "\improper Magm-Ale"
@@ -213,4 +211,4 @@
 	center_of_mass = @'{"x":16,"y":10}'
 
 /obj/item/chems/drinks/cans/ale/populate_reagents()
-	add_to_reagents(/decl/material/liquid/ethanol/ale, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/alcohol/ale, reagents.maximum_volume)

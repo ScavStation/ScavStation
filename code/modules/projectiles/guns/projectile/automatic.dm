@@ -35,14 +35,14 @@
 /obj/item/gun/projectile/automatic/smg/on_update_icon()
 	..()
 	if(ammo_magazine)
-		add_overlay("[get_world_inventory_state()]mag-[round(length(ammo_magazine.stored_ammo),5)]")
+		add_overlay("[get_world_inventory_state()]mag-[round(ammo_magazine.get_stored_ammo_count(),5)]")
 
 /obj/item/gun/projectile/automatic/assault_rifle
 	name = "assault rifle"
 	desc = "The Z8 Bulldog is an older model bullpup carbine. Makes you feel like a space marine when you hold it."
 	icon = 'icons/obj/guns/bullpup_rifle.dmi'
 	w_class = ITEM_SIZE_HUGE
-	force = 10
+	_base_attack_force = 10
 	caliber = CALIBER_RIFLE
 	origin_tech = @'{"combat":7,"materials":3}'
 	ammo_type = /obj/item/ammo_casing/rifle
@@ -72,7 +72,7 @@
 
 /obj/item/gun/projectile/automatic/assault_rifle/update_base_icon_state()
 	. = ..()
-	if(length(ammo_magazine?.stored_ammo))
+	if(ammo_magazine?.get_stored_ammo_count())
 		icon_state = "[icon_state]-loaded"
 	else
 		icon_state = "[icon_state]-empty"
@@ -97,10 +97,10 @@
 	launcher = new(src)
 
 /obj/item/gun/projectile/automatic/assault_rifle/grenade/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
-	else
-		..()
+	if(!istype(I, /obj/item/grenade))
+		return ..()
+	launcher.load(I, user)
+	return TRUE
 
 /obj/item/gun/projectile/automatic/assault_rifle/grenade/attack_hand(mob/user)
 	if(!user.is_holding_offhand(src) || !use_launcher || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
@@ -133,7 +133,7 @@
 	desc = "The XC-67 \"Creosote\" is a massive machine gun, and ranks high on most tin-pot dictators' wish lists. Firing this thing without some sort of weapons platform is a hopeless task."
 	icon = 'icons/obj/guns/machine.dmi'
 	w_class = ITEM_SIZE_HUGE
-	force = 10
+	_base_attack_force = 10
 	caliber = CALIBER_RIFLE
 	origin_tech = @'{"combat":9,"materials":3}'
 	ammo_type = /obj/item/ammo_casing/rifle

@@ -25,7 +25,7 @@
 
 /obj/machinery/ai_slipper/attackby(obj/item/W, mob/user)
 	if(stat & (NOPOWER|BROKEN))
-		return
+		return FALSE
 	if (issilicon(user))
 		return attack_ai(user)
 	else // trying to unlock the interface
@@ -41,6 +41,7 @@
 					interact(user)
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
+		return TRUE
 
 /obj/machinery/ai_slipper/interface_interact(mob/user)
 	interact(user)
@@ -55,8 +56,8 @@
 	if(src.locked && (!issilicon(user)))
 		t += "<I>(Swipe ID card to unlock control panel.)</I><BR>"
 	else
-		t += text("Dispenser [] - <A href='?src=\ref[];toggleOn=1'>[]?</a><br>\n", src.disabled?"deactivated":"activated", src, src.disabled?"Enable":"Disable")
-		t += text("Uses Left: [uses]. <A href='?src=\ref[src];toggleUse=1'>Activate the dispenser?</A><br>\n")
+		t += text("Dispenser [] - <A href='byond://?src=\ref[];toggleOn=1'>[]?</a><br>\n", src.disabled?"deactivated":"activated", src, src.disabled?"Enable":"Disable")
+		t += text("Uses Left: [uses]. <A href='byond://?src=\ref[src];toggleUse=1'>Activate the dispenser?</A><br>\n")
 
 	show_browser(user, t, "window=computer;size=575x450")
 	onclose(user, "computer")

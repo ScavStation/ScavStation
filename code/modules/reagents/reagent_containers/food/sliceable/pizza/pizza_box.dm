@@ -9,8 +9,8 @@
 	var/const/MAXIMUM_PIZZA_STACK = 15
 	var/open = FALSE // Is the box open?
 	var/image/messy_overlay
-	var/obj/item/chems/food/sliceable/pizza/pizza
-	var/list/stacked_boxes
+	var/obj/item/food/sliceable/pizza/pizza
+	var/list/obj/item/pizzabox/stacked_boxes
 	var/box_tag
 	var/box_tag_color = COLOR_BLACK
 
@@ -27,7 +27,11 @@
 	// We care about our own moved event in case of structural failure.
 	events_repository.register(/decl/observ/moved, src, src, PROC_REF(check_stack_failure))
 
-/obj/item/pizzabox/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/pizzabox/Destroy()
+	events_repository.unregister(/decl/observ/moved, src, src)
+	return ..()
+
+/obj/item/pizzabox/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && length(stacked_boxes))
 		var/i = 1
 		for(var/obj/item/pizzabox/box in stacked_boxes)
@@ -40,7 +44,7 @@
 	. = ..()
 
 // Tossing a pizza around can have terrible effects...
-/obj/item/pizzabox/attack(mob/living/M, mob/living/user, var/target_zone)
+/obj/item/pizzabox/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	..()
 	return FALSE
 
@@ -253,7 +257,7 @@
 		return TRUE
 
 	// Putting a pizza back in the box.
-	if(istype(I, /obj/item/chems/food/sliceable/pizza))
+	if(istype(I, /obj/item/food/sliceable/pizza))
 
 		if(!open)
 			to_chat(user, SPAN_WARNING("Open \the [src] first!"))
@@ -313,21 +317,21 @@
 
 // Subtypes below.
 /obj/item/pizzabox/margherita
-	pizza = /obj/item/chems/food/sliceable/pizza/margherita
+	pizza = /obj/item/food/sliceable/pizza/margherita
 	box_tag = "Margherita Deluxe"
 	box_tag_color = COLOR_DARK_RED
 
 /obj/item/pizzabox/vegetable
-	pizza = /obj/item/chems/food/sliceable/pizza/vegetablepizza
+	pizza = /obj/item/food/sliceable/pizza/vegetablepizza
 	box_tag = "Gourmet Vegetable"
 	box_tag_color = COLOR_PAKISTAN_GREEN
 
 /obj/item/pizzabox/mushroom
-	pizza = /obj/item/chems/food/sliceable/pizza/mushroompizza
+	pizza = /obj/item/food/sliceable/pizza/mushroompizza
 	box_tag = "Mushroom Special"
 	box_tag_color = COLOR_PURPLE_GRAY
 
 /obj/item/pizzabox/meat
-	pizza = /obj/item/chems/food/sliceable/pizza/meatpizza
+	pizza = /obj/item/food/sliceable/pizza/meatpizza
 	box_tag = "Meatlover's Supreme"
 	box_tag_color = COLOR_BROWN_ORANGE

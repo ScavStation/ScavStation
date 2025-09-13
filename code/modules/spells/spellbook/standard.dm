@@ -1,6 +1,6 @@
 //the spellbook we know and love. Well, the one we know, at least.
 
-/obj/item/spellbook/standard
+/obj/item/book/spell/standard
 	spellbook_type = /datum/spellbook/standard
 
 /datum/spellbook/standard
@@ -28,7 +28,6 @@
 		/spell/noclothes =                             2,
 		/obj/item/gun/energy/staff/focus =             1,
 		/obj/item/gun/energy/staff/fire =              1,
-		/obj/structure/closet/wizard/souls =           1,
 		/obj/item/gun/energy/staff/animate =           1,
 		/obj/structure/closet/wizard/scrying =         1,
 		/obj/item/summoning_stone =                    2,
@@ -38,8 +37,8 @@
 	)
 
 	sacrifice_objects = list(
-		/obj/item/storage/toolbox,
-		/obj/item/cane,
+		/obj/item/toolbox,
+		/obj/item/cane/fancy,
 		/obj/item/flamethrower,
 		/obj/item/plastique,
 		/obj/item/dice,

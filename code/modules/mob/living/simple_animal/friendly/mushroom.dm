@@ -3,22 +3,20 @@
 	desc = "It's a massive mushroom... with legs?"
 	icon = 'icons/mob/simple_animal/mushroom.dmi'
 	mob_size = MOB_SIZE_SMALL
-	speak_chance = 0
-	turns_per_move = 1
+	ai = /datum/mob_controller/mushroom
 	max_health = 5
 	harm_intent_damage = 5
 	pass_flags = PASS_FLAG_TABLE
-
-	meat_type = /obj/item/chems/food/hugemushroomslice
-	bone_material = null
-	bone_amount =   0
-	skin_material = null
-	skin_amount =   null
+	butchery_data = /decl/butchery_data/animal/mushroom
 
 	var/datum/seed/seed
 	var/harvest_time
 	var/min_explode_time = 1200
 	var/static/total_mushrooms = 0
+
+/datum/mob_controller/mushroom
+	speak_chance = 0
+	turns_per_wander = 2
 
 /mob/living/simple_animal/mushroom/Initialize()
 	. = ..()

@@ -185,16 +185,16 @@
 	if(IS_WRENCH(I))
 		if(use_power == POWER_USE_ACTIVE)
 			to_chat(user, "<span class='warning'>Turn \the [src] off first!</span>")
-			return
+			return TRUE
 
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 
-		return
+		return TRUE
 	//doesn't hold tanks
 	if(istype(I, /obj/item/tank))
-		return
+		return FALSE
 
 	return ..()
 
@@ -206,6 +206,6 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(var/obj/item/I, var/mob/user)
 	if(IS_WRENCH(I))
 		to_chat(user, "<span class='warning'>The bolts are too tight for you to unscrew!</span>")
-		return
+		return TRUE
 
 	return ..()

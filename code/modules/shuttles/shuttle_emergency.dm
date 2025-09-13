@@ -26,7 +26,7 @@
 /datum/shuttle/autodock/ferry/emergency/long_jump(var/destination, var/interim, var/travel_time, var/direction)
 	..(destination, interim, emergency_controller.get_long_jump_time(), direction)
 
-/datum/shuttle/autodock/ferry/emergency/shuttle_moved()
+/datum/shuttle/autodock/ferry/emergency/shuttle_moved(obj/effect/shuttle_landmark/destination, list/turf_translation, angle = 0)
 	if(next_location != waypoint_station)
 		emergency_controller.shuttle_leaving() // This is a hell of a line. v
 		priority_announcement.Announce(replacetext(replacetext((emergency_controller.emergency_evacuation ? global.using_map.emergency_shuttle_leaving_dock : global.using_map.shuttle_leaving_dock), "%dock_name%", "[global.using_map.dock_name]"),  "%ETA%", "[round(emergency_controller.get_eta()/60,1)] minute\s"))
@@ -175,8 +175,9 @@
 		return 1
 
 /obj/machinery/computer/shuttle_control/emergency/attackby(obj/item/W, mob/user)
-	read_authorization(W)
-	..()
+	if(read_authorization(W))
+		return TRUE
+	return ..()
 
 /obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
@@ -252,8 +253,8 @@
 
 	else if(!emagged && href_list["scanid"])
 		//They selected an empty entry. Try to scan their id.
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		if (istype(H))
-			if (!read_authorization(H.get_active_hand()))	//try to read what's in their hand first
+			if (!read_authorization(H.get_active_held_item()))	//try to read what's in their hand first
 				read_authorization(H.get_equipped_item(slot_wear_id_str))
 				. = TOPIC_REFRESH

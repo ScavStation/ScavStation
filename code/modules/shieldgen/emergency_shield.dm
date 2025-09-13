@@ -86,7 +86,7 @@
 			tforce = mob_hitter.mob_size * (thrownthing.speed/THROWFORCE_SPEED_DIVISOR)
 		else
 			var/obj/obj_hitter = hitter
-			tforce = obj_hitter.throwforce * (thrownthing.speed/THROWFORCE_SPEED_DIVISOR)
+			tforce = obj_hitter.get_thrown_attack_force() * (thrownthing.speed/THROWFORCE_SPEED_DIVISOR)
 		if(tforce > 0)
 			take_damage(tforce, BRUTE)
 
@@ -260,43 +260,43 @@
 		else
 			to_chat(user, "<span class='notice'>You open the panel and expose the wiring.</span>")
 			is_open = 1
-
+		return TRUE
 	else if(IS_COIL(W) && malfunction && is_open)
 		var/obj/item/stack/cable_coil/coil = W
 		to_chat(user, "<span class='notice'>You begin to replace the wires.</span>")
-		if(do_after(user, 30,src))
-			if (coil.use(1))
-				current_health = get_max_health()
-				malfunction = 0
-				to_chat(user, "<span class='notice'>You repair the [src]!</span>")
-				update_icon()
-
+		if(!do_after(user, 3 SECONDS, src))
+			to_chat(user, SPAN_NOTICE("You stop repairing \the [src]."))
+			return TRUE
+		if (coil.use(1))
+			current_health = get_max_health()
+			malfunction = 0
+			to_chat(user, "<span class='notice'>You repair \the [src]!</span>")
+			update_icon()
+		return TRUE
 	else if(IS_WRENCH(W))
 		if(locked)
 			to_chat(user, "The bolts are covered, unlocking this would retract the covers.")
-			return
+			return TRUE
 		if(anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>'You unsecure the [src] from the floor!</span>")
+			to_chat(user, "<span class='notice'>'You unsecure \the [src] from the floor!</span>")
 			if(active)
-				to_chat(user, "<span class='notice'>The [src] shuts off!</span>")
+				to_chat(user, "<span class='notice'>\The [src] shuts off!</span>")
 				src.shields_down()
 			anchored = FALSE
-		else
-			if(isspaceturf(get_turf(src))) return //No wrenching these in space!
+		else if(!isspaceturf(get_turf(src))) //No wrenching these in space!
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>You secure the [src] to the floor!</span>")
+			to_chat(user, "<span class='notice'>You secure \the [src] to the floor!</span>")
 			anchored = TRUE
-
-
+		return TRUE
 	else if(istype(W, /obj/item/card/id) || istype(W, /obj/item/modular_computer/pda))
 		if(src.allowed(user))
 			src.locked = !src.locked
 			to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-	else
-		..()
+		return TRUE
+	return ..()
 
 
 /obj/machinery/shieldgen/on_update_icon()

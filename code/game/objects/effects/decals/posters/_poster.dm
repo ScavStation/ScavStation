@@ -7,9 +7,9 @@
 	icon               = 'icons/obj/items/posters.dmi'
 	icon_state         = "poster0"
 	anchored           = TRUE
-	directional_offset = @'{"NORTH":{"y":32}, "SOUTH":{"y":-32}, "WEST":{"x":32}, "EAST":{"x":-32}}'
+	directional_offset = @'{"NORTH":{"y":32}, "SOUTH":{"y":-32}, "EAST":{"x":32}, "WEST":{"x":-32}}'
 	material           = /decl/material/solid/organic/paper
-	max_health = 10
+	max_health         = 10
 	parts_type         = /obj/item/poster
 	parts_amount       = 1
 
@@ -52,7 +52,7 @@
 		return FALSE //#FIXME: once /obj/structure/sign use the generic structure tools procs we won't need to intercept this here anymore.
 	return ..()
 
-/obj/structure/sign/poster/dismantle()
+/obj/structure/sign/poster/dismantle_structure(mob/user)
 	//If not ruined, we can drop an intact poster item
 	if(!ruined)
 		return ..()
@@ -67,7 +67,7 @@
 /obj/structure/sign/poster/handle_default_wirecutter_attackby(mob/user, obj/item/wirecutters/wirecutters)
 	if(!wirecutters.do_tool_interaction(TOOL_WIRECUTTERS, user, src, 0, ruined? "scrapping off the remnants of" : "carefully removing", ruined? "cutting off" : "carefully removing"))
 		return TRUE //Don't run after_attack
-	dismantle()
+	dismantle_structure(user)
 	return TRUE
 
 /obj/structure/sign/poster/attack_hand(mob/user)
@@ -127,10 +127,8 @@
 	desc       = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	icon       = 'icons/obj/items/posters.dmi'
 	icon_state = "rolled_poster"
-	force = 0
+	_base_attack_force = 0
 	material = /decl/material/solid/organic/paper
-	///The name of the medium, excluding any reference to the design
-	var/base_name = "rolled-up poster"
 	///The description for the item/medium without any reference to the design.
 	var/base_desc = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	///Type path to the /decl for the design on this poster. At runtime is changed for a reference to the decl
@@ -138,14 +136,15 @@
 
 /obj/item/poster/Initialize(ml, material_key, var/given_poster_type = null)
 	//Init design
+	base_name ||= name
 	set_design(given_poster_type || poster_design || pick(decls_repository.get_decl_paths_of_subtype(/decl/poster_design)))
 	return ..(ml, material_key)
 
 /obj/item/poster/proc/set_design(var/decl/poster_design/_design_path)
-	if(_design_path == poster_design)
-		return TRUE
 	if(ispath(_design_path, /decl))
 		_design_path = GET_DECL(_design_path)
+	if(_design_path == poster_design)
+		return TRUE
 	if(!istype(_design_path))
 		CRASH("Invalid poster type: [log_info_line(_design_path)]")
 
@@ -187,7 +186,7 @@
 			SPAN_NOTICE("You have placed the poster on \the [W]."))
 	else
 		// We cannot rely on user being on the appropriate turf when placement fails
-		P.dismantle()
+		P.dismantle_structure(user)
 
 /obj/item/poster/proc/ArePostersOnWall(var/turf/W, var/placed_poster)
 	//just check if there is a poster on or adjacent to the wall

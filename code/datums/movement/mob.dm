@@ -62,21 +62,28 @@
 	return (MOVEMENT_PROCEED|MOVEMENT_HANDLED)
 
 /datum/movement_handler/mob/space
-	var/allow_move
+	var/last_space_move_result
+
+// Notes on space movement chain:
+// - owning mob calls MayMove() via normal movement handler chain
+// - MayMove() sets last_space_move_result based on is_space_movement_permitted() (checks for footing, magboots, etc)
+// - last_space_move_result is checked in DoMove() and passed to try_space_move() as a param, which returns TRUE/FALSE
+// - if the original move result was forbidden, or try_space_move() fails, the handler prevents movement.
+// - Otherwise it goes ahead and lets the mob move.
 
 // Space movement
 /datum/movement_handler/mob/space/DoMove(direction, mob/mover, is_external)
 	if(mob.has_gravity() || (IS_NOT_SELF(mover) && is_external))
 		return
-	if(!allow_move || !mob.space_do_move(allow_move, direction))
+	if(last_space_move_result == SPACE_MOVE_FORBIDDEN || !mob.try_space_move(last_space_move_result, direction))
 		return MOVEMENT_HANDLED
 
 /datum/movement_handler/mob/space/MayMove(mob/mover, is_external)
 	if(IS_NOT_SELF(mover) && is_external)
 		return MOVEMENT_PROCEED
 	if(!mob.has_gravity())
-		allow_move = mob.Process_Spacemove(1)
-		if(!allow_move)
+		last_space_move_result = mob.is_space_movement_permitted(allow_movement = TRUE)
+		if(last_space_move_result == SPACE_MOVE_FORBIDDEN)
 			return MOVEMENT_STOP
 	return MOVEMENT_PROCEED
 
@@ -157,8 +164,8 @@
 			to_chat(mob, SPAN_WARNING("You're pinned down by \a [mob.pinned[1]]!"))
 		return MOVEMENT_STOP
 
-	for(var/obj/item/grab/G as anything in mob.grabbed_by)
-		if(G.assailant != mob && G.assailant != mover && (mob.restrained() || G.stop_move()))
+	for(var/obj/item/grab/grab as anything in mob.grabbed_by)
+		if(grab.assailant != mob && grab.assailant != mover && (mob.restrained() || grab.stop_move()))
 			if(mover == mob)
 				to_chat(mob, SPAN_WARNING("You're restrained and cannot move!"))
 			mob.ProcessGrabs()
@@ -191,6 +198,8 @@
 		mob.moving = FALSE
 		return
 
+	mob.handle_footsteps()
+
 	// Sprinting uses up stamina and causes exertion effects.
 	if(MOVING_QUICKLY(mob))
 		mob.last_quick_move_time = world.time
@@ -210,15 +219,20 @@
 /mob/proc/get_stamina_used_per_step()
 	return 1
 
-/mob/living/carbon/human/get_stamina_used_per_step()
+/mob/proc/get_stamina_skill_mod()
+	return 1
+
+/mob/living/human/get_stamina_skill_mod()
 	var/mod = (1-((get_skill_value(SKILL_HAULING) - SKILL_MIN)/(SKILL_MAX - SKILL_MIN)))
 	if(species && (species.species_flags & SPECIES_FLAG_LOW_GRAV_ADAPTED))
 		if(has_gravity())
 			mod *= 1.2
 		else
 			mod *= 0.8
+	return mod
 
-	return get_config_value(/decl/config/num/movement_min_sprint_cost) + get_config_value(/decl/config/num/movement_skill_sprint_cost_range) * mod
+/mob/living/human/get_stamina_used_per_step()
+	return get_config_value(/decl/config/num/movement_min_sprint_cost) + get_config_value(/decl/config/num/movement_skill_sprint_cost_range) * get_stamina_skill_mod()
 
 // Misc. helpers
 /mob/proc/MayEnterTurf(var/turf/T)

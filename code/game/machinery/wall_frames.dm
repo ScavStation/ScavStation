@@ -292,7 +292,8 @@
 	if(.)
 		M = build_machine_type
 		to_chat(user, SPAN_NOTICE("You setup \the [src]'s software to work as a '[initial(M.name)]', using \the [W]."))
-		return .
+		return TRUE
+	return FALSE
 
 /obj/item/frame/button/airlock_controller/kit
 	fully_construct = TRUE
@@ -321,7 +322,7 @@
 	var/choice = input(user, "Chose the type of controller to build:", "Select Controller Type") as null|anything in possible_kit_type_names
 	if(!choice || !CanPhysicallyInteract(user))
 		build_machine_type = initial(build_machine_type)
-		return
+		return TRUE
 	build_machine_type = possible_kit_type_names[choice]
 	M = build_machine_type
 	to_chat(user, SPAN_NOTICE("You set the kit type to '[initial(M.name)]'!"))

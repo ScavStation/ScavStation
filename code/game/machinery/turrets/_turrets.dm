@@ -38,7 +38,7 @@
 
 	// Angles
 	// Remember that in BYOND, NORTH equals 0 absolute degrees, and not 90.
-	var/traverse = 180 // Determines how wide the turret can turn to shoot things, in degrees. The 'front' of the turret is determined by it's dir variable.
+	var/traverse = 180 // Determines how wide the turret can turn to shoot things, in degrees. The 'front' of the turret is determined by its dir variable.
 	var/leftmost_traverse = null // How far left or right the turret can turn. Set automatically using the above variable and the inital dir value.
 	var/rightmost_traverse = null
 	var/current_bearing = 0 // Current absolute angle the turret has, used to calculate if it needs to turn to try to shoot the target.
@@ -133,20 +133,18 @@
 	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/turret/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/gun))
-		if(!installed_gun)
-			if(!user.try_unequip(I, src))
-				return
-			to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]!"))
-			installed_gun = I
-			setup_gun()
-			return
+	if(istype(I, /obj/item/gun) && !installed_gun)
+		if(!user.try_unequip(I, src))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]!"))
+		installed_gun = I
+		setup_gun()
+		return TRUE
 
 	if(istype(I, /obj/item/ammo_magazine) || istype(I, /obj/item/ammo_casing))
 		var/obj/item/stock_parts/ammo_box/ammo_box = get_component_of_type(/obj/item/stock_parts/ammo_box)
 		if(istype(ammo_box))
-			ammo_box.attackby(I, user)
-			return
+			return ammo_box.attackby(I, user)
 	. = ..()
 
 // This is called after the gun gets instantiated or slotted in.
@@ -190,7 +188,7 @@
 				playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
 				reloading_progress = 0
 
-			else if(stored_magazine && length(stored_magazine.stored_ammo) < stored_magazine.max_ammo)
+			else if(stored_magazine && stored_magazine.get_stored_ammo_count() < stored_magazine.max_ammo)
 				var/obj/item/stock_parts/ammo_box/ammo_box = get_component_of_type(/obj/item/stock_parts/ammo_box)
 				if(ammo_box?.is_functional() && ammo_box.stored_caliber == proj_gun.caliber)
 					var/obj/item/ammo_casing/casing = ammo_box.remove_ammo(stored_magazine)
@@ -368,7 +366,7 @@
 				// Only reload the magazine if we're completely out of ammo or we don't have a target.
 				if(ammo_remaining == 0)
 					return TRUE
-				if(!is_valid_target(target?.resolve()) && length(proj_gun.ammo_magazine.stored_ammo) != proj_gun.ammo_magazine.max_ammo)
+				if(!is_valid_target(target?.resolve()) && proj_gun.ammo_magazine.get_stored_ammo_count() != proj_gun.ammo_magazine.max_ammo)
 					return TRUE
 		else
 			return FALSE

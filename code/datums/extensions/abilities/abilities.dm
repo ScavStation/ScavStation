@@ -4,6 +4,14 @@
 	expected_type = /mob
 	var/list/ability_handlers
 
+/datum/extension/abilities/Destroy()
+	// Can't use QDEL_NULL_LIST() due to circular calls.
+	for(var/datum/ability_handler/handler in ability_handlers)
+		handler.master = null
+		qdel(handler)
+	ability_handlers = null
+	return ..()
+
 /datum/extension/abilities/proc/update()
 	if(!LAZYLEN(ability_handlers))
 		remove_extension(holder, base_type)
@@ -12,7 +20,7 @@
 /datum/extension/abilities/proc/do_self_invocation()
 	if(isliving(holder) && LAZYLEN(ability_handlers))
 		for(var/datum/ability_handler/handler in ability_handlers)
-			if(handler.do_self_invocation(holder))
+			if(handler.can_do_self_invocation(holder) && handler.do_self_invocation(holder))
 				return TRUE
 	return FALSE
 
@@ -20,7 +28,7 @@
 /datum/extension/abilities/proc/do_grabbed_invocation(atom/target)
 	if(isliving(holder) && istype(target) && LAZYLEN(ability_handlers))
 		for(var/datum/ability_handler/handler in ability_handlers)
-			if(handler.do_grabbed_invocation(holder, target))
+			if(handler.can_do_grabbed_invocation(holder, target) && handler.do_grabbed_invocation(holder, target))
 				return TRUE
 	return FALSE
 
@@ -28,7 +36,7 @@
 /datum/extension/abilities/proc/do_melee_invocation(atom/target)
 	if(isliving(holder) && istype(target) && LAZYLEN(ability_handlers))
 		for(var/datum/ability_handler/handler in ability_handlers)
-			if(handler.do_melee_invocation(holder, target))
+			if(handler.can_do_melee_invocation(holder, target) && handler.do_melee_invocation(holder, target))
 				return TRUE
 	return FALSE
 
@@ -36,7 +44,7 @@
 /datum/extension/abilities/proc/do_ranged_invocation(atom/target)
 	if(isliving(holder) && istype(target) && LAZYLEN(ability_handlers))
 		for(var/datum/ability_handler/handler in ability_handlers)
-			if(handler.do_ranged_invocation(holder, target))
+			if(handler.can_do_ranged_invocation(holder, target) && handler.do_ranged_invocation(holder, target))
 				return TRUE
 	return FALSE
 

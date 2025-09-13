@@ -8,10 +8,13 @@
 	response_harm = "stamps on"
 	mob_size = MOB_SIZE_MINISCULE
 	possession_candidate = 1
-	can_escape = TRUE
 	pass_flags = PASS_FLAG_TABLE
+	butchery_data = /decl/butchery_data/animal/reptile/small
+	ai = /datum/mob_controller/lizard
+	holder_type = /obj/item/holder
 
-	meat_amount = 1
-	bone_amount = 1
-	skin_amount = 1
-	skin_material = /decl/material/solid/organic/skin/lizard
+/datum/mob_controller/lizard
+	can_escape_buckles = TRUE
+
+/mob/living/simple_animal/lizard/get_remains_type()
+	return /obj/item/remains/lizard

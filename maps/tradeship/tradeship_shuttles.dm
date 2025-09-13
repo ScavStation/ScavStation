@@ -23,6 +23,7 @@
 /obj/effect/shuttle_landmark/docking_arm_starboard
 	name = "Tradeship Starboard-side Docking Arm"
 	docking_controller = "tradeship_starboard_dock"
+	flags = SLANDMARK_FLAG_REORIENT
 
 /obj/effect/shuttle_landmark/docking_arm_starboard/rescue
 	landmark_tag = "nav_tradeship_starboard_dock_rescue"
@@ -30,6 +31,7 @@
 /obj/effect/shuttle_landmark/docking_arm_port
 	name = "Tradeship Port-side Docking Arm"
 	docking_controller = "tradeship_dock_port"
+	flags = SLANDMARK_FLAG_REORIENT
 
 /obj/effect/shuttle_landmark/docking_arm_port/shuttle
 	landmark_tag = "nav_tradeship_port_dock_shuttle"
@@ -53,7 +55,7 @@
 	wall_type =     null
 	firedoor_type = null
 	light_type =    null
-	floor_type =  /turf/simulated/floor/tiled/steel_grid
+	floor_type =  /turf/floor/tiled/steel_grid
 	button_type = /obj/structure/lift/button/standalone
 	panel_type =  /obj/structure/lift/panel/standalone
 	areas_to_use = list(

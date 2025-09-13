@@ -30,10 +30,10 @@
 		A.forceMove(target)
 		if(isliving(A))
 			var/mob/living/L = A
-			for(var/obj/item/grab/G in L.get_active_grabs())
-				G.affecting.forceMove(target)
+			for(var/obj/item/grab/grab as anything in L.get_active_grabs())
+				grab.affecting.forceMove(target)
 		if(ishuman(A))
-			var/mob/living/carbon/human/H = A
+			var/mob/living/human/H = A
 			if(H.has_footsteps())
 				playsound(source, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
@@ -48,6 +48,17 @@
 	icon_state = "catwalk"
 
 // type paths to make mapping easier.
+/obj/structure/stairs/north
+	dir = NORTH
+
+/obj/structure/stairs/south
+	dir = SOUTH
+
+/obj/structure/stairs/east
+	dir = EAST
+
+/obj/structure/stairs/west
+	dir = WEST
 
 /obj/structure/stairs/long
 	icon = 'icons/obj/stairs_64.dmi'

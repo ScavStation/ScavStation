@@ -85,22 +85,22 @@
 		return TRUE
 	. = ..()
 
-/obj/item/modular_computer/attackby(var/obj/item/W, var/mob/user)
-	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)
-	if(assembly.attackby(W, user))
-		update_verbs()
-		return
+/obj/item/modular_computer/attackby(var/obj/item/used_item, var/mob/user)
 
-	if(IS_PEN(W) && (W.w_class <= ITEM_SIZE_TINY) && stores_pen)
-		if(istype(stored_pen))
-			to_chat(user, "<span class='notice'>There is already a pen in [src].</span>")
-			return
-		if(!user.try_unequip(W, src))
-			return
-		stored_pen = W
+	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)
+	if(assembly?.attackby(used_item, user))
 		update_verbs()
-		to_chat(user, "<span class='notice'>You insert [W] into [src].</span>")
-		return
+		return TRUE
+
+	if(IS_PEN(used_item) && (used_item.w_class <= ITEM_SIZE_TINY) && stores_pen)
+		if(istype(stored_pen))
+			to_chat(user, SPAN_NOTICE("There is already \a [stored_pen] in \the [src]."))
+		else if(user.try_unequip(used_item, src))
+			stored_pen = used_item
+			update_verbs()
+			to_chat(user, SPAN_NOTICE("You insert \the [used_item] into [src]."))
+		return TRUE
+
 	return ..()
 
 /obj/item/modular_computer/examine(mob/user)
@@ -138,6 +138,7 @@
 	LAZYADD(., /decl/interaction_handler/remove_id/modular_computer)
 	LAZYADD(., /decl/interaction_handler/remove_pen/modular_computer)
 	LAZYADD(., /decl/interaction_handler/emergency_shutdown)
+	LAZYADD(., /decl/interaction_handler/remove_chargestick)
 
 //
 // Remove ID
@@ -149,7 +150,8 @@
 	. = ..()
 	if(.)
 		var/datum/extension/assembly/assembly = get_extension(target, /datum/extension/assembly)
-		. = !!(assembly?.get_component(PART_CARD))
+		var/obj/item/stock_parts/computer/card_slot/card_slot = assembly?.get_component(PART_CARD)
+		return !!card_slot?.stored_card
 
 /decl/interaction_handler/remove_id/modular_computer/invoked(atom/target, mob/user, obj/item/prop)
 	var/datum/extension/assembly/assembly = get_extension(target, /datum/extension/assembly)
@@ -166,8 +168,9 @@
 /decl/interaction_handler/remove_pen/modular_computer/is_possible(obj/item/modular_computer/target, mob/user, obj/item/prop)
 	return ..() && target.stores_pen && target.stored_pen
 
-/decl/interaction_handler/remove_pen/modular_computer/invoked(obj/item/modular_computer/target, mob/user, obj/item/prop)
-	target.remove_pen()
+/decl/interaction_handler/remove_pen/modular_computer/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/modular_computer/computer = target
+	computer.remove_pen()
 
 //
 // Emergency Shutdown
@@ -185,5 +188,28 @@
 	var/datum/extension/assembly/modular_computer/assembly = get_extension(target, /datum/extension/assembly)
 	return !isnull(assembly) && assembly.enabled
 
-/decl/interaction_handler/emergency_shutdown/invoked(obj/item/modular_computer/target, mob/user, obj/item/prop)
-	target.emergency_shutdown()
+/decl/interaction_handler/emergency_shutdown/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/modular_computer/computer = target
+	computer.emergency_shutdown()
+
+//
+// Remove Charge-stick
+//
+/decl/interaction_handler/remove_chargestick
+	name = "Remove Chargestick"
+	icon = 'icons/screen/radial.dmi'
+	icon_state = "radial_eject"
+	expected_target_type = /obj/item/modular_computer
+
+/decl/interaction_handler/remove_chargestick/is_possible(atom/target, mob/user, obj/item/prop)
+	. = ..()
+	if(!.)
+		return .
+	var/datum/extension/assembly/assembly = get_extension(target, /datum/extension/assembly)
+	var/obj/item/stock_parts/computer/charge_stick_slot/mstick_slot = assembly.get_component(PART_MSTICK)
+	return !!mstick_slot?.stored_stick
+
+/decl/interaction_handler/remove_chargestick/invoked(atom/target, mob/user, obj/item/prop)
+	var/datum/extension/assembly/assembly = get_extension(target, /datum/extension/assembly)
+	var/obj/item/stock_parts/computer/charge_stick_slot/mstick_slot = assembly.get_component(PART_MSTICK)
+	mstick_slot.eject_stick(user)

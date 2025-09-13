@@ -4,13 +4,13 @@
 
 /decl/hierarchy/supply_pack/livecargo/monkey
 	name = "Inert - Monkey cubes"
-	contains = list (/obj/item/storage/box/monkeycubes)
+	contains = list (/obj/item/box/animal_cubes/monkeys)
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "monkey crate"
 
 /decl/hierarchy/supply_pack/livecargo/spidercubes
 	name = "Inert - Spiders"
-	contains = list(/obj/item/storage/box/monkeycubes/spidercubes)
+	contains = list(/obj/item/box/animal_cubes/spiders)
 	containertype = /obj/structure/closet/crate/secure
 	containername = "spiderling crate"
 	contraband = 1
@@ -33,14 +33,21 @@
 
 /decl/hierarchy/supply_pack/livecargo/goat
 	name = "Live - Goat"
-	contains = list(/mob/living/simple_animal/hostile/retaliate/goat)
+	contains = list(/mob/living/simple_animal/hostile/goat)
 	containertype = /obj/structure/largecrate/animal
 	containername = "goat crate"
 	access = access_hydroponics
 
+/decl/hierarchy/supply_pack/livecargo/sheep
+	name = "Live - Sheep"
+	contains = list(/mob/living/simple_animal/passive/sheep)
+	containertype = /obj/structure/largecrate/animal
+	containername = "sheep crate"
+	access = access_hydroponics
+
 /decl/hierarchy/supply_pack/livecargo/goose
 	name = "Live - Goose"
-	contains = list(/mob/living/simple_animal/hostile/retaliate/goose)
+	contains = list(/mob/living/simple_animal/hostile/goose)
 	containertype = /obj/structure/largecrate/animal
 	containername = "goose containment unit"
 	access = access_hydroponics

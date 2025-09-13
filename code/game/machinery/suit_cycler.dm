@@ -48,8 +48,8 @@
 	var/decl/item_modifier/target_modification
 	var/target_bodytype
 
-	var/mob/living/carbon/human/occupant
-	var/obj/item/clothing/suit/space/void/suit
+	var/mob/living/human/occupant
+	var/obj/item/clothing/suit/space/suit
 	var/obj/item/clothing/head/helmet/space/helmet
 	var/obj/item/clothing/shoes/magboots/boots
 
@@ -148,6 +148,21 @@
 	target_bodytype = available_bodytypes[1]
 	update_icon()
 
+#ifdef UNIT_TEST
+	// Pass this off to lateload to make sure any Initialize() overrides on subtypes or modpacks also run.
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/suit_cycler/LateInitialize()
+	. = ..()
+	if(suit && !istype(suit))
+		log_error("[type] has invalid suit instance: [suit]")
+	if(helmet && !istype(helmet))
+		log_error("[type] has invalid helmet instance: [helmet]")
+	if(boots && !istype(boots))
+		log_error("[type] has invalid suit instance: [boots]")
+#endif
+
+
 /obj/machinery/suit_cycler/Destroy()
 	if(occupant)
 		occupant.dropInto(loc)
@@ -187,77 +202,73 @@
 		return TRUE
 	return FALSE
 
+/obj/machinery/suit_cycler/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim) && try_move_inside(victim, user))
+		qdel(grab)
+		updateUsrDialog()
+		return TRUE
+	return ..()
+
 /obj/machinery/suit_cycler/attackby(obj/item/I, mob/user)
 
-	if(electrified != 0)
-		if(shock(user, 100))
-			return
+	if(electrified != 0 && shock(user, 100))
+		return TRUE
 
 	//Hacking init.
 	if(IS_MULTITOOL(I) || IS_WIRECUTTER(I))
 		if(panel_open)
 			physical_attack_hand(user)
-		return
-	//Other interface stuff.
-	if(istype(I, /obj/item/grab))
-		var/obj/item/grab/G = I
+		return TRUE
 
-		if(!(ismob(G.affecting)))
-			return
-
-		if(try_move_inside(G.affecting, user))
-			qdel(G)
-			updateUsrDialog()
-			return
-
-	else if(istype(I, /obj/item/clothing/shoes/magboots))
+	if(istype(I, /obj/item/clothing/shoes/magboots))
 		if(locked)
 			to_chat(user, SPAN_WARNING("The suit cycler is locked."))
-			return
+			return TRUE
 		if(boots)
 			to_chat(user, SPAN_WARNING("The cycler already contains some boots."))
-			return
+			return TRUE
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		to_chat(user, "You fit \the [I] into the suit cycler.")
 		set_boots(I)
 		update_icon()
 		updateUsrDialog()
+		return TRUE
 
-	else if(istype(I,/obj/item/clothing/head/helmet/space) && !istype(I, /obj/item/clothing/head/helmet/space/rig))
+	if(istype(I,/obj/item/clothing/head/helmet/space) && !istype(I, /obj/item/clothing/head/helmet/space/rig))
 
 		if(locked)
 			to_chat(user, SPAN_WARNING("The suit cycler is locked."))
-			return
+			return TRUE
 
 		if(helmet)
 			to_chat(user, SPAN_WARNING("The cycler already contains a helmet."))
-			return
-		if(!user.try_unequip(I, src))
-			return
-		to_chat(user, "You fit \the [I] into the suit cycler.")
-		set_helmet(I)
-		update_icon()
-		updateUsrDialog()
-		return
+			return TRUE
 
-	else if(istype(I,/obj/item/clothing/suit/space/void))
+		if(user.try_unequip(I, src))
+			to_chat(user, "You fit \the [I] into the suit cycler.")
+			set_helmet(I)
+			update_icon()
+			updateUsrDialog()
+		return TRUE
+
+	if(istype(I,/obj/item/clothing/suit/space))
 
 		if(locked)
 			to_chat(user, SPAN_WARNING("The suit cycler is locked."))
-			return
+			return TRUE
 
 		if(suit)
-			to_chat(user, SPAN_WARNING("The cycler already contains a voidsuit."))
-			return
+			to_chat(user, SPAN_WARNING("The cycler already contains a spacesuit."))
+			return TRUE
 
-		if(!user.try_unequip(I, src))
-			return
-		to_chat(user, "You fit \the [I] into the suit cycler.")
-		set_suit(I)
-		update_icon()
-		updateUsrDialog()
-		return
+		if(user.try_unequip(I, src))
+			to_chat(user, "You fit \the [I] into the suit cycler.")
+			set_suit(I)
+			update_icon()
+			updateUsrDialog()
+		return TRUE
 
 	return ..()
 
@@ -299,26 +310,26 @@
 	else if(locked)
 		dat += "<br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"
 		if(allowed(user))
-			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>Unlock unit</a>"
+			dat += "<br><a href='byond://?src=\ref[src];toggle_lock=1'>Unlock unit</a>"
 	else
 		dat += "<h1>Suit cycler</h1>"
-		dat += "<B>Welcome to the [model_text ? "[model_text] " : ""]suit cycler control panel. <a href='?src=\ref[src];toggle_lock=1'>Lock unit</a></B><HR>"
+		dat += "<B>Welcome to the [model_text ? "[model_text] " : ""]suit cycler control panel. <a href='byond://?src=\ref[src];toggle_lock=1'>Lock unit</a></B><HR>"
 
 		dat += "<h2>Maintenance</h2>"
-		dat += "<b>Helmet: </b> [helmet ? "\the [helmet]" : "no helmet stored" ]. <A href='?src=\ref[src];eject_helmet=1'>Eject</a><br/>"
-		dat += "<b>Suit: </b> [suit ? "\the [suit]" : "no suit stored" ]. <A href='?src=\ref[src];eject_suit=1'>Eject</a><br/>"
-		dat += "<b>Boots: </b> [boots ? "\the [boots]" : "no boots stored" ]. <A href='?src=\ref[src];eject_boots=1'>Eject</a>"
+		dat += "<b>Helmet: </b> [helmet ? "\the [helmet]" : "no helmet stored" ]. <A href='byond://?src=\ref[src];eject_helmet=1'>Eject</a><br/>"
+		dat += "<b>Suit: </b> [suit ? "\the [suit]" : "no suit stored" ]. <A href='byond://?src=\ref[src];eject_suit=1'>Eject</a><br/>"
+		dat += "<b>Boots: </b> [boots ? "\the [boots]" : "no boots stored" ]. <A href='byond://?src=\ref[src];eject_boots=1'>Eject</a>"
 
 		if(can_repair && istype(suit))
-			dat += "[(suit.damage ? " <A href='?src=\ref[src];repair_suit=1'>Repair</a>" : "")]"
+			dat += "[(suit.damage ? " <A href='byond://?src=\ref[src];repair_suit=1'>Repair</a>" : "")]"
 
 		dat += "<br/><b>UV decontamination systems:</b> <font color = '[emagged ? "red'>SYSTEM ERROR" : "green'>READY"]</font><br>"
 		dat += "Output level: [radiation_level]<br>"
-		dat += "<A href='?src=\ref[src];select_rad_level=1'>Select power level</a> <A href='?src=\ref[src];begin_decontamination=1'>Begin decontamination cycle</a><br><hr>"
+		dat += "<A href='byond://?src=\ref[src];select_rad_level=1'>Select power level</a> <A href='byond://?src=\ref[src];begin_decontamination=1'>Begin decontamination cycle</a><br><hr>"
 
 		dat += "<h2>Customisation</h2>"
-		dat += "<b>Target product:</b> <A href='?src=\ref[src];select_department=1'>[target_modification.name]</a>, <A href='?src=\ref[src];select_bodytype=1'>[target_bodytype]</a>."
-		dat += "<br><A href='?src=\ref[src];apply_paintjob=1'>Apply customisation routine</a><br><hr>"
+		dat += "<b>Target product:</b> <A href='byond://?src=\ref[src];select_department=1'>[target_modification.name]</a>, <A href='byond://?src=\ref[src];select_bodytype=1'>[target_bodytype]</a>."
+		dat += "<br><A href='byond://?src=\ref[src];apply_paintjob=1'>Apply customisation routine</a><br><hr>"
 
 	var/datum/browser/written_digital/popup = new(user, "suit_cycler", "Suit Cycler")
 	popup.set_content(JOINTEXT(dat))
@@ -470,6 +481,11 @@
 		return
 	eject_occupant(usr)
 
+/obj/machinery/suit_cycler/relaymove(var/mob/user)
+	..()
+	if(occupant == user)
+		eject_occupant(user)
+
 /obj/machinery/suit_cycler/proc/eject_occupant(mob/user)
 
 	if(locked || active)
@@ -504,3 +520,6 @@
 	if(boots)
 		boots.refit_for_bodytype(target_bodytype)
 		boots.SetName("refitted [initial(boots.name)]")
+
+/obj/machinery/suit_cycler/shuttle_rotate(angle) // DO NOT CHANGE DIR. Change this when someone adds directional sprites for suit cyclers.
+	return

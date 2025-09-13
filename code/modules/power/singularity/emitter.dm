@@ -138,7 +138,7 @@
 	if(IS_WRENCH(W))
 		if(active)
 			to_chat(user, "Turn off [src] first.")
-			return
+			return TRUE
 		switch(state)
 			if(0)
 				state = 1
@@ -156,54 +156,55 @@
 				anchored = FALSE
 			if(2)
 				to_chat(user, "<span class='warning'>\The [src] needs to be unwelded from the floor.</span>")
-		return
+		return TRUE
 
 	if(IS_WELDER(W))
 		var/obj/item/weldingtool/WT = W
 		if(active)
 			to_chat(user, "Turn off [src] first.")
-			return
+			return TRUE
 		switch(state)
 			if(0)
 				to_chat(user, "<span class='warning'>\The [src] needs to be wrenched to the floor.</span>")
 			if(1)
-				if (WT.weld(0,user))
-					playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
-					user.visible_message("[user.name] starts to weld [src] to the floor.", \
-						"You start to weld [src] to the floor.", \
-						"You hear welding.")
-					if (do_after(user,20,src))
-						if(!src || !WT.isOn()) return
-						state = 2
-						to_chat(user, "You weld [src] to the floor.")
-				else
+				if (!WT.weld(0,user))
 					to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+					return TRUE
+				playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+				user.visible_message("[user.name] starts to weld [src] to the floor.", \
+					"You start to weld [src] to the floor.", \
+					"You hear welding.")
+				if (!do_after(user, 2 SECONDS, src))
+					return TRUE
+				if(!src || !WT.isOn()) return TRUE
+				state = 2
+				to_chat(user, "You weld [src] to the floor.")
 			if(2)
 				if (WT.weld(0,user))
 					playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
 					user.visible_message("[user.name] starts to cut [src] free from the floor.", \
 						"You start to cut [src] free from the floor.", \
 						"You hear welding.")
-					if (do_after(user,20,src))
-						if(!src || !WT.isOn()) return
-						state = 1
-						to_chat(user, "You cut [src] free from the floor.")
+					if (!do_after(user, 2 SECONDS, src))
+						return TRUE
+					if(!src || !WT.isOn()) return TRUE
+					state = 1
+					to_chat(user, "You cut [src] free from the floor.")
 				else
 					to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
-		return
+		return TRUE
 
 	if(istype(W, /obj/item/card/id) || istype(W, /obj/item/modular_computer))
 		if(emagged)
 			to_chat(user, "<span class='warning'>The lock seems to be broken.</span>")
-			return
+			return TRUE
 		if(allowed(user))
 			locked = !locked
 			to_chat(user, "The controls are now [locked ? "locked." : "unlocked."]")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-		return
-	..()
-	return
+		return TRUE
+	return ..()
 
 /obj/machinery/emitter/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

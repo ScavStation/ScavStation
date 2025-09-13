@@ -4,9 +4,7 @@
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
 	icon_state = "brain2"
-	force = 1.0
 	w_class = ITEM_SIZE_SMALL
-	throwforce = 1
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = @'{"biotech":3}'
@@ -15,6 +13,7 @@
 	damage_reduction = 0
 	scale_max_damage_to_species_health = FALSE
 	transfer_brainmob_with_organ = TRUE
+	_base_attack_force = 1
 	var/can_use_brain_interface = TRUE
 	var/should_announce_brain_damage = TRUE
 	var/oxygen_reserve = 6
@@ -70,7 +69,7 @@
 	else
 		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later.")
 
-/obj/item/organ/internal/brain/do_install(mob/living/carbon/target, affected, in_place, update_icon, detached)
+/obj/item/organ/internal/brain/do_install(mob/living/target, affected, in_place, update_icon, detached)
 	if(!(. = ..()))
 		return
 	if(istype(owner))
@@ -185,9 +184,9 @@
 /obj/item/organ/internal/brain/proc/handle_disabilities()
 	if(owner.stat)
 		return
-	if((owner.disabilities & EPILEPSY) && prob(1))
+	if(owner.has_genetic_condition(GENE_COND_EPILEPSY) && prob(1))
 		owner.seizure()
-	else if((owner.disabilities & TOURETTES) && prob(10))
+	else if(owner.has_genetic_condition(GENE_COND_TOURETTES) && prob(10))
 		SET_STATUS_MAX(owner, STAT_STUN, 10)
 		switch(rand(1, 3))
 			if(1)
@@ -195,7 +194,7 @@
 			if(2 to 3)
 				owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]")
 		ADJ_STATUS(owner, STAT_JITTER, 100)
-	else if((owner.disabilities & NERVOUS) && prob(10))
+	else if(owner.has_genetic_condition(GENE_COND_NERVOUS) && prob(10))
 		SET_STATUS_MAX(owner, STAT_STUTTER, 10)
 
 
@@ -210,14 +209,14 @@
 	if(is_bruised() && prob(1) && !HAS_STATUS(owner, STAT_BLURRY))
 		to_chat(owner, "<span class='warning'>It becomes hard to see for some reason.</span>")
 		owner.set_status(STAT_BLURRY, 10)
-	var/held = owner.get_active_hand()
+	var/held = owner.get_active_held_item()
 	if(damage >= 0.5*max_damage && prob(1) && held)
 		to_chat(owner, "<span class='danger'>Your hand won't respond properly, and you drop what you are holding!</span>")
 		owner.try_unequip(held)
 	if(damage >= 0.6*max_damage)
 		SET_STATUS_MAX(owner, STAT_SLUR, 2)
 	if(is_broken())
-		if(!owner.lying)
+		if(!owner.current_posture.prone)
 			to_chat(owner, "<span class='danger'>You black out!</span>")
 		SET_STATUS_MAX(owner, STAT_PARA, 10)
 
@@ -225,11 +224,8 @@
 	var/blood_volume = owner.get_blood_oxygenation()
 	if(blood_volume < BLOOD_VOLUME_SURVIVE)
 		to_chat(user, SPAN_DANGER("Parts of \the [src] didn't survive the procedure due to lack of air supply!"))
-		set_max_damage(FLOOR(max_damage - 0.25*damage))
+		set_max_damage(floor(max_damage - 0.25*damage))
 	heal_damage(damage)
-
-/obj/item/organ/internal/brain/get_mechanical_assisted_descriptor()
-	return "machine-interface [name]"
 
 /obj/item/organ/internal/brain/die()
 	if(istype(_brainmob) && _brainmob.stat != DEAD)

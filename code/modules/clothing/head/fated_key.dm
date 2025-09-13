@@ -5,6 +5,7 @@
 	body_parts_covered = 0
 	armor = list(ARMOR_MELEE = 55, ARMOR_BULLET = 55, ARMOR_LASER = 55, ARMOR_ENERGY = 55, ARMOR_BOMB = 55, ARMOR_BIO = 100, ARMOR_RAD = 100)
 	flags_inv = 0
+	accessory_slot = null // cannot be equipped on top of helmets because this isn't really even an actual clothing item
 
 /obj/item/clothing/head/fated/equipped(mob/living/user, slot)
 	. = ..()
@@ -57,12 +58,12 @@
 		to_chat(user, SPAN_WARNING("You have no blade with which to divide."))
 		return
 
-	var/decl/pronouns/G = user.get_pronouns()
-	user.visible_message(SPAN_DANGER("\The [user] raises [G.his] [blade.name] to shoulder level!"))
+	var/decl/pronouns/pronouns = user.get_pronouns()
+	user.visible_message(SPAN_DANGER("\The [user] raises [pronouns.his] [blade.name] to shoulder level!"))
 	playsound(user.loc, 'sound/effects/sanctionedaction_prep.ogg', 100, 1)
 
 	if(do_after(user, 1 SECOND, progress = 0, same_direction = 1))
-		user.visible_message(SPAN_DANGER("\The [user] swings [G.his] [blade.name] in a blazing arc!"))
+		user.visible_message(SPAN_DANGER("\The [user] swings [pronouns.his] [blade.name] in a blazing arc!"))
 		playsound(user.loc, 'sound/effects/sanctionedaction_cut.ogg', 100, 1)
 		var/obj/item/projectile/sanctionedaction/cut = new(user.loc)
 		cut.launch(get_edge_target_turf(get_turf(user.loc), user.dir), user.get_target_zone())
@@ -78,7 +79,7 @@
 /obj/item/projectile/sanctionedaction/check_penetrate(var/atom/A)
 	. = TRUE
 	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
+		var/mob/living/human/H = A
 		var/list/external_organs = H.get_external_organs()
 		if(LAZYLEN(external_organs))
 			var/obj/item/organ/external/E = pick(external_organs)

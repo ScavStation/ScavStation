@@ -1,5 +1,3 @@
-var/global/list/crashed_pod_areas = list()
-
 /datum/map_template/ruin/exoplanet/crashed_pod
 	name = "crashed survival pod"
 	description = "A crashed survival pod from a destroyed ship."
@@ -22,9 +20,9 @@ var/global/list/crashed_pod_areas = list()
 /datum/job/submap/pod
 	title = "Stranded Survivor"
 	info = "Your ship has been destroyed by a terrible disaster."
-	outfit_type = /decl/hierarchy/outfit/job/survivor
+	outfit_type = /decl/outfit/job/survivor
 
-/decl/hierarchy/outfit/job/survivor
+/decl/outfit/job/survivor
 	name = "Job - Survivor"
 	id_type = null
 	pda_type = null

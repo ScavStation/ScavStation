@@ -7,9 +7,9 @@
 
 /obj/random/mouse/spawn_choices()
 	var/static/list/spawnable_choices = list(
-		/mob/living/simple_animal/mouse/brown = 30,
-		/mob/living/simple_animal/mouse/gray =  30,
-		/mob/living/simple_animal/mouse/white = 15
+		/mob/living/simple_animal/passive/mouse/brown = 30,
+		/mob/living/simple_animal/passive/mouse/gray  = 30,
+		/mob/living/simple_animal/passive/mouse/white = 15
 	)
 	return spawnable_choices
 
@@ -22,9 +22,30 @@
 
 /obj/random/hostile/spawn_choices()
 	var/static/list/spawnable_choices = list(
-		/mob/living/simple_animal/hostile/viscerator =   20,
-		/mob/living/simple_animal/hostile/carp =         10,
-		/mob/living/simple_animal/hostile/carp/pike =     5,
-		/mob/living/simple_animal/hostile/vagrant/swarm = 1
+		/mob/living/simple_animal/hostile/viscerator    = 20,
+		/mob/living/simple_animal/hostile/carp          = 10,
+		/mob/living/simple_animal/hostile/carp/pike     =  5,
+		/mob/living/simple_animal/hostile/vagrant/swarm =  1
+	)
+	return spawnable_choices
+
+/obj/random/hostile/dungeon
+	name = "Random Hostile Dungeon Mob"
+	spawn_nothing_percentage = 5
+
+/obj/random/hostile/dungeon/spawn_choices()
+	var/static/list/spawnable_choices = list(
+		/mob/living/simple_animal/hostile/revenant
+	)
+	return spawnable_choices
+
+/obj/random/hostile/cave
+	name = "Random Hostile Cave Mob"
+	spawn_nothing_percentage = 5
+
+/obj/random/hostile/cave/spawn_choices()
+	var/static/list/spawnable_choices = list(
+		/mob/living/simple_animal/hostile/giant_spider/guard/cave = 1,
+		/mob/living/simple_animal/hostile/scarybat/cave = 4
 	)
 	return spawnable_choices

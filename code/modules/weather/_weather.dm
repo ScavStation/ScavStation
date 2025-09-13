@@ -31,6 +31,9 @@
 	appearance_flags  = (RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM)
 	is_spawnable_type = FALSE
 
+	// List of /decl/state types that are forbidden.
+	var/list/banned_weather_conditions
+
 	var/water_material = /decl/material/liquid/water     // Material to use for the properties of rain.
 	var/ice_material =   /decl/material/solid/ice        // Material to use for the properties of snow and hail.
 
@@ -60,10 +63,11 @@
 /obj/abstract/weather_system/Destroy()
 	// Clean ourselves out of the vis_contents of our affected turfs.
 	for(var/tz in affecting_zs)
-		for(var/turf/T as anything in block(locate(1, 1, tz), locate(world.maxx, world.maxy, tz)))
+		var/datum/level_data/level = SSmapping.levels_by_z[tz]
+		for(var/turf/T as anything in block(level.level_inner_min_x, level.level_inner_min_y, tz, level.level_inner_max_x, level.level_inner_max_y, tz))
 			if(T.weather == src)
-				T.remove_vis_contents(vis_contents_additions)
 				T.weather = null
+				T.update_vis_contents()
 	vis_contents_additions.Cut()
 	SSweather.unregister_weather_system(src)
 	QDEL_NULL(lightning_overlay)
@@ -74,7 +78,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 	var/decl/state/weather/weather_state = weather_system.current_state
 	if(istype(weather_state))
-		to_chat(user, weather_state.descriptor)
+		to_chat(user, SPAN_NOTICE(FONT_SMALL(weather_state.descriptor)))
 	show_wind(user, force = TRUE)
 
 // Called by /decl/state/weather to assess validity of a state in the weather FSM.
@@ -82,13 +86,15 @@
 	// Exoplanet stuff for the future:
 	// - TODO: track and check exoplanet temperature.
 	// - TODO: compare to a list of 'acceptable' states
-	if(istype(next_state))
-		if(next_state.is_liquid)
-			return !!water_material
-		if(next_state.is_ice)
-			return !!ice_material
-		return TRUE
-	return FALSE
+	if(!istype(next_state))
+		return FALSE
+	if(next_state.is_liquid && isnull(water_material))
+		return FALSE
+	if(next_state.is_ice && isnull(ice_material))
+		return FALSE
+	if(length(banned_weather_conditions) && (next_state.type in banned_weather_conditions))
+		return FALSE
+	return TRUE
 
 // Dummy object for lightning flash animation.
 /obj/abstract/lightning_overlay
@@ -99,3 +105,4 @@
 	alpha             = 0
 	invisibility      = INVISIBILITY_NONE
 	is_spawnable_type = FALSE
+	appearance_flags  = RESET_COLOR | KEEP_APART

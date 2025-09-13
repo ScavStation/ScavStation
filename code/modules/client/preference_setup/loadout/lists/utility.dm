@@ -8,7 +8,7 @@
 
 /decl/loadout_option/utility/briefcase
 	name = "briefcase"
-	path = /obj/item/storage/briefcase
+	path = /obj/item/briefcase
 	uid = "gear_utility_briefcase"
 
 /decl/loadout_option/utility/clipboard
@@ -49,7 +49,7 @@
 
 /decl/loadout_option/utility/photo_album
 	name = "photo album"
-	path = /obj/item/storage/photo_album
+	path = /obj/item/photo_album
 	uid = "gear_utility_album"
 
 /decl/loadout_option/utility/film_roll

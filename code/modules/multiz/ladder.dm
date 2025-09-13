@@ -23,6 +23,12 @@
 
 	var/static/list/radial_options = list("up" = radial_ladder_up, "down" = radial_ladder_down)
 
+/obj/structure/ladder/handle_default_hammer_attackby()
+	var/last_anchored = anchored
+	. = ..()
+	if(anchored != last_anchored)
+		find_connections()
+
 /obj/structure/ladder/handle_default_wrench_attackby()
 	var/last_anchored = anchored
 	. = ..()
@@ -42,7 +48,7 @@
 		var/turf/T = get_turf(src)
 		if((locate(/obj/structure/ladder) in GetBelow(src)) && (!(locate(/obj/structure/lattice) in loc) || !T.is_open()))
 			var/old_turf_type = T.type
-			T.ReplaceWithLattice()
+			T.dismantle_turf()
 			//Gonna keep logging those, since it's not clear if it's always a desired behavior. Since mappers would probably not want to rely on this.
 			log_debug("Ladder replaced turf type '[old_turf_type]' at ([x], [y], [z]) with a lattice and open turf '[loc]' of type '[loc.type]'.")
 	find_connections()
@@ -65,8 +71,8 @@
 		var/turf/L = loc
 		if(HasBelow(z) && istype(L) && L.is_open())
 			var/failed
-			for(var/obj/structure/catwalk/catwalk in loc)
-				if(catwalk.plated_tile)
+			for(var/obj/structure/platform in loc)
+				if(!platform.is_z_passable())
 					failed = TRUE
 					break
 			if(!failed)
@@ -80,8 +86,8 @@
 			var/turf/T = GetAbove(src)
 			if(istype(T) && T.is_open())
 				var/failed
-				for(var/obj/structure/catwalk/catwalk in T)
-					if(catwalk.plated_tile)
+				for(var/obj/structure/platform in T)
+					if(!platform.is_z_passable())
 						failed = TRUE
 						break
 				if(!failed)
@@ -109,6 +115,10 @@
 		for(var/atom/movable/M in T.contents)
 			addtimer(CALLBACK(M, TYPE_PROC_REF(/atom/movable, fall), T), 0)
 	return ..()
+
+// Override to allow attackby() flow to function with grabs.
+/obj/structure/ladder/grab_attack(obj/item/grab/grab, mob/user)
+	return FALSE
 
 /obj/structure/ladder/attackby(obj/item/I, mob/user)
 	. = !istype(I, /obj/item/grab) && ..()
@@ -204,18 +214,18 @@
 			if(!istype(T) || !T.is_open())
 				to_chat(M, SPAN_WARNING("The ceiling is in the way!"))
 				return null
-			for(var/obj/structure/catwalk/catwalk in target_up.loc)
-				if(catwalk.plated_tile)
-					to_chat(M, SPAN_WARNING("\The [catwalk] is in the way!"))
+			for(var/obj/structure/platform in target_up.loc)
+				if(!platform.is_z_passable())
+					to_chat(M, SPAN_WARNING("\The [platform] is in the way!"))
 					return null
 		if(. == target_down)
 			var/turf/T = loc
 			if(!istype(T) || !T.is_open())
 				to_chat(M, SPAN_WARNING("\The [loc] is in the way!"))
 				return null
-			for(var/obj/structure/catwalk/catwalk in loc)
-				if(catwalk.plated_tile)
-					to_chat(M, SPAN_WARNING("\The [catwalk] is in the way!"))
+			for(var/obj/structure/platform in loc)
+				if(!platform.is_z_passable())
+					to_chat(M, SPAN_WARNING("\The [platform] is in the way!"))
 					return null
 
 /mob/proc/may_climb_ladders(var/ladder)
@@ -228,11 +238,11 @@
 
 	var/can_carry = can_pull_size
 	if(loc?.has_gravity())
-		can_carry = FLOOR(can_carry * 0.75)
-	for(var/obj/item/grab/G in get_active_grabs())
-		can_carry -= G.affecting.get_object_size()
+		can_carry = floor(can_carry * 0.75)
+	for(var/obj/item/grab/grab as anything in get_active_grabs())
+		can_carry -= grab.affecting.get_object_size()
 		if(can_carry < 0)
-			to_chat(src, SPAN_WARNING("You can't carry \the [G.affecting] up \the [ladder]."))
+			to_chat(src, SPAN_WARNING("You can't carry \the [grab.affecting] up \the [ladder]."))
 			return FALSE
 
 	return TRUE

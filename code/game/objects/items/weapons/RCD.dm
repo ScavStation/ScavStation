@@ -10,23 +10,19 @@
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY|SLOT_HOLSTER
-	force = 10.0
-	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = @'{"engineering":4,"materials":2}'
 	material = /decl/material/solid/metal/steel
+	_base_attack_force = 10
 	var/stored_matter = 0
 	var/max_stored_matter = 120
-
 	var/work_id = 0
 	var/decl/hierarchy/rcd_mode/work_mode
 	var/static/list/work_modes
-
 	var/canRwall = 0
 	var/disabled = 0
-
 	var/crafting = FALSE //Rapid Crossbow Device memes
 
 /obj/item/rcd/Initialize()
@@ -37,11 +33,11 @@
 		work_modes = h.children
 	work_mode = work_modes[1]
 
-/obj/item/rcd/attack()
-	return 0
+/obj/item/rcd/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	return FALSE
 
 /obj/item/rcd/proc/can_use(var/mob/user,var/turf/T)
-	return (user.Adjacent(T) && user.get_active_hand() == src && !user.incapacitated())
+	return (user.Adjacent(T) && user.get_active_held_item() == src && !user.incapacitated())
 
 /obj/item/rcd/examine(mob/user)
 	. = ..()
@@ -53,23 +49,18 @@
 	. = ..()
 	update_icon()	//Initializes the ammo counter
 
-/obj/item/rcd/Destroy()
-	return ..()
-
 /obj/item/rcd/attackby(obj/item/W, mob/user)
-
 	if(istype(W, /obj/item/rcd_ammo))
 		var/obj/item/rcd_ammo/cartridge = W
 		if((stored_matter + cartridge.remaining) > max_stored_matter)
 			to_chat(user, "<span class='notice'>The RCD can't hold that many additional matter-units.</span>")
-			return
+			return TRUE
 		stored_matter += cartridge.remaining
 		qdel(W)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>The RCD now holds [stored_matter]/[max_stored_matter] matter-units.</span>")
 		update_icon()
-		return
-
+		return TRUE
 	if(IS_SCREWDRIVER(W))
 		crafting = !crafting
 		if(!crafting)
@@ -77,9 +68,8 @@
 		else
 			to_chat(user, "<span class='notice'>The RCD can now be modified.</span>")
 		src.add_fingerprint(user)
-		return
-
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/rcd/attack_self(mob/user)
 	//Change the mode
@@ -136,9 +126,9 @@
 // TODO: make this use actual matter.
 /obj/item/rcd_ammo/create_matter()
 	// Formula: 3 MU per wall == 6 steel sheets == 2 sheets per MU, /2 for glass and steel, with a
-	// discount for the outlay of materials (and to make the final costs less obscene). Technically 
-	// this means you can generate steel from nothing by building walls with an RCD and then 
-	// deconstructing them but until we have a unified matter/material system on /atom I think we're 
+	// discount for the outlay of materials (and to make the final costs less obscene). Technically
+	// this means you can generate steel from nothing by building walls with an RCD and then
+	// deconstructing them but until we have a unified matter/material system on /atom I think we're
 	// just going to have to cop it.
 	var/sheets = round((remaining * SHEET_MATERIAL_AMOUNT) * 0.75)
 	matter = list(
@@ -172,7 +162,7 @@
 	return 0
 
 /obj/item/rcd/borg/attackby()
-	return
+	return FALSE
 
 /obj/item/rcd/borg/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.incapacitated())
@@ -192,7 +182,7 @@
 	return 0
 
 /obj/item/rcd/mounted/attackby()
-	return
+	return FALSE
 
 /obj/item/rcd/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.incapacitated())
@@ -263,7 +253,7 @@
 /decl/hierarchy/rcd_mode/airlock/basic
 	cost = 10
 	delay = 5 SECONDS
-	handles_type = /turf/simulated/floor
+	handles_type = /turf/floor
 	work_type = /obj/machinery/door/airlock
 
 /decl/hierarchy/rcd_mode/airlock/basic/can_handle_work(var/rcd, var/turf/target)
@@ -278,7 +268,7 @@
 /decl/hierarchy/rcd_mode/floor_and_walls/base_turf
 	cost = 1
 	delay = 2 SECONDS
-	work_type = /turf/simulated/floor/airless
+	work_type = /turf/floor/plating/airless
 
 /decl/hierarchy/rcd_mode/floor_and_walls/base_turf/can_handle_work(var/rcd, var/turf/target)
 	return istype(target) && (isspaceturf(target) || istype(target, get_base_turf_by_area(target)))
@@ -286,8 +276,8 @@
 /decl/hierarchy/rcd_mode/floor_and_walls/floor_turf
 	cost = 3
 	delay = 2 SECONDS
-	handles_type = /turf/simulated/floor
-	work_type = /turf/simulated/wall
+	handles_type = /turf/floor
+	work_type = /turf/wall
 
 /*
 	Deconstruction
@@ -306,7 +296,7 @@
 /decl/hierarchy/rcd_mode/deconstruction/floor
 	cost = 9
 	delay = 2 SECONDS
-	handles_type = /turf/simulated/floor
+	handles_type = /turf/floor
 
 /decl/hierarchy/rcd_mode/deconstruction/floor/get_work_result(var/target)
 	return get_base_turf_by_area(target)
@@ -314,8 +304,8 @@
 /decl/hierarchy/rcd_mode/deconstruction/wall
 	cost = 9
 	delay = 2 SECONDS
-	handles_type = /turf/simulated/wall
-	work_type = /turf/simulated/floor
+	handles_type = /turf/wall
+	work_type = /turf/floor/plating
 
-/decl/hierarchy/rcd_mode/deconstruction/wall/can_handle_work(var/obj/item/rcd/rcd, var/turf/simulated/wall/target)
+/decl/hierarchy/rcd_mode/deconstruction/wall/can_handle_work(var/obj/item/rcd/rcd, var/turf/wall/target)
 	return ..() && (rcd.canRwall || !target.reinf_material)

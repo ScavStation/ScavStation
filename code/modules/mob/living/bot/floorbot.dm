@@ -45,17 +45,17 @@
 	. += "<br>Tiles left: [amount]"
 
 /mob/living/bot/floorbot/GetInteractPanel()
-	. = "Improves floors: <a href='?src=\ref[src];command=improve'>[improvefloors ? "Yes" : "No"]</a>"
-	. += "<br>Finds tiles: <a href='?src=\ref[src];command=tiles'>[eattiles ? "Yes" : "No"]</a>"
-	. += "<br>Make single pieces of metal into tiles when empty: <a href='?src=\ref[src];command=make'>[maketiles ? "Yes" : "No"]</a>"
+	. = "Improves floors: <a href='byond://?src=\ref[src];command=improve'>[improvefloors ? "Yes" : "No"]</a>"
+	. += "<br>Finds tiles: <a href='byond://?src=\ref[src];command=tiles'>[eattiles ? "Yes" : "No"]</a>"
+	. += "<br>Make single pieces of metal into tiles when empty: <a href='byond://?src=\ref[src];command=make'>[maketiles ? "Yes" : "No"]</a>"
 
 /mob/living/bot/floorbot/GetInteractMaintenance()
 	. = "Disassembly mode: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Off</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Off</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>On (Caution)</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>On (Caution)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 
@@ -81,7 +81,7 @@
 	if(!emagged)
 		emagged = 1
 		if(user)
-			to_chat(user, "<span class='notice'>The [src] buzzes and beeps.</span>")
+			to_chat(user, "<span class='notice'>\The [src] buzzes and beeps.</span>")
 		return 1
 
 /mob/living/bot/floorbot/handleRegular()
@@ -95,10 +95,10 @@
 
 /mob/living/bot/floorbot/handleAdjacentTarget()
 	if(get_turf(target) == src.loc)
-		UnarmedAttack(target)
+		UnarmedAttack(target, TRUE)
 
 /mob/living/bot/floorbot/lookForTargets()
-	for(var/turf/simulated/floor/T in view(src))
+	for(var/turf/floor/T in view(src))
 		if(confirmTarget(T))
 			target = T
 			return
@@ -109,73 +109,69 @@
 				target = S
 				return
 
-/mob/living/bot/floorbot/confirmTarget(var/atom/A) // The fact that we do some checks twice may seem confusing but remember that the bot's settings may be toggled while it's moving and we want them to stop in that case
+/mob/living/bot/floorbot/confirmTarget(atom/target) // The fact that we do some checks twice may seem confusing but remember that the bot's settings may be toggled while it's moving and we want them to stop in that case
 	anchored = FALSE
 	if(!..())
 		return 0
 
-	if(istype(A, /obj/item/stack/tile/floor))
+	if(istype(target, /obj/item/stack/tile/floor))
 		return (amount < maxAmount && eattiles)
 
-	if(istype(A, /obj/item/stack/material))
-		var/obj/item/stack/material/S = A
+	if(istype(target, /obj/item/stack/material))
+		var/obj/item/stack/material/S = target
 		if(S.material?.type == /decl/material/solid/metal/steel)
 			return (amount < maxAmount && maketiles)
 
-	if(A.loc.name == "Space")
-		return 0
+	var/turf/floor/my_turf = target
+	if(!istype(my_turf) || (isturf(my_turf) && my_turf.is_open()))
+		return FALSE
 
-	var/turf/simulated/floor/T = A
-	if(istype(T))
-		if(emagged)
-			return 1
-		else
-			return (amount && (T.broken || T.burnt || (improvefloors && !T.flooring)))
+	return emagged || (amount && (my_turf.is_floor_damaged() || (improvefloors && !my_turf.has_flooring())))
 
-/mob/living/bot/floorbot/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/bot/floorbot/ResolveUnarmedAttack(var/atom/A)
 	if(busy)
 		return TRUE
 
 	if(get_turf(A) != loc)
 		return FALSE
 
-	if(emagged && istype(A, /turf/simulated/floor))
-		var/turf/simulated/floor/F = A
+	if(emagged && istype(A, /turf/floor))
+		var/turf/floor/F = A
 		busy = 1
 		update_icon()
-		if(F.flooring)
-			visible_message("<span class='warning'>[src] begins to tear the floor tile from the floor.</span>")
+		if(F.has_flooring())
+			visible_message("<span class='warning'>[src] begins to tear up \the [F].</span>")
 			if(do_after(src, 50, F))
 				F.break_tile_to_plating()
 				addTiles(1)
 		else
 			visible_message("<span class='danger'>[src] begins to tear through the floor!</span>")
 			if(do_after(src, 150, F)) // Extra time because this can and will kill.
-				F.ReplaceWithLattice()
+				F.physically_destroyed()
 				addTiles(1)
 		target = null
 		update_icon()
-	else if(istype(A, /turf/simulated/floor))
-		var/turf/simulated/floor/F = A
-		if(F.broken || F.burnt)
+	else if(istype(A, /turf/floor))
+		var/turf/floor/F = A
+		if(F.is_floor_damaged())
 			busy = 1
 			update_icon()
 			visible_message("<span class='notice'>[src] begins to remove the broken floor.</span>")
 			anchored = TRUE
 			if(do_after(src, 50, F))
-				if(F.broken || F.burnt)
-					F.make_plating()
+				if(F.is_floor_damaged())
+					F.set_flooring(null)
 			anchored = FALSE
 			target = null
 			busy = 0
 			update_icon()
-		else if(!F.flooring && amount)
+		else if(!F.has_flooring() && amount)
 			busy = 1
 			update_icon()
 			visible_message("<span class='notice'>[src] begins to improve the floor.</span>")
 			anchored = TRUE
 			if(do_after(src, 50, F))
-				if(!F.flooring)
+				if(!F.has_flooring())
 					F.set_flooring(GET_DECL(floor_build_type))
 					addTiles(-1)
 			anchored = FALSE

@@ -5,14 +5,14 @@
 	icon_state = "jar"
 	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/glass
-	material_force_multiplier = 0.1
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	obj_flags = OBJ_FLAG_HOLLOW
 	drop_sound = 'sound/foley/bottledrop1.ogg'
 	pickup_sound = 'sound/foley/bottlepickup1.ogg'
+
 	var/list/accept_mobs = list(
 		/mob/living/simple_animal/lizard,
-		/mob/living/simple_animal/mouse
+		/mob/living/simple_animal/passive/mouse
 	)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
 
@@ -76,12 +76,14 @@
 		if(contains == 0)
 			contains = 1
 		if(contains != 1)
-			return
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		var/obj/item/cash/S = W
 		user.visible_message("<span class='notice'>[user] puts \the [S] into \the [src].</span>")
 		update_icon()
+		return TRUE
+	return ..()
 
 /obj/item/glass_jar/on_update_icon() // Also updates name and desc
 	. = ..()

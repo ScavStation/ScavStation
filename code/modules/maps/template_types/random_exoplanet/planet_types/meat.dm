@@ -6,8 +6,6 @@
 	name          = "organic exoplanet"
 	desc          = "An exoplanet made entirely of organic matter."
 	color         = "#ac4653"
-	surface_color = "#e2768d"
-	water_color   = "#c7c27c"
 
 ////////////////////////////////////////////////////////////////////////////
 // Level Data
@@ -15,7 +13,7 @@
 
 /datum/level_data/planetoid/exoplanet/meat
 	base_area           = /area/exoplanet/meat
-	base_turf           = /turf/exterior/meat
+	base_turf           = /turf/floor/meat
 	exterior_atmosphere = null
 	exterior_atmos_temp = null
 	level_generators    = list(
@@ -42,7 +40,7 @@
 	if(prob(75))
 		S.get_trait(TRAIT_STINGS, 1)
 
-	LAZYSET(S.chems, /decl/material/liquid/nutriment/protein, list(10,30))
+	LAZYSET(S.chems, /decl/material/solid/organic/meat, list(10,30))
 	LAZYSET(S.chems, /decl/material/liquid/blood, list(5,10))
 	LAZYSET(S.chems, /decl/material/liquid/acid/stomach, list(5,10))
 
@@ -59,7 +57,7 @@
 
 /datum/fauna_generator/meat
 	fauna_types = list(
-		/mob/living/simple_animal/hostile/retaliate/jelly/alt,
+		/mob/living/simple_animal/hostile/jelly/alt,
 		/mob/living/simple_animal/hostile/leech
 	)
 
@@ -76,6 +74,8 @@
 	flora                          = /datum/planet_flora/random/meat
 	fauna                          = /datum/fauna_generator/meat
 	strata                         = /decl/strata/sedimentary
+	surface_color = "#e2768d"
+	water_color   = "#c7c27c"
 	possible_rock_colors           = list(
 		COLOR_OFF_WHITE,
 		"#f3ebd4",
@@ -110,15 +110,15 @@
 	megafauna_spawn_prob = 2 //Remember to change this if more types are added.
 	water_level_max      = 3
 	water_level_min      = 2
-	land_type            = /turf/exterior/meat
-	water_type           = /turf/exterior/meat/acid
+	land_type            = /turf/floor/meat
+	water_type           = /turf/floor/meat/acid
 
 ////////////////////////////////////////////////////////////////////////////
 // Areas
 ////////////////////////////////////////////////////////////////////////////
 
 /area/exoplanet/meat
-	base_turf       = /turf/exterior/meat
+	base_turf       = /turf/floor/meat
 	forced_ambience = list(
 		"sound/ambience/spookyspace1.ogg",
 		"sound/ambience/spookyspace2.ogg"
@@ -128,19 +128,16 @@
 // Turfs
 ////////////////////////////////////////////////////////////////////////////
 
-/turf/exterior/meat
-	name          = "fleshy ground"
-	icon          = 'icons/turf/exterior/flesh.dmi'
-	desc          = "It's disgustingly soft to the touch. And warm. Too warm."
-	dirt_color    = "#c40031"
-	footstep_type = /decl/footsteps/mud
+/turf/floor/meat
+	name              = "fleshy ground"
+	icon              = 'icons/turf/flooring/flesh.dmi'
+	icon_state        = "meat"
+	_base_flooring    = /decl/flooring/meat
+	floor_material    = /decl/material/solid/organic/meat
 
-/turf/exterior/meat/get_diggable_resources()
-	return dug ? null : list(/obj/item/stack/material/ore/meat = list(3, 2))
-
-/turf/exterior/meat/acid
-	name         = "juices"
-	desc         = "Half-digested chunks of vines are floating in the puddle of some liquid."
-	gender       = PLURAL
-	reagent_type = /decl/material/liquid/acid/stomach
-	height       = -(FLUID_SHALLOW)
+/turf/floor/meat/acid
+	name              = "juices"
+	desc              = "Half-digested chunks of vines are floating in the puddle of some liquid."
+	gender            = PLURAL
+	fill_reagent_type = /decl/material/liquid/acid/stomach
+	height            = -(FLUID_SHALLOW)

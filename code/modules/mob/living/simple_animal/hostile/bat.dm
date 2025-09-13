@@ -2,9 +2,7 @@
 	name = "space bats"
 	desc = "A swarm of cute little blood sucking bats - they look pretty upset."
 	icon = 'icons/mob/simple_animal/bats.dmi'
-	speak_chance = 0
-	turns_per_move = 3
-	speed = 4
+
 	max_health = 20
 	harm_intent_damage = 8
 	natural_weapon = /obj/item/natural_weapon/bite
@@ -13,7 +11,22 @@
 	minbodytemp = 0
 	environment_smash = 1
 	faction = "scarybat"
+	ai = /datum/mob_controller/aggressive/bats
 	var/mob/living/owner
+
+/mob/living/simple_animal/hostile/scarybat/cave
+	name = "cave bats"
+	desc = "A swarm of screeching cave bats, twisted by the deep dark and hungering for blood."
+	faction = "undead"
+
+/datum/mob_controller/aggressive/bats
+	speak_chance = 0
+	turns_per_wander = 6
+
+/datum/mob_controller/aggressive/bats/find_target()
+	. = ..()
+	if(.)
+		body.custom_emote(VISIBLE_MESSAGE, "flutters towards [.]")
 
 /mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L)
 	. = ..()
@@ -24,27 +37,14 @@
 	owner = null
 	return ..()
 
-/mob/living/simple_animal/hostile/scarybat/FindTarget()
+/datum/mob_controller/aggressive/bats/valid_target(var/atom/A)
 	. = ..()
 	if(.)
-		custom_emote(VISIBLE_MESSAGE, "flutters towards [.]")
+		var/mob/living/simple_animal/hostile/scarybat/bats = body
+		return !istype(bats) || !bats.owner || A != bats.owner
 
-/mob/living/simple_animal/hostile/scarybat/Found(var/atom/A)//This is here as a potential override to pick a specific target if available
-	if(istype(A) && A == owner)
-		return 0
-	return ..()
-
-/mob/living/simple_animal/hostile/scarybat/AttackingTarget()
-	. =..()
-	var/mob/living/L = .
-	if(istype(L))
-		if(prob(15))
-			SET_STATUS_MAX(L, STAT_STUN, 1)
-			L.visible_message("<span class='danger'>\the [src] scares \the [L]!</span>")
-
-/mob/living/simple_animal/hostile/scarybat/cult
-	faction = "cult"
-	supernatural = 1
-
-/mob/living/simple_animal/hostile/scarybat/cult/on_defilement()
-	return
+/mob/living/simple_animal/hostile/scarybat/apply_attack_effects(mob/living/target)
+	. = ..()
+	if(prob(15))
+		SET_STATUS_MAX(target, STAT_STUN, 1)
+		target.visible_message(SPAN_DANGER("\The [src] scares \the [target]!"))

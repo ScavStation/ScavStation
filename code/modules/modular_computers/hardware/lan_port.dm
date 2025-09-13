@@ -67,7 +67,7 @@
 		var/turf/T = get_turf(parent)
 		if(check_terminal_block(T))
 			to_chat(user, SPAN_WARNING("There's already a network cable there!"))
-			return FALSE
+			return TRUE
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating beneath \the [parent] first."))
 			return TRUE
@@ -95,3 +95,4 @@
 				to_chat(user, SPAN_NOTICE("You cut the cables and dismantle the network terminal."))
 				qdel(terminal)
 		return TRUE
+	return FALSE

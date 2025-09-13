@@ -19,7 +19,7 @@
 	var/obj/item/organ/internal/brain/sponge = loc
 	. = ..()
 	if(.)
-		if(!QDELETED(container))
+		if(istype(container) && !QDELETED(container))
 			qdel(container)
-		if(!QDELETED(sponge))
+		if(istype(sponge) && !QDELETED(sponge))
 			qdel(sponge)

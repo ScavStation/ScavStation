@@ -110,8 +110,11 @@
 	integrated_light_power = 0.8
 	integrated_light_range = 5
 
-/mob/living/silicon/robot/drone/costruction/get_bodytype()
+/mob/living/silicon/robot/drone/construction/get_bodytype()
 	return GET_DECL(/decl/bodytype/drone/construction)
+
+/decl/bodytype/drone/construction
+	uid = "bodytype_drone_construction"
 
 /decl/bodytype/drone/construction/Initialize()
 	equip_adjust = list(
@@ -164,46 +167,38 @@
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
-
 	if(istype(W, /obj/item/borg/upgrade))
 		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
 		return TRUE
-
 	else if(IS_CROWBAR(W) && user.a_intent != I_HURT)
 		to_chat(user, "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>")
-		return
-
+		return TRUE
 	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
-
 		if(stat == DEAD)
-
 			if(!get_config_value(/decl/config/toggle/on/allow_drone_spawn) || emagged || should_be_dead()) //It's dead, Dave.
 				to_chat(user, "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>")
-				return
-
+				return TRUE
 			if(!allowed(usr))
 				to_chat(user, "<span class='danger'>Access denied.</span>")
-				return
-
-			var/decl/pronouns/G = user.get_pronouns()
+				return TRUE
+			var/decl/pronouns/pronouns = user.get_pronouns()
 			user.visible_message( \
-				SPAN_NOTICE("\The [user] swipes [G.his] ID card through \the [src], attempting to reboot it."), \
+				SPAN_NOTICE("\The [user] swipes [pronouns.his] ID card through \the [src], attempting to reboot it."), \
 				SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
-			return
+			return TRUE
 
-		var/decl/pronouns/G = user.get_pronouns()
+		var/decl/pronouns/pronouns = user.get_pronouns()
 		user.visible_message( \
-			SPAN_DANGER("\The [user] swipes [G.his] ID card through \the [src], attempting to shut it down."), \
+			SPAN_DANGER("\The [user] swipes [pronouns.his] ID card through \the [src], attempting to shut it down."), \
 			SPAN_DANGER("You swipe your ID card through \the [src], attempting to shut it down."))
 		if(!emagged)
 			if(allowed(usr))
 				shut_down()
 			else
 				to_chat(user, SPAN_DANGER("Access denied."))
-		return
-
-	..()
+		return TRUE
+	return ..()
 
 /mob/living/silicon/robot/drone/emag_act(var/remaining_charges, var/mob/user)
 	if(!client || stat == DEAD)
@@ -233,22 +228,18 @@
 	clear_inherent_laws()
 	QDEL_NULL(laws)
 	laws = new /datum/ai_laws/syndicate_override
-	var/decl/pronouns/G = user.get_pronouns(ignore_coverings = TRUE)
-	set_zeroth_law("Only [user.real_name] and people [G.he] designates as being such are operatives.")
+	var/decl/pronouns/pronouns = user.get_pronouns(ignore_coverings = TRUE)
+	set_zeroth_law("Only [user.real_name] and people [pronouns.he] designates as being such are operatives.")
 	if(!controlling_ai)
 		to_chat(src, "<b>Obey these laws:</b>")
 		laws.show_laws(src)
-		to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and [G.his] commands."))
+		to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and [pronouns.his] commands."))
 	return 1
 
 /mob/living/silicon/robot/drone/adjustBruteLoss(var/amount, var/do_update_health = TRUE)
 	. = ..()
 	if(amount && should_be_dead() && stat == DEAD && !QDELETED(src))
 		gib()
-
-//DRONE MOVEMENT.
-/mob/living/silicon/robot/drone/slip_chance(var/prob_slip)
-	return 0
 
 //CONSOLE PROCS
 /mob/living/silicon/robot/drone/proc/law_resync()
@@ -291,8 +282,8 @@
 /mob/living/silicon/robot/drone/proc/request_player()
 	if(too_many_active_drones())
 		return
-	var/decl/ghosttrap/G = GET_DECL(/decl/ghosttrap/maintenance_drone)
-	G.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
+	var/decl/ghosttrap/ghosttrap = GET_DECL(/decl/ghosttrap/maintenance_drone)
+	ghosttrap.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player) return
@@ -357,6 +348,7 @@
 	name = "drone"
 	bodytype_flag = 0
 	bodytype_category = "drone body"
+	uid = "bodytype_drone"
 
 /decl/bodytype/drone/Initialize()
 	if(!length(equip_adjust))

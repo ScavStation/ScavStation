@@ -4,7 +4,6 @@
 	icon = 'icons/obj/items/device/holowarrant.dmi'
 	icon_state = "holowarrant"
 	item_state = "holowarrant"
-	throwforce = 5
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
@@ -83,26 +82,29 @@
 		return TOPIC_HANDLED
 
 /obj/item/holowarrant/attackby(obj/item/W, mob/user)
-	if(active)
-		var/obj/item/card/id/I = W.GetIdCard()
-		if(I && check_access_list(I.GetAccess()))
-			var/choice = alert(user, "Would you like to authorize this warrant?","Warrant authorization","Yes","No")
-			var/datum/report_field/signature/auth = active.field_from_name("Authorized by")
-			if(choice == "Yes")
-				auth.ask_value(user)
-			user.visible_message(SPAN_NOTICE("You swipe \the [I] through the [src]."),
-								 SPAN_NOTICE("[user] swipes \the [I] through the [src]."))
-			broadcast_security_hud_message("[active.get_broadcast_summary()] has been authorized by [auth.get_value()].", src)
-		else
-			to_chat(user, "<span class='notice'>A red \"Access Denied\" light blinks on \the [src]</span>")
-		return 1
-	..()
+	if(!active)
+		return ..()
+	var/obj/item/card/id/I = W.GetIdCard()
+	if(I && check_access_list(I.GetAccess()))
+		var/choice = alert(user, "Would you like to authorize this warrant?","Warrant authorization","Yes","No")
+		var/datum/report_field/signature/auth = active.field_from_name("Authorized by")
+		if(choice == "Yes")
+			auth.ask_value(user)
+		user.visible_message(SPAN_NOTICE("You swipe \the [I] through \the [src]."),
+								SPAN_NOTICE("[user] swipes \the [I] through \the [src]."))
+		broadcast_security_hud_message("[active.get_broadcast_summary()] has been authorized by [auth.get_value()].", src)
+	else
+		to_chat(user, "<span class='notice'>A red \"Access Denied\" light blinks on \the [src]</span>")
+	return TRUE
 
 //hit other people with it
-/obj/item/holowarrant/attack(mob/living/carbon/M, mob/living/carbon/user)
-	user.visible_message("<span class='notice'>[user] holds up a warrant projector and shows the contents to [M].</span>", \
-			"<span class='notice'>You show the warrant to [M].</span>")
-	M.examinate(src)
+/obj/item/holowarrant/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] holds up a warrant projector and shows the contents to \the [target]."),
+		SPAN_NOTICE("You show the warrant to \the [target].")
+	)
+	target.examinate(src)
+	return TRUE
 
 /obj/item/holowarrant/on_update_icon()
 	. = ..()

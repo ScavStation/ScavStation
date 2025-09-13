@@ -92,25 +92,27 @@
 
 	if(owned_field)
 		to_chat(user, SPAN_WARNING("Shut \the [src] off first!"))
-		return
+		return TRUE
 
 	if(IS_MULTITOOL(W))
 		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
 		fusion.get_new_tag(user)
-		return
+		return TRUE
 
 	else if(IS_WRENCH(W))
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)
-			user.visible_message("\The [user] secures \the [src] to the floor.", \
-				"You secure \the [src] to the floor.", \
-				"You hear a ratchet.")
+			user.visible_message("\The [user] secures \the [src] to the floor.", 
+				"You secure \the [src] to the floor.", 
+				"You hear a ratchet."
+			)
 		else
-			user.visible_message("\The [user] unsecures \the [src] from the floor.", \
-				"You unsecure \the [src] from the floor.", \
-				"You hear a ratchet.")
-		return
+			user.visible_message("\The [user] unsecures \the [src] from the floor.", 
+				"You unsecure \the [src] from the floor.", 
+				"You hear a ratchet."
+			)
+		return TRUE
 
 	return ..()
 

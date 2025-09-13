@@ -2,10 +2,10 @@
 	slot_name = "Mouth"
 	slot_id = BP_MOUTH
 	requires_organ_tag = BP_HEAD
-	can_use_held_item = FALSE
 	overlay_slot = BP_MOUTH
 	ui_label = "M"
 	hand_sort_priority = 3
+	dexterity = DEXTERITY_SIMPLE_MACHINES | DEXTERITY_GRAPPLE | DEXTERITY_HOLD_ITEM | DEXTERITY_EQUIP_ITEM | DEXTERITY_KEYBOARDS | DEXTERITY_TOUCHSCREENS
 
 /datum/inventory_slot/gripper/mouth/simple
 	requires_organ_tag = null
@@ -28,8 +28,8 @@
 
 		// It also means they can do the old school cartoon schtick of eating
 		// an entire sandwich and spitting up an empty plate. Ptooie.
-		if(istype(prop, /obj/item/chems/food))
-			var/obj/item/chems/food/food = prop
+		if(istype(prop, /obj/item/food))
+			var/obj/item/food/food = prop
 			var/trash = food.trash
 			_holding = null
 			qdel(prop)

@@ -4,86 +4,69 @@
 
 //mining
 
-/obj/item/clothing/suit/space/void/mining/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/mining/suit.dmi')
+/obj/item/clothing/suit/space/void/mining
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/mining/suit.dmi'
 
-/obj/item/clothing/head/helmet/space/void/mining/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/mining/helmet.dmi')
+/obj/item/clothing/head/helmet/space/void/mining
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/mining/helmet.dmi'
 
 //excavation
+/obj/item/clothing/suit/space/void/excavation
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/mining/suit.dmi'
 
-/obj/item/clothing/suit/space/void/excavation/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/mining/suit.dmi')
-
-/obj/item/clothing/head/helmet/space/void/excavation/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/mining/helmet.dmi')
+/obj/item/clothing/head/helmet/space/void/excavation
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/mining/helmet.dmi'
 
 //engineering
+/obj/item/clothing/head/helmet/space/void/engineering
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/engineering/helmet.dmi'
 
-/obj/item/clothing/head/helmet/space/void/engineering/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/engineering/helmet.dmi')
+/obj/item/clothing/suit/space/void/engineering
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/engineering/suit.dmi'
 
-/obj/item/clothing/suit/space/void/engineering/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/engineering/suit.dmi')
+/obj/item/clothing/head/helmet/space/void/atmos
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/atmos/helmet.dmi'
 
-/obj/item/clothing/head/helmet/space/void/atmos/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/atmos/helmet.dmi')
-
-/obj/item/clothing/suit/space/void/atmos/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/atmos/suit.dmi')
+/obj/item/clothing/suit/space/void/atmos
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/atmos/suit.dmi'
 
 //medical
+/obj/item/clothing/suit/space/void/medical
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/medical/suit.dmi'
 
-/obj/item/clothing/suit/space/void/medical/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/medical/suit.dmi')
+/obj/item/clothing/head/helmet/space/void/medical
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/medical/helmet.dmi'
 
-/obj/item/clothing/head/helmet/space/void/medical/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/medical/helmet.dmi')
+/obj/item/clothing/suit/space/void/medical/alt
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/medical_alt/suit.dmi'
+
+/obj/item/clothing/head/helmet/space/void/medical/alt
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/medical_alt/helmet.dmi'
 
 //security
+/obj/item/clothing/head/helmet/space/void/security
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/sec/helmet.dmi'
 
-/obj/item/clothing/head/helmet/space/void/security/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/sec/helmet.dmi')
-
-/obj/item/clothing/suit/space/void/security/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/sec/suit.dmi')
+/obj/item/clothing/suit/space/void/security
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/sec/suit.dmi'
 
 //salvage
+/obj/item/clothing/head/helmet/space/void/engineering/salvage
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/salvage/helmet.dmi'
 
-/obj/item/clothing/head/helmet/space/void/engineering/salvage/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/salvage/helmet.dmi')
-
-/obj/item/clothing/suit/space/void/engineering/salvage/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/salvage/suit.dmi')
+/obj/item/clothing/suit/space/void/engineering/salvage
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/salvage/suit.dmi'
 
 //pilot
-/obj/item/clothing/head/helmet/space/void/pilot/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/pilot/helmet.dmi')
+/obj/item/clothing/head/helmet/space/void/expedition
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/pilot/helmet.dmi'
 
-/obj/item/clothing/suit/space/void/pilot/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/pilot/suit.dmi')
+/obj/item/clothing/suit/space/void/expedition
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/pilot/suit.dmi'
 
 //merc
-/obj/item/clothing/head/helmet/space/void/merc/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/merc/helmet.dmi')
+/obj/item/clothing/head/helmet/space/void/merc
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/merc/helmet.dmi'
 
-/obj/item/clothing/suit/space/void/merc/Initialize()
-	. = ..()
-	LAZYSET(sprite_sheets, BODYTYPE_AVIAN, 'mods/species/neoavians/icons/clothing/spacesuit/void/merc/suit.dmi')
+/obj/item/clothing/suit/space/void/merc
+	_avian_icon = 'mods/species/neoavians/icons/clothing/spacesuit/void/merc/suit.dmi'

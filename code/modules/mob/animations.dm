@@ -11,7 +11,7 @@
 		stop_floating()
 		return
 
-	if(check_space_footing())
+	if(!can_slip(magboots_only = TRUE))
 		stop_floating()
 		return
 
@@ -88,7 +88,7 @@
 
 	// What are we attacking with?
 	if(!weapon)
-		weapon = get_active_hand()
+		weapon = get_active_held_item()
 		if(!weapon)
 			return
 

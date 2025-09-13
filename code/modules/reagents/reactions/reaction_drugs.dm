@@ -22,16 +22,16 @@
 	name = "Strong Painkillers"
 	result = /decl/material/liquid/painkillers/strong
 	required_reagents = list(
-		/decl/material/liquid/stabilizer = 1,
-		/decl/material/liquid/ethanol = 1,
-		/decl/material/liquid/acetone = 1
+		/decl/material/liquid/stabilizer      = 1,
+		/decl/material/liquid/alcohol/ethanol = 1,
+		/decl/material/liquid/acetone         = 1
 	)
 	result_amount = 3
 
 /decl/chemical_reaction/drug/antiseptic
 	name = "Antiseptic"
 	result = /decl/material/liquid/antiseptic
-	required_reagents = list(/decl/material/liquid/ethanol = 1, /decl/material/liquid/antitoxins = 1, /decl/material/liquid/acid/hydrochloric = 1)
+	required_reagents = list(/decl/material/liquid/alcohol/ethanol = 1, /decl/material/liquid/antitoxins = 1, /decl/material/liquid/acid/hydrochloric = 1)
 	result_amount = 3
 
 /decl/chemical_reaction/drug/mutagenics
@@ -47,19 +47,6 @@
 	result_amount = 3
 	minimum_temperature = 50 CELSIUS
 	maximum_temperature = (50 CELSIUS) + 100
-
-/decl/chemical_reaction/drug/lube
-	name = "Lubricant"
-	result = /decl/material/liquid/lube
-	required_reagents = list(/decl/material/liquid/water = 1, /decl/material/solid/silicon = 1, /decl/material/liquid/acetone = 1)
-	result_amount = 3
-	mix_message = "The solution becomes thick and slimy."
-
-/decl/chemical_reaction/drug/pacid
-	name = "Polytrinic acid"
-	result = /decl/material/liquid/acid/polyacid
-	required_reagents = list(/decl/material/liquid/acid = 1, /decl/material/liquid/acid/hydrochloric = 1, /decl/material/solid/potassium = 1)
-	result_amount = 3
 
 /decl/chemical_reaction/drug/antirads
 	name = "Anti-Radiation Medication"
@@ -78,7 +65,6 @@
 	result = /decl/material/liquid/burn_meds
 	required_reagents = list(/decl/material/solid/silicon = 1, /decl/material/solid/carbon = 1)
 	result_amount = 2
-	log_is_important = 1
 
 /decl/chemical_reaction/drug/presyncopics
 	name = "Presyncopics"
@@ -125,16 +111,6 @@
 	required_reagents = list(/decl/material/liquid/antirads = 1, /decl/material/solid/carbon = 1)
 	result_amount = 2
 
-/decl/chemical_reaction/compound/nanitefluid
-	name = "Nanite Fluid"
-	result = /decl/material/liquid/nanitefluid
-	required_reagents = list(/decl/material/liquid/plasticide = 1, /decl/material/solid/metal/aluminium = 1, /decl/material/liquid/lube = 1)
-	catalysts = list(/decl/material/liquid/crystal_agent = 1)
-	result_amount = 3
-	minimum_temperature = (-25 CELSIUS) - 100
-	maximum_temperature = -25 CELSIUS
-	mix_message = "The solution becomes a metallic slime."
-
 /decl/chemical_reaction/drug/antibiotics
 	name = "Antibiotics"
 	result = /decl/material/liquid/antibiotics
@@ -150,7 +126,7 @@
 /decl/chemical_reaction/drug/sedatives
 	name = "Sedatives"
 	result = /decl/material/liquid/sedatives
-	required_reagents = list(/decl/material/liquid/ethanol = 1, /decl/material/liquid/nutriment/sugar = 4
+	required_reagents = list(/decl/material/liquid/alcohol/ethanol = 1, /decl/material/liquid/nutriment/sugar = 4
 	)
 	inhibitors = list(
 		/decl/material/solid/phosphorus
@@ -160,7 +136,7 @@
 /decl/chemical_reaction/drug/paralytics
 	name = "Paralytics"
 	result = /decl/material/liquid/paralytics
-	required_reagents = list(/decl/material/liquid/ethanol = 1, /decl/material/liquid/mercury = 2, /decl/material/liquid/fuel/hydrazine = 2)
+	required_reagents = list(/decl/material/liquid/alcohol/ethanol = 1, /decl/material/liquid/mercury = 2, /decl/material/liquid/fuel/hydrazine = 2)
 	result_amount = 1
 
 /decl/chemical_reaction/drug/zombiepowder

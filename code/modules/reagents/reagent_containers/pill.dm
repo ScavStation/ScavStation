@@ -20,7 +20,7 @@
 // Pill subtype that does not use a reagent name.
 /obj/item/chems/pill/dispensed
 	autolabel = FALSE
-/obj/item/chems/pill/dispensed/update_container_name()
+/obj/item/chems/pill/dispensed/update_name()
 	return
 /obj/item/chems/pill/dispensed/update_container_desc()
 	return
@@ -31,7 +31,7 @@
 		icon_state = pick(colorizable_icon_states) //preset pills only use colour changing or unique icons
 	update_icon()
 	if(label_text)
-		update_container_name()
+		update_name()
 
 /obj/item/chems/pill/populate_reagents()
 	SHOULD_CALL_PARENT(TRUE)
@@ -48,10 +48,10 @@
 		color = null
 
 /obj/item/chems/pill/attack_self(mob/user)
-	attack(user, user)
+	return use_on_mob(user, user)
 
 /obj/item/chems/pill/dragged_onto(var/mob/user)
-	attack(user, user)
+	return use_on_mob(user, user)
 
 /obj/item/chems/pill/afterattack(obj/target, mob/user, proximity)
 	if(proximity && ATOM_IS_OPEN_CONTAINER(target) && target.reagents)
@@ -252,10 +252,9 @@
 	desc = "Put in water to get space cleaner. Do not eat. Really."
 	icon_state = "pod21"
 	autolabel = FALSE
-	var/smell_clean_time = 10 MINUTES
 
 // Don't overwrite the custom name.
-/obj/item/chems/pill/detergent/update_container_name()
+/obj/item/chems/pill/detergent/update_name()
 	return
 
 /obj/item/chems/pill/detergent/populate_reagents()
@@ -269,14 +268,14 @@
 	autolabel = FALSE
 
 // Don't overwrite the custom names.
-/obj/item/chems/pill/pod/update_container_name()
+/obj/item/chems/pill/pod/update_name()
 	return
 
 /obj/item/chems/pill/pod/cream
 	name = "creamer pod"
 
 /obj/item/chems/pill/pod/cream/populate_reagents()
-	add_to_reagents(/decl/material/liquid/drink/milk, 5)
+	add_to_reagents(/decl/material/liquid/drink/milk/cream, 5, data = list(DATA_MILK_DONOR = "cow"))
 	. = ..()
 
 /obj/item/chems/pill/pod/cream_soy

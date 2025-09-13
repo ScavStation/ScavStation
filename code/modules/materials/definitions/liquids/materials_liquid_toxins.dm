@@ -40,6 +40,7 @@
 	metabolism = REM * 0.25
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	compost_value = 0.1 // a pittance, but it's so that compost bins don't end up filled with uncompostable amatoxin
 
 /decl/material/liquid/carpotoxin
 	name = "carpotoxin"
@@ -58,6 +59,7 @@
 	metabolism = REM * 0.25
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	compost_value = 0.3 // a bit more than amatoxin or wax, but still not much
 
 /decl/material/liquid/venom
 	name = "spider venom"
@@ -76,8 +78,16 @@
 	metabolism = REM * 0.25
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	compost_value = 0.3 // a bit more than amatoxin or wax, but still not much
+
+/decl/material/liquid/venom/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+	return ..()
 
 /decl/material/liquid/venom/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	if(prob(REAGENT_VOLUME(holder, type)*2))
 		SET_STATUS_MAX(M, STAT_CONFUSE, 3)
 	..()
@@ -118,16 +128,14 @@
 	..()
 	ADJ_STATUS(M, STAT_CONFUSE, 1.5)
 
-/decl/material/liquid/heartstopper/affect_overdose(var/mob/living/M)
+/decl/material/liquid/heartstopper/affect_overdose(mob/living/victim, total_dose)
 	..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.stat != UNCONSCIOUS)
-			if(H.ticks_since_last_successful_breath >= 10)
-				H.ticks_since_last_successful_breath = max(10, H.ticks_since_last_successful_breath-10)
-			H.adjustOxyLoss(2)
-			SET_STATUS_MAX(H, STAT_WEAK, 10)
-		M.add_chemical_effect(CE_NOPULSE, 1)
+	if(victim.stat != UNCONSCIOUS)
+		if(victim.ticks_since_last_successful_breath >= 10)
+			victim.ticks_since_last_successful_breath = max(10, victim.ticks_since_last_successful_breath-10)
+		victim.take_damage(2, OXY)
+		SET_STATUS_MAX(victim, STAT_WEAK, 10)
+	victim.add_chemical_effect(CE_NOPULSE, 1)
 
 /decl/material/liquid/zombiepowder
 	name = "zombie powder"
@@ -152,7 +160,7 @@
 /decl/material/liquid/zombiepowder/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 	M.status_flags |= FAKEDEATH
-	M.adjustOxyLoss(3 * removed)
+	M.take_damage(3 * removed, OXY)
 	SET_STATUS_MAX(M, STAT_WEAK, 10)
 	SET_STATUS_MAX(M, STAT_SILENCE, 10)
 	if(LAZYACCESS(M.chem_doses, type) <= removed) //half-assed attempt to make timeofdeath update only at the onset
@@ -175,6 +183,13 @@
 	color = "#664330"
 	metabolism = REM * 0.25
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+
+/decl/material/liquid/fertilizer/compost
+	name = "compost"
+	uid = "liquid_compost"
+	lore_text = "A mulch of organics good for feeding to plants."
+	taste_description = "organic rot"
+	toxicity = 0.1
 
 /decl/material/liquid/weedkiller
 	name = "weedkiller"
@@ -201,12 +216,12 @@
 	color = "#140b30"
 	toxicity = 4
 	heating_products = list(
-		/decl/material/liquid/acetone = 0.4,
-		/decl/material/solid/carbon = 0.4,
-		/decl/material/liquid/ethanol = 0.2
+		/decl/material/liquid/acetone         = 0.4,
+		/decl/material/solid/carbon           = 0.4,
+		/decl/material/liquid/alcohol/ethanol = 0.2
 	)
 	heating_point = 145 CELSIUS
-	heating_message = "separates"
+	heating_message = "separates."
 	taste_mult = 1.2
 	metabolism = REM * 0.25
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
@@ -224,8 +239,10 @@
 	metabolism = REM * 0.25
 
 /decl/material/liquid/hair_remover/affect_touch(var/mob/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	M.lose_hair()
 	holder.remove_reagent(type, REAGENT_VOLUME(holder, type))
+	return TRUE
 
 /decl/material/liquid/zombie
 	name = "liquid corruption"
@@ -243,12 +260,14 @@
 	var/amount_to_zombify = 5
 
 /decl/material/liquid/zombie/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	affect_blood(M, removed * 0.5, holder)
+	return TRUE
 
 /decl/material/liquid/zombie/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		var/true_dose = LAZYACCESS(H.chem_doses, type) + REAGENT_VOLUME(holder, type)
 		if (true_dose >= amount_to_zombify)
 			H.zombify()

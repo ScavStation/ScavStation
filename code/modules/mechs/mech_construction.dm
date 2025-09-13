@@ -82,13 +82,13 @@
 		return FALSE
 
 	if(user)
-		var/delay = 30 * user.skill_delay_mult(SKILL_DEVICES)
+		var/delay = 3 SECONDS * user.skill_delay_mult(SKILL_DEVICES)
 		if(delay > 0)
 			user.visible_message(
 				SPAN_NOTICE("\The [user] begins trying to install \the [system] into \the [src]."),
 				SPAN_NOTICE("You begin trying to install \the [system] into \the [src].")
 			)
-			if(!do_after(user, delay, src) || user.get_active_hand() != system)
+			if(!do_after(user, delay, src) || user.get_active_held_item() != system)
 				return FALSE
 
 			if(user.try_unequip(system))
@@ -122,7 +122,7 @@
 
 	var/obj/item/system = hardpoints[system_hardpoint]
 	if(user)
-		var/delay = 30 * user.skill_delay_mult(SKILL_DEVICES)
+		var/delay = 3 SECONDS * user.skill_delay_mult(SKILL_DEVICES)
 		if(delay > 0)
 			user.visible_message(SPAN_NOTICE("\The [user] begins trying to remove \the [system] from \the [src]."))
 			if(!do_after(user, delay, src) || hardpoints[system_hardpoint] != system)

@@ -102,7 +102,7 @@
 /obj/item/clothing/mask/ai
 	name = "camera MIU"
 	desc = "Allows for direct mental connection to accessible camera channels."
-	icon = 'icons/clothing/mask/ninja.dmi'
+	icon = 'icons/clothing/mask/camera_miu.dmi'
 	icon_state = ICON_STATE_WORLD
 	flags_inv = HIDEFACE
 	body_parts_covered = SLOT_FACE|SLOT_EYES
@@ -169,7 +169,7 @@
 	visible_name = species
 	var/decl/species/S = get_species_by_key(species)
 	if(istype(S))
-		var/decl/cultural_info/C = GET_DECL(S.default_cultural_info[TAG_CULTURE])
+		var/decl/background_detail/C = GET_DECL(S.default_background_info[/decl/background_category/heritage])
 		if(istype(C))
 			visible_name = C.get_random_name(pick(MALE,FEMALE))
 
@@ -198,7 +198,14 @@
 	body_parts_covered = SLOT_FACE
 	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL
 	w_class = ITEM_SIZE_SMALL
+	matter = null
 	material = /decl/material/solid/organic/cloth
+
+/obj/item/clothing/mask/bandana/colourable
+	name = "bandana"
+	desc = "A simple bandana, worn on the face or head."
+	color = null
+	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
 
 /obj/item/clothing/mask/bandana/equipped(var/mob/user, var/slot)
 	. = ..()

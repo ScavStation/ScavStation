@@ -1,7 +1,7 @@
 /datum/job/tradeship_captain
 	title = "Captain"
 	supervisors = "your profit margin, your conscience, and the Trademaster"
-	outfit_type = /decl/hierarchy/outfit/job/tradeship/captain
+	outfit_type = /decl/outfit/job/tradeship/captain
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_WEAPONS  = SKILL_ADEPT,
@@ -29,7 +29,7 @@
 	not_random_selectable = 1
 	forced_spawnpoint = /decl/spawnpoint/cryo/captain
 
-/datum/job/tradeship_captain/equip_job(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
+/datum/job/tradeship_captain/equip_job(var/mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
 	. = ..()
 	if(H)
 		H.verbs |= /mob/proc/tradehouse_rename_ship
@@ -76,7 +76,7 @@
 /datum/job/tradeship_first_mate
 	title = "First Mate"
 	supervisors = "the Captain"
-	outfit_type = /decl/hierarchy/outfit/job/tradeship/mate
+	outfit_type = /decl/outfit/job/tradeship/mate
 	head_position = 1
 	department_types = list(
 		/decl/department/command,

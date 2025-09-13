@@ -112,7 +112,7 @@
 
 	var/out = "<B>[name]</B>[(current&&(current.real_name!=name))?" (as [current.real_name])":""]<br>"
 	out += "Mind currently owned by key: [key] [active?"(synced)":"(not synced)"]<br>"
-	out += "Assigned role: [assigned_role]. <a href='?src=\ref[src];role_edit=1'>Edit</a><br>"
+	out += "Assigned role: [assigned_role]. <a href='byond://?src=\ref[src];role_edit=1'>Edit</a><br>"
 	out += "<hr>"
 	out += "Factions and special roles:<br><table>"
 	var/list/all_antag_types = decls_repository.get_decls_of_subtype(/decl/special_role)
@@ -126,16 +126,16 @@
 		var/num = 1
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
-			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
+			out += " <a href='byond://?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++
-		out += "<br><a href='?src=\ref[src];obj_announce=1'>\[announce objectives\]</a>"
+		out += "<br><a href='byond://?src=\ref[src];obj_announce=1'>\[announce objectives\]</a>"
 
 	else
 		out += "None."
-	out += "<br><a href='?src=\ref[src];obj_add=1'>\[add\]</a><br><br>"
+	out += "<br><a href='byond://?src=\ref[src];obj_add=1'>\[add\]</a><br><br>"
 
 	var/datum/goal/ambition/ambition = SSgoals.ambitions[src]
-	out += "<b>Ambitions:</b> [ambition ? ambition.description : "None"] <a href='?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
+	out += "<b>Ambitions:</b> [ambition ? ambition.description : "None"] <a href='byond://?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
 	show_browser(usr, out, "window=edit_memory[src]")
 
 /datum/mind/proc/get_goal_from_href(var/href)
@@ -152,8 +152,8 @@
 
 	if(href_list["add_goal"])
 
-		var/mob/caller = locate(href_list["add_goal_caller"])
-		if(caller && caller == current) can_modify = TRUE
+		var/mob/goal_user = locate(href_list["add_goal_user"])
+		if(goal_user && goal_user == current) can_modify = TRUE
 
 		if(can_modify)
 			if(is_admin)
@@ -171,8 +171,8 @@
 	if(href_list["abandon_goal"])
 		var/datum/goal/goal = get_goal_from_href(href_list["abandon_goal"])
 
-		var/mob/caller = locate(href_list["abandon_goal_caller"])
-		if(caller && caller == current) can_modify = TRUE
+		var/mob/goal_user = locate(href_list["abandon_goal_user"])
+		if(goal_user && goal_user == current) can_modify = TRUE
 
 		if(goal && can_modify)
 			if(usr == current)
@@ -186,8 +186,8 @@
 	if(href_list["reroll_goal"])
 		var/datum/goal/goal = get_goal_from_href(href_list["reroll_goal"])
 
-		var/mob/caller = locate(href_list["reroll_goal_caller"])
-		if(caller && caller == current) can_modify = TRUE
+		var/mob/goal_user = locate(href_list["reroll_goal_user"])
+		if(goal_user && goal_user == current) can_modify = TRUE
 
 		if(goal && (goal in goals) && can_modify)
 			qdel(goal)
@@ -283,7 +283,7 @@
 			if(!def_value)//If it's a custom objective, it will be an empty string.
 				def_value = "custom"
 
-		var/new_obj_type = input("Select objective type:", "Objective type", def_value) as null|anything in list("assassinate", "debrain", "protect", "prevent", "harm", "brig", "hijack", "escape", "survive", "steal", "download", "mercenary", "capture", "custom")
+		var/new_obj_type = input("Select objective type:", "Objective type", def_value) as null|anything in list("assassinate", "debrain", "protect", "prevent", "harm", "brig", "hijack", "escape", "survive", "steal", "download", "mercenary", "custom")
 		if (!new_obj_type) return
 
 		var/datum/objective/new_objective = null
@@ -302,8 +302,8 @@
 
 				var/mob/def_target = null
 				var/objective_list[] = list(/datum/objective/assassinate, /datum/objective/protect, /datum/objective/debrain)
-				if (objective&&(objective.type in objective_list) && objective:target)
-					def_target = objective.target?.current
+				if (objective?.target && (objective.type in objective_list))
+					def_target = objective.target.current
 
 				var/new_target = input("Select target:", "Objective target", def_target) as null|anything in possible_targets
 				if (!new_target) return
@@ -313,12 +313,12 @@
 				if (!istype(M) || !M.mind || new_target == "Free objective")
 					new_objective = new objective_path
 					new_objective.owner = src
-					new_objective:target = null
+					new_objective.target = null
 					new_objective.explanation_text = "Free objective"
 				else
 					new_objective = new objective_path
 					new_objective.owner = src
-					new_objective:target = M.mind
+					new_objective.target = M.mind
 					new_objective.explanation_text = "[objective_type] [M.real_name], the [M.mind.get_special_role_name(M.mind.assigned_role)]."
 
 			if ("hijack")
@@ -341,7 +341,7 @@
 				new_objective = new /datum/objective/steal
 				new_objective.owner = src
 
-			if("download","capture")
+			if("download")
 				var/def_num
 				if(objective&&objective.type==text2path("/datum/objective/[new_obj_type]"))
 					def_num = objective.target_amount
@@ -354,9 +354,6 @@
 					if("download")
 						new_objective = new /datum/objective/download
 						new_objective.explanation_text = "Download [target_number] research levels."
-					if("capture")
-						new_objective = new /datum/objective/capture
-						new_objective.explanation_text = "Accumulate [target_number] capture points."
 				new_objective.owner = src
 				new_objective.target_amount = target_number
 
@@ -366,6 +363,8 @@
 				new_objective = new /datum/objective
 				new_objective.owner = src
 				new_objective.explanation_text = expl
+			else
+				PRINT_STACK_TRACE("ERROR: Unrecognized objective type [new_obj_type]")
 
 		if (!new_objective) return
 
@@ -381,7 +380,7 @@
 		objectives -= objective
 
 	else if(href_list["implant"])
-		var/mob/living/carbon/human/H = current
+		var/mob/living/human/H = current
 
 		BITSET(H.hud_updateflag, IMPLOYAL_HUD)   // updates that players HUD images so secHUD's pick up they are implanted or not.
 
@@ -399,6 +398,7 @@
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].")
 			else
+				pass()
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
 		switch(href_list["silicon"])
@@ -466,11 +466,9 @@
 			obj_count++
 
 /datum/mind/proc/find_syndicate_uplink()
-	var/list/L = current.get_contents()
-	for (var/obj/item/I in L)
+	for (var/obj/item/I in current?.get_mob_contents())
 		if (I.hidden_uplink)
 			return I.hidden_uplink
-	return null
 
 /datum/mind/proc/take_uplink()
 	var/obj/item/uplink/H = find_syndicate_uplink()
@@ -516,7 +514,7 @@
 		src.client.verbs += /client/proc/aooc
 
 //HUMAN
-/mob/living/carbon/human/mind_initialize()
+/mob/living/human/mind_initialize()
 	..()
 	if(!mind.assigned_role)
 		mind.assigned_role = global.using_map.default_job_title
@@ -545,25 +543,6 @@
 /mob/living/simple_animal/corgi/mind_initialize()
 	..()
 	mind.assigned_role = "Corgi"
-
-/mob/living/simple_animal/shade/mind_initialize()
-	..()
-	mind.assigned_role = "Shade"
-
-/mob/living/simple_animal/construct/builder/mind_initialize()
-	..()
-	mind.assigned_role = "Artificer"
-	mind.assigned_special_role = "Cultist"
-
-/mob/living/simple_animal/construct/wraith/mind_initialize()
-	..()
-	mind.assigned_role = "Wraith"
-	mind.assigned_special_role = "Cultist"
-
-/mob/living/simple_animal/construct/armoured/mind_initialize()
-	..()
-	mind.assigned_role = "Juggernaut"
-	mind.assigned_special_role = "Cultist"
 
 /datum/mind/proc/get_special_role_name(var/default_role_name)
 	if(istext(assigned_special_role))

@@ -104,7 +104,7 @@
 	global.listening_objects += src
 	set_frequency(sanitize_frequency(frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ))
 	if(radio_device_type)
-		set_extension(src, /datum/extension/network_device/radio, initial_network_id, initial_network_key, RECEIVER_STRONG_WIRELESS)
+		set_extension(src, radio_device_type, initial_network_id, initial_network_key, RECEIVER_STRONG_WIRELESS)
 
 	var/list/created_encryption_keys
 	for(var/keytype in encryption_keys)
@@ -133,7 +133,6 @@
 /obj/item/radio/Destroy()
 	QDEL_NULL(wires)
 	QDEL_NULL_LIST(encryption_keys)
-	global.listening_objects -= src
 	set_frequency(null) // clean up the radio connection
 	channels = null
 	. = ..()
@@ -322,18 +321,17 @@
 	set waitfor = FALSE
 	if(!on) return 0 // the device has to be on
 	//  Fix for permacell radios, but kinda eh about actually fixing them.
-	if(!M || !message) return 0
+	if(!istype(M) || !message) return 0
 
 	if(speaking && (speaking.flags & (LANG_FLAG_NONVERBAL|LANG_FLAG_SIGNLANG))) return 0
 
 	if (!broadcasting)
 		// Sedation chemical effect should prevent radio use.
-		var/mob/living/carbon/C = M
-		if(istype(C) && (C.has_chemical_effect(CE_SEDATE, 1) || C.incapacitated(INCAPACITATION_DISRUPTED)))
+		if((M.has_chemical_effect(CE_SEDATE, 1) || M.incapacitated(INCAPACITATION_DISRUPTED)))
 			to_chat(M, SPAN_WARNING("You're unable to reach \the [src]."))
 			return 0
 
-		if((istype(C)) && C.radio_interrupt_cooldown > world.time)
+		if(M.radio_interrupt_cooldown > world.time)
 			to_chat(M, SPAN_WARNING("You're disrupted as you reach for \the [src]."))
 			return 0
 
@@ -502,7 +500,7 @@
 
 /obj/item/radio/CouldUseTopic(var/mob/user)
 	..()
-	if(iscarbon(user))
+	if(isliving(user))
 		playsound(src, "button", 10)
 
 /obj/item/radio/off

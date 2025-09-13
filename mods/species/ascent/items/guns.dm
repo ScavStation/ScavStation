@@ -4,7 +4,7 @@
 	icon = 'mods/species/ascent/icons/particle_rifle/rifle.dmi'
 	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_BACK
-	force = 25 // Heavy as Hell.
+	_base_attack_force = 25 // Heavy as Hell.
 	projectile_type = /obj/item/projectile/beam/particle
 	max_shots = 18
 	self_recharge = 1
@@ -26,7 +26,7 @@
 	name = "particle projector"
 	desc = "A smaller variant on the Ascent particle lance, usually carried by drones and alates."
 	icon = 'mods/species/ascent/icons/particle_rifle/rifle_small.dmi'
-	force = 12
+	_base_attack_force = 12
 	max_shots = 9
 	burst = 1
 	one_hand_penalty = 0
@@ -46,7 +46,7 @@
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	set_overlays(list(
 		"[get_world_inventory_state()]-[istype(current_mode) ? current_mode.name : "lethal"]",
-		"[get_world_inventory_state()]-charge-[istype(power_supply) ? FLOOR(power_supply.percent()/20) : 0]"
+		"[get_world_inventory_state()]-charge-[istype(power_supply) ? floor(power_supply.percent()/20) : 0]"
 	))
 
 /obj/item/gun/magnetic/railgun/flechette/ascent
@@ -62,7 +62,7 @@
 
 /obj/item/gun/magnetic/railgun/flechette/ascent/show_ammo(var/mob/user)
 	var/obj/item/cell/cell = get_cell()
-	to_chat(user, "<span class='notice'>There are [cell ? FLOOR(cell.charge/charge_per_shot) : 0] shot\s remaining.</span>")
+	to_chat(user, "<span class='notice'>There are [cell ? floor(cell.charge/charge_per_shot) : 0] shot\s remaining.</span>")
 
 /obj/item/gun/magnetic/railgun/flechette/ascent/check_ammo()
 	var/obj/item/cell/cell = get_cell()

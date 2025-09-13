@@ -2,7 +2,7 @@
 	name = "brown shoes"
 	desc = "A pair of brown shoes. They seem to have extra grip."
 	icon = 'icons/clothing/feet/colored_shoes.dmi'
-	markings_icon = "_coloring"
+	markings_state_modifier = "_coloring"
 	markings_color = WOOD_COLOR_CHOCOLATE
 	permeability_coefficient = 0.05
 	item_flags = ITEM_FLAG_NOSLIP
@@ -30,7 +30,6 @@
 	desc = "When you REALLY want to turn up the heat."
 	material_alteration = MAT_FLAG_ALTERATION_NONE
 	color = "#694e30"
-	force = 5
 
 /obj/item/clothing/shoes/jackboots/jungleboots
 	name = "jungle boots"
@@ -100,7 +99,6 @@
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
 	name = "clown shoes"
 	icon = 'icons/clothing/feet/clown.dmi'
-	force = 0
 	bodytype_equip_flags = null
 	can_add_hidden_item = FALSE
 	var/footstep = 1	//used for squeeks whilst walking
@@ -123,7 +121,7 @@
 	name = "boots"
 	desc = "A pair of boots worn by the followers of Nar-Sie."
 	icon = 'icons/clothing/feet/cult.dmi'
-	force = 2
+	_base_attack_force = 2
 	siemens_coefficient = 0.7
 
 	cold_protection = SLOT_FEET
@@ -136,7 +134,6 @@
 	name = "bunny slippers"
 	desc = "Fluffy!"
 	icon = 'icons/clothing/feet/bunny_slippers.dmi'
-	force = 0
 	bodytype_equip_flags = null
 	w_class = ITEM_SIZE_SMALL
 	can_add_hidden_item = FALSE

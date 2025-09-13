@@ -110,7 +110,7 @@
 // Click on table to unload, click on item to load. Otherwise works identically to a tray.
 // Unlike the base item "tray", robotrays ONLY pick up food, drinks and condiments.
 
-/obj/item/storage/tray/robotray
+/obj/item/plate/tray/robotray
 	name = "RoboTray"
 	desc = "An autoloading tray specialized for carrying refreshments."
 
@@ -174,15 +174,11 @@
 	item_state = "sheet-metal"
 	max_health = ITEM_HEALTH_NO_DAMAGE
 
-/obj/item/form_printer/attack(mob/living/carbon/M, mob/living/carbon/user)
-	return
+/obj/item/form_printer/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	return FALSE
 
-/obj/item/form_printer/afterattack(atom/target, mob/living/user, flag, params)
-
-	if(!target || !flag)
-		return
-
-	if(istype(target,/obj/structure/table))
+/obj/item/form_printer/afterattack(atom/target, mob/living/user, proximity, params)
+	if(istype(target) && !istype(target, /obj/screen) && proximity)
 		deploy_paper(get_turf(target))
 
 /obj/item/form_printer/attack_self(mob/user)
@@ -191,7 +187,6 @@
 /obj/item/form_printer/proc/deploy_paper(var/turf/T)
 	T.visible_message(SPAN_NOTICE("\The [src.loc] dispenses a sheet of crisp white paper."))
 	new /obj/item/paper(T)
-
 
 //Personal shielding for the combat module.
 /obj/item/borg/combat/shield
@@ -374,8 +369,8 @@
 	var/base_power_generation = 75 KILOWATTS
 	var/max_fuel_items = 5
 	var/list/fuel_types = list(
-		/obj/item/chems/food/meat = 2,
-		/obj/item/chems/food/fish = 1.5
+		/obj/item/food/butchery/meat = 2,
+		/obj/item/food/butchery/meat/fish = 1.5
 	)
 
 /obj/item/bioreactor/attack_self(var/mob/user)
@@ -390,7 +385,7 @@
 	if(!proximity_flag || !istype(target))
 		return
 
-	var/is_fuel = istype(target, /obj/item/chems/food/grown)
+	var/is_fuel = istype(target, /obj/item/food/grown)
 	is_fuel = is_fuel || is_type_in_list(target, fuel_types)
 
 	if(!is_fuel)
@@ -421,7 +416,7 @@
 
 	for(var/thing in contents)
 		var/atom/A = thing
-		if(istype(A, /obj/item/chems/food/grown))
+		if(istype(A, /obj/item/food/grown))
 			generating_power = base_power_generation
 			using_item = A
 		else

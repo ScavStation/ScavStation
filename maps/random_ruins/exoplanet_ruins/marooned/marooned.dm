@@ -9,25 +9,25 @@
 		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
-/obj/item/clothing/under/magintka_uniform
+/obj/item/clothing/costume/magintka_uniform
 	name = "officer uniform"
 	desc = "A dark uniform coat worn by Magnitka fleet officers."
 	icon = 'maps/random_ruins/exoplanet_ruins/marooned/icons/uniform_magnitka.dmi'
 
-/obj/item/clothing/accessory/medal/silver/marooned_medal
+/obj/item/clothing/medal/silver/marooned_medal
 	name = "silver medal"
-	desc = "An silver round medal of marooned officer. It has inscription \"For Distinguished Service\" in lower part. On medal's plank it's engraved \"H. Warda\""
+	desc = "A silver medallion with a tri-coloured ribbon. It has the inscription \"For Distinguished Service\" on the lower part. On the medal's top bar is carved \"H. Warda\""
 	icon = 'maps/random_ruins/exoplanet_ruins/marooned/icons/medal_magnitka.dmi'
 
 /obj/abstract/landmark/corpse/marooned_officer
-	name = "Horazy Warda"
-	corpse_outfits = list(/decl/hierarchy/outfit/marooned_officer)
+	name = "Horacy Warda"
+	corpse_outfits = list(/decl/outfit/marooned_officer)
 	spawn_flags = ~CORPSE_SPAWNER_RANDOM_NAME
 
-/decl/hierarchy/outfit/marooned_officer
+/decl/outfit/marooned_officer
 	name = "Dead Magnitka's fleet officer"
-	uniform = /obj/item/clothing/under/magintka_uniform
-	suit = /obj/item/clothing/suit/storage/toggle/wintercoat
+	uniform = /obj/item/clothing/costume/magintka_uniform
+	suit = /obj/item/clothing/suit/jacket/winter
 	shoes = /obj/item/clothing/shoes/jackboots/jungleboots
 	gloves = /obj/item/clothing/gloves/thick
 	head = /obj/item/clothing/head/beret
