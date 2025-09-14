@@ -11,13 +11,11 @@
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_UNCOMMON
 	uid = "chem_fuel"
+	toxicity = 2
 
 	glass_name = "welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 	value = 1.5
-
-/decl/material/liquid/fuel/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	M.adjustToxLoss(2 * removed)
 
 /decl/material/liquid/fuel/explosion_act(obj/item/chems/holder, severity)
 	. = ..()

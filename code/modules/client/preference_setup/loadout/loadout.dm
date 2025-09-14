@@ -59,10 +59,15 @@
 		if(!found_species)
 			return FALSE
 
+	if(required_traits)
+		for(var/trait in required_traits)
+			if(!(trait in pref.traits))
+				return FALSE
+
 	if(faction_restricted)
 		var/has_correct_faction = FALSE
-		for(var/token in ALL_CULTURAL_TAGS)
-			if(pref.cultural_info[token] in faction_restricted)
+		for(var/cat_type in global.using_map.get_background_categories())
+			if(pref.background_info[cat_type] in faction_restricted)
 				has_correct_faction = TRUE
 				break
 		if(!has_correct_faction)
@@ -128,13 +133,13 @@
 		fcolor = COLOR_FONT_ORANGE
 	. += "<table align = 'center' width = 100%>"
 	. += "<tr><td colspan=3><center>"
-	. += "<a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a>"
+	. += "<a href='byond://?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='byond://?src=\ref[src];next_slot=1'>\>\></a>"
 
 	if(max_gear_cost < INFINITY)
 		. += "<b><font color = '[fcolor]'>[pref.total_loadout_cost]/[max_gear_cost]</font> loadout points spent.</b>"
 
-	. += "<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>"
-	. += "<a href='?src=\ref[src];toggle_hiding=1'>[hide_unavailable_gear ? "Show all" : "Hide unavailable"]</a></center></td></tr>"
+	. += "<a href='byond://?src=\ref[src];clear_loadout=1'>Clear Loadout</a>"
+	. += "<a href='byond://?src=\ref[src];toggle_hiding=1'>[hide_unavailable_gear ? "Show all" : "Hide unavailable"]</a></center></td></tr>"
 
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
@@ -160,11 +165,35 @@
 			if(LC.max_selections < INFINITY)
 				category_selections = " - [LC.max_selections - pref.total_loadout_selections[category]] remaining"
 			if(category_cost)
-				. += " <a href='?src=\ref[src];select_category=\ref[LC]'><font color = '#e67300'>[LC.name] - [category_cost][category_selections]</font></a> "
+				. += " <a href='byond://?src=\ref[src];select_category=\ref[LC]'><font color = '#e67300'>[LC.name] - [category_cost][category_selections]</font></a> "
 			else
-				. += " <a href='?src=\ref[src];select_category=\ref[LC]'>[LC.name] - 0[category_selections]</a> "
+				. += " <a href='byond://?src=\ref[src];select_category=\ref[LC]'>[LC.name] - 0[category_selections]</a> "
 
 	. += "</b></center></td></tr>"
+	. += "<tr><td colspan=3><hr></td></tr>"
+	. += "<tr><td colspan=3><b><center>Current loadout</b><hr><small>Lower-layered gear is equipped before higher-layered gear.<small></center></td></tr>"
+	. += "<tr><td colspan=3><hr></td></tr>"
+
+	var/current_loadout = pref.gear_list[pref.gear_slot]
+	if(length(current_loadout))
+
+		var/list/other_gear = list()
+		var/i = 0
+		for(var/gear in current_loadout)
+			var/decl/loadout_option/G = decls_repository.get_decl_by_id(gear, validate_decl_type = FALSE)
+			if(istype(G))
+				if(G.slot)
+					i++
+					. += "<tr><td colspan=2><center>Layer [i]: [G.name]</center></td><td><a href='byond://?src=\ref[src];gear=\ref[G];layer_lower=1'>Layer under</a><a href='byond://?src=\ref[src];gear=\ref[G];layer_higher=1'>Layer over</a><a href='byond://?src=\ref[src];toggle_gear=\ref[G]'>Remove</a></td></tr>"
+				else
+					other_gear += "<tr><td colspan=2><center>[G.name]</center></td><td><a href='byond://?src=\ref[src];toggle_gear=\ref[G]'>Remove</a></td></tr>"
+
+		if(length(other_gear))
+			. += "<tr><td colspan=3><b><hr><center>Other gear</b><hr></center></td></tr>"
+			. += other_gear
+
+	else
+		. += "<tr><td colspan=3><center>No equipment selected.</center></td></tr>"
 
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3><b><center>[current_category_decl.name]</center></b></td></tr>"
@@ -184,7 +213,7 @@
 
 		var/ticked = (G.uid in pref.gear_list[pref.gear_slot])
 		var/list/entry = list()
-		entry += "<tr style='vertical-align:top;'><td width=25%><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?src=\ref[src];toggle_gear=\ref[G]'>[G.name]</a></td>"
+		entry += "<tr style='vertical-align:top;'><td width=25%><a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='byond://?src=\ref[src];toggle_gear=\ref[G]'>[G.name]</a></td>"
 		entry += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		entry += "<td><font size=2>[G.get_description(get_gear_metadata(G, TRUE))]</font>"
 
@@ -227,7 +256,7 @@
 		if(allowed && G.allowed_skills)
 			var/list/skills_required = list()//make it into instances? instead of path
 			for(var/skill in G.allowed_skills)
-				var/decl/hierarchy/skill/instance = GET_DECL(skill)
+				var/decl/skill/instance = GET_DECL(skill)
 				skills_required[instance] = G.allowed_skills[skill]
 
 			allowed = skill_check(jobs, skills_required)//Checks if a single job has all the skills required
@@ -235,7 +264,7 @@
 			entry += "<br><i>"
 			var/list/skill_checks = list()
 			for(var/R in skills_required)
-				var/decl/hierarchy/skill/S = R
+				var/decl/skill/S = R
 				var/skill_entry
 				skill_entry += "[S.levels[skills_required[R]]]"
 				if(allowed)
@@ -252,7 +281,7 @@
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
 				var/contents = tweak.get_contents(get_tweak_metadata(G, tweak))
 				if(contents)
-					entry += " <a href='?src=\ref[src];gear=\ref[G];tweak=\ref[tweak]'>[contents]</a>"
+					entry += " <a href='byond://?src=\ref[src];gear=\ref[G];tweak=\ref[tweak]'>[contents]</a>"
 			entry += "</td></tr>"
 		if(!hide_unavailable_gear || allowed || ticked)
 			. += entry
@@ -289,16 +318,42 @@
 			pref.gear_list[pref.gear_slot] += TG.uid
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	if(href_list["gear"] && href_list["tweak"])
+	if(href_list["gear"])
+
 		var/decl/loadout_option/gear = locate(href_list["gear"])
-		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
-		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks))
+		if(!istype(gear))
 			return TOPIC_NOACTION
-		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak))
-		if(!metadata || !CanUseTopic(user))
-			return TOPIC_NOACTION
-		set_tweak_metadata(gear, tweak, metadata)
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+		if(href_list["layer_lower"] || href_list["layer_higher"])
+
+			var/list/current_gear = pref.gear_list[pref.gear_slot]
+			var/current_index = current_gear.Find(gear.uid)
+
+			if(href_list["layer_lower"] && current_index > 1)
+				current_index--
+			else if(href_list["layer_higher"] && current_index > 0 && current_index < length(current_gear))
+				current_index++
+			else
+				return TOPIC_NOACTION
+
+			var/old_val = current_gear[gear.uid]
+			current_gear -= gear.uid
+			current_gear.Insert(current_index, gear.uid)
+			if(!isnull(old_val))
+				current_gear[gear.uid] = old_val // preserve tweaks
+
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+		if(href_list["tweak"])
+			var/datum/gear_tweak/tweak = locate(href_list["tweak"])
+			if(!istype(tweak) || !(tweak in gear.gear_tweaks))
+				return TOPIC_NOACTION
+			var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak))
+			if(!metadata || !CanUseTopic(user))
+				return TOPIC_NOACTION
+			set_tweak_metadata(gear, tweak, metadata)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	if(href_list["next_slot"])
 		pref.gear_slot = pref.gear_slot+1
 		if(pref.gear_slot > get_config_value(/decl/config/num/loadout_slots))
@@ -336,22 +391,42 @@
 	abstract_type = /decl/loadout_option
 	decl_flags = DECL_FLAG_MANDATORY_UID
 
-	var/name                              // Name/index. Must be unique.
-	var/description                       // Description of this gear. If left blank will default to the description of the pathed item.
-	var/path                              // Path of item.
-	var/cost = 1                          // Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
-	var/slot                              // Slot to equip to.
-	var/list/allowed_roles                // Roles that can spawn with this item.
-	var/list/allowed_branches             // Service branches that can spawn with it.
-	var/list/allowed_skills               // Skills required to spawn with this item.
-	var/loadout_flags                     // Special tweaks in new
-	var/custom_setup_proc                 // Special tweak in New
-	var/list/custom_setup_proc_arguments  // Special tweak in New
-	var/category = /decl/loadout_category // Type to use for categorization and organization.
-	var/list/gear_tweaks = list()         // List of datums which will alter the item after it has been spawned.
-
-	var/list/faction_restricted // List of types of cultural datums that will allow this loadout option.
-	var/whitelisted             // Species name to check the whitelist for.
+	/// Name/index.
+	var/name
+	/// Description of this gear. If left blank will default to the description of the pathed item.
+	var/description
+	/// Path of item.
+	var/path
+	/// Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
+	var/cost = 1
+	/// Slot to equip to.
+	var/slot
+	/// Roles that can spawn with this item.
+	var/list/allowed_roles
+	/// Service branches that can spawn with it.
+	var/list/allowed_branches
+	/// Skills required to spawn with this item.
+	var/list/allowed_skills
+	/// Special tweaks in new
+	var/loadout_flags
+	/// Special tweak in New
+	var/custom_setup_proc
+	/// Special tweak in New
+	var/list/custom_setup_proc_arguments
+	/// Type to use for categorization and organization.
+	var/category = /decl/loadout_category
+	/// List of datums which will alter the item after it has been spawned.
+	var/list/gear_tweaks = list()
+	/// Whether or not this equipment should replace pre-existing equipment.
+	var/replace_equipped = TRUE
+	/// List of types of background datums that will allow this loadout option.
+	var/list/faction_restricted
+	/// Species name to check the whitelist for.
+	var/whitelisted
+	/// If true, will try to apply tweaks and customisation to an already-existing instance of the spawn path.
+	var/apply_to_existing_if_possible = FALSE
+	/// A list of trait types that the character must have for this loadout option to be available.
+	var/list/required_traits
 
 /decl/loadout_option/Initialize()
 
@@ -372,6 +447,10 @@
 		description = initial(O.desc)
 	if(loadout_flags & GEAR_HAS_COLOR_SELECTION)
 		gear_tweaks += gear_tweak_free_color_choice()
+		if(ispath(path, /obj/item/clothing))
+			var/obj/item/clothing/clothes = path
+			if(!isnull(clothes::markings_state_modifier))
+				gear_tweaks += gear_tweak_free_markings_color_choice()
 	if(loadout_flags & GEAR_HAS_TYPE_SELECTION)
 		gear_tweaks += new /datum/gear_tweak/path/type(path)
 	if(loadout_flags & GEAR_HAS_SUBTYPE_SELECTION)
@@ -418,41 +497,72 @@
 	src.location = location
 	src.material = material
 
-/decl/loadout_option/proc/spawn_item(user, location, metadata)
+/datum/gear_data/proc/can_replace_existing(obj/item/candidate)
+	return istype(candidate, path)
+
+/decl/loadout_option/proc/spawn_item(mob/user, location, metadata)
 	var/datum/gear_data/gd = new(path, location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		gt.tweak_gear_data(islist(metadata) && metadata["[gt]"], gd)
-	var/item = new gd.path(gd.location, gd.material)
+	var/obj/item/item
+	if(apply_to_existing_if_possible) // This was moved here from an argument so that geartweaks will affect the path used for checking.
+		for(var/obj/item/candidate in user.get_equipped_items(include_carried = TRUE))
+			if(gd.can_replace_existing(candidate))
+				item = candidate
+				break
+			if(candidate.storage)
+				for(var/obj/item/child_candidate in candidate.storage.get_contents())
+					if(gd.can_replace_existing(child_candidate))
+						item = child_candidate
+						break
+				if(item)
+					break
+	if(isitem(item))
+		if(gd.material)
+			item.set_material(gd.material)
+	else
+		item = new gd.path(gd.location, gd.material)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		gt.tweak_item(user, item, (islist(metadata) && metadata["[gt]"]))
 	. = item
 	if(metadata && !islist(metadata))
 		PRINT_STACK_TRACE("Loadout spawn_item() proc received non-null non-list metadata: '[json_encode(metadata)]'")
 
-/decl/loadout_option/proc/spawn_on_mob(mob/living/carbon/human/wearer, metadata)
+/decl/loadout_option/proc/spawn_on_mob(mob/living/human/wearer, metadata)
+
 	var/obj/item/item = spawn_and_validate_item(wearer, metadata)
 	if(!item)
 		return
 
-	var/obj/item/old_item = wearer.get_equipped_item(slot)
-	if(wearer.equip_to_slot_if_possible(item, slot, del_on_fail = TRUE, force = TRUE, delete_old_item = FALSE, ignore_equipped = TRUE))
-		. = item
-		if(!old_item)
-			return
-		item.handle_loadout_equip_replacement(old_item)
-		if(old_item.type != item.type)
-			place_in_storage_or_drop(wearer, old_item)
-		else
-			qdel(old_item)
+	item.loadout_setup(wearer, metadata)
 
-/decl/loadout_option/proc/spawn_in_storage_or_drop(mob/living/carbon/human/wearer, metadata)
+	var/obj/item/old_item = wearer.get_equipped_item(slot)
+	if(istype(old_item, /obj/item/clothing) && istype(item, /obj/item/clothing))
+		var/obj/item/clothing/worn = old_item
+		if(worn.can_attach_accessory(item, wearer))
+			worn.attach_accessory(wearer, item)
+			return TRUE
+
+	var/resolution_strategy = old_item?.loadout_should_keep(item, wearer)
+	if(resolution_strategy == LOADOUT_CONFLICT_KEEP)
+		place_in_storage_or_drop(wearer, item)
+	else if(wearer.equip_to_slot_if_possible(item, slot, del_on_fail = TRUE, force = TRUE, delete_old_item = FALSE, ignore_equipped = replace_equipped))
+		if(old_item && wearer.get_equipped_item(slot) != old_item)
+			item.handle_loadout_equip_replacement(old_item)
+			if(resolution_strategy == LOADOUT_CONFLICT_STORAGE)
+				place_in_storage_or_drop(wearer, old_item)
+			else
+				qdel(old_item)
+	return item
+
+/decl/loadout_option/proc/spawn_in_storage_or_drop(mob/living/human/wearer, metadata)
 	var/obj/item/item = spawn_and_validate_item(wearer, metadata)
 	if(!item)
 		return
 
 	place_in_storage_or_drop(wearer, item)
 
-/decl/loadout_option/proc/place_in_storage_or_drop(mob/living/carbon/human/wearer, obj/item/item)
+/decl/loadout_option/proc/place_in_storage_or_drop(mob/living/human/wearer, obj/item/item)
 	var/atom/placed_in = wearer.equip_to_storage(item)
 	if(placed_in)
 		to_chat(wearer, SPAN_NOTICE("Placing \the [item] in your [placed_in.name]!"))
@@ -463,10 +573,14 @@
 	else
 		to_chat(wearer, SPAN_DANGER("Dropping \the [item] on the ground!"))
 
-/decl/loadout_option/proc/spawn_and_validate_item(mob/living/carbon/human/H, metadata)
+/decl/loadout_option/proc/can_replace_existing(obj/item/candidate)
+	return istype(candidate, path)
+
+/decl/loadout_option/proc/spawn_and_validate_item(mob/living/human/H, metadata)
 	PRIVATE_PROC(TRUE)
 
 	var/obj/item/item = spawn_item(H, H, metadata)
+
 	if(QDELETED(item))
 		return
 

@@ -48,11 +48,10 @@
 /obj/item/rig_module/mounted/energy_blade/mantid
 	name = "nanoblade projector"
 	desc = "A fusion-powered blade nanofabricator of Ascent design."
-	interface_name = "nanoblade projector"
+	interface_name = "nanoblade"
 	interface_desc = "A fusion-powered blade nanofabricator of Ascent design."
 	icon = 'mods/species/ascent/icons/ascent.dmi'
 	icon_state = "blade"
-	interface_name = "nanoblade"
 	usable = FALSE
 	gun = null
 
@@ -240,13 +239,13 @@
 /obj/item/clothing/head/helmet/space/rig/mantid
 	light_color = "#00ffff"
 	desc = "More like a torpedo casing than a helmet."
-	bodytype_equip_flags = BODY_FLAG_GYNE | BODY_FLAG_ALATE
+	bodytype_equip_flags = BODY_EQUIP_FLAG_GYNE | BODY_EQUIP_FLAG_ALATE
 	icon = 'mods/species/ascent/icons/rig/rig_helmet.dmi'
 	sprite_sheets = list(BODYTYPE_MANTID_LARGE = 'mods/species/ascent/icons/rig/rig_helmet_gyne.dmi')
 
 /obj/item/clothing/suit/space/rig/mantid
 	desc = "It's closer to a mech than a suit."
-	bodytype_equip_flags = BODY_FLAG_GYNE | BODY_FLAG_ALATE
+	bodytype_equip_flags = BODY_EQUIP_FLAG_GYNE | BODY_EQUIP_FLAG_ALATE
 	icon = 'mods/species/ascent/icons/rig/rig_chest.dmi'
 	allowed = list(
 		/obj/item/clustertool,
@@ -261,11 +260,11 @@
 /obj/item/clothing/shoes/magboots/rig/mantid
 	icon = 'mods/species/ascent/icons/rig/rig_boots.dmi'
 	desc = "It's like a highly advanced forklift."
-	bodytype_equip_flags = BODY_FLAG_GYNE | BODY_FLAG_ALATE
+	bodytype_equip_flags = BODY_EQUIP_FLAG_GYNE | BODY_EQUIP_FLAG_ALATE
 	sprite_sheets = list(BODYTYPE_MANTID_LARGE = 'mods/species/ascent/icons/rig/rig_boots_gyne.dmi')
 
 /obj/item/clothing/gloves/rig/mantid
 	icon = 'mods/species/ascent/icons/rig/rig_gloves.dmi'
 	desc = "They look like a cross between a can opener and a Swiss army knife the size of a shoebox."
-	bodytype_equip_flags = BODY_FLAG_GYNE | BODY_FLAG_ALATE
+	bodytype_equip_flags = BODY_EQUIP_FLAG_GYNE | BODY_EQUIP_FLAG_ALATE
 	sprite_sheets = list(BODYTYPE_MANTID_LARGE = 'mods/species/ascent/icons/rig/rig_gloves_gyne.dmi')

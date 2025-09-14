@@ -5,7 +5,7 @@
 	icon_state = "left"
 	min_force = 4
 	hitsound = 'sound/effects/Glasshit.ogg'
-	max_health = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
+	max_health = 150 //If you change this, consider changing ../door/window/brigdoor/ health at the bottom of this .dm file
 	current_health = 150
 	visible = 0.0
 	use_power = POWER_USE_OFF
@@ -132,7 +132,7 @@
 
 	return TRUE
 
-/obj/machinery/door/window/take_damage(var/damage)
+/obj/machinery/door/window/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
 	current_health = max(0, current_health - damage)
 	if (current_health <= 0)
 		shatter()
@@ -140,7 +140,7 @@
 
 /obj/machinery/door/window/physical_attack_hand(mob/user)
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		if(H.species.can_shred(H))
 			playsound(loc, 'sound/effects/Glasshit.ogg', 75, 1)
 			visible_message("<span class='danger'>\The [user] smashes against \the [src].</span>", 1)
@@ -176,7 +176,7 @@
 /obj/machinery/door/window/attackby(obj/item/I, mob/user)
 	//If it's in the process of opening/closing, ignore the click
 	if(operating)
-		return
+		return TRUE
 
 	if(bash(I, user))
 		return TRUE
@@ -191,21 +191,23 @@
 		else
 			if (emagged)
 				to_chat(user, SPAN_WARNING("\The [src] seems to be stuck and refuses to close!"))
-				return
+				return TRUE
 			close()
+		return TRUE
 
 	else if (density)
 		flick("[base_state]deny", src)
+		return TRUE
 
-/obj/machinery/door/window/bash(obj/item/I, mob/user)
-	//Emags and ninja swords? You may pass.
-	if (istype(I, /obj/item/energy_blade))
-		var/obj/item/energy_blade/blade = I
+/obj/machinery/door/window/bash(obj/item/weapon, mob/user)
+	//Emags and energy swords? You may pass.
+	if (weapon.user_can_attack_with(user) && istype(weapon, /obj/item/energy_blade))
+		var/obj/item/energy_blade/blade = weapon
 		if(blade.is_special_cutting_tool() && emag_act(10, user))
 			spark_at(loc, amount=5)
 			playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
 			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
-		return 1
+		return TRUE
 	return ..()
 
 /obj/machinery/door/window/brigdoor

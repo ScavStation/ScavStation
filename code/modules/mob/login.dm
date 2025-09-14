@@ -19,10 +19,10 @@
 					is_multikeying = 1
 				if(matches)
 					if(M.client)
-						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.</font>", 1)
+						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='byond://?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='byond://?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.</font>", 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)].")
 					else
-						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </font>", 1)
+						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='byond://?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </font>", 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).")
 		if(is_multikeying && !client.warned_about_multikeying)
 			client.warned_about_multikeying = 1
@@ -90,8 +90,6 @@
 
 	hud_reset(TRUE)
 
-	client.update_skybox(1)
-
 	if(istype(machine))
 		machine.on_user_login(src)
 
@@ -103,9 +101,9 @@
 		client.screen = list()	//remove hud items just in case
 		client.set_right_click_menu_mode(shift_to_open_context_menu)
 		InitializeHud()
-	else
-		refresh_lighting_master()
 
+	refresh_lighting_master()
+	client.update_skybox(full_reset) // readd to client.screen if we cleared it
 	refresh_client_images()
 	reload_fullscreen() // Reload any fullscreen overlays this mob has.
 	add_click_catcher()
@@ -123,4 +121,13 @@
 		for(var/datum/status_marker_holder/marker in global.status_marker_holders)
 			if(marker.mob_image && marker != status_markers)
 				client.images |= marker.mob_image
+
+	for(var/obj/item/gear in get_equipped_items(TRUE))
+		client.screen |= gear
+
+	if(istype(hud_used))
+		hud_used.hidden_inventory_update()
+		hud_used.persistent_inventory_update()
+		update_action_buttons()
+
 	return TRUE

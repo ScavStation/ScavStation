@@ -1,10 +1,9 @@
-#include "../../../../mods/mobs/dionaea/_dionaea.dme"
 
 /datum/map_template/ruin/exoplanet/hateville
 	name = "Overrun Colony"
 	description = "A colony overrun by shards know who or what"
 	suffixes = list("hateville/hateville.dmm")
-	cost = 1
+	cost = 1.5
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS
 	template_tags = TEMPLATE_TAG_HUMAN|TEMPLATE_TAG_HABITAT
 	apc_test_exempt_areas = list(
@@ -20,7 +19,7 @@
 	title = "Colony Survivor"
 	info = "After the siege and capture of the colony you call home, you have no choice but to make do with what you can, and survive until help arrives."
 	total_positions = 10
-	outfit_type = /decl/hierarchy/outfit/job/colonist
+	outfit_type = /decl/outfit/job/colonist
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_MEDICAL = SKILL_BASIC,
@@ -64,7 +63,7 @@
 		"Former Blood-Cultist",
 	)
 
-/decl/hierarchy/outfit/job/colonist
+/decl/outfit/job/colonist
 	name = "Job - Colonist"
 	id_type = null
 	pda_type = null
@@ -213,3 +212,67 @@
 /area/map_template/hateville/bathroom3
 	name = "\improper Restroom"
 	icon_state = "bathrooms"
+
+/mob/living/simple_animal/aggressive/prosyletizing_employist
+	name = "Prosyletizing Employist"
+	desc = "Some kind of maniac screaming corporate nothings."
+	icon = 'maps/random_ruins/exoplanet_ruins/hateville/employist.dmi'
+
+	base_animal_type = /mob/living/simple_animal/aggressive/prosyletizing_employist
+	max_health = 150
+	natural_weapon = /obj/item/natural_weapon/punch
+	unsuitable_atmos_damage = 1
+	projectilesound = 'sound/weapons/laser.ogg'
+	projectiletype = /obj/item/projectile/beam
+	faction = "employists"
+	ai = /datum/mob_controller/aggressive/prosyletizing_employist
+	//var/corpse = /obj/abstract/landmark/corpse/employist
+	var/weapon = /obj/item/gun/energy/laser
+	death_message = "Shrieks horribly and begins to chant a team-rallying slogan before exploding like a blood sausage!"
+	speak_emote = list("recites", "proclaims", "chants")
+	blood_type = "O-"
+	fire_desc = "smiles warmly, raises their gun, and starts blasting"
+
+
+/mob/living/simple_animal/aggressive/prosyletizing_employist/has_ranged_attack()
+	return TRUE
+
+/datum/mob_controller/aggressive/prosyletizing_employist
+	speak_chance = 15
+	turns_per_wander = 5
+	stop_wander_when_pulled = 0
+	can_escape_buckles = TRUE
+	emote_see = list("smiles maniacally and waves!")
+	emote_speech = list("A happy employee is a resourceful employee!", "A good employee is a working employee!", "Our purpose is to benefit our benefactors, so they might benefit us!", "Why do you resist the loving embrace of your office family?", "You misfiled those cargo receipts, do you even realise how much is at stake?", "Diligence is the only path to happiness!", "Give praise to the corporation, for it alone is your salvation!", "There is no better place than the office!", "The employee handbook states that you must wear the appropriate uniform at all times!", "Have you talked to Becky in HR?", "Feel the warmth of the love the company has for us all!", "Let us do some team-building manual labour!", "Doing my part!", "Work smarter, AND harder!", "The best self-care is a hard day of work!", "I will have to report this workplace violation.", "Are you certain you are doing things by the book?")
+	emote_hear = list("recites a brand slogan")
+	break_stuff_probability = 0
+
+
+
+/mob/living/simple_animal/aggressive/prosyletizing_employist/death(gibbed)
+	. = ..()
+	if(. && !gibbed)
+		//if(corpse)
+			//new corpse(loc)
+		if(weapon)
+			new weapon(loc)
+		//qdel(src)
+
+//obj/abstract/landmark/corpse/employist
+	//name = "dead employist"
+	//corpse_outfits = list(/decl/outfit/corpse/employist)
+
+//decl/outfit/corpse/employist
+	//name = "Dead Prosyletizing Employist"
+	//uniform = /obj/item/clothing/jumpsuit/employist
+	//shoes = /obj/item/clothing/shoes/athletic
+	//head = /obj/item/clothing/head/helmet/ert/medical
+
+/obj/item/clothing/jumpsuit/employist
+	name = "Prosyletizing Employist Jumpsuit"
+	desc = "A cheap jumpsuit made for patients of a so-called corporate occupational clinic."
+	icon = 'maps/random_ruins/exoplanet_ruins/hateville/uniform.dmi'
+	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
+
+/obj/item/clothing/jumpsuit/employist/get_assumed_clothing_state_modifiers()
+	return null

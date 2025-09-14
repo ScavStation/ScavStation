@@ -12,13 +12,13 @@
 		return FALSE
 
 	if(isliving(target))
-		var/mob/living/L = target
-		if(L.stat)
+		var/mob/living/target_mob = target
+		if(target_mob.stat)
 			return FALSE
 
 		if(isliving(holder))
-			var/mob/living/H = holder
-			if(L.faction == H.faction)
+			var/mob/holder_mob = holder
+			if(target_mob.faction == holder_mob.faction)
 				return FALSE
 
 	return can_special_target(holder, target)
@@ -34,7 +34,7 @@
 
 /decl/hostility/laser_tag/can_special_target(atom/holder, atom/movable/target)
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+		var/mob/living/human/H = target
 		if(enemy_vest_type && istype(H.get_equipped_item(slot_wear_suit_str), enemy_vest_type))
 			return TRUE
 	return FALSE
@@ -59,5 +59,5 @@
 		var/mob/living/L = target
 		if(iscuffed(L))
 			return FALSE
-		return L.assess_perp(holder, access_security, check_weapons, check_no_record, check_wanted) < threat_level_threshold
+		return L.assess_perp(holder, access_check, check_weapons, check_no_record, check_wanted) < threat_level_threshold
 	return FALSE

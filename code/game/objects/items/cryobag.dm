@@ -125,13 +125,13 @@
 	stasis_power = 60
 	degradation_time = 1800 //ticks until stasis power degrades, ~5 minutes
 
-/obj/structure/closet/body_bag/cryobag/blank/open()
+/obj/structure/closet/body_bag/cryobag/blank/open(mob/user)
 	. = ..()
 	new /obj/item/usedcryobag(loc)
 	qdel(src)
 
 /obj/structure/closet/body_bag/cryobag/blank/WillContain()
-	return list(/mob/living/carbon/human/blank)
+	return list(/mob/living/human/blank)
 
 /obj/structure/closet/body_bag/cryobag/blank/Initialize()
 	. = ..()

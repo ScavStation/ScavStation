@@ -58,6 +58,11 @@
 	color = "#222222"
 	uid = "chem_pigment_black"
 
+/decl/material/liquid/pigment/black/ink
+	name = "ink"
+	lore_text = "Ink used for writing or dyeing materials, often made from soot or charcoal and some sort of binder."
+	uid = "chem_ink"
+
 /decl/material/liquid/pigment/white
 	name = "white pigment"
 	color = "#aaaaaa"
@@ -80,9 +85,9 @@
 		painting.reset_color()
 		painting.set_alpha(keep_alpha)
 
-/decl/material/liquid/paint_stripper/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
-	if(istype(T) && !isspaceturf(T))
-		remove_paint(T, holder)
+/decl/material/liquid/paint_stripper/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
+	if(istype(touching_turf) && !isspaceturf(touching_turf))
+		remove_paint(touching_turf, holder)
 
 /decl/material/liquid/paint_stripper/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O))
@@ -102,20 +107,20 @@
 	uid = "chem_pigment_paint"
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 
-/decl/material/liquid/paint/proc/apply_paint(var/atom/painting, var/datum/reagents/holder)
-	if(istype(painting) && istype(holder))
+/decl/material/liquid/paint/proc/apply_paint(var/atom/painting, var/datum/reagents/holder, var/threshold = 1)
+	if(istype(painting) && istype(holder) && REAGENT_VOLUME(holder, type) >= threshold)
 		var/keep_alpha = painting.alpha
 		painting.set_color(holder.get_color())
 		painting.set_alpha(keep_alpha)
 
-/decl/material/liquid/paint/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
-	if(istype(T) && !isspaceturf(T))
-		apply_paint(T, holder)
+/decl/material/liquid/paint/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
+	if(istype(touching_turf) && !isspaceturf(touching_turf))
+		apply_paint(touching_turf, holder, FLUID_MINIMUM_TRANSFER)
 
 /decl/material/liquid/paint/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O))
-		apply_paint(O, holder)
+		apply_paint(O, holder, O.get_object_size())
 
 /decl/material/liquid/paint/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
 	if(istype(M))
-		apply_paint(M, holder)
+		apply_paint(M, holder, M.get_object_size())

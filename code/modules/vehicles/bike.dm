@@ -104,7 +104,7 @@
 		engine.emp_act(severity)
 	..()
 
-/obj/vehicle/bike/insert_cell(var/obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/bike/insert_cell(var/obj/item/cell/C, var/mob/living/human/H)
 	return
 
 /obj/vehicle/bike/attackby(obj/item/W, mob/user)
@@ -112,16 +112,16 @@
 		if(istype(W, /obj/item/engine))
 			if(engine)
 				to_chat(user, "<span class='warning'>There is already an engine block in \the [src].</span>")
-				return 1
+				return TRUE
 			user.visible_message("<span class='warning'>\The [user] installs \the [W] into \the [src].</span>")
 			load_engine(W)
-			return
+			return TRUE
 		else if(engine && engine.attackby(W,user))
-			return 1
+			return TRUE
 		else if(IS_CROWBAR(W) && engine)
 			to_chat(user, "You pop out \the [engine] from \the [src].")
 			unload_engine()
-			return 1
+			return TRUE
 	return ..()
 
 /obj/vehicle/bike/receive_mouse_drop(atom/dropping, mob/user, params)

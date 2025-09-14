@@ -9,92 +9,91 @@
 	custom = TRUE
 	author = null
 	progress = 0
-	icon_state = "tb_white"
+	icon = 'icons/obj/items/books/book_white.dmi'
 	var/skill_option_string = "Skill" //changes to "continue writing content" when the book is in progress
 	var/true_author //Used to keep track of who is actually writing the book.
 	var/writing_time = 15 SECONDS // time it takes to write a segment of the book. This happens 6 times total
 
 //these all show up in the book fabricator
 /obj/item/book/skill/custom/circle
-	icon_state = "tb_white_circle"
+	icon = 'icons/obj/items/books/book_white_circle.dmi'
 /obj/item/book/skill/custom/star
-	icon_state = "tb_white_star"
+	icon = 'icons/obj/items/books/book_white_star.dmi'
 /obj/item/book/skill/custom/hourglass
-	icon_state = "tb_white_hourglass"
+	icon = 'icons/obj/items/books/book_white_hourglass.dmi'
 /obj/item/book/skill/custom/cracked
-	icon_state = "tb_white_cracked"
+	icon = 'icons/obj/items/books/book_white_cracked.dmi'
 /obj/item/book/skill/custom/gun
-	icon_state = "tb_white_gun"
+	icon = 'icons/obj/items/books/book_white_gun.dmi'
 /obj/item/book/skill/custom/wrench
-	icon_state = "tb_white_wrench"
+	icon = 'icons/obj/items/books/book_white_wrench.dmi'
 /obj/item/book/skill/custom/glass
-	icon_state = "tb_white_glass"
+	icon = 'icons/obj/items/books/book_white_glass.dmi'
 
 /obj/item/book/skill/custom/cross
-	icon_state = "tb_white_cross"
+	icon = 'icons/obj/items/books/book_white_cross.dmi'
 /obj/item/book/skill/custom/text
-	icon_state = "tb_white_text"
+	icon = 'icons/obj/items/books/book_white_text.dmi'
 /obj/item/book/skill/custom/download
-	icon_state = "tb_white_download"
+	icon = 'icons/obj/items/books/book_white_download.dmi'
 /obj/item/book/skill/custom/uparrow
-	icon_state = "tb_white_uparrow"
+	icon = 'icons/obj/items/books/book_white_uparrow.dmi'
 /obj/item/book/skill/custom/percent
-	icon_state = "tb_white_percent"
+	icon = 'icons/obj/items/books/book_white_percent.dmi'
 /obj/item/book/skill/custom/flask
-	icon_state = "tb_white_flask"
+	icon = 'icons/obj/items/books/book_white_flask.dmi'
 /obj/item/book/skill/custom/detective
-	icon_state = "tb_white_detective"
+	icon = 'icons/obj/items/books/book_white_detective.dmi'
 /obj/item/book/skill/custom/device
-	icon_state = "tb_white_device"
+	icon = 'icons/obj/items/books/book_white_device.dmi'
 /obj/item/book/skill/custom/smile
-	icon_state = "tb_white_smile"
+	icon = 'icons/obj/items/books/book_white_smile.dmi'
 /obj/item/book/skill/custom/exclamation
-	icon_state = "tb_white_exclamation"
+	icon = 'icons/obj/items/books/book_white_exclamation.dmi'
 /obj/item/book/skill/custom/question
-	icon_state = "tb_white_question"
+	icon = 'icons/obj/items/books/book_white_question.dmi'
 
 /obj/item/book/skill/custom/attackby(obj/item/pen, mob/user)
-	if(IS_PEN(pen))
+	if(!IS_PEN(pen))
+		return ..()
+	if(!user.skill_check(SKILL_LITERACY, SKILL_BASIC))
+		to_chat(user, SPAN_WARNING("You can't even read, yet you want to write a whole educational textbook?"))
+		return TRUE
+	if(!user.skill_check(SKILL_LITERACY, SKILL_PROF))
+		to_chat(user, SPAN_WARNING("You have no clue as to how to write an entire textbook in a way that is actually useful. Maybe a regular book would be better?"))
+		return TRUE
+	var/state_check = skill_option_string // the state skill_option_string is in just before opening the input
+	var/choice = input(user, "What would you like to change?","Textbook editing") as null|anything in list("Title", "Author", skill_option_string)
+	if(!can_write(pen,user))
+		return TRUE
 
-		if(!user.skill_check(SKILL_LITERACY, SKILL_BASIC))
-			to_chat(user, SPAN_WARNING("You can't even read, yet you want to write a whole educational textbook?"))
-			return
-		if(!user.skill_check(SKILL_LITERACY, SKILL_PROF))
-			to_chat(user, SPAN_WARNING("You have no clue as to how to write an entire textbook in a way that is actually useful. Maybe a regular book would be better?"))
-			return
-		var/state_check = skill_option_string // the state skill_option_string is in just before opening the input
-		var/choice = input(user, "What would you like to change?","Textbook editing") as null|anything in list("Title", "Author", skill_option_string)
-		if(!can_write(pen,user))
-			return
+	switch(choice)
+		if("Title")
+			edit_title(pen, user)
 
-		switch(choice)
-			if("Title")
-				edit_title(pen, user)
+		if("Skill")
+			if(state_check != "Skill") // make sure someone hasn't already started the book while we were staring at menus woops
+				to_chat(user, SPAN_WARNING("The skill has already been selected and the writing started."))
+				return TRUE
+			edit_skill(pen, user)
 
-			if("Skill")
-				if(state_check != "Skill") // make sure someone hasn't already started the book while we were staring at menus woops
-					to_chat(user, SPAN_WARNING("The skill has already been selected and the writing started."))
-					return
-				edit_skill(pen, user)
+		if("Continue writing content")
+			if(state_check != "Continue writing content")
+				return TRUE
+			continue_skill(pen, user)
 
-			if("Continue writing content")
-				if(state_check != "Continue writing content")
-					return
-				continue_skill(pen, user)
+		if("Author")
+			edit_author(pen, user)
 
-			if("Author")
-				edit_author(pen, user)
+		else
+			return TRUE
 
-			else
-				return
-
-		if(skill && title && author) // we have everything we need so lets set a good description
-			desc = "A handwritten textbook titled [title], by [author]. Looks like it teaches [skill_name]."
-		return
-	..()
+	if(skill && title && author) // we have everything we need so lets set a good description
+		desc = "A handwritten textbook titled [title], by [author]. Looks like it teaches [skill_name]."
+	return TRUE
 
 /obj/item/book/skill/custom/proc/can_write(var/obj/item/pen, var/mob/user)
-	if(user.get_active_hand() == pen && CanPhysicallyInteractWith(user,src) && !QDELETED(src) && !QDELETED(pen))
+	if(user.get_active_held_item() == pen && CanPhysicallyInteractWith(user,src) && !QDELETED(src) && !QDELETED(pen))
 		return TRUE
 	else
 		to_chat(user,SPAN_DANGER("How can you expect to write anything when you can't physically put pen to paper?"))
@@ -132,10 +131,10 @@
 
 	//Choosing the skill
 	var/list/skill_choices = list()
-	for(var/decl/hierarchy/skill/S in global.skills)
+	for(var/decl/skill/S in global.using_map.get_available_skills())
 		if(user.skill_check(S.type, SKILL_BASIC))
 			LAZYADD(skill_choices, S)
-	var/decl/hierarchy/skill/skill_choice = input(user, "What subject does your textbook teach?", "Textbook skill selection") as null|anything in skill_choices
+	var/decl/skill/skill_choice = input(user, "What subject does your textbook teach?", "Textbook skill selection") as null|anything in skill_choices
 	if(!can_write(pen,user) || progress > length(progress_messages))
 		return
 	if(!skill_choice)

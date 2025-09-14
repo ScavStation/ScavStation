@@ -14,6 +14,8 @@
 /obj/effect/quicksand/Initialize()
 	. = ..()
 	var/turf/T = get_turf(src)
+	if(!T)
+		return INITIALIZE_HINT_QDEL
 	appearance = T.appearance
 
 /obj/effect/quicksand/user_unbuckle_mob(mob/user)
@@ -78,10 +80,11 @@
 	update_icon()
 
 /obj/effect/quicksand/attackby(obj/item/W, mob/user)
-	if(!exposed && W.force)
+	if(!exposed && W.get_attack_force(user))
 		expose()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/effect/quicksand/Crossed(atom/movable/AM)
 	if(!isliving(AM))

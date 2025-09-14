@@ -1,5 +1,5 @@
 /obj/item/grenade/spawnergrenade
-	desc = "It is set to detonate in 5 seconds. It will unleash unleash an unspecified anomaly into the vicinity."
+	desc = "It is set to detonate in 5 seconds. It will unleash an unspecified anomaly into the vicinity."
 	name = "delivery grenade"
 	icon = 'icons/obj/items/grenades/delivery.dmi'
 	origin_tech = @'{"materials":3,"magnets":4}'
@@ -10,7 +10,7 @@
 	if(spawner_type && deliveryamt)
 		var/turf/T = get_turf(src)
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
-		for(var/mob/living/carbon/human/M in viewers(T, null))
+		for(var/mob/living/human/M in viewers(T, null))
 			if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 				M.flash_eyes()
 			for(var/i = 1 to deliveryamt)

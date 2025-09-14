@@ -5,6 +5,9 @@
 	name = "Lar Maria space station"
 	desc = "Sensors detect an orbital station with low energy profile and sporadic life signs."
 	icon_state = "object"
+	initial_generic_waypoints = list(
+		"nav_lar_maria_docking"
+	)
 
 /datum/map_template/ruin/away_site/lar_maria
 	name = "Lar Maria"
@@ -13,6 +16,11 @@
 	suffixes = list("lar_maria/lar_maria-1.dmm", "lar_maria/lar_maria-2.dmm")
 	cost = 2
 	area_usage_test_exempted_root_areas = list(/area/lar_maria)
+
+/obj/effect/shuttle_landmark/lar_maria_docking
+	name = "docking port"
+	landmark_tag = "nav_lar_maria_docking"
+	flags = SLANDMARK_FLAG_REORIENT | SLANDMARK_FLAG_AUTOSET
 
 ///////////////////////////////////crew and prisoners
 /obj/abstract/landmark/corpse/lar_maria
@@ -29,18 +37,21 @@
 	environment_smash = 1
 	faction = "lar_maria"
 	status_flags = CANPUSH
-	speak_chance = 25
-	emote_speech = list("Die!", "Fresh meat!", "Hurr!", "You said help will come!", "I did nothing!", "Eat my fist!", "One for the road!")
-	emote_hear   = list("roars", "giggles", "breathes loudly", "mumbles", "yells something unintelligible")
-	emote_see    = list("cries", "grins insanely", "itches fiercly", "scratches his face", "shakes his fists above his head")
-	turns_per_move = 5
-	speed = 8
-	can_escape = TRUE
-	stop_automated_movement_when_pulled = 0
+	base_movement_delay = 2
 	natural_weapon = /obj/item/natural_weapon/punch
+	ai = /datum/mob_controller/aggressive/lar_maria
 
 	var/obj/abstract/landmark/corpse/lar_maria/corpse = null
 	var/weapon = null
+
+/datum/mob_controller/aggressive/lar_maria
+	emote_speech = list("Die!", "Fresh meat!", "Hurr!", "You said help will come!", "I did nothing!", "Eat my fist!", "One for the road!")
+	speak_chance = 12.5
+	emote_hear   = list("roars", "giggles", "breathes loudly", "mumbles", "yells something unintelligible")
+	emote_see    = list("cries", "grins insanely", "itches fiercly", "scratches his face", "shakes his fists above his head")
+	turns_per_wander = 10
+	stop_wander_when_pulled = 0
+	can_escape_buckles = TRUE
 
 /mob/living/simple_animal/hostile/lar_maria/death(gibbed)
 	. = ..()
@@ -61,25 +72,25 @@
 
 /obj/abstract/landmark/corpse/lar_maria/test_subject
 	name = "dead test subject"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/test_subject)
+	corpse_outfits = list(/decl/outfit/corpse/test_subject)
 	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION//no name, no hairs etc.
 
-/decl/hierarchy/outfit/corpse/test_subject
+/decl/outfit/corpse/test_subject
 	name = "dead ZHP test subject"
-	uniform = /obj/item/clothing/under/color/orange
+	uniform = /obj/item/clothing/jumpsuit/orange
 	shoes = /obj/item/clothing/shoes/color/orange
 
 /obj/abstract/landmark/corpse/lar_maria/zhp_guard
 	name = "dead guard"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/zhp_guard)
+	corpse_outfits = list(/decl/outfit/corpse/zhp_guard)
 	skin_tones_per_species = list(SPECIES_HUMAN = list(-15))
 
 /obj/abstract/landmark/corpse/lar_maria/zhp_guard/dark
 	skin_tones_per_species = list(SPECIES_HUMAN = list(-115))
 
-/decl/hierarchy/outfit/corpse/zhp_guard
+/decl/outfit/corpse/zhp_guard
 	name = "Dead ZHP guard"
-	uniform = /obj/item/clothing/under/virologist
+	uniform = /obj/item/clothing/jumpsuit/virologist
 	suit = /obj/item/clothing/suit/armor/pcarrier/light
 	head = /obj/item/clothing/head/soft/zhp_cap
 	shoes = /obj/item/clothing/shoes/jackboots/duty
@@ -111,8 +122,10 @@
 
 /mob/living/simple_animal/hostile/lar_maria/guard/ranged
 	weapon = /obj/item/gun/projectile/shotgun/pump
-	ranged = 1
 	projectiletype = /obj/item/projectile/bullet/shotgun/beanbag
+
+/mob/living/simple_animal/hostile/lar_maria/guard/ranged/has_ranged_attack()
+	return TRUE
 
 /obj/item/clothing/head/soft/zhp_cap
 	name = "Zeng-Hu Pharmaceuticals cap"
@@ -128,12 +141,12 @@
 
 /obj/abstract/landmark/corpse/lar_maria/virologist
 	name = "dead virologist"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/zhp_virologist)
+	corpse_outfits = list(/decl/outfit/corpse/zhp_virologist)
 
-/decl/hierarchy/outfit/corpse/zhp_virologist
+/decl/outfit/corpse/zhp_virologist
 	name = "Dead male ZHP virologist"
-	uniform = /obj/item/clothing/under/virologist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	uniform = /obj/item/clothing/jumpsuit/virologist
+	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/color/white
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	head = /obj/item/clothing/head/surgery
@@ -147,15 +160,15 @@
 
 /obj/abstract/landmark/corpse/lar_maria/virologist_female
 	name = "dead virologist"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/zhp_virologist_female)
+	corpse_outfits = list(/decl/outfit/corpse/zhp_virologist_female)
 	hair_styles_per_species = list(SPECIES_HUMAN = list(/decl/sprite_accessory/hair/flair))
 	hair_colors_per_species = list(SPECIES_HUMAN = list("#ae7b48"))
 	genders_per_species = list(SPECIES_HUMAN = list(FEMALE))
 
-/decl/hierarchy/outfit/corpse/zhp_virologist_female
+/decl/outfit/corpse/zhp_virologist_female
 	name = "Dead female ZHP virologist"
-	uniform = /obj/item/clothing/under/virologist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	uniform = /obj/item/clothing/jumpsuit/virologist
+	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/color/white
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	mask = /obj/item/clothing/mask/surgical

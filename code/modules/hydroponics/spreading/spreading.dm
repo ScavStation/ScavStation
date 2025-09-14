@@ -36,6 +36,7 @@
 /obj/effect/dead_plant/attackby()
 	..()
 	qdel(src)
+	return TRUE // if we're deleted we can't do any further interactions
 
 /obj/effect/vine
 	name = "vine"
@@ -202,19 +203,20 @@
 	if(W.edge && W.w_class < ITEM_SIZE_NORMAL && user.a_intent != I_HURT)
 		if(!is_mature())
 			to_chat(user, SPAN_WARNING("\The [src] is not mature enough to yield a sample yet."))
-			return
+			return TRUE
 		if(!seed)
 			to_chat(user, SPAN_WARNING("There is nothing to take a sample from."))
-			return
+			return TRUE
 		var/needed_skill = seed.mysterious ? SKILL_ADEPT : SKILL_BASIC
 		if(prob(user.skill_fail_chance(SKILL_BOTANY, 90, needed_skill)))
 			to_chat(user, SPAN_WARNING("You failed to get a usable sample."))
 		else
 			seed.harvest(user,0,1)
 		current_health -= (rand(3,5)*5)
+		return TRUE
 	else
-		..()
-		var/damage = W.force
+		. = ..()
+		var/damage = W.get_attack_force(user)
 		if(W.edge)
 			damage *= 2
 		adjust_health(-damage)
@@ -275,17 +277,17 @@
 	expected_target_type = /obj/effect/vine
 
 /decl/interaction_handler/vine_chop/invoked(atom/target, mob/user, obj/item/prop)
-	var/obj/effect/vine/V = target
-	var/obj/item/W = user.get_active_hand()
-	if(!istype(W) || !W.edge || W.w_class < ITEM_SIZE_NORMAL)
+	var/obj/effect/vine/vine = target
+	var/obj/item/holding = user.get_active_held_item()
+	if(!istype(holding) || !holding.edge || holding.w_class < ITEM_SIZE_NORMAL)
 		to_chat(user, SPAN_WARNING("You need a larger or sharper object for this task!"))
 		return
-	user.visible_message(SPAN_NOTICE("\The [user] starts chopping down \the [V]."))
-	playsound(get_turf(V), W.hitsound, 100, 1)
-	var/chop_time = (V.current_health/W.force) * 0.5 SECONDS
+	user.visible_message(SPAN_NOTICE("\The [user] starts chopping down \the [vine]."))
+	playsound(get_turf(vine), holding.hitsound, 100, 1)
+	var/chop_time = (vine.current_health/holding.get_attack_force(user)) * 0.5 SECONDS
 	if(user.skill_check(SKILL_BOTANY, SKILL_ADEPT))
 		chop_time *= 0.5
-	if(do_after(user, chop_time, V, TRUE))
-		user.visible_message(SPAN_NOTICE("[user] chops down \the [V]."))
-		playsound(get_turf(V), W.hitsound, 100, 1)
-		V.die_off()
+	if(do_after(user, chop_time, vine, TRUE))
+		user.visible_message(SPAN_NOTICE("[user] chops down \the [vine]."))
+		playsound(get_turf(vine), holding.hitsound, 100, 1)
+		vine.die_off()

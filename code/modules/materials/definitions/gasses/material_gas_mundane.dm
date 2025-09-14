@@ -21,6 +21,7 @@
 	gas_specific_heat = 80
 	molar_mass = 0.004
 	latent_heat = 21
+	melting_point = 0 // Helium does not ever freeze at standard pressure, but this temperature rises at higher pressures.
 	boiling_point = -269 CELSIUS
 	gas_symbol_html = "He"
 	gas_symbol = "He"
@@ -40,6 +41,7 @@
 	molar_mass = 0.044
 	latent_heat = 380
 	boiling_point = -78 CELSIUS
+	melting_point = null // at standard pressure it never becomes a liquid, it can only be a gas or solid
 	gas_symbol_html = "CO<sub>2</sub>"
 	gas_symbol = "CO2"
 	gas_metabolically_inert = TRUE
@@ -60,28 +62,29 @@
 /decl/material/gas/carbon_monoxide/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
 		return
+	. = ..()
 	var/warning_message
 	var/warning_prob = 10
 	var/dosage = LAZYACCESS(M.chem_doses, type)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/human/H = M
 	if(dosage >= 3)
 		warning_message = pick("extremely dizzy","short of breath","faint","confused")
 		warning_prob = 15
-		M.adjustOxyLoss(10,20)
+		M.take_damage(10, OXY,20)
 		if(istype(H))
-			H.co2_alert = 1
+			SET_HUD_ALERT(H, /decl/hud_element/condition/carbon_dioxide, 1)
 	else if(dosage >= 1.5)
 		warning_message = pick("dizzy","short of breath","faint","momentarily confused")
-		M.adjustOxyLoss(3,5)
+		M.take_damage(3, OXY,5)
 		if(istype(H))
-			H.co2_alert = 1
+			SET_HUD_ALERT(H, /decl/hud_element/condition/carbon_dioxide, 1)
 	else if(dosage >= 0.25)
 		warning_message = pick("a little dizzy","short of breath")
 		warning_prob = 10
 		if(istype(H))
-			H.co2_alert = 0
+			SET_HUD_ALERT(H, /decl/hud_element/condition/carbon_dioxide, 0)
 	else if(istype(H))
-		H.co2_alert = 0
+		SET_HUD_ALERT(H, /decl/hud_element/condition/carbon_dioxide, 0)
 	if(istype(H) && dosage > 1 && H.ticks_since_last_successful_breath < 15)
 		H.ticks_since_last_successful_breath++
 	if(warning_message && prob(warning_prob))
@@ -107,7 +110,7 @@
 	. = ..()
 	if(!ishuman(M))
 		return
-	var/mob/living/carbon/human/H = M
+	var/mob/living/human/H = M
 	for(var/obj/item/organ/external/E in H.get_external_organs())
 		for(var/obj/effect/spider/spider in E.implants)
 			if(prob(25))
@@ -133,6 +136,7 @@
 	value = 0.25
 
 /decl/material/gas/nitrous_oxide/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	var/dosage = LAZYACCESS(M.chem_doses, type)
 	if(dosage >= 1)
 		if(prob(5)) SET_STATUS_MAX(M, STAT_ASLEEP, 3)
@@ -222,6 +226,7 @@
 	gas_specific_heat = 20
 	molar_mass = 0.02
 	latent_heat = 86
+	melting_point = -249 CELSIUS
 	boiling_point = -246 CELSIUS
 	gas_symbol_html = "Ne"
 	gas_symbol = "Ne"
@@ -236,7 +241,6 @@
 	boiling_point = -33 CELSIUS
 	gas_symbol_html = "NH<sub>3</sub>"
 	gas_symbol = "NH3"
-	metabolism = 0.05 // So that low dosages have a chance to build up in the body.
 	taste_description = "mordant"
 	taste_mult = 2
 	lore_text = "A caustic substance commonly used in fertilizer or household cleaners."
@@ -256,6 +260,7 @@
 	value = 0.25
 
 /decl/material/gas/xenon/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	var/dosage = LAZYACCESS(M.chem_doses, type)
 	if(dosage >= 1)
 		if(prob(5)) SET_STATUS_MAX(M, STAT_ASLEEP, 3)
@@ -308,6 +313,7 @@
 	gas_specific_heat = 100
 	molar_mass = 0.002
 	latent_heat = 454
+	melting_point = -259 CELSIUS
 	boiling_point = -252 CELSIUS
 	gas_flags = XGM_GAS_FUEL
 	burn_product = /decl/material/liquid/water
@@ -327,6 +333,8 @@
 	color = "#777777"
 	stack_origin_tech = @'{"materials":5}'
 	value = 0.45
+	melting_point = -252 CELSIUS
+	boiling_point = -248 CELSIUS
 	gas_symbol_html = "T"
 	gas_symbol = "T"
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
@@ -344,6 +352,8 @@
 	gas_symbol_html = "D"
 	gas_symbol = "D"
 	value = 0.5
+	melting_point = -254 CELSIUS
+	boiling_point = -250 CELSIUS
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_UNCOMMON
 

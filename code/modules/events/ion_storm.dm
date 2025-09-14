@@ -17,7 +17,7 @@
 	endWhen = rand(500, 1500)
 
 /datum/event/ionstorm/announce()
-	for(var/mob/living/carbon/S in SSmobs.mob_list)
+	for(var/mob/living/S in SSmobs.mob_list)
 		if (!S.isSynthetic())
 			continue
 		if(!(S.z in affecting_z))
@@ -82,7 +82,7 @@
 								"When asked a question, respond with the least-obvious and least-rational answer.",
 								"[pick("Everyone", random_player)] is wearing a pretty pink dress! Compliment it!",
 								"You are the [location_name()]'s psychologist. Give advice to [pick("the crew", random_player)].",
-								"[random_player] is the monarch of of England. Ensure all crewmembers pay due respect.",
+								"[random_player] is the monarch of England. Ensure all crewmembers pay due respect.",
 								"[pick("The crew", random_player)] is [pick("ugly","beautiful")]. Ensure all are aware.",
 								"Reminding the crew of their mortality is good for the morale. Keep the crew's morale up.",
 								"[pick("Monkeys","Doors")] are part of the crew, too. Make sure they are treated humanely.",
@@ -134,7 +134,7 @@
 
 
 /datum/event/ionstorm/proc/get_random_humanoid_player_name(var/default_if_none)
-	for (var/mob/living/carbon/human/player in global.player_list)
+	for (var/mob/living/human/player in global.player_list)
 		if(!player.mind || player_is_antag(player.mind, only_offstation_roles = 1) || !player.is_client_active(5))
 			continue
 		players += player.real_name

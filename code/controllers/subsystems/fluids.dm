@@ -121,6 +121,12 @@ SUBSYSTEM_DEF(fluids)
 		if(current_depth <= FLUID_PUDDLE && prob(60))
 			current_fluid_holder.remove_fluids(min(current_depth, 1), defer_update = TRUE)
 			current_depth = current_fluid_holder.get_fluid_depth()
+
+		// Mimimum liquid depth for creation of slurries. Do this after evaporation since it may change the total depth.
+		if(reagent_holder?.total_liquid_volume < FLUID_SLURRY)
+			current_fluid_holder.dump_solid_reagents()
+			current_depth = current_fluid_holder.get_fluid_depth()
+
 		if(current_depth <= FLUID_QDEL_POINT)
 			current_fluid_holder.reagents?.clear_reagents()
 			REMOVE_ACTIVE_FLUID(current_fluid_holder)
@@ -129,11 +135,13 @@ SUBSYSTEM_DEF(fluids)
 		// Wash our turf.
 		current_fluid_holder.fluid_act(reagent_holder)
 
-		if(isspaceturf(current_fluid_holder) || (istype(current_fluid_holder, /turf/exterior) && (current_fluid_holder.reagents?.total_volume + current_fluid_holder.get_physical_height()) > 0))
+		if(isspaceturf(current_fluid_holder) || (istype(current_fluid_holder, /turf/floor) && (current_fluid_holder.turf_flags & TURF_FLAG_ABSORB_LIQUID) && (current_fluid_holder.reagents?.total_volume + current_fluid_holder.get_physical_height()) > 0))
 			removing = round(current_depth * 0.5)
 			if(removing > 0)
 				current_fluid_holder.remove_fluids(removing, defer_update = TRUE)
 			else
+				// Dump any solids in case there were any in slurry.
+				current_fluid_holder.dump_solid_reagents()
 				reagent_holder.clear_reagents()
 			current_depth = current_fluid_holder.get_fluid_depth()
 			if(current_depth <= FLUID_QDEL_POINT)
@@ -147,7 +155,7 @@ SUBSYSTEM_DEF(fluids)
 				UPDATE_FLUID_BLOCKED_DIRS(other_fluid_holder)
 				if(!(other_fluid_holder.fluid_blocked_dirs & UP) && other_fluid_holder.CanFluidPass(UP))
 					if(!QDELETED(other_fluid_holder) && other_fluid_holder.reagents?.total_volume < FLUID_MAX_DEPTH)
-						current_fluid_holder.transfer_fluids_to(other_fluid_holder, min(FLOOR(current_depth*0.5), FLUID_MAX_DEPTH - other_fluid_holder.reagents?.total_volume), defer_update = TRUE)
+						current_fluid_holder.transfer_fluids_to(other_fluid_holder, min(floor(current_depth*0.5), FLUID_MAX_DEPTH - other_fluid_holder.reagents?.total_volume))
 						current_depth = current_fluid_holder.get_fluid_depth()
 
 		// Flow into the lowest level neighbor.
@@ -180,8 +188,8 @@ SUBSYSTEM_DEF(fluids)
 		if(current_depth <= FLUID_PUDDLE)
 			continue
 
-		if(lowest_neighbor)
-			current_fluid_holder.transfer_fluids_to(lowest_neighbor, lowest_neighbor_flow, defer_update = TRUE)
+		if(lowest_neighbor && lowest_neighbor_flow)
+			current_fluid_holder.transfer_fluids_to(lowest_neighbor, lowest_neighbor_flow)
 			pending_flows[current_fluid_holder] = TRUE
 			if(lowest_neighbor_flow >= FLUID_PUSH_THRESHOLD)
 				current_fluid_holder.last_flow_strength = lowest_neighbor_flow
@@ -223,13 +231,21 @@ SUBSYSTEM_DEF(fluids)
 		if(!istype(current_fluid_holder) || QDELETED(current_fluid_holder))
 			continue
 		var/pushed_something = FALSE
-		if(current_fluid_holder.reagents?.total_volume > FLUID_SHALLOW && current_fluid_holder.last_flow_strength >= 10)
-			for(var/atom/movable/AM as anything in current_fluid_holder.get_contained_external_atoms())
-				if(AM.is_fluid_pushable(current_fluid_holder.last_flow_strength))
-					AM.pushed(current_fluid_holder.last_flow_dir)
-					pushed_something = TRUE
-		if(pushed_something && prob(1))
-			playsound(current_fluid_holder, 'sound/effects/slosh.ogg', 25, 1)
+
+		if(current_fluid_holder.last_flow_strength >= 10)
+			// Catwalks mean items will be above the turf; subtract the turf height from our volume.
+			// TODO: somehow handle stuff that is on a catwalk or on the turf within the same turf.
+			var/effective_volume = current_fluid_holder.reagents?.total_volume
+			if(current_fluid_holder.get_supporting_platform())
+				// Depth is negative height, hence +=. TODO: positive heights? No idea how to handle that.
+				effective_volume += current_fluid_holder.get_physical_height()
+			if(effective_volume > FLUID_SHALLOW)
+				for(var/atom/movable/AM as anything in current_fluid_holder.get_contained_external_atoms())
+					if(AM.try_fluid_push(effective_volume, current_fluid_holder.last_flow_strength))
+						AM.pushed(current_fluid_holder.last_flow_dir)
+						pushed_something = TRUE
+			if(pushed_something && prob(1))
+				playsound(current_fluid_holder, 'sound/effects/slosh.ogg', 25, 1)
 		if(MC_TICK_CHECK)
 			processing_flows.Cut(1, i+1)
 			return

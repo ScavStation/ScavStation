@@ -18,12 +18,11 @@
 
 	description = "A small mammalian carnivore. If you are reading this, you are probably a Tajaran."
 	hidden_from_codex = FALSE
-
-	age_descriptor = /datum/appearance_descriptor/age/tajaran
-
 	available_bodytypes = list(/decl/bodytype/feline)
 
-	preview_outfit = /decl/hierarchy/outfit/job/generic/engineer
+	traits = list(/decl/trait/malus/intolerance/caffeine = TRAIT_LEVEL_MAJOR)
+
+	preview_outfit = /decl/outfit/job/generic/engineer
 
 	spawn_flags = SPECIES_CAN_JOIN
 
@@ -43,6 +42,7 @@
 	organs_icon = 'mods/species/bayliens/tajaran/icons/organs.dmi'
 
 	hunger_factor = DEFAULT_HUNGER_FACTOR * 1.2
+	thirst_factor = DEFAULT_THIRST_FACTOR * 1.2
 	gluttonous = GLUT_TINY
 
 	unarmed_attacks = list(
@@ -54,10 +54,10 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
-	available_cultural_info = list(
-		TAG_CULTURE = list(
-			/decl/cultural_info/culture/tajaran,
-			/decl/cultural_info/culture/other
+	available_background_info = list(
+		/decl/background_category/heritage = list(
+			/decl/background_detail/heritage/tajaran,
+			/decl/background_detail/heritage/other
 		)
 	)
 
@@ -81,5 +81,5 @@
 
 	autohiss_exempt = list(LANGUAGE_TAJARA)
 
-/decl/species/tajaran/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
+/decl/species/tajaran/handle_additional_hair_loss(var/mob/living/human/H, var/defer_body_update = TRUE)
 	. = H?.set_skin_colour(rgb(189, 171, 143))

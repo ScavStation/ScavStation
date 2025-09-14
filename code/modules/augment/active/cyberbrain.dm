@@ -56,7 +56,8 @@
 
 /obj/item/organ/internal/augment/active/cyberbrain/attackby(var/obj/item/W, var/mob/user)
 	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)
-	if(assembly.attackby(W, user))
+	. = assembly.attackby(W, user)
+	if(.)
 		return
 	return ..()
 

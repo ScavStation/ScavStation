@@ -1,8 +1,8 @@
 /datum/job/ministation/captain
 	title = "Captain"
-	alt_titles = list("El Capit√°n de Decisiones Extremadamente Apresuradas y Grandiosas", "Supreme Patriarch", "Supreme Matriarch")
+	alt_titles = list("El Capit·n de Decisiones Extremadamente Apresuradas y Grandiosas", "Supreme Patriarch", "Supreme Matriarch")
 	supervisors = "your profit margin, your conscience, and the watchful eye of the Tradehouse Rep"
-	outfit_type = /decl/hierarchy/outfit/job/ministation/captain
+	outfit_type = /decl/outfit/job/ministation/captain
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT,
 		SKILL_WEAPONS  = SKILL_ADEPT,
@@ -32,7 +32,7 @@
 	must_fill = 1
 	not_random_selectable = 1
 
-/datum/job/ministation/captain/equip_job(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
+/datum/job/ministation/captain/equip_job(var/mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
 	. = ..()
 	if(H)
 		H.verbs |= /mob/proc/freetradeunion_rename_company
@@ -59,7 +59,7 @@
 	title = "Head of Personnel"
 	alt_titles = list("Patriarch of Personnel","Lieutenant","Judge")
 	supervisors = "the Captain"
-	outfit_type = /decl/hierarchy/outfit/job/ministation/hop
+	outfit_type = /decl/outfit/job/ministation/hop
 	head_position = 1
 	department_types = list(
 		/decl/department/command,

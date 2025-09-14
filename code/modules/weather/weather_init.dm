@@ -1,10 +1,12 @@
 INITIALIZE_IMMEDIATE(/obj/abstract/weather_system)
-/obj/abstract/weather_system/Initialize(var/ml, var/target_z, var/initial_weather)
+/obj/abstract/weather_system/Initialize(var/ml, var/target_z, var/initial_weather, var/list/banned)
 	SSweather.register_weather_system(src)
 
 	. = ..()
 
 	set_invisibility(INVISIBILITY_NONE)
+
+	banned_weather_conditions = banned
 
 	// Bookkeeping/rightclick guards.
 	verbs.Cut()
@@ -31,7 +33,8 @@ INITIALIZE_IMMEDIATE(/obj/abstract/weather_system)
 		if(HasAbove(highest_z))
 			continue
 		// Update turf weather.
-		for(var/turf/T as anything in block(locate(1, 1, highest_z), locate(world.maxx, world.maxy, highest_z)))
+		var/datum/level_data/level = SSmapping.levels_by_z[highest_z]
+		for(var/turf/T as anything in block(level.level_inner_min_x, level.level_inner_min_y, highest_z, level.level_inner_max_x, level.level_inner_max_y, highest_z))
 			T.update_weather(src)
 			turfcount++
 			CHECK_TICK

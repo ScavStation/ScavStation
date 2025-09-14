@@ -21,14 +21,13 @@
 		/decl/config/num/default_darksight_effectiveness,
 		/decl/config/toggle/grant_default_darksight,
 		/decl/config/num/expected_round_length,
-		/decl/config/toggle/allow_diagonal_movement,
+		/decl/config/toggle/on/allow_diagonal_movement,
 		/decl/config/toggle/expanded_alt_interactions,
 		/decl/config/toggle/ert_admin_call_only,
 		/decl/config/toggle/ghosts_can_possess_animals,
 		/decl/config/toggle/assistant_maint,
 		/decl/config/toggle/ghost_interaction,
 		/decl/config/toggle/aliens_allowed,
-		/decl/config/toggle/ninjas_allowed,
 		/decl/config/toggle/allow_character_comments,
 		/decl/config/num/hide_comments_older_than,
 		/decl/config/toggle/stack_crafting_uses_tools,
@@ -37,30 +36,31 @@
 
 /decl/config/num/movement_human
 	uid = "human_delay"
-	desc = "These modify the run/walk speed of all mobs before the mob-specific modifiers are applied."
+	desc = "A modifier applied to the run/walk delay of human-type mobs. A higher value will result in slower movement."
+	default_value = -1
 
 /decl/config/num/movement_robot
 	uid = "robot_delay"
-	desc = "These modify the run/walk speed of all mobs before the mob-specific modifiers are applied."
+	desc = "A modifier applied to the run/walk delay of robots (cyborgs and drones). A higher value will result in slower movement."
 
 /decl/config/num/movement_animal
 	uid = "animal_delay"
-	desc = "These modify the run/walk speed of all mobs before the mob-specific modifiers are applied."
+	desc = "A modifier applied to the run/walk delay of simple_animal type mobs (including combat drones and other simple hostile mobs). A higher value will result in slower movement."
 
 /decl/config/num/movement_run
 	uid = "run_delay"
 	default_value = 2
-	desc = "These modify the run/walk speed of all mobs before the mob-specific modifiers are applied."
+	desc = "A modifier applied to the run delay of all mobs, prior to the mob-specific modifiers being applied. A higher value will result in slower movement."
 
 /decl/config/num/movement_walk
 	uid = "walk_delay"
 	default_value = 4
-	desc = "These modify the run/walk speed of all mobs before the mob-specific modifiers are applied."
+	desc = "A modifier applied to the walk delay of all mobs, prior to the mob-specific modifiers being applied. A higher value will result in slower movement."
 
 /decl/config/num/movement_creep
 	uid = "creep_delay"
 	default_value = 6
-	desc = "These modify the run/walk speed of all mobs before the mob-specific modifiers are applied."
+	desc = "A modifier applied to the creep delay of all mobs, prior to the mob-specific modifiers being applied. A higher value will result in slower movement."
 
 /decl/config/num/movement_glide_size
 	uid = "glide_size_delay"
@@ -135,7 +135,7 @@
 	uid = "grant_default_darksight"
 	desc = "Whether or not all human mobs have very basic darksight by default."
 
-/decl/config/toggle/allow_diagonal_movement
+/decl/config/toggle/on/allow_diagonal_movement
 	uid = "allow_diagonal_movement"
 	desc = "Allow multiple input keys to be pressed for diagonal movement."
 
@@ -162,10 +162,6 @@
 /decl/config/toggle/aliens_allowed
 	uid = "aliens_allowed"
 	desc = "Remove the # to let aliens spawn."
-
-/decl/config/toggle/ninjas_allowed
-	uid = "ninjas_allowed"
-	desc = "Remove the # to let ninjas spawn."
 
 /decl/config/toggle/allow_character_comments
 	uid = "allow_character_comments"

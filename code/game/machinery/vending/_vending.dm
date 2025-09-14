@@ -4,8 +4,8 @@
 /obj/machinery/vending
 	name = "Vendomat"
 	desc = "A generic vending machine."
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "generic"
+	icon = 'icons/obj/machines/vending/generic.dmi'
+	icon_state = ICON_STATE_WORLD
 	layer = BELOW_OBJ_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -19,9 +19,6 @@
 	emagged = 0 //Ignores if somebody doesn't have card access to that machine.
 	wires = /datum/wires/vending
 	required_interaction_dexterity = DEXTERITY_SIMPLE_MACHINES
-
-	var/icon_vend //Icon_state when vending
-	var/icon_deny //Icon_state when denying access
 
 	// Power
 	var/vend_power_usage = 150 //actuators and stuff
@@ -88,7 +85,7 @@
 
 	build_inventory(populate_parts)
 	return INITIALIZE_HINT_LATELOAD
-	
+
 /obj/machinery/vending/LateInitialize()
 	..()
 	update_icon()
@@ -110,7 +107,7 @@
 		var/category = current_list[2]
 		for(var/entry in current_list[1])
 			var/datum/stored_items/vending_products/product = new(src, entry)
-			product.price = atom_info_repository.get_combined_worth_for(entry) * markup
+			product.price = ceil(atom_info_repository.get_combined_worth_for(entry) * markup)
 			product.category = category
 			if(product && populate_parts)
 				product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
@@ -143,6 +140,10 @@
 		to_chat(user, "You short out the product lock on \the [src].")
 		return 1
 
+/obj/machinery/vending/receive_mouse_drop(atom/dropping, mob/user, params)
+	if(!(. = ..()) && isitem(dropping) && istype(user) && user.a_intent == I_HELP && CanPhysicallyInteract(user))
+		return attempt_to_stock(dropping, user)
+
 /obj/machinery/vending/attackby(obj/item/W, mob/user)
 
 	var/obj/item/charge_stick/CS = W.GetChargeStick()
@@ -173,18 +174,19 @@
 	if (istype(W, /obj/item/cash))
 		attack_hand_with_interaction_checks(user)
 		return TRUE
+
 	if(IS_MULTITOOL(W) || IS_WIRECUTTER(W))
 		if(panel_open)
 			attack_hand_with_interaction_checks(user)
 			return TRUE
-	if((user.a_intent == I_HELP) && attempt_to_stock(W, user))
-		return TRUE
+
 	if((. = component_attackby(W, user)))
 		return
-	if((obj_flags & OBJ_FLAG_ANCHORABLE) && IS_WRENCH(W))
-		wrench_floor_bolts(user)
-		power_change()
-		return
+
+	if((user.a_intent == I_HELP) && attempt_to_stock(W, user))
+		return TRUE
+
+	return ..() // handle anchoring and bashing
 
 /obj/machinery/vending/state_transition(decl/machine_construction/new_state)
 	. = ..()
@@ -208,9 +210,9 @@
 	if(currently_vending.price > cashmoney.absolute_worth)
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
-		to_chat(usr, "[html_icon(cashmoney)] <span class='warning'>That is not enough money.</span>")
+		to_chat(usr, SPAN_WARNING("[html_icon(cashmoney)] That is not enough money."))
 		return 0
-	visible_message("<span class='info'>\The [usr] inserts some cash into \the [src].</span>")
+	visible_message(SPAN_INFO("\The [usr] inserts some cash into \the [src]."))
 	cashmoney.adjust_worth(-(currently_vending.price))
 	// Vending machines have no idea who paid with cash
 	credit_purchase("(cash)")
@@ -223,7 +225,7 @@
  * successful, 0 if failed.
  */
 /obj/machinery/vending/proc/pay_with_charge_card(var/obj/item/charge_stick/wallet)
-	visible_message("<span class='info'>\The [usr] plugs \the [wallet] into \the [src].</span>")
+	visible_message(SPAN_INFO("\The [usr] plugs \the [wallet] into \the [src]."))
 	if(wallet.is_locked())
 		status_message = "Unlock \the [wallet] before using it."
 		status_error = TRUE
@@ -251,6 +253,7 @@
 	if(seconds_electrified != 0)
 		if(shock(user, 100))
 			return TRUE
+	return FALSE
 
 /obj/machinery/vending/interface_interact(mob/user)
 	ui_interact(user)
@@ -269,7 +272,7 @@
 		data["mode"] = 1
 		data["product"] = currently_vending.item_name
 		data["price"] = cur.format_value(currently_vending.price)
-		data["price_num"] = FLOOR(currently_vending.price / cur.absolute_value)
+		data["price_num"] = floor(currently_vending.price / cur.absolute_value)
 		data["message"] = status_message
 		data["message_err"] = status_error
 	else
@@ -286,7 +289,7 @@
 				"key" =    key,
 				"name" =   I.item_name,
 				"price" =  cur.format_value(I.price),
-				"price_num" = FLOOR(I.price / cur.absolute_value),
+				"price_num" = floor(I.price / cur.absolute_value),
 				"color" =  I.display_color,
 				"amount" = I.get_amount())))
 
@@ -321,7 +324,7 @@
 		if(R.price <= 0)
 			vend(R, user)
 		else if(issilicon(user)) //If the item is not free, provide feedback if a synth is trying to buy something.
-			to_chat(user, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
+			to_chat(user, SPAN_DANGER("Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled."))
 		else
 			currently_vending = R
 			if(!vendor_account || vendor_account.suspended)
@@ -349,9 +352,12 @@
 	if(!vend_ready)
 		return
 	if((!allowed(user)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-		to_chat(user, "<span class='warning'>Access denied.</span>")//Unless emagged of course
-		flick(icon_deny,src)
+		to_chat(user, SPAN_WARNING("Access denied."))//Unless emagged of course
+		var/deny_state = "[icon_state]-deny"
+		if(check_state_in_icon(deny_state, icon))
+			flick(deny_state, src)
 		return
+
 	vend_ready = 0 //One thing at a time!!
 	status_message = "Vending..."
 	status_error = 0
@@ -360,8 +366,9 @@
 	do_vending_reply()
 
 	use_power_oneoff(vend_power_usage)	//actuators and stuff
-	if (icon_vend) //Show the vending animation if needed
-		flick(icon_vend,src)
+	var/vend_state = "[icon_state]-vend"
+	if (check_state_in_icon(vend_state, icon)) //Show the vending animation if needed
+		flick(vend_state, src)
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/machinery/vending, finish_vending), R), vend_delay)
 
 /obj/machinery/vending/proc/do_vending_reply()
@@ -380,7 +387,7 @@
 	if(prob(1)) //The vending gods look favorably upon you
 		sleep(3)
 		if(product.get_product(get_turf(src)))
-			visible_message("<span class='notice'>\The [src] clunks as it vends an additional [product.item_name].</span>")
+			visible_message(SPAN_NOTICE("\The [src] clunks as it vends an additional [product.item_name]."))
 	status_message = ""
 	status_error = 0
 	vend_ready = 1
@@ -398,7 +405,7 @@
 		return
 
 	if(R.add_product(W))
-		to_chat(user, "<span class='notice'>You insert \the [W] in the product receptor.</span>")
+		to_chat(user, SPAN_NOTICE("You insert \the [W] in the product receptor."))
 		SSnano.update_uis(src)
 		return 1
 
@@ -474,5 +481,5 @@
 		return 0
 	spawn(0)
 		throw_item.throw_at(target, rand(1,2), 3)
-	visible_message("<span class='warning'>\The [src] launches \a [throw_item] at \the [target]!</span>")
+	visible_message(SPAN_WARNING("\The [src] launches \a [throw_item] at \the [target]!"))
 	return 1

@@ -1,0 +1,11 @@
+# Converts a number of jumpsuits to costumes
+# because they shouldn't have the full suite of jumpsuit modifiers
+# (e.g. can't be rolled down, no sleeves to roll up, etc)
+/obj/item/clothing/jumpsuit/research_director/rdalt : /obj/item/clothing/costume/research_director_suit{@OLD}
+/obj/item/clothing/jumpsuit/captainformal/@SUBTYPES : /obj/item/clothing/costume/captainformal/@SUBTYPES{@OLD}
+/obj/item/clothing/jumpsuit/mailman/@SUBTYPES : /obj/item/clothing/costume/mailman/@SUBTYPES{@OLD}
+/obj/item/clothing/jumpsuit/vice/@SUBTYPES : /obj/item/clothing/costume/vice/@SUBTYPES{@OLD}
+/obj/item/clothing/jumpsuit/johnny/@SUBTYPES : /obj/item/clothing/costume/johnny/@SUBTYPES{@OLD}
+/obj/item/clothing/jumpsuit/psyche/@SUBTYPES : /obj/item/clothing/costume/psyche/@SUBTYPES{@OLD}
+/obj/item/clothing/jumpsuit/wetsuit/@SUBTYPES : /obj/item/clothing/costume/wetsuit/@SUBTYPES{@OLD}
+/obj/item/clothing/jumpsuit/caretaker/@SUBTYPES : /obj/item/clothing/costume/caretaker/@SUBTYPES{@OLD}

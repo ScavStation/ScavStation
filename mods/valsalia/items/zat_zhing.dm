@@ -2,7 +2,7 @@
 	name = "Zat Zhing"
 	icon = 'mods/valsalia/icons/zat_zhing.dmi'
 	icon_state = "zatzhing"
-	force = 1
+	_base_attack_force = 1
 	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
@@ -37,7 +37,7 @@
 	if(ishuman(hit_atom) && prob(transform_impact_prob))
 		try_transform(hit_atom)
 
-/obj/item/zat_zhing/proc/try_transform(mob/living/carbon/human/victim)
+/obj/item/zat_zhing/proc/try_transform(mob/living/human/victim)
 	if(victim.species.name != SPECIES_YINGLET)
 		victim.worn_underwear = null
 		victim.change_species(SPECIES_YINGLET)
@@ -45,6 +45,5 @@
 		var/color = pick(prob(20); rgb(171,140,101), prob(20); rgb(95,95,95), prob(10); rgb(8,8,8), prob(19); rgb(234,234,234), prob(18); rgb(102,51,0), prob(8); rgb(204,102,0), prob(5); rgb(155,51,155))
 		if(color == null){color = rgb(171,140,101)}
 		victim.set_skin_colour(color)
-		//victim.accessories += list(/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",	/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc")
 		//victim.UpdateAppearance()
 		Destroy()

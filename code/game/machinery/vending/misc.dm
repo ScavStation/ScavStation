@@ -1,9 +1,7 @@
 /obj/machinery/vending/magivend
 	name = "MagiVend"
 	desc = "A magic vending machine."
-	icon_state = "MagiVend"
-	icon_deny = "MagiVend-deny"
-	icon_vend = "MagiVend-vend"
+	icon = 'icons/obj/machines/vending/magic.dmi'
 	product_slogans = "Sling spells the proper way with MagiVend!;Be your own Houdini! Use MagiVend!"
 	vend_delay = 15
 	vend_reply = "Have an enchanted evening!"
@@ -14,22 +12,20 @@
 		/obj/item/clothing/head/wizard/red = 1,
 		/obj/item/clothing/suit/wizrobe/red = 1,
 		/obj/item/clothing/shoes/sandal = 1,
-		/obj/item/staff = 2)
+		/obj/item/staff/crystal = 2)
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
 	desc = "A kitchen and restaurant equipment vendor."
 	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
-	icon_state = "dinnerware"
-	icon_vend = "dinnerware-vend"
-	icon_deny = "dinnerware-deny"
+	icon = 'icons/obj/machines/vending/dinnerware.dmi'
 	markup = 0
 	base_type = /obj/machinery/vending/dinnerware
 	products = list(
 		/obj/item/plate = 10,
 		/obj/item/plate/platter = 5,
 		/obj/item/chems/glass/beaker/bowl = 2,
-		/obj/item/storage/tray/metal/aluminium = 8,
+		/obj/item/plate/tray/metal/aluminium = 8,
 		/obj/item/knife/kitchen = 3,
 		/obj/item/kitchen/rollingpin = 2,
 		/obj/item/chems/drinks/pitcher = 2,
@@ -38,21 +34,21 @@
 		/obj/item/chems/drinks/glass2/carafe = 2,
 		/obj/item/chems/drinks/glass2/square = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
-		/obj/item/storage/lunchbox = 3,
-		/obj/item/storage/lunchbox/heart = 3,
-		/obj/item/storage/lunchbox/cat = 3,
-		/obj/item/storage/lunchbox/mars = 3,
-		/obj/item/storage/lunchbox/cti = 3,
-		/obj/item/storage/lunchbox/syndicate = 3,
+		/obj/item/lunchbox = 3,
+		/obj/item/lunchbox/heart = 3,
+		/obj/item/lunchbox/cat = 3,
+		/obj/item/lunchbox/mars = 3,
+		/obj/item/lunchbox/cti = 3,
+		/obj/item/lunchbox/syndicate = 3,
 		/obj/item/knife/kitchen/cleaver = 1
 	)
-	contraband = list(/obj/item/knife/kitchen/cleaver/bronze = 1,/obj/item/storage/tray/metal/silver = 1)
+	contraband = list(/obj/item/knife/kitchen/cleaver/bronze = 1,/obj/item/plate/tray/metal/silver = 1)
 
 /obj/machinery/vending/fashionvend
 	name = "Smashing Fashions"
 	desc = "For all your cheap knockoff needs."
 	product_slogans = "Look smashing for your darling!;Be rich! Dress rich!"
-	icon_state = "theater"
+	icon = 'icons/obj/machines/vending/theater.dmi'
 	vend_delay = 15
 	base_type = /obj/machinery/vending/fashionvend
 	vend_reply = "Absolutely smashing!"
@@ -63,11 +59,11 @@
 		/obj/item/clothing/glasses/eyepatch/monocle = 5,
 		/obj/item/clothing/glasses/sunglasses = 5,
 		/obj/random/makeup = 3,
-		/obj/item/storage/wallet/poly = 2
+		/obj/item/wallet/poly = 2
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/eyepatch = 2,
-		/obj/item/clothing/accessory/horrible = 2,
+		/obj/item/clothing/neck/tie/horrible = 2,
 		/obj/item/clothing/mask/smokable/pipe = 3
 	)
 
@@ -78,9 +74,7 @@
 	vend_delay = 15
 	product_slogans = "Escape to a fantasy world!;Fuel your gambling addiction!;Ruin your friendships!"
 	product_ads = "Elves and dwarves!;Totally not satanic!;Fun times forever!"
-	icon_state = "games"
-	icon_deny = "games-deny"
-	icon_vend = "games-vend"
+	icon = 'icons/obj/machines/vending/games.dmi'
 	base_type = /obj/machinery/vending/games
 	products = list(
 		/obj/item/toy/blink = 5,
@@ -91,16 +85,16 @@
 		/obj/item/deck/cag/black = 5,
 		/obj/item/pack/cardemon = 6,
 		/obj/item/pack/spaceball = 6,
-		/obj/item/storage/pill_bottle/dice_nerd = 5,
-		/obj/item/storage/pill_bottle/dice = 5,
-		/obj/item/storage/box/checkers = 2,
-		/obj/item/storage/box/checkers/chess/red = 2,
-		/obj/item/storage/box/checkers/chess = 2,
+		/obj/item/pill_bottle/dice_nerd = 5,
+		/obj/item/pill_bottle/dice = 5,
+		/obj/item/box/checkers = 2,
+		/obj/item/box/checkers/chess/red = 2,
+		/obj/item/box/checkers/chess = 2,
 		/obj/item/board = 2
 	)
 	contraband = list(
 		/obj/item/chems/spray/waterflower = 2,
-		/obj/item/storage/box/snappops = 3,
+		/obj/item/box/snappops = 3,
 		/obj/item/spirit_board = 1,
 		/obj/item/gun/projectile/revolver/capgun = 1,
 		/obj/item/ammo_magazine/caps = 4
@@ -113,10 +107,7 @@
 	desc = "Vends things that make you less reviled in the work-place!"
 	vend_delay = 15
 	product_slogans = "Take a shower you hippie.;Get a haircut, hippie!;Reeking of scale taint? Take a shower!"
-
-	icon_state = "lavatory"
-	icon_deny = "lavatory-deny"
-	icon_vend = "lavatory-vend"
+	icon = 'icons/obj/machines/vending/lavatory.dmi'
 	base_type = /obj/machinery/vending/lavatory
 	products = list(
 		/obj/item/soap = 12,

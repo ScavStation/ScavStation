@@ -32,8 +32,15 @@
 	for(var/turf/turf in locs)
 		if(turf.simulated)
 			SSair.mark_for_update(turf)
+
 	fluid_update()
 	return TRUE
 
 /atom/movable
 	var/atmos_canpass = CANPASS_ALWAYS
+
+// Make sure you know what you're doing if you call this
+// You probably want CanPass()
+/atom/movable/Cross(atom/movable/crossed_atom)
+	// We only want to call CanPass() for multitiles, otherwise call parent.
+	return bounds != "32,32" ? CanPass(crossed_atom, crossed_atom.loc) : ..()

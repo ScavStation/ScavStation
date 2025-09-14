@@ -6,7 +6,7 @@
 	announced = FALSE
 	create_record = FALSE
 	total_positions = 4
-	outfit_type = /decl/hierarchy/outfit/job/survivor
+	outfit_type = /decl/outfit/job/survivor
 	hud_icon = "hudblank"
 	available_by_default = FALSE
 	allowed_ranks = null
@@ -45,7 +45,7 @@
 	var/list/blacklisted_species = list()
 	var/list/whitelisted_species = list()
 
-/decl/hierarchy/outfit/job/survivor
+/decl/outfit/job/survivor
 	name = "Job - Survivor"
 
 /datum/job/submap/New(var/datum/submap/_owner, var/abstract_job = FALSE)
@@ -95,7 +95,7 @@
 /datum/job/submap/check_is_active(var/mob/M)
 	. = (..() && M.faction == owner.name)
 
-/datum/job/submap/create_cash_on_hand(var/mob/living/carbon/human/H, var/datum/money_account/M)
+/datum/job/submap/create_cash_on_hand(var/mob/living/human/H, var/datum/money_account/M)
 	. = get_total_starting_money(H)
 	if(. > 0)
 		var/obj/item/cash/cash = new

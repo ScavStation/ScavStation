@@ -11,7 +11,7 @@
 	var/guestbanned = FALSE                   // If set to 1 this job will be unavalible to guests
 	var/must_fill = FALSE                     // If set to 1 this job will be have priority over other job preferences. Do not recommend on jobs with more than one position.
 	var/not_random_selectable = FALSE         // If set to 1 this job will not be selected when a player asks for a random job.
-	var/description                           // If set, returns a static description. To add dynamic text, overwrite this proc, call parent aka . = ..() and then . += "extra text" on the line after that.
+	var/description                           // If set, returns a static description. To add dynamic text, override get_description_blurb, call parent aka . = ..() and then . += "extra text" on the line after that.
 	var/list/event_categories                 // A set of tags used to check jobs for suitability for things like random event selection.
 	var/skip_loadout_preview = FALSE          // Whether or not the job should render loadout items in char preview.
 	var/supervisors = null                    // Supervisors, who this person answers to directly
@@ -36,11 +36,14 @@
 	var/forced_spawnpoint                     // If set to a spawnpoint name, will use that spawn point for joining as this job.
 	var/hud_icon                              // icon used for Sec HUD overlay
 
+	// A list of string IDs for keys to grant on join.
+	var/list/lock_keys = list()
+
 	//Job access. The use of minimal_access or access is determined by a config setting: jobs_have_minimal_access
 	var/list/minimal_access = list()          // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
 	var/list/access = list()                  // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
 
-	//Minimum skills allowed for the job. List should contain skill (as in /decl/hierarchy/skill path), with values which are numbers.
+	//Minimum skills allowed for the job. List should contain skill (as in /decl/skill path), with values which are numbers.
 	var/min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT
 	)
@@ -48,6 +51,8 @@
 	var/skill_points = 16                     //The number of unassigned skill points the job comes with (on top of the minimum skills).
 	var/no_skill_buffs = FALSE                //Whether skills can be buffed by age/species modifiers.
 	var/available_by_default = TRUE
+	/// If TRUE, 'Not available at roundstart.' won't be shown for this job if available_by_default is FALSE.
+	var/suppress_no_roundstart_warning = FALSE
 
 	var/list/possible_goals
 	var/min_goals = 1
@@ -65,7 +70,7 @@
 	if(type == /datum/job && global.using_map.default_job_type == type)
 		title = "Debug Job"
 		hud_icon = "hudblank"
-		outfit_type = /decl/hierarchy/outfit/job/generic/scientist
+		outfit_type = /decl/outfit/job/generic/scientist
 		autoset_department = TRUE
 
 	if(!length(department_types) && autoset_department)
@@ -85,86 +90,101 @@
 /datum/job/dd_SortValue()
 	return title
 
-/datum/job/proc/equip_job(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
+/datum/job/proc/equip_job(var/mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
+	H.add_language(/decl/language/human/common)
 	if (required_language)
 		H.add_language(required_language)
 		H.set_default_language(required_language)
-	H.add_language(/decl/language/human/common)
-	H.set_default_language(/decl/language/human/common)
-	var/decl/hierarchy/outfit/outfit = get_outfit(H, alt_title, branch, grade)
-	if(outfit)
-		return outfit.equip_outfit(H, alt_title || title, job = src, rank = grade)
+	else
+		H.set_default_language(/decl/language/human/common)
 
-/datum/job/proc/get_outfit(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
+	var/decl/outfit/outfit = get_outfit(H, alt_title, branch, grade)
+	if(outfit)
+		. = outfit.equip_outfit(H, alt_title || title, job = src, rank = grade)
+
+	if(length(lock_keys) == 1)
+		var/lock_key = lock_keys[1]
+		var/obj/item/key/new_key = new(get_turf(H), lock_keys[lock_key] || /decl/material/solid/metal/iron, lock_key)
+		H.put_in_hands_or_store_or_drop(new_key)
+	else if(length(lock_keys))
+		var/obj/item/keyring/keyring
+		for(var/lock_key in lock_keys)
+			if(!keyring)
+				keyring = new(get_turf(H))
+				H.put_in_hands_or_store_or_drop(keyring)
+			var/obj/item/key/new_key = new(get_turf(H), lock_keys[lock_key] || /decl/material/solid/metal/iron, lock_key)
+			keyring.storage?.handle_item_insertion(null, new_key)
+
+/datum/job/proc/get_outfit(var/mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade)
 	if(alt_title && alt_titles)
 		. = alt_titles[alt_title]
 	if(allowed_branches && branch)
 		. = allowed_branches[branch.type] || .
 	if(allowed_ranks && grade)
 		. = allowed_ranks[grade.type] || .
-	. = . || outfit_type
-	. = outfit_by_type(.)
+	. ||= outfit_type
+	return GET_DECL(.)
 
-/datum/job/proc/create_cash_on_hand(var/mob/living/carbon/human/H, var/datum/money_account/M)
-	if(!istype(M) || !ispath(H.client?.prefs?.starting_cash_choice, /decl/starting_cash_choice))
+/datum/job/proc/create_cash_on_hand(var/mob/living/human/worker, var/datum/money_account/account)
+	if(!istype(account) || !worker.client?.prefs?.starting_cash_choice)
 		return 0
-	var/decl/starting_cash_choice/cash = GET_DECL(H.client.prefs.starting_cash_choice)
-	for(var/obj/item/thing in cash.get_cash_objects(H, M))
+	for(var/obj/item/thing in worker.client.prefs.starting_cash_choice.get_cash_objects(worker, account))
 		. += thing.get_base_value()
-		H.equip_to_storage_or_put_in_hands(thing)
+		worker.equip_to_storage_or_put_in_hands(thing)
 
-/datum/job/proc/get_total_starting_money(var/mob/living/carbon/human/H)
+/datum/job/proc/get_total_starting_money(var/mob/living/human/worker)
 	. = 4 * rand(75, 100) * economic_power
-	// Get an average economic power for our cultures.
-	var/culture_mod =   0
-	var/culture_count = 0
-	for(var/token in H.cultural_info)
-		var/decl/cultural_info/culture = H.get_cultural_value(token)
-		if(culture && !isnull(culture.economic_power))
-			culture_count++
-			culture_mod += culture.economic_power
-	if(culture_count)
-		culture_mod /= culture_count
-	. *= culture_mod
+	// Get an average economic power for our background.
+	var/background_mod =   0
+	var/background_count = 0
+	for(var/token in worker.background_info)
+		var/decl/background_detail/background = worker.get_background_datum(token)
+		if(!isnull(background?.economic_power))
+			background_count++
+			background_mod += background.economic_power
+	if(background_count)
+		background_mod /= background_count
+	. *= background_mod
 	// Apply other mods.
 	. *= global.using_map.salary_modifier
-	. *= 1 + 2 * H.get_skill_value(SKILL_FINANCE)/(SKILL_MAX - SKILL_MIN)
+	// Apply a 50% bonus per skill level above minimum.
+	. *= 1 + 2 * (worker.get_skill_value(SKILL_FINANCE) - SKILL_MIN)/(SKILL_MAX - SKILL_MIN)
 	. = round(.)
 
-/datum/job/proc/setup_account(var/mob/living/carbon/human/H)
-	if(!account_allowed || (H.mind && H.mind.initial_account))
+/datum/job/proc/setup_account(var/mob/living/human/worker)
+	if(!account_allowed || worker.mind?.initial_account)
 		return
 
 	// Calculate our pay and apply all relevant modifiers.
-	var/money_amount = get_total_starting_money(H)
+	var/money_amount = get_total_starting_money(worker)
 	if(money_amount <= 0)
 		return // You are too poor for an account.
 
 	//give them an account in the station database
-	var/datum/money_account/M = create_account("[H.real_name]'s account", H.real_name, money_amount)
-	var/cash_on_hand = create_cash_on_hand(H, M)
+	var/datum/money_account/account = create_account("[worker.real_name]'s account", worker.real_name, money_amount)
+	var/cash_on_hand = create_cash_on_hand(worker, account)
 	// Store their financial info.
-	if(H.mind)
+	if(worker.mind)
 		var/remembered_info = ""
-		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
-		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
-		remembered_info += "<b>Your account funds are:</b> [M.format_value_by_currency(M.money)]<br>"
-		if(M.transaction_log.len)
-			var/datum/transaction/T = M.transaction_log[1]
+		remembered_info += "<b>Your account number is:</b> #[account.account_number]<br>"
+		remembered_info += "<b>Your account pin is:</b> [account.remote_access_pin]<br>"
+		remembered_info += "<b>Your account funds are:</b> [account.format_value_by_currency(account.money)]<br>"
+		if(account.transaction_log.len)
+			var/datum/transaction/T = account.transaction_log[1]
 			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.get_source_name()]<br>"
 		if(cash_on_hand > 0)
 			var/decl/currency/cur = GET_DECL(global.using_map.default_currency)
 			remembered_info += "<b>Your cash on hand is:</b> [cur.format_value(cash_on_hand)]<br>"
-		H.StoreMemory(remembered_info, /decl/memory_options/system)
-		H.mind.initial_account = M
-		for(var/obj/item/card/id/I in H.GetIdCards())
+		worker.StoreMemory(remembered_info, /decl/memory_options/system)
+		worker.mind.initial_account = account
+		for(var/obj/item/card/id/I in worker.GetIdCards())
 			if(!I.associated_account_number)
-				I.associated_account_number = M.account_number
+				I.associated_account_number = account.account_number
 				break
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/qdel()
-/datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade, var/additional_skips)
-	var/decl/hierarchy/outfit/outfit = get_outfit(H, alt_title, branch, grade)
+/datum/job/proc/equip_preview(mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade, var/additional_skips)
+	var/decl/outfit/outfit = get_outfit(H, alt_title, branch, grade)
 	if(!outfit)
 		return FALSE
 	. = outfit.equip_outfit(H, alt_title || title, equip_adjustments = (OUTFIT_ADJUSTMENT_SKIP_POST_EQUIP|OUTFIT_ADJUSTMENT_SKIP_ID_PDA|additional_skips), job = src, rank = grade)
@@ -183,14 +203,14 @@
 		return max(0, minimal_player_age - C.player_age)
 	return 0
 
-/datum/job/proc/apply_fingerprints(var/mob/living/carbon/human/target)
+/datum/job/proc/apply_fingerprints(var/mob/living/human/target)
 	if(!istype(target))
 		return 0
 	for(var/obj/item/item in target.contents)
 		apply_fingerprints_to_item(target, item)
 	return 1
 
-/datum/job/proc/apply_fingerprints_to_item(var/mob/living/carbon/human/holder, var/obj/item/item)
+/datum/job/proc/apply_fingerprints_to_item(var/mob/living/human/holder, var/obj/item/item)
 	item.add_fingerprint(holder,1)
 	if(item.contents.len)
 		for(var/obj/item/sub_item in item.contents)
@@ -232,9 +252,9 @@
 
 	return FALSE
 
-/datum/job/proc/get_join_link(var/client/caller, var/href_string, var/show_invalid_jobs)
-	if(is_available(caller))
-		if(is_restricted(caller.prefs))
+/datum/job/proc/get_join_link(var/client/calling_client, var/href_string, var/show_invalid_jobs)
+	if(is_available(calling_client))
+		if(is_restricted(calling_client.prefs))
 			if(show_invalid_jobs)
 				return "<tr bgcolor='[selection_color]'><td style='padding-left:2px;padding-right:2px;'><a style='text-decoration: line-through' href='[href_string]'>[title]</a></td><td style='padding-left:2px;padding-right:2px;''><center>[current_positions]</center></td><td style='padding-left:2px;padding-right:2px;'><center>Active: [get_active_count()]</center></td></tr>"
 		else
@@ -355,8 +375,19 @@
 
 /datum/job/proc/get_job_icon()
 	if(!SSjobs.job_icons[title])
-		var/mob/living/carbon/human/dummy/mannequin/mannequin = get_mannequin("#job_icon")
+		var/mob/living/human/dummy/mannequin/mannequin = get_mannequin("#job_icon")
 		if(mannequin)
+			var/decl/species/mannequin_species = get_species_by_key(global.using_map.default_species)
+			if(!is_species_allowed(mannequin_species))
+				// Don't just default to the first species allowed, pick one at random.
+				for(var/other_species in shuffle(get_playable_species()))
+					var/decl/species/other_species_decl = get_species_by_key(other_species)
+					if(is_species_allowed(other_species_decl))
+						mannequin_species = other_species_decl
+						break
+			if(!is_species_allowed(mannequin_species))
+				PRINT_STACK_TRACE("No allowed species allowed for job [title] ([type]), falling back to default!")
+			mannequin.change_species(mannequin_species.name)
 			dress_mannequin(mannequin)
 			mannequin.set_dir(SOUTH)
 			var/icon/preview_icon = getFlatIcon(mannequin)
@@ -364,46 +395,46 @@
 			SSjobs.job_icons[title] = preview_icon
 	return SSjobs.job_icons[title]
 
-/datum/job/proc/get_unavailable_reasons(var/client/caller)
+/datum/job/proc/get_unavailable_reasons(var/client/calling_client)
 	var/list/reasons = list()
-	if(jobban_isbanned(caller, title))
+	if(jobban_isbanned(calling_client, title))
 		reasons["You are jobbanned."] = TRUE
-	if(is_semi_antagonist && jobban_isbanned(caller, /decl/special_role/provocateur))
+	if(is_semi_antagonist && jobban_isbanned(calling_client, /decl/special_role/provocateur))
 		reasons["You are semi-antagonist banned."] = TRUE
-	if(!player_old_enough(caller))
+	if(!player_old_enough(calling_client))
 		reasons["Your player age is too low."] = TRUE
 	if(!is_position_available())
 		reasons["There are no positions left."] = TRUE
-	if(!isnull(allowed_branches) && (!caller.prefs.branches[title] || !is_branch_allowed(caller.prefs.branches[title])))
+	if(!isnull(allowed_branches) && (!calling_client.prefs.branches[title] || !is_branch_allowed(calling_client.prefs.branches[title])))
 		reasons["Your branch of service does not allow it."] = TRUE
-	else if(!isnull(allowed_ranks) && (!caller.prefs.ranks[title] || !is_rank_allowed(caller.prefs.branches[title], caller.prefs.ranks[title])))
+	else if(!isnull(allowed_ranks) && (!calling_client.prefs.ranks[title] || !is_rank_allowed(calling_client.prefs.branches[title], calling_client.prefs.ranks[title])))
 		reasons["Your rank choice does not allow it."] = TRUE
-	var/decl/species/S = get_species_by_key(caller.prefs.species)
+	var/decl/species/S = get_species_by_key(calling_client.prefs.species)
 	if(S)
 		if(!is_species_allowed(S))
 			reasons["Your species choice does not allow it."] = TRUE
-		if(!S.check_background(src, caller.prefs))
+		if(!S.check_background(src, calling_client.prefs))
 			reasons["Your background choices do not allow it."] = TRUE
-		var/special_blocker = check_special_blockers(caller.prefs)
+		var/special_blocker = check_special_blockers(calling_client.prefs)
 		if(special_blocker)
 			reasons["Your preferences do not allow it: '[special_blocker]'."] = TRUE
 		return TRUE
 	if(LAZYLEN(reasons))
 		. = reasons
 
-/datum/job/proc/dress_mannequin(var/mob/living/carbon/human/dummy/mannequin/mannequin)
+/datum/job/proc/dress_mannequin(var/mob/living/human/dummy/mannequin/mannequin)
 	if(mannequin)
 		mannequin.delete_inventory(TRUE)
 		equip_preview(mannequin, additional_skips = OUTFIT_ADJUSTMENT_SKIP_BACKPACK)
 
-/datum/job/proc/is_available(var/client/caller)
+/datum/job/proc/is_available(var/client/calling_client)
 	if(!is_position_available())
 		return FALSE
-	if(jobban_isbanned(caller, title))
+	if(jobban_isbanned(calling_client, title))
 		return FALSE
-	if(is_semi_antagonist && jobban_isbanned(caller, /decl/special_role/provocateur))
+	if(is_semi_antagonist && jobban_isbanned(calling_client, /decl/special_role/provocateur))
 		return FALSE
-	if(!player_old_enough(caller))
+	if(!player_old_enough(calling_client))
 		return FALSE
 	return TRUE
 
@@ -463,7 +494,7 @@
 		return TRUE
 	return FALSE
 
-/datum/job/proc/handle_variant_join(var/mob/living/carbon/human/H, var/alt_title)
+/datum/job/proc/handle_variant_join(var/mob/living/human/H, var/alt_title)
 	return
 
 /datum/job/proc/check_special_blockers(var/datum/preferences/prefs)

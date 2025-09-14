@@ -1,24 +1,43 @@
 var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z")
 
-/decl/cultural_info/faction/enclave_ying
-	name = "Scav"
-	description = "Your people are scavengers and survivors, many of them living by riding the coattails of humanity. Any day where you aren't stepped on or beaten down by those much bigger and stronger than you is a good day."
+// Yinglet Cultures & Heritages - Changes and additions thanks to Val's input; CEG's description making 2/28/2025 --SAR
+/decl/background_detail/faction/enclave_scav
+	name = "Yinglet Enclaves"
+	description = "You are loyal to your enclaves first and foremost, and by extension, The Elders. They probably have everything sorted out, and it’s best \
+	to trust in your matriarch, your patriarchs, and anyone that seems smarter than you."
 	subversive_potential = 25
+	uid = "scav_background_faction_enclave"
 
-/decl/cultural_info/faction/tradehouse_ying
-	name = "Tradehouse Ivenmoth"
-	description = "You are a member of Tradehouse Ivenmoth, one of the most successful tradehouses in the universe and you know it which is why you wear your tradehouse reds with pride."
+/decl/background_detail/faction/tradehouse_scav
+	name = "TradeHouse Ivenmoth"
+	description = "You “work” for Tradehouse Ivenmoth, the Tradehouse currently in charge of the city of Val Salia, and headed by Viracroix Salia, the scholarly \
+	Trademaster. Ivenmoth provides many services in trade, manufacturing, and guard work, with a focus on cooperation between peoples and a greater understanding \
+	of the world. You probably mostly do odd jobs for them, and don’t command much respect."
+	uid = "scav_background_faction_tradehouse"
 
+/decl/background_detail/faction/exiled_scav
+	name = "Exiled"
+	description = "You are an exile, cast out from your society for bad behaviour, a crime, or generally just being unlikable. Whatever the reason, you’re on your \
+	own now… and it was hoped that you wouldn’t last very long because of that fact."
+	subversive_potential = 40
+	uid = "scav_background_faction_exile"
 
-/decl/cultural_info/culture/yinglet
+/decl/background_detail/faction/wanderer
+	name = "Wanderer"
+	description = "You are unaffiliated with anyone."
+	subversive_potential = 25
+	uid = "scav_background_faction_other"
 
-	name = "Enclave Yinglet"
-	description = "You are a contributing member of a yinglet enclave, or at least someone who isn't too much of \
-	a nusiance, and are likely in good standing with the matriarch and patriarches."
+/decl/background_detail/heritage/yinglet
+
+	name = "Central Enclave Yinglet"
+	description = "You come from one of the Central Enclaves, grand in scale with a population in the hundreds, potentially even thousands. You lived under \
+	the control and guidance of the Elders, who knew what was best for you. It’s also likely you might be a little more knowledgeable than your rural cousins."
 	secondary_langs = list(
 		/decl/language/human/common,
 		/decl/language/sign
 	)
+	uid = "scav_background_heritage_central_enclave"
 	var/list/middle_syllables = list(
 		"z",
 		"e",
@@ -50,7 +69,7 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		"t"
 	)
 
-/decl/cultural_info/culture/yinglet/get_random_name(var/gender)
+/decl/background_detail/heritage/yinglet/get_random_name(var/gender)
 	// First syllable.
 	. = pick(global.alphabet_no_vowels)
 	if(. == "h")
@@ -72,11 +91,23 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 	if(hyphenated)
 		. = "[.]-[.]"
 
-/decl/cultural_info/culture/yinglet/tribal
-	name = "Tribal Yinglet"
-	description = "You are a member of one of the southern yinglet tribes. Although similar to the other \
-	clam-loving rat-birds of the yinglet species, the southern yinglets are more parochial, tribal and \
-	generally less developed. Nobody is quite clear on which south they are from."
+/decl/background_detail/heritage/yinglet/valsalian
+
+	name = "ValSalian Enclave Yinglet"
+	description = "You come from the most northern enclave, located near the city of Val Salia. Because of its proximity to the city, you’ve regularly seen, and \
+	perhaps interacted with different species, like humans or baxxid. You might've become a bit more cosmopolitan, and strayed from convention."
+	secondary_langs = list(
+		/decl/language/human/common,
+		/decl/language/sign
+	)
+	uid = "scav_background_heritage_valsalian_enclave"
+
+/decl/background_detail/heritage/yinglet/tribal
+	name = "Rural Enclave Yinglet"
+	description = "You come from a rural enclave farther away from the control of the Elders. Your enclave was likely small, with a smaller population and \
+	not many females to speak of. If it weren’t for the continued guidance of your matriarch, it might’ve burned down."
+	uid = "scav_background_heritage_rural_enclave"
+
 	// Names provided by esteemed wordsmith Val Salia.
 	// Jesus Christ, Val.
 	var/list/all_scav_names = list(
@@ -126,10 +157,10 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		"Zeez",         "Zerb",         "Zerk",          "Zibzab",     "Zink"
 	)
 
-/decl/cultural_info/culture/yinglet/tribal/get_random_name(var/gender)
+/decl/background_detail/heritage/yinglet/tribal/get_random_name(var/gender)
 	. = pick(all_scav_names)
 
-/decl/cultural_info/culture/yinglet/void
+/decl/background_detail/heritage/yinglet/void
 	name = "Void Scav"
 	description = "You are a crew member of a space station or ship that is usually not completely controlled by \
 	Yinglets and as such you are accustomed to living amogst the stars."
@@ -137,8 +168,18 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		/decl/language/human/common,
 		/decl/language/sign
 	)
+	uid = "scav_background_heritage_void"
 
-/decl/cultural_info/location/yingletacrology
+/decl/background_detail/heritage/yinglet/other
+	name = "Other"
+	description = "You come from somewhere else."
+	secondary_langs = list(
+		/decl/language/human/common,
+		/decl/language/sign
+	)
+	uid = "scav_background_heritage_other"
+
+/decl/background_detail/location/yingletacrology
 	name = "Enclave Arcology"
 	description = "Out of the many known planets, it is without a doubt that there are some that have been completely overrun by Yinglets to the point that \
 	the planet is essentially one giant enclave."
@@ -146,16 +187,43 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 	capital = "Various"
 	economic_power = 1
 	ruling_body = "The Great Enclaves"
+	uid = "scav_background_location_arcology"
 
-/decl/cultural_info/location/tradehousespace
+/decl/background_detail/location/tradehousespace
 	name = "Tradehouse Controlled"
 	description = "Tradehouse Ivenmoth grew from humble beginnings within the city of Val Salia to spanning multiple planets and stations."
 	distance = "Various"
 	capital = "Val Salia"
 	economic_power = 1
 	ruling_body = "Tradehouse Ivenmoth"
+	uid = "scav_background_location_tradehouse"
 
-/decl/cultural_info/religion/enclave
-	name = "Enclave Pantheon"
-	description = " You are one of the many yinglets who believe in the spiritual guidance of the The Great Leader and the many Matriarchs and Patriarchs he spanwed \
-	from his bloodline."
+
+/decl/background_detail/religion/dinnaism
+	name = "Dinnaism"
+	description = "Dinnaism is the national faith of the Dinnish people. It is the belief that the mythic founder and cultural ancestor of the Dinnish people, called \
+	Dinn, would descend from the Heavenly Veil and save Dinnlan in its greatest time of need."
+	uid = "scav_background_religion_dinnaism"
+
+/decl/background_detail/religion/veil_worship
+	name = "Veil Worship"
+	description = "Veil Worship is the spiritual belief that the Heavenly Veil which can be seen in the sky holds some kind of divine importance. This belief is varied,\
+	 and the Heavenly Veil has many names, like the Sailor’s Plume, Well of Souls, and the Eye of the Terrible Cosmic Horror That Watches and Waits Unsleeping For the Right\
+	  Moment to Devour Us All."
+	uid = "scav_background_religion_veil_worship"
+
+/decl/background_detail/religion/angel_worship
+	name = "Angel Worship"
+	description = "Angel Worship is the spiritual belief that thousands of years ago, angels descended from the Heavenly Veil and left gifts for the people of this world \
+	in the form of antiquities, and then left once again once they deposited their heavenly artifacts upon the world."
+	uid = "scav_background_religion_angel_worship"
+
+/decl/background_detail/religion/ancestor_worship
+	name = "Ancestor Worship"
+	description = "Ancestor worship is a veneration of one's own ancestors, with a general focus on continuing their legacy and praying to them in times of need."
+	uid = "scav_background_religion_ancestor_worship"
+
+/decl/background_detail/religion/faithless
+	name = "Faithless"
+	description = "You do not hold any particular faith."
+	uid = "scav_background_religion_faithless"

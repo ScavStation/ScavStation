@@ -69,7 +69,7 @@ var/global/list/fishtank_cache = list()
 	return TRUE
 
 /obj/structure/glass_tank/attackby(var/obj/item/W, var/mob/user)
-	if(W.force < 5 || user.a_intent != I_HURT)
+	if(W.get_attack_force(user) < 5 || user.a_intent != I_HURT)
 		attack_animation(user)
 		visible_message(SPAN_NOTICE("\The [user] taps \the [src] with \the [W]."))
 	else
@@ -80,7 +80,9 @@ var/global/list/fishtank_cache = list()
 	deleting = TRUE
 	var/turf/T = get_turf(src)
 	playsound(T, "shatter", 70, 1)
-	new /obj/item/shard(T)
+	var/obj/item/shard/shard = new(T)
+	if(paint_color)
+		shard.set_color(paint_color)
 	if(!silent)
 		if(contents.len || reagents.total_volume)
 			visible_message(SPAN_DANGER("\The [src] shatters, spilling its contents everywhere!"))
@@ -92,11 +94,11 @@ var/global/list/fishtank_cache = list()
 			A.physically_destroyed(TRUE)
 	qdel(src)
 
-/obj/structure/glass_tank/dump_contents()
+/obj/structure/glass_tank/dump_contents(atom/forced_loc = loc, mob/user)
 	. = ..()
-	var/turf/T = get_turf(src)
+	var/turf/T = get_turf(forced_loc)
 	if(reagents?.total_volume && T)
-		reagents.trans_to_turf(T, T.reagents, reagents.total_volume)
+		reagents.trans_to_turf(T, reagents.total_volume)
 
 var/global/list/global/aquarium_states_and_layers = list(
 	"b" = FLY_LAYER - 0.02,
@@ -175,7 +177,7 @@ var/global/list/global/aquarium_states_and_layers = list(
 
 	var/list/valid_turfs = list()
 
-	for(var/turf/T in RANGE_TURFS(loc, 1))
+	for(var/turf/T as anything in RANGE_TURFS(loc, 1))
 		if(Adjacent(T) && !(locate(/obj/structure/glass_tank) in T))
 			valid_turfs |= T
 

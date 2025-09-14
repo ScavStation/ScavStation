@@ -32,16 +32,16 @@
 		traits += general_entry.mechanics_text
 
 	if(one_hand_penalty)
-		traits += "It's best fired with two-handed grip."
+		traits += "It's best fired with a two-handed grip."
 
 	if(has_safety)
-		traits += "It has a safety switch. Control-Click it to toggle safety."
+		traits += "It has a safety switch, which can be toggled via <b>ctrl-click</b> or selecting Toggle Safety from the <b>alt-click</b> radial."
 
 	if(is_secure_gun())
-		traits += "It's fitted with secure registration chip. Swipe ID on it to register."
+		traits += "It's fitted with a secure registration chip. Swipe ID on it to register."
 
 	if(scope_zoom)
-		traits += "It has a magnifying optical scope. It can be toggled with Use Scope verb."
+		traits += "It has a magnifying optical scope. It can be toggled with the Use Scope verb."
 
 	if(LAZYLEN(firemodes) > 1)
 		traits += "It has multiple firemodes. Click it in hand to cycle them."
@@ -116,6 +116,7 @@
 		place. Additionally, most energy weapons can go straight through windows and hit whatever is on the other side, and are \
 		hitscan, making them accurate and useful against distant targets. \
 		<br><br>"
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
 
 /datum/codex_entry/ballistic_weapons
 	name = "ballistic weapons"
@@ -127,6 +128,7 @@
 		weapons, difficulties in maintaining them, and the sheer stopping and wounding power of solid slugs or \
 		composite shot. Using a ballistic weapon on a spacebound habitat is usually considered a serious undertaking, \
 		as a missed shot or careless use of automatic fire could rip open the hull or injure bystanders with ease."
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE // TODO: MAP_TECH_LEVEL_CONTEMPORARY for things that exist in real life?
 
 /datum/codex_entry/magnetic_weapons
 	name = "magnetic weapons"
@@ -136,3 +138,4 @@
 	lore_text = "<p>Magnetic weapons, while uncommon, are seen throughout human space, firing physical projectiles using powerful magnets. \
 		Magnetic weapons tend to be very power inefficient. The most recognizable form is the railgun, though crafty engineers have been known to \
 		produce their own makeshift coilguns.</p>"
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE

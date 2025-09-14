@@ -36,7 +36,7 @@
 #define IS_PAI 3
 
 /mob/living/silicon/say_understands(mob/speaker, decl/language/speaking)
-	return (!speaking && (iscarbon(speaker) || issilicon(speaker) || isbrain(speaker))) || ..()
+	return (!speaking && (ishuman(speaker) || issilicon(speaker) || isbrain(speaker))) || ..()
 
 //For holopads only. Usable by AI.
 /mob/living/silicon/ai/proc/holopad_talk(var/message, verb, decl/language/speaking)
@@ -82,10 +82,10 @@
 
 			for(var/mob/M in global.player_list)
 				if(M.stat == DEAD && M.get_preference_value(/datum/client_preference/ghost_ears) == PREF_ALL_SPEECH)
-					M.hear_say(message,verb,speaking,null,null, src)
+					M.hear_say(message,verb,speaking, null, src)
 					continue
 				if(M.loc && (M.locs[1] in hearturfs))
-					M.hear_say(message,verb,speaking,null,null, src)
+					M.hear_say(message,verb,speaking, null, src)
 
 
 	else

@@ -38,7 +38,7 @@ Contains helper procs for airflow, called by /connection_group.
 	if(buckled)
 		to_chat(src, SPAN_NOTICE("Air suddenly rushes past you!"))
 		return FALSE
-	if(!lying)
+	if(!current_posture.prone)
 		to_chat(src, SPAN_DANGER("The sudden rush of air knocks you over!"))
 	SET_STATUS_MAX(src, STAT_WEAK, 5)
 	last_airflow_stun = world.time
@@ -50,8 +50,8 @@ Contains helper procs for airflow, called by /connection_group.
 /mob/living/silicon/handle_airflow()
 	return FALSE
 
-/mob/living/carbon/human/handle_airflow_stun()
-	if(!slip_chance())
+/mob/living/human/handle_airflow_stun()
+	if(!get_eva_slip_prob())
 		to_chat(src, SPAN_NOTICE("Air suddenly rushes past you!"))
 		return FALSE
 	. = ..()
@@ -91,14 +91,7 @@ Contains helper procs for airflow, called by /connection_group.
 	return 1
 
 /mob/AirflowCanMove(n)
-	if(status_flags & GODMODE)
-		return 0
-	if(buckled)
-		return 0
-	var/obj/item/shoes = get_equipped_item(slot_shoes_str)
-	if(istype(shoes) && (shoes.item_flags & ITEM_FLAG_NOSLIP))
-		return 0
-	return 1
+	return can_slip(magboots_only = TRUE)
 
 /atom/movable/Bump(atom/A)
 	if(airflow_speed > 0 && airflow_dest)
@@ -134,7 +127,7 @@ Contains helper procs for airflow, called by /connection_group.
 	airflow_speed = 0
 	airflow_dest = null
 
-/mob/living/carbon/human/airflow_hit(atom/A)
+/mob/living/human/airflow_hit(atom/A)
 //	for(var/mob/M in hearers(src))
 //		M.show_message("<span class='danger'>[src] slams into [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
 	playsound(src.loc, "punch", 25, 1, -1)

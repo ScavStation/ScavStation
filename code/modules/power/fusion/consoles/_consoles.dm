@@ -26,7 +26,7 @@
 	if(IS_MULTITOOL(thing))
 		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
 		fusion.get_new_tag(user)
-		return
+		return TRUE
 	else
 		return ..()
 

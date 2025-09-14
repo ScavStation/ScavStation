@@ -7,8 +7,28 @@
 	opacity = FALSE
 	anchored = TRUE
 	max_health = 200
+	frame_type = null
+	construct_state = /decl/machine_construction/noninteractive
 	var/shield_generate_power = 7500	//how much power we use when regenerating
 	var/shield_idle_power = 1500		//how much power we use when just being sustained.
+
+/obj/machinery/shield/take_damage(amount, damtype, silent)
+	if(amount <= 0)
+		return
+	if(damtype != BRUTE && damtype != BURN && damtype != ELECTROCUTE)
+		return
+	if(!silent)
+		playsound(src.loc, 'sound/effects/EMPulse.ogg', 75, TRUE)
+	current_health -= amount
+	set_opacity(TRUE)
+	check_failure()
+	if(!QDELETED(src))
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_opacity), FALSE), 2 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE)
+
+// This should never be damaged via anything but the shield's health dropping.
+/obj/machinery/shield/dismantle()
+	check_failure()
+	return QDELING(src) // return true if deleted, false otherwise
 
 /obj/machinery/shield/malfai
 	name = "emergency forcefield"
@@ -21,7 +41,7 @@
 
 /obj/machinery/shield/proc/check_failure()
 	if (current_health <= 0)
-		visible_message("<span class='notice'>\The [src] dissipates!</span>")
+		visible_message(SPAN_NOTICE("\The [src] dissipates!"))
 		qdel(src)
 		return
 
@@ -31,39 +51,15 @@
 	update_nearby_tiles(need_rebuild=1)
 
 /obj/machinery/shield/Destroy()
-	set_opacity(0)
-	set_density(0)
+	set_opacity(FALSE)
+	set_density(FALSE)
 	update_nearby_tiles()
 	. = ..()
 
 /obj/machinery/shield/CanPass(atom/movable/mover, turf/target, height, air_group)
+	// blocks air, normal behavior for everything else
 	if(!height || air_group) return 0
 	else return ..()
-
-/obj/machinery/shield/attackby(obj/item/W, mob/user)
-	if(!istype(W)) return
-
-	//Calculate damage
-	var/aforce = W.force
-	if(W.damtype == BRUTE || W.damtype == BURN)
-		current_health -= aforce
-
-	//Play a fitting sound
-	playsound(src.loc, 'sound/effects/EMPulse.ogg', 75, 1)
-
-	check_failure()
-	set_opacity(1)
-	spawn(20) if(!QDELETED(src)) set_opacity(0)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-
-	..()
-
-/obj/machinery/shield/bullet_act(var/obj/item/projectile/Proj)
-	current_health -= Proj.get_structure_damage()
-	..()
-	check_failure()
-	set_opacity(1)
-	spawn(20) if(!QDELETED(src)) set_opacity(0)
 
 /obj/machinery/shield/explosion_act(severity)
 	. = ..()
@@ -78,28 +74,21 @@
 			if(prob(50))
 				qdel(src)
 
-/obj/machinery/shield/hitby(AM, var/datum/thrownthing/TT)
+/obj/machinery/shield/hitby(atom/movable/hitter, var/datum/thrownthing/thrownthing)
 	. = ..()
 	if(.)
 		//Let everyone know we've been hit!
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitter]."))
 		//Super realistic, resource-intensive, real-time damage calculations.
 		var/tforce = 0
-		if(ismob(AM)) // All mobs have a multiplier and a size according to mob_defines.dm
-			var/mob/I = AM
-			tforce = I.mob_size * (TT.speed/THROWFORCE_SPEED_DIVISOR)
+		if(ismob(hitter)) // All mobs have a multiplier and a size according to mob_defines.dm
+			var/mob/mob_hitter = hitter
+			tforce = mob_hitter.mob_size * (thrownthing.speed/THROWFORCE_SPEED_DIVISOR)
 		else
-			var/obj/O = AM
-			tforce = O.throwforce * (TT.speed/THROWFORCE_SPEED_DIVISOR)
-		current_health -= tforce
-		//This seemed to be the best sound for hitting a force field.
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
-		check_failure()
-		//The shield becomes dense to absorb the blow. Purely asthetic.
-		set_opacity(1)
-		spawn(20)
-			if(!QDELETED(src))
-				set_opacity(0)
+			var/obj/obj_hitter = hitter
+			tforce = obj_hitter.get_thrown_attack_force() * (thrownthing.speed/THROWFORCE_SPEED_DIVISOR)
+		if(tforce > 0)
+			take_damage(tforce, BRUTE)
 
 /obj/machinery/shieldgen
 	name = "Emergency shield projector"
@@ -196,12 +185,12 @@
 		else
 			check_delay--
 
+// todo: roll this into normal machinery damage stuff? maybe it only blows up if active when it's destroyed?
 /obj/machinery/shieldgen/proc/checkhp()
 	if(current_health <= 30)
 		src.malfunction = 1
 	if(current_health <= 0)
-		spawn(0)
-			explosion(get_turf(src.loc), 0, 0, 1, 0, 0, 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(explosion), get_turf(src), 0, 0, 1, 0, 0, 0), 0)
 		qdel(src)
 	update_icon()
 	return
@@ -271,43 +260,43 @@
 		else
 			to_chat(user, "<span class='notice'>You open the panel and expose the wiring.</span>")
 			is_open = 1
-
+		return TRUE
 	else if(IS_COIL(W) && malfunction && is_open)
 		var/obj/item/stack/cable_coil/coil = W
 		to_chat(user, "<span class='notice'>You begin to replace the wires.</span>")
-		if(do_after(user, 30,src))
-			if (coil.use(1))
-				current_health = get_max_health()
-				malfunction = 0
-				to_chat(user, "<span class='notice'>You repair the [src]!</span>")
-				update_icon()
-
+		if(!do_after(user, 3 SECONDS, src))
+			to_chat(user, SPAN_NOTICE("You stop repairing \the [src]."))
+			return TRUE
+		if (coil.use(1))
+			current_health = get_max_health()
+			malfunction = 0
+			to_chat(user, "<span class='notice'>You repair \the [src]!</span>")
+			update_icon()
+		return TRUE
 	else if(IS_WRENCH(W))
 		if(locked)
 			to_chat(user, "The bolts are covered, unlocking this would retract the covers.")
-			return
+			return TRUE
 		if(anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>'You unsecure the [src] from the floor!</span>")
+			to_chat(user, "<span class='notice'>'You unsecure \the [src] from the floor!</span>")
 			if(active)
-				to_chat(user, "<span class='notice'>The [src] shuts off!</span>")
+				to_chat(user, "<span class='notice'>\The [src] shuts off!</span>")
 				src.shields_down()
 			anchored = FALSE
-		else
-			if(isspaceturf(get_turf(src))) return //No wrenching these in space!
+		else if(!isspaceturf(get_turf(src))) //No wrenching these in space!
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>You secure the [src] to the floor!</span>")
+			to_chat(user, "<span class='notice'>You secure \the [src] to the floor!</span>")
 			anchored = TRUE
-
-
+		return TRUE
 	else if(istype(W, /obj/item/card/id) || istype(W, /obj/item/modular_computer/pda))
 		if(src.allowed(user))
 			src.locked = !src.locked
 			to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-	else
-		..()
+		return TRUE
+	return ..()
 
 
 /obj/machinery/shieldgen/on_update_icon()

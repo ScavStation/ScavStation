@@ -3,14 +3,34 @@
 	path = /obj/item/cane
 	uid = "gear_misc_cane"
 
+/decl/loadout_option/cane/get_gear_tweak_options()
+	. = ..()
+	LAZYINITLIST(.[/datum/gear_tweak/material])
+	var/list/available_materials = list(
+		/decl/material/solid/metal/aluminium,
+		/decl/material/solid/organic/plastic,
+		/decl/material/solid/organic/wood,
+		/decl/material/solid/organic/wood/bamboo,
+		/decl/material/solid/organic/wood/ebony,
+		/decl/material/solid/organic/wood/mahogany,
+		/decl/material/solid/organic/wood/maple,
+		/decl/material/solid/organic/wood/walnut,
+		/decl/material/solid/organic/wood/yew
+	)
+	for(var/mat in available_materials)
+		var/decl/material/mat_decl = GET_DECL(mat)
+		available_materials -= mat
+		available_materials[mat_decl.name] = mat
+	.[/datum/gear_tweak/material] = available_materials
+
 /decl/loadout_option/dice
 	name = "dice pack"
-	path = /obj/item/storage/pill_bottle/dice
+	path = /obj/item/pill_bottle/dice
 	uid = "gear_misc_dice"
 
 /decl/loadout_option/dice/nerd
 	name = "dice pack (gaming)"
-	path = /obj/item/storage/pill_bottle/dice_nerd
+	path = /obj/item/pill_bottle/dice_nerd
 	uid = "gear_misc_dice_gamer"
 
 /decl/loadout_option/cards
@@ -121,24 +141,24 @@
 
 /decl/loadout_option/matchbook
 	name = "matchbook"
-	path = /obj/item/storage/box/matches
+	path = /obj/item/box/matches
 	uid = "gear_misc_matches"
 
 /decl/loadout_option/lighter
 	name = "cheap lighter"
-	path = /obj/item/flame/lighter
+	path = /obj/item/flame/fuelled/lighter
 	uid = "gear_misc_lighter"
 
 /decl/loadout_option/lighter/get_gear_tweak_options()
 	. = ..()
 	LAZYINITLIST(.[/datum/gear_tweak/path])
 	.[/datum/gear_tweak/path] |= list(
-		"random" = /obj/item/flame/lighter/random,
-		"red" =    /obj/item/flame/lighter/red,
-		"yellow" = /obj/item/flame/lighter/yellow,
-		"cyan" =   /obj/item/flame/lighter/cyan,
-		"green" =  /obj/item/flame/lighter/green,
-		"pink" =   /obj/item/flame/lighter/pink
+		"random" = /obj/item/flame/fuelled/lighter/random,
+		"red" =    /obj/item/flame/fuelled/lighter/red,
+		"yellow" = /obj/item/flame/fuelled/lighter/yellow,
+		"cyan" =   /obj/item/flame/fuelled/lighter/cyan,
+		"green" =  /obj/item/flame/fuelled/lighter/green,
+		"pink" =   /obj/item/flame/fuelled/lighter/pink
 	)
 
 /decl/loadout_option/ashtray
@@ -159,7 +179,7 @@
 
 /decl/loadout_option/bible
 	name = "holy book"
-	path = /obj/item/storage/bible
+	path = /obj/item/bible
 	cost = 2
 	uid = "gear_misc_bible"
 
@@ -167,12 +187,12 @@
 	. = ..()
 	LAZYINITLIST(.[/datum/gear_tweak/path])
 	.[/datum/gear_tweak/path] |= list(
-		"bible (adjustable)" = /obj/item/storage/bible,
-		"Bible" =              /obj/item/storage/bible/bible,
-		"Tanakh" =             /obj/item/storage/bible/tanakh,
-		"Quran" =              /obj/item/storage/bible/quran,
-		"Kitab-i-Aqdas" =      /obj/item/storage/bible/aqdas,
-		"Kojiki" =             /obj/item/storage/bible/kojiki
+		"bible (adjustable)" = /obj/item/bible,
+		"Bible" =              /obj/item/bible/bible,
+		"Tanakh" =             /obj/item/bible/tanakh,
+		"Quran" =              /obj/item/bible/quran,
+		"Kitab-i-Aqdas" =      /obj/item/bible/aqdas,
+		"Kojiki" =             /obj/item/bible/kojiki
 	)
 
 /decl/loadout_option/cross
@@ -192,13 +212,13 @@
 
 /decl/loadout_option/wallet
 	name = "wallet, color select"
-	path = /obj/item/storage/wallet
+	path = /obj/item/wallet
 	loadout_flags = GEAR_HAS_COLOR_SELECTION
 	uid = "gear_misc_wallet"
 
 /decl/loadout_option/wallet_poly
 	name = "wallet, polychromic"
-	path = /obj/item/storage/wallet/poly
+	path = /obj/item/wallet/poly
 	cost = 2
 	uid = "gear_misc_wallet_poly"
 

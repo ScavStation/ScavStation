@@ -1,5 +1,4 @@
 /datum/hud_data
-	var/has_a_intent = 1  // Set to draw intent box.
 	var/has_m_intent = 1  // Set to draw move intent box.
 	var/has_warnings = 1  // Set to draw environment warnings.
 	var/has_pressure = 1  // Draw the pressure indicator.
@@ -49,8 +48,6 @@
 	equip_slots |= slot_handcuffed_str
 	if(slot_back_str in equip_slots)
 		equip_slots |= slot_in_backpack_str
-	if(slot_w_uniform_str in equip_slots)
-		equip_slots |= slot_tie_str
 
 /datum/hud_data/monkey
 	inventory_slots = list(

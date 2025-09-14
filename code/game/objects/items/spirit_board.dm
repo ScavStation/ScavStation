@@ -19,13 +19,6 @@
 	spirit_board_pick_letter(user)
 	return TRUE
 
-//ATTACK GHOST IGNORING PARENT RETURN VALUE
-/obj/item/spirit_board/attack_ghost(var/mob/observer/ghost/user)
-	var/decl/special_role/cultist/cult = GET_DECL(/decl/special_role/cultist)
-	if(cult.max_cult_rating >= CULT_GHOSTS_2)
-		spirit_board_pick_letter(user)
-	return ..()
-
 /obj/item/spirit_board/proc/spirit_board_pick_letter(mob/M)
 	if(!spirit_board_checks(M))
 		return 0
@@ -57,7 +50,7 @@
 
 
 	if(light_amount > 0.2)
-		to_chat(M, SPAN_WARNING("It's too bright here to use \the [src.name]!"))
+		to_chat(M, SPAN_WARNING("It's too bright here to use \the [src]!"))
 		return 0
 
 	//mobs in range check
@@ -70,7 +63,7 @@
 				users_in_range++
 
 	if(users_in_range < 2)
-		to_chat(M, SPAN_WARNING("There aren't enough people to use \the [src.name]!"))
+		to_chat(M, SPAN_WARNING("There aren't enough people to use \the [src]!"))
 		return 0
 
 	return 1

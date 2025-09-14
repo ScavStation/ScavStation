@@ -39,7 +39,7 @@
 
 // Used to install preset-specific programs
 /obj/item/modular_computer/proc/install_default_programs()
-	var/mob/living/carbon/human/H = get_recursive_loc_of_type(/mob)
+	var/mob/living/human/H = get_recursive_loc_of_type(/mob)
 	var/list/job_programs = list()
 	if(H)
 		var/datum/job/jb = SSjobs.get_by_title(H.job)
@@ -147,7 +147,8 @@
 	if(mstick_slot && mstick_slot.can_broadcast && istype(mstick_slot.stored_stick) && mstick_slot.check_functionality())
 		return mstick_slot.stored_stick
 
-/obj/item/modular_computer/proc/update_name()
+/obj/item/modular_computer/update_name()
+	return
 
 /obj/item/modular_computer/get_cell()
 	var/datum/extension/assembly/assembly = get_extension(src, /datum/extension/assembly)

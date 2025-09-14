@@ -6,8 +6,6 @@
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = @'{"powerstorage":1}'
-	force = 5.0
-	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
 	w_class = ITEM_SIZE_NORMAL
@@ -125,7 +123,6 @@
 	desc = "A small power cell designed to power handheld devices."
 	icon_state = "device"
 	w_class = ITEM_SIZE_SMALL
-	force = 0
 	throw_speed = 5
 	throw_range = 7
 	maxcharge = 100
@@ -331,11 +328,6 @@
 	icon_state = "gunbattery"
 	maxcharge = 500
 	w_class = ITEM_SIZE_SMALL //Perhaps unwise.
-
-#if DM_VERSION < 514
-/proc/gradient(var/colour_one, var/colour_two, var/percentage)
-	return colour_two
-#endif
 
 /obj/item/cell/gun/on_update_icon()
 	. = ..()

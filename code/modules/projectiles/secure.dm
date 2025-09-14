@@ -35,10 +35,12 @@
 			verbs += /obj/item/gun/proc/reset_registration
 			registered_owner = id.registered_name
 			to_chat(user, SPAN_NOTICE("\The [src] chimes quietly as it registers to \"[registered_owner]\"."))
+			return TRUE
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] buzzes quietly, refusing to register without first being reset."))
+			return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/gun/emag_act(var/charges, var/mob/user)
 	if(!charges)

@@ -106,7 +106,7 @@
 
 			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."))
 			if(do_after(owner, 20, O, 0, 1))
-				if(O in carrying || O.buckled_mob || O.anchored || (locate(/mob/living) in O)) //Repeat checks
+				if((O in carrying) || O.buckled_mob || O.anchored || (locate(/mob/living) in O)) //Repeat checks
 					return
 				if(length(carrying) >= carrying_capacity)
 					to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
@@ -139,11 +139,9 @@
 	if(.)
 		drop_carrying(user, TRUE)
 
-/obj/item/mech_equipment/clamp/AltClick(mob/user)
-	if(owner?.hatch_closed)
-		drop_carrying(user, FALSE)
-		return TRUE
-	return ..()
+/obj/item/mech_equipment/clamp/get_alt_interactions(mob/user)
+	. = ..()
+	LAZYADD(., /decl/interaction_handler/mech_equipment/clamp)
 
 /obj/item/mech_equipment/clamp/proc/drop_carrying(var/mob/user, var/choose_object)
 	if(!length(carrying))
@@ -194,6 +192,14 @@
 				load.dropInto(location)
 			carrying -= load
 	. = ..()
+
+/decl/interaction_handler/mech_equipment/clamp
+	name = "Release Clamp"
+	expected_target_type = /obj/item/mech_equipment/clamp
+
+/decl/interaction_handler/mech_equipment/clamp/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/mech_equipment/clamp/clamp = target
+	clamp.drop_carrying(user, FALSE)
 
 // A lot of this is copied from floodlights.
 /obj/item/mech_equipment/light
@@ -490,17 +496,17 @@
 		drill_head = null
 		return
 
-	if (istype(target, /turf/exterior/wall))
-		for (var/turf/exterior/wall/M in RANGE_TURFS(target, 1))
+	if (istype(target, /turf/wall/natural))
+		for (var/turf/wall/natural/M in RANGE_TURFS(target, 1))
 			if (!(get_dir(owner, M) & owner.dir))
 				continue
 			drill_head.durability -= 1
-			M.dismantle_wall()
+			M.dismantle_turf()
 		scoop_ore(target)
 		return
 
-	if (istype(target, /turf/simulated/wall))
-		var/turf/simulated/wall/wall = target
+	if (istype(target, /turf/wall))
+		var/turf/wall/wall = target
 		var/wall_hardness = max(wall.material.hardness, wall.reinf_material ? wall.reinf_material.hardness : 0)
 		if (wall_hardness > drill_head.material.hardness)
 			to_chat(user, SPAN_WARNING("\The [wall] is too hard to drill through with \the [drill_head]."))
@@ -508,16 +514,16 @@
 			return
 
 	if(istype(target, /turf))
-		for(var/turf/asteroid in RANGE_TURFS(target, 1))
+		for(var/turf/asteroid as anything in RANGE_TURFS(target, 1))
 			if (!(get_dir(owner, asteroid) & owner.dir))
 				continue
-			if(asteroid.can_be_dug() && asteroid.drop_diggable_resources())
+			if(asteroid.can_be_dug(drill_head.material?.hardness) && asteroid.drop_diggable_resources())
 				drill_head.durability -= 1
 				scoop_ore(asteroid)
 		return
 
 	var/audible = "loudly grinding machinery"
-	if (iscarbon(target)) //splorch
+	if (isliving(target)) //splorch
 		audible = "a terrible rending of metal and flesh"
 
 	owner.visible_message(
@@ -597,17 +603,14 @@
 	QDEL_NULL(ion_trail)
 	return ..()
 
-/obj/item/mech_equipment/ionjets/proc/allowSpaceMove()
-	if (!active)
+/obj/item/mech_equipment/ionjets/proc/provides_thrust()
+	if(!active)
 		return FALSE
-
-	var/obj/item/cell/C = owner.get_cell()
-	if (istype(C))
-		if (C.checked_use(movement_power * CELLRATE))
+	var/obj/item/cell/cell = owner?.get_cell()
+	if(istype(cell))
+		if(cell.checked_use(movement_power * CELLRATE))
 			return TRUE
-		else
-			deactivate()
-
+		deactivate()
 	return FALSE
 
 /obj/item/mech_equipment/ionjets/attack_self(mob/user)
@@ -619,13 +622,6 @@
 		deactivate()
 	else
 		activate()
-
-/obj/item/mech_equipment/ionjets/AltClick(mob/user)
-	if(owner?.hatch_closed && ((user in owner.pilots) || user == owner) && active)
-		stabilizers = !stabilizers
-		to_chat(user, SPAN_NOTICE("You toggle the stabilizers [stabilizers ? "on" : "off"]"))
-		return TRUE
-	return ..()
 
 /obj/item/mech_equipment/ionjets/proc/activate()
 	passive_power_use = activated_passive_power
@@ -686,6 +682,26 @@
 
 		else
 			to_chat(user, SPAN_WARNING("You cannot slide there!"))
+
+/obj/item/mech_equipment/ionjets/get_alt_interactions(mob/user)
+	. = ..()
+	LAZYADD(., /decl/interaction_handler/mech_equipment/ionjets)
+
+/decl/interaction_handler/mech_equipment/ionjets
+	name = "Toggle Stabilizers"
+	expected_target_type = /obj/item/mech_equipment/ionjets
+
+/decl/interaction_handler/mech_equipment/ionjets/is_possible(atom/target, mob/user, obj/item/prop)
+	. = ..()
+	if(.)
+		var/obj/item/mech_equipment/ionjets/jets = target
+		return jets.active
+
+/decl/interaction_handler/mech_equipment/ionjets/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/mech_equipment/ionjets/jets = target
+	jets.stabilizers = !jets.stabilizers
+	to_chat(user, SPAN_NOTICE("You toggle the stabilizers [jets.stabilizers ? "on" : "off"]"))
+	return TRUE
 
 //Exosuit camera
 /datum/extension/network_device/camera/mech

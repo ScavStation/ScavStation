@@ -178,8 +178,9 @@
 
 /obj/machinery/port_gen/pacman/proc/process_exhaust()
 	var/decl/material/mat = GET_DECL(sheet_material)
-	if(mat)
-		mat.add_burn_product(loc, 0.05*power_output)
+	var/datum/gas_mixture/environment = loc?.return_air()
+	if(mat && environment)
+		mat.add_burn_product(environment, 0.05*power_output)
 
 /obj/machinery/port_gen/pacman/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
@@ -251,7 +252,7 @@
 
 /obj/machinery/port_gen/pacman/handleInactive()
 	var/cooling_temperature = 20
-	var/datum/gas_mixture/environment = loc.return_air()
+	var/datum/gas_mixture/environment = loc?.return_air()
 	if (environment)
 		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
 		var/ambient = environment.temperature - T20C
@@ -304,13 +305,13 @@
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
-			to_chat(user, "<span class='notice'>The [src.name] is full!</span>")
-			return
-		to_chat(user, "<span class='notice'>You add [amount] sheet\s to the [src.name].</span>")
+			to_chat(user, "<span class='notice'>\The [src] is full!</span>")
+			return TRUE
+		to_chat(user, "<span class='notice'>You add [amount] sheet\s to \the [src].</span>")
 		sheets += amount
 		addstack.use(amount)
 		updateUsrDialog()
-		return
+		return TRUE
 	if(IS_WRENCH(O) && !active)
 		if(!anchored)
 			to_chat(user, "<span class='notice'>You secure \the [src] to the floor.</span>")
@@ -319,6 +320,7 @@
 
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		anchored = !anchored
+		return TRUE
 	return component_attackby(O, user)
 
 /obj/machinery/port_gen/pacman/dismantle()
@@ -464,7 +466,7 @@
 	to_chat(user, "Auxilary tank shows [reagents.total_volume]u of liquid in it.")
 
 /obj/machinery/port_gen/pacman/super/potato/UseFuel()
-	if(reagents.has_reagent(/decl/material/liquid/ethanol/vodka))
+	if(reagents.has_reagent(/decl/material/liquid/alcohol/vodka))
 		rad_power = 4
 		temperature_gain = 60
 		remove_any_reagents(1)
@@ -481,18 +483,19 @@
 	if(power_output > max_safe_output)
 		icon_state = "potatodanger"
 
-/obj/machinery/port_gen/pacman/super/potato/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/chems/))
-		var/obj/item/chems/R = O
-		if(R.standard_pour_into(src,user))
-			if(reagents.has_reagent(/decl/material/liquid/ethanol/vodka))
-				audible_message("<span class='notice'>[src] blips happily</span>")
-				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
-			else
-				audible_message("<span class='warning'>[src] blips in disappointment</span>")
-				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
-		return
-	..()
+/obj/machinery/port_gen/pacman/super/potato/attackby(var/obj/item/hit_with, var/mob/user)
+	if(istype(hit_with, /obj/item/chems))
+		var/obj/item/chems/chem_container = hit_with
+		var/old_vodka_amount = REAGENT_VOLUME(reagents, /decl/material/liquid/alcohol/vodka)
+		if(chem_container.standard_pour_into(src,user))
+			if(REAGENT_VOLUME(reagents, /decl/material/liquid/alcohol/vodka) > old_vodka_amount) // yay, booze!
+				audible_message(SPAN_NOTICE("[src] blips happily!"))
+				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, FALSE)
+			else // you didn't add any more than we already had
+				audible_message(SPAN_WARNING("[src] blips in disappointment."))
+				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, FALSE)
+			return TRUE
+	return ..()
 
 /obj/machinery/port_gen/pacman/mrs
 	name = "portable fusion generator"

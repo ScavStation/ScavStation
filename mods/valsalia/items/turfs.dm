@@ -1,11 +1,11 @@
-/turf/simulated/floor
+/turf/floor
 	name = "bare deck"
 
-/turf/simulated/floor/tiled
+/turf/floor/tiled
 	name = "deck"
 
 /decl/flooring/tiling
 	name = "deck"
 
-/turf/simulated/wall/r_wall/hull
+/turf/wall/r_wall/hull
 	color = COLOR_DARK_BROWN

@@ -9,42 +9,30 @@
 /obj/effect/floor_decal/corner/green/three_quarters{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aaq" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aay" = (
 /obj/machinery/computer/teleporter,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aaz" = (
 /obj/machinery/teleport/station{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aaA" = (
 /obj/machinery/teleport/hub,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aaK" = (
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aaQ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -52,37 +40,30 @@
 	id_tag = "cargo_bay_centcom";
 	pixel_x = 25
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aaR" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "aaT" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "abg" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/floor/tiled/steel_ridged,
 /area/shuttle/supply_shuttle)
 "abi" = (
 /obj/machinery/conveyor{
 	dir = 4;
 	id_tag = "QMLoad2"
 	},
-/turf/simulated/floor,
+/turf/floor,
 /area/shuttle/supply_shuttle)
 "abn" = (
 /obj/machinery/conveyor{
@@ -93,7 +74,7 @@
 	id_tag = "supply_shuttle_hatch";
 	name = "Shuttle Hatch"
 	},
-/turf/simulated/floor,
+/turf/floor,
 /area/shuttle/supply_shuttle)
 "abr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -103,36 +84,30 @@
 	dir = 8;
 	icon_state = "warning"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "abB" = (
 /obj/effect/floor_decal/corner/green/three_quarters,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "abC" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "acd" = (
 /obj/machinery/door/airlock/external/bolted{
 	id_tag = "supply_shuttle_hatch";
 	name = "Shuttle Hatch"
 	},
-/turf/simulated/floor,
+/turf/floor,
 /area/shuttle/supply_shuttle)
 "ace" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Maintenance Access"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "acf" = (
 /obj/structure/sign/warning/secure_area,
@@ -145,21 +120,17 @@
 "aci" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "acj" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Bay"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "ack" = (
 /obj/effect/shuttle_landmark/supply/start,
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/floor/tiled/steel_ridged,
 /area/shuttle/supply_shuttle)
 "acl" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -168,53 +139,43 @@
 	pixel_x = 25;
 	tag_door = "supply_shuttle_hatch"
 	},
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/floor/tiled/steel_ridged,
 /area/shuttle/supply_shuttle)
 "acm" = (
 /obj/effect/floor_decal/corner/green,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "acE" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "acQ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "adL" = (
 /obj/machinery/conveyor{
 	dir = 4;
 	id_tag = "QMLoad"
 	},
-/turf/simulated/floor,
+/turf/floor,
 /area/shuttle/supply_shuttle)
 "aeQ" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aeR" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "ala" = (
 /obj/item/radio/intercom{
@@ -223,88 +184,66 @@
 /obj/structure/decoy{
 	name = "A.L.I.C.E."
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "alg" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "alr" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "auJ" = (
 /obj/machinery/computer/modular/preset/civilian{
 	dir = 4;
 	icon_state = "console"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "auW" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "avf" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
 /obj/structure/window/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "avn" = (
 /obj/structure/rack,
-/obj/item/clothing/under/color/green,
+/obj/item/clothing/jumpsuit/green,
 /obj/item/clothing/shoes/color/brown,
 /obj/item/clothing/suit/armor/tdome/green,
 /obj/item/clothing/head/helmet/thunderdome,
 /obj/item/baton/loaded,
 /obj/item/energy_blade/sword/green,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "avy" = (
 /obj/machinery/door/window{
 	name = "AI Core Door"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "avQ" = (
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "avV" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
 /obj/structure/window/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "awl" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod2,
@@ -318,9 +257,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "ayh" = (
 /obj/effect/floor_decal/corner/green{
@@ -329,9 +266,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "ayi" = (
 /obj/structure/window/reinforced{
@@ -343,10 +278,10 @@
 	icon_state = "showcase_5";
 	name = "Supply Drone Virtual Intelligence"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/shuttle/supply_shuttle)
 "azR" = (
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/floor/tiled/steel_ridged,
 /area/shuttle/supply_shuttle)
 "azS" = (
 /obj/machinery/conveyor{
@@ -357,13 +292,13 @@
 	id_tag = "supply_shuttle_hatch";
 	name = "Shuttle Hatch"
 	},
-/turf/simulated/floor,
+/turf/floor,
 /area/shuttle/supply_shuttle)
 "aAa" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/floor/tiled/steel_ridged,
 /area/shuttle/supply_shuttle)
 "aAl" = (
 /turf/unsimulated/wall,
@@ -372,27 +307,23 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aAM" = (
-/turf/simulated/wall/titanium,
+/turf/wall/titanium,
 /area/shuttle/supply_shuttle)
 "aAN" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bridge"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aBc" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/floor/plating/airless,
 /area/shuttle/supply_shuttle)
 "aBz" = (
 /obj/structure/shuttle/engine/propulsion,
@@ -403,69 +334,53 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aBB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aBC" = (
 /obj/structure/bed/chair,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aBO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aBZ" = (
 /obj/effect/floor_decal/corner/green,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aCb" = (
 /obj/machinery/computer/robotics{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aCj" = (
 /obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 1;
 	icon_state = "console"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aCk" = (
 /obj/machinery/computer/modular/preset/medical{
 	dir = 8;
 	icon_state = "console"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aCl" = (
 /obj/effect/floor_decal/corner/green{
@@ -474,9 +389,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aCm" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -492,15 +405,11 @@
 /area/shuttle/supply_shuttle)
 "aCu" = (
 /obj/structure/table/reinforced,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aCv" = (
 /obj/structure/bed/chair,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aCx" = (
 /obj/machinery/button/blast_door{
@@ -532,80 +441,70 @@
 	pixel_y = -28;
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aCy" = (
 /obj/structure/table/reinforced,
 /obj/item/card/id/captains_spare,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aDk" = (
 /obj/machinery/computer/modular/preset/security{
 	dir = 1;
 	icon_state = "console"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aDl" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aDF" = (
 /obj/machinery/computer/shuttle_control/emergency,
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aDQ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aDR" = (
 /obj/structure/table,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aEg" = (
 /obj/machinery/status_display{
 	pixel_y = 30
 	},
 /obj/structure/table,
-/obj/item/storage/firstaid/toxin,
+/obj/item/firstaid/toxin,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Shuttle Bridge East"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aEW" = (
 /obj/structure/aicore/deactivated,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aEX" = (
 /obj/machinery/computer/station_alert/all,
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aFa" = (
 /obj/machinery/status_display,
 /obj/effect/paint_stripe/red,
-/turf/simulated/wall/titanium,
+/turf/wall/titanium,
 /area/shuttle/escape_shuttle)
 "aFC" = (
 /obj/machinery/door/airlock/centcom{
@@ -615,9 +514,7 @@
 	id_tag = "crescent_checkpoint_access";
 	name = "Crescent Checkpoint"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aFM" = (
 /obj/machinery/light/small{
@@ -629,13 +526,13 @@
 /obj/effect/floor_decal/corner/red/half{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aFY" = (
 /obj/machinery/camera/network/crescent{
 	c_tag = "Shuttle Cell"
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aGs" = (
 /obj/structure/sign/warning/nosmoking_2,
@@ -643,7 +540,7 @@
 /area/centcom)
 "aGC" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/fire,
+/obj/item/firstaid/fire,
 /obj/item/chems/spray/extinguisher,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Shuttle Bridge West"
@@ -651,47 +548,38 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aGD" = (
 /obj/structure/table,
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aGE" = (
 /obj/structure/bed/chair/shuttle/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aGF" = (
-/turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
-	},
+/turf/unsimulated/floor/cult,
 /area/centcom/holding)
 "aGG" = (
 /obj/item/stool/padded,
 /obj/item/stool/padded,
-/turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
-	},
+/turf/unsimulated/floor/cult,
 /area/centcom/holding)
 "aGP" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/structure/sign/warning/docking_area,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aGR" = (
 /obj/effect/paint_stripe/red,
-/turf/simulated/wall/titanium,
+/turf/wall/titanium,
 /area/shuttle/escape_shuttle)
 "aGT" = (
 /obj/structure/table,
@@ -699,39 +587,29 @@
 	pixel_x = 28
 	},
 /obj/machinery/recharger,
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "aHb" = (
 /obj/item/stool/padded,
-/turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
-	},
+/turf/unsimulated/floor/cult,
 /area/centcom/holding)
 "aHc" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
-	},
+/turf/unsimulated/floor/cult,
 /area/centcom/holding)
 "aHe" = (
 /obj/machinery/computer/modular/preset/security,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aHg" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aHh" = (
 /obj/machinery/door/airlock/external/bolted{
@@ -742,7 +620,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
+/turf/floor/tiled/techfloor/grid,
 /area/shuttle/escape_shuttle)
 "aHm" = (
 /obj/machinery/door/airlock/centcom{
@@ -752,22 +630,16 @@
 	id_tag = "crescent_checkpoint_access";
 	name = "Crescent Checkpoint"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom)
 "aHp" = (
 /obj/machinery/sleeper{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/centcom/holding)
 "aHr" = (
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aHs" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -779,7 +651,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aHt" = (
 /obj/machinery/hologram/holopad{
@@ -788,7 +660,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aHu" = (
 /obj/machinery/light,
@@ -799,14 +671,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aHz" = (
 /obj/structure/table/reinforced,
-/turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
-	},
+/turf/unsimulated/floor/cult,
 /area/centcom/holding)
 "aHA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -815,23 +684,19 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "aHF" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aHG" = (
 /obj/effect/floor_decal/corner/green/three_quarters{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aHH" = (
 /obj/effect/floor_decal/corner/green{
@@ -840,23 +705,19 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aHN" = (
 /obj/machinery/computer/modular/preset/medical{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aHW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aHX" = (
 /obj/effect/floor_decal/corner/green{
@@ -865,22 +726,16 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aIh" = (
 /obj/effect/floor_decal/corner/green/three_quarters{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aIj" = (
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/centcom/holding)
 "aIk" = (
 /obj/machinery/light{
@@ -889,13 +744,13 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aIt" = (
 /obj/machinery/computer/modular/preset/security{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aIv" = (
 /obj/machinery/light{
@@ -904,10 +759,10 @@
 /obj/structure/bed/chair/shuttle/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "aIy" = (
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aIz" = (
 /obj/machinery/light{
@@ -916,65 +771,55 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aIA" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aIR" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/shuttle/escape_shuttle)
 "aIS" = (
 /obj/structure/bed/chair/shuttle/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "aIT" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aJu" = (
 /obj/machinery/bodyscanner{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/centcom/holding)
 "aJv" = (
 /obj/machinery/body_scanconsole{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/centcom/holding)
 "aJW" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/o2{
+/obj/item/firstaid/o2{
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/fire{
+/obj/item/firstaid/toxin,
+/obj/item/firstaid/fire{
 	pixel_x = 2;
 	pixel_y = 3
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/space)
 "aKa" = (
 /obj/machinery/door/airlock/command{
@@ -987,25 +832,20 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
+/turf/floor/tiled/techfloor/grid,
 /area/shuttle/escape_shuttle)
 "aKb" = (
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals - Holding Cell";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
-	},
+/turf/unsimulated/floor/cult,
 /area/centcom/holding)
 "aKd" = (
 /obj/machinery/door/airlock/glass/security{
 	name = "Holding Cell"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aKo" = (
 /obj/structure/emergency_dispenser{
@@ -1013,11 +853,11 @@
 	},
 /obj/structure/closet/crate/plastic/rations,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aKt" = (
 /obj/structure/closet/crate/medical,
-/obj/item/storage/firstaid/regular{
+/obj/item/firstaid/regular{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -1027,17 +867,17 @@
 /obj/item/bodybag/cryobag{
 	pixel_x = 5
 	},
-/obj/item/storage/firstaid/o2{
+/obj/item/firstaid/o2{
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/storage/box/masks,
-/obj/item/storage/box/gloves{
+/obj/item/box/masks,
+/obj/item/box/gloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/adv{
+/obj/item/firstaid/toxin,
+/obj/item/firstaid/adv{
 	pixel_x = -2
 	},
 /obj/item/chems/ivbag,
@@ -1048,55 +888,46 @@
 /obj/effect/floor_decal/corner/blue/border{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "aKv" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aKC" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "CentComPort";
 	name = "Security Doors"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aKD" = (
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aKE" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Arrivals Processing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aKV" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/regular{
+/obj/item/firstaid/regular{
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/storage/firstaid/regular{
+/obj/item/firstaid/regular{
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/storage/firstaid/adv{
+/obj/item/firstaid/adv{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/storage/firstaid/adv{
+/obj/item/firstaid/adv{
 	pixel_x = -2
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/space)
 "aKW" = (
 /obj/machinery/light/small{
@@ -1112,23 +943,18 @@
 /obj/effect/floor_decal/corner/red/half{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aKX" = (
 /obj/structure/bed,
 /obj/item/bedsheet/red,
-/turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
-	},
+/turf/unsimulated/floor/cult,
 /area/centcom/holding)
 "aKY" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aKZ" = (
 /obj/machinery/door/window/northleft{
@@ -1137,29 +963,23 @@
 	icon_state = "right";
 	name = "Arrivals Processing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLa" = (
 /obj/machinery/computer/modular/preset/security{
 	dir = 8;
 	icon_state = "console"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLb" = (
 /obj/structure/table,
-/obj/item/storage/box/gloves{
+/obj/item/box/gloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/masks,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/obj/item/box/masks,
+/turf/unsimulated/floor/white,
 /area/space)
 "aLc" = (
 /obj/structure/bed/chair/shuttle/black{
@@ -1168,13 +988,13 @@
 /obj/effect/floor_decal/corner/red/half{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aLd" = (
 /obj/machinery/hologram/holopad{
 	holopad_id = "Emergency Shuttle Brig"
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aLe" = (
 /obj/structure/bed/chair/shuttle/black{
@@ -1183,7 +1003,7 @@
 /obj/effect/floor_decal/corner/red/half{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "aLf" = (
 /obj/structure/bed/chair{
@@ -1192,20 +1012,16 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLh" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLl" = (
-/turf/simulated/floor/tiled/white,
+/turf/floor/tiled/white,
 /area/shuttle/escape_shuttle)
 "aLm" = (
 /obj/structure/bed/chair/office/dark,
@@ -1216,9 +1032,7 @@
 	pixel_x = -12;
 	pixel_y = -25
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLn" = (
 /obj/machinery/camera/network/crescent{
@@ -1229,9 +1043,7 @@
 	dir = 8;
 	icon_state = "console"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLo" = (
 /obj/structure/table,
@@ -1239,9 +1051,7 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/roller,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/centcom/holding)
 "aLs" = (
 /obj/structure/closet/hydrant{
@@ -1254,53 +1064,43 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "aLt" = (
 /obj/machinery/vending/wallmed1{
 	name = "Emergency NanoMed";
 	pixel_y = -32
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/centcom/holding)
 "aLu" = (
 /obj/structure/table,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/chems/spray/cleaner,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/space)
 "aLv" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLw" = (
 /obj/structure/table/reinforced,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLz" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLB" = (
 /obj/effect/paint/red,
-/turf/simulated/wall/titanium,
+/turf/wall/titanium,
 /area/shuttle/escape_shuttle)
 "aLD" = (
 /obj/machinery/sleeper{
@@ -1309,7 +1109,7 @@
 /obj/effect/floor_decal/corner/blue/border{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "aLE" = (
 /obj/structure/shuttle/engine/propulsion,
@@ -1320,9 +1120,7 @@
 	id_tag = "CentComPort";
 	name = "Security Doors"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLG" = (
 /obj/structure/table/reinforced,
@@ -1334,9 +1132,7 @@
 	dir = 1;
 	icon_state = "console"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLI" = (
 /obj/structure/table/reinforced,
@@ -1348,9 +1144,7 @@
 /obj/machinery/door/window/southright{
 	name = "Arrivals Processing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLJ" = (
 /obj/structure/sign/department/redcross,
@@ -1361,20 +1155,18 @@
 	autoset_access = 0;
 	name = "Arrivals Medbay"
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/centcom/holding)
 "aLL" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/fire,
-/obj/item/storage/firstaid/regular{
+/obj/item/firstaid/fire,
+/obj/item/firstaid/regular{
 	pixel_x = 2;
 	pixel_y = 3
 	},
 /obj/item/chems/spray/extinguisher,
 /obj/item/crowbar,
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "aLP" = (
 /obj/machinery/door/airlock/security{
@@ -1387,7 +1179,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
+/turf/floor/tiled/techfloor/grid,
 /area/shuttle/escape_shuttle)
 "aLQ" = (
 /obj/machinery/atm{
@@ -1396,36 +1188,26 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLR" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLS" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aLV" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMd" = (
 /obj/machinery/button/access/interior{
@@ -1437,9 +1219,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMe" = (
 /obj/machinery/door/airlock/external/bolted{
@@ -1449,7 +1229,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/centcom/holding)
 "aMf" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
@@ -1465,7 +1245,7 @@
 	tag_exterior_door = "centcom_escape_dock_north_outer";
 	tag_interior_door = "centcom_escape_dock_north_inner"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/centcom/holding)
 "aMg" = (
 /obj/machinery/airlock_sensor{
@@ -1473,7 +1253,7 @@
 	pixel_y = -25;
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/centcom/holding)
 "aMh" = (
 /obj/machinery/door/airlock/external/bolted{
@@ -1486,7 +1266,7 @@
 	pixel_x = 4;
 	pixel_y = -26
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/centcom/holding)
 "aMm" = (
 /obj/machinery/status_display{
@@ -1500,7 +1280,7 @@
 	dir = 1;
 	icon_state = "warning"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "aMn" = (
 /obj/machinery/camera/network/crescent{
@@ -1511,13 +1291,10 @@
 	dir = 1;
 	icon_state = "warning"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "aMo" = (
-/turf/unsimulated/floor{
-	icon_state = "grass0";
-	name = "grass"
-	},
+/turf/unsimulated/floor/grass,
 /area/centcom/holding)
 "aMp" = (
 /obj/structure/bed/chair{
@@ -1526,25 +1303,19 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMr" = (
 /obj/effect/paint_stripe/blue,
-/turf/simulated/wall/titanium,
+/turf/wall/titanium,
 /area/shuttle/escape_shuttle)
 "aMs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMt" = (
 /obj/machinery/status_display{
@@ -1554,9 +1325,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMu" = (
 /obj/machinery/camera/network/crescent{
@@ -1573,71 +1342,53 @@
 /obj/structure/bed/chair/shuttle/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "aMz" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMA" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMC" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMF" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "grass0";
-	name = "grass"
-	},
+/turf/unsimulated/floor/grass,
 /area/centcom/holding)
 "aMG" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/status_display,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aMH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMK" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1646,17 +1397,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMR" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aMT" = (
 /obj/machinery/hologram/holopad,
@@ -1668,7 +1415,7 @@
 	dir = 8;
 	icon_state = "warning"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "aMU" = (
 /obj/machinery/camera/network/crescent{
@@ -1678,13 +1425,11 @@
 /obj/structure/bed/chair/shuttle/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "aMW" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1692,66 +1437,50 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aMY" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/amanita_pie,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/amanita_pie,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aMZ" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/bigbiteburger,
+/obj/item/food/bigbiteburger,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Bar Center"
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNa" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNb" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNc" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNh" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/stew,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/chems/glass/bowl/mapped/stew,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNj" = (
 /obj/structure/closet/secure_closet/bar,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "aNk" = (
 /obj/structure/table/woodentable{
@@ -1759,32 +1488,24 @@
 	},
 /obj/item/book/manual/barman_recipes,
 /obj/item/chems/glass/rag,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "aNl" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "aNm" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
 /obj/machinery/chemical_dispenser/bar_soft/full,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "aNn" = (
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "aNo" = (
 /obj/structure/bed/chair{
@@ -1793,18 +1514,14 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aNx" = (
 /obj/machinery/door/airlock/glass{
 	autoset_access = 0;
 	name = "Arrivals Processing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aNA" = (
 /obj/structure/emergency_dispenser{
@@ -1816,52 +1533,42 @@
 /obj/structure/bed/chair/shuttle/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "aNB" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/boiledrice,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/boiledrice,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNC" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/beetsoup,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/chems/glass/bowl/mapped/beet,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNI" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/stuffing,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/stuffing,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNJ" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/soylenviridians,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/soylenviridians,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aNK" = (
 /obj/machinery/door/airlock/glass{
 	autoset_access = 0;
 	name = "Arrivals Bar"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aNL" = (
 /obj/machinery/embedded_controller/radio/docking_port_multi{
@@ -1871,17 +1578,13 @@
 	id_tag = "centcom_escape_dock";
 	pixel_y = -25
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aNM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aNN" = (
 /obj/machinery/button/access/interior{
@@ -1893,9 +1596,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aNQ" = (
 /obj/machinery/door/airlock/external/bolted{
@@ -1905,7 +1606,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/centcom/holding)
 "aNR" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
@@ -1922,23 +1623,21 @@
 	tag_exterior_door = "centcom_escape_dock_south_outer";
 	tag_interior_door = "centcom_escape_dock_south_inner"
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/centcom/holding)
 "aNS" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "centcom_escape_dock_south_sensor";
 	pixel_y = 25
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/centcom/holding)
 "aNT" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aOv" = (
 /obj/machinery/door/airlock/external/bolted{
@@ -1951,7 +1650,7 @@
 	pixel_x = 4;
 	pixel_y = 26
 	},
-/turf/simulated/floor/plating,
+/turf/floor/plating,
 /area/centcom/holding)
 "aOZ" = (
 /obj/machinery/status_display{
@@ -1964,39 +1663,31 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "aPa" = (
 /obj/machinery/hologram/holopad,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aPH" = (
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Bar East";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "aPJ" = (
 /obj/machinery/hologram/holopad{
 	holopad_id = "Holding Facility Bar"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "aPK" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "aPL" = (
 /obj/machinery/door/airlock/civilian,
@@ -2006,10 +1697,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
+/turf/floor/tiled/techfloor/grid,
 /area/shuttle/escape_shuttle)
 "aPN" = (
-/turf/simulated/wall/titanium,
+/turf/wall/titanium,
 /area/shuttle/escape_shuttle)
 "aPO" = (
 /obj/machinery/door/airlock/medical,
@@ -2019,25 +1710,21 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
+/turf/floor/tiled/techfloor/grid,
 /area/shuttle/escape_shuttle)
 "aPR" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/bloodsoup,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/chems/glass/bowl/mapped/blood,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aPS" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/tofukabob,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/skewer/tofu,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aRl" = (
 /turf/unsimulated/wall,
@@ -2046,10 +1733,8 @@
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/poppypretzel,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/poppypretzel,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "aZb" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -2058,14 +1743,12 @@
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/clothing/under/suit_jacket,
+/obj/item/clothing/pants/slacks/outfit,
 /obj/item/clothing/head/that{
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "bgb" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -2074,17 +1757,13 @@
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "bgJ" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/centcom/holding)
 "bjb" = (
 /obj/structure/bed/chair{
@@ -2093,41 +1772,37 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "bkb" = (
 /obj/machinery/hologram/holopad{
 	holopad_id = "Holding Facility Foyer"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "blb" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/regular{
+/obj/item/firstaid/regular{
 	pixel_x = -2;
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/blue/border{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "bmb" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/fire{
+/obj/item/firstaid/fire{
 	pixel_x = 2;
 	pixel_y = 3
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "bnb" = (
 /obj/structure/table,
 /obj/item/wrench,
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "bpb" = (
 /obj/structure/closet/hydrant{
@@ -2140,7 +1815,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "brb" = (
 /obj/structure/emergency_dispenser{
@@ -2153,63 +1828,51 @@
 	},
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "bvb" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/spesslaw,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/spesslaw,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "bwE" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "byb" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/candiedapple,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/candiedapple,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "bzm" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/mushroomsoup,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/chems/glass/bowl/mapped/mushroom,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "bDh" = (
 /obj/structure/table,
-/obj/item/storage/toolbox/electrical,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/item/toolbox/electrical,
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "bMb" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/item/chems/food/meatsteak,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/obj/item/food/meatsteak,
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "cnP" = (
 /obj/item/stool/padded,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
+/turf/unsimulated/floor/wood,
 /area/centcom/holding)
 "cxx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2217,7 +1880,7 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "cEu" = (
 /obj/structure/bed/chair{
@@ -2230,9 +1893,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "cGo" = (
 /obj/structure/closet/crate/plastic/rations,
@@ -2241,13 +1902,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "cIe" = (
 /obj/structure/bed/chair,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "cIv" = (
 /obj/machinery/light{
@@ -2259,7 +1918,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "cQH" = (
 /obj/structure/bed/chair{
@@ -2268,9 +1927,7 @@
 /obj/abstract/landmark{
 	name = "tdomeadmin"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "djD" = (
 /obj/machinery/camera/network/crescent{
@@ -2280,7 +1937,7 @@
 /obj/effect/floor_decal/corner/blue/border{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "dkK" = (
 /obj/machinery/vending/wallmed1{
@@ -2293,7 +1950,7 @@
 /obj/effect/floor_decal/corner/blue/border{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "dzr" = (
 /obj/machinery/light{
@@ -2305,7 +1962,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "dzs" = (
 /obj/machinery/camera/network/crescent{
@@ -2316,7 +1973,7 @@
 	time_till_despawn = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "dUx" = (
 /obj/effect/floor_decal/corner/green{
@@ -2325,9 +1982,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "edo" = (
 /obj/machinery/light{
@@ -2339,33 +1994,28 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "ewc" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/unsimulated/floor/steel,
 /area/centcom/holding)
 "exJ" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "thunderdome";
 	name = "Thunderdome Blast Door"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "eCw" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/floor/plating/airless,
 /area/shuttle/escape_shuttle)
 "eDH" = (
 /obj/machinery/light{
@@ -2375,23 +2025,20 @@
 /obj/effect/floor_decal/corner/blue/border{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "fis" = (
 /obj/structure/rack,
-/obj/item/clothing/under/color/green,
+/obj/item/clothing/jumpsuit/green,
 /obj/item/clothing/shoes/color/brown,
 /obj/item/energy_blade/axe,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "fpV" = (
 /obj/machinery/hologram/holopad{
 	holopad_id = "Emergency Shuttle Medbay"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/floor/tiled/white,
 /area/shuttle/escape_shuttle)
 "fsh" = (
 /obj/machinery/light{
@@ -2404,7 +2051,7 @@
 /obj/effect/floor_decal/corner/blue/border{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "fsI" = (
 /obj/machinery/sleeper{
@@ -2413,18 +2060,15 @@
 /obj/effect/floor_decal/corner/blue/border{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "fyA" = (
 /obj/structure/bed/roller,
-/turf/simulated/floor/tiled/white/monotile,
+/turf/floor/tiled/white/monotile,
 /area/shuttle/escape_shuttle)
 "fFh" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome)
 "fJA" = (
 /obj/machinery/door/airlock/centcom{
@@ -2434,33 +2078,21 @@
 	id_tag = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "fMq" = (
 /obj/structure/table,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "fRC" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "fUy" = (
 /obj/structure/table/reinforced,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "fZb" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -2473,7 +2105,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "gcV" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2481,83 +2113,60 @@
 	dir = 1;
 	icon_state = "warning"
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "ghj" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "gkM" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "gtc" = (
 /obj/effect/floor_decal/corner/red/three_quarters,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "gMh" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "gWz" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "gXh" = (
 /obj/item/wrench,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "haH" = (
 /obj/effect/floor_decal/corner/green/three_quarters{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "heW" = (
 /obj/effect/floor_decal/corner/green,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "hhT" = (
 /obj/structure/table,
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "hlP" = (
 /obj/structure/bed/chair/shuttle/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "hqi" = (
 /obj/machinery/door/airlock/centcom{
@@ -2567,42 +2176,30 @@
 	id_tag = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "hvD" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "hAQ" = (
 /obj/structure/closet/secure_closet/bar,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/tdome)
 "hBn" = (
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/tdome)
 "hDq" = (
 /obj/machinery/gibber,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/tdome)
 "hFt" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "hMN" = (
 /obj/structure/bed/chair{
@@ -2612,9 +2209,7 @@
 /obj/abstract/landmark{
 	name = "tdomeadmin"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "hYN" = (
 /obj/machinery/door/airlock/command{
@@ -2624,96 +2219,74 @@
 	id_tag = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome)
 "igT" = (
 /obj/machinery/vending/cigarette,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "iqx" = (
 /obj/structure/table,
 /obj/item/chems/drinks/bottle/small/beer,
 /obj/item/chems/drinks/bottle/small/beer,
 /obj/item/chems/drinks/bottle/small/beer,
-/obj/item/flame/lighter/zippo/random,
-/obj/item/storage/box/fancy/cigarettes,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/item/flame/fuelled/lighter/zippo/random,
+/obj/item/box/fancy/cigarettes,
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "itR" = (
 /obj/item/chems/drinks/cans/cola,
 /obj/item/chems/drinks/cans/cola,
 /obj/item/chems/drinks/cans/cola,
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "iMp" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome)
 "iYo" = (
 /obj/structure/flora/pottedplant/minitree,
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "jlk" = (
 /obj/structure/bed/chair/shuttle/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/monotile,
+/turf/floor/tiled/dark/monotile,
 /area/shuttle/escape_shuttle)
 "jpr" = (
 /obj/structure/reagent_dispensers/beerkeg,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "jqP" = (
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "jzQ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "jHj" = (
 /obj/machinery/vending/coffee,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "jLF" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /obj/machinery/disposal,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "jRy" = (
 /obj/structure/closet/secure_closet/freezer/meat,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/tdome)
 "jRE" = (
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "jSH" = (
 /obj/structure/bed/chair/shuttle/black{
@@ -2722,29 +2295,23 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "kca" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/tdome)
 "kfk" = (
 /obj/structure/bed/chair,
 /obj/abstract/landmark{
 	name = "tdomeobserve"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "khR" = (
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "kjk" = (
 /obj/structure/bed/chair/shuttle/black{
@@ -2753,19 +2320,15 @@
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "kkN" = (
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "kuG" = (
 /obj/machinery/vending/snack,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "kBZ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2775,7 +2338,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "kLu" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2784,54 +2347,44 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "kSw" = (
-/obj/item/storage/box/donkpockets{
+/obj/item/box/donkpockets{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/box/donkpockets{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/box/donkpockets{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/box/donkpockets{
 	pixel_x = 3;
 	pixel_y = 3
 	},
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/tdome)
 "kXc" = (
 /obj/structure/table,
 /obj/machinery/microwave,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/tdome)
 "lcs" = (
 /obj/structure/table/reinforced,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/unsimulated/floor/white,
 /area/tdome)
 "ljR" = (
 /obj/item/camera,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "lEJ" = (
 /obj/structure/disposalpipe/segment,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "lOB" = (
 /obj/machinery/button/blast_door{
@@ -2840,18 +2393,14 @@
 	name = "Thunderdome General Supply"
 	},
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "lPd" = (
 /obj/structure/table,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/item/stack/medical/bandage,
+/obj/item/stack/medical/bandage,
+/obj/item/stack/medical/bandage,
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "lQy" = (
 /obj/structure/bed/chair,
@@ -2859,25 +2408,18 @@
 /obj/abstract/landmark{
 	name = "tdomeobserve"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeobserve)
 "lQQ" = (
 /obj/item/chems/spray/extinguisher,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "lSf" = (
 /obj/structure/rack,
-/obj/item/clothing/under/color/red,
+/obj/item/clothing/jumpsuit/red,
 /obj/item/clothing/shoes/color/brown,
 /obj/item/energy_blade/axe,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "lSj" = (
 /obj/effect/forcefield{
@@ -2885,15 +2427,11 @@
 	name = "Blocker"
 	},
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "lTa" = (
 /obj/structure/disposalpipe/segment,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "mgi" = (
 /obj/effect/forcefield{
@@ -2902,15 +2440,11 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "mhI" = (
 /obj/machinery/igniter,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "mHo" = (
 /obj/item/grenade/chem_grenade/cleaner,
@@ -2924,14 +2458,10 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "mXz" = (
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "mZU" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod3,
@@ -2939,26 +2469,20 @@
 /area/space)
 "nBg" = (
 /obj/structure/rack,
-/obj/item/clothing/under/color/red,
+/obj/item/clothing/jumpsuit/red,
 /obj/item/clothing/shoes/color/brown,
 /obj/item/clothing/suit/armor/tdome/red,
 /obj/item/clothing/head/helmet/thunderdome,
 /obj/item/baton/loaded,
 /obj/item/energy_blade/sword/red,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "nIB" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "thunderdomegen";
 	name = "General Supply"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "nKf" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2970,22 +2494,19 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "nKw" = (
 /obj/abstract/landmark{
 	name = "tdome2"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome/tdome2)
 "nPB" = (
 /obj/structure/bed/chair/shuttle/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/floor/tiled/monotile,
 /area/shuttle/escape_shuttle)
 "nSv" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod1,
@@ -2995,17 +2516,13 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "ofF" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "oNm" = (
 /obj/machinery/recharger{
@@ -3014,10 +2531,7 @@
 /obj/abstract/landmark{
 	name = "tdome2"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome/tdome2)
 "oVC" = (
 /obj/abstract/landmark{
@@ -3026,24 +2540,17 @@
 /obj/machinery/camera/network/television{
 	c_tag = "Thunderdome - Red Team"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome/tdome2)
 "pfy" = (
-/turf/unsimulated/floor{
-	icon_state = "bcircuit"
-	},
+/turf/unsimulated/floor/bcircuit,
 /area/tdome)
 "pra" = (
 /obj/machinery/flasher{
 	id_tag = "flash";
 	name = "Thunderdome Flash"
 	},
-/turf/unsimulated/floor{
-	icon_state = "bcircuit"
-	},
+/turf/unsimulated/floor/bcircuit,
 /area/tdome)
 "pwa" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -3052,9 +2559,7 @@
 /obj/machinery/portable_atmospherics/canister/sleeping_agent{
 	pixel_x = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "pyW" = (
 /obj/abstract/landmark{
@@ -3063,51 +2568,37 @@
 /obj/machinery/camera/network/television{
 	c_tag = "Green Team"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome/tdome1)
 "pMA" = (
 /obj/machinery/atmospherics/unary/vent_pump,
-/turf/unsimulated/floor{
-	icon_state = "bcircuit"
-	},
+/turf/unsimulated/floor/bcircuit,
 /area/tdome)
 "pQZ" = (
 /obj/machinery/camera/network/television{
 	c_tag = "Thunderdome Arena"
 	},
-/turf/unsimulated/floor{
-	icon_state = "bcircuit"
-	},
+/turf/unsimulated/floor/bcircuit,
 /area/tdome)
 "qgz" = (
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/ointment,
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "qBg" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "thunderdomeaxe";
 	name = "Axe Supply"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "qUZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "rsb" = (
 /obj/machinery/light{
@@ -3119,42 +2610,33 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "sfj" = (
 /obj/structure/rack,
-/obj/item/clothing/under/color/green,
+/obj/item/clothing/jumpsuit/green,
 /obj/item/clothing/shoes/color/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/gun/energy/laser,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "smK" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "sCN" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "sDZ" = (
 /obj/structure/table,
-/obj/item/storage/toolbox/mechanical,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/item/toolbox/mechanical,
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "sKA" = (
 /obj/abstract/level_data_spawner/admin_level{
@@ -3173,22 +2655,16 @@
 	name = "Thunderdome Blast Door Control"
 	},
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "sRb" = (
 /obj/structure/table,
-/obj/item/storage/box/handcuffs,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/obj/item/box/handcuffs,
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "tda" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "trW" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -3201,16 +2677,13 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "twS" = (
 /obj/machinery/door/airlock/command{
 	name = "Thunderdome Administration"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "tWl" = (
 /obj/machinery/recharger{
@@ -3219,20 +2692,14 @@
 /obj/abstract/landmark{
 	name = "tdome1"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome/tdome1)
 "uFd" = (
 /obj/machinery/door/blast/regular{
 	id_tag = "thunderdomehea";
 	name = "Heavy Supply"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "uOk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3244,7 +2711,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "vBi" = (
 /obj/machinery/button/blast_door{
@@ -3253,33 +2720,25 @@
 	name = "Thunderdome Heavy Supply"
 	},
 /obj/structure/table,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "vHR" = (
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "vTe" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "wjz" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "wkp" = (
 /turf/unsimulated/wall,
@@ -3290,9 +2749,7 @@
 	id_tag = "thunderdomeaxe";
 	name = "Thunderdome Axe Supply"
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "wRq" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -3305,36 +2762,28 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "xeT" = (
 /obj/structure/rack,
-/obj/item/clothing/under/color/red,
+/obj/item/clothing/jumpsuit/red,
 /obj/item/clothing/shoes/color/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/gun/energy/laser,
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome)
 "xfb" = (
 /obj/machinery/door/airlock/command{
 	name = "Thunderdome Administration"
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "xog" = (
 /obj/abstract/landmark{
 	name = "tdome1"
 	},
-/turf/unsimulated/floor{
-	dir = 5;
-	icon_state = "vault"
-	},
+/turf/unsimulated/floor/vault,
 /area/tdome/tdome1)
 "xIV" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -3347,7 +2796,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/floor/tiled,
 /area/shuttle/escape_shuttle)
 "xSD" = (
 /obj/effect/forcefield{
@@ -3356,28 +2805,22 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/unsimulated/floor/dark,
 /area/tdome)
 "yda" = (
 /obj/machinery/atmospherics/valve,
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 "yiv" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/floor/tiled/dark,
 /area/shuttle/escape_shuttle)
 "ylZ" = (
 /obj/structure/table,
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "lino"
-	},
+/turf/unsimulated/floor/lino,
 /area/tdome/tdomeadmin)
 
 (1,1,1) = {"

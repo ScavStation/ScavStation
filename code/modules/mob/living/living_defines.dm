@@ -69,8 +69,37 @@
 	var/blood_type = "A+"
 	var/datum/gas_mixture/breath = null
 
+	var/last_cough = 0
+
 	// Used to track appearance descriptor datums.
 	// Currently only on humans due to the spaghetti code involved, TODO: generalize.
 	var/list/appearance_descriptors
 
+	/// Total level of flash protection
+	var/flash_protection = FLASH_PROTECTION_NONE
+
+	/// Whether this mob's ability to stand has been affected
+	var/stance_damage = 0
+
 	var/list/smell_cooldown
+
+	/// Whether or not this mob has a client who wishes to sleep indefinitely.
+	var/player_triggered_sleeping = FALSE
+
+	/// Organ instances that should report info to Stat().
+	var/list/stat_organs
+
+	/// Should this mob subscribe to the weather system for periodic weather effects?
+	var/weather_sensitive = FALSE
+
+	/// Var used to track current step for footsteps sounds.
+	var/tmp/step_count
+
+	/// Has this mob -ever- had a gripper? Used to skip hand checks in some cases.
+	var/has_had_gripper = FALSE
+
+	/// Timer for chewing off your hand when cuffed.
+	var/next_restraint_chew = 0
+
+	/// Used by equip code to determine backpack overrides.
+	var/datum/backpack_setup/backpack_setup

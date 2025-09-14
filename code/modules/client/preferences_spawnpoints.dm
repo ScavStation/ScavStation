@@ -95,7 +95,30 @@
 /obj/abstract/landmark/latejoin/cryo
 	spawn_decl = /decl/spawnpoint/cryo
 
-/decl/spawnpoint/cryo/after_join(mob/living/carbon/human/victim)
+
+/decl/spawnpoint/cryo/contractor
+	name = "Contractor Acquisition Pod"
+	spawn_announcement = "has been defrosted for duty"
+	disallow_job_event_categories = list(ASSIGNMENT_ROBOT)
+	uid = "spawn_contractor"
+	spawn_flags = (SPAWN_FLAG_GHOSTS_CAN_SPAWN | SPAWN_FLAG_JOBS_CAN_SPAWN)
+
+/obj/abstract/landmark/latejoin/cryo/contractor
+	spawn_decl = /decl/spawnpoint/cryo/contractor
+
+
+/decl/spawnpoint/cryo/enclave
+	name = "Yinglet Sleeptime Capsule"
+	spawn_announcement = "is no longer part of zhe sleeptime storage"
+	disallow_job_event_categories = list(ASSIGNMENT_ROBOT)
+	uid = "spawn_enclave"
+	spawn_flags = (SPAWN_FLAG_GHOSTS_CAN_SPAWN | SPAWN_FLAG_JOBS_CAN_SPAWN)
+
+/obj/abstract/landmark/latejoin/cryo/enclave
+	spawn_decl = /decl/spawnpoint/cryo/enclave
+
+
+/decl/spawnpoint/cryo/after_join(mob/living/human/victim)
 	if(!istype(victim) || victim.buckled) // They may have spawned with a wheelchair; don't move them into a pod in that case.
 		return
 
@@ -104,11 +127,11 @@
 		if(!C.occupant)
 
 			// Store any held or equipped items.
-			var/obj/item/storage/backpack/pack = victim.get_equipped_item(slot_back_str)
-			if(istype(pack))
+			var/obj/item/backpack/pack = victim.get_equipped_item(slot_back_str)
+			if(istype(pack) && pack.storage)
 				for(var/atom/movable/thing in victim.get_held_items())
 					victim.drop_from_inventory(thing)
-					pack.handle_item_insertion(thing)
+					pack.storage.handle_item_insertion(null, thing)
 
 			C.set_occupant(victim, 1)
 			SET_STATUS_MAX(victim, STAT_ASLEEP, rand(1,3))

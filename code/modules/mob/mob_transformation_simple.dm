@@ -2,25 +2,19 @@
 var/global/list/href_to_mob_type = list(
 	"Observer" =     /mob/observer/ghost,
 	"Crew" = list(
-		"Human" =    /mob/living/carbon/human,
-		"Monkey" =   /mob/living/carbon/human/monkey,
+		"Human" =    /mob/living/human,
+		"Monkey" =   /mob/living/human/monkey,
 		"Robot" =    /mob/living/silicon/robot
 	),
 	"Animals" = list(
-		"Cat" =      /mob/living/simple_animal/cat,
-		"Runtime" =  /mob/living/simple_animal/cat/fluff/runtime,
+		"Cat" =      /mob/living/simple_animal/passive/cat,
+		"Runtime" =  /mob/living/simple_animal/passive/cat/fluff/runtime,
 		"Corgi" =    /mob/living/simple_animal/corgi,
 		"Ian" =      /mob/living/simple_animal/corgi/Ian,
 		"Crab" =     /mob/living/simple_animal/crab,
 		"Coffee" =   /mob/living/simple_animal/crab/Coffee,
-		"Parrot" =   /mob/living/simple_animal/hostile/retaliate/parrot,
-		"Poly" =     /mob/living/simple_animal/hostile/retaliate/parrot/Poly,
-	),
-	"Constructs" = list(
-		"Armoured" = /mob/living/simple_animal/construct/armoured,
-		"Builder" =  /mob/living/simple_animal/construct/builder,
-		"Wraith" =   /mob/living/simple_animal/construct/wraith,
-		"Shade" =    /mob/living/simple_animal/shade
+		"Parrot" =   /mob/living/simple_animal/hostile/parrot,
+		"Poly" =     /mob/living/simple_animal/hostile/parrot/Poly,
 	)
 )
 
@@ -77,16 +71,13 @@ var/global/list/href_to_mob_type = list(
 		M.SetName(name)
 		M.real_name = real_name
 
-	if(dna)
-		M.dna = dna.Clone()
-
 	if(mind)
 		mind.transfer_to(M)
 	if(!M.key) // ghost minds are inactive for reasons that escape me
 		M.key = key
 
 	if(subspecies && ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		H.change_species(subspecies)
 
 	return M

@@ -25,11 +25,11 @@
 	if(istype(I, /obj/item/disk/design_disk))
 		if(disk)
 			to_chat(user, SPAN_WARNING("\The [src] already has a disk inserted."))
-			return
+			return TRUE
 		if(user.try_unequip(I, src))
 			visible_message("\The [user] slots \the [I] into \the [src].")
 			disk = I
-			return
+			return TRUE
 	. = ..()
 
 /obj/machinery/computer/design_console/proc/eject_disk(var/mob/user)

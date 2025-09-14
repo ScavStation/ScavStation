@@ -5,7 +5,7 @@
 	return FALSE
 
 /mob/living/proc/need_breathe()
-	if(mNobreath in mutations)
+	if(has_genetic_condition(GENE_COND_NO_BREATH))
 		return FALSE
 	var/decl/bodytype/root_bodytype = get_bodytype()
 	if(!root_bodytype || !root_bodytype.breathing_organ || !should_have_organ(root_bodytype.breathing_organ))
@@ -13,7 +13,7 @@
 	return TRUE
 
 /mob/living/proc/should_breathe()
-	return FALSE
+	return ((life_tick % 2) == 0 || failed_last_breath || is_asystole())
 
 /mob/living/proc/try_breathe()
 
@@ -64,13 +64,13 @@
 		return
 
 	// First handle being in a submerged environment.
-	if(is_flooded(lying))
+	if(is_flooded(current_posture.prone))
 		var/turf/my_turf = get_turf(src)
 
 		//Can we get air from the turf above us?
 		var/can_breathe_air_above = FALSE
 		if(my_turf == location)
-			if(!lying && my_turf.above && !my_turf.above.is_flooded() && my_turf.above.is_open() && can_overcome_gravity())
+			if(!current_posture.prone && my_turf.above && !my_turf.above.is_flooded() && my_turf.above.is_open() && can_overcome_gravity())
 				location = my_turf.above
 				can_breathe_air_above = TRUE
 
@@ -144,7 +144,7 @@
 
 /mob/living/proc/handle_post_breath(datum/gas_mixture/breath)
 
-	if(!breath || !holding_breath)
+	if(!breath || holding_breath)
 		return
 
 	var/datum/gas_mixture/loc_air = loc?.return_air()

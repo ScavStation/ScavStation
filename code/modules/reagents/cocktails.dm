@@ -104,7 +104,7 @@
 	description = "Watered-down rum. Pirate approved!"
 	ratios = list(
 		/decl/material/liquid/water =       1,
-		/decl/material/liquid/ethanol/rum = 1
+		/decl/material/liquid/alcohol/rum = 1
 	)
 
 /decl/cocktail/screwdriver
@@ -112,7 +112,7 @@
 	description = "A classic mixture of vodka and orange juice. Just the thing for the tired engineer."
 	ratios = list(
 		/decl/material/liquid/drink/juice/orange = 4,
-		/decl/material/liquid/ethanol/vodka =      1
+		/decl/material/liquid/alcohol/vodka =      1
 	)
 
 /decl/cocktail/tequila_sunrise
@@ -120,39 +120,39 @@
 	description = "A simple cocktail of tequila and orange juice. Much like a screwdriver."
 	ratios = list(
 		/decl/material/liquid/drink/juice/orange = 4,
-		/decl/material/liquid/ethanol/tequila =    1
+		/decl/material/liquid/alcohol/tequila =    1
 	)
 
 /decl/cocktail/classic_martini
 	name = "gin martini"
 	description = "Vermouth with gin. The classiest of all cocktails."
 	ratios = list(
-		/decl/material/liquid/ethanol/gin =      4,
-		/decl/material/liquid/ethanol/vermouth = 1
+		/decl/material/liquid/alcohol/gin =      4,
+		/decl/material/liquid/alcohol/vermouth = 1
 	)
 
 /decl/cocktail/vodka_martini
 	name = "vodka martini"
 	description = "A bastardisation of the classic martini. Still great."
 	ratios = list(
-		/decl/material/liquid/ethanol/vodka =    4,
-		/decl/material/liquid/ethanol/vermouth = 1
+		/decl/material/liquid/alcohol/vodka =    4,
+		/decl/material/liquid/alcohol/vermouth = 1
 	)
 
 /decl/cocktail/allies_cocktail
 	name = "Allies Cocktail"
 	description = "A drink made from your allies, not as sweet as when made from your enemies."
 	ratios = list(
-		/decl/material/liquid/ethanol/vermouth = 2,
-		/decl/material/liquid/ethanol/vodka    = 2,
-		/decl/material/liquid/ethanol/gin =      2
+		/decl/material/liquid/alcohol/vermouth = 2,
+		/decl/material/liquid/alcohol/vodka    = 2,
+		/decl/material/liquid/alcohol/gin =      2
 	)
 
 /decl/cocktail/bilk
 	name = "bilk"
 	description =  "A foul brew of milk and beer. For alcoholics who fear osteoporosis."
 	ratios = list(
-		/decl/material/liquid/ethanol/beer = 1,
+		/decl/material/liquid/alcohol/beer = 1,
 		/decl/material/liquid/drink/milk =   1
 	)
 
@@ -161,7 +161,7 @@
 	description = "A mild cocktail, widely considered an all-time classic."
 	ratios = list(
 		/decl/material/liquid/drink/tonic = 4,
-		/decl/material/liquid/ethanol/gin = 1
+		/decl/material/liquid/alcohol/gin = 1
 	)
 
 /decl/cocktail/cuba_libre
@@ -169,24 +169,24 @@
 	description = "A classic mix of rum and cola."
 	ratios = list(
 		/decl/material/liquid/drink/cola =  4,
-		/decl/material/liquid/ethanol/rum = 1
+		/decl/material/liquid/alcohol/rum = 1
 	)
 
 /decl/cocktail/black_russian
 	name = "black Russian"
 	description = "Similar to a white Russian, but fit for the lactose-intolerant."
 	ratios = list(
-		/decl/material/liquid/ethanol/vodka =  2,
-		/decl/material/liquid/ethanol/coffee = 1
+		/decl/material/liquid/alcohol/vodka =  2,
+		/decl/material/liquid/alcohol/coffee = 1
 	)
 
 /decl/cocktail/white_russian
 	name = "white Russian"
 	description = "A straightforward cocktail of coffee liqueur and vodka. Popular in a lot of places, but that's just, like, an opinion, man."
 	ratios = list(
-		/decl/material/liquid/ethanol/coffee =   2,
+		/decl/material/liquid/alcohol/coffee =   2,
 		/decl/material/liquid/drink/milk/cream,
-		/decl/material/liquid/ethanol/vodka =    1
+		/decl/material/liquid/alcohol/vodka =    1
 	)
 
 /decl/cocktail/whiskey_cola
@@ -194,7 +194,7 @@
 	description = "Whiskey mixed with cola. Quite refreshing."
 	ratios = list(
 		/decl/material/liquid/drink/cola =      4,
-		/decl/material/liquid/ethanol/whiskey = 1
+		/decl/material/liquid/alcohol/whiskey = 1
 	)
 
 /decl/cocktail/bloody_mary
@@ -202,7 +202,7 @@
 	description = "A cocktail of vodka, tomato and lime juice. Celery stalk optional."
 	ratios = list(
 		/decl/material/liquid/drink/juice/tomato = 3,
-		/decl/material/liquid/ethanol/vodka =      1,
+		/decl/material/liquid/alcohol/vodka =      1,
 		/decl/material/liquid/drink/juice/lime =   1
 	)
 
@@ -210,10 +210,10 @@
 	name = "The Livergeist"
 	description = "A cocktail pioneered by a small cabal with a vendetta against the liver. Drink very carefully."
 	ratios = list(
-		/decl/material/liquid/ethanol/vodka =        1,
-		/decl/material/liquid/ethanol/gin =          1,
-		/decl/material/liquid/ethanol/aged_whiskey = 1,
-		/decl/material/liquid/ethanol/cognac =       1,
+		/decl/material/liquid/alcohol/vodka =        1,
+		/decl/material/liquid/alcohol/gin =          1,
+		/decl/material/liquid/alcohol/aged_whiskey = 1,
+		/decl/material/liquid/alcohol/cognac =       1,
 		/decl/material/liquid/drink/juice/lime =     1
 	)
 
@@ -221,16 +221,16 @@
 	name = "Brave Bull"
 	description = "A strong cocktail of tequila and coffee liquor."
 	ratios = list(
-		/decl/material/liquid/ethanol/tequila =   2,
-		/decl/material/liquid/ethanol/coffee =    1
+		/decl/material/liquid/alcohol/tequila =   2,
+		/decl/material/liquid/alcohol/coffee =    1
 	)
 
 /decl/cocktail/toxins_special
 	name = "H2 Special"
 	description = "Raise a glass to the bomb technicians of yesteryear, wherever their ashes now reside."
 	ratios = list(
-		/decl/material/liquid/ethanol/rum = 1,
-		/decl/material/liquid/ethanol/vermouth = 1,
+		/decl/material/liquid/alcohol/rum = 1,
+		/decl/material/liquid/alcohol/vermouth = 1,
 		/decl/material/solid/metallic_hydrogen
 	)
 
@@ -238,7 +238,7 @@
 	name = "Beepsky Smash"
 	description = "A cocktail originating with stationside security forces. Rumoured to take the edge off being stunned with your own baton."
 	ratios = list(
-		/decl/material/liquid/ethanol/whiskey =  2,
+		/decl/material/liquid/alcohol/whiskey =  2,
 		/decl/material/liquid/drink/juice/lime = 1,
 		/decl/material/solid/metal/iron
 	)
@@ -258,8 +258,8 @@
 	name = "The Manly Dorf"
 	description = "A cocktail of old that claims to be for manly men, but is mostly for people who can't tell beer and ale apart."
 	ratios = list(
-		/decl/material/liquid/ethanol/ale =  1,
-		/decl/material/liquid/ethanol/beer = 1
+		/decl/material/liquid/alcohol/ale =  1,
+		/decl/material/liquid/alcohol/beer = 1
 	)
 
 /decl/cocktail/irish_coffee
@@ -267,16 +267,16 @@
 	description = "A cocktail of coffee, whiskey and cream, just the thing to kick you awake while also dulling the pain of existence."
 	ratios = list(
 		/decl/material/liquid/drink/coffee =        4,
-		/decl/material/liquid/ethanol/irish_cream = 1
+		/decl/material/liquid/alcohol/irish_cream = 1
 	)
 
 /decl/cocktail/b52
 	name = "B-52"
 	description = "A semi-modern spin on an Irish coffee, featuring a dash of cognac. It will get you bombed."
 	ratios = list(
-		/decl/material/liquid/ethanol/coffee =      1,
-		/decl/material/liquid/ethanol/irish_cream = 1,
-		/decl/material/liquid/ethanol/cognac =      1
+		/decl/material/liquid/alcohol/coffee =      1,
+		/decl/material/liquid/alcohol/irish_cream = 1,
+		/decl/material/liquid/alcohol/cognac =      1
 	)
 	order_specific = TRUE // layered cocktail
 
@@ -284,9 +284,9 @@
 	name = "Atomic Bomb"
 	description = "A radioactive take on a B-52, popularized by asteroid miners with prosthetic organs and something to prove."
 	ratios = list(
-		/decl/material/liquid/ethanol/coffee =      1,
-		/decl/material/liquid/ethanol/irish_cream = 1,
-		/decl/material/liquid/ethanol/cognac =      1,
+		/decl/material/liquid/alcohol/coffee =      1,
+		/decl/material/liquid/alcohol/irish_cream = 1,
+		/decl/material/liquid/alcohol/cognac =      1,
 		/decl/material/solid/metal/uranium
 	)
 	order_specific = TRUE // layered cocktail
@@ -296,7 +296,7 @@
 	name = "margarita"
 	description = "A classic cocktail of antiquity."
 	ratios = list(
-		/decl/material/liquid/ethanol/tequila = 3,
+		/decl/material/liquid/alcohol/tequila = 3,
 		/decl/material/liquid/drink/juice/lime = 1
 	)
 
@@ -305,10 +305,10 @@
 	description = "Most of the liquor cabinet, brought together in a delicious mix. Designed for middle-aged alcoholics."
 	ratios = list(
 		/decl/material/liquid/drink/cola =      2,
-		/decl/material/liquid/ethanol/rum =     1,
-		/decl/material/liquid/ethanol/vodka =   1,
-		/decl/material/liquid/ethanol/gin =     1,
-		/decl/material/liquid/ethanol/tequila = 1
+		/decl/material/liquid/alcohol/rum =     1,
+		/decl/material/liquid/alcohol/vodka =   1,
+		/decl/material/liquid/alcohol/gin =     1,
+		/decl/material/liquid/alcohol/tequila = 1
 	)
 
 /decl/cocktail/threemileisland
@@ -316,10 +316,10 @@
 	description = "Much like the Atomic Bomb, this cocktail was adapted by asteroid miners who couldn't enjoy a drink without a dose of radiation poisoning."
 	ratios = list(
 		/decl/material/liquid/drink/cola =      2,
-		/decl/material/liquid/ethanol/rum =     1,
-		/decl/material/liquid/ethanol/vodka =   1,
-		/decl/material/liquid/ethanol/gin =     1,
-		/decl/material/liquid/ethanol/tequila = 1,
+		/decl/material/liquid/alcohol/rum =     1,
+		/decl/material/liquid/alcohol/vodka =   1,
+		/decl/material/liquid/alcohol/gin =     1,
+		/decl/material/liquid/alcohol/tequila = 1,
 		/decl/material/solid/metal/uranium
 	)
 
@@ -328,23 +328,23 @@
 	description = "A simple cocktail, considered to be cultured and refined."
 	ratios = list(
 		/decl/material/liquid/drink/sodawater = 4,
-		/decl/material/liquid/ethanol/whiskey = 1
+		/decl/material/liquid/alcohol/whiskey = 1
 	)
 
 /decl/cocktail/manhattan
 	name = "Manhattan"
 	description = "Another classic cocktail of antiquity. Popular with private investigators."
 	ratios = list(
-		/decl/material/liquid/ethanol/whiskey =  2,
-		/decl/material/liquid/ethanol/vermouth = 1
+		/decl/material/liquid/alcohol/whiskey =  2,
+		/decl/material/liquid/alcohol/vermouth = 1
 	)
 
 /decl/cocktail/manhattan_proj
 	name = "Manhattan Project"
 	description = "A classic cocktail with a spicy twist, pioneered by a robot detective."
 	ratios = list(
-		/decl/material/liquid/ethanol/whiskey =  2,
-		/decl/material/liquid/ethanol/vermouth = 1,
+		/decl/material/liquid/alcohol/whiskey =  2,
+		/decl/material/liquid/alcohol/vermouth = 1,
 		/decl/material/solid/metal/uranium
 	)
 
@@ -353,14 +353,14 @@
 	description = "A simple, refreshing cocktail with a kick to it."
 	ratios = list(
 		/decl/material/liquid/drink/tonic =   4,
-		/decl/material/liquid/ethanol/vodka = 1
+		/decl/material/liquid/alcohol/vodka = 1
 	)
 
 /decl/cocktail/gin_fizz
 	name = "gin fizz"
 	description = "A dry, refreshing cocktail with a tang of lime."
 	ratios = list(
-		/decl/material/liquid/ethanol/gin =      2,
+		/decl/material/liquid/alcohol/gin =      2,
 		/decl/material/liquid/drink/sodawater =  2,
 		/decl/material/liquid/drink/juice/lime = 1
 	)
@@ -369,7 +369,7 @@
 	name = "Bahama Mama"
 	description = "A sweet tropical cocktail that is deceptively strong."
 	ratios = list(
-		/decl/material/liquid/ethanol/rum =        2,
+		/decl/material/liquid/alcohol/rum =        2,
 		/decl/material/liquid/drink/juice/orange = 2,
 		/decl/material/liquid/drink/juice/lime =   2,
 		/decl/material/liquid/drink/grenadine =    1
@@ -379,8 +379,8 @@
 	name = "Singulo"
 	description = "Traditionally thrown together from maintenance stills and used to treat singularity exposure in engineers who forgot their meson goggles."
 	ratios = list(
-		/decl/material/liquid/ethanol/vodka = 1,
-		/decl/material/liquid/ethanol/wine =  1,
+		/decl/material/liquid/alcohol/vodka = 1,
+		/decl/material/liquid/alcohol/wine =  1,
 		/decl/material/solid/metal/radium
 	)
 
@@ -388,7 +388,7 @@
 	name = "Demon's Blood"
 	description = "A ghoulish cocktail that originated as a practical joke in a fringe habitat."
 	ratios = list(
-		/decl/material/liquid/ethanol/rum =      2,
+		/decl/material/liquid/alcohol/rum =      2,
 		/decl/material/liquid/drink/citrussoda = 2,
 		/decl/material/liquid/drink/cherrycola = 2,
 		/decl/material/liquid/blood =            1
@@ -399,7 +399,7 @@
 	description = "A thick and creamy cocktail."
 	ratios = list(
 		/decl/material/liquid/drink/milk/cream =       2,
-		/decl/material/liquid/ethanol/rum =            2,
+		/decl/material/liquid/alcohol/rum =            2,
 		/decl/material/liquid/drink/juice/banana =     1,
 		/decl/material/liquid/drink/juice/watermelon = 1
 	)
@@ -408,7 +408,7 @@
 	name = "Anti-freeze"
 	description = "A chilled cocktail invented and popularized by corona miners."
 	ratios = list(
-		/decl/material/liquid/ethanol/vodka =    3,
+		/decl/material/liquid/alcohol/vodka =    3,
 		/decl/material/liquid/drink/milk/cream = 2,
 		/decl/material/solid/ice =               2
 	)
@@ -417,7 +417,7 @@
 	name = "Barefoot"
 	description = "A smooth cocktail that will take your mind off the broken glass you stepped on."
 	ratios = list(
-		/decl/material/liquid/ethanol/vermouth =  4,
+		/decl/material/liquid/alcohol/vermouth =  4,
 		/decl/material/liquid/drink/juice/berry = 2,
 		/decl/material/liquid/drink/milk/cream =  1
 	)
@@ -426,7 +426,7 @@
 	name = "sbiten"
 	description = "A form of spiced mead that will bring tears to the eyes of the most hardened drinker."
 	ratios = list(
-		/decl/material/liquid/ethanol/mead = 9,
+		/decl/material/liquid/alcohol/mead = 9,
 		/decl/material/liquid/capsaicin =    1
 	)
 
@@ -434,7 +434,7 @@
 	name = "red mead"
 	description = "Supposedly a traditional drink amongst mercenary groups prior to dangerous missions."
 	ratios = list(
-		/decl/material/liquid/ethanol/mead = 1,
+		/decl/material/liquid/alcohol/mead = 1,
 		/decl/material/liquid/blood =        1
 	)
 
@@ -442,7 +442,7 @@
 	name = "Acid Spit"
 	description = "A cocktail inspired by monsters of legend, popular with college students daring their friends to drink one."
 	ratios = list(
-		/decl/material/liquid/ethanol/wine = 1,
+		/decl/material/liquid/alcohol/wine = 1,
 		/decl/material/liquid/acid
 	)
 
@@ -454,17 +454,17 @@
 		/decl/material/liquid/drink/juice/orange = 2,
 		/decl/material/liquid/drink/juice/lime =   1,
 		/decl/material/liquid/drink/juice/lemon =  1,
-		/decl/material/liquid/ethanol/vodka =      1
+		/decl/material/liquid/alcohol/vodka =      1
 	)
 
 /decl/cocktail/neurotoxin
 	name = "Neurotoxin"
 	description = "A cocktail primarily intended for people with a grudge against their own brain."
 	ratios = list(
-		/decl/material/liquid/ethanol/vodka =        1,
-		/decl/material/liquid/ethanol/gin =          1,
-		/decl/material/liquid/ethanol/aged_whiskey = 1,
-		/decl/material/liquid/ethanol/cognac =       1,
+		/decl/material/liquid/alcohol/vodka =        1,
+		/decl/material/liquid/alcohol/gin =          1,
+		/decl/material/liquid/alcohol/aged_whiskey = 1,
+		/decl/material/liquid/alcohol/cognac =       1,
 		/decl/material/liquid/drink/juice/lime =     1,
 		/decl/material/liquid/sedatives
 	)
@@ -474,16 +474,16 @@
 	description = "A tangy, fizzy twist on beer."
 	ratios = list(
 		/decl/material/liquid/drink/lemon_lime = 3,
-		/decl/material/liquid/ethanol/beer =     1
+		/decl/material/liquid/alcohol/beer =     1
 	)
 
 /decl/cocktail/irishslammer
 	name = "Irish Slammer"
 	description = "A rich cocktail of whiskey, stout and cream that was performed using a shot glass before glass-interleaving technology was lost."
 	ratios = list(
-		/decl/material/liquid/ethanol/ale =         5,
-		/decl/material/liquid/ethanol/whiskey =     1,
-		/decl/material/liquid/ethanol/irish_cream = 1
+		/decl/material/liquid/alcohol/ale =         5,
+		/decl/material/liquid/alcohol/whiskey =     1,
+		/decl/material/liquid/alcohol/irish_cream = 1
 	)
 
 // A whiskey cola with added beer.
@@ -491,8 +491,8 @@
 	name = "Syndicate Bomb"
 	description = "A murky cocktail reputed to have originated in criminal circles. It will definitely get you bombed."
 	ratios = list(
-		/decl/material/liquid/ethanol/whiskey = 1,
-		/decl/material/liquid/ethanol/beer =    1,
+		/decl/material/liquid/alcohol/whiskey = 1,
+		/decl/material/liquid/alcohol/beer =    1,
 		/decl/material/liquid/drink/cola =      4
 	)
 
@@ -500,19 +500,19 @@
 	name = "Devil's Kiss"
 	description = "A ghoulish cocktail popular in some of the weirder dive bars on the system fringe."
 	ratios = list(
-		/decl/material/liquid/ethanol/rum =    4,
+		/decl/material/liquid/alcohol/rum =    4,
 		/decl/material/liquid/blood =          1,
-		/decl/material/liquid/ethanol/coffee = 2
+		/decl/material/liquid/alcohol/coffee = 2
 	)
 
 /decl/cocktail/hippiesdelight
 	name = "Hippy's Delight"
 	description = "A complex cocktail that just might open your third eye."
 	ratios = list(
-		/decl/material/liquid/ethanol/vodka =        1,
-		/decl/material/liquid/ethanol/gin =          1,
-		/decl/material/liquid/ethanol/aged_whiskey = 1,
-		/decl/material/liquid/ethanol/cognac =       1,
+		/decl/material/liquid/alcohol/vodka =        1,
+		/decl/material/liquid/alcohol/gin =          1,
+		/decl/material/liquid/alcohol/aged_whiskey = 1,
+		/decl/material/liquid/alcohol/cognac =       1,
 		/decl/material/liquid/drink/juice/lime =     1,
 		/decl/material/liquid/psychotropics =        2
 	)
@@ -531,7 +531,7 @@
 	description = "A smooth, steady cocktail supposedly ordered by sawbones and surgeons of legend."
 	ratios = list(
 		/decl/material/liquid/drink/cherrycola = 4,
-		/decl/material/liquid/ethanol/rum =      2
+		/decl/material/liquid/alcohol/rum =      2
 	)
 
 /decl/cocktail/vodkacola
@@ -539,14 +539,14 @@
 	description = "A simple mix of cola and vodka, combining sweetness, fizz and a kick in the teeth."
 	ratios = list(
 		/decl/material/liquid/drink/cola =    2,
-		/decl/material/liquid/ethanol/vodka = 1
+		/decl/material/liquid/alcohol/vodka = 1
 	)
 
 /decl/cocktail/sawbonesdismay
 	name = "Sawbones' Dismay"
 	description = "Legally, we are required to inform you that drinking this cocktail may invalidate your health insurance."
 	ratios = list(
-		/decl/material/liquid/ethanol/jagermeister = 1,
+		/decl/material/liquid/alcohol/jagermeister = 1,
 		/decl/material/liquid/drink/beastenergy =    1
 	)
 
@@ -554,7 +554,7 @@
 	name = "Patron"
 	description = "Tequila mixed with flaked silver, for those with moderate expensive tastes."
 	ratios = list(
-		/decl/material/liquid/ethanol/tequila = 1,
+		/decl/material/liquid/alcohol/tequila = 1,
 		/decl/material/solid/metal/silver
 	)
 
@@ -571,7 +571,7 @@
 	name = "Goldschlager"
 	description = "Schnapps mixed with flaked gold, for those with very expensive tastes."
 	ratios = list(
-		/decl/material/liquid/ethanol/vodka = 1,
+		/decl/material/liquid/alcohol/vodka = 1,
 		/decl/material/solid/metal/gold
 	)
 
@@ -597,5 +597,5 @@
 	description = "Watered-down whiskey. Essentially grog, but without the pirates."
 	ratios = list(
 		/decl/material/liquid/water =           1,
-		/decl/material/liquid/ethanol/whiskey = 1
+		/decl/material/liquid/alcohol/whiskey = 1
 	)

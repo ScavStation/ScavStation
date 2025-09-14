@@ -176,6 +176,10 @@
 	name = "\improper ERT radio encryption key"
 	can_decrypt = list(access_cent_specops)
 
+/obj/item/encryptionkey/ert/Initialize(ml, material_key)
+	. = ..()
+	can_decrypt |= get_all_station_access()
+
 /obj/item/radio/headset/ert
 	name = "emergency response team radio headset"
 	desc = "The headset of the boss's boss."
@@ -191,6 +195,12 @@
 	origin_tech = @'{"esoteric":2}'
 	encryption_keys = list(/obj/item/encryptionkey/mercenary)
 	analog_secured = list((access_mercenary) = TRUE)
+
+/obj/item/radio/headset/mercenary/commando
+	encryption_keys = list(
+		/obj/item/encryptionkey/mercenary,
+		/obj/item/encryptionkey/hacked
+	)
 
 /obj/item/encryptionkey/entertainment
 	name = "entertainment radio key"
@@ -210,6 +220,18 @@
 	origin_tech = @'{"esoteric":2}'
 	encryption_keys = list(/obj/item/encryptionkey/raider)
 	analog_secured = list((access_raider) = TRUE)
+
+/obj/item/encryptionkey/hacked
+	can_decrypt = list(access_hacked)
+	origin_tech = @'{"esoteric":3}'
+
+/obj/item/encryptionkey/hacked/Initialize(ml, material_key)
+	. = ..()
+	can_decrypt |= get_all_station_access()
+
+/obj/item/radio/headset/hacked
+	origin_tech = @'{"esoteric":3}'
+	encryption_keys = list(/obj/item/encryptionkey/hacked)
 
 // Bowman alts
 /obj/item/radio/headset/headset_mining/bowman

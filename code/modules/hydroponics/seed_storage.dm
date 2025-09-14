@@ -24,8 +24,8 @@
 /obj/machinery/seed_storage
 	name = "Seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "seeds"
+	icon = 'icons/obj/machines/vending/seeds_grey.dmi'
+	icon_state = ICON_STATE_WORLD
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 100
@@ -62,7 +62,6 @@
 /obj/machinery/seed_storage/garden
 	name = "Garden seed storage"
 	scanner = list("stats")
-	icon_state = "seeds_generic"
 	starting_seeds = list(
 		/obj/item/seeds/ambrosiavulgarisseed = 15,
 		/obj/item/seeds/appleseed = 15,
@@ -200,7 +199,7 @@
 			if(!seed)
 				continue
 			dat += "<tr>"
-			dat += "<td>[seed.seed_name]</td>"
+			dat += "<td>[seed.product_name]</td>"
 			dat += "<td>#[seed.uid]</td>"
 			if ("stats" in scanner)
 				dat += "<td>[seed.get_trait(TRAIT_ENDURANCE)]</td><td>[seed.get_trait(TRAIT_YIELD)]</td><td>[seed.get_trait(TRAIT_MATURATION)]</td><td>[seed.get_trait(TRAIT_PRODUCTION)]</td><td>[seed.get_trait(TRAIT_POTENCY)]</td>"
@@ -324,14 +323,13 @@
 		user.visible_message(SPAN_NOTICE("\The [user] puts \the [O] into \the [src]."))
 		return TRUE
 
-	if(istype(O, /obj/item/storage/plants))
-		var/obj/item/storage/P = O
+	if(istype(O, /obj/item/plants) && O.storage)
 		var/loaded = 0
-		for(var/obj/item/seeds/G in P.contents)
+		for(var/obj/item/seeds/G in storage.get_contents())
 			++loaded
-			P.remove_from_storage(G, src, 1)
+			O.storage.remove_from_storage(user, G, src, TRUE)
 			add(G, 1)
-		P.finish_bulk_removal()
+		O.storage.finish_bulk_removal()
 		if (loaded)
 			user.visible_message(SPAN_NOTICE("\The [user] puts the seeds from \the [O] into \the [src]."))
 		else
@@ -346,9 +344,8 @@
 			var/mob/user = O.loc
 			if(!user.try_unequip(O, src))
 				return
-		else if(istype(O.loc,/obj/item/storage))
-			var/obj/item/storage/S = O.loc
-			S.remove_from_storage(O, src)
+		else if(isobj(O.loc))
+			O.loc?.storage?.remove_from_storage(null, O, src)
 
 	O.forceMove(src)
 	var/newID = 0

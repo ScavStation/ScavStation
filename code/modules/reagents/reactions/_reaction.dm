@@ -12,8 +12,6 @@
 	var/thermal_product
 	var/mix_message = "The solution begins to bubble."
 	var/reaction_sound = 'sound/effects/bubbles.ogg'
-	/// If this reaction should be considered important for logging. Important recipes message admins when mixed, non-important ones just log to file.
-	var/log_is_important = 0
 	var/lore_text
 	var/mechanics_text
 	var/reaction_category = REACTION_TYPE_COMPOUND
@@ -40,10 +38,10 @@
 
 	return 1
 
-/decl/chemical_reaction/proc/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/decl/chemical_reaction/proc/on_reaction(datum/reagents/holder, created_volume, reaction_flags, list/reaction_data)
 	var/atom/location = holder.get_reaction_loc(chemical_reaction_flags)
 	if(thermal_product && location && ATOM_SHOULD_TEMPERATURE_ENQUEUE(location))
-		ADJUST_ATOM_TEMPERATURE(location, thermal_product)
+		ADJUST_ATOM_TEMPERATURE(location, location.temperature + (location.get_thermal_mass_coefficient() * thermal_product))
 
 // This proc returns a list of all reagents it wants to use; if the holder has several reactions that use the same reagent, it will split the reagent evenly between them
 /decl/chemical_reaction/proc/get_used_reagents()
@@ -59,7 +57,7 @@
 
 	var/reaction_volume = holder.maximum_volume
 	for(var/reactant in required_reagents)
-		var/A = NONUNIT_FLOOR(REAGENT_VOLUME(holder, reactant) / required_reagents[reactant] / limit, MINIMUM_CHEMICAL_VOLUME)  // How much of this reagent we are allowed to use
+		var/A = CHEMS_QUANTIZE(REAGENT_VOLUME(holder, reactant) / required_reagents[reactant] / limit)  // How much of this reagent we are allowed to use
 		if(reaction_volume > A)
 			reaction_volume = A
 
@@ -73,7 +71,7 @@
 	if(result)
 		holder.add_reagent(result, amt_produced, data, safety = 1)
 
-	on_reaction(holder, amt_produced, alt_reaction_indicator)
+	on_reaction(holder, amt_produced, alt_reaction_indicator, data)
 
 //called after processing reactions, if they occurred
 /decl/chemical_reaction/proc/post_reaction(var/datum/reagents/holder)

@@ -39,9 +39,9 @@
 		var/obj/item/gun/energy/gun = O
 		if(installed_gun)
 			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
-			return
+			return TRUE
 		if(!user.try_unequip(gun,src))
-			return
+			return TRUE
 		installed_gun = gun
 		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
@@ -56,8 +56,9 @@
 			var/datum/firemode/fm = installed_gun.firemodes[installed_gun.sel_mode]
 			set_pin_data(IC_OUTPUT, 2, fm.name)
 		push_data()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
@@ -184,10 +185,12 @@
 	if(istype(G))
 		if(attached_grenade)
 			to_chat(user, "<span class='warning'>There is already a grenade attached!</span>")
-		else if(user.try_unequip(G,src))
+			return TRUE
+		if(user.try_unequip(G,src))
 			user.visible_message("<span class='warning'>\The [user] attaches \a [G] to \the [src]!</span>", "<span class='notice'>You attach \the [G] to \the [src].</span>")
 			attach_grenade(G)
 			G.forceMove(src)
+		return TRUE
 	else
 		return ..()
 
@@ -261,6 +264,8 @@
 		switch(get_pin_data(IC_INPUT, 2))
 			if(0)
 				var/list/harvest_output = TR.harvest()
+				if(harvest_output && !islist(harvest_output))
+					harvest_output = list(harvest_output)
 				for(var/i in 1 to length(harvest_output))
 					harvest_output[i] = weakref(harvest_output[i])
 
@@ -286,16 +291,12 @@
 					activate_pin(2)
 					return FALSE
 
-				else if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/cutting))
+				else if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/extracted/cutting))
 					if(!TR.seed)
+						var/obj/item/seeds/seed = O
 						acting_object.visible_message("<span class='notice'>[acting_object] plants [O].</span>")
-						TR.dead = 0
-						TR.seed = O
-						TR.age = 1
-						TR.plant_health = TR.seed.get_trait(TRAIT_ENDURANCE)
-						TR.lastcycle = world.time
-						O.forceMove(TR)
-						TR.update_icon()
+						TR.set_seed(seed.seed)
+						QDEL_NULL(O)
 	activate_pin(2)
 
 /obj/item/integrated_circuit/manipulation/seed_extractor
@@ -312,18 +313,14 @@
 
 /obj/item/integrated_circuit/manipulation/seed_extractor/do_work()
 	..()
-	var/obj/item/chems/food/grown/O = get_pin_data_as_type(IC_INPUT, 1, /obj/item/chems/food/grown)
+	var/obj/item/food/grown/O = get_pin_data_as_type(IC_INPUT, 1, /obj/item/food/grown)
 	if(!check_target(O))
 		push_data()
 		activate_pin(2)
 		return
 	var/list/seed_output = list()
 	for(var/i in 1 to rand(1,4))
-		var/obj/item/seeds/seeds = new(get_turf(O))
-		seeds.seed = SSplants.seeds[O.plantname]
-		seeds.seed_type = SSplants.seeds[O.seed.name]
-		seeds.update_seed()
-		seed_output += weakref(seeds)
+		seed_output += weakref(new /obj/item/seeds(get_turf(O), null, O.seed))
 	qdel(O)
 
 	if(seed_output.len)
@@ -351,7 +348,7 @@
 	var/atom/movable/acting_object = get_object()
 	var/turf/T = get_turf(acting_object)
 	var/obj/item/AM = get_pin_data_as_type(IC_INPUT, 1, /obj/item)
-	if(!QDELETED(AM) && !istype(AM, /obj/item/electronic_assembly) && !istype(AM, /obj/item/transfer_valve) && !istype(AM, /obj/item/twohanded) && !istype(assembly.loc, /obj/item/implant))
+	if(!QDELETED(AM) && !istype(AM, /obj/item/electronic_assembly) && !istype(AM, /obj/item/transfer_valve) && !istype(assembly.loc, /obj/item/implant))
 		var/mode = get_pin_data(IC_INPUT, 2)
 		if(mode == 1)
 			if(check_target(AM))
@@ -495,7 +492,7 @@
 	var/target_y_rel = round(get_pin_data(IC_INPUT, 2))
 	var/obj/item/A = get_pin_data_as_type(IC_INPUT, 3, /obj/item)
 
-	if(!A || A.anchored || A.throwing || A == assembly || istype(A, /obj/item/twohanded) || istype(A, /obj/item/transfer_valve))
+	if(!A || A.anchored || A.throwing || A == assembly || istype(A, /obj/item/transfer_valve))
 		return
 
 	if (istype(assembly.loc, /obj/item/implant/compressed)) //Prevents the more abusive form of chestgun.
@@ -656,6 +653,7 @@
 /obj/item/integrated_circuit/manipulation/ai/attackby(var/obj/item/I, var/mob/user)
 	if(is_type_in_list(I, list(/obj/item/aicard, /obj/item/paicard, /obj/item/organ/internal/brain_interface)))
 		load_ai(user, I)
+		return TRUE
 	else return ..()
 
 /obj/item/integrated_circuit/manipulation/ai/attack_self(user)

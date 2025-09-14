@@ -6,15 +6,18 @@
 	icon_base            = 'mods/species/bayliens/tajaran/icons/body.dmi'
 	icon_deformed        = 'mods/species/bayliens/tajaran/icons/deformed_body.dmi'
 	bandages_icon        = 'icons/mob/bandage.dmi'
+	skeletal_icon        = 'mods/species/bayliens/tajaran/icons/skeleton.dmi'
 	cosmetics_icon       = 'mods/species/bayliens/tajaran/icons/cosmetics.dmi'
 	health_hud_intensity = 1.75
-	bodytype_flag        = BODY_FLAG_HUMANOID
+	bodytype_flag        = BODY_EQUIP_FLAG_HUMANOID
 	movement_slowdown    = -0.5
 	appearance_flags     = HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	base_color           = "#ae7d32"
 	base_eye_color       = "#00aa00"
 	nail_noun            = "claws"
-	nail_noun            = "claws"
+	uid                  = "bodytype_feline"
+
+	age_descriptor = /datum/appearance_descriptor/age/tajaran
 
 	eye_darksight_range  = 7
 	eye_flash_mod        = 2
@@ -28,8 +31,8 @@
 	)
 
 	default_sprite_accessories = list(
-		SAC_HAIR     = list(/decl/sprite_accessory/hair/taj/lynx        = "#46321c"),
-		SAC_MARKINGS = list(/decl/sprite_accessory/marking/tajaran/ears = "#ae7d32")
+		SAC_HAIR     = list(/decl/sprite_accessory/hair/taj/lynx        = list(SAM_COLOR = "#46321c")),
+		SAC_MARKINGS = list(/decl/sprite_accessory/marking/tajaran/ears = list(SAM_COLOR = "#ae7d32"))
 	)
 
 	cold_level_1 = 200
@@ -66,5 +69,5 @@
 
 /obj/item/organ/external/tail/cat
 	tail_icon  = 'mods/species/bayliens/tajaran/icons/tail.dmi'
-	tail       = "tajtail"
 	tail_blend = ICON_MULTIPLY
+	tail_animation_states = 1

@@ -26,26 +26,32 @@
 
 /obj/machinery/keycard_auth/attack_ai(mob/living/silicon/ai/user)
 	to_chat(user, "<span class='warning'>A firewall prevents you from interfacing with this device!</span>")
-	return
+	return TRUE
 
 /obj/machinery/keycard_auth/attackby(obj/item/W, mob/user)
+	if(!istype(W,/obj/item/card/id))
+		return ..()
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
-		return
-	if(istype(W,/obj/item/card/id))
-		visible_message(SPAN_NOTICE("[user] swipes \the [W] through \the [src]."))
-		var/obj/item/card/id/ID = W
-		if(access_keycard_auth in ID.access)
-			if(active)
-				if(event_source && initial_card?.resolve() != ID)
-					event_source.confirmed = 1
-					event_source.event_confirmed_by = user
-				else
-					visible_message(SPAN_WARNING("\The [src] blinks and displays a message: Unable to confirm the event with the same card."), range=2)
-			else if(screen == 2)
-				event_triggered_by = user
-				initial_card = weakref(ID)
-				broadcast_request() //This is the device making the initial event request. It needs to broadcast to other devices
+		return TRUE
+	visible_message(SPAN_NOTICE("[user] swipes \the [W] through \the [src]."))
+	var/obj/item/card/id/ID = W
+	if(!(access_keycard_auth in ID.access)) // you get nothing!
+		return TRUE
+	if(active)
+		if(!event_source) // Is this even possible? Should active just be !isnull(event_source)?
+			return TRUE
+		if(initial_card?.resolve() == ID)
+			visible_message(SPAN_WARNING("\The [src] blinks and displays a message: Unable to confirm the event with the same card."), range=2)
+			return TRUE
+		event_source.confirmed = 1
+		event_source.event_confirmed_by = user
+		return TRUE
+	if(screen == 2)
+		event_triggered_by = user
+		initial_card = weakref(ID)
+		broadcast_request() //This is the device making the initial event request. It needs to broadcast to other devices
+	return TRUE
 
 //icon_state gets set everwhere besides here, that needs to be fixed sometime
 /obj/machinery/keycard_auth/on_update_icon()
@@ -75,21 +81,21 @@
 			dat += "<li>Cannot modify the alert level at this time: [security_state.severe_security_level.name] engaged.</li>"
 		else
 			if(security_state.current_security_level == security_state.high_security_level)
-				dat += "<li><A href='?src=\ref[src];triggerevent=Revert alert'>Disengage [security_state.high_security_level.name]</A></li>"
+				dat += "<li><A href='byond://?src=\ref[src];triggerevent=Revert alert'>Disengage [security_state.high_security_level.name]</A></li>"
 			else
-				dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Engage [security_state.high_security_level.name]</A></li>"
+				dat += "<li><A href='byond://?src=\ref[src];triggerevent=Red alert'>Engage [security_state.high_security_level.name]</A></li>"
 
 		if(!get_config_value(/decl/config/toggle/ert_admin_call_only))
-			dat += "<li><A href='?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
+			dat += "<li><A href='byond://?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
 
-		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
+		dat += "<li><A href='byond://?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
+		dat += "<li><A href='byond://?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
+		dat += "<li><A href='byond://?src=\ref[src];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
 		dat += "</ul>"
 		show_browser(user, dat, "window=keycard_auth;size=500x250")
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
-		dat += "<p><A href='?src=\ref[src];reset=1'>Back</A>"
+		dat += "<p><A href='byond://?src=\ref[src];reset=1'>Back</A>"
 		show_browser(user, dat, "window=keycard_auth;size=500x250")
 	return
 

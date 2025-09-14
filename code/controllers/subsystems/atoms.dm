@@ -8,10 +8,6 @@ SUBSYSTEM_DEF(atoms)
 	init_order = SS_INIT_ATOMS
 	flags = SS_NO_FIRE | SS_NEEDS_SHUTDOWN
 
-	// override and GetArguments() exists for mod-override/downstream hook functionality.
-	// Useful for total-overhaul type modifications.
-	var/adjust_init_arguments = FALSE
-
 	var/atom_init_stage = INITIALIZATION_INSSATOMS
 	var/old_init_stage
 
@@ -76,28 +72,34 @@ SUBSYSTEM_DEF(atoms)
 		BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
 		return TRUE
 
+	// This is handled and battle tested by dreamchecker. Limit to UNIT_TEST just in case that ever fails.
+	#ifdef UNIT_TEST
 	var/start_tick = world.time
+	#endif
 
 	var/result = A.Initialize(arglist(arguments))
 
+	#ifdef UNIT_TEST
 	if(start_tick != world.time)
 		BadInitializeCalls[the_type] |= BAD_INIT_SLEPT
+	#endif
 
 	var/qdeleted = FALSE
 
-	if(result != INITIALIZE_HINT_NORMAL)
-		switch(result)
-			if(INITIALIZE_HINT_LATELOAD)
-				if(arguments[1])	//mapload
-					late_loaders[A] = arguments
-				else
-					A.LateInitialize(arglist(arguments))
-			if(INITIALIZE_HINT_QDEL)
-				A.atom_flags |= ATOM_FLAG_INITIALIZED // never call EarlyDestroy if we return this hint
-				qdel(A)
-				qdeleted = TRUE
+	switch(result)
+		if(INITIALIZE_HINT_NORMAL)
+			EMPTY_BLOCK_GUARD
+		if(INITIALIZE_HINT_LATELOAD)
+			if(arguments[1])	//mapload
+				late_loaders[A] = arguments
 			else
-				BadInitializeCalls[the_type] |= BAD_INIT_NO_HINT
+				A.LateInitialize(arglist(arguments))
+		if(INITIALIZE_HINT_QDEL)
+			A.atom_flags |= ATOM_FLAG_INITIALIZED // never call EarlyDestroy if we return this hint
+			qdel(A)
+			qdeleted = TRUE
+		else
+			BadInitializeCalls[the_type] |= BAD_INIT_NO_HINT
 
 	if(!A)	//possible harddel
 		qdeleted = TRUE

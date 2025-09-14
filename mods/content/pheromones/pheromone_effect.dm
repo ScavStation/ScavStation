@@ -13,12 +13,12 @@
 	if(alpha <= 0)
 		qdel(src)
 	else
-		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 300 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(fade), 300 SECONDS))
 		update_scent_marker()
 
 /obj/effect/decal/cleanable/pheromone/Initialize(ml, _age)
 	. = ..()
-	addtimer(CALLBACK(src, /obj/effect/decal/cleanable/pheromone/proc/fade), 300 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(fade), 300 SECONDS))
 	marker = image(loc = src, icon = 'icons/effects/blood.dmi', icon_state = pick(list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")))
 	marker.alpha = 90
 	marker.plane = ABOVE_LIGHTING_PLANE
@@ -34,7 +34,7 @@
 	if(!marker)
 		return
 	for(var/client/C)
-		var/mob/living/carbon/human/H = C.mob
+		var/mob/living/human/H = C.mob
 		if(istype(H) && H.can_read_pheromones())
 			C.images -= marker
 	var/datum/extension/scent/custom/pheromone/smell = get_extension(src, /datum/extension/scent)
@@ -46,7 +46,7 @@
 		marker.filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0)
 	global.pheromone_markers |= marker
 	for(var/client/C)
-		var/mob/living/carbon/human/H = C.mob
+		var/mob/living/human/H = C.mob
 		if(istype(H) && H.can_read_pheromones())
 			C.images |= marker
 

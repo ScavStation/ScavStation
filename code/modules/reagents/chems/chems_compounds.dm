@@ -20,27 +20,26 @@
 	color = "#9eefff"
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE // No sap air.
 	uid = "chem_glowsap"
-
-/decl/material/liquid/glowsap/affect_ingest(mob/living/M, removed, var/datum/reagents/holder)
-	affect_blood(M, removed, holder)
+	affect_blood_on_ingest = 1
 
 /decl/material/liquid/glowsap/affect_blood(mob/living/M, removed, var/datum/reagents/holder)
+	. = ..()
 	M.add_chemical_effect(CE_GLOWINGEYES, 1)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		H.update_eyes()
 
 /decl/material/liquid/glowsap/on_leaving_metabolism(datum/reagents/metabolism/holder)
 	if(ishuman(holder?.my_atom))
-		var/mob/living/carbon/human/H = holder.my_atom
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_eyes)), 5 SECONDS)
+		var/mob/living/human/H = holder.my_atom
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/human, update_eyes)), 5 SECONDS)
 	. = ..()
 
-/decl/material/liquid/glowsap/affect_overdose(var/mob/living/M)
+/decl/material/liquid/glowsap/affect_overdose(mob/living/victim, total_dose)
 	. = ..()
-	M.add_chemical_effect(CE_TOXIN, 1)
-	M.set_hallucination(60, 20)
-	SET_STATUS_MAX(M, STAT_DRUGGY, 10)
+	victim.add_chemical_effect(CE_TOXIN, 1)
+	victim.set_hallucination(60, 20)
+	SET_STATUS_MAX(victim, STAT_DRUGGY, 10)
 
 /decl/material/solid/blackpepper
 	name = "black pepper"
@@ -52,7 +51,7 @@
 
 /decl/material/solid/cinnamon
 	name = "cinnamon"
-	lore_text = "A powder used to flavor food and drinks. Unpleasant to eat a full spoonful of"
+	lore_text = "A powder used to flavor food and drinks. Unpleasant to eat a full spoonful of."
 	taste_description = "cinnamon"
 	color = "#a34b0d"
 	value = 0.1 //is this the monetary value? if so, should be increased a bit, cinnamon is pretty expensive
@@ -68,6 +67,12 @@
 	overdose = REAGENTS_OVERDOSE
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 
+/decl/material/liquid/enzyme/rennet
+	name = "rennet"
+	uid = "chem_rennet"
+	lore_text = "A complex mix of enzymes extracted from a ruminant's stomach. Important to cheesemaking, and as a chemical precursor."
+	taste_description = "sweet bile"
+
 /decl/material/liquid/frostoil
 	name = "chilly oil"
 	lore_text = "An oil harvested from a mutant form of chili peppers, it has a chilling effect on the body."
@@ -80,10 +85,34 @@
 	uid = "chem_frostoil"
 
 /decl/material/liquid/frostoil/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(1))
 		M.emote(/decl/emote/visible/shiver)
 	holder.remove_reagent(/decl/material/liquid/capsaicin, 5)
+
+/decl/material/liquid/nettle_histamine
+	name = "nettle histamine"
+	lore_text = "A combination of substances injected by contact with the stinging hairs of the common nettle. Itchy and painful, but not dangerous."
+	heating_products = null
+	uid = "chem_nettle_histamine"
+	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	color = "#9bbe90"
+	heating_point = 60 CELSIUS
+	heating_message = "thins as it separates."
+	heating_products = list(
+		/decl/material/liquid/drink/juice/nettle = 0.5,
+		/decl/material/liquid/water = 0.5
+	)
+
+// This should really be contact only but fruit injects it (do_sting()).
+/decl/material/liquid/nettle_histamine/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(M.has_trait(/decl/trait/metabolically_inert) || !M.can_feel_pain())
+		return
+	M.apply_effect(6, PAIN, 0)
+	if(prob(5))
+		to_chat(M, SPAN_DANGER("Your skin [pick("itches", "burns", "stings")]!"))
 
 /decl/material/liquid/capsaicin
 	name = "capsaicin oil"
@@ -95,31 +124,21 @@
 	uid = "chem_capsaicin"
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 
-	heating_point = T100C
-	heating_message = "darkens and thickens as it seperates from its water content"
-	heating_products = list(
-		/decl/material/liquid/capsaicin/condensed = 0.5,
-		/decl/material/liquid/water = 0.5
-	)
-
 	var/agony_dose = 5
 	var/agony_amount = 2
 	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
 	var/slime_temp_adj = 10
 
 /decl/material/liquid/capsaicin/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	M.adjustToxLoss(0.5 * removed)
+	. = ..()
+	M.take_damage(0.5 * removed, TOX)
 
 /decl/material/liquid/capsaicin/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	holder.remove_reagent(/decl/material/liquid/frostoil, 5)
 
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert) || !M.can_feel_pain())
 		return
-
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(!H.can_feel_pain())
-			return
 
 	var/dose = LAZYACCESS(M.chem_doses, type)
 	if(dose < agony_dose)
@@ -150,6 +169,7 @@
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 
 /decl/material/liquid/capsaicin/condensed/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	var/eyes_covered = 0
 	var/mouth_covered = 0
 	var/partial_mouth_covered = 0
@@ -193,22 +213,19 @@
 			to_chat(M, "<span class='warning'>Your [partial_face_protection] partially protects you from the pepperspray!</span>")
 			stun_probability *= 0.5
 		to_chat(M, "<span class='danger'>Your face and throat burn!</span>")
-		if(HAS_STATUS(M, STAT_STUN)  && !M.lying)
+		if(HAS_STATUS(M, STAT_STUN)  && !M.current_posture.prone)
 			SET_STATUS_MAX(M, STAT_WEAK, 4)
 		if(prob(stun_probability))
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
 			SET_STATUS_MAX(M, STAT_STUN, 3)
 
+	return TRUE
+
 /decl/material/liquid/capsaicin/condensed/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	holder.remove_reagent(/decl/material/liquid/frostoil, 5)
-
-	if(M.HasTrait(/decl/trait/metabolically_inert))
+	if(M.has_trait(/decl/trait/metabolically_inert) || !M.can_feel_pain())
 		return
-
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(!H.can_feel_pain())
-			return
 	if(LAZYACCESS(M.chem_doses, type) == metabolism)
 		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	else
@@ -227,33 +244,29 @@
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 	uid = "chem_mutagenics"
+	affect_blood_on_ingest = FALSE
 
 /decl/material/liquid/mutagenics/affect_touch(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	if(prob(33))
 		affect_blood(M, removed, holder)
+	return TRUE
 
 /decl/material/liquid/mutagenics/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	if(prob(67))
 		affect_blood(M, removed, holder)
 
 /decl/material/liquid/mutagenics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-
-	if(M.isSynthetic())
+	. = ..()
+	if(!M.has_genetic_information())
 		return
-
-	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.get_bodytype()?.body_flags & BODY_FLAG_NO_DNA))
-		return
-
-	if(M.dna)
-		if(prob(removed * 0.1)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
-			randmuti(M)
-			if(prob(98))
-				randmutb(M)
-			else
-				randmutg(M)
-			domutcheck(M, null)
-			M.UpdateAppearance()
+	if(prob(removed * 0.1)) // Approx. one mutation per 10 injected/20 ingested/30 touching units
+		M.set_unique_enzymes(num2text(random_id(/mob, 1000000, 9999999)))
+		if(prob(98))
+			M.add_genetic_condition(pick(decls_repository.get_decls_of_type(/decl/genetic_condition/disability)))
+		else
+			M.add_genetic_condition(pick(decls_repository.get_decls_of_type(/decl/genetic_condition/superpower)))
 	M.apply_damage(10 * removed, IRRADIATE, armor_pen = 100)
 
 /decl/material/liquid/lactate
@@ -269,6 +282,7 @@
 	uid = "chem_lactate"
 
 /decl/material/liquid/lactate/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	var/volume = REAGENT_VOLUME(holder, type)
 	M.add_chemical_effect(CE_PULSE, 1)
 	if(volume >= 10)
@@ -291,15 +305,16 @@
 	uid = "chem_nanoblood"
 
 /decl/material/liquid/nanoblood/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	var/mob/living/carbon/human/H = M
+	. = ..()
+	var/mob/living/human/H = M
 	if(!istype(H))
 		return
 	if(!H.should_have_organ(BP_HEART)) //We want the var for safety but we can do without the actual blood.
 		return
 	if(H.regenerate_blood(4 * removed))
-		H.immunity = max(H.immunity - 0.1, 0)
+		H.adjust_immunity(-0.1)
 		if(LAZYACCESS(H.chem_doses, type) > H.species.blood_volume/8) //half of blood was replaced with us, rip white bodies
-			H.immunity = max(H.immunity - 0.5, 0)
+			H.adjust_immunity(-0.5)
 
 /decl/material/solid/tobacco
 	name = "tobacco"
@@ -363,6 +378,7 @@
 	uid = "chem_tobacco_menthol"
 
 /decl/material/liquid/menthol/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	if(world.time > REAGENT_DATA(holder, type) + 3 MINUTES)
 		LAZYSET(holder.reagent_data, type, world.time)
 		to_chat(M, SPAN_NOTICE("You feel faintly sore in the throat."))
@@ -379,11 +395,12 @@
 	uid = "chem_nanite_fluid"
 
 /decl/material/liquid/nanitefluid/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.heal_organ_damage(30 * removed, 30 * removed, affect_robo = 1)
 		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/human/H = M
 			for(var/obj/item/organ/internal/I in H.get_internal_organs())
 				if(BP_IS_PROSTHETIC(I))
 					I.heal_damage(20*removed)
@@ -406,13 +423,14 @@
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 	uid = "chem_crystalizing_agent"
 
-/decl/material/liquid/crystal_agent/proc/do_material_check(var/mob/living/carbon/M)
+/decl/material/liquid/crystal_agent/proc/do_material_check(var/mob/living/M)
 	. = /decl/material/solid/gemstone/crystal
 
 /decl/material/liquid/crystal_agent/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	var/result_mat = do_material_check(M)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		var/list/limbs = H.get_external_organs()
 		var/list/shuffled_limbs = LAZYLEN(limbs) ? shuffle(limbs.Copy()) : null
 		for(var/obj/item/organ/external/E in shuffled_limbs)
@@ -453,6 +471,6 @@
 			break
 	else
 		to_chat(M, SPAN_DANGER("Your flesh is being lacerated from within!"))
-		M.adjustBruteLoss(rand(3,6))
+		M.take_damage(rand(3,6))
 		if(prob(10))
 			new /obj/item/shard(get_turf(M), result_mat)

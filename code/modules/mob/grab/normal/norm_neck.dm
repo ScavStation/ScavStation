@@ -16,11 +16,11 @@
 	grab_icon_state    = "kill"
 	break_chance_table = list(3, 18, 45, 100)
 
-/decl/grab/normal/neck/process_effect(var/obj/item/grab/G)
-	var/mob/living/affecting = G.get_affecting_mob()
+/decl/grab/normal/neck/process_effect(var/obj/item/grab/grab)
+	var/mob/living/affecting = grab.get_affecting_mob()
 	if(!istype(affecting))
 		return
 	affecting.drop_held_items()
-	if(affecting.lying)
+	if(affecting.current_posture.prone)
 		SET_STATUS_MAX(affecting, STAT_WEAK, 4)
-	affecting.adjustOxyLoss(1)
+	affecting.take_damage(1, OXY)

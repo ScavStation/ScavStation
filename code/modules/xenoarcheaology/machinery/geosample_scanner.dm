@@ -64,7 +64,7 @@
 	if(istype(I, /obj/item/stack/nanopaste))
 		if(scanning)
 			to_chat(user, SPAN_WARNING("You can't do that while [src] is scanning!"))
-			return
+			return TRUE
 		var/choice = alert("What do you want to do with the nanopaste?","Radiometric Scanner","Scan nanopaste","Fix seal integrity")
 		if(CanPhysicallyInteract(user) && !QDELETED(I) && I.loc == user && choice == "Fix seal integrity")
 			var/obj/item/stack/nanopaste/N = I
@@ -75,7 +75,7 @@
 	if(istype(I, /obj/item/chems/glass))
 		if(scanning)
 			to_chat(user, SPAN_WARNING("You can't do that while [src] is scanning!"))
-			return
+			return TRUE
 		var/choice = alert("What do you want to do with the container?","Radiometric Scanner","Add coolant","Empty coolant","Scan container")
 		if(CanPhysicallyInteract(user) && !QDELETED(I) && I.loc == user)
 			//#TODO: The add coolant stuff could probably be handled by the default reagent handling code. And the emptying could be done with an alt interaction.
@@ -102,12 +102,13 @@
 	if(istype(I))
 		if(scanned_item)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [scanned_item] inside!"))
-			return
+			return TRUE
 		if(!user.try_unequip(I, src))
-			return
+			return TRUE
 		scanned_item = I
 		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
 		return TRUE
+	return FALSE
 
 /obj/machinery/radiocarbon_spectrometer/proc/update_coolant()
 	var/total_purity = 0
@@ -287,7 +288,7 @@
 
 	var/anom_found = 0
 	var/datum/extension/geological_data/GD = get_extension(scanned_item, /datum/extension/geological_data)
-	if(GD && GD.geodata)
+	if(GD?.geodata)
 		data = " - Spectometric analysis on mineral sample has determined type [responsive_carriers[GD.geodata.source_mineral]]<br>"
 		data += " - Radiometric dating shows age of [GD.geodata.age * 1000] years<br>"
 		data += " - Chromatographic analysis shows the following materials present:<br>"

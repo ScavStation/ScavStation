@@ -35,7 +35,7 @@ Frequency:
 <A href='byond://?src=\ref[src];freq=2'>+</A>
 <A href='byond://?src=\ref[src];freq=10'>+</A><BR>
 
-<A href='?src=\ref[src];refresh=1'>Refresh</A>"}
+<A href='byond://?src=\ref[src];refresh=1'>Refresh</A>"}
 	show_browser(user, dat, "window=radio")
 	onclose(user, "radio")
 	return
@@ -46,7 +46,7 @@ Frequency:
 		return
 	var/turf/current_location = get_turf(usr)//What turf is the user on?
 	if(!current_location||current_location.z==2)//If turf was not found or they're on z level 2.
-		to_chat(usr, "The [src] is malfunctioning.")
+		to_chat(usr, "\The [src] is malfunctioning.")
 		return
 	if ((usr.contents.Find(src) || (in_range(src, usr) && isturf(src.loc))))
 		usr.set_machine(src)

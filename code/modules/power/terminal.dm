@@ -34,12 +34,12 @@
 
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of \the [machine] first!"))
-			return
+			return TRUE
 
 		 // If this is a terminal that's somehow been left behind, let it be removed freely.
 		if(machine && !machine.components_are_accessible(/obj/item/stock_parts/power/terminal))
 			to_chat(user, SPAN_WARNING("You must open the panel on \the [machine] first!"))
-			return
+			return TRUE
 
 		user.visible_message(SPAN_WARNING("\The [user] dismantles the power terminal from \the [machine]."), \
 										  "You begin to cut the cables...")
@@ -53,6 +53,7 @@
 				new /obj/item/stack/cable_coil(T, 10)
 				to_chat(user, SPAN_NOTICE("You cut the cables and dismantle the power terminal."))
 				qdel_self()
+		return TRUE
 	. = ..()
 
 /obj/machinery/power/terminal/examine(mob/user)

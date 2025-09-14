@@ -16,7 +16,7 @@
 		to_chat(user, "***** DIAGNOSTICS REPORT *****")
 		to_chat(user, jointext(diagnostics(), "\n"))
 		to_chat(user, "******************************")
-		return 1
+		return TRUE
 	return ..()
 
 /obj/item/stock_parts/computer/on_install(obj/machinery/machine)

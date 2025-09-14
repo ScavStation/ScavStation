@@ -1,8 +1,8 @@
 // Pretty much everything here is stolen from the dna scanner FYI
 /obj/machinery/bodyscanner
-	var/mob/living/carbon/human/occupant
+	var/mob/living/human/occupant
 	var/locked
-	name = "Body Scanner"
+	name = "body scanner"
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "body_scanner_0"
 	density = TRUE
@@ -11,7 +11,6 @@
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 	construct_state = /decl/machine_construction/default/panel_closed
 	uncreated_component_parts = null
-	stat_immune = 0
 	var/open_sound = 'sound/machines/podopen.ogg'
 	var/close_sound = 'sound/machines/podclose.ogg'
 
@@ -68,12 +67,10 @@
 	if(istype(new_state))
 		updateUsrDialog()
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/G, user)
-	if(istype(G))
-		var/mob/M = G.get_affecting_mob()
-		if(!M || !user_can_move_target_inside(M, user))
-			return
-		qdel(G)
+/obj/machinery/bodyscanner/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim) && user_can_move_target_inside(victim, user))
+		qdel(grab)
 		return TRUE
 	return ..()
 

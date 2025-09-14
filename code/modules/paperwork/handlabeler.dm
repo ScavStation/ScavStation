@@ -47,8 +47,8 @@
 	else
 		to_chat(user, SPAN_NOTICE("You're too far away to tell much more."))
 
-/obj/item/hand_labeler/attack(mob/living/M, mob/living/user, target_zone, animate)
-	return //No attacking
+/obj/item/hand_labeler/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	return FALSE
 
 /obj/item/hand_labeler/afterattack(atom/movable/A, mob/user, proximity)
 	if(safety || !proximity || !istype(A) || A == loc)
@@ -118,7 +118,7 @@
 		HAND_LABELER_MODE_REM_NAME    = btn_rem_one,
 		HAND_LABELER_MODE_REMALL_NAME = btn_rem_all,
 	)
-	return show_radial_menu(user, user, choices, use_labels = TRUE)
+	return show_radial_menu(user, user, choices, use_labels = RADIAL_LABELS_OFFSET)
 
 /obj/item/hand_labeler/attack_self(mob/user)
 	var/choice = show_action_radial_menu(user)
@@ -154,7 +154,7 @@
 		var/obj/item/paper/P = W
 		if(!P.is_blank())
 			to_chat(user, SPAN_WARNING("\The [P] is not blank. You can't use that for refilling \the [src]."))
-			return
+			return TRUE
 
 		var/incoming_amt = LAZYACCESS(P.matter, /decl/material/solid/organic/paper)
 		var/current_amt = LAZYACCESS(matter, /decl/material/solid/organic/paper)
@@ -162,12 +162,12 @@
 
 		if(incoming_amt < LABEL_MATERIAL_COST)
 			to_chat(user, SPAN_WARNING("\The [P] does not contains enough paper."))
-			return
+			return TRUE
 		if(((incoming_amt + current_amt) / LABEL_MATERIAL_COST) > max_labels)
 			to_chat(user, SPAN_WARNING("There's not enough room in \the [src] for the [label_added] label(s) \the [P] is worth."))
-			return
+			return TRUE
 		if(!user.do_skilled(2 SECONDS, SKILL_LITERACY, src) || (QDELETED(W) || QDELETED(src)))
-			return
+			return TRUE
 
 		to_chat(user, SPAN_NOTICE("You slice \the [P] into [label_added] small strips and insert them into \the [src]'s paper feed."))
 		add_paper_labels(label_added)
@@ -186,7 +186,7 @@
 
 		if(available_units > max_accepted_units)
 			//Take only what's needed
-			var/needed_sheets  = CEILING(max_accepted_units / SHEET_MATERIAL_AMOUNT)
+			var/needed_sheets  = ceil(max_accepted_units / SHEET_MATERIAL_AMOUNT)
 			var/leftover_units = max_accepted_units % SHEET_MATERIAL_AMOUNT
 			ST.use(needed_sheets)
 			//Drop the extra as shards
@@ -199,14 +199,13 @@
 
 		else if(available_units > LABEL_MATERIAL_COST)
 			//Take all that's available
-			ST.use(CEILING(available_units/SHEET_MATERIAL_AMOUNT))
+			ST.use(ceil(available_units/SHEET_MATERIAL_AMOUNT))
 			added_labels = round(available_units / LABEL_MATERIAL_COST)
 			add_paper_labels(added_labels)
-			to_chat(user, SPAN_NOTICE("You use [CEILING(available_units/SHEET_MATERIAL_AMOUNT)] [ST.plural_name] to refill \the [src] with [added_labels] label(s)."))
+			to_chat(user, SPAN_NOTICE("You use [ceil(available_units/SHEET_MATERIAL_AMOUNT)] [ST.plural_name] to refill \the [src] with [added_labels] label(s)."))
 		else
 			//Abort because not enough materials for even a single label
 			to_chat(user, SPAN_WARNING("There's not enough [ST.plural_name] in \the [ST] to refil \the [src]!"))
-			return
 
 		update_icon()
 		return TRUE
@@ -232,12 +231,12 @@
 	update_icon()
 	return TRUE
 
-/obj/item/hand_labeler/dump_contents()
+/obj/item/hand_labeler/dump_contents(atom/forced_loc = loc, mob/user)
 	. = ..()
 	//Dump label paper left
 	if(labels_left > 0)
 		var/decl/material/M = GET_DECL(/decl/material/solid/organic/paper)
-		var/turf/T          = get_turf(src)
+		var/turf/T          = get_turf(forced_loc)
 		var/total_sheets    = round((labels_left * LABEL_MATERIAL_COST) / SHEET_MATERIAL_AMOUNT)
 		var/leftovers       = round((labels_left * LABEL_MATERIAL_COST) % SHEET_MATERIAL_AMOUNT)
 		M.create_object(T, total_sheets)

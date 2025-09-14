@@ -43,9 +43,6 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 
 		var/atom/summoned_object
 		if(ispath(summoned_object_type,/turf))
-			if(istype(get_turf(user),/turf/simulated/shuttle) || istype(spawn_place, /turf/simulated/shuttle))
-				to_chat(user, "<span class='warning'>You can't build things on shuttles!</span>")
-				continue
 			spawn_place.ChangeTurf(summoned_object_type)
 			summoned_object = spawn_place
 		else
@@ -59,9 +56,7 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 		if(ismob(summoned_object)) //we want them to NOT attack us.
 			var/mob/M = summoned_object
 			M.faction = user.faction
-		for(var/varName in newVars)
-			if(varName in summoned_object.vars)
-				summoned_object.vars[varName] = newVars[varName]
+		apply_vars(summoned_object, user)
 
 		if(duration)
 			spawn(duration)
@@ -72,3 +67,10 @@ How they spawn stuff is decided by behaviour vars, which are explained below
 
 /spell/aoe_turf/conjure/proc/conjure_animation(var/atom/movable/overlay/animation, var/turf/target)
 	qdel(animation)
+
+/spell/aoe_turf/conjure/proc/apply_vars(atom/summoned_object, mob/caster)
+	if(!istype(summoned_object) || !length(newVars))
+		return
+	for(var/varName in newVars)
+		if(varName in summoned_object.vars)
+			summoned_object.vars[varName] = newVars[varName]

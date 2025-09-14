@@ -48,9 +48,8 @@
 			var/turf/check = locate(T.x + i, T.y + j, T.z)
 			if(!check)
 				continue
-			for(var/atom/movable/M in check.contents)
-				if(!istype(M, /atom/movable/lighting_overlay) && M.density)
-					return 0
+			if(check.contains_dense_objects())
+				return FALSE
 	if(!T)
 		return 0
 	if(ispath(door_type,/obj/structure/door))
@@ -64,8 +63,8 @@
 	return null
 
 /datum/room_theme/metal
-	wall_type = /turf/simulated/wall
-	floor_type = /turf/simulated/floor/plating
+	wall_type = /turf/wall
+	floor_type = /turf/floor/plating
 	lock_complexity_max = 2
 	layout_chance = 30
 	room_layouts = list(/datum/random_room/mimic = 1, /datum/random_room/tomb = 1)

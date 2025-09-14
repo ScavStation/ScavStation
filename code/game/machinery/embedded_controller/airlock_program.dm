@@ -403,7 +403,7 @@ toggleDoor()
 
 Sends a radio command to a door to either open or close. If
 the command is 'toggle' the door will be sent a command that
-reverses it's current state.
+reverses its current state.
 Can also toggle whether the door bolts are locked or not,
 depending on the state of the 'secure' flag.
 Only sends a command if it is needed, i.e. if the door is
@@ -416,6 +416,8 @@ send an additional command to open the door again.
 	if(command == "toggle")
 		command = doorStatus["state"] == "open" ? "close" : "open"
 
+	// the close command is 'close' but the closed state is 'closed'
+	// so we have to check if we aren't the open state, because the command and status strings match for it
 	var/toggle = command && ((doorStatus["state"] == "open") ^ (command == "open"))
 	var/locked = (doorStatus["lock"] == "locked")
 	if(toggle)

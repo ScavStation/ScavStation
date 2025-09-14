@@ -1,6 +1,6 @@
-/decl/hierarchy/outfit/job/ministation/tradehouse
+/decl/outfit/job/ministation/tradehouse
 	name = "Ministation - Tradehouse Representative"
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/officer
+	suit = /obj/item/clothing/suit/jacket/redcoat/officer
 	id_type = /obj/item/card/id/ministation/tradehouse_rep
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_ear = /obj/item/radio/headset/heads

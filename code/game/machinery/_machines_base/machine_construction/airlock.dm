@@ -9,7 +9,7 @@
 		playsound(get_turf(machine), 'sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("You release some of the logic wiring on \the [machine]. The cover panel remains closed."))
 		machine.update_icon()
-		return
+		return TRUE
 	if(IS_WRENCH(I))
 		TRANSFER_STATE(down_state)
 		playsound(get_turf(machine), 'sound/items/Crowbar.ogg', 50, 1)
@@ -17,12 +17,13 @@
 		to_chat(user, SPAN_NOTICE("You open the main cover panel on \the [machine], exposing the internals."))
 		machine.queue_icon_update()
 		return TRUE
-	if(istype(I, /obj/item/storage/part_replacer))
-		var/obj/item/storage/part_replacer/replacer = I
+	if(istype(I, /obj/item/part_replacer))
+		var/obj/item/part_replacer/replacer = I
 		if(replacer.remote_interaction)
 			machine.part_replacement(user, replacer)
 		machine.display_parts(user)
 		return TRUE
+	return FALSE
 
 /decl/machine_construction/default/panel_closed/door/mechanics_info()
 	. = list()
@@ -40,6 +41,7 @@
 		to_chat(user, SPAN_NOTICE("You tuck the exposed wiring back into \the [machine] and screw the hatch back into place."))
 		machine.queue_icon_update()
 		return TRUE
+	return FALSE
 
 /decl/machine_construction/default/panel_closed/door/hacking/mechanics_info()
 	. = list()

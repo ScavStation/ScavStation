@@ -54,96 +54,104 @@
 	name = "Slavers Base Navpoint #7"
 	landmark_tag = "nav_slavers_base_antag"
 
-/decl/hierarchy/outfit/corpse
+/decl/outfit/corpse
 	name = "Corpse Clothing"
-	abstract_type = /decl/hierarchy/outfit/corpse
+	abstract_type = /decl/outfit/corpse
 
-/decl/hierarchy/outfit/corpse/slavers_base
+/decl/outfit/corpse/slavers_base
 	name = "Basic slaver output"
+
+/obj/abstract/landmark/corpse/slavers_base
+	abstract_type = /obj/abstract/landmark/corpse/slavers_base
 
 /obj/abstract/landmark/corpse/slavers_base/slaver1
 	name = "Slaver"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/slavers_base/slaver1)
+	corpse_outfits = list(/decl/outfit/corpse/slavers_base/slaver1)
 
-/decl/hierarchy/outfit/corpse/slavers_base/slaver1
+/decl/outfit/corpse/slavers_base/slaver1
 	name = "Dead Slaver 1"
-	uniform = /obj/item/clothing/under/johnny
+	uniform = /obj/item/clothing/costume/johnny
 	shoes = /obj/item/clothing/shoes/color/black
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 /obj/abstract/landmark/corpse/slavers_base/slaver2
 	name = "Slaver"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/slavers_base/slaver2)
+	corpse_outfits = list(/decl/outfit/corpse/slavers_base/slaver2)
 
-/decl/hierarchy/outfit/corpse/slavers_base/slaver2
+/decl/outfit/corpse/slavers_base/slaver2
 	name = "Dead Slaver 2"
-	uniform = /obj/item/clothing/under/johnny
+	uniform = /obj/item/clothing/costume/johnny
 	shoes = /obj/item/clothing/shoes/color/blue
 
 /obj/abstract/landmark/corpse/slavers_base/slaver3
 	name = "Slaver"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/slavers_base/slaver3)
+	corpse_outfits = list(/decl/outfit/corpse/slavers_base/slaver3)
 
-/decl/hierarchy/outfit/corpse/slavers_base/slaver3
+/decl/outfit/corpse/slavers_base/slaver3
 	name = "Dead Slaver 3"
-	uniform = /obj/item/clothing/under/pirate
+	uniform = /obj/item/clothing/costume/pirate
 	shoes = /obj/item/clothing/shoes/color/brown
 
 /obj/abstract/landmark/corpse/slavers_base/slaver4
 	name = "Slaver"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/slavers_base/slaver4)
+	corpse_outfits = list(/decl/outfit/corpse/slavers_base/slaver4)
 
-/decl/hierarchy/outfit/corpse/slavers_base/slaver4
+/decl/outfit/corpse/slavers_base/slaver4
 	name = "Dead Slaver 4"
-	uniform = /obj/item/clothing/under/redcoat
+	uniform = /obj/item/clothing/costume/redcoat
 	shoes = /obj/item/clothing/shoes/color/brown
 
 /obj/abstract/landmark/corpse/slavers_base/slaver5
 	name = "Slaver"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/slavers_base/slaver5)
+	corpse_outfits = list(/decl/outfit/corpse/slavers_base/slaver5)
 
-/decl/hierarchy/outfit/corpse/slavers_base/slaver5
+/decl/outfit/corpse/slavers_base/slaver5
 	name = "Dead Slaver 5"
-	uniform = /obj/item/clothing/under/sterile
+	uniform = /obj/item/clothing/jumpsuit/sterile
 	shoes = /obj/item/clothing/shoes/color/orange
 	mask = /obj/item/clothing/mask/surgical
 
 /obj/abstract/landmark/corpse/slavers_base/slaver6
 	name = "Slaver"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/slavers_base/slaver6)
+	corpse_outfits = list(/decl/outfit/corpse/slavers_base/slaver6)
 
-/decl/hierarchy/outfit/corpse/slavers_base/slaver6
+/decl/outfit/corpse/slavers_base/slaver6
 	name = "Dead Slaver 6"
-	uniform = /obj/item/clothing/under/frontier
+	uniform = /obj/item/clothing/shirt/flannel/red/outfit
 	shoes = /obj/item/clothing/shoes/color/orange
 
 /obj/abstract/landmark/corpse/slavers_base/slave
 	name = "Slave"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/slavers_base/slave)
+	corpse_outfits = list(/decl/outfit/corpse/slavers_base/slave)
 
-/decl/hierarchy/outfit/corpse/slavers_base/slave
+/decl/outfit/corpse/slavers_base/slave
 	name = "Dead Slave"
-	uniform = /obj/item/clothing/under/color/orange
+	uniform = /obj/item/clothing/jumpsuit/orange
 	shoes = /obj/item/clothing/shoes/jackboots/tactical
 
 /mob/living/simple_animal/hostile/abolition_extremist
 	name = "abolition extremist"
 	desc = "Vigiliant fighter against slavery."
 	icon = 'maps/away/slavers/icons/abolitionist.dmi'
-	speak_chance = 0
-	turns_per_move = 5
-	speed = 4
-	stop_automated_movement_when_pulled = 0
+
 	max_health = 100
 	natural_weapon = /obj/item/natural_weapon/punch
-	can_escape = TRUE
 	unsuitable_atmos_damage = 15
 	projectilesound = 'sound/weapons/laser.ogg'
-	ranged = 1
 	projectiletype = /obj/item/projectile/beam
 	faction = "extremist abolitionists"
+	ai = /datum/mob_controller/abolitionist
 	var/corpse = /obj/abstract/landmark/corpse/abolitionist
 	var/weapon = /obj/item/gun/energy/laser
+
+/mob/living/simple_animal/hostile/abolition_extremist/has_ranged_attack()
+	return TRUE
+
+/datum/mob_controller/abolitionist
+	speak_chance = 0
+	turns_per_wander = 10
+	stop_wander_when_pulled = 0
+	can_escape_buckles = TRUE
 
 /mob/living/simple_animal/hostile/abolition_extremist/death(gibbed)
 	. = ..()
@@ -156,15 +164,15 @@
 
 /obj/abstract/landmark/corpse/abolitionist
 	name = "abolitionist"
-	corpse_outfits = list(/decl/hierarchy/outfit/corpse/abolitionist)
+	corpse_outfits = list(/decl/outfit/corpse/abolitionist)
 
-/decl/hierarchy/outfit/corpse/abolitionist
+/decl/outfit/corpse/abolitionist
 	name = "Dead abolitionist"
-	uniform = /obj/item/clothing/under/abol_uniform
+	uniform = /obj/item/clothing/jumpsuit/abolitionist
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/helmet/merc
 
-/obj/item/clothing/under/abol_uniform
+/obj/item/clothing/jumpsuit/abolitionist
 	name = "abolitionist combat suit"
 	desc = "Lightly armored suit worn by abolition extremists during raids. It has green patches on the right sleeve and the chest. There is big green \"A\" on the back."
 	icon = 'maps/away/slavers/icons/uniform.dmi'
@@ -175,3 +183,7 @@
 		ARMOR_LASER  = ARMOR_LASER_MINOR,
 		ARMOR_ENERGY = ARMOR_ENERGY_MINOR
 		)
+
+// Disable the modifiers we don't have rather than adding new sprites, this item and away site is removed on dev anyway.
+/obj/item/clothing/jumpsuit/abolitionist/get_assumed_clothing_state_modifiers()
+	return null

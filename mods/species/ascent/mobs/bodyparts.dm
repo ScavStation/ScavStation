@@ -3,7 +3,7 @@
 	action_button_name = "Weave Razorweb"
 	default_action_type = /datum/action/item_action/organ/ascent
 	var/list/existing_webs = list()
-	var/list/max_webs = 4
+	var/max_webs = 4
 	var/web_weave_time = 20 SECONDS
 	var/cooldown
 
@@ -80,7 +80,7 @@
 		if(owner.put_in_hands(web))
 			playsound(user, 'mods/species/ascent/sounds/razorweb.ogg', 100)
 			to_chat(owner, SPAN_WARNING("You spit up a wad of razorweb, ready to throw!"))
-			owner.throw_mode_on()
+			owner.toggle_throw_mode(TRUE)
 			cooldown = TRUE
 			refresh_action_button()
 			addtimer(CALLBACK(src, PROC_REF(reset_cooldown)), cooldown_time)

@@ -17,4 +17,4 @@ Loot piles can be depleted, if loot_depleted is turned on.  Note that players wh
 
 /decl/modpack/dungeon_loot
 	name = "Dungeon Loot"
-	dreams = list("Packrats")
+	dreams = list("packrats")

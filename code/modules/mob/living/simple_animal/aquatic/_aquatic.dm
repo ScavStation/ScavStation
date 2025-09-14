@@ -1,18 +1,15 @@
 /mob/living/simple_animal/aquatic
 	icon = 'icons/mob/simple_animal/fish_content.dmi'
-	turns_per_move = 5
-	speed = 4
 	mob_size = MOB_SIZE_SMALL
-	emote_see = list("glubs", "blubs", "bloops")
 	base_animal_type = /mob/living/simple_animal/aquatic
 	is_aquatic = TRUE
+	butchery_data = /decl/butchery_data/animal/fish/small
+	holder_type = /obj/item/holder
+	ai = /datum/mob_controller/aquatic
 
-	meat_type = /obj/item/chems/food/fish
-	meat_amount = 1
-	bone_amount = 1
-	skin_amount = 2
-	bone_material = /decl/material/solid/organic/bone/fish
-	skin_material = /decl/material/solid/organic/skin/fish
+/datum/mob_controller/aquatic
+	turns_per_wander = 10
+	emote_see = list("glubs", "blubs", "bloops")
 
 /mob/living/simple_animal/aquatic/Initialize()
 	. = ..()

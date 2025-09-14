@@ -22,19 +22,19 @@
 	..()
 
 /obj/item/stock_parts/computer/ai_slot/attackby(var/obj/item/W, var/mob/user)
-	if(..())
-		return 1
 	if(istype(W, /obj/item/aicard))
 		if(stored_card)
 			to_chat(user, "\The [src] is already occupied.")
-			return
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		do_insert_ai(user, W)
 		return TRUE
 	if(IS_SCREWDRIVER(W))
 		to_chat(user, "You manually remove \the [stored_card] from \the [src].")
 		do_eject_ai(user)
+		return TRUE
+	return ..()
 
 /obj/item/stock_parts/computer/ai_slot/Destroy()
 	if(stored_card)

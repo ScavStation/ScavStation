@@ -9,6 +9,8 @@
 	//  Useful for objects like light fixtures that aren't visually in the middle of the turf, but aren't offset either.
 	var/light_offset_x
 	var/light_offset_y
+	/// An override for cases where the light is not facing the same direction as the object.
+	var/light_dir
 
 	var/tmp/datum/light_source/light // Our light source. Don't fuck with this directly unless you have a good reason!
 	var/tmp/list/light_source_multi       // Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
@@ -83,15 +85,3 @@
 		T.recalc_atom_opacity()
 		if (old_has_opaque_atom != T.has_opaque_atom)
 			T.reconsider_lights()
-
-/atom/movable/forceMove()
-	. = ..()
-
-	if (light_source_solo)
-		light_source_solo.source_atom.update_light()
-	else if (light_source_multi)
-		var/datum/light_source/L
-		var/thing
-		for (thing in light_source_multi)
-			L = thing
-			L.source_atom.update_light()

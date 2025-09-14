@@ -60,15 +60,16 @@
 	. = ..()
 
 /obj/item/anodevice/attackby(var/obj/I, var/mob/user)
-	if(istype(I, /obj/item/anobattery))
-		if(!inserted_battery)
-			if(!user.try_unequip(I, src))
-				return
-			to_chat(user, "<span class='notice'>You insert \the [I] into \the [src].</span>")
-			inserted_battery = I
-			update_icon()
-	else
+	if(!istype(I, /obj/item/anobattery))
 		return ..()
+	if(inserted_battery)
+		return TRUE
+	if(!user.try_unequip(I, src))
+		return TRUE
+	to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
+	inserted_battery = I
+	update_icon()
+	return TRUE
 
 /obj/item/anodevice/attack_self(var/mob/user)
 	ui_interact(user)
@@ -109,7 +110,7 @@
 			inserted_battery.battery_effect.ToggleActivate(1)
 		switch(inserted_battery.battery_effect.operation_type)
 			if(EFFECT_TOUCH)
-				visible_message("The [src] shudders.")
+				visible_message("\The [src] shudders.")
 				if(ismob(loc))
 					inserted_battery.battery_effect.DoEffectTouch(loc)
 				inserted_battery.use_power(energy_consumed_on_touch)
@@ -191,14 +192,14 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/anodevice/attack(mob/living/M, mob/living/user, def_zone)
-	if (!istype(M))
-		return
-
+/obj/item/anodevice/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	if (!istype(target))
+		return ..()
 	if(activated && inserted_battery?.battery_effect?.operation_type == EFFECT_TOUCH)
-		inserted_battery.battery_effect.DoEffectTouch(M)
+		inserted_battery.battery_effect.DoEffectTouch(target)
 		inserted_battery.use_power(energy_consumed_on_touch)
-		user.visible_message("<span class='notice'>[user] taps [M] with [src], and it shudders on contact.</span>")
-		admin_attack_log(user, M, "Tapped their victim with \a [src] (EFFECT: [inserted_battery.battery_effect.name])", "Was tapped by \a [src] (EFFECT: [inserted_battery.battery_effect.name])", "used \a [src] (EFFECT: [inserted_battery.battery_effect.name]) to tap")
+		user.visible_message(SPAN_NOTICE("\The [user] taps [target] with \the [src], and it shudders on contact."))
+		admin_attack_log(user, target, "Tapped their victim with \a [src] (EFFECT: [inserted_battery.battery_effect.name])", "Was tapped by \a [src] (EFFECT: [inserted_battery.battery_effect.name])", "used \a [src] (EFFECT: [inserted_battery.battery_effect.name]) to tap")
 	else
-		user.visible_message("<span class='notice'>[user] taps [M] with [src], but nothing happens.</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] taps \the [target] with \the [src], but nothing happens."))
+	return TRUE

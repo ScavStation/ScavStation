@@ -4,13 +4,18 @@
 	icon = 'icons/obj/structures/coatrack.dmi'
 	icon_state = "coatrack0"
 	material = /decl/material/solid/organic/wood/mahogany
+	color = /decl/material/solid/organic/wood/mahogany::color
 	material_alteration =    (MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_COLOR)
 	tool_interaction_flags = TOOL_INTERACTION_DECONSTRUCT
 	var/max_items = 3
 	var/tmp/list/slots_allowed
 	var/tmp/list/blacklisted_types = list(/obj/item/clothing/suit/space)
 
-/obj/structure/coatrack/dismantle()
+/obj/structure/coatrack/ebony
+	material = /decl/material/solid/organic/wood/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+
+/obj/structure/coatrack/dismantle_structure(mob/user)
 	for(var/obj/item/thing in contents)
 		thing.dropInto(loc)
 	. = ..()
@@ -41,7 +46,7 @@
 	var/obj/item/removing = contents[contents.len]
 	user.visible_message( \
 		SPAN_NOTICE("\The [user] takes \the [removing] off \the [src]."),
-		SPAN_NOTICE("You take \the [removing] off the \the [src].")
+		SPAN_NOTICE("You take \the [removing] off \the [src].")
 	)
 	removing.dropInto(loc)
 	user.put_in_active_hand(removing)
@@ -74,7 +79,7 @@
 	if(user.try_unequip(W, src))
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] hangs \the [W] on \the [src]."), \
-			SPAN_NOTICE("You hang \the [W] on the \the [src].") \
+			SPAN_NOTICE("You hang \the [W] on \the [src].") \
 		)
 		update_icon()
 	return TRUE

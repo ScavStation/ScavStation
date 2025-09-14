@@ -72,11 +72,6 @@
 		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
 		return 1
 
-	if(malf_upgraded && master_ai)
-		if((user == master_ai) || (user in master_ai.connected_robots))
-			return 0
-		return 1
-
 	if(locked && !issilicon(user))
 		to_chat(user, "<span class='notice'>Access denied.</span>")
 		return 1
@@ -91,7 +86,7 @@
 
 /obj/machinery/turretid/attackby(obj/item/W, mob/user)
 	if(stat & BROKEN)
-		return
+		return FALSE
 
 	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
 		if(src.allowed(usr))
@@ -100,7 +95,7 @@
 			else
 				locked = !locked
 				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
@@ -233,13 +228,3 @@
 				updateTurrets()
 
 	..()
-
-
-/obj/machinery/turretid/malf_upgrade(var/mob/living/silicon/ai/user)
-	..()
-	malf_upgraded = 1
-	locked = 1
-	ailock = 0
-	to_chat(user, "\The [src] has been upgraded. It has been locked and can not be tampered with by anyone but you and your cyborgs.")
-	master_ai = user
-	return 1

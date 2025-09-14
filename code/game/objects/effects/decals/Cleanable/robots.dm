@@ -19,9 +19,9 @@
 /obj/effect/decal/cleanable/blood/gibs/robot/streak(var/list/directions)
 	spawn (0)
 		var/direction = pick(directions)
-		for (var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
+		for (var/i in 1 to pick(1, 200; 2, 150; 3, 50; 4))
 			sleep(3)
-			if (i > 0)
+			if (i > 1)
 				if (prob(40))
 					var/obj/effect/decal/cleanable/blood/oil/streak = new(src.loc)
 					streak.update_icon()
@@ -43,6 +43,10 @@
 	basecolor = SYNTH_BLOOD_COLOR
 	chemical = /decl/material/liquid/lube
 	cleanable_scent = "industrial lubricant"
+
+/obj/effect/decal/cleanable/blood/oil/Initialize(mapload)
+	. = ..()
+	update_icon()
 
 /obj/effect/decal/cleanable/blood/oil/dry()
 	return

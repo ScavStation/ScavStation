@@ -63,12 +63,6 @@
 		silicon_camera.captureimage(A, usr)
 		return
 
-	/*
-		AI restrained() currently does nothing
-	if(restrained())
-		RestrainedClickOn(A)
-	else
-	*/
 	A.add_hiddenprint(src)
 	A.attack_ai(src)
 
@@ -78,7 +72,7 @@
 	The below is only really for safety, or you can alter the way
 	it functions and re-insert it above.
 */
-/mob/living/silicon/ai/UnarmedAttack(atom/A)
+/mob/living/silicon/ai/ResolveUnarmedAttack(atom/A)
 	return A.attack_ai(src)
 
 /mob/living/silicon/ai/RangedAttack(atom/A, var/params)

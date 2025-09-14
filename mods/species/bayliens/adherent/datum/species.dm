@@ -20,9 +20,7 @@
 	hidden_from_codex = FALSE
 	silent_steps = TRUE
 
-	meat_type = null
-	bone_material = null
-	skin_material = null
+	butchery_data = /decl/butchery_data/crystal
 
 	blood_types = list(/decl/blood_type/coolant)
 
@@ -39,10 +37,8 @@
 	)
 	cyborg_noun =             null
 
-	siemens_coefficient =     0
+	shock_vulnerability =     0
 	rarity_value =            6
-
-	age_descriptor = /datum/appearance_descriptor/age/adherent
 
 	warning_low_pressure =    50
 	hazard_low_pressure =     -1
@@ -55,29 +51,29 @@
 	spawn_flags =   SPECIES_CAN_JOIN
 
 	flesh_color = "#90edeb"
-	hud_type = /datum/hud_data/adherent
+	species_hud = /datum/hud_data/adherent
 
-	available_cultural_info = list(
-		TAG_CULTURE = list(
-			/decl/cultural_info/culture/adherent
+	available_background_info = list(
+		/decl/background_category/heritage = list(
+			/decl/background_detail/heritage/adherent
 		),
-		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/adherent,
-			/decl/cultural_info/location/adherent/monument
+		/decl/background_category/homeworld = list(
+			/decl/background_detail/location/adherent,
+			/decl/background_detail/location/adherent/monument
 		),
-		TAG_FACTION = list(
-			/decl/cultural_info/faction/adherent,
-			/decl/cultural_info/faction/adherent/loyalists,
-			/decl/cultural_info/faction/adherent/separatists
+		/decl/background_category/faction = list(
+			/decl/background_detail/faction/adherent,
+			/decl/background_detail/faction/adherent/loyalists,
+			/decl/background_detail/faction/adherent/separatists
 		),
-		TAG_RELIGION =  list(/decl/cultural_info/religion/other)
+		/decl/background_category/religion =  list(/decl/background_detail/religion/other)
 	)
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/snake
 	max_players = 3
 	blood_volume = 0
 
-/decl/species/adherent/can_overcome_gravity(var/mob/living/carbon/human/H)
+/decl/species/adherent/can_overcome_gravity(var/mob/living/human/H)
 	. = FALSE
 	if(H && H.stat == CONSCIOUS)
 		for(var/obj/item/organ/internal/powered/float/float in H.get_internal_organs())
@@ -85,7 +81,7 @@
 				. = TRUE
 				break
 
-/decl/species/adherent/handle_fall_special(var/mob/living/carbon/human/H, var/turf/landing)
+/decl/species/adherent/handle_fall_special(var/mob/living/human/H, var/turf/landing)
 	var/float_is_usable = FALSE
 	if(H && H.stat == CONSCIOUS)
 		for(var/obj/item/organ/internal/powered/float/float in H.get_internal_organs())
@@ -107,7 +103,7 @@
 		if(2000 to 8000) . =  4
 		else             . =  8
 
-/decl/species/adherent/get_additional_examine_text(var/mob/living/carbon/human/H)
+/decl/species/adherent/get_additional_examine_text(var/mob/living/human/H)
 	if(can_overcome_gravity(H)) return "\nThey are floating on a cloud of shimmering distortion."
 
 /datum/hud_data/adherent

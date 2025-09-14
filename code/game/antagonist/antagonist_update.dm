@@ -3,10 +3,6 @@
 		leader = current_antagonists[1]
 
 /decl/special_role/proc/update_antag_mob(var/datum/mind/player, var/preserve_appearance)
-
-	if(!valid_species)
-		valid_species = list(global.using_map.default_species)
-
 	// Get the mob.
 	if((flags & ANTAG_OVERRIDE_MOB) && (!player.current || (mob_path && !istype(player.current, mob_path))))
 		var/mob/holder = player.current
@@ -16,8 +12,8 @@
 	player.original = player.current
 	if(!preserve_appearance && (flags & ANTAG_SET_APPEARANCE))
 		spawn(3)
-			var/mob/living/carbon/human/H = player.current
-			if(istype(H)) H.change_appearance(APPEARANCE_ALL, H.loc, H, valid_species, state = global.z_topic_state)
+			var/mob/living/human/H = player.current
+			if(istype(H)) H.change_appearance(APPEARANCE_ALL, H.loc, H, species_whitelist = valid_species, state = global.z_topic_state)
 	return player.current
 
 /decl/special_role/proc/update_access(var/mob/living/player)

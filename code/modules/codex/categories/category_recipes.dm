@@ -40,7 +40,7 @@
 			if(!product)
 				continue
 			lore_text = initial(product.lore_text)
-			if(ispath(food.result, /decl/material/liquid/drink) || ispath(food.result, /decl/material/liquid/ethanol))
+			if(ispath(food.result, /decl/material/liquid/drink) || ispath(food.result, /decl/material/liquid/alcohol))
 				category_name = "drink recipe"
 				mechanics_text = "This recipe produces [food.result_amount]u <span codexlink='[product.codex_name || product.name] (substance)'>[product.name]</span>.<br>It should be performed in a glass or shaker, and requires the following ingredients:"
 			else
@@ -94,20 +94,25 @@
 		for(var/thing in recipe.fruit)
 			ingredients += "[recipe.fruit[thing]] [thing]\s"
 		mechanics_text += "<ul><li>[jointext(ingredients, "</li><li>")]</li></ul>"
+
+		var/list/cooking_methods = list()
+		for(var/cooking_method in recipe.container_categories)
+			cooking_methods += "\a [cooking_method]"
+
 		var/atom/recipe_product = recipe.result
-		mechanics_text += "<br>This recipe takes [CEILING(recipe.time/10)] second\s to cook in a microwave and creates \a [initial(recipe_product.name)]."
+		mechanics_text += "<br>This recipe takes [ceil(recipe.cooking_time/10)] second\s to cook in [english_list(cooking_methods, and_text = " or ")] and creates \a [initial(recipe_product.name)]."
 		var/lore_text = recipe.lore_text
 		if(!lore_text)
 			lore_text = initial(recipe_product.desc)
 
 		var/recipe_name = recipe.display_name || sanitize(initial(recipe_product.name))
-		guide_html += "<h3>[capitalize(recipe_name)]</h3>Place [english_list(ingredients)] into a microwave for [CEILING(recipe.time/10)] second\s."
+		guide_html += "<h3>[capitalize(recipe_name)]</h3>Cook [english_list(ingredients)] for [ceil(recipe.cooking_time/10)] second\s."
 
-		entries_to_register += new /datum/codex_entry(             \
-		 _display_name =       "[recipe_name] (microwave recipe)", \
-		 _lore_text =          lore_text,                          \
-		 _mechanics_text =     mechanics_text,                     \
-		 _antag_text =         recipe.antag_text                   \
+		entries_to_register += new /datum/codex_entry(           \
+		 _display_name =       "[recipe_name] (cooking recipe)", \
+		 _lore_text =          lore_text,                        \
+		 _mechanics_text =     mechanics_text,                   \
+		 _antag_text =         recipe.antag_text                 \
 		)
 
 	for(var/datum/codex_entry/entry in entries_to_register)

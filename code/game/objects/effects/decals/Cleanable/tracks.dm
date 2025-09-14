@@ -13,9 +13,6 @@
 // 5 seconds
 #define TRACKS_CRUSTIFY_TIME   50
 
-// color-dir-dry
-var/global/list/image/fluidtrack_cache=list()
-
 /datum/fluidtrack
 	var/direction=0
 	var/basecolor=COLOR_BLOOD_HUMAN
@@ -142,7 +139,7 @@ var/global/list/image/fluidtrack_cache=list()
 
 		if(track.overlay)
 			track.overlay=null
-		var/image/I = image(icon, icon_state=state, dir=num2dir(truedir))
+		var/image/I = image(icon, icon_state=state, dir=FIRST_DIR(truedir))
 		I.color = track.basecolor
 
 		track.fresh=0

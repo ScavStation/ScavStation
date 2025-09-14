@@ -9,6 +9,7 @@
 	icon_state = "wingrille"
 	density = TRUE
 	anchored = TRUE
+	atmos_canpass = CANPASS_NEVER
 	var/win_path = /obj/structure/window/basic
 	var/activated = FALSE
 	var/fulltile = FALSE

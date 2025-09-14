@@ -9,6 +9,11 @@
 	fruit_descriptor = "nutritious"
 	uid = "chem_nutriment"
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE // Please, no more animal protein or glowsap or corn oil atmosphere.
+	fishing_bait_value = 0.65
+	compost_value = 1
+	nutriment_factor = 10
+	affect_blood_on_ingest = 0
+	affect_blood_on_inhale = 0
 
 	// Technically a room-temperature solid, but saves
 	// repathing it to /solid all over the codebase.
@@ -17,56 +22,10 @@
 	boiling_point    = 373
 	accelerant_value =   0.65
 
-	var/nutriment_factor = 10 // Per unit
-	var/hydration_factor = 0 // Per unit
-	var/injectable       = FALSE
-
-/decl/material/liquid/nutriment/mix_data(var/datum/reagents/reagents, var/list/newdata, var/newamount)
-
-	if(!islist(newdata) || !newdata.len)
-		return
-
-	//add the new taste data
-	var/data = ..()
-	LAZYINITLIST(data)
-	for(var/taste in newdata)
-		if(taste in data)
-			data[taste] += newdata[taste]
-		else
-			data[taste] = newdata[taste]
-
-	//cull all tastes below 10% of total
-	var/totalFlavor = 0
-	for(var/taste in data)
-		totalFlavor += data[taste]
-	if(totalFlavor)
-		for(var/taste in data)
-			if(data[taste]/totalFlavor < 0.1)
-				data -= taste
-	. = data
-
-/decl/material/liquid/nutriment/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	if(!injectable)
-		M.adjustToxLoss(0.2 * removed)
-		return
-	affect_ingest(M, removed, holder)
-
-/decl/material/liquid/nutriment/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
-	adjust_nutrition(M, removed)
-
-	if(M.HasTrait(/decl/trait/metabolically_inert))
-		return
-
-	M.heal_organ_damage(0.5 * removed, 0) //what
-	M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
-
-/decl/material/liquid/nutriment/proc/adjust_nutrition(var/mob/living/carbon/M, var/removed)
-	var/nut_removed = removed
-	var/hyd_removed = removed
-	if(nutriment_factor)
-		M.adjust_nutrition(nutriment_factor * nut_removed) // For hunger and fatness
-	if(hydration_factor)
-		M.adjust_hydration(hydration_factor * hyd_removed) // For thirst
+/decl/material/liquid/nutriment/Initialize()
+	solid_name = name   // avoid 'frozen sugar'
+	liquid_name = name  // avoid 'molten honey'
+	return ..()
 
 /decl/material/liquid/nutriment/slime_meat
 	name = "slime-meat"
@@ -75,50 +34,45 @@
 	taste_description = "cold, bitter slime"
 	hydration_factor = 6
 	uid = "chem_nutriment_slime"
+	allergen_flags = ALLERGEN_MEAT | ALLERGEN_FISH
 
 /decl/material/liquid/nutriment/glucose
 	name = "glucose"
 	color = "#ffffff"
 	scannable = 1
-	injectable = 1
+	injectable_nutrition = TRUE
 	uid = "chem_nutriment_glucose"
 
 /decl/material/liquid/nutriment/bread
 	name = "bread"
 	uid = "chem_nutriment_bread"
+	allergen_flags = ALLERGEN_GLUTEN
 
 /decl/material/liquid/nutriment/bread/cake
 	name = "cake"
 	uid = "chem_nutriment_cake"
 
-/decl/material/liquid/nutriment/protein
-	name = "animal protein"
-	taste_description = "some sort of protein"
-	color = "#440000"
-	uid = "chem_nutriment_protein"
-
-/decl/material/liquid/nutriment/protein/adjust_nutrition(mob/living/carbon/M, removed)
-	var/malus_level = M.GetTraitLevel(/decl/trait/malus/animal_protein)
-	var/malus_factor = malus_level ? malus_level * 0.25 : 0
-	M.adjustToxLoss(removed * malus_factor)
-	M.adjust_nutrition(nutriment_factor * removed * (1 - malus_factor))
-
-/decl/material/liquid/nutriment/protein/egg
-	name = "egg yolk"
-	taste_description = "egg"
-	color = "#ffffaa"
-	uid = "chem_nutriment_egg"
-	melting_point = 273
-	boiling_point = 373
-
 //vegetamarian alternative that is safe for vegans to ingest//rewired it from its intended nutriment/protein/egg/softtofu because it would not actually work, going with plan B, more recipes.
-
 /decl/material/liquid/nutriment/plant_protein
 	name = "plant protein"
 	lore_text = "A gooey pale paste."
 	taste_description = "healthy sadness"
 	color = "#ffffff"
 	uid = "chem_nutriment_plant"
+	allergen_flags = ALLERGEN_VEGETABLE
+
+/decl/material/liquid/nutriment/plant_oil
+	name = "plant oil"
+	lore_text = "A thin yellow oil pressed from vegetables or nuts. Useful as fuel, or in cooking."
+	uid = "chem_nutriment_plant_oil"
+	melting_point = 273
+	boiling_point = 373
+	taste_description = "oily blandness"
+	burn_product = /decl/material/gas/carbon_monoxide
+	ignition_point = T0C+150
+	accelerant_value = FUEL_VALUE_ACCELERANT
+	gas_flags = XGM_GAS_FUEL
+	allergen_flags = ALLERGEN_VEGETABLE
 
 /decl/material/liquid/nutriment/honey
 	name = "honey"
@@ -139,10 +93,11 @@
 	color = "#ffffff"
 	slipperiness = -1
 	uid = "chem_nutriment_flour"
+	allergen_flags = ALLERGEN_GLUTEN
 
-/decl/material/liquid/nutriment/flour/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/decl/material/liquid/nutriment/flour/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
 	..()
-	new /obj/effect/decal/cleanable/flour(T)
+	new /obj/effect/decal/cleanable/flour(touching_turf)
 
 /decl/material/liquid/nutriment/batter
 	name = "batter"
@@ -157,10 +112,11 @@
 	uid = "chem_nutriment_batter"
 	melting_point = 273
 	boiling_point = 373
+	allergen_flags = ALLERGEN_EGG | ALLERGEN_GLUTEN
 
-/decl/material/liquid/nutriment/batter/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/decl/material/liquid/nutriment/batter/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
 	..()
-	new /obj/effect/decal/cleanable/pie_smudge(T)
+	new /obj/effect/decal/cleanable/pie_smudge(touching_turf)
 
 /decl/material/liquid/nutriment/batter/cakebatter
 	name = "cake batter"
@@ -169,6 +125,7 @@
 	taste_description = "sweetness"
 	color = "#ffe992"
 	uid = "chem_nutriment_cakebatter"
+	allergen_flags = ALLERGEN_EGG | ALLERGEN_GLUTEN
 
 /decl/material/liquid/nutriment/coffee
 	name = "ground coffee"
@@ -179,6 +136,7 @@
 	color = "#482000"
 	fruit_descriptor = "bitter"
 	uid = "chem_nutriment_coffeepowder"
+	allergen_flags = ALLERGEN_CAFFEINE | ALLERGEN_STIMULANT
 
 /decl/material/liquid/nutriment/coffee/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
@@ -199,6 +157,7 @@
 	nutriment_factor = 1
 	color = "#101000"
 	uid = "chem_nutriment_teapowder"
+	allergen_flags = ALLERGEN_CAFFEINE | ALLERGEN_STIMULANT
 
 /decl/material/liquid/nutriment/tea/instant
 	name = "instant tea powder"
@@ -222,6 +181,7 @@
 	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 	uid = "chem_nutriment_juice"
+	allergen_flags = ALLERGEN_FRUIT
 
 /decl/material/liquid/nutriment/instantjuice/grape
 	name = "grape concentrate"
@@ -283,6 +243,7 @@
 	uid = "chem_nutriment_ketchup"
 	melting_point = 273
 	boiling_point = 373
+	allergen_flags = ALLERGEN_FRUIT | ALLERGEN_VEGETABLE // Is a tomato a fruit or a vegetable?
 
 /decl/material/liquid/nutriment/banana_cream
 	name = "banana cream"
@@ -294,6 +255,7 @@
 	uid = "chem_nutriment_bananacream"
 	melting_point = 273
 	boiling_point = 373
+	allergen_flags = ALLERGEN_DAIRY | ALLERGEN_FRUIT
 
 /decl/material/liquid/nutriment/barbecue
 	name = "barbecue sauce"
@@ -306,6 +268,7 @@
 	uid = "chem_nutriment_bbqsauce"
 	melting_point = 273
 	boiling_point = 373
+	allergen_flags = ALLERGEN_FRUIT | ALLERGEN_VEGETABLE // Is a tomato a fruit or a vegetable?
 
 /decl/material/liquid/nutriment/garlicsauce
 	name = "garlic sauce"
@@ -318,6 +281,7 @@
 	uid = "chem_nutriment_garlicsauce"
 	melting_point = 273
 	boiling_point = 373
+	allergen_flags = ALLERGEN_VEGETABLE
 
 /decl/material/liquid/nutriment/rice
 	name = "rice"
@@ -327,17 +291,9 @@
 	nutriment_factor = 1
 	color = "#ffffff"
 	uid = "chem_nutriment_rice"
-
-/decl/material/liquid/nutriment/rice/chazuke
-	name = "chazuke"
-	lore_text = "Green tea over rice. How rustic!"
-	taste_description = "green tea and rice"
-	taste_mult = 0.4
-	nutriment_factor = 1
-	color = "#f1ffdb"
-	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
-	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
-	uid = "chem_nutriment_chazuke"
+	reagent_overlay_base = "rice_base"
+	reagent_overlay = "soup_meatballs"
+	allergen_flags = ALLERGEN_GLUTEN
 
 /decl/material/liquid/nutriment/cherryjelly
 	name = "cherry jelly"
@@ -350,6 +306,7 @@
 	uid = "chem_nutriment_cherryjelly"
 	melting_point = 273
 	boiling_point = 373
+	allergen_flags = ALLERGEN_FRUIT
 
 /decl/material/liquid/nutriment/cornoil
 	name = "corn oil"
@@ -362,6 +319,7 @@
 	uid = "chem_nutriment_cornoil"
 	melting_point = 273
 	boiling_point = 373
+	allergen_flags = ALLERGEN_VEGETABLE
 
 /decl/material/liquid/nutriment/sprinkles
 	name = "sprinkles"
@@ -407,3 +365,35 @@
 	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 	uid = "chem_nutriment_mayonnaise"
+	allergen_flags = ALLERGEN_EGG
+
+/decl/material/liquid/nutriment/yeast
+	name = "Yeast"
+	lore_text = "A collection of live fungal cultures, cultivated across history for use in fermentation and baking."
+	taste_description = "mustiness"
+	nutriment_factor = 1
+	color = "#d3af70"
+	uid = "chem_nutriment_yeast"
+
+/decl/material/liquid/nutriment/cheese
+	name = "cheese"
+	lore_text = "Aged, fermented, curdled milk."
+	uid = "chem_nutriment_cheese"
+	color = "#ffd000"
+	allergen_flags = ALLERGEN_DAIRY | ALLERGEN_CHEESE
+
+/decl/material/liquid/nutriment/butter
+	name = "butter"
+	lore_text = "The product of churning cream. Great for baking and on sandwiches."
+	color = "#ffe864"
+	taste_description = "butter"
+	uid = "chem_nutriment_butter"
+	allergen_flags = ALLERGEN_DAIRY
+
+/decl/material/liquid/nutriment/margarine
+	name = "margarine"
+	lore_text = "Emulsified plant oil solids. A popular non-dairy alternative to butter."
+	color = "#fff2ab"
+	taste_description = "bland oiliness"
+	uid = "chem_nutriment_margarine"
+	allergen_flags = ALLERGEN_VEGETABLE

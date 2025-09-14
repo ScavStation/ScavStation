@@ -98,13 +98,13 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/volume = 60
 	var/list/fuel = list(
-		/decl/material/gas/hydrogen =           50000,
+		/decl/material/gas/hydrogen           = 50000,
 		/decl/material/gas/hydrogen/deuterium = 50000,
-		/decl/material/gas/hydrogen/tritium =   50000,
-		/decl/material/liquid/fuel =            15000,
-		/decl/material/solid/carbon =           10000,
-		/decl/material/liquid/ethanol =         10000,
-		/decl/material/liquid/nutriment =       8000
+		/decl/material/gas/hydrogen/tritium   = 50000,
+		/decl/material/liquid/fuel            = 15000,
+		/decl/material/solid/carbon           = 10000,
+		/decl/material/liquid/alcohol/ethanol = 10000,
+		/decl/material/liquid/nutriment       = 8000
 	)
 	var/multi = 1
 
@@ -120,7 +120,8 @@
 	..()
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/on_reagent_change(changetype)
-	..()
+	if(!(. = ..()))
+		return
 	set_pin_data(IC_OUTPUT, 1, reagents?.total_volume || 0)
 	push_data()
 

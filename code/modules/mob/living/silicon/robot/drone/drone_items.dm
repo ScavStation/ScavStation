@@ -65,7 +65,7 @@
 		/obj/item/chems/glass,
 		/obj/item/chems/pill,
 		/obj/item/chems/ivbag,
-		/obj/item/storage/pill_bottle
+		/obj/item/pill_bottle
 	)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -84,7 +84,7 @@
 		/obj/item/stack/cable_coil,
 		/obj/item/stock_parts/circuitboard,
 		/obj/item/chems/glass,
-		/obj/item/chems/food/monkeycube,
+		/obj/item/food/animal_cube,
 		/obj/item/stock_parts/computer,
 		/obj/item/transfer_valve,
 		/obj/item/assembly/signaler,
@@ -101,7 +101,6 @@
 	can_hold = list(
 		/obj/item/chems/glass,
 		/obj/item/seeds,
-		/obj/item/grown,
 		/obj/item/disk/botany
 	)
 
@@ -111,11 +110,10 @@
 	desc = "A simple grasping tool used to perform tasks in the service sector, such as handling food, drinks, and seeds."
 	can_hold = list(
 		/obj/item/chems/glass,
-		/obj/item/chems/food,
+		/obj/item/food,
 		/obj/item/chems/drinks,
 		/obj/item/chems/condiment,
 		/obj/item/seeds,
-		/obj/item/grown,
 		/obj/item/glass_extra
 	)
 
@@ -174,9 +172,9 @@
 	wrapped = null
 	//on_update_icon()
 
-/obj/item/gripper/attack(mob/living/carbon/M, mob/living/carbon/user)
+/obj/item/gripper/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	// Don't fall through and smack people with gripper, instead just no-op
-	return 0
+	return FALSE
 
 /obj/item/gripper/resolve_attackby(var/atom/target, var/mob/living/user, params)
 
@@ -190,9 +188,9 @@
 		//Temporary put wrapped into user so target's attackby() checks pass.
 		wrapped.forceMove(user)
 
-		//The force of the wrapped obj gets set to zero during the attack() and afterattack().
-		var/force_holder = wrapped.force
-		wrapped.force = 0.0
+		//The force of the wrapped obj gets set to zero during the use_on_mob() and afterattack().
+		var/force_holder = wrapped.get_base_attack_force()
+		wrapped.set_base_attack_force(0)
 
 		//Pass the attack on to the target. This might delete/relocate wrapped.
 		var/resolved = wrapped.resolve_attackby(target,user,params)
@@ -212,12 +210,10 @@
 
 		//We can grab the item, finally.
 		if(grab)
-			if(I == user.active_storage)
-				var/obj/item/storage/storage = I
-				storage.close(user) //Closes the ui.
-			if(istype(I.loc, /obj/item/storage))
-				var/obj/item/storage/storage = I.loc
-				if(!storage.remove_from_storage(I, src))
+			if(I == user.active_storage?.holder)
+				user.active_storage.close(user) //Closes the ui.
+			if(I.loc?.storage)
+				if(!I.loc.storage.remove_from_storage(user, I, src))
 					return
 			else
 				I.forceMove(src)
@@ -260,7 +256,7 @@
 		wrapped.afterattack(target, user, 1, params)
 
 	if(wrapped)
-		wrapped.force = force_holder
+		wrapped.set_base_attack_force(force_holder)
 
 	//If wrapped was neither deleted nor put into target, put it back into the gripper.
 	if(wrapped && user && !QDELETED(wrapped) && wrapped.loc == user)
@@ -289,8 +285,8 @@
 	plastic = null
 	return ..()
 
-/obj/item/matter_decompiler/attack(mob/living/carbon/M, mob/living/carbon/user)
-	return
+/obj/item/matter_decompiler/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	return FALSE
 
 /obj/item/matter_decompiler/afterattack(atom/target, mob/living/user, proximity, params)
 
@@ -391,11 +387,12 @@
 		else if(istype(W,/obj/item/shard))
 			if(glass)
 				glass.add_charge(1000)
-		else if(istype(W,/obj/item/chems/food/grown))
+		else if(istype(W,/obj/item/food/grown))
 			if(wood)
 				wood.add_charge(4000)
 		else if(istype(W,/obj/item/pipe))
 			// This allows drones and engiborgs to clear pipe assemblies from floors.
+			pass()
 		else
 			continue
 
@@ -422,9 +419,9 @@
 	dat += {"
 	<B>Activated Modules</B>
 	<BR>
-	Module 1: [module_state_1 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_1]>[module_state_1]<A>" : "No Module"]<BR>
-	Module 2: [module_state_2 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_2]>[module_state_2]<A>" : "No Module"]<BR>
-	Module 3: [module_state_3 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_3]>[module_state_3]<A>" : "No Module"]<BR>
+	Module 1: [module_state_1 ? "<A HREF='byond://?src=\ref[src];mod=\ref[module_state_1]'>[module_state_1]<A>" : "No Module"]<BR>
+	Module 2: [module_state_2 ? "<A HREF='byond://?src=\ref[src];mod=\ref[module_state_2]'>[module_state_2]<A>" : "No Module"]<BR>
+	Module 3: [module_state_3 ? "<A HREF='byond://?src=\ref[src];mod=\ref[module_state_3]'>[module_state_3]<A>" : "No Module"]<BR>
 	<BR>
 	<B>Installed Modules</B><BR><BR>"}
 
@@ -441,7 +438,7 @@
 		else if(activated(O))
 			module_string += text("[O]: <B>Activated</B><BR>")
 		else
-			module_string += text("[O]: <A HREF=?src=\ref[src];act=\ref[O]>Activate</A><BR>")
+			module_string += text("[O]: <A HREF='byond://?src=\ref[src];act=\ref[O]'>Activate</A><BR>")
 
 		if((istype(O,/obj/item) || istype(O,/obj/item)) && !(istype(O,/obj/item/stack/cable_coil)))
 			tools += module_string
@@ -456,7 +453,7 @@
 		else if(activated(module.emag))
 			dat += text("[module.emag]: <B>Activated</B><BR>")
 		else
-			dat += text("[module.emag]: <A HREF=?src=\ref[src];act=\ref[module.emag]>Activate</A><BR>")
+			dat += text("[module.emag]: <A HREF='byond://?src=\ref[src];act=\ref[module.emag]'>Activate</A><BR>")
 
 	dat += resources
 

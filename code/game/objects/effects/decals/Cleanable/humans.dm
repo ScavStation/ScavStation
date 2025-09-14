@@ -4,8 +4,6 @@
 #define BLOOD_SIZE_BIG       3
 #define BLOOD_SIZE_NO_MERGE -1
 
-var/global/list/image/splatter_cache=list()
-
 /obj/effect/decal/cleanable/blood
 	name = "blood"
 	desc = "It's some blood. That's not supposed to be there."
@@ -61,13 +59,15 @@ var/global/list/image/splatter_cache=list()
 // Returns true if overriden and needs deletion. If the argument is false, we will merge into any existing blood.
 /obj/effect/decal/cleanable/blood/proc/merge_with_blood()
 	if(!isturf(loc) || blood_size == BLOOD_SIZE_NO_MERGE)
-		return
+		return FALSE
 	for(var/obj/effect/decal/cleanable/blood/B in loc)
 		if(B != src && B.blood_size != BLOOD_SIZE_NO_MERGE)
 			if(B.blood_DNA)
 				blood_size = BLOOD_SIZE_NO_MERGE
 				B.blood_DNA |= blood_DNA.Copy()
+			B.alpha = initial(B.alpha) // reset rain-based fading due to more drips
 			return TRUE
+	return FALSE
 
 /obj/effect/decal/cleanable/blood/proc/start_drying()
 	drytime = world.time + DRYING_TIME * (amount+1)
@@ -125,7 +125,7 @@ var/global/list/image/splatter_cache=list()
 /obj/effect/decal/cleanable/blood/attack_hand(mob/user)
 	if(!amount || !length(blood_data) || !ishuman(user))
 		return ..()
-	var/mob/living/carbon/human/H = user
+	var/mob/living/human/H = user
 	if(H.get_equipped_item(slot_gloves_str))
 		return ..()
 	var/taken = rand(1,amount)
@@ -133,7 +133,7 @@ var/global/list/image/splatter_cache=list()
 	to_chat(user, SPAN_NOTICE("You get some of \the [src] on your hands."))
 	for(var/bloodthing in blood_data)
 		user.add_blood(null, max(1, amount/length(blood_data)), blood_data[bloodthing])
-	user.verbs += /mob/living/carbon/human/proc/bloody_doodle
+	user.verbs += /mob/living/human/proc/bloody_doodle
 	return TRUE
 
 /obj/effect/decal/cleanable/blood/splatter
@@ -244,9 +244,9 @@ var/global/list/image/splatter_cache=list()
 /obj/effect/decal/cleanable/blood/gibs/proc/streak(var/list/directions)
 	spawn (0)
 		var/direction = pick(directions)
-		for (var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
+		for (var/i in 1 to pick(1, 200; 2, 150; 3, 50; 4))
 			sleep(3)
-			if (i > 0)
+			if (i > 1)
 				var/obj/effect/decal/cleanable/blood/b = new /obj/effect/decal/cleanable/blood/splatter(loc)
 				b.basecolor = src.basecolor
 				b.update_icon()

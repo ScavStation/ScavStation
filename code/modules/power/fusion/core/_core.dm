@@ -14,7 +14,7 @@
 	anchored = FALSE
 	construct_state = /decl/machine_construction/default/panel_closed
 	uncreated_component_parts = null
-	stat_immune = 0
+	stat_immune = NOINPUT
 	base_type = /obj/machinery/fusion_core
 	stock_part_presets = list(/decl/stock_part_preset/terminal_setup)
 
@@ -42,16 +42,6 @@
 			update_use_power(POWER_USE_IDLE)
 		else
 			owned_field.handle_tick()
-
-/obj/machinery/fusion_core/Topic(href, href_list)
-	if(..())
-		return 1
-	if(href_list["str"])
-		var/dif = text2num(href_list["str"])
-		field_strength = min(max(field_strength + dif, MIN_FIELD_STR), MAX_FIELD_STR)
-		change_power_consumption(500 * field_strength, POWER_USE_ACTIVE)
-		if(owned_field)
-			owned_field.ChangeFieldStrength(field_strength)
 
 /obj/machinery/fusion_core/update_use_power(new_use_power)
 	. = ..()
@@ -101,26 +91,28 @@
 /obj/machinery/fusion_core/attackby(var/obj/item/W, var/mob/user)
 
 	if(owned_field)
-		to_chat(user,"<span class='warning'>Shut \the [src] off first!</span>")
-		return
+		to_chat(user, SPAN_WARNING("Shut \the [src] off first!"))
+		return TRUE
 
 	if(IS_MULTITOOL(W))
 		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
 		fusion.get_new_tag(user)
-		return
+		return TRUE
 
 	else if(IS_WRENCH(W))
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)
-			user.visible_message("[user.name] secures [src.name] to the floor.", \
-				"You secure the [src.name] to the floor.", \
-				"You hear a ratchet.")
+			user.visible_message("\The [user] secures \the [src] to the floor.", 
+				"You secure \the [src] to the floor.", 
+				"You hear a ratchet."
+			)
 		else
-			user.visible_message("[user.name] unsecures [src.name] from the floor.", \
-				"You unsecure the [src.name] from the floor.", \
-				"You hear a ratchet.")
-		return
+			user.visible_message("\The [user] unsecures \the [src] from the floor.", 
+				"You unsecure \the [src] from the floor.", 
+				"You hear a ratchet."
+			)
+		return TRUE
 
 	return ..()
 

@@ -12,7 +12,7 @@
 /obj/machinery/merchant_pad/proc/get_target()
 	var/turf/T = get_turf(src)
 	for(var/a in T)
-		if(a == src || (!istype(a,/obj) && !isliving(a)) || istype(a,/obj/effect))
+		if(!is_valid_target(a))
 			continue
 		return a
 
@@ -20,6 +20,13 @@
 	. = list()
 	var/turf/T = get_turf(src)
 	for(var/a in T)
-		if(a == src || (!istype(a,/obj) && !isliving(a)) || istype(a,/obj/effect))
+		if(!is_valid_target(a))
 			continue
 		. += a
+
+/obj/machinery/merchant_pad/proc/is_valid_target(atom/movable/thing)
+	if(!istype(thing))
+		return FALSE
+	if(thing == src)
+		return FALSE
+	return thing.is_valid_merchant_pad_target()

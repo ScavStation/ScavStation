@@ -62,7 +62,6 @@
 			locked = !locked
 			visible_message(SPAN_NOTICE("\The [src] beeps and flashes green twice: it is now [locked ? "" : "un"]locked."))
 			return TRUE
-		return
 	return ..()
 
 /obj/item/stock_parts/access_lock/attack_self(mob/user)

@@ -4,7 +4,6 @@
 	icon                    = 'icons/obj/items/clipboard.dmi'
 	icon_state              = "clipboard"
 	item_state              = "clipboard"
-	throwforce              = 0
 	w_class                 = ITEM_SIZE_SMALL
 	throw_speed             = 3
 	throw_range             = 10
@@ -71,7 +70,7 @@
 	var/obj/item/top_paper = top_paper()
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		push_paper(W)
 		to_chat(user, SPAN_NOTICE("You clip the [W] onto \the [src]."))
 		return TRUE
@@ -86,10 +85,6 @@
 
 	return ..()
 
-/obj/item/clipboard/AltClick(mob/user)
-	if(stored_pen)
-		remove_pen(user)
-
 /obj/item/clipboard/attack_self(mob/user)
 	if(CanPhysicallyInteractWith(user, src))
 		interact(user)
@@ -98,19 +93,19 @@
 /obj/item/clipboard/interact(mob/user)
 	var/dat = "<title>Clipboard</title>"
 	if(stored_pen)
-		dat += "<A href='?src=\ref[src];pen=1'>Remove Pen</A><BR><HR>"
+		dat += "<A href='byond://?src=\ref[src];pen=1'>Remove Pen</A><BR><HR>"
 	else
-		dat += "<A href='?src=\ref[src];addpen=1'>Add Pen</A><BR><HR>"
+		dat += "<A href='byond://?src=\ref[src];addpen=1'>Add Pen</A><BR><HR>"
 
 	dat += "<TABLE style='table-layout:fixed; white-space:nowrap;'>"
 	for(var/i = 1 to LAZYLEN(papers))
 		var/obj/item/P = papers[i]
-		dat += "<TR><TD style='width:45%; overflow:hidden; text-overflow:ellipsis;'><A href='?src=\ref[src];examine=\ref[P]'>[P.name]</A></TD>"
+		dat += "<TR><TD style='width:45%; overflow:hidden; text-overflow:ellipsis;'><A href='byond://?src=\ref[src];examine=\ref[P]'>[P.name]</A></TD>"
 		if(i == 1)
-			dat += "<TD/><TD><A href='?src=\ref[src];write=\ref[P]'>Write</A></TD>"
+			dat += "<TD/><TD><A href='byond://?src=\ref[src];write=\ref[P]'>Write</A></TD>"
 		else
 			dat += "<TD/><TD/>"
-		dat += "<TD><A href='?src=\ref[src];remove=\ref[P]'>Remove</A></TD><TD><A href='?src=\ref[src];rename=\ref[P]'>Rename</A></TD></TR>"
+		dat += "<TD><A href='byond://?src=\ref[src];remove=\ref[P]'>Remove</A></TD><TD><A href='byond://?src=\ref[src];rename=\ref[P]'>Rename</A></TD></TR>"
 	dat += "</TABLE>"
 
 	user.set_machine(src)
@@ -195,6 +190,27 @@
 	else
 		close_browser(user, initial(name))
 
+/obj/item/clipboard/get_alt_interactions(mob/user)
+	. = ..()
+	if(stored_pen)
+		LAZYADD(., /decl/interaction_handler/clipboard_remove_pen)
+
+/decl/interaction_handler/clipboard_remove_pen
+	name = "Remove Pen"
+	expected_target_type = /obj/item/clipboard
+
+/decl/interaction_handler/clipboard_remove_pen/is_possible(atom/target, mob/user, obj/item/prop)
+	. = ..()
+	if(.)
+		var/obj/item/clipboard/clipboard = target
+		return !!clipboard.stored_pen
+
+/decl/interaction_handler/clipboard_remove_pen/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/clipboard/clipboard = target
+	if(clipboard.stored_pen)
+		clipboard.remove_pen(user)
+
+// Subtypes below.
 /obj/item/clipboard/ebony
 	material = /decl/material/solid/organic/wood/ebony
 

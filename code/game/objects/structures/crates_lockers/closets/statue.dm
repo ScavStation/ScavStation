@@ -16,18 +16,18 @@
 /obj/structure/closet/statue/Initialize(mapload, var/mob/living/L)
 	if(L && (ishuman(L) || L.isMonkey() || iscorgi(L)))
 		if(L.buckled)
-			L.buckled = 0
+			L.buckled = null
 			L.anchored = FALSE
 		if(L.client)
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src
 		L.forceMove(src)
-		L.set_sdisability(MUTED)
+		L.add_genetic_condition(GENE_COND_MUTED)
 		current_health = L.current_health + 100 //stoning damaged mobs will result in easier to shatter statues
-		intialTox = L.getToxLoss()
-		intialFire = L.getFireLoss()
-		intialBrute = L.getBruteLoss()
-		intialOxy = L.getOxyLoss()
+		intialTox = L.get_damage(TOX)
+		intialFire = L.get_damage(BURN)
+		intialBrute = L.get_damage(BRUTE)
+		intialOxy = L.get_damage(OXY)
 		if(ishuman(L))
 			name = "statue of [L.name]"
 			if(L.gender == "female")
@@ -49,31 +49,31 @@
 /obj/structure/closet/statue/Process()
 	timer--
 	for(var/mob/living/M in src) //Go-go gadget stasis field
-		M.setToxLoss(intialTox)
-		M.adjustFireLoss(intialFire - M.getFireLoss(), do_update_health = FALSE)
-		M.adjustBruteLoss(intialBrute - M.getBruteLoss())
-		M.setOxyLoss(intialOxy)
+		M.set_damage(TOX, intialTox)
+		M.take_damage(intialFire - M.get_damage(BURN), BURN, do_update_health = FALSE)
+		M.take_damage(intialBrute - M.get_damage(BRUTE))
+		M.set_damage(OXY, intialOxy)
 	if (timer <= 0)
 		dump_contents()
 		STOP_PROCESSING(SSobj, src)
 		qdel(src)
 
-/obj/structure/closet/statue/dump_contents()
+/obj/structure/closet/statue/dump_contents(atom/forced_loc = loc, mob/user)
 	for(var/obj/O in src)
-		O.dropInto(loc)
+		O.dropInto(forced_loc)
 
 	for(var/mob/living/M in src)
-		M.dropInto(loc)
-		M.unset_sdisability(MUTED)
+		M.dropInto(forced_loc)
+		M.remove_genetic_condition(GENE_COND_MUTED)
 		M.take_overall_damage((M.current_health - current_health - 100),0) //any new damage the statue incurred is transfered to the mob
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
 
-/obj/structure/closet/statue/open()
+/obj/structure/closet/statue/open(mob/user)
 	return
 
-/obj/structure/closet/statue/close()
+/obj/structure/closet/statue/close(mob/user)
 	return
 
 /obj/structure/closet/statue/toggle()
@@ -99,10 +99,11 @@
 		check_health()
 
 /obj/structure/closet/statue/attackby(obj/item/I, mob/user)
-	current_health -= I.force
+	current_health -= I.get_attack_force(user)
 	user.do_attack_animation(src)
 	visible_message("<span class='danger'>[user] strikes [src] with [I].</span>")
 	check_health()
+	return TRUE
 
 /obj/structure/closet/statue/receive_mouse_drop(atom/dropping, mob/user, params)
 	return TRUE

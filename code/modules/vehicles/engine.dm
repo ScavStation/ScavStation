@@ -41,14 +41,17 @@
 			cell = I
 			user.drop_from_inventory(I)
 			I.forceMove(src)
-		return 1
+		return TRUE
 	else if(IS_CROWBAR(I))
 		if(cell)
-			to_chat(user, "You pry out \the [cell].")
+			to_chat(user, "You pry out \the [cell] with \the [I].")
 			cell.dropInto(loc)
 			cell = null
-			return 1
-	..()
+			return TRUE
+		if(user.a_intent != I_HURT)
+			to_chat(user, SPAN_WARNING("There is no cell in \the [src] to remove with \the [I]!"))
+			return TRUE
+	return ..()
 
 /obj/item/engine/electric/prefill()
 	cell = new /obj/item/cell/high(src.loc)
@@ -90,13 +93,9 @@
 	temp_reagents_holder.atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/engine/thermal/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I,/obj/item/chems) && ATOM_IS_OPEN_CONTAINER(I))
-		if(istype(I,/obj/item/chems/food) || istype(I,/obj/item/chems/pill))
-			return 0
-		var/obj/item/chems/C = I
-		C.standard_pour_into(user,src)
-		return 1
-	..()
+	if(I.standard_pour_into(user, src))
+		return TRUE
+	return ..()
 
 /obj/item/engine/thermal/use_power()
 	if(fuel_points >= cost_per_move)
@@ -111,8 +110,8 @@
 	for(var/rtype in temp_reagents_holder.reagents.reagent_volumes)
 		var/new_multiplier = 1
 		var/decl/material/R = GET_DECL(rtype)
-		if(istype(R,/decl/material/liquid/ethanol))
-			var/decl/material/liquid/ethanol/E = R
+		if(istype(R, /decl/material/liquid/alcohol))
+			var/decl/material/liquid/alcohol/E = R
 			new_multiplier = (10/E.strength)
 			actually_flameable = 1
 		else if(istype(R,/decl/material/liquid/fuel/hydrazine))
@@ -138,5 +137,5 @@
 /obj/item/engine/thermal/rev_engine(var/atom/movable/M)
 	M.audible_message("\The [M] rumbles to life.")
 
-/obj/item/engine/electric/putter(var/atom/movable/M)
+/obj/item/engine/thermal/putter(var/atom/movable/M)
 	M.audible_message("\The [M] putters before turning off.")
