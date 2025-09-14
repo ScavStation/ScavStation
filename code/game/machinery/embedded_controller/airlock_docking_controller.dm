@@ -21,8 +21,9 @@
 		else
 			code = stars(code)
 		to_chat(user,"[W]'s screen displays '[code]'")
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = global.default_topic_state)
 	var/data[0]

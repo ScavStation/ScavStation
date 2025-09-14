@@ -60,7 +60,7 @@
 /obj/item/gun/projectile/revolver/capgun/attackby(obj/item/wirecutters/W, mob/user)
 	if(!istype(W) || !cap)
 		return ..()
-	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
+	to_chat(user, "<span class='notice'>You snip off the toy markings off \the [src].</span>")
 	name = "revolver"
 	desc += " Someone snipped off the barrel's toy mark. How dastardly."
 	cap = FALSE
@@ -75,6 +75,6 @@
 	name = "Spin Cylinder"
 	expected_target_type = /obj/item/gun/projectile/revolver
 
-/decl/interaction_handler/revolver_spin_cylinder/invoked(var/atom/target, var/mob/user)
+/decl/interaction_handler/revolver_spin_cylinder/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/gun/projectile/revolver/R = target
 	R.spin_cylinder()

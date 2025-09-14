@@ -27,7 +27,7 @@
 	/// Whether or not we should try to transfer a brainmob when removed or replaced in a mob.
 	var/transfer_brainmob_with_organ = FALSE
 
-/obj/item/organ/internal/Initialize(mapload, material_key, datum/dna/given_dna, decl/bodytype/new_bodytype)
+/obj/item/organ/internal/Initialize(mapload, material_key, datum/mob_snapshot/supplied_appearance, decl/bodytype/new_bodytype)
 	if(!alive_icon)
 		alive_icon = initial(icon_state)
 	. = ..()
@@ -38,7 +38,7 @@
 	if(species.organs_icon)
 		icon = species.organs_icon
 
-/obj/item/organ/internal/do_install(mob/living/carbon/human/target, obj/item/organ/external/affected, in_place, update_icon, detached)
+/obj/item/organ/internal/do_install(mob/living/human/target, obj/item/organ/external/affected, in_place, update_icon, detached)
 	. = ..()
 
 	if(!affected)
@@ -106,8 +106,8 @@
 
 /obj/item/organ/internal/set_max_damage(var/ndamage)
 	. = ..()
-	min_broken_damage = FLOOR(0.75 * max_damage)
-	min_bruised_damage = FLOOR(0.25 * max_damage)
+	min_broken_damage = floor(0.75 * max_damage)
+	min_bruised_damage = floor(0.25 * max_damage)
 	if(damage_threshold_count > 0)
 		damage_threshold_value = round(max_damage / damage_threshold_count)
 
@@ -208,7 +208,7 @@
 	if(damage > min_broken_damage)
 		var/scarring = damage/max_damage
 		scarring = 1 - 0.3 * scarring ** 2 // Between ~15 and 30 percent loss
-		var/new_max_dam = FLOOR(scarring * max_damage)
+		var/new_max_dam = floor(scarring * max_damage)
 		if(new_max_dam < max_damage)
 			to_chat(user, SPAN_WARNING("Not every part of [src] could be saved; some dead tissue had to be removed, making it more susceptible to damage in the future."))
 			set_max_damage(new_max_dam)
@@ -276,11 +276,10 @@
 		if(update_brainmob)
 			brainmob.SetName(M.real_name)
 			brainmob.real_name = M.real_name
-			brainmob.dna = M.dna?.Clone()
 			brainmob.languages = M.languages?.Copy()
 			brainmob.default_language = M.default_language
 			to_chat(brainmob, SPAN_NOTICE("You feel slightly disoriented. That's normal when you're just \a [initial(src.name)]."))
-			callHook("debrain", list(brainmob))
+			RAISE_EVENT(/decl/observ/debrain, brainmob, src, M)
 		return TRUE
 	return FALSE
 
@@ -292,7 +291,7 @@
 	return brainmob?.key
 
 // This might need revisiting to stop people successfully implanting brains in groins and transferring minds.
-/obj/item/organ/internal/do_install(mob/living/carbon/human/target, obj/item/organ/external/affected, in_place, update_icon, detached)
+/obj/item/organ/internal/do_install(mob/living/human/target, obj/item/organ/external/affected, in_place, update_icon, detached)
 	. = ..()
 	if(transfer_brainmob_with_organ && istype(owner))
 		var/mob/living/brainmob = get_brainmob(create_if_missing = FALSE)

@@ -123,10 +123,10 @@
 /obj/structure/disposalconstruct/attackby(var/obj/item/I, var/mob/user)
 	var/turf/T = loc
 	if(!istype(T))
-		return
+		return TRUE
 	if(!T.is_plating())
-		to_chat(user, "You can only manipulate \the [src] if the floor plating is removed.")
-		return
+		to_chat(user, "You can only manipulate \the [src] if the plating is exposed.")
+		return TRUE
 
 	var/obj/structure/disposalpipe/CP = locate() in T
 
@@ -137,31 +137,33 @@
 			to_chat(user, "You detach \the [src] from the underfloor.")
 		else
 			if(!check_buildability(CP, user))
-				return
+				return TRUE
 			wrench_down(TRUE)
 			to_chat(user, "You attach \the [src] to the underfloor.")
 		playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 		update()
 		update_verbs()
-
+		return TRUE
 	else if(istype(I, /obj/item/weldingtool))
 		if(anchored)
 			var/obj/item/weldingtool/W = I
 			if(W.weld(0,user))
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				to_chat(user, "Welding \the [src] in place.")
-				if(do_after(user, 20, src))
-					if(!src || !W.isOn()) return
+				if(do_after(user, 2 SECONDS, src))
+					if(!src || !W.isOn()) return TRUE
 					to_chat(user, "\The [src] has been welded in place!")
 					build(CP)
 					qdel(src)
-					return
+					return TRUE
+				return TRUE
 			else
 				to_chat(user, "You need more welding fuel to complete this task.")
-				return
+				return TRUE
 		else
 			to_chat(user, "You need to attach it to the plating first!")
-			return
+			return TRUE
+	return TRUE
 
 /obj/structure/disposalconstruct/hides_under_flooring()
 	return anchored
@@ -211,6 +213,7 @@
 
 /obj/structure/disposalconstruct/machine
 	obj_flags = 0 // No rotating
+	constructed_path = /obj/machinery/disposal/buildable
 
 /obj/structure/disposalconstruct/machine/Initialize(mapload, P)
 	. = ..()
@@ -225,7 +228,7 @@
 	update_icon()
 
 /obj/structure/disposalconstruct/machine/build(obj/structure/disposalpipe/CP)
-	var/obj/machinery/disposal/machine = new /obj/machinery/disposal(get_turf(src), dir)
+	var/obj/machinery/disposal/machine = new constructed_path(get_turf(src), dir)
 	var/datum/extension/parts_stash/stash = get_extension(src, /datum/extension/parts_stash)
 	if(stash)
 		stash.install_into(machine)
@@ -240,6 +243,9 @@
 	else
 		..()
 
+/obj/structure/disposalconstruct/machine/outlet
+	constructed_path = /obj/structure/disposaloutlet
+
 /obj/structure/disposalconstruct/machine/outlet/build(obj/structure/disposalpipe/CP)
 	var/obj/structure/disposaloutlet/P = new constructed_path(loc)
 	transfer_fingerprints_to(P)
@@ -249,3 +255,4 @@
 
 /obj/structure/disposalconstruct/machine/chute
 	obj_flags = OBJ_FLAG_ROTATABLE
+	constructed_path = /obj/machinery/disposal/deliveryChute/buildable

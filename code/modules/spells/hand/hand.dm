@@ -14,7 +14,7 @@
 /spell/hand/cast_check(skipcharge = 0,mob/user = usr, var/list/targets)
 	if(!..())
 		return FALSE
-	if(user.get_active_hand())
+	if(user.get_active_held_item())
 		to_chat(holder, "<span class='warning'>You need an empty hand to cast this spell.</span>")
 		return FALSE
 	return TRUE
@@ -22,10 +22,10 @@
 /spell/hand/cast(list/targets, mob/user)
 	if(current_hand)
 		cancel_hand()
-	if(user.get_active_hand())
+	if(user.get_active_held_item())
 		to_chat(user, "<span class='warning'>You need an empty hand to cast this spell.</span>")
 		return FALSE
-	current_hand = new(src)
+	current_hand = new(null, src)
 	if(!user.put_in_active_hand(current_hand))
 		QDEL_NULL(current_hand)
 		return FALSE

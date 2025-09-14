@@ -1,5 +1,8 @@
 /mob/living/silicon/ai
-	hud_type = /datum/hud/ai
+	hud_used = /datum/hud/ai
+
+/datum/hud/ai
+	action_intent_type = null // no selector
 
 /datum/hud/ai/FinalizeInstantiation()
 	var/list/ai_hud_data = decls_repository.get_decls_of_subtype(/decl/ai_hud)

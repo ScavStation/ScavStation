@@ -35,7 +35,7 @@
 		auto_align(O, click_params)
 		return TRUE
 
-/obj/structure/rack/holorack/dismantle()
+/obj/structure/rack/holorack/dismantle_structure(mob/user)
 	material = null
 	reinf_material = null
 	parts_type = null
@@ -43,3 +43,15 @@
 
 /obj/structure/rack/dark
 	color = COLOR_GRAY40
+
+/obj/structure/rack/walnut
+	material = /decl/material/solid/organic/wood/walnut
+	color = /decl/material/solid/organic/wood/walnut::color
+
+/obj/structure/rack/ebony
+	material = /decl/material/solid/organic/wood/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+
+/obj/structure/rack/mahogany
+	material = /decl/material/solid/organic/wood/mahogany
+	color = /decl/material/solid/organic/wood/mahogany::color

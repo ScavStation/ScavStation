@@ -18,8 +18,8 @@
 	name = "Repair internal organ"
 	description = "This procedure is used to repair damage to the internal organs of a patient."
 	allowed_tools = list(
-		/obj/item/stack/medical/advanced/bruise_pack = 100,
-		/obj/item/stack/medical/bruise_pack = 40,
+		/obj/item/stack/medical/bandage/advanced = 100,
+		/obj/item/stack/medical/bandage = 40,
 		/obj/item/stack/tape_roll/duct_tape = 20
 	)
 	min_duration = 70
@@ -39,9 +39,9 @@
 
 /decl/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"
-	if (istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
+	if (istype(tool, /obj/item/stack/medical/bandage/advanced))
 		tool_name = "regenerative membrane"
-	else if (istype(tool, /obj/item/stack/medical/bruise_pack))
+	else if (istype(tool, /obj/item/stack/medical/bandage))
 		tool_name = "the bandaid"
 	var/obj/item/organ/external/affected = GET_EXTERNAL_ORGAN(target, target_zone)
 	user.visible_message("[user] starts treating damage within \the [target]'s [affected.name] with [tool_name].", \
@@ -55,9 +55,9 @@
 
 /decl/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"
-	if (istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
+	if (istype(tool, /obj/item/stack/medical/bandage/advanced))
 		tool_name = "regenerative membrane"
-	if (istype(tool, /obj/item/stack/medical/bruise_pack))
+	if (istype(tool, /obj/item/stack/medical/bandage))
 		tool_name = "the bandaid"
 	var/obj/item/organ/external/affected = GET_EXTERNAL_ORGAN(target, target_zone)
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
@@ -77,11 +77,11 @@
 	user.visible_message("<span class='warning'>[user]'s hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!</span>", \
 	"<span class='warning'>Your hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!</span>")
 	var/dam_amt = 2
-	if(istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
-		target.adjustToxLoss(5)
+	if(istype(tool, /obj/item/stack/medical/bandage/advanced))
+		target.take_damage(5, TOX)
 	else
 		dam_amt = 5
-		target.adjustToxLoss(10)
+		target.take_damage(10, TOX)
 		affected.take_external_damage(dam_amt, 0, (DAM_SHARP|DAM_EDGE), used_weapon = tool)
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.damage > 0 && !BP_IS_PROSTHETIC(I) && (I.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
@@ -111,7 +111,7 @@
 	else
 		if(length(attached_organs) == 1)
 			return attached_organs[1]
-		return show_radial_menu(user, tool, attached_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+		return show_radial_menu(user, tool, attached_organs, radius = 42, require_near = TRUE, use_labels = RADIAL_LABELS_OFFSET, check_locs = list(tool))
 	return FALSE
 
 /decl/surgery_step/internal/detach_organ/begin_step(mob/user, mob/living/target, target_zone, obj/item/tool)
@@ -165,7 +165,7 @@
 		else
 			if(length(removable_organs) == 1)
 				return removable_organs[1]
-			return show_radial_menu(user, tool, removable_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+			return show_radial_menu(user, tool, removable_organs, radius = 42, require_near = TRUE, use_labels = RADIAL_LABELS_OFFSET, check_locs = list(tool))
 	return FALSE
 
 /decl/surgery_step/internal/remove_organ/get_skill_reqs(mob/living/user, mob/living/target, obj/item/tool)
@@ -256,13 +256,13 @@
 		PRINT_STACK_TRACE("Target ([target]) of surgery [type] has no bodytype!")
 		return FALSE
 
-	var/decl/pronouns/G = O.get_pronouns()
+	var/decl/pronouns/pronouns = O.get_pronouns()
 	if(O.damage > (O.max_damage * 0.75))
-		to_chat(user, SPAN_WARNING("\The [O.name] [G.is] in no state to be transplanted."))
+		to_chat(user, SPAN_WARNING("\The [O.name] [pronouns.is] in no state to be transplanted."))
 		return FALSE
 
 	if(O.w_class > affected.cavity_max_w_class)
-		to_chat(user, SPAN_WARNING("\The [O.name] [G.is] too big for [affected.cavity_name] cavity!"))
+		to_chat(user, SPAN_WARNING("\The [O.name] [pronouns.is] too big for \the [affected.cavity_name]!"))
 		return FALSE
 
 	var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(target, O.organ_tag)
@@ -342,7 +342,7 @@
 	if(!LAZYLEN(attachable_organs))
 		return FALSE
 
-	var/obj/item/organ/organ_to_replace = show_radial_menu(user, tool, attachable_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+	var/obj/item/organ/organ_to_replace = show_radial_menu(user, tool, attachable_organs, radius = 42, require_near = TRUE, use_labels = RADIAL_LABELS_OFFSET, check_locs = list(tool))
 	if(!organ_to_replace)
 		return FALSE
 

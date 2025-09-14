@@ -29,20 +29,19 @@
 /obj/structure/ore_box/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/stack/material/ore))
 		return insert_ore(W, user)
-
-	else if (istype(W, /obj/item/storage))
-		var/obj/item/storage/S = W
-		S.hide_from(usr)
-		for(var/obj/item/stack/material/ore/O in S.contents)
+	if(W.storage)
+		var/added_ore = FALSE
+		W.storage.hide_from(usr)
+		for(var/obj/item/stack/material/ore/O in W.storage.get_contents())
 			if(total_ores >= maximum_ores)
 				break
-			S.remove_from_storage(O, src, TRUE) //This will move the item to this item's contents
+			W.storage.remove_from_storage(user, O, src, TRUE)
 			insert_ore(O)
-
-		S.finish_bulk_removal()
-		to_chat(user, SPAN_NOTICE("You empty \the [W] into \the [src]."))
-		return TRUE
-
+			added_ore = TRUE
+		if(added_ore)
+			W.storage.finish_bulk_removal()
+			to_chat(user, SPAN_NOTICE("You empty \the [W] into \the [src]."))
+			return TRUE
 	return ..()
 
 ///Insert many ores into the box
@@ -135,6 +134,13 @@
 	if(. && !QDELETED(src) && (severity == 1 || prob(50)))
 		physically_destroyed()
 
+/obj/structure/ore_box/receive_mouse_drop(atom/dropping, mob/user, params)
+	. = ..()
+	if(!. && istype(dropping, /obj/machinery/mining_drill))
+		var/obj/machinery/mining_drill/D = dropping
+		D.unload_into_box(src, user)
+
+
 /obj/structure/ore_box/get_alt_interactions(mob/user)
 	. = ..()
 	LAZYADD(., /decl/interaction_handler/empty/ore_box)
@@ -146,5 +152,6 @@
 /decl/interaction_handler/empty/ore_box/is_possible(obj/structure/ore_box/target, mob/user, obj/item/prop)
 	return ..() && target.total_ores > 0
 
-/decl/interaction_handler/empty/ore_box/invoked(obj/structure/ore_box/target, mob/user)
-	target.empty_box(user)
+/decl/interaction_handler/empty/ore_box/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/structure/ore_box/box = target
+	box.empty_box(user)

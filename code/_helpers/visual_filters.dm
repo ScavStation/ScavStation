@@ -55,8 +55,8 @@
 		LAZYREMOVE(filter_data, filter_name)
 		filters -= thing
 		update_filters()
-		return FALSE
-	return TRUE
+		return TRUE
+	return FALSE
 
 /// Animate a given filter on this atom. All params after the first are passed to animate().
 /atom/movable/proc/animate_filter(filter_name, list/params)

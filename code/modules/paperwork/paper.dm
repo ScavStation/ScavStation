@@ -7,14 +7,12 @@
  */
 /obj/item/paper
 	name                   = "sheet of paper"
-	icon                   = 'icons/obj/bureaucracy.dmi'
-	icon_state             = "paper"
-	item_state             = "paper"
+	icon                   = 'icons/obj/items/paperwork/paper.dmi'
+	icon_state             = ICON_STATE_WORLD
 	layer                  = ABOVE_OBJ_LAYER
 	slot_flags             = SLOT_HEAD
 	body_parts_covered     = SLOT_HEAD
 	randpixel              = 8
-	throwforce             = 0
 	throw_range            = 1
 	throw_speed            = 1
 	w_class                = ITEM_SIZE_TINY
@@ -87,10 +85,10 @@
 /obj/item/paper/on_update_icon()
 	. = ..()
 
+	icon_state = get_world_inventory_state()
 	if(is_crumpled)
-		icon_state = "scrap"
+		icon_state = "[icon_state]-scrap"
 	else
-		icon_state = initial(icon_state)
 		update_contents_overlays()
 		//The appearence is the key, the type is the value
 		for(var/image/key in applied_stamps)
@@ -104,7 +102,9 @@
 /**Applies the overlay displayed when the paper contains some text. */
 /obj/item/paper/proc/update_contents_overlays()
 	if(length(info))
-		add_overlay("paper_words")
+		var/words_state = "[icon_state]-words"
+		if(check_state_in_icon(words_state, icon))
+			add_overlay(words_state)
 
 /obj/item/paper/proc/update_space(var/new_text)
 	if(new_text)
@@ -154,33 +154,32 @@
 	interact(user, readonly = TRUE)
 	return TRUE
 
-/obj/item/paper/attack(mob/living/carbon/M, mob/living/carbon/user)
+/obj/item/paper/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	var/target_zone = user.get_target_zone()
 	if(target_zone == BP_EYES)
 		user.visible_message(
-			SPAN_NOTICE("You show the paper to [M]."),
-			SPAN_NOTICE("[user] holds up a paper and shows it to [M].")
+			SPAN_NOTICE("You show the paper to [target]."),
+			SPAN_NOTICE("[user] holds up a paper and shows it to [target].")
 		)
-		M.examinate(src)
+		target.examinate(src)
 		return TRUE
 
 	target_zone = check_zone(target_zone)
-	if(M.get_organ_sprite_accessory_by_category(SAC_COSMETICS, target_zone))
-		var/mob/living/carbon/human/H = M
-		if(H == user)
+	if(target.get_organ_sprite_accessory_by_category(SAC_COSMETICS, target_zone))
+		if(target == user)
 			to_chat(user, SPAN_NOTICE("You wipe off the makeup with [src]."))
-			H.set_organ_sprite_accessory_by_category(null, SAC_COSMETICS, null, FALSE, FALSE, target_zone, FALSE)
+			target.set_organ_sprite_accessory_by_category(null, SAC_COSMETICS, null, FALSE, FALSE, target_zone, FALSE)
 			return TRUE
 		user.visible_message(
-			SPAN_NOTICE("\The [user] begins to wipe \the [H]'s makeup  off with \the [src]."),
-			SPAN_NOTICE("You begin to wipe off [H]'s makeup .")
+			SPAN_NOTICE("\The [user] begins to wipe \the [target]'s makeup off with \the [src]."),
+			SPAN_NOTICE("You begin to wipe off [target]'s makeup .")
 		)
-		if(do_after(user, 10, H) && do_after(H, 10, check_holding = 0))	//user needs to keep their active hand, H does not.
+		if(do_after(user, 10, target) && do_after(target, 10, check_holding = 0))	//user needs to keep their active hand, H does not.
 			user.visible_message(
-				SPAN_NOTICE("\The [user] wipes \the [H]'s makeup  off with \the [src]."),
-				SPAN_NOTICE("You wipe off \the [H]'s makeup .")
+				SPAN_NOTICE("\The [user] wipes \the [target]'s makeup off with \the [src]."),
+				SPAN_NOTICE("You wipe off \the [target]'s makeup .")
 			)
-		H.set_organ_sprite_accessory_by_category(null, SAC_COSMETICS, null, FALSE, FALSE, target_zone, FALSE)
+		target.set_organ_sprite_accessory_by_category(null, SAC_COSMETICS, null, FALSE, FALSE, target_zone, FALSE)
 		return TRUE
 
 	. = ..()
@@ -225,8 +224,8 @@
 	info_links = info
 	var/i = 0
 	for(i=1,i<=fields,i++)
-		addtofield(i, "<font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", 1)
-	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
+		addtofield(i, "<font face=\"[deffont]\"><A href='byond://?src=\ref[src];write=[i]'>write</A></font>", 1)
+	info_links = info_links + "<font face=\"[deffont]\"><A href='byond://?src=\ref[src];write=end'>write</A></font>"
 
 /obj/item/paper/proc/clearpaper()
 	info = null
@@ -284,19 +283,19 @@
 
 	return t
 
-/obj/item/paper/proc/burnpaper(obj/item/flame/P, mob/user)
+/obj/item/paper/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "warning"
 
-	if(P.lit && !user.restrained())
-		if(istype(P, /obj/item/flame/lighter/zippo))
+	if(P.isflamesource() && !user.restrained())
+		if(istype(P, /obj/item/flame/fuelled/lighter/zippo))
 			class = "rose"
 
-		var/decl/pronouns/G = user.get_pronouns()
-		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [G.he] [G.is] trying to burn it!</span>", \
+		var/decl/pronouns/pronouns = user.get_pronouns()
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [pronouns.he] [pronouns.is] trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 
 		spawn(20)
-			if(get_dist(src, user) < 2 && user.get_active_hand() == P && P.lit)
+			if(get_dist(src, user) < 2 && user.get_active_held_item() == P && P.isflamesource())
 				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
 				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
 
@@ -324,15 +323,15 @@
 			return TOPIC_NOACTION
 
 		//If we got a pen that's not in our hands, make sure to move it over
-		if(user.get_active_hand() != I && user.get_empty_hand_slot() && user.put_in_hands(I))
+		if(user.get_active_held_item() != I && user.get_empty_hand_slot() && user.put_in_hands(I))
 			to_chat(user, SPAN_NOTICE("You grab your trusty [I.name]!"))
-		else if(user.get_active_hand() != I)
+		else if(user.get_active_held_item() != I)
 			to_chat(user, SPAN_WARNING("You'd use your trusty [I.name], but your hands are full!"))
 			return TOPIC_NOACTION
 
 		var/pen_flags = I.get_tool_property(TOOL_PEN, TOOL_PROP_PEN_FLAG)
+		var/decl/tool_archetype/pen/parch = GET_DECL(TOOL_PEN)
 		if(!(pen_flags & PEN_FLAG_ACTIVE))
-			var/decl/tool_archetype/pen/parch = GET_DECL(TOOL_PEN)
 			parch.toggle_active(usr, I)
 		var/iscrayon = pen_flags & PEN_FLAG_CRAYON
 		var/isfancy  = pen_flags & PEN_FLAG_FANCY
@@ -352,6 +351,13 @@
 		var/processed_text = user.handle_writing_literacy(user, t)
 		if(length(t))
 			playsound(src, pick('sound/effects/pen1.ogg','sound/effects/pen2.ogg'), 30)
+		var/actual_characters = length_char(strip_html_properly(t))
+		if(actual_characters > 0)
+			// 25 characters per charge, crayons get 30 charges
+			// we're really permissive here, we don't cut you short
+			// but we also use a charge even if you write <25 characters
+			if(parch.decrement_uses(user, I, max(round(actual_characters / 25, 1), 1)) <= 0)
+				parch.warn_out_of_ink(user, I)
 
 		if(id!="end")
 			addtofield(text2num(id), processed_text) // He wants to edit a field, let him.
@@ -378,7 +384,7 @@
 	else if(istype(P, /obj/item/paper) || istype(P, /obj/item/photo))
 		var/obj/item/paper_bundle/B = try_bundle_with(P, user)
 		if(!B)
-			return
+			return TRUE
 		user.put_in_hands(B)
 		to_chat(user, SPAN_NOTICE("You clip \the [P] and \the [name] together."))
 		return TRUE
@@ -386,7 +392,7 @@
 	else if(IS_PEN(P))
 		if(is_crumpled)
 			to_chat(user, SPAN_WARNING("\The [src] is too crumpled to write on."))
-			return
+			return TRUE
 
 		var/obj/item/pen/robopen/RP = P
 		if ( istype(RP) && RP.mode == 2 )
@@ -395,15 +401,13 @@
 			interact(user, readonly = FALSE)
 		return TRUE
 
-	else if(istype(P, /obj/item/stamp) || istype(P, /obj/item/clothing/ring/seal))
-		apply_custom_stamp(
-			image('icons/obj/bureaucracy.dmi', icon_state = "paper_[P.icon_state]", pixel_x = rand(-2, 2), pixel_y = rand(-2, 2)),
-			"with \the [P]")
+	else if(P.get_tool_quality(TOOL_STAMP))
+		apply_custom_stamp(P.icon, "with \the [P]")
 		playsound(src, 'sound/effects/stamp.ogg', 50, TRUE)
 		to_chat(user, SPAN_NOTICE("You stamp the paper with your [P.name]."))
 		return TRUE
 
-	else if(istype(P, /obj/item/flame))
+	else if(P.isflamesource())
 		burnpaper(P, user)
 		return TRUE
 
@@ -463,9 +467,27 @@
 /**Stamp the paper with the  specified values.
  * stamper_name: what is stamped. Or what comes after the sentence "This paper has been stamped "
 */
-/obj/item/paper/proc/apply_custom_stamp(var/image/stamp, var/stamper_name)
+/obj/item/paper/proc/apply_custom_stamp(stamp_icon, stamper_name, offset_x, offset_y)
+
+	if(!stamp_icon || !check_state_in_icon("stamp", stamp_icon))
+		return
+
+	var/image/stamp = overlay_image(stamp_icon, "stamp", COLOR_WHITE, RESET_COLOR)
+
+	if(isnull(offset_x))
+		stamp.pixel_x = rand(-2, 2)
+	else if(offset_x != 0)
+		stamp.pixel_x = offset_x
+
+	if(isnull(offset_y))
+		stamp.pixel_y = rand(-2, 2)
+	else if(offset_y != 0)
+		stamp.pixel_y = offset_y
+
+	stamp.blend_mode = BLEND_INSET_OVERLAY
+	appearance_flags |= KEEP_TOGETHER
 	LAZYADD(applied_stamps, stamp)
-	stamp_text += "[length(stamp_text)? "<BR>" : "<HR>"]<i>This paper has been stamped [length(stamper_name)? stamper_name : "by the generic stamp"].</i>"
+	stamp_text += "[length(stamp_text)? "<BR>" : "<HR>"]<i>This paper has been stamped [length(stamper_name) ? stamper_name : "by the generic stamp"].</i>"
 	update_icon()
 
 /**Merge the paper with other papers or bundles inside "location" */
@@ -496,7 +518,7 @@
 		to_chat(usr, SPAN_WARNING("You can't do that in your current state!"))
 		return
 
-	if((MUTATION_CLUMSY in usr.mutations) && prob(50))
+	if(usr.has_genetic_condition(GENE_COND_CLUMSY) && prob(50))
 		to_chat(usr, SPAN_WARNING("You cut yourself on the paper."))
 		return
 	var/n_name = sanitize_safe(input(usr, "What would you like to name the paper?", "Paper Naming", name) as text, MAX_NAME_LEN)
@@ -571,11 +593,49 @@ var/global/datum/topic_state/default/paper_state/paper_topic_state = new
 // Crumpled Paper
 ///////////////////////////////////////////////////
 /obj/item/paper/crumpled
-	name       = "paper scrap"
-	icon_state = "scrap"
+	name        = "paper scrap"
+	is_crumpled = TRUE
 
-/obj/item/paper/crumpled/update_contents_overlays()
-	return
+// Stub type for moving teleportation scrolls into a modpack.
+/obj/item/paper/scroll
+	name    = "scroll"
+	desc    = "A length of writing material curled into a scroll."
+	icon    = 'icons/obj/items/paperwork/scroll.dmi'
+	color   = "#feeebc"
+	w_class = ITEM_SIZE_SMALL
+	var/furled = FALSE
 
-/obj/item/paper/crumpled/bloody
-	icon_state = "scrap_bloodied"
+/obj/item/paper/scroll/can_bundle()
+	return FALSE
+
+/obj/item/paper/scroll/update_contents_overlays()
+	return furled ? null : ..()
+
+/obj/item/paper/scroll/on_update_icon()
+	. = ..()
+	if(furled)
+		icon_state = "[icon_state]-furled"
+
+/obj/item/paper/scroll/get_alt_interactions(mob/user)
+	. = ..()
+	if(furled)
+		LAZYADD(., /decl/interaction_handler/scroll/unfurl)
+	else
+		LAZYADD(., /decl/interaction_handler/scroll/furl)
+
+/decl/interaction_handler/scroll
+	abstract_type = /decl/interaction_handler/scroll
+	expected_target_type = /obj/item/paper/scroll
+
+/decl/interaction_handler/scroll/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/paper/scroll/scroll = target
+	// TODO: paper sound
+	scroll.furled = !scroll.furled
+	user.visible_message(SPAN_NOTICE("\The [user] [scroll.furled ? "furls" : "unfurls"] \the [target]."))
+	scroll.update_icon()
+
+/decl/interaction_handler/scroll/furl
+	name = "Furl Scroll"
+
+/decl/interaction_handler/scroll/unfurl
+	name = "Unfurl Scroll"

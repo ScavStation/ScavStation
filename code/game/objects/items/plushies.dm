@@ -97,7 +97,7 @@
 		playsound(loc, phrase_sound, phrase_volume, phrase_vary)
 	return TRUE
 
-/obj/item/toy/plushie/attack(mob/M, mob/user)
+/obj/item/toy/plushie/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	. = ..()
 	if(. && phrase_sound)
 		playsound(src, phrase_sound, phrase_volume, phrase_vary)
@@ -115,7 +115,7 @@
 
 /obj/item/toy/plushie/kitten
 	name = "kitten plush"
-	desc = "A plushie of a cute kitten! Watch as it purrs it's way right into your heart."
+	desc = "A plushie of a cute kitten! Watch as it purrs its way right into your heart."
 	icon = 'icons/obj/toy/plush_kitten.dmi'
 
 /obj/item/toy/plushie/lizard

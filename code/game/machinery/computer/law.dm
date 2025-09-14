@@ -8,8 +8,9 @@
 	if(istype(O, /obj/item/aiModule))
 		var/obj/item/aiModule/M = O
 		M.install(src, user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/computer/upload/ai
 	name = "\improper AI upload console"

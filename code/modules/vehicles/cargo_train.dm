@@ -71,18 +71,16 @@
 	if(open && IS_WIRECUTTER(W))
 		passenger_allowed = !passenger_allowed
 		user.visible_message("<span class='notice'>[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src].</span>","<span class='notice'>You [passenger_allowed ? "cut" : "mend"] the load limiter cable.</span>")
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/vehicle/train/cargo/engine/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/key/cargo_train))
-		if(!key)
-			if(!user.try_unequip(W, src))
-				return
+		if(!key && user.try_unequip(W, src))
 			key = W
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
-		return
-	..()
+		return TRUE
+	return ..()
 
 //cargo trains are open topped, so there is a chance the projectile will hit the mob ridding the train instead
 /obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)
@@ -97,20 +95,20 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/vehicle/train/cargo/trolley/insert_cell(var/obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/trolley/insert_cell(var/obj/item/cell/C, var/mob/living/human/H)
 	return
 
-/obj/vehicle/train/cargo/engine/insert_cell(var/obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/engine/insert_cell(var/obj/item/cell/C, var/mob/living/human/H)
 	..()
 	update_stats()
 
-/obj/vehicle/train/cargo/engine/remove_cell(var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/engine/remove_cell(var/mob/living/human/H)
 	..()
 	update_stats()
 
 /obj/vehicle/train/cargo/engine/Bump(atom/Obstacle)
 	var/obj/machinery/door/D = Obstacle
-	var/mob/living/carbon/human/H = load
+	var/mob/living/human/H = load
 	if(istype(D) && istype(H))
 		D.Bumped(H)		//a little hacky, but hey, it works, and respects access rights
 
@@ -164,11 +162,11 @@
 /obj/vehicle/train/cargo/engine/crossed_mob(var/mob/living/victim)
 	..()
 	if(is_train_head() && ishuman(load))
-		var/mob/living/carbon/human/D = load
+		var/mob/living/human/D = load
 		to_chat(D, "<span class='danger'>You ran over \the [victim]!</span>")
 		visible_message("<span class='danger'>\The [src] ran over \the [victim]!</span>")
 		attack_log += text("\[[time_stamp()]\] <font color='red'>ran over [victim.name] ([victim.ckey]), driven by [D.name] ([D.ckey])</font>")
-		msg_admin_attack("[D.name] ([D.ckey]) ran over [victim.name] ([victim.ckey]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
+		msg_admin_attack("[D.name] ([D.ckey]) ran over [victim.name] ([victim.ckey]). (<A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)")
 	else
 		attack_log += text("\[[time_stamp()]\] <font color='red'>ran over [victim.name] ([victim.ckey])</font>")
 

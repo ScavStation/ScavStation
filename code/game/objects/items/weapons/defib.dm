@@ -1,6 +1,3 @@
-#define DEFIB_TIME_LIMIT (8 MINUTES) //past this many seconds, defib is useless. Currently 8 Minutes
-#define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs. Currently 2 minutes
-
 //backpack item
 /obj/item/defibrillator
 	name = "auto-resuscitator"
@@ -8,8 +5,6 @@
 	icon = 'icons/obj/defibrillator.dmi'
 	icon_state = ICON_STATE_WORLD
 	slot_flags = SLOT_BACK
-	force = 5
-	throwforce = 6
 	w_class = ITEM_SIZE_LARGE
 	origin_tech = @'{"biotech":4,"powerstorage":2}'
 	action_button_name = "Remove/Replace Paddles"
@@ -52,7 +47,7 @@
 			else
 				add_overlay("[icon_state]-powered")
 	if(bcell)
-		var/ratio = CEILING(bcell.percent()/25) * 25
+		var/ratio = ceil(bcell.percent()/25) * 25
 		add_overlay("[icon_state]-charge[ratio]")
 	else
 		add_overlay("[icon_state]-nocell")
@@ -73,19 +68,22 @@
 	toggle_paddles()
 	return TRUE
 
+// TODO: This should really use the cell extension
 /obj/item/defibrillator/attackby(obj/item/W, mob/user, params)
 	if(W == paddles)
 		reattach_paddles(user)
+		return TRUE
 	else if(istype(W, /obj/item/cell))
 		if(bcell)
-			to_chat(user, "<span class='notice'>\the [src] already has a cell.</span>")
+			to_chat(user, "<span class='notice'>\The [src] already has a cell.</span>")
 		else
 			if(!user.try_unequip(W))
-				return
+				return TRUE
 			W.forceMove(src)
 			bcell = W
 			to_chat(user, "<span class='notice'>You install a cell in \the [src].</span>")
 			update_icon()
+		return TRUE
 
 	else if(IS_SCREWDRIVER(W))
 		if(bcell)
@@ -94,6 +92,8 @@
 			bcell = null
 			to_chat(user, "<span class='notice'>You remove the cell from \the [src].</span>")
 			update_icon()
+			return TRUE
+		return FALSE
 	else
 		return ..()
 
@@ -108,7 +108,7 @@
 	set name = "Toggle Paddles"
 	set category = "Object"
 
-	var/mob/living/carbon/human/user = usr
+	var/mob/living/human/user = usr
 	if(!paddles)
 		to_chat(user, "<span class='warning'>The paddles are missing!</span>")
 		return
@@ -189,12 +189,13 @@
 	icon = 'icons/obj/defibrillator_paddles.dmi'
 	icon_state = ICON_STATE_WORLD
 	gender = PLURAL
-	force = 2
-	throwforce = 6
 	w_class = ITEM_SIZE_LARGE
 	material = /decl/material/solid/organic/plastic
 	matter = list(/decl/material/solid/metal/copper = MATTER_AMOUNT_SECONDARY, /decl/material/solid/metal/steel = MATTER_AMOUNT_SECONDARY)
 	max_health = ITEM_HEALTH_NO_DAMAGE
+	_base_attack_force = 2
+	can_be_twohanded = TRUE
+	minimum_size_to_twohand = MOB_SIZE_SMALL
 
 	var/safety = 1 //if you can zap people with the paddles on harm mode
 	var/combat = 0 //If it can be used to revive people wearing thick clothing (e.g. spacesuits)
@@ -249,18 +250,18 @@
 	return 1
 
 //Checks for various conditions to see if the mob is revivable
-/obj/item/shockpaddles/proc/can_defib(mob/living/carbon/human/H) //This is checked before doing the defib operation
+/obj/item/shockpaddles/proc/can_defib(mob/living/human/H) //This is checked before doing the defib operation
 	if(H.has_body_flag(BODY_FLAG_NO_DEFIB))
 		return "buzzes, \"Unrecogized physiology. Operation aborted.\""
 
 	if(!check_contact(H))
 		return "buzzes, \"Patient's chest is obstructed. Operation aborted.\""
 
-/obj/item/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
+/obj/item/shockpaddles/proc/can_revive(mob/living/human/H) //This is checked right before attempting to revive
 	if(H.stat == DEAD)
 		return "buzzes, \"Resuscitation failed - Severe neurological decay makes recovery of patient impossible. Further attempts futile.\""
 
-/obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
+/obj/item/shockpaddles/proc/check_contact(mob/living/human/H)
 	if(!combat)
 		for(var/slot in list(slot_wear_suit_str, slot_w_uniform_str))
 			var/obj/item/clothing/cloth = H.get_equipped_item(slot)
@@ -268,7 +269,7 @@
 				return FALSE
 	return TRUE
 
-/obj/item/shockpaddles/proc/check_blood_level(mob/living/carbon/human/H)
+/obj/item/shockpaddles/proc/check_blood_level(mob/living/human/H)
 	if(H.should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart = GET_INTERNAL_ORGAN(H, BP_HEART)
 		if(!heart || H.get_blood_volume() < BLOOD_VOLUME_SURVIVE)
@@ -281,21 +282,17 @@
 /obj/item/shockpaddles/proc/checked_use(var/charge_amt)
 	return 0
 
-/obj/item/shockpaddles/attack(mob/living/M, mob/living/user, var/target_zone)
-	var/mob/living/carbon/human/H = M
-	if(!istype(H) || user.a_intent == I_HURT)
+/obj/item/shockpaddles/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	if(!ishuman(target) || user.a_intent == I_HURT)
 		return ..() //Do a regular attack. Harm intent shocking happens as a hit effect
-
+	var/mob/living/human/H = target
 	if(can_use(user, H))
 		busy = 1
 		update_icon()
-
 		do_revive(H, user)
-
 		busy = 0
 		update_icon()
-
-	return 1
+	return TRUE
 
 //Since harm-intent now skips the delay for deliberate placement, you have to be able to hit them in combat in order to shock people.
 /obj/item/shockpaddles/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
@@ -313,7 +310,7 @@
 	return ..()
 
 // This proc is used so that we can return out of the revive process while ensuring that busy and update_icon() are handled
-/obj/item/shockpaddles/proc/do_revive(mob/living/carbon/human/H, mob/living/user)
+/obj/item/shockpaddles/proc/do_revive(mob/living/human/H, mob/living/user)
 	if(H.ssd_check())
 		to_chat(find_dead_player(H.ckey, 1), "<span class='notice'>Someone is attempting to resuscitate you. Re-enter your body if you want to be revived!</span>")
 
@@ -374,7 +371,7 @@
 	ADJ_STATUS(H, STAT_ASLEEP, -60)
 	log_and_message_admins("used \a [src] to revive [key_name(H)].")
 
-/obj/item/shockpaddles/proc/lowskill_revive(mob/living/carbon/human/H, mob/living/user)
+/obj/item/shockpaddles/proc/lowskill_revive(mob/living/human/H, mob/living/user)
 	if(prob(60))
 		playsound(get_turf(src), 'sound/machines/defib_zap.ogg', 100, 1, -1)
 		H.electrocute_act(burn_damage_amt*4, src, def_zone = BP_CHEST)
@@ -388,7 +385,7 @@
 		return 0
 	return 1
 
-/obj/item/shockpaddles/proc/do_electrocute(mob/living/carbon/human/H, mob/user, var/target_zone)
+/obj/item/shockpaddles/proc/do_electrocute(mob/living/human/H, mob/user, var/target_zone)
 	var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(H, check_zone(target_zone, H, TRUE)) //Shouldn't defib someone's eyes or mouth
 	if(!affecting)
 		to_chat(user, SPAN_WARNING("They are missing that body part!"))
@@ -429,31 +426,6 @@
 		doki.pulse = PULSE_NONE
 
 	admin_attack_log(user, H, "Electrocuted using \a [src]", "Was electrocuted with \a [src]", "used \a [src] to electrocute")
-
-/obj/item/shockpaddles/proc/make_alive(mob/living/carbon/human/M) //This revives the mob
-	var/deadtime = world.time - M.timeofdeath
-
-	M.switch_from_dead_to_living_mob_list()
-	M.timeofdeath = 0
-	M.set_stat(UNCONSCIOUS)
-	M.try_refresh_visible_overlays()
-	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
-	M.reload_fullscreen()
-
-	M.emote(/decl/emote/audible/gasp)
-	SET_STATUS_MAX(M, STAT_WEAK, rand(10,25))
-	apply_brain_damage(M, deadtime)
-
-/obj/item/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
-	if(deadtime < DEFIB_TIME_LOSS) return
-
-	if(!H.should_have_organ(BP_BRAIN)) return //no brain
-
-	var/obj/item/organ/internal/brain = GET_INTERNAL_ORGAN(H, BP_BRAIN)
-	if(!brain) return //no brain
-
-	var/brain_damage = clamp((deadtime - DEFIB_TIME_LOSS)/(DEFIB_TIME_LIMIT - DEFIB_TIME_LOSS)*brain.max_damage, H.getBrainLoss(), brain.max_damage)
-	H.setBrainLoss(brain_damage)
 
 /obj/item/shockpaddles/proc/make_announcement(var/message, var/msg_class)
 	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
@@ -615,6 +587,3 @@
 	safety = 0
 	chargetime = (1 SECONDS)
 	burn_damage_amt = 15
-
-#undef DEFIB_TIME_LIMIT
-#undef DEFIB_TIME_LOSS

@@ -11,13 +11,19 @@
 	..()
 	cut_overlays()
 	if(auras)
+		var/decl/bodytype/my_bodytype = get_bodytype()
 		for(var/obj/aura/aura as anything in auras)
 			var/image/A = new()
 			A.appearance = aura
+			if(my_bodytype)
+				if(my_bodytype.pixel_offset_x)
+					A.pixel_x += -(my_bodytype.pixel_offset_x)
+				if(my_bodytype.pixel_offset_y)
+					A.pixel_y += -(my_bodytype.pixel_offset_y)
 			add_overlay(A)
 	try_refresh_visible_overlays()
 
-/mob/living/proc/set_organ_sprite_accessory(var/accessory_type, var/accessory_category, var/accessory_color, var/organ_tag, var/skip_update = FALSE)
+/mob/living/proc/set_organ_sprite_accessory(var/accessory_type, var/accessory_category, var/accessory_metadata, var/organ_tag, var/skip_update = FALSE)
 	if(!accessory_category || !organ_tag)
 		return
 	var/obj/item/organ/external/organ = organ_tag && GET_EXTERNAL_ORGAN(src, organ_tag)
@@ -26,19 +32,19 @@
 	if(!accessory_type)
 		accessory_type = organ.get_sprite_accessory_by_category(accessory_category)
 	if(accessory_type)
-		return organ.set_sprite_accessory(accessory_type, accessory_category, accessory_color, skip_update)
+		return organ.set_sprite_accessory(accessory_type, accessory_category, accessory_metadata, skip_update)
 
-/mob/living/proc/get_organ_sprite_accessory(var/accessory_type, var/organ_tag)
+/mob/living/proc/get_organ_sprite_accessory_metadata(var/accessory_type, var/organ_tag, var/metadata_tag)
 	var/obj/item/organ/external/organ = organ_tag && GET_EXTERNAL_ORGAN(src, organ_tag)
-	return organ?.get_sprite_accessory_value(accessory_type)
+	return organ?.get_sprite_accessory_metadata(accessory_type, metadata_tag)
 
 /mob/living/proc/get_organ_sprite_accessory_by_category(var/accessory_category, var/organ_tag)
 	var/obj/item/organ/external/organ = organ_tag && GET_EXTERNAL_ORGAN(src, organ_tag)
 	return organ?.get_sprite_accessory_by_category(accessory_category)
 
-/mob/living/proc/set_organ_sprite_accessory_by_category(var/accessory_type, var/accessory_category, var/accessory_color, var/preserve_colour = TRUE, var/preserve_type = TRUE, var/organ_tag, var/skip_update = FALSE)
+/mob/living/proc/set_organ_sprite_accessory_by_category(var/accessory_type, var/accessory_category, var/accessory_metadata, var/preserve_colour = TRUE, var/preserve_type = TRUE, var/organ_tag, var/skip_update = FALSE)
 	var/obj/item/organ/external/organ = organ_tag && GET_EXTERNAL_ORGAN(src, organ_tag)
-	return organ?.set_sprite_accessory_by_category(accessory_type, accessory_category, accessory_color, preserve_colour, preserve_type, skip_update)
+	return organ?.set_sprite_accessory_by_category(accessory_type, accessory_category, accessory_metadata, preserve_colour, preserve_type, skip_update)
 
 /mob/living/proc/get_skin_colour()
 	return
@@ -47,7 +53,7 @@
 	return get_skin_colour() != new_color
 
 /mob/living/proc/get_eye_colour()
-	return
+	return COLOR_WHITE
 
 /mob/living/proc/set_eye_colour(var/new_color, var/skip_update = FALSE)
 	return get_eye_colour() != new_color

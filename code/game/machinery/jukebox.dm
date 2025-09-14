@@ -121,9 +121,9 @@
 
 /obj/machinery/media/jukebox/proc/emag_play()
 	playsound(loc, 'sound/items/AirHorn.ogg', 100, 1)
-	for(var/mob/living/carbon/M in ohearers(6, src))
+	for(var/mob/living/M in ohearers(6, src))
 		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/human/H = M
 			if(H.get_sound_volume_multiplier() < 0.2)
 				continue
 		M.set_status(STAT_ASLEEP,    0)
@@ -143,7 +143,6 @@
 	return TRUE
 
 /obj/machinery/media/jukebox/proc/explode()
-	walk_to(src,0)
 	src.visible_message("<span class='danger'>\the [src] blows apart!</span>", 1)
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
@@ -154,11 +153,11 @@
 	qdel(src)
 
 /obj/machinery/media/jukebox/attackby(obj/item/W, mob/user)
-	if(IS_WRENCH(W) && !panel_open)
+	if((IS_WRENCH(W) || IS_HAMMER(W)) && !panel_open)
 		add_fingerprint(user)
-		wrench_floor_bolts(user, 0)
+		wrench_floor_bolts(user, 0, W)
 		power_change()
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/media/jukebox/emag_act(var/remaining_charges, var/mob/user)

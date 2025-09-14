@@ -67,7 +67,7 @@
 		var/turf/T = get_turf(parent)
 		if(check_terminal_block(T))
 			to_chat(user, SPAN_WARNING("There's already a network cable there!"))
-			return FALSE
+			return TRUE
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating beneath \the [parent] first."))
 			return TRUE
@@ -77,10 +77,10 @@
 			to_chat(user, SPAN_WARNING("You need five lengths of network cable for \the [parent]."))
 			return TRUE
 
-		user.visible_message(SPAN_NOTICE("\The [user] adds cables to the \the [parent]."), "You start adding cables to \the [parent] frame...")
+		user.visible_message(SPAN_NOTICE("\The [user] adds cables to \the [parent]."), "You start adding cables to \the [parent] frame...")
 		if(do_after(user, 20, parent))
 			if(!terminal && (loc == parent) && parent.components_are_accessible(type) && !check_terminal_block(T) && C.use(5))
-				user.visible_message(SPAN_NOTICE("\The [user] has added cables to the \the [parent]!"), "You add cables to the \the [parent].")
+				user.visible_message(SPAN_NOTICE("\The [user] has added cables to \the [parent]!"), "You add cables to \the [parent].")
 				set_terminal()
 		return TRUE
 	if(IS_WIRECUTTER(I) && terminal)
@@ -95,3 +95,4 @@
 				to_chat(user, SPAN_NOTICE("You cut the cables and dismantle the network terminal."))
 				qdel(terminal)
 		return TRUE
+	return FALSE

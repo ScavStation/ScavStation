@@ -111,8 +111,8 @@
 	return null
 
 /datum/computer_file/program/card_mod/proc/get_photo(mob/user)
-	if(istype(user.get_active_hand(), /obj/item/photo))
-		var/obj/item/photo/photo = user.get_active_hand()
+	if(istype(user.get_active_held_item(), /obj/item/photo))
+		var/obj/item/photo/photo = user.get_active_held_item()
 		return photo.img
 
 	if(issilicon(user))
@@ -190,7 +190,7 @@
 			if(computer.get_inserted_id())
 				card_slot.eject_id(user)
 			else
-				card_slot.insert_id(user.get_active_hand(), user)
+				card_slot.insert_id(user.get_active_held_item(), user)
 		if("terminate")
 			if(!(get_file_perms(module.get_access(user), user) & OS_WRITE_ACCESS))
 				to_chat(usr, SPAN_WARNING("Access denied."))
@@ -198,7 +198,7 @@
 			if(computer)
 				id_card.assignment = "Terminated"
 				remove_nt_access(id_card)
-				callHook("terminate_employee", list(id_card))
+				RAISE_EVENT(/decl/observ/employee_id_terminated, id_card)
 		if("edit")
 			if(!(get_file_perms(module.get_access(user), user) & OS_WRITE_ACCESS))
 				to_chat(usr, SPAN_WARNING("Access denied."))
@@ -296,7 +296,7 @@
 					id_card.assignment = t1
 					id_card.position = t1
 
-				callHook("reassign_employee", list(id_card))
+				RAISE_EVENT(/decl/observ/employee_id_reassigned, id_card)
 		if("access")
 			if(href_list["allowed"] && id_card)
 				var/access_type = href_list["access_target"]

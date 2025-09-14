@@ -1,5 +1,6 @@
 /decl/bodytype/yinglet
 	name =                "yinglet, feminine"
+	uid =                 "bodytype_yinglet_fem"
 	icon_base =           'mods/valsalia/icons/species/yinglet/body_female.dmi'
 	husk_icon =           'mods/valsalia/icons/species/yinglet/husk.dmi'
 	cosmetics_icon =      'mods/valsalia/icons/species/yinglet/cosmetics.dmi'
@@ -24,11 +25,11 @@
 	base_eye_color = "#f5c842"
 	default_sprite_accessories = list(
 		SAC_HAIR = list(
-			/decl/sprite_accessory/hair/yinglet = "#6e5331"
+			/decl/sprite_accessory/hair/yinglet               = list(SAM_COLOR = "#6e5331")
 		),
 		SAC_MARKINGS = list(
-			/decl/sprite_accessory/marking/yinglet/long_ears = "#ab8c65",
-			/decl/sprite_accessory/marking/yinglet/shelltooth = "#cccccc"
+			/decl/sprite_accessory/marking/yinglet/long_ears  = list(SAM_COLOR = "#ab8c65"),
+			/decl/sprite_accessory/marking/yinglet/shelltooth = list(SAM_COLOR = "#cccccc")
 		)
 	)
 	has_limbs = list(
@@ -46,6 +47,12 @@
 		BP_TAIL =   list("path" = /obj/item/organ/external/tail/yinglet)
 	)
 	nail_noun = "claws"
+	age_descriptor = /datum/appearance_descriptor/age/yinglet
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height = 0.5,
+		/datum/appearance_descriptor/build =  0.5
+	)
+
 #ifdef MODPACK_SCALING_MODIFIERS
 	scaling_adjustments_x = list(
 		-0.07,
@@ -59,19 +66,21 @@
 /decl/bodytype/yinglet/masculine
 	name =      "yinglet, masculine"
 	icon_base = 'mods/valsalia/icons/species/yinglet/body_male.dmi'
+	uid =       "bodytype_yinglet_masc"
 
 /decl/bodytype/yinglet/hairymasculine
 	name =      "yinglet, masculine with more hair"
 	icon_base = 'mods/valsalia/icons/species/yinglet/body_male.dmi'
+	uid =       "bodytype_yinglet_masc_hairy"
 
 /datum/appearance_descriptor/age/yinglet
 	chargen_min_index = 3
 	chargen_max_index = 5
 	standalone_value_descriptors = list(
 		"a hatchling" =     1,
-		"an younglet" =     3,
-		"an adult" =        6,
-		"middle-aged" =    15,
+		"a juvenile" =     2,
+		"an adult" =        3,
+		"middle-aged" =    13,
 		"aging" =          25,
 		"elderly" =        30
 	)
@@ -130,13 +139,13 @@
 	. = ..()
 
 /obj/item/organ/external/tail/yinglet
-	tail = "tail_yinglet"
+	tail_state = "tail_yinglet"
 	tail_blend = ICON_MULTIPLY
 	tail_hair = "female"
 	tail_hair_blend = ICON_MULTIPLY
 	tail_icon = 'mods/valsalia/icons/species/yinglet/tail.dmi'
 
-/obj/item/organ/external/tail/yinglet/sync_colour_to_human(var/mob/living/carbon/human/human)
+/obj/item/organ/external/tail/yinglet/sync_colour_to_human(var/mob/living/human/human)
 	. = ..()
 	var/decl/bodytype/human_bodytype = human.get_bodytype()?.type
 	if(human_bodytype == /decl/bodytype/yinglet/masculine || human_bodytype == /decl/bodytype/prosthetic/ying/metal/fbp/masculine)

@@ -27,8 +27,8 @@
 /obj/item/implant/compressed/implanted(mob/source)
 	src.activation_emote = input("Choose activation emote:") in list("blink", "blink_r", "eyebrow", "chuckle", "twitch_v", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
 	if (source.mind)
-		source.StoreMemory("Compressed matter implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.", /decl/memory_options/system)
-	to_chat(source, "The implanted compressed matter implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.")
+		source.StoreMemory("\A [src] can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.", /decl/memory_options/system)
+	to_chat(source, "\The [src] can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.")
 	return TRUE
 
 /obj/item/implanter/compressed
@@ -50,13 +50,12 @@
 	else
 		icon_state = "cimplanter0"
 
-/obj/item/implanter/compressed/attack(mob/M, mob/user)
+/obj/item/implanter/compressed/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	var/obj/item/implant/compressed/c = imp
-	if (!c)	return
-	if (c.scanned == null)
-		to_chat(user, "Please compress an object with the implanter first.")
-		return
-	..()
+	if(!istype(c) || c.scanned == null)
+		to_chat(user, SPAN_WARNING("Please compress an object with the implanter first."))
+		return TRUE
+	return ..()
 
 /obj/item/implanter/compressed/afterattack(obj/item/A, mob/user, proximity)
 	if(!proximity)
@@ -64,20 +63,19 @@
 	if(istype(A) && imp)
 		var/obj/item/implant/compressed/c = imp
 		if (c.scanned)
-			if (!istype(A,/obj/item/storage))
+			if (!A.storage)
 				to_chat(user, "<span class='warning'>Something is already compressed inside the implant!</span>")
 			return
 		else if(safe)
-			if (!istype(A,/obj/item/storage))
+			if (!A.storage)
 				to_chat(user, "<span class='warning'>The matter compressor safeties prevent you from doing that.</span>")
 			return
 		if(ishuman(A.loc))
-			var/mob/living/carbon/human/H = A.loc
+			var/mob/living/human/H = A.loc
 			if(!H.try_unequip(A))
 				return
-		else if(istype(A.loc,/obj/item/storage))
-			var/obj/item/storage/S = A.loc
-			S.remove_from_storage(A)
+		else if(isobj(A.loc) && A.loc.storage)
+			A.loc.storage.remove_from_storage(user, A)
 		c.scanned = A
 		A.forceMove(src)  //Store it inside
 		safe = 2

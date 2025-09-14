@@ -10,7 +10,7 @@
 	var/water_level
 	var/water_level_min = 0
 	var/water_level_max = 5
-	var/land_type = /turf/simulated/floor
+	var/land_type = /turf/floor/barren
 	var/water_type
 	var/coast_type
 
@@ -119,7 +119,7 @@
 /datum/random_map/noise/exoplanet/proc/spawn_flora(var/turf/T, var/big)
 	if(big)
 		new /obj/abstract/landmark/exoplanet_spawn/large_plant(T)
-		for(var/turf/neighbor in RANGE_TURFS(T, 1))
+		for(var/turf/neighbor as anything in RANGE_TURFS(T, 1))
 			spawn_grass(neighbor)
 	else
 		new /obj/abstract/landmark/exoplanet_spawn/plant(T)
@@ -153,8 +153,8 @@
 /datum/random_map/noise/exoplanet/mantle
 	descriptor           = "planetary mantle"
 	smoothing_iterations = 3
-	land_type            = /turf/exterior/rock/volcanic
-	water_type           = /turf/exterior/lava
+	land_type            = /turf/floor/rock/volcanic
+	water_type           = /turf/floor/lava
 	water_level_min      = 4
 	water_level_max      = 6
 	fauna_prob           = 0
@@ -166,8 +166,8 @@
 //Random map generator to create rock walls underground
 /datum/random_map/automata/cave_system/mantle
 	descriptor       = "planetary mantle caves"
-	target_turf_type = /turf/exterior/rock/volcanic //Only let it apply to non-lava turfs
+	target_turf_type = /turf/floor/rock/volcanic //Only let it apply to non-lava turfs
 	floor_type       = null
-	wall_type        = /turf/exterior/wall
+	wall_type        = /turf/wall/natural
 
 #undef TRANSLATE_COORD

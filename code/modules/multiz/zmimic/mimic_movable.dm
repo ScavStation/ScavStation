@@ -4,17 +4,6 @@
 	/// Movable-level Z-Mimic flags. This uses ZMM_* flags, not ZM_* flags.
 	var/z_flags = 0
 
-/atom/movable/forceMove(atom/dest)
-	. = ..(dest)
-	if (. && bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		if (isturf(dest))
-			bound_overlay.forceMove(get_step(src, UP))
-			if (dir != bound_overlay.dir)
-				bound_overlay.set_dir(dir)
-		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
-			qdel(bound_overlay)
-
 /atom/movable/set_dir(ndir)
 	. = ..()
 	if (. && bound_overlay)
@@ -24,9 +13,7 @@
 	if (!bound_overlay || !isturf(loc))
 		return
 
-	var/turf/T = loc
-
-	if (TURF_IS_MIMICKING(T.above))
+	if (MOVABLE_IS_BELOW_ZTURF(src))
 		SSzcopy.queued_overlays += bound_overlay
 		bound_overlay.queued += 1
 	else
@@ -49,7 +36,7 @@
 	mouse_opacity = FALSE
 	abstract_type = /atom/movable/openspace // unsure if this is valid, check with Lohi -- Yes, it's valid.
 
-/atom/movable/openspace/can_fall()
+/atom/movable/openspace/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
 	return FALSE
 
 // No blowing up abstract objects.
@@ -148,6 +135,7 @@
 
 /atom/movable/openspace/mimic/attackby(obj/item/W, mob/user)
 	to_chat(user, SPAN_NOTICE("\The [src] is too far away."))
+	return TRUE
 
 /atom/movable/openspace/mimic/attack_hand(mob/user)
 	SHOULD_CALL_PARENT(FALSE)
@@ -158,14 +146,18 @@
 	SHOULD_CALL_PARENT(FALSE)
 	. = associated_atom.examine(arglist(args))	// just pass all the args to the copied atom
 
+// Trying to grab a mimic tries to grab the copied atom instead.
+/atom/movable/openspace/mimic/try_make_grab(mob/living/user, defer_hand)
+	return associated_atom.try_make_grab(user, defer_hand)
+
 /atom/movable/openspace/mimic/forceMove(turf/dest)
 	var/atom/old_loc = loc
 	. = ..()
-	if (TURF_IS_MIMICKING(dest))
+	if (MOVABLE_IS_ON_ZTURF(src))
 		if (destruction_timer)
 			deltimer(destruction_timer)
 			destruction_timer = null
-		if (old_loc.z != loc.z)
+		if (old_loc?.z != loc?.z) // Null checking in case of qdel(), observed with dirt effect falling through multiz.
 			reset_internal_layering()
 	else if (!destruction_timer)
 		destruction_timer = ZM_DESTRUCTION_TIMER(src)
@@ -195,7 +187,7 @@
 	z_flags = ZMM_IGNORE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
 
 /atom/movable/openspace/turf_proxy/attackby(obj/item/W, mob/user)
-	loc.attackby(W, user)
+	return loc.attackby(W, user)
 
 /atom/movable/openspace/turf_proxy/attack_hand(mob/user as mob)
 	SHOULD_CALL_PARENT(FALSE)
@@ -223,7 +215,7 @@
 	delegate = loc:below
 
 /atom/movable/openspace/turf_mimic/attackby(obj/item/W, mob/user)
-	loc.attackby(W, user)
+	return loc.attackby(W, user)
 
 /atom/movable/openspace/turf_mimic/attack_hand(mob/user as mob)
 	SHOULD_CALL_PARENT(FALSE)

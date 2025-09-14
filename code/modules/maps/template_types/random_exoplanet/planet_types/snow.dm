@@ -6,8 +6,6 @@
 	name          = "snow exoplanet"
 	desc          = "Cold planet with limited plant life."
 	color         = "#dcdcdc"
-	surface_color = "#e8faff"
-	water_color   = "#b5dfeb"
 
 ////////////////////////////////////////////////////////////////////////////
 // Level Data
@@ -15,7 +13,7 @@
 
 /datum/level_data/planetoid/exoplanet/snow
 	base_area = /area/exoplanet/snow
-	base_turf = /turf/exterior/snow
+	base_turf = /turf/floor/snow
 	exterior_atmosphere = null
 	exterior_atmos_temp = null
 	level_generators = list(
@@ -43,12 +41,12 @@
 
 /datum/fauna_generator/snow
 	fauna_types = list(
-		/mob/living/simple_animal/hostile/retaliate/beast/samak,
-		/mob/living/simple_animal/hostile/retaliate/beast/diyaab,
-		/mob/living/simple_animal/hostile/retaliate/beast/shantak
+		/mob/living/simple_animal/hostile/beast/samak,
+		/mob/living/simple_animal/hostile/beast/diyaab,
+		/mob/living/simple_animal/hostile/beast/shantak
 	)
 	megafauna_types = list(
-		/mob/living/simple_animal/hostile/retaliate/giant_crab
+		/mob/living/simple_animal/hostile/giant_crab
 	)
 
 ////////////////////////////////////////////////////////////////////////////
@@ -62,6 +60,8 @@
 	initial_weather_state          = /decl/state/weather/snow
 	flora                          = /datum/planet_flora/random/snow
 	fauna                          = /datum/fauna_generator/snow
+	surface_color = "#e8faff"
+	water_color   = "#b5dfeb"
 	possible_rock_colors           = list(
 		COLOR_DARK_BLUE_GRAY,
 		COLOR_GUNMETAL,
@@ -95,8 +95,8 @@
 	flora_prob           = 5
 	large_flora_prob     = 10
 	water_level_max      = 3
-	land_type            = /turf/exterior/snow
-	water_type           = /turf/exterior/ice
+	land_type            = /turf/floor/snow
+	water_type           = /turf/floor/ice
 	smoothing_iterations = 1
 
 ////////////////////////////////////////////////////////////////////////////
@@ -104,7 +104,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 /area/exoplanet/snow
-	base_turf = /turf/exterior/snow
+	base_turf = /turf/floor/snow
 	ambience  = list(
 		'sound/effects/wind/tundra0.ogg',
 		'sound/effects/wind/tundra1.ogg',

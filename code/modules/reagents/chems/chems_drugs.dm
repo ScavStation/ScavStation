@@ -11,6 +11,7 @@
 	uid = "chem_amphetamines"
 
 /decl/material/liquid/amphetamines/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	if(prob(5))
 		M.emote(pick(/decl/emote/visible/twitch, /decl/emote/visible/blink_r, /decl/emote/visible/shiver))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
@@ -27,9 +28,10 @@
 	uid = "chem_narcotics"
 
 /decl/material/liquid/narcotics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
 	ADJ_STATUS(M, STAT_JITTER, -5)
 	if(prob(80))
-		M.adjustBrainLoss(5.25 * removed)
+		M.take_damage(5.25 * removed, BRAIN)
 	if(prob(50))
 		SET_STATUS_MAX(M, STAT_DROWSY, 3)
 	if(prob(10))
@@ -49,6 +51,7 @@
 
 /decl/material/liquid/nicotine/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	var/volume = REAGENT_VOLUME(holder, type)
+	. = ..()
 	if(prob(volume*20))
 		M.add_chemical_effect(CE_PULSE, 1)
 	if(volume <= 0.02 && LAZYACCESS(M.chem_doses, type) >= 0.05 && world.time > REAGENT_DATA(holder, type) + 3 MINUTES)
@@ -58,9 +61,9 @@
 		LAZYSET(holder.reagent_data, type, world.time)
 		to_chat(M, "<span class='notice'>You feel invigorated and calm.</span>")
 
-/decl/material/liquid/nicotine/affect_overdose(var/mob/living/M)
+/decl/material/liquid/nicotine/affect_overdose(mob/living/victim, total_dose)
 	..()
-	M.add_chemical_effect(CE_PULSE, 2)
+	victim.add_chemical_effect(CE_PULSE, 2)
 
 /decl/material/liquid/sedatives
 	name = "sedatives"
@@ -72,11 +75,18 @@
 	value = 2
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 	uid = "chem_sedatives"
+	var/sedative_strength = 1 // A multiplier on dose.
 
 /decl/material/liquid/sedatives/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+
+	. = ..()
+
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+
 	ADJ_STATUS(M, STAT_JITTER, -50)
 	var/threshold = 1
-	var/dose = LAZYACCESS(M.chem_doses, type)
+	var/dose = LAZYACCESS(M.chem_doses, type) * sedative_strength
 	if(dose < 0.5 * threshold)
 		if(dose == metabolism * 2 || prob(5))
 			M.emote(/decl/emote/audible/yawn)
@@ -110,6 +120,10 @@
 
 /decl/material/liquid/psychoactives/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
+
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+
 	SET_STATUS_MAX(M, STAT_DRUGGY, 15)
 	M.add_chemical_effect(CE_PULSE, -1)
 
@@ -125,8 +139,13 @@
 	uid = "chem_hallucinogenics"
 
 /decl/material/liquid/hallucinogenics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
+
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	M.add_chemical_effect(CE_MIND, -2)
 	M.set_hallucination(50, 50)
+
 
 /decl/material/liquid/psychotropics
 	name = "psychotropics"
@@ -139,9 +158,13 @@
 	euphoriant = 30
 	fruit_descriptor = "hallucinogenic"
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
+	compost_value = 0.1 // a pittance, but it's so that compost bins don't end up filled with uncompostable psychotropics
 	uid = "chem_psychotropics"
 
 /decl/material/liquid/psychotropics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	var/threshold = 1
 	var/dose = LAZYACCESS(M.chem_doses, type)
 	if(dose < 1 * threshold)
@@ -165,6 +188,7 @@
 		SET_STATUS_MAX(M, STAT_DRUGGY, 40)
 		if(prob(15))
 			M.emote(pick(/decl/emote/visible/twitch, /decl/emote/audible/giggle))
+
 
 // Welcome back, Three Eye
 /decl/material/liquid/glowsap/gleam
@@ -217,9 +241,9 @@
 	ADJ_STATUS(M, STAT_JITTER, 3)
 	ADJ_STATUS(M, STAT_DIZZY,  3)
 	if(prob(0.1) && ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/human/H = M
 		H.seizure()
-		H.adjustBrainLoss(rand(8, 12))
+		H.take_damage(rand(8, 12), BRAIN)
 	if(prob(5))
 		to_chat(M, SPAN_WARNING("<font size = [rand(1,3)]>[pick(dose_messages)]</font>"))
 
@@ -229,10 +253,9 @@
 	if(istype(M))
 		M.remove_client_color(/datum/client_color/noir/thirdeye)
 
-/decl/material/liquid/glowsap/gleam/affect_overdose(var/mob/living/M)
-	M.adjustBrainLoss(rand(1, 5))
-	if(ishuman(M) && prob(10))
-		var/mob/living/carbon/human/H = M
-		H.seizure()
+/decl/material/liquid/glowsap/gleam/affect_overdose(mob/living/victim, total_dose)
+	victim.take_damage(rand(1, 5), BRAIN)
 	if(prob(10))
-		to_chat(M, SPAN_DANGER("<font size = [rand(2,4)]>[pick(overdose_messages)]</font>"))
+		victim.seizure()
+	if(prob(10))
+		to_chat(victim, SPAN_DANGER("<font size = [rand(2,4)]>[pick(overdose_messages)]</font>"))

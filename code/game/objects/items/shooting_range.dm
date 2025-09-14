@@ -23,8 +23,9 @@
 			overlays.Cut()
 			bulletholes.Cut()
 			hp = initial(hp)
-			to_chat(usr, "<span class='notice'>You slice off [src]'s uneven chunks of aluminium and scorch marks.</span>")
-			return
+			to_chat(user, "<span class='notice'>You slice off [src]'s uneven chunks of aluminium and scorch marks.</span>")
+		return TRUE
+	return ..()
 
 /obj/item/target/attack_hand(var/mob/user)
 	// taking pinned targets off!

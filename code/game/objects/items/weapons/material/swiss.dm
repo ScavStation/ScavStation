@@ -14,7 +14,6 @@
 	desc = "A small, colourable, multi-purpose folding knife."
 	icon = 'icons/obj/items/weapon/knives/folding/swiss.dmi'
 	valid_handle_colors = null
-	max_force = 5
 	material = /decl/material/solid/metal/steel
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 
@@ -72,7 +71,7 @@
 
 	if(choice == SWISSKNF_CLOSED)
 		open = FALSE
-		user.visible_message("<span class='notice'>\The [user] closes the [name].</span>")
+		user.visible_message("<span class='notice'>\The [user] closes \the [src].</span>")
 	else
 		open = TRUE
 		if(choice == SWISSKNF_LBLADE || choice == SWISSKNF_SBLADE)
@@ -82,7 +81,7 @@
 			user.visible_message("<span class='notice'>\The [user] opens the [lowertext(choice)].</span>")
 
 	active_tool = choice
-	update_force()
+	update_attack_force()
 	update_icon()
 	add_fingerprint(user)
 	return TRUE
@@ -91,13 +90,13 @@
 	. = ..()
 	to_chat(user, active_tool == SWISSKNF_CLOSED ? "It is closed." : "Its [lowertext(active_tool)] is folded out.")
 
-/obj/item/knife/folding/swiss/update_force()
+/obj/item/knife/folding/swiss/update_attack_force()
+	. = ..()
 	if(active_tool == SWISSKNF_CLOSED)
 		w_class = initial(w_class)
 	else
 		w_class = ITEM_SIZE_NORMAL
 	if(active_tool in sharp_tools)
-		..()
 		if(active_tool == SWISSKNF_GBLADE)
 			siemens_coefficient = 0
 		else
@@ -107,21 +106,23 @@
 		sharp = initial(sharp)
 		attack_verb = closed_attack_verbs
 		siemens_coefficient = initial(siemens_coefficient)
-		..()
 
 /obj/item/knife/folding/swiss/on_update_icon()
 	..()
 	if(active_tool != null)
 		add_overlay(overlay_image(icon, active_tool, flags = RESET_COLOR))
 
-/obj/item/knife/folding/swiss/get_mob_overlay(mob/user_mob, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/knife/folding/swiss/get_mob_overlay(mob/user_mob, slot, bodypart, use_fallback_if_icon_missing = TRUE, skip_adjustment = FALSE)
 	. = (active_tool == SWISSKNF_LBLADE || active_tool == SWISSKNF_SBLADE) ? ..() : new /image
 
 /obj/item/knife/folding/swiss/resolve_attackby(obj/target, mob/user)
+	var/force = get_base_attack_force()
 	if((istype(target, /obj/structure/window) || istype(target, /obj/structure/grille)) && active_tool == SWISSKNF_GBLADE)
-		force = force * 8
+		set_base_attack_force(force * 8)
+	else
+		set_base_attack_force(force)
 	. = ..()
-	update_force()
+	set_base_attack_force(force)
 
 /obj/item/knife/folding/swiss/officer
 	name = "officer's combi-knife"

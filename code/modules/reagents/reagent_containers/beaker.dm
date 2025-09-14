@@ -1,4 +1,3 @@
-
 /obj/item/chems/glass/beaker
 	name = "beaker"
 	desc = "A beaker."
@@ -7,16 +6,18 @@
 	center_of_mass = @'{"x":15,"y":10}'
 	material = /decl/material/solid/glass
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
-	material_force_multiplier = 0.25
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	presentation_flags = PRESENTATION_FLAG_NAME
 	var/lid_color = COLOR_BEASTY_BROWN
+
+/obj/item/chems/glass/beaker/get_lid_color()
+	return lid_color
 
 /obj/item/chems/glass/beaker/examine(mob/user, distance)
 	. = ..()
 	to_chat(user, " It can hold up to [volume] units.")
 
-/obj/item/chems/glass/beaker/on_picked_up(mob/user)
+/obj/item/chems/glass/beaker/on_picked_up(mob/user, atom/old_loc)
 	. = ..()
 	update_icon()
 
@@ -28,9 +29,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/chems/glass/beaker/on_update_icon()
-	. = ..()
-	cut_overlays()
+/obj/item/chems/glass/beaker/update_overlays()
 
 	if(reagents?.total_volume)
 		var/image/filling = mutable_appearance(icon, "[icon_state]1", reagents.get_color())
@@ -54,8 +53,7 @@
 		shine.alpha = material.reflectiveness * 3
 		add_overlay(shine)
 
-	if (!ATOM_IS_OPEN_CONTAINER(src))
-		add_overlay(mutable_appearance(icon, "[icon_state]_lid", lid_color))
+	. = ..()
 
 	compile_overlays()
 
@@ -66,15 +64,18 @@
 	take_damage(rand(4,8))
 
 /obj/item/chems/glass/beaker/large
-	name = "large beaker"
+	name = "beaker" // see update_name override below
 	desc = "A large beaker."
 	icon = 'icons/obj/items/chem/beakers/large.dmi'
 	center_of_mass = @'{"x":16,"y":10}'
 	volume = 120
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = @"[5,10,15,25,30,60,120]"
-	material_force_multiplier = 0.5
 	w_class = ITEM_SIZE_LARGE
+
+/obj/item/chems/glass/beaker/large/update_name()
+	. = ..()
+	SetName("large [name]") // large glass beaker, not glass large beaker
 
 /obj/item/chems/glass/beaker/bowl
 	name = "mixing bowl"
@@ -86,7 +87,28 @@
 	possible_transfer_amounts = @"[5,10,15,25,30,60,180]"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	material = /decl/material/solid/metal/steel
-	material_force_multiplier = 0.2
+
+/obj/item/chems/glass/beaker/bowl/can_lid()
+	return FALSE
+
+/obj/item/chems/glass/beaker/bowl/pottery
+	material = /decl/material/solid/stone/pottery
+
+/obj/item/chems/glass/beaker/kettle
+	name = "kettle"
+	desc = "A heavy kettle for heating water."
+	icon = 'icons/obj/items/chem/kettle.dmi'
+	icon_state = ICON_STATE_WORLD
+	volume = 180
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = @"[5,10,15,25,30,60,180]"
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	material = /decl/material/solid/metal/iron
+	obj_flags = OBJ_FLAG_HOLLOW | OBJ_FLAG_INSULATED_HANDLE
+	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
+
+/obj/item/chems/glass/beaker/kettle/can_lid()
+	return FALSE
 
 /obj/item/chems/glass/beaker/noreact
 	name = "cryostasis beaker"
@@ -110,7 +132,6 @@
 	volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = @"[5,10,15,25,30,60,120,150,200,250,300]"
-	material_force_multiplier = 2.5
 	material_alteration = MAT_FLAG_ALTERATION_NONE
 	material = /decl/material/solid/metal/steel
 	matter = list(
@@ -129,7 +150,6 @@
 	w_class = ITEM_SIZE_TINY //half the volume of a bottle, half the size
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = @"[5,10,15,30]"
-	material_force_multiplier = 0.1
 
 /obj/item/chems/glass/beaker/vial/throw_impact(atom/hit_atom)
 	. = ..()
@@ -145,10 +165,12 @@
 	possible_transfer_amounts = @"[5,10,15,30]"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	presentation_flags = PRESENTATION_FLAG_NAME
-	temperature_coefficient = 1
 	material = /decl/material/solid/metal/steel
 	material_alteration = MAT_FLAG_ALTERATION_NONE
 	lid_color = COLOR_GRAY40
+
+/obj/item/chems/glass/beaker/insulated/get_thermal_mass_coefficient()
+	return 0.1
 
 // Hack around reagent temp changes.
 /obj/item/chems/glass/beaker/insulated/ProcessAtomTemperature()
@@ -161,5 +183,5 @@
 	matter = list(/decl/material/solid/organic/plastic = MATTER_AMOUNT_REINFORCEMENT)
 	volume = 120
 
-/obj/item/chems/glass/beaker/sulphuric/populate_reagents()
+/obj/item/chems/glass/beaker/sulfuric/populate_reagents()
 	add_to_reagents(/decl/material/liquid/acid, reagents.maximum_volume)

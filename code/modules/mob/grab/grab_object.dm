@@ -1,12 +1,13 @@
 /obj/item/grab
-	name              = "grab"
-	canremove         = FALSE
-	item_flags        = ITEM_FLAG_NO_BLUDGEON
-	w_class           = ITEM_SIZE_NO_CONTAINER
-	pickup_sound      = null
-	drop_sound        = null
-	equip_sound       = null
-	is_spawnable_type = FALSE
+	name                   = "grab"
+	canremove              = FALSE
+	item_flags             = ITEM_FLAG_NO_BLUDGEON
+	pickup_sound           = null
+	drop_sound             = null
+	equip_sound            = null
+	is_spawnable_type      = FALSE
+	obj_flags              = OBJ_FLAG_NO_STORAGE
+	needs_attack_dexterity = DEXTERITY_GRAPPLE
 
 	var/atom/movable/affecting             // Atom being targeted by this grab.
 	var/mob/assailant                      // Mob that instantiated this grab.
@@ -39,9 +40,9 @@
 
 	var/mob/living/affecting_mob = get_affecting_mob()
 	if(affecting_mob)
-		affecting_mob.UpdateLyingBuckledAndVerbStatus()
+		affecting_mob.update_posture()
 		if(ishuman(affecting_mob))
-			var/mob/living/carbon/human/H = affecting_mob
+			var/mob/living/human/H = affecting_mob
 			var/obj/item/uniform = H.get_equipped_item(slot_w_uniform_str)
 			if(uniform)
 				uniform.add_fingerprint(assailant)
@@ -58,19 +59,19 @@
 		events_repository.register(/decl/observ/zone_selected, assailant.zone_sel, src, PROC_REF(on_target_change))
 
 	var/obj/item/organ/O = get_targeted_organ()
-	var/decl/pronouns/G = assailant.get_pronouns()
+	var/decl/pronouns/pronouns = assailant.get_pronouns()
 	if(affecting_mob && O) // may have grabbed a buckled mob, so may be grabbing their holder
 		SetName("[name] (\the [affecting_mob]'s [O.name])")
 		events_repository.register(/decl/observ/dismembered, affecting_mob, src, PROC_REF(on_organ_loss))
 		if(affecting_mob != assailant)
 			visible_message(SPAN_DANGER("\The [assailant] has grabbed [affecting_mob]'s [O.name]!"))
 		else
-			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [G.his] [O.name]!"))
+			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [pronouns.his] [O.name]!"))
 	else
 		if(affecting != assailant)
 			visible_message(SPAN_DANGER("\The [assailant] has grabbed \the [affecting]!"))
 		else
-			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [G.self]!"))
+			visible_message(SPAN_NOTICE("\The [assailant] has grabbed [pronouns.self]!"))
 
 	if(affecting_mob && assailant?.a_intent == I_HURT)
 		upgrade(TRUE)
@@ -99,10 +100,10 @@
 		else
 			upgrade()
 
-/obj/item/grab/attack(mob/M, mob/living/user)
-	if(affecting == M)
+/obj/item/grab/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	if(affecting == target)
 		var/datum/extension/abilities/abilities = get_extension(user, /datum/extension/abilities)
-		if(abilities?.do_grabbed_invocation(M))
+		if(abilities?.do_grabbed_invocation(target))
 			return TRUE
 	. = ..()
 
@@ -116,7 +117,7 @@
 /obj/item/grab/resolve_attackby(atom/A, mob/user, var/click_params)
 	if(QDELETED(src) || !current_grab || !assailant)
 		return TRUE
-	if(A.grab_attack(src) || current_grab.hit_with_grab(src, A, get_dist(user, A) <= 1))
+	if(A.grab_attack(src, user) || current_grab.hit_with_grab(src, A, get_dist(user, A) <= 1))
 		return TRUE
 	. = ..()
 
@@ -151,7 +152,7 @@
 */
 
 /obj/item/grab/proc/on_target_change(obj/screen/zone_selector/zone, old_sel, new_sel)
-	if(src != assailant.get_active_hand())
+	if(src != assailant.get_active_held_item())
 		return // Note that because of this condition, there's no guarantee that target_zone = old_sel
 	if(target_zone == new_sel)
 		return
@@ -175,7 +176,7 @@
 	current_grab.let_go(src)
 
 /obj/item/grab/proc/on_affecting_move()
-	if(!affecting || !isturf(affecting.loc) || get_dist(affecting, assailant) > 1)
+	if(!affecting || !isturf(affecting.loc) || (get_dist_3d(affecting, assailant) > 1 && affecting.moving_diagonally != /atom/movable::FIRST_DIAGONAL_STEP))
 		force_drop()
 
 /obj/item/grab/proc/force_drop()
@@ -200,7 +201,7 @@
 
 /obj/item/grab/proc/action_used()
 	if(ishuman(assailant))
-		var/mob/living/carbon/human/H = assailant
+		var/mob/living/human/H = assailant
 		H.remove_cloaking_source(H.species)
 	last_action = world.time
 	leave_forensic_traces()
@@ -213,7 +214,7 @@
 
 /obj/item/grab/proc/leave_forensic_traces()
 	if(ishuman(affecting))
-		var/mob/living/carbon/human/affecting_mob = affecting
+		var/mob/living/human/affecting_mob = affecting
 		var/obj/item/clothing/C = affecting_mob.get_covering_equipped_item_by_zone(target_zone)
 		if(istype(C))
 			C.leave_evidence(assailant)
@@ -278,7 +279,8 @@
 
 /obj/item/grab/attackby(obj/W, mob/user)
 	if(user == assailant)
-		current_grab.item_attack(src, W)
+		return current_grab.item_attack(src, W)
+	return FALSE
 
 /obj/item/grab/proc/assailant_reverse_facing()
 	return current_grab.reverse_facing
@@ -296,7 +298,7 @@
 	return current_grab.force_danger
 
 /obj/item/grab/proc/grab_slowdown()
-	. = CEILING(affecting?.get_object_size() * current_grab.grab_slowdown)
+	. = ceil(affecting?.get_object_size() * current_grab.grab_slowdown)
 	. /= (affecting?.movable_flags & MOVABLE_FLAG_WHEELED) ? 2 : 1
 	. = max(.,1)
 

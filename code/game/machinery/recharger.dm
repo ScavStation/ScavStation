@@ -15,7 +15,6 @@
 	var/icon_state_idle = "recharger0" //also when unpowered
 	var/portable = 1
 
-	stat_immune = 0
 	uncreated_component_parts = null
 	construct_state = /decl/machine_construction/default/panel_closed
 
@@ -33,9 +32,9 @@
 		if(charging)
 			to_chat(user, "<span class='warning'>\A [charging] is already charging here.</span>")
 			return
-		// Checks to make sure he's not in space doing it, and that the area got proper power.
+		// Checks to make sure the recharger is powered.
 		if(stat & NOPOWER)
-			to_chat(user, "<span class='warning'>The [name] blinks red as you try to insert the item!</span>")
+			to_chat(user, "<span class='warning'>\The [src] blinks red as you try to insert \the [G]!</span>")
 			return
 		if (istype(G, /obj/item/gun/energy/))
 			var/obj/item/gun/energy/E = G
@@ -71,6 +70,7 @@
 		charging = null
 		update_icon()
 		return TRUE
+	return FALSE
 
 /obj/machinery/recharger/Process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)

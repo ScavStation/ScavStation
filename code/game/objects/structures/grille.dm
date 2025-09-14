@@ -61,7 +61,7 @@
 	var/on_frame = is_on_frame()
 	if(destroyed)
 		if(on_frame)
-			icon_state = "broke_onframe"
+			icon_state = "broken_onframe"
 		else
 			icon_state = "broken"
 	else
@@ -85,7 +85,8 @@
 				add_overlay(I)
 
 /obj/structure/grille/Bumped(atom/user)
-	if(ismob(user)) shock(user, 70)
+	if(ismob(user))
+		shock(user, 70)
 
 /obj/structure/grille/attack_hand(mob/user)
 
@@ -102,7 +103,7 @@
 	var/damage_dealt = 1
 	var/attack_message = "kicks"
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		if(H.species.can_shred(H))
 			attack_message = "mangles"
 			damage_dealt = 5
@@ -130,7 +131,7 @@
 
 	//20% chance that the grille provides a bit more cover than usual. Support structure for example might take up 20% of the grille's area.
 	//If they click on the grille itself then we assume they are aiming at the grille itself and the extra cover behaviour is always used.
-	switch(Proj.damage_type)
+	switch(Proj.atom_damage_type)
 		if(BRUTE)
 			//bullets
 			if(Proj.original == src || prob(20))
@@ -148,9 +149,9 @@
 
 	if(passthrough)
 		. = PROJECTILE_CONTINUE
-		damage = clamp((damage - Proj.damage)*(Proj.damage_type == BRUTE? 0.4 : 1), 0, 10) //if the bullet passes through then the grille avoids most of the damage
+		damage = clamp((damage - Proj.damage)*(Proj.atom_damage_type == BRUTE? 0.4 : 1), 0, 10) //if the bullet passes through then the grille avoids most of the damage
 
-	take_damage(damage*0.2)
+	take_damage(damage*0.2, Proj.atom_damage_type)
 
 /obj/structure/grille/proc/cut_grille()
 	playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
@@ -159,7 +160,10 @@
 	else
 		set_density(0)
 		if(material)
-			material.create_object(get_turf(src), 1, parts_type)
+			var/res = material.create_object(get_turf(src), 1, parts_type)
+			if(paint_color)
+				for(var/obj/item/thing in res)
+					thing.set_color(paint_color)
 		destroyed = TRUE
 		parts_amount = 1
 		update_icon()
@@ -188,7 +192,7 @@
 	if(istype(W,/obj/item/stack/material))
 		var/obj/item/stack/material/ST = W
 		if(ST.material.opacity > 0.7)
-			return 0
+			return FALSE
 
 		var/dir_to_set = 5
 		if(!is_on_frame())
@@ -198,7 +202,7 @@
 				dir_to_set = get_dir(loc, user)
 				if(dir_to_set & (dir_to_set - 1)) //Only works for cardinal direcitons, diagonals aren't supposed to work like this.
 					to_chat(user, "<span class='notice'>You can't reach.</span>")
-					return
+					return TRUE
 		place_window(user, loc, dir_to_set, ST)
 		return TRUE
 
@@ -206,11 +210,11 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
 		playsound(loc, 'sound/effects/grillehit.ogg', 80, 1)
-		switch(W.damtype)
+		switch(W.atom_damage_type)
 			if(BURN)
-				take_damage(W.force)
+				take_damage(W.get_attack_force(user))
 			if(BRUTE)
-				take_damage(W.force * 0.1)
+				take_damage(W.get_attack_force(user) * 0.1)
 		return TRUE
 
 	return ..()
@@ -226,30 +230,28 @@
 // returns 1 if shocked, 0 otherwise
 /obj/structure/grille/proc/shock(mob/user, prb)
 	if(!anchored || destroyed)		// anchored/destroyed grilles are never connected
-		return 0
+		return FALSE
 	if(!(material.conductive))
-		return 0
+		return FALSE
 	if(!prob(prb))
-		return 0
+		return FALSE
 	if(!in_range(src, user))//To prevent TK and exosuit users from getting shocked
-		return 0
-	var/turf/T = get_turf(src)
-	var/obj/structure/cable/C = T.get_cable_node()
-	if(C)
-		if(electrocute_mob(user, C, src))
-			if(C.powernet)
-				C.powernet.trigger_warning()
-			spark_at(src, cardinal_only = TRUE)
-			if(HAS_STATUS(user, STAT_STUN))
-				return 1
-		else
-			return 0
-	return 0
+		return FALSE
+	var/turf/my_turf = get_turf(src)
+	var/obj/structure/cable/cable = my_turf.get_cable_node()
+	if(!cable)
+		return FALSE
+	if(!electrocute_mob(user, cable, src))
+		return FALSE
+	if(cable.powernet)
+		cable.powernet.trigger_warning()
+	spark_at(src, cardinal_only = TRUE)
+	return !!HAS_STATUS(user, STAT_STUN)
 
 /obj/structure/grille/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(!destroyed)
-		if(exposed_temperature > material.melting_point)
-			take_damage(1)
+		if(exposed_temperature > material.temperature_damage_threshold)
+			take_damage(1, BURN)
 	..()
 
 // Used in mapping to avoid
@@ -261,16 +263,6 @@
 /obj/structure/grille/broken/Initialize()
 	. = ..()
 	take_damage(rand(1, 5)) //In the destroyed but not utterly threshold.
-
-/obj/structure/grille/cult
-	name = "cult grille"
-	desc = "A matrice built out of an unknown material, with some sort of force field blocking air around it."
-	material = /decl/material/solid/stone/cult
-
-/obj/structure/grille/cult/CanPass(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
-	if(air_group)
-		return 0 //Make sure air doesn't drain
-	..()
 
 /obj/structure/grille/proc/is_on_frame()
 	if(locate(/obj/structure/wall_frame) in loc)

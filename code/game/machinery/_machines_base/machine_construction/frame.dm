@@ -30,7 +30,7 @@
 			TRANSFER_STATE(/decl/machine_construction/default/deconstructed)
 			to_chat(user, "<span class='notice'>You deconstruct \the [machine].</span>")
 			machine.dismantle()
-
+	return FALSE
 
 /decl/machine_construction/frame/unwrenched/mechanics_info()
 	. = list()
@@ -49,15 +49,13 @@
 			try_change_state(machine, /decl/machine_construction/frame/unwrenched)
 
 /decl/machine_construction/frame/wrenched/attackby(obj/item/I, mob/user, obj/machinery/machine)
-
 	if(IS_WRENCH(I))
 		playsound(machine.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		if(do_after(user, 20, machine))
 			TRANSFER_STATE(/decl/machine_construction/frame/unwrenched)
 			to_chat(user, "<span class='notice'>You unfasten \the [machine].</span>")
 			machine.anchored = FALSE
-			return
-
+		return TRUE
 	if(IS_COIL(I))
 		var/obj/item/stack/cable_coil/C = I
 		if(C.get_amount() < 5)
@@ -69,7 +67,7 @@
 			TRANSFER_STATE(/decl/machine_construction/frame/awaiting_circuit)
 			to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 		return TRUE
-
+	return FALSE
 
 /decl/machine_construction/frame/wrenched/mechanics_info()
 	. = list()
@@ -91,22 +89,22 @@
 	if(istype(I, /obj/item/stock_parts/circuitboard))
 		var/obj/item/stock_parts/circuitboard/circuit = I
 		if(circuit.board_type == machine.expected_machine_type)
-			if(!user.canUnEquip(I))
-				return FALSE
-			TRANSFER_STATE(/decl/machine_construction/frame/awaiting_parts)
-			user.try_unequip(I, machine)
-			playsound(machine.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-			to_chat(user, "<span class='notice'>You add the circuit board to \the [machine].</span>")
-			machine.circuit = I
-			return
+			if(user.canUnEquip(I))
+				TRANSFER_STATE(/decl/machine_construction/frame/awaiting_parts)
+				user.try_unequip(I, machine)
+				playsound(machine.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				to_chat(user, "<span class='notice'>You add the circuit board to \the [machine].</span>")
+				machine.circuit = I
 		else
 			to_chat(user, "<span class='warning'>This frame does not accept circuit boards of this type!</span>")
-			return TRUE
+		return TRUE
 	if(IS_WIRECUTTER(I))
 		TRANSFER_STATE(/decl/machine_construction/frame/wrenched)
 		playsound(machine.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You remove the cables.</span>")
 		new /obj/item/stack/cable_coil(machine.loc, 5)
+		return TRUE
+	return FALSE
 
 /decl/machine_construction/frame/awaiting_circuit/mechanics_info()
 	. = list()
@@ -131,7 +129,7 @@
 		machine.circuit.dropInto(machine.loc)
 		machine.circuit = null
 		to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
-		return
+		return TRUE
 	if(IS_SCREWDRIVER(I))
 		playsound(machine.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		var/obj/machinery/new_machine = new machine.circuit.build_path(machine.loc, machine.dir, FALSE)
@@ -145,6 +143,7 @@
 			PRINT_STACK_TRACE("Machine of type [new_machine.type] was built from a circuit and frame, but had no construct state set.")
 		qdel(machine)
 		return TRUE
+	return FALSE
 
 /decl/machine_construction/frame/awaiting_parts/mechanics_info()
 	. = list()

@@ -33,6 +33,9 @@ SUBSYSTEM_DEF(fabrication)
 	var/list/all_crafting_handlers = decls_repository.get_decls_of_subtype(/decl/crafting_stage)
 	for(var/hid in all_crafting_handlers)
 		var/decl/crafting_stage/handler = all_crafting_handlers[hid]
+		// TODO: revisit this if map tech level can be mutated at runtime
+		if(global.using_map.map_tech_level < handler.available_to_map_tech_level)
+			continue
 		if(ispath(handler.begins_with_object_type))
 			LAZYDISTINCTADD(crafting_procedures_by_type[handler.begins_with_object_type], handler)
 
@@ -79,15 +82,14 @@ SUBSYSTEM_DEF(fabrication)
 	. = crafting_procedures_by_type[_type]
 
 /datum/controller/subsystem/fabrication/proc/try_craft_with(var/obj/item/target, var/obj/item/thing, var/mob/user)
-	if(QDELETED(target) || QDELETED(thing) || QDELETED(user))
+	// crafting holders should handle this in attackby()
+	if(QDELETED(target) || QDELETED(thing) || QDELETED(user) || istype(target, /obj/item/crafting_holder) || istype(thing, /obj/item/crafting_holder))
 		return
 	for(var/decl/crafting_stage/initial_stage in SSfabrication.find_crafting_recipes(target.type))
-		if(initial_stage.can_begin_with(target) && initial_stage.is_appropriate_tool(thing))
-			var/obj/item/crafting_holder/H = new /obj/item/crafting_holder(get_turf(target), initial_stage, target, thing, user)
-			if(initial_stage.progress_to(thing, user, H))
-				return H
-			else
-				qdel(H)
+		if(initial_stage.can_begin_with(target) && initial_stage.is_appropriate_tool(thing, target) && initial_stage.is_sufficient_amount(user, thing))
+			var/obj/item/crafting_holder/holder = new(get_turf(target), initial_stage, target, thing, user)
+			initial_stage.progress_to(thing, user, holder)
+			return holder
 
 /datum/controller/subsystem/fabrication/proc/queue_design_cache_refresh(var/obj/machinery/fabricator/fab)
 	fabricators_to_init |= weakref(fab)

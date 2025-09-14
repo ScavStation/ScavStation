@@ -16,6 +16,12 @@
 /datum/fabricator_recipe/jar
 	path = /obj/item/glass_jar
 
+/datum/fabricator_recipe/pot
+	path = /obj/item/chems/cooking_vessel/pot
+
+/datum/fabricator_recipe/skillet
+	path = /obj/item/chems/cooking_vessel/skillet
+
 /datum/fabricator_recipe/radio_headset
 	path = /obj/item/radio/headset
 
@@ -106,8 +112,8 @@
 
 /datum/fabricator_recipe/fiberglass/get_resources()
 	resources = list(
-		/decl/material/solid/glass =   CEILING((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)/2),
-		/decl/material/solid/organic/plastic = CEILING((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)/2)
+		/decl/material/solid/glass =   ceil((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)/2),
+		/decl/material/solid/organic/plastic = ceil((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)/2)
 	)
 
 /datum/fabricator_recipe/struts
@@ -116,7 +122,7 @@
 
 /datum/fabricator_recipe/struts/get_resources()
 	resources = list(
-		/decl/material/solid/metal/steel =   CEILING((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)),
+		/decl/material/solid/metal/steel =   ceil((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)),
 	)
 
 /datum/fabricator_recipe/struts/plastic
@@ -125,7 +131,7 @@
 
 /datum/fabricator_recipe/struts/plastic/get_resources()
 	resources = list(
-		/decl/material/solid/organic/plastic =   CEILING((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)),
+		/decl/material/solid/organic/plastic =   ceil((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)),
 	)
 
 /datum/fabricator_recipe/struts/aluminium
@@ -135,7 +141,7 @@
 
 /datum/fabricator_recipe/struts/aluminium/get_resources()
 	resources = list(
-		/decl/material/solid/metal/aluminium =   CEILING((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)),
+		/decl/material/solid/metal/aluminium =   ceil((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)),
 	)
 
 /datum/fabricator_recipe/struts/titanium
@@ -145,7 +151,7 @@
 
 /datum/fabricator_recipe/struts/titanium/get_resources()
 	resources = list(
-		/decl/material/solid/metal/titanium =   CEILING((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)),
+		/decl/material/solid/metal/titanium =   ceil((SHEET_MATERIAL_AMOUNT * FABRICATOR_EXTRA_COST_FACTOR)),
 	)
 
 /datum/fabricator_recipe/umbrella
@@ -175,3 +181,10 @@
 /datum/fabricator_recipe/duct_tape
 	path = /obj/item/stack/tape_roll/duct_tape
 	pass_multiplier_to_product_new = FALSE // they are printed as single items with 32 uses
+
+/datum/fabricator_recipe/fishing_line
+	path = /obj/item/fishing_line
+
+/datum/fabricator_recipe/fishing_line_high_quality
+	path = /obj/item/fishing_line/high_quality
+

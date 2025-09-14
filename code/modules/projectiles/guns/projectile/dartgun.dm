@@ -37,13 +37,13 @@
 /obj/item/gun/projectile/dartgun/on_update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "[get_world_inventory_state()]-[clamp(length(ammo_magazine.stored_ammo.len), 0, 5)]"
+		icon_state = "[get_world_inventory_state()]-[clamp(ammo_magazine.get_stored_ammo_count(), 0, 5)]"
 	else
 		icon_state = get_world_inventory_state()
 
 /obj/item/gun/projectile/dartgun/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && (slot in user_mob?.get_held_item_slots()) && ammo_magazine)
-		overlay.icon_state += "-[clamp(length(ammo_magazine.stored_ammo.len), 0, 5)]"
+		overlay.icon_state += "-[clamp(ammo_magazine.get_stored_ammo_count(), 0, 5)]"
 	. = ..()
 
 /obj/item/gun/projectile/dartgun/consume_next_projectile()
@@ -58,15 +58,20 @@
 		to_chat(user, "<span class='notice'>\The [src] contains:</span>")
 		for(var/obj/item/chems/glass/beaker/B in beakers)
 			if(B.reagents && LAZYLEN(B.reagents?.reagent_volumes))
-				for(var/rtype in B.reagents.reagent_volumes)
-					var/decl/material/R = GET_DECL(rtype)
-					to_chat(user, "<span class='notice'>[REAGENT_VOLUME(B.reagents, rtype)] units of [R.name]</span>")
+				for(var/ltype in B.reagents.liquid_volumes)
+					var/decl/material/R = GET_DECL(ltype)
+					to_chat(user, "<span class='notice'>[LIQUID_VOLUME(B.reagents, ltype)] units of [R.get_reagent_name(B.reagents, MAT_PHASE_LIQUID)]</span>")
+
+				for(var/stype in B.reagents.solid_volumes)
+					var/decl/material/R = GET_DECL(stype)
+					to_chat(user, "<span class='notice'>[SOLID_VOLUME(B.reagents, stype)] units of [R.get_reagent_name(B.reagents, MAT_PHASE_SOLID)]</span>")
+
 
 /obj/item/gun/projectile/dartgun/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/chems/glass))
 		add_beaker(I, user)
-		return 1
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/gun/projectile/dartgun/proc/add_beaker(var/obj/item/chems/glass/B, mob/user)
 	if(!istype(B, container_type))
@@ -111,23 +116,24 @@
 			if(B.reagents && LAZYLEN(B.reagents.reagent_volumes))
 				for(var/rtype in B.reagents.reagent_volumes)
 					var/decl/material/R = GET_DECL(rtype)
-					dat += "<br>    [REAGENT_VOLUME(B.reagents, rtype)] units of [R.name], "
+					dat += "<br>    [REAGENT_VOLUME(B.reagents, rtype)] units of [R.get_reagent_name(B.reagents)], "
 				if(B in mixing)
-					dat += "<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> "
+					dat += "<A href='byond://?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> "
 				else
-					dat += "<A href='?src=\ref[src];mix=[i]'><font color='red'>Not mixing</font></A> "
+					dat += "<A href='byond://?src=\ref[src];mix=[i]'><font color='red'>Not mixing</font></A> "
 			else
 				dat += "nothing."
-			dat += " \[<A href='?src=\ref[src];eject=[i]'>Eject</A>\]<br>"
+			dat += " \[<A href='byond://?src=\ref[src];eject=[i]'>Eject</A>\]<br>"
 
 	if(ammo_magazine)
-		if(ammo_magazine.stored_ammo && ammo_magazine.stored_ammo.len)
-			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
+		var/stored_ammo_count = ammo_magazine?.get_stored_ammo_count()
+		if(stored_ammo_count)
+			dat += "The dart cartridge has [stored_ammo_count] shot\s remaining."
 		else
 			dat += "<font color='red'>The dart cartridge is empty!</font>"
-		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]<br>"
+		dat += " \[<A href='byond://?src=\ref[src];eject_cart=1'>Eject</A>\]<br>"
 
-	dat += "<br>\[<A href='?src=\ref[src];refresh=1'>Refresh</A>\]"
+	dat += "<br>\[<A href='byond://?src=\ref[src];refresh=1'>Refresh</A>\]"
 
 	var/datum/browser/popup = new(user, "dartgun", "[src] mixing control")
 	popup.set_content(jointext(dat,null))

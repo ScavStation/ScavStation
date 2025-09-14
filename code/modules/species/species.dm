@@ -14,7 +14,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/roleplay_summary
 	var/ooc_codex_information
 	var/cyborg_noun = "Cyborg"
-	var/hidden_from_codex = TRUE
+	var/hidden_from_codex = FALSE
 	var/secret_codex_info
 
 	var/holder_icon
@@ -23,10 +23,15 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/base_external_prosthetics_model = /decl/bodytype/prosthetic/basic_human
 	var/base_internal_prosthetics_model
 
+	/// Set to true to blacklist this species from all map jobs it is not explicitly whitelisted for.
+	var/job_blacklist_by_default = FALSE
+
 	// A list of customization categories made available in character preferences.
 	var/list/available_accessory_categories = list(
 		SAC_HAIR,
 		SAC_FACIAL_HAIR,
+		SAC_EARS,
+		SAC_TAIL,
 		SAC_COSMETICS,
 		SAC_MARKINGS
 	)
@@ -52,7 +57,6 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/flesh_color = "#ffc896"             // Pink.
 	var/blood_oxy = 1
 
-
 	var/organs_icon		//species specific internal organs icons
 
 	var/strength = STR_MEDIUM
@@ -65,21 +69,23 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/taste_sensitivity = TASTE_NORMAL      // How sensitive the species is to minute tastes.
 	var/silent_steps
 
-	var/age_descriptor = /datum/appearance_descriptor/age
-
 	// Speech vars.
-	var/assisted_langs = list()               // The languages the species can't speak without an assisted organ.
+	var/assisted_langs    = list()            // The languages the species can't speak without an assisted organ.
+	var/unspeakable_langs = list()            // The languages the species can't speak at all.
 	var/list/speech_sounds                    // A list of sounds to potentially play when speaking.
 	var/list/speech_chance                    // The likelihood of a speech sound playing.
+	var/scream_verb_1p = "scream"
+	var/scream_verb_3p = "screams"
 
 	// Combat vars.
 	var/total_health = DEFAULT_SPECIES_HEALTH  // Point at which the mob will enter crit.
 	var/list/unarmed_attacks = list(           // Possible unarmed attacks that the mob will use in combat,
-		/decl/natural_attack,
+		/decl/natural_attack/stomp,
+		/decl/natural_attack/kick,
+		/decl/natural_attack/punch,
 		/decl/natural_attack/bite
-		)
+	)
 
-	var/list/natural_armour_values            // Armour values used if naked.
 	var/brute_mod =      1                    // Physical damage multiplier.
 	var/burn_mod =       1                    // Burn damage multiplier.
 	var/toxins_mod =     1                    // Toxloss modifier
@@ -94,12 +100,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/vision_flags = SEE_SELF               // Same flags as glasses.
 
 	// Death vars.
-	var/meat_type =     /obj/item/chems/food/meat/human
-	var/meat_amount =   3
-	var/skin_material = /decl/material/solid/organic/skin
-	var/skin_amount =   3
-	var/bone_material = /decl/material/solid/organic/bone
-	var/bone_amount =   3
+	var/butchery_data = /decl/butchery_data/humanoid
 	var/remains_type =  /obj/item/remains/xeno
 	var/gibbed_anim =   "gibbed-h"
 	var/dusted_anim =   "dust-h"
@@ -120,7 +121,9 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	// Environment tolerance/life processes vars.
 	var/breath_pressure = 16                                    // Minimum partial pressure safe for breathing, kPa
 	var/breath_type = /decl/material/gas/oxygen                 // Non-oxygen gas breathed, if any.
-	var/poison_types = list(/decl/material/gas/chlorine = TRUE) // Noticeably poisonous air - ie. updates the toxins indicator on the HUD.
+	/// Material types considered noticeably poisonous when inhaled (ie. updates the toxins indicator on the HUD).
+	/// This is an associative list for speed.
+	var/poison_types = list(/decl/material/gas/chlorine = TRUE)
 	var/exhale_type = /decl/material/gas/carbon_dioxide         // Exhaled gas type.
 	var/blood_reagent = /decl/material/liquid/blood
 
@@ -136,14 +139,13 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/water_soothe_amount
 
 	// HUD data vars.
-	var/datum/hud_data/hud
-	var/hud_type
+	var/datum/hud_data/species_hud
 
 	var/grab_type = /decl/grab/normal/passive // The species' default grab type.
 
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
-	var/siemens_coefficient = 1   // The lower, the thicker the skin and better the insulation.
+	var/shock_vulnerability = 1   // The lower, the thicker the skin and better the insulation.
 	var/species_flags = 0         // Various specific features.
 	var/spawn_flags = 0           // Flags that specify who can spawn as this species
 	// Move intents. Earlier in list == default for that type of movement.
@@ -182,18 +184,13 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 	var/job_skill_buffs = list()				// A list containing jobs (/datum/job), with values the extra points that job recieves.
 
-	var/list/appearance_descriptors = list(
-		/datum/appearance_descriptor/height = 1,
-		/datum/appearance_descriptor/build =  1
-	)
-
 	var/standing_jump_range = 2
 	var/list/maneuvers = list(/decl/maneuver/leap)
 
-	var/list/available_cultural_info =            list()
-	var/list/force_cultural_info =                list()
-	var/list/default_cultural_info =              list()
-	var/list/additional_available_cultural_info = list()
+	var/list/available_background_info =            list()
+	var/list/force_background_info =                list()
+	var/list/default_background_info =              list()
+	var/list/additional_available_background_info = list()
 	var/max_players
 
 	// Order matters, higher pain level should be higher up
@@ -205,7 +202,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 	var/manual_dexterity = DEXTERITY_FULL
 
-	var/datum/ai/ai						// Type abused. Define with path and will automagically create. Determines behaviour for clientless mobs. This will override mob AIs.
+	var/datum/mob_controller/ai						// Type abused. Define with path and will automagically create. Determines behaviour for clientless mobs. This will override mob AIs.
 
 	var/exertion_emote_chance =    5
 	var/exertion_effect_chance =   0
@@ -225,7 +222,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	var/preview_icon_width = 64
 	var/preview_icon_height = 64
 	var/preview_icon_path
-	var/preview_outfit = /decl/hierarchy/outfit/job/generic/assistant
+	var/preview_outfit = /decl/outfit/job/generic/assistant
 
 	/// List of emote types that this species can use by default.
 	var/list/default_emotes
@@ -358,45 +355,33 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	else if(length(available_pronouns) && !default_pronouns)
 		default_pronouns = available_pronouns[1]
 
-	for(var/token in ALL_CULTURAL_TAGS)
+	for(var/cat_type in global.using_map.get_background_categories())
 
-		var/force_val = force_cultural_info[token]
+		var/force_val = force_background_info[cat_type]
 		if(force_val)
-			default_cultural_info[token] = force_val
-			available_cultural_info[token] = list(force_val)
+			default_background_info[cat_type] = force_val
+			available_background_info[cat_type] = list(force_val)
 
-		else if(additional_available_cultural_info[token])
-			if(!available_cultural_info[token])
-				available_cultural_info[token] = list()
-			available_cultural_info[token] |= additional_available_cultural_info[token]
+		else if(additional_available_background_info[cat_type])
+			if(!available_background_info[cat_type])
+				available_background_info[cat_type] = list()
+			available_background_info[cat_type] |= additional_available_background_info[cat_type]
 
-		else if(!LAZYLEN(available_cultural_info[token]))
-			var/list/map_systems = global.using_map.available_cultural_info[token]
-			available_cultural_info[token] = map_systems.Copy()
+		else if(!LAZYLEN(available_background_info[cat_type]))
+			var/list/map_systems = global.using_map.available_background_info[cat_type]
+			available_background_info[cat_type] = map_systems.Copy()
 
-		if(LAZYLEN(available_cultural_info[token]) && !default_cultural_info[token])
-			var/list/avail_systems = available_cultural_info[token]
-			default_cultural_info[token] = avail_systems[1]
+		if(LAZYLEN(available_background_info[cat_type]) && !default_background_info[cat_type])
+			var/list/avail_systems = available_background_info[cat_type]
+			default_background_info[cat_type] = avail_systems[1]
 
-		if(!default_cultural_info[token])
-			default_cultural_info[token] = global.using_map.default_cultural_info[token]
+		if(!default_background_info[cat_type])
+			default_background_info[cat_type] = global.using_map.default_background_info[cat_type]
 
-	if(hud_type)
-		hud = new hud_type()
+	if(species_hud)
+		species_hud = new species_hud
 	else
-		hud = new()
-
-	if(LAZYLEN(appearance_descriptors))
-		for(var/desctype in appearance_descriptors)
-			var/datum/appearance_descriptor/descriptor = new desctype(appearance_descriptors[desctype])
-			appearance_descriptors -= desctype
-			appearance_descriptors[descriptor.name] = descriptor
-
-	if(!(/datum/appearance_descriptor/age in appearance_descriptors))
-		LAZYINITLIST(appearance_descriptors)
-		var/datum/appearance_descriptor/age/age = new age_descriptor(1)
-		appearance_descriptors.Insert(1, age.name)
-		appearance_descriptors[age.name] = age
+		species_hud = new
 
 	build_codex_strings()
 
@@ -405,9 +390,13 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 	for(var/trait_type in traits)
 		var/trait_level = traits[trait_type]
-		var/decl/trait/T = GET_DECL(trait_type)
-		if(!T.validate_level(trait_level))
+		var/decl/trait/trait = GET_DECL(trait_type)
+		if(!trait.validate_level(trait_level))
 			. += "invalid levels for species trait [trait_type]"
+		if(name in trait.blocked_species)
+			. += "trait [trait.name] prevents this species from taking it"
+		if(trait.permitted_species && !(name in trait.permitted_species))
+			. += "trait [trait.name] does not permit this species to take it"
 
 	if(!length(blood_types))
 		. += "missing at least one blood type"
@@ -415,31 +404,26 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		. += "default bodytype is not in available bodytypes list"
 	if(!length(available_bodytypes))
 		. += "missing at least one bodytype"
-	// TODO: Maybe make age descriptors optional, in case someone wants a 'timeless entity' species?
-	if(isnull(age_descriptor))
-		. += "age descriptor was unset"
-	else if(!ispath(age_descriptor, /datum/appearance_descriptor/age))
-		. += "age descriptor was not a /datum/appearance_descriptor/age subtype"
 
 	if(taste_sensitivity < 0)
 		. += "taste_sensitivity ([taste_sensitivity]) was negative"
 
-/decl/species/proc/equip_survival_gear(var/mob/living/carbon/human/H, var/box_type = /obj/item/storage/box/survival)
-	var/obj/item/storage/backpack/backpack = H.get_equipped_item(slot_back_str)
+/decl/species/proc/equip_survival_gear(var/mob/living/human/H, var/box_type = /obj/item/box/survival)
+	var/obj/item/backpack/backpack = H.get_equipped_item(slot_back_str)
 	if(istype(backpack))
 		H.equip_to_slot_or_del(new box_type(backpack), slot_in_backpack_str)
 	else
 		H.put_in_hands_or_del(new box_type(H))
 
-/decl/species/proc/get_manual_dexterity(var/mob/living/carbon/human/H)
+/decl/species/proc/get_manual_dexterity(var/mob/living/human/H)
 	. = manual_dexterity
 
-/decl/species/proc/add_base_auras(var/mob/living/carbon/human/H)
+/decl/species/proc/add_base_auras(var/mob/living/human/H)
 	if(base_auras)
 		for(var/type in base_auras)
-			H.add_aura(new type(H))
+			H.add_aura(new type(H), skip_icon_update = TRUE)
 
-/decl/species/proc/remove_base_auras(var/mob/living/carbon/human/H)
+/decl/species/proc/remove_base_auras(var/mob/living/human/H)
 	if(base_auras)
 		var/list/bcopy = base_auras.Copy()
 		for(var/a in H.auras)
@@ -449,76 +433,69 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 				H.remove_aura(A)
 				qdel(A)
 
-/decl/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
+/decl/species/proc/remove_inherent_verbs(var/mob/living/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs -= verb_path
 	return
 
-/decl/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
+/decl/species/proc/add_inherent_verbs(var/mob/living/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs |= verb_path
 	return
 
-/decl/species/proc/handle_post_spawn(var/mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
+/decl/species/proc/handle_post_spawn(var/mob/living/human/H) //Handles anything not already covered by basic species assignment.
 	add_inherent_verbs(H)
 	add_base_auras(H)
 	handle_movement_flags_setup(H)
 
-/decl/species/proc/handle_pre_spawn(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_pre_spawn(var/mob/living/human/H)
 	return
 
-/decl/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events.
+/decl/species/proc/handle_death(var/mob/living/human/H) //Handles any species-specific death events.
 	return
 
-/decl/species/proc/handle_new_grab(var/mob/living/carbon/human/H, var/obj/item/grab/G)
-	return
-
-/decl/species/proc/handle_sleeping(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_sleeping(var/mob/living/human/H)
 	if(prob(2) && !H.failed_last_breath && !H.isSynthetic())
 		if(!HAS_STATUS(H, STAT_PARA))
 			H.emote(/decl/emote/audible/snore)
 		else
 			H.emote(/decl/emote/audible/groan)
 
-/decl/species/proc/handle_environment_special(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_environment_special(var/mob/living/human/H)
 	return
 
-/decl/species/proc/handle_movement_delay_special(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_movement_delay_special(var/mob/living/human/H)
 	return 0
 
 // Used to update alien icons for aliens.
-/decl/species/proc/handle_login_special(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_login_special(var/mob/living/human/H)
 	return
 
 // As above.
-/decl/species/proc/handle_logout_special(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_logout_special(var/mob/living/human/H)
 	return
 
-// Builds the HUD using species-specific icons and usable slots.
-/decl/species/proc/build_hud(var/mob/living/carbon/human/H)
-	return
-
-/decl/species/proc/can_overcome_gravity(var/mob/living/carbon/human/H)
+/decl/species/proc/can_overcome_gravity(var/mob/living/human/H)
 	return FALSE
 
 // Used for any extra behaviour when falling and to see if a species will fall at all.
-/decl/species/proc/can_fall(var/mob/living/carbon/human/H)
+/decl/species/proc/can_fall(var/mob/living/human/H)
 	return !can_overcome_gravity(H)
 
 // Used to override normal fall behaviour. Use only when the species does fall down a level.
-/decl/species/proc/handle_fall_special(var/mob/living/carbon/human/H, var/turf/landing)
+/decl/species/proc/handle_fall_special(var/mob/living/human/H, var/turf/landing)
 	return FALSE
 
 //Used for swimming
-/decl/species/proc/can_float(var/mob/living/carbon/human/H)
+/decl/species/proc/can_float(var/mob/living/human/H)
 	if(!H.is_physically_disabled())
 		return TRUE //We could tie it to stamina
 	return FALSE
 
 // Called when using the shredding behavior.
-/decl/species/proc/can_shred(var/mob/living/carbon/human/H, var/ignore_intent, var/ignore_antag)
+/decl/species/proc/can_shred(var/mob/living/human/H, var/ignore_intent, var/ignore_antag)
 
 	if((!ignore_intent && H.a_intent != I_HURT) || H.pulling_punches)
 		return 0
@@ -534,7 +511,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 			return 1
 	return 0
 
-/decl/species/proc/handle_vision(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_vision(var/mob/living/human/H)
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
 	H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
@@ -572,9 +549,9 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 	return 1
 
-/decl/species/proc/get_how_nearsighted(var/mob/living/carbon/human/H)
+/decl/species/proc/get_how_nearsighted(var/mob/living/human/H)
 	var/prescriptions = short_sighted
-	if(H.disabilities & NEARSIGHTED)
+	if(H.has_genetic_condition(GENE_COND_NEARSIGHTED))
 		prescriptions += 7
 	if(H.equipment_prescription)
 		prescriptions -= H.equipment_prescription
@@ -596,25 +573,25 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 					light -= H.equipment_light_protection
 	return clamp(max(prescriptions, light), 0, 7)
 
-/decl/species/proc/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
+/decl/species/proc/handle_additional_hair_loss(var/mob/living/human/H, var/defer_body_update = TRUE)
 	return FALSE
 
-/decl/species/proc/get_blood_decl(var/mob/living/carbon/human/H)
+/decl/species/proc/get_blood_decl(var/mob/living/human/H)
 	if(istype(H) && H.isSynthetic())
 		return GET_DECL(/decl/blood_type/coolant)
 	return get_blood_type_by_name(blood_types[1])
 
-/decl/species/proc/get_blood_name(var/mob/living/carbon/human/H)
+/decl/species/proc/get_blood_name(var/mob/living/human/H)
 	var/decl/blood_type/blood = get_blood_decl(H)
 	return istype(blood) ? blood.splatter_name : "blood"
 
-/decl/species/proc/get_species_blood_color(var/mob/living/carbon/human/H)
+/decl/species/proc/get_species_blood_color(var/mob/living/human/H)
 	var/decl/blood_type/blood = get_blood_decl(H)
 	return istype(blood) ? blood.splatter_colour : COLOR_BLOOD_HUMAN
 
 // Impliments different trails for species depending on if they're wearing shoes.
-/decl/species/proc/get_move_trail(var/mob/living/carbon/human/H)
-	if(H.lying)
+/decl/species/proc/get_move_trail(var/mob/living/human/H)
+	if(H.current_posture.prone)
 		return /obj/effect/decal/cleanable/blood/tracks/body
 	var/obj/item/clothing/suit = H.get_equipped_item(slot_wear_suit_str)
 	if(istype(suit) && (suit.body_parts_covered & SLOT_FEET))
@@ -624,13 +601,13 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		return shoes.move_trail
 	return move_trail
 
-/decl/species/proc/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+/decl/species/proc/handle_trail(var/mob/living/human/H, var/turf/T)
 	return
 
-/decl/species/proc/update_skin(var/mob/living/carbon/human/H)
+/decl/species/proc/update_skin(var/mob/living/human/H)
 	return
 
-/decl/species/proc/disarm_attackhand(var/mob/living/carbon/human/attacker, var/mob/living/carbon/human/target)
+/decl/species/proc/disarm_attackhand(var/mob/living/human/attacker, var/mob/living/human/target)
 	attacker.do_attack_animation(target)
 
 	var/obj/item/uniform = target.get_equipped_item(slot_w_uniform_str)
@@ -638,7 +615,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		uniform.add_fingerprint(attacker)
 	var/obj/item/organ/external/affecting = GET_EXTERNAL_ORGAN(target, ran_zone(attacker.get_target_zone(), target = target))
 
-	var/list/holding = list(target.get_active_hand() = 60)
+	var/list/holding = list(target.get_active_held_item() = 60)
 	for(var/thing in target.get_inactive_held_items())
 		holding[thing] = 30
 
@@ -654,7 +631,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 			return
 
 	var/randn = rand(1, 100) - skill_mod + state_mod
-	if(!(check_no_slip(target)) && randn <= 25)
+	if(!target.can_slip() && randn <= 25)
 		var/armor_check = 100 * target.get_blocked_ratio(affecting, BRUTE, damage = 20)
 		target.apply_effect(push_mod, WEAKEN, armor_check)
 		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -680,9 +657,9 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 	playsound(target.loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 	target.visible_message("<span class='danger'>[attacker] attempted to disarm \the [target]!</span>")
 
-/decl/species/proc/disfigure_msg(var/mob/living/carbon/human/H) //Used for determining the message a disfigured face has on examine. To add a unique message, just add this onto a specific species and change the "return" message.
-	var/decl/pronouns/G = H.get_pronouns()
-	return SPAN_DANGER("[G.His] face is horribly mangled!\n")
+/decl/species/proc/disfigure_msg(var/mob/living/human/H) //Used for determining the message a disfigured face has on examine. To add a unique message, just add this onto a specific species and change the "return" message.
+	var/decl/pronouns/pronouns = H.get_pronouns()
+	return SPAN_DANGER("[pronouns.His] face is horribly mangled!\n")
 
 /decl/species/proc/get_available_accessories(var/decl/bodytype/bodytype, accessory_category)
 	. = list()
@@ -701,7 +678,7 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		var/list/all_accessories = decls_repository.get_decls_of_subtype(accessory_category_decl.base_accessory_type)
 		for(var/accessory_style in all_accessories)
 			var/decl/sprite_accessory/check_accessory = all_accessories[accessory_style]
-			if(!check_accessory || !check_accessory.accessory_is_available(null, src, bodytype))
+			if(!check_accessory || !check_accessory.accessory_is_available(null, src, bodytype, FALSE))
 				continue
 			ADD_SORTED(available_accessories, accessory_style, /proc/cmp_text_asc)
 			available_accessories[accessory_style] = check_accessory
@@ -714,23 +691,23 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 		if(31 to 45)	. = 4
 		else			. = 8
 
-/decl/species/proc/check_no_slip(var/mob/living/carbon/human/H)
-	if(can_overcome_gravity(H))
+/decl/species/proc/check_no_slip(mob/living/user, magboots_only)
+	if(can_overcome_gravity(user))
 		return TRUE
 	return (species_flags & SPECIES_FLAG_NO_SLIP)
 
 // This assumes you've already checked that their bodytype can feel pain.
-/decl/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
+/decl/species/proc/get_pain_emote(var/mob/living/human/H, var/pain_power)
 	for(var/pain_emotes in pain_emotes_with_pain_level)
 		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
 		if(pain_level >= pain_power)
 			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
 			return pick(pain_emotes)
 
-/decl/species/proc/handle_post_move(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_post_move(var/mob/living/human/H)
 	handle_exertion(H)
 
-/decl/species/proc/handle_exertion(mob/living/carbon/human/H)
+/decl/species/proc/handle_exertion(mob/living/human/H)
 	if (!exertion_effect_chance)
 		return
 	var/chance = max((100 - H.stamina), exertion_effect_chance * H.encumbrance())
@@ -757,37 +734,20 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 /decl/species/proc/get_default_name()
 	return "[lowertext(name)] ([random_id(name, 100, 999)])"
 
-/decl/species/proc/get_holder_color(var/mob/living/carbon/human/H)
+/decl/species/proc/get_holder_color(var/mob/living/human/H)
 	return
 
 //Called after a mob's species is set, organs were created, and we're about to update the icon, color, and etc of the mob being created.
 //Consider this might be called post-init
-/decl/species/proc/apply_appearance(var/mob/living/carbon/human/H)
+/decl/species/proc/apply_appearance(var/mob/living/human/H)
 	H.icon_state = lowertext(src.name)
-	update_appearance_descriptors(H)
-
-/decl/species/proc/update_appearance_descriptors(var/mob/living/carbon/human/H)
-	if(!LAZYLEN(src.appearance_descriptors))
-		H.appearance_descriptors = null
-		return
-
-	var/list/new_descriptors = list()
-	//Add missing descriptors, and sanitize any existing ones
-	for(var/desctype in src.appearance_descriptors)
-		var/datum/appearance_descriptor/descriptor = src.appearance_descriptors[desctype]
-		if(H.appearance_descriptors && H.appearance_descriptors[descriptor.name])
-			new_descriptors[descriptor.name] = descriptor.sanitize_value(H.appearance_descriptors[descriptor.name])
-		else
-			new_descriptors[descriptor.name] = descriptor.default_value
-	//Make sure only supported descriptors are left
-	H.appearance_descriptors = new_descriptors
 
 /decl/species/proc/get_preview_icon()
 	if(!preview_icon)
 
 		// TODO: generate an icon based on all available bodytypes.
 
-		var/mob/living/carbon/human/dummy/mannequin/mannequin = get_mannequin("#species_[ckey(name)]")
+		var/mob/living/human/dummy/mannequin/mannequin = get_mannequin("#species_[ckey(name)]")
 		if(mannequin)
 
 			mannequin.change_species(name) // handles species/bodytype init
@@ -808,8 +768,17 @@ var/global/const/DEFAULT_SPECIES_HEALTH = 200
 
 	return preview_icon
 
-/decl/species/proc/handle_movement_flags_setup(var/mob/living/carbon/human/H)
+/decl/species/proc/handle_movement_flags_setup(var/mob/living/human/H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
+
+/decl/species/proc/modify_preview_appearance(mob/living/human/dummy/mannequin)
+	return mannequin
+
+/decl/species/proc/get_default_background_datum_by_flag(background_flag)
+	for(var/cat_type in default_background_info)
+		var/decl/background_category/background_cat = GET_DECL(cat_type)
+		if(background_cat.background_flags & background_flag)
+			return GET_DECL(default_background_info[cat_type])

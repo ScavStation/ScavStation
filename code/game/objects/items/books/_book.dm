@@ -1,7 +1,7 @@
 /obj/item/book
 	name = "book"
-	icon = 'icons/obj/library.dmi'
-	icon_state = "book"
+	icon = 'icons/obj/items/books/book.dmi'
+	icon_state = ICON_STATE_WORLD
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
@@ -9,14 +9,21 @@
 	material = /decl/material/solid/organic/plastic
 	matter = list(/decl/material/solid/organic/paper = MATTER_AMOUNT_REINFORCEMENT)
 
-	var/dat			 // Actual page content
-	var/pencode_dat  // Cache pencode if input, so it can be edited later.
-	var/author		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
-	var/unique = 0   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified
-	var/title		 // The real name of the book.
-	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
-	var/obj/item/store	//What's in the book?
+	/// Actual page content
+	var/dat
+	/// Cache pencode if input, so it can be edited later.
+	var/pencode_dat
+	/// Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
+	var/author
+	/// 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified
+	var/unique = FALSE
+	/// The real name of the book.
+	var/title
+	/// Who modified the book last?
 	var/last_modified_ckey
+	/// If TRUE, mild solvents can dissolve ink off the page.
+	/// If FALSE, the user instead receives a message about how the text doesn't seem to be normal ink.
+	var/can_dissolve_text = TRUE
 
 	// Copied from paper. Todo: generalize.
 	var/const/deffont = "Verdana"
@@ -33,6 +40,13 @@
 	. = ..()
 	if(SSpersistence.is_tracking(src, /decl/persistence_handler/book))
 		. = QDEL_HINT_LETMELIVE
+
+/obj/item/book/on_update_icon()
+	. = ..()
+	icon_state = get_world_inventory_state()
+	var/page_state = "[icon_state]-pages"
+	if(check_state_in_icon(page_state, icon))
+		add_overlay(overlay_image(icon, page_state, COLOR_WHITE, RESET_COLOR))
 
 /obj/item/book/proc/get_style_css()
 	return {"
@@ -51,62 +65,49 @@
 	return try_to_read(user) || ..()
 
 /obj/item/book/proc/try_to_read(var/mob/user)
-	if(carved)
-		if(store)
-			to_chat(user, "<span class='notice'>\A [store] falls out of [title]!</span>")
-			store.dropInto(loc)
-			store = null
-			return
+	if(storage)
+		var/list/stored = get_stored_inventory()
+		if(length(stored))
+			for(var/atom/movable/thing in stored)
+				to_chat(user, SPAN_NOTICE("\A [thing] falls out of [title]!"))
+				thing.dropInto(loc)
 		else
-			to_chat(user, "<span class='notice'>The pages of [title] have been cut out!</span>")
-			return
+			to_chat(user, SPAN_NOTICE("The pages of [title] have been cut out!"))
+		return
+
 	if(dat)
-		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
+		user.visible_message("\The [user] opens a book titled \"[title]\" and begins reading intently.")
 		var/processed_dat = user.handle_reading_literacy(user, dat)
 		if(processed_dat)
 			show_browser(user, processed_dat, "window=book;size=1000x550")
 			onclose(user, "book")
 	else
-		to_chat(user, "This book is completely blank!")
+		to_chat(user, SPAN_WARNING("This book is completely blank!"))
 
 /obj/item/book/attackby(obj/item/W, mob/user)
-	if(carved == 1)
-		if(!store)
-			if(W.w_class < ITEM_SIZE_NORMAL)
-				if(!user.try_unequip(W, src))
-					return
-				store = W
-				to_chat(user, "<span class='notice'>You put [W] in [title].</span>")
-				return
-			else
-				to_chat(user, "<span class='notice'>[W] won't fit in [title].</span>")
-				return
-		else
-			to_chat(user, "<span class='notice'>There's already something in [title]!</span>")
-			return
+
 	if(IS_PEN(W))
 		if(unique)
-			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
-			return
+			to_chat(user, SPAN_WARNING("These pages don't seem to take the ink well. Looks like you can't modify it."))
+			return TRUE
+
 		var/choice = input("What would you like to change?") in list("Title", "Contents", "Author", "Cancel")
 		switch(choice)
 			if("Title")
 				var/newtitle = reject_bad_text(sanitize_safe(input("Write a new title:")))
 				if(!newtitle)
-					to_chat(usr, "The title is invalid.")
-					return
+					to_chat(usr, SPAN_WARNING("The title is invalid."))
 				else
 					newtitle = usr.handle_writing_literacy(usr, newtitle)
 					if(newtitle)
 						last_modified_ckey = user.ckey
 						title = newtitle
 						SetName(title)
-			if("Contents")
 
+			if("Contents")
 				var/content = sanitize(input(usr, "What would you like your book to say?", "Editing Book", pencode_dat) as message|null, MAX_BOOK_MESSAGE_LEN)
 				if(!content)
-					to_chat(usr, "The content is invalid.")
-					return
+					to_chat(usr, SPAN_WARNING("The content is invalid."))
 				else
 					content = usr.handle_writing_literacy(usr, content)
 					if(content)
@@ -117,33 +118,41 @@
 			if("Author")
 				var/newauthor = sanitize(input(usr, "Write the author's name:"))
 				if(!newauthor)
-					to_chat(usr, "The name is invalid.")
-					return
+					to_chat(usr, SPAN_WARNING("The name is invalid."))
 				else
 					newauthor = usr.handle_writing_literacy(usr, newauthor)
 					if(newauthor)
 						last_modified_ckey = user.ckey
 						author = newauthor
-			else
-				return
-	else if(istype(W, /obj/item/knife) || IS_WIRECUTTER(W))
-		if(carved)	return
-		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
-		if(do_after(user, 30, src))
-			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
-			carved = 1
-			return
-	else
-		..()
+		return TRUE
 
-/obj/item/book/attack(mob/living/carbon/M, mob/living/carbon/user)
+	if((IS_KNIFE(W) || IS_WIRECUTTER(W)) && user.a_intent == I_HURT && try_carve(user, W))
+		return TRUE
+
+	return ..()
+
+/obj/item/book/proc/try_carve(mob/user, obj/item/tool)
+	if(storage)
+		to_chat(user, SPAN_WARNING("\The [src] has already been carved out."))
+	else
+		to_chat(user, SPAN_NOTICE("You begin to carve out [title] with \the [tool]."))
+		if(do_after(user, 3 SECONDS, src) && !storage)
+			to_chat(user, SPAN_NOTICE("You carve out the pages from [title] with \the [tool]! You didn't want to read it anyway."))
+			storage = new /datum/storage/book(src)
+	return TRUE
+
+/obj/item/book/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	if(user.get_target_zone() == BP_EYES)
-		user.visible_message("<span class='notice'>You open up the book and show it to [M]. </span>", \
-			"<span class='notice'> [user] opens up a book and shows it to [M]. </span>")
+		user.visible_message(
+			SPAN_NOTICE("You open up the book and show it to \the [target]."),
+			SPAN_NOTICE("\The [user] opens up a book and shows it to \the [target].")
+		)
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
-		var/processed_dat = M.handle_reading_literacy(user, "<i>Author: [author].</i><br><br>" + "[dat]")
+		var/processed_dat = target.handle_reading_literacy(user, "<i>Author: [author].</i><br><br>" + "[dat]")
 		if(processed_dat)
-			show_browser(M, processed_dat, "window=book;size=1000x550")
+			show_browser(target, processed_dat, "window=book;size=1000x550")
+		return TRUE
+	return ..()
 
 // Copied from paper for the most part. TODO: generalize.
 /obj/item/book/proc/formatpencode(var/mob/user, var/t, var/obj/item/pen/P)
@@ -178,18 +187,18 @@
 	. = pencode2html(.)
 
 /obj/item/book/printable_black
-	icon_state = "book1"
+	icon = 'icons/obj/items/books/book_printable_black.dmi'
 /obj/item/book/printable_red
-	icon_state = "book2"
+	icon = 'icons/obj/items/books/book_printable_red.dmi'
 /obj/item/book/printable_yellow
-	icon_state = "book3"
+	icon = 'icons/obj/items/books/book_printable_yellow.dmi'
 /obj/item/book/printable_blue
-	icon_state = "book4"
+	icon = 'icons/obj/items/books/book_printable_blue.dmi'
 /obj/item/book/printable_green
-	icon_state = "book5"
+	icon = 'icons/obj/items/books/book_printable_green.dmi'
 /obj/item/book/printable_purple
-	icon_state = "book6"
+	icon = 'icons/obj/items/books/book_printable_purple.dmi'
 /obj/item/book/printable_light_blue
-	icon_state = "book7"
+	icon = 'icons/obj/items/books/book_printable_light_blue.dmi'
 /obj/item/book/printable_magazine
-	icon_state = "bookMagazine"
+	icon = 'icons/obj/items/books/book_printable_magazine.dmi'

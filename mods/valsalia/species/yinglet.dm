@@ -14,7 +14,7 @@
 		"th" = list("d")
 	)
 
-	preview_outfit = /decl/hierarchy/outfit/job/yinglet/assistant
+	preview_outfit = /decl/outfit/job/yinglet/assistant
 	gluttonous = GLUT_SMALLER | GLUT_ITEM_TINY
 	metabolism_mod = 1.25
 
@@ -34,15 +34,10 @@
 
 	flesh_color = "#ab8c65"
 	spawn_flags = SPECIES_CAN_JOIN
-	age_descriptor = /datum/appearance_descriptor/age/yinglet
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
-	appearance_descriptors = list(
-		/datum/appearance_descriptor/height = 0.5,
-		/datum/appearance_descriptor/build =  0.5
-	)
 	total_health = 150
 	brute_mod = 1.25
 	burn_mod =  1.25
@@ -52,26 +47,31 @@
 	inherent_verbs = list(/mob/living/proc/hide)
 	toxins_mod = 0.65
 
-	available_cultural_info = list(
-		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/yinglet,
-			/decl/cultural_info/culture/yinglet/tribal,
-			/decl/cultural_info/culture/yinglet/void,
-			/decl/cultural_info/culture/other
+	available_background_info = list(
+		/decl/background_category/heritage =  list(
+			/decl/background_detail/heritage/yinglet,
+			/decl/background_detail/heritage/yinglet/valsalian,
+			/decl/background_detail/heritage/yinglet/tribal,
+			/decl/background_detail/heritage/yinglet/void,
+			/decl/background_detail/heritage/other
 		),
-		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/yingletacrology,
-			/decl/cultural_info/location/tradehousespace,
-			/decl/cultural_info/location/stateless
+		/decl/background_category/homeworld = list(
+			/decl/background_detail/location/yingletacrology,
+			/decl/background_detail/location/tradehousespace,
+			/decl/background_detail/location/stateless
 		),
-		TAG_FACTION =   list(
-			/decl/cultural_info/faction/enclave_ying,
-			/decl/cultural_info/faction/tradehouse_ying,
-			/decl/cultural_info/faction/other
+		/decl/background_category/faction =   list(
+			/decl/background_detail/faction/enclave_scav,
+			/decl/background_detail/faction/tradehouse_scav,
+			/decl/background_detail/faction/exiled_scav,
+			/decl/background_detail/faction/wanderer
 		),
-		TAG_RELIGION =  list(
-			/decl/cultural_info/religion/enclave,
-			/decl/cultural_info/religion/other
+		/decl/background_category/religion =  list(
+			/decl/background_detail/religion/dinnaism,
+			/decl/background_detail/religion/veil_worship,
+			/decl/background_detail/religion/angel_worship,
+			/decl/background_detail/religion/ancestor_worship,
+			/decl/background_detail/religion/faithless,
 		)
 	)
 
@@ -80,21 +80,21 @@
 		/decl/trait/gluten_allergy = TRAIT_LEVEL_EXISTS
 	)
 
-/decl/species/yinglet/get_root_species_name(mob/living/carbon/human/H)
+/decl/species/yinglet/get_root_species_name(mob/living/human/H)
 	return SPECIES_YINGLET
 
 /decl/species/yinglet/skills_from_age(age)
 	switch(age)
-		if(0 to 5)
-			. = -4
-		if(5 to 10)
+		if(0 to 2)
+			. = -2
+		if(3 to 10)
 			. = 0
-		if(10 to 15)
+		if(11 to 16)
 			. = 4
 		else
 			. = 8
 
-/decl/species/yinglet/handle_additional_hair_loss(var/mob/living/carbon/human/H, var/defer_body_update = TRUE)
+/decl/species/yinglet/handle_additional_hair_loss(var/mob/living/human/H, var/defer_body_update = TRUE)
 	. = H && H.set_skin_colour(rgb(189, 171, 143))
 
 /decl/species/yinglet/get_autohiss_map(var/mode)
@@ -105,7 +105,7 @@
 	if(!islist(.))
 		. = list()
 
-/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/carbon/human/H)
+/decl/species/yinglet/equip_default_fallback_uniform(var/mob/living/human/H)
 	return
 
 /obj/item/holder/yinglet

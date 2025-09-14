@@ -47,17 +47,10 @@
 			to_chat(src, "<span class='danger'>Your camera isn't functional.</span>")
 		return
 
-	/*
-	cyborg restrained() currently does nothing
-	if(restrained())
-		RestrainedClickOn(A)
-		return
-	*/
-
-	var/obj/item/W = get_active_hand()
+	var/obj/item/holding = get_active_held_item()
 
 	// Cyborgs have no range-checking unless there is item use
-	if(!W)
+	if(!holding)
 		A.add_hiddenprint(src)
 		A.attack_robot(src)
 		return
@@ -66,36 +59,32 @@
 	if( buckled )
 		return
 
-	if(W == A)
+	if(holding == A)
 
-		W.attack_self(src)
+		holding.attack_self(src)
 		return
 
-	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)
-	var/can_wield_item = check_dexterity(DEXTERITY_WIELD_ITEM, silent = TRUE)
-	if(can_wield_item && (A == loc || (A in loc) || (A in contents)))
+	if(A == loc || (A in loc) || (A in contents))
 		// No adjacency checks
-
-		var/resolved = W.resolve_attackby(A, src, params)
-		if(!resolved && A && W)
-			W.afterattack(A, src, 1, params) // 1 indicates adjacency
+		var/resolved = holding.resolve_attackby(A, src, params)
+		if(!resolved && A && holding)
+			holding.afterattack(A, src, 1, params) // 1 indicates adjacency
+		setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		return
 
 	if(!isturf(loc))
 		return
 
 	var/sdepth = A.storage_depth_turf()
-	if(can_wield_item && (isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1)))
+	if(isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
 		if(A.Adjacent(src)) // see adjacent.dm
-
-			var/resolved = W.resolve_attackby(A, src, params)
-			if(!resolved && A && W)
-				W.afterattack(A, src, 1, params) // 1 indicates adjacency
-			return
+			var/resolved = holding.resolve_attackby(A, src, params)
+			if(!resolved && A && holding)
+				holding.afterattack(A, src, 1, params) // 1 indicates adjacency
+			setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		else
-			W.afterattack(A, src, 0, params)
-			return
-	return
+			holding.afterattack(A, src, 0, params)
+		return
 
 //Middle click cycles through selected modules.
 /mob/living/silicon/robot/MiddleClickOn(var/atom/A)
@@ -170,7 +159,7 @@
 	clicks, you can do so here, but you will have to
 	change attack_robot() above to the proper function
 */
-/mob/living/silicon/robot/UnarmedAttack(atom/A)
+/mob/living/silicon/robot/ResolveUnarmedAttack(atom/A)
 	return A.attack_robot(src)
 
 /mob/living/silicon/robot/RangedAttack(atom/A, var/params)

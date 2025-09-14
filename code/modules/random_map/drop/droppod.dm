@@ -11,11 +11,11 @@
 	limit_y = 3
 	preserve_map = 0
 
-	wall_type = /turf/simulated/wall/titanium
-	floor_type = /turf/simulated/floor/reinforced
+	wall_type = /turf/wall/titanium
+	floor_type = /turf/floor/reinforced
 	var/list/supplied_drop_types = list()
 	var/door_type = /obj/structure/droppod_door
-	var/drop_type = /mob/living/simple_animal/hostile/retaliate/parrot
+	var/drop_type = /mob/living/simple_animal/hostile/parrot
 	var/auto_open_doors
 
 	var/placement_explosion_dev =   1
@@ -41,8 +41,8 @@
 /datum/random_map/droppod/generate_map()
 
 	// No point calculating these 200 times.
-	var/x_midpoint = CEILING(limit_x / 2)
-	var/y_midpoint = CEILING(limit_y / 2)
+	var/x_midpoint = ceil(limit_x / 2)
+	var/y_midpoint = ceil(limit_y / 2)
 
 	// Draw walls/floors/doors.
 	for(var/x = 1, x <= limit_x, x++)
@@ -80,7 +80,7 @@
 
 /datum/random_map/droppod/apply_to_map()
 	if(placement_explosion_dev || placement_explosion_heavy || placement_explosion_light || placement_explosion_flash)
-		var/turf/T = locate((origin_x + CEILING(limit_x / 2)-1), (origin_y + CEILING(limit_y / 2)-1), origin_z)
+		var/turf/T = locate((origin_x + ceil(limit_x / 2)-1), (origin_y + ceil(limit_y / 2)-1), origin_z)
 		if(istype(T))
 			explosion(T, placement_explosion_dev, placement_explosion_heavy, placement_explosion_light, placement_explosion_flash)
 			sleep(15) // Let the explosion finish proccing before we ChangeTurf(), otherwise it might destroy our spawned objects.
@@ -97,8 +97,8 @@
 
 // Pods are circular. Get the direction this object is facing from the center of the pod.
 /datum/random_map/droppod/get_spawn_dir(var/x, var/y)
-	var/x_midpoint = CEILING(limit_x / 2)
-	var/y_midpoint = CEILING(limit_y / 2)
+	var/x_midpoint = ceil(limit_x / 2)
+	var/y_midpoint = ceil(limit_y / 2)
 	if(x == x_midpoint && y == y_midpoint)
 		return null
 	var/turf/target = locate(origin_x+x-1, origin_y+y-1, origin_z)

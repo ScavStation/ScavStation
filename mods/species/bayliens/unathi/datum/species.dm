@@ -11,10 +11,14 @@
 		"elderly" =       260
 	)
 
+/decl/butchery_data/humanoid/unathi
+	meat_name = "lizard"
+	skin_material = /decl/material/solid/organic/skin/lizard
+
 /decl/species/unathi
 	name = SPECIES_LIZARD
 	name_plural = SPECIES_LIZARD
-	skin_material = /decl/material/solid/organic/skin/lizard
+	butchery_data = /decl/butchery_data/humanoid/unathi
 
 	available_bodytypes = list(
 		/decl/bodytype/lizard,
@@ -32,7 +36,8 @@
 		SAC_HORNS,
 		SAC_FRILLS,
 		SAC_COSMETICS,
-		SAC_MARKINGS
+		SAC_MARKINGS,
+		SAC_TAIL
 	)
 
 	primitive_form = "Stok"
@@ -43,8 +48,7 @@
 	blood_volume = 800
 
 	hunger_factor = DEFAULT_HUNGER_FACTOR * 2
-
-	age_descriptor = /datum/appearance_descriptor/age/lizard
+	thirst_factor = DEFAULT_THIRST_FACTOR * 2
 
 	body_temperature = null // cold-blooded, implemented the same way nabbers do it
 
@@ -56,7 +60,7 @@
 	flesh_color = "#34af10"
 	organs_icon = 'mods/species/bayliens/unathi/icons/organs.dmi'
 
-	preview_outfit = /decl/hierarchy/outfit/job/generic/doctor
+	preview_outfit = /decl/outfit/job/generic/doctor
 
 	blood_types = list(
 		/decl/blood_type/reptile/splus,
@@ -71,11 +75,6 @@
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 	breathing_sound = 'mods/species/bayliens/unathi/sound/lizard_breathing.ogg'
-
-	appearance_descriptors = list(
-		/datum/appearance_descriptor/height = 1.25,
-		/datum/appearance_descriptor/build =  1.25
-		)
 
 	default_emotes = list(
 		/decl/emote/visible/tail/swish,
@@ -105,10 +104,10 @@
 
 /decl/species/unathi/Initialize()
 	. = ..()
-	LAZYINITLIST(available_cultural_info)
-	LAZYDISTINCTADD(available_cultural_info[TAG_CULTURE], /decl/cultural_info/culture/lizard)
-	LAZYSET(default_cultural_info, TAG_CULTURE, /decl/cultural_info/culture/lizard)
+	LAZYINITLIST(available_background_info)
+	LAZYDISTINCTADD(available_background_info[/decl/background_category/heritage], /decl/background_detail/heritage/lizard)
+	LAZYSET(default_background_info, /decl/background_category/heritage, /decl/background_detail/heritage/lizard)
 
-/decl/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
+/decl/species/unathi/equip_survival_gear(var/mob/living/human/H)
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H), slot_shoes_str)

@@ -18,5 +18,6 @@
 
 #define PSIONIC "psi"
 
-#define MAT_NULLGLASS  /decl/material/nullglass
 #define COLOR_NULLGLASS        "#ff6088"
+
+#define SS_PRIORITY_PSYCHICS      45 // Psychic complexus processing priority

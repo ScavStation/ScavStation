@@ -1,0 +1,2 @@
+/turf/floor/airless/@SUBTYPES : /turf/floor/plating/airless/@SUBTYPES{@OLD}
+

@@ -2,12 +2,24 @@
 #define CONTENT_PACKAGE_VALSALIA
 // BEGIN_INCLUDE
 #include "valsalia.dm"
+#include "overwrites.dm"
 #include "ai\ai_holo.dm"
 #include "items\booze_vend.dm"
 #include "items\chemistry.dm"
-#include "items\clothing.dm"
-#include "items\clothing_baxxid.dm"
-#include "items\clothing_yinglet.dm"
+#include "items\clothing\__clothing.dm"
+#include "items\clothing\_baxxid_clothing.dm"
+#include "items\clothing\_yinglet_clothing.dm"
+#include "items\clothing\yinglet_aprons.dm"
+#include "items\clothing\yinglet_glasses.dm"
+#include "items\clothing\yinglet_hats.dm"
+#include "items\clothing\yinglet_jackets.dm"
+#include "items\clothing\yinglet_jumpsuits.dm"
+#include "items\clothing\yinglet_pants.dm"
+#include "items\clothing\yinglet_robes.dm"
+#include "items\clothing\yinglet_shirts.dm"
+#include "items\clothing\yinglet_shoes.dm"
+#include "items\clothing\yinglet_suit.dm"
+#include "items\clothing\yinglet_tail.dm"
 #include "items\contraband.dm"
 #include "items\documents.dm"
 #include "items\egg_yinglet.dm"
@@ -44,6 +56,15 @@
 #include "species\yinglet_bodytype.dm"
 #include "species\yinglet_organs.dm"
 #include "structures\hoard.dm"
+#include "mobs\snaprat.dm"
+#include "mobs\ivenmoth.dm"
+#include "mobs\buffdrones.dm"
+#include "mobs\bristleback.dm"
+#include "mobs\chorp.dm"
+#include "mobs\grub_bear.dm"
+#include "mobs\skittercrab.dm"
+#include "species\languageOldYing.dm"
+
 // END_INCLUDE
 #endif
 // BEGIN_INTERNALS

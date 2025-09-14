@@ -52,6 +52,3 @@
 
 /datum/fabricator_recipe/protolathe/weapon/bullpup
 	path = /obj/item/gun/projectile/automatic/assault_rifle
-
-/datum/fabricator_recipe/protolathe/weapon/yar
-	path = /obj/item/gun/projectile/automatic/yassault_rifle

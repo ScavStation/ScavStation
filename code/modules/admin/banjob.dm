@@ -1,7 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
-var/global/jobban_runonce			// Updates legacy bans with new info
-var/global/jobban_keylist[0]		//to store the keys & ranks
+var/global/list/jobban_keylist = list() //to store the keys & ranks
 
 /proc/jobban_fullban(mob/M, rank, reason)
 	if(!M)
@@ -10,11 +9,6 @@ var/global/jobban_keylist[0]		//to store the keys & ranks
 	if(!last_ckey)
 		return
 	jobban_keylist.Add(text("[last_ckey] - [rank] ## [reason]"))
-	jobban_savebanfile()
-
-/proc/jobban_client_fullban(ckey, rank)
-	if (!ckey || !rank) return
-	jobban_keylist.Add(text("[ckey] - [rank]"))
 	jobban_savebanfile()
 
 //returns a reason if M is banned from rank, returns 0 otherwise
@@ -26,7 +20,7 @@ var/global/jobban_keylist[0]		//to store the keys & ranks
 		if (SSjobs.guest_jobbans(rank))
 			if(get_config_value(/decl/config/toggle/on/guest_jobban) && IsGuestKey(M.key))
 				return "Guest Job-ban"
-			if(get_config_value(/decl/config/toggle/usewhitelist) && !check_whitelist(M))
+			if(get_config_value(/decl/config/enum/server_whitelist) == CONFIG_SERVER_JOBS_WHITELIST && !check_server_whitelist(M))
 				return "Whitelisted Job"
 		return ckey_is_jobbanned(M.ckey, rank)
 	return 0
@@ -51,7 +45,6 @@ var/global/jobban_keylist[0]		//to store the keys & ranks
 		var/savefile/S=new("data/job_full.ban")
 		from_savefile(S, "keys[0]", jobban_keylist)
 		log_admin("Loading jobban_rank")
-		from_savefile(S, "runonce", jobban_runonce)
 
 		if (!length(jobban_keylist))
 			jobban_keylist=list()

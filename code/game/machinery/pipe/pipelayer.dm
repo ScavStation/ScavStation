@@ -45,12 +45,12 @@
 		P_type_t = input("Choose pipe type", "Pipe type") as null|anything in Pipes
 		P_type = Pipes[P_type_t]
 		user.visible_message("<span class='notice'>[user] has set \the [src] to manufacture [P_type_t].</span>", "<span class='notice'>You set \the [src] to manufacture [P_type_t].</span>")
-		return
+		return TRUE
 
 	if(IS_CROWBAR(W))
 		a_dis=!a_dis
 		user.visible_message("<span class='notice'>[user] has [!a_dis?"de":""]activated auto-dismantling.</span>", "<span class='notice'>You [!a_dis?"de":""]activate auto-dismantling.</span>")
-		return
+		return TRUE
 
 	if(istype(W, /obj/item/stack/material) && W.get_material_type() == /decl/material/solid/metal/steel)
 
@@ -62,7 +62,7 @@
 		else
 			user.visible_message("<span class='notice'>[user] has loaded metal into \the [src].</span>", "<span class='notice'>You load metal into \the [src]</span>")
 
-		return
+		return TRUE
 
 	if(IS_SCREWDRIVER(W))
 		if(metal)
@@ -73,11 +73,11 @@
 			if(m)
 				use_metal(m)
 				SSmaterials.create_object(/decl/material/solid/metal/steel, get_turf(src), m)
-				user.visible_message("<span class='notice'>[user] removes [m] sheet\s of metal from the \the [src].</span>", "<span class='notice'>You remove [m] sheet\s of metal from \the [src]</span>")
+				user.visible_message(SPAN_NOTICE("[user] removes [m] sheet\s of metal from \the [src]."), SPAN_NOTICE("You remove [m] sheet\s of metal from \the [src]"))
 		else
 			to_chat(user, "\The [src] is empty.")
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/pipelayer/examine(mob/user)
 	. = ..()
@@ -108,10 +108,10 @@
 	return 1
 
 /obj/machinery/pipelayer/proc/dismantle_floor(var/turf/new_turf)
-	if(istype(new_turf, /turf/simulated/floor))
-		var/turf/simulated/floor/T = new_turf
+	if(istype(new_turf, /turf/floor))
+		var/turf/floor/T = new_turf
 		if(!T.is_plating())
-			T.make_plating(!(T.broken || T.burnt))
+			T.set_flooring(null, place_product = !T.is_floor_damaged())
 	return new_turf.is_plating()
 
 /obj/machinery/pipelayer/proc/layPipe(var/turf/w_turf,var/M_Dir,var/old_dir)

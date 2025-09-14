@@ -53,7 +53,7 @@ var/global/list/end_titles
 	var/chunksize = 0
 	titles += "<center><h1>EPISODE [rand(1,1000)]<br>[SSlore.get_end_credits_title()]<h1></h1></h1></center>"
 
-	for(var/mob/living/carbon/human/H in global.living_mob_list_|global.dead_mob_list_)
+	for(var/mob/living/human/H in global.living_mob_list_|global.dead_mob_list_)
 		if(findtext(H.real_name,"(mannequin)"))
 			continue
 		if(H.isMonkey() && findtext(H.real_name,"[lowertext(H.species.name)]")) //no monki
@@ -75,17 +75,17 @@ var/global/list/end_titles
 		if(H.ckey && H.client)
 			if(H.client.get_preference_value(/datum/client_preference/show_ckey_credits) == PREF_SHOW)
 				showckey = 1
-		var/decl/cultural_info/actor_culture = GET_DECL(H.get_cultural_value(TAG_CULTURE))
-		if(!actor_culture || !(H.species.spawn_flags & SPECIES_CAN_JOIN) || prob(10))
-			actor_culture = GET_DECL(/decl/cultural_info/culture/human)
+		var/decl/background_detail/background = H.get_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
+		if(!background || !(H.species.spawn_flags & SPECIES_CAN_JOIN) || prob(10))
+			background = GET_DECL(/decl/background_detail/heritage/human)
 		if(!showckey)
 			if(prob(90))
-				chunk += "[actor_culture.get_random_name(H, H.gender)]\t \t \t \t[uppertext(used_name)][job]"
+				chunk += "[background.get_random_name(H, H.gender)]\t \t \t \t[uppertext(used_name)][job]"
 			else
-				var/decl/pronouns/G = H.get_pronouns()
-				chunk += "[used_name]\t \t \t \t[uppertext(G.him)]SELF"
+				var/decl/pronouns/pronouns = H.get_pronouns()
+				chunk += "[used_name]\t \t \t \t[uppertext(pronouns.him)]SELF"
 		else
-			chunk += "[uppertext(actor_culture.get_random_name(H, H.gender))] a.k.a. '[uppertext(H.ckey)]'\t \t \t \t[uppertext(used_name)][job]"
+			chunk += "[uppertext(background.get_random_name(H, H.gender))] a.k.a. '[uppertext(H.ckey)]'\t \t \t \t[uppertext(used_name)][job]"
 		chunksize++
 		if(chunksize > 2)
 			cast += "<center>[jointext(chunk,"<br>")]</center>"
@@ -98,7 +98,7 @@ var/global/list/end_titles
 
 	var/list/corpses = list()
 	var/list/monkies = list()
-	for(var/mob/living/carbon/human/H in global.dead_mob_list_)
+	for(var/mob/living/human/H in global.dead_mob_list_)
 		if(H.timeofdeath < 5 MINUTES) //no prespawned corpses
 			continue
 		if(H.isMonkey() && findtext(H.real_name,"[lowertext(H.species.name)]"))
@@ -118,8 +118,8 @@ var/global/list/end_titles
 		if(!C.holder)
 			continue
 		if(C.holder.rights & (R_DEBUG|R_ADMIN))
-			var/list/all_cultures = decls_repository.get_decls_of_subtype(/decl/cultural_info/culture)
-			var/decl/cultural_info/cult = all_cultures[pick(all_cultures)]
+			var/list/all_backgrounds = decls_repository.get_decls_of_subtype(/decl/background_detail/heritage)
+			var/decl/background_detail/cult = all_backgrounds[pick(all_backgrounds)]
 			staff += "[uppertext(pick(staffjobs))] - [cult.get_random_name(pick(MALE, FEMALE))] a.k.a. '[C.key]'"
 		else if(C.holder.rights & R_MOD)
 			goodboys += "[C.key]"

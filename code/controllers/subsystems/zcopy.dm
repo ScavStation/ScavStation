@@ -198,7 +198,8 @@ SUBSYSTEM_DEF(zcopy)
 	calculate_zstack_limits()
 
 	for (var/zlev in 1 to world.maxz)
-		for (var/turf/T in block(locate(1, 1, zlev), locate(world.maxx, world.maxy, zlev)))
+		var/datum/level_data/level = SSmapping.levels_by_z[zlev]
+		for (var/turf/T as anything in block(level.level_inner_min_x, level.level_inner_min_y, zlev, level.level_inner_max_x, level.level_inner_max_y))
 			if (T.z_flags & ZM_MIMIC_BELOW)
 				flush_z_state(T)
 				T.below = GetAbove(T)
@@ -493,21 +494,24 @@ SUBSYSTEM_DEF(zcopy)
 // return: is-invalid
 /datum/controller/subsystem/zcopy/proc/discover_movable(atom/movable/object)
 	ASSERT(!QDELETED(object))
+	if(init_state < SS_INITSTATE_STARTED)
+		return FALSE // no-op, discover_movable is only valid during or after zcopy init
 
 	var/turf/Tloc = object.loc
-	if (!isturf(Tloc) || !Tloc.above)
+	if (!isturf(Tloc) || !MOVABLE_SHALL_MIMIC(object))
 		return TRUE
 
-	var/turf/T = Tloc.above
+	var/turf/T = GetAbove(Tloc)
 
 	ZM_RECORD_START
 
+	var/above_needs_discovery = FALSE
 	if (!object.bound_overlay)
 		var/atom/movable/openspace/mimic/M = new(T)
 		object.bound_overlay = M
+		M.z_flags = object.z_flags // Necessary to ensure MOVABLE_IS_ON_ZTURF works
 		M.associated_atom = object
-		if (TURF_IS_MIMICKING(M.loc))
-			.(M)
+		above_needs_discovery = TRUE
 
 	var/override_depth
 	var/original_type = object.type
@@ -557,6 +561,9 @@ SUBSYSTEM_DEF(zcopy)
 
 	ZM_RECORD_STOP
 	ZM_RECORD_WRITE(discovery_stats, "Depth [OO.depth] on [OO.z]")
+
+	if (above_needs_discovery && MOVABLE_IS_ON_ZTURF(OO))
+		discover_movable(OO) // recursion!
 
 	return FALSE
 
@@ -621,6 +628,7 @@ SUBSYSTEM_DEF(zcopy)
 		switch (appearance:plane)
 			if (DEFAULT_PLANE, FLOAT_PLANE)
 				// fine
+				EMPTY_BLOCK_GUARD
 			else
 				plane_needs_fix = TRUE
 
@@ -845,7 +853,7 @@ SUBSYSTEM_DEF(zcopy)
 /datum/controller/subsystem/zcopy/proc/fmt_label(label, atom/target, vv = TRUE)
 	. = "\icon[target] <b>\[[label]\]</b> "
 	if (vv)
-		. += "(<a href='?_src_=vars;Vars=\ref[target]'>VV</a>) "
+		. += "(<a href='byond://?_src_=vars;Vars=\ref[target]'>VV</a>) "
 
 /datum/controller/subsystem/zcopy/proc/debug_fmt_planelist(list/things, list/out, turf/original)
 	if (things)

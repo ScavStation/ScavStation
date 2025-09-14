@@ -4,7 +4,7 @@
 	anchored = FALSE
 	density = FALSE
 
-	var/mob/living/carbon/human/attached
+	var/mob/living/human/attached
 	var/mode = 1 // 1 is injecting, 0 is taking blood.
 	var/obj/item/chems/beaker
 	var/list/transfer_amounts = list(REM, 1, 2)
@@ -88,12 +88,13 @@
 	if (istype(W, /obj/item/chems))
 		if(!isnull(src.beaker))
 			to_chat(user, "There is already a reagent container loaded!")
-			return
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		beaker = W
 		to_chat(user, "You attach \the [W] to \the [src].")
 		queue_icon_update()
+		return TRUE
 	else
 		return ..()
 
@@ -209,12 +210,12 @@
 	attached.apply_damage(1, BRUTE, pick(BP_R_ARM, BP_L_ARM), damage_flags=DAM_SHARP)
 	attached = null
 
-/obj/structure/iv_drip/proc/hook_up(mob/living/carbon/human/target, mob/user)
+/obj/structure/iv_drip/proc/hook_up(mob/living/human/target, mob/user)
 	if(do_IV_hookup(target, user, src))
 		attached = target
 		START_PROCESSING(SSobj,src)
 
-/proc/do_IV_hookup(mob/living/carbon/human/target, mob/user, obj/IV)
+/proc/do_IV_hookup(mob/living/human/target, mob/user, obj/IV)
 	to_chat(user, SPAN_NOTICE("You start to hook up \the [target] to \the [IV]."))
 	if(!user.do_skilled(2 SECONDS, SKILL_MEDICAL, target))
 		return FALSE

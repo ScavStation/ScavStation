@@ -19,8 +19,7 @@
 	var/base_icon = null // Base icon name for fill states
 
 /obj/item/chems/drinks/Initialize()
-	if(!base_name)
-		base_name = name
+	base_name ||= name
 	. = ..()
 
 /obj/item/chems/drinks/dragged_onto(var/mob/user)
@@ -30,7 +29,7 @@
 	if(!ATOM_IS_OPEN_CONTAINER(src))
 		open(user)
 	else if(is_edible(user))
-		attack(user, user)
+		use_on_mob(user, user)
 	else
 		to_chat(user, SPAN_WARNING("\The [src] is empty!"))
 	return TRUE
@@ -58,7 +57,7 @@
 		return
 	return ..()
 
-/obj/item/chems/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
+/obj/item/chems/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target, skip_container_check = FALSE)
 	return do_open_check(user) && ..()
 
 /obj/item/chems/drinks/standard_pour_into(var/mob/user, var/atom/target)
@@ -85,9 +84,6 @@
 		if(percent <= k)
 			return k
 
-/obj/item/chems/drinks/get_base_name()
-	. = base_name
-
 /obj/item/chems/drinks/on_update_icon()
 	. = ..()
 	if(LAZYLEN(reagents?.reagent_volumes) && filling_states)
@@ -104,13 +100,12 @@
 	icon_state = "golden_cup"
 	item_state = "" //nope :(
 	w_class = ITEM_SIZE_HUGE
-	force = 14
-	throwforce = 10
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = null
 	volume = 150
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	_base_attack_force = 14
 
 ///////////////////////////////////////////////Drinks
 //Notes by Darem: Drinks are simply containers that start preloaded. Unlike condiments, the contents can be ingested directly
@@ -125,7 +120,7 @@
 	center_of_mass = @'{"x":16,"y":9}'
 
 /obj/item/chems/drinks/milk/populate_reagents()
-	add_to_reagents(/decl/material/liquid/drink/milk, reagents.maximum_volume)
+	add_to_reagents(/decl/material/liquid/drink/milk, reagents.maximum_volume, data = list(DATA_MILK_DONOR = "cow"))
 
 /obj/item/chems/drinks/soymilk
 	name = "soymilk carton"
@@ -153,7 +148,7 @@
 	add_to_reagents(/decl/material/liquid/drink/milk/chocolate, reagents.maximum_volume)
 
 /obj/item/chems/drinks/coffee
-	name = "\improper Robust Coffee"
+	name = "cup of coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
 	center_of_mass = @'{"x":15,"y":10}'
@@ -212,7 +207,7 @@
 //	icon states.
 
 /obj/item/chems/drinks/teapot
-	name = "teapot"
+	name = "china teapot"
 	desc = "An elegant teapot. It simply oozes class."
 	icon_state = "teapot"
 	item_state = "teapot"
@@ -220,6 +215,7 @@
 	volume = 120
 	center_of_mass = @'{"x":17,"y":7}'
 	material = /decl/material/solid/stone/ceramic
+	obj_flags = OBJ_FLAG_HOLLOW | OBJ_FLAG_INSULATED_HANDLE
 
 /obj/item/chems/drinks/pitcher
 	name = "insulated pitcher"
@@ -231,6 +227,7 @@
 	filling_states = @"[15,30,50,70,85,100]"
 	base_icon = "pitcher"
 	material = /decl/material/solid/metal/stainlesssteel
+	obj_flags = OBJ_FLAG_HOLLOW | OBJ_FLAG_INSULATED_HANDLE
 
 /obj/item/chems/drinks/flask
 	name = "\improper Captain's flask"
@@ -272,16 +269,14 @@
 
 //tea and tea accessories
 /obj/item/chems/drinks/tea
-	name = "cup of tea master item"
+	name = "cup of tea"
 	desc = "A tall plastic cup full of the concept and ideal of tea."
 	icon_state = "coffee"
 	item_state = "coffee"
 	center_of_mass = @'{"x":16,"y":14}'
 	filling_states = @"[100]"
-	base_name = "cup"
 	base_icon = "cup"
 	volume = 30
-	presentation_flags = PRESENTATION_FLAG_NAME
 
 /obj/item/chems/drinks/tea/black
 	name = "cup of black tea"

@@ -3,8 +3,6 @@
 	desc                  = "A miniature excavation tool for precise digging."
 	icon                  = 'icons/obj/xenoarchaeology.dmi'
 	item_state            = "screwdriver_brown"
-	force                 = 3
-	throwforce            = 0
 	attack_verb           = list("stabbed", "jabbed", "spiked", "attacked")
 	material              = /decl/material/solid/metal/chromium
 	matter                = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_SECONDARY)
@@ -13,6 +11,7 @@
 	abstract_type         = /obj/item/tool/xeno
 	material_alteration   = 0
 	handle_material       = /decl/material/solid/organic/plastic
+	_base_attack_force    = 3
 
 	var/excavation_verb   = "delicately picking"
 	var/excavation_sound  = 'sound/weapons/thudswoosh.ogg'
@@ -40,14 +39,14 @@
 	name              = "wire brush"
 	icon_state        = "pick_brush"
 	slot_flags        = SLOT_EARS
-	force             = 1
+	_base_attack_force             = 1
 	attack_verb       = list("prodded", "attacked")
 	desc              = "A wood-handled brush with thick metallic wires for clearing away dust and loose scree."
 	sharp             = 0
-	material          = /decl/material/solid/organic/wood
-	matter            = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT)
+	material          = /decl/material/solid/metal/steel
+	handle_material   = /decl/material/solid/organic/wood
 	excavation_amount = 1
-	excavation_sound  = 'sound/weapons/thudswoosh.ogg'
+	excavation_sound  = "sweeping"
 	excavation_verb   = "brushing"
 
 /obj/item/tool/xeno/one_pick
@@ -86,57 +85,47 @@
 	excavation_amount = 12
 
 /obj/item/tool/xeno/hand
-	name              = "hand pickaxe"
-	icon_state        = "pick_hand"
-	item_state        = "sword0"
-	desc              = "A smaller, more precise version of the pickaxe."
-	excavation_amount = 30
-	excavation_sound  = 'sound/items/Crowbar.ogg'
-	excavation_verb   = "clearing"
-	material          = /decl/material/solid/metal/chromium
-	matter            = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_SECONDARY)
-	w_class           = ITEM_SIZE_NORMAL
-	force             = 6
-	throwforce        = 3
+	name               = "hand pickaxe"
+	icon_state         = "pick_hand"
+	item_state         = "sword0"
+	desc               = "A smaller, more precise version of the pickaxe."
+	excavation_amount  = 30
+	excavation_sound   = 'sound/items/Crowbar.ogg'
+	excavation_verb    = "clearing"
+	material           = /decl/material/solid/metal/chromium
+	matter             = list(/decl/material/solid/metal/steel = MATTER_AMOUNT_SECONDARY)
+	w_class            = ITEM_SIZE_NORMAL
+	_base_attack_force = 6
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Pack for holding pickaxes
 
-/obj/item/storage/excavation
+/obj/item/excavation
 	name              = "excavation pick set"
 	icon              = 'icons/obj/items/storage/excavation.dmi'
 	icon_state        = "excavation"
-	item_state        = "utility"
 	desc              = "A rugged case containing a set of standardized picks used in archaeological digs."
 	item_state        = "syringe_kit"
-	storage_slots     = 7
 	slot_flags        = SLOT_LOWER_BODY
 	w_class           = ITEM_SIZE_NORMAL
-	can_hold          = list(/obj/item/tool/xeno)
-	max_storage_space = 18
-	max_w_class       = ITEM_SIZE_NORMAL
-	use_to_pickup     = 1
 	material          = /decl/material/solid/organic/leather/synth
+	storage           = /datum/storage/excavation
 
-/obj/item/storage/excavation/WillContain()
+/obj/item/excavation/WillContain()
 	return list(
-			/obj/item/tool/xeno/brush,
-			/obj/item/tool/xeno/one_pick,
-			/obj/item/tool/xeno/two_pick,
-			/obj/item/tool/xeno/three_pick,
-			/obj/item/tool/xeno/four_pick,
-			/obj/item/tool/xeno/five_pick,
-			/obj/item/tool/xeno/six_pick
-		)
+		/obj/item/tool/xeno/brush,
+		/obj/item/tool/xeno/one_pick,
+		/obj/item/tool/xeno/two_pick,
+		/obj/item/tool/xeno/three_pick,
+		/obj/item/tool/xeno/four_pick,
+		/obj/item/tool/xeno/five_pick,
+		/obj/item/tool/xeno/six_pick
+	)
 
-/obj/item/storage/excavation/empty/WillContain()
+/obj/item/excavation/empty/WillContain()
 	return
 
-/obj/item/storage/excavation/handle_item_insertion()
-	..()
-	sort_picks()
-
-/obj/item/storage/excavation/proc/sort_picks()
+/obj/item/excavation/proc/sort_picks()
 	var/list/obj/item/tool/xeno/picksToSort = list()
 	for(var/obj/item/tool/xeno/P in src)
 		picksToSort += P
@@ -153,4 +142,5 @@
 		var/obj/item/tool/xeno/smallest = picksToSort[selected]
 		smallest.forceMove(src)
 		picksToSort -= smallest
-	prepare_ui()
+	if(storage)
+		storage.prepare_ui()

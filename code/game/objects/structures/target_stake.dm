@@ -12,6 +12,8 @@
 	if (!pinned_target && istype(W, /obj/item/target) && user.try_unequip(W, get_turf(src)))
 		to_chat(user, "<span class='notice'>You slide [W] into the stake.</span>")
 		set_target(W)
+		return TRUE
+	return ..()
 
 /obj/structure/target_stake/attack_hand(var/mob/user)
 	if (!pinned_target || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))

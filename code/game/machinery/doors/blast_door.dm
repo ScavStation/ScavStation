@@ -138,6 +138,7 @@
 		force_close()
 
 /obj/machinery/door/blast/get_material()
+	RETURN_TYPE(/decl/material)
 	return implicit_material
 
 // Proc: attackby()
@@ -147,7 +148,7 @@
 /obj/machinery/door/blast/attackby(obj/item/C, mob/user)
 	add_fingerprint(user, 0, C)
 	if(!panel_open) //Do this here so the door won't change state while prying out the circuit
-		if(IS_CROWBAR(C) || (istype(C, /obj/item/twohanded/fireaxe) && C:wielded == 1))
+		if(IS_CROWBAR(C) || (istype(C, /obj/item/bladed/axe/fire) && C.is_held_twohanded()))
 			if(((stat & NOPOWER) || (stat & BROKEN)) && !( operating ))
 				to_chat(user, "<span class='notice'>You begin prying at \the [src]...</span>")
 				if(do_after(user, 2 SECONDS, src))
@@ -156,16 +157,16 @@
 					to_chat(user, "<span class='warning'>You must remain still while working on \the [src].</span>")
 			else
 				to_chat(user, "<span class='notice'>[src]'s motors resist your effort.</span>")
-			return
+			return TRUE
 	if(istype(C, /obj/item/stack/material) && C.get_material_type() == /decl/material/solid/metal/plasteel)
-		var/amt = CEILING((get_max_health() - current_health)/150)
+		var/amt = ceil((get_max_health() - current_health)/150)
 		if(!amt)
 			to_chat(user, "<span class='notice'>\The [src] is already fully functional.</span>")
-			return
+			return TRUE
 		var/obj/item/stack/P = C
 		if(!P.can_use(amt))
 			to_chat(user, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
-			return
+			return TRUE
 		to_chat(user, "<span class='notice'>You begin repairing \the [src]...</span>")
 		if(do_after(user, 5 SECONDS, src))
 			if(P.use(amt))
@@ -175,6 +176,7 @@
 				to_chat(user, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
 		else
 			to_chat(user, "<span class='warning'>You must remain still while working on \the [src].</span>")
+		return TRUE
 	return ..()
 
 // Proc: open()

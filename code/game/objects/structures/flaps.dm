@@ -14,7 +14,7 @@
 
 	var/list/mobs_can_pass = list(
 		/mob/living/bot,
-		/mob/living/simple_animal/mouse,
+		/mob/living/simple_animal/passive/mouse,
 		/mob/living/silicon/robot/drone
 		)
 	var/airtight = FALSE
@@ -32,7 +32,7 @@
 
 	var/mob/living/M = A
 	if(istype(M))
-		if(M.lying)
+		if(M.current_posture.prone)
 			return ..()
 		for(var/mob_type in mobs_can_pass)
 			if(istype(A, mob_type))
@@ -47,11 +47,14 @@
 		if(user.do_skilled(3 SECONDS, SKILL_CONSTRUCTION, src))
 			user.visible_message("<span class='warning'>\The [user] deconstructs \the [src].</span>", "<span class='warning'>You deconstruct \the [src].</span>")
 			qdel(src)
+		return TRUE
 	if(IS_SCREWDRIVER(W) && anchored)
 		airtight = !airtight
 		airtight ? become_airtight() : clear_airtight()
 		user.visible_message("<span class='warning'>\The [user] adjusts \the [src], [airtight ? "preventing" : "allowing"] air flow.</span>")
-	else ..()
+		return TRUE
+	else
+		return ..()
 
 /obj/structure/flaps/explosion_act(severity)
 	..()

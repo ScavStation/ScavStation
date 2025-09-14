@@ -84,14 +84,13 @@ var/global/list/admin_verbs_admin = list(
 	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
 	/client/proc/change_human_appearance_self,	// Allows the human-based mob itself change its basic appearance ,
 	/client/proc/change_security_level,
-	/client/proc/view_chemical_reaction_logs,
 	/client/proc/makePAI,
 	/client/proc/fixatmos,
 	/client/proc/list_traders,
 	/client/proc/add_trader,
 	/client/proc/remove_trader,
 	/datum/admins/proc/sendFax,
-	/datum/admins/proc/show_aspects
+	/datum/admins/proc/show_traits
 )
 var/global/list/admin_verbs_ban = list(
 	/client/proc/DB_ban_panel,
@@ -113,9 +112,7 @@ var/global/list/admin_verbs_fun = list(
 	/client/proc/everyone_random,
 	/client/proc/cinematic,
 	/datum/admins/proc/toggle_aliens,
-	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/cmd_admin_add_freeform_ai_law,
-	/client/proc/cmd_admin_add_random_ai_law,
 	/client/proc/toggle_random_events,
 	/client/proc/editappear,
 	/client/proc/roll_dices,
@@ -155,9 +152,10 @@ var/global/list/admin_verbs_server = list(
 	/datum/admins/proc/adspawn,
 	/datum/admins/proc/adjump,
 	/datum/admins/proc/toggle_aliens,
-	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
 	/client/proc/nanomapgen_DumpImage,
+	/datum/admins/proc/addserverwhitelist,
+	/datum/admins/proc/removeserverwhitelist,
 	/datum/admins/proc/panicbunker,
 	/datum/admins/proc/addbunkerbypass,
 	/datum/admins/proc/revokebunkerbypass
@@ -219,7 +217,8 @@ var/global/list/admin_verbs_debug = list(
 	/client/proc/spawn_ore_pile,
 	/datum/admins/proc/force_initialize_weather,
 	/datum/admins/proc/force_weather_state,
-	/datum/admins/proc/force_kill_weather
+	/datum/admins/proc/force_kill_weather,
+	/client/proc/force_reload_theme_css,
 	)
 
 var/global/list/admin_verbs_paranoid_debug = list(
@@ -269,12 +268,9 @@ var/global/list/admin_verbs_hideable = list(
 	/client/proc/drop_bomb,
 	/client/proc/cinematic,
 	/datum/admins/proc/toggle_aliens,
-	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/cmd_admin_add_freeform_ai_law,
-	/client/proc/cmd_admin_add_random_ai_law,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/toggle_random_events,
-	/client/proc/cmd_admin_add_random_ai_law,
 	/client/proc/set_holiday,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/endnow,
@@ -691,7 +687,7 @@ var/global/list/admin_verbs_mod = list(
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Admin") as null|anything in global.human_mob_list
+	var/mob/living/human/H = input("Select mob.", "Change Mob Appearance - Admin") as null|anything in global.human_mob_list
 	if(!H) return
 
 	log_and_message_admins("is altering the appearance of [H].")
@@ -705,7 +701,7 @@ var/global/list/admin_verbs_mod = list(
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Self") as null|anything in global.human_mob_list
+	var/mob/living/human/H = input("Select mob.", "Change Mob Appearance - Self") as null|anything in global.human_mob_list
 	if(!H) return
 
 	if(!H.client)
@@ -713,8 +709,8 @@ var/global/list/admin_verbs_mod = list(
 		return
 
 	var/whitelist_check = alert("Do you wish for [H] to be allowed to select non-whitelisted races?","Alter Mob Appearance","Yes","No","Cancel") == "No"
-	var/decl/pronouns/G = H.get_pronouns(ignore_coverings = TRUE)
-	log_and_message_admins("has allowed [H] to change [G.his] appearance, [whitelist_check ? "excluding" : "including"] races that requires whitelisting.")
+	var/decl/pronouns/pronouns = H.get_pronouns(ignore_coverings = TRUE)
+	log_and_message_admins("has allowed [H] to change [pronouns.his] appearance, [whitelist_check ? "excluding" : "including"] races that requires whitelisting.")
 	H.change_appearance(APPEARANCE_ALL, H.loc, check_species_whitelist = whitelist_check)
 	SSstatistics.add_field_details("admin_verb","CMAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -736,22 +732,13 @@ var/global/list/admin_verbs_mod = list(
 
 
 //---- bs12 verbs ----
-
-/client/proc/mod_panel()
-	set name = "Moderator Panel"
-	set category = "Admin"
-/*	if(holder)
-		holder.mod_panel()*/
-//	SSstatistics.add_field_details("admin_verb","MP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	return
-
 /client/proc/editappear()
 	set name = "Edit Appearance"
 	set category = "Fun"
 
 	if(!check_rights(R_FUN))	return
 
-	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in global.human_mob_list
+	var/mob/living/human/M = input("Select mob.", "Edit Appearance") as null|anything in global.human_mob_list
 
 	if(!ishuman(M))
 		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
@@ -763,12 +750,12 @@ var/global/list/admin_verbs_mod = list(
 	var/update_hair = FALSE
 	var/new_facial = input("Please select facial hair color.", "Character Generation") as color
 	if(new_facial)
-		SET_FACIAL_HAIR_COLOUR(M, new_facial, TRUE)
+		SET_FACIAL_HAIR_COLOR(M, new_facial, TRUE)
 		update_hair = TRUE
 
 	var/new_hair = input("Please select hair color.", "Character Generation") as color
 	if(new_hair)
-		SET_HAIR_COLOUR(M, new_hair, TRUE)
+		SET_HAIR_COLOR(M, new_hair, TRUE)
 		update_hair = TRUE
 
 	var/new_eyes = input("Please select eye color.", "Character Generation") as color
@@ -807,16 +794,8 @@ var/global/list/admin_verbs_mod = list(
 			M.set_gender(NEUTER)
 
 	if(update_hair)
-		M.update_hair()
+		M.update_hair(TRUE)
 	M.update_body()
-	M.check_dna(M)
-
-/client/proc/playernotes()
-	set name = "Show Player Info"
-	set category = "Admin"
-	if(holder)
-		holder.PlayerNotes()
-	return
 
 /client/proc/free_slot_submap()
 	set name = "Free Job Slot (Submap)"
@@ -938,3 +917,11 @@ var/global/list/admin_verbs_mod = list(
 
 		if("Cancel")
 			return
+
+/client/proc/force_reload_theme_css()
+	set category = "Debug"
+	set name     = "Reload UI Theme CSS"
+	set desc     = "Forces the client to reload its UI theme css file."
+	if(!check_rights(R_DEBUG))
+		return
+	ReloadThemeCss(src)

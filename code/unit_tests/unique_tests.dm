@@ -9,7 +9,7 @@
 	var/list/possible_cable_colours = get_global_cable_colors()
 	for(var/color_name in possible_cable_colours)
 		group_by(names, color_name, index)
-		group_by(colors, possible_cable_colours[color_name], index)
+		group_by(colors, possible_cable_colours[color_name], color_name)
 		index++
 
 	var/number_of_issues = number_of_issues(names, "Names")
@@ -65,8 +65,7 @@
 /datum/unit_test/outfit_datums_shall_have_unique_names/start_test()
 	var/list/outfits_by_name = list()
 
-	for(var/a in outfits())
-		var/decl/hierarchy/outfit/outfit = a
+	for(var/decl/outfit/outfit in decls_repository.get_decls_of_subtype_unassociated(/decl/outfit))
 		group_by(outfits_by_name, outfit.name, outfit.type)
 
 	var/number_of_issues = number_of_issues(outfits_by_name, "Names")
@@ -207,26 +206,6 @@
 	else
 		pass("All gas symbols are unique.")
 	return TRUE
-
-/datum/unit_test/aspects_shall_have_unique_names
-	name = "UNIQUENESS: All Aspects Shall Have Unique Names"
-
-/datum/unit_test/aspects_shall_have_unique_names/start_test()
-	var/list/aspects_by_name = list()
-
-	var/list/all_aspects = decls_repository.get_decls_of_subtype(/decl/aspect)
-	for(var/atype in all_aspects)
-		var/decl/aspect/aspect = all_aspects[atype]
-		var/check_name = lowertext(aspect.name)
-		if(check_name)
-			group_by(aspects_by_name, check_name, atype)
-
-	var/number_of_issues = number_of_issues(aspects_by_name, "Aspect Names")
-	if(length(number_of_issues))
-		fail("Found [number_of_issues] aspect\s with duplicate names.")
-	else
-		pass("All aspects have unique names.")
-	return 1
 
 /datum/unit_test/submaps_shall_have_a_unique_descriptor
 	name = "UNIQUENESS: Archetypes shall have a valid, unique descriptor."

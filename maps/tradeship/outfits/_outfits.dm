@@ -1,21 +1,27 @@
 // OUTFITS
-/decl/hierarchy/outfit/job/tradeship
-	abstract_type = /decl/hierarchy/outfit/job/tradeship
+/decl/outfit/job/tradeship
+	abstract_type = /decl/outfit/job/tradeship
 	pda_type = /obj/item/modular_computer/pda
 	pda_slot = slot_l_store_str
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat
+	suit = /obj/item/clothing/suit/jacket/redcoat
 	l_ear = null
 	r_ear = null
 	yinglet_suit_fallback = TRUE
 
-/decl/hierarchy/outfit/job/tradeship/hand
+/decl/outfit/job/tradeship/hand
 	name = "Tradeship - Job - Deck Hand"
 
-/decl/hierarchy/outfit/job/tradeship/hand/pre_equip(mob/living/carbon/human/H)
+/decl/outfit/job/tradeship/hand/pre_equip(mob/living/wearer)
 	..()
-	uniform = pick(list(/obj/item/clothing/under/overalls, /obj/item/clothing/under/hazard, /obj/item/clothing/under/cargotech, /obj/item/clothing/under/color/black, /obj/item/clothing/under/color/grey, /obj/item/clothing/pants/casual/track))
+	uniform = pick(list(
+		/obj/item/clothing/pants/mustard/overalls,
+		/obj/item/clothing/jumpsuit/hazard,
+		/obj/item/clothing/jumpsuit/cargotech,
+		/obj/item/clothing/jumpsuit/black,
+		/obj/item/clothing/jumpsuit/grey
+	))
 
-/decl/hierarchy/outfit/job/tradeship/hand/cook
+/decl/outfit/job/tradeship/hand/cook
 	name = "Tradeship - Job - Cook"
 	head = /obj/item/clothing/head/chefhat
-	suit = /obj/item/clothing/suit/storage/toggle/redcoat/service
+	suit = /obj/item/clothing/suit/jacket/redcoat/service

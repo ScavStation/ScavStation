@@ -15,7 +15,7 @@
 
 /mob/living/simple_animal/adjustCloneLoss(var/amount, var/do_update_health = TRUE)
 	SHOULD_CALL_PARENT(FALSE)
-	setCloneLoss(gene_damage + amount)
+	set_damage(CLONE, gene_damage + amount)
 	if(do_update_health)
 		update_health()
 
@@ -26,14 +26,53 @@
 		if(gene_damage >= current_max_health)
 			death()
 
+/mob/living/simple_animal/get_life_damage_types()
+	var/static/list/life_damage_types = list(
+		BURN,
+		BRUTE,
+		CLONE
+	)
+	return life_damage_types
+
 /mob/living/simple_animal/adjustBruteLoss(var/amount, var/do_update_health = TRUE)
 	brute_damage = clamp(brute_damage + amount, 0, get_max_health())
-	return ..()
+	. = ..()
 
 /mob/living/simple_animal/adjustFireLoss(var/amount, var/do_update_health = TRUE)
 	burn_damage = clamp(burn_damage + amount, 0, get_max_health())
 	if(do_update_health)
 		update_health()
+	if(amount > 0 && istype(ai))
+		ai.retaliate()
 
-/mob/living/simple_animal/get_total_life_damage()
-	return getFireLoss() + getBruteLoss() + getCloneLoss()
+/mob/living/simple_animal/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
+
+	var/attack_name = O?.attack_message_name()
+	if(attack_name)
+		visible_message(SPAN_DANGER("\The [src] has been [DEFAULTPICK(O.attack_verb, "attacked")] with [attack_name] by \the [user]!"))
+	else
+		visible_message(SPAN_DANGER("\The [src] has been [DEFAULTPICK(O.attack_verb, "attacked")] by \the [user]!"))
+
+	if(istype(ai))
+		ai.retaliate(user)
+
+	var/damage = O.get_attack_force(user)
+	if(damage <= resistance)
+		to_chat(user, SPAN_WARNING("This weapon is ineffective; it does no damage."))
+		return 0
+
+	if (O.atom_damage_type == PAIN)
+		damage = 0
+	if (O.atom_damage_type == STUN)
+		damage = (damage / 8)
+	if(supernatural && istype(O,/obj/item/nullrod))
+		damage *= 2
+		purge = 3
+	take_damage(damage, O.atom_damage_type, O.damage_flags())
+
+	return 1
+
+/mob/living/simple_animal/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
+	. = ..()
+	if((damage_type == BRUTE) && (damage_flags & (DAM_EDGE | DAM_SHARP | DAM_BULLET))) // damage flags that should cause bleeding
+		adjustBleedTicks(damage)

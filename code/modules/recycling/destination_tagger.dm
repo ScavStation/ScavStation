@@ -29,16 +29,17 @@
 
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center><br>"
 	dat += "<div class='item'>"
-	dat += "<div class='itemLabel'>Current Selection:</div> <div class='itemContents'><a href='?src=\ref[src];input_tag=1'>[current_tag ? current_tag : "None"]</a></div>"
+	dat += "<div class='itemLabel'>Current Selection:</div> <div class='itemContents'><a href='byond://?src=\ref[src];input_tag=1'>[current_tag ? current_tag : "None"]</a></div>"
 	dat += "</div>"
 
 	dat += "<h4>Tag History:</h4>"
+	dat += "<a href='byond://?src=\ref[src];clear_previous_tags=1'>Clear History</a>"
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	var/cnt = 1
 	for(var/prevdest in last_used_tags)
 		if(cnt % 4 == 0)
 			dat += "</tr><tr>"
-		dat += "<td><a href='?src=\ref[src];set_tag=[prevdest]'>[prevdest]</a></td>"
+		dat += "<td><a href='byond://?src=\ref[src];set_tag=[prevdest]'>[prevdest]</a></td>"
 		++cnt
 	dat += "</tr></table></tt>"
 
@@ -69,6 +70,10 @@
 			. = TOPIC_REFRESH
 		else
 			. = TOPIC_HANDLED
+	else if(href_list["clear_previous_tags"])
+		clear_previous_tags()
+		to_chat(user, SPAN_NOTICE("You clear \the [src]'s tag history."))
+		. = TOPIC_REFRESH
 
 	if(. == TOPIC_REFRESH)
 		interact(user)

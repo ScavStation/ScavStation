@@ -22,33 +22,25 @@
 	glass_name = "water"
 	glass_desc = "The father of all refreshments."
 	slipperiness = 8
+	slippery_amount = 5
 	dirtiness = DIRTINESS_CLEAN
 	turf_touch_threshold = 0.1
 	chilling_point = T0C
 	chilling_products = list(
 		/decl/material/solid/ice = 1
 	)
+	temperature_burn_milestone_material = /decl/material/liquid/water
+	can_boil_to_gas = TRUE
 
 /decl/material/liquid/water/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
 	if(ishuman(M))
 		var/list/data = REAGENT_DATA(holder, type)
-		if(data && data["holy"])
-			if(iscultist(M))
-				if(prob(10))
-					var/decl/special_role/cultist/cult = GET_DECL(/decl/special_role/cultist)
-					cult.offer_uncult(M)
-				if(prob(2))
-					var/obj/effect/spider/spiderling/S = new /obj/effect/spider/spiderling(M.loc)
-					M.visible_message("<span class='warning'>\The [M] coughs up \the [S]!</span>")
-			else
-				var/decl/special_role/godcult = GET_DECL(/decl/special_role/godcultist)
-				if(M.mind && godcult.is_antagonist(M.mind))
-					if(REAGENT_VOLUME(holder, type) > 5)
-						M.adjustHalLoss(5, do_update_health = FALSE)
-						M.adjustBruteLoss(1)
-						if(prob(10)) //Only annoy them a /bit/
-							to_chat(M,"<span class='danger'>You feel your insides curdle and burn!</span> \[<a href='?src=\ref[holder];deconvert=\ref[M]'>Give Into Purity</a>\]")
+		if(data?["holy"])
+			affect_holy(M, removed, holder)
+
+/decl/material/liquid/water/proc/affect_holy(mob/living/M, removed, datum/reagents/holder)
+	return FALSE
 
 /decl/material/liquid/water/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
@@ -56,22 +48,23 @@
 	affect_blood(M, removed, holder)
 
 #define WATER_LATENT_HEAT 9500 // How much heat is removed when applied to a hot turf, in J/unit (9500 makes 120 u of water roughly equivalent to 2L
-/decl/material/liquid/water/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+/decl/material/liquid/water/touch_turf(var/turf/touching_turf, var/amount, var/datum/reagents/holder)
 
 	..()
 
-	if(!istype(T))
+	if(!istype(touching_turf))
 		return
 
-	var/datum/gas_mixture/environment = T.return_air()
+	var/datum/gas_mixture/environment = touching_turf.return_air()
 	var/min_temperature = T20C + rand(0, 20) // Room temperature + some variance. An actual diminishing return would be better, but this is *like* that. In a way. . This has the potential for weird behavior, but I says fuck it. Water grenades for everyone.
 
-	var/hotspot = (locate(/obj/fire) in T)
-	if(hotspot && !isspaceturf(T))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
+	// TODO: Cannot for the life of me work out what this is doing or why it's reducing the air temp by 2000; shouldn't it just be using environment?
+	var/hotspot = (locate(/obj/fire) in touching_turf)
+	if(hotspot && !isspaceturf(touching_turf))
+		var/datum/gas_mixture/lowertemp = touching_turf.remove_air(touching_turf:air:total_moles)
 		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
 		lowertemp.react()
-		T.assume_air(lowertemp)
+		touching_turf.assume_air(lowertemp)
 		qdel(hotspot)
 
 	var/volume = REAGENT_VOLUME(holder, type)
@@ -79,18 +72,18 @@
 		var/removed_heat = clamp(volume * WATER_LATENT_HEAT, 0, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5) && environment && environment.temperature > T100C)
-			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
+			touching_turf.visible_message(SPAN_NOTICE("The water sizzles as it lands on \the [touching_turf]!"))
 
 	var/list/data = REAGENT_DATA(holder, type)
-	if(data && data["holy"])
-		T.turf_flags |= TURF_FLAG_HOLY
+	if(LAZYACCESS(data, "holy"))
+		touching_turf.turf_flags |= TURF_FLAG_HOLY
 
 /decl/material/liquid/water/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	..()
-	if(istype(O, /obj/item/chems/food/monkeycube))
-		var/obj/item/chems/food/monkeycube/cube = O
+	if(istype(O, /obj/item/food/animal_cube))
+		var/obj/item/food/animal_cube/cube = O
 		if(!cube.wrapper_type)
-			cube.Expand()
+			cube.spawn_creature()
 
 /decl/material/liquid/water/touch_mob(var/mob/living/M, var/amount, var/datum/reagents/holder)
 	..()

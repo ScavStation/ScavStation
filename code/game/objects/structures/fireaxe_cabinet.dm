@@ -12,7 +12,7 @@
 	var/open
 	var/unlocked
 	var/shattered
-	var/obj/item/twohanded/fireaxe/fireaxe
+	var/obj/item/bladed/axe/fire/fireaxe
 
 /obj/structure/fireaxecabinet/on_update_icon()
 	..()
@@ -58,7 +58,7 @@
 	QDEL_NULL(fireaxe)
 	. = ..()
 
-/obj/structure/fireaxecabinet/dismantle()
+/obj/structure/fireaxecabinet/dismantle_structure(mob/user)
 	if(loc && !dismantled && !QDELETED(fireaxe))
 		fireaxe.dropInto(loc)
 		fireaxe = null
@@ -68,9 +68,9 @@
 
 	if(IS_MULTITOOL(O))
 		toggle_lock(user)
-		return
+		return TRUE
 
-	if(istype(O, /obj/item/twohanded/fireaxe))
+	if(istype(O, /obj/item/bladed/axe/fire))
 		if(open)
 			if(fireaxe)
 				to_chat(user, "<span class='warning'>There is already \a [fireaxe] inside \the [src].</span>")
@@ -79,24 +79,25 @@
 				fireaxe = O
 				to_chat(user, "<span class='notice'>You place \the [fireaxe] into \the [src].</span>")
 				update_icon()
-			return
+			return TRUE
 
-	if(O.force)
+	var/force = O.get_attack_force(user)
+	if(force)
 		user.setClickCooldown(10)
 		attack_animation(user)
 		playsound(user, 'sound/effects/Glasshit.ogg', 50, 1)
 		visible_message("<span class='danger'>[user] [pick(O.attack_verb)] \the [src]!</span>")
-		if(damage_threshold > O.force)
+		if(damage_threshold > force)
 			to_chat(user, "<span class='danger'>Your strike is deflected by the reinforced glass!</span>")
-			return
+			return TRUE
 		if(shattered)
-			return
+			return TRUE
 		shattered = 1
 		unlocked = 1
 		open = 1
 		playsound(user, 'sound/effects/Glassbr3.ogg', 100, 1)
 		update_icon()
-		return
+		return TRUE
 
 	return ..()
 

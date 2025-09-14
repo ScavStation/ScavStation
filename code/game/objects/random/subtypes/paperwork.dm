@@ -1,7 +1,7 @@
 /obj/random/single/textbook
 	name = "random textbook"
-	icon = 'icons/obj/library.dmi'
-	icon_state = "book"
+	icon = 'icons/obj/items/books/book.dmi'
+	icon_state = ICON_STATE_WORLD
 	spawn_object = /obj/item/book/skill //Further randomization of which book is handled inside the book initialization
 	spawn_nothing_percentage = 0
 
@@ -22,12 +22,12 @@
 
 /obj/random/clipboard/spawn_choices()
 	var/static/list/spawnable_choices = list(
-		/obj/item/clipboard =           300,
-		/obj/item/clipboard/steel =     200,
+		/obj/item/clipboard           = 300,
+		/obj/item/clipboard/steel     = 200,
 		/obj/item/clipboard/aluminium = 200,
-		/obj/item/clipboard/plastic =   200,
-		/obj/item/clipboard/glass =     100,
-		/obj/item/clipboard/ebony =      10
+		/obj/item/clipboard/plastic   = 200,
+		/obj/item/clipboard/glass     = 100,
+		/obj/item/clipboard/ebony     =  10
 	)
 	return spawnable_choices
 

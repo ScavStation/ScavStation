@@ -3,8 +3,8 @@
 /obj/machinery/lapvend
 	name = "computer vendor"
 	desc = "A vending machine with a built-in microfabricator, capable of dispensing various computers."
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "laptop"
+	icon = 'icons/obj/machines/vending/laptops.dmi'
+	icon_state = ICON_STATE_WORLD
 	layer = BELOW_OBJ_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -278,7 +278,7 @@
 	if(state == 2)
 		if(process_payment(W))
 			fabricate_and_recalc_price(1)
-			flick("laptop-vend", src)
+			flick("world-vend", src)
 			if((devtype == 1) && fabricated_laptop)
 				fabricated_laptop.forceMove(src.loc)
 				fabricated_laptop.update_icon()

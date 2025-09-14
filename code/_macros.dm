@@ -16,8 +16,6 @@
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
 
-#define isalien(A) istype(A, /mob/living/carbon/alien)
-
 #define isanimal(A) istype(A, /mob/living/simple_animal)
 
 #define isairlock(A) istype(A, /obj/machinery/door/airlock)
@@ -25,10 +23,6 @@
 #define isatom(A) isloc(A)
 
 #define isbrain(A) istype(A, /mob/living/brain)
-
-#define iscarbon(A) istype(A, /mob/living/carbon)
-
-#define iscolorablegloves(A) (istype(A, /obj/item/clothing/gloves/color)||istype(A, /obj/item/clothing/gloves/insulated)||istype(A, /obj/item/clothing/gloves/thick))
 
 #define isclient(A) istype(A, /client)
 
@@ -38,19 +32,15 @@
 
 #define isEye(A) istype(A, /mob/observer/eye)
 
-#define ishuman(A) istype(A, /mob/living/carbon/human)
+#define ishuman(A) istype(A, /mob/living/human)
 
 #define isitem(A) istype(A, /obj/item)
 
 #define isliving(A) istype(A, /mob/living)
 
-#define isdeity(A) istype(A, /mob/living/deity)
-
-#define ismouse(A) istype(A, /mob/living/simple_animal/mouse)
+#define ismouse(A) istype(A, /mob/living/simple_animal/passive/mouse)
 
 #define islizard(A) istype(A, /mob/living/simple_animal/lizard)
-
-#define isconstruct(A) istype(A, /mob/living/simple_animal/construct)
 
 #define isnewplayer(A) istype(A, /mob/new_player)
 
@@ -90,11 +80,11 @@
 
 #define isplunger(A) istype(A, /obj/item/plunger)
 
-/proc/isspecies(A, B)
-	if(!iscarbon(A))
-		return FALSE
-	var/mob/living/carbon/C = A
-	return C.species?.name == B
+#define isassembly(A) istype(A, /obj/item/assembly)
+
+#define isigniter(A) istype(A, /obj/item/assembly/igniter)
+
+#define istimer(A) istype(A, /obj/item/assembly/timer)
 
 #define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
@@ -102,7 +92,7 @@
 
 /proc/place_meta_charset(content)
 	if(istext(content))
-		content = "<meta charset=\"utf-8\">" + content
+		content = "<!DOCTYPE html><meta charset=\"utf-8\">" + content
 	return content
 
 #define to_chat(target, message)                            target << (message)
@@ -157,32 +147,35 @@
 #define SPAN_STYLE(S, X) "<span style='[S]'>[X]</span>"
 
 #define SPAN_CLASS(C, X) "<span class='[C]'>[X]</span>"
-#define SPAN_ITALIC(X)   SPAN_CLASS("italic",        X)
-#define SPAN_BOLD(X)     SPAN_CLASS("bold",          X)
-#define SPAN_NOTICE(X)   SPAN_CLASS("notice",        X)
-#define SPAN_WARNING(X)  SPAN_CLASS("warning",       X)
-#define SPAN_DANGER(X)   SPAN_CLASS("danger",        X)
-#define SPAN_OCCULT(X)   SPAN_CLASS("cult",          X)
-#define SPAN_MFAUNA(X)   SPAN_CLASS("mfauna",        X)
-#define SPAN_SUBTLE(X)   SPAN_CLASS("subtle",        X)
-#define SPAN_INFO(X)     SPAN_CLASS("info",          X)
-#define SPAN_RED(X)      SPAN_CLASS("font_red",      X)
-#define SPAN_ORANGE(X)   SPAN_CLASS("font_orange",   X)
-#define SPAN_YELLOW(X)   SPAN_CLASS("font_yellow",   X)
-#define SPAN_GREEN(X)    SPAN_CLASS("font_green",    X)
-#define SPAN_BLUE(X)     SPAN_CLASS("font_blue",     X)
-#define SPAN_VIOLET(X)   SPAN_CLASS("font_violet",   X)
-#define SPAN_PURPLE(X)   SPAN_CLASS("font_purple",   X)
-#define SPAN_GREY(X)     SPAN_CLASS("font_grey",     X)
-#define SPAN_MAROON(X)   SPAN_CLASS("font_maroon",   X)
-#define SPAN_PINK(X)     SPAN_CLASS("font_pink",     X)
-#define SPAN_PALEPINK(X) SPAN_CLASS("font_palepink", X)
-#define SPAN_SINISTER(X) SPAN_CLASS("sinister", X)
+#define SPAN_ITALIC(X)        SPAN_CLASS("italic",        X)
+#define SPAN_BOLD(X)          SPAN_CLASS("bold",          X)
+#define SPAN_NOTICE(X)        SPAN_CLASS("notice",        X)
+#define SPAN_WARNING(X)       SPAN_CLASS("warning",       X)
+#define SPAN_DANGER(X)        SPAN_CLASS("danger",        X)
+#define SPAN_ROSE(X)          SPAN_CLASS("rose",          X)
+#define SPAN_OCCULT(X)        SPAN_CLASS("cult",          X)
+#define SPAN_CULT_ANNOUNCE(X) SPAN_CLASS("cultannounce",  X)
+#define SPAN_MFAUNA(X)        SPAN_CLASS("mfauna",        X)
+#define SPAN_SUBTLE(X)        SPAN_CLASS("subtle",        X)
+#define SPAN_INFO(X)          SPAN_CLASS("info",          X)
+#define SPAN_RED(X)           SPAN_CLASS("font_red",      X)
+#define SPAN_ORANGE(X)        SPAN_CLASS("font_orange",   X)
+#define SPAN_YELLOW(X)        SPAN_CLASS("font_yellow",   X)
+#define SPAN_GREEN(X)         SPAN_CLASS("font_green",    X)
+#define SPAN_BLUE(X)          SPAN_CLASS("font_blue",     X)
+#define SPAN_VIOLET(X)        SPAN_CLASS("font_violet",   X)
+#define SPAN_PURPLE(X)        SPAN_CLASS("font_purple",   X)
+#define SPAN_GREY(X)          SPAN_CLASS("font_grey",     X)
+#define SPAN_MAROON(X)        SPAN_CLASS("font_maroon",   X)
+#define SPAN_PINK(X)          SPAN_CLASS("font_pink",     X)
+#define SPAN_PALEPINK(X)      SPAN_CLASS("font_palepink", X)
+#define SPAN_SINISTER(X)      SPAN_CLASS("sinister", X)
+#define SPAN_MODERATE(X)      SPAN_CLASS("moderate", X)
 // placeholders
-#define SPAN_GOOD(X)     SPAN_GREEN(X)
-#define SPAN_NEUTRAL(X)  SPAN_BLUE(X)
-#define SPAN_BAD(X)      SPAN_RED(X)
-#define SPAN_HARDSUIT(X) SPAN_BLUE(X)
+#define SPAN_GOOD(X)          SPAN_GREEN(X)
+#define SPAN_NEUTRAL(X)       SPAN_BLUE(X)
+#define SPAN_BAD(X)           SPAN_RED(X)
+#define SPAN_HARDSUIT(X)      SPAN_BLUE(X)
 
 #define CSS_CLASS_RADIO "radio"
 

@@ -27,10 +27,15 @@
 		return TRUE
 	. -= decrement
 	tool.set_tool_property(TOOL_PEN, TOOL_PROP_USES, max(0, .)) //Prevent negatives and turning the pen into an infinite uses pen
+	tool.update_icon()
 	if(. <= 0 && (tool.get_tool_property(TOOL_PEN, TOOL_PROP_PEN_FLAG) & PEN_FLAG_DEL_EMPTY))
 		. = 0
 		if(destroy_on_zero)
 			qdel(tool)
+
+/decl/tool_archetype/pen/proc/warn_out_of_ink(mob/user, obj/item/tool, default = "spent")
+	var/message = tool.get_tool_property(TOOL_PEN, TOOL_PROP_EMPTY_MESSAGE) || default
+	to_chat(user, SPAN_WARNING("\The [tool] is [message].")) // example: 'out of ink'
 
 /**Toggles the active/inactive state of some pens */
 /decl/tool_archetype/pen/proc/toggle_active(var/mob/user, var/obj/item/pen/tool)
@@ -47,11 +52,11 @@
 	if(uses_left < 0)
 		return TOOL_USE_SUCCESS //Infinite
 	if(uses_left == 0)
-		to_chat(user, SPAN_WARNING("\The [tool] is spent."))
+		warn_out_of_ink(user, tool)
 		return TOOL_USE_FAILURE
 	return TOOL_USE_SUCCESS
 
 /decl/tool_archetype/pen/handle_post_interaction(mob/user, obj/item/tool, expend_fuel = 1)
 	if(decrement_uses(user, tool, expend_fuel) <= 0)
-		to_chat(user, SPAN_WARNING("You used up your [tool]!"))
+		warn_out_of_ink(user, tool)
 	return TOOL_USE_SUCCESS

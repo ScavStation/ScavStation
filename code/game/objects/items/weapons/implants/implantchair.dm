@@ -14,7 +14,7 @@
 	var/max_implants = 5
 	var/injection_cooldown = 600
 	var/replenish_cooldown = 6000
-	var/mob/living/carbon/occupant = null
+	var/mob/living/occupant = null
 	var/injecting = 0
 
 /obj/machinery/implantchair/Initialize()
@@ -39,9 +39,9 @@
 	var/dat ="<B>Implanter Status</B><BR>"
 
 	dat +="<B>Current occupant:</B> [src.occupant ? "<BR>Name: [src.occupant]<BR>Health: [health_text]<BR>" : "<FONT color=red>None</FONT>"]<BR>"
-	dat += "<B>Implants:</B> [src.implant_list.len ? "[implant_list.len]" : "<A href='?src=\ref[src];replenish=1'>Replenish</A>"]<BR>"
+	dat += "<B>Implants:</B> [src.implant_list.len ? "[implant_list.len]" : "<A href='byond://?src=\ref[src];replenish=1'>Replenish</A>"]<BR>"
 	if(src.occupant)
-		dat += "[src.ready ? "<A href='?src=\ref[src];implant=1'>Implant</A>" : "Recharging"]<BR>"
+		dat += "[src.ready ? "<A href='byond://?src=\ref[src];implant=1'>Implant</A>" : "Recharging"]<BR>"
 	user.set_machine(src)
 	show_browser(user, dat, "window=implant")
 	onclose(user, "implant")
@@ -68,17 +68,13 @@
 		src.updateUsrDialog()
 		src.add_fingerprint(usr)
 
-/obj/machinery/implantchair/attackby(var/obj/item/G, var/mob/user)
-	if(istype(G, /obj/item/grab))
-		var/obj/item/grab/grab = G
-		var/mob/grabbed = grab.get_affecting_mob()
-		if(!istype(grabbed) || !grabbed.can_enter_cryopod(user))
-			return
-
-		var/mob/M = grab.affecting
-		if(put_mob(M))
-			qdel(G)
-	src.updateUsrDialog()
+/obj/machinery/implantchair/grab_attack(obj/item/grab/grab, mob/user)
+	var/mob/living/victim = grab.get_affecting_mob()
+	if(istype(victim) && victim.can_enter_cryopod(user) && put_mob(victim))
+		qdel(grab)
+		updateUsrDialog()
+		return TRUE
+	return ..()
 
 /obj/machinery/implantchair/proc/go_out(var/mob/M)
 	if(!( src.occupant ))
@@ -97,8 +93,8 @@
 	return
 
 
-/obj/machinery/implantchair/proc/put_mob(mob/living/carbon/M)
-	if(!iscarbon(M))
+/obj/machinery/implantchair/proc/put_mob(mob/living/M)
+	if(!ishuman(M))
 		to_chat(usr, "<span class='warning'>\The [src] cannot hold this!</span>")
 		return
 	if(src.occupant)
@@ -115,7 +111,7 @@
 
 
 /obj/machinery/implantchair/proc/implant(var/mob/M)
-	if (!iscarbon(M))
+	if (!ishuman(M))
 		return
 	if(!implant_list.len)	return
 	for(var/obj/item/implant/loyalty/imp in implant_list)

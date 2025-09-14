@@ -28,6 +28,10 @@
 		/decl/emote/audible/vox_shriek
 	)
 
+	inherent_verbs = list(
+		/mob/living/human/proc/toggle_vox_pressure_seal
+	)
+
 	unarmed_attacks = list(
 		/decl/natural_attack/stomp,
 		/decl/natural_attack/kick,
@@ -53,27 +57,23 @@
 	are in dire need of resources. They are four to five feet tall, reptillian, beaked, tailed and
 	quilled."}
 
+	scream_verb_1p = "shriek"
+	scream_verb_3p = "shrieks"
+
 	hidden_from_codex = FALSE
 
 	taste_sensitivity = TASTE_DULL
 	speech_sounds = list('sound/voice/shriek1.ogg')
 	speech_chance = 20
 
-	warning_low_pressure = 50
-	hazard_low_pressure = 0
-
-	age_descriptor = /datum/appearance_descriptor/age/vox
-
-	preview_outfit = /decl/hierarchy/outfit/vox_raider
+	preview_outfit = /decl/outfit/vox_raider
 
 	gluttonous = GLUT_TINY|GLUT_ITEM_NORMAL
 	stomach_capacity = 12
 
 	breath_type = /decl/material/gas/nitrogen
 	poison_types = list(/decl/material/gas/oxygen = TRUE)
-	siemens_coefficient = 0.2
-
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	shock_vulnerability = 0.2
 
 	blood_types = list(/decl/blood_type/vox)
 	flesh_color = "#808d11"
@@ -95,30 +95,24 @@
 		/decl/bodytype/vox/servitor/alchemist,
 	)
 
-	appearance_descriptors = list(
-		/datum/appearance_descriptor/height =       0.75,
-		/datum/appearance_descriptor/build =        1.25,
-		/datum/appearance_descriptor/vox_markings = 1
-	)
-
-	available_cultural_info = list(
-		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/vox,
-			/decl/cultural_info/culture/vox/salvager,
-			/decl/cultural_info/culture/vox/raider
+	available_background_info = list(
+		/decl/background_category/heritage =   list(
+			/decl/background_detail/heritage/vox,
+			/decl/background_detail/heritage/vox/salvager,
+			/decl/background_detail/heritage/vox/raider
 		),
-		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/vox,
-			/decl/cultural_info/location/vox/shroud,
-			/decl/cultural_info/location/vox/ship
+		/decl/background_category/homeworld = list(
+			/decl/background_detail/location/vox,
+			/decl/background_detail/location/vox/shroud,
+			/decl/background_detail/location/vox/ship
 		),
-		TAG_FACTION = list(
-			/decl/cultural_info/faction/vox,
-			/decl/cultural_info/faction/vox/raider,
-			/decl/cultural_info/faction/vox/apex
+		/decl/background_category/faction = list(
+			/decl/background_detail/faction/vox,
+			/decl/background_detail/faction/vox/raider,
+			/decl/background_detail/faction/vox/apex
 		),
-		TAG_RELIGION =  list(
-			/decl/cultural_info/religion/vox
+		/decl/background_category/religion =  list(
+			/decl/background_detail/religion/vox
 		)
 	)
 
@@ -137,28 +131,31 @@
 		/decl/emote/exertion/synthetic/creak
 	)
 
-/decl/species/vox/equip_survival_gear(var/mob/living/carbon/human/H)
+/decl/species/vox/equip_survival_gear(var/mob/living/human/H)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vox(H), slot_wear_mask_str)
-	var/obj/item/storage/backpack/backpack = H.get_equipped_item(slot_back_str)
+	var/obj/item/backpack/backpack = H.get_equipped_item(slot_back_str)
 	if(istype(backpack))
-		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(backpack), slot_in_backpack_str)
+		H.equip_to_slot_or_del(new /obj/item/box/vox(backpack), slot_in_backpack_str)
 		var/obj/item/tank/nitrogen/tank = new(H)
 		H.equip_to_slot_or_del(tank, BP_R_HAND)
 		if(tank)
 			H.set_internals(tank)
 	else
 		H.equip_to_slot_or_del(new /obj/item/tank/nitrogen(H), slot_back_str)
-		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(H), BP_R_HAND)
+		H.equip_to_slot_or_del(new /obj/item/box/vox(H), BP_R_HAND)
 		H.set_internals(backpack)
 
-/decl/species/vox/disfigure_msg(var/mob/living/carbon/human/H)
-	var/decl/pronouns/G = H.get_pronouns()
-	return SPAN_DANGER("[G.His] beak-segments are cracked and chipped beyond recognition!\n")
+// Ideally this would all be on bodytype, but pressure is handled per-mob currently.
+var/global/list/vox_current_pressure_toggle = list()
+
+/decl/species/vox/disfigure_msg(var/mob/living/human/H)
+	var/decl/pronouns/pronouns = H.get_pronouns()
+	return SPAN_DANGER("[pronouns.His] beak-segments are cracked and chipped beyond recognition!\n")
 
 /decl/species/vox/skills_from_age(age)
 	. = 8
 
-/decl/species/vox/handle_death(var/mob/living/carbon/human/H)
+/decl/species/vox/handle_death(var/mob/living/human/H)
 	..()
 	var/obj/item/organ/internal/voxstack/stack = H.get_organ(BP_STACK, /obj/item/organ/internal/voxstack)
 	if (stack)
@@ -168,3 +165,51 @@
 	key = "shriek"
 	emote_message_3p = "$USER$ SHRIEKS!"
 	emote_sound = 'mods/species/vox/sounds/shriek1.ogg'
+
+/decl/species/vox/get_warning_low_pressure(var/mob/living/human/H)
+	if(H && global.vox_current_pressure_toggle["\ref[H]"])
+		return 50
+	return ..()
+
+/decl/species/vox/get_hazard_low_pressure(var/mob/living/human/H)
+	if(H && global.vox_current_pressure_toggle["\ref[H]"])
+		return 0
+	return ..()
+
+/mob/living/human/proc/toggle_vox_pressure_seal()
+	set name = "Toggle Vox Pressure Seal"
+	set category = "Abilities"
+	set src = usr
+
+	if(!istype(species, /decl/species/vox))
+		verbs -= /mob/living/human/proc/toggle_vox_pressure_seal
+		return
+
+	if(incapacitated(INCAPACITATION_KNOCKOUT))
+		to_chat(src, SPAN_WARNING("You are in no state to do that."))
+		return
+
+	var/decl/pronouns/pronouns = get_pronouns()
+	visible_message(SPAN_NOTICE("\The [src] begins flexing and realigning [pronouns.his] scaling..."))
+	if(!do_after(src, 2 SECONDS, src, FALSE))
+		visible_message(
+			SPAN_NOTICE("\The [src] ceases adjusting [pronouns.his] scaling."),
+			self_message = SPAN_WARNING("You must remain still to seal or unseal your scaling."))
+		return
+
+	if(incapacitated(INCAPACITATION_KNOCKOUT))
+		to_chat(src, SPAN_WARNING("You are in no state to do that."))
+		return
+
+	// TODO: maybe add cold and heat thresholds to this.
+	var/my_ref = "\ref[src]"
+	if((global.vox_current_pressure_toggle[my_ref] = !global.vox_current_pressure_toggle[my_ref]))
+		visible_message(
+			SPAN_NOTICE("\The [src]'s scaling flattens and smooths out."),
+			self_message = SPAN_NOTICE("You flatten your scaling and inflate internal bladders, protecting yourself against low pressure at the cost of dexterity.")
+		)
+	else
+		visible_message(
+			SPAN_NOTICE("\The [src]'s scaling bristles roughly."),
+			self_message = SPAN_NOTICE("You bristle your scaling and deflate your internal bladders, restoring mobility but leaving yourself vulnerable to low pressure.")
+		)

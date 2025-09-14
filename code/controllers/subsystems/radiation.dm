@@ -37,7 +37,7 @@ SUBSYSTEM_DEF(radiation)
 		if(QDELETED(T))
 			resistance_cache -= T
 		else if((length(T.contents) + 1) != resistance_cache[T])
-			resistance_cache -= T // If its stale REMOVE it! It will get added if its needed.
+			resistance_cache -= T // If it's stale REMOVE it! It will get added if it's needed.
 		if (MC_TICK_CHECK)
 			return
 
@@ -74,8 +74,8 @@ SUBSYSTEM_DEF(radiation)
 		if(source.source_turf.z != T.z)
 			continue // Radiation is not multi-z
 		if(source.respect_maint)
-			var/area/A = T.loc
-			if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
+			var/area/A = get_area(T)
+			if(A && (A.area_flags & AREA_FLAG_RAD_SHIELDED))
 				continue // In shielded area
 
 		var/dist = get_dist(source.source_turf, T)

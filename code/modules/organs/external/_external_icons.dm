@@ -18,7 +18,14 @@ var/global/list/limb_icon_cache = list()
 	update_icon()
 	compile_overlays()
 
-/obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
+/obj/item/organ/external/proc/get_surgery_overlay_icon()
+	if(limb_flags & ORGAN_FLAG_SKELETAL)
+		return null
+	if(BP_IS_PROSTHETIC(src))
+		return null
+	return species?.get_surgery_overlay_icon(owner)
+
+/obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/human/human)
 	_icon_cache_key = null
 	skin_tone = null
 	skin_colour = null
@@ -29,16 +36,7 @@ var/global/list/limb_icon_cache = list()
 	if(bodytype.appearance_flags & HAS_SKIN_COLOR)
 		skin_colour = human.get_skin_colour()
 
-/obj/item/organ/external/proc/sync_colour_to_dna()
-	_icon_cache_key = null
-	skin_tone = null
-	skin_colour = null
-	if(!isnull(dna.GetUIValue(DNA_UI_SKIN_TONE)) && (bodytype.appearance_flags & HAS_A_SKIN_TONE))
-		skin_tone = dna.GetUIValue(DNA_UI_SKIN_TONE)
-	if(bodytype.appearance_flags & HAS_SKIN_COLOR)
-		skin_colour = rgb(dna.GetUIValue(DNA_UI_SKIN_R), dna.GetUIValue(DNA_UI_SKIN_G), dna.GetUIValue(DNA_UI_SKIN_B))
-
-/obj/item/organ/external/head/sync_colour_to_human(var/mob/living/carbon/human/human)
+/obj/item/organ/external/head/sync_colour_to_human(var/mob/living/human/human)
 	..()
 	var/obj/item/organ/internal/eyes/eyes = human.get_organ(BP_EYES, /obj/item/organ/internal/eyes)
 	if(eyes) eyes.update_colour()
@@ -53,10 +51,10 @@ var/global/list/limb_icon_cache = list()
 /obj/item/organ/external/proc/update_limb_icon_file()
 	if(!bodytype) // This should not happen.
 		icon = initial(icon)
+	else if(limb_flags & ORGAN_FLAG_SKELETAL)
+		icon = bodytype.get_skeletal_icon(owner)
 	else if(!BP_IS_PROSTHETIC(src) && (status & ORGAN_MUTATED))
 		icon = bodytype.get_base_icon(owner, get_deform = TRUE)
-	else if(owner && (limb_flags & ORGAN_FLAG_SKELETAL))
-		icon = bodytype.get_skeletal_icon(owner)
 	else
 		icon = bodytype.get_base_icon(owner)
 
@@ -65,14 +63,20 @@ var/global/list/organ_icon_cache = list()
 
 	// Generate base icon with colour and tone.
 	var/icon/ret = bodytype.apply_limb_colouration(src, new /icon(icon, icon_state))
-	if(status & ORGAN_DEAD)
+	if(limb_flags & ORGAN_FLAG_SKELETAL)
+		global.organ_icon_cache[_icon_cache_key] = ret
+		return ret
+
+	if((status & ORGAN_DEAD))
 		ret.ColorTone(rgb(10,50,0))
 		ret.SetIntensity(0.7)
+
 	if(skin_tone)
 		if(skin_tone >= 0)
 			ret.Blend(rgb(skin_tone, skin_tone, skin_tone), ICON_ADD)
 		else
 			ret.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
+
 	if((bodytype.appearance_flags & HAS_SKIN_COLOR) && skin_colour)
 		ret.Blend(skin_colour, skin_blend)
 
@@ -81,8 +85,11 @@ var/global/list/organ_icon_cache = list()
 		var/list/draw_accessories = _sprite_accessories[accessory_category]
 		for(var/accessory in draw_accessories)
 			var/decl/sprite_accessory/accessory_decl = resolve_accessory_to_decl(accessory)
-			if(istype(accessory_decl) && !accessory_decl.sprite_overlay_layer)
-				ret.Blend(accessory_decl.get_cached_accessory_icon(src, draw_accessories[accessory] || COLOR_WHITE), accessory_decl.layer_blend)
+			if(!istype(accessory_decl))
+				continue
+			if(!isnull(accessory_decl.sprite_overlay_layer) || !accessory_decl.draw_accessory)
+				continue
+			ret.Blend(accessory_decl.get_cached_accessory_icon(src, draw_accessories[accessory]), accessory_decl.layer_blend)
 	if(render_alpha < 255)
 		ret += rgb(,,,render_alpha)
 	global.organ_icon_cache[_icon_cache_key] = ret
@@ -93,16 +100,26 @@ var/global/list/organ_icon_cache = list()
 		var/list/draw_accessories = _sprite_accessories[accessory_category]
 		for(var/accessory in draw_accessories)
 			var/decl/sprite_accessory/accessory_decl = resolve_accessory_to_decl(accessory)
-			if(istype(accessory_decl) && !isnull(accessory_decl.sprite_overlay_layer))
-				var/image/accessory_image = image(accessory_decl.get_cached_accessory_icon(src, draw_accessories[accessory] || COLOR_WHITE))
-				if(accessory_decl.sprite_overlay_layer != FLOAT_LAYER)
-					accessory_image.layer = accessory_decl.sprite_overlay_layer
-				if(accessory_decl.layer_blend != ICON_OVERLAY)
-					accessory_image.blend_mode = iconMode2blendMode(accessory_decl.layer_blend)
-				LAZYADD(., accessory_image)
+			if(!istype(accessory_decl))
+				continue
+			if(isnull(accessory_decl.sprite_overlay_layer) || !accessory_decl.draw_accessory)
+				continue
+			var/image/accessory_image = image(accessory_decl.get_cached_accessory_icon(src, draw_accessories[accessory]))
+			if(accessory_decl.sprite_overlay_layer != FLOAT_LAYER)
+				accessory_image.layer = accessory_decl.sprite_overlay_layer
+			if(accessory_decl.layer_blend != ICON_OVERLAY)
+				accessory_image.blend_mode = iconMode2blendMode(accessory_decl.layer_blend)
+			LAZYADD(., accessory_image)
 
 /obj/item/organ/external/proc/get_icon_cache_key_components()
+
 	. = list("[icon_state]_[species.name]_[bodytype?.name || "BAD_BODYTYPE"]_[render_alpha]_[icon]")
+
+	// Skeletons don't care about most icon appearance stuff.
+	if(limb_flags & ORGAN_FLAG_SKELETAL)
+		. += "_skeletal_[skin_blend]"
+		return
+
 	if(status & ORGAN_DEAD)
 		. += "_dead"
 	. += "_tone_[skin_tone]_color_[skin_colour]_[skin_blend]"
@@ -111,7 +128,7 @@ var/global/list/organ_icon_cache = list()
 		for(var/accessory in draw_accessories)
 			var/decl/sprite_accessory/accessory_decl = resolve_accessory_to_decl(accessory)
 			if(istype(accessory_decl) && !accessory_decl.sprite_overlay_layer)
-				. += "_[accessory]_[draw_accessories[accessory]]"
+				. += "_[accessory]_[json_encode(draw_accessories[accessory])]"
 
 /obj/item/organ/external/proc/clear_sprite_accessories(var/skip_update = FALSE)
 	if(!length(_sprite_accessories))
@@ -143,20 +160,21 @@ var/global/list/organ_icon_cache = list()
 	if(length(accessories))
 		return accessories[1]
 
-/obj/item/organ/external/proc/get_sprite_accessory_value(var/accessory_type)
+/obj/item/organ/external/proc/get_sprite_accessory_metadata(var/accessory_type, var/metadata_tag)
 	var/decl/sprite_accessory/accessory = GET_DECL(accessory_type)
 	var/list/accessories = istype(accessory) && LAZYACCESS(_sprite_accessories, accessory.accessory_category)
 	if(accessories)
-		return accessories[accessory_type]
+		var/list/metadata = accessories[accessory_type] || accessory.get_default_accessory_metadata()
+		if(islist(metadata) && metadata_tag)
+			metadata = metadata[metadata_tag]
+		return islist(metadata) ? metadata.Copy() : metadata
 
-/obj/item/organ/external/proc/set_sprite_accessory(var/accessory_type, var/accessory_category, var/accessory_color, var/skip_update = FALSE)
-
-	var/list/refresh_accessories = list()
+/obj/item/organ/external/proc/set_sprite_accessory(var/accessory_type, var/accessory_category, var/accessory_metadata, var/skip_update = FALSE)
 
 	var/decl/sprite_accessory/accessory_decl = GET_DECL(accessory_type)
 	if(!accessory_category)
 		if(!accessory_decl)
-			return
+			return FALSE
 		accessory_category = accessory_decl.accessory_category
 
 	var/decl/sprite_accessory_category/accessory_cat_decl = GET_DECL(accessory_category)
@@ -170,22 +188,24 @@ var/global/list/organ_icon_cache = list()
 		var/decl/sprite_accessory_category/accessory_cat = GET_DECL(accessory_category)
 		accessory_type = accessory_cat?.default_accessory
 		if(!accessory_type)
-			return
+			return FALSE
 		accessory_decl = GET_DECL(accessory_type)
 
-	if(accessory_color)
-		if(!accessory_decl.accessory_is_available(owner, species, bodytype))
-			return
-		if(LAZYACCESS(accessories, accessory_type) == accessory_color)
-			return
+	var/list/refresh_accessories
+	if(accessory_metadata)
+		if(!accessory_decl.accessory_is_available(owner, species, bodytype, (owner ? owner.get_traits() : FALSE)))
+			return FALSE
+		var/list/existing_metadata = LAZYACCESS(accessories, accessory_type)
+		if(same_entries(existing_metadata, accessory_metadata))
+			return FALSE
 		if(accessory_cat_decl.single_selection)
-			refresh_accessories |= accessories
+			LAZYDISTINCTADD(refresh_accessories, accessories)
 			accessories.Cut()
-		LAZYSET(accessories, accessory_type, accessory_color)
-		refresh_accessories += accessory_decl
+		LAZYSET(accessories, accessory_type, accessory_decl.update_metadata(accessory_metadata, existing_metadata))
+		LAZYDISTINCTADD(refresh_accessories, accessory_decl)
 	else
 		if(!(accessory_type in accessories))
-			return
+			return FALSE
 		remove_sprite_accessory(accessory_type, TRUE)
 
 	if(!skip_update)
@@ -195,6 +215,7 @@ var/global/list/organ_icon_cache = list()
 				if(refresh_accessory)
 					refresh_accessory.refresh_mob(owner)
 		update_icon()
+	return TRUE
 
 /obj/item/organ/external/proc/get_heritable_sprite_accessories()
 	for(var/accessory_category in _sprite_accessories)
@@ -204,20 +225,19 @@ var/global/list/organ_icon_cache = list()
 			if(accessory_decl?.is_heritable)
 				LAZYSET(., accessory, draw_accessories[accessory])
 
-/obj/item/organ/external/proc/set_sprite_accessory_by_category(accessory_type, accessory_category, accessory_color, preserve_colour = TRUE, preserve_type = TRUE, skip_update)
+/obj/item/organ/external/proc/set_sprite_accessory_by_category(accessory_type, accessory_category, accessory_metadata, preserve_colour = TRUE, preserve_type = TRUE, skip_update)
 	if(!accessory_category)
-		return
+		return FALSE
 	if(istype(accessory_type, /decl/sprite_accessory))
 		var/decl/accessory_decl = accessory_type
 		accessory_type = accessory_decl.type
 
 	// If there is a pre-existing sprite accessory to replace, we may want to keep the old colour value.
-	var/do_update_if_returning = FALSE
 	var/replacing_type = get_sprite_accessory_by_category(accessory_category)
 	if(replacing_type)
 
-		if(preserve_colour && !accessory_color)
-			accessory_color = get_sprite_accessory_value(replacing_type)
+		if(preserve_colour && !accessory_metadata)
+			accessory_metadata = get_sprite_accessory_metadata(replacing_type)
 
 		// We may only be setting colour, in which case we don't bother with a removal.
 		if(preserve_type && !accessory_type)
@@ -226,17 +246,17 @@ var/global/list/organ_icon_cache = list()
 			remove_sprite_accessory(replacing_type, TRUE)
 
 	// We have already done our removal above and have nothing further to set below.
-	if(!accessory_color && !accessory_type)
+	if(!accessory_metadata && !accessory_type)
 		if(!skip_update)
 			if(owner)
 				var/decl/sprite_accessory/refresh_accessory = GET_DECL(replacing_type || accessory_category)
 				if(refresh_accessory)
 					refresh_accessory.refresh_mob(owner)
 			update_icon()
-		return do_update_if_returning
+		return TRUE
 
 	// We need to now set a replacement accessory type down the chain.
-	return set_sprite_accessory(accessory_type, accessory_category, accessory_color, skip_update)
+	return set_sprite_accessory(accessory_type, accessory_category, accessory_metadata, skip_update)
 
 /obj/item/organ/external/proc/remove_sprite_accessory(var/accessory_type, var/skip_update = FALSE)
 	if(!accessory_type)
@@ -260,9 +280,10 @@ var/global/list/organ_icon_cache = list()
 		return
 
 	// Update our cache key and refresh or create our base icon.
+	var/next_state = owner ? "[organ_tag][owner.get_overlay_state_modifier()]" : organ_tag
 	update_limb_icon_file()
-	if(icon_state != organ_tag)
-		icon_state = organ_tag
+	if(icon_state != next_state)
+		icon_state = next_state
 
 	_icon_cache_key = jointext(get_icon_cache_key_components(), null)
 	var/icon/mob_icon = global.organ_icon_cache[_icon_cache_key] || generate_mob_icon()
@@ -321,7 +342,7 @@ var/global/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888"
 		dam_state = min_dam_state
 	// Apply colour and return product.
 	var/list/hud_colours = !BP_IS_PROSTHETIC(src) ? flesh_hud_colours : robot_hud_colours
-	hud_damage_image.color = hud_colours[max(1,min(CEILING(dam_state*hud_colours.len),hud_colours.len))]
+	hud_damage_image.color = hud_colours[max(1,min(ceil(dam_state*hud_colours.len),hud_colours.len))]
 	return hud_damage_image
 
 /obj/item/organ/external/proc/bandage_level()
@@ -342,7 +363,7 @@ var/global/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888"
 	if(ispath(accessory_style))
 		accessory_style = GET_DECL(accessory_style)
 	// Check if this style is permitted for this species, period.
-	if(!istype(accessory_style) || !accessory_style?.accessory_is_available(owner, species, bodytype))
+	if(!istype(accessory_style) || !accessory_style?.accessory_is_available(owner, species, bodytype, (owner ? owner.get_traits() : FALSE)))
 		return null
 	// Check if we are concealed (long hair under a hat for example).
 	if(accessory_style.is_hidden(src))
@@ -353,7 +374,7 @@ var/global/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888"
 	for(var/acc_cat in _sprite_accessories)
 		for(var/accessory in _sprite_accessories[acc_cat])
 			var/decl/sprite_accessory/accessory_style = GET_DECL(accessory)
-			if(!istype(accessory_style) || !accessory_style?.accessory_is_available(owner, species, bodytype))
+			if(!istype(accessory_style) || !accessory_style?.accessory_is_available(owner, species, bodytype, (owner ? owner.get_traits() : FALSE)))
 				_sprite_accessories[acc_cat] -= accessory
 				. = TRUE
 	if(.)

@@ -4,10 +4,10 @@
 
 // Also contains unfried fried foods.
 
-/obj/item/chems/food/onionrings
+/obj/item/food/onionrings
 	name = "onion rings"
 	desc = "Like circular fries but better."
-	icon_state = "onionrings"
+	icon = 'icons/obj/food/fried/onionrings.dmi'
 	plate = /obj/item/plate
 	filling_color = "#eddd00"
 	center_of_mass = @'{"x":16,"y":11}'
@@ -15,10 +15,10 @@
 	nutriment_amt = 5
 	bitesize = 2
 
-/obj/item/chems/food/fries
+/obj/item/food/fries
 	name = "chips"
 	desc = "Frenched potato, fried."
-	icon_state = "fries"
+	icon = 'icons/obj/food/fried/fries.dmi'
 	plate = /obj/item/plate
 	filling_color = "#eddd00"
 	center_of_mass = @'{"x":16,"y":11}'
@@ -26,20 +26,10 @@
 	nutriment_amt = 4
 	bitesize = 2
 
-/obj/item/chems/food/rawsticks
-	name = "raw potato sticks"
-	desc = "Uncooked potato stick, not very tasty."
-	icon = 'icons/obj/food_ingredients.dmi'
-	icon_state = "rawsticks"
-	bitesize = 2
-	center_of_mass = @'{"x":16,"y":12}'
-	nutriment_desc = list("raw potato" = 3)
-	nutriment_amt = 3
-
-/obj/item/chems/food/cheesyfries
+/obj/item/food/cheesyfries
 	name = "cheesy fries"
 	desc = "Fries. Covered in cheese. Duh."
-	icon_state = "cheesyfries"
+	icon = 'icons/obj/food/fried/cheesyfries.dmi'
 	plate = /obj/item/plate
 	filling_color = "#eddd00"
 	center_of_mass = @'{"x":16,"y":11}'
@@ -47,6 +37,6 @@
 	nutriment_amt = 4
 	bitesize = 2
 
-/obj/item/chems/food/cheesyfries/populate_reagents()
+/obj/item/food/cheesyfries/populate_reagents()
 	. = ..()
-	add_to_reagents(/decl/material/liquid/nutriment/protein, 2)
+	add_to_reagents(/decl/material/liquid/nutriment/cheese, 2)

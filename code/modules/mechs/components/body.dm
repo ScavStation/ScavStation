@@ -1,10 +1,8 @@
-/obj/item/storage/mech
-	w_class = ITEM_SIZE_NO_CONTAINER
-	max_w_class = ITEM_SIZE_LARGE
-	storage_slots = 4
-	use_sound = 'sound/effects/storage/toolbox.ogg'
-	anchored = TRUE
+/obj/item/mech_storage
+	storage    = /datum/storage/mech
+	anchored   = TRUE
 	max_health = ITEM_HEALTH_NO_DAMAGE
+	obj_flags  = OBJ_FLAG_NO_STORAGE
 
 /obj/item/mech_component/chassis/Adjacent(var/atom/neighbor, var/recurse = 1) //For interaction purposes we consider body to be adjacent to whatever holder mob is adjacent
 	var/mob/living/exosuit/E = loc
@@ -12,7 +10,7 @@
 		. = E.Adjacent(neighbor, recurse)
 	return . || ..()
 
-/obj/item/storage/mech/Adjacent(var/atom/neighbor, var/recurse = 1) //in order to properly retrieve items
+/obj/item/mech_storage/Adjacent(var/atom/neighbor, var/recurse = 1) //in order to properly retrieve items
 	var/obj/item/mech_component/chassis/C = loc
 	if(istype(C))
 		. = C.Adjacent(neighbor, recurse-1)
@@ -30,7 +28,7 @@
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
 	var/obj/item/robot_parts/robot_component/armour/exosuit/m_armour
 	var/obj/machinery/portable_atmospherics/canister/air_supply
-	var/obj/item/storage/mech/storage_compartment
+	var/obj/item/mech_storage/storage_compartment
 	var/datum/gas_mixture/cockpit
 	var/transparent_cabin = FALSE
 	var/hide_pilot =        FALSE
@@ -146,19 +144,27 @@
 	if(istype(thing,/obj/item/robot_parts/robot_component/diagnosis_unit))
 		if(diagnostics)
 			to_chat(user, SPAN_WARNING("\The [src] already has a diagnostic system installed."))
-			return
-		if(install_component(thing, user)) diagnostics = thing
+			return TRUE
+		if(install_component(thing, user))
+			diagnostics = thing
+			return TRUE
+		return FALSE
 	else if(istype(thing, /obj/item/cell))
 		if(cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cell installed."))
-			return
-		if(install_component(thing,user)) cell = thing
+			return TRUE
+		if(install_component(thing,user))
+			cell = thing
+			return TRUE
+		return FALSE
 	else if(istype(thing, /obj/item/robot_parts/robot_component/armour/exosuit))
 		if(m_armour)
 			to_chat(user, SPAN_WARNING("\The [src] already has armour installed."))
-			return
+			return TRUE
 		if(install_component(thing, user))
 			m_armour = thing
+			return TRUE
+		return FALSE
 	else
 		return ..()
 
@@ -172,7 +178,7 @@
 		if(!C.anchored && do_after(user, 5, src))
 			if(C.anchored)
 				return
-			to_chat(user, SPAN_NOTICE("You install the canister in the [src]."))
+			to_chat(user, SPAN_NOTICE("You install the canister in \the [src]."))
 			if(air_supply)
 				air_supply.dropInto(get_turf(src))
 				air_supply = null

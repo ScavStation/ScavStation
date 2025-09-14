@@ -8,8 +8,8 @@
 	var/lift_size_y = 2 // ie. a 3x3 lift would have a value of 2 in each of these variables.
 
 	// Various turf and door types used when generating the turbolift floors.
-	var/wall_type =     /turf/simulated/wall/elevator
-	var/floor_type =    /turf/simulated/floor/tiled/dark
+	var/wall_type =     /turf/wall/elevator
+	var/floor_type =    /turf/floor/tiled/dark
 	var/door_type =     /obj/machinery/door/airlock/lift
 	var/firedoor_type = /obj/machinery/door/firedoor
 	var/button_type =   /obj/structure/lift/button
@@ -21,9 +21,13 @@
 	var/floor_departure_sound
 	var/floor_arrival_sound
 
+	var/turf_id
+
 INITIALIZE_IMMEDIATE(/obj/abstract/turbolift_spawner)
 /obj/abstract/turbolift_spawner/Initialize()
 	. = ..()
+	if(!turf_id)
+		turf_id = sequential_id(type)
 	if(SSmapping.initialized)
 		build_turbolift()
 	else
@@ -72,7 +76,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/turbolift_spawner)
 
 		if(NORTH)
 
-			int_panel_x = ux + FLOOR(lift_size_x/2)
+			int_panel_x = ux + floor(lift_size_x/2)
 			int_panel_y = uy + 1
 			ext_panel_x = ux
 			ext_panel_y = ey + 2
@@ -89,7 +93,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/turbolift_spawner)
 
 		if(SOUTH)
 
-			int_panel_x = ux + FLOOR(lift_size_x/2)
+			int_panel_x = ux + floor(lift_size_x/2)
 			int_panel_y = ey - 1
 			ext_panel_x = ex
 			ext_panel_y = uy - 2
@@ -107,7 +111,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/turbolift_spawner)
 		if(EAST)
 
 			int_panel_x = ux+1
-			int_panel_y = uy + FLOOR(lift_size_y/2)
+			int_panel_y = uy + floor(lift_size_y/2)
 			ext_panel_x = ex+2
 			ext_panel_y = ey
 
@@ -124,7 +128,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/turbolift_spawner)
 		if(WEST)
 
 			int_panel_x = ex-1
-			int_panel_y = uy + FLOOR(lift_size_y/2)
+			int_panel_y = uy + floor(lift_size_y/2)
 			ext_panel_x = ux-2
 			ext_panel_y = uy
 
@@ -165,7 +169,10 @@ INITIALIZE_IMMEDIATE(/obj/abstract/turbolift_spawner)
 						swap_to = floor_type
 
 				if(checking.type != swap_to)
-					checking.ChangeTurf(swap_to)
+					var/turf/wall/wall = checking.ChangeTurf(swap_to)
+					if(istype(wall) && turf_id)
+						wall.unique_merge_identifier = turf_id
+						wall.queue_icon_update()
 					// Let's make absolutely sure that we have the right turf.
 					checking = locate(tx,ty,cz)
 
@@ -203,7 +210,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/turbolift_spawner)
 							newdoor = new door_type(checking)
 							if(internal)
 								lift.doors += newdoor
-								newdoor.lift = cfloor
+								newdoor.lift = lift
 							else
 								cfloor.doors += newdoor
 								newdoor.floor = cfloor

@@ -10,13 +10,13 @@
 	initial_spawn_target = 1
 	show_objectives_on_creation = 0 //actors are not antagonists and do not need the antagonist greet text
 	required_language = /decl/language/human/common
-	default_outfit = /decl/hierarchy/outfit/actor
+	default_outfit = /decl/outfit/actor
 	default_access = list()
 	id_title = "Actor"
 
-/decl/hierarchy/outfit/actor
+/decl/outfit/actor
 	name =    "Special Role - Actor"
-	uniform = /obj/item/clothing/under/chameleon
+	uniform = /obj/item/clothing/jumpsuit/chameleon
 	shoes =   /obj/item/clothing/shoes/chameleon
 	l_ear =   /obj/item/radio/headset/entertainment
 	id_type = /obj/item/card/id/syndicate

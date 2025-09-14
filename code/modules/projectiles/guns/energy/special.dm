@@ -5,7 +5,7 @@
 	icon_state = ICON_STATE_WORLD
 	origin_tech = @'{"combat":2,"magnets":4}'
 	w_class = ITEM_SIZE_HUGE
-	force = 10
+	_base_attack_force = 10
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BACK
 	one_hand_penalty = 4
@@ -62,7 +62,7 @@
 		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, indicator_color=COLOR_YELLOW),
 		list(mode_name="induce specific mutations", projectile_type=/obj/item/projectile/energy/floramut/gene, indicator_color=COLOR_LIME),
 		)
-	var/decl/plantgene/gene = null
+	var/decl/plant_gene/gene = null
 
 /obj/item/gun/energy/floragun/get_charge_state(var/initial_state)
 	return "[initial_state]100"
@@ -85,16 +85,10 @@
 	set category = "Object"
 	set src in view(1)
 
-	var/genemask = input("Choose a gene to modify.") as null|anything in SSplants.plant_gene_datums
-
-	if(!genemask)
-		return
-
-	gene = SSplants.plant_gene_datums[genemask]
-
-	to_chat(usr, "<span class='info'>You set the [src]'s targeted genetic area to [genemask].</span>")
-
-	return
+	var/decl/plant_gene/new_gene = input("Choose a gene to modify.") as null|anything in decls_repository.get_decls_of_type_unassociated(/decl/plant_gene)
+	if(istype(new_gene))
+		gene = new_gene
+		to_chat(usr, SPAN_INFO("You set the \the [src]'s targeted genetic area to [gene.name]."))
 
 /obj/item/gun/energy/floragun/consume_next_projectile()
 	. = ..()
@@ -125,13 +119,12 @@
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_LOWER_BODY|SLOT_BACK
 	w_class = ITEM_SIZE_NORMAL
-	force = 8
+	_base_attack_force = 8
 	origin_tech = @'{"materials":4,"exoticmatter":4,"engineering":6,"combat":3}'
 	material = /decl/material/solid/metal/steel
 	projectile_type = /obj/item/projectile/beam/plasmacutter
 	max_shots = 10
 	self_recharge = 1
-	material = /decl/material/solid/metal/steel
 	matter = list(
 		/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/gold = MATTER_AMOUNT_TRACE,
@@ -141,6 +134,7 @@
 /obj/item/gun/energy/plasmacutter/Initialize()
 	. = ..()
 	set_extension(src, /datum/extension/tool, list(TOOL_SAW = TOOL_QUALITY_BAD))
+	set_extension(src, /datum/extension/demolisher/energy)
 
 /obj/item/gun/energy/plasmacutter/get_heat()
 	. = max(..(), 3800)
@@ -157,11 +151,11 @@
 		if(M)
 			M.welding_eyecheck()//Welding tool eye check
 			if(check_accidents(M, "[M] loses grip on [src] from its sudden recoil!",SKILL_CONSTRUCTION, 60, SKILL_ADEPT))
-				return 0
+				return FALSE
 		spark_at(src, amount = 5, holder = src)
-		return 1
+		return TRUE
 	handle_click_empty(M)
-	return 0
+	return FALSE
 
 /obj/item/gun/energy/plasmacutter/is_special_cutting_tool(var/high_power)
 	return TRUE

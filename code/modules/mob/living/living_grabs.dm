@@ -3,7 +3,7 @@
 		if(!get_empty_hand_slot())
 			to_chat(src, SPAN_WARNING("Your hands are full!"))
 			return FALSE
-	else if(get_active_hand())
+	else if(get_active_held_item())
 		to_chat(src, SPAN_WARNING("Your [parse_zone(get_active_held_item_slot())] is full!"))
 		return FALSE
 	return TRUE
@@ -17,14 +17,14 @@
 	if(LAZYLEN(grabbed_by))
 		to_chat(src, SPAN_WARNING("You cannot start grappling while already being grappled!"))
 		return FALSE
-	for(var/obj/item/grab/G in target.grabbed_by)
-		if(G.assailant != src)
+	for(var/obj/item/grab/grab as anything in target.grabbed_by)
+		if(grab.assailant != src)
 			continue
 		if(!target_zone || !ismob(target))
 			to_chat(src, SPAN_WARNING("You already have a grip on \the [target]!"))
 			return FALSE
-		if(G.target_zone == target_zone)
-			var/obj/O = G.get_targeted_organ()
+		if(grab.target_zone == target_zone)
+			var/obj/O = grab.get_targeted_organ()
 			if(O)
 				to_chat(src, SPAN_WARNING("You already have a grip on \the [target]'s [O.name]."))
 				return FALSE
@@ -44,6 +44,11 @@
 	if(!istype(target))
 		return
 
+	if(!force_grab_tag)
+		var/decl/species/my_species = get_species()
+		if(my_species?.grab_type)
+			grab_tag = my_species.grab_type
+
 	face_atom(target)
 	var/obj/item/grab/grab
 	if(ispath(grab_tag, /decl/grab) && can_grab(target, get_target_zone(), defer_hand = defer_hand) && target.can_be_grabbed(src, get_target_zone(), defer_hand))
@@ -56,6 +61,14 @@
 	return grab
 
 /mob/living/add_grab(var/obj/item/grab/grab, var/defer_hand = FALSE)
+
+	if(has_had_gripper)
+		if(defer_hand)
+			. = put_in_hands(grab)
+		else
+			. = put_in_active_hand(grab)
+		return
+
 	for(var/obj/item/grab/other_grab in contents)
 		if(other_grab != grab)
 			return FALSE

@@ -13,12 +13,12 @@
 	R.add_fingerprint(user)
 	qdel(src)
 
-/obj/item/storage/box/bodybags
+/obj/item/box/bodybags
 	name       = "body bags"
 	desc       = "This box contains body bags."
 	icon_state = "bodybags"
 
-/obj/item/storage/box/bodybags/WillContain()
+/obj/item/box/bodybags/WillContain()
 	return list(/obj/item/bodybag = 7)
 
 /obj/structure/closet/body_bag
@@ -41,6 +41,10 @@
 	. = ..()
 	update_icon() //Since adding a label updates the name, this handles updating the label overlay
 
+/obj/structure/closet/body_bag/can_install_lock()
+	// It is a plastic bag
+	return FALSE
+
 /obj/structure/closet/body_bag/on_update_icon()
 	if(opened)
 		icon_state = "open"
@@ -54,15 +58,16 @@
 
 /obj/structure/closet/body_bag/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/hand_labeler))
-		return //Prevent the labeler from opening the bag when trying to apply a label
+		return FALSE //Prevent the labeler from opening the bag when trying to apply a label
 	. = ..()
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)
 	contains_body = ..()
 	return contains_body
 
-/obj/structure/closet/body_bag/close()
-	if(..())
+/obj/structure/closet/body_bag/close(mob/user)
+	. = ..()
+	if(.)
 		set_density(0)
 		return TRUE
 	return FALSE
@@ -71,7 +76,7 @@
 	if(!(ishuman(user) || isrobot(user)))	return 0
 	if(opened)	return 0
 	if(contents.len)	return 0
-	visible_message("[user] folds up the [name]")
+	visible_message("[user] folds up \the [src]")
 	. = new item_path(get_turf(src))
 	qdel(src)
 

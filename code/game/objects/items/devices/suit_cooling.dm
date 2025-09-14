@@ -8,8 +8,6 @@
 
 	//copied from tank.dm
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	force = 5.0
-	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
 	action_button_name = "Toggle Heatsink"
@@ -45,7 +43,7 @@
 	if (!is_in_slot())
 		return
 
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/human/H = loc
 
 	var/temp_adj = min(H.bodytemperature - thermostat, max_cooling)
 
@@ -65,7 +63,7 @@
 // Checks whether the cooling unit is being worn on the back/suit slot.
 // That way you can't carry it in your hands while it's running to cool yourself down.
 /obj/item/suit_cooling_unit/proc/is_in_slot()
-	var/mob/living/carbon/human/H = loc
+	var/mob/living/human/H = loc
 	if(!istype(H))
 		return 0
 	return H.get_equipped_item(slot_back_str) == src || H.get_equipped_item(slot_s_store_str) == src
@@ -117,7 +115,7 @@
 			cover_open = 1
 			to_chat(user, "You unscrew the panel.")
 		update_icon()
-		return
+		return TRUE
 
 	if (istype(W, /obj/item/cell))
 		if(cover_open)
@@ -125,11 +123,11 @@
 				to_chat(user, "There is a [cell] already installed here.")
 			else
 				if(!user.try_unequip(W, src))
-					return
+					return TRUE
 				cell = W
-				to_chat(user, "You insert the [cell].")
+				to_chat(user, "You insert \the [cell].")
 		update_icon()
-		return
+		return TRUE
 
 	return ..()
 

@@ -278,7 +278,7 @@ SUBSYSTEM_DEF(garbage)
 
 // Should be treated as a replacement for the 'del' keyword.
 // Datums passed to this will be given a chance to clean up references to allow the GC to collect them.
-/proc/qdel(datum/D, force=FALSE, ...)
+/proc/qdel(datum/D, force=FALSE)
 	if(isnull(D))
 		return
 	if(!istype(D))
@@ -299,10 +299,10 @@ SUBSYSTEM_DEF(garbage)
 
 		// Let our friend know they're about to get fucked up.
 		if (isloc(D) && !(D:atom_flags & ATOM_FLAG_INITIALIZED))
-			hint = D:EarlyDestroy(arglist(args.Copy(2)))
+			hint = D:EarlyDestroy(force)
 			I.early_destroy += 1
 		else
-			hint = D.Destroy(arglist(args.Copy(2)))
+			hint = D.Destroy(force)
 
 		if(world.time != start_time)
 			I.slept_destroy++
@@ -311,6 +311,9 @@ SUBSYSTEM_DEF(garbage)
 
 		if(isnull(D))
 			return
+
+		if(D.is_processing)
+			get_stack_trace("[D] ([D.type]) was qdeleted while still processing on [D.is_processing]!")
 
 		switch(hint)
 			if (QDEL_HINT_QUEUE)		//qdel should queue the object for deletion.

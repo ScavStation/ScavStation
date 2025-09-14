@@ -35,10 +35,10 @@
 
 /obj/item/parcel/on_update_icon()
 	. = ..()
-	if(w_class < ITEM_SIZE_NO_CONTAINER)
+	if(w_class < ITEM_SIZE_STRUCTURE)
 		icon_state = "[icon_state_prefix]_[clamp(round(w_class), ITEM_SIZE_MIN, ITEM_SIZE_HUGE)]"
 	else
-		//If its none of the smaller items, default to crate-sized package
+		//If it's none of the smaller items, default to crate-sized package
 		icon_state = "[icon_state_prefix]_crate"
 		//Try to see if we got a better icon state for whatever we contain
 		if(length(contents))
@@ -141,10 +141,9 @@
 		if(M == user)
 			user.put_in_hands(src)
 
-	if(istype(AM.loc, /obj/item/storage))
-		var/obj/item/storage/S = AM.loc
-		S.remove_from_storage(AM, src)
-		S.handle_item_insertion(src, TRUE)
+	if(AM.loc?.storage)
+		AM.loc.storage.remove_from_storage(user, AM, src)
+		AM.loc.storage.handle_item_insertion(null, src, TRUE)
 	else
 		AM.forceMove(src)
 
@@ -173,7 +172,7 @@
 	unwrap(user)
 
 /obj/item/parcel/attack_hand(mob/user)
-	if(w_class >= ITEM_SIZE_NO_CONTAINER)
+	if(w_class >= ITEM_SIZE_STRUCTURE)
 		return TRUE
 	return ..()
 
@@ -245,7 +244,7 @@
 			C.set_color(trash_color)
 	. = ..()
 
-/obj/item/parcel/dump_contents()
+/obj/item/parcel/dump_contents(atom/forced_loc = loc, mob/user)
 	for(var/thing in get_contained_external_atoms())
 		var/atom/movable/AM = thing
 
@@ -253,11 +252,11 @@
 		if(ismob(loc))
 			var/mob/M = loc
 			M.put_in_hands(AM)
-		else if(istype(loc, /obj/item/storage))
-			var/obj/item/storage/S = loc
-			S.handle_item_insertion(AM, TRUE)
 		else
-			AM.dropInto(loc)
+			if(forced_loc?.storage)
+				forced_loc.storage.handle_item_insertion(null, AM, TRUE)
+			else
+				AM.dropInto(forced_loc)
 
 		if(ismob(AM))
 			var/mob/M = AM
@@ -269,7 +268,7 @@
 		/obj/item,
 		/obj/structure,
 		/obj/machinery,
-		/mob/living/carbon/human,
+		/mob/living/human,
 	)
 	return type_whitelist
 

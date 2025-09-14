@@ -7,11 +7,10 @@
 	icon_state = "bluespace"
 	throw_speed = 3
 	throw_range = 7
-	throwforce = 10
-	damtype = BURN
-	force = 10
+	atom_damage_type =  BURN
 	hitsound = 'sound/magic/forcewall.ogg'
 	max_health = ITEM_HEALTH_NO_DAMAGE
+	_base_attack_force = 10
 
 /obj/item/scrying/attack_self(mob/user)
 	var/decl/special_role/wizard/wizards = GET_DECL(/decl/special_role/wizard)
@@ -37,6 +36,6 @@
 	if(isliving(user))
 		var/mob/living/M = user
 		if(icon_state == "[name][sides]")
-			M.adjustBruteLoss(-30)
+			M.heal_damage(BRUTE, 30)
 		else if(icon_state == "[name]1")
-			M.adjustBruteLoss(30)
+			M.take_damage(30)

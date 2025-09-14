@@ -43,9 +43,9 @@
 	var/ambient_b = 0
 
 	if (ambient_light)
-		ambient_r = ((HEX_RED(ambient_light) / 255) * ambient_light_multiplier)/4 - ambient_light_old_r
-		ambient_g = ((HEX_GREEN(ambient_light) / 255) * ambient_light_multiplier)/4 - ambient_light_old_g
-		ambient_b = ((HEX_BLUE(ambient_light) / 255) * ambient_light_multiplier)/4 - ambient_light_old_b
+		ambient_r = round(((HEX_RED(ambient_light)   / 255) * ambient_light_multiplier)/4 - ambient_light_old_r, LIGHTING_ROUND_VALUE)
+		ambient_g = round(((HEX_GREEN(ambient_light) / 255) * ambient_light_multiplier)/4 - ambient_light_old_g, LIGHTING_ROUND_VALUE)
+		ambient_b = round(((HEX_BLUE(ambient_light)  / 255) * ambient_light_multiplier)/4 - ambient_light_old_b, LIGHTING_ROUND_VALUE)
 	else
 		ambient_r = -ambient_light_old_r
 		ambient_g = -ambient_light_old_g
@@ -55,13 +55,13 @@
 	ambient_light_old_g += ambient_g
 	ambient_light_old_b += ambient_b
 
-	if (ambient_r + ambient_g + ambient_b == 0)
+	if (abs(ambient_r + ambient_g + ambient_b) == 0)
 		return
 
 	// Unlit turfs will have corners if they have a lit neighbor -- don't generate corners for them, but do update them if they're there.
 	// if (!corners)
 	// 	var/force_build_corners = FALSE
-	// 	for (var/turf/T in RANGE_TURFS(src, 1))
+	// 	for (var/turf/T as anything in RANGE_TURFS(src, 1))
 	// 		if (TURF_IS_DYNAMICALLY_LIT_UNSAFE(T))
 	// 			force_build_corners = TRUE
 	// 			break
@@ -151,11 +151,11 @@
 		lum_g += L.apparent_g
 		lum_b += L.apparent_b
 
-	lum_r = CLAMP01(lum_r / 4) * 255
-	lum_g = CLAMP01(lum_g / 4) * 255
-	lum_b = CLAMP01(lum_b / 4) * 255
+	lum_r = CLAMP01(lum_r / length(corners)) * 255
+	lum_g = CLAMP01(lum_g / length(corners)) * 255
+	lum_b = CLAMP01(lum_b / length(corners)) * 255
 
-	return rgb(lum_r, lum_b, lum_g)
+	return rgb(lum_r, lum_g, lum_b)
 
 #define SCALE(targ,min,max) (targ - min) / (max - min)
 

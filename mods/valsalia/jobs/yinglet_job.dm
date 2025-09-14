@@ -1,7 +1,7 @@
 /datum/job/yinglet
 	hud_icon = "hudying"
 	supervisors = "the Matriarch and the Patriarches"
-	outfit_type = /decl/hierarchy/outfit/job/yinglet/assistant
+	outfit_type = /decl/outfit/job/yinglet/assistant
 	department_types = list(/decl/department/enclave)
 	max_skill = list(
 		SKILL_PILOT    = SKILL_ADEPT,
@@ -20,12 +20,12 @@
 	if(required_gender && prefs.gender != required_gender)
 		. = "[required_gender] only"
 
-/decl/hierarchy/outfit/job
+/decl/outfit/job
 	var/yinglet_suit_fallback
 	var/yinglet_suit_service
 	var/yinglet_suit_officiated
 
-/decl/hierarchy/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/carbon/human/H, var/title)
+/decl/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/human/H, var/title)
 
 	if(H?.species.name != SPECIES_YINGLET)
 		return
@@ -36,7 +36,7 @@
 	if(shoes && !H.get_equipped_item(slot_shoes_str))
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal/yinglet(H), slot_shoes_str)
 	if(uniform && !H.get_equipped_item(slot_w_uniform_str))
-		H.equip_to_slot_or_del(new /obj/item/clothing/under/yinglet(H), slot_w_uniform_str)
+		H.equip_to_slot_or_del(new /obj/item/clothing/pants/loincloth/yinglet(H), slot_w_uniform_str)
 		if(outfit_flags & OUTFIT_HAS_VITALS_SENSOR)
 			try_equip_vitals_sensor(H)
 
@@ -46,14 +46,14 @@
 	if(yinglet_suit_fallback && !H.get_equipped_item(slot_wear_suit_str))
 		var/datum/job/J = SSjobs.get_by_title(title)
 		if(J?.head_position)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/yinglet/officer, slot_wear_suit_str)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/jacket/redcoat/yinglet/officer, slot_wear_suit_str)
 		if(yinglet_suit_service)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/service/officiated/yinglet, slot_wear_suit_str)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/jacket/redcoat/service/officiated/yinglet, slot_wear_suit_str)
 		else if(yinglet_suit_officiated)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/officiated/yinglet, slot_wear_suit_str)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/jacket/redcoat/officiated/yinglet, slot_wear_suit_str)
 		else
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/redcoat/yinglet, slot_wear_suit_str)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/jacket/redcoat/yinglet, slot_wear_suit_str)
 
-/decl/hierarchy/outfit/job/equip_outfit(mob/living/carbon/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/outfit/job/equip_outfit(mob/living/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	. = ..()
 	try_give_yinglet_fallbacks(H, assignment)

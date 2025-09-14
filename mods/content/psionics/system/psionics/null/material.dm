@@ -17,6 +17,7 @@
 	weight = MAT_VALUE_HEAVY
 	door_icon_base = "stone"
 	destruction_desc = "shatters"
+	destruction_sound = "shatter"
 	hitsound = 'sound/effects/Glasshit.ogg'
 	is_psionic_nullifier = TRUE
 	exoplanet_rarity_plant = MAT_RARITY_EXOTIC
@@ -24,7 +25,8 @@
 	uid = "solid_nullglass"
 
 /obj/item/shard/nullglass
-	material = MAT_NULLGLASS
+	material = /decl/material/nullglass
+
 /decl/stack_recipe/tile/nullglass
-	name = "nullglass floor tile"
 	result_type = /obj/item/stack/tile/floor_nullglass
+	required_material = /decl/material/nullglass

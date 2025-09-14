@@ -53,15 +53,14 @@
 	icon_state = "hskull"
 
 /obj/item/fossil/skull/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/fossil/animal))
-		if(!user.canUnEquip(W))
-			return
-		var/mob/M = get_recursive_loc_of_type(/mob)
-		if(M && !M.try_unequip(src))
-			return
-		var/obj/o = new /obj/structure/skeleton(get_turf(src))
-		user.try_unequip(W, o)
-		forceMove(o)
+	if(!istype(W, /obj/item/fossil/animal))
+		return ..()
+	if(!user.try_unequip(src))
+		return FALSE
+	var/obj/structure/skeleton/skellybones = new (get_turf(src))
+	user.try_unequip(W, skellybones)
+	forceMove(skellybones)
+	return TRUE
 
 /obj/structure/skeleton
 	name = "alien skeleton display"
@@ -85,16 +84,18 @@
 
 /obj/structure/skeleton/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/fossil/animal))
-		if(bone_count < required_bones)
-			if(user.try_unequip(W, src))
-				bone_count++
-				if(bone_count == required_bones)
-					icon_state = "skel"
-					set_density(1)
-		else
+		if(bone_count >= required_bones)
 			to_chat(user, SPAN_NOTICE("\The [src] is already complete."))
+			return TRUE
+		if(!user.try_unequip(W, src))
+			return TRUE
+		bone_count++
+		if(bone_count == required_bones)
+			icon_state = "skel"
+			set_density(1)
+		return TRUE
 	else if(IS_PEN(W))
 		plaque_contents = sanitize(input("What would you like to write on the plaque:","Skeleton plaque",""))
 		user.visible_message("[user] writes something on the base of [src].","You relabel the plaque on the base of [src].")
-	else
-		..()
+		return TRUE
+	return ..()

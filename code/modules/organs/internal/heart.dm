@@ -68,14 +68,15 @@
 	//If heart is stopped, it isn't going to restart itself randomly.
 	if(pulse == PULSE_NONE)
 		return
-	else //and if it's beating, let's see if it should
-		var/should_stop = prob(80) && owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
-		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.get_max_health() * 0.75)) //brain failing to work heart properly
-		should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
-		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
-			to_chat(owner, "<span class='danger'>Your heart has stopped!</span>")
-			pulse = PULSE_NONE
-			return
+
+	//and if it's beating, let's see if it should
+	var/should_stop = prob(80) && oxy < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
+	should_stop = should_stop || prob(max(0, owner.get_damage(BRAIN) - owner.get_max_health() * 0.75)) //brain failing to work heart properly
+	should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
+	if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
+		to_chat(owner, SPAN_DANGER("Your heart has stopped!"))
+		pulse = PULSE_NONE
+		return
 
 	// Pulse normally shouldn't go above PULSE_2FAST
 	pulse = clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
@@ -136,7 +137,7 @@
 					if(W.bleeding())
 						if(temp.applied_pressure)
 							if(ishuman(temp.applied_pressure))
-								var/mob/living/carbon/human/H = temp.applied_pressure
+								var/mob/living/human/H = temp.applied_pressure
 								H.bloody_hands(src, 0)
 							//somehow you can apply pressure to every wound on the organ at the same time
 							//you're basically forced to do nothing at all, so let's make it pretty effective
@@ -146,7 +147,7 @@
 							blood_max += W.damage / 40
 
 			if(temp.status & ORGAN_ARTERY_CUT)
-				var/bleed_amount = FLOOR((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 400 : 250))*temp.arterial_bleed_severity)
+				var/bleed_amount = floor((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 400 : 250))*temp.arterial_bleed_severity)
 				if(bleed_amount)
 					if(open_wound)
 						blood_max += bleed_amount
@@ -177,7 +178,7 @@
 			//AB occurs every heartbeat, this only throttles the visible effect
 			next_blood_squirt = world.time + 80
 			var/turf/sprayloc = get_turf(owner)
-			blood_max -= owner.drip(CEILING(blood_max/3), sprayloc)
+			blood_max -= owner.drip(ceil(blood_max/3), sprayloc)
 			if(blood_max > 0)
 				blood_max -= owner.blood_squirt(blood_max, sprayloc)
 				if(blood_max > 0)
@@ -218,10 +219,7 @@
 
 	. = "[pulsesound] pulse"
 
-/obj/item/organ/internal/heart/get_mechanical_assisted_descriptor()
-	return "pacemaker-assisted [name]"
-
-/obj/item/organ/internal/heart/rejuvenate(ignore_organ_aspects)
+/obj/item/organ/internal/heart/rejuvenate(ignore_organ_traits)
 	. = ..()
 	if(!BP_IS_PROSTHETIC(src))
 		pulse = PULSE_NORM

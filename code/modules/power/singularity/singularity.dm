@@ -41,7 +41,7 @@ var/global/list/singularities = list()
 	var/found_containment = locate(/obj/effect/containment_field) in orange(30, src)
 	if(!found_containment)
 		last_warning = world.time
-		message_admins("A singulo has been created without containment fields active ([x], [y], [z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>).")
+		message_admins("A singulo has been created without containment fields active ([x], [y], [z] - <A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>).")
 	investigate_log("was created. [found_containment ? "" : "<font color='red'>No containment fields were active.</font>"]", investigation_label)
 	current_stage = GET_DECL(/decl/singularity_stage/stage_one)
 	energy = starting_energy
@@ -55,8 +55,8 @@ var/global/list/singularities = list()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/effect/singularity/Process_Spacemove(allow_movement)
-	return TRUE
+/obj/effect/singularity/is_space_movement_permitted(allow_movement = FALSE)
+	return SPACE_MOVE_PERMITTED
 
 /obj/effect/singularity/proc/consume(atom/A)
 	energy += A.singularity_act(src, current_stage.stage_size)

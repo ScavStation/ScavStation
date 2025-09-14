@@ -53,7 +53,7 @@
 	reset_time = world.time + specops_return_delay
 	..(user)
 
-/datum/shuttle/autodock/ferry/specops/shuttle_moved()
+/datum/shuttle/autodock/ferry/specops/shuttle_moved(obj/effect/shuttle_landmark/destination, list/turf_translation, angle = 0)
 	..()
 
 	spawn(2 SECONDS)
@@ -98,7 +98,7 @@
 	return ..()
 
 /datum/shuttle/autodock/ferry/specops/proc/sleep_until_launch()
-	var/message_tracker[] = list(0,1,2,3,5,10,30,45)//Create a a list with potential time values.
+	var/message_tracker[] = list(0,1,2,3,5,10,30,45)//Create a list with potential time values.
 
 	var/launch_time = world.time + specops_countdown_time
 	var/time_until_launch

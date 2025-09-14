@@ -42,28 +42,30 @@
 	return res + ..()
 
 /obj/machinery/forensic/attackby(obj/item/W, mob/user)
+	if((. = component_attackby(W, user)))
+		return
+
 	if(user?.a_intent == I_HURT)
-		return ..()
+		return ..() // bash, bash!
 
 	if(sample)
-		to_chat(user, SPAN_WARNING("There is already a slide in \the [src]."))
-		return
+		to_chat(user, SPAN_WARNING("There is already a sample in \the [src]."))
+		return TRUE
 
-	if(istype(W))
-		if(istype(W, /obj/item/evidencebag))
-			var/obj/item/evidencebag/B = W
-			if(B.stored_item)
-				to_chat(user, SPAN_NOTICE("You insert \the [B.stored_item] from \the [B]."))
-				B.stored_item.forceMove(src)
-				set_sample(B.stored_item)
-				B.empty()
-				return
-		if(!user.try_unequip(W, src))
-			return
-		to_chat(user, SPAN_NOTICE("You insert \the [W] into  \the [src]."))
-		set_sample(W)
-		update_icon()
-		return
+	if(istype(W, /obj/item/evidencebag))
+		var/obj/item/evidencebag/B = W
+		if(B.stored_item)
+			to_chat(user, SPAN_NOTICE("You insert \the [B.stored_item] from \the [B]."))
+			B.stored_item.forceMove(src)
+			set_sample(B.stored_item)
+			B.empty()
+			return TRUE
+	if(!user.try_unequip(W, src))
+		return TRUE
+	to_chat(user, SPAN_NOTICE("You insert \the [W] into  \the [src]."))
+	set_sample(W)
+	update_icon()
+	return TRUE
 
 /obj/machinery/forensic/proc/get_report()
 	if(!sample)
@@ -95,7 +97,7 @@
 /obj/machinery/forensic/proc/print_report()
 	var/obj/item/paper/report = new(get_turf(src), null, get_report(), "[src] report #[++report_num]: [sample.name]")
 	playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
-	report.apply_custom_stamp(overlay_image('icons/obj/bureaucracy.dmi', icon_state = "paper_stamp-brig", flags = RESET_COLOR), "by \the [src]")
+	report.apply_custom_stamp('icons/obj/items/stamps/stamp_brig.dmi', "by \the [src]")
 
 /obj/machinery/forensic/proc/remove_sample(var/mob/living/remover)
 	if(!istype(remover) || remover.incapacitated() || !Adjacent(remover))
@@ -121,6 +123,6 @@
 	name = "Remove Sample"
 	expected_target_type = /obj/machinery/forensic
 
-/decl/interaction_handler/forensics_remove_sample/invoked(var/atom/target, var/mob/user)
+/decl/interaction_handler/forensics_remove_sample/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/machinery/forensic/F = target
 	F.remove_sample(usr)

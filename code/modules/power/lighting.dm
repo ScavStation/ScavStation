@@ -49,13 +49,12 @@
 	var/current_mode = null
 
 /obj/machinery/light/get_color()
-	return lightbulb ? lightbulb.get_color() : null
+	return lightbulb?.get_color()
 
 /obj/machinery/light/set_color(color)
-	if (!lightbulb)
-		return
-	lightbulb.set_color(color)
-	queue_icon_update()
+	. = lightbulb?.set_color(color)
+	if(.)
+		queue_icon_update()
 
 // the smaller bulb light fixture
 /obj/machinery/light/small
@@ -101,7 +100,7 @@
 			broken(1)
 
 	on = expected_to_be_on()
-	update_icon(0)
+	queue_icon_update(0)
 
 /obj/machinery/light/Destroy()
 	QDEL_NULL(lightbulb)
@@ -265,7 +264,7 @@
 
 	else if(lightbulb && (lightbulb.status != LIGHT_BROKEN) && user.a_intent != I_HELP)
 
-		if(prob(1 + W.force * 5))
+		if(prob(1 + W.get_attack_force(user) * 5))
 
 			user.visible_message("<span class='warning'>[user.name] smashed the light!</span>", "<span class='warning'>You smash the light!</span>", "You hear a tinkle of breaking glass.")
 			if(on && (W.obj_flags & OBJ_FLAG_CONDUCTIBLE))
@@ -318,7 +317,7 @@
 		return TRUE
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		if(H.species.can_shred(H))
 			visible_message("<span class='warning'>[user.name] smashed the light!</span>", 3, "You hear a tinkle of breaking glass.")
 			broken()
@@ -328,13 +327,13 @@
 	if(on)
 
 		var/prot = FALSE
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		if(istype(H))
-			var/obj/item/clothing/gloves/G = H.get_equipped_item(slot_gloves_str)
-			if(istype(G) && G.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
+			var/obj/item/clothing/gloves/gloves = H.get_equipped_item(slot_gloves_str)
+			if(istype(gloves) && gloves.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
 				prot = TRUE
 
-		if(prot > 0 || (MUTATION_COLD_RESISTANCE in user.mutations))
+		if(prot > 0 || user.has_genetic_condition(GENE_COND_COLD_RESISTANCE))
 			to_chat(user, "You remove the [get_fitting_name()].")
 		else if(istype(user) && user.is_telekinetic())
 			to_chat(user, "You telekinetically remove the [get_fitting_name()].")
@@ -342,9 +341,9 @@
 			var/obj/item/organ/external/hand = GET_EXTERNAL_ORGAN(H, user.get_active_held_item_slot())
 			if(hand && hand.is_usable() && !hand.can_feel_pain())
 				user.apply_damage(3, BURN, hand.organ_tag, used_weapon = src)
-				var/decl/pronouns/G = user.get_pronouns()
+				var/decl/pronouns/pronouns = user.get_pronouns()
 				user.visible_message( \
-					SPAN_DANGER("\The [user]'s [hand.name] burns and sizzles as [G.he] touch[G.es] the hot [get_fitting_name()]."), \
+					SPAN_DANGER("\The [user]'s [hand.name] burns and sizzles as [pronouns.he] touch[pronouns.es] the hot [get_fitting_name()]."), \
 					SPAN_DANGER("Your [hand.name] burns and sizzles as you remove the hot [get_fitting_name()]."))
 		else
 			to_chat(user, SPAN_WARNING("You try to remove the [get_fitting_name()], but it's too hot and you don't want to burn your hand."))
@@ -355,12 +354,6 @@
 	// create a light tube/bulb item and put it in the user's hand
 	user.put_in_active_hand(remove_bulb())	//puts it in our active hand
 	return TRUE
-
-// ghost attack - make lights flicker like an AI, but even spookier!
-/obj/machinery/light/attack_ghost(mob/user)
-	if(round_is_spooky())
-		src.flicker(rand(2,5))
-	else return ..()
 
 // break the light and make sparks if was on
 /obj/machinery/light/proc/broken(var/skip_sound_and_sparks = 0)
@@ -441,7 +434,6 @@
 
 /obj/machinery/light/navigation/on_update_icon()
 	. = ..() // this will handle pixel offsets
-	overlays.Cut()
 	icon_state = "nav[delay][!!(lightbulb && on)]"
 
 /obj/machinery/light/navigation/attackby(obj/item/W, mob/user)
@@ -469,13 +461,10 @@
 
 /obj/item/light
 	icon = 'icons/obj/lighting.dmi'
-	force = 2
-	throwforce = 5
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/metal/steel
 	atom_flags = ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_HOLLOW
-
 	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
 	var/base_state
 	var/switchcount = 0	// number of times switched
@@ -493,7 +482,7 @@
 
 /obj/item/light/set_color(color)
 	b_color = isnull(color) ? COLOR_WHITE : color
-	update_icon()
+	queue_icon_update() // avoid running update_icon before Initialize
 
 /obj/item/light/tube
 	name = "light tube"
@@ -563,7 +552,6 @@
 // update the icon state and description of the light
 /obj/item/light/on_update_icon()
 	. = ..()
-	color = b_color
 	var/broken
 	switch(status)
 		if(LIGHT_OK)
@@ -576,9 +564,7 @@
 			icon_state = "[base_state]_broken"
 			desc = "A broken [name]."
 			broken = TRUE
-	var/image/I = image(icon, src, "[base_state]_attachment[broken ? "_broken" : ""]")
-	I.color = null
-	add_overlay(I)
+	add_overlay(overlay_image(icon, "[base_state]_attachment[broken ? "_broken" : ""]", flags = RESET_COLOR|RESET_ALPHA))
 
 /obj/item/light/Initialize(mapload)
 	. = ..()
@@ -618,8 +604,8 @@
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
 		src.visible_message("<span class='warning'>[name] shatters.</span>","<span class='warning'>You hear a small glass object shatter.</span>")
 		status = LIGHT_BROKEN
-		force = 5
 		sharp = 1
+		set_base_attack_force(5)
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		update_icon()
 

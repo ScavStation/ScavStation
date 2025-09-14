@@ -28,8 +28,8 @@
 /decl/machine_construction/wall_frame/panel_closed/attackby(obj/item/I, mob/user, obj/machinery/machine)
 	if((. = ..()))
 		return
-	if(istype(I, /obj/item/storage/part_replacer))
-		var/obj/item/storage/part_replacer/replacer = I
+	if(istype(I, /obj/item/part_replacer))
+		var/obj/item/part_replacer/replacer = I
 		if(replacer.remote_interaction)
 			machine.part_replacement(user, replacer)
 		machine.display_parts(user)
@@ -78,12 +78,12 @@
 		new /obj/item/stack/cable_coil(get_turf(machine), 5)
 		machine.set_broken(TRUE, MACHINE_BROKEN_CONSTRUCT)
 		machine.queue_icon_update()
-		return
+		return TRUE
 
 	if((. = up_interaction(I, user, machine)))
 		return
 
-	if(istype(I, /obj/item/storage/part_replacer))
+	if(istype(I, /obj/item/part_replacer))
 		return machine.part_replacement(user, I)
 
 	if(IS_WRENCH(I))
@@ -135,15 +135,14 @@
 			to_chat(user, SPAN_NOTICE("You wire the [machine]."))
 			machine.set_broken(FALSE, MACHINE_BROKEN_CONSTRUCT)
 			machine.queue_icon_update()
-			return
 		else
 			to_chat(user, SPAN_WARNING("You need five pieces of cable to wire \the [machine]."))
-			return TRUE
+		return TRUE
 
 	if((. = down_interaction(I, user, machine)))
 		return
 
-	if(istype(I, /obj/item/storage/part_replacer))
+	if(istype(I, /obj/item/part_replacer))
 		return machine.part_replacement(user, I)
 
 	if(IS_WRENCH(I))
@@ -200,14 +199,16 @@
 		machine.install_component(board)
 		user.visible_message(SPAN_NOTICE("\The [user] inserts \the [board] into \the [machine]!"), SPAN_NOTICE("You insert \the [board] into \the [machine]!"))
 		machine.queue_icon_update()
-		return
+		return TRUE
 
 	if(IS_WRENCH(I))
 		TRANSFER_STATE(/decl/machine_construction/default/deconstructed)
 		playsound(get_turf(machine), 'sound/items/Ratchet.ogg', 50, 1)
 		machine.visible_message(SPAN_NOTICE("\The [user] deconstructs \the [machine]."))
 		machine.dismantle()
-		return
+		return TRUE
+
+	return FALSE
 
 /decl/machine_construction/wall_frame/no_circuit/mechanics_info()
 	. = list()

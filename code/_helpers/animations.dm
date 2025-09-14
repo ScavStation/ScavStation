@@ -81,22 +81,11 @@
 	var/segment = 360/segments
 	if(!clockwise)
 		segment = -segment
-	var/list/matrices = list()
-	for(var/i in 1 to segments-1)
-		var/matrix/M = matrix(transform)
-		M.Turn(segment*i)
-		matrices += M
-	var/matrix/last = matrix(transform)
-	matrices += last
-
 	speed /= segments
 
-	if(parallel)
-		animate(src, transform = matrices[1], time = speed, loops , flags = ANIMATION_PARALLEL)
-	else
-		animate(src, transform = matrices[1], time = speed, loops)
+	animate(src, transform = matrix().Turn(segment), time = speed, loops, flags = parallel ? (ANIMATION_PARALLEL | ANIMATION_RELATIVE) : ANIMATION_RELATIVE)
 	for(var/i in 2 to segments) //2 because 1 is covered above
-		animate(transform = matrices[i], time = speed)
+		animate(transform = matrix().Turn(segment), time = speed, loops, flags = ANIMATION_RELATIVE)
 		//doesn't have an object argument because this is "Stacking" with the animate call above
 		//3 billion% intentional
 

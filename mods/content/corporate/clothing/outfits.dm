@@ -1,8 +1,8 @@
-/decl/hierarchy/outfit/nanotrasen
-	abstract_type = /decl/hierarchy/outfit/nanotrasen
-	uniform = /obj/item/clothing/under/centcom
+/decl/outfit/nanotrasen
+	abstract_type = /decl/outfit/nanotrasen
+	uniform = /obj/item/clothing/costume/centcom
 	shoes = /obj/item/clothing/shoes/dress
-	gloves = /obj/item/clothing/gloves/color/white
+	gloves = /obj/item/clothing/gloves
 	l_ear = /obj/item/radio/headset/heads/hop
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id_slot = slot_wear_id_str
@@ -10,51 +10,51 @@
 	pda_slot = slot_r_store_str
 	pda_type = /obj/item/modular_computer/pda/heads
 
-/decl/hierarchy/outfit/nanotrasen/representative
+/decl/outfit/nanotrasen/representative
 	name = "Corporate Representative"
 	belt = /obj/item/clipboard
 	id_pda_assignment = "Corporate Representative"
 
-/decl/hierarchy/outfit/nanotrasen/officer
+/decl/outfit/nanotrasen/officer
 	name = "Corporate Officer"
 	head = /obj/item/clothing/head/beret/corp/centcom/officer
 	l_ear = /obj/item/radio/headset/heads/captain
 	belt = /obj/item/gun/energy
 	id_pda_assignment = "Corporate Officer"
 
-/decl/hierarchy/outfit/nanotrasen/captain
+/decl/outfit/nanotrasen/captain
 	name = "Corporate Captain"
-	uniform = /obj/item/clothing/under/centcom_captain
+	uniform = /obj/item/clothing/costume/centcom_captain
 	l_ear = /obj/item/radio/headset/heads/captain
 	head = /obj/item/clothing/head/beret/corp/centcom/captain
 	belt = /obj/item/gun/energy
 	id_pda_assignment = "Corporate Captain"
 
-/decl/hierarchy/outfit/nanotrasen/commander
+/decl/outfit/nanotrasen/commander
 	name = "Corporate Commander"
 	head = /obj/item/clothing/head/centhat
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
 	shoes = /obj/item/clothing/shoes/jackboots/swat
-	uniform = /obj/item/clothing/under/centcom_captain
+	uniform = /obj/item/clothing/costume/centcom_captain
 	suit = /obj/item/clothing/suit/armor/bulletproof
 	gloves = /obj/item/clothing/gloves/thick/swat
 	l_ear =  /obj/item/radio/headset/heads/captain
 	glasses = /obj/item/clothing/glasses/eyepatch
-	l_pocket = /obj/item/flame/lighter/zippo
+	l_pocket = /obj/item/flame/fuelled/lighter/zippo
 	id_pda_assignment = "Corporate Commander"
 
-/decl/hierarchy/outfit/death_command
+/decl/outfit/death_command
 	name = "Spec Ops - Death commando"
 
-/decl/hierarchy/outfit/death_command/equip_outfit(mob/living/carbon/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/outfit/death_command/equip_outfit(mob/living/wearer, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	var/decl/special_role/deathsquad = GET_DECL(/decl/special_role/deathsquad)
-	deathsquad.equip_role(H)
+	deathsquad.equip_role(wearer)
 	return 1
 
-/decl/hierarchy/outfit/syndicate_command
+/decl/outfit/syndicate_command
 	name = "Spec Ops - Syndicate commando"
 
-/decl/hierarchy/outfit/syndicate_command/equip_outfit(mob/living/carbon/human/H, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
+/decl/outfit/syndicate_command/equip_outfit(mob/living/wearer, assignment, equip_adjustments, datum/job/job, datum/mil_rank/rank)
 	var/decl/special_role/commandos = GET_DECL(/decl/special_role/deathsquad/mercenary)
-	commandos.equip_role(H)
+	commandos.equip_role(wearer)
 	return 1

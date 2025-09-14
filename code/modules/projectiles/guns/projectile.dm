@@ -68,10 +68,16 @@
 		chambered = loaded[1] //load next casing.
 		if(handle_casings != HOLD_CASINGS)
 			loaded -= chambered
-	else if(ammo_magazine && ammo_magazine.stored_ammo.len)
-		chambered = ammo_magazine.stored_ammo[ammo_magazine.stored_ammo.len]
-		if(handle_casings != HOLD_CASINGS)
-			ammo_magazine.stored_ammo -= chambered
+	else if(ammo_magazine)
+		if(!ammo_magazine.contents_initialized && ammo_magazine.initial_ammo > 0)
+			chambered = new ammo_magazine.ammo_type(src)
+			if(handle_casings == HOLD_CASINGS)
+				ammo_magazine.stored_ammo += chambered
+			ammo_magazine.initial_ammo--
+		else if(length(ammo_magazine.stored_ammo))
+			chambered = ammo_magazine.stored_ammo[length(ammo_magazine.stored_ammo)]
+			if(handle_casings != HOLD_CASINGS)
+				ammo_magazine.stored_ammo -= chambered
 
 	if (chambered)
 		return chambered.BB
@@ -86,7 +92,7 @@
 /obj/item/gun/projectile/process_point_blank(obj/projectile, atom/movable/firer, atom/target)
 	..()
 	if(chambered && ishuman(target))
-		var/mob/living/carbon/human/H = target
+		var/mob/living/human/H = target
 		var/zone = BP_CHEST
 		if(isliving(firer))
 			var/mob/living/user = firer
@@ -132,6 +138,7 @@
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber)
 			return //incompatible
+		AM.create_initial_contents()
 
 		switch(AM.mag_type)
 			if(MAGAZINE)
@@ -290,7 +297,7 @@
 
 /obj/item/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
-	if(auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
+	if(auto_eject && ammo_magazine && !ammo_magazine.get_stored_ammo_count())
 		ammo_magazine.dropInto(loc)
 		user.visible_message(
 			"[ammo_magazine] falls out and clatters on the floor!",
@@ -315,8 +322,8 @@
 	var/bullets = 0
 	if(loaded)
 		bullets += loaded.len
-	if(ammo_magazine && ammo_magazine.stored_ammo)
-		bullets += ammo_magazine.stored_ammo.len
+	if(ammo_magazine)
+		bullets += ammo_magazine.get_stored_ammo_count()
 	if(chambered)
 		bullets += 1
 	return bullets
@@ -328,9 +335,9 @@
 
 /obj/item/gun/projectile/proc/get_ammo_indicator()
 	var/base_state = get_world_inventory_state()
-	if(!ammo_magazine || !LAZYLEN(ammo_magazine.stored_ammo))
+	if(!ammo_magazine || !ammo_magazine.get_stored_ammo_count())
 		return mutable_appearance(icon, "[base_state]_ammo_bad")
-	else if(LAZYLEN(ammo_magazine.stored_ammo) <= 0.5 * ammo_magazine.max_ammo)
+	else if(LAZYLEN(ammo_magazine.get_stored_ammo_count()) <= 0.5 * ammo_magazine.max_ammo)
 		return mutable_appearance(icon, "[base_state]_ammo_warn")
 	else
 		return mutable_appearance(icon, "[base_state]_ammo_ok")

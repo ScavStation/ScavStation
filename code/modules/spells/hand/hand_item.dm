@@ -12,23 +12,22 @@ Basically: I can use it to target things where I click. I can then pass these ta
 	icon_state = "spell"
 	max_health = ITEM_HEALTH_NO_DAMAGE
 	is_spawnable_type = FALSE
+	obj_flags = OBJ_FLAG_NO_STORAGE
 	var/next_spell_time = 0
 	var/spell/hand/hand_spell
 
-/obj/item/magic_hand/Initialize()
+/obj/item/magic_hand/Initialize(ml, _hand_spell)
 	. = ..()
-	hand_spell = loc
+	hand_spell = _hand_spell
 	name = "[name] ([hand_spell.name])"
 	icon_state = hand_spell.hand_state
 
-/obj/item/magic_hand/get_storage_cost()
-	return ITEM_SIZE_NO_CONTAINER
-
-/obj/item/magic_hand/attack(var/mob/living/M, var/mob/living/user)
-	if(hand_spell && hand_spell.valid_target(M, user))
-		fire_spell(M, user)
-		return 0
-	return 1
+// These return values do not look correct...
+/obj/item/magic_hand/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	if(hand_spell && hand_spell.valid_target(target, user))
+		fire_spell(target, user)
+		return FALSE
+	return TRUE
 
 /obj/item/magic_hand/proc/fire_spell(var/atom/A, mob/living/user)
 	if(!hand_spell) //no spell? Die.
